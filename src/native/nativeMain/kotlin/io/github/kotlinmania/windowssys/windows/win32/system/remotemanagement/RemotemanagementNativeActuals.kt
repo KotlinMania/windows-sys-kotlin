@@ -2,122 +2,123 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun WSManCloseCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: UInt, async: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCloseCommand(commandhandle, flags, async.toCPointer<ByteVar>())
+public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCloseCommand(commandhandle, flags, async?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManCloseOperation(operationhandle: WSMAN_OPERATION_HANDLE, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCloseOperation(operationhandle, flags)
+public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(operationhandle, flags)
 
-public actual fun WSManCloseSession(session: WSMAN_SESSION_HANDLE, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCloseSession(session, flags)
+public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session.toLong(), flags)
 
-public actual fun WSManCloseShell(shellhandle: WSMAN_SHELL_HANDLE, flags: UInt, async: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCloseShell(shellhandle, flags, async.toCPointer<ByteVar>())
+public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCloseShell(shellhandle, flags, async?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManConnectShell(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, shellid: PCWSTR, options: Long, connectxml: Long, async: Long, shell: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManConnectShell(session, flags, resourceuri.toCPointer<ByteVar>(), shellid.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), connectxml.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), shell.toCPointer<ByteVar>())
+public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), connectxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManConnectShellCommand(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandid: PCWSTR, options: Long, connectxml: Long, async: Long, command: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManConnectShellCommand(shell, flags, commandid.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), connectxml.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), command.toCPointer<ByteVar>())
+public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand(shell, flags, commandid?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), connectxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), command?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManCreateSession(apihandle: WSMAN_API_HANDLE, connection: PCWSTR, flags: UInt, serverauthenticationcredentials: Long, proxyinfo: Long, session: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCreateSession(apihandle, connection.toCPointer<ByteVar>(), flags, serverauthenticationcredentials.toCPointer<ByteVar>(), proxyinfo.toCPointer<ByteVar>(), session.toCPointer<ByteVar>())
+public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: COpaquePointer?, proxyinfo: COpaquePointer?, session: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle.toLong(), connection?.value?.toCPointer<ByteVar>(), flags, serverauthenticationcredentials?.value?.toCPointer<ByteVar>(), proxyinfo?.value?.toCPointer<ByteVar>(), session?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManCreateShell(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCreateShell(session, flags, resourceuri.toCPointer<ByteVar>(), startupinfo.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), createxml.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), shell.toCPointer<ByteVar>())
+public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManCreateShellEx(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, shellid: PCWSTR, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManCreateShellEx(session, flags, resourceuri.toCPointer<ByteVar>(), shellid.toCPointer<ByteVar>(), startupinfo.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), createxml.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), shell.toCPointer<ByteVar>())
+public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManDeinitialize(apihandle: WSMAN_API_HANDLE, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManDeinitialize(apihandle, flags)
+public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle.toLong(), flags)
 
-public actual fun WSManDisconnectShell(shell: WSMAN_SHELL_HANDLE, flags: UInt, disconnectinfo: Long, async: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManDisconnectShell(shell, flags, disconnectinfo.toCPointer<ByteVar>(), async.toCPointer<ByteVar>())
+public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: COpaquePointer?, async: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(shell, flags, disconnectinfo?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManGetErrorMessage(apihandle: WSMAN_API_HANDLE, flags: UInt, languagecode: PCWSTR, errorcode: UInt, messagelength: UInt, message: PWSTR, messagelengthused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManGetErrorMessage(apihandle, flags, languagecode.toCPointer<ByteVar>(), errorcode, messagelength, message.toCPointer<ByteVar>(), messagelengthused.toCPointer<ByteVar>())
+public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle.toLong(), flags, languagecode?.value?.toCPointer<ByteVar>(), errorcode, messagelength, message?.value?.toCPointer<ByteVar>(), messagelengthused?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManGetSessionOptionAsDword(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, value: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsDword(session, option, value.toCPointer<ByteVar>())
+public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session.toLong(), option, value?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManGetSessionOptionAsString(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, stringlength: UInt, string: PWSTR, stringlengthused: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsString(session, option, stringlength, string.toCPointer<ByteVar>(), stringlengthused.toCPointer<ByteVar>())
+public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session.toLong(), option, stringlength, string?.value?.toCPointer<ByteVar>(), stringlengthused?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManInitialize(flags: UInt, apihandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManInitialize(flags, apihandle.toCPointer<ByteVar>())
+public actual fun wSManInitialize(flags: UInt, apihandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManInitialize(flags, apihandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginAuthzOperationComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzOperationComplete(senderdetails.toCPointer<ByteVar>(), flags, userauthorizationcontext.toCPointer<ByteVar>(), errorcode, extendederrorinformation.toCPointer<ByteVar>())
+public actual fun wSManPluginAuthzOperationComplete(senderdetails: COpaquePointer?, flags: UInt, userauthorizationcontext: COpaquePointer?, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete(senderdetails?.value?.toCPointer<ByteVar>(), flags, userauthorizationcontext?.value?.toCPointer<ByteVar>(), errorcode, extendederrorinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginAuthzQueryQuotaComplete(senderdetails: Long, flags: UInt, quota: Long, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzQueryQuotaComplete(senderdetails.toCPointer<ByteVar>(), flags, quota.toCPointer<ByteVar>(), errorcode, extendederrorinformation.toCPointer<ByteVar>())
+public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: COpaquePointer?, flags: UInt, quota: COpaquePointer?, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete(senderdetails?.value?.toCPointer<ByteVar>(), flags, quota?.value?.toCPointer<ByteVar>(), errorcode, extendederrorinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginAuthzUserComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, impersonationtoken: HANDLE, userisadministrator: BOOL, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzUserComplete(senderdetails.toCPointer<ByteVar>(), flags, userauthorizationcontext.toCPointer<ByteVar>(), impersonationtoken.toCPointer<ByteVar>(), userisadministrator, errorcode, extendederrorinformation.toCPointer<ByteVar>())
+public actual fun wSManPluginAuthzUserComplete(senderdetails: COpaquePointer?, flags: UInt, userauthorizationcontext: COpaquePointer?, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete(senderdetails?.value?.toCPointer<ByteVar>(), flags, userauthorizationcontext?.value?.toCPointer<ByteVar>(), impersonationtoken?.value?.toCPointer<ByteVar>(), userisadministrator, errorcode, extendederrorinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginFreeRequestDetails(requestdetails: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginFreeRequestDetails(requestdetails.toCPointer<ByteVar>())
+public actual fun wSManPluginFreeRequestDetails(requestdetails: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails(requestdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginGetConfiguration(plugincontext: Long, flags: UInt, data: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginGetConfiguration(plugincontext.toCPointer<ByteVar>(), flags, data.toCPointer<ByteVar>())
+public actual fun wSManPluginGetConfiguration(plugincontext: COpaquePointer?, flags: UInt, data: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration(plugincontext?.value?.toCPointer<ByteVar>(), flags, data?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginGetOperationParameters(requestdetails: Long, flags: UInt, data: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginGetOperationParameters(requestdetails.toCPointer<ByteVar>(), flags, data.toCPointer<ByteVar>())
+public actual fun wSManPluginGetOperationParameters(requestdetails: COpaquePointer?, flags: UInt, data: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters(requestdetails?.value?.toCPointer<ByteVar>(), flags, data?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginOperationComplete(requestdetails: Long, flags: UInt, errorcode: UInt, extendedinformation: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginOperationComplete(requestdetails.toCPointer<ByteVar>(), flags, errorcode, extendedinformation.toCPointer<ByteVar>())
+public actual fun wSManPluginOperationComplete(requestdetails: COpaquePointer?, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete(requestdetails?.value?.toCPointer<ByteVar>(), flags, errorcode, extendedinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManPluginReceiveResult(requestdetails: Long, flags: UInt, stream: PCWSTR, streamresult: Long, commandstate: PCWSTR, exitcode: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginReceiveResult(requestdetails.toCPointer<ByteVar>(), flags, stream.toCPointer<ByteVar>(), streamresult.toCPointer<ByteVar>(), commandstate.toCPointer<ByteVar>(), exitcode)
+public actual fun wSManPluginReceiveResult(requestdetails: COpaquePointer?, flags: UInt, stream: Pcwstr, streamresult: COpaquePointer?, commandstate: Pcwstr, exitcode: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult(requestdetails?.value?.toCPointer<ByteVar>(), flags, stream?.value?.toCPointer<ByteVar>(), streamresult?.value?.toCPointer<ByteVar>(), commandstate?.value?.toCPointer<ByteVar>(), exitcode)
 
-public actual fun WSManPluginReportCompletion(plugincontext: Long, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginReportCompletion(plugincontext.toCPointer<ByteVar>(), flags)
+public actual fun wSManPluginReportCompletion(plugincontext: COpaquePointer?, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion(plugincontext?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun WSManPluginReportContext(requestdetails: Long, flags: UInt, context: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManPluginReportContext(requestdetails.toCPointer<ByteVar>(), flags, context.toCPointer<ByteVar>())
+public actual fun wSManPluginReportContext(requestdetails: COpaquePointer?, flags: UInt, context: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext(requestdetails?.value?.toCPointer<ByteVar>(), flags, context?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManReceiveShellOutput(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, desiredstreamset: Long, async: Long, receiveoperation: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManReceiveShellOutput(shell, command, flags, desiredstreamset.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), receiveoperation.toCPointer<ByteVar>())
+public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: COpaquePointer?, async: COpaquePointer?, receiveoperation: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput(shell, command, flags, desiredstreamset?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), receiveoperation?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManReconnectShell(shell: WSMAN_SHELL_HANDLE, flags: UInt, async: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManReconnectShell(shell, flags, async.toCPointer<ByteVar>())
+public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManReconnectShell(shell, flags, async?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManReconnectShellCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: UInt, async: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManReconnectShellCommand(commandhandle, flags, async.toCPointer<ByteVar>())
+public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand(commandhandle, flags, async?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManRunShellCommand(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandline: PCWSTR, args: Long, options: Long, async: Long, command: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManRunShellCommand(shell, flags, commandline.toCPointer<ByteVar>(), args.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), command.toCPointer<ByteVar>())
+public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: COpaquePointer?, options: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand(shell, flags, commandline?.value?.toCPointer<ByteVar>(), args?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), command?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManRunShellCommandEx(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandid: PCWSTR, commandline: PCWSTR, args: Long, options: Long, async: Long, command: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManRunShellCommandEx(shell, flags, commandid.toCPointer<ByteVar>(), commandline.toCPointer<ByteVar>(), args.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), command.toCPointer<ByteVar>())
+public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: COpaquePointer?, options: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx(shell, flags, commandid?.value?.toCPointer<ByteVar>(), commandline?.value?.toCPointer<ByteVar>(), args?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), command?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManSendShellInput(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, streamid: PCWSTR, streamdata: Long, endofstream: BOOL, async: Long, sendoperation: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManSendShellInput(shell, command, flags, streamid.toCPointer<ByteVar>(), streamdata.toCPointer<ByteVar>(), endofstream, async.toCPointer<ByteVar>(), sendoperation.toCPointer<ByteVar>())
+public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: COpaquePointer?, endofstream: Bool, async: COpaquePointer?, sendoperation: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManSendShellInput(shell, command, flags, streamid?.value?.toCPointer<ByteVar>(), streamdata?.value?.toCPointer<ByteVar>(), endofstream, async?.value?.toCPointer<ByteVar>(), sendoperation?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WSManSetSessionOption(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, data: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManSetSessionOption(session, option, data.toCPointer<ByteVar>())
+public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session.toLong(), option, data?.value?.toCPointer<ByteVar>())
 
-public actual fun WSManSignalShell(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, code: PCWSTR, async: Long, signaloperation: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_WSManSignalShell(shell, command, flags, code.toCPointer<ByteVar>(), async.toCPointer<ByteVar>(), signaloperation.toCPointer<ByteVar>())
+public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: COpaquePointer?, signaloperation: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement.cinterop.windowssys_windows_win32_system_remotemanagement_wSManSignalShell(shell, command, flags, code?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), signaloperation?.value?.toCPointer<ByteVar>())
 }

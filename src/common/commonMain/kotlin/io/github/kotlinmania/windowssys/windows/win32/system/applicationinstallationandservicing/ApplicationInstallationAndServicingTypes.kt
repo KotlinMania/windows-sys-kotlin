@@ -1,229 +1,230 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias ACTCTX_COMPATIBILITY_ELEMENT_TYPE = Int
+public typealias ActctxCompatibilityElementType = Int
 
-public typealias ACTCTX_REQUESTED_RUN_LEVEL = Int
+public typealias ActctxRequestedRunLevel = Int
 
-public typealias ADVERTISEFLAGS = Int
+public typealias Advertiseflags = Int
 
-public typealias ASM_BIND_FLAGS = Int
+public typealias AsmBindFlags = Int
 
-public typealias ASM_CMP_FLAGS = Int
+public typealias AsmCmpFlags = Int
 
-public typealias ASM_DISPLAY_FLAGS = Int
+public typealias AsmDisplayFlags = Int
 
-public typealias ASM_NAME = Int
+public typealias AsmName = Int
 
-public typealias CREATE_ASM_NAME_OBJ_FLAGS = Int
+public typealias CreateAsmNameObjFlags = Int
 
-public typealias IASSEMBLYCACHE_UNINSTALL_DISPOSITION = UInt
+public typealias IassemblycacheUninstallDisposition = UInt
 
-public typealias INSTALLFEATUREATTRIBUTE = Int
+public typealias Installfeatureattribute = Int
 
-public typealias INSTALLLEVEL = Int
+public typealias Installlevel = Int
 
-public typealias INSTALLLOGATTRIBUTES = Int
+public typealias Installlogattributes = Int
 
-public typealias INSTALLLOGMODE = Int
+public typealias Installlogmode = Int
 
-public typealias INSTALLMESSAGE = Int
+public typealias Installmessage = Int
 
-public typealias INSTALLMODE = Int
+public typealias Installmode = Int
 
-public typealias INSTALLSTATE = Int
+public typealias Installstate = Int
 
-public typealias INSTALLTYPE = Int
+public typealias Installtype = Int
 
-public typealias INSTALLUILEVEL = Int
+public typealias Installuilevel = Int
 
-public fun interface INSTALLUI_HANDLERAFn {
-    public operator fun invoke(pvcontext: Long, imessagetype: UInt, szmessage: PCSTR): Int
+public fun interface InstalluiHandleraFn {
+    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, szmessage: Pcstr): Int
 }
 
-public typealias INSTALLUI_HANDLERA = INSTALLUI_HANDLERAFn?
+public typealias InstalluiHandlera = InstalluiHandleraFn?
 
-public fun interface INSTALLUI_HANDLERWFn {
-    public operator fun invoke(pvcontext: Long, imessagetype: UInt, szmessage: PCWSTR): Int
+public fun interface InstalluiHandlerwFn {
+    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, szmessage: Pcwstr): Int
 }
 
-public typealias INSTALLUI_HANDLERW = INSTALLUI_HANDLERWFn?
+public typealias InstalluiHandlerw = InstalluiHandlerwFn?
 
-public fun interface LPDISPLAYVALFn {
-    public operator fun invoke(pcontext: Long, uitype: RESULTTYPES, szwval: PCWSTR, szwdescription: PCWSTR, szwlocation: PCWSTR): BOOL
+public fun interface LpdisplayvalFn {
+    public operator fun invoke(pcontext: COpaquePointer?, uitype: Resulttypes, szwval: Pcwstr, szwdescription: Pcwstr, szwlocation: Pcwstr): Bool
 }
 
-public typealias LPDISPLAYVAL = LPDISPLAYVALFn?
+public typealias Lpdisplayval = LpdisplayvalFn?
 
-public fun interface LPEVALCOMCALLBACKFn {
-    public operator fun invoke(istatus: STATUSTYPES, szdata: PCWSTR, pcontext: Long): BOOL
+public fun interface LpevalcomcallbackFn {
+    public operator fun invoke(istatus: Statustypes, szdata: Pcwstr, pcontext: COpaquePointer?): Bool
 }
 
-public typealias LPEVALCOMCALLBACK = LPEVALCOMCALLBACKFn?
+public typealias Lpevalcomcallback = LpevalcomcallbackFn?
 
-public typealias MSIADVERTISEOPTIONFLAGS = Int
+public typealias Msiadvertiseoptionflags = Int
 
-public typealias MSIARCHITECTUREFLAGS = Int
+public typealias Msiarchitectureflags = Int
 
-public typealias MSIASSEMBLYINFO = UInt
+public typealias Msiassemblyinfo = UInt
 
-public typealias MSICODE = Int
+public typealias Msicode = Int
 
-public typealias MSICOLINFO = Int
+public typealias Msicolinfo = Int
 
-public typealias MSICONDITION = Int
+public typealias Msicondition = Int
 
-public typealias MSICOSTTREE = Int
+public typealias Msicosttree = Int
 
-public typealias MSIDBERROR = Int
+public typealias Msidberror = Int
 
-public typealias MSIDBSTATE = Int
+public typealias Msidbstate = Int
 
-public typealias MSIHANDLE = UInt
+public typealias Msihandle = UInt
 
-public typealias MSIINSTALLCONTEXT = Int
+public typealias Msiinstallcontext = Int
 
-public typealias MSIMODIFY = Int
+public typealias Msimodify = Int
 
-public typealias MSIOPENPACKAGEFLAGS = Int
+public typealias Msiopenpackageflags = Int
 
-public typealias MSIPATCHDATATYPE = Int
+public typealias Msipatchdatatype = Int
 
-public typealias MSIPATCHSTATE = Int
+public typealias Msipatchstate = Int
 
-public typealias MSIRUNMODE = Int
+public typealias Msirunmode = Int
 
-public typealias MSISOURCETYPE = Int
+public typealias Msisourcetype = Int
 
-public typealias MSITRANSACTION = Int
+public typealias Msitransaction = Int
 
-public typealias MSITRANSACTIONSTATE = UInt
+public typealias Msitransactionstate = UInt
 
-public typealias MSITRANSFORM_ERROR = Int
+public typealias MsitransformError = Int
 
-public typealias MSITRANSFORM_VALIDATE = Int
+public typealias MsitransformValidate = Int
 
-public typealias PACKMAN_RUNTIME = Int
+public typealias PackmanRuntime = Int
 
-public fun interface PINSTALLUI_HANDLER_RECORDFn {
-    public operator fun invoke(pvcontext: Long, imessagetype: UInt, hrecord: MSIHANDLE): Int
+public fun interface PinstalluiHandlerRecordFn {
+    public operator fun invoke(pvcontext: COpaquePointer?, imessagetype: UInt, hrecord: Msihandle): Int
 }
 
-public typealias PINSTALLUI_HANDLER_RECORD = PINSTALLUI_HANDLER_RECORDFn?
+public typealias PinstalluiHandlerRecord = PinstalluiHandlerRecordFn?
 
-public typealias PM_ACTIVATION_POLICY = Int
+public typealias PmActivationPolicy = Int
 
-public typealias PM_APPLICATION_HUBTYPE = Int
+public typealias PmApplicationHubtype = Int
 
-public typealias PM_APPLICATION_INSTALL_TYPE = Int
+public typealias PmApplicationInstallType = Int
 
-public typealias PM_APPLICATION_STATE = Int
+public typealias PmApplicationState = Int
 
-public typealias PM_APP_GENRE = Int
+public typealias PmAppGenre = Int
 
-public typealias PM_ENUM_APP_FILTER = Int
+public typealias PmEnumAppFilter = Int
 
-public typealias PM_ENUM_BSA_FILTER = Int
+public typealias PmEnumBsaFilter = Int
 
-public typealias PM_ENUM_BW_FILTER = Int
+public typealias PmEnumBwFilter = Int
 
-public typealias PM_ENUM_EXTENSION_FILTER = Int
+public typealias PmEnumExtensionFilter = Int
 
-public typealias PM_ENUM_TASK_FILTER = Int
+public typealias PmEnumTaskFilter = Int
 
-public typealias PM_ENUM_TILE_FILTER = Int
+public typealias PmEnumTileFilter = Int
 
-public typealias PM_LIVETILE_RECURRENCE_TYPE = Int
+public typealias PmLivetileRecurrenceType = Int
 
-public typealias PM_LOGO_SIZE = Int
+public typealias PmLogoSize = Int
 
-public typealias PM_STARTTILE_TYPE = Int
+public typealias PmStarttileType = Int
 
-public typealias PM_TASK_TRANSITION = Int
+public typealias PmTaskTransition = Int
 
-public typealias PM_TASK_TYPE = Int
+public typealias PmTaskType = Int
 
-public typealias PM_TILE_HUBTYPE = Int
+public typealias PmTileHubtype = Int
 
-public typealias PM_TILE_SIZE = Int
+public typealias PmTileSize = Int
 
-public fun interface PPATCH_PROGRESS_CALLBACKFn {
-    public operator fun invoke(callbackcontext: Long, currentposition: UInt, maximumposition: UInt): BOOL
+public fun interface PpatchProgressCallbackFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?, currentposition: UInt, maximumposition: UInt): Bool
 }
 
-public typealias PPATCH_PROGRESS_CALLBACK = PPATCH_PROGRESS_CALLBACKFn?
+public typealias PpatchProgressCallback = PpatchProgressCallbackFn?
 
-public fun interface PPATCH_SYMLOAD_CALLBACKFn {
-    public operator fun invoke(whichfile: UInt, symbolfilename: PCSTR, symtype: UInt, symbolfilechecksum: UInt, symbolfiletimedate: UInt, imagefilechecksum: UInt, imagefiletimedate: UInt, callbackcontext: Long): BOOL
+public fun interface PpatchSymloadCallbackFn {
+    public operator fun invoke(whichfile: UInt, symbolfilename: Pcstr, symtype: UInt, symbolfilechecksum: UInt, symbolfiletimedate: UInt, imagefilechecksum: UInt, imagefiletimedate: UInt, callbackcontext: COpaquePointer?): Bool
 }
 
-public typealias PPATCH_SYMLOAD_CALLBACK = PPATCH_SYMLOAD_CALLBACKFn?
+public typealias PpatchSymloadCallback = PpatchSymloadCallbackFn?
 
-public typealias QUERYASMINFO_FLAGS = UInt
+public typealias QueryasminfoFlags = UInt
 
-public typealias REINSTALLMODE = Int
+public typealias Reinstallmode = Int
 
-public typealias RESULTTYPES = Int
+public typealias Resulttypes = Int
 
-public typealias SCRIPTFLAGS = Int
+public typealias Scriptflags = Int
 
-public typealias STATUSTYPES = Int
+public typealias Statustypes = Int
 
-public typealias TILE_TEMPLATE_TYPE = Int
+public typealias TileTemplateType = Int
 
-public typealias USERINFOSTATE = Int
+public typealias Userinfostate = Int
 
-public typealias msidbAssemblyAttributes = Int
+public typealias MsidbAssemblyAttributes = Int
 
-public typealias msidbClassAttributes = Int
+public typealias MsidbClassAttributes = Int
 
-public typealias msidbComponentAttributes = Int
+public typealias MsidbComponentAttributes = Int
 
-public typealias msidbControlAttributes = Int
+public typealias MsidbControlAttributes = Int
 
-public typealias msidbCustomActionType = Int
+public typealias MsidbCustomActionType = Int
 
-public typealias msidbDialogAttributes = Int
+public typealias MsidbDialogAttributes = Int
 
-public typealias msidbEmbeddedUIAttributes = Int
+public typealias MsidbEmbeddedUiattributes = Int
 
-public typealias msidbFeatureAttributes = Int
+public typealias MsidbFeatureAttributes = Int
 
-public typealias msidbFileAttributes = Int
+public typealias MsidbFileAttributes = Int
 
-public typealias msidbIniFileAction = Int
+public typealias MsidbIniFileAction = Int
 
-public typealias msidbLocatorType = Int
+public typealias MsidbLocatorType = Int
 
-public typealias msidbMoveFileOptions = Int
+public typealias MsidbMoveFileOptions = Int
 
-public typealias msidbODBCDataSourceRegistration = Int
+public typealias MsidbOdbcdataSourceRegistration = Int
 
-public typealias msidbPatchAttributes = Int
+public typealias MsidbPatchAttributes = Int
 
-public typealias msidbRegistryRoot = Int
+public typealias MsidbRegistryRoot = Int
 
-public typealias msidbRemoveFileInstallMode = Int
+public typealias MsidbRemoveFileInstallMode = Int
 
-public typealias msidbServiceConfigEvent = Int
+public typealias MsidbServiceConfigEvent = Int
 
-public typealias msidbServiceControlEvent = Int
+public typealias MsidbServiceControlEvent = Int
 
-public typealias msidbServiceInstallErrorControl = Int
+public typealias MsidbServiceInstallErrorControl = Int
 
-public typealias msidbSumInfoSourceType = Int
+public typealias MsidbSumInfoSourceType = Int
 
-public typealias msidbTextStyleStyleBits = Int
+public typealias MsidbTextStyleStyleBits = Int
 
-public typealias msidbUpgradeAttributes = Int
+public typealias MsidbUpgradeAttributes = Int
 
-public typealias msifiFastInstallBits = Int
+public typealias MsifiFastInstallBits = Int
 
-public typealias msirbRebootReason = Int
+public typealias MsirbRebootReason = Int
 
-public typealias msirbRebootType = Int
+public typealias MsirbRebootType = Int
 
-public typealias msmErrorType = Int
+public typealias MsmErrorType = Int

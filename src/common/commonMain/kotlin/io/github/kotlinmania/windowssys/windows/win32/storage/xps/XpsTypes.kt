@@ -1,56 +1,56 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
-public fun interface ABORTPROCFn {
-    public operator fun invoke(param0: HDC, param1: Int): BOOL
+public fun interface AbortprocFn {
+    public operator fun invoke(param0: Hdc, param1: Int): Bool
 }
 
-public typealias ABORTPROC = ABORTPROCFn?
+public typealias Abortproc = AbortprocFn?
 
-public typealias PRINTER_DEVICE_CAPABILITIES = UShort
+public typealias PrinterDeviceCapabilities = UShort
 
-public typealias PRINT_WINDOW_FLAGS = UInt
+public typealias PrintWindowFlags = UInt
 
-public typealias PSINJECT_POINT = UShort
+public typealias PsinjectPoint = UShort
 
-public typealias XPS_COLOR_INTERPOLATION = Int
+public typealias XpsColorInterpolation = Int
 
-public typealias XPS_COLOR_TYPE = Int
+public typealias XpsColorType = Int
 
-public typealias XPS_DASH_CAP = Int
+public typealias XpsDashCap = Int
 
-public typealias XPS_DOCUMENT_TYPE = Int
+public typealias XpsDocumentType = Int
 
-public typealias XPS_FILL_RULE = Int
+public typealias XpsFillRule = Int
 
-public typealias XPS_FONT_EMBEDDING = Int
+public typealias XpsFontEmbedding = Int
 
-public typealias XPS_IMAGE_TYPE = Int
+public typealias XpsImageType = Int
 
-public typealias XPS_INTERLEAVING = Int
+public typealias XpsInterleaving = Int
 
-public typealias XPS_LINE_CAP = Int
+public typealias XpsLineCap = Int
 
-public typealias XPS_LINE_JOIN = Int
+public typealias XpsLineJoin = Int
 
-public typealias XPS_OBJECT_TYPE = Int
+public typealias XpsObjectType = Int
 
-public typealias XPS_SEGMENT_STROKE_PATTERN = Int
+public typealias XpsSegmentStrokePattern = Int
 
-public typealias XPS_SEGMENT_TYPE = Int
+public typealias XpsSegmentType = Int
 
-public typealias XPS_SIGNATURE_STATUS = Int
+public typealias XpsSignatureStatus = Int
 
-public typealias XPS_SIGN_FLAGS = Int
+public typealias XpsSignFlags = Int
 
-public typealias XPS_SIGN_POLICY = Int
+public typealias XpsSignPolicy = Int
 
-public typealias XPS_SPREAD_METHOD = Int
+public typealias XpsSpreadMethod = Int
 
-public typealias XPS_STYLE_SIMULATION = Int
+public typealias XpsStyleSimulation = Int
 
-public typealias XPS_THUMBNAIL_SIZE = Int
+public typealias XpsThumbnailSize = Int
 
-public typealias XPS_TILE_MODE = Int
+public typealias XpsTileMode = Int

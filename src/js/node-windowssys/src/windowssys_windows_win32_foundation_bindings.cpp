@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_foundation_CloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_closeHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_foundation_CloseHandle_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_CompareObjectHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_compareObjectHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfirstobjecthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hsecondobjecthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_foundation_CompareObjectHandles_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_DuplicateHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_duplicateHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsourceprocesshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hsourcehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_foundation_DuplicateHandle_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_FreeLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_freeLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlibmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -137,7 +137,7 @@ static Napi::Value windowssys_windows_win32_foundation_FreeLibrary_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_GetHandleInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_getHandleInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_foundation_GetHandleInformation_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_GetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_getLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_foundation_GetLastError_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_GlobalFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_globalFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_foundation_GlobalFree_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_LocalFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_localFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_foundation_LocalFree_napi(const Napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_RtlNtStatusToDosError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_rtlNtStatusToDosError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_foundation_RtlNtStatusToDosError_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SetHandleInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_setHandleInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_foundation_SetHandleInformation_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_setLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwerrcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -266,7 +266,7 @@ static Napi::Value windowssys_windows_win32_foundation_SetLastError_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SetLastErrorEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_setLastErrorEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwerrcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_foundation_SetLastErrorEx_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysAddRefString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysAddRefString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstrstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysAddRefString_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysAllocString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysAllocString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysAllocString_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysAllocStringByteLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysAllocStringByteLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t len = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysAllocStringByteLen_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysAllocStringLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysAllocStringLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ui = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysAllocStringLen_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysFreeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysFreeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstrstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysFreeString_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysReAllocString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysReAllocString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysReAllocString_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysReAllocStringLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysReAllocStringLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -420,7 +420,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysReAllocStringLen_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysReleaseString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysReleaseString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstrstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysReleaseString_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysStringByteLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysStringByteLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -455,7 +455,7 @@ static Napi::Value windowssys_windows_win32_foundation_SysStringByteLen_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_foundation_SysStringLen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_foundation_sysStringLen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -474,28 +474,28 @@ static Napi::Value windowssys_windows_win32_foundation_SysStringLen_napi(const N
 }
 
 static void register_windows_win32_foundation_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_foundation_CloseHandle", Napi::Function::New(env, windowssys_windows_win32_foundation_CloseHandle_napi));
-    exports.Set("windowssys_windows_win32_foundation_CompareObjectHandles", Napi::Function::New(env, windowssys_windows_win32_foundation_CompareObjectHandles_napi));
-    exports.Set("windowssys_windows_win32_foundation_DuplicateHandle", Napi::Function::New(env, windowssys_windows_win32_foundation_DuplicateHandle_napi));
-    exports.Set("windowssys_windows_win32_foundation_FreeLibrary", Napi::Function::New(env, windowssys_windows_win32_foundation_FreeLibrary_napi));
-    exports.Set("windowssys_windows_win32_foundation_GetHandleInformation", Napi::Function::New(env, windowssys_windows_win32_foundation_GetHandleInformation_napi));
-    exports.Set("windowssys_windows_win32_foundation_GetLastError", Napi::Function::New(env, windowssys_windows_win32_foundation_GetLastError_napi));
-    exports.Set("windowssys_windows_win32_foundation_GlobalFree", Napi::Function::New(env, windowssys_windows_win32_foundation_GlobalFree_napi));
-    exports.Set("windowssys_windows_win32_foundation_LocalFree", Napi::Function::New(env, windowssys_windows_win32_foundation_LocalFree_napi));
-    exports.Set("windowssys_windows_win32_foundation_RtlNtStatusToDosError", Napi::Function::New(env, windowssys_windows_win32_foundation_RtlNtStatusToDosError_napi));
-    exports.Set("windowssys_windows_win32_foundation_SetHandleInformation", Napi::Function::New(env, windowssys_windows_win32_foundation_SetHandleInformation_napi));
-    exports.Set("windowssys_windows_win32_foundation_SetLastError", Napi::Function::New(env, windowssys_windows_win32_foundation_SetLastError_napi));
-    exports.Set("windowssys_windows_win32_foundation_SetLastErrorEx", Napi::Function::New(env, windowssys_windows_win32_foundation_SetLastErrorEx_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysAddRefString", Napi::Function::New(env, windowssys_windows_win32_foundation_SysAddRefString_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysAllocString", Napi::Function::New(env, windowssys_windows_win32_foundation_SysAllocString_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysAllocStringByteLen", Napi::Function::New(env, windowssys_windows_win32_foundation_SysAllocStringByteLen_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysAllocStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_SysAllocStringLen_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysFreeString", Napi::Function::New(env, windowssys_windows_win32_foundation_SysFreeString_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysReAllocString", Napi::Function::New(env, windowssys_windows_win32_foundation_SysReAllocString_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysReAllocStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_SysReAllocStringLen_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysReleaseString", Napi::Function::New(env, windowssys_windows_win32_foundation_SysReleaseString_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysStringByteLen", Napi::Function::New(env, windowssys_windows_win32_foundation_SysStringByteLen_napi));
-    exports.Set("windowssys_windows_win32_foundation_SysStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_SysStringLen_napi));
+    exports.Set("windowssys_windows_win32_foundation_closeHandle", Napi::Function::New(env, windowssys_windows_win32_foundation_closeHandle_napi));
+    exports.Set("windowssys_windows_win32_foundation_compareObjectHandles", Napi::Function::New(env, windowssys_windows_win32_foundation_compareObjectHandles_napi));
+    exports.Set("windowssys_windows_win32_foundation_duplicateHandle", Napi::Function::New(env, windowssys_windows_win32_foundation_duplicateHandle_napi));
+    exports.Set("windowssys_windows_win32_foundation_freeLibrary", Napi::Function::New(env, windowssys_windows_win32_foundation_freeLibrary_napi));
+    exports.Set("windowssys_windows_win32_foundation_getHandleInformation", Napi::Function::New(env, windowssys_windows_win32_foundation_getHandleInformation_napi));
+    exports.Set("windowssys_windows_win32_foundation_getLastError", Napi::Function::New(env, windowssys_windows_win32_foundation_getLastError_napi));
+    exports.Set("windowssys_windows_win32_foundation_globalFree", Napi::Function::New(env, windowssys_windows_win32_foundation_globalFree_napi));
+    exports.Set("windowssys_windows_win32_foundation_localFree", Napi::Function::New(env, windowssys_windows_win32_foundation_localFree_napi));
+    exports.Set("windowssys_windows_win32_foundation_rtlNtStatusToDosError", Napi::Function::New(env, windowssys_windows_win32_foundation_rtlNtStatusToDosError_napi));
+    exports.Set("windowssys_windows_win32_foundation_setHandleInformation", Napi::Function::New(env, windowssys_windows_win32_foundation_setHandleInformation_napi));
+    exports.Set("windowssys_windows_win32_foundation_setLastError", Napi::Function::New(env, windowssys_windows_win32_foundation_setLastError_napi));
+    exports.Set("windowssys_windows_win32_foundation_setLastErrorEx", Napi::Function::New(env, windowssys_windows_win32_foundation_setLastErrorEx_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysAddRefString", Napi::Function::New(env, windowssys_windows_win32_foundation_sysAddRefString_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysAllocString", Napi::Function::New(env, windowssys_windows_win32_foundation_sysAllocString_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysAllocStringByteLen", Napi::Function::New(env, windowssys_windows_win32_foundation_sysAllocStringByteLen_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysAllocStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_sysAllocStringLen_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysFreeString", Napi::Function::New(env, windowssys_windows_win32_foundation_sysFreeString_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysReAllocString", Napi::Function::New(env, windowssys_windows_win32_foundation_sysReAllocString_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysReAllocStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_sysReAllocStringLen_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysReleaseString", Napi::Function::New(env, windowssys_windows_win32_foundation_sysReleaseString_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysStringByteLen", Napi::Function::New(env, windowssys_windows_win32_foundation_sysStringByteLen_napi));
+    exports.Set("windowssys_windows_win32_foundation_sysStringLen", Napi::Function::New(env, windowssys_windows_win32_foundation_sysStringLen_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_foundation_napi, nullptr };

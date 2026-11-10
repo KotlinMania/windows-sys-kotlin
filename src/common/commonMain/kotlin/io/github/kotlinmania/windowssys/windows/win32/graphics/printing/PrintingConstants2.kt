@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val UPDP_SILENT_UPLOAD: UInt = 1u
@@ -17,152 +17,152 @@ public val USB_PRINTER_INTERFACE_IPP: UInt = 2u
 
 public val WM_FI_FILENAME: UInt = 900u
 
-public val XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1
+public val XPSRAS_BACKGROUND_COLOR_OPAQUE: XpsrasBackgroundColor = 1
 
-public val XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0
+public val XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XpsrasBackgroundColor = 0
 
-public val XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3
+public val XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XpsrasPixelFormat = 3
 
-public val XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1
+public val XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XpsrasPixelFormat = 1
 
-public val XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2
+public val XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XpsrasPixelFormat = 2
 
-public val XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1
+public val XPSRAS_RENDERING_MODE_ALIASED: XpsrasRenderingMode = 1
 
-public val XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0
+public val XPSRAS_RENDERING_MODE_ANTIALIASED: XpsrasRenderingMode = 0
 
-public val XPS_FP_DRIVER_PROPERTY_BAG: PCWSTR = w("DriverPropertyBag")
+public val XPS_FP_DRIVER_PROPERTY_BAG: Pcwstr = w("DriverPropertyBag")
 
-public val XPS_FP_JOB_ID: PCWSTR = w("PrintJobId")
+public val XPS_FP_JOB_ID: Pcwstr = w("PrintJobId")
 
-public val XPS_FP_JOB_LEVEL_PRINTTICKET: PCWSTR = w("JobPrintTicket")
+public val XPS_FP_JOB_LEVEL_PRINTTICKET: Pcwstr = w("JobPrintTicket")
 
-public val XPS_FP_MERGED_DATAFILE_PATH: PCWSTR = w("MergedDataFilePath")
+public val XPS_FP_MERGED_DATAFILE_PATH: Pcwstr = w("MergedDataFilePath")
 
-public val XPS_FP_MS_CONTENT_TYPE: PCWSTR = w("DriverMultiContentType")
+public val XPS_FP_MS_CONTENT_TYPE: Pcwstr = w("DriverMultiContentType")
 
-public val XPS_FP_MS_CONTENT_TYPE_OPENXPS: PCWSTR = w("OpenXPS")
+public val XPS_FP_MS_CONTENT_TYPE_OPENXPS: Pcwstr = w("OpenXPS")
 
-public val XPS_FP_MS_CONTENT_TYPE_XPS: PCWSTR = w("XPS")
+public val XPS_FP_MS_CONTENT_TYPE_XPS: Pcwstr = w("XPS")
 
-public val XPS_FP_OUTPUT_FILE: PCWSTR = w("PrintOutputFileName")
+public val XPS_FP_OUTPUT_FILE: Pcwstr = w("PrintOutputFileName")
 
-public val XPS_FP_PRINTDEVICECAPABILITIES: PCWSTR = w("PrintDeviceCapabilities")
+public val XPS_FP_PRINTDEVICECAPABILITIES: Pcwstr = w("PrintDeviceCapabilities")
 
-public val XPS_FP_PRINTER_HANDLE: PCWSTR = w("PrinterHandle")
+public val XPS_FP_PRINTER_HANDLE: Pcwstr = w("PrinterHandle")
 
-public val XPS_FP_PRINTER_NAME: PCWSTR = w("PrinterName")
+public val XPS_FP_PRINTER_NAME: Pcwstr = w("PrinterName")
 
-public val XPS_FP_PRINT_CLASS_FACTORY: PCWSTR = w("PrintClassFactory")
+public val XPS_FP_PRINT_CLASS_FACTORY: Pcwstr = w("PrintClassFactory")
 
-public val XPS_FP_PROGRESS_REPORT: PCWSTR = w("ProgressReport")
+public val XPS_FP_PROGRESS_REPORT: Pcwstr = w("ProgressReport")
 
-public val XPS_FP_QUEUE_PROPERTY_BAG: PCWSTR = w("QueuePropertyBag")
+public val XPS_FP_QUEUE_PROPERTY_BAG: Pcwstr = w("QueuePropertyBag")
 
-public val XPS_FP_RESOURCE_DLL_PATHS: PCWSTR = w("ResourceDLLPaths")
+public val XPS_FP_RESOURCE_DLL_PATHS: Pcwstr = w("ResourceDLLPaths")
 
-public val XPS_FP_USER_PRINT_TICKET: PCWSTR = w("PerUserPrintTicket")
+public val XPS_FP_USER_PRINT_TICKET: Pcwstr = w("PerUserPrintTicket")
 
-public val XPS_FP_USER_TOKEN: PCWSTR = w("UserSecurityToken")
+public val XPS_FP_USER_TOKEN: Pcwstr = w("UserSecurityToken")
 
-public val XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0
+public val XPS_JOB_DOCUMENT_SEQUENCE_ADDED: EXpsJobConsumption = 0
 
-public val XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1
+public val XPS_JOB_FIXED_DOCUMENT_ADDED: EXpsJobConsumption = 1
 
-public val XpsJob_FixedPageAdded: EXpsJobConsumption = 2
+public val XPS_JOB_FIXED_PAGE_ADDED: EXpsJobConsumption = 2
 
-public val Xps_Restricted_Font_Editable: EXpsFontRestriction = 8
+public val XPS_RESTRICTED_FONT_EDITABLE: EXpsFontRestriction = 8
 
-public val Xps_Restricted_Font_Installable: EXpsFontRestriction = 0
+public val XPS_RESTRICTED_FONT_INSTALLABLE: EXpsFontRestriction = 0
 
-public val Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2
+public val XPS_RESTRICTED_FONT_NO_EMBEDDING: EXpsFontRestriction = 2
 
-public val Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4
+public val XPS_RESTRICTED_FONT_PREVIEW_PRINT: EXpsFontRestriction = 4
 
-public val kADT_ASCII: EATTRIBUTE_DATATYPE = 5
+public val K_ADT_ASCII: EattributeDatatype = 5
 
-public val kADT_BINARY: EATTRIBUTE_DATATYPE = 7
+public val K_ADT_BINARY: EattributeDatatype = 7
 
-public val kADT_BOOL: EATTRIBUTE_DATATYPE = 1
+public val K_ADT_BOOL: EattributeDatatype = 1
 
-public val kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10
+public val K_ADT_CUSTOMSIZEPARAMS: EattributeDatatype = 10
 
-public val kADT_DWORD: EATTRIBUTE_DATATYPE = 4
+public val K_ADT_DWORD: EattributeDatatype = 4
 
-public val kADT_INT: EATTRIBUTE_DATATYPE = 2
+public val K_ADT_INT: EattributeDatatype = 2
 
-public val kADT_LONG: EATTRIBUTE_DATATYPE = 3
+public val K_ADT_LONG: EattributeDatatype = 3
 
-public val kADT_RECT: EATTRIBUTE_DATATYPE = 9
+public val K_ADT_RECT: EattributeDatatype = 9
 
-public val kADT_SIZE: EATTRIBUTE_DATATYPE = 8
+public val K_ADT_SIZE: EattributeDatatype = 8
 
-public val kADT_UNICODE: EATTRIBUTE_DATATYPE = 6
+public val K_ADT_UNICODE: EattributeDatatype = 6
 
-public val kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0
+public val K_ADT_UNKNOWN: EattributeDatatype = 0
 
-public val kAddingDocumentSequence: EPrintXPSJobProgress = 0
+public val K_ADDING_DOCUMENT_SEQUENCE: EPrintXPSJobProgress = 0
 
-public val kAddingFixedDocument: EPrintXPSJobProgress = 2
+public val K_ADDING_FIXED_DOCUMENT: EPrintXPSJobProgress = 2
 
-public val kAddingFixedPage: EPrintXPSJobProgress = 4
+public val K_ADDING_FIXED_PAGE: EPrintXPSJobProgress = 4
 
-public val kAllUsers: PrintAsyncNotifyUserFilter = 1
+public val K_ALL_USERS: PrintAsyncNotifyUserFilter = 1
 
-public val kBiDirectional: PrintAsyncNotifyConversationStyle = 0
+public val K_BI_DIRECTIONAL: PrintAsyncNotifyConversationStyle = 0
 
-public val kDocumentSequenceAdded: EPrintXPSJobProgress = 1
+public val K_DOCUMENT_SEQUENCE_ADDED: EPrintXPSJobProgress = 1
 
-public val kFixedDocumentAdded: EPrintXPSJobProgress = 3
+public val K_FIXED_DOCUMENT_ADDED: EPrintXPSJobProgress = 3
 
-public val kFixedPageAdded: EPrintXPSJobProgress = 5
+public val K_FIXED_PAGE_ADDED: EPrintXPSJobProgress = 5
 
-public val kFontAdded: EPrintXPSJobProgress = 7
+public val K_FONT_ADDED: EPrintXPSJobProgress = 7
 
-public val kImageAdded: EPrintXPSJobProgress = 8
+public val K_IMAGE_ADDED: EPrintXPSJobProgress = 8
 
-public val kInvalidJobState: EBranchOfficeJobEventType = 0
+public val K_INVALID_JOB_STATE: EBranchOfficeJobEventType = 0
 
-public val kJobConsumption: EPrintXPSJobOperation = 2
+public val K_JOB_CONSUMPTION: EPrintXPSJobOperation = 2
 
-public val kJobProduction: EPrintXPSJobOperation = 1
+public val K_JOB_PRODUCTION: EPrintXPSJobOperation = 1
 
-public val kLogJobError: EBranchOfficeJobEventType = 3
+public val K_LOG_JOB_ERROR: EBranchOfficeJobEventType = 3
 
-public val kLogJobPipelineError: EBranchOfficeJobEventType = 4
+public val K_LOG_JOB_PIPELINE_ERROR: EBranchOfficeJobEventType = 4
 
-public val kLogJobPrinted: EBranchOfficeJobEventType = 1
+public val K_LOG_JOB_PRINTED: EBranchOfficeJobEventType = 1
 
-public val kLogJobRendered: EBranchOfficeJobEventType = 2
+public val K_LOG_JOB_RENDERED: EBranchOfficeJobEventType = 2
 
-public val kLogOfflineFileFull: EBranchOfficeJobEventType = 5
+public val K_LOG_OFFLINE_FILE_FULL: EBranchOfficeJobEventType = 5
 
-public val kMessageBox: UI_TYPE = 0
+public val K_MESSAGE_BOX: UiType = 0
 
-public val kPerUser: PrintAsyncNotifyUserFilter = 0
+public val K_PER_USER: PrintAsyncNotifyUserFilter = 0
 
-public val kPropertyTypeBuffer: EPrintPropertyType = 10
+public val K_PROPERTY_TYPE_BUFFER: EPrintPropertyType = 10
 
-public val kPropertyTypeByte: EPrintPropertyType = 4
+public val K_PROPERTY_TYPE_BYTE: EPrintPropertyType = 4
 
-public val kPropertyTypeDevMode: EPrintPropertyType = 6
+public val K_PROPERTY_TYPE_DEV_MODE: EPrintPropertyType = 6
 
-public val kPropertyTypeInt32: EPrintPropertyType = 2
+public val K_PROPERTY_TYPE_INT32: EPrintPropertyType = 2
 
-public val kPropertyTypeInt64: EPrintPropertyType = 3
+public val K_PROPERTY_TYPE_INT64: EPrintPropertyType = 3
 
-public val kPropertyTypeNotificationOptions: EPrintPropertyType = 9
+public val K_PROPERTY_TYPE_NOTIFICATION_OPTIONS: EPrintPropertyType = 9
 
-public val kPropertyTypeNotificationReply: EPrintPropertyType = 8
+public val K_PROPERTY_TYPE_NOTIFICATION_REPLY: EPrintPropertyType = 8
 
-public val kPropertyTypeSD: EPrintPropertyType = 7
+public val K_PROPERTY_TYPE_SD: EPrintPropertyType = 7
 
-public val kPropertyTypeString: EPrintPropertyType = 1
+public val K_PROPERTY_TYPE_STRING: EPrintPropertyType = 1
 
-public val kPropertyTypeTime: EPrintPropertyType = 5
+public val K_PROPERTY_TYPE_TIME: EPrintPropertyType = 5
 
-public val kResourceAdded: EPrintXPSJobProgress = 6
+public val K_RESOURCE_ADDED: EPrintXPSJobProgress = 6
 
-public val kUniDirectional: PrintAsyncNotifyConversationStyle = 1
+public val K_UNI_DIRECTIONAL: PrintAsyncNotifyConversationStyle = 1
 
-public val kXpsDocumentCommitted: EPrintXPSJobProgress = 9
+public val K_XPS_DOCUMENT_COMMITTED: EPrintXPSJobProgress = 9

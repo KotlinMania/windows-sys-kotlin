@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage(void* lpstream, void* lpulcodepage, void* lpulsubcodepage) {
+int32_t windowssys_windows_win32_devices_tapi_getTnefStreamCodepage(void* lpstream, void* lpulcodepage, void* lpulsubcodepage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_devices_tapi_GetTnefStreamCodepage(void* lpstre
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_OpenTnefStream(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpptnef) {
+int32_t windowssys_windows_win32_devices_tapi_openTnefStream(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpptnef) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ int32_t windowssys_windows_win32_devices_tapi_OpenTnefStream(void* lpvsupport, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_tapi_OpenTnefStreamEx(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpadressbook, void* lpptnef) {
+int32_t windowssys_windows_win32_devices_tapi_openTnefStreamEx(void* lpvsupport, void* lpstream, void* lpszstreamname, uint32_t ulflags, void* lpmessage, uint16_t wkeyval, void* lpadressbook, void* lpptnef) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

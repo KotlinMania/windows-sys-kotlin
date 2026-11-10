@@ -20,89 +20,89 @@ public val FLTFL_IASI_IS_MINIFILTER: UInt = 1u
 
 public val FLTFL_VSI_DETACHED_VOLUME: UInt = 1u
 
-public val FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = 12
+public val FLT_FSTYPE_BSUDF: FltFilesystemType = 12
 
-public val FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = 4
+public val FLT_FSTYPE_CDFS: FltFilesystemType = 4
 
-public val FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = 30
+public val FLT_FSTYPE_CIMFS: FltFilesystemType = 30
 
-public val FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = 27
+public val FLT_FSTYPE_CSVFS: FltFilesystemType = 27
 
-public val FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = 22
+public val FLT_FSTYPE_EXFAT: FltFilesystemType = 22
 
-public val FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = 3
+public val FLT_FSTYPE_FAT: FltFilesystemType = 3
 
-public val FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = 19
+public val FLT_FSTYPE_FS_REC: FltFilesystemType = 19
 
-public val FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = 24
+public val FLT_FSTYPE_GPFS: FltFilesystemType = 24
 
-public val FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = 20
+public val FLT_FSTYPE_INCD: FltFilesystemType = 20
 
-public val FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = 21
+public val FLT_FSTYPE_INCD_FAT: FltFilesystemType = 21
 
-public val FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = 6
+public val FLT_FSTYPE_LANMAN: FltFilesystemType = 6
 
-public val FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = 26
+public val FLT_FSTYPE_MSFS: FltFilesystemType = 26
 
-public val FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = 10
+public val FLT_FSTYPE_MS_NETWARE: FltFilesystemType = 10
 
-public val FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = 13
+public val FLT_FSTYPE_MUP: FltFilesystemType = 13
 
-public val FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = 11
+public val FLT_FSTYPE_NETWARE: FltFilesystemType = 11
 
-public val FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = 9
+public val FLT_FSTYPE_NFS: FltFilesystemType = 9
 
-public val FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = 25
+public val FLT_FSTYPE_NPFS: FltFilesystemType = 25
 
-public val FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = 2
+public val FLT_FSTYPE_NTFS: FltFilesystemType = 2
 
-public val FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = 29
+public val FLT_FSTYPE_OPENAFS: FltFilesystemType = 29
 
-public val FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = 23
+public val FLT_FSTYPE_PSFS: FltFilesystemType = 23
 
-public val FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = 1
+public val FLT_FSTYPE_RAW: FltFilesystemType = 1
 
-public val FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = 8
+public val FLT_FSTYPE_RDPDR: FltFilesystemType = 8
 
-public val FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = 28
+public val FLT_FSTYPE_REFS: FltFilesystemType = 28
 
-public val FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = 15
+public val FLT_FSTYPE_ROXIO_UDF1: FltFilesystemType = 15
 
-public val FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = 16
+public val FLT_FSTYPE_ROXIO_UDF2: FltFilesystemType = 16
 
-public val FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = 17
+public val FLT_FSTYPE_ROXIO_UDF3: FltFilesystemType = 17
 
-public val FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = 14
+public val FLT_FSTYPE_RSFX: FltFilesystemType = 14
 
-public val FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = 18
+public val FLT_FSTYPE_TACIT: FltFilesystemType = 18
 
-public val FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = 5
+public val FLT_FSTYPE_UDFS: FltFilesystemType = 5
 
-public val FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = 0
+public val FLT_FSTYPE_UNKNOWN: FltFilesystemType = 0
 
-public val FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = 7
+public val FLT_FSTYPE_WEBDAV: FltFilesystemType = 7
 
 public val FLT_PORT_FLAG_SYNC_HANDLE: UInt = 1u
 
-public val FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = 1
+public val FILTER_AGGREGATE_BASIC_INFORMATION: FilterInformationClass = 1
 
-public val FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2
+public val FILTER_AGGREGATE_STANDARD_INFORMATION: FilterInformationClass = 2
 
-public val FilterFullInformation: FILTER_INFORMATION_CLASS = 0
+public val FILTER_FULL_INFORMATION: FilterInformationClass = 0
 
-public val FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0
+public val FILTER_VOLUME_BASIC_INFORMATION: FilterVolumeInformationClass = 0
 
-public val FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1
+public val FILTER_VOLUME_STANDARD_INFORMATION: FilterVolumeInformationClass = 1
 
 public val INSTANCE_NAME_MAX_CHARS: UInt = 255u
 
-public val InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3
+public val INSTANCE_AGGREGATE_STANDARD_INFORMATION: InstanceInformationClass = 3
 
-public val InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0
+public val INSTANCE_BASIC_INFORMATION: InstanceInformationClass = 0
 
-public val InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2
+public val INSTANCE_FULL_INFORMATION: InstanceInformationClass = 2
 
-public val InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1
+public val INSTANCE_PARTIAL_INFORMATION: InstanceInformationClass = 1
 
 public val VOLUME_NAME_MAX_CHARS: UInt = 1024u
 

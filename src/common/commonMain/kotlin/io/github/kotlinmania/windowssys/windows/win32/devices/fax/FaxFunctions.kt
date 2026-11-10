@@ -1,127 +1,128 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun CanSendToFaxRecipient(): BOOL
+public expect fun canSendToFaxRecipient(): Bool
 
-public expect fun FaxAbort(faxhandle: HANDLE, jobid: UInt): BOOL
+public expect fun faxAbort(faxhandle: Handle, jobid: UInt): Bool
 
-public expect fun FaxAccessCheck(faxhandle: HANDLE, accessmask: UInt): BOOL
+public expect fun faxAccessCheck(faxhandle: Handle, accessmask: UInt): Bool
 
-public expect fun FaxClose(faxhandle: HANDLE): BOOL
+public expect fun faxClose(faxhandle: Handle): Bool
 
-public expect fun FaxCompleteJobParamsA(jobparams: Long, coverpageinfo: Long): BOOL
+public expect fun faxCompleteJobParamsA(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 
-public expect fun FaxCompleteJobParamsW(jobparams: Long, coverpageinfo: Long): BOOL
+public expect fun faxCompleteJobParamsW(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 
-public expect fun FaxConnectFaxServerA(machinename: PCSTR, faxhandle: Long): BOOL
+public expect fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: COpaquePointer?): Bool
 
-public expect fun FaxConnectFaxServerW(machinename: PCWSTR, faxhandle: Long): BOOL
+public expect fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: COpaquePointer?): Bool
 
-public expect fun FaxEnableRoutingMethodA(faxporthandle: HANDLE, routingguid: PCSTR, enabled: BOOL): BOOL
+public expect fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool
 
-public expect fun FaxEnableRoutingMethodW(faxporthandle: HANDLE, routingguid: PCWSTR, enabled: BOOL): BOOL
+public expect fun faxEnableRoutingMethodW(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool
 
-public expect fun FaxEnumGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL
+public expect fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL
+public expect fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumJobsA(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL
+public expect fun faxEnumJobsA(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumJobsW(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL
+public expect fun faxEnumJobsW(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumPortsA(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL
+public expect fun faxEnumPortsA(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumPortsW(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL
+public expect fun faxEnumPortsW(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumRoutingMethodsA(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL
+public expect fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 
-public expect fun FaxEnumRoutingMethodsW(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL
+public expect fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 
-public expect fun FaxFreeBuffer(buffer: Long)
+public expect fun faxFreeBuffer(buffer: COpaquePointer?)
 
-public expect fun FaxGetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL
+public expect fun faxGetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 
-public expect fun FaxGetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL
+public expect fun faxGetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 
-public expect fun FaxGetDeviceStatusA(faxporthandle: HANDLE, devicestatus: Long): BOOL
+public expect fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool
 
-public expect fun FaxGetDeviceStatusW(faxporthandle: HANDLE, devicestatus: Long): BOOL
+public expect fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool
 
-public expect fun FaxGetJobA(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL
+public expect fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool
 
-public expect fun FaxGetJobW(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL
+public expect fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool
 
-public expect fun FaxGetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL
+public expect fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool
 
-public expect fun FaxGetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL
+public expect fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool
 
-public expect fun FaxGetPageData(faxhandle: HANDLE, jobid: UInt, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): BOOL
+public expect fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?, imagewidth: COpaquePointer?, imageheight: COpaquePointer?): Bool
 
-public expect fun FaxGetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL
+public expect fun faxGetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 
-public expect fun FaxGetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL
+public expect fun faxGetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 
-public expect fun FaxGetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL
+public expect fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool
 
-public expect fun FaxGetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL
+public expect fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool
 
-public expect fun FaxInitializeEventQueue(faxhandle: HANDLE, completionport: HANDLE, completionkey: ULong, hwnd: HWND, messagestart: UInt): BOOL
+public expect fun faxInitializeEventQueue(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool
 
-public expect fun FaxOpenPort(faxhandle: HANDLE, deviceid: UInt, flags: UInt, faxporthandle: Long): BOOL
+public expect fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: COpaquePointer?): Bool
 
-public expect fun FaxPrintCoverPageA(faxcontextinfo: Long, coverpageinfo: Long): BOOL
+public expect fun faxPrintCoverPageA(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 
-public expect fun FaxPrintCoverPageW(faxcontextinfo: Long, coverpageinfo: Long): BOOL
+public expect fun faxPrintCoverPageW(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 
-public expect fun FaxRegisterRoutingExtensionW(faxhandle: HANDLE, extensionname: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: Long): BOOL
+public expect fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: COpaquePointer?): Bool
 
-public expect fun FaxRegisterServiceProviderW(deviceprovider: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, tspname: PCWSTR): BOOL
+public expect fun faxRegisterServiceProviderW(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool
 
-public expect fun FaxSendDocumentA(faxhandle: HANDLE, filename: PCSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL
+public expect fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool
 
-public expect fun FaxSendDocumentForBroadcastA(faxhandle: HANDLE, filename: PCSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: Long): BOOL
+public expect fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbacka, context: COpaquePointer?): Bool
 
-public expect fun FaxSendDocumentForBroadcastW(faxhandle: HANDLE, filename: PCWSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: Long): BOOL
+public expect fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbackw, context: COpaquePointer?): Bool
 
-public expect fun FaxSendDocumentW(faxhandle: HANDLE, filename: PCWSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL
+public expect fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool
 
-public expect fun FaxSetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL
+public expect fun faxSetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 
-public expect fun FaxSetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL
+public expect fun faxSetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 
-public expect fun FaxSetGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long): BOOL
+public expect fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?): Bool
 
-public expect fun FaxSetGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long): BOOL
+public expect fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?): Bool
 
-public expect fun FaxSetJobA(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL
+public expect fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool
 
-public expect fun FaxSetJobW(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL
+public expect fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool
 
-public expect fun FaxSetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL
+public expect fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool
 
-public expect fun FaxSetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL
+public expect fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool
 
-public expect fun FaxSetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL
+public expect fun faxSetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 
-public expect fun FaxSetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL
+public expect fun faxSetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 
-public expect fun FaxSetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL
+public expect fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool
 
-public expect fun FaxSetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL
+public expect fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool
 
-public expect fun FaxStartPrintJobA(printername: PCSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL
+public expect fun faxStartPrintJobA(printername: Pcstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool
 
-public expect fun FaxStartPrintJobW(printername: PCWSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL
+public expect fun faxStartPrintJobW(printername: Pcwstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool
 
-public expect fun FaxUnregisterServiceProviderW(deviceprovider: PCWSTR): BOOL
+public expect fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool
 
-public expect fun SendToFaxRecipient(sndmode: SendToMode, lpfilename: PCWSTR): UInt
+public expect fun sendToFaxRecipient(sndmode: SendToMode, lpfilename: Pcwstr): UInt
 
-public expect fun StiCreateInstanceW(hinst: HINSTANCE, dwver: UInt, ppsti: Long, punkouter: Long): HRESULT
+public expect fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: COpaquePointer?, punkouter: COpaquePointer?): Hresult

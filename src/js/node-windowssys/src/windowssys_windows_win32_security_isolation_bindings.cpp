@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_CreateAppContainerProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_createAppContainerProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszappcontainername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdisplayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -79,7 +79,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_CreateAppContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_DeleteAppContainerProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_deleteAppContainerProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszappcontainername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -97,7 +97,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_DeleteAppContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszappcontainername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsidappcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_DeriveAppContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psidappcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszrestrictedappcontainername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_DeriveRestrictedA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerFolderPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerFolderPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszappcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* appcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -185,7 +185,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phappcontainerkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -205,7 +205,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_GetAppContainerRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* iscrossisolatedenvironmentclipboardcontent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_IsCrossIsolatedEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* isprocessinisolatedcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInIsolat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* isprocessinisolatedwindowsenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInIsolat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_isolation_isProcessInWDAGContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* isprocessinwdagcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -280,17 +280,17 @@ static Napi::Value windowssys_windows_win32_security_isolation_IsProcessInWDAGCo
 }
 
 static void register_windows_win32_security_isolation_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_isolation_CreateAppContainerProfile", Napi::Function::New(env, windowssys_windows_win32_security_isolation_CreateAppContainerProfile_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_DeleteAppContainerProfile", Napi::Function::New(env, windowssys_windows_win32_security_isolation_DeleteAppContainerProfile_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName", Napi::Function::New(env, windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName", Napi::Function::New(env, windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_GetAppContainerFolderPath", Napi::Function::New(env, windowssys_windows_win32_security_isolation_GetAppContainerFolderPath_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath", Napi::Function::New(env, windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation", Napi::Function::New(env, windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent", Napi::Function::New(env, windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer", Napi::Function::New(env, windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment", Napi::Function::New(env, windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment_napi));
-    exports.Set("windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer", Napi::Function::New(env, windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_createAppContainerProfile", Napi::Function::New(env, windowssys_windows_win32_security_isolation_createAppContainerProfile_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_deleteAppContainerProfile", Napi::Function::New(env, windowssys_windows_win32_security_isolation_deleteAppContainerProfile_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName", Napi::Function::New(env, windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName", Napi::Function::New(env, windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_getAppContainerFolderPath", Napi::Function::New(env, windowssys_windows_win32_security_isolation_getAppContainerFolderPath_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath", Napi::Function::New(env, windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation", Napi::Function::New(env, windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent", Napi::Function::New(env, windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer", Napi::Function::New(env, windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment", Napi::Function::New(env, windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment_napi));
+    exports.Set("windowssys_windows_win32_security_isolation_isProcessInWDAGContainer", Napi::Function::New(env, windowssys_windows_win32_security_isolation_isProcessInWDAGContainer_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_isolation_napi, nullptr };

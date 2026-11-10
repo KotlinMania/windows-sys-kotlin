@@ -2,914 +2,915 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WIN_HTTP_CREATE_URL_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WinHttpCreateUrlFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AppCacheCheckManifest(pwszmasterurl: PCWSTR, pwszmanifesturl: PCWSTR, pbmanifestdata: Long, dwmanifestdatasize: UInt, pbmanifestresponseheaders: Long, dwmanifestresponseheaderssize: UInt, pestate: Long, phnewappcache: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheCheckManifest(pwszmasterurl.toCPointer<ByteVar>(), pwszmanifesturl.toCPointer<ByteVar>(), pbmanifestdata.toCPointer<ByteVar>(), dwmanifestdatasize, pbmanifestresponseheaders.toCPointer<ByteVar>(), dwmanifestresponseheaderssize, pestate.toCPointer<ByteVar>(), phnewappcache.toCPointer<ByteVar>())
+public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pbmanifestresponseheaders: COpaquePointer?, dwmanifestresponseheaderssize: UInt, pestate: COpaquePointer?, phnewappcache: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheCheckManifest(pwszmasterurl?.value?.toCPointer<ByteVar>(), pwszmanifesturl?.value?.toCPointer<ByteVar>(), pbmanifestdata?.value?.toCPointer<ByteVar>(), dwmanifestdatasize, pbmanifestresponseheaders?.value?.toCPointer<ByteVar>(), dwmanifestresponseheaderssize, pestate?.value?.toCPointer<ByteVar>(), phnewappcache?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheCloseHandle(happcache: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheCloseHandle(happcache.toCPointer<ByteVar>())
+public actual fun appCacheCloseHandle(happcache: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheCloseHandle(happcache?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AppCacheCreateAndCommitFile(happcache: Long, pwszsourcefilepath: PCWSTR, pwszurl: PCWSTR, pbresponseheaders: Long, dwresponseheaderssize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheCreateAndCommitFile(happcache.toCPointer<ByteVar>(), pwszsourcefilepath.toCPointer<ByteVar>(), pwszurl.toCPointer<ByteVar>(), pbresponseheaders.toCPointer<ByteVar>(), dwresponseheaderssize)
+public actual fun appCacheCreateAndCommitFile(happcache: COpaquePointer?, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: COpaquePointer?, dwresponseheaderssize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile(happcache?.value?.toCPointer<ByteVar>(), pwszsourcefilepath?.value?.toCPointer<ByteVar>(), pwszurl?.value?.toCPointer<ByteVar>(), pbresponseheaders?.value?.toCPointer<ByteVar>(), dwresponseheaderssize)
 
-public actual fun AppCacheDeleteGroup(pwszmanifesturl: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheDeleteGroup(pwszmanifesturl.toCPointer<ByteVar>())
+public actual fun appCacheDeleteGroup(pwszmanifesturl: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(pwszmanifesturl?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheDeleteIEGroup(pwszmanifesturl: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheDeleteIEGroup(pwszmanifesturl.toCPointer<ByteVar>())
+public actual fun appCacheDeleteIEGroup(pwszmanifesturl: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(pwszmanifesturl?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheDuplicateHandle(happcache: Long, phduplicatedappcache: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheDuplicateHandle(happcache.toCPointer<ByteVar>(), phduplicatedappcache.toCPointer<ByteVar>())
+public actual fun appCacheDuplicateHandle(happcache: COpaquePointer?, phduplicatedappcache: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(happcache?.value?.toCPointer<ByteVar>(), phduplicatedappcache?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheFinalize(happcache: Long, pbmanifestdata: Long, dwmanifestdatasize: UInt, pestate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheFinalize(happcache.toCPointer<ByteVar>(), pbmanifestdata.toCPointer<ByteVar>(), dwmanifestdatasize, pestate.toCPointer<ByteVar>())
+public actual fun appCacheFinalize(happcache: COpaquePointer?, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pestate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheFinalize(happcache?.value?.toCPointer<ByteVar>(), pbmanifestdata?.value?.toCPointer<ByteVar>(), dwmanifestdatasize, pestate?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheFreeDownloadList(pdownloadlist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheFreeDownloadList(pdownloadlist.toCPointer<ByteVar>())
+public actual fun appCacheFreeDownloadList(pdownloadlist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(pdownloadlist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AppCacheFreeGroupList(pappcachegrouplist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheFreeGroupList(pappcachegrouplist.toCPointer<ByteVar>())
+public actual fun appCacheFreeGroupList(pappcachegrouplist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(pappcachegrouplist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AppCacheFreeIESpace(ftcutoff: FILETIME): UInt =
+public actual fun appCacheFreeIESpace(ftcutoff: Filetime): UInt =
     0u
 
-public actual fun AppCacheFreeSpace(ftcutoff: FILETIME): UInt =
+public actual fun appCacheFreeSpace(ftcutoff: Filetime): UInt =
     0u
 
-public actual fun AppCacheGetDownloadList(happcache: Long, pdownloadlist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetDownloadList(happcache.toCPointer<ByteVar>(), pdownloadlist.toCPointer<ByteVar>())
+public actual fun appCacheGetDownloadList(happcache: COpaquePointer?, pdownloadlist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(happcache?.value?.toCPointer<ByteVar>(), pdownloadlist?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheGetFallbackUrl(happcache: Long, pwszurl: PCWSTR, ppwszfallbackurl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetFallbackUrl(happcache.toCPointer<ByteVar>(), pwszurl.toCPointer<ByteVar>(), ppwszfallbackurl.toCPointer<ByteVar>())
+public actual fun appCacheGetFallbackUrl(happcache: COpaquePointer?, pwszurl: Pcwstr, ppwszfallbackurl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(happcache?.value?.toCPointer<ByteVar>(), pwszurl?.value?.toCPointer<ByteVar>(), ppwszfallbackurl?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheGetGroupList(pappcachegrouplist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetGroupList(pappcachegrouplist.toCPointer<ByteVar>())
+public actual fun appCacheGetGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetGroupList(pappcachegrouplist?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheGetIEGroupList(pappcachegrouplist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetIEGroupList(pappcachegrouplist.toCPointer<ByteVar>())
+public actual fun appCacheGetIEGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(pappcachegrouplist?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheGetInfo(happcache: Long, pappcacheinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetInfo(happcache.toCPointer<ByteVar>(), pappcacheinfo.toCPointer<ByteVar>())
+public actual fun appCacheGetInfo(happcache: COpaquePointer?, pappcacheinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetInfo(happcache?.value?.toCPointer<ByteVar>(), pappcacheinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheGetManifestUrl(happcache: Long, ppwszmanifesturl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheGetManifestUrl(happcache.toCPointer<ByteVar>(), ppwszmanifesturl.toCPointer<ByteVar>())
+public actual fun appCacheGetManifestUrl(happcache: COpaquePointer?, ppwszmanifesturl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(happcache?.value?.toCPointer<ByteVar>(), ppwszmanifesturl?.value?.toCPointer<ByteVar>())
 
-public actual fun AppCacheLookup(pwszurl: PCWSTR, dwflags: UInt, phappcache: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_AppCacheLookup(pwszurl.toCPointer<ByteVar>(), dwflags, phappcache.toCPointer<ByteVar>())
+public actual fun appCacheLookup(pwszurl: Pcwstr, dwflags: UInt, phappcache: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_appCacheLookup(pwszurl?.value?.toCPointer<ByteVar>(), dwflags, phappcache?.value?.toCPointer<ByteVar>())
 
-public actual fun CommitUrlCacheEntryA(lpszurlname: PCSTR, lpszlocalfilename: PCSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpheaderinfo: Long, cchheaderinfo: UInt, lpszfileextension: PCSTR, lpszoriginalurl: PCSTR): BOOL =
+public actual fun commitUrlCacheEntryA(lpszurlname: Pcstr, lpszlocalfilename: Pcstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpheaderinfo: COpaquePointer?, cchheaderinfo: UInt, lpszfileextension: Pcstr, lpszoriginalurl: Pcstr): Bool =
     0
 
-public actual fun CommitUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: UInt, ftexpiretime: FILETIME, ftmodifiedtime: FILETIME, pbblob: Long, cbblob: UInt): UInt =
+public actual fun commitUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: UInt, ftexpiretime: Filetime, ftmodifiedtime: Filetime, pbblob: COpaquePointer?, cbblob: UInt): UInt =
     0u
 
-public actual fun CommitUrlCacheEntryW(lpszurlname: PCWSTR, lpszlocalfilename: PCWSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpszheaderinfo: PCWSTR, cchheaderinfo: UInt, lpszfileextension: PCWSTR, lpszoriginalurl: PCWSTR): BOOL =
+public actual fun commitUrlCacheEntryW(lpszurlname: Pcwstr, lpszlocalfilename: Pcwstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpszheaderinfo: Pcwstr, cchheaderinfo: UInt, lpszfileextension: Pcwstr, lpszoriginalurl: Pcwstr): Bool =
     0
 
-public actual fun CreateMD5SSOHash(pszchallengeinfo: PCWSTR, pwszrealm: PCWSTR, pwsztarget: PCWSTR, pbhexhash: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateMD5SSOHash(pszchallengeinfo.toCPointer<ByteVar>(), pwszrealm.toCPointer<ByteVar>(), pwsztarget.toCPointer<ByteVar>(), pbhexhash.toCPointer<ByteVar>())
+public actual fun createMD5SSOHash(pszchallengeinfo: Pcwstr, pwszrealm: Pcwstr, pwsztarget: Pcwstr, pbhexhash: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createMD5SSOHash(pszchallengeinfo?.value?.toCPointer<ByteVar>(), pwszrealm?.value?.toCPointer<ByteVar>(), pwsztarget?.value?.toCPointer<ByteVar>(), pbhexhash?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateUrlCacheContainerA(name: PCSTR, lpcacheprefix: PCSTR, lpszcachepath: PCSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerA(name.toCPointer<ByteVar>(), lpcacheprefix.toCPointer<ByteVar>(), lpszcachepath.toCPointer<ByteVar>(), kbcachelimit, dwcontainertype, dwoptions, pvbuffer.toCPointer<ByteVar>(), cbbuffer.toCPointer<ByteVar>())
+public actual fun createUrlCacheContainerA(name: Pcstr, lpcacheprefix: Pcstr, lpszcachepath: Pcstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(name?.value?.toCPointer<ByteVar>(), lpcacheprefix?.value?.toCPointer<ByteVar>(), lpszcachepath?.value?.toCPointer<ByteVar>(), kbcachelimit, dwcontainertype, dwoptions, pvbuffer?.value?.toCPointer<ByteVar>(), cbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateUrlCacheContainerW(name: PCWSTR, lpcacheprefix: PCWSTR, lpszcachepath: PCWSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerW(name.toCPointer<ByteVar>(), lpcacheprefix.toCPointer<ByteVar>(), lpszcachepath.toCPointer<ByteVar>(), kbcachelimit, dwcontainertype, dwoptions, pvbuffer.toCPointer<ByteVar>(), cbbuffer.toCPointer<ByteVar>())
+public actual fun createUrlCacheContainerW(name: Pcwstr, lpcacheprefix: Pcwstr, lpszcachepath: Pcwstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(name?.value?.toCPointer<ByteVar>(), lpcacheprefix?.value?.toCPointer<ByteVar>(), lpszcachepath?.value?.toCPointer<ByteVar>(), kbcachelimit, dwcontainertype, dwoptions, pvbuffer?.value?.toCPointer<ByteVar>(), cbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateUrlCacheEntryA(lpszurlname: PCSTR, dwexpectedfilesize: UInt, lpszfileextension: PCSTR, lpszfilename: PSTR, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryA(lpszurlname.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), dwreserved)
+public actual fun createUrlCacheEntryA(lpszurlname: Pcstr, dwexpectedfilesize: UInt, lpszfileextension: Pcstr, lpszfilename: Pstr, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(lpszurlname?.value?.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun CreateUrlCacheEntryExW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt, fpreserveincomingfilename: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryExW(lpszurlname.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), dwreserved, fpreserveincomingfilename)
+public actual fun createUrlCacheEntryExW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt, fpreserveincomingfilename: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(lpszurlname?.value?.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), dwreserved, fpreserveincomingfilename)
 
-public actual fun CreateUrlCacheEntryW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryW(lpszurlname.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), dwreserved)
+public actual fun createUrlCacheEntryW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(lpszurlname?.value?.toCPointer<ByteVar>(), dwexpectedfilesize, lpszfileextension?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun CreateUrlCacheGroup(dwflags: UInt, lpreserved: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_CreateUrlCacheGroup(dwflags, lpreserved.toCPointer<ByteVar>())
+public actual fun createUrlCacheGroup(dwflags: UInt, lpreserved: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_createUrlCacheGroup(dwflags, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteIE3Cache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteIE3Cache(hwnd.toCPointer<ByteVar>(), hinst.toCPointer<ByteVar>(), lpszcmd.toCPointer<ByteVar>(), ncmdshow)
+public actual fun deleteIE3Cache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteIE3Cache(hwnd?.value?.toCPointer<ByteVar>(), hinst?.value?.toCPointer<ByteVar>(), lpszcmd?.value?.toCPointer<ByteVar>(), ncmdshow)
 
-public actual fun DeleteUrlCacheContainerA(name: PCSTR, dwoptions: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerA(name.toCPointer<ByteVar>(), dwoptions)
+public actual fun deleteUrlCacheContainerA(name: Pcstr, dwoptions: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(name?.value?.toCPointer<ByteVar>(), dwoptions)
 
-public actual fun DeleteUrlCacheContainerW(name: PCWSTR, dwoptions: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerW(name.toCPointer<ByteVar>(), dwoptions)
+public actual fun deleteUrlCacheContainerW(name: Pcwstr, dwoptions: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(name?.value?.toCPointer<ByteVar>(), dwoptions)
 
-public actual fun DeleteUrlCacheEntry(lpszurlname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntry(lpszurlname.toCPointer<ByteVar>())
+public actual fun deleteUrlCacheEntry(lpszurlname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(lpszurlname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteUrlCacheEntryA(lpszurlname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryA(lpszurlname.toCPointer<ByteVar>())
+public actual fun deleteUrlCacheEntryA(lpszurlname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(lpszurlname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteUrlCacheEntryW(lpszurlname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryW(lpszurlname.toCPointer<ByteVar>())
+public actual fun deleteUrlCacheEntryW(lpszurlname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(lpszurlname?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteUrlCacheGroup(groupid, dwflags, lpreserved.toCPointer<ByteVar>())
+public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(groupid, dwflags, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DeleteWpadCacheForNetworks(param0)
+public actual fun deleteWpadCacheForNetworks(param0: WpadCacheDelete): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(param0)
 
-public actual fun DetectAutoProxyUrl(pszautoproxyurl: PSTR, cchautoproxyurl: UInt, dwdetectflags: PROXY_AUTO_DETECT_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DetectAutoProxyUrl(pszautoproxyurl.toCPointer<ByteVar>(), cchautoproxyurl, dwdetectflags)
+public actual fun detectAutoProxyUrl(pszautoproxyurl: Pstr, cchautoproxyurl: UInt, dwdetectflags: ProxyAutoDetectType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(pszautoproxyurl?.value?.toCPointer<ByteVar>(), cchautoproxyurl, dwdetectflags)
 
-public actual fun DoConnectoidsExist(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_DoConnectoidsExist()
+public actual fun doConnectoidsExist(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_doConnectoidsExist()
 
-public actual fun ExportCookieFileA(szfilename: PCSTR, fappend: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ExportCookieFileA(szfilename.toCPointer<ByteVar>(), fappend)
+public actual fun exportCookieFileA(szfilename: Pcstr, fappend: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_exportCookieFileA(szfilename?.value?.toCPointer<ByteVar>(), fappend)
 
-public actual fun ExportCookieFileW(szfilename: PCWSTR, fappend: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ExportCookieFileW(szfilename.toCPointer<ByteVar>(), fappend)
+public actual fun exportCookieFileW(szfilename: Pcwstr, fappend: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_exportCookieFileW(szfilename?.value?.toCPointer<ByteVar>(), fappend)
 
-public actual fun FindCloseUrlCache(henumhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindCloseUrlCache(henumhandle.toCPointer<ByteVar>())
+public actual fun findCloseUrlCache(henumhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findCloseUrlCache(henumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerA(pdwmodified.toCPointer<ByteVar>(), lpcontainerinfo.toCPointer<ByteVar>(), lpcbcontainerinfo.toCPointer<ByteVar>(), dwoptions)?.toLong() ?: 0L
+public actual fun findFirstUrlCacheContainerA(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(pdwmodified?.value?.toCPointer<ByteVar>(), lpcontainerinfo?.value?.toCPointer<ByteVar>(), lpcbcontainerinfo?.value?.toCPointer<ByteVar>(), dwoptions)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerW(pdwmodified.toCPointer<ByteVar>(), lpcontainerinfo.toCPointer<ByteVar>(), lpcbcontainerinfo.toCPointer<ByteVar>(), dwoptions)?.toLong() ?: 0L
+public actual fun findFirstUrlCacheContainerW(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(pdwmodified?.value?.toCPointer<ByteVar>(), lpcontainerinfo?.value?.toCPointer<ByteVar>(), lpcbcontainerinfo?.value?.toCPointer<ByteVar>(), dwoptions)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheEntryA(lpszurlsearchpattern: PCSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryA(lpszurlsearchpattern.toCPointer<ByteVar>(), lpfirstcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findFirstUrlCacheEntryA(lpszurlsearchpattern: Pcstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(lpszurlsearchpattern?.value?.toCPointer<ByteVar>(), lpfirstcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheEntryExA(lpszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExA(lpszurlsearchpattern.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpgroupattributes.toCPointer<ByteVar>(), lpcbgroupattributes.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findFirstUrlCacheEntryExA(lpszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(lpszurlsearchpattern?.value?.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpgroupattributes?.value?.toCPointer<ByteVar>(), lpcbgroupattributes?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheEntryExW(lpszurlsearchpattern: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExW(lpszurlsearchpattern.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpgroupattributes.toCPointer<ByteVar>(), lpcbgroupattributes.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findFirstUrlCacheEntryExW(lpszurlsearchpattern: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(lpszurlsearchpattern?.value?.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, lpfirstcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpgroupattributes?.value?.toCPointer<ByteVar>(), lpcbgroupattributes?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheEntryW(lpszurlsearchpattern: PCWSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryW(lpszurlsearchpattern.toCPointer<ByteVar>(), lpfirstcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findFirstUrlCacheEntryW(lpszurlsearchpattern: Pcwstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(lpszurlsearchpattern?.value?.toCPointer<ByteVar>(), lpfirstcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: Long, dwsearchcondition: UInt, lpgroupid: Long, lpreserved: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheGroup(dwflags, dwfilter, lpsearchcondition.toCPointer<ByteVar>(), dwsearchcondition, lpgroupid.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: COpaquePointer?, dwsearchcondition: UInt, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(dwflags, dwfilter, lpsearchcondition?.value?.toCPointer<ByteVar>(), dwsearchcondition, lpgroupid?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindNextUrlCacheContainerA(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerA(henumhandle.toCPointer<ByteVar>(), lpcontainerinfo.toCPointer<ByteVar>(), lpcbcontainerinfo.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheContainerA(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(henumhandle?.value?.toCPointer<ByteVar>(), lpcontainerinfo?.value?.toCPointer<ByteVar>(), lpcbcontainerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheContainerW(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerW(henumhandle.toCPointer<ByteVar>(), lpcontainerinfo.toCPointer<ByteVar>(), lpcbcontainerinfo.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheContainerW(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(henumhandle?.value?.toCPointer<ByteVar>(), lpcontainerinfo?.value?.toCPointer<ByteVar>(), lpcbcontainerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheEntryA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryA(henumhandle.toCPointer<ByteVar>(), lpnextcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheEntryA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(henumhandle?.value?.toCPointer<ByteVar>(), lpnextcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheEntryExA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExA(henumhandle.toCPointer<ByteVar>(), lpnextcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpgroupattributes.toCPointer<ByteVar>(), lpcbgroupattributes.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheEntryExA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(henumhandle?.value?.toCPointer<ByteVar>(), lpnextcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpgroupattributes?.value?.toCPointer<ByteVar>(), lpcbgroupattributes?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheEntryExW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExW(henumhandle.toCPointer<ByteVar>(), lpnextcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpgroupattributes.toCPointer<ByteVar>(), lpcbgroupattributes.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheEntryExW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(henumhandle?.value?.toCPointer<ByteVar>(), lpnextcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpgroupattributes?.value?.toCPointer<ByteVar>(), lpcbgroupattributes?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheEntryW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryW(henumhandle.toCPointer<ByteVar>(), lpnextcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheEntryW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(henumhandle?.value?.toCPointer<ByteVar>(), lpnextcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FindNextUrlCacheGroup(hfind: HANDLE, lpgroupid: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindNextUrlCacheGroup(hfind.toCPointer<ByteVar>(), lpgroupid.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun findNextUrlCacheGroup(hfind: Handle, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(hfind?.value?.toCPointer<ByteVar>(), lpgroupid?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun FindP3PPolicySymbol(pszsymbol: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FindP3PPolicySymbol(pszsymbol.toCPointer<ByteVar>())
+public actual fun findP3PPolicySymbol(pszsymbol: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(pszsymbol?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeUrlCacheSpaceA(lpszcachepath: PCSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceA(lpszcachepath.toCPointer<ByteVar>(), dwsize, dwfilter)
+public actual fun freeUrlCacheSpaceA(lpszcachepath: Pcstr, dwsize: UInt, dwfilter: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(lpszcachepath?.value?.toCPointer<ByteVar>(), dwsize, dwfilter)
 
-public actual fun FreeUrlCacheSpaceW(lpszcachepath: PCWSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceW(lpszcachepath.toCPointer<ByteVar>(), dwsize, dwfilter)
+public actual fun freeUrlCacheSpaceW(lpszcachepath: Pcwstr, dwsize: UInt, dwfilter: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(lpszcachepath?.value?.toCPointer<ByteVar>(), dwsize, dwfilter)
 
-public actual fun FtpCommandA(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpCommandA(hconnect.toCPointer<ByteVar>(), fexpectresponse, dwflags, lpszcommand.toCPointer<ByteVar>(), dwcontext, phftpcommand.toCPointer<ByteVar>())
+public actual fun ftpCommandA(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpCommandA(hconnect?.value?.toCPointer<ByteVar>(), fexpectresponse, dwflags, lpszcommand?.value?.toCPointer<ByteVar>(), dwcontext, phftpcommand?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpCommandW(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCWSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpCommandW(hconnect.toCPointer<ByteVar>(), fexpectresponse, dwflags, lpszcommand.toCPointer<ByteVar>(), dwcontext, phftpcommand.toCPointer<ByteVar>())
+public actual fun ftpCommandW(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcwstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpCommandW(hconnect?.value?.toCPointer<ByteVar>(), fexpectresponse, dwflags, lpszcommand?.value?.toCPointer<ByteVar>(), dwcontext, phftpcommand?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpCreateDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpCreateDirectoryA(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpCreateDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpCreateDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpCreateDirectoryW(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpCreateDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpDeleteFileA(hconnect: Long, lpszfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpDeleteFileA(hconnect.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>())
+public actual fun ftpDeleteFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpDeleteFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpDeleteFileW(hconnect: Long, lpszfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpDeleteFileW(hconnect.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>())
+public actual fun ftpDeleteFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpDeleteFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpFindFirstFileA(hconnect: Long, lpszsearchfile: PCSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpFindFirstFileA(hconnect.toCPointer<ByteVar>(), lpszsearchfile.toCPointer<ByteVar>(), lpfindfiledata.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun ftpFindFirstFileA(hconnect: COpaquePointer?, lpszsearchfile: Pcstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszsearchfile?.value?.toCPointer<ByteVar>(), lpfindfiledata?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FtpFindFirstFileW(hconnect: Long, lpszsearchfile: PCWSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpFindFirstFileW(hconnect.toCPointer<ByteVar>(), lpszsearchfile.toCPointer<ByteVar>(), lpfindfiledata.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun ftpFindFirstFileW(hconnect: COpaquePointer?, lpszsearchfile: Pcwstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszsearchfile?.value?.toCPointer<ByteVar>(), lpfindfiledata?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FtpGetCurrentDirectoryA(hconnect: Long, lpszcurrentdirectory: PSTR, lpdwcurrentdirectory: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryA(hconnect.toCPointer<ByteVar>(), lpszcurrentdirectory.toCPointer<ByteVar>(), lpdwcurrentdirectory.toCPointer<ByteVar>())
+public actual fun ftpGetCurrentDirectoryA(hconnect: COpaquePointer?, lpszcurrentdirectory: Pstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(hconnect?.value?.toCPointer<ByteVar>(), lpszcurrentdirectory?.value?.toCPointer<ByteVar>(), lpdwcurrentdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpGetCurrentDirectoryW(hconnect: Long, lpszcurrentdirectory: PWSTR, lpdwcurrentdirectory: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryW(hconnect.toCPointer<ByteVar>(), lpszcurrentdirectory.toCPointer<ByteVar>(), lpdwcurrentdirectory.toCPointer<ByteVar>())
+public actual fun ftpGetCurrentDirectoryW(hconnect: COpaquePointer?, lpszcurrentdirectory: Pwstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(hconnect?.value?.toCPointer<ByteVar>(), lpszcurrentdirectory?.value?.toCPointer<ByteVar>(), lpdwcurrentdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpGetFileA(hconnect: Long, lpszremotefile: PCSTR, lpsznewfile: PCSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetFileA(hconnect.toCPointer<ByteVar>(), lpszremotefile.toCPointer<ByteVar>(), lpsznewfile.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
+public actual fun ftpGetFileA(hconnect: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszremotefile?.value?.toCPointer<ByteVar>(), lpsznewfile?.value?.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
 
-public actual fun FtpGetFileEx(hftpsession: Long, lpszremotefile: PCSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetFileEx(hftpsession.toCPointer<ByteVar>(), lpszremotefile.toCPointer<ByteVar>(), lpsznewfile.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
+public actual fun ftpGetFileEx(hftpsession: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetFileEx(hftpsession?.value?.toCPointer<ByteVar>(), lpszremotefile?.value?.toCPointer<ByteVar>(), lpsznewfile?.value?.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
 
-public actual fun FtpGetFileSize(hfile: Long, lpdwfilesizehigh: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetFileSize(hfile.toCPointer<ByteVar>(), lpdwfilesizehigh.toCPointer<ByteVar>())
+public actual fun ftpGetFileSize(hfile: COpaquePointer?, lpdwfilesizehigh: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetFileSize(hfile?.value?.toCPointer<ByteVar>(), lpdwfilesizehigh?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpGetFileW(hconnect: Long, lpszremotefile: PCWSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpGetFileW(hconnect.toCPointer<ByteVar>(), lpszremotefile.toCPointer<ByteVar>(), lpsznewfile.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
+public actual fun ftpGetFileW(hconnect: COpaquePointer?, lpszremotefile: Pcwstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpGetFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszremotefile?.value?.toCPointer<ByteVar>(), lpsznewfile?.value?.toCPointer<ByteVar>(), ffailifexists, dwflagsandattributes, dwflags, dwcontext)
 
-public actual fun FtpOpenFileA(hconnect: Long, lpszfilename: PCSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpOpenFileA(hconnect.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), dwaccess, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun ftpOpenFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpOpenFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), dwaccess, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FtpOpenFileW(hconnect: Long, lpszfilename: PCWSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpOpenFileW(hconnect.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), dwaccess, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun ftpOpenFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpOpenFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), dwaccess, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FtpPutFileA(hconnect: Long, lpszlocalfile: PCSTR, lpsznewremotefile: PCSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpPutFileA(hconnect.toCPointer<ByteVar>(), lpszlocalfile.toCPointer<ByteVar>(), lpsznewremotefile.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun ftpPutFileA(hconnect: COpaquePointer?, lpszlocalfile: Pcstr, lpsznewremotefile: Pcstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpPutFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszlocalfile?.value?.toCPointer<ByteVar>(), lpsznewremotefile?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun FtpPutFileEx(hftpsession: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCSTR, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpPutFileEx(hftpsession.toCPointer<ByteVar>(), lpszlocalfile.toCPointer<ByteVar>(), lpsznewremotefile.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun ftpPutFileEx(hftpsession: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcstr, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpPutFileEx(hftpsession?.value?.toCPointer<ByteVar>(), lpszlocalfile?.value?.toCPointer<ByteVar>(), lpsznewremotefile?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun FtpPutFileW(hconnect: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCWSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpPutFileW(hconnect.toCPointer<ByteVar>(), lpszlocalfile.toCPointer<ByteVar>(), lpsznewremotefile.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun ftpPutFileW(hconnect: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcwstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpPutFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszlocalfile?.value?.toCPointer<ByteVar>(), lpsznewremotefile?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun FtpRemoveDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryA(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpRemoveDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpRemoveDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryW(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpRemoveDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpRenameFileA(hconnect: Long, lpszexisting: PCSTR, lpsznew: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpRenameFileA(hconnect.toCPointer<ByteVar>(), lpszexisting.toCPointer<ByteVar>(), lpsznew.toCPointer<ByteVar>())
+public actual fun ftpRenameFileA(hconnect: COpaquePointer?, lpszexisting: Pcstr, lpsznew: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpRenameFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszexisting?.value?.toCPointer<ByteVar>(), lpsznew?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpRenameFileW(hconnect: Long, lpszexisting: PCWSTR, lpsznew: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpRenameFileW(hconnect.toCPointer<ByteVar>(), lpszexisting.toCPointer<ByteVar>(), lpsznew.toCPointer<ByteVar>())
+public actual fun ftpRenameFileW(hconnect: COpaquePointer?, lpszexisting: Pcwstr, lpsznew: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpRenameFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszexisting?.value?.toCPointer<ByteVar>(), lpsznew?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpSetCurrentDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryA(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpSetCurrentDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun FtpSetCurrentDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryW(hconnect.toCPointer<ByteVar>(), lpszdirectory.toCPointer<ByteVar>())
+public actual fun ftpSetCurrentDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(hconnect?.value?.toCPointer<ByteVar>(), lpszdirectory?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDiskInfoA(pszpath: PCSTR, pdwclustersize: Long, pdlavail: Long, pdltotal: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetDiskInfoA(pszpath.toCPointer<ByteVar>(), pdwclustersize.toCPointer<ByteVar>(), pdlavail.toCPointer<ByteVar>(), pdltotal.toCPointer<ByteVar>())
+public actual fun getDiskInfoA(pszpath: Pcstr, pdwclustersize: COpaquePointer?, pdlavail: COpaquePointer?, pdltotal: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getDiskInfoA(pszpath?.value?.toCPointer<ByteVar>(), pdwclustersize?.value?.toCPointer<ByteVar>(), pdlavail?.value?.toCPointer<ByteVar>(), pdltotal?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoA(lpcacheconfiginfo.toCPointer<ByteVar>(), lpcbcacheconfiginfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun getUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(lpcacheconfiginfo?.value?.toCPointer<ByteVar>(), lpcbcacheconfiginfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun GetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoW(lpcacheconfiginfo.toCPointer<ByteVar>(), lpcbcacheconfiginfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun getUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(lpcacheconfiginfo?.value?.toCPointer<ByteVar>(), lpcbcacheconfiginfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun GetUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: Long, pftexpiretime: Long, pftaccesstime: Long, pftmodifiedtime: Long, ppbblob: Long, pcbblob: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryBinaryBlob(pwszurlname.toCPointer<ByteVar>(), dwtype.toCPointer<ByteVar>(), pftexpiretime.toCPointer<ByteVar>(), pftaccesstime.toCPointer<ByteVar>(), pftmodifiedtime.toCPointer<ByteVar>(), ppbblob.toCPointer<ByteVar>(), pcbblob.toCPointer<ByteVar>())
+public actual fun getUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: COpaquePointer?, pftexpiretime: COpaquePointer?, pftaccesstime: COpaquePointer?, pftmodifiedtime: COpaquePointer?, ppbblob: COpaquePointer?, pcbblob: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(pwszurlname?.value?.toCPointer<ByteVar>(), dwtype?.value?.toCPointer<ByteVar>(), pftexpiretime?.value?.toCPointer<ByteVar>(), pftaccesstime?.value?.toCPointer<ByteVar>(), pftmodifiedtime?.value?.toCPointer<ByteVar>(), ppbblob?.value?.toCPointer<ByteVar>(), pcbblob?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoA(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())
+public actual fun getUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheEntryInfoExA(lpszurl: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExA(lpszurl.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpszredirecturl.toCPointer<ByteVar>(), lpcbredirecturl.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>(), dwflags)
+public actual fun getUrlCacheEntryInfoExA(lpszurl: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(lpszurl?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpszredirecturl?.value?.toCPointer<ByteVar>(), lpcbredirecturl?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetUrlCacheEntryInfoExW(lpszurl: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCWSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExW(lpszurl.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), lpszredirecturl.toCPointer<ByteVar>(), lpcbredirecturl.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>(), dwflags)
+public actual fun getUrlCacheEntryInfoExW(lpszurl: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcwstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(lpszurl?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), lpszredirecturl?.value?.toCPointer<ByteVar>(), lpcbredirecturl?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoW(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>())
+public actual fun getUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeA(gid, dwflags, dwattributes, lpgroupinfo.toCPointer<ByteVar>(), lpcbgroupinfo.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun getUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(gid, dwflags, dwattributes, lpgroupinfo?.value?.toCPointer<ByteVar>(), lpcbgroupinfo?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeW(gid, dwflags, dwattributes, lpgroupinfo.toCPointer<ByteVar>(), lpcbgroupinfo.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun getUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(gid, dwflags, dwattributes, lpgroupinfo?.value?.toCPointer<ByteVar>(), lpcbgroupinfo?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GetUrlCacheHeaderData(nidx, lpdwdata.toCPointer<ByteVar>())
+public actual fun getUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(nidx, lpdwdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GopherCreateLocatorA(lpszhost: PCSTR, nserverport: UShort, lpszdisplaystring: PCSTR, lpszselectorstring: PCSTR, dwgophertype: UInt, lpszlocator: PSTR, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherCreateLocatorA(lpszhost.toCPointer<ByteVar>(), nserverport, lpszdisplaystring.toCPointer<ByteVar>(), lpszselectorstring.toCPointer<ByteVar>(), dwgophertype, lpszlocator.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun gopherCreateLocatorA(lpszhost: Pcstr, nserverport: UShort, lpszdisplaystring: Pcstr, lpszselectorstring: Pcstr, dwgophertype: UInt, lpszlocator: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(lpszhost?.value?.toCPointer<ByteVar>(), nserverport, lpszdisplaystring?.value?.toCPointer<ByteVar>(), lpszselectorstring?.value?.toCPointer<ByteVar>(), dwgophertype, lpszlocator?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GopherCreateLocatorW(lpszhost: PCWSTR, nserverport: UShort, lpszdisplaystring: PCWSTR, lpszselectorstring: PCWSTR, dwgophertype: UInt, lpszlocator: PWSTR, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherCreateLocatorW(lpszhost.toCPointer<ByteVar>(), nserverport, lpszdisplaystring.toCPointer<ByteVar>(), lpszselectorstring.toCPointer<ByteVar>(), dwgophertype, lpszlocator.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun gopherCreateLocatorW(lpszhost: Pcwstr, nserverport: UShort, lpszdisplaystring: Pcwstr, lpszselectorstring: Pcwstr, dwgophertype: UInt, lpszlocator: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(lpszhost?.value?.toCPointer<ByteVar>(), nserverport, lpszdisplaystring?.value?.toCPointer<ByteVar>(), lpszselectorstring?.value?.toCPointer<ByteVar>(), dwgophertype, lpszlocator?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GopherFindFirstFileA(hconnect: Long, lpszlocator: PCSTR, lpszsearchstring: PCSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherFindFirstFileA(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszsearchstring.toCPointer<ByteVar>(), lpfinddata.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun gopherFindFirstFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszsearchstring: Pcstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszsearchstring?.value?.toCPointer<ByteVar>(), lpfinddata?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GopherFindFirstFileW(hconnect: Long, lpszlocator: PCWSTR, lpszsearchstring: PCWSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherFindFirstFileW(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszsearchstring.toCPointer<ByteVar>(), lpfinddata.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun gopherFindFirstFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszsearchstring: Pcwstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszsearchstring?.value?.toCPointer<ByteVar>(), lpfinddata?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GopherGetAttributeA(hconnect: Long, lpszlocator: PCSTR, lpszattributename: PCSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherGetAttributeA(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszattributename.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwbufferlength, lpdwcharactersreturned.toCPointer<ByteVar>(), lpfnenumerator.toLong().toCPointer<ByteVar>(), dwcontext)
+public actual fun gopherGetAttributeA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszattributename: Pcstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherGetAttributeA(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszattributename?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, lpdwcharactersreturned?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwcontext)
 
-public actual fun GopherGetAttributeW(hconnect: Long, lpszlocator: PCWSTR, lpszattributename: PCWSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherGetAttributeW(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszattributename.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwbufferlength, lpdwcharactersreturned.toCPointer<ByteVar>(), lpfnenumerator.toLong().toCPointer<ByteVar>(), dwcontext)
+public actual fun gopherGetAttributeW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszattributename: Pcwstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherGetAttributeW(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszattributename?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, lpdwcharactersreturned?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwcontext)
 
-public actual fun GopherGetLocatorTypeA(lpszlocator: PCSTR, lpdwgophertype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeA(lpszlocator.toCPointer<ByteVar>(), lpdwgophertype.toCPointer<ByteVar>())
+public actual fun gopherGetLocatorTypeA(lpszlocator: Pcstr, lpdwgophertype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(lpszlocator?.value?.toCPointer<ByteVar>(), lpdwgophertype?.value?.toCPointer<ByteVar>())
 
-public actual fun GopherGetLocatorTypeW(lpszlocator: PCWSTR, lpdwgophertype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeW(lpszlocator.toCPointer<ByteVar>(), lpdwgophertype.toCPointer<ByteVar>())
+public actual fun gopherGetLocatorTypeW(lpszlocator: Pcwstr, lpdwgophertype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(lpszlocator?.value?.toCPointer<ByteVar>(), lpdwgophertype?.value?.toCPointer<ByteVar>())
 
-public actual fun GopherOpenFileA(hconnect: Long, lpszlocator: PCSTR, lpszview: PCSTR, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherOpenFileA(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszview.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun gopherOpenFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszview: Pcstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherOpenFileA(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszview?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GopherOpenFileW(hconnect: Long, lpszlocator: PCWSTR, lpszview: PCWSTR, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_GopherOpenFileW(hconnect.toCPointer<ByteVar>(), lpszlocator.toCPointer<ByteVar>(), lpszview.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun gopherOpenFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszview: Pcwstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_gopherOpenFileW(hconnect?.value?.toCPointer<ByteVar>(), lpszlocator?.value?.toCPointer<ByteVar>(), lpszview?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HttpAddRequestHeadersA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersA(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
+public actual fun httpAddRequestHeadersA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
 
-public actual fun HttpAddRequestHeadersW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersW(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
+public actual fun httpAddRequestHeadersW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
 
-public actual fun HttpCheckDavComplianceA(lpszurl: PCSTR, lpszcompliancetoken: PCSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceA(lpszurl.toCPointer<ByteVar>(), lpszcompliancetoken.toCPointer<ByteVar>(), lpffound.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), lpvreserved.toCPointer<ByteVar>())
+public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: Pcstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(lpszurl?.value?.toCPointer<ByteVar>(), lpszcompliancetoken?.value?.toCPointer<ByteVar>(), lpffound?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), lpvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpCheckDavComplianceW(lpszurl: PCWSTR, lpszcompliancetoken: PCWSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceW(lpszurl.toCPointer<ByteVar>(), lpszcompliancetoken.toCPointer<ByteVar>(), lpffound.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), lpvreserved.toCPointer<ByteVar>())
+public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(lpszurl?.value?.toCPointer<ByteVar>(), lpszcompliancetoken?.value?.toCPointer<ByteVar>(), lpffound?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), lpvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpCloseDependencyHandle(hdependencyhandle: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpCloseDependencyHandle(hdependencyhandle.toCPointer<ByteVar>())
+public actual fun httpCloseDependencyHandle(hdependencyhandle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(hdependencyhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HttpDuplicateDependencyHandle(hdependencyhandle: Long, phduplicateddependencyhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpDuplicateDependencyHandle(hdependencyhandle.toCPointer<ByteVar>(), phduplicateddependencyhandle.toCPointer<ByteVar>())
+public actual fun httpDuplicateDependencyHandle(hdependencyhandle: COpaquePointer?, phduplicateddependencyhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle(hdependencyhandle?.value?.toCPointer<ByteVar>(), phduplicateddependencyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpEndRequestA(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpEndRequestA(hrequest.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun httpEndRequestA(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpEndRequestA(hrequest?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun HttpEndRequestW(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpEndRequestW(hrequest.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun httpEndRequestW(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpEndRequestW(hrequest?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun HttpGetServerCredentials(pwszurl: PCWSTR, ppwszusername: Long, ppwszpassword: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpGetServerCredentials(pwszurl.toCPointer<ByteVar>(), ppwszusername.toCPointer<ByteVar>(), ppwszpassword.toCPointer<ByteVar>())
+public actual fun httpGetServerCredentials(pwszurl: Pcwstr, ppwszusername: COpaquePointer?, ppwszpassword: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpGetServerCredentials(pwszurl?.value?.toCPointer<ByteVar>(), ppwszusername?.value?.toCPointer<ByteVar>(), ppwszpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpIndicatePageLoadComplete(hdependencyhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpIndicatePageLoadComplete(hdependencyhandle.toCPointer<ByteVar>())
+public actual fun httpIndicatePageLoadComplete(hdependencyhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete(hdependencyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpIsHostHstsEnabled(pcwszurl: PCWSTR, pfishsts: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpIsHostHstsEnabled(pcwszurl.toCPointer<ByteVar>(), pfishsts.toCPointer<ByteVar>())
+public actual fun httpIsHostHstsEnabled(pcwszurl: Pcwstr, pfishsts: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(pcwszurl?.value?.toCPointer<ByteVar>(), pfishsts?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpOpenDependencyHandle(hrequesthandle: Long, fbackground: BOOL, phdependencyhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpOpenDependencyHandle(hrequesthandle.toCPointer<ByteVar>(), fbackground, phdependencyhandle.toCPointer<ByteVar>())
+public actual fun httpOpenDependencyHandle(hrequesthandle: COpaquePointer?, fbackground: Bool, phdependencyhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(hrequesthandle?.value?.toCPointer<ByteVar>(), fbackground, phdependencyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpOpenRequestA(hconnect: Long, lpszverb: PCSTR, lpszobjectname: PCSTR, lpszversion: PCSTR, lpszreferrer: PCSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpOpenRequestA(hconnect.toCPointer<ByteVar>(), lpszverb.toCPointer<ByteVar>(), lpszobjectname.toCPointer<ByteVar>(), lpszversion.toCPointer<ByteVar>(), lpszreferrer.toCPointer<ByteVar>(), lplpszaccepttypes.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun httpOpenRequestA(hconnect: COpaquePointer?, lpszverb: Pcstr, lpszobjectname: Pcstr, lpszversion: Pcstr, lpszreferrer: Pcstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpOpenRequestA(hconnect?.value?.toCPointer<ByteVar>(), lpszverb?.value?.toCPointer<ByteVar>(), lpszobjectname?.value?.toCPointer<ByteVar>(), lpszversion?.value?.toCPointer<ByteVar>(), lpszreferrer?.value?.toCPointer<ByteVar>(), lplpszaccepttypes?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HttpOpenRequestW(hconnect: Long, lpszverb: PCWSTR, lpszobjectname: PCWSTR, lpszversion: PCWSTR, lpszreferrer: PCWSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpOpenRequestW(hconnect.toCPointer<ByteVar>(), lpszverb.toCPointer<ByteVar>(), lpszobjectname.toCPointer<ByteVar>(), lpszversion.toCPointer<ByteVar>(), lpszreferrer.toCPointer<ByteVar>(), lplpszaccepttypes.toCPointer<ByteVar>(), dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun httpOpenRequestW(hconnect: COpaquePointer?, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpOpenRequestW(hconnect?.value?.toCPointer<ByteVar>(), lpszverb?.value?.toCPointer<ByteVar>(), lpszobjectname?.value?.toCPointer<ByteVar>(), lpszversion?.value?.toCPointer<ByteVar>(), lpszreferrer?.value?.toCPointer<ByteVar>(), lplpszaccepttypes?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HttpPushClose(hwait: HTTP_PUSH_WAIT_HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpPushClose(hwait.toCPointer<ByteVar>())
+public actual fun httpPushClose(hwait: HttpPushWaitHandle) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpPushClose(hwait?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HttpPushEnable(hrequest: Long, ptransportsetting: Long, phwait: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpPushEnable(hrequest.toCPointer<ByteVar>(), ptransportsetting.toCPointer<ByteVar>(), phwait.toCPointer<ByteVar>())
+public actual fun httpPushEnable(hrequest: COpaquePointer?, ptransportsetting: COpaquePointer?, phwait: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpPushEnable(hrequest?.value?.toCPointer<ByteVar>(), ptransportsetting?.value?.toCPointer<ByteVar>(), phwait?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpPushWait(hwait: HTTP_PUSH_WAIT_HANDLE, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpPushWait(hwait.toCPointer<ByteVar>(), etype, pnotificationstatus.toCPointer<ByteVar>())
+public actual fun httpPushWait(hwait: HttpPushWaitHandle, etype: HttpPushWaitType, pnotificationstatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpPushWait(hwait?.value?.toCPointer<ByteVar>(), etype, pnotificationstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpQueryInfoA(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpQueryInfoA(hrequest.toCPointer<ByteVar>(), dwinfolevel, lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), lpdwindex.toCPointer<ByteVar>())
+public actual fun httpQueryInfoA(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpQueryInfoA(hrequest?.value?.toCPointer<ByteVar>(), dwinfolevel, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), lpdwindex?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpQueryInfoW(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpQueryInfoW(hrequest.toCPointer<ByteVar>(), dwinfolevel, lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), lpdwindex.toCPointer<ByteVar>())
+public actual fun httpQueryInfoW(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpQueryInfoW(hrequest?.value?.toCPointer<ByteVar>(), dwinfolevel, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), lpdwindex?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpSendRequestA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpSendRequestA(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, lpoptional.toCPointer<ByteVar>(), dwoptionallength)
+public actual fun httpSendRequestA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpSendRequestA(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, lpoptional?.value?.toCPointer<ByteVar>(), dwoptionallength)
 
-public actual fun HttpSendRequestExA(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpSendRequestExA(hrequest.toCPointer<ByteVar>(), lpbuffersin.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun httpSendRequestExA(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpSendRequestExA(hrequest?.value?.toCPointer<ByteVar>(), lpbuffersin?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun HttpSendRequestExW(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpSendRequestExW(hrequest.toCPointer<ByteVar>(), lpbuffersin.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun httpSendRequestExW(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpSendRequestExW(hrequest?.value?.toCPointer<ByteVar>(), lpbuffersin?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun HttpSendRequestW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpSendRequestW(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, lpoptional.toCPointer<ByteVar>(), dwoptionallength)
+public actual fun httpSendRequestW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpSendRequestW(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, lpoptional?.value?.toCPointer<ByteVar>(), dwoptionallength)
 
-public actual fun HttpWebSocketClose(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketClose(hwebsocket.toCPointer<ByteVar>(), usstatus, pvreason.toCPointer<ByteVar>(), dwreasonlength)
+public actual fun httpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketClose(hwebsocket?.value?.toCPointer<ByteVar>(), usstatus, pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength)
 
-public actual fun HttpWebSocketCompleteUpgrade(hrequest: Long, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketCompleteUpgrade(hrequest.toCPointer<ByteVar>(), dwcontext)?.toLong() ?: 0L
+public actual fun httpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(hrequest?.value?.toCPointer<ByteVar>(), dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: UInt, pdwreasonlengthconsumed: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketQueryCloseStatus(hwebsocket.toCPointer<ByteVar>(), pusstatus.toCPointer<ByteVar>(), pvreason.toCPointer<ByteVar>(), dwreasonlength, pdwreasonlengthconsumed.toCPointer<ByteVar>())
+public actual fun httpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus(hwebsocket?.value?.toCPointer<ByteVar>(), pusstatus?.value?.toCPointer<ByteVar>(), pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength, pdwreasonlengthconsumed?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: UInt, pdwbytesread: Long, pbuffertype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketReceive(hwebsocket.toCPointer<ByteVar>(), pvbuffer.toCPointer<ByteVar>(), dwbufferlength, pdwbytesread.toCPointer<ByteVar>(), pbuffertype.toCPointer<ByteVar>())
+public actual fun httpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pbuffertype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketReceive(hwebsocket?.value?.toCPointer<ByteVar>(), pvbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, pdwbytesread?.value?.toCPointer<ByteVar>(), pbuffertype?.value?.toCPointer<ByteVar>())
 
-public actual fun HttpWebSocketSend(hwebsocket: Long, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Long, dwbufferlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketSend(hwebsocket.toCPointer<ByteVar>(), buffertype, pvbuffer.toCPointer<ByteVar>(), dwbufferlength)
+public actual fun httpWebSocketSend(hwebsocket: COpaquePointer?, buffertype: HttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketSend(hwebsocket?.value?.toCPointer<ByteVar>(), buffertype, pvbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength)
 
-public actual fun HttpWebSocketShutdown(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_HttpWebSocketShutdown(hwebsocket.toCPointer<ByteVar>(), usstatus, pvreason.toCPointer<ByteVar>(), dwreasonlength)
+public actual fun httpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(hwebsocket?.value?.toCPointer<ByteVar>(), usstatus, pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength)
 
-public actual fun ImportCookieFileA(szfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ImportCookieFileA(szfilename.toCPointer<ByteVar>())
+public actual fun importCookieFileA(szfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_importCookieFileA(szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun ImportCookieFileW(szfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ImportCookieFileW(szfilename.toCPointer<ByteVar>())
+public actual fun importCookieFileW(szfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_importCookieFileW(szfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun IncrementUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IncrementUrlCacheHeaderData(nidx, lpdwdata.toCPointer<ByteVar>())
+public actual fun incrementUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(nidx, lpdwdata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternalInternetGetCookie(lpszurl: PCSTR, lpszcookiedata: PSTR, lpdwdatasize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternalInternetGetCookie(lpszurl.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), lpdwdatasize.toCPointer<ByteVar>())
+public actual fun internalInternetGetCookie(lpszurl: Pcstr, lpszcookiedata: Pstr, lpdwdatasize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internalInternetGetCookie(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), lpdwdatasize?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetAlgIdToStringA(ai: ALG_ID, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetAlgIdToStringA(ai, lpstr.toCPointer<ByteVar>(), lpdwstrlength.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetAlgIdToStringA(ai: AlgId, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(ai, lpstr?.value?.toCPointer<ByteVar>(), lpdwstrlength?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetAlgIdToStringW(ai: ALG_ID, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetAlgIdToStringW(ai, lpstr.toCPointer<ByteVar>(), lpdwstrlength.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetAlgIdToStringW(ai: AlgId, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(ai, lpstr?.value?.toCPointer<ByteVar>(), lpdwstrlength?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetAttemptConnect(dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetAttemptConnect(dwreserved)
+public actual fun internetAttemptConnect(dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetAttemptConnect(dwreserved)
 
-public actual fun InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetAutodial(dwflags, hwndparent.toCPointer<ByteVar>())
+public actual fun internetAutodial(dwflags: InternetAutodial, hwndparent: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetAutodial(dwflags, hwndparent?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetAutodialHangup(dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetAutodialHangup(dwreserved)
+public actual fun internetAutodialHangup(dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetAutodialHangup(dwreserved)
 
-public actual fun InternetCanonicalizeUrlA(lpszurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlA(lpszurl.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), dwflags)
+public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(lpszurl?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetCanonicalizeUrlW(lpszurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlW(lpszurl.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), dwflags)
+public actual fun internetCanonicalizeUrlW(lpszurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(lpszurl?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetCheckConnectionA(lpszurl: PCSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCheckConnectionA(lpszurl.toCPointer<ByteVar>(), dwflags, dwreserved)
+public actual fun internetCheckConnectionA(lpszurl: Pcstr, dwflags: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCheckConnectionA(lpszurl?.value?.toCPointer<ByteVar>(), dwflags, dwreserved)
 
-public actual fun InternetCheckConnectionW(lpszurl: PCWSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCheckConnectionW(lpszurl.toCPointer<ByteVar>(), dwflags, dwreserved)
+public actual fun internetCheckConnectionW(lpszurl: Pcwstr, dwflags: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCheckConnectionW(lpszurl?.value?.toCPointer<ByteVar>(), dwflags, dwreserved)
 
-public actual fun InternetClearAllPerSiteCookieDecisions(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetClearAllPerSiteCookieDecisions()
+public actual fun internetClearAllPerSiteCookieDecisions(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions()
 
-public actual fun InternetCloseHandle(hinternet: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCloseHandle(hinternet.toCPointer<ByteVar>())
+public actual fun internetCloseHandle(hinternet: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCloseHandle(hinternet?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetCombineUrlA(lpszbaseurl: PCSTR, lpszrelativeurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCombineUrlA(lpszbaseurl.toCPointer<ByteVar>(), lpszrelativeurl.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), dwflags)
+public actual fun internetCombineUrlA(lpszbaseurl: Pcstr, lpszrelativeurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCombineUrlA(lpszbaseurl?.value?.toCPointer<ByteVar>(), lpszrelativeurl?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetCombineUrlW(lpszbaseurl: PCWSTR, lpszrelativeurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCombineUrlW(lpszbaseurl.toCPointer<ByteVar>(), lpszrelativeurl.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), dwflags)
+public actual fun internetCombineUrlW(lpszbaseurl: Pcwstr, lpszrelativeurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCombineUrlW(lpszbaseurl?.value?.toCPointer<ByteVar>(), lpszrelativeurl?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetConfirmZoneCrossing(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossing(hwnd.toCPointer<ByteVar>(), szurlprev.toCPointer<ByteVar>(), szurlnew.toCPointer<ByteVar>(), bpost)
+public actual fun internetConfirmZoneCrossing(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing(hwnd?.value?.toCPointer<ByteVar>(), szurlprev?.value?.toCPointer<ByteVar>(), szurlnew?.value?.toCPointer<ByteVar>(), bpost)
 
-public actual fun InternetConfirmZoneCrossingA(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingA(hwnd.toCPointer<ByteVar>(), szurlprev.toCPointer<ByteVar>(), szurlnew.toCPointer<ByteVar>(), bpost)
+public actual fun internetConfirmZoneCrossingA(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA(hwnd?.value?.toCPointer<ByteVar>(), szurlprev?.value?.toCPointer<ByteVar>(), szurlnew?.value?.toCPointer<ByteVar>(), bpost)
 
-public actual fun InternetConfirmZoneCrossingW(hwnd: HWND, szurlprev: PCWSTR, szurlnew: PCWSTR, bpost: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingW(hwnd.toCPointer<ByteVar>(), szurlprev.toCPointer<ByteVar>(), szurlnew.toCPointer<ByteVar>(), bpost)
+public actual fun internetConfirmZoneCrossingW(hwnd: Hwnd, szurlprev: Pcwstr, szurlnew: Pcwstr, bpost: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW(hwnd?.value?.toCPointer<ByteVar>(), szurlprev?.value?.toCPointer<ByteVar>(), szurlnew?.value?.toCPointer<ByteVar>(), bpost)
 
-public actual fun InternetConnectA(hinternet: Long, lpszservername: PCSTR, nserverport: UShort, lpszusername: PCSTR, lpszpassword: PCSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConnectA(hinternet.toCPointer<ByteVar>(), lpszservername.toCPointer<ByteVar>(), nserverport, lpszusername.toCPointer<ByteVar>(), lpszpassword.toCPointer<ByteVar>(), dwservice, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun internetConnectA(hinternet: COpaquePointer?, lpszservername: Pcstr, nserverport: UShort, lpszusername: Pcstr, lpszpassword: Pcstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConnectA(hinternet?.value?.toCPointer<ByteVar>(), lpszservername?.value?.toCPointer<ByteVar>(), nserverport, lpszusername?.value?.toCPointer<ByteVar>(), lpszpassword?.value?.toCPointer<ByteVar>(), dwservice, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetConnectW(hinternet: Long, lpszservername: PCWSTR, nserverport: UShort, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConnectW(hinternet.toCPointer<ByteVar>(), lpszservername.toCPointer<ByteVar>(), nserverport, lpszusername.toCPointer<ByteVar>(), lpszpassword.toCPointer<ByteVar>(), dwservice, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun internetConnectW(hinternet: COpaquePointer?, lpszservername: Pcwstr, nserverport: UShort, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConnectW(hinternet?.value?.toCPointer<ByteVar>(), lpszservername?.value?.toCPointer<ByteVar>(), nserverport, lpszusername?.value?.toCPointer<ByteVar>(), lpszpassword?.value?.toCPointer<ByteVar>(), dwservice, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetConvertUrlFromWireToWideChar(pcszurl: PCSTR, cchurl: UInt, pcwszbaseurl: PCWSTR, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: BOOL, dwcodepageextra: UInt, ppwszconvertedurl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetConvertUrlFromWireToWideChar(pcszurl.toCPointer<ByteVar>(), cchurl, pcwszbaseurl.toCPointer<ByteVar>(), dwcodepagehost, dwcodepagepath, fencodepathextra, dwcodepageextra, ppwszconvertedurl.toCPointer<ByteVar>())
+public actual fun internetConvertUrlFromWireToWideChar(pcszurl: Pcstr, cchurl: UInt, pcwszbaseurl: Pcwstr, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: Bool, dwcodepageextra: UInt, ppwszconvertedurl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar(pcszurl?.value?.toCPointer<ByteVar>(), cchurl, pcwszbaseurl?.value?.toCPointer<ByteVar>(), dwcodepagehost, dwcodepagepath, fencodepathextra, dwcodepageextra, ppwszconvertedurl?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetCrackUrlA(lpszurl: PCSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCrackUrlA(lpszurl.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents.toCPointer<ByteVar>())
+public actual fun internetCrackUrlA(lpszurl: Pcstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCrackUrlA(lpszurl?.value?.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetCrackUrlW(lpszurl: PCWSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCrackUrlW(lpszurl.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents.toCPointer<ByteVar>())
+public actual fun internetCrackUrlW(lpszurl: Pcwstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCrackUrlW(lpszurl?.value?.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetCreateUrlA(lpurlcomponents: Long, dwflags: UInt, lpszurl: PSTR, lpdwurllength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCreateUrlA(lpurlcomponents.toCPointer<ByteVar>(), dwflags, lpszurl.toCPointer<ByteVar>(), lpdwurllength.toCPointer<ByteVar>())
+public actual fun internetCreateUrlA(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pstr, lpdwurllength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCreateUrlA(lpurlcomponents?.value?.toCPointer<ByteVar>(), dwflags, lpszurl?.value?.toCPointer<ByteVar>(), lpdwurllength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetCreateUrlW(lpurlcomponents: Long, dwflags: UInt, lpszurl: PWSTR, lpdwurllength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetCreateUrlW(lpurlcomponents.toCPointer<ByteVar>(), dwflags, lpszurl.toCPointer<ByteVar>(), lpdwurllength.toCPointer<ByteVar>())
+public actual fun internetCreateUrlW(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pwstr, lpdwurllength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetCreateUrlW(lpurlcomponents?.value?.toCPointer<ByteVar>(), dwflags, lpszurl?.value?.toCPointer<ByteVar>(), lpdwurllength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetDial(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetDial(hwndparent.toCPointer<ByteVar>(), lpszconnectoid.toCPointer<ByteVar>(), dwflags, lpdwconnection.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetDial(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetDial(hwndparent?.value?.toCPointer<ByteVar>(), lpszconnectoid?.value?.toCPointer<ByteVar>(), dwflags, lpdwconnection?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetDialA(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetDialA(hwndparent.toCPointer<ByteVar>(), lpszconnectoid.toCPointer<ByteVar>(), dwflags, lpdwconnection.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetDialA(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetDialA(hwndparent?.value?.toCPointer<ByteVar>(), lpszconnectoid?.value?.toCPointer<ByteVar>(), dwflags, lpdwconnection?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetDialW(hwndparent: HWND, lpszconnectoid: PCWSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetDialW(hwndparent.toCPointer<ByteVar>(), lpszconnectoid.toCPointer<ByteVar>(), dwflags, lpdwconnection.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetDialW(hwndparent: Hwnd, lpszconnectoid: Pcwstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetDialW(hwndparent?.value?.toCPointer<ByteVar>(), lpszconnectoid?.value?.toCPointer<ByteVar>(), dwflags, lpdwconnection?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetEnumPerSiteCookieDecisionA(pszsitename: PSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionA(pszsitename.toCPointer<ByteVar>(), pcsitenamesize.toCPointer<ByteVar>(), pdwdecision.toCPointer<ByteVar>(), dwindex)
+public actual fun internetEnumPerSiteCookieDecisionA(pszsitename: Pstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA(pszsitename?.value?.toCPointer<ByteVar>(), pcsitenamesize?.value?.toCPointer<ByteVar>(), pdwdecision?.value?.toCPointer<ByteVar>(), dwindex)
 
-public actual fun InternetEnumPerSiteCookieDecisionW(pszsitename: PWSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionW(pszsitename.toCPointer<ByteVar>(), pcsitenamesize.toCPointer<ByteVar>(), pdwdecision.toCPointer<ByteVar>(), dwindex)
+public actual fun internetEnumPerSiteCookieDecisionW(pszsitename: Pwstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW(pszsitename?.value?.toCPointer<ByteVar>(), pcsitenamesize?.value?.toCPointer<ByteVar>(), pdwdecision?.value?.toCPointer<ByteVar>(), dwindex)
 
-public actual fun InternetErrorDlg(hwnd: HWND, hrequest: Long, dwerror: UInt, dwflags: UInt, lppvdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetErrorDlg(hwnd.toCPointer<ByteVar>(), hrequest.toCPointer<ByteVar>(), dwerror, dwflags, lppvdata.toCPointer<ByteVar>())
+public actual fun internetErrorDlg(hwnd: Hwnd, hrequest: COpaquePointer?, dwerror: UInt, dwflags: UInt, lppvdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetErrorDlg(hwnd?.value?.toCPointer<ByteVar>(), hrequest?.value?.toCPointer<ByteVar>(), dwerror, dwflags, lppvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetFindNextFileA(hfind: Long, lpvfinddata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetFindNextFileA(hfind.toCPointer<ByteVar>(), lpvfinddata.toCPointer<ByteVar>())
+public actual fun internetFindNextFileA(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetFindNextFileA(hfind?.value?.toCPointer<ByteVar>(), lpvfinddata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetFindNextFileW(hfind: Long, lpvfinddata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetFindNextFileW(hfind.toCPointer<ByteVar>(), lpvfinddata.toCPointer<ByteVar>())
+public actual fun internetFindNextFileW(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetFindNextFileW(hfind?.value?.toCPointer<ByteVar>(), lpvfinddata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetFortezzaCommand(dwcommand: UInt, hwnd: HWND, dwreserved: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetFortezzaCommand(dwcommand, hwnd.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetFortezzaCommand(dwcommand: UInt, hwnd: Hwnd, dwreserved: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetFortezzaCommand(dwcommand, hwnd?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetFreeCookies(pcookies: Long, dwcookiecount: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetFreeCookies(pcookies.toCPointer<ByteVar>(), dwcookiecount)
+public actual fun internetFreeCookies(pcookies: COpaquePointer?, dwcookiecount: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetFreeCookies(pcookies?.value?.toCPointer<ByteVar>(), dwcookiecount)
 }
 
-public actual fun InternetFreeProxyInfoList(pproxyinfolist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetFreeProxyInfoList(pproxyinfolist.toCPointer<ByteVar>())
+public actual fun internetFreeProxyInfoList(pproxyinfolist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(pproxyinfolist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InternetGetConnectedState(lpdwflags: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetConnectedState(lpdwflags.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetGetConnectedState(lpdwflags: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetConnectedState(lpdwflags?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetGetConnectedStateEx(lpdwflags: Long, lpszconnectionname: PSTR, dwnamelen: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateEx(lpdwflags.toCPointer<ByteVar>(), lpszconnectionname.toCPointer<ByteVar>(), dwnamelen, dwreserved)
+public actual fun internetGetConnectedStateEx(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, dwnamelen: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(lpdwflags?.value?.toCPointer<ByteVar>(), lpszconnectionname?.value?.toCPointer<ByteVar>(), dwnamelen, dwreserved)
 
-public actual fun InternetGetConnectedStateExA(lpdwflags: Long, lpszconnectionname: PSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExA(lpdwflags.toCPointer<ByteVar>(), lpszconnectionname.toCPointer<ByteVar>(), cchnamelen, dwreserved)
+public actual fun internetGetConnectedStateExA(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA(lpdwflags?.value?.toCPointer<ByteVar>(), lpszconnectionname?.value?.toCPointer<ByteVar>(), cchnamelen, dwreserved)
 
-public actual fun InternetGetConnectedStateExW(lpdwflags: Long, lpszconnectionname: PWSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExW(lpdwflags.toCPointer<ByteVar>(), lpszconnectionname.toCPointer<ByteVar>(), cchnamelen, dwreserved)
+public actual fun internetGetConnectedStateExW(lpdwflags: COpaquePointer?, lpszconnectionname: Pwstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW(lpdwflags?.value?.toCPointer<ByteVar>(), lpszconnectionname?.value?.toCPointer<ByteVar>(), cchnamelen, dwreserved)
 
-public actual fun InternetGetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PSTR, lpdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetCookieA(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>())
+public actual fun internetGetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pstr, lpdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetCookieA(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetCookieEx2(pcwszurl: PCWSTR, pcwszcookiename: PCWSTR, dwflags: UInt, ppcookies: Long, pdwcookiecount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetCookieEx2(pcwszurl.toCPointer<ByteVar>(), pcwszcookiename.toCPointer<ByteVar>(), dwflags, ppcookies.toCPointer<ByteVar>(), pdwcookiecount.toCPointer<ByteVar>())
+public actual fun internetGetCookieEx2(pcwszurl: Pcwstr, pcwszcookiename: Pcwstr, dwflags: UInt, ppcookies: COpaquePointer?, pdwcookiecount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetCookieEx2(pcwszurl?.value?.toCPointer<ByteVar>(), pcwszcookiename?.value?.toCPointer<ByteVar>(), dwflags, ppcookies?.value?.toCPointer<ByteVar>(), pdwcookiecount?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetCookieExA(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>(), dwflags, lpreserved.toCPointer<ByteVar>())
+public actual fun internetGetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetCookieExA(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>(), dwflags, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetCookieExW(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>(), dwflags, lpreserved.toCPointer<ByteVar>())
+public actual fun internetGetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetCookieExW(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>(), dwflags, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PWSTR, lpdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetCookieW(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>())
+public actual fun internetGetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetCookieW(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetLastResponseInfoA(lpdwerror: Long, lpszbuffer: PSTR, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoA(lpdwerror.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun internetGetLastResponseInfoA(lpdwerror: COpaquePointer?, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA(lpdwerror?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetLastResponseInfoW(lpdwerror: Long, lpszbuffer: PWSTR, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoW(lpdwerror.toCPointer<ByteVar>(), lpszbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun internetGetLastResponseInfoW(lpdwerror: COpaquePointer?, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW(lpdwerror?.value?.toCPointer<ByteVar>(), lpszbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetPerSiteCookieDecisionA(pchhostname: PCSTR, presult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionA(pchhostname.toCPointer<ByteVar>(), presult.toCPointer<ByteVar>())
+public actual fun internetGetPerSiteCookieDecisionA(pchhostname: Pcstr, presult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA(pchhostname?.value?.toCPointer<ByteVar>(), presult?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetPerSiteCookieDecisionW(pchhostname: PCWSTR, presult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionW(pchhostname.toCPointer<ByteVar>(), presult.toCPointer<ByteVar>())
+public actual fun internetGetPerSiteCookieDecisionW(pchhostname: Pcwstr, presult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW(pchhostname?.value?.toCPointer<ByteVar>(), presult?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetProxyForUrl(hinternet: Long, pcwszurl: PCWSTR, pproxyinfolist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetProxyForUrl(hinternet.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pproxyinfolist.toCPointer<ByteVar>())
+public actual fun internetGetProxyForUrl(hinternet: COpaquePointer?, pcwszurl: Pcwstr, pproxyinfolist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(hinternet?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pproxyinfolist?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetSecurityInfoByURL(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURL(lpszurl.toCPointer<ByteVar>(), ppcertchain.toCPointer<ByteVar>(), pdwsecureflags.toCPointer<ByteVar>())
+public actual fun internetGetSecurityInfoByURL(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL(lpszurl?.value?.toCPointer<ByteVar>(), ppcertchain?.value?.toCPointer<ByteVar>(), pdwsecureflags?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetSecurityInfoByURLA(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLA(lpszurl.toCPointer<ByteVar>(), ppcertchain.toCPointer<ByteVar>(), pdwsecureflags.toCPointer<ByteVar>())
+public actual fun internetGetSecurityInfoByURLA(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA(lpszurl?.value?.toCPointer<ByteVar>(), ppcertchain?.value?.toCPointer<ByteVar>(), pdwsecureflags?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGetSecurityInfoByURLW(lpszurl: PCWSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLW(lpszurl.toCPointer<ByteVar>(), ppcertchain.toCPointer<ByteVar>(), pdwsecureflags.toCPointer<ByteVar>())
+public actual fun internetGetSecurityInfoByURLW(lpszurl: Pcwstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW(lpszurl?.value?.toCPointer<ByteVar>(), ppcertchain?.value?.toCPointer<ByteVar>(), pdwsecureflags?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetGoOnline(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGoOnline(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>(), dwflags)
+public actual fun internetGoOnline(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGoOnline(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetGoOnlineA(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGoOnlineA(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>(), dwflags)
+public actual fun internetGoOnlineA(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGoOnlineA(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetGoOnlineW(lpszurl: PCWSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetGoOnlineW(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>(), dwflags)
+public actual fun internetGoOnlineW(lpszurl: Pcwstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetGoOnlineW(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun InternetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetHangUp(dwconnection, dwreserved)
+public actual fun internetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetHangUp(dwconnection, dwreserved)
 
-public actual fun InternetInitializeAutoProxyDll(dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetInitializeAutoProxyDll(dwreserved)
+public actual fun internetInitializeAutoProxyDll(dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(dwreserved)
 
-public actual fun InternetLockRequestFile(hinternet: Long, lphlockrequestinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetLockRequestFile(hinternet.toCPointer<ByteVar>(), lphlockrequestinfo.toCPointer<ByteVar>())
+public actual fun internetLockRequestFile(hinternet: COpaquePointer?, lphlockrequestinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetLockRequestFile(hinternet?.value?.toCPointer<ByteVar>(), lphlockrequestinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetOpenA(lpszagent: PCSTR, dwaccesstype: UInt, lpszproxy: PCSTR, lpszproxybypass: PCSTR, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetOpenA(lpszagent.toCPointer<ByteVar>(), dwaccesstype, lpszproxy.toCPointer<ByteVar>(), lpszproxybypass.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun internetOpenA(lpszagent: Pcstr, dwaccesstype: UInt, lpszproxy: Pcstr, lpszproxybypass: Pcstr, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetOpenA(lpszagent?.value?.toCPointer<ByteVar>(), dwaccesstype, lpszproxy?.value?.toCPointer<ByteVar>(), lpszproxybypass?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetOpenUrlA(hinternet: Long, lpszurl: PCSTR, lpszheaders: PCSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetOpenUrlA(hinternet.toCPointer<ByteVar>(), lpszurl.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun internetOpenUrlA(hinternet: COpaquePointer?, lpszurl: Pcstr, lpszheaders: Pcstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetOpenUrlA(hinternet?.value?.toCPointer<ByteVar>(), lpszurl?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetOpenUrlW(hinternet: Long, lpszurl: PCWSTR, lpszheaders: PCWSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetOpenUrlW(hinternet.toCPointer<ByteVar>(), lpszurl.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, dwflags, dwcontext)?.toLong() ?: 0L
+public actual fun internetOpenUrlW(hinternet: COpaquePointer?, lpszurl: Pcwstr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetOpenUrlW(hinternet?.value?.toCPointer<ByteVar>(), lpszurl?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, dwflags, dwcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetOpenW(lpszagent: PCWSTR, dwaccesstype: UInt, lpszproxy: PCWSTR, lpszproxybypass: PCWSTR, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetOpenW(lpszagent.toCPointer<ByteVar>(), dwaccesstype, lpszproxy.toCPointer<ByteVar>(), lpszproxybypass.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun internetOpenW(lpszagent: Pcwstr, dwaccesstype: UInt, lpszproxy: Pcwstr, lpszproxybypass: Pcwstr, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetOpenW(lpszagent?.value?.toCPointer<ByteVar>(), dwaccesstype, lpszproxy?.value?.toCPointer<ByteVar>(), lpszproxybypass?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InternetQueryDataAvailable(hfile: Long, lpdwnumberofbytesavailable: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetQueryDataAvailable(hfile.toCPointer<ByteVar>(), lpdwnumberofbytesavailable.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun internetQueryDataAvailable(hfile: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(hfile?.value?.toCPointer<ByteVar>(), lpdwnumberofbytesavailable?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun InternetQueryFortezzaStatus(pdwstatus: Long, dwreserved: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetQueryFortezzaStatus(pdwstatus.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetQueryFortezzaStatus(pdwstatus: COpaquePointer?, dwreserved: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(pdwstatus?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetQueryOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetQueryOptionA(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun internetQueryOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetQueryOptionA(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetQueryOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetQueryOptionW(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun internetQueryOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetQueryOptionW(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetReadFile(hfile: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetReadFile(hfile.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread.toCPointer<ByteVar>())
+public actual fun internetReadFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetReadFile(hfile?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetReadFileExA(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetReadFileExA(hfile.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun internetReadFileExA(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetReadFileExA(hfile?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun InternetReadFileExW(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetReadFileExW(hfile.toCPointer<ByteVar>(), lpbuffersout.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun internetReadFileExW(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetReadFileExW(hfile?.value?.toCPointer<ByteVar>(), lpbuffersout?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun InternetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringA(dwprotocol, lpstr.toCPointer<ByteVar>(), lpdwstrlength.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(dwprotocol, lpstr?.value?.toCPointer<ByteVar>(), lpdwstrlength?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringW(dwprotocol, lpstr.toCPointer<ByteVar>(), lpdwstrlength.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(dwprotocol, lpstr?.value?.toCPointer<ByteVar>(), lpdwstrlength?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetSetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetCookieA(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>())
+public actual fun internetSetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetCookieA(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetSetCookieEx2(pcwszurl: PCWSTR, pcookie: Long, pcwszp3ppolicy: PCWSTR, dwflags: UInt, pdwcookiestate: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetCookieEx2(pcwszurl.toCPointer<ByteVar>(), pcookie.toCPointer<ByteVar>(), pcwszp3ppolicy.toCPointer<ByteVar>(), dwflags, pdwcookiestate.toCPointer<ByteVar>())
+public actual fun internetSetCookieEx2(pcwszurl: Pcwstr, pcookie: COpaquePointer?, pcwszp3ppolicy: Pcwstr, dwflags: UInt, pdwcookiestate: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetCookieEx2(pcwszurl?.value?.toCPointer<ByteVar>(), pcookie?.value?.toCPointer<ByteVar>(), pcwszp3ppolicy?.value?.toCPointer<ByteVar>(), dwflags, pdwcookiestate?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetSetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetCookieExA(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), dwflags, dwreserved)
+public actual fun internetSetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, dwflags: UInt, dwreserved: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetCookieExA(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), dwflags, dwreserved)
 
-public actual fun InternetSetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetCookieExW(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), dwflags, dwreserved)
+public actual fun internetSetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, dwflags: UInt, dwreserved: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetCookieExW(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), dwflags, dwreserved)
 
-public actual fun InternetSetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetCookieW(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>())
+public actual fun internetSetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetCookieW(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetSetDialState(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetDialState(lpszconnectoid.toCPointer<ByteVar>(), dwstate, dwreserved)
+public actual fun internetSetDialState(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetDialState(lpszconnectoid?.value?.toCPointer<ByteVar>(), dwstate, dwreserved)
 
-public actual fun InternetSetDialStateA(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetDialStateA(lpszconnectoid.toCPointer<ByteVar>(), dwstate, dwreserved)
+public actual fun internetSetDialStateA(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetDialStateA(lpszconnectoid?.value?.toCPointer<ByteVar>(), dwstate, dwreserved)
 
-public actual fun InternetSetDialStateW(lpszconnectoid: PCWSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetDialStateW(lpszconnectoid.toCPointer<ByteVar>(), dwstate, dwreserved)
+public actual fun internetSetDialStateW(lpszconnectoid: Pcwstr, dwstate: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetDialStateW(lpszconnectoid?.value?.toCPointer<ByteVar>(), dwstate, dwreserved)
 
-public actual fun InternetSetFilePointer(hfile: Long, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: UInt, dwcontext: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetFilePointer(hfile.toCPointer<ByteVar>(), ldistancetomove, lpdistancetomovehigh.toCPointer<ByteVar>(), dwmovemethod, dwcontext)
+public actual fun internetSetFilePointer(hfile: COpaquePointer?, ldistancetomove: Int, lpdistancetomovehigh: COpaquePointer?, dwmovemethod: UInt, dwcontext: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetFilePointer(hfile?.value?.toCPointer<ByteVar>(), ldistancetomove, lpdistancetomovehigh?.value?.toCPointer<ByteVar>(), dwmovemethod, dwcontext)
 
-public actual fun InternetSetOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetOptionA(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), dwbufferlength)
+public actual fun internetSetOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetOptionA(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength)
 
-public actual fun InternetSetOptionExA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetOptionExA(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), dwbufferlength, dwflags)
+public actual fun internetSetOptionExA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetOptionExA(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, dwflags)
 
-public actual fun InternetSetOptionExW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetOptionExW(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), dwbufferlength, dwflags)
+public actual fun internetSetOptionExW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetOptionExW(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, dwflags)
 
-public actual fun InternetSetOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetOptionW(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), dwbufferlength)
+public actual fun internetSetOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetOptionW(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength)
 
-public actual fun InternetSetPerSiteCookieDecisionA(pchhostname: PCSTR, dwdecision: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionA(pchhostname.toCPointer<ByteVar>(), dwdecision)
+public actual fun internetSetPerSiteCookieDecisionA(pchhostname: Pcstr, dwdecision: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA(pchhostname?.value?.toCPointer<ByteVar>(), dwdecision)
 
-public actual fun InternetSetPerSiteCookieDecisionW(pchhostname: PCWSTR, dwdecision: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionW(pchhostname.toCPointer<ByteVar>(), dwdecision)
+public actual fun internetSetPerSiteCookieDecisionW(pchhostname: Pcwstr, dwdecision: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW(pchhostname?.value?.toCPointer<ByteVar>(), dwdecision)
 
-public actual fun InternetSetStatusCallback(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetStatusCallback(hinternet.toCPointer<ByteVar>(), lpfninternetcallback.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun internetSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackA(hinternet.toCPointer<ByteVar>(), lpfninternetcallback.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun internetSetStatusCallbackA(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackW(hinternet.toCPointer<ByteVar>(), lpfninternetcallback.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun internetSetStatusCallbackW(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetShowSecurityInfoByURL(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURL(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>())
+public actual fun internetShowSecurityInfoByURL(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetShowSecurityInfoByURLA(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLA(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>())
+public actual fun internetShowSecurityInfoByURLA(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetShowSecurityInfoByURLW(lpszurl: PCWSTR, hwndparent: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLW(lpszurl.toCPointer<ByteVar>(), hwndparent.toCPointer<ByteVar>())
+public actual fun internetShowSecurityInfoByURLW(lpszurl: Pcwstr, hwndparent: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW(lpszurl?.value?.toCPointer<ByteVar>(), hwndparent?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetTimeFromSystemTime(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTime(pst.toCPointer<ByteVar>(), dwrfc, lpsztime.toCPointer<ByteVar>(), cbtime)
+public actual fun internetTimeFromSystemTime(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(pst?.value?.toCPointer<ByteVar>(), dwrfc, lpsztime?.value?.toCPointer<ByteVar>(), cbtime)
 
-public actual fun InternetTimeFromSystemTimeA(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeA(pst.toCPointer<ByteVar>(), dwrfc, lpsztime.toCPointer<ByteVar>(), cbtime)
+public actual fun internetTimeFromSystemTimeA(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(pst?.value?.toCPointer<ByteVar>(), dwrfc, lpsztime?.value?.toCPointer<ByteVar>(), cbtime)
 
-public actual fun InternetTimeFromSystemTimeW(pst: Long, dwrfc: UInt, lpsztime: PWSTR, cbtime: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeW(pst.toCPointer<ByteVar>(), dwrfc, lpsztime.toCPointer<ByteVar>(), cbtime)
+public actual fun internetTimeFromSystemTimeW(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pwstr, cbtime: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(pst?.value?.toCPointer<ByteVar>(), dwrfc, lpsztime?.value?.toCPointer<ByteVar>(), cbtime)
 
-public actual fun InternetTimeToSystemTime(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTime(lpsztime.toCPointer<ByteVar>(), pst.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetTimeToSystemTime(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(lpsztime?.value?.toCPointer<ByteVar>(), pst?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetTimeToSystemTimeA(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeA(lpsztime.toCPointer<ByteVar>(), pst.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetTimeToSystemTimeA(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(lpsztime?.value?.toCPointer<ByteVar>(), pst?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetTimeToSystemTimeW(lpsztime: PCWSTR, pst: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeW(lpsztime.toCPointer<ByteVar>(), pst.toCPointer<ByteVar>(), dwreserved)
+public actual fun internetTimeToSystemTimeW(lpsztime: Pcwstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(lpsztime?.value?.toCPointer<ByteVar>(), pst?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun InternetUnlockRequestFile(hlockrequestinfo: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetUnlockRequestFile(hlockrequestinfo.toCPointer<ByteVar>())
+public actual fun internetUnlockRequestFile(hlockrequestinfo: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(hlockrequestinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetWriteFile(hfile.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwnumberofbytestowrite, lpdwnumberofbyteswritten.toCPointer<ByteVar>())
+public actual fun internetWriteFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetWriteFile(hfile?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwnumberofbytestowrite, lpdwnumberofbyteswritten?.value?.toCPointer<ByteVar>())
 
-public actual fun InternetWriteFileExA(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetWriteFileExA(hfile.toCPointer<ByteVar>(), lpbuffersin.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun internetWriteFileExA(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetWriteFileExA(hfile?.value?.toCPointer<ByteVar>(), lpbuffersin?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun InternetWriteFileExW(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_InternetWriteFileExW(hfile.toCPointer<ByteVar>(), lpbuffersin.toCPointer<ByteVar>(), dwflags, dwcontext)
+public actual fun internetWriteFileExW(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_internetWriteFileExW(hfile?.value?.toCPointer<ByteVar>(), lpbuffersin?.value?.toCPointer<ByteVar>(), dwflags, dwcontext)
 
-public actual fun IsDomainLegalCookieDomainA(pchdomain: PCSTR, pchfulldomain: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainA(pchdomain.toCPointer<ByteVar>(), pchfulldomain.toCPointer<ByteVar>())
+public actual fun isDomainLegalCookieDomainA(pchdomain: Pcstr, pchfulldomain: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(pchdomain?.value?.toCPointer<ByteVar>(), pchfulldomain?.value?.toCPointer<ByteVar>())
 
-public actual fun IsDomainLegalCookieDomainW(pchdomain: PCWSTR, pchfulldomain: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainW(pchdomain.toCPointer<ByteVar>(), pchfulldomain.toCPointer<ByteVar>())
+public actual fun isDomainLegalCookieDomainW(pchdomain: Pcwstr, pchfulldomain: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(pchdomain?.value?.toCPointer<ByteVar>(), pchfulldomain?.value?.toCPointer<ByteVar>())
 
-public actual fun IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: PCSTR, cchhost: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsHostInProxyBypassList(tscheme, lpszhost.toCPointer<ByteVar>(), cchhost)
+public actual fun isHostInProxyBypassList(tscheme: InternetScheme, lpszhost: Pcstr, cchhost: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(tscheme, lpszhost?.value?.toCPointer<ByteVar>(), cchhost)
 
-public actual fun IsProfilesEnabled(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsProfilesEnabled()
+public actual fun isProfilesEnabled(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isProfilesEnabled()
 
-public actual fun IsUrlCacheEntryExpiredA(lpszurlname: PCSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredA(lpszurlname.toCPointer<ByteVar>(), dwflags, pftlastmodified.toCPointer<ByteVar>())
+public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(lpszurlname?.value?.toCPointer<ByteVar>(), dwflags, pftlastmodified?.value?.toCPointer<ByteVar>())
 
-public actual fun IsUrlCacheEntryExpiredW(lpszurlname: PCWSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredW(lpszurlname.toCPointer<ByteVar>(), dwflags, pftlastmodified.toCPointer<ByteVar>())
+public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(lpszurlname?.value?.toCPointer<ByteVar>(), dwflags, pftlastmodified?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadUrlCacheContent(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_LoadUrlCacheContent()
+public actual fun loadUrlCacheContent(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_loadUrlCacheContent()
 
-public actual fun ParseX509EncodedCertificateForListBoxEntry(lpcert: Long, cbcert: UInt, lpszlistboxentry: PSTR, lpdwlistboxentry: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ParseX509EncodedCertificateForListBoxEntry(lpcert.toCPointer<ByteVar>(), cbcert, lpszlistboxentry.toCPointer<ByteVar>(), lpdwlistboxentry.toCPointer<ByteVar>())
+public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: COpaquePointer?, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry(lpcert?.value?.toCPointer<ByteVar>(), cbcert, lpszlistboxentry?.value?.toCPointer<ByteVar>(), lpdwlistboxentry?.value?.toCPointer<ByteVar>())
 
-public actual fun PerformOperationOverUrlCacheA(pszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: Long, pdwreserved2: Long, preserved3: Long, op: CACHE_OPERATOR, poperatordata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_PerformOperationOverUrlCacheA(pszurlsearchpattern.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, preserved1.toCPointer<ByteVar>(), pdwreserved2.toCPointer<ByteVar>(), preserved3.toCPointer<ByteVar>(), op.toLong().toCPointer<ByteVar>(), poperatordata.toCPointer<ByteVar>())
+public actual fun performOperationOverUrlCacheA(pszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: COpaquePointer?, pdwreserved2: COpaquePointer?, preserved3: COpaquePointer?, op: CacheOperator, poperatordata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA(pszurlsearchpattern?.value?.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, preserved1?.value?.toCPointer<ByteVar>(), pdwreserved2?.value?.toCPointer<ByteVar>(), preserved3?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), poperatordata?.value?.toCPointer<ByteVar>())
 
-public actual fun PrivacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: Long, pszbuffer: PWSTR, pdwbufferlength: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_PrivacyGetZonePreferenceW(dwzone, dwtype, pdwtemplate.toCPointer<ByteVar>(), pszbuffer.toCPointer<ByteVar>(), pdwbufferlength.toCPointer<ByteVar>())
+public actual fun privacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: COpaquePointer?, pszbuffer: Pwstr, pdwbufferlength: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(dwzone, dwtype, pdwtemplate?.value?.toCPointer<ByteVar>(), pszbuffer?.value?.toCPointer<ByteVar>(), pdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun PrivacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_PrivacySetZonePreferenceW(dwzone, dwtype, dwtemplate, pszpreference.toCPointer<ByteVar>())
+public actual fun privacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(dwzone, dwtype, dwtemplate, pszpreference?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: Long, pppbstrnetworknames: Long, pppwszgwmacs: Long, pcgatewaymacs: Long, pdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ReadGuidsForConnectedNetworks(pcnetworks.toCPointer<ByteVar>(), pppwsznetworkguids.toCPointer<ByteVar>(), pppbstrnetworknames.toCPointer<ByteVar>(), pppwszgwmacs.toCPointer<ByteVar>(), pcgatewaymacs.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>())
+public actual fun readGuidsForConnectedNetworks(pcnetworks: COpaquePointer?, pppwsznetworkguids: COpaquePointer?, pppbstrnetworknames: COpaquePointer?, pppwszgwmacs: COpaquePointer?, pcgatewaymacs: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks(pcnetworks?.value?.toCPointer<ByteVar>(), pppwsznetworkguids?.value?.toCPointer<ByteVar>(), pppbstrnetworknames?.value?.toCPointer<ByteVar>(), pppwszgwmacs?.value?.toCPointer<ByteVar>(), pcgatewaymacs?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadUrlCacheEntryStream(hurlcachestream: HANDLE, dwlocation: UInt, lpbuffer: Long, lpdwlen: Long, reserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStream(hurlcachestream.toCPointer<ByteVar>(), dwlocation, lpbuffer.toCPointer<ByteVar>(), lpdwlen.toCPointer<ByteVar>(), reserved)
+public actual fun readUrlCacheEntryStream(hurlcachestream: Handle, dwlocation: UInt, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?, reserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(hurlcachestream?.value?.toCPointer<ByteVar>(), dwlocation, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwlen?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun ReadUrlCacheEntryStreamEx(hurlcachestream: HANDLE, qwlocation: ULong, lpbuffer: Long, lpdwlen: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStreamEx(hurlcachestream.toCPointer<ByteVar>(), qwlocation, lpbuffer.toCPointer<ByteVar>(), lpdwlen.toCPointer<ByteVar>())
+public actual fun readUrlCacheEntryStreamEx(hurlcachestream: Handle, qwlocation: ULong, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(hurlcachestream?.value?.toCPointer<ByteVar>(), qwlocation, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwlen?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterUrlCacheNotification(hwnd: HWND, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RegisterUrlCacheNotification(hwnd.toCPointer<ByteVar>(), umsg, gid, dwopsfilter, dwreserved)
+public actual fun registerUrlCacheNotification(hwnd: Hwnd, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_registerUrlCacheNotification(hwnd?.value?.toCPointer<ByteVar>(), umsg, gid, dwopsfilter, dwreserved)
 
-public actual fun ResumeSuspendedDownload(hrequest: Long, dwresultcode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ResumeSuspendedDownload(hrequest.toCPointer<ByteVar>(), dwresultcode)
+public actual fun resumeSuspendedDownload(hrequest: COpaquePointer?, dwresultcode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(hrequest?.value?.toCPointer<ByteVar>(), dwresultcode)
 
-public actual fun RetrieveUrlCacheEntryFileA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileA(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), dwreserved)
+public actual fun retrieveUrlCacheEntryFileA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun RetrieveUrlCacheEntryFileW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileW(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), dwreserved)
+public actual fun retrieveUrlCacheEntryFileW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun RetrieveUrlCacheEntryStreamA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamA(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), frandomread, dwreserved)?.toLong() ?: 0L
+public actual fun retrieveUrlCacheEntryStreamA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), frandomread, dwreserved)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RetrieveUrlCacheEntryStreamW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamW(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), lpcbcacheentryinfo.toCPointer<ByteVar>(), frandomread, dwreserved)?.toLong() ?: 0L
+public actual fun retrieveUrlCacheEntryStreamW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), lpcbcacheentryinfo?.value?.toCPointer<ByteVar>(), frandomread, dwreserved)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RunOnceUrlCache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_RunOnceUrlCache(hwnd.toCPointer<ByteVar>(), hinst.toCPointer<ByteVar>(), lpszcmd.toCPointer<ByteVar>(), ncmdshow)
+public actual fun runOnceUrlCache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_runOnceUrlCache(hwnd?.value?.toCPointer<ByteVar>(), hinst?.value?.toCPointer<ByteVar>(), lpszcmd?.value?.toCPointer<ByteVar>(), ncmdshow)
 
-public actual fun SetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoA(lpcacheconfiginfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun setUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(lpcacheconfiginfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun SetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoW(lpcacheconfiginfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun setUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(lpcacheconfiginfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun SetUrlCacheEntryGroup(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroup(lpszurlname.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes.toCPointer<ByteVar>(), cbgroupattributes, lpreserved.toCPointer<ByteVar>())
+public actual fun setUrlCacheEntryGroup(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(lpszurlname?.value?.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes?.value?.toCPointer<ByteVar>(), cbgroupattributes, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUrlCacheEntryGroupA(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupA(lpszurlname.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes.toCPointer<ByteVar>(), cbgroupattributes, lpreserved.toCPointer<ByteVar>())
+public actual fun setUrlCacheEntryGroupA(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(lpszurlname?.value?.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes?.value?.toCPointer<ByteVar>(), cbgroupattributes, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUrlCacheEntryGroupW(lpszurlname: PCWSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupW(lpszurlname.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes.toCPointer<ByteVar>(), cbgroupattributes, lpreserved.toCPointer<ByteVar>())
+public actual fun setUrlCacheEntryGroupW(lpszurlname: Pcwstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(lpszurlname?.value?.toCPointer<ByteVar>(), dwflags, groupid, pbgroupattributes?.value?.toCPointer<ByteVar>(), cbgroupattributes, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoA(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun setUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun SetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoW(lpszurlname.toCPointer<ByteVar>(), lpcacheentryinfo.toCPointer<ByteVar>(), dwfieldcontrol)
+public actual fun setUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(lpszurlname?.value?.toCPointer<ByteVar>(), lpcacheentryinfo?.value?.toCPointer<ByteVar>(), dwfieldcontrol)
 
-public actual fun SetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeA(gid, dwflags, dwattributes, lpgroupinfo.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun setUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(gid, dwflags, dwattributes, lpgroupinfo?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeW(gid, dwflags, dwattributes, lpgroupinfo.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(gid, dwflags, dwattributes, lpgroupinfo?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetUrlCacheHeaderData(nidx: UInt, dwdata: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_SetUrlCacheHeaderData(nidx, dwdata)
+public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(nidx, dwdata)
 
-public actual fun ShowClientAuthCerts(hwndparent: HWND): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ShowClientAuthCerts(hwndparent.toCPointer<ByteVar>())
+public actual fun showClientAuthCerts(hwndparent: Hwnd): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_showClientAuthCerts(hwndparent?.value?.toCPointer<ByteVar>())
 
-public actual fun ShowSecurityInfo(hwndparent: HWND, psecurityinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ShowSecurityInfo(hwndparent.toCPointer<ByteVar>(), psecurityinfo.toCPointer<ByteVar>())
+public actual fun showSecurityInfo(hwndparent: Hwnd, psecurityinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_showSecurityInfo(hwndparent?.value?.toCPointer<ByteVar>(), psecurityinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ShowX509EncodedCertificate(hwndparent: HWND, lpcert: Long, cbcert: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_ShowX509EncodedCertificate(hwndparent.toCPointer<ByteVar>(), lpcert.toCPointer<ByteVar>(), cbcert)
+public actual fun showX509EncodedCertificate(hwndparent: Hwnd, lpcert: COpaquePointer?, cbcert: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(hwndparent?.value?.toCPointer<ByteVar>(), lpcert?.value?.toCPointer<ByteVar>(), cbcert)
 
-public actual fun UnlockUrlCacheEntryFile(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFile(lpszurlname.toCPointer<ByteVar>(), dwreserved)
+public actual fun unlockUrlCacheEntryFile(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(lpszurlname?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun UnlockUrlCacheEntryFileA(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileA(lpszurlname.toCPointer<ByteVar>(), dwreserved)
+public actual fun unlockUrlCacheEntryFileA(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(lpszurlname?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun UnlockUrlCacheEntryFileW(lpszurlname: PCWSTR, dwreserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileW(lpszurlname.toCPointer<ByteVar>(), dwreserved)
+public actual fun unlockUrlCacheEntryFileW(lpszurlname: Pcwstr, dwreserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(lpszurlname?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun UnlockUrlCacheEntryStream(hurlcachestream: HANDLE, reserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryStream(hurlcachestream.toCPointer<ByteVar>(), reserved)
+public actual fun unlockUrlCacheEntryStream(hurlcachestream: Handle, reserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(hurlcachestream?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun UpdateUrlCacheContentPath(sznewpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UpdateUrlCacheContentPath(sznewpath.toCPointer<ByteVar>())
+public actual fun updateUrlCacheContentPath(sznewpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(sznewpath?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheCheckEntriesExist(rgpwszurls: Long, centries: UInt, rgfexist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheCheckEntriesExist(rgpwszurls.toCPointer<ByteVar>(), centries, rgfexist.toCPointer<ByteVar>())
+public actual fun urlCacheCheckEntriesExist(rgpwszurls: COpaquePointer?, centries: UInt, rgfexist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(rgpwszurls?.value?.toCPointer<ByteVar>(), centries, rgfexist?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheCloseEntryHandle(hentryfile: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheCloseEntryHandle(hentryfile.toCPointer<ByteVar>())
+public actual fun urlCacheCloseEntryHandle(hentryfile: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(hentryfile?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UrlCacheContainerSetEntryMaximumAge(pwszprefix: PCWSTR, dwentrymaxage: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheContainerSetEntryMaximumAge(pwszprefix.toCPointer<ByteVar>(), dwentrymaxage)
+public actual fun urlCacheContainerSetEntryMaximumAge(pwszprefix: Pcwstr, dwentrymaxage: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge(pwszprefix?.value?.toCPointer<ByteVar>(), dwentrymaxage)
 
-public actual fun UrlCacheCreateContainer(pwszname: PCWSTR, pwszprefix: PCWSTR, pwszdirectory: PCWSTR, ulllimit: ULong, dwoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheCreateContainer(pwszname.toCPointer<ByteVar>(), pwszprefix.toCPointer<ByteVar>(), pwszdirectory.toCPointer<ByteVar>(), ulllimit, dwoptions)
+public actual fun urlCacheCreateContainer(pwszname: Pcwstr, pwszprefix: Pcwstr, pwszdirectory: Pcwstr, ulllimit: ULong, dwoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(pwszname?.value?.toCPointer<ByteVar>(), pwszprefix?.value?.toCPointer<ByteVar>(), pwszdirectory?.value?.toCPointer<ByteVar>(), ulllimit, dwoptions)
 
-public actual fun UrlCacheFindFirstEntry(pwszprefix: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: Long, phfind: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheFindFirstEntry(pwszprefix.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, pcacheentryinfo.toCPointer<ByteVar>(), phfind.toCPointer<ByteVar>())
+public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: COpaquePointer?, phfind: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(pwszprefix?.value?.toCPointer<ByteVar>(), dwflags, dwfilter, groupid, pcacheentryinfo?.value?.toCPointer<ByteVar>(), phfind?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheFindNextEntry(hfind: HANDLE, pcacheentryinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheFindNextEntry(hfind.toCPointer<ByteVar>(), pcacheentryinfo.toCPointer<ByteVar>())
+public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(hfind?.value?.toCPointer<ByteVar>(), pcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheFreeEntryInfo(pcacheentryinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheFreeEntryInfo(pcacheentryinfo.toCPointer<ByteVar>())
+public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(pcacheentryinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UrlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheFreeGlobalSpace(ulltargetsize, dwfilter)
+public actual fun urlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(ulltargetsize, dwfilter)
 
-public actual fun UrlCacheGetContentPaths(pppwszdirectories: Long, pcdirectories: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheGetContentPaths(pppwszdirectories.toCPointer<ByteVar>(), pcdirectories.toCPointer<ByteVar>())
+public actual fun urlCacheGetContentPaths(pppwszdirectories: COpaquePointer?, pcdirectories: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(pppwszdirectories?.value?.toCPointer<ByteVar>(), pcdirectories?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheGetEntryInfo(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheGetEntryInfo(happcache.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pcacheentryinfo.toCPointer<ByteVar>())
+public actual fun urlCacheGetEntryInfo(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(happcache?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pcacheentryinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: Long, pulllimit: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalCacheSize(dwfilter, pullsize.toCPointer<ByteVar>(), pulllimit.toCPointer<ByteVar>())
+public actual fun urlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: COpaquePointer?, pulllimit: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(dwfilter, pullsize?.value?.toCPointer<ByteVar>(), pulllimit?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalLimit(limittype, pulllimit.toCPointer<ByteVar>())
+public actual fun urlCacheGetGlobalLimit(limittype: UrlCacheLimitType, pulllimit: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(limittype, pulllimit?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheReadEntryStream(hurlcachestream: Long, ulllocation: ULong, pbuffer: Long, dwbufferlen: UInt, pdwbufferlen: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheReadEntryStream(hurlcachestream.toCPointer<ByteVar>(), ulllocation, pbuffer.toCPointer<ByteVar>(), dwbufferlen, pdwbufferlen.toCPointer<ByteVar>())
+public actual fun urlCacheReadEntryStream(hurlcachestream: COpaquePointer?, ulllocation: ULong, pbuffer: COpaquePointer?, dwbufferlen: UInt, pdwbufferlen: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(hurlcachestream?.value?.toCPointer<ByteVar>(), ulllocation, pbuffer?.value?.toCPointer<ByteVar>(), dwbufferlen, pdwbufferlen?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheReloadSettings(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheReloadSettings()
+public actual fun urlCacheReloadSettings(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheReloadSettings()
 
-public actual fun UrlCacheRetrieveEntryFile(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long, phentryfile: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryFile(happcache.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pcacheentryinfo.toCPointer<ByteVar>(), phentryfile.toCPointer<ByteVar>())
+public actual fun urlCacheRetrieveEntryFile(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?, phentryfile: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(happcache?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pcacheentryinfo?.value?.toCPointer<ByteVar>(), phentryfile?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheRetrieveEntryStream(happcache: Long, pcwszurl: PCWSTR, frandomread: BOOL, pcacheentryinfo: Long, phentrystream: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryStream(happcache.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), frandomread, pcacheentryinfo.toCPointer<ByteVar>(), phentrystream.toCPointer<ByteVar>())
+public actual fun urlCacheRetrieveEntryStream(happcache: COpaquePointer?, pcwszurl: Pcwstr, frandomread: Bool, pcacheentryinfo: COpaquePointer?, phentrystream: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream(happcache?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), frandomread, pcacheentryinfo?.value?.toCPointer<ByteVar>(), phentrystream?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlCacheServer(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheServer()
+public actual fun urlCacheServer(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheServer()
 
-public actual fun UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheSetGlobalLimit(limittype, ulllimit)
+public actual fun urlCacheSetGlobalLimit(limittype: UrlCacheLimitType, ulllimit: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(limittype, ulllimit)
 
-public actual fun UrlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: PCWSTR, pbextradata: Long, cbextradata: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_UrlCacheUpdateEntryExtraData(happcache.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pbextradata.toCPointer<ByteVar>(), cbextradata)
+public actual fun urlCacheUpdateEntryExtraData(happcache: COpaquePointer?, pcwszurl: Pcwstr, pbextradata: COpaquePointer?, cbextradata: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.wininet.cinterop.windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData(happcache?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pbextradata?.value?.toCPointer<ByteVar>(), cbextradata)

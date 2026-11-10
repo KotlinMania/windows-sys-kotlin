@@ -1,128 +1,129 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public typealias ALT_BREAKS = Int
+public typealias AltBreaks = Int
 
 public typealias AppearanceConstants = Int
 
 public typealias BorderStyleConstants = Int
 
-public typealias CONFIDENCE_LEVEL = Int
+public typealias ConfidenceLevel = Int
 
 public typealias CorrectionMode = Int
 
 public typealias CorrectionPosition = Int
 
-public typealias DISPID_Ink = Int
+public typealias DispidInk = Int
 
-public typealias DISPID_InkCollector = Int
+public typealias DispidInkCollector = Int
 
-public typealias DISPID_InkCollectorEvent = Int
+public typealias DispidInkCollectorEvent = Int
 
-public typealias DISPID_InkCursor = Int
+public typealias DispidInkCursor = Int
 
-public typealias DISPID_InkCursorButton = Int
+public typealias DispidInkCursorButton = Int
 
-public typealias DISPID_InkCursorButtons = Int
+public typealias DispidInkCursorButtons = Int
 
-public typealias DISPID_InkCursors = Int
+public typealias DispidInkCursors = Int
 
-public typealias DISPID_InkCustomStrokes = Int
+public typealias DispidInkCustomStrokes = Int
 
-public typealias DISPID_InkDivider = Int
+public typealias DispidInkDivider = Int
 
-public typealias DISPID_InkDivisionResult = Int
+public typealias DispidInkDivisionResult = Int
 
-public typealias DISPID_InkDivisionUnit = Int
+public typealias DispidInkDivisionUnit = Int
 
-public typealias DISPID_InkDivisionUnits = Int
+public typealias DispidInkDivisionUnits = Int
 
-public typealias DISPID_InkDrawingAttributes = Int
+public typealias DispidInkDrawingAttributes = Int
 
-public typealias DISPID_InkEdit = Int
+public typealias DispidInkEdit = Int
 
-public typealias DISPID_InkEditEvents = Int
+public typealias DispidInkEditEvents = Int
 
-public typealias DISPID_InkEvent = Int
+public typealias DispidInkEvent = Int
 
-public typealias DISPID_InkExtendedProperties = Int
+public typealias DispidInkExtendedProperties = Int
 
-public typealias DISPID_InkExtendedProperty = Int
+public typealias DispidInkExtendedProperty = Int
 
-public typealias DISPID_InkGesture = Int
+public typealias DispidInkGesture = Int
 
-public typealias DISPID_InkRecoAlternate = Int
+public typealias DispidInkRecoAlternate = Int
 
-public typealias DISPID_InkRecoContext = Int
+public typealias DispidInkRecoContext = Int
 
-public typealias DISPID_InkRecoContext2 = Int
+public typealias DispidInkRecoContext2 = Int
 
-public typealias DISPID_InkRecognitionAlternates = Int
+public typealias DispidInkRecognitionAlternates = Int
 
-public typealias DISPID_InkRecognitionEvent = Int
+public typealias DispidInkRecognitionEvent = Int
 
-public typealias DISPID_InkRecognitionResult = Int
+public typealias DispidInkRecognitionResult = Int
 
-public typealias DISPID_InkRecognizer = Int
+public typealias DispidInkRecognizer = Int
 
-public typealias DISPID_InkRecognizer2 = Int
+public typealias DispidInkRecognizer2 = Int
 
-public typealias DISPID_InkRecognizerGuide = Int
+public typealias DispidInkRecognizerGuide = Int
 
-public typealias DISPID_InkRecognizers = Int
+public typealias DispidInkRecognizers = Int
 
-public typealias DISPID_InkRectangle = Int
+public typealias DispidInkRectangle = Int
 
-public typealias DISPID_InkRenderer = Int
+public typealias DispidInkRenderer = Int
 
-public typealias DISPID_InkStrokeDisp = Int
+public typealias DispidInkStrokeDisp = Int
 
-public typealias DISPID_InkStrokes = Int
+public typealias DispidInkStrokes = Int
 
-public typealias DISPID_InkTablet = Int
+public typealias DispidInkTablet = Int
 
-public typealias DISPID_InkTablet2 = Int
+public typealias DispidInkTablet2 = Int
 
-public typealias DISPID_InkTablet3 = Int
+public typealias DispidInkTablet3 = Int
 
-public typealias DISPID_InkTablets = Int
+public typealias DispidInkTablets = Int
 
-public typealias DISPID_InkTransform = Int
+public typealias DispidInkTransform = Int
 
-public typealias DISPID_InkWordList = Int
+public typealias DispidInkWordList = Int
 
-public typealias DISPID_InkWordList2 = Int
+public typealias DispidInkWordList2 = Int
 
-public typealias DISPID_MathInputControlEvents = Int
+public typealias DispidMathInputControlEvents = Int
 
-public typealias DISPID_PenInputPanel = Int
+public typealias DispidPenInputPanel = Int
 
-public typealias DISPID_PenInputPanelEvents = Int
+public typealias DispidPenInputPanelEvents = Int
 
-public typealias DISPID_StrokeEvent = Int
+public typealias DispidStrokeEvent = Int
 
 public typealias EventMask = Int
 
-public typealias FLICKACTION_COMMANDCODE = Int
+public typealias FlickactionCommandcode = Int
 
-public typealias FLICKDIRECTION = Int
+public typealias Flickdirection = Int
 
-public typealias FLICKMODE = Int
+public typealias Flickmode = Int
 
-public typealias GET_DANDIDATE_FLAGS = Int
+public typealias GetDandidateFlags = Int
 
-public typealias HRECOALT = Long
+public typealias Hrecoalt = COpaquePointer?
 
-public typealias HRECOCONTEXT = Long
+public typealias Hrecocontext = COpaquePointer?
 
-public typealias HRECOGNIZER = Long
+public typealias Hrecognizer = COpaquePointer?
 
-public typealias HRECOLATTICE = Long
+public typealias Hrecolattice = COpaquePointer?
 
-public typealias HRECOWORDLIST = Long
+public typealias Hrecowordlist = COpaquePointer?
 
-public typealias INK_METRIC_FLAGS = Int
+public typealias InkMetricFlags = Int
 
 public typealias InPlaceDirection = Int
 
@@ -194,35 +195,35 @@ public typealias InkSystemGesture = Int
 
 public typealias InteractionMode = Int
 
-public typealias KEYMODIFIER = Int
+public typealias Keymodifier = Int
 
-public typealias LINE_METRICS = Int
+public typealias LineMetrics = Int
 
-public typealias MICUIELEMENT = Int
+public typealias Micuielement = Int
 
-public typealias MICUIELEMENTSTATE = Int
+public typealias Micuielementstate = Int
 
 public typealias MouseButton = Int
 
-public typealias PROPERTY_UNITS = Int
+public typealias PropertyUnits = Int
 
 public typealias PanelInputArea = Int
 
 public typealias PanelType = Int
 
 public fun interface PfnRecoCallbackFn {
-    public operator fun invoke(param0: UInt, param1: Long, param2: HRECOCONTEXT): HRESULT
+    public operator fun invoke(param0: UInt, param1: COpaquePointer?, param2: Hrecocontext): Hresult
 }
 
 public typealias PfnRecoCallback = PfnRecoCallbackFn?
 
-public typealias RECO_TYPE = Int
+public typealias RecoType = Int
 
 public typealias RealTimeStylusDataInterest = Int
 
 public typealias RealTimeStylusLockType = Int
 
-public typealias SCROLLDIRECTION = Int
+public typealias Scrolldirection = Int
 
 public typealias ScrollBarsConstants = Int
 

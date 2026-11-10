@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-public typealias DISC_RECORDER_STATE_FLAGS = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public typealias DiscRecorderStateFlags = UInt
 
 public typealias EmulationType = Int
 
@@ -8,60 +10,60 @@ public typealias FsiFileSystems = Int
 
 public typealias FsiItemType = Int
 
-public typealias IMAPI_BURN_VERIFICATION_LEVEL = Int
+public typealias ImapiBurnVerificationLevel = Int
 
-public typealias IMAPI_CD_SECTOR_TYPE = Int
+public typealias ImapiCdSectorType = Int
 
-public typealias IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = Int
+public typealias ImapiCdTrackDigitalCopySetting = Int
 
-public typealias IMAPI_FEATURE_PAGE_TYPE = Int
+public typealias ImapiFeaturePageType = Int
 
-public typealias IMAPI_FORMAT2_DATA_MEDIA_STATE = Int
+public typealias ImapiFormat2DataMediaState = Int
 
-public typealias IMAPI_FORMAT2_DATA_WRITE_ACTION = Int
+public typealias ImapiFormat2DataWriteAction = Int
 
-public typealias IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = Int
+public typealias ImapiFormat2RawCdDataSectorType = Int
 
-public typealias IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = Int
+public typealias ImapiFormat2RawCdWriteAction = Int
 
-public typealias IMAPI_FORMAT2_TAO_WRITE_ACTION = Int
+public typealias ImapiFormat2TaoWriteAction = Int
 
-public typealias IMAPI_MEDIA_PHYSICAL_TYPE = Int
+public typealias ImapiMediaPhysicalType = Int
 
-public typealias IMAPI_MEDIA_WRITE_PROTECT_STATE = Int
+public typealias ImapiMediaWriteProtectState = Int
 
-public typealias IMAPI_MODE_PAGE_REQUEST_TYPE = Int
+public typealias ImapiModePageRequestType = Int
 
-public typealias IMAPI_MODE_PAGE_TYPE = Int
+public typealias ImapiModePageType = Int
 
-public typealias IMAPI_PROFILE_TYPE = Int
+public typealias ImapiProfileType = Int
 
-public typealias IMAPI_READ_TRACK_ADDRESS_TYPE = Int
+public typealias ImapiReadTrackAddressType = Int
 
-public typealias IMMPID_CPV_ENUM = Int
+public typealias ImmpidCpvEnum = Int
 
-public typealias IMMPID_MPV_ENUM = Int
+public typealias ImmpidMpvEnum = Int
 
-public typealias IMMPID_MP_ENUM = Int
+public typealias ImmpidMpEnum = Int
 
-public typealias IMMPID_NMP_ENUM = Int
+public typealias ImmpidNmpEnum = Int
 
-public typealias IMMPID_RPV_ENUM = Int
+public typealias ImmpidRpvEnum = Int
 
-public typealias IMMPID_RP_ENUM = Int
+public typealias ImmpidRpEnum = Int
 
-public typealias LPMSGSESS = Long
+public typealias Lpmsgsess = Long
 
-public typealias MEDIA_FLAGS = Int
+public typealias MediaFlags = Int
 
-public typealias MEDIA_TYPES = Int
+public typealias MediaTypes = Int
 
-public fun interface MSGCALLRELEASEFn {
-    public operator fun invoke(ulcallerdata: UInt, lpmessage: Long)
+public fun interface MsgcallreleaseFn {
+    public operator fun invoke(ulcallerdata: UInt, lpmessage: COpaquePointer?)
 }
 
-public typealias MSGCALLRELEASE = MSGCALLRELEASEFn?
+public typealias Msgcallrelease = MsgcallreleaseFn?
 
 public typealias PlatformId = Int
 
-public typealias RECORDER_TYPES = Int
+public typealias RecorderTypes = Int

@@ -1,53 +1,53 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem
 
-public typealias GETPROPERTYSTOREFLAGS = Int
+public typealias Getpropertystoreflags = Int
 
-public typealias PCUSERIALIZEDPROPSTORAGE = Long
+public typealias Pcuserializedpropstorage = Long
 
-public typealias PDOPSTATUS = Int
+public typealias Pdopstatus = Int
 
-public typealias PKA_FLAGS = Int
+public typealias PkaFlags = Int
 
-public typealias PLACEHOLDER_STATES = Int
+public typealias PlaceholderStates = Int
 
-public typealias PROPDESC_AGGREGATION_TYPE = Int
+public typealias PropdescAggregationType = Int
 
-public typealias PROPDESC_COLUMNINDEX_TYPE = Int
+public typealias PropdescColumnindexType = Int
 
-public typealias PROPDESC_CONDITION_TYPE = Int
+public typealias PropdescConditionType = Int
 
-public typealias PROPDESC_DISPLAYTYPE = Int
+public typealias PropdescDisplaytype = Int
 
-public typealias PROPDESC_ENUMFILTER = Int
+public typealias PropdescEnumfilter = Int
 
-public typealias PROPDESC_FORMAT_FLAGS = Int
+public typealias PropdescFormatFlags = Int
 
-public typealias PROPDESC_GROUPING_RANGE = Int
+public typealias PropdescGroupingRange = Int
 
-public typealias PROPDESC_RELATIVEDESCRIPTION_TYPE = Int
+public typealias PropdescRelativedescriptionType = Int
 
-public typealias PROPDESC_SEARCHINFO_FLAGS = Int
+public typealias PropdescSearchinfoFlags = Int
 
-public typealias PROPDESC_SORTDESCRIPTION = Int
+public typealias PropdescSortdescription = Int
 
-public typealias PROPDESC_TYPE_FLAGS = UInt
+public typealias PropdescTypeFlags = UInt
 
-public typealias PROPDESC_VIEW_FLAGS = Int
+public typealias PropdescViewFlags = Int
 
-public typealias PROPENUMTYPE = Int
+public typealias Propenumtype = Int
 
-public typealias PROPERTYUI_FLAGS = Int
+public typealias PropertyuiFlags = Int
 
-public typealias PROPERTYUI_FORMAT_FLAGS = Int
+public typealias PropertyuiFormatFlags = Int
 
-public typealias PROPERTYUI_NAME_FLAGS = Int
+public typealias PropertyuiNameFlags = Int
 
-public typealias PSC_STATE = Int
+public typealias PscState = Int
 
-public typealias SERIALIZEDPROPSTORAGE = Long
+public typealias Serializedpropstorage = Long
 
-public typealias SYNC_ENGINE_STATE_FLAGS = Int
+public typealias SyncEngineStateFlags = Int
 
-public typealias SYNC_TRANSFER_STATUS = Int
+public typealias SyncTransferStatus = Int
 
-public typealias _PERSIST_SPROPSTORE_FLAGS = Int
+public typealias PersistSpropstoreFlags = Int

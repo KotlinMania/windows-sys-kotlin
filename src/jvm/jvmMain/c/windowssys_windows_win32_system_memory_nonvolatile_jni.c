@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlDrainNonVolatileFlush(JNIEnv* km_env, jclass km_clazz, jlong nvtoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlDrainNonVolatileFlush(JNIEnv* km_env, jclass km_clazz, jlong nvtoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlFillNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvdestination, jlong size, jbyte value, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlFillNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvdestination, jlong size, jbyte value, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlFlushNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvbuffer, jlong size, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlFlushNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvbuffer, jlong size, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -79,7 +79,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlFlushNonVolatileMemoryRanges(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvranges, jlong numranges, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlFlushNonVolatileMemoryRanges(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvranges, jlong numranges, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlFreeNonVolatileToken(JNIEnv* km_env, jclass km_clazz, jlong nvtoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlFreeNonVolatileToken(JNIEnv* km_env, jclass km_clazz, jlong nvtoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -118,7 +118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlGetNonVolatileToken(JNIEnv* km_env, jclass km_clazz, jlong nvbuffer, jlong size, jlong nvtoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlGetNonVolatileToken(JNIEnv* km_env, jclass km_clazz, jlong nvbuffer, jlong size, jlong nvtoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -138,7 +138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1RtlWriteNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvdestination, jlong source, jlong size, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_memory_nonvolatile_WindowsWin32SystemMemoryNonvolatileJniBridge_windowssys_1windows_1win32_1system_1memory_1nonvolatile_1rtlWriteNonVolatileMemory(JNIEnv* km_env, jclass km_clazz, jlong nvtoken, jlong nvdestination, jlong source, jlong size, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

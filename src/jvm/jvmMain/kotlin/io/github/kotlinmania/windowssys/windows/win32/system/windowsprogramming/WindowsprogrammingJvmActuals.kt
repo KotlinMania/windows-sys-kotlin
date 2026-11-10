@@ -2,23 +2,24 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HLOCAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hlocal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 private object WindowsWin32SystemWindowsprogrammingJniBridge {
     init {
@@ -26,1299 +27,1299 @@ private object WindowsWin32SystemWindowsprogrammingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_AddDelBackupEntryA(lpcszfilelist: Long, lpcszbackupdir: Long, lpcszbasename: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryA(lpcszfilelist: Long, lpcszbackupdir: Long, lpcszbasename: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_AddDelBackupEntryW(lpcszfilelist: Long, lpcszbackupdir: Long, lpcszbasename: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryW(lpcszfilelist: Long, lpcszbackupdir: Long, lpcszbasename: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_AdvInstallFileA(hwnd: Long, lpszsourcedir: Long, lpszsourcefile: Long, lpszdestdir: Long, lpszdestfile: Long, dwflags: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_advInstallFileA(hwnd: Long, lpszsourcedir: Long, lpszsourcefile: Long, lpszdestdir: Long, lpszdestfile: Long, dwflags: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_AdvInstallFileW(hwnd: Long, lpszsourcedir: Long, lpszsourcefile: Long, lpszdestdir: Long, lpszdestfile: Long, dwflags: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_advInstallFileW(hwnd: Long, lpszsourcedir: Long, lpszsourcefile: Long, lpszdestdir: Long, lpszdestfile: Long, dwflags: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ApphelpCheckShellObject(objectclsid: Long, bshimifnecessary: Int, pullflags: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_apphelpCheckShellObject(objectclsid: Long, bshimifnecessary: Int, pullflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_CancelDeviceWakeupRequest(hdevice: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_cancelDeviceWakeupRequest(hdevice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_CloseINFEngine(hinf: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_closeINFEngine(hinf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: Long, lpperformancecountervalue: Long, lpconversionerror: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: Long, lpperformancecountervalue: Long, lpconversionerror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: Long, lpauxiliarycountervalue: Long, lpconversionerror: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: Long, lpauxiliarycountervalue: Long, lpconversionerror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIBeginAccess(pdci: Long, x: Int, y: Int, dx: Int, dy: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIBeginAccess(pdci: Long, x: Int, y: Int, dx: Int, dy: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCICloseProvider(hdc: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_dCICloseProvider(hdc: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCICreateOffscreen(hdc: Long, dwcompression: Int, dwredmask: Int, dwgreenmask: Int, dwbluemask: Int, dwwidth: Int, dwheight: Int, dwdcicaps: Int, dwbitcount: Int, lplpsurface: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCICreateOffscreen(hdc: Long, dwcompression: Int, dwredmask: Int, dwgreenmask: Int, dwbluemask: Int, dwwidth: Int, dwheight: Int, dwdcicaps: Int, dwbitcount: Int, lplpsurface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCICreateOverlay(hdc: Long, lpoffscreensurf: Long, lplpsurface: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCICreateOverlay(hdc: Long, lpoffscreensurf: Long, lplpsurface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCICreatePrimary(hdc: Long, lplpsurface: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCICreatePrimary(hdc: Long, lplpsurface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIDestroy(pdci: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIDestroy(pdci: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIDraw(pdci: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIDraw(pdci: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIEndAccess(pdci: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIEndAccess(pdci: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIEnum(hdc: Long, lprdst: Long, lprsrc: Long, lpfncallback: Long, lpcontext: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIEnum(hdc: Long, lprdst: Long, lprsrc: Long, lpfncallback: Long, lpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCIOpenProvider(): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_dCIOpenProvider(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCISetClipList(pdci: Long, prd: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCISetClipList(pdci: Long, prd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCISetDestination(pdci: Long, dst: Long, src: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCISetDestination(pdci: Long, dst: Long, src: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DCISetSrcDestClip(pdci: Long, srcrc: Long, destrc: Long, prd: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dCISetSrcDestClip(pdci: Long, srcrc: Long, destrc: Long, prd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DelNodeA(pszfileordirname: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_delNodeA(pszfileordirname: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DelNodeRunDLL32W(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_delNodeRunDLL32W(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DelNodeW(pszfileordirname: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_delNodeW(pszfileordirname: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DnsHostnameToComputerNameA(hostname: Long, computername: Long, nsize: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameA(hostname: Long, computername: Long, nsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DnsHostnameToComputerNameW(hostname: Long, computername: Long, nsize: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameW(hostname: Long, computername: Long, nsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_DosDateTimeToFileTime(wfatdate: Short, wfattime: Short, lpfiletime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_dosDateTimeToFileTime(wfatdate: Short, wfattime: Short, lpfiletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_EnableProcessOptionalXStateFeatures(features: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_enableProcessOptionalXStateFeatures(features: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ExecuteCabA(hwnd: Long, pcab: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_executeCabA(hwnd: Long, pcab: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ExecuteCabW(hwnd: Long, pcab: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_executeCabW(hwnd: Long, pcab: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ExtractFilesA(pszcabname: Long, pszexpanddir: Long, dwflags: Int, pszfilelist: Long, lpreserved: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_extractFilesA(pszcabname: Long, pszexpanddir: Long, dwflags: Int, pszfilelist: Long, lpreserved: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ExtractFilesW(pszcabname: Long, pszexpanddir: Long, dwflags: Int, pszfilelist: Long, lpreserved: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_extractFilesW(pszcabname: Long, pszexpanddir: Long, dwflags: Int, pszfilelist: Long, lpreserved: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileSaveMarkNotExistA(lpfilelist: Long, lpdir: Long, lpbasename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistA(lpfilelist: Long, lpdir: Long, lpbasename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileSaveMarkNotExistW(lpfilelist: Long, lpdir: Long, lpbasename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistW(lpfilelist: Long, lpdir: Long, lpbasename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreOnINFA(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, pszbackupdir: Long, pszbasebackupfile: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFA(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, pszbackupdir: Long, pszbasebackupfile: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreOnINFW(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, pszbackupdir: Long, pszbasebackupfile: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFW(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, pszbackupdir: Long, pszbasebackupfile: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreW(hdlg: Long, lpfilelist: Long, lpdir: Long, lpbasename: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreW(hdlg: Long, lpfilelist: Long, lpdir: Long, lpbasename: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_FileTimeToDosDateTime(lpfiletime: Long, lpfatdate: Long, lpfattime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_fileTimeToDosDateTime(lpfiletime: Long, lpfatdate: Long, lpfattime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GdiEntry13(): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_gdiEntry13(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetComputerNameA(lpbuffer: Long, nsize: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getComputerNameA(lpbuffer: Long, nsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetComputerNameW(lpbuffer: Long, nsize: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getComputerNameW(lpbuffer: Long, nsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetCurrentHwProfileA(lphwprofileinfo: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileA(lphwprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetCurrentHwProfileW(lphwprofileinfo: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileW(lphwprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetDCRegionData(hdc: Long, size: Int, prd: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getDCRegionData(hdc: Long, size: Int, prd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFeatureEnabledState(featureid: Int, changetime: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFeatureEnabledState(featureid: Int, changetime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFeatureVariant(featureid: Int, changetime: Int, payloadid: Long, hasnotification: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFeatureVariant(featureid: Int, changetime: Int, payloadid: Long, hasnotification: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableA(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableA(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableExA(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int, pdwattribubutes: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExA(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int, pdwattribubutes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableExW(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int, pdwattribubutes: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExW(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int, pdwattribubutes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableW(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableW(lpname: Long, lpguid: Long, pbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileIntA(lpappname: Long, lpkeyname: Long, ndefault: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntA(lpappname: Long, lpkeyname: Long, ndefault: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileIntW(lpappname: Long, lpkeyname: Long, ndefault: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntW(lpappname: Long, lpkeyname: Long, ndefault: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionA(lpappname: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionA(lpappname: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionNamesA(lpszreturnbuffer: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesA(lpszreturnbuffer: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionNamesW(lpszreturnbuffer: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesW(lpszreturnbuffer: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionW(lpappname: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionW(lpappname: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStringA(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringA(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStringW(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringW(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStructA(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructA(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStructW(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructW(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileIntA(lpappname: Long, lpkeyname: Long, ndefault: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileIntA(lpappname: Long, lpkeyname: Long, ndefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileIntW(lpappname: Long, lpkeyname: Long, ndefault: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileIntW(lpappname: Long, lpkeyname: Long, ndefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileSectionA(lpappname: Long, lpreturnedstring: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileSectionA(lpappname: Long, lpreturnedstring: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileSectionW(lpappname: Long, lpreturnedstring: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileSectionW(lpappname: Long, lpreturnedstring: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileStringA(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileStringA(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetProfileStringW(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getProfileStringW(lpappname: Long, lpkeyname: Long, lpdefault: Long, lpreturnedstring: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetSystemRegistryQuota(pdwquotaallowed: Long, pdwquotaused: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getSystemRegistryQuota(pdwquotaallowed: Long, pdwquotaused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetThreadEnabledXStateFeatures(): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_getThreadEnabledXStateFeatures(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetUserNameA(lpbuffer: Long, pcbbuffer: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getUserNameA(lpbuffer: Long, pcbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetUserNameW(lpbuffer: Long, pcbbuffer: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getUserNameW(lpbuffer: Long, pcbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileA(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getVersionFromFileA(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileExA(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExA(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileExW(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExW(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileW(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getVersionFromFileW(lpszfilename: Long, pdwmsver: Long, pdwlsver: Long, bversion: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GetWindowRegionData(hwnd: Long, size: Int, prd: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_getWindowRegionData(hwnd: Long, size: Int, prd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GlobalCompact(dwminfree: Int): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_globalCompact(dwminfree: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GlobalFix(hmem: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_globalFix(hmem: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GlobalUnWire(hmem: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_globalUnWire(hmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GlobalUnfix(hmem: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_globalUnfix(hmem: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_GlobalWire(hmem: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_globalWire(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPGetIMEA(param0: Long, param1: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPGetIMEA(param0: Long, param1: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPGetIMEW(param0: Long, param1: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPGetIMEW(param0: Long, param1: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPQueryIMEA(param0: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPQueryIMEW(param0: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPSetIMEA(param0: Long, param1: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPSetIMEA(param0: Long, param1: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IMPSetIMEW(param0: Long, param1: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_iMPSetIMEW(param0: Long, param1: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsApiSetImplemented(contract: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isApiSetImplemented(contract: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsBadHugeReadPtr(lp: Long, ucb: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isBadHugeReadPtr(lp: Long, ucb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsBadHugeWritePtr(lp: Long, ucb: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isBadHugeWritePtr(lp: Long, ucb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsNTAdmin(dwreserved: Int, lpdwreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isNTAdmin(dwreserved: Int, lpdwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsNativeVhdBoot(nativevhdboot: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isNativeVhdBoot(nativevhdboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_IsTokenUntrusted(tokenhandle: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_isTokenUntrusted(tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_LaunchINFSectionExW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_launchINFSectionExW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_LaunchINFSectionW(hwndowner: Long, hinstance: Long, pszparams: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_launchINFSectionW(hwndowner: Long, hinstance: Long, pszparams: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_LocalCompact(uminfree: Int): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_localCompact(uminfree: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_LocalShrink(hmem: Long, cbnewsize: Int): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_localShrink(hmem: Long, cbnewsize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_MulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_mulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_NeedReboot(dwrebootcheck: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_needReboot(dwrebootcheck: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_NeedRebootInit(): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_needRebootInit(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_OpenINFEngineA(pszinffilename: Long, pszinstallsection: Long, dwflags: Int, phinf: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_openINFEngineA(pszinffilename: Long, pszinstallsection: Long, dwflags: Int, phinf: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_OpenINFEngineW(pszinffilename: Long, pszinstallsection: Long, dwflags: Int, phinf: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_openINFEngineW(pszinffilename: Long, pszinstallsection: Long, dwflags: Int, phinf: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_OpenMutexA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_openMutexA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_OpenSemaphoreA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_openSemaphoreA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryIdleProcessorCycleTime(bufferlength: Long, processoridlecycletime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTime(bufferlength: Long, processoridlecycletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryIdleProcessorCycleTimeEx(group: Short, bufferlength: Long, processoridlecycletime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTimeEx(group: Short, bufferlength: Long, processoridlecycletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryInterruptTime(lpinterrupttime: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_queryInterruptTime(lpinterrupttime: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryInterruptTimePrecise(lpinterrupttimeprecise: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_queryInterruptTimePrecise(lpinterrupttimeprecise: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryProcessCycleTime(processhandle: Long, cycletime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryProcessCycleTime(processhandle: Long, cycletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryThreadCycleTime(threadhandle: Long, cycletime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryThreadCycleTime(threadhandle: Long, cycletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryUnbiasedInterruptTime(unbiasedtime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTime(unbiasedtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RebootCheckOnInstallA(hwnd: Long, pszinf: Long, pszsec: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallA(hwnd: Long, pszinf: Long, pszsec: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RebootCheckOnInstallW(hwnd: Long, pszinf: Long, pszsec: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallW(hwnd: Long, pszinf: Long, pszsec: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RecordFeatureError(featureid: Int, error: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_recordFeatureError(featureid: Int, error: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RecordFeatureUsage(featureid: Int, kind: Int, addend: Int, originname: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_recordFeatureUsage(featureid: Int, kind: Int, addend: Int, originname: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegInstallA(hmod: Long, pszsection: Long, psttable: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regInstallA(hmod: Long, pszsection: Long, psttable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegInstallW(hmod: Long, pszsection: Long, psttable: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regInstallW(hmod: Long, pszsection: Long, psttable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegRestoreAllA(hwnd: Long, psztitlestring: Long, hkbckupkey: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regRestoreAllA(hwnd: Long, psztitlestring: Long, hkbckupkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegRestoreAllW(hwnd: Long, psztitlestring: Long, hkbckupkey: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regRestoreAllW(hwnd: Long, psztitlestring: Long, hkbckupkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreA(hwnd: Long, psztitlestring: Long, hkbckupkey: Long, pcszrootkey: Long, pcszsubkey: Long, pcszvaluename: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regSaveRestoreA(hwnd: Long, psztitlestring: Long, hkbckupkey: Long, pcszrootkey: Long, pcszsubkey: Long, pcszvaluename: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreOnINFA(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, hhklmbackkey: Long, hhkcubackkey: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFA(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, hhklmbackkey: Long, hhkcubackkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreOnINFW(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, hhklmbackkey: Long, hhkcubackkey: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFW(hwnd: Long, psztitle: Long, pszinf: Long, pszsection: Long, hhklmbackkey: Long, hhkcubackkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreW(hwnd: Long, psztitlestring: Long, hkbckupkey: Long, pcszrootkey: Long, pcszsubkey: Long, pcszvaluename: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_regSaveRestoreW(hwnd: Long, psztitlestring: Long, hkbckupkey: Long, pcszrootkey: Long, pcszsubkey: Long, pcszvaluename: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_ReplacePartitionUnit(targetpartition: Long, sparepartition: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_replacePartitionUnit(targetpartition: Long, sparepartition: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RequestDeviceWakeup(hdevice: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_requestDeviceWakeup(hdevice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlAnsiStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlAnsiStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlCharToInteger(string: Long, base: Int, value: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlCharToInteger(string: Long, base: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlFreeAnsiString(ansistring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlFreeAnsiString(ansistring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlFreeOemString(oemstring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlFreeOemString(oemstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlFreeUnicodeString(unicodestring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlFreeUnicodeString(unicodestring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlGetReturnAddressHijackTarget(): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlGetReturnAddressHijackTarget(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlInitAnsiString(destinationstring: Long, sourcestring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiString(destinationstring: Long, sourcestring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlInitAnsiStringEx(destinationstring: Long, sourcestring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiStringEx(destinationstring: Long, sourcestring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlInitString(destinationstring: Long, sourcestring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlInitString(destinationstring: Long, sourcestring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlInitStringEx(destinationstring: Long, sourcestring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlInitStringEx(destinationstring: Long, sourcestring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlInitUnicodeString(destinationstring: Long, sourcestring: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlInitUnicodeString(destinationstring: Long, sourcestring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlIsNameLegalDOS8Dot3(name: Long, oemname: Long, namecontainsspaces: Long): Boolean
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlIsNameLegalDOS8Dot3(name: Long, oemname: Long, namecontainsspaces: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlLocalTimeToSystemTime(localtime: Long, systemtime: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlLocalTimeToSystemTime(localtime: Long, systemtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlRaiseCustomSystemEventTrigger(triggerconfig: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlRaiseCustomSystemEventTrigger(triggerconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlTimeToSecondsSince1970(time: Long, elapsedseconds: Long): Boolean
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlTimeToSecondsSince1970(time: Long, elapsedseconds: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlUnicodeStringToAnsiString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToAnsiString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlUnicodeToMultiByteSize(bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlUnicodeToMultiByteSize(bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RtlUniform(seed: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_rtlUniform(seed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RunSetupCommandA(hwnd: Long, szcmdname: Long, szinfsection: Long, szdir: Long, lpsztitle: Long, phexe: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_runSetupCommandA(hwnd: Long, szcmdname: Long, szinfsection: Long, szdir: Long, lpsztitle: Long, phexe: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_RunSetupCommandW(hwnd: Long, szcmdname: Long, szinfsection: Long, szdir: Long, lpsztitle: Long, phexe: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_runSetupCommandW(hwnd: Long, szcmdname: Long, szinfsection: Long, szdir: Long, lpsztitle: Long, phexe: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SendIMEMessageExA(param0: Long, param1: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExA(param0: Long, param1: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SendIMEMessageExW(param0: Long, param1: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExW(param0: Long, param1: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetEnvironmentStringsA(newenvironment: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setEnvironmentStringsA(newenvironment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableA(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableA(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableExA(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int, dwattributes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExA(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int, dwattributes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableExW(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int, dwattributes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExW(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int, dwattributes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableW(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableW(lpname: Long, lpguid: Long, pvalue: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetHandleCount(unumber: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setHandleCount(unumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetMessageWaitingIndicator(hmsgindicator: Long, ulmsgcount: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setMessageWaitingIndicator(hmsgindicator: Long, ulmsgcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetPerUserSecValuesA(pperuser: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesA(pperuser: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SetPerUserSecValuesW(pperuser: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesW(pperuser: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_SubscribeFeatureStateChangeNotification(subscription: Long, callback: Long, context: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_subscribeFeatureStateChangeNotification(subscription: Long, callback: Long, context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_TranslateInfStringA(pszinffilename: Long, pszinstallsection: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, cchbuffer: Int, pdwrequiredsize: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_translateInfStringA(pszinffilename: Long, pszinstallsection: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, cchbuffer: Int, pdwrequiredsize: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_TranslateInfStringExA(hinf: Long, pszinffilename: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, dwbuffersize: Int, pdwrequiredsize: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_translateInfStringExA(hinf: Long, pszinffilename: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, dwbuffersize: Int, pdwrequiredsize: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_TranslateInfStringExW(hinf: Long, pszinffilename: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, dwbuffersize: Int, pdwrequiredsize: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_translateInfStringExW(hinf: Long, pszinffilename: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, dwbuffersize: Int, pdwrequiredsize: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_TranslateInfStringW(pszinffilename: Long, pszinstallsection: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, cchbuffer: Int, pdwrequiredsize: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_translateInfStringW(pszinffilename: Long, pszinstallsection: Long, psztranslatesection: Long, psztranslatekey: Long, pszbuffer: Long, cchbuffer: Int, pdwrequiredsize: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_UnsubscribeFeatureStateChangeNotification(subscription: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_unsubscribeFeatureStateChangeNotification(subscription: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_UserInstStubWrapperA(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperA(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_UserInstStubWrapperW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_UserUnInstStubWrapperA(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperA(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_UserUnInstStubWrapperW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperW(hwnd: Long, hinstance: Long, pszparms: Long, nshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WINNLSEnableIME(param0: Long, param1: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wINNLSEnableIME(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WINNLSGetEnableStatus(param0: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wINNLSGetEnableStatus(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WINNLSGetIMEHotkey(param0: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wINNLSGetIMEHotkey(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WinWatchClose(hww: Long)
+    external fun windowssys_windows_win32_system_windowsprogramming_winWatchClose(hww: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WinWatchDidStatusChange(hww: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_winWatchDidStatusChange(hww: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WinWatchGetClipList(hww: Long, prc: Long, size: Int, prd: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_winWatchGetClipList(hww: Long, prc: Long, size: Int, prd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WinWatchNotify(hww: Long, notifycallback: Long, notifyparam: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_winWatchNotify(hww: Long, notifycallback: Long, notifyparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WinWatchOpen(hwnd: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_winWatchOpen(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteBuffer(host: Long, options: Int, buffer: Long, buffersize: Int, auditinfo: Long, result: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteBuffer(host: Long, options: Int, buffer: Long, buffersize: Int, auditinfo: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteFile(host: Long, options: Int, filehandle: Long, auditinfo: Long, result: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteFile(host: Long, options: Int, filehandle: Long, auditinfo: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteStream(host: Long, options: Int, stream: Long, auditinfo: Long, result: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteStream(host: Long, options: Int, stream: Long, auditinfo: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpGetLockdownPolicy(hostinformation: Long, lockdownstate: Long, lockdownflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpGetLockdownPolicy(hostinformation: Long, lockdownstate: Long, lockdownflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpIsClassInApprovedList(classid: Long, hostinformation: Long, isapproved: Long, optionalflags: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpIsClassInApprovedList(classid: Long, hostinformation: Long, isapproved: Long, optionalflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpIsDynamicCodePolicyEnabled(isenabled: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpIsDynamicCodePolicyEnabled(isenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpQueryDeviceSecurityInformation(information: Long, informationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpQueryDeviceSecurityInformation(information: Long, informationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpQueryDynamicCodeTrust(filehandle: Long, baseimage: Long, imagesize: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpQueryDynamicCodeTrust(filehandle: Long, baseimage: Long, imagesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WldpSetDynamicCodeTrust(filehandle: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_wldpSetDynamicCodeTrust(filehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileSectionA(lpappname: Long, lpstring: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionA(lpappname: Long, lpstring: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileSectionW(lpappname: Long, lpstring: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionW(lpappname: Long, lpstring: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStringA(lpappname: Long, lpkeyname: Long, lpstring: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringA(lpappname: Long, lpkeyname: Long, lpstring: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStringW(lpappname: Long, lpkeyname: Long, lpstring: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringW(lpappname: Long, lpkeyname: Long, lpstring: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStructA(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructA(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStructW(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructW(lpszsection: Long, lpszkey: Long, lpstruct: Long, usizestruct: Int, szfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WriteProfileSectionA(lpappname: Long, lpstring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writeProfileSectionA(lpappname: Long, lpstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WriteProfileSectionW(lpappname: Long, lpstring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writeProfileSectionW(lpappname: Long, lpstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WriteProfileStringA(lpappname: Long, lpkeyname: Long, lpstring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writeProfileStringA(lpappname: Long, lpkeyname: Long, lpstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_WriteProfileStringW(lpappname: Long, lpkeyname: Long, lpstring: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_writeProfileStringW(lpappname: Long, lpkeyname: Long, lpstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__hread(hfile: Int, lpbuffer: Long, lbytes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_hread(hfile: Int, lpbuffer: Long, lbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__hwrite(hfile: Int, lpbuffer: Long, lbytes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_hwrite(hfile: Int, lpbuffer: Long, lbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__lclose(hfile: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_lclose(hfile: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__lcreat(lppathname: Long, iattribute: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_lcreat(lppathname: Long, iattribute: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__llseek(hfile: Int, loffset: Int, iorigin: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_llseek(hfile: Int, loffset: Int, iorigin: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__lopen(lppathname: Long, ireadwrite: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_lopen(lppathname: Long, ireadwrite: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__lread(hfile: Int, lpbuffer: Long, ubytes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_lread(hfile: Int, lpbuffer: Long, ubytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming__lwrite(hfile: Int, lpbuffer: Long, ubytes: Int): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_lwrite(hfile: Int, lpbuffer: Long, ubytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_lstrcmpW(string1: Long, string2: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_uawLstrcmpW(string1: Long, string2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_lstrcmpiW(string1: Long, string2: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_uawLstrcmpiW(string1: Long, string2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_lstrlenW(string: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_uawLstrlenW(string: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_wcschr(string: Long, character: Short): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_uawWcschr(string: Long, character: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_wcscpy(destination: Long, source: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_uawWcscpy(destination: Long, source: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_wcsicmp(string1: Long, string2: Long): Int
+    external fun windowssys_windows_win32_system_windowsprogramming_uawWcsicmp(string1: Long, string2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_wcslen(string: Long): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_uawWcslen(string: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_windowsprogramming_uaw_wcsrchr(string: Long, character: Short): Long
+    external fun windowssys_windows_win32_system_windowsprogramming_uawWcsrchr(string: Long, character: Short): Long
 }
 
-public actual fun AddDelBackupEntryA(lpcszfilelist: PCSTR, lpcszbackupdir: PCSTR, lpcszbasename: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_AddDelBackupEntryA(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags.toInt())
+public actual fun addDelBackupEntryA(lpcszfilelist: Pcstr, lpcszbackupdir: Pcstr, lpcszbasename: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryA((lpcszfilelist?.value ?: 0L), (lpcszbackupdir?.value ?: 0L), (lpcszbasename?.value ?: 0L), dwflags.toInt())
 
-public actual fun AddDelBackupEntryW(lpcszfilelist: PCWSTR, lpcszbackupdir: PCWSTR, lpcszbasename: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_AddDelBackupEntryW(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags.toInt())
+public actual fun addDelBackupEntryW(lpcszfilelist: Pcwstr, lpcszbackupdir: Pcwstr, lpcszbasename: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryW((lpcszfilelist?.value ?: 0L), (lpcszbackupdir?.value ?: 0L), (lpcszbasename?.value ?: 0L), dwflags.toInt())
 
-public actual fun AdvInstallFileA(hwnd: HWND, lpszsourcedir: PCSTR, lpszsourcefile: PCSTR, lpszdestdir: PCSTR, lpszdestfile: PCSTR, dwflags: UInt, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_AdvInstallFileA(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toInt(), dwreserved.toInt())
+public actual fun advInstallFileA(hwnd: Hwnd, lpszsourcedir: Pcstr, lpszsourcefile: Pcstr, lpszdestdir: Pcstr, lpszdestfile: Pcstr, dwflags: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_advInstallFileA((hwnd?.value ?: 0L), (lpszsourcedir?.value ?: 0L), (lpszsourcefile?.value ?: 0L), (lpszdestdir?.value ?: 0L), (lpszdestfile?.value ?: 0L), dwflags.toInt(), dwreserved.toInt())
 
-public actual fun AdvInstallFileW(hwnd: HWND, lpszsourcedir: PCWSTR, lpszsourcefile: PCWSTR, lpszdestdir: PCWSTR, lpszdestfile: PCWSTR, dwflags: UInt, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_AdvInstallFileW(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toInt(), dwreserved.toInt())
+public actual fun advInstallFileW(hwnd: Hwnd, lpszsourcedir: Pcwstr, lpszsourcefile: Pcwstr, lpszdestdir: Pcwstr, lpszdestfile: Pcwstr, dwflags: UInt, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_advInstallFileW((hwnd?.value ?: 0L), (lpszsourcedir?.value ?: 0L), (lpszsourcefile?.value ?: 0L), (lpszdestdir?.value ?: 0L), (lpszdestfile?.value ?: 0L), dwflags.toInt(), dwreserved.toInt())
 
-public actual fun ApphelpCheckShellObject(objectclsid: Long, bshimifnecessary: BOOL, pullflags: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ApphelpCheckShellObject(objectclsid, bshimifnecessary, pullflags)
+public actual fun apphelpCheckShellObject(objectclsid: COpaquePointer?, bshimifnecessary: Bool, pullflags: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_apphelpCheckShellObject((objectclsid?.value ?: 0L), bshimifnecessary, (pullflags?.value ?: 0L))
 
-public actual fun CancelDeviceWakeupRequest(hdevice: HANDLE): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_CancelDeviceWakeupRequest(hdevice)
+public actual fun cancelDeviceWakeupRequest(hdevice: Handle): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_cancelDeviceWakeupRequest((hdevice?.value ?: 0L))
 
-public actual fun CloseINFEngine(hinf: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_CloseINFEngine(hinf)
+public actual fun closeINFEngine(hinf: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_closeINFEngine((hinf?.value ?: 0L))
 
-public actual fun ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: Long, lpconversionerror: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue.toLong(), lpperformancecountervalue, lpconversionerror)
+public actual fun convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: COpaquePointer?, lpconversionerror: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue.toLong(), (lpperformancecountervalue?.value ?: 0L), (lpconversionerror?.value ?: 0L))
 
-public actual fun ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: Long, lpconversionerror: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue.toLong(), lpauxiliarycountervalue, lpconversionerror)
+public actual fun convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: COpaquePointer?, lpconversionerror: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue.toLong(), (lpauxiliarycountervalue?.value ?: 0L), (lpconversionerror?.value ?: 0L))
 
-public actual fun DCIBeginAccess(pdci: Long, x: Int, y: Int, dx: Int, dy: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIBeginAccess(pdci, x, y, dx, dy)
+public actual fun dCIBeginAccess(pdci: COpaquePointer?, x: Int, y: Int, dx: Int, dy: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIBeginAccess((pdci?.value ?: 0L), x, y, dx, dy)
 
-public actual fun DCICloseProvider(hdc: HDC) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCICloseProvider(hdc)
+public actual fun dCICloseProvider(hdc: Hdc) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCICloseProvider((hdc?.value ?: 0L))
 }
 
-public actual fun DCICreateOffscreen(hdc: HDC, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCICreateOffscreen(hdc, dwcompression.toInt(), dwredmask.toInt(), dwgreenmask.toInt(), dwbluemask.toInt(), dwwidth.toInt(), dwheight.toInt(), dwdcicaps.toInt(), dwbitcount.toInt(), lplpsurface)
+public actual fun dCICreateOffscreen(hdc: Hdc, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCICreateOffscreen((hdc?.value ?: 0L), dwcompression.toInt(), dwredmask.toInt(), dwgreenmask.toInt(), dwbluemask.toInt(), dwwidth.toInt(), dwheight.toInt(), dwdcicaps.toInt(), dwbitcount.toInt(), (lplpsurface?.value ?: 0L))
 
-public actual fun DCICreateOverlay(hdc: HDC, lpoffscreensurf: Long, lplpsurface: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCICreateOverlay(hdc, lpoffscreensurf, lplpsurface)
+public actual fun dCICreateOverlay(hdc: Hdc, lpoffscreensurf: COpaquePointer?, lplpsurface: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCICreateOverlay((hdc?.value ?: 0L), (lpoffscreensurf?.value ?: 0L), (lplpsurface?.value ?: 0L))
 
-public actual fun DCICreatePrimary(hdc: HDC, lplpsurface: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCICreatePrimary(hdc, lplpsurface)
+public actual fun dCICreatePrimary(hdc: Hdc, lplpsurface: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCICreatePrimary((hdc?.value ?: 0L), (lplpsurface?.value ?: 0L))
 
-public actual fun DCIDestroy(pdci: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIDestroy(pdci)
+public actual fun dCIDestroy(pdci: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIDestroy((pdci?.value ?: 0L))
 }
 
-public actual fun DCIDraw(pdci: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIDraw(pdci)
+public actual fun dCIDraw(pdci: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIDraw((pdci?.value ?: 0L))
 
-public actual fun DCIEndAccess(pdci: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIEndAccess(pdci)
+public actual fun dCIEndAccess(pdci: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIEndAccess((pdci?.value ?: 0L))
 }
 
-public actual fun DCIEnum(hdc: HDC, lprdst: Long, lprsrc: Long, lpfncallback: Long, lpcontext: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIEnum(hdc, lprdst, lprsrc, lpfncallback, lpcontext)
+public actual fun dCIEnum(hdc: Hdc, lprdst: COpaquePointer?, lprsrc: COpaquePointer?, lpfncallback: COpaquePointer?, lpcontext: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIEnum((hdc?.value ?: 0L), (lprdst?.value ?: 0L), (lprsrc?.value ?: 0L), (lpfncallback?.value ?: 0L), (lpcontext?.value ?: 0L))
 
-public actual fun DCIOpenProvider(): HDC =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCIOpenProvider()
+public actual fun dCIOpenProvider(): Hdc =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCIOpenProvider().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DCISetClipList(pdci: Long, prd: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCISetClipList(pdci, prd)
+public actual fun dCISetClipList(pdci: COpaquePointer?, prd: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCISetClipList((pdci?.value ?: 0L), (prd?.value ?: 0L))
 
-public actual fun DCISetDestination(pdci: Long, dst: Long, src: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCISetDestination(pdci, dst, src)
+public actual fun dCISetDestination(pdci: COpaquePointer?, dst: COpaquePointer?, src: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCISetDestination((pdci?.value ?: 0L), (dst?.value ?: 0L), (src?.value ?: 0L))
 
-public actual fun DCISetSrcDestClip(pdci: Long, srcrc: Long, destrc: Long, prd: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DCISetSrcDestClip(pdci, srcrc, destrc, prd)
+public actual fun dCISetSrcDestClip(pdci: COpaquePointer?, srcrc: COpaquePointer?, destrc: COpaquePointer?, prd: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dCISetSrcDestClip((pdci?.value ?: 0L), (srcrc?.value ?: 0L), (destrc?.value ?: 0L), (prd?.value ?: 0L))
 
-public actual fun DelNodeA(pszfileordirname: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DelNodeA(pszfileordirname, dwflags.toInt())
+public actual fun delNodeA(pszfileordirname: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_delNodeA((pszfileordirname?.value ?: 0L), dwflags.toInt())
 
-public actual fun DelNodeRunDLL32W(hwnd: HWND, hinstance: HINSTANCE, pszparms: PWSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DelNodeRunDLL32W(hwnd, hinstance, pszparms, nshow)
+public actual fun delNodeRunDLL32W(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pwstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_delNodeRunDLL32W((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun DelNodeW(pszfileordirname: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DelNodeW(pszfileordirname, dwflags.toInt())
+public actual fun delNodeW(pszfileordirname: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_delNodeW((pszfileordirname?.value ?: 0L), dwflags.toInt())
 
-public actual fun DnsHostnameToComputerNameA(hostname: PCSTR, computername: PSTR, nsize: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DnsHostnameToComputerNameA(hostname, computername, nsize)
+public actual fun dnsHostnameToComputerNameA(hostname: Pcstr, computername: Pstr, nsize: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameA((hostname?.value ?: 0L), (computername?.value ?: 0L), (nsize?.value ?: 0L))
 
-public actual fun DnsHostnameToComputerNameW(hostname: PCWSTR, computername: PWSTR, nsize: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DnsHostnameToComputerNameW(hostname, computername, nsize)
+public actual fun dnsHostnameToComputerNameW(hostname: Pcwstr, computername: Pwstr, nsize: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameW((hostname?.value ?: 0L), (computername?.value ?: 0L), (nsize?.value ?: 0L))
 
-public actual fun DosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_DosDateTimeToFileTime(wfatdate.toShort(), wfattime.toShort(), lpfiletime)
+public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_dosDateTimeToFileTime(wfatdate.toShort(), wfattime.toShort(), (lpfiletime?.value ?: 0L))
 
-public actual fun EnableProcessOptionalXStateFeatures(features: ULong): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_EnableProcessOptionalXStateFeatures(features.toLong())
+public actual fun enableProcessOptionalXStateFeatures(features: ULong): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_enableProcessOptionalXStateFeatures(features.toLong())
 
-public actual fun ExecuteCabA(hwnd: HWND, pcab: Long, preserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ExecuteCabA(hwnd, pcab, preserved)
+public actual fun executeCabA(hwnd: Hwnd, pcab: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_executeCabA((hwnd?.value ?: 0L), (pcab?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun ExecuteCabW(hwnd: HWND, pcab: Long, preserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ExecuteCabW(hwnd, pcab, preserved)
+public actual fun executeCabW(hwnd: Hwnd, pcab: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_executeCabW((hwnd?.value ?: 0L), (pcab?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun ExtractFilesA(pszcabname: PCSTR, pszexpanddir: PCSTR, dwflags: UInt, pszfilelist: PCSTR, lpreserved: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ExtractFilesA(pszcabname, pszexpanddir, dwflags.toInt(), pszfilelist, lpreserved, dwreserved.toInt())
+public actual fun extractFilesA(pszcabname: Pcstr, pszexpanddir: Pcstr, dwflags: UInt, pszfilelist: Pcstr, lpreserved: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_extractFilesA((pszcabname?.value ?: 0L), (pszexpanddir?.value ?: 0L), dwflags.toInt(), (pszfilelist?.value ?: 0L), (lpreserved?.value ?: 0L), dwreserved.toInt())
 
-public actual fun ExtractFilesW(pszcabname: PCWSTR, pszexpanddir: PCWSTR, dwflags: UInt, pszfilelist: PCWSTR, lpreserved: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ExtractFilesW(pszcabname, pszexpanddir, dwflags.toInt(), pszfilelist, lpreserved, dwreserved.toInt())
+public actual fun extractFilesW(pszcabname: Pcwstr, pszexpanddir: Pcwstr, dwflags: UInt, pszfilelist: Pcwstr, lpreserved: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_extractFilesW((pszcabname?.value ?: 0L), (pszexpanddir?.value ?: 0L), dwflags.toInt(), (pszfilelist?.value ?: 0L), (lpreserved?.value ?: 0L), dwreserved.toInt())
 
-public actual fun FileSaveMarkNotExistA(lpfilelist: PCSTR, lpdir: PCSTR, lpbasename: PCSTR): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileSaveMarkNotExistA(lpfilelist, lpdir, lpbasename)
+public actual fun fileSaveMarkNotExistA(lpfilelist: Pcstr, lpdir: Pcstr, lpbasename: Pcstr): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistA((lpfilelist?.value ?: 0L), (lpdir?.value ?: 0L), (lpbasename?.value ?: 0L))
 
-public actual fun FileSaveMarkNotExistW(lpfilelist: PCWSTR, lpdir: PCWSTR, lpbasename: PCWSTR): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileSaveMarkNotExistW(lpfilelist, lpdir, lpbasename)
+public actual fun fileSaveMarkNotExistW(lpfilelist: Pcwstr, lpdir: Pcwstr, lpbasename: Pcwstr): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistW((lpfilelist?.value ?: 0L), (lpdir?.value ?: 0L), (lpbasename?.value ?: 0L))
 
-public actual fun FileSaveRestoreOnINFA(hwnd: HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, pszbackupdir: PCSTR, pszbasebackupfile: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreOnINFA(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toInt())
+public actual fun fileSaveRestoreOnINFA(hwnd: Hwnd, psztitle: Pcstr, pszinf: Pcstr, pszsection: Pcstr, pszbackupdir: Pcstr, pszbasebackupfile: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFA((hwnd?.value ?: 0L), (psztitle?.value ?: 0L), (pszinf?.value ?: 0L), (pszsection?.value ?: 0L), (pszbackupdir?.value ?: 0L), (pszbasebackupfile?.value ?: 0L), dwflags.toInt())
 
-public actual fun FileSaveRestoreOnINFW(hwnd: HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, pszbackupdir: PCWSTR, pszbasebackupfile: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreOnINFW(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toInt())
+public actual fun fileSaveRestoreOnINFW(hwnd: Hwnd, psztitle: Pcwstr, pszinf: Pcwstr, pszsection: Pcwstr, pszbackupdir: Pcwstr, pszbasebackupfile: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFW((hwnd?.value ?: 0L), (psztitle?.value ?: 0L), (pszinf?.value ?: 0L), (pszsection?.value ?: 0L), (pszbackupdir?.value ?: 0L), (pszbasebackupfile?.value ?: 0L), dwflags.toInt())
 
-public actual fun FileSaveRestoreW(hdlg: HWND, lpfilelist: PCWSTR, lpdir: PCWSTR, lpbasename: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileSaveRestoreW(hdlg, lpfilelist, lpdir, lpbasename, dwflags.toInt())
+public actual fun fileSaveRestoreW(hdlg: Hwnd, lpfilelist: Pcwstr, lpdir: Pcwstr, lpbasename: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreW((hdlg?.value ?: 0L), (lpfilelist?.value ?: 0L), (lpdir?.value ?: 0L), (lpbasename?.value ?: 0L), dwflags.toInt())
 
-public actual fun FileTimeToDosDateTime(lpfiletime: Long, lpfatdate: Long, lpfattime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_FileTimeToDosDateTime(lpfiletime, lpfatdate, lpfattime)
+public actual fun fileTimeToDosDateTime(lpfiletime: COpaquePointer?, lpfatdate: COpaquePointer?, lpfattime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_fileTimeToDosDateTime((lpfiletime?.value ?: 0L), (lpfatdate?.value ?: 0L), (lpfattime?.value ?: 0L))
 
-public actual fun GdiEntry13(): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GdiEntry13().toUInt()
+public actual fun gdiEntry13(): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_gdiEntry13().toUInt()
 
-public actual fun GetComputerNameA(lpbuffer: PSTR, nsize: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetComputerNameA(lpbuffer, nsize)
+public actual fun getComputerNameA(lpbuffer: Pstr, nsize: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getComputerNameA((lpbuffer?.value ?: 0L), (nsize?.value ?: 0L))
 
-public actual fun GetComputerNameW(lpbuffer: PWSTR, nsize: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetComputerNameW(lpbuffer, nsize)
+public actual fun getComputerNameW(lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getComputerNameW((lpbuffer?.value ?: 0L), (nsize?.value ?: 0L))
 
-public actual fun GetCurrentHwProfileA(lphwprofileinfo: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetCurrentHwProfileA(lphwprofileinfo)
+public actual fun getCurrentHwProfileA(lphwprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileA((lphwprofileinfo?.value ?: 0L))
 
-public actual fun GetCurrentHwProfileW(lphwprofileinfo: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetCurrentHwProfileW(lphwprofileinfo)
+public actual fun getCurrentHwProfileW(lphwprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileW((lphwprofileinfo?.value ?: 0L))
 
-public actual fun GetDCRegionData(hdc: HDC, size: UInt, prd: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetDCRegionData(hdc, size.toInt(), prd).toUInt()
+public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getDCRegionData((hdc?.value ?: 0L), size.toInt(), (prd?.value ?: 0L)).toUInt()
 
-public actual fun GetFeatureEnabledState(featureid: UInt, changetime: FEATURE_CHANGE_TIME): FEATURE_ENABLED_STATE =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFeatureEnabledState(featureid.toInt(), changetime)
+public actual fun getFeatureEnabledState(featureid: UInt, changetime: FeatureChangeTime): FeatureEnabledState =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFeatureEnabledState(featureid.toInt(), changetime)
 
-public actual fun GetFeatureVariant(featureid: UInt, changetime: FEATURE_CHANGE_TIME, payloadid: Long, hasnotification: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFeatureVariant(featureid.toInt(), changetime, payloadid, hasnotification).toUInt()
+public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: COpaquePointer?, hasnotification: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFeatureVariant(featureid.toInt(), changetime, (payloadid?.value ?: 0L), (hasnotification?.value ?: 0L)).toUInt()
 
-public actual fun GetFirmwareEnvironmentVariableA(lpname: PCSTR, lpguid: PCSTR, pbuffer: Long, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableA(lpname, lpguid, pbuffer, nsize.toInt()).toUInt()
+public actual fun getFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pbuffer: COpaquePointer?, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableA((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pbuffer?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetFirmwareEnvironmentVariableExA(lpname: PCSTR, lpguid: PCSTR, pbuffer: Long, nsize: UInt, pdwattribubutes: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableExA(lpname, lpguid, pbuffer, nsize.toInt(), pdwattribubutes).toUInt()
+public actual fun getFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pbuffer: COpaquePointer?, nsize: UInt, pdwattribubutes: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExA((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pbuffer?.value ?: 0L), nsize.toInt(), (pdwattribubutes?.value ?: 0L)).toUInt()
 
-public actual fun GetFirmwareEnvironmentVariableExW(lpname: PCWSTR, lpguid: PCWSTR, pbuffer: Long, nsize: UInt, pdwattribubutes: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableExW(lpname, lpguid, pbuffer, nsize.toInt(), pdwattribubutes).toUInt()
+public actual fun getFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: COpaquePointer?, nsize: UInt, pdwattribubutes: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExW((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pbuffer?.value ?: 0L), nsize.toInt(), (pdwattribubutes?.value ?: 0L)).toUInt()
 
-public actual fun GetFirmwareEnvironmentVariableW(lpname: PCWSTR, lpguid: PCWSTR, pbuffer: Long, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetFirmwareEnvironmentVariableW(lpname, lpguid, pbuffer, nsize.toInt()).toUInt()
+public actual fun getFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: COpaquePointer?, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableW((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pbuffer?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetPrivateProfileIntA(lpappname: PCSTR, lpkeyname: PCSTR, ndefault: Int, lpfilename: PCSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileIntA(lpappname, lpkeyname, ndefault, lpfilename).toUInt()
+public actual fun getPrivateProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int, lpfilename: Pcstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), ndefault, (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileIntW(lpappname: PCWSTR, lpkeyname: PCWSTR, ndefault: Int, lpfilename: PCWSTR): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileIntW(lpappname, lpkeyname, ndefault, lpfilename)
+public actual fun getPrivateProfileIntW(lpappname: Pcwstr, lpkeyname: Pcwstr, ndefault: Int, lpfilename: Pcwstr): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), ndefault, (lpfilename?.value ?: 0L))
 
-public actual fun GetPrivateProfileSectionA(lpappname: PCSTR, lpreturnedstring: PSTR, nsize: UInt, lpfilename: PCSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionA(lpappname, lpreturnedstring, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileSectionA(lpappname: Pcstr, lpreturnedstring: Pstr, nsize: UInt, lpfilename: Pcstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionA((lpappname?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileSectionNamesA(lpszreturnbuffer: PSTR, nsize: UInt, lpfilename: PCSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionNamesA(lpszreturnbuffer, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileSectionNamesA(lpszreturnbuffer: Pstr, nsize: UInt, lpfilename: Pcstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesA((lpszreturnbuffer?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileSectionNamesW(lpszreturnbuffer: PWSTR, nsize: UInt, lpfilename: PCWSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionNamesW(lpszreturnbuffer, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileSectionNamesW(lpszreturnbuffer: Pwstr, nsize: UInt, lpfilename: Pcwstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesW((lpszreturnbuffer?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileSectionW(lpappname: PCWSTR, lpreturnedstring: PWSTR, nsize: UInt, lpfilename: PCWSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileSectionW(lpappname, lpreturnedstring, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileSectionW(lpappname: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt, lpfilename: Pcwstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionW((lpappname?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileStringA(lpappname: PCSTR, lpkeyname: PCSTR, lpdefault: PCSTR, lpreturnedstring: PSTR, nsize: UInt, lpfilename: PCSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStringA(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpdefault: Pcstr, lpreturnedstring: Pstr, nsize: UInt, lpfilename: Pcstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpdefault?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileStringW(lpappname: PCWSTR, lpkeyname: PCWSTR, lpdefault: PCWSTR, lpreturnedstring: PWSTR, nsize: UInt, lpfilename: PCWSTR): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStringW(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize.toInt(), lpfilename).toUInt()
+public actual fun getPrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt, lpfilename: Pcwstr): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpdefault?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt(), (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun GetPrivateProfileStructA(lpszsection: PCSTR, lpszkey: PCSTR, lpstruct: Long, usizestruct: UInt, szfile: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStructA(lpszsection, lpszkey, lpstruct, usizestruct.toInt(), szfile)
+public actual fun getPrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: COpaquePointer?, usizestruct: UInt, szfile: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructA((lpszsection?.value ?: 0L), (lpszkey?.value ?: 0L), (lpstruct?.value ?: 0L), usizestruct.toInt(), (szfile?.value ?: 0L))
 
-public actual fun GetPrivateProfileStructW(lpszsection: PCWSTR, lpszkey: PCWSTR, lpstruct: Long, usizestruct: UInt, szfile: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetPrivateProfileStructW(lpszsection, lpszkey, lpstruct, usizestruct.toInt(), szfile)
+public actual fun getPrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: COpaquePointer?, usizestruct: UInt, szfile: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructW((lpszsection?.value ?: 0L), (lpszkey?.value ?: 0L), (lpstruct?.value ?: 0L), usizestruct.toInt(), (szfile?.value ?: 0L))
 
-public actual fun GetProfileIntA(lpappname: PCSTR, lpkeyname: PCSTR, ndefault: Int): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileIntA(lpappname, lpkeyname, ndefault).toUInt()
+public actual fun getProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileIntA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), ndefault).toUInt()
 
-public actual fun GetProfileIntW(lpappname: PCWSTR, lpkeyname: PCWSTR, ndefault: Int): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileIntW(lpappname, lpkeyname, ndefault).toUInt()
+public actual fun getProfileIntW(lpappname: Pcwstr, lpkeyname: Pcwstr, ndefault: Int): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileIntW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), ndefault).toUInt()
 
-public actual fun GetProfileSectionA(lpappname: PCSTR, lpreturnedstring: PSTR, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileSectionA(lpappname, lpreturnedstring, nsize.toInt()).toUInt()
+public actual fun getProfileSectionA(lpappname: Pcstr, lpreturnedstring: Pstr, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileSectionA((lpappname?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetProfileSectionW(lpappname: PCWSTR, lpreturnedstring: PWSTR, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileSectionW(lpappname, lpreturnedstring, nsize.toInt()).toUInt()
+public actual fun getProfileSectionW(lpappname: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileSectionW((lpappname?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetProfileStringA(lpappname: PCSTR, lpkeyname: PCSTR, lpdefault: PCSTR, lpreturnedstring: PSTR, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileStringA(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize.toInt()).toUInt()
+public actual fun getProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpdefault: Pcstr, lpreturnedstring: Pstr, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileStringA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpdefault?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetProfileStringW(lpappname: PCWSTR, lpkeyname: PCWSTR, lpdefault: PCWSTR, lpreturnedstring: PWSTR, nsize: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetProfileStringW(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize.toInt()).toUInt()
+public actual fun getProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getProfileStringW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpdefault?.value ?: 0L), (lpreturnedstring?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetSystemRegistryQuota(pdwquotaallowed: Long, pdwquotaused: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetSystemRegistryQuota(pdwquotaallowed, pdwquotaused)
+public actual fun getSystemRegistryQuota(pdwquotaallowed: COpaquePointer?, pdwquotaused: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getSystemRegistryQuota((pdwquotaallowed?.value ?: 0L), (pdwquotaused?.value ?: 0L))
 
-public actual fun GetThreadEnabledXStateFeatures(): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetThreadEnabledXStateFeatures().toULong()
+public actual fun getThreadEnabledXStateFeatures(): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getThreadEnabledXStateFeatures().toULong()
 
-public actual fun GetUserNameA(lpbuffer: PSTR, pcbbuffer: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetUserNameA(lpbuffer, pcbbuffer)
+public actual fun getUserNameA(lpbuffer: Pstr, pcbbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getUserNameA((lpbuffer?.value ?: 0L), (pcbbuffer?.value ?: 0L))
 
-public actual fun GetUserNameW(lpbuffer: PWSTR, pcbbuffer: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetUserNameW(lpbuffer, pcbbuffer)
+public actual fun getUserNameW(lpbuffer: Pwstr, pcbbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getUserNameW((lpbuffer?.value ?: 0L), (pcbbuffer?.value ?: 0L))
 
-public actual fun GetVersionFromFileA(lpszfilename: PCSTR, pdwmsver: Long, pdwlsver: Long, bversion: BOOL): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileA(lpszfilename, pdwmsver, pdwlsver, bversion)
+public actual fun getVersionFromFileA(lpszfilename: Pcstr, pdwmsver: COpaquePointer?, pdwlsver: COpaquePointer?, bversion: Bool): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getVersionFromFileA((lpszfilename?.value ?: 0L), (pdwmsver?.value ?: 0L), (pdwlsver?.value ?: 0L), bversion)
 
-public actual fun GetVersionFromFileExA(lpszfilename: PCSTR, pdwmsver: Long, pdwlsver: Long, bversion: BOOL): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileExA(lpszfilename, pdwmsver, pdwlsver, bversion)
+public actual fun getVersionFromFileExA(lpszfilename: Pcstr, pdwmsver: COpaquePointer?, pdwlsver: COpaquePointer?, bversion: Bool): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExA((lpszfilename?.value ?: 0L), (pdwmsver?.value ?: 0L), (pdwlsver?.value ?: 0L), bversion)
 
-public actual fun GetVersionFromFileExW(lpszfilename: PCWSTR, pdwmsver: Long, pdwlsver: Long, bversion: BOOL): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileExW(lpszfilename, pdwmsver, pdwlsver, bversion)
+public actual fun getVersionFromFileExW(lpszfilename: Pcwstr, pdwmsver: COpaquePointer?, pdwlsver: COpaquePointer?, bversion: Bool): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExW((lpszfilename?.value ?: 0L), (pdwmsver?.value ?: 0L), (pdwlsver?.value ?: 0L), bversion)
 
-public actual fun GetVersionFromFileW(lpszfilename: PCWSTR, pdwmsver: Long, pdwlsver: Long, bversion: BOOL): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetVersionFromFileW(lpszfilename, pdwmsver, pdwlsver, bversion)
+public actual fun getVersionFromFileW(lpszfilename: Pcwstr, pdwmsver: COpaquePointer?, pdwlsver: COpaquePointer?, bversion: Bool): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getVersionFromFileW((lpszfilename?.value ?: 0L), (pdwmsver?.value ?: 0L), (pdwlsver?.value ?: 0L), bversion)
 
-public actual fun GetWindowRegionData(hwnd: HWND, size: UInt, prd: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GetWindowRegionData(hwnd, size.toInt(), prd).toUInt()
+public actual fun getWindowRegionData(hwnd: Hwnd, size: UInt, prd: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_getWindowRegionData((hwnd?.value ?: 0L), size.toInt(), (prd?.value ?: 0L)).toUInt()
 
-public actual fun GlobalCompact(dwminfree: UInt): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GlobalCompact(dwminfree.toInt()).toULong()
+public actual fun globalCompact(dwminfree: UInt): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_globalCompact(dwminfree.toInt()).toULong()
 
-public actual fun GlobalFix(hmem: HGLOBAL) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GlobalFix(hmem)
+public actual fun globalFix(hmem: Hglobal) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_globalFix((hmem?.value ?: 0L))
 }
 
-public actual fun GlobalUnWire(hmem: HGLOBAL): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GlobalUnWire(hmem)
+public actual fun globalUnWire(hmem: Hglobal): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_globalUnWire((hmem?.value ?: 0L))
 
-public actual fun GlobalUnfix(hmem: HGLOBAL) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GlobalUnfix(hmem)
+public actual fun globalUnfix(hmem: Hglobal) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_globalUnfix((hmem?.value ?: 0L))
 }
 
-public actual fun GlobalWire(hmem: HGLOBAL): Long =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_GlobalWire(hmem)
+public actual fun globalWire(hmem: Hglobal): COpaquePointer? =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_globalWire((hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun IMPGetIMEA(param0: HWND, param1: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPGetIMEA(param0, param1)
+public actual fun iMPGetIMEA(param0: Hwnd, param1: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPGetIMEA((param0?.value ?: 0L), (param1?.value ?: 0L))
 
-public actual fun IMPGetIMEW(param0: HWND, param1: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPGetIMEW(param0, param1)
+public actual fun iMPGetIMEW(param0: Hwnd, param1: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPGetIMEW((param0?.value ?: 0L), (param1?.value ?: 0L))
 
-public actual fun IMPQueryIMEA(param0: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPQueryIMEA(param0)
+public actual fun iMPQueryIMEA(param0: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEA((param0?.value ?: 0L))
 
-public actual fun IMPQueryIMEW(param0: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPQueryIMEW(param0)
+public actual fun iMPQueryIMEW(param0: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEW((param0?.value ?: 0L))
 
-public actual fun IMPSetIMEA(param0: HWND, param1: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPSetIMEA(param0, param1)
+public actual fun iMPSetIMEA(param0: Hwnd, param1: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPSetIMEA((param0?.value ?: 0L), (param1?.value ?: 0L))
 
-public actual fun IMPSetIMEW(param0: HWND, param1: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IMPSetIMEW(param0, param1)
+public actual fun iMPSetIMEW(param0: Hwnd, param1: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_iMPSetIMEW((param0?.value ?: 0L), (param1?.value ?: 0L))
 
-public actual fun IsApiSetImplemented(contract: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsApiSetImplemented(contract)
+public actual fun isApiSetImplemented(contract: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isApiSetImplemented((contract?.value ?: 0L))
 
-public actual fun IsBadHugeReadPtr(lp: Long, ucb: ULong): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsBadHugeReadPtr(lp, ucb.toLong())
+public actual fun isBadHugeReadPtr(lp: COpaquePointer?, ucb: ULong): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isBadHugeReadPtr((lp?.value ?: 0L), ucb.toLong())
 
-public actual fun IsBadHugeWritePtr(lp: Long, ucb: ULong): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsBadHugeWritePtr(lp, ucb.toLong())
+public actual fun isBadHugeWritePtr(lp: COpaquePointer?, ucb: ULong): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isBadHugeWritePtr((lp?.value ?: 0L), ucb.toLong())
 
-public actual fun IsNTAdmin(dwreserved: UInt, lpdwreserved: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsNTAdmin(dwreserved.toInt(), lpdwreserved)
+public actual fun isNTAdmin(dwreserved: UInt, lpdwreserved: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isNTAdmin(dwreserved.toInt(), (lpdwreserved?.value ?: 0L))
 
-public actual fun IsNativeVhdBoot(nativevhdboot: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsNativeVhdBoot(nativevhdboot)
+public actual fun isNativeVhdBoot(nativevhdboot: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isNativeVhdBoot((nativevhdboot?.value ?: 0L))
 
-public actual fun IsTokenUntrusted(tokenhandle: HANDLE): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_IsTokenUntrusted(tokenhandle)
+public actual fun isTokenUntrusted(tokenhandle: Handle): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_isTokenUntrusted((tokenhandle?.value ?: 0L))
 
-public actual fun LaunchINFSectionExW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_LaunchINFSectionExW(hwnd, hinstance, pszparms, nshow)
+public actual fun launchINFSectionExW(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pcwstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_launchINFSectionExW((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun LaunchINFSectionW(hwndowner: HWND, hinstance: HINSTANCE, pszparams: PWSTR, nshow: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_LaunchINFSectionW(hwndowner, hinstance, pszparams, nshow)
+public actual fun launchINFSectionW(hwndowner: Hwnd, hinstance: Hinstance, pszparams: Pwstr, nshow: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_launchINFSectionW((hwndowner?.value ?: 0L), (hinstance?.value ?: 0L), (pszparams?.value ?: 0L), nshow)
 
-public actual fun LocalCompact(uminfree: UInt): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_LocalCompact(uminfree.toInt()).toULong()
+public actual fun localCompact(uminfree: UInt): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_localCompact(uminfree.toInt()).toULong()
 
-public actual fun LocalShrink(hmem: HLOCAL, cbnewsize: UInt): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_LocalShrink(hmem, cbnewsize.toInt()).toULong()
+public actual fun localShrink(hmem: Hlocal, cbnewsize: UInt): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_localShrink((hmem?.value ?: 0L), cbnewsize.toInt()).toULong()
 
-public actual fun MulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_MulDiv(nnumber, nnumerator, ndenominator)
+public actual fun mulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_mulDiv(nnumber, nnumerator, ndenominator)
 
-public actual fun NeedReboot(dwrebootcheck: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_NeedReboot(dwrebootcheck.toInt())
+public actual fun needReboot(dwrebootcheck: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_needReboot(dwrebootcheck.toInt())
 
-public actual fun NeedRebootInit(): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_NeedRebootInit().toUInt()
+public actual fun needRebootInit(): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_needRebootInit().toUInt()
 
-public actual fun OpenINFEngineA(pszinffilename: PCSTR, pszinstallsection: PCSTR, dwflags: UInt, phinf: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_OpenINFEngineA(pszinffilename, pszinstallsection, dwflags.toInt(), phinf, pvreserved)
+public actual fun openINFEngineA(pszinffilename: Pcstr, pszinstallsection: Pcstr, dwflags: UInt, phinf: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_openINFEngineA((pszinffilename?.value ?: 0L), (pszinstallsection?.value ?: 0L), dwflags.toInt(), (phinf?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun OpenINFEngineW(pszinffilename: PCWSTR, pszinstallsection: PCWSTR, dwflags: UInt, phinf: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_OpenINFEngineW(pszinffilename, pszinstallsection, dwflags.toInt(), phinf, pvreserved)
+public actual fun openINFEngineW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, dwflags: UInt, phinf: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_openINFEngineW((pszinffilename?.value ?: 0L), (pszinstallsection?.value ?: 0L), dwflags.toInt(), (phinf?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun OpenMutexA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_OpenMutexA(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openMutexA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_openMutexA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenSemaphoreA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_OpenSemaphoreA(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openSemaphoreA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_openSemaphoreA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency)
+public actual fun queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryAuxiliaryCounterFrequency((lpauxiliarycounterfrequency?.value ?: 0L))
 
-public actual fun QueryIdleProcessorCycleTime(bufferlength: Long, processoridlecycletime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryIdleProcessorCycleTime(bufferlength, processoridlecycletime)
+public actual fun queryIdleProcessorCycleTime(bufferlength: COpaquePointer?, processoridlecycletime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTime((bufferlength?.value ?: 0L), (processoridlecycletime?.value ?: 0L))
 
-public actual fun QueryIdleProcessorCycleTimeEx(group: UShort, bufferlength: Long, processoridlecycletime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryIdleProcessorCycleTimeEx(group.toShort(), bufferlength, processoridlecycletime)
+public actual fun queryIdleProcessorCycleTimeEx(group: UShort, bufferlength: COpaquePointer?, processoridlecycletime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTimeEx(group.toShort(), (bufferlength?.value ?: 0L), (processoridlecycletime?.value ?: 0L))
 
-public actual fun QueryInterruptTime(lpinterrupttime: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryInterruptTime(lpinterrupttime)
+public actual fun queryInterruptTime(lpinterrupttime: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryInterruptTime((lpinterrupttime?.value ?: 0L))
 }
 
-public actual fun QueryInterruptTimePrecise(lpinterrupttimeprecise: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryInterruptTimePrecise(lpinterrupttimeprecise)
+public actual fun queryInterruptTimePrecise(lpinterrupttimeprecise: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryInterruptTimePrecise((lpinterrupttimeprecise?.value ?: 0L))
 }
 
-public actual fun QueryProcessCycleTime(processhandle: HANDLE, cycletime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryProcessCycleTime(processhandle, cycletime)
+public actual fun queryProcessCycleTime(processhandle: Handle, cycletime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryProcessCycleTime((processhandle?.value ?: 0L), (cycletime?.value ?: 0L))
 
-public actual fun QueryThreadCycleTime(threadhandle: HANDLE, cycletime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryThreadCycleTime(threadhandle, cycletime)
+public actual fun queryThreadCycleTime(threadhandle: Handle, cycletime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryThreadCycleTime((threadhandle?.value ?: 0L), (cycletime?.value ?: 0L))
 
-public actual fun QueryUnbiasedInterruptTime(unbiasedtime: Long): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryUnbiasedInterruptTime(unbiasedtime)
+public actual fun queryUnbiasedInterruptTime(unbiasedtime: COpaquePointer?): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTime((unbiasedtime?.value ?: 0L))
 
-public actual fun QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise)
+public actual fun queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTimePrecise((lpunbiasedinterrupttimeprecise?.value ?: 0L))
 }
 
-public actual fun RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig).toUInt()
+public actual fun raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_raiseCustomSystemEventTrigger((customsystemeventtriggerconfig?.value ?: 0L)).toUInt()
 
-public actual fun RebootCheckOnInstallA(hwnd: HWND, pszinf: PCSTR, pszsec: PCSTR, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RebootCheckOnInstallA(hwnd, pszinf, pszsec, dwreserved.toInt())
+public actual fun rebootCheckOnInstallA(hwnd: Hwnd, pszinf: Pcstr, pszsec: Pcstr, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallA((hwnd?.value ?: 0L), (pszinf?.value ?: 0L), (pszsec?.value ?: 0L), dwreserved.toInt())
 
-public actual fun RebootCheckOnInstallW(hwnd: HWND, pszinf: PCWSTR, pszsec: PCWSTR, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RebootCheckOnInstallW(hwnd, pszinf, pszsec, dwreserved.toInt())
+public actual fun rebootCheckOnInstallW(hwnd: Hwnd, pszinf: Pcwstr, pszsec: Pcwstr, dwreserved: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallW((hwnd?.value ?: 0L), (pszinf?.value ?: 0L), (pszsec?.value ?: 0L), dwreserved.toInt())
 
-public actual fun RecordFeatureError(featureid: UInt, error: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RecordFeatureError(featureid.toInt(), error)
+public actual fun recordFeatureError(featureid: UInt, error: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_recordFeatureError(featureid.toInt(), (error?.value ?: 0L))
 }
 
-public actual fun RecordFeatureUsage(featureid: UInt, kind: UInt, addend: UInt, originname: PCSTR) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RecordFeatureUsage(featureid.toInt(), kind.toInt(), addend.toInt(), originname)
+public actual fun recordFeatureUsage(featureid: UInt, kind: UInt, addend: UInt, originname: Pcstr) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_recordFeatureUsage(featureid.toInt(), kind.toInt(), addend.toInt(), (originname?.value ?: 0L))
 }
 
-public actual fun RegInstallA(hmod: HMODULE, pszsection: PCSTR, psttable: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegInstallA(hmod, pszsection, psttable)
+public actual fun regInstallA(hmod: Hmodule, pszsection: Pcstr, psttable: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regInstallA((hmod?.value ?: 0L), (pszsection?.value ?: 0L), (psttable?.value ?: 0L))
 
-public actual fun RegInstallW(hmod: HMODULE, pszsection: PCWSTR, psttable: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegInstallW(hmod, pszsection, psttable)
+public actual fun regInstallW(hmod: Hmodule, pszsection: Pcwstr, psttable: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regInstallW((hmod?.value ?: 0L), (pszsection?.value ?: 0L), (psttable?.value ?: 0L))
 
-public actual fun RegRestoreAllA(hwnd: HWND, psztitlestring: PCSTR, hkbckupkey: HKEY): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegRestoreAllA(hwnd, psztitlestring, hkbckupkey)
+public actual fun regRestoreAllA(hwnd: Hwnd, psztitlestring: Pcstr, hkbckupkey: Hkey): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regRestoreAllA((hwnd?.value ?: 0L), (psztitlestring?.value ?: 0L), (hkbckupkey?.value ?: 0L))
 
-public actual fun RegRestoreAllW(hwnd: HWND, psztitlestring: PCWSTR, hkbckupkey: HKEY): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegRestoreAllW(hwnd, psztitlestring, hkbckupkey)
+public actual fun regRestoreAllW(hwnd: Hwnd, psztitlestring: Pcwstr, hkbckupkey: Hkey): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regRestoreAllW((hwnd?.value ?: 0L), (psztitlestring?.value ?: 0L), (hkbckupkey?.value ?: 0L))
 
-public actual fun RegSaveRestoreA(hwnd: HWND, psztitlestring: PCSTR, hkbckupkey: HKEY, pcszrootkey: PCSTR, pcszsubkey: PCSTR, pcszvaluename: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreA(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toInt())
+public actual fun regSaveRestoreA(hwnd: Hwnd, psztitlestring: Pcstr, hkbckupkey: Hkey, pcszrootkey: Pcstr, pcszsubkey: Pcstr, pcszvaluename: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regSaveRestoreA((hwnd?.value ?: 0L), (psztitlestring?.value ?: 0L), (hkbckupkey?.value ?: 0L), (pcszrootkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvaluename?.value ?: 0L), dwflags.toInt())
 
-public actual fun RegSaveRestoreOnINFA(hwnd: HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, hhklmbackkey: HKEY, hhkcubackkey: HKEY, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreOnINFA(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags.toInt())
+public actual fun regSaveRestoreOnINFA(hwnd: Hwnd, psztitle: Pcstr, pszinf: Pcstr, pszsection: Pcstr, hhklmbackkey: Hkey, hhkcubackkey: Hkey, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFA((hwnd?.value ?: 0L), (psztitle?.value ?: 0L), (pszinf?.value ?: 0L), (pszsection?.value ?: 0L), (hhklmbackkey?.value ?: 0L), (hhkcubackkey?.value ?: 0L), dwflags.toInt())
 
-public actual fun RegSaveRestoreOnINFW(hwnd: HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, hhklmbackkey: HKEY, hhkcubackkey: HKEY, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreOnINFW(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags.toInt())
+public actual fun regSaveRestoreOnINFW(hwnd: Hwnd, psztitle: Pcwstr, pszinf: Pcwstr, pszsection: Pcwstr, hhklmbackkey: Hkey, hhkcubackkey: Hkey, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFW((hwnd?.value ?: 0L), (psztitle?.value ?: 0L), (pszinf?.value ?: 0L), (pszsection?.value ?: 0L), (hhklmbackkey?.value ?: 0L), (hhkcubackkey?.value ?: 0L), dwflags.toInt())
 
-public actual fun RegSaveRestoreW(hwnd: HWND, psztitlestring: PCWSTR, hkbckupkey: HKEY, pcszrootkey: PCWSTR, pcszsubkey: PCWSTR, pcszvaluename: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RegSaveRestoreW(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toInt())
+public actual fun regSaveRestoreW(hwnd: Hwnd, psztitlestring: Pcwstr, hkbckupkey: Hkey, pcszrootkey: Pcwstr, pcszsubkey: Pcwstr, pcszvaluename: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_regSaveRestoreW((hwnd?.value ?: 0L), (psztitlestring?.value ?: 0L), (hkbckupkey?.value ?: 0L), (pcszrootkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvaluename?.value ?: 0L), dwflags.toInt())
 
-public actual fun ReplacePartitionUnit(targetpartition: PCWSTR, sparepartition: PCWSTR, flags: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_ReplacePartitionUnit(targetpartition, sparepartition, flags.toInt())
+public actual fun replacePartitionUnit(targetpartition: Pcwstr, sparepartition: Pcwstr, flags: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_replacePartitionUnit((targetpartition?.value ?: 0L), (sparepartition?.value ?: 0L), flags.toInt())
 
-public actual fun RequestDeviceWakeup(hdevice: HANDLE): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RequestDeviceWakeup(hdevice)
+public actual fun requestDeviceWakeup(hdevice: Handle): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_requestDeviceWakeup((hdevice?.value ?: 0L))
 
-public actual fun RtlAnsiStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlAnsiStringToUnicodeString(destinationstring, sourcestring, allocatedestinationstring)
+public actual fun rtlAnsiStringToUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlAnsiStringToUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
 
-public actual fun RtlCharToInteger(string: Long, base: UInt, value: Long): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlCharToInteger(string, base.toInt(), value)
+public actual fun rtlCharToInteger(string: COpaquePointer?, base: UInt, value: COpaquePointer?): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlCharToInteger((string?.value ?: 0L), base.toInt(), (value?.value ?: 0L))
 
-public actual fun RtlFreeAnsiString(ansistring: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlFreeAnsiString(ansistring)
+public actual fun rtlFreeAnsiString(ansistring: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlFreeAnsiString((ansistring?.value ?: 0L))
 }
 
-public actual fun RtlFreeOemString(oemstring: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlFreeOemString(oemstring)
+public actual fun rtlFreeOemString(oemstring: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlFreeOemString((oemstring?.value ?: 0L))
 }
 
-public actual fun RtlFreeUnicodeString(unicodestring: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlFreeUnicodeString(unicodestring)
+public actual fun rtlFreeUnicodeString(unicodestring: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlFreeUnicodeString((unicodestring?.value ?: 0L))
 }
 
-public actual fun RtlGetReturnAddressHijackTarget(): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlGetReturnAddressHijackTarget().toULong()
+public actual fun rtlGetReturnAddressHijackTarget(): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlGetReturnAddressHijackTarget().toULong()
 
-public actual fun RtlInitAnsiString(destinationstring: Long, sourcestring: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlInitAnsiString(destinationstring, sourcestring)
+public actual fun rtlInitAnsiString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
 }
 
-public actual fun RtlInitAnsiStringEx(destinationstring: Long, sourcestring: Long): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlInitAnsiStringEx(destinationstring, sourcestring)
+public actual fun rtlInitAnsiStringEx(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiStringEx((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
 
-public actual fun RtlInitString(destinationstring: Long, sourcestring: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlInitString(destinationstring, sourcestring)
+public actual fun rtlInitString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlInitString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
 }
 
-public actual fun RtlInitStringEx(destinationstring: Long, sourcestring: Long): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlInitStringEx(destinationstring, sourcestring)
+public actual fun rtlInitStringEx(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlInitStringEx((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
 
-public actual fun RtlInitUnicodeString(destinationstring: Long, sourcestring: PCWSTR) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlInitUnicodeString(destinationstring, sourcestring)
+public actual fun rtlInitUnicodeString(destinationstring: COpaquePointer?, sourcestring: Pcwstr) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlInitUnicodeString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L))
 }
 
-public actual fun RtlIsNameLegalDOS8Dot3(name: Long, oemname: Long, namecontainsspaces: Long): Boolean =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlIsNameLegalDOS8Dot3(name, oemname, namecontainsspaces)
+public actual fun rtlIsNameLegalDOS8Dot3(name: COpaquePointer?, oemname: COpaquePointer?, namecontainsspaces: COpaquePointer?): Boolean =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlIsNameLegalDOS8Dot3((name?.value ?: 0L), (oemname?.value ?: 0L), (namecontainsspaces?.value ?: 0L))
 
-public actual fun RtlLocalTimeToSystemTime(localtime: Long, systemtime: Long): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlLocalTimeToSystemTime(localtime, systemtime)
+public actual fun rtlLocalTimeToSystemTime(localtime: COpaquePointer?, systemtime: COpaquePointer?): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlLocalTimeToSystemTime((localtime?.value ?: 0L), (systemtime?.value ?: 0L))
 
-public actual fun RtlRaiseCustomSystemEventTrigger(triggerconfig: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlRaiseCustomSystemEventTrigger(triggerconfig).toUInt()
+public actual fun rtlRaiseCustomSystemEventTrigger(triggerconfig: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlRaiseCustomSystemEventTrigger((triggerconfig?.value ?: 0L)).toUInt()
 
-public actual fun RtlTimeToSecondsSince1970(time: Long, elapsedseconds: Long): Boolean =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlTimeToSecondsSince1970(time, elapsedseconds)
+public actual fun rtlTimeToSecondsSince1970(time: COpaquePointer?, elapsedseconds: COpaquePointer?): Boolean =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlTimeToSecondsSince1970((time?.value ?: 0L), (elapsedseconds?.value ?: 0L))
 
-public actual fun RtlUnicodeStringToAnsiString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlUnicodeStringToAnsiString(destinationstring, sourcestring, allocatedestinationstring)
+public actual fun rtlUnicodeStringToAnsiString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToAnsiString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
 
-public actual fun RtlUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlUnicodeStringToOemString(destinationstring, sourcestring, allocatedestinationstring)
+public actual fun rtlUnicodeStringToOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToOemString((destinationstring?.value ?: 0L), (sourcestring?.value ?: 0L), allocatedestinationstring)
 
-public actual fun RtlUnicodeToMultiByteSize(bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlUnicodeToMultiByteSize(bytesinmultibytestring, unicodestring, bytesinunicodestring.toInt())
+public actual fun rtlUnicodeToMultiByteSize(bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlUnicodeToMultiByteSize((bytesinmultibytestring?.value ?: 0L), (unicodestring?.value ?: 0L), bytesinunicodestring.toInt())
 
-public actual fun RtlUniform(seed: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RtlUniform(seed).toUInt()
+public actual fun rtlUniform(seed: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_rtlUniform((seed?.value ?: 0L)).toUInt()
 
-public actual fun RunSetupCommandA(hwnd: HWND, szcmdname: PCSTR, szinfsection: PCSTR, szdir: PCSTR, lpsztitle: PCSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RunSetupCommandA(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toInt(), pvreserved)
+public actual fun runSetupCommandA(hwnd: Hwnd, szcmdname: Pcstr, szinfsection: Pcstr, szdir: Pcstr, lpsztitle: Pcstr, phexe: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_runSetupCommandA((hwnd?.value ?: 0L), (szcmdname?.value ?: 0L), (szinfsection?.value ?: 0L), (szdir?.value ?: 0L), (lpsztitle?.value ?: 0L), (phexe?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
 
-public actual fun RunSetupCommandW(hwnd: HWND, szcmdname: PCWSTR, szinfsection: PCWSTR, szdir: PCWSTR, lpsztitle: PCWSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_RunSetupCommandW(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toInt(), pvreserved)
+public actual fun runSetupCommandW(hwnd: Hwnd, szcmdname: Pcwstr, szinfsection: Pcwstr, szdir: Pcwstr, lpsztitle: Pcwstr, phexe: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_runSetupCommandW((hwnd?.value ?: 0L), (szcmdname?.value ?: 0L), (szinfsection?.value ?: 0L), (szdir?.value ?: 0L), (lpsztitle?.value ?: 0L), (phexe?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
 
-public actual fun SendIMEMessageExA(param0: HWND, param1: LPARAM): LRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SendIMEMessageExA(param0, param1)
+public actual fun sendIMEMessageExA(param0: Hwnd, param1: Lparam): Lresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExA((param0?.value ?: 0L), param1)
 
-public actual fun SendIMEMessageExW(param0: HWND, param1: LPARAM): LRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SendIMEMessageExW(param0, param1)
+public actual fun sendIMEMessageExW(param0: Hwnd, param1: Lparam): Lresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExW((param0?.value ?: 0L), param1)
 
-public actual fun SetEnvironmentStringsA(newenvironment: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetEnvironmentStringsA(newenvironment)
+public actual fun setEnvironmentStringsA(newenvironment: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setEnvironmentStringsA((newenvironment?.value ?: 0L))
 
-public actual fun SetFirmwareEnvironmentVariableA(lpname: PCSTR, lpguid: PCSTR, pvalue: Long, nsize: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableA(lpname, lpguid, pvalue, nsize.toInt())
+public actual fun setFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pvalue: COpaquePointer?, nsize: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableA((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pvalue?.value ?: 0L), nsize.toInt())
 
-public actual fun SetFirmwareEnvironmentVariableExA(lpname: PCSTR, lpguid: PCSTR, pvalue: Long, nsize: UInt, dwattributes: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableExA(lpname, lpguid, pvalue, nsize.toInt(), dwattributes.toInt())
+public actual fun setFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pvalue: COpaquePointer?, nsize: UInt, dwattributes: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExA((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pvalue?.value ?: 0L), nsize.toInt(), dwattributes.toInt())
 
-public actual fun SetFirmwareEnvironmentVariableExW(lpname: PCWSTR, lpguid: PCWSTR, pvalue: Long, nsize: UInt, dwattributes: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableExW(lpname, lpguid, pvalue, nsize.toInt(), dwattributes.toInt())
+public actual fun setFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: COpaquePointer?, nsize: UInt, dwattributes: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExW((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pvalue?.value ?: 0L), nsize.toInt(), dwattributes.toInt())
 
-public actual fun SetFirmwareEnvironmentVariableW(lpname: PCWSTR, lpguid: PCWSTR, pvalue: Long, nsize: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetFirmwareEnvironmentVariableW(lpname, lpguid, pvalue, nsize.toInt())
+public actual fun setFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: COpaquePointer?, nsize: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableW((lpname?.value ?: 0L), (lpguid?.value ?: 0L), (pvalue?.value ?: 0L), nsize.toInt())
 
-public actual fun SetHandleCount(unumber: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetHandleCount(unumber.toInt()).toUInt()
+public actual fun setHandleCount(unumber: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setHandleCount(unumber.toInt()).toUInt()
 
-public actual fun SetMessageWaitingIndicator(hmsgindicator: HANDLE, ulmsgcount: UInt): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetMessageWaitingIndicator(hmsgindicator, ulmsgcount.toInt())
+public actual fun setMessageWaitingIndicator(hmsgindicator: Handle, ulmsgcount: UInt): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setMessageWaitingIndicator((hmsgindicator?.value ?: 0L), ulmsgcount.toInt())
 
-public actual fun SetPerUserSecValuesA(pperuser: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetPerUserSecValuesA(pperuser)
+public actual fun setPerUserSecValuesA(pperuser: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesA((pperuser?.value ?: 0L))
 
-public actual fun SetPerUserSecValuesW(pperuser: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SetPerUserSecValuesW(pperuser)
+public actual fun setPerUserSecValuesW(pperuser: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesW((pperuser?.value ?: 0L))
 
-public actual fun SubscribeFeatureStateChangeNotification(subscription: Long, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: Long) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_SubscribeFeatureStateChangeNotification(subscription, callback.toLong(), context)
+public actual fun subscribeFeatureStateChangeNotification(subscription: COpaquePointer?, callback: PfeatureStateChangeCallback, context: COpaquePointer?) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_subscribeFeatureStateChangeNotification((subscription?.value ?: 0L), 0L, (context?.value ?: 0L))
 }
 
-public actual fun TranslateInfStringA(pszinffilename: PCSTR, pszinstallsection: PCSTR, psztranslatesection: PCSTR, psztranslatekey: PCSTR, pszbuffer: PSTR, cchbuffer: UInt, pdwrequiredsize: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_TranslateInfStringA(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer.toInt(), pdwrequiredsize, pvreserved)
+public actual fun translateInfStringA(pszinffilename: Pcstr, pszinstallsection: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, cchbuffer: UInt, pdwrequiredsize: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_translateInfStringA((pszinffilename?.value ?: 0L), (pszinstallsection?.value ?: 0L), (psztranslatesection?.value ?: 0L), (psztranslatekey?.value ?: 0L), (pszbuffer?.value ?: 0L), cchbuffer.toInt(), (pdwrequiredsize?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun TranslateInfStringExA(hinf: Long, pszinffilename: PCSTR, psztranslatesection: PCSTR, psztranslatekey: PCSTR, pszbuffer: PSTR, dwbuffersize: UInt, pdwrequiredsize: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_TranslateInfStringExA(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize.toInt(), pdwrequiredsize, pvreserved)
+public actual fun translateInfStringExA(hinf: COpaquePointer?, pszinffilename: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, dwbuffersize: UInt, pdwrequiredsize: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_translateInfStringExA((hinf?.value ?: 0L), (pszinffilename?.value ?: 0L), (psztranslatesection?.value ?: 0L), (psztranslatekey?.value ?: 0L), (pszbuffer?.value ?: 0L), dwbuffersize.toInt(), (pdwrequiredsize?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun TranslateInfStringExW(hinf: Long, pszinffilename: PCWSTR, psztranslatesection: PCWSTR, psztranslatekey: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt, pdwrequiredsize: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_TranslateInfStringExW(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize.toInt(), pdwrequiredsize, pvreserved)
+public actual fun translateInfStringExW(hinf: COpaquePointer?, pszinffilename: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt, pdwrequiredsize: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_translateInfStringExW((hinf?.value ?: 0L), (pszinffilename?.value ?: 0L), (psztranslatesection?.value ?: 0L), (psztranslatekey?.value ?: 0L), (pszbuffer?.value ?: 0L), dwbuffersize.toInt(), (pdwrequiredsize?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun TranslateInfStringW(pszinffilename: PCWSTR, pszinstallsection: PCWSTR, psztranslatesection: PCWSTR, psztranslatekey: PCWSTR, pszbuffer: PWSTR, cchbuffer: UInt, pdwrequiredsize: Long, pvreserved: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_TranslateInfStringW(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer.toInt(), pdwrequiredsize, pvreserved)
+public actual fun translateInfStringW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt, pdwrequiredsize: COpaquePointer?, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_translateInfStringW((pszinffilename?.value ?: 0L), (pszinstallsection?.value ?: 0L), (psztranslatesection?.value ?: 0L), (psztranslatekey?.value ?: 0L), (pszbuffer?.value ?: 0L), cchbuffer.toInt(), (pdwrequiredsize?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_UnsubscribeFeatureStateChangeNotification(subscription)
+public actual fun unsubscribeFeatureStateChangeNotification(subscription: FeatureStateChangeSubscription) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_unsubscribeFeatureStateChangeNotification((subscription?.value ?: 0L))
 }
 
-public actual fun UserInstStubWrapperA(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_UserInstStubWrapperA(hwnd, hinstance, pszparms, nshow)
+public actual fun userInstStubWrapperA(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pcstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperA((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun UserInstStubWrapperW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_UserInstStubWrapperW(hwnd, hinstance, pszparms, nshow)
+public actual fun userInstStubWrapperW(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pcwstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperW((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun UserUnInstStubWrapperA(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_UserUnInstStubWrapperA(hwnd, hinstance, pszparms, nshow)
+public actual fun userUnInstStubWrapperA(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pcstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperA((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun UserUnInstStubWrapperW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_UserUnInstStubWrapperW(hwnd, hinstance, pszparms, nshow)
+public actual fun userUnInstStubWrapperW(hwnd: Hwnd, hinstance: Hinstance, pszparms: Pcwstr, nshow: Int): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperW((hwnd?.value ?: 0L), (hinstance?.value ?: 0L), (pszparms?.value ?: 0L), nshow)
 
-public actual fun WINNLSEnableIME(param0: HWND, param1: BOOL): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WINNLSEnableIME(param0, param1)
+public actual fun wINNLSEnableIME(param0: Hwnd, param1: Bool): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wINNLSEnableIME((param0?.value ?: 0L), param1)
 
-public actual fun WINNLSGetEnableStatus(param0: HWND): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WINNLSGetEnableStatus(param0)
+public actual fun wINNLSGetEnableStatus(param0: Hwnd): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wINNLSGetEnableStatus((param0?.value ?: 0L))
 
-public actual fun WINNLSGetIMEHotkey(param0: HWND): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WINNLSGetIMEHotkey(param0).toUInt()
+public actual fun wINNLSGetIMEHotkey(param0: Hwnd): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wINNLSGetIMEHotkey((param0?.value ?: 0L)).toUInt()
 
-public actual fun WinWatchClose(hww: HWINWATCH) {
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WinWatchClose(hww)
+public actual fun winWatchClose(hww: Hwinwatch) {
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_winWatchClose((hww?.value ?: 0L))
 }
 
-public actual fun WinWatchDidStatusChange(hww: HWINWATCH): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WinWatchDidStatusChange(hww)
+public actual fun winWatchDidStatusChange(hww: Hwinwatch): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_winWatchDidStatusChange((hww?.value ?: 0L))
 
-public actual fun WinWatchGetClipList(hww: HWINWATCH, prc: Long, size: UInt, prd: Long): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WinWatchGetClipList(hww, prc, size.toInt(), prd).toUInt()
+public actual fun winWatchGetClipList(hww: Hwinwatch, prc: COpaquePointer?, size: UInt, prd: COpaquePointer?): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_winWatchGetClipList((hww?.value ?: 0L), (prc?.value ?: 0L), size.toInt(), (prd?.value ?: 0L)).toUInt()
 
-public actual fun WinWatchNotify(hww: HWINWATCH, notifycallback: WINWATCHNOTIFYPROC, notifyparam: LPARAM): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WinWatchNotify(hww, notifycallback.toLong(), notifyparam)
+public actual fun winWatchNotify(hww: Hwinwatch, notifycallback: Winwatchnotifyproc, notifyparam: Lparam): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_winWatchNotify((hww?.value ?: 0L), 0L, notifyparam)
 
-public actual fun WinWatchOpen(hwnd: HWND): HWINWATCH =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WinWatchOpen(hwnd)
+public actual fun winWatchOpen(hwnd: Hwnd): Hwinwatch =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_winWatchOpen((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun WldpCanExecuteBuffer(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: Long, buffersize: UInt, auditinfo: PCWSTR, result: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteBuffer(host, options, buffer, buffersize.toInt(), auditinfo, result)
+public actual fun wldpCanExecuteBuffer(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, buffer: COpaquePointer?, buffersize: UInt, auditinfo: Pcwstr, result: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteBuffer((host?.value ?: 0L), options, (buffer?.value ?: 0L), buffersize.toInt(), (auditinfo?.value ?: 0L), (result?.value ?: 0L))
 
-public actual fun WldpCanExecuteFile(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: HANDLE, auditinfo: PCWSTR, result: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteFile(host, options, filehandle, auditinfo, result)
+public actual fun wldpCanExecuteFile(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteFile((host?.value ?: 0L), options, (filehandle?.value ?: 0L), (auditinfo?.value ?: 0L), (result?.value ?: 0L))
 
-public actual fun WldpCanExecuteStream(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: Long, auditinfo: PCWSTR, result: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpCanExecuteStream(host, options, stream, auditinfo, result)
+public actual fun wldpCanExecuteStream(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, stream: COpaquePointer?, auditinfo: Pcwstr, result: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteStream((host?.value ?: 0L), options, (stream?.value ?: 0L), (auditinfo?.value ?: 0L), (result?.value ?: 0L))
 
-public actual fun WldpGetLockdownPolicy(hostinformation: Long, lockdownstate: Long, lockdownflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpGetLockdownPolicy(hostinformation, lockdownstate, lockdownflags.toInt())
+public actual fun wldpGetLockdownPolicy(hostinformation: COpaquePointer?, lockdownstate: COpaquePointer?, lockdownflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpGetLockdownPolicy((hostinformation?.value ?: 0L), (lockdownstate?.value ?: 0L), lockdownflags.toInt())
 
-public actual fun WldpIsClassInApprovedList(classid: Long, hostinformation: Long, isapproved: Long, optionalflags: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpIsClassInApprovedList(classid, hostinformation, isapproved, optionalflags.toInt())
+public actual fun wldpIsClassInApprovedList(classid: COpaquePointer?, hostinformation: COpaquePointer?, isapproved: COpaquePointer?, optionalflags: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpIsClassInApprovedList((classid?.value ?: 0L), (hostinformation?.value ?: 0L), (isapproved?.value ?: 0L), optionalflags.toInt())
 
-public actual fun WldpIsDynamicCodePolicyEnabled(isenabled: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpIsDynamicCodePolicyEnabled(isenabled)
+public actual fun wldpIsDynamicCodePolicyEnabled(isenabled: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpIsDynamicCodePolicyEnabled((isenabled?.value ?: 0L))
 
-public actual fun WldpQueryDeviceSecurityInformation(information: Long, informationlength: UInt, returnlength: Long): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpQueryDeviceSecurityInformation(information, informationlength.toInt(), returnlength)
+public actual fun wldpQueryDeviceSecurityInformation(information: COpaquePointer?, informationlength: UInt, returnlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpQueryDeviceSecurityInformation((information?.value ?: 0L), informationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun WldpQueryDynamicCodeTrust(filehandle: HANDLE, baseimage: Long, imagesize: UInt): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpQueryDynamicCodeTrust(filehandle, baseimage, imagesize.toInt())
+public actual fun wldpQueryDynamicCodeTrust(filehandle: Handle, baseimage: COpaquePointer?, imagesize: UInt): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpQueryDynamicCodeTrust((filehandle?.value ?: 0L), (baseimage?.value ?: 0L), imagesize.toInt())
 
-public actual fun WldpSetDynamicCodeTrust(filehandle: HANDLE): HRESULT =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WldpSetDynamicCodeTrust(filehandle)
+public actual fun wldpSetDynamicCodeTrust(filehandle: Handle): Hresult =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_wldpSetDynamicCodeTrust((filehandle?.value ?: 0L))
 
-public actual fun WritePrivateProfileSectionA(lpappname: PCSTR, lpstring: PCSTR, lpfilename: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileSectionA(lpappname, lpstring, lpfilename)
+public actual fun writePrivateProfileSectionA(lpappname: Pcstr, lpstring: Pcstr, lpfilename: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionA((lpappname?.value ?: 0L), (lpstring?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun WritePrivateProfileSectionW(lpappname: PCWSTR, lpstring: PCWSTR, lpfilename: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileSectionW(lpappname, lpstring, lpfilename)
+public actual fun writePrivateProfileSectionW(lpappname: Pcwstr, lpstring: Pcwstr, lpfilename: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionW((lpappname?.value ?: 0L), (lpstring?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun WritePrivateProfileStringA(lpappname: PCSTR, lpkeyname: PCSTR, lpstring: PCSTR, lpfilename: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStringA(lpappname, lpkeyname, lpstring, lpfilename)
+public actual fun writePrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpstring: Pcstr, lpfilename: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpstring?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun WritePrivateProfileStringW(lpappname: PCWSTR, lpkeyname: PCWSTR, lpstring: PCWSTR, lpfilename: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStringW(lpappname, lpkeyname, lpstring, lpfilename)
+public actual fun writePrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr, lpfilename: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpstring?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun WritePrivateProfileStructA(lpszsection: PCSTR, lpszkey: PCSTR, lpstruct: Long, usizestruct: UInt, szfile: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStructA(lpszsection, lpszkey, lpstruct, usizestruct.toInt(), szfile)
+public actual fun writePrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: COpaquePointer?, usizestruct: UInt, szfile: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructA((lpszsection?.value ?: 0L), (lpszkey?.value ?: 0L), (lpstruct?.value ?: 0L), usizestruct.toInt(), (szfile?.value ?: 0L))
 
-public actual fun WritePrivateProfileStructW(lpszsection: PCWSTR, lpszkey: PCWSTR, lpstruct: Long, usizestruct: UInt, szfile: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WritePrivateProfileStructW(lpszsection, lpszkey, lpstruct, usizestruct.toInt(), szfile)
+public actual fun writePrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: COpaquePointer?, usizestruct: UInt, szfile: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructW((lpszsection?.value ?: 0L), (lpszkey?.value ?: 0L), (lpstruct?.value ?: 0L), usizestruct.toInt(), (szfile?.value ?: 0L))
 
-public actual fun WriteProfileSectionA(lpappname: PCSTR, lpstring: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WriteProfileSectionA(lpappname, lpstring)
+public actual fun writeProfileSectionA(lpappname: Pcstr, lpstring: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writeProfileSectionA((lpappname?.value ?: 0L), (lpstring?.value ?: 0L))
 
-public actual fun WriteProfileSectionW(lpappname: PCWSTR, lpstring: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WriteProfileSectionW(lpappname, lpstring)
+public actual fun writeProfileSectionW(lpappname: Pcwstr, lpstring: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writeProfileSectionW((lpappname?.value ?: 0L), (lpstring?.value ?: 0L))
 
-public actual fun WriteProfileStringA(lpappname: PCSTR, lpkeyname: PCSTR, lpstring: PCSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WriteProfileStringA(lpappname, lpkeyname, lpstring)
+public actual fun writeProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpstring: Pcstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writeProfileStringA((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpstring?.value ?: 0L))
 
-public actual fun WriteProfileStringW(lpappname: PCWSTR, lpkeyname: PCWSTR, lpstring: PCWSTR): BOOL =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_WriteProfileStringW(lpappname, lpkeyname, lpstring)
+public actual fun writeProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr): Bool =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_writeProfileStringW((lpappname?.value ?: 0L), (lpkeyname?.value ?: 0L), (lpstring?.value ?: 0L))
 
-public actual fun _hread(hfile: Int, lpbuffer: Long, lbytes: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__hread(hfile, lpbuffer, lbytes)
+public actual fun hread(hfile: Int, lpbuffer: COpaquePointer?, lbytes: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_hread(hfile, (lpbuffer?.value ?: 0L), lbytes)
 
-public actual fun _hwrite(hfile: Int, lpbuffer: PCSTR, lbytes: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__hwrite(hfile, lpbuffer, lbytes)
+public actual fun hwrite(hfile: Int, lpbuffer: Pcstr, lbytes: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_hwrite(hfile, (lpbuffer?.value ?: 0L), lbytes)
 
-public actual fun _lclose(hfile: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__lclose(hfile)
+public actual fun lclose(hfile: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_lclose(hfile)
 
-public actual fun _lcreat(lppathname: PCSTR, iattribute: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__lcreat(lppathname, iattribute)
+public actual fun lcreat(lppathname: Pcstr, iattribute: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_lcreat((lppathname?.value ?: 0L), iattribute)
 
-public actual fun _llseek(hfile: Int, loffset: Int, iorigin: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__llseek(hfile, loffset, iorigin)
+public actual fun llseek(hfile: Int, loffset: Int, iorigin: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_llseek(hfile, loffset, iorigin)
 
-public actual fun _lopen(lppathname: PCSTR, ireadwrite: Int): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__lopen(lppathname, ireadwrite)
+public actual fun lopen(lppathname: Pcstr, ireadwrite: Int): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_lopen((lppathname?.value ?: 0L), ireadwrite)
 
-public actual fun _lread(hfile: Int, lpbuffer: Long, ubytes: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__lread(hfile, lpbuffer, ubytes.toInt()).toUInt()
+public actual fun lread(hfile: Int, lpbuffer: COpaquePointer?, ubytes: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_lread(hfile, (lpbuffer?.value ?: 0L), ubytes.toInt()).toUInt()
 
-public actual fun _lwrite(hfile: Int, lpbuffer: PCSTR, ubytes: UInt): UInt =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming__lwrite(hfile, lpbuffer, ubytes.toInt()).toUInt()
+public actual fun lwrite(hfile: Int, lpbuffer: Pcstr, ubytes: UInt): UInt =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_lwrite(hfile, (lpbuffer?.value ?: 0L), ubytes.toInt()).toUInt()
 
-public actual fun uaw_lstrcmpW(string1: Long, string2: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_lstrcmpW(string1, string2)
+public actual fun uawLstrcmpW(string1: COpaquePointer?, string2: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawLstrcmpW((string1?.value ?: 0L), (string2?.value ?: 0L))
 
-public actual fun uaw_lstrcmpiW(string1: Long, string2: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_lstrcmpiW(string1, string2)
+public actual fun uawLstrcmpiW(string1: COpaquePointer?, string2: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawLstrcmpiW((string1?.value ?: 0L), (string2?.value ?: 0L))
 
-public actual fun uaw_lstrlenW(string: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_lstrlenW(string)
+public actual fun uawLstrlenW(string: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawLstrlenW((string?.value ?: 0L))
 
-public actual fun uaw_wcschr(string: Long, character: UShort): Long =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_wcschr(string, character.toShort())
+public actual fun uawWcschr(string: COpaquePointer?, character: UShort): COpaquePointer? =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawWcschr((string?.value ?: 0L), character.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uaw_wcscpy(destination: Long, source: Long): Long =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_wcscpy(destination, source)
+public actual fun uawWcscpy(destination: COpaquePointer?, source: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawWcscpy((destination?.value ?: 0L), (source?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun uaw_wcsicmp(string1: Long, string2: Long): Int =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_wcsicmp(string1, string2)
+public actual fun uawWcsicmp(string1: COpaquePointer?, string2: COpaquePointer?): Int =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawWcsicmp((string1?.value ?: 0L), (string2?.value ?: 0L))
 
-public actual fun uaw_wcslen(string: Long): ULong =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_wcslen(string).toULong()
+public actual fun uawWcslen(string: COpaquePointer?): ULong =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawWcslen((string?.value ?: 0L)).toULong()
 
-public actual fun uaw_wcsrchr(string: Long, character: UShort): Long =
-    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uaw_wcsrchr(string, character.toShort())
+public actual fun uawWcsrchr(string: COpaquePointer?, character: UShort): COpaquePointer? =
+    WindowsWin32SystemWindowsprogrammingJniBridge.windowssys_windows_win32_system_windowsprogramming_uawWcsrchr((string?.value ?: 0L), character.toShort()).let { if (it == 0L) null else COpaquePointer(it) }

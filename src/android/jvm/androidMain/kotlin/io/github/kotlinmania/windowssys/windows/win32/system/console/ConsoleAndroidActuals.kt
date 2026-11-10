@@ -2,15 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private object WindowsWin32SystemConsoleJniBridge {
     init {
@@ -18,512 +19,512 @@ private object WindowsWin32SystemConsoleJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_AddConsoleAliasA(source: Long, target: Long, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_addConsoleAliasA(source: Long, target: Long, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_AddConsoleAliasW(source: Long, target: Long, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_addConsoleAliasW(source: Long, target: Long, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_AllocConsole(): Int
+    external fun windowssys_windows_win32_system_console_allocConsole(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_AttachConsole(dwprocessid: Int): Int
+    external fun windowssys_windows_win32_system_console_attachConsole(dwprocessid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ClosePseudoConsole(hpc: Long)
+    external fun windowssys_windows_win32_system_console_closePseudoConsole(hpc: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ConsoleControl(command: Int, consoleinformation: Long, consoleinformationlength: Int): Int
+    external fun windowssys_windows_win32_system_console_consoleControl(command: Int, consoleinformation: Long, consoleinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(dwdesiredaccess: Int, dwsharemode: Int, lpsecurityattributes: Long, dwflags: Int, lpscreenbufferdata: Long): Long
+    external fun windowssys_windows_win32_system_console_createConsoleScreenBuffer(dwdesiredaccess: Int, dwsharemode: Int, lpsecurityattributes: Long, dwflags: Int, lpscreenbufferdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(exename: Long)
+    external fun windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA(exename: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(exename: Long)
+    external fun windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW(exename: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_FlushConsoleInputBuffer(hconsoleinput: Long): Int
+    external fun windowssys_windows_win32_system_console_flushConsoleInputBuffer(hconsoleinput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_FreeConsole(): Int
+    external fun windowssys_windows_win32_system_console_freeConsole(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(dwctrlevent: Int, dwprocessgroupid: Int): Int
+    external fun windowssys_windows_win32_system_console_generateConsoleCtrlEvent(dwctrlevent: Int, dwprocessgroupid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasA(source: Long, targetbuffer: Long, targetbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasA(source: Long, targetbuffer: Long, targetbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasExesA(exenamebuffer: Long, exenamebufferlength: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasExesA(exenamebuffer: Long, exenamebufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA(): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasExesLengthA(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW(): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasExesLengthW(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasExesW(exenamebuffer: Long, exenamebufferlength: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasExesW(exenamebuffer: Long, exenamebufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasW(source: Long, targetbuffer: Long, targetbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasW(source: Long, targetbuffer: Long, targetbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasesA(aliasbuffer: Long, aliasbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasesA(aliasbuffer: Long, aliasbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasesLengthA(exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasesLengthW(exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleAliasesW(aliasbuffer: Long, aliasbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleAliasesW(aliasbuffer: Long, aliasbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCP(): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCP(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(commands: Long, commandbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCommandHistoryA(commands: Long, commandbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA(exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA(exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW(exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW(exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(commands: Long, commandbufferlength: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCommandHistoryW(commands: Long, commandbufferlength: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleCursorInfo(hconsoleoutput: Long, lpconsolecursorinfo: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleCursorInfo(hconsoleoutput: Long, lpconsolecursorinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleDisplayMode(lpmodeflags: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleDisplayMode(lpmodeflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleHistoryInfo(lpconsolehistoryinfo: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleHistoryInfo(lpconsolehistoryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleMode(hconsolehandle: Long, lpmode: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleMode(hconsolehandle: Long, lpmode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(lpconsoletitle: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleOriginalTitleA(lpconsoletitle: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(lpconsoletitle: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleOriginalTitleW(lpconsoletitle: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleOutputCP(): Int
+    external fun windowssys_windows_win32_system_console_getConsoleOutputCP(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(hconsoleoutput: Long, lpconsolescreenbufferinfo: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleScreenBufferInfo(hconsoleoutput: Long, lpconsolescreenbufferinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(hconsoleoutput: Long, lpconsolescreenbufferinfoex: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx(hconsoleoutput: Long, lpconsolescreenbufferinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleSelectionInfo(lpconsoleselectioninfo: Long): Int
+    external fun windowssys_windows_win32_system_console_getConsoleSelectionInfo(lpconsoleselectioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleTitleA(lpconsoletitle: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleTitleA(lpconsoletitle: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleTitleW(lpconsoletitle: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_console_getConsoleTitleW(lpconsoletitle: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetConsoleWindow(): Long
+    external fun windowssys_windows_win32_system_console_getConsoleWindow(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetCurrentConsoleFont(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfont: Long): Int
+    external fun windowssys_windows_win32_system_console_getCurrentConsoleFont(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfont: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfontex: Long): Int
+    external fun windowssys_windows_win32_system_console_getCurrentConsoleFontEx(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfontex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(hconsoleinput: Long, lpnumberofevents: Long): Int
+    external fun windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents(hconsoleinput: Long, lpnumberofevents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): Int
+    external fun windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_GetStdHandle(nstdhandle: Int): Long
+    external fun windowssys_windows_win32_system_console_getStdHandle(nstdhandle: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_PeekConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
+    external fun windowssys_windows_win32_system_console_peekConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_PeekConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
+    external fun windowssys_windows_win32_system_console_peekConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ReadConsoleA(hconsoleinput: Long, lpbuffer: Long, nnumberofcharstoread: Int, lpnumberofcharsread: Long, pinputcontrol: Long): Int
+    external fun windowssys_windows_win32_system_console_readConsoleA(hconsoleinput: Long, lpbuffer: Long, nnumberofcharstoread: Int, lpnumberofcharsread: Long, pinputcontrol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ReadConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
+    external fun windowssys_windows_win32_system_console_readConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ReadConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
+    external fun windowssys_windows_win32_system_console_readConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventsread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_ReadConsoleW(hconsoleinput: Long, lpbuffer: Long, nnumberofcharstoread: Int, lpnumberofcharsread: Long, pinputcontrol: Long): Int
+    external fun windowssys_windows_win32_system_console_readConsoleW(hconsoleinput: Long, lpbuffer: Long, nnumberofcharstoread: Int, lpnumberofcharsread: Long, pinputcontrol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(hconsoleoutput: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer(hconsoleoutput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleCP(wcodepageid: Int): Int
+    external fun windowssys_windows_win32_system_console_setConsoleCP(wcodepageid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleCtrlHandler(handlerroutine: Long, add: Int): Int
+    external fun windowssys_windows_win32_system_console_setConsoleCtrlHandler(handlerroutine: Long, add: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleCursorInfo(hconsoleoutput: Long, lpconsolecursorinfo: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleCursorInfo(hconsoleoutput: Long, lpconsolecursorinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleDisplayMode(hconsoleoutput: Long, dwflags: Int, lpnewscreenbufferdimensions: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleDisplayMode(hconsoleoutput: Long, dwflags: Int, lpnewscreenbufferdimensions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleHistoryInfo(lpconsolehistoryinfo: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleHistoryInfo(lpconsolehistoryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleMode(hconsolehandle: Long, dwmode: Int): Int
+    external fun windowssys_windows_win32_system_console_setConsoleMode(hconsolehandle: Long, dwmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(number: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA(number: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(number: Int, exename: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW(number: Int, exename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleOutputCP(wcodepageid: Int): Int
+    external fun windowssys_windows_win32_system_console_setConsoleOutputCP(wcodepageid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(hconsoleoutput: Long, lpconsolescreenbufferinfoex: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx(hconsoleoutput: Long, lpconsolescreenbufferinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleTextAttribute(hconsoleoutput: Long, wattributes: Short): Int
+    external fun windowssys_windows_win32_system_console_setConsoleTextAttribute(hconsoleoutput: Long, wattributes: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleTitleA(lpconsoletitle: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleTitleA(lpconsoletitle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleTitleW(lpconsoletitle: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleTitleW(lpconsoletitle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetConsoleWindowInfo(hconsoleoutput: Long, babsolute: Int, lpconsolewindow: Long): Int
+    external fun windowssys_windows_win32_system_console_setConsoleWindowInfo(hconsoleoutput: Long, babsolute: Int, lpconsolewindow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfontex: Long): Int
+    external fun windowssys_windows_win32_system_console_setCurrentConsoleFontEx(hconsoleoutput: Long, bmaximumwindow: Int, lpconsolecurrentfontex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetStdHandle(nstdhandle: Int, hhandle: Long): Int
+    external fun windowssys_windows_win32_system_console_setStdHandle(nstdhandle: Int, hhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_SetStdHandleEx(nstdhandle: Int, hhandle: Long, phprevvalue: Long): Int
+    external fun windowssys_windows_win32_system_console_setStdHandleEx(nstdhandle: Int, hhandle: Long, phprevvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_WriteConsoleA(hconsoleoutput: Long, lpbuffer: Long, nnumberofcharstowrite: Int, lpnumberofcharswritten: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_system_console_writeConsoleA(hconsoleoutput: Long, lpbuffer: Long, nnumberofcharstowrite: Int, lpnumberofcharswritten: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_WriteConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventswritten: Long): Int
+    external fun windowssys_windows_win32_system_console_writeConsoleInputA(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_WriteConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventswritten: Long): Int
+    external fun windowssys_windows_win32_system_console_writeConsoleInputW(hconsoleinput: Long, lpbuffer: Long, nlength: Int, lpnumberofeventswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_console_WriteConsoleW(hconsoleoutput: Long, lpbuffer: Long, nnumberofcharstowrite: Int, lpnumberofcharswritten: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_system_console_writeConsoleW(hconsoleoutput: Long, lpbuffer: Long, nnumberofcharstowrite: Int, lpnumberofcharswritten: Long, lpreserved: Long): Int
 }
 
-public actual fun AddConsoleAliasA(source: PCSTR, target: PCSTR, exename: PCSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_AddConsoleAliasA(source, target, exename)
+public actual fun addConsoleAliasA(source: Pcstr, target: Pcstr, exename: Pcstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_addConsoleAliasA((source?.value ?: 0L), (target?.value ?: 0L), (exename?.value ?: 0L))
 
-public actual fun AddConsoleAliasW(source: PCWSTR, target: PCWSTR, exename: PCWSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_AddConsoleAliasW(source, target, exename)
+public actual fun addConsoleAliasW(source: Pcwstr, target: Pcwstr, exename: Pcwstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_addConsoleAliasW((source?.value ?: 0L), (target?.value ?: 0L), (exename?.value ?: 0L))
 
-public actual fun AllocConsole(): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_AllocConsole()
+public actual fun allocConsole(): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_allocConsole()
 
-public actual fun AttachConsole(dwprocessid: UInt): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_AttachConsole(dwprocessid.toInt())
+public actual fun attachConsole(dwprocessid: UInt): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_attachConsole(dwprocessid.toInt())
 
-public actual fun ClosePseudoConsole(hpc: HPCON) {
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ClosePseudoConsole(hpc)
+public actual fun closePseudoConsole(hpc: Hpcon) {
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_closePseudoConsole(hpc.toLong())
 }
 
-public actual fun ConsoleControl(command: CONSOLECONTROL, consoleinformation: Long, consoleinformationlength: UInt): NTSTATUS =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ConsoleControl(command, consoleinformation, consoleinformationlength.toInt())
+public actual fun consoleControl(command: Consolecontrol, consoleinformation: COpaquePointer?, consoleinformationlength: UInt): Ntstatus =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_consoleControl(command, (consoleinformation?.value ?: 0L), consoleinformationlength.toInt())
 
-public actual fun CreateConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwflags: UInt, lpscreenbufferdata: Long): HANDLE =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes, dwflags.toInt(), lpscreenbufferdata)
+public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: COpaquePointer?, dwflags: UInt, lpscreenbufferdata: COpaquePointer?): Handle =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_createConsoleScreenBuffer(dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L), dwflags.toInt(), (lpscreenbufferdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePseudoConsole(size: COORD, hinput: HANDLE, houtput: HANDLE, dwflags: UInt, phpc: Long): HRESULT =
+public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: COpaquePointer?): Hresult =
     0
 
-public actual fun ExpungeConsoleCommandHistoryA(exename: PCSTR) {
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(exename)
+public actual fun expungeConsoleCommandHistoryA(exename: Pcstr) {
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA((exename?.value ?: 0L))
 }
 
-public actual fun ExpungeConsoleCommandHistoryW(exename: PCWSTR) {
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(exename)
+public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr) {
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW((exename?.value ?: 0L))
 }
 
-public actual fun FillConsoleOutputAttribute(hconsoleoutput: HANDLE, wattribute: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL =
+public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FillConsoleOutputCharacterA(hconsoleoutput: HANDLE, ccharacter: Byte, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FillConsoleOutputCharacterW(hconsoleoutput: HANDLE, ccharacter: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun FlushConsoleInputBuffer(hconsoleinput: HANDLE): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_FlushConsoleInputBuffer(hconsoleinput)
+public actual fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_flushConsoleInputBuffer((hconsoleinput?.value ?: 0L))
 
-public actual fun FreeConsole(): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_FreeConsole()
+public actual fun freeConsole(): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_freeConsole()
 
-public actual fun GenerateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(dwctrlevent.toInt(), dwprocessgroupid.toInt())
+public actual fun generateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_generateConsoleCtrlEvent(dwctrlevent.toInt(), dwprocessgroupid.toInt())
 
-public actual fun GetConsoleAliasA(source: PCSTR, targetbuffer: PSTR, targetbufferlength: UInt, exename: PCSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasA(source, targetbuffer, targetbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleAliasA(source: Pcstr, targetbuffer: Pstr, targetbufferlength: UInt, exename: Pcstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasA((source?.value ?: 0L), (targetbuffer?.value ?: 0L), targetbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleAliasExesA(exenamebuffer: PSTR, exenamebufferlength: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasExesA(exenamebuffer, exenamebufferlength.toInt()).toUInt()
+public actual fun getConsoleAliasExesA(exenamebuffer: Pstr, exenamebufferlength: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasExesA((exenamebuffer?.value ?: 0L), exenamebufferlength.toInt()).toUInt()
 
-public actual fun GetConsoleAliasExesLengthA(): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA().toUInt()
+public actual fun getConsoleAliasExesLengthA(): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasExesLengthA().toUInt()
 
-public actual fun GetConsoleAliasExesLengthW(): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW().toUInt()
+public actual fun getConsoleAliasExesLengthW(): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasExesLengthW().toUInt()
 
-public actual fun GetConsoleAliasExesW(exenamebuffer: PWSTR, exenamebufferlength: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasExesW(exenamebuffer, exenamebufferlength.toInt()).toUInt()
+public actual fun getConsoleAliasExesW(exenamebuffer: Pwstr, exenamebufferlength: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasExesW((exenamebuffer?.value ?: 0L), exenamebufferlength.toInt()).toUInt()
 
-public actual fun GetConsoleAliasW(source: PCWSTR, targetbuffer: PWSTR, targetbufferlength: UInt, exename: PCWSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasW(source, targetbuffer, targetbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleAliasW(source: Pcwstr, targetbuffer: Pwstr, targetbufferlength: UInt, exename: Pcwstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasW((source?.value ?: 0L), (targetbuffer?.value ?: 0L), targetbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleAliasesA(aliasbuffer: PSTR, aliasbufferlength: UInt, exename: PCSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasesA(aliasbuffer, aliasbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleAliasesA(aliasbuffer: Pstr, aliasbufferlength: UInt, exename: Pcstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasesA((aliasbuffer?.value ?: 0L), aliasbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleAliasesLengthA(exename: PCSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(exename).toUInt()
+public actual fun getConsoleAliasesLengthA(exename: Pcstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasesLengthA((exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleAliasesLengthW(exename: PCWSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(exename).toUInt()
+public actual fun getConsoleAliasesLengthW(exename: Pcwstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasesLengthW((exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleAliasesW(aliasbuffer: PWSTR, aliasbufferlength: UInt, exename: PCWSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleAliasesW(aliasbuffer, aliasbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleAliasesW(aliasbuffer: Pwstr, aliasbufferlength: UInt, exename: Pcwstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleAliasesW((aliasbuffer?.value ?: 0L), aliasbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleCP(): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCP().toUInt()
+public actual fun getConsoleCP(): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCP().toUInt()
 
-public actual fun GetConsoleCommandHistoryA(commands: PSTR, commandbufferlength: UInt, exename: PCSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(commands, commandbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleCommandHistoryA(commands: Pstr, commandbufferlength: UInt, exename: Pcstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCommandHistoryA((commands?.value ?: 0L), commandbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleCommandHistoryLengthA(exename: PCSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA(exename).toUInt()
+public actual fun getConsoleCommandHistoryLengthA(exename: Pcstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA((exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleCommandHistoryLengthW(exename: PCWSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW(exename).toUInt()
+public actual fun getConsoleCommandHistoryLengthW(exename: Pcwstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW((exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleCommandHistoryW(commands: PWSTR, commandbufferlength: UInt, exename: PCWSTR): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(commands, commandbufferlength.toInt(), exename).toUInt()
+public actual fun getConsoleCommandHistoryW(commands: Pwstr, commandbufferlength: UInt, exename: Pcwstr): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCommandHistoryW((commands?.value ?: 0L), commandbufferlength.toInt(), (exename?.value ?: 0L)).toUInt()
 
-public actual fun GetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleCursorInfo(hconsoleoutput, lpconsolecursorinfo)
+public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleCursorInfo((hconsoleoutput?.value ?: 0L), (lpconsolecursorinfo?.value ?: 0L))
 
-public actual fun GetConsoleDisplayMode(lpmodeflags: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleDisplayMode(lpmodeflags)
+public actual fun getConsoleDisplayMode(lpmodeflags: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleDisplayMode((lpmodeflags?.value ?: 0L))
 
-public actual fun GetConsoleFontSize(hconsoleoutput: HANDLE, nfont: UInt): COORD =
-    COORD()
+public actual fun getConsoleFontSize(hconsoleoutput: Handle, nfont: UInt): Coord =
+    Coord()
 
-public actual fun GetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleHistoryInfo(lpconsolehistoryinfo)
+public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleHistoryInfo((lpconsolehistoryinfo?.value ?: 0L))
 
-public actual fun GetConsoleMode(hconsolehandle: HANDLE, lpmode: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleMode(hconsolehandle, lpmode)
+public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleMode((hconsolehandle?.value ?: 0L), (lpmode?.value ?: 0L))
 
-public actual fun GetConsoleOriginalTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(lpconsoletitle, nsize.toInt()).toUInt()
+public actual fun getConsoleOriginalTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleOriginalTitleA((lpconsoletitle?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetConsoleOriginalTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(lpconsoletitle, nsize.toInt()).toUInt()
+public actual fun getConsoleOriginalTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleOriginalTitleW((lpconsoletitle?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetConsoleOutputCP(): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleOutputCP().toUInt()
+public actual fun getConsoleOutputCP(): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleOutputCP().toUInt()
 
-public actual fun GetConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleProcessList(lpdwprocesslist, dwprocesscount.toInt()).toUInt()
+public actual fun getConsoleProcessList(lpdwprocesslist: COpaquePointer?, dwprocesscount: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleProcessList((lpdwprocesslist?.value ?: 0L), dwprocesscount.toInt()).toUInt()
 
-public actual fun GetConsoleScreenBufferInfo(hconsoleoutput: HANDLE, lpconsolescreenbufferinfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(hconsoleoutput, lpconsolescreenbufferinfo)
+public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleScreenBufferInfo((hconsoleoutput?.value ?: 0L), (lpconsolescreenbufferinfo?.value ?: 0L))
 
-public actual fun GetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(hconsoleoutput, lpconsolescreenbufferinfoex)
+public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx((hconsoleoutput?.value ?: 0L), (lpconsolescreenbufferinfoex?.value ?: 0L))
 
-public actual fun GetConsoleSelectionInfo(lpconsoleselectioninfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleSelectionInfo(lpconsoleselectioninfo)
+public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleSelectionInfo((lpconsoleselectioninfo?.value ?: 0L))
 
-public actual fun GetConsoleTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleTitleA(lpconsoletitle, nsize.toInt()).toUInt()
+public actual fun getConsoleTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleTitleA((lpconsoletitle?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetConsoleTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleTitleW(lpconsoletitle, nsize.toInt()).toUInt()
+public actual fun getConsoleTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleTitleW((lpconsoletitle?.value ?: 0L), nsize.toInt()).toUInt()
 
-public actual fun GetConsoleWindow(): HWND =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetConsoleWindow()
+public actual fun getConsoleWindow(): Hwnd =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getConsoleWindow().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetCurrentConsoleFont(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfont: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetCurrentConsoleFont(hconsoleoutput, bmaximumwindow, lpconsolecurrentfont)
+public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getCurrentConsoleFont((hconsoleoutput?.value ?: 0L), bmaximumwindow, (lpconsolecurrentfont?.value ?: 0L))
 
-public actual fun GetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(hconsoleoutput, bmaximumwindow, lpconsolecurrentfontex)
+public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getCurrentConsoleFontEx((hconsoleoutput?.value ?: 0L), bmaximumwindow, (lpconsolecurrentfontex?.value ?: 0L))
 
-public actual fun GetLargestConsoleWindowSize(hconsoleoutput: HANDLE): COORD =
-    COORD()
+public actual fun getLargestConsoleWindowSize(hconsoleoutput: Handle): Coord =
+    Coord()
 
-public actual fun GetNumberOfConsoleInputEvents(hconsoleinput: HANDLE, lpnumberofevents: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(hconsoleinput, lpnumberofevents)
+public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents((hconsoleinput?.value ?: 0L), (lpnumberofevents?.value ?: 0L))
 
-public actual fun GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons)
+public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons((lpnumberofmousebuttons?.value ?: 0L))
 
-public actual fun GetStdHandle(nstdhandle: STD_HANDLE): HANDLE =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_GetStdHandle(nstdhandle.toInt())
+public actual fun getStdHandle(nstdhandle: StdHandle): Handle =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_getStdHandle(nstdhandle.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PeekConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_PeekConsoleInputA(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventsread)
+public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_peekConsoleInputA((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventsread?.value ?: 0L))
 
-public actual fun PeekConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_PeekConsoleInputW(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventsread)
+public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_peekConsoleInputW((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventsread?.value ?: 0L))
 
-public actual fun ReadConsoleA(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ReadConsoleA(hconsoleinput, lpbuffer, nnumberofcharstoread.toInt(), lpnumberofcharsread, pinputcontrol)
+public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_readConsoleA((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nnumberofcharstoread.toInt(), (lpnumberofcharsread?.value ?: 0L), (pinputcontrol?.value ?: 0L))
 
-public actual fun ReadConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ReadConsoleInputA(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventsread)
+public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_readConsoleInputA((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventsread?.value ?: 0L))
 
-public actual fun ReadConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ReadConsoleInputW(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventsread)
+public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_readConsoleInputW((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventsread?.value ?: 0L))
 
-public actual fun ReadConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL =
+public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwreadcoord: COORD, lpnumberofattrsread: Long): BOOL =
+public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL =
+public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PWSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL =
+public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL =
+public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool =
     0
 
-public actual fun ReadConsoleW(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_ReadConsoleW(hconsoleinput, lpbuffer, nnumberofcharstoread.toInt(), lpnumberofcharsread, pinputcontrol)
+public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_readConsoleW((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nnumberofcharstoread.toInt(), (lpnumberofcharsread?.value ?: 0L), (pinputcontrol?.value ?: 0L))
 
-public actual fun ResizePseudoConsole(hpc: HPCON, size: COORD): HRESULT =
+public actual fun resizePseudoConsole(hpc: Hpcon, size: Coord): Hresult =
     0
 
-public actual fun ScrollConsoleScreenBufferA(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL =
+public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool =
     0
 
-public actual fun ScrollConsoleScreenBufferW(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL =
+public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool =
     0
 
-public actual fun SetConsoleActiveScreenBuffer(hconsoleoutput: HANDLE): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(hconsoleoutput)
+public actual fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer((hconsoleoutput?.value ?: 0L))
 
-public actual fun SetConsoleCP(wcodepageid: UInt): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleCP(wcodepageid.toInt())
+public actual fun setConsoleCP(wcodepageid: UInt): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleCP(wcodepageid.toInt())
 
-public actual fun SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: BOOL): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleCtrlHandler(handlerroutine.toLong(), add)
+public actual fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleCtrlHandler(0L, add)
 
-public actual fun SetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleCursorInfo(hconsoleoutput, lpconsolecursorinfo)
+public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleCursorInfo((hconsoleoutput?.value ?: 0L), (lpconsolecursorinfo?.value ?: 0L))
 
-public actual fun SetConsoleCursorPosition(hconsoleoutput: HANDLE, dwcursorposition: COORD): BOOL =
+public actual fun setConsoleCursorPosition(hconsoleoutput: Handle, dwcursorposition: Coord): Bool =
     0
 
-public actual fun SetConsoleDisplayMode(hconsoleoutput: HANDLE, dwflags: UInt, lpnewscreenbufferdimensions: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleDisplayMode(hconsoleoutput, dwflags.toInt(), lpnewscreenbufferdimensions)
+public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleDisplayMode((hconsoleoutput?.value ?: 0L), dwflags.toInt(), (lpnewscreenbufferdimensions?.value ?: 0L))
 
-public actual fun SetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleHistoryInfo(lpconsolehistoryinfo)
+public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleHistoryInfo((lpconsolehistoryinfo?.value ?: 0L))
 
-public actual fun SetConsoleMode(hconsolehandle: HANDLE, dwmode: CONSOLE_MODE): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleMode(hconsolehandle, dwmode.toInt())
+public actual fun setConsoleMode(hconsolehandle: Handle, dwmode: ConsoleMode): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleMode((hconsolehandle?.value ?: 0L), dwmode.toInt())
 
-public actual fun SetConsoleNumberOfCommandsA(number: UInt, exename: PCSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(number.toInt(), exename)
+public actual fun setConsoleNumberOfCommandsA(number: UInt, exename: Pcstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA(number.toInt(), (exename?.value ?: 0L))
 
-public actual fun SetConsoleNumberOfCommandsW(number: UInt, exename: PCWSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(number.toInt(), exename)
+public actual fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW(number.toInt(), (exename?.value ?: 0L))
 
-public actual fun SetConsoleOutputCP(wcodepageid: UInt): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleOutputCP(wcodepageid.toInt())
+public actual fun setConsoleOutputCP(wcodepageid: UInt): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleOutputCP(wcodepageid.toInt())
 
-public actual fun SetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(hconsoleoutput, lpconsolescreenbufferinfoex)
+public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx((hconsoleoutput?.value ?: 0L), (lpconsolescreenbufferinfoex?.value ?: 0L))
 
-public actual fun SetConsoleScreenBufferSize(hconsoleoutput: HANDLE, dwsize: COORD): BOOL =
+public actual fun setConsoleScreenBufferSize(hconsoleoutput: Handle, dwsize: Coord): Bool =
     0
 
-public actual fun SetConsoleTextAttribute(hconsoleoutput: HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleTextAttribute(hconsoleoutput, wattributes.toShort())
+public actual fun setConsoleTextAttribute(hconsoleoutput: Handle, wattributes: ConsoleCharacterAttributes): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleTextAttribute((hconsoleoutput?.value ?: 0L), wattributes.toShort())
 
-public actual fun SetConsoleTitleA(lpconsoletitle: PCSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleTitleA(lpconsoletitle)
+public actual fun setConsoleTitleA(lpconsoletitle: Pcstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleTitleA((lpconsoletitle?.value ?: 0L))
 
-public actual fun SetConsoleTitleW(lpconsoletitle: PCWSTR): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleTitleW(lpconsoletitle)
+public actual fun setConsoleTitleW(lpconsoletitle: Pcwstr): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleTitleW((lpconsoletitle?.value ?: 0L))
 
-public actual fun SetConsoleWindowInfo(hconsoleoutput: HANDLE, babsolute: BOOL, lpconsolewindow: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetConsoleWindowInfo(hconsoleoutput, babsolute, lpconsolewindow)
+public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setConsoleWindowInfo((hconsoleoutput?.value ?: 0L), babsolute, (lpconsolewindow?.value ?: 0L))
 
-public actual fun SetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(hconsoleoutput, bmaximumwindow, lpconsolecurrentfontex)
+public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setCurrentConsoleFontEx((hconsoleoutput?.value ?: 0L), bmaximumwindow, (lpconsolecurrentfontex?.value ?: 0L))
 
-public actual fun SetStdHandle(nstdhandle: STD_HANDLE, hhandle: HANDLE): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetStdHandle(nstdhandle.toInt(), hhandle)
+public actual fun setStdHandle(nstdhandle: StdHandle, hhandle: Handle): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setStdHandle(nstdhandle.toInt(), (hhandle?.value ?: 0L))
 
-public actual fun SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: HANDLE, phprevvalue: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_SetStdHandleEx(nstdhandle.toInt(), hhandle, phprevvalue)
+public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_setStdHandleEx(nstdhandle.toInt(), (hhandle?.value ?: 0L), (phprevvalue?.value ?: 0L))
 
-public actual fun WriteConsoleA(hconsoleoutput: HANDLE, lpbuffer: PCSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_WriteConsoleA(hconsoleoutput, lpbuffer, nnumberofcharstowrite.toInt(), lpnumberofcharswritten, lpreserved)
+public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_writeConsoleA((hconsoleoutput?.value ?: 0L), (lpbuffer?.value ?: 0L), nnumberofcharstowrite.toInt(), (lpnumberofcharswritten?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun WriteConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_WriteConsoleInputA(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventswritten)
+public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_writeConsoleInputA((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventswritten?.value ?: 0L))
 
-public actual fun WriteConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_WriteConsoleInputW(hconsoleinput, lpbuffer, nlength.toInt(), lpnumberofeventswritten)
+public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_writeConsoleInputW((hconsoleinput?.value ?: 0L), (lpbuffer?.value ?: 0L), nlength.toInt(), (lpnumberofeventswritten?.value ?: 0L))
 
-public actual fun WriteConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL =
+public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL =
+public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PCSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PCWSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL =
+public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL =
+public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool =
     0
 
-public actual fun WriteConsoleW(hconsoleoutput: HANDLE, lpbuffer: PCWSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL =
-    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_WriteConsoleW(hconsoleoutput, lpbuffer, nnumberofcharstowrite.toInt(), lpnumberofcharswritten, lpreserved)
+public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32SystemConsoleJniBridge.windowssys_windows_win32_system_console_writeConsoleW((hconsoleoutput?.value ?: 0L), (lpbuffer?.value ?: 0L), nnumberofcharstowrite.toInt(), (lpnumberofcharswritten?.value ?: 0L), (lpreserved?.value ?: 0L))

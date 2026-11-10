@@ -1,13 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-public typealias WEB_SOCKET_ACTION = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias WEB_SOCKET_ACTION_QUEUE = Int
+public typealias WebSocketAction = Int
 
-public typealias WEB_SOCKET_BUFFER_TYPE = Int
+public typealias WebSocketActionQueue = Int
 
-public typealias WEB_SOCKET_CLOSE_STATUS = Int
+public typealias WebSocketBufferType = Int
 
-public typealias WEB_SOCKET_HANDLE = Long
+public typealias WebSocketCloseStatus = Int
 
-public typealias WEB_SOCKET_PROPERTY_TYPE = Int
+public typealias WebSocketHandle = COpaquePointer?
+
+public typealias WebSocketPropertyType = Int

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_textservices_DoMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_textservices_doMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* heventforservicestop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_ui_textservices_DoMsCtfMonitor_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonito
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -106,9 +106,9 @@ static Napi::Value windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMoni
 }
 
 static void register_windows_win32_ui_textservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_textservices_DoMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_DoMsCtfMonitor_napi));
-    exports.Set("windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor_napi));
-    exports.Set("windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor_napi));
+    exports.Set("windowssys_windows_win32_ui_textservices_doMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_doMsCtfMonitor_napi));
+    exports.Set("windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor_napi));
+    exports.Set("windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_textservices_napi, nullptr };

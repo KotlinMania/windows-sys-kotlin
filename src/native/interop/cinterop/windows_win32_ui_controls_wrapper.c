@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int64_t windowssys_windows_win32_ui_controls_BeginBufferedAnimation(void* hwnd, void* hdctarget, void* prctarget, int32_t dwformat, void* ppaintparams, void* panimationparams, void* phdcfrom, void* phdcto) {
+int64_t windowssys_windows_win32_ui_controls_beginBufferedAnimation(void* hwnd, void* hdctarget, void* prctarget, int32_t dwformat, void* ppaintparams, void* panimationparams, void* phdcfrom, void* phdcto) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ int64_t windowssys_windows_win32_ui_controls_BeginBufferedAnimation(void* hwnd, 
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_BeginBufferedPaint(void* hdctarget, void* prctarget, int32_t dwformat, void* ppaintparams, void* phdc) {
+int64_t windowssys_windows_win32_ui_controls_beginBufferedPaint(void* hdctarget, void* prctarget, int32_t dwformat, void* ppaintparams, void* phdc) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -70,7 +70,7 @@ int64_t windowssys_windows_win32_ui_controls_BeginBufferedPaint(void* hdctarget,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BeginPanningFeedback(void* hwnd) {
+int32_t windowssys_windows_win32_ui_controls_beginPanningFeedback(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,7 +92,7 @@ int32_t windowssys_windows_win32_ui_controls_BeginPanningFeedback(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintClear(int64_t hbufferedpaint, void* prc) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintClear(int64_t hbufferedpaint, void* prc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintClear(int64_t hbuffere
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintInit(void) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintInit(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintInit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintRenderAnimation(void* hwnd, void* hdctarget) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintRenderAnimation(void* hwnd, void* hdctarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintRenderAnimation(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha(int64_t hbufferedpaint, void* prc, uint8_t alpha) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintSetAlpha(int64_t hbufferedpaint, void* prc, uint8_t alpha) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintSetAlpha(int64_t hbuff
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnimations(void* hwnd) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintStopAllAnimations(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -205,7 +205,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintStopAllAnimations(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_BufferedPaintUnInit(void) {
+int32_t windowssys_windows_win32_ui_controls_bufferedPaintUnInit(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -226,7 +226,7 @@ int32_t windowssys_windows_win32_ui_controls_BufferedPaintUnInit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_CheckDlgButton(void* hdlg, int32_t nidbutton, uint32_t ucheck) {
+int32_t windowssys_windows_win32_ui_controls_checkDlgButton(void* hdlg, int32_t nidbutton, uint32_t ucheck) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ int32_t windowssys_windows_win32_ui_controls_CheckDlgButton(void* hdlg, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_CheckRadioButton(void* hdlg, int32_t nidfirstbutton, int32_t nidlastbutton, int32_t nidcheckbutton) {
+int32_t windowssys_windows_win32_ui_controls_checkRadioButton(void* hdlg, int32_t nidfirstbutton, int32_t nidlastbutton, int32_t nidcheckbutton) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -275,7 +275,7 @@ int32_t windowssys_windows_win32_ui_controls_CheckRadioButton(void* hdlg, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_CloseThemeData(int64_t htheme) {
+int32_t windowssys_windows_win32_ui_controls_closeThemeData(int64_t htheme) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ int32_t windowssys_windows_win32_ui_controls_CloseThemeData(int64_t htheme) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateMappedBitmap(void* hinstance, int64_t idbitmap, uint32_t wflags, void* lpcolormap, int32_t inummaps) {
+void* windowssys_windows_win32_ui_controls_createMappedBitmap(void* hinstance, int64_t idbitmap, uint32_t wflags, void* lpcolormap, int32_t inummaps) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int64_t, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -323,7 +323,7 @@ void* windowssys_windows_win32_ui_controls_CreateMappedBitmap(void* hinstance, i
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreatePropertySheetPageA(void* constpropsheetpagepointer) {
+void* windowssys_windows_win32_ui_controls_createPropertySheetPageA(void* constpropsheetpagepointer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -345,7 +345,7 @@ void* windowssys_windows_win32_ui_controls_CreatePropertySheetPageA(void* constp
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreatePropertySheetPageW(void* constpropsheetpagepointer) {
+void* windowssys_windows_win32_ui_controls_createPropertySheetPageW(void* constpropsheetpagepointer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ void* windowssys_windows_win32_ui_controls_CreatePropertySheetPageW(void* constp
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateStatusWindowA(int32_t style, void* lpsztext, void* hwndparent, uint32_t wid) {
+void* windowssys_windows_win32_ui_controls_createStatusWindowA(int32_t style, void* lpsztext, void* hwndparent, uint32_t wid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -392,7 +392,7 @@ void* windowssys_windows_win32_ui_controls_CreateStatusWindowA(int32_t style, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateStatusWindowW(int32_t style, void* lpsztext, void* hwndparent, uint32_t wid) {
+void* windowssys_windows_win32_ui_controls_createStatusWindowW(int32_t style, void* lpsztext, void* hwndparent, uint32_t wid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -417,7 +417,7 @@ void* windowssys_windows_win32_ui_controls_CreateStatusWindowW(int32_t style, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateSyntheticPointerDevice(int32_t pointertype, uint32_t maxcount, int32_t mode) {
+void* windowssys_windows_win32_ui_controls_createSyntheticPointerDevice(int32_t pointertype, uint32_t maxcount, int32_t mode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -441,7 +441,7 @@ void* windowssys_windows_win32_ui_controls_CreateSyntheticPointerDevice(int32_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateToolbarEx(void* hwnd, uint32_t ws, uint32_t wid, int32_t nbitmaps, void* hbminst, uint64_t wbmid, void* lpbuttons, int32_t inumbuttons, int32_t dxbutton, int32_t dybutton, int32_t dxbitmap, int32_t dybitmap, uint32_t ustructsize) {
+void* windowssys_windows_win32_ui_controls_createToolbarEx(void* hwnd, uint32_t ws, uint32_t wid, int32_t nbitmaps, void* hbminst, uint64_t wbmid, void* lpbuttons, int32_t inumbuttons, int32_t dxbutton, int32_t dybutton, int32_t dxbitmap, int32_t dybitmap, uint32_t ustructsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int32_t, void*, uint64_t, void*, int32_t, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ void* windowssys_windows_win32_ui_controls_CreateToolbarEx(void* hwnd, uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_CreateUpDownControl(uint32_t dwstyle, int32_t x, int32_t y, int32_t cx, int32_t cy, void* hparent, int32_t nid, void* hinst, void* hbuddy, int32_t nupper, int32_t nlower, int32_t npos) {
+void* windowssys_windows_win32_ui_controls_createUpDownControl(uint32_t dwstyle, int32_t x, int32_t y, int32_t cx, int32_t cy, void* hparent, int32_t nid, void* hinst, void* hbuddy, int32_t nupper, int32_t nlower, int32_t npos) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, int32_t, void*, int32_t, void*, void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,9 +508,9 @@ void* windowssys_windows_win32_ui_controls_CreateUpDownControl(uint32_t dwstyle,
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_DPA_Clone(int64_t hdpa, int64_t hdpanew) {
+int32_t windowssys_windows_win32_ui_controls_dpaClone(int64_t hdpa, int64_t hdpanew) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -531,9 +531,9 @@ int64_t windowssys_windows_win32_ui_controls_DPA_Clone(int64_t hdpa, int64_t hdp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_DPA_Create(int32_t citemgrow) {
+int32_t windowssys_windows_win32_ui_controls_dpaCreate(int32_t citemgrow) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -553,9 +553,9 @@ int64_t windowssys_windows_win32_ui_controls_DPA_Create(int32_t citemgrow) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_DPA_CreateEx(int32_t cpgrow, void* hheap) {
+int32_t windowssys_windows_win32_ui_controls_dpaCreateEx(int32_t cpgrow, void* hheap) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -576,7 +576,7 @@ int64_t windowssys_windows_win32_ui_controls_DPA_CreateEx(int32_t cpgrow, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs(int64_t hdpa) {
+int32_t windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(int64_t hdpa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -598,7 +598,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_DeleteAllPtrs(int64_t hdpa) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_DPA_DeletePtr(int64_t hdpa, int32_t i) {
+void* windowssys_windows_win32_ui_controls_dpaDeletePtr(int64_t hdpa, int32_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ void* windowssys_windows_win32_ui_controls_DPA_DeletePtr(int64_t hdpa, int32_t i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_Destroy(int64_t hdpa) {
+int32_t windowssys_windows_win32_ui_controls_dpaDestroy(int64_t hdpa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -643,7 +643,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_Destroy(int64_t hdpa) {
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DPA_DestroyCallback(int64_t hdpa, void* pfncb, void* pdata) {
+void windowssys_windows_win32_ui_controls_dpaDestroyCallback(int64_t hdpa, void* pfncb, void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -666,7 +666,7 @@ void windowssys_windows_win32_ui_controls_DPA_DestroyCallback(int64_t hdpa, void
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DPA_EnumCallback(int64_t hdpa, void* pfncb, void* pdata) {
+void windowssys_windows_win32_ui_controls_dpaEnumCallback(int64_t hdpa, void* pfncb, void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -689,7 +689,7 @@ void windowssys_windows_win32_ui_controls_DPA_EnumCallback(int64_t hdpa, void* p
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_DPA_GetPtr(int64_t hdpa, int64_t i) {
+void* windowssys_windows_win32_ui_controls_dpaGetPtr(int64_t hdpa, int64_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -712,7 +712,7 @@ void* windowssys_windows_win32_ui_controls_DPA_GetPtr(int64_t hdpa, int64_t i) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_GetPtrIndex(int64_t hdpa, void* p) {
+int32_t windowssys_windows_win32_ui_controls_dpaGetPtrIndex(int64_t hdpa, void* p) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -735,7 +735,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_GetPtrIndex(int64_t hdpa, void*
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_controls_DPA_GetSize(int64_t hdpa) {
+uint64_t windowssys_windows_win32_ui_controls_dpaGetSize(int64_t hdpa) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -757,7 +757,7 @@ uint64_t windowssys_windows_win32_ui_controls_DPA_GetSize(int64_t hdpa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_Grow(int64_t pdpa, int32_t cp) {
+int32_t windowssys_windows_win32_ui_controls_dpaGrow(int64_t pdpa, int32_t cp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -780,7 +780,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_Grow(int64_t pdpa, int32_t cp) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_InsertPtr(int64_t hdpa, int32_t i, void* p) {
+int32_t windowssys_windows_win32_ui_controls_dpaInsertPtr(int64_t hdpa, int32_t i, void* p) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -804,7 +804,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_InsertPtr(int64_t hdpa, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_LoadStream(void* phdpa, void* pfn, void* pstream, void* pvinstdata) {
+int32_t windowssys_windows_win32_ui_controls_dpaLoadStream(void* phdpa, void* pfn, void* pstream, void* pvinstdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -829,7 +829,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_LoadStream(void* phdpa, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_Merge(int64_t hdpadest, int64_t hdpasrc, uint32_t dwflags, void* pfncompare, void* pfnmerge, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_controls_dpaMerge(int64_t hdpadest, int64_t hdpasrc, uint32_t dwflags, void* pfncompare, void* pfnmerge, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -856,7 +856,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_Merge(int64_t hdpadest, int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_SaveStream(int64_t hdpa, void* pfn, void* pstream, void* pvinstdata) {
+int32_t windowssys_windows_win32_ui_controls_dpaSaveStream(int64_t hdpa, void* pfn, void* pstream, void* pvinstdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -881,7 +881,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_SaveStream(int64_t hdpa, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_Search(int64_t hdpa, void* pfind, int32_t istart, void* pfncompare, int64_t lparam, uint32_t options) {
+int32_t windowssys_windows_win32_ui_controls_dpaSearch(int64_t hdpa, void* pfind, int32_t istart, void* pfncompare, int64_t lparam, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -908,7 +908,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_Search(int64_t hdpa, void* pfin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_SetPtr(int64_t hdpa, int32_t i, void* p) {
+int32_t windowssys_windows_win32_ui_controls_dpaSetPtr(int64_t hdpa, int32_t i, void* p) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -932,7 +932,7 @@ int32_t windowssys_windows_win32_ui_controls_DPA_SetPtr(int64_t hdpa, int32_t i,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DPA_Sort(int64_t hdpa, void* pfncompare, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_controls_dpaSort(int64_t hdpa, void* pfncompare, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,9 +956,9 @@ int32_t windowssys_windows_win32_ui_controls_DPA_Sort(int64_t hdpa, void* pfncom
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_DSA_Clone(int64_t hdsa) {
+int32_t windowssys_windows_win32_ui_controls_dsaClone(int64_t hdsa) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -978,9 +978,9 @@ int64_t windowssys_windows_win32_ui_controls_DSA_Clone(int64_t hdsa) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_DSA_Create(int32_t cbitem, int32_t citemgrow) {
+int32_t windowssys_windows_win32_ui_controls_dsaCreate(int32_t cbitem, int32_t citemgrow) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -1001,7 +1001,7 @@ int64_t windowssys_windows_win32_ui_controls_DSA_Create(int32_t cbitem, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_DeleteAllItems(int64_t hdsa) {
+int32_t windowssys_windows_win32_ui_controls_dsaDeleteAllItems(int64_t hdsa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1023,7 +1023,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_DeleteAllItems(int64_t hdsa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_DeleteItem(int64_t hdsa, int32_t i) {
+int32_t windowssys_windows_win32_ui_controls_dsaDeleteItem(int64_t hdsa, int32_t i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1046,7 +1046,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_DeleteItem(int64_t hdsa, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_Destroy(int64_t hdsa) {
+int32_t windowssys_windows_win32_ui_controls_dsaDestroy(int64_t hdsa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1068,7 +1068,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_Destroy(int64_t hdsa) {
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DSA_DestroyCallback(int64_t hdsa, void* pfncb, void* pdata) {
+void windowssys_windows_win32_ui_controls_dsaDestroyCallback(int64_t hdsa, void* pfncb, void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ void windowssys_windows_win32_ui_controls_DSA_DestroyCallback(int64_t hdsa, void
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DSA_EnumCallback(int64_t hdsa, void* pfncb, void* pdata) {
+void windowssys_windows_win32_ui_controls_dsaEnumCallback(int64_t hdsa, void* pfncb, void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ void windowssys_windows_win32_ui_controls_DSA_EnumCallback(int64_t hdsa, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_GetItem(int64_t hdsa, int32_t i, void* pitem) {
+int32_t windowssys_windows_win32_ui_controls_dsaGetItem(int64_t hdsa, int32_t i, void* pitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1138,7 +1138,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_GetItem(int64_t hdsa, int32_t i
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_DSA_GetItemPtr(int64_t hdsa, int32_t i) {
+void* windowssys_windows_win32_ui_controls_dsaGetItemPtr(int64_t hdsa, int32_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1161,7 +1161,7 @@ void* windowssys_windows_win32_ui_controls_DSA_GetItemPtr(int64_t hdsa, int32_t 
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_controls_DSA_GetSize(int64_t hdsa) {
+uint64_t windowssys_windows_win32_ui_controls_dsaGetSize(int64_t hdsa) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1183,7 +1183,7 @@ uint64_t windowssys_windows_win32_ui_controls_DSA_GetSize(int64_t hdsa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_InsertItem(int64_t hdsa, int32_t i, void* pitem) {
+int32_t windowssys_windows_win32_ui_controls_dsaInsertItem(int64_t hdsa, int32_t i, void* pitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1207,7 +1207,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_InsertItem(int64_t hdsa, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_SetItem(int64_t hdsa, int32_t i, void* pitem) {
+int32_t windowssys_windows_win32_ui_controls_dsaSetItem(int64_t hdsa, int32_t i, void* pitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1231,7 +1231,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_SetItem(int64_t hdsa, int32_t i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DSA_Sort(int64_t pdsa, void* pfncompare, int64_t lparam) {
+int32_t windowssys_windows_win32_ui_controls_dsaSort(int64_t pdsa, void* pfncompare, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ int32_t windowssys_windows_win32_ui_controls_DSA_Sort(int64_t pdsa, void* pfncom
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DestroyPropertySheetPage(void* param0) {
+int32_t windowssys_windows_win32_ui_controls_destroyPropertySheetPage(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ int32_t windowssys_windows_win32_ui_controls_DestroyPropertySheetPage(void* para
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DestroySyntheticPointerDevice(void* device) {
+void windowssys_windows_win32_ui_controls_destroySyntheticPointerDevice(void* device) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1298,7 +1298,7 @@ void windowssys_windows_win32_ui_controls_DestroySyntheticPointerDevice(void* de
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirListA(void* hdlg, void* lppathspec, int32_t nidlistbox, int32_t nidstaticpath, uint32_t ufiletype) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirListA(void* hdlg, void* lppathspec, int32_t nidlistbox, int32_t nidstaticpath, uint32_t ufiletype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1324,7 +1324,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirListA(void* hdlg, void* lppat
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirListComboBoxA(void* hdlg, void* lppathspec, int32_t nidcombobox, int32_t nidstaticpath, uint32_t ufiletype) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirListComboBoxA(void* hdlg, void* lppathspec, int32_t nidcombobox, int32_t nidstaticpath, uint32_t ufiletype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirListComboBoxA(void* hdlg, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirListComboBoxW(void* hdlg, void* lppathspec, int32_t nidcombobox, int32_t nidstaticpath, uint32_t ufiletype) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirListComboBoxW(void* hdlg, void* lppathspec, int32_t nidcombobox, int32_t nidstaticpath, uint32_t ufiletype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1376,7 +1376,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirListComboBoxW(void* hdlg, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirListW(void* hdlg, void* lppathspec, int32_t nidlistbox, int32_t nidstaticpath, uint32_t ufiletype) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirListW(void* hdlg, void* lppathspec, int32_t nidlistbox, int32_t nidstaticpath, uint32_t ufiletype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1402,7 +1402,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirListW(void* hdlg, void* lppat
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA(void* hwnddlg, void* lpstring, int32_t cchout, int32_t idcombobox) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExA(void* hwnddlg, void* lpstring, int32_t cchout, int32_t idcombobox) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1427,7 +1427,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExA(void* hwndd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW(void* hwnddlg, void* lpstring, int32_t cchout, int32_t idcombobox) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirSelectComboBoxExW(void* hwnddlg, void* lpstring, int32_t cchout, int32_t idcombobox) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1452,7 +1452,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirSelectComboBoxExW(void* hwndd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirSelectExA(void* hwnddlg, void* lpstring, int32_t chcount, int32_t idlistbox) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirSelectExA(void* hwnddlg, void* lpstring, int32_t chcount, int32_t idlistbox) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1477,7 +1477,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirSelectExA(void* hwnddlg, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DlgDirSelectExW(void* hwnddlg, void* lpstring, int32_t chcount, int32_t idlistbox) {
+int32_t windowssys_windows_win32_ui_controls_dlgDirSelectExW(void* hwnddlg, void* lpstring, int32_t chcount, int32_t idlistbox) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1502,7 +1502,7 @@ int32_t windowssys_windows_win32_ui_controls_DlgDirSelectExW(void* hwnddlg, void
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DrawInsert(void* handparent, void* hlb, int32_t nitem) {
+void windowssys_windows_win32_ui_controls_drawInsert(void* handparent, void* hlb, int32_t nitem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1525,7 +1525,7 @@ void windowssys_windows_win32_ui_controls_DrawInsert(void* handparent, void* hlb
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawShadowText(void* hdc, void* psztext, uint32_t cch, void* prc, uint32_t dwflags, uint32_t crtext, uint32_t crshadow, int32_t ixoffset, int32_t iyoffset) {
+int32_t windowssys_windows_win32_ui_controls_drawShadowText(void* hdc, void* psztext, uint32_t cch, void* prc, uint32_t dwflags, uint32_t crtext, uint32_t crshadow, int32_t ixoffset, int32_t iyoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1555,7 +1555,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawShadowText(void* hdc, void* psz
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DrawStatusTextA(void* hdc, void* lprc, void* psztext, uint32_t uflags) {
+void windowssys_windows_win32_ui_controls_drawStatusTextA(void* hdc, void* lprc, void* psztext, uint32_t uflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1579,7 +1579,7 @@ void windowssys_windows_win32_ui_controls_DrawStatusTextA(void* hdc, void* lprc,
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_DrawStatusTextW(void* hdc, void* lprc, void* psztext, uint32_t uflags) {
+void windowssys_windows_win32_ui_controls_drawStatusTextW(void* hdc, void* lprc, void* psztext, uint32_t uflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1603,7 +1603,7 @@ void windowssys_windows_win32_ui_controls_DrawStatusTextW(void* hdc, void* lprc,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeBackground(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* pcliprect) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeBackground(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* pcliprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1630,7 +1630,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeBackground(int64_t htheme,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* poptions) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeBackgroundEx(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1657,7 +1657,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeBackgroundEx(int64_t hthem
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeEdge(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pdestrect, uint32_t uedge, uint32_t uflags, void* pcontentrect) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeEdge(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pdestrect, uint32_t uedge, uint32_t uflags, void* pcontentrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeEdge(int64_t htheme, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeIcon(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, int64_t himl, int32_t iimageindex) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeIcon(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, int64_t himl, int32_t iimageindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1714,7 +1714,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeIcon(int64_t htheme, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeParentBackground(void* hwnd, void* hdc, void* prc) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeParentBackground(void* hwnd, void* hdc, void* prc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1738,7 +1738,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeParentBackground(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeParentBackgroundEx(void* hwnd, void* hdc, uint32_t dwflags, void* prc) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeParentBackgroundEx(void* hwnd, void* hdc, uint32_t dwflags, void* prc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1763,7 +1763,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeParentBackgroundEx(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeText(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchtext, uint32_t dwtextflags, uint32_t dwtextflags2, void* prect) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeText(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchtext, uint32_t dwtextflags, uint32_t dwtextflags2, void* prect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1793,7 +1793,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeText(int64_t htheme, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_DrawThemeTextEx(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchtext, uint32_t dwtextflags, void* prect, void* poptions) {
+int32_t windowssys_windows_win32_ui_controls_drawThemeTextEx(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchtext, uint32_t dwtextflags, void* prect, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1823,7 +1823,7 @@ int32_t windowssys_windows_win32_ui_controls_DrawThemeTextEx(int64_t htheme, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EnableScrollBar(void* hwnd, uint32_t wsbflags, uint32_t warrows) {
+int32_t windowssys_windows_win32_ui_controls_enableScrollBar(void* hwnd, uint32_t wsbflags, uint32_t warrows) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1847,7 +1847,7 @@ int32_t windowssys_windows_win32_ui_controls_EnableScrollBar(void* hwnd, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EnableThemeDialogTexture(void* hwnd, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_controls_enableThemeDialogTexture(void* hwnd, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1870,7 +1870,7 @@ int32_t windowssys_windows_win32_ui_controls_EnableThemeDialogTexture(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EnableTheming(int32_t fenable) {
+int32_t windowssys_windows_win32_ui_controls_enableTheming(int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1892,7 +1892,7 @@ int32_t windowssys_windows_win32_ui_controls_EnableTheming(int32_t fenable) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EndBufferedAnimation(int64_t hbpanimation, int32_t fupdatetarget) {
+int32_t windowssys_windows_win32_ui_controls_endBufferedAnimation(int64_t hbpanimation, int32_t fupdatetarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1915,7 +1915,7 @@ int32_t windowssys_windows_win32_ui_controls_EndBufferedAnimation(int64_t hbpani
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EndBufferedPaint(int64_t hbufferedpaint, int32_t fupdatetarget) {
+int32_t windowssys_windows_win32_ui_controls_endBufferedPaint(int64_t hbufferedpaint, int32_t fupdatetarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1938,7 +1938,7 @@ int32_t windowssys_windows_win32_ui_controls_EndBufferedPaint(int64_t hbufferedp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EndPanningFeedback(void* hwnd, int32_t fanimateback) {
+int32_t windowssys_windows_win32_ui_controls_endPanningFeedback(void* hwnd, int32_t fanimateback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1961,7 +1961,7 @@ int32_t windowssys_windows_win32_ui_controls_EndPanningFeedback(void* hwnd, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EvaluateProximityToPolygon(uint32_t numvertices, void* controlpolygon, void* phittestinginput, void* pproximityeval) {
+int32_t windowssys_windows_win32_ui_controls_evaluateProximityToPolygon(uint32_t numvertices, void* controlpolygon, void* phittestinginput, void* pproximityeval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1986,7 +1986,7 @@ int32_t windowssys_windows_win32_ui_controls_EvaluateProximityToPolygon(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_EvaluateProximityToRect(void* controlboundingbox, void* phittestinginput, void* pproximityeval) {
+int32_t windowssys_windows_win32_ui_controls_evaluateProximityToRect(void* controlboundingbox, void* phittestinginput, void* pproximityeval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2010,7 +2010,7 @@ int32_t windowssys_windows_win32_ui_controls_EvaluateProximityToRect(void* contr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar(void* param0, int32_t param1, uint32_t param2) {
+int32_t windowssys_windows_win32_ui_controls_flatSbEnableScrollBar(void* param0, int32_t param1, uint32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2034,7 +2034,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_EnableScrollBar(void* param0
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo(void* param0, int32_t code, void* param2) {
+int32_t windowssys_windows_win32_ui_controls_flatSbGetScrollInfo(void* param0, int32_t code, void* param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2058,7 +2058,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollInfo(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos(void* param0, int32_t code) {
+int32_t windowssys_windows_win32_ui_controls_flatSbGetScrollPos(void* param0, int32_t code) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2081,7 +2081,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollPos(void* param0, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp(void* param0, int32_t propindex, void* param2) {
+int32_t windowssys_windows_win32_ui_controls_flatSbGetScrollProp(void* param0, int32_t propindex, void* param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2105,7 +2105,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollProp(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange(void* param0, int32_t code, void* param2, void* param3) {
+int32_t windowssys_windows_win32_ui_controls_flatSbGetScrollRange(void* param0, int32_t code, void* param2, void* param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2130,7 +2130,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_GetScrollRange(void* param0,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo(void* param0, int32_t code, void* psi, int32_t fredraw) {
+int32_t windowssys_windows_win32_ui_controls_flatSbSetScrollInfo(void* param0, int32_t code, void* psi, int32_t fredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollInfo(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos(void* param0, int32_t code, int32_t pos, int32_t fredraw) {
+int32_t windowssys_windows_win32_ui_controls_flatSbSetScrollPos(void* param0, int32_t code, int32_t pos, int32_t fredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2180,7 +2180,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollPos(void* param0, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp(void* param0, uint32_t arg_1_index, int64_t newvalue, int32_t param3) {
+int32_t windowssys_windows_win32_ui_controls_flatSbSetScrollProp(void* param0, uint32_t arg_1_index, int64_t newvalue, int32_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2205,7 +2205,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollProp(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange(void* param0, int32_t code, int32_t min, int32_t max, int32_t fredraw) {
+int32_t windowssys_windows_win32_ui_controls_flatSbSetScrollRange(void* param0, int32_t code, int32_t min, int32_t max, int32_t fredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2231,7 +2231,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_SetScrollRange(void* param0,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar(void* param0, int32_t code, int32_t param2) {
+int32_t windowssys_windows_win32_ui_controls_flatSbShowScrollBar(void* param0, int32_t code, int32_t param2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2255,7 +2255,7 @@ int32_t windowssys_windows_win32_ui_controls_FlatSB_ShowScrollBar(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetBufferedPaintBits(int64_t hbufferedpaint, void* ppbbuffer, void* pcxrow) {
+int32_t windowssys_windows_win32_ui_controls_getBufferedPaintBits(int64_t hbufferedpaint, void* ppbbuffer, void* pcxrow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2279,7 +2279,7 @@ int32_t windowssys_windows_win32_ui_controls_GetBufferedPaintBits(int64_t hbuffe
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_GetBufferedPaintDC(int64_t hbufferedpaint) {
+void* windowssys_windows_win32_ui_controls_getBufferedPaintDC(int64_t hbufferedpaint) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2301,7 +2301,7 @@ void* windowssys_windows_win32_ui_controls_GetBufferedPaintDC(int64_t hbufferedp
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC(int64_t hbufferedpaint) {
+void* windowssys_windows_win32_ui_controls_getBufferedPaintTargetDC(int64_t hbufferedpaint) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2323,7 +2323,7 @@ void* windowssys_windows_win32_ui_controls_GetBufferedPaintTargetDC(int64_t hbuf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRect(int64_t hbufferedpaint, void* prc) {
+int32_t windowssys_windows_win32_ui_controls_getBufferedPaintTargetRect(int64_t hbufferedpaint, void* prc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2346,7 +2346,7 @@ int32_t windowssys_windows_win32_ui_controls_GetBufferedPaintTargetRect(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetComboBoxInfo(void* hwndcombo, void* pcbi) {
+int32_t windowssys_windows_win32_ui_controls_getComboBoxInfo(void* hwndcombo, void* pcbi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2369,7 +2369,7 @@ int32_t windowssys_windows_win32_ui_controls_GetComboBoxInfo(void* hwndcombo, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetCurrentThemeName(void* pszthemefilename, int32_t cchmaxnamechars, void* pszcolorbuff, int32_t cchmaxcolorchars, void* pszsizebuff, int32_t cchmaxsizechars) {
+int32_t windowssys_windows_win32_ui_controls_getCurrentThemeName(void* pszthemefilename, int32_t cchmaxnamechars, void* pszcolorbuff, int32_t cchmaxcolorchars, void* pszsizebuff, int32_t cchmaxsizechars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2396,7 +2396,7 @@ int32_t windowssys_windows_win32_ui_controls_GetCurrentThemeName(void* pszthemef
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_GetEffectiveClientRect(void* hwnd, void* lprc, void* lpinfo) {
+void windowssys_windows_win32_ui_controls_getEffectiveClientRect(void* hwnd, void* lprc, void* lpinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2419,7 +2419,7 @@ void windowssys_windows_win32_ui_controls_GetEffectiveClientRect(void* hwnd, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_GetListBoxInfo(void* hwnd) {
+uint32_t windowssys_windows_win32_ui_controls_getListBoxInfo(void* hwnd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2441,7 +2441,7 @@ uint32_t windowssys_windows_win32_ui_controls_GetListBoxInfo(void* hwnd) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_controls_GetMUILanguage(void) {
+uint16_t windowssys_windows_win32_ui_controls_getMUILanguage(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2462,7 +2462,7 @@ uint16_t windowssys_windows_win32_ui_controls_GetMUILanguage(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeAnimationProperty(int64_t htheme, int32_t istoryboardid, int32_t itargetid, int32_t eproperty, void* pvproperty, uint32_t cbsize, void* pcbsizeout) {
+int32_t windowssys_windows_win32_ui_controls_getThemeAnimationProperty(int64_t htheme, int32_t istoryboardid, int32_t itargetid, int32_t eproperty, void* pvproperty, uint32_t cbsize, void* pcbsizeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2490,7 +2490,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeAnimationProperty(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeAnimationTransform(int64_t htheme, int32_t istoryboardid, int32_t itargetid, uint32_t dwtransformindex, void* ptransform, uint32_t cbsize, void* pcbsizeout) {
+int32_t windowssys_windows_win32_ui_controls_getThemeAnimationTransform(int64_t htheme, int32_t istoryboardid, int32_t itargetid, uint32_t dwtransformindex, void* ptransform, uint32_t cbsize, void* pcbsizeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2518,7 +2518,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeAnimationTransform(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_GetThemeAppProperties(void) {
+uint32_t windowssys_windows_win32_ui_controls_getThemeAppProperties(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2539,7 +2539,7 @@ uint32_t windowssys_windows_win32_ui_controls_GetThemeAppProperties(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundContentRect(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pboundingrect, void* pcontentrect) {
+int32_t windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pboundingrect, void* pcontentrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2566,7 +2566,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundContentRect(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pcontentrect, void* pextentrect) {
+int32_t windowssys_windows_win32_ui_controls_getThemeBackgroundExtent(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* pcontentrect, void* pextentrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2593,7 +2593,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundExtent(int64_t ht
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* pregion) {
+int32_t windowssys_windows_win32_ui_controls_getThemeBackgroundRegion(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prect, void* pregion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2620,7 +2620,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeBackgroundRegion(int64_t ht
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeBitmap(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, uint32_t dwflags, void* phbitmap) {
+int32_t windowssys_windows_win32_ui_controls_getThemeBitmap(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, uint32_t dwflags, void* phbitmap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2647,7 +2647,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeBitmap(int64_t htheme, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeBool(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pfval) {
+int32_t windowssys_windows_win32_ui_controls_getThemeBool(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pfval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2673,7 +2673,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeBool(int64_t htheme, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeColor(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pcolor) {
+int32_t windowssys_windows_win32_ui_controls_getThemeColor(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pcolor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2699,7 +2699,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeColor(int64_t htheme, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeDocumentationProperty(void* pszthemename, void* pszpropertyname, void* pszvaluebuff, int32_t cchmaxvalchars) {
+int32_t windowssys_windows_win32_ui_controls_getThemeDocumentationProperty(void* pszthemename, void* pszpropertyname, void* pszvaluebuff, int32_t cchmaxvalchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2724,7 +2724,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeDocumentationProperty(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeEnumValue(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
+int32_t windowssys_windows_win32_ui_controls_getThemeEnumValue(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2750,7 +2750,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeEnumValue(int64_t htheme, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeFilename(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pszthemefilename, int32_t cchmaxbuffchars) {
+int32_t windowssys_windows_win32_ui_controls_getThemeFilename(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pszthemefilename, int32_t cchmaxbuffchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2777,7 +2777,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeFilename(int64_t htheme, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeFont(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pfont) {
+int32_t windowssys_windows_win32_ui_controls_getThemeFont(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pfont) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2804,7 +2804,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeFont(int64_t htheme, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeInt(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
+int32_t windowssys_windows_win32_ui_controls_getThemeInt(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2830,7 +2830,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeInt(int64_t htheme, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeIntList(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pintlist) {
+int32_t windowssys_windows_win32_ui_controls_getThemeIntList(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pintlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2856,7 +2856,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeIntList(int64_t htheme, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeMargins(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* prc, void* pmargins) {
+int32_t windowssys_windows_win32_ui_controls_getThemeMargins(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* prc, void* pmargins) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2884,7 +2884,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeMargins(int64_t htheme, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeMetric(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
+int32_t windowssys_windows_win32_ui_controls_getThemeMetric(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pival) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2911,7 +2911,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeMetric(int64_t htheme, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemePartSize(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prc, int32_t esize, void* psz) {
+int32_t windowssys_windows_win32_ui_controls_getThemePartSize(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* prc, int32_t esize, void* psz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2939,7 +2939,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemePartSize(int64_t htheme, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemePosition(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* ppoint) {
+int32_t windowssys_windows_win32_ui_controls_getThemePosition(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* ppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2965,7 +2965,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemePosition(int64_t htheme, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemePropertyOrigin(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* porigin) {
+int32_t windowssys_windows_win32_ui_controls_getThemePropertyOrigin(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* porigin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2991,7 +2991,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemePropertyOrigin(int64_t hthe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeRect(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* prect) {
+int32_t windowssys_windows_win32_ui_controls_getThemeRect(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* prect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3017,7 +3017,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeRect(int64_t htheme, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeStream(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* ppvstream, void* pcbstream, void* hinst) {
+int32_t windowssys_windows_win32_ui_controls_getThemeStream(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* ppvstream, void* pcbstream, void* hinst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3045,7 +3045,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeStream(int64_t htheme, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeString(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pszbuff, int32_t cchmaxbuffchars) {
+int32_t windowssys_windows_win32_ui_controls_getThemeString(int64_t htheme, int32_t ipartid, int32_t istateid, int32_t ipropid, void* pszbuff, int32_t cchmaxbuffchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3072,7 +3072,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeString(int64_t htheme, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeSysBool(int64_t htheme, int32_t iboolid) {
+int32_t windowssys_windows_win32_ui_controls_getThemeSysBool(int64_t htheme, int32_t iboolid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3095,7 +3095,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeSysBool(int64_t htheme, int
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_GetThemeSysColor(int64_t htheme, int32_t icolorid) {
+uint32_t windowssys_windows_win32_ui_controls_getThemeSysColor(int64_t htheme, int32_t icolorid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3118,7 +3118,7 @@ uint32_t windowssys_windows_win32_ui_controls_GetThemeSysColor(int64_t htheme, i
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_GetThemeSysColorBrush(int64_t htheme, int32_t icolorid) {
+void* windowssys_windows_win32_ui_controls_getThemeSysColorBrush(int64_t htheme, int32_t icolorid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3141,7 +3141,7 @@ void* windowssys_windows_win32_ui_controls_GetThemeSysColorBrush(int64_t htheme,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeSysFont(int64_t htheme, int32_t ifontid, void* plf) {
+int32_t windowssys_windows_win32_ui_controls_getThemeSysFont(int64_t htheme, int32_t ifontid, void* plf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3165,7 +3165,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeSysFont(int64_t htheme, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeSysInt(int64_t htheme, int32_t iintid, void* pivalue) {
+int32_t windowssys_windows_win32_ui_controls_getThemeSysInt(int64_t htheme, int32_t iintid, void* pivalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3189,7 +3189,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeSysInt(int64_t htheme, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeSysSize(int64_t htheme, int32_t isizeid) {
+int32_t windowssys_windows_win32_ui_controls_getThemeSysSize(int64_t htheme, int32_t isizeid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3212,7 +3212,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeSysSize(int64_t htheme, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeSysString(int64_t htheme, int32_t istringid, void* pszstringbuff, int32_t cchmaxstringchars) {
+int32_t windowssys_windows_win32_ui_controls_getThemeSysString(int64_t htheme, int32_t istringid, void* pszstringbuff, int32_t cchmaxstringchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3237,7 +3237,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeSysString(int64_t htheme, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeTextExtent(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchcharcount, uint32_t dwtextflags, void* pboundingrect, void* pextentrect) {
+int32_t windowssys_windows_win32_ui_controls_getThemeTextExtent(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* psztext, int32_t cchcharcount, uint32_t dwtextflags, void* pboundingrect, void* pextentrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3267,7 +3267,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeTextExtent(int64_t htheme, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeTextMetrics(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* ptm) {
+int32_t windowssys_windows_win32_ui_controls_getThemeTextMetrics(int64_t htheme, void* hdc, int32_t ipartid, int32_t istateid, void* ptm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3293,7 +3293,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeTextMetrics(int64_t htheme,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeTimingFunction(int64_t htheme, int32_t itimingfunctionid, void* ptimingfunction, uint32_t cbsize, void* pcbsizeout) {
+int32_t windowssys_windows_win32_ui_controls_getThemeTimingFunction(int64_t htheme, int32_t itimingfunctionid, void* ptimingfunction, uint32_t cbsize, void* pcbsizeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3319,7 +3319,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeTimingFunction(int64_t hthe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetThemeTransitionDuration(int64_t htheme, int32_t ipartid, int32_t istateidfrom, int32_t istateidto, int32_t ipropid, void* pdwduration) {
+int32_t windowssys_windows_win32_ui_controls_getThemeTransitionDuration(int64_t htheme, int32_t ipartid, int32_t istateidfrom, int32_t istateidto, int32_t ipropid, void* pdwduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3346,7 +3346,7 @@ int32_t windowssys_windows_win32_ui_controls_GetThemeTransitionDuration(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting(void* hwnd, int32_t feedback, uint32_t dwflags, void* psize, void* config) {
+int32_t windowssys_windows_win32_ui_controls_getWindowFeedbackSetting(void* hwnd, int32_t feedback, uint32_t dwflags, void* psize, void* config) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3372,9 +3372,9 @@ int32_t windowssys_windows_win32_ui_controls_GetWindowFeedbackSetting(void* hwnd
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_GetWindowTheme(void* hwnd) {
+int32_t windowssys_windows_win32_ui_controls_getWindowTheme(void* hwnd) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
@@ -3394,7 +3394,7 @@ int64_t windowssys_windows_win32_ui_controls_GetWindowTheme(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterface(int64_t himl, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_controls_himagelistQueryInterface(int64_t himl, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3418,7 +3418,7 @@ int32_t windowssys_windows_win32_ui_controls_HIMAGELIST_QueryInterface(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Add(int64_t himl, void* hbmimage, void* hbmmask) {
+int32_t windowssys_windows_win32_ui_controls_imageListAdd(int64_t himl, void* hbmimage, void* hbmmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3442,7 +3442,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Add(int64_t himl, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_AddMasked(int64_t himl, void* hbmimage, uint32_t crmask) {
+int32_t windowssys_windows_win32_ui_controls_imageListAddMasked(int64_t himl, void* hbmimage, uint32_t crmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3466,7 +3466,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_AddMasked(int64_t himl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_BeginDrag(int64_t himltrack, int32_t itrack, int32_t dxhotspot, int32_t dyhotspot) {
+int32_t windowssys_windows_win32_ui_controls_imageListBeginDrag(int64_t himltrack, int32_t itrack, int32_t dxhotspot, int32_t dyhotspot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3491,7 +3491,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_BeginDrag(int64_t himltra
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_CoCreateInstance(void* rclsid, void* punkouter, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_controls_imageListCoCreateInstance(void* rclsid, void* punkouter, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3516,7 +3516,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_CoCreateInstance(void* rc
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Copy(int64_t himldst, int32_t idst, int64_t himlsrc, int32_t isrc, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_controls_imageListCopy(int64_t himldst, int32_t idst, int64_t himlsrc, int32_t isrc, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3542,9 +3542,9 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Copy(int64_t himldst, int
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_Create(int32_t cx, int32_t cy, uint32_t flags, int32_t cinitial, int32_t cgrow) {
+int32_t windowssys_windows_win32_ui_controls_imageListCreate(int32_t cx, int32_t cy, uint32_t flags, int32_t cinitial, int32_t cgrow) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3568,7 +3568,7 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_Create(int32_t cx, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Destroy(int64_t himl) {
+int32_t windowssys_windows_win32_ui_controls_imageListDestroy(int64_t himl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3590,7 +3590,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Destroy(int64_t himl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DragEnter(void* hwndlock, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_ui_controls_imageListDragEnter(void* hwndlock, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3614,7 +3614,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DragEnter(void* hwndlock,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DragLeave(void* hwndlock) {
+int32_t windowssys_windows_win32_ui_controls_imageListDragLeave(void* hwndlock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3636,7 +3636,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DragLeave(void* hwndlock)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DragMove(int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_ui_controls_imageListDragMove(int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3659,7 +3659,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DragMove(int32_t x, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DragShowNolock(int32_t fshow) {
+int32_t windowssys_windows_win32_ui_controls_imageListDragShowNolock(int32_t fshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3681,7 +3681,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DragShowNolock(int32_t fs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Draw(int64_t himl, int32_t i, void* hdcdst, int32_t x, int32_t y, uint32_t fstyle) {
+int32_t windowssys_windows_win32_ui_controls_imageListDraw(int64_t himl, int32_t i, void* hdcdst, int32_t x, int32_t y, uint32_t fstyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3708,7 +3708,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Draw(int64_t himl, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DrawEx(int64_t himl, int32_t i, void* hdcdst, int32_t x, int32_t y, int32_t dx, int32_t dy, uint32_t rgbbk, uint32_t rgbfg, uint32_t fstyle) {
+int32_t windowssys_windows_win32_ui_controls_imageListDrawEx(int64_t himl, int32_t i, void* hdcdst, int32_t x, int32_t y, int32_t dx, int32_t dy, uint32_t rgbbk, uint32_t rgbfg, uint32_t fstyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3739,7 +3739,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DrawEx(int64_t himl, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_DrawIndirect(void* pimldp) {
+int32_t windowssys_windows_win32_ui_controls_imageListDrawIndirect(void* pimldp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3761,9 +3761,9 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_DrawIndirect(void* pimldp
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_Duplicate(int64_t himl) {
+int32_t windowssys_windows_win32_ui_controls_imageListDuplicate(int64_t himl) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3783,7 +3783,7 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_Duplicate(int64_t himl) {
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_ImageList_EndDrag(void) {
+void windowssys_windows_win32_ui_controls_imageListEndDrag(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3803,7 +3803,7 @@ void windowssys_windows_win32_ui_controls_ImageList_EndDrag(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_ImageList_GetBkColor(int64_t himl) {
+uint32_t windowssys_windows_win32_ui_controls_imageListGetBkColor(int64_t himl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,9 +3825,9 @@ uint32_t windowssys_windows_win32_ui_controls_ImageList_GetBkColor(int64_t himl)
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_GetDragImage(void* ppt, void* ppthotspot) {
+int32_t windowssys_windows_win32_ui_controls_imageListGetDragImage(void* ppt, void* ppthotspot) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3848,7 +3848,7 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_GetDragImage(void* ppt, v
 #endif
 }
 
-void* windowssys_windows_win32_ui_controls_ImageList_GetIcon(int64_t himl, int32_t i, uint32_t flags) {
+void* windowssys_windows_win32_ui_controls_imageListGetIcon(int64_t himl, int32_t i, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3872,7 +3872,7 @@ void* windowssys_windows_win32_ui_controls_ImageList_GetIcon(int64_t himl, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_GetIconSize(int64_t himl, void* cx, void* cy) {
+int32_t windowssys_windows_win32_ui_controls_imageListGetIconSize(int64_t himl, void* cx, void* cy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3896,7 +3896,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_GetIconSize(int64_t himl,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_GetImageCount(int64_t himl) {
+int32_t windowssys_windows_win32_ui_controls_imageListGetImageCount(int64_t himl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3918,7 +3918,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_GetImageCount(int64_t him
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_GetImageInfo(int64_t himl, int32_t i, void* pimageinfo) {
+int32_t windowssys_windows_win32_ui_controls_imageListGetImageInfo(int64_t himl, int32_t i, void* pimageinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3942,9 +3942,9 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_GetImageInfo(int64_t himl
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_LoadImageA(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_controls_imageListLoadImageA(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3970,9 +3970,9 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_LoadImageA(void* hi, void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_LoadImageW(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_controls_imageListLoadImageW(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3998,9 +3998,9 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_LoadImageW(void* hi, void
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_Merge(int64_t himl1, int32_t i1, int64_t himl2, int32_t i2, int32_t dx, int32_t dy) {
+int32_t windowssys_windows_win32_ui_controls_imageListMerge(int64_t himl1, int32_t i1, int64_t himl2, int32_t i2, int32_t dx, int32_t dy) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -4025,9 +4025,9 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_Merge(int64_t himl1, int3
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_ImageList_Read(void* pstm) {
+int32_t windowssys_windows_win32_ui_controls_imageListRead(void* pstm) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -4047,7 +4047,7 @@ int64_t windowssys_windows_win32_ui_controls_ImageList_Read(void* pstm) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_ReadEx(uint32_t dwflags, void* pstm, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_controls_imageListReadEx(uint32_t dwflags, void* pstm, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4072,7 +4072,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_ReadEx(uint32_t dwflags, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Remove(int64_t himl, int32_t i) {
+int32_t windowssys_windows_win32_ui_controls_imageListRemove(int64_t himl, int32_t i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4095,7 +4095,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Remove(int64_t himl, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Replace(int64_t himl, int32_t i, void* hbmimage, void* hbmmask) {
+int32_t windowssys_windows_win32_ui_controls_imageListReplace(int64_t himl, int32_t i, void* hbmimage, void* hbmmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4120,7 +4120,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Replace(int64_t himl, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon(int64_t himl, int32_t i, void* hicon) {
+int32_t windowssys_windows_win32_ui_controls_imageListReplaceIcon(int64_t himl, int32_t i, void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4144,7 +4144,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_ReplaceIcon(int64_t himl,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_ImageList_SetBkColor(int64_t himl, uint32_t clrbk) {
+uint32_t windowssys_windows_win32_ui_controls_imageListSetBkColor(int64_t himl, uint32_t clrbk) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4167,7 +4167,7 @@ uint32_t windowssys_windows_win32_ui_controls_ImageList_SetBkColor(int64_t himl,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_SetDragCursorImage(int64_t himldrag, int32_t idrag, int32_t dxhotspot, int32_t dyhotspot) {
+int32_t windowssys_windows_win32_ui_controls_imageListSetDragCursorImage(int64_t himldrag, int32_t idrag, int32_t dxhotspot, int32_t dyhotspot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4192,7 +4192,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_SetDragCursorImage(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_SetIconSize(int64_t himl, int32_t cx, int32_t cy) {
+int32_t windowssys_windows_win32_ui_controls_imageListSetIconSize(int64_t himl, int32_t cx, int32_t cy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4216,7 +4216,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_SetIconSize(int64_t himl,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_SetImageCount(int64_t himl, uint32_t unewcount) {
+int32_t windowssys_windows_win32_ui_controls_imageListSetImageCount(int64_t himl, uint32_t unewcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4239,7 +4239,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_SetImageCount(int64_t him
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_SetOverlayImage(int64_t himl, int32_t iimage, int32_t ioverlay) {
+int32_t windowssys_windows_win32_ui_controls_imageListSetOverlayImage(int64_t himl, int32_t iimage, int32_t ioverlay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4263,7 +4263,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_SetOverlayImage(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_Write(int64_t himl, void* pstm) {
+int32_t windowssys_windows_win32_ui_controls_imageListWrite(int64_t himl, void* pstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4286,7 +4286,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_Write(int64_t himl, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ImageList_WriteEx(int64_t himl, uint32_t dwflags, void* pstm) {
+int32_t windowssys_windows_win32_ui_controls_imageListWriteEx(int64_t himl, uint32_t dwflags, void* pstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4310,7 +4310,7 @@ int32_t windowssys_windows_win32_ui_controls_ImageList_WriteEx(int64_t himl, uin
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_InitCommonControls(void) {
+void windowssys_windows_win32_ui_controls_initCommonControls(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4330,7 +4330,7 @@ void windowssys_windows_win32_ui_controls_InitCommonControls(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_InitCommonControlsEx(void* picce) {
+int32_t windowssys_windows_win32_ui_controls_initCommonControlsEx(void* picce) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4352,7 +4352,7 @@ int32_t windowssys_windows_win32_ui_controls_InitCommonControlsEx(void* picce) {
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_InitMUILanguage(uint16_t uilang) {
+void windowssys_windows_win32_ui_controls_initMUILanguage(uint16_t uilang) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4373,7 +4373,7 @@ void windowssys_windows_win32_ui_controls_InitMUILanguage(uint16_t uilang) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_InitializeFlatSB(void* param0) {
+int32_t windowssys_windows_win32_ui_controls_initializeFlatSB(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4395,7 +4395,7 @@ int32_t windowssys_windows_win32_ui_controls_InitializeFlatSB(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsAppThemed(void) {
+int32_t windowssys_windows_win32_ui_controls_isAppThemed(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4416,7 +4416,7 @@ int32_t windowssys_windows_win32_ui_controls_IsAppThemed(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsCharLowerW(uint16_t ch) {
+int32_t windowssys_windows_win32_ui_controls_isCharLowerW(uint16_t ch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4438,7 +4438,7 @@ int32_t windowssys_windows_win32_ui_controls_IsCharLowerW(uint16_t ch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsCompositionActive(void) {
+int32_t windowssys_windows_win32_ui_controls_isCompositionActive(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4459,7 +4459,7 @@ int32_t windowssys_windows_win32_ui_controls_IsCompositionActive(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_controls_IsDlgButtonChecked(void* hdlg, int32_t nidbutton) {
+uint32_t windowssys_windows_win32_ui_controls_isDlgButtonChecked(void* hdlg, int32_t nidbutton) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4482,7 +4482,7 @@ uint32_t windowssys_windows_win32_ui_controls_IsDlgButtonChecked(void* hdlg, int
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsThemeActive(void) {
+int32_t windowssys_windows_win32_ui_controls_isThemeActive(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4503,7 +4503,7 @@ int32_t windowssys_windows_win32_ui_controls_IsThemeActive(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsThemeBackgroundPartiallyTransparent(int64_t htheme, int32_t ipartid, int32_t istateid) {
+int32_t windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent(int64_t htheme, int32_t ipartid, int32_t istateid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4527,7 +4527,7 @@ int32_t windowssys_windows_win32_ui_controls_IsThemeBackgroundPartiallyTranspare
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnabled(void* hwnd) {
+int32_t windowssys_windows_win32_ui_controls_isThemeDialogTextureEnabled(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4549,7 +4549,7 @@ int32_t windowssys_windows_win32_ui_controls_IsThemeDialogTextureEnabled(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_IsThemePartDefined(int64_t htheme, int32_t ipartid, int32_t istateid) {
+int32_t windowssys_windows_win32_ui_controls_isThemePartDefined(int64_t htheme, int32_t ipartid, int32_t istateid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4573,7 +4573,7 @@ int32_t windowssys_windows_win32_ui_controls_IsThemePartDefined(int64_t htheme, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_LoadIconMetric(void* hinst, void* pszname, int32_t lims, void* phico) {
+int32_t windowssys_windows_win32_ui_controls_loadIconMetric(void* hinst, void* pszname, int32_t lims, void* phico) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4598,7 +4598,7 @@ int32_t windowssys_windows_win32_ui_controls_LoadIconMetric(void* hinst, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_LoadIconWithScaleDown(void* hinst, void* pszname, int32_t cx, int32_t cy, void* phico) {
+int32_t windowssys_windows_win32_ui_controls_loadIconWithScaleDown(void* hinst, void* pszname, int32_t cx, int32_t cy, void* phico) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4624,7 +4624,7 @@ int32_t windowssys_windows_win32_ui_controls_LoadIconWithScaleDown(void* hinst, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_MakeDragList(void* hlb) {
+int32_t windowssys_windows_win32_ui_controls_makeDragList(void* hlb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4646,7 +4646,7 @@ int32_t windowssys_windows_win32_ui_controls_MakeDragList(void* hlb) {
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_MenuHelp(uint32_t umsg, uint64_t wparam, int64_t lparam, void* hmainmenu, void* hinst, void* hwndstatus, void* lpwids) {
+void windowssys_windows_win32_ui_controls_menuHelp(uint32_t umsg, uint64_t wparam, int64_t lparam, void* hmainmenu, void* hinst, void* hwndstatus, void* lpwids) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint64_t, int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4673,9 +4673,9 @@ void windowssys_windows_win32_ui_controls_MenuHelp(uint32_t umsg, uint64_t wpara
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_OpenThemeData(void* hwnd, void* pszclasslist) {
+int32_t windowssys_windows_win32_ui_controls_openThemeData(void* hwnd, void* pszclasslist) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
@@ -4696,9 +4696,9 @@ int64_t windowssys_windows_win32_ui_controls_OpenThemeData(void* hwnd, void* psz
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_OpenThemeDataEx(void* hwnd, void* pszclasslist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_controls_openThemeDataEx(void* hwnd, void* pszclasslist, uint32_t dwflags) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
@@ -4720,7 +4720,7 @@ int64_t windowssys_windows_win32_ui_controls_OpenThemeDataEx(void* hwnd, void* p
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_PackTouchHitTestingProximityEvaluation(void* phittestinginput, void* pproximityeval) {
+int64_t windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation(void* phittestinginput, void* pproximityeval) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4743,7 +4743,7 @@ int64_t windowssys_windows_win32_ui_controls_PackTouchHitTestingProximityEvaluat
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_PropertySheetA(void* param0) {
+int64_t windowssys_windows_win32_ui_controls_propertySheetA(void* param0) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4765,7 +4765,7 @@ int64_t windowssys_windows_win32_ui_controls_PropertySheetA(void* param0) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_controls_PropertySheetW(void* param0) {
+int64_t windowssys_windows_win32_ui_controls_propertySheetW(void* param0) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4787,7 +4787,7 @@ int64_t windowssys_windows_win32_ui_controls_PropertySheetW(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_RegisterPointerDeviceNotifications(void* window, int32_t notifyrange) {
+int32_t windowssys_windows_win32_ui_controls_registerPointerDeviceNotifications(void* window, int32_t notifyrange) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4810,7 +4810,7 @@ int32_t windowssys_windows_win32_ui_controls_RegisterPointerDeviceNotifications(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_RegisterTouchHitTestingWindow(void* hwnd, uint32_t value) {
+int32_t windowssys_windows_win32_ui_controls_registerTouchHitTestingWindow(void* hwnd, uint32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4833,7 +4833,7 @@ int32_t windowssys_windows_win32_ui_controls_RegisterTouchHitTestingWindow(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetScrollInfo(void* hwnd, int32_t nbar, void* lpsi, int32_t redraw) {
+int32_t windowssys_windows_win32_ui_controls_setScrollInfo(void* hwnd, int32_t nbar, void* lpsi, int32_t redraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4858,7 +4858,7 @@ int32_t windowssys_windows_win32_ui_controls_SetScrollInfo(void* hwnd, int32_t n
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetScrollPos(void* hwnd, int32_t nbar, int32_t npos, int32_t bredraw) {
+int32_t windowssys_windows_win32_ui_controls_setScrollPos(void* hwnd, int32_t nbar, int32_t npos, int32_t bredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4883,7 +4883,7 @@ int32_t windowssys_windows_win32_ui_controls_SetScrollPos(void* hwnd, int32_t nb
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetScrollRange(void* hwnd, int32_t nbar, int32_t nminpos, int32_t nmaxpos, int32_t bredraw) {
+int32_t windowssys_windows_win32_ui_controls_setScrollRange(void* hwnd, int32_t nbar, int32_t nminpos, int32_t nmaxpos, int32_t bredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4909,7 +4909,7 @@ int32_t windowssys_windows_win32_ui_controls_SetScrollRange(void* hwnd, int32_t 
 #endif
 }
 
-void windowssys_windows_win32_ui_controls_SetThemeAppProperties(uint32_t dwflags) {
+void windowssys_windows_win32_ui_controls_setThemeAppProperties(uint32_t dwflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4930,7 +4930,7 @@ void windowssys_windows_win32_ui_controls_SetThemeAppProperties(uint32_t dwflags
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting(void* hwnd, int32_t feedback, uint32_t dwflags, uint32_t size, void* configuration) {
+int32_t windowssys_windows_win32_ui_controls_setWindowFeedbackSetting(void* hwnd, int32_t feedback, uint32_t dwflags, uint32_t size, void* configuration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4956,7 +4956,7 @@ int32_t windowssys_windows_win32_ui_controls_SetWindowFeedbackSetting(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetWindowTheme(void* hwnd, void* pszsubappname, void* pszsubidlist) {
+int32_t windowssys_windows_win32_ui_controls_setWindowTheme(void* hwnd, void* pszsubappname, void* pszsubidlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4980,7 +4980,7 @@ int32_t windowssys_windows_win32_ui_controls_SetWindowTheme(void* hwnd, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_SetWindowThemeAttribute(void* hwnd, int32_t eattribute, void* pvattribute, uint32_t cbattribute) {
+int32_t windowssys_windows_win32_ui_controls_setWindowThemeAttribute(void* hwnd, int32_t eattribute, void* pvattribute, uint32_t cbattribute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5005,7 +5005,7 @@ int32_t windowssys_windows_win32_ui_controls_SetWindowThemeAttribute(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ShowHideMenuCtl(void* hwnd, uint64_t uflags, void* lpinfo) {
+int32_t windowssys_windows_win32_ui_controls_showHideMenuCtl(void* hwnd, uint64_t uflags, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5029,7 +5029,7 @@ int32_t windowssys_windows_win32_ui_controls_ShowHideMenuCtl(void* hwnd, uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_ShowScrollBar(void* hwnd, int32_t wbar, int32_t bshow) {
+int32_t windowssys_windows_win32_ui_controls_showScrollBar(void* hwnd, int32_t wbar, int32_t bshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5053,7 +5053,7 @@ int32_t windowssys_windows_win32_ui_controls_ShowScrollBar(void* hwnd, int32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_Str_SetPtrW(void* ppsz, void* psz) {
+int32_t windowssys_windows_win32_ui_controls_strSetPtrW(void* ppsz, void* psz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5076,7 +5076,7 @@ int32_t windowssys_windows_win32_ui_controls_Str_SetPtrW(void* ppsz, void* psz) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_TaskDialog(void* hwndowner, void* hinstance, void* pszwindowtitle, void* pszmaininstruction, void* pszcontent, int32_t dwcommonbuttons, void* pszicon, void* pnbutton) {
+int32_t windowssys_windows_win32_ui_controls_taskDialog(void* hwndowner, void* hinstance, void* pszwindowtitle, void* pszmaininstruction, void* pszcontent, int32_t dwcommonbuttons, void* pszicon, void* pnbutton) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5105,7 +5105,7 @@ int32_t windowssys_windows_win32_ui_controls_TaskDialog(void* hwndowner, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_TaskDialogIndirect(void* ptaskconfig, void* pnbutton, void* pnradiobutton, void* pfverificationflagchecked) {
+int32_t windowssys_windows_win32_ui_controls_taskDialogIndirect(void* ptaskconfig, void* pnbutton, void* pnradiobutton, void* pfverificationflagchecked) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5130,7 +5130,7 @@ int32_t windowssys_windows_win32_ui_controls_TaskDialogIndirect(void* ptaskconfi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_UninitializeFlatSB(void* param0) {
+int32_t windowssys_windows_win32_ui_controls_uninitializeFlatSB(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5152,7 +5152,7 @@ int32_t windowssys_windows_win32_ui_controls_UninitializeFlatSB(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_UpdatePanningFeedback(void* hwnd, int32_t ltotaloverpanoffsetx, int32_t ltotaloverpanoffsety, int32_t fininertia) {
+int32_t windowssys_windows_win32_ui_controls_updatePanningFeedback(void* hwnd, int32_t ltotaloverpanoffsetx, int32_t ltotaloverpanoffsety, int32_t fininertia) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;

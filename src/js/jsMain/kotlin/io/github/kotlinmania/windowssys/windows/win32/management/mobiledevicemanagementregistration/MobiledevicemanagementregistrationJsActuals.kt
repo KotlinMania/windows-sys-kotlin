@@ -2,65 +2,66 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ApplyLocalManagementSyncML(syncmlrequest: PCWSTR, syncmlresult: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_ApplyLocalManagementSyncML(syncmlrequest.toString(), syncmlresult.toString()) as Int) else 0
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_applyLocalManagementSyncML((syncmlrequest?.value ?: 0L).toString(), (syncmlresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DiscoverManagementService(pszupn: PCWSTR, ppmgmtinfo: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_DiscoverManagementService(pszupn.toString(), ppmgmtinfo.toString()) as Int) else 0
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementService((pszupn?.value ?: 0L).toString(), (ppmgmtinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DiscoverManagementServiceEx(pszupn: PCWSTR, pszdiscoveryservicecandidate: PCWSTR, ppmgmtinfo: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_DiscoverManagementServiceEx(pszupn.toString(), pszdiscoveryservicecandidate.toString(), ppmgmtinfo.toString()) as Int) else 0
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_discoverManagementServiceEx((pszupn?.value ?: 0L).toString(), (pszdiscoveryservicecandidate?.value ?: 0L).toString(), (ppmgmtinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceManagementConfigInfo(providerid: PCWSTR, configstringbufferlength: Long, configstring: PWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_GetDeviceManagementConfigInfo(providerid.toString(), configstringbufferlength.toString(), configstring.toString()) as Int) else 0
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: COpaquePointer?, configstring: Pwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceManagementConfigInfo((providerid?.value ?: 0L).toString(), (configstringbufferlength?.value ?: 0L).toString(), (configstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_GetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo.toString()) as Int) else 0
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_getDeviceRegistrationInfo(deviceinformationclass, (ppdeviceregistrationinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: PWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_GetManagementAppHyperlink(cchhyperlink.toInt(), pszhyperlink.toString()) as Int) else 0
+public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_getManagementAppHyperlink(cchhyperlink.toInt(), (pszhyperlink?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: UInt, pszupn: PWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement.toString(), cchupn.toInt(), pszupn.toString()) as Int) else 0
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: COpaquePointer?, cchupn: UInt, pszupn: Pwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_isDeviceRegisteredWithManagement((pfisdeviceregisteredwithmanagement?.value ?: 0L).toString(), cchupn.toInt(), (pszupn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_IsManagementRegistrationAllowed(pfismanagementregistrationallowed.toString()) as Int) else 0
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_isManagementRegistrationAllowed((pfismanagementregistrationallowed?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsMdmUxWithoutAadAllowed(isenrollmentallowed: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_IsMdmUxWithoutAadAllowed(isenrollmentallowed.toString()) as Int) else 0
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_isMdmUxWithoutAadAllowed((isenrollmentallowed?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceWithLocalManagement(alreadyregistered: Long): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_RegisterDeviceWithLocalManagement(alreadyregistered.toString()) as Int) else 0
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: COpaquePointer?): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithLocalManagement((alreadyregistered?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceWithManagement(pszupn: PCWSTR, ppszmdmserviceuri: PCWSTR, ppzsaccesstoken: PCWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_RegisterDeviceWithManagement(pszupn.toString(), ppszmdmserviceuri.toString(), ppzsaccesstoken.toString()) as Int) else 0
+public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagement((pszupn?.value ?: 0L).toString(), (ppszmdmserviceuri?.value ?: 0L).toString(), (ppzsaccesstoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: HANDLE): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_RegisterDeviceWithManagementUsingAADCredentials(usertoken.toString()) as Int) else 0
+public actual fun registerDeviceWithManagementUsingAADCredentials(usertoken: Handle): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADCredentials((usertoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceWithManagementUsingAADDeviceCredentials(): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_RegisterDeviceWithManagementUsingAADDeviceCredentials() as Int) else 0
+public actual fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: PCWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.toString()) as Int) else 0
+public actual fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_registerDeviceWithManagementUsingAADDeviceCredentials2((mdmapplicationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDeviceManagementConfigInfo(providerid: PCWSTR, configstring: PCWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_SetDeviceManagementConfigInfo(providerid.toString(), configstring.toString()) as Int) else 0
+public actual fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring: Pcwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_setDeviceManagementConfigInfo((providerid?.value ?: 0L).toString(), (configstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetManagedExternally(ismanagedexternally: BOOL): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_SetManagedExternally(ismanagedexternally) as Int) else 0
+public actual fun setManagedExternally(ismanagedexternally: Bool): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_setManagedExternally(ismanagedexternally) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterDeviceWithLocalManagement(): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_UnregisterDeviceWithLocalManagement() as Int) else 0
+public actual fun unregisterDeviceWithLocalManagement(): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithLocalManagement() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterDeviceWithManagement(enrollmentid: PCWSTR): HRESULT =
-    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_UnregisterDeviceWithManagement(enrollmentid.toString()) as Int) else 0
+public actual fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult =
+    if (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon != null) (_windowsWin32ManagementMobiledevicemanagementregistrationNapiAddon.windowssys_windows_win32_management_mobiledevicemanagementregistration_unregisterDeviceWithManagement((enrollmentid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

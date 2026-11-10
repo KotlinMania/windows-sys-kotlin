@@ -1,10 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 public val AA_AUTH_ANY: AAAuthSchemes = 6
 
@@ -48,9 +48,9 @@ public val AA_UNTRUSTED: AATrustClassID = 0
 
 public val ACQUIRE_TARGET_LOCK_TIMEOUT: UInt = 300000u
 
-public val ADsTSUserEx: GUID = GUID.from_u128(U128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL))
+public val A_DS_TS_USER_EX: Guid = Guid.fromU128(U128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL))
 
-public val AllowOnlySDRServers: PolicyAttributeType = 7
+public val ALLOW_ONLY_SDR_SERVERS: PolicyAttributeType = 7
 
 public val CHANNEL_BUFFER_SIZE: UInt = 65535u
 
@@ -152,35 +152,35 @@ public val CLIENTADDRESS_LENGTH: UInt = 30u
 
 public val CLIENTNAME_LENGTH: UInt = 20u
 
-public val CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = 2
+public val CLIENT_MESSAGE_CONNECTION_ERROR: ClientMessageType = 2
 
-public val CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = 0
+public val CLIENT_MESSAGE_CONNECTION_INVALID: ClientMessageType = 0
 
-public val CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = 1
+public val CLIENT_MESSAGE_CONNECTION_STATUS: ClientMessageType = 1
 
-public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: GUID = GUID.from_u128(U128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL))
+public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: Guid = Guid.fromU128(U128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL))
 
-public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: GUID = GUID.from_u128(U128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL))
+public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: Guid = Guid.fromU128(U128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL))
 
-public val CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = 5
+public val CONNECTION_REQUEST_CANCELLED: ConnectionChangeNotification = 5
 
-public val CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = 2
+public val CONNECTION_REQUEST_FAILED: ConnectionChangeNotification = 2
 
-public val CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = 0
+public val CONNECTION_REQUEST_INVALID: ConnectionChangeNotification = 0
 
-public val CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = 6
+public val CONNECTION_REQUEST_LB_COMPLETED: ConnectionChangeNotification = 6
 
-public val CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = 8
+public val CONNECTION_REQUEST_ORCH_COMPLETED: ConnectionChangeNotification = 8
 
-public val CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = 1
+public val CONNECTION_REQUEST_PENDING: ConnectionChangeNotification = 1
 
-public val CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = 7
+public val CONNECTION_REQUEST_QUERY_PL_COMPLETED: ConnectionChangeNotification = 7
 
-public val CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = 4
+public val CONNECTION_REQUEST_SUCCEEDED: ConnectionChangeNotification = 4
 
-public val CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = 3
+public val CONNECTION_REQUEST_TIMEDOUT: ConnectionChangeNotification = 3
 
-public val ClipboardRedirectionDisabled: PolicyAttributeType = 5
+public val CLIPBOARD_REDIRECTION_DISABLED: PolicyAttributeType = 5
 
 public val DISPID_AX_ADMINMESSAGERECEIVED: UInt = 760u
 
@@ -254,13 +254,13 @@ public val DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: UInt = 712u
 
 public val DOMAIN_LENGTH: UInt = 17u
 
-public val DisableAllRedirections: PolicyAttributeType = 1
+public val DISABLE_ALL_REDIRECTIONS: PolicyAttributeType = 1
 
-public val DriveRedirectionDisabled: PolicyAttributeType = 2
+public val DRIVE_REDIRECTION_DISABLED: PolicyAttributeType = 2
 
-public val EnableAllRedirections: PolicyAttributeType = 0
+public val ENABLE_ALL_REDIRECTIONS: PolicyAttributeType = 0
 
-public val FARM: TARGET_TYPE = 1
+public val FARM: TargetType = 1
 
 public val FORCE_REJOIN: UInt = 2u
 
@@ -268,19 +268,19 @@ public val FORCE_REJOIN_IN_CLUSTERMODE: UInt = 3u
 
 public val KEEP_EXISTING_SESSIONS: UInt = 8u
 
-public val KeyCombinationDown: KeyCombinationType = 4
+public val KEY_COMBINATION_DOWN: KeyCombinationType = 4
 
-public val KeyCombinationHome: KeyCombinationType = 0
+public val KEY_COMBINATION_HOME: KeyCombinationType = 0
 
-public val KeyCombinationLeft: KeyCombinationType = 1
+public val KEY_COMBINATION_LEFT: KeyCombinationType = 1
 
-public val KeyCombinationRight: KeyCombinationType = 3
+public val KEY_COMBINATION_RIGHT: KeyCombinationType = 3
 
-public val KeyCombinationScroll: KeyCombinationType = 5
+public val KEY_COMBINATION_SCROLL: KeyCombinationType = 5
 
-public val KeyCombinationUp: KeyCombinationType = 2
+public val KEY_COMBINATION_UP: KeyCombinationType = 2
 
-public val LOAD_BALANCING_PLUGIN: PLUGIN_TYPE = 4
+public val LOAD_BALANCING_PLUGIN: PluginType = 4
 
 public val MAX_DATE_TIME_LENGTH: UInt = 56u
 
@@ -288,107 +288,107 @@ public val MAX_ELAPSED_TIME_LENGTH: UInt = 15u
 
 public val MAX_POLICY_ATTRIBUTES: UInt = 20u
 
-public val MaxAppName_Len: UInt = 256u
+public val MAX_APP_NAME_LEN: UInt = 256u
 
-public val MaxDomainName_Len: UInt = 256u
+public val MAX_DOMAIN_NAME_LEN: UInt = 256u
 
-public val MaxFQDN_Len: UInt = 256u
+public val MAX_FQDN_LEN: UInt = 256u
 
-public val MaxFarm_Len: UInt = 256u
+public val MAX_FARM_LEN: UInt = 256u
 
-public val MaxNetBiosName_Len: UInt = 16u
+public val MAX_NET_BIOS_NAME_LEN: UInt = 16u
 
-public val MaxNumOfExposed_IPs: UInt = 12u
+public val MAX_NUM_OF_EXPOSED_I_PS: UInt = 12u
 
-public val MaxUserName_Len: UInt = 104u
+public val MAX_USER_NAME_LEN: UInt = 104u
 
-public val NONFARM: TARGET_TYPE = 2
+public val NONFARM: TargetType = 2
 
 public val NOTIFY_FOR_ALL_SESSIONS: UInt = 1u
 
 public val NOTIFY_FOR_THIS_SESSION: UInt = 0u
 
-public val ORCHESTRATION_PLUGIN: PLUGIN_TYPE = 16
+public val ORCHESTRATION_PLUGIN: PluginType = 16
 
-public val OWNER_MS_TS_PLUGIN: TARGET_OWNER = 1
+public val OWNER_MS_TS_PLUGIN: TargetOwner = 1
 
-public val OWNER_MS_VM_PLUGIN: TARGET_OWNER = 2
+public val OWNER_MS_VM_PLUGIN: TargetOwner = 2
 
-public val OWNER_UNKNOWN: TARGET_OWNER = 0
+public val OWNER_UNKNOWN: TargetOwner = 0
 
-public val PLACEMENT_PLUGIN: PLUGIN_TYPE = 8
+public val PLACEMENT_PLUGIN: PluginType = 8
 
 public val PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: UInt = 1u
 
-public val POLICY_PLUGIN: PLUGIN_TYPE = 1
+public val POLICY_PLUGIN: PluginType = 1
 
-public val POSITION_CONTINUOUS: AE_POSITION_FLAGS = 2
+public val POSITION_CONTINUOUS: AePositionFlags = 2
 
-public val POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = 1
+public val POSITION_DISCONTINUOUS: AePositionFlags = 1
 
-public val POSITION_INVALID: AE_POSITION_FLAGS = 0
+public val POSITION_INVALID: AePositionFlags = 0
 
-public val POSITION_QPC_ERROR: AE_POSITION_FLAGS = 4
+public val POSITION_QPC_ERROR: AePositionFlags = 4
 
 public val PRODUCTINFO_COMPANYNAME_LENGTH: UInt = 256u
 
 public val PRODUCTINFO_PRODUCTID_LENGTH: UInt = 4u
 
-public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: GUID = GUID.from_u128(U128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL))
+public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: Guid = Guid.fromU128(U128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL))
 
-public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: GUID = GUID.from_u128(U128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL))
+public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: Guid = Guid.fromU128(U128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL))
 
-public val PROPERTY_TYPE_GET_FAST_RECONNECT: GUID = GUID.from_u128(U128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL))
+public val PROPERTY_TYPE_GET_FAST_RECONNECT: Guid = Guid.fromU128(U128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL))
 
-public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: GUID = GUID.from_u128(U128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL))
+public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: Guid = Guid.fromU128(U128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL))
 
-public val PROVISIONING_PLUGIN: PLUGIN_TYPE = 32
+public val PROVISIONING_PLUGIN: PluginType = 32
 
-public val PasswordEncodingUTF16BE: PasswordEncodingType = 2
+public val PASSWORD_ENCODING_UTF16BE: PasswordEncodingType = 2
 
-public val PasswordEncodingUTF16LE: PasswordEncodingType = 1
+public val PASSWORD_ENCODING_UTF16LE: PasswordEncodingType = 1
 
-public val PasswordEncodingUTF8: PasswordEncodingType = 0
+public val PASSWORD_ENCODING_UTF8: PasswordEncodingType = 0
 
-public val PnpRedirectionDisabled: PolicyAttributeType = 6
+public val PNP_REDIRECTION_DISABLED: PolicyAttributeType = 6
 
-public val PortRedirectionDisabled: PolicyAttributeType = 4
+public val PORT_REDIRECTION_DISABLED: PolicyAttributeType = 4
 
-public val PrinterRedirectionDisabled: PolicyAttributeType = 3
+public val PRINTER_REDIRECTION_DISABLED: PolicyAttributeType = 3
 
-public val RDCLIENT_BITMAP_RENDER_SERVICE: GUID = GUID.from_u128(U128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL))
+public val RDCLIENT_BITMAP_RENDER_SERVICE: Guid = Guid.fromU128(U128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL))
 
-public val RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = 3
+public val RDV_TASK_STATUS_APPLYING: RdvTaskStatus = 3
 
-public val RDV_TASK_STATUS_DOWNLOADING: RDV_TASK_STATUS = 2
+public val RDV_TASK_STATUS_DOWNLOADING: RdvTaskStatus = 2
 
-public val RDV_TASK_STATUS_FAILED: RDV_TASK_STATUS = 7
+public val RDV_TASK_STATUS_FAILED: RdvTaskStatus = 7
 
-public val RDV_TASK_STATUS_REBOOTED: RDV_TASK_STATUS = 5
+public val RDV_TASK_STATUS_REBOOTED: RdvTaskStatus = 5
 
-public val RDV_TASK_STATUS_REBOOTING: RDV_TASK_STATUS = 4
+public val RDV_TASK_STATUS_REBOOTING: RdvTaskStatus = 4
 
-public val RDV_TASK_STATUS_SEARCHING: RDV_TASK_STATUS = 1
+public val RDV_TASK_STATUS_SEARCHING: RdvTaskStatus = 1
 
-public val RDV_TASK_STATUS_SUCCESS: RDV_TASK_STATUS = 6
+public val RDV_TASK_STATUS_SUCCESS: RdvTaskStatus = 6
 
-public val RDV_TASK_STATUS_TIMEOUT: RDV_TASK_STATUS = 8
+public val RDV_TASK_STATUS_TIMEOUT: RdvTaskStatus = 8
 
-public val RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = 0
+public val RDV_TASK_STATUS_UNKNOWN: RdvTaskStatus = 0
 
-public val RD_FARM_AUTO_PERSONAL_RDSH: RD_FARM_TYPE = 5
+public val RD_FARM_AUTO_PERSONAL_RDSH: RdFarmType = 5
 
-public val RD_FARM_AUTO_PERSONAL_VM: RD_FARM_TYPE = 3
+public val RD_FARM_AUTO_PERSONAL_VM: RdFarmType = 3
 
-public val RD_FARM_MANUAL_PERSONAL_RDSH: RD_FARM_TYPE = 4
+public val RD_FARM_MANUAL_PERSONAL_RDSH: RdFarmType = 4
 
-public val RD_FARM_MANUAL_PERSONAL_VM: RD_FARM_TYPE = 2
+public val RD_FARM_MANUAL_PERSONAL_VM: RdFarmType = 2
 
-public val RD_FARM_RDSH: RD_FARM_TYPE = 0
+public val RD_FARM_RDSH: RdFarmType = 0
 
-public val RD_FARM_TEMP_VM: RD_FARM_TYPE = 1
+public val RD_FARM_TEMP_VM: RdFarmType = 1
 
-public val RD_FARM_TYPE_UNKNOWN: RD_FARM_TYPE = -1
+public val RD_FARM_TYPE_UNKNOWN: RdFarmType = -1
 
 public val REMOTECONTROL_KBDALT_HOTKEY: UInt = 4u
 
@@ -404,7 +404,7 @@ public val RENDER_HINT_VIDEO: UInt = 1u
 
 public val RESERVED_FOR_LEGACY: UInt = 4u
 
-public val RESOURCE_PLUGIN: PLUGIN_TYPE = 2
+public val RESOURCE_PLUGIN: PluginType = 2
 
 public val RFX_CLIENT_ID_LENGTH: UInt = 32u
 
@@ -416,147 +416,147 @@ public val RFX_GFX_MSG_PREFIX_MASK: UInt = 48u
 
 public val RFX_RDP_MSG_PREFIX: UInt = 0u
 
-public val RemoteActionAppSwitch: RemoteActionType = 4
+public val REMOTE_ACTION_APP_SWITCH: RemoteActionType = 4
 
-public val RemoteActionAppbar: RemoteActionType = 1
+public val REMOTE_ACTION_APPBAR: RemoteActionType = 1
 
-public val RemoteActionCharms: RemoteActionType = 0
+public val REMOTE_ACTION_CHARMS: RemoteActionType = 0
 
-public val RemoteActionSnap: RemoteActionType = 2
+public val REMOTE_ACTION_SNAP: RemoteActionType = 2
 
-public val RemoteActionStartScreen: RemoteActionType = 3
+public val REMOTE_ACTION_START_SCREEN: RemoteActionType = 3
 
 public val SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: UInt = 100u
 
-public val SESSION_TIMEOUT_ACTION_DISCONNECT: SESSION_TIMEOUT_ACTION_TYPE = 0
+public val SESSION_TIMEOUT_ACTION_DISCONNECT: SessionTimeoutActionType = 0
 
-public val SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SESSION_TIMEOUT_ACTION_TYPE = 1
+public val SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SessionTimeoutActionType = 1
 
 public val SINGLE_SESSION: UInt = 1u
 
-public val STATE_ACTIVE: TSSESSION_STATE = 0
+public val STATE_ACTIVE: TssessionState = 0
 
-public val STATE_CONNECTED: TSSESSION_STATE = 1
+public val STATE_CONNECTED: TssessionState = 1
 
-public val STATE_CONNECTQUERY: TSSESSION_STATE = 2
+public val STATE_CONNECTQUERY: TssessionState = 2
 
-public val STATE_DISCONNECTED: TSSESSION_STATE = 4
+public val STATE_DISCONNECTED: TssessionState = 4
 
-public val STATE_DOWN: TSSESSION_STATE = 8
+public val STATE_DOWN: TssessionState = 8
 
-public val STATE_IDLE: TSSESSION_STATE = 5
+public val STATE_IDLE: TssessionState = 5
 
-public val STATE_INIT: TSSESSION_STATE = 9
+public val STATE_INIT: TssessionState = 9
 
-public val STATE_INVALID: TSSESSION_STATE = -1
+public val STATE_INVALID: TssessionState = -1
 
-public val STATE_LISTEN: TSSESSION_STATE = 6
+public val STATE_LISTEN: TssessionState = 6
 
-public val STATE_MAX: TSSESSION_STATE = 10
+public val STATE_MAX: TssessionState = 10
 
-public val STATE_RESET: TSSESSION_STATE = 7
+public val STATE_RESET: TssessionState = 7
 
-public val STATE_SHADOW: TSSESSION_STATE = 3
+public val STATE_SHADOW: TssessionState = 3
 
-public val SnapshotEncodingDataUri: SnapshotEncodingType = 0
+public val SNAPSHOT_ENCODING_DATA_URI: SnapshotEncodingType = 0
 
-public val SnapshotFormatBmp: SnapshotFormatType = 2
+public val SNAPSHOT_FORMAT_BMP: SnapshotFormatType = 2
 
-public val SnapshotFormatJpeg: SnapshotFormatType = 1
+public val SNAPSHOT_FORMAT_JPEG: SnapshotFormatType = 1
 
-public val SnapshotFormatPng: SnapshotFormatType = 0
+public val SNAPSHOT_FORMAT_PNG: SnapshotFormatType = 0
 
-public val TARGET_CHANGE_UNSPEC: TARGET_CHANGE_TYPE = 1
+public val TARGET_CHANGE_UNSPEC: TargetChangeType = 1
 
-public val TARGET_CHECKED_OUT: TARGET_STATE = 6
+public val TARGET_CHECKED_OUT: TargetState = 6
 
-public val TARGET_DOWN: TARGET_STATE = 4
+public val TARGET_DOWN: TargetState = 4
 
-public val TARGET_EXTERNALIP_CHANGED: TARGET_CHANGE_TYPE = 2
+public val TARGET_EXTERNALIP_CHANGED: TargetChangeType = 2
 
-public val TARGET_FARM_MEMBERSHIP_CHANGED: TARGET_CHANGE_TYPE = 1024
+public val TARGET_FARM_MEMBERSHIP_CHANGED: TargetChangeType = 1024
 
-public val TARGET_HIBERNATED: TARGET_STATE = 5
+public val TARGET_HIBERNATED: TargetState = 5
 
-public val TARGET_IDLE: TARGET_CHANGE_TYPE = 64
+public val TARGET_IDLE: TargetChangeType = 64
 
-public val TARGET_INITIALIZING: TARGET_STATE = 2
+public val TARGET_INITIALIZING: TargetState = 2
 
-public val TARGET_INTERNALIP_CHANGED: TARGET_CHANGE_TYPE = 4
+public val TARGET_INTERNALIP_CHANGED: TargetChangeType = 4
 
-public val TARGET_INUSE: TARGET_CHANGE_TYPE = 256
+public val TARGET_INUSE: TargetChangeType = 256
 
-public val TARGET_INVALID: TARGET_STATE = 8
+public val TARGET_INVALID: TargetState = 8
 
-public val TARGET_JOINED: TARGET_CHANGE_TYPE = 8
+public val TARGET_JOINED: TargetChangeType = 8
 
-public val TARGET_MAXSTATE: TARGET_STATE = 11
+public val TARGET_MAXSTATE: TargetState = 11
 
-public val TARGET_PATCH_COMPLETED: TARGET_PATCH_STATE = 3
+public val TARGET_PATCH_COMPLETED: TargetPatchState = 3
 
-public val TARGET_PATCH_FAILED: TARGET_PATCH_STATE = 4
+public val TARGET_PATCH_FAILED: TargetPatchState = 4
 
-public val TARGET_PATCH_IN_PROGRESS: TARGET_PATCH_STATE = 2
+public val TARGET_PATCH_IN_PROGRESS: TargetPatchState = 2
 
-public val TARGET_PATCH_NOT_STARTED: TARGET_PATCH_STATE = 1
+public val TARGET_PATCH_NOT_STARTED: TargetPatchState = 1
 
-public val TARGET_PATCH_STATE_CHANGED: TARGET_CHANGE_TYPE = 512
+public val TARGET_PATCH_STATE_CHANGED: TargetChangeType = 512
 
-public val TARGET_PATCH_UNKNOWN: TARGET_PATCH_STATE = 0
+public val TARGET_PATCH_UNKNOWN: TargetPatchState = 0
 
-public val TARGET_PENDING: TARGET_CHANGE_TYPE = 128
+public val TARGET_PENDING: TargetChangeType = 128
 
-public val TARGET_REMOVED: TARGET_CHANGE_TYPE = 16
+public val TARGET_REMOVED: TargetChangeType = 16
 
-public val TARGET_RUNNING: TARGET_STATE = 3
+public val TARGET_RUNNING: TargetState = 3
 
-public val TARGET_STARTING: TARGET_STATE = 9
+public val TARGET_STARTING: TargetState = 9
 
-public val TARGET_STATE_CHANGED: TARGET_CHANGE_TYPE = 32
+public val TARGET_STATE_CHANGED: TargetChangeType = 32
 
-public val TARGET_STOPPED: TARGET_STATE = 7
+public val TARGET_STOPPED: TargetState = 7
 
-public val TARGET_STOPPING: TARGET_STATE = 10
+public val TARGET_STOPPING: TargetState = 10
 
-public val TARGET_UNKNOWN: TARGET_STATE = 1
+public val TARGET_UNKNOWN: TargetState = 1
 
-public val TASK_PLUGIN: PLUGIN_TYPE = 64
+public val TASK_PLUGIN: PluginType = 64
 
-public val TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = 1
+public val TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: TspubPluginPdAssignmentType = 1
 
-public val TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = 0
+public val TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: TspubPluginPdAssignmentType = 0
 
-public val TSPUB_PLUGIN_PD_QUERY_EXISTING: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = 1
+public val TSPUB_PLUGIN_PD_QUERY_EXISTING: TspubPluginPdResolutionType = 1
 
-public val TSPUB_PLUGIN_PD_QUERY_OR_CREATE: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = 0
+public val TSPUB_PLUGIN_PD_QUERY_OR_CREATE: TspubPluginPdResolutionType = 0
 
-public val TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: TSSB_NOTIFICATION_TYPE = 4
+public val TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: TssbNotificationType = 4
 
-public val TSSB_NOTIFY_INVALID: TSSB_NOTIFICATION_TYPE = 0
+public val TSSB_NOTIFY_INVALID: TssbNotificationType = 0
 
-public val TSSB_NOTIFY_SESSION_CHANGE: TSSB_NOTIFICATION_TYPE = 2
+public val TSSB_NOTIFY_SESSION_CHANGE: TssbNotificationType = 2
 
-public val TSSB_NOTIFY_TARGET_CHANGE: TSSB_NOTIFICATION_TYPE = 1
+public val TSSB_NOTIFY_TARGET_CHANGE: TssbNotificationType = 1
 
-public val TSSD_ADDR_IPv4: TSSD_AddrV46Type = 4
+public val TSSD_ADDR_I_PV4: TssdAddrV46Type = 4
 
-public val TSSD_ADDR_IPv6: TSSD_AddrV46Type = 6
+public val TSSD_ADDR_I_PV6: TssdAddrV46Type = 6
 
-public val TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = 0
+public val TSSD_ADDR_UNDEFINED: TssdAddrV46Type = 0
 
-public val TSUserExInterfaces: GUID = GUID.from_u128(U128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL))
+public val TS_USER_EX_INTERFACES: Guid = Guid.fromU128(U128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL))
 
-public val TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = 1
+public val TS_SB_SORT_BY_NAME: TsSbSortBy = 1
 
-public val TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = 0
+public val TS_SB_SORT_BY_NONE: TsSbSortBy = 0
 
-public val TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = 2
+public val TS_SB_SORT_BY_PROP: TsSbSortBy = 2
 
 public val TS_VC_LISTENER_STATIC_CHANNEL: UInt = 1u
 
-public val UNKNOWN: TARGET_TYPE = 0
+public val UNKNOWN: TargetType = 0
 
-public val UNKNOWN_PLUGIN: PLUGIN_TYPE = 0
+public val UNKNOWN_PLUGIN: PluginType = 0
 
 public val USERNAME_LENGTH: UInt = 20u
 
@@ -566,23 +566,23 @@ public val VALIDATIONINFORMATION_LICENSE_LENGTH: UInt = 16384u
 
 public val VIRTUAL_CHANNEL_VERSION_WIN2000: UInt = 1u
 
-public val VM_HOST_STATUS_INIT_COMPLETE: VM_HOST_NOTIFY_STATUS = 2
+public val VM_HOST_STATUS_INIT_COMPLETE: VmHostNotifyStatus = 2
 
-public val VM_HOST_STATUS_INIT_FAILED: VM_HOST_NOTIFY_STATUS = 3
+public val VM_HOST_STATUS_INIT_FAILED: VmHostNotifyStatus = 3
 
-public val VM_HOST_STATUS_INIT_IN_PROGRESS: VM_HOST_NOTIFY_STATUS = 1
+public val VM_HOST_STATUS_INIT_IN_PROGRESS: VmHostNotifyStatus = 1
 
-public val VM_HOST_STATUS_INIT_PENDING: VM_HOST_NOTIFY_STATUS = 0
+public val VM_HOST_STATUS_INIT_PENDING: VmHostNotifyStatus = 0
 
-public val VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = 4
+public val VM_NOTIFY_STATUS_CANCELED: VmNotifyStatus = 4
 
-public val VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = 2
+public val VM_NOTIFY_STATUS_COMPLETE: VmNotifyStatus = 2
 
-public val VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = 3
+public val VM_NOTIFY_STATUS_FAILED: VmNotifyStatus = 3
 
-public val VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = 1
+public val VM_NOTIFY_STATUS_IN_PROGRESS: VmNotifyStatus = 1
 
-public val VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = 0
+public val VM_NOTIFY_STATUS_PENDING: VmNotifyStatus = 0
 
 public val WINSTATIONNAME_LENGTH: UInt = 32u
 
@@ -598,9 +598,9 @@ public val WRDS_CLIENTNAME_LENGTH: UInt = 20u
 
 public val WRDS_CLIENT_PRODUCT_ID_LENGTH: UInt = 32u
 
-public val WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = 1
+public val WRDS_CONNECTION_SETTING_LEVEL_1: WrdsConnectionSettingLevel = 1
 
-public val WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = 0
+public val WRDS_CONNECTION_SETTING_LEVEL_INVALID: WrdsConnectionSettingLevel = 0
 
 public val WRDS_DEVICE_NAME_LENGTH: UInt = 19u
 
@@ -622,9 +622,9 @@ public val WRDS_LICENSE_PREAMBLE_VERSION: UInt = 3u
 
 public val WRDS_LICENSE_PROTOCOL_VERSION: UInt = 65536u
 
-public val WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = 1
+public val WRDS_LISTENER_SETTING_LEVEL_1: WrdsListenerSettingLevel = 1
 
-public val WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = 0
+public val WRDS_LISTENER_SETTING_LEVEL_INVALID: WrdsListenerSettingLevel = 0
 
 public val WRDS_MAX_CACHE_RESERVED: UInt = 20u
 
@@ -660,27 +660,27 @@ public val WRDS_PERF_ENABLE_FONT_SMOOTHING: UInt = 128u
 
 public val WRDS_PROTOCOL_NAME_LENGTH: UInt = 8u
 
-public val WRDS_SERVICE_ID_GRAPHICS_GUID: GUID = GUID.from_u128(U128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL))
+public val WRDS_SERVICE_ID_GRAPHICS_GUID: Guid = Guid.fromU128(U128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL))
 
-public val WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = 1
+public val WRDS_SETTING_LEVEL_1: WrdsSettingLevel = 1
 
-public val WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = 0
+public val WRDS_SETTING_LEVEL_INVALID: WrdsSettingLevel = 0
 
-public val WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = 0
+public val WRDS_SETTING_STATUS_DISABLED: WrdsSettingStatus = 0
 
-public val WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = 1
+public val WRDS_SETTING_STATUS_ENABLED: WrdsSettingStatus = 1
 
-public val WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = -1
+public val WRDS_SETTING_STATUS_NOTAPPLICABLE: WrdsSettingStatus = -1
 
-public val WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = 2
+public val WRDS_SETTING_STATUS_NOTCONFIGURED: WrdsSettingStatus = 2
 
-public val WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = 0
+public val WRDS_SETTING_TYPE_INVALID: WrdsSettingType = 0
 
-public val WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = 1
+public val WRDS_SETTING_TYPE_MACHINE: WrdsSettingType = 1
 
-public val WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = 3
+public val WRDS_SETTING_TYPE_SAM: WrdsSettingType = 3
 
-public val WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = 2
+public val WRDS_SETTING_TYPE_USER: WrdsSettingType = 2
 
 public val WRDS_USERNAME_LENGTH: UInt = 255u
 
@@ -692,191 +692,191 @@ public val WRDS_VALUE_TYPE_STRING: UInt = 2u
 
 public val WRDS_VALUE_TYPE_ULONG: UInt = 1u
 
-public val WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = 1
+public val W_RDS_GRAPHICS_CHANNEL_TYPE_BEST_EFFORT_DELIVERY: WRdsGraphicsChannelType = 1
 
-public val WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = 0
+public val W_RDS_GRAPHICS_CHANNEL_TYPE_GUARANTEED_DELIVERY: WRdsGraphicsChannelType = 0
 
-public val WRdsGraphicsChannels_LossyChannelMaxMessageSize: UInt = 988u
+public val W_RDS_GRAPHICS_CHANNELS_LOSSY_CHANNEL_MAX_MESSAGE_SIZE: UInt = 988u
 
-public val WTSActive: WTS_CONNECTSTATE_CLASS = 0
+public val WTS_ACTIVE: WtsConnectstateClass = 0
 
-public val WTSApplicationName: WTS_INFO_CLASS = 1
+public val WTS_APPLICATION_NAME: WtsInfoClass = 1
 
-public val WTSClientAddress: WTS_INFO_CLASS = 14
+public val WTS_CLIENT_ADDRESS: WtsInfoClass = 14
 
-public val WTSClientBuildNumber: WTS_INFO_CLASS = 9
+public val WTS_CLIENT_BUILD_NUMBER: WtsInfoClass = 9
 
-public val WTSClientDirectory: WTS_INFO_CLASS = 11
+public val WTS_CLIENT_DIRECTORY: WtsInfoClass = 11
 
-public val WTSClientDisplay: WTS_INFO_CLASS = 15
+public val WTS_CLIENT_DISPLAY: WtsInfoClass = 15
 
-public val WTSClientHardwareId: WTS_INFO_CLASS = 13
+public val WTS_CLIENT_HARDWARE_ID: WtsInfoClass = 13
 
-public val WTSClientInfo: WTS_INFO_CLASS = 23
+public val WTS_CLIENT_INFO: WtsInfoClass = 23
 
-public val WTSClientName: WTS_INFO_CLASS = 10
+public val WTS_CLIENT_NAME: WtsInfoClass = 10
 
-public val WTSClientProductId: WTS_INFO_CLASS = 12
+public val WTS_CLIENT_PRODUCT_ID: WtsInfoClass = 12
 
-public val WTSClientProtocolType: WTS_INFO_CLASS = 16
+public val WTS_CLIENT_PROTOCOL_TYPE: WtsInfoClass = 16
 
-public val WTSConfigInfo: WTS_INFO_CLASS = 26
+public val WTS_CONFIG_INFO: WtsInfoClass = 26
 
-public val WTSConnectQuery: WTS_CONNECTSTATE_CLASS = 2
+public val WTS_CONNECT_QUERY: WtsConnectstateClass = 2
 
-public val WTSConnectState: WTS_INFO_CLASS = 8
+public val WTS_CONNECT_STATE: WtsInfoClass = 8
 
-public val WTSConnected: WTS_CONNECTSTATE_CLASS = 1
+public val WTS_CONNECTED: WtsConnectstateClass = 1
 
-public val WTSDisconnected: WTS_CONNECTSTATE_CLASS = 4
+public val WTS_DISCONNECTED: WtsConnectstateClass = 4
 
-public val WTSDomainName: WTS_INFO_CLASS = 7
+public val WTS_DOMAIN_NAME: WtsInfoClass = 7
 
-public val WTSDown: WTS_CONNECTSTATE_CLASS = 8
+public val WTS_DOWN: WtsConnectstateClass = 8
 
-public val WTSIdle: WTS_CONNECTSTATE_CLASS = 5
+public val WTS_IDLE: WtsConnectstateClass = 5
 
-public val WTSIdleTime: WTS_INFO_CLASS = 17
+public val WTS_IDLE_TIME: WtsInfoClass = 17
 
-public val WTSIncomingBytes: WTS_INFO_CLASS = 19
+public val WTS_INCOMING_BYTES: WtsInfoClass = 19
 
-public val WTSIncomingFrames: WTS_INFO_CLASS = 21
+public val WTS_INCOMING_FRAMES: WtsInfoClass = 21
 
-public val WTSInit: WTS_CONNECTSTATE_CLASS = 9
+public val WTS_INIT: WtsConnectstateClass = 9
 
-public val WTSInitialProgram: WTS_INFO_CLASS = 0
+public val WTS_INITIAL_PROGRAM: WtsInfoClass = 0
 
-public val WTSIsRemoteSession: WTS_INFO_CLASS = 29
+public val WTS_IS_REMOTE_SESSION: WtsInfoClass = 29
 
-public val WTSListen: WTS_CONNECTSTATE_CLASS = 6
+public val WTS_LISTEN: WtsConnectstateClass = 6
 
-public val WTSLogonTime: WTS_INFO_CLASS = 18
+public val WTS_LOGON_TIME: WtsInfoClass = 18
 
-public val WTSOEMId: WTS_INFO_CLASS = 3
+public val WTSOEM_ID: WtsInfoClass = 3
 
-public val WTSOutgoingBytes: WTS_INFO_CLASS = 20
+public val WTS_OUTGOING_BYTES: WtsInfoClass = 20
 
-public val WTSOutgoingFrames: WTS_INFO_CLASS = 22
+public val WTS_OUTGOING_FRAMES: WtsInfoClass = 22
 
-public val WTSReset: WTS_CONNECTSTATE_CLASS = 7
+public val WTS_RESET: WtsConnectstateClass = 7
 
-public val WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = 1
+public val WTSSBX_ADDRESS_FAMILY_AF_INET: WtssbxAddressFamily = 1
 
-public val WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = 2
+public val WTSSBX_ADDRESS_FAMILY_AF_INET6: WtssbxAddressFamily = 2
 
-public val WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = 3
+public val WTSSBX_ADDRESS_FAMILY_AF_IPX: WtssbxAddressFamily = 3
 
-public val WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = 4
+public val WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WtssbxAddressFamily = 4
 
-public val WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = 0
+public val WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WtssbxAddressFamily = 0
 
-public val WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = 1
+public val WTSSBX_MACHINE_DRAIN_OFF: WtssbxMachineDrain = 1
 
-public val WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = 2
+public val WTSSBX_MACHINE_DRAIN_ON: WtssbxMachineDrain = 2
 
-public val WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = 0
+public val WTSSBX_MACHINE_DRAIN_UNSPEC: WtssbxMachineDrain = 0
 
-public val WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = 2
+public val WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WtssbxMachineSessionMode = 2
 
-public val WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = 1
+public val WTSSBX_MACHINE_SESSION_MODE_SINGLE: WtssbxMachineSessionMode = 1
 
-public val WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = 0
+public val WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WtssbxMachineSessionMode = 0
 
-public val WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = 1
+public val WTSSBX_MACHINE_STATE_READY: WtssbxMachineState = 1
 
-public val WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = 2
+public val WTSSBX_MACHINE_STATE_SYNCHRONIZING: WtssbxMachineState = 2
 
-public val WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = 0
+public val WTSSBX_MACHINE_STATE_UNSPEC: WtssbxMachineState = 0
 
-public val WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = 4
+public val WTSSBX_NOTIFICATION_ADDED: WtssbxNotificationType = 4
 
-public val WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = 2
+public val WTSSBX_NOTIFICATION_CHANGED: WtssbxNotificationType = 2
 
-public val WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = 1
+public val WTSSBX_NOTIFICATION_REMOVED: WtssbxNotificationType = 1
 
-public val WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = 8
+public val WTSSBX_NOTIFICATION_RESYNC: WtssbxNotificationType = 8
 
-public val WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = 1
+public val WTSSBX_SESSION_STATE_ACTIVE: WtssbxSessionState = 1
 
-public val WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = 2
+public val WTSSBX_SESSION_STATE_DISCONNECTED: WtssbxSessionState = 2
 
-public val WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = 0
+public val WTSSBX_SESSION_STATE_UNSPEC: WtssbxSessionState = 0
 
-public val WTSSessionAddressV4: WTS_INFO_CLASS = 28
+public val WTS_SESSION_ADDRESS_V4: WtsInfoClass = 28
 
-public val WTSSessionId: WTS_INFO_CLASS = 4
+public val WTS_SESSION_ID: WtsInfoClass = 4
 
-public val WTSSessionInfo: WTS_INFO_CLASS = 24
+public val WTS_SESSION_INFO: WtsInfoClass = 24
 
-public val WTSSessionInfoEx: WTS_INFO_CLASS = 25
+public val WTS_SESSION_INFO_EX: WtsInfoClass = 25
 
-public val WTSShadow: WTS_CONNECTSTATE_CLASS = 3
+public val WTS_SHADOW: WtsConnectstateClass = 3
 
-public val WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = 0
+public val WTS_TYPE_PROCESS_INFO_LEVEL0: WtsTypeClass = 0
 
-public val WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = 1
+public val WTS_TYPE_PROCESS_INFO_LEVEL1: WtsTypeClass = 1
 
-public val WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = 2
+public val WTS_TYPE_SESSION_INFO_LEVEL1: WtsTypeClass = 2
 
-public val WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = 10
+public val WTS_USER_CONFIG_BROKEN_TIMEOUT_SETTINGS: WtsConfigClass = 10
 
-public val WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = 0
+public val WTS_USER_CONFIG_INITIAL_PROGRAM: WtsConfigClass = 0
 
-public val WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = 13
+public val WTS_USER_CONFIG_MODEM_CALLBACK_PHONE_NUMBER: WtsConfigClass = 13
 
-public val WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = 12
+public val WTS_USER_CONFIG_MODEM_CALLBACK_SETTINGS: WtsConfigClass = 12
 
-public val WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = 11
+public val WTS_USER_CONFIG_RECONNECT_SETTINGS: WtsConfigClass = 11
 
-public val WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = 14
+public val WTS_USER_CONFIG_SHADOWING_SETTINGS: WtsConfigClass = 14
 
-public val WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = 0
+public val WTS_USER_CONFIG_SOURCE_SAM: WtsConfigSource = 0
 
-public val WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = 16
+public val WTS_USER_CONFIG_TERMINAL_SERVER_HOME_DIR: WtsConfigClass = 16
 
-public val WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = 17
+public val WTS_USER_CONFIG_TERMINAL_SERVER_HOME_DIR_DRIVE: WtsConfigClass = 17
 
-public val WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = 15
+public val WTS_USER_CONFIG_TERMINAL_SERVER_PROFILE_PATH: WtsConfigClass = 15
 
-public val WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = 4
+public val WTS_USER_CONFIG_TIMEOUT_SETTINGS_CONNECTIONS: WtsConfigClass = 4
 
-public val WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = 5
+public val WTS_USER_CONFIG_TIMEOUT_SETTINGS_DISCONNECTIONS: WtsConfigClass = 5
 
-public val WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = 6
+public val WTS_USER_CONFIG_TIMEOUT_SETTINGS_IDLE: WtsConfigClass = 6
 
-public val WTSUserConfigUser: WTS_CONFIG_CLASS = 19
+public val WTS_USER_CONFIG_USER: WtsConfigClass = 19
 
-public val WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = 1
+public val WTS_USER_CONFIG_WORKING_DIRECTORY: WtsConfigClass = 1
 
-public val WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = 3
+public val WTS_USER_CONFIGF_ALLOW_LOGON_TERMINAL_SERVER: WtsConfigClass = 3
 
-public val WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = 9
+public val WTS_USER_CONFIGF_DEVICE_CLIENT_DEFAULT_PRINTER: WtsConfigClass = 9
 
-public val WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = 7
+public val WTS_USER_CONFIGF_DEVICE_CLIENT_DRIVES: WtsConfigClass = 7
 
-public val WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = 8
+public val WTS_USER_CONFIGF_DEVICE_CLIENT_PRINTERS: WtsConfigClass = 8
 
-public val WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = 2
+public val WTS_USER_CONFIGF_INHERIT_INITIAL_PROGRAM: WtsConfigClass = 2
 
-public val WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = 18
+public val WTS_USER_CONFIGF_TERMINAL_SERVER_REMOTE_HOME_DIR: WtsConfigClass = 18
 
-public val WTSUserName: WTS_INFO_CLASS = 5
+public val WTS_USER_NAME: WtsInfoClass = 5
 
-public val WTSValidationInfo: WTS_INFO_CLASS = 27
+public val WTS_VALIDATION_INFO: WtsInfoClass = 27
 
-public val WTSVirtualClientData: WTS_VIRTUAL_CLASS = 0
+public val WTS_VIRTUAL_CLIENT_DATA: WtsVirtualClass = 0
 
-public val WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = 1
+public val WTS_VIRTUAL_FILE_HANDLE: WtsVirtualClass = 1
 
-public val WTSWinStationName: WTS_INFO_CLASS = 6
+public val WTS_WIN_STATION_NAME: WtsInfoClass = 6
 
-public val WTSWorkingDirectory: WTS_INFO_CLASS = 2
+public val WTS_WORKING_DIRECTORY: WtsInfoClass = 2
 
-public val WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = 0
+public val WTS_CERT_TYPE_INVALID: WtsCertType = 0
 
-public val WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = 1
+public val WTS_CERT_TYPE_PROPRIETORY: WtsCertType = 1
 
-public val WTS_CERT_TYPE_X509: WTS_CERT_TYPE = 2
+public val WTS_CERT_TYPE_X509: WtsCertType = 2
 
 public val WTS_CHANNEL_OPTION_DYNAMIC: UInt = 1u
 
@@ -898,11 +898,11 @@ public val WTS_CLIENT_PRODUCT_ID_LENGTH: UInt = 32u
 
 public val WTS_COMMENT_LENGTH: UInt = 60u
 
-public val WTS_CURRENT_SERVER: HANDLE = 0.toLong()
+public val WTS_CURRENT_SERVER: Handle = null
 
-public val WTS_CURRENT_SERVER_HANDLE: HANDLE = 0.toLong()
+public val WTS_CURRENT_SERVER_HANDLE: Handle = null
 
-public val WTS_CURRENT_SERVER_NAME: PCWSTR = w("")
+public val WTS_CURRENT_SERVER_NAME: Pcwstr = w("")
 
 public val WTS_CURRENT_SESSION: UInt = 4294967295u
 
@@ -912,11 +912,11 @@ public val WTS_DIRECTORY_LENGTH: UInt = 256u
 
 public val WTS_DOMAIN_LENGTH: UInt = 255u
 
-public val WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = 1
+public val WTS_DRAIN_IN_DRAIN: WtsRcmDrainState = 1
 
-public val WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = 2
+public val WTS_DRAIN_NOT_IN_DRAIN: WtsRcmDrainState = 2
 
-public val WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = 0
+public val WTS_DRAIN_STATE_NONE: WtsRcmDrainState = 0
 
 public val WTS_DRIVER_NAME_LENGTH: UInt = 8u
 
@@ -964,15 +964,15 @@ public val WTS_LISTENER_NAME_LENGTH: UInt = 32u
 
 public val WTS_LISTENER_UPDATE: UInt = 16u
 
-public val WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 3
+public val WTS_LOGON_ERR_HANDLED_DONT_SHOW: WtsLogonErrorRedirectorResponse = 3
 
-public val WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 4
+public val WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WtsLogonErrorRedirectorResponse = 4
 
-public val WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 2
+public val WTS_LOGON_ERR_HANDLED_SHOW: WtsLogonErrorRedirectorResponse = 2
 
-public val WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 0
+public val WTS_LOGON_ERR_INVALID: WtsLogonErrorRedirectorResponse = 0
 
-public val WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 1
+public val WTS_LOGON_ERR_NOT_HANDLED: WtsLogonErrorRedirectorResponse = 1
 
 public val WTS_MAX_CACHE_RESERVED: UInt = 20u
 
@@ -1010,7 +1010,7 @@ public val WTS_PROCESS_INFO_LEVEL_0: UInt = 0u
 
 public val WTS_PROCESS_INFO_LEVEL_1: UInt = 1u
 
-public val WTS_PROPERTY_DEFAULT_CONFIG: PCWSTR = w("DefaultConfig")
+public val WTS_PROPERTY_DEFAULT_CONFIG: Pcwstr = w("DefaultConfig")
 
 public val WTS_PROTOCOL_NAME_LENGTH: UInt = 8u
 
@@ -1020,49 +1020,49 @@ public val WTS_PROTOCOL_TYPE_ICA: UInt = 1u
 
 public val WTS_PROTOCOL_TYPE_RDP: UInt = 2u
 
-public val WTS_QUERY_ALLOWED_INITIAL_APP: GUID = GUID.from_u128(U128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL))
+public val WTS_QUERY_ALLOWED_INITIAL_APP: Guid = Guid.fromU128(U128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL))
 
-public val WTS_QUERY_AUDIOENUM_DLL: GUID = GUID.from_u128(U128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL))
+public val WTS_QUERY_AUDIOENUM_DLL: Guid = Guid.fromU128(U128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL))
 
-public val WTS_QUERY_LOGON_SCREEN_SIZE: GUID = GUID.from_u128(U128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL))
+public val WTS_QUERY_LOGON_SCREEN_SIZE: Guid = Guid.fromU128(U128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL))
 
-public val WTS_QUERY_MF_FORMAT_SUPPORT: GUID = GUID.from_u128(U128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL))
+public val WTS_QUERY_MF_FORMAT_SUPPORT: Guid = Guid.fromU128(U128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL))
 
-public val WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = 983999u
+public val WTS_SECURITY_ALL_ACCESS: WtsSecurityFlags = 983999u
 
-public val WTS_SECURITY_CONNECT: WTS_SECURITY_FLAGS = 256u
+public val WTS_SECURITY_CONNECT: WtsSecurityFlags = 256u
 
-public val WTS_SECURITY_CURRENT_GUEST_ACCESS: WTS_SECURITY_FLAGS = 72u
+public val WTS_SECURITY_CURRENT_GUEST_ACCESS: WtsSecurityFlags = 72u
 
-public val WTS_SECURITY_CURRENT_USER_ACCESS: WTS_SECURITY_FLAGS = 590u
+public val WTS_SECURITY_CURRENT_USER_ACCESS: WtsSecurityFlags = 590u
 
-public val WTS_SECURITY_DISCONNECT: WTS_SECURITY_FLAGS = 512u
+public val WTS_SECURITY_DISCONNECT: WtsSecurityFlags = 512u
 
-public val WTS_SECURITY_GUEST_ACCESS: WTS_SECURITY_FLAGS = 32u
+public val WTS_SECURITY_GUEST_ACCESS: WtsSecurityFlags = 32u
 
-public val WTS_SECURITY_LOGOFF: WTS_SECURITY_FLAGS = 64u
+public val WTS_SECURITY_LOGOFF: WtsSecurityFlags = 64u
 
-public val WTS_SECURITY_LOGON: WTS_SECURITY_FLAGS = 32u
+public val WTS_SECURITY_LOGON: WtsSecurityFlags = 32u
 
-public val WTS_SECURITY_MESSAGE: WTS_SECURITY_FLAGS = 128u
+public val WTS_SECURITY_MESSAGE: WtsSecurityFlags = 128u
 
-public val WTS_SECURITY_QUERY_INFORMATION: WTS_SECURITY_FLAGS = 1u
+public val WTS_SECURITY_QUERY_INFORMATION: WtsSecurityFlags = 1u
 
-public val WTS_SECURITY_REMOTE_CONTROL: WTS_SECURITY_FLAGS = 16u
+public val WTS_SECURITY_REMOTE_CONTROL: WtsSecurityFlags = 16u
 
-public val WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = 4u
+public val WTS_SECURITY_RESET: WtsSecurityFlags = 4u
 
-public val WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = 2u
+public val WTS_SECURITY_SET_INFORMATION: WtsSecurityFlags = 2u
 
-public val WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = 329u
+public val WTS_SECURITY_USER_ACCESS: WtsSecurityFlags = 329u
 
-public val WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = 8u
+public val WTS_SECURITY_VIRTUAL_CHANNELS: WtsSecurityFlags = 8u
 
-public val WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = 0
+public val WTS_SERVICE_NONE: WtsRcmServiceState = 0
 
-public val WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = 1
+public val WTS_SERVICE_START: WtsRcmServiceState = 1
 
-public val WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = 2
+public val WTS_SERVICE_STOP: WtsRcmServiceState = 2
 
 public val WTS_SESSIONSTATE_LOCK: UInt = 0u
 
@@ -1090,4 +1090,4 @@ public val WTS_WSD_REBOOT: UInt = 4u
 
 public val WTS_WSD_SHUTDOWN: UInt = 2u
 
-public val Workspace: GUID = GUID.from_u128(U128(0x4f1dfca63aad48e1uL, 0x84064bc21a501d7cuL))
+public val WORKSPACE: Guid = Guid.fromU128(U128(0x4f1dfca63aad48e1uL, 0x84064bc21a501d7cuL))

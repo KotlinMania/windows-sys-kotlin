@@ -8,56 +8,56 @@ public val WCM_API_VERSION: UInt = 1u
 
 public val WCM_API_VERSION_1_0: UInt = 1u
 
-public val WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288
+public val WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WcmConnectionCost = 524288
 
-public val WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = 131072
+public val WCM_CONNECTION_COST_CONGESTED: WcmConnectionCost = 131072
 
-public val WCM_CONNECTION_COST_FIXED: WCM_CONNECTION_COST = 2
+public val WCM_CONNECTION_COST_FIXED: WcmConnectionCost = 2
 
-public val WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = 65536
+public val WCM_CONNECTION_COST_OVERDATALIMIT: WcmConnectionCost = 65536
 
-public val WCM_CONNECTION_COST_ROAMING: WCM_CONNECTION_COST = 262144
+public val WCM_CONNECTION_COST_ROAMING: WcmConnectionCost = 262144
 
-public val WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE = 0
+public val WCM_CONNECTION_COST_SOURCE_DEFAULT: WcmConnectionCostSource = 0
 
-public val WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE = 1
+public val WCM_CONNECTION_COST_SOURCE_GP: WcmConnectionCostSource = 1
 
-public val WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE = 3
+public val WCM_CONNECTION_COST_SOURCE_OPERATOR: WcmConnectionCostSource = 3
 
-public val WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE = 2
+public val WCM_CONNECTION_COST_SOURCE_USER: WcmConnectionCostSource = 2
 
-public val WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0
+public val WCM_CONNECTION_COST_UNKNOWN: WcmConnectionCost = 0
 
-public val WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1
+public val WCM_CONNECTION_COST_UNRESTRICTED: WcmConnectionCost = 1
 
-public val WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4
+public val WCM_CONNECTION_COST_VARIABLE: WcmConnectionCost = 4
 
 public val WCM_MAX_PROFILE_NAME: UInt = 256u
 
 public val WCM_UNKNOWN_DATAPLAN_STATUS: UInt = 4294967295u
 
-public val wcm_global_property_domain_policy: WCM_PROPERTY = 0
+public val WCM_GLOBAL_PROPERTY_DOMAIN_POLICY: WcmProperty = 0
 
-public val wcm_global_property_minimize_policy: WCM_PROPERTY = 1
+public val WCM_GLOBAL_PROPERTY_MINIMIZE_POLICY: WcmProperty = 1
 
-public val wcm_global_property_powermanagement_policy: WCM_PROPERTY = 3
+public val WCM_GLOBAL_PROPERTY_POWERMANAGEMENT_POLICY: WcmProperty = 3
 
-public val wcm_global_property_roaming_policy: WCM_PROPERTY = 2
+public val WCM_GLOBAL_PROPERTY_ROAMING_POLICY: WcmProperty = 2
 
-public val wcm_intf_property_connection_cost: WCM_PROPERTY = 4
+public val WCM_INTF_PROPERTY_CONNECTION_COST: WcmProperty = 4
 
-public val wcm_intf_property_dataplan_status: WCM_PROPERTY = 5
+public val WCM_INTF_PROPERTY_DATAPLAN_STATUS: WcmProperty = 5
 
-public val wcm_intf_property_hotspot_profile: WCM_PROPERTY = 6
+public val WCM_INTF_PROPERTY_HOTSPOT_PROFILE: WcmProperty = 6
 
-public val wcm_media_ethernet: WCM_MEDIA_TYPE = 1
+public val WCM_MEDIA_ETHERNET: WcmMediaType = 1
 
-public val wcm_media_invalid: WCM_MEDIA_TYPE = 4
+public val WCM_MEDIA_INVALID: WcmMediaType = 4
 
-public val wcm_media_max: WCM_MEDIA_TYPE = 5
+public val WCM_MEDIA_MAX: WcmMediaType = 5
 
-public val wcm_media_mbn: WCM_MEDIA_TYPE = 3
+public val WCM_MEDIA_MBN: WcmMediaType = 3
 
-public val wcm_media_unknown: WCM_MEDIA_TYPE = 0
+public val WCM_MEDIA_UNKNOWN: WcmMediaType = 0
 
-public val wcm_media_wlan: WCM_MEDIA_TYPE = 2
+public val WCM_MEDIA_WLAN: WcmMediaType = 2

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredDeleteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credDeleteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredDeleteA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredDeleteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credDeleteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredDeleteW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredEnumerateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credEnumerateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -119,7 +119,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredEnumerateA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredEnumerateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credEnumerateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -143,7 +143,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredEnumerateW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredFindBestCredentialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credFindBestCredentialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredFindBestCre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredFindBestCredentialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credFindBestCredentialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredFindBestCre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -208,7 +208,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredFree_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredGetSessionTypes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credGetSessionTypes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t maximumpersistcount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* maximumpersist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -228,7 +228,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredGetSessionT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredGetTargetInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credGetTargetInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredGetTargetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredGetTargetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credGetTargetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredGetTargetIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* marshaledcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -290,7 +290,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredIsMarshaled
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* marshaledcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -308,7 +308,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredIsMarshaled
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredIsProtectedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credIsProtectedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprotectedcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprotectiontype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -328,7 +328,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredIsProtected
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredIsProtectedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credIsProtectedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprotectedcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprotectiontype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -348,7 +348,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredIsProtected
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredMarshalCredentialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credMarshalCredentialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t credtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -370,7 +370,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredMarshalCred
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredMarshalCredentialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credMarshalCredentialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t credtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -392,7 +392,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredMarshalCred
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredPackAuthent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -444,7 +444,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredPackAuthent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredProtectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credProtectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fasself = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -472,7 +472,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredProtectA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredProtectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credProtectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fasself = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -500,7 +500,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredProtectW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredReadA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credReadA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -524,7 +524,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredReadA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credReadDomainCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -548,7 +548,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredReadDomainC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credReadDomainCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -572,7 +572,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredReadDomainC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredReadW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credReadW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -596,7 +596,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredReadW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredRenameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credRenameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldtargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newtargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredRenameA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredRenameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credRenameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldtargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newtargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -644,7 +644,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredRenameW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,7 +678,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUICmdLinePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -712,7 +712,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUICmdLinePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bconfirm = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -732,7 +732,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIConfirmCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bconfirm = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -752,7 +752,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIConfirmCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIParseUserNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIParseUserNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* username = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -778,7 +778,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIParseUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIParseUserNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIParseUserNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* username = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -804,7 +804,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIParseUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -840,7 +840,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztargetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -876,7 +876,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwautherror = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -910,7 +910,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puiinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwautherror = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -944,7 +944,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIPromptFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIReadSSOCredW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIReadSSOCredW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrealm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -964,7 +964,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIReadSSOCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUIStoreSSOCredW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrealm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -988,7 +988,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUIStoreSSOC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1022,7 +1022,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnPackAuthe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1056,7 +1056,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnPackAuthe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnmarshalCredentialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* marshaledcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* credtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1078,7 +1078,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnmarshalCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnmarshalCredentialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* marshaledcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* credtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1100,7 +1100,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnmarshalCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnprotectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnprotectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fasself = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszprotectedcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1126,7 +1126,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnprotectA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredUnprotectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credUnprotectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fasself = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszprotectedcredentials = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1152,7 +1152,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredUnprotectW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredWriteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credWriteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1172,7 +1172,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredWriteA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1194,7 +1194,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredWriteDomain
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1216,7 +1216,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredWriteDomain
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_CredWriteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_credWriteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1236,7 +1236,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_CredWriteW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_GetOpenCardNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_getOpenCardNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1254,7 +1254,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_GetOpenCardName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_GetOpenCardNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_getOpenCardNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1272,7 +1272,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_GetOpenCardName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keycredentialmanagerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialMa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keycredentialmanagerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1307,7 +1307,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t keycredentialmanageroperationtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* isready = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1329,7 +1329,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t keycredentialmanageroperationtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1349,7 +1349,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_KeyCredentialMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardAccessStartedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardAccessStartedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1365,7 +1365,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardAccessStar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1387,7 +1387,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardAddReaderT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardAddReaderT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardAudit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardAudit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwevent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1429,7 +1429,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardAudit_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1447,7 +1447,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardBeginTrans
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1465,7 +1465,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardCancel_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardConnectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1493,7 +1493,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardConnectA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardConnectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardConnectW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwcontrolcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1551,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardControl_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwdisposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1571,7 +1571,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardDisconnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardDlgExtendedError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardDlgExtendedError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1587,7 +1587,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardDlgExtende
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardEndTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardEndTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwdisposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1607,7 +1607,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardEndTransac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardEstablishContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardEstablishContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwscope = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvreserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1631,7 +1631,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardEstablishC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetCardTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetCardTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1651,7 +1651,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetCardTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetCardTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1671,7 +1671,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetReaderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetReaderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1691,7 +1691,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1711,7 +1711,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetReaderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetReaderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1751,7 +1751,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardForgetRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pvmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1771,7 +1771,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardFreeMemory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetAttrib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetAttrib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwattrid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1795,7 +1795,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetAttrib_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1821,7 +1821,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetCardTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1847,7 +1847,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetCardTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1869,7 +1869,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetDeviceT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1891,7 +1891,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetDeviceT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetProviderIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetProviderIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcard = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1913,7 +1913,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetProviderIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetProviderIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcard = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1935,7 +1935,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1959,7 +1959,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1983,7 +1983,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2007,7 +2007,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2031,7 +2031,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetReaderI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetStatusChangeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetStatusChangeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2055,7 +2055,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetStatusC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetStatusChangeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetStatusChangeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2079,7 +2079,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetStatusC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardGetTransmitCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardGetTransmitCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pctransmitcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2099,7 +2099,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardGetTransmi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2163,7 +2163,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceReaderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceReaderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2185,7 +2185,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2205,7 +2205,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szgroupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2225,7 +2225,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceReaderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceReaderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2247,7 +2247,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIntroduceR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardIsValidContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardIsValidContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2265,7 +2265,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardIsValidCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListCardsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pbatr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2293,7 +2293,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListCardsA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListCardsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pbatr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2321,7 +2321,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListCardsW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListInterfacesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListInterfacesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcard = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2345,7 +2345,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListInterfacesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListInterfacesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcard = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2369,7 +2369,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListInterf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReaderGroupsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReaderGroupsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszgroups = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2391,7 +2391,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReaderGroupsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReaderGroupsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszgroups = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2413,7 +2413,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReadersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReadersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszgroups = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2437,7 +2437,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReadersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReadersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszgroups = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2461,7 +2461,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdeviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2485,7 +2485,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdeviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2509,7 +2509,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardListReader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCardsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCardsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszcards = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2533,7 +2533,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* rgatrmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2559,7 +2559,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* rgatrmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2585,7 +2585,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCardsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCardsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszcards = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardLocateCard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardReadCacheA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* cardidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2637,7 +2637,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardReadCacheA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardReadCacheW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* cardidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2665,7 +2665,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardReadCacheW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardReconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardReconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwsharemode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2691,7 +2691,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardReconnect_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardReleaseContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardReleaseContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2709,7 +2709,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardReleaseCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2724,7 +2724,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardReleaseSta
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2746,7 +2746,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardRemoveRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szreadername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2768,7 +2768,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardRemoveRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardSetAttrib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardSetAttrib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwattrid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2792,7 +2792,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardSetAttrib_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2816,7 +2816,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardSetCardTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szcardname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2840,7 +2840,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardSetCardTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pdwstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2866,7 +2866,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardState_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszreadernames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2896,7 +2896,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardStatusA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* mszreadernames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2926,7 +2926,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardStatusW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardTransmit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardTransmit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcard = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* piosendpci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2956,7 +2956,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardTransmit_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2974,7 +2974,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardUIDlgSelec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2992,7 +2992,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardUIDlgSelec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardWriteCacheA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCacheA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* cardidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3020,7 +3020,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardWriteCache
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_credentials_SCardWriteCacheW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCacheW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hcontext = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* cardidentifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3049,133 +3049,133 @@ static Napi::Value windowssys_windows_win32_security_credentials_SCardWriteCache
 }
 
 static void register_windows_win32_security_credentials_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_credentials_CredDeleteA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredDeleteA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredDeleteW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredDeleteW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredEnumerateA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredEnumerateA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredEnumerateW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredEnumerateW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredFindBestCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredFindBestCredentialA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredFindBestCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredFindBestCredentialW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredFree", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredFree_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredGetSessionTypes", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredGetSessionTypes_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredGetTargetInfoA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredGetTargetInfoA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredGetTargetInfoW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredGetTargetInfoW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredIsProtectedA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredIsProtectedA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredIsProtectedW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredIsProtectedW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredMarshalCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredMarshalCredentialA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredMarshalCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredMarshalCredentialW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredProtectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredProtectA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredProtectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredProtectW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredReadA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredReadA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredReadW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredReadW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredRenameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredRenameA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredRenameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredRenameW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIParseUserNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIParseUserNameA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIParseUserNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIParseUserNameW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIReadSSOCredW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIReadSSOCredW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnprotectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnprotectA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredUnprotectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredUnprotectW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredWriteA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredWriteA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_CredWriteW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_CredWriteW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_GetOpenCardNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_GetOpenCardNameA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_GetOpenCardNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_GetOpenCardNameW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates", Napi::Function::New(env, windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardAccessStartedEvent", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardAccessStartedEvent_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardAudit", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardAudit_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardBeginTransaction", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardBeginTransaction_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardCancel", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardCancel_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardConnectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardConnectA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardConnectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardConnectW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardControl", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardControl_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardDisconnect", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardDisconnect_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardDlgExtendedError", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardDlgExtendedError_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardEndTransaction", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardEndTransaction_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardEstablishContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardEstablishContext_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetCardTypeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetCardTypeA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetCardTypeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetCardTypeW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetReaderA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetReaderA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardForgetReaderW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardForgetReaderW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardFreeMemory", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetAttrib", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetAttrib_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetProviderIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetProviderIdA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetProviderIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetProviderIdW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetReaderIconA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetReaderIconA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetReaderIconW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetReaderIconW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetStatusChangeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetStatusChangeA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetStatusChangeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetStatusChangeW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardGetTransmitCount", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardGetTransmitCount_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceReaderA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceReaderA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIntroduceReaderW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIntroduceReaderW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardIsValidContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardIsValidContext_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListCardsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListCardsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListCardsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListCardsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListInterfacesA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListInterfacesA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListInterfacesW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListInterfacesW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReaderGroupsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReaderGroupsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReaderGroupsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReaderGroupsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReadersA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReadersA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReadersW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReadersW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardLocateCardsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardLocateCardsA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardLocateCardsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardLocateCardsW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardReadCacheA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardReadCacheA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardReadCacheW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardReadCacheW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardReconnect", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardReconnect_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardReleaseContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardReleaseContext_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardSetAttrib", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardSetAttrib_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardState", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardState_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardStatusA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardStatusA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardStatusW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardStatusW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardTransmit", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardTransmit_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardWriteCacheA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardWriteCacheA_napi));
-    exports.Set("windowssys_windows_win32_security_credentials_SCardWriteCacheW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_SCardWriteCacheW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credDeleteA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credDeleteA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credDeleteW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credDeleteW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credEnumerateA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credEnumerateA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credEnumerateW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credEnumerateW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credFindBestCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credFindBestCredentialA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credFindBestCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credFindBestCredentialW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credFree", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credFree_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credGetSessionTypes", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credGetSessionTypes_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credGetTargetInfoA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credGetTargetInfoA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credGetTargetInfoW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credGetTargetInfoW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credIsProtectedA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credIsProtectedA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credIsProtectedW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credIsProtectedW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credMarshalCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credMarshalCredentialA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credMarshalCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credMarshalCredentialW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credProtectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credProtectA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credProtectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credProtectW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credReadA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credReadA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credReadDomainCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credReadDomainCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credReadDomainCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credReadDomainCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credReadW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credReadW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credRenameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credRenameA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credRenameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credRenameW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIParseUserNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIParseUserNameA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIParseUserNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIParseUserNameW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIReadSSOCredW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIReadSSOCredW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUIStoreSSOCredW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUIStoreSSOCredW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnmarshalCredentialA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnmarshalCredentialA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnmarshalCredentialW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnmarshalCredentialW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnprotectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnprotectA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credUnprotectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credUnprotectW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credWriteA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credWriteA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_credWriteW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_credWriteW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_getOpenCardNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_getOpenCardNameA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_getOpenCardNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_getOpenCardNameW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates", Napi::Function::New(env, windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation", Napi::Function::New(env, windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardAccessStartedEvent", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardAccessStartedEvent_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardAudit", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardAudit_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardBeginTransaction", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardBeginTransaction_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardCancel", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardCancel_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardConnectA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardConnectA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardConnectW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardConnectW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardControl", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardControl_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardDisconnect", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardDisconnect_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardDlgExtendedError", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardDlgExtendedError_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardEndTransaction", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardEndTransaction_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardEstablishContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardEstablishContext_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetCardTypeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetCardTypeA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetCardTypeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetCardTypeW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetReaderA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetReaderA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardForgetReaderW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardForgetReaderW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardFreeMemory", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardFreeMemory_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetAttrib", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetAttrib_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetProviderIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetProviderIdA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetProviderIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetProviderIdW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetReaderIconA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetReaderIconA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetReaderIconW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetReaderIconW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetStatusChangeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetStatusChangeA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetStatusChangeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetStatusChangeW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardGetTransmitCount", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardGetTransmitCount_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceReaderA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceReaderA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIntroduceReaderW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIntroduceReaderW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardIsValidContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardIsValidContext_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListCardsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListCardsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListCardsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListCardsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListInterfacesA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListInterfacesA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListInterfacesW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListInterfacesW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReaderGroupsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReaderGroupsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReaderGroupsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReaderGroupsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReadersA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReadersA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReadersW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReadersW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardLocateCardsA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardLocateCardsA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardLocateCardsW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardLocateCardsW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardReadCacheA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardReadCacheA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardReadCacheW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardReadCacheW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardReconnect", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardReconnect_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardReleaseContext", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardReleaseContext_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardSetAttrib", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardSetAttrib_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardState", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardState_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardStatusA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardStatusA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardStatusW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardStatusW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardTransmit", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardTransmit_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardWriteCacheA", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardWriteCacheA_napi));
+    exports.Set("windowssys_windows_win32_security_credentials_sCardWriteCacheW", Napi::Function::New(env, windowssys_windows_win32_security_credentials_sCardWriteCacheW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_credentials_napi, nullptr };

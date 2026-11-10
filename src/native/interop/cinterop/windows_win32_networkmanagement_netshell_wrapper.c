@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_MatchEnumTag(void* hmodule, void* pwcarg, uint32_t dwnumarg, void* penumtable, void* pdwvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_netshell_matchEnumTag(void* hmodule, void* pwcarg, uint32_t dwnumarg, void* penumtable, void* pdwvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_MatchEnumTag(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_netshell_MatchToken(void* pwszusertoken, void* pwszcmdtoken) {
+int32_t windowssys_windows_win32_networkmanagement_netshell_matchToken(void* pwszusertoken, void* pwszcmdtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_networkmanagement_netshell_MatchToken(void* pws
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_PreprocessCommand(void* hmodule, void* ppwcarguments, uint32_t dwcurrentindex, uint32_t dwargcount, void* ptttags, uint32_t dwtagcount, uint32_t dwminargs, uint32_t dwmaxargs, void* pdwtagtype) {
+uint32_t windowssys_windows_win32_networkmanagement_netshell_preprocessCommand(void* hmodule, void* ppwcarguments, uint32_t dwcurrentindex, uint32_t dwargcount, void* ptttags, uint32_t dwtagcount, uint32_t dwminargs, uint32_t dwmaxargs, void* pdwtagtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -94,7 +94,108 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_PreprocessCommand(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_RegisterContext(void* pchildcontext) {
+uint32_t windowssys_windows_win32_networkmanagement_netshell_printError(void* hmodule, uint32_t dwerrid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrintError");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(hmodule, dwerrid);
+            case 1: return km_fn_ptr(hmodule, dwerrid, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(hmodule, dwerrid, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(hmodule, dwerrid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(hmodule, dwerrid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return 0;
+#else
+    (void)hmodule;
+    (void)dwerrid;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return 0;
+#endif
+}
+
+uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessage(void* pwszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrintMessage");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(pwszformat);
+            case 1: return km_fn_ptr(pwszformat, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(pwszformat, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return 0;
+#else
+    (void)pwszformat;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return 0;
+#endif
+}
+
+uint32_t windowssys_windows_win32_networkmanagement_netshell_printMessageFromModule(void* hmodule, uint32_t dwmsgid, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrintMessageFromModule");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(hmodule, dwmsgid);
+            case 1: return km_fn_ptr(hmodule, dwmsgid, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(hmodule, dwmsgid, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(hmodule, dwmsgid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(hmodule, dwmsgid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return 0;
+#else
+    (void)hmodule;
+    (void)dwmsgid;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return 0;
+#endif
+}
+
+uint32_t windowssys_windows_win32_networkmanagement_netshell_registerContext(void* pchildcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -116,7 +217,7 @@ uint32_t windowssys_windows_win32_networkmanagement_netshell_RegisterContext(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_netshell_RegisterHelper(void* pguidparentcontext, void* pfnregistersubcontext) {
+uint32_t windowssys_windows_win32_networkmanagement_netshell_registerHelper(void* pguidparentcontext, void* pfnregistersubcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

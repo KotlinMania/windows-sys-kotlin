@@ -2,390 +2,391 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.com.CLSCTX
-import io.github.kotlinmania.windowssys.windows.win32.system.com.STGM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.PSTIME_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ClearPropVariantArray(rgpropvar: Long, cvars: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_ClearPropVariantArray(rgpropvar.toCPointer<ByteVar>(), cvars)
+public actual fun clearPropVariantArray(rgpropvar: COpaquePointer?, cvars: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray(rgpropvar?.value?.toCPointer<ByteVar>(), cvars)
 }
 
-public actual fun CoGetInstanceFromFile(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, grfmode: UInt, pwszname: PCWSTR, dwcount: UInt, presults: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromFile(pserverinfo.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>(), dwclsctx, grfmode, pwszname.toCPointer<ByteVar>(), dwcount, presults.toCPointer<ByteVar>())
+public actual fun coGetInstanceFromFile(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, grfmode: UInt, pwszname: Pcwstr, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile(pserverinfo?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), dwclsctx, grfmode, pwszname?.value?.toCPointer<ByteVar>(), dwcount, presults?.value?.toCPointer<ByteVar>())
 
-public actual fun CoGetInstanceFromIStorage(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, pstg: Long, dwcount: UInt, presults: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromIStorage(pserverinfo.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>(), dwclsctx, pstg.toCPointer<ByteVar>(), dwcount, presults.toCPointer<ByteVar>())
+public actual fun coGetInstanceFromIStorage(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pstg: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage(pserverinfo?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), dwclsctx, pstg?.value?.toCPointer<ByteVar>(), dwcount, presults?.value?.toCPointer<ByteVar>())
 
-public actual fun CoGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_CoGetInterfaceAndReleaseStream(pstm.toCPointer<ByteVar>(), iid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun coGetInterfaceAndReleaseStream(pstm: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream(pstm?.value?.toCPointer<ByteVar>(), iid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateILockBytesOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, pplkbyt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_CreateILockBytesOnHGlobal(hglobal.toCPointer<ByteVar>(), fdeleteonrelease, pplkbyt.toCPointer<ByteVar>())
+public actual fun createILockBytesOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, pplkbyt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal(hglobal?.value?.toCPointer<ByteVar>(), fdeleteonrelease, pplkbyt?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateStreamOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, ppstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_CreateStreamOnHGlobal(hglobal.toCPointer<ByteVar>(), fdeleteonrelease, ppstm.toCPointer<ByteVar>())
+public actual fun createStreamOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, ppstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal(hglobal?.value?.toCPointer<ByteVar>(), fdeleteonrelease, ppstm?.value?.toCPointer<ByteVar>())
 
-public actual fun FmtIdToPropStgName(pfmtid: Long, oszname: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_FmtIdToPropStgName(pfmtid.toCPointer<ByteVar>(), oszname.toCPointer<ByteVar>())
+public actual fun fmtIdToPropStgName(pfmtid: COpaquePointer?, oszname: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName(pfmtid?.value?.toCPointer<ByteVar>(), oszname?.value?.toCPointer<ByteVar>())
 
-public actual fun FreePropVariantArray(cvariants: UInt, rgvars: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_FreePropVariantArray(cvariants, rgvars.toCPointer<ByteVar>())
+public actual fun freePropVariantArray(cvariants: UInt, rgvars: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray(cvariants, rgvars?.value?.toCPointer<ByteVar>())
 
-public actual fun GetConvertStg(pstg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_GetConvertStg(pstg.toCPointer<ByteVar>())
+public actual fun getConvertStg(pstg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_getConvertStg(pstg?.value?.toCPointer<ByteVar>())
 
-public actual fun GetHGlobalFromILockBytes(plkbyt: Long, phglobal: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromILockBytes(plkbyt.toCPointer<ByteVar>(), phglobal.toCPointer<ByteVar>())
+public actual fun getHGlobalFromILockBytes(plkbyt: COpaquePointer?, phglobal: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes(plkbyt?.value?.toCPointer<ByteVar>(), phglobal?.value?.toCPointer<ByteVar>())
 
-public actual fun GetHGlobalFromStream(pstm: Long, phglobal: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromStream(pstm.toCPointer<ByteVar>(), phglobal.toCPointer<ByteVar>())
+public actual fun getHGlobalFromStream(pstm: COpaquePointer?, phglobal: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream(pstm?.value?.toCPointer<ByteVar>(), phglobal?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromBooleanVector(prgf: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBooleanVector(prgf.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromBooleanVector(prgf: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector(prgf?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromBuffer(pv: Long, cb: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBuffer(pv.toCPointer<ByteVar>(), cb, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromBuffer(pv: COpaquePointer?, cb: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer(pv?.value?.toCPointer<ByteVar>(), cb, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromCLSID(clsid: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromCLSID(clsid.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromCLSID(clsid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID(clsid?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromDoubleVector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromDoubleVector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromDoubleVector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromFileTime(pftin: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTime(pftin.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromFileTime(pftin: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime(pftin?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromFileTimeVector(prgft: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTimeVector(prgft.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromFileTimeVector(prgft: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector(prgft?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromGUIDAsString(guid: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromGUIDAsString(guid.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromGUIDAsString(guid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString(guid?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt16Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt32Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt64Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromPropVariantVectorElem(propvarin.toCPointer<ByteVar>(), ielem, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromPropVariantVectorElem(propvarin: COpaquePointer?, ielem: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem(propvarin?.value?.toCPointer<ByteVar>(), ielem, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromResource(hinst: HINSTANCE, id: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromResource(hinst.toCPointer<ByteVar>(), id, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromResource(hinst: Hinstance, id: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource(hinst?.value?.toCPointer<ByteVar>(), id, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromStringAsVector(psz: PCWSTR, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringAsVector(psz.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromStringAsVector(psz: Pcwstr, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector(psz?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromStringVector(prgsz: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringVector(prgsz.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromStringVector(prgsz: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector(prgsz?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromUInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt16Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromUInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromUInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt32Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromUInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantFromUInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt64Vector(prgn.toCPointer<ByteVar>(), celems, ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromUInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector(prgn?.value?.toCPointer<ByteVar>(), celems, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitPropVariantVectorFromPropVariant(propvarsingle: Long, ppropvarvector: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantVectorFromPropVariant(propvarsingle.toCPointer<ByteVar>(), ppropvarvector.toCPointer<ByteVar>())
+public actual fun initPropVariantVectorFromPropVariant(propvarsingle: COpaquePointer?, ppropvarvector: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant(propvarsingle?.value?.toCPointer<ByteVar>(), ppropvarvector?.value?.toCPointer<ByteVar>())
 
-public actual fun OleConvertIStorageToOLESTREAM(pstg: Long, lpolestream: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAM(pstg.toCPointer<ByteVar>(), lpolestream.toCPointer<ByteVar>())
+public actual fun oleConvertIStorageToOLESTREAM(pstg: COpaquePointer?, lpolestream: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM(pstg?.value?.toCPointer<ByteVar>(), lpolestream?.value?.toCPointer<ByteVar>())
 
-public actual fun OleConvertIStorageToOLESTREAMEx(pstg: Long, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: Long, polestm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAMEx(pstg.toCPointer<ByteVar>(), cfformat, lwidth, lheight, dwsize, pmedium.toCPointer<ByteVar>(), polestm.toCPointer<ByteVar>())
+public actual fun oleConvertIStorageToOLESTREAMEx(pstg: COpaquePointer?, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: COpaquePointer?, polestm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx(pstg?.value?.toCPointer<ByteVar>(), cfformat, lwidth, lheight, dwsize, pmedium?.value?.toCPointer<ByteVar>(), polestm?.value?.toCPointer<ByteVar>())
 
-public actual fun OleConvertOLESTREAMToIStorage(lpolestream: Long, pstg: Long, ptd: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorage(lpolestream.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), ptd.toCPointer<ByteVar>())
+public actual fun oleConvertOLESTREAMToIStorage(lpolestream: COpaquePointer?, pstg: COpaquePointer?, ptd: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage(lpolestream?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), ptd?.value?.toCPointer<ByteVar>())
 
-public actual fun OleConvertOLESTREAMToIStorageEx(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorageEx(polestm.toCPointer<ByteVar>(), pstg.toCPointer<ByteVar>(), pcfformat.toCPointer<ByteVar>(), plwwidth.toCPointer<ByteVar>(), plheight.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>(), pmedium.toCPointer<ByteVar>())
+public actual fun oleConvertOLESTREAMToIStorageEx(polestm: COpaquePointer?, pstg: COpaquePointer?, pcfformat: COpaquePointer?, plwwidth: COpaquePointer?, plheight: COpaquePointer?, pdwsize: COpaquePointer?, pmedium: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx(polestm?.value?.toCPointer<ByteVar>(), pstg?.value?.toCPointer<ByteVar>(), pcfformat?.value?.toCPointer<ByteVar>(), plwwidth?.value?.toCPointer<ByteVar>(), plheight?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>(), pmedium?.value?.toCPointer<ByteVar>())
 
-public actual fun PropStgNameToFmtId(oszname: PCWSTR, pfmtid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropStgNameToFmtId(oszname.toCPointer<ByteVar>(), pfmtid.toCPointer<ByteVar>())
+public actual fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId(oszname?.value?.toCPointer<ByteVar>(), pfmtid?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: PROPVAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantChangeType(ppropvardest.toCPointer<ByteVar>(), propvarsrc.toCPointer<ByteVar>(), flags, vt)
+public actual fun propVariantChangeType(ppropvardest: COpaquePointer?, propvarsrc: COpaquePointer?, flags: PropvarChangeFlags, vt: Varenum): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType(ppropvardest?.value?.toCPointer<ByteVar>(), propvarsrc?.value?.toCPointer<ByteVar>(), flags, vt)
 
-public actual fun PropVariantClear(pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantClear(pvar.toCPointer<ByteVar>())
+public actual fun propVariantClear(pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantClear(pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantCompareEx(propvar1: Long, propvar2: Long, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantCompareEx(propvar1.toCPointer<ByteVar>(), propvar2.toCPointer<ByteVar>(), unit, flags)
+public actual fun propVariantCompareEx(propvar1: COpaquePointer?, propvar2: COpaquePointer?, unit: PropvarCompareUnit, flags: PropvarCompareFlags): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx(propvar1?.value?.toCPointer<ByteVar>(), propvar2?.value?.toCPointer<ByteVar>(), unit, flags)
 
-public actual fun PropVariantCopy(pvardest: Long, pvarsrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantCopy(pvardest.toCPointer<ByteVar>(), pvarsrc.toCPointer<ByteVar>())
+public actual fun propVariantCopy(pvardest: COpaquePointer?, pvarsrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantCopy(pvardest?.value?.toCPointer<ByteVar>(), pvarsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetBooleanElem(propvar: Long, ielem: UInt, pfval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetBooleanElem(propvar.toCPointer<ByteVar>(), ielem, pfval.toCPointer<ByteVar>())
+public actual fun propVariantGetBooleanElem(propvar: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem(propvar?.value?.toCPointer<ByteVar>(), ielem, pfval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetDoubleElem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetDoubleElem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetDoubleElem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetElementCount(propvar: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetElementCount(propvar.toCPointer<ByteVar>())
+public actual fun propVariantGetElementCount(propvar: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount(propvar?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetFileTimeElem(propvar: Long, ielem: UInt, pftval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetFileTimeElem(propvar.toCPointer<ByteVar>(), ielem, pftval.toCPointer<ByteVar>())
+public actual fun propVariantGetFileTimeElem(propvar: COpaquePointer?, ielem: UInt, pftval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem(propvar?.value?.toCPointer<ByteVar>(), ielem, pftval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt16Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt32Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt64Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetStringElem(propvar: Long, ielem: UInt, ppszval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetStringElem(propvar.toCPointer<ByteVar>(), ielem, ppszval.toCPointer<ByteVar>())
+public actual fun propVariantGetStringElem(propvar: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem(propvar?.value?.toCPointer<ByteVar>(), ielem, ppszval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetUInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt16Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetUInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetUInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt32Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetUInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantGetUInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt64Elem(propvar.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun propVariantGetUInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem(propvar?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToBSTR(propvar: Long, pbstrout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBSTR(propvar.toCPointer<ByteVar>(), pbstrout.toCPointer<ByteVar>())
+public actual fun propVariantToBSTR(propvar: COpaquePointer?, pbstrout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR(propvar?.value?.toCPointer<ByteVar>(), pbstrout?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToBoolean(propvarin: Long, pfret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoolean(propvarin.toCPointer<ByteVar>(), pfret.toCPointer<ByteVar>())
+public actual fun propVariantToBoolean(propvarin: COpaquePointer?, pfret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean(propvarin?.value?.toCPointer<ByteVar>(), pfret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToBooleanVector(propvar: Long, prgf: Long, crgf: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVector(propvar.toCPointer<ByteVar>(), prgf.toCPointer<ByteVar>(), crgf, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToBooleanVector(propvar: COpaquePointer?, prgf: COpaquePointer?, crgf: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector(propvar?.value?.toCPointer<ByteVar>(), prgf?.value?.toCPointer<ByteVar>(), crgf, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToBooleanVectorAlloc(propvar: Long, pprgf: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVectorAlloc(propvar.toCPointer<ByteVar>(), pprgf.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToBooleanVectorAlloc(propvar: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgf?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToBooleanWithDefault(propvarin: Long, fdefault: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanWithDefault(propvarin.toCPointer<ByteVar>(), fdefault)
+public actual fun propVariantToBooleanWithDefault(propvarin: COpaquePointer?, fdefault: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault(propvarin?.value?.toCPointer<ByteVar>(), fdefault)
 
-public actual fun PropVariantToBuffer(propvar: Long, pv: Long, cb: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBuffer(propvar.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun propVariantToBuffer(propvar: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer(propvar?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun PropVariantToDouble(propvarin: Long, pdblret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDouble(propvarin.toCPointer<ByteVar>(), pdblret.toCPointer<ByteVar>())
+public actual fun propVariantToDouble(propvarin: COpaquePointer?, pdblret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble(propvarin?.value?.toCPointer<ByteVar>(), pdblret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToDoubleVector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToDoubleVector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToDoubleVectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToDoubleVectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): Double =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleWithDefault(propvarin.toCPointer<ByteVar>(), dbldefault)
+public actual fun propVariantToDoubleWithDefault(propvarin: COpaquePointer?, dbldefault: Double): Double =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault(propvarin?.value?.toCPointer<ByteVar>(), dbldefault)
 
-public actual fun PropVariantToFileTime(propvar: Long, pstfout: PSTIME_FLAGS, pftout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTime(propvar.toCPointer<ByteVar>(), pstfout, pftout.toCPointer<ByteVar>())
+public actual fun propVariantToFileTime(propvar: COpaquePointer?, pstfout: PstimeFlags, pftout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime(propvar?.value?.toCPointer<ByteVar>(), pstfout, pftout?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVector(propvar.toCPointer<ByteVar>(), prgft.toCPointer<ByteVar>(), crgft, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToFileTimeVector(propvar: COpaquePointer?, prgft: COpaquePointer?, crgft: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector(propvar?.value?.toCPointer<ByteVar>(), prgft?.value?.toCPointer<ByteVar>(), crgft, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToFileTimeVectorAlloc(propvar: Long, pprgft: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVectorAlloc(propvar.toCPointer<ByteVar>(), pprgft.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToFileTimeVectorAlloc(propvar: COpaquePointer?, pprgft: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgft?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToGUID(propvar: Long, pguid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToGUID(propvar.toCPointer<ByteVar>(), pguid.toCPointer<ByteVar>())
+public actual fun propVariantToGUID(propvar: COpaquePointer?, pguid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID(propvar?.value?.toCPointer<ByteVar>(), pguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt16(propvarin: Long, piret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16(propvarin.toCPointer<ByteVar>(), piret.toCPointer<ByteVar>())
+public actual fun propVariantToInt16(propvarin: COpaquePointer?, piret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16(propvarin?.value?.toCPointer<ByteVar>(), piret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt16WithDefault(propvarin: Long, idefault: Short): Short =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16WithDefault(propvarin.toCPointer<ByteVar>(), idefault)
+public actual fun propVariantToInt16WithDefault(propvarin: COpaquePointer?, idefault: Short): Short =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault(propvarin?.value?.toCPointer<ByteVar>(), idefault)
 
-public actual fun PropVariantToInt32(propvarin: Long, plret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32(propvarin.toCPointer<ByteVar>(), plret.toCPointer<ByteVar>())
+public actual fun propVariantToInt32(propvarin: COpaquePointer?, plret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32(propvarin?.value?.toCPointer<ByteVar>(), plret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt32WithDefault(propvarin: Long, ldefault: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32WithDefault(propvarin.toCPointer<ByteVar>(), ldefault)
+public actual fun propVariantToInt32WithDefault(propvarin: COpaquePointer?, ldefault: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault(propvarin?.value?.toCPointer<ByteVar>(), ldefault)
 
-public actual fun PropVariantToInt64(propvarin: Long, pllret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64(propvarin.toCPointer<ByteVar>(), pllret.toCPointer<ByteVar>())
+public actual fun propVariantToInt64(propvarin: COpaquePointer?, pllret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64(propvarin?.value?.toCPointer<ByteVar>(), pllret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToInt64WithDefault(propvarin: Long, lldefault: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64WithDefault(propvarin.toCPointer<ByteVar>(), lldefault)
+public actual fun propVariantToInt64WithDefault(propvarin: COpaquePointer?, lldefault: Long): Long =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault(propvarin?.value?.toCPointer<ByteVar>(), lldefault)
 
-public actual fun PropVariantToString(propvar: Long, psz: PWSTR, cch: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToString(propvar.toCPointer<ByteVar>(), psz.toCPointer<ByteVar>(), cch)
+public actual fun propVariantToString(propvar: COpaquePointer?, psz: Pwstr, cch: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToString(propvar?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), cch)
 
-public actual fun PropVariantToStringAlloc(propvar: Long, ppszout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringAlloc(propvar.toCPointer<ByteVar>(), ppszout.toCPointer<ByteVar>())
+public actual fun propVariantToStringAlloc(propvar: COpaquePointer?, ppszout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc(propvar?.value?.toCPointer<ByteVar>(), ppszout?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToStringVector(propvar: Long, prgsz: Long, crgsz: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVector(propvar.toCPointer<ByteVar>(), prgsz.toCPointer<ByteVar>(), crgsz, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToStringVector(propvar: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector(propvar?.value?.toCPointer<ByteVar>(), prgsz?.value?.toCPointer<ByteVar>(), crgsz, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToStringVectorAlloc(propvar: Long, pprgsz: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVectorAlloc(propvar.toCPointer<ByteVar>(), pprgsz.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToStringVectorAlloc(propvar: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgsz?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToStringWithDefault(propvarin: Long, pszdefault: PCWSTR): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringWithDefault(propvarin.toCPointer<ByteVar>(), pszdefault.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun propVariantToStringWithDefault(propvarin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault(propvarin?.value?.toCPointer<ByteVar>(), pszdefault?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PropVariantToUInt16(propvarin: Long, puiret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16(propvarin.toCPointer<ByteVar>(), puiret.toCPointer<ByteVar>())
+public actual fun propVariantToUInt16(propvarin: COpaquePointer?, puiret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16(propvarin?.value?.toCPointer<ByteVar>(), puiret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt16WithDefault(propvarin: Long, uidefault: UShort): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16WithDefault(propvarin.toCPointer<ByteVar>(), uidefault)
+public actual fun propVariantToUInt16WithDefault(propvarin: COpaquePointer?, uidefault: UShort): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault(propvarin?.value?.toCPointer<ByteVar>(), uidefault)
 
-public actual fun PropVariantToUInt32(propvarin: Long, pulret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32(propvarin.toCPointer<ByteVar>(), pulret.toCPointer<ByteVar>())
+public actual fun propVariantToUInt32(propvarin: COpaquePointer?, pulret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32(propvarin?.value?.toCPointer<ByteVar>(), pulret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt32WithDefault(propvarin: Long, uldefault: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32WithDefault(propvarin.toCPointer<ByteVar>(), uldefault)
+public actual fun propVariantToUInt32WithDefault(propvarin: COpaquePointer?, uldefault: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault(propvarin?.value?.toCPointer<ByteVar>(), uldefault)
 
-public actual fun PropVariantToUInt64(propvarin: Long, pullret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64(propvarin.toCPointer<ByteVar>(), pullret.toCPointer<ByteVar>())
+public actual fun propVariantToUInt64(propvarin: COpaquePointer?, pullret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64(propvarin?.value?.toCPointer<ByteVar>(), pullret?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64Vector(propvar.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector(propvar?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64VectorAlloc(propvar.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun propVariantToUInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc(propvar?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToUInt64WithDefault(propvarin: Long, ulldefault: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64WithDefault(propvarin.toCPointer<ByteVar>(), ulldefault)
+public actual fun propVariantToUInt64WithDefault(propvarin: COpaquePointer?, ulldefault: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault(propvarin?.value?.toCPointer<ByteVar>(), ulldefault)
 
-public actual fun PropVariantToVariant(ppropvar: Long, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToVariant(ppropvar.toCPointer<ByteVar>(), pvar.toCPointer<ByteVar>())
+public actual fun propVariantToVariant(ppropvar: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant(ppropvar?.value?.toCPointer<ByteVar>(), pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToWinRTPropertyValue(propvar: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_PropVariantToWinRTPropertyValue(propvar.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun propVariantToWinRTPropertyValue(propvar: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue(propvar?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadClassStg(pstg: Long, pclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_ReadClassStg(pstg.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>())
+public actual fun readClassStg(pstg: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_readClassStg(pstg?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadClassStm(pstm: Long, pclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_ReadClassStm(pstm.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>())
+public actual fun readClassStm(pstm: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_readClassStm(pstm?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadFmtUserTypeStg(pstg: Long, pcf: Long, lplpszusertype: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_ReadFmtUserTypeStg(pstg.toCPointer<ByteVar>(), pcf.toCPointer<ByteVar>(), lplpszusertype.toCPointer<ByteVar>())
+public actual fun readFmtUserTypeStg(pstg: COpaquePointer?, pcf: COpaquePointer?, lplpszusertype: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg(pstg?.value?.toCPointer<ByteVar>(), pcf?.value?.toCPointer<ByteVar>(), lplpszusertype?.value?.toCPointer<ByteVar>())
 
-public actual fun SetConvertStg(pstg: Long, fconvert: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_SetConvertStg(pstg.toCPointer<ByteVar>(), fconvert)
+public actual fun setConvertStg(pstg: COpaquePointer?, fconvert: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_setConvertStg(pstg?.value?.toCPointer<ByteVar>(), fconvert)
 
-public actual fun StgConvertPropertyToVariant(pprop: Long, codepage: UShort, pvar: Long, pma: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgConvertPropertyToVariant(pprop.toCPointer<ByteVar>(), codepage, pvar.toCPointer<ByteVar>(), pma.toCPointer<ByteVar>())
+public actual fun stgConvertPropertyToVariant(pprop: COpaquePointer?, codepage: UShort, pvar: COpaquePointer?, pma: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant(pprop?.value?.toCPointer<ByteVar>(), codepage, pvar?.value?.toCPointer<ByteVar>(), pma?.value?.toCPointer<ByteVar>())
 
-public actual fun StgConvertVariantToProperty(pvar: Long, codepage: UShort, pprop: Long, pcb: Long, pid: UInt, freserved: Boolean, pcindirect: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgConvertVariantToProperty(pvar.toCPointer<ByteVar>(), codepage, pprop.toCPointer<ByteVar>(), pcb.toCPointer<ByteVar>(), pid, freserved, pcindirect.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun stgConvertVariantToProperty(pvar: COpaquePointer?, codepage: UShort, pprop: COpaquePointer?, pcb: COpaquePointer?, pid: UInt, freserved: Boolean, pcindirect: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty(pvar?.value?.toCPointer<ByteVar>(), codepage, pprop?.value?.toCPointer<ByteVar>(), pcb?.value?.toCPointer<ByteVar>(), pid, freserved, pcindirect?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StgCreateDocfile(pwcsname: PCWSTR, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfile(pwcsname.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgCreateDocfile(pwcsname: Pcwstr, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile(pwcsname?.value?.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgCreateDocfileOnILockBytes(plkbyt: Long, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfileOnILockBytes(plkbyt.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgCreateDocfileOnILockBytes(plkbyt: COpaquePointer?, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes(plkbyt?.value?.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgCreatePropSetStg(pstorage: Long, dwreserved: UInt, pppropsetstg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgCreatePropSetStg(pstorage.toCPointer<ByteVar>(), dwreserved, pppropsetstg.toCPointer<ByteVar>())
+public actual fun stgCreatePropSetStg(pstorage: COpaquePointer?, dwreserved: UInt, pppropsetstg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg(pstorage?.value?.toCPointer<ByteVar>(), dwreserved, pppropsetstg?.value?.toCPointer<ByteVar>())
 
-public actual fun StgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgCreatePropStg(punk.toCPointer<ByteVar>(), fmtid.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>(), grfflags, dwreserved, pppropstg.toCPointer<ByteVar>())
+public actual fun stgCreatePropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, pclsid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg(punk?.value?.toCPointer<ByteVar>(), fmtid?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>(), grfflags, dwreserved, pppropstg?.value?.toCPointer<ByteVar>())
 
-public actual fun StgCreateStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgCreateStorageEx(pwcsname.toCPointer<ByteVar>(), grfmode, stgfmt, grfattrs, pstgoptions.toCPointer<ByteVar>(), psecuritydescriptor.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppobjectopen.toCPointer<ByteVar>())
+public actual fun stgCreateStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx(pwcsname?.value?.toCPointer<ByteVar>(), grfmode, stgfmt, grfattrs, pstgoptions?.value?.toCPointer<ByteVar>(), psecuritydescriptor?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppobjectopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgDeserializePropVariant(pprop: Long, cbmax: UInt, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgDeserializePropVariant(pprop.toCPointer<ByteVar>(), cbmax, ppropvar.toCPointer<ByteVar>())
+public actual fun stgDeserializePropVariant(pprop: COpaquePointer?, cbmax: UInt, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant(pprop?.value?.toCPointer<ByteVar>(), cbmax, ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun StgGetIFillLockBytesOnFile(pwcsname: PCWSTR, ppflb: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnFile(pwcsname.toCPointer<ByteVar>(), ppflb.toCPointer<ByteVar>())
+public actual fun stgGetIFillLockBytesOnFile(pwcsname: Pcwstr, ppflb: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile(pwcsname?.value?.toCPointer<ByteVar>(), ppflb?.value?.toCPointer<ByteVar>())
 
-public actual fun StgGetIFillLockBytesOnILockBytes(pilb: Long, ppflb: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnILockBytes(pilb.toCPointer<ByteVar>(), ppflb.toCPointer<ByteVar>())
+public actual fun stgGetIFillLockBytesOnILockBytes(pilb: COpaquePointer?, ppflb: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes(pilb?.value?.toCPointer<ByteVar>(), ppflb?.value?.toCPointer<ByteVar>())
 
-public actual fun StgIsStorageFile(pwcsname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgIsStorageFile(pwcsname.toCPointer<ByteVar>())
+public actual fun stgIsStorageFile(pwcsname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile(pwcsname?.value?.toCPointer<ByteVar>())
 
-public actual fun StgIsStorageILockBytes(plkbyt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgIsStorageILockBytes(plkbyt.toCPointer<ByteVar>())
+public actual fun stgIsStorageILockBytes(plkbyt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes(plkbyt?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenAsyncDocfileOnIFillLockBytes(pflb: Long, grfmode: UInt, asyncflags: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenAsyncDocfileOnIFillLockBytes(pflb.toCPointer<ByteVar>(), grfmode, asyncflags, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgOpenAsyncDocfileOnIFillLockBytes(pflb: COpaquePointer?, grfmode: UInt, asyncflags: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes(pflb?.value?.toCPointer<ByteVar>(), grfmode, asyncflags, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenLayoutDocfile(pwcsdfname: PCWSTR, grfmode: UInt, reserved: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenLayoutDocfile(pwcsdfname.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgOpenLayoutDocfile(pwcsdfname: Pcwstr, grfmode: UInt, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile(pwcsdfname?.value?.toCPointer<ByteVar>(), grfmode, reserved, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenPropStg(punk: Long, fmtid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenPropStg(punk.toCPointer<ByteVar>(), fmtid.toCPointer<ByteVar>(), grfflags, dwreserved, pppropstg.toCPointer<ByteVar>())
+public actual fun stgOpenPropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg(punk?.value?.toCPointer<ByteVar>(), fmtid?.value?.toCPointer<ByteVar>(), grfflags, dwreserved, pppropstg?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenStorage(pwcsname: PCWSTR, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorage(pwcsname.toCPointer<ByteVar>(), pstgpriority.toCPointer<ByteVar>(), grfmode, snbexclude.toCPointer<ByteVar>(), reserved, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgOpenStorage(pwcsname: Pcwstr, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage(pwcsname?.value?.toCPointer<ByteVar>(), pstgpriority?.value?.toCPointer<ByteVar>(), grfmode, snbexclude?.value?.toCPointer<ByteVar>(), reserved, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageEx(pwcsname.toCPointer<ByteVar>(), grfmode, stgfmt, grfattrs, pstgoptions.toCPointer<ByteVar>(), psecuritydescriptor.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppobjectopen.toCPointer<ByteVar>())
+public actual fun stgOpenStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx(pwcsname?.value?.toCPointer<ByteVar>(), grfmode, stgfmt, grfattrs, pstgoptions?.value?.toCPointer<ByteVar>(), psecuritydescriptor?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppobjectopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageOnILockBytes(plkbyt.toCPointer<ByteVar>(), pstgpriority.toCPointer<ByteVar>(), grfmode, snbexclude.toCPointer<ByteVar>(), reserved, ppstgopen.toCPointer<ByteVar>())
+public actual fun stgOpenStorageOnILockBytes(plkbyt: COpaquePointer?, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes(plkbyt?.value?.toCPointer<ByteVar>(), pstgpriority?.value?.toCPointer<ByteVar>(), grfmode, snbexclude?.value?.toCPointer<ByteVar>(), reserved, ppstgopen?.value?.toCPointer<ByteVar>())
 
-public actual fun StgPropertyLengthAsVariant(pprop: Long, cbprop: UInt, codepage: UShort, breserved: UByte): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgPropertyLengthAsVariant(pprop.toCPointer<ByteVar>(), cbprop, codepage, breserved)
+public actual fun stgPropertyLengthAsVariant(pprop: COpaquePointer?, cbprop: UInt, codepage: UShort, breserved: UByte): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant(pprop?.value?.toCPointer<ByteVar>(), cbprop, codepage, breserved)
 
-public actual fun StgSerializePropVariant(ppropvar: Long, ppprop: Long, pcb: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgSerializePropVariant(ppropvar.toCPointer<ByteVar>(), ppprop.toCPointer<ByteVar>(), pcb.toCPointer<ByteVar>())
+public actual fun stgSerializePropVariant(ppropvar: COpaquePointer?, ppprop: COpaquePointer?, pcb: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant(ppropvar?.value?.toCPointer<ByteVar>(), ppprop?.value?.toCPointer<ByteVar>(), pcb?.value?.toCPointer<ByteVar>())
 
-public actual fun StgSetTimes(lpszname: PCWSTR, pctime: Long, patime: Long, pmtime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_StgSetTimes(lpszname.toCPointer<ByteVar>(), pctime.toCPointer<ByteVar>(), patime.toCPointer<ByteVar>(), pmtime.toCPointer<ByteVar>())
+public actual fun stgSetTimes(lpszname: Pcwstr, pctime: COpaquePointer?, patime: COpaquePointer?, pmtime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_stgSetTimes(lpszname?.value?.toCPointer<ByteVar>(), pctime?.value?.toCPointer<ByteVar>(), patime?.value?.toCPointer<ByteVar>(), pmtime?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToPropVariant(pvar: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_VariantToPropVariant(pvar.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun variantToPropVariant(pvar: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant(pvar?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun WinRTPropertyValueToPropVariant(punkpropertyvalue: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_WinRTPropertyValueToPropVariant(punkpropertyvalue.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun winRTPropertyValueToPropVariant(punkpropertyvalue: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant(punkpropertyvalue?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteClassStg(pstg: Long, rclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_WriteClassStg(pstg.toCPointer<ByteVar>(), rclsid.toCPointer<ByteVar>())
+public actual fun writeClassStg(pstg: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_writeClassStg(pstg?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteClassStm(pstm: Long, rclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_WriteClassStm(pstm.toCPointer<ByteVar>(), rclsid.toCPointer<ByteVar>())
+public actual fun writeClassStm(pstm: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_writeClassStm(pstm?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteFmtUserTypeStg(pstg: Long, cf: UShort, lpszusertype: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_WriteFmtUserTypeStg(pstg.toCPointer<ByteVar>(), cf, lpszusertype.toCPointer<ByteVar>())
+public actual fun writeFmtUserTypeStg(pstg: COpaquePointer?, cf: UShort, lpszusertype: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg(pstg?.value?.toCPointer<ByteVar>(), cf, lpszusertype?.value?.toCPointer<ByteVar>())

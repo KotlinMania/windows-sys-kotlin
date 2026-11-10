@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1DoMsCtfMonitor(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong heventforservicestop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1doMsCtfMonitor(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong heventforservicestop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_te
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1InitLocalMsCtfMonitor(JNIEnv* km_env, jclass km_clazz, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1initLocalMsCtfMonitor(JNIEnv* km_env, jclass km_clazz, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_te
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1UninitLocalMsCtfMonitor(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_textservices_WindowsWin32UiTextservicesJniBridge_windowssys_1windows_1win32_1ui_1textservices_1uninitLocalMsCtfMonitor(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_restore_SRRemoveRestorePoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restore_sRRemoveRestorePoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwrpnum = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_restore_SRRemoveRestorePoint_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restore_SRSetRestorePointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restore_sRSetRestorePointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prestoreptspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psmgrstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_system_restore_SRSetRestorePointA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restore_SRSetRestorePointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restore_sRSetRestorePointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prestoreptspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psmgrstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -110,9 +110,9 @@ static Napi::Value windowssys_windows_win32_system_restore_SRSetRestorePointW_na
 }
 
 static void register_windows_win32_system_restore_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_restore_SRRemoveRestorePoint", Napi::Function::New(env, windowssys_windows_win32_system_restore_SRRemoveRestorePoint_napi));
-    exports.Set("windowssys_windows_win32_system_restore_SRSetRestorePointA", Napi::Function::New(env, windowssys_windows_win32_system_restore_SRSetRestorePointA_napi));
-    exports.Set("windowssys_windows_win32_system_restore_SRSetRestorePointW", Napi::Function::New(env, windowssys_windows_win32_system_restore_SRSetRestorePointW_napi));
+    exports.Set("windowssys_windows_win32_system_restore_sRRemoveRestorePoint", Napi::Function::New(env, windowssys_windows_win32_system_restore_sRRemoveRestorePoint_napi));
+    exports.Set("windowssys_windows_win32_system_restore_sRSetRestorePointA", Napi::Function::New(env, windowssys_windows_win32_system_restore_sRSetRestorePointA_napi));
+    exports.Set("windowssys_windows_win32_system_restore_sRSetRestorePointW", Napi::Function::New(env, windowssys_windows_win32_system_restore_sRSetRestorePointW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_restore_napi, nullptr };

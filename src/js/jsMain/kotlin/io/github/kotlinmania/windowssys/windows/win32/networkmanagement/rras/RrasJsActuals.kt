@@ -2,860 +2,871 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.In6Addr
 
 private val _windowsWin32NetworkmanagementRrasNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun MgmAddGroupMembershipEntry(hprotocol: HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmAddGroupMembershipEntry(hprotocol.toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun mgmAddGroupMembershipEntry(hprotocol: Handle, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry((hprotocol?.value ?: 0L).toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmDeRegisterMProtocol(hprotocol: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmDeRegisterMProtocol(hprotocol.toString()) as Int).toUInt() else 0u
+public actual fun mgmDeRegisterMProtocol(hprotocol: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol((hprotocol?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmDeleteGroupMembershipEntry(hprotocol: HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmDeleteGroupMembershipEntry(hprotocol.toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun mgmDeleteGroupMembershipEntry(hprotocol: Handle, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry((hprotocol?.value ?: 0L).toString(), dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetFirstMfe(pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfe(pdwbuffersize.toString(), pbbuffer.toString(), pdwnumentries.toString()) as Int).toUInt() else 0u
+public actual fun mgmGetFirstMfe(pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe((pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetFirstMfeStats(pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfeStats(pdwbuffersize.toString(), pbbuffer.toString(), pdwnumentries.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun mgmGetFirstMfeStats(pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats((pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetMfe(pimm: Long, pdwbuffersize: Long, pbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetMfe(pimm.toString(), pdwbuffersize.toString(), pbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mgmGetMfe(pimm: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetMfe((pimm?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetMfeStats(pimm: Long, pdwbuffersize: Long, pbbuffer: Long, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetMfeStats(pimm.toString(), pdwbuffersize.toString(), pbbuffer.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun mgmGetMfeStats(pimm: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats((pimm?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetNextMfe(pimmstart: Long, pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfe(pimmstart.toString(), pdwbuffersize.toString(), pbbuffer.toString(), pdwnumentries.toString()) as Int).toUInt() else 0u
+public actual fun mgmGetNextMfe(pimmstart: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe((pimmstart?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetNextMfeStats(pimmstart: Long, pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long, dwflags: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfeStats(pimmstart.toString(), pdwbuffersize.toString(), pbbuffer.toString(), pdwnumentries.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun mgmGetNextMfeStats(pimmstart: COpaquePointer?, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats((pimmstart?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: Long, pdwifcomponentid: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGetProtocolOnInterface(dwifindex.toInt(), dwifnexthopaddr.toInt(), pdwifprotocolid.toString(), pdwifcomponentid.toString()) as Int).toUInt() else 0u
+public actual fun mgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: COpaquePointer?, pdwifcomponentid: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface(dwifindex.toInt(), dwifnexthopaddr.toInt(), (pdwifprotocolid?.value ?: 0L).toString(), (pdwifcomponentid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGroupEnumerationEnd(henum: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationEnd(henum.toString()) as Int).toUInt() else 0u
+public actual fun mgmGroupEnumerationEnd(henum: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd((henum?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGroupEnumerationGetNext(henum: HANDLE, pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationGetNext(henum.toString(), pdwbuffersize.toString(), pbbuffer.toString(), pdwnumentries.toString()) as Int).toUInt() else 0u
+public actual fun mgmGroupEnumerationGetNext(henum: Handle, pdwbuffersize: COpaquePointer?, pbbuffer: COpaquePointer?, pdwnumentries: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext((henum?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmGroupEnumerationStart(hprotocol: HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationStart(hprotocol.toString(), metenumtype, phenumhandle.toString()) as Int).toUInt() else 0u
+public actual fun mgmGroupEnumerationStart(hprotocol: Handle, metenumtype: MgmEnumTypes, phenumhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart((hprotocol?.value ?: 0L).toString(), metenumtype, (phenumhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmRegisterMProtocol(prpiinfo: Long, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmRegisterMProtocol(prpiinfo.toString(), dwprotocolid.toInt(), dwcomponentid.toInt(), phprotocol.toString()) as Int).toUInt() else 0u
+public actual fun mgmRegisterMProtocol(prpiinfo: COpaquePointer?, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol((prpiinfo?.value ?: 0L).toString(), dwprotocolid.toInt(), dwcomponentid.toInt(), (phprotocol?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmReleaseInterfaceOwnership(hprotocol: HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmReleaseInterfaceOwnership(hprotocol.toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()) as Int).toUInt() else 0u
+public actual fun mgmReleaseInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership((hprotocol?.value ?: 0L).toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MgmTakeInterfaceOwnership(hprotocol: HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MgmTakeInterfaceOwnership(hprotocol.toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()) as Int).toUInt() else 0u
+public actual fun mgmTakeInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership((hprotocol?.value ?: 0L).toString(), dwifindex.toInt(), dwifnexthopaddr.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminBufferFree(pbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminBufferFree(pbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminBufferFree(pbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree((pbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionClearStats(hrasserver: Long, hrasconnection: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionClearStats(hrasserver.toString(), hrasconnection.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionClearStats(hrasserver: Long, hrasconnection: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnum(hrasserver.toString(), dwlevel.toInt(), lplpbbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum(hrasserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: Long, dwpreferedmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, pprasconn: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnumEx(hrasserver.toString(), pobjectheader.toString(), dwpreferedmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), pprasconn.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: COpaquePointer?, dwpreferedmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, pprasconn: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx(hrasserver.toString(), (pobjectheader?.value ?: 0L).toString(), dwpreferedmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (pprasconn?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: HANDLE, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetInfo(hrasserver.toString(), dwlevel.toInt(), hrasconnection.toString(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo(hrasserver.toString(), dwlevel.toInt(), (hrasconnection?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: HANDLE, prasconnection: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetInfoEx(hrasserver.toString(), hrasconnection.toString(), prasconnection.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Handle, prasconnection: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString(), (prasconnection?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminConnectionRemoveQuarantine(hrasserver: HANDLE, hrasconnection: HANDLE, fisipaddress: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionRemoveQuarantine(hrasserver.toString(), hrasconnection.toString(), fisipaddress) as Int).toUInt() else 0u
+public actual fun mprAdminConnectionRemoveQuarantine(hrasserver: Handle, hrasconnection: Handle, fisipaddress: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine((hrasserver?.value ?: 0L).toString(), (hrasconnection?.value ?: 0L).toString(), fisipaddress) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminDeregisterConnectionNotification(hmprserver.toString(), heventnotification.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification(hmprserver.toString(), (heventnotification?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long, lpdwtotalentries: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminDeviceEnum(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.toString(), lpdwtotalentries.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, lpdwtotalentries: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminEstablishDomainRasServer(pszdomain: PCWSTR, pszmachine: PCWSTR, benable: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminEstablishDomainRasServer(pszdomain.toString(), pszmachine.toString(), benable) as Int).toUInt() else 0u
+public actual fun mprAdminEstablishDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, benable: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer((pszdomain?.value ?: 0L).toString(), (pszmachine?.value ?: 0L).toString(), benable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminGetErrorString(dwerror.toInt(), lplpwserrorstring.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString(dwerror.toInt(), (lplpwserrorstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminGetPDCServer(lpszdomain: PCWSTR, lpszserver: PCWSTR, lpszpdcserver: PWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminGetPDCServer(lpszdomain.toString(), lpszserver.toString(), lpszpdcserver.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminGetPDCServer(lpszdomain: Pcwstr, lpszserver: Pcwstr, lpszpdcserver: Pwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer((lpszdomain?.value ?: 0L).toString(), (lpszserver?.value ?: 0L).toString(), (lpszpdcserver?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceConnect(hmprserver: Long, hinterface: HANDLE, hevent: HANDLE, fsynchronous: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceConnect(hmprserver.toString(), hinterface.toString(), hevent.toString(), fsynchronous) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceConnect(hmprserver: Long, hinterface: Handle, hevent: Handle, fsynchronous: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), fsynchronous) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long, phinterface: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceCreate(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.toString(), phinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?, phinterface: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString(), (phinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceDelete(hmprserver: Long, hinterface: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDelete(hmprserver.toString(), hinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceDelete(hmprserver: Long, hinterface: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete(hmprserver.toString(), (hinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: HANDLE, dwindex: UInt, dwlevel: UInt, lplpbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDeviceGetInfo(hmprserver.toString(), hinterface.toString(), dwindex.toInt(), dwlevel.toInt(), lplpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lplpbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwindex.toInt(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: HANDLE, dwindex: UInt, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDeviceSetInfo(hmprserver.toString(), hinterface.toString(), dwindex.toInt(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwindex.toInt(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceDisconnect(hmprserver: Long, hinterface: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDisconnect(hmprserver.toString(), hinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceDisconnect(hmprserver: Long, hinterface: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect(hmprserver.toString(), (hinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceEnum(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceGetCredentials(lpwsserver: PCWSTR, lpwsinterfacename: PCWSTR, lpwsusername: PWSTR, lpwspassword: PWSTR, lpwsdomainname: PWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCredentials(lpwsserver.toString(), lpwsinterfacename.toString(), lpwsusername.toString(), lpwspassword.toString(), lpwsdomainname.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceGetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pwstr, lpwspassword: Pwstr, lpwsdomainname: Pwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials((lpwsserver?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (lpwsusername?.value ?: 0L).toString(), (lpwspassword?.value ?: 0L).toString(), (lpwsdomainname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCredentialsEx(hmprserver.toString(), hinterface.toString(), dwlevel.toInt(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: HANDLE, pcustominfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCustomInfoEx(hmprserver.toString(), hinterface.toString(), pcustominfo.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: PCWSTR, phinterface: Long, fincludeclientinterfaces: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetHandle(hmprserver.toString(), lpwsinterfacename.toString(), phinterface.toString(), fincludeclientinterfaces) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: Pcwstr, phinterface: COpaquePointer?, fincludeclientinterfaces: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle(hmprserver.toString(), (lpwsinterfacename?.value ?: 0L).toString(), (phinterface?.value ?: 0L).toString(), fincludeclientinterfaces) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceGetInfo(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetInfo(hmprserver.toString(), hinterface.toString(), dwlevel.toInt(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: HANDLE, dwprotocolid: UInt, lpdwupdateresult: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceQueryUpdateResult(hmprserver.toString(), hinterface.toString(), dwprotocolid.toInt(), lpdwupdateresult.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, lpdwupdateresult: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwprotocolid.toInt(), (lpdwupdateresult?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceSetCredentials(lpwsserver: PCWSTR, lpwsinterfacename: PCWSTR, lpwsusername: PCWSTR, lpwsdomainname: PCWSTR, lpwspassword: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCredentials(lpwsserver.toString(), lpwsinterfacename.toString(), lpwsusername.toString(), lpwsdomainname.toString(), lpwspassword.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceSetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pcwstr, lpwsdomainname: Pcwstr, lpwspassword: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials((lpwsserver?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (lpwsusername?.value ?: 0L).toString(), (lpwsdomainname?.value ?: 0L).toString(), (lpwspassword?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCredentialsEx(hmprserver.toString(), hinterface.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: HANDLE, pcustominfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCustomInfoEx(hmprserver.toString(), hinterface.toString(), pcustominfo.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceSetInfo(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetInfo(hmprserver.toString(), hinterface.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportAdd(hmprserver.toString(), hinterface.toString(), dwtransportid.toInt(), pinterfaceinfo.toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportGetInfo(hmprserver.toString(), hinterface.toString(), dwtransportid.toInt(), ppinterfaceinfo.toString(), lpdwinterfaceinfosize.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, ppinterfaceinfo: COpaquePointer?, lpdwinterfaceinfosize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (ppinterfaceinfo?.value ?: 0L).toString(), (lpdwinterfaceinfosize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportRemove(hmprserver.toString(), hinterface.toString(), dwtransportid.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: Handle, dwtransportid: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportSetInfo(hmprserver.toString(), hinterface.toString(), dwtransportid.toInt(), pinterfaceinfo.toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdatePhonebookInfo(hmprserver.toString(), hinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo(hmprserver.toString(), (hinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: HANDLE, dwprotocolid: UInt, hevent: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdateRoutes(hmprserver.toString(), hinterface.toString(), dwprotocolid.toInt(), hevent.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, hevent: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes(hmprserver.toString(), (hinterface?.value ?: 0L).toString(), dwprotocolid.toInt(), (hevent?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminIsDomainRasServer(pszdomain: PCWSTR, pszmachine: PCWSTR, pbisrasserver: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminIsDomainRasServer(pszdomain.toString(), pszmachine.toString(), pbisrasserver.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminIsDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, pbisrasserver: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer((pszdomain?.value ?: 0L).toString(), (pszmachine?.value ?: 0L).toString(), (pbisrasserver?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminIsServiceInitialized(lpwsservername: PCWSTR, fisserviceinitialized: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceInitialized(lpwsservername.toString(), fisserviceinitialized.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminIsServiceInitialized(lpwsservername: Pcwstr, fisserviceinitialized: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized((lpwsservername?.value ?: 0L).toString(), (fisserviceinitialized?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminIsServiceRunning(lpwsservername: PCWSTR): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceRunning(lpwsservername.toString()) as Int) else 0
+public actual fun mprAdminIsServiceRunning(lpwsservername: Pcwstr): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning((lpwsservername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBBufferFree(pbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBBufferFree(pbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBBufferFree(pbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree((pbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: Long, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryCreate(hmibserver.toString(), dwpid.toInt(), dwroutingpid.toInt(), lpentry.toString(), dwentrysize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate(hmibserver.toString(), dwpid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: Long, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryDelete(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.toString(), dwentrysize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: Long, dwinentrysize: UInt, lplpoutentry: Long, lpoutentrysize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.toString(), dwinentrysize.toInt(), lplpoutentry.toString(), lpoutentrysize.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: Long, dwinentrysize: UInt, lplpoutentry: Long, lpoutentrysize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetFirst(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.toString(), dwinentrysize.toInt(), lplpoutentry.toString(), lpoutentrysize.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: Long, dwinentrysize: UInt, lplpoutentry: Long, lpoutentrysize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetNext(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.toString(), dwinentrysize.toInt(), lplpoutentry.toString(), lpoutentrysize.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: COpaquePointer?, dwinentrysize: UInt, lplpoutentry: COpaquePointer?, lpoutentrysize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpinentry?.value ?: 0L).toString(), dwinentrysize.toInt(), (lplpoutentry?.value ?: 0L).toString(), (lpoutentrysize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: Long, dwentrysize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntrySet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.toString(), dwentrysize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: COpaquePointer?, dwentrysize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet(hmibserver.toString(), dwprotocolid.toInt(), dwroutingpid.toInt(), (lpentry?.value ?: 0L).toString(), dwentrysize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBServerConnect(lpwsservername: PCWSTR, phmibserver: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerConnect(lpwsservername.toString(), phmibserver.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect((lpwsservername?.value ?: 0L).toString(), (phmibserver?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminMIBServerDisconnect(hmibserver: Long) {
+public actual fun mprAdminMIBServerDisconnect(hmibserver: Long) {
     if (_windowsWin32NetworkmanagementRrasNapiAddon != null) {
-        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerDisconnect(hmibserver.toString())
+        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect(hmibserver.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun MprAdminPortClearStats(hrasserver: Long, hport: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminPortClearStats(hrasserver.toString(), hport.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminPortClearStats(hrasserver: Long, hport: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats(hrasserver.toString(), (hport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminPortDisconnect(hrasserver: Long, hport: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminPortDisconnect(hrasserver.toString(), hport.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminPortDisconnect(hrasserver: Long, hport: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect(hrasserver.toString(), (hport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: HANDLE, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminPortEnum(hrasserver.toString(), dwlevel.toInt(), hrasconnection.toString(), lplpbbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum(hrasserver.toString(), dwlevel.toInt(), (hrasconnection?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: HANDLE, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminPortGetInfo(hrasserver.toString(), dwlevel.toInt(), hport.toString(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Handle, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo(hrasserver.toString(), dwlevel.toInt(), (hport?.value ?: 0L).toString(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminPortReset(hrasserver: Long, hport: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminPortReset(hrasserver.toString(), hport.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminPortReset(hrasserver: Long, hport: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset(hrasserver.toString(), (hport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminRegisterConnectionNotification(hmprserver: Long, heventnotification: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminRegisterConnectionNotification(hmprserver.toString(), heventnotification.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminRegisterConnectionNotification(hmprserver: Long, heventnotification: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification(hmprserver.toString(), (heventnotification?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminSendUserMessage(hmprserver: Long, hconnection: HANDLE, lpwszmessage: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminSendUserMessage(hmprserver.toString(), hconnection.toString(), lpwszmessage.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminSendUserMessage(hmprserver: Long, hconnection: Handle, lpwszmessage: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage(hmprserver.toString(), (hconnection?.value ?: 0L).toString(), (lpwszmessage?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerConnect(lpwsservername: PCWSTR, phmprserver: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerConnect(lpwsservername.toString(), phmprserver.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect((lpwsservername?.value ?: 0L).toString(), (phmprserver?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerDisconnect(hmprserver: Long) {
+public actual fun mprAdminServerDisconnect(hmprserver: Long) {
     if (_windowsWin32NetworkmanagementRrasNapiAddon != null) {
-        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerDisconnect(hmprserver.toString())
+        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect(hmprserver.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun MprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetCredentials(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfo(hmprserver.toString(), dwlevel.toInt(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo(hmprserver.toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfoEx(hmprserver.toString(), pserverinfo.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx(hmprserver.toString(), (pserverinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetCredentials(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfo(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfoEx(hmprserver.toString(), pserverinfo.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx(hmprserver.toString(), (pserverinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: PCWSTR, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminTransportCreate(hmprserver.toString(), dwtransportid.toInt(), lpwstransportname.toString(), pglobalinfo.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate(hmprserver.toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: Long, lpdwglobalinfosize: Long, ppclientinterfaceinfo: Long, lpdwclientinterfaceinfosize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminTransportGetInfo(hmprserver.toString(), dwtransportid.toInt(), ppglobalinfo.toString(), lpdwglobalinfosize.toString(), ppclientinterfaceinfo.toString(), lpdwclientinterfaceinfosize.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: COpaquePointer?, lpdwglobalinfosize: COpaquePointer?, ppclientinterfaceinfo: COpaquePointer?, lpdwclientinterfaceinfosize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo(hmprserver.toString(), dwtransportid.toInt(), (ppglobalinfo?.value ?: 0L).toString(), (lpdwglobalinfosize?.value ?: 0L).toString(), (ppclientinterfaceinfo?.value ?: 0L).toString(), (lpdwclientinterfaceinfosize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminTransportSetInfo(hmprserver.toString(), dwtransportid.toInt(), pglobalinfo.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.toString(), dwclientinterfaceinfosize.toInt()) as Int).toUInt() else 0u
+public actual fun mprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo(hmprserver.toString(), dwtransportid.toInt(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminUpdateConnection(hrasserver: Long, hrasconnection: HANDLE, prasupdateconnection: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminUpdateConnection(hrasserver.toString(), hrasconnection.toString(), prasupdateconnection.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminUpdateConnection(hrasserver: Long, hrasconnection: Handle, prasupdateconnection: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection(hrasserver.toString(), (hrasconnection?.value ?: 0L).toString(), (prasupdateconnection?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminUserGetInfo(lpszserver: PCWSTR, lpszuser: PCWSTR, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminUserGetInfo(lpszserver.toString(), lpszuser.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminUserGetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo((lpszserver?.value ?: 0L).toString(), (lpszuser?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprAdminUserSetInfo(lpszserver: PCWSTR, lpszuser: PCWSTR, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprAdminUserSetInfo(lpszserver.toString(), lpszuser.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprAdminUserSetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo((lpszserver?.value ?: 0L).toString(), (lpszuser?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigBufferFree(pbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigBufferFree(pbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigBufferFree(pbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree((pbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigFilterGetInfo(hmprconfig: HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigFilterGetInfo(hmprconfig.toString(), dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigFilterGetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), dwtransportid.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigFilterSetInfo(hmprconfig: HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigFilterSetInfo(hmprconfig.toString(), dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigFilterSetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), dwtransportid.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigGetFriendlyName(hmprconfig: HANDLE, pszguidname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigGetFriendlyName(hmprconfig.toString(), pszguidname.toString(), pszbuffer.toString(), dwbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun mprConfigGetFriendlyName(hmprconfig: Handle, pszguidname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName((hmprconfig?.value ?: 0L).toString(), (pszguidname?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), dwbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigGetGuidName(hmprconfig: HANDLE, pszfriendlyname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigGetGuidName(hmprconfig.toString(), pszfriendlyname.toString(), pszbuffer.toString(), dwbuffersize.toInt()) as Int).toUInt() else 0u
+public actual fun mprConfigGetGuidName(hmprconfig: Handle, pszfriendlyname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName((hmprconfig?.value ?: 0L).toString(), (pszfriendlyname?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), dwbuffersize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceCreate(hmprconfig: HANDLE, dwlevel: UInt, lpbbuffer: Long, phrouterinterface: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceCreate(hmprconfig.toString(), dwlevel.toInt(), lpbbuffer.toString(), phrouterinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceCreate(hmprconfig: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?, phrouterinterface: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString(), (phrouterinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceDelete(hmprconfig: HANDLE, hrouterinterface: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceDelete(hmprconfig.toString(), hrouterinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceDelete(hmprconfig: Handle, hrouterinterface: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceEnum(hmprconfig: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceEnum(hmprconfig.toString(), dwlevel.toInt(), lplpbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceGetCustomInfoEx(hmprconfig: HANDLE, hrouterinterface: HANDLE, pcustominfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetCustomInfoEx(hmprconfig.toString(), hrouterinterface.toString(), pcustominfo.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceGetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceGetHandle(hmprconfig: HANDLE, lpwsinterfacename: PCWSTR, phrouterinterface: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetHandle(hmprconfig.toString(), lpwsinterfacename.toString(), phrouterinterface.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceGetHandle(hmprconfig: Handle, lpwsinterfacename: Pcwstr, phrouterinterface: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle((hmprconfig?.value ?: 0L).toString(), (lpwsinterfacename?.value ?: 0L).toString(), (phrouterinterface?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceGetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lplpbuffer: Long, lpdwbuffersize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetInfo(hmprconfig.toString(), hrouterinterface.toString(), dwlevel.toInt(), lplpbuffer.toString(), lpdwbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceGetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, lpdwbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceSetCustomInfoEx(hmprconfig: HANDLE, hrouterinterface: HANDLE, pcustominfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetCustomInfoEx(hmprconfig.toString(), hrouterinterface.toString(), pcustominfo.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceSetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (pcustominfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceSetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetInfo(hmprconfig.toString(), hrouterinterface.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceSetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportAdd(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pinterfaceinfo: Long, dwinterfaceinfosize: UInt, phrouteriftransport: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportAdd(hmprconfig.toString(), hrouterinterface.toString(), dwtransportid.toInt(), lpwstransportname.toString(), pinterfaceinfo.toString(), dwinterfaceinfosize.toInt(), phrouteriftransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportAdd(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt, phrouteriftransport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt(), (phrouteriftransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportEnum(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportEnum(hmprconfig.toString(), hrouterinterface.toString(), dwlevel.toInt(), lplpbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportEnum(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportGetHandle(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwtransportid: UInt, phrouteriftransport: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportGetHandle(hmprconfig.toString(), hrouterinterface.toString(), dwtransportid.toInt(), phrouteriftransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportGetHandle(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, phrouteriftransport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), dwtransportid.toInt(), (phrouteriftransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportGetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportGetInfo(hmprconfig.toString(), hrouterinterface.toString(), hrouteriftransport.toString(), ppinterfaceinfo.toString(), lpdwinterfaceinfosize.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportGetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, ppinterfaceinfo: COpaquePointer?, lpdwinterfaceinfosize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString(), (ppinterfaceinfo?.value ?: 0L).toString(), (lpdwinterfaceinfosize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportRemove(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportRemove(hmprconfig.toString(), hrouterinterface.toString(), hrouteriftransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportRemove(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigInterfaceTransportSetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportSetInfo(hmprconfig.toString(), hrouterinterface.toString(), hrouteriftransport.toString(), pinterfaceinfo.toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else 0u
+public actual fun mprConfigInterfaceTransportSetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, pinterfaceinfo: COpaquePointer?, dwinterfaceinfosize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo((hmprconfig?.value ?: 0L).toString(), (hrouterinterface?.value ?: 0L).toString(), (hrouteriftransport?.value ?: 0L).toString(), (pinterfaceinfo?.value ?: 0L).toString(), dwinterfaceinfosize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerBackup(hmprconfig: HANDLE, lpwspath: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerBackup(hmprconfig.toString(), lpwspath.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerBackup(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup((hmprconfig?.value ?: 0L).toString(), (lpwspath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerConnect(lpwsservername: PCWSTR, phmprconfig: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerConnect(lpwsservername.toString(), phmprconfig.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect((lpwsservername?.value ?: 0L).toString(), (phmprconfig?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerDisconnect(hmprconfig: HANDLE) {
+public actual fun mprConfigServerDisconnect(hmprconfig: Handle) {
     if (_windowsWin32NetworkmanagementRrasNapiAddon != null) {
-        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerDisconnect(hmprconfig.toString())
+        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect((hmprconfig?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun MprConfigServerGetInfo(hmprconfig: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfo(hmprconfig.toString(), dwlevel.toInt(), lplpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerGetInfoEx(hmprconfig: HANDLE, pserverinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfoEx(hmprconfig.toString(), pserverinfo.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerGetInfoEx(hmprconfig: Handle, pserverinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx((hmprconfig?.value ?: 0L).toString(), (pserverinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerInstall(dwlevel: UInt, pbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerInstall(dwlevel.toInt(), pbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerInstall(dwlevel: UInt, pbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall(dwlevel.toInt(), (pbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerRefresh(hmprconfig: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerRefresh(hmprconfig.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerRefresh(hmprconfig: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh((hmprconfig?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerRestore(hmprconfig: HANDLE, lpwspath: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerRestore(hmprconfig.toString(), lpwspath.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerRestore(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore((hmprconfig?.value ?: 0L).toString(), (lpwspath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfo(hmprserver.toString(), dwlevel.toInt(), lpbbuffer.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo(hmprserver.toString(), dwlevel.toInt(), (lpbbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigServerSetInfoEx(hmprconfig: HANDLE, psetserverconfig: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfoEx(hmprconfig.toString(), psetserverconfig.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigServerSetInfoEx(hmprconfig: Handle, psetserverconfig: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx((hmprconfig?.value ?: 0L).toString(), (psetserverconfig?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportCreate(hmprconfig: HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR, phroutertransport: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportCreate(hmprconfig.toString(), dwtransportid.toInt(), lpwstransportname.toString(), pglobalinfo.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.toString(), phroutertransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportCreate(hmprconfig: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr, phroutertransport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate((hmprconfig?.value ?: 0L).toString(), dwtransportid.toInt(), (lpwstransportname?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString(), (phroutertransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportDelete(hmprconfig: HANDLE, hroutertransport: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportDelete(hmprconfig.toString(), hroutertransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportDelete(hmprconfig: Handle, hroutertransport: Handle): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportEnum(hmprconfig: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportEnum(hmprconfig.toString(), dwlevel.toInt(), lplpbuffer.toString(), dwprefmaxlen.toInt(), lpdwentriesread.toString(), lpdwtotalentries.toString(), lpdwresumehandle.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: COpaquePointer?, dwprefmaxlen: UInt, lpdwentriesread: COpaquePointer?, lpdwtotalentries: COpaquePointer?, lpdwresumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum((hmprconfig?.value ?: 0L).toString(), dwlevel.toInt(), (lplpbuffer?.value ?: 0L).toString(), dwprefmaxlen.toInt(), (lpdwentriesread?.value ?: 0L).toString(), (lpdwtotalentries?.value ?: 0L).toString(), (lpdwresumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportGetHandle(hmprconfig: HANDLE, dwtransportid: UInt, phroutertransport: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetHandle(hmprconfig.toString(), dwtransportid.toInt(), phroutertransport.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportGetHandle(hmprconfig: Handle, dwtransportid: UInt, phroutertransport: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle((hmprconfig?.value ?: 0L).toString(), dwtransportid.toInt(), (phroutertransport?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportGetInfo(hmprconfig: HANDLE, hroutertransport: HANDLE, ppglobalinfo: Long, lpdwglobalinfosize: Long, ppclientinterfaceinfo: Long, lpdwclientinterfaceinfosize: Long, lplpwsdllpath: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetInfo(hmprconfig.toString(), hroutertransport.toString(), ppglobalinfo.toString(), lpdwglobalinfosize.toString(), ppclientinterfaceinfo.toString(), lpdwclientinterfaceinfosize.toString(), lplpwsdllpath.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportGetInfo(hmprconfig: Handle, hroutertransport: Handle, ppglobalinfo: COpaquePointer?, lpdwglobalinfosize: COpaquePointer?, ppclientinterfaceinfo: COpaquePointer?, lpdwclientinterfaceinfosize: COpaquePointer?, lplpwsdllpath: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString(), (ppglobalinfo?.value ?: 0L).toString(), (lpdwglobalinfosize?.value ?: 0L).toString(), (ppclientinterfaceinfo?.value ?: 0L).toString(), (lpdwclientinterfaceinfosize?.value ?: 0L).toString(), (lplpwsdllpath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprConfigTransportSetInfo(hmprconfig: HANDLE, hroutertransport: HANDLE, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprConfigTransportSetInfo(hmprconfig.toString(), hroutertransport.toString(), pglobalinfo.toString(), dwglobalinfosize.toInt(), pclientinterfaceinfo.toString(), dwclientinterfaceinfosize.toInt(), lpwsdllpath.toString()) as Int).toUInt() else 0u
+public actual fun mprConfigTransportSetInfo(hmprconfig: Handle, hroutertransport: Handle, pglobalinfo: COpaquePointer?, dwglobalinfosize: UInt, pclientinterfaceinfo: COpaquePointer?, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo((hmprconfig?.value ?: 0L).toString(), (hroutertransport?.value ?: 0L).toString(), (pglobalinfo?.value ?: 0L).toString(), dwglobalinfosize.toInt(), (pclientinterfaceinfo?.value ?: 0L).toString(), dwclientinterfaceinfosize.toInt(), (lpwsdllpath?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoBlockAdd(lpheader: Long, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: Long, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoBlockAdd(lpheader.toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.toString(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoBlockAdd(lpheader: COpaquePointer?, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), (lpitemdata?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoBlockFind(lpheader: Long, dwinfotype: UInt, lpdwitemsize: Long, lpdwitemcount: Long, lplpitemdata: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoBlockFind(lpheader.toString(), dwinfotype.toInt(), lpdwitemsize.toString(), lpdwitemcount.toString(), lplpitemdata.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoBlockFind(lpheader: COpaquePointer?, dwinfotype: UInt, lpdwitemsize: COpaquePointer?, lpdwitemcount: COpaquePointer?, lplpitemdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), (lpdwitemsize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (lplpitemdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoBlockQuerySize(lpheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoBlockQuerySize(lpheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoBlockQuerySize(lpheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize((lpheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoBlockRemove(lpheader: Long, dwinfotype: UInt, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoBlockRemove(lpheader.toString(), dwinfotype.toInt(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoBlockRemove(lpheader: COpaquePointer?, dwinfotype: UInt, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoBlockSet(lpheader: Long, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: Long, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoBlockSet(lpheader.toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.toString(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoBlockSet(lpheader: COpaquePointer?, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet((lpheader?.value ?: 0L).toString(), dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), (lpitemdata?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoCreate(dwversion: UInt, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoCreate(dwversion.toInt(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoCreate(dwversion: UInt, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoCreate(dwversion.toInt(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoDelete(lpheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoDelete(lpheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoDelete(lpheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoDelete((lpheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoDuplicate(lpheader: Long, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoDuplicate(lpheader.toString(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoDuplicate(lpheader: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate((lpheader?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MprInfoRemoveAll(lpheader: Long, lplpnewheader: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_MprInfoRemoveAll(lpheader.toString(), lplpnewheader.toString()) as Int).toUInt() else 0u
+public actual fun mprInfoRemoveAll(lpheader: COpaquePointer?, lplpnewheader: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll((lpheader?.value ?: 0L).toString(), (lplpnewheader?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasClearConnectionStatistics(hrasconn: HRASCONN): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasClearConnectionStatistics(hrasconn.toString()) as Int).toUInt() else 0u
+public actual fun rasClearConnectionStatistics(hrasconn: Hrasconn): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics((hrasconn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasClearLinkStatistics(hrasconn.toString(), dwsubentry.toInt()) as Int).toUInt() else 0u
+public actual fun rasClearLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics((hrasconn?.value ?: 0L).toString(), dwsubentry.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasConnectionNotificationA(param0: HRASCONN, param1: HANDLE, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificationA(param0.toString(), param1.toString(), param2.toInt()) as Int).toUInt() else 0u
+public actual fun rasConnectionNotificationA(param0: Hrasconn, param1: Handle, param2: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasConnectionNotificationW(param0: HRASCONN, param1: HANDLE, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificationW(param0.toString(), param1.toString(), param2.toInt()) as Int).toUInt() else 0u
+public actual fun rasConnectionNotificationW(param0: Hrasconn, param1: Handle, param2: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasCreatePhonebookEntryA(param0: HWND, param1: PCSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntryA(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasCreatePhonebookEntryA(param0: Hwnd, param1: Pcstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasCreatePhonebookEntryW(param0: HWND, param1: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntryW(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasCreatePhonebookEntryW(param0: Hwnd, param1: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDeleteEntryA(param0: PCSTR, param1: PCSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryA(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasDeleteEntryA(param0: Pcstr, param1: Pcstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDeleteEntryW(param0: PCWSTR, param1: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryW(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasDeleteEntryW(param0: Pcwstr, param1: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDeleteSubEntryA(pszphonebook: PCSTR, pszentry: PCSTR, dwsubentryid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryA(pszphonebook.toString(), pszentry.toString(), dwsubentryid.toInt()) as Int).toUInt() else 0u
+public actual fun rasDeleteSubEntryA(pszphonebook: Pcstr, pszentry: Pcstr, dwsubentryid: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwsubentryid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDeleteSubEntryW(pszphonebook: PCWSTR, pszentry: PCWSTR, dwsubentryid: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryW(pszphonebook.toString(), pszentry.toString(), dwsubentryid.toInt()) as Int).toUInt() else 0u
+public actual fun rasDeleteSubEntryW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwsubentryid: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwsubentryid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDialA(param0: Long, param1: PCSTR, param2: Long, param3: UInt, param4: Long, param5: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDialA(param0.toString(), param1.toString(), param2.toString(), param3.toInt(), param4.toString(), param5.toString()) as Int).toUInt() else 0u
+public actual fun rasDialA(param0: COpaquePointer?, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDialA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDialDlgA(lpszphonebook: PCSTR, lpszentry: PCSTR, lpszphonenumber: PCSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDialDlgA(lpszphonebook.toString(), lpszentry.toString(), lpszphonenumber.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasDialDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpszphonenumber: Pcstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDialDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpszphonenumber?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDialDlgW(lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpszphonenumber: PCWSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDialDlgW(lpszphonebook.toString(), lpszentry.toString(), lpszphonenumber.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasDialDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDialDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpszphonenumber?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasDialW(param0: Long, param1: PCWSTR, param2: Long, param3: UInt, param4: Long, param5: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasDialW(param0.toString(), param1.toString(), param2.toString(), param3.toInt(), param4.toString(), param5.toString()) as Int).toUInt() else 0u
+public actual fun rasDialW(param0: COpaquePointer?, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasDialW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEditPhonebookEntryA(param0: HWND, param1: PCSTR, param2: PCSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEditPhonebookEntryA(param0: Hwnd, param1: Pcstr, param2: Pcstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEditPhonebookEntryW(param0: HWND, param1: PCWSTR, param2: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEditPhonebookEntryW(param0: Hwnd, param1: Pcwstr, param2: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEntryDlgA(lpszphonebook: PCSTR, lpszentry: PCSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEntryDlgA(lpszphonebook.toString(), lpszentry.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasEntryDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEntryDlgW(lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEntryDlgW(lpszphonebook.toString(), lpszentry.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasEntryDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumAutodialAddressesA(lpprasautodialaddresses: Long, lpdwcbrasautodialaddresses: Long, lpdwcrasautodialaddresses: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddressesA(lpprasautodialaddresses.toString(), lpdwcbrasautodialaddresses.toString(), lpdwcrasautodialaddresses.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumAutodialAddressesA(lpprasautodialaddresses: COpaquePointer?, lpdwcbrasautodialaddresses: COpaquePointer?, lpdwcrasautodialaddresses: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA((lpprasautodialaddresses?.value ?: 0L).toString(), (lpdwcbrasautodialaddresses?.value ?: 0L).toString(), (lpdwcrasautodialaddresses?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumAutodialAddressesW(lpprasautodialaddresses: Long, lpdwcbrasautodialaddresses: Long, lpdwcrasautodialaddresses: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddressesW(lpprasautodialaddresses.toString(), lpdwcbrasautodialaddresses.toString(), lpdwcrasautodialaddresses.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumAutodialAddressesW(lpprasautodialaddresses: COpaquePointer?, lpdwcbrasautodialaddresses: COpaquePointer?, lpdwcrasautodialaddresses: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW((lpprasautodialaddresses?.value ?: 0L).toString(), (lpdwcbrasautodialaddresses?.value ?: 0L).toString(), (lpdwcrasautodialaddresses?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumConnectionsA(param0: Long, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumConnectionsA(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumConnectionsW(param0: Long, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumConnectionsW(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumDevicesA(param0: Long, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumDevicesA(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumDevicesW(param0: Long, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumDevicesW(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumEntriesA(param0: PCSTR, param1: PCSTR, param2: Long, param3: Long, param4: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesA(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasEnumEntriesW(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: Long, param4: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesW(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString()) as Int).toUInt() else 0u
+public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasFreeEapUserIdentityA(praseapuseridentity: Long) {
+public actual fun rasFreeEapUserIdentityA(praseapuseridentity: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementRrasNapiAddon != null) {
-        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityA(praseapuseridentity.toString())
+        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA((praseapuseridentity?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RasFreeEapUserIdentityW(praseapuseridentity: Long) {
+public actual fun rasFreeEapUserIdentityW(praseapuseridentity: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementRrasNapiAddon != null) {
-        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityW(praseapuseridentity.toString())
+        _windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW((praseapuseridentity?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RasGetAutodialAddressA(param0: PCSTR, param1: Long, param2: Long, param3: Long, param4: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressA(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetAutodialAddressW(param0: PCWSTR, param1: Long, param2: Long, param3: Long, param4: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressW(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialAddressW(param0: Pcwstr, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetAutodialEnableA(param0: UInt, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableA(param0.toInt(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialEnableA(param0: UInt, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA(param0.toInt(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetAutodialEnableW(param0: UInt, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableW(param0.toInt(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialEnableW(param0: UInt, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW(param0.toInt(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetAutodialParamA(param0: UInt, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamA(param0.toInt(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialParamA(param0: UInt, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA(param0.toInt(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetAutodialParamW(param0: UInt, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamW(param0.toInt(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetAutodialParamW(param0: UInt, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW(param0.toInt(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetConnectStatusA(param0: HRASCONN, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusA(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetConnectStatusA(param0: Hrasconn, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetConnectStatusW(param0: HRASCONN, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusW(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetConnectStatusW(param0: Hrasconn, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetConnectionStatistics(hrasconn.toString(), lpstatistics.toString()) as Int).toUInt() else 0u
+public actual fun rasGetConnectionStatistics(hrasconn: Hrasconn, lpstatistics: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics((hrasconn?.value ?: 0L).toString(), (lpstatistics?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCountryInfoA(param0: Long, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoA(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCountryInfoA(param0: COpaquePointer?, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCountryInfoW(param0: Long, param1: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoW(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCountryInfoW(param0: COpaquePointer?, param1: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCredentialsA(param0: PCSTR, param1: PCSTR, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCredentialsA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCredentialsW(param0: PCWSTR, param1: PCWSTR, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCustomAuthDataA(pszphonebook: PCSTR, pszentry: PCSTR, pbcustomauthdata: Long, pdwsizeofcustomauthdata: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataA(pszphonebook.toString(), pszentry.toString(), pbcustomauthdata.toString(), pdwsizeofcustomauthdata.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: COpaquePointer?, pdwsizeofcustomauthdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), (pdwsizeofcustomauthdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetCustomAuthDataW(pszphonebook: PCWSTR, pszentry: PCWSTR, pbcustomauthdata: Long, pdwsizeofcustomauthdata: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataW(pszphonebook.toString(), pszentry.toString(), pbcustomauthdata.toString(), pdwsizeofcustomauthdata.toString()) as Int).toUInt() else 0u
+public actual fun rasGetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: COpaquePointer?, pdwsizeofcustomauthdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), (pdwsizeofcustomauthdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEapUserDataA(htoken: HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataA(htoken.toString(), pszphonebook.toString(), pszentry.toString(), pbeapdata.toString(), pdwsizeofeapdata.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: COpaquePointer?, pdwsizeofeapdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), (pdwsizeofeapdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEapUserDataW(htoken: HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataW(htoken.toString(), pszphonebook.toString(), pszentry.toString(), pbeapdata.toString(), pdwsizeofeapdata.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: COpaquePointer?, pdwsizeofeapdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), (pdwsizeofeapdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEapUserIdentityA(pszphonebook: PCSTR, pszentry: PCSTR, dwflags: UInt, hwnd: HWND, ppraseapuseridentity: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityA(pszphonebook.toString(), pszentry.toString(), dwflags.toInt(), hwnd.toString(), ppraseapuseridentity.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEapUserIdentityA(pszphonebook: Pcstr, pszentry: Pcstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (ppraseapuseridentity?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEapUserIdentityW(pszphonebook: PCWSTR, pszentry: PCWSTR, dwflags: UInt, hwnd: HWND, ppraseapuseridentity: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityW(pszphonebook.toString(), pszentry.toString(), dwflags.toInt(), hwnd.toString(), ppraseapuseridentity.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEapUserIdentityW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (ppraseapuseridentity?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEntryDialParamsA(param0: PCSTR, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEntryDialParamsA(param0: Pcstr, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEntryDialParamsW(param0: PCWSTR, param1: Long, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEntryDialParamsW(param0: Pcwstr, param1: COpaquePointer?, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEntryPropertiesA(param0: PCSTR, param1: PCSTR, param2: Long, param3: Long, param4: Long, param5: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesA(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString(), param5.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetEntryPropertiesW(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: Long, param4: Long, param5: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesW(param0.toString(), param1.toString(), param2.toString(), param3.toString(), param4.toString(), param5.toString()) as Int).toUInt() else 0u
+public actual fun rasGetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetErrorStringA(resourceid: UInt, lpszstring: PSTR, inbufsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringA(resourceid.toInt(), lpszstring.toString(), inbufsize.toInt()) as Int).toUInt() else 0u
+public actual fun rasGetErrorStringA(resourceid: UInt, lpszstring: Pstr, inbufsize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA(resourceid.toInt(), (lpszstring?.value ?: 0L).toString(), inbufsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetErrorStringW(resourceid: UInt, lpszstring: PWSTR, inbufsize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringW(resourceid.toInt(), lpszstring.toString(), inbufsize.toInt()) as Int).toUInt() else 0u
+public actual fun rasGetErrorStringW(resourceid: UInt, lpszstring: Pwstr, inbufsize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW(resourceid.toInt(), (lpszstring?.value ?: 0L).toString(), inbufsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: UInt, lpstatistics: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetLinkStatistics(hrasconn.toString(), dwsubentry.toInt(), lpstatistics.toString()) as Int).toUInt() else 0u
+public actual fun rasGetLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt, lpstatistics: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics((hrasconn?.value ?: 0L).toString(), dwsubentry.toInt(), (lpstatistics?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetPCscf(lpszpcscf: PWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetPCscf(lpszpcscf.toString()) as Int).toUInt() else 0u
+public actual fun rasGetPCscf(lpszpcscf: Pwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetPCscf((lpszpcscf?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: Long, param3: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoA(param0.toString(), param1, param2.toString(), param3.toString()) as Int).toUInt() else 0u
+public actual fun rasGetProjectionInfoA(param0: Hrasconn, param1: Rasprojection, param2: COpaquePointer?, param3: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA((param0?.value ?: 0L).toString(), param1, (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: Long, lpdwsize: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoEx(hrasconn.toString(), prasprojection.toString(), lpdwsize.toString()) as Int).toUInt() else 0u
+public actual fun rasGetProjectionInfoEx(hrasconn: Hrasconn, prasprojection: COpaquePointer?, lpdwsize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx((hrasconn?.value ?: 0L).toString(), (prasprojection?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: Long, param3: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoW(param0.toString(), param1, param2.toString(), param3.toString()) as Int).toUInt() else 0u
+public actual fun rasGetProjectionInfoW(param0: Hrasconn, param1: Rasprojection, param2: COpaquePointer?, param3: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW((param0?.value ?: 0L).toString(), param1, (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetSubEntryHandleA(param0: HRASCONN, param1: UInt, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleA(param0.toString(), param1.toInt(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetSubEntryHandleA(param0: Hrasconn, param1: UInt, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetSubEntryHandleW(param0: HRASCONN, param1: UInt, param2: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleW(param0.toString(), param1.toInt(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasGetSubEntryHandleW(param0: Hrasconn, param1: UInt, param2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetSubEntryPropertiesA(param0: PCSTR, param1: PCSTR, param2: UInt, param3: Long, param4: Long, param5: Long, param6: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertiesA(param0.toString(), param1.toString(), param2.toInt(), param3.toString(), param4.toString(), param5.toString(), param6.toString()) as Int).toUInt() else 0u
+public actual fun rasGetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?, param6: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString(), (param6?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasGetSubEntryPropertiesW(param0: PCWSTR, param1: PCWSTR, param2: UInt, param3: Long, param4: Long, param5: Long, param6: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertiesW(param0.toString(), param1.toString(), param2.toInt(), param3.toString(), param4.toString(), param5.toString(), param6.toString()) as Int).toUInt() else 0u
+public actual fun rasGetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: COpaquePointer?, param6: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), (param4?.value ?: 0L).toString(), (param5?.value ?: 0L).toString(), (param6?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasHangUpA(param0: HRASCONN): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasHangUpA(param0.toString()) as Int).toUInt() else 0u
+public actual fun rasHangUpA(param0: Hrasconn): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasHangUpA((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasHangUpW(param0: HRASCONN): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasHangUpW(param0.toString()) as Int).toUInt() else 0u
+public actual fun rasHangUpW(param0: Hrasconn): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasHangUpW((param0?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasInvokeEapUI(param0: HRASCONN, param1: UInt, param2: Long, param3: HWND): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasInvokeEapUI(param0.toString(), param1.toInt(), param2.toString(), param3.toString()) as Int).toUInt() else 0u
+public actual fun rasInvokeEapUI(param0: Hrasconn, param1: UInt, param2: COpaquePointer?, param3: Hwnd): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), (param3?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasPhonebookDlgA(lpszphonebook: PCSTR, lpszentry: PCSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgA(lpszphonebook.toString(), lpszentry.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasPhonebookDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasPhonebookDlgW(lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpinfo: Long): BOOL =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgW(lpszphonebook.toString(), lpszentry.toString(), lpinfo.toString()) as Int) else 0
+public actual fun rasPhonebookDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW((lpszphonebook?.value ?: 0L).toString(), (lpszentry?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasRenameEntryA(param0: PCSTR, param1: PCSTR, param2: PCSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasRenameEntryA(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasRenameEntryA(param0: Pcstr, param1: Pcstr, param2: Pcstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasRenameEntryW(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasRenameEntryW(param0.toString(), param1.toString(), param2.toString()) as Int).toUInt() else 0u
+public actual fun rasRenameEntryW(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialAddressA(param0: PCSTR, param1: UInt, param2: Long, param3: UInt, param4: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressA(param0.toString(), param1.toInt(), param2.toString(), param3.toInt(), param4.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetAutodialAddressA(param0: Pcstr, param1: UInt, param2: COpaquePointer?, param3: UInt, param4: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), param3.toInt(), param4.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialAddressW(param0: PCWSTR, param1: UInt, param2: Long, param3: UInt, param4: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressW(param0.toString(), param1.toInt(), param2.toString(), param3.toInt(), param4.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetAutodialAddressW(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: UInt, param4: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString(), param3.toInt(), param4.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialEnableA(param0: UInt, param1: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableA(param0.toInt(), param1) as Int).toUInt() else 0u
+public actual fun rasSetAutodialEnableA(param0: UInt, param1: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA(param0.toInt(), param1) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialEnableW(param0: UInt, param1: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableW(param0.toInt(), param1) as Int).toUInt() else 0u
+public actual fun rasSetAutodialEnableW(param0: UInt, param1: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW(param0.toInt(), param1) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialParamA(param0: UInt, param1: Long, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamA(param0.toInt(), param1.toString(), param2.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetAutodialParamA(param0: UInt, param1: COpaquePointer?, param2: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA(param0.toInt(), (param1?.value ?: 0L).toString(), param2.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetAutodialParamW(param0: UInt, param1: Long, param2: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamW(param0.toInt(), param1.toString(), param2.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetAutodialParamW(param0: UInt, param1: COpaquePointer?, param2: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW(param0.toInt(), (param1?.value ?: 0L).toString(), param2.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetCredentialsA(param0: PCSTR, param1: PCSTR, param2: Long, param3: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsA(param0.toString(), param1.toString(), param2.toString(), param3) as Int).toUInt() else 0u
+public actual fun rasSetCredentialsA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetCredentialsW(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsW(param0.toString(), param1.toString(), param2.toString(), param3) as Int).toUInt() else 0u
+public actual fun rasSetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetCustomAuthDataA(pszphonebook: PCSTR, pszentry: PCSTR, pbcustomauthdata: Long, dwsizeofcustomauthdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataA(pszphonebook.toString(), pszentry.toString(), pbcustomauthdata.toString(), dwsizeofcustomauthdata.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: COpaquePointer?, dwsizeofcustomauthdata: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), dwsizeofcustomauthdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetCustomAuthDataW(pszphonebook: PCWSTR, pszentry: PCWSTR, pbcustomauthdata: Long, dwsizeofcustomauthdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataW(pszphonebook.toString(), pszentry.toString(), pbcustomauthdata.toString(), dwsizeofcustomauthdata.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: COpaquePointer?, dwsizeofcustomauthdata: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW((pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbcustomauthdata?.value ?: 0L).toString(), dwsizeofcustomauthdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEapUserDataA(htoken: HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataA(htoken.toString(), pszphonebook.toString(), pszentry.toString(), pbeapdata.toString(), dwsizeofeapdata.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: COpaquePointer?, dwsizeofeapdata: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), dwsizeofeapdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEapUserDataW(htoken: HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataW(htoken.toString(), pszphonebook.toString(), pszentry.toString(), pbeapdata.toString(), dwsizeofeapdata.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: COpaquePointer?, dwsizeofeapdata: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW((htoken?.value ?: 0L).toString(), (pszphonebook?.value ?: 0L).toString(), (pszentry?.value ?: 0L).toString(), (pbeapdata?.value ?: 0L).toString(), dwsizeofeapdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEntryDialParamsA(param0: PCSTR, param1: Long, param2: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsA(param0.toString(), param1.toString(), param2) as Int).toUInt() else 0u
+public actual fun rasSetEntryDialParamsA(param0: Pcstr, param1: COpaquePointer?, param2: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEntryDialParamsW(param0: PCWSTR, param1: Long, param2: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsW(param0.toString(), param1.toString(), param2) as Int).toUInt() else 0u
+public actual fun rasSetEntryDialParamsW(param0: Pcwstr, param1: COpaquePointer?, param2: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEntryPropertiesA(param0: PCSTR, param1: PCSTR, param2: Long, param3: UInt, param4: Long, param5: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesA(param0.toString(), param1.toString(), param2.toString(), param3.toInt(), param4.toString(), param5.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), param5.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetEntryPropertiesW(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: UInt, param4: Long, param5: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesW(param0.toString(), param1.toString(), param2.toString(), param3.toInt(), param4.toString(), param5.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString(), param3.toInt(), (param4?.value ?: 0L).toString(), param5.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetSubEntryPropertiesA(param0: PCSTR, param1: PCSTR, param2: UInt, param3: Long, param4: UInt, param5: Long, param6: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertiesA(param0.toString(), param1.toString(), param2.toInt(), param3.toString(), param4.toInt(), param5.toString(), param6.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?, param6: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), param4.toInt(), (param5?.value ?: 0L).toString(), param6.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasSetSubEntryPropertiesW(param0: PCWSTR, param1: PCWSTR, param2: UInt, param3: Long, param4: UInt, param5: Long, param6: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertiesW(param0.toString(), param1.toString(), param2.toInt(), param3.toString(), param4.toInt(), param5.toString(), param6.toInt()) as Int).toUInt() else 0u
+public actual fun rasSetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?, param6: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2.toInt(), (param3?.value ?: 0L).toString(), param4.toInt(), (param5?.value ?: 0L).toString(), param6.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasUpdateConnection(hrasconn.toString(), lprasupdateconn.toString()) as Int).toUInt() else 0u
+public actual fun rasUpdateConnection(hrasconn: Hrasconn, lprasupdateconn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection((hrasconn?.value ?: 0L).toString(), (lprasupdateconn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasValidateEntryNameA(param0: PCSTR, param1: PCSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameA(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasValidateEntryNameA(param0: Pcstr, param1: Pcstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RasValidateEntryNameW(param0: PCWSTR, param1: PCWSTR): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameW(param0.toString(), param1.toString()) as Int).toUInt() else 0u
+public actual fun rasValidateEntryNameW(param0: Pcwstr, param1: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmAddNextHop(rtmreghandle: Long, nexthopinfo: Long, nexthophandle: Long, changeflags: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmAddNextHop(rtmreghandle.toString(), nexthopinfo.toString(), nexthophandle.toString(), changeflags.toString()) as Int).toUInt() else 0u
+public actual fun rtmAddNextHop(rtmreghandle: Long, nexthopinfo: COpaquePointer?, nexthophandle: COpaquePointer?, changeflags: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString(), (nexthophandle?.value ?: 0L).toString(), (changeflags?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmAddRouteToDest(rtmreghandle: Long, routehandle: Long, destaddress: Long, routeinfo: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmAddRouteToDest(rtmreghandle.toString(), routehandle.toString(), destaddress.toString(), routeinfo.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), changeflags.toString()) as Int).toUInt() else 0u
+public actual fun rtmAddRouteToDest(rtmreghandle: Long, routehandle: COpaquePointer?, destaddress: COpaquePointer?, routeinfo: COpaquePointer?, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest(rtmreghandle.toString(), (routehandle?.value ?: 0L).toString(), (destaddress?.value ?: 0L).toString(), (routeinfo?.value ?: 0L).toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), (changeflags?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmBlockMethods(rtmreghandle: Long, targethandle: HANDLE, targettype: UByte, blockingflag: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmBlockMethods(rtmreghandle.toString(), targethandle.toString(), targettype.toInt(), blockingflag.toInt()) as Int).toUInt() else 0u
+public actual fun rtmBlockMethods(rtmreghandle: Long, targethandle: Handle, targettype: UByte, blockingflag: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods(rtmreghandle.toString(), (targethandle?.value ?: 0L).toString(), targettype.toInt(), blockingflag.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: Long, address: IN6_ADDR, dwlength: UInt, dwaddresssize: UInt): UInt =
-    0u
+public actual fun rtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: COpaquePointer?, address: In6Addr, dwlength: UInt, dwaddresssize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: Long, paddress: Long, plength: Long, dwaddresssize: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress.toString(), paddress.toString(), plength.toString(), dwaddresssize.toInt()) as Int).toUInt() else 0u
+public actual fun rtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: COpaquePointer?, paddress: COpaquePointer?, plength: COpaquePointer?, dwaddresssize: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength((pnetaddress?.value ?: 0L).toString(), (paddress?.value ?: 0L).toString(), (plength?.value ?: 0L).toString(), dwaddresssize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: Long, protocolid: UInt, rtmenumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmCreateDestEnum(rtmreghandle.toString(), targetviews.toInt(), enumflags.toInt(), netaddress.toString(), protocolid.toInt(), rtmenumhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: COpaquePointer?, protocolid: UInt, rtmenumhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum(rtmreghandle.toString(), targetviews.toInt(), enumflags.toInt(), (netaddress?.value ?: 0L).toString(), protocolid.toInt(), (rtmenumhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: Long, rtmenumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmCreateNextHopEnum(rtmreghandle.toString(), enumflags.toInt(), netaddress.toString(), rtmenumhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: COpaquePointer?, rtmenumhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum(rtmreghandle.toString(), enumflags.toInt(), (netaddress?.value ?: 0L).toString(), (rtmenumhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: Long, matchingflags: UInt, criteriaroute: Long, criteriainterface: UInt, rtmenumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteEnum(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), enumflags.toInt(), startdest.toString(), matchingflags.toInt(), criteriaroute.toString(), criteriainterface.toInt(), rtmenumhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: COpaquePointer?, matchingflags: UInt, criteriaroute: COpaquePointer?, criteriainterface: UInt, rtmenumhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), enumflags.toInt(), (startdest?.value ?: 0L).toString(), matchingflags.toInt(), (criteriaroute?.value ?: 0L).toString(), criteriainterface.toInt(), (rtmenumhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmCreateRouteList(rtmreghandle: Long, routelisthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteList(rtmreghandle.toString(), routelisthandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmCreateRouteList(rtmreghandle: Long, routelisthandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList(rtmreghandle.toString(), (routelisthandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteListEnum(rtmreghandle.toString(), routelisthandle.toString(), rtmenumhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum(rtmreghandle.toString(), routelisthandle.toString(), (rtmenumhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeleteEnumHandle(rtmreghandle: Long, enumhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeleteEnumHandle(rtmreghandle.toString(), enumhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeleteEnumHandle(rtmreghandle: Long, enumhandle: Long): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle(rtmreghandle.toString(), enumhandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeleteNextHop(rtmreghandle.toString(), nexthophandle.toString(), nexthopinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop(rtmreghandle.toString(), nexthophandle.toString(), (nexthopinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeleteRouteList(rtmreghandle: Long, routelisthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteList(rtmreghandle.toString(), routelisthandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeleteRouteList(rtmreghandle: Long, routelisthandle: Long): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList(rtmreghandle.toString(), routelisthandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteToDest(rtmreghandle.toString(), routehandle.toString(), changeflags.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest(rtmreghandle.toString(), routehandle.toString(), (changeflags?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeregisterEntity(rtmreghandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeregisterEntity(rtmreghandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeregisterEntity(rtmreghandle: Long): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity(rtmreghandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmDeregisterFromChangeNotification(rtmreghandle: Long, notifyhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmDeregisterFromChangeNotification(rtmreghandle.toString(), notifyhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmDeregisterFromChangeNotification(rtmreghandle: Long, notifyhandle: Long): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification(rtmreghandle.toString(), notifyhandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmFindNextHop(rtmreghandle: Long, nexthopinfo: Long, nexthophandle: Long, nexthoppointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmFindNextHop(rtmreghandle.toString(), nexthopinfo.toString(), nexthophandle.toString(), nexthoppointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmFindNextHop(rtmreghandle: Long, nexthopinfo: COpaquePointer?, nexthophandle: COpaquePointer?, nexthoppointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString(), (nexthophandle?.value ?: 0L).toString(), (nexthoppointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetChangeStatus(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), changestatus.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), (changestatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: Long, changeddests: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toString(), changeddests.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: COpaquePointer?, changeddests: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests(rtmreghandle.toString(), notifyhandle.toString(), (numdests?.value ?: 0L).toString(), (changeddests?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetDestInfo(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetEntityInfo(rtmreghandle.toString(), entityhandle.toString(), entityinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo(rtmreghandle.toString(), entityhandle.toString(), (entityinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: Long, exptmethods: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetEntityMethods(rtmreghandle.toString(), entityhandle.toString(), nummethods.toString(), exptmethods.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: COpaquePointer?, exptmethods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods(rtmreghandle.toString(), entityhandle.toString(), (nummethods?.value ?: 0L).toString(), (exptmethods?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: Long, destinfos: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetEnumDests(rtmreghandle.toString(), enumhandle.toString(), numdests.toString(), destinfos.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: COpaquePointer?, destinfos: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests(rtmreghandle.toString(), enumhandle.toString(), (numdests?.value ?: 0L).toString(), (destinfos?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: Long, nexthophandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetEnumNextHops(rtmreghandle.toString(), enumhandle.toString(), numnexthops.toString(), nexthophandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: COpaquePointer?, nexthophandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops(rtmreghandle.toString(), enumhandle.toString(), (numnexthops?.value ?: 0L).toString(), (nexthophandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: Long, routehandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), numroutes.toString(), routehandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: COpaquePointer?, routehandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), (numroutes?.value ?: 0L).toString(), (routehandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetExactMatchDestination(rtmreghandle: Long, destaddress: Long, protocolid: UInt, targetviews: UInt, destinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchDestination(rtmreghandle.toString(), destaddress.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetExactMatchDestination(rtmreghandle: Long, destaddress: COpaquePointer?, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetExactMatchRoute(rtmreghandle: Long, destaddress: Long, matchingflags: UInt, routeinfo: Long, interfaceindex: UInt, targetviews: UInt, routehandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchRoute(rtmreghandle.toString(), destaddress.toString(), matchingflags.toInt(), routeinfo.toString(), interfaceindex.toInt(), targetviews.toInt(), routehandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetExactMatchRoute(rtmreghandle: Long, destaddress: COpaquePointer?, matchingflags: UInt, routeinfo: COpaquePointer?, interfaceindex: UInt, targetviews: UInt, routehandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), matchingflags.toInt(), (routeinfo?.value ?: 0L).toString(), interfaceindex.toInt(), targetviews.toInt(), (routehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetLessSpecificDestination(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination(rtmreghandle.toString(), desthandle.toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: Long, routehandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetListEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), numroutes.toString(), routehandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: COpaquePointer?, routehandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes(rtmreghandle.toString(), enumhandle.toString(), (numroutes?.value ?: 0L).toString(), (routehandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: Long, protocolid: UInt, targetviews: UInt, destinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetMostSpecificDestination(rtmreghandle.toString(), destaddress.toString(), protocolid.toInt(), targetviews.toInt(), destinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: COpaquePointer?, protocolid: UInt, targetviews: UInt, destinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination(rtmreghandle.toString(), (destaddress?.value ?: 0L).toString(), protocolid.toInt(), targetviews.toInt(), (destinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopInfo(rtmreghandle.toString(), nexthophandle.toString(), nexthopinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo(rtmreghandle.toString(), nexthophandle.toString(), (nexthopinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopPointer(rtmreghandle.toString(), nexthophandle.toString(), nexthoppointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer(rtmreghandle.toString(), nexthophandle.toString(), (nexthoppointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetOpaqueInformationPointer(rtmreghandle.toString(), desthandle.toString(), opaqueinfopointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer(rtmreghandle.toString(), desthandle.toString(), (opaqueinfopointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetRegisteredEntities(rtmreghandle: Long, numentities: Long, entityhandles: Long, entityinfos: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetRegisteredEntities(rtmreghandle.toString(), numentities.toString(), entityhandles.toString(), entityinfos.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetRegisteredEntities(rtmreghandle: Long, numentities: COpaquePointer?, entityhandles: COpaquePointer?, entityinfos: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities(rtmreghandle.toString(), (numentities?.value ?: 0L).toString(), (entityhandles?.value ?: 0L).toString(), (entityinfos?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: Long, destaddress: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetRouteInfo(rtmreghandle.toString(), routehandle.toString(), routeinfo.toString(), destaddress.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: COpaquePointer?, destaddress: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo(rtmreghandle.toString(), routehandle.toString(), (routeinfo?.value ?: 0L).toString(), (destaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmGetRoutePointer(rtmreghandle.toString(), routehandle.toString(), routepointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer(rtmreghandle.toString(), routehandle.toString(), (routepointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmHoldDestination(rtmreghandle: Long, desthandle: Long, targetviews: UInt, holdtime: UInt): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmHoldDestination(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), holdtime.toInt()) as Int).toUInt() else 0u
+public actual fun rtmHoldDestination(rtmreghandle: Long, desthandle: Long, targetviews: UInt, holdtime: UInt): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination(rtmreghandle.toString(), desthandle.toString(), targetviews.toInt(), holdtime.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmIgnoreChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), changeddests.toString()) as Int).toUInt() else 0u
+public actual fun rtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), (changeddests?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmInsertInRouteList(rtmreghandle.toString(), routelisthandle.toString(), numroutes.toInt(), routehandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList(rtmreghandle.toString(), routelisthandle.toString(), numroutes.toInt(), (routehandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: Long, outputsize: Long, output: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmInvokeMethod(rtmreghandle.toString(), entityhandle.toString(), input.toString(), outputsize.toString(), output.toString()) as Int).toUInt() else 0u
+public actual fun rtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: COpaquePointer?, outputsize: COpaquePointer?, output: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod(rtmreghandle.toString(), entityhandle.toString(), (input?.value ?: 0L).toString(), (outputsize?.value ?: 0L).toString(), (output?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmIsBestRoute(rtmreghandle.toString(), routehandle.toString(), bestinviews.toString()) as Int).toUInt() else 0u
+public actual fun rtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute(rtmreghandle.toString(), routehandle.toString(), (bestinviews?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmIsMarkedForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), destmarked.toString()) as Int).toUInt() else 0u
+public actual fun rtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), (destmarked?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmLockDestination(rtmreghandle: Long, desthandle: Long, exclusive: BOOL, lockdest: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmLockDestination(rtmreghandle.toString(), desthandle.toString(), exclusive, lockdest) as Int).toUInt() else 0u
+public actual fun rtmLockDestination(rtmreghandle: Long, desthandle: Long, exclusive: Bool, lockdest: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmLockDestination(rtmreghandle.toString(), desthandle.toString(), exclusive, lockdest) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: BOOL, locknexthop: BOOL, nexthoppointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmLockNextHop(rtmreghandle.toString(), nexthophandle.toString(), exclusive, locknexthop, nexthoppointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: Bool, locknexthop: Bool, nexthoppointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop(rtmreghandle.toString(), nexthophandle.toString(), exclusive, locknexthop, (nexthoppointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: BOOL, lockroute: BOOL, routepointer: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmLockRoute(rtmreghandle.toString(), routehandle.toString(), exclusive, lockroute, routepointer.toString()) as Int).toUInt() else 0u
+public actual fun rtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: Bool, lockroute: Bool, routepointer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmLockRoute(rtmreghandle.toString(), routehandle.toString(), exclusive, lockroute, (routepointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmMarkDestForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, markdest: BOOL): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmMarkDestForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), markdest) as Int).toUInt() else 0u
+public actual fun rtmMarkDestForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, markdest: Bool): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification(rtmreghandle.toString(), notifyhandle.toString(), desthandle.toString(), markdest) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReferenceHandles(rtmreghandle.toString(), numhandles.toInt(), rtmhandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles(rtmreghandle.toString(), numhandles.toInt(), (rtmhandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmRegisterEntity(rtmentityinfo: Long, exportmethods: Long, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: BOOL, rtmregprofile: Long, rtmreghandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmRegisterEntity(rtmentityinfo.toString(), exportmethods.toString(), eventcallback.toLong().toString(), reserveopaquepointer, rtmregprofile.toString(), rtmreghandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmRegisterEntity(rtmentityinfo: COpaquePointer?, exportmethods: COpaquePointer?, eventcallback: RtmEventCallback, reserveopaquepointer: Bool, rtmregprofile: COpaquePointer?, rtmreghandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity((rtmentityinfo?.value ?: 0L).toString(), (exportmethods?.value ?: 0L).toString(), 0L.toString(), reserveopaquepointer, (rtmregprofile?.value ?: 0L).toString(), (rtmreghandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: Long, notifyhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmRegisterForChangeNotification(rtmreghandle.toString(), targetviews.toInt(), notifyflags.toInt(), notifycontext.toString(), notifyhandle.toString()) as Int).toUInt() else 0u
+public actual fun rtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: COpaquePointer?, notifyhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification(rtmreghandle.toString(), targetviews.toInt(), notifyflags.toInt(), (notifycontext?.value ?: 0L).toString(), (notifyhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), changeddests.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests(rtmreghandle.toString(), notifyhandle.toString(), numdests.toInt(), (changeddests?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseDestInfo(rtmreghandle: Long, destinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseDestInfo(rtmreghandle.toString(), destinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseDestInfo(rtmreghandle: Long, destinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo(rtmreghandle.toString(), (destinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseDests(rtmreghandle.toString(), numdests.toInt(), destinfos.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests(rtmreghandle.toString(), numdests.toInt(), (destinfos?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntities(rtmreghandle.toString(), numentities.toInt(), entityhandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities(rtmreghandle.toString(), numentities.toInt(), (entityhandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntityInfo(rtmreghandle.toString(), entityinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo(rtmreghandle.toString(), (entityinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHopInfo(rtmreghandle.toString(), nexthopinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo(rtmreghandle.toString(), (nexthopinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHops(rtmreghandle.toString(), numnexthops.toInt(), nexthophandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops(rtmreghandle.toString(), numnexthops.toInt(), (nexthophandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseRouteInfo(rtmreghandle.toString(), routeinfo.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo(rtmreghandle.toString(), (routeinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmReleaseRoutes(rtmreghandle.toString(), numroutes.toInt(), routehandles.toString()) as Int).toUInt() else 0u
+public actual fun rtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes(rtmreghandle.toString(), numroutes.toInt(), (routehandles?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: Long): UInt =
-    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_RtmUpdateAndUnlockRoute(rtmreghandle.toString(), routehandle.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), changeflags.toString()) as Int).toUInt() else 0u
+public actual fun rtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementRrasNapiAddon != null) (_windowsWin32NetworkmanagementRrasNapiAddon.windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute(rtmreghandle.toString(), routehandle.toString(), timetolive.toInt(), routelisthandle.toString(), notifytype.toInt(), notifyhandle.toString(), (changeflags?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

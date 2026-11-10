@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-void windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup(void);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastApiStartup(void* version);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScopes(uint16_t addrfamily, int32_t requery, void* pscopelist, void* pscopelen, void* pscopecount);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastGenUID(void* prequestid);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddress(uint16_t addrfamily, void* prequestid, void* preleaserequest);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress(uint16_t addrfamily, void* prequestid, void* prenewrequest, void* prenewresponse);
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastRequestAddress(uint16_t addrfamily, void* prequestid, void* pscopectx, void* paddrrequest, void* paddrresponse);
+void windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup(void);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup(void* version);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes(uint16_t addrfamily, int32_t requery, void* pscopelist, void* pscopelen, void* pscopecount);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastGenUID(void* prequestid);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress(uint16_t addrfamily, void* prequestid, void* preleaserequest);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress(uint16_t addrfamily, void* prequestid, void* prenewrequest, void* prenewresponse);
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress(uint16_t addrfamily, void* prequestid, void* pscopectx, void* paddrrequest, void* paddrresponse);
 
 #ifdef __cplusplus
 }

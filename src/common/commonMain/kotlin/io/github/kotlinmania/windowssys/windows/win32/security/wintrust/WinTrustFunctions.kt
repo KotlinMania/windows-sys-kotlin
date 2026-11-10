@@ -1,43 +1,44 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun OpenPersonalTrustDBDialog(hwndparent: HWND): BOOL
+public expect fun openPersonalTrustDBDialog(hwndparent: Hwnd): Bool
 
-public expect fun OpenPersonalTrustDBDialogEx(hwndparent: HWND, dwflags: UInt, pvreserved: Long): BOOL
+public expect fun openPersonalTrustDBDialogEx(hwndparent: Hwnd, dwflags: UInt, pvreserved: COpaquePointer?): Bool
 
-public expect fun WTHelperCertCheckValidSignature(pprovdata: Long): HRESULT
+public expect fun wTHelperCertCheckValidSignature(pprovdata: COpaquePointer?): Hresult
 
-public expect fun WTHelperCertIsSelfSigned(dwencoding: UInt, pcert: Long): BOOL
+public expect fun wTHelperCertIsSelfSigned(dwencoding: UInt, pcert: COpaquePointer?): Bool
 
-public expect fun WTHelperGetProvCertFromChain(psgnr: Long, idxcert: UInt): Long
+public expect fun wTHelperGetProvCertFromChain(psgnr: COpaquePointer?, idxcert: UInt): COpaquePointer?
 
-public expect fun WTHelperGetProvPrivateDataFromChain(pprovdata: Long, pgproviderid: Long): Long
+public expect fun wTHelperGetProvPrivateDataFromChain(pprovdata: COpaquePointer?, pgproviderid: COpaquePointer?): COpaquePointer?
 
-public expect fun WTHelperGetProvSignerFromChain(pprovdata: Long, idxsigner: UInt, fcountersigner: BOOL, idxcountersigner: UInt): Long
+public expect fun wTHelperGetProvSignerFromChain(pprovdata: COpaquePointer?, idxsigner: UInt, fcountersigner: Bool, idxcountersigner: UInt): COpaquePointer?
 
-public expect fun WTHelperProvDataFromStateData(hstatedata: HANDLE): Long
+public expect fun wTHelperProvDataFromStateData(hstatedata: Handle): COpaquePointer?
 
-public expect fun WinVerifyTrust(hwnd: HWND, pgactionid: Long, pwvtdata: Long): Int
+public expect fun winVerifyTrust(hwnd: Hwnd, pgactionid: COpaquePointer?, pwvtdata: COpaquePointer?): Int
 
-public expect fun WinVerifyTrustEx(hwnd: HWND, pgactionid: Long, pwintrustdata: Long): Int
+public expect fun winVerifyTrustEx(hwnd: Hwnd, pgactionid: COpaquePointer?, pwintrustdata: COpaquePointer?): Int
 
-public expect fun WintrustAddActionID(pgactionid: Long, fdwflags: UInt, psprovinfo: Long): BOOL
+public expect fun wintrustAddActionID(pgactionid: COpaquePointer?, fdwflags: UInt, psprovinfo: COpaquePointer?): Bool
 
-public expect fun WintrustAddDefaultForUsage(pszusageoid: PCSTR, psdefusage: Long): BOOL
+public expect fun wintrustAddDefaultForUsage(pszusageoid: Pcstr, psdefusage: COpaquePointer?): Bool
 
-public expect fun WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: PCSTR, psusage: Long): BOOL
+public expect fun wintrustGetDefaultForUsage(dwaction: WintrustGetDefaultForUsageAction, pszusageoid: Pcstr, psusage: COpaquePointer?): Bool
 
-public expect fun WintrustGetRegPolicyFlags(pdwpolicyflags: Long)
+public expect fun wintrustGetRegPolicyFlags(pdwpolicyflags: COpaquePointer?)
 
-public expect fun WintrustLoadFunctionPointers(pgactionid: Long, ppfns: Long): BOOL
+public expect fun wintrustLoadFunctionPointers(pgactionid: COpaquePointer?, ppfns: COpaquePointer?): Bool
 
-public expect fun WintrustRemoveActionID(pgactionid: Long): BOOL
+public expect fun wintrustRemoveActionID(pgactionid: COpaquePointer?): Bool
 
-public expect fun WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: BOOL)
+public expect fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bool)
 
-public expect fun WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS): BOOL
+public expect fun wintrustSetRegPolicyFlags(dwpolicyflags: WintrustPolicyFlags): Bool

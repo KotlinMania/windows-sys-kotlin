@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_directoryservices_DSCreateSecurityPage(void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* phpage, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext) {
+int32_t windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage(void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* phpage, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -43,7 +43,7 @@ int32_t windowssys_windows_win32_security_directoryservices_DSCreateSecurityPage
 #endif
 }
 
-int32_t windowssys_windows_win32_security_directoryservices_DSEditSecurity(void* hwndowner, void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* pwszcaption, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext) {
+int32_t windowssys_windows_win32_security_directoryservices_dSEditSecurity(void* hwndowner, void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* pwszcaption, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;

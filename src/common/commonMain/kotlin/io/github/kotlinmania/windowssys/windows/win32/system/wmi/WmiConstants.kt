@@ -1,145 +1,145 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.wmi
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val CIM_BOOLEAN: CIMTYPE_ENUMERATION = 11
+public val CIM_BOOLEAN: CimtypeEnumeration = 11
 
-public val CIM_CHAR16: CIMTYPE_ENUMERATION = 103
+public val CIM_CHAR16: CimtypeEnumeration = 103
 
-public val CIM_DATETIME: CIMTYPE_ENUMERATION = 101
+public val CIM_DATETIME: CimtypeEnumeration = 101
 
-public val CIM_EMPTY: CIMTYPE_ENUMERATION = 0
+public val CIM_EMPTY: CimtypeEnumeration = 0
 
-public val CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = 8192
+public val CIM_FLAG_ARRAY: CimtypeEnumeration = 8192
 
-public val CIM_ILLEGAL: CIMTYPE_ENUMERATION = 4095
+public val CIM_ILLEGAL: CimtypeEnumeration = 4095
 
-public val CIM_OBJECT: CIMTYPE_ENUMERATION = 13
+public val CIM_OBJECT: CimtypeEnumeration = 13
 
-public val CIM_REAL32: CIMTYPE_ENUMERATION = 4
+public val CIM_REAL32: CimtypeEnumeration = 4
 
-public val CIM_REAL64: CIMTYPE_ENUMERATION = 5
+public val CIM_REAL64: CimtypeEnumeration = 5
 
-public val CIM_REFERENCE: CIMTYPE_ENUMERATION = 102
+public val CIM_REFERENCE: CimtypeEnumeration = 102
 
-public val CIM_SINT16: CIMTYPE_ENUMERATION = 2
+public val CIM_SINT16: CimtypeEnumeration = 2
 
-public val CIM_SINT32: CIMTYPE_ENUMERATION = 3
+public val CIM_SINT32: CimtypeEnumeration = 3
 
-public val CIM_SINT64: CIMTYPE_ENUMERATION = 20
+public val CIM_SINT64: CimtypeEnumeration = 20
 
-public val CIM_SINT8: CIMTYPE_ENUMERATION = 16
+public val CIM_SINT8: CimtypeEnumeration = 16
 
-public val CIM_STRING: CIMTYPE_ENUMERATION = 8
+public val CIM_STRING: CimtypeEnumeration = 8
 
-public val CIM_UINT16: CIMTYPE_ENUMERATION = 18
+public val CIM_UINT16: CimtypeEnumeration = 18
 
-public val CIM_UINT32: CIMTYPE_ENUMERATION = 19
+public val CIM_UINT32: CimtypeEnumeration = 19
 
-public val CIM_UINT64: CIMTYPE_ENUMERATION = 21
+public val CIM_UINT64: CimtypeEnumeration = 21
 
-public val CIM_UINT8: CIMTYPE_ENUMERATION = 17
+public val CIM_UINT8: CimtypeEnumeration = 17
 
-public val MI_ARRAY: MI_Type = 16
+public val MI_ARRAY: MiType = 16
 
-public val MI_BOOLEAN: MI_Type = 0
+public val MI_BOOLEAN: MiType = 0
 
-public val MI_BOOLEANA: MI_Type = 16
+public val MI_BOOLEANA: MiType = 16
 
-public val MI_CALLBACKMODE_IGNORE: MI_CallbackMode = 2
+public val MI_CALLBACKMODE_IGNORE: MiCallbackMode = 2
 
-public val MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = 1
+public val MI_CALLBACKMODE_INQUIRE: MiCallbackMode = 1
 
-public val MI_CALLBACKMODE_REPORT: MI_CallbackMode = 0
+public val MI_CALLBACKMODE_REPORT: MiCallbackMode = 0
 
 public val MI_CALL_VERSION: UInt = 1u
 
-public val MI_CHAR16: MI_Type = 11
+public val MI_CHAR16: MiType = 11
 
-public val MI_CHAR16A: MI_Type = 27
+public val MI_CHAR16A: MiType = 27
 
 public val MI_CHAR_TYPE: UInt = 2u
 
-public val MI_DATETIME: MI_Type = 12
+public val MI_DATETIME: MiType = 12
 
-public val MI_DATETIMEA: MI_Type = 28
+public val MI_DATETIMEA: MiType = 28
 
-public val MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = 0
+public val MI_DESTINATION_OPTIONS_IMPERSONATION_TYPE_DEFAULT: MiDestinationOptionsImpersonationType = 0
 
-public val MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = 4
+public val MI_DESTINATION_OPTIONS_IMPERSONATION_TYPE_DELEGATE: MiDestinationOptionsImpersonationType = 4
 
-public val MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = 2
+public val MI_DESTINATION_OPTIONS_IMPERSONATION_TYPE_IDENTIFY: MiDestinationOptionsImpersonationType = 2
 
-public val MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = 3
+public val MI_DESTINATION_OPTIONS_IMPERSONATION_TYPE_IMPERSONATE: MiDestinationOptionsImpersonationType = 3
 
-public val MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_ImpersonationType = 1
+public val MI_DESTINATION_OPTIONS_IMPERSONATION_TYPE_NONE: MiDestinationOptionsImpersonationType = 1
 
-public val MI_ERRORCATEGORY_ACCESS_DENIED: MI_ErrorCategory = 18
+public val MI_ERRORCATEGORY_ACCESS_DENIED: MiErrorCategory = 18
 
-public val MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = 28
+public val MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MiErrorCategory = 28
 
-public val MI_ERRORCATEGORY_CLOS_EERROR: MI_ErrorCategory = 2
+public val MI_ERRORCATEGORY_CLOS_EERROR: MiErrorCategory = 2
 
-public val MI_ERRORCATEGORY_CONNECTION_ERROR: MI_ErrorCategory = 27
+public val MI_ERRORCATEGORY_CONNECTION_ERROR: MiErrorCategory = 27
 
-public val MI_ERRORCATEGORY_DEADLOCK_DETECTED: MI_ErrorCategory = 4
+public val MI_ERRORCATEGORY_DEADLOCK_DETECTED: MiErrorCategory = 4
 
-public val MI_ERRORCATEGORY_DEVICE_ERROR: MI_ErrorCategory = 3
+public val MI_ERRORCATEGORY_DEVICE_ERROR: MiErrorCategory = 3
 
-public val MI_ERRORCATEGORY_FROM_STDERR: MI_ErrorCategory = 24
+public val MI_ERRORCATEGORY_FROM_STDERR: MiErrorCategory = 24
 
-public val MI_ERRORCATEGORY_INVALID_ARGUMENT: MI_ErrorCategory = 5
+public val MI_ERRORCATEGORY_INVALID_ARGUMENT: MiErrorCategory = 5
 
-public val MI_ERRORCATEGORY_INVALID_DATA: MI_ErrorCategory = 6
+public val MI_ERRORCATEGORY_INVALID_DATA: MiErrorCategory = 6
 
-public val MI_ERRORCATEGORY_INVALID_OPERATION: MI_ErrorCategory = 7
+public val MI_ERRORCATEGORY_INVALID_OPERATION: MiErrorCategory = 7
 
-public val MI_ERRORCATEGORY_INVALID_RESULT: MI_ErrorCategory = 8
+public val MI_ERRORCATEGORY_INVALID_RESULT: MiErrorCategory = 8
 
-public val MI_ERRORCATEGORY_INVALID_TYPE: MI_ErrorCategory = 9
+public val MI_ERRORCATEGORY_INVALID_TYPE: MiErrorCategory = 9
 
-public val MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = 29
+public val MI_ERRORCATEGORY_LIMITS_EXCEEDED: MiErrorCategory = 29
 
-public val MI_ERRORCATEGORY_METADATA_ERROR: MI_ErrorCategory = 10
+public val MI_ERRORCATEGORY_METADATA_ERROR: MiErrorCategory = 10
 
-public val MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = 31
+public val MI_ERRORCATEGORY_NOT_ENABLED: MiErrorCategory = 31
 
-public val MI_ERRORCATEGORY_NOT_IMPLEMENTED: MI_ErrorCategory = 11
+public val MI_ERRORCATEGORY_NOT_IMPLEMENTED: MiErrorCategory = 11
 
-public val MI_ERRORCATEGORY_NOT_INSTALLED: MI_ErrorCategory = 12
+public val MI_ERRORCATEGORY_NOT_INSTALLED: MiErrorCategory = 12
 
-public val MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = 0
+public val MI_ERRORCATEGORY_NOT_SPECIFIED: MiErrorCategory = 0
 
-public val MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MI_ErrorCategory = 13
+public val MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MiErrorCategory = 13
 
-public val MI_ERRORCATEGORY_OPEN_ERROR: MI_ErrorCategory = 1
+public val MI_ERRORCATEGORY_OPEN_ERROR: MiErrorCategory = 1
 
-public val MI_ERRORCATEGORY_OPERATION_STOPPED: MI_ErrorCategory = 14
+public val MI_ERRORCATEGORY_OPERATION_STOPPED: MiErrorCategory = 14
 
-public val MI_ERRORCATEGORY_OPERATION_TIMEOUT: MI_ErrorCategory = 15
+public val MI_ERRORCATEGORY_OPERATION_TIMEOUT: MiErrorCategory = 15
 
-public val MI_ERRORCATEGORY_PARSER_ERROR: MI_ErrorCategory = 17
+public val MI_ERRORCATEGORY_PARSER_ERROR: MiErrorCategory = 17
 
-public val MI_ERRORCATEGORY_PROTOCOL_ERROR: MI_ErrorCategory = 26
+public val MI_ERRORCATEGORY_PROTOCOL_ERROR: MiErrorCategory = 26
 
-public val MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = 30
+public val MI_ERRORCATEGORY_QUOTA_EXCEEDED: MiErrorCategory = 30
 
-public val MI_ERRORCATEGORY_READ_ERROR: MI_ErrorCategory = 22
+public val MI_ERRORCATEGORY_READ_ERROR: MiErrorCategory = 22
 
-public val MI_ERRORCATEGORY_RESOURCE_BUSY: MI_ErrorCategory = 19
+public val MI_ERRORCATEGORY_RESOURCE_BUSY: MiErrorCategory = 19
 
-public val MI_ERRORCATEGORY_RESOURCE_EXISTS: MI_ErrorCategory = 20
+public val MI_ERRORCATEGORY_RESOURCE_EXISTS: MiErrorCategory = 20
 
-public val MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MI_ErrorCategory = 21
+public val MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MiErrorCategory = 21
 
-public val MI_ERRORCATEGORY_SECURITY_ERROR: MI_ErrorCategory = 25
+public val MI_ERRORCATEGORY_SECURITY_ERROR: MiErrorCategory = 25
 
-public val MI_ERRORCATEGORY_SYNTAX_ERROR: MI_ErrorCategory = 16
+public val MI_ERRORCATEGORY_SYNTAX_ERROR: MiErrorCategory = 16
 
-public val MI_ERRORCATEGORY_WRITE_ERROR: MI_ErrorCategory = 23
+public val MI_ERRORCATEGORY_WRITE_ERROR: MiErrorCategory = 23
 
 public val MI_FLAG_ABSTRACT: UInt = 131072u
 
@@ -199,17 +199,17 @@ public val MI_FLAG_TRANSLATABLE: UInt = 2048u
 
 public val MI_FLAG_VERSION: UInt = 469762048u
 
-public val MI_INSTANCE: MI_Type = 15
+public val MI_INSTANCE: MiType = 15
 
-public val MI_INSTANCEA: MI_Type = 31
+public val MI_INSTANCEA: MiType = 31
 
-public val MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = 3
+public val MI_LOCALE_TYPE_CLOSEST_DATA: MiLocaleType = 3
 
-public val MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = 2
+public val MI_LOCALE_TYPE_CLOSEST_UI: MiLocaleType = 2
 
-public val MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = 1
+public val MI_LOCALE_TYPE_REQUESTED_DATA: MiLocaleType = 1
 
-public val MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = 0
+public val MI_LOCALE_TYPE_REQUESTED_UI: MiLocaleType = 0
 
 public val MI_MAX_LOCALE_SIZE: UInt = 128u
 
@@ -251,143 +251,143 @@ public val MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: UInt = 512u
 
 public val MI_OPERATIONFLAGS_STANDARD_RTTI: UInt = 2048u
 
-public val MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = 0
+public val MI_OPERATION_CALLBACK_RESPONSE_TYPE_NO: MiOperationCallbackResponseType = 0
 
-public val MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = 2
+public val MI_OPERATION_CALLBACK_RESPONSE_TYPE_NO_TO_ALL: MiOperationCallbackResponseType = 2
 
-public val MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = 1
+public val MI_OPERATION_CALLBACK_RESPONSE_TYPE_YES: MiOperationCallbackResponseType = 1
 
-public val MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = 3
+public val MI_OPERATION_CALLBACK_RESPONSE_TYPE_YES_TO_ALL: MiOperationCallbackResponseType = 3
 
-public val MI_PROMPTTYPE_CRITICAL: MI_PromptType = 1
+public val MI_PROMPTTYPE_CRITICAL: MiPromptType = 1
 
-public val MI_PROMPTTYPE_NORMAL: MI_PromptType = 0
+public val MI_PROMPTTYPE_NORMAL: MiPromptType = 0
 
-public val MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = 0
+public val MI_PROVIDER_ARCHITECTURE_32BIT: MiProviderArchitecture = 0
 
-public val MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = 1
+public val MI_PROVIDER_ARCHITECTURE_64BIT: MiProviderArchitecture = 1
 
-public val MI_REAL32: MI_Type = 9
+public val MI_REAL32: MiType = 9
 
-public val MI_REAL32A: MI_Type = 25
+public val MI_REAL32A: MiType = 25
 
-public val MI_REAL64: MI_Type = 10
+public val MI_REAL64: MiType = 10
 
-public val MI_REAL64A: MI_Type = 26
+public val MI_REAL64A: MiType = 26
 
-public val MI_REASON_NONE: MI_CancellationReason = 0
+public val MI_REASON_NONE: MiCancellationReason = 0
 
-public val MI_REASON_SERVICESTOP: MI_CancellationReason = 3
+public val MI_REASON_SERVICESTOP: MiCancellationReason = 3
 
-public val MI_REASON_SHUTDOWN: MI_CancellationReason = 2
+public val MI_REASON_SHUTDOWN: MiCancellationReason = 2
 
-public val MI_REASON_TIMEOUT: MI_CancellationReason = 1
+public val MI_REASON_TIMEOUT: MiCancellationReason = 1
 
-public val MI_REFERENCE: MI_Type = 14
+public val MI_REFERENCE: MiType = 14
 
-public val MI_REFERENCEA: MI_Type = 30
+public val MI_REFERENCEA: MiType = 30
 
-public val MI_RESULT_ACCESS_DENIED: MI_Result = 2
+public val MI_RESULT_ACCESS_DENIED: MiResult = 2
 
-public val MI_RESULT_ALREADY_EXISTS: MI_Result = 11
+public val MI_RESULT_ALREADY_EXISTS: MiResult = 11
 
-public val MI_RESULT_CLASS_HAS_CHILDREN: MI_Result = 8
+public val MI_RESULT_CLASS_HAS_CHILDREN: MiResult = 8
 
-public val MI_RESULT_CLASS_HAS_INSTANCES: MI_Result = 9
+public val MI_RESULT_CLASS_HAS_INSTANCES: MiResult = 9
 
-public val MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = 26
+public val MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MiResult = 26
 
-public val MI_RESULT_FAILED: MI_Result = 1
+public val MI_RESULT_FAILED: MiResult = 1
 
-public val MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = 25
+public val MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MiResult = 25
 
-public val MI_RESULT_INVALID_CLASS: MI_Result = 5
+public val MI_RESULT_INVALID_CLASS: MiResult = 5
 
-public val MI_RESULT_INVALID_ENUMERATION_CONTEXT: MI_Result = 21
+public val MI_RESULT_INVALID_ENUMERATION_CONTEXT: MiResult = 21
 
-public val MI_RESULT_INVALID_NAMESPACE: MI_Result = 3
+public val MI_RESULT_INVALID_NAMESPACE: MiResult = 3
 
-public val MI_RESULT_INVALID_OPERATION_TIMEOUT: MI_Result = 22
+public val MI_RESULT_INVALID_OPERATION_TIMEOUT: MiResult = 22
 
-public val MI_RESULT_INVALID_PARAMETER: MI_Result = 4
+public val MI_RESULT_INVALID_PARAMETER: MiResult = 4
 
-public val MI_RESULT_INVALID_QUERY: MI_Result = 15
+public val MI_RESULT_INVALID_QUERY: MiResult = 15
 
-public val MI_RESULT_INVALID_SUPERCLASS: MI_Result = 10
+public val MI_RESULT_INVALID_SUPERCLASS: MiResult = 10
 
-public val MI_RESULT_METHOD_NOT_AVAILABLE: MI_Result = 16
+public val MI_RESULT_METHOD_NOT_AVAILABLE: MiResult = 16
 
-public val MI_RESULT_METHOD_NOT_FOUND: MI_Result = 17
+public val MI_RESULT_METHOD_NOT_FOUND: MiResult = 17
 
-public val MI_RESULT_NAMESPACE_NOT_EMPTY: MI_Result = 20
+public val MI_RESULT_NAMESPACE_NOT_EMPTY: MiResult = 20
 
-public val MI_RESULT_NOT_FOUND: MI_Result = 6
+public val MI_RESULT_NOT_FOUND: MiResult = 6
 
-public val MI_RESULT_NOT_SUPPORTED: MI_Result = 7
+public val MI_RESULT_NOT_SUPPORTED: MiResult = 7
 
-public val MI_RESULT_NO_SUCH_PROPERTY: MI_Result = 12
+public val MI_RESULT_NO_SUCH_PROPERTY: MiResult = 12
 
-public val MI_RESULT_OK: MI_Result = 0
+public val MI_RESULT_OK: MiResult = 0
 
-public val MI_RESULT_PULL_CANNOT_BE_ABANDONED: MI_Result = 24
+public val MI_RESULT_PULL_CANNOT_BE_ABANDONED: MiResult = 24
 
-public val MI_RESULT_PULL_HAS_BEEN_ABANDONED: MI_Result = 23
+public val MI_RESULT_PULL_HAS_BEEN_ABANDONED: MiResult = 23
 
-public val MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MI_Result = 14
+public val MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MiResult = 14
 
-public val MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = 28
+public val MI_RESULT_SERVER_IS_SHUTTING_DOWN: MiResult = 28
 
-public val MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = 27
+public val MI_RESULT_SERVER_LIMITS_EXCEEDED: MiResult = 27
 
-public val MI_RESULT_TYPE_MISMATCH: MI_Result = 13
+public val MI_RESULT_TYPE_MISMATCH: MiResult = 13
 
 public val MI_SERIALIZER_FLAGS_CLASS_DEEP: UInt = 1u
 
 public val MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: UInt = 1u
 
-public val MI_SINT16: MI_Type = 4
+public val MI_SINT16: MiType = 4
 
-public val MI_SINT16A: MI_Type = 20
+public val MI_SINT16A: MiType = 20
 
-public val MI_SINT32: MI_Type = 6
+public val MI_SINT32: MiType = 6
 
-public val MI_SINT32A: MI_Type = 22
+public val MI_SINT32A: MiType = 22
 
-public val MI_SINT64: MI_Type = 8
+public val MI_SINT64: MiType = 8
 
-public val MI_SINT64A: MI_Type = 24
+public val MI_SINT64A: MiType = 24
 
-public val MI_SINT8: MI_Type = 2
+public val MI_SINT8: MiType = 2
 
-public val MI_SINT8A: MI_Type = 18
+public val MI_SINT8A: MiType = 18
 
-public val MI_STRING: MI_Type = 13
+public val MI_STRING: MiType = 13
 
-public val MI_STRINGA: MI_Type = 29
+public val MI_STRINGA: MiType = 29
 
-public val MI_SUBSCRIBE_BOOKMARK_NEWEST: PCWSTR = w("MI_SUBSCRIBE_BOOKMARK_NEWEST")
+public val MI_SUBSCRIBE_BOOKMARK_NEWEST: Pcwstr = w("MI_SUBSCRIBE_BOOKMARK_NEWEST")
 
-public val MI_SUBSCRIBE_BOOKMARK_OLDEST: PCWSTR = w("MI_SUBSCRIBE_BOOKMARK_OLDEST")
+public val MI_SUBSCRIBE_BOOKMARK_OLDEST: Pcwstr = w("MI_SUBSCRIBE_BOOKMARK_OLDEST")
 
-public val MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = 1
+public val MI_SUBSCRIPTION_DELIVERY_TYPE_PULL: MiSubscriptionDeliveryType = 1
 
-public val MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = 2
+public val MI_SUBSCRIPTION_DELIVERY_TYPE_PUSH: MiSubscriptionDeliveryType = 2
 
-public val MI_UINT16: MI_Type = 3
+public val MI_UINT16: MiType = 3
 
-public val MI_UINT16A: MI_Type = 19
+public val MI_UINT16A: MiType = 19
 
-public val MI_UINT32: MI_Type = 5
+public val MI_UINT32: MiType = 5
 
-public val MI_UINT32A: MI_Type = 21
+public val MI_UINT32A: MiType = 21
 
-public val MI_UINT64: MI_Type = 7
+public val MI_UINT64: MiType = 7
 
-public val MI_UINT64A: MI_Type = 23
+public val MI_UINT64A: MiType = 23
 
-public val MI_UINT8: MI_Type = 1
+public val MI_UINT8: MiType = 1
 
-public val MI_UINT8A: MI_Type = 17
+public val MI_UINT8A: MiType = 17
 
 public val MI_WRITEMESSAGE_CHANNEL_DEBUG: UInt = 2u
 
@@ -395,225 +395,225 @@ public val MI_WRITEMESSAGE_CHANNEL_VERBOSE: UInt = 1u
 
 public val MI_WRITEMESSAGE_CHANNEL_WARNING: UInt = 0u
 
-public val MofCompiler: GUID = GUID.from_u128(U128(0x6daf97572e3711d2uL, 0xaec900c04fb68820uL))
+public val MOF_COMPILER: Guid = Guid.fromU128(U128(0x6daf97572e3711d2uL, 0xaec900c04fb68820uL))
 
-public val SWbemDateTime: GUID = GUID.from_u128(U128(0x47dfbe54cf7611d3uL, 0xb38f00105a1f473auL))
+public val S_WBEM_DATE_TIME: Guid = Guid.fromU128(U128(0x47dfbe54cf7611d3uL, 0xb38f00105a1f473auL))
 
-public val SWbemEventSource: GUID = GUID.from_u128(U128(0x4b83d5821ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_EVENT_SOURCE: Guid = Guid.fromU128(U128(0x4b83d5821ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemLastError: GUID = GUID.from_u128(U128(0xc2feeeaccfcd11d1uL, 0x8b0500600806d9b6uL))
+public val S_WBEM_LAST_ERROR: Guid = Guid.fromU128(U128(0xc2feeeaccfcd11d1uL, 0x8b0500600806d9b6uL))
 
-public val SWbemLocator: GUID = GUID.from_u128(U128(0x76a64158cb4111d1uL, 0x8b0200600806d9b6uL))
+public val S_WBEM_LOCATOR: Guid = Guid.fromU128(U128(0x76a64158cb4111d1uL, 0x8b0200600806d9b6uL))
 
-public val SWbemMethod: GUID = GUID.from_u128(U128(0x4b83d5b21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_METHOD: Guid = Guid.fromU128(U128(0x4b83d5b21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemMethodSet: GUID = GUID.from_u128(U128(0x4b83d5a21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_METHOD_SET: Guid = Guid.fromU128(U128(0x4b83d5a21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemNamedValue: GUID = GUID.from_u128(U128(0x4b83d6021ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_NAMED_VALUE: Guid = Guid.fromU128(U128(0x4b83d6021ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemNamedValueSet: GUID = GUID.from_u128(U128(0x9aed384ece8b11d1uL, 0x8b0500600806d9b6uL))
+public val S_WBEM_NAMED_VALUE_SET: Guid = Guid.fromU128(U128(0x9aed384ece8b11d1uL, 0x8b0500600806d9b6uL))
 
-public val SWbemObject: GUID = GUID.from_u128(U128(0x4b83d6221ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_OBJECT: Guid = Guid.fromU128(U128(0x4b83d6221ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemObjectEx: GUID = GUID.from_u128(U128(0xd6bdafb29435491fuL, 0xbb876aa0f0bc31a2uL))
+public val S_WBEM_OBJECT_EX: Guid = Guid.fromU128(U128(0xd6bdafb29435491fuL, 0xbb876aa0f0bc31a2uL))
 
-public val SWbemObjectPath: GUID = GUID.from_u128(U128(0x5791bc26ce9c11d1uL, 0x97bf0000f81e849cuL))
+public val S_WBEM_OBJECT_PATH: Guid = Guid.fromU128(U128(0x5791bc26ce9c11d1uL, 0x97bf0000f81e849cuL))
 
-public val SWbemObjectSet: GUID = GUID.from_u128(U128(0x4b83d6121ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_OBJECT_SET: Guid = Guid.fromU128(U128(0x4b83d6121ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemPrivilege: GUID = GUID.from_u128(U128(0x26ee67bc580411d2uL, 0x8b4a00600806d9b6uL))
+public val S_WBEM_PRIVILEGE: Guid = Guid.fromU128(U128(0x26ee67bc580411d2uL, 0x8b4a00600806d9b6uL))
 
-public val SWbemPrivilegeSet: GUID = GUID.from_u128(U128(0x26ee67be580411d2uL, 0x8b4a00600806d9b6uL))
+public val S_WBEM_PRIVILEGE_SET: Guid = Guid.fromU128(U128(0x26ee67be580411d2uL, 0x8b4a00600806d9b6uL))
 
-public val SWbemProperty: GUID = GUID.from_u128(U128(0x4b83d5d21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_PROPERTY: Guid = Guid.fromU128(U128(0x4b83d5d21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemPropertySet: GUID = GUID.from_u128(U128(0x4b83d5c21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_PROPERTY_SET: Guid = Guid.fromU128(U128(0x4b83d5c21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemQualifier: GUID = GUID.from_u128(U128(0x4b83d5f21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_QUALIFIER: Guid = Guid.fromU128(U128(0x4b83d5f21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemQualifierSet: GUID = GUID.from_u128(U128(0x4b83d5e21ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_QUALIFIER_SET: Guid = Guid.fromU128(U128(0x4b83d5e21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemRefreshableItem: GUID = GUID.from_u128(U128(0x8c6854bcde4b11d3uL, 0xb39000105a1f473auL))
+public val S_WBEM_REFRESHABLE_ITEM: Guid = Guid.fromU128(U128(0x8c6854bcde4b11d3uL, 0xb39000105a1f473auL))
 
-public val SWbemRefresher: GUID = GUID.from_u128(U128(0xd269bf5cd9c111d3uL, 0xb38f00105a1f473auL))
+public val S_WBEM_REFRESHER: Guid = Guid.fromU128(U128(0xd269bf5cd9c111d3uL, 0xb38f00105a1f473auL))
 
-public val SWbemSecurity: GUID = GUID.from_u128(U128(0xb54d66e9228711d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_SECURITY: Guid = Guid.fromU128(U128(0xb54d66e9228711d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemServices: GUID = GUID.from_u128(U128(0x4b83d6321ae11d2uL, 0x8b3300600806d9b6uL))
+public val S_WBEM_SERVICES: Guid = Guid.fromU128(U128(0x4b83d6321ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemServicesEx: GUID = GUID.from_u128(U128(0x62e522dc8cf340a8uL, 0x8b2e37d595651e40uL))
+public val S_WBEM_SERVICES_EX: Guid = Guid.fromU128(U128(0x62e522dc8cf340a8uL, 0x8b2e37d595651e40uL))
 
-public val SWbemSink: GUID = GUID.from_u128(U128(0x75718c9af02911d1uL, 0xa1ac00c04fb6c223uL))
+public val S_WBEM_SINK: Guid = Guid.fromU128(U128(0x75718c9af02911d1uL, 0xa1ac00c04fb6c223uL))
 
-public val UnsecuredApartment: GUID = GUID.from_u128(U128(0x49bd2028152311d1uL, 0xad7900c04fd8fdffuL))
+public val UNSECURED_APARTMENT: Guid = Guid.fromU128(U128(0x49bd2028152311d1uL, 0xad7900c04fd8fdffuL))
 
-public val WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = -2147213309
+public val WBEMESS_E_AUTHZ_NOT_PRIVILEGED: Wbemstatus = -2147213309
 
-public val WBEMESS_E_REGISTRATION_TOO_BROAD: WBEMSTATUS = -2147213311
+public val WBEMESS_E_REGISTRATION_TOO_BROAD: Wbemstatus = -2147213311
 
-public val WBEMESS_E_REGISTRATION_TOO_PRECISE: WBEMSTATUS = -2147213310
+public val WBEMESS_E_REGISTRATION_TOO_PRECISE: Wbemstatus = -2147213310
 
-public val WBEMMOF_E_ALIASES_IN_EMBEDDED: WBEMSTATUS = -2147205089
+public val WBEMMOF_E_ALIASES_IN_EMBEDDED: Wbemstatus = -2147205089
 
-public val WBEMMOF_E_CIMTYPE_QUALIFIER: WBEMSTATUS = -2147205094
+public val WBEMMOF_E_CIMTYPE_QUALIFIER: Wbemstatus = -2147205094
 
-public val WBEMMOF_E_DUPLICATE_PROPERTY: WBEMSTATUS = -2147205093
+public val WBEMMOF_E_DUPLICATE_PROPERTY: Wbemstatus = -2147205093
 
-public val WBEMMOF_E_DUPLICATE_QUALIFIER: WBEMSTATUS = -2147205087
+public val WBEMMOF_E_DUPLICATE_QUALIFIER: Wbemstatus = -2147205087
 
-public val WBEMMOF_E_ERROR_CREATING_TEMP_FILE: WBEMSTATUS = -2147205073
+public val WBEMMOF_E_ERROR_CREATING_TEMP_FILE: Wbemstatus = -2147205073
 
-public val WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE: WBEMSTATUS = -2147205072
+public val WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE: Wbemstatus = -2147205072
 
-public val WBEMMOF_E_EXPECTED_ALIAS_NAME: WBEMSTATUS = -2147205098
+public val WBEMMOF_E_EXPECTED_ALIAS_NAME: Wbemstatus = -2147205098
 
-public val WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE: WBEMSTATUS = -2147205079
+public val WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE: Wbemstatus = -2147205079
 
-public val WBEMMOF_E_EXPECTED_CLASS_NAME: WBEMSTATUS = -2147205100
+public val WBEMMOF_E_EXPECTED_CLASS_NAME: Wbemstatus = -2147205100
 
-public val WBEMMOF_E_EXPECTED_CLOSE_BRACE: WBEMSTATUS = -2147205116
+public val WBEMMOF_E_EXPECTED_CLOSE_BRACE: Wbemstatus = -2147205116
 
-public val WBEMMOF_E_EXPECTED_CLOSE_BRACKET: WBEMSTATUS = -2147205115
+public val WBEMMOF_E_EXPECTED_CLOSE_BRACKET: Wbemstatus = -2147205115
 
-public val WBEMMOF_E_EXPECTED_CLOSE_PAREN: WBEMSTATUS = -2147205114
+public val WBEMMOF_E_EXPECTED_CLOSE_PAREN: Wbemstatus = -2147205114
 
-public val WBEMMOF_E_EXPECTED_DOLLAR: WBEMSTATUS = -2147205095
+public val WBEMMOF_E_EXPECTED_DOLLAR: Wbemstatus = -2147205095
 
-public val WBEMMOF_E_EXPECTED_FLAVOR_TYPE: WBEMSTATUS = -2147205086
+public val WBEMMOF_E_EXPECTED_FLAVOR_TYPE: Wbemstatus = -2147205086
 
-public val WBEMMOF_E_EXPECTED_OPEN_BRACE: WBEMSTATUS = -2147205117
+public val WBEMMOF_E_EXPECTED_OPEN_BRACE: Wbemstatus = -2147205117
 
-public val WBEMMOF_E_EXPECTED_OPEN_PAREN: WBEMSTATUS = -2147205111
+public val WBEMMOF_E_EXPECTED_OPEN_PAREN: Wbemstatus = -2147205111
 
-public val WBEMMOF_E_EXPECTED_PROPERTY_NAME: WBEMSTATUS = -2147205108
+public val WBEMMOF_E_EXPECTED_PROPERTY_NAME: Wbemstatus = -2147205108
 
-public val WBEMMOF_E_EXPECTED_QUALIFIER_NAME: WBEMSTATUS = -2147205119
+public val WBEMMOF_E_EXPECTED_QUALIFIER_NAME: Wbemstatus = -2147205119
 
-public val WBEMMOF_E_EXPECTED_SEMI: WBEMSTATUS = -2147205118
+public val WBEMMOF_E_EXPECTED_SEMI: Wbemstatus = -2147205118
 
-public val WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER: WBEMSTATUS = -2147205112
+public val WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER: Wbemstatus = -2147205112
 
-public val WBEMMOF_E_ILLEGAL_CONSTANT_VALUE: WBEMSTATUS = -2147205113
+public val WBEMMOF_E_ILLEGAL_CONSTANT_VALUE: Wbemstatus = -2147205113
 
-public val WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES: WBEMSTATUS = -2147205085
+public val WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES: Wbemstatus = -2147205085
 
-public val WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2: WBEMSTATUS = -2147205083
+public val WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2: Wbemstatus = -2147205083
 
-public val WBEMMOF_E_INVALID_AMENDMENT_SYNTAX: WBEMSTATUS = -2147205104
+public val WBEMMOF_E_INVALID_AMENDMENT_SYNTAX: Wbemstatus = -2147205104
 
-public val WBEMMOF_E_INVALID_CLASS_DECLARATION: WBEMSTATUS = -2147205097
+public val WBEMMOF_E_INVALID_CLASS_DECLARATION: Wbemstatus = -2147205097
 
-public val WBEMMOF_E_INVALID_DELETECLASS_SYNTAX: WBEMSTATUS = -2147205071
+public val WBEMMOF_E_INVALID_DELETECLASS_SYNTAX: Wbemstatus = -2147205071
 
-public val WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX: WBEMSTATUS = -2147205076
+public val WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX: Wbemstatus = -2147205076
 
-public val WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT: WBEMSTATUS = -2147205103
+public val WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT: Wbemstatus = -2147205103
 
-public val WBEMMOF_E_INVALID_FILE: WBEMSTATUS = -2147205090
+public val WBEMMOF_E_INVALID_FILE: Wbemstatus = -2147205090
 
-public val WBEMMOF_E_INVALID_FLAGS_SYNTAX: WBEMSTATUS = -2147205080
+public val WBEMMOF_E_INVALID_FLAGS_SYNTAX: Wbemstatus = -2147205080
 
-public val WBEMMOF_E_INVALID_INSTANCE_DECLARATION: WBEMSTATUS = -2147205096
+public val WBEMMOF_E_INVALID_INSTANCE_DECLARATION: Wbemstatus = -2147205096
 
-public val WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION: WBEMSTATUS = -2147205092
+public val WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION: Wbemstatus = -2147205092
 
-public val WBEMMOF_E_INVALID_NAMESPACE_SYNTAX: WBEMSTATUS = -2147205101
+public val WBEMMOF_E_INVALID_NAMESPACE_SYNTAX: Wbemstatus = -2147205101
 
-public val WBEMMOF_E_INVALID_PRAGMA: WBEMSTATUS = -2147205102
+public val WBEMMOF_E_INVALID_PRAGMA: Wbemstatus = -2147205102
 
-public val WBEMMOF_E_INVALID_QUALIFIER_SYNTAX: WBEMSTATUS = -2147205075
+public val WBEMMOF_E_INVALID_QUALIFIER_SYNTAX: Wbemstatus = -2147205075
 
-public val WBEMMOF_E_MULTIPLE_ALIASES: WBEMSTATUS = -2147205084
+public val WBEMMOF_E_MULTIPLE_ALIASES: Wbemstatus = -2147205084
 
-public val WBEMMOF_E_MUST_BE_IN_OR_OUT: WBEMSTATUS = -2147205081
+public val WBEMMOF_E_MUST_BE_IN_OR_OUT: Wbemstatus = -2147205081
 
-public val WBEMMOF_E_NO_ARRAYS_RETURNED: WBEMSTATUS = -2147205082
+public val WBEMMOF_E_NO_ARRAYS_RETURNED: Wbemstatus = -2147205082
 
-public val WBEMMOF_E_NULL_ARRAY_ELEM: WBEMSTATUS = -2147205088
+public val WBEMMOF_E_NULL_ARRAY_ELEM: Wbemstatus = -2147205088
 
-public val WBEMMOF_E_OUT_OF_RANGE: WBEMSTATUS = -2147205091
+public val WBEMMOF_E_OUT_OF_RANGE: Wbemstatus = -2147205091
 
-public val WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE: WBEMSTATUS = -2147205074
+public val WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE: Wbemstatus = -2147205074
 
-public val WBEMMOF_E_TYPEDEF_NOT_SUPPORTED: WBEMSTATUS = -2147205107
+public val WBEMMOF_E_TYPEDEF_NOT_SUPPORTED: Wbemstatus = -2147205107
 
-public val WBEMMOF_E_TYPE_MISMATCH: WBEMSTATUS = -2147205099
+public val WBEMMOF_E_TYPE_MISMATCH: Wbemstatus = -2147205099
 
-public val WBEMMOF_E_UNEXPECTED_ALIAS: WBEMSTATUS = -2147205106
+public val WBEMMOF_E_UNEXPECTED_ALIAS: Wbemstatus = -2147205106
 
-public val WBEMMOF_E_UNEXPECTED_ARRAY_INIT: WBEMSTATUS = -2147205105
+public val WBEMMOF_E_UNEXPECTED_ARRAY_INIT: Wbemstatus = -2147205105
 
-public val WBEMMOF_E_UNRECOGNIZED_TOKEN: WBEMSTATUS = -2147205110
+public val WBEMMOF_E_UNRECOGNIZED_TOKEN: Wbemstatus = -2147205110
 
-public val WBEMMOF_E_UNRECOGNIZED_TYPE: WBEMSTATUS = -2147205109
+public val WBEMMOF_E_UNRECOGNIZED_TYPE: Wbemstatus = -2147205109
 
-public val WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE: WBEMSTATUS = -2147205077
+public val WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE: Wbemstatus = -2147205077
 
-public val WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE: WBEMSTATUS = -2147205078
+public val WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE: Wbemstatus = -2147205078
 
-public val WBEMPATH_COMPRESSED: WBEM_GET_TEXT_FLAGS = 1
+public val WBEMPATH_COMPRESSED: WbemGetTextFlags = 1
 
-public val WBEMPATH_CREATE_ACCEPT_ABSOLUTE: WBEM_PATH_CREATE_FLAG = 2
+public val WBEMPATH_CREATE_ACCEPT_ABSOLUTE: WbemPathCreateFlag = 2
 
-public val WBEMPATH_CREATE_ACCEPT_ALL: WBEM_PATH_CREATE_FLAG = 4
+public val WBEMPATH_CREATE_ACCEPT_ALL: WbemPathCreateFlag = 4
 
-public val WBEMPATH_CREATE_ACCEPT_RELATIVE: WBEM_PATH_CREATE_FLAG = 1
+public val WBEMPATH_CREATE_ACCEPT_RELATIVE: WbemPathCreateFlag = 1
 
-public val WBEMPATH_GET_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = 16
+public val WBEMPATH_GET_NAMESPACE_ONLY: WbemGetTextFlags = 16
 
-public val WBEMPATH_GET_ORIGINAL: WBEM_GET_TEXT_FLAGS = 32
+public val WBEMPATH_GET_ORIGINAL: WbemGetTextFlags = 32
 
-public val WBEMPATH_GET_RELATIVE_ONLY: WBEM_GET_TEXT_FLAGS = 2
+public val WBEMPATH_GET_RELATIVE_ONLY: WbemGetTextFlags = 2
 
-public val WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = 8
+public val WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY: WbemGetTextFlags = 8
 
-public val WBEMPATH_GET_SERVER_TOO: WBEM_GET_TEXT_FLAGS = 4
+public val WBEMPATH_GET_SERVER_TOO: WbemGetTextFlags = 4
 
-public val WBEMPATH_INFO_ANON_LOCAL_MACHINE: WBEM_PATH_STATUS_FLAG = 1
+public val WBEMPATH_INFO_ANON_LOCAL_MACHINE: WbemPathStatusFlag = 1
 
-public val WBEMPATH_INFO_CIM_COMPLIANT: WBEM_PATH_STATUS_FLAG = 2048
+public val WBEMPATH_INFO_CIM_COMPLIANT: WbemPathStatusFlag = 2048
 
-public val WBEMPATH_INFO_CONTAINS_SINGLETON: WBEM_PATH_STATUS_FLAG = 256
+public val WBEMPATH_INFO_CONTAINS_SINGLETON: WbemPathStatusFlag = 256
 
-public val WBEMPATH_INFO_HAS_IMPLIED_KEY: WBEM_PATH_STATUS_FLAG = 128
+public val WBEMPATH_INFO_HAS_IMPLIED_KEY: WbemPathStatusFlag = 128
 
-public val WBEMPATH_INFO_HAS_MACHINE_NAME: WBEM_PATH_STATUS_FLAG = 2
+public val WBEMPATH_INFO_HAS_MACHINE_NAME: WbemPathStatusFlag = 2
 
-public val WBEMPATH_INFO_HAS_SUBSCOPES: WBEM_PATH_STATUS_FLAG = 16
+public val WBEMPATH_INFO_HAS_SUBSCOPES: WbemPathStatusFlag = 16
 
-public val WBEMPATH_INFO_HAS_V2_REF_PATHS: WBEM_PATH_STATUS_FLAG = 64
+public val WBEMPATH_INFO_HAS_V2_REF_PATHS: WbemPathStatusFlag = 64
 
-public val WBEMPATH_INFO_IS_CLASS_REF: WBEM_PATH_STATUS_FLAG = 4
+public val WBEMPATH_INFO_IS_CLASS_REF: WbemPathStatusFlag = 4
 
-public val WBEMPATH_INFO_IS_COMPOUND: WBEM_PATH_STATUS_FLAG = 32
+public val WBEMPATH_INFO_IS_COMPOUND: WbemPathStatusFlag = 32
 
-public val WBEMPATH_INFO_IS_INST_REF: WBEM_PATH_STATUS_FLAG = 8
+public val WBEMPATH_INFO_IS_INST_REF: WbemPathStatusFlag = 8
 
-public val WBEMPATH_INFO_IS_PARENT: WBEM_PATH_STATUS_FLAG = 8192
+public val WBEMPATH_INFO_IS_PARENT: WbemPathStatusFlag = 8192
 
-public val WBEMPATH_INFO_IS_SINGLETON: WBEM_PATH_STATUS_FLAG = 4096
+public val WBEMPATH_INFO_IS_SINGLETON: WbemPathStatusFlag = 4096
 
-public val WBEMPATH_INFO_NATIVE_PATH: WBEM_PATH_STATUS_FLAG = 32768
+public val WBEMPATH_INFO_NATIVE_PATH: WbemPathStatusFlag = 32768
 
-public val WBEMPATH_INFO_PATH_HAD_SERVER: WBEM_PATH_STATUS_FLAG = 131072
+public val WBEMPATH_INFO_PATH_HAD_SERVER: WbemPathStatusFlag = 131072
 
-public val WBEMPATH_INFO_SERVER_NAMESPACE_ONLY: WBEM_PATH_STATUS_FLAG = 16384
+public val WBEMPATH_INFO_SERVER_NAMESPACE_ONLY: WbemPathStatusFlag = 16384
 
-public val WBEMPATH_INFO_V1_COMPLIANT: WBEM_PATH_STATUS_FLAG = 512
+public val WBEMPATH_INFO_V1_COMPLIANT: WbemPathStatusFlag = 512
 
-public val WBEMPATH_INFO_V2_COMPLIANT: WBEM_PATH_STATUS_FLAG = 1024
+public val WBEMPATH_INFO_V2_COMPLIANT: WbemPathStatusFlag = 1024
 
-public val WBEMPATH_INFO_WMI_PATH: WBEM_PATH_STATUS_FLAG = 65536
+public val WBEMPATH_INFO_WMI_PATH: WbemPathStatusFlag = 65536
 
-public val WBEMPATH_QUOTEDTEXT: WBEM_GET_KEY_FLAGS = 2
+public val WBEMPATH_QUOTEDTEXT: WbemGetKeyFlags = 2
 
-public val WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = 1
+public val WBEMPATH_TEXT: WbemGetKeyFlags = 1
 
-public val WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WBEM_PATH_CREATE_FLAG = 8
+public val WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WbemPathCreateFlag = 8
 
-public val WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = 0
+public val WBEMSTATUS_FORMAT_NEWLINE: WbemstatusFormat = 0
 
-public val WBEMSTATUS_FORMAT_NO_NEWLINE: WBEMSTATUS_FORMAT = 1
+public val WBEMSTATUS_FORMAT_NO_NEWLINE: WbemstatusFormat = 1
 
 public val WBEMS_DISPID_COMPLETED: UInt = 2u
 
@@ -627,1262 +627,1262 @@ public val WBEMS_DISPID_OBJECT_READY: UInt = 1u
 
 public val WBEMS_DISPID_PROGRESS: UInt = 3u
 
-public val WBEM_AUTHENTICATION_METHOD_MASK: WBEM_LOGIN_TYPE = 15
+public val WBEM_AUTHENTICATION_METHOD_MASK: WbemLoginType = 15
 
-public val WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = 0
+public val WBEM_COMPARISON_INCLUDE_ALL: WbemComparisonFlag = 0
 
-public val WBEM_ENABLE: WBEM_SECURITY_FLAGS = 1
+public val WBEM_ENABLE: WbemSecurityFlags = 1
 
-public val WBEM_E_ACCESS_DENIED: WBEMSTATUS = -2147217405
+public val WBEM_E_ACCESS_DENIED: Wbemstatus = -2147217405
 
-public val WBEM_E_AGGREGATING_BY_OBJECT: WBEMSTATUS = -2147217315
+public val WBEM_E_AGGREGATING_BY_OBJECT: Wbemstatus = -2147217315
 
-public val WBEM_E_ALREADY_EXISTS: WBEMSTATUS = -2147217383
+public val WBEM_E_ALREADY_EXISTS: Wbemstatus = -2147217383
 
-public val WBEM_E_AMBIGUOUS_OPERATION: WBEMSTATUS = -2147217301
+public val WBEM_E_AMBIGUOUS_OPERATION: Wbemstatus = -2147217301
 
-public val WBEM_E_AMENDED_OBJECT: WBEMSTATUS = -2147217306
+public val WBEM_E_AMENDED_OBJECT: Wbemstatus = -2147217306
 
-public val WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING: WBEMSTATUS = -2147217312
+public val WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING: Wbemstatus = -2147217312
 
-public val WBEM_E_BUFFER_TOO_SMALL: WBEMSTATUS = -2147217348
+public val WBEM_E_BUFFER_TOO_SMALL: Wbemstatus = -2147217348
 
-public val WBEM_E_CALL_CANCELLED: WBEMSTATUS = -2147217358
+public val WBEM_E_CALL_CANCELLED: Wbemstatus = -2147217358
 
-public val WBEM_E_CANNOT_BE_ABSTRACT: WBEMSTATUS = -2147217307
+public val WBEM_E_CANNOT_BE_ABSTRACT: Wbemstatus = -2147217307
 
-public val WBEM_E_CANNOT_BE_KEY: WBEMSTATUS = -2147217377
+public val WBEM_E_CANNOT_BE_KEY: Wbemstatus = -2147217377
 
-public val WBEM_E_CANNOT_BE_SINGLETON: WBEMSTATUS = -2147217364
+public val WBEM_E_CANNOT_BE_SINGLETON: Wbemstatus = -2147217364
 
-public val WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE: WBEMSTATUS = -2147217328
+public val WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE: Wbemstatus = -2147217328
 
-public val WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE: WBEMSTATUS = -2147217335
+public val WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE: Wbemstatus = -2147217335
 
-public val WBEM_E_CIRCULAR_REFERENCE: WBEMSTATUS = -2147217337
+public val WBEM_E_CIRCULAR_REFERENCE: Wbemstatus = -2147217337
 
-public val WBEM_E_CLASS_HAS_CHILDREN: WBEMSTATUS = -2147217371
+public val WBEM_E_CLASS_HAS_CHILDREN: Wbemstatus = -2147217371
 
-public val WBEM_E_CLASS_HAS_INSTANCES: WBEMSTATUS = -2147217370
+public val WBEM_E_CLASS_HAS_INSTANCES: Wbemstatus = -2147217370
 
-public val WBEM_E_CLASS_NAME_TOO_WIDE: WBEMSTATUS = -2147217292
+public val WBEM_E_CLASS_NAME_TOO_WIDE: Wbemstatus = -2147217292
 
-public val WBEM_E_CLIENT_TOO_SLOW: WBEMSTATUS = -2147217305
+public val WBEM_E_CLIENT_TOO_SLOW: Wbemstatus = -2147217305
 
-public val WBEM_E_CONNECTION_FAILED: WBEMSTATUS = -2147217295
+public val WBEM_E_CONNECTION_FAILED: Wbemstatus = -2147217295
 
-public val WBEM_E_CRITICAL_ERROR: WBEMSTATUS = -2147217398
+public val WBEM_E_CRITICAL_ERROR: Wbemstatus = -2147217398
 
-public val WBEM_E_DATABASE_VER_MISMATCH: WBEMSTATUS = -2147217288
+public val WBEM_E_DATABASE_VER_MISMATCH: Wbemstatus = -2147217288
 
-public val WBEM_E_ENCRYPTED_CONNECTION_REQUIRED: WBEMSTATUS = -2147217273
+public val WBEM_E_ENCRYPTED_CONNECTION_REQUIRED: Wbemstatus = -2147217273
 
-public val WBEM_E_FAILED: WBEMSTATUS = -2147217407
+public val WBEM_E_FAILED: Wbemstatus = -2147217407
 
-public val WBEM_E_FATAL_TRANSPORT_ERROR: WBEMSTATUS = -2147217274
+public val WBEM_E_FATAL_TRANSPORT_ERROR: Wbemstatus = -2147217274
 
-public val WBEM_E_HANDLE_OUT_OF_DATE: WBEMSTATUS = -2147217296
+public val WBEM_E_HANDLE_OUT_OF_DATE: Wbemstatus = -2147217296
 
-public val WBEM_E_ILLEGAL_NULL: WBEMSTATUS = -2147217368
+public val WBEM_E_ILLEGAL_NULL: Wbemstatus = -2147217368
 
-public val WBEM_E_ILLEGAL_OPERATION: WBEMSTATUS = -2147217378
+public val WBEM_E_ILLEGAL_OPERATION: Wbemstatus = -2147217378
 
-public val WBEM_E_INCOMPLETE_CLASS: WBEMSTATUS = -2147217376
+public val WBEM_E_INCOMPLETE_CLASS: Wbemstatus = -2147217376
 
-public val WBEM_E_INITIALIZATION_FAILURE: WBEMSTATUS = -2147217388
+public val WBEM_E_INITIALIZATION_FAILURE: Wbemstatus = -2147217388
 
-public val WBEM_E_INVALID_ASSOCIATION: WBEMSTATUS = -2147217302
+public val WBEM_E_INVALID_ASSOCIATION: Wbemstatus = -2147217302
 
-public val WBEM_E_INVALID_CIM_TYPE: WBEMSTATUS = -2147217363
+public val WBEM_E_INVALID_CIM_TYPE: Wbemstatus = -2147217363
 
-public val WBEM_E_INVALID_CLASS: WBEMSTATUS = -2147217392
+public val WBEM_E_INVALID_CLASS: Wbemstatus = -2147217392
 
-public val WBEM_E_INVALID_CONTEXT: WBEMSTATUS = -2147217401
+public val WBEM_E_INVALID_CONTEXT: Wbemstatus = -2147217401
 
-public val WBEM_E_INVALID_DUPLICATE_PARAMETER: WBEMSTATUS = -2147217341
+public val WBEM_E_INVALID_DUPLICATE_PARAMETER: Wbemstatus = -2147217341
 
-public val WBEM_E_INVALID_FLAVOR: WBEMSTATUS = -2147217338
+public val WBEM_E_INVALID_FLAVOR: Wbemstatus = -2147217338
 
-public val WBEM_E_INVALID_HANDLE_REQUEST: WBEMSTATUS = -2147217294
+public val WBEM_E_INVALID_HANDLE_REQUEST: Wbemstatus = -2147217294
 
-public val WBEM_E_INVALID_LOCALE: WBEMSTATUS = -2147217280
+public val WBEM_E_INVALID_LOCALE: Wbemstatus = -2147217280
 
-public val WBEM_E_INVALID_METHOD: WBEMSTATUS = -2147217362
+public val WBEM_E_INVALID_METHOD: Wbemstatus = -2147217362
 
-public val WBEM_E_INVALID_METHOD_PARAMETERS: WBEMSTATUS = -2147217361
+public val WBEM_E_INVALID_METHOD_PARAMETERS: Wbemstatus = -2147217361
 
-public val WBEM_E_INVALID_NAMESPACE: WBEMSTATUS = -2147217394
+public val WBEM_E_INVALID_NAMESPACE: Wbemstatus = -2147217394
 
-public val WBEM_E_INVALID_OBJECT: WBEMSTATUS = -2147217393
+public val WBEM_E_INVALID_OBJECT: Wbemstatus = -2147217393
 
-public val WBEM_E_INVALID_OBJECT_PATH: WBEMSTATUS = -2147217350
+public val WBEM_E_INVALID_OBJECT_PATH: Wbemstatus = -2147217350
 
-public val WBEM_E_INVALID_OPERATION: WBEMSTATUS = -2147217386
+public val WBEM_E_INVALID_OPERATION: Wbemstatus = -2147217386
 
-public val WBEM_E_INVALID_OPERATOR: WBEMSTATUS = -2147217309
+public val WBEM_E_INVALID_OPERATOR: Wbemstatus = -2147217309
 
-public val WBEM_E_INVALID_PARAMETER: WBEMSTATUS = -2147217400
+public val WBEM_E_INVALID_PARAMETER: Wbemstatus = -2147217400
 
-public val WBEM_E_INVALID_PARAMETER_ID: WBEMSTATUS = -2147217353
+public val WBEM_E_INVALID_PARAMETER_ID: Wbemstatus = -2147217353
 
-public val WBEM_E_INVALID_PROPERTY: WBEMSTATUS = -2147217359
+public val WBEM_E_INVALID_PROPERTY: Wbemstatus = -2147217359
 
-public val WBEM_E_INVALID_PROPERTY_TYPE: WBEMSTATUS = -2147217366
+public val WBEM_E_INVALID_PROPERTY_TYPE: Wbemstatus = -2147217366
 
-public val WBEM_E_INVALID_PROVIDER_REGISTRATION: WBEMSTATUS = -2147217390
+public val WBEM_E_INVALID_PROVIDER_REGISTRATION: Wbemstatus = -2147217390
 
-public val WBEM_E_INVALID_QUALIFIER: WBEMSTATUS = -2147217342
+public val WBEM_E_INVALID_QUALIFIER: Wbemstatus = -2147217342
 
-public val WBEM_E_INVALID_QUALIFIER_TYPE: WBEMSTATUS = -2147217367
+public val WBEM_E_INVALID_QUALIFIER_TYPE: Wbemstatus = -2147217367
 
-public val WBEM_E_INVALID_QUERY: WBEMSTATUS = -2147217385
+public val WBEM_E_INVALID_QUERY: Wbemstatus = -2147217385
 
-public val WBEM_E_INVALID_QUERY_TYPE: WBEMSTATUS = -2147217384
+public val WBEM_E_INVALID_QUERY_TYPE: Wbemstatus = -2147217384
 
-public val WBEM_E_INVALID_STREAM: WBEMSTATUS = -2147217397
+public val WBEM_E_INVALID_STREAM: Wbemstatus = -2147217397
 
-public val WBEM_E_INVALID_SUPERCLASS: WBEMSTATUS = -2147217395
+public val WBEM_E_INVALID_SUPERCLASS: Wbemstatus = -2147217395
 
-public val WBEM_E_INVALID_SYNTAX: WBEMSTATUS = -2147217375
+public val WBEM_E_INVALID_SYNTAX: Wbemstatus = -2147217375
 
-public val WBEM_E_LOCAL_CREDENTIALS: WBEMSTATUS = -2147217308
+public val WBEM_E_LOCAL_CREDENTIALS: Wbemstatus = -2147217308
 
-public val WBEM_E_MARSHAL_INVALID_SIGNATURE: WBEMSTATUS = -2147217343
+public val WBEM_E_MARSHAL_INVALID_SIGNATURE: Wbemstatus = -2147217343
 
-public val WBEM_E_MARSHAL_VERSION_MISMATCH: WBEMSTATUS = -2147217344
+public val WBEM_E_MARSHAL_VERSION_MISMATCH: Wbemstatus = -2147217344
 
-public val WBEM_E_METHOD_DISABLED: WBEMSTATUS = -2147217322
+public val WBEM_E_METHOD_DISABLED: Wbemstatus = -2147217322
 
-public val WBEM_E_METHOD_NAME_TOO_WIDE: WBEMSTATUS = -2147217291
+public val WBEM_E_METHOD_NAME_TOO_WIDE: Wbemstatus = -2147217291
 
-public val WBEM_E_METHOD_NOT_IMPLEMENTED: WBEMSTATUS = -2147217323
+public val WBEM_E_METHOD_NOT_IMPLEMENTED: Wbemstatus = -2147217323
 
-public val WBEM_E_MISSING_AGGREGATION_LIST: WBEMSTATUS = -2147217317
+public val WBEM_E_MISSING_AGGREGATION_LIST: Wbemstatus = -2147217317
 
-public val WBEM_E_MISSING_GROUP_WITHIN: WBEMSTATUS = -2147217318
+public val WBEM_E_MISSING_GROUP_WITHIN: Wbemstatus = -2147217318
 
-public val WBEM_E_MISSING_PARAMETER_ID: WBEMSTATUS = -2147217354
+public val WBEM_E_MISSING_PARAMETER_ID: Wbemstatus = -2147217354
 
-public val WBEM_E_NONCONSECUTIVE_PARAMETER_IDS: WBEMSTATUS = -2147217352
+public val WBEM_E_NONCONSECUTIVE_PARAMETER_IDS: Wbemstatus = -2147217352
 
-public val WBEM_E_NONDECORATED_OBJECT: WBEMSTATUS = -2147217374
+public val WBEM_E_NONDECORATED_OBJECT: Wbemstatus = -2147217374
 
-public val WBEM_E_NOT_AVAILABLE: WBEMSTATUS = -2147217399
+public val WBEM_E_NOT_AVAILABLE: Wbemstatus = -2147217399
 
-public val WBEM_E_NOT_EVENT_CLASS: WBEMSTATUS = -2147217319
+public val WBEM_E_NOT_EVENT_CLASS: Wbemstatus = -2147217319
 
-public val WBEM_E_NOT_FOUND: WBEMSTATUS = -2147217406
+public val WBEM_E_NOT_FOUND: Wbemstatus = -2147217406
 
-public val WBEM_E_NOT_SUPPORTED: WBEMSTATUS = -2147217396
+public val WBEM_E_NOT_SUPPORTED: Wbemstatus = -2147217396
 
-public val WBEM_E_NO_KEY: WBEMSTATUS = -2147217271
+public val WBEM_E_NO_KEY: Wbemstatus = -2147217271
 
-public val WBEM_E_NO_SCHEMA: WBEMSTATUS = -2147217277
+public val WBEM_E_NO_SCHEMA: Wbemstatus = -2147217277
 
-public val WBEM_E_NULL_SECURITY_DESCRIPTOR: WBEMSTATUS = -2147217304
+public val WBEM_E_NULL_SECURITY_DESCRIPTOR: Wbemstatus = -2147217304
 
-public val WBEM_E_OUT_OF_DISK_SPACE: WBEMSTATUS = -2147217349
+public val WBEM_E_OUT_OF_DISK_SPACE: Wbemstatus = -2147217349
 
-public val WBEM_E_OUT_OF_MEMORY: WBEMSTATUS = -2147217402
+public val WBEM_E_OUT_OF_MEMORY: Wbemstatus = -2147217402
 
-public val WBEM_E_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = -2147217382
+public val WBEM_E_OVERRIDE_NOT_ALLOWED: Wbemstatus = -2147217382
 
-public val WBEM_E_PARAMETER_ID_ON_RETVAL: WBEMSTATUS = -2147217351
+public val WBEM_E_PARAMETER_ID_ON_RETVAL: Wbemstatus = -2147217351
 
-public val WBEM_E_PRIVILEGE_NOT_HELD: WBEMSTATUS = -2147217310
+public val WBEM_E_PRIVILEGE_NOT_HELD: Wbemstatus = -2147217310
 
-public val WBEM_E_PROPAGATED_METHOD: WBEMSTATUS = -2147217356
+public val WBEM_E_PROPAGATED_METHOD: Wbemstatus = -2147217356
 
-public val WBEM_E_PROPAGATED_PROPERTY: WBEMSTATUS = -2147217380
+public val WBEM_E_PROPAGATED_PROPERTY: Wbemstatus = -2147217380
 
-public val WBEM_E_PROPAGATED_QUALIFIER: WBEMSTATUS = -2147217381
+public val WBEM_E_PROPAGATED_QUALIFIER: Wbemstatus = -2147217381
 
-public val WBEM_E_PROPERTY_NAME_TOO_WIDE: WBEMSTATUS = -2147217293
+public val WBEM_E_PROPERTY_NAME_TOO_WIDE: Wbemstatus = -2147217293
 
-public val WBEM_E_PROPERTY_NOT_AN_OBJECT: WBEMSTATUS = -2147217316
+public val WBEM_E_PROPERTY_NOT_AN_OBJECT: Wbemstatus = -2147217316
 
-public val WBEM_E_PROVIDER_ALREADY_REGISTERED: WBEMSTATUS = -2147217276
+public val WBEM_E_PROVIDER_ALREADY_REGISTERED: Wbemstatus = -2147217276
 
-public val WBEM_E_PROVIDER_DISABLED: WBEMSTATUS = -2147217270
+public val WBEM_E_PROVIDER_DISABLED: Wbemstatus = -2147217270
 
-public val WBEM_E_PROVIDER_FAILURE: WBEMSTATUS = -2147217404
+public val WBEM_E_PROVIDER_FAILURE: Wbemstatus = -2147217404
 
-public val WBEM_E_PROVIDER_LOAD_FAILURE: WBEMSTATUS = -2147217389
+public val WBEM_E_PROVIDER_LOAD_FAILURE: Wbemstatus = -2147217389
 
-public val WBEM_E_PROVIDER_NOT_CAPABLE: WBEMSTATUS = -2147217372
+public val WBEM_E_PROVIDER_NOT_CAPABLE: Wbemstatus = -2147217372
 
-public val WBEM_E_PROVIDER_NOT_FOUND: WBEMSTATUS = -2147217391
+public val WBEM_E_PROVIDER_NOT_FOUND: Wbemstatus = -2147217391
 
-public val WBEM_E_PROVIDER_NOT_REGISTERED: WBEMSTATUS = -2147217275
+public val WBEM_E_PROVIDER_NOT_REGISTERED: Wbemstatus = -2147217275
 
-public val WBEM_E_PROVIDER_SUSPENDED: WBEMSTATUS = -2147217279
+public val WBEM_E_PROVIDER_SUSPENDED: Wbemstatus = -2147217279
 
-public val WBEM_E_PROVIDER_TIMED_OUT: WBEMSTATUS = -2147217272
+public val WBEM_E_PROVIDER_TIMED_OUT: Wbemstatus = -2147217272
 
-public val WBEM_E_QUALIFIER_NAME_TOO_WIDE: WBEMSTATUS = -2147217290
+public val WBEM_E_QUALIFIER_NAME_TOO_WIDE: Wbemstatus = -2147217290
 
-public val WBEM_E_QUERY_NOT_IMPLEMENTED: WBEMSTATUS = -2147217369
+public val WBEM_E_QUERY_NOT_IMPLEMENTED: Wbemstatus = -2147217369
 
-public val WBEM_E_QUEUE_OVERFLOW: WBEMSTATUS = -2147217311
+public val WBEM_E_QUEUE_OVERFLOW: Wbemstatus = -2147217311
 
-public val WBEM_E_QUOTA_VIOLATION: WBEMSTATUS = -2147217300
+public val WBEM_E_QUOTA_VIOLATION: Wbemstatus = -2147217300
 
-public val WBEM_E_READ_ONLY: WBEMSTATUS = -2147217373
+public val WBEM_E_READ_ONLY: Wbemstatus = -2147217373
 
-public val WBEM_E_REFRESHER_BUSY: WBEMSTATUS = -2147217321
+public val WBEM_E_REFRESHER_BUSY: Wbemstatus = -2147217321
 
-public val WBEM_E_RERUN_COMMAND: WBEMSTATUS = -2147217289
+public val WBEM_E_RERUN_COMMAND: Wbemstatus = -2147217289
 
-public val WBEM_E_RESERVED_001: WBEMSTATUS = -2147217299
+public val WBEM_E_RESERVED_001: Wbemstatus = -2147217299
 
-public val WBEM_E_RESERVED_002: WBEMSTATUS = -2147217298
+public val WBEM_E_RESERVED_002: Wbemstatus = -2147217298
 
-public val WBEM_E_RESOURCE_CONTENTION: WBEM_EXTRA_RETURN_CODES = -2147209214
+public val WBEM_E_RESOURCE_CONTENTION: WbemExtraReturnCodes = -2147209214
 
-public val WBEM_E_RETRY_LATER: WBEM_EXTRA_RETURN_CODES = -2147209215
+public val WBEM_E_RETRY_LATER: WbemExtraReturnCodes = -2147209215
 
-public val WBEM_E_SERVER_TOO_BUSY: WBEMSTATUS = -2147217339
+public val WBEM_E_SERVER_TOO_BUSY: Wbemstatus = -2147217339
 
-public val WBEM_E_SHUTTING_DOWN: WBEMSTATUS = -2147217357
+public val WBEM_E_SHUTTING_DOWN: Wbemstatus = -2147217357
 
-public val WBEM_E_SYNCHRONIZATION_REQUIRED: WBEMSTATUS = -2147217278
+public val WBEM_E_SYNCHRONIZATION_REQUIRED: Wbemstatus = -2147217278
 
-public val WBEM_E_SYSTEM_PROPERTY: WBEMSTATUS = -2147217360
+public val WBEM_E_SYSTEM_PROPERTY: Wbemstatus = -2147217360
 
-public val WBEM_E_TIMED_OUT: WBEMSTATUS = -2147217303
+public val WBEM_E_TIMED_OUT: Wbemstatus = -2147217303
 
-public val WBEM_E_TOO_MANY_PROPERTIES: WBEMSTATUS = -2147217327
+public val WBEM_E_TOO_MANY_PROPERTIES: Wbemstatus = -2147217327
 
-public val WBEM_E_TOO_MUCH_DATA: WBEMSTATUS = -2147217340
+public val WBEM_E_TOO_MUCH_DATA: Wbemstatus = -2147217340
 
-public val WBEM_E_TRANSPORT_FAILURE: WBEMSTATUS = -2147217387
+public val WBEM_E_TRANSPORT_FAILURE: Wbemstatus = -2147217387
 
-public val WBEM_E_TYPE_MISMATCH: WBEMSTATUS = -2147217403
+public val WBEM_E_TYPE_MISMATCH: Wbemstatus = -2147217403
 
-public val WBEM_E_UNEXPECTED: WBEMSTATUS = -2147217379
+public val WBEM_E_UNEXPECTED: Wbemstatus = -2147217379
 
-public val WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY: WBEMSTATUS = -2147217313
+public val WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY: Wbemstatus = -2147217313
 
-public val WBEM_E_UNKNOWN_OBJECT_TYPE: WBEMSTATUS = -2147217346
+public val WBEM_E_UNKNOWN_OBJECT_TYPE: Wbemstatus = -2147217346
 
-public val WBEM_E_UNKNOWN_PACKET_TYPE: WBEMSTATUS = -2147217345
+public val WBEM_E_UNKNOWN_PACKET_TYPE: Wbemstatus = -2147217345
 
-public val WBEM_E_UNPARSABLE_QUERY: WBEMSTATUS = -2147217320
+public val WBEM_E_UNPARSABLE_QUERY: Wbemstatus = -2147217320
 
-public val WBEM_E_UNSUPPORTED_CLASS_UPDATE: WBEMSTATUS = -2147217336
+public val WBEM_E_UNSUPPORTED_CLASS_UPDATE: Wbemstatus = -2147217336
 
-public val WBEM_E_UNSUPPORTED_LOCALE: WBEMSTATUS = -2147217297
+public val WBEM_E_UNSUPPORTED_LOCALE: Wbemstatus = -2147217297
 
-public val WBEM_E_UNSUPPORTED_PARAMETER: WBEMSTATUS = -2147217355
+public val WBEM_E_UNSUPPORTED_PARAMETER: Wbemstatus = -2147217355
 
-public val WBEM_E_UNSUPPORTED_PUT_EXTENSION: WBEMSTATUS = -2147217347
+public val WBEM_E_UNSUPPORTED_PUT_EXTENSION: Wbemstatus = -2147217347
 
-public val WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = -2147217325
+public val WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED: Wbemstatus = -2147217325
 
-public val WBEM_E_UPDATE_PROPAGATED_METHOD: WBEMSTATUS = -2147217324
+public val WBEM_E_UPDATE_PROPAGATED_METHOD: Wbemstatus = -2147217324
 
-public val WBEM_E_UPDATE_TYPE_MISMATCH: WBEMSTATUS = -2147217326
+public val WBEM_E_UPDATE_TYPE_MISMATCH: Wbemstatus = -2147217326
 
-public val WBEM_E_VALUE_OUT_OF_RANGE: WBEMSTATUS = -2147217365
+public val WBEM_E_VALUE_OUT_OF_RANGE: Wbemstatus = -2147217365
 
-public val WBEM_E_VETO_DELETE: WBEMSTATUS = -2147217287
+public val WBEM_E_VETO_DELETE: Wbemstatus = -2147217287
 
-public val WBEM_E_VETO_PUT: WBEMSTATUS = -2147217286
+public val WBEM_E_VETO_PUT: Wbemstatus = -2147217286
 
-public val WBEM_FLAG_ADVISORY: WBEM_CHANGE_FLAG_TYPE = 65536
+public val WBEM_FLAG_ADVISORY: WbemChangeFlagType = 65536
 
-public val WBEM_FLAG_ALLOW_READ: WBEM_LOCKING_FLAG_TYPE = 1
+public val WBEM_FLAG_ALLOW_READ: WbemLockingFlagType = 1
 
-public val WBEM_FLAG_ALWAYS: WBEM_CONDITION_FLAG_TYPE = 0
+public val WBEM_FLAG_ALWAYS: WbemConditionFlagType = 0
 
-public val WBEM_FLAG_AUTORECOVER: WBEM_COMPILER_OPTIONS = 2
+public val WBEM_FLAG_AUTORECOVER: WbemCompilerOptions = 2
 
-public val WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WBEM_BACKUP_RESTORE_FLAGS = 0
+public val WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WbemBackupRestoreFlags = 0
 
-public val WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN: WBEM_BACKUP_RESTORE_FLAGS = 1
+public val WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN: WbemBackupRestoreFlags = 1
 
-public val WBEM_FLAG_BATCH_IF_NEEDED: WBEM_BATCH_TYPE = 0
+public val WBEM_FLAG_BATCH_IF_NEEDED: WbemBatchType = 0
 
-public val WBEM_FLAG_BIDIRECTIONAL: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_FLAG_BIDIRECTIONAL: WbemGenericFlagType = 0
 
-public val WBEM_FLAG_CHECK_ONLY: WBEM_COMPILER_OPTIONS = 1
+public val WBEM_FLAG_CHECK_ONLY: WbemCompilerOptions = 1
 
-public val WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES: WBEM_CONDITION_FLAG_TYPE = 512
+public val WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES: WbemConditionFlagType = 512
 
-public val WBEM_FLAG_CLASS_OVERRIDES_ONLY: WBEM_CONDITION_FLAG_TYPE = 256
+public val WBEM_FLAG_CLASS_OVERRIDES_ONLY: WbemConditionFlagType = 256
 
-public val WBEM_FLAG_CONNECT_PROVIDERS: WBEM_CONNECT_OPTIONS = 256
+public val WBEM_FLAG_CONNECT_PROVIDERS: WbemConnectOptions = 256
 
-public val WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WBEM_CONNECT_OPTIONS = 64
+public val WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WbemConnectOptions = 64
 
-public val WBEM_FLAG_CONNECT_USE_MAX_WAIT: WBEM_CONNECT_OPTIONS = 128
+public val WBEM_FLAG_CONNECT_USE_MAX_WAIT: WbemConnectOptions = 128
 
-public val WBEM_FLAG_CONSOLE_PRINT: WBEM_COMPILER_OPTIONS = 8
+public val WBEM_FLAG_CONSOLE_PRINT: WbemCompilerOptions = 8
 
-public val WBEM_FLAG_CREATE_ONLY: WBEM_CHANGE_FLAG_TYPE = 2
+public val WBEM_FLAG_CREATE_ONLY: WbemChangeFlagType = 2
 
-public val WBEM_FLAG_CREATE_OR_UPDATE: WBEM_CHANGE_FLAG_TYPE = 0
+public val WBEM_FLAG_CREATE_OR_UPDATE: WbemChangeFlagType = 0
 
-public val WBEM_FLAG_DEEP: WBEM_QUERY_FLAG_TYPE = 0
+public val WBEM_FLAG_DEEP: WbemQueryFlagType = 0
 
-public val WBEM_FLAG_DIRECT_READ: WBEM_GENERIC_FLAG_TYPE = 512
+public val WBEM_FLAG_DIRECT_READ: WbemGenericFlagType = 512
 
-public val WBEM_FLAG_DONT_ADD_TO_LIST: WBEM_COMPILER_OPTIONS = 16
+public val WBEM_FLAG_DONT_ADD_TO_LIST: WbemCompilerOptions = 16
 
-public val WBEM_FLAG_DONT_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_FLAG_DONT_SEND_STATUS: WbemGenericFlagType = 0
 
-public val WBEM_FLAG_ENSURE_LOCATABLE: WBEM_GENERIC_FLAG_TYPE = 256
+public val WBEM_FLAG_ENSURE_LOCATABLE: WbemGenericFlagType = 256
 
-public val WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = 16
+public val WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WbemLimitationFlagType = 16
 
-public val WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = 32
+public val WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS: WbemLimitationFlagType = 32
 
-public val WBEM_FLAG_FORWARD_ONLY: WBEM_GENERIC_FLAG_TYPE = 32
+public val WBEM_FLAG_FORWARD_ONLY: WbemGenericFlagType = 32
 
-public val WBEM_FLAG_IGNORE_CASE: WBEM_COMPARISON_FLAG = 16
+public val WBEM_FLAG_IGNORE_CASE: WbemComparisonFlag = 16
 
-public val WBEM_FLAG_IGNORE_CLASS: WBEM_COMPARISON_FLAG = 8
+public val WBEM_FLAG_IGNORE_CLASS: WbemComparisonFlag = 8
 
-public val WBEM_FLAG_IGNORE_DEFAULT_VALUES: WBEM_COMPARISON_FLAG = 4
+public val WBEM_FLAG_IGNORE_DEFAULT_VALUES: WbemComparisonFlag = 4
 
-public val WBEM_FLAG_IGNORE_FLAVOR: WBEM_COMPARISON_FLAG = 32
+public val WBEM_FLAG_IGNORE_FLAVOR: WbemComparisonFlag = 32
 
-public val WBEM_FLAG_IGNORE_OBJECT_SOURCE: WBEM_COMPARISON_FLAG = 2
+public val WBEM_FLAG_IGNORE_OBJECT_SOURCE: WbemComparisonFlag = 2
 
-public val WBEM_FLAG_IGNORE_QUALIFIERS: WBEM_COMPARISON_FLAG = 1
+public val WBEM_FLAG_IGNORE_QUALIFIERS: WbemComparisonFlag = 1
 
-public val WBEM_FLAG_INPROC_LOGIN: WBEM_LOGIN_TYPE = 0
+public val WBEM_FLAG_INPROC_LOGIN: WbemLoginType = 0
 
-public val WBEM_FLAG_KEYS_ONLY: WBEM_CONDITION_FLAG_TYPE = 4
+public val WBEM_FLAG_KEYS_ONLY: WbemConditionFlagType = 4
 
-public val WBEM_FLAG_LOCAL_LOGIN: WBEM_LOGIN_TYPE = 1
+public val WBEM_FLAG_LOCAL_LOGIN: WbemLoginType = 1
 
-public val WBEM_FLAG_LOCAL_ONLY: WBEM_CONDITION_FLAG_TYPE = 16
+public val WBEM_FLAG_LOCAL_ONLY: WbemConditionFlagType = 16
 
-public val WBEM_FLAG_LONG_NAME: WBEM_INFORMATION_FLAG_TYPE = 2
+public val WBEM_FLAG_LONG_NAME: WbemInformationFlagType = 2
 
-public val WBEM_FLAG_MUST_BATCH: WBEM_BATCH_TYPE = 1
+public val WBEM_FLAG_MUST_BATCH: WbemBatchType = 1
 
-public val WBEM_FLAG_MUST_NOT_BATCH: WBEM_BATCH_TYPE = 2
+public val WBEM_FLAG_MUST_NOT_BATCH: WbemBatchType = 2
 
-public val WBEM_FLAG_NONSYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = 64
+public val WBEM_FLAG_NONSYSTEM_ONLY: WbemConditionFlagType = 64
 
-public val WBEM_FLAG_NO_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = 64
+public val WBEM_FLAG_NO_ERROR_OBJECT: WbemGenericFlagType = 64
 
-public val WBEM_FLAG_NO_FLAVORS: WBEM_TEXT_FLAG_TYPE = 1
+public val WBEM_FLAG_NO_FLAVORS: WbemTextFlagType = 1
 
-public val WBEM_FLAG_ONLY_IF_FALSE: WBEM_CONDITION_FLAG_TYPE = 2
+public val WBEM_FLAG_ONLY_IF_FALSE: WbemConditionFlagType = 2
 
-public val WBEM_FLAG_ONLY_IF_IDENTICAL: WBEM_CONDITION_FLAG_TYPE = 3
+public val WBEM_FLAG_ONLY_IF_IDENTICAL: WbemConditionFlagType = 3
 
-public val WBEM_FLAG_ONLY_IF_TRUE: WBEM_CONDITION_FLAG_TYPE = 1
+public val WBEM_FLAG_ONLY_IF_TRUE: WbemConditionFlagType = 1
 
-public val WBEM_FLAG_OWNER_UPDATE: WBEM_PROVIDER_FLAGS = 65536
+public val WBEM_FLAG_OWNER_UPDATE: WbemProviderFlags = 65536
 
-public val WBEM_FLAG_PROPAGATED_ONLY: WBEM_CONDITION_FLAG_TYPE = 32
+public val WBEM_FLAG_PROPAGATED_ONLY: WbemConditionFlagType = 32
 
-public val WBEM_FLAG_PROTOTYPE: WBEM_QUERY_FLAG_TYPE = 2
+public val WBEM_FLAG_PROTOTYPE: WbemQueryFlagType = 2
 
-public val WBEM_FLAG_REFRESH_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = 0
+public val WBEM_FLAG_REFRESH_AUTO_RECONNECT: WbemRefresherFlags = 0
 
-public val WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = 1
+public val WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT: WbemRefresherFlags = 1
 
-public val WBEM_FLAG_REFS_ONLY: WBEM_CONDITION_FLAG_TYPE = 8
+public val WBEM_FLAG_REFS_ONLY: WbemConditionFlagType = 8
 
-public val WBEM_FLAG_REMOTE_LOGIN: WBEM_LOGIN_TYPE = 2
+public val WBEM_FLAG_REMOTE_LOGIN: WbemLoginType = 2
 
-public val WBEM_FLAG_RETURN_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_FLAG_RETURN_ERROR_OBJECT: WbemGenericFlagType = 0
 
-public val WBEM_FLAG_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = 16
+public val WBEM_FLAG_RETURN_IMMEDIATELY: WbemGenericFlagType = 16
 
-public val WBEM_FLAG_RETURN_WBEM_COMPLETE: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_FLAG_RETURN_WBEM_COMPLETE: WbemGenericFlagType = 0
 
-public val WBEM_FLAG_SEND_ONLY_SELECTED: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_FLAG_SEND_ONLY_SELECTED: WbemGenericFlagType = 0
 
-public val WBEM_FLAG_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = 128
+public val WBEM_FLAG_SEND_STATUS: WbemGenericFlagType = 128
 
-public val WBEM_FLAG_SHALLOW: WBEM_QUERY_FLAG_TYPE = 1
+public val WBEM_FLAG_SHALLOW: WbemQueryFlagType = 1
 
-public val WBEM_FLAG_SHORT_NAME: WBEM_INFORMATION_FLAG_TYPE = 1
+public val WBEM_FLAG_SHORT_NAME: WbemInformationFlagType = 1
 
-public val WBEM_FLAG_SPLIT_FILES: WBEM_COMPILER_OPTIONS = 32
+public val WBEM_FLAG_SPLIT_FILES: WbemCompilerOptions = 32
 
-public val WBEM_FLAG_STORE_FILE: WBEM_COMPILER_OPTIONS = 256
+public val WBEM_FLAG_STORE_FILE: WbemCompilerOptions = 256
 
-public val WBEM_FLAG_STRONG_VALIDATION: WBEM_GENERIC_FLAG_TYPE = 1048576
+public val WBEM_FLAG_STRONG_VALIDATION: WbemGenericFlagType = 1048576
 
-public val WBEM_FLAG_SYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = 48
+public val WBEM_FLAG_SYSTEM_ONLY: WbemConditionFlagType = 48
 
-public val WBEM_FLAG_UNSECAPP_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = 1
+public val WBEM_FLAG_UNSECAPP_CHECK_ACCESS: WbemUnsecappFlagType = 1
 
-public val WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = 0
+public val WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WbemUnsecappFlagType = 0
 
-public val WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = 2
+public val WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS: WbemUnsecappFlagType = 2
 
-public val WBEM_FLAG_UPDATE_COMPATIBLE: WBEM_CHANGE_FLAG_TYPE = 0
+public val WBEM_FLAG_UPDATE_COMPATIBLE: WbemChangeFlagType = 0
 
-public val WBEM_FLAG_UPDATE_FORCE_MODE: WBEM_CHANGE_FLAG_TYPE = 64
+public val WBEM_FLAG_UPDATE_FORCE_MODE: WbemChangeFlagType = 64
 
-public val WBEM_FLAG_UPDATE_ONLY: WBEM_CHANGE_FLAG_TYPE = 1
+public val WBEM_FLAG_UPDATE_ONLY: WbemChangeFlagType = 1
 
-public val WBEM_FLAG_UPDATE_SAFE_MODE: WBEM_CHANGE_FLAG_TYPE = 32
+public val WBEM_FLAG_UPDATE_SAFE_MODE: WbemChangeFlagType = 32
 
-public val WBEM_FLAG_USE_AMENDED_QUALIFIERS: WBEM_GENERIC_FLAG_TYPE = 131072
+public val WBEM_FLAG_USE_AMENDED_QUALIFIERS: WbemGenericFlagType = 131072
 
-public val WBEM_FLAG_USE_MULTIPLE_CHALLENGES: WBEM_LOGIN_TYPE = 16
+public val WBEM_FLAG_USE_MULTIPLE_CHALLENGES: WbemLoginType = 16
 
-public val WBEM_FLAG_WMI_CHECK: WBEM_COMPILER_OPTIONS = 4
+public val WBEM_FLAG_WMI_CHECK: WbemCompilerOptions = 4
 
-public val WBEM_FLAVOR_AMENDED: WBEM_FLAVOR_TYPE = 128
+public val WBEM_FLAVOR_AMENDED: WbemFlavorType = 128
 
-public val WBEM_FLAVOR_DONT_PROPAGATE: WBEM_FLAVOR_TYPE = 0
+public val WBEM_FLAVOR_DONT_PROPAGATE: WbemFlavorType = 0
 
-public val WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS: WBEM_FLAVOR_TYPE = 2
+public val WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS: WbemFlavorType = 2
 
-public val WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE: WBEM_FLAVOR_TYPE = 1
+public val WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE: WbemFlavorType = 1
 
-public val WBEM_FLAVOR_MASK_AMENDED: WBEM_FLAVOR_TYPE = 128
+public val WBEM_FLAVOR_MASK_AMENDED: WbemFlavorType = 128
 
-public val WBEM_FLAVOR_MASK_ORIGIN: WBEM_FLAVOR_TYPE = 96
+public val WBEM_FLAVOR_MASK_ORIGIN: WbemFlavorType = 96
 
-public val WBEM_FLAVOR_MASK_PERMISSIONS: WBEM_FLAVOR_TYPE = 16
+public val WBEM_FLAVOR_MASK_PERMISSIONS: WbemFlavorType = 16
 
-public val WBEM_FLAVOR_MASK_PROPAGATION: WBEM_FLAVOR_TYPE = 15
+public val WBEM_FLAVOR_MASK_PROPAGATION: WbemFlavorType = 15
 
-public val WBEM_FLAVOR_NOT_AMENDED: WBEM_FLAVOR_TYPE = 0
+public val WBEM_FLAVOR_NOT_AMENDED: WbemFlavorType = 0
 
-public val WBEM_FLAVOR_NOT_OVERRIDABLE: WBEM_FLAVOR_TYPE = 16
+public val WBEM_FLAVOR_NOT_OVERRIDABLE: WbemFlavorType = 16
 
-public val WBEM_FLAVOR_ORIGIN_LOCAL: WBEM_FLAVOR_TYPE = 0
+public val WBEM_FLAVOR_ORIGIN_LOCAL: WbemFlavorType = 0
 
-public val WBEM_FLAVOR_ORIGIN_PROPAGATED: WBEM_FLAVOR_TYPE = 32
+public val WBEM_FLAVOR_ORIGIN_PROPAGATED: WbemFlavorType = 32
 
-public val WBEM_FLAVOR_ORIGIN_SYSTEM: WBEM_FLAVOR_TYPE = 64
+public val WBEM_FLAVOR_ORIGIN_SYSTEM: WbemFlavorType = 64
 
-public val WBEM_FLAVOR_OVERRIDABLE: WBEM_FLAVOR_TYPE = 0
+public val WBEM_FLAVOR_OVERRIDABLE: WbemFlavorType = 0
 
-public val WBEM_FULL_WRITE_REP: WBEM_SECURITY_FLAGS = 4
+public val WBEM_FULL_WRITE_REP: WbemSecurityFlags = 4
 
-public val WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = 1
+public val WBEM_GENUS_CLASS: WbemGenusType = 1
 
-public val WBEM_GENUS_INSTANCE: WBEM_GENUS_TYPE = 2
+public val WBEM_GENUS_INSTANCE: WbemGenusType = 2
 
 public val WBEM_INFINITE: Int = -1
 
-public val WBEM_MASK_CLASS_CONDITION: WBEM_CONDITION_FLAG_TYPE = 768
+public val WBEM_MASK_CLASS_CONDITION: WbemConditionFlagType = 768
 
-public val WBEM_MASK_CONDITION_ORIGIN: WBEM_CONDITION_FLAG_TYPE = 112
+public val WBEM_MASK_CONDITION_ORIGIN: WbemConditionFlagType = 112
 
-public val WBEM_MASK_PRIMARY_CONDITION: WBEM_CONDITION_FLAG_TYPE = 3
+public val WBEM_MASK_PRIMARY_CONDITION: WbemConditionFlagType = 3
 
-public val WBEM_MASK_RESERVED_FLAGS: WBEM_GENERIC_FLAG_TYPE = 126976
+public val WBEM_MASK_RESERVED_FLAGS: WbemGenericFlagType = 126976
 
-public val WBEM_MASK_UPDATE_MODE: WBEM_CHANGE_FLAG_TYPE = 96
+public val WBEM_MASK_UPDATE_MODE: WbemChangeFlagType = 96
 
-public val WBEM_MAX_IDENTIFIER: WBEM_LIMITS = 4096
+public val WBEM_MAX_IDENTIFIER: WbemLimits = 4096
 
-public val WBEM_MAX_OBJECT_NESTING: WBEM_LIMITS = 64
+public val WBEM_MAX_OBJECT_NESTING: WbemLimits = 64
 
-public val WBEM_MAX_PATH: WBEM_LIMITS = 8192
+public val WBEM_MAX_PATH: WbemLimits = 8192
 
-public val WBEM_MAX_QUERY: WBEM_LIMITS = 16384
+public val WBEM_MAX_QUERY: WbemLimits = 16384
 
-public val WBEM_MAX_USER_PROPERTIES: WBEM_LIMITS = 1024
+public val WBEM_MAX_USER_PROPERTIES: WbemLimits = 1024
 
-public val WBEM_METHOD_EXECUTE: WBEM_SECURITY_FLAGS = 2
+public val WBEM_METHOD_EXECUTE: WbemSecurityFlags = 2
 
-public val WBEM_NO_ERROR: WBEMSTATUS = 0
+public val WBEM_NO_ERROR: Wbemstatus = 0
 
 public val WBEM_NO_WAIT: Int = 0
 
-public val WBEM_PARTIAL_WRITE_REP: WBEM_SECURITY_FLAGS = 8
+public val WBEM_PARTIAL_WRITE_REP: WbemSecurityFlags = 8
 
-public val WBEM_REMOTE_ACCESS: WBEM_SECURITY_FLAGS = 32
+public val WBEM_REMOTE_ACCESS: WbemSecurityFlags = 32
 
-public val WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WBEM_PROVIDER_REQUIREMENTS_TYPE = 2
+public val WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WbemProviderRequirementsType = 2
 
-public val WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = 0
+public val WBEM_REQUIREMENTS_START_POSTFILTER: WbemProviderRequirementsType = 0
 
-public val WBEM_REQUIREMENTS_STOP_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = 1
+public val WBEM_REQUIREMENTS_STOP_POSTFILTER: WbemProviderRequirementsType = 1
 
-public val WBEM_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = 16
+public val WBEM_RETURN_IMMEDIATELY: WbemGenericFlagType = 16
 
-public val WBEM_RETURN_WHEN_COMPLETE: WBEM_GENERIC_FLAG_TYPE = 0
+public val WBEM_RETURN_WHEN_COMPLETE: WbemGenericFlagType = 0
 
-public val WBEM_RIGHT_PUBLISH: WBEM_SECURITY_FLAGS = 128
+public val WBEM_RIGHT_PUBLISH: WbemSecurityFlags = 128
 
-public val WBEM_RIGHT_SUBSCRIBE: WBEM_SECURITY_FLAGS = 64
+public val WBEM_RIGHT_SUBSCRIBE: WbemSecurityFlags = 64
 
-public val WBEM_SHUTDOWN_OS: WBEM_SHUTDOWN_FLAGS = 3
+public val WBEM_SHUTDOWN_OS: WbemShutdownFlags = 3
 
-public val WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = 1
+public val WBEM_SHUTDOWN_UNLOAD_COMPONENT: WbemShutdownFlags = 1
 
-public val WBEM_SHUTDOWN_WMI: WBEM_SHUTDOWN_FLAGS = 2
+public val WBEM_SHUTDOWN_WMI: WbemShutdownFlags = 2
 
-public val WBEM_STATUS_COMPLETE: WBEM_STATUS_TYPE = 0
+public val WBEM_STATUS_COMPLETE: WbemStatusType = 0
 
-public val WBEM_STATUS_LOGGING_INFORMATION: WBEM_STATUS_TYPE = 256
+public val WBEM_STATUS_LOGGING_INFORMATION: WbemStatusType = 256
 
-public val WBEM_STATUS_LOGGING_INFORMATION_ESS: WBEM_STATUS_TYPE = 4096
+public val WBEM_STATUS_LOGGING_INFORMATION_ESS: WbemStatusType = 4096
 
-public val WBEM_STATUS_LOGGING_INFORMATION_HOST: WBEM_STATUS_TYPE = 1024
+public val WBEM_STATUS_LOGGING_INFORMATION_HOST: WbemStatusType = 1024
 
-public val WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WBEM_STATUS_TYPE = 512
+public val WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WbemStatusType = 512
 
-public val WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WBEM_STATUS_TYPE = 2048
+public val WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WbemStatusType = 2048
 
-public val WBEM_STATUS_PROGRESS: WBEM_STATUS_TYPE = 2
+public val WBEM_STATUS_PROGRESS: WbemStatusType = 2
 
-public val WBEM_STATUS_REQUIREMENTS: WBEM_STATUS_TYPE = 1
+public val WBEM_STATUS_REQUIREMENTS: WbemStatusType = 1
 
-public val WBEM_S_ACCESS_DENIED: WBEMSTATUS = 262153
+public val WBEM_S_ACCESS_DENIED: Wbemstatus = 262153
 
-public val WBEM_S_ALREADY_EXISTS: WBEMSTATUS = 262145
+public val WBEM_S_ALREADY_EXISTS: Wbemstatus = 262145
 
-public val WBEM_S_DIFFERENT: WBEMSTATUS = 262147
+public val WBEM_S_DIFFERENT: Wbemstatus = 262147
 
-public val WBEM_S_DUPLICATE_OBJECTS: WBEMSTATUS = 262152
+public val WBEM_S_DUPLICATE_OBJECTS: Wbemstatus = 262152
 
-public val WBEM_S_FALSE: WBEMSTATUS = 1
+public val WBEM_S_FALSE: Wbemstatus = 1
 
-public val WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = 274434
+public val WBEM_S_INDIRECTLY_UPDATED: WbemExtraReturnCodes = 274434
 
-public val WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = 0
+public val WBEM_S_INITIALIZED: WbemExtraReturnCodes = 0
 
-public val WBEM_S_LIMITED_SERVICE: WBEM_EXTRA_RETURN_CODES = 274433
+public val WBEM_S_LIMITED_SERVICE: WbemExtraReturnCodes = 274433
 
-public val WBEM_S_NO_ERROR: WBEMSTATUS = 0
+public val WBEM_S_NO_ERROR: Wbemstatus = 0
 
-public val WBEM_S_NO_MORE_DATA: WBEMSTATUS = 262149
+public val WBEM_S_NO_MORE_DATA: Wbemstatus = 262149
 
-public val WBEM_S_OPERATION_CANCELLED: WBEMSTATUS = 262150
+public val WBEM_S_OPERATION_CANCELLED: Wbemstatus = 262150
 
-public val WBEM_S_PARTIAL_RESULTS: WBEMSTATUS = 262160
+public val WBEM_S_PARTIAL_RESULTS: Wbemstatus = 262160
 
-public val WBEM_S_PENDING: WBEMSTATUS = 262151
+public val WBEM_S_PENDING: Wbemstatus = 262151
 
-public val WBEM_S_RESET_TO_DEFAULT: WBEMSTATUS = 262146
+public val WBEM_S_RESET_TO_DEFAULT: Wbemstatus = 262146
 
-public val WBEM_S_SAME: WBEMSTATUS = 0
+public val WBEM_S_SAME: Wbemstatus = 0
 
-public val WBEM_S_SOURCE_NOT_AVAILABLE: WBEMSTATUS = 262167
+public val WBEM_S_SOURCE_NOT_AVAILABLE: Wbemstatus = 262167
 
-public val WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = 274435
+public val WBEM_S_SUBJECT_TO_SDS: WbemExtraReturnCodes = 274435
 
-public val WBEM_S_TIMEDOUT: WBEMSTATUS = 262148
+public val WBEM_S_TIMEDOUT: Wbemstatus = 262148
 
-public val WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = 16
+public val WBEM_WRITE_PROVIDER: WbemSecurityFlags = 16
 
-public val WMIExtension: GUID = GUID.from_u128(U128(0xf0975afe5c7f11d2uL, 0x8b7400104b2afb41uL))
+public val WMI_EXTENSION: Guid = Guid.fromU128(U128(0xf0975afe5c7f11d2uL, 0x8b7400104b2afb41uL))
 
-public val WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = 2
+public val WMIQ_ANALYSIS_ASSOC_QUERY: WmiqAnalysisType = 2
 
-public val WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = 3
+public val WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WmiqAnalysisType = 3
 
-public val WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = 4
+public val WMIQ_ANALYSIS_QUERY_TEXT: WmiqAnalysisType = 4
 
-public val WMIQ_ANALYSIS_RESERVED: WMIQ_ANALYSIS_TYPE = 134217728
+public val WMIQ_ANALYSIS_RESERVED: WmiqAnalysisType = 134217728
 
-public val WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = 1
+public val WMIQ_ANALYSIS_RPN_SEQUENCE: WmiqAnalysisType = 1
 
-public val WMIQ_ASSOCQ_ASSOCCLASS: WMIQ_ASSOCQ_FLAGS = 8
+public val WMIQ_ASSOCQ_ASSOCCLASS: WmiqAssocqFlags = 8
 
-public val WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = 1
+public val WMIQ_ASSOCQ_ASSOCIATORS: WmiqAssocqFlags = 1
 
-public val WMIQ_ASSOCQ_CLASSDEFSONLY: WMIQ_ASSOCQ_FLAGS = 256
+public val WMIQ_ASSOCQ_CLASSDEFSONLY: WmiqAssocqFlags = 256
 
-public val WMIQ_ASSOCQ_CLASSREFSONLY: WMIQ_ASSOCQ_FLAGS = 2048
+public val WMIQ_ASSOCQ_CLASSREFSONLY: WmiqAssocqFlags = 2048
 
-public val WMIQ_ASSOCQ_KEYSONLY: WMIQ_ASSOCQ_FLAGS = 512
+public val WMIQ_ASSOCQ_KEYSONLY: WmiqAssocqFlags = 512
 
-public val WMIQ_ASSOCQ_REFERENCES: WMIQ_ASSOCQ_FLAGS = 2
+public val WMIQ_ASSOCQ_REFERENCES: WmiqAssocqFlags = 2
 
-public val WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER: WMIQ_ASSOCQ_FLAGS = 128
+public val WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER: WmiqAssocqFlags = 128
 
-public val WMIQ_ASSOCQ_REQUIREDQUALIFIER: WMIQ_ASSOCQ_FLAGS = 64
+public val WMIQ_ASSOCQ_REQUIREDQUALIFIER: WmiqAssocqFlags = 64
 
-public val WMIQ_ASSOCQ_RESULTCLASS: WMIQ_ASSOCQ_FLAGS = 4
+public val WMIQ_ASSOCQ_RESULTCLASS: WmiqAssocqFlags = 4
 
-public val WMIQ_ASSOCQ_RESULTROLE: WMIQ_ASSOCQ_FLAGS = 32
+public val WMIQ_ASSOCQ_RESULTROLE: WmiqAssocqFlags = 32
 
-public val WMIQ_ASSOCQ_ROLE: WMIQ_ASSOCQ_FLAGS = 16
+public val WMIQ_ASSOCQ_ROLE: WmiqAssocqFlags = 16
 
-public val WMIQ_ASSOCQ_SCHEMAONLY: WMIQ_ASSOCQ_FLAGS = 1024
+public val WMIQ_ASSOCQ_SCHEMAONLY: WmiqAssocqFlags = 1024
 
-public val WMIQ_LF10_COMPEX_SUBEXPRESSIONS: WMIQ_LANGUAGE_FEATURES = 10
+public val WMIQ_LF10_COMPEX_SUBEXPRESSIONS: WmiqLanguageFeatures = 10
 
-public val WMIQ_LF11_ALIASING: WMIQ_LANGUAGE_FEATURES = 11
+public val WMIQ_LF11_ALIASING: WmiqLanguageFeatures = 11
 
-public val WMIQ_LF12_GROUP_BY_HAVING: WMIQ_LANGUAGE_FEATURES = 12
+public val WMIQ_LF12_GROUP_BY_HAVING: WmiqLanguageFeatures = 12
 
-public val WMIQ_LF13_WMI_WITHIN: WMIQ_LANGUAGE_FEATURES = 13
+public val WMIQ_LF13_WMI_WITHIN: WmiqLanguageFeatures = 13
 
-public val WMIQ_LF14_SQL_WRITE_OPERATIONS: WMIQ_LANGUAGE_FEATURES = 14
+public val WMIQ_LF14_SQL_WRITE_OPERATIONS: WmiqLanguageFeatures = 14
 
-public val WMIQ_LF15_GO: WMIQ_LANGUAGE_FEATURES = 15
+public val WMIQ_LF15_GO: WmiqLanguageFeatures = 15
 
-public val WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS: WMIQ_LANGUAGE_FEATURES = 16
+public val WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS: WmiqLanguageFeatures = 16
 
-public val WMIQ_LF17_QUALIFIED_NAMES: WMIQ_LANGUAGE_FEATURES = 17
+public val WMIQ_LF17_QUALIFIED_NAMES: WmiqLanguageFeatures = 17
 
-public val WMIQ_LF18_ASSOCIATONS: WMIQ_LANGUAGE_FEATURES = 18
+public val WMIQ_LF18_ASSOCIATONS: WmiqLanguageFeatures = 18
 
-public val WMIQ_LF19_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = 19
+public val WMIQ_LF19_SYSTEM_PROPERTIES: WmiqLanguageFeatures = 19
 
-public val WMIQ_LF1_BASIC_SELECT: WMIQ_LANGUAGE_FEATURES = 1
+public val WMIQ_LF1_BASIC_SELECT: WmiqLanguageFeatures = 1
 
-public val WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = 20
+public val WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES: WmiqLanguageFeatures = 20
 
-public val WMIQ_LF21_SQL89_JOINS: WMIQ_LANGUAGE_FEATURES = 21
+public val WMIQ_LF21_SQL89_JOINS: WmiqLanguageFeatures = 21
 
-public val WMIQ_LF22_SQL92_JOINS: WMIQ_LANGUAGE_FEATURES = 22
+public val WMIQ_LF22_SQL92_JOINS: WmiqLanguageFeatures = 22
 
-public val WMIQ_LF23_SUBSELECTS: WMIQ_LANGUAGE_FEATURES = 23
+public val WMIQ_LF23_SUBSELECTS: WmiqLanguageFeatures = 23
 
-public val WMIQ_LF24_UMI_EXTENSIONS: WMIQ_LANGUAGE_FEATURES = 24
+public val WMIQ_LF24_UMI_EXTENSIONS: WmiqLanguageFeatures = 24
 
-public val WMIQ_LF25_DATEPART: WMIQ_LANGUAGE_FEATURES = 25
+public val WMIQ_LF25_DATEPART: WmiqLanguageFeatures = 25
 
-public val WMIQ_LF26_LIKE: WMIQ_LANGUAGE_FEATURES = 26
+public val WMIQ_LF26_LIKE: WmiqLanguageFeatures = 26
 
-public val WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS: WMIQ_LANGUAGE_FEATURES = 27
+public val WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS: WmiqLanguageFeatures = 27
 
-public val WMIQ_LF28_STANDARD_AGGREGATES: WMIQ_LANGUAGE_FEATURES = 28
+public val WMIQ_LF28_STANDARD_AGGREGATES: WmiqLanguageFeatures = 28
 
-public val WMIQ_LF29_MULTI_LEVEL_ORDER_BY: WMIQ_LANGUAGE_FEATURES = 29
+public val WMIQ_LF29_MULTI_LEVEL_ORDER_BY: WmiqLanguageFeatures = 29
 
-public val WMIQ_LF2_CLASS_NAME_IN_QUERY: WMIQ_LANGUAGE_FEATURES = 2
+public val WMIQ_LF2_CLASS_NAME_IN_QUERY: WmiqLanguageFeatures = 2
 
-public val WMIQ_LF30_WMI_PRAGMAS: WMIQ_LANGUAGE_FEATURES = 30
+public val WMIQ_LF30_WMI_PRAGMAS: WmiqLanguageFeatures = 30
 
-public val WMIQ_LF31_QUALIFIER_TESTS: WMIQ_LANGUAGE_FEATURES = 31
+public val WMIQ_LF31_QUALIFIER_TESTS: WmiqLanguageFeatures = 31
 
-public val WMIQ_LF32_SP_EXECUTE: WMIQ_LANGUAGE_FEATURES = 32
+public val WMIQ_LF32_SP_EXECUTE: WmiqLanguageFeatures = 32
 
-public val WMIQ_LF33_ARRAY_ACCESS: WMIQ_LANGUAGE_FEATURES = 33
+public val WMIQ_LF33_ARRAY_ACCESS: WmiqLanguageFeatures = 33
 
-public val WMIQ_LF34_UNION: WMIQ_LANGUAGE_FEATURES = 34
+public val WMIQ_LF34_UNION: WmiqLanguageFeatures = 34
 
-public val WMIQ_LF35_COMPLEX_SELECT_TARGET: WMIQ_LANGUAGE_FEATURES = 35
+public val WMIQ_LF35_COMPLEX_SELECT_TARGET: WmiqLanguageFeatures = 35
 
-public val WMIQ_LF36_REFERENCE_TESTS: WMIQ_LANGUAGE_FEATURES = 36
+public val WMIQ_LF36_REFERENCE_TESTS: WmiqLanguageFeatures = 36
 
-public val WMIQ_LF37_SELECT_INTO: WMIQ_LANGUAGE_FEATURES = 37
+public val WMIQ_LF37_SELECT_INTO: WmiqLanguageFeatures = 37
 
-public val WMIQ_LF38_BASIC_DATETIME_TESTS: WMIQ_LANGUAGE_FEATURES = 38
+public val WMIQ_LF38_BASIC_DATETIME_TESTS: WmiqLanguageFeatures = 38
 
-public val WMIQ_LF39_COUNT_COLUMN: WMIQ_LANGUAGE_FEATURES = 39
+public val WMIQ_LF39_COUNT_COLUMN: WmiqLanguageFeatures = 39
 
-public val WMIQ_LF3_STRING_CASE_FUNCTIONS: WMIQ_LANGUAGE_FEATURES = 3
+public val WMIQ_LF3_STRING_CASE_FUNCTIONS: WmiqLanguageFeatures = 3
 
-public val WMIQ_LF40_BETWEEN: WMIQ_LANGUAGE_FEATURES = 40
+public val WMIQ_LF40_BETWEEN: WmiqLanguageFeatures = 40
 
-public val WMIQ_LF4_PROP_TO_PROP_TESTS: WMIQ_LANGUAGE_FEATURES = 4
+public val WMIQ_LF4_PROP_TO_PROP_TESTS: WmiqLanguageFeatures = 4
 
-public val WMIQ_LF5_COUNT_STAR: WMIQ_LANGUAGE_FEATURES = 5
+public val WMIQ_LF5_COUNT_STAR: WmiqLanguageFeatures = 5
 
-public val WMIQ_LF6_ORDER_BY: WMIQ_LANGUAGE_FEATURES = 6
+public val WMIQ_LF6_ORDER_BY: WmiqLanguageFeatures = 6
 
-public val WMIQ_LF7_DISTINCT: WMIQ_LANGUAGE_FEATURES = 7
+public val WMIQ_LF7_DISTINCT: WmiqLanguageFeatures = 7
 
-public val WMIQ_LF8_ISA: WMIQ_LANGUAGE_FEATURES = 8
+public val WMIQ_LF8_ISA: WmiqLanguageFeatures = 8
 
-public val WMIQ_LF9_THIS: WMIQ_LANGUAGE_FEATURES = 9
+public val WMIQ_LF9_THIS: WmiqLanguageFeatures = 9
 
-public val WMIQ_LF_LAST: WMIQ_LANGUAGE_FEATURES = 40
+public val WMIQ_LF_LAST: WmiqLanguageFeatures = 40
 
-public val WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNF_FEATURE = 8192
+public val WMIQ_RPNF_ARRAY_ACCESS_USED: WmiqRpnfFeature = 8192
 
-public val WMIQ_RPNF_COUNT_STAR: WMIQ_RPNF_FEATURE = 64
+public val WMIQ_RPNF_COUNT_STAR: WmiqRpnfFeature = 64
 
-public val WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNF_FEATURE = 32
+public val WMIQ_RPNF_EQUALITY_TESTS_ONLY: WmiqRpnfFeature = 32
 
-public val WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNF_FEATURE = 16
+public val WMIQ_RPNF_FEATURE_SELECT_STAR: WmiqRpnfFeature = 16
 
-public val WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNF_FEATURE = 4096
+public val WMIQ_RPNF_GROUP_BY_HAVING: WmiqRpnfFeature = 4096
 
-public val WMIQ_RPNF_ISA_USED: WMIQ_RPNF_FEATURE = 2048
+public val WMIQ_RPNF_ISA_USED: WmiqRpnfFeature = 2048
 
-public val WMIQ_RPNF_ORDER_BY: WMIQ_RPNF_FEATURE = 1024
+public val WMIQ_RPNF_ORDER_BY: WmiqRpnfFeature = 1024
 
-public val WMIQ_RPNF_PROJECTION: WMIQ_RPNF_FEATURE = 8
+public val WMIQ_RPNF_PROJECTION: WmiqRpnfFeature = 8
 
-public val WMIQ_RPNF_PROP_TO_PROP_TESTS: WMIQ_RPNF_FEATURE = 512
+public val WMIQ_RPNF_PROP_TO_PROP_TESTS: WmiqRpnfFeature = 512
 
-public val WMIQ_RPNF_QUALIFIED_NAMES_USED: WMIQ_RPNF_FEATURE = 128
+public val WMIQ_RPNF_QUALIFIED_NAMES_USED: WmiqRpnfFeature = 128
 
-public val WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WMIQ_RPNF_FEATURE = 2
+public val WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WmiqRpnfFeature = 2
 
-public val WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WMIQ_RPNF_FEATURE = 4
+public val WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WmiqRpnfFeature = 4
 
-public val WMIQ_RPNF_SYSPROP_CLASS_USED: WMIQ_RPNF_FEATURE = 256
+public val WMIQ_RPNF_SYSPROP_CLASS_USED: WmiqRpnfFeature = 256
 
-public val WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNF_FEATURE = 1
+public val WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WmiqRpnfFeature = 1
 
-public val WMIQ_RPN_CONST: WMIQ_RPN_TOKEN_FLAGS = 8
+public val WMIQ_RPN_CONST: WmiqRpnTokenFlags = 8
 
-public val WMIQ_RPN_CONST2: WMIQ_RPN_TOKEN_FLAGS = 4
+public val WMIQ_RPN_CONST2: WmiqRpnTokenFlags = 4
 
-public val WMIQ_RPN_FROM_CLASS_LIST: WMIQ_RPN_TOKEN_FLAGS = 4
+public val WMIQ_RPN_FROM_CLASS_LIST: WmiqRpnTokenFlags = 4
 
-public val WMIQ_RPN_FROM_MULTIPLE: WMIQ_RPN_TOKEN_FLAGS = 8
+public val WMIQ_RPN_FROM_MULTIPLE: WmiqRpnTokenFlags = 8
 
-public val WMIQ_RPN_FROM_PATH: WMIQ_RPN_TOKEN_FLAGS = 2
+public val WMIQ_RPN_FROM_PATH: WmiqRpnTokenFlags = 2
 
-public val WMIQ_RPN_FROM_UNARY: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_FROM_UNARY: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_GET_EXPR_SHAPE: WMIQ_RPN_TOKEN_FLAGS = 2
+public val WMIQ_RPN_GET_EXPR_SHAPE: WmiqRpnTokenFlags = 2
 
-public val WMIQ_RPN_GET_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = 3
+public val WMIQ_RPN_GET_LEFT_FUNCTION: WmiqRpnTokenFlags = 3
 
-public val WMIQ_RPN_GET_RELOP: WMIQ_RPN_TOKEN_FLAGS = 5
+public val WMIQ_RPN_GET_RELOP: WmiqRpnTokenFlags = 5
 
-public val WMIQ_RPN_GET_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = 4
+public val WMIQ_RPN_GET_RIGHT_FUNCTION: WmiqRpnTokenFlags = 4
 
-public val WMIQ_RPN_GET_TOKEN_TYPE: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_GET_TOKEN_TYPE: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = 32
+public val WMIQ_RPN_LEFT_FUNCTION: WmiqRpnTokenFlags = 32
 
-public val WMIQ_RPN_LEFT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_LEFT_PROPERTY_NAME: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_NEXT_TOKEN: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_NEXT_TOKEN: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_OP_EQ: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_OP_EQ: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_OP_GE: WMIQ_RPN_TOKEN_FLAGS = 3
+public val WMIQ_RPN_OP_GE: WmiqRpnTokenFlags = 3
 
-public val WMIQ_RPN_OP_GT: WMIQ_RPN_TOKEN_FLAGS = 6
+public val WMIQ_RPN_OP_GT: WmiqRpnTokenFlags = 6
 
-public val WMIQ_RPN_OP_ISA: WMIQ_RPN_TOKEN_FLAGS = 8
+public val WMIQ_RPN_OP_ISA: WmiqRpnTokenFlags = 8
 
-public val WMIQ_RPN_OP_ISNOTA: WMIQ_RPN_TOKEN_FLAGS = 9
+public val WMIQ_RPN_OP_ISNOTA: WmiqRpnTokenFlags = 9
 
-public val WMIQ_RPN_OP_ISNOTNULL: WMIQ_RPN_TOKEN_FLAGS = 11
+public val WMIQ_RPN_OP_ISNOTNULL: WmiqRpnTokenFlags = 11
 
-public val WMIQ_RPN_OP_ISNULL: WMIQ_RPN_TOKEN_FLAGS = 10
+public val WMIQ_RPN_OP_ISNULL: WmiqRpnTokenFlags = 10
 
-public val WMIQ_RPN_OP_LE: WMIQ_RPN_TOKEN_FLAGS = 4
+public val WMIQ_RPN_OP_LE: WmiqRpnTokenFlags = 4
 
-public val WMIQ_RPN_OP_LIKE: WMIQ_RPN_TOKEN_FLAGS = 7
+public val WMIQ_RPN_OP_LIKE: WmiqRpnTokenFlags = 7
 
-public val WMIQ_RPN_OP_LT: WMIQ_RPN_TOKEN_FLAGS = 5
+public val WMIQ_RPN_OP_LT: WmiqRpnTokenFlags = 5
 
-public val WMIQ_RPN_OP_NE: WMIQ_RPN_TOKEN_FLAGS = 2
+public val WMIQ_RPN_OP_NE: WmiqRpnTokenFlags = 2
 
-public val WMIQ_RPN_OP_UNDEFINED: WMIQ_RPN_TOKEN_FLAGS = 0
+public val WMIQ_RPN_OP_UNDEFINED: WmiqRpnTokenFlags = 0
 
-public val WMIQ_RPN_RELOP: WMIQ_RPN_TOKEN_FLAGS = 16
+public val WMIQ_RPN_RELOP: WmiqRpnTokenFlags = 16
 
-public val WMIQ_RPN_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = 64
+public val WMIQ_RPN_RIGHT_FUNCTION: WmiqRpnTokenFlags = 64
 
-public val WMIQ_RPN_RIGHT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = 2
+public val WMIQ_RPN_RIGHT_PROPERTY_NAME: WmiqRpnTokenFlags = 2
 
-public val WMIQ_RPN_TOKEN_AND: WMIQ_RPN_TOKEN_FLAGS = 2
+public val WMIQ_RPN_TOKEN_AND: WmiqRpnTokenFlags = 2
 
-public val WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = 1
+public val WMIQ_RPN_TOKEN_EXPRESSION: WmiqRpnTokenFlags = 1
 
-public val WMIQ_RPN_TOKEN_NOT: WMIQ_RPN_TOKEN_FLAGS = 4
+public val WMIQ_RPN_TOKEN_NOT: WmiqRpnTokenFlags = 4
 
-public val WMIQ_RPN_TOKEN_OR: WMIQ_RPN_TOKEN_FLAGS = 3
+public val WMIQ_RPN_TOKEN_OR: WmiqRpnTokenFlags = 3
 
-public val WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = 1
+public val WMI_OBJ_TEXT_CIM_DTD_2_0: WmiObjText = 1
 
-public val WMI_OBJ_TEXT_LAST: WMI_OBJ_TEXT = 13
+public val WMI_OBJ_TEXT_LAST: WmiObjText = 13
 
-public val WMI_OBJ_TEXT_WMI_DTD_2_0: WMI_OBJ_TEXT = 2
+public val WMI_OBJ_TEXT_WMI_DTD_2_0: WmiObjText = 2
 
-public val WMI_OBJ_TEXT_WMI_EXT1: WMI_OBJ_TEXT = 3
+public val WMI_OBJ_TEXT_WMI_EXT1: WmiObjText = 3
 
-public val WMI_OBJ_TEXT_WMI_EXT10: WMI_OBJ_TEXT = 12
+public val WMI_OBJ_TEXT_WMI_EXT10: WmiObjText = 12
 
-public val WMI_OBJ_TEXT_WMI_EXT2: WMI_OBJ_TEXT = 4
+public val WMI_OBJ_TEXT_WMI_EXT2: WmiObjText = 4
 
-public val WMI_OBJ_TEXT_WMI_EXT3: WMI_OBJ_TEXT = 5
+public val WMI_OBJ_TEXT_WMI_EXT3: WmiObjText = 5
 
-public val WMI_OBJ_TEXT_WMI_EXT4: WMI_OBJ_TEXT = 6
+public val WMI_OBJ_TEXT_WMI_EXT4: WmiObjText = 6
 
-public val WMI_OBJ_TEXT_WMI_EXT5: WMI_OBJ_TEXT = 7
+public val WMI_OBJ_TEXT_WMI_EXT5: WmiObjText = 7
 
-public val WMI_OBJ_TEXT_WMI_EXT6: WMI_OBJ_TEXT = 8
+public val WMI_OBJ_TEXT_WMI_EXT6: WmiObjText = 8
 
-public val WMI_OBJ_TEXT_WMI_EXT7: WMI_OBJ_TEXT = 9
+public val WMI_OBJ_TEXT_WMI_EXT7: WmiObjText = 9
 
-public val WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = 10
+public val WMI_OBJ_TEXT_WMI_EXT8: WmiObjText = 10
 
-public val WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = 11
+public val WMI_OBJ_TEXT_WMI_EXT9: WmiObjText = 11
 
-public val WbemAdministrativeLocator: GUID = GUID.from_u128(U128(0xcb8555cc912811d1uL, 0xad9b00c04fd8fdffuL))
+public val WBEM_ADMINISTRATIVE_LOCATOR: Guid = Guid.fromU128(U128(0xcb8555cc912811d1uL, 0xad9b00c04fd8fdffuL))
 
-public val WbemAuthenticatedLocator: GUID = GUID.from_u128(U128(0xcd184336912811d1uL, 0xad9b00c04fd8fdffuL))
+public val WBEM_AUTHENTICATED_LOCATOR: Guid = Guid.fromU128(U128(0xcd184336912811d1uL, 0xad9b00c04fd8fdffuL))
 
-public val WbemBackupRestore: GUID = GUID.from_u128(U128(0xc49e32c6bc8b11d2uL, 0x85d400105a1f8304uL))
+public val WBEM_BACKUP_RESTORE: Guid = Guid.fromU128(U128(0xc49e32c6bc8b11d2uL, 0x85d400105a1f8304uL))
 
-public val WbemClassObject: GUID = GUID.from_u128(U128(0x9a653086174f11d2uL, 0xb5f900104b703efduL))
+public val WBEM_CLASS_OBJECT: Guid = Guid.fromU128(U128(0x9a653086174f11d2uL, 0xb5f900104b703efduL))
 
-public val WbemContext: GUID = GUID.from_u128(U128(0x674b6698ee9211d0uL, 0xad7100c04fd8fdffuL))
+public val WBEM_CONTEXT: Guid = Guid.fromU128(U128(0x674b6698ee9211d0uL, 0xad7100c04fd8fdffuL))
 
-public val WbemDCOMTransport: GUID = GUID.from_u128(U128(0xf7ce2e138c9011d1uL, 0x9e7b00c04fc324a8uL))
+public val WBEM_DCOM_TRANSPORT: Guid = Guid.fromU128(U128(0xf7ce2e138c9011d1uL, 0x9e7b00c04fc324a8uL))
 
-public val WbemDecoupledBasicEventProvider: GUID = GUID.from_u128(U128(0xf5f7573728434f22uL, 0x933dc76a97cda62fuL))
+public val WBEM_DECOUPLED_BASIC_EVENT_PROVIDER: Guid = Guid.fromU128(U128(0xf5f7573728434f22uL, 0x933dc76a97cda62fuL))
 
-public val WbemDecoupledRegistrar: GUID = GUID.from_u128(U128(0x4cfc79320f9d4befuL, 0x9c328ea2a6b56fcbuL))
+public val WBEM_DECOUPLED_REGISTRAR: Guid = Guid.fromU128(U128(0x4cfc79320f9d4befuL, 0x9c328ea2a6b56fcbuL))
 
-public val WbemDefPath: GUID = GUID.from_u128(U128(0xcf4cc405e2c54ddduL, 0xb3ce5e7582d8c9fauL))
+public val WBEM_DEF_PATH: Guid = Guid.fromU128(U128(0xcf4cc405e2c54ddduL, 0xb3ce5e7582d8c9fauL))
 
-public val WbemLevel1Login: GUID = GUID.from_u128(U128(0x8bc3f05ed86b11d0uL, 0xa07500c04fb68820uL))
+public val WBEM_LEVEL1LOGIN: Guid = Guid.fromU128(U128(0x8bc3f05ed86b11d0uL, 0xa07500c04fb68820uL))
 
-public val WbemLocalAddrRes: GUID = GUID.from_u128(U128(0xa10448018f7e11d1uL, 0x9e7c00c04fc324a8uL))
+public val WBEM_LOCAL_ADDR_RES: Guid = Guid.fromU128(U128(0xa10448018f7e11d1uL, 0x9e7c00c04fc324a8uL))
 
-public val WbemLocator: GUID = GUID.from_u128(U128(0x4590f8111d3a11d0uL, 0x891f00aa004b2e24uL))
+public val WBEM_LOCATOR: Guid = Guid.fromU128(U128(0x4590f8111d3a11d0uL, 0x891f00aa004b2e24uL))
 
-public val WbemObjectTextSrc: GUID = GUID.from_u128(U128(0x8d1c559d84f04bb3uL, 0xa7d556a7435a9ba6uL))
+public val WBEM_OBJECT_TEXT_SRC: Guid = Guid.fromU128(U128(0x8d1c559d84f04bb3uL, 0xa7d556a7435a9ba6uL))
 
-public val WbemQuery: GUID = GUID.from_u128(U128(0xeac8a02421e24523uL, 0xad73a71a0aa2f56auL))
+public val WBEM_QUERY: Guid = Guid.fromU128(U128(0xeac8a02421e24523uL, 0xad73a71a0aa2f56auL))
 
-public val WbemRefresher: GUID = GUID.from_u128(U128(0xc71566f2561e11d1uL, 0xad8700c04fd8fdffuL))
+public val WBEM_REFRESHER: Guid = Guid.fromU128(U128(0xc71566f2561e11d1uL, 0xad8700c04fd8fdffuL))
 
-public val WbemStatusCodeText: GUID = GUID.from_u128(U128(0xeb87e1bd323311d2uL, 0xaec900c04fb68820uL))
+public val WBEM_STATUS_CODE_TEXT: Guid = Guid.fromU128(U128(0xeb87e1bd323311d2uL, 0xaec900c04fb68820uL))
 
-public val WbemUnauthenticatedLocator: GUID = GUID.from_u128(U128(0x443e7b79de3111d2uL, 0xb34000104bcc4b4auL))
+public val WBEM_UNAUTHENTICATED_LOCATOR: Guid = Guid.fromU128(U128(0x443e7b79de3111d2uL, 0xb34000104bcc4b4auL))
 
-public val WbemUninitializedClassObject: GUID = GUID.from_u128(U128(0x7a0227f6710811d1uL, 0xad9000c04fd8fdffuL))
+public val WBEM_UNINITIALIZED_CLASS_OBJECT: Guid = Guid.fromU128(U128(0x7a0227f6710811d1uL, 0xad9000c04fd8fdffuL))
 
-public val wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = 3
+public val WBEM_AUTHENTICATION_LEVEL_CALL: WbemAuthenticationLevelEnum = 3
 
-public val wbemAuthenticationLevelConnect: WbemAuthenticationLevelEnum = 2
+public val WBEM_AUTHENTICATION_LEVEL_CONNECT: WbemAuthenticationLevelEnum = 2
 
-public val wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = 0
+public val WBEM_AUTHENTICATION_LEVEL_DEFAULT: WbemAuthenticationLevelEnum = 0
 
-public val wbemAuthenticationLevelNone: WbemAuthenticationLevelEnum = 1
+public val WBEM_AUTHENTICATION_LEVEL_NONE: WbemAuthenticationLevelEnum = 1
 
-public val wbemAuthenticationLevelPkt: WbemAuthenticationLevelEnum = 4
+public val WBEM_AUTHENTICATION_LEVEL_PKT: WbemAuthenticationLevelEnum = 4
 
-public val wbemAuthenticationLevelPktIntegrity: WbemAuthenticationLevelEnum = 5
+public val WBEM_AUTHENTICATION_LEVEL_PKT_INTEGRITY: WbemAuthenticationLevelEnum = 5
 
-public val wbemAuthenticationLevelPktPrivacy: WbemAuthenticationLevelEnum = 6
+public val WBEM_AUTHENTICATION_LEVEL_PKT_PRIVACY: WbemAuthenticationLevelEnum = 6
 
-public val wbemChangeFlagAdvisory: WbemChangeFlagEnum = 65536
+public val WBEM_CHANGE_FLAG_ADVISORY: WbemChangeFlagEnum = 65536
 
-public val wbemChangeFlagCreateOnly: WbemChangeFlagEnum = 2
+public val WBEM_CHANGE_FLAG_CREATE_ONLY: WbemChangeFlagEnum = 2
 
-public val wbemChangeFlagCreateOrUpdate: WbemChangeFlagEnum = 0
+public val WBEM_CHANGE_FLAG_CREATE_OR_UPDATE: WbemChangeFlagEnum = 0
 
-public val wbemChangeFlagStrongValidation: WbemChangeFlagEnum = 128
+public val WBEM_CHANGE_FLAG_STRONG_VALIDATION: WbemChangeFlagEnum = 128
 
-public val wbemChangeFlagUpdateCompatible: WbemChangeFlagEnum = 0
+public val WBEM_CHANGE_FLAG_UPDATE_COMPATIBLE: WbemChangeFlagEnum = 0
 
-public val wbemChangeFlagUpdateForceMode: WbemChangeFlagEnum = 64
+public val WBEM_CHANGE_FLAG_UPDATE_FORCE_MODE: WbemChangeFlagEnum = 64
 
-public val wbemChangeFlagUpdateOnly: WbemChangeFlagEnum = 1
+public val WBEM_CHANGE_FLAG_UPDATE_ONLY: WbemChangeFlagEnum = 1
 
-public val wbemChangeFlagUpdateSafeMode: WbemChangeFlagEnum = 32
+public val WBEM_CHANGE_FLAG_UPDATE_SAFE_MODE: WbemChangeFlagEnum = 32
 
-public val wbemCimtypeBoolean: WbemCimtypeEnum = 11
+public val WBEM_CIMTYPE_BOOLEAN: WbemCimtypeEnum = 11
 
-public val wbemCimtypeChar16: WbemCimtypeEnum = 103
+public val WBEM_CIMTYPE_CHAR16: WbemCimtypeEnum = 103
 
-public val wbemCimtypeDatetime: WbemCimtypeEnum = 101
+public val WBEM_CIMTYPE_DATETIME: WbemCimtypeEnum = 101
 
-public val wbemCimtypeObject: WbemCimtypeEnum = 13
+public val WBEM_CIMTYPE_OBJECT: WbemCimtypeEnum = 13
 
-public val wbemCimtypeReal32: WbemCimtypeEnum = 4
+public val WBEM_CIMTYPE_REAL32: WbemCimtypeEnum = 4
 
-public val wbemCimtypeReal64: WbemCimtypeEnum = 5
+public val WBEM_CIMTYPE_REAL64: WbemCimtypeEnum = 5
 
-public val wbemCimtypeReference: WbemCimtypeEnum = 102
+public val WBEM_CIMTYPE_REFERENCE: WbemCimtypeEnum = 102
 
-public val wbemCimtypeSint16: WbemCimtypeEnum = 2
+public val WBEM_CIMTYPE_SINT16: WbemCimtypeEnum = 2
 
-public val wbemCimtypeSint32: WbemCimtypeEnum = 3
+public val WBEM_CIMTYPE_SINT32: WbemCimtypeEnum = 3
 
-public val wbemCimtypeSint64: WbemCimtypeEnum = 20
+public val WBEM_CIMTYPE_SINT64: WbemCimtypeEnum = 20
 
-public val wbemCimtypeSint8: WbemCimtypeEnum = 16
+public val WBEM_CIMTYPE_SINT8: WbemCimtypeEnum = 16
 
-public val wbemCimtypeString: WbemCimtypeEnum = 8
+public val WBEM_CIMTYPE_STRING: WbemCimtypeEnum = 8
 
-public val wbemCimtypeUint16: WbemCimtypeEnum = 18
+public val WBEM_CIMTYPE_UINT16: WbemCimtypeEnum = 18
 
-public val wbemCimtypeUint32: WbemCimtypeEnum = 19
+public val WBEM_CIMTYPE_UINT32: WbemCimtypeEnum = 19
 
-public val wbemCimtypeUint64: WbemCimtypeEnum = 21
+public val WBEM_CIMTYPE_UINT64: WbemCimtypeEnum = 21
 
-public val wbemCimtypeUint8: WbemCimtypeEnum = 17
+public val WBEM_CIMTYPE_UINT8: WbemCimtypeEnum = 17
 
-public val wbemComparisonFlagIgnoreCase: WbemComparisonFlagEnum = 16
+public val WBEM_COMPARISON_FLAG_IGNORE_CASE: WbemComparisonFlagEnum = 16
 
-public val wbemComparisonFlagIgnoreClass: WbemComparisonFlagEnum = 8
+public val WBEM_COMPARISON_FLAG_IGNORE_CLASS: WbemComparisonFlagEnum = 8
 
-public val wbemComparisonFlagIgnoreDefaultValues: WbemComparisonFlagEnum = 4
+public val WBEM_COMPARISON_FLAG_IGNORE_DEFAULT_VALUES: WbemComparisonFlagEnum = 4
 
-public val wbemComparisonFlagIgnoreFlavor: WbemComparisonFlagEnum = 32
+public val WBEM_COMPARISON_FLAG_IGNORE_FLAVOR: WbemComparisonFlagEnum = 32
 
-public val wbemComparisonFlagIgnoreObjectSource: WbemComparisonFlagEnum = 2
+public val WBEM_COMPARISON_FLAG_IGNORE_OBJECT_SOURCE: WbemComparisonFlagEnum = 2
 
-public val wbemComparisonFlagIgnoreQualifiers: WbemComparisonFlagEnum = 1
+public val WBEM_COMPARISON_FLAG_IGNORE_QUALIFIERS: WbemComparisonFlagEnum = 1
 
-public val wbemComparisonFlagIncludeAll: WbemComparisonFlagEnum = 0
+public val WBEM_COMPARISON_FLAG_INCLUDE_ALL: WbemComparisonFlagEnum = 0
 
-public val wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = 128
+public val WBEM_CONNECT_FLAG_USE_MAX_WAIT: WbemConnectOptionsEnum = 128
 
-public val wbemErrAccessDenied: WbemErrorEnum = -2147217405
+public val WBEM_ERR_ACCESS_DENIED: WbemErrorEnum = -2147217405
 
-public val wbemErrAggregatingByObject: WbemErrorEnum = -2147217315
+public val WBEM_ERR_AGGREGATING_BY_OBJECT: WbemErrorEnum = -2147217315
 
-public val wbemErrAlreadyExists: WbemErrorEnum = -2147217383
+public val WBEM_ERR_ALREADY_EXISTS: WbemErrorEnum = -2147217383
 
-public val wbemErrAmbiguousOperation: WbemErrorEnum = -2147217301
+public val WBEM_ERR_AMBIGUOUS_OPERATION: WbemErrorEnum = -2147217301
 
-public val wbemErrAmendedObject: WbemErrorEnum = -2147217306
+public val WBEM_ERR_AMENDED_OBJECT: WbemErrorEnum = -2147217306
 
-public val wbemErrBackupRestoreWinmgmtRunning: WbemErrorEnum = -2147217312
+public val WBEM_ERR_BACKUP_RESTORE_WINMGMT_RUNNING: WbemErrorEnum = -2147217312
 
-public val wbemErrBufferTooSmall: WbemErrorEnum = -2147217348
+public val WBEM_ERR_BUFFER_TOO_SMALL: WbemErrorEnum = -2147217348
 
-public val wbemErrCallCancelled: WbemErrorEnum = -2147217358
+public val WBEM_ERR_CALL_CANCELLED: WbemErrorEnum = -2147217358
 
-public val wbemErrCannotBeAbstract: WbemErrorEnum = -2147217307
+public val WBEM_ERR_CANNOT_BE_ABSTRACT: WbemErrorEnum = -2147217307
 
-public val wbemErrCannotBeKey: WbemErrorEnum = -2147217377
+public val WBEM_ERR_CANNOT_BE_KEY: WbemErrorEnum = -2147217377
 
-public val wbemErrCannotBeSingleton: WbemErrorEnum = -2147217364
+public val WBEM_ERR_CANNOT_BE_SINGLETON: WbemErrorEnum = -2147217364
 
-public val wbemErrCannotChangeIndexInheritance: WbemErrorEnum = -2147217328
+public val WBEM_ERR_CANNOT_CHANGE_INDEX_INHERITANCE: WbemErrorEnum = -2147217328
 
-public val wbemErrCannotChangeKeyInheritance: WbemErrorEnum = -2147217335
+public val WBEM_ERR_CANNOT_CHANGE_KEY_INHERITANCE: WbemErrorEnum = -2147217335
 
-public val wbemErrCircularReference: WbemErrorEnum = -2147217337
+public val WBEM_ERR_CIRCULAR_REFERENCE: WbemErrorEnum = -2147217337
 
-public val wbemErrClassHasChildren: WbemErrorEnum = -2147217371
+public val WBEM_ERR_CLASS_HAS_CHILDREN: WbemErrorEnum = -2147217371
 
-public val wbemErrClassHasInstances: WbemErrorEnum = -2147217370
+public val WBEM_ERR_CLASS_HAS_INSTANCES: WbemErrorEnum = -2147217370
 
-public val wbemErrClassNameTooWide: WbemErrorEnum = -2147217292
+public val WBEM_ERR_CLASS_NAME_TOO_WIDE: WbemErrorEnum = -2147217292
 
-public val wbemErrClientTooSlow: WbemErrorEnum = -2147217305
+public val WBEM_ERR_CLIENT_TOO_SLOW: WbemErrorEnum = -2147217305
 
-public val wbemErrConnectionFailed: WbemErrorEnum = -2147217295
+public val WBEM_ERR_CONNECTION_FAILED: WbemErrorEnum = -2147217295
 
-public val wbemErrCriticalError: WbemErrorEnum = -2147217398
+public val WBEM_ERR_CRITICAL_ERROR: WbemErrorEnum = -2147217398
 
-public val wbemErrDatabaseVerMismatch: WbemErrorEnum = -2147217288
+public val WBEM_ERR_DATABASE_VER_MISMATCH: WbemErrorEnum = -2147217288
 
-public val wbemErrEncryptedConnectionRequired: WbemErrorEnum = -2147217273
+public val WBEM_ERR_ENCRYPTED_CONNECTION_REQUIRED: WbemErrorEnum = -2147217273
 
-public val wbemErrFailed: WbemErrorEnum = -2147217407
+public val WBEM_ERR_FAILED: WbemErrorEnum = -2147217407
 
-public val wbemErrFatalTransportError: WbemErrorEnum = -2147217274
+public val WBEM_ERR_FATAL_TRANSPORT_ERROR: WbemErrorEnum = -2147217274
 
-public val wbemErrForcedRollback: WbemErrorEnum = -2147217298
+public val WBEM_ERR_FORCED_ROLLBACK: WbemErrorEnum = -2147217298
 
-public val wbemErrHandleOutOfDate: WbemErrorEnum = -2147217296
+public val WBEM_ERR_HANDLE_OUT_OF_DATE: WbemErrorEnum = -2147217296
 
-public val wbemErrIllegalNull: WbemErrorEnum = -2147217368
+public val WBEM_ERR_ILLEGAL_NULL: WbemErrorEnum = -2147217368
 
-public val wbemErrIllegalOperation: WbemErrorEnum = -2147217378
+public val WBEM_ERR_ILLEGAL_OPERATION: WbemErrorEnum = -2147217378
 
-public val wbemErrIncompleteClass: WbemErrorEnum = -2147217376
+public val WBEM_ERR_INCOMPLETE_CLASS: WbemErrorEnum = -2147217376
 
-public val wbemErrInitializationFailure: WbemErrorEnum = -2147217388
+public val WBEM_ERR_INITIALIZATION_FAILURE: WbemErrorEnum = -2147217388
 
-public val wbemErrInvalidAssociation: WbemErrorEnum = -2147217302
+public val WBEM_ERR_INVALID_ASSOCIATION: WbemErrorEnum = -2147217302
 
-public val wbemErrInvalidCimType: WbemErrorEnum = -2147217363
+public val WBEM_ERR_INVALID_CIM_TYPE: WbemErrorEnum = -2147217363
 
-public val wbemErrInvalidClass: WbemErrorEnum = -2147217392
+public val WBEM_ERR_INVALID_CLASS: WbemErrorEnum = -2147217392
 
-public val wbemErrInvalidContext: WbemErrorEnum = -2147217401
+public val WBEM_ERR_INVALID_CONTEXT: WbemErrorEnum = -2147217401
 
-public val wbemErrInvalidDuplicateParameter: WbemErrorEnum = -2147217341
+public val WBEM_ERR_INVALID_DUPLICATE_PARAMETER: WbemErrorEnum = -2147217341
 
-public val wbemErrInvalidFlavor: WbemErrorEnum = -2147217338
+public val WBEM_ERR_INVALID_FLAVOR: WbemErrorEnum = -2147217338
 
-public val wbemErrInvalidHandleRequest: WbemErrorEnum = -2147217294
+public val WBEM_ERR_INVALID_HANDLE_REQUEST: WbemErrorEnum = -2147217294
 
-public val wbemErrInvalidLocale: WbemErrorEnum = -2147217280
+public val WBEM_ERR_INVALID_LOCALE: WbemErrorEnum = -2147217280
 
-public val wbemErrInvalidMethod: WbemErrorEnum = -2147217362
+public val WBEM_ERR_INVALID_METHOD: WbemErrorEnum = -2147217362
 
-public val wbemErrInvalidMethodParameters: WbemErrorEnum = -2147217361
+public val WBEM_ERR_INVALID_METHOD_PARAMETERS: WbemErrorEnum = -2147217361
 
-public val wbemErrInvalidNamespace: WbemErrorEnum = -2147217394
+public val WBEM_ERR_INVALID_NAMESPACE: WbemErrorEnum = -2147217394
 
-public val wbemErrInvalidObject: WbemErrorEnum = -2147217393
+public val WBEM_ERR_INVALID_OBJECT: WbemErrorEnum = -2147217393
 
-public val wbemErrInvalidObjectPath: WbemErrorEnum = -2147217350
+public val WBEM_ERR_INVALID_OBJECT_PATH: WbemErrorEnum = -2147217350
 
-public val wbemErrInvalidOperation: WbemErrorEnum = -2147217386
+public val WBEM_ERR_INVALID_OPERATION: WbemErrorEnum = -2147217386
 
-public val wbemErrInvalidOperator: WbemErrorEnum = -2147217309
+public val WBEM_ERR_INVALID_OPERATOR: WbemErrorEnum = -2147217309
 
-public val wbemErrInvalidParameter: WbemErrorEnum = -2147217400
+public val WBEM_ERR_INVALID_PARAMETER: WbemErrorEnum = -2147217400
 
-public val wbemErrInvalidParameterId: WbemErrorEnum = -2147217353
+public val WBEM_ERR_INVALID_PARAMETER_ID: WbemErrorEnum = -2147217353
 
-public val wbemErrInvalidProperty: WbemErrorEnum = -2147217359
+public val WBEM_ERR_INVALID_PROPERTY: WbemErrorEnum = -2147217359
 
-public val wbemErrInvalidPropertyType: WbemErrorEnum = -2147217366
+public val WBEM_ERR_INVALID_PROPERTY_TYPE: WbemErrorEnum = -2147217366
 
-public val wbemErrInvalidProviderRegistration: WbemErrorEnum = -2147217390
+public val WBEM_ERR_INVALID_PROVIDER_REGISTRATION: WbemErrorEnum = -2147217390
 
-public val wbemErrInvalidQualifier: WbemErrorEnum = -2147217342
+public val WBEM_ERR_INVALID_QUALIFIER: WbemErrorEnum = -2147217342
 
-public val wbemErrInvalidQualifierType: WbemErrorEnum = -2147217367
+public val WBEM_ERR_INVALID_QUALIFIER_TYPE: WbemErrorEnum = -2147217367
 
-public val wbemErrInvalidQuery: WbemErrorEnum = -2147217385
+public val WBEM_ERR_INVALID_QUERY: WbemErrorEnum = -2147217385
 
-public val wbemErrInvalidQueryType: WbemErrorEnum = -2147217384
+public val WBEM_ERR_INVALID_QUERY_TYPE: WbemErrorEnum = -2147217384
 
-public val wbemErrInvalidStream: WbemErrorEnum = -2147217397
+public val WBEM_ERR_INVALID_STREAM: WbemErrorEnum = -2147217397
 
-public val wbemErrInvalidSuperclass: WbemErrorEnum = -2147217395
+public val WBEM_ERR_INVALID_SUPERCLASS: WbemErrorEnum = -2147217395
 
-public val wbemErrInvalidSyntax: WbemErrorEnum = -2147217375
+public val WBEM_ERR_INVALID_SYNTAX: WbemErrorEnum = -2147217375
 
-public val wbemErrLocalCredentials: WbemErrorEnum = -2147217308
+public val WBEM_ERR_LOCAL_CREDENTIALS: WbemErrorEnum = -2147217308
 
-public val wbemErrMarshalInvalidSignature: WbemErrorEnum = -2147217343
+public val WBEM_ERR_MARSHAL_INVALID_SIGNATURE: WbemErrorEnum = -2147217343
 
-public val wbemErrMarshalVersionMismatch: WbemErrorEnum = -2147217344
+public val WBEM_ERR_MARSHAL_VERSION_MISMATCH: WbemErrorEnum = -2147217344
 
-public val wbemErrMethodDisabled: WbemErrorEnum = -2147217322
+public val WBEM_ERR_METHOD_DISABLED: WbemErrorEnum = -2147217322
 
-public val wbemErrMethodNameTooWide: WbemErrorEnum = -2147217291
+public val WBEM_ERR_METHOD_NAME_TOO_WIDE: WbemErrorEnum = -2147217291
 
-public val wbemErrMethodNotImplemented: WbemErrorEnum = -2147217323
+public val WBEM_ERR_METHOD_NOT_IMPLEMENTED: WbemErrorEnum = -2147217323
 
-public val wbemErrMissingAggregationList: WbemErrorEnum = -2147217317
+public val WBEM_ERR_MISSING_AGGREGATION_LIST: WbemErrorEnum = -2147217317
 
-public val wbemErrMissingGroupWithin: WbemErrorEnum = -2147217318
+public val WBEM_ERR_MISSING_GROUP_WITHIN: WbemErrorEnum = -2147217318
 
-public val wbemErrMissingParameter: WbemErrorEnum = -2147217354
+public val WBEM_ERR_MISSING_PARAMETER: WbemErrorEnum = -2147217354
 
-public val wbemErrNoSchema: WbemErrorEnum = -2147217277
+public val WBEM_ERR_NO_SCHEMA: WbemErrorEnum = -2147217277
 
-public val wbemErrNonConsecutiveParameterIds: WbemErrorEnum = -2147217352
+public val WBEM_ERR_NON_CONSECUTIVE_PARAMETER_IDS: WbemErrorEnum = -2147217352
 
-public val wbemErrNondecoratedObject: WbemErrorEnum = -2147217374
+public val WBEM_ERR_NONDECORATED_OBJECT: WbemErrorEnum = -2147217374
 
-public val wbemErrNotAvailable: WbemErrorEnum = -2147217399
+public val WBEM_ERR_NOT_AVAILABLE: WbemErrorEnum = -2147217399
 
-public val wbemErrNotEventClass: WbemErrorEnum = -2147217319
+public val WBEM_ERR_NOT_EVENT_CLASS: WbemErrorEnum = -2147217319
 
-public val wbemErrNotFound: WbemErrorEnum = -2147217406
+public val WBEM_ERR_NOT_FOUND: WbemErrorEnum = -2147217406
 
-public val wbemErrNotSupported: WbemErrorEnum = -2147217396
+public val WBEM_ERR_NOT_SUPPORTED: WbemErrorEnum = -2147217396
 
-public val wbemErrNullSecurityDescriptor: WbemErrorEnum = -2147217304
+public val WBEM_ERR_NULL_SECURITY_DESCRIPTOR: WbemErrorEnum = -2147217304
 
-public val wbemErrOutOfDiskSpace: WbemErrorEnum = -2147217349
+public val WBEM_ERR_OUT_OF_DISK_SPACE: WbemErrorEnum = -2147217349
 
-public val wbemErrOutOfMemory: WbemErrorEnum = -2147217402
+public val WBEM_ERR_OUT_OF_MEMORY: WbemErrorEnum = -2147217402
 
-public val wbemErrOverrideNotAllowed: WbemErrorEnum = -2147217382
+public val WBEM_ERR_OVERRIDE_NOT_ALLOWED: WbemErrorEnum = -2147217382
 
-public val wbemErrParameterIdOnRetval: WbemErrorEnum = -2147217351
+public val WBEM_ERR_PARAMETER_ID_ON_RETVAL: WbemErrorEnum = -2147217351
 
-public val wbemErrPrivilegeNotHeld: WbemErrorEnum = -2147217310
+public val WBEM_ERR_PRIVILEGE_NOT_HELD: WbemErrorEnum = -2147217310
 
-public val wbemErrPropagatedMethod: WbemErrorEnum = -2147217356
+public val WBEM_ERR_PROPAGATED_METHOD: WbemErrorEnum = -2147217356
 
-public val wbemErrPropagatedProperty: WbemErrorEnum = -2147217380
+public val WBEM_ERR_PROPAGATED_PROPERTY: WbemErrorEnum = -2147217380
 
-public val wbemErrPropagatedQualifier: WbemErrorEnum = -2147217381
+public val WBEM_ERR_PROPAGATED_QUALIFIER: WbemErrorEnum = -2147217381
 
-public val wbemErrPropertyNameTooWide: WbemErrorEnum = -2147217293
+public val WBEM_ERR_PROPERTY_NAME_TOO_WIDE: WbemErrorEnum = -2147217293
 
-public val wbemErrPropertyNotAnObject: WbemErrorEnum = -2147217316
+public val WBEM_ERR_PROPERTY_NOT_AN_OBJECT: WbemErrorEnum = -2147217316
 
-public val wbemErrProviderAlreadyRegistered: WbemErrorEnum = -2147217276
+public val WBEM_ERR_PROVIDER_ALREADY_REGISTERED: WbemErrorEnum = -2147217276
 
-public val wbemErrProviderFailure: WbemErrorEnum = -2147217404
+public val WBEM_ERR_PROVIDER_FAILURE: WbemErrorEnum = -2147217404
 
-public val wbemErrProviderLoadFailure: WbemErrorEnum = -2147217389
+public val WBEM_ERR_PROVIDER_LOAD_FAILURE: WbemErrorEnum = -2147217389
 
-public val wbemErrProviderNotCapable: WbemErrorEnum = -2147217372
+public val WBEM_ERR_PROVIDER_NOT_CAPABLE: WbemErrorEnum = -2147217372
 
-public val wbemErrProviderNotFound: WbemErrorEnum = -2147217391
+public val WBEM_ERR_PROVIDER_NOT_FOUND: WbemErrorEnum = -2147217391
 
-public val wbemErrProviderNotRegistered: WbemErrorEnum = -2147217275
+public val WBEM_ERR_PROVIDER_NOT_REGISTERED: WbemErrorEnum = -2147217275
 
-public val wbemErrProviderSuspended: WbemErrorEnum = -2147217279
+public val WBEM_ERR_PROVIDER_SUSPENDED: WbemErrorEnum = -2147217279
 
-public val wbemErrQualifierNameTooWide: WbemErrorEnum = -2147217290
+public val WBEM_ERR_QUALIFIER_NAME_TOO_WIDE: WbemErrorEnum = -2147217290
 
-public val wbemErrQueryNotImplemented: WbemErrorEnum = -2147217369
+public val WBEM_ERR_QUERY_NOT_IMPLEMENTED: WbemErrorEnum = -2147217369
 
-public val wbemErrQueueOverflow: WbemErrorEnum = -2147217311
+public val WBEM_ERR_QUEUE_OVERFLOW: WbemErrorEnum = -2147217311
 
-public val wbemErrQuotaViolation: WbemErrorEnum = -2147217300
+public val WBEM_ERR_QUOTA_VIOLATION: WbemErrorEnum = -2147217300
 
-public val wbemErrReadOnly: WbemErrorEnum = -2147217373
+public val WBEM_ERR_READ_ONLY: WbemErrorEnum = -2147217373
 
-public val wbemErrRefresherBusy: WbemErrorEnum = -2147217321
+public val WBEM_ERR_REFRESHER_BUSY: WbemErrorEnum = -2147217321
 
-public val wbemErrRegistrationTooBroad: WbemErrorEnum = -2147213311
+public val WBEM_ERR_REGISTRATION_TOO_BROAD: WbemErrorEnum = -2147213311
 
-public val wbemErrRegistrationTooPrecise: WbemErrorEnum = -2147213310
+public val WBEM_ERR_REGISTRATION_TOO_PRECISE: WbemErrorEnum = -2147213310
 
-public val wbemErrRerunCommand: WbemErrorEnum = -2147217289
+public val WBEM_ERR_RERUN_COMMAND: WbemErrorEnum = -2147217289
 
-public val wbemErrResetToDefault: WbemErrorEnum = -2147209214
+public val WBEM_ERR_RESET_TO_DEFAULT: WbemErrorEnum = -2147209214
 
-public val wbemErrServerTooBusy: WbemErrorEnum = -2147217339
+public val WBEM_ERR_SERVER_TOO_BUSY: WbemErrorEnum = -2147217339
 
-public val wbemErrShuttingDown: WbemErrorEnum = -2147217357
+public val WBEM_ERR_SHUTTING_DOWN: WbemErrorEnum = -2147217357
 
-public val wbemErrSynchronizationRequired: WbemErrorEnum = -2147217278
+public val WBEM_ERR_SYNCHRONIZATION_REQUIRED: WbemErrorEnum = -2147217278
 
-public val wbemErrSystemProperty: WbemErrorEnum = -2147217360
+public val WBEM_ERR_SYSTEM_PROPERTY: WbemErrorEnum = -2147217360
 
-public val wbemErrTimedout: WbemErrorEnum = -2147209215
+public val WBEM_ERR_TIMEDOUT: WbemErrorEnum = -2147209215
 
-public val wbemErrTimeout: WbemErrorEnum = -2147217303
+public val WBEM_ERR_TIMEOUT: WbemErrorEnum = -2147217303
 
-public val wbemErrTooManyProperties: WbemErrorEnum = -2147217327
+public val WBEM_ERR_TOO_MANY_PROPERTIES: WbemErrorEnum = -2147217327
 
-public val wbemErrTooMuchData: WbemErrorEnum = -2147217340
+public val WBEM_ERR_TOO_MUCH_DATA: WbemErrorEnum = -2147217340
 
-public val wbemErrTransactionConflict: WbemErrorEnum = -2147217299
+public val WBEM_ERR_TRANSACTION_CONFLICT: WbemErrorEnum = -2147217299
 
-public val wbemErrTransportFailure: WbemErrorEnum = -2147217387
+public val WBEM_ERR_TRANSPORT_FAILURE: WbemErrorEnum = -2147217387
 
-public val wbemErrTypeMismatch: WbemErrorEnum = -2147217403
+public val WBEM_ERR_TYPE_MISMATCH: WbemErrorEnum = -2147217403
 
-public val wbemErrUnexpected: WbemErrorEnum = -2147217379
+public val WBEM_ERR_UNEXPECTED: WbemErrorEnum = -2147217379
 
-public val wbemErrUninterpretableProviderQuery: WbemErrorEnum = -2147217313
+public val WBEM_ERR_UNINTERPRETABLE_PROVIDER_QUERY: WbemErrorEnum = -2147217313
 
-public val wbemErrUnknownObjectType: WbemErrorEnum = -2147217346
+public val WBEM_ERR_UNKNOWN_OBJECT_TYPE: WbemErrorEnum = -2147217346
 
-public val wbemErrUnknownPacketType: WbemErrorEnum = -2147217345
+public val WBEM_ERR_UNKNOWN_PACKET_TYPE: WbemErrorEnum = -2147217345
 
-public val wbemErrUnparsableQuery: WbemErrorEnum = -2147217320
+public val WBEM_ERR_UNPARSABLE_QUERY: WbemErrorEnum = -2147217320
 
-public val wbemErrUnsupportedClassUpdate: WbemErrorEnum = -2147217336
+public val WBEM_ERR_UNSUPPORTED_CLASS_UPDATE: WbemErrorEnum = -2147217336
 
-public val wbemErrUnsupportedLocale: WbemErrorEnum = -2147217297
+public val WBEM_ERR_UNSUPPORTED_LOCALE: WbemErrorEnum = -2147217297
 
-public val wbemErrUnsupportedParameter: WbemErrorEnum = -2147217355
+public val WBEM_ERR_UNSUPPORTED_PARAMETER: WbemErrorEnum = -2147217355
 
-public val wbemErrUnsupportedPutExtension: WbemErrorEnum = -2147217347
+public val WBEM_ERR_UNSUPPORTED_PUT_EXTENSION: WbemErrorEnum = -2147217347
 
-public val wbemErrUpdateOverrideNotAllowed: WbemErrorEnum = -2147217325
+public val WBEM_ERR_UPDATE_OVERRIDE_NOT_ALLOWED: WbemErrorEnum = -2147217325
 
-public val wbemErrUpdatePropagatedMethod: WbemErrorEnum = -2147217324
+public val WBEM_ERR_UPDATE_PROPAGATED_METHOD: WbemErrorEnum = -2147217324
 
-public val wbemErrUpdateTypeMismatch: WbemErrorEnum = -2147217326
+public val WBEM_ERR_UPDATE_TYPE_MISMATCH: WbemErrorEnum = -2147217326
 
-public val wbemErrValueOutOfRange: WbemErrorEnum = -2147217365
+public val WBEM_ERR_VALUE_OUT_OF_RANGE: WbemErrorEnum = -2147217365
 
-public val wbemErrVetoDelete: WbemErrorEnum = -2147217286
+public val WBEM_ERR_VETO_DELETE: WbemErrorEnum = -2147217286
 
-public val wbemErrVetoPut: WbemErrorEnum = -2147217287
+public val WBEM_ERR_VETO_PUT: WbemErrorEnum = -2147217287
 
-public val wbemFlagBidirectional: WbemFlagEnum = 0
+public val WBEM_FLAG_BIDIRECTIONAL1: WbemFlagEnum = 0
 
-public val wbemFlagDirectRead: WbemFlagEnum = 512
+public val WBEM_FLAG_DIRECT_READ1: WbemFlagEnum = 512
 
-public val wbemFlagDontSendStatus: WbemFlagEnum = 0
+public val WBEM_FLAG_DONT_SEND_STATUS1: WbemFlagEnum = 0
 
-public val wbemFlagEnsureLocatable: WbemFlagEnum = 256
+public val WBEM_FLAG_ENSURE_LOCATABLE1: WbemFlagEnum = 256
 
-public val wbemFlagForwardOnly: WbemFlagEnum = 32
+public val WBEM_FLAG_FORWARD_ONLY1: WbemFlagEnum = 32
 
-public val wbemFlagGetDefault: WbemFlagEnum = 0
+public val WBEM_FLAG_GET_DEFAULT: WbemFlagEnum = 0
 
-public val wbemFlagNoErrorObject: WbemFlagEnum = 64
+public val WBEM_FLAG_NO_ERROR_OBJECT1: WbemFlagEnum = 64
 
-public val wbemFlagReturnErrorObject: WbemFlagEnum = 0
+public val WBEM_FLAG_RETURN_ERROR_OBJECT1: WbemFlagEnum = 0
 
-public val wbemFlagReturnImmediately: WbemFlagEnum = 16
+public val WBEM_FLAG_RETURN_IMMEDIATELY1: WbemFlagEnum = 16
 
-public val wbemFlagReturnWhenComplete: WbemFlagEnum = 0
+public val WBEM_FLAG_RETURN_WHEN_COMPLETE: WbemFlagEnum = 0
 
-public val wbemFlagSendOnlySelected: WbemFlagEnum = 0
+public val WBEM_FLAG_SEND_ONLY_SELECTED1: WbemFlagEnum = 0
 
-public val wbemFlagSendStatus: WbemFlagEnum = 128
+public val WBEM_FLAG_SEND_STATUS1: WbemFlagEnum = 128
 
-public val wbemFlagSpawnInstance: WbemFlagEnum = 1
+public val WBEM_FLAG_SPAWN_INSTANCE: WbemFlagEnum = 1
 
-public val wbemFlagUseAmendedQualifiers: WbemFlagEnum = 131072
+public val WBEM_FLAG_USE_AMENDED_QUALIFIERS1: WbemFlagEnum = 131072
 
-public val wbemFlagUseCurrentTime: WbemFlagEnum = 1
+public val WBEM_FLAG_USE_CURRENT_TIME: WbemFlagEnum = 1
 
-public val wbemImpersonationLevelAnonymous: WbemImpersonationLevelEnum = 1
+public val WBEM_IMPERSONATION_LEVEL_ANONYMOUS: WbemImpersonationLevelEnum = 1
 
-public val wbemImpersonationLevelDelegate: WbemImpersonationLevelEnum = 4
+public val WBEM_IMPERSONATION_LEVEL_DELEGATE: WbemImpersonationLevelEnum = 4
 
-public val wbemImpersonationLevelIdentify: WbemImpersonationLevelEnum = 2
+public val WBEM_IMPERSONATION_LEVEL_IDENTIFY: WbemImpersonationLevelEnum = 2
 
-public val wbemImpersonationLevelImpersonate: WbemImpersonationLevelEnum = 3
+public val WBEM_IMPERSONATION_LEVEL_IMPERSONATE: WbemImpersonationLevelEnum = 3
 
-public val wbemNoErr: WbemErrorEnum = 0
+public val WBEM_NO_ERR: WbemErrorEnum = 0
 
-public val wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = 1
+public val WBEM_OBJECT_TEXT_FORMAT_CIMDTD20: WbemObjectTextFormatEnum = 1
 
-public val wbemObjectTextFormatWMIDTD20: WbemObjectTextFormatEnum = 2
+public val WBEM_OBJECT_TEXT_FORMAT_WMIDTD20: WbemObjectTextFormatEnum = 2
 
-public val wbemPrivilegeAudit: WbemPrivilegeEnum = 20
+public val WBEM_PRIVILEGE_AUDIT: WbemPrivilegeEnum = 20
 
-public val wbemPrivilegeBackup: WbemPrivilegeEnum = 16
+public val WBEM_PRIVILEGE_BACKUP: WbemPrivilegeEnum = 16
 
-public val wbemPrivilegeChangeNotify: WbemPrivilegeEnum = 22
+public val WBEM_PRIVILEGE_CHANGE_NOTIFY: WbemPrivilegeEnum = 22
 
-public val wbemPrivilegeCreatePagefile: WbemPrivilegeEnum = 14
+public val WBEM_PRIVILEGE_CREATE_PAGEFILE: WbemPrivilegeEnum = 14
 
-public val wbemPrivilegeCreatePermanent: WbemPrivilegeEnum = 15
+public val WBEM_PRIVILEGE_CREATE_PERMANENT: WbemPrivilegeEnum = 15
 
-public val wbemPrivilegeCreateToken: WbemPrivilegeEnum = 1
+public val WBEM_PRIVILEGE_CREATE_TOKEN: WbemPrivilegeEnum = 1
 
-public val wbemPrivilegeDebug: WbemPrivilegeEnum = 19
+public val WBEM_PRIVILEGE_DEBUG: WbemPrivilegeEnum = 19
 
-public val wbemPrivilegeEnableDelegation: WbemPrivilegeEnum = 26
+public val WBEM_PRIVILEGE_ENABLE_DELEGATION: WbemPrivilegeEnum = 26
 
-public val wbemPrivilegeIncreaseBasePriority: WbemPrivilegeEnum = 13
+public val WBEM_PRIVILEGE_INCREASE_BASE_PRIORITY: WbemPrivilegeEnum = 13
 
-public val wbemPrivilegeIncreaseQuota: WbemPrivilegeEnum = 4
+public val WBEM_PRIVILEGE_INCREASE_QUOTA: WbemPrivilegeEnum = 4
 
-public val wbemPrivilegeLoadDriver: WbemPrivilegeEnum = 9
+public val WBEM_PRIVILEGE_LOAD_DRIVER: WbemPrivilegeEnum = 9
 
-public val wbemPrivilegeLockMemory: WbemPrivilegeEnum = 3
+public val WBEM_PRIVILEGE_LOCK_MEMORY: WbemPrivilegeEnum = 3
 
-public val wbemPrivilegeMachineAccount: WbemPrivilegeEnum = 5
+public val WBEM_PRIVILEGE_MACHINE_ACCOUNT: WbemPrivilegeEnum = 5
 
-public val wbemPrivilegeManageVolume: WbemPrivilegeEnum = 27
+public val WBEM_PRIVILEGE_MANAGE_VOLUME: WbemPrivilegeEnum = 27
 
-public val wbemPrivilegePrimaryToken: WbemPrivilegeEnum = 2
+public val WBEM_PRIVILEGE_PRIMARY_TOKEN: WbemPrivilegeEnum = 2
 
-public val wbemPrivilegeProfileSingleProcess: WbemPrivilegeEnum = 12
+public val WBEM_PRIVILEGE_PROFILE_SINGLE_PROCESS: WbemPrivilegeEnum = 12
 
-public val wbemPrivilegeRemoteShutdown: WbemPrivilegeEnum = 23
+public val WBEM_PRIVILEGE_REMOTE_SHUTDOWN: WbemPrivilegeEnum = 23
 
-public val wbemPrivilegeRestore: WbemPrivilegeEnum = 17
+public val WBEM_PRIVILEGE_RESTORE: WbemPrivilegeEnum = 17
 
-public val wbemPrivilegeSecurity: WbemPrivilegeEnum = 7
+public val WBEM_PRIVILEGE_SECURITY: WbemPrivilegeEnum = 7
 
-public val wbemPrivilegeShutdown: WbemPrivilegeEnum = 18
+public val WBEM_PRIVILEGE_SHUTDOWN: WbemPrivilegeEnum = 18
 
-public val wbemPrivilegeSyncAgent: WbemPrivilegeEnum = 25
+public val WBEM_PRIVILEGE_SYNC_AGENT: WbemPrivilegeEnum = 25
 
-public val wbemPrivilegeSystemEnvironment: WbemPrivilegeEnum = 21
+public val WBEM_PRIVILEGE_SYSTEM_ENVIRONMENT: WbemPrivilegeEnum = 21
 
-public val wbemPrivilegeSystemProfile: WbemPrivilegeEnum = 10
+public val WBEM_PRIVILEGE_SYSTEM_PROFILE: WbemPrivilegeEnum = 10
 
-public val wbemPrivilegeSystemtime: WbemPrivilegeEnum = 11
+public val WBEM_PRIVILEGE_SYSTEMTIME: WbemPrivilegeEnum = 11
 
-public val wbemPrivilegeTakeOwnership: WbemPrivilegeEnum = 8
+public val WBEM_PRIVILEGE_TAKE_OWNERSHIP: WbemPrivilegeEnum = 8
 
-public val wbemPrivilegeTcb: WbemPrivilegeEnum = 6
+public val WBEM_PRIVILEGE_TCB: WbemPrivilegeEnum = 6
 
-public val wbemPrivilegeUndock: WbemPrivilegeEnum = 24
+public val WBEM_PRIVILEGE_UNDOCK: WbemPrivilegeEnum = 24
 
-public val wbemQueryFlagDeep: WbemQueryFlagEnum = 0
+public val WBEM_QUERY_FLAG_DEEP: WbemQueryFlagEnum = 0
 
-public val wbemQueryFlagPrototype: WbemQueryFlagEnum = 2
+public val WBEM_QUERY_FLAG_PROTOTYPE: WbemQueryFlagEnum = 2
 
-public val wbemQueryFlagShallow: WbemQueryFlagEnum = 1
+public val WBEM_QUERY_FLAG_SHALLOW: WbemQueryFlagEnum = 1
 
-public val wbemTextFlagNoFlavors: WbemTextFlagEnum = 1
+public val WBEM_TEXT_FLAG_NO_FLAVORS: WbemTextFlagEnum = 1
 
-public val wbemTimeoutInfinite: WbemTimeout = -1
+public val WBEM_TIMEOUT_INFINITE: WbemTimeout = -1

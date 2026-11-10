@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_storage_operationrecorder_OperationEnd(void* operationendparams);
-int32_t windowssys_windows_win32_storage_operationrecorder_OperationStart(void* operationstartparams);
+int32_t windowssys_windows_win32_storage_operationrecorder_operationEnd(void* operationendparams);
+int32_t windowssys_windows_win32_storage_operationrecorder_operationStart(void* operationstartparams);
 
 #ifdef __cplusplus
 }

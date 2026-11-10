@@ -88,9 +88,9 @@ public val DNS_SETTING_SEARCHLIST: UInt = 4u
 
 public val DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: UInt = 2048u
 
-public val DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = 1
+public val DNS_SERVER_DOH_PROPERTY: DnsServerPropertyType = 1
 
-public val DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = 0
+public val DNS_SERVER_INVALID_PROPERTY: DnsServerPropertyType = 0
 
 public val ERROR_BASE: UInt = 23000u
 
@@ -100,103 +100,103 @@ public val FD_FLAGS_ALLFLAGS: UInt = 1u
 
 public val FD_FLAGS_NOSYN: UInt = 1u
 
-public val FILTER_ICMP_CODE_ANY: UByte = 255u
+public val FILTER_ICMP_CODE_ANY: UByte = 255u.toUByte()
 
-public val FILTER_ICMP_TYPE_ANY: UByte = 255u
+public val FILTER_ICMP_TYPE_ANY: UByte = 255u.toUByte()
 
-public val GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = 512u
+public val GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GetAdaptersAddressesFlags = 512u
 
-public val GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = 256u
+public val GAA_FLAG_INCLUDE_ALL_INTERFACES: GetAdaptersAddressesFlags = 256u
 
-public val GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = 128u
+public val GAA_FLAG_INCLUDE_GATEWAYS: GetAdaptersAddressesFlags = 128u
 
-public val GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = 16u
+public val GAA_FLAG_INCLUDE_PREFIX: GetAdaptersAddressesFlags = 16u
 
-public val GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = 1024u
+public val GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GetAdaptersAddressesFlags = 1024u
 
-public val GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = 64u
+public val GAA_FLAG_INCLUDE_WINS_INFO: GetAdaptersAddressesFlags = 64u
 
-public val GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = 2u
+public val GAA_FLAG_SKIP_ANYCAST: GetAdaptersAddressesFlags = 2u
 
 public val GAA_FLAG_SKIP_DNS_INFO: UInt = 2048u
 
-public val GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = 8u
+public val GAA_FLAG_SKIP_DNS_SERVER: GetAdaptersAddressesFlags = 8u
 
-public val GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = 32u
+public val GAA_FLAG_SKIP_FRIENDLY_NAME: GetAdaptersAddressesFlags = 32u
 
-public val GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 4u
+public val GAA_FLAG_SKIP_MULTICAST: GetAdaptersAddressesFlags = 4u
 
-public val GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 1u
+public val GAA_FLAG_SKIP_UNICAST: GetAdaptersAddressesFlags = 1u
 
-public val GF_FRAGCACHE: GLOBAL_FILTER = 9
+public val GF_FRAGCACHE: GlobalFilter = 9
 
-public val GF_FRAGMENTS: GLOBAL_FILTER = 2
+public val GF_FRAGMENTS: GlobalFilter = 2
 
-public val GF_STRONGHOST: GLOBAL_FILTER = 8
+public val GF_STRONGHOST: GlobalFilter = 8
 
 public val HYBRID_NODETYPE: UInt = 8u
 
-public val ICMP4_DST_UNREACH: ICMP4_TYPE = 3
+public val ICMP4_DST_UNREACH: Icmp4Type = 3
 
-public val ICMP4_ECHO_REPLY: ICMP4_TYPE = 0
+public val ICMP4_ECHO_REPLY: Icmp4Type = 0
 
-public val ICMP4_ECHO_REQUEST: ICMP4_TYPE = 8
+public val ICMP4_ECHO_REQUEST: Icmp4Type = 8
 
-public val ICMP4_MASK_REPLY: ICMP4_TYPE = 18
+public val ICMP4_MASK_REPLY: Icmp4Type = 18
 
-public val ICMP4_MASK_REQUEST: ICMP4_TYPE = 17
+public val ICMP4_MASK_REQUEST: Icmp4Type = 17
 
-public val ICMP4_PARAM_PROB: ICMP4_TYPE = 12
+public val ICMP4_PARAM_PROB: Icmp4Type = 12
 
-public val ICMP4_REDIRECT: ICMP4_TYPE = 5
+public val ICMP4_REDIRECT: Icmp4Type = 5
 
-public val ICMP4_ROUTER_ADVERT: ICMP4_TYPE = 9
+public val ICMP4_ROUTER_ADVERT: Icmp4Type = 9
 
-public val ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = 10
+public val ICMP4_ROUTER_SOLICIT: Icmp4Type = 10
 
-public val ICMP4_SOURCE_QUENCH: ICMP4_TYPE = 4
+public val ICMP4_SOURCE_QUENCH: Icmp4Type = 4
 
-public val ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = 14
+public val ICMP4_TIMESTAMP_REPLY: Icmp4Type = 14
 
-public val ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = 13
+public val ICMP4_TIMESTAMP_REQUEST: Icmp4Type = 13
 
-public val ICMP4_TIME_EXCEEDED: ICMP4_TYPE = 11
+public val ICMP4_TIME_EXCEEDED: Icmp4Type = 11
 
-public val ICMP6_DST_UNREACH: ICMP6_TYPE = 1
+public val ICMP6_DST_UNREACH: Icmp6Type = 1
 
-public val ICMP6_ECHO_REPLY: ICMP6_TYPE = 129
+public val ICMP6_ECHO_REPLY: Icmp6Type = 129
 
-public val ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128
+public val ICMP6_ECHO_REQUEST: Icmp6Type = 128
 
 public val ICMP6_INFOMSG_MASK: UInt = 128u
 
-public val ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = 130
+public val ICMP6_MEMBERSHIP_QUERY: Icmp6Type = 130
 
-public val ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = 132
+public val ICMP6_MEMBERSHIP_REDUCTION: Icmp6Type = 132
 
-public val ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131
+public val ICMP6_MEMBERSHIP_REPORT: Icmp6Type = 131
 
-public val ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = 2
+public val ICMP6_PACKET_TOO_BIG: Icmp6Type = 2
 
-public val ICMP6_PARAM_PROB: ICMP6_TYPE = 4
+public val ICMP6_PARAM_PROB: Icmp6Type = 4
 
-public val ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3
+public val ICMP6_TIME_EXCEEDED: Icmp6Type = 3
 
-public val ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143
+public val ICMP6_V2_MEMBERSHIP_REPORT: Icmp6Type = 143
 
 public val ICMP_STATS: UInt = 11u
 
-public val IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = 2
+public val IF_ACCESS_BROADCAST: IfAccessType = 2
 
-public val IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = 1
+public val IF_ACCESS_LOOPBACK: IfAccessType = 1
 
-public val IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = 4
+public val IF_ACCESS_POINTTOMULTIPOINT: IfAccessType = 4
 
-public val IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = 3
+public val IF_ACCESS_POINTTOPOINT: IfAccessType = 3
 
-public val IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = 4
+public val IF_ACCESS_POINT_TO_MULTI_POINT: IfAccessType = 4
 
-public val IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = 3
+public val IF_ACCESS_POINT_TO_POINT: IfAccessType = 3
 
 public val IF_ADMIN_STATUS_DOWN: UInt = 2u
 
@@ -218,17 +218,17 @@ public val IF_CONNECTION_PASSIVE: UInt = 2u
 
 public val IF_NUMBER: UInt = 0u
 
-public val IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = 4
+public val IF_OPER_STATUS_CONNECTED: InternalIfOperStatus = 4
 
-public val IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = 3
+public val IF_OPER_STATUS_CONNECTING: InternalIfOperStatus = 3
 
-public val IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = 2
+public val IF_OPER_STATUS_DISCONNECTED: InternalIfOperStatus = 2
 
-public val IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 0
+public val IF_OPER_STATUS_NON_OPERATIONAL: InternalIfOperStatus = 0
 
-public val IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 5
+public val IF_OPER_STATUS_OPERATIONAL: InternalIfOperStatus = 5
 
-public val IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = 1
+public val IF_OPER_STATUS_UNREACHABLE: InternalIfOperStatus = 1
 
 public val IF_ROW: UInt = 2u
 
@@ -946,61 +946,61 @@ public val MIB_IPADDR_PRIMARY: UInt = 1u
 
 public val MIB_IPADDR_TRANSIENT: UInt = 128u
 
-public val MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3
+public val MIB_IPNET_TYPE_DYNAMIC: MibIpnetType = 3
 
-public val MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2
+public val MIB_IPNET_TYPE_INVALID: MibIpnetType = 2
 
-public val MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1
+public val MIB_IPNET_TYPE_OTHER: MibIpnetType = 1
 
-public val MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4
+public val MIB_IPNET_TYPE_STATIC: MibIpnetType = 4
 
 public val MIB_IPROUTE_METRIC_UNUSED: UInt = 4294967295u
 
-public val MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3
+public val MIB_IPROUTE_TYPE_DIRECT: MibIpforwardType = 3
 
-public val MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4
+public val MIB_IPROUTE_TYPE_INDIRECT: MibIpforwardType = 4
 
-public val MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2
+public val MIB_IPROUTE_TYPE_INVALID: MibIpforwardType = 2
 
-public val MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1
+public val MIB_IPROUTE_TYPE_OTHER: MibIpforwardType = 1
 
-public val MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1
+public val MIB_IP_FORWARDING: MibIpstatsForwarding = 1
 
-public val MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2
+public val MIB_IP_NOT_FORWARDING: MibIpstatsForwarding = 2
 
-public val MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2
+public val MIB_TCP_RTO_CONSTANT: TcpRtoAlgorithm = 2
 
-public val MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1
+public val MIB_TCP_RTO_OTHER: TcpRtoAlgorithm = 1
 
-public val MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3
+public val MIB_TCP_RTO_RSRE: TcpRtoAlgorithm = 3
 
-public val MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = 4
+public val MIB_TCP_RTO_VANJ: TcpRtoAlgorithm = 4
 
-public val MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = 1
+public val MIB_TCP_STATE_CLOSED: MibTcpState = 1
 
-public val MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = 8
+public val MIB_TCP_STATE_CLOSE_WAIT: MibTcpState = 8
 
-public val MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = 9
+public val MIB_TCP_STATE_CLOSING: MibTcpState = 9
 
-public val MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = 12
+public val MIB_TCP_STATE_DELETE_TCB: MibTcpState = 12
 
-public val MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = 5
+public val MIB_TCP_STATE_ESTAB: MibTcpState = 5
 
-public val MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = 6
+public val MIB_TCP_STATE_FIN_WAIT1: MibTcpState = 6
 
-public val MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = 7
+public val MIB_TCP_STATE_FIN_WAIT2: MibTcpState = 7
 
-public val MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = 10
+public val MIB_TCP_STATE_LAST_ACK: MibTcpState = 10
 
-public val MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = 2
+public val MIB_TCP_STATE_LISTEN: MibTcpState = 2
 
-public val MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100
+public val MIB_TCP_STATE_RESERVED: MibTcpState = 100
 
-public val MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4
+public val MIB_TCP_STATE_SYN_RCVD: MibTcpState = 4
 
-public val MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3
+public val MIB_TCP_STATE_SYN_SENT: MibTcpState = 3
 
-public val MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11
+public val MIB_TCP_STATE_TIME_WAIT: MibTcpState = 11
 
 public val MIB_USE_CURRENT_FORWARDING: UInt = 4294967295u
 
@@ -1010,41 +1010,41 @@ public val MIN_IF_TYPE: UInt = 1u
 
 public val MIXED_NODETYPE: UInt = 4u
 
-public val MibAddInstance: MIB_NOTIFICATION_TYPE = 1
+public val MIB_ADD_INSTANCE: MibNotificationType = 1
 
-public val MibDeleteInstance: MIB_NOTIFICATION_TYPE = 2
+public val MIB_DELETE_INSTANCE: MibNotificationType = 2
 
-public val MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = 0
+public val MIB_IF_ENTRY_NORMAL: MibIfEntryLevel = 0
 
-public val MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = 2
+public val MIB_IF_ENTRY_NORMAL_WITHOUT_STATISTICS: MibIfEntryLevel = 2
 
-public val MibIfTableNormal: MIB_IF_TABLE_LEVEL = 0
+public val MIB_IF_TABLE_NORMAL: MibIfTableLevel = 0
 
-public val MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = 2
+public val MIB_IF_TABLE_NORMAL_WITHOUT_STATISTICS: MibIfTableLevel = 2
 
-public val MibIfTableRaw: MIB_IF_TABLE_LEVEL = 1
+public val MIB_IF_TABLE_RAW: MibIfTableLevel = 1
 
-public val MibInitialNotification: MIB_NOTIFICATION_TYPE = 3
+public val MIB_INITIAL_NOTIFICATION: MibNotificationType = 3
 
-public val MibParameterNotification: MIB_NOTIFICATION_TYPE = 0
+public val MIB_PARAMETER_NOTIFICATION: MibNotificationType = 0
 
-public val ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136
+public val ND_NEIGHBOR_ADVERT: Icmp6Type = 136
 
-public val ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135
+public val ND_NEIGHBOR_SOLICIT: Icmp6Type = 135
 
-public val ND_REDIRECT: ICMP6_TYPE = 137
+public val ND_REDIRECT: Icmp6Type = 137
 
-public val ND_ROUTER_ADVERT: ICMP6_TYPE = 134
+public val ND_ROUTER_ADVERT: Icmp6Type = 134
 
-public val ND_ROUTER_SOLICIT: ICMP6_TYPE = 133
+public val ND_ROUTER_SOLICIT: Icmp6Type = 133
 
-public val NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = 1
+public val NET_ADDRESS_DNS_NAME: NetAddressFormat = 1
 
-public val NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = 0
+public val NET_ADDRESS_FORMAT_UNSPECIFIED: NetAddressFormat = 0
 
-public val NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = 2
+public val NET_ADDRESS_IPV4: NetAddressFormat = 2
 
-public val NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = 3
+public val NET_ADDRESS_IPV6: NetAddressFormat = 3
 
 public val NET_STRING_IPV4_ADDRESS: UInt = 1u
 
@@ -1076,19 +1076,19 @@ public val PFERROR_NO_FILTERS_GIVEN: UInt = 23001u
 
 public val PFERROR_NO_PF_INTERFACE: UInt = 23000u
 
-public val PFFT_FILTER: PFFRAMETYPE = 1
+public val PFFT_FILTER: Pfframetype = 1
 
-public val PFFT_FRAG: PFFRAMETYPE = 2
+public val PFFT_FRAG: Pfframetype = 2
 
-public val PFFT_SPOOF: PFFRAMETYPE = 3
+public val PFFT_SPOOF: Pfframetype = 3
 
-public val PF_ACTION_DROP: PFFORWARD_ACTION = 1
+public val PF_ACTION_DROP: PfforwardAction = 1
 
-public val PF_ACTION_FORWARD: PFFORWARD_ACTION = 0
+public val PF_ACTION_FORWARD: PfforwardAction = 0
 
-public val PF_IPV4: PFADDRESSTYPE = 0
+public val PF_IPV4: Pfaddresstype = 0
 
-public val PF_IPV6: PFADDRESSTYPE = 1
+public val PF_IPV6: Pfaddresstype = 1
 
 public val PROXY_ARP: UInt = 22u
 
@@ -1102,7 +1102,7 @@ public val ROUTE_STATE: UInt = 34u
 
 public val TCP6_STATS: UInt = 38u
 
-public val TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0
+public val TCPIP_OWNER_MODULE_INFO_BASIC: TcpipOwnerModuleInfoClass = 0
 
 public val TCPIP_OWNING_MODULE_SIZE: UInt = 16u
 
@@ -1112,87 +1112,87 @@ public val TCP_STATS: UInt = 12u
 
 public val TCP_TABLE: UInt = 13u
 
-public val TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2
+public val TCP_TABLE_BASIC_ALL: TcpTableClass = 2
 
-public val TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1
+public val TCP_TABLE_BASIC_CONNECTIONS: TcpTableClass = 1
 
-public val TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0
+public val TCP_TABLE_BASIC_LISTENER: TcpTableClass = 0
 
-public val TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = 8
+public val TCP_TABLE_OWNER_MODULE_ALL: TcpTableClass = 8
 
-public val TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = 7
+public val TCP_TABLE_OWNER_MODULE_CONNECTIONS: TcpTableClass = 7
 
-public val TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6
+public val TCP_TABLE_OWNER_MODULE_LISTENER: TcpTableClass = 6
 
-public val TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5
+public val TCP_TABLE_OWNER_PID_ALL: TcpTableClass = 5
 
-public val TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4
+public val TCP_TABLE_OWNER_PID_CONNECTIONS: TcpTableClass = 4
 
-public val TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3
+public val TCP_TABLE_OWNER_PID_LISTENER: TcpTableClass = 3
 
-public val TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = 0
+public val TCP_BOOL_OPT_DISABLED: TcpBooleanOptional = 0
 
-public val TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = 1
+public val TCP_BOOL_OPT_ENABLED: TcpBooleanOptional = 1
 
-public val TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = -1
+public val TCP_BOOL_OPT_UNCHANGED: TcpBooleanOptional = -1
 
-public val TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = 7
+public val TCP_CONNECTION_ESTATS_BANDWIDTH: TcpEstatsType = 7
 
-public val TcpConnectionEstatsData: TCP_ESTATS_TYPE = 1
+public val TCP_CONNECTION_ESTATS_DATA: TcpEstatsType = 1
 
-public val TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = 8
+public val TCP_CONNECTION_ESTATS_FINE_RTT: TcpEstatsType = 8
 
-public val TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = 9
+public val TCP_CONNECTION_ESTATS_MAXIMUM: TcpEstatsType = 9
 
-public val TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = 6
+public val TCP_CONNECTION_ESTATS_OBS_REC: TcpEstatsType = 6
 
-public val TcpConnectionEstatsPath: TCP_ESTATS_TYPE = 3
+public val TCP_CONNECTION_ESTATS_PATH: TcpEstatsType = 3
 
-public val TcpConnectionEstatsRec: TCP_ESTATS_TYPE = 5
+public val TCP_CONNECTION_ESTATS_REC: TcpEstatsType = 5
 
-public val TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = 4
+public val TCP_CONNECTION_ESTATS_SEND_BUFF: TcpEstatsType = 4
 
-public val TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = 2
+public val TCP_CONNECTION_ESTATS_SND_CONG: TcpEstatsType = 2
 
-public val TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = 0
+public val TCP_CONNECTION_ESTATS_SYN_OPTS: TcpEstatsType = 0
 
-public val TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0
+public val TCP_CONNECTION_OFFLOAD_STATE_IN_HOST: TcpConnectionOffloadState = 0
 
-public val TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = 4
+public val TCP_CONNECTION_OFFLOAD_STATE_MAX: TcpConnectionOffloadState = 4
 
-public val TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = 2
+public val TCP_CONNECTION_OFFLOAD_STATE_OFFLOADED: TcpConnectionOffloadState = 2
 
-public val TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = 1
+public val TCP_CONNECTION_OFFLOAD_STATE_OFFLOADING: TcpConnectionOffloadState = 1
 
-public val TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = 3
+public val TCP_CONNECTION_OFFLOAD_STATE_UPLOADING: TcpConnectionOffloadState = 3
 
-public val TcpErrorAboveAckWindow: TCP_SOFT_ERROR = 4
+public val TCP_ERROR_ABOVE_ACK_WINDOW: TcpSoftError = 4
 
-public val TcpErrorAboveDataWindow: TCP_SOFT_ERROR = 2
+public val TCP_ERROR_ABOVE_DATA_WINDOW: TcpSoftError = 2
 
-public val TcpErrorAboveTsWindow: TCP_SOFT_ERROR = 6
+public val TCP_ERROR_ABOVE_TS_WINDOW: TcpSoftError = 6
 
-public val TcpErrorBelowAckWindow: TCP_SOFT_ERROR = 3
+public val TCP_ERROR_BELOW_ACK_WINDOW: TcpSoftError = 3
 
-public val TcpErrorBelowDataWindow: TCP_SOFT_ERROR = 1
+public val TCP_ERROR_BELOW_DATA_WINDOW: TcpSoftError = 1
 
-public val TcpErrorBelowTsWindow: TCP_SOFT_ERROR = 5
+public val TCP_ERROR_BELOW_TS_WINDOW: TcpSoftError = 5
 
-public val TcpErrorDataChecksumError: TCP_SOFT_ERROR = 7
+public val TCP_ERROR_DATA_CHECKSUM_ERROR: TcpSoftError = 7
 
-public val TcpErrorDataLengthError: TCP_SOFT_ERROR = 8
+public val TCP_ERROR_DATA_LENGTH_ERROR: TcpSoftError = 8
 
-public val TcpErrorMaxSoftError: TCP_SOFT_ERROR = 9
+public val TCP_ERROR_MAX_SOFT_ERROR: TcpSoftError = 9
 
-public val TcpErrorNone: TCP_SOFT_ERROR = 0
+public val TCP_ERROR_NONE: TcpSoftError = 0
 
-public val TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = 2
+public val TCP_RTO_ALGORITHM_CONSTANT: TcpRtoAlgorithm = 2
 
-public val TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = 1
+public val TCP_RTO_ALGORITHM_OTHER: TcpRtoAlgorithm = 1
 
-public val TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = 3
+public val TCP_RTO_ALGORITHM_RSRE: TcpRtoAlgorithm = 3
 
-public val TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = 4
+public val TCP_RTO_ALGORITHM_VANJ: TcpRtoAlgorithm = 4
 
 public val UDP6_STATS: UInt = 37u
 
@@ -1202,8 +1202,8 @@ public val UDP_STATS: UInt = 15u
 
 public val UDP_TABLE: UInt = 16u
 
-public val UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0
+public val UDP_TABLE_BASIC: UdpTableClass = 0
 
-public val UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2
+public val UDP_TABLE_OWNER_MODULE: UdpTableClass = 2
 
-public val UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1
+public val UDP_TABLE_OWNER_PID: UdpTableClass = 1

@@ -9,21 +9,21 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident(void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident(void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident(void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident(void* hostname, uint16_t querytype, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident(void* cloudname, void* groupname, void* identity, void* invitation, void* addresses, void* appid, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident(void* helperclassname, uint32_t celt, void* attributes, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident(void* cloudname, void* peername, int32_t diagnosepublish, void* appid, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident(void* uncpath, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident(void* url, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx(void* url, int32_t usewinhttp, void* modulename, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident(uint64_t sock, void* host, uint16_t port, void* appid, void* userid, void* handle);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident(void* handle, void* rootcausecount, void* rootcauses, uint32_t dwwait, uint32_t dwflags);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis(void* handle, void* hwnd);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile(void* handle, void* tracefilelocation);
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident(void* handle, void* repairex, uint32_t dwwait);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident(void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident(void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident(void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident(void* hostname, uint16_t querytype, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident(void* cloudname, void* groupname, void* identity, void* invitation, void* addresses, void* appid, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident(void* helperclassname, uint32_t celt, void* attributes, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident(void* cloudname, void* peername, int32_t diagnosepublish, void* appid, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident(void* uncpath, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident(void* url, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx(void* url, int32_t usewinhttp, void* modulename, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident(uint64_t sock, void* host, uint16_t port, void* appid, void* userid, void* handle);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident(void* handle, void* rootcausecount, void* rootcauses, uint32_t dwwait, uint32_t dwflags);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis(void* handle, void* hwnd);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile(void* handle, void* tracefilelocation);
+int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident(void* handle, void* repairex, uint32_t dwwait);
 
 #ifdef __cplusplus
 }

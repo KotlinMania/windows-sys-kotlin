@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1RtlExtendCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1rtlExtendCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1RtlIncrementCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1rtlIncrementCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1RtlInitializeCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector, jint version, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1rtlInitializeCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong correlationvector, jint version, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1RtlValidateCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong vector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_correlationvector_WindowsWin32SystemCorrelationvectorJniBridge_windowssys_1windows_1win32_1system_1correlationvector_1rtlValidateCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong vector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

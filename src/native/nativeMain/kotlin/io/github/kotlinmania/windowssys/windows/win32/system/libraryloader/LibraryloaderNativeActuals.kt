@@ -2,165 +2,166 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HRSRC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AddDllDirectory(newdirectory: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_AddDllDirectory(newdirectory.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun addDllDirectory(newdirectory: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_addDllDirectory(newdirectory?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BeginUpdateResourceA(pfilename: PCSTR, bdeleteexistingresources: BOOL): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA(pfilename.toCPointer<ByteVar>(), bdeleteexistingresources)?.toLong() ?: 0L
+public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_beginUpdateResourceA(pfilename?.value?.toCPointer<ByteVar>(), bdeleteexistingresources)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BeginUpdateResourceW(pfilename: PCWSTR, bdeleteexistingresources: BOOL): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW(pfilename.toCPointer<ByteVar>(), bdeleteexistingresources)?.toLong() ?: 0L
+public actual fun beginUpdateResourceW(pfilename: Pcwstr, bdeleteexistingresources: Bool): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_beginUpdateResourceW(pfilename?.value?.toCPointer<ByteVar>(), bdeleteexistingresources)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DisableThreadLibraryCalls(hlibmodule: HMODULE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls(hlibmodule.toCPointer<ByteVar>())
+public actual fun disableThreadLibraryCalls(hlibmodule: Hmodule): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls(hlibmodule?.value?.toCPointer<ByteVar>())
 
-public actual fun EndUpdateResourceA(hupdate: HANDLE, fdiscard: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EndUpdateResourceA(hupdate.toCPointer<ByteVar>(), fdiscard)
+public actual fun endUpdateResourceA(hupdate: Handle, fdiscard: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_endUpdateResourceA(hupdate?.value?.toCPointer<ByteVar>(), fdiscard)
 
-public actual fun EndUpdateResourceW(hupdate: HANDLE, fdiscard: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EndUpdateResourceW(hupdate.toCPointer<ByteVar>(), fdiscard)
+public actual fun endUpdateResourceW(hupdate: Handle, fdiscard: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_endUpdateResourceW(hupdate?.value?.toCPointer<ByteVar>(), fdiscard)
 
-public actual fun EnumResourceLanguagesA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceLanguagesA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumResourceLanguagesExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceLanguagesExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceLanguagesExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceLanguagesExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceLanguagesW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceLanguagesW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumResourceNamesA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceNamesA(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceNamesA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceNamesA(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumResourceNamesExA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceNamesExA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceNamesExA(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceNamesExW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceNamesExW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceNamesExW(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceNamesW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceNamesW(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceNamesW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceNamesW(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumResourceTypesA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceTypesA(hmodule.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceTypesA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceTypesA(hmodule?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumResourceTypesExA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA(hmodule.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceTypesExA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceTypesExA(hmodule?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceTypesExW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW(hmodule.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam, dwflags, langid)
+public actual fun enumResourceTypesExW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceTypesExW(hmodule?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags, langid)
 
-public actual fun EnumResourceTypesW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_EnumResourceTypesW(hmodule.toCPointer<ByteVar>(), lpenumfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumResourceTypesW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_enumResourceTypesW(hmodule?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun FindResourceA(hmodule: HMODULE, lpname: PCSTR, lptype: PCSTR): HRSRC =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FindResourceA(hmodule.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findResourceA(hmodule: Hmodule, lpname: Pcstr, lptype: Pcstr): Hrsrc =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_findResourceA(hmodule?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindResourceExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort): HRSRC =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FindResourceExA(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), wlanguage)?.toLong() ?: 0L
+public actual fun findResourceExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort): Hrsrc =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_findResourceExA(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), wlanguage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindResourceExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort): HRSRC =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FindResourceExW(hmodule.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), wlanguage)?.toLong() ?: 0L
+public actual fun findResourceExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort): Hrsrc =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_findResourceExW(hmodule?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), wlanguage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindResourceW(hmodule: HMODULE, lpname: PCWSTR, lptype: PCWSTR): HRSRC =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FindResourceW(hmodule.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findResourceW(hmodule: Hmodule, lpname: Pcwstr, lptype: Pcwstr): Hrsrc =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_findResourceW(hmodule?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FreeLibraryAndExitThread(hlibmodule: HMODULE, dwexitcode: UInt): Nothing {
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread(hlibmodule.toCPointer<ByteVar>(), dwexitcode)
-    error("Unreachable noreturn C function FreeLibraryAndExitThread")
+public actual fun freeLibraryAndExitThread(hlibmodule: Hmodule, dwexitcode: UInt): Nothing {
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread(hlibmodule?.value?.toCPointer<ByteVar>(), dwexitcode)
+    error("Unreachable noreturn C function freeLibraryAndExitThread")
 }
 
-public actual fun FreeResource(hresdata: HGLOBAL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_FreeResource(hresdata.toCPointer<ByteVar>())
+public actual fun freeResource(hresdata: Hglobal): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_freeResource(hresdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDllDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetDllDirectoryA(nbufferlength, lpbuffer.toCPointer<ByteVar>())
+public actual fun getDllDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getDllDirectoryA(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDllDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetDllDirectoryW(nbufferlength, lpbuffer.toCPointer<ByteVar>())
+public actual fun getDllDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getDllDirectoryW(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetModuleFileNameA(hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleFileNameA(hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleFileNameA(hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleFileNameA(hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleFileNameW(hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleFileNameW(hmodule.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), nsize)
+public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleFileNameW(hmodule?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetModuleHandleA(lpmodulename: PCSTR): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleHandleA(lpmodulename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleHandleA(lpmodulename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetModuleHandleExA(dwflags: UInt, lpmodulename: PCSTR, phmodule: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleHandleExA(dwflags, lpmodulename.toCPointer<ByteVar>(), phmodule.toCPointer<ByteVar>())
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleHandleExA(dwflags, lpmodulename?.value?.toCPointer<ByteVar>(), phmodule?.value?.toCPointer<ByteVar>())
 
-public actual fun GetModuleHandleExW(dwflags: UInt, lpmodulename: PCWSTR, phmodule: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleHandleExW(dwflags, lpmodulename.toCPointer<ByteVar>(), phmodule.toCPointer<ByteVar>())
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleHandleExW(dwflags, lpmodulename?.value?.toCPointer<ByteVar>(), phmodule?.value?.toCPointer<ByteVar>())
 
-public actual fun GetModuleHandleW(lpmodulename: PCWSTR): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_GetModuleHandleW(lpmodulename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_getModuleHandleW(lpmodulename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetProcAddress(hmodule: HMODULE, lpprocname: PCSTR): FARPROC =
+public actual fun getProcAddress(hmodule: Hmodule, lpprocname: Pcstr): Farproc =
     null
 
-public actual fun LoadLibraryA(lplibfilename: PCSTR): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadLibraryA(lplibfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun loadLibraryA(lplibfilename: Pcstr): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadLibraryA(lplibfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadLibraryExA(lplibfilename: PCSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadLibraryExA(lplibfilename.toCPointer<ByteVar>(), hfile.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun loadLibraryExA(lplibfilename: Pcstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadLibraryExA(lplibfilename?.value?.toCPointer<ByteVar>(), hfile?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadLibraryExW(lplibfilename: PCWSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadLibraryExW(lplibfilename.toCPointer<ByteVar>(), hfile.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadLibraryExW(lplibfilename?.value?.toCPointer<ByteVar>(), hfile?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadLibraryW(lplibfilename: PCWSTR): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadLibraryW(lplibfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadLibraryW(lplibfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadModule(lpmodulename: PCSTR, lpparameterblock: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadModule(lpmodulename.toCPointer<ByteVar>(), lpparameterblock.toCPointer<ByteVar>())
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadModule(lpmodulename?.value?.toCPointer<ByteVar>(), lpparameterblock?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadPackagedLibrary(lpwlibfilename: PCWSTR, reserved: UInt): HMODULE =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary(lpwlibfilename.toCPointer<ByteVar>(), reserved)?.toLong() ?: 0L
+public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadPackagedLibrary(lpwlibfilename?.value?.toCPointer<ByteVar>(), reserved)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadResource(hmodule: HMODULE, hresinfo: HRSRC): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LoadResource(hmodule.toCPointer<ByteVar>(), hresinfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_loadResource(hmodule?.value?.toCPointer<ByteVar>(), hresinfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LockResource(hresdata: HGLOBAL): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_LockResource(hresdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun lockResource(hresdata: Hglobal): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_lockResource(hresdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun QueryOptionalDelayLoadedAPI(hparentmodule: HMODULE, lpdllname: PCSTR, lpprocname: PCSTR, reserved: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI(hparentmodule.toCPointer<ByteVar>(), lpdllname.toCPointer<ByteVar>(), lpprocname.toCPointer<ByteVar>(), reserved)
+public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI(hparentmodule?.value?.toCPointer<ByteVar>(), lpdllname?.value?.toCPointer<ByteVar>(), lpprocname?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun RemoveDllDirectory(cookie: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_RemoveDllDirectory(cookie.toCPointer<ByteVar>())
+public actual fun removeDllDirectory(cookie: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_removeDllDirectory(cookie?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories(directoryflags)
+public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories(directoryflags)
 
-public actual fun SetDllDirectoryA(lppathname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_SetDllDirectoryA(lppathname.toCPointer<ByteVar>())
+public actual fun setDllDirectoryA(lppathname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_setDllDirectoryA(lppathname?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDllDirectoryW(lppathname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_SetDllDirectoryW(lppathname.toCPointer<ByteVar>())
+public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_setDllDirectoryW(lppathname?.value?.toCPointer<ByteVar>())
 
-public actual fun SizeofResource(hmodule: HMODULE, hresinfo: HRSRC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_SizeofResource(hmodule.toCPointer<ByteVar>(), hresinfo.toCPointer<ByteVar>())
+public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_sizeofResource(hmodule?.value?.toCPointer<ByteVar>(), hresinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun UpdateResourceA(hupdate: HANDLE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_UpdateResourceA(hupdate.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), wlanguage, lpdata.toCPointer<ByteVar>(), cb)
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_updateResourceA(hupdate?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), wlanguage, lpdata?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun UpdateResourceW(hupdate: HANDLE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_UpdateResourceW(hupdate.toCPointer<ByteVar>(), lptype.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), wlanguage, lpdata.toCPointer<ByteVar>(), cb)
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.cinterop.windowssys_windows_win32_system_libraryloader_updateResourceW(hupdate?.value?.toCPointer<ByteVar>(), lptype?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), wlanguage, lpdata?.value?.toCPointer<ByteVar>(), cb)

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_passwordmanagement_MSChapSrvChangePassword(void* servername, void* username, bool lmoldpresent, void* lmoldowfpassword, void* lmnewowfpassword, void* ntoldowfpassword, void* ntnewowfpassword) {
+uint32_t windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword(void* servername, void* username, bool lmoldpresent, void* lmoldowfpassword, void* lmnewowfpassword, void* ntoldowfpassword, void* ntnewowfpassword) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, bool, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -43,7 +43,7 @@ uint32_t windowssys_windows_win32_system_passwordmanagement_MSChapSrvChangePassw
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_passwordmanagement_MSChapSrvChangePassword2(void* servername, void* username, void* newpasswordencryptedwitholdnt, void* oldntowfpasswordencryptedwithnewnt, bool lmpresent, void* newpasswordencryptedwitholdlm, void* oldlmowfpasswordencryptedwithnewlmornt) {
+uint32_t windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword2(void* servername, void* username, void* newpasswordencryptedwitholdnt, void* oldntowfpasswordencryptedwithnewnt, bool lmpresent, void* newpasswordencryptedwitholdlm, void* oldlmowfpasswordencryptedwithnewlmornt) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

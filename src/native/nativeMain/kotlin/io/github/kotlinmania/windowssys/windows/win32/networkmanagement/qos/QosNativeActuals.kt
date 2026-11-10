@@ -2,105 +2,106 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Socket
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun QOSAddSocketToFlow(qoshandle: HANDLE, socket: SOCKET, destaddr: Long, traffictype: QOS_TRAFFIC_TYPE, flags: UInt, flowid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSAddSocketToFlow(qoshandle.toCPointer<ByteVar>(), socket, destaddr.toCPointer<ByteVar>(), traffictype, flags, flowid.toCPointer<ByteVar>())
+public actual fun qOSAddSocketToFlow(qoshandle: Handle, socket: Socket, destaddr: COpaquePointer?, traffictype: QosTrafficType, flags: UInt, flowid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow(qoshandle?.value?.toCPointer<ByteVar>(), socket, destaddr?.value?.toCPointer<ByteVar>(), traffictype, flags, flowid?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSCancel(qoshandle: HANDLE, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSCancel(qoshandle.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun qOSCancel(qoshandle: Handle, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSCancel(qoshandle?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSCloseHandle(qoshandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle(qoshandle.toCPointer<ByteVar>())
+public actual fun qOSCloseHandle(qoshandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle(qoshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSCreateHandle(version: Long, qoshandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSCreateHandle(version.toCPointer<ByteVar>(), qoshandle.toCPointer<ByteVar>())
+public actual fun qOSCreateHandle(version: COpaquePointer?, qoshandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle(version?.value?.toCPointer<ByteVar>(), qoshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSEnumerateFlows(qoshandle: HANDLE, size: Long, buffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFlows(qoshandle.toCPointer<ByteVar>(), size.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun qOSEnumerateFlows(qoshandle: Handle, size: COpaquePointer?, buffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows(qoshandle?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSNotifyFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_NOTIFY_FLOW, size: Long, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow(qoshandle.toCPointer<ByteVar>(), flowid, operation, size.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), flags, overlapped.toCPointer<ByteVar>())
+public actual fun qOSNotifyFlow(qoshandle: Handle, flowid: UInt, operation: QosNotifyFlow, size: COpaquePointer?, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow(qoshandle?.value?.toCPointer<ByteVar>(), flowid, operation, size?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), flags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSQueryFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_QUERY_FLOW, size: Long, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow(qoshandle.toCPointer<ByteVar>(), flowid, operation, size.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), flags, overlapped.toCPointer<ByteVar>())
+public actual fun qOSQueryFlow(qoshandle: Handle, flowid: UInt, operation: QosQueryFlow, size: COpaquePointer?, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow(qoshandle?.value?.toCPointer<ByteVar>(), flowid, operation, size?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), flags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSRemoveSocketFromFlow(qoshandle: HANDLE, socket: SOCKET, flowid: UInt, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocketFromFlow(qoshandle.toCPointer<ByteVar>(), socket, flowid, flags)
+public actual fun qOSRemoveSocketFromFlow(qoshandle: Handle, socket: Socket, flowid: UInt, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow(qoshandle?.value?.toCPointer<ByteVar>(), socket, flowid, flags)
 
-public actual fun QOSSetFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_SET_FLOW, size: UInt, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSSetFlow(qoshandle.toCPointer<ByteVar>(), flowid, operation, size, buffer.toCPointer<ByteVar>(), flags, overlapped.toCPointer<ByteVar>())
+public actual fun qOSSetFlow(qoshandle: Handle, flowid: UInt, operation: QosSetFlow, size: UInt, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSSetFlow(qoshandle?.value?.toCPointer<ByteVar>(), flowid, operation, size, buffer?.value?.toCPointer<ByteVar>(), flags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun QOSStartTrackingClient(qoshandle: HANDLE, destaddr: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSStartTrackingClient(qoshandle.toCPointer<ByteVar>(), destaddr.toCPointer<ByteVar>(), flags)
+public actual fun qOSStartTrackingClient(qoshandle: Handle, destaddr: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient(qoshandle?.value?.toCPointer<ByteVar>(), destaddr?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun QOSStopTrackingClient(qoshandle: HANDLE, destaddr: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_QOSStopTrackingClient(qoshandle.toCPointer<ByteVar>(), destaddr.toCPointer<ByteVar>(), flags)
+public actual fun qOSStopTrackingClient(qoshandle: Handle, destaddr: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient(qoshandle?.value?.toCPointer<ByteVar>(), destaddr?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun TcAddFilter(flowhandle: HANDLE, pgenericfilter: Long, pfilterhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcAddFilter(flowhandle.toCPointer<ByteVar>(), pgenericfilter.toCPointer<ByteVar>(), pfilterhandle.toCPointer<ByteVar>())
+public actual fun tcAddFilter(flowhandle: Handle, pgenericfilter: COpaquePointer?, pfilterhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcAddFilter(flowhandle?.value?.toCPointer<ByteVar>(), pgenericfilter?.value?.toCPointer<ByteVar>(), pfilterhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcAddFlow(ifchandle: HANDLE, clflowctx: HANDLE, flags: UInt, pgenericflow: Long, pflowhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcAddFlow(ifchandle.toCPointer<ByteVar>(), clflowctx.toCPointer<ByteVar>(), flags, pgenericflow.toCPointer<ByteVar>(), pflowhandle.toCPointer<ByteVar>())
+public actual fun tcAddFlow(ifchandle: Handle, clflowctx: Handle, flags: UInt, pgenericflow: COpaquePointer?, pflowhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcAddFlow(ifchandle?.value?.toCPointer<ByteVar>(), clflowctx?.value?.toCPointer<ByteVar>(), flags, pgenericflow?.value?.toCPointer<ByteVar>(), pflowhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcCloseInterface(ifchandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcCloseInterface(ifchandle.toCPointer<ByteVar>())
+public actual fun tcCloseInterface(ifchandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcCloseInterface(ifchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcDeleteFilter(filterhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter(filterhandle.toCPointer<ByteVar>())
+public actual fun tcDeleteFilter(filterhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter(filterhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcDeleteFlow(flowhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow(flowhandle.toCPointer<ByteVar>())
+public actual fun tcDeleteFlow(flowhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow(flowhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcDeregisterClient(clienthandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcDeregisterClient(clienthandle.toCPointer<ByteVar>())
+public actual fun tcDeregisterClient(clienthandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient(clienthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcEnumerateFlows(ifchandle: HANDLE, penumhandle: Long, pflowcount: Long, pbufsize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlows(ifchandle.toCPointer<ByteVar>(), penumhandle.toCPointer<ByteVar>(), pflowcount.toCPointer<ByteVar>(), pbufsize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tcEnumerateFlows(ifchandle: Handle, penumhandle: COpaquePointer?, pflowcount: COpaquePointer?, pbufsize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows(ifchandle?.value?.toCPointer<ByteVar>(), penumhandle?.value?.toCPointer<ByteVar>(), pflowcount?.value?.toCPointer<ByteVar>(), pbufsize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcEnumerateInterfaces(clienthandle: HANDLE, pbuffersize: Long, interfacebuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcEnumerateInterfaces(clienthandle.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), interfacebuffer.toCPointer<ByteVar>())
+public actual fun tcEnumerateInterfaces(clienthandle: Handle, pbuffersize: COpaquePointer?, interfacebuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces(clienthandle?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), interfacebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcGetFlowNameA(flowhandle: HANDLE, strsize: UInt, pflowname: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA(flowhandle.toCPointer<ByteVar>(), strsize, pflowname.toCPointer<ByteVar>())
+public actual fun tcGetFlowNameA(flowhandle: Handle, strsize: UInt, pflowname: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA(flowhandle?.value?.toCPointer<ByteVar>(), strsize, pflowname?.value?.toCPointer<ByteVar>())
 
-public actual fun TcGetFlowNameW(flowhandle: HANDLE, strsize: UInt, pflowname: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW(flowhandle.toCPointer<ByteVar>(), strsize, pflowname.toCPointer<ByteVar>())
+public actual fun tcGetFlowNameW(flowhandle: Handle, strsize: UInt, pflowname: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW(flowhandle?.value?.toCPointer<ByteVar>(), strsize, pflowname?.value?.toCPointer<ByteVar>())
 
-public actual fun TcModifyFlow(flowhandle: HANDLE, pgenericflow: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcModifyFlow(flowhandle.toCPointer<ByteVar>(), pgenericflow.toCPointer<ByteVar>())
+public actual fun tcModifyFlow(flowhandle: Handle, pgenericflow: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcModifyFlow(flowhandle?.value?.toCPointer<ByteVar>(), pgenericflow?.value?.toCPointer<ByteVar>())
 
-public actual fun TcOpenInterfaceA(pinterfacename: PCSTR, clienthandle: HANDLE, clifcctx: HANDLE, pifchandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceA(pinterfacename.toCPointer<ByteVar>(), clienthandle.toCPointer<ByteVar>(), clifcctx.toCPointer<ByteVar>(), pifchandle.toCPointer<ByteVar>())
+public actual fun tcOpenInterfaceA(pinterfacename: Pcstr, clienthandle: Handle, clifcctx: Handle, pifchandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA(pinterfacename?.value?.toCPointer<ByteVar>(), clienthandle?.value?.toCPointer<ByteVar>(), clifcctx?.value?.toCPointer<ByteVar>(), pifchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcOpenInterfaceW(pinterfacename: PCWSTR, clienthandle: HANDLE, clifcctx: HANDLE, pifchandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceW(pinterfacename.toCPointer<ByteVar>(), clienthandle.toCPointer<ByteVar>(), clifcctx.toCPointer<ByteVar>(), pifchandle.toCPointer<ByteVar>())
+public actual fun tcOpenInterfaceW(pinterfacename: Pcwstr, clienthandle: Handle, clifcctx: Handle, pifchandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW(pinterfacename?.value?.toCPointer<ByteVar>(), clienthandle?.value?.toCPointer<ByteVar>(), clifcctx?.value?.toCPointer<ByteVar>(), pifchandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcQueryFlowA(pflowname: PCSTR, pguidparam: Long, pbuffersize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA(pflowname.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tcQueryFlowA(pflowname: Pcstr, pguidparam: COpaquePointer?, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA(pflowname?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcQueryFlowW(pflowname: PCWSTR, pguidparam: Long, pbuffersize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW(pflowname.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tcQueryFlowW(pflowname: Pcwstr, pguidparam: COpaquePointer?, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW(pflowname?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcQueryInterface(ifchandle: HANDLE, pguidparam: Long, notifychange: Boolean, pbuffersize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcQueryInterface(ifchandle.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), notifychange, pbuffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tcQueryInterface(ifchandle: Handle, pguidparam: COpaquePointer?, notifychange: Boolean, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcQueryInterface(ifchandle?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), notifychange, pbuffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcRegisterClient(tciversion: UInt, clregctx: HANDLE, clienthandlerlist: Long, pclienthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcRegisterClient(tciversion, clregctx.toCPointer<ByteVar>(), clienthandlerlist.toCPointer<ByteVar>(), pclienthandle.toCPointer<ByteVar>())
+public actual fun tcRegisterClient(tciversion: UInt, clregctx: Handle, clienthandlerlist: COpaquePointer?, pclienthandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcRegisterClient(tciversion, clregctx?.value?.toCPointer<ByteVar>(), clienthandlerlist?.value?.toCPointer<ByteVar>(), pclienthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun TcSetFlowA(pflowname: PCSTR, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcSetFlowA(pflowname.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), buffersize, buffer.toCPointer<ByteVar>())
+public actual fun tcSetFlowA(pflowname: Pcstr, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcSetFlowA(pflowname?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), buffersize, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcSetFlowW(pflowname: PCWSTR, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcSetFlowW(pflowname.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), buffersize, buffer.toCPointer<ByteVar>())
+public actual fun tcSetFlowW(pflowname: Pcwstr, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcSetFlowW(pflowname?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), buffersize, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TcSetInterface(ifchandle: HANDLE, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_TcSetInterface(ifchandle.toCPointer<ByteVar>(), pguidparam.toCPointer<ByteVar>(), buffersize, buffer.toCPointer<ByteVar>())
+public actual fun tcSetInterface(ifchandle: Handle, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos.cinterop.windowssys_windows_win32_networkmanagement_qos_tcSetInterface(ifchandle?.value?.toCPointer<ByteVar>(), pguidparam?.value?.toCPointer<ByteVar>(), buffersize, buffer?.value?.toCPointer<ByteVar>())

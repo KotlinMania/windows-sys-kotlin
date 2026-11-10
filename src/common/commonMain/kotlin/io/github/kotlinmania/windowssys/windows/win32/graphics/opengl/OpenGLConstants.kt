@@ -568,11 +568,11 @@ public val GL_EXP2: UInt = 2049u
 
 public val GL_EXTENSIONS: UInt = 7939u
 
-public val GL_EXT_bgra: UInt = 1u
+public val GL_EXT_BGRA: UInt = 1u
 
-public val GL_EXT_paletted_texture: UInt = 1u
+public val GL_EXT_PALETTED_TEXTURE: UInt = 1u
 
-public val GL_EXT_vertex_array: UInt = 1u
+public val GL_EXT_VERTEX_ARRAY: UInt = 1u
 
 public val GL_EYE_LINEAR: UInt = 9216u
 
@@ -1394,9 +1394,9 @@ public val GL_VIEWPORT: UInt = 2978u
 
 public val GL_VIEWPORT_BIT: UInt = 2048u
 
-public val GL_WIN_draw_range_elements: UInt = 1u
+public val GL_WIN_DRAW_RANGE_ELEMENTS: UInt = 1u
 
-public val GL_WIN_swap_hint: UInt = 1u
+public val GL_WIN_SWAP_HINT: UInt = 1u
 
 public val GL_XOR: UInt = 5382u
 
@@ -1406,50 +1406,50 @@ public val GL_ZOOM_X: UInt = 3350u
 
 public val GL_ZOOM_Y: UInt = 3351u
 
-public val PFD_DEPTH_DONTCARE: PFD_FLAGS = 536870912u
+public val PFD_DEPTH_DONTCARE: PfdFlags = 536870912u
 
-public val PFD_DIRECT3D_ACCELERATED: PFD_FLAGS = 16384u
+public val PFD_DIRECT3D_ACCELERATED: PfdFlags = 16384u
 
-public val PFD_DOUBLEBUFFER: PFD_FLAGS = 1u
+public val PFD_DOUBLEBUFFER: PfdFlags = 1u
 
-public val PFD_DOUBLEBUFFER_DONTCARE: PFD_FLAGS = 1073741824u
+public val PFD_DOUBLEBUFFER_DONTCARE: PfdFlags = 1073741824u
 
-public val PFD_DRAW_TO_BITMAP: PFD_FLAGS = 8u
+public val PFD_DRAW_TO_BITMAP: PfdFlags = 8u
 
-public val PFD_DRAW_TO_WINDOW: PFD_FLAGS = 4u
+public val PFD_DRAW_TO_WINDOW: PfdFlags = 4u
 
-public val PFD_GENERIC_ACCELERATED: PFD_FLAGS = 4096u
+public val PFD_GENERIC_ACCELERATED: PfdFlags = 4096u
 
-public val PFD_GENERIC_FORMAT: PFD_FLAGS = 64u
+public val PFD_GENERIC_FORMAT: PfdFlags = 64u
 
-public val PFD_MAIN_PLANE: PFD_LAYER_TYPE = 0
+public val PFD_MAIN_PLANE: PfdLayerType = 0
 
-public val PFD_NEED_PALETTE: PFD_FLAGS = 128u
+public val PFD_NEED_PALETTE: PfdFlags = 128u
 
-public val PFD_NEED_SYSTEM_PALETTE: PFD_FLAGS = 256u
+public val PFD_NEED_SYSTEM_PALETTE: PfdFlags = 256u
 
-public val PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = 1
+public val PFD_OVERLAY_PLANE: PfdLayerType = 1
 
-public val PFD_STEREO: PFD_FLAGS = 2u
+public val PFD_STEREO: PfdFlags = 2u
 
-public val PFD_STEREO_DONTCARE: PFD_FLAGS = 2147483648u
+public val PFD_STEREO_DONTCARE: PfdFlags = 2147483648u
 
-public val PFD_SUPPORT_COMPOSITION: PFD_FLAGS = 32768u
+public val PFD_SUPPORT_COMPOSITION: PfdFlags = 32768u
 
-public val PFD_SUPPORT_DIRECTDRAW: PFD_FLAGS = 8192u
+public val PFD_SUPPORT_DIRECTDRAW: PfdFlags = 8192u
 
-public val PFD_SUPPORT_GDI: PFD_FLAGS = 16u
+public val PFD_SUPPORT_GDI: PfdFlags = 16u
 
-public val PFD_SUPPORT_OPENGL: PFD_FLAGS = 32u
+public val PFD_SUPPORT_OPENGL: PfdFlags = 32u
 
-public val PFD_SWAP_COPY: PFD_FLAGS = 1024u
+public val PFD_SWAP_COPY: PfdFlags = 1024u
 
-public val PFD_SWAP_EXCHANGE: PFD_FLAGS = 512u
+public val PFD_SWAP_EXCHANGE: PfdFlags = 512u
 
-public val PFD_SWAP_LAYER_BUFFERS: PFD_FLAGS = 2048u
+public val PFD_SWAP_LAYER_BUFFERS: PfdFlags = 2048u
 
-public val PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = 1u
+public val PFD_TYPE_COLORINDEX: PfdPixelType = 1u.toUByte()
 
-public val PFD_TYPE_RGBA: PFD_PIXEL_TYPE = 0u
+public val PFD_TYPE_RGBA: PfdPixelType = 0u.toUByte()
 
-public val PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = -1
+public val PFD_UNDERLAY_PLANE: PfdLayerType = (-1).toByte()

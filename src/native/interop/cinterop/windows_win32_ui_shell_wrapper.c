@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_shell_AssocCreateForClasses(void* rgclasses, uint32_t cclasses, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_assocCreateForClasses(void* rgclasses, uint32_t cclasses, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocCreateForClasses(void* rgclasses,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey(void* psf, void* pidl, void* pkey, void* pv, void* pffoundpropkey) {
+int32_t windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey(void* psf, void* pidl, void* pkey, void* pv, void* pffoundpropkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey(void* psf, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocGetPerceivedType(void* pszext, void* ptype, void* pflag, void* ppsztype) {
+int32_t windowssys_windows_win32_ui_shell_assocGetPerceivedType(void* pszext, void* ptype, void* pflag, void* ppsztype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocGetPerceivedType(void* pszext, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocIsDangerous(void* pszassoc) {
+int32_t windowssys_windows_win32_ui_shell_assocIsDangerous(void* pszassoc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocIsDangerous(void* pszassoc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryKeyA(uint32_t flags, int32_t key, void* pszassoc, void* pszextra, void* phkeyout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryKeyA(uint32_t flags, int32_t key, void* pszassoc, void* pszextra, void* phkeyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -139,7 +139,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryKeyA(uint32_t flags, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryKeyW(uint32_t flags, int32_t key, void* pszassoc, void* pszextra, void* phkeyout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryKeyW(uint32_t flags, int32_t key, void* pszassoc, void* pszextra, void* phkeyout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryKeyW(uint32_t flags, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryStringA(uint32_t flags, int32_t str, void* pszassoc, void* pszextra, void* pszout, void* pcchout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryStringA(uint32_t flags, int32_t str, void* pszassoc, void* pszextra, void* pszout, void* pcchout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -192,7 +192,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryStringA(uint32_t flags, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA(uint32_t flags, int32_t str, void* hkassoc, void* pszextra, void* pszout, void* pcchout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryStringByKeyA(uint32_t flags, int32_t str, void* hkassoc, void* pszextra, void* pszout, void* pcchout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA(uint32_t flags,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW(uint32_t flags, int32_t str, void* hkassoc, void* pszextra, void* pszout, void* pcchout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryStringByKeyW(uint32_t flags, int32_t str, void* hkassoc, void* pszextra, void* pszout, void* pcchout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -246,7 +246,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW(uint32_t flags,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_AssocQueryStringW(uint32_t flags, int32_t str, void* pszassoc, void* pszextra, void* pszout, void* pcchout) {
+int32_t windowssys_windows_win32_ui_shell_assocQueryStringW(uint32_t flags, int32_t str, void* pszassoc, void* pszextra, void* pszout, void* pcchout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -273,7 +273,7 @@ int32_t windowssys_windows_win32_ui_shell_AssocQueryStringW(uint32_t flags, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2(void* pidlfolder, void* hwnd, uint32_t cidl, void* apidl, void* psf, void* pfn, uint32_t nkeys, void* ahkeys, void* ppcm) {
+int32_t windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2(void* pidlfolder, void* hwnd, uint32_t cidl, void* apidl, void* psf, void* pfn, uint32_t nkeys, void* ahkeys, void* ppcm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -303,7 +303,7 @@ int32_t windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2(void* pidlfolde
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray(void* pidlfolder, uint32_t cidl, void* apidl, void* ppdtobj) {
+int32_t windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray(void* pidlfolder, uint32_t cidl, void* apidl, void* ppdtobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ int32_t windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray(void* pidlf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ChrCmpIA(uint16_t w1, uint16_t w2) {
+int32_t windowssys_windows_win32_ui_shell_chrCmpIA(uint16_t w1, uint16_t w2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_win32_ui_shell_ChrCmpIA(uint16_t w1, uint16_t w2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ChrCmpIW(uint16_t w1, uint16_t w2) {
+int32_t windowssys_windows_win32_ui_shell_chrCmpIW(uint16_t w1, uint16_t w2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -374,7 +374,7 @@ int32_t windowssys_windows_win32_ui_shell_ChrCmpIW(uint16_t w1, uint16_t w2) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_ColorAdjustLuma(uint32_t clrrgb, int32_t n, int32_t fscale) {
+uint32_t windowssys_windows_win32_ui_shell_colorAdjustLuma(uint32_t clrrgb, int32_t n, int32_t fscale) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ uint32_t windowssys_windows_win32_ui_shell_ColorAdjustLuma(uint32_t clrrgb, int3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_ColorHLSToRGB(uint16_t whue, uint16_t wluminance, uint16_t wsaturation) {
+uint32_t windowssys_windows_win32_ui_shell_colorHLSToRGB(uint16_t whue, uint16_t wluminance, uint16_t wsaturation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -422,7 +422,7 @@ uint32_t windowssys_windows_win32_ui_shell_ColorHLSToRGB(uint16_t whue, uint16_t
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_ColorRGBToHLS(uint32_t clrrgb, void* pwhue, void* pwluminance, void* pwsaturation) {
+void windowssys_windows_win32_ui_shell_colorRGBToHLS(uint32_t clrrgb, void* pwhue, void* pwluminance, void* pwsaturation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -446,7 +446,7 @@ void windowssys_windows_win32_ui_shell_ColorRGBToHLS(uint32_t clrrgb, void* pwhu
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_CommandLineToArgvW(void* lpcmdline, void* pnumargs) {
+void* windowssys_windows_win32_ui_shell_commandLineToArgvW(void* lpcmdline, void* pnumargs) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ void* windowssys_windows_win32_ui_shell_CommandLineToArgvW(void* lpcmdline, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ConnectToConnectionPoint(void* punk, void* riidevent, int32_t fconnect, void* punktarget, void* pdwcookie, void* ppcpout) {
+int32_t windowssys_windows_win32_ui_shell_connectToConnectionPoint(void* punk, void* riidevent, int32_t fconnect, void* punktarget, void* pdwcookie, void* ppcpout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -496,7 +496,7 @@ int32_t windowssys_windows_win32_ui_shell_ConnectToConnectionPoint(void* punk, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_CreateProfile(void* pszusersid, void* pszusername, void* pszprofilepath, uint32_t cchprofilepath) {
+int32_t windowssys_windows_win32_ui_shell_createProfile(void* pszusersid, void* pszusername, void* pszprofilepath, uint32_t cchprofilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -521,7 +521,7 @@ int32_t windowssys_windows_win32_ui_shell_CreateProfile(void* pszusersid, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DAD_AutoScroll(void* hwnd, void* pad, void* pptnow) {
+int32_t windowssys_windows_win32_ui_shell_dadAutoScroll(void* hwnd, void* pad, void* pptnow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -545,7 +545,7 @@ int32_t windowssys_windows_win32_ui_shell_DAD_AutoScroll(void* hwnd, void* pad, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DAD_DragLeave(void) {
+int32_t windowssys_windows_win32_ui_shell_dadDragLeave(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -566,7 +566,7 @@ int32_t windowssys_windows_win32_ui_shell_DAD_DragLeave(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DAD_SetDragImage(int64_t him, void* pptoffset) {
+int32_t windowssys_windows_win32_ui_shell_dadSetDragImage(int64_t him, void* pptoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -589,7 +589,7 @@ int32_t windowssys_windows_win32_ui_shell_DAD_SetDragImage(int64_t him, void* pp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DAD_ShowDragImage(int32_t fshow) {
+int32_t windowssys_windows_win32_ui_shell_dadShowDragImage(int32_t fshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ int32_t windowssys_windows_win32_ui_shell_DAD_ShowDragImage(int32_t fshow) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_shell_DefSubclassProc(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_shell_defSubclassProc(void* hwnd, uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -636,7 +636,7 @@ int64_t windowssys_windows_win32_ui_shell_DefSubclassProc(void* hwnd, uint32_t u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DeleteProfileA(void* lpsidstring, void* lpprofilepath, void* lpcomputername) {
+int32_t windowssys_windows_win32_ui_shell_deleteProfileA(void* lpsidstring, void* lpprofilepath, void* lpcomputername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ int32_t windowssys_windows_win32_ui_shell_DeleteProfileA(void* lpsidstring, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DeleteProfileW(void* lpsidstring, void* lpprofilepath, void* lpcomputername) {
+int32_t windowssys_windows_win32_ui_shell_deleteProfileW(void* lpsidstring, void* lpprofilepath, void* lpcomputername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ int32_t windowssys_windows_win32_ui_shell_DeleteProfileW(void* lpsidstring, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_DoEnvironmentSubstA(void* pszsrc, uint32_t cchsrc) {
+uint32_t windowssys_windows_win32_ui_shell_doEnvironmentSubstA(void* pszsrc, uint32_t cchsrc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -707,7 +707,7 @@ uint32_t windowssys_windows_win32_ui_shell_DoEnvironmentSubstA(void* pszsrc, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_DoEnvironmentSubstW(void* pszsrc, uint32_t cchsrc) {
+uint32_t windowssys_windows_win32_ui_shell_doEnvironmentSubstW(void* pszsrc, uint32_t cchsrc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -730,7 +730,7 @@ uint32_t windowssys_windows_win32_ui_shell_DoEnvironmentSubstW(void* pszsrc, uin
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_DragAcceptFiles(void* hwnd, int32_t faccept) {
+void windowssys_windows_win32_ui_shell_dragAcceptFiles(void* hwnd, int32_t faccept) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -752,7 +752,7 @@ void windowssys_windows_win32_ui_shell_DragAcceptFiles(void* hwnd, int32_t facce
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_DragFinish(void* hdrop) {
+void windowssys_windows_win32_ui_shell_dragFinish(void* hdrop) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -773,7 +773,7 @@ void windowssys_windows_win32_ui_shell_DragFinish(void* hdrop) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_DragQueryFileA(void* hdrop, uint32_t ifile, void* lpszfile, uint32_t cch) {
+uint32_t windowssys_windows_win32_ui_shell_dragQueryFileA(void* hdrop, uint32_t ifile, void* lpszfile, uint32_t cch) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -798,7 +798,7 @@ uint32_t windowssys_windows_win32_ui_shell_DragQueryFileA(void* hdrop, uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_DragQueryFileW(void* hdrop, uint32_t ifile, void* lpszfile, uint32_t cch) {
+uint32_t windowssys_windows_win32_ui_shell_dragQueryFileW(void* hdrop, uint32_t ifile, void* lpszfile, uint32_t cch) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -823,7 +823,7 @@ uint32_t windowssys_windows_win32_ui_shell_DragQueryFileW(void* hdrop, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DragQueryPoint(void* hdrop, void* ppt) {
+int32_t windowssys_windows_win32_ui_shell_dragQueryPoint(void* hdrop, void* ppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -846,7 +846,7 @@ int32_t windowssys_windows_win32_ui_shell_DragQueryPoint(void* hdrop, void* ppt)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_DriveType(int32_t idrive) {
+int32_t windowssys_windows_win32_ui_shell_driveType(int32_t idrive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -868,7 +868,7 @@ int32_t windowssys_windows_win32_ui_shell_DriveType(int32_t idrive) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_DuplicateIcon(void* hinst, void* hicon) {
+void* windowssys_windows_win32_ui_shell_duplicateIcon(void* hinst, void* hicon) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -891,7 +891,7 @@ void* windowssys_windows_win32_ui_shell_DuplicateIcon(void* hinst, void* hicon) 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconA(void* hinst, void* psziconpath, void* piicon) {
+void* windowssys_windows_win32_ui_shell_extractAssociatedIconA(void* hinst, void* psziconpath, void* piicon) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -915,7 +915,7 @@ void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconA(void* hinst, void
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA(void* hinst, void* psziconpath, void* piiconindex, void* piiconid) {
+void* windowssys_windows_win32_ui_shell_extractAssociatedIconExA(void* hinst, void* psziconpath, void* piiconindex, void* piiconid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA(void* hinst, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW(void* hinst, void* psziconpath, void* piiconindex, void* piiconid) {
+void* windowssys_windows_win32_ui_shell_extractAssociatedIconExW(void* hinst, void* psziconpath, void* piiconindex, void* piiconid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -965,7 +965,7 @@ void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW(void* hinst, vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconW(void* hinst, void* psziconpath, void* piicon) {
+void* windowssys_windows_win32_ui_shell_extractAssociatedIconW(void* hinst, void* psziconpath, void* piicon) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ void* windowssys_windows_win32_ui_shell_ExtractAssociatedIconW(void* hinst, void
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractIconA(void* hinst, void* pszexefilename, uint32_t niconindex) {
+void* windowssys_windows_win32_ui_shell_extractIconA(void* hinst, void* pszexefilename, uint32_t niconindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1013,7 +1013,7 @@ void* windowssys_windows_win32_ui_shell_ExtractIconA(void* hinst, void* pszexefi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_ExtractIconExA(void* lpszfile, int32_t niconindex, void* phiconlarge, void* phiconsmall, uint32_t nicons) {
+uint32_t windowssys_windows_win32_ui_shell_extractIconExA(void* lpszfile, int32_t niconindex, void* phiconlarge, void* phiconsmall, uint32_t nicons) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1039,7 +1039,7 @@ uint32_t windowssys_windows_win32_ui_shell_ExtractIconExA(void* lpszfile, int32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_ExtractIconExW(void* lpszfile, int32_t niconindex, void* phiconlarge, void* phiconsmall, uint32_t nicons) {
+uint32_t windowssys_windows_win32_ui_shell_extractIconExW(void* lpszfile, int32_t niconindex, void* phiconlarge, void* phiconsmall, uint32_t nicons) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ uint32_t windowssys_windows_win32_ui_shell_ExtractIconExW(void* lpszfile, int32_
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ExtractIconW(void* hinst, void* pszexefilename, uint32_t niconindex) {
+void* windowssys_windows_win32_ui_shell_extractIconW(void* hinst, void* pszexefilename, uint32_t niconindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1089,7 +1089,7 @@ void* windowssys_windows_win32_ui_shell_ExtractIconW(void* hinst, void* pszexefi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_FindExecutableA(void* lpfile, void* lpdirectory, void* lpresult) {
+void* windowssys_windows_win32_ui_shell_findExecutableA(void* lpfile, void* lpdirectory, void* lpresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ void* windowssys_windows_win32_ui_shell_FindExecutableA(void* lpfile, void* lpdi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_FindExecutableW(void* lpfile, void* lpdirectory, void* lpresult) {
+void* windowssys_windows_win32_ui_shell_findExecutableW(void* lpfile, void* lpdirectory, void* lpresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ void* windowssys_windows_win32_ui_shell_FindExecutableW(void* lpfile, void* lpdi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetAcceptLanguagesA(void* pszlanguages, void* pcchlanguages) {
+int32_t windowssys_windows_win32_ui_shell_getAcceptLanguagesA(void* pszlanguages, void* pcchlanguages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1160,7 +1160,7 @@ int32_t windowssys_windows_win32_ui_shell_GetAcceptLanguagesA(void* pszlanguages
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetAcceptLanguagesW(void* pszlanguages, void* pcchlanguages) {
+int32_t windowssys_windows_win32_ui_shell_getAcceptLanguagesW(void* pszlanguages, void* pcchlanguages) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1183,7 +1183,7 @@ int32_t windowssys_windows_win32_ui_shell_GetAcceptLanguagesW(void* pszlanguages
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1206,7 +1206,7 @@ int32_t windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1229,7 +1229,7 @@ int32_t windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID(void* appid) {
+int32_t windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID(void* appid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1251,7 +1251,7 @@ int32_t windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelI
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1274,7 +1274,7 @@ int32_t windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ int32_t windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent(int32_t param0) {
+uint32_t windowssys_windows_win32_ui_shell_getDpiForShellUIComponent(int32_t param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1319,7 +1319,7 @@ uint32_t windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent(int32_t par
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetFileNameFromBrowse(void* hwnd, void* pszfilepath, uint32_t cchfilepath, void* pszworkingdir, void* pszdefext, void* pszfilters, void* psztitle) {
+int32_t windowssys_windows_win32_ui_shell_getFileNameFromBrowse(void* hwnd, void* pszfilepath, uint32_t cchfilepath, void* pszworkingdir, void* pszdefext, void* pszfilters, void* psztitle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1347,7 +1347,7 @@ int32_t windowssys_windows_win32_ui_shell_GetFileNameFromBrowse(void* hwnd, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_GetMenuContextHelpId(void* param0) {
+uint32_t windowssys_windows_win32_ui_shell_getMenuContextHelpId(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1369,7 +1369,7 @@ uint32_t windowssys_windows_win32_ui_shell_GetMenuContextHelpId(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetMenuPosFromID(void* hmenu, uint32_t id) {
+int32_t windowssys_windows_win32_ui_shell_getMenuPosFromID(void* hmenu, uint32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1392,7 +1392,7 @@ int32_t windowssys_windows_win32_ui_shell_GetMenuPosFromID(void* hmenu, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetProfileType(void* dwflags) {
+int32_t windowssys_windows_win32_ui_shell_getProfileType(void* dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1414,7 +1414,7 @@ int32_t windowssys_windows_win32_ui_shell_GetProfileType(void* dwflags) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetProfilesDirectoryA(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getProfilesDirectoryA(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1437,7 +1437,7 @@ int32_t windowssys_windows_win32_ui_shell_GetProfilesDirectoryA(void* lpprofiled
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetProfilesDirectoryW(void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getProfilesDirectoryW(void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1460,7 +1460,7 @@ int32_t windowssys_windows_win32_ui_shell_GetProfilesDirectoryW(void* lpprofiled
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetScaleFactorForDevice(int32_t devicetype) {
+int32_t windowssys_windows_win32_ui_shell_getScaleFactorForDevice(int32_t devicetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1482,7 +1482,7 @@ int32_t windowssys_windows_win32_ui_shell_GetScaleFactorForDevice(int32_t device
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor(void* hmon, void* pscale) {
+int32_t windowssys_windows_win32_ui_shell_getScaleFactorForMonitor(void* hmon, void* pscale) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1505,7 +1505,7 @@ int32_t windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor(void* hmon, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA(void* htoken, void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getUserProfileDirectoryA(void* htoken, void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1529,7 +1529,7 @@ int32_t windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA(void* htoken,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW(void* htoken, void* lpprofiledir, void* lpcchsize) {
+int32_t windowssys_windows_win32_ui_shell_getUserProfileDirectoryW(void* htoken, void* lpprofiledir, void* lpcchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1553,7 +1553,7 @@ int32_t windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW(void* htoken,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_GetWindowContextHelpId(void* param0) {
+uint32_t windowssys_windows_win32_ui_shell_getWindowContextHelpId(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1575,7 +1575,7 @@ uint32_t windowssys_windows_win32_ui_shell_GetWindowContextHelpId(void* param0) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_GetWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass, void* pdwrefdata) {
+int32_t windowssys_windows_win32_ui_shell_getWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass, void* pdwrefdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1600,7 +1600,7 @@ int32_t windowssys_windows_win32_ui_shell_GetWindowSubclass(void* hwnd, void* pf
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_HMONITOR_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_ui_shell_hmonitorUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1622,7 +1622,7 @@ void windowssys_windows_win32_ui_shell_HMONITOR_UserFree(void* param0, void* par
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_HMONITOR_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_ui_shell_hmonitorUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ void windowssys_windows_win32_ui_shell_HMONITOR_UserFree64(void* param0, void* p
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_ui_shell_hmonitorUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1668,7 +1668,7 @@ void* windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal(void* param0, void*
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_ui_shell_hmonitorUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ void* windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64(void* param0, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_HMONITOR_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_ui_shell_hmonitorUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1716,7 +1716,7 @@ uint32_t windowssys_windows_win32_ui_shell_HMONITOR_UserSize(void* param0, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_HMONITOR_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_ui_shell_hmonitorUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1740,7 +1740,7 @@ uint32_t windowssys_windows_win32_ui_shell_HMONITOR_UserSize64(void* param0, uin
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1764,7 +1764,7 @@ void* windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal(void* param0, voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1788,7 +1788,7 @@ void* windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64(void* param0, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HashData(void* pbdata, uint32_t cbdata, void* pbhash, uint32_t cbhash) {
+int32_t windowssys_windows_win32_ui_shell_hashData(void* pbdata, uint32_t cbdata, void* pbhash, uint32_t cbhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1813,7 +1813,7 @@ int32_t windowssys_windows_win32_ui_shell_HashData(void* pbdata, uint32_t cbdata
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkClone(void* pihl, void* riid, void* pihlsiteforclone, uint32_t dwsitedata, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkClone(void* pihl, void* riid, void* pihlsiteforclone, uint32_t dwsitedata, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1839,7 +1839,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkClone(void* pihl, void* riid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext(void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext(void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1863,7 +1863,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext(void* piunkou
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices(void* pwzadditionalheaders, void* phwnd, void* pszusername, void* pszpassword, void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices(void* pwzadditionalheaders, void* phwnd, void* pszusername, void* pszpassword, void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1891,7 +1891,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromData(void* pidataobj, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateFromData(void* pidataobj, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromData(void* pidataobj, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker(void* pimktrgt, void* pwzlocation, void* pwzfriendlyname, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker(void* pimktrgt, void* pwzlocation, void* pwzfriendlyname, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1947,7 +1947,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker(void* pimktrgt,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromString(void* pwztarget, void* pwzlocation, void* pwzfriendlyname, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateFromString(void* pwztarget, void* pwzlocation, void* pwzfriendlyname, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1976,7 +1976,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateFromString(void* pwztarget,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcut(uint32_t grfhlshortcutf, void* pihl, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateShortcut(uint32_t grfhlshortcutf, void* pihl, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2003,7 +2003,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcut(uint32_t grfhlshor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker(uint32_t grfhlshortcutf, void* pimktarget, void* pwzlocation, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker(uint32_t grfhlshortcutf, void* pimktarget, void* pwzlocation, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2031,7 +2031,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString(uint32_t grfhlshortcutf, void* pwztarget, void* pwzlocation, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
+int32_t windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString(uint32_t grfhlshortcutf, void* pwztarget, void* pwzlocation, void* pwzdir, void* pwzfilename, void* ppwzshortcutfile, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2059,7 +2059,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkGetSpecialReference(uint32_t ureference, void* ppwzreference) {
+int32_t windowssys_windows_win32_ui_shell_hlinkGetSpecialReference(uint32_t ureference, void* ppwzreference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2082,7 +2082,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkGetSpecialReference(uint32_t uref
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkGetValueFromParams(void* pwzparams, void* pwzname, void* ppwzvalue) {
+int32_t windowssys_windows_win32_ui_shell_hlinkGetValueFromParams(void* pwzparams, void* pwzname, void* ppwzvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2106,7 +2106,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkGetValueFromParams(void* pwzparam
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkIsShortcut(void* pwzfilename) {
+int32_t windowssys_windows_win32_ui_shell_hlinkIsShortcut(void* pwzfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2128,7 +2128,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkIsShortcut(void* pwzfilename) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkNavigate(void* pihl, void* pihlframe, uint32_t grfhlnf, void* pbc, void* pibsc, void* pihlbc) {
+int32_t windowssys_windows_win32_ui_shell_hlinkNavigate(void* pihl, void* pihlframe, uint32_t grfhlnf, void* pbc, void* pibsc, void* pihlbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkNavigate(void* pihl, void* pihlfr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference(void* pwztarget, void* pwzlocation, void* pihlsite, uint32_t dwsitedata, void* pihlframe, uint32_t grfhlnf, void* pibc, void* pibsc, void* pihlbc) {
+int32_t windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference(void* pwztarget, void* pwzlocation, void* pihlsite, uint32_t dwsitedata, void* pihlframe, uint32_t grfhlnf, void* pibc, void* pibsc, void* pihlbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2185,7 +2185,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkOnNavigate(void* pihlframe, void* pihlbc, uint32_t grfhlnf, void* pimktarget, void* pwzlocation, void* pwzfriendlyname, void* puhlid) {
+int32_t windowssys_windows_win32_ui_shell_hlinkOnNavigate(void* pihlframe, void* pihlbc, uint32_t grfhlnf, void* pimktarget, void* pwzlocation, void* pwzfriendlyname, void* puhlid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkOnNavigate(void* pihlframe, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkOnRenameDocument(uint32_t dwreserved, void* pihlbc, void* pimkold, void* pimknew) {
+int32_t windowssys_windows_win32_ui_shell_hlinkOnRenameDocument(uint32_t dwreserved, void* pihlbc, void* pimkold, void* pimknew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2238,7 +2238,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkOnRenameDocument(uint32_t dwreser
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkParseDisplayName(void* pibc, void* pwzdisplayname, int32_t fnoforceabs, void* pccheaten, void* ppimk) {
+int32_t windowssys_windows_win32_ui_shell_hlinkParseDisplayName(void* pibc, void* pwzdisplayname, int32_t fnoforceabs, void* pccheaten, void* ppimk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2264,7 +2264,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkParseDisplayName(void* pibc, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker(void* pibc, void* pimkin, void* ppimkout) {
+int32_t windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker(void* pibc, void* pimkin, void* ppimkout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2288,7 +2288,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker(void* pibc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData(void* pidataobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData(void* pidataobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2310,7 +2310,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData(void* pidatao
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData(void* pimkreference, uint32_t reserved, void* pibc, uint32_t cfmtetc, void* rgfmtetc, void* pibsc, void* pimkbase) {
+int32_t windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData(void* pimkreference, uint32_t reserved, void* pibc, uint32_t cfmtetc, void* rgfmtetc, void* pibsc, void* pimkbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2338,7 +2338,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData(void* pimkr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcut(void* pwzshortcutfilename, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_hlinkResolveShortcut(void* pwzshortcutfilename, void* pihlsite, uint32_t dwsitedata, void* piunkouter, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2365,7 +2365,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcut(void* pwzshortcut
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker(void* pwzshortcutfilename, void* ppimktarget, void* ppwzlocation) {
+int32_t windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker(void* pwzshortcutfilename, void* ppimktarget, void* ppwzlocation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2389,7 +2389,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker(void* pw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString(void* pwzshortcutfilename, void* ppwztarget, void* ppwzlocation) {
+int32_t windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString(void* pwzshortcutfilename, void* ppwztarget, void* ppwzlocation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2413,7 +2413,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkResolveStringForData(void* pwzreference, uint32_t reserved, void* pibc, uint32_t cfmtetc, void* rgfmtetc, void* pibsc, void* pimkbase) {
+int32_t windowssys_windows_win32_ui_shell_hlinkResolveStringForData(void* pwzreference, uint32_t reserved, void* pibc, uint32_t cfmtetc, void* rgfmtetc, void* pibsc, void* pimkbase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2441,7 +2441,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkResolveStringForData(void* pwzref
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkSetSpecialReference(uint32_t ureference, void* pwzreference) {
+int32_t windowssys_windows_win32_ui_shell_hlinkSetSpecialReference(uint32_t ureference, void* pwzreference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2464,7 +2464,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkSetSpecialReference(uint32_t uref
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkTranslateURL(void* pwzurl, uint32_t grfflags, void* ppwztranslatedurl) {
+int32_t windowssys_windows_win32_ui_shell_hlinkTranslateURL(void* pwzurl, uint32_t grfflags, void* ppwztranslatedurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2488,7 +2488,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkTranslateURL(void* pwzurl, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_HlinkUpdateStackItem(void* pihlframe, void* pihlbc, uint32_t uhlid, void* pimktrgt, void* pwzlocation, void* pwzfriendlyname) {
+int32_t windowssys_windows_win32_ui_shell_hlinkUpdateStackItem(void* pihlframe, void* pihlbc, uint32_t uhlid, void* pimktrgt, void* pwzlocation, void* pwzfriendlyname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2515,7 +2515,7 @@ int32_t windowssys_windows_win32_ui_shell_HlinkUpdateStackItem(void* pihlframe, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILAppendID(void* pidl, void* pmkid, int32_t fappend) {
+void* windowssys_windows_win32_ui_shell_iLAppendID(void* pidl, void* pmkid, int32_t fappend) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2539,7 +2539,7 @@ void* windowssys_windows_win32_ui_shell_ILAppendID(void* pidl, void* pmkid, int3
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILClone(void* pidl) {
+void* windowssys_windows_win32_ui_shell_iLClone(void* pidl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2561,7 +2561,7 @@ void* windowssys_windows_win32_ui_shell_ILClone(void* pidl) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILCloneFirst(void* pidl) {
+void* windowssys_windows_win32_ui_shell_iLCloneFirst(void* pidl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2583,7 +2583,7 @@ void* windowssys_windows_win32_ui_shell_ILCloneFirst(void* pidl) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILCombine(void* pidl1, void* pidl2) {
+void* windowssys_windows_win32_ui_shell_iLCombine(void* pidl1, void* pidl2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2606,7 +2606,7 @@ void* windowssys_windows_win32_ui_shell_ILCombine(void* pidl1, void* pidl2) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILCreateFromPathA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_iLCreateFromPathA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2628,7 +2628,7 @@ void* windowssys_windows_win32_ui_shell_ILCreateFromPathA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILCreateFromPathW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_iLCreateFromPathW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2650,7 +2650,7 @@ void* windowssys_windows_win32_ui_shell_ILCreateFromPathW(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILFindChild(void* pidlparent, void* pidlchild) {
+void* windowssys_windows_win32_ui_shell_iLFindChild(void* pidlparent, void* pidlchild) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2673,7 +2673,7 @@ void* windowssys_windows_win32_ui_shell_ILFindChild(void* pidlparent, void* pidl
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILFindLastID(void* pidl) {
+void* windowssys_windows_win32_ui_shell_iLFindLastID(void* pidl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2695,7 +2695,7 @@ void* windowssys_windows_win32_ui_shell_ILFindLastID(void* pidl) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_ILFree(void* pidl) {
+void windowssys_windows_win32_ui_shell_iLFree(void* pidl) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2716,7 +2716,7 @@ void windowssys_windows_win32_ui_shell_ILFree(void* pidl) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ILGetNext(void* pidl) {
+void* windowssys_windows_win32_ui_shell_iLGetNext(void* pidl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2738,7 +2738,7 @@ void* windowssys_windows_win32_ui_shell_ILGetNext(void* pidl) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_ILGetSize(void* pidl) {
+uint32_t windowssys_windows_win32_ui_shell_iLGetSize(void* pidl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2760,7 +2760,7 @@ uint32_t windowssys_windows_win32_ui_shell_ILGetSize(void* pidl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ILIsEqual(void* pidl1, void* pidl2) {
+int32_t windowssys_windows_win32_ui_shell_iLIsEqual(void* pidl1, void* pidl2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2783,7 +2783,7 @@ int32_t windowssys_windows_win32_ui_shell_ILIsEqual(void* pidl1, void* pidl2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ILIsParent(void* pidl1, void* pidl2, int32_t fimmediate) {
+int32_t windowssys_windows_win32_ui_shell_iLIsParent(void* pidl1, void* pidl2, int32_t fimmediate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2807,7 +2807,7 @@ int32_t windowssys_windows_win32_ui_shell_ILIsParent(void* pidl1, void* pidl2, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ILLoadFromStreamEx(void* pstm, void* pidl) {
+int32_t windowssys_windows_win32_ui_shell_iLLoadFromStreamEx(void* pstm, void* pidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2830,7 +2830,7 @@ int32_t windowssys_windows_win32_ui_shell_ILLoadFromStreamEx(void* pstm, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ILRemoveLastID(void* pidl) {
+int32_t windowssys_windows_win32_ui_shell_iLRemoveLastID(void* pidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2852,7 +2852,7 @@ int32_t windowssys_windows_win32_ui_shell_ILRemoveLastID(void* pidl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ILSaveToStream(void* pstm, void* pidl) {
+int32_t windowssys_windows_win32_ui_shell_iLSaveToStream(void* pstm, void* pidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2875,7 +2875,7 @@ int32_t windowssys_windows_win32_ui_shell_ILSaveToStream(void* pstm, void* pidl)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_Copy(void* pstmfrom, void* pstmto, uint32_t cb) {
+int32_t windowssys_windows_win32_ui_shell_istreamCopy(void* pstmfrom, void* pstmto, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2899,7 +2899,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_Copy(void* pstmfrom, void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_Read(void* pstm, void* pv, uint32_t cb) {
+int32_t windowssys_windows_win32_ui_shell_istreamRead(void* pstm, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2923,7 +2923,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_Read(void* pstm, void* pv, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_ReadPidl(void* pstm, void* ppidlout) {
+int32_t windowssys_windows_win32_ui_shell_istreamReadPidl(void* pstm, void* ppidlout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2946,7 +2946,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_ReadPidl(void* pstm, void* ppi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_ReadStr(void* pstm, void* ppsz) {
+int32_t windowssys_windows_win32_ui_shell_istreamReadStr(void* pstm, void* ppsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2969,7 +2969,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_ReadStr(void* pstm, void* ppsz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_Reset(void* pstm) {
+int32_t windowssys_windows_win32_ui_shell_istreamReset(void* pstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2991,7 +2991,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_Reset(void* pstm) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_Size(void* pstm, void* pui) {
+int32_t windowssys_windows_win32_ui_shell_istreamSize(void* pstm, void* pui) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3014,7 +3014,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_Size(void* pstm, void* pui) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_Write(void* pstm, void* pv, uint32_t cb) {
+int32_t windowssys_windows_win32_ui_shell_istreamWrite(void* pstm, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3038,7 +3038,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_Write(void* pstm, void* pv, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_WritePidl(void* pstm, void* pidlwrite) {
+int32_t windowssys_windows_win32_ui_shell_istreamWritePidl(void* pstm, void* pidlwrite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3061,7 +3061,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_WritePidl(void* pstm, void* pi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IStream_WriteStr(void* pstm, void* psz) {
+int32_t windowssys_windows_win32_ui_shell_istreamWriteStr(void* pstm, void* psz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3084,7 +3084,7 @@ int32_t windowssys_windows_win32_ui_shell_IStream_WriteStr(void* pstm, void* psz
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease(void* ppunk) {
+void windowssys_windows_win32_ui_shell_iunknownAtomicRelease(void* ppunk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3105,7 +3105,7 @@ void windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease(void* ppunk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IUnknown_GetSite(void* punk, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_iunknownGetSite(void* punk, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3129,7 +3129,7 @@ int32_t windowssys_windows_win32_ui_shell_IUnknown_GetSite(void* punk, void* rii
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IUnknown_GetWindow(void* punk, void* phwnd) {
+int32_t windowssys_windows_win32_ui_shell_iunknownGetWindow(void* punk, void* phwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3152,7 +3152,7 @@ int32_t windowssys_windows_win32_ui_shell_IUnknown_GetWindow(void* punk, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IUnknown_QueryService(void* punk, void* guidservice, void* riid, void* ppvout) {
+int32_t windowssys_windows_win32_ui_shell_iunknownQueryService(void* punk, void* guidservice, void* riid, void* ppvout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3177,7 +3177,7 @@ int32_t windowssys_windows_win32_ui_shell_IUnknown_QueryService(void* punk, void
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_IUnknown_Set(void* ppunk, void* punk) {
+void windowssys_windows_win32_ui_shell_iunknownSet(void* ppunk, void* punk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3199,7 +3199,7 @@ void windowssys_windows_win32_ui_shell_IUnknown_Set(void* ppunk, void* punk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IUnknown_SetSite(void* punk, void* punksite) {
+int32_t windowssys_windows_win32_ui_shell_iunknownSetSite(void* punk, void* punksite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3222,7 +3222,7 @@ int32_t windowssys_windows_win32_ui_shell_IUnknown_SetSite(void* punk, void* pun
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ImportPrivacySettings(void* pszfilename, void* pfparseprivacypreferences, void* pfparsepersiterules) {
+int32_t windowssys_windows_win32_ui_shell_importPrivacySettings(void* pszfilename, void* pfparseprivacypreferences, void* pfparsepersiterules) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3246,7 +3246,7 @@ int32_t windowssys_windows_win32_ui_shell_ImportPrivacySettings(void* pszfilenam
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_InitNetworkAddressControl(void) {
+int32_t windowssys_windows_win32_ui_shell_initNetworkAddressControl(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3267,7 +3267,7 @@ int32_t windowssys_windows_win32_ui_shell_InitNetworkAddressControl(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet(void* pstrret, void* pidl, void* ppropvar) {
+int32_t windowssys_windows_win32_ui_shell_initPropVariantFromStrRet(void* pstrret, void* pidl, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3291,7 +3291,7 @@ int32_t windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet(void* pstrre
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_InitVariantFromStrRet(void* pstrret, void* pidl, void* pvar) {
+int32_t windowssys_windows_win32_ui_shell_initVariantFromStrRet(void* pstrret, void* pidl, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3315,7 +3315,7 @@ int32_t windowssys_windows_win32_ui_shell_InitVariantFromStrRet(void* pstrret, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IntlStrEqWorkerA(int32_t fcasesens, void* lpstring1, void* lpstring2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_intlStrEqWorkerA(int32_t fcasesens, void* lpstring1, void* lpstring2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3340,7 +3340,7 @@ int32_t windowssys_windows_win32_ui_shell_IntlStrEqWorkerA(int32_t fcasesens, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IntlStrEqWorkerW(int32_t fcasesens, void* lpstring1, void* lpstring2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_intlStrEqWorkerW(int32_t fcasesens, void* lpstring1, void* lpstring2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3365,7 +3365,7 @@ int32_t windowssys_windows_win32_ui_shell_IntlStrEqWorkerW(int32_t fcasesens, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsCharSpaceA(int8_t wch) {
+int32_t windowssys_windows_win32_ui_shell_isCharSpaceA(int8_t wch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3387,7 +3387,7 @@ int32_t windowssys_windows_win32_ui_shell_IsCharSpaceA(int8_t wch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsCharSpaceW(uint16_t wch) {
+int32_t windowssys_windows_win32_ui_shell_isCharSpaceW(uint16_t wch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3409,7 +3409,7 @@ int32_t windowssys_windows_win32_ui_shell_IsCharSpaceW(uint16_t wch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsInternetESCEnabled(void) {
+int32_t windowssys_windows_win32_ui_shell_isInternetESCEnabled(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3430,7 +3430,7 @@ int32_t windowssys_windows_win32_ui_shell_IsInternetESCEnabled(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsLFNDriveA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_isLFNDriveA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3452,7 +3452,7 @@ int32_t windowssys_windows_win32_ui_shell_IsLFNDriveA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsLFNDriveW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_isLFNDriveW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3474,7 +3474,7 @@ int32_t windowssys_windows_win32_ui_shell_IsLFNDriveW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsNetDrive(int32_t idrive) {
+int32_t windowssys_windows_win32_ui_shell_isNetDrive(int32_t idrive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3496,7 +3496,7 @@ int32_t windowssys_windows_win32_ui_shell_IsNetDrive(int32_t idrive) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsOS(uint32_t dwos) {
+int32_t windowssys_windows_win32_ui_shell_isOS(uint32_t dwos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3518,7 +3518,7 @@ int32_t windowssys_windows_win32_ui_shell_IsOS(uint32_t dwos) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_IsUserAnAdmin(void) {
+int32_t windowssys_windows_win32_ui_shell_isUserAnAdmin(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3539,7 +3539,7 @@ int32_t windowssys_windows_win32_ui_shell_IsUserAnAdmin(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_LoadUserProfileA(void* htoken, void* lpprofileinfo) {
+int32_t windowssys_windows_win32_ui_shell_loadUserProfileA(void* htoken, void* lpprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3562,7 +3562,7 @@ int32_t windowssys_windows_win32_ui_shell_LoadUserProfileA(void* htoken, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_LoadUserProfileW(void* htoken, void* lpprofileinfo) {
+int32_t windowssys_windows_win32_ui_shell_loadUserProfileW(void* htoken, void* lpprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ int32_t windowssys_windows_win32_ui_shell_LoadUserProfileW(void* htoken, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_OleSaveToStreamEx(void* piunk, void* pistm, int32_t fcleardirty) {
+int32_t windowssys_windows_win32_ui_shell_oleSaveToStreamEx(void* piunk, void* pistm, int32_t fcleardirty) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3609,7 +3609,7 @@ int32_t windowssys_windows_win32_ui_shell_OleSaveToStreamEx(void* piunk, void* p
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_OpenRegStream(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
+void* windowssys_windows_win32_ui_shell_openRegStream(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3634,7 +3634,7 @@ void* windowssys_windows_win32_ui_shell_OpenRegStream(void* hkey, void* pszsubke
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ParseURLA(void* pcszurl, void* ppu) {
+int32_t windowssys_windows_win32_ui_shell_parseURLA(void* pcszurl, void* ppu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3657,7 +3657,7 @@ int32_t windowssys_windows_win32_ui_shell_ParseURLA(void* pcszurl, void* ppu) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ParseURLW(void* pcszurl, void* ppu) {
+int32_t windowssys_windows_win32_ui_shell_parseURLW(void* pcszurl, void* ppu) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3680,7 +3680,7 @@ int32_t windowssys_windows_win32_ui_shell_ParseURLW(void* pcszurl, void* ppu) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathAddBackslashA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathAddBackslashA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3702,7 +3702,7 @@ void* windowssys_windows_win32_ui_shell_PathAddBackslashA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathAddBackslashW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathAddBackslashW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3724,7 +3724,7 @@ void* windowssys_windows_win32_ui_shell_PathAddBackslashW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAddExtensionA(void* pszpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathAddExtensionA(void* pszpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3747,7 +3747,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAddExtensionA(void* pszpath, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAddExtensionW(void* pszpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathAddExtensionW(void* pszpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3770,7 +3770,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAddExtensionW(void* pszpath, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAllocCanonicalize(void* pszpathin, uint32_t dwflags, void* ppszpathout) {
+int32_t windowssys_windows_win32_ui_shell_pathAllocCanonicalize(void* pszpathin, uint32_t dwflags, void* ppszpathout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3794,7 +3794,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAllocCanonicalize(void* pszpathin,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAllocCombine(void* pszpathin, void* pszmore, uint32_t dwflags, void* ppszpathout) {
+int32_t windowssys_windows_win32_ui_shell_pathAllocCombine(void* pszpathin, void* pszmore, uint32_t dwflags, void* ppszpathout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3819,7 +3819,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAllocCombine(void* pszpathin, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAppendA(void* pszpath, void* pszmore) {
+int32_t windowssys_windows_win32_ui_shell_pathAppendA(void* pszpath, void* pszmore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3842,7 +3842,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAppendA(void* pszpath, void* pszmo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathAppendW(void* pszpath, void* pszmore) {
+int32_t windowssys_windows_win32_ui_shell_pathAppendW(void* pszpath, void* pszmore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3865,7 +3865,7 @@ int32_t windowssys_windows_win32_ui_shell_PathAppendW(void* pszpath, void* pszmo
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathBuildRootA(void* pszroot, int32_t idrive) {
+void* windowssys_windows_win32_ui_shell_pathBuildRootA(void* pszroot, int32_t idrive) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3888,7 +3888,7 @@ void* windowssys_windows_win32_ui_shell_PathBuildRootA(void* pszroot, int32_t id
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathBuildRootW(void* pszroot, int32_t idrive) {
+void* windowssys_windows_win32_ui_shell_pathBuildRootW(void* pszroot, int32_t idrive) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3911,7 +3911,7 @@ void* windowssys_windows_win32_ui_shell_PathBuildRootW(void* pszroot, int32_t id
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCanonicalizeA(void* pszbuf, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCanonicalizeA(void* pszbuf, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3934,7 +3934,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCanonicalizeA(void* pszbuf, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCanonicalizeW(void* pszbuf, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCanonicalizeW(void* pszbuf, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3957,7 +3957,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCanonicalizeW(void* pszbuf, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchAddBackslash(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchAddBackslash(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3980,7 +3980,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchAddBackslash(void* pszpath, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchAddBackslashEx(void* pszpath, uint64_t cchpath, void* ppszend, void* pcchremaining) {
+int32_t windowssys_windows_win32_ui_shell_pathCchAddBackslashEx(void* pszpath, uint64_t cchpath, void* ppszend, void* pcchremaining) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4005,7 +4005,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchAddBackslashEx(void* pszpath, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchAddExtension(void* pszpath, uint64_t cchpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathCchAddExtension(void* pszpath, uint64_t cchpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4029,7 +4029,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchAddExtension(void* pszpath, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchAppend(void* pszpath, uint64_t cchpath, void* pszmore) {
+int32_t windowssys_windows_win32_ui_shell_pathCchAppend(void* pszpath, uint64_t cchpath, void* pszmore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4053,7 +4053,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchAppend(void* pszpath, uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchAppendEx(void* pszpath, uint64_t cchpath, void* pszmore, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCchAppendEx(void* pszpath, uint64_t cchpath, void* pszmore, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4078,7 +4078,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchAppendEx(void* pszpath, uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchCanonicalize(void* pszpathout, uint64_t cchpathout, void* pszpathin) {
+int32_t windowssys_windows_win32_ui_shell_pathCchCanonicalize(void* pszpathout, uint64_t cchpathout, void* pszpathin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4102,7 +4102,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchCanonicalize(void* pszpathout, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx(void* pszpathout, uint64_t cchpathout, void* pszpathin, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx(void* pszpathout, uint64_t cchpathout, void* pszpathin, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4127,7 +4127,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx(void* pszpathout
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchCombine(void* pszpathout, uint64_t cchpathout, void* pszpathin, void* pszmore) {
+int32_t windowssys_windows_win32_ui_shell_pathCchCombine(void* pszpathout, uint64_t cchpathout, void* pszpathin, void* pszmore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4152,7 +4152,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchCombine(void* pszpathout, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchCombineEx(void* pszpathout, uint64_t cchpathout, void* pszpathin, void* pszmore, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCchCombineEx(void* pszpathout, uint64_t cchpathout, void* pszpathin, void* pszmore, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4178,7 +4178,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchCombineEx(void* pszpathout, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchFindExtension(void* pszpath, uint64_t cchpath, void* ppszext) {
+int32_t windowssys_windows_win32_ui_shell_pathCchFindExtension(void* pszpath, uint64_t cchpath, void* ppszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4202,7 +4202,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchFindExtension(void* pszpath, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchIsRoot(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchIsRoot(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4224,7 +4224,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchIsRoot(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchRemoveBackslash(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchRemoveBackslash(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4247,7 +4247,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchRemoveBackslash(void* pszpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx(void* pszpath, uint64_t cchpath, void* ppszend, void* pcchremaining) {
+int32_t windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx(void* pszpath, uint64_t cchpath, void* ppszend, void* pcchremaining) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4272,7 +4272,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx(void* pszpath
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchRemoveExtension(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchRemoveExtension(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4295,7 +4295,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchRemoveExtension(void* pszpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4318,7 +4318,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec(void* pszpath, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchRenameExtension(void* pszpath, uint64_t cchpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathCchRenameExtension(void* pszpath, uint64_t cchpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4342,7 +4342,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchRenameExtension(void* pszpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchSkipRoot(void* pszpath, void* ppszrootend) {
+int32_t windowssys_windows_win32_ui_shell_pathCchSkipRoot(void* pszpath, void* ppszrootend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4365,7 +4365,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchSkipRoot(void* pszpath, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchStripPrefix(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchStripPrefix(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4388,7 +4388,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchStripPrefix(void* pszpath, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCchStripToRoot(void* pszpath, uint64_t cchpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCchStripToRoot(void* pszpath, uint64_t cchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4411,7 +4411,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCchStripToRoot(void* pszpath, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCleanupSpec(void* pszdir, void* pszspec) {
+int32_t windowssys_windows_win32_ui_shell_pathCleanupSpec(void* pszdir, void* pszspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4434,7 +4434,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCleanupSpec(void* pszdir, void* ps
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathCombineA(void* pszdest, void* pszdir, void* pszfile) {
+void* windowssys_windows_win32_ui_shell_pathCombineA(void* pszdest, void* pszdir, void* pszfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4458,7 +4458,7 @@ void* windowssys_windows_win32_ui_shell_PathCombineA(void* pszdest, void* pszdir
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathCombineW(void* pszdest, void* pszdir, void* pszfile) {
+void* windowssys_windows_win32_ui_shell_pathCombineW(void* pszdest, void* pszdir, void* pszfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4482,7 +4482,7 @@ void* windowssys_windows_win32_ui_shell_PathCombineW(void* pszdest, void* pszdir
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCommonPrefixA(void* pszfile1, void* pszfile2, void* achpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCommonPrefixA(void* pszfile1, void* pszfile2, void* achpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4506,7 +4506,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCommonPrefixA(void* pszfile1, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCommonPrefixW(void* pszfile1, void* pszfile2, void* achpath) {
+int32_t windowssys_windows_win32_ui_shell_pathCommonPrefixW(void* pszfile1, void* pszfile2, void* achpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4530,7 +4530,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCommonPrefixW(void* pszfile1, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCompactPathA(void* hdc, void* pszpath, uint32_t dx) {
+int32_t windowssys_windows_win32_ui_shell_pathCompactPathA(void* hdc, void* pszpath, uint32_t dx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4554,7 +4554,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCompactPathA(void* hdc, void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCompactPathExA(void* pszout, void* pszsrc, uint32_t cchmax, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCompactPathExA(void* pszout, void* pszsrc, uint32_t cchmax, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4579,7 +4579,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCompactPathExA(void* pszout, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCompactPathExW(void* pszout, void* pszsrc, uint32_t cchmax, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCompactPathExW(void* pszout, void* pszsrc, uint32_t cchmax, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4604,7 +4604,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCompactPathExW(void* pszout, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCompactPathW(void* hdc, void* pszpath, uint32_t dx) {
+int32_t windowssys_windows_win32_ui_shell_pathCompactPathW(void* hdc, void* pszpath, uint32_t dx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4628,7 +4628,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCompactPathW(void* hdc, void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlA(void* pszurl, void* pszpath, void* pcchpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCreateFromUrlA(void* pszurl, void* pszpath, void* pcchpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4653,7 +4653,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlA(void* pszurl, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc(void* pszin, void* ppszout, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc(void* pszin, void* ppszout, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4677,7 +4677,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc(void* pszin, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlW(void* pszurl, void* pszpath, void* pcchpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathCreateFromUrlW(void* pszurl, void* pszpath, void* pcchpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4702,7 +4702,7 @@ int32_t windowssys_windows_win32_ui_shell_PathCreateFromUrlW(void* pszurl, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathFileExistsA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathFileExistsA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4724,7 +4724,7 @@ int32_t windowssys_windows_win32_ui_shell_PathFileExistsA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathFileExistsW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathFileExistsW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4746,7 +4746,7 @@ int32_t windowssys_windows_win32_ui_shell_PathFileExistsW(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindExtensionA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindExtensionA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4768,7 +4768,7 @@ void* windowssys_windows_win32_ui_shell_PathFindExtensionA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindExtensionW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindExtensionW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4790,7 +4790,7 @@ void* windowssys_windows_win32_ui_shell_PathFindExtensionW(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindFileNameA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindFileNameA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4812,7 +4812,7 @@ void* windowssys_windows_win32_ui_shell_PathFindFileNameA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindFileNameW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindFileNameW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4834,7 +4834,7 @@ void* windowssys_windows_win32_ui_shell_PathFindFileNameW(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindNextComponentA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindNextComponentA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4856,7 +4856,7 @@ void* windowssys_windows_win32_ui_shell_PathFindNextComponentA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindNextComponentW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathFindNextComponentW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4878,7 +4878,7 @@ void* windowssys_windows_win32_ui_shell_PathFindNextComponentW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathFindOnPathA(void* pszpath, void* ppszotherdirs) {
+int32_t windowssys_windows_win32_ui_shell_pathFindOnPathA(void* pszpath, void* ppszotherdirs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4901,7 +4901,7 @@ int32_t windowssys_windows_win32_ui_shell_PathFindOnPathA(void* pszpath, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathFindOnPathW(void* pszpath, void* ppszotherdirs) {
+int32_t windowssys_windows_win32_ui_shell_pathFindOnPathW(void* pszpath, void* ppszotherdirs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4924,7 +4924,7 @@ int32_t windowssys_windows_win32_ui_shell_PathFindOnPathW(void* pszpath, void* p
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindSuffixArrayA(void* pszpath, void* apszsuffix, int32_t iarraysize) {
+void* windowssys_windows_win32_ui_shell_pathFindSuffixArrayA(void* pszpath, void* apszsuffix, int32_t iarraysize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4948,7 +4948,7 @@ void* windowssys_windows_win32_ui_shell_PathFindSuffixArrayA(void* pszpath, void
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathFindSuffixArrayW(void* pszpath, void* apszsuffix, int32_t iarraysize) {
+void* windowssys_windows_win32_ui_shell_pathFindSuffixArrayW(void* pszpath, void* apszsuffix, int32_t iarraysize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4972,7 +4972,7 @@ void* windowssys_windows_win32_ui_shell_PathFindSuffixArrayW(void* pszpath, void
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathGetArgsA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathGetArgsA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4994,7 +4994,7 @@ void* windowssys_windows_win32_ui_shell_PathGetArgsA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathGetArgsW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathGetArgsW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5016,7 +5016,7 @@ void* windowssys_windows_win32_ui_shell_PathGetArgsW(void* pszpath) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_PathGetCharTypeA(uint8_t ch) {
+uint32_t windowssys_windows_win32_ui_shell_pathGetCharTypeA(uint8_t ch) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5038,7 +5038,7 @@ uint32_t windowssys_windows_win32_ui_shell_PathGetCharTypeA(uint8_t ch) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_PathGetCharTypeW(uint16_t ch) {
+uint32_t windowssys_windows_win32_ui_shell_pathGetCharTypeW(uint16_t ch) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5060,7 +5060,7 @@ uint32_t windowssys_windows_win32_ui_shell_PathGetCharTypeW(uint16_t ch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathGetDriveNumberA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathGetDriveNumberA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5082,7 +5082,7 @@ int32_t windowssys_windows_win32_ui_shell_PathGetDriveNumberA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathGetDriveNumberW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathGetDriveNumberW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5104,7 +5104,7 @@ int32_t windowssys_windows_win32_ui_shell_PathGetDriveNumberW(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathGetShortPath(void* pszlongpath) {
+void windowssys_windows_win32_ui_shell_pathGetShortPath(void* pszlongpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5125,7 +5125,7 @@ void windowssys_windows_win32_ui_shell_PathGetShortPath(void* pszlongpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsContentTypeA(void* pszpath, void* pszcontenttype) {
+int32_t windowssys_windows_win32_ui_shell_pathIsContentTypeA(void* pszpath, void* pszcontenttype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5148,7 +5148,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsContentTypeA(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsContentTypeW(void* pszpath, void* pszcontenttype) {
+int32_t windowssys_windows_win32_ui_shell_pathIsContentTypeW(void* pszpath, void* pszcontenttype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5171,7 +5171,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsContentTypeW(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsDirectoryA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5193,7 +5193,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5215,7 +5215,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5237,7 +5237,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsDirectoryW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5259,7 +5259,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsDirectoryW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsExe(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsExe(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5281,7 +5281,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsExe(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsFileSpecA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsFileSpecA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5303,7 +5303,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsFileSpecA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsFileSpecW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsFileSpecW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5325,7 +5325,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsFileSpecW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA(void* pszname) {
+int32_t windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA(void* pszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5347,7 +5347,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA(void* pszname) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW(void* pszname) {
+int32_t windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW(void* pszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5369,7 +5369,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW(void* pszname) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsNetworkPathA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsNetworkPathA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5391,7 +5391,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsNetworkPathA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsNetworkPathW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsNetworkPathW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5413,7 +5413,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsNetworkPathW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsPrefixA(void* pszprefix, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsPrefixA(void* pszprefix, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5436,7 +5436,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsPrefixA(void* pszprefix, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsPrefixW(void* pszprefix, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsPrefixW(void* pszprefix, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5459,7 +5459,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsPrefixW(void* pszprefix, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsRelativeA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsRelativeA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5481,7 +5481,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsRelativeA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsRelativeW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsRelativeW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5503,7 +5503,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsRelativeW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsRootA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsRootA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5525,7 +5525,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsRootA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsRootW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsRootW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5547,7 +5547,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsRootW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSameRootA(void* pszpath1, void* pszpath2) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSameRootA(void* pszpath1, void* pszpath2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5570,7 +5570,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSameRootA(void* pszpath1, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSameRootW(void* pszpath1, void* pszpath2) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSameRootW(void* pszpath1, void* pszpath2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5593,7 +5593,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSameRootW(void* pszpath1, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSlowA(void* pszfile, uint32_t dwattr) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSlowA(void* pszfile, uint32_t dwattr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5616,7 +5616,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSlowA(void* pszfile, uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSlowW(void* pszfile, uint32_t dwattr) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSlowW(void* pszfile, uint32_t dwattr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5639,7 +5639,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSlowW(void* pszfile, uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSystemFolderA(void* pszpath, uint32_t dwattrb) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSystemFolderA(void* pszpath, uint32_t dwattrb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5662,7 +5662,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSystemFolderA(void* pszpath, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsSystemFolderW(void* pszpath, uint32_t dwattrb) {
+int32_t windowssys_windows_win32_ui_shell_pathIsSystemFolderW(void* pszpath, uint32_t dwattrb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5685,7 +5685,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsSystemFolderW(void* pszpath, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5707,7 +5707,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCEx(void* pszpath, void* ppszserver) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCEx(void* pszpath, void* ppszserver) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5730,7 +5730,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCEx(void* pszpath, void* ppszs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCServerA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5752,7 +5752,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerShareA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCServerShareA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5774,7 +5774,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerShareA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerShareW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCServerShareW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5796,7 +5796,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerShareW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCServerW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5818,7 +5818,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCServerW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsUNCW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsUNCW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5840,7 +5840,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsUNCW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsURLA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsURLA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5862,7 +5862,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsURLA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathIsURLW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathIsURLW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5884,7 +5884,7 @@ int32_t windowssys_windows_win32_ui_shell_PathIsURLW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMakePrettyA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathMakePrettyA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5906,7 +5906,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMakePrettyA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMakePrettyW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathMakePrettyW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5928,7 +5928,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMakePrettyW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMakeSystemFolderA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathMakeSystemFolderA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5950,7 +5950,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMakeSystemFolderA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMakeSystemFolderW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathMakeSystemFolderW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5972,7 +5972,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMakeSystemFolderW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMakeUniqueName(void* pszuniquename, uint32_t cchmax, void* psztemplate, void* pszlongplate, void* pszdir) {
+int32_t windowssys_windows_win32_ui_shell_pathMakeUniqueName(void* pszuniquename, uint32_t cchmax, void* psztemplate, void* pszlongplate, void* pszdir) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5998,7 +5998,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMakeUniqueName(void* pszuniquename
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMatchSpecA(void* pszfile, void* pszspec) {
+int32_t windowssys_windows_win32_ui_shell_pathMatchSpecA(void* pszfile, void* pszspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6021,7 +6021,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMatchSpecA(void* pszfile, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMatchSpecExA(void* pszfile, void* pszspec, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathMatchSpecExA(void* pszfile, void* pszspec, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6045,7 +6045,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMatchSpecExA(void* pszfile, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMatchSpecExW(void* pszfile, void* pszspec, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_pathMatchSpecExW(void* pszfile, void* pszspec, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6069,7 +6069,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMatchSpecExW(void* pszfile, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathMatchSpecW(void* pszfile, void* pszspec) {
+int32_t windowssys_windows_win32_ui_shell_pathMatchSpecW(void* pszfile, void* pszspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6092,7 +6092,7 @@ int32_t windowssys_windows_win32_ui_shell_PathMatchSpecW(void* pszfile, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathParseIconLocationA(void* psziconfile) {
+int32_t windowssys_windows_win32_ui_shell_pathParseIconLocationA(void* psziconfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6114,7 +6114,7 @@ int32_t windowssys_windows_win32_ui_shell_PathParseIconLocationA(void* psziconfi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathParseIconLocationW(void* psziconfile) {
+int32_t windowssys_windows_win32_ui_shell_pathParseIconLocationW(void* psziconfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6136,7 +6136,7 @@ int32_t windowssys_windows_win32_ui_shell_PathParseIconLocationW(void* psziconfi
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathQualify(void* psz) {
+void windowssys_windows_win32_ui_shell_pathQualify(void* psz) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6157,7 +6157,7 @@ void windowssys_windows_win32_ui_shell_PathQualify(void* psz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathQuoteSpacesA(void* lpsz) {
+int32_t windowssys_windows_win32_ui_shell_pathQuoteSpacesA(void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6179,7 +6179,7 @@ int32_t windowssys_windows_win32_ui_shell_PathQuoteSpacesA(void* lpsz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathQuoteSpacesW(void* lpsz) {
+int32_t windowssys_windows_win32_ui_shell_pathQuoteSpacesW(void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6201,7 +6201,7 @@ int32_t windowssys_windows_win32_ui_shell_PathQuoteSpacesW(void* lpsz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRelativePathToA(void* pszpath, void* pszfrom, uint32_t dwattrfrom, void* pszto, uint32_t dwattrto) {
+int32_t windowssys_windows_win32_ui_shell_pathRelativePathToA(void* pszpath, void* pszfrom, uint32_t dwattrfrom, void* pszto, uint32_t dwattrto) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6227,7 +6227,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRelativePathToA(void* pszpath, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRelativePathToW(void* pszpath, void* pszfrom, uint32_t dwattrfrom, void* pszto, uint32_t dwattrto) {
+int32_t windowssys_windows_win32_ui_shell_pathRelativePathToW(void* pszpath, void* pszfrom, uint32_t dwattrfrom, void* pszto, uint32_t dwattrto) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6253,7 +6253,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRelativePathToW(void* pszpath, voi
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveArgsA(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveArgsA(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6274,7 +6274,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveArgsA(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveArgsW(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveArgsW(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6295,7 +6295,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveArgsW(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathRemoveBackslashA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathRemoveBackslashA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6317,7 +6317,7 @@ void* windowssys_windows_win32_ui_shell_PathRemoveBackslashA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathRemoveBackslashW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathRemoveBackslashW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6339,7 +6339,7 @@ void* windowssys_windows_win32_ui_shell_PathRemoveBackslashW(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveBlanksA(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveBlanksA(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6360,7 +6360,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveBlanksA(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveBlanksW(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveBlanksW(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6381,7 +6381,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveBlanksW(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveExtensionA(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveExtensionA(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6402,7 +6402,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveExtensionA(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathRemoveExtensionW(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathRemoveExtensionW(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6423,7 +6423,7 @@ void windowssys_windows_win32_ui_shell_PathRemoveExtensionW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRemoveFileSpecA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathRemoveFileSpecA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6445,7 +6445,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRemoveFileSpecA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRemoveFileSpecW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathRemoveFileSpecW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6467,7 +6467,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRemoveFileSpecW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRenameExtensionA(void* pszpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathRenameExtensionA(void* pszpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6490,7 +6490,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRenameExtensionA(void* pszpath, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathRenameExtensionW(void* pszpath, void* pszext) {
+int32_t windowssys_windows_win32_ui_shell_pathRenameExtensionW(void* pszpath, void* pszext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6513,7 +6513,7 @@ int32_t windowssys_windows_win32_ui_shell_PathRenameExtensionW(void* pszpath, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathResolve(void* pszpath, void* dirs, uint32_t fflags) {
+int32_t windowssys_windows_win32_ui_shell_pathResolve(void* pszpath, void* dirs, uint32_t fflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6537,7 +6537,7 @@ int32_t windowssys_windows_win32_ui_shell_PathResolve(void* pszpath, void* dirs,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathSearchAndQualifyA(void* pszpath, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_pathSearchAndQualifyA(void* pszpath, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6561,7 +6561,7 @@ int32_t windowssys_windows_win32_ui_shell_PathSearchAndQualifyA(void* pszpath, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathSearchAndQualifyW(void* pszpath, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_pathSearchAndQualifyW(void* pszpath, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6585,7 +6585,7 @@ int32_t windowssys_windows_win32_ui_shell_PathSearchAndQualifyW(void* pszpath, v
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathSetDlgItemPathA(void* hdlg, int32_t id, void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathSetDlgItemPathA(void* hdlg, int32_t id, void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6608,7 +6608,7 @@ void windowssys_windows_win32_ui_shell_PathSetDlgItemPathA(void* hdlg, int32_t i
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathSetDlgItemPathW(void* hdlg, int32_t id, void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathSetDlgItemPathW(void* hdlg, int32_t id, void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6631,7 +6631,7 @@ void windowssys_windows_win32_ui_shell_PathSetDlgItemPathW(void* hdlg, int32_t i
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathSkipRootA(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathSkipRootA(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6653,7 +6653,7 @@ void* windowssys_windows_win32_ui_shell_PathSkipRootA(void* pszpath) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_PathSkipRootW(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_pathSkipRootW(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6675,7 +6675,7 @@ void* windowssys_windows_win32_ui_shell_PathSkipRootW(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathStripPathA(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathStripPathA(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6696,7 +6696,7 @@ void windowssys_windows_win32_ui_shell_PathStripPathA(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathStripPathW(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathStripPathW(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6717,7 +6717,7 @@ void windowssys_windows_win32_ui_shell_PathStripPathW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathStripToRootA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathStripToRootA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6739,7 +6739,7 @@ int32_t windowssys_windows_win32_ui_shell_PathStripToRootA(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathStripToRootW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathStripToRootW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6761,7 +6761,7 @@ int32_t windowssys_windows_win32_ui_shell_PathStripToRootW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA(void* pszpath, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA(void* pszpath, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6785,7 +6785,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA(void* pszpath,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW(void* pszpath, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW(void* pszpath, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6809,7 +6809,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW(void* pszpath,
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathUndecorateA(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathUndecorateA(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6830,7 +6830,7 @@ void windowssys_windows_win32_ui_shell_PathUndecorateA(void* pszpath) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_PathUndecorateW(void* pszpath) {
+void windowssys_windows_win32_ui_shell_pathUndecorateW(void* pszpath) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6851,7 +6851,7 @@ void windowssys_windows_win32_ui_shell_PathUndecorateW(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6873,7 +6873,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA(void* pszpath)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6895,7 +6895,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW(void* pszpath)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnquoteSpacesA(void* lpsz) {
+int32_t windowssys_windows_win32_ui_shell_pathUnquoteSpacesA(void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6917,7 +6917,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnquoteSpacesA(void* lpsz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathUnquoteSpacesW(void* lpsz) {
+int32_t windowssys_windows_win32_ui_shell_pathUnquoteSpacesW(void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6939,7 +6939,7 @@ int32_t windowssys_windows_win32_ui_shell_PathUnquoteSpacesW(void* lpsz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName(void* pszuniquename, void* pszpath, void* pszshort, void* pszfilespec) {
+int32_t windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName(void* pszuniquename, void* pszpath, void* pszshort, void* pszfilespec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6964,7 +6964,7 @@ int32_t windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName(void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PickIconDlg(void* hwnd, void* psziconpath, uint32_t cchiconpath, void* piiconindex) {
+int32_t windowssys_windows_win32_ui_shell_pickIconDlg(void* hwnd, void* psziconpath, uint32_t cchiconpath, void* piiconindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6989,7 +6989,7 @@ int32_t windowssys_windows_win32_ui_shell_PickIconDlg(void* hwnd, void* psziconp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_PropVariantToStrRet(void* propvar, void* pstrret) {
+int32_t windowssys_windows_win32_ui_shell_propVariantToStrRet(void* propvar, void* pstrret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7012,7 +7012,7 @@ int32_t windowssys_windows_win32_ui_shell_PropVariantToStrRet(void* propvar, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_QISearch(void* that, void* pqit, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_qISearch(void* that, void* pqit, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7037,7 +7037,7 @@ int32_t windowssys_windows_win32_ui_shell_QISearch(void* that, void* pqit, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ReadCabinetState(void* pcs, int32_t clength) {
+int32_t windowssys_windows_win32_ui_shell_readCabinetState(void* pcs, int32_t clength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7060,7 +7060,7 @@ int32_t windowssys_windows_win32_ui_shell_ReadCabinetState(void* pcs, int32_t cl
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RealDriveType(int32_t idrive, int32_t foktohitnet) {
+int32_t windowssys_windows_win32_ui_shell_realDriveType(int32_t idrive, int32_t foktohitnet) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7083,7 +7083,7 @@ int32_t windowssys_windows_win32_ui_shell_RealDriveType(int32_t idrive, int32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification(void* routine, void* context, void* registration) {
+uint32_t windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification(void* routine, void* context, void* registration) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7107,7 +7107,7 @@ uint32_t windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotificat
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification(void* routine, void* context, void* registration) {
+uint32_t windowssys_windows_win32_ui_shell_registerAppStateChangeNotification(void* routine, void* context, void* registration) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7131,7 +7131,7 @@ uint32_t windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent(void* hevent, void* pdwcookie) {
+int32_t windowssys_windows_win32_ui_shell_registerScaleChangeEvent(void* hevent, void* pdwcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7154,7 +7154,7 @@ int32_t windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent(void* hevent,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications(int32_t displaydevice, void* hwndnotify, uint32_t umsgnotify, void* pdwcookie) {
+int32_t windowssys_windows_win32_ui_shell_registerScaleChangeNotifications(int32_t displaydevice, void* hwndnotify, uint32_t umsgnotify, void* pdwcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7179,7 +7179,7 @@ int32_t windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RemoveWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass) {
+int32_t windowssys_windows_win32_ui_shell_removeWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7203,7 +7203,7 @@ int32_t windowssys_windows_win32_ui_shell_RemoveWindowSubclass(void* hwnd, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RestartDialog(void* hwnd, void* pszprompt, uint32_t dwreturn) {
+int32_t windowssys_windows_win32_ui_shell_restartDialog(void* hwnd, void* pszprompt, uint32_t dwreturn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7227,7 +7227,7 @@ int32_t windowssys_windows_win32_ui_shell_RestartDialog(void* hwnd, void* pszpro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RestartDialogEx(void* hwnd, void* pszprompt, uint32_t dwreturn, uint32_t dwreasoncode) {
+int32_t windowssys_windows_win32_ui_shell_restartDialogEx(void* hwnd, void* pszprompt, uint32_t dwreturn, uint32_t dwreasoncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7252,7 +7252,7 @@ int32_t windowssys_windows_win32_ui_shell_RestartDialogEx(void* hwnd, void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications(int32_t displaydevice, uint32_t dwcookie) {
+int32_t windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications(int32_t displaydevice, uint32_t dwcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7275,7 +7275,7 @@ int32_t windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications(int32_t
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHAddToRecentDocs(uint32_t uflags, void* pv) {
+void windowssys_windows_win32_ui_shell_sHAddToRecentDocs(uint32_t uflags, void* pv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7297,7 +7297,7 @@ void windowssys_windows_win32_ui_shell_SHAddToRecentDocs(uint32_t uflags, void* 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHAlloc(uint64_t cb) {
+void* windowssys_windows_win32_ui_shell_sHAlloc(uint64_t cb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7319,7 +7319,7 @@ void* windowssys_windows_win32_ui_shell_SHAlloc(uint64_t cb) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHAllocShared(void* pvdata, uint32_t dwsize, uint32_t dwprocessid) {
+void* windowssys_windows_win32_ui_shell_sHAllocShared(void* pvdata, uint32_t dwsize, uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7343,7 +7343,7 @@ void* windowssys_windows_win32_ui_shell_SHAllocShared(void* pvdata, uint32_t dws
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHAnsiToAnsi(void* pszsrc, void* pszdst, int32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHAnsiToAnsi(void* pszsrc, void* pszdst, int32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7367,7 +7367,7 @@ int32_t windowssys_windows_win32_ui_shell_SHAnsiToAnsi(void* pszsrc, void* pszds
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHAnsiToUnicode(void* pszsrc, void* pwszdst, int32_t cwchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHAnsiToUnicode(void* pszsrc, void* pwszdst, int32_t cwchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7391,7 +7391,7 @@ int32_t windowssys_windows_win32_ui_shell_SHAnsiToUnicode(void* pszsrc, void* pw
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_shell_SHAppBarMessage(uint32_t dwmessage, void* pdata) {
+uint64_t windowssys_windows_win32_ui_shell_sHAppBarMessage(uint32_t dwmessage, void* pdata) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7414,7 +7414,7 @@ uint64_t windowssys_windows_win32_ui_shell_SHAppBarMessage(uint32_t dwmessage, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHAssocEnumHandlers(void* pszextra, int32_t affilter, void* ppenumhandler) {
+int32_t windowssys_windows_win32_ui_shell_sHAssocEnumHandlers(void* pszextra, int32_t affilter, void* ppenumhandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7438,7 +7438,7 @@ int32_t windowssys_windows_win32_ui_shell_SHAssocEnumHandlers(void* pszextra, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication(void* protocol, void* riid, void* enumhandlers) {
+int32_t windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication(void* protocol, void* riid, void* enumhandlers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7462,7 +7462,7 @@ int32_t windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHAutoComplete(void* hwndedit, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHAutoComplete(void* hwndedit, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7485,7 +7485,7 @@ int32_t windowssys_windows_win32_ui_shell_SHAutoComplete(void* hwndedit, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent(void* psfroot, void* pidl, void* riid, void* ppv, void* ppidllast) {
+int32_t windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent(void* psfroot, void* pidl, void* riid, void* ppv, void* ppidllast) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7511,7 +7511,7 @@ int32_t windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent(void* psfro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx(void* psfroot, void* pidl, void* ppbc, void* riid, void* ppv, void* ppidllast) {
+int32_t windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx(void* psfroot, void* pidl, void* ppbc, void* riid, void* ppv, void* ppidllast) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7538,7 +7538,7 @@ int32_t windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx(void* psf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHBindToObject(void* psf, void* pidl, void* pbc, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHBindToObject(void* psf, void* pidl, void* pbc, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7564,7 +7564,7 @@ int32_t windowssys_windows_win32_ui_shell_SHBindToObject(void* psf, void* pidl, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHBindToParent(void* pidl, void* riid, void* ppv, void* ppidllast) {
+int32_t windowssys_windows_win32_ui_shell_sHBindToParent(void* pidl, void* riid, void* ppv, void* ppidllast) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7589,7 +7589,7 @@ int32_t windowssys_windows_win32_ui_shell_SHBindToParent(void* pidl, void* riid,
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHBrowseForFolderA(void* lpbi) {
+void* windowssys_windows_win32_ui_shell_sHBrowseForFolderA(void* lpbi) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7611,7 +7611,7 @@ void* windowssys_windows_win32_ui_shell_SHBrowseForFolderA(void* lpbi) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHBrowseForFolderW(void* lpbi) {
+void* windowssys_windows_win32_ui_shell_sHBrowseForFolderW(void* lpbi) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7633,7 +7633,7 @@ void* windowssys_windows_win32_ui_shell_SHBrowseForFolderW(void* lpbi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCLSIDFromString(void* psz, void* pclsid) {
+int32_t windowssys_windows_win32_ui_shell_sHCLSIDFromString(void* psz, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7656,7 +7656,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCLSIDFromString(void* psz, void* pcl
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHChangeNotification_Lock(void* hchange, uint32_t dwprocid, void* pppidl, void* plevent) {
+void* windowssys_windows_win32_ui_shell_shchangeNotificationLock(void* hchange, uint32_t dwprocid, void* pppidl, void* plevent) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7681,7 +7681,7 @@ void* windowssys_windows_win32_ui_shell_SHChangeNotification_Lock(void* hchange,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock(void* hlock) {
+int32_t windowssys_windows_win32_ui_shell_shchangeNotificationUnlock(void* hlock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7703,7 +7703,7 @@ int32_t windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock(void* hloc
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHChangeNotify(int32_t weventid, uint32_t uflags, void* dwitem1, void* dwitem2) {
+void windowssys_windows_win32_ui_shell_sHChangeNotify(int32_t weventid, uint32_t uflags, void* dwitem1, void* dwitem2) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7727,7 +7727,7 @@ void windowssys_windows_win32_ui_shell_SHChangeNotify(int32_t weventid, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister(uint32_t ulid) {
+int32_t windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister(uint32_t ulid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7749,7 +7749,7 @@ int32_t windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister(uint32_t ulid
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHChangeNotifyRegister(void* hwnd, int32_t fsources, int32_t fevents, uint32_t wmsg, int32_t centries, void* pshcne) {
+uint32_t windowssys_windows_win32_ui_shell_sHChangeNotifyRegister(void* hwnd, int32_t fsources, int32_t fevents, uint32_t wmsg, int32_t centries, void* pshcne) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7776,7 +7776,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHChangeNotifyRegister(void* hwnd, in
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread(int32_t status) {
+void windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread(int32_t status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7797,7 +7797,7 @@ void windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread(int32_t stat
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHCloneSpecialIDList(void* hwnd, int32_t csidl, int32_t fcreate) {
+void* windowssys_windows_win32_ui_shell_sHCloneSpecialIDList(void* hwnd, int32_t csidl, int32_t fcreate) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7821,7 +7821,7 @@ void* windowssys_windows_win32_ui_shell_SHCloneSpecialIDList(void* hwnd, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCoCreateInstance(void* pszclsid, void* pclsid, void* punkouter, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCoCreateInstance(void* pszclsid, void* pclsid, void* punkouter, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7847,7 +7847,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCoCreateInstance(void* pszclsid, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHCopyKeyA(void* hkeysrc, void* pszsrcsubkey, void* hkeydest, uint32_t freserved) {
+uint32_t windowssys_windows_win32_ui_shell_sHCopyKeyA(void* hkeysrc, void* pszsrcsubkey, void* hkeydest, uint32_t freserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7872,7 +7872,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHCopyKeyA(void* hkeysrc, void* pszsr
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHCopyKeyW(void* hkeysrc, void* pszsrcsubkey, void* hkeydest, uint32_t freserved) {
+uint32_t windowssys_windows_win32_ui_shell_sHCopyKeyW(void* hkeysrc, void* pszsrcsubkey, void* hkeydest, uint32_t freserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7897,7 +7897,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHCopyKeyW(void* hkeysrc, void* pszsr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration(void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration(void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7920,7 +7920,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDataObject(void* pidlfolder, uint32_t cidl, void* apidl, void* pdtinner, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDataObject(void* pidlfolder, uint32_t cidl, void* apidl, void* pdtinner, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7947,7 +7947,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDataObject(void* pidlfolder, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu(void* pdcm, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu(void* pdcm, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7971,7 +7971,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu(void* pdcm,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon(void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon(void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7994,7 +7994,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon(void* riid,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp(void* psi, void* ppfileop) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp(void* psi, void* ppfileop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8017,7 +8017,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp(void* psi,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDirectory(void* hwnd, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDirectory(void* hwnd, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8040,7 +8040,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDirectory(void* hwnd, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDirectoryExA(void* hwnd, void* pszpath, void* psa) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDirectoryExA(void* hwnd, void* pszpath, void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8064,7 +8064,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDirectoryExA(void* hwnd, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateDirectoryExW(void* hwnd, void* pszpath, void* psa) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateDirectoryExW(void* hwnd, void* pszpath, void* psa) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8088,7 +8088,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateDirectoryExW(void* hwnd, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW(void* pszfile, uint32_t dwfileattributes, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW(void* pszfile, uint32_t dwfileattributes, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8113,7 +8113,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW(void* pszfile
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromIDList(void* pidl, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateItemFromIDList(void* pidl, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8137,7 +8137,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromIDList(void* pidl, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName(void* pszpath, void* pbc, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName(void* pszpath, void* pbc, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8162,7 +8162,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName(void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName(void* psiparent, void* pszname, void* pbc, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName(void* psiparent, void* pszname, void* pbc, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8188,7 +8188,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName(void* psi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder(void* kfid, uint32_t dwkfflags, void* pszitem, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder(void* kfid, uint32_t dwkfflags, void* pszitem, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8214,7 +8214,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder(void* kfid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateItemWithParent(void* pidlparent, void* psfparent, void* pidl, void* riid, void* ppvitem) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateItemWithParent(void* pidlparent, void* psfparent, void* pidl, void* riid, void* ppvitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8240,7 +8240,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateItemWithParent(void* pidlparen
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHCreateMemStream(void* pinit, uint32_t cbinit) {
+void* windowssys_windows_win32_ui_shell_sHCreateMemStream(void* pinit, uint32_t cbinit) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8263,7 +8263,7 @@ void* windowssys_windows_win32_ui_shell_SHCreateMemStream(void* pinit, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW(void* pscpi) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW(void* pscpi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8285,7 +8285,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW(void* pscpi) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray(void* hkey, void* pszsubkey, uint32_t max_iface) {
+void* windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray(void* hkey, void* pszsubkey, uint32_t max_iface) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8309,7 +8309,7 @@ void* windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray(void* hkey, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker(void* ppmoniker) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker(void* ppmoniker) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8331,7 +8331,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellFolderView(void* pcsfv, void* ppsv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellFolderView(void* pcsfv, void* ppsv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8354,7 +8354,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellFolderView(void* pcsfv, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx(void* pcsfv, void* ppsv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx(void* pcsfv, void* ppsv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8377,7 +8377,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx(void* pcsfv,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellItem(void* pidlparent, void* psfparent, void* pidl, void* ppsi) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellItem(void* pidlparent, void* psfparent, void* pidl, void* ppsi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8402,7 +8402,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellItem(void* pidlparent, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArray(void* pidlparent, void* psf, uint32_t cidl, void* ppidl, void* ppsiitemarray) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellItemArray(void* pidlparent, void* psf, uint32_t cidl, void* ppidl, void* ppsiitemarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8428,7 +8428,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArray(void* pidlparen
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject(void* pdo, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject(void* pdo, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8452,7 +8452,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject(v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists(uint32_t cidl, void* rgpidl, void* ppsiitemarray) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists(uint32_t cidl, void* rgpidl, void* ppsiitemarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8476,7 +8476,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem(void* psi, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem(void* psi, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8500,7 +8500,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem(vo
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHCreateShellPalette(void* hdc) {
+void* windowssys_windows_win32_ui_shell_sHCreateShellPalette(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8522,7 +8522,7 @@ void* windowssys_windows_win32_ui_shell_SHCreateShellPalette(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc(uint32_t cfmt, void* afmt, void* ppenumformatetc) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc(uint32_t cfmt, void* afmt, void* ppenumformatetc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8546,7 +8546,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc(uint32_t cfmt, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA(void* pszfile, uint32_t grfmode, void* ppstm) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA(void* pszfile, uint32_t grfmode, void* ppstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8570,7 +8570,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA(void* pszfile, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx(void* pszfile, uint32_t grfmode, uint32_t dwattributes, int32_t fcreate, void* pstmtemplate, void* ppstm) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx(void* pszfile, uint32_t grfmode, uint32_t dwattributes, int32_t fcreate, void* pstmtemplate, void* ppstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8597,7 +8597,7 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx(void* pszfile, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW(void* pszfile, uint32_t grfmode, void* ppstm) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW(void* pszfile, uint32_t grfmode, void* ppstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8621,7 +8621,32 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW(void* pszfile, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHCreateThreadRef(void* pcref, void* ppunk) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateThread(void* pfnthreadproc, void* pdata, uint32_t flags, void* pfncallback) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHCreateThread");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(pfnthreadproc, pdata, flags, pfncallback);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)pfnthreadproc;
+    (void)pdata;
+    (void)flags;
+    (void)pfncallback;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_sHCreateThreadRef(void* pcref, void* ppunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8644,7 +8669,33 @@ int32_t windowssys_windows_win32_ui_shell_SHCreateThreadRef(void* pcref, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHDefExtractIconA(void* psziconfile, int32_t iindex, uint32_t uflags, void* phiconlarge, void* phiconsmall, uint32_t niconsize) {
+int32_t windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle(void* pfnthreadproc, void* pdata, uint32_t flags, void* pfncallback, void* phandle) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHCreateThreadWithHandle");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(pfnthreadproc, pdata, flags, pfncallback, phandle);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)pfnthreadproc;
+    (void)pdata;
+    (void)flags;
+    (void)pfncallback;
+    (void)phandle;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_sHDefExtractIconA(void* psziconfile, int32_t iindex, uint32_t uflags, void* phiconlarge, void* phiconsmall, uint32_t niconsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8671,7 +8722,7 @@ int32_t windowssys_windows_win32_ui_shell_SHDefExtractIconA(void* psziconfile, i
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHDefExtractIconW(void* psziconfile, int32_t iindex, uint32_t uflags, void* phiconlarge, void* phiconsmall, uint32_t niconsize) {
+int32_t windowssys_windows_win32_ui_shell_sHDefExtractIconW(void* psziconfile, int32_t iindex, uint32_t uflags, void* phiconlarge, void* phiconsmall, uint32_t niconsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8698,7 +8749,7 @@ int32_t windowssys_windows_win32_ui_shell_SHDefExtractIconW(void* psziconfile, i
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA(void* hkey, void* pszsubkey) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA(void* hkey, void* pszsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8721,7 +8772,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA(void* hkey, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW(void* hkey, void* pszsubkey) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW(void* hkey, void* pszsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8744,7 +8795,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW(void* hkey, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteKeyA(void* hkey, void* pszsubkey) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteKeyA(void* hkey, void* pszsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8767,7 +8818,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteKeyA(void* hkey, void* pszsub
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteKeyW(void* hkey, void* pszsubkey) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteKeyW(void* hkey, void* pszsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8790,7 +8841,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteKeyW(void* hkey, void* pszsub
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteValueA(void* hkey, void* pszsubkey, void* pszvalue) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteValueA(void* hkey, void* pszsubkey, void* pszvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8814,7 +8865,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteValueA(void* hkey, void* pszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHDeleteValueW(void* hkey, void* pszsubkey, void* pszvalue) {
+uint32_t windowssys_windows_win32_ui_shell_sHDeleteValueW(void* hkey, void* pszsubkey, void* pszvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8838,7 +8889,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHDeleteValueW(void* hkey, void* pszs
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray(void* hpsxa) {
+void windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray(void* hpsxa) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8859,7 +8910,7 @@ void windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray(void* hpsxa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHDoDragDrop(void* hwnd, void* pdata, void* pdsrc, uint32_t dweffect, void* pdweffect) {
+int32_t windowssys_windows_win32_ui_shell_sHDoDragDrop(void* hwnd, void* pdata, void* pdsrc, uint32_t dweffect, void* pdweffect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8885,7 +8936,7 @@ int32_t windowssys_windows_win32_ui_shell_SHDoDragDrop(void* hwnd, void* pdata, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA(void* hwnd, void* pszrootpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA(void* hwnd, void* pszrootpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8909,7 +8960,7 @@ int32_t windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA(void* hwnd, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW(void* hwnd, void* pszrootpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW(void* hwnd, void* pszrootpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8933,7 +8984,7 @@ int32_t windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW(void* hwnd, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHEnumKeyExA(void* hkey, uint32_t dwindex, void* pszname, void* pcchname) {
+uint32_t windowssys_windows_win32_ui_shell_sHEnumKeyExA(void* hkey, uint32_t dwindex, void* pszname, void* pcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8958,7 +9009,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHEnumKeyExA(void* hkey, uint32_t dwi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHEnumKeyExW(void* hkey, uint32_t dwindex, void* pszname, void* pcchname) {
+uint32_t windowssys_windows_win32_ui_shell_sHEnumKeyExW(void* hkey, uint32_t dwindex, void* pszname, void* pcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8983,7 +9034,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHEnumKeyExW(void* hkey, uint32_t dwi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHEnumValueA(void* hkey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHEnumValueA(void* hkey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9011,7 +9062,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHEnumValueA(void* hkey, uint32_t dwi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHEnumValueW(void* hkey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHEnumValueW(void* hkey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9039,7 +9090,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHEnumValueW(void* hkey, uint32_t dwi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW(void* hkeyuser, uint32_t dwindex, void* pszmailaddress, int32_t cchmailaddress) {
+int32_t windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW(void* hkeyuser, uint32_t dwindex, void* pszmailaddress, int32_t cchmailaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9064,7 +9115,7 @@ int32_t windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate(void* pszcmdtemplate, void* ppszapplication, void* ppszcommandline, void* ppszparameters) {
+int32_t windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate(void* pszcmdtemplate, void* ppszapplication, void* ppszcommandline, void* ppszparameters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9089,7 +9140,7 @@ int32_t windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFileOperationA(void* lpfileop) {
+int32_t windowssys_windows_win32_ui_shell_sHFileOperationA(void* lpfileop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9111,7 +9162,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFileOperationA(void* lpfileop) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFileOperationW(void* lpfileop) {
+int32_t windowssys_windows_win32_ui_shell_sHFileOperationW(void* lpfileop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9133,7 +9184,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFileOperationW(void* lpfileop) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFindFiles(void* pidlfolder, void* pidlsavefile) {
+int32_t windowssys_windows_win32_ui_shell_sHFindFiles(void* pidlfolder, void* pidlsavefile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9156,7 +9207,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFindFiles(void* pidlfolder, void* pi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup(void* hmenu, void* hwndowner, uint32_t idcmdfirst, uint32_t idcmdlast) {
+void* windowssys_windows_win32_ui_shell_shfindInitMenuPopup(void* hmenu, void* hwndowner, uint32_t idcmdfirst, uint32_t idcmdlast) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9181,7 +9232,7 @@ void* windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup(void* hmenu, void* 
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHFlushSFCache(void) {
+void windowssys_windows_win32_ui_shell_sHFlushSFCache(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9201,7 +9252,7 @@ void windowssys_windows_win32_ui_shell_SHFlushSFCache(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFormatDateTimeA(void* pft, void* pdwflags, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHFormatDateTimeA(void* pft, void* pdwflags, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9226,7 +9277,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFormatDateTimeA(void* pft, void* pdw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFormatDateTimeW(void* pft, void* pdwflags, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHFormatDateTimeW(void* pft, void* pdwflags, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9251,7 +9302,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFormatDateTimeW(void* pft, void* pdw
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHFormatDrive(void* hwnd, uint32_t drive, uint32_t fmtid, uint32_t options) {
+uint32_t windowssys_windows_win32_ui_shell_sHFormatDrive(void* hwnd, uint32_t drive, uint32_t fmtid, uint32_t options) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9276,7 +9327,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHFormatDrive(void* hwnd, uint32_t dr
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHFree(void* pv) {
+void windowssys_windows_win32_ui_shell_sHFree(void* pv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9297,7 +9348,7 @@ void windowssys_windows_win32_ui_shell_SHFree(void* pv) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHFreeNameMappings(void* hnamemappings) {
+void windowssys_windows_win32_ui_shell_sHFreeNameMappings(void* hnamemappings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9318,7 +9369,7 @@ void windowssys_windows_win32_ui_shell_SHFreeNameMappings(void* hnamemappings) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHFreeShared(void* hdata, uint32_t dwprocessid) {
+int32_t windowssys_windows_win32_ui_shell_sHFreeShared(void* hdata, uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9341,7 +9392,7 @@ int32_t windowssys_windows_win32_ui_shell_SHFreeShared(void* hdata, uint32_t dwp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject(void* pdo, uint32_t dwattributemask, void* pdwattributes, void* pcitems) {
+int32_t windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject(void* pdo, uint32_t dwattributemask, void* pdwattributes, void* pcitems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9366,7 +9417,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject(void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDataFromIDListA(void* psf, void* pidl, int32_t nformat, void* pv, int32_t cb) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDataFromIDListA(void* psf, void* pidl, int32_t nformat, void* pv, int32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9392,7 +9443,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDataFromIDListA(void* psf, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDataFromIDListW(void* psf, void* pidl, int32_t nformat, void* pv, int32_t cb) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDataFromIDListW(void* psf, void* pidl, int32_t nformat, void* pv, int32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9418,7 +9469,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDataFromIDListW(void* psf, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDesktopFolder(void* ppshf) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDesktopFolder(void* ppshf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9440,7 +9491,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDesktopFolder(void* ppshf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA(void* pszdirectoryname, void* pulfreebytesavailabletocaller, void* pultotalnumberofbytes, void* pultotalnumberoffreebytes) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA(void* pszdirectoryname, void* pulfreebytesavailabletocaller, void* pultotalnumberofbytes, void* pultotalnumberoffreebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9465,7 +9516,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA(void* pszdirecto
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW(void* pszdirectoryname, void* pulfreebytesavailabletocaller, void* pultotalnumberofbytes, void* pultotalnumberoffreebytes) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW(void* pszdirectoryname, void* pulfreebytesavailabletocaller, void* pultotalnumberofbytes, void* pultotalnumberoffreebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9490,7 +9541,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW(void* pszdirecto
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetDriveMedia(void* pszdrive, void* pdwmediacontent) {
+int32_t windowssys_windows_win32_ui_shell_sHGetDriveMedia(void* pszdrive, void* pdwmediacontent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9513,7 +9564,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetDriveMedia(void* pszdrive, void* 
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_shell_SHGetFileInfoA(void* pszpath, uint32_t dwfileattributes, void* psfi, uint32_t cbfileinfo, uint32_t uflags) {
+uint64_t windowssys_windows_win32_ui_shell_sHGetFileInfoA(void* pszpath, uint32_t dwfileattributes, void* psfi, uint32_t cbfileinfo, uint32_t uflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9539,7 +9590,7 @@ uint64_t windowssys_windows_win32_ui_shell_SHGetFileInfoA(void* pszpath, uint32_
 #endif
 }
 
-uint64_t windowssys_windows_win32_ui_shell_SHGetFileInfoW(void* pszpath, uint32_t dwfileattributes, void* psfi, uint32_t cbfileinfo, uint32_t uflags) {
+uint64_t windowssys_windows_win32_ui_shell_sHGetFileInfoW(void* pszpath, uint32_t dwfileattributes, void* psfi, uint32_t cbfileinfo, uint32_t uflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9565,7 +9616,7 @@ uint64_t windowssys_windows_win32_ui_shell_SHGetFileInfoW(void* pszpath, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetFolderLocation(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* ppidl) {
+int32_t windowssys_windows_win32_ui_shell_sHGetFolderLocation(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* ppidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9591,7 +9642,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetFolderLocation(void* hwnd, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathA(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetFolderPathA(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9617,7 +9668,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathA(void* hwnd, int32_t c
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszsubdir, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszsubdir, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9644,7 +9695,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszsubdir, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszsubdir, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9671,7 +9722,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathW(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetFolderPathW(void* hwnd, int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9697,7 +9748,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetFolderPathW(void* hwnd, int32_t c
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetIDListFromObject(void* punk, void* ppidl) {
+int32_t windowssys_windows_win32_ui_shell_sHGetIDListFromObject(void* punk, void* ppidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9720,7 +9771,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetIDListFromObject(void* punk, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA(void* psziconpath, int32_t iiconindex) {
+int32_t windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA(void* psziconpath, int32_t iiconindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9743,7 +9794,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA(void* psziconpa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW(void* psziconpath, int32_t iiconindex) {
+int32_t windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW(void* psziconpath, int32_t iiconindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9766,7 +9817,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW(void* psziconpa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetImageList(int32_t iimagelist, void* riid, void* ppvobj) {
+int32_t windowssys_windows_win32_ui_shell_sHGetImageList(int32_t iimagelist, void* riid, void* ppvobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9790,7 +9841,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetImageList(int32_t iimagelist, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetInstanceExplorer(void* ppunk) {
+int32_t windowssys_windows_win32_ui_shell_sHGetInstanceExplorer(void* ppunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9812,7 +9863,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetInstanceExplorer(void* ppunk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetInverseCMAP(void* pbmap, uint32_t cbmap) {
+int32_t windowssys_windows_win32_ui_shell_sHGetInverseCMAP(void* pbmap, uint32_t cbmap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9835,7 +9886,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetInverseCMAP(void* pbmap, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetItemFromDataObject(void* pdtobj, int32_t dwflags, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHGetItemFromDataObject(void* pdtobj, int32_t dwflags, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9860,7 +9911,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetItemFromDataObject(void* pdtobj, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetItemFromObject(void* punk, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHGetItemFromObject(void* punk, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9884,7 +9935,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetItemFromObject(void* punk, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList(void* rfid, uint32_t dwflags, void* htoken, void* ppidl) {
+int32_t windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList(void* rfid, uint32_t dwflags, void* htoken, void* ppidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9909,7 +9960,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList(void* rfid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderItem(void* rfid, int32_t flags, void* htoken, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHGetKnownFolderItem(void* rfid, int32_t flags, void* htoken, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9935,7 +9986,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderItem(void* rfid, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderPath(void* rfid, uint32_t dwflags, void* htoken, void* ppszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetKnownFolderPath(void* rfid, uint32_t dwflags, void* htoken, void* ppszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9960,7 +10011,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetKnownFolderPath(void* rfid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetLocalizedName(void* pszpath, void* pszresmodule, uint32_t cch, void* pidsres) {
+int32_t windowssys_windows_win32_ui_shell_sHGetLocalizedName(void* pszpath, void* pszresmodule, uint32_t cch, void* pidsres) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9985,7 +10036,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetLocalizedName(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetMalloc(void* ppmalloc) {
+int32_t windowssys_windows_win32_ui_shell_sHGetMalloc(void* ppmalloc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10007,7 +10058,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetMalloc(void* ppmalloc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetNameFromIDList(void* pidl, int32_t sigdnname, void* ppszname) {
+int32_t windowssys_windows_win32_ui_shell_sHGetNameFromIDList(void* pidl, int32_t sigdnname, void* ppszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10031,7 +10082,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetNameFromIDList(void* pidl, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA(void* pszlinkto, void* pszdir, void* pszname, void* pfmustcopy, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA(void* pszlinkto, void* pszdir, void* pszname, void* pfmustcopy, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10057,7 +10108,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA(void* pszlinkto, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW(void* pszlinkto, void* pszdir, void* pszname, void* pfmustcopy, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW(void* pszlinkto, void* pszdir, void* pszname, void* pfmustcopy, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10083,7 +10134,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW(void* pszlinkto, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListA(void* pidl, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetPathFromIDListA(void* pidl, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10106,7 +10157,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListA(void* pidl, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx(void* pidl, void* pszpath, uint32_t cchpath, uint32_t uopts) {
+int32_t windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx(void* pidl, void* pszpath, uint32_t cchpath, uint32_t uopts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10131,7 +10182,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx(void* pidl, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListW(void* pidl, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHGetPathFromIDListW(void* pidl, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10154,7 +10205,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetPathFromIDListW(void* pidl, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetRealIDL(void* psf, void* pidlsimple, void* ppidlreal) {
+int32_t windowssys_windows_win32_ui_shell_sHGetRealIDL(void* psf, void* pidlsimple, void* ppidlreal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10178,7 +10229,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetRealIDL(void* psf, void* pidlsimp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings(void* pfcs, void* pszpath, uint32_t dwreadwrite) {
+int32_t windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings(void* pfcs, void* pszpath, uint32_t dwreadwrite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10202,7 +10253,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings(void* pfc
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHGetSetSettings(void* lpss, uint32_t dwmask, int32_t bset) {
+void windowssys_windows_win32_ui_shell_sHGetSetSettings(void* lpss, uint32_t dwmask, int32_t bset) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10225,7 +10276,7 @@ void windowssys_windows_win32_ui_shell_SHGetSetSettings(void* lpss, uint32_t dwm
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHGetSettings(void* psfs, uint32_t dwmask) {
+void windowssys_windows_win32_ui_shell_sHGetSettings(void* psfs, uint32_t dwmask) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10247,7 +10298,7 @@ void windowssys_windows_win32_ui_shell_SHGetSettings(void* psfs, uint32_t dwmask
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation(void* hwnd, int32_t csidl, void* ppidl) {
+int32_t windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation(void* hwnd, int32_t csidl, void* ppidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10271,7 +10322,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA(void* hwnd, void* pszpath, int32_t csidl, int32_t fcreate) {
+int32_t windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA(void* hwnd, void* pszpath, int32_t csidl, int32_t fcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10296,7 +10347,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA(void* hwnd, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW(void* hwnd, void* pszpath, int32_t csidl, int32_t fcreate) {
+int32_t windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW(void* hwnd, void* pszpath, int32_t csidl, int32_t fcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10321,7 +10372,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW(void* hwnd, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetStockIconInfo(int32_t siid, uint32_t uflags, void* psii) {
+int32_t windowssys_windows_win32_ui_shell_sHGetStockIconInfo(int32_t siid, uint32_t uflags, void* psii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10345,7 +10396,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetStockIconInfo(int32_t siid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem(void* psi, void* propkey, void* ppropvar) {
+int32_t windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem(void* psi, void* propkey, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10369,7 +10420,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetThreadRef(void* ppunk) {
+int32_t windowssys_windows_win32_ui_shell_sHGetThreadRef(void* ppunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10391,7 +10442,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetThreadRef(void* ppunk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW(void* hkeyuser, void* pszmailaddress, void* pdwcount, void* pfiletime, void* pszshellexecutecommand, int32_t cchshellexecutecommand) {
+int32_t windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW(void* hkeyuser, void* pszmailaddress, void* pdwcount, void* pfiletime, void* pszshellexecutecommand, int32_t cchshellexecutecommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10418,7 +10469,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW(void* hkeyuser, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHGetValueA(void* hkey, void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHGetValueA(void* hkey, void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10445,7 +10496,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHGetValueA(void* hkey, void* pszsubk
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHGetValueW(void* hkey, void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHGetValueW(void* hkey, void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10472,7 +10523,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHGetValueW(void* hkey, void* pszsubk
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag(void* pidl, void* pszbagname, uint32_t dwflags, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag(void* pidl, void* pszbagname, uint32_t dwflags, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10498,7 +10549,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag(void* pidl, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement(int32_t id) {
+int32_t windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement(int32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10520,7 +10571,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement(int32_t id) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue(int32_t id) {
+int32_t windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue(int32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10542,7 +10593,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue(int32_t id) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement(int32_t id) {
+int32_t windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement(int32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10564,7 +10615,7 @@ int32_t windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement(int32_t id) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHHandleUpdateImage(void* pidlextra) {
+int32_t windowssys_windows_win32_ui_shell_sHHandleUpdateImage(void* pidlextra) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10586,7 +10637,7 @@ int32_t windowssys_windows_win32_ui_shell_SHHandleUpdateImage(void* pidlextra) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHILCreateFromPath(void* pszpath, void* ppidl, void* rgfinout) {
+int32_t windowssys_windows_win32_ui_shell_sHILCreateFromPath(void* pszpath, void* ppidl, void* rgfinout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10610,7 +10661,7 @@ int32_t windowssys_windows_win32_ui_shell_SHILCreateFromPath(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA(void* hwnd, uint32_t uaction, void* lpbuf1, void* lpbuf2, int32_t fmodal) {
+int32_t windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA(void* hwnd, uint32_t uaction, void* lpbuf1, void* lpbuf2, int32_t fmodal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10636,7 +10687,7 @@ int32_t windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA(void* hwnd, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW(void* hwnd, uint32_t uaction, void* lpbuf1, void* lpbuf2, int32_t fmodal) {
+int32_t windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW(void* hwnd, uint32_t uaction, void* lpbuf1, void* lpbuf2, int32_t fmodal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10662,7 +10713,7 @@ int32_t windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW(void* hwnd, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline(void* pwszpath, void* pdwstatus) {
+int32_t windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline(void* pwszpath, void* pdwstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10685,7 +10736,7 @@ int32_t windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline(void* pwszpat
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine(uint32_t dwtype) {
+int32_t windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine(uint32_t dwtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10707,7 +10758,7 @@ int32_t windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine(uint32_t dwtype) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHLimitInputEdit(void* hwndedit, void* psf) {
+int32_t windowssys_windows_win32_ui_shell_sHLimitInputEdit(void* hwndedit, void* psf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10730,7 +10781,7 @@ int32_t windowssys_windows_win32_ui_shell_SHLimitInputEdit(void* hwndedit, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHLoadInProc(void* rclsid) {
+int32_t windowssys_windows_win32_ui_shell_sHLoadInProc(void* rclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10752,7 +10803,7 @@ int32_t windowssys_windows_win32_ui_shell_SHLoadInProc(void* rclsid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHLoadIndirectString(void* pszsource, void* pszoutbuf, uint32_t cchoutbuf, void* ppvreserved) {
+int32_t windowssys_windows_win32_ui_shell_sHLoadIndirectString(void* pszsource, void* pszoutbuf, uint32_t cchoutbuf, void* ppvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10777,7 +10828,7 @@ int32_t windowssys_windows_win32_ui_shell_SHLoadIndirectString(void* pszsource, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers(void) {
+int32_t windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10798,7 +10849,7 @@ int32_t windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers(
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHLockShared(void* hdata, uint32_t dwprocessid) {
+void* windowssys_windows_win32_ui_shell_sHLockShared(void* hdata, uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10821,7 +10872,7 @@ void* windowssys_windows_win32_ui_shell_SHLockShared(void* hdata, uint32_t dwpro
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex(void* pshf, void* pidl, void* piindexsel) {
+int32_t windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex(void* pshf, void* pidl, void* piindexsel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10845,7 +10896,7 @@ int32_t windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHMessageBoxCheckA(void* hwnd, void* psztext, void* pszcaption, uint32_t utype, int32_t idefault, void* pszregval) {
+int32_t windowssys_windows_win32_ui_shell_sHMessageBoxCheckA(void* hwnd, void* psztext, void* pszcaption, uint32_t utype, int32_t idefault, void* pszregval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10872,7 +10923,7 @@ int32_t windowssys_windows_win32_ui_shell_SHMessageBoxCheckA(void* hwnd, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHMessageBoxCheckW(void* hwnd, void* psztext, void* pszcaption, uint32_t utype, int32_t idefault, void* pszregval) {
+int32_t windowssys_windows_win32_ui_shell_sHMessageBoxCheckW(void* hwnd, void* psztext, void* pszcaption, uint32_t utype, int32_t idefault, void* pszregval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10899,7 +10950,7 @@ int32_t windowssys_windows_win32_ui_shell_SHMessageBoxCheckW(void* hwnd, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHMultiFileProperties(void* pdtobj, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHMultiFileProperties(void* pdtobj, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10922,7 +10973,7 @@ int32_t windowssys_windows_win32_ui_shell_SHMultiFileProperties(void* pdtobj, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHObjectProperties(void* hwnd, uint32_t shopobjecttype, void* pszobjectname, void* pszpropertypage) {
+int32_t windowssys_windows_win32_ui_shell_sHObjectProperties(void* hwnd, uint32_t shopobjecttype, void* pszobjectname, void* pszpropertypage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10947,7 +10998,7 @@ int32_t windowssys_windows_win32_ui_shell_SHObjectProperties(void* hwnd, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems(void* pidlfolder, uint32_t cidl, void* apidl, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems(void* pidlfolder, uint32_t cidl, void* apidl, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10972,7 +11023,7 @@ int32_t windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems(void* pidlf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHOpenPropSheetW(void* pszcaption, void* ahkeys, uint32_t ckeys, void* pclsiddefault, void* pdtobj, void* psb, void* pstartpage) {
+int32_t windowssys_windows_win32_ui_shell_sHOpenPropSheetW(void* pszcaption, void* ahkeys, uint32_t ckeys, void* pclsiddefault, void* pdtobj, void* psb, void* pstartpage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11000,7 +11051,7 @@ int32_t windowssys_windows_win32_ui_shell_SHOpenPropSheetW(void* pszcaption, voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHOpenRegStream2A(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
+void* windowssys_windows_win32_ui_shell_sHOpenRegStream2A(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11025,7 +11076,7 @@ void* windowssys_windows_win32_ui_shell_SHOpenRegStream2A(void* hkey, void* pszs
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHOpenRegStream2W(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
+void* windowssys_windows_win32_ui_shell_sHOpenRegStream2W(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11050,7 +11101,7 @@ void* windowssys_windows_win32_ui_shell_SHOpenRegStream2W(void* hkey, void* pszs
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHOpenRegStreamA(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
+void* windowssys_windows_win32_ui_shell_sHOpenRegStreamA(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11075,7 +11126,7 @@ void* windowssys_windows_win32_ui_shell_SHOpenRegStreamA(void* hkey, void* pszsu
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHOpenRegStreamW(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
+void* windowssys_windows_win32_ui_shell_sHOpenRegStreamW(void* hkey, void* pszsubkey, void* pszvalue, uint32_t grfmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11100,7 +11151,7 @@ void* windowssys_windows_win32_ui_shell_SHOpenRegStreamW(void* hkey, void* pszsu
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHOpenWithDialog(void* hwndparent, void* poainfo) {
+int32_t windowssys_windows_win32_ui_shell_sHOpenWithDialog(void* hwndparent, void* poainfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11123,7 +11174,7 @@ int32_t windowssys_windows_win32_ui_shell_SHOpenWithDialog(void* hwndparent, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHParseDisplayName(void* pszname, void* pbc, void* ppidl, uint32_t sfgaoin, void* psfgaoout) {
+int32_t windowssys_windows_win32_ui_shell_sHParseDisplayName(void* pszname, void* pbc, void* ppidl, uint32_t sfgaoin, void* psfgaoout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11149,7 +11200,7 @@ int32_t windowssys_windows_win32_ui_shell_SHParseDisplayName(void* pszname, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA(void* hwnd, void* punkenablemodless, void* pszpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA(void* hwnd, void* punkenablemodless, void* pszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11174,7 +11225,7 @@ int32_t windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA(void* hwnd, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW(void* hwnd, void* punkenablemodless, void* pszpath, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW(void* hwnd, void* punkenablemodless, void* pszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11199,7 +11250,7 @@ int32_t windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW(void* hwnd, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHQueryInfoKeyA(void* hkey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen) {
+uint32_t windowssys_windows_win32_ui_shell_sHQueryInfoKeyA(void* hkey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11225,7 +11276,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHQueryInfoKeyA(void* hkey, void* pcs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHQueryInfoKeyW(void* hkey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen) {
+uint32_t windowssys_windows_win32_ui_shell_sHQueryInfoKeyW(void* hkey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11251,7 +11302,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHQueryInfoKeyW(void* hkey, void* pcs
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHQueryRecycleBinA(void* pszrootpath, void* pshqueryrbinfo) {
+int32_t windowssys_windows_win32_ui_shell_sHQueryRecycleBinA(void* pszrootpath, void* pshqueryrbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11274,7 +11325,7 @@ int32_t windowssys_windows_win32_ui_shell_SHQueryRecycleBinA(void* pszrootpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHQueryRecycleBinW(void* pszrootpath, void* pshqueryrbinfo) {
+int32_t windowssys_windows_win32_ui_shell_sHQueryRecycleBinW(void* pszrootpath, void* pshqueryrbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11297,7 +11348,7 @@ int32_t windowssys_windows_win32_ui_shell_SHQueryRecycleBinW(void* pszrootpath, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHQueryUserNotificationState(void* pquns) {
+int32_t windowssys_windows_win32_ui_shell_sHQueryUserNotificationState(void* pquns) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11319,7 +11370,7 @@ int32_t windowssys_windows_win32_ui_shell_SHQueryUserNotificationState(void* pqu
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHQueryValueExA(void* hkey, void* pszvalue, void* pdwreserved, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHQueryValueExA(void* hkey, void* pszvalue, void* pdwreserved, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11346,7 +11397,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHQueryValueExA(void* hkey, void* psz
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHQueryValueExW(void* hkey, void* pszvalue, void* pdwreserved, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHQueryValueExW(void* hkey, void* pszvalue, void* pdwreserved, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11373,7 +11424,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHQueryValueExW(void* hkey, void* psz
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegCloseUSKey(int64_t huskey) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegCloseUSKey(int64_t huskey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11395,7 +11446,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegCloseUSKey(int64_t huskey) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA(void* pszpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA(void* pszpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11421,7 +11472,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA(void* pszpath, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW(void* pwzpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW(void* pwzpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11447,7 +11498,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW(void* pwzpath, uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA(int64_t huskey, void* pszsubkey, int32_t delregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA(int64_t huskey, void* pszsubkey, int32_t delregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11471,7 +11522,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA(int64_t huskey
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW(int64_t huskey, void* pwzsubkey, int32_t delregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW(int64_t huskey, void* pwzsubkey, int32_t delregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11495,7 +11546,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW(int64_t huskey
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA(int64_t huskey, void* pszvalue, int32_t delregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA(int64_t huskey, void* pszvalue, int32_t delregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11519,7 +11570,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA(int64_t huskey, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW(int64_t huskey, void* pwzvalue, int32_t delregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW(int64_t huskey, void* pwzvalue, int32_t delregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11543,7 +11594,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW(int64_t huskey, v
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHRegDuplicateHKey(void* hkey) {
+void* windowssys_windows_win32_ui_shell_sHRegDuplicateHKey(void* hkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11565,7 +11616,7 @@ void* windowssys_windows_win32_ui_shell_SHRegDuplicateHKey(void* hkey) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA(int64_t huskey, uint32_t dwindex, void* pszname, void* pcchname, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA(int64_t huskey, uint32_t dwindex, void* pszname, void* pcchname, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11591,7 +11642,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA(int64_t huskey, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW(int64_t huskey, uint32_t dwindex, void* pwzname, void* pcchname, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW(int64_t huskey, uint32_t dwindex, void* pwzname, void* pcchname, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11617,7 +11668,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW(int64_t huskey, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSValueA(int64_t huskey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegEnumUSValueA(int64_t huskey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11646,7 +11697,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSValueA(int64_t huskey, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSValueW(int64_t huskey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegEnumUSValueW(int64_t huskey, uint32_t dwindex, void* pszvaluename, void* pcchvaluename, void* pdwtype, void* pvdata, void* pcbdata, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11675,7 +11726,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegEnumUSValueW(int64_t huskey, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA(void* pszsubkey, void* pszvalue, int32_t fignorehkcu, int32_t fdefault) {
+int32_t windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA(void* pszsubkey, void* pszvalue, int32_t fignorehkcu, int32_t fdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11700,7 +11751,7 @@ int32_t windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA(void* pszsubkey, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW(void* pszsubkey, void* pszvalue, int32_t fignorehkcu, int32_t fdefault) {
+int32_t windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW(void* pszsubkey, void* pszvalue, int32_t fignorehkcu, int32_t fdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11725,7 +11776,7 @@ int32_t windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW(void* pszsubkey, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHRegGetIntW(void* hk, void* pwzkey, int32_t idefault) {
+int32_t windowssys_windows_win32_ui_shell_sHRegGetIntW(void* hk, void* pwzkey, int32_t idefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11749,7 +11800,7 @@ int32_t windowssys_windows_win32_ui_shell_SHRegGetIntW(void* hk, void* pwzkey, i
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetPathA(void* hkey, void* pcszsubkey, void* pcszvalue, void* pszpath, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetPathA(void* hkey, void* pcszsubkey, void* pcszvalue, void* pszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11775,7 +11826,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetPathA(void* hkey, void* pcszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetPathW(void* hkey, void* pcszsubkey, void* pcszvalue, void* pszpath, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetPathW(void* hkey, void* pcszsubkey, void* pcszvalue, void* pszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11801,7 +11852,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetPathW(void* hkey, void* pcszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetUSValueA(void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetUSValueA(void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11830,7 +11881,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetUSValueA(void* pszsubkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetUSValueW(void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetUSValueW(void* pszsubkey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11859,7 +11910,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetUSValueW(void* pszsubkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueA(void* hkey, void* pszsubkey, void* pszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetValueA(void* hkey, void* pszsubkey, void* pszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11887,7 +11938,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueA(void* hkey, void* pszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM(void* pwszkey, void* pwszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM(void* pwszkey, void* pwszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11914,7 +11965,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM(void* pwszk
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueW(void* hkey, void* pszsubkey, void* pszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegGetValueW(void* hkey, void* pszsubkey, void* pszvalue, int32_t srrfflags, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11942,7 +11993,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegGetValueW(void* hkey, void* pszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA(void* pszpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, int32_t fignorehkcu) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA(void* pszpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, int32_t fignorehkcu) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11968,7 +12019,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA(void* pszpath, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW(void* pwzpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, int32_t fignorehkcu) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW(void* pwzpath, uint32_t samdesired, int64_t hrelativeuskey, void* phnewuskey, int32_t fignorehkcu) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11994,7 +12045,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW(void* pwzpath, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA(int64_t huskey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA(int64_t huskey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12021,7 +12072,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA(int64_t huskey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW(int64_t huskey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen, int32_t enumregflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW(int64_t huskey, void* pcsubkeys, void* pcchmaxsubkeylen, void* pcvalues, void* pcchmaxvaluenamelen, int32_t enumregflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12048,7 +12099,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW(int64_t huskey, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegQueryUSValueA(int64_t huskey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegQueryUSValueA(int64_t huskey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12077,7 +12128,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegQueryUSValueA(int64_t huskey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegQueryUSValueW(int64_t huskey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegQueryUSValueW(int64_t huskey, void* pszvalue, void* pdwtype, void* pvdata, void* pcbdata, int32_t fignorehkcu, void* pvdefaultdata, uint32_t dwdefaultdatasize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12106,7 +12157,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegQueryUSValueW(int64_t huskey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegSetPathA(void* hkey, void* pcszsubkey, void* pcszvalue, void* pcszpath, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegSetPathA(void* hkey, void* pcszsubkey, void* pcszvalue, void* pcszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12132,7 +12183,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegSetPathA(void* hkey, void* pcszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegSetPathW(void* hkey, void* pcszsubkey, void* pcszvalue, void* pcszpath, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegSetPathW(void* hkey, void* pcszsubkey, void* pcszvalue, void* pcszpath, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12158,7 +12209,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegSetPathW(void* hkey, void* pcszs
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegSetUSValueA(void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegSetUSValueA(void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12185,7 +12236,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegSetUSValueA(void* pszsubkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegSetUSValueW(void* pwzsubkey, void* pwzvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegSetUSValueW(void* pwzsubkey, void* pwzvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12212,7 +12263,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegSetUSValueW(void* pwzsubkey, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegWriteUSValueA(int64_t huskey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegWriteUSValueA(int64_t huskey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12239,7 +12290,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegWriteUSValueA(int64_t huskey, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRegWriteUSValueW(int64_t huskey, void* pwzvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_ui_shell_sHRegWriteUSValueW(int64_t huskey, void* pwzvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12266,7 +12317,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRegWriteUSValueW(int64_t huskey, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHReleaseThreadRef(void) {
+int32_t windowssys_windows_win32_ui_shell_sHReleaseThreadRef(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12287,7 +12338,7 @@ int32_t windowssys_windows_win32_ui_shell_SHReleaseThreadRef(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHRemoveLocalizedName(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHRemoveLocalizedName(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12309,7 +12360,7 @@ int32_t windowssys_windows_win32_ui_shell_SHRemoveLocalizedName(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHResolveLibrary(void* psilibrary) {
+int32_t windowssys_windows_win32_ui_shell_sHResolveLibrary(void* psilibrary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12331,7 +12382,7 @@ int32_t windowssys_windows_win32_ui_shell_SHResolveLibrary(void* psilibrary) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SHRestricted(int32_t rest) {
+uint32_t windowssys_windows_win32_ui_shell_sHRestricted(int32_t rest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12353,7 +12404,7 @@ uint32_t windowssys_windows_win32_ui_shell_SHRestricted(int32_t rest) {
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA(uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA(uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12377,7 +12428,7 @@ int64_t windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA(uint32_t umsg,
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW(uint32_t umsg, uint64_t wparam, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW(uint32_t umsg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12401,7 +12452,7 @@ int64_t windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW(uint32_t umsg,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetDefaultProperties(void* hwnd, void* psi, uint32_t dwfileopflags, void* pfops) {
+int32_t windowssys_windows_win32_ui_shell_sHSetDefaultProperties(void* hwnd, void* psi, uint32_t dwfileopflags, void* pfops) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12426,7 +12477,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetDefaultProperties(void* hwnd, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetFolderPathA(int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHSetFolderPathA(int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12451,7 +12502,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetFolderPathA(int32_t csidl, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetFolderPathW(int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHSetFolderPathW(int32_t csidl, void* htoken, uint32_t dwflags, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12476,7 +12527,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetFolderPathW(int32_t csidl, void* 
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHSetInstanceExplorer(void* punk) {
+void windowssys_windows_win32_ui_shell_sHSetInstanceExplorer(void* punk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12497,7 +12548,7 @@ void windowssys_windows_win32_ui_shell_SHSetInstanceExplorer(void* punk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetKnownFolderPath(void* rfid, uint32_t dwflags, void* htoken, void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_sHSetKnownFolderPath(void* rfid, uint32_t dwflags, void* htoken, void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12522,7 +12573,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetKnownFolderPath(void* rfid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetLocalizedName(void* pszpath, void* pszresmodule, int32_t idsres) {
+int32_t windowssys_windows_win32_ui_shell_sHSetLocalizedName(void* pszpath, void* pszresmodule, int32_t idsres) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12546,7 +12597,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetLocalizedName(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem(void* psi, void* propkey, void* propvar) {
+int32_t windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem(void* psi, void* propkey, void* propvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12570,7 +12621,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetThreadRef(void* punk) {
+int32_t windowssys_windows_win32_ui_shell_sHSetThreadRef(void* punk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12592,7 +12643,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetThreadRef(void* punk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW(void* pszmailaddress, uint32_t dwcount, void* pszshellexecutecommand) {
+int32_t windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW(void* pszmailaddress, uint32_t dwcount, void* pszshellexecutecommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12616,7 +12667,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW(void* pszmailadd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetValueA(void* hkey, void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata) {
+int32_t windowssys_windows_win32_ui_shell_sHSetValueA(void* hkey, void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12643,7 +12694,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetValueA(void* hkey, void* pszsubke
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSetValueW(void* hkey, void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata) {
+int32_t windowssys_windows_win32_ui_shell_sHSetValueW(void* hkey, void* pszsubkey, void* pszvalue, uint32_t dwtype, void* pvdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12670,7 +12721,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSetValueW(void* hkey, void* pszsubke
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_shell_SHShellFolderView_Message(void* hwndmain, uint32_t umsg, int64_t lparam) {
+int64_t windowssys_windows_win32_ui_shell_shshellFolderViewMessage(void* hwndmain, uint32_t umsg, int64_t lparam) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12694,7 +12745,7 @@ int64_t windowssys_windows_win32_ui_shell_SHShellFolderView_Message(void* hwndma
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHShowManageLibraryUI(void* psilibrary, void* hwndowner, void* psztitle, void* pszinstruction, int32_t lmdoptions) {
+int32_t windowssys_windows_win32_ui_shell_sHShowManageLibraryUI(void* psilibrary, void* hwndowner, void* psztitle, void* pszinstruction, int32_t lmdoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12720,7 +12771,7 @@ int32_t windowssys_windows_win32_ui_shell_SHShowManageLibraryUI(void* psilibrary
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath(void* pszpath) {
+void* windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath(void* pszpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12742,7 +12793,7 @@ void* windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHSkipJunction(void* pbc, void* pclsid) {
+int32_t windowssys_windows_win32_ui_shell_sHSkipJunction(void* pbc, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12765,7 +12816,7 @@ int32_t windowssys_windows_win32_ui_shell_SHSkipJunction(void* pbc, void* pclsid
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW(void* hwnd, void* pszremotename, uint32_t dwtype) {
+int32_t windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW(void* hwnd, void* pszremotename, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12789,7 +12840,7 @@ int32_t windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHStrDupA(void* psz, void* ppwsz) {
+int32_t windowssys_windows_win32_ui_shell_sHStrDupA(void* psz, void* ppwsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12812,7 +12863,7 @@ int32_t windowssys_windows_win32_ui_shell_SHStrDupA(void* psz, void* ppwsz) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHStrDupW(void* psz, void* ppwsz) {
+int32_t windowssys_windows_win32_ui_shell_sHStrDupW(void* psz, void* ppwsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12835,7 +12886,7 @@ int32_t windowssys_windows_win32_ui_shell_SHStrDupW(void* psz, void* ppwsz) {
 #endif
 }
 
-int8_t windowssys_windows_win32_ui_shell_SHStripMneumonicA(void* pszmenu) {
+int8_t windowssys_windows_win32_ui_shell_sHStripMneumonicA(void* pszmenu) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12857,7 +12908,7 @@ int8_t windowssys_windows_win32_ui_shell_SHStripMneumonicA(void* pszmenu) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_ui_shell_SHStripMneumonicW(void* pszmenu) {
+uint16_t windowssys_windows_win32_ui_shell_sHStripMneumonicW(void* pszmenu) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12879,7 +12930,7 @@ uint16_t windowssys_windows_win32_ui_shell_SHStripMneumonicW(void* pszmenu) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHTestTokenMembership(void* htoken, uint32_t ulrid) {
+int32_t windowssys_windows_win32_ui_shell_sHTestTokenMembership(void* htoken, uint32_t ulrid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12902,7 +12953,7 @@ int32_t windowssys_windows_win32_ui_shell_SHTestTokenMembership(void* htoken, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHUnicodeToAnsi(void* pwszsrc, void* pszdst, int32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHUnicodeToAnsi(void* pwszsrc, void* pszdst, int32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12926,7 +12977,7 @@ int32_t windowssys_windows_win32_ui_shell_SHUnicodeToAnsi(void* pwszsrc, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHUnicodeToUnicode(void* pwzsrc, void* pwzdst, int32_t cwchbuf) {
+int32_t windowssys_windows_win32_ui_shell_sHUnicodeToUnicode(void* pwzsrc, void* pwzdst, int32_t cwchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12950,7 +13001,7 @@ int32_t windowssys_windows_win32_ui_shell_SHUnicodeToUnicode(void* pwzsrc, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHUnlockShared(void* pvdata) {
+int32_t windowssys_windows_win32_ui_shell_sHUnlockShared(void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12972,7 +13023,7 @@ int32_t windowssys_windows_win32_ui_shell_SHUnlockShared(void* pvdata) {
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHUpdateImageA(void* pszhashitem, int32_t iindex, uint32_t uflags, int32_t iimageindex) {
+void windowssys_windows_win32_ui_shell_sHUpdateImageA(void* pszhashitem, int32_t iindex, uint32_t uflags, int32_t iimageindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12996,7 +13047,7 @@ void windowssys_windows_win32_ui_shell_SHUpdateImageA(void* pszhashitem, int32_t
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_SHUpdateImageW(void* pszhashitem, int32_t iindex, uint32_t uflags, int32_t iimageindex) {
+void windowssys_windows_win32_ui_shell_sHUpdateImageW(void* pszhashitem, int32_t iindex, uint32_t uflags, int32_t iimageindex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13020,7 +13071,7 @@ void windowssys_windows_win32_ui_shell_SHUpdateImageW(void* pszhashitem, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SHValidateUNC(void* hwndowner, void* pszfile, uint32_t fconnect) {
+int32_t windowssys_windows_win32_ui_shell_sHValidateUNC(void* hwndowner, void* pszfile, uint32_t fconnect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13044,7 +13095,7 @@ int32_t windowssys_windows_win32_ui_shell_SHValidateUNC(void* hwndowner, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID(void* appid) {
+int32_t windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID(void* appid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13066,7 +13117,7 @@ int32_t windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelI
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SetMenuContextHelpId(void* param0, uint32_t param1) {
+int32_t windowssys_windows_win32_ui_shell_setMenuContextHelpId(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13089,7 +13140,7 @@ int32_t windowssys_windows_win32_ui_shell_SetMenuContextHelpId(void* param0, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SetWindowContextHelpId(void* param0, uint32_t param1) {
+int32_t windowssys_windows_win32_ui_shell_setWindowContextHelpId(void* param0, uint32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13112,7 +13163,7 @@ int32_t windowssys_windows_win32_ui_shell_SetWindowContextHelpId(void* param0, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SetWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass, uint64_t dwrefdata) {
+int32_t windowssys_windows_win32_ui_shell_setWindowSubclass(void* hwnd, void* pfnsubclass, uint64_t uidsubclass, uint64_t dwrefdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13137,7 +13188,7 @@ int32_t windowssys_windows_win32_ui_shell_SetWindowSubclass(void* hwnd, void* pf
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ShellAboutA(void* hwnd, void* szapp, void* szotherstuff, void* hicon) {
+int32_t windowssys_windows_win32_ui_shell_shellAboutA(void* hwnd, void* szapp, void* szotherstuff, void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13162,7 +13213,7 @@ int32_t windowssys_windows_win32_ui_shell_ShellAboutA(void* hwnd, void* szapp, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ShellAboutW(void* hwnd, void* szapp, void* szotherstuff, void* hicon) {
+int32_t windowssys_windows_win32_ui_shell_shellAboutW(void* hwnd, void* szapp, void* szotherstuff, void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13187,7 +13238,7 @@ int32_t windowssys_windows_win32_ui_shell_ShellAboutW(void* hwnd, void* szapp, v
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ShellExecuteA(void* hwnd, void* lpoperation, void* lpfile, void* lpparameters, void* lpdirectory, int32_t nshowcmd) {
+void* windowssys_windows_win32_ui_shell_shellExecuteA(void* hwnd, void* lpoperation, void* lpfile, void* lpparameters, void* lpdirectory, int32_t nshowcmd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13214,7 +13265,7 @@ void* windowssys_windows_win32_ui_shell_ShellExecuteA(void* hwnd, void* lpoperat
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ShellExecuteExA(void* pexecinfo) {
+int32_t windowssys_windows_win32_ui_shell_shellExecuteExA(void* pexecinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13236,7 +13287,7 @@ int32_t windowssys_windows_win32_ui_shell_ShellExecuteExA(void* pexecinfo) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_ShellExecuteExW(void* pexecinfo) {
+int32_t windowssys_windows_win32_ui_shell_shellExecuteExW(void* pexecinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13258,7 +13309,7 @@ int32_t windowssys_windows_win32_ui_shell_ShellExecuteExW(void* pexecinfo) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_ShellExecuteW(void* hwnd, void* lpoperation, void* lpfile, void* lpparameters, void* lpdirectory, int32_t nshowcmd) {
+void* windowssys_windows_win32_ui_shell_shellExecuteW(void* hwnd, void* lpoperation, void* lpfile, void* lpparameters, void* lpdirectory, int32_t nshowcmd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13285,7 +13336,81 @@ void* windowssys_windows_win32_ui_shell_ShellExecuteW(void* hwnd, void* lpoperat
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex(void* pwsziconpath, int32_t iiconindex, uint32_t uiconflags) {
+int32_t windowssys_windows_win32_ui_shell_shellMessageBoxA(void* happinst, void* hwnd, void* lpctext, void* lpctitle, uint32_t fustyle, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ShellMessageBoxA");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle);
+            case 1: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)happinst;
+    (void)hwnd;
+    (void)lpctext;
+    (void)lpctitle;
+    (void)fustyle;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_shellMessageBoxW(void* happinst, void* hwnd, void* lpctext, void* lpctitle, uint32_t fustyle, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ShellMessageBoxW");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle);
+            case 1: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)happinst;
+    (void)hwnd;
+    (void)lpctext;
+    (void)lpctitle;
+    (void)fustyle;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_shellGetCachedImageIndex(void* pwsziconpath, int32_t iiconindex, uint32_t uiconflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13309,7 +13434,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex(void* pwszic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA(void* psziconpath, int32_t iiconindex, uint32_t uiconflags) {
+int32_t windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA(void* psziconpath, int32_t iiconindex, uint32_t uiconflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13333,7 +13458,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA(void* pszic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW(void* psziconpath, int32_t iiconindex, uint32_t uiconflags) {
+int32_t windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW(void* psziconpath, int32_t iiconindex, uint32_t uiconflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13357,7 +13482,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW(void* pszic
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_GetImageLists(void* phiml, void* phimlsmall) {
+int32_t windowssys_windows_win32_ui_shell_shellGetImageLists(void* phiml, void* phimlsmall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13380,7 +13505,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_GetImageLists(void* phiml, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_Shell_MergeMenus(void* hmdst, void* hmsrc, uint32_t uinsert, uint32_t uidadjust, uint32_t uidadjustmax, uint32_t uflags) {
+uint32_t windowssys_windows_win32_ui_shell_shellMergeMenus(void* hmdst, void* hmsrc, uint32_t uinsert, uint32_t uidadjust, uint32_t uidadjustmax, uint32_t uflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13407,7 +13532,7 @@ uint32_t windowssys_windows_win32_ui_shell_Shell_MergeMenus(void* hmdst, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconA(uint32_t dwmessage, void* lpdata) {
+int32_t windowssys_windows_win32_ui_shell_shellNotifyIconA(uint32_t dwmessage, void* lpdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13430,7 +13555,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconA(uint32_t dwmessage, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect(void* identifier, void* iconlocation) {
+int32_t windowssys_windows_win32_ui_shell_shellNotifyIconGetRect(void* identifier, void* iconlocation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13453,7 +13578,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect(void* identifi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconW(uint32_t dwmessage, void* lpdata) {
+int32_t windowssys_windows_win32_ui_shell_shellNotifyIconW(uint32_t dwmessage, void* lpdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13476,7 +13601,7 @@ int32_t windowssys_windows_win32_ui_shell_Shell_NotifyIconW(uint32_t dwmessage, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_SignalFileOpen(void* pidl) {
+int32_t windowssys_windows_win32_ui_shell_signalFileOpen(void* pidl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13498,7 +13623,7 @@ int32_t windowssys_windows_win32_ui_shell_SignalFileOpen(void* pidl) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox(void* hwnd, void* pszdistunit, uint32_t dwflags, void* psdi) {
+uint32_t windowssys_windows_win32_ui_shell_softwareUpdateMessageBox(void* hwnd, void* pszdistunit, uint32_t dwflags, void* psdi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13523,7 +13648,7 @@ uint32_t windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox(void* hwnd, 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StgMakeUniqueName(void* pstgparent, void* pszfilespec, uint32_t grfmode, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_ui_shell_stgMakeUniqueName(void* pstgparent, void* pszfilespec, uint32_t grfmode, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13549,7 +13674,7 @@ int32_t windowssys_windows_win32_ui_shell_StgMakeUniqueName(void* pstgparent, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCSpnA(void* pszstr, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strCSpnA(void* pszstr, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13572,7 +13697,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCSpnA(void* pszstr, void* pszset) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCSpnIA(void* pszstr, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strCSpnIA(void* pszstr, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13595,7 +13720,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCSpnIA(void* pszstr, void* pszset) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCSpnIW(void* pszstr, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strCSpnIW(void* pszstr, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13618,7 +13743,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCSpnIW(void* pszstr, void* pszset) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCSpnW(void* pszstr, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strCSpnW(void* pszstr, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13641,7 +13766,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCSpnW(void* pszstr, void* pszset) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrCatBuffA(void* pszdest, void* pszsrc, int32_t cchdestbuffsize) {
+void* windowssys_windows_win32_ui_shell_strCatBuffA(void* pszdest, void* pszsrc, int32_t cchdestbuffsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13665,7 +13790,7 @@ void* windowssys_windows_win32_ui_shell_StrCatBuffA(void* pszdest, void* pszsrc,
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrCatBuffW(void* pszdest, void* pszsrc, int32_t cchdestbuffsize) {
+void* windowssys_windows_win32_ui_shell_strCatBuffW(void* pszdest, void* pszsrc, int32_t cchdestbuffsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13689,7 +13814,7 @@ void* windowssys_windows_win32_ui_shell_StrCatBuffW(void* pszdest, void* pszsrc,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_StrCatChainW(void* pszdst, uint32_t cchdst, uint32_t ichat, void* pszsrc) {
+uint32_t windowssys_windows_win32_ui_shell_strCatChainW(void* pszdst, uint32_t cchdst, uint32_t ichat, void* pszsrc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13714,7 +13839,7 @@ uint32_t windowssys_windows_win32_ui_shell_StrCatChainW(void* pszdst, uint32_t c
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrCatW(void* psz1, void* psz2) {
+void* windowssys_windows_win32_ui_shell_strCatW(void* psz1, void* psz2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13737,7 +13862,7 @@ void* windowssys_windows_win32_ui_shell_StrCatW(void* psz1, void* psz2) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrA(void* pszstart, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strChrA(void* pszstart, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13760,7 +13885,7 @@ void* windowssys_windows_win32_ui_shell_StrChrA(void* pszstart, uint16_t wmatch)
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrIA(void* pszstart, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strChrIA(void* pszstart, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13783,7 +13908,7 @@ void* windowssys_windows_win32_ui_shell_StrChrIA(void* pszstart, uint16_t wmatch
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrIW(void* pszstart, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strChrIW(void* pszstart, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13806,7 +13931,7 @@ void* windowssys_windows_win32_ui_shell_StrChrIW(void* pszstart, uint16_t wmatch
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrNIW(void* pszstart, uint16_t wmatch, uint32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strChrNIW(void* pszstart, uint16_t wmatch, uint32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13830,7 +13955,7 @@ void* windowssys_windows_win32_ui_shell_StrChrNIW(void* pszstart, uint16_t wmatc
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrNW(void* pszstart, uint16_t wmatch, uint32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strChrNW(void* pszstart, uint16_t wmatch, uint32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13854,7 +13979,7 @@ void* windowssys_windows_win32_ui_shell_StrChrNW(void* pszstart, uint16_t wmatch
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrChrW(void* pszstart, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strChrW(void* pszstart, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13877,7 +14002,7 @@ void* windowssys_windows_win32_ui_shell_StrChrW(void* pszstart, uint16_t wmatch)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpCA(void* pszstr1, void* pszstr2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpCA(void* pszstr1, void* pszstr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13900,7 +14025,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpCA(void* pszstr1, void* pszstr2)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpCW(void* pszstr1, void* pszstr2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpCW(void* pszstr1, void* pszstr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13923,7 +14048,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpCW(void* pszstr1, void* pszstr2)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpICA(void* pszstr1, void* pszstr2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpICA(void* pszstr1, void* pszstr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13946,7 +14071,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpICA(void* pszstr1, void* pszstr2
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpICW(void* pszstr1, void* pszstr2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpICW(void* pszstr1, void* pszstr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13969,7 +14094,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpICW(void* pszstr1, void* pszstr2
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpIW(void* psz1, void* psz2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpIW(void* psz1, void* psz2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13992,7 +14117,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpIW(void* psz1, void* psz2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpLogicalW(void* psz1, void* psz2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpLogicalW(void* psz1, void* psz2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14015,7 +14140,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpLogicalW(void* psz1, void* psz2)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNA(void* psz1, void* psz2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNA(void* psz1, void* psz2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14039,7 +14164,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNA(void* psz1, void* psz2, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNCA(void* pszstr1, void* pszstr2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNCA(void* pszstr1, void* pszstr2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14063,7 +14188,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNCA(void* pszstr1, void* pszstr2
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNCW(void* pszstr1, void* pszstr2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNCW(void* pszstr1, void* pszstr2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14087,7 +14212,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNCW(void* pszstr1, void* pszstr2
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNIA(void* psz1, void* psz2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNIA(void* psz1, void* psz2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14111,7 +14236,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNIA(void* psz1, void* psz2, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNICA(void* pszstr1, void* pszstr2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNICA(void* pszstr1, void* pszstr2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14135,7 +14260,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNICA(void* pszstr1, void* pszstr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNICW(void* pszstr1, void* pszstr2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNICW(void* pszstr1, void* pszstr2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14159,7 +14284,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNICW(void* pszstr1, void* pszstr
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNIW(void* psz1, void* psz2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNIW(void* psz1, void* psz2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14183,7 +14308,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNIW(void* psz1, void* psz2, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpNW(void* psz1, void* psz2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strCmpNW(void* psz1, void* psz2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14207,7 +14332,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpNW(void* psz1, void* psz2, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrCmpW(void* psz1, void* psz2) {
+int32_t windowssys_windows_win32_ui_shell_strCmpW(void* psz1, void* psz2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14230,7 +14355,7 @@ int32_t windowssys_windows_win32_ui_shell_StrCmpW(void* psz1, void* psz2) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrCpyNW(void* pszdst, void* pszsrc, int32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strCpyNW(void* pszdst, void* pszsrc, int32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14254,7 +14379,7 @@ void* windowssys_windows_win32_ui_shell_StrCpyNW(void* pszdst, void* pszsrc, int
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrCpyW(void* psz1, void* psz2) {
+void* windowssys_windows_win32_ui_shell_strCpyW(void* psz1, void* psz2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14277,7 +14402,7 @@ void* windowssys_windows_win32_ui_shell_StrCpyW(void* psz1, void* psz2) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrDupA(void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strDupA(void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14299,7 +14424,7 @@ void* windowssys_windows_win32_ui_shell_StrDupA(void* pszsrch) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrDupW(void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strDupW(void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14321,7 +14446,7 @@ void* windowssys_windows_win32_ui_shell_StrDupW(void* pszsrch) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrFormatByteSize64A(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
+void* windowssys_windows_win32_ui_shell_strFormatByteSize64A(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14345,7 +14470,7 @@ void* windowssys_windows_win32_ui_shell_StrFormatByteSize64A(int64_t qdw, void* 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrFormatByteSizeA(uint32_t dw, void* pszbuf, uint32_t cchbuf) {
+void* windowssys_windows_win32_ui_shell_strFormatByteSizeA(uint32_t dw, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14369,7 +14494,7 @@ void* windowssys_windows_win32_ui_shell_StrFormatByteSizeA(uint32_t dw, void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrFormatByteSizeEx(uint64_t ull, int32_t flags, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_strFormatByteSizeEx(uint64_t ull, int32_t flags, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14394,7 +14519,7 @@ int32_t windowssys_windows_win32_ui_shell_StrFormatByteSizeEx(uint64_t ull, int3
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrFormatByteSizeW(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
+void* windowssys_windows_win32_ui_shell_strFormatByteSizeW(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14418,7 +14543,7 @@ void* windowssys_windows_win32_ui_shell_StrFormatByteSizeW(int64_t qdw, void* ps
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrFormatKBSizeA(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
+void* windowssys_windows_win32_ui_shell_strFormatKBSizeA(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14442,7 +14567,7 @@ void* windowssys_windows_win32_ui_shell_StrFormatKBSizeA(int64_t qdw, void* pszb
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrFormatKBSizeW(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
+void* windowssys_windows_win32_ui_shell_strFormatKBSizeW(int64_t qdw, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14466,7 +14591,7 @@ void* windowssys_windows_win32_ui_shell_StrFormatKBSizeW(int64_t qdw, void* pszb
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrFromTimeIntervalA(void* pszout, uint32_t cchmax, uint32_t dwtimems, int32_t digits) {
+int32_t windowssys_windows_win32_ui_shell_strFromTimeIntervalA(void* pszout, uint32_t cchmax, uint32_t dwtimems, int32_t digits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14491,7 +14616,7 @@ int32_t windowssys_windows_win32_ui_shell_StrFromTimeIntervalA(void* pszout, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrFromTimeIntervalW(void* pszout, uint32_t cchmax, uint32_t dwtimems, int32_t digits) {
+int32_t windowssys_windows_win32_ui_shell_strFromTimeIntervalW(void* pszout, uint32_t cchmax, uint32_t dwtimems, int32_t digits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14516,7 +14641,7 @@ int32_t windowssys_windows_win32_ui_shell_StrFromTimeIntervalW(void* pszout, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrIsIntlEqualA(int32_t fcasesens, void* pszstring1, void* pszstring2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strIsIntlEqualA(int32_t fcasesens, void* pszstring1, void* pszstring2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14541,7 +14666,7 @@ int32_t windowssys_windows_win32_ui_shell_StrIsIntlEqualA(int32_t fcasesens, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrIsIntlEqualW(int32_t fcasesens, void* pszstring1, void* pszstring2, int32_t nchar) {
+int32_t windowssys_windows_win32_ui_shell_strIsIntlEqualW(int32_t fcasesens, void* pszstring1, void* pszstring2, int32_t nchar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14566,7 +14691,7 @@ int32_t windowssys_windows_win32_ui_shell_StrIsIntlEqualW(int32_t fcasesens, voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrNCatA(void* psz1, void* psz2, int32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strNCatA(void* psz1, void* psz2, int32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14590,7 +14715,7 @@ void* windowssys_windows_win32_ui_shell_StrNCatA(void* psz1, void* psz2, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrNCatW(void* psz1, void* psz2, int32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strNCatW(void* psz1, void* psz2, int32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14614,7 +14739,7 @@ void* windowssys_windows_win32_ui_shell_StrNCatW(void* psz1, void* psz2, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrPBrkA(void* psz, void* pszset) {
+void* windowssys_windows_win32_ui_shell_strPBrkA(void* psz, void* pszset) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14637,7 +14762,7 @@ void* windowssys_windows_win32_ui_shell_StrPBrkA(void* psz, void* pszset) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrPBrkW(void* psz, void* pszset) {
+void* windowssys_windows_win32_ui_shell_strPBrkW(void* psz, void* pszset) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14660,7 +14785,7 @@ void* windowssys_windows_win32_ui_shell_StrPBrkW(void* psz, void* pszset) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRChrA(void* pszstart, void* pszend, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strRChrA(void* pszstart, void* pszend, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14684,7 +14809,7 @@ void* windowssys_windows_win32_ui_shell_StrRChrA(void* pszstart, void* pszend, u
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRChrIA(void* pszstart, void* pszend, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strRChrIA(void* pszstart, void* pszend, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14708,7 +14833,7 @@ void* windowssys_windows_win32_ui_shell_StrRChrIA(void* pszstart, void* pszend, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRChrIW(void* pszstart, void* pszend, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strRChrIW(void* pszstart, void* pszend, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14732,7 +14857,7 @@ void* windowssys_windows_win32_ui_shell_StrRChrIW(void* pszstart, void* pszend, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRChrW(void* pszstart, void* pszend, uint16_t wmatch) {
+void* windowssys_windows_win32_ui_shell_strRChrW(void* pszstart, void* pszend, uint16_t wmatch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14756,7 +14881,7 @@ void* windowssys_windows_win32_ui_shell_StrRChrW(void* pszstart, void* pszend, u
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRStrIA(void* pszsource, void* pszlast, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strRStrIA(void* pszsource, void* pszlast, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14780,7 +14905,7 @@ void* windowssys_windows_win32_ui_shell_StrRStrIA(void* pszsource, void* pszlast
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrRStrIW(void* pszsource, void* pszlast, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strRStrIW(void* pszsource, void* pszlast, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14804,7 +14929,7 @@ void* windowssys_windows_win32_ui_shell_StrRStrIW(void* pszsource, void* pszlast
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrRetToBSTR(void* pstr, void* pidl, void* pbstr) {
+int32_t windowssys_windows_win32_ui_shell_strRetToBSTR(void* pstr, void* pidl, void* pbstr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14828,7 +14953,7 @@ int32_t windowssys_windows_win32_ui_shell_StrRetToBSTR(void* pstr, void* pidl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrRetToBufA(void* pstr, void* pidl, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_strRetToBufA(void* pstr, void* pidl, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14853,7 +14978,7 @@ int32_t windowssys_windows_win32_ui_shell_StrRetToBufA(void* pstr, void* pidl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrRetToBufW(void* pstr, void* pidl, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_ui_shell_strRetToBufW(void* pstr, void* pidl, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14878,7 +15003,7 @@ int32_t windowssys_windows_win32_ui_shell_StrRetToBufW(void* pstr, void* pidl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrRetToStrA(void* pstr, void* pidl, void* ppsz) {
+int32_t windowssys_windows_win32_ui_shell_strRetToStrA(void* pstr, void* pidl, void* ppsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14902,7 +15027,7 @@ int32_t windowssys_windows_win32_ui_shell_StrRetToStrA(void* pstr, void* pidl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrRetToStrW(void* pstr, void* pidl, void* ppsz) {
+int32_t windowssys_windows_win32_ui_shell_strRetToStrW(void* pstr, void* pidl, void* ppsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14926,7 +15051,7 @@ int32_t windowssys_windows_win32_ui_shell_StrRetToStrW(void* pstr, void* pidl, v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrSpnA(void* psz, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strSpnA(void* psz, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14949,7 +15074,7 @@ int32_t windowssys_windows_win32_ui_shell_StrSpnA(void* psz, void* pszset) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrSpnW(void* psz, void* pszset) {
+int32_t windowssys_windows_win32_ui_shell_strSpnW(void* psz, void* pszset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14972,7 +15097,7 @@ int32_t windowssys_windows_win32_ui_shell_StrSpnW(void* psz, void* pszset) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrA(void* pszfirst, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strStrA(void* pszfirst, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14995,7 +15120,7 @@ void* windowssys_windows_win32_ui_shell_StrStrA(void* pszfirst, void* pszsrch) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrIA(void* pszfirst, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strStrIA(void* pszfirst, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15018,7 +15143,7 @@ void* windowssys_windows_win32_ui_shell_StrStrIA(void* pszfirst, void* pszsrch) 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrIW(void* pszfirst, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strStrIW(void* pszfirst, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15041,7 +15166,7 @@ void* windowssys_windows_win32_ui_shell_StrStrIW(void* pszfirst, void* pszsrch) 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrNIW(void* pszfirst, void* pszsrch, uint32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strStrNIW(void* pszfirst, void* pszsrch, uint32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15065,7 +15190,7 @@ void* windowssys_windows_win32_ui_shell_StrStrNIW(void* pszfirst, void* pszsrch,
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrNW(void* pszfirst, void* pszsrch, uint32_t cchmax) {
+void* windowssys_windows_win32_ui_shell_strStrNW(void* pszfirst, void* pszsrch, uint32_t cchmax) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15089,7 +15214,7 @@ void* windowssys_windows_win32_ui_shell_StrStrNW(void* pszfirst, void* pszsrch, 
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_StrStrW(void* pszfirst, void* pszsrch) {
+void* windowssys_windows_win32_ui_shell_strStrW(void* pszfirst, void* pszsrch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15112,7 +15237,7 @@ void* windowssys_windows_win32_ui_shell_StrStrW(void* pszfirst, void* pszsrch) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToInt64ExA(void* pszstring, int32_t dwflags, void* pllret) {
+int32_t windowssys_windows_win32_ui_shell_strToInt64ExA(void* pszstring, int32_t dwflags, void* pllret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15136,7 +15261,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToInt64ExA(void* pszstring, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToInt64ExW(void* pszstring, int32_t dwflags, void* pllret) {
+int32_t windowssys_windows_win32_ui_shell_strToInt64ExW(void* pszstring, int32_t dwflags, void* pllret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15160,7 +15285,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToInt64ExW(void* pszstring, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToIntA(void* pszsrc) {
+int32_t windowssys_windows_win32_ui_shell_strToIntA(void* pszsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15182,7 +15307,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToIntA(void* pszsrc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToIntExA(void* pszstring, int32_t dwflags, void* piret) {
+int32_t windowssys_windows_win32_ui_shell_strToIntExA(void* pszstring, int32_t dwflags, void* piret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15206,7 +15331,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToIntExA(void* pszstring, int32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToIntExW(void* pszstring, int32_t dwflags, void* piret) {
+int32_t windowssys_windows_win32_ui_shell_strToIntExW(void* pszstring, int32_t dwflags, void* piret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15230,7 +15355,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToIntExW(void* pszstring, int32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrToIntW(void* pszsrc) {
+int32_t windowssys_windows_win32_ui_shell_strToIntW(void* pszsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15252,7 +15377,7 @@ int32_t windowssys_windows_win32_ui_shell_StrToIntW(void* pszsrc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrTrimA(void* psz, void* psztrimchars) {
+int32_t windowssys_windows_win32_ui_shell_strTrimA(void* psz, void* psztrimchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15275,7 +15400,7 @@ int32_t windowssys_windows_win32_ui_shell_StrTrimA(void* psz, void* psztrimchars
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_StrTrimW(void* psz, void* psztrimchars) {
+int32_t windowssys_windows_win32_ui_shell_strTrimW(void* psz, void* psztrimchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15298,7 +15423,7 @@ int32_t windowssys_windows_win32_ui_shell_StrTrimW(void* psz, void* psztrimchars
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UnloadUserProfile(void* htoken, void* hprofile) {
+int32_t windowssys_windows_win32_ui_shell_unloadUserProfile(void* htoken, void* hprofile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15321,7 +15446,7 @@ int32_t windowssys_windows_win32_ui_shell_UnloadUserProfile(void* htoken, void* 
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification(int64_t registration) {
+void windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(int64_t registration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15342,7 +15467,7 @@ void windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotificatio
 #endif
 }
 
-void windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification(int64_t registration) {
+void windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(int64_t registration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15363,7 +15488,7 @@ void windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent(uint64_t dwcookie) {
+int32_t windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent(uint64_t dwcookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15385,7 +15510,7 @@ int32_t windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent(uint64_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlApplySchemeA(void* pszin, void* pszout, void* pcchout, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlApplySchemeA(void* pszin, void* pszout, void* pcchout, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15410,7 +15535,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlApplySchemeA(void* pszin, void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlApplySchemeW(void* pszin, void* pszout, void* pcchout, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlApplySchemeW(void* pszin, void* pszout, void* pcchout, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15435,7 +15560,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlApplySchemeW(void* pszin, void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCanonicalizeA(void* pszurl, void* pszcanonicalized, void* pcchcanonicalized, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCanonicalizeA(void* pszurl, void* pszcanonicalized, void* pcchcanonicalized, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15460,7 +15585,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCanonicalizeA(void* pszurl, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCanonicalizeW(void* pszurl, void* pszcanonicalized, void* pcchcanonicalized, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCanonicalizeW(void* pszurl, void* pszcanonicalized, void* pcchcanonicalized, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15485,7 +15610,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCanonicalizeW(void* pszurl, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCombineA(void* pszbase, void* pszrelative, void* pszcombined, void* pcchcombined, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCombineA(void* pszbase, void* pszrelative, void* pszcombined, void* pcchcombined, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15511,7 +15636,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCombineA(void* pszbase, void* pszre
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCombineW(void* pszbase, void* pszrelative, void* pszcombined, void* pcchcombined, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCombineW(void* pszbase, void* pszrelative, void* pszcombined, void* pcchcombined, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15537,7 +15662,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCombineW(void* pszbase, void* pszre
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCompareA(void* psz1, void* psz2, int32_t fignoreslash) {
+int32_t windowssys_windows_win32_ui_shell_urlCompareA(void* psz1, void* psz2, int32_t fignoreslash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15561,7 +15686,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCompareA(void* psz1, void* psz2, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCompareW(void* psz1, void* psz2, int32_t fignoreslash) {
+int32_t windowssys_windows_win32_ui_shell_urlCompareW(void* psz1, void* psz2, int32_t fignoreslash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15585,7 +15710,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCompareW(void* psz1, void* psz2, in
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCreateFromPathA(void* pszpath, void* pszurl, void* pcchurl, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCreateFromPathA(void* pszpath, void* pszurl, void* pcchurl, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15610,7 +15735,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCreateFromPathA(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlCreateFromPathW(void* pszpath, void* pszurl, void* pcchurl, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlCreateFromPathW(void* pszpath, void* pszurl, void* pcchurl, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15635,7 +15760,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlCreateFromPathW(void* pszpath, void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlEscapeA(void* pszurl, void* pszescaped, void* pcchescaped, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlEscapeA(void* pszurl, void* pszescaped, void* pcchescaped, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15660,7 +15785,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlEscapeA(void* pszurl, void* pszesca
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlEscapeW(void* pszurl, void* pszescaped, void* pcchescaped, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlEscapeW(void* pszurl, void* pszescaped, void* pcchescaped, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15685,7 +15810,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlEscapeW(void* pszurl, void* pszesca
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlFixupW(void* pcszurl, void* psztranslatedurl, uint32_t cchmax) {
+int32_t windowssys_windows_win32_ui_shell_urlFixupW(void* pcszurl, void* psztranslatedurl, uint32_t cchmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15709,7 +15834,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlFixupW(void* pcszurl, void* psztran
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_UrlGetLocationA(void* pszurl) {
+void* windowssys_windows_win32_ui_shell_urlGetLocationA(void* pszurl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15731,7 +15856,7 @@ void* windowssys_windows_win32_ui_shell_UrlGetLocationA(void* pszurl) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_shell_UrlGetLocationW(void* pszurl) {
+void* windowssys_windows_win32_ui_shell_urlGetLocationW(void* pszurl) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15753,7 +15878,7 @@ void* windowssys_windows_win32_ui_shell_UrlGetLocationW(void* pszurl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlGetPartA(void* pszin, void* pszout, void* pcchout, uint32_t dwpart, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlGetPartA(void* pszin, void* pszout, void* pcchout, uint32_t dwpart, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15779,7 +15904,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlGetPartA(void* pszin, void* pszout,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlGetPartW(void* pszin, void* pszout, void* pcchout, uint32_t dwpart, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlGetPartW(void* pszin, void* pszout, void* pcchout, uint32_t dwpart, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15805,7 +15930,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlGetPartW(void* pszin, void* pszout,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlHashA(void* pszurl, void* pbhash, uint32_t cbhash) {
+int32_t windowssys_windows_win32_ui_shell_urlHashA(void* pszurl, void* pbhash, uint32_t cbhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15829,7 +15954,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlHashA(void* pszurl, void* pbhash, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlHashW(void* pszurl, void* pbhash, uint32_t cbhash) {
+int32_t windowssys_windows_win32_ui_shell_urlHashW(void* pszurl, void* pbhash, uint32_t cbhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15853,7 +15978,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlHashW(void* pszurl, void* pbhash, u
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsA(void* pszurl, int32_t urlis) {
+int32_t windowssys_windows_win32_ui_shell_urlIsA(void* pszurl, int32_t urlis) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15876,7 +16001,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsA(void* pszurl, int32_t urlis) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsNoHistoryA(void* pszurl) {
+int32_t windowssys_windows_win32_ui_shell_urlIsNoHistoryA(void* pszurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15898,7 +16023,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsNoHistoryA(void* pszurl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsNoHistoryW(void* pszurl) {
+int32_t windowssys_windows_win32_ui_shell_urlIsNoHistoryW(void* pszurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15920,7 +16045,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsNoHistoryW(void* pszurl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsOpaqueA(void* pszurl) {
+int32_t windowssys_windows_win32_ui_shell_urlIsOpaqueA(void* pszurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15942,7 +16067,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsOpaqueA(void* pszurl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsOpaqueW(void* pszurl) {
+int32_t windowssys_windows_win32_ui_shell_urlIsOpaqueW(void* pszurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15964,7 +16089,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsOpaqueW(void* pszurl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlIsW(void* pszurl, int32_t urlis) {
+int32_t windowssys_windows_win32_ui_shell_urlIsW(void* pszurl, int32_t urlis) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15987,7 +16112,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlIsW(void* pszurl, int32_t urlis) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlUnescapeA(void* pszurl, void* pszunescaped, void* pcchunescaped, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlUnescapeA(void* pszurl, void* pszunescaped, void* pcchunescaped, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16012,7 +16137,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlUnescapeA(void* pszurl, void* pszun
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_UrlUnescapeW(void* pszurl, void* pszunescaped, void* pcchunescaped, uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_shell_urlUnescapeW(void* pszurl, void* pszunescaped, void* pcchunescaped, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16037,7 +16162,7 @@ int32_t windowssys_windows_win32_ui_shell_UrlUnescapeW(void* pszurl, void* pszun
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_VariantToStrRet(void* varin, void* pstrret) {
+int32_t windowssys_windows_win32_ui_shell_variantToStrRet(void* varin, void* pstrret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16060,7 +16185,7 @@ int32_t windowssys_windows_win32_ui_shell_VariantToStrRet(void* varin, void* pst
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_shell_WhichPlatform(void) {
+uint32_t windowssys_windows_win32_ui_shell_whichPlatform(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -16081,7 +16206,7 @@ uint32_t windowssys_windows_win32_ui_shell_WhichPlatform(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_Win32DeleteFile(void* pszpath) {
+int32_t windowssys_windows_win32_ui_shell_win32DeleteFile(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16103,7 +16228,7 @@ int32_t windowssys_windows_win32_ui_shell_Win32DeleteFile(void* pszpath) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_WinHelpA(void* hwndmain, void* lpszhelp, uint32_t ucommand, uint64_t dwdata) {
+int32_t windowssys_windows_win32_ui_shell_winHelpA(void* hwndmain, void* lpszhelp, uint32_t ucommand, uint64_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16128,7 +16253,7 @@ int32_t windowssys_windows_win32_ui_shell_WinHelpA(void* hwndmain, void* lpszhel
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_WinHelpW(void* hwndmain, void* lpszhelp, uint32_t ucommand, uint64_t dwdata) {
+int32_t windowssys_windows_win32_ui_shell_winHelpW(void* hwndmain, void* lpszhelp, uint32_t ucommand, uint64_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -16153,7 +16278,7 @@ int32_t windowssys_windows_win32_ui_shell_WinHelpW(void* hwndmain, void* lpszhel
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_shell_WriteCabinetState(void* pcs) {
+int32_t windowssys_windows_win32_ui_shell_writeCabinetState(void* pcs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -16170,6 +16295,76 @@ int32_t windowssys_windows_win32_ui_shell_WriteCabinetState(void* pcs) {
     return -1;
 #else
     (void)pcs;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_wnsprintfA(void* pszdest, int32_t cchdest, void* pszfmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wnsprintfA");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(pszdest, cchdest, pszfmt);
+            case 1: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)pszdest;
+    (void)cchdest;
+    (void)pszfmt;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_ui_shell_wnsprintfW(void* pszdest, int32_t cchdest, void* pszfmt, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wnsprintfW");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(pszdest, cchdest, pszfmt);
+            case 1: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(pszdest, cchdest, pszfmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)pszdest;
+    (void)cchdest;
+    (void)pszfmt;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
     errno = ENOSYS;
     return -1;
 #endif

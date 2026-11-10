@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint8_t windowssys_windows_win32_networkmanagement_netbios_Netbios(void* pncb) {
+uint8_t windowssys_windows_win32_networkmanagement_netbios_netbios(void* pncb) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

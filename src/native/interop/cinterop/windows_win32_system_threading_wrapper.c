@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(void* srwlock) {
+void windowssys_windows_win32_system_threading_acquireSRWLockExclusive(void* srwlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(void* srw
 #endif
 }
 
-void windowssys_windows_win32_system_threading_AcquireSRWLockShared(void* srwlock) {
+void windowssys_windows_win32_system_threading_acquireSRWLockShared(void* srwlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -57,7 +57,7 @@ void windowssys_windows_win32_system_threading_AcquireSRWLockShared(void* srwloc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor(void* boundarydescriptor, void* integritylabel) {
+int32_t windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor(void* boundarydescriptor, void* integritylabel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -80,7 +80,7 @@ int32_t windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDes
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(void* boundarydescriptor, void* requiredsid) {
+int32_t windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor(void* boundarydescriptor, void* requiredsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -103,7 +103,7 @@ int32_t windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AttachThreadInput(uint32_t idattach, uint32_t idattachto, int32_t fattach) {
+int32_t windowssys_windows_win32_system_threading_attachThreadInput(uint32_t idattach, uint32_t idattachto, int32_t fattach) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_system_threading_AttachThreadInput(uint32_t ida
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(void* avrthandle, void* systemresponsivenessvalue) {
+int32_t windowssys_windows_win32_system_threading_avQuerySystemResponsiveness(void* avrthandle, void* systemresponsivenessvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ int32_t windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics(void* avrthandle) {
+int32_t windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics(void* avrthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ int32_t windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristic
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(void* context, void* period, void* threadorderingguid, void* timeout) {
+int32_t windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup(void* context, void* period, void* threadorderingguid, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA(void* context, void* period, void* threadorderingguid, void* timeout, void* taskname) {
+int32_t windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA(void* context, void* period, void* threadorderingguid, void* timeout, void* taskname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW(void* context, void* period, void* threadorderingguid, void* timeout, void* taskname) {
+int32_t windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW(void* context, void* period, void* threadorderingguid, void* timeout, void* taskname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(void* context) {
+int32_t windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup(void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(void* context, void* threadorderingguid, int32_t before) {
+int32_t windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup(void* context, void* threadorderingguid, int32_t before) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(void* context) {
+int32_t windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup(void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -317,7 +317,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(void* context) {
+int32_t windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup(void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA(void* firsttask, void* secondtask, void* taskindex) {
+void* windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA(void* firsttask, void* secondtask, void* taskindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ void* windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW(void* firsttask, void* secondtask, void* taskindex) {
+void* windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW(void* firsttask, void* secondtask, void* taskindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ void* windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(void* taskname, void* taskindex) {
+void* windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA(void* taskname, void* taskindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ void* windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(void* taskname, void* taskindex) {
+void* windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW(void* taskname, void* taskindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ void* windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_AvSetMmThreadPriority(void* avrthandle, int32_t priority) {
+int32_t windowssys_windows_win32_system_threading_avSetMmThreadPriority(void* avrthandle, int32_t priority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ int32_t windowssys_windows_win32_system_threading_AvSetMmThreadPriority(void* av
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CallbackMayRunLong(int64_t pci) {
+int32_t windowssys_windows_win32_system_threading_callbackMayRunLong(int64_t pci) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -478,7 +478,7 @@ int32_t windowssys_windows_win32_system_threading_CallbackMayRunLong(int64_t pci
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CancelThreadpoolIo(int64_t pio) {
+void windowssys_windows_win32_system_threading_cancelThreadpoolIo(int64_t pio) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ void windowssys_windows_win32_system_threading_CancelThreadpoolIo(int64_t pio) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CancelTimerQueueTimer(void* timerqueue, void* timer) {
+int32_t windowssys_windows_win32_system_threading_cancelTimerQueueTimer(void* timerqueue, void* timer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -522,7 +522,7 @@ int32_t windowssys_windows_win32_system_threading_CancelTimerQueueTimer(void* ti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CancelWaitableTimer(void* htimer) {
+int32_t windowssys_windows_win32_system_threading_cancelWaitableTimer(void* htimer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -544,7 +544,7 @@ int32_t windowssys_windows_win32_system_threading_CancelWaitableTimer(void* htim
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(void* timerqueue, void* timer, uint32_t duetime, uint32_t period) {
+int32_t windowssys_windows_win32_system_threading_changeTimerQueueTimer(void* timerqueue, void* timer, uint32_t duetime, uint32_t period) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -569,7 +569,7 @@ int32_t windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(void* ti
 #endif
 }
 
-bool windowssys_windows_win32_system_threading_ClosePrivateNamespace(void* handle, uint32_t flags) {
+bool windowssys_windows_win32_system_threading_closePrivateNamespace(void* handle, uint32_t flags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -592,7 +592,7 @@ bool windowssys_windows_win32_system_threading_ClosePrivateNamespace(void* handl
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpool(int64_t ptpp) {
+void windowssys_windows_win32_system_threading_closeThreadpool(int64_t ptpp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -613,7 +613,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpool(int64_t ptpp) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(int64_t ptpcg) {
+void windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(int64_t ptpcg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -634,7 +634,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(int64
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers(int64_t ptpcg, int32_t fcancelpendingcallbacks, void* pvcleanupcontext) {
+void windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(int64_t ptpcg, int32_t fcancelpendingcallbacks, void* pvcleanupcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -657,7 +657,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMember
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolIo(int64_t pio) {
+void windowssys_windows_win32_system_threading_closeThreadpoolIo(int64_t pio) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -678,7 +678,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolIo(int64_t pio) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolTimer(int64_t pti) {
+void windowssys_windows_win32_system_threading_closeThreadpoolTimer(int64_t pti) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolTimer(int64_t pti)
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolWait(int64_t pwa) {
+void windowssys_windows_win32_system_threading_closeThreadpoolWait(int64_t pwa) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -720,7 +720,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolWait(int64_t pwa) 
 #endif
 }
 
-void windowssys_windows_win32_system_threading_CloseThreadpoolWork(int64_t pwk) {
+void windowssys_windows_win32_system_threading_closeThreadpoolWork(int64_t pwk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -741,7 +741,7 @@ void windowssys_windows_win32_system_threading_CloseThreadpoolWork(int64_t pwk) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ConvertFiberToThread(void) {
+int32_t windowssys_windows_win32_system_threading_convertFiberToThread(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -762,7 +762,7 @@ int32_t windowssys_windows_win32_system_threading_ConvertFiberToThread(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_ConvertThreadToFiber(void* lpparameter) {
+void* windowssys_windows_win32_system_threading_convertThreadToFiber(void* lpparameter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -784,7 +784,7 @@ void* windowssys_windows_win32_system_threading_ConvertThreadToFiber(void* lppar
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(void* lpparameter, uint32_t dwflags) {
+void* windowssys_windows_win32_system_threading_convertThreadToFiberEx(void* lpparameter, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -807,7 +807,7 @@ void* windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(void* lpp
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(void* name, uint32_t flags) {
+void* windowssys_windows_win32_system_threading_createBoundaryDescriptorA(void* name, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -830,7 +830,7 @@ void* windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(void* name, uint32_t flags) {
+void* windowssys_windows_win32_system_threading_createBoundaryDescriptorW(void* name, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -853,7 +853,7 @@ void* windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateEventA(void* lpeventattributes, int32_t bmanualreset, int32_t binitialstate, void* lpname) {
+void* windowssys_windows_win32_system_threading_createEventA(void* lpeventattributes, int32_t bmanualreset, int32_t binitialstate, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -878,7 +878,7 @@ void* windowssys_windows_win32_system_threading_CreateEventA(void* lpeventattrib
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateEventExA(void* lpeventattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createEventExA(void* lpeventattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -903,7 +903,7 @@ void* windowssys_windows_win32_system_threading_CreateEventExA(void* lpeventattr
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateEventExW(void* lpeventattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createEventExW(void* lpeventattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -928,7 +928,7 @@ void* windowssys_windows_win32_system_threading_CreateEventExW(void* lpeventattr
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateEventW(void* lpeventattributes, int32_t bmanualreset, int32_t binitialstate, void* lpname) {
+void* windowssys_windows_win32_system_threading_createEventW(void* lpeventattributes, int32_t bmanualreset, int32_t binitialstate, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -953,7 +953,7 @@ void* windowssys_windows_win32_system_threading_CreateEventW(void* lpeventattrib
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateFiber(uint64_t dwstacksize, void* lpstartaddress, void* lpparameter) {
+void* windowssys_windows_win32_system_threading_createFiber(uint64_t dwstacksize, void* lpstartaddress, void* lpparameter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -977,7 +977,7 @@ void* windowssys_windows_win32_system_threading_CreateFiber(uint64_t dwstacksize
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateFiberEx(uint64_t dwstackcommitsize, uint64_t dwstackreservesize, uint32_t dwflags, void* lpstartaddress, void* lpparameter) {
+void* windowssys_windows_win32_system_threading_createFiberEx(uint64_t dwstackcommitsize, uint64_t dwstackreservesize, uint32_t dwflags, void* lpstartaddress, void* lpparameter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1003,7 +1003,7 @@ void* windowssys_windows_win32_system_threading_CreateFiberEx(uint64_t dwstackco
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateMutexA(void* lpmutexattributes, int32_t binitialowner, void* lpname) {
+void* windowssys_windows_win32_system_threading_createMutexA(void* lpmutexattributes, int32_t binitialowner, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1027,7 +1027,7 @@ void* windowssys_windows_win32_system_threading_CreateMutexA(void* lpmutexattrib
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateMutexExA(void* lpmutexattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createMutexExA(void* lpmutexattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ void* windowssys_windows_win32_system_threading_CreateMutexExA(void* lpmutexattr
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateMutexExW(void* lpmutexattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createMutexExW(void* lpmutexattributes, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1077,7 +1077,7 @@ void* windowssys_windows_win32_system_threading_CreateMutexExW(void* lpmutexattr
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateMutexW(void* lpmutexattributes, int32_t binitialowner, void* lpname) {
+void* windowssys_windows_win32_system_threading_createMutexW(void* lpmutexattributes, int32_t binitialowner, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1101,7 +1101,7 @@ void* windowssys_windows_win32_system_threading_CreateMutexW(void* lpmutexattrib
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(void* lpprivatenamespaceattributes, void* lpboundarydescriptor, void* lpaliasprefix) {
+void* windowssys_windows_win32_system_threading_createPrivateNamespaceA(void* lpprivatenamespaceattributes, void* lpboundarydescriptor, void* lpaliasprefix) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1125,7 +1125,7 @@ void* windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(void* lpprivatenamespaceattributes, void* lpboundarydescriptor, void* lpaliasprefix) {
+void* windowssys_windows_win32_system_threading_createPrivateNamespaceW(void* lpprivatenamespaceattributes, void* lpboundarydescriptor, void* lpaliasprefix) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1149,7 +1149,7 @@ void* windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessA(void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessA(void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1180,7 +1180,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessA(void* lpapplica
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessAsUserA(void* htoken, void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessAsUserA(void* htoken, void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1212,7 +1212,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessAsUserA(void* hto
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessAsUserW(void* htoken, void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessAsUserW(void* htoken, void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1244,7 +1244,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessAsUserW(void* hto
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessW(void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessW(void* lpapplicationname, void* lpcommandline, void* lpprocessattributes, void* lpthreadattributes, int32_t binherithandles, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessW(void* lpapplica
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessWithLogonW(void* lpusername, void* lpdomain, void* lppassword, uint32_t dwlogonflags, void* lpapplicationname, void* lpcommandline, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessWithLogonW(void* lpusername, void* lpdomain, void* lppassword, uint32_t dwlogonflags, void* lpapplicationname, void* lpcommandline, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1307,7 +1307,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessWithLogonW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateProcessWithTokenW(void* htoken, uint32_t dwlogonflags, void* lpapplicationname, void* lpcommandline, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
+int32_t windowssys_windows_win32_system_threading_createProcessWithTokenW(void* htoken, uint32_t dwlogonflags, void* lpapplicationname, void* lpcommandline, uint32_t dwcreationflags, void* lpenvironment, void* lpcurrentdirectory, void* lpstartupinfo, void* lpprocessinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1337,7 +1337,7 @@ int32_t windowssys_windows_win32_system_threading_CreateProcessWithTokenW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateRemoteThread(void* hprocess, void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpthreadid) {
+void* windowssys_windows_win32_system_threading_createRemoteThread(void* hprocess, void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1365,7 +1365,7 @@ void* windowssys_windows_win32_system_threading_CreateRemoteThread(void* hproces
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateRemoteThreadEx(void* hprocess, void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpattributelist, void* lpthreadid) {
+void* windowssys_windows_win32_system_threading_createRemoteThreadEx(void* hprocess, void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpattributelist, void* lpthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1394,7 +1394,7 @@ void* windowssys_windows_win32_system_threading_CreateRemoteThreadEx(void* hproc
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateSemaphoreA(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname) {
+void* windowssys_windows_win32_system_threading_createSemaphoreA(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1419,7 +1419,7 @@ void* windowssys_windows_win32_system_threading_CreateSemaphoreA(void* lpsemapho
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateSemaphoreExA(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createSemaphoreExA(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1446,7 +1446,7 @@ void* windowssys_windows_win32_system_threading_CreateSemaphoreExA(void* lpsemap
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateSemaphoreExW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createSemaphoreExW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1473,7 +1473,7 @@ void* windowssys_windows_win32_system_threading_CreateSemaphoreExW(void* lpsemap
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateSemaphoreW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname) {
+void* windowssys_windows_win32_system_threading_createSemaphoreW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1498,7 +1498,7 @@ void* windowssys_windows_win32_system_threading_CreateSemaphoreW(void* lpsemapho
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateThread(void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpthreadid) {
+void* windowssys_windows_win32_system_threading_createThread(void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1525,9 +1525,9 @@ void* windowssys_windows_win32_system_threading_CreateThread(void* lpthreadattri
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpool(void* reserved) {
+int32_t windowssys_windows_win32_system_threading_createThreadpool(void* reserved) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
@@ -1547,9 +1547,9 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpool(void* reserve
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup(void) {
+int32_t windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(void) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
@@ -1568,7 +1568,7 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup(v
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpoolIo(void* fl, void* pfnio, void* pv, void* pcbe) {
+int64_t windowssys_windows_win32_system_threading_createThreadpoolIo(void* fl, void* pfnio, void* pv, void* pcbe) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1593,7 +1593,7 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpoolIo(void* fl, v
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpoolTimer(void* pfnti, void* pv, void* pcbe) {
+int64_t windowssys_windows_win32_system_threading_createThreadpoolTimer(void* pfnti, void* pv, void* pcbe) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1617,7 +1617,7 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpoolTimer(void* pf
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpoolWait(void* pfnwa, void* pv, void* pcbe) {
+int64_t windowssys_windows_win32_system_threading_createThreadpoolWait(void* pfnwa, void* pv, void* pcbe) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1641,7 +1641,7 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpoolWait(void* pfn
 #endif
 }
 
-int64_t windowssys_windows_win32_system_threading_CreateThreadpoolWork(void* pfnwk, void* pv, void* pcbe) {
+int64_t windowssys_windows_win32_system_threading_createThreadpoolWork(void* pfnwk, void* pv, void* pcbe) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1665,7 +1665,7 @@ int64_t windowssys_windows_win32_system_threading_CreateThreadpoolWork(void* pfn
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateTimerQueue(void) {
+void* windowssys_windows_win32_system_threading_createTimerQueue(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ void* windowssys_windows_win32_system_threading_CreateTimerQueue(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateTimerQueueTimer(void* phnewtimer, void* timerqueue, void* callback, void* parameter, uint32_t duetime, uint32_t period, uint32_t flags) {
+int32_t windowssys_windows_win32_system_threading_createTimerQueueTimer(void* phnewtimer, void* timerqueue, void* callback, void* parameter, uint32_t duetime, uint32_t period, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1714,7 +1714,7 @@ int32_t windowssys_windows_win32_system_threading_CreateTimerQueueTimer(void* ph
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateUmsCompletionList(void* umscompletionlist) {
+int32_t windowssys_windows_win32_system_threading_createUmsCompletionList(void* umscompletionlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1736,7 +1736,7 @@ int32_t windowssys_windows_win32_system_threading_CreateUmsCompletionList(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_CreateUmsThreadContext(void* lpumsthread) {
+int32_t windowssys_windows_win32_system_threading_createUmsThreadContext(void* lpumsthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1758,7 +1758,7 @@ int32_t windowssys_windows_win32_system_threading_CreateUmsThreadContext(void* l
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateWaitableTimerA(void* lptimerattributes, int32_t bmanualreset, void* lptimername) {
+void* windowssys_windows_win32_system_threading_createWaitableTimerA(void* lptimerattributes, int32_t bmanualreset, void* lptimername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1782,7 +1782,7 @@ void* windowssys_windows_win32_system_threading_CreateWaitableTimerA(void* lptim
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateWaitableTimerExA(void* lptimerattributes, void* lptimername, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createWaitableTimerExA(void* lptimerattributes, void* lptimername, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1807,7 +1807,7 @@ void* windowssys_windows_win32_system_threading_CreateWaitableTimerExA(void* lpt
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateWaitableTimerExW(void* lptimerattributes, void* lptimername, uint32_t dwflags, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_threading_createWaitableTimerExW(void* lptimerattributes, void* lptimername, uint32_t dwflags, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1832,7 +1832,7 @@ void* windowssys_windows_win32_system_threading_CreateWaitableTimerExW(void* lpt
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_CreateWaitableTimerW(void* lptimerattributes, int32_t bmanualreset, void* lptimername) {
+void* windowssys_windows_win32_system_threading_createWaitableTimerW(void* lptimerattributes, int32_t bmanualreset, void* lptimername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1856,7 +1856,7 @@ void* windowssys_windows_win32_system_threading_CreateWaitableTimerW(void* lptim
 #endif
 }
 
-void windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(void* boundarydescriptor) {
+void windowssys_windows_win32_system_threading_deleteBoundaryDescriptor(void* boundarydescriptor) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1877,7 +1877,7 @@ void windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(void* bo
 #endif
 }
 
-void windowssys_windows_win32_system_threading_DeleteCriticalSection(void* lpcriticalsection) {
+void windowssys_windows_win32_system_threading_deleteCriticalSection(void* lpcriticalsection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1898,7 +1898,7 @@ void windowssys_windows_win32_system_threading_DeleteCriticalSection(void* lpcri
 #endif
 }
 
-void windowssys_windows_win32_system_threading_DeleteFiber(void* lpfiber) {
+void windowssys_windows_win32_system_threading_deleteFiber(void* lpfiber) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1919,7 +1919,7 @@ void windowssys_windows_win32_system_threading_DeleteFiber(void* lpfiber) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(void* lpattributelist) {
+void windowssys_windows_win32_system_threading_deleteProcThreadAttributeList(void* lpattributelist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1940,7 +1940,7 @@ void windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(void* lpbarrier) {
+int32_t windowssys_windows_win32_system_threading_deleteSynchronizationBarrier(void* lpbarrier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1962,7 +1962,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteTimerQueue(void* timerqueue) {
+int32_t windowssys_windows_win32_system_threading_deleteTimerQueue(void* timerqueue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1984,7 +1984,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteTimerQueue(void* timerqu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteTimerQueueEx(void* timerqueue, void* completionevent) {
+int32_t windowssys_windows_win32_system_threading_deleteTimerQueueEx(void* timerqueue, void* completionevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2007,7 +2007,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteTimerQueueEx(void* timer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(void* timerqueue, void* timer, void* completionevent) {
+int32_t windowssys_windows_win32_system_threading_deleteTimerQueueTimer(void* timerqueue, void* timer, void* completionevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2031,7 +2031,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(void* ti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteUmsCompletionList(void* umscompletionlist) {
+int32_t windowssys_windows_win32_system_threading_deleteUmsCompletionList(void* umscompletionlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2053,7 +2053,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteUmsCompletionList(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DeleteUmsThreadContext(void* umsthread) {
+int32_t windowssys_windows_win32_system_threading_deleteUmsThreadContext(void* umsthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2075,7 +2075,7 @@ int32_t windowssys_windows_win32_system_threading_DeleteUmsThreadContext(void* u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(void* umscompletionlist, uint32_t waittimeout, void* umsthreadlist) {
+int32_t windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems(void* umscompletionlist, uint32_t waittimeout, void* umsthreadlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ int32_t windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(
 #endif
 }
 
-void windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback(int64_t pci) {
+void windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(int64_t pci) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2120,7 +2120,7 @@ void windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCall
 #endif
 }
 
-void windowssys_windows_win32_system_threading_EnterCriticalSection(void* lpcriticalsection) {
+void windowssys_windows_win32_system_threading_enterCriticalSection(void* lpcriticalsection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2141,7 +2141,7 @@ void windowssys_windows_win32_system_threading_EnterCriticalSection(void* lpcrit
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(void* lpbarrier, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_threading_enterSynchronizationBarrier(void* lpbarrier, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ int32_t windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(void* schedulerstartupinfo) {
+int32_t windowssys_windows_win32_system_threading_enterUmsSchedulingMode(void* schedulerstartupinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2186,7 +2186,7 @@ int32_t windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ExecuteUmsThread(void* umsthread) {
+int32_t windowssys_windows_win32_system_threading_executeUmsThread(void* umsthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ int32_t windowssys_windows_win32_system_threading_ExecuteUmsThread(void* umsthre
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ExitProcess(uint32_t uexitcode) {
+void windowssys_windows_win32_system_threading_exitProcess(uint32_t uexitcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ void windowssys_windows_win32_system_threading_ExitProcess(uint32_t uexitcode) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ExitThread(uint32_t dwexitcode) {
+void windowssys_windows_win32_system_threading_exitThread(uint32_t dwexitcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2250,7 +2250,7 @@ void windowssys_windows_win32_system_threading_ExitThread(uint32_t dwexitcode) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_FlsAlloc(void* lpcallback) {
+uint32_t windowssys_windows_win32_system_threading_flsAlloc(void* lpcallback) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2272,7 +2272,7 @@ uint32_t windowssys_windows_win32_system_threading_FlsAlloc(void* lpcallback) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_FlsFree(uint32_t dwflsindex) {
+int32_t windowssys_windows_win32_system_threading_flsFree(uint32_t dwflsindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2294,7 +2294,7 @@ int32_t windowssys_windows_win32_system_threading_FlsFree(uint32_t dwflsindex) {
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_FlsGetValue(uint32_t dwflsindex) {
+void* windowssys_windows_win32_system_threading_flsGetValue(uint32_t dwflsindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2316,7 +2316,7 @@ void* windowssys_windows_win32_system_threading_FlsGetValue(uint32_t dwflsindex)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_FlsSetValue(uint32_t dwflsindex, void* lpflsdata) {
+int32_t windowssys_windows_win32_system_threading_flsSetValue(uint32_t dwflsindex, void* lpflsdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2339,7 +2339,7 @@ int32_t windowssys_windows_win32_system_threading_FlsSetValue(uint32_t dwflsinde
 #endif
 }
 
-void windowssys_windows_win32_system_threading_FlushProcessWriteBuffers(void) {
+void windowssys_windows_win32_system_threading_flushProcessWriteBuffers(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2359,7 +2359,7 @@ void windowssys_windows_win32_system_threading_FlushProcessWriteBuffers(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(int64_t pci, void* mod) {
+void windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(int64_t pci, void* mod) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2381,7 +2381,7 @@ void windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetActiveProcessorCount(uint16_t groupnumber) {
+uint32_t windowssys_windows_win32_system_threading_getActiveProcessorCount(uint16_t groupnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2403,7 +2403,7 @@ uint32_t windowssys_windows_win32_system_threading_GetActiveProcessorCount(uint1
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount(void) {
+uint16_t windowssys_windows_win32_system_threading_getActiveProcessorGroupCount(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2424,7 +2424,7 @@ uint16_t windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount(
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_GetCurrentProcess(void) {
+void* windowssys_windows_win32_system_threading_getCurrentProcess(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2445,7 +2445,7 @@ void* windowssys_windows_win32_system_threading_GetCurrentProcess(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetCurrentProcessId(void) {
+uint32_t windowssys_windows_win32_system_threading_getCurrentProcessId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2466,7 +2466,7 @@ uint32_t windowssys_windows_win32_system_threading_GetCurrentProcessId(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetCurrentProcessorNumber(void) {
+uint32_t windowssys_windows_win32_system_threading_getCurrentProcessorNumber(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2487,7 +2487,7 @@ uint32_t windowssys_windows_win32_system_threading_GetCurrentProcessorNumber(voi
 #endif
 }
 
-void windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(void* procnumber) {
+void windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx(void* procnumber) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2508,7 +2508,7 @@ void windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_GetCurrentThread(void) {
+void* windowssys_windows_win32_system_threading_getCurrentThread(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2529,7 +2529,7 @@ void* windowssys_windows_win32_system_threading_GetCurrentThread(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetCurrentThreadId(void) {
+uint32_t windowssys_windows_win32_system_threading_getCurrentThreadId(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2550,7 +2550,7 @@ uint32_t windowssys_windows_win32_system_threading_GetCurrentThreadId(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(void* lowlimit, void* highlimit) {
+void windowssys_windows_win32_system_threading_getCurrentThreadStackLimits(void* lowlimit, void* highlimit) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2572,7 +2572,7 @@ void windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_GetCurrentUmsThread(void) {
+void* windowssys_windows_win32_system_threading_getCurrentUmsThread(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2593,7 +2593,7 @@ void* windowssys_windows_win32_system_threading_GetCurrentUmsThread(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetExitCodeProcess(void* hprocess, void* lpexitcode) {
+int32_t windowssys_windows_win32_system_threading_getExitCodeProcess(void* hprocess, void* lpexitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2616,7 +2616,7 @@ int32_t windowssys_windows_win32_system_threading_GetExitCodeProcess(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetExitCodeThread(void* hthread, void* lpexitcode) {
+int32_t windowssys_windows_win32_system_threading_getExitCodeThread(void* hthread, void* lpexitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2639,7 +2639,7 @@ int32_t windowssys_windows_win32_system_threading_GetExitCodeThread(void* hthrea
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetGuiResources(void* hprocess, uint32_t uiflags) {
+uint32_t windowssys_windows_win32_system_threading_getGuiResources(void* hprocess, uint32_t uiflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2662,7 +2662,7 @@ uint32_t windowssys_windows_win32_system_threading_GetGuiResources(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetMachineTypeAttributes(uint16_t machine, void* machinetypeattributes) {
+int32_t windowssys_windows_win32_system_threading_getMachineTypeAttributes(uint16_t machine, void* machinetypeattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2685,7 +2685,7 @@ int32_t windowssys_windows_win32_system_threading_GetMachineTypeAttributes(uint1
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetMaximumProcessorCount(uint16_t groupnumber) {
+uint32_t windowssys_windows_win32_system_threading_getMaximumProcessorCount(uint16_t groupnumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2707,7 +2707,7 @@ uint32_t windowssys_windows_win32_system_threading_GetMaximumProcessorCount(uint
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount(void) {
+uint16_t windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2728,7 +2728,7 @@ uint16_t windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_GetNextUmsListItem(void* umscontext) {
+void* windowssys_windows_win32_system_threading_getNextUmsListItem(void* umscontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2750,7 +2750,7 @@ void* windowssys_windows_win32_system_threading_GetNextUmsListItem(void* umscont
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(uint8_t node, void* availablebytes) {
+int32_t windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(uint8_t node, void* availablebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2773,7 +2773,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(uint16_t node, void* availablebytes) {
+int32_t windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(uint16_t node, void* availablebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2796,7 +2796,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(void* highestnodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaHighestNodeNumber(void* highestnodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2818,7 +2818,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(void* hfile, void* nodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle(void* hfile, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2841,7 +2841,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(uint8_t node, void* processormask) {
+int32_t windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(uint8_t node, void* processormask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2864,7 +2864,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(uint8
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(uint16_t nodenumber, void* processormasks, uint16_t processormaskcount, void* requiredmaskcount) {
+int32_t windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(uint16_t nodenumber, void* processormasks, uint16_t processormaskcount, void* requiredmaskcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2889,7 +2889,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(uint16_t node, void* processormask) {
+int32_t windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(uint16_t node, void* processormask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2912,7 +2912,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaProcessorNode(uint8_t processor, void* nodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaProcessorNode(uint8_t processor, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2935,7 +2935,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaProcessorNode(uint8_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(void* processor, void* nodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaProcessorNodeEx(void* processor, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2958,7 +2958,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaProximityNode(uint32_t proximityid, void* nodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaProximityNode(uint32_t proximityid, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2981,7 +2981,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaProximityNode(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(uint32_t proximityid, void* nodenumber) {
+int32_t windowssys_windows_win32_system_threading_getNumaProximityNodeEx(uint32_t proximityid, void* nodenumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3004,7 +3004,7 @@ int32_t windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetPriorityClass(void* hprocess) {
+uint32_t windowssys_windows_win32_system_threading_getPriorityClass(void* hprocess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3026,7 +3026,7 @@ uint32_t windowssys_windows_win32_system_threading_GetPriorityClass(void* hproce
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessAffinityMask(void* hprocess, void* lpprocessaffinitymask, void* lpsystemaffinitymask) {
+int32_t windowssys_windows_win32_system_threading_getProcessAffinityMask(void* hprocess, void* lpprocessaffinitymask, void* lpsystemaffinitymask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3050,7 +3050,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessAffinityMask(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessDEPPolicy(void* hprocess, void* lpflags, void* lppermanent) {
+int32_t windowssys_windows_win32_system_threading_getProcessDEPPolicy(void* hprocess, void* lpflags, void* lppermanent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3074,7 +3074,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessDEPPolicy(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(void* process, void* cpusetmasks, uint16_t cpusetmaskcount, void* requiredmaskcount) {
+int32_t windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks(void* process, void* cpusetmasks, uint16_t cpusetmaskcount, void* requiredmaskcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3099,7 +3099,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(void* process, void* cpusetids, uint32_t cpusetidcount, void* requiredidcount) {
+int32_t windowssys_windows_win32_system_threading_getProcessDefaultCpuSets(void* process, void* cpusetids, uint32_t cpusetidcount, void* requiredidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3124,7 +3124,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessGroupAffinity(void* hprocess, void* groupcount, void* grouparray) {
+int32_t windowssys_windows_win32_system_threading_getProcessGroupAffinity(void* hprocess, void* groupcount, void* grouparray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3148,7 +3148,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessGroupAffinity(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessHandleCount(void* hprocess, void* pdwhandlecount) {
+int32_t windowssys_windows_win32_system_threading_getProcessHandleCount(void* hprocess, void* pdwhandlecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3171,7 +3171,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessHandleCount(void* hp
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(void* hwnd) {
+void* windowssys_windows_win32_system_threading_getProcessHandleFromHwnd(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3193,7 +3193,7 @@ void* windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetProcessId(void* process) {
+uint32_t windowssys_windows_win32_system_threading_getProcessId(void* process) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3215,7 +3215,7 @@ uint32_t windowssys_windows_win32_system_threading_GetProcessId(void* process) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetProcessIdOfThread(void* thread) {
+uint32_t windowssys_windows_win32_system_threading_getProcessIdOfThread(void* thread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3237,7 +3237,7 @@ uint32_t windowssys_windows_win32_system_threading_GetProcessIdOfThread(void* th
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessInformation(void* hprocess, int32_t processinformationclass, void* processinformation, uint32_t processinformationsize) {
+int32_t windowssys_windows_win32_system_threading_getProcessInformation(void* hprocess, int32_t processinformationclass, void* processinformation, uint32_t processinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3262,7 +3262,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessInformation(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessIoCounters(void* hprocess, void* lpiocounters) {
+int32_t windowssys_windows_win32_system_threading_getProcessIoCounters(void* hprocess, void* lpiocounters) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3285,7 +3285,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessIoCounters(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(void* hprocess, int32_t mitigationpolicy, void* lpbuffer, uint64_t dwlength) {
+int32_t windowssys_windows_win32_system_threading_getProcessMitigationPolicy(void* hprocess, int32_t mitigationpolicy, void* lpbuffer, uint64_t dwlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3310,7 +3310,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessPriorityBoost(void* hprocess, void* pdisablepriorityboost) {
+int32_t windowssys_windows_win32_system_threading_getProcessPriorityBoost(void* hprocess, void* pdisablepriorityboost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3333,7 +3333,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessPriorityBoost(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessShutdownParameters(void* lpdwlevel, void* lpdwflags) {
+int32_t windowssys_windows_win32_system_threading_getProcessShutdownParameters(void* lpdwlevel, void* lpdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3356,7 +3356,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessShutdownParameters(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessTimes(void* hprocess, void* lpcreationtime, void* lpexittime, void* lpkerneltime, void* lpusertime) {
+int32_t windowssys_windows_win32_system_threading_getProcessTimes(void* hprocess, void* lpcreationtime, void* lpexittime, void* lpkerneltime, void* lpusertime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3382,7 +3382,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessTimes(void* hprocess
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetProcessVersion(uint32_t processid) {
+uint32_t windowssys_windows_win32_system_threading_getProcessVersion(uint32_t processid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3404,7 +3404,7 @@ uint32_t windowssys_windows_win32_system_threading_GetProcessVersion(uint32_t pr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(void* hprocess, void* lpminimumworkingsetsize, void* lpmaximumworkingsetsize) {
+int32_t windowssys_windows_win32_system_threading_getProcessWorkingSetSize(void* hprocess, void* lpminimumworkingsetsize, void* lpmaximumworkingsetsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3428,7 +3428,7 @@ int32_t windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(void*
 #endif
 }
 
-void windowssys_windows_win32_system_threading_GetStartupInfoA(void* lpstartupinfo) {
+void windowssys_windows_win32_system_threading_getStartupInfoA(void* lpstartupinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3449,7 +3449,7 @@ void windowssys_windows_win32_system_threading_GetStartupInfoA(void* lpstartupin
 #endif
 }
 
-void windowssys_windows_win32_system_threading_GetStartupInfoW(void* lpstartupinfo) {
+void windowssys_windows_win32_system_threading_getStartupInfoW(void* lpstartupinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3470,7 +3470,7 @@ void windowssys_windows_win32_system_threading_GetStartupInfoW(void* lpstartupin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetSystemTimes(void* lpidletime, void* lpkerneltime, void* lpusertime) {
+int32_t windowssys_windows_win32_system_threading_getSystemTimes(void* lpidletime, void* lpkerneltime, void* lpusertime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3494,7 +3494,7 @@ int32_t windowssys_windows_win32_system_threading_GetSystemTimes(void* lpidletim
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadDescription(void* hthread, void* ppszthreaddescription) {
+int32_t windowssys_windows_win32_system_threading_getThreadDescription(void* hthread, void* ppszthreaddescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3517,7 +3517,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadDescription(void* hth
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadGroupAffinity(void* hthread, void* groupaffinity) {
+int32_t windowssys_windows_win32_system_threading_getThreadGroupAffinity(void* hthread, void* groupaffinity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3540,7 +3540,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadGroupAffinity(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(void* hthread, void* lpioispending) {
+int32_t windowssys_windows_win32_system_threading_getThreadIOPendingFlag(void* hthread, void* lpioispending) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3563,7 +3563,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_GetThreadId(void* thread) {
+uint32_t windowssys_windows_win32_system_threading_getThreadId(void* thread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ uint32_t windowssys_windows_win32_system_threading_GetThreadId(void* thread) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(void* hthread, void* lpidealprocessor) {
+int32_t windowssys_windows_win32_system_threading_getThreadIdealProcessorEx(void* hthread, void* lpidealprocessor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3608,7 +3608,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadInformation(void* hthread, int32_t threadinformationclass, void* threadinformation, uint32_t threadinformationsize) {
+int32_t windowssys_windows_win32_system_threading_getThreadInformation(void* hthread, int32_t threadinformationclass, void* threadinformation, uint32_t threadinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3633,7 +3633,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadInformation(void* hth
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadPriority(void* hthread) {
+int32_t windowssys_windows_win32_system_threading_getThreadPriority(void* hthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3655,7 +3655,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadPriority(void* hthrea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadPriorityBoost(void* hthread, void* pdisablepriorityboost) {
+int32_t windowssys_windows_win32_system_threading_getThreadPriorityBoost(void* hthread, void* pdisablepriorityboost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3678,7 +3678,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadPriorityBoost(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(void* thread, void* cpusetmasks, uint16_t cpusetmaskcount, void* requiredmaskcount) {
+int32_t windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks(void* thread, void* cpusetmasks, uint16_t cpusetmaskcount, void* requiredmaskcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3703,7 +3703,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(void* thread, void* cpusetids, uint32_t cpusetidcount, void* requiredidcount) {
+int32_t windowssys_windows_win32_system_threading_getThreadSelectedCpuSets(void* thread, void* cpusetids, uint32_t cpusetidcount, void* requiredidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3728,7 +3728,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetThreadTimes(void* hthread, void* lpcreationtime, void* lpexittime, void* lpkerneltime, void* lpusertime) {
+int32_t windowssys_windows_win32_system_threading_getThreadTimes(void* hthread, void* lpcreationtime, void* lpexittime, void* lpkerneltime, void* lpusertime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3754,7 +3754,7 @@ int32_t windowssys_windows_win32_system_threading_GetThreadTimes(void* hthread, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(void* umscompletionlist, void* umscompletionevent) {
+int32_t windowssys_windows_win32_system_threading_getUmsCompletionListEvent(void* umscompletionlist, void* umscompletionevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3777,7 +3777,7 @@ int32_t windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(void* threadhandle, void* systemthreadinfo) {
+int32_t windowssys_windows_win32_system_threading_getUmsSystemThreadInformation(void* threadhandle, void* systemthreadinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3800,7 +3800,7 @@ int32_t windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitOnceBeginInitialize(void* lpinitonce, uint32_t dwflags, void* fpending, void* lpcontext) {
+int32_t windowssys_windows_win32_system_threading_initOnceBeginInitialize(void* lpinitonce, uint32_t dwflags, void* fpending, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,7 +3825,7 @@ int32_t windowssys_windows_win32_system_threading_InitOnceBeginInitialize(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitOnceComplete(void* lpinitonce, uint32_t dwflags, void* lpcontext) {
+int32_t windowssys_windows_win32_system_threading_initOnceComplete(void* lpinitonce, uint32_t dwflags, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3849,7 @@ int32_t windowssys_windows_win32_system_threading_InitOnceComplete(void* lpinito
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitOnceExecuteOnce(void* initonce, void* initfn, void* parameter, void* context) {
+int32_t windowssys_windows_win32_system_threading_initOnceExecuteOnce(void* initonce, void* initfn, void* parameter, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3874,7 +3874,7 @@ int32_t windowssys_windows_win32_system_threading_InitOnceExecuteOnce(void* init
 #endif
 }
 
-void windowssys_windows_win32_system_threading_InitOnceInitialize(void* initonce) {
+void windowssys_windows_win32_system_threading_initOnceInitialize(void* initonce) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3895,7 +3895,7 @@ void windowssys_windows_win32_system_threading_InitOnceInitialize(void* initonce
 #endif
 }
 
-void windowssys_windows_win32_system_threading_InitializeConditionVariable(void* conditionvariable) {
+void windowssys_windows_win32_system_threading_initializeConditionVariable(void* conditionvariable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3916,7 +3916,7 @@ void windowssys_windows_win32_system_threading_InitializeConditionVariable(void*
 #endif
 }
 
-void windowssys_windows_win32_system_threading_InitializeCriticalSection(void* lpcriticalsection) {
+void windowssys_windows_win32_system_threading_initializeCriticalSection(void* lpcriticalsection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3937,7 +3937,7 @@ void windowssys_windows_win32_system_threading_InitializeCriticalSection(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount(void* lpcriticalsection, uint32_t dwspincount) {
+int32_t windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount(void* lpcriticalsection, uint32_t dwspincount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3960,7 +3960,7 @@ int32_t windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(void* lpcriticalsection, uint32_t dwspincount, uint32_t flags) {
+int32_t windowssys_windows_win32_system_threading_initializeCriticalSectionEx(void* lpcriticalsection, uint32_t dwspincount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3984,7 +3984,7 @@ int32_t windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList(void* lpattributelist, uint32_t dwattributecount, uint32_t dwflags, void* lpsize) {
+int32_t windowssys_windows_win32_system_threading_initializeProcThreadAttributeList(void* lpattributelist, uint32_t dwattributecount, uint32_t dwflags, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4009,7 +4009,7 @@ int32_t windowssys_windows_win32_system_threading_InitializeProcThreadAttributeL
 #endif
 }
 
-void windowssys_windows_win32_system_threading_InitializeSListHead(void* listhead) {
+void windowssys_windows_win32_system_threading_initializeSListHead(void* listhead) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4030,7 +4030,7 @@ void windowssys_windows_win32_system_threading_InitializeSListHead(void* listhea
 #endif
 }
 
-void windowssys_windows_win32_system_threading_InitializeSRWLock(void* srwlock) {
+void windowssys_windows_win32_system_threading_initializeSRWLock(void* srwlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4051,7 +4051,7 @@ void windowssys_windows_win32_system_threading_InitializeSRWLock(void* srwlock) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier(void* lpbarrier, int32_t ltotalthreads, int32_t lspincount) {
+int32_t windowssys_windows_win32_system_threading_initializeSynchronizationBarrier(void* lpbarrier, int32_t ltotalthreads, int32_t lspincount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4075,7 +4075,7 @@ int32_t windowssys_windows_win32_system_threading_InitializeSynchronizationBarri
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_InterlockedFlushSList(void* listhead) {
+void* windowssys_windows_win32_system_threading_interlockedFlushSList(void* listhead) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4097,7 +4097,7 @@ void* windowssys_windows_win32_system_threading_InterlockedFlushSList(void* list
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_InterlockedPopEntrySList(void* listhead) {
+void* windowssys_windows_win32_system_threading_interlockedPopEntrySList(void* listhead) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4119,7 +4119,7 @@ void* windowssys_windows_win32_system_threading_InterlockedPopEntrySList(void* l
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_InterlockedPushEntrySList(void* listhead, void* listentry) {
+void* windowssys_windows_win32_system_threading_interlockedPushEntrySList(void* listhead, void* listentry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4142,7 +4142,7 @@ void* windowssys_windows_win32_system_threading_InterlockedPushEntrySList(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_InterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count) {
+void* windowssys_windows_win32_system_threading_interlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4167,7 +4167,7 @@ void* windowssys_windows_win32_system_threading_InterlockedPushListSListEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsImmersiveProcess(void* hprocess) {
+int32_t windowssys_windows_win32_system_threading_isImmersiveProcess(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4189,7 +4189,7 @@ int32_t windowssys_windows_win32_system_threading_IsImmersiveProcess(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsProcessCritical(void* hprocess, void* critical) {
+int32_t windowssys_windows_win32_system_threading_isProcessCritical(void* hprocess, void* critical) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4212,7 +4212,7 @@ int32_t windowssys_windows_win32_system_threading_IsProcessCritical(void* hproce
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(uint32_t processorfeature) {
+int32_t windowssys_windows_win32_system_threading_isProcessorFeaturePresent(uint32_t processorfeature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4234,7 +4234,7 @@ int32_t windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsThreadAFiber(void) {
+int32_t windowssys_windows_win32_system_threading_isThreadAFiber(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4255,7 +4255,7 @@ int32_t windowssys_windows_win32_system_threading_IsThreadAFiber(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(int64_t pti) {
+int32_t windowssys_windows_win32_system_threading_isThreadpoolTimerSet(int64_t pti) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4277,7 +4277,7 @@ int32_t windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(int64_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsWow64Process(void* hprocess, void* wow64process) {
+int32_t windowssys_windows_win32_system_threading_isWow64Process(void* hprocess, void* wow64process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4300,7 +4300,7 @@ int32_t windowssys_windows_win32_system_threading_IsWow64Process(void* hprocess,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_IsWow64Process2(void* hprocess, void* pprocessmachine, void* pnativemachine) {
+int32_t windowssys_windows_win32_system_threading_isWow64Process2(void* hprocess, void* pprocessmachine, void* pnativemachine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4324,7 +4324,7 @@ int32_t windowssys_windows_win32_system_threading_IsWow64Process2(void* hprocess
 #endif
 }
 
-void windowssys_windows_win32_system_threading_LeaveCriticalSection(void* lpcriticalsection) {
+void windowssys_windows_win32_system_threading_leaveCriticalSection(void* lpcriticalsection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4345,7 +4345,7 @@ void windowssys_windows_win32_system_threading_LeaveCriticalSection(void* lpcrit
 #endif
 }
 
-void windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns(int64_t pci, void* pcs) {
+void windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(int64_t pci, void* pcs) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4367,7 +4367,7 @@ void windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackR
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenEventA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_threading_openEventA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4391,7 +4391,7 @@ void* windowssys_windows_win32_system_threading_OpenEventA(uint32_t dwdesiredacc
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenEventW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_threading_openEventW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4415,7 +4415,7 @@ void* windowssys_windows_win32_system_threading_OpenEventW(uint32_t dwdesiredacc
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenMutexW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_threading_openMutexW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4439,7 +4439,7 @@ void* windowssys_windows_win32_system_threading_OpenMutexW(uint32_t dwdesiredacc
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(void* lpboundarydescriptor, void* lpaliasprefix) {
+void* windowssys_windows_win32_system_threading_openPrivateNamespaceA(void* lpboundarydescriptor, void* lpaliasprefix) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4462,7 +4462,7 @@ void* windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(void* lpbo
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(void* lpboundarydescriptor, void* lpaliasprefix) {
+void* windowssys_windows_win32_system_threading_openPrivateNamespaceW(void* lpboundarydescriptor, void* lpaliasprefix) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4485,7 +4485,7 @@ void* windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(void* lpbo
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenProcess(uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwprocessid) {
+void* windowssys_windows_win32_system_threading_openProcess(uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4509,7 +4509,7 @@ void* windowssys_windows_win32_system_threading_OpenProcess(uint32_t dwdesiredac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_OpenProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
+int32_t windowssys_windows_win32_system_threading_openProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4533,7 +4533,7 @@ int32_t windowssys_windows_win32_system_threading_OpenProcessToken(void* process
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenSemaphoreW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_threading_openSemaphoreW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4557,7 +4557,7 @@ void* windowssys_windows_win32_system_threading_OpenSemaphoreW(uint32_t dwdesire
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenThread(uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwthreadid) {
+void* windowssys_windows_win32_system_threading_openThread(uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4581,7 +4581,7 @@ void* windowssys_windows_win32_system_threading_OpenThread(uint32_t dwdesiredacc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_OpenThreadToken(void* threadhandle, uint32_t desiredaccess, int32_t openasself, void* tokenhandle) {
+int32_t windowssys_windows_win32_system_threading_openThreadToken(void* threadhandle, uint32_t desiredaccess, int32_t openasself, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4606,7 +4606,7 @@ int32_t windowssys_windows_win32_system_threading_OpenThreadToken(void* threadha
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenWaitableTimerA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lptimername) {
+void* windowssys_windows_win32_system_threading_openWaitableTimerA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lptimername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4630,7 +4630,7 @@ void* windowssys_windows_win32_system_threading_OpenWaitableTimerA(uint32_t dwde
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_OpenWaitableTimerW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lptimername) {
+void* windowssys_windows_win32_system_threading_openWaitableTimerW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lptimername) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4654,7 +4654,7 @@ void* windowssys_windows_win32_system_threading_OpenWaitableTimerW(uint32_t dwde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_PulseEvent(void* hevent) {
+int32_t windowssys_windows_win32_system_threading_pulseEvent(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4676,7 +4676,7 @@ int32_t windowssys_windows_win32_system_threading_PulseEvent(void* hevent) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_threading_QueryDepthSList(void* listhead) {
+uint16_t windowssys_windows_win32_system_threading_queryDepthSList(void* listhead) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4698,7 +4698,7 @@ uint16_t windowssys_windows_win32_system_threading_QueryDepthSList(void* listhea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(void* hprocess, uint32_t dwflags, void* lpexename, void* lpdwsize) {
+int32_t windowssys_windows_win32_system_threading_queryFullProcessImageNameA(void* hprocess, uint32_t dwflags, void* lpexename, void* lpdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4723,7 +4723,7 @@ int32_t windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(void* hprocess, uint32_t dwflags, void* lpexename, void* lpdwsize) {
+int32_t windowssys_windows_win32_system_threading_queryFullProcessImageNameW(void* hprocess, uint32_t dwflags, void* lpexename, void* lpdwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4748,7 +4748,7 @@ int32_t windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode(void* hprocess, void* lpdwflags) {
+int32_t windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode(void* hprocess, void* lpdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4771,7 +4771,7 @@ int32_t windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryProtectedPolicy(void* policyguid, void* policyvalue) {
+int32_t windowssys_windows_win32_system_threading_queryProtectedPolicy(void* policyguid, void* policyvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4794,7 +4794,7 @@ int32_t windowssys_windows_win32_system_threading_QueryProtectedPolicy(void* pol
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation(int64_t ptpp, void* ptpsi) {
+int32_t windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(int64_t ptpp, void* ptpsi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4817,7 +4817,7 @@ int32_t windowssys_windows_win32_system_threading_QueryThreadpoolStackInformatio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueryUmsThreadInformation(void* umsthread, int32_t umsthreadinfoclass, void* umsthreadinformation, uint32_t umsthreadinformationlength, void* returnlength) {
+int32_t windowssys_windows_win32_system_threading_queryUmsThreadInformation(void* umsthread, int32_t umsthreadinfoclass, void* umsthreadinformation, uint32_t umsthreadinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4843,7 +4843,7 @@ int32_t windowssys_windows_win32_system_threading_QueryUmsThreadInformation(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_QueueUserWorkItem(void* function, void* context, uint32_t flags) {
+int32_t windowssys_windows_win32_system_threading_queueUserWorkItem(void* function, void* context, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4867,7 +4867,7 @@ int32_t windowssys_windows_win32_system_threading_QueueUserWorkItem(void* functi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(void* phnewwaitobject, void* hobject, void* callback, void* context, uint32_t dwmilliseconds, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_threading_registerWaitForSingleObject(void* phnewwaitobject, void* hobject, void* callback, void* context, uint32_t dwmilliseconds, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4894,7 +4894,7 @@ int32_t windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ReleaseMutex(void* hmutex) {
+int32_t windowssys_windows_win32_system_threading_releaseMutex(void* hmutex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4916,7 +4916,7 @@ int32_t windowssys_windows_win32_system_threading_ReleaseMutex(void* hmutex) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(int64_t pci, void* mut) {
+void windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(int64_t pci, void* mut) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4938,7 +4938,7 @@ void windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(i
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(void* srwlock) {
+void windowssys_windows_win32_system_threading_releaseSRWLockExclusive(void* srwlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4959,7 +4959,7 @@ void windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(void* srw
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ReleaseSRWLockShared(void* srwlock) {
+void windowssys_windows_win32_system_threading_releaseSRWLockShared(void* srwlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4980,7 +4980,7 @@ void windowssys_windows_win32_system_threading_ReleaseSRWLockShared(void* srwloc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ReleaseSemaphore(void* hsemaphore, int32_t lreleasecount, void* lppreviouscount) {
+int32_t windowssys_windows_win32_system_threading_releaseSemaphore(void* hsemaphore, int32_t lreleasecount, void* lppreviouscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5004,7 +5004,7 @@ int32_t windowssys_windows_win32_system_threading_ReleaseSemaphore(void* hsemaph
 #endif
 }
 
-void windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns(int64_t pci, void* sem, uint32_t crel) {
+void windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(int64_t pci, void* sem, uint32_t crel) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5027,7 +5027,7 @@ void windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackRetur
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_ResetEvent(void* hevent) {
+int32_t windowssys_windows_win32_system_threading_resetEvent(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5049,7 +5049,7 @@ int32_t windowssys_windows_win32_system_threading_ResetEvent(void* hevent) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_ResumeThread(void* hthread) {
+uint32_t windowssys_windows_win32_system_threading_resumeThread(void* hthread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5071,7 +5071,7 @@ uint32_t windowssys_windows_win32_system_threading_ResumeThread(void* hthread) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(void* callback, void* context, void* key) {
+int32_t windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(void* callback, void* context, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5095,7 +5095,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(uint32_t workqueueidin, void* workqueueidout) {
+int32_t windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(uint32_t workqueueidin, void* workqueueidout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5118,7 +5118,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(int32_t workqueuetype, void* workqueueid) {
+int32_t windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(int32_t workqueuetype, void* workqueueid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5141,7 +5141,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS(uint32_t workqueueid, void* usageclass, uint32_t dwtaskid, int32_t lpriority, void* donecallback, void* donestate) {
+int32_t windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(uint32_t workqueueid, void* usageclass, uint32_t dwtaskid, int32_t lpriority, void* donecallback, void* donestate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5168,7 +5168,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWith
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS(uint32_t workqueueid, void* donecallback, void* donestate) {
+int32_t windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(uint32_t workqueueid, void* donecallback, void* donestate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5192,7 +5192,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqCancelDeadline(void* prequest) {
+int32_t windowssys_windows_win32_system_threading_rtwqCancelDeadline(void* prequest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5214,7 +5214,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqCancelDeadline(void* prequ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqCancelWorkItem(uint64_t key) {
+int32_t windowssys_windows_win32_system_threading_rtwqCancelWorkItem(uint64_t key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5236,7 +5236,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqCancelWorkItem(uint64_t ke
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(void* appobject, void* callback, void* appstate, void* asyncresult) {
+int32_t windowssys_windows_win32_system_threading_rtwqCreateAsyncResult(void* appobject, void* callback, void* appstate, void* asyncresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5261,7 +5261,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(void* ap
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS(void* result, void* taskid) {
+int32_t windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS(void* result, void* taskid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5284,7 +5284,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMM
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(uint32_t workqueueid, void* usageclass, void* usageclasslength) {
+int32_t windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(uint32_t workqueueid, void* usageclass, void* usageclasslength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5308,7 +5308,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(uint32_t workqueueid, void* priority) {
+int32_t windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(uint32_t workqueueid, void* priority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5331,7 +5331,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(uint32_t workqueueid, void* taskid) {
+int32_t windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(uint32_t workqueueid, void* taskid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5354,7 +5354,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqInvokeCallback(void* result) {
+int32_t windowssys_windows_win32_system_threading_rtwqInvokeCallback(void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5376,7 +5376,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqInvokeCallback(void* resul
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(uint32_t workqueueid, void* hfile, void* out) {
+int32_t windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(uint32_t workqueueid, void* hfile, void* out) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5400,7 +5400,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(uint32_t wor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqLockPlatform(void) {
+int32_t windowssys_windows_win32_system_threading_rtwqLockPlatform(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5421,7 +5421,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqLockPlatform(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(void* usageclass, int32_t basepriority, void* taskid, void* id) {
+int32_t windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue(void* usageclass, int32_t basepriority, void* taskid, void* id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5446,7 +5446,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqLockWorkQueue(uint32_t workqueueid) {
+int32_t windowssys_windows_win32_system_threading_rtwqLockWorkQueue(uint32_t workqueueid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5468,7 +5468,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqLockWorkQueue(uint32_t wor
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(void* hevent, int32_t lpriority, void* result, void* key) {
+int32_t windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem(void* hevent, int32_t lpriority, void* result, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5493,7 +5493,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqPutWorkItem(uint32_t dwqueue, int32_t lpriority, void* result) {
+int32_t windowssys_windows_win32_system_threading_rtwqPutWorkItem(uint32_t dwqueue, int32_t lpriority, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5517,7 +5517,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqPutWorkItem(uint32_t dwque
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(void* platformevents) {
+int32_t windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents(void* platformevents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5539,7 +5539,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(void* usageclass, void* taskid, int32_t lpriority) {
+int32_t windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS(void* usageclass, void* taskid, int32_t lpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5563,7 +5563,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(uint32_t dwkey) {
+int32_t windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(uint32_t dwkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5585,7 +5585,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(void* result, int64_t timeout, void* key) {
+int32_t windowssys_windows_win32_system_threading_rtwqScheduleWorkItem(void* result, int64_t timeout, void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5609,7 +5609,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(void* res
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqSetDeadline(uint32_t workqueueid, int64_t deadlineinhns, void* prequest) {
+int32_t windowssys_windows_win32_system_threading_rtwqSetDeadline(uint32_t workqueueid, int64_t deadlineinhns, void* prequest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5633,7 +5633,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqSetDeadline(uint32_t workq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqSetDeadline2(uint32_t workqueueid, int64_t deadlineinhns, int64_t predeadlineinhns, void* prequest) {
+int32_t windowssys_windows_win32_system_threading_rtwqSetDeadline2(uint32_t workqueueid, int64_t deadlineinhns, int64_t predeadlineinhns, void* prequest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5658,7 +5658,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqSetDeadline2(uint32_t work
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqSetLongRunning(uint32_t workqueueid, int32_t enable) {
+int32_t windowssys_windows_win32_system_threading_rtwqSetLongRunning(uint32_t workqueueid, int32_t enable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5681,7 +5681,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqSetLongRunning(uint32_t wo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqShutdown(void) {
+int32_t windowssys_windows_win32_system_threading_rtwqShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5702,7 +5702,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqShutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqStartup(void) {
+int32_t windowssys_windows_win32_system_threading_rtwqStartup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5723,7 +5723,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqStartup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(uint32_t workqueueid, void* hfile) {
+int32_t windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(uint32_t workqueueid, void* hfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5746,7 +5746,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(uint32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqUnlockPlatform(void) {
+int32_t windowssys_windows_win32_system_threading_rtwqUnlockPlatform(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5767,7 +5767,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqUnlockPlatform(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(uint32_t workqueueid) {
+int32_t windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(uint32_t workqueueid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5789,7 +5789,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(uint32_t w
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(void* platformevents) {
+int32_t windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents(void* platformevents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5811,7 +5811,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS(void) {
+int32_t windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5832,7 +5832,7 @@ int32_t windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCS
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(void* lpcriticalsection, uint32_t dwspincount) {
+uint32_t windowssys_windows_win32_system_threading_setCriticalSectionSpinCount(void* lpcriticalsection, uint32_t dwspincount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5855,7 +5855,7 @@ uint32_t windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetEvent(void* hevent) {
+int32_t windowssys_windows_win32_system_threading_setEvent(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5877,7 +5877,7 @@ int32_t windowssys_windows_win32_system_threading_SetEvent(void* hevent) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(int64_t pci, void* evt) {
+void windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(int64_t pci, void* evt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5899,7 +5899,7 @@ void windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetPriorityClass(void* hprocess, uint32_t dwpriorityclass) {
+int32_t windowssys_windows_win32_system_threading_setPriorityClass(void* hprocess, uint32_t dwpriorityclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5922,7 +5922,7 @@ int32_t windowssys_windows_win32_system_threading_SetPriorityClass(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessAffinityMask(void* hprocess, uint64_t dwprocessaffinitymask) {
+int32_t windowssys_windows_win32_system_threading_setProcessAffinityMask(void* hprocess, uint64_t dwprocessaffinitymask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5945,7 +5945,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessAffinityMask(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(void* hprocess, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode(void* hprocess, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5968,7 +5968,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessDEPPolicy(uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_threading_setProcessDEPPolicy(uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5990,7 +5990,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessDEPPolicy(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(void* process, void* cpusetmasks, uint16_t cpusetmaskcount) {
+int32_t windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks(void* process, void* cpusetmasks, uint16_t cpusetmaskcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6014,7 +6014,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(void* process, void* cpusetids, uint32_t cpusetidcount) {
+int32_t windowssys_windows_win32_system_threading_setProcessDefaultCpuSets(void* process, void* cpusetids, uint32_t cpusetidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6038,7 +6038,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets(void* process, uint16_t numberoftargets, void* targets) {
+int32_t windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets(void* process, uint16_t numberoftargets, void* targets) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6062,7 +6062,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuatio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges(void* process, uint16_t numberofranges, void* ranges) {
+int32_t windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges(void* process, uint16_t numberofranges, void* ranges) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6086,7 +6086,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessInformation(void* hprocess, int32_t processinformationclass, void* processinformation, uint32_t processinformationsize) {
+int32_t windowssys_windows_win32_system_threading_setProcessInformation(void* hprocess, int32_t processinformationclass, void* processinformation, uint32_t processinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6111,7 +6111,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessInformation(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(int32_t mitigationpolicy, void* lpbuffer, uint64_t dwlength) {
+int32_t windowssys_windows_win32_system_threading_setProcessMitigationPolicy(int32_t mitigationpolicy, void* lpbuffer, uint64_t dwlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6135,7 +6135,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessPriorityBoost(void* hprocess, int32_t bdisablepriorityboost) {
+int32_t windowssys_windows_win32_system_threading_setProcessPriorityBoost(void* hprocess, int32_t bdisablepriorityboost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6158,7 +6158,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessPriorityBoost(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessRestrictionExemption(int32_t fenableexemption) {
+int32_t windowssys_windows_win32_system_threading_setProcessRestrictionExemption(int32_t fenableexemption) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6180,7 +6180,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessRestrictionExemption
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessShutdownParameters(uint32_t dwlevel, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_threading_setProcessShutdownParameters(uint32_t dwlevel, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6203,7 +6203,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessShutdownParameters(u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(void* hprocess, uint64_t dwminimumworkingsetsize, uint64_t dwmaximumworkingsetsize) {
+int32_t windowssys_windows_win32_system_threading_setProcessWorkingSetSize(void* hprocess, uint64_t dwminimumworkingsetsize, uint64_t dwmaximumworkingsetsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6227,7 +6227,7 @@ int32_t windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetProtectedPolicy(void* policyguid, uint64_t policyvalue, void* oldpolicyvalue) {
+int32_t windowssys_windows_win32_system_threading_setProtectedPolicy(void* policyguid, uint64_t policyvalue, void* oldpolicyvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6251,7 +6251,7 @@ int32_t windowssys_windows_win32_system_threading_SetProtectedPolicy(void* polic
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_threading_SetThreadAffinityMask(void* hthread, uint64_t dwthreadaffinitymask) {
+uint64_t windowssys_windows_win32_system_threading_setThreadAffinityMask(void* hthread, uint64_t dwthreadaffinitymask) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6274,7 +6274,7 @@ uint64_t windowssys_windows_win32_system_threading_SetThreadAffinityMask(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadDescription(void* hthread, void* lpthreaddescription) {
+int32_t windowssys_windows_win32_system_threading_setThreadDescription(void* hthread, void* lpthreaddescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6297,7 +6297,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadDescription(void* hth
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadGroupAffinity(void* hthread, void* groupaffinity, void* previousgroupaffinity) {
+int32_t windowssys_windows_win32_system_threading_setThreadGroupAffinity(void* hthread, void* groupaffinity, void* previousgroupaffinity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6321,7 +6321,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadGroupAffinity(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_SetThreadIdealProcessor(void* hthread, uint32_t dwidealprocessor) {
+uint32_t windowssys_windows_win32_system_threading_setThreadIdealProcessor(void* hthread, uint32_t dwidealprocessor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6344,7 +6344,7 @@ uint32_t windowssys_windows_win32_system_threading_SetThreadIdealProcessor(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(void* hthread, void* lpidealprocessor, void* lppreviousidealprocessor) {
+int32_t windowssys_windows_win32_system_threading_setThreadIdealProcessorEx(void* hthread, void* lpidealprocessor, void* lppreviousidealprocessor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6368,7 +6368,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadInformation(void* hthread, int32_t threadinformationclass, void* threadinformation, uint32_t threadinformationsize) {
+int32_t windowssys_windows_win32_system_threading_setThreadInformation(void* hthread, int32_t threadinformationclass, void* threadinformation, uint32_t threadinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6393,7 +6393,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadInformation(void* hth
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadPriority(void* hthread, int32_t npriority) {
+int32_t windowssys_windows_win32_system_threading_setThreadPriority(void* hthread, int32_t npriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6416,7 +6416,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadPriority(void* hthrea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadPriorityBoost(void* hthread, int32_t bdisablepriorityboost) {
+int32_t windowssys_windows_win32_system_threading_setThreadPriorityBoost(void* hthread, int32_t bdisablepriorityboost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6439,7 +6439,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadPriorityBoost(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(void* thread, void* cpusetmasks, uint16_t cpusetmaskcount) {
+int32_t windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks(void* thread, void* cpusetmasks, uint16_t cpusetmaskcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6463,7 +6463,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(void* thread, void* cpusetids, uint32_t cpusetidcount) {
+int32_t windowssys_windows_win32_system_threading_setThreadSelectedCpuSets(void* thread, void* cpusetids, uint32_t cpusetidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6487,7 +6487,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadStackGuarantee(void* stacksizeinbytes) {
+int32_t windowssys_windows_win32_system_threading_setThreadStackGuarantee(void* stacksizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6509,7 +6509,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadStackGuarantee(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadToken(void* thread, void* token) {
+int32_t windowssys_windows_win32_system_threading_setThreadToken(void* thread, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6532,7 +6532,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadToken(void* thread, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(int64_t ptpp, void* ptpsi) {
+int32_t windowssys_windows_win32_system_threading_setThreadpoolStackInformation(int64_t ptpp, void* ptpsi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6555,7 +6555,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(int64_t ptpp, uint32_t cthrdmost) {
+void windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(int64_t ptpp, uint32_t cthrdmost) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6577,7 +6577,7 @@ void windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(int64_t ptpp, uint32_t cthrdmic) {
+int32_t windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(int64_t ptpp, uint32_t cthrdmic) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6600,7 +6600,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(int
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SetThreadpoolTimer(int64_t pti, void* pftduetime, uint32_t msperiod, uint32_t mswindowlength) {
+void windowssys_windows_win32_system_threading_setThreadpoolTimer(int64_t pti, void* pftduetime, uint32_t msperiod, uint32_t mswindowlength) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6624,7 +6624,7 @@ void windowssys_windows_win32_system_threading_SetThreadpoolTimer(int64_t pti, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(int64_t pti, void* pftduetime, uint32_t msperiod, uint32_t mswindowlength) {
+int32_t windowssys_windows_win32_system_threading_setThreadpoolTimerEx(int64_t pti, void* pftduetime, uint32_t msperiod, uint32_t mswindowlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6649,7 +6649,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(int64_t p
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SetThreadpoolWait(int64_t pwa, void* h, void* pfttimeout) {
+void windowssys_windows_win32_system_threading_setThreadpoolWait(int64_t pwa, void* h, void* pfttimeout) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6672,7 +6672,7 @@ void windowssys_windows_win32_system_threading_SetThreadpoolWait(int64_t pwa, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(int64_t pwa, void* h, void* pfttimeout, void* reserved) {
+int32_t windowssys_windows_win32_system_threading_setThreadpoolWaitEx(int64_t pwa, void* h, void* pfttimeout, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6697,7 +6697,7 @@ int32_t windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(int64_t pw
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_SetTimerQueueTimer(void* timerqueue, void* callback, void* parameter, uint32_t duetime, uint32_t period, int32_t preferio) {
+void* windowssys_windows_win32_system_threading_setTimerQueueTimer(void* timerqueue, void* callback, void* parameter, uint32_t duetime, uint32_t period, int32_t preferio) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6724,7 +6724,7 @@ void* windowssys_windows_win32_system_threading_SetTimerQueueTimer(void* timerqu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetUmsThreadInformation(void* umsthread, int32_t umsthreadinfoclass, void* umsthreadinformation, uint32_t umsthreadinformationlength) {
+int32_t windowssys_windows_win32_system_threading_setUmsThreadInformation(void* umsthread, int32_t umsthreadinfoclass, void* umsthreadinformation, uint32_t umsthreadinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6749,7 +6749,7 @@ int32_t windowssys_windows_win32_system_threading_SetUmsThreadInformation(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetWaitableTimer(void* htimer, void* lpduetime, int32_t lperiod, void* pfncompletionroutine, void* lpargtocompletionroutine, int32_t fresume) {
+int32_t windowssys_windows_win32_system_threading_setWaitableTimer(void* htimer, void* lpduetime, int32_t lperiod, void* pfncompletionroutine, void* lpargtocompletionroutine, int32_t fresume) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6776,7 +6776,7 @@ int32_t windowssys_windows_win32_system_threading_SetWaitableTimer(void* htimer,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SetWaitableTimerEx(void* htimer, void* lpduetime, int32_t lperiod, void* pfncompletionroutine, void* lpargtocompletionroutine, void* wakecontext, uint32_t tolerabledelay) {
+int32_t windowssys_windows_win32_system_threading_setWaitableTimerEx(void* htimer, void* lpduetime, int32_t lperiod, void* pfncompletionroutine, void* lpargtocompletionroutine, void* wakecontext, uint32_t tolerabledelay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6804,7 +6804,7 @@ int32_t windowssys_windows_win32_system_threading_SetWaitableTimerEx(void* htime
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_SignalObjectAndWait(void* hobjecttosignal, void* hobjecttowaiton, uint32_t dwmilliseconds, int32_t balertable) {
+uint32_t windowssys_windows_win32_system_threading_signalObjectAndWait(void* hobjecttosignal, void* hobjecttowaiton, uint32_t dwmilliseconds, int32_t balertable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6829,7 +6829,7 @@ uint32_t windowssys_windows_win32_system_threading_SignalObjectAndWait(void* hob
 #endif
 }
 
-void windowssys_windows_win32_system_threading_Sleep(uint32_t dwmilliseconds) {
+void windowssys_windows_win32_system_threading_sleep(uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6850,7 +6850,7 @@ void windowssys_windows_win32_system_threading_Sleep(uint32_t dwmilliseconds) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SleepConditionVariableCS(void* conditionvariable, void* criticalsection, uint32_t dwmilliseconds) {
+int32_t windowssys_windows_win32_system_threading_sleepConditionVariableCS(void* conditionvariable, void* criticalsection, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6874,7 +6874,7 @@ int32_t windowssys_windows_win32_system_threading_SleepConditionVariableCS(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SleepConditionVariableSRW(void* conditionvariable, void* srwlock, uint32_t dwmilliseconds, uint32_t flags) {
+int32_t windowssys_windows_win32_system_threading_sleepConditionVariableSRW(void* conditionvariable, void* srwlock, uint32_t dwmilliseconds, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6899,7 +6899,7 @@ int32_t windowssys_windows_win32_system_threading_SleepConditionVariableSRW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_SleepEx(uint32_t dwmilliseconds, int32_t balertable) {
+uint32_t windowssys_windows_win32_system_threading_sleepEx(uint32_t dwmilliseconds, int32_t balertable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6922,7 +6922,7 @@ uint32_t windowssys_windows_win32_system_threading_SleepEx(uint32_t dwmillisecon
 #endif
 }
 
-void windowssys_windows_win32_system_threading_StartThreadpoolIo(int64_t pio) {
+void windowssys_windows_win32_system_threading_startThreadpoolIo(int64_t pio) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6943,7 +6943,7 @@ void windowssys_windows_win32_system_threading_StartThreadpoolIo(int64_t pio) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SubmitThreadpoolWork(int64_t pwk) {
+void windowssys_windows_win32_system_threading_submitThreadpoolWork(int64_t pwk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6964,7 +6964,7 @@ void windowssys_windows_win32_system_threading_SubmitThreadpoolWork(int64_t pwk)
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_SuspendThread(void* hthread) {
+uint32_t windowssys_windows_win32_system_threading_suspendThread(void* hthread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6986,7 +6986,7 @@ uint32_t windowssys_windows_win32_system_threading_SuspendThread(void* hthread) 
 #endif
 }
 
-void windowssys_windows_win32_system_threading_SwitchToFiber(void* lpfiber) {
+void windowssys_windows_win32_system_threading_switchToFiber(void* lpfiber) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7007,7 +7007,7 @@ void windowssys_windows_win32_system_threading_SwitchToFiber(void* lpfiber) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_SwitchToThread(void) {
+int32_t windowssys_windows_win32_system_threading_switchToThread(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7028,7 +7028,7 @@ int32_t windowssys_windows_win32_system_threading_SwitchToThread(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TerminateProcess(void* hprocess, uint32_t uexitcode) {
+int32_t windowssys_windows_win32_system_threading_terminateProcess(void* hprocess, uint32_t uexitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7051,7 +7051,7 @@ int32_t windowssys_windows_win32_system_threading_TerminateProcess(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TerminateThread(void* hthread, uint32_t dwexitcode) {
+int32_t windowssys_windows_win32_system_threading_terminateThread(void* hthread, uint32_t dwexitcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7074,7 +7074,7 @@ int32_t windowssys_windows_win32_system_threading_TerminateThread(void* hthread,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_TlsAlloc(void) {
+uint32_t windowssys_windows_win32_system_threading_tlsAlloc(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7095,7 +7095,7 @@ uint32_t windowssys_windows_win32_system_threading_TlsAlloc(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TlsFree(uint32_t dwtlsindex) {
+int32_t windowssys_windows_win32_system_threading_tlsFree(uint32_t dwtlsindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7117,7 +7117,7 @@ int32_t windowssys_windows_win32_system_threading_TlsFree(uint32_t dwtlsindex) {
 #endif
 }
 
-void* windowssys_windows_win32_system_threading_TlsGetValue(uint32_t dwtlsindex) {
+void* windowssys_windows_win32_system_threading_tlsGetValue(uint32_t dwtlsindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7139,7 +7139,7 @@ void* windowssys_windows_win32_system_threading_TlsGetValue(uint32_t dwtlsindex)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TlsSetValue(uint32_t dwtlsindex, void* lptlsvalue) {
+int32_t windowssys_windows_win32_system_threading_tlsSetValue(uint32_t dwtlsindex, void* lptlsvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7162,7 +7162,7 @@ int32_t windowssys_windows_win32_system_threading_TlsSetValue(uint32_t dwtlsinde
 #endif
 }
 
-bool windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(void* srwlock) {
+bool windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive(void* srwlock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7184,7 +7184,7 @@ bool windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(void* 
 #endif
 }
 
-bool windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(void* srwlock) {
+bool windowssys_windows_win32_system_threading_tryAcquireSRWLockShared(void* srwlock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7206,7 +7206,7 @@ bool windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(void* srw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TryEnterCriticalSection(void* lpcriticalsection) {
+int32_t windowssys_windows_win32_system_threading_tryEnterCriticalSection(void* lpcriticalsection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7228,7 +7228,7 @@ int32_t windowssys_windows_win32_system_threading_TryEnterCriticalSection(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(void* pfns, void* pv, void* pcbe) {
+int32_t windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(void* pfns, void* pv, void* pcbe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7252,7 +7252,7 @@ int32_t windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_UmsThreadYield(void* schedulerparam) {
+int32_t windowssys_windows_win32_system_threading_umsThreadYield(void* schedulerparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7274,7 +7274,7 @@ int32_t windowssys_windows_win32_system_threading_UmsThreadYield(void* scheduler
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_UnregisterWait(void* waithandle) {
+int32_t windowssys_windows_win32_system_threading_unregisterWait(void* waithandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7296,7 +7296,7 @@ int32_t windowssys_windows_win32_system_threading_UnregisterWait(void* waithandl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_UnregisterWaitEx(void* waithandle, void* completionevent) {
+int32_t windowssys_windows_win32_system_threading_unregisterWaitEx(void* waithandle, void* completionevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7319,7 +7319,7 @@ int32_t windowssys_windows_win32_system_threading_UnregisterWaitEx(void* waithan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(void* lpattributelist, uint32_t dwflags, uint64_t attribute, void* lpvalue, uint64_t cbsize, void* lppreviousvalue, void* lpreturnsize) {
+int32_t windowssys_windows_win32_system_threading_updateProcThreadAttribute(void* lpattributelist, uint32_t dwflags, uint64_t attribute, void* lpvalue, uint64_t cbsize, void* lppreviousvalue, void* lpreturnsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7347,7 +7347,7 @@ int32_t windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WaitForInputIdle(void* hprocess, uint32_t dwmilliseconds) {
+uint32_t windowssys_windows_win32_system_threading_waitForInputIdle(void* hprocess, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7370,7 +7370,7 @@ uint32_t windowssys_windows_win32_system_threading_WaitForInputIdle(void* hproce
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WaitForMultipleObjects(uint32_t ncount, void* lphandles, int32_t bwaitall, uint32_t dwmilliseconds) {
+uint32_t windowssys_windows_win32_system_threading_waitForMultipleObjects(uint32_t ncount, void* lphandles, int32_t bwaitall, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7395,7 +7395,7 @@ uint32_t windowssys_windows_win32_system_threading_WaitForMultipleObjects(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(uint32_t ncount, void* lphandles, int32_t bwaitall, uint32_t dwmilliseconds, int32_t balertable) {
+uint32_t windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(uint32_t ncount, void* lphandles, int32_t bwaitall, uint32_t dwmilliseconds, int32_t balertable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7421,7 +7421,7 @@ uint32_t windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WaitForSingleObject(void* hhandle, uint32_t dwmilliseconds) {
+uint32_t windowssys_windows_win32_system_threading_waitForSingleObject(void* hhandle, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7444,7 +7444,7 @@ uint32_t windowssys_windows_win32_system_threading_WaitForSingleObject(void* hha
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WaitForSingleObjectEx(void* hhandle, uint32_t dwmilliseconds, int32_t balertable) {
+uint32_t windowssys_windows_win32_system_threading_waitForSingleObjectEx(void* hhandle, uint32_t dwmilliseconds, int32_t balertable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7468,7 +7468,7 @@ uint32_t windowssys_windows_win32_system_threading_WaitForSingleObjectEx(void* h
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(int64_t pio, int32_t fcancelpendingcallbacks) {
+void windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(int64_t pio, int32_t fcancelpendingcallbacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7490,7 +7490,7 @@ void windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(int6
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(int64_t pti, int32_t fcancelpendingcallbacks) {
+void windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(int64_t pti, int32_t fcancelpendingcallbacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7512,7 +7512,7 @@ void windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(i
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(int64_t pwa, int32_t fcancelpendingcallbacks) {
+void windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(int64_t pwa, int32_t fcancelpendingcallbacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7534,7 +7534,7 @@ void windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(in
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(int64_t pwk, int32_t fcancelpendingcallbacks) {
+void windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(int64_t pwk, int32_t fcancelpendingcallbacks) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7556,7 +7556,7 @@ void windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_WaitOnAddress(void* address, void* compareaddress, uint64_t addresssize, uint32_t dwmilliseconds) {
+int32_t windowssys_windows_win32_system_threading_waitOnAddress(void* address, void* compareaddress, uint64_t addresssize, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7581,7 +7581,7 @@ int32_t windowssys_windows_win32_system_threading_WaitOnAddress(void* address, v
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WakeAllConditionVariable(void* conditionvariable) {
+void windowssys_windows_win32_system_threading_wakeAllConditionVariable(void* conditionvariable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7602,7 +7602,7 @@ void windowssys_windows_win32_system_threading_WakeAllConditionVariable(void* co
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WakeByAddressAll(void* address) {
+void windowssys_windows_win32_system_threading_wakeByAddressAll(void* address) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7623,7 +7623,7 @@ void windowssys_windows_win32_system_threading_WakeByAddressAll(void* address) {
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WakeByAddressSingle(void* address) {
+void windowssys_windows_win32_system_threading_wakeByAddressSingle(void* address) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7644,7 +7644,7 @@ void windowssys_windows_win32_system_threading_WakeByAddressSingle(void* address
 #endif
 }
 
-void windowssys_windows_win32_system_threading_WakeConditionVariable(void* conditionvariable) {
+void windowssys_windows_win32_system_threading_wakeConditionVariable(void* conditionvariable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7665,7 +7665,7 @@ void windowssys_windows_win32_system_threading_WakeConditionVariable(void* condi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_WinExec(void* lpcmdline, uint32_t ucmdshow) {
+uint32_t windowssys_windows_win32_system_threading_winExec(void* lpcmdline, uint32_t ucmdshow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7688,7 +7688,7 @@ uint32_t windowssys_windows_win32_system_threading_WinExec(void* lpcmdline, uint
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine(uint16_t machine) {
+uint16_t windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(uint16_t machine) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7710,7 +7710,7 @@ uint16_t windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMac
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_threading_Wow64SuspendThread(void* hthread) {
+uint32_t windowssys_windows_win32_system_threading_wow64SuspendThread(void* hthread) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

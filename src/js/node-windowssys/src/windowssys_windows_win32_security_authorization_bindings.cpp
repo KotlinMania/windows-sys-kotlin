@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzAccessCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzAccessCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -85,7 +85,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzAccessCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzAddSidsToContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzAddSidsToContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzAddSidsT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzCachedAccessCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzCachedAccessCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* haccesscheckresults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzCachedAc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzEnumerateSecurityEventSources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzEnumerateSecurityEventSources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzEvaluateSacl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzEvaluateSacl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* authzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzEvaluate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeAuditEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzFreeAuditEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauditevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeAudi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeCentralAccessPolicyCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzFreeCentralAccessPolicyCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeCent
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzFreeContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzFreeHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* haccesscheckresults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeHand
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzFreeResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzresourcemanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -279,7 +279,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzFreeReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzGetInformationFromContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzGetInformationFromContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzGetInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitializeCompoundContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeCompoundContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* usercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,103 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitializeRemoteResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* hauditeventtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* szoperationtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* szobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* szobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* szadditionalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* phauditevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t dwadditionalparametercount = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+    int64_t km_va1 = km_info.Length() > 10 ? km_napi_arg_i64(km_info[10]) : 0;
+    int64_t km_va2 = km_info.Length() > 11 ? km_napi_arg_i64(km_info[11]) : 0;
+    int64_t km_va3 = km_info.Length() > 12 ? km_napi_arg_i64(km_info[12]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuthzInitializeObjectAccessAuditEvent")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, phauditevent, dwadditionalparametercount); break;
+            case 1: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)flags;
+    (void)hauditeventtype;
+    (void)szoperationtype;
+    (void)szobjecttype;
+    (void)szobjectname;
+    (void)szadditionalinfo;
+    (void)phauditevent;
+    (void)dwadditionalparametercount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent2_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* hauditeventtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* szoperationtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* szobjecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* szobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* szadditionalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* szadditionalinfo2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* phauditevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    uint32_t dwadditionalparametercount = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 10 ? km_napi_arg_i64(km_info[10]) : 0;
+    int64_t km_va1 = km_info.Length() > 11 ? km_napi_arg_i64(km_info[11]) : 0;
+    int64_t km_va2 = km_info.Length() > 12 ? km_napi_arg_i64(km_info[12]) : 0;
+    int64_t km_va3 = km_info.Length() > 13 ? km_napi_arg_i64(km_info[13]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuthzInitializeObjectAccessAuditEvent2")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, szadditionalinfo2, phauditevent, dwadditionalparametercount); break;
+            case 1: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, szadditionalinfo2, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, szadditionalinfo2, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, szadditionalinfo2, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(flags, hauditeventtype, szoperationtype, szobjecttype, szobjectname, szadditionalinfo, szadditionalinfo2, phauditevent, dwadditionalparametercount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)flags;
+    (void)hauditeventtype;
+    (void)szoperationtype;
+    (void)szobjecttype;
+    (void)szobjectname;
+    (void)szadditionalinfo;
+    (void)szadditionalinfo2;
+    (void)phauditevent;
+    (void)dwadditionalparametercount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeRemoteResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prpcinitinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phauthzresourcemanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -347,7 +443,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitializeResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfndynamicaccesscheck = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -375,7 +471,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitializeResourceManagerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzInitializeResourceManagerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pauthzinitinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -397,7 +493,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzInstallSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzInstallSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -417,7 +513,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzInstallS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifyClaims_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzModifyClaims_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t claimclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -441,7 +537,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifyCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifySecurityAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzModifySecurityAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poperations = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -463,7 +559,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifySids_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzModifySids_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t sidclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -487,7 +583,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzModifySi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzOpenObjectAudit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzOpenObjectAudit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -519,7 +615,29 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzOpenObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzRegisterSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzRegisterCapChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* phcapchangesubscription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pfncapchangecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pcallbackcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuthzRegisterCapChangeNotification")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcapchangesubscription, pfncapchangecallback, pcallbackcontext) : -1;
+#else
+    (void)phcapchangesubscription;
+    (void)pfncapchangecallback;
+    (void)pcallbackcontext;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_security_authorization_authzRegisterSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szeventsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -541,7 +659,48 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzReportSecurityEventFromParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzReportSecurityEvent_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* heventprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwauditid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* pusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwcount = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va1 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va2 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+    int64_t km_va3 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuthzReportSecurityEvent")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(dwflags, heventprovider, dwauditid, pusersid, dwcount); break;
+            case 1: km_res = km_fn_ptr(dwflags, heventprovider, dwauditid, pusersid, dwcount, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(dwflags, heventprovider, dwauditid, pusersid, dwcount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(dwflags, heventprovider, dwauditid, pusersid, dwcount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(dwflags, heventprovider, dwauditid, pusersid, dwcount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)dwflags;
+    (void)heventprovider;
+    (void)dwauditid;
+    (void)pusersid;
+    (void)dwcount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_security_authorization_authzReportSecurityEventFromParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* heventprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +726,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzReportSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzSetAppContainerInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzSetAppContainerInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hauthzclientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pappcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -591,7 +750,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzSetAppCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzUninstallSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzUninstallSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szeventsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -611,7 +770,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzUninstal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzUnregisterCapChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzUnregisterCapChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcapchangesubscription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -629,7 +788,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzUnregist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_AuthzUnregisterSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_authzUnregisterSecurityEventSource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pheventprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +808,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_AuthzUnregist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexplicitaccess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrusteename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -674,7 +833,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildExplicit
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexplicitaccess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrusteename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -699,7 +858,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildExplicit
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexplicitaccess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrusteename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -726,7 +885,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildImperson
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexplicitaccess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrusteename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -753,7 +912,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildImperson
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildImpersonateTrusteeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pimpersonatetrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -772,7 +931,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildImperson
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildImpersonateTrusteeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pimpersonatetrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -791,7 +950,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildImperson
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* powner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -825,7 +984,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* powner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -859,7 +1018,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -878,7 +1037,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -897,7 +1056,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -924,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -951,7 +1110,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -976,7 +1135,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1001,7 +1160,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithSidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithSidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1020,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeWithSidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_buildTrusteeWithSidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1039,7 +1198,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_BuildTrusteeW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t requestedstringsdrevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1065,7 +1224,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t requestedstringsdrevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1091,7 +1250,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertSecuri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertSidToStringSidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertSidToStringSidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stringsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1111,7 +1270,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertSidToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertSidToStringSidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertSidToStringSidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stringsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1131,7 +1290,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertSidToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringsecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t stringsdrevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1155,7 +1314,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringsecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t stringsdrevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1179,7 +1338,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertStringSidToSidA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertStringSidToSidA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1199,7 +1358,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_ConvertStringSidToSidW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_convertStringSidToSidW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1219,7 +1378,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_ConvertString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_FreeInheritedFromArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_freeInheritedFromArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinheritarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t acecnt = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1241,7 +1400,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_FreeInherited
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1265,7 +1424,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetAuditedPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1289,7 +1448,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetAuditedPer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1311,7 +1470,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetEffectiveR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1333,7 +1492,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetEffectiveR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pccountofexplicitentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1355,7 +1514,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetExplicitEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pccountofexplicitentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1377,7 +1536,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetExplicitEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetInheritanceSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getInheritanceSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1413,7 +1572,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetInheritanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetInheritanceSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getInheritanceSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1449,7 +1608,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetInheritanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTrusteeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getMultipleTrusteeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1467,7 +1626,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1485,7 +1644,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1503,7 +1662,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTrusteeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getMultipleTrusteeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1521,7 +1680,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetMultipleTr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1553,7 +1712,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetNamedSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1585,7 +1744,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetNamedSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1617,7 +1776,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetSecurityIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeFormA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeFormA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1635,7 +1794,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeFormW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeFormW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1653,7 +1812,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1671,7 +1830,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeNam
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1689,7 +1848,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeNam
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1707,7 +1866,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_getTrusteeTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptrustee = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1725,7 +1884,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_GetTrusteeTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1755,7 +1914,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_LookupSecurit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1785,7 +1944,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_LookupSecurit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_SetEntriesInAclA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_setEntriesInAclA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ccountofexplicitentries = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plistofexplicitentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1809,7 +1968,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_SetEntriesInA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_SetEntriesInAclW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_setEntriesInAclW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ccountofexplicitentries = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plistofexplicitentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1833,7 +1992,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_SetEntriesInA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_SetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_setNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1863,7 +2022,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_SetNamedSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_SetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_setNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1893,7 +2052,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_SetNamedSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_SetSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_setSecurityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1923,7 +2082,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_SetSecurityIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1961,7 +2120,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_TreeResetName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1999,7 +2158,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_TreeResetName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2037,7 +2196,7 @@ static Napi::Value windowssys_windows_win32_security_authorization_TreeSetNamedS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objecttype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2076,89 +2235,93 @@ static Napi::Value windowssys_windows_win32_security_authorization_TreeSetNamedS
 }
 
 static void register_windows_win32_security_authorization_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzAccessCheck", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzAccessCheck_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzAddSidsToContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzAddSidsToContext_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzCachedAccessCheck", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzCachedAccessCheck_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzEnumerateSecurityEventSources", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzEnumerateSecurityEventSources_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzEvaluateSacl", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzEvaluateSacl_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzFreeAuditEvent", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzFreeAuditEvent_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzFreeCentralAccessPolicyCache", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzFreeCentralAccessPolicyCache_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzFreeContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzFreeContext_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzFreeHandle", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzFreeHandle_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzFreeResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzFreeResourceManager_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzGetInformationFromContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzGetInformationFromContext_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzInitializeCompoundContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzInitializeCompoundContext_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzInitializeRemoteResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzInitializeRemoteResourceManager_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzInitializeResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzInitializeResourceManager_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzInitializeResourceManagerEx", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzInitializeResourceManagerEx_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzInstallSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzInstallSecurityEventSource_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzModifyClaims", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzModifyClaims_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzModifySecurityAttributes", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzModifySecurityAttributes_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzModifySids", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzModifySids_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzOpenObjectAudit", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzOpenObjectAudit_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzRegisterSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzRegisterSecurityEventSource_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzReportSecurityEventFromParams", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzReportSecurityEventFromParams_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzSetAppContainerInformation", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzSetAppContainerInformation_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzUninstallSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzUninstallSecurityEventSource_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzUnregisterCapChangeNotification", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzUnregisterCapChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_AuthzUnregisterSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_AuthzUnregisterSecurityEventSource_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildExplicitAccessWithNameW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildImpersonateExplicitAccessWithNameW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildImpersonateTrusteeW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildSecurityDescriptorA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildSecurityDescriptorW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithNameA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithNameW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndNameW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithObjectsAndSidW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithSidA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_BuildTrusteeWithSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_BuildTrusteeWithSidW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertSecurityDescriptorToStringSecurityDescriptorW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertSidToStringSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertSidToStringSidA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertSidToStringSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertSidToStringSidW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertStringSecurityDescriptorToSecurityDescriptorW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertStringSidToSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertStringSidToSidA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_ConvertStringSidToSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_ConvertStringSidToSidW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_FreeInheritedFromArray", Napi::Function::New(env, windowssys_windows_win32_security_authorization_FreeInheritedFromArray_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetAuditedPermissionsFromAclW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetEffectiveRightsFromAclW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetExplicitEntriesFromAclW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetInheritanceSourceA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetInheritanceSourceA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetInheritanceSourceW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetInheritanceSourceW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetMultipleTrusteeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetMultipleTrusteeA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetMultipleTrusteeOperationW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetMultipleTrusteeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetMultipleTrusteeW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetNamedSecurityInfoA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetNamedSecurityInfoW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetSecurityInfo", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetSecurityInfo_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeFormA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeFormA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeFormW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeFormW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeNameA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeNameW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeTypeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeTypeA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_GetTrusteeTypeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_GetTrusteeTypeW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_LookupSecurityDescriptorPartsW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_SetEntriesInAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_SetEntriesInAclA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_SetEntriesInAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_SetEntriesInAclW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_SetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_SetNamedSecurityInfoA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_SetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_SetNamedSecurityInfoW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_SetSecurityInfo", Napi::Function::New(env, windowssys_windows_win32_security_authorization_SetSecurityInfo_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_TreeResetNamedSecurityInfoW_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoA_napi));
-    exports.Set("windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_TreeSetNamedSecurityInfoW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzAccessCheck", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzAccessCheck_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzAddSidsToContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzAddSidsToContext_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzCachedAccessCheck", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzCachedAccessCheck_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzEnumerateSecurityEventSources", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzEnumerateSecurityEventSources_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzEvaluateSacl", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzEvaluateSacl_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzFreeAuditEvent", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzFreeAuditEvent_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzFreeCentralAccessPolicyCache", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzFreeCentralAccessPolicyCache_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzFreeContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzFreeContext_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzFreeHandle", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzFreeHandle_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzFreeResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzFreeResourceManager_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzGetInformationFromContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzGetInformationFromContext_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeCompoundContext", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeCompoundContext_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent2", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeObjectAccessAuditEvent2_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeRemoteResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeRemoteResourceManager_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeResourceManager", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeResourceManager_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInitializeResourceManagerEx", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInitializeResourceManagerEx_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzInstallSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzInstallSecurityEventSource_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzModifyClaims", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzModifyClaims_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzModifySecurityAttributes", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzModifySecurityAttributes_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzModifySids", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzModifySids_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzOpenObjectAudit", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzOpenObjectAudit_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzRegisterCapChangeNotification", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzRegisterCapChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzRegisterSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzRegisterSecurityEventSource_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzReportSecurityEvent", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzReportSecurityEvent_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzReportSecurityEventFromParams", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzReportSecurityEventFromParams_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzSetAppContainerInformation", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzSetAppContainerInformation_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzUninstallSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzUninstallSecurityEventSource_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzUnregisterCapChangeNotification", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzUnregisterCapChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_authzUnregisterSecurityEventSource", Napi::Function::New(env, windowssys_windows_win32_security_authorization_authzUnregisterSecurityEventSource_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildExplicitAccessWithNameW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildImpersonateExplicitAccessWithNameW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildImpersonateTrusteeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildImpersonateTrusteeA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildImpersonateTrusteeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildImpersonateTrusteeW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildSecurityDescriptorA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildSecurityDescriptorW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithNameA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithNameW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndNameW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithObjectsAndSidW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithSidA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_buildTrusteeWithSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_buildTrusteeWithSidW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertSecurityDescriptorToStringSecurityDescriptorW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertSidToStringSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertSidToStringSidA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertSidToStringSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertSidToStringSidW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertStringSecurityDescriptorToSecurityDescriptorW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertStringSidToSidA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertStringSidToSidA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_convertStringSidToSidW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_convertStringSidToSidW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_freeInheritedFromArray", Napi::Function::New(env, windowssys_windows_win32_security_authorization_freeInheritedFromArray_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getAuditedPermissionsFromAclW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getEffectiveRightsFromAclW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getExplicitEntriesFromAclW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getInheritanceSourceA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getInheritanceSourceA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getInheritanceSourceW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getInheritanceSourceW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getMultipleTrusteeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getMultipleTrusteeA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getMultipleTrusteeOperationW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getMultipleTrusteeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getMultipleTrusteeW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getNamedSecurityInfoA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getNamedSecurityInfoW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getSecurityInfo", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getSecurityInfo_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeFormA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeFormA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeFormW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeFormW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeNameA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeNameA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeNameW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeNameW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeTypeA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeTypeA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_getTrusteeTypeW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_getTrusteeTypeW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_lookupSecurityDescriptorPartsW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_setEntriesInAclA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_setEntriesInAclA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_setEntriesInAclW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_setEntriesInAclW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_setNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_setNamedSecurityInfoA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_setNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_setNamedSecurityInfoW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_setSecurityInfo", Napi::Function::New(env, windowssys_windows_win32_security_authorization_setSecurityInfo_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_treeResetNamedSecurityInfoW_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoA", Napi::Function::New(env, windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoA_napi));
+    exports.Set("windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoW", Napi::Function::New(env, windowssys_windows_win32_security_authorization_treeSetNamedSecurityInfoW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_authorization_napi, nullptr };

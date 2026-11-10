@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.shutdown
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32SystemShutdownJniBridge {
     init {
@@ -14,86 +15,86 @@ private object WindowsWin32SystemShutdownJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_AbortSystemShutdownA(lpmachinename: Long): Int
+    external fun windowssys_windows_win32_system_shutdown_abortSystemShutdownA(lpmachinename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_AbortSystemShutdownW(lpmachinename: Long): Int
+    external fun windowssys_windows_win32_system_shutdown_abortSystemShutdownW(lpmachinename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_CheckForHiberboot(phiberboot: Long, bclearflag: Boolean): Int
+    external fun windowssys_windows_win32_system_shutdown_checkForHiberboot(phiberboot: Long, bclearflag: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_ExitWindowsEx(uflags: Int, dwreason: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_exitWindowsEx(uflags: Int, dwreason: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateShutdownA(lpmachinename: Long, lpmessage: Long, dwgraceperiod: Int, dwshutdownflags: Int, dwreason: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateShutdownA(lpmachinename: Long, lpmessage: Long, dwgraceperiod: Int, dwshutdownflags: Int, dwreason: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateShutdownW(lpmachinename: Long, lpmessage: Long, dwgraceperiod: Int, dwshutdownflags: Int, dwreason: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateShutdownW(lpmachinename: Long, lpmessage: Long, dwgraceperiod: Int, dwshutdownflags: Int, dwreason: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateSystemShutdownA(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateSystemShutdownA(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateSystemShutdownExA(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int, dwreason: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int, dwreason: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateSystemShutdownExW(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int, dwreason: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int, dwreason: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_InitiateSystemShutdownW(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int): Int
+    external fun windowssys_windows_win32_system_shutdown_initiateSystemShutdownW(lpmachinename: Long, lpmessage: Long, dwtimeout: Int, bforceappsclosed: Int, brebootaftershutdown: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_LockWorkStation(): Int
+    external fun windowssys_windows_win32_system_shutdown_lockWorkStation(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_ShutdownBlockReasonCreate(hwnd: Long, pwszreason: Long): Int
+    external fun windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate(hwnd: Long, pwszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_ShutdownBlockReasonDestroy(hwnd: Long): Int
+    external fun windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_shutdown_ShutdownBlockReasonQuery(hwnd: Long, pwszbuff: Long, pcchbuff: Long): Int
+    external fun windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery(hwnd: Long, pwszbuff: Long, pcchbuff: Long): Int
 }
 
-public actual fun AbortSystemShutdownA(lpmachinename: PCSTR): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_AbortSystemShutdownA(lpmachinename)
+public actual fun abortSystemShutdownA(lpmachinename: Pcstr): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_abortSystemShutdownA((lpmachinename?.value ?: 0L))
 
-public actual fun AbortSystemShutdownW(lpmachinename: PCWSTR): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_AbortSystemShutdownW(lpmachinename)
+public actual fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_abortSystemShutdownW((lpmachinename?.value ?: 0L))
 
-public actual fun CheckForHiberboot(phiberboot: Long, bclearflag: Boolean): UInt =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_CheckForHiberboot(phiberboot, bclearflag).toUInt()
+public actual fun checkForHiberboot(phiberboot: COpaquePointer?, bclearflag: Boolean): UInt =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_checkForHiberboot((phiberboot?.value ?: 0L), bclearflag).toUInt()
 
-public actual fun ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_ExitWindowsEx(uflags.toInt(), dwreason.toInt())
+public actual fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_exitWindowsEx(uflags.toInt(), dwreason.toInt())
 
-public actual fun InitiateShutdownA(lpmachinename: PCSTR, lpmessage: PCSTR, dwgraceperiod: UInt, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON): UInt =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateShutdownA(lpmachinename, lpmessage, dwgraceperiod.toInt(), dwshutdownflags.toInt(), dwreason.toInt()).toUInt()
+public actual fun initiateShutdownA(lpmachinename: Pcstr, lpmessage: Pcstr, dwgraceperiod: UInt, dwshutdownflags: ShutdownFlags, dwreason: ShutdownReason): UInt =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateShutdownA((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwgraceperiod.toInt(), dwshutdownflags.toInt(), dwreason.toInt()).toUInt()
 
-public actual fun InitiateShutdownW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwgraceperiod: UInt, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON): UInt =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateShutdownW(lpmachinename, lpmessage, dwgraceperiod.toInt(), dwshutdownflags.toInt(), dwreason.toInt()).toUInt()
+public actual fun initiateShutdownW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwgraceperiod: UInt, dwshutdownflags: ShutdownFlags, dwreason: ShutdownReason): UInt =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateShutdownW((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwgraceperiod.toInt(), dwshutdownflags.toInt(), dwreason.toInt()).toUInt()
 
-public actual fun InitiateSystemShutdownA(lpmachinename: PCSTR, lpmessage: PCSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateSystemShutdownA(lpmachinename, lpmessage, dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown)
+public actual fun initiateSystemShutdownA(lpmachinename: Pcstr, lpmessage: Pcstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateSystemShutdownA((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown)
 
-public actual fun InitiateSystemShutdownExA(lpmachinename: PCSTR, lpmessage: PCSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL, dwreason: SHUTDOWN_REASON): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateSystemShutdownExA(lpmachinename, lpmessage, dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown, dwreason.toInt())
+public actual fun initiateSystemShutdownExA(lpmachinename: Pcstr, lpmessage: Pcstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool, dwreason: ShutdownReason): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown, dwreason.toInt())
 
-public actual fun InitiateSystemShutdownExW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL, dwreason: SHUTDOWN_REASON): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateSystemShutdownExW(lpmachinename, lpmessage, dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown, dwreason.toInt())
+public actual fun initiateSystemShutdownExW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool, dwreason: ShutdownReason): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown, dwreason.toInt())
 
-public actual fun InitiateSystemShutdownW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_InitiateSystemShutdownW(lpmachinename, lpmessage, dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown)
+public actual fun initiateSystemShutdownW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_initiateSystemShutdownW((lpmachinename?.value ?: 0L), (lpmessage?.value ?: 0L), dwtimeout.toInt(), bforceappsclosed, brebootaftershutdown)
 
-public actual fun LockWorkStation(): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_LockWorkStation()
+public actual fun lockWorkStation(): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_lockWorkStation()
 
-public actual fun ShutdownBlockReasonCreate(hwnd: HWND, pwszreason: PCWSTR): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_ShutdownBlockReasonCreate(hwnd, pwszreason)
+public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate((hwnd?.value ?: 0L), (pwszreason?.value ?: 0L))
 
-public actual fun ShutdownBlockReasonDestroy(hwnd: HWND): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_ShutdownBlockReasonDestroy(hwnd)
+public actual fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy((hwnd?.value ?: 0L))
 
-public actual fun ShutdownBlockReasonQuery(hwnd: HWND, pwszbuff: PWSTR, pcchbuff: Long): BOOL =
-    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_ShutdownBlockReasonQuery(hwnd, pwszbuff, pcchbuff)
+public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: COpaquePointer?): Bool =
+    WindowsWin32SystemShutdownJniBridge.windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery((hwnd?.value ?: 0L), (pwszbuff?.value ?: 0L), (pcchbuff?.value ?: 0L))

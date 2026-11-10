@@ -2,343 +2,370 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.marshal
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public actual fun BSTR_UserFree(param0: Long, param1: Long) {
+public actual fun bstrUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun BSTR_UserFree64(param0: Long, param1: Long) {
+public actual fun bstrUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun BSTR_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun bstrUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BSTR_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun bstrUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BSTR_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun bstrUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BSTR_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun bstrUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BSTR_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun bstrUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BSTR_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun bstrUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserFree(param0: Long, param1: Long) {
+public actual fun clipformatUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun CLIPFORMAT_UserFree64(param0: Long, param1: Long) {
+public actual fun clipformatUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun CLIPFORMAT_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun clipformatUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun clipformatUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun clipformatUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun clipformatUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun clipformatUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CLIPFORMAT_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun clipformatUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoGetMarshalSizeMax(pulsize: Long, riid: Long, punk: Long, dwdestcontext: UInt, pvdestcontext: Long, mshlflags: UInt): HRESULT =
-    0
+public actual fun coGetMarshalSizeMax(pulsize: COpaquePointer?, riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoGetStandardMarshal(riid: Long, punk: Long, dwdestcontext: UInt, pvdestcontext: Long, mshlflags: UInt, ppmarshal: Long): HRESULT =
-    0
+public actual fun coGetStandardMarshal(riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt, ppmarshal: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoGetStdMarshalEx(punkouter: Long, smexflags: UInt, ppunkinner: Long): HRESULT =
-    0
+public actual fun coGetStdMarshalEx(punkouter: COpaquePointer?, smexflags: UInt, ppunkinner: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoMarshalHresult(pstm: Long, hresult: HRESULT): HRESULT =
-    0
+public actual fun coMarshalHresult(pstm: COpaquePointer?, hresult: Hresult): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoMarshalInterThreadInterfaceInStream(riid: Long, punk: Long, ppstm: Long): HRESULT =
-    0
+public actual fun coMarshalInterThreadInterfaceInStream(riid: COpaquePointer?, punk: COpaquePointer?, ppstm: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoMarshalInterface(pstm: Long, riid: Long, punk: Long, dwdestcontext: UInt, pvdestcontext: Long, mshlflags: UInt): HRESULT =
-    0
+public actual fun coMarshalInterface(pstm: COpaquePointer?, riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoReleaseMarshalData(pstm: Long): HRESULT =
-    0
+public actual fun coReleaseMarshalData(pstm: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoUnmarshalHresult(pstm: Long, phresult: Long): HRESULT =
-    0
+public actual fun coUnmarshalHresult(pstm: COpaquePointer?, phresult: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoUnmarshalInterface(pstm: Long, riid: Long, ppv: Long): HRESULT =
-    0
+public actual fun coUnmarshalInterface(pstm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserFree(param0: Long, param1: Long) {
+public actual fun haccelUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HACCEL_UserFree64(param0: Long, param1: Long) {
+public actual fun haccelUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HACCEL_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun haccelUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun haccelUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun haccelUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun haccelUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun haccelUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HACCEL_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun haccelUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserFree(param0: Long, param1: Long) {
+public actual fun hbitmapUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HBITMAP_UserFree64(param0: Long, param1: Long) {
+public actual fun hbitmapUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HBITMAP_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hbitmapUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hbitmapUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hbitmapUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hbitmapUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hbitmapUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HBITMAP_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hbitmapUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserFree(param0: Long, param1: Long) {
+public actual fun hdcUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HDC_UserFree64(param0: Long, param1: Long) {
+public actual fun hdcUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HDC_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hdcUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hdcUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hdcUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hdcUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hdcUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HDC_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hdcUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserFree(param0: Long, param1: Long) {
+public actual fun hglobalUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HGLOBAL_UserFree64(param0: Long, param1: Long) {
+public actual fun hglobalUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HGLOBAL_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hglobalUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hglobalUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hglobalUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hglobalUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hglobalUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HGLOBAL_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hglobalUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserFree(param0: Long, param1: Long) {
+public actual fun hiconUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HICON_UserFree64(param0: Long, param1: Long) {
+public actual fun hiconUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HICON_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hiconUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hiconUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hiconUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hiconUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hiconUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HICON_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hiconUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserFree(param0: Long, param1: Long) {
+public actual fun hmenuUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HMENU_UserFree64(param0: Long, param1: Long) {
+public actual fun hmenuUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HMENU_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hmenuUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hmenuUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hmenuUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hmenuUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hmenuUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HMENU_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hmenuUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserFree(param0: Long, param1: Long) {
+public actual fun hpaletteUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HPALETTE_UserFree64(param0: Long, param1: Long) {
+public actual fun hpaletteUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HPALETTE_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hpaletteUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hpaletteUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hpaletteUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hpaletteUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hpaletteUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HPALETTE_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hpaletteUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserFree(param0: Long, param1: Long) {
+public actual fun hwndUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HWND_UserFree64(param0: Long, param1: Long) {
+public actual fun hwndUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun HWND_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hwndUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hwndUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hwndUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun hwndUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hwndUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HWND_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun hwndUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserFree(param0: Long, param1: Long) {
+public actual fun lpsafearrayUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun LPSAFEARRAY_UserFree64(param0: Long, param1: Long) {
+public actual fun lpsafearrayUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun LPSAFEARRAY_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun lpsafearrayUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun lpsafearrayUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun lpsafearrayUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun lpsafearrayUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun lpsafearrayUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LPSAFEARRAY_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun lpsafearrayUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserFree(param0: Long, param1: Long) {
+public actual fun snbUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SNB_UserFree64(param0: Long, param1: Long) {
+public actual fun snbUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SNB_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun snbUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun snbUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun snbUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun snbUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun snbUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SNB_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun snbUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserFree(param0: Long, param1: Long) {
+public actual fun stgmediumUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun STGMEDIUM_UserFree64(param0: Long, param1: Long) {
+public actual fun stgmediumUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun STGMEDIUM_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun stgmediumUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun stgmediumUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun stgmediumUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    0u
+public actual fun stgmediumUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun stgmediumUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun STGMEDIUM_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    0L
+public actual fun stgmediumUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

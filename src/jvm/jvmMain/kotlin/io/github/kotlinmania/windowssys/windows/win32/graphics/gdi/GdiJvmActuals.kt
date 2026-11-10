@@ -2,19 +2,20 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
 private object WindowsWin32GraphicsGdiJniBridge {
     init {
@@ -22,2366 +23,2366 @@ private object WindowsWin32GraphicsGdiJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AbortPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_abortPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AddFontMemResourceEx(pfileview: Long, cjsize: Int, pvresrved: Long, pnumfonts: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_addFontMemResourceEx(pfileview: Long, cjsize: Int, pvresrved: Long, pnumfonts: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AddFontResourceA(param0: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_addFontResourceA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AddFontResourceExA(name: Long, fl: Int, res: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_addFontResourceExA(name: Long, fl: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AddFontResourceExW(name: Long, fl: Int, res: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_addFontResourceExW(name: Long, fl: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AddFontResourceW(param0: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_addFontResourceW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AngleArc(hdc: Long, x: Int, y: Int, r: Int, startangle: Float, sweepangle: Float): Int
+    external fun windowssys_windows_win32_graphics_gdi_angleArc(hdc: Long, x: Int, y: Int, r: Int, startangle: Float, sweepangle: Float): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_AnimatePalette(hpal: Long, istartindex: Int, centries: Int, ppe: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_animatePalette(hpal: Long, istartindex: Int, centries: Int, ppe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Arc(hdc: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_arc(hdc: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ArcTo(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_arcTo(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_BeginPaint(hwnd: Long, lppaint: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_beginPaint(hwnd: Long, lppaint: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_BeginPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_beginPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_BitBlt(hdc: Long, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Long, x1: Int, y1: Int, rop: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_bitBlt(hdc: Long, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Long, x1: Int, y1: Int, rop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CancelDC(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_cancelDC(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsA(lpdevmode: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA(lpdevmode: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExA(lpszdevicename: Long, lpdevmode: Long, hwnd: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA(lpszdevicename: Long, lpdevmode: Long, hwnd: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExW(lpszdevicename: Long, lpdevmode: Long, hwnd: Long, dwflags: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW(lpszdevicename: Long, lpdevmode: Long, hwnd: Long, dwflags: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsW(lpdevmode: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW(lpdevmode: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Chord(hdc: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_chord(hdc: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ClientToScreen(hwnd: Long, lppoint: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_clientToScreen(hwnd: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CloseEnhMetaFile(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_closeEnhMetaFile(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CloseFigure(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_closeFigure(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CloseMetaFile(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_closeMetaFile(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CombineRgn(hrgndst: Long, hrgnsrc1: Long, hrgnsrc2: Long, imode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_combineRgn(hrgndst: Long, hrgnsrc1: Long, hrgnsrc2: Long, imode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CombineTransform(lpxfout: Long, lpxf1: Long, lpxf2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_combineTransform(lpxfout: Long, lpxf1: Long, lpxf2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileA(henh: Long, lpfilename: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA(henh: Long, lpfilename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileW(henh: Long, lpfilename: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW(henh: Long, lpfilename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CopyMetaFileA(param0: Long, param1: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_copyMetaFileA(param0: Long, param1: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CopyMetaFileW(param0: Long, param1: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_copyMetaFileW(param0: Long, param1: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CopyRect(lprcdst: Long, lprcsrc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_copyRect(lprcdst: Long, lprcsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateBitmap(nwidth: Int, nheight: Int, nplanes: Int, nbitcount: Int, lpbits: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createBitmap(nwidth: Int, nheight: Int, nplanes: Int, nbitcount: Int, lpbits: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateBitmapIndirect(pbm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createBitmapIndirect(pbm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateBrushIndirect(plbrush: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createBrushIndirect(plbrush: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateCompatibleBitmap(hdc: Long, cx: Int, cy: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createCompatibleBitmap(hdc: Long, cx: Int, cy: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateCompatibleDC(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createCompatibleDC(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDCA(pwszdriver: Long, pwszdevice: Long, pszport: Long, pdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDCA(pwszdriver: Long, pwszdevice: Long, pszport: Long, pdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDCW(pwszdriver: Long, pwszdevice: Long, pszport: Long, pdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDCW(pwszdriver: Long, pwszdevice: Long, pszport: Long, pdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrush(h: Long, iusage: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDIBPatternBrush(h: Long, iusage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrushPt(lppackeddib: Long, iusage: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt(lppackeddib: Long, iusage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDIBSection(hdc: Long, pbmi: Long, usage: Int, ppvbits: Long, hsection: Long, offset: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDIBSection(hdc: Long, pbmi: Long, usage: Int, ppvbits: Long, hsection: Long, offset: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDIBitmap(hdc: Long, pbmih: Long, flinit: Int, pjbits: Long, pbmi: Long, iusage: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDIBitmap(hdc: Long, pbmih: Long, flinit: Int, pjbits: Long, pbmi: Long, iusage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateDiscardableBitmap(hdc: Long, cx: Int, cy: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createDiscardableBitmap(hdc: Long, cx: Int, cy: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateEllipticRgnIndirect(lprect: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect(lprect: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileA(hdc: Long, lpfilename: Long, lprc: Long, lpdesc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createEnhMetaFileA(hdc: Long, lpfilename: Long, lprc: Long, lpdesc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileW(hdc: Long, lpfilename: Long, lprc: Long, lpdesc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createEnhMetaFileW(hdc: Long, lpfilename: Long, lprc: Long, lpdesc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: Int, bunderline: Int, bstrikeout: Int, icharset: Int, ioutprecision: Int, iclipprecision: Int, iquality: Int, ipitchandfamily: Int, pszfacename: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: Int, bunderline: Int, bstrikeout: Int, icharset: Int, ioutprecision: Int, iclipprecision: Int, iquality: Int, ipitchandfamily: Int, pszfacename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontIndirectA(lplf: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontIndirectA(lplf: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontIndirectExA(param0: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontIndirectExA(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontIndirectExW(param0: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontIndirectExW(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontIndirectW(lplf: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontIndirectW(lplf: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontPackage(puchsrcbuffer: Long, ulsrcbuffersize: Int, ppuchfontpackagebuffer: Long, pulfontpackagebuffersize: Long, pulbyteswritten: Long, usflag: Short, usttcindex: Short, ussubsetformat: Short, ussubsetlanguage: Short, ussubsetplatform: Short, ussubsetencoding: Short, pussubsetkeeplist: Long, ussubsetlistcount: Short, lpfnallocate: Long, lpfnreallocate: Long, lpfnfree: Long, lpvreserved: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_createFontPackage(puchsrcbuffer: Long, ulsrcbuffersize: Int, ppuchfontpackagebuffer: Long, pulfontpackagebuffersize: Long, pulbyteswritten: Long, usflag: Short, usttcindex: Short, ussubsetformat: Short, ussubsetlanguage: Short, ussubsetplatform: Short, ussubsetencoding: Short, pussubsetkeeplist: Long, ussubsetlistcount: Short, lpfnallocate: Long, lpfnreallocate: Long, lpfnfree: Long, lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: Int, bunderline: Int, bstrikeout: Int, icharset: Int, ioutprecision: Int, iclipprecision: Int, iquality: Int, ipitchandfamily: Int, pszfacename: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: Int, bunderline: Int, bstrikeout: Int, icharset: Int, ioutprecision: Int, iclipprecision: Int, iquality: Int, ipitchandfamily: Int, pszfacename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateHalftonePalette(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createHalftonePalette(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateHatchBrush(ihatch: Int, color: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createHatchBrush(ihatch: Int, color: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateICA(pszdriver: Long, pszdevice: Long, pszport: Long, pdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createICA(pszdriver: Long, pszdevice: Long, pszport: Long, pdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateICW(pszdriver: Long, pszdevice: Long, pszport: Long, pdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createICW(pszdriver: Long, pszdevice: Long, pszport: Long, pdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateMetaFileA(pszfile: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createMetaFileA(pszfile: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateMetaFileW(pszfile: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createMetaFileW(pszfile: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePalette(plpal: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPalette(plpal: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePatternBrush(hbm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPatternBrush(hbm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePen(istyle: Int, cwidth: Int, color: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPen(istyle: Int, cwidth: Int, color: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePenIndirect(plpen: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPenIndirect(plpen: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePolyPolygonRgn(pptl: Long, pc: Long, cpoly: Int, imode: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn(pptl: Long, pc: Long, cpoly: Int, imode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreatePolygonRgn(pptl: Long, cpoint: Int, imode: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createPolygonRgn(pptl: Long, cpoint: Int, imode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateRectRgnIndirect(lprect: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_createRectRgnIndirect(lprect: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceA(fdwhidden: Int, lpszfont: Long, lpszfile: Long, lpszpath: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_createScalableFontResourceA(fdwhidden: Int, lpszfont: Long, lpszfile: Long, lpszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceW(fdwhidden: Int, lpszfont: Long, lpszfile: Long, lpszpath: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_createScalableFontResourceW(fdwhidden: Int, lpszfont: Long, lpszfile: Long, lpszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_CreateSolidBrush(color: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_createSolidBrush(color: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DPtoLP(hdc: Long, lppt: Long, c: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_dPtoLP(hdc: Long, lppt: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DeleteDC(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_deleteDC(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DeleteEnhMetaFile(hmf: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile(hmf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DeleteMetaFile(hmf: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_deleteMetaFile(hmf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DeleteObject(ho: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_deleteObject(ho: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawAnimatedRects(hwnd: Long, idani: Int, lprcfrom: Long, lprcto: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawAnimatedRects(hwnd: Long, idani: Int, lprcfrom: Long, lprcto: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawCaption(hwnd: Long, hdc: Long, lprect: Long, flags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawCaption(hwnd: Long, hdc: Long, lprect: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawEdge(hdc: Long, qrc: Long, edge: Int, grfflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawEdge(hdc: Long, qrc: Long, edge: Int, grfflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawEscape(hdc: Long, iescape: Int, cjin: Int, lpin: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawEscape(hdc: Long, iescape: Int, cjin: Int, lpin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawFocusRect(hdc: Long, lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawFocusRect(hdc: Long, lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawFrameControl(param0: Long, param1: Long, param2: Int, param3: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawFrameControl(param0: Long, param1: Long, param2: Int, param3: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawStateA(hdc: Long, hbrfore: Long, qfncallback: Long, ldata: Long, wdata: Long, x: Int, y: Int, cx: Int, cy: Int, uflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawStateA(hdc: Long, hbrfore: Long, qfncallback: Long, ldata: Long, wdata: Long, x: Int, y: Int, cx: Int, cy: Int, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawStateW(hdc: Long, hbrfore: Long, qfncallback: Long, ldata: Long, wdata: Long, x: Int, y: Int, cx: Int, cy: Int, uflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawStateW(hdc: Long, hbrfore: Long, qfncallback: Long, ldata: Long, wdata: Long, x: Int, y: Int, cx: Int, cy: Int, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawTextA(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawTextA(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawTextExA(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int, lpdtp: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawTextExA(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int, lpdtp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawTextExW(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int, lpdtp: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawTextExW(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int, lpdtp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_DrawTextW(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_drawTextW(hdc: Long, lpchtext: Long, cchtext: Int, lprc: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Ellipse(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_ellipse(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EndPaint(hwnd: Long, lppaint: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_endPaint(hwnd: Long, lppaint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EndPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_endPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesA(lpdevice: Long, idevnum: Int, lpdisplaydevice: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA(lpdevice: Long, idevnum: Int, lpdisplaydevice: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesW(lpdevice: Long, idevnum: Int, lpdisplaydevice: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW(lpdevice: Long, idevnum: Int, lpdisplaydevice: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplayMonitors(hdc: Long, lprcclip: Long, lpfnenum: Long, dwdata: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplayMonitors(hdc: Long, lprcclip: Long, lpfnenum: Long, dwdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsA(lpszdevicename: Long, imodenum: Int, lpdevmode: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA(lpszdevicename: Long, imodenum: Int, lpdevmode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExA(lpszdevicename: Long, imodenum: Int, lpdevmode: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA(lpszdevicename: Long, imodenum: Int, lpdevmode: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExW(lpszdevicename: Long, imodenum: Int, lpdevmode: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW(lpszdevicename: Long, imodenum: Int, lpdevmode: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsW(lpszdevicename: Long, imodenum: Int, lpdevmode: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW(lpszdevicename: Long, imodenum: Int, lpdevmode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumEnhMetaFile(hdc: Long, hmf: Long, proc: Long, param3: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumEnhMetaFile(hdc: Long, hmf: Long, proc: Long, param3: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontFamiliesA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontFamiliesA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontFamiliesW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontFamiliesW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontsA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontsA(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumFontsW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumFontsW(hdc: Long, lplogfont: Long, lpproc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumMetaFile(hdc: Long, hmf: Long, proc: Long, param3: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumMetaFile(hdc: Long, hmf: Long, proc: Long, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EnumObjects(hdc: Long, ntype: Int, lpfunc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_enumObjects(hdc: Long, ntype: Int, lpfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EqualRect(lprc1: Long, lprc2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_equalRect(lprc1: Long, lprc2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_EqualRgn(hrgn1: Long, hrgn2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_equalRgn(hrgn1: Long, hrgn2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExcludeClipRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_excludeClipRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExcludeUpdateRgn(hdc: Long, hwnd: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_excludeUpdateRgn(hdc: Long, hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtCreatePen(ipenstyle: Int, cwidth: Int, plbrush: Long, cstyle: Int, pstyle: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_extCreatePen(ipenstyle: Int, cwidth: Int, plbrush: Long, cstyle: Int, pstyle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtCreateRegion(lpx: Long, ncount: Int, lpdata: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_extCreateRegion(lpx: Long, ncount: Int, lpdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtFloodFill(hdc: Long, x: Int, y: Int, color: Int, type: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_extFloodFill(hdc: Long, x: Int, y: Int, color: Int, type: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtSelectClipRgn(hdc: Long, hrgn: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_extSelectClipRgn(hdc: Long, hrgn: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtTextOutA(hdc: Long, x: Int, y: Int, options: Int, lprect: Long, lpstring: Long, c: Int, lpdx: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_extTextOutA(hdc: Long, x: Int, y: Int, options: Int, lprect: Long, lpstring: Long, c: Int, lpdx: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ExtTextOutW(hdc: Long, x: Int, y: Int, options: Int, lprect: Long, lpstring: Long, c: Int, lpdx: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_extTextOutW(hdc: Long, x: Int, y: Int, options: Int, lprect: Long, lpstring: Long, c: Int, lpdx: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FillPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_fillPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FillRect(hdc: Long, lprc: Long, hbr: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_fillRect(hdc: Long, lprc: Long, hbr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FillRgn(hdc: Long, hrgn: Long, hbr: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_fillRgn(hdc: Long, hrgn: Long, hbr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FixBrushOrgEx(hdc: Long, x: Int, y: Int, ptl: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_fixBrushOrgEx(hdc: Long, x: Int, y: Int, ptl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FlattenPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_flattenPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FloodFill(hdc: Long, x: Int, y: Int, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_floodFill(hdc: Long, x: Int, y: Int, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FrameRect(hdc: Long, lprc: Long, hbr: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_frameRect(hdc: Long, lprc: Long, hbr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_FrameRgn(hdc: Long, hrgn: Long, hbr: Long, w: Int, h: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_frameRgn(hdc: Long, hrgn: Long, hbr: Long, w: Int, h: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiComment(hdc: Long, nsize: Int, lpdata: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiComment(hdc: Long, nsize: Int, lpdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiFlush(): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiFlush(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiGetBatchLimit(): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiGradientFill(hdc: Long, pvertex: Long, nvertex: Int, pmesh: Long, ncount: Int, ulmode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiGradientFill(hdc: Long, pvertex: Long, nvertex: Int, pmesh: Long, ncount: Int, ulmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiSetBatchLimit(dw: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit(dw: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GdiTransparentBlt(hdcdest: Long, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_gdiTransparentBlt(hdcdest: Long, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetArcDirection(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getArcDirection(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetAspectRatioFilterEx(hdc: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx(hdc: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBitmapBits(hbit: Long, cb: Int, lpvbits: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBitmapBits(hbit: Long, cb: Int, lpvbits: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBitmapDimensionEx(hbit: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx(hbit: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBkColor(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBkColor(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBkMode(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBkMode(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBoundsRect(hdc: Long, lprect: Long, flags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBoundsRect(hdc: Long, lprect: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetBrushOrgEx(hdc: Long, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getBrushOrgEx(hdc: Long, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharABCWidthsA(hdc: Long, wfirst: Int, wlast: Int, lpabc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharABCWidthsA(hdc: Long, wfirst: Int, wlast: Int, lpabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatA(hdc: Long, ifirst: Int, ilast: Int, lpabc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA(hdc: Long, ifirst: Int, ilast: Int, lpabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatW(hdc: Long, ifirst: Int, ilast: Int, lpabc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW(hdc: Long, ifirst: Int, ilast: Int, lpabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharABCWidthsI(hdc: Long, gifirst: Int, cgi: Int, pgi: Long, pabc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharABCWidthsI(hdc: Long, gifirst: Int, cgi: Int, pgi: Long, pabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharABCWidthsW(hdc: Long, wfirst: Int, wlast: Int, lpabc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharABCWidthsW(hdc: Long, wfirst: Int, wlast: Int, lpabc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidth32A(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidth32A(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidth32W(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidth32W(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidthA(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidthA(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidthFloatA(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidthFloatA(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidthFloatW(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidthFloatW(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidthI(hdc: Long, gifirst: Int, cgi: Int, pgi: Long, piwidths: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidthI(hdc: Long, gifirst: Int, cgi: Int, pgi: Long, piwidths: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharWidthW(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharWidthW(hdc: Long, ifirst: Int, ilast: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharacterPlacementA(hdc: Long, lpstring: Long, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharacterPlacementA(hdc: Long, lpstring: Long, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCharacterPlacementW(hdc: Long, lpstring: Long, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCharacterPlacementW(hdc: Long, lpstring: Long, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetClipBox(hdc: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getClipBox(hdc: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetClipRgn(hdc: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getClipRgn(hdc: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetColorAdjustment(hdc: Long, lpca: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getColorAdjustment(hdc: Long, lpca: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCurrentObject(hdc: Long, type: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_getCurrentObject(hdc: Long, type: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetCurrentPositionEx(hdc: Long, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getCurrentPositionEx(hdc: Long, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDC(hwnd: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getDC(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDCBrushColor(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDCBrushColor(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDCEx(hwnd: Long, hrgnclip: Long, flags: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_getDCEx(hwnd: Long, hrgnclip: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDCOrgEx(hdc: Long, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDCOrgEx(hdc: Long, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDCPenColor(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDCPenColor(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDIBColorTable(hdc: Long, istart: Int, centries: Int, prgbq: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDIBColorTable(hdc: Long, istart: Int, centries: Int, prgbq: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDIBits(hdc: Long, hbm: Long, start: Int, clines: Int, lpvbits: Long, lpbmi: Long, usage: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDIBits(hdc: Long, hbm: Long, start: Int, clines: Int, lpvbits: Long, lpbmi: Long, usage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetDeviceCaps(hdc: Long, index: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getDeviceCaps(hdc: Long, index: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileA(lpname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileA(lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileBits(hemf: Long, nsize: Int, lpdata: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits(hemf: Long, nsize: Int, lpdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionA(hemf: Long, cchbuffer: Int, lpdescription: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA(hemf: Long, cchbuffer: Int, lpdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionW(hemf: Long, cchbuffer: Int, lpdescription: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW(hemf: Long, cchbuffer: Int, lpdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileHeader(hemf: Long, nsize: Int, lpenhmetaheader: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader(hemf: Long, nsize: Int, lpenhmetaheader: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFilePaletteEntries(hemf: Long, nnumentries: Int, lppaletteentries: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries(hemf: Long, nnumentries: Int, lppaletteentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetEnhMetaFileW(lpname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getEnhMetaFileW(lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetFontData(hdc: Long, dwtable: Int, dwoffset: Int, pvbuffer: Long, cjbuffer: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getFontData(hdc: Long, dwtable: Int, dwoffset: Int, pvbuffer: Long, cjbuffer: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetFontLanguageInfo(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getFontLanguageInfo(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetFontUnicodeRanges(hdc: Long, lpgs: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges(hdc: Long, lpgs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetGlyphIndicesA(hdc: Long, lpstr: Long, c: Int, pgi: Long, fl: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getGlyphIndicesA(hdc: Long, lpstr: Long, c: Int, pgi: Long, fl: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetGlyphIndicesW(hdc: Long, lpstr: Long, c: Int, pgi: Long, fl: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getGlyphIndicesW(hdc: Long, lpstr: Long, c: Int, pgi: Long, fl: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetGlyphOutlineA(hdc: Long, uchar: Int, fuformat: Int, lpgm: Long, cjbuffer: Int, pvbuffer: Long, lpmat2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getGlyphOutlineA(hdc: Long, uchar: Int, fuformat: Int, lpgm: Long, cjbuffer: Int, pvbuffer: Long, lpmat2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetGlyphOutlineW(hdc: Long, uchar: Int, fuformat: Int, lpgm: Long, cjbuffer: Int, pvbuffer: Long, lpmat2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getGlyphOutlineW(hdc: Long, uchar: Int, fuformat: Int, lpgm: Long, cjbuffer: Int, pvbuffer: Long, lpmat2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetGraphicsMode(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getGraphicsMode(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetKerningPairsA(hdc: Long, npairs: Int, lpkernpair: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getKerningPairsA(hdc: Long, npairs: Int, lpkernpair: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetKerningPairsW(hdc: Long, npairs: Int, lpkernpair: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getKerningPairsW(hdc: Long, npairs: Int, lpkernpair: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetLayout(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getLayout(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMapMode(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMapMode(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMetaFileA(lpname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getMetaFileA(lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMetaFileBitsEx(hmf: Long, cbbuffer: Int, lpdata: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx(hmf: Long, cbbuffer: Int, lpdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMetaFileW(lpname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getMetaFileW(lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMetaRgn(hdc: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMetaRgn(hdc: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMiterLimit(hdc: Long, plimit: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMiterLimit(hdc: Long, plimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMonitorInfoA(hmonitor: Long, lpmi: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMonitorInfoA(hmonitor: Long, lpmi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetMonitorInfoW(hmonitor: Long, lpmi: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getMonitorInfoW(hmonitor: Long, lpmi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetNearestColor(hdc: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getNearestColor(hdc: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetNearestPaletteIndex(h: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex(h: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetObjectA(h: Long, c: Int, pv: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getObjectA(h: Long, c: Int, pv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetObjectType(h: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getObjectType(h: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetObjectW(h: Long, c: Int, pv: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getObjectW(h: Long, c: Int, pv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsA(hdc: Long, cjcopy: Int, potm: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA(hdc: Long, cjcopy: Int, potm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsW(hdc: Long, cjcopy: Int, potm: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW(hdc: Long, cjcopy: Int, potm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetPaletteEntries(hpal: Long, istart: Int, centries: Int, ppalentries: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getPaletteEntries(hpal: Long, istart: Int, centries: Int, ppalentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetPath(hdc: Long, apt: Long, aj: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getPath(hdc: Long, apt: Long, aj: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetPixel(hdc: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getPixel(hdc: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetPolyFillMode(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getPolyFillMode(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetROP2(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getROP2(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetRandomRgn(hdc: Long, hrgn: Long, i: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getRandomRgn(hdc: Long, hrgn: Long, i: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetRasterizerCaps(lpraststat: Long, cjbytes: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getRasterizerCaps(lpraststat: Long, cjbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetRegionData(hrgn: Long, ncount: Int, lprgndata: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getRegionData(hrgn: Long, ncount: Int, lprgndata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetRgnBox(hrgn: Long, lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getRgnBox(hrgn: Long, lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetStockObject(i: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_getStockObject(i: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetStretchBltMode(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getStretchBltMode(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetSysColor(nindex: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getSysColor(nindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetSysColorBrush(nindex: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_getSysColorBrush(nindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetSystemPaletteEntries(hdc: Long, istart: Int, centries: Int, ppalentries: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries(hdc: Long, istart: Int, centries: Int, ppalentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetSystemPaletteUse(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getSystemPaletteUse(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentA(hdc: Long, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA(hdc: Long, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentW(hdc: Long, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW(hdc: Long, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextAlign(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextAlign(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextCharacterExtra(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextCharacterExtra(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextColor(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextColor(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentExPointA(hdc: Long, lpszstring: Long, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentExPointA(hdc: Long, lpszstring: Long, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentExPointI(hdc: Long, lpwszstring: Long, cwchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentExPointI(hdc: Long, lpwszstring: Long, cwchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentExPointW(hdc: Long, lpszstring: Long, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentExPointW(hdc: Long, lpszstring: Long, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32A(hdc: Long, lpstring: Long, c: Int, psizl: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A(hdc: Long, lpstring: Long, c: Int, psizl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32W(hdc: Long, lpstring: Long, c: Int, psizl: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W(hdc: Long, lpstring: Long, c: Int, psizl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentPointA(hdc: Long, lpstring: Long, c: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentPointA(hdc: Long, lpstring: Long, c: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentPointI(hdc: Long, pgiin: Long, cgi: Int, psize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentPointI(hdc: Long, pgiin: Long, cgi: Int, psize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextExtentPointW(hdc: Long, lpstring: Long, c: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextExtentPointW(hdc: Long, lpstring: Long, c: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextFaceA(hdc: Long, c: Int, lpname: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextFaceA(hdc: Long, c: Int, lpname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextFaceW(hdc: Long, c: Int, lpname: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextFaceW(hdc: Long, c: Int, lpname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextMetricsA(hdc: Long, lptm: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextMetricsA(hdc: Long, lptm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetTextMetricsW(hdc: Long, lptm: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getTextMetricsW(hdc: Long, lptm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetUpdateRect(hwnd: Long, lprect: Long, berase: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getUpdateRect(hwnd: Long, lprect: Long, berase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetUpdateRgn(hwnd: Long, hrgn: Long, berase: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_getUpdateRgn(hwnd: Long, hrgn: Long, berase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetViewportExtEx(hdc: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getViewportExtEx(hdc: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetViewportOrgEx(hdc: Long, lppoint: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getViewportOrgEx(hdc: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWinMetaFileBits(hemf: Long, cbdata16: Int, pdata16: Long, imapmode: Int, hdcref: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWinMetaFileBits(hemf: Long, cbdata16: Int, pdata16: Long, imapmode: Int, hdcref: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWindowDC(hwnd: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_getWindowDC(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWindowExtEx(hdc: Long, lpsize: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWindowExtEx(hdc: Long, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWindowOrgEx(hdc: Long, lppoint: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWindowOrgEx(hdc: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWindowRgn(hwnd: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWindowRgn(hwnd: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWindowRgnBox(hwnd: Long, lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWindowRgnBox(hwnd: Long, lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GetWorldTransform(hdc: Long, lpxf: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_getWorldTransform(hdc: Long, lpxf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GradientFill(hdc: Long, pvertex: Long, nvertex: Int, pmesh: Long, nmesh: Int, ulmode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_gradientFill(hdc: Long, pvertex: Long, nvertex: Int, pmesh: Long, nmesh: Int, ulmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GrayStringA(hdc: Long, hbrush: Long, lpoutputfunc: Long, lpdata: Long, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_grayStringA(hdc: Long, hbrush: Long, lpoutputfunc: Long, lpdata: Long, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_GrayStringW(hdc: Long, hbrush: Long, lpoutputfunc: Long, lpdata: Long, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_grayStringW(hdc: Long, hbrush: Long, lpoutputfunc: Long, lpdata: Long, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_InflateRect(lprc: Long, dx: Int, dy: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_inflateRect(lprc: Long, dx: Int, dy: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_IntersectClipRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_intersectClipRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_IntersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_intersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_InvalidateRect(hwnd: Long, lprect: Long, berase: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_invalidateRect(hwnd: Long, lprect: Long, berase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_InvalidateRgn(hwnd: Long, hrgn: Long, berase: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_invalidateRgn(hwnd: Long, hrgn: Long, berase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_InvertRect(hdc: Long, lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_invertRect(hdc: Long, lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_InvertRgn(hdc: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_invertRgn(hdc: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_IsRectEmpty(lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_isRectEmpty(lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LPtoDP(hdc: Long, lppt: Long, c: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_lPtoDP(hdc: Long, lppt: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Long, data: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_lineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Long, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LineTo(hdc: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_lineTo(hdc: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LoadBitmapA(hinstance: Long, lpbitmapname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_loadBitmapA(hinstance: Long, lpbitmapname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LoadBitmapW(hinstance: Long, lpbitmapname: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_loadBitmapW(hinstance: Long, lpbitmapname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_LockWindowUpdate(hwndlock: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_lockWindowUpdate(hwndlock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MapWindowPoints(hwndfrom: Long, hwndto: Long, lppoints: Long, cpoints: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_mapWindowPoints(hwndfrom: Long, hwndto: Long, lppoints: Long, cpoints: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MaskBlt(hdcdest: Long, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Long, xsrc: Int, ysrc: Int, hbmmask: Long, xmask: Int, ymask: Int, rop: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_maskBlt(hdcdest: Long, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Long, xsrc: Int, ysrc: Int, hbmmask: Long, xmask: Int, ymask: Int, rop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MergeFontPackage(puchmergefontbuffer: Long, ulmergefontbuffersize: Int, puchfontpackagebuffer: Long, ulfontpackagebuffersize: Int, ppuchdestbuffer: Long, puldestbuffersize: Long, pulbyteswritten: Long, usmode: Short, lpfnallocate: Long, lpfnreallocate: Long, lpfnfree: Long, lpvreserved: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_mergeFontPackage(puchmergefontbuffer: Long, ulmergefontbuffersize: Int, puchfontpackagebuffer: Long, ulfontpackagebuffersize: Int, ppuchdestbuffer: Long, puldestbuffersize: Long, pulbyteswritten: Long, usmode: Short, lpfnallocate: Long, lpfnreallocate: Long, lpfnfree: Long, lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ModifyWorldTransform(hdc: Long, lpxf: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_modifyWorldTransform(hdc: Long, lpxf: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MonitorFromRect(lprc: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_monitorFromRect(lprc: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MonitorFromWindow(hwnd: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_monitorFromWindow(hwnd: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_MoveToEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_moveToEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_OffsetClipRgn(hdc: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_offsetClipRgn(hdc: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_OffsetRect(lprc: Long, dx: Int, dy: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_offsetRect(lprc: Long, dx: Int, dy: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_OffsetRgn(hrgn: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_offsetRgn(hrgn: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_OffsetViewportOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_OffsetWindowOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PaintDesktop(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_paintDesktop(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PaintRgn(hdc: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_paintRgn(hdc: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PatBlt(hdc: Long, x: Int, y: Int, w: Int, h: Int, rop: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_patBlt(hdc: Long, x: Int, y: Int, w: Int, h: Int, rop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PathToRegion(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_pathToRegion(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Pie(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_pie(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PlayEnhMetaFile(hdc: Long, hmf: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_playEnhMetaFile(hdc: Long, hmf: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PlayEnhMetaFileRecord(hdc: Long, pht: Long, pmr: Long, cht: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord(hdc: Long, pht: Long, pmr: Long, cht: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PlayMetaFile(hdc: Long, hmf: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_playMetaFile(hdc: Long, hmf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PlayMetaFileRecord(hdc: Long, lphandletable: Long, lpmr: Long, noobjs: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_playMetaFileRecord(hdc: Long, lphandletable: Long, lpmr: Long, noobjs: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PlgBlt(hdcdest: Long, lppoint: Long, hdcsrc: Long, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Long, xmask: Int, ymask: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_plgBlt(hdcdest: Long, lppoint: Long, hdcsrc: Long, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Long, xmask: Int, ymask: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyBezier(hdc: Long, apt: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyBezier(hdc: Long, apt: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyBezierTo(hdc: Long, apt: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyBezierTo(hdc: Long, apt: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyDraw(hdc: Long, apt: Long, aj: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyDraw(hdc: Long, apt: Long, aj: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyPolygon(hdc: Long, apt: Long, asz: Long, csz: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyPolygon(hdc: Long, apt: Long, asz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyPolyline(hdc: Long, apt: Long, asz: Long, csz: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyPolyline(hdc: Long, apt: Long, asz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyTextOutA(hdc: Long, ppt: Long, nstrings: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyTextOutA(hdc: Long, ppt: Long, nstrings: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolyTextOutW(hdc: Long, ppt: Long, nstrings: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyTextOutW(hdc: Long, ppt: Long, nstrings: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Polygon(hdc: Long, apt: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polygon(hdc: Long, apt: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Polyline(hdc: Long, apt: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polyline(hdc: Long, apt: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PolylineTo(hdc: Long, apt: Long, cpt: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_polylineTo(hdc: Long, apt: Long, cpt: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PtInRegion(hrgn: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_ptInRegion(hrgn: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_PtVisible(hdc: Long, x: Int, y: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_ptVisible(hdc: Long, x: Int, y: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RealizePalette(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_realizePalette(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RectInRegion(hrgn: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_rectInRegion(hrgn: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RectVisible(hdc: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_rectVisible(hdc: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_Rectangle(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_rectangle(hdc: Long, left: Int, top: Int, right: Int, bottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RedrawWindow(hwnd: Long, lprcupdate: Long, hrgnupdate: Long, flags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_redrawWindow(hwnd: Long, lprcupdate: Long, hrgnupdate: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ReleaseDC(hwnd: Long, hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_releaseDC(hwnd: Long, hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RemoveFontMemResourceEx(h: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx(h: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RemoveFontResourceA(lpfilename: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_removeFontResourceA(lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RemoveFontResourceExA(name: Long, fl: Int, pdv: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_removeFontResourceExA(name: Long, fl: Int, pdv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RemoveFontResourceExW(name: Long, fl: Int, pdv: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_removeFontResourceExW(name: Long, fl: Int, pdv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RemoveFontResourceW(lpfilename: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_removeFontResourceW(lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ResetDCA(hdc: Long, lpdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_resetDCA(hdc: Long, lpdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ResetDCW(hdc: Long, lpdm: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_resetDCW(hdc: Long, lpdm: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ResizePalette(hpal: Long, n: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_resizePalette(hpal: Long, n: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RestoreDC(hdc: Long, nsaveddc: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_restoreDC(hdc: Long, nsaveddc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_RoundRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_roundRect(hdc: Long, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SaveDC(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_saveDC(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ScaleViewportExtEx(hdc: Long, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_scaleViewportExtEx(hdc: Long, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ScaleWindowExtEx(hdc: Long, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_scaleWindowExtEx(hdc: Long, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ScreenToClient(hwnd: Long, lppoint: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_screenToClient(hwnd: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SelectClipPath(hdc: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_selectClipPath(hdc: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SelectClipRgn(hdc: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_selectClipRgn(hdc: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SelectObject(hdc: Long, h: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_selectObject(hdc: Long, h: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SelectPalette(hdc: Long, hpal: Long, bforcebkgd: Int): Long
+    external fun windowssys_windows_win32_graphics_gdi_selectPalette(hdc: Long, hpal: Long, bforcebkgd: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetArcDirection(hdc: Long, dir: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setArcDirection(hdc: Long, dir: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBitmapBits(hbm: Long, cb: Int, pvbits: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBitmapBits(hbm: Long, cb: Int, pvbits: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBitmapDimensionEx(hbm: Long, w: Int, h: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx(hbm: Long, w: Int, h: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBkColor(hdc: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBkColor(hdc: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBkMode(hdc: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBkMode(hdc: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBoundsRect(hdc: Long, lprect: Long, flags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBoundsRect(hdc: Long, lprect: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetBrushOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setBrushOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetColorAdjustment(hdc: Long, lpca: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setColorAdjustment(hdc: Long, lpca: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetDCBrushColor(hdc: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setDCBrushColor(hdc: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetDCPenColor(hdc: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setDCPenColor(hdc: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetDIBColorTable(hdc: Long, istart: Int, centries: Int, prgbq: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setDIBColorTable(hdc: Long, istart: Int, centries: Int, prgbq: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetDIBits(hdc: Long, hbm: Long, start: Int, clines: Int, lpbits: Long, lpbmi: Long, coloruse: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setDIBits(hdc: Long, hbm: Long, start: Int, clines: Int, lpbits: Long, lpbmi: Long, coloruse: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetDIBitsToDevice(hdc: Long, xdest: Int, ydest: Int, w: Int, h: Int, xsrc: Int, ysrc: Int, startscan: Int, clines: Int, lpvbits: Long, lpbmi: Long, coloruse: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setDIBitsToDevice(hdc: Long, xdest: Int, ydest: Int, w: Int, h: Int, xsrc: Int, ysrc: Int, startscan: Int, clines: Int, lpvbits: Long, lpbmi: Long, coloruse: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetEnhMetaFileBits(nsize: Int, pb: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits(nsize: Int, pb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetGraphicsMode(hdc: Long, imode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setGraphicsMode(hdc: Long, imode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetLayout(hdc: Long, l: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setLayout(hdc: Long, l: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetMapMode(hdc: Long, imode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setMapMode(hdc: Long, imode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetMapperFlags(hdc: Long, flags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setMapperFlags(hdc: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetMetaFileBitsEx(cbbuffer: Int, lpdata: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx(cbbuffer: Int, lpdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetMetaRgn(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setMetaRgn(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetMiterLimit(hdc: Long, limit: Float, old: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setMiterLimit(hdc: Long, limit: Float, old: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetPaletteEntries(hpal: Long, istart: Int, centries: Int, ppalentries: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setPaletteEntries(hpal: Long, istart: Int, centries: Int, ppalentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetPixel(hdc: Long, x: Int, y: Int, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setPixel(hdc: Long, x: Int, y: Int, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetPixelV(hdc: Long, x: Int, y: Int, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setPixelV(hdc: Long, x: Int, y: Int, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetPolyFillMode(hdc: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setPolyFillMode(hdc: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetROP2(hdc: Long, rop2: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setROP2(hdc: Long, rop2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetRect(lprc: Long, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setRect(lprc: Long, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetRectEmpty(lprc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setRectEmpty(lprc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetRectRgn(hrgn: Long, left: Int, top: Int, right: Int, bottom: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setRectRgn(hrgn: Long, left: Int, top: Int, right: Int, bottom: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetStretchBltMode(hdc: Long, mode: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setStretchBltMode(hdc: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetSysColors(celements: Int, lpaelements: Long, lpargbvalues: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setSysColors(celements: Int, lpaelements: Long, lpargbvalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetSystemPaletteUse(hdc: Long, use: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setSystemPaletteUse(hdc: Long, use: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetTextAlign(hdc: Long, align: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setTextAlign(hdc: Long, align: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetTextCharacterExtra(hdc: Long, extra: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setTextCharacterExtra(hdc: Long, extra: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetTextColor(hdc: Long, color: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setTextColor(hdc: Long, color: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetTextJustification(hdc: Long, extra: Int, count: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setTextJustification(hdc: Long, extra: Int, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetViewportExtEx(hdc: Long, x: Int, y: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setViewportExtEx(hdc: Long, x: Int, y: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetViewportOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setViewportOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetWindowExtEx(hdc: Long, x: Int, y: Int, lpsz: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setWindowExtEx(hdc: Long, x: Int, y: Int, lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetWindowOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setWindowOrgEx(hdc: Long, x: Int, y: Int, lppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetWindowRgn(hwnd: Long, hrgn: Long, bredraw: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_setWindowRgn(hwnd: Long, hrgn: Long, bredraw: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SetWorldTransform(hdc: Long, lpxf: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_setWorldTransform(hdc: Long, lpxf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_StretchBlt(hdcdest: Long, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_stretchBlt(hdcdest: Long, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_StretchDIBits(hdc: Long, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: Long, lpbmi: Long, iusage: Int, rop: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_stretchDIBits(hdc: Long, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: Long, lpbmi: Long, iusage: Int, rop: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_StrokeAndFillPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_strokeAndFillPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_StrokePath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_strokePath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_SubtractRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_subtractRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTCharToUnicode(hdc: Long, puccharcodes: Long, ulcharcodesize: Int, pusshortcodes: Long, ulshortcodesize: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTCharToUnicode(hdc: Long, puccharcodes: Long, ulcharcodesize: Int, pusshortcodes: Long, ulshortcodesize: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTDeleteEmbeddedFont(hfontreference: Long, ulflags: Int, pulstatus: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont(hfontreference: Long, ulflags: Int, pulstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTEmbedFont(hdc: Long, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTEmbedFont(hdc: Long, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTEmbedFontEx(hdc: Long, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, pulcharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTEmbedFontEx(hdc: Long, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, pulcharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTEmbedFontFromFileA(hdc: Long, szfontfilename: Long, usttcindex: Short, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA(hdc: Long, szfontfilename: Long, usttcindex: Short, ulflags: Int, ulcharset: Int, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: Long, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: Short, uslanguage: Short, pttembedinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTEnableEmbeddingForFacename(lpszfacename: Long, benable: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename(lpszfacename: Long, benable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTGetEmbeddedFontInfo(ulflags: Int, pulprivstatus: Long, ulprivs: Int, pulstatus: Long, lpfnreadfromstream: Long, lpvreadstream: Long, pttloadinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo(ulflags: Int, pulprivstatus: Long, ulprivs: Int, pulstatus: Long, lpfnreadfromstream: Long, lpvreadstream: Long, pttloadinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTGetEmbeddingType(hdc: Long, pulembedtype: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType(hdc: Long, pulembedtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTGetNewFontName(phfontreference: Long, wzwinfamilyname: Long, cchmaxwinname: Int, szmacfamilyname: Long, cchmaxmacname: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTGetNewFontName(phfontreference: Long, wzwinfamilyname: Long, cchmaxwinname: Int, szmacfamilyname: Long, cchmaxmacname: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabled(hdc: Long, pbenabled: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled(hdc: Long, pbenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabledForFacename(lpszfacename: Long, pbenabled: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename(lpszfacename: Long, pbenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTLoadEmbeddedFont(phfontreference: Long, ulflags: Int, pulprivstatus: Long, ulprivs: Int, pulstatus: Long, lpfnreadfromstream: Long, lpvreadstream: Long, szwinfamilyname: Long, szmacfamilyname: Long, pttloadinfo: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont(phfontreference: Long, ulflags: Int, pulprivstatus: Long, ulprivs: Int, pulstatus: Long, lpfnreadfromstream: Long, lpvreadstream: Long, szwinfamilyname: Long, szmacfamilyname: Long, pttloadinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTRunValidationTests(hdc: Long, ptestparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTRunValidationTests(hdc: Long, ptestparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TTRunValidationTestsEx(hdc: Long, ptestparam: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx(hdc: Long, ptestparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TabbedTextOutA(hdc: Long, x: Int, y: Int, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_tabbedTextOutA(hdc: Long, x: Int, y: Int, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TabbedTextOutW(hdc: Long, x: Int, y: Int, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_tabbedTextOutW(hdc: Long, x: Int, y: Int, lpstring: Long, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TextOutA(hdc: Long, x: Int, y: Int, lpstring: Long, c: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_textOutA(hdc: Long, x: Int, y: Int, lpstring: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TextOutW(hdc: Long, x: Int, y: Int, lpstring: Long, c: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_textOutW(hdc: Long, x: Int, y: Int, lpstring: Long, c: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_TransparentBlt(hdcdest: Long, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: Int): Int
+    external fun windowssys_windows_win32_graphics_gdi_transparentBlt(hdcdest: Long, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Long, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_UnionRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_unionRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_UnrealizeObject(h: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_unrealizeObject(h: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_UpdateColors(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_updateColors(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_UpdateWindow(hwnd: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_updateWindow(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ValidateRect(hwnd: Long, lprect: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_validateRect(hwnd: Long, lprect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_ValidateRgn(hwnd: Long, hrgn: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_validateRgn(hwnd: Long, hrgn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_WidenPath(hdc: Long): Int
+    external fun windowssys_windows_win32_graphics_gdi_widenPath(hdc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_gdi_WindowFromDC(hdc: Long): Long
+    external fun windowssys_windows_win32_graphics_gdi_windowFromDC(hdc: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers(param0: Int, param1: Long): Int
 }
 
-public actual fun AbortPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AbortPath(hdc)
+public actual fun abortPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_abortPath((hdc?.value ?: 0L))
 
-public actual fun AddFontMemResourceEx(pfileview: Long, cjsize: UInt, pvresrved: Long, pnumfonts: Long): HANDLE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AddFontMemResourceEx(pfileview, cjsize.toInt(), pvresrved, pnumfonts)
+public actual fun addFontMemResourceEx(pfileview: COpaquePointer?, cjsize: UInt, pvresrved: COpaquePointer?, pnumfonts: COpaquePointer?): Handle =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_addFontMemResourceEx((pfileview?.value ?: 0L), cjsize.toInt(), (pvresrved?.value ?: 0L), (pnumfonts?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AddFontResourceA(param0: PCSTR): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AddFontResourceA(param0)
+public actual fun addFontResourceA(param0: Pcstr): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_addFontResourceA((param0?.value ?: 0L))
 
-public actual fun AddFontResourceExA(name: PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AddFontResourceExA(name, fl.toInt(), res)
+public actual fun addFontResourceExA(name: Pcstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_addFontResourceExA((name?.value ?: 0L), fl.toInt(), (res?.value ?: 0L))
 
-public actual fun AddFontResourceExW(name: PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AddFontResourceExW(name, fl.toInt(), res)
+public actual fun addFontResourceExW(name: Pcwstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_addFontResourceExW((name?.value ?: 0L), fl.toInt(), (res?.value ?: 0L))
 
-public actual fun AddFontResourceW(param0: PCWSTR): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AddFontResourceW(param0)
+public actual fun addFontResourceW(param0: Pcwstr): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_addFontResourceW((param0?.value ?: 0L))
 
-public actual fun AlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL =
+public actual fun alphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool =
     0
 
-public actual fun AngleArc(hdc: HDC, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AngleArc(hdc, x, y, r.toInt(), startangle, sweepangle)
+public actual fun angleArc(hdc: Hdc, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_angleArc((hdc?.value ?: 0L), x, y, r.toInt(), startangle, sweepangle)
 
-public actual fun AnimatePalette(hpal: HPALETTE, istartindex: UInt, centries: UInt, ppe: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_AnimatePalette(hpal, istartindex.toInt(), centries.toInt(), ppe)
+public actual fun animatePalette(hpal: Hpalette, istartindex: UInt, centries: UInt, ppe: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_animatePalette((hpal?.value ?: 0L), istartindex.toInt(), centries.toInt(), (ppe?.value ?: 0L))
 
-public actual fun Arc(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Arc(hdc, x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun arc(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_arc((hdc?.value ?: 0L), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun ArcTo(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ArcTo(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2)
+public actual fun arcTo(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_arcTo((hdc?.value ?: 0L), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun BeginPaint(hwnd: HWND, lppaint: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_BeginPaint(hwnd, lppaint)
+public actual fun beginPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_beginPaint((hwnd?.value ?: 0L), (lppaint?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun BeginPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_BeginPath(hdc)
+public actual fun beginPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_beginPath((hdc?.value ?: 0L))
 
-public actual fun BitBlt(hdc: HDC, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: HDC, x1: Int, y1: Int, rop: ROP_CODE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_BitBlt(hdc, x, y, cx, cy, hdcsrc, x1, y1, rop.toInt())
+public actual fun bitBlt(hdc: Hdc, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Hdc, x1: Int, y1: Int, rop: RopCode): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_bitBlt((hdc?.value ?: 0L), x, y, cx, cy, (hdcsrc?.value ?: 0L), x1, y1, rop.toInt())
 
-public actual fun CancelDC(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CancelDC(hdc)
+public actual fun cancelDC(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_cancelDC((hdc?.value ?: 0L))
 
-public actual fun ChangeDisplaySettingsA(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsA(lpdevmode, dwflags.toInt())
+public actual fun changeDisplaySettingsA(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA((lpdevmode?.value ?: 0L), dwflags.toInt())
 
-public actual fun ChangeDisplaySettingsExA(lpszdevicename: PCSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExA(lpszdevicename, lpdevmode, hwnd, dwflags.toInt(), lparam)
+public actual fun changeDisplaySettingsExA(lpszdevicename: Pcstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA((lpszdevicename?.value ?: 0L), (lpdevmode?.value ?: 0L), (hwnd?.value ?: 0L), dwflags.toInt(), (lparam?.value ?: 0L))
 
-public actual fun ChangeDisplaySettingsExW(lpszdevicename: PCWSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExW(lpszdevicename, lpdevmode, hwnd, dwflags.toInt(), lparam)
+public actual fun changeDisplaySettingsExW(lpszdevicename: Pcwstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW((lpszdevicename?.value ?: 0L), (lpdevmode?.value ?: 0L), (hwnd?.value ?: 0L), dwflags.toInt(), (lparam?.value ?: 0L))
 
-public actual fun ChangeDisplaySettingsW(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsW(lpdevmode, dwflags.toInt())
+public actual fun changeDisplaySettingsW(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW((lpdevmode?.value ?: 0L), dwflags.toInt())
 
-public actual fun Chord(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Chord(hdc, x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun chord(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_chord((hdc?.value ?: 0L), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun ClientToScreen(hwnd: HWND, lppoint: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ClientToScreen(hwnd, lppoint)
+public actual fun clientToScreen(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_clientToScreen((hwnd?.value ?: 0L), (lppoint?.value ?: 0L))
 
-public actual fun CloseEnhMetaFile(hdc: HDC): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CloseEnhMetaFile(hdc)
+public actual fun closeEnhMetaFile(hdc: Hdc): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_closeEnhMetaFile((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CloseFigure(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CloseFigure(hdc)
+public actual fun closeFigure(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_closeFigure((hdc?.value ?: 0L))
 
-public actual fun CloseMetaFile(hdc: HDC): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CloseMetaFile(hdc)
+public actual fun closeMetaFile(hdc: Hdc): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_closeMetaFile((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CombineRgn(hrgndst, hrgnsrc1, hrgnsrc2, imode)
+public actual fun combineRgn(hrgndst: Hrgn, hrgnsrc1: Hrgn, hrgnsrc2: Hrgn, imode: RgnCombineMode): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_combineRgn((hrgndst?.value ?: 0L), (hrgnsrc1?.value ?: 0L), (hrgnsrc2?.value ?: 0L), imode)
 
-public actual fun CombineTransform(lpxfout: Long, lpxf1: Long, lpxf2: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CombineTransform(lpxfout, lpxf1, lpxf2)
+public actual fun combineTransform(lpxfout: COpaquePointer?, lpxf1: COpaquePointer?, lpxf2: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_combineTransform((lpxfout?.value ?: 0L), (lpxf1?.value ?: 0L), (lpxf2?.value ?: 0L))
 
-public actual fun CopyEnhMetaFileA(henh: HENHMETAFILE, lpfilename: PCSTR): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileA(henh, lpfilename)
+public actual fun copyEnhMetaFileA(henh: Henhmetafile, lpfilename: Pcstr): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA((henh?.value ?: 0L), (lpfilename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CopyEnhMetaFileW(henh: HENHMETAFILE, lpfilename: PCWSTR): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileW(henh, lpfilename)
+public actual fun copyEnhMetaFileW(henh: Henhmetafile, lpfilename: Pcwstr): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW((henh?.value ?: 0L), (lpfilename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CopyMetaFileA(param0: HMETAFILE, param1: PCSTR): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CopyMetaFileA(param0, param1)
+public actual fun copyMetaFileA(param0: Hmetafile, param1: Pcstr): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_copyMetaFileA((param0?.value ?: 0L), (param1?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CopyMetaFileW(param0: HMETAFILE, param1: PCWSTR): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CopyMetaFileW(param0, param1)
+public actual fun copyMetaFileW(param0: Hmetafile, param1: Pcwstr): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_copyMetaFileW((param0?.value ?: 0L), (param1?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CopyRect(lprcdst: Long, lprcsrc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CopyRect(lprcdst, lprcsrc)
+public actual fun copyRect(lprcdst: COpaquePointer?, lprcsrc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_copyRect((lprcdst?.value ?: 0L), (lprcsrc?.value ?: 0L))
 
-public actual fun CreateBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: Long): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateBitmap(nwidth, nheight, nplanes.toInt(), nbitcount.toInt(), lpbits)
+public actual fun createBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: COpaquePointer?): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createBitmap(nwidth, nheight, nplanes.toInt(), nbitcount.toInt(), (lpbits?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateBitmapIndirect(pbm: Long): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateBitmapIndirect(pbm)
+public actual fun createBitmapIndirect(pbm: COpaquePointer?): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createBitmapIndirect((pbm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateBrushIndirect(plbrush: Long): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateBrushIndirect(plbrush)
+public actual fun createBrushIndirect(plbrush: COpaquePointer?): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createBrushIndirect((plbrush?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateCompatibleBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateCompatibleBitmap(hdc, cx, cy)
+public actual fun createCompatibleBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createCompatibleBitmap((hdc?.value ?: 0L), cx, cy).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateCompatibleDC(hdc: HDC): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateCompatibleDC(hdc)
+public actual fun createCompatibleDC(hdc: Hdc): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createCompatibleDC((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDCA(pwszdriver: PCSTR, pwszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDCA(pwszdriver, pwszdevice, pszport, pdm)
+public actual fun createDCA(pwszdriver: Pcstr, pwszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDCA((pwszdriver?.value ?: 0L), (pwszdevice?.value ?: 0L), (pszport?.value ?: 0L), (pdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDCW(pwszdriver: PCWSTR, pwszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDCW(pwszdriver, pwszdevice, pszport, pdm)
+public actual fun createDCW(pwszdriver: Pcwstr, pwszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDCW((pwszdriver?.value ?: 0L), (pwszdevice?.value ?: 0L), (pszport?.value ?: 0L), (pdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDIBPatternBrush(h: HGLOBAL, iusage: DIB_USAGE): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrush(h, iusage.toInt())
+public actual fun createDIBPatternBrush(h: Hglobal, iusage: DibUsage): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDIBPatternBrush((h?.value ?: 0L), iusage.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDIBPatternBrushPt(lppackeddib: Long, iusage: DIB_USAGE): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrushPt(lppackeddib, iusage.toInt())
+public actual fun createDIBPatternBrushPt(lppackeddib: COpaquePointer?, iusage: DibUsage): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt((lppackeddib?.value ?: 0L), iusage.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDIBSection(hdc: HDC, pbmi: Long, usage: DIB_USAGE, ppvbits: Long, hsection: HANDLE, offset: UInt): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDIBSection(hdc, pbmi, usage.toInt(), ppvbits, hsection, offset.toInt())
+public actual fun createDIBSection(hdc: Hdc, pbmi: COpaquePointer?, usage: DibUsage, ppvbits: COpaquePointer?, hsection: Handle, offset: UInt): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDIBSection((hdc?.value ?: 0L), (pbmi?.value ?: 0L), usage.toInt(), (ppvbits?.value ?: 0L), (hsection?.value ?: 0L), offset.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDIBitmap(hdc: HDC, pbmih: Long, flinit: UInt, pjbits: Long, pbmi: Long, iusage: DIB_USAGE): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDIBitmap(hdc, pbmih, flinit.toInt(), pjbits, pbmi, iusage.toInt())
+public actual fun createDIBitmap(hdc: Hdc, pbmih: COpaquePointer?, flinit: UInt, pjbits: COpaquePointer?, pbmi: COpaquePointer?, iusage: DibUsage): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDIBitmap((hdc?.value ?: 0L), (pbmih?.value ?: 0L), flinit.toInt(), (pjbits?.value ?: 0L), (pbmi?.value ?: 0L), iusage.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDiscardableBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateDiscardableBitmap(hdc, cx, cy)
+public actual fun createDiscardableBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createDiscardableBitmap((hdc?.value ?: 0L), cx, cy).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateEllipticRgn(x1, y1, x2, y2)
+public actual fun createEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createEllipticRgn(x1, y1, x2, y2).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEllipticRgnIndirect(lprect: Long): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateEllipticRgnIndirect(lprect)
+public actual fun createEllipticRgnIndirect(lprect: COpaquePointer?): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect((lprect?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEnhMetaFileA(hdc: HDC, lpfilename: PCSTR, lprc: Long, lpdesc: PCSTR): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileA(hdc, lpfilename, lprc, lpdesc)
+public actual fun createEnhMetaFileA(hdc: Hdc, lpfilename: Pcstr, lprc: COpaquePointer?, lpdesc: Pcstr): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createEnhMetaFileA((hdc?.value ?: 0L), (lpfilename?.value ?: 0L), (lprc?.value ?: 0L), (lpdesc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEnhMetaFileW(hdc: HDC, lpfilename: PCWSTR, lprc: Long, lpdesc: PCWSTR): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileW(hdc, lpfilename, lprc, lpdesc)
+public actual fun createEnhMetaFileW(hdc: Hdc, lpfilename: Pcwstr, lprc: COpaquePointer?, lpdesc: Pcwstr): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createEnhMetaFileW((hdc?.value ?: 0L), (lpfilename?.value ?: 0L), (lprc?.value ?: 0L), (lpdesc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCSTR): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic.toInt(), bunderline.toInt(), bstrikeout.toInt(), icharset.toInt(), ioutprecision.toInt(), iclipprecision.toInt(), iquality.toInt(), ipitchandfamily.toInt(), pszfacename)
+public actual fun createFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcstr): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic.toInt(), bunderline.toInt(), bstrikeout.toInt(), icharset.toInt(), ioutprecision.toInt(), iclipprecision.toInt(), iquality.toInt(), ipitchandfamily.toInt(), (pszfacename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontIndirectA(lplf: Long): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontIndirectA(lplf)
+public actual fun createFontIndirectA(lplf: COpaquePointer?): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontIndirectA((lplf?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontIndirectExA(param0: Long): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontIndirectExA(param0)
+public actual fun createFontIndirectExA(param0: COpaquePointer?): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontIndirectExA((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontIndirectExW(param0: Long): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontIndirectExW(param0)
+public actual fun createFontIndirectExW(param0: COpaquePointer?): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontIndirectExW((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontIndirectW(lplf: Long): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontIndirectW(lplf)
+public actual fun createFontIndirectW(lplf: COpaquePointer?): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontIndirectW((lplf?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFontPackage(puchsrcbuffer: Long, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: Long, pulfontpackagebuffersize: Long, pulbyteswritten: Long, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: Long, ussubsetlistcount: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontPackage(puchsrcbuffer, ulsrcbuffersize.toInt(), ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag.toShort(), usttcindex.toShort(), ussubsetformat.toShort(), ussubsetlanguage.toShort(), ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount.toShort(), lpfnallocate.toLong(), lpfnreallocate.toLong(), lpfnfree.toLong(), lpvreserved).toUInt()
+public actual fun createFontPackage(puchsrcbuffer: COpaquePointer?, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: COpaquePointer?, pulfontpackagebuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CreateFontPackageSubsetPlatform, ussubsetencoding: CreateFontPackageSubsetEncoding, pussubsetkeeplist: COpaquePointer?, ussubsetlistcount: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontPackage((puchsrcbuffer?.value ?: 0L), ulsrcbuffersize.toInt(), (ppuchfontpackagebuffer?.value ?: 0L), (pulfontpackagebuffersize?.value ?: 0L), (pulbyteswritten?.value ?: 0L), usflag.toShort(), usttcindex.toShort(), ussubsetformat.toShort(), ussubsetlanguage.toShort(), ussubsetplatform, ussubsetencoding, (pussubsetkeeplist?.value ?: 0L), ussubsetlistcount.toShort(), 0L, 0L, 0L, (lpvreserved?.value ?: 0L)).toUInt()
 
-public actual fun CreateFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCWSTR): HFONT =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic.toInt(), bunderline.toInt(), bstrikeout.toInt(), icharset.toInt(), ioutprecision.toInt(), iclipprecision.toInt(), iquality.toInt(), ipitchandfamily.toInt(), pszfacename)
+public actual fun createFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcwstr): Hfont =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic.toInt(), bunderline.toInt(), bstrikeout.toInt(), icharset.toInt(), ioutprecision.toInt(), iclipprecision.toInt(), iquality.toInt(), ipitchandfamily.toInt(), (pszfacename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateHalftonePalette(hdc: HDC): HPALETTE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateHalftonePalette(hdc)
+public actual fun createHalftonePalette(hdc: Hdc): Hpalette =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createHalftonePalette((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: COLORREF): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateHatchBrush(ihatch, color.toInt())
+public actual fun createHatchBrush(ihatch: HatchBrushStyle, color: Colorref): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createHatchBrush(ihatch, color.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateICA(pszdriver: PCSTR, pszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateICA(pszdriver, pszdevice, pszport, pdm)
+public actual fun createICA(pszdriver: Pcstr, pszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createICA((pszdriver?.value ?: 0L), (pszdevice?.value ?: 0L), (pszport?.value ?: 0L), (pdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateICW(pszdriver: PCWSTR, pszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateICW(pszdriver, pszdevice, pszport, pdm)
+public actual fun createICW(pszdriver: Pcwstr, pszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createICW((pszdriver?.value ?: 0L), (pszdevice?.value ?: 0L), (pszport?.value ?: 0L), (pdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMetaFileA(pszfile: PCSTR): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateMetaFileA(pszfile)
+public actual fun createMetaFileA(pszfile: Pcstr): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createMetaFileA((pszfile?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMetaFileW(pszfile: PCWSTR): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateMetaFileW(pszfile)
+public actual fun createMetaFileW(pszfile: Pcwstr): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createMetaFileW((pszfile?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePalette(plpal: Long): HPALETTE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePalette(plpal)
+public actual fun createPalette(plpal: COpaquePointer?): Hpalette =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPalette((plpal?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePatternBrush(hbm: HBITMAP): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePatternBrush(hbm)
+public actual fun createPatternBrush(hbm: Hbitmap): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPatternBrush((hbm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePen(istyle: PEN_STYLE, cwidth: Int, color: COLORREF): HPEN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePen(istyle, cwidth, color.toInt())
+public actual fun createPen(istyle: PenStyle, cwidth: Int, color: Colorref): Hpen =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPen(istyle, cwidth, color.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePenIndirect(plpen: Long): HPEN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePenIndirect(plpen)
+public actual fun createPenIndirect(plpen: COpaquePointer?): Hpen =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPenIndirect((plpen?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePolyPolygonRgn(pptl: Long, pc: Long, cpoly: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePolyPolygonRgn(pptl, pc, cpoly, imode)
+public actual fun createPolyPolygonRgn(pptl: COpaquePointer?, pc: COpaquePointer?, cpoly: Int, imode: CreatePolygonRgnMode): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn((pptl?.value ?: 0L), (pc?.value ?: 0L), cpoly, imode).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePolygonRgn(pptl: Long, cpoint: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreatePolygonRgn(pptl, cpoint, imode)
+public actual fun createPolygonRgn(pptl: COpaquePointer?, cpoint: Int, imode: CreatePolygonRgnMode): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createPolygonRgn((pptl?.value ?: 0L), cpoint, imode).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateRectRgn(x1, y1, x2, y2)
+public actual fun createRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createRectRgn(x1, y1, x2, y2).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateRectRgnIndirect(lprect: Long): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateRectRgnIndirect(lprect)
+public actual fun createRectRgnIndirect(lprect: COpaquePointer?): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createRectRgnIndirect((lprect?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateRoundRectRgn(x1, y1, x2, y2, w, h)
+public actual fun createRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createRoundRectRgn(x1, y1, x2, y2, w, h).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateScalableFontResourceA(fdwhidden: UInt, lpszfont: PCSTR, lpszfile: PCSTR, lpszpath: PCSTR): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceA(fdwhidden.toInt(), lpszfont, lpszfile, lpszpath)
+public actual fun createScalableFontResourceA(fdwhidden: UInt, lpszfont: Pcstr, lpszfile: Pcstr, lpszpath: Pcstr): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createScalableFontResourceA(fdwhidden.toInt(), (lpszfont?.value ?: 0L), (lpszfile?.value ?: 0L), (lpszpath?.value ?: 0L))
 
-public actual fun CreateScalableFontResourceW(fdwhidden: UInt, lpszfont: PCWSTR, lpszfile: PCWSTR, lpszpath: PCWSTR): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceW(fdwhidden.toInt(), lpszfont, lpszfile, lpszpath)
+public actual fun createScalableFontResourceW(fdwhidden: UInt, lpszfont: Pcwstr, lpszfile: Pcwstr, lpszpath: Pcwstr): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createScalableFontResourceW(fdwhidden.toInt(), (lpszfont?.value ?: 0L), (lpszfile?.value ?: 0L), (lpszpath?.value ?: 0L))
 
-public actual fun CreateSolidBrush(color: COLORREF): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_CreateSolidBrush(color.toInt())
+public actual fun createSolidBrush(color: Colorref): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_createSolidBrush(color.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DPtoLP(hdc: HDC, lppt: Long, c: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DPtoLP(hdc, lppt, c)
+public actual fun dPtoLP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_dPtoLP((hdc?.value ?: 0L), (lppt?.value ?: 0L), c)
 
-public actual fun DeleteDC(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DeleteDC(hdc)
+public actual fun deleteDC(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_deleteDC((hdc?.value ?: 0L))
 
-public actual fun DeleteEnhMetaFile(hmf: HENHMETAFILE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DeleteEnhMetaFile(hmf)
+public actual fun deleteEnhMetaFile(hmf: Henhmetafile): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile((hmf?.value ?: 0L))
 
-public actual fun DeleteMetaFile(hmf: HMETAFILE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DeleteMetaFile(hmf)
+public actual fun deleteMetaFile(hmf: Hmetafile): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_deleteMetaFile((hmf?.value ?: 0L))
 
-public actual fun DeleteObject(ho: HGDIOBJ): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DeleteObject(ho)
+public actual fun deleteObject(ho: Hgdiobj): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_deleteObject((ho?.value ?: 0L))
 
-public actual fun DrawAnimatedRects(hwnd: HWND, idani: Int, lprcfrom: Long, lprcto: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawAnimatedRects(hwnd, idani, lprcfrom, lprcto)
+public actual fun drawAnimatedRects(hwnd: Hwnd, idani: Int, lprcfrom: COpaquePointer?, lprcto: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawAnimatedRects((hwnd?.value ?: 0L), idani, (lprcfrom?.value ?: 0L), (lprcto?.value ?: 0L))
 
-public actual fun DrawCaption(hwnd: HWND, hdc: HDC, lprect: Long, flags: DRAW_CAPTION_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawCaption(hwnd, hdc, lprect, flags.toInt())
+public actual fun drawCaption(hwnd: Hwnd, hdc: Hdc, lprect: COpaquePointer?, flags: DrawCaptionFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawCaption((hwnd?.value ?: 0L), (hdc?.value ?: 0L), (lprect?.value ?: 0L), flags.toInt())
 
-public actual fun DrawEdge(hdc: HDC, qrc: Long, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawEdge(hdc, qrc, edge.toInt(), grfflags.toInt())
+public actual fun drawEdge(hdc: Hdc, qrc: COpaquePointer?, edge: DrawedgeFlags, grfflags: DrawEdgeFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawEdge((hdc?.value ?: 0L), (qrc?.value ?: 0L), edge.toInt(), grfflags.toInt())
 
-public actual fun DrawEscape(hdc: HDC, iescape: Int, cjin: Int, lpin: PCSTR): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawEscape(hdc, iescape, cjin, lpin)
+public actual fun drawEscape(hdc: Hdc, iescape: Int, cjin: Int, lpin: Pcstr): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawEscape((hdc?.value ?: 0L), iescape, cjin, (lpin?.value ?: 0L))
 
-public actual fun DrawFocusRect(hdc: HDC, lprc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawFocusRect(hdc, lprc)
+public actual fun drawFocusRect(hdc: Hdc, lprc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawFocusRect((hdc?.value ?: 0L), (lprc?.value ?: 0L))
 
-public actual fun DrawFrameControl(param0: HDC, param1: Long, param2: DFC_TYPE, param3: DFCS_STATE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawFrameControl(param0, param1, param2.toInt(), param3.toInt())
+public actual fun drawFrameControl(param0: Hdc, param1: COpaquePointer?, param2: DfcType, param3: DfcsState): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawFrameControl((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), param3.toInt())
 
-public actual fun DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawStateA(hdc, hbrfore, qfncallback.toLong(), ldata, wdata.toLong(), x, y, cx, cy, uflags.toInt())
+public actual fun drawStateA(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawStateA((hdc?.value ?: 0L), (hbrfore?.value ?: 0L), 0L, ldata, wdata.toLong(), x, y, cx, cy, uflags.toInt())
 
-public actual fun DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawStateW(hdc, hbrfore, qfncallback.toLong(), ldata, wdata.toLong(), x, y, cx, cy, uflags.toInt())
+public actual fun drawStateW(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawStateW((hdc?.value ?: 0L), (hbrfore?.value ?: 0L), 0L, ldata, wdata.toLong(), x, y, cx, cy, uflags.toInt())
 
-public actual fun DrawTextA(hdc: HDC, lpchtext: PCSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawTextA(hdc, lpchtext, cchtext, lprc, format.toInt())
+public actual fun drawTextA(hdc: Hdc, lpchtext: Pcstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawTextA((hdc?.value ?: 0L), (lpchtext?.value ?: 0L), cchtext, (lprc?.value ?: 0L), format.toInt())
 
-public actual fun DrawTextExA(hdc: HDC, lpchtext: PSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawTextExA(hdc, lpchtext, cchtext, lprc, format.toInt(), lpdtp)
+public actual fun drawTextExA(hdc: Hdc, lpchtext: Pstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawTextExA((hdc?.value ?: 0L), (lpchtext?.value ?: 0L), cchtext, (lprc?.value ?: 0L), format.toInt(), (lpdtp?.value ?: 0L))
 
-public actual fun DrawTextExW(hdc: HDC, lpchtext: PWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawTextExW(hdc, lpchtext, cchtext, lprc, format.toInt(), lpdtp)
+public actual fun drawTextExW(hdc: Hdc, lpchtext: Pwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawTextExW((hdc?.value ?: 0L), (lpchtext?.value ?: 0L), cchtext, (lprc?.value ?: 0L), format.toInt(), (lpdtp?.value ?: 0L))
 
-public actual fun DrawTextW(hdc: HDC, lpchtext: PCWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_DrawTextW(hdc, lpchtext, cchtext, lprc, format.toInt())
+public actual fun drawTextW(hdc: Hdc, lpchtext: Pcwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_drawTextW((hdc?.value ?: 0L), (lpchtext?.value ?: 0L), cchtext, (lprc?.value ?: 0L), format.toInt())
 
-public actual fun Ellipse(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Ellipse(hdc, left, top, right, bottom)
+public actual fun ellipse(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ellipse((hdc?.value ?: 0L), left, top, right, bottom)
 
-public actual fun EndPaint(hwnd: HWND, lppaint: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EndPaint(hwnd, lppaint)
+public actual fun endPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_endPaint((hwnd?.value ?: 0L), (lppaint?.value ?: 0L))
 
-public actual fun EndPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EndPath(hdc)
+public actual fun endPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_endPath((hdc?.value ?: 0L))
 
-public actual fun EnumDisplayDevicesA(lpdevice: PCSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesA(lpdevice, idevnum.toInt(), lpdisplaydevice, dwflags.toInt())
+public actual fun enumDisplayDevicesA(lpdevice: Pcstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA((lpdevice?.value ?: 0L), idevnum.toInt(), (lpdisplaydevice?.value ?: 0L), dwflags.toInt())
 
-public actual fun EnumDisplayDevicesW(lpdevice: PCWSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesW(lpdevice, idevnum.toInt(), lpdisplaydevice, dwflags.toInt())
+public actual fun enumDisplayDevicesW(lpdevice: Pcwstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW((lpdevice?.value ?: 0L), idevnum.toInt(), (lpdisplaydevice?.value ?: 0L), dwflags.toInt())
 
-public actual fun EnumDisplayMonitors(hdc: HDC, lprcclip: Long, lpfnenum: MONITORENUMPROC, dwdata: LPARAM): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplayMonitors(hdc, lprcclip, lpfnenum.toLong(), dwdata)
+public actual fun enumDisplayMonitors(hdc: Hdc, lprcclip: COpaquePointer?, lpfnenum: Monitorenumproc, dwdata: Lparam): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplayMonitors((hdc?.value ?: 0L), (lprcclip?.value ?: 0L), 0L, dwdata)
 
-public actual fun EnumDisplaySettingsA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsA(lpszdevicename, imodenum.toInt(), lpdevmode)
+public actual fun enumDisplaySettingsA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA((lpszdevicename?.value ?: 0L), imodenum.toInt(), (lpdevmode?.value ?: 0L))
 
-public actual fun EnumDisplaySettingsExA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExA(lpszdevicename, imodenum.toInt(), lpdevmode, dwflags.toInt())
+public actual fun enumDisplaySettingsExA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA((lpszdevicename?.value ?: 0L), imodenum.toInt(), (lpdevmode?.value ?: 0L), dwflags.toInt())
 
-public actual fun EnumDisplaySettingsExW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExW(lpszdevicename, imodenum.toInt(), lpdevmode, dwflags.toInt())
+public actual fun enumDisplaySettingsExW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW((lpszdevicename?.value ?: 0L), imodenum.toInt(), (lpdevmode?.value ?: 0L), dwflags.toInt())
 
-public actual fun EnumDisplaySettingsW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsW(lpszdevicename, imodenum.toInt(), lpdevmode)
+public actual fun enumDisplaySettingsW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW((lpszdevicename?.value ?: 0L), imodenum.toInt(), (lpdevmode?.value ?: 0L))
 
-public actual fun EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: Long, lprect: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumEnhMetaFile(hdc, hmf, proc.toLong(), param3, lprect)
+public actual fun enumEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, proc: Enhmfenumproc, param3: COpaquePointer?, lprect: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumEnhMetaFile((hdc?.value ?: 0L), (hmf?.value ?: 0L), 0L, (param3?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun EnumFontFamiliesA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesA(hdc, lplogfont, lpproc.toLong(), lparam)
+public actual fun enumFontFamiliesA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontFamiliesA((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumFontFamiliesExA(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCA, lparam: LPARAM, dwflags: UInt): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExA(hdc, lplogfont, lpproc.toLong(), lparam, dwflags.toInt())
+public actual fun enumFontFamiliesExA(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumproca, lparam: Lparam, dwflags: UInt): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam, dwflags.toInt())
 
-public actual fun EnumFontFamiliesExW(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCW, lparam: LPARAM, dwflags: UInt): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExW(hdc, lplogfont, lpproc.toLong(), lparam, dwflags.toInt())
+public actual fun enumFontFamiliesExW(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumprocw, lparam: Lparam, dwflags: UInt): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam, dwflags.toInt())
 
-public actual fun EnumFontFamiliesW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesW(hdc, lplogfont, lpproc.toLong(), lparam)
+public actual fun enumFontFamiliesW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontFamiliesW((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumFontsA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontsA(hdc, lplogfont, lpproc.toLong(), lparam)
+public actual fun enumFontsA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontsA((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumFontsW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumFontsW(hdc, lplogfont, lpproc.toLong(), lparam)
+public actual fun enumFontsW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumFontsW((hdc?.value ?: 0L), (lplogfont?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: LPARAM): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumMetaFile(hdc, hmf, proc.toLong(), param3)
+public actual fun enumMetaFile(hdc: Hdc, hmf: Hmetafile, proc: Mfenumproc, param3: Lparam): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumMetaFile((hdc?.value ?: 0L), (hmf?.value ?: 0L), 0L, param3)
 
-public actual fun EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: LPARAM): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EnumObjects(hdc, ntype, lpfunc.toLong(), lparam)
+public actual fun enumObjects(hdc: Hdc, ntype: ObjType, lpfunc: Gobjenumproc, lparam: Lparam): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_enumObjects((hdc?.value ?: 0L), ntype, 0L, lparam)
 
-public actual fun EqualRect(lprc1: Long, lprc2: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EqualRect(lprc1, lprc2)
+public actual fun equalRect(lprc1: COpaquePointer?, lprc2: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_equalRect((lprc1?.value ?: 0L), (lprc2?.value ?: 0L))
 
-public actual fun EqualRgn(hrgn1: HRGN, hrgn2: HRGN): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_EqualRgn(hrgn1, hrgn2)
+public actual fun equalRgn(hrgn1: Hrgn, hrgn2: Hrgn): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_equalRgn((hrgn1?.value ?: 0L), (hrgn2?.value ?: 0L))
 
-public actual fun ExcludeClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExcludeClipRect(hdc, left, top, right, bottom)
+public actual fun excludeClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_excludeClipRect((hdc?.value ?: 0L), left, top, right, bottom)
 
-public actual fun ExcludeUpdateRgn(hdc: HDC, hwnd: HWND): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExcludeUpdateRgn(hdc, hwnd)
+public actual fun excludeUpdateRgn(hdc: Hdc, hwnd: Hwnd): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_excludeUpdateRgn((hdc?.value ?: 0L), (hwnd?.value ?: 0L))
 
-public actual fun ExtCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: Long, cstyle: UInt, pstyle: Long): HPEN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtCreatePen(ipenstyle.toInt(), cwidth.toInt(), plbrush, cstyle.toInt(), pstyle)
+public actual fun extCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: COpaquePointer?, cstyle: UInt, pstyle: COpaquePointer?): Hpen =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extCreatePen(ipenstyle.toInt(), cwidth.toInt(), (plbrush?.value ?: 0L), cstyle.toInt(), (pstyle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtCreateRegion(lpx: Long, ncount: UInt, lpdata: Long): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtCreateRegion(lpx, ncount.toInt(), lpdata)
+public actual fun extCreateRegion(lpx: COpaquePointer?, ncount: UInt, lpdata: COpaquePointer?): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extCreateRegion((lpx?.value ?: 0L), ncount.toInt(), (lpdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtFloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF, type: EXT_FLOOD_FILL_TYPE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtFloodFill(hdc, x, y, color.toInt(), type.toInt())
+public actual fun extFloodFill(hdc: Hdc, x: Int, y: Int, color: Colorref, type: ExtFloodFillType): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extFloodFill((hdc?.value ?: 0L), x, y, color.toInt(), type.toInt())
 
-public actual fun ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtSelectClipRgn(hdc, hrgn, mode)
+public actual fun extSelectClipRgn(hdc: Hdc, hrgn: Hrgn, mode: RgnCombineMode): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extSelectClipRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L), mode)
 
-public actual fun ExtTextOutA(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCSTR, c: UInt, lpdx: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtTextOutA(hdc, x, y, options.toInt(), lprect, lpstring, c.toInt(), lpdx)
+public actual fun extTextOutA(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcstr, c: UInt, lpdx: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extTextOutA((hdc?.value ?: 0L), x, y, options.toInt(), (lprect?.value ?: 0L), (lpstring?.value ?: 0L), c.toInt(), (lpdx?.value ?: 0L))
 
-public actual fun ExtTextOutW(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCWSTR, c: UInt, lpdx: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ExtTextOutW(hdc, x, y, options.toInt(), lprect, lpstring, c.toInt(), lpdx)
+public actual fun extTextOutW(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcwstr, c: UInt, lpdx: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_extTextOutW((hdc?.value ?: 0L), x, y, options.toInt(), (lprect?.value ?: 0L), (lpstring?.value ?: 0L), c.toInt(), (lpdx?.value ?: 0L))
 
-public actual fun FillPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FillPath(hdc)
+public actual fun fillPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_fillPath((hdc?.value ?: 0L))
 
-public actual fun FillRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FillRect(hdc, lprc, hbr)
+public actual fun fillRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_fillRect((hdc?.value ?: 0L), (lprc?.value ?: 0L), (hbr?.value ?: 0L))
 
-public actual fun FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FillRgn(hdc, hrgn, hbr)
+public actual fun fillRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_fillRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L), (hbr?.value ?: 0L))
 
-public actual fun FixBrushOrgEx(hdc: HDC, x: Int, y: Int, ptl: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FixBrushOrgEx(hdc, x, y, ptl)
+public actual fun fixBrushOrgEx(hdc: Hdc, x: Int, y: Int, ptl: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_fixBrushOrgEx((hdc?.value ?: 0L), x, y, (ptl?.value ?: 0L))
 
-public actual fun FlattenPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FlattenPath(hdc)
+public actual fun flattenPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_flattenPath((hdc?.value ?: 0L))
 
-public actual fun FloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FloodFill(hdc, x, y, color.toInt())
+public actual fun floodFill(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_floodFill((hdc?.value ?: 0L), x, y, color.toInt())
 
-public actual fun FrameRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FrameRect(hdc, lprc, hbr)
+public actual fun frameRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_frameRect((hdc?.value ?: 0L), (lprc?.value ?: 0L), (hbr?.value ?: 0L))
 
-public actual fun FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: Int, h: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_FrameRgn(hdc, hrgn, hbr, w, h)
+public actual fun frameRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush, w: Int, h: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_frameRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L), (hbr?.value ?: 0L), w, h)
 
-public actual fun GdiAlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL =
+public actual fun gdiAlphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool =
     0
 
-public actual fun GdiComment(hdc: HDC, nsize: UInt, lpdata: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiComment(hdc, nsize.toInt(), lpdata)
+public actual fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiComment((hdc?.value ?: 0L), nsize.toInt(), (lpdata?.value ?: 0L))
 
-public actual fun GdiFlush(): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiFlush()
+public actual fun gdiFlush(): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiFlush()
 
-public actual fun GdiGetBatchLimit(): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiGetBatchLimit().toUInt()
+public actual fun gdiGetBatchLimit(): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit().toUInt()
 
-public actual fun GdiGradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, ncount: UInt, ulmode: GRADIENT_FILL): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiGradientFill(hdc, pvertex, nvertex.toInt(), pmesh, ncount.toInt(), ulmode.toInt())
+public actual fun gdiGradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, ncount: UInt, ulmode: GradientFill): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiGradientFill((hdc?.value ?: 0L), (pvertex?.value ?: 0L), nvertex.toInt(), (pmesh?.value ?: 0L), ncount.toInt(), ulmode.toInt())
 
-public actual fun GdiSetBatchLimit(dw: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiSetBatchLimit(dw.toInt()).toUInt()
+public actual fun gdiSetBatchLimit(dw: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit(dw.toInt()).toUInt()
 
-public actual fun GdiTransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GdiTransparentBlt(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent.toInt())
+public actual fun gdiTransparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gdiTransparentBlt((hdcdest?.value ?: 0L), xorigindest, yorigindest, wdest, hdest, (hdcsrc?.value ?: 0L), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent.toInt())
 
-public actual fun GetArcDirection(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetArcDirection(hdc)
+public actual fun getArcDirection(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getArcDirection((hdc?.value ?: 0L))
 
-public actual fun GetAspectRatioFilterEx(hdc: HDC, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetAspectRatioFilterEx(hdc, lpsize)
+public actual fun getAspectRatioFilterEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx((hdc?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetBitmapBits(hbit: HBITMAP, cb: Int, lpvbits: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBitmapBits(hbit, cb, lpvbits)
+public actual fun getBitmapBits(hbit: Hbitmap, cb: Int, lpvbits: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBitmapBits((hbit?.value ?: 0L), cb, (lpvbits?.value ?: 0L))
 
-public actual fun GetBitmapDimensionEx(hbit: HBITMAP, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBitmapDimensionEx(hbit, lpsize)
+public actual fun getBitmapDimensionEx(hbit: Hbitmap, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx((hbit?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetBkColor(hdc: HDC): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBkColor(hdc).toUInt()
+public actual fun getBkColor(hdc: Hdc): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBkColor((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetBkMode(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBkMode(hdc)
+public actual fun getBkMode(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBkMode((hdc?.value ?: 0L))
 
-public actual fun GetBoundsRect(hdc: HDC, lprect: Long, flags: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBoundsRect(hdc, lprect, flags.toInt()).toUInt()
+public actual fun getBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBoundsRect((hdc?.value ?: 0L), (lprect?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun GetBrushOrgEx(hdc: HDC, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetBrushOrgEx(hdc, lppt)
+public actual fun getBrushOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getBrushOrgEx((hdc?.value ?: 0L), (lppt?.value ?: 0L))
 
-public actual fun GetCharABCWidthsA(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsA(hdc, wfirst.toInt(), wlast.toInt(), lpabc)
+public actual fun getCharABCWidthsA(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharABCWidthsA((hdc?.value ?: 0L), wfirst.toInt(), wlast.toInt(), (lpabc?.value ?: 0L))
 
-public actual fun GetCharABCWidthsFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatA(hdc, ifirst.toInt(), ilast.toInt(), lpabc)
+public actual fun getCharABCWidthsFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpabc?.value ?: 0L))
 
-public actual fun GetCharABCWidthsFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatW(hdc, ifirst.toInt(), ilast.toInt(), lpabc)
+public actual fun getCharABCWidthsFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpabc?.value ?: 0L))
 
-public actual fun GetCharABCWidthsI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, pabc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsI(hdc, gifirst.toInt(), cgi.toInt(), pgi, pabc)
+public actual fun getCharABCWidthsI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, pabc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharABCWidthsI((hdc?.value ?: 0L), gifirst.toInt(), cgi.toInt(), (pgi?.value ?: 0L), (pabc?.value ?: 0L))
 
-public actual fun GetCharABCWidthsW(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsW(hdc, wfirst.toInt(), wlast.toInt(), lpabc)
+public actual fun getCharABCWidthsW(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharABCWidthsW((hdc?.value ?: 0L), wfirst.toInt(), wlast.toInt(), (lpabc?.value ?: 0L))
 
-public actual fun GetCharWidth32A(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidth32A(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidth32A(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidth32A((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharWidth32W(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidth32W(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidth32W(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidth32W((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharWidthA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidthA(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidthA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidthA((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharWidthFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidthFloatA(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidthFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidthFloatA((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharWidthFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidthFloatW(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidthFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidthFloatW((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharWidthI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, piwidths: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidthI(hdc, gifirst.toInt(), cgi.toInt(), pgi, piwidths)
+public actual fun getCharWidthI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, piwidths: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidthI((hdc?.value ?: 0L), gifirst.toInt(), cgi.toInt(), (pgi?.value ?: 0L), (piwidths?.value ?: 0L))
 
-public actual fun GetCharWidthW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharWidthW(hdc, ifirst.toInt(), ilast.toInt(), lpbuffer)
+public actual fun getCharWidthW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharWidthW((hdc?.value ?: 0L), ifirst.toInt(), ilast.toInt(), (lpbuffer?.value ?: 0L))
 
-public actual fun GetCharacterPlacementA(hdc: HDC, lpstring: PCSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharacterPlacementA(hdc, lpstring, ncount, nmexextent, lpresults, dwflags.toInt()).toUInt()
+public actual fun getCharacterPlacementA(hdc: Hdc, lpstring: Pcstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharacterPlacementA((hdc?.value ?: 0L), (lpstring?.value ?: 0L), ncount, nmexextent, (lpresults?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun GetCharacterPlacementW(hdc: HDC, lpstring: PCWSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCharacterPlacementW(hdc, lpstring, ncount, nmexextent, lpresults, dwflags.toInt()).toUInt()
+public actual fun getCharacterPlacementW(hdc: Hdc, lpstring: Pcwstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCharacterPlacementW((hdc?.value ?: 0L), (lpstring?.value ?: 0L), ncount, nmexextent, (lpresults?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun GetClipBox(hdc: HDC, lprect: Long): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetClipBox(hdc, lprect)
+public actual fun getClipBox(hdc: Hdc, lprect: COpaquePointer?): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getClipBox((hdc?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun GetClipRgn(hdc: HDC, hrgn: HRGN): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetClipRgn(hdc, hrgn)
+public actual fun getClipRgn(hdc: Hdc, hrgn: Hrgn): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getClipRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun GetColorAdjustment(hdc: HDC, lpca: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetColorAdjustment(hdc, lpca)
+public actual fun getColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getColorAdjustment((hdc?.value ?: 0L), (lpca?.value ?: 0L))
 
-public actual fun GetCurrentObject(hdc: HDC, type: UInt): HGDIOBJ =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCurrentObject(hdc, type.toInt())
+public actual fun getCurrentObject(hdc: Hdc, type: UInt): Hgdiobj =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCurrentObject((hdc?.value ?: 0L), type.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetCurrentPositionEx(hdc: HDC, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetCurrentPositionEx(hdc, lppt)
+public actual fun getCurrentPositionEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getCurrentPositionEx((hdc?.value ?: 0L), (lppt?.value ?: 0L))
 
-public actual fun GetDC(hwnd: HWND): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDC(hwnd)
+public actual fun getDC(hwnd: Hwnd): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDC((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetDCBrushColor(hdc: HDC): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDCBrushColor(hdc).toUInt()
+public actual fun getDCBrushColor(hdc: Hdc): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDCBrushColor((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetDCEx(hwnd: HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDCEx(hwnd, hrgnclip, flags.toInt())
+public actual fun getDCEx(hwnd: Hwnd, hrgnclip: Hrgn, flags: GetDcxFlags): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDCEx((hwnd?.value ?: 0L), (hrgnclip?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetDCOrgEx(hdc: HDC, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDCOrgEx(hdc, lppt)
+public actual fun getDCOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDCOrgEx((hdc?.value ?: 0L), (lppt?.value ?: 0L))
 
-public actual fun GetDCPenColor(hdc: HDC): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDCPenColor(hdc).toUInt()
+public actual fun getDCPenColor(hdc: Hdc): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDCPenColor((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDIBColorTable(hdc, istart.toInt(), centries.toInt(), prgbq).toUInt()
+public actual fun getDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDIBColorTable((hdc?.value ?: 0L), istart.toInt(), centries.toInt(), (prgbq?.value ?: 0L)).toUInt()
 
-public actual fun GetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, usage: DIB_USAGE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDIBits(hdc, hbm, start.toInt(), clines.toInt(), lpvbits, lpbmi, usage.toInt())
+public actual fun getDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, usage: DibUsage): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDIBits((hdc?.value ?: 0L), (hbm?.value ?: 0L), start.toInt(), clines.toInt(), (lpvbits?.value ?: 0L), (lpbmi?.value ?: 0L), usage.toInt())
 
-public actual fun GetDeviceCaps(hdc: HDC, index: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetDeviceCaps(hdc, index)
+public actual fun getDeviceCaps(hdc: Hdc, index: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getDeviceCaps((hdc?.value ?: 0L), index)
 
-public actual fun GetEnhMetaFileA(lpname: PCSTR): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileA(lpname)
+public actual fun getEnhMetaFileA(lpname: Pcstr): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileA((lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: UInt, lpdata: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileBits(hemf, nsize.toInt(), lpdata).toUInt()
+public actual fun getEnhMetaFileBits(hemf: Henhmetafile, nsize: UInt, lpdata: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits((hemf?.value ?: 0L), nsize.toInt(), (lpdata?.value ?: 0L)).toUInt()
 
-public actual fun GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PSTR): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionA(hemf, cchbuffer.toInt(), lpdescription).toUInt()
+public actual fun getEnhMetaFileDescriptionA(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pstr): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA((hemf?.value ?: 0L), cchbuffer.toInt(), (lpdescription?.value ?: 0L)).toUInt()
 
-public actual fun GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PWSTR): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionW(hemf, cchbuffer.toInt(), lpdescription).toUInt()
+public actual fun getEnhMetaFileDescriptionW(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pwstr): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW((hemf?.value ?: 0L), cchbuffer.toInt(), (lpdescription?.value ?: 0L)).toUInt()
 
-public actual fun GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: UInt, lpenhmetaheader: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileHeader(hemf, nsize.toInt(), lpenhmetaheader).toUInt()
+public actual fun getEnhMetaFileHeader(hemf: Henhmetafile, nsize: UInt, lpenhmetaheader: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader((hemf?.value ?: 0L), nsize.toInt(), (lpenhmetaheader?.value ?: 0L)).toUInt()
 
-public actual fun GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nnumentries: UInt, lppaletteentries: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFilePaletteEntries(hemf, nnumentries.toInt(), lppaletteentries).toUInt()
+public actual fun getEnhMetaFilePaletteEntries(hemf: Henhmetafile, nnumentries: UInt, lppaletteentries: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries((hemf?.value ?: 0L), nnumentries.toInt(), (lppaletteentries?.value ?: 0L)).toUInt()
 
-public actual fun GetEnhMetaFileW(lpname: PCWSTR): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileW(lpname)
+public actual fun getEnhMetaFileW(lpname: Pcwstr): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getEnhMetaFileW((lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetFontData(hdc: HDC, dwtable: UInt, dwoffset: UInt, pvbuffer: Long, cjbuffer: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetFontData(hdc, dwtable.toInt(), dwoffset.toInt(), pvbuffer, cjbuffer.toInt()).toUInt()
+public actual fun getFontData(hdc: Hdc, dwtable: UInt, dwoffset: UInt, pvbuffer: COpaquePointer?, cjbuffer: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getFontData((hdc?.value ?: 0L), dwtable.toInt(), dwoffset.toInt(), (pvbuffer?.value ?: 0L), cjbuffer.toInt()).toUInt()
 
-public actual fun GetFontLanguageInfo(hdc: HDC): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetFontLanguageInfo(hdc).toUInt()
+public actual fun getFontLanguageInfo(hdc: Hdc): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getFontLanguageInfo((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetFontUnicodeRanges(hdc: HDC, lpgs: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetFontUnicodeRanges(hdc, lpgs).toUInt()
+public actual fun getFontUnicodeRanges(hdc: Hdc, lpgs: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges((hdc?.value ?: 0L), (lpgs?.value ?: 0L)).toUInt()
 
-public actual fun GetGlyphIndicesA(hdc: HDC, lpstr: PCSTR, c: Int, pgi: Long, fl: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetGlyphIndicesA(hdc, lpstr, c, pgi, fl.toInt()).toUInt()
+public actual fun getGlyphIndicesA(hdc: Hdc, lpstr: Pcstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getGlyphIndicesA((hdc?.value ?: 0L), (lpstr?.value ?: 0L), c, (pgi?.value ?: 0L), fl.toInt()).toUInt()
 
-public actual fun GetGlyphIndicesW(hdc: HDC, lpstr: PCWSTR, c: Int, pgi: Long, fl: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetGlyphIndicesW(hdc, lpstr, c, pgi, fl.toInt()).toUInt()
+public actual fun getGlyphIndicesW(hdc: Hdc, lpstr: Pcwstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getGlyphIndicesW((hdc?.value ?: 0L), (lpstr?.value ?: 0L), c, (pgi?.value ?: 0L), fl.toInt()).toUInt()
 
-public actual fun GetGlyphOutlineA(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetGlyphOutlineA(hdc, uchar.toInt(), fuformat.toInt(), lpgm, cjbuffer.toInt(), pvbuffer, lpmat2).toUInt()
+public actual fun getGlyphOutlineA(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getGlyphOutlineA((hdc?.value ?: 0L), uchar.toInt(), fuformat.toInt(), (lpgm?.value ?: 0L), cjbuffer.toInt(), (pvbuffer?.value ?: 0L), (lpmat2?.value ?: 0L)).toUInt()
 
-public actual fun GetGlyphOutlineW(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetGlyphOutlineW(hdc, uchar.toInt(), fuformat.toInt(), lpgm, cjbuffer.toInt(), pvbuffer, lpmat2).toUInt()
+public actual fun getGlyphOutlineW(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getGlyphOutlineW((hdc?.value ?: 0L), uchar.toInt(), fuformat.toInt(), (lpgm?.value ?: 0L), cjbuffer.toInt(), (pvbuffer?.value ?: 0L), (lpmat2?.value ?: 0L)).toUInt()
 
-public actual fun GetGraphicsMode(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetGraphicsMode(hdc)
+public actual fun getGraphicsMode(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getGraphicsMode((hdc?.value ?: 0L))
 
-public actual fun GetKerningPairsA(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetKerningPairsA(hdc, npairs.toInt(), lpkernpair).toUInt()
+public actual fun getKerningPairsA(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getKerningPairsA((hdc?.value ?: 0L), npairs.toInt(), (lpkernpair?.value ?: 0L)).toUInt()
 
-public actual fun GetKerningPairsW(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetKerningPairsW(hdc, npairs.toInt(), lpkernpair).toUInt()
+public actual fun getKerningPairsW(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getKerningPairsW((hdc?.value ?: 0L), npairs.toInt(), (lpkernpair?.value ?: 0L)).toUInt()
 
-public actual fun GetLayout(hdc: HDC): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetLayout(hdc).toUInt()
+public actual fun getLayout(hdc: Hdc): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getLayout((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetMapMode(hdc: HDC): HDC_MAP_MODE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMapMode(hdc)
+public actual fun getMapMode(hdc: Hdc): HdcMapMode =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMapMode((hdc?.value ?: 0L))
 
-public actual fun GetMetaFileA(lpname: PCSTR): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMetaFileA(lpname)
+public actual fun getMetaFileA(lpname: Pcstr): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMetaFileA((lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetMetaFileBitsEx(hmf: HMETAFILE, cbbuffer: UInt, lpdata: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMetaFileBitsEx(hmf, cbbuffer.toInt(), lpdata).toUInt()
+public actual fun getMetaFileBitsEx(hmf: Hmetafile, cbbuffer: UInt, lpdata: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx((hmf?.value ?: 0L), cbbuffer.toInt(), (lpdata?.value ?: 0L)).toUInt()
 
-public actual fun GetMetaFileW(lpname: PCWSTR): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMetaFileW(lpname)
+public actual fun getMetaFileW(lpname: Pcwstr): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMetaFileW((lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetMetaRgn(hdc: HDC, hrgn: HRGN): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMetaRgn(hdc, hrgn)
+public actual fun getMetaRgn(hdc: Hdc, hrgn: Hrgn): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMetaRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun GetMiterLimit(hdc: HDC, plimit: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMiterLimit(hdc, plimit)
+public actual fun getMiterLimit(hdc: Hdc, plimit: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMiterLimit((hdc?.value ?: 0L), (plimit?.value ?: 0L))
 
-public actual fun GetMonitorInfoA(hmonitor: HMONITOR, lpmi: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMonitorInfoA(hmonitor, lpmi)
+public actual fun getMonitorInfoA(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMonitorInfoA((hmonitor?.value ?: 0L), (lpmi?.value ?: 0L))
 
-public actual fun GetMonitorInfoW(hmonitor: HMONITOR, lpmi: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetMonitorInfoW(hmonitor, lpmi)
+public actual fun getMonitorInfoW(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getMonitorInfoW((hmonitor?.value ?: 0L), (lpmi?.value ?: 0L))
 
-public actual fun GetNearestColor(hdc: HDC, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetNearestColor(hdc, color.toInt()).toUInt()
+public actual fun getNearestColor(hdc: Hdc, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getNearestColor((hdc?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun GetNearestPaletteIndex(h: HPALETTE, color: COLORREF): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetNearestPaletteIndex(h, color.toInt()).toUInt()
+public actual fun getNearestPaletteIndex(h: Hpalette, color: Colorref): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex((h?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun GetObjectA(h: HGDIOBJ, c: Int, pv: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetObjectA(h, c, pv)
+public actual fun getObjectA(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getObjectA((h?.value ?: 0L), c, (pv?.value ?: 0L))
 
-public actual fun GetObjectType(h: HGDIOBJ): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetObjectType(h).toUInt()
+public actual fun getObjectType(h: Hgdiobj): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getObjectType((h?.value ?: 0L)).toUInt()
 
-public actual fun GetObjectW(h: HGDIOBJ, c: Int, pv: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetObjectW(h, c, pv)
+public actual fun getObjectW(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getObjectW((h?.value ?: 0L), c, (pv?.value ?: 0L))
 
-public actual fun GetOutlineTextMetricsA(hdc: HDC, cjcopy: UInt, potm: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsA(hdc, cjcopy.toInt(), potm).toUInt()
+public actual fun getOutlineTextMetricsA(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA((hdc?.value ?: 0L), cjcopy.toInt(), (potm?.value ?: 0L)).toUInt()
 
-public actual fun GetOutlineTextMetricsW(hdc: HDC, cjcopy: UInt, potm: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsW(hdc, cjcopy.toInt(), potm).toUInt()
+public actual fun getOutlineTextMetricsW(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW((hdc?.value ?: 0L), cjcopy.toInt(), (potm?.value ?: 0L)).toUInt()
 
-public actual fun GetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetPaletteEntries(hpal, istart.toInt(), centries.toInt(), ppalentries).toUInt()
+public actual fun getPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getPaletteEntries((hpal?.value ?: 0L), istart.toInt(), centries.toInt(), (ppalentries?.value ?: 0L)).toUInt()
 
-public actual fun GetPath(hdc: HDC, apt: Long, aj: Long, cpt: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetPath(hdc, apt, aj, cpt)
+public actual fun getPath(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getPath((hdc?.value ?: 0L), (apt?.value ?: 0L), (aj?.value ?: 0L), cpt)
 
-public actual fun GetPixel(hdc: HDC, x: Int, y: Int): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetPixel(hdc, x, y).toUInt()
+public actual fun getPixel(hdc: Hdc, x: Int, y: Int): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getPixel((hdc?.value ?: 0L), x, y).toUInt()
 
-public actual fun GetPolyFillMode(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetPolyFillMode(hdc)
+public actual fun getPolyFillMode(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getPolyFillMode((hdc?.value ?: 0L))
 
-public actual fun GetROP2(hdc: HDC): R2_MODE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetROP2(hdc)
+public actual fun getROP2(hdc: Hdc): R2Mode =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getROP2((hdc?.value ?: 0L))
 
-public actual fun GetRandomRgn(hdc: HDC, hrgn: HRGN, i: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetRandomRgn(hdc, hrgn, i)
+public actual fun getRandomRgn(hdc: Hdc, hrgn: Hrgn, i: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getRandomRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L), i)
 
-public actual fun GetRasterizerCaps(lpraststat: Long, cjbytes: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetRasterizerCaps(lpraststat, cjbytes.toInt())
+public actual fun getRasterizerCaps(lpraststat: COpaquePointer?, cjbytes: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getRasterizerCaps((lpraststat?.value ?: 0L), cjbytes.toInt())
 
-public actual fun GetRegionData(hrgn: HRGN, ncount: UInt, lprgndata: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetRegionData(hrgn, ncount.toInt(), lprgndata).toUInt()
+public actual fun getRegionData(hrgn: Hrgn, ncount: UInt, lprgndata: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getRegionData((hrgn?.value ?: 0L), ncount.toInt(), (lprgndata?.value ?: 0L)).toUInt()
 
-public actual fun GetRgnBox(hrgn: HRGN, lprc: Long): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetRgnBox(hrgn, lprc)
+public actual fun getRgnBox(hrgn: Hrgn, lprc: COpaquePointer?): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getRgnBox((hrgn?.value ?: 0L), (lprc?.value ?: 0L))
 
-public actual fun GetStockObject(i: GET_STOCK_OBJECT_FLAGS): HGDIOBJ =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetStockObject(i)
+public actual fun getStockObject(i: GetStockObjectFlags): Hgdiobj =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getStockObject(i).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetStretchBltMode(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetStretchBltMode(hdc)
+public actual fun getStretchBltMode(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getStretchBltMode((hdc?.value ?: 0L))
 
-public actual fun GetSysColor(nindex: SYS_COLOR_INDEX): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetSysColor(nindex).toUInt()
+public actual fun getSysColor(nindex: SysColorIndex): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getSysColor(nindex).toUInt()
 
-public actual fun GetSysColorBrush(nindex: SYS_COLOR_INDEX): HBRUSH =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetSysColorBrush(nindex)
+public actual fun getSysColorBrush(nindex: SysColorIndex): Hbrush =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getSysColorBrush(nindex).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetSystemPaletteEntries(hdc: HDC, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetSystemPaletteEntries(hdc, istart.toInt(), centries.toInt(), ppalentries).toUInt()
+public actual fun getSystemPaletteEntries(hdc: Hdc, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries((hdc?.value ?: 0L), istart.toInt(), centries.toInt(), (ppalentries?.value ?: 0L)).toUInt()
 
-public actual fun GetSystemPaletteUse(hdc: HDC): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetSystemPaletteUse(hdc).toUInt()
+public actual fun getSystemPaletteUse(hdc: Hdc): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getSystemPaletteUse((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetTabbedTextExtentA(hdc: HDC, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentA(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions).toUInt()
+public actual fun getTabbedTextExtentA(hdc: Hdc, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA((hdc?.value ?: 0L), (lpstring?.value ?: 0L), chcount, ntabpositions, (lpntabstoppositions?.value ?: 0L)).toUInt()
 
-public actual fun GetTabbedTextExtentW(hdc: HDC, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentW(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions).toUInt()
+public actual fun getTabbedTextExtentW(hdc: Hdc, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW((hdc?.value ?: 0L), (lpstring?.value ?: 0L), chcount, ntabpositions, (lpntabstoppositions?.value ?: 0L)).toUInt()
 
-public actual fun GetTextAlign(hdc: HDC): TEXT_ALIGN_OPTIONS =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextAlign(hdc).toUInt()
+public actual fun getTextAlign(hdc: Hdc): TextAlignOptions =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextAlign((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetTextCharacterExtra(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextCharacterExtra(hdc)
+public actual fun getTextCharacterExtra(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextCharacterExtra((hdc?.value ?: 0L))
 
-public actual fun GetTextColor(hdc: HDC): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextColor(hdc).toUInt()
+public actual fun getTextColor(hdc: Hdc): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextColor((hdc?.value ?: 0L)).toUInt()
 
-public actual fun GetTextExtentExPointA(hdc: HDC, lpszstring: PCSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointA(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize)
+public actual fun getTextExtentExPointA(hdc: Hdc, lpszstring: Pcstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentExPointA((hdc?.value ?: 0L), (lpszstring?.value ?: 0L), cchstring, nmaxextent, (lpnfit?.value ?: 0L), (lpndx?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetTextExtentExPointI(hdc: HDC, lpwszstring: Long, cwchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointI(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit, lpndx, lpsize)
+public actual fun getTextExtentExPointI(hdc: Hdc, lpwszstring: COpaquePointer?, cwchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentExPointI((hdc?.value ?: 0L), (lpwszstring?.value ?: 0L), cwchstring, nmaxextent, (lpnfit?.value ?: 0L), (lpndx?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetTextExtentExPointW(hdc: HDC, lpszstring: PCWSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointW(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize)
+public actual fun getTextExtentExPointW(hdc: Hdc, lpszstring: Pcwstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentExPointW((hdc?.value ?: 0L), (lpszstring?.value ?: 0L), cchstring, nmaxextent, (lpnfit?.value ?: 0L), (lpndx?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetTextExtentPoint32A(hdc: HDC, lpstring: PCSTR, c: Int, psizl: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32A(hdc, lpstring, c, psizl)
+public actual fun getTextExtentPoint32A(hdc: Hdc, lpstring: Pcstr, c: Int, psizl: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A((hdc?.value ?: 0L), (lpstring?.value ?: 0L), c, (psizl?.value ?: 0L))
 
-public actual fun GetTextExtentPoint32W(hdc: HDC, lpstring: PCWSTR, c: Int, psizl: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32W(hdc, lpstring, c, psizl)
+public actual fun getTextExtentPoint32W(hdc: Hdc, lpstring: Pcwstr, c: Int, psizl: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W((hdc?.value ?: 0L), (lpstring?.value ?: 0L), c, (psizl?.value ?: 0L))
 
-public actual fun GetTextExtentPointA(hdc: HDC, lpstring: PCSTR, c: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentPointA(hdc, lpstring, c, lpsz)
+public actual fun getTextExtentPointA(hdc: Hdc, lpstring: Pcstr, c: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentPointA((hdc?.value ?: 0L), (lpstring?.value ?: 0L), c, (lpsz?.value ?: 0L))
 
-public actual fun GetTextExtentPointI(hdc: HDC, pgiin: Long, cgi: Int, psize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentPointI(hdc, pgiin, cgi, psize)
+public actual fun getTextExtentPointI(hdc: Hdc, pgiin: COpaquePointer?, cgi: Int, psize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentPointI((hdc?.value ?: 0L), (pgiin?.value ?: 0L), cgi, (psize?.value ?: 0L))
 
-public actual fun GetTextExtentPointW(hdc: HDC, lpstring: PCWSTR, c: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextExtentPointW(hdc, lpstring, c, lpsz)
+public actual fun getTextExtentPointW(hdc: Hdc, lpstring: Pcwstr, c: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextExtentPointW((hdc?.value ?: 0L), (lpstring?.value ?: 0L), c, (lpsz?.value ?: 0L))
 
-public actual fun GetTextFaceA(hdc: HDC, c: Int, lpname: PSTR): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextFaceA(hdc, c, lpname)
+public actual fun getTextFaceA(hdc: Hdc, c: Int, lpname: Pstr): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextFaceA((hdc?.value ?: 0L), c, (lpname?.value ?: 0L))
 
-public actual fun GetTextFaceW(hdc: HDC, c: Int, lpname: PWSTR): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextFaceW(hdc, c, lpname)
+public actual fun getTextFaceW(hdc: Hdc, c: Int, lpname: Pwstr): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextFaceW((hdc?.value ?: 0L), c, (lpname?.value ?: 0L))
 
-public actual fun GetTextMetricsA(hdc: HDC, lptm: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextMetricsA(hdc, lptm)
+public actual fun getTextMetricsA(hdc: Hdc, lptm: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextMetricsA((hdc?.value ?: 0L), (lptm?.value ?: 0L))
 
-public actual fun GetTextMetricsW(hdc: HDC, lptm: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetTextMetricsW(hdc, lptm)
+public actual fun getTextMetricsW(hdc: Hdc, lptm: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getTextMetricsW((hdc?.value ?: 0L), (lptm?.value ?: 0L))
 
-public actual fun GetUpdateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetUpdateRect(hwnd, lprect, berase)
+public actual fun getUpdateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getUpdateRect((hwnd?.value ?: 0L), (lprect?.value ?: 0L), berase)
 
-public actual fun GetUpdateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetUpdateRgn(hwnd, hrgn, berase)
+public actual fun getUpdateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getUpdateRgn((hwnd?.value ?: 0L), (hrgn?.value ?: 0L), berase)
 
-public actual fun GetViewportExtEx(hdc: HDC, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetViewportExtEx(hdc, lpsize)
+public actual fun getViewportExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getViewportExtEx((hdc?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetViewportOrgEx(hdc: HDC, lppoint: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetViewportOrgEx(hdc, lppoint)
+public actual fun getViewportOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getViewportOrgEx((hdc?.value ?: 0L), (lppoint?.value ?: 0L))
 
-public actual fun GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, hdcref: HDC): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWinMetaFileBits(hemf, cbdata16.toInt(), pdata16, imapmode, hdcref).toUInt()
+public actual fun getWinMetaFileBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, hdcref: Hdc): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWinMetaFileBits((hemf?.value ?: 0L), cbdata16.toInt(), (pdata16?.value ?: 0L), imapmode, (hdcref?.value ?: 0L)).toUInt()
 
-public actual fun GetWindowDC(hwnd: HWND): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWindowDC(hwnd)
+public actual fun getWindowDC(hwnd: Hwnd): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWindowDC((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetWindowExtEx(hdc: HDC, lpsize: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWindowExtEx(hdc, lpsize)
+public actual fun getWindowExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWindowExtEx((hdc?.value ?: 0L), (lpsize?.value ?: 0L))
 
-public actual fun GetWindowOrgEx(hdc: HDC, lppoint: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWindowOrgEx(hdc, lppoint)
+public actual fun getWindowOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWindowOrgEx((hdc?.value ?: 0L), (lppoint?.value ?: 0L))
 
-public actual fun GetWindowRgn(hwnd: HWND, hrgn: HRGN): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWindowRgn(hwnd, hrgn)
+public actual fun getWindowRgn(hwnd: Hwnd, hrgn: Hrgn): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWindowRgn((hwnd?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun GetWindowRgnBox(hwnd: HWND, lprc: Long): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWindowRgnBox(hwnd, lprc)
+public actual fun getWindowRgnBox(hwnd: Hwnd, lprc: COpaquePointer?): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWindowRgnBox((hwnd?.value ?: 0L), (lprc?.value ?: 0L))
 
-public actual fun GetWorldTransform(hdc: HDC, lpxf: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GetWorldTransform(hdc, lpxf)
+public actual fun getWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_getWorldTransform((hdc?.value ?: 0L), (lpxf?.value ?: 0L))
 
-public actual fun GradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, ulmode: GRADIENT_FILL): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GradientFill(hdc, pvertex, nvertex.toInt(), pmesh, nmesh.toInt(), ulmode.toInt())
+public actual fun gradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, ulmode: GradientFill): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_gradientFill((hdc?.value ?: 0L), (pvertex?.value ?: 0L), nvertex.toInt(), (pmesh?.value ?: 0L), nmesh.toInt(), ulmode.toInt())
 
-public actual fun GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GrayStringA(hdc, hbrush, lpoutputfunc.toLong(), lpdata, ncount, x, y, nwidth, nheight)
+public actual fun grayStringA(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_grayStringA((hdc?.value ?: 0L), (hbrush?.value ?: 0L), 0L, lpdata, ncount, x, y, nwidth, nheight)
 
-public actual fun GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_GrayStringW(hdc, hbrush, lpoutputfunc.toLong(), lpdata, ncount, x, y, nwidth, nheight)
+public actual fun grayStringW(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_grayStringW((hdc?.value ?: 0L), (hbrush?.value ?: 0L), 0L, lpdata, ncount, x, y, nwidth, nheight)
 
-public actual fun InflateRect(lprc: Long, dx: Int, dy: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_InflateRect(lprc, dx, dy)
+public actual fun inflateRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_inflateRect((lprc?.value ?: 0L), dx, dy)
 
-public actual fun IntersectClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_IntersectClipRect(hdc, left, top, right, bottom)
+public actual fun intersectClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_intersectClipRect((hdc?.value ?: 0L), left, top, right, bottom)
 
-public actual fun IntersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_IntersectRect(lprcdst, lprcsrc1, lprcsrc2)
+public actual fun intersectRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_intersectRect((lprcdst?.value ?: 0L), (lprcsrc1?.value ?: 0L), (lprcsrc2?.value ?: 0L))
 
-public actual fun InvalidateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_InvalidateRect(hwnd, lprect, berase)
+public actual fun invalidateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_invalidateRect((hwnd?.value ?: 0L), (lprect?.value ?: 0L), berase)
 
-public actual fun InvalidateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_InvalidateRgn(hwnd, hrgn, berase)
+public actual fun invalidateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_invalidateRgn((hwnd?.value ?: 0L), (hrgn?.value ?: 0L), berase)
 
-public actual fun InvertRect(hdc: HDC, lprc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_InvertRect(hdc, lprc)
+public actual fun invertRect(hdc: Hdc, lprc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_invertRect((hdc?.value ?: 0L), (lprc?.value ?: 0L))
 
-public actual fun InvertRgn(hdc: HDC, hrgn: HRGN): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_InvertRgn(hdc, hrgn)
+public actual fun invertRgn(hdc: Hdc, hrgn: Hrgn): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_invertRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun IsRectEmpty(lprc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_IsRectEmpty(lprc)
+public actual fun isRectEmpty(lprc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_isRectEmpty((lprc?.value ?: 0L))
 
-public actual fun LPtoDP(hdc: HDC, lppt: Long, c: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LPtoDP(hdc, lppt, c)
+public actual fun lPtoDP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_lPtoDP((hdc?.value ?: 0L), (lppt?.value ?: 0L), c)
 
-public actual fun LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: LINEDDAPROC, data: LPARAM): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LineDDA(xstart, ystart, xend, yend, lpproc.toLong(), data)
+public actual fun lineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Lineddaproc, data: Lparam): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_lineDDA(xstart, ystart, xend, yend, 0L, data)
 
-public actual fun LineTo(hdc: HDC, x: Int, y: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LineTo(hdc, x, y)
+public actual fun lineTo(hdc: Hdc, x: Int, y: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_lineTo((hdc?.value ?: 0L), x, y)
 
-public actual fun LoadBitmapA(hinstance: HINSTANCE, lpbitmapname: PCSTR): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LoadBitmapA(hinstance, lpbitmapname)
+public actual fun loadBitmapA(hinstance: Hinstance, lpbitmapname: Pcstr): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_loadBitmapA((hinstance?.value ?: 0L), (lpbitmapname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun LoadBitmapW(hinstance: HINSTANCE, lpbitmapname: PCWSTR): HBITMAP =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LoadBitmapW(hinstance, lpbitmapname)
+public actual fun loadBitmapW(hinstance: Hinstance, lpbitmapname: Pcwstr): Hbitmap =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_loadBitmapW((hinstance?.value ?: 0L), (lpbitmapname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun LockWindowUpdate(hwndlock: HWND): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_LockWindowUpdate(hwndlock)
+public actual fun lockWindowUpdate(hwndlock: Hwnd): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_lockWindowUpdate((hwndlock?.value ?: 0L))
 
-public actual fun MapWindowPoints(hwndfrom: HWND, hwndto: HWND, lppoints: Long, cpoints: UInt): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MapWindowPoints(hwndfrom, hwndto, lppoints, cpoints.toInt())
+public actual fun mapWindowPoints(hwndfrom: Hwnd, hwndto: Hwnd, lppoints: COpaquePointer?, cpoints: UInt): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_mapWindowPoints((hwndfrom?.value ?: 0L), (hwndto?.value ?: 0L), (lppoints?.value ?: 0L), cpoints.toInt())
 
-public actual fun MaskBlt(hdcdest: HDC, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int, rop: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MaskBlt(hdcdest, xdest, ydest, width, height, hdcsrc, xsrc, ysrc, hbmmask, xmask, ymask, rop.toInt())
+public actual fun maskBlt(hdcdest: Hdc, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int, rop: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_maskBlt((hdcdest?.value ?: 0L), xdest, ydest, width, height, (hdcsrc?.value ?: 0L), xsrc, ysrc, (hbmmask?.value ?: 0L), xmask, ymask, rop.toInt())
 
-public actual fun MergeFontPackage(puchmergefontbuffer: Long, ulmergefontbuffersize: UInt, puchfontpackagebuffer: Long, ulfontpackagebuffersize: UInt, ppuchdestbuffer: Long, puldestbuffersize: Long, pulbyteswritten: Long, usmode: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MergeFontPackage(puchmergefontbuffer, ulmergefontbuffersize.toInt(), puchfontpackagebuffer, ulfontpackagebuffersize.toInt(), ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode.toShort(), lpfnallocate.toLong(), lpfnreallocate.toLong(), lpfnfree.toLong(), lpvreserved).toUInt()
+public actual fun mergeFontPackage(puchmergefontbuffer: COpaquePointer?, ulmergefontbuffersize: UInt, puchfontpackagebuffer: COpaquePointer?, ulfontpackagebuffersize: UInt, ppuchdestbuffer: COpaquePointer?, puldestbuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usmode: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_mergeFontPackage((puchmergefontbuffer?.value ?: 0L), ulmergefontbuffersize.toInt(), (puchfontpackagebuffer?.value ?: 0L), ulfontpackagebuffersize.toInt(), (ppuchdestbuffer?.value ?: 0L), (puldestbuffersize?.value ?: 0L), (pulbyteswritten?.value ?: 0L), usmode.toShort(), 0L, 0L, 0L, (lpvreserved?.value ?: 0L)).toUInt()
 
-public actual fun ModifyWorldTransform(hdc: HDC, lpxf: Long, mode: MODIFY_WORLD_TRANSFORM_MODE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ModifyWorldTransform(hdc, lpxf, mode.toInt())
+public actual fun modifyWorldTransform(hdc: Hdc, lpxf: COpaquePointer?, mode: ModifyWorldTransformMode): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_modifyWorldTransform((hdc?.value ?: 0L), (lpxf?.value ?: 0L), mode.toInt())
 
-public actual fun MonitorFromPoint(pt: POINT, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    0L
+public actual fun monitorFromPoint(pt: Point, dwflags: MonitorFromFlags): Hmonitor =
+    null
 
-public actual fun MonitorFromRect(lprc: Long, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MonitorFromRect(lprc, dwflags.toInt())
+public actual fun monitorFromRect(lprc: COpaquePointer?, dwflags: MonitorFromFlags): Hmonitor =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_monitorFromRect((lprc?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun MonitorFromWindow(hwnd: HWND, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MonitorFromWindow(hwnd, dwflags.toInt())
+public actual fun monitorFromWindow(hwnd: Hwnd, dwflags: MonitorFromFlags): Hmonitor =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_monitorFromWindow((hwnd?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun MoveToEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_MoveToEx(hdc, x, y, lppt)
+public actual fun moveToEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_moveToEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun OffsetClipRgn(hdc: HDC, x: Int, y: Int): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_OffsetClipRgn(hdc, x, y)
+public actual fun offsetClipRgn(hdc: Hdc, x: Int, y: Int): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_offsetClipRgn((hdc?.value ?: 0L), x, y)
 
-public actual fun OffsetRect(lprc: Long, dx: Int, dy: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_OffsetRect(lprc, dx, dy)
+public actual fun offsetRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_offsetRect((lprc?.value ?: 0L), dx, dy)
 
-public actual fun OffsetRgn(hrgn: HRGN, x: Int, y: Int): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_OffsetRgn(hrgn, x, y)
+public actual fun offsetRgn(hrgn: Hrgn, x: Int, y: Int): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_offsetRgn((hrgn?.value ?: 0L), x, y)
 
-public actual fun OffsetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_OffsetViewportOrgEx(hdc, x, y, lppt)
+public actual fun offsetViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun OffsetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_OffsetWindowOrgEx(hdc, x, y, lppt)
+public actual fun offsetWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun PaintDesktop(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PaintDesktop(hdc)
+public actual fun paintDesktop(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_paintDesktop((hdc?.value ?: 0L))
 
-public actual fun PaintRgn(hdc: HDC, hrgn: HRGN): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PaintRgn(hdc, hrgn)
+public actual fun paintRgn(hdc: Hdc, hrgn: Hrgn): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_paintRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun PatBlt(hdc: HDC, x: Int, y: Int, w: Int, h: Int, rop: ROP_CODE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PatBlt(hdc, x, y, w, h, rop.toInt())
+public actual fun patBlt(hdc: Hdc, x: Int, y: Int, w: Int, h: Int, rop: RopCode): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_patBlt((hdc?.value ?: 0L), x, y, w, h, rop.toInt())
 
-public actual fun PathToRegion(hdc: HDC): HRGN =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PathToRegion(hdc)
+public actual fun pathToRegion(hdc: Hdc): Hrgn =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_pathToRegion((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun Pie(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Pie(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2)
+public actual fun pie(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_pie((hdc?.value ?: 0L), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PlayEnhMetaFile(hdc, hmf, lprect)
+public actual fun playEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, lprect: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_playEnhMetaFile((hdc?.value ?: 0L), (hmf?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun PlayEnhMetaFileRecord(hdc: HDC, pht: Long, pmr: Long, cht: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PlayEnhMetaFileRecord(hdc, pht, pmr, cht.toInt())
+public actual fun playEnhMetaFileRecord(hdc: Hdc, pht: COpaquePointer?, pmr: COpaquePointer?, cht: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord((hdc?.value ?: 0L), (pht?.value ?: 0L), (pmr?.value ?: 0L), cht.toInt())
 
-public actual fun PlayMetaFile(hdc: HDC, hmf: HMETAFILE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PlayMetaFile(hdc, hmf)
+public actual fun playMetaFile(hdc: Hdc, hmf: Hmetafile): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_playMetaFile((hdc?.value ?: 0L), (hmf?.value ?: 0L))
 
-public actual fun PlayMetaFileRecord(hdc: HDC, lphandletable: Long, lpmr: Long, noobjs: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PlayMetaFileRecord(hdc, lphandletable, lpmr, noobjs.toInt())
+public actual fun playMetaFileRecord(hdc: Hdc, lphandletable: COpaquePointer?, lpmr: COpaquePointer?, noobjs: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_playMetaFileRecord((hdc?.value ?: 0L), (lphandletable?.value ?: 0L), (lpmr?.value ?: 0L), noobjs.toInt())
 
-public actual fun PlgBlt(hdcdest: HDC, lppoint: Long, hdcsrc: HDC, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PlgBlt(hdcdest, lppoint, hdcsrc, xsrc, ysrc, width, height, hbmmask, xmask, ymask)
+public actual fun plgBlt(hdcdest: Hdc, lppoint: COpaquePointer?, hdcsrc: Hdc, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_plgBlt((hdcdest?.value ?: 0L), (lppoint?.value ?: 0L), (hdcsrc?.value ?: 0L), xsrc, ysrc, width, height, (hbmmask?.value ?: 0L), xmask, ymask)
 
-public actual fun PolyBezier(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyBezier(hdc, apt, cpt.toInt())
+public actual fun polyBezier(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyBezier((hdc?.value ?: 0L), (apt?.value ?: 0L), cpt.toInt())
 
-public actual fun PolyBezierTo(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyBezierTo(hdc, apt, cpt.toInt())
+public actual fun polyBezierTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyBezierTo((hdc?.value ?: 0L), (apt?.value ?: 0L), cpt.toInt())
 
-public actual fun PolyDraw(hdc: HDC, apt: Long, aj: Long, cpt: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyDraw(hdc, apt, aj, cpt)
+public actual fun polyDraw(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyDraw((hdc?.value ?: 0L), (apt?.value ?: 0L), (aj?.value ?: 0L), cpt)
 
-public actual fun PolyPolygon(hdc: HDC, apt: Long, asz: Long, csz: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyPolygon(hdc, apt, asz, csz)
+public actual fun polyPolygon(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyPolygon((hdc?.value ?: 0L), (apt?.value ?: 0L), (asz?.value ?: 0L), csz)
 
-public actual fun PolyPolyline(hdc: HDC, apt: Long, asz: Long, csz: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyPolyline(hdc, apt, asz, csz.toInt())
+public actual fun polyPolyline(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyPolyline((hdc?.value ?: 0L), (apt?.value ?: 0L), (asz?.value ?: 0L), csz.toInt())
 
-public actual fun PolyTextOutA(hdc: HDC, ppt: Long, nstrings: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyTextOutA(hdc, ppt, nstrings)
+public actual fun polyTextOutA(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyTextOutA((hdc?.value ?: 0L), (ppt?.value ?: 0L), nstrings)
 
-public actual fun PolyTextOutW(hdc: HDC, ppt: Long, nstrings: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolyTextOutW(hdc, ppt, nstrings)
+public actual fun polyTextOutW(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyTextOutW((hdc?.value ?: 0L), (ppt?.value ?: 0L), nstrings)
 
-public actual fun Polygon(hdc: HDC, apt: Long, cpt: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Polygon(hdc, apt, cpt)
+public actual fun polygon(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polygon((hdc?.value ?: 0L), (apt?.value ?: 0L), cpt)
 
-public actual fun Polyline(hdc: HDC, apt: Long, cpt: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Polyline(hdc, apt, cpt)
+public actual fun polyline(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polyline((hdc?.value ?: 0L), (apt?.value ?: 0L), cpt)
 
-public actual fun PolylineTo(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PolylineTo(hdc, apt, cpt.toInt())
+public actual fun polylineTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_polylineTo((hdc?.value ?: 0L), (apt?.value ?: 0L), cpt.toInt())
 
-public actual fun PtInRect(lprc: Long, pt: POINT): BOOL =
+public actual fun ptInRect(lprc: COpaquePointer?, pt: Point): Bool =
     0
 
-public actual fun PtInRegion(hrgn: HRGN, x: Int, y: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PtInRegion(hrgn, x, y)
+public actual fun ptInRegion(hrgn: Hrgn, x: Int, y: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ptInRegion((hrgn?.value ?: 0L), x, y)
 
-public actual fun PtVisible(hdc: HDC, x: Int, y: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_PtVisible(hdc, x, y)
+public actual fun ptVisible(hdc: Hdc, x: Int, y: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ptVisible((hdc?.value ?: 0L), x, y)
 
-public actual fun RealizePalette(hdc: HDC): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RealizePalette(hdc).toUInt()
+public actual fun realizePalette(hdc: Hdc): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_realizePalette((hdc?.value ?: 0L)).toUInt()
 
-public actual fun RectInRegion(hrgn: HRGN, lprect: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RectInRegion(hrgn, lprect)
+public actual fun rectInRegion(hrgn: Hrgn, lprect: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_rectInRegion((hrgn?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun RectVisible(hdc: HDC, lprect: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RectVisible(hdc, lprect)
+public actual fun rectVisible(hdc: Hdc, lprect: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_rectVisible((hdc?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun Rectangle(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_Rectangle(hdc, left, top, right, bottom)
+public actual fun rectangle(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_rectangle((hdc?.value ?: 0L), left, top, right, bottom)
 
-public actual fun RedrawWindow(hwnd: HWND, lprcupdate: Long, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RedrawWindow(hwnd, lprcupdate, hrgnupdate, flags.toInt())
+public actual fun redrawWindow(hwnd: Hwnd, lprcupdate: COpaquePointer?, hrgnupdate: Hrgn, flags: RedrawWindowFlags): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_redrawWindow((hwnd?.value ?: 0L), (lprcupdate?.value ?: 0L), (hrgnupdate?.value ?: 0L), flags.toInt())
 
-public actual fun ReleaseDC(hwnd: HWND, hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ReleaseDC(hwnd, hdc)
+public actual fun releaseDC(hwnd: Hwnd, hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_releaseDC((hwnd?.value ?: 0L), (hdc?.value ?: 0L))
 
-public actual fun RemoveFontMemResourceEx(h: HANDLE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RemoveFontMemResourceEx(h)
+public actual fun removeFontMemResourceEx(h: Handle): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx((h?.value ?: 0L))
 
-public actual fun RemoveFontResourceA(lpfilename: PCSTR): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RemoveFontResourceA(lpfilename)
+public actual fun removeFontResourceA(lpfilename: Pcstr): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_removeFontResourceA((lpfilename?.value ?: 0L))
 
-public actual fun RemoveFontResourceExA(name: PCSTR, fl: UInt, pdv: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RemoveFontResourceExA(name, fl.toInt(), pdv)
+public actual fun removeFontResourceExA(name: Pcstr, fl: UInt, pdv: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_removeFontResourceExA((name?.value ?: 0L), fl.toInt(), (pdv?.value ?: 0L))
 
-public actual fun RemoveFontResourceExW(name: PCWSTR, fl: UInt, pdv: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RemoveFontResourceExW(name, fl.toInt(), pdv)
+public actual fun removeFontResourceExW(name: Pcwstr, fl: UInt, pdv: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_removeFontResourceExW((name?.value ?: 0L), fl.toInt(), (pdv?.value ?: 0L))
 
-public actual fun RemoveFontResourceW(lpfilename: PCWSTR): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RemoveFontResourceW(lpfilename)
+public actual fun removeFontResourceW(lpfilename: Pcwstr): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_removeFontResourceW((lpfilename?.value ?: 0L))
 
-public actual fun ResetDCA(hdc: HDC, lpdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ResetDCA(hdc, lpdm)
+public actual fun resetDCA(hdc: Hdc, lpdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_resetDCA((hdc?.value ?: 0L), (lpdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResetDCW(hdc: HDC, lpdm: Long): HDC =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ResetDCW(hdc, lpdm)
+public actual fun resetDCW(hdc: Hdc, lpdm: COpaquePointer?): Hdc =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_resetDCW((hdc?.value ?: 0L), (lpdm?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResizePalette(hpal: HPALETTE, n: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ResizePalette(hpal, n.toInt())
+public actual fun resizePalette(hpal: Hpalette, n: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_resizePalette((hpal?.value ?: 0L), n.toInt())
 
-public actual fun RestoreDC(hdc: HDC, nsaveddc: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RestoreDC(hdc, nsaveddc)
+public actual fun restoreDC(hdc: Hdc, nsaveddc: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_restoreDC((hdc?.value ?: 0L), nsaveddc)
 
-public actual fun RoundRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_RoundRect(hdc, left, top, right, bottom, width, height)
+public actual fun roundRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_roundRect((hdc?.value ?: 0L), left, top, right, bottom, width, height)
 
-public actual fun SaveDC(hdc: HDC): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SaveDC(hdc)
+public actual fun saveDC(hdc: Hdc): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_saveDC((hdc?.value ?: 0L))
 
-public actual fun ScaleViewportExtEx(hdc: HDC, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ScaleViewportExtEx(hdc, xn, dx, yn, yd, lpsz)
+public actual fun scaleViewportExtEx(hdc: Hdc, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_scaleViewportExtEx((hdc?.value ?: 0L), xn, dx, yn, yd, (lpsz?.value ?: 0L))
 
-public actual fun ScaleWindowExtEx(hdc: HDC, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ScaleWindowExtEx(hdc, xn, xd, yn, yd, lpsz)
+public actual fun scaleWindowExtEx(hdc: Hdc, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_scaleWindowExtEx((hdc?.value ?: 0L), xn, xd, yn, yd, (lpsz?.value ?: 0L))
 
-public actual fun ScreenToClient(hwnd: HWND, lppoint: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ScreenToClient(hwnd, lppoint)
+public actual fun screenToClient(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_screenToClient((hwnd?.value ?: 0L), (lppoint?.value ?: 0L))
 
-public actual fun SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SelectClipPath(hdc, mode)
+public actual fun selectClipPath(hdc: Hdc, mode: RgnCombineMode): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_selectClipPath((hdc?.value ?: 0L), mode)
 
-public actual fun SelectClipRgn(hdc: HDC, hrgn: HRGN): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SelectClipRgn(hdc, hrgn)
+public actual fun selectClipRgn(hdc: Hdc, hrgn: Hrgn): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_selectClipRgn((hdc?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun SelectObject(hdc: HDC, h: HGDIOBJ): HGDIOBJ =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SelectObject(hdc, h)
+public actual fun selectObject(hdc: Hdc, h: Hgdiobj): Hgdiobj =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_selectObject((hdc?.value ?: 0L), (h?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SelectPalette(hdc: HDC, hpal: HPALETTE, bforcebkgd: BOOL): HPALETTE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SelectPalette(hdc, hpal, bforcebkgd)
+public actual fun selectPalette(hdc: Hdc, hpal: Hpalette, bforcebkgd: Bool): Hpalette =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_selectPalette((hdc?.value ?: 0L), (hpal?.value ?: 0L), bforcebkgd).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetArcDirection(hdc: HDC, dir: ARC_DIRECTION): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetArcDirection(hdc, dir)
+public actual fun setArcDirection(hdc: Hdc, dir: ArcDirection): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setArcDirection((hdc?.value ?: 0L), dir)
 
-public actual fun SetBitmapBits(hbm: HBITMAP, cb: UInt, pvbits: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBitmapBits(hbm, cb.toInt(), pvbits)
+public actual fun setBitmapBits(hbm: Hbitmap, cb: UInt, pvbits: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBitmapBits((hbm?.value ?: 0L), cb.toInt(), (pvbits?.value ?: 0L))
 
-public actual fun SetBitmapDimensionEx(hbm: HBITMAP, w: Int, h: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBitmapDimensionEx(hbm, w, h, lpsz)
+public actual fun setBitmapDimensionEx(hbm: Hbitmap, w: Int, h: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx((hbm?.value ?: 0L), w, h, (lpsz?.value ?: 0L))
 
-public actual fun SetBkColor(hdc: HDC, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBkColor(hdc, color.toInt()).toUInt()
+public actual fun setBkColor(hdc: Hdc, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBkColor((hdc?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun SetBkMode(hdc: HDC, mode: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBkMode(hdc, mode)
+public actual fun setBkMode(hdc: Hdc, mode: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBkMode((hdc?.value ?: 0L), mode)
 
-public actual fun SetBoundsRect(hdc: HDC, lprect: Long, flags: SET_BOUNDS_RECT_FLAGS): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBoundsRect(hdc, lprect, flags.toInt()).toUInt()
+public actual fun setBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: SetBoundsRectFlags): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBoundsRect((hdc?.value ?: 0L), (lprect?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun SetBrushOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetBrushOrgEx(hdc, x, y, lppt)
+public actual fun setBrushOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setBrushOrgEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun SetColorAdjustment(hdc: HDC, lpca: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetColorAdjustment(hdc, lpca)
+public actual fun setColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setColorAdjustment((hdc?.value ?: 0L), (lpca?.value ?: 0L))
 
-public actual fun SetDCBrushColor(hdc: HDC, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetDCBrushColor(hdc, color.toInt()).toUInt()
+public actual fun setDCBrushColor(hdc: Hdc, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setDCBrushColor((hdc?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun SetDCPenColor(hdc: HDC, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetDCPenColor(hdc, color.toInt()).toUInt()
+public actual fun setDCPenColor(hdc: Hdc, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setDCPenColor((hdc?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun SetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetDIBColorTable(hdc, istart.toInt(), centries.toInt(), prgbq).toUInt()
+public actual fun setDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setDIBColorTable((hdc?.value ?: 0L), istart.toInt(), centries.toInt(), (prgbq?.value ?: 0L)).toUInt()
 
-public actual fun SetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetDIBits(hdc, hbm, start.toInt(), clines.toInt(), lpbits, lpbmi, coloruse.toInt())
+public actual fun setDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setDIBits((hdc?.value ?: 0L), (hbm?.value ?: 0L), start.toInt(), clines.toInt(), (lpbits?.value ?: 0L), (lpbmi?.value ?: 0L), coloruse.toInt())
 
-public actual fun SetDIBitsToDevice(hdc: HDC, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetDIBitsToDevice(hdc, xdest, ydest, w.toInt(), h.toInt(), xsrc, ysrc, startscan.toInt(), clines.toInt(), lpvbits, lpbmi, coloruse.toInt())
+public actual fun setDIBitsToDevice(hdc: Hdc, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setDIBitsToDevice((hdc?.value ?: 0L), xdest, ydest, w.toInt(), h.toInt(), xsrc, ysrc, startscan.toInt(), clines.toInt(), (lpvbits?.value ?: 0L), (lpbmi?.value ?: 0L), coloruse.toInt())
 
-public actual fun SetEnhMetaFileBits(nsize: UInt, pb: Long): HENHMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetEnhMetaFileBits(nsize.toInt(), pb)
+public actual fun setEnhMetaFileBits(nsize: UInt, pb: COpaquePointer?): Henhmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits(nsize.toInt(), (pb?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetGraphicsMode(hdc, imode)
+public actual fun setGraphicsMode(hdc: Hdc, imode: GraphicsMode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setGraphicsMode((hdc?.value ?: 0L), imode)
 
-public actual fun SetLayout(hdc: HDC, l: DC_LAYOUT): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetLayout(hdc, l.toInt()).toUInt()
+public actual fun setLayout(hdc: Hdc, l: DcLayout): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setLayout((hdc?.value ?: 0L), l.toInt()).toUInt()
 
-public actual fun SetMapMode(hdc: HDC, imode: HDC_MAP_MODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetMapMode(hdc, imode)
+public actual fun setMapMode(hdc: Hdc, imode: HdcMapMode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setMapMode((hdc?.value ?: 0L), imode)
 
-public actual fun SetMapperFlags(hdc: HDC, flags: UInt): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetMapperFlags(hdc, flags.toInt()).toUInt()
+public actual fun setMapperFlags(hdc: Hdc, flags: UInt): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setMapperFlags((hdc?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun SetMetaFileBitsEx(cbbuffer: UInt, lpdata: Long): HMETAFILE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetMetaFileBitsEx(cbbuffer.toInt(), lpdata)
+public actual fun setMetaFileBitsEx(cbbuffer: UInt, lpdata: COpaquePointer?): Hmetafile =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx(cbbuffer.toInt(), (lpdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetMetaRgn(hdc: HDC): GDI_REGION_TYPE =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetMetaRgn(hdc)
+public actual fun setMetaRgn(hdc: Hdc): GdiRegionType =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setMetaRgn((hdc?.value ?: 0L))
 
-public actual fun SetMiterLimit(hdc: HDC, limit: Float, old: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetMiterLimit(hdc, limit, old)
+public actual fun setMiterLimit(hdc: Hdc, limit: Float, old: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setMiterLimit((hdc?.value ?: 0L), limit, (old?.value ?: 0L))
 
-public actual fun SetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetPaletteEntries(hpal, istart.toInt(), centries.toInt(), ppalentries).toUInt()
+public actual fun setPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setPaletteEntries((hpal?.value ?: 0L), istart.toInt(), centries.toInt(), (ppalentries?.value ?: 0L)).toUInt()
 
-public actual fun SetPixel(hdc: HDC, x: Int, y: Int, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetPixel(hdc, x, y, color.toInt()).toUInt()
+public actual fun setPixel(hdc: Hdc, x: Int, y: Int, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setPixel((hdc?.value ?: 0L), x, y, color.toInt()).toUInt()
 
-public actual fun SetPixelV(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetPixelV(hdc, x, y, color.toInt())
+public actual fun setPixelV(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setPixelV((hdc?.value ?: 0L), x, y, color.toInt())
 
-public actual fun SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetPolyFillMode(hdc, mode)
+public actual fun setPolyFillMode(hdc: Hdc, mode: CreatePolygonRgnMode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setPolyFillMode((hdc?.value ?: 0L), mode)
 
-public actual fun SetROP2(hdc: HDC, rop2: R2_MODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetROP2(hdc, rop2)
+public actual fun setROP2(hdc: Hdc, rop2: R2Mode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setROP2((hdc?.value ?: 0L), rop2)
 
-public actual fun SetRect(lprc: Long, xleft: Int, ytop: Int, xright: Int, ybottom: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetRect(lprc, xleft, ytop, xright, ybottom)
+public actual fun setRect(lprc: COpaquePointer?, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setRect((lprc?.value ?: 0L), xleft, ytop, xright, ybottom)
 
-public actual fun SetRectEmpty(lprc: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetRectEmpty(lprc)
+public actual fun setRectEmpty(lprc: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setRectEmpty((lprc?.value ?: 0L))
 
-public actual fun SetRectRgn(hrgn: HRGN, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetRectRgn(hrgn, left, top, right, bottom)
+public actual fun setRectRgn(hrgn: Hrgn, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setRectRgn((hrgn?.value ?: 0L), left, top, right, bottom)
 
-public actual fun SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetStretchBltMode(hdc, mode)
+public actual fun setStretchBltMode(hdc: Hdc, mode: StretchBltMode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setStretchBltMode((hdc?.value ?: 0L), mode)
 
-public actual fun SetSysColors(celements: Int, lpaelements: Long, lpargbvalues: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetSysColors(celements, lpaelements, lpargbvalues)
+public actual fun setSysColors(celements: Int, lpaelements: COpaquePointer?, lpargbvalues: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setSysColors(celements, (lpaelements?.value ?: 0L), (lpargbvalues?.value ?: 0L))
 
-public actual fun SetSystemPaletteUse(hdc: HDC, use: SYSTEM_PALETTE_USE): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetSystemPaletteUse(hdc, use.toInt()).toUInt()
+public actual fun setSystemPaletteUse(hdc: Hdc, use: SystemPaletteUse): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setSystemPaletteUse((hdc?.value ?: 0L), use.toInt()).toUInt()
 
-public actual fun SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetTextAlign(hdc, align.toInt()).toUInt()
+public actual fun setTextAlign(hdc: Hdc, align: TextAlignOptions): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setTextAlign((hdc?.value ?: 0L), align.toInt()).toUInt()
 
-public actual fun SetTextCharacterExtra(hdc: HDC, extra: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetTextCharacterExtra(hdc, extra)
+public actual fun setTextCharacterExtra(hdc: Hdc, extra: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setTextCharacterExtra((hdc?.value ?: 0L), extra)
 
-public actual fun SetTextColor(hdc: HDC, color: COLORREF): COLORREF =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetTextColor(hdc, color.toInt()).toUInt()
+public actual fun setTextColor(hdc: Hdc, color: Colorref): Colorref =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setTextColor((hdc?.value ?: 0L), color.toInt()).toUInt()
 
-public actual fun SetTextJustification(hdc: HDC, extra: Int, count: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetTextJustification(hdc, extra, count)
+public actual fun setTextJustification(hdc: Hdc, extra: Int, count: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setTextJustification((hdc?.value ?: 0L), extra, count)
 
-public actual fun SetViewportExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetViewportExtEx(hdc, x, y, lpsz)
+public actual fun setViewportExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setViewportExtEx((hdc?.value ?: 0L), x, y, (lpsz?.value ?: 0L))
 
-public actual fun SetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetViewportOrgEx(hdc, x, y, lppt)
+public actual fun setViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setViewportOrgEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun SetWindowExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetWindowExtEx(hdc, x, y, lpsz)
+public actual fun setWindowExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setWindowExtEx((hdc?.value ?: 0L), x, y, (lpsz?.value ?: 0L))
 
-public actual fun SetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetWindowOrgEx(hdc, x, y, lppt)
+public actual fun setWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setWindowOrgEx((hdc?.value ?: 0L), x, y, (lppt?.value ?: 0L))
 
-public actual fun SetWindowRgn(hwnd: HWND, hrgn: HRGN, bredraw: BOOL): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetWindowRgn(hwnd, hrgn, bredraw)
+public actual fun setWindowRgn(hwnd: Hwnd, hrgn: Hrgn, bredraw: Bool): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setWindowRgn((hwnd?.value ?: 0L), (hrgn?.value ?: 0L), bredraw)
 
-public actual fun SetWorldTransform(hdc: HDC, lpxf: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SetWorldTransform(hdc, lpxf)
+public actual fun setWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_setWorldTransform((hdc?.value ?: 0L), (lpxf?.value ?: 0L))
 
-public actual fun StretchBlt(hdcdest: HDC, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: ROP_CODE): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_StretchBlt(hdcdest, xdest, ydest, wdest, hdest, hdcsrc, xsrc, ysrc, wsrc, hsrc, rop.toInt())
+public actual fun stretchBlt(hdcdest: Hdc, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: RopCode): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_stretchBlt((hdcdest?.value ?: 0L), xdest, ydest, wdest, hdest, (hdcsrc?.value ?: 0L), xsrc, ysrc, wsrc, hsrc, rop.toInt())
 
-public actual fun StretchDIBits(hdc: HDC, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: Long, lpbmi: Long, iusage: DIB_USAGE, rop: ROP_CODE): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_StretchDIBits(hdc, xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits, lpbmi, iusage.toInt(), rop.toInt())
+public actual fun stretchDIBits(hdc: Hdc, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, iusage: DibUsage, rop: RopCode): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_stretchDIBits((hdc?.value ?: 0L), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, (lpbits?.value ?: 0L), (lpbmi?.value ?: 0L), iusage.toInt(), rop.toInt())
 
-public actual fun StrokeAndFillPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_StrokeAndFillPath(hdc)
+public actual fun strokeAndFillPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_strokeAndFillPath((hdc?.value ?: 0L))
 
-public actual fun StrokePath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_StrokePath(hdc)
+public actual fun strokePath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_strokePath((hdc?.value ?: 0L))
 
-public actual fun SubtractRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_SubtractRect(lprcdst, lprcsrc1, lprcsrc2)
+public actual fun subtractRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_subtractRect((lprcdst?.value ?: 0L), (lprcsrc1?.value ?: 0L), (lprcsrc2?.value ?: 0L))
 
-public actual fun TTCharToUnicode(hdc: HDC, puccharcodes: Long, ulcharcodesize: UInt, pusshortcodes: Long, ulshortcodesize: UInt, ulflags: UInt): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTCharToUnicode(hdc, puccharcodes, ulcharcodesize.toInt(), pusshortcodes, ulshortcodesize.toInt(), ulflags.toInt())
+public actual fun tTCharToUnicode(hdc: Hdc, puccharcodes: COpaquePointer?, ulcharcodesize: UInt, pusshortcodes: COpaquePointer?, ulshortcodesize: UInt, ulflags: UInt): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTCharToUnicode((hdc?.value ?: 0L), (puccharcodes?.value ?: 0L), ulcharcodesize.toInt(), (pusshortcodes?.value ?: 0L), ulshortcodesize.toInt(), ulflags.toInt())
 
-public actual fun TTDeleteEmbeddedFont(hfontreference: HANDLE, ulflags: UInt, pulstatus: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTDeleteEmbeddedFont(hfontreference, ulflags.toInt(), pulstatus)
+public actual fun tTDeleteEmbeddedFont(hfontreference: Handle, ulflags: UInt, pulstatus: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont((hfontreference?.value ?: 0L), ulflags.toInt(), (pulstatus?.value ?: 0L))
 
-public actual fun TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTEmbedFont(hdc, ulflags.toInt(), ulcharset.toInt(), pulprivstatus, pulstatus, lpfnwritetostream.toLong(), lpvwritestream, puscharcodeset, uscharcodecount.toShort(), uslanguage.toShort(), pttembedinfo)
+public actual fun tTEmbedFont(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTEmbedFont((hdc?.value ?: 0L), ulflags.toInt(), ulcharset.toInt(), (pulprivstatus?.value ?: 0L), (pulstatus?.value ?: 0L), 0L, (lpvwritestream?.value ?: 0L), (puscharcodeset?.value ?: 0L), uscharcodecount.toShort(), uslanguage.toShort(), (pttembedinfo?.value ?: 0L))
 
-public actual fun TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, pulcharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTEmbedFontEx(hdc, ulflags.toInt(), ulcharset.toInt(), pulprivstatus, pulstatus, lpfnwritetostream.toLong(), lpvwritestream, pulcharcodeset, uscharcodecount.toShort(), uslanguage.toShort(), pttembedinfo)
+public actual fun tTEmbedFontEx(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, pulcharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTEmbedFontEx((hdc?.value ?: 0L), ulflags.toInt(), ulcharset.toInt(), (pulprivstatus?.value ?: 0L), (pulstatus?.value ?: 0L), 0L, (lpvwritestream?.value ?: 0L), (pulcharcodeset?.value ?: 0L), uscharcodecount.toShort(), uslanguage.toShort(), (pttembedinfo?.value ?: 0L))
 
-public actual fun TTEmbedFontFromFileA(hdc: HDC, szfontfilename: PCSTR, usttcindex: UShort, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTEmbedFontFromFileA(hdc, szfontfilename, usttcindex.toShort(), ulflags.toInt(), ulcharset.toInt(), pulprivstatus, pulstatus, lpfnwritetostream.toLong(), lpvwritestream, puscharcodeset, uscharcodecount.toShort(), uslanguage.toShort(), pttembedinfo)
+public actual fun tTEmbedFontFromFileA(hdc: Hdc, szfontfilename: Pcstr, usttcindex: UShort, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA((hdc?.value ?: 0L), (szfontfilename?.value ?: 0L), usttcindex.toShort(), ulflags.toInt(), ulcharset.toInt(), (pulprivstatus?.value ?: 0L), (pulstatus?.value ?: 0L), 0L, (lpvwritestream?.value ?: 0L), (puscharcodeset?.value ?: 0L), uscharcodecount.toShort(), uslanguage.toShort(), (pttembedinfo?.value ?: 0L))
 
-public actual fun TTEnableEmbeddingForFacename(lpszfacename: PCSTR, benable: BOOL): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTEnableEmbeddingForFacename(lpszfacename, benable)
+public actual fun tTEnableEmbeddingForFacename(lpszfacename: Pcstr, benable: Bool): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename((lpszfacename?.value ?: 0L), benable)
 
-public actual fun TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, pttloadinfo: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTGetEmbeddedFontInfo(ulflags.toInt(), pulprivstatus, ulprivs.toInt(), pulstatus, lpfnreadfromstream.toLong(), lpvreadstream, pttloadinfo)
+public actual fun tTGetEmbeddedFontInfo(ulflags: TtembedFlags, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, pttloadinfo: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo(ulflags.toInt(), (pulprivstatus?.value ?: 0L), ulprivs.toInt(), (pulstatus?.value ?: 0L), 0L, (lpvreadstream?.value ?: 0L), (pttloadinfo?.value ?: 0L))
 
-public actual fun TTGetEmbeddingType(hdc: HDC, pulembedtype: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTGetEmbeddingType(hdc, pulembedtype)
+public actual fun tTGetEmbeddingType(hdc: Hdc, pulembedtype: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType((hdc?.value ?: 0L), (pulembedtype?.value ?: 0L))
 
-public actual fun TTGetNewFontName(phfontreference: Long, wzwinfamilyname: PWSTR, cchmaxwinname: Int, szmacfamilyname: PSTR, cchmaxmacname: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTGetNewFontName(phfontreference, wzwinfamilyname, cchmaxwinname, szmacfamilyname, cchmaxmacname)
+public actual fun tTGetNewFontName(phfontreference: COpaquePointer?, wzwinfamilyname: Pwstr, cchmaxwinname: Int, szmacfamilyname: Pstr, cchmaxmacname: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTGetNewFontName((phfontreference?.value ?: 0L), (wzwinfamilyname?.value ?: 0L), cchmaxwinname, (szmacfamilyname?.value ?: 0L), cchmaxmacname)
 
-public actual fun TTIsEmbeddingEnabled(hdc: HDC, pbenabled: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabled(hdc, pbenabled)
+public actual fun tTIsEmbeddingEnabled(hdc: Hdc, pbenabled: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled((hdc?.value ?: 0L), (pbenabled?.value ?: 0L))
 
-public actual fun TTIsEmbeddingEnabledForFacename(lpszfacename: PCSTR, pbenabled: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabledForFacename(lpszfacename, pbenabled)
+public actual fun tTIsEmbeddingEnabledForFacename(lpszfacename: Pcstr, pbenabled: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename((lpszfacename?.value ?: 0L), (pbenabled?.value ?: 0L))
 
-public actual fun TTLoadEmbeddedFont(phfontreference: Long, ulflags: UInt, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, szwinfamilyname: PCWSTR, szmacfamilyname: PCSTR, pttloadinfo: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTLoadEmbeddedFont(phfontreference, ulflags.toInt(), pulprivstatus, ulprivs.toInt(), pulstatus, lpfnreadfromstream.toLong(), lpvreadstream, szwinfamilyname, szmacfamilyname, pttloadinfo)
+public actual fun tTLoadEmbeddedFont(phfontreference: COpaquePointer?, ulflags: UInt, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, szwinfamilyname: Pcwstr, szmacfamilyname: Pcstr, pttloadinfo: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont((phfontreference?.value ?: 0L), ulflags.toInt(), (pulprivstatus?.value ?: 0L), ulprivs.toInt(), (pulstatus?.value ?: 0L), 0L, (lpvreadstream?.value ?: 0L), (szwinfamilyname?.value ?: 0L), (szmacfamilyname?.value ?: 0L), (pttloadinfo?.value ?: 0L))
 
-public actual fun TTRunValidationTests(hdc: HDC, ptestparam: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTRunValidationTests(hdc, ptestparam)
+public actual fun tTRunValidationTests(hdc: Hdc, ptestparam: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTRunValidationTests((hdc?.value ?: 0L), (ptestparam?.value ?: 0L))
 
-public actual fun TTRunValidationTestsEx(hdc: HDC, ptestparam: Long): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TTRunValidationTestsEx(hdc, ptestparam)
+public actual fun tTRunValidationTestsEx(hdc: Hdc, ptestparam: COpaquePointer?): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx((hdc?.value ?: 0L), (ptestparam?.value ?: 0L))
 
-public actual fun TabbedTextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TabbedTextOutA(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin)
+public actual fun tabbedTextOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tabbedTextOutA((hdc?.value ?: 0L), x, y, (lpstring?.value ?: 0L), chcount, ntabpositions, (lpntabstoppositions?.value ?: 0L), ntaborigin)
 
-public actual fun TabbedTextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TabbedTextOutW(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin)
+public actual fun tabbedTextOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_tabbedTextOutW((hdc?.value ?: 0L), x, y, (lpstring?.value ?: 0L), chcount, ntabpositions, (lpntabstoppositions?.value ?: 0L), ntaborigin)
 
-public actual fun TextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, c: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TextOutA(hdc, x, y, lpstring, c)
+public actual fun textOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, c: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_textOutA((hdc?.value ?: 0L), x, y, (lpstring?.value ?: 0L), c)
 
-public actual fun TextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, c: Int): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TextOutW(hdc, x, y, lpstring, c)
+public actual fun textOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, c: Int): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_textOutW((hdc?.value ?: 0L), x, y, (lpstring?.value ?: 0L), c)
 
-public actual fun TransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_TransparentBlt(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent.toInt())
+public actual fun transparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_transparentBlt((hdcdest?.value ?: 0L), xorigindest, yorigindest, wdest, hdest, (hdcsrc?.value ?: 0L), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent.toInt())
 
-public actual fun UnionRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_UnionRect(lprcdst, lprcsrc1, lprcsrc2)
+public actual fun unionRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_unionRect((lprcdst?.value ?: 0L), (lprcsrc1?.value ?: 0L), (lprcsrc2?.value ?: 0L))
 
-public actual fun UnrealizeObject(h: HGDIOBJ): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_UnrealizeObject(h)
+public actual fun unrealizeObject(h: Hgdiobj): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_unrealizeObject((h?.value ?: 0L))
 
-public actual fun UpdateColors(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_UpdateColors(hdc)
+public actual fun updateColors(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_updateColors((hdc?.value ?: 0L))
 
-public actual fun UpdateWindow(hwnd: HWND): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_UpdateWindow(hwnd)
+public actual fun updateWindow(hwnd: Hwnd): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_updateWindow((hwnd?.value ?: 0L))
 
-public actual fun ValidateRect(hwnd: HWND, lprect: Long): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ValidateRect(hwnd, lprect)
+public actual fun validateRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_validateRect((hwnd?.value ?: 0L), (lprect?.value ?: 0L))
 
-public actual fun ValidateRgn(hwnd: HWND, hrgn: HRGN): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_ValidateRgn(hwnd, hrgn)
+public actual fun validateRgn(hwnd: Hwnd, hrgn: Hrgn): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_validateRgn((hwnd?.value ?: 0L), (hrgn?.value ?: 0L))
 
-public actual fun WidenPath(hdc: HDC): BOOL =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_WidenPath(hdc)
+public actual fun widenPath(hdc: Hdc): Bool =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_widenPath((hdc?.value ?: 0L))
 
-public actual fun WindowFromDC(hdc: HDC): HWND =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_WindowFromDC(hdc)
+public actual fun windowFromDC(hdc: Hdc): Hwnd =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_windowFromDC((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun wglSwapMultipleBuffers(param0: UInt, param1: Long): UInt =
-    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers(param0.toInt(), param1).toUInt()
+public actual fun wglSwapMultipleBuffers(param0: UInt, param1: COpaquePointer?): UInt =
+    WindowsWin32GraphicsGdiJniBridge.windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers(param0.toInt(), (param1?.value ?: 0L)).toUInt()

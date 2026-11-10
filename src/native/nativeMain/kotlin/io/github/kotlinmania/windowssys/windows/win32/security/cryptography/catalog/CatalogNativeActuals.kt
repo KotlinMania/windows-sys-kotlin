@@ -2,119 +2,120 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun CryptCATAdminAcquireContext(phcatadmin: Long, pgsubsystem: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext(phcatadmin.toCPointer<ByteVar>(), pgsubsystem.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminAcquireContext(phcatadmin: COpaquePointer?, pgsubsystem: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext(phcatadmin?.value?.toCPointer<ByteVar>(), pgsubsystem?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminAcquireContext2(phcatadmin: Long, pgsubsystem: Long, pwszhashalgorithm: PCWSTR, pstronghashpolicy: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext2(phcatadmin.toCPointer<ByteVar>(), pgsubsystem.toCPointer<ByteVar>(), pwszhashalgorithm.toCPointer<ByteVar>(), pstronghashpolicy.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminAcquireContext2(phcatadmin: COpaquePointer?, pgsubsystem: COpaquePointer?, pwszhashalgorithm: Pcwstr, pstronghashpolicy: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2(phcatadmin?.value?.toCPointer<ByteVar>(), pgsubsystem?.value?.toCPointer<ByteVar>(), pwszhashalgorithm?.value?.toCPointer<ByteVar>(), pstronghashpolicy?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: PCWSTR, pwszselectbasename: PCWSTR, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAddCatalog(hcatadmin, pwszcatalogfile.toCPointer<ByteVar>(), pwszselectbasename.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, pwszselectbasename: Pcwstr, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog(hcatadmin, pwszcatalogfile?.value?.toCPointer<ByteVar>(), pwszselectbasename?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminCalcHashFromFileHandle(hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle(hfile.toCPointer<ByteVar>(), pcbhash.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminCalcHashFromFileHandle(hfile: Handle, pcbhash: COpaquePointer?, pbhash: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle(hfile?.value?.toCPointer<ByteVar>(), pcbhash?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile.toCPointer<ByteVar>(), pcbhash.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Handle, pcbhash: COpaquePointer?, pbhash: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile?.value?.toCPointer<ByteVar>(), pcbhash?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Long, cbhash: UInt, dwflags: UInt, phprevcatinfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash.toCPointer<ByteVar>(), cbhash, dwflags, phprevcatinfo.toCPointer<ByteVar>())
+public actual fun cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: COpaquePointer?, cbhash: UInt, dwflags: UInt, phprevcatinfo: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash?.value?.toCPointer<ByteVar>(), cbhash, dwflags, phprevcatinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminPauseServiceForBackup(dwflags, fresume)
+public actual fun cryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup(dwflags, fresume)
 
-public actual fun CryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags)
+public actual fun cryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags)
 
-public actual fun CryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseContext(hcatadmin, dwflags)
+public actual fun cryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext(hcatadmin, dwflags)
 
-public actual fun CryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: PCWSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminRemoveCatalog(hcatadmin, pwszcatalogfile.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog(hcatadmin, pwszcatalogfile?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: PCWSTR, pscatinfo: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile.toCPointer<ByteVar>(), pscatinfo.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Pcwstr, pscatinfo: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile?.value?.toCPointer<ByteVar>(), pscatinfo?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATAllocSortedMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATAllocSortedMemberInfo(hcatalog.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATAllocSortedMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo(hcatalog?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFClose(pcdf: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFClose(pcdf.toCPointer<ByteVar>())
+public actual fun cryptCATCDFClose(pcdf: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose(pcdf?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCATCDFEnumAttributes(pcdf: Long, pmember: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributes(pcdf.toCPointer<ByteVar>(), pmember.toCPointer<ByteVar>(), pprevattr.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFEnumAttributes(pcdf: COpaquePointer?, pmember: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes(pcdf?.value?.toCPointer<ByteVar>(), pmember?.value?.toCPointer<ByteVar>(), pprevattr?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFEnumAttributesWithCDFTag(pcdf: Long, pwszmembertag: PCWSTR, pmember: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributesWithCDFTag(pcdf.toCPointer<ByteVar>(), pwszmembertag.toCPointer<ByteVar>(), pmember.toCPointer<ByteVar>(), pprevattr.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFEnumAttributesWithCDFTag(pcdf: COpaquePointer?, pwszmembertag: Pcwstr, pmember: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag(pcdf?.value?.toCPointer<ByteVar>(), pwszmembertag?.value?.toCPointer<ByteVar>(), pmember?.value?.toCPointer<ByteVar>(), pprevattr?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFEnumCatAttributes(pcdf: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumCatAttributes(pcdf.toCPointer<ByteVar>(), pprevattr.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFEnumCatAttributes(pcdf: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes(pcdf?.value?.toCPointer<ByteVar>(), pprevattr?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFEnumMembers(pcdf: Long, pprevmember: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembers(pcdf.toCPointer<ByteVar>(), pprevmember.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFEnumMembers(pcdf: COpaquePointer?, pprevmember: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers(pcdf?.value?.toCPointer<ByteVar>(), pprevmember?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFEnumMembersByCDFTagEx(pcdf: Long, pwszprevcdftag: PWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK, ppmember: Long, fcontinueonerror: BOOL, pvreserved: Long): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembersByCDFTagEx(pcdf.toCPointer<ByteVar>(), pwszprevcdftag.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>(), ppmember.toCPointer<ByteVar>(), fcontinueonerror, pvreserved.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFEnumMembersByCDFTagEx(pcdf: COpaquePointer?, pwszprevcdftag: Pwstr, pfnparseerror: PfnCdfParseErrorCallback, ppmember: COpaquePointer?, fcontinueonerror: Bool, pvreserved: COpaquePointer?): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx(pcdf?.value?.toCPointer<ByteVar>(), pwszprevcdftag?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ppmember?.value?.toCPointer<ByteVar>(), fcontinueonerror, pvreserved?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCDFOpen(pwszfilepath: PCWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFOpen(pwszfilepath.toCPointer<ByteVar>(), pfnparseerror.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATCDFOpen(pwszfilepath: Pcwstr, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen(pwszfilepath?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATCatalogInfoFromContext(hcatinfo, pscatinfo.toCPointer<ByteVar>(), dwflags)
+public actual fun cryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext(hcatinfo, pscatinfo?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CryptCATClose(hcatalog: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATClose(hcatalog.toCPointer<ByteVar>())
+public actual fun cryptCATClose(hcatalog: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATClose(hcatalog?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCATEnumerateAttr(hcatalog: HANDLE, pcatmember: Long, pprevattr: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateAttr(hcatalog.toCPointer<ByteVar>(), pcatmember.toCPointer<ByteVar>(), pprevattr.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATEnumerateAttr(hcatalog: Handle, pcatmember: COpaquePointer?, pprevattr: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr(hcatalog?.value?.toCPointer<ByteVar>(), pcatmember?.value?.toCPointer<ByteVar>(), pprevattr?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATEnumerateCatAttr(hcatalog: HANDLE, pprevattr: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateCatAttr(hcatalog.toCPointer<ByteVar>(), pprevattr.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATEnumerateCatAttr(hcatalog: Handle, pprevattr: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr(hcatalog?.value?.toCPointer<ByteVar>(), pprevattr?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATEnumerateMember(hcatalog: HANDLE, pprevmember: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateMember(hcatalog.toCPointer<ByteVar>(), pprevmember.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATEnumerateMember(hcatalog: Handle, pprevmember: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember(hcatalog?.value?.toCPointer<ByteVar>(), pprevmember?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATFreeSortedMemberInfo(hcatalog: HANDLE, pcatmember: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATFreeSortedMemberInfo(hcatalog.toCPointer<ByteVar>(), pcatmember.toCPointer<ByteVar>())
+public actual fun cryptCATFreeSortedMemberInfo(hcatalog: Handle, pcatmember: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo(hcatalog?.value?.toCPointer<ByteVar>(), pcatmember?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CryptCATGetAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetAttrInfo(hcatalog.toCPointer<ByteVar>(), pcatmember.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATGetAttrInfo(hcatalog: Handle, pcatmember: COpaquePointer?, pwszreferencetag: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo(hcatalog?.value?.toCPointer<ByteVar>(), pcatmember?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATGetCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetCatAttrInfo(hcatalog.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATGetCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo(hcatalog?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATGetMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetMemberInfo(hcatalog.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATGetMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo(hcatalog?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATHandleFromStore(pcatstore: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATHandleFromStore(pcatstore.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATHandleFromStore(pcatstore: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore(pcatstore?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATOpen(pwszfilename: PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: ULong, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATOpen(pwszfilename.toCPointer<ByteVar>(), fdwopenflags, hprov, dwpublicversion, dwencodingtype)?.toLong() ?: 0L
+public actual fun cryptCATOpen(pwszfilename: Pcwstr, fdwopenflags: CryptcatOpenFlags, hprov: ULong, dwpublicversion: CryptcatVersion, dwencodingtype: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen(pwszfilename?.value?.toCPointer<ByteVar>(), fdwopenflags, hprov, dwpublicversion, dwencodingtype)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATPersistStore(hcatalog: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATPersistStore(hcatalog.toCPointer<ByteVar>())
+public actual fun cryptCATPersistStore(hcatalog: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore(hcatalog?.value?.toCPointer<ByteVar>())
 
-public actual fun CryptCATPutAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutAttrInfo(hcatalog.toCPointer<ByteVar>(), pcatmember.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>(), dwattrtypeandaction, cbdata, pbdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATPutAttrInfo(hcatalog: Handle, pcatmember: COpaquePointer?, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo(hcatalog?.value?.toCPointer<ByteVar>(), pcatmember?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>(), dwattrtypeandaction, cbdata, pbdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATPutCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutCatAttrInfo(hcatalog.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>(), dwattrtypeandaction, cbdata, pbdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATPutCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo(hcatalog?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>(), dwattrtypeandaction, cbdata, pbdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATPutMemberInfo(hcatalog: HANDLE, pwszfilename: PCWSTR, pwszreferencetag: PCWSTR, pgsubjecttype: Long, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutMemberInfo(hcatalog.toCPointer<ByteVar>(), pwszfilename.toCPointer<ByteVar>(), pwszreferencetag.toCPointer<ByteVar>(), pgsubjecttype.toCPointer<ByteVar>(), dwcertversion, cbsipindirectdata, pbsipindirectdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATPutMemberInfo(hcatalog: Handle, pwszfilename: Pcwstr, pwszreferencetag: Pcwstr, pgsubjecttype: COpaquePointer?, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo(hcatalog?.value?.toCPointer<ByteVar>(), pwszfilename?.value?.toCPointer<ByteVar>(), pwszreferencetag?.value?.toCPointer<ByteVar>(), pgsubjecttype?.value?.toCPointer<ByteVar>(), dwcertversion, cbsipindirectdata, pbsipindirectdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CryptCATStoreFromHandle(hcatalog: HANDLE): Long =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_CryptCATStoreFromHandle(hcatalog.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cryptCATStoreFromHandle(hcatalog: Handle): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle(hcatalog?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IsCatalogFile(hfile: HANDLE, pwszfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_IsCatalogFile(hfile.toCPointer<ByteVar>(), pwszfilename.toCPointer<ByteVar>())
+public actual fun isCatalogFile(hfile: Handle, pwszfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.cinterop.windowssys_windows_win32_security_cryptography_catalog_isCatalogFile(hfile?.value?.toCPointer<ByteVar>(), pwszfilename?.value?.toCPointer<ByteVar>())

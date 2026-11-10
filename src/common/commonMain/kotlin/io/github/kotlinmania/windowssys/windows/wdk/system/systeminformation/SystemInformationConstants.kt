@@ -1,23 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systeminformation
 
-public val SystemBasicInformation: SYSTEM_INFORMATION_CLASS = 0
+public val SYSTEM_BASIC_INFORMATION: SystemInformationClass = 0
 
-public val SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = 103
+public val SYSTEM_CODE_INTEGRITY_INFORMATION: SystemInformationClass = 103
 
-public val SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = 33
+public val SYSTEM_EXCEPTION_INFORMATION: SystemInformationClass = 33
 
-public val SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = 23
+public val SYSTEM_INTERRUPT_INFORMATION: SystemInformationClass = 23
 
-public val SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = 45
+public val SYSTEM_LOOKASIDE_INFORMATION: SystemInformationClass = 45
 
-public val SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = 2
+public val SYSTEM_PERFORMANCE_INFORMATION: SystemInformationClass = 2
 
-public val SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = 134
+public val SYSTEM_POLICY_INFORMATION: SystemInformationClass = 134
 
-public val SystemProcessInformation: SYSTEM_INFORMATION_CLASS = 5
+public val SYSTEM_PROCESS_INFORMATION: SystemInformationClass = 5
 
-public val SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = 8
+public val SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION: SystemInformationClass = 8
 
-public val SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = 37
+public val SYSTEM_REGISTRY_QUOTA_INFORMATION: SystemInformationClass = 37
 
-public val SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = 3
+public val SYSTEM_TIME_OF_DAY_INFORMATION: SystemInformationClass = 3

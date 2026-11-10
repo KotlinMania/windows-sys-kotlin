@@ -1,609 +1,610 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public typealias ADDRESS_MODE = Int
+public typealias AddressMode = Int
 
-public typealias BUGCHECK_ERROR = UInt
+public typealias BugcheckError = UInt
 
-public typealias CONTEXT_FLAGS = UInt
+public typealias ContextFlags = UInt
 
-public typealias DBGPROP_ATTRIB_FLAGS = Int
+public typealias DbgpropAttribFlags = Int
 
-public typealias DBGPROP_INFO = Int
+public typealias DbgpropInfo = Int
 
-public typealias DEBUG_EVENT_CODE = UInt
+public typealias DebugEventCode = UInt
 
-public fun interface DIGEST_FUNCTIONFn {
-    public operator fun invoke(refdata: Long, pdata: Long, dwlength: UInt): BOOL
+public fun interface DigestFunctionFn {
+    public operator fun invoke(refdata: COpaquePointer?, pdata: COpaquePointer?, dwlength: UInt): Bool
 }
 
-public typealias DIGEST_FUNCTION = DIGEST_FUNCTIONFn?
+public typealias DigestFunction = DigestFunctionFn?
 
-public typealias DUMP_TYPE = Int
+public typealias DumpType = Int
 
-public typealias EX_PROP_INFO_FLAGS = Int
+public typealias ExPropInfoFlags = Int
 
-public typealias FACILITY_CODE = UInt
+public typealias FacilityCode = UInt
 
-public typealias FORMAT_MESSAGE_OPTIONS = UInt
+public typealias FormatMessageOptions = UInt
 
-public typealias IMAGEHLP_CBA_EVENT_SEVERITY = UInt
+public typealias ImagehlpCbaEventSeverity = UInt
 
-public typealias IMAGEHLP_EXTENDED_OPTIONS = Int
+public typealias ImagehlpExtendedOptions = Int
 
-public typealias IMAGEHLP_GET_TYPE_INFO_FLAGS = UInt
+public typealias ImagehlpGetTypeInfoFlags = UInt
 
-public typealias IMAGEHLP_HD_TYPE = Int
+public typealias ImagehlpHdType = Int
 
-public typealias IMAGEHLP_SF_TYPE = Int
+public typealias ImagehlpSfType = Int
 
-public typealias IMAGEHLP_STATUS_REASON = Int
+public typealias ImagehlpStatusReason = Int
 
-public typealias IMAGEHLP_SYMBOL_TYPE_INFO = Int
+public typealias ImagehlpSymbolTypeInfo = Int
 
-public typealias IMAGE_DEBUG_TYPE = UInt
+public typealias ImageDebugType = UInt
 
-public typealias IMAGE_DIRECTORY_ENTRY = UShort
+public typealias ImageDirectoryEntry = UShort
 
-public typealias IMAGE_DLL_CHARACTERISTICS = UShort
+public typealias ImageDllCharacteristics = UShort
 
-public typealias IMAGE_FILE_CHARACTERISTICS = UShort
+public typealias ImageFileCharacteristics = UShort
 
-public typealias IMAGE_FILE_CHARACTERISTICS2 = UInt
+public typealias ImageFileCharacteristics2 = UInt
 
-public typealias IMAGE_OPTIONAL_HEADER_MAGIC = UShort
+public typealias ImageOptionalHeaderMagic = UShort
 
-public typealias IMAGE_SECTION_CHARACTERISTICS = UInt
+public typealias ImageSectionCharacteristics = UInt
 
-public typealias IMAGE_SUBSYSTEM = UShort
+public typealias ImageSubsystem = UShort
 
-public typealias IPMI_OS_SEL_RECORD_TYPE = Int
+public typealias IpmiOsSelRecordType = Int
 
-public fun interface LPCALL_BACK_USER_INTERRUPT_ROUTINEFn {
+public fun interface LpcallBackUserInterruptRoutineFn {
     public operator fun invoke(): UInt
 }
 
-public typealias LPCALL_BACK_USER_INTERRUPT_ROUTINE = LPCALL_BACK_USER_INTERRUPT_ROUTINEFn?
+public typealias LpcallBackUserInterruptRoutine = LpcallBackUserInterruptRoutineFn?
 
-public fun interface LPTOP_LEVEL_EXCEPTION_FILTERFn {
-    public operator fun invoke(exceptioninfo: Long): Int
+public fun interface LptopLevelExceptionFilterFn {
+    public operator fun invoke(exceptioninfo: COpaquePointer?): Int
 }
 
-public typealias LPTOP_LEVEL_EXCEPTION_FILTER = LPTOP_LEVEL_EXCEPTION_FILTERFn?
+public typealias LptopLevelExceptionFilter = LptopLevelExceptionFilterFn?
 
-public fun interface MINIDUMP_CALLBACK_ROUTINEFn {
-    public operator fun invoke(callbackparam: Long, callbackinput: Long, callbackoutput: Long): BOOL
+public fun interface MinidumpCallbackRoutineFn {
+    public operator fun invoke(callbackparam: COpaquePointer?, callbackinput: COpaquePointer?, callbackoutput: COpaquePointer?): Bool
 }
 
-public typealias MINIDUMP_CALLBACK_ROUTINE = MINIDUMP_CALLBACK_ROUTINEFn?
+public typealias MinidumpCallbackRoutine = MinidumpCallbackRoutineFn?
 
-public typealias MINIDUMP_CALLBACK_TYPE = Int
+public typealias MinidumpCallbackType = Int
 
-public typealias MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = Int
+public typealias MinidumpHandleObjectInformationType = Int
 
-public typealias MINIDUMP_MISC_INFO_FLAGS = UInt
+public typealias MinidumpMiscInfoFlags = UInt
 
-public typealias MINIDUMP_SECONDARY_FLAGS = Int
+public typealias MinidumpSecondaryFlags = Int
 
-public typealias MINIDUMP_STREAM_TYPE = Int
+public typealias MinidumpStreamType = Int
 
-public typealias MINIDUMP_THREAD_INFO_DUMP_FLAGS = UInt
+public typealias MinidumpThreadInfoDumpFlags = UInt
 
-public typealias MINIDUMP_TYPE = Int
+public typealias MinidumpType = Int
 
-public typealias MODLOAD_DATA_TYPE = UInt
+public typealias ModloadDataType = UInt
 
-public typealias MODULE_WRITE_FLAGS = Int
+public typealias ModuleWriteFlags = Int
 
-public typealias OBJECT_ATTRIB_FLAGS = Int
+public typealias ObjectAttribFlags = Int
 
-public typealias OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = UInt
+public typealias OpenThreadWaitChainSessionFlags = UInt
 
-public fun interface PCOGETACTIVATIONSTATEFn {
-    public operator fun invoke(param0: GUID, param1: UInt, param2: Long): HRESULT
+public fun interface PcogetactivationstateFn {
+    public operator fun invoke(param0: Guid, param1: UInt, param2: COpaquePointer?): Hresult
 }
 
-public typealias PCOGETACTIVATIONSTATE = PCOGETACTIVATIONSTATEFn?
+public typealias Pcogetactivationstate = PcogetactivationstateFn?
 
-public fun interface PCOGETCALLSTATEFn {
-    public operator fun invoke(param0: Int, param1: Long): HRESULT
+public fun interface PcogetcallstateFn {
+    public operator fun invoke(param0: Int, param1: COpaquePointer?): Hresult
 }
 
-public typealias PCOGETCALLSTATE = PCOGETCALLSTATEFn?
+public typealias Pcogetcallstate = PcogetcallstateFn?
 
-public fun interface PDBGHELP_CREATE_USER_DUMP_CALLBACKFn {
-    public operator fun invoke(datatype: UInt, data: Long, datalength: Long, userdata: Long): BOOL
+public fun interface PdbghelpCreateUserDumpCallbackFn {
+    public operator fun invoke(datatype: UInt, data: COpaquePointer?, datalength: COpaquePointer?, userdata: COpaquePointer?): Bool
 }
 
-public typealias PDBGHELP_CREATE_USER_DUMP_CALLBACK = PDBGHELP_CREATE_USER_DUMP_CALLBACKFn?
+public typealias PdbghelpCreateUserDumpCallback = PdbghelpCreateUserDumpCallbackFn?
 
-public fun interface PENUMDIRTREE_CALLBACKFn {
-    public operator fun invoke(filepath: PCSTR, callerdata: Long): BOOL
+public fun interface PenumdirtreeCallbackFn {
+    public operator fun invoke(filepath: Pcstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PENUMDIRTREE_CALLBACK = PENUMDIRTREE_CALLBACKFn?
+public typealias PenumdirtreeCallback = PenumdirtreeCallbackFn?
 
-public fun interface PENUMDIRTREE_CALLBACKWFn {
-    public operator fun invoke(filepath: PCWSTR, callerdata: Long): BOOL
+public fun interface PenumdirtreeCallbackwFn {
+    public operator fun invoke(filepath: Pcwstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PENUMDIRTREE_CALLBACKW = PENUMDIRTREE_CALLBACKWFn?
+public typealias PenumdirtreeCallbackw = PenumdirtreeCallbackwFn?
 
-public fun interface PENUMLOADED_MODULES_CALLBACK64Fn {
-    public operator fun invoke(modulename: PCSTR, modulebase: ULong, modulesize: UInt, usercontext: Long): BOOL
+public fun interface PenumloadedModulesCallback64Fn {
+    public operator fun invoke(modulename: Pcstr, modulebase: ULong, modulesize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PENUMLOADED_MODULES_CALLBACK64 = PENUMLOADED_MODULES_CALLBACK64Fn?
+public typealias PenumloadedModulesCallback64 = PenumloadedModulesCallback64Fn?
 
-public fun interface PENUMLOADED_MODULES_CALLBACKW64Fn {
-    public operator fun invoke(modulename: PCWSTR, modulebase: ULong, modulesize: UInt, usercontext: Long): BOOL
+public fun interface PenumloadedModulesCallbackw64Fn {
+    public operator fun invoke(modulename: Pcwstr, modulebase: ULong, modulesize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PENUMLOADED_MODULES_CALLBACKW64 = PENUMLOADED_MODULES_CALLBACKW64Fn?
+public typealias PenumloadedModulesCallbackw64 = PenumloadedModulesCallbackw64Fn?
 
-public fun interface PENUMSOURCEFILETOKENSCALLBACKFn {
-    public operator fun invoke(token: Long, size: ULong): BOOL
+public fun interface PenumsourcefiletokenscallbackFn {
+    public operator fun invoke(token: COpaquePointer?, size: ULong): Bool
 }
 
-public typealias PENUMSOURCEFILETOKENSCALLBACK = PENUMSOURCEFILETOKENSCALLBACKFn?
+public typealias Penumsourcefiletokenscallback = PenumsourcefiletokenscallbackFn?
 
-public fun interface PFINDFILEINPATHCALLBACKFn {
-    public operator fun invoke(filename: PCSTR, context: Long): BOOL
+public fun interface PfindfileinpathcallbackFn {
+    public operator fun invoke(filename: Pcstr, context: COpaquePointer?): Bool
 }
 
-public typealias PFINDFILEINPATHCALLBACK = PFINDFILEINPATHCALLBACKFn?
+public typealias Pfindfileinpathcallback = PfindfileinpathcallbackFn?
 
-public fun interface PFINDFILEINPATHCALLBACKWFn {
-    public operator fun invoke(filename: PCWSTR, context: Long): BOOL
+public fun interface PfindfileinpathcallbackwFn {
+    public operator fun invoke(filename: Pcwstr, context: COpaquePointer?): Bool
 }
 
-public typealias PFINDFILEINPATHCALLBACKW = PFINDFILEINPATHCALLBACKWFn?
+public typealias Pfindfileinpathcallbackw = PfindfileinpathcallbackwFn?
 
-public fun interface PFIND_DEBUG_FILE_CALLBACKFn {
-    public operator fun invoke(filehandle: HANDLE, filename: PCSTR, callerdata: Long): BOOL
+public fun interface PfindDebugFileCallbackFn {
+    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PFIND_DEBUG_FILE_CALLBACK = PFIND_DEBUG_FILE_CALLBACKFn?
+public typealias PfindDebugFileCallback = PfindDebugFileCallbackFn?
 
-public fun interface PFIND_DEBUG_FILE_CALLBACKWFn {
-    public operator fun invoke(filehandle: HANDLE, filename: PCWSTR, callerdata: Long): BOOL
+public fun interface PfindDebugFileCallbackwFn {
+    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PFIND_DEBUG_FILE_CALLBACKW = PFIND_DEBUG_FILE_CALLBACKWFn?
+public typealias PfindDebugFileCallbackw = PfindDebugFileCallbackwFn?
 
-public fun interface PFIND_EXE_FILE_CALLBACKFn {
-    public operator fun invoke(filehandle: HANDLE, filename: PCSTR, callerdata: Long): BOOL
+public fun interface PfindExeFileCallbackFn {
+    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PFIND_EXE_FILE_CALLBACK = PFIND_EXE_FILE_CALLBACKFn?
+public typealias PfindExeFileCallback = PfindExeFileCallbackFn?
 
-public fun interface PFIND_EXE_FILE_CALLBACKWFn {
-    public operator fun invoke(filehandle: HANDLE, filename: PCWSTR, callerdata: Long): BOOL
+public fun interface PfindExeFileCallbackwFn {
+    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: COpaquePointer?): Bool
 }
 
-public typealias PFIND_EXE_FILE_CALLBACKW = PFIND_EXE_FILE_CALLBACKWFn?
+public typealias PfindExeFileCallbackw = PfindExeFileCallbackwFn?
 
-public fun interface PFUNCTION_TABLE_ACCESS_ROUTINE64Fn {
-    public operator fun invoke(ahprocess: HANDLE, addrbase: ULong): Long
+public fun interface PfunctionTableAccessRoutine64Fn {
+    public operator fun invoke(ahprocess: Handle, addrbase: ULong): COpaquePointer?
 }
 
-public typealias PFUNCTION_TABLE_ACCESS_ROUTINE64 = PFUNCTION_TABLE_ACCESS_ROUTINE64Fn?
+public typealias PfunctionTableAccessRoutine64 = PfunctionTableAccessRoutine64Fn?
 
-public fun interface PGET_MODULE_BASE_ROUTINE64Fn {
-    public operator fun invoke(hprocess: HANDLE, address: ULong): ULong
+public fun interface PgetModuleBaseRoutine64Fn {
+    public operator fun invoke(hprocess: Handle, address: ULong): ULong
 }
 
-public typealias PGET_MODULE_BASE_ROUTINE64 = PGET_MODULE_BASE_ROUTINE64Fn?
+public typealias PgetModuleBaseRoutine64 = PgetModuleBaseRoutine64Fn?
 
-public fun interface PGET_RUNTIME_FUNCTION_CALLBACKFn {
-    public operator fun invoke(controlpc: ULong, context: Long): Long
+public fun interface PgetRuntimeFunctionCallbackFn {
+    public operator fun invoke(controlpc: ULong, context: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PGET_RUNTIME_FUNCTION_CALLBACK = PGET_RUNTIME_FUNCTION_CALLBACKFn?
+public typealias PgetRuntimeFunctionCallback = PgetRuntimeFunctionCallbackFn?
 
-public fun interface PGET_TARGET_ATTRIBUTE_VALUE64Fn {
-    public operator fun invoke(hprocess: HANDLE, attribute: UInt, attributedata: ULong, attributevalue: Long): BOOL
+public fun interface PgetTargetAttributeValue64Fn {
+    public operator fun invoke(hprocess: Handle, attribute: UInt, attributedata: ULong, attributevalue: COpaquePointer?): Bool
 }
 
-public typealias PGET_TARGET_ATTRIBUTE_VALUE64 = PGET_TARGET_ATTRIBUTE_VALUE64Fn?
+public typealias PgetTargetAttributeValue64 = PgetTargetAttributeValue64Fn?
 
-public fun interface PIMAGEHLP_STATUS_ROUTINEFn {
-    public operator fun invoke(reason: IMAGEHLP_STATUS_REASON, imagename: PCSTR, dllname: PCSTR, va: ULong, parameter: ULong): BOOL
+public fun interface PimagehlpStatusRoutineFn {
+    public operator fun invoke(reason: ImagehlpStatusReason, imagename: Pcstr, dllname: Pcstr, va: ULong, parameter: ULong): Bool
 }
 
-public typealias PIMAGEHLP_STATUS_ROUTINE = PIMAGEHLP_STATUS_ROUTINEFn?
+public typealias PimagehlpStatusRoutine = PimagehlpStatusRoutineFn?
 
-public fun interface PIMAGEHLP_STATUS_ROUTINE32Fn {
-    public operator fun invoke(reason: IMAGEHLP_STATUS_REASON, imagename: PCSTR, dllname: PCSTR, va: UInt, parameter: ULong): BOOL
+public fun interface PimagehlpStatusRoutine32Fn {
+    public operator fun invoke(reason: ImagehlpStatusReason, imagename: Pcstr, dllname: Pcstr, va: UInt, parameter: ULong): Bool
 }
 
-public typealias PIMAGEHLP_STATUS_ROUTINE32 = PIMAGEHLP_STATUS_ROUTINE32Fn?
+public typealias PimagehlpStatusRoutine32 = PimagehlpStatusRoutine32Fn?
 
-public fun interface PIMAGEHLP_STATUS_ROUTINE64Fn {
-    public operator fun invoke(reason: IMAGEHLP_STATUS_REASON, imagename: PCSTR, dllname: PCSTR, va: ULong, parameter: ULong): BOOL
+public fun interface PimagehlpStatusRoutine64Fn {
+    public operator fun invoke(reason: ImagehlpStatusReason, imagename: Pcstr, dllname: Pcstr, va: ULong, parameter: ULong): Bool
 }
 
-public typealias PIMAGEHLP_STATUS_ROUTINE64 = PIMAGEHLP_STATUS_ROUTINE64Fn?
+public typealias PimagehlpStatusRoutine64 = PimagehlpStatusRoutine64Fn?
 
-public fun interface PREAD_PROCESS_MEMORY_ROUTINE64Fn {
-    public operator fun invoke(hprocess: HANDLE, qwbaseaddress: ULong, lpbuffer: Long, nsize: UInt, lpnumberofbytesread: Long): BOOL
+public fun interface PreadProcessMemoryRoutine64Fn {
+    public operator fun invoke(hprocess: Handle, qwbaseaddress: ULong, lpbuffer: COpaquePointer?, nsize: UInt, lpnumberofbytesread: COpaquePointer?): Bool
 }
 
-public typealias PREAD_PROCESS_MEMORY_ROUTINE64 = PREAD_PROCESS_MEMORY_ROUTINE64Fn?
+public typealias PreadProcessMemoryRoutine64 = PreadProcessMemoryRoutine64Fn?
 
-public typealias PROP_INFO_FLAGS = Int
+public typealias PropInfoFlags = Int
 
-public fun interface PSYMBOLSERVERBYINDEXPROCFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PCSTR): BOOL
+public fun interface PsymbolserverbyindexprocFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: Pcstr, param3: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERBYINDEXPROC = PSYMBOLSERVERBYINDEXPROCFn?
+public typealias Psymbolserverbyindexproc = PsymbolserverbyindexprocFn?
 
-public fun interface PSYMBOLSERVERBYINDEXPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PCSTR): BOOL
+public fun interface PsymbolserverbyindexprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: Pcstr, param3: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERBYINDEXPROCA = PSYMBOLSERVERBYINDEXPROCAFn?
+public typealias Psymbolserverbyindexproca = PsymbolserverbyindexprocaFn?
 
-public fun interface PSYMBOLSERVERBYINDEXPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PCWSTR): BOOL
+public fun interface PsymbolserverbyindexprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERBYINDEXPROCW = PSYMBOLSERVERBYINDEXPROCWFn?
+public typealias Psymbolserverbyindexprocw = PsymbolserverbyindexprocwFn?
 
-public fun interface PSYMBOLSERVERCALLBACKPROCFn {
-    public operator fun invoke(action: ULong, data: ULong, context: ULong): BOOL
+public fun interface PsymbolservercallbackprocFn {
+    public operator fun invoke(action: ULong, data: ULong, context: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERCALLBACKPROC = PSYMBOLSERVERCALLBACKPROCFn?
+public typealias Psymbolservercallbackproc = PsymbolservercallbackprocFn?
 
-public fun interface PSYMBOLSERVERCLOSEPROCFn {
-    public operator fun invoke(): BOOL
+public fun interface PsymbolservercloseprocFn {
+    public operator fun invoke(): Bool
 }
 
-public typealias PSYMBOLSERVERCLOSEPROC = PSYMBOLSERVERCLOSEPROCFn?
+public typealias Psymbolservercloseproc = PsymbolservercloseprocFn?
 
-public fun interface PSYMBOLSERVERDELTANAMEFn {
-    public operator fun invoke(param0: PCSTR, param1: Long, param2: UInt, param3: UInt, param4: Long, param5: UInt, param6: UInt, param7: PCSTR, param8: ULong): BOOL
+public fun interface PsymbolserverdeltanameFn {
+    public operator fun invoke(param0: Pcstr, param1: COpaquePointer?, param2: UInt, param3: UInt, param4: COpaquePointer?, param5: UInt, param6: UInt, param7: Pcstr, param8: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERDELTANAME = PSYMBOLSERVERDELTANAMEFn?
+public typealias Psymbolserverdeltaname = PsymbolserverdeltanameFn?
 
-public fun interface PSYMBOLSERVERDELTANAMEWFn {
-    public operator fun invoke(param0: PCWSTR, param1: Long, param2: UInt, param3: UInt, param4: Long, param5: UInt, param6: UInt, param7: PCWSTR, param8: ULong): BOOL
+public fun interface PsymbolserverdeltanamewFn {
+    public operator fun invoke(param0: Pcwstr, param1: COpaquePointer?, param2: UInt, param3: UInt, param4: COpaquePointer?, param5: UInt, param6: UInt, param7: Pcwstr, param8: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERDELTANAMEW = PSYMBOLSERVERDELTANAMEWFn?
+public typealias Psymbolserverdeltanamew = PsymbolserverdeltanamewFn?
 
-public fun interface PSYMBOLSERVERGETINDEXSTRINGFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: UInt, param3: PCSTR, param4: ULong): BOOL
+public fun interface PsymbolservergetindexstringFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: UInt, param3: Pcstr, param4: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERGETINDEXSTRING = PSYMBOLSERVERGETINDEXSTRINGFn?
+public typealias Psymbolservergetindexstring = PsymbolservergetindexstringFn?
 
-public fun interface PSYMBOLSERVERGETINDEXSTRINGWFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: UInt, param3: PCWSTR, param4: ULong): BOOL
+public fun interface PsymbolservergetindexstringwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: UInt, param3: Pcwstr, param4: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERGETINDEXSTRINGW = PSYMBOLSERVERGETINDEXSTRINGWFn?
+public typealias Psymbolservergetindexstringw = PsymbolservergetindexstringwFn?
 
-public fun interface PSYMBOLSERVERGETOPTIONDATAPROCFn {
-    public operator fun invoke(param0: ULong, param1: Long): BOOL
+public fun interface PsymbolservergetoptiondataprocFn {
+    public operator fun invoke(param0: ULong, param1: COpaquePointer?): Bool
 }
 
-public typealias PSYMBOLSERVERGETOPTIONDATAPROC = PSYMBOLSERVERGETOPTIONDATAPROCFn?
+public typealias Psymbolservergetoptiondataproc = PsymbolservergetoptiondataprocFn?
 
-public fun interface PSYMBOLSERVERGETOPTIONSPROCFn {
+public fun interface PsymbolservergetoptionsprocFn {
     public operator fun invoke(): ULong
 }
 
-public typealias PSYMBOLSERVERGETOPTIONSPROC = PSYMBOLSERVERGETOPTIONSPROCFn?
+public typealias Psymbolservergetoptionsproc = PsymbolservergetoptionsprocFn?
 
-public fun interface PSYMBOLSERVERGETSUPPLEMENTFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PCSTR, param4: ULong): BOOL
+public fun interface PsymbolservergetsupplementFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERGETSUPPLEMENT = PSYMBOLSERVERGETSUPPLEMENTFn?
+public typealias Psymbolservergetsupplement = PsymbolservergetsupplementFn?
 
-public fun interface PSYMBOLSERVERGETSUPPLEMENTWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PCWSTR, param4: ULong): BOOL
+public fun interface PsymbolservergetsupplementwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERGETSUPPLEMENTW = PSYMBOLSERVERGETSUPPLEMENTWFn?
+public typealias Psymbolservergetsupplementw = PsymbolservergetsupplementwFn?
 
-public fun interface PSYMBOLSERVERGETVERSIONFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PsymbolservergetversionFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PSYMBOLSERVERGETVERSION = PSYMBOLSERVERGETVERSIONFn?
+public typealias Psymbolservergetversion = PsymbolservergetversionFn?
 
-public fun interface PSYMBOLSERVERISSTOREFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface PsymbolserverisstoreFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERISSTORE = PSYMBOLSERVERISSTOREFn?
+public typealias Psymbolserverisstore = PsymbolserverisstoreFn?
 
-public fun interface PSYMBOLSERVERISSTOREWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface PsymbolserverisstorewFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERISSTOREW = PSYMBOLSERVERISSTOREWFn?
+public typealias Psymbolserverisstorew = PsymbolserverisstorewFn?
 
-public fun interface PSYMBOLSERVERMESSAGEPROCFn {
-    public operator fun invoke(action: ULong, data: ULong, context: ULong): BOOL
+public fun interface PsymbolservermessageprocFn {
+    public operator fun invoke(action: ULong, data: ULong, context: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERMESSAGEPROC = PSYMBOLSERVERMESSAGEPROCFn?
+public typealias Psymbolservermessageproc = PsymbolservermessageprocFn?
 
-public fun interface PSYMBOLSERVEROPENPROCFn {
-    public operator fun invoke(): BOOL
+public fun interface PsymbolserveropenprocFn {
+    public operator fun invoke(): Bool
 }
 
-public typealias PSYMBOLSERVEROPENPROC = PSYMBOLSERVEROPENPROCFn?
+public typealias Psymbolserveropenproc = PsymbolserveropenprocFn?
 
-public fun interface PSYMBOLSERVERPINGPROCFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface PsymbolserverpingprocFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERPINGPROC = PSYMBOLSERVERPINGPROCFn?
+public typealias Psymbolserverpingproc = PsymbolserverpingprocFn?
 
-public fun interface PSYMBOLSERVERPINGPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface PsymbolserverpingprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERPINGPROCA = PSYMBOLSERVERPINGPROCAFn?
+public typealias Psymbolserverpingproca = PsymbolserverpingprocaFn?
 
-public fun interface PSYMBOLSERVERPINGPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface PsymbolserverpingprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERPINGPROCW = PSYMBOLSERVERPINGPROCWFn?
+public typealias Psymbolserverpingprocw = PsymbolserverpingprocwFn?
 
-public fun interface PSYMBOLSERVERPINGPROCWEXFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface PsymbolserverpingprocwexFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERPINGPROCWEX = PSYMBOLSERVERPINGPROCWEXFn?
+public typealias Psymbolserverpingprocwex = PsymbolserverpingprocwexFn?
 
-public fun interface PSYMBOLSERVERPROCFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: Long, param3: UInt, param4: UInt, param5: PCSTR): BOOL
+public fun interface PsymbolserverprocFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERPROC = PSYMBOLSERVERPROCFn?
+public typealias Psymbolserverproc = PsymbolserverprocFn?
 
-public fun interface PSYMBOLSERVERPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: Long, param3: UInt, param4: UInt, param5: PCSTR): BOOL
+public fun interface PsymbolserverprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcstr): Bool
 }
 
-public typealias PSYMBOLSERVERPROCA = PSYMBOLSERVERPROCAFn?
+public typealias Psymbolserverproca = PsymbolserverprocaFn?
 
-public fun interface PSYMBOLSERVERPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: UInt, param4: UInt, param5: PCWSTR): BOOL
+public fun interface PsymbolserverprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERPROCW = PSYMBOLSERVERPROCWFn?
+public typealias Psymbolserverprocw = PsymbolserverprocwFn?
 
-public fun interface PSYMBOLSERVERSETHTTPAUTHHEADERFn {
-    public operator fun invoke(pszauthheader: PCWSTR): BOOL
+public fun interface PsymbolserversethttpauthheaderFn {
+    public operator fun invoke(pszauthheader: Pcwstr): Bool
 }
 
-public typealias PSYMBOLSERVERSETHTTPAUTHHEADER = PSYMBOLSERVERSETHTTPAUTHHEADERFn?
+public typealias Psymbolserversethttpauthheader = PsymbolserversethttpauthheaderFn?
 
-public fun interface PSYMBOLSERVERSETOPTIONSPROCFn {
-    public operator fun invoke(param0: ULong, param1: ULong): BOOL
+public fun interface PsymbolserversetoptionsprocFn {
+    public operator fun invoke(param0: ULong, param1: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERSETOPTIONSPROC = PSYMBOLSERVERSETOPTIONSPROCFn?
+public typealias Psymbolserversetoptionsproc = PsymbolserversetoptionsprocFn?
 
-public fun interface PSYMBOLSERVERSETOPTIONSWPROCFn {
-    public operator fun invoke(param0: ULong, param1: ULong): BOOL
+public fun interface PsymbolserversetoptionswprocFn {
+    public operator fun invoke(param0: ULong, param1: ULong): Bool
 }
 
-public typealias PSYMBOLSERVERSETOPTIONSWPROC = PSYMBOLSERVERSETOPTIONSWPROCFn?
+public typealias Psymbolserversetoptionswproc = PsymbolserversetoptionswprocFn?
 
-public fun interface PSYMBOLSERVERSTOREFILEFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: Long, param3: UInt, param4: UInt, param5: PCSTR, param6: ULong, param7: UInt): BOOL
+public fun interface PsymbolserverstorefileFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcstr, param6: ULong, param7: UInt): Bool
 }
 
-public typealias PSYMBOLSERVERSTOREFILE = PSYMBOLSERVERSTOREFILEFn?
+public typealias Psymbolserverstorefile = PsymbolserverstorefileFn?
 
-public fun interface PSYMBOLSERVERSTOREFILEWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: UInt, param4: UInt, param5: PCWSTR, param6: ULong, param7: UInt): BOOL
+public fun interface PsymbolserverstorefilewFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcwstr, param6: ULong, param7: UInt): Bool
 }
 
-public typealias PSYMBOLSERVERSTOREFILEW = PSYMBOLSERVERSTOREFILEWFn?
+public typealias Psymbolserverstorefilew = PsymbolserverstorefilewFn?
 
-public fun interface PSYMBOLSERVERSTORESUPPLEMENTFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: PCSTR, param3: PCSTR, param4: ULong, param5: UInt): BOOL
+public fun interface PsymbolserverstoresupplementFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: ULong, param5: UInt): Bool
 }
 
-public typealias PSYMBOLSERVERSTORESUPPLEMENT = PSYMBOLSERVERSTORESUPPLEMENTFn?
+public typealias Psymbolserverstoresupplement = PsymbolserverstoresupplementFn?
 
-public fun interface PSYMBOLSERVERSTORESUPPLEMENTWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: PCWSTR, param3: PCWSTR, param4: ULong, param5: UInt): BOOL
+public fun interface PsymbolserverstoresupplementwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: ULong, param5: UInt): Bool
 }
 
-public typealias PSYMBOLSERVERSTORESUPPLEMENTW = PSYMBOLSERVERSTORESUPPLEMENTWFn?
+public typealias Psymbolserverstoresupplementw = PsymbolserverstoresupplementwFn?
 
-public fun interface PSYMBOLSERVERVERSIONFn {
+public fun interface PsymbolserverversionFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PSYMBOLSERVERVERSION = PSYMBOLSERVERVERSIONFn?
+public typealias Psymbolserverversion = PsymbolserverversionFn?
 
-public fun interface PSYMBOLSERVERWEXPROCFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: UInt, param4: UInt, param5: PCWSTR, param6: Long): BOOL
+public fun interface PsymbolserverwexprocFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: Pcwstr, param6: COpaquePointer?): Bool
 }
 
-public typealias PSYMBOLSERVERWEXPROC = PSYMBOLSERVERWEXPROCFn?
+public typealias Psymbolserverwexproc = PsymbolserverwexprocFn?
 
-public fun interface PSYMBOL_FUNCENTRY_CALLBACKFn {
-    public operator fun invoke(hprocess: HANDLE, addrbase: UInt, usercontext: Long): Long
+public fun interface PsymbolFuncentryCallbackFn {
+    public operator fun invoke(hprocess: Handle, addrbase: UInt, usercontext: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PSYMBOL_FUNCENTRY_CALLBACK = PSYMBOL_FUNCENTRY_CALLBACKFn?
+public typealias PsymbolFuncentryCallback = PsymbolFuncentryCallbackFn?
 
-public fun interface PSYMBOL_FUNCENTRY_CALLBACK64Fn {
-    public operator fun invoke(hprocess: HANDLE, addrbase: ULong, usercontext: ULong): Long
+public fun interface PsymbolFuncentryCallback64Fn {
+    public operator fun invoke(hprocess: Handle, addrbase: ULong, usercontext: ULong): COpaquePointer?
 }
 
-public typealias PSYMBOL_FUNCENTRY_CALLBACK64 = PSYMBOL_FUNCENTRY_CALLBACK64Fn?
+public typealias PsymbolFuncentryCallback64 = PsymbolFuncentryCallback64Fn?
 
-public fun interface PSYMBOL_REGISTERED_CALLBACK64Fn {
-    public operator fun invoke(hprocess: HANDLE, actioncode: UInt, callbackdata: ULong, usercontext: ULong): BOOL
+public fun interface PsymbolRegisteredCallback64Fn {
+    public operator fun invoke(hprocess: Handle, actioncode: UInt, callbackdata: ULong, usercontext: ULong): Bool
 }
 
-public typealias PSYMBOL_REGISTERED_CALLBACK64 = PSYMBOL_REGISTERED_CALLBACK64Fn?
+public typealias PsymbolRegisteredCallback64 = PsymbolRegisteredCallback64Fn?
 
-public fun interface PSYM_ENUMERATESYMBOLS_CALLBACKFn {
-    public operator fun invoke(psyminfo: Long, symbolsize: UInt, usercontext: Long): BOOL
+public fun interface PsymEnumeratesymbolsCallbackFn {
+    public operator fun invoke(psyminfo: COpaquePointer?, symbolsize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMERATESYMBOLS_CALLBACK = PSYM_ENUMERATESYMBOLS_CALLBACKFn?
+public typealias PsymEnumeratesymbolsCallback = PsymEnumeratesymbolsCallbackFn?
 
-public fun interface PSYM_ENUMERATESYMBOLS_CALLBACKWFn {
-    public operator fun invoke(psyminfo: Long, symbolsize: UInt, usercontext: Long): BOOL
+public fun interface PsymEnumeratesymbolsCallbackwFn {
+    public operator fun invoke(psyminfo: COpaquePointer?, symbolsize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMERATESYMBOLS_CALLBACKW = PSYM_ENUMERATESYMBOLS_CALLBACKWFn?
+public typealias PsymEnumeratesymbolsCallbackw = PsymEnumeratesymbolsCallbackwFn?
 
-public fun interface PSYM_ENUMLINES_CALLBACKFn {
-    public operator fun invoke(lineinfo: Long, usercontext: Long): BOOL
+public fun interface PsymEnumlinesCallbackFn {
+    public operator fun invoke(lineinfo: COpaquePointer?, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMLINES_CALLBACK = PSYM_ENUMLINES_CALLBACKFn?
+public typealias PsymEnumlinesCallback = PsymEnumlinesCallbackFn?
 
-public fun interface PSYM_ENUMLINES_CALLBACKWFn {
-    public operator fun invoke(lineinfo: Long, usercontext: Long): BOOL
+public fun interface PsymEnumlinesCallbackwFn {
+    public operator fun invoke(lineinfo: COpaquePointer?, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMLINES_CALLBACKW = PSYM_ENUMLINES_CALLBACKWFn?
+public typealias PsymEnumlinesCallbackw = PsymEnumlinesCallbackwFn?
 
-public fun interface PSYM_ENUMMODULES_CALLBACK64Fn {
-    public operator fun invoke(modulename: PCSTR, baseofdll: ULong, usercontext: Long): BOOL
+public fun interface PsymEnummodulesCallback64Fn {
+    public operator fun invoke(modulename: Pcstr, baseofdll: ULong, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMMODULES_CALLBACK64 = PSYM_ENUMMODULES_CALLBACK64Fn?
+public typealias PsymEnummodulesCallback64 = PsymEnummodulesCallback64Fn?
 
-public fun interface PSYM_ENUMMODULES_CALLBACKW64Fn {
-    public operator fun invoke(modulename: PCWSTR, baseofdll: ULong, usercontext: Long): BOOL
+public fun interface PsymEnummodulesCallbackw64Fn {
+    public operator fun invoke(modulename: Pcwstr, baseofdll: ULong, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMMODULES_CALLBACKW64 = PSYM_ENUMMODULES_CALLBACKW64Fn?
+public typealias PsymEnummodulesCallbackw64 = PsymEnummodulesCallbackw64Fn?
 
-public fun interface PSYM_ENUMPROCESSES_CALLBACKFn {
-    public operator fun invoke(hprocess: HANDLE, usercontext: Long): BOOL
+public fun interface PsymEnumprocessesCallbackFn {
+    public operator fun invoke(hprocess: Handle, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMPROCESSES_CALLBACK = PSYM_ENUMPROCESSES_CALLBACKFn?
+public typealias PsymEnumprocessesCallback = PsymEnumprocessesCallbackFn?
 
-public fun interface PSYM_ENUMSOURCEFILES_CALLBACKFn {
-    public operator fun invoke(psourcefile: Long, usercontext: Long): BOOL
+public fun interface PsymEnumsourcefilesCallbackFn {
+    public operator fun invoke(psourcefile: COpaquePointer?, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMSOURCEFILES_CALLBACK = PSYM_ENUMSOURCEFILES_CALLBACKFn?
+public typealias PsymEnumsourcefilesCallback = PsymEnumsourcefilesCallbackFn?
 
-public fun interface PSYM_ENUMSOURCEFILES_CALLBACKWFn {
-    public operator fun invoke(psourcefile: Long, usercontext: Long): BOOL
+public fun interface PsymEnumsourcefilesCallbackwFn {
+    public operator fun invoke(psourcefile: COpaquePointer?, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMSOURCEFILES_CALLBACKW = PSYM_ENUMSOURCEFILES_CALLBACKWFn?
+public typealias PsymEnumsourcefilesCallbackw = PsymEnumsourcefilesCallbackwFn?
 
-public fun interface PSYM_ENUMSYMBOLS_CALLBACK64Fn {
-    public operator fun invoke(symbolname: PCSTR, symboladdress: ULong, symbolsize: UInt, usercontext: Long): BOOL
+public fun interface PsymEnumsymbolsCallback64Fn {
+    public operator fun invoke(symbolname: Pcstr, symboladdress: ULong, symbolsize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMSYMBOLS_CALLBACK64 = PSYM_ENUMSYMBOLS_CALLBACK64Fn?
+public typealias PsymEnumsymbolsCallback64 = PsymEnumsymbolsCallback64Fn?
 
-public fun interface PSYM_ENUMSYMBOLS_CALLBACK64WFn {
-    public operator fun invoke(symbolname: PCWSTR, symboladdress: ULong, symbolsize: UInt, usercontext: Long): BOOL
+public fun interface PsymEnumsymbolsCallback64wFn {
+    public operator fun invoke(symbolname: Pcwstr, symboladdress: ULong, symbolsize: UInt, usercontext: COpaquePointer?): Bool
 }
 
-public typealias PSYM_ENUMSYMBOLS_CALLBACK64W = PSYM_ENUMSYMBOLS_CALLBACK64WFn?
+public typealias PsymEnumsymbolsCallback64w = PsymEnumsymbolsCallback64wFn?
 
-public fun interface PTRANSLATE_ADDRESS_ROUTINE64Fn {
-    public operator fun invoke(hprocess: HANDLE, hthread: HANDLE, lpaddr: Long): ULong
+public fun interface PtranslateAddressRoutine64Fn {
+    public operator fun invoke(hprocess: Handle, hthread: Handle, lpaddr: COpaquePointer?): ULong
 }
 
-public typealias PTRANSLATE_ADDRESS_ROUTINE64 = PTRANSLATE_ADDRESS_ROUTINE64Fn?
+public typealias PtranslateAddressRoutine64 = PtranslateAddressRoutine64Fn?
 
-public fun interface PVECTORED_EXCEPTION_HANDLERFn {
-    public operator fun invoke(exceptioninfo: Long): Int
+public fun interface PvectoredExceptionHandlerFn {
+    public operator fun invoke(exceptioninfo: COpaquePointer?): Int
 }
 
-public typealias PVECTORED_EXCEPTION_HANDLER = PVECTORED_EXCEPTION_HANDLERFn?
+public typealias PvectoredExceptionHandler = PvectoredExceptionHandlerFn?
 
-public fun interface PWAITCHAINCALLBACKFn {
-    public operator fun invoke(wcthandle: Long, context: ULong, callbackstatus: UInt, nodecount: Long, nodeinfoarray: Long, iscycle: Long)
+public fun interface PwaitchaincallbackFn {
+    public operator fun invoke(wcthandle: COpaquePointer?, context: ULong, callbackstatus: UInt, nodecount: COpaquePointer?, nodeinfoarray: COpaquePointer?, iscycle: COpaquePointer?)
 }
 
-public typealias PWAITCHAINCALLBACK = PWAITCHAINCALLBACKFn?
+public typealias Pwaitchaincallback = PwaitchaincallbackFn?
 
-public typealias RIP_INFO_TYPE = UInt
+public typealias RipInfoType = UInt
 
-public typealias RTL_VIRTUAL_UNWIND_HANDLER_TYPE = UInt
+public typealias RtlVirtualUnwindHandlerType = UInt
 
-public fun interface SYMADDSOURCESTREAMFn {
-    public operator fun invoke(param0: HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
+public fun interface SymaddsourcestreamFn {
+    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: COpaquePointer?, param4: ULong): Bool
 }
 
-public typealias SYMADDSOURCESTREAM = SYMADDSOURCESTREAMFn?
+public typealias Symaddsourcestream = SymaddsourcestreamFn?
 
-public fun interface SYMADDSOURCESTREAMAFn {
-    public operator fun invoke(param0: HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
+public fun interface SymaddsourcestreamaFn {
+    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: COpaquePointer?, param4: ULong): Bool
 }
 
-public typealias SYMADDSOURCESTREAMA = SYMADDSOURCESTREAMAFn?
+public typealias Symaddsourcestreama = SymaddsourcestreamaFn?
 
-public typealias SYMBOL_INFO_FLAGS = UInt
+public typealias SymbolInfoFlags = UInt
 
-public typealias SYM_FIND_ID_OPTION = UInt
+public typealias SymFindIdOption = UInt
 
-public typealias SYM_LOAD_FLAGS = UInt
+public typealias SymLoadFlags = UInt
 
-public typealias SYM_SRV_STORE_FILE_FLAGS = UInt
+public typealias SymSrvStoreFileFlags = UInt
 
-public typealias SYM_TYPE = Int
+public typealias SymType = Int
 
-public typealias THREAD_ERROR_MODE = UInt
+public typealias ThreadErrorMode = UInt
 
-public typealias THREAD_WRITE_FLAGS = Int
+public typealias ThreadWriteFlags = Int
 
-public typealias VER_PLATFORM = UInt
+public typealias VerPlatform = UInt
 
-public typealias WAIT_CHAIN_THREAD_OPTIONS = UInt
+public typealias WaitChainThreadOptions = UInt
 
-public typealias WCT_OBJECT_STATUS = Int
+public typealias WctObjectStatus = Int
 
-public typealias WCT_OBJECT_TYPE = Int
+public typealias WctObjectType = Int
 
-public fun interface WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVERFn {
-    public operator fun invoke(errorsourcedesc: Long, maximumsectionlength: Long): NTSTATUS
+public fun interface WheaErrorSourceCorrectDeviceDriverFn {
+    public operator fun invoke(errorsourcedesc: COpaquePointer?, maximumsectionlength: COpaquePointer?): Ntstatus
 }
 
-public typealias WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVERFn?
+public typealias WheaErrorSourceCorrectDeviceDriver = WheaErrorSourceCorrectDeviceDriverFn?
 
-public fun interface WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVERFn {
-    public operator fun invoke(context: Long, errorsourceid: UInt): NTSTATUS
+public fun interface WheaErrorSourceInitializeDeviceDriverFn {
+    public operator fun invoke(context: COpaquePointer?, errorsourceid: UInt): Ntstatus
 }
 
-public typealias WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVERFn?
+public typealias WheaErrorSourceInitializeDeviceDriver = WheaErrorSourceInitializeDeviceDriverFn?
 
-public typealias WHEA_ERROR_SOURCE_STATE = Int
+public typealias WheaErrorSourceState = Int
 
-public typealias WHEA_ERROR_SOURCE_TYPE = Int
+public typealias WheaErrorSourceType = Int
 
-public fun interface WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVERFn {
-    public operator fun invoke(context: Long)
+public fun interface WheaErrorSourceUninitializeDeviceDriverFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVERFn?
+public typealias WheaErrorSourceUninitializeDeviceDriver = WheaErrorSourceUninitializeDeviceDriverFn?
 
-public typealias WOW64_CONTEXT_FLAGS = UInt
+public typealias Wow64ContextFlags = UInt

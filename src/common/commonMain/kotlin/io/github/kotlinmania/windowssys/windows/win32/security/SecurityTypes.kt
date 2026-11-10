@@ -1,73 +1,74 @@
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public typealias ACE_FLAGS = UInt
+public typealias AceFlags = UInt
 
-public typealias ACE_REVISION = UInt
+public typealias AceRevision = UInt
 
-public typealias ACL_INFORMATION_CLASS = Int
+public typealias AclInformationClass = Int
 
-public typealias AUDIT_EVENT_TYPE = Int
+public typealias AuditEventType = Int
 
-public typealias CLAIM_SECURITY_ATTRIBUTE_FLAGS = UInt
+public typealias ClaimSecurityAttributeFlags = UInt
 
-public typealias CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = UShort
+public typealias ClaimSecurityAttributeValueType = UShort
 
-public typealias CREATE_RESTRICTED_TOKEN_FLAGS = UInt
+public typealias CreateRestrictedTokenFlags = UInt
 
-public typealias ENUM_PERIOD = Int
+public typealias EnumPeriod = Int
 
-public typealias LOGON32_LOGON = UInt
+public typealias Logon32Logon = UInt
 
-public typealias LOGON32_PROVIDER = UInt
+public typealias Logon32Provider = UInt
 
-public typealias MANDATORY_LEVEL = Int
+public typealias MandatoryLevel = Int
 
-public typealias NCRYPT_DESCRIPTOR_HANDLE = Long
+public typealias NcryptDescriptorHandle = COpaquePointer?
 
-public typealias NCRYPT_STREAM_HANDLE = Long
+public typealias NcryptStreamHandle = COpaquePointer?
 
-public typealias OBJECT_SECURITY_INFORMATION = UInt
+public typealias ObjectSecurityInformation = UInt
 
-public fun interface PLSA_AP_CALL_PACKAGE_UNTRUSTEDFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaApCallPackageUntrustedFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_CALL_PACKAGE_UNTRUSTED = PLSA_AP_CALL_PACKAGE_UNTRUSTEDFn?
+public typealias PlsaApCallPackageUntrusted = PlsaApCallPackageUntrustedFn?
 
-public typealias PSECURITY_DESCRIPTOR = Long
+public typealias PsecurityDescriptor = COpaquePointer?
 
-public typealias PSID = Long
+public typealias Psid = COpaquePointer?
 
-public typealias SAFER_LEVEL_HANDLE = Long
+public typealias SaferLevelHandle = COpaquePointer?
 
-public typealias SECURITY_AUTO_INHERIT_FLAGS = UInt
+public typealias SecurityAutoInheritFlags = UInt
 
-public typealias SECURITY_DESCRIPTOR_CONTROL = UShort
+public typealias SecurityDescriptorControl = UShort
 
-public typealias SECURITY_IMPERSONATION_LEVEL = Int
+public typealias SecurityImpersonationLevel = Int
 
-public fun interface SEC_THREAD_STARTFn {
-    public operator fun invoke(lpthreadparameter: Long): UInt
+public fun interface SecThreadStartFn {
+    public operator fun invoke(lpthreadparameter: COpaquePointer?): UInt
 }
 
-public typealias SEC_THREAD_START = SEC_THREAD_STARTFn?
+public typealias SecThreadStart = SecThreadStartFn?
 
-public typealias SID_NAME_USE = Int
+public typealias SidNameUse = Int
 
-public typealias SYSTEM_AUDIT_OBJECT_ACE_FLAGS = UInt
+public typealias SystemAuditObjectAceFlags = UInt
 
-public typealias TOKEN_ACCESS_MASK = UInt
+public typealias TokenAccessMask = UInt
 
-public typealias TOKEN_ELEVATION_TYPE = Int
+public typealias TokenElevationType = Int
 
-public typealias TOKEN_INFORMATION_CLASS = Int
+public typealias TokenInformationClass = Int
 
-public typealias TOKEN_MANDATORY_POLICY_ID = UInt
+public typealias TokenMandatoryPolicyId = UInt
 
-public typealias TOKEN_PRIVILEGES_ATTRIBUTES = UInt
+public typealias TokenPrivilegesAttributes = UInt
 
-public typealias TOKEN_TYPE = Int
+public typealias TokenType = Int
 
-public typealias WELL_KNOWN_SID_TYPE = Int
+public typealias WellKnownSidType = Int

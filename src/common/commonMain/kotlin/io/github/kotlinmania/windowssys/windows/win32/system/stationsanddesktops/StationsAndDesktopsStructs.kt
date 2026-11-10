@@ -1,18 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 
-public data class BSMINFO(
+public data class Bsminfo(
     public var cbSize: UInt = 0u,
-    public var hdesk: HDESK = 0L,
-    public var hwnd: HWND = 0L,
-    public var luid: LUID = LUID(),
+    public var hdesk: Hdesk = null,
+    public var hwnd: Hwnd = null,
+    public var luid: Luid = Luid(),
 )
 
-public data class USEROBJECTFLAGS(
-    public var fInherit: BOOL = 0,
-    public var fReserved: BOOL = 0,
+public data class Userobjectflags(
+    public var fInherit: Bool = 0,
+    public var fReserved: Bool = 0,
     public var dwFlags: UInt = 0u,
 )

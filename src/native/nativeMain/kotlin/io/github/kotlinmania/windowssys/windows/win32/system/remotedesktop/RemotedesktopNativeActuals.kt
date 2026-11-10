@@ -2,213 +2,214 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ProcessIdToSessionId(dwprocessid: UInt, psessionid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_ProcessIdToSessionId(dwprocessid, psessionid.toCPointer<ByteVar>())
+public actual fun processIdToSessionId(dwprocessid: UInt, psessionid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_processIdToSessionId(dwprocessid, psessionid?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSCloseServer(hserver: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSCloseServer(hserver.toCPointer<ByteVar>())
+public actual fun wTSCloseServer(hserver: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSCloseServer(hserver?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppassword: PCSTR, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSConnectSessionA(logonid, targetlogonid, ppassword.toCPointer<ByteVar>(), bwait)
+public actual fun wTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppassword: Pcstr, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA(logonid, targetlogonid, ppassword?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun WTSConnectSessionW(logonid: UInt, targetlogonid: UInt, ppassword: PCWSTR, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSConnectSessionW(logonid, targetlogonid, ppassword.toCPointer<ByteVar>(), bwait)
+public actual fun wTSConnectSessionW(logonid: UInt, targetlogonid: UInt, ppassword: Pcwstr, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW(logonid, targetlogonid, ppassword?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun WTSCreateListenerA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, pbuffer: Long, flag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSCreateListenerA(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), flag)
+public actual fun wTSCreateListenerA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, pbuffer: COpaquePointer?, flag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), flag)
 
-public actual fun WTSCreateListenerW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, pbuffer: Long, flag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSCreateListenerW(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), flag)
+public actual fun wTSCreateListenerW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, pbuffer: COpaquePointer?, flag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), flag)
 
-public actual fun WTSDisconnectSession(hserver: HANDLE, sessionid: UInt, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSDisconnectSession(hserver.toCPointer<ByteVar>(), sessionid, bwait)
+public actual fun wTSDisconnectSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession(hserver?.value?.toCPointer<ByteVar>(), sessionid, bwait)
 
-public actual fun WTSEnableChildSessions(benable: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnableChildSessions(benable)
+public actual fun wTSEnableChildSessions(benable: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions(benable)
 
-public actual fun WTSEnumerateListenersA(hserver: HANDLE, preserved: Long, reserved: UInt, plisteners: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateListenersA(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plisteners.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateListenersA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plisteners: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plisteners?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateListenersW(hserver: HANDLE, preserved: Long, reserved: UInt, plisteners: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateListenersW(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plisteners.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateListenersW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plisteners: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plisteners?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateProcessesA(hserver: HANDLE, reserved: UInt, version: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesA(hserver.toCPointer<ByteVar>(), reserved, version, ppprocessinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateProcessesA(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA(hserver?.value?.toCPointer<ByteVar>(), reserved, version, ppprocessinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateProcessesExA(hserver: HANDLE, plevel: Long, sessionid: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesExA(hserver.toCPointer<ByteVar>(), plevel.toCPointer<ByteVar>(), sessionid, ppprocessinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateProcessesExA(hserver: Handle, plevel: COpaquePointer?, sessionid: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA(hserver?.value?.toCPointer<ByteVar>(), plevel?.value?.toCPointer<ByteVar>(), sessionid, ppprocessinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateProcessesExW(hserver: HANDLE, plevel: Long, sessionid: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesExW(hserver.toCPointer<ByteVar>(), plevel.toCPointer<ByteVar>(), sessionid, ppprocessinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateProcessesExW(hserver: Handle, plevel: COpaquePointer?, sessionid: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW(hserver?.value?.toCPointer<ByteVar>(), plevel?.value?.toCPointer<ByteVar>(), sessionid, ppprocessinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateProcessesW(hserver: HANDLE, reserved: UInt, version: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesW(hserver.toCPointer<ByteVar>(), reserved, version, ppprocessinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateProcessesW(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW(hserver?.value?.toCPointer<ByteVar>(), reserved, version, ppprocessinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateServersA(pdomainname: PCSTR, reserved: UInt, version: UInt, ppserverinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateServersA(pdomainname.toCPointer<ByteVar>(), reserved, version, ppserverinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateServersA(pdomainname: Pcstr, reserved: UInt, version: UInt, ppserverinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA(pdomainname?.value?.toCPointer<ByteVar>(), reserved, version, ppserverinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateServersW(pdomainname: PCWSTR, reserved: UInt, version: UInt, ppserverinfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateServersW(pdomainname.toCPointer<ByteVar>(), reserved, version, ppserverinfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateServersW(pdomainname: Pcwstr, reserved: UInt, version: UInt, ppserverinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW(pdomainname?.value?.toCPointer<ByteVar>(), reserved, version, ppserverinfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateSessionsA(hserver: HANDLE, reserved: UInt, version: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsA(hserver.toCPointer<ByteVar>(), reserved, version, ppsessioninfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateSessionsA(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA(hserver?.value?.toCPointer<ByteVar>(), reserved, version, ppsessioninfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateSessionsExA(hserver: HANDLE, plevel: Long, filter: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsExA(hserver.toCPointer<ByteVar>(), plevel.toCPointer<ByteVar>(), filter, ppsessioninfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateSessionsExA(hserver: Handle, plevel: COpaquePointer?, filter: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA(hserver?.value?.toCPointer<ByteVar>(), plevel?.value?.toCPointer<ByteVar>(), filter, ppsessioninfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateSessionsExW(hserver: HANDLE, plevel: Long, filter: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsExW(hserver.toCPointer<ByteVar>(), plevel.toCPointer<ByteVar>(), filter, ppsessioninfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateSessionsExW(hserver: Handle, plevel: COpaquePointer?, filter: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW(hserver?.value?.toCPointer<ByteVar>(), plevel?.value?.toCPointer<ByteVar>(), filter, ppsessioninfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSEnumerateSessionsW(hserver: HANDLE, reserved: UInt, version: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsW(hserver.toCPointer<ByteVar>(), reserved, version, ppsessioninfo.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun wTSEnumerateSessionsW(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW(hserver?.value?.toCPointer<ByteVar>(), reserved, version, ppsessioninfo?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSFreeMemory(pmemory: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSFreeMemory(pmemory.toCPointer<ByteVar>())
+public actual fun wTSFreeMemory(pmemory: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSFreeMemory(pmemory?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: Long, numberofentries: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSFreeMemoryExA(wtstypeclass, pmemory.toCPointer<ByteVar>(), numberofentries)
+public actual fun wTSFreeMemoryExA(wtstypeclass: WtsTypeClass, pmemory: COpaquePointer?, numberofentries: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA(wtstypeclass, pmemory?.value?.toCPointer<ByteVar>(), numberofentries)
 
-public actual fun WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: Long, numberofentries: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSFreeMemoryExW(wtstypeclass, pmemory.toCPointer<ByteVar>(), numberofentries)
+public actual fun wTSFreeMemoryExW(wtstypeclass: WtsTypeClass, pmemory: COpaquePointer?, numberofentries: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW(wtstypeclass, pmemory?.value?.toCPointer<ByteVar>(), numberofentries)
 
-public actual fun WTSGetActiveConsoleSessionId(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSGetActiveConsoleSessionId()
+public actual fun wTSGetActiveConsoleSessionId(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId()
 
-public actual fun WTSGetChildSessionId(psessionid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSGetChildSessionId(psessionid.toCPointer<ByteVar>())
+public actual fun wTSGetChildSessionId(psessionid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId(psessionid?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSGetListenerSecurityA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSGetListenerSecurityA(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>(), nlength, lpnlengthneeded.toCPointer<ByteVar>())
+public actual fun wTSGetListenerSecurityA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>(), nlength, lpnlengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSGetListenerSecurityW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSGetListenerSecurityW(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>(), nlength, lpnlengthneeded.toCPointer<ByteVar>())
+public actual fun wTSGetListenerSecurityW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>(), nlength, lpnlengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSIsChildSessionsEnabled(pbenabled: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSIsChildSessionsEnabled(pbenabled.toCPointer<ByteVar>())
+public actual fun wTSIsChildSessionsEnabled(pbenabled: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled(pbenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSLogoffSession(hserver: HANDLE, sessionid: UInt, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSLogoffSession(hserver.toCPointer<ByteVar>(), sessionid, bwait)
+public actual fun wTSLogoffSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSLogoffSession(hserver?.value?.toCPointer<ByteVar>(), sessionid, bwait)
 
-public actual fun WTSOpenServerA(pservername: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSOpenServerA(pservername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun wTSOpenServerA(pservername: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSOpenServerA(pservername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSOpenServerExA(pservername: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSOpenServerExA(pservername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun wTSOpenServerExA(pservername: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA(pservername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSOpenServerExW(pservername: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSOpenServerExW(pservername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun wTSOpenServerExW(pservername: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW(pservername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSOpenServerW(pservername: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSOpenServerW(pservername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun wTSOpenServerW(pservername: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSOpenServerW(pservername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSQueryListenerConfigA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, pbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQueryListenerConfigA(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>())
+public actual fun wTSQueryListenerConfigA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, pbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQueryListenerConfigW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, pbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQueryListenerConfigW(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>())
+public actual fun wTSQueryListenerConfigW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, pbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQuerySessionInformationA(hserver: HANDLE, sessionid: UInt, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQuerySessionInformationA(hserver.toCPointer<ByteVar>(), sessionid, wtsinfoclass, ppbuffer.toCPointer<ByteVar>(), pbytesreturned.toCPointer<ByteVar>())
+public actual fun wTSQuerySessionInformationA(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA(hserver?.value?.toCPointer<ByteVar>(), sessionid, wtsinfoclass, ppbuffer?.value?.toCPointer<ByteVar>(), pbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQuerySessionInformationW(hserver: HANDLE, sessionid: UInt, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQuerySessionInformationW(hserver.toCPointer<ByteVar>(), sessionid, wtsinfoclass, ppbuffer.toCPointer<ByteVar>(), pbytesreturned.toCPointer<ByteVar>())
+public actual fun wTSQuerySessionInformationW(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW(hserver?.value?.toCPointer<ByteVar>(), sessionid, wtsinfoclass, ppbuffer?.value?.toCPointer<ByteVar>(), pbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQueryUserConfigA(pservername: PCSTR, pusername: PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQueryUserConfigA(pservername.toCPointer<ByteVar>(), pusername.toCPointer<ByteVar>(), wtsconfigclass, ppbuffer.toCPointer<ByteVar>(), pbytesreturned.toCPointer<ByteVar>())
+public actual fun wTSQueryUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA(pservername?.value?.toCPointer<ByteVar>(), pusername?.value?.toCPointer<ByteVar>(), wtsconfigclass, ppbuffer?.value?.toCPointer<ByteVar>(), pbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQueryUserConfigW(pservername: PCWSTR, pusername: PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQueryUserConfigW(pservername.toCPointer<ByteVar>(), pusername.toCPointer<ByteVar>(), wtsconfigclass, ppbuffer.toCPointer<ByteVar>(), pbytesreturned.toCPointer<ByteVar>())
+public actual fun wTSQueryUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW(pservername?.value?.toCPointer<ByteVar>(), pusername?.value?.toCPointer<ByteVar>(), wtsconfigclass, ppbuffer?.value?.toCPointer<ByteVar>(), pbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSQueryUserToken(sessionid: UInt, phtoken: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSQueryUserToken(sessionid, phtoken.toCPointer<ByteVar>())
+public actual fun wTSQueryUserToken(sessionid: UInt, phtoken: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken(sessionid, phtoken?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSRegisterSessionNotification(hwnd: HWND, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSRegisterSessionNotification(hwnd.toCPointer<ByteVar>(), dwflags)
+public actual fun wTSRegisterSessionNotification(hwnd: Hwnd, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification(hwnd?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun WTSRegisterSessionNotificationEx(hserver: HANDLE, hwnd: HWND, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSRegisterSessionNotificationEx(hserver.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), dwflags)
+public actual fun wTSRegisterSessionNotificationEx(hserver: Handle, hwnd: Hwnd, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx(hserver?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun WTSSendMessageA(hserver: HANDLE, sessionid: UInt, ptitle: PCSTR, titlelength: UInt, pmessage: PCSTR, messagelength: UInt, style: MESSAGEBOX_STYLE, timeout: UInt, presponse: Long, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSendMessageA(hserver.toCPointer<ByteVar>(), sessionid, ptitle.toCPointer<ByteVar>(), titlelength, pmessage.toCPointer<ByteVar>(), messagelength, style, timeout, presponse.toCPointer<ByteVar>(), bwait)
+public actual fun wTSSendMessageA(hserver: Handle, sessionid: UInt, ptitle: Pcstr, titlelength: UInt, pmessage: Pcstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: COpaquePointer?, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSendMessageA(hserver?.value?.toCPointer<ByteVar>(), sessionid, ptitle?.value?.toCPointer<ByteVar>(), titlelength, pmessage?.value?.toCPointer<ByteVar>(), messagelength, style, timeout, presponse?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun WTSSendMessageW(hserver: HANDLE, sessionid: UInt, ptitle: PCWSTR, titlelength: UInt, pmessage: PCWSTR, messagelength: UInt, style: MESSAGEBOX_STYLE, timeout: UInt, presponse: Long, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSendMessageW(hserver.toCPointer<ByteVar>(), sessionid, ptitle.toCPointer<ByteVar>(), titlelength, pmessage.toCPointer<ByteVar>(), messagelength, style, timeout, presponse.toCPointer<ByteVar>(), bwait)
+public actual fun wTSSendMessageW(hserver: Handle, sessionid: UInt, ptitle: Pcwstr, titlelength: UInt, pmessage: Pcwstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: COpaquePointer?, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSendMessageW(hserver?.value?.toCPointer<ByteVar>(), sessionid, ptitle?.value?.toCPointer<ByteVar>(), titlelength, pmessage?.value?.toCPointer<ByteVar>(), messagelength, style, timeout, presponse?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun WTSSetListenerSecurityA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSetListenerSecurityA(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun wTSSetListenerSecurityA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSSetListenerSecurityW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSetListenerSecurityW(hserver.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), reserved, plistenername.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun wTSSetListenerSecurityW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW(hserver?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), reserved, plistenername?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSSetRenderHint(prenderhintid: Long, hwndowner: HWND, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSetRenderHint(prenderhintid.toCPointer<ByteVar>(), hwndowner.toCPointer<ByteVar>(), renderhinttype, cbhintdatalength, phintdata.toCPointer<ByteVar>())
+public actual fun wTSSetRenderHint(prenderhintid: COpaquePointer?, hwndowner: Hwnd, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint(prenderhintid?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), renderhinttype, cbhintdatalength, phintdata?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSSetUserConfigA(pservername: PCSTR, pusername: PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: PCSTR, datalength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSetUserConfigA(pservername.toCPointer<ByteVar>(), pusername.toCPointer<ByteVar>(), wtsconfigclass, pbuffer.toCPointer<ByteVar>(), datalength)
+public actual fun wTSSetUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, pbuffer: Pcstr, datalength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA(pservername?.value?.toCPointer<ByteVar>(), pusername?.value?.toCPointer<ByteVar>(), wtsconfigclass, pbuffer?.value?.toCPointer<ByteVar>(), datalength)
 
-public actual fun WTSSetUserConfigW(pservername: PCWSTR, pusername: PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: PCWSTR, datalength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSSetUserConfigW(pservername.toCPointer<ByteVar>(), pusername.toCPointer<ByteVar>(), wtsconfigclass, pbuffer.toCPointer<ByteVar>(), datalength)
+public actual fun wTSSetUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, pbuffer: Pcwstr, datalength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW(pservername?.value?.toCPointer<ByteVar>(), pusername?.value?.toCPointer<ByteVar>(), wtsconfigclass, pbuffer?.value?.toCPointer<ByteVar>(), datalength)
 
-public actual fun WTSShutdownSystem(hserver: HANDLE, shutdownflag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSShutdownSystem(hserver.toCPointer<ByteVar>(), shutdownflag)
+public actual fun wTSShutdownSystem(hserver: Handle, shutdownflag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem(hserver?.value?.toCPointer<ByteVar>(), shutdownflag)
 
-public actual fun WTSStartRemoteControlSessionA(ptargetservername: PCSTR, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSStartRemoteControlSessionA(ptargetservername.toCPointer<ByteVar>(), targetlogonid, hotkeyvk, hotkeymodifiers)
+public actual fun wTSStartRemoteControlSessionA(ptargetservername: Pcstr, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA(ptargetservername?.value?.toCPointer<ByteVar>(), targetlogonid, hotkeyvk, hotkeymodifiers)
 
-public actual fun WTSStartRemoteControlSessionW(ptargetservername: PCWSTR, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSStartRemoteControlSessionW(ptargetservername.toCPointer<ByteVar>(), targetlogonid, hotkeyvk, hotkeymodifiers)
+public actual fun wTSStartRemoteControlSessionW(ptargetservername: Pcwstr, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW(ptargetservername?.value?.toCPointer<ByteVar>(), targetlogonid, hotkeyvk, hotkeymodifiers)
 
-public actual fun WTSStopRemoteControlSession(logonid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSStopRemoteControlSession(logonid)
+public actual fun wTSStopRemoteControlSession(logonid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession(logonid)
 
-public actual fun WTSTerminateProcess(hserver: HANDLE, processid: UInt, exitcode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSTerminateProcess(hserver.toCPointer<ByteVar>(), processid, exitcode)
+public actual fun wTSTerminateProcess(hserver: Handle, processid: UInt, exitcode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess(hserver?.value?.toCPointer<ByteVar>(), processid, exitcode)
 
-public actual fun WTSUnRegisterSessionNotification(hwnd: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSUnRegisterSessionNotification(hwnd.toCPointer<ByteVar>())
+public actual fun wTSUnRegisterSessionNotification(hwnd: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSUnRegisterSessionNotificationEx(hserver: HANDLE, hwnd: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSUnRegisterSessionNotificationEx(hserver.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>())
+public actual fun wTSUnRegisterSessionNotificationEx(hserver: Handle, hwnd: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx(hserver?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelClose(hchannelhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelClose(hchannelhandle.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelClose(hchannelhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose(hchannelhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelOpen(hserver: HANDLE, sessionid: UInt, pvirtualname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelOpen(hserver.toCPointer<ByteVar>(), sessionid, pvirtualname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun wTSVirtualChannelOpen(hserver: Handle, sessionid: UInt, pvirtualname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen(hserver?.value?.toCPointer<ByteVar>(), sessionid, pvirtualname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSVirtualChannelOpenEx(sessionid: UInt, pvirtualname: PCSTR, flags: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelOpenEx(sessionid, pvirtualname.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun wTSVirtualChannelOpenEx(sessionid: UInt, pvirtualname: Pcstr, flags: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx(sessionid, pvirtualname?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WTSVirtualChannelPurgeInput(hchannelhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelPurgeInput(hchannelhandle.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelPurgeInput(hchannelhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput(hchannelhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelPurgeOutput(hchannelhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelPurgeOutput(hchannelhandle.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelPurgeOutput(hchannelhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput(hchannelhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelQuery(hchannelhandle: HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelQuery(hchannelhandle.toCPointer<ByteVar>(), param1, ppbuffer.toCPointer<ByteVar>(), pbytesreturned.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelQuery(hchannelhandle: Handle, param1: WtsVirtualClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery(hchannelhandle?.value?.toCPointer<ByteVar>(), param1, ppbuffer?.value?.toCPointer<ByteVar>(), pbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelRead(hchannelhandle: HANDLE, timeout: UInt, buffer: PSTR, buffersize: UInt, pbytesread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelRead(hchannelhandle.toCPointer<ByteVar>(), timeout, buffer.toCPointer<ByteVar>(), buffersize, pbytesread.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelRead(hchannelhandle: Handle, timeout: UInt, buffer: Pstr, buffersize: UInt, pbytesread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead(hchannelhandle?.value?.toCPointer<ByteVar>(), timeout, buffer?.value?.toCPointer<ByteVar>(), buffersize, pbytesread?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSVirtualChannelWrite(hchannelhandle: HANDLE, buffer: PCSTR, length: UInt, pbyteswritten: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelWrite(hchannelhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, pbyteswritten.toCPointer<ByteVar>())
+public actual fun wTSVirtualChannelWrite(hchannelhandle: Handle, buffer: Pcstr, length: UInt, pbyteswritten: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite(hchannelhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, pbyteswritten?.value?.toCPointer<ByteVar>())
 
-public actual fun WTSWaitSystemEvent(hserver: HANDLE, eventmask: UInt, peventflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_WTSWaitSystemEvent(hserver.toCPointer<ByteVar>(), eventmask, peventflags.toCPointer<ByteVar>())
+public actual fun wTSWaitSystemEvent(hserver: Handle, eventmask: UInt, peventflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop.cinterop.windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent(hserver?.value?.toCPointer<ByteVar>(), eventmask, peventflags?.value?.toCPointer<ByteVar>())

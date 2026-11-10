@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_CloseCompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_closeCompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_CloseCompressor_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_CloseDecompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_closeDecompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* decompressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_CloseDecompresso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_Compress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_compress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uncompresseddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_Compress_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_CreateCompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_createCompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t algorithm = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* allocationroutines = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -137,7 +137,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_CreateCompressor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_CreateDecompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_createDecompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t algorithm = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* allocationroutines = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_CreateDecompress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_Decompress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_decompress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* decompressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* compresseddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_Decompress_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_QueryCompressorInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_queryCompressorInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t compressinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_QueryCompressorI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_QueryDecompressorInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_queryDecompressorInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* decompressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t compressinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_QueryDecompresso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_ResetCompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_resetCompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_ResetCompressor_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_ResetDecompressor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_resetDecompressor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* decompressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_ResetDecompresso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_SetCompressorInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_setCompressorInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* compressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t compressinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -295,7 +295,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_SetCompressorInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_compression_SetDecompressorInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_compression_setDecompressorInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* decompressorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t compressinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -320,18 +320,18 @@ static Napi::Value windowssys_windows_win32_storage_compression_SetDecompressorI
 }
 
 static void register_windows_win32_storage_compression_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_compression_CloseCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_CloseCompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_CloseDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_CloseDecompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_Compress", Napi::Function::New(env, windowssys_windows_win32_storage_compression_Compress_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_CreateCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_CreateCompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_CreateDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_CreateDecompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_Decompress", Napi::Function::New(env, windowssys_windows_win32_storage_compression_Decompress_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_QueryCompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_QueryCompressorInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_QueryDecompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_QueryDecompressorInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_ResetCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_ResetCompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_ResetDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_ResetDecompressor_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_SetCompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_SetCompressorInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_compression_SetDecompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_SetDecompressorInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_closeCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_closeCompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_closeDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_closeDecompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_compress", Napi::Function::New(env, windowssys_windows_win32_storage_compression_compress_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_createCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_createCompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_createDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_createDecompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_decompress", Napi::Function::New(env, windowssys_windows_win32_storage_compression_decompress_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_queryCompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_queryCompressorInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_queryDecompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_queryDecompressorInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_resetCompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_resetCompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_resetDecompressor", Napi::Function::New(env, windowssys_windows_win32_storage_compression_resetDecompressor_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_setCompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_setCompressorInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_compression_setDecompressorInformation", Napi::Function::New(env, windowssys_windows_win32_storage_compression_setDecompressorInformation_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_compression_napi, nullptr };

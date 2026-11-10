@@ -2,95 +2,96 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CLRCreateInstance(clsid: Long, riid: Long, ppinterface: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CLRCreateInstance(clsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppinterface.toCPointer<ByteVar>())
+public actual fun cLRCreateInstance(clsid: COpaquePointer?, riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_cLRCreateInstance(clsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppinterface?.value?.toCPointer<ByteVar>())
 
-public actual fun CallFunctionShim(szdllname: PCWSTR, szfunctionname: PCSTR, lpvargument1: Long, lpvargument2: Long, szversion: PCWSTR, pvreserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CallFunctionShim(szdllname.toCPointer<ByteVar>(), szfunctionname.toCPointer<ByteVar>(), lpvargument1.toCPointer<ByteVar>(), lpvargument2.toCPointer<ByteVar>(), szversion.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun callFunctionShim(szdllname: Pcwstr, szfunctionname: Pcstr, lpvargument1: COpaquePointer?, lpvargument2: COpaquePointer?, szversion: Pcwstr, pvreserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_callFunctionShim(szdllname?.value?.toCPointer<ByteVar>(), szfunctionname?.value?.toCPointer<ByteVar>(), lpvargument1?.value?.toCPointer<ByteVar>(), lpvargument2?.value?.toCPointer<ByteVar>(), szversion?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun ClrCreateManagedInstance(ptypename: PCWSTR, riid: Long, ppobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance(ptypename.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppobject.toCPointer<ByteVar>())
+public actual fun clrCreateManagedInstance(ptypename: Pcwstr, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance(ptypename?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppobject?.value?.toCPointer<ByteVar>())
 
-public actual fun CorBindToCurrentRuntime(pwszfilename: PCWSTR, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime(pwszfilename.toCPointer<ByteVar>(), rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun corBindToCurrentRuntime(pwszfilename: Pcwstr, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime(pwszfilename?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CorBindToRuntime(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorBindToRuntime(pwszversion.toCPointer<ByteVar>(), pwszbuildflavor.toCPointer<ByteVar>(), rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun corBindToRuntime(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corBindToRuntime(pwszversion?.value?.toCPointer<ByteVar>(), pwszbuildflavor?.value?.toCPointer<ByteVar>(), rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CorBindToRuntimeByCfg(pcfgstream: Long, reserved: UInt, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg(pcfgstream.toCPointer<ByteVar>(), reserved, startupflags, rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun corBindToRuntimeByCfg(pcfgstream: COpaquePointer?, reserved: UInt, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg(pcfgstream?.value?.toCPointer<ByteVar>(), reserved, startupflags, rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CorBindToRuntimeEx(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx(pwszversion.toCPointer<ByteVar>(), pwszbuildflavor.toCPointer<ByteVar>(), startupflags, rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun corBindToRuntimeEx(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx(pwszversion?.value?.toCPointer<ByteVar>(), pwszbuildflavor?.value?.toCPointer<ByteVar>(), startupflags, rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CorBindToRuntimeHost(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, pwszhostconfigfile: PCWSTR, preserved: Long, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost(pwszversion.toCPointer<ByteVar>(), pwszbuildflavor.toCPointer<ByteVar>(), pwszhostconfigfile.toCPointer<ByteVar>(), preserved.toCPointer<ByteVar>(), startupflags, rclsid.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun corBindToRuntimeHost(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, pwszhostconfigfile: Pcwstr, preserved: COpaquePointer?, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost(pwszversion?.value?.toCPointer<ByteVar>(), pwszbuildflavor?.value?.toCPointer<ByteVar>(), pwszhostconfigfile?.value?.toCPointer<ByteVar>(), preserved?.value?.toCPointer<ByteVar>(), startupflags, rclsid?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun CorExitProcess(exitcode: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorExitProcess(exitcode)
+public actual fun corExitProcess(exitcode: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corExitProcess(exitcode)
 }
 
-public actual fun CorLaunchApplication(dwclickoncehost: HOST_TYPE, pwzappfullname: PCWSTR, dwmanifestpaths: UInt, ppwzmanifestpaths: Long, dwactivationdata: UInt, ppwzactivationdata: Long, lpprocessinformation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorLaunchApplication(dwclickoncehost, pwzappfullname.toCPointer<ByteVar>(), dwmanifestpaths, ppwzmanifestpaths.toCPointer<ByteVar>(), dwactivationdata, ppwzactivationdata.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun corLaunchApplication(dwclickoncehost: HostType, pwzappfullname: Pcwstr, dwmanifestpaths: UInt, ppwzmanifestpaths: COpaquePointer?, dwactivationdata: UInt, ppwzactivationdata: COpaquePointer?, lpprocessinformation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corLaunchApplication(dwclickoncehost, pwzappfullname?.value?.toCPointer<ByteVar>(), dwmanifestpaths, ppwzmanifestpaths?.value?.toCPointer<ByteVar>(), dwactivationdata, ppwzactivationdata?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CorMarkThreadInThreadPool() {
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool()
+public actual fun corMarkThreadInThreadPool() {
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool()
 }
 
-public actual fun CreateDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: PCWSTR, ppcordb: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion.toCPointer<ByteVar>(), ppcordb.toCPointer<ByteVar>())
+public actual fun createDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Pcwstr, ppcordb: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion?.value?.toCPointer<ByteVar>(), ppcordb?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCLRIdentityManager(riid: Long, ppmanager: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager(riid.toCPointer<ByteVar>(), ppmanager.toCPointer<ByteVar>())
+public actual fun getCLRIdentityManager(riid: COpaquePointer?, ppmanager: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getCLRIdentityManager(riid?.value?.toCPointer<ByteVar>(), ppmanager?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCORRequiredVersion(pbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion(pbuffer.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getCORRequiredVersion(pbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getCORRequiredVersion(pbuffer?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCORSystemDirectory(pbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory(pbuffer.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getCORSystemDirectory(pbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getCORSystemDirectory(pbuffer?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCORVersion(pbbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetCORVersion(pbbuffer.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getCORVersion(pbbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getCORVersion(pbbuffer?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFileVersion(szfilename: PCWSTR, szbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetFileVersion(szfilename.toCPointer<ByteVar>(), szbuffer.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getFileVersion(szfilename: Pcwstr, szbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getFileVersion(szfilename?.value?.toCPointer<ByteVar>(), szbuffer?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRealProcAddress(pwszprocname: PCSTR, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetRealProcAddress(pwszprocname.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun getRealProcAddress(pwszprocname: Pcstr, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getRealProcAddress(pwszprocname?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRequestedRuntimeInfo(pexe: PCWSTR, pwszversion: PCWSTR, pconfigurationfile: PCWSTR, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: PWSTR, dwdirectory: UInt, dwdirectorylength: Long, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo(pexe.toCPointer<ByteVar>(), pwszversion.toCPointer<ByteVar>(), pconfigurationfile.toCPointer<ByteVar>(), startupflags, runtimeinfoflags, pdirectory.toCPointer<ByteVar>(), dwdirectory, dwdirectorylength.toCPointer<ByteVar>(), pversion.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getRequestedRuntimeInfo(pexe: Pcwstr, pwszversion: Pcwstr, pconfigurationfile: Pcwstr, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: Pwstr, dwdirectory: UInt, dwdirectorylength: COpaquePointer?, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo(pexe?.value?.toCPointer<ByteVar>(), pwszversion?.value?.toCPointer<ByteVar>(), pconfigurationfile?.value?.toCPointer<ByteVar>(), startupflags, runtimeinfoflags, pdirectory?.value?.toCPointer<ByteVar>(), dwdirectory, dwdirectorylength?.value?.toCPointer<ByteVar>(), pversion?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRequestedRuntimeVersion(pexe: PCWSTR, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion(pexe.toCPointer<ByteVar>(), pversion.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getRequestedRuntimeVersion(pexe: Pcwstr, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion(pexe?.value?.toCPointer<ByteVar>(), pversion?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRequestedRuntimeVersionForCLSID(rclsid: Long, pversion: PWSTR, cchbuffer: UInt, dwlength: Long, dwresolutionflags: CLSID_RESOLUTION_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID(rclsid.toCPointer<ByteVar>(), pversion.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>(), dwresolutionflags)
+public actual fun getRequestedRuntimeVersionForCLSID(rclsid: COpaquePointer?, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?, dwresolutionflags: ClsidResolutionFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID(rclsid?.value?.toCPointer<ByteVar>(), pversion?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>(), dwresolutionflags)
 
-public actual fun GetVersionFromProcess(hprocess: HANDLE, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_GetVersionFromProcess(hprocess.toCPointer<ByteVar>(), pversion.toCPointer<ByteVar>(), cchbuffer, dwlength.toCPointer<ByteVar>())
+public actual fun getVersionFromProcess(hprocess: Handle, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_getVersionFromProcess(hprocess?.value?.toCPointer<ByteVar>(), pversion?.value?.toCPointer<ByteVar>(), cchbuffer, dwlength?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadLibraryShim(szdllname: PCWSTR, szversion: PCWSTR, pvreserved: Long, phmoddll: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_LoadLibraryShim(szdllname.toCPointer<ByteVar>(), szversion.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), phmoddll.toCPointer<ByteVar>())
+public actual fun loadLibraryShim(szdllname: Pcwstr, szversion: Pcwstr, pvreserved: COpaquePointer?, phmoddll: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_loadLibraryShim(szdllname?.value?.toCPointer<ByteVar>(), szversion?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), phmoddll?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadStringRC(iresouceid: UInt, szbuffer: PWSTR, imax: Int, bquiet: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_LoadStringRC(iresouceid, szbuffer.toCPointer<ByteVar>(), imax, bquiet)
+public actual fun loadStringRC(iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_loadStringRC(iresouceid, szbuffer?.value?.toCPointer<ByteVar>(), imax, bquiet)
 
-public actual fun LoadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: PWSTR, imax: Int, bquiet: Int, pcwchused: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_LoadStringRCEx(lcid, iresouceid, szbuffer.toCPointer<ByteVar>(), imax, bquiet, pcwchused.toCPointer<ByteVar>())
+public actual fun loadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int, pcwchused: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_loadStringRCEx(lcid, iresouceid, szbuffer?.value?.toCPointer<ByteVar>(), imax, bquiet, pcwchused?.value?.toCPointer<ByteVar>())
 
-public actual fun LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: Long, pendhostsetup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_LockClrVersion(hostcallback.toLong().toCPointer<ByteVar>(), pbeginhostsetup.toCPointer<ByteVar>(), pendhostsetup.toCPointer<ByteVar>())
+public actual fun lockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: COpaquePointer?, pendhostsetup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_lockClrVersion(0L.toCPointer<ByteVar>(), pbeginhostsetup?.value?.toCPointer<ByteVar>(), pendhostsetup?.value?.toCPointer<ByteVar>())
 
-public actual fun RunDll32ShimW(hwnd: HWND, hinst: HINSTANCE, lpszcmdline: PCWSTR, ncmdshow: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_RunDll32ShimW(hwnd.toCPointer<ByteVar>(), hinst.toCPointer<ByteVar>(), lpszcmdline.toCPointer<ByteVar>(), ncmdshow)
+public actual fun runDll32ShimW(hwnd: Hwnd, hinst: Hinstance, lpszcmdline: Pcwstr, ncmdshow: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.clrhosting.cinterop.windowssys_windows_win32_system_clrhosting_runDll32ShimW(hwnd?.value?.toCPointer<ByteVar>(), hinst?.value?.toCPointer<ByteVar>(), lpszcmdline?.value?.toCPointer<ByteVar>(), ncmdshow)

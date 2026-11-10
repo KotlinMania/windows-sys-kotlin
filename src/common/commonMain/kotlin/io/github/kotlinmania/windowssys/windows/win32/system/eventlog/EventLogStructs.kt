@@ -1,42 +1,47 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public data class EVENTLOGRECORD(
-    public var Length: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var RecordNumber: UInt = 0u,
-    public var TimeGenerated: UInt = 0u,
-    public var TimeWritten: UInt = 0u,
-    public var EventID: UInt = 0u,
-    public var EventType: REPORT_EVENT_TYPE = 0u,
-    public var NumStrings: UShort = 0u,
-    public var EventCategory: UShort = 0u,
-    public var ReservedFlags: UShort = 0u,
-    public var ClosingRecordNumber: UInt = 0u,
-    public var StringOffset: UInt = 0u,
-    public var UserSidLength: UInt = 0u,
-    public var UserSidOffset: UInt = 0u,
-    public var DataLength: UInt = 0u,
-    public var DataOffset: UInt = 0u,
+public data class Eventlogrecord(
+    public var length: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var recordNumber: UInt = 0u,
+    public var timeGenerated: UInt = 0u,
+    public var timeWritten: UInt = 0u,
+    public var eventID: UInt = 0u,
+    public var eventType: ReportEventType = 0u,
+    public var numStrings: UShort = 0u,
+    public var eventCategory: UShort = 0u,
+    public var reservedFlags: UShort = 0u,
+    public var closingRecordNumber: UInt = 0u,
+    public var stringOffset: UInt = 0u,
+    public var userSidLength: UInt = 0u,
+    public var userSidOffset: UInt = 0u,
+    public var dataLength: UInt = 0u,
+    public var dataOffset: UInt = 0u,
 )
 
-public data class EVENTLOG_FULL_INFORMATION(public var dwFull: UInt = 0u)
+public data class EventlogFullInformation(public var dwFull: UInt = 0u)
 
-public data class EVENTSFORLOGFILE(
+public data class Eventsforlogfile(
     public var ulSize: UInt = 0u,
     public var szLogicalLogFile: UShortArray = UShortArray(256),
     public var ulNumRecords: UInt = 0u,
-    public var pEventLogRecords: List<EVENTLOGRECORD> = List(1) { EVENTLOGRECORD() },
+    public var pEventLogRecords: List<Eventlogrecord> = List(1) { Eventlogrecord() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EVENTSFORLOGFILE) return false
+        if (other !is Eventsforlogfile) return false
         if (this.ulSize != other.ulSize) return false
         if (!this.szLogicalLogFile.contentEquals(other.szLogicalLogFile)) return false
         if (this.ulNumRecords != other.ulNumRecords) return false
@@ -53,59 +58,59 @@ public data class EVENTSFORLOGFILE(
     }
 }
 
-public data class EVT_RPC_LOGIN(
-    public var Server: PWSTR = 0L,
-    public var User: PWSTR = 0L,
-    public var Domain: PWSTR = 0L,
-    public var Password: PWSTR = 0L,
-    public var Flags: UInt = 0u,
+public data class EvtRpcLogin(
+    public var server: Pwstr = null,
+    public var user: Pwstr = null,
+    public var domain: Pwstr = null,
+    public var password: Pwstr = null,
+    public var flags: UInt = 0u,
 )
 
-public data class EVT_VARIANT(
-    public var Anonymous: EVT_VARIANT_0 = EVT_VARIANT_0(),
-    public var Count: UInt = 0u,
-    public var Type: UInt = 0u,
+public data class EvtVariant(
+    public var anonymous: EvtVariant0 = EvtVariant0(),
+    public var count: UInt = 0u,
+    public var type: UInt = 0u,
 )
 
-public class EVT_VARIANT_0(
-    public var BooleanVal: BOOL = 0,
-    public var SByteVal: Byte = 0,
-    public var Int16Val: Short = 0,
-    public var Int32Val: Int = 0,
-    public var Int64Val: Long = 0L,
-    public var ByteVal: UByte = 0u,
-    public var UInt16Val: UShort = 0u,
-    public var UInt32Val: UInt = 0u,
-    public var UInt64Val: ULong = 0uL,
-    public var SingleVal: Float = 0.0f,
-    public var DoubleVal: Double = 0.0,
-    public var FileTimeVal: ULong = 0uL,
-    public var SysTimeVal: Long = 0L,
-    public var GuidVal: Long = 0L,
-    public var StringVal: PCWSTR = 0L,
-    public var AnsiStringVal: PCSTR = 0L,
-    public var BinaryVal: Long = 0L,
-    public var SidVal: PSID = 0L,
-    public var SizeTVal: ULong = 0uL,
-    public var BooleanArr: Long = 0L,
-    public var SByteArr: Long = 0L,
-    public var Int16Arr: Long = 0L,
-    public var Int32Arr: Long = 0L,
-    public var Int64Arr: Long = 0L,
-    public var ByteArr: Long = 0L,
-    public var UInt16Arr: Long = 0L,
-    public var UInt32Arr: Long = 0L,
-    public var UInt64Arr: Long = 0L,
-    public var SingleArr: Long = 0L,
-    public var DoubleArr: Long = 0L,
-    public var FileTimeArr: Long = 0L,
-    public var SysTimeArr: Long = 0L,
-    public var GuidArr: Long = 0L,
-    public var StringArr: Long = 0L,
-    public var AnsiStringArr: Long = 0L,
-    public var SidArr: Long = 0L,
-    public var SizeTArr: Long = 0L,
-    public var EvtHandleVal: EVT_HANDLE = 0L,
-    public var XmlVal: PCWSTR = 0L,
-    public var XmlValArr: Long = 0L,
+public class EvtVariant0(
+    public var booleanVal: Bool = 0,
+    public var sByteVal: Byte = 0,
+    public var int16Val: Short = 0,
+    public var int32Val: Int = 0,
+    public var int64Val: Long = 0L,
+    public var byteVal: UByte = 0u,
+    public var uInt16Val: UShort = 0u,
+    public var uInt32Val: UInt = 0u,
+    public var uInt64Val: ULong = 0uL,
+    public var singleVal: Float = 0.0f,
+    public var doubleVal: Double = 0.0,
+    public var fileTimeVal: ULong = 0uL,
+    public var sysTimeVal: Systemtime? = null,
+    public var guidVal: Guid? = null,
+    public var stringVal: Pcwstr = null,
+    public var ansiStringVal: Pcstr = null,
+    public var binaryVal: COpaquePointer? = null,
+    public var sidVal: Psid = null,
+    public var sizeTVal: Int = 0,
+    public var booleanArr: Bool? = null,
+    public var sByteArr: COpaquePointer? = null,
+    public var int16Arr: Short? = null,
+    public var int32Arr: Int? = null,
+    public var int64Arr: Long? = null,
+    public var byteArr: COpaquePointer? = null,
+    public var uInt16Arr: UShort? = null,
+    public var uInt32Arr: UInt? = null,
+    public var uInt64Arr: ULong? = null,
+    public var singleArr: Float? = null,
+    public var doubleArr: Double? = null,
+    public var fileTimeArr: Filetime? = null,
+    public var sysTimeArr: Systemtime? = null,
+    public var guidArr: Guid? = null,
+    public var stringArr: Pwstr? = null,
+    public var ansiStringArr: Pstr? = null,
+    public var sidArr: Psid? = null,
+    public var sizeTArr: Int? = null,
+    public var evtHandleVal: EvtHandle = 0L,
+    public var xmlVal: Pcwstr = null,
+    public var xmlValArr: Pcwstr? = null,
 )

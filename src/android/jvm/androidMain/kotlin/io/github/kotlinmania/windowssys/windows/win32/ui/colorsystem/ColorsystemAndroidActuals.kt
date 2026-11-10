@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 
 private object WindowsWin32UiColorsystemJniBridge {
     init {
@@ -20,710 +21,710 @@ private object WindowsWin32UiColorsystemJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceA(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceW(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCheckColors(hcmtransform: Long, lpainputcolors: Long, ncolors: Int, ctinput: Int, lparesult: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCheckColors(hcmtransform: Long, lpainputcolors: Long, ncolors: Int, ctinput: Int, lparesult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesult: Long, ncount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesult: Long, ncount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, lparesult: Long, pfncallback: Long, ulcallbackdata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, lparesult: Long, pfncallback: Long, ulcallbackdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateDeviceLinkProfile(pahprofiles: Long, nprofiles: Int, padwintents: Long, nintents: Int, dwflags: Int, lpprofiledata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile(pahprofiles: Long, nprofiles: Int, padwintents: Long, nintents: Int, dwflags: Int, lpprofiledata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateMultiProfileTransform(pahprofiles: Long, nprofiles: Int, padwintents: Long, nintents: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform(pahprofiles: Long, nprofiles: Int, padwintents: Long, nintents: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateProfile(lpcolorspace: Long, lpprofiledata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateProfile(lpcolorspace: Long, lpprofiledata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateProfileW(lpcolorspace: Long, lpprofiledata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateProfileW(lpcolorspace: Long, lpprofiledata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateTransform(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateTransform(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateTransformExt(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateTransformExtW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMCreateTransformW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_cMCreateTransformW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMDeleteTransform(hcmtransform: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(hcmtransform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMGetInfo(dwinfo: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMGetInfo(dwinfo: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMIsProfileValid(hprofile: Long, lpbvalid: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(hprofile: Long, lpbvalid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: Int, ctinput: Int, lpaoutputcolors: Long, ctoutput: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: Int, ctinput: Int, lpaoutputcolors: Long, ctoutput: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMTranslateRGB(hcmtransform: Long, colorref: Int, lpcolorref: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(hcmtransform: Long, colorref: Int, lpcolorref: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, lpdestbits: Long, bmoutput: Int, dwtranslatedirection: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, lpdestbits: Long, bmoutput: Int, dwtranslatedirection: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwinputstride: Int, lpdestbits: Long, bmoutput: Int, dwoutputstride: Int, lpfncallback: Long, ulcallbackdata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwinputstride: Int, lpdestbits: Long, bmoutput: Int, dwoutputstride: Int, lpfncallback: Long, ulcallbackdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, paresult: Long, pfncallback: Long, lpcallbackdata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_checkBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwstride: Int, paresult: Long, pfncallback: Long, lpcallbackdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CheckColors(hcolortransform: Long, painputcolors: Long, ncolors: Int, ctinput: Int, paresult: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_checkColors(hcolortransform: Long, painputcolors: Long, ncolors: Int, ctinput: Int, paresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CheckColorsInGamut(hdc: Long, lprgbtriple: Long, dlpbuffer: Long, ncount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_checkColorsInGamut(hdc: Long, lprgbtriple: Long, dlpbuffer: Long, ncount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CloseColorProfile(hprofile: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_closeColorProfile(hprofile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_ColorCorrectPalette(hdc: Long, hpal: Long, defirst: Int, num: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_colorCorrectPalette(hdc: Long, hpal: Long, defirst: Int, num: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_ColorMatchToTarget(hdc: Long, hdctarget: Long, action: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_colorMatchToTarget(hdc: Long, hdctarget: Long, action: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_ConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_ConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateColorSpaceA(lplcs: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_createColorSpaceA(lplcs: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateColorSpaceW(lplcs: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_createColorSpaceW(lplcs: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateColorTransformA(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_createColorTransformA(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateColorTransformW(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_createColorTransformW(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateDeviceLinkProfile(hprofile: Long, nprofiles: Int, padwintent: Long, nintents: Int, dwflags: Int, pprofiledata: Long, indexpreferredcmm: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile(hprofile: Long, nprofiles: Int, padwintent: Long, nintents: Int, dwflags: Int, pprofiledata: Long, indexpreferredcmm: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateMultiProfileTransform(pahprofiles: Long, nprofiles: Int, padwintent: Long, nintents: Int, dwflags: Int, indexpreferredcmm: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform(pahprofiles: Long, nprofiles: Int, padwintent: Long, nintents: Int, dwflags: Int, indexpreferredcmm: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceA(plogcolorspace: Long, pprofile: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA(plogcolorspace: Long, pprofile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceW(plogcolorspace: Long, pprofile: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW(plogcolorspace: Long, pprofile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_DeleteColorSpace(hcs: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_deleteColorSpace(hcs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_DeleteColorTransform(hxform: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_deleteColorTransform(hxform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceA(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceW(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW(pmachinename: Long, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_EnumColorProfilesA(pmachinename: Long, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_enumColorProfilesA(pmachinename: Long, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_EnumColorProfilesW(pmachinename: Long, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_enumColorProfilesW(pmachinename: Long, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_EnumICMProfilesA(hdc: Long, proc: Long, param2: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_enumICMProfilesA(hdc: Long, proc: Long, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_EnumICMProfilesW(hdc: Long, proc: Long, param2: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_enumICMProfilesW(hdc: Long, proc: Long, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetCMMInfo(hcolortransform: Long, param1: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getCMMInfo(hcolortransform: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorDirectoryA(pmachinename: Long, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorDirectoryA(pmachinename: Long, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorDirectoryW(pmachinename: Long, pbuffer: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorDirectoryW(pmachinename: Long, pbuffer: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorProfileElement(hprofile: Long, tag: Int, dwoffset: Int, pcbelement: Long, pelement: Long, pbreference: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorProfileElement(hprofile: Long, tag: Int, dwoffset: Int, pcbelement: Long, pelement: Long, pbreference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorProfileElementTag(hprofile: Long, dwindex: Int, ptag: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(hprofile: Long, dwindex: Int, ptag: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorProfileFromHandle(hprofile: Long, pprofile: Long, pcbprofile: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(hprofile: Long, pprofile: Long, pcbprofile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorProfileHeader(hprofile: Long, pheader: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(hprofile: Long, pheader: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetColorSpace(hdc: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_getColorSpace(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetCountColorProfileElements(hprofile: Long, pnelementcount: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(hprofile: Long, pnelementcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetDeviceGammaRamp(hdc: Long, lpramp: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp(hdc: Long, lpramp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetICMProfileA(hdc: Long, pbufsize: Long, pszfilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getICMProfileA(hdc: Long, pbufsize: Long, pszfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetICMProfileW(hdc: Long, pbufsize: Long, pszfilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getICMProfileW(hdc: Long, pbufsize: Long, pszfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceA(hcolorspace: Long, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA(hcolorspace: Long, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceW(hcolorspace: Long, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW(hcolorspace: Long, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingDictionary(hprofile: Long, dwintent: Int, pps2colorrenderingdictionary: Long, pcbps2colorrenderingdictionary: Long, pbbinary: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(hprofile: Long, dwintent: Int, pps2colorrenderingdictionary: Long, pcbps2colorrenderingdictionary: Long, pbbinary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingIntent(hprofile: Long, dwintent: Int, pbuffer: Long, pcbps2colorrenderingintent: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(hprofile: Long, dwintent: Int, pbuffer: Long, pcbps2colorrenderingintent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetPS2ColorSpaceArray(hprofile: Long, dwintent: Int, dwcsatype: Int, pps2colorspacearray: Long, pcbps2colorspacearray: Long, pbbinary: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(hprofile: Long, dwintent: Int, dwcsatype: Int, pps2colorspacearray: Long, pcbps2colorspacearray: Long, pbbinary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileA(pmachinename: Long, dwscs: Int, pbuffer: Long, pcbsize: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA(pmachinename: Long, dwscs: Int, pbuffer: Long, pcbsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileW(pmachinename: Long, dwscs: Int, pbuffer: Long, pcbsize: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW(pmachinename: Long, dwscs: Int, pbuffer: Long, pcbsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_InstallColorProfileA(pmachinename: Long, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_installColorProfileA(pmachinename: Long, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_InstallColorProfileW(pmachinename: Long, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_installColorProfileW(pmachinename: Long, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_IsColorProfileTagPresent(hprofile: Long, tag: Int, pbpresent: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(hprofile: Long, tag: Int, pbpresent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_IsColorProfileValid(hprofile: Long, pbvalid: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_isColorProfileValid(hprofile: Long, pbvalid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_OpenColorProfileA(pprofile: Long, dwdesiredaccess: Int, dwsharemode: Int, dwcreationmode: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_openColorProfileA(pprofile: Long, dwdesiredaccess: Int, dwsharemode: Int, dwcreationmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_OpenColorProfileW(pprofile: Long, dwdesiredaccess: Int, dwsharemode: Int, dwcreationmode: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_openColorProfileW(pprofile: Long, dwdesiredaccess: Int, dwsharemode: Int, dwcreationmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_RegisterCMMA(pmachinename: Long, cmmid: Int, pcmmdll: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_registerCMMA(pmachinename: Long, cmmid: Int, pcmmdll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_RegisterCMMW(pmachinename: Long, cmmid: Int, pcmmdll: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_registerCMMW(pmachinename: Long, cmmid: Int, pcmmdll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SelectCMM(dwcmmtype: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_selectCMM(dwcmmtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetColorProfileElement(hprofile: Long, tag: Int, dwoffset: Int, pcbelement: Long, pelement: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setColorProfileElement(hprofile: Long, tag: Int, dwoffset: Int, pcbelement: Long, pelement: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetColorProfileElementReference(hprofile: Long, newtag: Int, reftag: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(hprofile: Long, newtag: Int, reftag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetColorProfileElementSize(hprofile: Long, tagtype: Int, pcbelement: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(hprofile: Long, tagtype: Int, pcbelement: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetColorProfileHeader(hprofile: Long, pheader: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(hprofile: Long, pheader: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetColorSpace(hdc: Long, hcs: Long): Long
+    external fun windowssys_windows_win32_ui_colorsystem_setColorSpace(hdc: Long, hcs: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetDeviceGammaRamp(hdc: Long, lpramp: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp(hdc: Long, lpramp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetICMMode(hdc: Long, mode: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setICMMode(hdc: Long, mode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetICMProfileA(hdc: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setICMProfileA(hdc: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetICMProfileW(hdc: Long, lpfilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setICMProfileW(hdc: Long, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileA(pmachinename: Long, dwprofileid: Int, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA(pmachinename: Long, dwprofileid: Int, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileW(pmachinename: Long, dwprofileid: Int, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW(pmachinename: Long, dwprofileid: Int, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetupColorMatchingA(pcms: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setupColorMatchingA(pcms: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_SetupColorMatchingW(pcms: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_setupColorMatchingW(pcms: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwinputstride: Int, pdestbits: Long, bmoutput: Int, dwoutputstride: Int, pfncallback: Long, ulcallbackdata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_translateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: Int, dwwidth: Int, dwheight: Int, dwinputstride: Int, pdestbits: Long, bmoutput: Int, dwoutputstride: Int, pfncallback: Long, ulcallbackdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_TranslateColors(hcolortransform: Long, painputcolors: Long, ncolors: Int, ctinput: Int, paoutputcolors: Long, ctoutput: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_translateColors(hcolortransform: Long, painputcolors: Long, ncolors: Int, ctinput: Int, paoutputcolors: Long, ctoutput: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UninstallColorProfileA(pmachinename: Long, pprofilename: Long, bdelete: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA(pmachinename: Long, pprofilename: Long, bdelete: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UninstallColorProfileW(pmachinename: Long, pprofilename: Long, bdelete: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW(pmachinename: Long, pprofilename: Long, bdelete: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UnregisterCMMA(pmachinename: Long, cmmid: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_unregisterCMMA(pmachinename: Long, cmmid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UnregisterCMMW(pmachinename: Long, cmmid: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_unregisterCMMW(pmachinename: Long, cmmid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyA(reserved: Int, lpszcmid: Long, lpszfilename: Long, command: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(reserved: Int, lpszcmid: Long, lpszfilename: Long, command: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyW(reserved: Int, lpszcmid: Long, lpszfilename: Long, command: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(reserved: Int, lpszcmid: Long, lpszfilename: Long, command: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsAssociateColorProfileWithDevice(scope: Int, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice(scope: Int, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsCheckColors(hcolortransform: Long, ncolors: Int, ninputchannels: Int, cdtinput: Int, cbinput: Int, pinputdata: Long, paresult: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsCheckColors(hcolortransform: Long, ncolors: Int, ninputchannels: Int, cdtinput: Int, cbinput: Int, pinputdata: Long, paresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsCreateIccProfile(hwcsprofile: Long, dwoptions: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(hwcsprofile: Long, dwoptions: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsDisassociateColorProfileFromDevice(scope: Int, pprofilename: Long, pdevicename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice(scope: Int, pprofilename: Long, pdevicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfiles(scope: Int, penumrecord: Long, pbuffer: Long, dwsize: Int, pnprofiles: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(scope: Int, penumrecord: Long, pbuffer: Long, dwsize: Int, pnprofiles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfilesSize(scope: Int, penumrecord: Long, pdwsize: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(scope: Int, penumrecord: Long, pdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsGetCalibrationManagementState(pbisenabled: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState(pbisenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfile(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, cbprofilename: Int, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, cbprofilename: Int, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfileSize(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, pcbprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, pcbprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsGetDefaultRenderingIntent(scope: Int, pdwrenderingintent: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(scope: Int, pdwrenderingintent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsGetUsePerUserProfiles(pdevicename: Long, dwdeviceclass: Int, puseperuserprofiles: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles(pdevicename: Long, dwdeviceclass: Int, puseperuserprofiles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileA(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: Int, dwsharemode: Int, dwcreationmode: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: Int, dwsharemode: Int, dwcreationmode: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileW(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: Int, dwsharemode: Int, dwcreationmode: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: Int, dwsharemode: Int, dwcreationmode: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsSetCalibrationManagementState(bisenabled: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState(bisenabled: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsSetDefaultColorProfile(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, pprofilename: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(scope: Int, pdevicename: Long, cptcolorprofiletype: Int, cpstcolorprofilesubtype: Int, dwprofileid: Int, pprofilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsSetDefaultRenderingIntent(scope: Int, dwrenderingintent: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(scope: Int, dwrenderingintent: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsSetUsePerUserProfiles(pdevicename: Long, dwdeviceclass: Int, useperuserprofiles: Int): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles(pdevicename: Long, dwdeviceclass: Int, useperuserprofiles: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_colorsystem_WcsTranslateColors(hcolortransform: Long, ncolors: Int, ninputchannels: Int, cdtinput: Int, cbinput: Int, pinputdata: Long, noutputchannels: Int, cdtoutput: Int, cboutput: Int, poutputdata: Long): Int
+    external fun windowssys_windows_win32_ui_colorsystem_wcsTranslateColors(hcolortransform: Long, ncolors: Int, ninputchannels: Int, cdtinput: Int, cbinput: Int, pinputdata: Long, noutputchannels: Int, cdtoutput: Int, cboutput: Int, poutputdata: Long): Int
 }
 
-public actual fun AssociateColorProfileWithDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceA(pmachinename, pprofilename, pdevicename)
+public actual fun associateColorProfileWithDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun AssociateColorProfileWithDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceW(pmachinename, pprofilename, pdevicename)
+public actual fun associateColorProfileWithDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun CMCheckColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lparesult: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCheckColors(hcmtransform, lpainputcolors, ncolors.toInt(), ctinput, lparesult)
+public actual fun cMCheckColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lparesult: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCheckColors(hcmtransform, (lpainputcolors?.value ?: 0L), ncolors.toInt(), ctinput, (lparesult?.value ?: 0L))
 
-public actual fun CMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesult: Long, ncount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCheckColorsInGamut(hcmtransform, lpargbtriple, lparesult, ncount.toInt())
+public actual fun cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: COpaquePointer?, lparesult: COpaquePointer?, ncount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(hcmtransform, (lpargbtriple?.value ?: 0L), (lparesult?.value ?: 0L), ncount.toInt())
 
-public actual fun CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: Long, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCheckRGBs(hcmtransform, lpsrcbits, bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), lparesult, pfncallback.toLong(), ulcallbackdata)
+public actual fun cMCheckRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: COpaquePointer?, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(hcmtransform, (lpsrcbits?.value ?: 0L), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (lparesult?.value ?: 0L), 0L, ulcallbackdata)
 
-public actual fun CMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMConvertColorNameToIndex(hprofile, pacolorname, paindex, dwcount.toInt())
+public actual fun cMConvertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(hprofile, (pacolorname?.value ?: 0L), (paindex?.value ?: 0L), dwcount.toInt())
 
-public actual fun CMConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMConvertIndexToColorName(hprofile, paindex, pacolorname, dwcount.toInt())
+public actual fun cMConvertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(hprofile, (paindex?.value ?: 0L), (pacolorname?.value ?: 0L), dwcount.toInt())
 
-public actual fun CMCreateDeviceLinkProfile(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt, lpprofiledata: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateDeviceLinkProfile(pahprofiles, nprofiles.toInt(), padwintents, nintents.toInt(), dwflags.toInt(), lpprofiledata)
+public actual fun cMCreateDeviceLinkProfile(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt, lpprofiledata: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile((pahprofiles?.value ?: 0L), nprofiles.toInt(), (padwintents?.value ?: 0L), nintents.toInt(), dwflags.toInt(), (lpprofiledata?.value ?: 0L))
 
-public actual fun CMCreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateMultiProfileTransform(pahprofiles, nprofiles.toInt(), padwintents, nintents.toInt(), dwflags.toInt())
+public actual fun cMCreateMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform((pahprofiles?.value ?: 0L), nprofiles.toInt(), (padwintents?.value ?: 0L), nintents.toInt(), dwflags.toInt())
 
-public actual fun CMCreateProfile(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateProfile(lpcolorspace, lpprofiledata)
+public actual fun cMCreateProfile(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateProfile((lpcolorspace?.value ?: 0L), (lpprofiledata?.value ?: 0L))
 
-public actual fun CMCreateProfileW(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateProfileW(lpcolorspace, lpprofiledata)
+public actual fun cMCreateProfileW(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateProfileW((lpcolorspace?.value ?: 0L), (lpprofiledata?.value ?: 0L))
 
-public actual fun CMCreateTransform(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateTransform(lpcolorspace, lpdevcharacter, lptargetdevcharacter)
+public actual fun cMCreateTransform(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateTransform((lpcolorspace?.value ?: 0L), (lpdevcharacter?.value ?: 0L), (lptargetdevcharacter?.value ?: 0L))
 
-public actual fun CMCreateTransformExt(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExt(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags.toInt())
+public actual fun cMCreateTransformExt(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt((lpcolorspace?.value ?: 0L), (lpdevcharacter?.value ?: 0L), (lptargetdevcharacter?.value ?: 0L), dwflags.toInt())
 
-public actual fun CMCreateTransformExtW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExtW(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags.toInt())
+public actual fun cMCreateTransformExtW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW((lpcolorspace?.value ?: 0L), (lpdevcharacter?.value ?: 0L), (lptargetdevcharacter?.value ?: 0L), dwflags.toInt())
 
-public actual fun CMCreateTransformW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMCreateTransformW(lpcolorspace, lpdevcharacter, lptargetdevcharacter)
+public actual fun cMCreateTransformW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMCreateTransformW((lpcolorspace?.value ?: 0L), (lpdevcharacter?.value ?: 0L), (lptargetdevcharacter?.value ?: 0L))
 
-public actual fun CMDeleteTransform(hcmtransform: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMDeleteTransform(hcmtransform)
+public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(hcmtransform)
 
-public actual fun CMGetInfo(dwinfo: UInt): UInt =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMGetInfo(dwinfo.toInt()).toUInt()
+public actual fun cMGetInfo(dwinfo: UInt): UInt =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMGetInfo(dwinfo.toInt()).toUInt()
 
-public actual fun CMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMGetNamedProfileInfo(hprofile, pnamedprofileinfo)
+public actual fun cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(hprofile, (pnamedprofileinfo?.value ?: 0L))
 
-public actual fun CMIsProfileValid(hprofile: Long, lpbvalid: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMIsProfileValid(hprofile, lpbvalid)
+public actual fun cMIsProfileValid(hprofile: Long, lpbvalid: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(hprofile, (lpbvalid?.value ?: 0L))
 
-public actual fun CMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lpaoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMTranslateColors(hcmtransform, lpainputcolors, ncolors.toInt(), ctinput, lpaoutputcolors, ctoutput)
+public actual fun cMTranslateColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lpaoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMTranslateColors(hcmtransform, (lpainputcolors?.value ?: 0L), ncolors.toInt(), ctinput, (lpaoutputcolors?.value ?: 0L), ctoutput)
 
-public actual fun CMTranslateRGB(hcmtransform: Long, colorref: COLORREF, lpcolorref: Long, dwflags: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMTranslateRGB(hcmtransform, colorref.toInt(), lpcolorref, dwflags.toInt())
+public actual fun cMTranslateRGB(hcmtransform: Long, colorref: Colorref, lpcolorref: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(hcmtransform, colorref.toInt(), (lpcolorref?.value ?: 0L), dwflags.toInt())
 
-public actual fun CMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwtranslatedirection: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBs(hcmtransform, lpsrcbits, bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), lpdestbits, bmoutput, dwtranslatedirection.toInt())
+public actual fun cMTranslateRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwtranslatedirection: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(hcmtransform, (lpsrcbits?.value ?: 0L), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (lpdestbits?.value ?: 0L), bmoutput, dwtranslatedirection.toInt())
 
-public actual fun CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBsExt(hcmtransform, lpsrcbits, bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), lpdestbits, bmoutput, dwoutputstride.toInt(), lpfncallback.toLong(), ulcallbackdata)
+public actual fun cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, lpfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(hcmtransform, (lpsrcbits?.value ?: 0L), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), (lpdestbits?.value ?: 0L), bmoutput, dwoutputstride.toInt(), 0L, ulcallbackdata)
 
-public actual fun CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: Long, pfncallback: LPBMCALLBACKFN, lpcallbackdata: LPARAM): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), paresult, pfncallback.toLong(), lpcallbackdata)
+public actual fun checkBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: COpaquePointer?, pfncallback: Lpbmcallbackfn, lpcallbackdata: Lparam): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_checkBitmapBits(hcolortransform, (psrcbits?.value ?: 0L), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (paresult?.value ?: 0L), 0L, lpcallbackdata)
 
-public actual fun CheckColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paresult: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CheckColors(hcolortransform, painputcolors, ncolors.toInt(), ctinput, paresult)
+public actual fun checkColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paresult: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_checkColors(hcolortransform, (painputcolors?.value ?: 0L), ncolors.toInt(), ctinput, (paresult?.value ?: 0L))
 
-public actual fun CheckColorsInGamut(hdc: HDC, lprgbtriple: Long, dlpbuffer: Long, ncount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CheckColorsInGamut(hdc, lprgbtriple, dlpbuffer, ncount.toInt())
+public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: COpaquePointer?, dlpbuffer: COpaquePointer?, ncount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_checkColorsInGamut((hdc?.value ?: 0L), (lprgbtriple?.value ?: 0L), (dlpbuffer?.value ?: 0L), ncount.toInt())
 
-public actual fun CloseColorProfile(hprofile: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CloseColorProfile(hprofile)
+public actual fun closeColorProfile(hprofile: Long): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_closeColorProfile(hprofile)
 
-public actual fun ColorCorrectPalette(hdc: HDC, hpal: HPALETTE, defirst: UInt, num: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_ColorCorrectPalette(hdc, hpal, defirst.toInt(), num.toInt())
+public actual fun colorCorrectPalette(hdc: Hdc, hpal: Hpalette, defirst: UInt, num: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_colorCorrectPalette((hdc?.value ?: 0L), (hpal?.value ?: 0L), defirst.toInt(), num.toInt())
 
-public actual fun ColorMatchToTarget(hdc: HDC, hdctarget: HDC, action: COLOR_MATCH_TO_TARGET_ACTION): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_ColorMatchToTarget(hdc, hdctarget, action.toInt())
+public actual fun colorMatchToTarget(hdc: Hdc, hdctarget: Hdc, action: ColorMatchToTargetAction): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_colorMatchToTarget((hdc?.value ?: 0L), (hdctarget?.value ?: 0L), action.toInt())
 
-public actual fun ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, setasdefault: BOOL, associateasadvancedcolor: BOOL): HRESULT =
+public actual fun colorProfileAddDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, setasdefault: Bool, associateasadvancedcolor: Bool): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: Long): HRESULT =
+public actual fun colorProfileGetDisplayDefault(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, profilename: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profilelist: Long, profilecount: Long): HRESULT =
+public actual fun colorProfileGetDisplayList(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayUserScope(targetadapterid: LUID, sourceid: UInt, scope: Long): HRESULT =
+public actual fun colorProfileGetDisplayUserScope(targetadapterid: Luid, sourceid: UInt, scope: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, dissociateadvancedcolor: BOOL): HRESULT =
+public actual fun colorProfileRemoveDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, dissociateadvancedcolor: Bool): Hresult =
     0
 
-public actual fun ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: LUID, sourceid: UInt): HRESULT =
+public actual fun colorProfileSetDisplayDefaultAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, targetadapterid: Luid, sourceid: UInt): Hresult =
     0
 
-public actual fun ConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_ConvertColorNameToIndex(hprofile, pacolorname, paindex, dwcount.toInt())
+public actual fun convertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(hprofile, (pacolorname?.value ?: 0L), (paindex?.value ?: 0L), dwcount.toInt())
 
-public actual fun ConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_ConvertIndexToColorName(hprofile, paindex, pacolorname, dwcount.toInt())
+public actual fun convertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(hprofile, (paindex?.value ?: 0L), (pacolorname?.value ?: 0L), dwcount.toInt())
 
-public actual fun CreateColorSpaceA(lplcs: Long): HCOLORSPACE =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceA(lplcs)
+public actual fun createColorSpaceA(lplcs: COpaquePointer?): Hcolorspace =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createColorSpaceA((lplcs?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateColorSpaceW(lplcs: Long): HCOLORSPACE =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceW(lplcs)
+public actual fun createColorSpaceW(lplcs: COpaquePointer?): Hcolorspace =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createColorSpaceW((lplcs?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateColorTransformA(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateColorTransformA(plogcolorspace, hdestprofile, htargetprofile, dwflags.toInt())
+public actual fun createColorTransformA(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createColorTransformA((plogcolorspace?.value ?: 0L), hdestprofile, htargetprofile, dwflags.toInt())
 
-public actual fun CreateColorTransformW(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateColorTransformW(plogcolorspace, hdestprofile, htargetprofile, dwflags.toInt())
+public actual fun createColorTransformW(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createColorTransformW((plogcolorspace?.value ?: 0L), hdestprofile, htargetprofile, dwflags.toInt())
 
-public actual fun CreateDeviceLinkProfile(hprofile: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, pprofiledata: Long, indexpreferredcmm: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateDeviceLinkProfile(hprofile, nprofiles.toInt(), padwintent, nintents.toInt(), dwflags.toInt(), pprofiledata, indexpreferredcmm.toInt())
+public actual fun createDeviceLinkProfile(hprofile: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, pprofiledata: COpaquePointer?, indexpreferredcmm: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile((hprofile?.value ?: 0L), nprofiles.toInt(), (padwintent?.value ?: 0L), nintents.toInt(), dwflags.toInt(), (pprofiledata?.value ?: 0L), indexpreferredcmm.toInt())
 
-public actual fun CreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateMultiProfileTransform(pahprofiles, nprofiles.toInt(), padwintent, nintents.toInt(), dwflags.toInt(), indexpreferredcmm.toInt())
+public actual fun createMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform((pahprofiles?.value ?: 0L), nprofiles.toInt(), (padwintent?.value ?: 0L), nintents.toInt(), dwflags.toInt(), indexpreferredcmm.toInt())
 
-public actual fun CreateProfileFromLogColorSpaceA(plogcolorspace: Long, pprofile: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceA(plogcolorspace, pprofile)
+public actual fun createProfileFromLogColorSpaceA(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA((plogcolorspace?.value ?: 0L), (pprofile?.value ?: 0L))
 
-public actual fun CreateProfileFromLogColorSpaceW(plogcolorspace: Long, pprofile: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceW(plogcolorspace, pprofile)
+public actual fun createProfileFromLogColorSpaceW(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW((plogcolorspace?.value ?: 0L), (pprofile?.value ?: 0L))
 
-public actual fun DeleteColorSpace(hcs: HCOLORSPACE): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_DeleteColorSpace(hcs)
+public actual fun deleteColorSpace(hcs: Hcolorspace): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_deleteColorSpace((hcs?.value ?: 0L))
 
-public actual fun DeleteColorTransform(hxform: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_DeleteColorTransform(hxform)
+public actual fun deleteColorTransform(hxform: Long): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_deleteColorTransform(hxform)
 
-public actual fun DisassociateColorProfileFromDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceA(pmachinename, pprofilename, pdevicename)
+public actual fun disassociateColorProfileFromDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun DisassociateColorProfileFromDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceW(pmachinename, pprofilename, pdevicename)
+public actual fun disassociateColorProfileFromDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun EnumColorProfilesA(pmachinename: PCSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesA(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles)
+public actual fun enumColorProfilesA(pmachinename: Pcstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_enumColorProfilesA((pmachinename?.value ?: 0L), (penumrecord?.value ?: 0L), (penumerationbuffer?.value ?: 0L), (pdwsizeofenumerationbuffer?.value ?: 0L), (pnprofiles?.value ?: 0L))
 
-public actual fun EnumColorProfilesW(pmachinename: PCWSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesW(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles)
+public actual fun enumColorProfilesW(pmachinename: Pcwstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_enumColorProfilesW((pmachinename?.value ?: 0L), (penumrecord?.value ?: 0L), (penumerationbuffer?.value ?: 0L), (pdwsizeofenumerationbuffer?.value ?: 0L), (pnprofiles?.value ?: 0L))
 
-public actual fun EnumICMProfilesA(hdc: HDC, proc: ICMENUMPROCA, param2: LPARAM): Int =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesA(hdc, proc.toLong(), param2)
+public actual fun enumICMProfilesA(hdc: Hdc, proc: Icmenumproca, param2: Lparam): Int =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_enumICMProfilesA((hdc?.value ?: 0L), 0L, param2)
 
-public actual fun EnumICMProfilesW(hdc: HDC, proc: ICMENUMPROCW, param2: LPARAM): Int =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesW(hdc, proc.toLong(), param2)
+public actual fun enumICMProfilesW(hdc: Hdc, proc: Icmenumprocw, param2: Lparam): Int =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_enumICMProfilesW((hdc?.value ?: 0L), 0L, param2)
 
-public actual fun GetCMMInfo(hcolortransform: Long, param1: UInt): UInt =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetCMMInfo(hcolortransform, param1.toInt()).toUInt()
+public actual fun getCMMInfo(hcolortransform: Long, param1: UInt): UInt =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getCMMInfo(hcolortransform, param1.toInt()).toUInt()
 
-public actual fun GetColorDirectoryA(pmachinename: PCSTR, pbuffer: PSTR, pdwsize: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryA(pmachinename, pbuffer, pdwsize)
+public actual fun getColorDirectoryA(pmachinename: Pcstr, pbuffer: Pstr, pdwsize: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorDirectoryA((pmachinename?.value ?: 0L), (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L))
 
-public actual fun GetColorDirectoryW(pmachinename: PCWSTR, pbuffer: PWSTR, pdwsize: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryW(pmachinename, pbuffer, pdwsize)
+public actual fun getColorDirectoryW(pmachinename: Pcwstr, pbuffer: Pwstr, pdwsize: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorDirectoryW((pmachinename?.value ?: 0L), (pbuffer?.value ?: 0L), (pdwsize?.value ?: 0L))
 
-public actual fun GetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long, pbreference: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorProfileElement(hprofile, tag.toInt(), dwoffset.toInt(), pcbelement, pelement, pbreference)
+public actual fun getColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?, pbreference: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorProfileElement(hprofile, tag.toInt(), dwoffset.toInt(), (pcbelement?.value ?: 0L), (pelement?.value ?: 0L), (pbreference?.value ?: 0L))
 
-public actual fun GetColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorProfileElementTag(hprofile, dwindex.toInt(), ptag)
+public actual fun getColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(hprofile, dwindex.toInt(), (ptag?.value ?: 0L))
 
-public actual fun GetColorProfileFromHandle(hprofile: Long, pprofile: Long, pcbprofile: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorProfileFromHandle(hprofile, pprofile, pcbprofile)
+public actual fun getColorProfileFromHandle(hprofile: Long, pprofile: COpaquePointer?, pcbprofile: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(hprofile, (pprofile?.value ?: 0L), (pcbprofile?.value ?: 0L))
 
-public actual fun GetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorProfileHeader(hprofile, pheader)
+public actual fun getColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(hprofile, (pheader?.value ?: 0L))
 
-public actual fun GetColorSpace(hdc: HDC): HCOLORSPACE =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetColorSpace(hdc)
+public actual fun getColorSpace(hdc: Hdc): Hcolorspace =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getColorSpace((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetCountColorProfileElements(hprofile: Long, pnelementcount: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetCountColorProfileElements(hprofile, pnelementcount)
+public actual fun getCountColorProfileElements(hprofile: Long, pnelementcount: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(hprofile, (pnelementcount?.value ?: 0L))
 
-public actual fun GetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetDeviceGammaRamp(hdc, lpramp)
+public actual fun getDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp((hdc?.value ?: 0L), (lpramp?.value ?: 0L))
 
-public actual fun GetICMProfileA(hdc: HDC, pbufsize: Long, pszfilename: PSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetICMProfileA(hdc, pbufsize, pszfilename)
+public actual fun getICMProfileA(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getICMProfileA((hdc?.value ?: 0L), (pbufsize?.value ?: 0L), (pszfilename?.value ?: 0L))
 
-public actual fun GetICMProfileW(hdc: HDC, pbufsize: Long, pszfilename: PWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetICMProfileW(hdc, pbufsize, pszfilename)
+public actual fun getICMProfileW(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getICMProfileW((hdc?.value ?: 0L), (pbufsize?.value ?: 0L), (pszfilename?.value ?: 0L))
 
-public actual fun GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceA(hcolorspace, lpbuffer, nsize.toInt())
+public actual fun getLogColorSpaceA(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA((hcolorspace?.value ?: 0L), (lpbuffer?.value ?: 0L), nsize.toInt())
 
-public actual fun GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceW(hcolorspace, lpbuffer, nsize.toInt())
+public actual fun getLogColorSpaceW(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW((hcolorspace?.value ?: 0L), (lpbuffer?.value ?: 0L), nsize.toInt())
 
-public actual fun GetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetNamedProfileInfo(hprofile, pnamedprofileinfo)
+public actual fun getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(hprofile, (pnamedprofileinfo?.value ?: 0L))
 
-public actual fun GetPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: Long, pcbps2colorrenderingdictionary: Long, pbbinary: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingDictionary(hprofile, dwintent.toInt(), pps2colorrenderingdictionary, pcbps2colorrenderingdictionary, pbbinary)
+public actual fun getPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: COpaquePointer?, pcbps2colorrenderingdictionary: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(hprofile, dwintent.toInt(), (pps2colorrenderingdictionary?.value ?: 0L), (pcbps2colorrenderingdictionary?.value ?: 0L), (pbbinary?.value ?: 0L))
 
-public actual fun GetPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: Long, pcbps2colorrenderingintent: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingIntent(hprofile, dwintent.toInt(), pbuffer, pcbps2colorrenderingintent)
+public actual fun getPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: COpaquePointer?, pcbps2colorrenderingintent: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(hprofile, dwintent.toInt(), (pbuffer?.value ?: 0L), (pcbps2colorrenderingintent?.value ?: 0L))
 
-public actual fun GetPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: Long, pcbps2colorspacearray: Long, pbbinary: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetPS2ColorSpaceArray(hprofile, dwintent.toInt(), dwcsatype.toInt(), pps2colorspacearray, pcbps2colorspacearray, pbbinary)
+public actual fun getPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: COpaquePointer?, pcbps2colorspacearray: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(hprofile, dwintent.toInt(), dwcsatype.toInt(), (pps2colorspacearray?.value ?: 0L), (pcbps2colorspacearray?.value ?: 0L), (pbbinary?.value ?: 0L))
 
-public actual fun GetStandardColorSpaceProfileA(pmachinename: PCSTR, dwscs: UInt, pbuffer: PSTR, pcbsize: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileA(pmachinename, dwscs.toInt(), pbuffer, pcbsize)
+public actual fun getStandardColorSpaceProfileA(pmachinename: Pcstr, dwscs: UInt, pbuffer: Pstr, pcbsize: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA((pmachinename?.value ?: 0L), dwscs.toInt(), (pbuffer?.value ?: 0L), (pcbsize?.value ?: 0L))
 
-public actual fun GetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwscs: UInt, pbuffer: PWSTR, pcbsize: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileW(pmachinename, dwscs.toInt(), pbuffer, pcbsize)
+public actual fun getStandardColorSpaceProfileW(pmachinename: Pcwstr, dwscs: UInt, pbuffer: Pwstr, pcbsize: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW((pmachinename?.value ?: 0L), dwscs.toInt(), (pbuffer?.value ?: 0L), (pcbsize?.value ?: 0L))
 
-public actual fun InstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_InstallColorProfileA(pmachinename, pprofilename)
+public actual fun installColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_installColorProfileA((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L))
 
-public actual fun InstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_InstallColorProfileW(pmachinename, pprofilename)
+public actual fun installColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_installColorProfileW((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L))
 
-public actual fun IsColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_IsColorProfileTagPresent(hprofile, tag.toInt(), pbpresent)
+public actual fun isColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(hprofile, tag.toInt(), (pbpresent?.value ?: 0L))
 
-public actual fun IsColorProfileValid(hprofile: Long, pbvalid: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_IsColorProfileValid(hprofile, pbvalid)
+public actual fun isColorProfileValid(hprofile: Long, pbvalid: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_isColorProfileValid(hprofile, (pbvalid?.value ?: 0L))
 
-public actual fun OpenColorProfileA(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_OpenColorProfileA(pprofile, dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt())
+public actual fun openColorProfileA(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_openColorProfileA((pprofile?.value ?: 0L), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt())
 
-public actual fun OpenColorProfileW(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_OpenColorProfileW(pprofile, dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt())
+public actual fun openColorProfileW(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_openColorProfileW((pprofile?.value ?: 0L), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt())
 
-public actual fun RegisterCMMA(pmachinename: PCSTR, cmmid: UInt, pcmmdll: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_RegisterCMMA(pmachinename, cmmid.toInt(), pcmmdll)
+public actual fun registerCMMA(pmachinename: Pcstr, cmmid: UInt, pcmmdll: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_registerCMMA((pmachinename?.value ?: 0L), cmmid.toInt(), (pcmmdll?.value ?: 0L))
 
-public actual fun RegisterCMMW(pmachinename: PCWSTR, cmmid: UInt, pcmmdll: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_RegisterCMMW(pmachinename, cmmid.toInt(), pcmmdll)
+public actual fun registerCMMW(pmachinename: Pcwstr, cmmid: UInt, pcmmdll: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_registerCMMW((pmachinename?.value ?: 0L), cmmid.toInt(), (pcmmdll?.value ?: 0L))
 
-public actual fun SelectCMM(dwcmmtype: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SelectCMM(dwcmmtype.toInt())
+public actual fun selectCMM(dwcmmtype: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_selectCMM(dwcmmtype.toInt())
 
-public actual fun SetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetColorProfileElement(hprofile, tag.toInt(), dwoffset.toInt(), pcbelement, pelement)
+public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setColorProfileElement(hprofile, tag.toInt(), dwoffset.toInt(), (pcbelement?.value ?: 0L), (pelement?.value ?: 0L))
 
-public actual fun SetColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementReference(hprofile, newtag.toInt(), reftag.toInt())
+public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(hprofile, newtag.toInt(), reftag.toInt())
 
-public actual fun SetColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementSize(hprofile, tagtype.toInt(), pcbelement.toInt())
+public actual fun setColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(hprofile, tagtype.toInt(), pcbelement.toInt())
 
-public actual fun SetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetColorProfileHeader(hprofile, pheader)
+public actual fun setColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(hprofile, (pheader?.value ?: 0L))
 
-public actual fun SetColorSpace(hdc: HDC, hcs: HCOLORSPACE): HCOLORSPACE =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetColorSpace(hdc, hcs)
+public actual fun setColorSpace(hdc: Hdc, hcs: Hcolorspace): Hcolorspace =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setColorSpace((hdc?.value ?: 0L), (hcs?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetDeviceGammaRamp(hdc, lpramp)
+public actual fun setDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp((hdc?.value ?: 0L), (lpramp?.value ?: 0L))
 
-public actual fun SetICMMode(hdc: HDC, mode: ICM_MODE): Int =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetICMMode(hdc, mode)
+public actual fun setICMMode(hdc: Hdc, mode: IcmMode): Int =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setICMMode((hdc?.value ?: 0L), mode)
 
-public actual fun SetICMProfileA(hdc: HDC, lpfilename: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetICMProfileA(hdc, lpfilename)
+public actual fun setICMProfileA(hdc: Hdc, lpfilename: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setICMProfileA((hdc?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun SetICMProfileW(hdc: HDC, lpfilename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetICMProfileW(hdc, lpfilename)
+public actual fun setICMProfileW(hdc: Hdc, lpfilename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setICMProfileW((hdc?.value ?: 0L), (lpfilename?.value ?: 0L))
 
-public actual fun SetStandardColorSpaceProfileA(pmachinename: PCSTR, dwprofileid: UInt, pprofilename: PCSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileA(pmachinename, dwprofileid.toInt(), pprofilename)
+public actual fun setStandardColorSpaceProfileA(pmachinename: Pcstr, dwprofileid: UInt, pprofilename: Pcstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA((pmachinename?.value ?: 0L), dwprofileid.toInt(), (pprofilename?.value ?: 0L))
 
-public actual fun SetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileW(pmachinename, dwprofileid.toInt(), pprofilename)
+public actual fun setStandardColorSpaceProfileW(pmachinename: Pcwstr, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW((pmachinename?.value ?: 0L), dwprofileid.toInt(), (pprofilename?.value ?: 0L))
 
-public actual fun SetupColorMatchingA(pcms: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingA(pcms)
+public actual fun setupColorMatchingA(pcms: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setupColorMatchingA((pcms?.value ?: 0L))
 
-public actual fun SetupColorMatchingW(pcms: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingW(pcms)
+public actual fun setupColorMatchingW(pcms: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_setupColorMatchingW((pcms?.value ?: 0L))
 
-public actual fun TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), pdestbits, bmoutput, dwoutputstride.toInt(), pfncallback.toLong(), ulcallbackdata)
+public actual fun translateBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_translateBitmapBits(hcolortransform, (psrcbits?.value ?: 0L), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), (pdestbits?.value ?: 0L), bmoutput, dwoutputstride.toInt(), 0L, ulcallbackdata)
 
-public actual fun TranslateColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_TranslateColors(hcolortransform, painputcolors, ncolors.toInt(), ctinput, paoutputcolors, ctoutput)
+public actual fun translateColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_translateColors(hcolortransform, (painputcolors?.value ?: 0L), ncolors.toInt(), ctinput, (paoutputcolors?.value ?: 0L), ctoutput)
 
-public actual fun UninstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR, bdelete: BOOL): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileA(pmachinename, pprofilename, bdelete)
+public actual fun uninstallColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr, bdelete: Bool): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), bdelete)
 
-public actual fun UninstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR, bdelete: BOOL): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileW(pmachinename, pprofilename, bdelete)
+public actual fun uninstallColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr, bdelete: Bool): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW((pmachinename?.value ?: 0L), (pprofilename?.value ?: 0L), bdelete)
 
-public actual fun UnregisterCMMA(pmachinename: PCSTR, cmmid: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UnregisterCMMA(pmachinename, cmmid.toInt())
+public actual fun unregisterCMMA(pmachinename: Pcstr, cmmid: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_unregisterCMMA((pmachinename?.value ?: 0L), cmmid.toInt())
 
-public actual fun UnregisterCMMW(pmachinename: PCWSTR, cmmid: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UnregisterCMMW(pmachinename, cmmid.toInt())
+public actual fun unregisterCMMW(pmachinename: Pcwstr, cmmid: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_unregisterCMMW((pmachinename?.value ?: 0L), cmmid.toInt())
 
-public actual fun UpdateICMRegKeyA(reserved: UInt, lpszcmid: PCSTR, lpszfilename: PCSTR, command: ICM_COMMAND): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyA(reserved.toInt(), lpszcmid, lpszfilename, command.toInt())
+public actual fun updateICMRegKeyA(reserved: UInt, lpszcmid: Pcstr, lpszfilename: Pcstr, command: IcmCommand): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(reserved.toInt(), (lpszcmid?.value ?: 0L), (lpszfilename?.value ?: 0L), command.toInt())
 
-public actual fun UpdateICMRegKeyW(reserved: UInt, lpszcmid: PCWSTR, lpszfilename: PCWSTR, command: ICM_COMMAND): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyW(reserved.toInt(), lpszcmid, lpszfilename, command.toInt())
+public actual fun updateICMRegKeyW(reserved: UInt, lpszcmid: Pcwstr, lpszfilename: Pcwstr, command: IcmCommand): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(reserved.toInt(), (lpszcmid?.value ?: 0L), (lpszfilename?.value ?: 0L), command.toInt())
 
-public actual fun WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsAssociateColorProfileWithDevice(scope, pprofilename, pdevicename)
+public actual fun wcsAssociateColorProfileWithDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice(scope, (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun WcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, paresult: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsCheckColors(hcolortransform, ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), pinputdata, paresult)
+public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, paresult: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsCheckColors(hcolortransform, ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), (pinputdata?.value ?: 0L), (paresult?.value ?: 0L))
 
-public actual fun WcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsCreateIccProfile(hwcsprofile, dwoptions.toInt())
+public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(hwcsprofile, dwoptions.toInt())
 
-public actual fun WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsDisassociateColorProfileFromDevice(scope, pprofilename, pdevicename)
+public actual fun wcsDisassociateColorProfileFromDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice(scope, (pprofilename?.value ?: 0L), (pdevicename?.value ?: 0L))
 
-public actual fun WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pbuffer: Long, dwsize: UInt, pnprofiles: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfiles(scope, penumrecord, pbuffer, dwsize.toInt(), pnprofiles)
+public actual fun wcsEnumColorProfiles(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pbuffer: COpaquePointer?, dwsize: UInt, pnprofiles: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(scope, (penumrecord?.value ?: 0L), (pbuffer?.value ?: 0L), dwsize.toInt(), (pnprofiles?.value ?: 0L))
 
-public actual fun WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pdwsize: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfilesSize(scope, penumrecord, pdwsize)
+public actual fun wcsEnumColorProfilesSize(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pdwsize: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(scope, (penumrecord?.value ?: 0L), (pdwsize?.value ?: 0L))
 
-public actual fun WcsGetCalibrationManagementState(pbisenabled: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsGetCalibrationManagementState(pbisenabled)
+public actual fun wcsGetCalibrationManagementState(pbisenabled: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState((pbisenabled?.value ?: 0L))
 
-public actual fun WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, cbprofilename: UInt, pprofilename: PWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfile(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), cbprofilename.toInt(), pprofilename)
+public actual fun wcsGetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, cbprofilename: UInt, pprofilename: Pwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(scope, (pdevicename?.value ?: 0L), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), cbprofilename.toInt(), (pprofilename?.value ?: 0L))
 
-public actual fun WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pcbprofilename: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfileSize(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), pcbprofilename)
+public actual fun wcsGetDefaultColorProfileSize(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pcbprofilename: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(scope, (pdevicename?.value ?: 0L), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), (pcbprofilename?.value ?: 0L))
 
-public actual fun WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultRenderingIntent(scope, pdwrenderingintent)
+public actual fun wcsGetDefaultRenderingIntent(scope: WcsProfileManagementScope, pdwrenderingintent: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(scope, (pdwrenderingintent?.value ?: 0L))
 
-public actual fun WcsGetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, puseperuserprofiles: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsGetUsePerUserProfiles(pdevicename, dwdeviceclass.toInt(), puseperuserprofiles)
+public actual fun wcsGetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, puseperuserprofiles: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles((pdevicename?.value ?: 0L), dwdeviceclass.toInt(), (puseperuserprofiles?.value ?: 0L))
 
-public actual fun WcsOpenColorProfileA(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileA(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt())
+public actual fun wcsOpenColorProfileA(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA((pcdmpprofile?.value ?: 0L), (pcampprofile?.value ?: 0L), (pgmmpprofile?.value ?: 0L), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt())
 
-public actual fun WcsOpenColorProfileW(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileW(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt())
+public actual fun wcsOpenColorProfileW(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW((pcdmpprofile?.value ?: 0L), (pcampprofile?.value ?: 0L), (pgmmpprofile?.value ?: 0L), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt())
 
-public actual fun WcsSetCalibrationManagementState(bisenabled: BOOL): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsSetCalibrationManagementState(bisenabled)
+public actual fun wcsSetCalibrationManagementState(bisenabled: Bool): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState(bisenabled)
 
-public actual fun WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultColorProfile(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), pprofilename)
+public actual fun wcsSetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(scope, (pdevicename?.value ?: 0L), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), (pprofilename?.value ?: 0L))
 
-public actual fun WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: UInt): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt())
+public actual fun wcsSetDefaultRenderingIntent(scope: WcsProfileManagementScope, dwrenderingintent: UInt): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt())
 
-public actual fun WcsSetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, useperuserprofiles: BOOL): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsSetUsePerUserProfiles(pdevicename, dwdeviceclass.toInt(), useperuserprofiles)
+public actual fun wcsSetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, useperuserprofiles: Bool): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles((pdevicename?.value ?: 0L), dwdeviceclass.toInt(), useperuserprofiles)
 
-public actual fun WcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, noutputchannels: UInt, cdtoutput: COLORDATATYPE, cboutput: UInt, poutputdata: Long): BOOL =
-    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_WcsTranslateColors(hcolortransform, ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), pinputdata, noutputchannels.toInt(), cdtoutput, cboutput.toInt(), poutputdata)
+public actual fun wcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, noutputchannels: UInt, cdtoutput: Colordatatype, cboutput: UInt, poutputdata: COpaquePointer?): Bool =
+    WindowsWin32UiColorsystemJniBridge.windowssys_windows_win32_ui_colorsystem_wcsTranslateColors(hcolortransform, ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), (pinputdata?.value ?: 0L), noutputchannels.toInt(), cdtoutput, cboutput.toInt(), (poutputdata?.value ?: 0L))

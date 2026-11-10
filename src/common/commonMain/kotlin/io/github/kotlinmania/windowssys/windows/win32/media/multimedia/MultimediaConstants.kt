@@ -1,10 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -98,9 +98,9 @@ public val AVSTREAMMASTER_NONE: UInt = 1u
 
 public val BI_1632: UInt = 842217009u
 
-public val CLSID_AVIFile: GUID = GUID.from_u128(U128(0x2000000000000uL, 0xc000000000000046uL))
+public val CLSID_AVI_FILE: Guid = Guid.fromU128(U128(0x2000000000000uL, 0xc000000000000046uL))
 
-public val CLSID_AVISimpleUnMarshal: GUID = GUID.from_u128(U128(0x2000900000000uL, 0xc000000000000046uL))
+public val CLSID_AVI_SIMPLE_UN_MARSHAL: Guid = Guid.fromU128(U128(0x2000900000000uL, 0xc000000000000046uL))
 
 public val CONTROLCALLBACK_CAPTURING: UInt = 2u
 
@@ -160,7 +160,7 @@ public val DLG_ACMFILTERCHOOSE_ID: UInt = 71u
 
 public val DLG_ACMFORMATCHOOSE_ID: UInt = 70u
 
-public val DRIVERS_SECTION: PCWSTR = w("DRIVERS32")
+public val DRIVERS_SECTION: Pcwstr = w("DRIVERS32")
 
 public val DRVCNF_CANCEL: UInt = 0u
 
@@ -182,7 +182,7 @@ public val DRVM_INIT_EX: UInt = 104u
 
 public val DRVM_IOCTL: UInt = 256u
 
-public val DRVM_IOCTL_CMD_SYSTEM: Int = -2147483648
+public val DRVM_IOCTL_CMD_SYSTEM: Int = -2147483648.toInt()
 
 public val DRVM_IOCTL_CMD_USER: Int = 0
 
@@ -384,7 +384,7 @@ public val ICCOMPRESSFRAMES_PADDING: UInt = 1u
 
 public val ICCOMPRESS_KEYFRAME: Int = 1
 
-public val ICDECOMPRESS_HURRYUP: Int = -2147483648
+public val ICDECOMPRESS_HURRYUP: Int = -2147483648.toInt()
 
 public val ICDECOMPRESS_NOTKEYFRAME: Int = 134217728
 
@@ -404,7 +404,7 @@ public val ICDRAW_FULLSCREEN: Int = 2
 
 public val ICDRAW_HDC: Int = 4
 
-public val ICDRAW_HURRYUP: Int = -2147483648
+public val ICDRAW_HURRYUP: Int = -2147483648.toInt()
 
 public val ICDRAW_MEMORYDC: Int = 32
 
@@ -986,7 +986,7 @@ public val JOY_BUTTON30: Int = 536870912
 
 public val JOY_BUTTON31: Int = 1073741824
 
-public val JOY_BUTTON32: Int = -2147483648
+public val JOY_BUTTON32: Int = -2147483648.toInt()
 
 public val JOY_BUTTON3CHG: UInt = 1024u
 
@@ -1028,7 +1028,7 @@ public val JOY_CAL_READYONLY: Int = 2097152
 
 public val JOY_CAL_READZONLY: Int = 16777216
 
-public val JOY_CONFIGCHANGED_MSGSTRING: PCSTR = s("MSJSTICK_VJOYD_MSGSTR")
+public val JOY_CONFIGCHANGED_MSGSTRING: Pcstr = s("MSJSTICK_VJOYD_MSGSTR")
 
 public val JOY_POVBACKWARD: UInt = 18000u
 
@@ -1068,9 +1068,9 @@ public val JPEG_RGB: UInt = 3u
 
 public val JPEG_Y: UInt = 1u
 
-public val JPEG_YCbCr: UInt = 2u
+public val JPEG_Y_CB_CR: UInt = 2u
 
-public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: GUID = GUID.from_u128(U128(0x300000010uL, 0x800000aa00389b71uL))
+public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: Guid = Guid.fromU128(U128(0x300000010uL, 0x800000aa00389b71uL))
 
 public val MCIERR_AVI_AUDIOERROR: UInt = 619u
 
@@ -1458,7 +1458,7 @@ public val MCIWND_END: Int = -2
 
 public val MCIWND_START: Int = -1
 
-public val MCIWND_WINDOW_CLASS: PCWSTR = w("MCIWndClass")
+public val MCIWND_WINDOW_CLASS: Pcwstr = w("MCIWndClass")
 
 public val MCI_ANIM_GETDEVCAPS_CAN_REVERSE: Int = 16385
 
@@ -2378,7 +2378,7 @@ public val MCI_SAVE: UInt = 2067u
 
 public val MCI_SAVE_FILE: Int = 256
 
-public val MCI_SECTION: PCWSTR = w("MCI32")
+public val MCI_SECTION: Pcwstr = w("MCI32")
 
 public val MCI_SEEK: UInt = 2055u
 
@@ -2626,9 +2626,9 @@ public val MCI_WHERE: UInt = 2115u
 
 public val MCI_WINDOW: UInt = 2113u
 
-public val MCMADM_E_REGKEY_NOT_FOUND: HRESULT = 0xC00D006Au.toInt()
+public val MCMADM_E_REGKEY_NOT_FOUND: Hresult = 0xC00D006Au.toInt()
 
-public val MCMADM_I_NO_EVENTS: HRESULT = 0x400D0069u.toInt()
+public val MCMADM_I_NO_EVENTS: Hresult = 0x400D0069u.toInt()
 
 public val MIDIMAPPER_S: UInt = 1227u
 

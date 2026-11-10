@@ -1,21 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
-public typealias DWMFLIP3DWINDOWPOLICY = Int
+public typealias Dwmflip3dwindowpolicy = Int
 
-public typealias DWMNCRENDERINGPOLICY = Int
+public typealias Dwmncrenderingpolicy = Int
 
-public typealias DWMTRANSITION_OWNEDWINDOW_TARGET = Int
+public typealias DwmtransitionOwnedwindowTarget = Int
 
-public typealias DWMWINDOWATTRIBUTE = Int
+public typealias Dwmwindowattribute = Int
 
-public typealias DWM_SHOWCONTACT = UInt
+public typealias DwmShowcontact = UInt
 
-public typealias DWM_SOURCE_FRAME_SAMPLING = Int
+public typealias DwmSourceFrameSampling = Int
 
-public typealias DWM_SYSTEMBACKDROP_TYPE = Int
+public typealias DwmSystembackdropType = Int
 
-public typealias DWM_TAB_WINDOW_REQUIREMENTS = Int
+public typealias DwmTabWindowRequirements = Int
 
-public typealias DWM_WINDOW_CORNER_PREFERENCE = Int
+public typealias DwmWindowCornerPreference = Int
 
-public typealias GESTURE_TYPE = Int
+public typealias GestureType = Int

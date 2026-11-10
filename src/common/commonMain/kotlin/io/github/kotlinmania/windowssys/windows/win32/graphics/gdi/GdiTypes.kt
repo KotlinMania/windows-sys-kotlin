@@ -1,284 +1,285 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ARC_DIRECTION = Int
+public typealias ArcDirection = Int
 
-public typealias BACKGROUND_MODE = UInt
+public typealias BackgroundMode = UInt
 
-public typealias BI_COMPRESSION = UInt
+public typealias BiCompression = UInt
 
-public typealias BRUSH_STYLE = UInt
+public typealias BrushStyle = UInt
 
-public typealias CDS_TYPE = UInt
+public typealias CdsType = UInt
 
-public fun interface CFP_ALLOCPROCFn {
-    public operator fun invoke(param0: ULong): Long
+public fun interface CfpAllocprocFn {
+    public operator fun invoke(param0: ULong): COpaquePointer?
 }
 
-public typealias CFP_ALLOCPROC = CFP_ALLOCPROCFn?
+public typealias CfpAllocproc = CfpAllocprocFn?
 
-public fun interface CFP_FREEPROCFn {
-    public operator fun invoke(param0: Long)
+public fun interface CfpFreeprocFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias CFP_FREEPROC = CFP_FREEPROCFn?
+public typealias CfpFreeproc = CfpFreeprocFn?
 
-public fun interface CFP_REALLOCPROCFn {
-    public operator fun invoke(param0: Long, param1: ULong): Long
+public fun interface CfpReallocprocFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: ULong): COpaquePointer?
 }
 
-public typealias CFP_REALLOCPROC = CFP_REALLOCPROCFn?
+public typealias CfpReallocproc = CfpReallocprocFn?
 
-public typealias CREATE_FONT_PACKAGE_SUBSET_ENCODING = Short
+public typealias CreateFontPackageSubsetEncoding = Short
 
-public typealias CREATE_FONT_PACKAGE_SUBSET_PLATFORM = Short
+public typealias CreateFontPackageSubsetPlatform = Short
 
-public typealias CREATE_POLYGON_RGN_MODE = Int
+public typealias CreatePolygonRgnMode = Int
 
-public typealias DC_LAYOUT = UInt
+public typealias DcLayout = UInt
 
-public typealias DEVMODE_COLLATE = Short
+public typealias DevmodeCollate = Short
 
-public typealias DEVMODE_COLOR = Short
+public typealias DevmodeColor = Short
 
-public typealias DEVMODE_DISPLAY_FIXED_OUTPUT = UInt
+public typealias DevmodeDisplayFixedOutput = UInt
 
-public typealias DEVMODE_DISPLAY_ORIENTATION = UInt
+public typealias DevmodeDisplayOrientation = UInt
 
-public typealias DEVMODE_DUPLEX = Short
+public typealias DevmodeDuplex = Short
 
-public typealias DEVMODE_FIELD_FLAGS = UInt
+public typealias DevmodeFieldFlags = UInt
 
-public typealias DEVMODE_TRUETYPE_OPTION = Short
+public typealias DevmodeTruetypeOption = Short
 
-public typealias DFCS_STATE = UInt
+public typealias DfcsState = UInt
 
-public typealias DFC_TYPE = UInt
+public typealias DfcType = UInt
 
-public typealias DIB_USAGE = UInt
+public typealias DibUsage = UInt
 
-public typealias DISPLAYCONFIG_COLOR_ENCODING = Int
+public typealias DisplayconfigColorEncoding = Int
 
-public typealias DISPLAY_DEVICE_STATE_FLAGS = UInt
+public typealias DisplayDeviceStateFlags = UInt
 
-public typealias DISP_CHANGE = Int
+public typealias DispChange = Int
 
-public typealias DRAWEDGE_FLAGS = UInt
+public typealias DrawedgeFlags = UInt
 
-public fun interface DRAWSTATEPROCFn {
-    public operator fun invoke(hdc: HDC, ldata: LPARAM, wdata: WPARAM, cx: Int, cy: Int): BOOL
+public fun interface DrawstateprocFn {
+    public operator fun invoke(hdc: Hdc, ldata: Lparam, wdata: Wparam, cx: Int, cy: Int): Bool
 }
 
-public typealias DRAWSTATEPROC = DRAWSTATEPROCFn?
+public typealias Drawstateproc = DrawstateprocFn?
 
-public typealias DRAWSTATE_FLAGS = UInt
+public typealias DrawstateFlags = UInt
 
-public typealias DRAW_CAPTION_FLAGS = UInt
+public typealias DrawCaptionFlags = UInt
 
-public typealias DRAW_EDGE_FLAGS = UInt
+public typealias DrawEdgeFlags = UInt
 
-public typealias DRAW_TEXT_FORMAT = UInt
+public typealias DrawTextFormat = UInt
 
-public typealias EMBEDDED_FONT_PRIV_STATUS = UInt
+public typealias EmbeddedFontPrivStatus = UInt
 
-public typealias EMBED_FONT_CHARSET = UInt
+public typealias EmbedFontCharset = UInt
 
-public typealias ENHANCED_METAFILE_RECORD_TYPE = UInt
+public typealias EnhancedMetafileRecordType = UInt
 
-public fun interface ENHMFENUMPROCFn {
-    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nhandles: Int, data: LPARAM): Int
+public fun interface EnhmfenumprocFn {
+    public operator fun invoke(hdc: Hdc, lpht: COpaquePointer?, lpmr: COpaquePointer?, nhandles: Int, data: Lparam): Int
 }
 
-public typealias ENHMFENUMPROC = ENHMFENUMPROCFn?
+public typealias Enhmfenumproc = EnhmfenumprocFn?
 
-public typealias ENUM_DISPLAY_SETTINGS_FLAGS = UInt
+public typealias EnumDisplaySettingsFlags = UInt
 
-public typealias ENUM_DISPLAY_SETTINGS_MODE = UInt
+public typealias EnumDisplaySettingsMode = UInt
 
-public typealias ETO_OPTIONS = UInt
+public typealias EtoOptions = UInt
 
-public typealias EXT_FLOOD_FILL_TYPE = UInt
+public typealias ExtFloodFillType = UInt
 
-public fun interface FONTENUMPROCAFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: LPARAM): Int
+public fun interface FontenumprocaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: Lparam): Int
 }
 
-public typealias FONTENUMPROCA = FONTENUMPROCAFn?
+public typealias Fontenumproca = FontenumprocaFn?
 
-public fun interface FONTENUMPROCWFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: LPARAM): Int
+public fun interface FontenumprocwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: Lparam): Int
 }
 
-public typealias FONTENUMPROCW = FONTENUMPROCWFn?
+public typealias Fontenumprocw = FontenumprocwFn?
 
-public typealias FONT_CHARSET = UByte
+public typealias FontCharset = UByte
 
-public typealias FONT_CLIP_PRECISION = UByte
+public typealias FontClipPrecision = UByte
 
-public typealias FONT_FAMILY = UByte
+public typealias FontFamily = UByte
 
-public typealias FONT_LICENSE_PRIVS = UInt
+public typealias FontLicensePrivs = UInt
 
-public typealias FONT_OUTPUT_PRECISION = UByte
+public typealias FontOutputPrecision = UByte
 
-public typealias FONT_PITCH = UByte
+public typealias FontPitch = UByte
 
-public typealias FONT_QUALITY = UByte
+public typealias FontQuality = UByte
 
-public typealias FONT_RESOURCE_CHARACTERISTICS = UInt
+public typealias FontResourceCharacteristics = UInt
 
-public typealias FONT_WEIGHT = UInt
+public typealias FontWeight = UInt
 
-public typealias GDI_REGION_TYPE = Int
+public typealias GdiRegionType = Int
 
-public typealias GET_CHARACTER_PLACEMENT_FLAGS = UInt
+public typealias GetCharacterPlacementFlags = UInt
 
-public typealias GET_DCX_FLAGS = UInt
+public typealias GetDcxFlags = UInt
 
-public typealias GET_DEVICE_CAPS_INDEX = UInt
+public typealias GetDeviceCapsIndex = UInt
 
-public typealias GET_GLYPH_OUTLINE_FORMAT = UInt
+public typealias GetGlyphOutlineFormat = UInt
 
-public typealias GET_STOCK_OBJECT_FLAGS = Int
+public typealias GetStockObjectFlags = Int
 
-public fun interface GOBJENUMPROCFn {
-    public operator fun invoke(param0: Long, param1: LPARAM): Int
+public fun interface GobjenumprocFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Lparam): Int
 }
 
-public typealias GOBJENUMPROC = GOBJENUMPROCFn?
+public typealias Gobjenumproc = GobjenumprocFn?
 
-public typealias GRADIENT_FILL = UInt
+public typealias GradientFill = UInt
 
-public typealias GRAPHICS_MODE = Int
+public typealias GraphicsMode = Int
 
-public fun interface GRAYSTRINGPROCFn {
-    public operator fun invoke(param0: HDC, param1: LPARAM, param2: Int): BOOL
+public fun interface GraystringprocFn {
+    public operator fun invoke(param0: Hdc, param1: Lparam, param2: Int): Bool
 }
 
-public typealias GRAYSTRINGPROC = GRAYSTRINGPROCFn?
+public typealias Graystringproc = GraystringprocFn?
 
-public typealias HATCH_BRUSH_STYLE = Int
+public typealias HatchBrushStyle = Int
 
-public typealias HBITMAP = Long
+public typealias Hbitmap = COpaquePointer?
 
-public typealias HBRUSH = Long
+public typealias Hbrush = COpaquePointer?
 
-public typealias HDC = Long
+public typealias Hdc = COpaquePointer?
 
-public typealias HDC_MAP_MODE = Int
+public typealias HdcMapMode = Int
 
-public typealias HENHMETAFILE = Long
+public typealias Henhmetafile = COpaquePointer?
 
-public typealias HFONT = Long
+public typealias Hfont = COpaquePointer?
 
-public typealias HGDIOBJ = Long
+public typealias Hgdiobj = COpaquePointer?
 
-public typealias HMETAFILE = Long
+public typealias Hmetafile = COpaquePointer?
 
-public typealias HMONITOR = Long
+public typealias Hmonitor = COpaquePointer?
 
-public typealias HPALETTE = Long
+public typealias Hpalette = COpaquePointer?
 
-public typealias HPEN = Long
+public typealias Hpen = COpaquePointer?
 
-public typealias HRGN = Long
+public typealias Hrgn = COpaquePointer?
 
-public fun interface LINEDDAPROCFn {
-    public operator fun invoke(param0: Int, param1: Int, param2: LPARAM)
+public fun interface LineddaprocFn {
+    public operator fun invoke(param0: Int, param1: Int, param2: Lparam)
 }
 
-public typealias LINEDDAPROC = LINEDDAPROCFn?
+public typealias Lineddaproc = LineddaprocFn?
 
-public fun interface LPFNDEVCAPSFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: UInt, param3: PCSTR, param4: Long): UInt
+public fun interface LpfndevcapsFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: UInt, param3: Pcstr, param4: COpaquePointer?): UInt
 }
 
-public typealias LPFNDEVCAPS = LPFNDEVCAPSFn?
+public typealias Lpfndevcaps = LpfndevcapsFn?
 
-public fun interface LPFNDEVMODEFn {
-    public operator fun invoke(param0: HWND, param1: HMODULE, param2: Long, param3: PCSTR, param4: PCSTR, param5: Long, param6: PCSTR, param7: UInt): UInt
+public fun interface LpfndevmodeFn {
+    public operator fun invoke(param0: Hwnd, param1: Hmodule, param2: COpaquePointer?, param3: Pcstr, param4: Pcstr, param5: COpaquePointer?, param6: Pcstr, param7: UInt): UInt
 }
 
-public typealias LPFNDEVMODE = LPFNDEVMODEFn?
+public typealias Lpfndevmode = LpfndevmodeFn?
 
-public fun interface MFENUMPROCFn {
-    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nobj: Int, param4: LPARAM): Int
+public fun interface MfenumprocFn {
+    public operator fun invoke(hdc: Hdc, lpht: COpaquePointer?, lpmr: COpaquePointer?, nobj: Int, param4: Lparam): Int
 }
 
-public typealias MFENUMPROC = MFENUMPROCFn?
+public typealias Mfenumproc = MfenumprocFn?
 
-public typealias MODIFY_WORLD_TRANSFORM_MODE = UInt
+public typealias ModifyWorldTransformMode = UInt
 
-public fun interface MONITORENUMPROCFn {
-    public operator fun invoke(param0: HMONITOR, param1: HDC, param2: Long, param3: LPARAM): BOOL
+public fun interface MonitorenumprocFn {
+    public operator fun invoke(param0: Hmonitor, param1: Hdc, param2: COpaquePointer?, param3: Lparam): Bool
 }
 
-public typealias MONITORENUMPROC = MONITORENUMPROCFn?
+public typealias Monitorenumproc = MonitorenumprocFn?
 
-public typealias MONITOR_FROM_FLAGS = UInt
+public typealias MonitorFromFlags = UInt
 
-public typealias OBJ_TYPE = Int
+public typealias ObjType = Int
 
-public typealias PAN_ARM_STYLE = UByte
+public typealias PanArmStyle = UByte
 
-public typealias PAN_CONTRAST = UByte
+public typealias PanContrast = UByte
 
-public typealias PAN_FAMILY_TYPE = UByte
+public typealias PanFamilyType = UByte
 
-public typealias PAN_LETT_FORM = UByte
+public typealias PanLettForm = UByte
 
-public typealias PAN_MIDLINE = UByte
+public typealias PanMidline = UByte
 
-public typealias PAN_PROPORTION = UByte
+public typealias PanProportion = UByte
 
-public typealias PAN_SERIF_STYLE = UByte
+public typealias PanSerifStyle = UByte
 
-public typealias PAN_STROKE_VARIATION = UByte
+public typealias PanStrokeVariation = UByte
 
-public typealias PAN_WEIGHT = UByte
+public typealias PanWeight = UByte
 
-public typealias PAN_XHEIGHT = UByte
+public typealias PanXheight = UByte
 
-public typealias PEN_STYLE = Int
+public typealias PenStyle = Int
 
-public typealias R2_MODE = Int
+public typealias R2Mode = Int
 
-public fun interface READEMBEDPROCFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt): UInt
+public fun interface ReadembedprocFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt): UInt
 }
 
-public typealias READEMBEDPROC = READEMBEDPROCFn?
+public typealias Readembedproc = ReadembedprocFn?
 
-public typealias REDRAW_WINDOW_FLAGS = UInt
+public typealias RedrawWindowFlags = UInt
 
-public typealias RGN_COMBINE_MODE = Int
+public typealias RgnCombineMode = Int
 
-public typealias ROP_CODE = UInt
+public typealias RopCode = UInt
 
-public typealias SET_BOUNDS_RECT_FLAGS = UInt
+public typealias SetBoundsRectFlags = UInt
 
-public typealias STRETCH_BLT_MODE = Int
+public typealias StretchBltMode = Int
 
-public typealias SYSTEM_PALETTE_USE = UInt
+public typealias SystemPaletteUse = UInt
 
-public typealias SYS_COLOR_INDEX = Int
+public typealias SysColorIndex = Int
 
-public typealias TEXT_ALIGN_OPTIONS = UInt
+public typealias TextAlignOptions = UInt
 
-public typealias TMPF_FLAGS = UByte
+public typealias TmpfFlags = UByte
 
-public typealias TTEMBED_FLAGS = UInt
+public typealias TtembedFlags = UInt
 
-public typealias TTLOAD_EMBEDDED_FONT_STATUS = UInt
+public typealias TtloadEmbeddedFontStatus = UInt
 
-public fun interface WRITEEMBEDPROCFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt): UInt
+public fun interface WriteembedprocFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt): UInt
 }
 
-public typealias WRITEEMBEDPROC = WRITEEMBEDPROCFn?
+public typealias Writeembedproc = WriteembedprocFn?

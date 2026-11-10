@@ -1,3297 +1,3256 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_CONTROL
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PBUS_HANDLER
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEX_TIMER
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PIO_WORKITEM
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TRANSACTION_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverControl
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PbusHandler
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PexTimer
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PioWorkitem
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SystemPowerState
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionInformationClass
 
-public fun interface ALLOCATE_FUNCTIONFn {
-    public operator fun invoke(pooltype: POOL_TYPE, numberofbytes: ULong, tag: UInt): Long
+public fun interface AllocateFunctionFn {
+    public operator fun invoke(pooltype: PoolType, numberofbytes: ULong, tag: UInt): COpaquePointer?
 }
 
-public typealias ALLOCATE_FUNCTION = ALLOCATE_FUNCTIONFn?
+public typealias AllocateFunction = AllocateFunctionFn?
 
-public typealias ALTERNATIVE_ARCHITECTURE_TYPE = Int
+public typealias AlternativeArchitectureType = Int
 
-public typealias ARBITER_ACTION = Int
+public typealias ArbiterAction = Int
 
-public typealias ARBITER_REQUEST_SOURCE = Int
+public typealias ArbiterRequestSource = Int
 
-public typealias ARBITER_RESULT = Int
+public typealias ArbiterResult = Int
 
-public typealias BDCB_CALLBACK_TYPE = Int
+public typealias BdcbCallbackType = Int
 
-public typealias BDCB_CLASSIFICATION = Int
+public typealias BdcbClassification = Int
 
-public typealias BDCB_STATUS_UPDATE_TYPE = Int
+public typealias BdcbStatusUpdateType = Int
 
-public fun interface BOOT_DRIVER_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(callbackcontext: Long, classification: BDCB_CALLBACK_TYPE, imageinformation: Long)
+public fun interface BootDriverCallbackFunctionFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?, classification: BdcbCallbackType, imageinformation: COpaquePointer?)
 }
 
-public typealias BOOT_DRIVER_CALLBACK_FUNCTION = BOOT_DRIVER_CALLBACK_FUNCTIONFn?
+public typealias BootDriverCallbackFunction = BootDriverCallbackFunctionFn?
 
-public fun interface BOUND_CALLBACKFn {
-    public operator fun invoke(): BOUND_CALLBACK_STATUS
+public fun interface BoundCallbackFn {
+    public operator fun invoke(): BoundCallbackStatus
 }
 
-public typealias BOUND_CALLBACK = BOUND_CALLBACKFn?
+public typealias BoundCallback = BoundCallbackFn?
 
-public typealias BOUND_CALLBACK_STATUS = Int
+public typealias BoundCallbackStatus = Int
 
-public typealias BUS_DATA_TYPE = Int
+public typealias BusDataType = Int
 
-public typealias BUS_QUERY_ID_TYPE = Int
+public typealias BusQueryIdType = Int
 
-public typealias CM_SHARE_DISPOSITION = Int
+public typealias CmShareDisposition = Int
 
-public typealias CONFIGURATION_TYPE = Int
+public typealias ConfigurationType = Int
 
-public typealias CREATE_FILE_TYPE = Int
+public typealias CreateFileType = Int
 
-public typealias D3COLD_LAST_TRANSITION_STATUS = Int
+public typealias D3coldLastTransitionStatus = Int
 
-public fun interface D3COLD_REQUEST_AUX_POWERFn {
-    public operator fun invoke(context: Long, auxpowerinmilliwatts: UInt, retryinseconds: Long): NTSTATUS
+public fun interface D3coldRequestAuxPowerFn {
+    public operator fun invoke(context: COpaquePointer?, auxpowerinmilliwatts: UInt, retryinseconds: COpaquePointer?): Ntstatus
 }
 
-public typealias D3COLD_REQUEST_AUX_POWER = D3COLD_REQUEST_AUX_POWERFn?
+public typealias D3coldRequestAuxPower = D3coldRequestAuxPowerFn?
 
-public fun interface D3COLD_REQUEST_CORE_POWER_RAILFn {
-    public operator fun invoke(context: Long, corepowerrailneeded: Boolean)
+public fun interface D3coldRequestCorePowerRailFn {
+    public operator fun invoke(context: COpaquePointer?, corepowerrailneeded: Boolean)
 }
 
-public typealias D3COLD_REQUEST_CORE_POWER_RAIL = D3COLD_REQUEST_CORE_POWER_RAILFn?
+public typealias D3coldRequestCorePowerRail = D3coldRequestCorePowerRailFn?
 
-public fun interface D3COLD_REQUEST_PERST_DELAYFn {
-    public operator fun invoke(context: Long, delayinmicroseconds: UInt): NTSTATUS
+public fun interface D3coldRequestPerstDelayFn {
+    public operator fun invoke(context: COpaquePointer?, delayinmicroseconds: UInt): Ntstatus
 }
 
-public typealias D3COLD_REQUEST_PERST_DELAY = D3COLD_REQUEST_PERST_DELAYFn?
+public typealias D3coldRequestPerstDelay = D3coldRequestPerstDelayFn?
 
-public fun interface DEVICE_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, bustype: Long, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: Long, resetparameters: Long): NTSTATUS
+public fun interface DeviceBusSpecificResetHandlerFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?, bustype: COpaquePointer?, resettypeselected: DeviceBusSpecificResetType, flags: COpaquePointer?, resetparameters: COpaquePointer?): Ntstatus
 }
 
-public typealias DEVICE_BUS_SPECIFIC_RESET_HANDLER = DEVICE_BUS_SPECIFIC_RESET_HANDLERFn?
+public typealias DeviceBusSpecificResetHandler = DeviceBusSpecificResetHandlerFn?
 
-public fun interface DEVICE_CHANGE_COMPLETE_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface DeviceChangeCompleteCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias DEVICE_CHANGE_COMPLETE_CALLBACK = DEVICE_CHANGE_COMPLETE_CALLBACKFn?
+public typealias DeviceChangeCompleteCallback = DeviceChangeCompleteCallbackFn?
 
-public typealias DEVICE_DIRECTORY_TYPE = Int
+public typealias DeviceDirectoryType = Int
 
-public typealias DEVICE_INSTALL_STATE = Int
+public typealias DeviceInstallState = Int
 
-public fun interface DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, resetinfocount: Long, resetinfosupported: Long): NTSTATUS
+public fun interface DeviceQueryBusSpecificResetHandlerFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?, resetinfocount: COpaquePointer?, resetinfosupported: COpaquePointer?): Ntstatus
 }
 
-public typealias DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn?
+public typealias DeviceQueryBusSpecificResetHandler = DeviceQueryBusSpecificResetHandlerFn?
 
-public typealias DEVICE_REGISTRY_PROPERTY = Int
+public typealias DeviceRegistryProperty = Int
 
-public typealias DEVICE_RELATION_TYPE = Int
+public typealias DeviceRelationType = Int
 
-public typealias DEVICE_REMOVAL_POLICY = Int
+public typealias DeviceRemovalPolicy = Int
 
-public fun interface DEVICE_RESET_COMPLETIONFn {
-    public operator fun invoke(status: NTSTATUS, context: Long)
+public fun interface DeviceResetCompletionFn {
+    public operator fun invoke(status: Ntstatus, context: COpaquePointer?)
 }
 
-public typealias DEVICE_RESET_COMPLETION = DEVICE_RESET_COMPLETIONFn?
+public typealias DeviceResetCompletion = DeviceResetCompletionFn?
 
-public fun interface DEVICE_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, resettype: DEVICE_RESET_TYPE, flags: UInt, resetparameters: Long): NTSTATUS
+public fun interface DeviceResetHandlerFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?, resettype: DeviceResetType, flags: UInt, resetparameters: COpaquePointer?): Ntstatus
 }
 
-public typealias DEVICE_RESET_HANDLER = DEVICE_RESET_HANDLERFn?
+public typealias DeviceResetHandler = DeviceResetHandlerFn?
 
-public typealias DEVICE_RESET_TYPE = Int
+public typealias DeviceResetType = Int
 
-public typealias DEVICE_TEXT_TYPE = Int
+public typealias DeviceTextType = Int
 
-public typealias DEVICE_USAGE_NOTIFICATION_TYPE = Int
+public typealias DeviceUsageNotificationType = Int
 
-public typealias DEVICE_WAKE_DEPTH = Int
+public typealias DeviceWakeDepth = Int
 
-public typealias DIRECTORY_NOTIFY_INFORMATION_CLASS = Int
+public typealias DirectoryNotifyInformationClass = Int
 
-public typealias DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = Int
+public typealias DmaCommonBufferExtendedConfigurationAccessType = Int
 
-public typealias DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = Int
+public typealias DmaCommonBufferExtendedConfigurationType = Int
 
-public fun interface DMA_COMPLETION_ROUTINEFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, completioncontext: Long, status: DMA_COMPLETION_STATUS)
+public fun interface DmaCompletionRoutineFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, completioncontext: COpaquePointer?, status: DmaCompletionStatus)
 }
 
-public typealias DMA_COMPLETION_ROUTINE = DMA_COMPLETION_ROUTINEFn?
+public typealias DmaCompletionRoutine = DmaCompletionRoutineFn?
 
-public typealias DMA_COMPLETION_STATUS = Int
+public typealias DmaCompletionStatus = Int
 
-public typealias DMA_SPEED = Int
+public typealias DmaSpeed = Int
 
-public typealias DMA_WIDTH = Int
+public typealias DmaWidth = Int
 
-public typealias DOMAIN_CONFIGURATION_ARCH = Int
+public typealias DomainConfigurationArch = Int
 
-public typealias DRIVER_DIRECTORY_TYPE = Int
+public typealias DriverDirectoryType = Int
 
-public fun interface DRIVER_LIST_CONTROLFn {
-    public operator fun invoke(deviceobject: Long, irp: Long, scattergather: Long, context: Long)
+public fun interface DriverListControlFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?, scattergather: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias DRIVER_LIST_CONTROL = DRIVER_LIST_CONTROLFn?
+public typealias DriverListControl = DriverListControlFn?
 
-public typealias DRIVER_REGKEY_TYPE = Int
+public typealias DriverRegkeyType = Int
 
-public typealias DRIVER_RUNTIME_INIT_FLAGS = Int
+public typealias DriverRuntimeInitFlags = Int
 
-public fun interface ENABLE_VIRTUALIZATIONFn {
-    public operator fun invoke(context: Long, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): NTSTATUS
+public fun interface EnableVirtualizationFn {
+    public operator fun invoke(context: COpaquePointer?, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): Ntstatus
 }
 
-public typealias ENABLE_VIRTUALIZATION = ENABLE_VIRTUALIZATIONFn?
+public typealias EnableVirtualization = EnableVirtualizationFn?
 
-public fun interface ETWENABLECALLBACKFn {
-    public operator fun invoke(sourceid: Long, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: Long, callbackcontext: Long)
+public fun interface EtwenablecallbackFn {
+    public operator fun invoke(sourceid: COpaquePointer?, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: COpaquePointer?, callbackcontext: COpaquePointer?)
 }
 
-public typealias ETWENABLECALLBACK = ETWENABLECALLBACKFn?
+public typealias Etwenablecallback = EtwenablecallbackFn?
 
-public fun interface EXPAND_STACK_CALLOUTFn {
-    public operator fun invoke(parameter: Long)
+public fun interface ExpandStackCalloutFn {
+    public operator fun invoke(parameter: COpaquePointer?)
 }
 
-public typealias EXPAND_STACK_CALLOUT = EXPAND_STACK_CALLOUTFn?
+public typealias ExpandStackCallout = ExpandStackCalloutFn?
 
-public typealias EXTENDED_AGP_REGISTER = Int
+public typealias ExtendedAgpRegister = Int
 
-public fun interface EXT_CALLBACKFn {
-    public operator fun invoke(timer: PEX_TIMER, context: Long)
+public fun interface ExtCallbackFn {
+    public operator fun invoke(timer: PexTimer, context: COpaquePointer?)
 }
 
-public typealias EXT_CALLBACK = EXT_CALLBACKFn?
+public typealias ExtCallback = ExtCallbackFn?
 
-public fun interface EXT_DELETE_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface ExtDeleteCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias EXT_DELETE_CALLBACK = EXT_DELETE_CALLBACKFn?
+public typealias ExtDeleteCallback = ExtDeleteCallbackFn?
 
-public fun interface EX_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(callbackcontext: Long, argument1: Long, argument2: Long): NTSTATUS
+public fun interface ExCallbackFunctionFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?, argument1: COpaquePointer?, argument2: COpaquePointer?): Ntstatus
 }
 
-public typealias EX_CALLBACK_FUNCTION = EX_CALLBACK_FUNCTIONFn?
+public typealias ExCallbackFunction = ExCallbackFunctionFn?
 
-public typealias EX_POOL_PRIORITY = Int
+public typealias ExPoolPriority = Int
 
-public typealias FAULT_INFORMATION_ARCH = Int
+public typealias FaultInformationArch = Int
 
-public typealias FAULT_INFORMATION_ARM64_TYPE = Int
+public typealias FaultInformationArm64Type = Int
 
-public fun interface FPGA_BUS_SCANFn {
-    public operator fun invoke(context: Long)
+public fun interface FpgaBusScanFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias FPGA_BUS_SCAN = FPGA_BUS_SCANFn?
+public typealias FpgaBusScan = FpgaBusScanFn?
 
-public fun interface FPGA_CONTROL_CONFIG_SPACEFn {
-    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
+public fun interface FpgaControlConfigSpaceFn {
+    public operator fun invoke(context: COpaquePointer?, enable: Boolean): Ntstatus
 }
 
-public typealias FPGA_CONTROL_CONFIG_SPACE = FPGA_CONTROL_CONFIG_SPACEFn?
+public typealias FpgaControlConfigSpace = FpgaControlConfigSpaceFn?
 
-public fun interface FPGA_CONTROL_ERROR_REPORTINGFn {
-    public operator fun invoke(context: Long, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): NTSTATUS
+public fun interface FpgaControlErrorReportingFn {
+    public operator fun invoke(context: COpaquePointer?, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): Ntstatus
 }
 
-public typealias FPGA_CONTROL_ERROR_REPORTING = FPGA_CONTROL_ERROR_REPORTINGFn?
+public typealias FpgaControlErrorReporting = FpgaControlErrorReportingFn?
 
-public fun interface FPGA_CONTROL_LINKFn {
-    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
+public fun interface FpgaControlLinkFn {
+    public operator fun invoke(context: COpaquePointer?, enable: Boolean): Ntstatus
 }
 
-public typealias FPGA_CONTROL_LINK = FPGA_CONTROL_LINKFn?
+public typealias FpgaControlLink = FpgaControlLinkFn?
 
-public fun interface FREE_FUNCTIONFn {
-    public operator fun invoke(buffer: Long)
+public fun interface FreeFunctionFn {
+    public operator fun invoke(buffer: COpaquePointer?)
 }
 
-public typealias FREE_FUNCTION = FREE_FUNCTIONFn?
+public typealias FreeFunction = FreeFunctionFn?
 
-public fun interface FWMI_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(wnode: Long, context: Long)
+public fun interface FwmiNotificationCallbackFn {
+    public operator fun invoke(wnode: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias FWMI_NOTIFICATION_CALLBACK = FWMI_NOTIFICATION_CALLBACKFn?
+public typealias FwmiNotificationCallback = FwmiNotificationCallbackFn?
 
-public fun interface GET_D3COLD_CAPABILITYFn {
-    public operator fun invoke(context: Long, d3coldsupported: Long): NTSTATUS
+public fun interface GetD3coldCapabilityFn {
+    public operator fun invoke(context: COpaquePointer?, d3coldsupported: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_D3COLD_CAPABILITY = GET_D3COLD_CAPABILITYFn?
+public typealias GetD3coldCapability = GetD3coldCapabilityFn?
 
-public fun interface GET_D3COLD_LAST_TRANSITION_STATUSFn {
-    public operator fun invoke(context: Long, lasttransitionstatus: Long)
+public fun interface GetD3coldLastTransitionStatusFn {
+    public operator fun invoke(context: COpaquePointer?, lasttransitionstatus: COpaquePointer?)
 }
 
-public typealias GET_D3COLD_LAST_TRANSITION_STATUS = GET_D3COLD_LAST_TRANSITION_STATUSFn?
+public typealias GetD3coldLastTransitionStatus = GetD3coldLastTransitionStatusFn?
 
-public fun interface GET_DEVICE_RESET_STATUSFn {
-    public operator fun invoke(interfacecontext: Long, isresetting: Long, resettypeselected: Long, flags: Long): NTSTATUS
+public fun interface GetDeviceResetStatusFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?, isresetting: COpaquePointer?, resettypeselected: COpaquePointer?, flags: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_DEVICE_RESET_STATUS = GET_DEVICE_RESET_STATUSFn?
+public typealias GetDeviceResetStatus = GetDeviceResetStatusFn?
 
-public fun interface GET_DMA_ADAPTERFn {
-    public operator fun invoke(context: Long, devicedescriptor: Long, numberofmapregisters: Long): Long
+public fun interface GetDmaAdapterFn {
+    public operator fun invoke(context: COpaquePointer?, devicedescriptor: COpaquePointer?, numberofmapregisters: COpaquePointer?): COpaquePointer?
 }
 
-public typealias GET_DMA_ADAPTER = GET_DMA_ADAPTERFn?
+public typealias GetDmaAdapter = GetDmaAdapterFn?
 
-public fun interface GET_IDLE_WAKE_INFOFn {
-    public operator fun invoke(context: Long, systempowerstate: SYSTEM_POWER_STATE, deepestwakeabledstate: Long): NTSTATUS
+public fun interface GetIdleWakeInfoFn {
+    public operator fun invoke(context: COpaquePointer?, systempowerstate: SystemPowerState, deepestwakeabledstate: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_IDLE_WAKE_INFO = GET_IDLE_WAKE_INFOFn?
+public typealias GetIdleWakeInfo = GetIdleWakeInfoFn?
 
-public fun interface GET_SDEV_IDENTIFIERFn {
-    public operator fun invoke(interfacecontext: Long): ULong
+public fun interface GetSdevIdentifierFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?): ULong
 }
 
-public typealias GET_SDEV_IDENTIFIER = GET_SDEV_IDENTIFIERFn?
+public typealias GetSdevIdentifier = GetSdevIdentifierFn?
 
-public fun interface GET_SET_DEVICE_DATAFn {
-    public operator fun invoke(context: Long, datatype: UInt, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface GetSetDeviceDataFn {
+    public operator fun invoke(context: COpaquePointer?, datatype: UInt, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias GET_SET_DEVICE_DATA = GET_SET_DEVICE_DATAFn?
+public typealias GetSetDeviceData = GetSetDeviceDataFn?
 
-public fun interface GET_UPDATED_BUS_RESOURCEFn {
-    public operator fun invoke(context: Long, updatedresourcelist: Long, updatedtranslatedresourcelist: Long): NTSTATUS
+public fun interface GetUpdatedBusResourceFn {
+    public operator fun invoke(context: COpaquePointer?, updatedresourcelist: COpaquePointer?, updatedtranslatedresourcelist: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_UPDATED_BUS_RESOURCE = GET_UPDATED_BUS_RESOURCEFn?
+public typealias GetUpdatedBusResource = GetUpdatedBusResourceFn?
 
-public fun interface GET_VIRTUAL_DEVICE_DATAFn {
-    public operator fun invoke(context: Long, virtualfunction: UShort, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface GetVirtualDeviceDataFn {
+    public operator fun invoke(context: COpaquePointer?, virtualfunction: UShort, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias GET_VIRTUAL_DEVICE_DATA = GET_VIRTUAL_DEVICE_DATAFn?
+public typealias GetVirtualDeviceData = GetVirtualDeviceDataFn?
 
-public fun interface GET_VIRTUAL_DEVICE_LOCATIONFn {
-    public operator fun invoke(context: Long, virtualfunction: UShort, segmentnumber: Long, busnumber: Long, functionnumber: Long): NTSTATUS
+public fun interface GetVirtualDeviceLocationFn {
+    public operator fun invoke(context: COpaquePointer?, virtualfunction: UShort, segmentnumber: COpaquePointer?, busnumber: COpaquePointer?, functionnumber: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_VIRTUAL_DEVICE_LOCATION = GET_VIRTUAL_DEVICE_LOCATIONFn?
+public typealias GetVirtualDeviceLocation = GetVirtualDeviceLocationFn?
 
-public fun interface GET_VIRTUAL_DEVICE_RESOURCESFn {
-    public operator fun invoke(context: Long, capturedbusnumbers: Long)
+public fun interface GetVirtualDeviceResourcesFn {
+    public operator fun invoke(context: COpaquePointer?, capturedbusnumbers: COpaquePointer?)
 }
 
-public typealias GET_VIRTUAL_DEVICE_RESOURCES = GET_VIRTUAL_DEVICE_RESOURCESFn?
+public typealias GetVirtualDeviceResources = GetVirtualDeviceResourcesFn?
 
-public fun interface GET_VIRTUAL_FUNCTION_PROBED_BARSFn {
-    public operator fun invoke(context: Long, baseregistervalues: Long): NTSTATUS
+public fun interface GetVirtualFunctionProbedBarsFn {
+    public operator fun invoke(context: COpaquePointer?, baseregistervalues: COpaquePointer?): Ntstatus
 }
 
-public typealias GET_VIRTUAL_FUNCTION_PROBED_BARS = GET_VIRTUAL_FUNCTION_PROBED_BARSFn?
+public typealias GetVirtualFunctionProbedBars = GetVirtualFunctionProbedBarsFn?
 
-public typealias HAL_APIC_DESTINATION_MODE = Int
+public typealias HalApicDestinationMode = Int
 
-public typealias HAL_DISPLAY_BIOS_INFORMATION = Int
+public typealias HalDisplayBiosInformation = Int
 
-public typealias HAL_DMA_CRASH_DUMP_REGISTER_TYPE = Int
+public typealias HalDmaCrashDumpRegisterType = Int
 
-public typealias HAL_QUERY_INFORMATION_CLASS = Int
+public typealias HalQueryInformationClass = Int
 
-public typealias HAL_SET_INFORMATION_CLASS = Int
+public typealias HalSetInformationClass = Int
 
-public typealias HARDWARE_COUNTER_TYPE = Int
+public typealias HardwareCounterType = Int
 
-public fun interface HVL_WHEA_ERROR_NOTIFICATIONFn {
-    public operator fun invoke(recoverycontext: Long, platformdirected: Boolean, poisoned: Boolean): NTSTATUS
+public fun interface HvlWheaErrorNotificationFn {
+    public operator fun invoke(recoverycontext: COpaquePointer?, platformdirected: Boolean, poisoned: Boolean): Ntstatus
 }
 
-public typealias HVL_WHEA_ERROR_NOTIFICATION = HVL_WHEA_ERROR_NOTIFICATIONFn?
+public typealias HvlWheaErrorNotification = HvlWheaErrorNotificationFn?
 
-public typealias INTEL_CACHE_TYPE = Int
+public typealias IntelCacheType = Int
 
-public typealias INTERFACE_TYPE = Int
+public typealias InterfaceType = Int
 
-public typealias INTERLOCKED_RESULT = Int
+public typealias InterlockedResult = Int
 
-public fun interface IOMMU_DEVICE_CREATEFn {
-    public operator fun invoke(deviceobject: Long, deviceconfig: Long, dmadeviceout: Long): NTSTATUS
+public fun interface IommuDeviceCreateFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, deviceconfig: COpaquePointer?, dmadeviceout: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DEVICE_CREATE = IOMMU_DEVICE_CREATEFn?
+public typealias IommuDeviceCreate = IommuDeviceCreateFn?
 
-public typealias IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = Int
+public typealias IommuDeviceCreationConfigurationType = Int
 
-public fun interface IOMMU_DEVICE_DELETEFn {
-    public operator fun invoke(dmadevice: Long): NTSTATUS
+public fun interface IommuDeviceDeleteFn {
+    public operator fun invoke(dmadevice: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DEVICE_DELETE = IOMMU_DEVICE_DELETEFn?
+public typealias IommuDeviceDelete = IommuDeviceDeleteFn?
 
-public fun interface IOMMU_DEVICE_FAULT_HANDLERFn {
-    public operator fun invoke(context: Long, faultinformation: Long)
+public fun interface IommuDeviceFaultHandlerFn {
+    public operator fun invoke(context: COpaquePointer?, faultinformation: COpaquePointer?)
 }
 
-public typealias IOMMU_DEVICE_FAULT_HANDLER = IOMMU_DEVICE_FAULT_HANDLERFn?
+public typealias IommuDeviceFaultHandler = IommuDeviceFaultHandlerFn?
 
-public fun interface IOMMU_DEVICE_QUERY_DOMAIN_TYPESFn {
-    public operator fun invoke(dmadevice: Long, availabledomains: Long)
+public fun interface IommuDeviceQueryDomainTypesFn {
+    public operator fun invoke(dmadevice: COpaquePointer?, availabledomains: COpaquePointer?)
 }
 
-public typealias IOMMU_DEVICE_QUERY_DOMAIN_TYPES = IOMMU_DEVICE_QUERY_DOMAIN_TYPESFn?
+public typealias IommuDeviceQueryDomainTypes = IommuDeviceQueryDomainTypesFn?
 
-public typealias IOMMU_DMA_DOMAIN_TYPE = Int
+public typealias IommuDmaDomainType = Int
 
-public typealias IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = Int
+public typealias IommuDmaLogicalAllocatorType = Int
 
-public fun interface IOMMU_DOMAIN_ATTACH_DEVICEFn {
-    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingidbase: UInt, mappingcount: UInt): NTSTATUS
+public fun interface IommuDomainAttachDeviceFn {
+    public operator fun invoke(domain: COpaquePointer?, physicaldeviceobject: COpaquePointer?, inputmappingidbase: UInt, mappingcount: UInt): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_ATTACH_DEVICE = IOMMU_DOMAIN_ATTACH_DEVICEFn?
+public typealias IommuDomainAttachDevice = IommuDomainAttachDeviceFn?
 
-public fun interface IOMMU_DOMAIN_ATTACH_DEVICE_EXFn {
-    public operator fun invoke(domain: Long, dmadevice: Long): NTSTATUS
+public fun interface IommuDomainAttachDeviceExFn {
+    public operator fun invoke(domain: COpaquePointer?, dmadevice: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_ATTACH_DEVICE_EX = IOMMU_DOMAIN_ATTACH_DEVICE_EXFn?
+public typealias IommuDomainAttachDeviceEx = IommuDomainAttachDeviceExFn?
 
-public fun interface IOMMU_DOMAIN_CONFIGUREFn {
-    public operator fun invoke(domain: Long, configuration: Long): NTSTATUS
+public fun interface IommuDomainConfigureFn {
+    public operator fun invoke(domain: COpaquePointer?, configuration: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_CONFIGURE = IOMMU_DOMAIN_CONFIGUREFn?
+public typealias IommuDomainConfigure = IommuDomainConfigureFn?
 
-public fun interface IOMMU_DOMAIN_CREATEFn {
-    public operator fun invoke(osmanagedpagetable: Boolean, domainout: Long): NTSTATUS
+public fun interface IommuDomainCreateFn {
+    public operator fun invoke(osmanagedpagetable: Boolean, domainout: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_CREATE = IOMMU_DOMAIN_CREATEFn?
+public typealias IommuDomainCreate = IommuDomainCreateFn?
 
-public fun interface IOMMU_DOMAIN_CREATE_EXFn {
-    public operator fun invoke(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: Long, reservedregions: Long, domainout: Long): NTSTATUS
+public fun interface IommuDomainCreateExFn {
+    public operator fun invoke(domaintype: IommuDmaDomainType, flags: IommuDmaDomainCreationFlags, logicalallocatorconfig: COpaquePointer?, reservedregions: COpaquePointer?, domainout: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_CREATE_EX = IOMMU_DOMAIN_CREATE_EXFn?
+public typealias IommuDomainCreateEx = IommuDomainCreateExFn?
 
-public fun interface IOMMU_DOMAIN_DELETEFn {
-    public operator fun invoke(domain: Long): NTSTATUS
+public fun interface IommuDomainDeleteFn {
+    public operator fun invoke(domain: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_DELETE = IOMMU_DOMAIN_DELETEFn?
+public typealias IommuDomainDelete = IommuDomainDeleteFn?
 
-public fun interface IOMMU_DOMAIN_DETACH_DEVICEFn {
-    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingid: UInt): NTSTATUS
+public fun interface IommuDomainDetachDeviceFn {
+    public operator fun invoke(domain: COpaquePointer?, physicaldeviceobject: COpaquePointer?, inputmappingid: UInt): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_DETACH_DEVICE = IOMMU_DOMAIN_DETACH_DEVICEFn?
+public typealias IommuDomainDetachDevice = IommuDomainDetachDeviceFn?
 
-public fun interface IOMMU_DOMAIN_DETACH_DEVICE_EXFn {
-    public operator fun invoke(dmadevice: Long): NTSTATUS
+public fun interface IommuDomainDetachDeviceExFn {
+    public operator fun invoke(dmadevice: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_DOMAIN_DETACH_DEVICE_EX = IOMMU_DOMAIN_DETACH_DEVICE_EXFn?
+public typealias IommuDomainDetachDeviceEx = IommuDomainDetachDeviceExFn?
 
-public fun interface IOMMU_FLUSH_DOMAINFn {
-    public operator fun invoke(domain: Long): NTSTATUS
+public fun interface IommuFlushDomainFn {
+    public operator fun invoke(domain: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_FLUSH_DOMAIN = IOMMU_FLUSH_DOMAINFn?
+public typealias IommuFlushDomain = IommuFlushDomainFn?
 
-public fun interface IOMMU_FLUSH_DOMAIN_VA_LISTFn {
-    public operator fun invoke(domain: Long, lastlevel: Boolean, number: UInt, valist: Long): NTSTATUS
+public fun interface IommuFlushDomainVaListFn {
+    public operator fun invoke(domain: COpaquePointer?, lastlevel: Boolean, number: UInt, valist: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_FLUSH_DOMAIN_VA_LIST = IOMMU_FLUSH_DOMAIN_VA_LISTFn?
+public typealias IommuFlushDomainVaList = IommuFlushDomainVaListFn?
 
-public fun interface IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(logicaladdresstoken: Long): NTSTATUS
+public fun interface IommuFreeReservedLogicalAddressRangeFn {
+    public operator fun invoke(logicaladdresstoken: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn?
+public typealias IommuFreeReservedLogicalAddressRange = IommuFreeReservedLogicalAddressRangeFn?
 
-public fun interface IOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(statechange: Long, context: Long)
+public fun interface IommuInterfaceStateChangeCallbackFn {
+    public operator fun invoke(statechange: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias IommuInterfaceStateChangeCallback = IommuInterfaceStateChangeCallbackFn?
 
-public fun interface IOMMU_MAP_IDENTITY_RANGEFn {
-    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long): NTSTATUS
+public fun interface IommuMapIdentityRangeFn {
+    public operator fun invoke(domain: COpaquePointer?, permissions: UInt, mdl: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_MAP_IDENTITY_RANGE = IOMMU_MAP_IDENTITY_RANGEFn?
+public typealias IommuMapIdentityRange = IommuMapIdentityRangeFn?
 
-public fun interface IOMMU_MAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long): NTSTATUS
+public fun interface IommuMapIdentityRangeExFn {
+    public operator fun invoke(domain: COpaquePointer?, permissions: UInt, physicaladdresstomap: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_MAP_IDENTITY_RANGE_EX = IOMMU_MAP_IDENTITY_RANGE_EXFn?
+public typealias IommuMapIdentityRangeEx = IommuMapIdentityRangeExFn?
 
-public fun interface IOMMU_MAP_LOGICAL_RANGEFn {
-    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long, logicaladdress: ULong): NTSTATUS
+public fun interface IommuMapLogicalRangeFn {
+    public operator fun invoke(domain: COpaquePointer?, permissions: UInt, mdl: COpaquePointer?, logicaladdress: ULong): Ntstatus
 }
 
-public typealias IOMMU_MAP_LOGICAL_RANGE = IOMMU_MAP_LOGICAL_RANGEFn?
+public typealias IommuMapLogicalRange = IommuMapLogicalRangeFn?
 
-public fun interface IOMMU_MAP_LOGICAL_RANGE_EXFn {
-    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdressout: Long): NTSTATUS
+public fun interface IommuMapLogicalRangeExFn {
+    public operator fun invoke(domain: COpaquePointer?, permissions: UInt, physicaladdresstomap: COpaquePointer?, explicitlogicaladdress: COpaquePointer?, minlogicaladdress: COpaquePointer?, maxlogicaladdress: COpaquePointer?, logicaladdressout: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_MAP_LOGICAL_RANGE_EX = IOMMU_MAP_LOGICAL_RANGE_EXFn?
+public typealias IommuMapLogicalRangeEx = IommuMapLogicalRangeExFn?
 
-public typealias IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = Int
+public typealias IommuMapPhysicalAddressType = Int
 
-public fun interface IOMMU_MAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(logicaladdresstoken: Long, offset: ULong, permissions: UInt, physicaladdresstomap: Long, mappedsegment: Long): NTSTATUS
+public fun interface IommuMapReservedLogicalRangeFn {
+    public operator fun invoke(logicaladdresstoken: COpaquePointer?, offset: ULong, permissions: UInt, physicaladdresstomap: COpaquePointer?, mappedsegment: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_MAP_RESERVED_LOGICAL_RANGE = IOMMU_MAP_RESERVED_LOGICAL_RANGEFn?
+public typealias IommuMapReservedLogicalRange = IommuMapReservedLogicalRangeFn?
 
-public fun interface IOMMU_QUERY_INPUT_MAPPINGSFn {
-    public operator fun invoke(physicaldeviceobject: Long, buffer: Long, bufferlength: UInt, returnlength: Long): NTSTATUS
+public fun interface IommuQueryInputMappingsFn {
+    public operator fun invoke(physicaldeviceobject: COpaquePointer?, buffer: COpaquePointer?, bufferlength: UInt, returnlength: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_QUERY_INPUT_MAPPINGS = IOMMU_QUERY_INPUT_MAPPINGSFn?
+public typealias IommuQueryInputMappings = IommuQueryInputMappingsFn?
 
-public fun interface IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: Long, dmadevice: Long, statefields: Long): NTSTATUS
+public fun interface IommuRegisterInterfaceStateChangeCallbackFn {
+    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, context: COpaquePointer?, dmadevice: COpaquePointer?, statefields: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias IommuRegisterInterfaceStateChangeCallback = IommuRegisterInterfaceStateChangeCallbackFn?
 
-public fun interface IOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(domain: Long, size: ULong, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdresstoken: Long): NTSTATUS
+public fun interface IommuReserveLogicalAddressRangeFn {
+    public operator fun invoke(domain: COpaquePointer?, size: ULong, explicitlogicaladdress: COpaquePointer?, minlogicaladdress: COpaquePointer?, maxlogicaladdress: COpaquePointer?, logicaladdresstoken: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = IOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn?
+public typealias IommuReserveLogicalAddressRange = IommuReserveLogicalAddressRangeFn?
 
-public fun interface IOMMU_SET_DEVICE_FAULT_REPORTINGFn {
-    public operator fun invoke(physicaldeviceobject: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): NTSTATUS
+public fun interface IommuSetDeviceFaultReportingFn {
+    public operator fun invoke(physicaldeviceobject: COpaquePointer?, inputmappingidbase: UInt, enable: Boolean, faultconfig: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_SET_DEVICE_FAULT_REPORTING = IOMMU_SET_DEVICE_FAULT_REPORTINGFn?
+public typealias IommuSetDeviceFaultReporting = IommuSetDeviceFaultReportingFn?
 
-public fun interface IOMMU_SET_DEVICE_FAULT_REPORTING_EXFn {
-    public operator fun invoke(dmadevice: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): NTSTATUS
+public fun interface IommuSetDeviceFaultReportingExFn {
+    public operator fun invoke(dmadevice: COpaquePointer?, inputmappingidbase: UInt, enable: Boolean, faultconfig: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_SET_DEVICE_FAULT_REPORTING_EX = IOMMU_SET_DEVICE_FAULT_REPORTING_EXFn?
+public typealias IommuSetDeviceFaultReportingEx = IommuSetDeviceFaultReportingExFn?
 
-public fun interface IOMMU_UNMAP_IDENTITY_RANGEFn {
-    public operator fun invoke(domain: Long, mdl: Long): NTSTATUS
+public fun interface IommuUnmapIdentityRangeFn {
+    public operator fun invoke(domain: COpaquePointer?, mdl: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_UNMAP_IDENTITY_RANGE = IOMMU_UNMAP_IDENTITY_RANGEFn?
+public typealias IommuUnmapIdentityRange = IommuUnmapIdentityRangeFn?
 
-public fun interface IOMMU_UNMAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(domain: Long, mappedphysicaladdress: Long): NTSTATUS
+public fun interface IommuUnmapIdentityRangeExFn {
+    public operator fun invoke(domain: COpaquePointer?, mappedphysicaladdress: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_UNMAP_IDENTITY_RANGE_EX = IOMMU_UNMAP_IDENTITY_RANGE_EXFn?
+public typealias IommuUnmapIdentityRangeEx = IommuUnmapIdentityRangeExFn?
 
-public fun interface IOMMU_UNMAP_LOGICAL_RANGEFn {
-    public operator fun invoke(domain: Long, logicaladdress: ULong, numberofpages: ULong): NTSTATUS
+public fun interface IommuUnmapLogicalRangeFn {
+    public operator fun invoke(domain: COpaquePointer?, logicaladdress: ULong, numberofpages: ULong): Ntstatus
 }
 
-public typealias IOMMU_UNMAP_LOGICAL_RANGE = IOMMU_UNMAP_LOGICAL_RANGEFn?
+public typealias IommuUnmapLogicalRange = IommuUnmapLogicalRangeFn?
 
-public fun interface IOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(mappedsegment: Long): NTSTATUS
+public fun interface IommuUnmapReservedLogicalRangeFn {
+    public operator fun invoke(mappedsegment: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = IOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn?
+public typealias IommuUnmapReservedLogicalRange = IommuUnmapReservedLogicalRangeFn?
 
-public fun interface IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: Long): NTSTATUS
+public fun interface IommuUnregisterInterfaceStateChangeCallbackFn {
+    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, dmadevice: COpaquePointer?): Ntstatus
 }
 
-public typealias IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias IommuUnregisterInterfaceStateChangeCallback = IommuUnregisterInterfaceStateChangeCallbackFn?
 
-public typealias IO_ACCESS_MODE = Int
+public typealias IoAccessMode = Int
 
-public typealias IO_ACCESS_TYPE = Int
+public typealias IoAccessType = Int
 
-public typealias IO_ALLOCATION_ACTION = Int
+public typealias IoAllocationAction = Int
 
-public fun interface IO_COMPLETION_ROUTINEFn {
-    public operator fun invoke(deviceobject: Long, irp: Long, context: Long): NTSTATUS
+public fun interface IoCompletionRoutineFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias IO_COMPLETION_ROUTINE = IO_COMPLETION_ROUTINEFn?
+public typealias IoCompletionRoutine = IoCompletionRoutineFn?
 
-public typealias IO_COMPLETION_ROUTINE_RESULT = Int
+public typealias IoCompletionRoutineResult = Int
 
-public typealias IO_CONTAINER_INFORMATION_CLASS = Int
+public typealias IoContainerInformationClass = Int
 
-public typealias IO_CONTAINER_NOTIFICATION_CLASS = Int
+public typealias IoContainerNotificationClass = Int
 
-public fun interface IO_CSQ_ACQUIRE_LOCKFn {
-    public operator fun invoke(csq: Long, irql: Long)
+public fun interface IoCsqAcquireLockFn {
+    public operator fun invoke(csq: COpaquePointer?, irql: COpaquePointer?)
 }
 
-public typealias IO_CSQ_ACQUIRE_LOCK = IO_CSQ_ACQUIRE_LOCKFn?
+public typealias IoCsqAcquireLock = IoCsqAcquireLockFn?
 
-public fun interface IO_CSQ_COMPLETE_CANCELED_IRPFn {
-    public operator fun invoke(csq: Long, irp: Long)
+public fun interface IoCsqCompleteCanceledIrpFn {
+    public operator fun invoke(csq: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias IO_CSQ_COMPLETE_CANCELED_IRP = IO_CSQ_COMPLETE_CANCELED_IRPFn?
+public typealias IoCsqCompleteCanceledIrp = IoCsqCompleteCanceledIrpFn?
 
-public fun interface IO_CSQ_INSERT_IRPFn {
-    public operator fun invoke(csq: Long, irp: Long)
+public fun interface IoCsqInsertIrpFn {
+    public operator fun invoke(csq: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias IO_CSQ_INSERT_IRP = IO_CSQ_INSERT_IRPFn?
+public typealias IoCsqInsertIrp = IoCsqInsertIrpFn?
 
-public fun interface IO_CSQ_INSERT_IRP_EXFn {
-    public operator fun invoke(csq: Long, irp: Long, insertcontext: Long): NTSTATUS
+public fun interface IoCsqInsertIrpExFn {
+    public operator fun invoke(csq: COpaquePointer?, irp: COpaquePointer?, insertcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias IO_CSQ_INSERT_IRP_EX = IO_CSQ_INSERT_IRP_EXFn?
+public typealias IoCsqInsertIrpEx = IoCsqInsertIrpExFn?
 
-public fun interface IO_CSQ_PEEK_NEXT_IRPFn {
-    public operator fun invoke(csq: Long, irp: Long, peekcontext: Long): Long
+public fun interface IoCsqPeekNextIrpFn {
+    public operator fun invoke(csq: COpaquePointer?, irp: COpaquePointer?, peekcontext: COpaquePointer?): COpaquePointer?
 }
 
-public typealias IO_CSQ_PEEK_NEXT_IRP = IO_CSQ_PEEK_NEXT_IRPFn?
+public typealias IoCsqPeekNextIrp = IoCsqPeekNextIrpFn?
 
-public fun interface IO_CSQ_RELEASE_LOCKFn {
-    public operator fun invoke(csq: Long, irql: UByte)
+public fun interface IoCsqReleaseLockFn {
+    public operator fun invoke(csq: COpaquePointer?, irql: UByte)
 }
 
-public typealias IO_CSQ_RELEASE_LOCK = IO_CSQ_RELEASE_LOCKFn?
+public typealias IoCsqReleaseLock = IoCsqReleaseLockFn?
 
-public fun interface IO_CSQ_REMOVE_IRPFn {
-    public operator fun invoke(csq: Long, irp: Long)
+public fun interface IoCsqRemoveIrpFn {
+    public operator fun invoke(csq: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias IO_CSQ_REMOVE_IRP = IO_CSQ_REMOVE_IRPFn?
+public typealias IoCsqRemoveIrp = IoCsqRemoveIrpFn?
 
-public fun interface IO_DPC_ROUTINEFn {
-    public operator fun invoke(dpc: Long, deviceobject: Long, irp: Long, context: Long)
+public fun interface IoDpcRoutineFn {
+    public operator fun invoke(dpc: COpaquePointer?, deviceobject: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias IO_DPC_ROUTINE = IO_DPC_ROUTINEFn?
+public typealias IoDpcRoutine = IoDpcRoutineFn?
 
-public typealias IO_NOTIFICATION_EVENT_CATEGORY = Int
+public typealias IoNotificationEventCategory = Int
 
-public typealias IO_PAGING_PRIORITY = Int
+public typealias IoPagingPriority = Int
 
-public fun interface IO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn {
-    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, context: Long): NTSTATUS
+public fun interface IoPersistedMemoryEnumerationCallbackFn {
+    public operator fun invoke(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?, physicaldeviceid: COpaquePointer?, datatag: COpaquePointer?, dataversion: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = IO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn?
+public typealias IoPersistedMemoryEnumerationCallback = IoPersistedMemoryEnumerationCallbackFn?
 
-public typealias IO_QUERY_DEVICE_DATA_FORMAT = Int
+public typealias IoQueryDeviceDataFormat = Int
 
-public typealias IO_SESSION_EVENT = Int
+public typealias IoSessionEvent = Int
 
-public fun interface IO_SESSION_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(sessionobject: Long, ioobject: Long, event: UInt, context: Long, notificationpayload: Long, payloadlength: UInt): NTSTATUS
+public fun interface IoSessionNotificationFunctionFn {
+    public operator fun invoke(sessionobject: COpaquePointer?, ioobject: COpaquePointer?, event: UInt, context: COpaquePointer?, notificationpayload: COpaquePointer?, payloadlength: UInt): Ntstatus
 }
 
-public typealias IO_SESSION_NOTIFICATION_FUNCTION = IO_SESSION_NOTIFICATION_FUNCTIONFn?
+public typealias IoSessionNotificationFunction = IoSessionNotificationFunctionFn?
 
-public typealias IO_SESSION_STATE = Int
+public typealias IoSessionState = Int
 
-public fun interface IO_TIMER_ROUTINEFn {
-    public operator fun invoke(deviceobject: Long, context: Long)
+public fun interface IoTimerRoutineFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias IO_TIMER_ROUTINE = IO_TIMER_ROUTINEFn?
+public typealias IoTimerRoutine = IoTimerRoutineFn?
 
-public fun interface IO_WORKITEM_ROUTINEFn {
-    public operator fun invoke(deviceobject: Long, context: Long)
+public fun interface IoWorkitemRoutineFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias IO_WORKITEM_ROUTINE = IO_WORKITEM_ROUTINEFn?
+public typealias IoWorkitemRoutine = IoWorkitemRoutineFn?
 
-public fun interface IO_WORKITEM_ROUTINE_EXFn {
-    public operator fun invoke(ioobject: Long, context: Long, ioworkitem: PIO_WORKITEM)
+public fun interface IoWorkitemRoutineExFn {
+    public operator fun invoke(ioobject: COpaquePointer?, context: COpaquePointer?, ioworkitem: PioWorkitem)
 }
 
-public typealias IO_WORKITEM_ROUTINE_EX = IO_WORKITEM_ROUTINE_EXFn?
+public typealias IoWorkitemRoutineEx = IoWorkitemRoutineExFn?
 
-public typealias IRQ_DEVICE_POLICY = Int
+public typealias IrqDevicePolicy = Int
 
-public typealias IRQ_GROUP_POLICY = Int
+public typealias IrqGroupPolicy = Int
 
-public typealias IRQ_PRIORITY = Int
+public typealias IrqPriority = Int
 
-public typealias KBUGCHECK_BUFFER_DUMP_STATE = Int
+public typealias KbugcheckBufferDumpState = Int
 
-public typealias KBUGCHECK_CALLBACK_REASON = Int
+public typealias KbugcheckCallbackReason = Int
 
-public fun interface KBUGCHECK_CALLBACK_ROUTINEFn {
-    public operator fun invoke(buffer: Long, length: UInt)
+public fun interface KbugcheckCallbackRoutineFn {
+    public operator fun invoke(buffer: COpaquePointer?, length: UInt)
 }
 
-public typealias KBUGCHECK_CALLBACK_ROUTINE = KBUGCHECK_CALLBACK_ROUTINEFn?
+public typealias KbugcheckCallbackRoutine = KbugcheckCallbackRoutineFn?
 
-public typealias KBUGCHECK_DUMP_IO_TYPE = Int
+public typealias KbugcheckDumpIoType = Int
 
-public fun interface KBUGCHECK_REASON_CALLBACK_ROUTINEFn {
-    public operator fun invoke(reason: KBUGCHECK_CALLBACK_REASON, record: Long, reasonspecificdata: Long, reasonspecificdatalength: UInt)
+public fun interface KbugcheckReasonCallbackRoutineFn {
+    public operator fun invoke(reason: KbugcheckCallbackReason, record: COpaquePointer?, reasonspecificdata: COpaquePointer?, reasonspecificdatalength: UInt)
 }
 
-public typealias KBUGCHECK_REASON_CALLBACK_ROUTINE = KBUGCHECK_REASON_CALLBACK_ROUTINEFn?
+public typealias KbugcheckReasonCallbackRoutine = KbugcheckReasonCallbackRoutineFn?
 
-public fun interface KDEFERRED_ROUTINEFn {
-    public operator fun invoke(dpc: Long, deferredcontext: Long, systemargument1: Long, systemargument2: Long)
+public fun interface KdeferredRoutineFn {
+    public operator fun invoke(dpc: COpaquePointer?, deferredcontext: COpaquePointer?, systemargument1: COpaquePointer?, systemargument2: COpaquePointer?)
 }
 
-public typealias KDEFERRED_ROUTINE = KDEFERRED_ROUTINEFn?
+public typealias KdeferredRoutine = KdeferredRoutineFn?
 
-public typealias KDPC_IMPORTANCE = Int
+public typealias KdpcImportance = Int
 
-public typealias KD_CALLBACK_ACTION = Int
+public typealias KdCallbackAction = Int
 
-public typealias KD_NAMESPACE_ENUM = Int
+public typealias KdNamespaceEnum = Int
 
-public typealias KD_OPTION = Int
+public typealias KdOption = Int
 
-public typealias KE_PROCESSOR_CHANGE_NOTIFY_STATE = Int
+public typealias KeProcessorChangeNotifyState = Int
 
-public typealias KINTERRUPT_MODE = Int
+public typealias KinterruptMode = Int
 
-public typealias KINTERRUPT_POLARITY = Int
+public typealias KinterruptPolarity = Int
 
-public fun interface KIPI_BROADCAST_WORKERFn {
+public fun interface KipiBroadcastWorkerFn {
     public operator fun invoke(argument: ULong): ULong
 }
 
-public typealias KIPI_BROADCAST_WORKER = KIPI_BROADCAST_WORKERFn?
+public typealias KipiBroadcastWorker = KipiBroadcastWorkerFn?
 
-public fun interface KMESSAGE_SERVICE_ROUTINEFn {
-    public operator fun invoke(interrupt: Long, servicecontext: Long, messageid: UInt): Boolean
+public fun interface KmessageServiceRoutineFn {
+    public operator fun invoke(interrupt: COpaquePointer?, servicecontext: COpaquePointer?, messageid: UInt): Boolean
 }
 
-public typealias KMESSAGE_SERVICE_ROUTINE = KMESSAGE_SERVICE_ROUTINEFn?
+public typealias KmessageServiceRoutine = KmessageServiceRoutineFn?
 
-public typealias KPROFILE_SOURCE = Int
+public typealias KprofileSource = Int
 
-public fun interface KSERVICE_ROUTINEFn {
-    public operator fun invoke(interrupt: Long, servicecontext: Long): Boolean
+public fun interface KserviceRoutineFn {
+    public operator fun invoke(interrupt: COpaquePointer?, servicecontext: COpaquePointer?): Boolean
 }
 
-public typealias KSERVICE_ROUTINE = KSERVICE_ROUTINEFn?
+public typealias KserviceRoutine = KserviceRoutineFn?
 
-public fun interface KSTART_ROUTINEFn {
-    public operator fun invoke(startcontext: Long)
+public fun interface KstartRoutineFn {
+    public operator fun invoke(startcontext: COpaquePointer?)
 }
 
-public typealias KSTART_ROUTINE = KSTART_ROUTINEFn?
+public typealias KstartRoutine = KstartRoutineFn?
 
-public fun interface KSYNCHRONIZE_ROUTINEFn {
-    public operator fun invoke(synchronizecontext: Long): Boolean
+public fun interface KsynchronizeRoutineFn {
+    public operator fun invoke(synchronizecontext: COpaquePointer?): Boolean
 }
 
-public typealias KSYNCHRONIZE_ROUTINE = KSYNCHRONIZE_ROUTINEFn?
+public typealias KsynchronizeRoutine = KsynchronizeRoutineFn?
 
-public typealias KWAIT_REASON = Int
+public typealias KwaitReason = Int
 
-public typealias LOCK_OPERATION = Int
+public typealias LockOperation = Int
 
-public typealias MCA_EXCEPTION_TYPE = Int
+public typealias McaExceptionType = Int
 
-public typealias MEMORY_CACHING_TYPE = Int
+public typealias MemoryCachingType = Int
 
-public typealias MEMORY_CACHING_TYPE_ORIG = Int
+public typealias MemoryCachingTypeOrig = Int
 
-public typealias MEM_DEDICATED_ATTRIBUTE_TYPE = Int
+public typealias MemDedicatedAttributeType = Int
 
-public typealias MEM_SECTION_EXTENDED_PARAMETER_TYPE = Int
+public typealias MemSectionExtendedParameterType = Int
 
-public typealias MM_MDL_PAGE_CONTENTS_STATE = Int
+public typealias MmMdlPageContentsState = Int
 
-public fun interface MM_MDL_ROUTINEFn {
-    public operator fun invoke(drivercontext: Long, mappedva: Long)
+public fun interface MmMdlRoutineFn {
+    public operator fun invoke(drivercontext: COpaquePointer?, mappedva: COpaquePointer?)
 }
 
-public typealias MM_MDL_ROUTINE = MM_MDL_ROUTINEFn?
+public typealias MmMdlRoutine = MmMdlRoutineFn?
 
-public typealias MM_PAGE_PRIORITY = Int
+public typealias MmPagePriority = Int
 
-public typealias MM_ROTATE_DIRECTION = Int
+public typealias MmRotateDirection = Int
 
-public typealias MM_SYSTEMSIZE = Int
+public typealias MmSystemsize = Int
 
-public typealias MODE = Int
+public typealias Mode = Int
 
-public fun interface NMI_CALLBACKFn {
-    public operator fun invoke(context: Long, handled: Boolean): Boolean
+public fun interface NmiCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, handled: Boolean): Boolean
 }
 
-public typealias NMI_CALLBACK = NMI_CALLBACKFn?
+public typealias NmiCallback = NmiCallbackFn?
 
-public fun interface NPEM_CONTROL_ENABLE_DISABLEFn {
-    public operator fun invoke(context: Long, enablenpem: Boolean): NTSTATUS
+public fun interface NpemControlEnableDisableFn {
+    public operator fun invoke(context: COpaquePointer?, enablenpem: Boolean): Ntstatus
 }
 
-public typealias NPEM_CONTROL_ENABLE_DISABLE = NPEM_CONTROL_ENABLE_DISABLEFn?
+public typealias NpemControlEnableDisable = NpemControlEnableDisableFn?
 
-public fun interface NPEM_CONTROL_QUERY_CONTROLFn {
-    public operator fun invoke(context: Long): UInt
+public fun interface NpemControlQueryControlFn {
+    public operator fun invoke(context: COpaquePointer?): UInt
 }
 
-public typealias NPEM_CONTROL_QUERY_CONTROL = NPEM_CONTROL_QUERY_CONTROLFn?
+public typealias NpemControlQueryControl = NpemControlQueryControlFn?
 
-public fun interface NPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn {
-    public operator fun invoke(context: Long, standardcapabilities: Long): NTSTATUS
+public fun interface NpemControlQueryStandardCapabilitiesFn {
+    public operator fun invoke(context: COpaquePointer?, standardcapabilities: COpaquePointer?): Ntstatus
 }
 
-public typealias NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = NPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn?
+public typealias NpemControlQueryStandardCapabilities = NpemControlQueryStandardCapabilitiesFn?
 
-public fun interface NPEM_CONTROL_SET_STANDARD_CONTROLFn {
-    public operator fun invoke(context: Long, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: Boolean): NTSTATUS
+public fun interface NpemControlSetStandardControlFn {
+    public operator fun invoke(context: COpaquePointer?, standardcontrol: NpemControlStandardControlBit, set: Boolean): Ntstatus
 }
 
-public typealias NPEM_CONTROL_SET_STANDARD_CONTROL = NPEM_CONTROL_SET_STANDARD_CONTROLFn?
+public typealias NpemControlSetStandardControl = NpemControlSetStandardControlFn?
 
-public typealias NPEM_CONTROL_STANDARD_CONTROL_BIT = Int
+public typealias NpemControlStandardControlBit = Int
 
-public fun interface NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn {
-    public operator fun invoke(vcb: Long, securitydescriptor: PSECURITY_DESCRIPTOR)
+public fun interface NtfsDerefExportedSecurityDescriptorFn {
+    public operator fun invoke(vcb: COpaquePointer?, securitydescriptor: PsecurityDescriptor)
 }
 
-public typealias NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn?
+public typealias NtfsDerefExportedSecurityDescriptor = NtfsDerefExportedSecurityDescriptorFn?
 
-public typealias OB_PREOP_CALLBACK_STATUS = Int
+public typealias ObPreopCallbackStatus = Int
 
-public fun interface PALLOCATE_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, numberofmapregisters: UInt, executionroutine: DRIVER_CONTROL, context: Long): NTSTATUS
+public fun interface PallocateAdapterChannelFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, numberofmapregisters: UInt, executionroutine: DriverControl, context: COpaquePointer?): Ntstatus
 }
 
-public typealias PALLOCATE_ADAPTER_CHANNEL = PALLOCATE_ADAPTER_CHANNELFn?
+public typealias PallocateAdapterChannel = PallocateAdapterChannelFn?
 
-public fun interface PALLOCATE_ADAPTER_CHANNEL_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, numberofmapregisters: UInt, flags: UInt, executionroutine: DRIVER_CONTROL, executioncontext: Long, mapregisterbase: Long): NTSTATUS
+public fun interface PallocateAdapterChannelExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, dmatransfercontext: COpaquePointer?, numberofmapregisters: UInt, flags: UInt, executionroutine: DriverControl, executioncontext: COpaquePointer?, mapregisterbase: COpaquePointer?): Ntstatus
 }
 
-public typealias PALLOCATE_ADAPTER_CHANNEL_EX = PALLOCATE_ADAPTER_CHANNEL_EXFn?
+public typealias PallocateAdapterChannelEx = PallocateAdapterChannelExFn?
 
-public fun interface PALLOCATE_COMMON_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, length: UInt, logicaladdress: Long, cacheenabled: Boolean): Long
+public fun interface PallocateCommonBufferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, length: UInt, logicaladdress: COpaquePointer?, cacheenabled: Boolean): COpaquePointer?
 }
 
-public typealias PALLOCATE_COMMON_BUFFER = PALLOCATE_COMMON_BUFFERFn?
+public typealias PallocateCommonBuffer = PallocateCommonBufferFn?
 
-public fun interface PALLOCATE_COMMON_BUFFER_EXFn {
-    public operator fun invoke(dmaadapter: Long, maximumaddress: Long, length: UInt, logicaladdress: Long, cacheenabled: Boolean, preferrednode: UInt): Long
+public fun interface PallocateCommonBufferExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, maximumaddress: COpaquePointer?, length: UInt, logicaladdress: COpaquePointer?, cacheenabled: Boolean, preferrednode: UInt): COpaquePointer?
 }
 
-public typealias PALLOCATE_COMMON_BUFFER_EX = PALLOCATE_COMMON_BUFFER_EXFn?
+public typealias PallocateCommonBufferEx = PallocateCommonBufferExFn?
 
-public fun interface PALLOCATE_COMMON_BUFFER_VECTORFn {
-    public operator fun invoke(dmaadapter: Long, lowaddress: Long, highaddress: Long, cachetype: MEMORY_CACHING_TYPE, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: Long): NTSTATUS
+public fun interface PallocateCommonBufferVectorFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, lowaddress: Long, highaddress: Long, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: COpaquePointer?): Ntstatus
 }
 
-public typealias PALLOCATE_COMMON_BUFFER_VECTOR = PALLOCATE_COMMON_BUFFER_VECTORFn?
+public typealias PallocateCommonBufferVector = PallocateCommonBufferVectorFn?
 
-public fun interface PALLOCATE_COMMON_BUFFER_WITH_BOUNDSFn {
-    public operator fun invoke(dmaadapter: Long, minimumaddress: Long, maximumaddress: Long, length: UInt, flags: UInt, cachetype: Long, preferrednode: UInt, logicaladdress: Long): Long
+public fun interface PallocateCommonBufferWithBoundsFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, minimumaddress: COpaquePointer?, maximumaddress: COpaquePointer?, length: UInt, flags: UInt, cachetype: COpaquePointer?, preferrednode: UInt, logicaladdress: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = PALLOCATE_COMMON_BUFFER_WITH_BOUNDSFn?
+public typealias PallocateCommonBufferWithBounds = PallocateCommonBufferWithBoundsFn?
 
-public fun interface PALLOCATE_DOMAIN_COMMON_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, domainhandle: HANDLE, maximumaddress: Long, length: UInt, flags: UInt, cachetype: Long, preferrednode: UInt, logicaladdress: Long, virtualaddress: Long): NTSTATUS
+public fun interface PallocateDomainCommonBufferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, domainhandle: Handle, maximumaddress: COpaquePointer?, length: UInt, flags: UInt, cachetype: COpaquePointer?, preferrednode: UInt, logicaladdress: COpaquePointer?, virtualaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PALLOCATE_DOMAIN_COMMON_BUFFER = PALLOCATE_DOMAIN_COMMON_BUFFERFn?
+public typealias PallocateDomainCommonBuffer = PallocateDomainCommonBufferFn?
 
-public fun interface PALLOCATE_FUNCTIONFn {
-    public operator fun invoke(): Long
+public fun interface PallocateFunctionFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PALLOCATE_FUNCTION = PALLOCATE_FUNCTIONFn?
+public typealias PallocateFunction = PallocateFunctionFn?
 
-public fun interface PALLOCATE_FUNCTION_EXFn {
-    public operator fun invoke(): Long
+public fun interface PallocateFunctionExFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PALLOCATE_FUNCTION_EX = PALLOCATE_FUNCTION_EXFn?
+public typealias PallocateFunctionEx = PallocateFunctionExFn?
 
-public fun interface PARBITER_HANDLERFn {
-    public operator fun invoke(context: Long, action: ARBITER_ACTION, parameters: Long): NTSTATUS
+public fun interface ParbiterHandlerFn {
+    public operator fun invoke(context: COpaquePointer?, action: ArbiterAction, parameters: COpaquePointer?): Ntstatus
 }
 
-public typealias PARBITER_HANDLER = PARBITER_HANDLERFn?
+public typealias ParbiterHandler = ParbiterHandlerFn?
 
-public typealias PARTITION_INFORMATION_CLASS = Int
+public typealias PartitionInformationClass = Int
 
-public fun interface PBOOT_DRIVER_CALLBACK_FUNCTIONFn {
+public fun interface PbootDriverCallbackFunctionFn {
     public operator fun invoke()
 }
 
-public typealias PBOOT_DRIVER_CALLBACK_FUNCTION = PBOOT_DRIVER_CALLBACK_FUNCTIONFn?
+public typealias PbootDriverCallbackFunction = PbootDriverCallbackFunctionFn?
 
-public fun interface PBOUND_CALLBACKFn {
-    public operator fun invoke(): BOUND_CALLBACK_STATUS
+public fun interface PboundCallbackFn {
+    public operator fun invoke(): BoundCallbackStatus
 }
 
-public typealias PBOUND_CALLBACK = PBOUND_CALLBACKFn?
+public typealias PboundCallback = PboundCallbackFn?
 
-public fun interface PBUILD_MDL_FROM_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, scattergather: Long, originalmdl: Long, targetmdl: Long): NTSTATUS
+public fun interface PbuildMdlFromScatterGatherListFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, scattergather: COpaquePointer?, originalmdl: COpaquePointer?, targetmdl: COpaquePointer?): Ntstatus
 }
 
-public typealias PBUILD_MDL_FROM_SCATTER_GATHER_LIST = PBUILD_MDL_FROM_SCATTER_GATHER_LISTFn?
+public typealias PbuildMdlFromScatterGatherList = PbuildMdlFromScatterGatherListFn?
 
-public fun interface PBUILD_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt): NTSTATUS
+public fun interface PbuildScatterGatherListFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, mdl: COpaquePointer?, currentva: COpaquePointer?, length: UInt, executionroutine: DriverListControl, context: COpaquePointer?, writetodevice: Boolean, scattergatherbuffer: COpaquePointer?, scattergatherlength: UInt): Ntstatus
 }
 
-public typealias PBUILD_SCATTER_GATHER_LIST = PBUILD_SCATTER_GATHER_LISTFn?
+public typealias PbuildScatterGatherList = PbuildScatterGatherListFn?
 
-public fun interface PBUILD_SCATTER_GATHER_LIST_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): NTSTATUS
+public fun interface PbuildScatterGatherListExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, dmatransfercontext: COpaquePointer?, mdl: COpaquePointer?, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: COpaquePointer?, writetodevice: Boolean, scattergatherbuffer: COpaquePointer?, scattergatherlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: COpaquePointer?, scattergatherlist: COpaquePointer?): Ntstatus
 }
 
-public typealias PBUILD_SCATTER_GATHER_LIST_EX = PBUILD_SCATTER_GATHER_LIST_EXFn?
+public typealias PbuildScatterGatherListEx = PbuildScatterGatherListExFn?
 
-public fun interface PCALCULATE_SCATTER_GATHER_LIST_SIZEFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, currentva: Long, length: UInt, scattergatherlistsize: Long, pnumberofmapregisters: Long): NTSTATUS
+public fun interface PcalculateScatterGatherListSizeFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, currentva: COpaquePointer?, length: UInt, scattergatherlistsize: COpaquePointer?, pnumberofmapregisters: COpaquePointer?): Ntstatus
 }
 
-public typealias PCALCULATE_SCATTER_GATHER_LIST_SIZE = PCALCULATE_SCATTER_GATHER_LIST_SIZEFn?
+public typealias PcalculateScatterGatherListSize = PcalculateScatterGatherListSizeFn?
 
-public fun interface PCALLBACK_FUNCTIONFn {
+public fun interface PcallbackFunctionFn {
     public operator fun invoke()
 }
 
-public typealias PCALLBACK_FUNCTION = PCALLBACK_FUNCTIONFn?
+public typealias PcallbackFunction = PcallbackFunctionFn?
 
-public fun interface PCANCEL_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long): Boolean
+public fun interface PcancelAdapterChannelFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, dmatransfercontext: COpaquePointer?): Boolean
 }
 
-public typealias PCANCEL_ADAPTER_CHANNEL = PCANCEL_ADAPTER_CHANNELFn?
+public typealias PcancelAdapterChannel = PcancelAdapterChannelFn?
 
-public fun interface PCANCEL_MAPPED_TRANSFERFn {
-    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): NTSTATUS
+public fun interface PcancelMappedTransferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, dmatransfercontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PCANCEL_MAPPED_TRANSFER = PCANCEL_MAPPED_TRANSFERFn?
+public typealias PcancelMappedTransfer = PcancelMappedTransferFn?
 
-public typealias PCI_ACS_BIT = Int
+public typealias PciAcsBit = Int
 
-public typealias PCI_BUS_WIDTH = Int
+public typealias PciBusWidth = Int
 
-public typealias PCI_DEVICE_D3COLD_STATE_REASON = Int
+public typealias PciDeviceD3coldStateReason = Int
 
-public fun interface PCI_ERROR_HANDLER_CALLBACKFn {
+public fun interface PciErrorHandlerCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PCI_ERROR_HANDLER_CALLBACK = PCI_ERROR_HANDLER_CALLBACKFn?
+public typealias PciErrorHandlerCallback = PciErrorHandlerCallbackFn?
 
-public typealias PCI_EXPRESS_ASPM_CONTROL = Int
+public typealias PciExpressAspmControl = Int
 
-public typealias PCI_EXPRESS_ASPM_SUPPORT = Int
+public typealias PciExpressAspmSupport = Int
 
-public typealias PCI_EXPRESS_CARD_PRESENCE = Int
+public typealias PciExpressCardPresence = Int
 
-public typealias PCI_EXPRESS_DEVICE_TYPE = Int
+public typealias PciExpressDeviceType = Int
 
-public fun interface PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PciExpressEnterLinkQuiescentModeFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn?
+public typealias PciExpressEnterLinkQuiescentMode = PciExpressEnterLinkQuiescentModeFn?
 
-public fun interface PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PciExpressExitLinkQuiescentModeFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn?
+public typealias PciExpressExitLinkQuiescentMode = PciExpressExitLinkQuiescentModeFn?
 
-public typealias PCI_EXPRESS_INDICATOR_STATE = Int
+public typealias PciExpressIndicatorState = Int
 
-public typealias PCI_EXPRESS_L0s_EXIT_LATENCY = Int
+public typealias PciExpressL0sExitLatency = Int
 
-public typealias PCI_EXPRESS_L1_EXIT_LATENCY = Int
+public typealias PciExpressL1ExitLatency = Int
 
-public typealias PCI_EXPRESS_LINK_SUBSTATE = Int
+public typealias PciExpressLinkSubstate = Int
 
-public typealias PCI_EXPRESS_MAX_PAYLOAD_SIZE = Int
+public typealias PciExpressMaxPayloadSize = Int
 
-public typealias PCI_EXPRESS_MRL_STATE = Int
+public typealias PciExpressMrlState = Int
 
-public typealias PCI_EXPRESS_POWER_STATE = Int
+public typealias PciExpressPowerState = Int
 
-public typealias PCI_EXPRESS_RCB = Int
+public typealias PciExpressRcb = Int
 
-public fun interface PCI_EXPRESS_WAKE_CONTROLFn {
-    public operator fun invoke(context: Long, enablewake: Boolean)
+public fun interface PciExpressWakeControlFn {
+    public operator fun invoke(context: COpaquePointer?, enablewake: Boolean)
 }
 
-public typealias PCI_EXPRESS_WAKE_CONTROL = PCI_EXPRESS_WAKE_CONTROLFn?
+public typealias PciExpressWakeControl = PciExpressWakeControlFn?
 
-public typealias PCI_HARDWARE_INTERFACE = Int
+public typealias PciHardwareInterface = Int
 
-public fun interface PCI_IS_DEVICE_PRESENTFn {
+public fun interface PciIsDevicePresentFn {
     public operator fun invoke(vendorid: UShort, deviceid: UShort, revisionid: UByte, subvendorid: UShort, subsystemid: UShort, flags: UInt): Boolean
 }
 
-public typealias PCI_IS_DEVICE_PRESENT = PCI_IS_DEVICE_PRESENTFn?
+public typealias PciIsDevicePresent = PciIsDevicePresentFn?
 
-public fun interface PCI_IS_DEVICE_PRESENT_EXFn {
-    public operator fun invoke(context: Long, parameters: Long): Boolean
+public fun interface PciIsDevicePresentExFn {
+    public operator fun invoke(context: COpaquePointer?, parameters: COpaquePointer?): Boolean
 }
 
-public typealias PCI_IS_DEVICE_PRESENT_EX = PCI_IS_DEVICE_PRESENT_EXFn?
+public typealias PciIsDevicePresentEx = PciIsDevicePresentExFn?
 
-public fun interface PCI_LINE_TO_PINFn {
-    public operator fun invoke(context: Long, pcinewdata: Long, pciolddata: Long)
+public fun interface PciLineToPinFn {
+    public operator fun invoke(context: COpaquePointer?, pcinewdata: COpaquePointer?, pciolddata: COpaquePointer?)
 }
 
-public typealias PCI_LINE_TO_PIN = PCI_LINE_TO_PINFn?
+public typealias PciLineToPin = PciLineToPinFn?
 
-public fun interface PCI_MSIX_GET_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: Long, masked: Long): NTSTATUS
+public fun interface PciMsixGetEntryFn {
+    public operator fun invoke(context: COpaquePointer?, tableentry: UInt, messagenumber: COpaquePointer?, masked: COpaquePointer?): Ntstatus
 }
 
-public typealias PCI_MSIX_GET_ENTRY = PCI_MSIX_GET_ENTRYFn?
+public typealias PciMsixGetEntry = PciMsixGetEntryFn?
 
-public fun interface PCI_MSIX_GET_TABLE_SIZEFn {
-    public operator fun invoke(context: Long, tablesize: Long): NTSTATUS
+public fun interface PciMsixGetTableSizeFn {
+    public operator fun invoke(context: COpaquePointer?, tablesize: COpaquePointer?): Ntstatus
 }
 
-public typealias PCI_MSIX_GET_TABLE_SIZE = PCI_MSIX_GET_TABLE_SIZEFn?
+public typealias PciMsixGetTableSize = PciMsixGetTableSizeFn?
 
-public fun interface PCI_MSIX_MASKUNMASK_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt): NTSTATUS
+public fun interface PciMsixMaskunmaskEntryFn {
+    public operator fun invoke(context: COpaquePointer?, tableentry: UInt): Ntstatus
 }
 
-public typealias PCI_MSIX_MASKUNMASK_ENTRY = PCI_MSIX_MASKUNMASK_ENTRYFn?
+public typealias PciMsixMaskunmaskEntry = PciMsixMaskunmaskEntryFn?
 
-public fun interface PCI_MSIX_SET_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: UInt): NTSTATUS
+public fun interface PciMsixSetEntryFn {
+    public operator fun invoke(context: COpaquePointer?, tableentry: UInt, messagenumber: UInt): Ntstatus
 }
 
-public typealias PCI_MSIX_SET_ENTRY = PCI_MSIX_SET_ENTRYFn?
+public typealias PciMsixSetEntry = PciMsixSetEntryFn?
 
-public fun interface PCI_PIN_TO_LINEFn {
-    public operator fun invoke(context: Long, pcidata: Long)
+public fun interface PciPinToLineFn {
+    public operator fun invoke(context: COpaquePointer?, pcidata: COpaquePointer?)
 }
 
-public typealias PCI_PIN_TO_LINE = PCI_PIN_TO_LINEFn?
+public typealias PciPinToLine = PciPinToLineFn?
 
-public fun interface PCI_PREPARE_MULTISTAGE_RESUMEFn {
-    public operator fun invoke(context: Long)
+public fun interface PciPrepareMultistageResumeFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PCI_PREPARE_MULTISTAGE_RESUME = PCI_PREPARE_MULTISTAGE_RESUMEFn?
+public typealias PciPrepareMultistageResume = PciPrepareMultistageResumeFn?
 
-public fun interface PCI_READ_WRITE_CONFIGFn {
-    public operator fun invoke(context: Long, busoffset: UInt, slot: UInt, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface PciReadWriteConfigFn {
+    public operator fun invoke(context: COpaquePointer?, busoffset: UInt, slot: UInt, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias PCI_READ_WRITE_CONFIG = PCI_READ_WRITE_CONFIGFn?
+public typealias PciReadWriteConfig = PciReadWriteConfigFn?
 
-public fun interface PCI_ROOT_BUS_CAPABILITYFn {
-    public operator fun invoke(context: Long, hardwarecapability: Long)
+public fun interface PciRootBusCapabilityFn {
+    public operator fun invoke(context: COpaquePointer?, hardwarecapability: COpaquePointer?)
 }
 
-public typealias PCI_ROOT_BUS_CAPABILITY = PCI_ROOT_BUS_CAPABILITYFn?
+public typealias PciRootBusCapability = PciRootBusCapabilityFn?
 
-public fun interface PCI_SET_ACSFn {
-    public operator fun invoke(context: Long, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT): NTSTATUS
+public fun interface PciSetAcsFn {
+    public operator fun invoke(context: COpaquePointer?, enablesourcevalidation: PciAcsBit, enabletranslationblocking: PciAcsBit, enablep2prequestredirect: PciAcsBit, enablecompletionredirect: PciAcsBit, enableupstreamforwarding: PciAcsBit, enableegresscontrol: PciAcsBit, enabledirecttranslatedp2p: PciAcsBit): Ntstatus
 }
 
-public typealias PCI_SET_ACS = PCI_SET_ACSFn?
+public typealias PciSetAcs = PciSetAcsFn?
 
-public fun interface PCI_SET_ACS2Fn {
-    public operator fun invoke(context: Long, scenariostomodify: UInt, scenariostate: UInt): NTSTATUS
+public fun interface PciSetAcs2Fn {
+    public operator fun invoke(context: COpaquePointer?, scenariostomodify: UInt, scenariostate: UInt): Ntstatus
 }
 
-public typealias PCI_SET_ACS2 = PCI_SET_ACS2Fn?
+public typealias PciSetAcs2 = PciSetAcs2Fn?
 
-public fun interface PCI_SET_ATSFn {
-    public operator fun invoke(context: Long, enableats: Boolean): NTSTATUS
+public fun interface PciSetAtsFn {
+    public operator fun invoke(context: COpaquePointer?, enableats: Boolean): Ntstatus
 }
 
-public typealias PCI_SET_ATS = PCI_SET_ATSFn?
+public typealias PciSetAts = PciSetAtsFn?
 
-public fun interface PCLFS_CLIENT_ADVANCE_TAIL_CALLBACKFn {
-    public operator fun invoke(logfile: Long, targetlsn: Long, clientdata: Long): NTSTATUS
+public fun interface PclfsClientAdvanceTailCallbackFn {
+    public operator fun invoke(logfile: COpaquePointer?, targetlsn: COpaquePointer?, clientdata: COpaquePointer?): Ntstatus
 }
 
-public typealias PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = PCLFS_CLIENT_ADVANCE_TAIL_CALLBACKFn?
+public typealias PclfsClientAdvanceTailCallback = PclfsClientAdvanceTailCallbackFn?
 
-public fun interface PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACKFn {
-    public operator fun invoke(logfile: Long, operationstatus: NTSTATUS, logispinned: Boolean, clientdata: Long)
+public fun interface PclfsClientLffHandlerCompleteCallbackFn {
+    public operator fun invoke(logfile: COpaquePointer?, operationstatus: Ntstatus, logispinned: Boolean, clientdata: COpaquePointer?)
 }
 
-public typealias PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACKFn?
+public typealias PclfsClientLffHandlerCompleteCallback = PclfsClientLffHandlerCompleteCallbackFn?
 
-public fun interface PCLFS_CLIENT_LOG_UNPINNED_CALLBACKFn {
-    public operator fun invoke(logfile: Long, clientdata: Long)
+public fun interface PclfsClientLogUnpinnedCallbackFn {
+    public operator fun invoke(logfile: COpaquePointer?, clientdata: COpaquePointer?)
 }
 
-public typealias PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = PCLFS_CLIENT_LOG_UNPINNED_CALLBACKFn?
+public typealias PclfsClientLogUnpinnedCallback = PclfsClientLogUnpinnedCallbackFn?
 
-public fun interface PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACKFn {
-    public operator fun invoke(logfile: Long, operationstatus: NTSTATUS, clientdata: Long)
+public fun interface PclfsSetLogSizeCompleteCallbackFn {
+    public operator fun invoke(logfile: COpaquePointer?, operationstatus: Ntstatus, clientdata: COpaquePointer?)
 }
 
-public typealias PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACKFn?
+public typealias PclfsSetLogSizeCompleteCallback = PclfsSetLogSizeCompleteCallbackFn?
 
-public fun interface PCONFIGURE_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long, functionnumber: UInt, context: Long): NTSTATUS
+public fun interface PconfigureAdapterChannelFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, functionnumber: UInt, context: COpaquePointer?): Ntstatus
 }
 
-public typealias PCONFIGURE_ADAPTER_CHANNEL = PCONFIGURE_ADAPTER_CHANNELFn?
+public typealias PconfigureAdapterChannel = PconfigureAdapterChannelFn?
 
-public fun interface PCRASHDUMP_POWER_ONFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PcrashdumpPowerOnFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PCRASHDUMP_POWER_ON = PCRASHDUMP_POWER_ONFn?
+public typealias PcrashdumpPowerOn = PcrashdumpPowerOnFn?
 
-public fun interface PCREATE_COMMON_BUFFER_FROM_MDLFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, extendedconfigs: Long, extendedconfigscount: UInt, logicaladdress: Long): NTSTATUS
+public fun interface PcreateCommonBufferFromMdlFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, extendedconfigs: COpaquePointer?, extendedconfigscount: UInt, logicaladdress: COpaquePointer?): Ntstatus
 }
 
-public typealias PCREATE_COMMON_BUFFER_FROM_MDL = PCREATE_COMMON_BUFFER_FROM_MDLFn?
+public typealias PcreateCommonBufferFromMdl = PcreateCommonBufferFromMdlFn?
 
-public fun interface PCREATE_PROCESS_NOTIFY_ROUTINEFn {
-    public operator fun invoke(parentid: HANDLE, processid: HANDLE, create: Boolean)
+public fun interface PcreateProcessNotifyRoutineFn {
+    public operator fun invoke(parentid: Handle, processid: Handle, create: Boolean)
 }
 
-public typealias PCREATE_PROCESS_NOTIFY_ROUTINE = PCREATE_PROCESS_NOTIFY_ROUTINEFn?
+public typealias PcreateProcessNotifyRoutine = PcreateProcessNotifyRoutineFn?
 
-public fun interface PCREATE_PROCESS_NOTIFY_ROUTINE_EXFn {
-    public operator fun invoke(process: PEPROCESS, processid: HANDLE, createinfo: Long)
+public fun interface PcreateProcessNotifyRoutineExFn {
+    public operator fun invoke(process: Peprocess, processid: Handle, createinfo: COpaquePointer?)
 }
 
-public typealias PCREATE_PROCESS_NOTIFY_ROUTINE_EX = PCREATE_PROCESS_NOTIFY_ROUTINE_EXFn?
+public typealias PcreateProcessNotifyRoutineEx = PcreateProcessNotifyRoutineExFn?
 
-public fun interface PCREATE_THREAD_NOTIFY_ROUTINEFn {
-    public operator fun invoke(processid: HANDLE, threadid: HANDLE, create: Boolean)
+public fun interface PcreateThreadNotifyRoutineFn {
+    public operator fun invoke(processid: Handle, threadid: Handle, create: Boolean)
 }
 
-public typealias PCREATE_THREAD_NOTIFY_ROUTINE = PCREATE_THREAD_NOTIFY_ROUTINEFn?
+public typealias PcreateThreadNotifyRoutine = PcreateThreadNotifyRoutineFn?
 
-public fun interface PCW_CALLBACKFn {
-    public operator fun invoke(type: PCW_CALLBACK_TYPE, info: Long, context: Long): NTSTATUS
+public fun interface PcwCallbackFn {
+    public operator fun invoke(type: PcwCallbackType, info: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias PCW_CALLBACK = PCW_CALLBACKFn?
+public typealias PcwCallback = PcwCallbackFn?
 
-public typealias PCW_CALLBACK_TYPE = Int
+public typealias PcwCallbackType = Int
 
-public typealias PCW_REGISTRATION_FLAGS = Int
+public typealias PcwRegistrationFlags = Int
 
-public fun interface PD3COLD_REQUEST_AUX_POWERFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface Pd3coldRequestAuxPowerFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PD3COLD_REQUEST_AUX_POWER = PD3COLD_REQUEST_AUX_POWERFn?
+public typealias Pd3coldRequestAuxPower = Pd3coldRequestAuxPowerFn?
 
-public fun interface PD3COLD_REQUEST_CORE_POWER_RAILFn {
+public fun interface Pd3coldRequestCorePowerRailFn {
     public operator fun invoke()
 }
 
-public typealias PD3COLD_REQUEST_CORE_POWER_RAIL = PD3COLD_REQUEST_CORE_POWER_RAILFn?
+public typealias Pd3coldRequestCorePowerRail = Pd3coldRequestCorePowerRailFn?
 
-public fun interface PD3COLD_REQUEST_PERST_DELAYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface Pd3coldRequestPerstDelayFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PD3COLD_REQUEST_PERST_DELAY = PD3COLD_REQUEST_PERST_DELAYFn?
+public typealias Pd3coldRequestPerstDelay = Pd3coldRequestPerstDelayFn?
 
-public fun interface PDEBUG_DEVICE_FOUND_FUNCTIONFn {
-    public operator fun invoke(device: Long): KD_CALLBACK_ACTION
+public fun interface PdebugDeviceFoundFunctionFn {
+    public operator fun invoke(device: COpaquePointer?): KdCallbackAction
 }
 
-public typealias PDEBUG_DEVICE_FOUND_FUNCTION = PDEBUG_DEVICE_FOUND_FUNCTIONFn?
+public typealias PdebugDeviceFoundFunction = PdebugDeviceFoundFunctionFn?
 
-public fun interface PDEBUG_PRINT_CALLBACKFn {
-    public operator fun invoke(output: Long, componentid: UInt, level: UInt)
+public fun interface PdebugPrintCallbackFn {
+    public operator fun invoke(output: COpaquePointer?, componentid: UInt, level: UInt)
 }
 
-public typealias PDEBUG_PRINT_CALLBACK = PDEBUG_PRINT_CALLBACKFn?
+public typealias PdebugPrintCallback = PdebugPrintCallbackFn?
 
-public fun interface PDEVICE_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PdeviceBusSpecificResetHandlerFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PDEVICE_BUS_SPECIFIC_RESET_HANDLER = PDEVICE_BUS_SPECIFIC_RESET_HANDLERFn?
+public typealias PdeviceBusSpecificResetHandler = PdeviceBusSpecificResetHandlerFn?
 
-public fun interface PDEVICE_CHANGE_COMPLETE_CALLBACKFn {
+public fun interface PdeviceChangeCompleteCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PDEVICE_CHANGE_COMPLETE_CALLBACK = PDEVICE_CHANGE_COMPLETE_CALLBACKFn?
+public typealias PdeviceChangeCompleteCallback = PdeviceChangeCompleteCallbackFn?
 
-public fun interface PDEVICE_NOTIFY_CALLBACKFn {
-    public operator fun invoke(param0: Long, param1: UInt)
+public fun interface PdeviceNotifyCallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt)
 }
 
-public typealias PDEVICE_NOTIFY_CALLBACK = PDEVICE_NOTIFY_CALLBACKFn?
+public typealias PdeviceNotifyCallback = PdeviceNotifyCallbackFn?
 
-public fun interface PDEVICE_NOTIFY_CALLBACK2Fn {
-    public operator fun invoke(notificationcontext: Long, notifycode: UInt)
+public fun interface PdeviceNotifyCallback2Fn {
+    public operator fun invoke(notificationcontext: COpaquePointer?, notifycode: UInt)
 }
 
-public typealias PDEVICE_NOTIFY_CALLBACK2 = PDEVICE_NOTIFY_CALLBACK2Fn?
+public typealias PdeviceNotifyCallback2 = PdeviceNotifyCallback2Fn?
 
-public fun interface PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PdeviceQueryBusSpecificResetHandlerFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn?
+public typealias PdeviceQueryBusSpecificResetHandler = PdeviceQueryBusSpecificResetHandlerFn?
 
-public fun interface PDEVICE_RESET_COMPLETIONFn {
+public fun interface PdeviceResetCompletionFn {
     public operator fun invoke()
 }
 
-public typealias PDEVICE_RESET_COMPLETION = PDEVICE_RESET_COMPLETIONFn?
+public typealias PdeviceResetCompletion = PdeviceResetCompletionFn?
 
-public fun interface PDEVICE_RESET_HANDLERFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PdeviceResetHandlerFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PDEVICE_RESET_HANDLER = PDEVICE_RESET_HANDLERFn?
+public typealias PdeviceResetHandler = PdeviceResetHandlerFn?
 
-public fun interface PDMA_COMPLETION_ROUTINEFn {
+public fun interface PdmaCompletionRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PDMA_COMPLETION_ROUTINE = PDMA_COMPLETION_ROUTINEFn?
+public typealias PdmaCompletionRoutine = PdmaCompletionRoutineFn?
 
-public fun interface PDRIVER_CMC_EXCEPTION_CALLBACKFn {
-    public operator fun invoke(context: Long, cmclog: Long)
+public fun interface PdriverCmcExceptionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, cmclog: COpaquePointer?)
 }
 
-public typealias PDRIVER_CMC_EXCEPTION_CALLBACK = PDRIVER_CMC_EXCEPTION_CALLBACKFn?
+public typealias PdriverCmcExceptionCallback = PdriverCmcExceptionCallbackFn?
 
-public fun interface PDRIVER_CPE_EXCEPTION_CALLBACKFn {
-    public operator fun invoke(context: Long, cmclog: Long)
+public fun interface PdriverCpeExceptionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, cmclog: COpaquePointer?)
 }
 
-public typealias PDRIVER_CPE_EXCEPTION_CALLBACK = PDRIVER_CPE_EXCEPTION_CALLBACKFn?
+public typealias PdriverCpeExceptionCallback = PdriverCpeExceptionCallbackFn?
 
-public fun interface PDRIVER_EXCPTN_CALLBACKFn {
-    public operator fun invoke(context: Long, banklog: Long)
+public fun interface PdriverExcptnCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, banklog: COpaquePointer?)
 }
 
-public typealias PDRIVER_EXCPTN_CALLBACK = PDRIVER_EXCPTN_CALLBACKFn?
+public typealias PdriverExcptnCallback = PdriverExcptnCallbackFn?
 
-public fun interface PDRIVER_VERIFIER_THUNK_ROUTINEFn {
-    public operator fun invoke(context: Long): ULong
+public fun interface PdriverVerifierThunkRoutineFn {
+    public operator fun invoke(context: COpaquePointer?): ULong
 }
 
-public typealias PDRIVER_VERIFIER_THUNK_ROUTINE = PDRIVER_VERIFIER_THUNK_ROUTINEFn?
+public typealias PdriverVerifierThunkRoutine = PdriverVerifierThunkRoutineFn?
 
-public fun interface PENABLE_VIRTUALIZATIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PenableVirtualizationFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PENABLE_VIRTUALIZATION = PENABLE_VIRTUALIZATIONFn?
+public typealias PenableVirtualization = PenableVirtualizationFn?
 
-public fun interface PETWENABLECALLBACKFn {
+public fun interface PetwenablecallbackFn {
     public operator fun invoke()
 }
 
-public typealias PETWENABLECALLBACK = PETWENABLECALLBACKFn?
+public typealias Petwenablecallback = PetwenablecallbackFn?
 
-public fun interface PEXPAND_STACK_CALLOUTFn {
+public fun interface PexpandStackCalloutFn {
     public operator fun invoke()
 }
 
-public typealias PEXPAND_STACK_CALLOUT = PEXPAND_STACK_CALLOUTFn?
+public typealias PexpandStackCallout = PexpandStackCalloutFn?
 
-public fun interface PEXT_CALLBACKFn {
+public fun interface PextCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PEXT_CALLBACK = PEXT_CALLBACKFn?
+public typealias PextCallback = PextCallbackFn?
 
-public fun interface PEXT_DELETE_CALLBACKFn {
+public fun interface PextDeleteCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PEXT_DELETE_CALLBACK = PEXT_DELETE_CALLBACKFn?
+public typealias PextDeleteCallback = PextDeleteCallbackFn?
 
-public fun interface PEX_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PexCallbackFunctionFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PEX_CALLBACK_FUNCTION = PEX_CALLBACK_FUNCTIONFn?
+public typealias PexCallbackFunction = PexCallbackFunctionFn?
 
-public fun interface PFLUSH_ADAPTER_BUFFERSFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, currentva: Long, length: UInt, writetodevice: Boolean): Boolean
+public fun interface PflushAdapterBuffersFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, mapregisterbase: COpaquePointer?, currentva: COpaquePointer?, length: UInt, writetodevice: Boolean): Boolean
 }
 
-public typealias PFLUSH_ADAPTER_BUFFERS = PFLUSH_ADAPTER_BUFFERSFn?
+public typealias PflushAdapterBuffers = PflushAdapterBuffersFn?
 
-public fun interface PFLUSH_ADAPTER_BUFFERS_EXFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, length: UInt, writetodevice: Boolean): NTSTATUS
+public fun interface PflushAdapterBuffersExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, mapregisterbase: COpaquePointer?, offset: ULong, length: UInt, writetodevice: Boolean): Ntstatus
 }
 
-public typealias PFLUSH_ADAPTER_BUFFERS_EX = PFLUSH_ADAPTER_BUFFERS_EXFn?
+public typealias PflushAdapterBuffersEx = PflushAdapterBuffersExFn?
 
-public fun interface PFLUSH_DMA_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, readoperation: Boolean): NTSTATUS
+public fun interface PflushDmaBufferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, readoperation: Boolean): Ntstatus
 }
 
-public typealias PFLUSH_DMA_BUFFER = PFLUSH_DMA_BUFFERFn?
+public typealias PflushDmaBuffer = PflushDmaBufferFn?
 
-public fun interface PFNFTHFn {
-    public operator fun invoke(systemfirmwaretableinfo: Long): NTSTATUS
+public fun interface PfnfthFn {
+    public operator fun invoke(systemfirmwaretableinfo: COpaquePointer?): Ntstatus
 }
 
-public typealias PFNFTH = PFNFTHFn?
+public typealias Pfnfth = PfnfthFn?
 
-public fun interface PFN_IN_USE_PAGE_OFFLINE_NOTIFYFn {
-    public operator fun invoke(page: UInt, flags: Boolean, poisoned: Boolean, context: Long): Boolean
+public fun interface PfnInUsePageOfflineNotifyFn {
+    public operator fun invoke(page: UInt, flags: Boolean, poisoned: Boolean, context: COpaquePointer?): Boolean
 }
 
-public typealias PFN_IN_USE_PAGE_OFFLINE_NOTIFY = PFN_IN_USE_PAGE_OFFLINE_NOTIFYFn?
+public typealias PfnInUsePageOfflineNotify = PfnInUsePageOfflineNotifyFn?
 
-public fun interface PFN_NT_COMMIT_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
+public fun interface PfnNtCommitTransactionFn {
+    public operator fun invoke(transactionhandle: Handle, wait: Boolean): Ntstatus
 }
 
-public typealias PFN_NT_COMMIT_TRANSACTION = PFN_NT_COMMIT_TRANSACTIONFn?
+public typealias PfnNtCommitTransaction = PfnNtCommitTransactionFn?
 
-public fun interface PFN_NT_CREATE_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: Long, description: Long): NTSTATUS
+public fun interface PfnNtCreateTransactionFn {
+    public operator fun invoke(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, uow: COpaquePointer?, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: COpaquePointer?, description: COpaquePointer?): Ntstatus
 }
 
-public typealias PFN_NT_CREATE_TRANSACTION = PFN_NT_CREATE_TRANSACTIONFn?
+public typealias PfnNtCreateTransaction = PfnNtCreateTransactionFn?
 
-public fun interface PFN_NT_OPEN_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE): NTSTATUS
+public fun interface PfnNtOpenTransactionFn {
+    public operator fun invoke(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, uow: COpaquePointer?, tmhandle: Handle): Ntstatus
 }
 
-public typealias PFN_NT_OPEN_TRANSACTION = PFN_NT_OPEN_TRANSACTIONFn?
+public typealias PfnNtOpenTransaction = PfnNtOpenTransactionFn?
 
-public fun interface PFN_NT_QUERY_INFORMATION_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt, returnlength: Long): NTSTATUS
+public fun interface PfnNtQueryInformationTransactionFn {
+    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: COpaquePointer?, transactioninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus
 }
 
-public typealias PFN_NT_QUERY_INFORMATION_TRANSACTION = PFN_NT_QUERY_INFORMATION_TRANSACTIONFn?
+public typealias PfnNtQueryInformationTransaction = PfnNtQueryInformationTransactionFn?
 
-public fun interface PFN_NT_ROLLBACK_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
+public fun interface PfnNtRollbackTransactionFn {
+    public operator fun invoke(transactionhandle: Handle, wait: Boolean): Ntstatus
 }
 
-public typealias PFN_NT_ROLLBACK_TRANSACTION = PFN_NT_ROLLBACK_TRANSACTIONFn?
+public typealias PfnNtRollbackTransaction = PfnNtRollbackTransactionFn?
 
-public fun interface PFN_NT_SET_INFORMATION_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt): NTSTATUS
+public fun interface PfnNtSetInformationTransactionFn {
+    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: COpaquePointer?, transactioninformationlength: UInt): Ntstatus
 }
 
-public typealias PFN_NT_SET_INFORMATION_TRANSACTION = PFN_NT_SET_INFORMATION_TRANSACTIONFn?
+public typealias PfnNtSetInformationTransaction = PfnNtSetInformationTransactionFn?
 
-public fun interface PFN_RTL_IS_NTDDI_VERSION_AVAILABLEFn {
+public fun interface PfnRtlIsNtddiVersionAvailableFn {
     public operator fun invoke(version: UInt): Boolean
 }
 
-public typealias PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = PFN_RTL_IS_NTDDI_VERSION_AVAILABLEFn?
+public typealias PfnRtlIsNtddiVersionAvailable = PfnRtlIsNtddiVersionAvailableFn?
 
-public fun interface PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLEDFn {
+public fun interface PfnRtlIsServicePackVersionInstalledFn {
     public operator fun invoke(version: UInt): Boolean
 }
 
-public typealias PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLEDFn?
+public typealias PfnRtlIsServicePackVersionInstalled = PfnRtlIsServicePackVersionInstalledFn?
 
-public fun interface PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLERFn {
-    public operator fun invoke(context: Long, osselrecord: Long): NTSTATUS
+public fun interface PfnWheaHighIrqlLogSelEventHandlerFn {
+    public operator fun invoke(context: COpaquePointer?, osselrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLERFn?
+public typealias PfnWheaHighIrqlLogSelEventHandler = PfnWheaHighIrqlLogSelEventHandlerFn?
 
-public fun interface PFPGA_BUS_SCANFn {
+public fun interface PfpgaBusScanFn {
     public operator fun invoke()
 }
 
-public typealias PFPGA_BUS_SCAN = PFPGA_BUS_SCANFn?
+public typealias PfpgaBusScan = PfpgaBusScanFn?
 
-public fun interface PFPGA_CONTROL_CONFIG_SPACEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PfpgaControlConfigSpaceFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PFPGA_CONTROL_CONFIG_SPACE = PFPGA_CONTROL_CONFIG_SPACEFn?
+public typealias PfpgaControlConfigSpace = PfpgaControlConfigSpaceFn?
 
-public fun interface PFPGA_CONTROL_ERROR_REPORTINGFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PfpgaControlErrorReportingFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PFPGA_CONTROL_ERROR_REPORTING = PFPGA_CONTROL_ERROR_REPORTINGFn?
+public typealias PfpgaControlErrorReporting = PfpgaControlErrorReportingFn?
 
-public fun interface PFPGA_CONTROL_LINKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PfpgaControlLinkFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PFPGA_CONTROL_LINK = PFPGA_CONTROL_LINKFn?
+public typealias PfpgaControlLink = PfpgaControlLinkFn?
 
-public fun interface PFREE_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long)
+public fun interface PfreeAdapterChannelFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?)
 }
 
-public typealias PFREE_ADAPTER_CHANNEL = PFREE_ADAPTER_CHANNELFn?
+public typealias PfreeAdapterChannel = PfreeAdapterChannelFn?
 
-public fun interface PFREE_ADAPTER_OBJECTFn {
-    public operator fun invoke(dmaadapter: Long, allocationaction: IO_ALLOCATION_ACTION)
+public fun interface PfreeAdapterObjectFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, allocationaction: IoAllocationAction)
 }
 
-public typealias PFREE_ADAPTER_OBJECT = PFREE_ADAPTER_OBJECTFn?
+public typealias PfreeAdapterObject = PfreeAdapterObjectFn?
 
-public fun interface PFREE_COMMON_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, length: UInt, logicaladdress: Long, virtualaddress: Long, cacheenabled: Boolean)
+public fun interface PfreeCommonBufferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, length: UInt, logicaladdress: Long, virtualaddress: COpaquePointer?, cacheenabled: Boolean)
 }
 
-public typealias PFREE_COMMON_BUFFER = PFREE_COMMON_BUFFERFn?
+public typealias PfreeCommonBuffer = PfreeCommonBufferFn?
 
-public fun interface PFREE_COMMON_BUFFER_FROM_VECTORFn {
-    public operator fun invoke(dmaadapter: Long, vector: Long, index: UInt)
+public fun interface PfreeCommonBufferFromVectorFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, vector: COpaquePointer?, index: UInt)
 }
 
-public typealias PFREE_COMMON_BUFFER_FROM_VECTOR = PFREE_COMMON_BUFFER_FROM_VECTORFn?
+public typealias PfreeCommonBufferFromVector = PfreeCommonBufferFromVectorFn?
 
-public fun interface PFREE_COMMON_BUFFER_VECTORFn {
-    public operator fun invoke(dmaadapter: Long, vector: Long)
+public fun interface PfreeCommonBufferVectorFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, vector: COpaquePointer?)
 }
 
-public typealias PFREE_COMMON_BUFFER_VECTOR = PFREE_COMMON_BUFFER_VECTORFn?
+public typealias PfreeCommonBufferVector = PfreeCommonBufferVectorFn?
 
-public fun interface PFREE_FUNCTION_EXFn {
+public fun interface PfreeFunctionExFn {
     public operator fun invoke()
 }
 
-public typealias PFREE_FUNCTION_EX = PFREE_FUNCTION_EXFn?
+public typealias PfreeFunctionEx = PfreeFunctionExFn?
 
-public fun interface PFREE_MAP_REGISTERSFn {
-    public operator fun invoke(dmaadapter: Long, mapregisterbase: Long, numberofmapregisters: UInt)
+public fun interface PfreeMapRegistersFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mapregisterbase: COpaquePointer?, numberofmapregisters: UInt)
 }
 
-public typealias PFREE_MAP_REGISTERS = PFREE_MAP_REGISTERSFn?
+public typealias PfreeMapRegisters = PfreeMapRegistersFn?
 
-public fun interface PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEXFn {
-    public operator fun invoke(dmaadapter: Long, vector: Long, index: UInt, virtualaddressout: Long, logicaladdressout: Long)
+public fun interface PgetCommonBufferFromVectorByIndexFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, vector: COpaquePointer?, index: UInt, virtualaddressout: COpaquePointer?, logicaladdressout: COpaquePointer?)
 }
 
-public typealias PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEXFn?
+public typealias PgetCommonBufferFromVectorByIndex = PgetCommonBufferFromVectorByIndexFn?
 
-public fun interface PGET_D3COLD_CAPABILITYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetD3coldCapabilityFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_D3COLD_CAPABILITY = PGET_D3COLD_CAPABILITYFn?
+public typealias PgetD3coldCapability = PgetD3coldCapabilityFn?
 
-public fun interface PGET_D3COLD_LAST_TRANSITION_STATUSFn {
+public fun interface PgetD3coldLastTransitionStatusFn {
     public operator fun invoke()
 }
 
-public typealias PGET_D3COLD_LAST_TRANSITION_STATUS = PGET_D3COLD_LAST_TRANSITION_STATUSFn?
+public typealias PgetD3coldLastTransitionStatus = PgetD3coldLastTransitionStatusFn?
 
-public fun interface PGET_DEVICE_RESET_STATUSFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetDeviceResetStatusFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_DEVICE_RESET_STATUS = PGET_DEVICE_RESET_STATUSFn?
+public typealias PgetDeviceResetStatus = PgetDeviceResetStatusFn?
 
-public fun interface PGET_DMA_ADAPTERFn {
-    public operator fun invoke(): Long
+public fun interface PgetDmaAdapterFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PGET_DMA_ADAPTER = PGET_DMA_ADAPTERFn?
+public typealias PgetDmaAdapter = PgetDmaAdapterFn?
 
-public fun interface PGET_DMA_ADAPTER_INFOFn {
-    public operator fun invoke(dmaadapter: Long, adapterinfo: Long): NTSTATUS
+public fun interface PgetDmaAdapterInfoFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, adapterinfo: COpaquePointer?): Ntstatus
 }
 
-public typealias PGET_DMA_ADAPTER_INFO = PGET_DMA_ADAPTER_INFOFn?
+public typealias PgetDmaAdapterInfo = PgetDmaAdapterInfoFn?
 
-public fun interface PGET_DMA_ALIGNMENTFn {
-    public operator fun invoke(dmaadapter: Long): UInt
+public fun interface PgetDmaAlignmentFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?): UInt
 }
 
-public typealias PGET_DMA_ALIGNMENT = PGET_DMA_ALIGNMENTFn?
+public typealias PgetDmaAlignment = PgetDmaAlignmentFn?
 
-public fun interface PGET_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long): HANDLE
+public fun interface PgetDmaDomainFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?): Handle
 }
 
-public typealias PGET_DMA_DOMAIN = PGET_DMA_DOMAINFn?
+public typealias PgetDmaDomain = PgetDmaDomainFn?
 
-public fun interface PGET_DMA_TRANSFER_INFOFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: Long): NTSTATUS
+public fun interface PgetDmaTransferInfoFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: COpaquePointer?): Ntstatus
 }
 
-public typealias PGET_DMA_TRANSFER_INFO = PGET_DMA_TRANSFER_INFOFn?
+public typealias PgetDmaTransferInfo = PgetDmaTransferInfoFn?
 
-public fun interface PGET_IDLE_WAKE_INFOFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetIdleWakeInfoFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_IDLE_WAKE_INFO = PGET_IDLE_WAKE_INFOFn?
+public typealias PgetIdleWakeInfo = PgetIdleWakeInfoFn?
 
-public fun interface PGET_LOCATION_STRINGFn {
-    public operator fun invoke(context: Long, locationstrings: Long): NTSTATUS
+public fun interface PgetLocationStringFn {
+    public operator fun invoke(context: COpaquePointer?, locationstrings: COpaquePointer?): Ntstatus
 }
 
-public typealias PGET_LOCATION_STRING = PGET_LOCATION_STRINGFn?
+public typealias PgetLocationString = PgetLocationStringFn?
 
-public fun interface PGET_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean): NTSTATUS
+public fun interface PgetScatterGatherListFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, mdl: COpaquePointer?, currentva: COpaquePointer?, length: UInt, executionroutine: DriverListControl, context: COpaquePointer?, writetodevice: Boolean): Ntstatus
 }
 
-public typealias PGET_SCATTER_GATHER_LIST = PGET_SCATTER_GATHER_LISTFn?
+public typealias PgetScatterGatherList = PgetScatterGatherListFn?
 
-public fun interface PGET_SCATTER_GATHER_LIST_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): NTSTATUS
+public fun interface PgetScatterGatherListExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, deviceobject: COpaquePointer?, dmatransfercontext: COpaquePointer?, mdl: COpaquePointer?, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: COpaquePointer?, writetodevice: Boolean, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: COpaquePointer?, scattergatherlist: COpaquePointer?): Ntstatus
 }
 
-public typealias PGET_SCATTER_GATHER_LIST_EX = PGET_SCATTER_GATHER_LIST_EXFn?
+public typealias PgetScatterGatherListEx = PgetScatterGatherListExFn?
 
-public fun interface PGET_SDEV_IDENTIFIERFn {
+public fun interface PgetSdevIdentifierFn {
     public operator fun invoke(): ULong
 }
 
-public typealias PGET_SDEV_IDENTIFIER = PGET_SDEV_IDENTIFIERFn?
+public typealias PgetSdevIdentifier = PgetSdevIdentifierFn?
 
-public fun interface PGET_SET_DEVICE_DATAFn {
+public fun interface PgetSetDeviceDataFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PGET_SET_DEVICE_DATA = PGET_SET_DEVICE_DATAFn?
+public typealias PgetSetDeviceData = PgetSetDeviceDataFn?
 
-public fun interface PGET_UPDATED_BUS_RESOURCEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetUpdatedBusResourceFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_UPDATED_BUS_RESOURCE = PGET_UPDATED_BUS_RESOURCEFn?
+public typealias PgetUpdatedBusResource = PgetUpdatedBusResourceFn?
 
-public fun interface PGET_VIRTUAL_DEVICE_DATAFn {
+public fun interface PgetVirtualDeviceDataFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PGET_VIRTUAL_DEVICE_DATA = PGET_VIRTUAL_DEVICE_DATAFn?
+public typealias PgetVirtualDeviceData = PgetVirtualDeviceDataFn?
 
-public fun interface PGET_VIRTUAL_DEVICE_LOCATIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetVirtualDeviceLocationFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_VIRTUAL_DEVICE_LOCATION = PGET_VIRTUAL_DEVICE_LOCATIONFn?
+public typealias PgetVirtualDeviceLocation = PgetVirtualDeviceLocationFn?
 
-public fun interface PGET_VIRTUAL_DEVICE_RESOURCESFn {
+public fun interface PgetVirtualDeviceResourcesFn {
     public operator fun invoke()
 }
 
-public typealias PGET_VIRTUAL_DEVICE_RESOURCES = PGET_VIRTUAL_DEVICE_RESOURCESFn?
+public typealias PgetVirtualDeviceResources = PgetVirtualDeviceResourcesFn?
 
-public fun interface PGET_VIRTUAL_FUNCTION_PROBED_BARSFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PgetVirtualFunctionProbedBarsFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PGET_VIRTUAL_FUNCTION_PROBED_BARS = PGET_VIRTUAL_FUNCTION_PROBED_BARSFn?
+public typealias PgetVirtualFunctionProbedBars = PgetVirtualFunctionProbedBarsFn?
 
-public fun interface PGPE_CLEAR_STATUSFn {
-    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
+public fun interface PgpeClearStatusFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_CLEAR_STATUS = PGPE_CLEAR_STATUSFn?
+public typealias PgpeClearStatus = PgpeClearStatusFn?
 
-public fun interface PGPE_CLEAR_STATUS2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
+public fun interface PgpeClearStatus2Fn {
+    public operator fun invoke(context: COpaquePointer?, objectcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_CLEAR_STATUS2 = PGPE_CLEAR_STATUS2Fn?
+public typealias PgpeClearStatus2 = PgpeClearStatus2Fn?
 
-public fun interface PGPE_CONNECT_VECTORFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: KINTERRUPT_MODE, param3: Boolean, param4: PGPE_SERVICE_ROUTINE, param5: Long, param6: Long): NTSTATUS
+public fun interface PgpeConnectVectorFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: KinterruptMode, param3: Boolean, param4: PgpeServiceRoutine, param5: COpaquePointer?, param6: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_CONNECT_VECTOR = PGPE_CONNECT_VECTORFn?
+public typealias PgpeConnectVector = PgpeConnectVectorFn?
 
-public fun interface PGPE_CONNECT_VECTOR2Fn {
-    public operator fun invoke(context: Long, gpenumber: UInt, mode: KINTERRUPT_MODE, shareable: Boolean, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: Long, objectcontext: Long): NTSTATUS
+public fun interface PgpeConnectVector2Fn {
+    public operator fun invoke(context: COpaquePointer?, gpenumber: UInt, mode: KinterruptMode, shareable: Boolean, serviceroutine: PgpeServiceRoutine, servicecontext: COpaquePointer?, objectcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_CONNECT_VECTOR2 = PGPE_CONNECT_VECTOR2Fn?
+public typealias PgpeConnectVector2 = PgpeConnectVector2Fn?
 
-public fun interface PGPE_DISABLE_EVENTFn {
-    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
+public fun interface PgpeDisableEventFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_DISABLE_EVENT = PGPE_DISABLE_EVENTFn?
+public typealias PgpeDisableEvent = PgpeDisableEventFn?
 
-public fun interface PGPE_DISABLE_EVENT2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
+public fun interface PgpeDisableEvent2Fn {
+    public operator fun invoke(context: COpaquePointer?, objectcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_DISABLE_EVENT2 = PGPE_DISABLE_EVENT2Fn?
+public typealias PgpeDisableEvent2 = PgpeDisableEvent2Fn?
 
-public fun interface PGPE_DISCONNECT_VECTORFn {
-    public operator fun invoke(param0: Long): NTSTATUS
+public fun interface PgpeDisconnectVectorFn {
+    public operator fun invoke(param0: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_DISCONNECT_VECTOR = PGPE_DISCONNECT_VECTORFn?
+public typealias PgpeDisconnectVector = PgpeDisconnectVectorFn?
 
-public fun interface PGPE_DISCONNECT_VECTOR2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
+public fun interface PgpeDisconnectVector2Fn {
+    public operator fun invoke(context: COpaquePointer?, objectcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_DISCONNECT_VECTOR2 = PGPE_DISCONNECT_VECTOR2Fn?
+public typealias PgpeDisconnectVector2 = PgpeDisconnectVector2Fn?
 
-public fun interface PGPE_ENABLE_EVENTFn {
-    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
+public fun interface PgpeEnableEventFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_ENABLE_EVENT = PGPE_ENABLE_EVENTFn?
+public typealias PgpeEnableEvent = PgpeEnableEventFn?
 
-public fun interface PGPE_ENABLE_EVENT2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
+public fun interface PgpeEnableEvent2Fn {
+    public operator fun invoke(context: COpaquePointer?, objectcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PGPE_ENABLE_EVENT2 = PGPE_ENABLE_EVENT2Fn?
+public typealias PgpeEnableEvent2 = PgpeEnableEvent2Fn?
 
-public fun interface PGPE_SERVICE_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: Long): Boolean
+public fun interface PgpeServiceRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Boolean
 }
 
-public typealias PGPE_SERVICE_ROUTINE = PGPE_SERVICE_ROUTINEFn?
+public typealias PgpeServiceRoutine = PgpeServiceRoutineFn?
 
-public fun interface PGPE_SERVICE_ROUTINE2Fn {
-    public operator fun invoke(objectcontext: Long, servicecontext: Long): Boolean
+public fun interface PgpeServiceRoutine2Fn {
+    public operator fun invoke(objectcontext: COpaquePointer?, servicecontext: COpaquePointer?): Boolean
 }
 
-public typealias PGPE_SERVICE_ROUTINE2 = PGPE_SERVICE_ROUTINE2Fn?
+public typealias PgpeServiceRoutine2 = PgpeServiceRoutine2Fn?
 
-public fun interface PHALIOREADWRITEHANDLERFn {
-    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: Long): NTSTATUS
+public fun interface PhalioreadwritehandlerFn {
+    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: COpaquePointer?): Ntstatus
 }
 
-public typealias PHALIOREADWRITEHANDLER = PHALIOREADWRITEHANDLERFn?
+public typealias Phalioreadwritehandler = PhalioreadwritehandlerFn?
 
-public fun interface PHALMCAINTERFACELOCKFn {
+public fun interface PhalmcainterfacelockFn {
     public operator fun invoke()
 }
 
-public typealias PHALMCAINTERFACELOCK = PHALMCAINTERFACELOCKFn?
+public typealias Phalmcainterfacelock = PhalmcainterfacelockFn?
 
-public fun interface PHALMCAINTERFACEREADREGISTERFn {
-    public operator fun invoke(banknumber: UByte, exception: Long): NTSTATUS
+public fun interface PhalmcainterfacereadregisterFn {
+    public operator fun invoke(banknumber: UByte, exception: COpaquePointer?): Ntstatus
 }
 
-public typealias PHALMCAINTERFACEREADREGISTER = PHALMCAINTERFACEREADREGISTERFn?
+public typealias Phalmcainterfacereadregister = PhalmcainterfacereadregisterFn?
 
-public fun interface PHALMCAINTERFACEUNLOCKFn {
+public fun interface PhalmcainterfaceunlockFn {
     public operator fun invoke()
 }
 
-public typealias PHALMCAINTERFACEUNLOCK = PHALMCAINTERFACEUNLOCKFn?
+public typealias Phalmcainterfaceunlock = PhalmcainterfaceunlockFn?
 
-public fun interface PHAL_RESET_DISPLAY_PARAMETERSFn {
+public fun interface PhalResetDisplayParametersFn {
     public operator fun invoke(columns: UInt, rows: UInt): Boolean
 }
 
-public typealias PHAL_RESET_DISPLAY_PARAMETERS = PHAL_RESET_DISPLAY_PARAMETERSFn?
+public typealias PhalResetDisplayParameters = PhalResetDisplayParametersFn?
 
-public fun interface PHVL_WHEA_ERROR_NOTIFICATIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PhvlWheaErrorNotificationFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PHVL_WHEA_ERROR_NOTIFICATION = PHVL_WHEA_ERROR_NOTIFICATIONFn?
+public typealias PhvlWheaErrorNotification = PhvlWheaErrorNotificationFn?
 
-public typealias PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = Int
+public typealias PhysicalCounterResourceDescriptorType = Int
 
-public fun interface PINITIALIZE_DMA_TRANSFER_CONTEXTFn {
-    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): NTSTATUS
+public fun interface PinitializeDmaTransferContextFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, dmatransfercontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PINITIALIZE_DMA_TRANSFER_CONTEXT = PINITIALIZE_DMA_TRANSFER_CONTEXTFn?
+public typealias PinitializeDmaTransferContext = PinitializeDmaTransferContextFn?
 
-public fun interface PINTERFACE_DEREFERENCEFn {
-    public operator fun invoke(context: Long)
+public fun interface PinterfaceDereferenceFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PINTERFACE_DEREFERENCE = PINTERFACE_DEREFERENCEFn?
+public typealias PinterfaceDereference = PinterfaceDereferenceFn?
 
-public fun interface PINTERFACE_REFERENCEFn {
-    public operator fun invoke(context: Long)
+public fun interface PinterfaceReferenceFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PINTERFACE_REFERENCE = PINTERFACE_REFERENCEFn?
+public typealias PinterfaceReference = PinterfaceReferenceFn?
 
-public fun interface PIOMMU_DEVICE_CREATEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDeviceCreateFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DEVICE_CREATE = PIOMMU_DEVICE_CREATEFn?
+public typealias PiommuDeviceCreate = PiommuDeviceCreateFn?
 
-public fun interface PIOMMU_DEVICE_DELETEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDeviceDeleteFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DEVICE_DELETE = PIOMMU_DEVICE_DELETEFn?
+public typealias PiommuDeviceDelete = PiommuDeviceDeleteFn?
 
-public fun interface PIOMMU_DEVICE_FAULT_HANDLERFn {
+public fun interface PiommuDeviceFaultHandlerFn {
     public operator fun invoke()
 }
 
-public typealias PIOMMU_DEVICE_FAULT_HANDLER = PIOMMU_DEVICE_FAULT_HANDLERFn?
+public typealias PiommuDeviceFaultHandler = PiommuDeviceFaultHandlerFn?
 
-public fun interface PIOMMU_DEVICE_QUERY_DOMAIN_TYPESFn {
+public fun interface PiommuDeviceQueryDomainTypesFn {
     public operator fun invoke()
 }
 
-public typealias PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = PIOMMU_DEVICE_QUERY_DOMAIN_TYPESFn?
+public typealias PiommuDeviceQueryDomainTypes = PiommuDeviceQueryDomainTypesFn?
 
-public fun interface PIOMMU_DOMAIN_ATTACH_DEVICEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainAttachDeviceFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_ATTACH_DEVICE = PIOMMU_DOMAIN_ATTACH_DEVICEFn?
+public typealias PiommuDomainAttachDevice = PiommuDomainAttachDeviceFn?
 
-public fun interface PIOMMU_DOMAIN_ATTACH_DEVICE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainAttachDeviceExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_ATTACH_DEVICE_EX = PIOMMU_DOMAIN_ATTACH_DEVICE_EXFn?
+public typealias PiommuDomainAttachDeviceEx = PiommuDomainAttachDeviceExFn?
 
-public fun interface PIOMMU_DOMAIN_CONFIGUREFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainConfigureFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_CONFIGURE = PIOMMU_DOMAIN_CONFIGUREFn?
+public typealias PiommuDomainConfigure = PiommuDomainConfigureFn?
 
-public fun interface PIOMMU_DOMAIN_CREATEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainCreateFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_CREATE = PIOMMU_DOMAIN_CREATEFn?
+public typealias PiommuDomainCreate = PiommuDomainCreateFn?
 
-public fun interface PIOMMU_DOMAIN_CREATE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainCreateExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_CREATE_EX = PIOMMU_DOMAIN_CREATE_EXFn?
+public typealias PiommuDomainCreateEx = PiommuDomainCreateExFn?
 
-public fun interface PIOMMU_DOMAIN_DELETEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainDeleteFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_DELETE = PIOMMU_DOMAIN_DELETEFn?
+public typealias PiommuDomainDelete = PiommuDomainDeleteFn?
 
-public fun interface PIOMMU_DOMAIN_DETACH_DEVICEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainDetachDeviceFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_DETACH_DEVICE = PIOMMU_DOMAIN_DETACH_DEVICEFn?
+public typealias PiommuDomainDetachDevice = PiommuDomainDetachDeviceFn?
 
-public fun interface PIOMMU_DOMAIN_DETACH_DEVICE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuDomainDetachDeviceExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_DOMAIN_DETACH_DEVICE_EX = PIOMMU_DOMAIN_DETACH_DEVICE_EXFn?
+public typealias PiommuDomainDetachDeviceEx = PiommuDomainDetachDeviceExFn?
 
-public fun interface PIOMMU_FLUSH_DOMAINFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuFlushDomainFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_FLUSH_DOMAIN = PIOMMU_FLUSH_DOMAINFn?
+public typealias PiommuFlushDomain = PiommuFlushDomainFn?
 
-public fun interface PIOMMU_FLUSH_DOMAIN_VA_LISTFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuFlushDomainVaListFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_FLUSH_DOMAIN_VA_LIST = PIOMMU_FLUSH_DOMAIN_VA_LISTFn?
+public typealias PiommuFlushDomainVaList = PiommuFlushDomainVaListFn?
 
-public fun interface PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuFreeReservedLogicalAddressRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn?
+public typealias PiommuFreeReservedLogicalAddressRange = PiommuFreeReservedLogicalAddressRangeFn?
 
-public fun interface PIOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn {
+public fun interface PiommuInterfaceStateChangeCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias PiommuInterfaceStateChangeCallback = PiommuInterfaceStateChangeCallbackFn?
 
-public fun interface PIOMMU_MAP_IDENTITY_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuMapIdentityRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_MAP_IDENTITY_RANGE = PIOMMU_MAP_IDENTITY_RANGEFn?
+public typealias PiommuMapIdentityRange = PiommuMapIdentityRangeFn?
 
-public fun interface PIOMMU_MAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuMapIdentityRangeExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_MAP_IDENTITY_RANGE_EX = PIOMMU_MAP_IDENTITY_RANGE_EXFn?
+public typealias PiommuMapIdentityRangeEx = PiommuMapIdentityRangeExFn?
 
-public fun interface PIOMMU_MAP_LOGICAL_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuMapLogicalRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_MAP_LOGICAL_RANGE = PIOMMU_MAP_LOGICAL_RANGEFn?
+public typealias PiommuMapLogicalRange = PiommuMapLogicalRangeFn?
 
-public fun interface PIOMMU_MAP_LOGICAL_RANGE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuMapLogicalRangeExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_MAP_LOGICAL_RANGE_EX = PIOMMU_MAP_LOGICAL_RANGE_EXFn?
+public typealias PiommuMapLogicalRangeEx = PiommuMapLogicalRangeExFn?
 
-public fun interface PIOMMU_MAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuMapReservedLogicalRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_MAP_RESERVED_LOGICAL_RANGE = PIOMMU_MAP_RESERVED_LOGICAL_RANGEFn?
+public typealias PiommuMapReservedLogicalRange = PiommuMapReservedLogicalRangeFn?
 
-public fun interface PIOMMU_QUERY_INPUT_MAPPINGSFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuQueryInputMappingsFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_QUERY_INPUT_MAPPINGS = PIOMMU_QUERY_INPUT_MAPPINGSFn?
+public typealias PiommuQueryInputMappings = PiommuQueryInputMappingsFn?
 
-public fun interface PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuRegisterInterfaceStateChangeCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias PiommuRegisterInterfaceStateChangeCallback = PiommuRegisterInterfaceStateChangeCallbackFn?
 
-public fun interface PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuReserveLogicalAddressRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn?
+public typealias PiommuReserveLogicalAddressRange = PiommuReserveLogicalAddressRangeFn?
 
-public fun interface PIOMMU_SET_DEVICE_FAULT_REPORTINGFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuSetDeviceFaultReportingFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_SET_DEVICE_FAULT_REPORTING = PIOMMU_SET_DEVICE_FAULT_REPORTINGFn?
+public typealias PiommuSetDeviceFaultReporting = PiommuSetDeviceFaultReportingFn?
 
-public fun interface PIOMMU_SET_DEVICE_FAULT_REPORTING_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuSetDeviceFaultReportingExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = PIOMMU_SET_DEVICE_FAULT_REPORTING_EXFn?
+public typealias PiommuSetDeviceFaultReportingEx = PiommuSetDeviceFaultReportingExFn?
 
-public fun interface PIOMMU_UNMAP_IDENTITY_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuUnmapIdentityRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_UNMAP_IDENTITY_RANGE = PIOMMU_UNMAP_IDENTITY_RANGEFn?
+public typealias PiommuUnmapIdentityRange = PiommuUnmapIdentityRangeFn?
 
-public fun interface PIOMMU_UNMAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuUnmapIdentityRangeExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_UNMAP_IDENTITY_RANGE_EX = PIOMMU_UNMAP_IDENTITY_RANGE_EXFn?
+public typealias PiommuUnmapIdentityRangeEx = PiommuUnmapIdentityRangeExFn?
 
-public fun interface PIOMMU_UNMAP_LOGICAL_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuUnmapLogicalRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_UNMAP_LOGICAL_RANGE = PIOMMU_UNMAP_LOGICAL_RANGEFn?
+public typealias PiommuUnmapLogicalRange = PiommuUnmapLogicalRangeFn?
 
-public fun interface PIOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuUnmapReservedLogicalRangeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = PIOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn?
+public typealias PiommuUnmapReservedLogicalRange = PiommuUnmapReservedLogicalRangeFn?
 
-public fun interface PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PiommuUnregisterInterfaceStateChangeCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
+public typealias PiommuUnregisterInterfaceStateChangeCallback = PiommuUnregisterInterfaceStateChangeCallbackFn?
 
-public fun interface PIO_CONTAINER_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PioContainerNotificationFunctionFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIO_CONTAINER_NOTIFICATION_FUNCTION = PIO_CONTAINER_NOTIFICATION_FUNCTIONFn?
+public typealias PioContainerNotificationFunction = PioContainerNotificationFunctionFn?
 
-public fun interface PIO_CSQ_ACQUIRE_LOCKFn {
+public fun interface PioCsqAcquireLockFn {
     public operator fun invoke()
 }
 
-public typealias PIO_CSQ_ACQUIRE_LOCK = PIO_CSQ_ACQUIRE_LOCKFn?
+public typealias PioCsqAcquireLock = PioCsqAcquireLockFn?
 
-public fun interface PIO_CSQ_COMPLETE_CANCELED_IRPFn {
+public fun interface PioCsqCompleteCanceledIrpFn {
     public operator fun invoke()
 }
 
-public typealias PIO_CSQ_COMPLETE_CANCELED_IRP = PIO_CSQ_COMPLETE_CANCELED_IRPFn?
+public typealias PioCsqCompleteCanceledIrp = PioCsqCompleteCanceledIrpFn?
 
-public fun interface PIO_CSQ_INSERT_IRPFn {
+public fun interface PioCsqInsertIrpFn {
     public operator fun invoke()
 }
 
-public typealias PIO_CSQ_INSERT_IRP = PIO_CSQ_INSERT_IRPFn?
+public typealias PioCsqInsertIrp = PioCsqInsertIrpFn?
 
-public fun interface PIO_CSQ_INSERT_IRP_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PioCsqInsertIrpExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIO_CSQ_INSERT_IRP_EX = PIO_CSQ_INSERT_IRP_EXFn?
+public typealias PioCsqInsertIrpEx = PioCsqInsertIrpExFn?
 
-public fun interface PIO_CSQ_PEEK_NEXT_IRPFn {
-    public operator fun invoke(): Long
+public fun interface PioCsqPeekNextIrpFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PIO_CSQ_PEEK_NEXT_IRP = PIO_CSQ_PEEK_NEXT_IRPFn?
+public typealias PioCsqPeekNextIrp = PioCsqPeekNextIrpFn?
 
-public fun interface PIO_CSQ_RELEASE_LOCKFn {
+public fun interface PioCsqReleaseLockFn {
     public operator fun invoke()
 }
 
-public typealias PIO_CSQ_RELEASE_LOCK = PIO_CSQ_RELEASE_LOCKFn?
+public typealias PioCsqReleaseLock = PioCsqReleaseLockFn?
 
-public fun interface PIO_CSQ_REMOVE_IRPFn {
+public fun interface PioCsqRemoveIrpFn {
     public operator fun invoke()
 }
 
-public typealias PIO_CSQ_REMOVE_IRP = PIO_CSQ_REMOVE_IRPFn?
+public typealias PioCsqRemoveIrp = PioCsqRemoveIrpFn?
 
-public fun interface PIO_DEVICE_EJECT_CALLBACKFn {
-    public operator fun invoke(status: NTSTATUS, context: Long)
+public fun interface PioDeviceEjectCallbackFn {
+    public operator fun invoke(status: Ntstatus, context: COpaquePointer?)
 }
 
-public typealias PIO_DEVICE_EJECT_CALLBACK = PIO_DEVICE_EJECT_CALLBACKFn?
+public typealias PioDeviceEjectCallback = PioDeviceEjectCallbackFn?
 
-public fun interface PIO_DPC_ROUTINEFn {
+public fun interface PioDpcRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PIO_DPC_ROUTINE = PIO_DPC_ROUTINEFn?
+public typealias PioDpcRoutine = PioDpcRoutineFn?
 
-public fun interface PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PioPersistedMemoryEnumerationCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn?
+public typealias PioPersistedMemoryEnumerationCallback = PioPersistedMemoryEnumerationCallbackFn?
 
-public fun interface PIO_QUERY_DEVICE_ROUTINEFn {
-    public operator fun invoke(context: Long, pathname: Long, bustype: INTERFACE_TYPE, busnumber: UInt, businformation: Long, controllertype: CONFIGURATION_TYPE, controllernumber: UInt, controllerinformation: Long, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: UInt, peripheralinformation: Long): NTSTATUS
+public fun interface PioQueryDeviceRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, pathname: COpaquePointer?, bustype: InterfaceType, busnumber: UInt, businformation: COpaquePointer?, controllertype: ConfigurationType, controllernumber: UInt, controllerinformation: COpaquePointer?, peripheraltype: ConfigurationType, peripheralnumber: UInt, peripheralinformation: COpaquePointer?): Ntstatus
 }
 
-public typealias PIO_QUERY_DEVICE_ROUTINE = PIO_QUERY_DEVICE_ROUTINEFn?
+public typealias PioQueryDeviceRoutine = PioQueryDeviceRoutineFn?
 
-public fun interface PIO_SESSION_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PioSessionNotificationFunctionFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIO_SESSION_NOTIFICATION_FUNCTION = PIO_SESSION_NOTIFICATION_FUNCTIONFn?
+public typealias PioSessionNotificationFunction = PioSessionNotificationFunctionFn?
 
-public fun interface PIO_TIMER_ROUTINEFn {
+public fun interface PioTimerRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PIO_TIMER_ROUTINE = PIO_TIMER_ROUTINEFn?
+public typealias PioTimerRoutine = PioTimerRoutineFn?
 
-public fun interface PIO_WORKITEM_ROUTINEFn {
+public fun interface PioWorkitemRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PIO_WORKITEM_ROUTINE = PIO_WORKITEM_ROUTINEFn?
+public typealias PioWorkitemRoutine = PioWorkitemRoutineFn?
 
-public fun interface PIO_WORKITEM_ROUTINE_EXFn {
+public fun interface PioWorkitemRoutineExFn {
     public operator fun invoke()
 }
 
-public typealias PIO_WORKITEM_ROUTINE_EX = PIO_WORKITEM_ROUTINE_EXFn?
+public typealias PioWorkitemRoutineEx = PioWorkitemRoutineExFn?
 
-public fun interface PJOIN_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long, domainhandle: HANDLE): NTSTATUS
+public fun interface PjoinDmaDomainFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, domainhandle: Handle): Ntstatus
 }
 
-public typealias PJOIN_DMA_DOMAIN = PJOIN_DMA_DOMAINFn?
+public typealias PjoinDmaDomain = PjoinDmaDomainFn?
 
-public fun interface PKBUGCHECK_CALLBACK_ROUTINEFn {
+public fun interface PkbugcheckCallbackRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PKBUGCHECK_CALLBACK_ROUTINE = PKBUGCHECK_CALLBACK_ROUTINEFn?
+public typealias PkbugcheckCallbackRoutine = PkbugcheckCallbackRoutineFn?
 
-public fun interface PKBUGCHECK_REASON_CALLBACK_ROUTINEFn {
+public fun interface PkbugcheckReasonCallbackRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PKBUGCHECK_REASON_CALLBACK_ROUTINE = PKBUGCHECK_REASON_CALLBACK_ROUTINEFn?
+public typealias PkbugcheckReasonCallbackRoutine = PkbugcheckReasonCallbackRoutineFn?
 
-public fun interface PKIPI_BROADCAST_WORKERFn {
+public fun interface PkipiBroadcastWorkerFn {
     public operator fun invoke(): ULong
 }
 
-public typealias PKIPI_BROADCAST_WORKER = PKIPI_BROADCAST_WORKERFn?
+public typealias PkipiBroadcastWorker = PkipiBroadcastWorkerFn?
 
-public fun interface PKMESSAGE_SERVICE_ROUTINEFn {
+public fun interface PkmessageServiceRoutineFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PKMESSAGE_SERVICE_ROUTINE = PKMESSAGE_SERVICE_ROUTINEFn?
+public typealias PkmessageServiceRoutine = PkmessageServiceRoutineFn?
 
-public fun interface PKSERVICE_ROUTINEFn {
+public fun interface PkserviceRoutineFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PKSERVICE_ROUTINE = PKSERVICE_ROUTINEFn?
+public typealias PkserviceRoutine = PkserviceRoutineFn?
 
-public fun interface PKSTART_ROUTINEFn {
+public fun interface PkstartRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PKSTART_ROUTINE = PKSTART_ROUTINEFn?
+public typealias PkstartRoutine = PkstartRoutineFn?
 
-public fun interface PKSYNCHRONIZE_ROUTINEFn {
+public fun interface PksynchronizeRoutineFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PKSYNCHRONIZE_ROUTINE = PKSYNCHRONIZE_ROUTINEFn?
+public typealias PksynchronizeRoutine = PksynchronizeRoutineFn?
 
-public fun interface PLEAVE_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long): NTSTATUS
+public fun interface PleaveDmaDomainFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?): Ntstatus
 }
 
-public typealias PLEAVE_DMA_DOMAIN = PLEAVE_DMA_DOMAINFn?
+public typealias PleaveDmaDomain = PleaveDmaDomainFn?
 
-public fun interface PLOAD_IMAGE_NOTIFY_ROUTINEFn {
-    public operator fun invoke(fullimagename: Long, processid: HANDLE, imageinfo: Long)
+public fun interface PloadImageNotifyRoutineFn {
+    public operator fun invoke(fullimagename: COpaquePointer?, processid: Handle, imageinfo: COpaquePointer?)
 }
 
-public typealias PLOAD_IMAGE_NOTIFY_ROUTINE = PLOAD_IMAGE_NOTIFY_ROUTINEFn?
+public typealias PloadImageNotifyRoutine = PloadImageNotifyRoutineFn?
 
-public fun interface PMAP_TRANSFERFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, currentva: Long, length: Long, writetodevice: Boolean): Long
+public fun interface PmapTransferFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, mapregisterbase: COpaquePointer?, currentva: COpaquePointer?, length: COpaquePointer?, writetodevice: Boolean): Long
 }
 
-public typealias PMAP_TRANSFER = PMAP_TRANSFERFn?
+public typealias PmapTransfer = PmapTransferFn?
 
-public fun interface PMAP_TRANSFER_EXFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, deviceoffset: UInt, length: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherbufferlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long): NTSTATUS
+public fun interface PmapTransferExFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, mdl: COpaquePointer?, mapregisterbase: COpaquePointer?, offset: ULong, deviceoffset: UInt, length: COpaquePointer?, writetodevice: Boolean, scattergatherbuffer: COpaquePointer?, scattergatherbufferlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PMAP_TRANSFER_EX = PMAP_TRANSFER_EXFn?
+public typealias PmapTransferEx = PmapTransferExFn?
 
-public fun interface PMM_DLL_INITIALIZEFn {
-    public operator fun invoke(registrypath: Long): NTSTATUS
+public fun interface PmmDllInitializeFn {
+    public operator fun invoke(registrypath: COpaquePointer?): Ntstatus
 }
 
-public typealias PMM_DLL_INITIALIZE = PMM_DLL_INITIALIZEFn?
+public typealias PmmDllInitialize = PmmDllInitializeFn?
 
-public fun interface PMM_DLL_UNLOADFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PmmDllUnloadFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PMM_DLL_UNLOAD = PMM_DLL_UNLOADFn?
+public typealias PmmDllUnload = PmmDllUnloadFn?
 
-public fun interface PMM_GET_SYSTEM_ROUTINE_ADDRESS_EXFn {
-    public operator fun invoke(modulename: Long, functionname: PCSTR): Long
+public fun interface PmmGetSystemRoutineAddressExFn {
+    public operator fun invoke(modulename: COpaquePointer?, functionname: Pcstr): COpaquePointer?
 }
 
-public typealias PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = PMM_GET_SYSTEM_ROUTINE_ADDRESS_EXFn?
+public typealias PmmGetSystemRoutineAddressEx = PmmGetSystemRoutineAddressExFn?
 
-public fun interface PMM_MDL_ROUTINEFn {
+public fun interface PmmMdlRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PMM_MDL_ROUTINE = PMM_MDL_ROUTINEFn?
+public typealias PmmMdlRoutine = PmmMdlRoutineFn?
 
-public fun interface PMM_ROTATE_COPY_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(destinationmdl: Long, sourcemdl: Long, context: Long): NTSTATUS
+public fun interface PmmRotateCopyCallbackFunctionFn {
+    public operator fun invoke(destinationmdl: COpaquePointer?, sourcemdl: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias PMM_ROTATE_COPY_CALLBACK_FUNCTION = PMM_ROTATE_COPY_CALLBACK_FUNCTIONFn?
+public typealias PmmRotateCopyCallbackFunction = PmmRotateCopyCallbackFunctionFn?
 
-public fun interface PNMI_CALLBACKFn {
+public fun interface PnmiCallbackFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PNMI_CALLBACK = PNMI_CALLBACKFn?
+public typealias PnmiCallback = PnmiCallbackFn?
 
-public fun interface PNPEM_CONTROL_ENABLE_DISABLEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PnpemControlEnableDisableFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PNPEM_CONTROL_ENABLE_DISABLE = PNPEM_CONTROL_ENABLE_DISABLEFn?
+public typealias PnpemControlEnableDisable = PnpemControlEnableDisableFn?
 
-public fun interface PNPEM_CONTROL_QUERY_CONTROLFn {
+public fun interface PnpemControlQueryControlFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PNPEM_CONTROL_QUERY_CONTROL = PNPEM_CONTROL_QUERY_CONTROLFn?
+public typealias PnpemControlQueryControl = PnpemControlQueryControlFn?
 
-public fun interface PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PnpemControlQueryStandardCapabilitiesFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn?
+public typealias PnpemControlQueryStandardCapabilities = PnpemControlQueryStandardCapabilitiesFn?
 
-public fun interface PNPEM_CONTROL_SET_STANDARD_CONTROLFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PnpemControlSetStandardControlFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PNPEM_CONTROL_SET_STANDARD_CONTROL = PNPEM_CONTROL_SET_STANDARD_CONTROLFn?
+public typealias PnpemControlSetStandardControl = PnpemControlSetStandardControlFn?
 
-public fun interface PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn {
+public fun interface PntfsDerefExportedSecurityDescriptorFn {
     public operator fun invoke()
 }
 
-public typealias PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn?
+public typealias PntfsDerefExportedSecurityDescriptor = PntfsDerefExportedSecurityDescriptorFn?
 
-public fun interface POB_POST_OPERATION_CALLBACKFn {
-    public operator fun invoke(registrationcontext: Long, operationinformation: Long)
+public fun interface PobPostOperationCallbackFn {
+    public operator fun invoke(registrationcontext: COpaquePointer?, operationinformation: COpaquePointer?)
 }
 
-public typealias POB_POST_OPERATION_CALLBACK = POB_POST_OPERATION_CALLBACKFn?
+public typealias PobPostOperationCallback = PobPostOperationCallbackFn?
 
-public fun interface POB_PRE_OPERATION_CALLBACKFn {
-    public operator fun invoke(registrationcontext: Long, operationinformation: Long): OB_PREOP_CALLBACK_STATUS
+public fun interface PobPreOperationCallbackFn {
+    public operator fun invoke(registrationcontext: COpaquePointer?, operationinformation: COpaquePointer?): ObPreopCallbackStatus
 }
 
-public typealias POB_PRE_OPERATION_CALLBACK = POB_PRE_OPERATION_CALLBACKFn?
+public typealias PobPreOperationCallback = PobPreOperationCallbackFn?
 
-public typealias POOL_EXTENDED_PARAMETER_TYPE = Int
+public typealias PoolExtendedParameterType = Int
 
-public typealias POWER_MONITOR_REQUEST_REASON = Int
+public typealias PowerMonitorRequestReason = Int
 
-public typealias POWER_MONITOR_REQUEST_TYPE = Int
+public typealias PowerMonitorRequestType = Int
 
-public typealias POWER_PLATFORM_ROLE = Int
+public typealias PowerPlatformRole = Int
 
-public fun interface POWER_SETTING_CALLBACKFn {
-    public operator fun invoke(settingguid: Long, value: Long, valuelength: UInt, context: Long): NTSTATUS
+public fun interface PowerSettingCallbackFn {
+    public operator fun invoke(settingguid: COpaquePointer?, value: COpaquePointer?, valuelength: UInt, context: COpaquePointer?): Ntstatus
 }
 
-public typealias POWER_SETTING_CALLBACK = POWER_SETTING_CALLBACKFn?
+public typealias PowerSettingCallback = PowerSettingCallbackFn?
 
-public typealias POWER_STATE_TYPE = Int
+public typealias PowerStateType = Int
 
-public typealias POWER_USER_PRESENCE_TYPE = Int
+public typealias PowerUserPresenceType = Int
 
-public fun interface PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACKFn {
-    public operator fun invoke(context: Long, component: UInt)
+public fun interface PoFxComponentActiveConditionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, component: UInt)
 }
 
-public typealias PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACKFn?
+public typealias PoFxComponentActiveConditionCallback = PoFxComponentActiveConditionCallbackFn?
 
-public fun interface PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACKFn {
-    public operator fun invoke(context: Long, component: UInt, active: Boolean)
+public fun interface PoFxComponentCriticalTransitionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, component: UInt, active: Boolean)
 }
 
-public typealias PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACKFn?
+public typealias PoFxComponentCriticalTransitionCallback = PoFxComponentCriticalTransitionCallbackFn?
 
-public fun interface PO_FX_COMPONENT_IDLE_CONDITION_CALLBACKFn {
-    public operator fun invoke(context: Long, component: UInt)
+public fun interface PoFxComponentIdleConditionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, component: UInt)
 }
 
-public typealias PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = PO_FX_COMPONENT_IDLE_CONDITION_CALLBACKFn?
+public typealias PoFxComponentIdleConditionCallback = PoFxComponentIdleConditionCallbackFn?
 
-public fun interface PO_FX_COMPONENT_IDLE_STATE_CALLBACKFn {
-    public operator fun invoke(context: Long, component: UInt, state: UInt)
+public fun interface PoFxComponentIdleStateCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, component: UInt, state: UInt)
 }
 
-public typealias PO_FX_COMPONENT_IDLE_STATE_CALLBACK = PO_FX_COMPONENT_IDLE_STATE_CALLBACKFn?
+public typealias PoFxComponentIdleStateCallback = PoFxComponentIdleStateCallbackFn?
 
-public fun interface PO_FX_COMPONENT_PERF_STATE_CALLBACKFn {
-    public operator fun invoke(context: Long, component: UInt, succeeded: Boolean, requestcontext: Long)
+public fun interface PoFxComponentPerfStateCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, component: UInt, succeeded: Boolean, requestcontext: COpaquePointer?)
 }
 
-public typealias PO_FX_COMPONENT_PERF_STATE_CALLBACK = PO_FX_COMPONENT_PERF_STATE_CALLBACKFn?
+public typealias PoFxComponentPerfStateCallback = PoFxComponentPerfStateCallbackFn?
 
-public fun interface PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface PoFxDevicePowerNotRequiredCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACKFn?
+public typealias PoFxDevicePowerNotRequiredCallback = PoFxDevicePowerNotRequiredCallbackFn?
 
-public fun interface PO_FX_DEVICE_POWER_REQUIRED_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface PoFxDevicePowerRequiredCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = PO_FX_DEVICE_POWER_REQUIRED_CALLBACKFn?
+public typealias PoFxDevicePowerRequiredCallback = PoFxDevicePowerRequiredCallbackFn?
 
-public fun interface PO_FX_DIRECTED_POWER_DOWN_CALLBACKFn {
-    public operator fun invoke(context: Long, flags: UInt)
+public fun interface PoFxDirectedPowerDownCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, flags: UInt)
 }
 
-public typealias PO_FX_DIRECTED_POWER_DOWN_CALLBACK = PO_FX_DIRECTED_POWER_DOWN_CALLBACKFn?
+public typealias PoFxDirectedPowerDownCallback = PoFxDirectedPowerDownCallbackFn?
 
-public fun interface PO_FX_DIRECTED_POWER_UP_CALLBACKFn {
-    public operator fun invoke(context: Long, flags: UInt)
+public fun interface PoFxDirectedPowerUpCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, flags: UInt)
 }
 
-public typealias PO_FX_DIRECTED_POWER_UP_CALLBACK = PO_FX_DIRECTED_POWER_UP_CALLBACKFn?
+public typealias PoFxDirectedPowerUpCallback = PoFxDirectedPowerUpCallbackFn?
 
-public fun interface PO_FX_DRIPS_WATCHDOG_CALLBACKFn {
-    public operator fun invoke(context: Long, physicaldeviceobject: Long, uniqueid: UInt)
+public fun interface PoFxDripsWatchdogCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, physicaldeviceobject: COpaquePointer?, uniqueid: UInt)
 }
 
-public typealias PO_FX_DRIPS_WATCHDOG_CALLBACK = PO_FX_DRIPS_WATCHDOG_CALLBACKFn?
+public typealias PoFxDripsWatchdogCallback = PoFxDripsWatchdogCallbackFn?
 
-public typealias PO_FX_PERF_STATE_TYPE = Int
+public typealias PoFxPerfStateType = Int
 
-public typealias PO_FX_PERF_STATE_UNIT = Int
+public typealias PoFxPerfStateUnit = Int
 
-public fun interface PO_FX_POWER_CONTROL_CALLBACKFn {
-    public operator fun invoke(devicecontext: Long, powercontrolcode: Long, inbuffer: Long, inbuffersize: ULong, outbuffer: Long, outbuffersize: ULong, bytesreturned: Long): NTSTATUS
+public fun interface PoFxPowerControlCallbackFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, powercontrolcode: COpaquePointer?, inbuffer: COpaquePointer?, inbuffersize: ULong, outbuffer: COpaquePointer?, outbuffersize: ULong, bytesreturned: COpaquePointer?): Ntstatus
 }
 
-public typealias PO_FX_POWER_CONTROL_CALLBACK = PO_FX_POWER_CONTROL_CALLBACKFn?
+public typealias PoFxPowerControlCallback = PoFxPowerControlCallbackFn?
 
-public typealias PO_THERMAL_REQUEST_TYPE = Int
+public typealias PoThermalRequestType = Int
 
-public fun interface PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciExpressEnterLinkQuiescentModeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn?
+public typealias PpciExpressEnterLinkQuiescentMode = PpciExpressEnterLinkQuiescentModeFn?
 
-public fun interface PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciExpressExitLinkQuiescentModeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn?
+public typealias PpciExpressExitLinkQuiescentMode = PpciExpressExitLinkQuiescentModeFn?
 
-public fun interface PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACEFn {
-    public operator fun invoke(context: Long, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface PpciExpressRootPortReadConfigSpaceFn {
+    public operator fun invoke(context: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACEFn?
+public typealias PpciExpressRootPortReadConfigSpace = PpciExpressRootPortReadConfigSpaceFn?
 
-public fun interface PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACEFn {
-    public operator fun invoke(context: Long, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface PpciExpressRootPortWriteConfigSpaceFn {
+    public operator fun invoke(context: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACEFn?
+public typealias PpciExpressRootPortWriteConfigSpace = PpciExpressRootPortWriteConfigSpaceFn?
 
-public fun interface PPCI_EXPRESS_WAKE_CONTROLFn {
+public fun interface PpciExpressWakeControlFn {
     public operator fun invoke()
 }
 
-public typealias PPCI_EXPRESS_WAKE_CONTROL = PPCI_EXPRESS_WAKE_CONTROLFn?
+public typealias PpciExpressWakeControl = PpciExpressWakeControlFn?
 
-public fun interface PPCI_IS_DEVICE_PRESENTFn {
+public fun interface PpciIsDevicePresentFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PPCI_IS_DEVICE_PRESENT = PPCI_IS_DEVICE_PRESENTFn?
+public typealias PpciIsDevicePresent = PpciIsDevicePresentFn?
 
-public fun interface PPCI_IS_DEVICE_PRESENT_EXFn {
+public fun interface PpciIsDevicePresentExFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PPCI_IS_DEVICE_PRESENT_EX = PPCI_IS_DEVICE_PRESENT_EXFn?
+public typealias PpciIsDevicePresentEx = PpciIsDevicePresentExFn?
 
-public fun interface PPCI_LINE_TO_PINFn {
+public fun interface PpciLineToPinFn {
     public operator fun invoke()
 }
 
-public typealias PPCI_LINE_TO_PIN = PPCI_LINE_TO_PINFn?
+public typealias PpciLineToPin = PpciLineToPinFn?
 
-public fun interface PPCI_MSIX_GET_ENTRYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciMsixGetEntryFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_MSIX_GET_ENTRY = PPCI_MSIX_GET_ENTRYFn?
+public typealias PpciMsixGetEntry = PpciMsixGetEntryFn?
 
-public fun interface PPCI_MSIX_GET_TABLE_SIZEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciMsixGetTableSizeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_MSIX_GET_TABLE_SIZE = PPCI_MSIX_GET_TABLE_SIZEFn?
+public typealias PpciMsixGetTableSize = PpciMsixGetTableSizeFn?
 
-public fun interface PPCI_MSIX_MASKUNMASK_ENTRYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciMsixMaskunmaskEntryFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_MSIX_MASKUNMASK_ENTRY = PPCI_MSIX_MASKUNMASK_ENTRYFn?
+public typealias PpciMsixMaskunmaskEntry = PpciMsixMaskunmaskEntryFn?
 
-public fun interface PPCI_MSIX_SET_ENTRYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciMsixSetEntryFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_MSIX_SET_ENTRY = PPCI_MSIX_SET_ENTRYFn?
+public typealias PpciMsixSetEntry = PpciMsixSetEntryFn?
 
-public fun interface PPCI_PIN_TO_LINEFn {
+public fun interface PpciPinToLineFn {
     public operator fun invoke()
 }
 
-public typealias PPCI_PIN_TO_LINE = PPCI_PIN_TO_LINEFn?
+public typealias PpciPinToLine = PpciPinToLineFn?
 
-public fun interface PPCI_PREPARE_MULTISTAGE_RESUMEFn {
+public fun interface PpciPrepareMultistageResumeFn {
     public operator fun invoke()
 }
 
-public typealias PPCI_PREPARE_MULTISTAGE_RESUME = PPCI_PREPARE_MULTISTAGE_RESUMEFn?
+public typealias PpciPrepareMultistageResume = PpciPrepareMultistageResumeFn?
 
-public fun interface PPCI_READ_WRITE_CONFIGFn {
+public fun interface PpciReadWriteConfigFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PPCI_READ_WRITE_CONFIG = PPCI_READ_WRITE_CONFIGFn?
+public typealias PpciReadWriteConfig = PpciReadWriteConfigFn?
 
-public fun interface PPCI_ROOT_BUS_CAPABILITYFn {
+public fun interface PpciRootBusCapabilityFn {
     public operator fun invoke()
 }
 
-public typealias PPCI_ROOT_BUS_CAPABILITY = PPCI_ROOT_BUS_CAPABILITYFn?
+public typealias PpciRootBusCapability = PpciRootBusCapabilityFn?
 
-public fun interface PPCI_SET_ACSFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciSetAcsFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_SET_ACS = PPCI_SET_ACSFn?
+public typealias PpciSetAcs = PpciSetAcsFn?
 
-public fun interface PPCI_SET_ACS2Fn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciSetAcs2Fn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_SET_ACS2 = PPCI_SET_ACS2Fn?
+public typealias PpciSetAcs2 = PpciSetAcs2Fn?
 
-public fun interface PPCI_SET_ATSFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpciSetAtsFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCI_SET_ATS = PPCI_SET_ATSFn?
+public typealias PpciSetAts = PpciSetAtsFn?
 
-public fun interface PPCW_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpcwCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPCW_CALLBACK = PPCW_CALLBACKFn?
+public typealias PpcwCallback = PpcwCallbackFn?
 
-public fun interface PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLERFn {
-    public operator fun invoke(eventbuffer: Long, entrysize: ULong, numberofentries: ULong, owninghandle: HANDLE)
+public fun interface PphysicalCounterEventBufferOverflowHandlerFn {
+    public operator fun invoke(eventbuffer: COpaquePointer?, entrysize: ULong, numberofentries: ULong, owninghandle: Handle)
 }
 
-public typealias PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLERFn?
+public typealias PphysicalCounterEventBufferOverflowHandler = PphysicalCounterEventBufferOverflowHandlerFn?
 
-public fun interface PPHYSICAL_COUNTER_OVERFLOW_HANDLERFn {
-    public operator fun invoke(overflowbits: ULong, owninghandle: HANDLE)
+public fun interface PphysicalCounterOverflowHandlerFn {
+    public operator fun invoke(overflowbits: ULong, owninghandle: Handle)
 }
 
-public typealias PPHYSICAL_COUNTER_OVERFLOW_HANDLER = PPHYSICAL_COUNTER_OVERFLOW_HANDLERFn?
+public typealias PphysicalCounterOverflowHandler = PphysicalCounterOverflowHandlerFn?
 
-public fun interface PPOWER_SETTING_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpowerSettingCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPOWER_SETTING_CALLBACK = PPOWER_SETTING_CALLBACKFn?
+public typealias PpowerSettingCallback = PpowerSettingCallbackFn?
 
-public fun interface PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACKFn {
+public fun interface PpoFxComponentActiveConditionCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACKFn?
+public typealias PpoFxComponentActiveConditionCallback = PpoFxComponentActiveConditionCallbackFn?
 
-public fun interface PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACKFn {
+public fun interface PpoFxComponentCriticalTransitionCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACKFn?
+public typealias PpoFxComponentCriticalTransitionCallback = PpoFxComponentCriticalTransitionCallbackFn?
 
-public fun interface PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACKFn {
+public fun interface PpoFxComponentIdleConditionCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACKFn?
+public typealias PpoFxComponentIdleConditionCallback = PpoFxComponentIdleConditionCallbackFn?
 
-public fun interface PPO_FX_COMPONENT_IDLE_STATE_CALLBACKFn {
+public fun interface PpoFxComponentIdleStateCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = PPO_FX_COMPONENT_IDLE_STATE_CALLBACKFn?
+public typealias PpoFxComponentIdleStateCallback = PpoFxComponentIdleStateCallbackFn?
 
-public fun interface PPO_FX_COMPONENT_PERF_STATE_CALLBACKFn {
+public fun interface PpoFxComponentPerfStateCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_COMPONENT_PERF_STATE_CALLBACK = PPO_FX_COMPONENT_PERF_STATE_CALLBACKFn?
+public typealias PpoFxComponentPerfStateCallback = PpoFxComponentPerfStateCallbackFn?
 
-public fun interface PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACKFn {
+public fun interface PpoFxDevicePowerNotRequiredCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACKFn?
+public typealias PpoFxDevicePowerNotRequiredCallback = PpoFxDevicePowerNotRequiredCallbackFn?
 
-public fun interface PPO_FX_DEVICE_POWER_REQUIRED_CALLBACKFn {
+public fun interface PpoFxDevicePowerRequiredCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = PPO_FX_DEVICE_POWER_REQUIRED_CALLBACKFn?
+public typealias PpoFxDevicePowerRequiredCallback = PpoFxDevicePowerRequiredCallbackFn?
 
-public fun interface PPO_FX_DIRECTED_POWER_DOWN_CALLBACKFn {
+public fun interface PpoFxDirectedPowerDownCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = PPO_FX_DIRECTED_POWER_DOWN_CALLBACKFn?
+public typealias PpoFxDirectedPowerDownCallback = PpoFxDirectedPowerDownCallbackFn?
 
-public fun interface PPO_FX_DIRECTED_POWER_UP_CALLBACKFn {
+public fun interface PpoFxDirectedPowerUpCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_DIRECTED_POWER_UP_CALLBACK = PPO_FX_DIRECTED_POWER_UP_CALLBACKFn?
+public typealias PpoFxDirectedPowerUpCallback = PpoFxDirectedPowerUpCallbackFn?
 
-public fun interface PPO_FX_DRIPS_WATCHDOG_CALLBACKFn {
+public fun interface PpoFxDripsWatchdogCallbackFn {
     public operator fun invoke()
 }
 
-public typealias PPO_FX_DRIPS_WATCHDOG_CALLBACK = PPO_FX_DRIPS_WATCHDOG_CALLBACKFn?
+public typealias PpoFxDripsWatchdogCallback = PpoFxDripsWatchdogCallbackFn?
 
-public fun interface PPO_FX_POWER_CONTROL_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PpoFxPowerControlCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPO_FX_POWER_CONTROL_CALLBACK = PPO_FX_POWER_CONTROL_CALLBACKFn?
+public typealias PpoFxPowerControlCallback = PpoFxPowerControlCallbackFn?
 
-public fun interface PPROCESSOR_CALLBACK_FUNCTIONFn {
+public fun interface PprocessorCallbackFunctionFn {
     public operator fun invoke()
 }
 
-public typealias PPROCESSOR_CALLBACK_FUNCTION = PPROCESSOR_CALLBACK_FUNCTIONFn?
+public typealias PprocessorCallbackFunction = PprocessorCallbackFunctionFn?
 
-public fun interface PPROCESSOR_HALT_ROUTINEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PprocessorHaltRoutineFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPROCESSOR_HALT_ROUTINE = PPROCESSOR_HALT_ROUTINEFn?
+public typealias PprocessorHaltRoutine = PprocessorHaltRoutineFn?
 
-public fun interface PPTM_DEVICE_DISABLEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PptmDeviceDisableFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPTM_DEVICE_DISABLE = PPTM_DEVICE_DISABLEFn?
+public typealias PptmDeviceDisable = PptmDeviceDisableFn?
 
-public fun interface PPTM_DEVICE_ENABLEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PptmDeviceEnableFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPTM_DEVICE_ENABLE = PPTM_DEVICE_ENABLEFn?
+public typealias PptmDeviceEnable = PptmDeviceEnableFn?
 
-public fun interface PPTM_DEVICE_QUERY_GRANULARITYFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PptmDeviceQueryGranularityFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPTM_DEVICE_QUERY_GRANULARITY = PPTM_DEVICE_QUERY_GRANULARITYFn?
+public typealias PptmDeviceQueryGranularity = PptmDeviceQueryGranularityFn?
 
-public fun interface PPTM_DEVICE_QUERY_TIME_SOURCEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PptmDeviceQueryTimeSourceFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PPTM_DEVICE_QUERY_TIME_SOURCE = PPTM_DEVICE_QUERY_TIME_SOURCEFn?
+public typealias PptmDeviceQueryTimeSource = PptmDeviceQueryTimeSourceFn?
 
-public fun interface PPUT_DMA_ADAPTERFn {
-    public operator fun invoke(dmaadapter: Long)
+public fun interface PputDmaAdapterFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?)
 }
 
-public typealias PPUT_DMA_ADAPTER = PPUT_DMA_ADAPTERFn?
+public typealias PputDmaAdapter = PputDmaAdapterFn?
 
-public fun interface PPUT_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, scattergather: Long, writetodevice: Boolean)
+public fun interface PputScatterGatherListFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?, scattergather: COpaquePointer?, writetodevice: Boolean)
 }
 
-public typealias PPUT_SCATTER_GATHER_LIST = PPUT_SCATTER_GATHER_LISTFn?
+public typealias PputScatterGatherList = PputScatterGatherListFn?
 
-public fun interface PQUERYEXTENDEDADDRESSFn {
-    public operator fun invoke(context: Long, extendedaddress: Long)
+public fun interface PqueryextendedaddressFn {
+    public operator fun invoke(context: COpaquePointer?, extendedaddress: COpaquePointer?)
 }
 
-public typealias PQUERYEXTENDEDADDRESS = PQUERYEXTENDEDADDRESSFn?
+public typealias Pqueryextendedaddress = PqueryextendedaddressFn?
 
-public fun interface PREAD_DMA_COUNTERFn {
-    public operator fun invoke(dmaadapter: Long): UInt
+public fun interface PreadDmaCounterFn {
+    public operator fun invoke(dmaadapter: COpaquePointer?): UInt
 }
 
-public typealias PREAD_DMA_COUNTER = PREAD_DMA_COUNTERFn?
+public typealias PreadDmaCounter = PreadDmaCounterFn?
 
-public fun interface PREENUMERATE_SELFFn {
-    public operator fun invoke(context: Long)
+public fun interface PreenumerateSelfFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PREENUMERATE_SELF = PREENUMERATE_SELFFn?
+public typealias PreenumerateSelf = PreenumerateSelfFn?
 
-public fun interface PREGISTER_FOR_DEVICE_NOTIFICATIONSFn {
-    public operator fun invoke(param0: Long, param1: PDEVICE_NOTIFY_CALLBACK, param2: Long): NTSTATUS
+public fun interface PregisterForDeviceNotificationsFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: PdeviceNotifyCallback, param2: COpaquePointer?): Ntstatus
 }
 
-public typealias PREGISTER_FOR_DEVICE_NOTIFICATIONS = PREGISTER_FOR_DEVICE_NOTIFICATIONSFn?
+public typealias PregisterForDeviceNotifications = PregisterForDeviceNotificationsFn?
 
-public fun interface PREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn {
-    public operator fun invoke(context: Long, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: Long): NTSTATUS
+public fun interface PregisterForDeviceNotifications2Fn {
+    public operator fun invoke(context: COpaquePointer?, notificationhandler: PdeviceNotifyCallback2, notificationcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = PREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn?
+public typealias PregisterForDeviceNotifications2 = PregisterForDeviceNotifications2Fn?
 
-public fun interface PREPLACE_BEGINFn {
-    public operator fun invoke(parameters: Long, context: Long): NTSTATUS
+public fun interface PreplaceBeginFn {
+    public operator fun invoke(parameters: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_BEGIN = PREPLACE_BEGINFn?
+public typealias PreplaceBegin = PreplaceBeginFn?
 
-public fun interface PREPLACE_DRIVER_INITFn {
-    public operator fun invoke(iface: Long, unused: Long): NTSTATUS
+public fun interface PreplaceDriverInitFn {
+    public operator fun invoke(iface: COpaquePointer?, unused: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_DRIVER_INIT = PREPLACE_DRIVER_INITFn?
+public typealias PreplaceDriverInit = PreplaceDriverInitFn?
 
-public fun interface PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCEFn {
-    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
+public fun interface PreplaceEnableDisableHardwareQuiesceFn {
+    public operator fun invoke(context: COpaquePointer?, enable: Boolean): Ntstatus
 }
 
-public typealias PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCEFn?
+public typealias PreplaceEnableDisableHardwareQuiesce = PreplaceEnableDisableHardwareQuiesceFn?
 
-public fun interface PREPLACE_ENDFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PreplaceEndFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_END = PREPLACE_ENDFn?
+public typealias PreplaceEnd = PreplaceEndFn?
 
-public fun interface PREPLACE_GET_MEMORY_DESTINATIONFn {
-    public operator fun invoke(context: Long, sourceaddress: Long, destinationaddress: Long): NTSTATUS
+public fun interface PreplaceGetMemoryDestinationFn {
+    public operator fun invoke(context: COpaquePointer?, sourceaddress: Long, destinationaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_GET_MEMORY_DESTINATION = PREPLACE_GET_MEMORY_DESTINATIONFn?
+public typealias PreplaceGetMemoryDestination = PreplaceGetMemoryDestinationFn?
 
-public fun interface PREPLACE_INITIATE_HARDWARE_MIRRORFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PreplaceInitiateHardwareMirrorFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_INITIATE_HARDWARE_MIRROR = PREPLACE_INITIATE_HARDWARE_MIRRORFn?
+public typealias PreplaceInitiateHardwareMirror = PreplaceInitiateHardwareMirrorFn?
 
-public fun interface PREPLACE_MAP_MEMORYFn {
-    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: Long, targetaddress: Long, spareaddress: Long): NTSTATUS
+public fun interface PreplaceMapMemoryFn {
+    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: COpaquePointer?, targetaddress: COpaquePointer?, spareaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_MAP_MEMORY = PREPLACE_MAP_MEMORYFn?
+public typealias PreplaceMapMemory = PreplaceMapMemoryFn?
 
-public fun interface PREPLACE_MIRROR_PHYSICAL_MEMORYFn {
-    public operator fun invoke(context: Long, physicaladdress: Long, bytecount: Long): NTSTATUS
+public fun interface PreplaceMirrorPhysicalMemoryFn {
+    public operator fun invoke(context: COpaquePointer?, physicaladdress: Long, bytecount: Long): Ntstatus
 }
 
-public typealias PREPLACE_MIRROR_PHYSICAL_MEMORY = PREPLACE_MIRROR_PHYSICAL_MEMORYFn?
+public typealias PreplaceMirrorPhysicalMemory = PreplaceMirrorPhysicalMemoryFn?
 
-public fun interface PREPLACE_MIRROR_PLATFORM_MEMORYFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PreplaceMirrorPlatformMemoryFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_MIRROR_PLATFORM_MEMORY = PREPLACE_MIRROR_PLATFORM_MEMORYFn?
+public typealias PreplaceMirrorPlatformMemory = PreplaceMirrorPlatformMemoryFn?
 
-public fun interface PREPLACE_SET_PROCESSOR_IDFn {
-    public operator fun invoke(context: Long, apicid: UInt, target: Boolean): NTSTATUS
+public fun interface PreplaceSetProcessorIdFn {
+    public operator fun invoke(context: COpaquePointer?, apicid: UInt, target: Boolean): Ntstatus
 }
 
-public typealias PREPLACE_SET_PROCESSOR_ID = PREPLACE_SET_PROCESSOR_IDFn?
+public typealias PreplaceSetProcessorId = PreplaceSetProcessorIdFn?
 
-public fun interface PREPLACE_SWAPFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PreplaceSwapFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PREPLACE_SWAP = PREPLACE_SWAPFn?
+public typealias PreplaceSwap = PreplaceSwapFn?
 
-public fun interface PREPLACE_UNLOADFn {
+public fun interface PreplaceUnloadFn {
     public operator fun invoke()
 }
 
-public typealias PREPLACE_UNLOAD = PREPLACE_UNLOADFn?
+public typealias PreplaceUnload = PreplaceUnloadFn?
 
-public fun interface PREQUEST_POWER_COMPLETEFn {
+public fun interface PrequestPowerCompleteFn {
     public operator fun invoke()
 }
 
-public typealias PREQUEST_POWER_COMPLETE = PREQUEST_POWER_COMPLETEFn?
+public typealias PrequestPowerComplete = PrequestPowerCompleteFn?
 
-public fun interface PROCESSOR_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(callbackcontext: Long, changecontext: Long, operationstatus: Long)
+public fun interface ProcessorCallbackFunctionFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?, changecontext: COpaquePointer?, operationstatus: COpaquePointer?)
 }
 
-public typealias PROCESSOR_CALLBACK_FUNCTION = PROCESSOR_CALLBACK_FUNCTIONFn?
+public typealias ProcessorCallbackFunction = ProcessorCallbackFunctionFn?
 
-public fun interface PROCESSOR_HALT_ROUTINEFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface ProcessorHaltRoutineFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PROCESSOR_HALT_ROUTINE = PROCESSOR_HALT_ROUTINEFn?
+public typealias ProcessorHaltRoutine = ProcessorHaltRoutineFn?
 
-public fun interface PRTL_AVL_ALLOCATE_ROUTINEFn {
-    public operator fun invoke(): Long
+public fun interface PrtlAvlAllocateRoutineFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PRTL_AVL_ALLOCATE_ROUTINE = PRTL_AVL_ALLOCATE_ROUTINEFn?
+public typealias PrtlAvlAllocateRoutine = PrtlAvlAllocateRoutineFn?
 
-public fun interface PRTL_AVL_COMPARE_ROUTINEFn {
-    public operator fun invoke(): RTL_GENERIC_COMPARE_RESULTS
+public fun interface PrtlAvlCompareRoutineFn {
+    public operator fun invoke(): RtlGenericCompareResults
 }
 
-public typealias PRTL_AVL_COMPARE_ROUTINE = PRTL_AVL_COMPARE_ROUTINEFn?
+public typealias PrtlAvlCompareRoutine = PrtlAvlCompareRoutineFn?
 
-public fun interface PRTL_AVL_FREE_ROUTINEFn {
+public fun interface PrtlAvlFreeRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PRTL_AVL_FREE_ROUTINE = PRTL_AVL_FREE_ROUTINEFn?
+public typealias PrtlAvlFreeRoutine = PrtlAvlFreeRoutineFn?
 
-public fun interface PRTL_AVL_MATCH_FUNCTIONFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PrtlAvlMatchFunctionFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PRTL_AVL_MATCH_FUNCTION = PRTL_AVL_MATCH_FUNCTIONFn?
+public typealias PrtlAvlMatchFunction = PrtlAvlMatchFunctionFn?
 
-public fun interface PRTL_GENERIC_ALLOCATE_ROUTINEFn {
-    public operator fun invoke(): Long
+public fun interface PrtlGenericAllocateRoutineFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PRTL_GENERIC_ALLOCATE_ROUTINE = PRTL_GENERIC_ALLOCATE_ROUTINEFn?
+public typealias PrtlGenericAllocateRoutine = PrtlGenericAllocateRoutineFn?
 
-public fun interface PRTL_GENERIC_COMPARE_ROUTINEFn {
-    public operator fun invoke(): RTL_GENERIC_COMPARE_RESULTS
+public fun interface PrtlGenericCompareRoutineFn {
+    public operator fun invoke(): RtlGenericCompareResults
 }
 
-public typealias PRTL_GENERIC_COMPARE_ROUTINE = PRTL_GENERIC_COMPARE_ROUTINEFn?
+public typealias PrtlGenericCompareRoutine = PrtlGenericCompareRoutineFn?
 
-public fun interface PRTL_GENERIC_FREE_ROUTINEFn {
+public fun interface PrtlGenericFreeRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PRTL_GENERIC_FREE_ROUTINE = PRTL_GENERIC_FREE_ROUTINEFn?
+public typealias PrtlGenericFreeRoutine = PrtlGenericFreeRoutineFn?
 
-public fun interface PRTL_QUERY_REGISTRY_ROUTINEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PrtlQueryRegistryRoutineFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PRTL_QUERY_REGISTRY_ROUTINE = PRTL_QUERY_REGISTRY_ROUTINEFn?
+public typealias PrtlQueryRegistryRoutine = PrtlQueryRegistryRoutineFn?
 
-public fun interface PRTL_RUN_ONCE_INIT_FNFn {
+public fun interface PrtlRunOnceInitFnFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PRTL_RUN_ONCE_INIT_FN = PRTL_RUN_ONCE_INIT_FNFn?
+public typealias PrtlRunOnceInitFn = PrtlRunOnceInitFnFn?
 
-public typealias PSCREATEPROCESSNOTIFYTYPE = Int
+public typealias Pscreateprocessnotifytype = Int
 
-public typealias PSCREATETHREADNOTIFYTYPE = Int
+public typealias Pscreatethreadnotifytype = Int
 
-public fun interface PSECURE_DRIVER_PROCESS_DEREFERENCEFn {
+public fun interface PsecureDriverProcessDereferenceFn {
     public operator fun invoke()
 }
 
-public typealias PSECURE_DRIVER_PROCESS_DEREFERENCE = PSECURE_DRIVER_PROCESS_DEREFERENCEFn?
+public typealias PsecureDriverProcessDereference = PsecureDriverProcessDereferenceFn?
 
-public fun interface PSECURE_DRIVER_PROCESS_REFERENCEFn {
-    public operator fun invoke(): PEPROCESS
+public fun interface PsecureDriverProcessReferenceFn {
+    public operator fun invoke(): Peprocess
 }
 
-public typealias PSECURE_DRIVER_PROCESS_REFERENCE = PSECURE_DRIVER_PROCESS_REFERENCEFn?
+public typealias PsecureDriverProcessReference = PsecureDriverProcessReferenceFn?
 
-public fun interface PSET_D3COLD_SUPPORTFn {
+public fun interface PsetD3coldSupportFn {
     public operator fun invoke()
 }
 
-public typealias PSET_D3COLD_SUPPORT = PSET_D3COLD_SUPPORTFn?
+public typealias PsetD3coldSupport = PsetD3coldSupportFn?
 
-public fun interface PSET_VIRTUAL_DEVICE_DATAFn {
+public fun interface PsetVirtualDeviceDataFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PSET_VIRTUAL_DEVICE_DATA = PSET_VIRTUAL_DEVICE_DATAFn?
+public typealias PsetVirtualDeviceData = PsetVirtualDeviceDataFn?
 
-public fun interface PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn {
+public fun interface PseImageVerificationCallbackFunctionFn {
     public operator fun invoke()
 }
 
-public typealias PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn?
+public typealias PseImageVerificationCallbackFunction = PseImageVerificationCallbackFunctionFn?
 
-public fun interface PSHED_PI_ATTEMPT_ERROR_RECOVERYFn {
-    public operator fun invoke(plugincontext: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
+public fun interface PshedPiAttemptErrorRecoveryFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, bufferlength: UInt, errorrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_ATTEMPT_ERROR_RECOVERY = PSHED_PI_ATTEMPT_ERROR_RECOVERYFn?
+public typealias PshedPiAttemptErrorRecovery = PshedPiAttemptErrorRecoveryFn?
 
-public fun interface PSHED_PI_CLEAR_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong): NTSTATUS
+public fun interface PshedPiClearErrorRecordFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, flags: UInt, errorrecordid: ULong): Ntstatus
 }
 
-public typealias PSHED_PI_CLEAR_ERROR_RECORD = PSHED_PI_CLEAR_ERROR_RECORDFn?
+public typealias PshedPiClearErrorRecord = PshedPiClearErrorRecordFn?
 
-public fun interface PSHED_PI_CLEAR_ERROR_STATUSFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
+public fun interface PshedPiClearErrorStatusFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?, bufferlength: UInt, errorrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_CLEAR_ERROR_STATUS = PSHED_PI_CLEAR_ERROR_STATUSFn?
+public typealias PshedPiClearErrorStatus = PshedPiClearErrorStatusFn?
 
-public fun interface PSHED_PI_DISABLE_ERROR_SOURCEFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
+public fun interface PshedPiDisableErrorSourceFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_DISABLE_ERROR_SOURCE = PSHED_PI_DISABLE_ERROR_SOURCEFn?
+public typealias PshedPiDisableErrorSource = PshedPiDisableErrorSourceFn?
 
-public fun interface PSHED_PI_ENABLE_ERROR_SOURCEFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
+public fun interface PshedPiEnableErrorSourceFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_ENABLE_ERROR_SOURCE = PSHED_PI_ENABLE_ERROR_SOURCEFn?
+public typealias PshedPiEnableErrorSource = PshedPiEnableErrorSourceFn?
 
-public typealias PSHED_PI_ERR_READING_PCIE_OVERRIDES = Int
+public typealias PshedPiErrReadingPcieOverrides = Int
 
-public fun interface PSHED_PI_FINALIZE_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
+public fun interface PshedPiFinalizeErrorRecordFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?, bufferlength: UInt, errorrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_FINALIZE_ERROR_RECORD = PSHED_PI_FINALIZE_ERROR_RECORDFn?
+public typealias PshedPiFinalizeErrorRecord = PshedPiFinalizeErrorRecordFn?
 
-public fun interface PSHED_PI_GET_ALL_ERROR_SOURCESFn {
-    public operator fun invoke(plugincontext: Long, count: Long, errorsrcs: Long, length: Long): NTSTATUS
+public fun interface PshedPiGetAllErrorSourcesFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, count: COpaquePointer?, errorsrcs: COpaquePointer?, length: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_GET_ALL_ERROR_SOURCES = PSHED_PI_GET_ALL_ERROR_SOURCESFn?
+public typealias PshedPiGetAllErrorSources = PshedPiGetAllErrorSourcesFn?
 
-public fun interface PSHED_PI_GET_ERROR_SOURCE_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
+public fun interface PshedPiGetErrorSourceInfoFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_GET_ERROR_SOURCE_INFO = PSHED_PI_GET_ERROR_SOURCE_INFOFn?
+public typealias PshedPiGetErrorSourceInfo = PshedPiGetErrorSourceInfoFn?
 
-public fun interface PSHED_PI_GET_INJECTION_CAPABILITIESFn {
-    public operator fun invoke(plugincontext: Long, capabilities: Long): NTSTATUS
+public fun interface PshedPiGetInjectionCapabilitiesFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, capabilities: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_GET_INJECTION_CAPABILITIES = PSHED_PI_GET_INJECTION_CAPABILITIESFn?
+public typealias PshedPiGetInjectionCapabilities = PshedPiGetInjectionCapabilitiesFn?
 
-public fun interface PSHED_PI_INJECT_ERRORFn {
-    public operator fun invoke(plugincontext: Long, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): NTSTATUS
+public fun interface PshedPiInjectErrorFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): Ntstatus
 }
 
-public typealias PSHED_PI_INJECT_ERROR = PSHED_PI_INJECT_ERRORFn?
+public typealias PshedPiInjectError = PshedPiInjectErrorFn?
 
-public fun interface PSHED_PI_READ_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong, nexterrorrecordid: Long, recordlength: Long, errorrecord: Long): NTSTATUS
+public fun interface PshedPiReadErrorRecordFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, flags: UInt, errorrecordid: ULong, nexterrorrecordid: COpaquePointer?, recordlength: COpaquePointer?, errorrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_READ_ERROR_RECORD = PSHED_PI_READ_ERROR_RECORDFn?
+public typealias PshedPiReadErrorRecord = PshedPiReadErrorRecordFn?
 
-public fun interface PSHED_PI_RETRIEVE_ERROR_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: ULong, packet: Long): NTSTATUS
+public fun interface PshedPiRetrieveErrorInfoFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?, bufferlength: ULong, packet: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_RETRIEVE_ERROR_INFO = PSHED_PI_RETRIEVE_ERROR_INFOFn?
+public typealias PshedPiRetrieveErrorInfo = PshedPiRetrieveErrorInfoFn?
 
-public fun interface PSHED_PI_SET_ERROR_SOURCE_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
+public fun interface PshedPiSetErrorSourceInfoFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, errorsource: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_SET_ERROR_SOURCE_INFO = PSHED_PI_SET_ERROR_SOURCE_INFOFn?
+public typealias PshedPiSetErrorSourceInfo = PshedPiSetErrorSourceInfoFn?
 
-public fun interface PSHED_PI_WRITE_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, recordlength: UInt, errorrecord: Long): NTSTATUS
+public fun interface PshedPiWriteErrorRecordFn {
+    public operator fun invoke(plugincontext: COpaquePointer?, flags: UInt, recordlength: UInt, errorrecord: COpaquePointer?): Ntstatus
 }
 
-public typealias PSHED_PI_WRITE_ERROR_RECORD = PSHED_PI_WRITE_ERROR_RECORDFn?
+public typealias PshedPiWriteErrorRecord = PshedPiWriteErrorRecordFn?
 
-public fun interface PTIMER_APC_ROUTINEFn {
-    public operator fun invoke(timercontext: Long, timerlowvalue: UInt, timerhighvalue: Int)
+public fun interface PtimerApcRoutineFn {
+    public operator fun invoke(timercontext: COpaquePointer?, timerlowvalue: UInt, timerhighvalue: Int)
 }
 
-public typealias PTIMER_APC_ROUTINE = PTIMER_APC_ROUTINEFn?
+public typealias PtimerApcRoutine = PtimerApcRoutineFn?
 
-public fun interface PTM_DEVICE_DISABLEFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PtmDeviceDisableFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PTM_DEVICE_DISABLE = PTM_DEVICE_DISABLEFn?
+public typealias PtmDeviceDisable = PtmDeviceDisableFn?
 
-public fun interface PTM_DEVICE_ENABLEFn {
-    public operator fun invoke(context: Long): NTSTATUS
+public fun interface PtmDeviceEnableFn {
+    public operator fun invoke(context: COpaquePointer?): Ntstatus
 }
 
-public typealias PTM_DEVICE_ENABLE = PTM_DEVICE_ENABLEFn?
+public typealias PtmDeviceEnable = PtmDeviceEnableFn?
 
-public fun interface PTM_DEVICE_QUERY_GRANULARITYFn {
-    public operator fun invoke(context: Long, granularity: Long): NTSTATUS
+public fun interface PtmDeviceQueryGranularityFn {
+    public operator fun invoke(context: COpaquePointer?, granularity: COpaquePointer?): Ntstatus
 }
 
-public typealias PTM_DEVICE_QUERY_GRANULARITY = PTM_DEVICE_QUERY_GRANULARITYFn?
+public typealias PtmDeviceQueryGranularity = PtmDeviceQueryGranularityFn?
 
-public fun interface PTM_DEVICE_QUERY_TIME_SOURCEFn {
-    public operator fun invoke(context: Long, timesource: Long): NTSTATUS
+public fun interface PtmDeviceQueryTimeSourceFn {
+    public operator fun invoke(context: COpaquePointer?, timesource: COpaquePointer?): Ntstatus
 }
 
-public typealias PTM_DEVICE_QUERY_TIME_SOURCE = PTM_DEVICE_QUERY_TIME_SOURCEFn?
+public typealias PtmDeviceQueryTimeSource = PtmDeviceQueryTimeSourceFn?
 
-public fun interface PTM_PROPAGATE_ROUTINEFn {
-    public operator fun invoke(propagationcookie: Long, callbackdata: Long, propagationstatus: NTSTATUS, transactionguid: GUID): NTSTATUS
+public fun interface PtmPropagateRoutineFn {
+    public operator fun invoke(propagationcookie: COpaquePointer?, callbackdata: COpaquePointer?, propagationstatus: Ntstatus, transactionguid: Guid): Ntstatus
 }
 
-public typealias PTM_PROPAGATE_ROUTINE = PTM_PROPAGATE_ROUTINEFn?
+public typealias PtmPropagateRoutine = PtmPropagateRoutineFn?
 
-public fun interface PTM_RM_NOTIFICATIONFn {
-    public operator fun invoke(enlistmentobject: Long, rmcontext: Long, transactioncontext: Long, transactionnotification: UInt, tmvirtualclock: Long, argumentlength: UInt, argument: Long): NTSTATUS
+public fun interface PtmRmNotificationFn {
+    public operator fun invoke(enlistmentobject: COpaquePointer?, rmcontext: COpaquePointer?, transactioncontext: COpaquePointer?, transactionnotification: UInt, tmvirtualclock: COpaquePointer?, argumentlength: UInt, argument: COpaquePointer?): Ntstatus
 }
 
-public typealias PTM_RM_NOTIFICATION = PTM_RM_NOTIFICATIONFn?
+public typealias PtmRmNotification = PtmRmNotificationFn?
 
-public fun interface PTRANSLATE_BUS_ADDRESSFn {
+public fun interface PtranslateBusAddressFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PTRANSLATE_BUS_ADDRESS = PTRANSLATE_BUS_ADDRESSFn?
+public typealias PtranslateBusAddress = PtranslateBusAddressFn?
 
-public fun interface PTRANSLATE_RESOURCE_HANDLERFn {
-    public operator fun invoke(context: Long, source: Long, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: UInt, alternatives: Long, physicaldeviceobject: Long, target: Long): NTSTATUS
+public fun interface PtranslateResourceHandlerFn {
+    public operator fun invoke(context: COpaquePointer?, source: COpaquePointer?, direction: ResourceTranslationDirection, alternativescount: UInt, alternatives: COpaquePointer?, physicaldeviceobject: COpaquePointer?, target: COpaquePointer?): Ntstatus
 }
 
-public typealias PTRANSLATE_RESOURCE_HANDLER = PTRANSLATE_RESOURCE_HANDLERFn?
+public typealias PtranslateResourceHandler = PtranslateResourceHandlerFn?
 
-public fun interface PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLERFn {
-    public operator fun invoke(context: Long, source: Long, physicaldeviceobject: Long, targetcount: Long, target: Long): NTSTATUS
+public fun interface PtranslateResourceRequirementsHandlerFn {
+    public operator fun invoke(context: COpaquePointer?, source: COpaquePointer?, physicaldeviceobject: COpaquePointer?, targetcount: COpaquePointer?, target: COpaquePointer?): Ntstatus
 }
 
-public typealias PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLERFn?
+public typealias PtranslateResourceRequirementsHandler = PtranslateResourceRequirementsHandlerFn?
 
-public fun interface PUNREGISTER_FOR_DEVICE_NOTIFICATIONSFn {
-    public operator fun invoke(param0: Long, param1: PDEVICE_NOTIFY_CALLBACK)
+public fun interface PunregisterForDeviceNotificationsFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: PdeviceNotifyCallback)
 }
 
-public typealias PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = PUNREGISTER_FOR_DEVICE_NOTIFICATIONSFn?
+public typealias PunregisterForDeviceNotifications = PunregisterForDeviceNotificationsFn?
 
-public fun interface PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn {
-    public operator fun invoke(context: Long)
+public fun interface PunregisterForDeviceNotifications2Fn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn?
+public typealias PunregisterForDeviceNotifications2 = PunregisterForDeviceNotifications2Fn?
 
 public fun interface PciLine2PinFn {
-    public operator fun invoke(bushandler: Long, roothandler: Long, slotnumber: PCI_SLOT_NUMBER, pcinewdata: Long, pciolddata: Long)
+    public operator fun invoke(bushandler: COpaquePointer?, roothandler: COpaquePointer?, slotnumber: PciSlotNumber, pcinewdata: COpaquePointer?, pciolddata: COpaquePointer?)
 }
 
 public typealias PciLine2Pin = PciLine2PinFn?
 
 public fun interface PciPin2LineFn {
-    public operator fun invoke(bushandler: Long, roothandler: Long, slotnumber: PCI_SLOT_NUMBER, pcidata: Long)
+    public operator fun invoke(bushandler: COpaquePointer?, roothandler: COpaquePointer?, slotnumber: PciSlotNumber, pcidata: COpaquePointer?)
 }
 
 public typealias PciPin2Line = PciPin2LineFn?
 
-public fun interface PciReadWriteConfigFn {
-    public operator fun invoke(bushandler: Long, slot: PCI_SLOT_NUMBER, buffer: Long, offset: UInt, length: UInt)
+public typealias RegNotifyClass = Int
+
+public fun interface RequestPowerCompleteFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, minorfunction: UByte, powerstate: PowerState, context: COpaquePointer?, iostatus: COpaquePointer?)
 }
 
-public typealias PciReadWriteConfig = PciReadWriteConfigFn?
+public typealias RequestPowerComplete = RequestPowerCompleteFn?
 
-public typealias REG_NOTIFY_CLASS = Int
+public typealias ResourceTranslationDirection = Int
 
-public fun interface REQUEST_POWER_COMPLETEFn {
-    public operator fun invoke(deviceobject: Long, minorfunction: UByte, powerstate: POWER_STATE, context: Long, iostatus: Long)
+public fun interface RtlAvlAllocateRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, bytesize: UInt): COpaquePointer?
 }
 
-public typealias REQUEST_POWER_COMPLETE = REQUEST_POWER_COMPLETEFn?
+public typealias RtlAvlAllocateRoutine = RtlAvlAllocateRoutineFn?
 
-public typealias RESOURCE_TRANSLATION_DIRECTION = Int
-
-public fun interface RTL_AVL_ALLOCATE_ROUTINEFn {
-    public operator fun invoke(table: Long, bytesize: UInt): Long
+public fun interface RtlAvlCompareRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, firststruct: COpaquePointer?, secondstruct: COpaquePointer?): RtlGenericCompareResults
 }
 
-public typealias RTL_AVL_ALLOCATE_ROUTINE = RTL_AVL_ALLOCATE_ROUTINEFn?
+public typealias RtlAvlCompareRoutine = RtlAvlCompareRoutineFn?
 
-public fun interface RTL_AVL_COMPARE_ROUTINEFn {
-    public operator fun invoke(table: Long, firststruct: Long, secondstruct: Long): RTL_GENERIC_COMPARE_RESULTS
+public fun interface RtlAvlFreeRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, buffer: COpaquePointer?)
 }
 
-public typealias RTL_AVL_COMPARE_ROUTINE = RTL_AVL_COMPARE_ROUTINEFn?
+public typealias RtlAvlFreeRoutine = RtlAvlFreeRoutineFn?
 
-public fun interface RTL_AVL_FREE_ROUTINEFn {
-    public operator fun invoke(table: Long, buffer: Long)
+public fun interface RtlAvlMatchFunctionFn {
+    public operator fun invoke(table: COpaquePointer?, userdata: COpaquePointer?, matchdata: COpaquePointer?): Ntstatus
 }
 
-public typealias RTL_AVL_FREE_ROUTINE = RTL_AVL_FREE_ROUTINEFn?
+public typealias RtlAvlMatchFunction = RtlAvlMatchFunctionFn?
 
-public fun interface RTL_AVL_MATCH_FUNCTIONFn {
-    public operator fun invoke(table: Long, userdata: Long, matchdata: Long): NTSTATUS
+public fun interface RtlGenericAllocateRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, bytesize: UInt): COpaquePointer?
 }
 
-public typealias RTL_AVL_MATCH_FUNCTION = RTL_AVL_MATCH_FUNCTIONFn?
+public typealias RtlGenericAllocateRoutine = RtlGenericAllocateRoutineFn?
 
-public fun interface RTL_GENERIC_ALLOCATE_ROUTINEFn {
-    public operator fun invoke(table: Long, bytesize: UInt): Long
+public typealias RtlGenericCompareResults = Int
+
+public fun interface RtlGenericCompareRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, firststruct: COpaquePointer?, secondstruct: COpaquePointer?): RtlGenericCompareResults
 }
 
-public typealias RTL_GENERIC_ALLOCATE_ROUTINE = RTL_GENERIC_ALLOCATE_ROUTINEFn?
+public typealias RtlGenericCompareRoutine = RtlGenericCompareRoutineFn?
 
-public typealias RTL_GENERIC_COMPARE_RESULTS = Int
-
-public fun interface RTL_GENERIC_COMPARE_ROUTINEFn {
-    public operator fun invoke(table: Long, firststruct: Long, secondstruct: Long): RTL_GENERIC_COMPARE_RESULTS
+public fun interface RtlGenericFreeRoutineFn {
+    public operator fun invoke(table: COpaquePointer?, buffer: COpaquePointer?)
 }
 
-public typealias RTL_GENERIC_COMPARE_ROUTINE = RTL_GENERIC_COMPARE_ROUTINEFn?
+public typealias RtlGenericFreeRoutine = RtlGenericFreeRoutineFn?
 
-public fun interface RTL_GENERIC_FREE_ROUTINEFn {
-    public operator fun invoke(table: Long, buffer: Long)
+public fun interface RtlQueryRegistryRoutineFn {
+    public operator fun invoke(valuename: Pcwstr, valuetype: UInt, valuedata: COpaquePointer?, valuelength: UInt, context: COpaquePointer?, entrycontext: COpaquePointer?): Ntstatus
 }
 
-public typealias RTL_GENERIC_FREE_ROUTINE = RTL_GENERIC_FREE_ROUTINEFn?
+public typealias RtlQueryRegistryRoutine = RtlQueryRegistryRoutineFn?
 
-public fun interface RTL_QUERY_REGISTRY_ROUTINEFn {
-    public operator fun invoke(valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuelength: UInt, context: Long, entrycontext: Long): NTSTATUS
+public fun interface RtlRunOnceInitFnFn {
+    public operator fun invoke(runonce: COpaquePointer?, parameter: COpaquePointer?, context: COpaquePointer?): UInt
 }
 
-public typealias RTL_QUERY_REGISTRY_ROUTINE = RTL_QUERY_REGISTRY_ROUTINEFn?
+public typealias RtlRunOnceInitFn = RtlRunOnceInitFnFn?
 
-public fun interface RTL_RUN_ONCE_INIT_FNFn {
-    public operator fun invoke(runonce: Long, parameter: Long, context: Long): UInt
+public fun interface SecureDriverProcessDereferenceFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?, process: Peprocess)
 }
 
-public typealias RTL_RUN_ONCE_INIT_FN = RTL_RUN_ONCE_INIT_FNFn?
+public typealias SecureDriverProcessDereference = SecureDriverProcessDereferenceFn?
 
-public fun interface SECURE_DRIVER_PROCESS_DEREFERENCEFn {
-    public operator fun invoke(interfacecontext: Long, process: PEPROCESS)
+public fun interface SecureDriverProcessReferenceFn {
+    public operator fun invoke(interfacecontext: COpaquePointer?): Peprocess
 }
 
-public typealias SECURE_DRIVER_PROCESS_DEREFERENCE = SECURE_DRIVER_PROCESS_DEREFERENCEFn?
+public typealias SecureDriverProcessReference = SecureDriverProcessReferenceFn?
 
-public fun interface SECURE_DRIVER_PROCESS_REFERENCEFn {
-    public operator fun invoke(interfacecontext: Long): PEPROCESS
+public typealias SecurityContextTrackingMode = UByte
+
+public typealias SecurityOperationCode = Int
+
+public fun interface SetD3coldSupportFn {
+    public operator fun invoke(context: COpaquePointer?, d3coldsupport: Boolean)
 }
 
-public typealias SECURE_DRIVER_PROCESS_REFERENCE = SECURE_DRIVER_PROCESS_REFERENCEFn?
+public typealias SetD3coldSupport = SetD3coldSupportFn?
 
-public typealias SECURITY_CONTEXT_TRACKING_MODE = UByte
-
-public typealias SECURITY_OPERATION_CODE = Int
-
-public fun interface SET_D3COLD_SUPPORTFn {
-    public operator fun invoke(context: Long, d3coldsupport: Boolean)
+public fun interface SetVirtualDeviceDataFn {
+    public operator fun invoke(context: COpaquePointer?, virtualfunction: UShort, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias SET_D3COLD_SUPPORT = SET_D3COLD_SUPPORTFn?
+public typealias SetVirtualDeviceData = SetVirtualDeviceDataFn?
 
-public fun interface SET_VIRTUAL_DEVICE_DATAFn {
-    public operator fun invoke(context: Long, virtualfunction: UShort, buffer: Long, offset: UInt, length: UInt): UInt
+public typealias SeImageType = Int
+
+public fun interface SeImageVerificationCallbackFunctionFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?, imagetype: SeImageType, imageinformation: COpaquePointer?)
 }
 
-public typealias SET_VIRTUAL_DEVICE_DATA = SET_VIRTUAL_DEVICE_DATAFn?
+public typealias SeImageVerificationCallbackFunction = SeImageVerificationCallbackFunctionFn?
 
-public typealias SE_IMAGE_TYPE = Int
+public typealias SeImageVerificationCallbackType = Int
 
-public fun interface SE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(callbackcontext: Long, imagetype: SE_IMAGE_TYPE, imageinformation: Long)
+public fun interface SiloContextCleanupCallbackFn {
+    public operator fun invoke(silocontext: COpaquePointer?)
 }
 
-public typealias SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = SE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn?
+public typealias SiloContextCleanupCallback = SiloContextCleanupCallbackFn?
 
-public typealias SE_IMAGE_VERIFICATION_CALLBACK_TYPE = Int
-
-public fun interface SILO_CONTEXT_CLEANUP_CALLBACKFn {
-    public operator fun invoke(silocontext: Long)
+public fun interface SiloMonitorCreateCallbackFn {
+    public operator fun invoke(silo: Pesilo): Ntstatus
 }
 
-public typealias SILO_CONTEXT_CLEANUP_CALLBACK = SILO_CONTEXT_CLEANUP_CALLBACKFn?
+public typealias SiloMonitorCreateCallback = SiloMonitorCreateCallbackFn?
 
-public fun interface SILO_MONITOR_CREATE_CALLBACKFn {
-    public operator fun invoke(silo: PESILO): NTSTATUS
+public fun interface SiloMonitorTerminateCallbackFn {
+    public operator fun invoke(silo: Pesilo)
 }
 
-public typealias SILO_MONITOR_CREATE_CALLBACK = SILO_MONITOR_CREATE_CALLBACKFn?
+public typealias SiloMonitorTerminateCallback = SiloMonitorTerminateCallbackFn?
 
-public fun interface SILO_MONITOR_TERMINATE_CALLBACKFn {
-    public operator fun invoke(silo: PESILO)
+public typealias SocSubsystemType = Int
+
+public typealias StateLocationType = Int
+
+public typealias SubsystemInformationType = Int
+
+public typealias SystemFirmwareTableAction = Int
+
+public typealias SystemPowerCondition = Int
+
+public typealias TableSearchResult = Int
+
+public typealias TraceInformationClass = Int
+
+public fun interface TranslateBusAddressFn {
+    public operator fun invoke(context: COpaquePointer?, busaddress: Long, length: UInt, addressspace: COpaquePointer?, translatedaddress: COpaquePointer?): Boolean
 }
 
-public typealias SILO_MONITOR_TERMINATE_CALLBACK = SILO_MONITOR_TERMINATE_CALLBACKFn?
+public typealias TranslateBusAddress = TranslateBusAddressFn?
 
-public typealias SOC_SUBSYSTEM_TYPE = Int
+public typealias WheapDpcErrorEventType = Int
 
-public typealias STATE_LOCATION_TYPE = Int
+public typealias WheapPfaOfflineDecisionType = Int
 
-public typealias SUBSYSTEM_INFORMATION_TYPE = Int
+public typealias WheaBugcheckRecoveryLogType = Int
 
-public typealias SYSTEM_FIRMWARE_TABLE_ACTION = Int
+public typealias WheaCpuVendor = Int
 
-public typealias SYSTEM_POWER_CONDITION = Int
+public typealias WheaErrorPacketDataFormat = Int
 
-public typealias TABLE_SEARCH_RESULT = Int
+public typealias WheaErrorSeverity = Int
 
-public typealias TRACE_INFORMATION_CLASS = Int
-
-public fun interface TRANSLATE_BUS_ADDRESSFn {
-    public operator fun invoke(context: Long, busaddress: Long, length: UInt, addressspace: Long, translatedaddress: Long): Boolean
+public fun interface WheaErrorSourceCorrectFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias TRANSLATE_BUS_ADDRESS = TRANSLATE_BUS_ADDRESSFn?
+public typealias WheaErrorSourceCorrect = WheaErrorSourceCorrectFn?
 
-public typealias WHEAP_DPC_ERROR_EVENT_TYPE = Int
-
-public typealias WHEAP_PFA_OFFLINE_DECISION_TYPE = Int
-
-public typealias WHEA_BUGCHECK_RECOVERY_LOG_TYPE = Int
-
-public typealias WHEA_CPU_VENDOR = Int
-
-public typealias WHEA_ERROR_PACKET_DATA_FORMAT = Int
-
-public typealias WHEA_ERROR_SEVERITY = Int
-
-public fun interface WHEA_ERROR_SOURCE_CORRECTFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface WheaErrorSourceCreateRecordFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias WHEA_ERROR_SOURCE_CORRECT = WHEA_ERROR_SOURCE_CORRECTFn?
+public typealias WheaErrorSourceCreateRecord = WheaErrorSourceCreateRecordFn?
 
-public fun interface WHEA_ERROR_SOURCE_CREATE_RECORDFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface WheaErrorSourceInitializeFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias WHEA_ERROR_SOURCE_CREATE_RECORD = WHEA_ERROR_SOURCE_CREATE_RECORDFn?
+public typealias WheaErrorSourceInitialize = WheaErrorSourceInitializeFn?
 
-public fun interface WHEA_ERROR_SOURCE_INITIALIZEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface WheaErrorSourceRecoverFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias WHEA_ERROR_SOURCE_INITIALIZE = WHEA_ERROR_SOURCE_INITIALIZEFn?
+public typealias WheaErrorSourceRecover = WheaErrorSourceRecoverFn?
 
-public fun interface WHEA_ERROR_SOURCE_RECOVERFn {
-    public operator fun invoke(): NTSTATUS
-}
-
-public typealias WHEA_ERROR_SOURCE_RECOVER = WHEA_ERROR_SOURCE_RECOVERFn?
-
-public fun interface WHEA_ERROR_SOURCE_UNINITIALIZEFn {
+public fun interface WheaErrorSourceUninitializeFn {
     public operator fun invoke()
 }
 
-public typealias WHEA_ERROR_SOURCE_UNINITIALIZE = WHEA_ERROR_SOURCE_UNINITIALIZEFn?
+public typealias WheaErrorSourceUninitialize = WheaErrorSourceUninitializeFn?
 
-public typealias WHEA_ERROR_TYPE = Int
+public typealias WheaErrorType = Int
 
-public typealias WHEA_EVENT_LOG_ENTRY_ID = Int
+public typealias WheaEventLogEntryId = Int
 
-public typealias WHEA_EVENT_LOG_ENTRY_TYPE = Int
+public typealias WheaEventLogEntryType = Int
 
-public typealias WHEA_PCIEXPRESS_DEVICE_TYPE = Int
+public typealias WheaPciexpressDeviceType = Int
 
-public typealias WHEA_PCI_RECOVERY_SIGNAL = Int
+public typealias WheaPciRecoverySignal = Int
 
-public typealias WHEA_PCI_RECOVERY_STATUS = Int
+public typealias WheaPciRecoveryStatus = Int
 
-public typealias WHEA_PFA_REMOVE_TRIGGER = Int
+public typealias WheaPfaRemoveTrigger = Int
 
-public typealias WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = Int
+public typealias WheaPshedPluginEnableNotifyErrors = Int
 
-public typealias WHEA_RAW_DATA_FORMAT = Int
+public typealias WheaRawDataFormat = Int
 
-public typealias WHEA_RECOVERY_CONTEXT_ERROR_TYPE = Int
+public typealias WheaRecoveryContextErrorType = Int
 
-public typealias WHEA_RECOVERY_FAILURE_REASON = Int
+public typealias WheaRecoveryFailureReason = Int
 
-public typealias WHEA_RECOVERY_TYPE = Int
+public typealias WheaRecoveryType = Int
 
-public fun interface WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn {
+public fun interface WheaSignalHandlerOverrideCallbackFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn?
+public typealias WheaSignalHandlerOverrideCallback = WheaSignalHandlerOverrideCallbackFn?
 
-public typealias WHEA_THROTTLE_TYPE = Int
+public typealias WheaThrottleType = Int
 
-public fun interface WMI_NOTIFICATION_CALLBACKFn {
+public fun interface WmiNotificationCallbackFn {
     public operator fun invoke()
 }
 
-public typealias WMI_NOTIFICATION_CALLBACK = WMI_NOTIFICATION_CALLBACKFn?
+public typealias WmiNotificationCallback = WmiNotificationCallbackFn?
 
-public fun interface WORKER_THREAD_ROUTINEFn {
-    public operator fun invoke(parameter: Long)
+public fun interface WorkerThreadRoutineFn {
+    public operator fun invoke(parameter: COpaquePointer?)
 }
 
-public typealias WORKER_THREAD_ROUTINE = WORKER_THREAD_ROUTINEFn?
+public typealias WorkerThreadRoutine = WorkerThreadRoutineFn?
 
-public typealias WORK_QUEUE_TYPE = Int
+public typealias WorkQueueType = Int
 
-public fun interface _WHEA_ERROR_SOURCE_CORRECTFn {
-    public operator fun invoke(errorsource: Long, maximumsectionlength: Long): NTSTATUS
+public fun interface PHalAssignSlotResourcesFn {
+    public operator fun invoke(registrypath: COpaquePointer?, driverclassname: COpaquePointer?, driverobject: COpaquePointer?, deviceobject: COpaquePointer?, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: COpaquePointer?): Ntstatus
 }
 
-public typealias _WHEA_ERROR_SOURCE_CORRECT = _WHEA_ERROR_SOURCE_CORRECTFn?
+public typealias PHalAssignSlotResources = PHalAssignSlotResourcesFn?
 
-public fun interface _WHEA_ERROR_SOURCE_CREATE_RECORDFn {
-    public operator fun invoke(errorsource: Long, errorpacket: Long, errorrecord: Long, buffersize: UInt, context: Long): NTSTATUS
+public fun interface PHalEndMirroringFn {
+    public operator fun invoke(passnumber: UInt): Ntstatus
 }
 
-public typealias _WHEA_ERROR_SOURCE_CREATE_RECORD = _WHEA_ERROR_SOURCE_CREATE_RECORDFn?
+public typealias PHalEndMirroring = PHalEndMirroringFn?
 
-public fun interface _WHEA_ERROR_SOURCE_INITIALIZEFn {
-    public operator fun invoke(phase: UInt, errorsource: Long, context: Long): NTSTATUS
-}
-
-public typealias _WHEA_ERROR_SOURCE_INITIALIZE = _WHEA_ERROR_SOURCE_INITIALIZEFn?
-
-public fun interface _WHEA_ERROR_SOURCE_RECOVERFn {
-    public operator fun invoke(recoverycontext: Long, severity: Long): NTSTATUS
-}
-
-public typealias _WHEA_ERROR_SOURCE_RECOVER = _WHEA_ERROR_SOURCE_RECOVERFn?
-
-public fun interface _WHEA_ERROR_SOURCE_UNINITIALIZEFn {
-    public operator fun invoke(context: Long)
-}
-
-public typealias _WHEA_ERROR_SOURCE_UNINITIALIZE = _WHEA_ERROR_SOURCE_UNINITIALIZEFn?
-
-public fun interface _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn {
-    public operator fun invoke(context: ULong): Boolean
-}
-
-public typealias _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn?
-
-public fun interface pHalAssignSlotResourcesFn {
-    public operator fun invoke(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, bustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, allocatedresources: Long): NTSTATUS
-}
-
-public typealias pHalAssignSlotResources = pHalAssignSlotResourcesFn?
-
-public fun interface pHalEndMirroringFn {
-    public operator fun invoke(passnumber: UInt): NTSTATUS
-}
-
-public typealias pHalEndMirroring = pHalEndMirroringFn?
-
-public fun interface pHalEndOfBootFn {
+public fun interface PHalEndOfBootFn {
     public operator fun invoke()
 }
 
-public typealias pHalEndOfBoot = pHalEndOfBootFn?
+public typealias PHalEndOfBoot = PHalEndOfBootFn?
 
-public fun interface pHalExamineMBRFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: Long)
+public fun interface PHalExamineMbrFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: COpaquePointer?)
 }
 
-public typealias pHalExamineMBR = pHalExamineMBRFn?
+public typealias PHalExamineMbr = PHalExamineMbrFn?
 
-public fun interface pHalFindBusAddressTranslationFn {
-    public operator fun invoke(busaddress: Long, addressspace: Long, translatedaddress: Long, context: Long, nextbus: Boolean): Boolean
+public fun interface PHalFindBusAddressTranslationFn {
+    public operator fun invoke(busaddress: Long, addressspace: COpaquePointer?, translatedaddress: COpaquePointer?, context: COpaquePointer?, nextbus: Boolean): Boolean
 }
 
-public typealias pHalFindBusAddressTranslation = pHalFindBusAddressTranslationFn?
+public typealias PHalFindBusAddressTranslation = PHalFindBusAddressTranslationFn?
 
-public fun interface pHalGetAcpiTableFn {
-    public operator fun invoke(signature: UInt, oemid: PCSTR, oemtableid: PCSTR): Long
+public fun interface PHalGetAcpiTableFn {
+    public operator fun invoke(signature: UInt, oemid: Pcstr, oemtableid: Pcstr): COpaquePointer?
 }
 
-public typealias pHalGetAcpiTable = pHalGetAcpiTableFn?
+public typealias PHalGetAcpiTable = PHalGetAcpiTableFn?
 
-public fun interface pHalGetDmaAdapterFn {
-    public operator fun invoke(physicaldeviceobject: Long, devicedescriptor: Long, numberofmapregisters: Long): Long
+public fun interface PHalGetDmaAdapterFn {
+    public operator fun invoke(physicaldeviceobject: COpaquePointer?, devicedescriptor: COpaquePointer?, numberofmapregisters: COpaquePointer?): COpaquePointer?
 }
 
-public typealias pHalGetDmaAdapter = pHalGetDmaAdapterFn?
+public typealias PHalGetDmaAdapter = PHalGetDmaAdapterFn?
 
-public fun interface pHalGetInterruptTranslatorFn {
-    public operator fun invoke(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: UInt, bridgeinterfacetype: INTERFACE_TYPE, size: UShort, version: UShort, translator: Long, bridgebusnumber: Long): NTSTATUS
+public fun interface PHalGetInterruptTranslatorFn {
+    public operator fun invoke(parentinterfacetype: InterfaceType, parentbusnumber: UInt, bridgeinterfacetype: InterfaceType, size: UShort, version: UShort, translator: COpaquePointer?, bridgebusnumber: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalGetInterruptTranslator = pHalGetInterruptTranslatorFn?
+public typealias PHalGetInterruptTranslator = PHalGetInterruptTranslatorFn?
 
-public fun interface pHalGetPrmCacheFn {
-    public operator fun invoke(firmwarelist: Long, updatelist: Long)
+public fun interface PHalGetPrmCacheFn {
+    public operator fun invoke(firmwarelist: COpaquePointer?, updatelist: COpaquePointer?)
 }
 
-public typealias pHalGetPrmCache = pHalGetPrmCacheFn?
+public typealias PHalGetPrmCache = PHalGetPrmCacheFn?
 
-public fun interface pHalHaltSystemFn {
+public fun interface PHalHaltSystemFn {
     public operator fun invoke()
 }
 
-public typealias pHalHaltSystem = pHalHaltSystemFn?
+public typealias PHalHaltSystem = PHalHaltSystemFn?
 
-public fun interface pHalHandlerForBusFn {
-    public operator fun invoke(interfacetype: INTERFACE_TYPE, busnumber: UInt): PBUS_HANDLER
+public fun interface PHalHandlerForBusFn {
+    public operator fun invoke(interfacetype: InterfaceType, busnumber: UInt): PbusHandler
 }
 
-public typealias pHalHandlerForBus = pHalHandlerForBusFn?
+public typealias PHalHandlerForBus = PHalHandlerForBusFn?
 
-public fun interface pHalInitPnpDriverFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PHalInitPnpDriverFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias pHalInitPnpDriver = pHalInitPnpDriverFn?
+public typealias PHalInitPnpDriver = PHalInitPnpDriverFn?
 
-public fun interface pHalInitPowerManagementFn {
-    public operator fun invoke(pmdriverdispatchtable: Long, pmhaldispatchtable: Long): NTSTATUS
+public fun interface PHalInitPowerManagementFn {
+    public operator fun invoke(pmdriverdispatchtable: COpaquePointer?, pmhaldispatchtable: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalInitPowerManagement = pHalInitPowerManagementFn?
+public typealias PHalInitPowerManagement = PHalInitPowerManagementFn?
 
-public fun interface pHalIoReadPartitionTableFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: Long): NTSTATUS
+public fun interface PHalIoReadPartitionTableFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalIoReadPartitionTable = pHalIoReadPartitionTableFn?
+public typealias PHalIoReadPartitionTable = PHalIoReadPartitionTableFn?
 
-public fun interface pHalIoSetPartitionInformationFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): NTSTATUS
+public fun interface PHalIoSetPartitionInformationFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus
 }
 
-public typealias pHalIoSetPartitionInformation = pHalIoSetPartitionInformationFn?
+public typealias PHalIoSetPartitionInformation = PHalIoSetPartitionInformationFn?
 
-public fun interface pHalIoWritePartitionTableFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: Long): NTSTATUS
+public fun interface PHalIoWritePartitionTableFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalIoWritePartitionTable = pHalIoWritePartitionTableFn?
+public typealias PHalIoWritePartitionTable = PHalIoWritePartitionTableFn?
 
-public fun interface pHalMirrorPhysicalMemoryFn {
-    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): NTSTATUS
+public fun interface PHalMirrorPhysicalMemoryFn {
+    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): Ntstatus
 }
 
-public typealias pHalMirrorPhysicalMemory = pHalMirrorPhysicalMemoryFn?
+public typealias PHalMirrorPhysicalMemory = PHalMirrorPhysicalMemoryFn?
 
-public fun interface pHalMirrorVerifyFn {
-    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): NTSTATUS
+public fun interface PHalMirrorVerifyFn {
+    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): Ntstatus
 }
 
-public typealias pHalMirrorVerify = pHalMirrorVerifyFn?
+public typealias PHalMirrorVerify = PHalMirrorVerifyFn?
 
-public fun interface pHalQueryBusSlotsFn {
-    public operator fun invoke(bushandler: PBUS_HANDLER, buffersize: UInt, slotnumbers: Long, returnedlength: Long): NTSTATUS
+public fun interface PHalQueryBusSlotsFn {
+    public operator fun invoke(bushandler: PbusHandler, buffersize: UInt, slotnumbers: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalQueryBusSlots = pHalQueryBusSlotsFn?
+public typealias PHalQueryBusSlots = PHalQueryBusSlotsFn?
 
-public fun interface pHalQuerySystemInformationFn {
-    public operator fun invoke(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: UInt, buffer: Long, returnedlength: Long): NTSTATUS
+public fun interface PHalQuerySystemInformationFn {
+    public operator fun invoke(informationclass: HalQueryInformationClass, buffersize: UInt, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalQuerySystemInformation = pHalQuerySystemInformationFn?
+public typealias PHalQuerySystemInformation = PHalQuerySystemInformationFn?
 
-public fun interface pHalReferenceBusHandlerFn {
-    public operator fun invoke(bushandler: PBUS_HANDLER)
+public fun interface PHalReferenceBusHandlerFn {
+    public operator fun invoke(bushandler: PbusHandler)
 }
 
-public typealias pHalReferenceBusHandler = pHalReferenceBusHandlerFn?
+public typealias PHalReferenceBusHandler = PHalReferenceBusHandlerFn?
 
-public fun interface pHalResetDisplayFn {
+public fun interface PHalResetDisplayFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias pHalResetDisplay = pHalResetDisplayFn?
+public typealias PHalResetDisplay = PHalResetDisplayFn?
 
-public fun interface pHalSetPciErrorHandlerCallbackFn {
-    public operator fun invoke(callback: PCI_ERROR_HANDLER_CALLBACK)
+public fun interface PHalSetPciErrorHandlerCallbackFn {
+    public operator fun invoke(callback: PciErrorHandlerCallback)
 }
 
-public typealias pHalSetPciErrorHandlerCallback = pHalSetPciErrorHandlerCallbackFn?
+public typealias PHalSetPciErrorHandlerCallback = PHalSetPciErrorHandlerCallbackFn?
 
-public fun interface pHalSetSystemInformationFn {
-    public operator fun invoke(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: UInt, buffer: Long): NTSTATUS
+public fun interface PHalSetSystemInformationFn {
+    public operator fun invoke(informationclass: HalSetInformationClass, buffersize: UInt, buffer: COpaquePointer?): Ntstatus
 }
 
-public typealias pHalSetSystemInformation = pHalSetSystemInformationFn?
+public typealias PHalSetSystemInformation = PHalSetSystemInformationFn?
 
-public fun interface pHalStartMirroringFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PHalStartMirroringFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias pHalStartMirroring = pHalStartMirroringFn?
+public typealias PHalStartMirroring = PHalStartMirroringFn?
 
-public fun interface pHalTranslateBusAddressFn {
-    public operator fun invoke(interfacetype: INTERFACE_TYPE, busnumber: UInt, busaddress: Long, addressspace: Long, translatedaddress: Long): Boolean
+public fun interface PHalTranslateBusAddressFn {
+    public operator fun invoke(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: COpaquePointer?, translatedaddress: COpaquePointer?): Boolean
 }
 
-public typealias pHalTranslateBusAddress = pHalTranslateBusAddressFn?
+public typealias PHalTranslateBusAddress = PHalTranslateBusAddressFn?
 
-public fun interface pHalVectorToIDTEntryFn {
+public fun interface PHalVectorToIdtentryFn {
     public operator fun invoke(vector: UInt): UByte
 }
 
-public typealias pHalVectorToIDTEntry = pHalVectorToIDTEntryFn?
+public typealias PHalVectorToIdtentry = PHalVectorToIdtentryFn?
 
-public fun interface pKdCheckPowerButtonFn {
+public fun interface PKdCheckPowerButtonFn {
     public operator fun invoke()
 }
 
-public typealias pKdCheckPowerButton = pKdCheckPowerButtonFn?
+public typealias PKdCheckPowerButton = PKdCheckPowerButtonFn?
 
-public fun interface pKdEnumerateDebuggingDevicesFn {
-    public operator fun invoke(loaderblock: Long, device: Long, callback: PDEBUG_DEVICE_FOUND_FUNCTION): NTSTATUS
+public fun interface PKdEnumerateDebuggingDevicesFn {
+    public operator fun invoke(loaderblock: COpaquePointer?, device: COpaquePointer?, callback: PdebugDeviceFoundFunction): Ntstatus
 }
 
-public typealias pKdEnumerateDebuggingDevices = pKdEnumerateDebuggingDevicesFn?
+public typealias PKdEnumerateDebuggingDevices = PKdEnumerateDebuggingDevicesFn?
 
-public fun interface pKdGetAcpiTablePhase0Fn {
-    public operator fun invoke(loaderblock: Long, signature: UInt): Long
+public fun interface PKdGetAcpiTablePhase0Fn {
+    public operator fun invoke(loaderblock: COpaquePointer?, signature: UInt): COpaquePointer?
 }
 
-public typealias pKdGetAcpiTablePhase0 = pKdGetAcpiTablePhase0Fn?
+public typealias PKdGetAcpiTablePhase0 = PKdGetAcpiTablePhase0Fn?
 
-public fun interface pKdGetPciDataByOffsetFn {
-    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface PKdGetPciDataByOffsetFn {
+    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias pKdGetPciDataByOffset = pKdGetPciDataByOffsetFn?
+public typealias PKdGetPciDataByOffset = PKdGetPciDataByOffsetFn?
 
-public fun interface pKdMapPhysicalMemory64Fn {
-    public operator fun invoke(physicaladdress: Long, numberpages: UInt, flushcurrenttlb: Boolean): Long
+public fun interface PKdMapPhysicalMemory64Fn {
+    public operator fun invoke(physicaladdress: Long, numberpages: UInt, flushcurrenttlb: Boolean): COpaquePointer?
 }
 
-public typealias pKdMapPhysicalMemory64 = pKdMapPhysicalMemory64Fn?
+public typealias PKdMapPhysicalMemory64 = PKdMapPhysicalMemory64Fn?
 
-public fun interface pKdReleaseIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(integrateddevice: Long): NTSTATUS
+public fun interface PKdReleaseIntegratedDeviceForDebuggingFn {
+    public operator fun invoke(integrateddevice: COpaquePointer?): Ntstatus
 }
 
-public typealias pKdReleaseIntegratedDeviceForDebugging = pKdReleaseIntegratedDeviceForDebuggingFn?
+public typealias PKdReleaseIntegratedDeviceForDebugging = PKdReleaseIntegratedDeviceForDebuggingFn?
 
-public fun interface pKdReleasePciDeviceForDebuggingFn {
-    public operator fun invoke(pcidevice: Long): NTSTATUS
+public fun interface PKdReleasePciDeviceForDebuggingFn {
+    public operator fun invoke(pcidevice: COpaquePointer?): Ntstatus
 }
 
-public typealias pKdReleasePciDeviceForDebugging = pKdReleasePciDeviceForDebuggingFn?
+public typealias PKdReleasePciDeviceForDebugging = PKdReleasePciDeviceForDebuggingFn?
 
-public fun interface pKdSetPciDataByOffsetFn {
-    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: Long, offset: UInt, length: UInt): UInt
+public fun interface PKdSetPciDataByOffsetFn {
+    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: COpaquePointer?, offset: UInt, length: UInt): UInt
 }
 
-public typealias pKdSetPciDataByOffset = pKdSetPciDataByOffsetFn?
+public typealias PKdSetPciDataByOffset = PKdSetPciDataByOffsetFn?
 
-public fun interface pKdSetupIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: Long, integrateddevice: Long): NTSTATUS
+public fun interface PKdSetupIntegratedDeviceForDebuggingFn {
+    public operator fun invoke(loaderblock: COpaquePointer?, integrateddevice: COpaquePointer?): Ntstatus
 }
 
-public typealias pKdSetupIntegratedDeviceForDebugging = pKdSetupIntegratedDeviceForDebuggingFn?
+public typealias PKdSetupIntegratedDeviceForDebugging = PKdSetupIntegratedDeviceForDebuggingFn?
 
-public fun interface pKdSetupPciDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: Long, pcidevice: Long): NTSTATUS
+public fun interface PKdSetupPciDeviceForDebuggingFn {
+    public operator fun invoke(loaderblock: COpaquePointer?, pcidevice: COpaquePointer?): Ntstatus
 }
 
-public typealias pKdSetupPciDeviceForDebugging = pKdSetupPciDeviceForDebuggingFn?
+public typealias PKdSetupPciDeviceForDebugging = PKdSetupPciDeviceForDebuggingFn?
 
-public fun interface pKdUnmapVirtualAddressFn {
-    public operator fun invoke(virtualaddress: Long, numberpages: UInt, flushcurrenttlb: Boolean)
+public fun interface PKdUnmapVirtualAddressFn {
+    public operator fun invoke(virtualaddress: COpaquePointer?, numberpages: UInt, flushcurrenttlb: Boolean)
 }
 
-public typealias pKdUnmapVirtualAddress = pKdUnmapVirtualAddressFn?
+public typealias PKdUnmapVirtualAddress = PKdUnmapVirtualAddressFn?

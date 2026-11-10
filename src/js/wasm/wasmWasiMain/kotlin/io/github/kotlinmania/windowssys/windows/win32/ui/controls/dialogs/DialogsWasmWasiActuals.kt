@@ -2,73 +2,74 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun ChooseColorA(param0: Long): BOOL =
-    0
+public actual fun chooseColorA(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChooseColorW(param0: Long): BOOL =
-    0
+public actual fun chooseColorW(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChooseFontA(param0: Long): BOOL =
-    0
+public actual fun chooseFontA(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChooseFontW(param0: Long): BOOL =
-    0
+public actual fun chooseFontW(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CommDlgExtendedError(): COMMON_DLG_ERRORS =
-    0u
+public actual fun commDlgExtendedError(): CommonDlgErrors =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindTextA(param0: Long): HWND =
-    0L
+public actual fun findTextA(param0: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindTextW(param0: Long): HWND =
-    0L
+public actual fun findTextW(param0: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetFileTitleA(param0: PCSTR, buf: PSTR, cchsize: UShort): Short =
-    0
+public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetFileTitleW(param0: PCWSTR, buf: PWSTR, cchsize: UShort): Short =
-    0
+public actual fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetOpenFileNameA(param0: Long): BOOL =
-    0
+public actual fun getOpenFileNameA(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetOpenFileNameW(param0: Long): BOOL =
-    0
+public actual fun getOpenFileNameW(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetSaveFileNameA(param0: Long): BOOL =
-    0
+public actual fun getSaveFileNameA(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetSaveFileNameW(param0: Long): BOOL =
-    0
+public actual fun getSaveFileNameW(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PageSetupDlgA(param0: Long): BOOL =
-    0
+public actual fun pageSetupDlgA(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PageSetupDlgW(param0: Long): BOOL =
-    0
+public actual fun pageSetupDlgW(param0: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrintDlgA(ppd: Long): BOOL =
-    0
+public actual fun printDlgA(ppd: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrintDlgExA(ppd: Long): HRESULT =
-    0
+public actual fun printDlgExA(ppd: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrintDlgExW(ppd: Long): HRESULT =
-    0
+public actual fun printDlgExW(ppd: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrintDlgW(ppd: Long): BOOL =
-    0
+public actual fun printDlgW(ppd: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReplaceTextA(param0: Long): HWND =
-    0L
+public actual fun replaceTextA(param0: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReplaceTextW(param0: Long): HWND =
-    0L
+public actual fun replaceTextW(param0: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

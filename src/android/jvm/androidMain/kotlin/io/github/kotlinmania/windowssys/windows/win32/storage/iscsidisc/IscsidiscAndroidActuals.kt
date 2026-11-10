@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32StorageIscsidiscJniBridge {
     init {
@@ -13,476 +14,476 @@ private object WindowsWin32StorageIscsidiscJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddISNSServerA(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addISNSServerA(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddISNSServerW(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addISNSServerW(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA(uniquesessionid: Long, reserved: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, loginoptions: Long, keysize: Int, key: Long, connectionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA(uniquesessionid: Long, reserved: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, loginoptions: Long, keysize: Int, key: Long, connectionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW(uniquesessionid: Long, reserved: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, loginoptions: Long, keysize: Int, key: Long, connectionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW(uniquesessionid: Long, reserved: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, loginoptions: Long, keysize: Int, key: Long, connectionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, loginoptions: Long, securityflags: Long, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, loginoptions: Long, securityflags: Long, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, loginoptions: Long, securityflags: Long, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, loginoptions: Long, securityflags: Long, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA(targetname: Long, targetalias: Long, targetflags: Int, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA(targetname: Long, targetalias: Long, targetflags: Int, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW(targetname: Long, targetalias: Long, targetflags: Int, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW(targetname: Long, targetalias: Long, targetflags: Int, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA(devicepath: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA(devicepath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW(devicepath: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW(devicepath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addRadiusServerA(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_addRadiusServerW(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices(): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA(uniquesessionid: Long, devicecount: Long, devices: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA(uniquesessionid: Long, devicecount: Long, devices: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW(uniquesessionid: Long, devicecount: Long, devices: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW(uniquesessionid: Long, devicecount: Long, devices: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA(initiatorname: Long, initiatorportnumber: Int, reserved: Long, authinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA(initiatorname: Long, initiatorportnumber: Int, reserved: Long, authinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW(initiatorname: Long, initiatorportnumber: Int, reserved: Long, authinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW(initiatorname: Long, initiatorportnumber: Int, reserved: Long, authinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA(initiatornodename: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA(initiatornodename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW(initiatornodename: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW(initiatornodename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA(buffersize: Long, sessioncount: Long, sessioninfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA(buffersize: Long, sessioncount: Long, sessioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx(buffersize: Long, sessioncountptr: Long, sessioninfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx(buffersize: Long, sessioncountptr: Long, sessioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW(buffersize: Long, sessioncount: Long, sessioninfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW(buffersize: Long, sessioncount: Long, sessioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA(targetname: Long, discoverymechanism: Long, infoclass: Int, buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA(targetname: Long, discoverymechanism: Long, infoclass: Int, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW(targetname: Long, discoverymechanism: Long, infoclass: Int, buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW(targetname: Long, discoverymechanism: Long, infoclass: Int, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation(versioninfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation(versioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA(targetname: Long, isinformationalsession: Boolean, initiatorinstance: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, mappings: Long, loginoptions: Long, keysize: Int, key: Long, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA(targetname: Long, isinformationalsession: Boolean, initiatorinstance: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, mappings: Long, loginoptions: Long, keysize: Int, key: Long, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW(targetname: Long, isinformationalsession: Boolean, initiatorinstance: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, mappings: Long, loginoptions: Long, keysize: Int, key: Long, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW(targetname: Long, isinformationalsession: Boolean, initiatorinstance: Long, initiatorportnumber: Int, targetportal: Long, securityflags: Long, mappings: Long, loginoptions: Long, keysize: Int, key: Long, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget(uniquesessionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget(uniquesessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeISNSServerA(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeISNSServerW(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection(uniquesessionid: Long, connectionid: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection(uniquesessionid: Long, connectionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA(initiatorinstance: Long, initiatorportnumber: Int, targetname: Long, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA(initiatorinstance: Long, initiatorportnumber: Int, targetname: Long, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW(initiatorinstance: Long, initiatorportnumber: Int, targetname: Long, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW(initiatorinstance: Long, initiatorportnumber: Int, targetname: Long, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW(initiatorinstance: Long, initiatorportnumber: Int, portal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA(targetname: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA(targetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW(targetname: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW(targetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA(devicepath: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA(devicepath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW(devicepath: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW(devicepath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW(address: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW(address: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA(buffersize: Long, mappingcount: Long, mappings: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA(buffersize: Long, mappingcount: Long, mappings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW(buffersize: Long, mappingcount: Long, mappings: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW(buffersize: Long, mappingcount: Long, mappings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA(buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA(buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW(buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW(buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA(portalcount: Long, portalinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA(portalcount: Long, portalinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA(portalcount: Long, portalinfosize: Long, portalinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA(portalcount: Long, portalinfosize: Long, portalinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW(portalcount: Long, portalinfosize: Long, portalinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW(portalcount: Long, portalinfosize: Long, portalinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW(portalcount: Long, portalinfo: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW(portalcount: Long, portalinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA(initiatorname: Long, targetname: Long, targetportaltag: Long, elementcount: Long, portals: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA(initiatorname: Long, targetname: Long, targetportaltag: Long, elementcount: Long, portals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW(initiatorname: Long, targetname: Long, targetportaltag: Long, elementcount: Long, portals: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW(initiatorname: Long, targetname: Long, targetportaltag: Long, elementcount: Long, portals: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA(forceupdate: Boolean, buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(forceupdate: Boolean, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW(forceupdate: Boolean, buffersize: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(forceupdate: Boolean, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW(buffersizeinchar: Long, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW(buffersizeinchar: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry(uniquesessionid: Long, lun: Long, evpdcmddt: Byte, pagecode: Byte, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry(uniquesessionid: Long, lun: Long, evpdcmddt: Byte, pagecode: Byte, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity(uniquesessionid: Long, lun: Long, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity(uniquesessionid: Long, lun: Long, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns(uniquesessionid: Long, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns(uniquesessionid: Long, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey(keylength: Int, key: Long, persist: Boolean): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(keylength: Int, key: Long, persist: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA(initiatorname: Long, initiatorportnumber: Int, authinfo: Long, persist: Boolean): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA(initiatorname: Long, initiatorportnumber: Int, authinfo: Long, persist: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW(initiatorname: Long, initiatorportnumber: Int, authinfo: Long, persist: Boolean): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW(initiatorname: Long, initiatorportnumber: Int, authinfo: Long, persist: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: Int, sharedsecret: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: Int, sharedsecret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA(initiatornodename: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA(initiatornodename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW(initiatornodename: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW(initiatornodename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: Int, sharedsecret: Long): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: Int, sharedsecret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA(initiatorname: Long, initiatorportnumber: Int, destinationaddress: Long, outermodeaddress: Long, persist: Boolean): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA(initiatorname: Long, initiatorportnumber: Int, destinationaddress: Long, outermodeaddress: Long, persist: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW(initiatorname: Long, initiatorportnumber: Int, destinationaddress: Long, outermodeaddress: Long, persist: Boolean): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW(initiatorname: Long, initiatorportnumber: Int, destinationaddress: Long, outermodeaddress: Long, persist: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices(): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes(): Int
+    external fun windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes(): Int
 }
 
-public actual fun AddISNSServerA(address: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddISNSServerA(address).toUInt()
+public actual fun addISNSServerA(address: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addISNSServerA((address?.value ?: 0L)).toUInt()
 
-public actual fun AddISNSServerW(address: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddISNSServerW(address).toUInt()
+public actual fun addISNSServerW(address: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addISNSServerW((address?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiConnectionA(uniquesessionid: Long, reserved: Long, initiatorportnumber: UInt, targetportal: Long, securityflags: ULong, loginoptions: Long, keysize: UInt, key: PCSTR, connectionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA(uniquesessionid, reserved, initiatorportnumber.toInt(), targetportal, securityflags.toLong(), loginoptions, keysize.toInt(), key, connectionid).toUInt()
+public actual fun addIScsiConnectionA(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA((uniquesessionid?.value ?: 0L), (reserved?.value ?: 0L), initiatorportnumber.toInt(), (targetportal?.value ?: 0L), securityflags.toLong(), (loginoptions?.value ?: 0L), keysize.toInt(), (key?.value ?: 0L), (connectionid?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiConnectionW(uniquesessionid: Long, reserved: Long, initiatorportnumber: UInt, targetportal: Long, securityflags: ULong, loginoptions: Long, keysize: UInt, key: PCSTR, connectionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW(uniquesessionid, reserved, initiatorportnumber.toInt(), targetportal, securityflags.toLong(), loginoptions, keysize.toInt(), key, connectionid).toUInt()
+public actual fun addIScsiConnectionW(uniquesessionid: COpaquePointer?, reserved: COpaquePointer?, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, connectionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW((uniquesessionid?.value ?: 0L), (reserved?.value ?: 0L), initiatorportnumber.toInt(), (targetportal?.value ?: 0L), securityflags.toLong(), (loginoptions?.value ?: 0L), keysize.toInt(), (key?.value ?: 0L), (connectionid?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiSendTargetPortalA(initiatorinstance: PCSTR, initiatorportnumber: UInt, loginoptions: Long, securityflags: ULong, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA(initiatorinstance, initiatorportnumber.toInt(), loginoptions, securityflags.toLong(), portal).toUInt()
+public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (loginoptions?.value ?: 0L), securityflags.toLong(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiSendTargetPortalW(initiatorinstance: PCWSTR, initiatorportnumber: UInt, loginoptions: Long, securityflags: ULong, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW(initiatorinstance, initiatorportnumber.toInt(), loginoptions, securityflags.toLong(), portal).toUInt()
+public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: COpaquePointer?, securityflags: ULong, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (loginoptions?.value ?: 0L), securityflags.toLong(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiStaticTargetA(targetname: PCSTR, targetalias: PCSTR, targetflags: UInt, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA(targetname, targetalias, targetflags.toInt(), persist, mappings, loginoptions, portalgroup).toUInt()
+public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA((targetname?.value ?: 0L), (targetalias?.value ?: 0L), targetflags.toInt(), persist, (mappings?.value ?: 0L), (loginoptions?.value ?: 0L), (portalgroup?.value ?: 0L)).toUInt()
 
-public actual fun AddIScsiStaticTargetW(targetname: PCWSTR, targetalias: PCWSTR, targetflags: UInt, persist: Boolean, mappings: Long, loginoptions: Long, portalgroup: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW(targetname, targetalias, targetflags.toInt(), persist, mappings, loginoptions, portalgroup).toUInt()
+public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: COpaquePointer?, loginoptions: COpaquePointer?, portalgroup: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW((targetname?.value ?: 0L), (targetalias?.value ?: 0L), targetflags.toInt(), persist, (mappings?.value ?: 0L), (loginoptions?.value ?: 0L), (portalgroup?.value ?: 0L)).toUInt()
 
-public actual fun AddPersistentIScsiDeviceA(devicepath: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA(devicepath).toUInt()
+public actual fun addPersistentIScsiDeviceA(devicepath: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA((devicepath?.value ?: 0L)).toUInt()
 
-public actual fun AddPersistentIScsiDeviceW(devicepath: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW(devicepath).toUInt()
+public actual fun addPersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW((devicepath?.value ?: 0L)).toUInt()
 
-public actual fun AddRadiusServerA(address: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA(address).toUInt()
+public actual fun addRadiusServerA(address: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addRadiusServerA((address?.value ?: 0L)).toUInt()
 
-public actual fun AddRadiusServerW(address: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW(address).toUInt()
+public actual fun addRadiusServerW(address: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_addRadiusServerW((address?.value ?: 0L)).toUInt()
 
-public actual fun ClearPersistentIScsiDevices(): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices().toUInt()
+public actual fun clearPersistentIScsiDevices(): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices().toUInt()
 
-public actual fun GetDevicesForIScsiSessionA(uniquesessionid: Long, devicecount: Long, devices: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA(uniquesessionid, devicecount, devices).toUInt()
+public actual fun getDevicesForIScsiSessionA(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA((uniquesessionid?.value ?: 0L), (devicecount?.value ?: 0L), (devices?.value ?: 0L)).toUInt()
 
-public actual fun GetDevicesForIScsiSessionW(uniquesessionid: Long, devicecount: Long, devices: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW(uniquesessionid, devicecount, devices).toUInt()
+public actual fun getDevicesForIScsiSessionW(uniquesessionid: COpaquePointer?, devicecount: COpaquePointer?, devices: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW((uniquesessionid?.value ?: 0L), (devicecount?.value ?: 0L), (devices?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiIKEInfoA(initiatorname: PCSTR, initiatorportnumber: UInt, reserved: Long, authinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA(initiatorname, initiatorportnumber.toInt(), reserved, authinfo).toUInt()
+public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (reserved?.value ?: 0L), (authinfo?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiIKEInfoW(initiatorname: PCWSTR, initiatorportnumber: UInt, reserved: Long, authinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW(initiatorname, initiatorportnumber.toInt(), reserved, authinfo).toUInt()
+public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: COpaquePointer?, authinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (reserved?.value ?: 0L), (authinfo?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiInitiatorNodeNameA(initiatornodename: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA(initiatornodename).toUInt()
+public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA((initiatornodename?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiInitiatorNodeNameW(initiatornodename: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW(initiatornodename).toUInt()
+public actual fun getIScsiInitiatorNodeNameW(initiatornodename: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW((initiatornodename?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiSessionListA(buffersize: Long, sessioncount: Long, sessioninfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA(buffersize, sessioncount, sessioninfo).toUInt()
+public actual fun getIScsiSessionListA(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA((buffersize?.value ?: 0L), (sessioncount?.value ?: 0L), (sessioninfo?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiSessionListEx(buffersize: Long, sessioncountptr: Long, sessioninfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx(buffersize, sessioncountptr, sessioninfo).toUInt()
+public actual fun getIScsiSessionListEx(buffersize: COpaquePointer?, sessioncountptr: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx((buffersize?.value ?: 0L), (sessioncountptr?.value ?: 0L), (sessioninfo?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiSessionListW(buffersize: Long, sessioncount: Long, sessioninfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW(buffersize, sessioncount, sessioninfo).toUInt()
+public actual fun getIScsiSessionListW(buffersize: COpaquePointer?, sessioncount: COpaquePointer?, sessioninfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW((buffersize?.value ?: 0L), (sessioncount?.value ?: 0L), (sessioninfo?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiTargetInformationA(targetname: PCSTR, discoverymechanism: PCSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: Long, buffer: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA(targetname, discoverymechanism, infoclass, buffersize, buffer).toUInt()
+public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA((targetname?.value ?: 0L), (discoverymechanism?.value ?: 0L), infoclass, (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiTargetInformationW(targetname: PCWSTR, discoverymechanism: PCWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: Long, buffer: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW(targetname, discoverymechanism, infoclass, buffersize, buffer).toUInt()
+public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW((targetname?.value ?: 0L), (discoverymechanism?.value ?: 0L), infoclass, (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun GetIScsiVersionInformation(versioninfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation(versioninfo).toUInt()
+public actual fun getIScsiVersionInformation(versioninfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation((versioninfo?.value ?: 0L)).toUInt()
 
-public actual fun LoginIScsiTargetA(targetname: PCSTR, isinformationalsession: Boolean, initiatorinstance: PCSTR, initiatorportnumber: UInt, targetportal: Long, securityflags: ULong, mappings: Long, loginoptions: Long, keysize: UInt, key: PCSTR, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA(targetname, isinformationalsession, initiatorinstance, initiatorportnumber.toInt(), targetportal, securityflags.toLong(), mappings, loginoptions, keysize.toInt(), key, ispersistent, uniquesessionid, uniqueconnectionid).toUInt()
+public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA((targetname?.value ?: 0L), isinformationalsession, (initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (targetportal?.value ?: 0L), securityflags.toLong(), (mappings?.value ?: 0L), (loginoptions?.value ?: 0L), keysize.toInt(), (key?.value ?: 0L), ispersistent, (uniquesessionid?.value ?: 0L), (uniqueconnectionid?.value ?: 0L)).toUInt()
 
-public actual fun LoginIScsiTargetW(targetname: PCWSTR, isinformationalsession: Boolean, initiatorinstance: PCWSTR, initiatorportnumber: UInt, targetportal: Long, securityflags: ULong, mappings: Long, loginoptions: Long, keysize: UInt, key: PCSTR, ispersistent: Boolean, uniquesessionid: Long, uniqueconnectionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW(targetname, isinformationalsession, initiatorinstance, initiatorportnumber.toInt(), targetportal, securityflags.toLong(), mappings, loginoptions, keysize.toInt(), key, ispersistent, uniquesessionid, uniqueconnectionid).toUInt()
+public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: COpaquePointer?, securityflags: ULong, mappings: COpaquePointer?, loginoptions: COpaquePointer?, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: COpaquePointer?, uniqueconnectionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW((targetname?.value ?: 0L), isinformationalsession, (initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (targetportal?.value ?: 0L), securityflags.toLong(), (mappings?.value ?: 0L), (loginoptions?.value ?: 0L), keysize.toInt(), (key?.value ?: 0L), ispersistent, (uniquesessionid?.value ?: 0L), (uniqueconnectionid?.value ?: 0L)).toUInt()
 
-public actual fun LogoutIScsiTarget(uniquesessionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget(uniquesessionid).toUInt()
+public actual fun logoutIScsiTarget(uniquesessionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget((uniquesessionid?.value ?: 0L)).toUInt()
 
-public actual fun RefreshISNSServerA(address: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA(address).toUInt()
+public actual fun refreshISNSServerA(address: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA((address?.value ?: 0L)).toUInt()
 
-public actual fun RefreshISNSServerW(address: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW(address).toUInt()
+public actual fun refreshISNSServerW(address: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW((address?.value ?: 0L)).toUInt()
 
-public actual fun RefreshIScsiSendTargetPortalA(initiatorinstance: PCSTR, initiatorportnumber: UInt, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA(initiatorinstance, initiatorportnumber.toInt(), portal).toUInt()
+public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RefreshIScsiSendTargetPortalW(initiatorinstance: PCWSTR, initiatorportnumber: UInt, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW(initiatorinstance, initiatorportnumber.toInt(), portal).toUInt()
+public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RemoveISNSServerA(address: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA(address).toUInt()
+public actual fun removeISNSServerA(address: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeISNSServerA((address?.value ?: 0L)).toUInt()
 
-public actual fun RemoveISNSServerW(address: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW(address).toUInt()
+public actual fun removeISNSServerW(address: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeISNSServerW((address?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiConnection(uniquesessionid: Long, connectionid: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection(uniquesessionid, connectionid).toUInt()
+public actual fun removeIScsiConnection(uniquesessionid: COpaquePointer?, connectionid: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection((uniquesessionid?.value ?: 0L), (connectionid?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiPersistentTargetA(initiatorinstance: PCSTR, initiatorportnumber: UInt, targetname: PCSTR, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA(initiatorinstance, initiatorportnumber.toInt(), targetname, portal).toUInt()
+public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (targetname?.value ?: 0L), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiPersistentTargetW(initiatorinstance: PCWSTR, initiatorportnumber: UInt, targetname: PCWSTR, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW(initiatorinstance, initiatorportnumber.toInt(), targetname, portal).toUInt()
+public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (targetname?.value ?: 0L), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiSendTargetPortalA(initiatorinstance: PCSTR, initiatorportnumber: UInt, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA(initiatorinstance, initiatorportnumber.toInt(), portal).toUInt()
+public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiSendTargetPortalW(initiatorinstance: PCWSTR, initiatorportnumber: UInt, portal: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW(initiatorinstance, initiatorportnumber.toInt(), portal).toUInt()
+public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW((initiatorinstance?.value ?: 0L), initiatorportnumber.toInt(), (portal?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiStaticTargetA(targetname: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA(targetname).toUInt()
+public actual fun removeIScsiStaticTargetA(targetname: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA((targetname?.value ?: 0L)).toUInt()
 
-public actual fun RemoveIScsiStaticTargetW(targetname: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW(targetname).toUInt()
+public actual fun removeIScsiStaticTargetW(targetname: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW((targetname?.value ?: 0L)).toUInt()
 
-public actual fun RemovePersistentIScsiDeviceA(devicepath: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA(devicepath).toUInt()
+public actual fun removePersistentIScsiDeviceA(devicepath: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA((devicepath?.value ?: 0L)).toUInt()
 
-public actual fun RemovePersistentIScsiDeviceW(devicepath: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW(devicepath).toUInt()
+public actual fun removePersistentIScsiDeviceW(devicepath: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW((devicepath?.value ?: 0L)).toUInt()
 
-public actual fun RemoveRadiusServerA(address: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA(address).toUInt()
+public actual fun removeRadiusServerA(address: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA((address?.value ?: 0L)).toUInt()
 
-public actual fun RemoveRadiusServerW(address: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW(address).toUInt()
+public actual fun removeRadiusServerW(address: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW((address?.value ?: 0L)).toUInt()
 
-public actual fun ReportActiveIScsiTargetMappingsA(buffersize: Long, mappingcount: Long, mappings: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA(buffersize, mappingcount, mappings).toUInt()
+public actual fun reportActiveIScsiTargetMappingsA(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA((buffersize?.value ?: 0L), (mappingcount?.value ?: 0L), (mappings?.value ?: 0L)).toUInt()
 
-public actual fun ReportActiveIScsiTargetMappingsW(buffersize: Long, mappingcount: Long, mappings: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW(buffersize, mappingcount, mappings).toUInt()
+public actual fun reportActiveIScsiTargetMappingsW(buffersize: COpaquePointer?, mappingcount: COpaquePointer?, mappings: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW((buffersize?.value ?: 0L), (mappingcount?.value ?: 0L), (mappings?.value ?: 0L)).toUInt()
 
-public actual fun ReportISNSServerListA(buffersizeinchar: Long, buffer: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA(buffersizeinchar, buffer).toUInt()
+public actual fun reportISNSServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportISNSServerListW(buffersizeinchar: Long, buffer: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW(buffersizeinchar, buffer).toUInt()
+public actual fun reportISNSServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiInitiatorListA(buffersize: Long, buffer: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA(buffersize, buffer).toUInt()
+public actual fun reportIScsiInitiatorListA(buffersize: COpaquePointer?, buffer: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA((buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiInitiatorListW(buffersize: Long, buffer: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW(buffersize, buffer).toUInt()
+public actual fun reportIScsiInitiatorListW(buffersize: COpaquePointer?, buffer: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW((buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiPersistentLoginsA(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA(count, persistentlogininfo, buffersizeinbytes).toUInt()
+public actual fun reportIScsiPersistentLoginsA(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA((count?.value ?: 0L), (persistentlogininfo?.value ?: 0L), (buffersizeinbytes?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiPersistentLoginsW(count: Long, persistentlogininfo: Long, buffersizeinbytes: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW(count, persistentlogininfo, buffersizeinbytes).toUInt()
+public actual fun reportIScsiPersistentLoginsW(count: COpaquePointer?, persistentlogininfo: COpaquePointer?, buffersizeinbytes: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW((count?.value ?: 0L), (persistentlogininfo?.value ?: 0L), (buffersizeinbytes?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiSendTargetPortalsA(portalcount: Long, portalinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA(portalcount, portalinfo).toUInt()
+public actual fun reportIScsiSendTargetPortalsA(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA((portalcount?.value ?: 0L), (portalinfo?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiSendTargetPortalsExA(portalcount: Long, portalinfosize: Long, portalinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA(portalcount, portalinfosize, portalinfo).toUInt()
+public actual fun reportIScsiSendTargetPortalsExA(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA((portalcount?.value ?: 0L), (portalinfosize?.value ?: 0L), (portalinfo?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiSendTargetPortalsExW(portalcount: Long, portalinfosize: Long, portalinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW(portalcount, portalinfosize, portalinfo).toUInt()
+public actual fun reportIScsiSendTargetPortalsExW(portalcount: COpaquePointer?, portalinfosize: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW((portalcount?.value ?: 0L), (portalinfosize?.value ?: 0L), (portalinfo?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiSendTargetPortalsW(portalcount: Long, portalinfo: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW(portalcount, portalinfo).toUInt()
+public actual fun reportIScsiSendTargetPortalsW(portalcount: COpaquePointer?, portalinfo: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW((portalcount?.value ?: 0L), (portalinfo?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiTargetPortalsA(initiatorname: PCSTR, targetname: PCSTR, targetportaltag: Long, elementcount: Long, portals: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA(initiatorname, targetname, targetportaltag, elementcount, portals).toUInt()
+public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA((initiatorname?.value ?: 0L), (targetname?.value ?: 0L), (targetportaltag?.value ?: 0L), (elementcount?.value ?: 0L), (portals?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiTargetPortalsW(initiatorname: PCWSTR, targetname: PCWSTR, targetportaltag: Long, elementcount: Long, portals: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW(initiatorname, targetname, targetportaltag, elementcount, portals).toUInt()
+public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: COpaquePointer?, elementcount: COpaquePointer?, portals: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW((initiatorname?.value ?: 0L), (targetname?.value ?: 0L), (targetportaltag?.value ?: 0L), (elementcount?.value ?: 0L), (portals?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiTargetsA(forceupdate: Boolean, buffersize: Long, buffer: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA(forceupdate, buffersize, buffer).toUInt()
+public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(forceupdate, (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportIScsiTargetsW(forceupdate: Boolean, buffersize: Long, buffer: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW(forceupdate, buffersize, buffer).toUInt()
+public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: COpaquePointer?, buffer: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(forceupdate, (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportPersistentIScsiDevicesA(buffersizeinchar: Long, buffer: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA(buffersizeinchar, buffer).toUInt()
+public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportPersistentIScsiDevicesW(buffersizeinchar: Long, buffer: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW(buffersizeinchar, buffer).toUInt()
+public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportRadiusServerListA(buffersizeinchar: Long, buffer: PSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA(buffersizeinchar, buffer).toUInt()
+public actual fun reportRadiusServerListA(buffersizeinchar: COpaquePointer?, buffer: Pstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun ReportRadiusServerListW(buffersizeinchar: Long, buffer: PWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW(buffersizeinchar, buffer).toUInt()
+public actual fun reportRadiusServerListW(buffersizeinchar: COpaquePointer?, buffer: Pwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW((buffersizeinchar?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun SendScsiInquiry(uniquesessionid: Long, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry(uniquesessionid, lun.toLong(), evpdcmddt.toByte(), pagecode.toByte(), scsistatus, responsesize, responsebuffer, sensesize, sensebuffer).toUInt()
+public actual fun sendScsiInquiry(uniquesessionid: COpaquePointer?, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry((uniquesessionid?.value ?: 0L), lun.toLong(), evpdcmddt.toByte(), pagecode.toByte(), (scsistatus?.value ?: 0L), (responsesize?.value ?: 0L), (responsebuffer?.value ?: 0L), (sensesize?.value ?: 0L), (sensebuffer?.value ?: 0L)).toUInt()
 
-public actual fun SendScsiReadCapacity(uniquesessionid: Long, lun: ULong, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity(uniquesessionid, lun.toLong(), scsistatus, responsesize, responsebuffer, sensesize, sensebuffer).toUInt()
+public actual fun sendScsiReadCapacity(uniquesessionid: COpaquePointer?, lun: ULong, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity((uniquesessionid?.value ?: 0L), lun.toLong(), (scsistatus?.value ?: 0L), (responsesize?.value ?: 0L), (responsebuffer?.value ?: 0L), (sensesize?.value ?: 0L), (sensebuffer?.value ?: 0L)).toUInt()
 
-public actual fun SendScsiReportLuns(uniquesessionid: Long, scsistatus: Long, responsesize: Long, responsebuffer: Long, sensesize: Long, sensebuffer: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns(uniquesessionid, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer).toUInt()
+public actual fun sendScsiReportLuns(uniquesessionid: COpaquePointer?, scsistatus: COpaquePointer?, responsesize: COpaquePointer?, responsebuffer: COpaquePointer?, sensesize: COpaquePointer?, sensebuffer: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns((uniquesessionid?.value ?: 0L), (scsistatus?.value ?: 0L), (responsesize?.value ?: 0L), (responsebuffer?.value ?: 0L), (sensesize?.value ?: 0L), (sensebuffer?.value ?: 0L)).toUInt()
 
-public actual fun SetIScsiGroupPresharedKey(keylength: UInt, key: Long, persist: Boolean): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey(keylength.toInt(), key, persist).toUInt()
+public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: COpaquePointer?, persist: Boolean): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(keylength.toInt(), (key?.value ?: 0L), persist).toUInt()
 
-public actual fun SetIScsiIKEInfoA(initiatorname: PCSTR, initiatorportnumber: UInt, authinfo: Long, persist: Boolean): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA(initiatorname, initiatorportnumber.toInt(), authinfo, persist).toUInt()
+public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (authinfo?.value ?: 0L), persist).toUInt()
 
-public actual fun SetIScsiIKEInfoW(initiatorname: PCWSTR, initiatorportnumber: UInt, authinfo: Long, persist: Boolean): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW(initiatorname, initiatorportnumber.toInt(), authinfo, persist).toUInt()
+public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: COpaquePointer?, persist: Boolean): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (authinfo?.value ?: 0L), persist).toUInt()
 
-public actual fun SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), sharedsecret).toUInt()
+public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), (sharedsecret?.value ?: 0L)).toUInt()
 
-public actual fun SetIScsiInitiatorNodeNameA(initiatornodename: PCSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA(initiatornodename).toUInt()
+public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA((initiatornodename?.value ?: 0L)).toUInt()
 
-public actual fun SetIScsiInitiatorNodeNameW(initiatornodename: PCWSTR): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW(initiatornodename).toUInt()
+public actual fun setIScsiInitiatorNodeNameW(initiatornodename: Pcwstr): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW((initiatornodename?.value ?: 0L)).toUInt()
 
-public actual fun SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: Long): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), sharedsecret).toUInt()
+public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: COpaquePointer?): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), (sharedsecret?.value ?: 0L)).toUInt()
 
-public actual fun SetIScsiTunnelModeOuterAddressA(initiatorname: PCSTR, initiatorportnumber: UInt, destinationaddress: PCSTR, outermodeaddress: PCSTR, persist: Boolean): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA(initiatorname, initiatorportnumber.toInt(), destinationaddress, outermodeaddress, persist).toUInt()
+public actual fun setIScsiTunnelModeOuterAddressA(initiatorname: Pcstr, initiatorportnumber: UInt, destinationaddress: Pcstr, outermodeaddress: Pcstr, persist: Boolean): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (destinationaddress?.value ?: 0L), (outermodeaddress?.value ?: 0L), persist).toUInt()
 
-public actual fun SetIScsiTunnelModeOuterAddressW(initiatorname: PCWSTR, initiatorportnumber: UInt, destinationaddress: PCWSTR, outermodeaddress: PCWSTR, persist: Boolean): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW(initiatorname, initiatorportnumber.toInt(), destinationaddress, outermodeaddress, persist).toUInt()
+public actual fun setIScsiTunnelModeOuterAddressW(initiatorname: Pcwstr, initiatorportnumber: UInt, destinationaddress: Pcwstr, outermodeaddress: Pcwstr, persist: Boolean): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW((initiatorname?.value ?: 0L), initiatorportnumber.toInt(), (destinationaddress?.value ?: 0L), (outermodeaddress?.value ?: 0L), persist).toUInt()
 
-public actual fun SetupPersistentIScsiDevices(): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices().toUInt()
+public actual fun setupPersistentIScsiDevices(): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices().toUInt()
 
-public actual fun SetupPersistentIScsiVolumes(): UInt =
-    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes().toUInt()
+public actual fun setupPersistentIScsiVolumes(): UInt =
+    WindowsWin32StorageIscsidiscJniBridge.windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes().toUInt()

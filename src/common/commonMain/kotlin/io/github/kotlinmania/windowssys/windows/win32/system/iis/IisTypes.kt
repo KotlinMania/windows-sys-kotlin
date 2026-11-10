@@ -1,100 +1,101 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias FTP_ACCESS = Int
+public typealias FtpAccess = Int
 
-public typealias FTP_PROCESS_STATUS = Int
+public typealias FtpProcessStatus = Int
 
-public typealias HCONN = Long
+public typealias Hconn = COpaquePointer?
 
-public typealias HTTP_TRACE_TYPE = Int
+public typealias HttpTraceType = Int
 
-public typealias METADATATYPES = Int
+public typealias Metadatatypes = Int
 
-public fun interface PFN_GETEXTENSIONVERSIONFn {
-    public operator fun invoke(pver: Long): BOOL
+public fun interface PfnGetextensionversionFn {
+    public operator fun invoke(pver: COpaquePointer?): Bool
 }
 
-public typealias PFN_GETEXTENSIONVERSION = PFN_GETEXTENSIONVERSIONFn?
+public typealias PfnGetextensionversion = PfnGetextensionversionFn?
 
-public fun interface PFN_HSE_CACHE_INVALIDATION_CALLBACKFn {
-    public operator fun invoke(pszurl: PCWSTR): HRESULT
+public fun interface PfnHseCacheInvalidationCallbackFn {
+    public operator fun invoke(pszurl: Pcwstr): Hresult
 }
 
-public typealias PFN_HSE_CACHE_INVALIDATION_CALLBACK = PFN_HSE_CACHE_INVALIDATION_CALLBACKFn?
+public typealias PfnHseCacheInvalidationCallback = PfnHseCacheInvalidationCallbackFn?
 
-public fun interface PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACKFn {
-    public operator fun invoke(pszprotocolmanagerdll: PCWSTR, pszprotocolmanagerdllinitfunction: PCWSTR, dwcustominterfaceid: UInt, ppcustominterface: Long): HRESULT
+public fun interface PfnHseGetProtocolManagerCustomInterfaceCallbackFn {
+    public operator fun invoke(pszprotocolmanagerdll: Pcwstr, pszprotocolmanagerdllinitfunction: Pcwstr, dwcustominterfaceid: UInt, ppcustominterface: COpaquePointer?): Hresult
 }
 
-public typealias PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACKFn?
+public typealias PfnHseGetProtocolManagerCustomInterfaceCallback = PfnHseGetProtocolManagerCustomInterfaceCallbackFn?
 
-public fun interface PFN_HSE_IO_COMPLETIONFn {
-    public operator fun invoke(pecb: Long, pcontext: Long, cbio: UInt, dwerror: UInt)
+public fun interface PfnHseIoCompletionFn {
+    public operator fun invoke(pecb: COpaquePointer?, pcontext: COpaquePointer?, cbio: UInt, dwerror: UInt)
 }
 
-public typealias PFN_HSE_IO_COMPLETION = PFN_HSE_IO_COMPLETIONFn?
+public typealias PfnHseIoCompletion = PfnHseIoCompletionFn?
 
-public fun interface PFN_HTTPEXTENSIONPROCFn {
-    public operator fun invoke(pecb: Long): UInt
+public fun interface PfnHttpextensionprocFn {
+    public operator fun invoke(pecb: COpaquePointer?): UInt
 }
 
-public typealias PFN_HTTPEXTENSIONPROC = PFN_HTTPEXTENSIONPROCFn?
+public typealias PfnHttpextensionproc = PfnHttpextensionprocFn?
 
-public fun interface PFN_IIS_GETSERVERVARIABLEFn {
-    public operator fun invoke(param0: HCONN, param1: PCSTR, param2: Long, param3: Long): BOOL
+public fun interface PfnIisGetservervariableFn {
+    public operator fun invoke(param0: Hconn, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias PFN_IIS_GETSERVERVARIABLE = PFN_IIS_GETSERVERVARIABLEFn?
+public typealias PfnIisGetservervariable = PfnIisGetservervariableFn?
 
-public fun interface PFN_IIS_READCLIENTFn {
-    public operator fun invoke(param0: HCONN, param1: Long, param2: Long): BOOL
+public fun interface PfnIisReadclientFn {
+    public operator fun invoke(param0: Hconn, param1: COpaquePointer?, param2: COpaquePointer?): Bool
 }
 
-public typealias PFN_IIS_READCLIENT = PFN_IIS_READCLIENTFn?
+public typealias PfnIisReadclient = PfnIisReadclientFn?
 
-public fun interface PFN_IIS_SERVERSUPPORTFUNCTIONFn {
-    public operator fun invoke(param0: HCONN, param1: UInt, param2: Long, param3: Long, param4: Long): BOOL
+public fun interface PfnIisServersupportfunctionFn {
+    public operator fun invoke(param0: Hconn, param1: UInt, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): Bool
 }
 
-public typealias PFN_IIS_SERVERSUPPORTFUNCTION = PFN_IIS_SERVERSUPPORTFUNCTIONFn?
+public typealias PfnIisServersupportfunction = PfnIisServersupportfunctionFn?
 
-public fun interface PFN_IIS_WRITECLIENTFn {
-    public operator fun invoke(param0: HCONN, param1: Long, param2: Long, param3: UInt): BOOL
+public fun interface PfnIisWriteclientFn {
+    public operator fun invoke(param0: Hconn, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt): Bool
 }
 
-public typealias PFN_IIS_WRITECLIENT = PFN_IIS_WRITECLIENTFn?
+public typealias PfnIisWriteclient = PfnIisWriteclientFn?
 
-public fun interface PFN_TERMINATEEXTENSIONFn {
-    public operator fun invoke(dwflags: UInt): BOOL
+public fun interface PfnTerminateextensionFn {
+    public operator fun invoke(dwflags: UInt): Bool
 }
 
-public typealias PFN_TERMINATEEXTENSION = PFN_TERMINATEEXTENSIONFn?
+public typealias PfnTerminateextension = PfnTerminateextensionFn?
 
-public fun interface PFN_WEB_CORE_ACTIVATEFn {
-    public operator fun invoke(pszapphostconfigfile: PCWSTR, pszrootwebconfigfile: PCWSTR, pszinstancename: PCWSTR): HRESULT
+public fun interface PfnWebCoreActivateFn {
+    public operator fun invoke(pszapphostconfigfile: Pcwstr, pszrootwebconfigfile: Pcwstr, pszinstancename: Pcwstr): Hresult
 }
 
-public typealias PFN_WEB_CORE_ACTIVATE = PFN_WEB_CORE_ACTIVATEFn?
+public typealias PfnWebCoreActivate = PfnWebCoreActivateFn?
 
-public fun interface PFN_WEB_CORE_SET_METADATA_DLL_ENTRYFn {
-    public operator fun invoke(pszmetadatatype: PCWSTR, pszvalue: PCWSTR): HRESULT
+public fun interface PfnWebCoreSetMetadataDllEntryFn {
+    public operator fun invoke(pszmetadatatype: Pcwstr, pszvalue: Pcwstr): Hresult
 }
 
-public typealias PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = PFN_WEB_CORE_SET_METADATA_DLL_ENTRYFn?
+public typealias PfnWebCoreSetMetadataDllEntry = PfnWebCoreSetMetadataDllEntryFn?
 
-public fun interface PFN_WEB_CORE_SHUTDOWNFn {
-    public operator fun invoke(fimmediate: UInt): HRESULT
+public fun interface PfnWebCoreShutdownFn {
+    public operator fun invoke(fimmediate: UInt): Hresult
 }
 
-public typealias PFN_WEB_CORE_SHUTDOWN = PFN_WEB_CORE_SHUTDOWNFn?
+public typealias PfnWebCoreShutdown = PfnWebCoreShutdownFn?
 
-public typealias SF_PROPERTY_IIS = Int
+public typealias SfPropertyIis = Int
 
-public typealias SF_REQ_TYPE = Int
+public typealias SfReqType = Int
 
-public typealias SF_STATUS_TYPE = Int
+public typealias SfStatusType = Int

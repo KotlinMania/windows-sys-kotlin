@@ -2,71 +2,76 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private val _windowsWin32StorageProjectedfilesystemNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: ULong): Long =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer(namespacevirtualizationcontext.toString(), size.toString()) as String).toLong() else 0L
+public actual fun prjAllocateAlignedBuffer(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, size: ULong): COpaquePointer? =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer((namespacevirtualizationcontext?.value ?: 0L).toString(), size.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache(namespacevirtualizationcontext.toString(), totalentrynumber.toString()) as Int) else 0
+public actual fun prjClearNegativePathCache(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, totalentrynumber: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache((namespacevirtualizationcontext?.value ?: 0L).toString(), (totalentrynumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: Int, completionresult: HRESULT, extendedparameters: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand(namespacevirtualizationcontext.toString(), commandid, completionresult, extendedparameters.toString()) as Int) else 0
+public actual fun prjCompleteCommand(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, commandid: Int, completionresult: Hresult, extendedparameters: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand((namespacevirtualizationcontext?.value ?: 0L).toString(), commandid, completionresult, (extendedparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile(namespacevirtualizationcontext.toString(), destinationfilename.toString(), updateflags, failurereason.toString()) as Int) else 0
+public actual fun prjDeleteFile(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile((namespacevirtualizationcontext?.value ?: 0L).toString(), (destinationfilename?.value ?: 0L).toString(), updateflags, (failurereason?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjDoesNameContainWildCards(filename: PCWSTR): Boolean =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards(filename.toString()) as Boolean) else false
+public actual fun prjDoesNameContainWildCards(filename: Pcwstr): Boolean =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards((filename?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjFileNameCompare(filename1: PCWSTR, filename2: PCWSTR): Int =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare(filename1.toString(), filename2.toString()) as Int) else 0
+public actual fun prjFileNameCompare(filename1: Pcwstr, filename2: Pcwstr): Int =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare((filename1?.value ?: 0L).toString(), (filename2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjFileNameMatch(filenametocheck: PCWSTR, pattern: PCWSTR): Boolean =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch(filenametocheck.toString(), pattern.toString()) as Boolean) else false
+public actual fun prjFileNameMatch(filenametocheck: Pcwstr, pattern: Pcwstr): Boolean =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch((filenametocheck?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjFillDirEntryBuffer(filename: PCWSTR, filebasicinfo: Long, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer(filename.toString(), filebasicinfo.toString(), direntrybufferhandle.toString()) as Int) else 0
+public actual fun prjFillDirEntryBuffer(filename: Pcwstr, filebasicinfo: COpaquePointer?, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer((filename?.value ?: 0L).toString(), (filebasicinfo?.value ?: 0L).toString(), (direntrybufferhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: PCWSTR, filebasicinfo: Long, extendedinfo: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2(direntrybufferhandle.toString(), filename.toString(), filebasicinfo.toString(), extendedinfo.toString()) as Int) else 0
+public actual fun prjFillDirEntryBuffer2(direntrybufferhandle: PrjDirEntryBufferHandle, filename: Pcwstr, filebasicinfo: COpaquePointer?, extendedinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2((direntrybufferhandle?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (filebasicinfo?.value ?: 0L).toString(), (extendedinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjFreeAlignedBuffer(buffer: Long) {
+public actual fun prjFreeAlignedBuffer(buffer: COpaquePointer?) {
     if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) {
-        _windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer(buffer.toString())
+        _windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer((buffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PrjGetOnDiskFileState(destinationfilename: PCWSTR, filestate: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState(destinationfilename.toString(), filestate.toString()) as Int) else 0
+public actual fun prjGetOnDiskFileState(destinationfilename: Pcwstr, filestate: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState((destinationfilename?.value ?: 0L).toString(), (filestate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.toString(), virtualizationinstanceinfo.toString()) as Int) else 0
+public actual fun prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, virtualizationinstanceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo((namespacevirtualizationcontext?.value ?: 0L).toString(), (virtualizationinstanceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjMarkDirectoryAsPlaceholder(rootpathname: PCWSTR, targetpathname: PCWSTR, versioninfo: Long, virtualizationinstanceid: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder(rootpathname.toString(), targetpathname.toString(), versioninfo.toString(), virtualizationinstanceid.toString()) as Int) else 0
+public actual fun prjMarkDirectoryAsPlaceholder(rootpathname: Pcwstr, targetpathname: Pcwstr, versioninfo: COpaquePointer?, virtualizationinstanceid: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder((rootpathname?.value ?: 0L).toString(), (targetpathname?.value ?: 0L).toString(), (versioninfo?.value ?: 0L).toString(), (virtualizationinstanceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjStartVirtualizing(virtualizationrootpath: PCWSTR, callbacks: Long, instancecontext: Long, options: Long, namespacevirtualizationcontext: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing(virtualizationrootpath.toString(), callbacks.toString(), instancecontext.toString(), options.toString(), namespacevirtualizationcontext.toString()) as Int) else 0
+public actual fun prjStartVirtualizing(virtualizationrootpath: Pcwstr, callbacks: COpaquePointer?, instancecontext: COpaquePointer?, options: COpaquePointer?, namespacevirtualizationcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing((virtualizationrootpath?.value ?: 0L).toString(), (callbacks?.value ?: 0L).toString(), (instancecontext?.value ?: 0L).toString(), (options?.value ?: 0L).toString(), (namespacevirtualizationcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) {
+public actual fun prjStopVirtualizing(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext) {
     if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) {
-        _windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing(namespacevirtualizationcontext.toString())
+        _windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing((namespacevirtualizationcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded(namespacevirtualizationcontext.toString(), destinationfilename.toString(), placeholderinfo.toString(), placeholderinfosize.toInt(), updateflags, failurereason.toString()) as Int) else 0
+public actual fun prjUpdateFileIfNeeded(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded((namespacevirtualizationcontext?.value ?: 0L).toString(), (destinationfilename?.value ?: 0L).toString(), (placeholderinfo?.value ?: 0L).toString(), placeholderinfosize.toInt(), updateflags, (failurereason?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: Long, buffer: Long, byteoffset: ULong, length: UInt): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData(namespacevirtualizationcontext.toString(), datastreamid.toString(), buffer.toString(), byteoffset.toString(), length.toInt()) as Int) else 0
+public actual fun prjWriteFileData(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, datastreamid: COpaquePointer?, buffer: COpaquePointer?, byteoffset: ULong, length: UInt): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData((namespacevirtualizationcontext?.value ?: 0L).toString(), (datastreamid?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), byteoffset.toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo(namespacevirtualizationcontext.toString(), destinationfilename.toString(), placeholderinfo.toString(), placeholderinfosize.toInt()) as Int) else 0
+public actual fun prjWritePlaceholderInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo((namespacevirtualizationcontext?.value ?: 0L).toString(), (destinationfilename?.value ?: 0L).toString(), (placeholderinfo?.value ?: 0L).toString(), placeholderinfosize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, extendedinfo: Long): HRESULT =
-    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2(namespacevirtualizationcontext.toString(), destinationfilename.toString(), placeholderinfo.toString(), placeholderinfosize.toInt(), extendedinfo.toString()) as Int) else 0
+public actual fun prjWritePlaceholderInfo2(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, extendedinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageProjectedfilesystemNapiAddon != null) (_windowsWin32StorageProjectedfilesystemNapiAddon.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2((namespacevirtualizationcontext?.value ?: 0L).toString(), (destinationfilename?.value ?: 0L).toString(), (placeholderinfo?.value ?: 0L).toString(), placeholderinfosize.toInt(), (extendedinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

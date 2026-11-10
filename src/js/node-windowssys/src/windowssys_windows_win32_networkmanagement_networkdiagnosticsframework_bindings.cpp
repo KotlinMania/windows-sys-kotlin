@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t querytype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cloudname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* groupname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* helperclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cloudname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* peername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -247,7 +247,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t usewinhttp = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sock = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* host = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rootcausecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -325,7 +325,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -345,7 +345,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tracefilelocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* repairex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -388,21 +388,21 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
 }
 
 static void register_windows_win32_networkmanagement_networkdiagnosticsframework_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_networkdiagnosticsframework_napi, nullptr };

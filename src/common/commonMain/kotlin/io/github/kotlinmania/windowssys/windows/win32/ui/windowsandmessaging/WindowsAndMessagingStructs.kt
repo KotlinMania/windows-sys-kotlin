@@ -1,34 +1,37 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTA
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTW
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 
-public data class ACCEL(
-    public var fVirt: ACCEL_VIRT_FLAGS = 0u,
+public data class Accel(
+    public var fVirt: AccelVirtFlags = 0u,
     public var key: UShort = 0u,
     public var cmd: UShort = 0u,
 )
 
-public data class ALTTABINFO(
+public data class Alttabinfo(
     public var cbSize: UInt = 0u,
     public var cItems: Int = 0,
     public var cColumns: Int = 0,
@@ -37,386 +40,386 @@ public data class ALTTABINFO(
     public var iRowFocus: Int = 0,
     public var cxItem: Int = 0,
     public var cyItem: Int = 0,
-    public var ptStart: POINT = POINT(),
+    public var ptStart: Point = Point(),
 )
 
-public data class ANIMATIONINFO(public var cbSize: UInt = 0u, public var iMinAnimate: Int = 0)
+public data class Animationinfo(public var cbSize: UInt = 0u, public var iMinAnimate: Int = 0)
 
-public data class AUDIODESCRIPTION(
+public data class Audiodescription(
     public var cbSize: UInt = 0u,
-    public var Enabled: BOOL = 0,
-    public var Locale: UInt = 0u,
+    public var enabled: Bool = 0,
+    public var locale: UInt = 0u,
 )
 
-public data class CBTACTIVATESTRUCT(public var fMouse: BOOL = 0, public var hWndActive: HWND = 0L)
+public data class Cbtactivatestruct(public var fMouse: Bool = 0, public var hWndActive: Hwnd = null)
 
-public data class CBT_CREATEWNDA(public var lpcs: Long = 0L, public var hwndInsertAfter: HWND = 0L)
+public data class CbtCreatewnda(public var lpcs: Createstructa? = null, public var hwndInsertAfter: Hwnd = null)
 
-public data class CBT_CREATEWNDW(public var lpcs: Long = 0L, public var hwndInsertAfter: HWND = 0L)
+public data class CbtCreatewndw(public var lpcs: Createstructw? = null, public var hwndInsertAfter: Hwnd = null)
 
-public data class CHANGEFILTERSTRUCT(public var cbSize: UInt = 0u, public var ExtStatus: MSGFLTINFO_STATUS = 0u)
+public data class Changefilterstruct(public var cbSize: UInt = 0u, public var extStatus: MsgfltinfoStatus = 0u)
 
-public data class CLIENTCREATESTRUCT(public var hWindowMenu: HANDLE = 0L, public var idFirstChild: UInt = 0u)
+public data class Clientcreatestruct(public var hWindowMenu: Handle = null, public var idFirstChild: UInt = 0u)
 
-public data class CREATESTRUCTA(
-    public var lpCreateParams: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var hMenu: HMENU = 0L,
-    public var hwndParent: HWND = 0L,
+public data class Createstructa(
+    public var lpCreateParams: COpaquePointer? = null,
+    public var hInstance: Hinstance = null,
+    public var hMenu: Hmenu = null,
+    public var hwndParent: Hwnd = null,
     public var cy: Int = 0,
     public var cx: Int = 0,
     public var y: Int = 0,
     public var x: Int = 0,
     public var style: Int = 0,
-    public var lpszName: PCSTR = 0L,
-    public var lpszClass: PCSTR = 0L,
-    public var dwExStyle: WINDOW_EX_STYLE = 0u,
+    public var lpszName: Pcstr = null,
+    public var lpszClass: Pcstr = null,
+    public var dwExStyle: WindowExStyle = 0u,
 )
 
-public data class CREATESTRUCTW(
-    public var lpCreateParams: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var hMenu: HMENU = 0L,
-    public var hwndParent: HWND = 0L,
+public data class Createstructw(
+    public var lpCreateParams: COpaquePointer? = null,
+    public var hInstance: Hinstance = null,
+    public var hMenu: Hmenu = null,
+    public var hwndParent: Hwnd = null,
     public var cy: Int = 0,
     public var cx: Int = 0,
     public var y: Int = 0,
     public var x: Int = 0,
     public var style: Int = 0,
-    public var lpszName: PCWSTR = 0L,
-    public var lpszClass: PCWSTR = 0L,
-    public var dwExStyle: WINDOW_EX_STYLE = 0u,
+    public var lpszName: Pcwstr = null,
+    public var lpszClass: Pcwstr = null,
+    public var dwExStyle: WindowExStyle = 0u,
 )
 
-public data class CURSORINFO(
+public data class Cursorinfo(
     public var cbSize: UInt = 0u,
-    public var flags: CURSORINFO_FLAGS = 0u,
-    public var hCursor: HCURSOR = 0L,
-    public var ptScreenPos: POINT = POINT(),
+    public var flags: CursorinfoFlags = 0u,
+    public var hCursor: Hcursor = null,
+    public var ptScreenPos: Point = Point(),
 )
 
-public data class CURSORSHAPE(
+public data class Cursorshape(
     public var xHotSpot: Int = 0,
     public var yHotSpot: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
     public var cbWidth: Int = 0,
-    public var Planes: UByte = 0u,
-    public var BitsPixel: UByte = 0u,
+    public var planes: UByte = 0u,
+    public var bitsPixel: UByte = 0u,
 )
 
-public data class CWPRETSTRUCT(
-    public var lResult: LRESULT = 0L,
-    public var lParam: LPARAM = 0L,
-    public var wParam: WPARAM = 0uL,
+public data class Cwpretstruct(
+    public var lResult: Lresult = 0L,
+    public var lParam: Lparam = 0L,
+    public var wParam: Wparam = 0uL,
     public var message: UInt = 0u,
-    public var hwnd: HWND = 0L,
+    public var hwnd: Hwnd = null,
 )
 
-public data class CWPSTRUCT(
-    public var lParam: LPARAM = 0L,
-    public var wParam: WPARAM = 0uL,
+public data class Cwpstruct(
+    public var lParam: Lparam = 0L,
+    public var wParam: Wparam = 0uL,
     public var message: UInt = 0u,
-    public var hwnd: HWND = 0L,
+    public var hwnd: Hwnd = null,
 )
 
-public data class DEBUGHOOKINFO(
+public data class Debughookinfo(
     public var idThread: UInt = 0u,
     public var idThreadInstaller: UInt = 0u,
-    public var lParam: LPARAM = 0L,
-    public var wParam: WPARAM = 0uL,
+    public var lParam: Lparam = 0L,
+    public var wParam: Wparam = 0uL,
     public var code: Int = 0,
 )
 
-public data class DEVICE_EVENT_BECOMING_READY(
-    public var Version: UInt = 0u,
-    public var Reason: UInt = 0u,
-    public var Estimated100msToReady: UInt = 0u,
+public data class DeviceEventBecomingReady(
+    public var version: UInt = 0u,
+    public var reason: UInt = 0u,
+    public var estimated100msToReady: UInt = 0u,
 )
 
-public data class DEVICE_EVENT_EXTERNAL_REQUEST(
-    public var Version: UInt = 0u,
-    public var DeviceClass: UInt = 0u,
-    public var ButtonStatus: UShort = 0u,
-    public var Request: UShort = 0u,
-    public var SystemTime: Long = 0L,
+public data class DeviceEventExternalRequest(
+    public var version: UInt = 0u,
+    public var deviceClass: UInt = 0u,
+    public var buttonStatus: UShort = 0u,
+    public var request: UShort = 0u,
+    public var systemTime: Long = 0L,
 )
 
-public data class DEVICE_EVENT_GENERIC_DATA(public var EventNumber: UInt = 0u)
+public data class DeviceEventGenericData(public var eventNumber: UInt = 0u)
 
-public data class DEVICE_EVENT_MOUNT(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var FileSystemNameLength: UInt = 0u,
-    public var FileSystemNameOffset: UInt = 0u,
+public data class DeviceEventMount(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var fileSystemNameLength: UInt = 0u,
+    public var fileSystemNameOffset: UInt = 0u,
 )
 
-public data class DEVICE_EVENT_RBC_DATA(
-    public var EventNumber: UInt = 0u,
-    public var SenseQualifier: UByte = 0u,
-    public var SenseCode: UByte = 0u,
-    public var SenseKey: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var Information: UInt = 0u,
+public data class DeviceEventRbcData(
+    public var eventNumber: UInt = 0u,
+    public var senseQualifier: UByte = 0u,
+    public var senseCode: UByte = 0u,
+    public var senseKey: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var information: UInt = 0u,
 )
 
-public data class DEV_BROADCAST_DEVICEINTERFACE_A(
-    public var dbcc_size: UInt = 0u,
-    public var dbcc_devicetype: UInt = 0u,
-    public var dbcc_reserved: UInt = 0u,
-    public var dbcc_classguid: GUID = GUID(),
-    public var dbcc_name: ByteArray = ByteArray(1),
+public data class DevBroadcastDeviceinterfaceA(
+    public var dbccSize: UInt = 0u,
+    public var dbccDevicetype: UInt = 0u,
+    public var dbccReserved: UInt = 0u,
+    public var dbccClassguid: Guid = Guid(),
+    public var dbccName: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_DEVICEINTERFACE_A) return false
-        if (this.dbcc_size != other.dbcc_size) return false
-        if (this.dbcc_devicetype != other.dbcc_devicetype) return false
-        if (this.dbcc_reserved != other.dbcc_reserved) return false
-        if (this.dbcc_classguid != other.dbcc_classguid) return false
-        if (!this.dbcc_name.contentEquals(other.dbcc_name)) return false
+        if (other !is DevBroadcastDeviceinterfaceA) return false
+        if (this.dbccSize != other.dbccSize) return false
+        if (this.dbccDevicetype != other.dbccDevicetype) return false
+        if (this.dbccReserved != other.dbccReserved) return false
+        if (this.dbccClassguid != other.dbccClassguid) return false
+        if (!this.dbccName.contentEquals(other.dbccName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbcc_size.hashCode()
-        result = 31 * result + this.dbcc_devicetype.hashCode()
-        result = 31 * result + this.dbcc_reserved.hashCode()
-        result = 31 * result + this.dbcc_classguid.hashCode()
-        result = 31 * result + this.dbcc_name.contentHashCode()
+        var result = this.dbccSize.hashCode()
+        result = 31 * result + this.dbccDevicetype.hashCode()
+        result = 31 * result + this.dbccReserved.hashCode()
+        result = 31 * result + this.dbccClassguid.hashCode()
+        result = 31 * result + this.dbccName.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_DEVICEINTERFACE_W(
-    public var dbcc_size: UInt = 0u,
-    public var dbcc_devicetype: UInt = 0u,
-    public var dbcc_reserved: UInt = 0u,
-    public var dbcc_classguid: GUID = GUID(),
-    public var dbcc_name: UShortArray = UShortArray(1),
+public data class DevBroadcastDeviceinterfaceW(
+    public var dbccSize: UInt = 0u,
+    public var dbccDevicetype: UInt = 0u,
+    public var dbccReserved: UInt = 0u,
+    public var dbccClassguid: Guid = Guid(),
+    public var dbccName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_DEVICEINTERFACE_W) return false
-        if (this.dbcc_size != other.dbcc_size) return false
-        if (this.dbcc_devicetype != other.dbcc_devicetype) return false
-        if (this.dbcc_reserved != other.dbcc_reserved) return false
-        if (this.dbcc_classguid != other.dbcc_classguid) return false
-        if (!this.dbcc_name.contentEquals(other.dbcc_name)) return false
+        if (other !is DevBroadcastDeviceinterfaceW) return false
+        if (this.dbccSize != other.dbccSize) return false
+        if (this.dbccDevicetype != other.dbccDevicetype) return false
+        if (this.dbccReserved != other.dbccReserved) return false
+        if (this.dbccClassguid != other.dbccClassguid) return false
+        if (!this.dbccName.contentEquals(other.dbccName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbcc_size.hashCode()
-        result = 31 * result + this.dbcc_devicetype.hashCode()
-        result = 31 * result + this.dbcc_reserved.hashCode()
-        result = 31 * result + this.dbcc_classguid.hashCode()
-        result = 31 * result + this.dbcc_name.contentHashCode()
+        var result = this.dbccSize.hashCode()
+        result = 31 * result + this.dbccDevicetype.hashCode()
+        result = 31 * result + this.dbccReserved.hashCode()
+        result = 31 * result + this.dbccClassguid.hashCode()
+        result = 31 * result + this.dbccName.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_DEVNODE(
-    public var dbcd_size: UInt = 0u,
-    public var dbcd_devicetype: UInt = 0u,
-    public var dbcd_reserved: UInt = 0u,
-    public var dbcd_devnode: UInt = 0u,
+public data class DevBroadcastDevnode(
+    public var dbcdSize: UInt = 0u,
+    public var dbcdDevicetype: UInt = 0u,
+    public var dbcdReserved: UInt = 0u,
+    public var dbcdDevnode: UInt = 0u,
 )
 
-public data class DEV_BROADCAST_HANDLE(
-    public var dbch_size: UInt = 0u,
-    public var dbch_devicetype: UInt = 0u,
-    public var dbch_reserved: UInt = 0u,
-    public var dbch_handle: HANDLE = 0L,
-    public var dbch_hdevnotify: HDEVNOTIFY = 0L,
-    public var dbch_eventguid: GUID = GUID(),
-    public var dbch_nameoffset: Int = 0,
-    public var dbch_data: UByteArray = UByteArray(1),
+public data class DevBroadcastHandle(
+    public var dbchSize: UInt = 0u,
+    public var dbchDevicetype: UInt = 0u,
+    public var dbchReserved: UInt = 0u,
+    public var dbchHandle: Handle = null,
+    public var dbchHdevnotify: Hdevnotify = null,
+    public var dbchEventguid: Guid = Guid(),
+    public var dbchNameoffset: Int = 0,
+    public var dbchData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_HANDLE) return false
-        if (this.dbch_size != other.dbch_size) return false
-        if (this.dbch_devicetype != other.dbch_devicetype) return false
-        if (this.dbch_reserved != other.dbch_reserved) return false
-        if (this.dbch_handle != other.dbch_handle) return false
-        if (this.dbch_hdevnotify != other.dbch_hdevnotify) return false
-        if (this.dbch_eventguid != other.dbch_eventguid) return false
-        if (this.dbch_nameoffset != other.dbch_nameoffset) return false
-        if (!this.dbch_data.contentEquals(other.dbch_data)) return false
+        if (other !is DevBroadcastHandle) return false
+        if (this.dbchSize != other.dbchSize) return false
+        if (this.dbchDevicetype != other.dbchDevicetype) return false
+        if (this.dbchReserved != other.dbchReserved) return false
+        if (this.dbchHandle != other.dbchHandle) return false
+        if (this.dbchHdevnotify != other.dbchHdevnotify) return false
+        if (this.dbchEventguid != other.dbchEventguid) return false
+        if (this.dbchNameoffset != other.dbchNameoffset) return false
+        if (!this.dbchData.contentEquals(other.dbchData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbch_size.hashCode()
-        result = 31 * result + this.dbch_devicetype.hashCode()
-        result = 31 * result + this.dbch_reserved.hashCode()
-        result = 31 * result + this.dbch_handle.hashCode()
-        result = 31 * result + this.dbch_hdevnotify.hashCode()
-        result = 31 * result + this.dbch_eventguid.hashCode()
-        result = 31 * result + this.dbch_nameoffset.hashCode()
-        result = 31 * result + this.dbch_data.contentHashCode()
+        var result = this.dbchSize.hashCode()
+        result = 31 * result + this.dbchDevicetype.hashCode()
+        result = 31 * result + this.dbchReserved.hashCode()
+        result = 31 * result + this.dbchHandle.hashCode()
+        result = 31 * result + this.dbchHdevnotify.hashCode()
+        result = 31 * result + this.dbchEventguid.hashCode()
+        result = 31 * result + this.dbchNameoffset.hashCode()
+        result = 31 * result + this.dbchData.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_HANDLE32(
-    public var dbch_size: UInt = 0u,
-    public var dbch_devicetype: UInt = 0u,
-    public var dbch_reserved: UInt = 0u,
-    public var dbch_handle: UInt = 0u,
-    public var dbch_hdevnotify: UInt = 0u,
-    public var dbch_eventguid: GUID = GUID(),
-    public var dbch_nameoffset: Int = 0,
-    public var dbch_data: UByteArray = UByteArray(1),
+public data class DevBroadcastHandle32(
+    public var dbchSize: UInt = 0u,
+    public var dbchDevicetype: UInt = 0u,
+    public var dbchReserved: UInt = 0u,
+    public var dbchHandle: UInt = 0u,
+    public var dbchHdevnotify: UInt = 0u,
+    public var dbchEventguid: Guid = Guid(),
+    public var dbchNameoffset: Int = 0,
+    public var dbchData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_HANDLE32) return false
-        if (this.dbch_size != other.dbch_size) return false
-        if (this.dbch_devicetype != other.dbch_devicetype) return false
-        if (this.dbch_reserved != other.dbch_reserved) return false
-        if (this.dbch_handle != other.dbch_handle) return false
-        if (this.dbch_hdevnotify != other.dbch_hdevnotify) return false
-        if (this.dbch_eventguid != other.dbch_eventguid) return false
-        if (this.dbch_nameoffset != other.dbch_nameoffset) return false
-        if (!this.dbch_data.contentEquals(other.dbch_data)) return false
+        if (other !is DevBroadcastHandle32) return false
+        if (this.dbchSize != other.dbchSize) return false
+        if (this.dbchDevicetype != other.dbchDevicetype) return false
+        if (this.dbchReserved != other.dbchReserved) return false
+        if (this.dbchHandle != other.dbchHandle) return false
+        if (this.dbchHdevnotify != other.dbchHdevnotify) return false
+        if (this.dbchEventguid != other.dbchEventguid) return false
+        if (this.dbchNameoffset != other.dbchNameoffset) return false
+        if (!this.dbchData.contentEquals(other.dbchData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbch_size.hashCode()
-        result = 31 * result + this.dbch_devicetype.hashCode()
-        result = 31 * result + this.dbch_reserved.hashCode()
-        result = 31 * result + this.dbch_handle.hashCode()
-        result = 31 * result + this.dbch_hdevnotify.hashCode()
-        result = 31 * result + this.dbch_eventguid.hashCode()
-        result = 31 * result + this.dbch_nameoffset.hashCode()
-        result = 31 * result + this.dbch_data.contentHashCode()
+        var result = this.dbchSize.hashCode()
+        result = 31 * result + this.dbchDevicetype.hashCode()
+        result = 31 * result + this.dbchReserved.hashCode()
+        result = 31 * result + this.dbchHandle.hashCode()
+        result = 31 * result + this.dbchHdevnotify.hashCode()
+        result = 31 * result + this.dbchEventguid.hashCode()
+        result = 31 * result + this.dbchNameoffset.hashCode()
+        result = 31 * result + this.dbchData.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_HANDLE64(
-    public var dbch_size: UInt = 0u,
-    public var dbch_devicetype: UInt = 0u,
-    public var dbch_reserved: UInt = 0u,
-    public var dbch_handle: ULong = 0uL,
-    public var dbch_hdevnotify: ULong = 0uL,
-    public var dbch_eventguid: GUID = GUID(),
-    public var dbch_nameoffset: Int = 0,
-    public var dbch_data: UByteArray = UByteArray(1),
+public data class DevBroadcastHandle64(
+    public var dbchSize: UInt = 0u,
+    public var dbchDevicetype: UInt = 0u,
+    public var dbchReserved: UInt = 0u,
+    public var dbchHandle: ULong = 0uL,
+    public var dbchHdevnotify: ULong = 0uL,
+    public var dbchEventguid: Guid = Guid(),
+    public var dbchNameoffset: Int = 0,
+    public var dbchData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_HANDLE64) return false
-        if (this.dbch_size != other.dbch_size) return false
-        if (this.dbch_devicetype != other.dbch_devicetype) return false
-        if (this.dbch_reserved != other.dbch_reserved) return false
-        if (this.dbch_handle != other.dbch_handle) return false
-        if (this.dbch_hdevnotify != other.dbch_hdevnotify) return false
-        if (this.dbch_eventguid != other.dbch_eventguid) return false
-        if (this.dbch_nameoffset != other.dbch_nameoffset) return false
-        if (!this.dbch_data.contentEquals(other.dbch_data)) return false
+        if (other !is DevBroadcastHandle64) return false
+        if (this.dbchSize != other.dbchSize) return false
+        if (this.dbchDevicetype != other.dbchDevicetype) return false
+        if (this.dbchReserved != other.dbchReserved) return false
+        if (this.dbchHandle != other.dbchHandle) return false
+        if (this.dbchHdevnotify != other.dbchHdevnotify) return false
+        if (this.dbchEventguid != other.dbchEventguid) return false
+        if (this.dbchNameoffset != other.dbchNameoffset) return false
+        if (!this.dbchData.contentEquals(other.dbchData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbch_size.hashCode()
-        result = 31 * result + this.dbch_devicetype.hashCode()
-        result = 31 * result + this.dbch_reserved.hashCode()
-        result = 31 * result + this.dbch_handle.hashCode()
-        result = 31 * result + this.dbch_hdevnotify.hashCode()
-        result = 31 * result + this.dbch_eventguid.hashCode()
-        result = 31 * result + this.dbch_nameoffset.hashCode()
-        result = 31 * result + this.dbch_data.contentHashCode()
+        var result = this.dbchSize.hashCode()
+        result = 31 * result + this.dbchDevicetype.hashCode()
+        result = 31 * result + this.dbchReserved.hashCode()
+        result = 31 * result + this.dbchHandle.hashCode()
+        result = 31 * result + this.dbchHdevnotify.hashCode()
+        result = 31 * result + this.dbchEventguid.hashCode()
+        result = 31 * result + this.dbchNameoffset.hashCode()
+        result = 31 * result + this.dbchData.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_HDR(
-    public var dbch_size: UInt = 0u,
-    public var dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u,
-    public var dbch_reserved: UInt = 0u,
+public data class DevBroadcastHdr(
+    public var dbchSize: UInt = 0u,
+    public var dbchDevicetype: DevBroadcastHdrDeviceType = 0u,
+    public var dbchReserved: UInt = 0u,
 )
 
-public data class DEV_BROADCAST_NET(
-    public var dbcn_size: UInt = 0u,
-    public var dbcn_devicetype: UInt = 0u,
-    public var dbcn_reserved: UInt = 0u,
-    public var dbcn_resource: UInt = 0u,
-    public var dbcn_flags: UInt = 0u,
+public data class DevBroadcastNet(
+    public var dbcnSize: UInt = 0u,
+    public var dbcnDevicetype: UInt = 0u,
+    public var dbcnReserved: UInt = 0u,
+    public var dbcnResource: UInt = 0u,
+    public var dbcnFlags: UInt = 0u,
 )
 
-public data class DEV_BROADCAST_OEM(
-    public var dbco_size: UInt = 0u,
-    public var dbco_devicetype: UInt = 0u,
-    public var dbco_reserved: UInt = 0u,
-    public var dbco_identifier: UInt = 0u,
-    public var dbco_suppfunc: UInt = 0u,
+public data class DevBroadcastOem(
+    public var dbcoSize: UInt = 0u,
+    public var dbcoDevicetype: UInt = 0u,
+    public var dbcoReserved: UInt = 0u,
+    public var dbcoIdentifier: UInt = 0u,
+    public var dbcoSuppfunc: UInt = 0u,
 )
 
-public data class DEV_BROADCAST_PORT_A(
-    public var dbcp_size: UInt = 0u,
-    public var dbcp_devicetype: UInt = 0u,
-    public var dbcp_reserved: UInt = 0u,
-    public var dbcp_name: ByteArray = ByteArray(1),
+public data class DevBroadcastPortA(
+    public var dbcpSize: UInt = 0u,
+    public var dbcpDevicetype: UInt = 0u,
+    public var dbcpReserved: UInt = 0u,
+    public var dbcpName: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_PORT_A) return false
-        if (this.dbcp_size != other.dbcp_size) return false
-        if (this.dbcp_devicetype != other.dbcp_devicetype) return false
-        if (this.dbcp_reserved != other.dbcp_reserved) return false
-        if (!this.dbcp_name.contentEquals(other.dbcp_name)) return false
+        if (other !is DevBroadcastPortA) return false
+        if (this.dbcpSize != other.dbcpSize) return false
+        if (this.dbcpDevicetype != other.dbcpDevicetype) return false
+        if (this.dbcpReserved != other.dbcpReserved) return false
+        if (!this.dbcpName.contentEquals(other.dbcpName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbcp_size.hashCode()
-        result = 31 * result + this.dbcp_devicetype.hashCode()
-        result = 31 * result + this.dbcp_reserved.hashCode()
-        result = 31 * result + this.dbcp_name.contentHashCode()
+        var result = this.dbcpSize.hashCode()
+        result = 31 * result + this.dbcpDevicetype.hashCode()
+        result = 31 * result + this.dbcpReserved.hashCode()
+        result = 31 * result + this.dbcpName.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_PORT_W(
-    public var dbcp_size: UInt = 0u,
-    public var dbcp_devicetype: UInt = 0u,
-    public var dbcp_reserved: UInt = 0u,
-    public var dbcp_name: UShortArray = UShortArray(1),
+public data class DevBroadcastPortW(
+    public var dbcpSize: UInt = 0u,
+    public var dbcpDevicetype: UInt = 0u,
+    public var dbcpReserved: UInt = 0u,
+    public var dbcpName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DEV_BROADCAST_PORT_W) return false
-        if (this.dbcp_size != other.dbcp_size) return false
-        if (this.dbcp_devicetype != other.dbcp_devicetype) return false
-        if (this.dbcp_reserved != other.dbcp_reserved) return false
-        if (!this.dbcp_name.contentEquals(other.dbcp_name)) return false
+        if (other !is DevBroadcastPortW) return false
+        if (this.dbcpSize != other.dbcpSize) return false
+        if (this.dbcpDevicetype != other.dbcpDevicetype) return false
+        if (this.dbcpReserved != other.dbcpReserved) return false
+        if (!this.dbcpName.contentEquals(other.dbcpName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbcp_size.hashCode()
-        result = 31 * result + this.dbcp_devicetype.hashCode()
-        result = 31 * result + this.dbcp_reserved.hashCode()
-        result = 31 * result + this.dbcp_name.contentHashCode()
+        var result = this.dbcpSize.hashCode()
+        result = 31 * result + this.dbcpDevicetype.hashCode()
+        result = 31 * result + this.dbcpReserved.hashCode()
+        result = 31 * result + this.dbcpName.contentHashCode()
         return result
     }
 }
 
-public data class DEV_BROADCAST_VOLUME(
-    public var dbcv_size: UInt = 0u,
-    public var dbcv_devicetype: UInt = 0u,
-    public var dbcv_reserved: UInt = 0u,
-    public var dbcv_unitmask: UInt = 0u,
-    public var dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS = 0u,
+public data class DevBroadcastVolume(
+    public var dbcvSize: UInt = 0u,
+    public var dbcvDevicetype: UInt = 0u,
+    public var dbcvReserved: UInt = 0u,
+    public var dbcvUnitmask: UInt = 0u,
+    public var dbcvFlags: DevBroadcastVolumeFlags = 0u,
 )
 
-public data class DISK_HEALTH_NOTIFICATION_DATA(public var DeviceGuid: GUID = GUID())
+public data class DiskHealthNotificationData(public var deviceGuid: Guid = Guid())
 
-public data class DLGITEMTEMPLATE(
+public data class Dlgitemtemplate(
     public var style: UInt = 0u,
     public var dwExtendedStyle: UInt = 0u,
     public var x: Short = 0,
@@ -426,7 +429,7 @@ public data class DLGITEMTEMPLATE(
     public var id: UShort = 0u,
 )
 
-public data class DLGTEMPLATE(
+public data class Dlgtemplate(
     public var style: UInt = 0u,
     public var dwExtendedStyle: UInt = 0u,
     public var cdit: UShort = 0u,
@@ -436,80 +439,80 @@ public data class DLGTEMPLATE(
     public var cy: Short = 0,
 )
 
-public data class DROPSTRUCT(
-    public var hwndSource: HWND = 0L,
-    public var hwndSink: HWND = 0L,
+public data class Dropstruct(
+    public var hwndSource: Hwnd = null,
+    public var hwndSink: Hwnd = null,
     public var wFmt: UInt = 0u,
-    public var dwData: ULong = 0uL,
-    public var ptDrop: POINT = POINT(),
+    public var dwData: Int = 0,
+    public var ptDrop: Point = Point(),
     public var dwControlData: UInt = 0u,
 )
 
-public data class EVENTMSG(
+public data class Eventmsg(
     public var message: UInt = 0u,
     public var paramL: UInt = 0u,
     public var paramH: UInt = 0u,
     public var time: UInt = 0u,
-    public var hwnd: HWND = 0L,
+    public var hwnd: Hwnd = null,
 )
 
-public data class FLASHWINFO(
+public data class Flashwinfo(
     public var cbSize: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var dwFlags: FLASHWINFO_FLAGS = 0u,
+    public var hwnd: Hwnd = null,
+    public var dwFlags: FlashwinfoFlags = 0u,
     public var uCount: UInt = 0u,
     public var dwTimeout: UInt = 0u,
 )
 
-public data class GETCLIPBMETADATA(
-    public var Version: UInt = 0u,
-    public var IsDelayRendered: BOOL = 0,
-    public var IsSynthetic: BOOL = 0,
+public data class Getclipbmetadata(
+    public var version: UInt = 0u,
+    public var isDelayRendered: Bool = 0,
+    public var isSynthetic: Bool = 0,
 )
 
-public data class GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION(public var DiskNumber: UInt = 0u)
+public data class GuidIoDiskCloneArrivalInformation(public var diskNumber: UInt = 0u)
 
-public data class GUITHREADINFO(
+public data class Guithreadinfo(
     public var cbSize: UInt = 0u,
-    public var flags: GUITHREADINFO_FLAGS = 0u,
-    public var hwndActive: HWND = 0L,
-    public var hwndFocus: HWND = 0L,
-    public var hwndCapture: HWND = 0L,
-    public var hwndMenuOwner: HWND = 0L,
-    public var hwndMoveSize: HWND = 0L,
-    public var hwndCaret: HWND = 0L,
-    public var rcCaret: RECT = RECT(),
+    public var flags: GuithreadinfoFlags = 0u,
+    public var hwndActive: Hwnd = null,
+    public var hwndFocus: Hwnd = null,
+    public var hwndCapture: Hwnd = null,
+    public var hwndMenuOwner: Hwnd = null,
+    public var hwndMoveSize: Hwnd = null,
+    public var hwndCaret: Hwnd = null,
+    public var rcCaret: Rect = Rect(),
 )
 
-public data class HARDWAREHOOKSTRUCT(
-    public var hwnd: HWND = 0L,
+public data class Hardwarehookstruct(
+    public var hwnd: Hwnd = null,
     public var message: UInt = 0u,
-    public var wParam: WPARAM = 0uL,
-    public var lParam: LPARAM = 0L,
+    public var wParam: Wparam = 0uL,
+    public var lParam: Lparam = 0L,
 )
 
-public data class ICONINFO(
-    public var fIcon: BOOL = 0,
+public data class Iconinfo(
+    public var fIcon: Bool = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: HBITMAP = 0L,
-    public var hbmColor: HBITMAP = 0L,
+    public var hbmMask: Hbitmap = null,
+    public var hbmColor: Hbitmap = null,
 )
 
-public data class ICONINFOEXA(
+public data class Iconinfoexa(
     public var cbSize: UInt = 0u,
-    public var fIcon: BOOL = 0,
+    public var fIcon: Bool = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: HBITMAP = 0L,
-    public var hbmColor: HBITMAP = 0L,
+    public var hbmMask: Hbitmap = null,
+    public var hbmColor: Hbitmap = null,
     public var wResID: UShort = 0u,
     public var szModName: ByteArray = ByteArray(260),
     public var szResName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ICONINFOEXA) return false
+        if (other !is Iconinfoexa) return false
         if (this.cbSize != other.cbSize) return false
         if (this.fIcon != other.fIcon) return false
         if (this.xHotspot != other.xHotspot) return false
@@ -536,20 +539,20 @@ public data class ICONINFOEXA(
     }
 }
 
-public data class ICONINFOEXW(
+public data class Iconinfoexw(
     public var cbSize: UInt = 0u,
-    public var fIcon: BOOL = 0,
+    public var fIcon: Bool = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: HBITMAP = 0L,
-    public var hbmColor: HBITMAP = 0L,
+    public var hbmMask: Hbitmap = null,
+    public var hbmColor: Hbitmap = null,
     public var wResID: UShort = 0u,
     public var szModName: UShortArray = UShortArray(260),
     public var szResName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ICONINFOEXW) return false
+        if (other !is Iconinfoexw) return false
         if (this.cbSize != other.cbSize) return false
         if (this.fIcon != other.fIcon) return false
         if (this.xHotspot != other.xHotspot) return false
@@ -576,77 +579,77 @@ public data class ICONINFOEXW(
     }
 }
 
-public data class ICONMETRICSA(
+public data class Iconmetricsa(
     public var cbSize: UInt = 0u,
     public var iHorzSpacing: Int = 0,
     public var iVertSpacing: Int = 0,
     public var iTitleWrap: Int = 0,
-    public var lfFont: LOGFONTA = LOGFONTA(),
+    public var lfFont: Logfonta = Logfonta(),
 )
 
-public data class ICONMETRICSW(
+public data class Iconmetricsw(
     public var cbSize: UInt = 0u,
     public var iHorzSpacing: Int = 0,
     public var iVertSpacing: Int = 0,
     public var iTitleWrap: Int = 0,
-    public var lfFont: LOGFONTW = LOGFONTW(),
+    public var lfFont: Logfontw = Logfontw(),
 )
 
-public data class IndexedResourceQualifier(public var name: PWSTR = 0L, public var value: PWSTR = 0L)
+public data class IndexedResourceQualifier(public var name: Pwstr = null, public var value: Pwstr = null)
 
-public data class KBDLLHOOKSTRUCT(
+public data class Kbdllhookstruct(
     public var vkCode: UInt = 0u,
     public var scanCode: UInt = 0u,
-    public var flags: KBDLLHOOKSTRUCT_FLAGS = 0u,
+    public var flags: KbdllhookstructFlags = 0u,
     public var time: UInt = 0u,
-    public var dwExtraInfo: ULong = 0uL,
+    public var dwExtraInfo: Int = 0,
 )
 
-public data class MDICREATESTRUCTA(
-    public var szClass: PCSTR = 0L,
-    public var szTitle: PCSTR = 0L,
-    public var hOwner: HANDLE = 0L,
+public data class Mdicreatestructa(
+    public var szClass: Pcstr = null,
+    public var szTitle: Pcstr = null,
+    public var hOwner: Handle = null,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
-    public var style: WINDOW_STYLE = 0u,
-    public var lParam: LPARAM = 0L,
+    public var style: WindowStyle = 0u,
+    public var lParam: Lparam = 0L,
 )
 
-public data class MDICREATESTRUCTW(
-    public var szClass: PCWSTR = 0L,
-    public var szTitle: PCWSTR = 0L,
-    public var hOwner: HANDLE = 0L,
+public data class Mdicreatestructw(
+    public var szClass: Pcwstr = null,
+    public var szTitle: Pcwstr = null,
+    public var hOwner: Handle = null,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
-    public var style: WINDOW_STYLE = 0u,
-    public var lParam: LPARAM = 0L,
+    public var style: WindowStyle = 0u,
+    public var lParam: Lparam = 0L,
 )
 
-public data class MDINEXTMENU(
-    public var hmenuIn: HMENU = 0L,
-    public var hmenuNext: HMENU = 0L,
-    public var hwndNext: HWND = 0L,
+public data class Mdinextmenu(
+    public var hmenuIn: Hmenu = null,
+    public var hmenuNext: Hmenu = null,
+    public var hwndNext: Hwnd = null,
 )
 
-public data class MENUBARINFO(
+public data class Menubarinfo(
     public var cbSize: UInt = 0u,
-    public var rcBar: RECT = RECT(),
-    public var hMenu: HMENU = 0L,
-    public var hwndMenu: HWND = 0L,
-    public var _bitfield: Int = 0,
+    public var rcBar: Rect = Rect(),
+    public var hMenu: Hmenu = null,
+    public var hwndMenu: Hwnd = null,
+    public var bitfield: Int = 0,
 )
 
-public data class MENUEX_TEMPLATE_HEADER(
+public data class MenuexTemplateHeader(
     public var wVersion: UShort = 0u,
     public var wOffset: UShort = 0u,
     public var dwHelpId: UInt = 0u,
 )
 
-public data class MENUEX_TEMPLATE_ITEM(
+public data class MenuexTemplateItem(
     public var dwType: UInt = 0u,
     public var dwState: UInt = 0u,
     public var uId: UInt = 0u,
@@ -655,7 +658,7 @@ public data class MENUEX_TEMPLATE_ITEM(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MENUEX_TEMPLATE_ITEM) return false
+        if (other !is MenuexTemplateItem) return false
         if (this.dwType != other.dwType) return false
         if (this.dwState != other.dwState) return false
         if (this.uId != other.uId) return false
@@ -674,62 +677,62 @@ public data class MENUEX_TEMPLATE_ITEM(
     }
 }
 
-public data class MENUGETOBJECTINFO(
-    public var dwFlags: MENUGETOBJECTINFO_FLAGS = 0u,
+public data class Menugetobjectinfo(
+    public var dwFlags: MenugetobjectinfoFlags = 0u,
     public var uPos: UInt = 0u,
-    public var hmenu: HMENU = 0L,
-    public var riid: Long = 0L,
-    public var pvObj: Long = 0L,
+    public var hmenu: Hmenu = null,
+    public var riid: COpaquePointer? = null,
+    public var pvObj: COpaquePointer? = null,
 )
 
-public data class MENUINFO(
+public data class Menuinfo(
     public var cbSize: UInt = 0u,
-    public var fMask: MENUINFO_MASK = 0u,
-    public var dwStyle: MENUINFO_STYLE = 0u,
+    public var fMask: MenuinfoMask = 0u,
+    public var dwStyle: MenuinfoStyle = 0u,
     public var cyMax: UInt = 0u,
-    public var hbrBack: HBRUSH = 0L,
+    public var hbrBack: Hbrush = null,
     public var dwContextHelpID: UInt = 0u,
-    public var dwMenuData: ULong = 0uL,
+    public var dwMenuData: Int = 0,
 )
 
-public data class MENUITEMINFOA(
+public data class Menuiteminfoa(
     public var cbSize: UInt = 0u,
-    public var fMask: MENU_ITEM_MASK = 0u,
-    public var fType: MENU_ITEM_TYPE = 0u,
-    public var fState: MENU_ITEM_STATE = 0u,
+    public var fMask: MenuItemMask = 0u,
+    public var fType: MenuItemType = 0u,
+    public var fState: MenuItemState = 0u,
     public var wID: UInt = 0u,
-    public var hSubMenu: HMENU = 0L,
-    public var hbmpChecked: HBITMAP = 0L,
-    public var hbmpUnchecked: HBITMAP = 0L,
-    public var dwItemData: ULong = 0uL,
-    public var dwTypeData: PSTR = 0L,
+    public var hSubMenu: Hmenu = null,
+    public var hbmpChecked: Hbitmap = null,
+    public var hbmpUnchecked: Hbitmap = null,
+    public var dwItemData: Int = 0,
+    public var dwTypeData: Pstr = null,
     public var cch: UInt = 0u,
-    public var hbmpItem: HBITMAP = 0L,
+    public var hbmpItem: Hbitmap = null,
 )
 
-public data class MENUITEMINFOW(
+public data class Menuiteminfow(
     public var cbSize: UInt = 0u,
-    public var fMask: MENU_ITEM_MASK = 0u,
-    public var fType: MENU_ITEM_TYPE = 0u,
-    public var fState: MENU_ITEM_STATE = 0u,
+    public var fMask: MenuItemMask = 0u,
+    public var fType: MenuItemType = 0u,
+    public var fState: MenuItemState = 0u,
     public var wID: UInt = 0u,
-    public var hSubMenu: HMENU = 0L,
-    public var hbmpChecked: HBITMAP = 0L,
-    public var hbmpUnchecked: HBITMAP = 0L,
-    public var dwItemData: ULong = 0uL,
-    public var dwTypeData: PWSTR = 0L,
+    public var hSubMenu: Hmenu = null,
+    public var hbmpChecked: Hbitmap = null,
+    public var hbmpUnchecked: Hbitmap = null,
+    public var dwItemData: Int = 0,
+    public var dwTypeData: Pwstr = null,
     public var cch: UInt = 0u,
-    public var hbmpItem: HBITMAP = 0L,
+    public var hbmpItem: Hbitmap = null,
 )
 
-public data class MENUITEMTEMPLATE(
+public data class Menuitemtemplate(
     public var mtOption: UShort = 0u,
     public var mtID: UShort = 0u,
     public var mtString: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MENUITEMTEMPLATE) return false
+        if (other !is Menuitemtemplate) return false
         if (this.mtOption != other.mtOption) return false
         if (this.mtID != other.mtID) return false
         if (!this.mtString.contentEquals(other.mtString)) return false
@@ -744,165 +747,165 @@ public data class MENUITEMTEMPLATE(
     }
 }
 
-public data class MENUITEMTEMPLATEHEADER(public var versionNumber: UShort = 0u, public var offset: UShort = 0u)
+public data class Menuitemtemplateheader(public var versionNumber: UShort = 0u, public var offset: UShort = 0u)
 
-public data class MENUTEMPLATEEX(public var Anonymous: MENUTEMPLATEEX_0 = MENUTEMPLATEEX_0())
+public data class Menutemplateex(public var anonymous: Menutemplateex0 = Menutemplateex0())
 
-public data class MENUTEMPLATEEX_0(public var Menu: MENUTEMPLATEEX_0_0 = MENUTEMPLATEEX_0_0(), public var MenuEx: MENUTEMPLATEEX_0_1 = MENUTEMPLATEEX_0_1())
+public data class Menutemplateex0(public var menu: Menutemplateex00 = Menutemplateex00(), public var menuEx: Menutemplateex01 = Menutemplateex01())
 
-public data class MENUTEMPLATEEX_0_1(public var mexHeader: MENUEX_TEMPLATE_HEADER = MENUEX_TEMPLATE_HEADER(), public var mexItem: List<MENUEX_TEMPLATE_ITEM> = List(1) { MENUEX_TEMPLATE_ITEM() })
+public data class Menutemplateex01(public var mexHeader: MenuexTemplateHeader = MenuexTemplateHeader(), public var mexItem: List<MenuexTemplateItem> = List(1) { MenuexTemplateItem() })
 
-public data class MENUTEMPLATEEX_0_0(public var mitHeader: MENUITEMTEMPLATEHEADER = MENUITEMTEMPLATEHEADER(), public var miTemplate: List<MENUITEMTEMPLATE> = List(1) { MENUITEMTEMPLATE() })
+public data class Menutemplateex00(public var mitHeader: Menuitemtemplateheader = Menuitemtemplateheader(), public var miTemplate: List<Menuitemtemplate> = List(1) { Menuitemtemplate() })
 
-public data class MESSAGE_RESOURCE_BLOCK(
-    public var LowId: UInt = 0u,
-    public var HighId: UInt = 0u,
-    public var OffsetToEntries: UInt = 0u,
+public data class MessageResourceBlock(
+    public var lowId: UInt = 0u,
+    public var highId: UInt = 0u,
+    public var offsetToEntries: UInt = 0u,
 )
 
-public data class MESSAGE_RESOURCE_DATA(public var NumberOfBlocks: UInt = 0u, public var Blocks: List<MESSAGE_RESOURCE_BLOCK> = List(1) { MESSAGE_RESOURCE_BLOCK() })
+public data class MessageResourceData(public var numberOfBlocks: UInt = 0u, public var blocks: List<MessageResourceBlock> = List(1) { MessageResourceBlock() })
 
-public data class MESSAGE_RESOURCE_ENTRY(
-    public var Length: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Text: UByteArray = UByteArray(1),
+public data class MessageResourceEntry(
+    public var length: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var text: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MESSAGE_RESOURCE_ENTRY) return false
-        if (this.Length != other.Length) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.Text.contentEquals(other.Text)) return false
+        if (other !is MessageResourceEntry) return false
+        if (this.length != other.length) return false
+        if (this.flags != other.flags) return false
+        if (!this.text.contentEquals(other.text)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Text.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.text.contentHashCode()
         return result
     }
 }
 
-public data class MINIMIZEDMETRICS(
+public data class Minimizedmetrics(
     public var cbSize: UInt = 0u,
     public var iWidth: Int = 0,
     public var iHorzGap: Int = 0,
     public var iVertGap: Int = 0,
-    public var iArrange: MINIMIZEDMETRICS_ARRANGE = 0,
+    public var iArrange: MinimizedmetricsArrange = 0,
 )
 
-public data class MINMAXINFO(
-    public var ptReserved: POINT = POINT(),
-    public var ptMaxSize: POINT = POINT(),
-    public var ptMaxPosition: POINT = POINT(),
-    public var ptMinTrackSize: POINT = POINT(),
-    public var ptMaxTrackSize: POINT = POINT(),
+public data class Minmaxinfo(
+    public var ptReserved: Point = Point(),
+    public var ptMaxSize: Point = Point(),
+    public var ptMaxPosition: Point = Point(),
+    public var ptMinTrackSize: Point = Point(),
+    public var ptMaxTrackSize: Point = Point(),
 )
 
-public data class MOUSEHOOKSTRUCT(
-    public var pt: POINT = POINT(),
-    public var hwnd: HWND = 0L,
+public data class Mousehookstruct(
+    public var pt: Point = Point(),
+    public var hwnd: Hwnd = null,
     public var wHitTestCode: UInt = 0u,
-    public var dwExtraInfo: ULong = 0uL,
+    public var dwExtraInfo: Int = 0,
 )
 
-public data class MOUSEHOOKSTRUCTEX(public var Base: MOUSEHOOKSTRUCT = MOUSEHOOKSTRUCT(), public var mouseData: UInt = 0u)
+public data class Mousehookstructex(public var base: Mousehookstruct = Mousehookstruct(), public var mouseData: UInt = 0u)
 
-public data class MSG(
-    public var hwnd: HWND = 0L,
+public data class Msg(
+    public var hwnd: Hwnd = null,
     public var message: UInt = 0u,
-    public var wParam: WPARAM = 0uL,
-    public var lParam: LPARAM = 0L,
+    public var wParam: Wparam = 0uL,
+    public var lParam: Lparam = 0L,
     public var time: UInt = 0u,
-    public var pt: POINT = POINT(),
+    public var pt: Point = Point(),
 )
 
-public data class MSGBOXPARAMSA(
+public data class Msgboxparamsa(
     public var cbSize: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var lpszText: PCSTR = 0L,
-    public var lpszCaption: PCSTR = 0L,
-    public var dwStyle: MESSAGEBOX_STYLE = 0u,
-    public var lpszIcon: PCSTR = 0L,
-    public var dwContextHelpId: ULong = 0uL,
-    public var lpfnMsgBoxCallback: MSGBOXCALLBACK = null,
+    public var hwndOwner: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var lpszText: Pcstr = null,
+    public var lpszCaption: Pcstr = null,
+    public var dwStyle: MessageboxStyle = 0u,
+    public var lpszIcon: Pcstr = null,
+    public var dwContextHelpId: Int = 0,
+    public var lpfnMsgBoxCallback: Msgboxcallback = null,
     public var dwLanguageId: UInt = 0u,
 )
 
-public data class MSGBOXPARAMSW(
+public data class Msgboxparamsw(
     public var cbSize: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var lpszText: PCWSTR = 0L,
-    public var lpszCaption: PCWSTR = 0L,
-    public var dwStyle: MESSAGEBOX_STYLE = 0u,
-    public var lpszIcon: PCWSTR = 0L,
-    public var dwContextHelpId: ULong = 0uL,
-    public var lpfnMsgBoxCallback: MSGBOXCALLBACK = null,
+    public var hwndOwner: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var lpszText: Pcwstr = null,
+    public var lpszCaption: Pcwstr = null,
+    public var dwStyle: MessageboxStyle = 0u,
+    public var lpszIcon: Pcwstr = null,
+    public var dwContextHelpId: Int = 0,
+    public var lpfnMsgBoxCallback: Msgboxcallback = null,
     public var dwLanguageId: UInt = 0u,
 )
 
-public data class MSLLHOOKSTRUCT(
-    public var pt: POINT = POINT(),
+public data class Msllhookstruct(
+    public var pt: Point = Point(),
     public var mouseData: UInt = 0u,
     public var flags: UInt = 0u,
     public var time: UInt = 0u,
-    public var dwExtraInfo: ULong = 0uL,
+    public var dwExtraInfo: Int = 0,
 )
 
-public data class MrmResourceIndexerHandle(public var handle: Long = 0L)
+public data class MrmResourceIndexerHandle(public var handle: COpaquePointer? = null)
 
 public data class MrmResourceIndexerMessage(
     public var severity: MrmResourceIndexerMessageSeverity = 0,
     public var id: UInt = 0u,
-    public var text: PCWSTR = 0L,
+    public var text: Pcwstr = null,
 )
 
-public data class NCCALCSIZE_PARAMS(public var rgrc: List<RECT> = List(3) { RECT() }, public var lppos: Long = 0L)
+public data class NccalcsizeParams(public var rgrc: List<Rect> = List(3) { Rect() }, public var lppos: Windowpos? = null)
 
-public data class NONCLIENTMETRICSA(
+public data class Nonclientmetricsa(
     public var cbSize: UInt = 0u,
     public var iBorderWidth: Int = 0,
     public var iScrollWidth: Int = 0,
     public var iScrollHeight: Int = 0,
     public var iCaptionWidth: Int = 0,
     public var iCaptionHeight: Int = 0,
-    public var lfCaptionFont: LOGFONTA = LOGFONTA(),
+    public var lfCaptionFont: Logfonta = Logfonta(),
     public var iSmCaptionWidth: Int = 0,
     public var iSmCaptionHeight: Int = 0,
-    public var lfSmCaptionFont: LOGFONTA = LOGFONTA(),
+    public var lfSmCaptionFont: Logfonta = Logfonta(),
     public var iMenuWidth: Int = 0,
     public var iMenuHeight: Int = 0,
-    public var lfMenuFont: LOGFONTA = LOGFONTA(),
-    public var lfStatusFont: LOGFONTA = LOGFONTA(),
-    public var lfMessageFont: LOGFONTA = LOGFONTA(),
+    public var lfMenuFont: Logfonta = Logfonta(),
+    public var lfStatusFont: Logfonta = Logfonta(),
+    public var lfMessageFont: Logfonta = Logfonta(),
     public var iPaddedBorderWidth: Int = 0,
 )
 
-public data class NONCLIENTMETRICSW(
+public data class Nonclientmetricsw(
     public var cbSize: UInt = 0u,
     public var iBorderWidth: Int = 0,
     public var iScrollWidth: Int = 0,
     public var iScrollHeight: Int = 0,
     public var iCaptionWidth: Int = 0,
     public var iCaptionHeight: Int = 0,
-    public var lfCaptionFont: LOGFONTW = LOGFONTW(),
+    public var lfCaptionFont: Logfontw = Logfontw(),
     public var iSmCaptionWidth: Int = 0,
     public var iSmCaptionHeight: Int = 0,
-    public var lfSmCaptionFont: LOGFONTW = LOGFONTW(),
+    public var lfSmCaptionFont: Logfontw = Logfontw(),
     public var iMenuWidth: Int = 0,
     public var iMenuHeight: Int = 0,
-    public var lfMenuFont: LOGFONTW = LOGFONTW(),
-    public var lfStatusFont: LOGFONTW = LOGFONTW(),
-    public var lfMessageFont: LOGFONTW = LOGFONTW(),
+    public var lfMenuFont: Logfontw = Logfontw(),
+    public var lfStatusFont: Logfontw = Logfontw(),
+    public var lfMessageFont: Logfontw = Logfontw(),
     public var iPaddedBorderWidth: Int = 0,
 )
 
-public data class SCROLLBARINFO(
+public data class Scrollbarinfo(
     public var cbSize: UInt = 0u,
-    public var rcScrollBar: RECT = RECT(),
+    public var rcScrollBar: Rect = Rect(),
     public var dxyLineButton: Int = 0,
     public var xyThumbTop: Int = 0,
     public var xyThumbBottom: Int = 0,
@@ -911,7 +914,7 @@ public data class SCROLLBARINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCROLLBARINFO) return false
+        if (other !is Scrollbarinfo) return false
         if (this.cbSize != other.cbSize) return false
         if (this.rcScrollBar != other.rcScrollBar) return false
         if (this.dxyLineButton != other.dxyLineButton) return false
@@ -934,9 +937,9 @@ public data class SCROLLBARINFO(
     }
 }
 
-public data class SCROLLINFO(
+public data class Scrollinfo(
     public var cbSize: UInt = 0u,
-    public var fMask: SCROLLINFO_MASK = 0u,
+    public var fMask: ScrollinfoMask = 0u,
     public var nMin: Int = 0,
     public var nMax: Int = 0,
     public var nPage: UInt = 0u,
@@ -944,18 +947,18 @@ public data class SCROLLINFO(
     public var nTrackPos: Int = 0,
 )
 
-public data class SHELLHOOKINFO(public var hwnd: HWND = 0L, public var rc: RECT = RECT())
+public data class Shellhookinfo(public var hwnd: Hwnd = null, public var rc: Rect = Rect())
 
-public data class STYLESTRUCT(public var styleOld: UInt = 0u, public var styleNew: UInt = 0u)
+public data class Stylestruct(public var styleOld: UInt = 0u, public var styleNew: UInt = 0u)
 
-public data class TITLEBARINFO(
+public data class Titlebarinfo(
     public var cbSize: UInt = 0u,
-    public var rcTitleBar: RECT = RECT(),
+    public var rcTitleBar: Rect = Rect(),
     public var rgstate: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TITLEBARINFO) return false
+        if (other !is Titlebarinfo) return false
         if (this.cbSize != other.cbSize) return false
         if (this.rcTitleBar != other.rcTitleBar) return false
         if (!this.rgstate.contentEquals(other.rgstate)) return false
@@ -970,15 +973,15 @@ public data class TITLEBARINFO(
     }
 }
 
-public data class TITLEBARINFOEX(
+public data class Titlebarinfoex(
     public var cbSize: UInt = 0u,
-    public var rcTitleBar: RECT = RECT(),
+    public var rcTitleBar: Rect = Rect(),
     public var rgstate: UIntArray = UIntArray(6),
-    public var rgrect: List<RECT> = List(6) { RECT() },
+    public var rgrect: List<Rect> = List(6) { Rect() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TITLEBARINFOEX) return false
+        if (other !is Titlebarinfoex) return false
         if (this.cbSize != other.cbSize) return false
         if (this.rcTitleBar != other.rcTitleBar) return false
         if (!this.rgstate.contentEquals(other.rgstate)) return false
@@ -995,43 +998,43 @@ public data class TITLEBARINFOEX(
     }
 }
 
-public data class TOUCHPREDICTIONPARAMETERS(
+public data class Touchpredictionparameters(
     public var cbSize: UInt = 0u,
     public var dwLatency: UInt = 0u,
     public var dwSampleTime: UInt = 0u,
     public var bUseHWTimeStamp: UInt = 0u,
 )
 
-public data class TPMPARAMS(public var cbSize: UInt = 0u, public var rcExclude: RECT = RECT())
+public data class Tpmparams(public var cbSize: UInt = 0u, public var rcExclude: Rect = Rect())
 
-public data class UPDATELAYEREDWINDOWINFO(
+public data class Updatelayeredwindowinfo(
     public var cbSize: UInt = 0u,
-    public var hdcDst: HDC = 0L,
-    public var pptDst: Long = 0L,
-    public var psize: Long = 0L,
-    public var hdcSrc: HDC = 0L,
-    public var pptSrc: Long = 0L,
-    public var crKey: COLORREF = 0u,
-    public var pblend: Long = 0L,
-    public var dwFlags: UPDATE_LAYERED_WINDOW_FLAGS = 0u,
-    public var prcDirty: Long = 0L,
+    public var hdcDst: Hdc = null,
+    public var pptDst: Point? = null,
+    public var psize: Size? = null,
+    public var hdcSrc: Hdc = null,
+    public var pptSrc: Point? = null,
+    public var crKey: Colorref = 0u,
+    public var pblend: Blendfunction? = null,
+    public var dwFlags: UpdateLayeredWindowFlags = 0u,
+    public var prcDirty: Rect? = null,
 )
 
 public data class VolLockBroadcast(
-    public var vlb_dbh: DEV_BROADCAST_HDR = DEV_BROADCAST_HDR(),
-    public var vlb_owner: UInt = 0u,
-    public var vlb_perms: UByte = 0u,
-    public var vlb_lockType: UByte = 0u,
-    public var vlb_drive: UByte = 0u,
-    public var vlb_flags: UByte = 0u,
+    public var vlbDbh: DevBroadcastHdr = DevBroadcastHdr(),
+    public var vlbOwner: UInt = 0u,
+    public var vlbPerms: UByte = 0u,
+    public var vlbLockType: UByte = 0u,
+    public var vlbDrive: UByte = 0u,
+    public var vlbFlags: UByte = 0u,
 )
 
-public data class WINDOWINFO(
+public data class Windowinfo(
     public var cbSize: UInt = 0u,
-    public var rcWindow: RECT = RECT(),
-    public var rcClient: RECT = RECT(),
-    public var dwStyle: WINDOW_STYLE = 0u,
-    public var dwExStyle: WINDOW_EX_STYLE = 0u,
+    public var rcWindow: Rect = Rect(),
+    public var rcClient: Rect = Rect(),
+    public var dwStyle: WindowStyle = 0u,
+    public var dwExStyle: WindowExStyle = 0u,
     public var dwWindowStatus: UInt = 0u,
     public var cxWindowBorders: UInt = 0u,
     public var cyWindowBorders: UInt = 0u,
@@ -1039,99 +1042,99 @@ public data class WINDOWINFO(
     public var wCreatorVersion: UShort = 0u,
 )
 
-public data class WINDOWPLACEMENT(
+public data class Windowplacement(
     public var length: UInt = 0u,
-    public var flags: WINDOWPLACEMENT_FLAGS = 0u,
+    public var flags: WindowplacementFlags = 0u,
     public var showCmd: UInt = 0u,
-    public var ptMinPosition: POINT = POINT(),
-    public var ptMaxPosition: POINT = POINT(),
-    public var rcNormalPosition: RECT = RECT(),
+    public var ptMinPosition: Point = Point(),
+    public var ptMaxPosition: Point = Point(),
+    public var rcNormalPosition: Rect = Rect(),
 )
 
-public data class WINDOWPOS(
-    public var hwnd: HWND = 0L,
-    public var hwndInsertAfter: HWND = 0L,
+public data class Windowpos(
+    public var hwnd: Hwnd = null,
+    public var hwndInsertAfter: Hwnd = null,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
-    public var flags: SET_WINDOW_POS_FLAGS = 0u,
+    public var flags: SetWindowPosFlags = 0u,
 )
 
-public data class WNDCLASSA(
-    public var style: WNDCLASS_STYLES = 0u,
-    public var lpfnWndProc: WNDPROC = null,
+public data class Wndclassa(
+    public var style: WndclassStyles = 0u,
+    public var lpfnWndProc: Wndproc = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: HINSTANCE = 0L,
-    public var hIcon: HICON = 0L,
-    public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: HBRUSH = 0L,
-    public var lpszMenuName: PCSTR = 0L,
-    public var lpszClassName: PCSTR = 0L,
+    public var hInstance: Hinstance = null,
+    public var hIcon: Hicon = null,
+    public var hCursor: Hcursor = null,
+    public var hbrBackground: Hbrush = null,
+    public var lpszMenuName: Pcstr = null,
+    public var lpszClassName: Pcstr = null,
 )
 
-public data class WNDCLASSEXA(
+public data class Wndclassexa(
     public var cbSize: UInt = 0u,
-    public var style: WNDCLASS_STYLES = 0u,
-    public var lpfnWndProc: WNDPROC = null,
+    public var style: WndclassStyles = 0u,
+    public var lpfnWndProc: Wndproc = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: HINSTANCE = 0L,
-    public var hIcon: HICON = 0L,
-    public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: HBRUSH = 0L,
-    public var lpszMenuName: PCSTR = 0L,
-    public var lpszClassName: PCSTR = 0L,
-    public var hIconSm: HICON = 0L,
+    public var hInstance: Hinstance = null,
+    public var hIcon: Hicon = null,
+    public var hCursor: Hcursor = null,
+    public var hbrBackground: Hbrush = null,
+    public var lpszMenuName: Pcstr = null,
+    public var lpszClassName: Pcstr = null,
+    public var hIconSm: Hicon = null,
 )
 
-public data class WNDCLASSEXW(
+public data class Wndclassexw(
     public var cbSize: UInt = 0u,
-    public var style: WNDCLASS_STYLES = 0u,
-    public var lpfnWndProc: WNDPROC = null,
+    public var style: WndclassStyles = 0u,
+    public var lpfnWndProc: Wndproc = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: HINSTANCE = 0L,
-    public var hIcon: HICON = 0L,
-    public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: HBRUSH = 0L,
-    public var lpszMenuName: PCWSTR = 0L,
-    public var lpszClassName: PCWSTR = 0L,
-    public var hIconSm: HICON = 0L,
+    public var hInstance: Hinstance = null,
+    public var hIcon: Hicon = null,
+    public var hCursor: Hcursor = null,
+    public var hbrBackground: Hbrush = null,
+    public var lpszMenuName: Pcwstr = null,
+    public var lpszClassName: Pcwstr = null,
+    public var hIconSm: Hicon = null,
 )
 
-public data class WNDCLASSW(
-    public var style: WNDCLASS_STYLES = 0u,
-    public var lpfnWndProc: WNDPROC = null,
+public data class Wndclassw(
+    public var style: WndclassStyles = 0u,
+    public var lpfnWndProc: Wndproc = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: HINSTANCE = 0L,
-    public var hIcon: HICON = 0L,
-    public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: HBRUSH = 0L,
-    public var lpszMenuName: PCWSTR = 0L,
-    public var lpszClassName: PCWSTR = 0L,
+    public var hInstance: Hinstance = null,
+    public var hIcon: Hicon = null,
+    public var hCursor: Hcursor = null,
+    public var hbrBackground: Hbrush = null,
+    public var lpszMenuName: Pcwstr = null,
+    public var lpszClassName: Pcwstr = null,
 )
 
-public data class _DEV_BROADCAST_HEADER(
-    public var dbcd_size: UInt = 0u,
-    public var dbcd_devicetype: UInt = 0u,
-    public var dbcd_reserved: UInt = 0u,
+public data class DevBroadcastHeader(
+    public var dbcdSize: UInt = 0u,
+    public var dbcdDevicetype: UInt = 0u,
+    public var dbcdReserved: UInt = 0u,
 )
 
-public data class _DEV_BROADCAST_USERDEFINED(public var dbud_dbh: DEV_BROADCAST_HDR = DEV_BROADCAST_HDR(), public var dbud_szName: ByteArray = ByteArray(1)) {
+public data class DevBroadcastUserdefined(public var dbudDbh: DevBroadcastHdr = DevBroadcastHdr(), public var dbudSzName: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is _DEV_BROADCAST_USERDEFINED) return false
-        if (this.dbud_dbh != other.dbud_dbh) return false
-        if (!this.dbud_szName.contentEquals(other.dbud_szName)) return false
+        if (other !is DevBroadcastUserdefined) return false
+        if (this.dbudDbh != other.dbudDbh) return false
+        if (!this.dbudSzName.contentEquals(other.dbudSzName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.dbud_dbh.hashCode()
-        result = 31 * result + this.dbud_szName.contentHashCode()
+        var result = this.dbudDbh.hashCode()
+        result = 31 * result + this.dbudSzName.contentHashCode()
         return result
     }
 }

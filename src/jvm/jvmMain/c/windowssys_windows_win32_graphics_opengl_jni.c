@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1ChoosePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1choosePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1DescribePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint ipixelformat, jint nbytes, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1describePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint ipixelformat, jint nbytes, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1GetEnhMetaFilePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hemf, jint cbbuffer, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1getEnhMetaFilePixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hemf, jint cbbuffer, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1GetPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1getPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1SetPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint format, jlong ppfd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1setPixelFormat(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint format, jlong ppfd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1SwapBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1swapBuffers(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7096,6 +7096,24 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglGetProcAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("opengl32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "wglGetProcAddress");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : NULL;
+#else
+    (void)param0;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graphics_opengl_WindowsWin32GraphicsOpenglJniBridge_windowssys_1windows_1win32_1graphics_1opengl_1wglMakeCurrent(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {

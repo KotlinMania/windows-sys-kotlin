@@ -24,7 +24,7 @@ public val AUDIO_STATUS_PLAY_ERROR: UInt = 20u
 
 public val AUDIO_WITH_PREEMPHASIS: UInt = 1u
 
-public val CDDA: TRACK_MODE_TYPE = 2
+public val CDDA: TrackModeType = 2
 
 public val CDROM_CD_TEXT_PACK_ALBUM_NAME: UInt = 128u
 
@@ -84,45 +84,45 @@ public val CD_RAW_SECTOR_WITH_C2_SIZE: UInt = 2648u
 
 public val CD_RAW_SECTOR_WITH_SUBCODE_SIZE: UInt = 2448u
 
-public val Cdrom10Nominal20Exceptions: CDROM_PERFORMANCE_TOLERANCE_TYPE = 1
+public val CDROM10NOMINAL20EXCEPTIONS: CdromPerformanceToleranceType = 1
 
-public val CdromCAVRotation: WRITE_ROTATION = 1
+public val CDROM_CAV_ROTATION: WriteRotation = 1
 
-public val CdromDefaultRotation: WRITE_ROTATION = 0
+public val CDROM_DEFAULT_ROTATION: WriteRotation = 0
 
-public val CdromEntirePerformanceList: CDROM_PERFORMANCE_EXCEPTION_TYPE = 2
+public val CDROM_ENTIRE_PERFORMANCE_LIST: CdromPerformanceExceptionType = 2
 
-public val CdromNominalPerformance: CDROM_PERFORMANCE_EXCEPTION_TYPE = 1
+public val CDROM_NOMINAL_PERFORMANCE: CdromPerformanceExceptionType = 1
 
-public val CdromPerformanceExceptionsOnly: CDROM_PERFORMANCE_EXCEPTION_TYPE = 3
+public val CDROM_PERFORMANCE_EXCEPTIONS_ONLY: CdromPerformanceExceptionType = 3
 
-public val CdromPerformanceRequest: CDROM_PERFORMANCE_REQUEST_TYPE = 1
+public val CDROM_PERFORMANCE_REQUEST: CdromPerformanceRequestType = 1
 
-public val CdromReadPerformance: CDROM_PERFORMANCE_TYPE = 1
+public val CDROM_READ_PERFORMANCE: CdromPerformanceType = 1
 
-public val CdromSetSpeed: CDROM_SPEED_REQUEST = 0
+public val CDROM_SET_SPEED: CdromSpeedRequest = 0
 
-public val CdromSetStreaming: CDROM_SPEED_REQUEST = 1
+public val CDROM_SET_STREAMING: CdromSpeedRequest = 1
 
-public val CdromStreamingDisable: STREAMING_CONTROL_REQUEST_TYPE = 1
+public val CDROM_STREAMING_DISABLE: StreamingControlRequestType = 1
 
-public val CdromStreamingEnableForReadOnly: STREAMING_CONTROL_REQUEST_TYPE = 2
+public val CDROM_STREAMING_ENABLE_FOR_READ_ONLY: StreamingControlRequestType = 2
 
-public val CdromStreamingEnableForReadWrite: STREAMING_CONTROL_REQUEST_TYPE = 4
+public val CDROM_STREAMING_ENABLE_FOR_READ_WRITE: StreamingControlRequestType = 4
 
-public val CdromStreamingEnableForWriteOnly: STREAMING_CONTROL_REQUEST_TYPE = 3
+public val CDROM_STREAMING_ENABLE_FOR_WRITE_ONLY: StreamingControlRequestType = 3
 
-public val CdromWritePerformance: CDROM_PERFORMANCE_TYPE = 2
+public val CDROM_WRITE_PERFORMANCE: CdromPerformanceType = 2
 
-public val CdromWriteSpeedRequest: CDROM_PERFORMANCE_REQUEST_TYPE = 2
+public val CDROM_WRITE_SPEED_REQUEST: CdromPerformanceRequestType = 2
 
 public val DIGITAL_COPY_PERMITTED: UInt = 2u
 
-public val ExclusiveAccessLockDevice: EXCLUSIVE_ACCESS_REQUEST_TYPE = 1
+public val EXCLUSIVE_ACCESS_LOCK_DEVICE: ExclusiveAccessRequestType = 1
 
-public val ExclusiveAccessQueryState: EXCLUSIVE_ACCESS_REQUEST_TYPE = 0
+public val EXCLUSIVE_ACCESS_QUERY_STATE: ExclusiveAccessRequestType = 0
 
-public val ExclusiveAccessUnlockDevice: EXCLUSIVE_ACCESS_REQUEST_TYPE = 2
+public val EXCLUSIVE_ACCESS_UNLOCK_DEVICE: ExclusiveAccessRequestType = 2
 
 public val IOCTL_CDROM_BASE: Int = 2
 
@@ -208,32 +208,32 @@ public val MINIMUM_CDROM_INQUIRY_SIZE: UInt = 36u
 
 public val MINIMUM_CDROM_READ_TOC_EX_SIZE: UInt = 2u
 
-public val MediaBlankTypeEraseLastSession: MEDIA_BLANK_TYPE = 6
+public val MEDIA_BLANK_TYPE_ERASE_LAST_SESSION: MediaBlankType = 6
 
-public val MediaBlankTypeFull: MEDIA_BLANK_TYPE = 0
+public val MEDIA_BLANK_TYPE_FULL: MediaBlankType = 0
 
-public val MediaBlankTypeIncompleteTrack: MEDIA_BLANK_TYPE = 2
+public val MEDIA_BLANK_TYPE_INCOMPLETE_TRACK: MediaBlankType = 2
 
-public val MediaBlankTypeMinimal: MEDIA_BLANK_TYPE = 1
+public val MEDIA_BLANK_TYPE_MINIMAL: MediaBlankType = 1
 
-public val MediaBlankTypeTrackTail: MEDIA_BLANK_TYPE = 4
+public val MEDIA_BLANK_TYPE_TRACK_TAIL: MediaBlankType = 4
 
-public val MediaBlankTypeUncloseLastSession: MEDIA_BLANK_TYPE = 5
+public val MEDIA_BLANK_TYPE_UNCLOSE_LAST_SESSION: MediaBlankType = 5
 
-public val MediaBlankTypeUnreserveLastTrack: MEDIA_BLANK_TYPE = 3
+public val MEDIA_BLANK_TYPE_UNRESERVE_LAST_TRACK: MediaBlankType = 3
 
 public val OBSOLETE_IOCTL_CDROM_GET_CONTROL: UInt = 147508u
 
-public val RawWithC2: TRACK_MODE_TYPE = 4
+public val RAW_WITH_C2: TrackModeType = 4
 
-public val RawWithC2AndSubCode: TRACK_MODE_TYPE = 3
+public val RAW_WITH_C2AND_SUB_CODE: TrackModeType = 3
 
-public val RawWithSubCode: TRACK_MODE_TYPE = 5
+public val RAW_WITH_SUB_CODE: TrackModeType = 5
 
-public val SimpleOpcInfo: CDROM_OPC_INFO_TYPE = 1
+public val SIMPLE_OPC_INFO: CdromOpcInfoType = 1
 
 public val TWO_FOUR_CHANNEL_AUDIO: UInt = 8u
 
-public val XAForm2: TRACK_MODE_TYPE = 1
+public val XA_FORM2: TrackModeType = 1
 
-public val YellowMode2: TRACK_MODE_TYPE = 0
+public val YELLOW_MODE2: TrackModeType = 0

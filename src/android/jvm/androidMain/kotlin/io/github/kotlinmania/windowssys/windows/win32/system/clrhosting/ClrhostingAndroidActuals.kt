@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32SystemClrhostingJniBridge {
     init {
@@ -16,166 +17,166 @@ private object WindowsWin32SystemClrhostingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CLRCreateInstance(clsid: Long, riid: Long, ppinterface: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_cLRCreateInstance(clsid: Long, riid: Long, ppinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CallFunctionShim(szdllname: Long, szfunctionname: Long, lpvargument1: Long, lpvargument2: Long, szversion: Long, pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_callFunctionShim(szdllname: Long, szfunctionname: Long, lpvargument1: Long, lpvargument2: Long, szversion: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance(ptypename: Long, riid: Long, ppobject: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance(ptypename: Long, riid: Long, ppobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime(pwszfilename: Long, rclsid: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime(pwszfilename: Long, rclsid: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorBindToRuntime(pwszversion: Long, pwszbuildflavor: Long, rclsid: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corBindToRuntime(pwszversion: Long, pwszbuildflavor: Long, rclsid: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg(pcfgstream: Long, reserved: Int, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg(pcfgstream: Long, reserved: Int, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx(pwszversion: Long, pwszbuildflavor: Long, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx(pwszversion: Long, pwszbuildflavor: Long, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost(pwszversion: Long, pwszbuildflavor: Long, pwszhostconfigfile: Long, preserved: Long, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost(pwszversion: Long, pwszbuildflavor: Long, pwszhostconfigfile: Long, preserved: Long, startupflags: Int, rclsid: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorExitProcess(exitcode: Int)
+    external fun windowssys_windows_win32_system_clrhosting_corExitProcess(exitcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorLaunchApplication(dwclickoncehost: Int, pwzappfullname: Long, dwmanifestpaths: Int, ppwzmanifestpaths: Long, dwactivationdata: Int, ppwzactivationdata: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_corLaunchApplication(dwclickoncehost: Int, pwzappfullname: Long, dwmanifestpaths: Int, ppwzmanifestpaths: Long, dwactivationdata: Int, ppwzactivationdata: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool()
+    external fun windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Long, ppcordb: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Long, ppcordb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager(riid: Long, ppmanager: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getCLRIdentityManager(riid: Long, ppmanager: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion(pbuffer: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getCORRequiredVersion(pbuffer: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory(pbuffer: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getCORSystemDirectory(pbuffer: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetCORVersion(pbbuffer: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getCORVersion(pbbuffer: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetFileVersion(szfilename: Long, szbuffer: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getFileVersion(szfilename: Long, szbuffer: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetRealProcAddress(pwszprocname: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getRealProcAddress(pwszprocname: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo(pexe: Long, pwszversion: Long, pconfigurationfile: Long, startupflags: Int, runtimeinfoflags: Int, pdirectory: Long, dwdirectory: Int, dwdirectorylength: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo(pexe: Long, pwszversion: Long, pconfigurationfile: Long, startupflags: Int, runtimeinfoflags: Int, pdirectory: Long, dwdirectory: Int, dwdirectorylength: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion(pexe: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion(pexe: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID(rclsid: Long, pversion: Long, cchbuffer: Int, dwlength: Long, dwresolutionflags: Int): Int
+    external fun windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID(rclsid: Long, pversion: Long, cchbuffer: Int, dwlength: Long, dwresolutionflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_GetVersionFromProcess(hprocess: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_getVersionFromProcess(hprocess: Long, pversion: Long, cchbuffer: Int, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_LoadLibraryShim(szdllname: Long, szversion: Long, pvreserved: Long, phmoddll: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_loadLibraryShim(szdllname: Long, szversion: Long, pvreserved: Long, phmoddll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_LoadStringRC(iresouceid: Int, szbuffer: Long, imax: Int, bquiet: Int): Int
+    external fun windowssys_windows_win32_system_clrhosting_loadStringRC(iresouceid: Int, szbuffer: Long, imax: Int, bquiet: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_LoadStringRCEx(lcid: Int, iresouceid: Int, szbuffer: Long, imax: Int, bquiet: Int, pcwchused: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_loadStringRCEx(lcid: Int, iresouceid: Int, szbuffer: Long, imax: Int, bquiet: Int, pcwchused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_LockClrVersion(hostcallback: Long, pbeginhostsetup: Long, pendhostsetup: Long): Int
+    external fun windowssys_windows_win32_system_clrhosting_lockClrVersion(hostcallback: Long, pbeginhostsetup: Long, pendhostsetup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_clrhosting_RunDll32ShimW(hwnd: Long, hinst: Long, lpszcmdline: Long, ncmdshow: Int): Int
+    external fun windowssys_windows_win32_system_clrhosting_runDll32ShimW(hwnd: Long, hinst: Long, lpszcmdline: Long, ncmdshow: Int): Int
 }
 
-public actual fun CLRCreateInstance(clsid: Long, riid: Long, ppinterface: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CLRCreateInstance(clsid, riid, ppinterface)
+public actual fun cLRCreateInstance(clsid: COpaquePointer?, riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_cLRCreateInstance((clsid?.value ?: 0L), (riid?.value ?: 0L), (ppinterface?.value ?: 0L))
 
-public actual fun CallFunctionShim(szdllname: PCWSTR, szfunctionname: PCSTR, lpvargument1: Long, lpvargument2: Long, szversion: PCWSTR, pvreserved: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CallFunctionShim(szdllname, szfunctionname, lpvargument1, lpvargument2, szversion, pvreserved)
+public actual fun callFunctionShim(szdllname: Pcwstr, szfunctionname: Pcstr, lpvargument1: COpaquePointer?, lpvargument2: COpaquePointer?, szversion: Pcwstr, pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_callFunctionShim((szdllname?.value ?: 0L), (szfunctionname?.value ?: 0L), (lpvargument1?.value ?: 0L), (lpvargument2?.value ?: 0L), (szversion?.value ?: 0L), (pvreserved?.value ?: 0L))
 
-public actual fun ClrCreateManagedInstance(ptypename: PCWSTR, riid: Long, ppobject: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance(ptypename, riid, ppobject)
+public actual fun clrCreateManagedInstance(ptypename: Pcwstr, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance((ptypename?.value ?: 0L), (riid?.value ?: 0L), (ppobject?.value ?: 0L))
 
-public actual fun CorBindToCurrentRuntime(pwszfilename: PCWSTR, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime(pwszfilename, rclsid, riid, ppv)
+public actual fun corBindToCurrentRuntime(pwszfilename: Pcwstr, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime((pwszfilename?.value ?: 0L), (rclsid?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CorBindToRuntime(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorBindToRuntime(pwszversion, pwszbuildflavor, rclsid, riid, ppv)
+public actual fun corBindToRuntime(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corBindToRuntime((pwszversion?.value ?: 0L), (pwszbuildflavor?.value ?: 0L), (rclsid?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CorBindToRuntimeByCfg(pcfgstream: Long, reserved: UInt, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg(pcfgstream, reserved.toInt(), startupflags.toInt(), rclsid, riid, ppv)
+public actual fun corBindToRuntimeByCfg(pcfgstream: COpaquePointer?, reserved: UInt, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg((pcfgstream?.value ?: 0L), reserved.toInt(), startupflags.toInt(), (rclsid?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CorBindToRuntimeEx(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx(pwszversion, pwszbuildflavor, startupflags.toInt(), rclsid, riid, ppv)
+public actual fun corBindToRuntimeEx(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx((pwszversion?.value ?: 0L), (pwszbuildflavor?.value ?: 0L), startupflags.toInt(), (rclsid?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CorBindToRuntimeHost(pwszversion: PCWSTR, pwszbuildflavor: PCWSTR, pwszhostconfigfile: PCWSTR, preserved: Long, startupflags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost(pwszversion, pwszbuildflavor, pwszhostconfigfile, preserved, startupflags.toInt(), rclsid, riid, ppv)
+public actual fun corBindToRuntimeHost(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, pwszhostconfigfile: Pcwstr, preserved: COpaquePointer?, startupflags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost((pwszversion?.value ?: 0L), (pwszbuildflavor?.value ?: 0L), (pwszhostconfigfile?.value ?: 0L), (preserved?.value ?: 0L), startupflags.toInt(), (rclsid?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CorExitProcess(exitcode: Int) {
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorExitProcess(exitcode)
+public actual fun corExitProcess(exitcode: Int) {
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corExitProcess(exitcode)
 }
 
-public actual fun CorLaunchApplication(dwclickoncehost: HOST_TYPE, pwzappfullname: PCWSTR, dwmanifestpaths: UInt, ppwzmanifestpaths: Long, dwactivationdata: UInt, ppwzactivationdata: Long, lpprocessinformation: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorLaunchApplication(dwclickoncehost, pwzappfullname, dwmanifestpaths.toInt(), ppwzmanifestpaths, dwactivationdata.toInt(), ppwzactivationdata, lpprocessinformation)
+public actual fun corLaunchApplication(dwclickoncehost: HostType, pwzappfullname: Pcwstr, dwmanifestpaths: UInt, ppwzmanifestpaths: COpaquePointer?, dwactivationdata: UInt, ppwzactivationdata: COpaquePointer?, lpprocessinformation: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corLaunchApplication(dwclickoncehost, (pwzappfullname?.value ?: 0L), dwmanifestpaths.toInt(), (ppwzmanifestpaths?.value ?: 0L), dwactivationdata.toInt(), (ppwzactivationdata?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CorMarkThreadInThreadPool() {
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool()
+public actual fun corMarkThreadInThreadPool() {
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool()
 }
 
-public actual fun CreateDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: PCWSTR, ppcordb: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion, ppcordb)
+public actual fun createDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Pcwstr, ppcordb: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion(idebuggerversion, (szdebuggeeversion?.value ?: 0L), (ppcordb?.value ?: 0L))
 
-public actual fun GetCLRIdentityManager(riid: Long, ppmanager: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager(riid, ppmanager)
+public actual fun getCLRIdentityManager(riid: COpaquePointer?, ppmanager: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getCLRIdentityManager((riid?.value ?: 0L), (ppmanager?.value ?: 0L))
 
-public actual fun GetCORRequiredVersion(pbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion(pbuffer, cchbuffer.toInt(), dwlength)
+public actual fun getCORRequiredVersion(pbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getCORRequiredVersion((pbuffer?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetCORSystemDirectory(pbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory(pbuffer, cchbuffer.toInt(), dwlength)
+public actual fun getCORSystemDirectory(pbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getCORSystemDirectory((pbuffer?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetCORVersion(pbbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetCORVersion(pbbuffer, cchbuffer.toInt(), dwlength)
+public actual fun getCORVersion(pbbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getCORVersion((pbbuffer?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetFileVersion(szfilename: PCWSTR, szbuffer: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetFileVersion(szfilename, szbuffer, cchbuffer.toInt(), dwlength)
+public actual fun getFileVersion(szfilename: Pcwstr, szbuffer: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getFileVersion((szfilename?.value ?: 0L), (szbuffer?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetRealProcAddress(pwszprocname: PCSTR, ppv: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetRealProcAddress(pwszprocname, ppv)
+public actual fun getRealProcAddress(pwszprocname: Pcstr, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getRealProcAddress((pwszprocname?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun GetRequestedRuntimeInfo(pexe: PCWSTR, pwszversion: PCWSTR, pconfigurationfile: PCWSTR, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: PWSTR, dwdirectory: UInt, dwdirectorylength: Long, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo(pexe, pwszversion, pconfigurationfile, startupflags.toInt(), runtimeinfoflags.toInt(), pdirectory, dwdirectory.toInt(), dwdirectorylength, pversion, cchbuffer.toInt(), dwlength)
+public actual fun getRequestedRuntimeInfo(pexe: Pcwstr, pwszversion: Pcwstr, pconfigurationfile: Pcwstr, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: Pwstr, dwdirectory: UInt, dwdirectorylength: COpaquePointer?, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo((pexe?.value ?: 0L), (pwszversion?.value ?: 0L), (pconfigurationfile?.value ?: 0L), startupflags.toInt(), runtimeinfoflags.toInt(), (pdirectory?.value ?: 0L), dwdirectory.toInt(), (dwdirectorylength?.value ?: 0L), (pversion?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetRequestedRuntimeVersion(pexe: PCWSTR, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion(pexe, pversion, cchbuffer.toInt(), dwlength)
+public actual fun getRequestedRuntimeVersion(pexe: Pcwstr, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion((pexe?.value ?: 0L), (pversion?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun GetRequestedRuntimeVersionForCLSID(rclsid: Long, pversion: PWSTR, cchbuffer: UInt, dwlength: Long, dwresolutionflags: CLSID_RESOLUTION_FLAGS): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID(rclsid, pversion, cchbuffer.toInt(), dwlength, dwresolutionflags)
+public actual fun getRequestedRuntimeVersionForCLSID(rclsid: COpaquePointer?, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?, dwresolutionflags: ClsidResolutionFlags): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID((rclsid?.value ?: 0L), (pversion?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L), dwresolutionflags)
 
-public actual fun GetVersionFromProcess(hprocess: HANDLE, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_GetVersionFromProcess(hprocess, pversion, cchbuffer.toInt(), dwlength)
+public actual fun getVersionFromProcess(hprocess: Handle, pversion: Pwstr, cchbuffer: UInt, dwlength: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_getVersionFromProcess((hprocess?.value ?: 0L), (pversion?.value ?: 0L), cchbuffer.toInt(), (dwlength?.value ?: 0L))
 
-public actual fun LoadLibraryShim(szdllname: PCWSTR, szversion: PCWSTR, pvreserved: Long, phmoddll: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_LoadLibraryShim(szdllname, szversion, pvreserved, phmoddll)
+public actual fun loadLibraryShim(szdllname: Pcwstr, szversion: Pcwstr, pvreserved: COpaquePointer?, phmoddll: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_loadLibraryShim((szdllname?.value ?: 0L), (szversion?.value ?: 0L), (pvreserved?.value ?: 0L), (phmoddll?.value ?: 0L))
 
-public actual fun LoadStringRC(iresouceid: UInt, szbuffer: PWSTR, imax: Int, bquiet: Int): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_LoadStringRC(iresouceid.toInt(), szbuffer, imax, bquiet)
+public actual fun loadStringRC(iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_loadStringRC(iresouceid.toInt(), (szbuffer?.value ?: 0L), imax, bquiet)
 
-public actual fun LoadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: PWSTR, imax: Int, bquiet: Int, pcwchused: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_LoadStringRCEx(lcid.toInt(), iresouceid.toInt(), szbuffer, imax, bquiet, pcwchused)
+public actual fun loadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int, pcwchused: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_loadStringRCEx(lcid.toInt(), iresouceid.toInt(), (szbuffer?.value ?: 0L), imax, bquiet, (pcwchused?.value ?: 0L))
 
-public actual fun LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: Long, pendhostsetup: Long): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_LockClrVersion(hostcallback.toLong(), pbeginhostsetup, pendhostsetup)
+public actual fun lockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: COpaquePointer?, pendhostsetup: COpaquePointer?): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_lockClrVersion(0L, (pbeginhostsetup?.value ?: 0L), (pendhostsetup?.value ?: 0L))
 
-public actual fun RunDll32ShimW(hwnd: HWND, hinst: HINSTANCE, lpszcmdline: PCWSTR, ncmdshow: Int): HRESULT =
-    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_RunDll32ShimW(hwnd, hinst, lpszcmdline, ncmdshow)
+public actual fun runDll32ShimW(hwnd: Hwnd, hinst: Hinstance, lpszcmdline: Pcwstr, ncmdshow: Int): Hresult =
+    WindowsWin32SystemClrhostingJniBridge.windowssys_windows_win32_system_clrhosting_runDll32ShimW((hwnd?.value ?: 0L), (hinst?.value ?: 0L), (lpszcmdline?.value ?: 0L), ncmdshow)

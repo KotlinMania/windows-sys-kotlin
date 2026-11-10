@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem
 
-public data class PROPPRG(
+public data class Propprg(
     public var flPrg: UShort = 0u,
     public var flPrgInit: UShort = 0u,
     public var achTitle: ByteArray = ByteArray(30),
@@ -16,7 +16,7 @@ public data class PROPPRG(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROPPRG) return false
+        if (other !is Propprg) return false
         if (this.flPrg != other.flPrg) return false
         if (this.flPrgInit != other.flPrgInit) return false
         if (!this.achTitle.contentEquals(other.achTitle)) return false

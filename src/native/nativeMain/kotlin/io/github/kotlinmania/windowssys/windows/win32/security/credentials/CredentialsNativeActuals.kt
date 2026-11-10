@@ -2,399 +2,400 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun CredDeleteA(targetname: PCSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredDeleteA(targetname.toCPointer<ByteVar>(), type, flags)
+public actual fun credDeleteA(targetname: Pcstr, type: CredType, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credDeleteA(targetname?.value?.toCPointer<ByteVar>(), type, flags)
 
-public actual fun CredDeleteW(targetname: PCWSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredDeleteW(targetname.toCPointer<ByteVar>(), type, flags)
+public actual fun credDeleteW(targetname: Pcwstr, type: CredType, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credDeleteW(targetname?.value?.toCPointer<ByteVar>(), type, flags)
 
-public actual fun CredEnumerateA(filter: PCSTR, flags: CRED_ENUMERATE_FLAGS, count: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredEnumerateA(filter.toCPointer<ByteVar>(), flags, count.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credEnumerateA(filter: Pcstr, flags: CredEnumerateFlags, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credEnumerateA(filter?.value?.toCPointer<ByteVar>(), flags, count?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredEnumerateW(filter: PCWSTR, flags: CRED_ENUMERATE_FLAGS, count: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredEnumerateW(filter.toCPointer<ByteVar>(), flags, count.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credEnumerateW(filter: Pcwstr, flags: CredEnumerateFlags, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credEnumerateW(filter?.value?.toCPointer<ByteVar>(), flags, count?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredFindBestCredentialA(targetname: PCSTR, type: UInt, flags: UInt, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredFindBestCredentialA(targetname.toCPointer<ByteVar>(), type, flags, credential.toCPointer<ByteVar>())
+public actual fun credFindBestCredentialA(targetname: Pcstr, type: UInt, flags: UInt, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credFindBestCredentialA(targetname?.value?.toCPointer<ByteVar>(), type, flags, credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredFindBestCredentialW(targetname: PCWSTR, type: UInt, flags: UInt, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredFindBestCredentialW(targetname.toCPointer<ByteVar>(), type, flags, credential.toCPointer<ByteVar>())
+public actual fun credFindBestCredentialW(targetname: Pcwstr, type: UInt, flags: UInt, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credFindBestCredentialW(targetname?.value?.toCPointer<ByteVar>(), type, flags, credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredFree(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredFree(buffer.toCPointer<ByteVar>())
+public actual fun credFree(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credFree(buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CredGetSessionTypes(maximumpersistcount: UInt, maximumpersist: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredGetSessionTypes(maximumpersistcount, maximumpersist.toCPointer<ByteVar>())
+public actual fun credGetSessionTypes(maximumpersistcount: UInt, maximumpersist: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credGetSessionTypes(maximumpersistcount, maximumpersist?.value?.toCPointer<ByteVar>())
 
-public actual fun CredGetTargetInfoA(targetname: PCSTR, flags: UInt, targetinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredGetTargetInfoA(targetname.toCPointer<ByteVar>(), flags, targetinfo.toCPointer<ByteVar>())
+public actual fun credGetTargetInfoA(targetname: Pcstr, flags: UInt, targetinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credGetTargetInfoA(targetname?.value?.toCPointer<ByteVar>(), flags, targetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CredGetTargetInfoW(targetname: PCWSTR, flags: UInt, targetinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredGetTargetInfoW(targetname.toCPointer<ByteVar>(), flags, targetinfo.toCPointer<ByteVar>())
+public actual fun credGetTargetInfoW(targetname: Pcwstr, flags: UInt, targetinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credGetTargetInfoW(targetname?.value?.toCPointer<ByteVar>(), flags, targetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CredIsMarshaledCredentialA(marshaledcredential: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA(marshaledcredential.toCPointer<ByteVar>())
+public actual fun credIsMarshaledCredentialA(marshaledcredential: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA(marshaledcredential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredIsMarshaledCredentialW(marshaledcredential: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW(marshaledcredential.toCPointer<ByteVar>())
+public actual fun credIsMarshaledCredentialW(marshaledcredential: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW(marshaledcredential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredIsProtectedA(pszprotectedcredentials: PCSTR, pprotectiontype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredIsProtectedA(pszprotectedcredentials.toCPointer<ByteVar>(), pprotectiontype.toCPointer<ByteVar>())
+public actual fun credIsProtectedA(pszprotectedcredentials: Pcstr, pprotectiontype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credIsProtectedA(pszprotectedcredentials?.value?.toCPointer<ByteVar>(), pprotectiontype?.value?.toCPointer<ByteVar>())
 
-public actual fun CredIsProtectedW(pszprotectedcredentials: PCWSTR, pprotectiontype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredIsProtectedW(pszprotectedcredentials.toCPointer<ByteVar>(), pprotectiontype.toCPointer<ByteVar>())
+public actual fun credIsProtectedW(pszprotectedcredentials: Pcwstr, pprotectiontype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credIsProtectedW(pszprotectedcredentials?.value?.toCPointer<ByteVar>(), pprotectiontype?.value?.toCPointer<ByteVar>())
 
-public actual fun CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: Long, marshaledcredential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredMarshalCredentialA(credtype, credential.toCPointer<ByteVar>(), marshaledcredential.toCPointer<ByteVar>())
+public actual fun credMarshalCredentialA(credtype: CredMarshalType, credential: COpaquePointer?, marshaledcredential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credMarshalCredentialA(credtype, credential?.value?.toCPointer<ByteVar>(), marshaledcredential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: Long, marshaledcredential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredMarshalCredentialW(credtype, credential.toCPointer<ByteVar>(), marshaledcredential.toCPointer<ByteVar>())
+public actual fun credMarshalCredentialW(credtype: CredMarshalType, credential: COpaquePointer?, marshaledcredential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credMarshalCredentialW(credtype, credential?.value?.toCPointer<ByteVar>(), marshaledcredential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: PCSTR, pszpassword: PCSTR, ppackedcredentials: Long, pcbpackedcredentials: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA(dwflags, pszusername.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), ppackedcredentials.toCPointer<ByteVar>(), pcbpackedcredentials.toCPointer<ByteVar>())
+public actual fun credPackAuthenticationBufferA(dwflags: CredPackFlags, pszusername: Pcstr, pszpassword: Pcstr, ppackedcredentials: COpaquePointer?, pcbpackedcredentials: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA(dwflags, pszusername?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), ppackedcredentials?.value?.toCPointer<ByteVar>(), pcbpackedcredentials?.value?.toCPointer<ByteVar>())
 
-public actual fun CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: PCWSTR, pszpassword: PCWSTR, ppackedcredentials: Long, pcbpackedcredentials: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW(dwflags, pszusername.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), ppackedcredentials.toCPointer<ByteVar>(), pcbpackedcredentials.toCPointer<ByteVar>())
+public actual fun credPackAuthenticationBufferW(dwflags: CredPackFlags, pszusername: Pcwstr, pszpassword: Pcwstr, ppackedcredentials: COpaquePointer?, pcbpackedcredentials: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW(dwflags, pszusername?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), ppackedcredentials?.value?.toCPointer<ByteVar>(), pcbpackedcredentials?.value?.toCPointer<ByteVar>())
 
-public actual fun CredProtectA(fasself: BOOL, pszcredentials: PCSTR, cchcredentials: UInt, pszprotectedcredentials: PSTR, pcchmaxchars: Long, protectiontype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredProtectA(fasself, pszcredentials.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials.toCPointer<ByteVar>(), pcchmaxchars.toCPointer<ByteVar>(), protectiontype.toCPointer<ByteVar>())
+public actual fun credProtectA(fasself: Bool, pszcredentials: Pcstr, cchcredentials: UInt, pszprotectedcredentials: Pstr, pcchmaxchars: COpaquePointer?, protectiontype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credProtectA(fasself, pszcredentials?.value?.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials?.value?.toCPointer<ByteVar>(), pcchmaxchars?.value?.toCPointer<ByteVar>(), protectiontype?.value?.toCPointer<ByteVar>())
 
-public actual fun CredProtectW(fasself: BOOL, pszcredentials: PCWSTR, cchcredentials: UInt, pszprotectedcredentials: PWSTR, pcchmaxchars: Long, protectiontype: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredProtectW(fasself, pszcredentials.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials.toCPointer<ByteVar>(), pcchmaxchars.toCPointer<ByteVar>(), protectiontype.toCPointer<ByteVar>())
+public actual fun credProtectW(fasself: Bool, pszcredentials: Pcwstr, cchcredentials: UInt, pszprotectedcredentials: Pwstr, pcchmaxchars: COpaquePointer?, protectiontype: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credProtectW(fasself, pszcredentials?.value?.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials?.value?.toCPointer<ByteVar>(), pcchmaxchars?.value?.toCPointer<ByteVar>(), protectiontype?.value?.toCPointer<ByteVar>())
 
-public actual fun CredReadA(targetname: PCSTR, type: CRED_TYPE, flags: UInt, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredReadA(targetname.toCPointer<ByteVar>(), type, flags, credential.toCPointer<ByteVar>())
+public actual fun credReadA(targetname: Pcstr, type: CredType, flags: UInt, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credReadA(targetname?.value?.toCPointer<ByteVar>(), type, flags, credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredReadDomainCredentialsA(targetinfo: Long, flags: UInt, count: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA(targetinfo.toCPointer<ByteVar>(), flags, count.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credReadDomainCredentialsA(targetinfo: COpaquePointer?, flags: UInt, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credReadDomainCredentialsA(targetinfo?.value?.toCPointer<ByteVar>(), flags, count?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredReadDomainCredentialsW(targetinfo: Long, flags: UInt, count: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW(targetinfo.toCPointer<ByteVar>(), flags, count.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credReadDomainCredentialsW(targetinfo: COpaquePointer?, flags: UInt, count: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credReadDomainCredentialsW(targetinfo?.value?.toCPointer<ByteVar>(), flags, count?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredReadW(targetname: PCWSTR, type: CRED_TYPE, flags: UInt, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredReadW(targetname.toCPointer<ByteVar>(), type, flags, credential.toCPointer<ByteVar>())
+public actual fun credReadW(targetname: Pcwstr, type: CredType, flags: UInt, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credReadW(targetname?.value?.toCPointer<ByteVar>(), type, flags, credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredRenameA(oldtargetname: PCSTR, newtargetname: PCSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredRenameA(oldtargetname.toCPointer<ByteVar>(), newtargetname.toCPointer<ByteVar>(), type, flags)
+public actual fun credRenameA(oldtargetname: Pcstr, newtargetname: Pcstr, type: CredType, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credRenameA(oldtargetname?.value?.toCPointer<ByteVar>(), newtargetname?.value?.toCPointer<ByteVar>(), type, flags)
 
-public actual fun CredRenameW(oldtargetname: PCWSTR, newtargetname: PCWSTR, type: CRED_TYPE, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredRenameW(oldtargetname.toCPointer<ByteVar>(), newtargetname.toCPointer<ByteVar>(), type, flags)
+public actual fun credRenameW(oldtargetname: Pcwstr, newtargetname: Pcwstr, type: CredType, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credRenameW(oldtargetname?.value?.toCPointer<ByteVar>(), newtargetname?.value?.toCPointer<ByteVar>(), type, flags)
 
-public actual fun CredUICmdLinePromptForCredentialsA(psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, username: PSTR, uluserbuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, pfsave: Long, dwflags: CREDUI_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA(psztargetname.toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>(), dwautherror, username.toCPointer<ByteVar>(), uluserbuffersize, pszpassword.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave.toCPointer<ByteVar>(), dwflags)
+public actual fun credUICmdLinePromptForCredentialsA(psztargetname: Pcstr, pcontext: COpaquePointer?, dwautherror: UInt, username: Pstr, uluserbuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, pfsave: COpaquePointer?, dwflags: CreduiFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA(psztargetname?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>(), dwautherror, username?.value?.toCPointer<ByteVar>(), uluserbuffersize, pszpassword?.value?.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUICmdLinePromptForCredentialsW(psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, username: PWSTR, uluserbuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, pfsave: Long, dwflags: CREDUI_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW(psztargetname.toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>(), dwautherror, username.toCPointer<ByteVar>(), uluserbuffersize, pszpassword.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave.toCPointer<ByteVar>(), dwflags)
+public actual fun credUICmdLinePromptForCredentialsW(psztargetname: Pcwstr, pcontext: COpaquePointer?, dwautherror: UInt, username: Pwstr, uluserbuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, pfsave: COpaquePointer?, dwflags: CreduiFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW(psztargetname?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>(), dwautherror, username?.value?.toCPointer<ByteVar>(), uluserbuffersize, pszpassword?.value?.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUIConfirmCredentialsA(psztargetname: PCSTR, bconfirm: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA(psztargetname.toCPointer<ByteVar>(), bconfirm)
+public actual fun credUIConfirmCredentialsA(psztargetname: Pcstr, bconfirm: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA(psztargetname?.value?.toCPointer<ByteVar>(), bconfirm)
 
-public actual fun CredUIConfirmCredentialsW(psztargetname: PCWSTR, bconfirm: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW(psztargetname.toCPointer<ByteVar>(), bconfirm)
+public actual fun credUIConfirmCredentialsW(psztargetname: Pcwstr, bconfirm: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW(psztargetname?.value?.toCPointer<ByteVar>(), bconfirm)
 
-public actual fun CredUIParseUserNameA(username: PCSTR, user: PSTR, userbuffersize: UInt, domain: PSTR, domainbuffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIParseUserNameA(username.toCPointer<ByteVar>(), user.toCPointer<ByteVar>(), userbuffersize, domain.toCPointer<ByteVar>(), domainbuffersize)
+public actual fun credUIParseUserNameA(username: Pcstr, user: Pstr, userbuffersize: UInt, domain: Pstr, domainbuffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIParseUserNameA(username?.value?.toCPointer<ByteVar>(), user?.value?.toCPointer<ByteVar>(), userbuffersize, domain?.value?.toCPointer<ByteVar>(), domainbuffersize)
 
-public actual fun CredUIParseUserNameW(username: PCWSTR, user: PWSTR, userbuffersize: UInt, domain: PWSTR, domainbuffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIParseUserNameW(username.toCPointer<ByteVar>(), user.toCPointer<ByteVar>(), userbuffersize, domain.toCPointer<ByteVar>(), domainbuffersize)
+public actual fun credUIParseUserNameW(username: Pcwstr, user: Pwstr, userbuffersize: UInt, domain: Pwstr, domainbuffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIParseUserNameW(username?.value?.toCPointer<ByteVar>(), user?.value?.toCPointer<ByteVar>(), userbuffersize, domain?.value?.toCPointer<ByteVar>(), domainbuffersize)
 
-public actual fun CredUIPromptForCredentialsA(puiinfo: Long, psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, pszusername: PSTR, ulusernamebuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA(puiinfo.toCPointer<ByteVar>(), psztargetname.toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>(), dwautherror, pszusername.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword.toCPointer<ByteVar>(), ulpasswordbuffersize, save.toCPointer<ByteVar>(), dwflags)
+public actual fun credUIPromptForCredentialsA(puiinfo: COpaquePointer?, psztargetname: Pcstr, pcontext: COpaquePointer?, dwautherror: UInt, pszusername: Pstr, ulusernamebuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, save: COpaquePointer?, dwflags: CreduiFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA(puiinfo?.value?.toCPointer<ByteVar>(), psztargetname?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>(), dwautherror, pszusername?.value?.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword?.value?.toCPointer<ByteVar>(), ulpasswordbuffersize, save?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUIPromptForCredentialsW(puiinfo: Long, psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, pszusername: PWSTR, ulusernamebuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW(puiinfo.toCPointer<ByteVar>(), psztargetname.toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>(), dwautherror, pszusername.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword.toCPointer<ByteVar>(), ulpasswordbuffersize, save.toCPointer<ByteVar>(), dwflags)
+public actual fun credUIPromptForCredentialsW(puiinfo: COpaquePointer?, psztargetname: Pcwstr, pcontext: COpaquePointer?, dwautherror: UInt, pszusername: Pwstr, ulusernamebuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, save: COpaquePointer?, dwflags: CreduiFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW(puiinfo?.value?.toCPointer<ByteVar>(), psztargetname?.value?.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>(), dwautherror, pszusername?.value?.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword?.value?.toCPointer<ByteVar>(), ulpasswordbuffersize, save?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUIPromptForWindowsCredentialsA(puiinfo: Long, dwautherror: UInt, pulauthpackage: Long, pvinauthbuffer: Long, ulinauthbuffersize: UInt, ppvoutauthbuffer: Long, puloutauthbuffersize: Long, pfsave: Long, dwflags: CREDUIWIN_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA(puiinfo.toCPointer<ByteVar>(), dwautherror, pulauthpackage.toCPointer<ByteVar>(), pvinauthbuffer.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer.toCPointer<ByteVar>(), puloutauthbuffersize.toCPointer<ByteVar>(), pfsave.toCPointer<ByteVar>(), dwflags)
+public actual fun credUIPromptForWindowsCredentialsA(puiinfo: COpaquePointer?, dwautherror: UInt, pulauthpackage: COpaquePointer?, pvinauthbuffer: COpaquePointer?, ulinauthbuffersize: UInt, ppvoutauthbuffer: COpaquePointer?, puloutauthbuffersize: COpaquePointer?, pfsave: COpaquePointer?, dwflags: CreduiwinFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA(puiinfo?.value?.toCPointer<ByteVar>(), dwautherror, pulauthpackage?.value?.toCPointer<ByteVar>(), pvinauthbuffer?.value?.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer?.value?.toCPointer<ByteVar>(), puloutauthbuffersize?.value?.toCPointer<ByteVar>(), pfsave?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUIPromptForWindowsCredentialsW(puiinfo: Long, dwautherror: UInt, pulauthpackage: Long, pvinauthbuffer: Long, ulinauthbuffersize: UInt, ppvoutauthbuffer: Long, puloutauthbuffersize: Long, pfsave: Long, dwflags: CREDUIWIN_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW(puiinfo.toCPointer<ByteVar>(), dwautherror, pulauthpackage.toCPointer<ByteVar>(), pvinauthbuffer.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer.toCPointer<ByteVar>(), puloutauthbuffersize.toCPointer<ByteVar>(), pfsave.toCPointer<ByteVar>(), dwflags)
+public actual fun credUIPromptForWindowsCredentialsW(puiinfo: COpaquePointer?, dwautherror: UInt, pulauthpackage: COpaquePointer?, pvinauthbuffer: COpaquePointer?, ulinauthbuffersize: UInt, ppvoutauthbuffer: COpaquePointer?, puloutauthbuffersize: COpaquePointer?, pfsave: COpaquePointer?, dwflags: CreduiwinFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW(puiinfo?.value?.toCPointer<ByteVar>(), dwautherror, pulauthpackage?.value?.toCPointer<ByteVar>(), pvinauthbuffer?.value?.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer?.value?.toCPointer<ByteVar>(), puloutauthbuffersize?.value?.toCPointer<ByteVar>(), pfsave?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CredUIReadSSOCredW(pszrealm: PCWSTR, ppszusername: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIReadSSOCredW(pszrealm.toCPointer<ByteVar>(), ppszusername.toCPointer<ByteVar>())
+public actual fun credUIReadSSOCredW(pszrealm: Pcwstr, ppszusername: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIReadSSOCredW(pszrealm?.value?.toCPointer<ByteVar>(), ppszusername?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUIStoreSSOCredW(pszrealm: PCWSTR, pszusername: PCWSTR, pszpassword: PCWSTR, bpersist: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW(pszrealm.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), bpersist)
+public actual fun credUIStoreSSOCredW(pszrealm: Pcwstr, pszusername: Pcwstr, pszpassword: Pcwstr, bpersist: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUIStoreSSOCredW(pszrealm?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), bpersist)
 
-public actual fun CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: Long, cbauthbuffer: UInt, pszusername: PSTR, pcchlmaxusername: Long, pszdomainname: PSTR, pcchmaxdomainname: Long, pszpassword: PSTR, pcchmaxpassword: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA(dwflags, pauthbuffer.toCPointer<ByteVar>(), cbauthbuffer, pszusername.toCPointer<ByteVar>(), pcchlmaxusername.toCPointer<ByteVar>(), pszdomainname.toCPointer<ByteVar>(), pcchmaxdomainname.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), pcchmaxpassword.toCPointer<ByteVar>())
+public actual fun credUnPackAuthenticationBufferA(dwflags: CredPackFlags, pauthbuffer: COpaquePointer?, cbauthbuffer: UInt, pszusername: Pstr, pcchlmaxusername: COpaquePointer?, pszdomainname: Pstr, pcchmaxdomainname: COpaquePointer?, pszpassword: Pstr, pcchmaxpassword: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA(dwflags, pauthbuffer?.value?.toCPointer<ByteVar>(), cbauthbuffer, pszusername?.value?.toCPointer<ByteVar>(), pcchlmaxusername?.value?.toCPointer<ByteVar>(), pszdomainname?.value?.toCPointer<ByteVar>(), pcchmaxdomainname?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), pcchmaxpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: Long, cbauthbuffer: UInt, pszusername: PWSTR, pcchmaxusername: Long, pszdomainname: PWSTR, pcchmaxdomainname: Long, pszpassword: PWSTR, pcchmaxpassword: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW(dwflags, pauthbuffer.toCPointer<ByteVar>(), cbauthbuffer, pszusername.toCPointer<ByteVar>(), pcchmaxusername.toCPointer<ByteVar>(), pszdomainname.toCPointer<ByteVar>(), pcchmaxdomainname.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), pcchmaxpassword.toCPointer<ByteVar>())
+public actual fun credUnPackAuthenticationBufferW(dwflags: CredPackFlags, pauthbuffer: COpaquePointer?, cbauthbuffer: UInt, pszusername: Pwstr, pcchmaxusername: COpaquePointer?, pszdomainname: Pwstr, pcchmaxdomainname: COpaquePointer?, pszpassword: Pwstr, pcchmaxpassword: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW(dwflags, pauthbuffer?.value?.toCPointer<ByteVar>(), cbauthbuffer, pszusername?.value?.toCPointer<ByteVar>(), pcchmaxusername?.value?.toCPointer<ByteVar>(), pszdomainname?.value?.toCPointer<ByteVar>(), pcchmaxdomainname?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), pcchmaxpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUnmarshalCredentialA(marshaledcredential: PCSTR, credtype: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA(marshaledcredential.toCPointer<ByteVar>(), credtype.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credUnmarshalCredentialA(marshaledcredential: Pcstr, credtype: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnmarshalCredentialA(marshaledcredential?.value?.toCPointer<ByteVar>(), credtype?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUnmarshalCredentialW(marshaledcredential: PCWSTR, credtype: Long, credential: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW(marshaledcredential.toCPointer<ByteVar>(), credtype.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>())
+public actual fun credUnmarshalCredentialW(marshaledcredential: Pcwstr, credtype: COpaquePointer?, credential: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnmarshalCredentialW(marshaledcredential?.value?.toCPointer<ByteVar>(), credtype?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUnprotectA(fasself: BOOL, pszprotectedcredentials: PCSTR, cchprotectedcredentials: UInt, pszcredentials: PSTR, pcchmaxchars: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnprotectA(fasself, pszprotectedcredentials.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials.toCPointer<ByteVar>(), pcchmaxchars.toCPointer<ByteVar>())
+public actual fun credUnprotectA(fasself: Bool, pszprotectedcredentials: Pcstr, cchprotectedcredentials: UInt, pszcredentials: Pstr, pcchmaxchars: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnprotectA(fasself, pszprotectedcredentials?.value?.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials?.value?.toCPointer<ByteVar>(), pcchmaxchars?.value?.toCPointer<ByteVar>())
 
-public actual fun CredUnprotectW(fasself: BOOL, pszprotectedcredentials: PCWSTR, cchprotectedcredentials: UInt, pszcredentials: PWSTR, pcchmaxchars: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredUnprotectW(fasself, pszprotectedcredentials.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials.toCPointer<ByteVar>(), pcchmaxchars.toCPointer<ByteVar>())
+public actual fun credUnprotectW(fasself: Bool, pszprotectedcredentials: Pcwstr, cchprotectedcredentials: UInt, pszcredentials: Pwstr, pcchmaxchars: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credUnprotectW(fasself, pszprotectedcredentials?.value?.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials?.value?.toCPointer<ByteVar>(), pcchmaxchars?.value?.toCPointer<ByteVar>())
 
-public actual fun CredWriteA(credential: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredWriteA(credential.toCPointer<ByteVar>(), flags)
+public actual fun credWriteA(credential: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credWriteA(credential?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun CredWriteDomainCredentialsA(targetinfo: Long, credential: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA(targetinfo.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>(), flags)
+public actual fun credWriteDomainCredentialsA(targetinfo: COpaquePointer?, credential: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA(targetinfo?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun CredWriteDomainCredentialsW(targetinfo: Long, credential: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW(targetinfo.toCPointer<ByteVar>(), credential.toCPointer<ByteVar>(), flags)
+public actual fun credWriteDomainCredentialsW(targetinfo: COpaquePointer?, credential: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW(targetinfo?.value?.toCPointer<ByteVar>(), credential?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun CredWriteW(credential: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_CredWriteW(credential.toCPointer<ByteVar>(), flags)
+public actual fun credWriteW(credential: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_credWriteW(credential?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun GetOpenCardNameA(param0: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_GetOpenCardNameA(param0.toCPointer<ByteVar>())
+public actual fun getOpenCardNameA(param0: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_getOpenCardNameA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOpenCardNameW(param0: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_GetOpenCardNameW(param0.toCPointer<ByteVar>())
+public actual fun getOpenCardNameW(param0: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_getOpenCardNameW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation(keycredentialmanagerinfo.toCPointer<ByteVar>())
+public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation(keycredentialmanagerinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun KeyCredentialManagerGetInformation(keycredentialmanagerinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation(keycredentialmanagerinfo.toCPointer<ByteVar>())
+public actual fun keyCredentialManagerGetInformation(keycredentialmanagerinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation(keycredentialmanagerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: Long, keycredentialmanageroperationerrorstates: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype, isready.toCPointer<ByteVar>(), keycredentialmanageroperationerrorstates.toCPointer<ByteVar>())
+public actual fun keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: COpaquePointer?, keycredentialmanageroperationerrorstates: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype, isready?.value?.toCPointer<ByteVar>(), keycredentialmanageroperationerrorstates?.value?.toCPointer<ByteVar>())
 
-public actual fun KeyCredentialManagerShowUIOperation(hwndowner: HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation(hwndowner.toCPointer<ByteVar>(), keycredentialmanageroperationtype)
+public actual fun keyCredentialManagerShowUIOperation(hwndowner: Hwnd, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation(hwndowner?.value?.toCPointer<ByteVar>(), keycredentialmanageroperationtype)
 
-public actual fun SCardAccessStartedEvent(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardAccessStartedEvent()?.toLong() ?: 0L
+public actual fun sCardAccessStartedEvent(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardAccessStartedEvent()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SCardAddReaderToGroupA(hcontext: ULong, szreadername: PCSTR, szgroupname: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA(hcontext, szreadername.toCPointer<ByteVar>(), szgroupname.toCPointer<ByteVar>())
+public actual fun sCardAddReaderToGroupA(hcontext: ULong, szreadername: Pcstr, szgroupname: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardAddReaderToGroupW(hcontext: ULong, szreadername: PCWSTR, szgroupname: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW(hcontext, szreadername.toCPointer<ByteVar>(), szgroupname.toCPointer<ByteVar>())
+public actual fun sCardAddReaderToGroupW(hcontext: ULong, szreadername: Pcwstr, szgroupname: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardAudit(hcontext: ULong, dwevent: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardAudit(hcontext, dwevent)
+public actual fun sCardAudit(hcontext: ULong, dwevent: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardAudit(hcontext, dwevent)
 
-public actual fun SCardBeginTransaction(hcard: ULong): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardBeginTransaction(hcard)
+public actual fun sCardBeginTransaction(hcard: ULong): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardBeginTransaction(hcard)
 
-public actual fun SCardCancel(hcontext: ULong): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardCancel(hcontext)
+public actual fun sCardCancel(hcontext: ULong): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardCancel(hcontext)
 
-public actual fun SCardConnectA(hcontext: ULong, szreader: PCSTR, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: Long, pdwactiveprotocol: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardConnectA(hcontext, szreader.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard.toCPointer<ByteVar>(), pdwactiveprotocol.toCPointer<ByteVar>())
+public actual fun sCardConnectA(hcontext: ULong, szreader: Pcstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: COpaquePointer?, pdwactiveprotocol: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardConnectA(hcontext, szreader?.value?.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard?.value?.toCPointer<ByteVar>(), pdwactiveprotocol?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardConnectW(hcontext: ULong, szreader: PCWSTR, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: Long, pdwactiveprotocol: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardConnectW(hcontext, szreader.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard.toCPointer<ByteVar>(), pdwactiveprotocol.toCPointer<ByteVar>())
+public actual fun sCardConnectW(hcontext: ULong, szreader: Pcwstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: COpaquePointer?, pdwactiveprotocol: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardConnectW(hcontext, szreader?.value?.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard?.value?.toCPointer<ByteVar>(), pdwactiveprotocol?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardControl(hcard, dwcontrolcode, lpinbuffer.toCPointer<ByteVar>(), cbinbuffersize, lpoutbuffer.toCPointer<ByteVar>(), cboutbuffersize, lpbytesreturned.toCPointer<ByteVar>())
+public actual fun sCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardControl(hcard, dwcontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), cbinbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), cboutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardDisconnect(hcard, dwdisposition)
+public actual fun sCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardDisconnect(hcard, dwdisposition)
 
-public actual fun SCardDlgExtendedError(): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardDlgExtendedError()
+public actual fun sCardDlgExtendedError(): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardDlgExtendedError()
 
-public actual fun SCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardEndTransaction(hcard, dwdisposition)
+public actual fun sCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardEndTransaction(hcard, dwdisposition)
 
-public actual fun SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: Long, pvreserved2: Long, phcontext: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardEstablishContext(dwscope, pvreserved1.toCPointer<ByteVar>(), pvreserved2.toCPointer<ByteVar>(), phcontext.toCPointer<ByteVar>())
+public actual fun sCardEstablishContext(dwscope: ScardScope, pvreserved1: COpaquePointer?, pvreserved2: COpaquePointer?, phcontext: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardEstablishContext(dwscope, pvreserved1?.value?.toCPointer<ByteVar>(), pvreserved2?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetCardTypeA(hcontext: ULong, szcardname: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetCardTypeA(hcontext, szcardname.toCPointer<ByteVar>())
+public actual fun sCardForgetCardTypeA(hcontext: ULong, szcardname: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetCardTypeA(hcontext, szcardname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetCardTypeW(hcontext: ULong, szcardname: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetCardTypeW(hcontext, szcardname.toCPointer<ByteVar>())
+public actual fun sCardForgetCardTypeW(hcontext: ULong, szcardname: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetCardTypeW(hcontext, szcardname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetReaderA(hcontext: ULong, szreadername: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetReaderA(hcontext, szreadername.toCPointer<ByteVar>())
+public actual fun sCardForgetReaderA(hcontext: ULong, szreadername: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetReaderA(hcontext, szreadername?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetReaderGroupA(hcontext: ULong, szgroupname: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA(hcontext, szgroupname.toCPointer<ByteVar>())
+public actual fun sCardForgetReaderGroupA(hcontext: ULong, szgroupname: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA(hcontext, szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetReaderGroupW(hcontext: ULong, szgroupname: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW(hcontext, szgroupname.toCPointer<ByteVar>())
+public actual fun sCardForgetReaderGroupW(hcontext: ULong, szgroupname: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW(hcontext, szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardForgetReaderW(hcontext: ULong, szreadername: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardForgetReaderW(hcontext, szreadername.toCPointer<ByteVar>())
+public actual fun sCardForgetReaderW(hcontext: ULong, szreadername: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardForgetReaderW(hcontext, szreadername?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardFreeMemory(hcontext: ULong, pvmem: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardFreeMemory(hcontext, pvmem.toCPointer<ByteVar>())
+public actual fun sCardFreeMemory(hcontext: ULong, pvmem: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardFreeMemory(hcontext, pvmem?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: Long, pcbattrlen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetAttrib(hcard, dwattrid, pbattr.toCPointer<ByteVar>(), pcbattrlen.toCPointer<ByteVar>())
+public actual fun sCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: COpaquePointer?, pcbattrlen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetAttrib(hcard, dwattrid, pbattr?.value?.toCPointer<ByteVar>(), pcbattrlen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: PCSTR, dwproviderid: UInt, szprovider: PSTR, pcchprovider: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA(hcontext, szcardname.toCPointer<ByteVar>(), dwproviderid, szprovider.toCPointer<ByteVar>(), pcchprovider.toCPointer<ByteVar>())
+public actual fun sCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pstr, pcchprovider: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA(hcontext, szcardname?.value?.toCPointer<ByteVar>(), dwproviderid, szprovider?.value?.toCPointer<ByteVar>(), pcchprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: PCWSTR, dwproviderid: UInt, szprovider: PWSTR, pcchprovider: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW(hcontext, szcardname.toCPointer<ByteVar>(), dwproviderid, szprovider.toCPointer<ByteVar>(), pcchprovider.toCPointer<ByteVar>())
+public actual fun sCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pwstr, pcchprovider: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW(hcontext, szcardname?.value?.toCPointer<ByteVar>(), dwproviderid, szprovider?.value?.toCPointer<ByteVar>(), pcchprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetDeviceTypeIdA(hcontext: ULong, szreadername: PCSTR, pdwdevicetypeid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA(hcontext, szreadername.toCPointer<ByteVar>(), pdwdevicetypeid.toCPointer<ByteVar>())
+public actual fun sCardGetDeviceTypeIdA(hcontext: ULong, szreadername: Pcstr, pdwdevicetypeid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), pdwdevicetypeid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetDeviceTypeIdW(hcontext: ULong, szreadername: PCWSTR, pdwdevicetypeid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW(hcontext, szreadername.toCPointer<ByteVar>(), pdwdevicetypeid.toCPointer<ByteVar>())
+public actual fun sCardGetDeviceTypeIdW(hcontext: ULong, szreadername: Pcwstr, pdwdevicetypeid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), pdwdevicetypeid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetProviderIdA(hcontext: ULong, szcard: PCSTR, pguidproviderid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetProviderIdA(hcontext, szcard.toCPointer<ByteVar>(), pguidproviderid.toCPointer<ByteVar>())
+public actual fun sCardGetProviderIdA(hcontext: ULong, szcard: Pcstr, pguidproviderid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetProviderIdA(hcontext, szcard?.value?.toCPointer<ByteVar>(), pguidproviderid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetProviderIdW(hcontext: ULong, szcard: PCWSTR, pguidproviderid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetProviderIdW(hcontext, szcard.toCPointer<ByteVar>(), pguidproviderid.toCPointer<ByteVar>())
+public actual fun sCardGetProviderIdW(hcontext: ULong, szcard: Pcwstr, pguidproviderid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetProviderIdW(hcontext, szcard?.value?.toCPointer<ByteVar>(), pguidproviderid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: PCSTR, szdeviceinstanceid: PSTR, pcchdeviceinstanceid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA(hcontext, szreadername.toCPointer<ByteVar>(), szdeviceinstanceid.toCPointer<ByteVar>(), pcchdeviceinstanceid.toCPointer<ByteVar>())
+public actual fun sCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: Pcstr, szdeviceinstanceid: Pstr, pcchdeviceinstanceid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szdeviceinstanceid?.value?.toCPointer<ByteVar>(), pcchdeviceinstanceid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: PCWSTR, szdeviceinstanceid: PWSTR, pcchdeviceinstanceid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW(hcontext, szreadername.toCPointer<ByteVar>(), szdeviceinstanceid.toCPointer<ByteVar>(), pcchdeviceinstanceid.toCPointer<ByteVar>())
+public actual fun sCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: Pcwstr, szdeviceinstanceid: Pwstr, pcchdeviceinstanceid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szdeviceinstanceid?.value?.toCPointer<ByteVar>(), pcchdeviceinstanceid?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetReaderIconA(hcontext: ULong, szreadername: PCSTR, pbicon: Long, pcbicon: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetReaderIconA(hcontext, szreadername.toCPointer<ByteVar>(), pbicon.toCPointer<ByteVar>(), pcbicon.toCPointer<ByteVar>())
+public actual fun sCardGetReaderIconA(hcontext: ULong, szreadername: Pcstr, pbicon: COpaquePointer?, pcbicon: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetReaderIconA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), pbicon?.value?.toCPointer<ByteVar>(), pcbicon?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetReaderIconW(hcontext: ULong, szreadername: PCWSTR, pbicon: Long, pcbicon: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetReaderIconW(hcontext, szreadername.toCPointer<ByteVar>(), pbicon.toCPointer<ByteVar>(), pcbicon.toCPointer<ByteVar>())
+public actual fun sCardGetReaderIconW(hcontext: ULong, szreadername: Pcwstr, pbicon: COpaquePointer?, pcbicon: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetReaderIconW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), pbicon?.value?.toCPointer<ByteVar>(), pcbicon?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetStatusChangeA(hcontext, dwtimeout, rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetStatusChangeA(hcontext, dwtimeout, rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetStatusChangeW(hcontext, dwtimeout, rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetStatusChangeW(hcontext, dwtimeout, rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardGetTransmitCount(hcard: ULong, pctransmitcount: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardGetTransmitCount(hcard, pctransmitcount.toCPointer<ByteVar>())
+public actual fun sCardGetTransmitCount(hcard: ULong, pctransmitcount: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardGetTransmitCount(hcard, pctransmitcount?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardIntroduceCardTypeA(hcontext: ULong, szcardname: PCSTR, pguidprimaryprovider: Long, rgguidinterfaces: Long, dwinterfacecount: UInt, pbatr: Long, pbatrmask: Long, cbatrlen: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA(hcontext, szcardname.toCPointer<ByteVar>(), pguidprimaryprovider.toCPointer<ByteVar>(), rgguidinterfaces.toCPointer<ByteVar>(), dwinterfacecount, pbatr.toCPointer<ByteVar>(), pbatrmask.toCPointer<ByteVar>(), cbatrlen)
+public actual fun sCardIntroduceCardTypeA(hcontext: ULong, szcardname: Pcstr, pguidprimaryprovider: COpaquePointer?, rgguidinterfaces: COpaquePointer?, dwinterfacecount: UInt, pbatr: COpaquePointer?, pbatrmask: COpaquePointer?, cbatrlen: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA(hcontext, szcardname?.value?.toCPointer<ByteVar>(), pguidprimaryprovider?.value?.toCPointer<ByteVar>(), rgguidinterfaces?.value?.toCPointer<ByteVar>(), dwinterfacecount, pbatr?.value?.toCPointer<ByteVar>(), pbatrmask?.value?.toCPointer<ByteVar>(), cbatrlen)
 
-public actual fun SCardIntroduceCardTypeW(hcontext: ULong, szcardname: PCWSTR, pguidprimaryprovider: Long, rgguidinterfaces: Long, dwinterfacecount: UInt, pbatr: Long, pbatrmask: Long, cbatrlen: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW(hcontext, szcardname.toCPointer<ByteVar>(), pguidprimaryprovider.toCPointer<ByteVar>(), rgguidinterfaces.toCPointer<ByteVar>(), dwinterfacecount, pbatr.toCPointer<ByteVar>(), pbatrmask.toCPointer<ByteVar>(), cbatrlen)
+public actual fun sCardIntroduceCardTypeW(hcontext: ULong, szcardname: Pcwstr, pguidprimaryprovider: COpaquePointer?, rgguidinterfaces: COpaquePointer?, dwinterfacecount: UInt, pbatr: COpaquePointer?, pbatrmask: COpaquePointer?, cbatrlen: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW(hcontext, szcardname?.value?.toCPointer<ByteVar>(), pguidprimaryprovider?.value?.toCPointer<ByteVar>(), rgguidinterfaces?.value?.toCPointer<ByteVar>(), dwinterfacecount, pbatr?.value?.toCPointer<ByteVar>(), pbatrmask?.value?.toCPointer<ByteVar>(), cbatrlen)
 
-public actual fun SCardIntroduceReaderA(hcontext: ULong, szreadername: PCSTR, szdevicename: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceReaderA(hcontext, szreadername.toCPointer<ByteVar>(), szdevicename.toCPointer<ByteVar>())
+public actual fun sCardIntroduceReaderA(hcontext: ULong, szreadername: Pcstr, szdevicename: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceReaderA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardIntroduceReaderGroupA(hcontext: ULong, szgroupname: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA(hcontext, szgroupname.toCPointer<ByteVar>())
+public actual fun sCardIntroduceReaderGroupA(hcontext: ULong, szgroupname: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA(hcontext, szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardIntroduceReaderGroupW(hcontext: ULong, szgroupname: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW(hcontext, szgroupname.toCPointer<ByteVar>())
+public actual fun sCardIntroduceReaderGroupW(hcontext: ULong, szgroupname: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW(hcontext, szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardIntroduceReaderW(hcontext: ULong, szreadername: PCWSTR, szdevicename: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIntroduceReaderW(hcontext, szreadername.toCPointer<ByteVar>(), szdevicename.toCPointer<ByteVar>())
+public actual fun sCardIntroduceReaderW(hcontext: ULong, szreadername: Pcwstr, szdevicename: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIntroduceReaderW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardIsValidContext(hcontext: ULong): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardIsValidContext(hcontext)
+public actual fun sCardIsValidContext(hcontext: ULong): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardIsValidContext(hcontext)
 
-public actual fun SCardListCardsA(hcontext: ULong, pbatr: Long, rgquidinterfaces: Long, cguidinterfacecount: UInt, mszcards: PSTR, pcchcards: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListCardsA(hcontext, pbatr.toCPointer<ByteVar>(), rgquidinterfaces.toCPointer<ByteVar>(), cguidinterfacecount, mszcards.toCPointer<ByteVar>(), pcchcards.toCPointer<ByteVar>())
+public actual fun sCardListCardsA(hcontext: ULong, pbatr: COpaquePointer?, rgquidinterfaces: COpaquePointer?, cguidinterfacecount: UInt, mszcards: Pstr, pcchcards: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListCardsA(hcontext, pbatr?.value?.toCPointer<ByteVar>(), rgquidinterfaces?.value?.toCPointer<ByteVar>(), cguidinterfacecount, mszcards?.value?.toCPointer<ByteVar>(), pcchcards?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListCardsW(hcontext: ULong, pbatr: Long, rgquidinterfaces: Long, cguidinterfacecount: UInt, mszcards: PWSTR, pcchcards: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListCardsW(hcontext, pbatr.toCPointer<ByteVar>(), rgquidinterfaces.toCPointer<ByteVar>(), cguidinterfacecount, mszcards.toCPointer<ByteVar>(), pcchcards.toCPointer<ByteVar>())
+public actual fun sCardListCardsW(hcontext: ULong, pbatr: COpaquePointer?, rgquidinterfaces: COpaquePointer?, cguidinterfacecount: UInt, mszcards: Pwstr, pcchcards: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListCardsW(hcontext, pbatr?.value?.toCPointer<ByteVar>(), rgquidinterfaces?.value?.toCPointer<ByteVar>(), cguidinterfacecount, mszcards?.value?.toCPointer<ByteVar>(), pcchcards?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListInterfacesA(hcontext: ULong, szcard: PCSTR, pguidinterfaces: Long, pcguidinterfaces: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListInterfacesA(hcontext, szcard.toCPointer<ByteVar>(), pguidinterfaces.toCPointer<ByteVar>(), pcguidinterfaces.toCPointer<ByteVar>())
+public actual fun sCardListInterfacesA(hcontext: ULong, szcard: Pcstr, pguidinterfaces: COpaquePointer?, pcguidinterfaces: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListInterfacesA(hcontext, szcard?.value?.toCPointer<ByteVar>(), pguidinterfaces?.value?.toCPointer<ByteVar>(), pcguidinterfaces?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListInterfacesW(hcontext: ULong, szcard: PCWSTR, pguidinterfaces: Long, pcguidinterfaces: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListInterfacesW(hcontext, szcard.toCPointer<ByteVar>(), pguidinterfaces.toCPointer<ByteVar>(), pcguidinterfaces.toCPointer<ByteVar>())
+public actual fun sCardListInterfacesW(hcontext: ULong, szcard: Pcwstr, pguidinterfaces: COpaquePointer?, pcguidinterfaces: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListInterfacesW(hcontext, szcard?.value?.toCPointer<ByteVar>(), pguidinterfaces?.value?.toCPointer<ByteVar>(), pcguidinterfaces?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReaderGroupsA(hcontext: ULong, mszgroups: PSTR, pcchgroups: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReaderGroupsA(hcontext, mszgroups.toCPointer<ByteVar>(), pcchgroups.toCPointer<ByteVar>())
+public actual fun sCardListReaderGroupsA(hcontext: ULong, mszgroups: Pstr, pcchgroups: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReaderGroupsA(hcontext, mszgroups?.value?.toCPointer<ByteVar>(), pcchgroups?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReaderGroupsW(hcontext: ULong, mszgroups: PWSTR, pcchgroups: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReaderGroupsW(hcontext, mszgroups.toCPointer<ByteVar>(), pcchgroups.toCPointer<ByteVar>())
+public actual fun sCardListReaderGroupsW(hcontext: ULong, mszgroups: Pwstr, pcchgroups: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReaderGroupsW(hcontext, mszgroups?.value?.toCPointer<ByteVar>(), pcchgroups?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReadersA(hcontext: ULong, mszgroups: PCSTR, mszreaders: PSTR, pcchreaders: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReadersA(hcontext, mszgroups.toCPointer<ByteVar>(), mszreaders.toCPointer<ByteVar>(), pcchreaders.toCPointer<ByteVar>())
+public actual fun sCardListReadersA(hcontext: ULong, mszgroups: Pcstr, mszreaders: Pstr, pcchreaders: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReadersA(hcontext, mszgroups?.value?.toCPointer<ByteVar>(), mszreaders?.value?.toCPointer<ByteVar>(), pcchreaders?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReadersW(hcontext: ULong, mszgroups: PCWSTR, mszreaders: PWSTR, pcchreaders: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReadersW(hcontext, mszgroups.toCPointer<ByteVar>(), mszreaders.toCPointer<ByteVar>(), pcchreaders.toCPointer<ByteVar>())
+public actual fun sCardListReadersW(hcontext: ULong, mszgroups: Pcwstr, mszreaders: Pwstr, pcchreaders: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReadersW(hcontext, mszgroups?.value?.toCPointer<ByteVar>(), mszreaders?.value?.toCPointer<ByteVar>(), pcchreaders?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: PCSTR, mszreaders: PSTR, pcchreaders: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid.toCPointer<ByteVar>(), mszreaders.toCPointer<ByteVar>(), pcchreaders.toCPointer<ByteVar>())
+public actual fun sCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: Pcstr, mszreaders: Pstr, pcchreaders: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid?.value?.toCPointer<ByteVar>(), mszreaders?.value?.toCPointer<ByteVar>(), pcchreaders?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: PCWSTR, mszreaders: PWSTR, pcchreaders: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid.toCPointer<ByteVar>(), mszreaders.toCPointer<ByteVar>(), pcchreaders.toCPointer<ByteVar>())
+public actual fun sCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: Pcwstr, mszreaders: Pwstr, pcchreaders: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid?.value?.toCPointer<ByteVar>(), mszreaders?.value?.toCPointer<ByteVar>(), pcchreaders?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardLocateCardsA(hcontext: ULong, mszcards: PCSTR, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardLocateCardsA(hcontext, mszcards.toCPointer<ByteVar>(), rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardLocateCardsA(hcontext: ULong, mszcards: Pcstr, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardLocateCardsA(hcontext, mszcards?.value?.toCPointer<ByteVar>(), rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: Long, catrs: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA(hcontext, rgatrmasks.toCPointer<ByteVar>(), catrs, rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: COpaquePointer?, catrs: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA(hcontext, rgatrmasks?.value?.toCPointer<ByteVar>(), catrs, rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: Long, catrs: UInt, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW(hcontext, rgatrmasks.toCPointer<ByteVar>(), catrs, rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: COpaquePointer?, catrs: UInt, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW(hcontext, rgatrmasks?.value?.toCPointer<ByteVar>(), catrs, rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardLocateCardsW(hcontext: ULong, mszcards: PCWSTR, rgreaderstates: Long, creaders: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardLocateCardsW(hcontext, mszcards.toCPointer<ByteVar>(), rgreaderstates.toCPointer<ByteVar>(), creaders)
+public actual fun sCardLocateCardsW(hcontext: ULong, mszcards: Pcwstr, rgreaderstates: COpaquePointer?, creaders: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardLocateCardsW(hcontext, mszcards?.value?.toCPointer<ByteVar>(), rgreaderstates?.value?.toCPointer<ByteVar>(), creaders)
 
-public actual fun SCardReadCacheA(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCSTR, data: Long, datalen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardReadCacheA(hcontext, cardidentifier.toCPointer<ByteVar>(), freshnesscounter, lookupname.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), datalen.toCPointer<ByteVar>())
+public actual fun sCardReadCacheA(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcstr, data: COpaquePointer?, datalen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardReadCacheA(hcontext, cardidentifier?.value?.toCPointer<ByteVar>(), freshnesscounter, lookupname?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), datalen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardReadCacheW(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCWSTR, data: Long, datalen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardReadCacheW(hcontext, cardidentifier.toCPointer<ByteVar>(), freshnesscounter, lookupname.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), datalen.toCPointer<ByteVar>())
+public actual fun sCardReadCacheW(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcwstr, data: COpaquePointer?, datalen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardReadCacheW(hcontext, cardidentifier?.value?.toCPointer<ByteVar>(), freshnesscounter, lookupname?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), datalen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol.toCPointer<ByteVar>())
+public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardReleaseContext(hcontext: ULong): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardReleaseContext(hcontext)
+public actual fun sCardReleaseContext(hcontext: ULong): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardReleaseContext(hcontext)
 
-public actual fun SCardReleaseStartedEvent() {
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent()
+public actual fun sCardReleaseStartedEvent() {
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent()
 }
 
-public actual fun SCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: PCSTR, szgroupname: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA(hcontext, szreadername.toCPointer<ByteVar>(), szgroupname.toCPointer<ByteVar>())
+public actual fun sCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: Pcstr, szgroupname: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardRemoveReaderFromGroupW(hcontext: ULong, szreadername: PCWSTR, szgroupname: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW(hcontext, szreadername.toCPointer<ByteVar>(), szgroupname.toCPointer<ByteVar>())
+public actual fun sCardRemoveReaderFromGroupW(hcontext: ULong, szreadername: Pcwstr, szgroupname: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW(hcontext, szreadername?.value?.toCPointer<ByteVar>(), szgroupname?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: Long, cbattrlen: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardSetAttrib(hcard, dwattrid, pbattr.toCPointer<ByteVar>(), cbattrlen)
+public actual fun sCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: COpaquePointer?, cbattrlen: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardSetAttrib(hcard, dwattrid, pbattr?.value?.toCPointer<ByteVar>(), cbattrlen)
 
-public actual fun SCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: PCSTR, dwproviderid: UInt, szprovider: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA(hcontext, szcardname.toCPointer<ByteVar>(), dwproviderid, szprovider.toCPointer<ByteVar>())
+public actual fun sCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA(hcontext, szcardname?.value?.toCPointer<ByteVar>(), dwproviderid, szprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardSetCardTypeProviderNameW(hcontext: ULong, szcardname: PCWSTR, dwproviderid: UInt, szprovider: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW(hcontext, szcardname.toCPointer<ByteVar>(), dwproviderid, szprovider.toCPointer<ByteVar>())
+public actual fun sCardSetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW(hcontext, szcardname?.value?.toCPointer<ByteVar>(), dwproviderid, szprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardState(hcard: ULong, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardState(hcard, pdwstate.toCPointer<ByteVar>(), pdwprotocol.toCPointer<ByteVar>(), pbatr.toCPointer<ByteVar>(), pcbatrlen.toCPointer<ByteVar>())
+public actual fun sCardState(hcard: ULong, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardState(hcard, pdwstate?.value?.toCPointer<ByteVar>(), pdwprotocol?.value?.toCPointer<ByteVar>(), pbatr?.value?.toCPointer<ByteVar>(), pcbatrlen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardStatusA(hcard: ULong, mszreadernames: PSTR, pcchreaderlen: Long, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardStatusA(hcard, mszreadernames.toCPointer<ByteVar>(), pcchreaderlen.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>(), pdwprotocol.toCPointer<ByteVar>(), pbatr.toCPointer<ByteVar>(), pcbatrlen.toCPointer<ByteVar>())
+public actual fun sCardStatusA(hcard: ULong, mszreadernames: Pstr, pcchreaderlen: COpaquePointer?, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardStatusA(hcard, mszreadernames?.value?.toCPointer<ByteVar>(), pcchreaderlen?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>(), pdwprotocol?.value?.toCPointer<ByteVar>(), pbatr?.value?.toCPointer<ByteVar>(), pcbatrlen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardStatusW(hcard: ULong, mszreadernames: PWSTR, pcchreaderlen: Long, pdwstate: Long, pdwprotocol: Long, pbatr: Long, pcbatrlen: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardStatusW(hcard, mszreadernames.toCPointer<ByteVar>(), pcchreaderlen.toCPointer<ByteVar>(), pdwstate.toCPointer<ByteVar>(), pdwprotocol.toCPointer<ByteVar>(), pbatr.toCPointer<ByteVar>(), pcbatrlen.toCPointer<ByteVar>())
+public actual fun sCardStatusW(hcard: ULong, mszreadernames: Pwstr, pcchreaderlen: COpaquePointer?, pdwstate: COpaquePointer?, pdwprotocol: COpaquePointer?, pbatr: COpaquePointer?, pcbatrlen: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardStatusW(hcard, mszreadernames?.value?.toCPointer<ByteVar>(), pcchreaderlen?.value?.toCPointer<ByteVar>(), pdwstate?.value?.toCPointer<ByteVar>(), pdwprotocol?.value?.toCPointer<ByteVar>(), pbatr?.value?.toCPointer<ByteVar>(), pcbatrlen?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardTransmit(hcard: ULong, piosendpci: Long, pbsendbuffer: Long, cbsendlength: UInt, piorecvpci: Long, pbrecvbuffer: Long, pcbrecvlength: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardTransmit(hcard, piosendpci.toCPointer<ByteVar>(), pbsendbuffer.toCPointer<ByteVar>(), cbsendlength, piorecvpci.toCPointer<ByteVar>(), pbrecvbuffer.toCPointer<ByteVar>(), pcbrecvlength.toCPointer<ByteVar>())
+public actual fun sCardTransmit(hcard: ULong, piosendpci: COpaquePointer?, pbsendbuffer: COpaquePointer?, cbsendlength: UInt, piorecvpci: COpaquePointer?, pbrecvbuffer: COpaquePointer?, pcbrecvlength: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardTransmit(hcard, piosendpci?.value?.toCPointer<ByteVar>(), pbsendbuffer?.value?.toCPointer<ByteVar>(), cbsendlength, piorecvpci?.value?.toCPointer<ByteVar>(), pbrecvbuffer?.value?.toCPointer<ByteVar>(), pcbrecvlength?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardUIDlgSelectCardA(param0: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA(param0.toCPointer<ByteVar>())
+public actual fun sCardUIDlgSelectCardA(param0: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardUIDlgSelectCardW(param0: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW(param0.toCPointer<ByteVar>())
+public actual fun sCardUIDlgSelectCardW(param0: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun SCardWriteCacheA(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCSTR, data: Long, datalen: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardWriteCacheA(hcontext, cardidentifier.toCPointer<ByteVar>(), freshnesscounter, lookupname.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), datalen)
+public actual fun sCardWriteCacheA(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcstr, data: COpaquePointer?, datalen: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardWriteCacheA(hcontext, cardidentifier?.value?.toCPointer<ByteVar>(), freshnesscounter, lookupname?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), datalen)
 
-public actual fun SCardWriteCacheW(hcontext: ULong, cardidentifier: Long, freshnesscounter: UInt, lookupname: PCWSTR, data: Long, datalen: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_SCardWriteCacheW(hcontext, cardidentifier.toCPointer<ByteVar>(), freshnesscounter, lookupname.toCPointer<ByteVar>(), data.toCPointer<ByteVar>(), datalen)
+public actual fun sCardWriteCacheW(hcontext: ULong, cardidentifier: COpaquePointer?, freshnesscounter: UInt, lookupname: Pcwstr, data: COpaquePointer?, datalen: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.security.credentials.cinterop.windowssys_windows_win32_security_credentials_sCardWriteCacheW(hcontext, cardidentifier?.value?.toCPointer<ByteVar>(), freshnesscounter, lookupname?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), datalen)

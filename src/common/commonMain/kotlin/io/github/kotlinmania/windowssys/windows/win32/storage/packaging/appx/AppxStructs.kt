@@ -1,69 +1,70 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class APPX_ENCRYPTED_EXEMPTIONS(public var count: UInt = 0u, public var plainTextFiles: Long = 0L)
+public data class AppxEncryptedExemptions(public var count: UInt = 0u, public var plainTextFiles: Pcwstr? = null)
 
-public data class APPX_ENCRYPTED_PACKAGE_SETTINGS(
+public data class AppxEncryptedPackageSettings(
     public var keyLength: UInt = 0u,
-    public var encryptionAlgorithm: PCWSTR = 0L,
-    public var useDiffusion: BOOL = 0,
-    public var blockMapHashAlgorithm: Long = 0L,
+    public var encryptionAlgorithm: Pcwstr = null,
+    public var useDiffusion: Bool = 0,
+    public var blockMapHashAlgorithm: COpaquePointer? = null,
 )
 
-public data class APPX_ENCRYPTED_PACKAGE_SETTINGS2(
+public data class AppxEncryptedPackageSettings2(
     public var keyLength: UInt = 0u,
-    public var encryptionAlgorithm: PCWSTR = 0L,
-    public var blockMapHashAlgorithm: Long = 0L,
+    public var encryptionAlgorithm: Pcwstr = null,
+    public var blockMapHashAlgorithm: COpaquePointer? = null,
     public var options: UInt = 0u,
 )
 
-public data class APPX_KEY_INFO(
+public data class AppxKeyInfo(
     public var keyLength: UInt = 0u,
     public var keyIdLength: UInt = 0u,
-    public var key: Long = 0L,
-    public var keyId: Long = 0L,
+    public var key: COpaquePointer? = null,
+    public var keyId: COpaquePointer? = null,
 )
 
-public data class APPX_PACKAGE_SETTINGS(public var forceZip32: BOOL = 0, public var hashMethod: Long = 0L)
+public data class AppxPackageSettings(public var forceZip32: Bool = 0, public var hashMethod: COpaquePointer? = null)
 
-public data class APPX_PACKAGE_WRITER_PAYLOAD_STREAM(
-    public var inputStream: Long = 0L,
-    public var fileName: PCWSTR = 0L,
-    public var contentType: PCWSTR = 0L,
-    public var compressionOption: APPX_COMPRESSION_OPTION = 0,
+public data class AppxPackageWriterPayloadStream(
+    public var inputStream: COpaquePointer? = null,
+    public var fileName: Pcwstr = null,
+    public var contentType: Pcwstr = null,
+    public var compressionOption: AppxCompressionOption = 0,
 )
 
-public data class PACKAGE_ID(
+public data class PackageId(
     public var reserved: UInt = 0u,
     public var processorArchitecture: UInt = 0u,
-    public var version: PACKAGE_VERSION = PACKAGE_VERSION(),
-    public var name: PWSTR = 0L,
-    public var publisher: PWSTR = 0L,
-    public var resourceId: PWSTR = 0L,
-    public var publisherId: PWSTR = 0L,
+    public var version: PackageVersion = PackageVersion(),
+    public var name: Pwstr = null,
+    public var publisher: Pwstr = null,
+    public var resourceId: Pwstr = null,
+    public var publisherId: Pwstr = null,
 )
 
-public data class PACKAGE_INFO(
+public data class PackageInfo(
     public var reserved: UInt = 0u,
     public var flags: UInt = 0u,
-    public var path: PWSTR = 0L,
-    public var packageFullName: PWSTR = 0L,
-    public var packageFamilyName: PWSTR = 0L,
-    public var packageId: PACKAGE_ID = PACKAGE_ID(),
+    public var path: Pwstr = null,
+    public var packageFullName: Pwstr = null,
+    public var packageFamilyName: Pwstr = null,
+    public var packageId: PackageId = PackageId(),
 )
 
-public data class PACKAGE_VERSION(public var Anonymous: PACKAGE_VERSION_0 = PACKAGE_VERSION_0())
+public data class PackageVersion(public var anonymous: PackageVersion0 = PackageVersion0())
 
-public data class PACKAGE_VERSION_0(public var Version: ULong = 0uL, public var Anonymous: PACKAGE_VERSION_0_0 = PACKAGE_VERSION_0_0())
+public data class PackageVersion0(public var version: ULong = 0uL, public var anonymous: PackageVersion00 = PackageVersion00())
 
-public data class PACKAGE_VERSION_0_0(
-    public var Revision: UShort = 0u,
-    public var Build: UShort = 0u,
-    public var Minor: UShort = 0u,
-    public var Major: UShort = 0u,
+public data class PackageVersion00(
+    public var revision: UShort = 0u,
+    public var build: UShort = 0u,
+    public var minor: UShort = 0u,
+    public var major: UShort = 0u,
 )
 
-public data class _PACKAGE_INFO_REFERENCE(public var reserved: Long = 0L)
+public data class PackageInfoReference(public var reserved: COpaquePointer? = null)

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1DirectInput8Create(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint dwversion, jlong riidltf, jlong ppvout, jlong punkouter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1directInput8Create(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint dwversion, jlong riidltf, jlong ppvout, jlong punkouter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1FlushQueue(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDFlushQueue(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1FreePreparsedData(JNIEnv* km_env, jclass km_clazz, jlong preparseddata) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDFreePreparsedData(JNIEnv* km_env, jclass km_clazz, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetAttributes(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong attributes) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetAttributes(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong configuration, jint configurationlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong configuration, jint configurationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetFeature(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetFeature(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -135,7 +135,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetHidGuid(JNIEnv* km_env, jclass km_clazz, jlong hidguid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetHidGuid(JNIEnv* km_env, jclass km_clazz, jlong hidguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -151,7 +151,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetIndexedString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jint stringindex, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetIndexedString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jint stringindex, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetInputReport(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetInputReport(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -192,7 +192,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetManufacturerString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetManufacturerString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -212,7 +212,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetMsGenreDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetMsGenreDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -232,7 +232,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetNumInputBuffers(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong numberbuffers) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetNumInputBuffers(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong numberbuffers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetPhysicalDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetPhysicalDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -271,7 +271,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetPreparsedData(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong preparseddata) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetPreparsedData(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,7 +290,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetProductString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetProductString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -310,7 +310,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1GetSerialNumberString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDGetSerialNumberString(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -330,7 +330,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1SetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong configuration, jint configurationlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDSetConfiguration(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong configuration, jint configurationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -350,7 +350,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1SetFeature(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDSetFeature(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1SetNumInputBuffers(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jint numberbuffers) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDSetNumInputBuffers(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jint numberbuffers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidD_1SetOutputReport(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidDSetOutputReport(JNIEnv* km_env, jclass km_clazz, jlong hiddeviceobject, jlong reportbuffer, jint reportbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -409,7 +409,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetButtonArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttondata, jlong buttondatalength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetButtonArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttondata, jlong buttondatalength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -435,7 +435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetButtonCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong buttoncaps, jlong buttoncapslength, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetButtonCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong buttoncaps, jlong buttoncapslength, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -456,7 +456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetCaps(JNIEnv* km_env, jclass km_clazz, jlong preparseddata, jlong capabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetCaps(JNIEnv* km_env, jclass km_clazz, jlong preparseddata, jlong capabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -475,7 +475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetData(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong datalist, jlong datalength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetData(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong datalist, jlong datalength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -498,7 +498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetExtendedAttributes(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort dataindex, jlong preparseddata, jlong attributes, jlong lengthattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetExtendedAttributes(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort dataindex, jlong preparseddata, jlong attributes, jlong lengthattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetLinkCollectionNodes(JNIEnv* km_env, jclass km_clazz, jlong linkcollectionnodes, jlong linkcollectionnodeslength, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetLinkCollectionNodes(JNIEnv* km_env, jclass km_clazz, jlong linkcollectionnodes, jlong linkcollectionnodeslength, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -540,7 +540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetScaledUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetScaledUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -565,7 +565,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetSpecificButtonCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttoncaps, jlong buttoncapslength, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetSpecificButtonCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttoncaps, jlong buttoncapslength, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -589,7 +589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetSpecificValueCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong valuecaps, jlong valuecapslength, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetSpecificValueCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong valuecaps, jlong valuecapslength, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -613,7 +613,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -638,7 +638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetUsageValueArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jshort usagevaluebytelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetUsageValueArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jshort usagevaluebytelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -689,7 +689,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetUsagesEx(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort linkcollection, jlong buttonlist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetUsagesEx(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort linkcollection, jlong buttonlist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -713,7 +713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1GetValueCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong valuecaps, jlong valuecapslength, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPGetValueCaps(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong valuecaps, jlong valuecapslength, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1InitializeReportForID(JNIEnv* km_env, jclass km_clazz, jint reporttype, jbyte reportid, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPInitializeReportForId(JNIEnv* km_env, jclass km_clazz, jint reporttype, jbyte reportid, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -756,7 +756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1MaxDataListLength(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPMaxDataListLength(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -775,7 +775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1MaxUsageListLength(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jlong preparseddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPMaxUsageListLength(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jlong preparseddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -795,7 +795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetButtonArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttondata, jshort buttondatalength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetButtonArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong buttondata, jshort buttondatalength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -821,7 +821,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetData(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong datalist, jlong datalength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetData(JNIEnv* km_env, jclass km_clazz, jint reporttype, jlong datalist, jlong datalength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -844,7 +844,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetScaledUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jint usagevalue, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetScaledUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jint usagevalue, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -869,7 +869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jint usagevalue, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetUsageValue(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jint usagevalue, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -894,7 +894,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetUsageValueArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jshort usagevaluebytelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetUsageValueArray(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jshort usage, jlong usagevalue, jshort usagevaluebytelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -920,7 +920,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1SetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPSetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -945,7 +945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1TranslateUsagesToI8042ScanCodes(JNIEnv* km_env, jclass km_clazz, jlong changedusagelist, jint usagelistlength, jint keyaction, jlong modifierstate, jlong insertcodesprocedure, jlong insertcodescontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPTranslateUsagesToI8042ScanCodes(JNIEnv* km_env, jclass km_clazz, jlong changedusagelist, jint usagelistlength, jint keyaction, jlong modifierstate, jlong insertcodesprocedure, jlong insertcodescontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -968,7 +968,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1UnsetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPUnsetUsages(JNIEnv* km_env, jclass km_clazz, jint reporttype, jshort usagepage, jshort linkcollection, jlong usagelist, jlong usagelength, jlong preparseddata, jlong report, jint reportlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -993,7 +993,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1HidP_1UsageListDifference(JNIEnv* km_env, jclass km_clazz, jlong previoususagelist, jlong currentusagelist, jlong breakusagelist, jlong makeusagelist, jint usagelistlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_humaninterfacedevice_WindowsWin32DevicesHumaninterfacedeviceJniBridge_windowssys_1windows_1win32_1devices_1humaninterfacedevice_1hidPUsageListDifference(JNIEnv* km_env, jclass km_clazz, jlong previoususagelist, jlong currentusagelist, jlong breakusagelist, jlong makeusagelist, jint usagelistlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

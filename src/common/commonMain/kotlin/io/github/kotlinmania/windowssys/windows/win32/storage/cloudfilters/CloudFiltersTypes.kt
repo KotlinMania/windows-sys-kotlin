@@ -1,107 +1,109 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-public fun interface CF_CALLBACKFn {
-    public operator fun invoke(callbackinfo: Long, callbackparameters: Long)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public fun interface CfCallbackFn {
+    public operator fun invoke(callbackinfo: COpaquePointer?, callbackparameters: COpaquePointer?)
 }
 
-public typealias CF_CALLBACK = CF_CALLBACKFn?
+public typealias CfCallback = CfCallbackFn?
 
-public typealias CF_CALLBACK_CANCEL_FLAGS = Int
+public typealias CfCallbackCancelFlags = Int
 
-public typealias CF_CALLBACK_CLOSE_COMPLETION_FLAGS = Int
+public typealias CfCallbackCloseCompletionFlags = Int
 
-public typealias CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = Int
+public typealias CfCallbackDehydrateCompletionFlags = Int
 
-public typealias CF_CALLBACK_DEHYDRATE_FLAGS = Int
+public typealias CfCallbackDehydrateFlags = Int
 
-public typealias CF_CALLBACK_DEHYDRATION_REASON = Int
+public typealias CfCallbackDehydrationReason = Int
 
-public typealias CF_CALLBACK_DELETE_COMPLETION_FLAGS = Int
+public typealias CfCallbackDeleteCompletionFlags = Int
 
-public typealias CF_CALLBACK_DELETE_FLAGS = Int
+public typealias CfCallbackDeleteFlags = Int
 
-public typealias CF_CALLBACK_FETCH_DATA_FLAGS = Int
+public typealias CfCallbackFetchDataFlags = Int
 
-public typealias CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = Int
+public typealias CfCallbackFetchPlaceholdersFlags = Int
 
-public typealias CF_CALLBACK_OPEN_COMPLETION_FLAGS = Int
+public typealias CfCallbackOpenCompletionFlags = Int
 
-public typealias CF_CALLBACK_RENAME_COMPLETION_FLAGS = Int
+public typealias CfCallbackRenameCompletionFlags = Int
 
-public typealias CF_CALLBACK_RENAME_FLAGS = Int
+public typealias CfCallbackRenameFlags = Int
 
-public typealias CF_CALLBACK_TYPE = Int
+public typealias CfCallbackType = Int
 
-public typealias CF_CALLBACK_VALIDATE_DATA_FLAGS = Int
+public typealias CfCallbackValidateDataFlags = Int
 
-public typealias CF_CONNECTION_KEY = Long
+public typealias CfConnectionKey = Long
 
-public typealias CF_CONNECT_FLAGS = Int
+public typealias CfConnectFlags = Int
 
-public typealias CF_CONVERT_FLAGS = Int
+public typealias CfConvertFlags = Int
 
-public typealias CF_CREATE_FLAGS = Int
+public typealias CfCreateFlags = Int
 
-public typealias CF_DEHYDRATE_FLAGS = Int
+public typealias CfDehydrateFlags = Int
 
-public typealias CF_HARDLINK_POLICY = Int
+public typealias CfHardlinkPolicy = Int
 
-public typealias CF_HYDRATE_FLAGS = Int
+public typealias CfHydrateFlags = Int
 
-public typealias CF_HYDRATION_POLICY_MODIFIER = UShort
+public typealias CfHydrationPolicyModifier = UShort
 
-public typealias CF_HYDRATION_POLICY_PRIMARY = UShort
+public typealias CfHydrationPolicyPrimary = UShort
 
-public typealias CF_INSYNC_POLICY = UInt
+public typealias CfInsyncPolicy = UInt
 
-public typealias CF_IN_SYNC_STATE = Int
+public typealias CfInSyncState = Int
 
-public typealias CF_OPEN_FILE_FLAGS = Int
+public typealias CfOpenFileFlags = Int
 
-public typealias CF_OPERATION_ACK_DATA_FLAGS = Int
+public typealias CfOperationAckDataFlags = Int
 
-public typealias CF_OPERATION_ACK_DEHYDRATE_FLAGS = Int
+public typealias CfOperationAckDehydrateFlags = Int
 
-public typealias CF_OPERATION_ACK_DELETE_FLAGS = Int
+public typealias CfOperationAckDeleteFlags = Int
 
-public typealias CF_OPERATION_ACK_RENAME_FLAGS = Int
+public typealias CfOperationAckRenameFlags = Int
 
-public typealias CF_OPERATION_RESTART_HYDRATION_FLAGS = Int
+public typealias CfOperationRestartHydrationFlags = Int
 
-public typealias CF_OPERATION_RETRIEVE_DATA_FLAGS = Int
+public typealias CfOperationRetrieveDataFlags = Int
 
-public typealias CF_OPERATION_TRANSFER_DATA_FLAGS = Int
+public typealias CfOperationTransferDataFlags = Int
 
-public typealias CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = Int
+public typealias CfOperationTransferPlaceholdersFlags = Int
 
-public typealias CF_OPERATION_TYPE = Int
+public typealias CfOperationType = Int
 
-public typealias CF_PIN_STATE = Int
+public typealias CfPinState = Int
 
-public typealias CF_PLACEHOLDER_CREATE_FLAGS = Int
+public typealias CfPlaceholderCreateFlags = Int
 
-public typealias CF_PLACEHOLDER_INFO_CLASS = Int
+public typealias CfPlaceholderInfoClass = Int
 
-public typealias CF_PLACEHOLDER_MANAGEMENT_POLICY = Int
+public typealias CfPlaceholderManagementPolicy = Int
 
-public typealias CF_PLACEHOLDER_RANGE_INFO_CLASS = Int
+public typealias CfPlaceholderRangeInfoClass = Int
 
-public typealias CF_PLACEHOLDER_STATE = UInt
+public typealias CfPlaceholderState = UInt
 
-public typealias CF_POPULATION_POLICY_MODIFIER = UShort
+public typealias CfPopulationPolicyModifier = UShort
 
-public typealias CF_POPULATION_POLICY_PRIMARY = UShort
+public typealias CfPopulationPolicyPrimary = UShort
 
-public typealias CF_REGISTER_FLAGS = Int
+public typealias CfRegisterFlags = Int
 
-public typealias CF_REVERT_FLAGS = Int
+public typealias CfRevertFlags = Int
 
-public typealias CF_SET_IN_SYNC_FLAGS = Int
+public typealias CfSetInSyncFlags = Int
 
-public typealias CF_SET_PIN_FLAGS = Int
+public typealias CfSetPinFlags = Int
 
-public typealias CF_SYNC_PROVIDER_STATUS = UInt
+public typealias CfSyncProviderStatus = UInt
 
-public typealias CF_SYNC_ROOT_INFO_CLASS = Int
+public typealias CfSyncRootInfoClass = Int
 
-public typealias CF_UPDATE_FLAGS = Int
+public typealias CfUpdateFlags = Int

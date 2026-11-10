@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_indexserver_BindIFilterFromStorage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_indexserver_bindIFilterFromStorage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_BindIFilterFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_indexserver_BindIFilterFromStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_indexserver_bindIFilterFromStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_BindIFilterFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_indexserver_LoadIFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_indexserver_loadIFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_LoadIFilter_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_indexserver_LoadIFilterEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_indexserver_loadIFilterEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwcspath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -142,10 +142,10 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_LoadIFilterEx_na
 }
 
 static void register_windows_win32_storage_indexserver_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_indexserver_BindIFilterFromStorage", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_BindIFilterFromStorage_napi));
-    exports.Set("windowssys_windows_win32_storage_indexserver_BindIFilterFromStream", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_BindIFilterFromStream_napi));
-    exports.Set("windowssys_windows_win32_storage_indexserver_LoadIFilter", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_LoadIFilter_napi));
-    exports.Set("windowssys_windows_win32_storage_indexserver_LoadIFilterEx", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_LoadIFilterEx_napi));
+    exports.Set("windowssys_windows_win32_storage_indexserver_bindIFilterFromStorage", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_bindIFilterFromStorage_napi));
+    exports.Set("windowssys_windows_win32_storage_indexserver_bindIFilterFromStream", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_bindIFilterFromStream_napi));
+    exports.Set("windowssys_windows_win32_storage_indexserver_loadIFilter", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_loadIFilter_napi));
+    exports.Set("windowssys_windows_win32_storage_indexserver_loadIFilterEx", Napi::Function::New(env, windowssys_windows_win32_storage_indexserver_loadIFilterEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_indexserver_napi, nullptr };

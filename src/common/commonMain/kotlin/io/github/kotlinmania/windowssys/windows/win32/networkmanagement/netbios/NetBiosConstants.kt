@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
-public val ALL_TRANSPORTS: PCSTR = s("M\u0000\u0000\u0000")
+public val ALL_TRANSPORTS: Pcstr = s("M\u0000\u0000\u0000")
 
 public val ASYNCH: UInt = 128u
 
@@ -25,7 +25,7 @@ public val LISTEN_OUTSTANDING: UInt = 1u
 
 public val MAX_LANA: UInt = 254u
 
-public val MS_NBF: PCSTR = s("MNBF")
+public val MS_NBF: Pcstr = s("MNBF")
 
 public val NAME_FLAGS_MASK: UInt = 135u
 

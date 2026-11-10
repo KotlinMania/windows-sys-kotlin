@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsAddLogContainer(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pcbcontainer, jlong puszcontainerpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsAddLogContainer(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pcbcontainer, jlong puszcontainerpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsAddLogContainerSet(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jshort ccontainers, jlong pcbcontainer, jlong rguszcontainerpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsAddLogContainerSet(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jshort ccontainers, jlong pcbcontainer, jlong rguszcontainerpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -59,7 +59,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsAdvanceLogBase(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnbase, jint fflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsAdvanceLogBase(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnbase, jint fflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -79,7 +79,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsAlignReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong rgcbreservation, jlong pcbalignreservation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsAlignReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong rgcbreservation, jlong pcbalignreservation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsAllocReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong pcbadjustment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsAllocReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong pcbadjustment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsCloseAndResetLogFile(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsCloseAndResetLogFile(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -138,7 +138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsCloseLogFileObject(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsCloseLogFileObject(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsCreateLogFile(JNIEnv* km_env, jclass km_clazz, jlong pplfolog, jlong puszlogfilename, jint fdesiredaccess, jint dwsharemode, jlong psdlogfile, jint fcreatedisposition, jint fcreateoptions, jint fflagsandattributes, jint flogoptionflag, jlong pvcontext, jint cbcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsCreateLogFile(JNIEnv* km_env, jclass km_clazz, jlong pplfolog, jlong puszlogfilename, jint fdesiredaccess, jint dwsharemode, jlong psdlogfile, jint fcreatedisposition, jint fcreateoptions, jint fflagsandattributes, jint flogoptionflag, jlong pvcontext, jint cbcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -184,7 +184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsCreateScanContext(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint cfromcontainer, jint ccontainers, jbyte escanmode, jlong pcxscan) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsCreateScanContext(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint cfromcontainer, jint ccontainers, jbyte escanmode, jlong pcxscan) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -206,7 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsDeleteLogByPointer(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsDeleteLogByPointer(JNIEnv* km_env, jclass km_clazz, jlong plfolog) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -224,7 +224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsDeleteLogFile(JNIEnv* km_env, jclass km_clazz, jlong puszlogfilename, jlong pvreserved, jint flogoptionflag, jlong pvcontext, jint cbcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsDeleteLogFile(JNIEnv* km_env, jclass km_clazz, jlong puszlogfilename, jlong pvreserved, jint flogoptionflag, jlong pvcontext, jint cbcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -246,7 +246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsDeleteMarshallingArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsDeleteMarshallingArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsFinalize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsFinalize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsFlushBuffers(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsFlushBuffers(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -297,7 +297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsFlushToLsn(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnflush, jlong plsnlastflushed) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsFlushToLsn(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnflush, jlong plsnlastflushed) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsFreeReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong pcbadjustment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsFreeReservedLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jint crecords, jlong pcbadjustment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -337,7 +337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsGetContainerName(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint cidlogicalcontainer, jlong puszcontainername, jlong pcactuallencontainername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsGetContainerName(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint cidlogicalcontainer, jlong puszcontainername, jlong pcactuallencontainername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -358,7 +358,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsGetIoStatistics(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pvstatsbuffer, jint cbstatsbuffer, jint estatsclass, jlong pcbstatswritten) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsGetIoStatistics(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pvstatsbuffer, jint cbstatsbuffer, jint estatsclass, jlong pcbstatswritten) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsGetLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pinfobuffer, jlong pcbinfobuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsGetLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong pinfobuffer, jlong pcbinfobuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -400,7 +400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsInitialize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsInitialize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -417,7 +417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnBlockOffset(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnBlockOffset(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -435,7 +435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnContainer(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnContainer(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -453,7 +453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnDifference(JNIEnv* km_env, jclass km_clazz, jlong plsnstart, jlong plsnfinish, jint cbcontainer, jint cbmaxblock, jlong pcbdifference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnDifference(JNIEnv* km_env, jclass km_clazz, jlong plsnstart, jlong plsnfinish, jint cbcontainer, jint cbmaxblock, jlong pcbdifference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -475,7 +475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnEqual(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnEqual(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -494,7 +494,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnGreater(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnGreater(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -513,7 +513,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnInvalid(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnInvalid(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -531,7 +531,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnLess(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnLess(JNIEnv* km_env, jclass km_clazz, jlong plsn1, jlong plsn2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -550,7 +550,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnNull(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnNull(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -568,7 +568,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsLsnRecordSequence(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsLsnRecordSequence(JNIEnv* km_env, jclass km_clazz, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -586,7 +586,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtDeregisterManagedClient(JNIEnv* km_env, jclass km_clazz, jlong clientcookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtDeregisterManagedClient(JNIEnv* km_env, jclass km_clazz, jlong clientcookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -604,7 +604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtHandleLogFileFull(JNIEnv* km_env, jclass km_clazz, jlong client) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtHandleLogFileFull(JNIEnv* km_env, jclass km_clazz, jlong client) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -622,7 +622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtInstallPolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong policy, jint policylength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtInstallPolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong policy, jint policylength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -642,7 +642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtQueryPolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jint policytype, jlong policy, jlong policylength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtQueryPolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jint policytype, jlong policy, jlong policylength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -663,7 +663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtRegisterManagedClient(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong registrationdata, jlong clientcookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtRegisterManagedClient(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong registrationdata, jlong clientcookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtRemovePolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jint policytype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtRemovePolicy(JNIEnv* km_env, jclass km_clazz, jlong logfile, jint policytype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtSetLogFileSize(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong newsizeincontainers, jlong resultingsizeincontainers, jlong completionroutine, jlong completionroutinedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtSetLogFileSize(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong newsizeincontainers, jlong resultingsizeincontainers, jlong completionroutine, jlong completionroutinedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -724,7 +724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtSetLogFileSizeAsClient(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong clientcookie, jlong newsizeincontainers, jlong resultingsizeincontainers, jlong completionroutine, jlong completionroutinedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtSetLogFileSizeAsClient(JNIEnv* km_env, jclass km_clazz, jlong logfile, jlong clientcookie, jlong newsizeincontainers, jlong resultingsizeincontainers, jlong completionroutine, jlong completionroutinedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -747,7 +747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsMgmtTailAdvanceFailure(JNIEnv* km_env, jclass km_clazz, jlong client, jint reason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsMgmtTailAdvanceFailure(JNIEnv* km_env, jclass km_clazz, jlong client, jint reason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -766,7 +766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsQueryLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint einformationclass, jlong pinfoinputbuffer, jint cbinfoinputbuffer, jlong pinfobuffer, jlong pcbinfobuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsQueryLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint einformationclass, jlong pinfoinputbuffer, jint cbinfoinputbuffer, jlong pinfobuffer, jlong pcbinfobuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -789,7 +789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReadLogRecord(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnfirst, jint pecontextmode, jlong ppvreadbuffer, jlong pcbreadbuffer, jlong perecordtype, jlong plsnundonext, jlong plsnprevious, jlong ppvreadcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReadLogRecord(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong plsnfirst, jint pecontextmode, jlong ppvreadbuffer, jlong pcbreadbuffer, jlong perecordtype, jlong plsnundonext, jlong plsnprevious, jlong ppvreadcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -815,7 +815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReadNextLogRecord(JNIEnv* km_env, jclass km_clazz, jlong pvreadcontext, jlong ppvbuffer, jlong pcbbuffer, jlong perecordtype, jlong plsnuser, jlong plsnundonext, jlong plsnprevious, jlong plsnrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReadNextLogRecord(JNIEnv* km_env, jclass km_clazz, jlong pvreadcontext, jlong ppvbuffer, jlong pcbbuffer, jlong perecordtype, jlong plsnuser, jlong plsnundonext, jlong plsnprevious, jlong plsnrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -840,7 +840,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReadPreviousRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvreadcontext, jlong ppvrestartbuffer, jlong pcbrestartbuffer, jlong plsnrestart) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReadPreviousRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvreadcontext, jlong ppvrestartbuffer, jlong pcbrestartbuffer, jlong plsnrestart) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -861,7 +861,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReadRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong ppvrestartbuffer, jlong pcbrestartbuffer, jlong plsn, jlong ppvreadcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReadRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong ppvrestartbuffer, jlong pcbrestartbuffer, jlong plsn, jlong ppvreadcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -883,7 +883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsRemoveLogContainer(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong puszcontainerpath, jboolean fforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsRemoveLogContainer(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong puszcontainerpath, jboolean fforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -903,7 +903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsRemoveLogContainerSet(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jshort ccontainers, jlong rgwszcontainerpath, jboolean fforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsRemoveLogContainerSet(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jshort ccontainers, jlong rgwszcontainerpath, jboolean fforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -924,7 +924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReserveAndAppendLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong rgwriteentries, jint cwriteentries, jlong plsnundonext, jlong plsnprevious, jint creserverecords, jlong rgcbreservation, jint fflags, jlong plsn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReserveAndAppendLog(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong rgwriteentries, jint cwriteentries, jlong plsnundonext, jlong plsnprevious, jint creserverecords, jlong rgcbreservation, jint fflags, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -950,7 +950,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsReserveAndAppendLogAligned(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong rgwriteentries, jint cwriteentries, jint cbentryalignment, jlong plsnundonext, jlong plsnprevious, jint creserverecords, jlong rgcbreservation, jint fflags, jlong plsn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsReserveAndAppendLogAligned(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong rgwriteentries, jint cwriteentries, jint cbentryalignment, jlong plsnundonext, jlong plsnprevious, jint creserverecords, jlong rgcbreservation, jint fflags, jlong plsn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -977,7 +977,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsScanLogContainers(JNIEnv* km_env, jclass km_clazz, jlong pcxscan, jbyte escanmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsScanLogContainers(JNIEnv* km_env, jclass km_clazz, jlong pcxscan, jbyte escanmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -996,7 +996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsSetArchiveTail(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong plsnarchivetail) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsSetArchiveTail(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong plsnarchivetail) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1015,7 +1015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsSetEndOfLog(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong plsnend) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsSetEndOfLog(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jlong plsnend) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1034,7 +1034,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsSetLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint einformationclass, jlong pinfobuffer, jint cbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsSetLogFileInformation(JNIEnv* km_env, jclass km_clazz, jlong plfolog, jint einformationclass, jlong pinfobuffer, jint cbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1055,7 +1055,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsTerminateReadLog(JNIEnv* km_env, jclass km_clazz, jlong pvcursorcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsTerminateReadLog(JNIEnv* km_env, jclass km_clazz, jlong pvcursorcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1073,7 +1073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ClfsWriteRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong pvrestartbuffer, jint cbrestartbuffer, jlong plsnbase, jint fflags, jlong pcbwritten, jlong plsnnext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1clfsWriteRestartArea(JNIEnv* km_env, jclass km_clazz, jlong pvmarshalcontext, jlong pvrestartbuffer, jint cbrestartbuffer, jlong plsnbase, jint fflags, jlong pcbwritten, jlong plsnnext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1097,7 +1097,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmCallbackGetKeyObjectID(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object, jlong objectid, jlong objectname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmCallbackGetKeyObjectID(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object, jlong objectid, jlong objectname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1118,7 +1118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmCallbackGetKeyObjectIDEx(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object, jlong objectid, jlong objectname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmCallbackGetKeyObjectIDEx(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object, jlong objectid, jlong objectname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1140,7 +1140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmCallbackReleaseKeyObjectIDEx(JNIEnv* km_env, jclass km_clazz, jlong objectname) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmCallbackReleaseKeyObjectIDEx(JNIEnv* km_env, jclass km_clazz, jlong objectname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1156,7 +1156,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmGetBoundTransaction(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmGetBoundTransaction(JNIEnv* km_env, jclass km_clazz, jlong cookie, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1175,7 +1175,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmGetCallbackVersion(JNIEnv* km_env, jclass km_clazz, jlong major, jlong minor) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmGetCallbackVersion(JNIEnv* km_env, jclass km_clazz, jlong major, jlong minor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1192,7 +1192,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong function, jlong context, jlong cookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong function, jlong context, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1212,7 +1212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmRegisterCallbackEx(JNIEnv* km_env, jclass km_clazz, jlong function, jlong altitude, jlong driver, jlong context, jlong cookie, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmRegisterCallbackEx(JNIEnv* km_env, jclass km_clazz, jlong function, jlong altitude, jlong driver, jlong context, jlong cookie, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1235,7 +1235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmSetCallbackObjectContext(JNIEnv* km_env, jclass km_clazz, jlong object, jlong cookie, jlong newcontext, jlong oldcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmSetCallbackObjectContext(JNIEnv* km_env, jclass km_clazz, jlong object, jlong cookie, jlong newcontext, jlong oldcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1256,7 +1256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1CmUnRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1cmUnRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1274,7 +1274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1DbgBreakPointWithStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgBreakPointWithStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1290,7 +1290,93 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1DbgPrompt(JNIEnv* km_env, jclass km_clazz, jlong prompt, jlong response, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgPrint(JNIEnv* km_env, jclass km_clazz, jlong format, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DbgPrint");
+    }
+    uint32_t km_res = 0;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((void*)(uintptr_t)format); break;
+            case 1: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)format;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgPrintEx(JNIEnv* km_env, jclass km_clazz, jint componentid, jint level, jlong format, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(uint32_t, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DbgPrintEx");
+    }
+    uint32_t km_res = 0;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((uint32_t)componentid, (uint32_t)level, (void*)(uintptr_t)format); break;
+            case 1: km_res = km_fn_ptr((uint32_t)componentid, (uint32_t)level, (void*)(uintptr_t)format, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((uint32_t)componentid, (uint32_t)level, (void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((uint32_t)componentid, (uint32_t)level, (void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((uint32_t)componentid, (uint32_t)level, (void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)componentid;
+    (void)level;
+    (void)format;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgPrintReturnControlC(JNIEnv* km_env, jclass km_clazz, jlong format, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DbgPrintReturnControlC");
+    }
+    uint32_t km_res = 0;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((void*)(uintptr_t)format); break;
+            case 1: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((void*)(uintptr_t)format, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)format;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgPrompt(JNIEnv* km_env, jclass km_clazz, jlong prompt, jlong response, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1310,7 +1396,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1DbgQueryDebugFilterState(JNIEnv* km_env, jclass km_clazz, jint componentid, jint level) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgQueryDebugFilterState(JNIEnv* km_env, jclass km_clazz, jint componentid, jint level) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1329,7 +1415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1DbgSetDebugFilterState(JNIEnv* km_env, jclass km_clazz, jint componentid, jint level, jboolean state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgSetDebugFilterState(JNIEnv* km_env, jclass km_clazz, jint componentid, jint level, jboolean state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1349,7 +1435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1DbgSetDebugPrintCallback(JNIEnv* km_env, jclass km_clazz, jlong debugprintcallback, jboolean enable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1dbgSetDebugPrintCallback(JNIEnv* km_env, jclass km_clazz, jlong debugprintcallback, jboolean enable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1368,7 +1454,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwActivityIdControl(JNIEnv* km_env, jclass km_clazz, jint controlcode, jlong activityid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwActivityIdControl(JNIEnv* km_env, jclass km_clazz, jint controlcode, jlong activityid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1387,7 +1473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwEventEnabled(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwEventEnabled(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1406,7 +1492,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwProviderEnabled(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jbyte level, jlong keyword) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwProviderEnabled(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jbyte level, jlong keyword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1426,7 +1512,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwRegister(JNIEnv* km_env, jclass km_clazz, jlong providerid, jlong enablecallback, jlong callbackcontext, jlong reghandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwRegister(JNIEnv* km_env, jclass km_clazz, jlong providerid, jlong enablecallback, jlong callbackcontext, jlong reghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1447,7 +1533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwSetInformation(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jint informationclass, jlong eventinformation, jint informationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwSetInformation(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jint informationclass, jlong eventinformation, jint informationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1468,7 +1554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwUnregister(JNIEnv* km_env, jclass km_clazz, jlong reghandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwUnregister(JNIEnv* km_env, jclass km_clazz, jlong reghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1486,7 +1572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwWrite(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong activityid, jint userdatacount, jlong userdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwWrite(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong activityid, jint userdatacount, jlong userdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1508,7 +1594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwWriteEx(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong filter, jint flags, jlong activityid, jlong relatedactivityid, jint userdatacount, jlong userdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwWriteEx(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong filter, jint flags, jlong activityid, jlong relatedactivityid, jint userdatacount, jlong userdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1533,7 +1619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwWriteString(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jbyte level, jlong keyword, jlong activityid, jlong string) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwWriteString(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jbyte level, jlong keyword, jlong activityid, jlong string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1555,7 +1641,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1EtwWriteTransfer(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong activityid, jlong relatedactivityid, jint userdatacount, jlong userdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1etwWriteTransfer(JNIEnv* km_env, jclass km_clazz, jlong reghandle, jlong eventdescriptor, jlong activityid, jlong relatedactivityid, jint userdatacount, jlong userdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1578,7 +1664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1594,7 +1680,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireFastMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireFastMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1610,7 +1696,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquirePushLockExclusiveEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquirePushLockExclusiveEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1627,7 +1713,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquirePushLockSharedEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquirePushLockSharedEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1644,7 +1730,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireResourceExclusiveLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireResourceExclusiveLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1663,7 +1749,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireResourceSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireResourceSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1682,7 +1768,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1700,7 +1786,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1718,7 +1804,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jint count) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1737,7 +1823,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireRundownProtectionEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireRundownProtectionEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1756,7 +1842,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSharedStarveExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSharedStarveExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1775,7 +1861,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSharedWaitForExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSharedWaitForExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1794,7 +1880,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1812,7 +1898,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSpinLockExclusiveAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSpinLockExclusiveAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1828,7 +1914,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSpinLockShared(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSpinLockShared(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1846,7 +1932,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAcquireSpinLockSharedAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAcquireSpinLockSharedAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1862,7 +1948,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocateCacheAwareRundownProtection(JNIEnv* km_env, jclass km_clazz, jint pooltype, jint pooltag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocateCacheAwareRundownProtection(JNIEnv* km_env, jclass km_clazz, jint pooltype, jint pooltag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1881,7 +1967,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePool(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePool(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1900,7 +1986,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePool2(JNIEnv* km_env, jclass km_clazz, jlong flags, jlong numberofbytes, jint tag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePool2(JNIEnv* km_env, jclass km_clazz, jlong flags, jlong numberofbytes, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1920,7 +2006,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePool3(JNIEnv* km_env, jclass km_clazz, jlong flags, jlong numberofbytes, jint tag, jlong extendedparameters, jint extendedparameterscount) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePool3(JNIEnv* km_env, jclass km_clazz, jlong flags, jlong numberofbytes, jint tag, jlong extendedparameters, jint extendedparameterscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1942,7 +2028,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePoolWithQuota(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePoolWithQuota(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1961,7 +2047,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePoolWithQuotaTag(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePoolWithQuotaTag(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1981,7 +2067,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePoolWithTag(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePoolWithTag(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2001,7 +2087,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocatePoolWithTagPriority(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag, jint priority) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocatePoolWithTagPriority(JNIEnv* km_env, jclass km_clazz, jint pooltype, jlong numberofbytes, jint tag, jint priority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2022,7 +2108,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExAllocateTimer(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callbackcontext, jint attributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exAllocateTimer(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callbackcontext, jint attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2042,7 +2128,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong parameters) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2061,7 +2147,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExCleanupRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exCleanupRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2077,7 +2163,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExConvertExclusiveToSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exConvertExclusiveToSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2093,7 +2179,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExCreateCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong objectattributes, jboolean create, jboolean allowmultiplecallbacks) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exCreateCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong objectattributes, jboolean create, jboolean allowmultiplecallbacks) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2114,7 +2200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExCreatePool(JNIEnv* km_env, jclass km_clazz, jint flags, jlong tag, jlong params, jlong poolhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exCreatePool(JNIEnv* km_env, jclass km_clazz, jint flags, jlong tag, jlong params, jlong poolhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2135,7 +2221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExDeleteResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exDeleteResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2153,7 +2239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExDeleteTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jboolean cancel, jboolean wait, jlong parameters) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exDeleteTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jboolean cancel, jboolean wait, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2174,7 +2260,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExDestroyPool(JNIEnv* km_env, jclass km_clazz, jlong poolhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exDestroyPool(JNIEnv* km_env, jclass km_clazz, jlong poolhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2190,7 +2276,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExEnterCriticalRegionAndAcquireResourceExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exEnterCriticalRegionAndAcquireResourceExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2208,7 +2294,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExEnterCriticalRegionAndAcquireResourceShared(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exEnterCriticalRegionAndAcquireResourceShared(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2226,7 +2312,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExEnterCriticalRegionAndAcquireSharedWaitForExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exEnterCriticalRegionAndAcquireSharedWaitForExclusive(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2244,7 +2330,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExEnumerateSystemFirmwareTables(JNIEnv* km_env, jclass km_clazz, jint firmwaretableprovidersignature, jlong firmwaretablebuffer, jint bufferlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exEnumerateSystemFirmwareTables(JNIEnv* km_env, jclass km_clazz, jint firmwaretableprovidersignature, jlong firmwaretablebuffer, jint bufferlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2265,7 +2351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExExtendZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jlong segment, jint segmentsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exExtendZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jlong segment, jint segmentsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2285,7 +2371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExFreeCacheAwareRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exFreeCacheAwareRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2301,7 +2387,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExFreePool(JNIEnv* km_env, jclass km_clazz, jlong p) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exFreePool(JNIEnv* km_env, jclass km_clazz, jlong p) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2317,7 +2403,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExFreePool2(JNIEnv* km_env, jclass km_clazz, jlong p, jint tag, jlong extendedparameters, jint extendedparameterscount) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exFreePool2(JNIEnv* km_env, jclass km_clazz, jlong p, jint tag, jlong extendedparameters, jint extendedparameterscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2336,7 +2422,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExFreePoolWithTag(JNIEnv* km_env, jclass km_clazz, jlong p, jint tag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exFreePoolWithTag(JNIEnv* km_env, jclass km_clazz, jlong p, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2353,7 +2439,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetExclusiveWaiterCount(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetExclusiveWaiterCount(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2371,7 +2457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetFirmwareEnvironmentVariable(JNIEnv* km_env, jclass km_clazz, jlong variablename, jlong vendorguid, jlong value, jlong valuelength, jlong attributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetFirmwareEnvironmentVariable(JNIEnv* km_env, jclass km_clazz, jlong variablename, jlong vendorguid, jlong value, jlong valuelength, jlong attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2393,7 +2479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetFirmwareType(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetFirmwareType(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2410,7 +2496,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetPreviousMode(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetPreviousMode(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2427,7 +2513,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetSharedWaiterCount(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetSharedWaiterCount(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2445,7 +2531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExGetSystemFirmwareTable(JNIEnv* km_env, jclass km_clazz, jint firmwaretableprovidersignature, jint firmwaretableid, jlong firmwaretablebuffer, jint bufferlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exGetSystemFirmwareTable(JNIEnv* km_env, jclass km_clazz, jint firmwaretableprovidersignature, jint firmwaretableid, jlong firmwaretablebuffer, jint bufferlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2467,7 +2553,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializePushLock(JNIEnv* km_env, jclass km_clazz, jlong pushlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializePushLock(JNIEnv* km_env, jclass km_clazz, jlong pushlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2483,7 +2569,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializeResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializeResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2501,7 +2587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializeRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializeRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2517,7 +2603,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializeRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jlong runrefsize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializeRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jlong runrefsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2534,7 +2620,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializeRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializeRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2551,7 +2637,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInitializeZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jint blocksize, jlong initialsegment, jint initialsegmentsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInitializeZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jint blocksize, jlong initialsegment, jint initialsegmentsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2572,7 +2658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInterlockedAddLargeInteger(JNIEnv* km_env, jclass km_clazz, jlong addend, jlong increment, jlong lock) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInterlockedAddLargeInteger(JNIEnv* km_env, jclass km_clazz, jlong addend, jlong increment, jlong lock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2592,7 +2678,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExInterlockedExtendZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jlong segment, jint segmentsize, jlong lock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exInterlockedExtendZone(JNIEnv* km_env, jclass km_clazz, jlong zone, jlong segment, jint segmentsize, jlong lock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2613,7 +2699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExIsManufacturingModeEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exIsManufacturingModeEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2630,7 +2716,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExIsProcessorFeaturePresent(JNIEnv* km_env, jclass km_clazz, jint processorfeature) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exIsProcessorFeaturePresent(JNIEnv* km_env, jclass km_clazz, jint processorfeature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2648,7 +2734,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExIsResourceAcquiredExclusiveLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exIsResourceAcquiredExclusiveLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2666,7 +2752,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExIsResourceAcquiredSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exIsResourceAcquiredSharedLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2684,7 +2770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExIsSoftBoot(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exIsSoftBoot(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2701,7 +2787,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExLocalTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong localtime, jlong systemtime) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exLocalTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong localtime, jlong systemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2718,7 +2804,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExNotifyCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong argument1, jlong argument2) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exNotifyCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong argument1, jlong argument2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2736,7 +2822,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2754,7 +2840,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong workitem, jint queuetype) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong workitem, jint queuetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2771,7 +2857,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRaiseAccessViolation(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRaiseAccessViolation(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2786,7 +2872,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRaiseDatatypeMisalignment(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRaiseDatatypeMisalignment(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2801,7 +2887,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRaiseStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRaiseStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2817,7 +2903,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReInitializeRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReInitializeRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2833,7 +2919,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReInitializeRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReInitializeRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2849,7 +2935,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong callbackfunction, jlong callbackcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRegisterCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackobject, jlong callbackfunction, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2869,7 +2955,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReinitializeResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReinitializeResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2887,7 +2973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2903,7 +2989,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseFastMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseFastMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2919,7 +3005,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleasePushLockExclusiveEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleasePushLockExclusiveEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2936,7 +3022,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleasePushLockSharedEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleasePushLockSharedEx(JNIEnv* km_env, jclass km_clazz, jlong pushlock, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2953,7 +3039,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseResourceAndLeaveCriticalRegion(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseResourceAndLeaveCriticalRegion(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2969,7 +3055,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseResourceForThreadLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong resourcethreadid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseResourceForThreadLite(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong resourcethreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2986,7 +3072,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseResourceLite(JNIEnv* km_env, jclass km_clazz, jlong resource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3002,7 +3088,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseRundownProtection(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3018,7 +3104,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3034,7 +3120,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseRundownProtectionCacheAwareEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3051,7 +3137,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseRundownProtectionEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseRundownProtectionEx(JNIEnv* km_env, jclass km_clazz, jlong runref, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3068,7 +3154,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3085,7 +3171,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseSpinLockExclusiveFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseSpinLockExclusiveFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3101,7 +3187,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseSpinLockShared(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseSpinLockShared(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3118,7 +3204,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExReleaseSpinLockSharedFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exReleaseSpinLockSharedFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3134,7 +3220,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRundownCompleted(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRundownCompleted(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3150,7 +3236,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExRundownCompletedCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exRundownCompletedCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runrefcacheaware) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3166,7 +3252,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSecurePoolUpdate(JNIEnv* km_env, jclass km_clazz, jlong securepoolhandle, jint tag, jlong allocation, jlong cookie, jlong offset, jlong size, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSecurePoolUpdate(JNIEnv* km_env, jclass km_clazz, jlong securepoolhandle, jint tag, jlong allocation, jlong cookie, jlong offset, jlong size, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3190,7 +3276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSecurePoolValidate(JNIEnv* km_env, jclass km_clazz, jlong securepoolhandle, jint tag, jlong allocation, jlong cookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSecurePoolValidate(JNIEnv* km_env, jclass km_clazz, jlong securepoolhandle, jint tag, jlong allocation, jlong cookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3211,7 +3297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSetFirmwareEnvironmentVariable(JNIEnv* km_env, jclass km_clazz, jlong variablename, jlong vendorguid, jlong value, jint valuelength, jint attributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSetFirmwareEnvironmentVariable(JNIEnv* km_env, jclass km_clazz, jlong variablename, jlong vendorguid, jlong value, jint valuelength, jint attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3233,7 +3319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSetResourceOwnerPointer(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong ownerpointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSetResourceOwnerPointer(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong ownerpointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3250,7 +3336,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSetResourceOwnerPointerEx(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong ownerpointer, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSetResourceOwnerPointerEx(JNIEnv* km_env, jclass km_clazz, jlong resource, jlong ownerpointer, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3268,7 +3354,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jlong period, jlong parameters) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jlong period, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3289,7 +3375,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSetTimerResolution(JNIEnv* km_env, jclass km_clazz, jint desiredtime, jboolean setresolution) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSetTimerResolution(JNIEnv* km_env, jclass km_clazz, jint desiredtime, jboolean setresolution) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3308,7 +3394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSizeOfRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSizeOfRundownProtectionCacheAware(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3325,7 +3411,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExSystemTimeToLocalTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime, jlong localtime) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exSystemTimeToLocalTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime, jlong localtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3342,7 +3428,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExTryAcquireSpinLockExclusiveAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exTryAcquireSpinLockExclusiveAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3360,7 +3446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExTryAcquireSpinLockSharedAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exTryAcquireSpinLockSharedAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3378,7 +3464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExTryConvertSharedSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exTryConvertSharedSpinLockExclusive(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3396,7 +3482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExTryToAcquireFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exTryToAcquireFastMutex(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3414,7 +3500,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExUnregisterCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exUnregisterCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3430,7 +3516,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExUuidCreate(JNIEnv* km_env, jclass km_clazz, jlong uuid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exUuidCreate(JNIEnv* km_env, jclass km_clazz, jlong uuid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3448,7 +3534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExVerifySuite(JNIEnv* km_env, jclass km_clazz, jint suitetype) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exVerifySuite(JNIEnv* km_env, jclass km_clazz, jint suitetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3466,7 +3552,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExWaitForRundownProtectionRelease(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exWaitForRundownProtectionRelease(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3482,7 +3568,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ExWaitForRundownProtectionReleaseCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1exWaitForRundownProtectionReleaseCacheAware(JNIEnv* km_env, jclass km_clazz, jlong runref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3498,7 +3584,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1FsRtlIsTotalDeviceFailure(JNIEnv* km_env, jclass km_clazz, jint status) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1fsRtlIsTotalDeviceFailure(JNIEnv* km_env, jclass km_clazz, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3516,7 +3602,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalAcquireDisplayOwnership(JNIEnv* km_env, jclass km_clazz, jlong resetdisplayparameters) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halAcquireDisplayOwnership(JNIEnv* km_env, jclass km_clazz, jlong resetdisplayparameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3532,7 +3618,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalAllocateCommonBuffer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jint length, jlong logicaladdress, jboolean cacheenabled) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halAllocateCommonBuffer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jint length, jlong logicaladdress, jboolean cacheenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3553,7 +3639,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalAllocateCrashDumpRegisters(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong numberofmapregisters) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halAllocateCrashDumpRegisters(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong numberofmapregisters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3572,7 +3658,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalAllocateHardwareCounters(JNIEnv* km_env, jclass km_clazz, jlong groupaffinty, jint groupcount, jlong resourcelist, jlong countersethandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halAllocateHardwareCounters(JNIEnv* km_env, jclass km_clazz, jlong groupaffinty, jint groupcount, jlong resourcelist, jlong countersethandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3593,7 +3679,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalAssignSlotResources(JNIEnv* km_env, jclass km_clazz, jlong registrypath, jlong driverclassname, jlong driverobject, jlong deviceobject, jint bustype, jint busnumber, jint slotnumber, jlong allocatedresources) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halAssignSlotResources(JNIEnv* km_env, jclass km_clazz, jlong registrypath, jlong driverclassname, jlong driverobject, jlong deviceobject, jint bustype, jint busnumber, jint slotnumber, jlong allocatedresources) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3618,7 +3704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalBugCheckSystem(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong errorrecord) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halBugCheckSystem(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong errorrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3635,7 +3721,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalDmaAllocateCrashDumpRegistersEx(JNIEnv* km_env, jclass km_clazz, jlong adapter, jint numberofmapregisters, jint type, jlong mapregisterbase, jlong mapregistersavailable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halDmaAllocateCrashDumpRegistersEx(JNIEnv* km_env, jclass km_clazz, jlong adapter, jint numberofmapregisters, jint type, jlong mapregisterbase, jlong mapregistersavailable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3657,7 +3743,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalDmaFreeCrashDumpRegistersEx(JNIEnv* km_env, jclass km_clazz, jlong adapter, jint type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halDmaFreeCrashDumpRegistersEx(JNIEnv* km_env, jclass km_clazz, jlong adapter, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3676,7 +3762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalExamineMBR(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint mbrtypeidentifier, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halExamineMBR(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint mbrtypeidentifier, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3695,7 +3781,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalFreeCommonBuffer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jint length, jlong logicaladdress, jlong virtualaddress, jboolean cacheenabled) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halFreeCommonBuffer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jint length, jlong logicaladdress, jlong virtualaddress, jboolean cacheenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3715,7 +3801,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalFreeHardwareCounters(JNIEnv* km_env, jclass km_clazz, jlong countersethandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halFreeHardwareCounters(JNIEnv* km_env, jclass km_clazz, jlong countersethandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3733,7 +3819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalGetAdapter(JNIEnv* km_env, jclass km_clazz, jlong devicedescription, jlong numberofmapregisters) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halGetAdapter(JNIEnv* km_env, jclass km_clazz, jlong devicedescription, jlong numberofmapregisters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3752,7 +3838,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalGetBusData(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halGetBusData(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3774,7 +3860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalGetBusDataByOffset(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint offset, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halGetBusDataByOffset(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint offset, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3797,7 +3883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalGetInterruptVector(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jint businterruptlevel, jint businterruptvector, jlong irql, jlong affinity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halGetInterruptVector(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jint businterruptlevel, jint businterruptvector, jlong irql, jlong affinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3820,7 +3906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalMakeBeep(JNIEnv* km_env, jclass km_clazz, jint frequency) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halMakeBeep(JNIEnv* km_env, jclass km_clazz, jint frequency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3838,7 +3924,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalReadDmaCounter(JNIEnv* km_env, jclass km_clazz, jlong adapterobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halReadDmaCounter(JNIEnv* km_env, jclass km_clazz, jlong adapterobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3856,7 +3942,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalSetBusData(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halSetBusData(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3878,7 +3964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalSetBusDataByOffset(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint offset, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halSetBusDataByOffset(JNIEnv* km_env, jclass km_clazz, jint busdatatype, jint busnumber, jint slotnumber, jlong buffer, jint offset, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3901,7 +3987,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HalTranslateBusAddress(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jlong busaddress, jlong addressspace, jlong translatedaddress) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1halTranslateBusAddress(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jlong busaddress, jlong addressspace, jlong translatedaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3923,7 +4009,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HvlRegisterWheaErrorNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1hvlRegisterWheaErrorNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3941,7 +4027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1HvlUnregisterWheaErrorNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1hvlUnregisterWheaErrorNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3959,7 +4045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAcquireCancelSpinLock(JNIEnv* km_env, jclass km_clazz, jlong irql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAcquireCancelSpinLock(JNIEnv* km_env, jclass km_clazz, jlong irql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3975,7 +4061,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAcquireKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong buffer, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAcquireKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong buffer, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3996,7 +4082,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAcquireKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jlong dataversion, jlong buffer, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAcquireKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jlong dataversion, jlong buffer, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4020,7 +4106,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAcquireRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jlong file, jint line, jint remlocksize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAcquireRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jlong file, jint line, jint remlocksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4042,7 +4128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateDriverObjectExtension(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong clientidentificationaddress, jint driverobjectextensionsize, jlong driverobjectextension) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateDriverObjectExtension(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong clientidentificationaddress, jint driverobjectextensionsize, jlong driverobjectextension) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4063,7 +4149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jbyte entrysize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jbyte entrysize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4082,7 +4168,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateIrp(JNIEnv* km_env, jclass km_clazz, jbyte stacksize, jboolean chargequota) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateIrp(JNIEnv* km_env, jclass km_clazz, jbyte stacksize, jboolean chargequota) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4101,7 +4187,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateIrpEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jbyte stacksize, jboolean chargequota) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateIrpEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jbyte stacksize, jboolean chargequota) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4121,7 +4207,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateMdl(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jint length, jboolean secondarybuffer, jboolean chargequota, jlong irp) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateMdl(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jint length, jboolean secondarybuffer, jboolean chargequota, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4143,7 +4229,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jint length, jlong signature, jlong streamidentifier) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jint length, jlong signature, jlong streamidentifier) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4164,7 +4250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAllocateWorkItem(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAllocateWorkItem(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4182,7 +4268,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAssignResources(JNIEnv* km_env, jclass km_clazz, jlong registrypath, jlong driverclassname, jlong driverobject, jlong deviceobject, jlong requestedresources, jlong allocatedresources) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAssignResources(JNIEnv* km_env, jclass km_clazz, jlong registrypath, jlong driverclassname, jlong driverobject, jlong deviceobject, jlong requestedresources, jlong allocatedresources) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4205,7 +4291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAttachDevice(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice, jlong attacheddevice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAttachDevice(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice, jlong attacheddevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4225,7 +4311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAttachDeviceByPointer(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAttachDeviceByPointer(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4244,7 +4330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAttachDeviceToDeviceStack(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAttachDeviceToDeviceStack(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4263,7 +4349,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoAttachDeviceToDeviceStackSafe(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice, jlong attachedtodeviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioAttachDeviceToDeviceStackSafe(JNIEnv* km_env, jclass km_clazz, jlong sourcedevice, jlong targetdevice, jlong attachedtodeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4283,7 +4369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoBuildAsynchronousFsdRequest(JNIEnv* km_env, jclass km_clazz, jint majorfunction, jlong deviceobject, jlong buffer, jint length, jlong startingoffset, jlong iostatusblock) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioBuildAsynchronousFsdRequest(JNIEnv* km_env, jclass km_clazz, jint majorfunction, jlong deviceobject, jlong buffer, jint length, jlong startingoffset, jlong iostatusblock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4306,7 +4392,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoBuildDeviceIoControlRequest(JNIEnv* km_env, jclass km_clazz, jint iocontrolcode, jlong deviceobject, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength, jboolean internaldeviceiocontrol, jlong event, jlong iostatusblock) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioBuildDeviceIoControlRequest(JNIEnv* km_env, jclass km_clazz, jint iocontrolcode, jlong deviceobject, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength, jboolean internaldeviceiocontrol, jlong event, jlong iostatusblock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4332,7 +4418,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoBuildPartialMdl(JNIEnv* km_env, jclass km_clazz, jlong sourcemdl, jlong targetmdl, jlong virtualaddress, jint length) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioBuildPartialMdl(JNIEnv* km_env, jclass km_clazz, jlong sourcemdl, jlong targetmdl, jlong virtualaddress, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4351,7 +4437,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoBuildSynchronousFsdRequest(JNIEnv* km_env, jclass km_clazz, jint majorfunction, jlong deviceobject, jlong buffer, jint length, jlong startingoffset, jlong event, jlong iostatusblock) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioBuildSynchronousFsdRequest(JNIEnv* km_env, jclass km_clazz, jint majorfunction, jlong deviceobject, jlong buffer, jint length, jlong startingoffset, jlong event, jlong iostatusblock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4375,7 +4461,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCancelFileOpen(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong fileobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCancelFileOpen(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4392,7 +4478,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCancelIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCancelIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4410,7 +4496,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCheckLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCheckLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4433,7 +4519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCheckShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jboolean update) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCheckShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jboolean update) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4455,7 +4541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCheckShareAccessEx(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jboolean update, jlong writepermission) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCheckShareAccessEx(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jboolean update, jlong writepermission) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4478,7 +4564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCleanupIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCleanupIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4494,7 +4580,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoClearActivityIdThread(JNIEnv* km_env, jclass km_clazz, jlong originalid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioClearActivityIdThread(JNIEnv* km_env, jclass km_clazz, jlong originalid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4510,7 +4596,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoClearIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioClearIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4526,7 +4612,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoConnectInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject, jlong serviceroutine, jlong servicecontext, jlong spinlock, jint vector, jbyte irql, jbyte synchronizeirql, jint interruptmode, jboolean sharevector, jlong processorenablemask, jboolean floatingsave) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioConnectInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject, jlong serviceroutine, jlong servicecontext, jlong spinlock, jint vector, jbyte irql, jbyte synchronizeirql, jint interruptmode, jboolean sharevector, jlong processorenablemask, jboolean floatingsave) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4554,7 +4640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoConnectInterruptEx(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioConnectInterruptEx(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4572,7 +4658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateController(JNIEnv* km_env, jclass km_clazz, jint size) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateController(JNIEnv* km_env, jclass km_clazz, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4590,7 +4676,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint deviceextensionsize, jlong devicename, jint devicetype, jint devicecharacteristics, jboolean exclusive, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint deviceextensionsize, jlong devicename, jint devicetype, jint devicecharacteristics, jboolean exclusive, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4614,7 +4700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateDisk(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong disk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateDisk(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong disk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4633,7 +4719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4664,7 +4750,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateFileEx(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options, jlong drivercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateFileEx(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options, jlong drivercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4696,7 +4782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateFileSpecifyDeviceObjectHint(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateFileSpecifyDeviceObjectHint(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint disposition, jint createoptions, jlong eabuffer, jint ealength, jint createfiletype, jlong internalparameters, jint options, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4728,7 +4814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateNotificationEvent(JNIEnv* km_env, jclass km_clazz, jlong eventname, jlong eventhandle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateNotificationEvent(JNIEnv* km_env, jclass km_clazz, jlong eventname, jlong eventhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4747,7 +4833,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong devicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong devicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4766,7 +4852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateSynchronizationEvent(JNIEnv* km_env, jclass km_clazz, jlong eventname, jlong eventhandle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateSynchronizationEvent(JNIEnv* km_env, jclass km_clazz, jlong eventname, jlong eventhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4785,7 +4871,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateSystemThread(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jlong threadhandle, jint desiredaccess, jlong objectattributes, jlong processhandle, jlong clientid, jlong startroutine, jlong startcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateSystemThread(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jlong threadhandle, jint desiredaccess, jlong objectattributes, jlong processhandle, jlong clientid, jlong startroutine, jlong startcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4810,7 +4896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCreateUnprotectedSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong devicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCreateUnprotectedSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong devicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4829,7 +4915,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqInitialize(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong csqinsertirp, jlong csqremoveirp, jlong csqpeeknextirp, jlong csqacquirelock, jlong csqreleaselock, jlong csqcompletecanceledirp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqInitialize(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong csqinsertirp, jlong csqremoveirp, jlong csqpeeknextirp, jlong csqacquirelock, jlong csqreleaselock, jlong csqcompletecanceledirp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4853,7 +4939,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqInitializeEx(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong csqinsertirp, jlong csqremoveirp, jlong csqpeeknextirp, jlong csqacquirelock, jlong csqreleaselock, jlong csqcompletecanceledirp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqInitializeEx(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong csqinsertirp, jlong csqremoveirp, jlong csqpeeknextirp, jlong csqacquirelock, jlong csqreleaselock, jlong csqcompletecanceledirp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4877,7 +4963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqInsertIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong irp, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqInsertIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong irp, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4895,7 +4981,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqInsertIrpEx(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong irp, jlong context, jlong insertcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqInsertIrpEx(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong irp, jlong context, jlong insertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4916,7 +5002,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqRemoveIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqRemoveIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4935,7 +5021,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoCsqRemoveNextIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong peekcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioCsqRemoveNextIrp(JNIEnv* km_env, jclass km_clazz, jlong csq, jlong peekcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4954,7 +5040,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDecrementKeepAliveCount(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong process) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDecrementKeepAliveCount(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4973,7 +5059,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDeleteController(JNIEnv* km_env, jclass km_clazz, jlong controllerobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDeleteController(JNIEnv* km_env, jclass km_clazz, jlong controllerobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4989,7 +5075,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDeleteDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDeleteDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5005,7 +5091,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDeleteSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDeleteSymbolicLink(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5023,7 +5109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDetachDevice(JNIEnv* km_env, jclass km_clazz, jlong targetdevice) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDetachDevice(JNIEnv* km_env, jclass km_clazz, jlong targetdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5039,7 +5125,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDisconnectInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDisconnectInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5055,7 +5141,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoDisconnectInterruptEx(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioDisconnectInterruptEx(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5071,7 +5157,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoEnumerateKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong callback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioEnumerateKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong callback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5093,7 +5179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFlushAdapterBuffers(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mdl, jlong mapregisterbase, jlong currentva, jint length, jboolean writetodevice) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFlushAdapterBuffers(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mdl, jlong mapregisterbase, jlong currentva, jint length, jboolean writetodevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5116,7 +5202,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoForwardIrpSynchronously(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioForwardIrpSynchronously(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5135,7 +5221,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeAdapterChannel(JNIEnv* km_env, jclass km_clazz, jlong adapterobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeAdapterChannel(JNIEnv* km_env, jclass km_clazz, jlong adapterobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5151,7 +5237,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeController(JNIEnv* km_env, jclass km_clazz, jlong controllerobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeController(JNIEnv* km_env, jclass km_clazz, jlong controllerobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5167,7 +5253,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong elentry) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong elentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5183,7 +5269,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5199,7 +5285,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong datahandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong datahandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5217,7 +5303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeMapRegisters(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mapregisterbase, jint numberofmapregisters) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeMapRegisters(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mapregisterbase, jint numberofmapregisters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5235,7 +5321,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeMdl(JNIEnv* km_env, jclass km_clazz, jlong mdl) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeMdl(JNIEnv* km_env, jclass km_clazz, jlong mdl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5251,7 +5337,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong signature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong signature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5270,7 +5356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoFreeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioFreeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5286,7 +5372,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetActivityIdIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetActivityIdIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5305,7 +5391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetActivityIdThread(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetActivityIdThread(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5322,7 +5408,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetAffinityInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject, jlong groupaffinity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetAffinityInterrupt(JNIEnv* km_env, jclass km_clazz, jlong interruptobject, jlong groupaffinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5341,7 +5427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetAttachedDeviceReference(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetAttachedDeviceReference(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5359,7 +5445,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetBootDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong bootdiskinformation, jint size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetBootDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong bootdiskinformation, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5378,7 +5464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetBootDiskInformationLite(JNIEnv* km_env, jclass km_clazz, jlong bootdiskinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetBootDiskInformationLite(JNIEnv* km_env, jclass km_clazz, jlong bootdiskinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5396,7 +5482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetConfigurationInformation(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetConfigurationInformation(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5413,7 +5499,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetContainerInformation(JNIEnv* km_env, jclass km_clazz, jint informationclass, jlong containerobject, jlong buffer, jint bufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetContainerInformation(JNIEnv* km_env, jclass km_clazz, jint informationclass, jlong containerobject, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5434,7 +5520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetCurrentProcess(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetCurrentProcess(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5451,7 +5537,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceDirectory(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jint directorytype, jint flags, jlong reserved, jlong devicedirectoryhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceDirectory(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jint directorytype, jint flags, jlong reserved, jlong devicedirectoryhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5473,7 +5559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceInterfaceAlias(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong aliasinterfaceclassguid, jlong aliassymboliclinkname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceInterfaceAlias(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong aliasinterfaceclassguid, jlong aliassymboliclinkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5493,7 +5579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceInterfacePropertyData(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong propertykey, jint lcid, jint flags, jint size, jlong data, jlong requiredsize, jlong type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceInterfacePropertyData(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong propertykey, jint lcid, jint flags, jint size, jlong data, jlong requiredsize, jlong type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5518,7 +5604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong physicaldeviceobject, jint flags, jlong symboliclinklist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong physicaldeviceobject, jint flags, jlong symboliclinklist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5539,7 +5625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceNumaNode(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong nodenumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceNumaNode(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong nodenumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5558,7 +5644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceObjectPointer(JNIEnv* km_env, jclass km_clazz, jlong objectname, jint desiredaccess, jlong fileobject, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceObjectPointer(JNIEnv* km_env, jclass km_clazz, jlong objectname, jint desiredaccess, jlong fileobject, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5579,7 +5665,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDeviceProperty(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint deviceproperty, jint bufferlength, jlong propertybuffer, jlong resultlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDeviceProperty(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint deviceproperty, jint bufferlength, jlong propertybuffer, jlong resultlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5601,7 +5687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDevicePropertyData(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong propertykey, jint lcid, jint flags, jint size, jlong data, jlong requiredsize, jlong type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDevicePropertyData(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong propertykey, jint lcid, jint flags, jint size, jlong data, jlong requiredsize, jlong type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5626,7 +5712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDmaAdapter(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong devicedescription, jlong numberofmapregisters) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDmaAdapter(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong devicedescription, jlong numberofmapregisters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5646,7 +5732,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDriverDirectory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint directorytype, jint flags, jlong driverdirectoryhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDriverDirectory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint directorytype, jint flags, jlong driverdirectoryhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5667,7 +5753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetDriverObjectExtension(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong clientidentificationaddress) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetDriverObjectExtension(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong clientidentificationaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5686,7 +5772,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetFileObjectGenericMapping(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetFileObjectGenericMapping(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5703,7 +5789,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetFsZeroingOffset(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong zeroingoffset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetFsZeroingOffset(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong zeroingoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5722,7 +5808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetInitialStack(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetInitialStack(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5739,7 +5825,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetInitiatorProcess(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetInitiatorProcess(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5757,7 +5843,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetIoAttributionHandle(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong ioattributionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetIoAttributionHandle(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong ioattributionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5776,7 +5862,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetIoPriorityHint(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetIoPriorityHint(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5794,7 +5880,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetIommuInterface(JNIEnv* km_env, jclass km_clazz, jint version, jlong interfaceout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetIommuInterface(JNIEnv* km_env, jclass km_clazz, jint version, jlong interfaceout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5813,7 +5899,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetIommuInterfaceEx(JNIEnv* km_env, jclass km_clazz, jint version, jlong flags, jlong interfaceout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetIommuInterfaceEx(JNIEnv* km_env, jclass km_clazz, jint version, jlong flags, jlong interfaceout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5833,7 +5919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong extracreateparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong extracreateparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5852,7 +5938,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetPagingIoPriority(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetPagingIoPriority(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5870,7 +5956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetRelatedDeviceObject(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetRelatedDeviceObject(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5888,7 +5974,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong signature) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetSfioStreamIdentifier(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong signature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5907,7 +5993,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetSilo(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetSilo(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5925,7 +6011,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetSiloParameters(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetSiloParameters(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5943,7 +6029,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetStackLimits(JNIEnv* km_env, jclass km_clazz, jlong lowlimit, jlong highlimit) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetStackLimits(JNIEnv* km_env, jclass km_clazz, jlong lowlimit, jlong highlimit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5960,7 +6046,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetTopLevelIrp(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetTopLevelIrp(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5977,7 +6063,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoGetTransactionParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioGetTransactionParameterBlock(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5995,7 +6081,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIncrementKeepAliveCount(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong process) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIncrementKeepAliveCount(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6014,7 +6100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInitializeIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jshort packetsize, jbyte stacksize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInitializeIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jshort packetsize, jbyte stacksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6032,7 +6118,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInitializeIrpEx(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject, jshort packetsize, jbyte stacksize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInitializeIrpEx(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject, jshort packetsize, jbyte stacksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6051,7 +6137,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInitializeRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong lock, jint allocatetag, jint maxlockedminutes, jint highwatermark, jint remlocksize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInitializeRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong lock, jint allocatetag, jint maxlockedminutes, jint highwatermark, jint remlocksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6071,7 +6157,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInitializeTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong timerroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInitializeTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong timerroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6091,7 +6177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInitializeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jlong ioworkitem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInitializeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioobject, jlong ioworkitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6108,7 +6194,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInvalidateDeviceRelations(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInvalidateDeviceRelations(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6125,7 +6211,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoInvalidateDeviceState(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioInvalidateDeviceState(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6141,7 +6227,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIs32bitProcess(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIs32bitProcess(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6159,7 +6245,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIsFileObjectIgnoringSharing(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIsFileObjectIgnoringSharing(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6177,7 +6263,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIsFileOriginRemote(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIsFileOriginRemote(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6195,7 +6281,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIsInitiator32bitProcess(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIsInitiator32bitProcess(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6213,7 +6299,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIsValidIrpStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIsValidIrpStatus(JNIEnv* km_env, jclass km_clazz, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6231,7 +6317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoIsWdmVersionAvailable(JNIEnv* km_env, jclass km_clazz, jbyte majorversion, jbyte minorversion) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioIsWdmVersionAvailable(JNIEnv* km_env, jclass km_clazz, jbyte majorversion, jbyte minorversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6250,7 +6336,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoMakeAssociatedIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jbyte stacksize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioMakeAssociatedIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jbyte stacksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6269,7 +6355,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoMakeAssociatedIrpEx(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject, jbyte stacksize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioMakeAssociatedIrpEx(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject, jbyte stacksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6289,7 +6375,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoMapTransfer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mdl, jlong mapregisterbase, jlong currentva, jlong length, jboolean writetodevice) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioMapTransfer(JNIEnv* km_env, jclass km_clazz, jlong adapterobject, jlong mdl, jlong mapregisterbase, jlong currentva, jlong length, jboolean writetodevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6312,7 +6398,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoOpenDeviceInterfaceRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jint desiredaccess, jlong deviceinterfaceregkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioOpenDeviceInterfaceRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jint desiredaccess, jlong deviceinterfaceregkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6332,7 +6418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoOpenDeviceRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint devinstkeytype, jint desiredaccess, jlong deviceregkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioOpenDeviceRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint devinstkeytype, jint desiredaccess, jlong deviceregkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6353,7 +6439,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoOpenDriverRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint regkeytype, jint desiredaccess, jint flags, jlong driverregkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioOpenDriverRegistryKey(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint regkeytype, jint desiredaccess, jint flags, jlong driverregkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6375,7 +6461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoPropagateActivityIdToThread(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong propagatedid, jlong originalid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioPropagateActivityIdToThread(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong propagatedid, jlong originalid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6395,7 +6481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueryDeviceDescription(JNIEnv* km_env, jclass km_clazz, jlong bustype, jlong busnumber, jlong controllertype, jlong controllernumber, jlong peripheraltype, jlong peripheralnumber, jlong calloutroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueryDeviceDescription(JNIEnv* km_env, jclass km_clazz, jlong bustype, jlong busnumber, jlong controllertype, jlong controllernumber, jlong peripheraltype, jlong peripheralnumber, jlong calloutroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6420,7 +6506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueryFullDriverPath(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong fullpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueryFullDriverPath(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong fullpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6439,7 +6525,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueryInformationByName(JNIEnv* km_env, jclass km_clazz, jlong objectattributes, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass, jint options, jlong drivercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueryInformationByName(JNIEnv* km_env, jclass km_clazz, jlong objectattributes, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass, jint options, jlong drivercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6463,7 +6549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueryKsrPersistentMemorySize(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueryKsrPersistentMemorySize(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6483,7 +6569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueryKsrPersistentMemorySizeEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jlong dataversion, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueryKsrPersistentMemorySizeEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jlong dataversion, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6506,7 +6592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6525,7 +6611,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoQueueWorkItemEx(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioQueueWorkItemEx(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6544,7 +6630,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRaiseHardError(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong vpb, jlong realdeviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRaiseHardError(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong vpb, jlong realdeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6562,7 +6648,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRaiseInformationalHardError(JNIEnv* km_env, jclass km_clazz, jint errorstatus, jlong string, jlong thread) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRaiseInformationalHardError(JNIEnv* km_env, jclass km_clazz, jint errorstatus, jlong string, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6582,7 +6668,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReadDiskSignature(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint bytespersector, jlong signature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReadDiskSignature(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint bytespersector, jlong signature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6602,7 +6688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReadPartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jboolean returnrecognizedpartitions, jlong partitionbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReadPartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jboolean returnrecognizedpartitions, jlong partitionbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6623,7 +6709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReadPartitionTableEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong drivelayout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReadPartitionTableEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong drivelayout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6642,7 +6728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRecordIoAttribution(JNIEnv* km_env, jclass km_clazz, jlong opaquehandle, jlong attributioninformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRecordIoAttribution(JNIEnv* km_env, jclass km_clazz, jlong opaquehandle, jlong attributioninformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6661,7 +6747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRegisterBootDriverCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackfunction, jlong callbackcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterBootDriverCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackfunction, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6680,7 +6766,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRegisterContainerNotification(JNIEnv* km_env, jclass km_clazz, jint notificationclass, jlong callbackfunction, jlong notificationinformation, jint notificationinformationlength, jlong callbackregistration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterContainerNotification(JNIEnv* km_env, jclass km_clazz, jint notificationclass, jlong callbackfunction, jlong notificationinformation, jint notificationinformationlength, jlong callbackregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6702,7 +6788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRegisterDeviceInterface(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong interfaceclassguid, jlong referencestring, jlong symboliclinkname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterDeviceInterface(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong interfaceclassguid, jlong referencestring, jlong symboliclinkname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6723,7 +6809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRegisterLastChanceShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterLastChanceShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6741,7 +6827,31 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRegisterShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterPlugPlayNotification(JNIEnv* km_env, jclass km_clazz, jint eventcategory, jint eventcategoryflags, jlong eventcategorydata, jlong driverobject, jlong callbackroutine, jlong context, jlong notificationentry) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IoRegisterPlugPlayNotification");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)eventcategory, (uint32_t)eventcategoryflags, (void*)(uintptr_t)eventcategorydata, (void*)(uintptr_t)driverobject, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)context, (void*)(uintptr_t)notificationentry) : -1;
+#else
+    (void)eventcategory;
+    (void)eventcategoryflags;
+    (void)eventcategorydata;
+    (void)driverobject;
+    (void)callbackroutine;
+    (void)context;
+    (void)notificationentry;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRegisterShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6759,7 +6869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReleaseCancelSpinLock(JNIEnv* km_env, jclass km_clazz, jbyte irql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReleaseCancelSpinLock(JNIEnv* km_env, jclass km_clazz, jbyte irql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6775,7 +6885,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReleaseRemoveLockAndWaitEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jint remlocksize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReleaseRemoveLockAndWaitEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jint remlocksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6793,7 +6903,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReleaseRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jint remlocksize) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReleaseRemoveLockEx(JNIEnv* km_env, jclass km_clazz, jlong removelock, jlong tag, jint remlocksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6811,7 +6921,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRemoveLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRemoveLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6829,7 +6939,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRemoveLinkShareAccessEx(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRemoveLinkShareAccessEx(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6848,7 +6958,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRemoveShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRemoveShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6865,7 +6975,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReplacePartitionUnit(JNIEnv* km_env, jclass km_clazz, jlong targetpdo, jlong sparepdo, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReplacePartitionUnit(JNIEnv* km_env, jclass km_clazz, jlong targetpdo, jlong sparepdo, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6885,7 +6995,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportDetectedDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint legacybustype, jint busnumber, jint slotnumber, jlong resourcelist, jlong resourcerequirements, jboolean resourceassigned, jlong deviceobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportDetectedDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jint legacybustype, jint busnumber, jint slotnumber, jlong resourcelist, jlong resourcerequirements, jboolean resourceassigned, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6910,7 +7020,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportInterruptActive(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportInterruptActive(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6926,7 +7036,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportInterruptInactive(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportInterruptInactive(JNIEnv* km_env, jclass km_clazz, jlong parameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6942,7 +7052,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportResourceForDetection(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong driverlist, jint driverlistsize, jlong deviceobject, jlong devicelist, jint devicelistsize, jlong conflictdetected) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportResourceForDetection(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong driverlist, jint driverlistsize, jlong deviceobject, jlong devicelist, jint devicelistsize, jlong conflictdetected) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6966,7 +7076,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportResourceUsage(JNIEnv* km_env, jclass km_clazz, jlong driverclassname, jlong driverobject, jlong driverlist, jint driverlistsize, jlong deviceobject, jlong devicelist, jint devicelistsize, jboolean overrideconflict, jlong conflictdetected) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportResourceUsage(JNIEnv* km_env, jclass km_clazz, jlong driverclassname, jlong driverobject, jlong driverlist, jint driverlistsize, jlong deviceobject, jlong devicelist, jint devicelistsize, jboolean overrideconflict, jlong conflictdetected) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6992,7 +7102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportRootDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportRootDevice(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7010,7 +7120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportTargetDeviceChange(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong notificationstructure) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportTargetDeviceChange(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong notificationstructure) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7029,7 +7139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReportTargetDeviceChangeAsynchronous(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong notificationstructure, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReportTargetDeviceChangeAsynchronous(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong notificationstructure, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7050,7 +7160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRequestDeviceEject(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRequestDeviceEject(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7066,7 +7176,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoRequestDeviceEjectEx(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong callback, jlong context, jlong driverobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioRequestDeviceEjectEx(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong callback, jlong context, jlong driverobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7087,7 +7197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReserveKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong size, jint flags, jlong datahandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReserveKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong size, jint flags, jlong datahandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7109,7 +7219,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReserveKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jint dataversion, jlong size, jint flags, jlong datahandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReserveKsrPersistentMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong driverobject, jlong physicaldeviceobject, jlong physicaldeviceid, jlong datatag, jint dataversion, jlong size, jint flags, jlong datahandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7134,7 +7244,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoReuseIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jint iostatus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioReuseIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jint iostatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7151,7 +7261,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetActivityIdIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetActivityIdIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7170,7 +7280,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetActivityIdThread(JNIEnv* km_env, jclass km_clazz, jlong activityid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetActivityIdThread(JNIEnv* km_env, jclass km_clazz, jlong activityid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7188,7 +7298,31 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetDeviceInterfacePropertyData(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong propertykey, jint lcid, jint flags, jint type, jint size, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetCompletionRoutineEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp, jlong completionroutine, jlong context, jboolean invokeonsuccess, jboolean invokeonerror, jboolean invokeoncancel) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, bool, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IoSetCompletionRoutineEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)deviceobject, (void*)(uintptr_t)irp, (void*)(uintptr_t)completionroutine, (void*)(uintptr_t)context, (bool)invokeonsuccess, (bool)invokeonerror, (bool)invokeoncancel) : -1;
+#else
+    (void)deviceobject;
+    (void)irp;
+    (void)completionroutine;
+    (void)context;
+    (void)invokeonsuccess;
+    (void)invokeonerror;
+    (void)invokeoncancel;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetDeviceInterfacePropertyData(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jlong propertykey, jint lcid, jint flags, jint type, jint size, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7212,7 +7346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetDeviceInterfaceState(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jboolean enable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetDeviceInterfaceState(JNIEnv* km_env, jclass km_clazz, jlong symboliclinkname, jboolean enable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7231,7 +7365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetDevicePropertyData(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong propertykey, jint lcid, jint flags, jint type, jint size, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetDevicePropertyData(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong propertykey, jint lcid, jint flags, jint type, jint size, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7255,7 +7389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetFileObjectIgnoreSharing(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetFileObjectIgnoreSharing(JNIEnv* km_env, jclass km_clazz, jlong fileobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7273,7 +7407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetFileOrigin(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jboolean remote) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetFileOrigin(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jboolean remote) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7292,7 +7426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetFsZeroingOffset(JNIEnv* km_env, jclass km_clazz, jlong irp, jint zeroingoffset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetFsZeroingOffset(JNIEnv* km_env, jclass km_clazz, jlong irp, jint zeroingoffset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7311,7 +7445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetFsZeroingOffsetRequired(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetFsZeroingOffsetRequired(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7329,7 +7463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetHardErrorOrVerifyDevice(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetHardErrorOrVerifyDevice(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7346,7 +7480,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetIoAttributionIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong attributionsource, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetIoAttributionIrp(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong attributionsource, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7366,7 +7500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetIoPriorityHint(JNIEnv* km_env, jclass km_clazz, jlong irp, jint priorityhint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetIoPriorityHint(JNIEnv* km_env, jclass km_clazz, jlong irp, jint priorityhint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7385,7 +7519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong extracreateparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetIrpExtraCreateParameter(JNIEnv* km_env, jclass km_clazz, jlong irp, jlong extracreateparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7404,7 +7538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7425,7 +7559,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetMasterIrpStatus(JNIEnv* km_env, jclass km_clazz, jlong masterirp, jint status) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetMasterIrpStatus(JNIEnv* km_env, jclass km_clazz, jlong masterirp, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7442,7 +7576,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetPartitionInformation(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint partitionnumber, jint partitiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetPartitionInformation(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint partitionnumber, jint partitiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7463,7 +7597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetPartitionInformationEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint partitionnumber, jlong partitioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetPartitionInformationEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint partitionnumber, jlong partitioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7483,7 +7617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetShareAccess(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7502,7 +7636,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetShareAccessEx(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong writepermission) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetShareAccessEx(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jint desiredshareaccess, jlong fileobject, jlong shareaccess, jlong writepermission) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7522,7 +7656,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetStartIoAttributes(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean deferredstartio, jboolean noncancelable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetStartIoAttributes(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean deferredstartio, jboolean noncancelable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7540,7 +7674,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetSystemPartition(JNIEnv* km_env, jclass km_clazz, jlong volumenamestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetSystemPartition(JNIEnv* km_env, jclass km_clazz, jlong volumenamestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7558,7 +7692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetThreadHardErrorMode(JNIEnv* km_env, jclass km_clazz, jboolean enableharderrors) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetThreadHardErrorMode(JNIEnv* km_env, jclass km_clazz, jboolean enableharderrors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7576,7 +7710,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSetTopLevelIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSetTopLevelIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7592,7 +7726,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSizeOfIrpEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jbyte stacksize) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSizeOfIrpEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jbyte stacksize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7611,7 +7745,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSizeofWorkItem(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSizeofWorkItem(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7628,7 +7762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoStartNextPacket(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean cancelable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioStartNextPacket(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean cancelable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7645,7 +7779,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoStartNextPacketByKey(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean cancelable, jint key) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioStartNextPacketByKey(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean cancelable, jint key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7663,7 +7797,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoStartTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioStartTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7679,7 +7813,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoStopTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioStopTimer(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7695,7 +7829,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoSynchronousCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioSynchronousCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7714,7 +7848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoTransferActivityId(JNIEnv* km_env, jclass km_clazz, jlong activityid, jlong relatedactivityid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioTransferActivityId(JNIEnv* km_env, jclass km_clazz, jlong activityid, jlong relatedactivityid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7731,7 +7865,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoTranslateBusAddress(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jlong busaddress, jlong addressspace, jlong translatedaddress) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioTranslateBusAddress(JNIEnv* km_env, jclass km_clazz, jint interfacetype, jint busnumber, jlong busaddress, jlong addressspace, jlong translatedaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7753,7 +7887,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoTryQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioTryQueueWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem, jlong workerroutine, jint queuetype, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7774,7 +7908,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUninitializeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUninitializeWorkItem(JNIEnv* km_env, jclass km_clazz, jlong ioworkitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7790,7 +7924,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUnregisterBootDriverCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUnregisterBootDriverCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7806,7 +7940,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUnregisterContainerNotification(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUnregisterContainerNotification(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7822,7 +7956,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUnregisterPlugPlayNotification(JNIEnv* km_env, jclass km_clazz, jlong notificationentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUnregisterPlugPlayNotification(JNIEnv* km_env, jclass km_clazz, jlong notificationentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7840,7 +7974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUnregisterPlugPlayNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong notificationentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUnregisterPlugPlayNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong notificationentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7858,7 +7992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUnregisterShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUnregisterShutdownNotification(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7874,7 +8008,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUpdateLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUpdateLinkShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7892,7 +8026,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUpdateLinkShareAccessEx(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUpdateLinkShareAccessEx(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess, jlong linkshareaccess, jint ioshareaccessflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7911,7 +8045,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoUpdateShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioUpdateShareAccess(JNIEnv* km_env, jclass km_clazz, jlong fileobject, jlong shareaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7928,7 +8062,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoValidateDeviceIoControlAccess(JNIEnv* km_env, jclass km_clazz, jlong irp, jint requiredaccess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioValidateDeviceIoControlAccess(JNIEnv* km_env, jclass km_clazz, jlong irp, jint requiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7947,7 +8081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVerifyPartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean fixerrors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVerifyPartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jboolean fixerrors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7966,7 +8100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVolumeDeviceNameToGuid(JNIEnv* km_env, jclass km_clazz, jlong volumedevicename, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVolumeDeviceNameToGuid(JNIEnv* km_env, jclass km_clazz, jlong volumedevicename, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7985,7 +8119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVolumeDeviceNameToGuidPath(JNIEnv* km_env, jclass km_clazz, jlong volumedevicename, jlong guidpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVolumeDeviceNameToGuidPath(JNIEnv* km_env, jclass km_clazz, jlong volumedevicename, jlong guidpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8004,7 +8138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVolumeDeviceToDosName(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong dosname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVolumeDeviceToDosName(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong dosname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8023,7 +8157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVolumeDeviceToGuid(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVolumeDeviceToGuid(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8042,7 +8176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoVolumeDeviceToGuidPath(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong guidpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioVolumeDeviceToGuidPath(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong guidpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8061,7 +8195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIAllocateInstanceIds(JNIEnv* km_env, jclass km_clazz, jlong guid, jint instancecount, jlong firstinstanceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIAllocateInstanceIds(JNIEnv* km_env, jclass km_clazz, jlong guid, jint instancecount, jlong firstinstanceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8081,7 +8215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIDeviceObjectToInstanceName(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong deviceobject, jlong instancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIDeviceObjectToInstanceName(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong deviceobject, jlong instancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8101,7 +8235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIExecuteMethod(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint methodid, jint inbuffersize, jlong outbuffersize, jlong inoutbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIExecuteMethod(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint methodid, jint inbuffersize, jlong outbuffersize, jlong inoutbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8124,7 +8258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIHandleToInstanceName(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong filehandle, jlong instancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIHandleToInstanceName(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong filehandle, jlong instancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8144,7 +8278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIOpenBlock(JNIEnv* km_env, jclass km_clazz, jlong guid, jint desiredaccess, jlong datablockobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIOpenBlock(JNIEnv* km_env, jclass km_clazz, jlong guid, jint desiredaccess, jlong datablockobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8164,7 +8298,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIQueryAllData(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong inoutbuffersize, jlong outbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIQueryAllData(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong inoutbuffersize, jlong outbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8184,7 +8318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIQueryAllDataMultiple(JNIEnv* km_env, jclass km_clazz, jlong datablockobjectlist, jint objectcount, jlong inoutbuffersize, jlong outbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIQueryAllDataMultiple(JNIEnv* km_env, jclass km_clazz, jlong datablockobjectlist, jint objectcount, jlong inoutbuffersize, jlong outbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8205,7 +8339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIQuerySingleInstance(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jlong inoutbuffersize, jlong outbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIQuerySingleInstance(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jlong inoutbuffersize, jlong outbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8226,7 +8360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIQuerySingleInstanceMultiple(JNIEnv* km_env, jclass km_clazz, jlong datablockobjectlist, jlong instancenames, jint objectcount, jlong inoutbuffersize, jlong outbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIQuerySingleInstanceMultiple(JNIEnv* km_env, jclass km_clazz, jlong datablockobjectlist, jlong instancenames, jint objectcount, jlong inoutbuffersize, jlong outbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8248,7 +8382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIRegistrationControl(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint action) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIRegistrationControl(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint action) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8267,7 +8401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMISetNotificationCallback(JNIEnv* km_env, jclass km_clazz, jlong object, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMISetNotificationCallback(JNIEnv* km_env, jclass km_clazz, jlong object, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8287,7 +8421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMISetSingleInstance(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint version, jint valuebuffersize, jlong valuebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMISetSingleInstance(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint version, jint valuebuffersize, jlong valuebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8309,7 +8443,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMISetSingleItem(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint dataitemid, jint version, jint valuebuffersize, jlong valuebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMISetSingleItem(JNIEnv* km_env, jclass km_clazz, jlong datablockobject, jlong instancename, jint dataitemid, jint version, jint valuebuffersize, jlong valuebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8332,7 +8466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMISuggestInstanceName(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong symboliclinkname, jboolean combinenames, jlong suggestedinstancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMISuggestInstanceName(JNIEnv* km_env, jclass km_clazz, jlong physicaldeviceobject, jlong symboliclinkname, jboolean combinenames, jlong suggestedinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8353,7 +8487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWMIWriteEvent(JNIEnv* km_env, jclass km_clazz, jlong wnodeeventitem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWMIWriteEvent(JNIEnv* km_env, jclass km_clazz, jlong wnodeeventitem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8371,7 +8505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWithinStackLimits(JNIEnv* km_env, jclass km_clazz, jlong regionstart, jlong regionsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWithinStackLimits(JNIEnv* km_env, jclass km_clazz, jlong regionstart, jlong regionsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8390,7 +8524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWriteErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong elentry) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWriteErrorLogEntry(JNIEnv* km_env, jclass km_clazz, jlong elentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8406,7 +8540,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWriteKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong datahandle, jlong buffer, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWriteKsrPersistentMemory(JNIEnv* km_env, jclass km_clazz, jlong datahandle, jlong buffer, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8426,7 +8560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWritePartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint sectorspertrack, jint numberofheads, jlong partitionbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWritePartitionTable(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint sectorsize, jint sectorspertrack, jint numberofheads, jlong partitionbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8448,7 +8582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IoWritePartitionTableEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong drivelayout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ioWritePartitionTableEx(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong drivelayout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8467,7 +8601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IofCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1iofCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8486,7 +8620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1IofCompleteRequest(JNIEnv* km_env, jclass km_clazz, jlong irp, jbyte priorityboost) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1iofCompleteRequest(JNIEnv* km_env, jclass km_clazz, jlong irp, jbyte priorityboost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8503,7 +8637,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KdChangeOption(JNIEnv* km_env, jclass km_clazz, jint option, jint inbufferbytes, jlong inbuffer, jint outbufferbytes, jlong outbuffer, jlong outbufferneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kdChangeOption(JNIEnv* km_env, jclass km_clazz, jint option, jint inbufferbytes, jlong inbuffer, jint outbufferbytes, jlong outbuffer, jlong outbufferneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8526,7 +8660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KdDisableDebugger(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kdDisableDebugger(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8543,7 +8677,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KdEnableDebugger(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kdEnableDebugger(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8560,7 +8694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KdRefreshDebuggerNotPresent(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kdRefreshDebuggerNotPresent(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8577,7 +8711,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8593,7 +8727,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireGuardedMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireGuardedMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8609,7 +8743,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireInStackQueuedSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireInStackQueuedSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8626,7 +8760,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireInStackQueuedSpinLockAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireInStackQueuedSpinLockAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8643,7 +8777,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireInStackQueuedSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireInStackQueuedSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8660,7 +8794,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireInterruptSpinLock(JNIEnv* km_env, jclass km_clazz, jlong interrupt) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireInterruptSpinLock(JNIEnv* km_env, jclass km_clazz, jlong interrupt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8678,7 +8812,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAcquireSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAcquireSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8696,7 +8830,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAddTriageDumpDataBlock(JNIEnv* km_env, jclass km_clazz, jlong ktriagedumpdataarray, jlong address, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAddTriageDumpDataBlock(JNIEnv* km_env, jclass km_clazz, jlong ktriagedumpdataarray, jlong address, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8716,7 +8850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAreAllApcsDisabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAreAllApcsDisabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8733,7 +8867,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeAreApcsDisabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keAreApcsDisabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8750,7 +8884,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeBugCheck(JNIEnv* km_env, jclass km_clazz, jint bugcheckcode) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keBugCheck(JNIEnv* km_env, jclass km_clazz, jint bugcheckcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8766,7 +8900,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeBugCheckEx(JNIEnv* km_env, jclass km_clazz, jint bugcheckcode, jlong bugcheckparameter1, jlong bugcheckparameter2, jlong bugcheckparameter3, jlong bugcheckparameter4) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keBugCheckEx(JNIEnv* km_env, jclass km_clazz, jint bugcheckcode, jlong bugcheckparameter1, jlong bugcheckparameter2, jlong bugcheckparameter3, jlong bugcheckparameter4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8786,7 +8920,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keCancelTimer(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8804,7 +8938,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeClearEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keClearEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8820,7 +8954,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeConvertAuxiliaryCounterToPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong auxiliarycountervalue, jlong performancecountervalue, jlong conversionerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keConvertAuxiliaryCounterToPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong auxiliarycountervalue, jlong performancecountervalue, jlong conversionerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8840,7 +8974,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeConvertPerformanceCounterToAuxiliaryCounter(JNIEnv* km_env, jclass km_clazz, jlong performancecountervalue, jlong auxiliarycountervalue, jlong conversionerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keConvertPerformanceCounterToAuxiliaryCounter(JNIEnv* km_env, jclass km_clazz, jlong performancecountervalue, jlong auxiliarycountervalue, jlong conversionerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8860,7 +8994,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDelayExecutionThread(JNIEnv* km_env, jclass km_clazz, jbyte waitmode, jboolean alertable, jlong interval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDelayExecutionThread(JNIEnv* km_env, jclass km_clazz, jbyte waitmode, jboolean alertable, jlong interval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8880,7 +9014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDeregisterBoundCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDeregisterBoundCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8898,7 +9032,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDeregisterBugCheckCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDeregisterBugCheckCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8916,7 +9050,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDeregisterBugCheckReasonCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDeregisterBugCheckReasonCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8934,7 +9068,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDeregisterNmiCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDeregisterNmiCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8952,7 +9086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeDeregisterProcessorChangeCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keDeregisterProcessorChangeCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8968,7 +9102,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeEnterCriticalRegion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keEnterCriticalRegion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8983,7 +9117,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeEnterGuardedRegion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keEnterGuardedRegion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8998,7 +9132,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeExpandKernelStackAndCallout(JNIEnv* km_env, jclass km_clazz, jlong callout, jlong parameter, jlong size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keExpandKernelStackAndCallout(JNIEnv* km_env, jclass km_clazz, jlong callout, jlong parameter, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9018,7 +9152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeExpandKernelStackAndCalloutEx(JNIEnv* km_env, jclass km_clazz, jlong callout, jlong parameter, jlong size, jboolean wait, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keExpandKernelStackAndCalloutEx(JNIEnv* km_env, jclass km_clazz, jlong callout, jlong parameter, jlong size, jboolean wait, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9040,7 +9174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeFlushIoBuffers(JNIEnv* km_env, jclass km_clazz, jlong mdl, jboolean readoperation, jboolean dmaoperation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keFlushIoBuffers(JNIEnv* km_env, jclass km_clazz, jlong mdl, jboolean readoperation, jboolean dmaoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9058,7 +9192,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeFlushQueuedDpcs(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keFlushQueuedDpcs(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9073,7 +9207,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeFlushWriteBuffer(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keFlushWriteBuffer(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9088,7 +9222,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetCurrentIrql(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetCurrentIrql(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9105,7 +9239,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetCurrentNodeNumber(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetCurrentNodeNumber(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9122,7 +9256,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetCurrentProcessorNumberEx(JNIEnv* km_env, jclass km_clazz, jlong procnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetCurrentProcessorNumberEx(JNIEnv* km_env, jclass km_clazz, jlong procnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9140,7 +9274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetProcessorIndexFromNumber(JNIEnv* km_env, jclass km_clazz, jlong procnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetProcessorIndexFromNumber(JNIEnv* km_env, jclass km_clazz, jlong procnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9158,7 +9292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetProcessorNumberFromIndex(JNIEnv* km_env, jclass km_clazz, jint procindex, jlong procnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetProcessorNumberFromIndex(JNIEnv* km_env, jclass km_clazz, jint procindex, jlong procnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9177,7 +9311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeGetRecommendedSharedDataAlignment(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keGetRecommendedSharedDataAlignment(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9194,7 +9328,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeCrashDumpHeader(JNIEnv* km_env, jclass km_clazz, jint dumptype, jint flags, jlong buffer, jint buffersize, jlong bufferneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeCrashDumpHeader(JNIEnv* km_env, jclass km_clazz, jint dumptype, jint flags, jlong buffer, jint buffersize, jlong bufferneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9216,7 +9350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9232,7 +9366,25 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint type, jboolean state) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong deferredroutine, jlong deferredcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeInitializeDpc");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)dpc, (void*)(uintptr_t)deferredroutine, (void*)(uintptr_t)deferredcontext);
+#else
+    (void)dpc;
+    (void)deferredroutine;
+    (void)deferredcontext;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint type, jboolean state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9250,7 +9402,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9266,7 +9418,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex, jint level) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex, jint level) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9283,7 +9435,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore, jint count, jint limit) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore, jint count, jint limit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9301,7 +9453,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9317,7 +9469,25 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeTimer(JNIEnv* km_env, jclass km_clazz, jlong timer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeThreadedDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong deferredroutine, jlong deferredcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeInitializeThreadedDpc");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)dpc, (void*)(uintptr_t)deferredroutine, (void*)(uintptr_t)deferredcontext);
+#else
+    (void)dpc;
+    (void)deferredroutine;
+    (void)deferredcontext;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeTimer(JNIEnv* km_env, jclass km_clazz, jlong timer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9333,7 +9503,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timer, jint type) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timer, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9350,7 +9520,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInitializeTriageDumpDataArray(JNIEnv* km_env, jclass km_clazz, jlong ktriagedumpdataarray, jint size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInitializeTriageDumpDataArray(JNIEnv* km_env, jclass km_clazz, jlong ktriagedumpdataarray, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9369,7 +9539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInsertByKeyDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry, jint sortkey) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInsertByKeyDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry, jint sortkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9389,7 +9559,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInsertDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInsertDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9408,7 +9578,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInsertQueueDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong systemargument1, jlong systemargument2) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInsertQueueDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong systemargument1, jlong systemargument2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9428,7 +9598,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInvalidateAllCaches(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInvalidateAllCaches(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9445,7 +9615,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeInvalidateRangeAllCaches(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint length) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keInvalidateRangeAllCaches(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9462,7 +9632,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeIpiGenericCall(JNIEnv* km_env, jclass km_clazz, jlong broadcastfunction, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keIpiGenericCall(JNIEnv* km_env, jclass km_clazz, jlong broadcastfunction, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9481,7 +9651,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeIsExecutingDpc(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keIsExecutingDpc(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9498,7 +9668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeLeaveCriticalRegion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keLeaveCriticalRegion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9513,7 +9683,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeLeaveGuardedRegion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keLeaveGuardedRegion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9528,7 +9698,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KePulseEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint increment, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kePulseEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint increment, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9548,7 +9718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryActiveGroupCount(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryActiveGroupCount(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9565,7 +9735,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryActiveProcessorCount(JNIEnv* km_env, jclass km_clazz, jlong activeprocessors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryActiveProcessorCount(JNIEnv* km_env, jclass km_clazz, jlong activeprocessors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9583,7 +9753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryActiveProcessorCountEx(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryActiveProcessorCountEx(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9601,7 +9771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryActiveProcessors(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryActiveProcessors(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9618,7 +9788,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryAuxiliaryCounterFrequency(JNIEnv* km_env, jclass km_clazz, jlong auxiliarycounterfrequency) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryAuxiliaryCounterFrequency(JNIEnv* km_env, jclass km_clazz, jlong auxiliarycounterfrequency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9636,7 +9806,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryDpcWatchdogInformation(JNIEnv* km_env, jclass km_clazz, jlong watchdoginformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryDpcWatchdogInformation(JNIEnv* km_env, jclass km_clazz, jlong watchdoginformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9654,7 +9824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryGroupAffinity(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryGroupAffinity(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9672,7 +9842,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryHardwareCounterConfiguration(JNIEnv* km_env, jclass km_clazz, jlong counterarray, jint maximumcount, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryHardwareCounterConfiguration(JNIEnv* km_env, jclass km_clazz, jlong counterarray, jint maximumcount, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9692,7 +9862,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryHighestNodeNumber(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryHighestNodeNumber(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9709,7 +9879,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryInterruptTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong qpctimestamp) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryInterruptTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong qpctimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9727,7 +9897,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryLogicalProcessorRelationship(JNIEnv* km_env, jclass km_clazz, jlong processornumber, jint relationshiptype, jlong information, jlong length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryLogicalProcessorRelationship(JNIEnv* km_env, jclass km_clazz, jlong processornumber, jint relationshiptype, jlong information, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9748,7 +9918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryMaximumGroupCount(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryMaximumGroupCount(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9765,7 +9935,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryMaximumProcessorCount(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryMaximumProcessorCount(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9782,7 +9952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryMaximumProcessorCountEx(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryMaximumProcessorCountEx(JNIEnv* km_env, jclass km_clazz, jshort groupnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9800,7 +9970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryNodeActiveAffinity(JNIEnv* km_env, jclass km_clazz, jshort nodenumber, jlong affinity, jlong count) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryNodeActiveAffinity(JNIEnv* km_env, jclass km_clazz, jshort nodenumber, jlong affinity, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9818,7 +9988,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryNodeActiveAffinity2(JNIEnv* km_env, jclass km_clazz, jshort nodenumber, jlong groupaffinities, jshort groupaffinitiescount, jlong groupaffinitiesrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryNodeActiveAffinity2(JNIEnv* km_env, jclass km_clazz, jshort nodenumber, jlong groupaffinities, jshort groupaffinitiescount, jlong groupaffinitiesrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9839,7 +10009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryNodeActiveProcessorCount(JNIEnv* km_env, jclass km_clazz, jshort nodenumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryNodeActiveProcessorCount(JNIEnv* km_env, jclass km_clazz, jshort nodenumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9857,7 +10027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryNodeMaximumProcessorCount(JNIEnv* km_env, jclass km_clazz, jshort nodenumber) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryNodeMaximumProcessorCount(JNIEnv* km_env, jclass km_clazz, jshort nodenumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9875,7 +10045,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong performancefrequency) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryPerformanceCounter(JNIEnv* km_env, jclass km_clazz, jlong performancefrequency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9893,7 +10063,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryPriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryPriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9911,7 +10081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryRuntimeThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong usertime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryRuntimeThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong usertime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9930,7 +10100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQuerySystemTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong currenttime) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQuerySystemTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong currenttime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9946,7 +10116,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryTimeIncrement(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryTimeIncrement(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9963,7 +10133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryTotalCycleTimeThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong cycletimestamp) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryTotalCycleTimeThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong cycletimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9982,7 +10152,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryUnbiasedInterruptTime(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryUnbiasedInterruptTime(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9999,7 +10169,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeQueryUnbiasedInterruptTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong qpctimestamp) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keQueryUnbiasedInterruptTimePrecise(JNIEnv* km_env, jclass km_clazz, jlong qpctimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10017,7 +10187,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReadStateEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReadStateEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10035,7 +10205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReadStateMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReadStateMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10053,7 +10223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReadStateSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReadStateSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10071,7 +10241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReadStateTimer(JNIEnv* km_env, jclass km_clazz, jlong timer) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReadStateTimer(JNIEnv* km_env, jclass km_clazz, jlong timer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10089,7 +10259,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRegisterBoundCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackroutine) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRegisterBoundCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10107,7 +10277,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRegisterBugCheckCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord, jlong callbackroutine, jlong buffer, jint length, jlong component) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRegisterBugCheckCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord, jlong callbackroutine, jlong buffer, jint length, jlong component) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10129,7 +10299,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRegisterBugCheckReasonCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord, jlong callbackroutine, jint reason, jlong component) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRegisterBugCheckReasonCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackrecord, jlong callbackroutine, jint reason, jlong component) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10150,7 +10320,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRegisterNmiCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackroutine, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRegisterNmiCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10169,7 +10339,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRegisterProcessorChangeCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackfunction, jlong callbackcontext, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRegisterProcessorChangeCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackfunction, jlong callbackcontext, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10189,7 +10359,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10205,7 +10375,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseGuardedMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseGuardedMutexUnsafe(JNIEnv* km_env, jclass km_clazz, jlong fastmutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10221,7 +10391,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseInStackQueuedSpinLock(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseInStackQueuedSpinLock(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10237,7 +10407,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseInStackQueuedSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseInStackQueuedSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10253,7 +10423,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseInStackQueuedSpinLockFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseInStackQueuedSpinLockFromDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong lockhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10269,7 +10439,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseInterruptSpinLock(JNIEnv* km_env, jclass km_clazz, jlong interrupt, jbyte oldirql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseInterruptSpinLock(JNIEnv* km_env, jclass km_clazz, jlong interrupt, jbyte oldirql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10286,7 +10456,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10305,7 +10475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore, jint increment, jint adjustment, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseSemaphore(JNIEnv* km_env, jclass km_clazz, jlong semaphore, jint increment, jint adjustment, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10326,7 +10496,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeReleaseSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keReleaseSpinLockForDpc(JNIEnv* km_env, jclass km_clazz, jlong spinlock, jbyte oldirql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10343,7 +10513,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveByKeyDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jint sortkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveByKeyDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jint sortkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10362,7 +10532,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveByKeyDeviceQueueIfBusy(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jint sortkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveByKeyDeviceQueueIfBusy(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jint sortkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10381,7 +10551,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10399,7 +10569,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveEntryDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveEntryDeviceQueue(JNIEnv* km_env, jclass km_clazz, jlong devicequeue, jlong devicequeueentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10418,7 +10588,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveQueueDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveQueueDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10436,7 +10606,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRemoveQueueDpcEx(JNIEnv* km_env, jclass km_clazz, jlong dpc, jboolean waitifactive) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRemoveQueueDpcEx(JNIEnv* km_env, jclass km_clazz, jlong dpc, jboolean waitifactive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10455,7 +10625,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeResetEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keResetEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10473,7 +10643,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRestoreExtendedProcessorState(JNIEnv* km_env, jclass km_clazz, jlong xstatesave) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRestoreExtendedProcessorState(JNIEnv* km_env, jclass km_clazz, jlong xstatesave) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10489,7 +10659,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRevertToUserAffinityThread(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRevertToUserAffinityThread(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10504,7 +10674,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRevertToUserAffinityThreadEx(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRevertToUserAffinityThreadEx(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10520,7 +10690,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeRevertToUserGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong previousaffinity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keRevertToUserGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong previousaffinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10536,7 +10706,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSaveExtendedProcessorState(JNIEnv* km_env, jclass km_clazz, jlong mask, jlong xstatesave) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSaveExtendedProcessorState(JNIEnv* km_env, jclass km_clazz, jlong mask, jlong xstatesave) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10555,7 +10725,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetBasePriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jint increment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetBasePriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jint increment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10574,7 +10744,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetCoalescableTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jint period, jint tolerabledelay, jlong dpc) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetCoalescableTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jint period, jint tolerabledelay, jlong dpc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10596,7 +10766,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint increment, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetEvent(JNIEnv* km_env, jclass km_clazz, jlong event, jint increment, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10616,7 +10786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetHardwareCounterConfiguration(JNIEnv* km_env, jclass km_clazz, jlong counterarray, jint count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetHardwareCounterConfiguration(JNIEnv* km_env, jclass km_clazz, jlong counterarray, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10635,7 +10805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetImportanceDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jint importance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetImportanceDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jint importance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10652,7 +10822,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetPriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jint priority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetPriorityThread(JNIEnv* km_env, jclass km_clazz, jlong thread, jint priority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10671,7 +10841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetSystemAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetSystemAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10687,7 +10857,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetSystemAffinityThreadEx(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetSystemAffinityThreadEx(JNIEnv* km_env, jclass km_clazz, jlong affinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10705,7 +10875,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetSystemGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinity, jlong previousaffinity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetSystemGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinity, jlong previousaffinity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10722,7 +10892,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetTargetProcessorDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jbyte number) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetTargetProcessorDpc(JNIEnv* km_env, jclass km_clazz, jlong dpc, jbyte number) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10739,7 +10909,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetTargetProcessorDpcEx(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong procnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetTargetProcessorDpcEx(JNIEnv* km_env, jclass km_clazz, jlong dpc, jlong procnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10758,7 +10928,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jlong dpc) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetTimer(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jlong dpc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10778,7 +10948,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jint period, jlong dpc) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSetTimerEx(JNIEnv* km_env, jclass km_clazz, jlong timer, jlong duetime, jint period, jlong dpc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10799,7 +10969,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeShouldYieldProcessor(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keShouldYieldProcessor(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10816,7 +10986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeStallExecutionProcessor(JNIEnv* km_env, jclass km_clazz, jint microseconds) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keStallExecutionProcessor(JNIEnv* km_env, jclass km_clazz, jint microseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10832,7 +11002,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeSynchronizeExecution(JNIEnv* km_env, jclass km_clazz, jlong interrupt, jlong synchronizeroutine, jlong synchronizecontext) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keSynchronizeExecution(JNIEnv* km_env, jclass km_clazz, jlong interrupt, jlong synchronizeroutine, jlong synchronizecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10852,7 +11022,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeTestSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keTestSpinLock(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10870,7 +11040,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeTryToAcquireGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keTryToAcquireGuardedMutex(JNIEnv* km_env, jclass km_clazz, jlong mutex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10888,7 +11058,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeTryToAcquireSpinLockAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keTryToAcquireSpinLockAtDpcLevel(JNIEnv* km_env, jclass km_clazz, jlong spinlock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10906,7 +11076,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeWaitForMultipleObjects(JNIEnv* km_env, jclass km_clazz, jint count, jlong object, jint waittype, jint waitreason, jbyte waitmode, jboolean alertable, jlong timeout, jlong waitblockarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keWaitForMultipleObjects(JNIEnv* km_env, jclass km_clazz, jint count, jlong object, jint waittype, jint waitreason, jbyte waitmode, jboolean alertable, jlong timeout, jlong waitblockarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10931,7 +11101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KeWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong object, jint waitreason, jbyte waitmode, jboolean alertable, jlong timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1keWaitForSingleObject(JNIEnv* km_env, jclass km_clazz, jlong object, jint waitreason, jbyte waitmode, jboolean alertable, jlong timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10953,7 +11123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1KfRaiseIrql(JNIEnv* km_env, jclass km_clazz, jbyte newirql) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1kfRaiseIrql(JNIEnv* km_env, jclass km_clazz, jbyte newirql) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10971,7 +11141,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAddPhysicalMemory(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAddPhysicalMemory(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10990,7 +11160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAddVerifierSpecialThunks(JNIEnv* km_env, jclass km_clazz, jlong entryroutine, jlong thunkbuffer, jint thunkbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAddVerifierSpecialThunks(JNIEnv* km_env, jclass km_clazz, jlong entryroutine, jlong thunkbuffer, jint thunkbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11010,7 +11180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAddVerifierThunks(JNIEnv* km_env, jclass km_clazz, jlong thunkbuffer, jint thunkbuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAddVerifierThunks(JNIEnv* km_env, jclass km_clazz, jlong thunkbuffer, jint thunkbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11029,7 +11199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAdvanceMdl(JNIEnv* km_env, jclass km_clazz, jlong mdl, jint numberofbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAdvanceMdl(JNIEnv* km_env, jclass km_clazz, jlong mdl, jint numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11048,7 +11218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateContiguousMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong highestacceptableaddress) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateContiguousMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong highestacceptableaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11067,7 +11237,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateContiguousMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint preferrednode, jint protect, jlong partitionobject, jint tag, jint flags, jlong baseaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateContiguousMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint preferrednode, jint protect, jlong partitionobject, jint tag, jint flags, jlong baseaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11094,7 +11264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateContiguousMemorySpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint cachetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateContiguousMemorySpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11116,7 +11286,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateContiguousMemorySpecifyCacheNode(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint cachetype, jint preferrednode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateContiguousMemorySpecifyCacheNode(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint cachetype, jint preferrednode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11139,7 +11309,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateContiguousNodeMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint protect, jint preferrednode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateContiguousNodeMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jlong lowestacceptableaddress, jlong highestacceptableaddress, jlong boundaryaddressmultiple, jint protect, jint preferrednode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11162,7 +11332,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateMappingAddress(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jint pooltag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateMappingAddress(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jint pooltag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11181,7 +11351,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateMappingAddressEx(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jint pooltag, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateMappingAddressEx(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes, jint pooltag, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11201,7 +11371,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateMdlForIoSpace(JNIEnv* km_env, jclass km_clazz, jlong physicaladdresslist, jlong numberofentries, jlong newmdl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateMdlForIoSpace(JNIEnv* km_env, jclass km_clazz, jlong physicaladdresslist, jlong numberofentries, jlong newmdl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11221,7 +11391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateNodePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint idealnode, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateNodePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint idealnode, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11245,7 +11415,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocateNonCachedMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocateNonCachedMemory(JNIEnv* km_env, jclass km_clazz, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11263,7 +11433,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocatePagesForMdl(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocatePagesForMdl(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11284,7 +11454,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocatePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocatePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11307,7 +11477,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAllocatePartitionNodePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint idealnode, jint flags, jlong partitionobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAllocatePartitionNodePagesForMdlEx(JNIEnv* km_env, jclass km_clazz, jlong lowaddress, jlong highaddress, jlong skipbytes, jlong totalbytes, jint cachetype, jint idealnode, jint flags, jlong partitionobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11332,7 +11502,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmAreMdlPagesCached(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmAreMdlPagesCached(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11350,7 +11520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmBuildMdlForNonPagedPool(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmBuildMdlForNonPagedPool(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11366,7 +11536,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmCreateMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong base, jlong length) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmCreateMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong base, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11386,7 +11556,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmCreateMirror(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmCreateMirror(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11403,7 +11573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreeContiguousMemory(JNIEnv* km_env, jclass km_clazz, jlong baseaddress) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreeContiguousMemory(JNIEnv* km_env, jclass km_clazz, jlong baseaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11419,7 +11589,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreeContiguousMemorySpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes, jint cachetype) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreeContiguousMemorySpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes, jint cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11437,7 +11607,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreeMappingAddress(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint pooltag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreeMappingAddress(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint pooltag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11454,7 +11624,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreeNonCachedMemory(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreeNonCachedMemory(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11471,7 +11641,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreePagesFromMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreePagesFromMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11487,7 +11657,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmFreePagesFromMdlEx(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmFreePagesFromMdlEx(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11504,7 +11674,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetCacheAttribute(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong cachetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetCacheAttribute(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11523,7 +11693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetCacheAttributeEx(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jint flags, jlong cachetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetCacheAttributeEx(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jint flags, jlong cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11543,7 +11713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetPhysicalAddress(JNIEnv* km_env, jclass km_clazz, jlong baseaddress) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetPhysicalAddress(JNIEnv* km_env, jclass km_clazz, jlong baseaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11561,7 +11731,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetPhysicalMemoryRanges(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetPhysicalMemoryRanges(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11578,7 +11748,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetPhysicalMemoryRangesEx(JNIEnv* km_env, jclass km_clazz, jlong partitionobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetPhysicalMemoryRangesEx(JNIEnv* km_env, jclass km_clazz, jlong partitionobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11596,7 +11766,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetPhysicalMemoryRangesEx2(JNIEnv* km_env, jclass km_clazz, jlong partitionobject, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetPhysicalMemoryRangesEx2(JNIEnv* km_env, jclass km_clazz, jlong partitionobject, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11615,7 +11785,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetSystemRoutineAddress(JNIEnv* km_env, jclass km_clazz, jlong systemroutinename) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetSystemRoutineAddress(JNIEnv* km_env, jclass km_clazz, jlong systemroutinename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11633,7 +11803,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmGetVirtualForPhysical(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmGetVirtualForPhysical(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11651,7 +11821,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsAddressValid(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsAddressValid(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11669,7 +11839,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsDriverSuspectForVerifier(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsDriverSuspectForVerifier(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11687,7 +11857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsDriverVerifying(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsDriverVerifying(JNIEnv* km_env, jclass km_clazz, jlong driverobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11705,7 +11875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsDriverVerifyingByAddress(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsDriverVerifyingByAddress(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11723,7 +11893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsIoSpaceActive(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsIoSpaceActive(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11742,7 +11912,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsNonPagedSystemAddressValid(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsNonPagedSystemAddressValid(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11760,7 +11930,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsThisAnNtAsSystem(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsThisAnNtAsSystem(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11777,7 +11947,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmIsVerifierEnabled(JNIEnv* km_env, jclass km_clazz, jlong verifierflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmIsVerifierEnabled(JNIEnv* km_env, jclass km_clazz, jlong verifierflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11795,7 +11965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmLockPagableDataSection(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmLockPagableDataSection(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11813,7 +11983,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmLockPagableSectionByHandle(JNIEnv* km_env, jclass km_clazz, jlong imagesectionhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmLockPagableSectionByHandle(JNIEnv* km_env, jclass km_clazz, jlong imagesectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11829,7 +11999,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapIoSpace(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint cachetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapIoSpace(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11849,7 +12019,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapIoSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint protect) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapIoSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint protect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11869,7 +12039,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapLockedPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapLockedPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11888,7 +12058,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapLockedPagesSpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode, jint cachetype, jlong requestedaddress, jint bugcheckonfailure, jint priority) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapLockedPagesSpecifyCache(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode, jint cachetype, jlong requestedaddress, jint bugcheckonfailure, jint priority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11911,7 +12081,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapLockedPagesWithReservedMapping(JNIEnv* km_env, jclass km_clazz, jlong mappingaddress, jint pooltag, jlong memorydescriptorlist, jint cachetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapLockedPagesWithReservedMapping(JNIEnv* km_env, jclass km_clazz, jlong mappingaddress, jint pooltag, jlong memorydescriptorlist, jint cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11932,7 +12102,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint protection, jlong driverroutine, jlong drivercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapMdl(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint protection, jlong driverroutine, jlong drivercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11953,7 +12123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapMemoryDumpMdlEx(JNIEnv* km_env, jclass km_clazz, jlong va, jint pagetotal, jlong memorydumpmdl, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapMemoryDumpMdlEx(JNIEnv* km_env, jclass km_clazz, jlong va, jint pagetotal, jlong memorydumpmdl, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11974,7 +12144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapUserAddressesToPage(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes, jlong pageaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapUserAddressesToPage(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes, jlong pageaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11994,7 +12164,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapVideoDisplay(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint cachetype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapVideoDisplay(JNIEnv* km_env, jclass km_clazz, jlong physicaladdress, jlong numberofbytes, jint cachetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12014,7 +12184,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapViewInSessionSpace(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapViewInSessionSpace(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12034,7 +12204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapViewInSessionSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize, jlong sectionoffset, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapViewInSessionSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize, jlong sectionoffset, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12056,7 +12226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapViewInSystemSpace(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapViewInSystemSpace(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12076,7 +12246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMapViewInSystemSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize, jlong sectionoffset, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMapViewInSystemSpaceEx(JNIEnv* km_env, jclass km_clazz, jlong section, jlong mappedbase, jlong viewsize, jlong sectionoffset, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12098,7 +12268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmMdlPageContentsState(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmMdlPageContentsState(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12117,7 +12287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmPageEntireDriver(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmPageEntireDriver(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12135,7 +12305,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmProbeAndLockPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode, jint operation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmProbeAndLockPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jbyte accessmode, jint operation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12153,7 +12323,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmProbeAndLockProcessPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong process, jbyte accessmode, jint operation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmProbeAndLockProcessPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong process, jbyte accessmode, jint operation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12172,7 +12342,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmProbeAndLockSelectedPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong segmentarray, jbyte accessmode, jint operation) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmProbeAndLockSelectedPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jlong segmentarray, jbyte accessmode, jint operation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12191,7 +12361,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmProtectDriverSection(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection, jlong size, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmProtectDriverSection(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection, jlong size, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12211,7 +12381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmProtectMdlSystemAddress(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint newprotect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmProtectMdlSystemAddress(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist, jint newprotect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12230,7 +12400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmQuerySystemSize(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmQuerySystemSize(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12247,7 +12417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmRemovePhysicalMemory(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmRemovePhysicalMemory(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12266,7 +12436,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmResetDriverPaging(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmResetDriverPaging(JNIEnv* km_env, jclass km_clazz, jlong addresswithinsection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12282,7 +12452,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmRotatePhysicalView(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong numberofbytes, jlong newmdl, jint direction, jlong copyfunction, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmRotatePhysicalView(JNIEnv* km_env, jclass km_clazz, jlong virtualaddress, jlong numberofbytes, jlong newmdl, jint direction, jlong copyfunction, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12305,7 +12475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmSecureVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint probemode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmSecureVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint probemode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12325,7 +12495,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmSecureVirtualMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint probemode, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmSecureVirtualMemoryEx(JNIEnv* km_env, jclass km_clazz, jlong address, jlong size, jint probemode, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12346,7 +12516,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmSetPermanentCacheAttribute(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes, jint cachetype, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmSetPermanentCacheAttribute(JNIEnv* km_env, jclass km_clazz, jlong startaddress, jlong numberofbytes, jint cachetype, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12367,7 +12537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmSizeOfMdl(JNIEnv* km_env, jclass km_clazz, jlong base, jlong length) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmSizeOfMdl(JNIEnv* km_env, jclass km_clazz, jlong base, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12386,7 +12556,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnlockPagableImageSection(JNIEnv* km_env, jclass km_clazz, jlong imagesectionhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnlockPagableImageSection(JNIEnv* km_env, jclass km_clazz, jlong imagesectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12402,7 +12572,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnlockPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnlockPages(JNIEnv* km_env, jclass km_clazz, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12418,7 +12588,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapIoSpace(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapIoSpace(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12435,7 +12605,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapLockedPages(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong memorydescriptorlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapLockedPages(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12452,7 +12622,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapReservedMapping(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint pooltag, jlong memorydescriptorlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapReservedMapping(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jint pooltag, jlong memorydescriptorlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12470,7 +12640,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapVideoDisplay(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapVideoDisplay(JNIEnv* km_env, jclass km_clazz, jlong baseaddress, jlong numberofbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12487,7 +12657,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapViewInSessionSpace(JNIEnv* km_env, jclass km_clazz, jlong mappedbase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapViewInSessionSpace(JNIEnv* km_env, jclass km_clazz, jlong mappedbase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12505,7 +12675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnmapViewInSystemSpace(JNIEnv* km_env, jclass km_clazz, jlong mappedbase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnmapViewInSystemSpace(JNIEnv* km_env, jclass km_clazz, jlong mappedbase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12523,7 +12693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1MmUnsecureVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong securehandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1mmUnsecureVirtualMemory(JNIEnv* km_env, jclass km_clazz, jlong securehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12539,7 +12709,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtAllocateLocallyUniqueId(JNIEnv* km_env, jclass km_clazz, jlong luid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntAllocateLocallyUniqueId(JNIEnv* km_env, jclass km_clazz, jlong luid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12557,7 +12727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12576,7 +12746,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12595,7 +12765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12614,7 +12784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong transactionhandle, jlong objectattributes, jint createoptions, jint notificationmask, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong transactionhandle, jlong objectattributes, jint createoptions, jint notificationmask, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12639,7 +12809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCreateResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong rmguid, jlong objectattributes, jint createoptions, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCreateResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong rmguid, jlong objectattributes, jint createoptions, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12663,7 +12833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCreateTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle, jint createoptions, jint isolationlevel, jint isolationflags, jlong timeout, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCreateTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle, jint createoptions, jint isolationlevel, jint isolationflags, jlong timeout, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12690,7 +12860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtCreateTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jint createoptions, jint commitstrength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntCreateTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jint createoptions, jint commitstrength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12713,7 +12883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtDisplayString(JNIEnv* km_env, jclass km_clazz, jlong string) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntDisplayString(JNIEnv* km_env, jclass km_clazz, jlong string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12731,7 +12901,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtEnumerateTransactionObject(JNIEnv* km_env, jclass km_clazz, jlong rootobjecthandle, jint querytype, jlong objectcursor, jint objectcursorlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntEnumerateTransactionObject(JNIEnv* km_env, jclass km_clazz, jlong rootobjecthandle, jint querytype, jlong objectcursor, jint objectcursorlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12753,7 +12923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtGetNotificationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jlong transactionnotification, jint notificationlength, jlong timeout, jlong returnlength, jint asynchronous, jlong asynchronouscontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntGetNotificationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jlong transactionnotification, jint notificationlength, jlong timeout, jlong returnlength, jint asynchronous, jlong asynchronouscontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12777,7 +12947,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtLoadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntLoadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12795,7 +12965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtMakeTemporaryObject(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntMakeTemporaryObject(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12813,7 +12983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtManagePartition(JNIEnv* km_env, jclass km_clazz, jlong targethandle, jlong sourcehandle, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntManagePartition(JNIEnv* km_env, jclass km_clazz, jlong targethandle, jlong sourcehandle, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12835,7 +13005,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtOpenEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong enlistmentguid, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntOpenEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong enlistmentguid, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12857,7 +13027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtOpenResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntOpenResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12879,7 +13049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtOpenTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntOpenTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12901,7 +13071,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtOpenTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jlong tmidentity, jint openoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntOpenTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jlong tmidentity, jint openoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12924,7 +13094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12946,7 +13116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12965,7 +13135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12984,7 +13154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13003,7 +13173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13022,7 +13192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13043,7 +13213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint propstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint propstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13063,7 +13233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtQueryInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntQueryInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13085,7 +13255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtQueryInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntQueryInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13107,7 +13277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtQueryInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntQueryInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13129,7 +13299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtQueryInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntQueryInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13151,7 +13321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13170,7 +13340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13189,7 +13359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13207,7 +13377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13225,7 +13395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRegisterProtocolAddressInformation(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong protocolid, jint protocolinformationsize, jlong protocolinformation, jint createoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRegisterProtocolAddressInformation(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong protocolid, jint protocolinformationsize, jlong protocolinformation, jint createoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13247,7 +13417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13266,7 +13436,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13285,7 +13455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13304,7 +13474,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13323,7 +13493,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtRollforwardTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntRollforwardTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13342,7 +13512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtSetInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntSetInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13363,7 +13533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtSetInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntSetInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13384,7 +13554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtSetInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntSetInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13405,7 +13575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtSetInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntSetInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13426,7 +13596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13445,7 +13615,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1NtUnloadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ntUnloadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13463,7 +13633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong handle, jbyte previousmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong handle, jbyte previousmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13482,7 +13652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObDereferenceObjectDeferDelete(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obDereferenceObjectDeferDelete(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13498,7 +13668,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObDereferenceObjectDeferDeleteWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obDereferenceObjectDeferDeleteWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13515,7 +13685,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObGetFilterVersion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obGetFilterVersion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13532,7 +13702,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObGetObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong object, jlong securitydescriptor, jlong memoryallocated) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obGetObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong object, jlong securitydescriptor, jlong memoryallocated) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13552,7 +13722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectByHandle(JNIEnv* km_env, jclass km_clazz, jlong handle, jint desiredaccess, jlong objecttype, jbyte accessmode, jlong object, jlong handleinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectByHandle(JNIEnv* km_env, jclass km_clazz, jlong handle, jint desiredaccess, jlong objecttype, jbyte accessmode, jlong object, jlong handleinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13575,7 +13745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectByHandleWithTag(JNIEnv* km_env, jclass km_clazz, jlong handle, jint desiredaccess, jlong objecttype, jbyte accessmode, jint tag, jlong object, jlong handleinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectByHandleWithTag(JNIEnv* km_env, jclass km_clazz, jlong handle, jint desiredaccess, jlong objecttype, jbyte accessmode, jint tag, jlong object, jlong handleinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13599,7 +13769,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectByPointer(JNIEnv* km_env, jclass km_clazz, jlong object, jint desiredaccess, jlong objecttype, jbyte accessmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectByPointer(JNIEnv* km_env, jclass km_clazz, jlong object, jint desiredaccess, jlong objecttype, jbyte accessmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13620,7 +13790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectByPointerWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint desiredaccess, jlong objecttype, jbyte accessmode, jint tag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectByPointerWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint desiredaccess, jlong objecttype, jbyte accessmode, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13642,7 +13812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectSafe(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectSafe(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13660,7 +13830,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReferenceObjectSafeWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReferenceObjectSafeWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13679,7 +13849,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObRegisterCallbacks(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obRegisterCallbacks(JNIEnv* km_env, jclass km_clazz, jlong callbackregistration, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13698,7 +13868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObReleaseObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jboolean memoryallocated) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obReleaseObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jboolean memoryallocated) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13715,7 +13885,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObUnRegisterCallbacks(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obUnRegisterCallbacks(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13731,7 +13901,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObfDereferenceObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obfDereferenceObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13749,7 +13919,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObfDereferenceObjectWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obfDereferenceObjectWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13768,7 +13938,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObfReferenceObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obfReferenceObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13786,7 +13956,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ObfReferenceObjectWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1obfReferenceObjectWithTag(JNIEnv* km_env, jclass km_clazz, jlong object, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13805,7 +13975,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PcwAddInstance(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong name, jint id, jint count, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pcwAddInstance(JNIEnv* km_env, jclass km_clazz, jlong buffer, jlong name, jint id, jint count, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13827,7 +13997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PcwCloseInstance(JNIEnv* km_env, jclass km_clazz, jlong instance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pcwCloseInstance(JNIEnv* km_env, jclass km_clazz, jlong instance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13843,7 +14013,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PcwCreateInstance(JNIEnv* km_env, jclass km_clazz, jlong instance, jlong registration, jlong name, jint count, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pcwCreateInstance(JNIEnv* km_env, jclass km_clazz, jlong instance, jlong registration, jlong name, jint count, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13865,7 +14035,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PcwRegister(JNIEnv* km_env, jclass km_clazz, jlong registration, jlong info) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pcwRegister(JNIEnv* km_env, jclass km_clazz, jlong registration, jlong info) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13884,7 +14054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PcwUnregister(JNIEnv* km_env, jclass km_clazz, jlong registration) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pcwUnregister(JNIEnv* km_env, jclass km_clazz, jlong registration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13900,7 +14070,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poCallDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13919,7 +14089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoClearPowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poClearPowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13938,7 +14108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoCreatePowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jlong deviceobject, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poCreatePowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jlong deviceobject, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13958,7 +14128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoCreateThermalRequest(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jlong targetdeviceobject, jlong policydeviceobject, jlong context, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poCreateThermalRequest(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jlong targetdeviceobject, jlong policydeviceobject, jlong context, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13980,7 +14150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoDeletePowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poDeletePowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13996,7 +14166,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoDeleteThermalRequest(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poDeleteThermalRequest(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14012,7 +14182,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoEndDeviceBusy(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poEndDeviceBusy(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14028,7 +14198,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxActivateComponent(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxActivateComponent(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14046,7 +14216,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxCompleteDevicePowerNotRequired(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxCompleteDevicePowerNotRequired(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14062,7 +14232,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxCompleteDirectedPowerDown(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxCompleteDirectedPowerDown(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14078,7 +14248,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxCompleteIdleCondition(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxCompleteIdleCondition(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14095,7 +14265,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxCompleteIdleState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxCompleteIdleState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14112,7 +14282,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxIdleComponent(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxIdleComponent(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14130,7 +14300,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxIssueComponentPerfStateChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jlong perfchange, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxIssueComponentPerfStateChange(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jlong perfchange, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14150,7 +14320,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxIssueComponentPerfStateChangeMultiple(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jint perfchangescount, jlong perfchanges, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxIssueComponentPerfStateChangeMultiple(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jint perfchangescount, jlong perfchanges, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14171,7 +14341,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxNotifySurprisePowerOn(JNIEnv* km_env, jclass km_clazz, jlong pdo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxNotifySurprisePowerOn(JNIEnv* km_env, jclass km_clazz, jlong pdo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14187,7 +14357,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxPowerControl(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong powercontrolcode, jlong inbuffer, jlong inbuffersize, jlong outbuffer, jlong outbuffersize, jlong bytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxPowerControl(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong powercontrolcode, jlong inbuffer, jlong inbuffersize, jlong outbuffer, jlong outbuffersize, jlong bytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14211,7 +14381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxPowerOnCrashdumpDevice(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxPowerOnCrashdumpDevice(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14230,7 +14400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxQueryCurrentComponentPerfState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jint setindex, jlong currentperf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxQueryCurrentComponentPerfState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint flags, jint component, jint setindex, jlong currentperf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14252,7 +14422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxRegisterComponentPerfStates(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong flags, jlong componentperfstatecallback, jlong inputstateinfo, jlong outputstateinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxRegisterComponentPerfStates(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong flags, jlong componentperfstatecallback, jlong inputstateinfo, jlong outputstateinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14275,7 +14445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxRegisterCrashdumpDevice(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxRegisterCrashdumpDevice(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14293,7 +14463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxRegisterDevice(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong device, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxRegisterDevice(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong device, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14313,7 +14483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxRegisterDripsWatchdogCallback(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong callback, jboolean includechilddevices, jlong matchingdriverobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxRegisterDripsWatchdogCallback(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong callback, jboolean includechilddevices, jlong matchingdriverobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14332,7 +14502,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxReportDevicePoweredOn(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxReportDevicePoweredOn(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14348,7 +14518,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxSetComponentLatency(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong latency) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxSetComponentLatency(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong latency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14366,7 +14536,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxSetComponentResidency(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong residency) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxSetComponentResidency(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jlong residency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14384,7 +14554,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxSetComponentWake(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jboolean wakehint) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxSetComponentWake(JNIEnv* km_env, jclass km_clazz, jlong handle, jint component, jboolean wakehint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14402,7 +14572,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxSetDeviceIdleTimeout(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong idletimeout) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxSetDeviceIdleTimeout(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong idletimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14419,7 +14589,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxSetTargetDripsDevicePowerState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint targetstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxSetTargetDripsDevicePowerState(JNIEnv* km_env, jclass km_clazz, jlong handle, jint targetstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14438,7 +14608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxStartDevicePowerManagement(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxStartDevicePowerManagement(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14454,7 +14624,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoFxUnregisterDevice(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poFxUnregisterDevice(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14470,7 +14640,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoGetSystemWake(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poGetSystemWake(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14488,7 +14658,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoGetThermalRequestSupport(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jint type) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poGetThermalRequestSupport(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14507,7 +14677,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoQueryWatchdogTime(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong secondsremaining) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poQueryWatchdogTime(JNIEnv* km_env, jclass km_clazz, jlong pdo, jlong secondsremaining) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14526,7 +14696,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoRegisterDeviceForIdleDetection(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint conservationidletime, jint performanceidletime, jint state) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poRegisterDeviceForIdleDetection(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jint conservationidletime, jint performanceidletime, jint state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14547,7 +14717,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoRegisterPowerSettingCallback(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong settingguid, jlong callback, jlong context, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poRegisterPowerSettingCallback(JNIEnv* km_env, jclass km_clazz, jlong deviceobject, jlong settingguid, jlong callback, jlong context, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14569,7 +14739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoRegisterSystemState(JNIEnv* km_env, jclass km_clazz, jlong statehandle, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poRegisterSystemState(JNIEnv* km_env, jclass km_clazz, jlong statehandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14588,7 +14758,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetDeviceBusyEx(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetDeviceBusyEx(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14604,7 +14774,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetHiberRange(JNIEnv* km_env, jclass km_clazz, jlong memorymap, jint flags, jlong address, jlong length, jint tag) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetHiberRange(JNIEnv* km_env, jclass km_clazz, jlong memorymap, jint flags, jlong address, jlong length, jint tag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14624,7 +14794,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetPowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetPowerRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14643,7 +14813,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetSystemState(JNIEnv* km_env, jclass km_clazz, jint flags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetSystemState(JNIEnv* km_env, jclass km_clazz, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14659,7 +14829,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetSystemWake(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetSystemWake(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14675,7 +14845,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetSystemWakeDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetSystemWakeDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14691,7 +14861,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetThermalActiveCooling(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jboolean engaged) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetThermalActiveCooling(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jboolean engaged) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14710,7 +14880,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoSetThermalPassiveCooling(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jbyte throttle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poSetThermalPassiveCooling(JNIEnv* km_env, jclass km_clazz, jlong thermalrequest, jbyte throttle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14729,7 +14899,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoStartDeviceBusy(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poStartDeviceBusy(JNIEnv* km_env, jclass km_clazz, jlong idlepointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14745,7 +14915,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoStartNextPowerIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poStartNextPowerIrp(JNIEnv* km_env, jclass km_clazz, jlong irp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14761,7 +14931,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoUnregisterPowerSettingCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poUnregisterPowerSettingCallback(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14779,7 +14949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PoUnregisterSystemState(JNIEnv* km_env, jclass km_clazz, jlong statehandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1poUnregisterSystemState(JNIEnv* km_env, jclass km_clazz, jlong statehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14795,7 +14965,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ProbeForRead(JNIEnv* km_env, jclass km_clazz, jlong address, jlong length, jint alignment) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1probeForRead(JNIEnv* km_env, jclass km_clazz, jlong address, jlong length, jint alignment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14813,7 +14983,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ProbeForWrite(JNIEnv* km_env, jclass km_clazz, jlong address, jlong length, jint alignment) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1probeForWrite(JNIEnv* km_env, jclass km_clazz, jlong address, jlong length, jint alignment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14831,7 +15001,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsAcquireSiloHardReference(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psAcquireSiloHardReference(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14849,7 +15019,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsAllocSiloContextSlot(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong returnedcontextslot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psAllocSiloContextSlot(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong returnedcontextslot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14868,7 +15038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsAllocateAffinityToken(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psAllocateAffinityToken(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14886,7 +15056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsAttachSiloToCurrentThread(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psAttachSiloToCurrentThread(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14904,7 +15074,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsCreateSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint size, jint pooltype, jlong contextcleanupcallback, jlong returnedsilocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psCreateSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint size, jint pooltype, jlong contextcleanupcallback, jlong returnedsilocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14926,7 +15096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsCreateSystemThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint desiredaccess, jlong objectattributes, jlong processhandle, jlong clientid, jlong startroutine, jlong startcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psCreateSystemThread(JNIEnv* km_env, jclass km_clazz, jlong threadhandle, jint desiredaccess, jlong objectattributes, jlong processhandle, jlong clientid, jlong startroutine, jlong startcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14950,7 +15120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsDereferenceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silocontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psDereferenceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14966,7 +15136,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsDetachSiloFromCurrentThread(JNIEnv* km_env, jclass km_clazz, jlong previoussilo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psDetachSiloFromCurrentThread(JNIEnv* km_env, jclass km_clazz, jlong previoussilo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14982,7 +15152,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsFreeAffinityToken(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psFreeAffinityToken(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -14998,7 +15168,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsFreeSiloContextSlot(JNIEnv* km_env, jclass km_clazz, jint contextslot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psFreeSiloContextSlot(JNIEnv* km_env, jclass km_clazz, jint contextslot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15016,7 +15186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentProcessId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentProcessId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15033,7 +15203,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentServerSilo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentServerSilo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15050,7 +15220,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentServerSiloName(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentServerSiloName(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15067,7 +15237,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentSilo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentSilo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15084,7 +15254,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentThreadId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentThreadId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15101,7 +15271,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetCurrentThreadTeb(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetCurrentThreadTeb(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15118,7 +15288,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetEffectiveServerSilo(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetEffectiveServerSilo(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15136,7 +15306,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetHostSilo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetHostSilo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15153,7 +15323,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetJobServerSilo(JNIEnv* km_env, jclass km_clazz, jlong job, jlong serversilo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetJobServerSilo(JNIEnv* km_env, jclass km_clazz, jlong job, jlong serversilo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15172,7 +15342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetJobSilo(JNIEnv* km_env, jclass km_clazz, jlong job, jlong silo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetJobSilo(JNIEnv* km_env, jclass km_clazz, jlong job, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15191,7 +15361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetParentSilo(JNIEnv* km_env, jclass km_clazz, jlong job) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetParentSilo(JNIEnv* km_env, jclass km_clazz, jlong job) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15209,7 +15379,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetPermanentSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong returnedsilocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetPermanentSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong returnedsilocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15229,7 +15399,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetProcessCreateTimeQuadPart(JNIEnv* km_env, jclass km_clazz, jlong process) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetProcessCreateTimeQuadPart(JNIEnv* km_env, jclass km_clazz, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15247,7 +15417,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetProcessExitStatus(JNIEnv* km_env, jclass km_clazz, jlong process) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetProcessExitStatus(JNIEnv* km_env, jclass km_clazz, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15265,7 +15435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetProcessId(JNIEnv* km_env, jclass km_clazz, jlong process) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetProcessId(JNIEnv* km_env, jclass km_clazz, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15283,7 +15453,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetProcessStartKey(JNIEnv* km_env, jclass km_clazz, jlong process) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetProcessStartKey(JNIEnv* km_env, jclass km_clazz, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15301,7 +15471,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetServerSiloServiceSessionId(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetServerSiloServiceSessionId(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15319,7 +15489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetSiloContainerId(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetSiloContainerId(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15337,7 +15507,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong returnedsilocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong returnedsilocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15357,7 +15527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetSiloMonitorContextSlot(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetSiloMonitorContextSlot(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15375,7 +15545,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadCreateTime(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadCreateTime(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15393,7 +15563,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadExitStatus(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadExitStatus(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15411,7 +15581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadId(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadId(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15429,7 +15599,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadProcessId(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadProcessId(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15447,7 +15617,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadProperty(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong key, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadProperty(JNIEnv* km_env, jclass km_clazz, jlong thread, jlong key, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15467,7 +15637,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetThreadServerSilo(JNIEnv* km_env, jclass km_clazz, jlong thread) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetThreadServerSilo(JNIEnv* km_env, jclass km_clazz, jlong thread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15485,7 +15655,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsGetVersion(JNIEnv* km_env, jclass km_clazz, jlong majorversion, jlong minorversion, jlong buildnumber, jlong csdversion) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psGetVersion(JNIEnv* km_env, jclass km_clazz, jlong majorversion, jlong minorversion, jlong buildnumber, jlong csdversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15506,7 +15676,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsInsertPermanentSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong silocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psInsertPermanentSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong silocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15526,7 +15696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsInsertSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong silocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psInsertSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong silocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15546,7 +15716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsIsCurrentThreadInServerSilo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psIsCurrentThreadInServerSilo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15563,7 +15733,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsIsCurrentThreadPrefetching(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psIsCurrentThreadPrefetching(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15580,7 +15750,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsIsHostSilo(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psIsHostSilo(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15598,7 +15768,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsMakeSiloContextPermanent(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psMakeSiloContextPermanent(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15617,7 +15787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsQueryTotalCycleTimeProcess(JNIEnv* km_env, jclass km_clazz, jlong process, jlong cycletimestamp) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psQueryTotalCycleTimeProcess(JNIEnv* km_env, jclass km_clazz, jlong process, jlong cycletimestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15636,7 +15806,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsReferenceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silocontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psReferenceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15652,7 +15822,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsRegisterSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong registration, jlong returnedmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psRegisterSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong registration, jlong returnedmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15671,7 +15841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsReleaseSiloHardReference(JNIEnv* km_env, jclass km_clazz, jlong silo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psReleaseSiloHardReference(JNIEnv* km_env, jclass km_clazz, jlong silo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15687,7 +15857,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsRemoveCreateThreadNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psRemoveCreateThreadNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15705,7 +15875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsRemoveLoadImageNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psRemoveLoadImageNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15723,7 +15893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsRemoveSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong removedsilocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psRemoveSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong removedsilocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15743,7 +15913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsReplaceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong newsilocontext, jlong oldsilocontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psReplaceSiloContext(JNIEnv* km_env, jclass km_clazz, jlong silo, jint contextslot, jlong newsilocontext, jlong oldsilocontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15764,7 +15934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsRevertToUserMultipleGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psRevertToUserMultipleGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong affinitytoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15780,7 +15950,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCreateProcessNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jboolean arg_1_remove) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCreateProcessNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jboolean arg_1_remove) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15799,7 +15969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCreateProcessNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jboolean arg_1_remove) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCreateProcessNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jboolean arg_1_remove) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15818,7 +15988,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCreateProcessNotifyRoutineEx2(JNIEnv* km_env, jclass km_clazz, jint notifytype, jlong notifyinformation, jboolean arg_2_remove) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCreateProcessNotifyRoutineEx2(JNIEnv* km_env, jclass km_clazz, jint notifytype, jlong notifyinformation, jboolean arg_2_remove) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15838,7 +16008,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCreateThreadNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCreateThreadNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15856,7 +16026,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCreateThreadNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jint notifytype, jlong notifyinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCreateThreadNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jint notifytype, jlong notifyinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15875,7 +16045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetCurrentThreadPrefetching(JNIEnv* km_env, jclass km_clazz, jboolean prefetching) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetCurrentThreadPrefetching(JNIEnv* km_env, jclass km_clazz, jboolean prefetching) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15893,7 +16063,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetLoadImageNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetLoadImageNotifyRoutine(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15911,7 +16081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetLoadImageNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetLoadImageNotifyRoutineEx(JNIEnv* km_env, jclass km_clazz, jlong notifyroutine, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15930,7 +16100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsSetSystemMultipleGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong groupaffinities, jshort groupcount, jlong affinitytoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psSetSystemMultipleGroupAffinityThread(JNIEnv* km_env, jclass km_clazz, jlong groupaffinities, jshort groupcount, jlong affinitytoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15950,7 +16120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsStartSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psStartSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15968,7 +16138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsTerminateServerSilo(JNIEnv* km_env, jclass km_clazz, jlong serversilo, jint exitstatus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psTerminateServerSilo(JNIEnv* km_env, jclass km_clazz, jlong serversilo, jint exitstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -15985,7 +16155,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsTerminateSystemThread(JNIEnv* km_env, jclass km_clazz, jint exitstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psTerminateSystemThread(JNIEnv* km_env, jclass km_clazz, jint exitstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16003,7 +16173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsUnregisterSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psUnregisterSiloMonitor(JNIEnv* km_env, jclass km_clazz, jlong monitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16019,7 +16189,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PsWrapApcWow64Thread(JNIEnv* km_env, jclass km_clazz, jlong apccontext, jlong apcroutine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1psWrapApcWow64Thread(JNIEnv* km_env, jclass km_clazz, jlong apccontext, jlong apcroutine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16038,7 +16208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedAllocateMemory(JNIEnv* km_env, jclass km_clazz, jint size) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedAllocateMemory(JNIEnv* km_env, jclass km_clazz, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16056,7 +16226,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong address) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong address) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16072,7 +16242,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedIsSystemWheaEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedIsSystemWheaEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16089,7 +16259,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedRegisterPlugin(JNIEnv* km_env, jclass km_clazz, jlong packet) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedRegisterPlugin(JNIEnv* km_env, jclass km_clazz, jlong packet) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16107,7 +16277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedSynchronizeExecution(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong synchronizeroutine, jlong synchronizecontext) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedSynchronizeExecution(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong synchronizeroutine, jlong synchronizecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16127,7 +16297,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1PshedUnregisterPlugin(JNIEnv* km_env, jclass km_clazz, jlong pluginhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1pshedUnregisterPlugin(JNIEnv* km_env, jclass km_clazz, jlong pluginhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16143,7 +16313,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlAppendUnicodeStringToString(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlAppendUnicodeStringToString(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16162,7 +16332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlAppendUnicodeToString(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlAppendUnicodeToString(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16181,7 +16351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlAreBitsClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlAreBitsClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16201,7 +16371,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlAreBitsSet(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlAreBitsSet(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16221,7 +16391,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlAssert(JNIEnv* km_env, jclass km_clazz, jlong voidfailedassertion, jlong voidfilename, jint linenumber, jlong mutablemessage) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlAssert(JNIEnv* km_env, jclass km_clazz, jlong voidfailedassertion, jlong voidfilename, jint linenumber, jlong mutablemessage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16240,7 +16410,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCheckRegistryKey(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCheckRegistryKey(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16259,7 +16429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlClearAllBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlClearAllBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16275,7 +16445,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlClearBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlClearBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16292,7 +16462,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint numbertoclear) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint numbertoclear) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16310,7 +16480,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCmDecodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong start) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCmDecodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong start) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16329,7 +16499,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCmEncodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jbyte type, jlong length, jlong start) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCmEncodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jbyte type, jlong length, jlong start) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16350,7 +16520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCompareString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCompareString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16370,7 +16540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCompareUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCompareUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16390,7 +16560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCompareUnicodeStrings(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string1length, jlong string2, jlong string2length, jboolean caseinsensitive) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCompareUnicodeStrings(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string1length, jlong string2, jlong string2length, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16412,7 +16582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlContractHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlContractHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16430,7 +16600,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCopyBitMap(JNIEnv* km_env, jclass km_clazz, jlong source, jlong destination, jint targetbit) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCopyBitMap(JNIEnv* km_env, jclass km_clazz, jlong source, jlong destination, jint targetbit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16448,7 +16618,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCopyString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCopyString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16465,7 +16635,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCopyUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCopyUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16482,7 +16652,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCreateHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jint shift, jint flags) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCreateHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jint shift, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16502,7 +16672,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCreateHashTableEx(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jint initialsize, jint shift, jint flags) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCreateHashTableEx(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jint initialsize, jint shift, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16523,7 +16693,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCreateRegistryKey(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCreateRegistryKey(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16542,7 +16712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlCreateSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint revision) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlCreateSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint revision) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16561,7 +16731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDelete(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDelete(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16579,7 +16749,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16598,7 +16768,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16617,7 +16787,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteElementGenericTableAvlEx(JNIEnv* km_env, jclass km_clazz, jlong table, jlong nodeorparent) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteElementGenericTableAvlEx(JNIEnv* km_env, jclass km_clazz, jlong table, jlong nodeorparent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16634,7 +16804,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16650,7 +16820,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteNoSplay(JNIEnv* km_env, jclass km_clazz, jlong links, jlong root) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteNoSplay(JNIEnv* km_env, jclass km_clazz, jlong links, jlong root) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16667,7 +16837,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDeleteRegistryValue(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong valuename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDeleteRegistryValue(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong valuename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16687,7 +16857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlDowncaseUnicodeChar(JNIEnv* km_env, jclass km_clazz, jshort sourcecharacter) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlDowncaseUnicodeChar(JNIEnv* km_env, jclass km_clazz, jshort sourcecharacter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16705,7 +16875,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEndEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEndEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16722,7 +16892,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEndStrongEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEndStrongEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16739,7 +16909,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEndWeakEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEndWeakEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16756,7 +16926,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16775,7 +16945,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jboolean restart) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jboolean restart) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16794,7 +16964,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jboolean restart) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jboolean restart) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16813,7 +16983,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateGenericTableLikeADirectory(JNIEnv* km_env, jclass km_clazz, jlong table, jlong matchfunction, jlong matchdata, jint nextflag, jlong restartkey, jlong deletecount, jlong buffer) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateGenericTableLikeADirectory(JNIEnv* km_env, jclass km_clazz, jlong table, jlong matchfunction, jlong matchdata, jint nextflag, jlong restartkey, jlong deletecount, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16837,7 +17007,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateGenericTableWithoutSplaying(JNIEnv* km_env, jclass km_clazz, jlong table, jlong restartkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateGenericTableWithoutSplaying(JNIEnv* km_env, jclass km_clazz, jlong table, jlong restartkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16856,7 +17026,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEnumerateGenericTableWithoutSplayingAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong restartkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEnumerateGenericTableWithoutSplayingAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong restartkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16875,7 +17045,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEqualString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEqualString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16895,7 +17065,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlEqualUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlEqualUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16915,7 +17085,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlExpandHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlExpandHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16933,7 +17103,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlExtractBitMap(JNIEnv* km_env, jclass km_clazz, jlong source, jlong destination, jint targetbit, jint numberofbits) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlExtractBitMap(JNIEnv* km_env, jclass km_clazz, jlong source, jlong destination, jint targetbit, jint numberofbits) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16952,7 +17122,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16972,7 +17142,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindClearBitsAndSet(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindClearBitsAndSet(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -16992,7 +17162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindClearRuns(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong runarray, jint sizeofrunarray, jboolean locatelongestruns) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindClearRuns(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong runarray, jint sizeofrunarray, jboolean locatelongestruns) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17013,7 +17183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindClosestEncodableLength(JNIEnv* km_env, jclass km_clazz, jlong sourcelength, jlong targetlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindClosestEncodableLength(JNIEnv* km_env, jclass km_clazz, jlong sourcelength, jlong targetlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17032,7 +17202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindFirstRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong startingindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindFirstRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong startingindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17051,7 +17221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindLastBackwardRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint fromindex, jlong startingrunindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindLastBackwardRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint fromindex, jlong startingrunindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17071,7 +17241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindLeastSignificantBit(JNIEnv* km_env, jclass km_clazz, jlong set) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindLeastSignificantBit(JNIEnv* km_env, jclass km_clazz, jlong set) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17089,7 +17259,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindLongestRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong startingindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindLongestRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong startingindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17108,7 +17278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindMostSignificantBit(JNIEnv* km_env, jclass km_clazz, jlong set) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindMostSignificantBit(JNIEnv* km_env, jclass km_clazz, jlong set) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17126,7 +17296,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindNextForwardRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint fromindex, jlong startingrunindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindNextForwardRunClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint fromindex, jlong startingrunindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17146,7 +17316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17166,7 +17336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFindSetBitsAndClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFindSetBitsAndClear(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint numbertofind, jint hintindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17186,7 +17356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlFreeUTF8String(JNIEnv* km_env, jclass km_clazz, jlong utf8string) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlFreeUTF8String(JNIEnv* km_env, jclass km_clazz, jlong utf8string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17202,7 +17372,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGUIDFromString(JNIEnv* km_env, jclass km_clazz, jlong guidstring, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGUIDFromString(JNIEnv* km_env, jclass km_clazz, jlong guidstring, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17221,7 +17391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGenerateClass5Guid(JNIEnv* km_env, jclass km_clazz, jlong namespaceguid, jlong buffer, jint buffersize, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGenerateClass5Guid(JNIEnv* km_env, jclass km_clazz, jlong namespaceguid, jlong buffer, jint buffersize, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17242,7 +17412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetActiveConsoleId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetActiveConsoleId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17259,7 +17429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetCallersAddress(JNIEnv* km_env, jclass km_clazz, jlong callersaddress, jlong callerscaller) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetCallersAddress(JNIEnv* km_env, jclass km_clazz, jlong callersaddress, jlong callerscaller) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17276,7 +17446,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetConsoleSessionForegroundProcessId(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetConsoleSessionForegroundProcessId(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17293,7 +17463,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jint i) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jint i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17312,7 +17482,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jint i) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jint i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17331,7 +17501,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetEnabledExtendedFeatures(JNIEnv* km_env, jclass km_clazz, jlong featuremask) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetEnabledExtendedFeatures(JNIEnv* km_env, jclass km_clazz, jlong featuremask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17349,7 +17519,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetNextEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetNextEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17368,7 +17538,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetNtProductType(JNIEnv* km_env, jclass km_clazz, jlong ntproducttype) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetNtProductType(JNIEnv* km_env, jclass km_clazz, jlong ntproducttype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17386,7 +17556,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetNtSystemRoot(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetNtSystemRoot(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17403,7 +17573,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetPersistedStateLocation(JNIEnv* km_env, jclass km_clazz, jlong sourceid, jlong customvalue, jlong defaultpath, jint statelocationtype, jlong targetpath, jint bufferlengthin, jlong bufferlengthout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetPersistedStateLocation(JNIEnv* km_env, jclass km_clazz, jlong sourceid, jlong customvalue, jlong defaultpath, jint statelocationtype, jlong targetpath, jint bufferlengthin, jlong bufferlengthout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17427,7 +17597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetSuiteMask(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetSuiteMask(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17444,7 +17614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlGetVersion(JNIEnv* km_env, jclass km_clazz, jlong lpversioninformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlGetVersion(JNIEnv* km_env, jclass km_clazz, jlong lpversioninformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17462,7 +17632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlHashUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string, jboolean caseinsensitive, jint hashalgorithm, jlong hashvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlHashUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string, jboolean caseinsensitive, jint hashalgorithm, jlong hashvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17483,7 +17653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17502,7 +17672,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitStrongEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitStrongEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17521,7 +17691,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitUTF8String(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitUTF8String(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17538,7 +17708,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitUTF8StringEx(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitUTF8StringEx(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17557,7 +17727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitWeakEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitWeakEnumerationHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17576,7 +17746,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitializeBitMap(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong bitmapbuffer, jint sizeofbitmap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitializeBitMap(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jlong bitmapbuffer, jint sizeofbitmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17594,7 +17764,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitializeGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong compareroutine, jlong allocateroutine, jlong freeroutine, jlong tablecontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitializeGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong compareroutine, jlong allocateroutine, jlong freeroutine, jlong tablecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17614,7 +17784,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInitializeGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong compareroutine, jlong allocateroutine, jlong freeroutine, jlong tablecontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInitializeGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong compareroutine, jlong allocateroutine, jlong freeroutine, jlong tablecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17634,7 +17804,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInsertElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInsertElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17655,7 +17825,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInsertElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInsertElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17676,7 +17846,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInsertElementGenericTableFull(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement, jlong nodeorparent, jint searchresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInsertElementGenericTableFull(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement, jlong nodeorparent, jint searchresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17699,7 +17869,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInsertElementGenericTableFullAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement, jlong nodeorparent, jint searchresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInsertElementGenericTableFullAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jint buffersize, jlong newelement, jlong nodeorparent, jint searchresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17722,7 +17892,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInsertEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong entry, jlong signature, jlong context) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInsertEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong entry, jlong signature, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17743,7 +17913,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlInt64ToUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong value, jint base, jlong string) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlInt64ToUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong value, jint base, jlong string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17763,7 +17933,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIntegerToUnicodeString(JNIEnv* km_env, jclass km_clazz, jint value, jint base, jlong string) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIntegerToUnicodeString(JNIEnv* km_env, jclass km_clazz, jint value, jint base, jlong string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17783,7 +17953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIoDecodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong alignment, jlong minimumaddress, jlong maximumaddress) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIoDecodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong alignment, jlong minimumaddress, jlong maximumaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17804,7 +17974,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIoEncodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jbyte type, jlong length, jlong alignment, jlong minimumaddress, jlong maximumaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIoEncodeMemIoResource(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jbyte type, jlong length, jlong alignment, jlong minimumaddress, jlong maximumaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17827,7 +17997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsApiSetImplemented(JNIEnv* km_env, jclass km_clazz, jlong apisetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsApiSetImplemented(JNIEnv* km_env, jclass km_clazz, jlong apisetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17845,7 +18015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsGenericTableEmpty(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsGenericTableEmpty(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17863,7 +18033,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsGenericTableEmptyAvl(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsGenericTableEmptyAvl(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17881,7 +18051,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsMultiSessionSku(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsMultiSessionSku(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17898,7 +18068,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsMultiUsersInSessionSku(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsMultiUsersInSessionSku(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17915,7 +18085,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsNtDdiVersionAvailable(JNIEnv* km_env, jclass km_clazz, jint version) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsNtDdiVersionAvailable(JNIEnv* km_env, jclass km_clazz, jint version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17933,7 +18103,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsServicePackVersionInstalled(JNIEnv* km_env, jclass km_clazz, jint version) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsServicePackVersionInstalled(JNIEnv* km_env, jclass km_clazz, jint version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17951,7 +18121,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsStateSeparationEnabled(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsStateSeparationEnabled(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17968,7 +18138,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlIsUntrustedObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong object, jlong untrustedobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlIsUntrustedObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong object, jlong untrustedobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -17988,7 +18158,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLengthSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLengthSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18006,7 +18176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupElementGenericTable(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18025,7 +18195,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18044,7 +18214,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupElementGenericTableFull(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong nodeorparent, jlong searchresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupElementGenericTableFull(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong nodeorparent, jlong searchresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18065,7 +18235,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupElementGenericTableFullAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong nodeorparent, jlong searchresult) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupElementGenericTableFullAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong nodeorparent, jlong searchresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18086,7 +18256,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong signature, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong signature, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18106,7 +18276,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlLookupFirstMatchingElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong restartkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlLookupFirstMatchingElementGenericTableAvl(JNIEnv* km_env, jclass km_clazz, jlong table, jlong buffer, jlong restartkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18126,7 +18296,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlMapGenericMask(JNIEnv* km_env, jclass km_clazz, jlong accessmask, jlong genericmapping) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlMapGenericMask(JNIEnv* km_env, jclass km_clazz, jlong accessmask, jlong genericmapping) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18143,7 +18313,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNormalizeSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint securitydescriptorlength, jlong newsecuritydescriptor, jlong newsecuritydescriptorlength, jboolean checkonly) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNormalizeSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint securitydescriptorlength, jlong newsecuritydescriptor, jlong newsecuritydescriptorlength, jboolean checkonly) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18165,7 +18335,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberGenericTableElements(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberGenericTableElements(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18183,7 +18353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberGenericTableElementsAvl(JNIEnv* km_env, jclass km_clazz, jlong table) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberGenericTableElementsAvl(JNIEnv* km_env, jclass km_clazz, jlong table) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18201,7 +18371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberOfClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberOfClearBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18219,7 +18389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberOfClearBitsInRange(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberOfClearBitsInRange(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18239,7 +18409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberOfSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberOfSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18257,7 +18427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberOfSetBitsInRange(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberOfSetBitsInRange(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18277,7 +18447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlNumberOfSetBitsUlongPtr(JNIEnv* km_env, jclass km_clazz, jlong target) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlNumberOfSetBitsUlongPtr(JNIEnv* km_env, jclass km_clazz, jlong target) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18295,7 +18465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlPrefetchMemoryNonTemporal(JNIEnv* km_env, jclass km_clazz, jlong source, jlong length) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlPrefetchMemoryNonTemporal(JNIEnv* km_env, jclass km_clazz, jlong source, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18312,7 +18482,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlPrefixUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlPrefixUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18332,7 +18502,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlQueryRegistryValueWithFallback(JNIEnv* km_env, jclass km_clazz, jlong primaryhandle, jlong fallbackhandle, jlong valuename, jint valuelength, jlong valuetype, jlong valuedata, jlong resultlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlQueryRegistryValueWithFallback(JNIEnv* km_env, jclass km_clazz, jlong primaryhandle, jlong fallbackhandle, jlong valuename, jint valuelength, jlong valuetype, jlong valuedata, jlong resultlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18356,7 +18526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlQueryRegistryValues(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong querytable, jlong context, jlong environment) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlQueryRegistryValues(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong querytable, jlong context, jlong environment) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18378,7 +18548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlQueryValidationRunlevel(JNIEnv* km_env, jclass km_clazz, jlong componentname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlQueryValidationRunlevel(JNIEnv* km_env, jclass km_clazz, jlong componentname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18396,7 +18566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRealPredecessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRealPredecessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18414,7 +18584,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRealSuccessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRealSuccessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18432,7 +18602,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRemoveEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong entry, jlong context) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRemoveEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong entry, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18452,7 +18622,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRunOnceBeginInitialize(JNIEnv* km_env, jclass km_clazz, jlong runonce, jint flags, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRunOnceBeginInitialize(JNIEnv* km_env, jclass km_clazz, jlong runonce, jint flags, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18472,7 +18642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRunOnceComplete(JNIEnv* km_env, jclass km_clazz, jlong runonce, jint flags, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRunOnceComplete(JNIEnv* km_env, jclass km_clazz, jlong runonce, jint flags, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18492,7 +18662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRunOnceExecuteOnce(JNIEnv* km_env, jclass km_clazz, jlong runonce, jlong initfn, jlong parameter, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRunOnceExecuteOnce(JNIEnv* km_env, jclass km_clazz, jlong runonce, jlong initfn, jlong parameter, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18513,7 +18683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlRunOnceInitialize(JNIEnv* km_env, jclass km_clazz, jlong runonce) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlRunOnceInitialize(JNIEnv* km_env, jclass km_clazz, jlong runonce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18529,7 +18699,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSetAllBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSetAllBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18545,7 +18715,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSetBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSetBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18562,7 +18732,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint numbertoset) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSetBits(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint startingindex, jint numbertoset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18580,7 +18750,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSetDaclSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jboolean daclpresent, jlong dacl, jboolean dacldefaulted) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSetDaclSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jboolean daclpresent, jlong dacl, jboolean dacldefaulted) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18601,7 +18771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSetSystemGlobalData(JNIEnv* km_env, jclass km_clazz, jint dataid, jlong buffer, jint size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSetSystemGlobalData(JNIEnv* km_env, jclass km_clazz, jint dataid, jlong buffer, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18621,7 +18791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSplay(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSplay(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18639,7 +18809,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlStringFromGUID(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong guidstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlStringFromGUID(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong guidstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18658,7 +18828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlStronglyEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlStronglyEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18677,7 +18847,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSubtreePredecessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSubtreePredecessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18695,7 +18865,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSubtreeSuccessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSubtreeSuccessor(JNIEnv* km_env, jclass km_clazz, jlong links) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18713,7 +18883,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlSuffixUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlSuffixUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong string1, jlong string2, jboolean caseinsensitive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18733,7 +18903,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlTestBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlTestBit(JNIEnv* km_env, jclass km_clazz, jlong bitmapheader, jint bitnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18752,7 +18922,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlTimeFieldsToTime(JNIEnv* km_env, jclass km_clazz, jlong timefields, jlong arg_1_time) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlTimeFieldsToTime(JNIEnv* km_env, jclass km_clazz, jlong timefields, jlong arg_1_time) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18771,7 +18941,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlTimeToTimeFields(JNIEnv* km_env, jclass km_clazz, jlong arg_0_time, jlong timefields) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlTimeToTimeFields(JNIEnv* km_env, jclass km_clazz, jlong arg_0_time, jlong timefields) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18788,7 +18958,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUTF8StringToUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUTF8StringToUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18808,7 +18978,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUTF8ToUnicodeN(JNIEnv* km_env, jclass km_clazz, jlong unicodestringdestination, jint unicodestringmaxbytecount, jlong unicodestringactualbytecount, jlong utf8stringsource, jint utf8stringbytecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUTF8ToUnicodeN(JNIEnv* km_env, jclass km_clazz, jlong unicodestringdestination, jint unicodestringmaxbytecount, jlong unicodestringactualbytecount, jlong utf8stringsource, jint utf8stringbytecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18830,7 +19000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUnicodeStringToInt64(JNIEnv* km_env, jclass km_clazz, jlong string, jint base, jlong number, jlong endpointer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUnicodeStringToInt64(JNIEnv* km_env, jclass km_clazz, jlong string, jint base, jlong number, jlong endpointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18851,7 +19021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUnicodeStringToInteger(JNIEnv* km_env, jclass km_clazz, jlong string, jint base, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUnicodeStringToInteger(JNIEnv* km_env, jclass km_clazz, jlong string, jint base, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18871,7 +19041,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUnicodeStringToUTF8String(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUnicodeStringToUTF8String(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18891,7 +19061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUnicodeToUTF8N(JNIEnv* km_env, jclass km_clazz, jlong utf8stringdestination, jint utf8stringmaxbytecount, jlong utf8stringactualbytecount, jlong unicodestringsource, jint unicodestringbytecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUnicodeToUTF8N(JNIEnv* km_env, jclass km_clazz, jlong utf8stringdestination, jint utf8stringmaxbytecount, jlong utf8stringactualbytecount, jlong unicodestringsource, jint unicodestringbytecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18913,7 +19083,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUpcaseUnicodeChar(JNIEnv* km_env, jclass km_clazz, jshort sourcecharacter) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUpcaseUnicodeChar(JNIEnv* km_env, jclass km_clazz, jshort sourcecharacter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18931,7 +19101,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_syste
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUpcaseUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUpcaseUnicodeString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring, jboolean allocatedestinationstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18951,7 +19121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUpperChar(JNIEnv* km_env, jclass km_clazz, jbyte character) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUpperChar(JNIEnv* km_env, jclass km_clazz, jbyte character) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18969,7 +19139,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jbyte)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlUpperString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlUpperString(JNIEnv* km_env, jclass km_clazz, jlong destinationstring, jlong sourcestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -18986,7 +19156,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlValidRelativeSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptorinput, jint securitydescriptorlength, jint requiredinformation) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlValidRelativeSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptorinput, jint securitydescriptorlength, jint requiredinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19006,7 +19176,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlValidSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlValidSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19024,7 +19194,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlVerifyVersionInfo(JNIEnv* km_env, jclass km_clazz, jlong versioninfo, jint typemask, jlong conditionmask) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlVerifyVersionInfo(JNIEnv* km_env, jclass km_clazz, jlong versioninfo, jint typemask, jlong conditionmask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19044,7 +19214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlVolumeDeviceToDosName(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong dosname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlVolumeDeviceToDosName(JNIEnv* km_env, jclass km_clazz, jlong volumedeviceobject, jlong dosname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19063,7 +19233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlWalkFrameChain(JNIEnv* km_env, jclass km_clazz, jlong callers, jint count, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlWalkFrameChain(JNIEnv* km_env, jclass km_clazz, jlong callers, jint count, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19083,7 +19253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlWeaklyEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlWeaklyEnumerateEntryHashTable(JNIEnv* km_env, jclass km_clazz, jlong hashtable, jlong enumerator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19102,7 +19272,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlWriteRegistryValue(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong valuename, jint valuetype, jlong valuedata, jint valuelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlWriteRegistryValue(JNIEnv* km_env, jclass km_clazz, jint relativeto, jlong path, jlong valuename, jint valuetype, jlong valuedata, jint valuelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19125,7 +19295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlxAnsiStringToUnicodeSize(JNIEnv* km_env, jclass km_clazz, jlong ansistring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlxAnsiStringToUnicodeSize(JNIEnv* km_env, jclass km_clazz, jlong ansistring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19143,7 +19313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1RtlxUnicodeStringToAnsiSize(JNIEnv* km_env, jclass km_clazz, jlong unicodestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1rtlxUnicodeStringToAnsiSize(JNIEnv* km_env, jclass km_clazz, jlong unicodestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19161,7 +19331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jlong subjectsecuritycontext, jboolean subjectcontextlocked, jint desiredaccess, jint previouslygrantedaccess, jlong privileges, jlong genericmapping, jbyte accessmode, jlong grantedaccess, jlong accessstatus) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jlong subjectsecuritycontext, jboolean subjectcontextlocked, jint desiredaccess, jint previouslygrantedaccess, jlong privileges, jlong genericmapping, jbyte accessmode, jlong grantedaccess, jlong accessstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19188,7 +19358,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeAssignSecurity(JNIEnv* km_env, jclass km_clazz, jlong parentdescriptor, jlong explicitdescriptor, jlong newdescriptor, jboolean isdirectoryobject, jlong subjectcontext, jlong genericmapping, jint pooltype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seAssignSecurity(JNIEnv* km_env, jclass km_clazz, jlong parentdescriptor, jlong explicitdescriptor, jlong newdescriptor, jboolean isdirectoryobject, jlong subjectcontext, jlong genericmapping, jint pooltype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19212,7 +19382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeAssignSecurityEx(JNIEnv* km_env, jclass km_clazz, jlong parentdescriptor, jlong explicitdescriptor, jlong newdescriptor, jlong objecttype, jboolean isdirectoryobject, jint autoinheritflags, jlong subjectcontext, jlong genericmapping, jint pooltype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seAssignSecurityEx(JNIEnv* km_env, jclass km_clazz, jlong parentdescriptor, jlong explicitdescriptor, jlong newdescriptor, jlong objecttype, jboolean isdirectoryobject, jint autoinheritflags, jlong subjectcontext, jlong genericmapping, jint pooltype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19238,7 +19408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeCaptureSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seCaptureSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19254,7 +19424,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeComputeAutoInheritByObjectType(JNIEnv* km_env, jclass km_clazz, jlong objecttype, jlong securitydescriptor, jlong parentsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seComputeAutoInheritByObjectType(JNIEnv* km_env, jclass km_clazz, jlong objecttype, jlong securitydescriptor, jlong parentsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19274,7 +19444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeDeassignSecurity(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seDeassignSecurity(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19292,7 +19462,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeEtwWriteKMCveEvent(JNIEnv* km_env, jclass km_clazz, jlong cveid, jlong additionaldetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seEtwWriteKMCveEvent(JNIEnv* km_env, jclass km_clazz, jlong cveid, jlong additionaldetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19311,7 +19481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeLockSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seLockSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19327,7 +19497,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeRegisterImageVerificationCallback(JNIEnv* km_env, jclass km_clazz, jint imagetype, jint callbacktype, jlong callbackfunction, jlong callbackcontext, jlong token, jlong callbackhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seRegisterImageVerificationCallback(JNIEnv* km_env, jclass km_clazz, jint imagetype, jint callbacktype, jlong callbackfunction, jlong callbackcontext, jlong token, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19350,7 +19520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeReleaseSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seReleaseSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19366,7 +19536,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeReportSecurityEvent(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcename, jlong usersid, jlong auditparameters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seReportSecurityEvent(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcename, jlong usersid, jlong auditparameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19387,7 +19557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeSetAuditParameter(JNIEnv* km_env, jclass km_clazz, jlong auditparameters, jint type, jint arg_2_index, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seSetAuditParameter(JNIEnv* km_env, jclass km_clazz, jlong auditparameters, jint type, jint arg_2_index, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19408,7 +19578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeUnlockSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seUnlockSubjectContext(JNIEnv* km_env, jclass km_clazz, jlong subjectcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19424,7 +19594,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeUnregisterImageVerificationCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seUnregisterImageVerificationCallback(JNIEnv* km_env, jclass km_clazz, jlong callbackhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19440,7 +19610,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1SeValidSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jint length, jlong securitydescriptor) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1seValidSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jint length, jlong securitydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19459,7 +19629,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19478,7 +19648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19497,7 +19667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transaction, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transaction, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19516,7 +19686,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jbyte previousmode, jint desiredaccess, jlong objectattributes, jlong resourcemanager, jlong transaction, jint createoptions, jint notificationmask, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jbyte previousmode, jint desiredaccess, jlong objectattributes, jlong resourcemanager, jlong transaction, jint createoptions, jint notificationmask, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19542,7 +19712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmDereferenceEnlistmentKey(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong lastreference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmDereferenceEnlistmentKey(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong lastreference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19561,7 +19731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmEnableCallbacks(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong callbackroutine, jlong rmkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmEnableCallbacks(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong callbackroutine, jlong rmkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19581,7 +19751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmGetTransactionId(JNIEnv* km_env, jclass km_clazz, jlong transaction, jlong transactionid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmGetTransactionId(JNIEnv* km_env, jclass km_clazz, jlong transaction, jlong transactionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19598,7 +19768,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmInitializeTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanager, jlong logfilename, jlong tmid, jint createoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmInitializeTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanager, jlong logfilename, jlong tmid, jint createoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19619,7 +19789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmIsTransactionActive(JNIEnv* km_env, jclass km_clazz, jlong transaction) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmIsTransactionActive(JNIEnv* km_env, jclass km_clazz, jlong transaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19637,7 +19807,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19656,7 +19826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19675,7 +19845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19694,7 +19864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19713,7 +19883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jint requestcookie, jint bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jint requestcookie, jint bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19734,7 +19904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jint requestcookie, jint status) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jint requestcookie, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19754,7 +19924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19773,7 +19943,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19792,7 +19962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19810,7 +19980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tm, jlong targetvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tm, jlong targetvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19829,7 +19999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmReferenceEnlistmentKey(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmReferenceEnlistmentKey(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19848,7 +20018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19867,7 +20037,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRequestOutcomeEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRequestOutcomeEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19886,7 +20056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19905,7 +20075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19924,7 +20094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transaction, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transaction, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19943,7 +20113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1TmSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1tmSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistment, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19962,7 +20132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1VslCreateSecureSection(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong targetprocess, jlong mdl, jint devicepageprotection, jint attributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1vslCreateSecureSection(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong targetprocess, jlong mdl, jint devicepageprotection, jint attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -19984,7 +20154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1VslDeleteSecureSection(JNIEnv* km_env, jclass km_clazz, jlong globalhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1vslDeleteSecureSection(JNIEnv* km_env, jclass km_clazz, jlong globalhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20002,7 +20172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaAddErrorSource(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaAddErrorSource(JNIEnv* km_env, jclass km_clazz, jlong errorsource, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20021,7 +20191,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaAddErrorSourceDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong context, jlong configuration, jint numberpreallocatederrorreports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaAddErrorSourceDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong context, jlong configuration, jint numberpreallocatederrorreports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20041,7 +20211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaAddErrorSourceDeviceDriverV1(JNIEnv* km_env, jclass km_clazz, jlong context, jlong configuration, jint numbufferstopreallocate, jint maxdatalength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaAddErrorSourceDeviceDriverV1(JNIEnv* km_env, jclass km_clazz, jlong context, jlong configuration, jint numbufferstopreallocate, jint maxdatalength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20062,7 +20232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaAddHwErrorReportSectionDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle, jint sectiondatalength, jlong bufferset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaAddHwErrorReportSectionDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle, jint sectiondatalength, jlong bufferset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20082,7 +20252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaConfigureErrorSource(JNIEnv* km_env, jclass km_clazz, jint sourcetype, jlong configuration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaConfigureErrorSource(JNIEnv* km_env, jclass km_clazz, jint sourcetype, jlong configuration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20101,7 +20271,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaCreateHwErrorReportDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid, jlong deviceobject) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaCreateHwErrorReportDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid, jlong deviceobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20120,7 +20290,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaErrorSourceGetState(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaErrorSourceGetState(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20138,7 +20308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaGetNotifyAllOfflinesPolicy(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaGetNotifyAllOfflinesPolicy(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20155,7 +20325,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHighIrqlLogSelEventHandlerRegister(JNIEnv* km_env, jclass km_clazz, jlong handler, jlong context) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHighIrqlLogSelEventHandlerRegister(JNIEnv* km_env, jclass km_clazz, jlong handler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20174,7 +20344,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHighIrqlLogSelEventHandlerUnregister(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHighIrqlLogSelEventHandlerUnregister(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20189,7 +20359,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHwErrorReportAbandonDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHwErrorReportAbandonDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20207,7 +20377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHwErrorReportSetSectionNameDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong bufferset, jint namelength, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHwErrorReportSetSectionNameDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong bufferset, jint namelength, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20227,7 +20397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHwErrorReportSetSeverityDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle, jint errorseverity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHwErrorReportSetSeverityDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle, jint errorseverity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20246,7 +20416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaHwErrorReportSubmitDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaHwErrorReportSubmitDeviceDriver(JNIEnv* km_env, jclass km_clazz, jlong errorhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20264,7 +20434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaInitializeRecordHeader(JNIEnv* km_env, jclass km_clazz, jlong header) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaInitializeRecordHeader(JNIEnv* km_env, jclass km_clazz, jlong header) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20282,7 +20452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaIsCriticalState(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaIsCriticalState(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20299,7 +20469,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_sys
     return (jboolean)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaLogInternalEvent(JNIEnv* km_env, jclass km_clazz, jlong entry) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaLogInternalEvent(JNIEnv* km_env, jclass km_clazz, jlong entry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20315,7 +20485,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaRegisterInUsePageOfflineNotification(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaRegisterInUsePageOfflineNotification(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20334,7 +20504,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaRemoveErrorSource(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaRemoveErrorSource(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20350,7 +20520,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaRemoveErrorSourceDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaRemoveErrorSourceDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20368,7 +20538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaReportHwError(JNIEnv* km_env, jclass km_clazz, jlong errorpacket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaReportHwError(JNIEnv* km_env, jclass km_clazz, jlong errorpacket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20386,7 +20556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaReportHwErrorDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid, jlong deviceobject, jlong errordata, jint errordatalength, jlong sectiontypeguid, jint errorseverity, jlong devicefriendlyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaReportHwErrorDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint errorsourceid, jlong deviceobject, jlong errordata, jint errordatalength, jlong sectiontypeguid, jint errorseverity, jlong devicefriendlyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20410,7 +20580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaUnconfigureErrorSource(JNIEnv* km_env, jclass km_clazz, jint sourcetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaUnconfigureErrorSource(JNIEnv* km_env, jclass km_clazz, jint sourcetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20428,7 +20598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WheaUnregisterInUsePageOfflineNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wheaUnregisterInUsePageOfflineNotification(JNIEnv* km_env, jclass km_clazz, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20446,7 +20616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1WmiQueryTraceInformation(JNIEnv* km_env, jclass km_clazz, jint traceinformationclass, jlong traceinformation, jint traceinformationlength, jlong requiredlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1wmiQueryTraceInformation(JNIEnv* km_env, jclass km_clazz, jint traceinformationclass, jlong traceinformation, jint traceinformationlength, jlong requiredlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20468,7 +20638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwAllocateLocallyUniqueId(JNIEnv* km_env, jclass km_clazz, jlong luid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwAllocateLocallyUniqueId(JNIEnv* km_env, jclass km_clazz, jlong luid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20486,7 +20656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwClose(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwClose(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20504,7 +20674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCommitComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20523,7 +20693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCommitEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20542,7 +20712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCommitTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20561,7 +20731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong transactionhandle, jlong objectattributes, jint createoptions, jint notificationmask, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong resourcemanagerhandle, jlong transactionhandle, jlong objectattributes, jint createoptions, jint notificationmask, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20586,7 +20756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint createdisposition, jint createoptions, jlong eabuffer, jint ealength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jlong allocationsize, jint fileattributes, jint shareaccess, jint createdisposition, jint createoptions, jlong eabuffer, jint ealength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20614,7 +20784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes, jint createoptions, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes, jint createoptions, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20638,7 +20808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes, jlong maximumsize, jint sectionpageprotection, jint allocationattributes, jlong filehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes, jlong maximumsize, jint sectionpageprotection, jint allocationattributes, jlong filehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20662,7 +20832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle, jint createoptions, jint isolationlevel, jint isolationflags, jlong timeout, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle, jint createoptions, jint isolationlevel, jint isolationflags, jlong timeout, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20689,7 +20859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwCreateTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jint createoptions, jint commitstrength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwCreateTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jint createoptions, jint commitstrength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20712,7 +20882,34 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwDisplayString(JNIEnv* km_env, jclass km_clazz, jlong string) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwDeviceIoControlFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong event, jlong apcroutine, jlong apccontext, jlong iostatusblock, jint iocontrolcode, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwDeviceIoControlFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filehandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (void*)(uintptr_t)iostatusblock, (uint32_t)iocontrolcode, (void*)(uintptr_t)inputbuffer, (uint32_t)inputbufferlength, (void*)(uintptr_t)outputbuffer, (uint32_t)outputbufferlength) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)iocontrolcode;
+    (void)inputbuffer;
+    (void)inputbufferlength;
+    (void)outputbuffer;
+    (void)outputbufferlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwDisplayString(JNIEnv* km_env, jclass km_clazz, jlong string) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20730,7 +20927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwEnumerateTransactionObject(JNIEnv* km_env, jclass km_clazz, jlong rootobjecthandle, jint querytype, jlong objectcursor, jint objectcursorlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwEnumerateTransactionObject(JNIEnv* km_env, jclass km_clazz, jlong rootobjecthandle, jint querytype, jlong objectcursor, jint objectcursorlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20752,7 +20949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwGetNotificationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jlong transactionnotification, jint notificationlength, jlong timeout, jlong returnlength, jint asynchronous, jlong asynchronouscontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwGetNotificationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jlong transactionnotification, jint notificationlength, jlong timeout, jlong returnlength, jint asynchronous, jlong asynchronouscontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20776,7 +20973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwLoadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwLoadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20794,7 +20991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwMakeTemporaryObject(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwMakeTemporaryObject(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20812,7 +21009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwManagePartition(JNIEnv* km_env, jclass km_clazz, jlong targethandle, jlong sourcehandle, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwManagePartition(JNIEnv* km_env, jclass km_clazz, jlong targethandle, jlong sourcehandle, jint partitioninformationclass, jlong partitioninformation, jint partitioninformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20834,7 +21031,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong rmhandle, jlong enlistmentguid, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint desiredaccess, jlong rmhandle, jlong enlistmentguid, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20856,7 +21053,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jint shareaccess, jint openoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint desiredaccess, jlong objectattributes, jlong iostatusblock, jint shareaccess, jint openoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20879,7 +21076,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint desiredaccess, jlong tmhandle, jlong resourcemanagerguid, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20901,7 +21098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenSymbolicLinkObject(JNIEnv* km_env, jclass km_clazz, jlong linkhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenSymbolicLinkObject(JNIEnv* km_env, jclass km_clazz, jlong linkhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20921,7 +21118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jlong uow, jlong tmhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20943,7 +21140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwOpenTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jlong tmidentity, jint openoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwOpenTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint desiredaccess, jlong objectattributes, jlong logfilename, jlong tmidentity, jint openoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20966,7 +21163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -20988,7 +21185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPrePrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21007,7 +21204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPrePrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21026,7 +21223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPrepareComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21045,7 +21242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPrepareEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21064,7 +21261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPropagationComplete(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21085,7 +21282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint propstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwPropagationFailed(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint requestcookie, jint propstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21105,7 +21302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationByName(JNIEnv* km_env, jclass km_clazz, jlong objectattributes, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationByName(JNIEnv* km_env, jclass km_clazz, jlong objectattributes, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21127,7 +21324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21149,7 +21346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21171,7 +21368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21193,7 +21390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21215,7 +21412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQueryInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQueryInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21237,7 +21434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwQuerySymbolicLinkObject(JNIEnv* km_env, jclass km_clazz, jlong linkhandle, jlong linktarget, jlong returnedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwQuerySymbolicLinkObject(JNIEnv* km_env, jclass km_clazz, jlong linkhandle, jlong linktarget, jlong returnedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21257,7 +21454,33 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwReadFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong event, jlong apcroutine, jlong apccontext, jlong iostatusblock, jlong buffer, jint length, jlong byteoffset, jlong key) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwReadFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filehandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (void*)(uintptr_t)iostatusblock, (void*)(uintptr_t)buffer, (uint32_t)length, (void*)(uintptr_t)byteoffset, (void*)(uintptr_t)key) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwReadOnlyEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21276,7 +21499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong enlistmentkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRecoverEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong enlistmentkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21295,7 +21518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRecoverResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21313,7 +21536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRecoverTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21331,7 +21554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRegisterProtocolAddressInformation(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong protocolid, jint protocolinformationsize, jlong protocolinformation, jint createoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRegisterProtocolAddressInformation(JNIEnv* km_env, jclass km_clazz, jlong resourcemanager, jlong protocolid, jint protocolinformationsize, jlong protocolinformation, jint createoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21353,7 +21576,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRenameTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jlong existingtransactionmanagerguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21372,7 +21595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRollbackComplete(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21391,7 +21614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRollbackEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21410,7 +21633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRollbackTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jboolean wait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21429,7 +21652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwRollforwardTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwRollforwardTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong transactionmanagerhandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21448,7 +21671,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSetInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSetInformationEnlistment(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jint enlistmentinformationclass, jlong enlistmentinformation, jint enlistmentinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21469,7 +21692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSetInformationFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSetInformationFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong iostatusblock, jlong fileinformation, jint length, jint fileinformationclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21491,7 +21714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSetInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSetInformationResourceManager(JNIEnv* km_env, jclass km_clazz, jlong resourcemanagerhandle, jint resourcemanagerinformationclass, jlong resourcemanagerinformation, jint resourcemanagerinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21512,7 +21735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSetInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSetInformationTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint transactioninformationclass, jlong transactioninformation, jint transactioninformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21533,7 +21756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSetInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSetInformationTransactionManager(JNIEnv* km_env, jclass km_clazz, jlong tmhandle, jint transactionmanagerinformationclass, jlong transactionmanagerinformation, jint transactionmanagerinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21554,7 +21777,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwSinglePhaseReject(JNIEnv* km_env, jclass km_clazz, jlong enlistmenthandle, jlong tmvirtualclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21573,7 +21796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1ZwUnloadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwUnloadDriver(JNIEnv* km_env, jclass km_clazz, jlong driverservicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -21586,6 +21809,32 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)driverservicename) : -1;
 #else
     (void)driverservicename;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systemservices_WindowsWdkSystemSystemservicesJniBridge_windowssys_1windows_1wdk_1system_1systemservices_1zwWriteFile(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong event, jlong apcroutine, jlong apccontext, jlong iostatusblock, jlong buffer, jint length, jlong byteoffset, jlong key) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwWriteFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filehandle, (void*)(uintptr_t)event, (void*)(uintptr_t)apcroutine, (void*)(uintptr_t)apccontext, (void*)(uintptr_t)iostatusblock, (void*)(uintptr_t)buffer, (uint32_t)length, (void*)(uintptr_t)byteoffset, (void*)(uintptr_t)key) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

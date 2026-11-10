@@ -9,11 +9,12 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri(void* ppszuri);
-int32_t windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth(uint32_t providers, void* phealth);
-int32_t windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri(void);
-int32_t windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications(void);
-int32_t windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges(void* hregistrationhandle);
+int32_t windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri(void* ppszuri);
+int32_t windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth(uint32_t providers, void* phealth);
+int32_t windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri(void);
+int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForChanges(void* reserved, void* phcallbackregistration, void* lpcallbackaddress, void* pcontext);
+int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications(void);
+int32_t windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges(void* hregistrationhandle);
 
 #ifdef __cplusplus
 }

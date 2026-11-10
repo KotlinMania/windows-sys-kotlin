@@ -1,21 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-public typealias COMPARTMENT_ID = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias EVENT_TYPE = Int
+public typealias CompartmentId = Int
 
-public typealias EXCEPTION_DISPOSITION = Int
+public typealias EventType = Int
 
-public fun interface EXCEPTION_ROUTINEFn {
-    public operator fun invoke(exceptionrecord: Long, establisherframe: Long, contextrecord: Long, dispatchercontext: Long): EXCEPTION_DISPOSITION
+public typealias ExceptionDisposition = Int
+
+public fun interface ExceptionRoutineFn {
+    public operator fun invoke(exceptionrecord: COpaquePointer?, establisherframe: COpaquePointer?, contextrecord: COpaquePointer?, dispatchercontext: COpaquePointer?): ExceptionDisposition
 }
 
-public typealias EXCEPTION_ROUTINE = EXCEPTION_ROUTINEFn?
+public typealias ExceptionRoutine = ExceptionRoutineFn?
 
-public typealias NT_PRODUCT_TYPE = Int
+public typealias NtProductType = Int
 
-public typealias SUITE_TYPE = Int
+public typealias SuiteType = Int
 
-public typealias TIMER_TYPE = Int
+public typealias TimerType = Int
 
-public typealias WAIT_TYPE = Int
+public typealias WaitType = Int

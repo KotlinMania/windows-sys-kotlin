@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListAllocateBufferAndSerialize(void* sourcecollection, void* ptargetbuffersizeinbytes, void* ptargetbuffer) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize(void* sourcecollection, void* ptargetbuffersizeinbytes, void* ptargetbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListAllocateBufferAn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListCopyAndMarshall(void* target, void* source) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall(void* target, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListCopyAndMarshall(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListDeserializeFromBuffer(uint32_t sourcebuffersizeinbytes, void* sourcebuffer, void* targetcollection) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer(uint32_t sourcebuffersizeinbytes, void* sourcebuffer, void* targetcollection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListDeserializeFromB
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetFillableCount(uint32_t buffersizebytes) {
+uint32_t windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount(uint32_t buffersizebytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetFillableCoun
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSize(void* collection) {
+uint32_t windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize(void* collection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSizeWithoutSerialization(void* collection) {
+uint32_t windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization(void* collection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetSerializedSize(void* collection) {
+uint32_t windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize(void* collection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -174,7 +174,7 @@ uint32_t windowssys_windows_win32_devices_sensors_CollectionsListGetSerializedSi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListMarshall(void* target) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListMarshall(void* target) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListMarshall(void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListSerializeToBuffer(void* sourcecollection, uint32_t targetbuffersizeinbytes, void* targetbuffer) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer(void* sourcecollection, uint32_t targetbuffersizeinbytes, void* targetbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListSerializeToBuffe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListSortSubscribedActivitiesByConfidence(void* thresholds, void* pcollection) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence(void* thresholds, void* pcollection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListSortSubscribedAc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_CollectionsListUpdateMarshalledPointer(void* collection) {
+int32_t windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer(void* collection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_devices_sensors_CollectionsListUpdateMarshalled
 #endif
 }
 
-bool windowssys_windows_win32_devices_sensors_EvaluateActivityThresholds(void* newsample, void* oldsample, void* thresholds) {
+bool windowssys_windows_win32_devices_sensors_evaluateActivityThresholds(void* newsample, void* oldsample, void* thresholds) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ bool windowssys_windows_win32_devices_sensors_EvaluateActivityThresholds(void* n
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_GetPerformanceTime(void* timems) {
+int32_t windowssys_windows_win32_devices_sensors_getPerformanceTime(void* timems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -311,7 +311,7 @@ int32_t windowssys_windows_win32_devices_sensors_GetPerformanceTime(void* timems
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_InitPropVariantFromCLSIDArray(void* members, uint32_t size, void* ppropvar) {
+int32_t windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray(void* members, uint32_t size, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ int32_t windowssys_windows_win32_devices_sensors_InitPropVariantFromCLSIDArray(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_InitPropVariantFromFloat(float fltval, void* ppropvar) {
+int32_t windowssys_windows_win32_devices_sensors_initPropVariantFromFloat(float fltval, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -358,7 +358,7 @@ int32_t windowssys_windows_win32_devices_sensors_InitPropVariantFromFloat(float 
 #endif
 }
 
-bool windowssys_windows_win32_devices_sensors_IsCollectionListSame(void* lista, void* listb) {
+bool windowssys_windows_win32_devices_sensors_isCollectionListSame(void* lista, void* listb) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -381,7 +381,7 @@ bool windowssys_windows_win32_devices_sensors_IsCollectionListSame(void* lista, 
 #endif
 }
 
-bool windowssys_windows_win32_devices_sensors_IsGUIDPresentInList(void* guidarray, uint32_t arraylength, void* guidelem) {
+bool windowssys_windows_win32_devices_sensors_isGUIDPresentInList(void* guidarray, uint32_t arraylength, void* guidelem) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ bool windowssys_windows_win32_devices_sensors_IsGUIDPresentInList(void* guidarra
 #endif
 }
 
-bool windowssys_windows_win32_devices_sensors_IsKeyPresentInCollectionList(void* plist, void* pkey) {
+bool windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList(void* plist, void* pkey) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ bool windowssys_windows_win32_devices_sensors_IsKeyPresentInCollectionList(void*
 #endif
 }
 
-bool windowssys_windows_win32_devices_sensors_IsKeyPresentInPropertyList(void* plist, void* pkey) {
+bool windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList(void* plist, void* pkey) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -451,7 +451,7 @@ bool windowssys_windows_win32_devices_sensors_IsKeyPresentInPropertyList(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetBool(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetBool(void* pli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetDouble(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetDouble(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFileTime(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -523,7 +523,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFileTime(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFloat(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -547,7 +547,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFloat(void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetGuid(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -571,7 +571,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetGuid(void* pli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt32(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt32(void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt64(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt64(void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthInt64(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthInt64(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUlong(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUlong(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUshort(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort(void* plist, void* pkey, uint32_t occurrence, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +694,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUshort(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetPropVariant(void* plist, void* pkey, bool typecheck, void* pvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant(void* plist, void* pkey, bool typecheck, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -719,7 +719,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetPropVariant(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUlong(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUlong(void* pl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUshort(void* plist, void* pkey, void* pretvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort(void* plist, void* pkey, void* pretvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -767,7 +767,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUshort(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeySetPropVariant(void* plist, void* pkey, bool typecheck, void* pvalue) {
+int32_t windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant(void* plist, void* pkey, bool typecheck, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -792,7 +792,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropKeyFindKeySetPropVariant(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropVariantGetInformation(void* propvariantvalue, void* propvariantoffset, void* propvariantsize, void* propvariantpointer, void* remappedtype) {
+int32_t windowssys_windows_win32_devices_sensors_propVariantGetInformation(void* propvariantvalue, void* propvariantoffset, void* propvariantsize, void* propvariantpointer, void* remappedtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -818,7 +818,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropVariantGetInformation(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_PropertiesListCopy(void* target, void* source) {
+int32_t windowssys_windows_win32_devices_sensors_propertiesListCopy(void* target, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -841,7 +841,7 @@ int32_t windowssys_windows_win32_devices_sensors_PropertiesListCopy(void* target
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_sensors_PropertiesListGetFillableCount(uint32_t buffersizebytes) {
+uint32_t windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount(uint32_t buffersizebytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -863,7 +863,7 @@ uint32_t windowssys_windows_win32_devices_sensors_PropertiesListGetFillableCount
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_SensorCollectionGetAt(uint32_t arg_0_index, void* psensorslist, void* pkey, void* pvalue) {
+int32_t windowssys_windows_win32_devices_sensors_sensorCollectionGetAt(uint32_t arg_0_index, void* psensorslist, void* pkey, void* pvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +888,7 @@ int32_t windowssys_windows_win32_devices_sensors_SensorCollectionGetAt(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_sensors_SerializationBufferAllocate(uint32_t sizeinbytes, void* pbuffer) {
+int32_t windowssys_windows_win32_devices_sensors_serializationBufferAllocate(uint32_t sizeinbytes, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -911,7 +911,7 @@ int32_t windowssys_windows_win32_devices_sensors_SerializationBufferAllocate(uin
 #endif
 }
 
-void windowssys_windows_win32_devices_sensors_SerializationBufferFree(void* buffer) {
+void windowssys_windows_win32_devices_sensors_serializationBufferFree(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

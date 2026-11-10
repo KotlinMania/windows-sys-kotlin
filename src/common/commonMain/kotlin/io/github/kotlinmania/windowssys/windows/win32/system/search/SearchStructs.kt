@@ -1,251 +1,253 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
-import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.DBID
-import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.FULLPROPSPEC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
+import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Dbid
+import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Fullpropspec
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.PROPVARIANT
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
-public data class AUTHENTICATION_INFO(
+public data class AuthenticationInfo(
     public var dwSize: UInt = 0u,
-    public var atAuthenticationType: AUTH_TYPE = 0,
-    public var pcwszUser: PCWSTR = 0L,
-    public var pcwszPassword: PCWSTR = 0L,
+    public var atAuthenticationType: AuthType = 0,
+    public var pcwszUser: Pcwstr = null,
+    public var pcwszPassword: Pcwstr = null,
 )
 
-public data class BUCKETCATEGORIZE(public var cBuckets: UInt = 0u, public var Distribution: UInt = 0u)
+public data class Bucketcategorize(public var cBuckets: UInt = 0u, public var distribution: UInt = 0u)
 
-public data class CATEGORIZATION(
+public data class Categorization(
     public var ulCatType: UInt = 0u,
-    public var Anonymous: CATEGORIZATION_0 = CATEGORIZATION_0(),
-    public var csColumns: COLUMNSET = COLUMNSET(),
+    public var anonymous: Categorization0 = Categorization0(),
+    public var csColumns: Columnset = Columnset(),
 )
 
-public data class CATEGORIZATION_0(
+public data class Categorization0(
     public var cClusters: UInt = 0u,
-    public var bucket: BUCKETCATEGORIZE = BUCKETCATEGORIZE(),
-    public var range: RANGECATEGORIZE = RANGECATEGORIZE(),
+    public var bucket: Bucketcategorize = Bucketcategorize(),
+    public var range: Rangecategorize = Rangecategorize(),
 )
 
-public data class CATEGORIZATIONSET(public var cCat: UInt = 0u, public var aCat: Long = 0L)
+public data class Categorizationset(public var cCat: UInt = 0u, public var aCat: Categorization? = null)
 
-public data class COLUMNSET(public var cCol: UInt = 0u, public var aCol: Long = 0L)
+public data class Columnset(public var cCol: UInt = 0u, public var aCol: Fullpropspec? = null)
 
-public data class CONTENTRESTRICTION(
-    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
-    public var pwcsPhrase: PWSTR = 0L,
+public data class Contentrestriction(
+    public var prop: Fullpropspec = Fullpropspec(),
+    public var pwcsPhrase: Pwstr = null,
     public var lcid: UInt = 0u,
     public var ulGenerateMethod: UInt = 0u,
 )
 
-public data class DATE_STRUCT(
+public data class DateStruct(
     public var year: Short = 0,
     public var month: UShort = 0u,
     public var day: UShort = 0u,
 )
 
-public data class DBBINDEXT(public var pExtension: Long = 0L, public var ulExtension: ULong = 0uL)
+public data class Dbbindext(public var pExtension: COpaquePointer? = null, public var ulExtension: Int = 0)
 
-public data class DBBINDING(
-    public var iOrdinal: ULong = 0uL,
-    public var obValue: ULong = 0uL,
-    public var obLength: ULong = 0uL,
-    public var obStatus: ULong = 0uL,
-    public var pTypeInfo: Long = 0L,
-    public var pObject: Long = 0L,
-    public var pBindExt: Long = 0L,
+public data class Dbbinding(
+    public var iOrdinal: Int = 0,
+    public var obValue: Int = 0,
+    public var obLength: Int = 0,
+    public var obStatus: Int = 0,
+    public var pTypeInfo: COpaquePointer? = null,
+    public var pObject: Dbobject? = null,
+    public var pBindExt: Dbbindext? = null,
     public var dwPart: UInt = 0u,
     public var dwMemOwner: UInt = 0u,
     public var eParamIO: UInt = 0u,
-    public var cbMaxLen: ULong = 0uL,
+    public var cbMaxLen: Int = 0,
     public var dwFlags: UInt = 0u,
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
 )
 
-public data class DBCOLUMNACCESS(
-    public var pData: Long = 0L,
-    public var columnid: DBID = DBID(),
-    public var cbDataLen: ULong = 0uL,
+public data class Dbcolumnaccess(
+    public var pData: COpaquePointer? = null,
+    public var columnid: Dbid = Dbid(),
+    public var cbDataLen: Int = 0,
     public var dwStatus: UInt = 0u,
-    public var cbMaxLen: ULong = 0uL,
-    public var dwReserved: ULong = 0uL,
+    public var cbMaxLen: Int = 0,
+    public var dwReserved: Int = 0,
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
 )
 
-public data class DBCOLUMNDESC(
-    public var pwszTypeName: PWSTR = 0L,
-    public var pTypeInfo: Long = 0L,
-    public var rgPropertySets: Long = 0L,
-    public var pclsid: Long = 0L,
+public data class Dbcolumndesc(
+    public var pwszTypeName: Pwstr = null,
+    public var pTypeInfo: COpaquePointer? = null,
+    public var rgPropertySets: Dbpropset? = null,
+    public var pclsid: Guid? = null,
     public var cPropertySets: UInt = 0u,
-    public var ulColumnSize: ULong = 0uL,
-    public var dbcid: DBID = DBID(),
+    public var ulColumnSize: Int = 0,
+    public var dbcid: Dbid = Dbid(),
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
 )
 
-public data class DBCOLUMNINFO(
-    public var pwszName: PWSTR = 0L,
-    public var pTypeInfo: Long = 0L,
-    public var iOrdinal: ULong = 0uL,
+public data class Dbcolumninfo(
+    public var pwszName: Pwstr = null,
+    public var pTypeInfo: COpaquePointer? = null,
+    public var iOrdinal: Int = 0,
     public var dwFlags: UInt = 0u,
-    public var ulColumnSize: ULong = 0uL,
+    public var ulColumnSize: Int = 0,
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
-    public var columnid: DBID = DBID(),
+    public var columnid: Dbid = Dbid(),
 )
 
-public data class DBCONSTRAINTDESC(
-    public var pConstraintID: Long = 0L,
-    public var ConstraintType: UInt = 0u,
-    public var cColumns: ULong = 0uL,
-    public var rgColumnList: Long = 0L,
-    public var pReferencedTableID: Long = 0L,
-    public var cForeignKeyColumns: ULong = 0uL,
-    public var rgForeignKeyColumnList: Long = 0L,
-    public var pwszConstraintText: PWSTR = 0L,
-    public var UpdateRule: UInt = 0u,
-    public var DeleteRule: UInt = 0u,
-    public var MatchType: UInt = 0u,
-    public var Deferrability: UInt = 0u,
-    public var cReserved: ULong = 0uL,
-    public var rgReserved: Long = 0L,
+public data class Dbconstraintdesc(
+    public var pConstraintID: Dbid? = null,
+    public var constraintType: UInt = 0u,
+    public var cColumns: Int = 0,
+    public var rgColumnList: Dbid? = null,
+    public var pReferencedTableID: Dbid? = null,
+    public var cForeignKeyColumns: Int = 0,
+    public var rgForeignKeyColumnList: Dbid? = null,
+    public var pwszConstraintText: Pwstr = null,
+    public var updateRule: UInt = 0u,
+    public var deleteRule: UInt = 0u,
+    public var matchType: UInt = 0u,
+    public var deferrability: UInt = 0u,
+    public var cReserved: Int = 0,
+    public var rgReserved: Dbpropset? = null,
 )
 
-public data class DBCOST(
+public data class Dbcost(
     public var eKind: UInt = 0u,
     public var dwUnits: UInt = 0u,
     public var lValue: Int = 0,
 )
 
-public data class DBDATE(
+public data class Dbdate(
     public var year: Short = 0,
     public var month: UShort = 0u,
     public var day: UShort = 0u,
 )
 
-public data class DBDATETIM4(public var numdays: UShort = 0u, public var nummins: UShort = 0u)
+public data class Dbdatetim4(public var numdays: UShort = 0u, public var nummins: UShort = 0u)
 
-public data class DBDATETIME(public var dtdays: Int = 0, public var dttime: UInt = 0u)
+public data class Dbdatetime(public var dtdays: Int = 0, public var dttime: UInt = 0u)
 
-public data class DBFAILUREINFO(
-    public var hRow: ULong = 0uL,
-    public var iColumn: ULong = 0uL,
-    public var failure: HRESULT = 0,
+public data class Dbfailureinfo(
+    public var hRow: Int = 0,
+    public var iColumn: Int = 0,
+    public var failure: Hresult = 0,
 )
 
-public data class DBIMPLICITSESSION(
-    public var pUnkOuter: Long = 0L,
-    public var piid: Long = 0L,
-    public var pSession: Long = 0L,
+public data class Dbimplicitsession(
+    public var pUnkOuter: COpaquePointer? = null,
+    public var piid: Guid? = null,
+    public var pSession: COpaquePointer? = null,
 )
 
-public data class DBINDEXCOLUMNDESC(public var pColumnID: Long = 0L, public var eIndexColOrder: UInt = 0u)
+public data class Dbindexcolumndesc(public var pColumnID: Dbid? = null, public var eIndexColOrder: UInt = 0u)
 
-public data class DBLITERALINFO(
-    public var pwszLiteralValue: PWSTR = 0L,
-    public var pwszInvalidChars: PWSTR = 0L,
-    public var pwszInvalidStartingChars: PWSTR = 0L,
+public data class Dbliteralinfo(
+    public var pwszLiteralValue: Pwstr = null,
+    public var pwszInvalidChars: Pwstr = null,
+    public var pwszInvalidStartingChars: Pwstr = null,
     public var lt: UInt = 0u,
-    public var fSupported: BOOL = 0,
+    public var fSupported: Bool = 0,
     public var cchMaxLen: UInt = 0u,
 )
 
-public data class DBMONEY(public var mnyhigh: Int = 0, public var mnylow: UInt = 0u)
+public data class Dbmoney(public var mnyhigh: Int = 0, public var mnylow: UInt = 0u)
 
-public data class DBOBJECT(public var dwFlags: UInt = 0u, public var iid: GUID = GUID())
+public data class Dbobject(public var dwFlags: UInt = 0u, public var iid: Guid = Guid())
 
-public data class DBPARAMBINDINFO(
-    public var pwszDataSourceType: PWSTR = 0L,
-    public var pwszName: PWSTR = 0L,
-    public var ulParamSize: ULong = 0uL,
+public data class Dbparambindinfo(
+    public var pwszDataSourceType: Pwstr = null,
+    public var pwszName: Pwstr = null,
+    public var ulParamSize: Int = 0,
     public var dwFlags: UInt = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
 )
 
-public data class DBPARAMINFO(
+public data class Dbparaminfo(
     public var dwFlags: UInt = 0u,
-    public var iOrdinal: ULong = 0uL,
-    public var pwszName: PWSTR = 0L,
-    public var pTypeInfo: Long = 0L,
-    public var ulParamSize: ULong = 0uL,
+    public var iOrdinal: Int = 0,
+    public var pwszName: Pwstr = null,
+    public var pTypeInfo: COpaquePointer? = null,
+    public var ulParamSize: Int = 0,
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
 )
 
-public data class DBPARAMS(
-    public var pData: Long = 0L,
-    public var cParamSets: ULong = 0uL,
-    public var hAccessor: HACCESSOR = 0uL,
+public data class Dbparams(
+    public var pData: COpaquePointer? = null,
+    public var cParamSets: Int = 0,
+    public var hAccessor: Haccessor = 0,
 )
 
-public data class DBPROP(
+public data class Dbprop(
     public var dwPropertyID: UInt = 0u,
     public var dwOptions: UInt = 0u,
     public var dwStatus: UInt = 0u,
-    public var colid: DBID = DBID(),
-    public var vValue: VARIANT = VARIANT(),
+    public var colid: Dbid = Dbid(),
+    public var vValue: Variant = Variant(),
 )
 
-public data class DBPROPIDSET(
-    public var rgPropertyIDs: Long = 0L,
+public data class Dbpropidset(
+    public var rgPropertyIDs: UInt? = null,
     public var cPropertyIDs: UInt = 0u,
-    public var guidPropertySet: GUID = GUID(),
+    public var guidPropertySet: Guid = Guid(),
 )
 
-public data class DBPROPINFO(
-    public var pwszDescription: PWSTR = 0L,
+public data class Dbpropinfo(
+    public var pwszDescription: Pwstr = null,
     public var dwPropertyID: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var vtType: VARENUM = 0u,
-    public var vValues: VARIANT = VARIANT(),
+    public var vtType: Varenum = 0u,
+    public var vValues: Variant = Variant(),
 )
 
-public data class DBPROPINFOSET(
-    public var rgPropertyInfos: Long = 0L,
+public data class Dbpropinfoset(
+    public var rgPropertyInfos: Dbpropinfo? = null,
     public var cPropertyInfos: UInt = 0u,
-    public var guidPropertySet: GUID = GUID(),
+    public var guidPropertySet: Guid = Guid(),
 )
 
-public data class DBPROPSET(
-    public var rgProperties: Long = 0L,
+public data class Dbpropset(
+    public var rgProperties: Dbprop? = null,
     public var cProperties: UInt = 0u,
-    public var guidPropertySet: GUID = GUID(),
+    public var guidPropertySet: Guid = Guid(),
 )
 
-public data class DBROWWATCHCHANGE(
-    public var hRegion: ULong = 0uL,
+public data class Dbrowwatchchange(
+    public var hRegion: Int = 0,
     public var eChangeKind: UInt = 0u,
-    public var hRow: ULong = 0uL,
-    public var iRow: ULong = 0uL,
+    public var hRow: Int = 0,
+    public var iRow: Int = 0,
 )
 
-public data class DBTIME(
+public data class Dbtime(
     public var hour: UShort = 0u,
     public var minute: UShort = 0u,
     public var second: UShort = 0u,
 )
 
-public data class DBTIMESTAMP(
+public data class Dbtimestamp(
     public var year: Short = 0,
     public var month: UShort = 0u,
     public var day: UShort = 0u,
@@ -255,10 +257,10 @@ public data class DBTIMESTAMP(
     public var fraction: UInt = 0u,
 )
 
-public data class DBVARYBIN(public var len: Short = 0, public var array: UByteArray = UByteArray(8001)) {
+public data class Dbvarybin(public var len: Short = 0, public var array: UByteArray = UByteArray(8001)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DBVARYBIN) return false
+        if (other !is Dbvarybin) return false
         if (this.len != other.len) return false
         if (!this.array.contentEquals(other.array)) return false
         return true
@@ -271,10 +273,10 @@ public data class DBVARYBIN(public var len: Short = 0, public var array: UByteAr
     }
 }
 
-public data class DBVARYCHAR(public var len: Short = 0, public var str: ByteArray = ByteArray(8001)) {
+public data class Dbvarychar(public var len: Short = 0, public var str: ByteArray = ByteArray(8001)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DBVARYCHAR) return false
+        if (other !is Dbvarychar) return false
         if (this.len != other.len) return false
         if (!this.str.contentEquals(other.str)) return false
         return true
@@ -287,9 +289,9 @@ public data class DBVARYCHAR(public var len: Short = 0, public var str: ByteArra
     }
 }
 
-public data class DBVECTOR(public var size: ULong = 0uL, public var ptr: Long = 0L)
+public data class Dbvector(public var size: Int = 0, public var ptr: COpaquePointer? = null)
 
-public data class DB_NUMERIC(
+public data class DbNumeric(
     public var precision: UByte = 0u,
     public var scale: UByte = 0u,
     public var sign: UByte = 0u,
@@ -297,7 +299,7 @@ public data class DB_NUMERIC(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DB_NUMERIC) return false
+        if (other !is DbNumeric) return false
         if (this.precision != other.precision) return false
         if (this.scale != other.scale) return false
         if (this.sign != other.sign) return false
@@ -314,7 +316,7 @@ public data class DB_NUMERIC(
     }
 }
 
-public data class DB_VARNUMERIC(
+public data class DbVarnumeric(
     public var precision: UByte = 0u,
     public var scale: Byte = 0,
     public var sign: UByte = 0u,
@@ -322,7 +324,7 @@ public data class DB_VARNUMERIC(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DB_VARNUMERIC) return false
+        if (other !is DbVarnumeric) return false
         if (this.precision != other.precision) return false
         if (this.scale != other.scale) return false
         if (this.sign != other.sign) return false
@@ -339,204 +341,204 @@ public data class DB_VARNUMERIC(
     }
 }
 
-public data class DCINFO(public var eInfoType: UInt = 0u, public var vData: VARIANT = VARIANT())
+public data class Dcinfo(public var eInfoType: UInt = 0u, public var vData: Variant = Variant())
 
-public data class ERRORINFO(
-    public var hrError: HRESULT = 0,
+public data class Errorinfo(
+    public var hrError: Hresult = 0,
     public var dwMinor: UInt = 0u,
-    public var clsid: GUID = GUID(),
-    public var iid: GUID = GUID(),
+    public var clsid: Guid = Guid(),
+    public var iid: Guid = Guid(),
     public var dispid: Int = 0,
 )
 
-public data class FILTERED_DATA_SOURCES(
-    public var pwcsExtension: PCWSTR = 0L,
-    public var pwcsMime: PCWSTR = 0L,
-    public var pClsid: Long = 0L,
-    public var pwcsOverride: PCWSTR = 0L,
+public data class FilteredDataSources(
+    public var pwcsExtension: Pcwstr = null,
+    public var pwcsMime: Pcwstr = null,
+    public var pClsid: Guid? = null,
+    public var pwcsOverride: Pcwstr = null,
 )
 
-public data class HITRANGE(public var iPosition: UInt = 0u, public var cLength: UInt = 0u)
+public data class Hitrange(public var iPosition: UInt = 0u, public var cLength: UInt = 0u)
 
-public data class INCREMENTAL_ACCESS_INFO(public var dwSize: UInt = 0u, public var ftLastModifiedTime: FILETIME = FILETIME())
+public data class IncrementalAccessInfo(public var dwSize: UInt = 0u, public var ftLastModifiedTime: Filetime = Filetime())
 
-public data class ITEMPROP(public var variantValue: VARIANT = VARIANT(), public var pwszName: PWSTR = 0L)
+public data class Itemprop(public var variantValue: Variant = Variant(), public var pwszName: Pwstr = null)
 
-public data class ITEM_INFO(
+public data class ItemInfo(
     public var dwSize: UInt = 0u,
-    public var pcwszFromEMail: PCWSTR = 0L,
-    public var pcwszApplicationName: PCWSTR = 0L,
-    public var pcwszCatalogName: PCWSTR = 0L,
-    public var pcwszContentClass: PCWSTR = 0L,
+    public var pcwszFromEMail: Pcwstr = null,
+    public var pcwszApplicationName: Pcwstr = null,
+    public var pcwszCatalogName: Pcwstr = null,
+    public var pcwszContentClass: Pcwstr = null,
 )
 
-public data class KAGGETDIAG(
+public data class Kaggetdiag(
     public var ulSize: UInt = 0u,
-    public var vDiagInfo: VARIANT = VARIANT(),
+    public var vDiagInfo: Variant = Variant(),
     public var sDiagField: Short = 0,
 )
 
-public data class KAGREQDIAG(
+public data class Kagreqdiag(
     public var ulDiagFlags: UInt = 0u,
-    public var vt: VARENUM = 0u,
+    public var vt: Varenum = 0u,
     public var sDiagField: Short = 0,
 )
 
-public data class MDAXISINFO(
-    public var cbSize: ULong = 0uL,
-    public var iAxis: ULong = 0uL,
-    public var cDimensions: ULong = 0uL,
-    public var cCoordinates: ULong = 0uL,
-    public var rgcColumns: Long = 0L,
-    public var rgpwszDimensionNames: Long = 0L,
+public data class Mdaxisinfo(
+    public var cbSize: Int = 0,
+    public var iAxis: Int = 0,
+    public var cDimensions: Int = 0,
+    public var cCoordinates: Int = 0,
+    public var rgcColumns: Int? = null,
+    public var rgpwszDimensionNames: Pwstr? = null,
 )
 
-public data class NATLANGUAGERESTRICTION(
-    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
-    public var pwcsPhrase: PWSTR = 0L,
+public data class Natlanguagerestriction(
+    public var prop: Fullpropspec = Fullpropspec(),
+    public var pwcsPhrase: Pwstr = null,
     public var lcid: UInt = 0u,
 )
 
-public data class NODERESTRICTION(
+public data class Noderestriction(
     public var cRes: UInt = 0u,
-    public var paRes: Long = 0L,
+    public var paRes: COpaquePointer? = null,
     public var reserved: UInt = 0u,
 )
 
-public data class NOTRESTRICTION(public var pRes: Long = 0L)
+public data class Notrestriction(public var pRes: Restriction? = null)
 
-public data class ODBC_VS_ARGS(
-    public var pguidEvent: Long = 0L,
+public data class OdbcVsArgs(
+    public var pguidEvent: Guid? = null,
     public var dwFlags: UInt = 0u,
-    public var Anonymous1: ODBC_VS_ARGS_0 = ODBC_VS_ARGS_0(),
-    public var Anonymous2: ODBC_VS_ARGS_1 = ODBC_VS_ARGS_1(),
-    public var RetCode: Short = 0,
+    public var anonymous1: OdbcVsArgs0 = OdbcVsArgs0(),
+    public var anonymous2: OdbcVsArgs1 = OdbcVsArgs1(),
+    public var retCode: Short = 0,
 )
 
-public data class ODBC_VS_ARGS_0(public var wszArg: PWSTR = 0L, public var szArg: PSTR = 0L)
+public data class OdbcVsArgs0(public var wszArg: Pwstr = null, public var szArg: Pstr = null)
 
-public data class ODBC_VS_ARGS_1(public var wszCorrelation: PWSTR = 0L, public var szCorrelation: PSTR = 0L)
+public data class OdbcVsArgs1(public var wszCorrelation: Pwstr = null, public var szCorrelation: Pstr = null)
 
-public data class PROPERTYRESTRICTION(
+public data class Propertyrestriction(
     public var rel: UInt = 0u,
-    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
-    public var prval: PROPVARIANT = PROPVARIANT(),
+    public var prop: Fullpropspec = Fullpropspec(),
+    public var prval: Propvariant = Propvariant(),
 )
 
-public data class PROXY_INFO(
+public data class ProxyInfo(
     public var dwSize: UInt = 0u,
-    public var pcwszUserAgent: PCWSTR = 0L,
-    public var paUseProxy: PROXY_ACCESS = 0,
-    public var fLocalBypass: BOOL = 0,
+    public var pcwszUserAgent: Pcwstr = null,
+    public var paUseProxy: ProxyAccess = 0,
+    public var fLocalBypass: Bool = 0,
     public var dwPortNumber: UInt = 0u,
-    public var pcwszProxyName: PCWSTR = 0L,
-    public var pcwszBypassList: PCWSTR = 0L,
+    public var pcwszProxyName: Pcwstr = null,
+    public var pcwszBypassList: Pcwstr = null,
 )
 
-public data class RANGECATEGORIZE(public var cRange: UInt = 0u, public var aRangeBegin: Long = 0L)
+public data class Rangecategorize(public var cRange: UInt = 0u, public var aRangeBegin: Propvariant? = null)
 
-public data class RESTRICTION(
+public data class Restriction(
     public var rt: UInt = 0u,
     public var weight: UInt = 0u,
-    public var res: RESTRICTION_0 = RESTRICTION_0(),
+    public var res: Restriction0 = Restriction0(),
 )
 
-public data class RESTRICTION_0(
-    public var ar: NODERESTRICTION = NODERESTRICTION(),
-    public var orRestriction: NODERESTRICTION = NODERESTRICTION(),
-    public var pxr: NODERESTRICTION = NODERESTRICTION(),
-    public var vr: VECTORRESTRICTION = VECTORRESTRICTION(),
-    public var nr: NOTRESTRICTION = NOTRESTRICTION(),
-    public var cr: CONTENTRESTRICTION = CONTENTRESTRICTION(),
-    public var nlr: NATLANGUAGERESTRICTION = NATLANGUAGERESTRICTION(),
-    public var pr: PROPERTYRESTRICTION = PROPERTYRESTRICTION(),
+public data class Restriction0(
+    public var ar: Noderestriction = Noderestriction(),
+    public var orRestriction: Noderestriction = Noderestriction(),
+    public var pxr: Noderestriction = Noderestriction(),
+    public var vr: Vectorrestriction = Vectorrestriction(),
+    public var nr: Notrestriction = Notrestriction(),
+    public var cr: Contentrestriction = Contentrestriction(),
+    public var nlr: Natlanguagerestriction = Natlanguagerestriction(),
+    public var pr: Propertyrestriction = Propertyrestriction(),
 )
 
-public data class RMTPACK(
-    public var pISeqStream: Long = 0L,
+public data class Rmtpack(
+    public var pISeqStream: COpaquePointer? = null,
     public var cbData: UInt = 0u,
     public var cBSTR: UInt = 0u,
-    public var rgBSTR: Long = 0L,
+    public var rgBSTR: Bstr? = null,
     public var cVARIANT: UInt = 0u,
-    public var rgVARIANT: Long = 0L,
+    public var rgVARIANT: Variant? = null,
     public var cIDISPATCH: UInt = 0u,
-    public var rgIDISPATCH: Long = 0L,
+    public var rgIDISPATCH: COpaquePointer? = null,
     public var cIUNKNOWN: UInt = 0u,
-    public var rgIUNKNOWN: Long = 0L,
+    public var rgIUNKNOWN: COpaquePointer? = null,
     public var cPROPVARIANT: UInt = 0u,
-    public var rgPROPVARIANT: Long = 0L,
+    public var rgPROPVARIANT: Propvariant? = null,
     public var cArray: UInt = 0u,
-    public var rgArray: Long = 0L,
+    public var rgArray: Variant? = null,
 )
 
-public data class SEARCH_COLUMN_PROPERTIES(public var Value: PROPVARIANT = PROPVARIANT(), public var lcid: UInt = 0u)
+public data class SearchColumnProperties(public var value: Propvariant = Propvariant(), public var lcid: UInt = 0u)
 
-public data class SEARCH_ITEM_CHANGE(
-    public var Change: SEARCH_KIND_OF_CHANGE = 0,
-    public var Priority: SEARCH_NOTIFICATION_PRIORITY = 0,
-    public var pUserData: Long = 0L,
-    public var lpwszURL: PWSTR = 0L,
-    public var lpwszOldURL: PWSTR = 0L,
+public data class SearchItemChange(
+    public var change: SearchKindOfChange = 0,
+    public var priority: SearchNotificationPriority = 0,
+    public var pUserData: Blob? = null,
+    public var lpwszURL: Pwstr = null,
+    public var lpwszOldURL: Pwstr = null,
 )
 
-public data class SEARCH_ITEM_INDEXING_STATUS(public var dwDocID: UInt = 0u, public var hrIndexingStatus: HRESULT = 0)
+public data class SearchItemIndexingStatus(public var dwDocID: UInt = 0u, public var hrIndexingStatus: Hresult = 0)
 
-public data class SEARCH_ITEM_PERSISTENT_CHANGE(
-    public var Change: SEARCH_KIND_OF_CHANGE = 0,
-    public var URL: PWSTR = 0L,
-    public var OldURL: PWSTR = 0L,
-    public var Priority: SEARCH_NOTIFICATION_PRIORITY = 0,
+public data class SearchItemPersistentChange(
+    public var change: SearchKindOfChange = 0,
+    public var url: Pwstr = null,
+    public var oldURL: Pwstr = null,
+    public var priority: SearchNotificationPriority = 0,
 )
 
-public data class SEC_OBJECT(public var cObjects: UInt = 0u, public var prgObjects: Long = 0L)
+public data class SecObject(public var cObjects: UInt = 0u, public var prgObjects: SecObjectElement? = null)
 
-public data class SEC_OBJECT_ELEMENT(public var guidObjectType: GUID = GUID(), public var ObjectID: DBID = DBID())
+public data class SecObjectElement(public var guidObjectType: Guid = Guid(), public var objectID: Dbid = Dbid())
 
-public data class SORTKEY(
-    public var propColumn: FULLPROPSPEC = FULLPROPSPEC(),
+public data class Sortkey(
+    public var propColumn: Fullpropspec = Fullpropspec(),
     public var dwOrder: UInt = 0u,
     public var locale: UInt = 0u,
 )
 
-public data class SORTSET(public var cCol: UInt = 0u, public var aCol: Long = 0L)
+public data class Sortset(public var cCol: UInt = 0u, public var aCol: Sortkey? = null)
 
-public class SQLPERF(
-    public var TimerResolution: UInt = 0u,
-    public var SQLidu: UInt = 0u,
-    public var SQLiduRows: UInt = 0u,
-    public var SQLSelects: UInt = 0u,
-    public var SQLSelectRows: UInt = 0u,
-    public var Transactions: UInt = 0u,
-    public var SQLPrepares: UInt = 0u,
-    public var ExecDirects: UInt = 0u,
-    public var SQLExecutes: UInt = 0u,
-    public var CursorOpens: UInt = 0u,
-    public var CursorSize: UInt = 0u,
-    public var CursorUsed: UInt = 0u,
-    public var PercentCursorUsed: Double = 0.0,
-    public var AvgFetchTime: Double = 0.0,
-    public var AvgCursorSize: Double = 0.0,
-    public var AvgCursorUsed: Double = 0.0,
-    public var SQLFetchTime: UInt = 0u,
-    public var SQLFetchCount: UInt = 0u,
-    public var CurrentStmtCount: UInt = 0u,
-    public var MaxOpenStmt: UInt = 0u,
-    public var SumOpenStmt: UInt = 0u,
-    public var CurrentConnectionCount: UInt = 0u,
-    public var MaxConnectionsOpened: UInt = 0u,
-    public var SumConnectionsOpened: UInt = 0u,
-    public var SumConnectiontime: UInt = 0u,
-    public var AvgTimeOpened: Double = 0.0,
-    public var ServerRndTrips: UInt = 0u,
-    public var BuffersSent: UInt = 0u,
-    public var BuffersRec: UInt = 0u,
-    public var BytesSent: UInt = 0u,
-    public var BytesRec: UInt = 0u,
+public class Sqlperf(
+    public var timerResolution: UInt = 0u,
+    public var sQLidu: UInt = 0u,
+    public var sQLiduRows: UInt = 0u,
+    public var sQLSelects: UInt = 0u,
+    public var sQLSelectRows: UInt = 0u,
+    public var transactions: UInt = 0u,
+    public var sQLPrepares: UInt = 0u,
+    public var execDirects: UInt = 0u,
+    public var sQLExecutes: UInt = 0u,
+    public var cursorOpens: UInt = 0u,
+    public var cursorSize: UInt = 0u,
+    public var cursorUsed: UInt = 0u,
+    public var percentCursorUsed: Double = 0.0,
+    public var avgFetchTime: Double = 0.0,
+    public var avgCursorSize: Double = 0.0,
+    public var avgCursorUsed: Double = 0.0,
+    public var sQLFetchTime: UInt = 0u,
+    public var sQLFetchCount: UInt = 0u,
+    public var currentStmtCount: UInt = 0u,
+    public var maxOpenStmt: UInt = 0u,
+    public var sumOpenStmt: UInt = 0u,
+    public var currentConnectionCount: UInt = 0u,
+    public var maxConnectionsOpened: UInt = 0u,
+    public var sumConnectionsOpened: UInt = 0u,
+    public var sumConnectiontime: UInt = 0u,
+    public var avgTimeOpened: Double = 0.0,
+    public var serverRndTrips: UInt = 0u,
+    public var buffersSent: UInt = 0u,
+    public var buffersRec: UInt = 0u,
+    public var bytesSent: UInt = 0u,
+    public var bytesRec: UInt = 0u,
     public var msExecutionTime: UInt = 0u,
     public var msNetWorkServerTime: UInt = 0u,
 )
 
-public data class SQL_DAY_SECOND_STRUCT(
+public data class SqlDaySecondStruct(
     public var day: UInt = 0u,
     public var hour: UInt = 0u,
     public var minute: UInt = 0u,
@@ -544,15 +546,15 @@ public data class SQL_DAY_SECOND_STRUCT(
     public var fraction: UInt = 0u,
 )
 
-public data class SQL_INTERVAL_STRUCT(
-    public var interval_type: SQLINTERVAL = 0,
-    public var interval_sign: Short = 0,
-    public var intval: SQL_INTERVAL_STRUCT_0 = SQL_INTERVAL_STRUCT_0(),
+public data class SqlIntervalStruct(
+    public var intervalType: Sqlinterval = 0,
+    public var intervalSign: Short = 0,
+    public var intval: SqlIntervalStruct0 = SqlIntervalStruct0(),
 )
 
-public data class SQL_INTERVAL_STRUCT_0(public var year_month: SQL_YEAR_MONTH_STRUCT = SQL_YEAR_MONTH_STRUCT(), public var day_second: SQL_DAY_SECOND_STRUCT = SQL_DAY_SECOND_STRUCT())
+public data class SqlIntervalStruct0(public var yearMonth: SqlYearMonthStruct = SqlYearMonthStruct(), public var daySecond: SqlDaySecondStruct = SqlDaySecondStruct())
 
-public data class SQL_NUMERIC_STRUCT(
+public data class SqlNumericStruct(
     public var precision: UByte = 0u,
     public var scale: Byte = 0,
     public var sign: UByte = 0u,
@@ -560,7 +562,7 @@ public data class SQL_NUMERIC_STRUCT(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SQL_NUMERIC_STRUCT) return false
+        if (other !is SqlNumericStruct) return false
         if (this.precision != other.precision) return false
         if (this.scale != other.scale) return false
         if (this.sign != other.sign) return false
@@ -577,26 +579,26 @@ public data class SQL_NUMERIC_STRUCT(
     }
 }
 
-public data class SQL_YEAR_MONTH_STRUCT(public var year: UInt = 0u, public var month: UInt = 0u)
+public data class SqlYearMonthStruct(public var year: UInt = 0u, public var month: UInt = 0u)
 
-public data class SSERRORINFO(
-    public var pwszMessage: PWSTR = 0L,
-    public var pwszServer: PWSTR = 0L,
-    public var pwszProcedure: PWSTR = 0L,
+public data class Sserrorinfo(
+    public var pwszMessage: Pwstr = null,
+    public var pwszServer: Pwstr = null,
+    public var pwszProcedure: Pwstr = null,
     public var lNative: Int = 0,
     public var bState: UByte = 0u,
     public var bClass: UByte = 0u,
     public var wLineNumber: UShort = 0u,
 )
 
-public data class SSVARIANT(
+public data class Ssvariant(
     public var vt: UShort = 0u,
     public var dwReserved1: UInt = 0u,
     public var dwReserved2: UInt = 0u,
-    public var Anonymous: SSVARIANT_0 = SSVARIANT_0(),
+    public var anonymous: Ssvariant0 = Ssvariant0(),
 )
 
-public data class SSVARIANT_0(
+public data class Ssvariant0(
     public var bTinyIntVal: UByte = 0u,
     public var sShortIntVal: Short = 0,
     public var lIntVal: Int = 0,
@@ -604,19 +606,19 @@ public data class SSVARIANT_0(
     public var fltRealVal: Float = 0.0f,
     public var dblFloatVal: Double = 0.0,
     public var cyMoneyVal: CY = CY(),
-    public var NCharVal: SSVARIANT_0_0 = SSVARIANT_0_0(),
-    public var CharVal: SSVARIANT_0_1 = SSVARIANT_0_1(),
-    public var fBitVal: VARIANT_BOOL = 0,
+    public var nCharVal: Ssvariant00 = Ssvariant00(),
+    public var charVal: Ssvariant01 = Ssvariant01(),
+    public var fBitVal: VariantBool = 0,
     public var rgbGuidVal: UByteArray = UByteArray(16),
-    public var numNumericVal: DB_NUMERIC = DB_NUMERIC(),
-    public var BinaryVal: SSVARIANT_0_2 = SSVARIANT_0_2(),
-    public var tsDateTimeVal: DBTIMESTAMP = DBTIMESTAMP(),
-    public var UnknownType: SSVARIANT_0_3 = SSVARIANT_0_3(),
-    public var BLOBType: SSVARIANT_0_4 = SSVARIANT_0_4(),
+    public var numNumericVal: DbNumeric = DbNumeric(),
+    public var binaryVal: Ssvariant02 = Ssvariant02(),
+    public var tsDateTimeVal: Dbtimestamp = Dbtimestamp(),
+    public var unknownType: Ssvariant03 = Ssvariant03(),
+    public var bLOBType: Ssvariant04 = Ssvariant04(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SSVARIANT_0) return false
+        if (other !is Ssvariant0) return false
         if (this.bTinyIntVal != other.bTinyIntVal) return false
         if (this.sShortIntVal != other.sShortIntVal) return false
         if (this.lIntVal != other.lIntVal) return false
@@ -624,15 +626,15 @@ public data class SSVARIANT_0(
         if (this.fltRealVal != other.fltRealVal) return false
         if (this.dblFloatVal != other.dblFloatVal) return false
         if (this.cyMoneyVal != other.cyMoneyVal) return false
-        if (this.NCharVal != other.NCharVal) return false
-        if (this.CharVal != other.CharVal) return false
+        if (this.nCharVal != other.nCharVal) return false
+        if (this.charVal != other.charVal) return false
         if (this.fBitVal != other.fBitVal) return false
         if (!this.rgbGuidVal.contentEquals(other.rgbGuidVal)) return false
         if (this.numNumericVal != other.numNumericVal) return false
-        if (this.BinaryVal != other.BinaryVal) return false
+        if (this.binaryVal != other.binaryVal) return false
         if (this.tsDateTimeVal != other.tsDateTimeVal) return false
-        if (this.UnknownType != other.UnknownType) return false
-        if (this.BLOBType != other.BLOBType) return false
+        if (this.unknownType != other.unknownType) return false
+        if (this.bLOBType != other.bLOBType) return false
         return true
     }
 
@@ -644,39 +646,39 @@ public data class SSVARIANT_0(
         result = 31 * result + this.fltRealVal.hashCode()
         result = 31 * result + this.dblFloatVal.hashCode()
         result = 31 * result + this.cyMoneyVal.hashCode()
-        result = 31 * result + this.NCharVal.hashCode()
-        result = 31 * result + this.CharVal.hashCode()
+        result = 31 * result + this.nCharVal.hashCode()
+        result = 31 * result + this.charVal.hashCode()
         result = 31 * result + this.fBitVal.hashCode()
         result = 31 * result + this.rgbGuidVal.contentHashCode()
         result = 31 * result + this.numNumericVal.hashCode()
-        result = 31 * result + this.BinaryVal.hashCode()
+        result = 31 * result + this.binaryVal.hashCode()
         result = 31 * result + this.tsDateTimeVal.hashCode()
-        result = 31 * result + this.UnknownType.hashCode()
-        result = 31 * result + this.BLOBType.hashCode()
+        result = 31 * result + this.unknownType.hashCode()
+        result = 31 * result + this.bLOBType.hashCode()
         return result
     }
 }
 
-public data class SSVARIANT_0_4(public var dbobj: DBOBJECT = DBOBJECT(), public var pUnk: Long = 0L)
+public data class Ssvariant04(public var dbobj: Dbobject = Dbobject(), public var pUnk: COpaquePointer? = null)
 
-public data class SSVARIANT_0_2(
+public data class Ssvariant02(
     public var sActualLength: Short = 0,
     public var sMaxLength: Short = 0,
-    public var prgbBinaryVal: Long = 0L,
+    public var prgbBinaryVal: COpaquePointer? = null,
     public var dwReserved: UInt = 0u,
 )
 
-public data class SSVARIANT_0_1(
+public data class Ssvariant01(
     public var sActualLength: Short = 0,
     public var sMaxLength: Short = 0,
-    public var pchCharVal: PSTR = 0L,
+    public var pchCharVal: Pstr = null,
     public var rgbReserved: UByteArray = UByteArray(5),
     public var dwReserved: UInt = 0u,
-    public var pwchReserved: PWSTR = 0L,
+    public var pwchReserved: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SSVARIANT_0_1) return false
+        if (other !is Ssvariant01) return false
         if (this.sActualLength != other.sActualLength) return false
         if (this.sMaxLength != other.sMaxLength) return false
         if (this.pchCharVal != other.pchCharVal) return false
@@ -697,17 +699,17 @@ public data class SSVARIANT_0_1(
     }
 }
 
-public data class SSVARIANT_0_0(
+public data class Ssvariant00(
     public var sActualLength: Short = 0,
     public var sMaxLength: Short = 0,
-    public var pwchNCharVal: PWSTR = 0L,
+    public var pwchNCharVal: Pwstr = null,
     public var rgbReserved: UByteArray = UByteArray(5),
     public var dwReserved: UInt = 0u,
-    public var pwchReserved: PWSTR = 0L,
+    public var pwchReserved: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SSVARIANT_0_0) return false
+        if (other !is Ssvariant00) return false
         if (this.sActualLength != other.sActualLength) return false
         if (this.sMaxLength != other.sMaxLength) return false
         if (this.pwchNCharVal != other.pwchNCharVal) return false
@@ -728,14 +730,14 @@ public data class SSVARIANT_0_0(
     }
 }
 
-public data class SSVARIANT_0_3(
+public data class Ssvariant03(
     public var dwActualLength: UInt = 0u,
     public var rgMetadata: UByteArray = UByteArray(16),
-    public var pUnknownData: Long = 0L,
+    public var pUnknownData: COpaquePointer? = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SSVARIANT_0_3) return false
+        if (other !is Ssvariant03) return false
         if (this.dwActualLength != other.dwActualLength) return false
         if (!this.rgMetadata.contentEquals(other.rgMetadata)) return false
         if (this.pUnknownData != other.pUnknownData) return false
@@ -750,50 +752,50 @@ public data class SSVARIANT_0_3(
     }
 }
 
-public class SUBSCRIPTIONINFO(
+public class Subscriptioninfo(
     public var cbSize: UInt = 0u,
     public var fUpdateFlags: UInt = 0u,
-    public var schedule: SUBSCRIPTIONSCHEDULE = 0,
-    public var customGroupCookie: GUID = GUID(),
-    public var pTrigger: Long = 0L,
+    public var schedule: Subscriptionschedule = 0,
+    public var customGroupCookie: Guid = Guid(),
+    public var pTrigger: COpaquePointer? = null,
     public var dwRecurseLevels: UInt = 0u,
     public var fWebcrawlerFlags: UInt = 0u,
-    public var bMailNotification: BOOL = 0,
-    public var bGleam: BOOL = 0,
-    public var bChangesOnly: BOOL = 0,
-    public var bNeedPassword: BOOL = 0,
+    public var bMailNotification: Bool = 0,
+    public var bGleam: Bool = 0,
+    public var bChangesOnly: Bool = 0,
+    public var bNeedPassword: Bool = 0,
     public var fChannelFlags: UInt = 0u,
-    public var bstrUserName: BSTR = 0L,
-    public var bstrPassword: BSTR = 0L,
-    public var bstrFriendlyName: BSTR = 0L,
+    public var bstrUserName: Bstr = null,
+    public var bstrPassword: Bstr = null,
+    public var bstrFriendlyName: Bstr = null,
     public var dwMaxSizeKB: UInt = 0u,
-    public var subType: SUBSCRIPTIONTYPE = 0,
+    public var subType: Subscriptiontype = 0,
     public var fTaskFlags: UInt = 0u,
     public var dwReserved: UInt = 0u,
 )
 
-public data class SUBSCRIPTIONITEMINFO(
+public data class Subscriptioniteminfo(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwPriority: UInt = 0u,
-    public var ScheduleGroup: GUID = GUID(),
-    public var clsidAgent: GUID = GUID(),
+    public var scheduleGroup: Guid = Guid(),
+    public var clsidAgent: Guid = Guid(),
 )
 
-public data class TEXT_SOURCE(
-    public var pfnFillTextBuffer: PFNFILLTEXTBUFFER = null,
-    public var awcBuffer: PCWSTR = 0L,
+public data class TextSource(
+    public var pfnFillTextBuffer: Pfnfilltextbuffer = null,
+    public var awcBuffer: Pcwstr = null,
     public var iEnd: UInt = 0u,
     public var iCur: UInt = 0u,
 )
 
-public data class TIMEOUT_INFO(
+public data class TimeoutInfo(
     public var dwSize: UInt = 0u,
     public var dwConnectTimeout: UInt = 0u,
     public var dwDataTimeout: UInt = 0u,
 )
 
-public data class TIMESTAMP_STRUCT(
+public data class TimestampStruct(
     public var year: Short = 0,
     public var month: UShort = 0u,
     public var day: UShort = 0u,
@@ -803,10 +805,10 @@ public data class TIMESTAMP_STRUCT(
     public var fraction: UInt = 0u,
 )
 
-public data class TIME_STRUCT(
+public data class TimeStruct(
     public var hour: UShort = 0u,
     public var minute: UShort = 0u,
     public var second: UShort = 0u,
 )
 
-public data class VECTORRESTRICTION(public var Node: NODERESTRICTION = NODERESTRICTION(), public var RankMethod: UInt = 0u)
+public data class Vectorrestriction(public var node: Noderestriction = Noderestriction(), public var rankMethod: UInt = 0u)

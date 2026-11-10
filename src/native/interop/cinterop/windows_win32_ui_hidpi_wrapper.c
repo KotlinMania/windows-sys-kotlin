@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_hidpi_AdjustWindowRectExForDpi(void* lprect, uint32_t dwstyle, int32_t bmenu, uint32_t dwexstyle, uint32_t dpi) {
+int32_t windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi(void* lprect, uint32_t dwstyle, int32_t bmenu, uint32_t dwexstyle, uint32_t dpi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_ui_hidpi_AdjustWindowRectExForDpi(void* lprect,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_AreDpiAwarenessContextsEqual(void* dpicontexta, void* dpicontextb) {
+int32_t windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual(void* dpicontexta, void* dpicontextb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_ui_hidpi_AreDpiAwarenessContextsEqual(void* dpi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_EnableNonClientDpiScaling(void* hwnd) {
+int32_t windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_ui_hidpi_EnableNonClientDpiScaling(void* hwnd) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetAwarenessFromDpiAwarenessContext(void* value) {
+int32_t windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext(void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetAwarenessFromDpiAwarenessContext(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetDialogControlDpiChangeBehavior(void* hwnd) {
+int32_t windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetDialogControlDpiChangeBehavior(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetDialogDpiChangeBehavior(void* hdlg) {
+int32_t windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior(void* hdlg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetDialogDpiChangeBehavior(void* hdlg)
 #endif
 }
 
-void* windowssys_windows_win32_ui_hidpi_GetDpiAwarenessContextForProcess(void* hprocess) {
+void* windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess(void* hprocess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -174,7 +174,7 @@ void* windowssys_windows_win32_ui_hidpi_GetDpiAwarenessContextForProcess(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetDpiForMonitor(void* hmonitor, int32_t dpitype, void* dpix, void* dpiy) {
+int32_t windowssys_windows_win32_ui_hidpi_getDpiForMonitor(void* hmonitor, int32_t dpitype, void* dpix, void* dpiy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetDpiForMonitor(void* hmonitor, int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_hidpi_GetDpiForSystem(void) {
+uint32_t windowssys_windows_win32_ui_hidpi_getDpiForSystem(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ uint32_t windowssys_windows_win32_ui_hidpi_GetDpiForSystem(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_hidpi_GetDpiForWindow(void* hwnd) {
+uint32_t windowssys_windows_win32_ui_hidpi_getDpiForWindow(void* hwnd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ uint32_t windowssys_windows_win32_ui_hidpi_GetDpiForWindow(void* hwnd) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_hidpi_GetDpiFromDpiAwarenessContext(void* value) {
+uint32_t windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext(void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ uint32_t windowssys_windows_win32_ui_hidpi_GetDpiFromDpiAwarenessContext(void* v
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetProcessDpiAwareness(void* hprocess, void* value) {
+int32_t windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness(void* hprocess, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetProcessDpiAwareness(void* hprocess,
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_hidpi_GetSystemDpiForProcess(void* hprocess) {
+uint32_t windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess(void* hprocess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ uint32_t windowssys_windows_win32_ui_hidpi_GetSystemDpiForProcess(void* hprocess
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetSystemMetricsForDpi(int32_t nindex, uint32_t dpi) {
+int32_t windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi(int32_t nindex, uint32_t dpi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetSystemMetricsForDpi(int32_t nindex,
 #endif
 }
 
-void* windowssys_windows_win32_ui_hidpi_GetThreadDpiAwarenessContext(void) {
+void* windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -353,7 +353,7 @@ void* windowssys_windows_win32_ui_hidpi_GetThreadDpiAwarenessContext(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetThreadDpiHostingBehavior(void) {
+int32_t windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -374,7 +374,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetThreadDpiHostingBehavior(void) {
 #endif
 }
 
-void* windowssys_windows_win32_ui_hidpi_GetWindowDpiAwarenessContext(void* hwnd) {
+void* windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ void* windowssys_windows_win32_ui_hidpi_GetWindowDpiAwarenessContext(void* hwnd)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_GetWindowDpiHostingBehavior(void* hwnd) {
+int32_t windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -418,7 +418,7 @@ int32_t windowssys_windows_win32_ui_hidpi_GetWindowDpiHostingBehavior(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_IsValidDpiAwarenessContext(void* value) {
+int32_t windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext(void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -440,7 +440,7 @@ int32_t windowssys_windows_win32_ui_hidpi_IsValidDpiAwarenessContext(void* value
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_LogicalToPhysicalPointForPerMonitorDPI(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -463,7 +463,7 @@ int32_t windowssys_windows_win32_ui_hidpi_LogicalToPhysicalPointForPerMonitorDPI
 #endif
 }
 
-int64_t windowssys_windows_win32_ui_hidpi_OpenThemeDataForDpi(void* hwnd, void* pszclasslist, uint32_t dpi) {
+int64_t windowssys_windows_win32_ui_hidpi_openThemeDataForDpi(void* hwnd, void* pszclasslist, uint32_t dpi) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ int64_t windowssys_windows_win32_ui_hidpi_OpenThemeDataForDpi(void* hwnd, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_PhysicalToLogicalPointForPerMonitorDPI(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ int32_t windowssys_windows_win32_ui_hidpi_PhysicalToLogicalPointForPerMonitorDPI
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SetDialogControlDpiChangeBehavior(void* hwnd, int32_t mask, int32_t values) {
+int32_t windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior(void* hwnd, int32_t mask, int32_t values) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ int32_t windowssys_windows_win32_ui_hidpi_SetDialogControlDpiChangeBehavior(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SetDialogDpiChangeBehavior(void* hdlg, int32_t mask, int32_t values) {
+int32_t windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior(void* hdlg, int32_t mask, int32_t values) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -558,7 +558,7 @@ int32_t windowssys_windows_win32_ui_hidpi_SetDialogDpiChangeBehavior(void* hdlg,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SetProcessDpiAwareness(int32_t value) {
+int32_t windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness(int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ int32_t windowssys_windows_win32_ui_hidpi_SetProcessDpiAwareness(int32_t value) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SetProcessDpiAwarenessContext(void* value) {
+int32_t windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext(void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ int32_t windowssys_windows_win32_ui_hidpi_SetProcessDpiAwarenessContext(void* va
 #endif
 }
 
-void* windowssys_windows_win32_ui_hidpi_SetThreadDpiAwarenessContext(void* dpicontext) {
+void* windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext(void* dpicontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -624,7 +624,7 @@ void* windowssys_windows_win32_ui_hidpi_SetThreadDpiAwarenessContext(void* dpico
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SetThreadDpiHostingBehavior(int32_t value) {
+int32_t windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior(int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -646,7 +646,7 @@ int32_t windowssys_windows_win32_ui_hidpi_SetThreadDpiHostingBehavior(int32_t va
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_hidpi_SystemParametersInfoForDpi(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini, uint32_t dpi) {
+int32_t windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi(uint32_t uiaction, uint32_t uiparam, void* pvparam, uint32_t fwinini, uint32_t dpi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

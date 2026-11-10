@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPAddProvider(JNIEnv* km_env, jclass km_clazz, jlong psnewprov) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPAddProvider(JNIEnv* km_env, jclass km_clazz, jlong psnewprov) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPCreateIndirectData(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pcbindirectdata, jlong pindirectdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPCreateIndirectData(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pcbindirectdata, jlong pindirectdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPGetCaps(JNIEnv* km_env, jclass km_clazz, jlong psubjinfo, jlong pcaps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPGetCaps(JNIEnv* km_env, jclass km_clazz, jlong psubjinfo, jlong pcaps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPGetSealedDigest(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong psig, jint dwsig, jlong pbdigest, jlong pcbdigest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPGetSealedDigest(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong psig, jint dwsig, jlong pbdigest, jlong pcbdigest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPGetSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pdwencodingtype, jint dwindex, jlong pcbsigneddatamsg, jlong pbsigneddatamsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPGetSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pdwencodingtype, jint dwindex, jlong pcbsigneddatamsg, jlong pbsigneddatamsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPLoad(JNIEnv* km_env, jclass km_clazz, jlong pgsubject, jint dwflags, jlong psipdispatch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPLoad(JNIEnv* km_env, jclass km_clazz, jlong pgsubject, jint dwflags, jlong psipdispatch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -139,7 +139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPPutSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jint dwencodingtype, jlong pdwindex, jint cbsigneddatamsg, jlong pbsigneddatamsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPPutSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jint dwencodingtype, jlong pdwindex, jint cbsigneddatamsg, jlong pbsigneddatamsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -161,7 +161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPRemoveProvider(JNIEnv* km_env, jclass km_clazz, jlong pgprov) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPRemoveProvider(JNIEnv* km_env, jclass km_clazz, jlong pgprov) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPRemoveSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jint dwindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPRemoveSignedDataMsg(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jint dwindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -198,7 +198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPRetrieveSubjectGuid(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong hfilein, jlong pgsubject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPRetrieveSubjectGuid(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong hfilein, jlong pgsubject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -218,7 +218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPRetrieveSubjectGuidForCatalogFile(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong hfilein, jlong pgsubject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPRetrieveSubjectGuidForCatalogFile(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong hfilein, jlong pgsubject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -238,7 +238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1CryptSIPVerifyIndirectData(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pindirectdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_sip_WindowsWin32SecurityCryptographySipJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sip_1cryptSIPVerifyIndirectData(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pindirectdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

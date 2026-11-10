@@ -2,12 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.networkdiagnosticsframework
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Socket
 
 private object WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge {
     init {
@@ -15,95 +16,95 @@ private object WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident(handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident(handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident(handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident(hostname: Long, querytype: Short, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident(hostname: Long, querytype: Short, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident(cloudname: Long, groupname: Long, identity: Long, invitation: Long, addresses: Long, appid: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident(cloudname: Long, groupname: Long, identity: Long, invitation: Long, addresses: Long, appid: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident(helperclassname: Long, celt: Int, attributes: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident(helperclassname: Long, celt: Int, attributes: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident(cloudname: Long, peername: Long, diagnosepublish: Int, appid: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident(cloudname: Long, peername: Long, diagnosepublish: Int, appid: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident(uncpath: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident(uncpath: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident(url: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident(url: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx(url: Long, usewinhttp: Int, modulename: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx(url: Long, usewinhttp: Int, modulename: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident(sock: Long, host: Long, port: Short, appid: Long, userid: Long, handle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident(sock: Long, host: Long, port: Short, appid: Long, userid: Long, handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident(handle: Long, rootcausecount: Long, rootcauses: Long, dwwait: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident(handle: Long, rootcausecount: Long, rootcauses: Long, dwwait: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis(handle: Long, hwnd: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis(handle: Long, hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile(handle: Long, tracefilelocation: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile(handle: Long, tracefilelocation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident(handle: Long, repairex: Long, dwwait: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident(handle: Long, repairex: Long, dwwait: Int): Int
 }
 
-public actual fun NdfCancelIncident(handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCancelIncident(handle)
+public actual fun ndfCancelIncident(handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident((handle?.value ?: 0L))
 
-public actual fun NdfCloseIncident(handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCloseIncident(handle)
+public actual fun ndfCloseIncident(handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident((handle?.value ?: 0L))
 
-public actual fun NdfCreateConnectivityIncident(handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateConnectivityIncident(handle)
+public actual fun ndfCreateConnectivityIncident(handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident((handle?.value ?: 0L))
 
-public actual fun NdfCreateDNSIncident(hostname: PCWSTR, querytype: UShort, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateDNSIncident(hostname, querytype.toShort(), handle)
+public actual fun ndfCreateDNSIncident(hostname: Pcwstr, querytype: UShort, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident((hostname?.value ?: 0L), querytype.toShort(), (handle?.value ?: 0L))
 
-public actual fun NdfCreateGroupingIncident(cloudname: PCWSTR, groupname: PCWSTR, identity: PCWSTR, invitation: PCWSTR, addresses: Long, appid: PCWSTR, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateGroupingIncident(cloudname, groupname, identity, invitation, addresses, appid, handle)
+public actual fun ndfCreateGroupingIncident(cloudname: Pcwstr, groupname: Pcwstr, identity: Pcwstr, invitation: Pcwstr, addresses: COpaquePointer?, appid: Pcwstr, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident((cloudname?.value ?: 0L), (groupname?.value ?: 0L), (identity?.value ?: 0L), (invitation?.value ?: 0L), (addresses?.value ?: 0L), (appid?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateIncident(helperclassname: PCWSTR, celt: UInt, attributes: Long, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateIncident(helperclassname, celt.toInt(), attributes, handle)
+public actual fun ndfCreateIncident(helperclassname: Pcwstr, celt: UInt, attributes: COpaquePointer?, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident((helperclassname?.value ?: 0L), celt.toInt(), (attributes?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateNetConnectionIncident(handle: Long, id: GUID): HRESULT =
+public actual fun ndfCreateNetConnectionIncident(handle: COpaquePointer?, id: Guid): Hresult =
     0
 
-public actual fun NdfCreatePnrpIncident(cloudname: PCWSTR, peername: PCWSTR, diagnosepublish: BOOL, appid: PCWSTR, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreatePnrpIncident(cloudname, peername, diagnosepublish, appid, handle)
+public actual fun ndfCreatePnrpIncident(cloudname: Pcwstr, peername: Pcwstr, diagnosepublish: Bool, appid: Pcwstr, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident((cloudname?.value ?: 0L), (peername?.value ?: 0L), diagnosepublish, (appid?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateSharingIncident(uncpath: PCWSTR, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateSharingIncident(uncpath, handle)
+public actual fun ndfCreateSharingIncident(uncpath: Pcwstr, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident((uncpath?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateWebIncident(url: PCWSTR, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncident(url, handle)
+public actual fun ndfCreateWebIncident(url: Pcwstr, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident((url?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateWebIncidentEx(url: PCWSTR, usewinhttp: BOOL, modulename: PCWSTR, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWebIncidentEx(url, usewinhttp, modulename, handle)
+public actual fun ndfCreateWebIncidentEx(url: Pcwstr, usewinhttp: Bool, modulename: Pcwstr, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx((url?.value ?: 0L), usewinhttp, (modulename?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfCreateWinSockIncident(sock: SOCKET, host: PCWSTR, port: UShort, appid: PCWSTR, userid: Long, handle: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfCreateWinSockIncident(sock.toLong(), host, port.toShort(), appid, userid, handle)
+public actual fun ndfCreateWinSockIncident(sock: Socket, host: Pcwstr, port: UShort, appid: Pcwstr, userid: COpaquePointer?, handle: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident(sock.toLong(), (host?.value ?: 0L), port.toShort(), (appid?.value ?: 0L), (userid?.value ?: 0L), (handle?.value ?: 0L))
 
-public actual fun NdfDiagnoseIncident(handle: Long, rootcausecount: Long, rootcauses: Long, dwwait: UInt, dwflags: UInt): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfDiagnoseIncident(handle, rootcausecount, rootcauses, dwwait.toInt(), dwflags.toInt())
+public actual fun ndfDiagnoseIncident(handle: COpaquePointer?, rootcausecount: COpaquePointer?, rootcauses: COpaquePointer?, dwwait: UInt, dwflags: UInt): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident((handle?.value ?: 0L), (rootcausecount?.value ?: 0L), (rootcauses?.value ?: 0L), dwwait.toInt(), dwflags.toInt())
 
-public actual fun NdfExecuteDiagnosis(handle: Long, hwnd: HWND): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfExecuteDiagnosis(handle, hwnd)
+public actual fun ndfExecuteDiagnosis(handle: COpaquePointer?, hwnd: Hwnd): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis((handle?.value ?: 0L), (hwnd?.value ?: 0L))
 
-public actual fun NdfGetTraceFile(handle: Long, tracefilelocation: Long): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfGetTraceFile(handle, tracefilelocation)
+public actual fun ndfGetTraceFile(handle: COpaquePointer?, tracefilelocation: COpaquePointer?): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile((handle?.value ?: 0L), (tracefilelocation?.value ?: 0L))
 
-public actual fun NdfRepairIncident(handle: Long, repairex: Long, dwwait: UInt): HRESULT =
-    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_NdfRepairIncident(handle, repairex, dwwait.toInt())
+public actual fun ndfRepairIncident(handle: COpaquePointer?, repairex: COpaquePointer?, dwwait: UInt): Hresult =
+    WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident((handle?.value ?: 0L), (repairex?.value ?: 0L), dwwait.toInt())

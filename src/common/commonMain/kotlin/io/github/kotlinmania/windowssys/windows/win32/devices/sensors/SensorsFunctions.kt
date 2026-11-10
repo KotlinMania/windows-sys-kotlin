@@ -1,85 +1,86 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public expect fun CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): NTSTATUS
+public expect fun collectionsListAllocateBufferAndSerialize(sourcecollection: COpaquePointer?, ptargetbuffersizeinbytes: COpaquePointer?, ptargetbuffer: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListCopyAndMarshall(target: Long, source: Long): NTSTATUS
+public expect fun collectionsListCopyAndMarshall(target: COpaquePointer?, source: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: Long, targetcollection: Long): NTSTATUS
+public expect fun collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: COpaquePointer?, targetcollection: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListGetFillableCount(buffersizebytes: UInt): UInt
+public expect fun collectionsListGetFillableCount(buffersizebytes: UInt): UInt
 
-public expect fun CollectionsListGetMarshalledSize(collection: Long): UInt
+public expect fun collectionsListGetMarshalledSize(collection: COpaquePointer?): UInt
 
-public expect fun CollectionsListGetMarshalledSizeWithoutSerialization(collection: Long): UInt
+public expect fun collectionsListGetMarshalledSizeWithoutSerialization(collection: COpaquePointer?): UInt
 
-public expect fun CollectionsListGetSerializedSize(collection: Long): UInt
+public expect fun collectionsListGetSerializedSize(collection: COpaquePointer?): UInt
 
-public expect fun CollectionsListMarshall(target: Long): NTSTATUS
+public expect fun collectionsListMarshall(target: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: UInt, targetbuffer: Long): NTSTATUS
+public expect fun collectionsListSerializeToBuffer(sourcecollection: COpaquePointer?, targetbuffersizeinbytes: UInt, targetbuffer: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): NTSTATUS
+public expect fun collectionsListSortSubscribedActivitiesByConfidence(thresholds: COpaquePointer?, pcollection: COpaquePointer?): Ntstatus
 
-public expect fun CollectionsListUpdateMarshalledPointer(collection: Long): NTSTATUS
+public expect fun collectionsListUpdateMarshalledPointer(collection: COpaquePointer?): Ntstatus
 
-public expect fun EvaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean
+public expect fun evaluateActivityThresholds(newsample: COpaquePointer?, oldsample: COpaquePointer?, thresholds: COpaquePointer?): Boolean
 
-public expect fun GetPerformanceTime(timems: Long): NTSTATUS
+public expect fun getPerformanceTime(timems: COpaquePointer?): Ntstatus
 
-public expect fun InitPropVariantFromCLSIDArray(members: Long, size: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromCLSIDArray(members: COpaquePointer?, size: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromFloat(fltval: Float, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromFloat(fltval: Float, ppropvar: COpaquePointer?): Hresult
 
-public expect fun IsCollectionListSame(lista: Long, listb: Long): Boolean
+public expect fun isCollectionListSame(lista: COpaquePointer?, listb: COpaquePointer?): Boolean
 
-public expect fun IsGUIDPresentInList(guidarray: Long, arraylength: UInt, guidelem: Long): Boolean
+public expect fun isGUIDPresentInList(guidarray: COpaquePointer?, arraylength: UInt, guidelem: COpaquePointer?): Boolean
 
-public expect fun IsKeyPresentInCollectionList(plist: Long, pkey: Long): Boolean
+public expect fun isKeyPresentInCollectionList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean
 
-public expect fun IsKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean
+public expect fun isKeyPresentInPropertyList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean
 
-public expect fun IsSensorSubscribed(subscriptionlist: Long, currenttype: GUID): Boolean
+public expect fun isSensorSubscribed(subscriptionlist: COpaquePointer?, currenttype: Guid): Boolean
 
-public expect fun PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetBool(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetDouble(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetFileTime(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetFloat(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetGuid(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetInt32(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetInt64(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetNthInt64(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetNthUlong(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetNthUshort(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetUlong(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS
+public expect fun propKeyFindKeyGetUshort(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS
+public expect fun propKeyFindKeySetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus
 
-public expect fun PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): NTSTATUS
+public expect fun propVariantGetInformation(propvariantvalue: COpaquePointer?, propvariantoffset: COpaquePointer?, propvariantsize: COpaquePointer?, propvariantpointer: COpaquePointer?, remappedtype: COpaquePointer?): Ntstatus
 
-public expect fun PropertiesListCopy(target: Long, source: Long): NTSTATUS
+public expect fun propertiesListCopy(target: COpaquePointer?, source: COpaquePointer?): Ntstatus
 
-public expect fun PropertiesListGetFillableCount(buffersizebytes: UInt): UInt
+public expect fun propertiesListGetFillableCount(buffersizebytes: UInt): UInt
 
-public expect fun SensorCollectionGetAt(index: UInt, psensorslist: Long, pkey: Long, pvalue: Long): NTSTATUS
+public expect fun sensorCollectionGetAt(index: UInt, psensorslist: COpaquePointer?, pkey: COpaquePointer?, pvalue: COpaquePointer?): Ntstatus
 
-public expect fun SerializationBufferAllocate(sizeinbytes: UInt, pbuffer: Long): NTSTATUS
+public expect fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: COpaquePointer?): Ntstatus
 
-public expect fun SerializationBufferFree(buffer: Long)
+public expect fun serializationBufferFree(buffer: COpaquePointer?)

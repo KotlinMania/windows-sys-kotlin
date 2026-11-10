@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInterfaceContextTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacecontexttable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetInterfaceContextTableForHostName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* proxyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -96,7 +96,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandGetRoutingHint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -116,7 +116,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -138,7 +138,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandUnRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* registrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -156,7 +156,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmGetProfileList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppprofilelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmQueryProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* strprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProfileList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprofilelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* strprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -274,16 +274,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
 }
 
 static void register_windows_win32_networkmanagement_windowsconnectionmanager_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInterfaceContextTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInterfaceContextTable_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetInterfaceContextTableForHostName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetInterfaceContextTableForHostName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandGetRoutingHint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandGetRoutingHint_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandRegisterNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandUnRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandUnRegisterNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmGetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmGetProfileList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmQueryProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmQueryProperty_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProfileList_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProperty_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_windowsconnectionmanager_napi, nullptr };

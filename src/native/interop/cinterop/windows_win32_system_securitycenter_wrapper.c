@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri(void* ppszuri) {
+int32_t windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri(void* ppszuri) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth(uint32_t providers, void* phealth) {
+int32_t windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth(uint32_t providers, void* phealth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri(void) {
+int32_t windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,32 @@ int32_t windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications(void) {
+int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForChanges(void* reserved, void* phcallbackregistration, void* lpcallbackaddress, void* pcontext) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WscRegisterForChanges");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(reserved, phcallbackregistration, lpcallbackaddress, pcontext);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)reserved;
+    (void)phcallbackregistration;
+    (void)lpcallbackaddress;
+    (void)pcontext;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -102,7 +127,7 @@ int32_t windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotific
 #endif
 }
 
-int32_t windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges(void* hregistrationhandle) {
+int32_t windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges(void* hregistrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

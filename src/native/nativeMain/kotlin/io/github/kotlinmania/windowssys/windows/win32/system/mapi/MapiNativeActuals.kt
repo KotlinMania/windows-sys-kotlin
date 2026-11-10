@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun MAPIFreeBuffer(pv: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.mapi.cinterop.windowssys_windows_win32_system_mapi_MAPIFreeBuffer(pv.toCPointer<ByteVar>())
+public actual fun mAPIFreeBuffer(pv: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.mapi.cinterop.windowssys_windows_win32_system_mapi_mAPIFreeBuffer(pv?.value?.toCPointer<ByteVar>())

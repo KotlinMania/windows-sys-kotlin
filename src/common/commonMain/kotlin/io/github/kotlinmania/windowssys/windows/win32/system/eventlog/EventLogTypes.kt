@@ -1,61 +1,63 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-public typealias EVT_CHANNEL_CLOCK_TYPE = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias EVT_CHANNEL_CONFIG_PROPERTY_ID = Int
+public typealias EvtChannelClockType = Int
 
-public typealias EVT_CHANNEL_ISOLATION_TYPE = Int
+public typealias EvtChannelConfigPropertyId = Int
 
-public typealias EVT_CHANNEL_REFERENCE_FLAGS = UInt
+public typealias EvtChannelIsolationType = Int
 
-public typealias EVT_CHANNEL_SID_TYPE = Int
+public typealias EvtChannelReferenceFlags = UInt
 
-public typealias EVT_CHANNEL_TYPE = Int
+public typealias EvtChannelSidType = Int
 
-public typealias EVT_EVENT_METADATA_PROPERTY_ID = Int
+public typealias EvtChannelType = Int
 
-public typealias EVT_EVENT_PROPERTY_ID = Int
+public typealias EvtEventMetadataPropertyId = Int
 
-public typealias EVT_EXPORTLOG_FLAGS = UInt
+public typealias EvtEventPropertyId = Int
 
-public typealias EVT_FORMAT_MESSAGE_FLAGS = UInt
+public typealias EvtExportlogFlags = UInt
 
-public typealias EVT_HANDLE = Long
+public typealias EvtFormatMessageFlags = UInt
 
-public typealias EVT_LOGIN_CLASS = Int
+public typealias EvtHandle = Long
 
-public typealias EVT_LOG_PROPERTY_ID = Int
+public typealias EvtLoginClass = Int
 
-public typealias EVT_OPEN_LOG_FLAGS = UInt
+public typealias EvtLogPropertyId = Int
 
-public typealias EVT_PUBLISHER_METADATA_PROPERTY_ID = Int
+public typealias EvtOpenLogFlags = UInt
 
-public typealias EVT_QUERY_FLAGS = UInt
+public typealias EvtPublisherMetadataPropertyId = Int
 
-public typealias EVT_QUERY_PROPERTY_ID = Int
+public typealias EvtQueryFlags = UInt
 
-public typealias EVT_RENDER_CONTEXT_FLAGS = UInt
+public typealias EvtQueryPropertyId = Int
 
-public typealias EVT_RENDER_FLAGS = UInt
+public typealias EvtRenderContextFlags = UInt
 
-public typealias EVT_RPC_LOGIN_FLAGS = UInt
+public typealias EvtRenderFlags = UInt
 
-public typealias EVT_SEEK_FLAGS = UInt
+public typealias EvtRpcLoginFlags = UInt
 
-public fun interface EVT_SUBSCRIBE_CALLBACKFn {
-    public operator fun invoke(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: Long, event: EVT_HANDLE): UInt
+public typealias EvtSeekFlags = UInt
+
+public fun interface EvtSubscribeCallbackFn {
+    public operator fun invoke(action: EvtSubscribeNotifyAction, usercontext: COpaquePointer?, event: EvtHandle): UInt
 }
 
-public typealias EVT_SUBSCRIBE_CALLBACK = EVT_SUBSCRIBE_CALLBACKFn?
+public typealias EvtSubscribeCallback = EvtSubscribeCallbackFn?
 
-public typealias EVT_SUBSCRIBE_FLAGS = UInt
+public typealias EvtSubscribeFlags = UInt
 
-public typealias EVT_SUBSCRIBE_NOTIFY_ACTION = Int
+public typealias EvtSubscribeNotifyAction = Int
 
-public typealias EVT_SYSTEM_PROPERTY_ID = Int
+public typealias EvtSystemPropertyId = Int
 
-public typealias EVT_VARIANT_TYPE = Int
+public typealias EvtVariantType = Int
 
-public typealias READ_EVENT_LOG_READ_FLAGS = UInt
+public typealias ReadEventLogReadFlags = UInt
 
-public typealias REPORT_EVENT_TYPE = UShort
+public typealias ReportEventType = UShort

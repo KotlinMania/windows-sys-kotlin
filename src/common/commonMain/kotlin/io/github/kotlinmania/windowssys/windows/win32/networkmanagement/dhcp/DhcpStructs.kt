@@ -1,110 +1,111 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class DATE_TIME(public var dwLowDateTime: UInt = 0u, public var dwHighDateTime: UInt = 0u)
+public data class DateTime(public var dwLowDateTime: UInt = 0u, public var dwHighDateTime: UInt = 0u)
 
-public data class DHCPAPI_PARAMS(
-    public var Flags: UInt = 0u,
-    public var OptionId: UInt = 0u,
-    public var IsVendor: BOOL = 0,
-    public var Data: Long = 0L,
+public data class DhcpapiParams(
+    public var flags: UInt = 0u,
+    public var optionId: UInt = 0u,
+    public var isVendor: Bool = 0,
+    public var data: COpaquePointer? = null,
     public var nBytesData: UInt = 0u,
 )
 
-public data class DHCPCAPI_CLASSID(
-    public var Flags: UInt = 0u,
-    public var Data: Long = 0L,
+public data class DhcpcapiClassid(
+    public var flags: UInt = 0u,
+    public var data: COpaquePointer? = null,
     public var nBytesData: UInt = 0u,
 )
 
-public data class DHCPCAPI_PARAMS_ARRAY(public var nParams: UInt = 0u, public var Params: Long = 0L)
+public data class DhcpcapiParamsArray(public var nParams: UInt = 0u, public var params: DhcpapiParams? = null)
 
-public data class DHCPDS_SERVER(
-    public var Version: UInt = 0u,
-    public var ServerName: PWSTR = 0L,
-    public var ServerAddress: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var State: UInt = 0u,
-    public var DsLocation: PWSTR = 0L,
-    public var DsLocType: UInt = 0u,
+public data class DhcpdsServer(
+    public var version: UInt = 0u,
+    public var serverName: Pwstr = null,
+    public var serverAddress: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var state: UInt = 0u,
+    public var dsLocation: Pwstr = null,
+    public var dsLocType: UInt = 0u,
 )
 
-public data class DHCPDS_SERVERS(
-    public var Flags: UInt = 0u,
-    public var NumElements: UInt = 0u,
-    public var Servers: Long = 0L,
+public data class DhcpdsServers(
+    public var flags: UInt = 0u,
+    public var numElements: UInt = 0u,
+    public var servers: DhcpdsServer? = null,
 )
 
-public class DHCPV4_FAILOVER_CLIENT_INFO(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public class Dhcpv4FailoverClientInfo(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
-    public var SentPotExpTime: UInt = 0u,
-    public var AckPotExpTime: UInt = 0u,
-    public var RecvPotExpTime: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var CltLastTransTime: UInt = 0u,
-    public var LastBndUpdTime: UInt = 0u,
-    public var BndMsgStatus: UInt = 0u,
-    public var PolicyName: PWSTR = 0L,
-    public var Flags: UByte = 0u,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
+    public var sentPotExpTime: UInt = 0u,
+    public var ackPotExpTime: UInt = 0u,
+    public var recvPotExpTime: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var cltLastTransTime: UInt = 0u,
+    public var lastBndUpdTime: UInt = 0u,
+    public var bndMsgStatus: UInt = 0u,
+    public var policyName: Pwstr = null,
+    public var flags: UByte = 0u,
 )
 
-public data class DHCPV4_FAILOVER_CLIENT_INFO_ARRAY(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class Dhcpv4FailoverClientInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public class DHCPV4_FAILOVER_CLIENT_INFO_EX(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public class Dhcpv4FailoverClientInfoEx(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
-    public var SentPotExpTime: UInt = 0u,
-    public var AckPotExpTime: UInt = 0u,
-    public var RecvPotExpTime: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var CltLastTransTime: UInt = 0u,
-    public var LastBndUpdTime: UInt = 0u,
-    public var BndMsgStatus: UInt = 0u,
-    public var PolicyName: PWSTR = 0L,
-    public var Flags: UByte = 0u,
-    public var AddressStateEx: UInt = 0u,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
+    public var sentPotExpTime: UInt = 0u,
+    public var ackPotExpTime: UInt = 0u,
+    public var recvPotExpTime: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var cltLastTransTime: UInt = 0u,
+    public var lastBndUpdTime: UInt = 0u,
+    public var bndMsgStatus: UInt = 0u,
+    public var policyName: Pwstr = null,
+    public var flags: UByte = 0u,
+    public var addressStateEx: UInt = 0u,
 )
 
-public data class DHCPV6CAPI_CLASSID(
-    public var Flags: UInt = 0u,
-    public var Data: Long = 0L,
+public data class Dhcpv6capiClassid(
+    public var flags: UInt = 0u,
+    public var data: COpaquePointer? = null,
     public var nBytesData: UInt = 0u,
 )
 
-public data class DHCPV6CAPI_PARAMS(
-    public var Flags: UInt = 0u,
-    public var OptionId: UInt = 0u,
-    public var IsVendor: BOOL = 0,
-    public var Data: Long = 0L,
+public data class Dhcpv6capiParams(
+    public var flags: UInt = 0u,
+    public var optionId: UInt = 0u,
+    public var isVendor: Bool = 0,
+    public var data: COpaquePointer? = null,
     public var nBytesData: UInt = 0u,
 )
 
-public data class DHCPV6CAPI_PARAMS_ARRAY(public var nParams: UInt = 0u, public var Params: Long = 0L)
+public data class Dhcpv6capiParamsArray(public var nParams: UInt = 0u, public var params: Dhcpv6capiParams? = null)
 
 public data class DHCPV6Prefix(
     public var prefix: UByteArray = UByteArray(16),
@@ -136,513 +137,513 @@ public data class DHCPV6Prefix(
 
 public data class DHCPV6PrefixLeaseInformation(
     public var nPrefixes: UInt = 0u,
-    public var prefixArray: Long = 0L,
+    public var prefixArray: DHCPV6Prefix? = null,
     public var iaid: UInt = 0u,
-    public var T1: Long = 0L,
-    public var T2: Long = 0L,
-    public var MaxLeaseExpirationTime: Long = 0L,
-    public var LastRenewalTime: Long = 0L,
+    public var t1: Long = 0L,
+    public var t2: Long = 0L,
+    public var maxLeaseExpirationTime: Long = 0L,
+    public var lastRenewalTime: Long = 0L,
     public var status: StatusCode = 0,
-    public var ServerId: Long = 0L,
-    public var ServerIdLen: UInt = 0u,
+    public var serverId: COpaquePointer? = null,
+    public var serverIdLen: UInt = 0u,
 )
 
-public data class DHCPV6_BIND_ELEMENT(
-    public var Flags: UInt = 0u,
-    public var fBoundToDHCPServer: BOOL = 0,
-    public var AdapterPrimaryAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var AdapterSubnetAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var IfDescription: PWSTR = 0L,
-    public var IpV6IfIndex: UInt = 0u,
-    public var IfIdSize: UInt = 0u,
-    public var IfId: Long = 0L,
+public data class Dhcpv6BindElement(
+    public var flags: UInt = 0u,
+    public var fBoundToDHCPServer: Bool = 0,
+    public var adapterPrimaryAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var adapterSubnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var ifDescription: Pwstr = null,
+    public var ipV6IfIndex: UInt = 0u,
+    public var ifIdSize: UInt = 0u,
+    public var ifId: COpaquePointer? = null,
 )
 
-public data class DHCPV6_BIND_ELEMENT_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class Dhcpv6BindElementArray(public var numElements: UInt = 0u, public var elements: Dhcpv6BindElement? = null)
 
-public data class DHCPV6_IP_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class Dhcpv6IpArray(public var numElements: UInt = 0u, public var elements: DhcpIpv6Address? = null)
 
-public data class DHCPV6_STATELESS_PARAMS(public var Status: BOOL = 0, public var PurgeInterval: UInt = 0u)
+public data class Dhcpv6StatelessParams(public var status: Bool = 0, public var purgeInterval: UInt = 0u)
 
-public data class DHCPV6_STATELESS_SCOPE_STATS(
-    public var SubnetAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var NumStatelessClientsAdded: ULong = 0uL,
-    public var NumStatelessClientsRemoved: ULong = 0uL,
+public data class Dhcpv6StatelessScopeStats(
+    public var subnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var numStatelessClientsAdded: ULong = 0uL,
+    public var numStatelessClientsRemoved: ULong = 0uL,
 )
 
-public data class DHCPV6_STATELESS_STATS(public var NumScopes: UInt = 0u, public var ScopeStats: Long = 0L)
+public data class Dhcpv6StatelessStats(public var numScopes: UInt = 0u, public var scopeStats: Dhcpv6StatelessScopeStats? = null)
 
-public data class DHCP_ADDR_PATTERN(
-    public var MatchHWType: BOOL = 0,
-    public var HWType: UByte = 0u,
-    public var IsWildcard: BOOL = 0,
-    public var Length: UByte = 0u,
-    public var Pattern: UByteArray = UByteArray(255),
+public data class DhcpAddrPattern(
+    public var matchHWType: Bool = 0,
+    public var hWType: UByte = 0u,
+    public var isWildcard: Bool = 0,
+    public var length: UByte = 0u,
+    public var pattern: UByteArray = UByteArray(255),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DHCP_ADDR_PATTERN) return false
-        if (this.MatchHWType != other.MatchHWType) return false
-        if (this.HWType != other.HWType) return false
-        if (this.IsWildcard != other.IsWildcard) return false
-        if (this.Length != other.Length) return false
-        if (!this.Pattern.contentEquals(other.Pattern)) return false
+        if (other !is DhcpAddrPattern) return false
+        if (this.matchHWType != other.matchHWType) return false
+        if (this.hWType != other.hWType) return false
+        if (this.isWildcard != other.isWildcard) return false
+        if (this.length != other.length) return false
+        if (!this.pattern.contentEquals(other.pattern)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MatchHWType.hashCode()
-        result = 31 * result + this.HWType.hashCode()
-        result = 31 * result + this.IsWildcard.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Pattern.contentHashCode()
+        var result = this.matchHWType.hashCode()
+        result = 31 * result + this.hWType.hashCode()
+        result = 31 * result + this.isWildcard.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.pattern.contentHashCode()
         return result
     }
 }
 
-public data class DHCP_ALL_OPTIONS(
-    public var Flags: UInt = 0u,
-    public var NonVendorOptions: Long = 0L,
-    public var NumVendorOptions: UInt = 0u,
-    public var VendorOptions: Long = 0L,
+public data class DhcpAllOptions(
+    public var flags: UInt = 0u,
+    public var nonVendorOptions: DhcpOptionArray? = null,
+    public var numVendorOptions: UInt = 0u,
+    public var vendorOptions: DhcpAllOptions0? = null,
 )
 
-public data class DHCP_ALL_OPTIONS_0(
-    public var Option: DHCP_OPTION = DHCP_OPTION(),
-    public var VendorName: PWSTR = 0L,
-    public var ClassName: PWSTR = 0L,
+public data class DhcpAllOptions0(
+    public var option: DhcpOption = DhcpOption(),
+    public var vendorName: Pwstr = null,
+    public var className: Pwstr = null,
 )
 
-public data class DHCP_ALL_OPTION_VALUES(
-    public var Flags: UInt = 0u,
-    public var NumElements: UInt = 0u,
-    public var Options: Long = 0L,
+public data class DhcpAllOptionValues(
+    public var flags: UInt = 0u,
+    public var numElements: UInt = 0u,
+    public var options: DhcpAllOptionValues0? = null,
 )
 
-public data class DHCP_ALL_OPTION_VALUES_0(
-    public var ClassName: PWSTR = 0L,
-    public var VendorName: PWSTR = 0L,
-    public var IsVendor: BOOL = 0,
-    public var OptionsArray: Long = 0L,
+public data class DhcpAllOptionValues0(
+    public var className: Pwstr = null,
+    public var vendorName: Pwstr = null,
+    public var isVendor: Bool = 0,
+    public var optionsArray: DhcpOptionValueArray? = null,
 )
 
-public data class DHCP_ALL_OPTION_VALUES_PB(
-    public var Flags: UInt = 0u,
-    public var NumElements: UInt = 0u,
-    public var Options: Long = 0L,
+public data class DhcpAllOptionValuesPb(
+    public var flags: UInt = 0u,
+    public var numElements: UInt = 0u,
+    public var options: DhcpAllOptionValuesPb0? = null,
 )
 
-public data class DHCP_ALL_OPTION_VALUES_PB_0(
-    public var PolicyName: PWSTR = 0L,
-    public var VendorName: PWSTR = 0L,
-    public var IsVendor: BOOL = 0,
-    public var OptionsArray: Long = 0L,
+public data class DhcpAllOptionValuesPb0(
+    public var policyName: Pwstr = null,
+    public var vendorName: Pwstr = null,
+    public var isVendor: Bool = 0,
+    public var optionsArray: DhcpOptionValueArray? = null,
 )
 
-public data class DHCP_ATTRIB(
-    public var DhcpAttribId: UInt = 0u,
-    public var DhcpAttribType: UInt = 0u,
-    public var Anonymous: DHCP_ATTRIB_0 = DHCP_ATTRIB_0(),
+public data class DhcpAttrib(
+    public var dhcpAttribId: UInt = 0u,
+    public var dhcpAttribType: UInt = 0u,
+    public var anonymous: DhcpAttrib0 = DhcpAttrib0(),
 )
 
-public data class DHCP_ATTRIB_0(public var DhcpAttribBool: BOOL = 0, public var DhcpAttribUlong: UInt = 0u)
+public data class DhcpAttrib0(public var dhcpAttribBool: Bool = 0, public var dhcpAttribUlong: UInt = 0u)
 
-public data class DHCP_ATTRIB_ARRAY(public var NumElements: UInt = 0u, public var DhcpAttribs: Long = 0L)
+public data class DhcpAttribArray(public var numElements: UInt = 0u, public var dhcpAttribs: DhcpAttrib? = null)
 
-public data class DHCP_BINARY_DATA(public var DataLength: UInt = 0u, public var Data: Long = 0L)
+public data class DhcpBinaryData(public var dataLength: UInt = 0u, public var data: COpaquePointer? = null)
 
-public data class DHCP_BIND_ELEMENT(
-    public var Flags: UInt = 0u,
-    public var fBoundToDHCPServer: BOOL = 0,
-    public var AdapterPrimaryAddress: UInt = 0u,
-    public var AdapterSubnetAddress: UInt = 0u,
-    public var IfDescription: PWSTR = 0L,
-    public var IfIdSize: UInt = 0u,
-    public var IfId: Long = 0L,
+public data class DhcpBindElement(
+    public var flags: UInt = 0u,
+    public var fBoundToDHCPServer: Bool = 0,
+    public var adapterPrimaryAddress: UInt = 0u,
+    public var adapterSubnetAddress: UInt = 0u,
+    public var ifDescription: Pwstr = null,
+    public var ifIdSize: UInt = 0u,
+    public var ifId: COpaquePointer? = null,
 )
 
-public data class DHCP_BIND_ELEMENT_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpBindElementArray(public var numElements: UInt = 0u, public var elements: DhcpBindElement? = null)
 
-public data class DHCP_BOOTP_IP_RANGE(
-    public var StartAddress: UInt = 0u,
-    public var EndAddress: UInt = 0u,
-    public var BootpAllocated: UInt = 0u,
-    public var MaxBootpAllowed: UInt = 0u,
+public data class DhcpBootpIpRange(
+    public var startAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+    public var bootpAllocated: UInt = 0u,
+    public var maxBootpAllowed: UInt = 0u,
 )
 
-public data class DHCP_CALLOUT_TABLE(
-    public var DhcpControlHook: LPDHCP_CONTROL = null,
-    public var DhcpNewPktHook: LPDHCP_NEWPKT = null,
-    public var DhcpPktDropHook: LPDHCP_DROP_SEND = null,
-    public var DhcpPktSendHook: LPDHCP_DROP_SEND = null,
-    public var DhcpAddressDelHook: LPDHCP_PROB = null,
-    public var DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS = null,
-    public var DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS = null,
-    public var DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT = null,
-    public var DhcpExtensionHook: Long = 0L,
-    public var DhcpReservedHook: Long = 0L,
+public data class DhcpCalloutTable(
+    public var dhcpControlHook: LpdhcpControl = null,
+    public var dhcpNewPktHook: LpdhcpNewpkt = null,
+    public var dhcpPktDropHook: LpdhcpDropSend = null,
+    public var dhcpPktSendHook: LpdhcpDropSend = null,
+    public var dhcpAddressDelHook: LpdhcpProb = null,
+    public var dhcpAddressOfferHook: LpdhcpGiveAddress = null,
+    public var dhcpHandleOptionsHook: LpdhcpHandleOptions = null,
+    public var dhcpDeleteClientHook: LpdhcpDeleteClient = null,
+    public var dhcpExtensionHook: COpaquePointer? = null,
+    public var dhcpReservedHook: COpaquePointer? = null,
 )
 
-public data class DHCP_CLASS_INFO(
-    public var ClassName: PWSTR = 0L,
-    public var ClassComment: PWSTR = 0L,
-    public var ClassDataLength: UInt = 0u,
-    public var IsVendor: BOOL = 0,
-    public var Flags: UInt = 0u,
-    public var ClassData: Long = 0L,
+public data class DhcpClassInfo(
+    public var className: Pwstr = null,
+    public var classComment: Pwstr = null,
+    public var classDataLength: UInt = 0u,
+    public var isVendor: Bool = 0,
+    public var flags: UInt = 0u,
+    public var classData: COpaquePointer? = null,
 )
 
-public data class DHCP_CLASS_INFO_ARRAY(public var NumElements: UInt = 0u, public var Classes: Long = 0L)
+public data class DhcpClassInfoArray(public var numElements: UInt = 0u, public var classes: DhcpClassInfo? = null)
 
-public data class DHCP_CLASS_INFO_ARRAY_V6(public var NumElements: UInt = 0u, public var Classes: Long = 0L)
+public data class DhcpClassInfoArrayV6(public var numElements: UInt = 0u, public var classes: DhcpClassInfoV6? = null)
 
-public data class DHCP_CLASS_INFO_V6(
-    public var ClassName: PWSTR = 0L,
-    public var ClassComment: PWSTR = 0L,
-    public var ClassDataLength: UInt = 0u,
-    public var IsVendor: BOOL = 0,
-    public var EnterpriseNumber: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var ClassData: Long = 0L,
+public data class DhcpClassInfoV6(
+    public var className: Pwstr = null,
+    public var classComment: Pwstr = null,
+    public var classDataLength: UInt = 0u,
+    public var isVendor: Bool = 0,
+    public var enterpriseNumber: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var classData: COpaquePointer? = null,
 )
 
-public data class DHCP_CLIENT_FILTER_STATUS_INFO(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientFilterStatusInfo(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
-    public var FilterStatus: UInt = 0u,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
+    public var filterStatus: UInt = 0u,
 )
 
-public data class DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientFilterStatusInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfo(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
 )
 
-public data class DHCP_CLIENT_INFO_ARRAY(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_ARRAY_V4(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoArrayV4(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_ARRAY_V5(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoArrayV5(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_ARRAY_V6(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoArrayV6(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_ARRAY_VQ(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoArrayVq(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_EX(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfoEx(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
-    public var FilterStatus: UInt = 0u,
-    public var PolicyName: PWSTR = 0L,
-    public var Properties: Long = 0L,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
+    public var filterStatus: UInt = 0u,
+    public var policyName: Pwstr = null,
+    public var properties: DhcpPropertyArray? = null,
 )
 
-public data class DHCP_CLIENT_INFO_EX_ARRAY(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoExArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_PB(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfoPb(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
-    public var FilterStatus: UInt = 0u,
-    public var PolicyName: PWSTR = 0L,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
+    public var filterStatus: UInt = 0u,
+    public var policyName: Pwstr = null,
 )
 
-public data class DHCP_CLIENT_INFO_PB_ARRAY(public var NumElements: UInt = 0u, public var Clients: Long = 0L)
+public data class DhcpClientInfoPbArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
 
-public data class DHCP_CLIENT_INFO_V4(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfoV4(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
 )
 
-public data class DHCP_CLIENT_INFO_V5(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfoV5(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
+    public var addressState: UByte = 0u,
 )
 
-public data class DHCP_CLIENT_INFO_V6(
-    public var ClientIpAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var ClientDUID: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var AddressType: UInt = 0u,
-    public var IAID: UInt = 0u,
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientValidLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var ClientPrefLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO_V6 = DHCP_HOST_INFO_V6(),
+public data class DhcpClientInfoV6(
+    public var clientIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var clientDUID: DhcpBinaryData = DhcpBinaryData(),
+    public var addressType: UInt = 0u,
+    public var iaid: UInt = 0u,
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientValidLeaseExpires: DateTime = DateTime(),
+    public var clientPrefLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfoV6 = DhcpHostInfoV6(),
 )
 
-public data class DHCP_CLIENT_INFO_VQ(
-    public var ClientIpAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
-    public var ClientComment: PWSTR = 0L,
-    public var ClientLeaseExpires: DATE_TIME = DATE_TIME(),
-    public var OwnerHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
+public data class DhcpClientInfoVq(
+    public var clientIpAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
+    public var clientComment: Pwstr = null,
+    public var clientLeaseExpires: DateTime = DateTime(),
+    public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
     public var bClientType: UByte = 0u,
-    public var AddressState: UByte = 0u,
-    public var Status: QuarantineStatus = 0,
-    public var ProbationEnds: DATE_TIME = DATE_TIME(),
-    public var QuarantineCapable: BOOL = 0,
+    public var addressState: UByte = 0u,
+    public var status: QuarantineStatus = 0,
+    public var probationEnds: DateTime = DateTime(),
+    public var quarantineCapable: Bool = 0,
 )
 
-public data class DHCP_FAILOVER_RELATIONSHIP(
-    public var PrimaryServer: UInt = 0u,
-    public var SecondaryServer: UInt = 0u,
-    public var Mode: DHCP_FAILOVER_MODE = 0,
-    public var ServerType: DHCP_FAILOVER_SERVER = 0,
-    public var State: FSM_STATE = 0,
-    public var PrevState: FSM_STATE = 0,
-    public var Mclt: UInt = 0u,
-    public var SafePeriod: UInt = 0u,
-    public var RelationshipName: PWSTR = 0L,
-    public var PrimaryServerName: PWSTR = 0L,
-    public var SecondaryServerName: PWSTR = 0L,
-    public var pScopes: Long = 0L,
-    public var Percentage: UByte = 0u,
-    public var SharedSecret: PWSTR = 0L,
+public data class DhcpFailoverRelationship(
+    public var primaryServer: UInt = 0u,
+    public var secondaryServer: UInt = 0u,
+    public var mode: DhcpFailoverMode = 0,
+    public var serverType: DhcpFailoverServer = 0,
+    public var state: FsmState = 0,
+    public var prevState: FsmState = 0,
+    public var mclt: UInt = 0u,
+    public var safePeriod: UInt = 0u,
+    public var relationshipName: Pwstr = null,
+    public var primaryServerName: Pwstr = null,
+    public var secondaryServerName: Pwstr = null,
+    public var pScopes: DhcpIpArray? = null,
+    public var percentage: UByte = 0u,
+    public var sharedSecret: Pwstr = null,
 )
 
-public data class DHCP_FAILOVER_RELATIONSHIP_ARRAY(public var NumElements: UInt = 0u, public var pRelationships: Long = 0L)
+public data class DhcpFailoverRelationshipArray(public var numElements: UInt = 0u, public var pRelationships: DhcpFailoverRelationship? = null)
 
-public data class DHCP_FAILOVER_STATISTICS(
-    public var NumAddr: UInt = 0u,
-    public var AddrFree: UInt = 0u,
-    public var AddrInUse: UInt = 0u,
-    public var PartnerAddrFree: UInt = 0u,
-    public var ThisAddrFree: UInt = 0u,
-    public var PartnerAddrInUse: UInt = 0u,
-    public var ThisAddrInUse: UInt = 0u,
+public data class DhcpFailoverStatistics(
+    public var numAddr: UInt = 0u,
+    public var addrFree: UInt = 0u,
+    public var addrInUse: UInt = 0u,
+    public var partnerAddrFree: UInt = 0u,
+    public var thisAddrFree: UInt = 0u,
+    public var partnerAddrInUse: UInt = 0u,
+    public var thisAddrInUse: UInt = 0u,
 )
 
-public data class DHCP_FILTER_ADD_INFO(
-    public var AddrPatt: DHCP_ADDR_PATTERN = DHCP_ADDR_PATTERN(),
-    public var Comment: PWSTR = 0L,
-    public var ListType: DHCP_FILTER_LIST_TYPE = 0,
+public data class DhcpFilterAddInfo(
+    public var addrPatt: DhcpAddrPattern = DhcpAddrPattern(),
+    public var comment: Pwstr = null,
+    public var listType: DhcpFilterListType = 0,
 )
 
-public data class DHCP_FILTER_ENUM_INFO(public var NumElements: UInt = 0u, public var pEnumRecords: Long = 0L)
+public data class DhcpFilterEnumInfo(public var numElements: UInt = 0u, public var pEnumRecords: DhcpFilterRecord? = null)
 
-public data class DHCP_FILTER_GLOBAL_INFO(public var EnforceAllowList: BOOL = 0, public var EnforceDenyList: BOOL = 0)
+public data class DhcpFilterGlobalInfo(public var enforceAllowList: Bool = 0, public var enforceDenyList: Bool = 0)
 
-public data class DHCP_FILTER_RECORD(public var AddrPatt: DHCP_ADDR_PATTERN = DHCP_ADDR_PATTERN(), public var Comment: PWSTR = 0L)
+public data class DhcpFilterRecord(public var addrPatt: DhcpAddrPattern = DhcpAddrPattern(), public var comment: Pwstr = null)
 
-public data class DHCP_HOST_INFO(
-    public var IpAddress: UInt = 0u,
-    public var NetBiosName: PWSTR = 0L,
-    public var HostName: PWSTR = 0L,
+public data class DhcpHostInfo(
+    public var ipAddress: UInt = 0u,
+    public var netBiosName: Pwstr = null,
+    public var hostName: Pwstr = null,
 )
 
-public data class DHCP_HOST_INFO_V6(
-    public var IpAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var NetBiosName: PWSTR = 0L,
-    public var HostName: PWSTR = 0L,
+public data class DhcpHostInfoV6(
+    public var ipAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var netBiosName: Pwstr = null,
+    public var hostName: Pwstr = null,
 )
 
-public data class DHCP_IPV6_ADDRESS(public var HighOrderBits: ULong = 0uL, public var LowOrderBits: ULong = 0uL)
+public data class DhcpIpv6Address(public var highOrderBits: ULong = 0uL, public var lowOrderBits: ULong = 0uL)
 
-public data class DHCP_IP_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpIpArray(public var numElements: UInt = 0u, public var elements: UInt? = null)
 
-public data class DHCP_IP_CLUSTER(public var ClusterAddress: UInt = 0u, public var ClusterMask: UInt = 0u)
+public data class DhcpIpCluster(public var clusterAddress: UInt = 0u, public var clusterMask: UInt = 0u)
 
-public data class DHCP_IP_RANGE(public var StartAddress: UInt = 0u, public var EndAddress: UInt = 0u)
+public data class DhcpIpRange(public var startAddress: UInt = 0u, public var endAddress: UInt = 0u)
 
-public data class DHCP_IP_RANGE_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpIpRangeArray(public var numElements: UInt = 0u, public var elements: DhcpIpRange? = null)
 
-public data class DHCP_IP_RANGE_V6(public var StartAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(), public var EndAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS())
+public data class DhcpIpRangeV6(public var startAddress: DhcpIpv6Address = DhcpIpv6Address(), public var endAddress: DhcpIpv6Address = DhcpIpv6Address())
 
-public data class DHCP_IP_RESERVATION(public var ReservedIpAddress: UInt = 0u, public var ReservedForClient: Long = 0L)
+public data class DhcpIpReservation(public var reservedIpAddress: UInt = 0u, public var reservedForClient: DhcpBinaryData? = null)
 
-public data class DHCP_IP_RESERVATION_INFO(
-    public var ReservedIpAddress: UInt = 0u,
-    public var ReservedForClient: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ReservedClientName: PWSTR = 0L,
-    public var ReservedClientDesc: PWSTR = 0L,
+public data class DhcpIpReservationInfo(
+    public var reservedIpAddress: UInt = 0u,
+    public var reservedForClient: DhcpBinaryData = DhcpBinaryData(),
+    public var reservedClientName: Pwstr = null,
+    public var reservedClientDesc: Pwstr = null,
     public var bAllowedClientTypes: UByte = 0u,
     public var fOptionsPresent: UByte = 0u,
 )
 
-public data class DHCP_IP_RESERVATION_V4(
-    public var ReservedIpAddress: UInt = 0u,
-    public var ReservedForClient: Long = 0L,
+public data class DhcpIpReservationV4(
+    public var reservedIpAddress: UInt = 0u,
+    public var reservedForClient: DhcpBinaryData? = null,
     public var bAllowedClientTypes: UByte = 0u,
 )
 
-public data class DHCP_IP_RESERVATION_V6(
-    public var ReservedIpAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var ReservedForClient: Long = 0L,
-    public var InterfaceId: UInt = 0u,
+public data class DhcpIpReservationV6(
+    public var reservedIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var reservedForClient: DhcpBinaryData? = null,
+    public var interfaceId: UInt = 0u,
 )
 
-public data class DHCP_MIB_INFO(
-    public var Discovers: UInt = 0u,
-    public var Offers: UInt = 0u,
-    public var Requests: UInt = 0u,
-    public var Acks: UInt = 0u,
-    public var Naks: UInt = 0u,
-    public var Declines: UInt = 0u,
-    public var Releases: UInt = 0u,
-    public var ServerStartTime: DATE_TIME = DATE_TIME(),
-    public var Scopes: UInt = 0u,
-    public var ScopeInfo: Long = 0L,
+public data class DhcpMibInfo(
+    public var discovers: UInt = 0u,
+    public var offers: UInt = 0u,
+    public var requests: UInt = 0u,
+    public var acks: UInt = 0u,
+    public var naks: UInt = 0u,
+    public var declines: UInt = 0u,
+    public var releases: UInt = 0u,
+    public var serverStartTime: DateTime = DateTime(),
+    public var scopes: UInt = 0u,
+    public var scopeInfo: ScopeMibInfo? = null,
 )
 
-public class DHCP_MIB_INFO_V5(
-    public var Discovers: UInt = 0u,
-    public var Offers: UInt = 0u,
-    public var Requests: UInt = 0u,
-    public var Acks: UInt = 0u,
-    public var Naks: UInt = 0u,
-    public var Declines: UInt = 0u,
-    public var Releases: UInt = 0u,
-    public var ServerStartTime: DATE_TIME = DATE_TIME(),
-    public var QtnNumLeases: UInt = 0u,
-    public var QtnPctQtnLeases: UInt = 0u,
-    public var QtnProbationLeases: UInt = 0u,
-    public var QtnNonQtnLeases: UInt = 0u,
-    public var QtnExemptLeases: UInt = 0u,
-    public var QtnCapableClients: UInt = 0u,
-    public var QtnIASErrors: UInt = 0u,
-    public var DelayedOffers: UInt = 0u,
-    public var ScopesWithDelayedOffers: UInt = 0u,
-    public var Scopes: UInt = 0u,
-    public var ScopeInfo: Long = 0L,
+public class DhcpMibInfoV5(
+    public var discovers: UInt = 0u,
+    public var offers: UInt = 0u,
+    public var requests: UInt = 0u,
+    public var acks: UInt = 0u,
+    public var naks: UInt = 0u,
+    public var declines: UInt = 0u,
+    public var releases: UInt = 0u,
+    public var serverStartTime: DateTime = DateTime(),
+    public var qtnNumLeases: UInt = 0u,
+    public var qtnPctQtnLeases: UInt = 0u,
+    public var qtnProbationLeases: UInt = 0u,
+    public var qtnNonQtnLeases: UInt = 0u,
+    public var qtnExemptLeases: UInt = 0u,
+    public var qtnCapableClients: UInt = 0u,
+    public var qtnIASErrors: UInt = 0u,
+    public var delayedOffers: UInt = 0u,
+    public var scopesWithDelayedOffers: UInt = 0u,
+    public var scopes: UInt = 0u,
+    public var scopeInfo: ScopeMibInfoV5? = null,
 )
 
-public data class DHCP_MIB_INFO_V6(
-    public var Solicits: UInt = 0u,
-    public var Advertises: UInt = 0u,
-    public var Requests: UInt = 0u,
-    public var Renews: UInt = 0u,
-    public var Rebinds: UInt = 0u,
-    public var Replies: UInt = 0u,
-    public var Confirms: UInt = 0u,
-    public var Declines: UInt = 0u,
-    public var Releases: UInt = 0u,
-    public var Informs: UInt = 0u,
-    public var ServerStartTime: DATE_TIME = DATE_TIME(),
-    public var Scopes: UInt = 0u,
-    public var ScopeInfo: Long = 0L,
+public data class DhcpMibInfoV6(
+    public var solicits: UInt = 0u,
+    public var advertises: UInt = 0u,
+    public var requests: UInt = 0u,
+    public var renews: UInt = 0u,
+    public var rebinds: UInt = 0u,
+    public var replies: UInt = 0u,
+    public var confirms: UInt = 0u,
+    public var declines: UInt = 0u,
+    public var releases: UInt = 0u,
+    public var informs: UInt = 0u,
+    public var serverStartTime: DateTime = DateTime(),
+    public var scopes: UInt = 0u,
+    public var scopeInfo: ScopeMibInfoV6? = null,
 )
 
-public class DHCP_MIB_INFO_VQ(
-    public var Discovers: UInt = 0u,
-    public var Offers: UInt = 0u,
-    public var Requests: UInt = 0u,
-    public var Acks: UInt = 0u,
-    public var Naks: UInt = 0u,
-    public var Declines: UInt = 0u,
-    public var Releases: UInt = 0u,
-    public var ServerStartTime: DATE_TIME = DATE_TIME(),
-    public var QtnNumLeases: UInt = 0u,
-    public var QtnPctQtnLeases: UInt = 0u,
-    public var QtnProbationLeases: UInt = 0u,
-    public var QtnNonQtnLeases: UInt = 0u,
-    public var QtnExemptLeases: UInt = 0u,
-    public var QtnCapableClients: UInt = 0u,
-    public var QtnIASErrors: UInt = 0u,
-    public var Scopes: UInt = 0u,
-    public var ScopeInfo: Long = 0L,
+public class DhcpMibInfoVq(
+    public var discovers: UInt = 0u,
+    public var offers: UInt = 0u,
+    public var requests: UInt = 0u,
+    public var acks: UInt = 0u,
+    public var naks: UInt = 0u,
+    public var declines: UInt = 0u,
+    public var releases: UInt = 0u,
+    public var serverStartTime: DateTime = DateTime(),
+    public var qtnNumLeases: UInt = 0u,
+    public var qtnPctQtnLeases: UInt = 0u,
+    public var qtnProbationLeases: UInt = 0u,
+    public var qtnNonQtnLeases: UInt = 0u,
+    public var qtnExemptLeases: UInt = 0u,
+    public var qtnCapableClients: UInt = 0u,
+    public var qtnIASErrors: UInt = 0u,
+    public var scopes: UInt = 0u,
+    public var scopeInfo: ScopeMibInfoVq? = null,
 )
 
-public data class DHCP_OPTION(
-    public var OptionID: UInt = 0u,
-    public var OptionName: PWSTR = 0L,
-    public var OptionComment: PWSTR = 0L,
-    public var DefaultValue: DHCP_OPTION_DATA = DHCP_OPTION_DATA(),
-    public var OptionType: DHCP_OPTION_TYPE = 0,
+public data class DhcpOption(
+    public var optionID: UInt = 0u,
+    public var optionName: Pwstr = null,
+    public var optionComment: Pwstr = null,
+    public var defaultValue: DhcpOptionData = DhcpOptionData(),
+    public var optionType: DhcpOptionType = 0,
 )
 
-public data class DHCP_OPTION_ARRAY(public var NumElements: UInt = 0u, public var Options: Long = 0L)
+public data class DhcpOptionArray(public var numElements: UInt = 0u, public var options: DhcpOption? = null)
 
-public data class DHCP_OPTION_DATA(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpOptionData(public var numElements: UInt = 0u, public var elements: DhcpOptionDataElement? = null)
 
-public data class DHCP_OPTION_DATA_ELEMENT(public var OptionType: DHCP_OPTION_DATA_TYPE = 0, public var Element: DHCP_OPTION_DATA_ELEMENT_0 = DHCP_OPTION_DATA_ELEMENT_0())
+public data class DhcpOptionDataElement(public var optionType: DhcpOptionDataType = 0, public var element: DhcpOptionDataElement0 = DhcpOptionDataElement0())
 
-public data class DHCP_OPTION_DATA_ELEMENT_0(
-    public var ByteOption: UByte = 0u,
-    public var WordOption: UShort = 0u,
-    public var DWordOption: UInt = 0u,
-    public var DWordDWordOption: DWORD_DWORD = DWORD_DWORD(),
-    public var IpAddressOption: UInt = 0u,
-    public var StringDataOption: PWSTR = 0L,
-    public var BinaryDataOption: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var EncapsulatedDataOption: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var Ipv6AddressDataOption: PWSTR = 0L,
+public data class DhcpOptionDataElement0(
+    public var byteOption: UByte = 0u,
+    public var wordOption: UShort = 0u,
+    public var dWordOption: UInt = 0u,
+    public var dWordDWordOption: DwordDword = DwordDword(),
+    public var ipAddressOption: UInt = 0u,
+    public var stringDataOption: Pwstr = null,
+    public var binaryDataOption: DhcpBinaryData = DhcpBinaryData(),
+    public var encapsulatedDataOption: DhcpBinaryData = DhcpBinaryData(),
+    public var ipv6AddressDataOption: Pwstr = null,
 )
 
-public data class DHCP_OPTION_LIST(public var NumOptions: UInt = 0u, public var Options: Long = 0L)
+public data class DhcpOptionList(public var numOptions: UInt = 0u, public var options: DhcpOptionValue? = null)
 
-public data class DHCP_OPTION_SCOPE_INFO(public var ScopeType: DHCP_OPTION_SCOPE_TYPE = 0, public var ScopeInfo: DHCP_OPTION_SCOPE_INFO_0 = DHCP_OPTION_SCOPE_INFO_0())
+public data class DhcpOptionScopeInfo(public var scopeType: DhcpOptionScopeType = 0, public var scopeInfo: DhcpOptionScopeInfo0 = DhcpOptionScopeInfo0())
 
-public data class DHCP_OPTION_SCOPE_INFO_0(
-    public var DefaultScopeInfo: Long = 0L,
-    public var GlobalScopeInfo: Long = 0L,
-    public var SubnetScopeInfo: UInt = 0u,
-    public var ReservedScopeInfo: DHCP_RESERVED_SCOPE = DHCP_RESERVED_SCOPE(),
-    public var MScopeInfo: PWSTR = 0L,
+public data class DhcpOptionScopeInfo0(
+    public var defaultScopeInfo: COpaquePointer? = null,
+    public var globalScopeInfo: COpaquePointer? = null,
+    public var subnetScopeInfo: UInt = 0u,
+    public var reservedScopeInfo: DhcpReservedScope = DhcpReservedScope(),
+    public var mScopeInfo: Pwstr = null,
 )
 
-public data class DHCP_OPTION_SCOPE_INFO6(public var ScopeType: DHCP_OPTION_SCOPE_TYPE6 = 0, public var ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0 = DHCP_OPTION_SCOPE_INFO6_0())
+public data class DhcpOptionScopeInfo6(public var scopeType: DhcpOptionScopeType6 = 0, public var scopeInfo: DhcpOptionScopeInfo60 = DhcpOptionScopeInfo60())
 
-public data class DHCP_OPTION_SCOPE_INFO6_0(
-    public var DefaultScopeInfo: Long = 0L,
-    public var SubnetScopeInfo: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var ReservedScopeInfo: DHCP_RESERVED_SCOPE6 = DHCP_RESERVED_SCOPE6(),
+public data class DhcpOptionScopeInfo60(
+    public var defaultScopeInfo: COpaquePointer? = null,
+    public var subnetScopeInfo: DhcpIpv6Address = DhcpIpv6Address(),
+    public var reservedScopeInfo: DhcpReservedScope6 = DhcpReservedScope6(),
 )
 
-public data class DHCP_OPTION_VALUE(public var OptionID: UInt = 0u, public var Value: DHCP_OPTION_DATA = DHCP_OPTION_DATA())
+public data class DhcpOptionValue(public var optionID: UInt = 0u, public var value: DhcpOptionData = DhcpOptionData())
 
-public data class DHCP_OPTION_VALUE_ARRAY(public var NumElements: UInt = 0u, public var Values: Long = 0L)
+public data class DhcpOptionValueArray(public var numElements: UInt = 0u, public var values: DhcpOptionValue? = null)
 
-public class DHCP_PERF_STATS(
+public class DhcpPerfStats(
     public var dwNumPacketsReceived: UInt = 0u,
     public var dwNumPacketsDuplicate: UInt = 0u,
     public var dwNumPacketsExpired: UInt = 0u,
@@ -664,303 +665,303 @@ public class DHCP_PERF_STATS(
     public var dwNumPacketsInQuarDecisionQueue: UInt = 0u,
 )
 
-public data class DHCP_POLICY(
-    public var PolicyName: PWSTR = 0L,
-    public var IsGlobalPolicy: BOOL = 0,
-    public var Subnet: UInt = 0u,
-    public var ProcessingOrder: UInt = 0u,
-    public var Conditions: Long = 0L,
-    public var Expressions: Long = 0L,
-    public var Ranges: Long = 0L,
-    public var Description: PWSTR = 0L,
-    public var Enabled: BOOL = 0,
+public data class DhcpPolicy(
+    public var policyName: Pwstr = null,
+    public var isGlobalPolicy: Bool = 0,
+    public var subnet: UInt = 0u,
+    public var processingOrder: UInt = 0u,
+    public var conditions: DhcpPolCondArray? = null,
+    public var expressions: DhcpPolExprArray? = null,
+    public var ranges: DhcpIpRangeArray? = null,
+    public var description: Pwstr = null,
+    public var enabled: Bool = 0,
 )
 
-public data class DHCP_POLICY_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpPolicyArray(public var numElements: UInt = 0u, public var elements: DhcpPolicy? = null)
 
-public data class DHCP_POLICY_EX(
-    public var PolicyName: PWSTR = 0L,
-    public var IsGlobalPolicy: BOOL = 0,
-    public var Subnet: UInt = 0u,
-    public var ProcessingOrder: UInt = 0u,
-    public var Conditions: Long = 0L,
-    public var Expressions: Long = 0L,
-    public var Ranges: Long = 0L,
-    public var Description: PWSTR = 0L,
-    public var Enabled: BOOL = 0,
-    public var Properties: Long = 0L,
+public data class DhcpPolicyEx(
+    public var policyName: Pwstr = null,
+    public var isGlobalPolicy: Bool = 0,
+    public var subnet: UInt = 0u,
+    public var processingOrder: UInt = 0u,
+    public var conditions: DhcpPolCondArray? = null,
+    public var expressions: DhcpPolExprArray? = null,
+    public var ranges: DhcpIpRangeArray? = null,
+    public var description: Pwstr = null,
+    public var enabled: Bool = 0,
+    public var properties: DhcpPropertyArray? = null,
 )
 
-public data class DHCP_POLICY_EX_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpPolicyExArray(public var numElements: UInt = 0u, public var elements: DhcpPolicyEx? = null)
 
-public data class DHCP_POL_COND(
-    public var ParentExpr: UInt = 0u,
-    public var Type: DHCP_POL_ATTR_TYPE = 0,
-    public var OptionID: UInt = 0u,
-    public var SubOptionID: UInt = 0u,
-    public var VendorName: PWSTR = 0L,
-    public var Operator: DHCP_POL_COMPARATOR = 0,
-    public var Value: Long = 0L,
-    public var ValueLength: UInt = 0u,
+public data class DhcpPolCond(
+    public var parentExpr: UInt = 0u,
+    public var type: DhcpPolAttrType = 0,
+    public var optionID: UInt = 0u,
+    public var subOptionID: UInt = 0u,
+    public var vendorName: Pwstr = null,
+    public var operator: DhcpPolComparator = 0,
+    public var value: COpaquePointer? = null,
+    public var valueLength: UInt = 0u,
 )
 
-public data class DHCP_POL_COND_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpPolCondArray(public var numElements: UInt = 0u, public var elements: DhcpPolCond? = null)
 
-public data class DHCP_POL_EXPR(public var ParentExpr: UInt = 0u, public var Operator: DHCP_POL_LOGIC_OPER = 0)
+public data class DhcpPolExpr(public var parentExpr: UInt = 0u, public var operator: DhcpPolLogicOper = 0)
 
-public data class DHCP_POL_EXPR_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpPolExprArray(public var numElements: UInt = 0u, public var elements: DhcpPolExpr? = null)
 
-public data class DHCP_PROPERTY(
-    public var ID: DHCP_PROPERTY_ID = 0,
-    public var Type: DHCP_PROPERTY_TYPE = 0,
-    public var Value: DHCP_PROPERTY_0 = DHCP_PROPERTY_0(),
+public data class DhcpProperty(
+    public var id: DhcpPropertyId = 0,
+    public var type: DhcpPropertyType = 0,
+    public var value: DhcpProperty0 = DhcpProperty0(),
 )
 
-public data class DHCP_PROPERTY_0(
-    public var ByteValue: UByte = 0u,
-    public var WordValue: UShort = 0u,
-    public var DWordValue: UInt = 0u,
-    public var StringValue: PWSTR = 0L,
-    public var BinaryValue: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
+public data class DhcpProperty0(
+    public var byteValue: UByte = 0u,
+    public var wordValue: UShort = 0u,
+    public var dWordValue: UInt = 0u,
+    public var stringValue: Pwstr = null,
+    public var binaryValue: DhcpBinaryData = DhcpBinaryData(),
 )
 
-public data class DHCP_PROPERTY_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpPropertyArray(public var numElements: UInt = 0u, public var elements: DhcpProperty? = null)
 
-public data class DHCP_RESERVATION_INFO_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpReservationInfoArray(public var numElements: UInt = 0u, public var elements: COpaquePointer? = null)
 
-public data class DHCP_RESERVED_SCOPE(public var ReservedIpAddress: UInt = 0u, public var ReservedIpSubnetAddress: UInt = 0u)
+public data class DhcpReservedScope(public var reservedIpAddress: UInt = 0u, public var reservedIpSubnetAddress: UInt = 0u)
 
-public data class DHCP_RESERVED_SCOPE6(public var ReservedIpAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(), public var ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS())
+public data class DhcpReservedScope6(public var reservedIpAddress: DhcpIpv6Address = DhcpIpv6Address(), public var reservedIpSubnetAddress: DhcpIpv6Address = DhcpIpv6Address())
 
-public data class DHCP_SCAN_ITEM(public var IpAddress: UInt = 0u, public var ScanFlag: DHCP_SCAN_FLAG = 0)
+public data class DhcpScanItem(public var ipAddress: UInt = 0u, public var scanFlag: DhcpScanFlag = 0)
 
-public data class DHCP_SCAN_LIST(public var NumScanItems: UInt = 0u, public var ScanItems: Long = 0L)
+public data class DhcpScanList(public var numScanItems: UInt = 0u, public var scanItems: DhcpScanItem? = null)
 
-public data class DHCP_SEARCH_INFO(public var SearchType: DHCP_SEARCH_INFO_TYPE = 0, public var SearchInfo: DHCP_SEARCH_INFO_0 = DHCP_SEARCH_INFO_0())
+public data class DhcpSearchInfo(public var searchType: DhcpSearchInfoType = 0, public var searchInfo: DhcpSearchInfo0 = DhcpSearchInfo0())
 
-public data class DHCP_SEARCH_INFO_0(
-    public var ClientIpAddress: UInt = 0u,
-    public var ClientHardwareAddress: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
+public data class DhcpSearchInfo0(
+    public var clientIpAddress: UInt = 0u,
+    public var clientHardwareAddress: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
 )
 
-public data class DHCP_SEARCH_INFO_V6(public var SearchType: DHCP_SEARCH_INFO_TYPE_V6 = 0, public var SearchInfo: DHCP_SEARCH_INFO_V6_0 = DHCP_SEARCH_INFO_V6_0())
+public data class DhcpSearchInfoV6(public var searchType: DhcpSearchInfoTypeV6 = 0, public var searchInfo: DhcpSearchInfoV60 = DhcpSearchInfoV60())
 
-public data class DHCP_SEARCH_INFO_V6_0(
-    public var ClientIpAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var ClientDUID: DHCP_BINARY_DATA = DHCP_BINARY_DATA(),
-    public var ClientName: PWSTR = 0L,
+public data class DhcpSearchInfoV60(
+    public var clientIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var clientDUID: DhcpBinaryData = DhcpBinaryData(),
+    public var clientName: Pwstr = null,
 )
 
-public data class DHCP_SERVER_CONFIG_INFO(
-    public var APIProtocolSupport: UInt = 0u,
-    public var DatabaseName: PWSTR = 0L,
-    public var DatabasePath: PWSTR = 0L,
-    public var BackupPath: PWSTR = 0L,
-    public var BackupInterval: UInt = 0u,
-    public var DatabaseLoggingFlag: UInt = 0u,
-    public var RestoreFlag: UInt = 0u,
-    public var DatabaseCleanupInterval: UInt = 0u,
-    public var DebugFlag: UInt = 0u,
+public data class DhcpServerConfigInfo(
+    public var aPIProtocolSupport: UInt = 0u,
+    public var databaseName: Pwstr = null,
+    public var databasePath: Pwstr = null,
+    public var backupPath: Pwstr = null,
+    public var backupInterval: UInt = 0u,
+    public var databaseLoggingFlag: UInt = 0u,
+    public var restoreFlag: UInt = 0u,
+    public var databaseCleanupInterval: UInt = 0u,
+    public var debugFlag: UInt = 0u,
 )
 
-public data class DHCP_SERVER_CONFIG_INFO_V4(
-    public var APIProtocolSupport: UInt = 0u,
-    public var DatabaseName: PWSTR = 0L,
-    public var DatabasePath: PWSTR = 0L,
-    public var BackupPath: PWSTR = 0L,
-    public var BackupInterval: UInt = 0u,
-    public var DatabaseLoggingFlag: UInt = 0u,
-    public var RestoreFlag: UInt = 0u,
-    public var DatabaseCleanupInterval: UInt = 0u,
-    public var DebugFlag: UInt = 0u,
+public data class DhcpServerConfigInfoV4(
+    public var aPIProtocolSupport: UInt = 0u,
+    public var databaseName: Pwstr = null,
+    public var databasePath: Pwstr = null,
+    public var backupPath: Pwstr = null,
+    public var backupInterval: UInt = 0u,
+    public var databaseLoggingFlag: UInt = 0u,
+    public var restoreFlag: UInt = 0u,
+    public var databaseCleanupInterval: UInt = 0u,
+    public var debugFlag: UInt = 0u,
     public var dwPingRetries: UInt = 0u,
     public var cbBootTableString: UInt = 0u,
-    public var wszBootTableString: PWSTR = 0L,
-    public var fAuditLog: BOOL = 0,
+    public var wszBootTableString: Pwstr = null,
+    public var fAuditLog: Bool = 0,
 )
 
-public data class DHCP_SERVER_CONFIG_INFO_V6(
-    public var UnicastFlag: BOOL = 0,
-    public var RapidCommitFlag: BOOL = 0,
-    public var PreferredLifetime: UInt = 0u,
-    public var ValidLifetime: UInt = 0u,
-    public var T1: UInt = 0u,
-    public var T2: UInt = 0u,
-    public var PreferredLifetimeIATA: UInt = 0u,
-    public var ValidLifetimeIATA: UInt = 0u,
-    public var fAuditLog: BOOL = 0,
+public data class DhcpServerConfigInfoV6(
+    public var unicastFlag: Bool = 0,
+    public var rapidCommitFlag: Bool = 0,
+    public var preferredLifetime: UInt = 0u,
+    public var validLifetime: UInt = 0u,
+    public var t1: UInt = 0u,
+    public var t2: UInt = 0u,
+    public var preferredLifetimeIATA: UInt = 0u,
+    public var validLifetimeIATA: UInt = 0u,
+    public var fAuditLog: Bool = 0,
 )
 
-public data class DHCP_SERVER_CONFIG_INFO_VQ(
-    public var APIProtocolSupport: UInt = 0u,
-    public var DatabaseName: PWSTR = 0L,
-    public var DatabasePath: PWSTR = 0L,
-    public var BackupPath: PWSTR = 0L,
-    public var BackupInterval: UInt = 0u,
-    public var DatabaseLoggingFlag: UInt = 0u,
-    public var RestoreFlag: UInt = 0u,
-    public var DatabaseCleanupInterval: UInt = 0u,
-    public var DebugFlag: UInt = 0u,
+public data class DhcpServerConfigInfoVq(
+    public var aPIProtocolSupport: UInt = 0u,
+    public var databaseName: Pwstr = null,
+    public var databasePath: Pwstr = null,
+    public var backupPath: Pwstr = null,
+    public var backupInterval: UInt = 0u,
+    public var databaseLoggingFlag: UInt = 0u,
+    public var restoreFlag: UInt = 0u,
+    public var databaseCleanupInterval: UInt = 0u,
+    public var debugFlag: UInt = 0u,
     public var dwPingRetries: UInt = 0u,
     public var cbBootTableString: UInt = 0u,
-    public var wszBootTableString: PWSTR = 0L,
-    public var fAuditLog: BOOL = 0,
-    public var QuarantineOn: BOOL = 0,
-    public var QuarDefFail: UInt = 0u,
-    public var QuarRuntimeStatus: BOOL = 0,
+    public var wszBootTableString: Pwstr = null,
+    public var fAuditLog: Bool = 0,
+    public var quarantineOn: Bool = 0,
+    public var quarDefFail: UInt = 0u,
+    public var quarRuntimeStatus: Bool = 0,
 )
 
-public class DHCP_SERVER_OPTIONS(
-    public var MessageType: Long = 0L,
-    public var SubnetMask: Long = 0L,
-    public var RequestedAddress: Long = 0L,
-    public var RequestLeaseTime: Long = 0L,
-    public var OverlayFields: Long = 0L,
-    public var RouterAddress: Long = 0L,
-    public var Server: Long = 0L,
-    public var ParameterRequestList: Long = 0L,
-    public var ParameterRequestListLength: UInt = 0u,
-    public var MachineName: PSTR = 0L,
-    public var MachineNameLength: UInt = 0u,
-    public var ClientHardwareAddressType: UByte = 0u,
-    public var ClientHardwareAddressLength: UByte = 0u,
-    public var ClientHardwareAddress: Long = 0L,
-    public var ClassIdentifier: PSTR = 0L,
-    public var ClassIdentifierLength: UInt = 0u,
-    public var VendorClass: Long = 0L,
-    public var VendorClassLength: UInt = 0u,
-    public var DNSFlags: UInt = 0u,
-    public var DNSNameLength: UInt = 0u,
-    public var DNSName: Long = 0L,
-    public var DSDomainNameRequested: Boolean = false,
-    public var DSDomainName: PSTR = 0L,
-    public var DSDomainNameLen: UInt = 0u,
-    public var ScopeId: Long = 0L,
+public class DhcpServerOptions(
+    public var messageType: COpaquePointer? = null,
+    public var subnetMask: UInt? = null,
+    public var requestedAddress: UInt? = null,
+    public var requestLeaseTime: UInt? = null,
+    public var overlayFields: COpaquePointer? = null,
+    public var routerAddress: UInt? = null,
+    public var server: UInt? = null,
+    public var parameterRequestList: COpaquePointer? = null,
+    public var parameterRequestListLength: UInt = 0u,
+    public var machineName: Pstr = null,
+    public var machineNameLength: UInt = 0u,
+    public var clientHardwareAddressType: UByte = 0u,
+    public var clientHardwareAddressLength: UByte = 0u,
+    public var clientHardwareAddress: COpaquePointer? = null,
+    public var classIdentifier: Pstr = null,
+    public var classIdentifierLength: UInt = 0u,
+    public var vendorClass: COpaquePointer? = null,
+    public var vendorClassLength: UInt = 0u,
+    public var dNSFlags: UInt = 0u,
+    public var dNSNameLength: UInt = 0u,
+    public var dNSName: COpaquePointer? = null,
+    public var dSDomainNameRequested: Boolean = false,
+    public var dSDomainName: Pstr = null,
+    public var dSDomainNameLen: UInt = 0u,
+    public var scopeId: UInt? = null,
 )
 
-public data class DHCP_SERVER_SPECIFIC_STRINGS(public var DefaultVendorClassName: PWSTR = 0L, public var DefaultUserClassName: PWSTR = 0L)
+public data class DhcpServerSpecificStrings(public var defaultVendorClassName: Pwstr = null, public var defaultUserClassName: Pwstr = null)
 
-public data class DHCP_SUBNET_ELEMENT_DATA(public var ElementType: DHCP_SUBNET_ELEMENT_TYPE = 0, public var Element: DHCP_SUBNET_ELEMENT_DATA_0 = DHCP_SUBNET_ELEMENT_DATA_0())
+public data class DhcpSubnetElementData(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementData0 = DhcpSubnetElementData0())
 
-public data class DHCP_SUBNET_ELEMENT_DATA_0(
-    public var IpRange: Long = 0L,
-    public var SecondaryHost: Long = 0L,
-    public var ReservedIp: Long = 0L,
-    public var ExcludeIpRange: Long = 0L,
-    public var IpUsedCluster: Long = 0L,
+public data class DhcpSubnetElementData0(
+    public var ipRange: DhcpIpRange? = null,
+    public var secondaryHost: DhcpHostInfo? = null,
+    public var reservedIp: DhcpIpReservation? = null,
+    public var excludeIpRange: DhcpIpRange? = null,
+    public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V4(public var ElementType: DHCP_SUBNET_ELEMENT_TYPE = 0, public var Element: DHCP_SUBNET_ELEMENT_DATA_V4_0 = DHCP_SUBNET_ELEMENT_DATA_V4_0())
+public data class DhcpSubnetElementDataV4(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementDataV40 = DhcpSubnetElementDataV40())
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V4_0(
-    public var IpRange: Long = 0L,
-    public var SecondaryHost: Long = 0L,
-    public var ReservedIp: Long = 0L,
-    public var ExcludeIpRange: Long = 0L,
-    public var IpUsedCluster: Long = 0L,
+public data class DhcpSubnetElementDataV40(
+    public var ipRange: DhcpIpRange? = null,
+    public var secondaryHost: DhcpHostInfo? = null,
+    public var reservedIp: DhcpIpReservationV4? = null,
+    public var excludeIpRange: DhcpIpRange? = null,
+    public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V5(public var ElementType: DHCP_SUBNET_ELEMENT_TYPE = 0, public var Element: DHCP_SUBNET_ELEMENT_DATA_V5_0 = DHCP_SUBNET_ELEMENT_DATA_V5_0())
+public data class DhcpSubnetElementDataV5(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementDataV50 = DhcpSubnetElementDataV50())
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V5_0(
-    public var IpRange: Long = 0L,
-    public var SecondaryHost: Long = 0L,
-    public var ReservedIp: Long = 0L,
-    public var ExcludeIpRange: Long = 0L,
-    public var IpUsedCluster: Long = 0L,
+public data class DhcpSubnetElementDataV50(
+    public var ipRange: DhcpBootpIpRange? = null,
+    public var secondaryHost: DhcpHostInfo? = null,
+    public var reservedIp: DhcpIpReservationV4? = null,
+    public var excludeIpRange: DhcpIpRange? = null,
+    public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V6(public var ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6 = 0, public var Element: DHCP_SUBNET_ELEMENT_DATA_V6_0 = DHCP_SUBNET_ELEMENT_DATA_V6_0())
+public data class DhcpSubnetElementDataV6(public var elementType: DhcpSubnetElementTypeV6 = 0, public var element: DhcpSubnetElementDataV60 = DhcpSubnetElementDataV60())
 
-public data class DHCP_SUBNET_ELEMENT_DATA_V6_0(
-    public var IpRange: Long = 0L,
-    public var ReservedIp: Long = 0L,
-    public var ExcludeIpRange: Long = 0L,
+public data class DhcpSubnetElementDataV60(
+    public var ipRange: DhcpIpRangeV6? = null,
+    public var reservedIp: DhcpIpReservationV6? = null,
+    public var excludeIpRange: DhcpIpRangeV6? = null,
 )
 
-public data class DHCP_SUBNET_ELEMENT_INFO_ARRAY(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpSubnetElementInfoArray(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementData? = null)
 
-public data class DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpSubnetElementInfoArrayV4(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV4? = null)
 
-public data class DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpSubnetElementInfoArrayV5(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV5? = null)
 
-public data class DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6(public var NumElements: UInt = 0u, public var Elements: Long = 0L)
+public data class DhcpSubnetElementInfoArrayV6(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV6? = null)
 
-public data class DHCP_SUBNET_INFO(
-    public var SubnetAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var SubnetName: PWSTR = 0L,
-    public var SubnetComment: PWSTR = 0L,
-    public var PrimaryHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
-    public var SubnetState: DHCP_SUBNET_STATE = 0,
+public data class DhcpSubnetInfo(
+    public var subnetAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var subnetName: Pwstr = null,
+    public var subnetComment: Pwstr = null,
+    public var primaryHost: DhcpHostInfo = DhcpHostInfo(),
+    public var subnetState: DhcpSubnetState = 0,
 )
 
-public data class DHCP_SUBNET_INFO_V6(
-    public var SubnetAddress: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var Prefix: UInt = 0u,
-    public var Preference: UShort = 0u,
-    public var SubnetName: PWSTR = 0L,
-    public var SubnetComment: PWSTR = 0L,
-    public var State: UInt = 0u,
-    public var ScopeId: UInt = 0u,
+public data class DhcpSubnetInfoV6(
+    public var subnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var prefix: UInt = 0u,
+    public var preference: UShort = 0u,
+    public var subnetName: Pwstr = null,
+    public var subnetComment: Pwstr = null,
+    public var state: UInt = 0u,
+    public var scopeId: UInt = 0u,
 )
 
-public data class DHCP_SUBNET_INFO_VQ(
-    public var SubnetAddress: UInt = 0u,
-    public var SubnetMask: UInt = 0u,
-    public var SubnetName: PWSTR = 0L,
-    public var SubnetComment: PWSTR = 0L,
-    public var PrimaryHost: DHCP_HOST_INFO = DHCP_HOST_INFO(),
-    public var SubnetState: DHCP_SUBNET_STATE = 0,
-    public var QuarantineOn: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: Long = 0L,
-    public var Reserved4: Long = 0L,
+public data class DhcpSubnetInfoVq(
+    public var subnetAddress: UInt = 0u,
+    public var subnetMask: UInt = 0u,
+    public var subnetName: Pwstr = null,
+    public var subnetComment: Pwstr = null,
+    public var primaryHost: DhcpHostInfo = DhcpHostInfo(),
+    public var subnetState: DhcpSubnetState = 0,
+    public var quarantineOn: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var reserved3: Long = 0L,
+    public var reserved4: Long = 0L,
 )
 
-public data class DHCP_SUPER_SCOPE_TABLE(public var cEntries: UInt = 0u, public var pEntries: Long = 0L)
+public data class DhcpSuperScopeTable(public var cEntries: UInt = 0u, public var pEntries: DhcpSuperScopeTableEntry? = null)
 
-public data class DHCP_SUPER_SCOPE_TABLE_ENTRY(
-    public var SubnetAddress: UInt = 0u,
-    public var SuperScopeNumber: UInt = 0u,
-    public var NextInSuperScope: UInt = 0u,
-    public var SuperScopeName: PWSTR = 0L,
+public data class DhcpSuperScopeTableEntry(
+    public var subnetAddress: UInt = 0u,
+    public var superScopeNumber: UInt = 0u,
+    public var nextInSuperScope: UInt = 0u,
+    public var superScopeName: Pwstr = null,
 )
 
-public data class DWORD_DWORD(public var DWord1: UInt = 0u, public var DWord2: UInt = 0u)
+public data class DwordDword(public var dWord1: UInt = 0u, public var dWord2: UInt = 0u)
 
-public data class SCOPE_MIB_INFO(
-    public var Subnet: UInt = 0u,
-    public var NumAddressesInuse: UInt = 0u,
-    public var NumAddressesFree: UInt = 0u,
-    public var NumPendingOffers: UInt = 0u,
+public data class ScopeMibInfo(
+    public var subnet: UInt = 0u,
+    public var numAddressesInuse: UInt = 0u,
+    public var numAddressesFree: UInt = 0u,
+    public var numPendingOffers: UInt = 0u,
 )
 
-public data class SCOPE_MIB_INFO_V5(
-    public var Subnet: UInt = 0u,
-    public var NumAddressesInuse: UInt = 0u,
-    public var NumAddressesFree: UInt = 0u,
-    public var NumPendingOffers: UInt = 0u,
+public data class ScopeMibInfoV5(
+    public var subnet: UInt = 0u,
+    public var numAddressesInuse: UInt = 0u,
+    public var numAddressesFree: UInt = 0u,
+    public var numPendingOffers: UInt = 0u,
 )
 
-public data class SCOPE_MIB_INFO_V6(
-    public var Subnet: DHCP_IPV6_ADDRESS = DHCP_IPV6_ADDRESS(),
-    public var NumAddressesInuse: ULong = 0uL,
-    public var NumAddressesFree: ULong = 0uL,
-    public var NumPendingAdvertises: ULong = 0uL,
+public data class ScopeMibInfoV6(
+    public var subnet: DhcpIpv6Address = DhcpIpv6Address(),
+    public var numAddressesInuse: ULong = 0uL,
+    public var numAddressesFree: ULong = 0uL,
+    public var numPendingAdvertises: ULong = 0uL,
 )
 
-public data class SCOPE_MIB_INFO_VQ(
-    public var Subnet: UInt = 0u,
-    public var NumAddressesInuse: UInt = 0u,
-    public var NumAddressesFree: UInt = 0u,
-    public var NumPendingOffers: UInt = 0u,
-    public var QtnNumLeases: UInt = 0u,
-    public var QtnPctQtnLeases: UInt = 0u,
-    public var QtnProbationLeases: UInt = 0u,
-    public var QtnNonQtnLeases: UInt = 0u,
-    public var QtnExemptLeases: UInt = 0u,
-    public var QtnCapableClients: UInt = 0u,
+public data class ScopeMibInfoVq(
+    public var subnet: UInt = 0u,
+    public var numAddressesInuse: UInt = 0u,
+    public var numAddressesFree: UInt = 0u,
+    public var numPendingOffers: UInt = 0u,
+    public var qtnNumLeases: UInt = 0u,
+    public var qtnPctQtnLeases: UInt = 0u,
+    public var qtnProbationLeases: UInt = 0u,
+    public var qtnNonQtnLeases: UInt = 0u,
+    public var qtnExemptLeases: UInt = 0u,
+    public var qtnCapableClients: UInt = 0u,
 )

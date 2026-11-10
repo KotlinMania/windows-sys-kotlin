@@ -2,26 +2,27 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri(ppszuri.toCPointer<ByteVar>())
+public actual fun wscGetAntiMalwareUri(ppszuri: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri(ppszuri?.value?.toCPointer<ByteVar>())
 
-public actual fun WscGetSecurityProviderHealth(providers: UInt, phealth: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth(providers, phealth.toCPointer<ByteVar>())
+public actual fun wscGetSecurityProviderHealth(providers: UInt, phealth: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth(providers, phealth?.value?.toCPointer<ByteVar>())
 
-public actual fun WscQueryAntiMalwareUri(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri()
+public actual fun wscQueryAntiMalwareUri(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri()
 
-public actual fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT =
-    0
+public actual fun wscRegisterForChanges(reserved: COpaquePointer?, phcallbackregistration: COpaquePointer?, lpcallbackaddress: LpthreadStartRoutine, pcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscRegisterForChanges(reserved?.value?.toCPointer<ByteVar>(), phcallbackregistration?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WscRegisterForUserNotifications(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications()
+public actual fun wscRegisterForUserNotifications(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications()
 
-public actual fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges(hregistrationhandle.toCPointer<ByteVar>())
+public actual fun wscUnRegisterChanges(hregistrationhandle: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.securitycenter.cinterop.windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges(hregistrationhandle?.value?.toCPointer<ByteVar>())

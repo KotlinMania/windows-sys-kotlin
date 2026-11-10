@@ -1,79 +1,80 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public typealias NS_CMD_FLAGS = Int
+public typealias NsCmdFlags = Int
 
-public typealias NS_EVENTS = Int
+public typealias NsEvents = Int
 
-public typealias NS_MODE_CHANGE = Int
+public typealias NsModeChange = Int
 
-public typealias NS_REQS = Int
+public typealias NsReqs = Int
 
-public fun interface PFN_CUSTOM_HELPFn {
-    public operator fun invoke(hmodule: HANDLE, pwszcmdtoken: PCWSTR)
+public fun interface PfnCustomHelpFn {
+    public operator fun invoke(hmodule: Handle, pwszcmdtoken: Pcwstr)
 }
 
-public typealias PFN_CUSTOM_HELP = PFN_CUSTOM_HELPFn?
+public typealias PfnCustomHelp = PfnCustomHelpFn?
 
-public fun interface PFN_HANDLE_CMDFn {
-    public operator fun invoke(pwszmachine: PCWSTR, ppwcarguments: Long, dwcurrentindex: UInt, dwargcount: UInt, dwflags: UInt, pvdata: Long, pbdone: Long): UInt
+public fun interface PfnHandleCmdFn {
+    public operator fun invoke(pwszmachine: Pcwstr, ppwcarguments: COpaquePointer?, dwcurrentindex: UInt, dwargcount: UInt, dwflags: UInt, pvdata: COpaquePointer?, pbdone: COpaquePointer?): UInt
 }
 
-public typealias PFN_HANDLE_CMD = PFN_HANDLE_CMDFn?
+public typealias PfnHandleCmd = PfnHandleCmdFn?
 
-public fun interface PGET_RESOURCE_STRING_FNFn {
-    public operator fun invoke(dwmsgid: UInt, lpbuffer: PCWSTR, nbuffermax: UInt): UInt
+public fun interface PgetResourceStringFnFn {
+    public operator fun invoke(dwmsgid: UInt, lpbuffer: Pcwstr, nbuffermax: UInt): UInt
 }
 
-public typealias PGET_RESOURCE_STRING_FN = PGET_RESOURCE_STRING_FNFn?
+public typealias PgetResourceStringFn = PgetResourceStringFnFn?
 
-public fun interface PNS_CONTEXT_COMMIT_FNFn {
+public fun interface PnsContextCommitFnFn {
     public operator fun invoke(dwaction: UInt): UInt
 }
 
-public typealias PNS_CONTEXT_COMMIT_FN = PNS_CONTEXT_COMMIT_FNFn?
+public typealias PnsContextCommitFn = PnsContextCommitFnFn?
 
-public fun interface PNS_CONTEXT_CONNECT_FNFn {
-    public operator fun invoke(pwszmachine: PCWSTR): UInt
+public fun interface PnsContextConnectFnFn {
+    public operator fun invoke(pwszmachine: Pcwstr): UInt
 }
 
-public typealias PNS_CONTEXT_CONNECT_FN = PNS_CONTEXT_CONNECT_FNFn?
+public typealias PnsContextConnectFn = PnsContextConnectFnFn?
 
-public fun interface PNS_CONTEXT_DUMP_FNFn {
-    public operator fun invoke(pwszrouter: PCWSTR, ppwcarguments: Long, dwargcount: UInt, pvdata: Long): UInt
+public fun interface PnsContextDumpFnFn {
+    public operator fun invoke(pwszrouter: Pcwstr, ppwcarguments: COpaquePointer?, dwargcount: UInt, pvdata: COpaquePointer?): UInt
 }
 
-public typealias PNS_CONTEXT_DUMP_FN = PNS_CONTEXT_DUMP_FNFn?
+public typealias PnsContextDumpFn = PnsContextDumpFnFn?
 
-public fun interface PNS_DLL_INIT_FNFn {
-    public operator fun invoke(dwnetshversion: UInt, preserved: Long): UInt
+public fun interface PnsDllInitFnFn {
+    public operator fun invoke(dwnetshversion: UInt, preserved: COpaquePointer?): UInt
 }
 
-public typealias PNS_DLL_INIT_FN = PNS_DLL_INIT_FNFn?
+public typealias PnsDllInitFn = PnsDllInitFnFn?
 
-public fun interface PNS_DLL_STOP_FNFn {
+public fun interface PnsDllStopFnFn {
     public operator fun invoke(dwreserved: UInt): UInt
 }
 
-public typealias PNS_DLL_STOP_FN = PNS_DLL_STOP_FNFn?
+public typealias PnsDllStopFn = PnsDllStopFnFn?
 
-public fun interface PNS_HELPER_START_FNFn {
-    public operator fun invoke(pguidparent: Long, dwversion: UInt): UInt
+public fun interface PnsHelperStartFnFn {
+    public operator fun invoke(pguidparent: COpaquePointer?, dwversion: UInt): UInt
 }
 
-public typealias PNS_HELPER_START_FN = PNS_HELPER_START_FNFn?
+public typealias PnsHelperStartFn = PnsHelperStartFnFn?
 
-public fun interface PNS_HELPER_STOP_FNFn {
+public fun interface PnsHelperStopFnFn {
     public operator fun invoke(dwreserved: UInt): UInt
 }
 
-public typealias PNS_HELPER_STOP_FN = PNS_HELPER_STOP_FNFn?
+public typealias PnsHelperStopFn = PnsHelperStopFnFn?
 
-public fun interface PNS_OSVERSIONCHECKFn {
-    public operator fun invoke(cimostype: UInt, cimosproductsuite: UInt, cimosversion: PCWSTR, cimosbuildnumber: PCWSTR, cimservicepackmajorversion: PCWSTR, cimservicepackminorversion: PCWSTR, uireserved: UInt, dwreserved: UInt): BOOL
+public fun interface PnsOsversioncheckFn {
+    public operator fun invoke(cimostype: UInt, cimosproductsuite: UInt, cimosversion: Pcwstr, cimosbuildnumber: Pcwstr, cimservicepackmajorversion: Pcwstr, cimservicepackminorversion: Pcwstr, uireserved: UInt, dwreserved: UInt): Bool
 }
 
-public typealias PNS_OSVERSIONCHECK = PNS_OSVERSIONCHECKFn?
+public typealias PnsOsversioncheck = PnsOsversioncheckFn?

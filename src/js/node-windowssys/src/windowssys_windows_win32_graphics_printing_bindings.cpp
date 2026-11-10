@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddMonitorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addMonitorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddMonitorA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddMonitorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addMonitorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddMonitorW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPortA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPortW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProcessorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProcessorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProcessorA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProcessorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProcessorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProcessorW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProvidorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProvidorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProvidorA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProvidorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProvidorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrintProvidorW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnection2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnection2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnection2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnection2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterConnecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -407,7 +407,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -429,7 +429,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterDriverW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AddPrinterW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinfodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdatasrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -473,7 +473,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_AppendPrinterNotif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprinterrpc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwfilterflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -499,7 +499,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_CallRouterFindFirs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_commonPropertySheetUIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnpropsheetui = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_CommonPropertyShee
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_commonPropertySheetUIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnpropsheetui = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_CommonPropertyShee
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ConfigurePortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_configurePortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -569,7 +569,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ConfigurePortA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ConfigurePortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_configurePortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -591,7 +591,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ConfigurePortW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_connectToPrinterDlg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ConnectToPrinterDl
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnotificationtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -639,7 +639,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_CreatePrintAsyncNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeleteMonitorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deleteMonitorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeleteMonitorA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeleteMonitorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deleteMonitorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -683,7 +683,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeleteMonitorW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -705,7 +705,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePortA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -727,7 +727,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePortW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProcessorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProcessorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProcess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProcessorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProcessorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -771,7 +771,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProcess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProvidorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProvidorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -793,7 +793,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProvido
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProvidorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProvidorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -815,7 +815,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrintProvido
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterConnectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -833,7 +833,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterConnectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -851,7 +851,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -873,7 +873,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -925,7 +925,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -969,7 +969,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDriverW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDriverW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterIC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterIC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprinteric = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1009,7 +1009,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DeletePrinterIC_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_DevQueryPrintEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_devQueryPrintEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdqpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1027,7 +1027,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_DevQueryPrintEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumMonitorsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumMonitorsA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumMonitorsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumMonitorsW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPortsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1111,7 +1111,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPortsA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPortsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1139,7 +1139,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPortsW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprintprocessorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1169,7 +1169,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprintprocessorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1199,7 +1199,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessorsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1229,7 +1229,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessorsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1259,7 +1259,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrinterDriversA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDriversA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrinterDrivers
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrinterDriversW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDriversW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1319,7 +1319,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrinterDrivers
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1349,7 +1349,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintersA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1379,7 +1379,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_EnumPrintersW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ExtDeviceMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_extDeviceMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ExtDeviceMode_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1429,7 +1429,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_FindClosePrinterCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwchange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1453,7 +1453,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_FindNextPrinterCha
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cproperties = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1472,7 +1472,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_FreePrintNamedProp
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_FreePrintPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_freePrintPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1489,7 +1489,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_FreePrintPropertyV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprinternotifyinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1507,7 +1507,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_FreePrinterNotifyI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiEndDocEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiEndDocEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1543,7 +1543,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiEndDocEMF_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiEndPageEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiEndPageEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptimization = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1563,7 +1563,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiEndPageEMF_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1581,7 +1581,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetDC_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpagenumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1605,7 +1605,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetPageCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetPageCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetPageCount_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetPageHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetPageHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t page = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetPageHandle_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHan
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiPlayPageEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiPlayPageEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1693,7 +1693,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiPlayPageEMF_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiResetDCEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiResetDCEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcurrdm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1713,7 +1713,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiResetDCEMF_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiStartDocEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiStartDocEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdocinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1733,7 +1733,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiStartDocEMF_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GdiStartPageEMF_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_gdiStartPageEMF_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spoolfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1751,7 +1751,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GdiStartPageEMF_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_generateCopyFilePaths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1785,7 +1785,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GenerateCopyFilePa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetCPSUIUserData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getCPSUIUserData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1803,7 +1803,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetCPSUIUserData_n
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getCorePrinterDriversA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1829,7 +1829,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetCorePrinterDriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getCorePrinterDriversW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1855,7 +1855,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetCorePrinterDriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetDefaultPrinterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getDefaultPrinterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcchbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1875,7 +1875,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetDefaultPrinterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetDefaultPrinterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getDefaultPrinterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcchbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1895,7 +1895,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetDefaultPrinterW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetJobAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getJobAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1917,7 +1917,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetJobAttributes_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetJobAttributesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getJobAttributesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1945,7 +1945,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetJobAttributesEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintExecutionData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrintExecutionData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1963,7 +1963,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintExecutionD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintOutputInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrintOutputInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1987,7 +1987,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintOutputInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2015,7 +2015,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintProcessorD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2043,7 +2043,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrintProcessorD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2071,7 +2071,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2099,7 +2099,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2129,7 +2129,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2159,7 +2159,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_GetPrinterDriverPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_impersonatePrinterClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2177,7 +2177,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ImpersonatePrinter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2203,7 +2203,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_InstallPrinterDriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2229,7 +2229,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_InstallPrinterDriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_IsValidDevmodeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_isValidDevmodeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t devmodesize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2249,7 +2249,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_IsValidDevmodeA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_IsValidDevmodeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_isValidDevmodeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t devmodesize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2269,7 +2269,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_IsValidDevmodeW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinter2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_openPrinter2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2293,7 +2293,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinter2A_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinter2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_openPrinter2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2317,7 +2317,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinter2W_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_openPrinterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2339,7 +2339,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinterA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_openPrinterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2361,7 +2361,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_OpenPrinterW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprinteric = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2389,7 +2389,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnotificationtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2417,7 +2417,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RegisterForPrintAs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_removePrintDeviceObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2435,7 +2435,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RemovePrintDeviceO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotify = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcolor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2461,7 +2461,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ReplyPrinterChange
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_reportJobProcessingProgress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* printerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t jobid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2485,7 +2485,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_ReportJobProcessin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RevertToPrinterSelf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_revertToPrinterSelf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2501,7 +2501,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RevertToPrinterSel
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocBidiMem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocBidiMem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t numbytes = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2519,7 +2519,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocBidiMem
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2537,7 +2537,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocBidiRes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cprinternotifyinfodata = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2555,7 +2555,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterAllocPrinter
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreeBidiMem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerFreeBidiMem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmempointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2572,7 +2572,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreeBidiMem_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2590,7 +2590,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreeBidiResp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2608,7 +2608,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_RouterFreePrinterN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SetCPSUIUserData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_setCPSUIUserData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cpsuiuserdata = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2628,7 +2628,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SetCPSUIUserData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SetDefaultPrinterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_setDefaultPrinterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2646,7 +2646,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SetDefaultPrinterA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SetDefaultPrinterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_setDefaultPrinterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprinter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2664,7 +2664,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SetDefaultPrinterW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SetPortA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_setPortA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pportname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2688,7 +2688,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SetPortA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SetPortW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_setPortW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pportname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2712,7 +2712,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SetPortW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2734,7 +2734,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SpoolerCopyFileEve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2751,7 +2751,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_SpoolerFreePrinter
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2769,7 +2769,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_UnRegisterForPrint
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2799,7 +2799,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_UploadPrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszinfpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2829,7 +2829,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_UploadPrinterDrive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_XcvDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_printing_xcvDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hxcv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdataname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2862,128 +2862,128 @@ static Napi::Value windowssys_windows_win32_graphics_printing_XcvDataW_napi(cons
 }
 
 static void register_windows_win32_graphics_printing_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_graphics_printing_AddMonitorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddMonitorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddMonitorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddMonitorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPortA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPortW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrintProcessorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrintProcessorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrintProcessorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrintProcessorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrintProvidorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrintProvidorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrintProvidorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrintProvidorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterConnection2A", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterConnection2A_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterConnection2W", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterConnection2W_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterConnectionA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterConnectionA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterConnectionW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterConnectionW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterDriverA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterDriverA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterDriverExA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterDriverExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterDriverExW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterDriverExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterDriverW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterDriverW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AddPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AddPrinterW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ConfigurePortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ConfigurePortA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ConfigurePortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ConfigurePortW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeleteMonitorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeleteMonitorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeleteMonitorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeleteMonitorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePortA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePortW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrintProcessorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrintProcessorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrintProcessorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrintProcessorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrintProvidorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrintProvidorA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrintProvidorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrintProvidorW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterDriverW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterDriverW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DeletePrinterIC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DeletePrinterIC_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_DevQueryPrintEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_DevQueryPrintEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumMonitorsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumMonitorsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumMonitorsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumMonitorsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPortsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPortsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPortsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPortsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrinterDriversA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrinterDriversA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrinterDriversW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrinterDriversW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintersA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintersA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_EnumPrintersW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_EnumPrintersW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ExtDeviceMode", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ExtDeviceMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_FreePrintPropertyValue", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_FreePrintPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiEndDocEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiEndDocEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiEndPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiEndPageEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiGetDC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiGetDC_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiGetPageCount", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiGetPageCount_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiGetPageHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiGetPageHandle_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiPlayPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiPlayPageEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiResetDCEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiResetDCEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiStartDocEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiStartDocEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GdiStartPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GdiStartPageEMF_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetCPSUIUserData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetCPSUIUserData_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetDefaultPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetDefaultPrinterA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetDefaultPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetDefaultPrinterW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetJobAttributes", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetJobAttributes_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetJobAttributesEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetJobAttributesEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrintExecutionData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrintExecutionData_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrintOutputInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrintOutputInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_IsValidDevmodeA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_IsValidDevmodeA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_IsValidDevmodeW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_IsValidDevmodeW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_OpenPrinter2A", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_OpenPrinter2A_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_OpenPrinter2W", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_OpenPrinter2W_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_OpenPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_OpenPrinterA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_OpenPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_OpenPrinterW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RevertToPrinterSelf", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RevertToPrinterSelf_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterAllocBidiMem", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterAllocBidiMem_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterFreeBidiMem", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterFreeBidiMem_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SetCPSUIUserData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SetCPSUIUserData_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SetDefaultPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SetDefaultPrinterA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SetDefaultPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SetDefaultPrinterW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SetPortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SetPortA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SetPortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SetPortW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_XcvDataW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_XcvDataW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addMonitorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addMonitorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addMonitorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addMonitorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPortA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPortW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrintProcessorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrintProcessorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrintProcessorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrintProcessorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrintProvidorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrintProvidorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrintProvidorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrintProvidorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterConnection2A", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterConnection2A_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterConnection2W", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterConnection2W_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterConnectionA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterConnectionA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterConnectionW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterConnectionW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterDriverA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterDriverA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterDriverExA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterDriverExA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterDriverExW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterDriverExW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterDriverW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterDriverW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_addPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_addPrinterW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_commonPropertySheetUIA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_commonPropertySheetUIA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_commonPropertySheetUIW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_commonPropertySheetUIW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_configurePortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_configurePortA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_configurePortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_configurePortW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_connectToPrinterDlg", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_connectToPrinterDlg_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deleteMonitorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deleteMonitorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deleteMonitorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deleteMonitorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePortA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePortW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrintProcessorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrintProcessorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrintProcessorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrintProcessorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrintProvidorA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrintProvidorA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrintProvidorW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrintProvidorW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterConnectionA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterConnectionA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterConnectionW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterConnectionW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverExA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverExA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverExW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverExW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterDriverW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterDriverW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_deletePrinterIC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_deletePrinterIC_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_devQueryPrintEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_devQueryPrintEx_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumMonitorsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumMonitorsA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumMonitorsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumMonitorsW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPortsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPortsA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPortsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPortsW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintProcessorsA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintProcessorsA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintProcessorsW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintProcessorsW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrinterDriversA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrinterDriversA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrinterDriversW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrinterDriversW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintersA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintersA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_enumPrintersW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_enumPrintersW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_extDeviceMode", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_extDeviceMode_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_freePrintPropertyValue", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_freePrintPropertyValue_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiEndDocEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiEndDocEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiEndPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiEndPageEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiGetDC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiGetDC_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiGetPageCount", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiGetPageCount_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiGetPageHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiGetPageHandle_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiPlayPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiPlayPageEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiResetDCEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiResetDCEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiStartDocEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiStartDocEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_gdiStartPageEMF", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_gdiStartPageEMF_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_generateCopyFilePaths", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_generateCopyFilePaths_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getCPSUIUserData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getCPSUIUserData_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getCorePrinterDriversA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getCorePrinterDriversA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getCorePrinterDriversW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getCorePrinterDriversW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getDefaultPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getDefaultPrinterA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getDefaultPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getDefaultPrinterW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getJobAttributes", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getJobAttributes_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getJobAttributesEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getJobAttributesEx_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrintExecutionData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrintExecutionData_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrintOutputInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrintOutputInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_impersonatePrinterClient", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_impersonatePrinterClient_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_isValidDevmodeA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_isValidDevmodeA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_isValidDevmodeW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_isValidDevmodeW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_openPrinter2A", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_openPrinter2A_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_openPrinter2W", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_openPrinter2W_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_openPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_openPrinterA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_openPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_openPrinterW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_removePrintDeviceObject", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_removePrintDeviceObject_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_reportJobProcessingProgress", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_reportJobProcessingProgress_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_revertToPrinterSelf", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_revertToPrinterSelf_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerAllocBidiMem", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerAllocBidiMem_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerFreeBidiMem", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerFreeBidiMem_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_setCPSUIUserData", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_setCPSUIUserData_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_setDefaultPrinterA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_setDefaultPrinterA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_setDefaultPrinterW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_setDefaultPrinterW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_setPortA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_setPortA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_setPortW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_setPortW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW_napi));
+    exports.Set("windowssys_windows_win32_graphics_printing_xcvDataW", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_xcvDataW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_graphics_printing_napi, nullptr };

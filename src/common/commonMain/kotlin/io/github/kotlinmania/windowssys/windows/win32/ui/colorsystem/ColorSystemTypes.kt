@@ -1,60 +1,61 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public typealias BMFORMAT = Int
+public typealias Bmformat = Int
 
-public typealias COLORDATATYPE = Int
+public typealias Colordatatype = Int
 
-public typealias COLORPROFILESUBTYPE = Int
+public typealias Colorprofilesubtype = Int
 
-public typealias COLORPROFILETYPE = Int
+public typealias Colorprofiletype = Int
 
-public typealias COLORTYPE = Int
+public typealias Colortype = Int
 
-public typealias COLOR_MATCH_TO_TARGET_ACTION = UInt
+public typealias ColorMatchToTargetAction = UInt
 
-public typealias HCOLORSPACE = Long
+public typealias Hcolorspace = COpaquePointer?
 
-public fun interface ICMENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: LPARAM): Int
+public fun interface IcmenumprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Lparam): Int
 }
 
-public typealias ICMENUMPROCA = ICMENUMPROCAFn?
+public typealias Icmenumproca = IcmenumprocaFn?
 
-public fun interface ICMENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): Int
+public fun interface IcmenumprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Int
 }
 
-public typealias ICMENUMPROCW = ICMENUMPROCWFn?
+public typealias Icmenumprocw = IcmenumprocwFn?
 
-public typealias ICM_COMMAND = UInt
+public typealias IcmCommand = UInt
 
-public typealias ICM_MODE = Int
+public typealias IcmMode = Int
 
-public typealias LCSCSTYPE = Int
+public typealias Lcscstype = Int
 
-public fun interface LPBMCALLBACKFNFn {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: LPARAM): BOOL
+public fun interface LpbmcallbackfnFn {
+    public operator fun invoke(param0: UInt, param1: UInt, param2: Lparam): Bool
 }
 
-public typealias LPBMCALLBACKFN = LPBMCALLBACKFNFn?
+public typealias Lpbmcallbackfn = LpbmcallbackfnFn?
 
-public fun interface PCMSCALLBACKAFn {
-    public operator fun invoke(param0: Long, param1: LPARAM): BOOL
+public fun interface PcmscallbackaFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Lparam): Bool
 }
 
-public typealias PCMSCALLBACKA = PCMSCALLBACKAFn?
+public typealias Pcmscallbacka = PcmscallbackaFn?
 
-public fun interface PCMSCALLBACKWFn {
-    public operator fun invoke(param0: Long, param1: LPARAM): BOOL
+public fun interface PcmscallbackwFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Lparam): Bool
 }
 
-public typealias PCMSCALLBACKW = PCMSCALLBACKWFn?
+public typealias Pcmscallbackw = PcmscallbackwFn?
 
-public typealias WCS_DEVICE_CAPABILITIES_TYPE = Int
+public typealias WcsDeviceCapabilitiesType = Int
 
-public typealias WCS_PROFILE_MANAGEMENT_SCOPE = Int
+public typealias WcsProfileManagementScope = Int

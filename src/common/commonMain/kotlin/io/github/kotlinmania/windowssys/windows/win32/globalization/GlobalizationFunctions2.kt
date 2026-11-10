@@ -1,1003 +1,1004 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
 
-public expect fun ucnv_fromUCountPending(cnv: Long, status: Long): Int
+public expect fun ucnvFromUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucnv_fromUnicode(converter: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long)
+public expect fun ucnvFromUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?)
 
-public expect fun ucnv_getAlias(alias: PCSTR, n: UShort, perrorcode: Long): PCSTR
+public expect fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: COpaquePointer?): Pcstr
 
-public expect fun ucnv_getAliases(alias: PCSTR, aliases: Long, perrorcode: Long)
+public expect fun ucnvGetAliases(alias: Pcstr, aliases: COpaquePointer?, perrorcode: COpaquePointer?)
 
-public expect fun ucnv_getAvailableName(n: Int): PCSTR
+public expect fun ucnvGetAvailableName(n: Int): Pcstr
 
-public expect fun ucnv_getCCSID(converter: Long, err: Long): Int
+public expect fun ucnvGetCcsid(converter: COpaquePointer?, err: COpaquePointer?): Int
 
-public expect fun ucnv_getCanonicalName(alias: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR
+public expect fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr
 
-public expect fun ucnv_getDefaultName(): PCSTR
+public expect fun ucnvGetDefaultName(): Pcstr
 
-public expect fun ucnv_getDisplayName(converter: Long, displaylocale: PCSTR, displayname: Long, displaynamecapacity: Int, err: Long): Int
+public expect fun ucnvGetDisplayName(converter: COpaquePointer?, displaylocale: Pcstr, displayname: COpaquePointer?, displaynamecapacity: Int, err: COpaquePointer?): Int
 
-public expect fun ucnv_getFromUCallBack(converter: Long, action: Long, context: Long)
+public expect fun ucnvGetFromUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?)
 
-public expect fun ucnv_getInvalidChars(converter: Long, errbytes: PCSTR, len: Long, err: Long)
+public expect fun ucnvGetInvalidChars(converter: COpaquePointer?, errbytes: Pcstr, len: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_getInvalidUChars(converter: Long, erruchars: Long, len: Long, err: Long)
+public expect fun ucnvGetInvalidUchars(converter: COpaquePointer?, erruchars: COpaquePointer?, len: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_getMaxCharSize(converter: Long): Byte
+public expect fun ucnvGetMaxCharSize(converter: COpaquePointer?): Byte
 
-public expect fun ucnv_getMinCharSize(converter: Long): Byte
+public expect fun ucnvGetMinCharSize(converter: COpaquePointer?): Byte
 
-public expect fun ucnv_getName(converter: Long, err: Long): PCSTR
+public expect fun ucnvGetName(converter: COpaquePointer?, err: COpaquePointer?): Pcstr
 
-public expect fun ucnv_getNextUChar(converter: Long, source: Long, sourcelimit: PCSTR, err: Long): Int
+public expect fun ucnvGetNextUchar(converter: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, err: COpaquePointer?): Int
 
-public expect fun ucnv_getPlatform(converter: Long, err: Long): UConverterPlatform
+public expect fun ucnvGetPlatform(converter: COpaquePointer?, err: COpaquePointer?): UConverterPlatform
 
-public expect fun ucnv_getStandard(n: UShort, perrorcode: Long): PCSTR
+public expect fun ucnvGetStandard(n: UShort, perrorcode: COpaquePointer?): Pcstr
 
-public expect fun ucnv_getStandardName(name: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR
+public expect fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr
 
-public expect fun ucnv_getStarters(converter: Long, starters: Long, err: Long)
+public expect fun ucnvGetStarters(converter: COpaquePointer?, starters: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_getSubstChars(converter: Long, subchars: PCSTR, len: Long, err: Long)
+public expect fun ucnvGetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_getToUCallBack(converter: Long, action: Long, context: Long)
+public expect fun ucnvGetToUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?)
 
-public expect fun ucnv_getType(converter: Long): UConverterType
+public expect fun ucnvGetType(converter: COpaquePointer?): UConverterType
 
-public expect fun ucnv_getUnicodeSet(cnv: Long, setfillin: Long, whichset: UConverterUnicodeSet, perrorcode: Long)
+public expect fun ucnvGetUnicodeSet(cnv: COpaquePointer?, setfillin: COpaquePointer?, whichset: UConverterUnicodeSet, perrorcode: COpaquePointer?)
 
-public expect fun ucnv_isAmbiguous(cnv: Long): Byte
+public expect fun ucnvIsAmbiguous(cnv: COpaquePointer?): Byte
 
-public expect fun ucnv_isFixedWidth(cnv: Long, status: Long): Byte
+public expect fun ucnvIsFixedWidth(cnv: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun ucnv_open(convertername: PCSTR, err: Long): Long
+public expect fun ucnvOpen(convertername: Pcstr, err: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_openAllNames(perrorcode: Long): Long
+public expect fun ucnvOpenAllNames(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_openCCSID(codepage: Int, platform: UConverterPlatform, err: Long): Long
+public expect fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_openPackage(packagename: PCSTR, convertername: PCSTR, err: Long): Long
+public expect fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_openStandardNames(convname: PCSTR, standard: PCSTR, perrorcode: Long): Long
+public expect fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_openU(name: Long, err: Long): Long
+public expect fun ucnvOpenU(name: COpaquePointer?, err: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_reset(converter: Long)
+public expect fun ucnvReset(converter: COpaquePointer?)
 
-public expect fun ucnv_resetFromUnicode(converter: Long)
+public expect fun ucnvResetFromUnicode(converter: COpaquePointer?)
 
-public expect fun ucnv_resetToUnicode(converter: Long)
+public expect fun ucnvResetToUnicode(converter: COpaquePointer?)
 
-public expect fun ucnv_safeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
+public expect fun ucnvSafeClone(cnv: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnv_setDefaultName(name: PCSTR)
+public expect fun ucnvSetDefaultName(name: Pcstr)
 
-public expect fun ucnv_setFallback(cnv: Long, usesfallback: Byte)
+public expect fun ucnvSetFallback(cnv: COpaquePointer?, usesfallback: Byte)
 
-public expect fun ucnv_setFromUCallBack(converter: Long, newaction: UConverterFromUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
+public expect fun ucnvSetFromUcallBack(converter: COpaquePointer?, newaction: UConverterFromUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_setSubstChars(converter: Long, subchars: PCSTR, len: Byte, err: Long)
+public expect fun ucnvSetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: Byte, err: COpaquePointer?)
 
-public expect fun ucnv_setSubstString(cnv: Long, s: Long, length: Int, err: Long)
+public expect fun ucnvSetSubstString(cnv: COpaquePointer?, s: COpaquePointer?, length: Int, err: COpaquePointer?)
 
-public expect fun ucnv_setToUCallBack(converter: Long, newaction: UConverterToUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long)
+public expect fun ucnvSetToUcallBack(converter: COpaquePointer?, newaction: UConverterToUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?)
 
-public expect fun ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: Long, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int
+public expect fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: COpaquePointer?, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ucnv_toUChars(cnv: Long, dest: Long, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int
+public expect fun ucnvToUchars(cnv: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ucnv_toUCountPending(cnv: Long, status: Long): Int
+public expect fun ucnvToUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucnv_toUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: PCSTR, offsets: Long, flush: Byte, err: Long)
+public expect fun ucnvToUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?)
 
-public expect fun ucnv_usesFallback(cnv: Long): Byte
+public expect fun ucnvUsesFallback(cnv: COpaquePointer?): Byte
 
-public expect fun ucnvsel_close(sel: Long)
+public expect fun ucnvselClose(sel: COpaquePointer?)
 
-public expect fun ucnvsel_open(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: UConverterUnicodeSet, status: Long): Long
+public expect fun ucnvselOpen(converterlist: COpaquePointer?, converterlistsize: Int, excludedcodepoints: COpaquePointer?, whichset: UConverterUnicodeSet, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnvsel_openFromSerialized(buffer: Long, length: Int, status: Long): Long
+public expect fun ucnvselOpenFromSerialized(buffer: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnvsel_selectForString(sel: Long, s: Long, length: Int, status: Long): Long
+public expect fun ucnvselSelectForString(sel: COpaquePointer?, s: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnvsel_selectForUTF8(sel: Long, s: PCSTR, length: Int, status: Long): Long
+public expect fun ucnvselSelectForUtf8(sel: COpaquePointer?, s: Pcstr, length: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucnvsel_serialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int
+public expect fun ucnvselSerialize(sel: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, status: COpaquePointer?): Int
 
-public expect fun ucol_cloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int
+public expect fun ucolCloneBinary(coll: COpaquePointer?, buffer: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int
 
-public expect fun ucol_close(coll: Long)
+public expect fun ucolClose(coll: COpaquePointer?)
 
-public expect fun ucol_closeElements(elems: Long)
+public expect fun ucolCloseElements(elems: COpaquePointer?)
 
-public expect fun ucol_countAvailable(): Int
+public expect fun ucolCountAvailable(): Int
 
-public expect fun ucol_equal(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+public expect fun ucolEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte
 
-public expect fun ucol_getAttribute(coll: Long, attr: UColAttribute, status: Long): UColAttributeValue
+public expect fun ucolGetAttribute(coll: COpaquePointer?, attr: UColAttribute, status: COpaquePointer?): UColAttributeValue
 
-public expect fun ucol_getAvailable(localeindex: Int): PCSTR
+public expect fun ucolGetAvailable(localeindex: Int): Pcstr
 
-public expect fun ucol_getBound(source: Long, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: Long, resultlength: Int, status: Long): Int
+public expect fun ucolGetBound(source: COpaquePointer?, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun ucol_getContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long)
+public expect fun ucolGetContractionsAndExpansions(coll: COpaquePointer?, contractions: COpaquePointer?, expansions: COpaquePointer?, addprefixes: Byte, status: COpaquePointer?)
 
-public expect fun ucol_getDisplayName(objloc: PCSTR, disploc: PCSTR, result: Long, resultlength: Int, status: Long): Int
+public expect fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun ucol_getEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+public expect fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ucol_getFunctionalEquivalent(result: PCSTR, resultcapacity: Int, keyword: PCSTR, locale: PCSTR, isavailable: Long, status: Long): Int
+public expect fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucol_getKeywordValues(keyword: PCSTR, status: Long): Long
+public expect fun ucolGetKeywordValues(keyword: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long
+public expect fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_getKeywords(status: Long): Long
+public expect fun ucolGetKeywords(status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_getLocaleByType(coll: Long, type: ULocDataLocaleType, status: Long): PCSTR
+public expect fun ucolGetLocaleByType(coll: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr
 
-public expect fun ucol_getMaxExpansion(elems: Long, order: Int): Int
+public expect fun ucolGetMaxExpansion(elems: COpaquePointer?, order: Int): Int
 
-public expect fun ucol_getMaxVariable(coll: Long): UColReorderCode
+public expect fun ucolGetMaxVariable(coll: COpaquePointer?): UColReorderCode
 
-public expect fun ucol_getOffset(elems: Long): Int
+public expect fun ucolGetOffset(elems: COpaquePointer?): Int
 
-public expect fun ucol_getReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int
+public expect fun ucolGetReorderCodes(coll: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ucol_getRules(coll: Long, length: Long): Long
+public expect fun ucolGetRules(coll: COpaquePointer?, length: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_getRulesEx(coll: Long, delta: UColRuleOption, buffer: Long, bufferlen: Int): Int
+public expect fun ucolGetRulesEx(coll: COpaquePointer?, delta: UColRuleOption, buffer: COpaquePointer?, bufferlen: Int): Int
 
-public expect fun ucol_getSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int
+public expect fun ucolGetSortKey(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, result: COpaquePointer?, resultlength: Int): Int
 
-public expect fun ucol_getStrength(coll: Long): UColAttributeValue
+public expect fun ucolGetStrength(coll: COpaquePointer?): UColAttributeValue
 
-public expect fun ucol_getTailoredSet(coll: Long, status: Long): Long
+public expect fun ucolGetTailoredSet(coll: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_getUCAVersion(coll: Long, info: Long)
+public expect fun ucolGetUcaversion(coll: COpaquePointer?, info: COpaquePointer?)
 
-public expect fun ucol_getVariableTop(coll: Long, status: Long): UInt
+public expect fun ucolGetVariableTop(coll: COpaquePointer?, status: COpaquePointer?): UInt
 
-public expect fun ucol_getVersion(coll: Long, info: Long)
+public expect fun ucolGetVersion(coll: COpaquePointer?, info: COpaquePointer?)
 
-public expect fun ucol_greater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+public expect fun ucolGreater(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte
 
-public expect fun ucol_greaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte
+public expect fun ucolGreaterOrEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte
 
-public expect fun ucol_keyHashCode(key: Long, length: Int): Int
+public expect fun ucolKeyHashCode(key: COpaquePointer?, length: Int): Int
 
-public expect fun ucol_mergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int
+public expect fun ucolMergeSortkeys(src1: COpaquePointer?, src1length: Int, src2: COpaquePointer?, src2length: Int, dest: COpaquePointer?, destcapacity: Int): Int
 
-public expect fun ucol_next(elems: Long, status: Long): Int
+public expect fun ucolNext(elems: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucol_nextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int
+public expect fun ucolNextSortKeyPart(coll: COpaquePointer?, iter: COpaquePointer?, state: COpaquePointer?, dest: COpaquePointer?, count: Int, status: COpaquePointer?): Int
 
-public expect fun ucol_open(loc: PCSTR, status: Long): Long
+public expect fun ucolOpen(loc: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_openAvailableLocales(status: Long): Long
+public expect fun ucolOpenAvailableLocales(status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_openBinary(bin: Long, length: Int, base: Long, status: Long): Long
+public expect fun ucolOpenBinary(bin: COpaquePointer?, length: Int, base: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_openElements(coll: Long, text: Long, textlength: Int, status: Long): Long
+public expect fun ucolOpenElements(coll: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_openRules(rules: Long, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: Long, status: Long): Long
+public expect fun ucolOpenRules(rules: COpaquePointer?, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_previous(elems: Long, status: Long): Int
+public expect fun ucolPrevious(elems: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucol_primaryOrder(order: Int): Int
+public expect fun ucolPrimaryOrder(order: Int): Int
 
-public expect fun ucol_reset(elems: Long)
+public expect fun ucolReset(elems: COpaquePointer?)
 
-public expect fun ucol_safeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long
+public expect fun ucolSafeClone(coll: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucol_secondaryOrder(order: Int): Int
+public expect fun ucolSecondaryOrder(order: Int): Int
 
-public expect fun ucol_setAttribute(coll: Long, attr: UColAttribute, value: UColAttributeValue, status: Long)
+public expect fun ucolSetAttribute(coll: COpaquePointer?, attr: UColAttribute, value: UColAttributeValue, status: COpaquePointer?)
 
-public expect fun ucol_setMaxVariable(coll: Long, group: UColReorderCode, perrorcode: Long)
+public expect fun ucolSetMaxVariable(coll: COpaquePointer?, group: UColReorderCode, perrorcode: COpaquePointer?)
 
-public expect fun ucol_setOffset(elems: Long, offset: Int, status: Long)
+public expect fun ucolSetOffset(elems: COpaquePointer?, offset: Int, status: COpaquePointer?)
 
-public expect fun ucol_setReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long)
+public expect fun ucolSetReorderCodes(coll: COpaquePointer?, reordercodes: COpaquePointer?, reordercodeslength: Int, perrorcode: COpaquePointer?)
 
-public expect fun ucol_setStrength(coll: Long, strength: UColAttributeValue)
+public expect fun ucolSetStrength(coll: COpaquePointer?, strength: UColAttributeValue)
 
-public expect fun ucol_setText(elems: Long, text: Long, textlength: Int, status: Long)
+public expect fun ucolSetText(elems: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?)
 
-public expect fun ucol_strcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): UCollationResult
+public expect fun ucolStrcoll(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): UCollationResult
 
-public expect fun ucol_strcollIter(coll: Long, siter: Long, titer: Long, status: Long): UCollationResult
+public expect fun ucolStrcollIter(coll: COpaquePointer?, siter: COpaquePointer?, titer: COpaquePointer?, status: COpaquePointer?): UCollationResult
 
-public expect fun ucol_strcollUTF8(coll: Long, source: PCSTR, sourcelength: Int, target: PCSTR, targetlength: Int, status: Long): UCollationResult
+public expect fun ucolStrcollUtf8(coll: COpaquePointer?, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: COpaquePointer?): UCollationResult
 
-public expect fun ucol_tertiaryOrder(order: Int): Int
+public expect fun ucolTertiaryOrder(order: Int): Int
 
-public expect fun ucpmap_get(map: Long, c: Int): UInt
+public expect fun ucpmapGet(map: COpaquePointer?, c: Int): UInt
 
-public expect fun ucpmap_getRange(map: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int
+public expect fun ucpmapGetRange(map: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int
 
-public expect fun ucptrie_close(trie: Long)
+public expect fun ucptrieClose(trie: COpaquePointer?)
 
-public expect fun ucptrie_get(trie: Long, c: Int): UInt
+public expect fun ucptrieGet(trie: COpaquePointer?, c: Int): UInt
 
-public expect fun ucptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int
+public expect fun ucptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int
 
-public expect fun ucptrie_getType(trie: Long): UCPTrieType
+public expect fun ucptrieGetType(trie: COpaquePointer?): UCPTrieType
 
-public expect fun ucptrie_getValueWidth(trie: Long): UCPTrieValueWidth
+public expect fun ucptrieGetValueWidth(trie: COpaquePointer?): UCPTrieValueWidth
 
-public expect fun ucptrie_internalSmallIndex(trie: Long, c: Int): Int
+public expect fun ucptrieInternalSmallIndex(trie: COpaquePointer?, c: Int): Int
 
-public expect fun ucptrie_internalSmallU8Index(trie: Long, lt1: Int, t2: UByte, t3: UByte): Int
+public expect fun ucptrieInternalSmallU8Index(trie: COpaquePointer?, lt1: Int, t2: UByte, t3: UByte): Int
 
-public expect fun ucptrie_internalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int
+public expect fun ucptrieInternalU8PrevIndex(trie: COpaquePointer?, c: Int, start: COpaquePointer?, src: COpaquePointer?): Int
 
-public expect fun ucptrie_openFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long
+public expect fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun ucptrie_toBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int
+public expect fun ucptrieToBinary(trie: COpaquePointer?, data: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ucsdet_close(ucsd: Long)
+public expect fun ucsdetClose(ucsd: COpaquePointer?)
 
-public expect fun ucsdet_detect(ucsd: Long, status: Long): Long
+public expect fun ucsdetDetect(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucsdet_detectAll(ucsd: Long, matchesfound: Long, status: Long): Long
+public expect fun ucsdetDetectAll(ucsd: COpaquePointer?, matchesfound: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucsdet_enableInputFilter(ucsd: Long, filter: Byte): Byte
+public expect fun ucsdetEnableInputFilter(ucsd: COpaquePointer?, filter: Byte): Byte
 
-public expect fun ucsdet_getAllDetectableCharsets(ucsd: Long, status: Long): Long
+public expect fun ucsdetGetAllDetectableCharsets(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucsdet_getConfidence(ucsm: Long, status: Long): Int
+public expect fun ucsdetGetConfidence(ucsm: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ucsdet_getLanguage(ucsm: Long, status: Long): PCSTR
+public expect fun ucsdetGetLanguage(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr
 
-public expect fun ucsdet_getName(ucsm: Long, status: Long): PCSTR
+public expect fun ucsdetGetName(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr
 
-public expect fun ucsdet_getUChars(ucsm: Long, buf: Long, cap: Int, status: Long): Int
+public expect fun ucsdetGetUchars(ucsm: COpaquePointer?, buf: COpaquePointer?, cap: Int, status: COpaquePointer?): Int
 
-public expect fun ucsdet_isInputFilterEnabled(ucsd: Long): Byte
+public expect fun ucsdetIsInputFilterEnabled(ucsd: COpaquePointer?): Byte
 
-public expect fun ucsdet_open(status: Long): Long
+public expect fun ucsdetOpen(status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucsdet_setDeclaredEncoding(ucsd: Long, encoding: PCSTR, length: Int, status: Long)
+public expect fun ucsdetSetDeclaredEncoding(ucsd: COpaquePointer?, encoding: Pcstr, length: Int, status: COpaquePointer?)
 
-public expect fun ucsdet_setText(ucsd: Long, textin: PCSTR, len: Int, status: Long)
+public expect fun ucsdetSetText(ucsd: COpaquePointer?, textin: Pcstr, len: Int, status: COpaquePointer?)
 
-public expect fun ucurr_countCurrencies(locale: PCSTR, date: Double, ec: Long): Int
+public expect fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: COpaquePointer?): Int
 
-public expect fun ucurr_forLocale(locale: PCSTR, buff: Long, buffcapacity: Int, ec: Long): Int
+public expect fun ucurrForLocale(locale: Pcstr, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int
 
-public expect fun ucurr_forLocaleAndDate(locale: PCSTR, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int
+public expect fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int
 
-public expect fun ucurr_getDefaultFractionDigits(currency: Long, ec: Long): Int
+public expect fun ucurrGetDefaultFractionDigits(currency: COpaquePointer?, ec: COpaquePointer?): Int
 
-public expect fun ucurr_getDefaultFractionDigitsForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Int
+public expect fun ucurrGetDefaultFractionDigitsForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Int
 
-public expect fun ucurr_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long
+public expect fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucurr_getName(currency: Long, locale: PCSTR, namestyle: UCurrNameStyle, ischoiceformat: Long, len: Long, ec: Long): Long
+public expect fun ucurrGetName(currency: COpaquePointer?, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun ucurr_getNumericCode(currency: Long): Int
+public expect fun ucurrGetNumericCode(currency: COpaquePointer?): Int
 
-public expect fun ucurr_getPluralName(currency: Long, locale: PCSTR, ischoiceformat: Long, pluralcount: PCSTR, len: Long, ec: Long): Long
+public expect fun ucurrGetPluralName(currency: COpaquePointer?, locale: Pcstr, ischoiceformat: COpaquePointer?, pluralcount: Pcstr, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun ucurr_getRoundingIncrement(currency: Long, ec: Long): Double
+public expect fun ucurrGetRoundingIncrement(currency: COpaquePointer?, ec: COpaquePointer?): Double
 
-public expect fun ucurr_getRoundingIncrementForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Double
+public expect fun ucurrGetRoundingIncrementForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Double
 
-public expect fun ucurr_isAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte
+public expect fun ucurrIsAvailable(isocode: COpaquePointer?, from: Double, to: Double, errorcode: COpaquePointer?): Byte
 
-public expect fun ucurr_openISOCurrencies(currtype: UInt, perrorcode: Long): Long
+public expect fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun ucurr_register(isocode: Long, locale: PCSTR, status: Long): Long
+public expect fun ucurrRegister(isocode: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ucurr_unregister(key: Long, status: Long): Byte
+public expect fun ucurrUnregister(key: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun udat_adoptNumberFormat(fmt: Long, numberformattoadopt: Long)
+public expect fun udatAdoptNumberFormat(fmt: COpaquePointer?, numberformattoadopt: COpaquePointer?)
 
-public expect fun udat_adoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long)
+public expect fun udatAdoptNumberFormatForFields(fmt: COpaquePointer?, fields: COpaquePointer?, numberformattoset: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun udat_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int)
+public expect fun udatApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int)
 
-public expect fun udat_clone(fmt: Long, status: Long): Long
+public expect fun udatClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun udat_close(format: Long)
+public expect fun udatClose(format: COpaquePointer?)
 
-public expect fun udat_countAvailable(): Int
+public expect fun udatCountAvailable(): Int
 
-public expect fun udat_countSymbols(fmt: Long, type: UDateFormatSymbolType): Int
+public expect fun udatCountSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType): Int
 
-public expect fun udat_format(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int
+public expect fun udatFormat(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, position: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun udat_formatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int
+public expect fun udatFormatCalendar(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun udat_formatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int
+public expect fun udatFormatCalendarForFields(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun udat_formatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
+public expect fun udatFormatForFields(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun udat_get2DigitYearStart(fmt: Long, status: Long): Double
+public expect fun udatGet2DigitYearStart(fmt: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun udat_getAvailable(localeindex: Int): PCSTR
+public expect fun udatGetAvailable(localeindex: Int): Pcstr
 
-public expect fun udat_getBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, status: Long): Byte
+public expect fun udatGetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, status: COpaquePointer?): Byte
 
-public expect fun udat_getCalendar(fmt: Long): Long
+public expect fun udatGetCalendar(fmt: COpaquePointer?): COpaquePointer?
 
-public expect fun udat_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext
+public expect fun udatGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext
 
-public expect fun udat_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR
+public expect fun udatGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr
 
-public expect fun udat_getNumberFormat(fmt: Long): Long
+public expect fun udatGetNumberFormat(fmt: COpaquePointer?): COpaquePointer?
 
-public expect fun udat_getNumberFormatForField(fmt: Long, field: UShort): Long
+public expect fun udatGetNumberFormatForField(fmt: COpaquePointer?, field: UShort): COpaquePointer?
 
-public expect fun udat_getSymbols(fmt: Long, type: UDateFormatSymbolType, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int
+public expect fun udatGetSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun udat_isLenient(fmt: Long): Byte
+public expect fun udatIsLenient(fmt: COpaquePointer?): Byte
 
-public expect fun udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: PCSTR, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long
+public expect fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: COpaquePointer?, tzidlength: Int, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun udat_parse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
+public expect fun udatParse(format: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun udat_parseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long)
+public expect fun udatParseCalendar(format: COpaquePointer?, calendar: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun udat_set2DigitYearStart(fmt: Long, d: Double, status: Long)
+public expect fun udatSet2DigitYearStart(fmt: COpaquePointer?, d: Double, status: COpaquePointer?)
 
-public expect fun udat_setBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: Long)
+public expect fun udatSetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: COpaquePointer?)
 
-public expect fun udat_setCalendar(fmt: Long, calendartoset: Long)
+public expect fun udatSetCalendar(fmt: COpaquePointer?, calendartoset: COpaquePointer?)
 
-public expect fun udat_setContext(fmt: Long, value: UDisplayContext, status: Long)
+public expect fun udatSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?)
 
-public expect fun udat_setLenient(fmt: Long, islenient: Byte)
+public expect fun udatSetLenient(fmt: COpaquePointer?, islenient: Byte)
 
-public expect fun udat_setNumberFormat(fmt: Long, numberformattoset: Long)
+public expect fun udatSetNumberFormat(fmt: COpaquePointer?, numberformattoset: COpaquePointer?)
 
-public expect fun udat_setSymbols(format: Long, type: UDateFormatSymbolType, symbolindex: Int, value: Long, valuelength: Int, status: Long)
+public expect fun udatSetSymbols(format: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, value: COpaquePointer?, valuelength: Int, status: COpaquePointer?)
 
-public expect fun udat_toCalendarDateField(field: UDateFormatField): UCalendarDateFields
+public expect fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields
 
-public expect fun udat_toPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int
+public expect fun udatToPattern(fmt: COpaquePointer?, localized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun udatpg_addPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): UDateTimePatternConflict
+public expect fun udatpgAddPattern(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, override: Byte, conflictingpattern: COpaquePointer?, capacity: Int, plength: COpaquePointer?, perrorcode: COpaquePointer?): UDateTimePatternConflict
 
-public expect fun udatpg_clone(dtpg: Long, perrorcode: Long): Long
+public expect fun udatpgClone(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_close(dtpg: Long)
+public expect fun udatpgClose(dtpg: COpaquePointer?)
 
-public expect fun udatpg_getAppendItemFormat(dtpg: Long, field: UDateTimePatternField, plength: Long): Long
+public expect fun udatpgGetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_getAppendItemName(dtpg: Long, field: UDateTimePatternField, plength: Long): Long
+public expect fun udatpgGetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_getBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int
+public expect fun udatpgGetBaseSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, baseskeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_getBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int
+public expect fun udatpgGetBestPattern(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_getBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: UDateTimePatternMatchOptions, bestpattern: Long, capacity: Int, perrorcode: Long): Int
+public expect fun udatpgGetBestPatternWithOptions(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, options: UDateTimePatternMatchOptions, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_getDateTimeFormat(dtpg: Long, plength: Long): Long
+public expect fun udatpgGetDateTimeFormat(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_getDecimal(dtpg: Long, plength: Long): Long
+public expect fun udatpgGetDecimal(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_getFieldDisplayName(dtpg: Long, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: Long, capacity: Int, perrorcode: Long): Int
+public expect fun udatpgGetFieldDisplayName(dtpg: COpaquePointer?, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_getPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long
+public expect fun udatpgGetPatternForSkeleton(dtpg: COpaquePointer?, skeleton: COpaquePointer?, skeletonlength: Int, plength: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_getSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int
+public expect fun udatpgGetSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, skeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_open(locale: PCSTR, perrorcode: Long): Long
+public expect fun udatpgOpen(locale: Pcstr, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_openBaseSkeletons(dtpg: Long, perrorcode: Long): Long
+public expect fun udatpgOpenBaseSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_openEmpty(perrorcode: Long): Long
+public expect fun udatpgOpenEmpty(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_openSkeletons(dtpg: Long, perrorcode: Long): Long
+public expect fun udatpgOpenSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun udatpg_replaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int
+public expect fun udatpgReplaceFieldTypes(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_replaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: Long, destcapacity: Int, perrorcode: Long): Int
+public expect fun udatpgReplaceFieldTypesWithOptions(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun udatpg_setAppendItemFormat(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int)
+public expect fun udatpgSetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int)
 
-public expect fun udatpg_setAppendItemName(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int)
+public expect fun udatpgSetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int)
 
-public expect fun udatpg_setDateTimeFormat(dtpg: Long, dtformat: Long, length: Int)
+public expect fun udatpgSetDateTimeFormat(dtpg: COpaquePointer?, dtformat: COpaquePointer?, length: Int)
 
-public expect fun udatpg_setDecimal(dtpg: Long, decimal: Long, length: Int)
+public expect fun udatpgSetDecimal(dtpg: COpaquePointer?, decimal: COpaquePointer?, length: Int)
 
-public expect fun udtitvfmt_close(formatter: Long)
+public expect fun udtitvfmtClose(formatter: COpaquePointer?)
 
-public expect fun udtitvfmt_closeResult(uresult: Long)
+public expect fun udtitvfmtCloseResult(uresult: COpaquePointer?)
 
-public expect fun udtitvfmt_format(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int
+public expect fun udtitvfmtFormat(formatter: COpaquePointer?, fromdate: Double, todate: Double, result: COpaquePointer?, resultcapacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun udtitvfmt_open(locale: PCSTR, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long
+public expect fun udtitvfmtOpen(locale: Pcstr, skeleton: COpaquePointer?, skeletonlength: Int, tzid: COpaquePointer?, tzidlength: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun udtitvfmt_openResult(ec: Long): Long
+public expect fun udtitvfmtOpenResult(ec: COpaquePointer?): COpaquePointer?
 
-public expect fun udtitvfmt_resultAsValue(uresult: Long, ec: Long): Long
+public expect fun udtitvfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun uenum_close(en: Long)
+public expect fun uenumClose(en: COpaquePointer?)
 
-public expect fun uenum_count(en: Long, status: Long): Int
+public expect fun uenumCount(en: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uenum_next(en: Long, resultlength: Long, status: Long): PCSTR
+public expect fun uenumNext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): Pcstr
 
-public expect fun uenum_openCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
+public expect fun uenumOpenCharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun uenum_openUCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long
+public expect fun uenumOpenUcharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun uenum_reset(en: Long, status: Long)
+public expect fun uenumReset(en: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uenum_unext(en: Long, resultlength: Long, status: Long): Long
+public expect fun uenumUnext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufieldpositer_close(fpositer: Long)
+public expect fun ufieldpositerClose(fpositer: COpaquePointer?)
 
-public expect fun ufieldpositer_next(fpositer: Long, beginindex: Long, endindex: Long): Int
+public expect fun ufieldpositerNext(fpositer: COpaquePointer?, beginindex: COpaquePointer?, endindex: COpaquePointer?): Int
 
-public expect fun ufieldpositer_open(status: Long): Long
+public expect fun ufieldpositerOpen(status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmt_close(fmt: Long)
+public expect fun ufmtClose(fmt: COpaquePointer?)
 
-public expect fun ufmt_getArrayItemByIndex(fmt: Long, n: Int, status: Long): Long
+public expect fun ufmtGetArrayItemByIndex(fmt: COpaquePointer?, n: Int, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmt_getArrayLength(fmt: Long, status: Long): Int
+public expect fun ufmtGetArrayLength(fmt: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ufmt_getDate(fmt: Long, status: Long): Double
+public expect fun ufmtGetDate(fmt: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun ufmt_getDecNumChars(fmt: Long, len: Long, status: Long): PCSTR
+public expect fun ufmtGetDecNumChars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): Pcstr
 
-public expect fun ufmt_getDouble(fmt: Long, status: Long): Double
+public expect fun ufmtGetDouble(fmt: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun ufmt_getInt64(fmt: Long, status: Long): Long
+public expect fun ufmtGetInt64(fmt: COpaquePointer?, status: COpaquePointer?): Long
 
-public expect fun ufmt_getLong(fmt: Long, status: Long): Int
+public expect fun ufmtGetLong(fmt: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun ufmt_getObject(fmt: Long, status: Long): Long
+public expect fun ufmtGetObject(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmt_getType(fmt: Long, status: Long): UFormattableType
+public expect fun ufmtGetType(fmt: COpaquePointer?, status: COpaquePointer?): UFormattableType
 
-public expect fun ufmt_getUChars(fmt: Long, len: Long, status: Long): Long
+public expect fun ufmtGetUchars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmt_isNumeric(fmt: Long): Byte
+public expect fun ufmtIsNumeric(fmt: COpaquePointer?): Byte
 
-public expect fun ufmt_open(status: Long): Long
+public expect fun ufmtOpen(status: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmtval_getString(ufmtval: Long, plength: Long, ec: Long): Long
+public expect fun ufmtvalGetString(ufmtval: COpaquePointer?, plength: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun ufmtval_nextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte
+public expect fun ufmtvalNextPosition(ufmtval: COpaquePointer?, ucfpos: COpaquePointer?, ec: COpaquePointer?): Byte
 
-public expect fun ugender_getInstance(locale: PCSTR, status: Long): Long
+public expect fun ugenderGetInstance(locale: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ugender_getListGender(genderinfo: Long, genders: Long, size: Int, status: Long): UGender
+public expect fun ugenderGetListGender(genderinfo: COpaquePointer?, genders: COpaquePointer?, size: Int, status: COpaquePointer?): UGender
 
-public expect fun uidna_close(idna: Long)
+public expect fun uidnaClose(idna: COpaquePointer?)
 
-public expect fun uidna_labelToASCII(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaLabelToAscii(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_labelToASCII_UTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaLabelToAsciiUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_labelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaLabelToUnicode(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_labelToUnicodeUTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaLabelToUnicodeUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_nameToASCII(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaNameToAscii(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_nameToASCII_UTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaNameToAsciiUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_nameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaNameToUnicode(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_nameToUnicodeUTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int
+public expect fun uidnaNameToUnicodeUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int
 
-public expect fun uidna_openUTS46(options: UInt, perrorcode: Long): Long
+public expect fun uidnaOpenUts46(options: UInt, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun uiter_current32(iter: Long): Int
+public expect fun uiterCurrent32(iter: COpaquePointer?): Int
 
-public expect fun uiter_getState(iter: Long): UInt
+public expect fun uiterGetState(iter: COpaquePointer?): UInt
 
-public expect fun uiter_next32(iter: Long): Int
+public expect fun uiterNext32(iter: COpaquePointer?): Int
 
-public expect fun uiter_previous32(iter: Long): Int
+public expect fun uiterPrevious32(iter: COpaquePointer?): Int
 
-public expect fun uiter_setState(iter: Long, state: UInt, perrorcode: Long)
+public expect fun uiterSetState(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?)
 
-public expect fun uiter_setString(iter: Long, s: Long, length: Int)
+public expect fun uiterSetString(iter: COpaquePointer?, s: COpaquePointer?, length: Int)
 
-public expect fun uiter_setUTF16BE(iter: Long, s: PCSTR, length: Int)
+public expect fun uiterSetUtf16Be(iter: COpaquePointer?, s: Pcstr, length: Int)
 
-public expect fun uiter_setUTF8(iter: Long, s: PCSTR, length: Int)
+public expect fun uiterSetUtf8(iter: COpaquePointer?, s: Pcstr, length: Int)
 
-public expect fun uldn_close(ldn: Long)
+public expect fun uldnClose(ldn: COpaquePointer?)
 
-public expect fun uldn_getContext(ldn: Long, type: UDisplayContextType, perrorcode: Long): UDisplayContext
+public expect fun uldnGetContext(ldn: COpaquePointer?, type: UDisplayContextType, perrorcode: COpaquePointer?): UDisplayContext
 
-public expect fun uldn_getDialectHandling(ldn: Long): UDialectHandling
+public expect fun uldnGetDialectHandling(ldn: COpaquePointer?): UDialectHandling
 
-public expect fun uldn_getLocale(ldn: Long): PCSTR
+public expect fun uldnGetLocale(ldn: COpaquePointer?): Pcstr
 
-public expect fun uldn_keyDisplayName(ldn: Long, key: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnKeyDisplayName(ldn: COpaquePointer?, key: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_keyValueDisplayName(ldn: Long, key: PCSTR, value: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnKeyValueDisplayName(ldn: COpaquePointer?, key: Pcstr, value: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_languageDisplayName(ldn: Long, lang: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnLanguageDisplayName(ldn: COpaquePointer?, lang: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_localeDisplayName(ldn: Long, locale: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnLocaleDisplayName(ldn: COpaquePointer?, locale: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_open(locale: PCSTR, dialecthandling: UDialectHandling, perrorcode: Long): Long
+public expect fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun uldn_openForContext(locale: PCSTR, contexts: Long, length: Int, perrorcode: Long): Long
+public expect fun uldnOpenForContext(locale: Pcstr, contexts: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun uldn_regionDisplayName(ldn: Long, region: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnRegionDisplayName(ldn: COpaquePointer?, region: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_scriptCodeDisplayName(ldn: Long, scriptcode: UScriptCode, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnScriptCodeDisplayName(ldn: COpaquePointer?, scriptcode: UScriptCode, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_scriptDisplayName(ldn: Long, script: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnScriptDisplayName(ldn: COpaquePointer?, script: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun uldn_variantDisplayName(ldn: Long, variant: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int
+public expect fun uldnVariantDisplayName(ldn: COpaquePointer?, variant: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun ulistfmt_close(listfmt: Long)
+public expect fun ulistfmtClose(listfmt: COpaquePointer?)
 
-public expect fun ulistfmt_closeResult(uresult: Long)
+public expect fun ulistfmtCloseResult(uresult: COpaquePointer?)
 
-public expect fun ulistfmt_format(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int
+public expect fun ulistfmtFormat(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun ulistfmt_formatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long)
+public expect fun ulistfmtFormatStringsToResult(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, uresult: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun ulistfmt_open(locale: PCSTR, status: Long): Long
+public expect fun ulistfmtOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ulistfmt_openForType(locale: PCSTR, type: UListFormatterType, width: UListFormatterWidth, status: Long): Long
+public expect fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ulistfmt_openResult(ec: Long): Long
+public expect fun ulistfmtOpenResult(ec: COpaquePointer?): COpaquePointer?
 
-public expect fun ulistfmt_resultAsValue(uresult: Long, ec: Long): Long
+public expect fun ulistfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun uloc_acceptLanguage(result: PCSTR, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int
+public expect fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, acceptlist: COpaquePointer?, acceptlistcount: Int, availablelocales: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uloc_acceptLanguageFromHTTP(result: PCSTR, resultavailable: Int, outresult: Long, httpacceptlanguage: PCSTR, availablelocales: Long, status: Long): Int
+public expect fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, httpacceptlanguage: Pcstr, availablelocales: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uloc_addLikelySubtags(localeid: PCSTR, maximizedlocaleid: PCSTR, maximizedlocaleidcapacity: Int, err: Long): Int
+public expect fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_canonicalize(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int
+public expect fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_countAvailable(): Int
+public expect fun ulocCountAvailable(): Int
 
-public expect fun uloc_forLanguageTag(langtag: PCSTR, localeid: PCSTR, localeidcapacity: Int, parsedlength: Long, err: Long): Int
+public expect fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: COpaquePointer?, err: COpaquePointer?): Int
 
-public expect fun uloc_getAvailable(n: Int): PCSTR
+public expect fun ulocGetAvailable(n: Int): Pcstr
 
-public expect fun uloc_getBaseName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int
+public expect fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getCharacterOrientation(localeid: PCSTR, status: Long): ULayoutType
+public expect fun ulocGetCharacterOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType
 
-public expect fun uloc_getCountry(localeid: PCSTR, country: PCSTR, countrycapacity: Int, err: Long): Int
+public expect fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getDefault(): PCSTR
+public expect fun ulocGetDefault(): Pcstr
 
-public expect fun uloc_getDisplayCountry(locale: PCSTR, displaylocale: PCSTR, country: Long, countrycapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: COpaquePointer?, countrycapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayKeyword(keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayKeywordValue(locale: PCSTR, keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayLanguage(locale: PCSTR, displaylocale: PCSTR, language: Long, languagecapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: COpaquePointer?, languagecapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayName(localeid: PCSTR, inlocaleid: PCSTR, result: Long, maxresultsize: Int, err: Long): Int
+public expect fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: COpaquePointer?, maxresultsize: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayScript(locale: PCSTR, displaylocale: PCSTR, script: Long, scriptcapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: COpaquePointer?, scriptcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getDisplayVariant(locale: PCSTR, displaylocale: PCSTR, variant: Long, variantcapacity: Int, status: Long): Int
+public expect fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: COpaquePointer?, variantcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getISO3Country(localeid: PCSTR): PCSTR
+public expect fun ulocGetIso3Country(localeid: Pcstr): Pcstr
 
-public expect fun uloc_getISO3Language(localeid: PCSTR): PCSTR
+public expect fun ulocGetIso3Language(localeid: Pcstr): Pcstr
 
-public expect fun uloc_getISOCountries(): Long
+public expect fun ulocGetIsocountries(): COpaquePointer?
 
-public expect fun uloc_getISOLanguages(): Long
+public expect fun ulocGetIsolanguages(): COpaquePointer?
 
-public expect fun uloc_getKeywordValue(localeid: PCSTR, keywordname: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int
+public expect fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getLCID(localeid: PCSTR): UInt
+public expect fun ulocGetLcid(localeid: Pcstr): UInt
 
-public expect fun uloc_getLanguage(localeid: PCSTR, language: PCSTR, languagecapacity: Int, err: Long): Int
+public expect fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getLineOrientation(localeid: PCSTR, status: Long): ULayoutType
+public expect fun ulocGetLineOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType
 
-public expect fun uloc_getLocaleForLCID(hostid: UInt, locale: PCSTR, localecapacity: Int, status: Long): Int
+public expect fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_getName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int
+public expect fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getParent(localeid: PCSTR, parent: PCSTR, parentcapacity: Int, err: Long): Int
+public expect fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getScript(localeid: PCSTR, script: PCSTR, scriptcapacity: Int, err: Long): Int
+public expect fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_getVariant(localeid: PCSTR, variant: PCSTR, variantcapacity: Int, err: Long): Int
+public expect fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_isRightToLeft(locale: PCSTR): Byte
+public expect fun ulocIsRightToLeft(locale: Pcstr): Byte
 
-public expect fun uloc_minimizeSubtags(localeid: PCSTR, minimizedlocaleid: PCSTR, minimizedlocaleidcapacity: Int, err: Long): Int
+public expect fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: COpaquePointer?): Int
 
-public expect fun uloc_openAvailableByType(type: ULocAvailableType, status: Long): Long
+public expect fun ulocOpenAvailableByType(type: ULocAvailableType, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uloc_openKeywords(localeid: PCSTR, status: Long): Long
+public expect fun ulocOpenKeywords(localeid: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uloc_setDefault(localeid: PCSTR, status: Long)
+public expect fun ulocSetDefault(localeid: Pcstr, status: COpaquePointer?)
 
-public expect fun uloc_setKeywordValue(keywordname: PCSTR, keywordvalue: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int
+public expect fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uloc_toLanguageTag(localeid: PCSTR, langtag: PCSTR, langtagcapacity: Int, strict: Byte, err: Long): Int
+public expect fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: COpaquePointer?): Int
 
-public expect fun uloc_toLegacyKey(keyword: PCSTR): PCSTR
+public expect fun ulocToLegacyKey(keyword: Pcstr): Pcstr
 
-public expect fun uloc_toLegacyType(keyword: PCSTR, value: PCSTR): PCSTR
+public expect fun ulocToLegacyType(keyword: Pcstr, value: Pcstr): Pcstr
 
-public expect fun uloc_toUnicodeLocaleKey(keyword: PCSTR): PCSTR
+public expect fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr
 
-public expect fun uloc_toUnicodeLocaleType(keyword: PCSTR, value: PCSTR): PCSTR
+public expect fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr
 
-public expect fun ulocdata_close(uld: Long)
+public expect fun ulocdataClose(uld: COpaquePointer?)
 
-public expect fun ulocdata_getCLDRVersion(versionarray: Long, status: Long)
+public expect fun ulocdataGetCldrversion(versionarray: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun ulocdata_getDelimiter(uld: Long, type: ULocaleDataDelimiterType, result: Long, resultlength: Int, status: Long): Int
+public expect fun ulocdataGetDelimiter(uld: COpaquePointer?, type: ULocaleDataDelimiterType, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun ulocdata_getExemplarSet(uld: Long, fillin: Long, options: UInt, extype: ULocaleDataExemplarSetType, status: Long): Long
+public expect fun ulocdataGetExemplarSet(uld: COpaquePointer?, fillin: COpaquePointer?, options: UInt, extype: ULocaleDataExemplarSetType, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ulocdata_getLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int
+public expect fun ulocdataGetLocaleDisplayPattern(uld: COpaquePointer?, pattern: COpaquePointer?, patterncapacity: Int, status: COpaquePointer?): Int
 
-public expect fun ulocdata_getLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int
+public expect fun ulocdataGetLocaleSeparator(uld: COpaquePointer?, separator: COpaquePointer?, separatorcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun ulocdata_getMeasurementSystem(localeid: PCSTR, status: Long): UMeasurementSystem
+public expect fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: COpaquePointer?): UMeasurementSystem
 
-public expect fun ulocdata_getNoSubstitute(uld: Long): Byte
+public expect fun ulocdataGetNoSubstitute(uld: COpaquePointer?): Byte
 
-public expect fun ulocdata_getPaperSize(localeid: PCSTR, height: Long, width: Long, status: Long)
+public expect fun ulocdataGetPaperSize(localeid: Pcstr, height: COpaquePointer?, width: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun ulocdata_open(localeid: PCSTR, status: Long): Long
+public expect fun ulocdataOpen(localeid: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun ulocdata_setNoSubstitute(uld: Long, setting: Byte)
+public expect fun ulocdataSetNoSubstitute(uld: COpaquePointer?, setting: Byte)
 
-public expect fun umsg_applyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
+public expect fun umsgApplyPattern(fmt: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun umsg_autoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int
+public expect fun umsgAutoQuoteApostrophe(pattern: COpaquePointer?, patternlength: Int, dest: COpaquePointer?, destcapacity: Int, ec: COpaquePointer?): Int
 
-public expect fun umsg_clone(fmt: Long, status: Long): Long
+public expect fun umsgClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun umsg_close(format: Long)
+public expect fun umsgClose(format: COpaquePointer?)
 
-public expect fun umsg_format(fmt: Long, result: Long, resultlength: Int, status: Long, vararg variadicArgs: Long): Int
+public expect fun umsgFormat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int
 
-public expect fun umsg_getLocale(fmt: Long): PCSTR
+public expect fun umsgGetLocale(fmt: COpaquePointer?): Pcstr
 
-public expect fun umsg_open(pattern: Long, patternlength: Int, locale: PCSTR, parseerror: Long, status: Long): Long
+public expect fun umsgOpen(pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun umsg_parse(fmt: Long, source: Long, sourcelength: Int, count: Long, status: Long, vararg variadicArgs: Long)
+public expect fun umsgParse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long)
 
-public expect fun umsg_setLocale(fmt: Long, locale: PCSTR)
+public expect fun umsgSetLocale(fmt: COpaquePointer?, locale: Pcstr)
 
-public expect fun umsg_toPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int
+public expect fun umsgToPattern(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun umsg_vformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int
+public expect fun umsgVformat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun umsg_vparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long)
+public expect fun umsgVparse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun umutablecptrie_buildImmutable(trie: Long, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: Long): Long
+public expect fun umutablecptrieBuildImmutable(trie: COpaquePointer?, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun umutablecptrie_clone(other: Long, perrorcode: Long): Long
+public expect fun umutablecptrieClone(other: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun umutablecptrie_close(trie: Long)
+public expect fun umutablecptrieClose(trie: COpaquePointer?)
 
-public expect fun umutablecptrie_fromUCPMap(map: Long, perrorcode: Long): Long
+public expect fun umutablecptrieFromUcpmap(map: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun umutablecptrie_fromUCPTrie(trie: Long, perrorcode: Long): Long
+public expect fun umutablecptrieFromUcptrie(trie: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun umutablecptrie_get(trie: Long, c: Int): UInt
+public expect fun umutablecptrieGet(trie: COpaquePointer?, c: Int): UInt
 
-public expect fun umutablecptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int
+public expect fun umutablecptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int
 
-public expect fun umutablecptrie_open(initialvalue: UInt, errorvalue: UInt, perrorcode: Long): Long
+public expect fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun umutablecptrie_set(trie: Long, c: Int, value: UInt, perrorcode: Long)
+public expect fun umutablecptrieSet(trie: COpaquePointer?, c: Int, value: UInt, perrorcode: COpaquePointer?)
 
-public expect fun umutablecptrie_setRange(trie: Long, start: Int, end: Int, value: UInt, perrorcode: Long)
+public expect fun umutablecptrieSetRange(trie: COpaquePointer?, start: Int, end: Int, value: UInt, perrorcode: COpaquePointer?)
 
-public expect fun unorm2_append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
+public expect fun unorm2Append(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm2_close(norm2: Long)
+public expect fun unorm2Close(norm2: COpaquePointer?)
 
-public expect fun unorm2_composePair(norm2: Long, a: Int, b: Int): Int
+public expect fun unorm2ComposePair(norm2: COpaquePointer?, a: Int, b: Int): Int
 
-public expect fun unorm2_getCombiningClass(norm2: Long, c: Int): UByte
+public expect fun unorm2GetCombiningClass(norm2: COpaquePointer?, c: Int): UByte
 
-public expect fun unorm2_getDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
+public expect fun unorm2GetDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm2_getInstance(packagename: PCSTR, name: PCSTR, mode: UNormalization2Mode, perrorcode: Long): Long
+public expect fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getNFCInstance(perrorcode: Long): Long
+public expect fun unorm2GetNfcinstance(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getNFDInstance(perrorcode: Long): Long
+public expect fun unorm2GetNfdinstance(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getNFKCCasefoldInstance(perrorcode: Long): Long
+public expect fun unorm2GetNfkccasefoldInstance(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getNFKCInstance(perrorcode: Long): Long
+public expect fun unorm2GetNfkcinstance(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getNFKDInstance(perrorcode: Long): Long
+public expect fun unorm2GetNfkdinstance(perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_getRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int
+public expect fun unorm2GetRawDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm2_hasBoundaryAfter(norm2: Long, c: Int): Byte
+public expect fun unorm2HasBoundaryAfter(norm2: COpaquePointer?, c: Int): Byte
 
-public expect fun unorm2_hasBoundaryBefore(norm2: Long, c: Int): Byte
+public expect fun unorm2HasBoundaryBefore(norm2: COpaquePointer?, c: Int): Byte
 
-public expect fun unorm2_isInert(norm2: Long, c: Int): Byte
+public expect fun unorm2IsInert(norm2: COpaquePointer?, c: Int): Byte
 
-public expect fun unorm2_isNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte
+public expect fun unorm2IsNormalized(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Byte
 
-public expect fun unorm2_normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int
+public expect fun unorm2Normalize(norm2: COpaquePointer?, src: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm2_normalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int
+public expect fun unorm2NormalizeSecondAndAppend(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm2_openFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long
+public expect fun unorm2OpenFiltered(norm2: COpaquePointer?, filterset: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer?
 
-public expect fun unorm2_quickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): UNormalizationCheckResult
+public expect fun unorm2QuickCheck(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): UNormalizationCheckResult
 
-public expect fun unorm2_spanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int
+public expect fun unorm2SpanQuickCheckYes(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Int
 
-public expect fun unorm_compare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int
+public expect fun unormCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int
 
-public expect fun unum_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long)
+public expect fun unumApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun unum_clone(fmt: Long, status: Long): Long
+public expect fun unumClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun unum_close(fmt: Long)
+public expect fun unumClose(fmt: COpaquePointer?)
 
-public expect fun unum_countAvailable(): Int
+public expect fun unumCountAvailable(): Int
 
-public expect fun unum_format(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormat(fmt: COpaquePointer?, number: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatDecimal(fmt: Long, number: PCSTR, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormatDecimal(fmt: COpaquePointer?, number: Pcstr, length: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormatDouble(fmt: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormatDoubleCurrency(fmt: COpaquePointer?, number: Double, currency: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int
+public expect fun unumFormatDoubleForFields(format: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormatInt64(fmt: COpaquePointer?, number: Long, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_formatUFormattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int
+public expect fun unumFormatUformattable(fmt: COpaquePointer?, number: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_getAttribute(fmt: Long, attr: UNumberFormatAttribute): Int
+public expect fun unumGetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Int
 
-public expect fun unum_getAvailable(localeindex: Int): PCSTR
+public expect fun unumGetAvailable(localeindex: Int): Pcstr
 
-public expect fun unum_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext
+public expect fun unumGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext
 
-public expect fun unum_getDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute): Double
+public expect fun unumGetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Double
 
-public expect fun unum_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR
+public expect fun unumGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr
 
-public expect fun unum_getSymbol(fmt: Long, symbol: UNumberFormatSymbol, buffer: Long, size: Int, status: Long): Int
+public expect fun unumGetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, buffer: COpaquePointer?, size: Int, status: COpaquePointer?): Int
 
-public expect fun unum_getTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, result: Long, resultlength: Int, status: Long): Int
+public expect fun unumGetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun unum_open(style: UNumberFormatStyle, pattern: Long, patternlength: Int, locale: PCSTR, parseerr: Long, status: Long): Long
+public expect fun unumOpen(style: UNumberFormatStyle, pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun unum_parse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int
+public expect fun unumParse(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun unum_parseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: PCSTR, outbuflength: Int, status: Long): Int
+public expect fun unumParseDecimal(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, outbuf: Pcstr, outbuflength: Int, status: COpaquePointer?): Int
 
-public expect fun unum_parseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double
+public expect fun unumParseDouble(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun unum_parseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double
+public expect fun unumParseDoubleCurrency(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, currency: COpaquePointer?, status: COpaquePointer?): Double
 
-public expect fun unum_parseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
+public expect fun unumParseInt64(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Long
 
-public expect fun unum_parseToUFormattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long
+public expect fun unumParseToUformattable(fmt: COpaquePointer?, result: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun unum_setAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Int)
+public expect fun unumSetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Int)
 
-public expect fun unum_setContext(fmt: Long, value: UDisplayContext, status: Long)
+public expect fun unumSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?)
 
-public expect fun unum_setDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Double)
+public expect fun unumSetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Double)
 
-public expect fun unum_setSymbol(fmt: Long, symbol: UNumberFormatSymbol, value: Long, length: Int, status: Long)
+public expect fun unumSetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, value: COpaquePointer?, length: Int, status: COpaquePointer?)
 
-public expect fun unum_setTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, newvalue: Long, newvaluelength: Int, status: Long)
+public expect fun unumSetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, newvalue: COpaquePointer?, newvaluelength: Int, status: COpaquePointer?)
 
-public expect fun unum_toPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int
+public expect fun unumToPattern(fmt: COpaquePointer?, ispatternlocalized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun unumf_close(uformatter: Long)
+public expect fun unumfClose(uformatter: COpaquePointer?)
 
-public expect fun unumf_closeResult(uresult: Long)
+public expect fun unumfCloseResult(uresult: COpaquePointer?)
 
-public expect fun unumf_formatDecimal(uformatter: Long, value: PCSTR, valuelen: Int, uresult: Long, ec: Long)
+public expect fun unumfFormatDecimal(uformatter: COpaquePointer?, value: Pcstr, valuelen: Int, uresult: COpaquePointer?, ec: COpaquePointer?)
 
-public expect fun unumf_formatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long)
+public expect fun unumfFormatDouble(uformatter: COpaquePointer?, value: Double, uresult: COpaquePointer?, ec: COpaquePointer?)
 
-public expect fun unumf_formatInt(uformatter: Long, value: Long, uresult: Long, ec: Long)
+public expect fun unumfFormatInt(uformatter: COpaquePointer?, value: Long, uresult: COpaquePointer?, ec: COpaquePointer?)
 
-public expect fun unumf_openForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: PCSTR, ec: Long): Long
+public expect fun unumfOpenForSkeletonAndLocale(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun unumf_openForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: PCSTR, perror: Long, ec: Long): Long
+public expect fun unumfOpenForSkeletonAndLocaleWithError(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, perror: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun unumf_openResult(ec: Long): Long
+public expect fun unumfOpenResult(ec: COpaquePointer?): COpaquePointer?
 
-public expect fun unumf_resultAsValue(uresult: Long, ec: Long): Long
+public expect fun unumfResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer?
 
-public expect fun unumf_resultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long)
+public expect fun unumfResultGetAllFieldPositions(uresult: COpaquePointer?, ufpositer: COpaquePointer?, ec: COpaquePointer?)
 
-public expect fun unumf_resultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte
+public expect fun unumfResultNextFieldPosition(uresult: COpaquePointer?, ufpos: COpaquePointer?, ec: COpaquePointer?): Byte
 
-public expect fun unumf_resultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int
+public expect fun unumfResultToString(uresult: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, ec: COpaquePointer?): Int
 
-public expect fun unumsys_close(unumsys: Long)
+public expect fun unumsysClose(unumsys: COpaquePointer?)
 
-public expect fun unumsys_getDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int
+public expect fun unumsysGetDescription(unumsys: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int
 
-public expect fun unumsys_getName(unumsys: Long): PCSTR
+public expect fun unumsysGetName(unumsys: COpaquePointer?): Pcstr
 
-public expect fun unumsys_getRadix(unumsys: Long): Int
+public expect fun unumsysGetRadix(unumsys: COpaquePointer?): Int
 
-public expect fun unumsys_isAlgorithmic(unumsys: Long): Byte
+public expect fun unumsysIsAlgorithmic(unumsys: COpaquePointer?): Byte
 
-public expect fun unumsys_open(locale: PCSTR, status: Long): Long
+public expect fun unumsysOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun unumsys_openAvailableNames(status: Long): Long
+public expect fun unumsysOpenAvailableNames(status: COpaquePointer?): COpaquePointer?
 
-public expect fun unumsys_openByName(name: PCSTR, status: Long): Long
+public expect fun unumsysOpenByName(name: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uplrules_close(uplrules: Long)
+public expect fun uplrulesClose(uplrules: COpaquePointer?)
 
-public expect fun uplrules_getKeywords(uplrules: Long, status: Long): Long
+public expect fun uplrulesGetKeywords(uplrules: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uplrules_open(locale: PCSTR, status: Long): Long
+public expect fun uplrulesOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uplrules_openForType(locale: PCSTR, type: UPluralType, status: Long): Long
+public expect fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uplrules_select(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int
+public expect fun uplrulesSelect(uplrules: COpaquePointer?, number: Double, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int
 
-public expect fun uplrules_selectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int
+public expect fun uplrulesSelectFormatted(uplrules: COpaquePointer?, number: COpaquePointer?, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_appendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int
+public expect fun uregexAppendReplacement(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_appendReplacementUText(regexp: Long, replacementtext: Long, dest: Long, status: Long)
+public expect fun uregexAppendReplacementUtext(regexp: COpaquePointer?, replacementtext: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_appendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int
+public expect fun uregexAppendTail(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_appendTailUText(regexp: Long, dest: Long, status: Long): Long
+public expect fun uregexAppendTailUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_clone(regexp: Long, status: Long): Long
+public expect fun uregexClone(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_close(regexp: Long)
+public expect fun uregexClose(regexp: COpaquePointer?)
 
-public expect fun uregex_end(regexp: Long, groupnum: Int, status: Long): Int
+public expect fun uregexEnd(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_end64(regexp: Long, groupnum: Int, status: Long): Long
+public expect fun uregexEnd64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long
 
-public expect fun uregex_find(regexp: Long, startindex: Int, status: Long): Byte
+public expect fun uregexFind(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte
 
-public expect fun uregex_find64(regexp: Long, startindex: Long, status: Long): Byte
+public expect fun uregexFind64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte
 
-public expect fun uregex_findNext(regexp: Long, status: Long): Byte
+public expect fun uregexFindNext(regexp: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun uregex_flags(regexp: Long, status: Long): Int
+public expect fun uregexFlags(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_getFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long)
+public expect fun uregexGetFindProgressCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_getMatchCallback(regexp: Long, callback: Long, context: Long, status: Long)
+public expect fun uregexGetMatchCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_getStackLimit(regexp: Long, status: Long): Int
+public expect fun uregexGetStackLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_getText(regexp: Long, textlength: Long, status: Long): Long
+public expect fun uregexGetText(regexp: COpaquePointer?, textlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_getTimeLimit(regexp: Long, status: Long): Int
+public expect fun uregexGetTimeLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_getUText(regexp: Long, dest: Long, status: Long): Long
+public expect fun uregexGetUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_group(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int
+public expect fun uregexGroup(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_groupCount(regexp: Long, status: Long): Int
+public expect fun uregexGroupCount(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_groupNumberFromCName(regexp: Long, groupname: PCSTR, namelength: Int, status: Long): Int
+public expect fun uregexGroupNumberFromCname(regexp: COpaquePointer?, groupname: Pcstr, namelength: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_groupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int
+public expect fun uregexGroupNumberFromName(regexp: COpaquePointer?, groupname: COpaquePointer?, namelength: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_groupUText(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long
+public expect fun uregexGroupUtext(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, grouplength: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_hasAnchoringBounds(regexp: Long, status: Long): Byte
+public expect fun uregexHasAnchoringBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun uregex_hasTransparentBounds(regexp: Long, status: Long): Byte
+public expect fun uregexHasTransparentBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun uregex_hitEnd(regexp: Long, status: Long): Byte
+public expect fun uregexHitEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun uregex_lookingAt(regexp: Long, startindex: Int, status: Long): Byte
+public expect fun uregexLookingAt(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte
 
-public expect fun uregex_lookingAt64(regexp: Long, startindex: Long, status: Long): Byte
+public expect fun uregexLookingAt64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte
 
-public expect fun uregex_matches(regexp: Long, startindex: Int, status: Long): Byte
+public expect fun uregexMatches(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte
 
-public expect fun uregex_matches64(regexp: Long, startindex: Long, status: Long): Byte
+public expect fun uregexMatches64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte
 
-public expect fun uregex_open(pattern: Long, patternlength: Int, flags: UInt, pe: Long, status: Long): Long
+public expect fun uregexOpen(pattern: COpaquePointer?, patternlength: Int, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_openC(pattern: PCSTR, flags: UInt, pe: Long, status: Long): Long
+public expect fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_openUText(pattern: Long, flags: UInt, pe: Long, status: Long): Long
+public expect fun uregexOpenUtext(pattern: COpaquePointer?, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_pattern(regexp: Long, patlength: Long, status: Long): Long
+public expect fun uregexPattern(regexp: COpaquePointer?, patlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_patternUText(regexp: Long, status: Long): Long
+public expect fun uregexPatternUtext(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_refreshUText(regexp: Long, text: Long, status: Long)
+public expect fun uregexRefreshUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_regionEnd(regexp: Long, status: Long): Int
+public expect fun uregexRegionEnd(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_regionEnd64(regexp: Long, status: Long): Long
+public expect fun uregexRegionEnd64(regexp: COpaquePointer?, status: COpaquePointer?): Long
 
-public expect fun uregex_regionStart(regexp: Long, status: Long): Int
+public expect fun uregexRegionStart(regexp: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun uregex_regionStart64(regexp: Long, status: Long): Long
+public expect fun uregexRegionStart64(regexp: COpaquePointer?, status: COpaquePointer?): Long
 
-public expect fun uregex_replaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
+public expect fun uregexReplaceAll(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_replaceAllUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long
+public expect fun uregexReplaceAllUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_replaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int
+public expect fun uregexReplaceFirst(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_replaceFirstUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long
+public expect fun uregexReplaceFirstUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregex_requireEnd(regexp: Long, status: Long): Byte
+public expect fun uregexRequireEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte
 
-public expect fun uregex_reset(regexp: Long, index: Int, status: Long)
+public expect fun uregexReset(regexp: COpaquePointer?, index: Int, status: COpaquePointer?)
 
-public expect fun uregex_reset64(regexp: Long, index: Long, status: Long)
+public expect fun uregexReset64(regexp: COpaquePointer?, index: Long, status: COpaquePointer?)
 
-public expect fun uregex_setFindProgressCallback(regexp: Long, callback: URegexFindProgressCallback, context: Long, status: Long)
+public expect fun uregexSetFindProgressCallback(regexp: COpaquePointer?, callback: URegexFindProgressCallback, context: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_setMatchCallback(regexp: Long, callback: URegexMatchCallback, context: Long, status: Long)
+public expect fun uregexSetMatchCallback(regexp: COpaquePointer?, callback: URegexMatchCallback, context: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_setRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long)
+public expect fun uregexSetRegion(regexp: COpaquePointer?, regionstart: Int, regionlimit: Int, status: COpaquePointer?)
 
-public expect fun uregex_setRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long)
+public expect fun uregexSetRegion64(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, status: COpaquePointer?)
 
-public expect fun uregex_setRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long)
+public expect fun uregexSetRegionAndStart(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, startindex: Long, status: COpaquePointer?)
 
-public expect fun uregex_setStackLimit(regexp: Long, limit: Int, status: Long)
+public expect fun uregexSetStackLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?)
 
-public expect fun uregex_setText(regexp: Long, text: Long, textlength: Int, status: Long)
+public expect fun uregexSetText(regexp: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?)
 
-public expect fun uregex_setTimeLimit(regexp: Long, limit: Int, status: Long)
+public expect fun uregexSetTimeLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?)
 
-public expect fun uregex_setUText(regexp: Long, text: Long, status: Long)
+public expect fun uregexSetUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?)
 
-public expect fun uregex_split(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
+public expect fun uregexSplit(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: Int, requiredcapacity: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_splitUText(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int
+public expect fun uregexSplitUtext(regexp: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_start(regexp: Long, groupnum: Int, status: Long): Int
+public expect fun uregexStart(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int
 
-public expect fun uregex_start64(regexp: Long, groupnum: Int, status: Long): Long
+public expect fun uregexStart64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long
 
-public expect fun uregex_useAnchoringBounds(regexp: Long, b: Byte, status: Long)
+public expect fun uregexUseAnchoringBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?)
 
-public expect fun uregex_useTransparentBounds(regexp: Long, b: Byte, status: Long)
+public expect fun uregexUseTransparentBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?)
 
-public expect fun uregion_areEqual(uregion: Long, otherregion: Long): Byte
+public expect fun uregionAreEqual(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte
 
-public expect fun uregion_contains(uregion: Long, otherregion: Long): Byte
+public expect fun uregionContains(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte
 
-public expect fun uregion_getAvailable(type: URegionType, status: Long): Long
+public expect fun uregionGetAvailable(type: URegionType, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregion_getContainedRegions(uregion: Long, status: Long): Long
+public expect fun uregionGetContainedRegions(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregion_getContainedRegionsOfType(uregion: Long, type: URegionType, status: Long): Long
+public expect fun uregionGetContainedRegionsOfType(uregion: COpaquePointer?, type: URegionType, status: COpaquePointer?): COpaquePointer?
 
-public expect fun uregion_getContainingRegion(uregion: Long): Long
+public expect fun uregionGetContainingRegion(uregion: COpaquePointer?): COpaquePointer?
 
-public expect fun uregion_getContainingRegionOfType(uregion: Long, type: URegionType): Long
+public expect fun uregionGetContainingRegionOfType(uregion: COpaquePointer?, type: URegionType): COpaquePointer?
 
-public expect fun uregion_getNumericCode(uregion: Long): Int
+public expect fun uregionGetNumericCode(uregion: COpaquePointer?): Int

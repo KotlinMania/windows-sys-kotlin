@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeaders(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, uint32_t dwmodifiers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeaders(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeadersEx(void* hrequest, uint32_t dwmodifiers, uint64_t ullflags, uint64_t ullextra, uint32_t cheaders, void* pheaders) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx(void* hrequest, uint32_t dwmodifiers, uint64_t ullflags, uint64_t ullextra, uint32_t cheaders, void* pheaders) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeadersEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpCheckPlatform(void) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpCheckPlatform(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpCloseHandle(void* hinternet) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpCloseHandle(void* hinternet) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpCloseHandle(void* hin
 #endif
 }
 
-void* windowssys_windows_win32_networking_winhttp_WinHttpConnect(void* hsession, void* pswzservername, uint16_t nserverport, uint32_t dwreserved) {
+void* windowssys_windows_win32_networking_winhttp_winHttpConnect(void* hsession, void* pswzservername, uint16_t nserverport, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint16_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ void* windowssys_windows_win32_networking_winhttp_WinHttpConnect(void* hsession,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpCrackUrl(void* pwszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpCrackUrl(void* pwszurl, uint32_t dwurllength, uint32_t dwflags, void* lpurlcomponents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -160,7 +160,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpCrackUrl(void* pwszur
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpCreateProxyResolver(void* hsession, void* phresolver) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver(void* hsession, void* phresolver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpCreateProxyResolver(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpCreateUrl(void* lpurlcomponents, uint32_t dwflags, void* pwszurl, void* pdwurllength) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpCreateUrl(void* lpurlcomponents, uint32_t dwflags, void* pwszurl, void* pdwurllength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -208,7 +208,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpCreateUrl(void* lpurl
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpDetectAutoProxyConfigUrl(uint32_t dwautodetectflags, void* ppwstrautoconfigurl) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl(uint32_t dwautodetectflags, void* ppwstrautoconfigurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpDetectAutoProxyConfig
 #endif
 }
 
-void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResult(void* pproxyresult) {
+void windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult(void* pproxyresult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -252,7 +252,7 @@ void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResult(void* pp
 #endif
 }
 
-void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResultEx(void* pproxyresultex) {
+void windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx(void* pproxyresultex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -273,7 +273,7 @@ void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResultEx(void* 
 #endif
 }
 
-void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettings(void* pwinhttpproxysettings) {
+void windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings(void* pwinhttpproxysettings) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ void windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettings(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettingsEx(int32_t proxysettingstype, void* pproxysettingsex) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx(int32_t proxysettingstype, void* pproxysettingsex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -317,7 +317,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettingsEx(
 #endif
 }
 
-void windowssys_windows_win32_networking_winhttp_WinHttpFreeQueryConnectionGroupResult(void* presult) {
+void windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult(void* presult) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -338,7 +338,7 @@ void windowssys_windows_win32_networking_winhttp_WinHttpFreeQueryConnectionGroup
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetDefaultProxyConfiguration(void* pproxyinfo) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration(void* pproxyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetDefaultProxyConfig
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetIEProxyConfigForCurrentUser(void* pproxyconfig) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser(void* pproxyconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetIEProxyConfigForCu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrl(void* hsession, void* lpcwszurl, void* pautoproxyoptions, void* pproxyinfo) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl(void* hsession, void* lpcwszurl, void* pautoproxyoptions, void* pproxyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrl(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx(void* hresolver, void* pcwszurl, void* pautoproxyoptions, uint64_t pcontext) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx(void* hresolver, void* pcwszurl, void* pautoproxyoptions, uint64_t pcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx2(void* hresolver, void* pcwszurl, void* pautoproxyoptions, uint32_t cbinterfaceselectioncontext, void* pinterfaceselectioncontext, uint64_t pcontext) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2(void* hresolver, void* pcwszurl, void* pautoproxyoptions, uint32_t cbinterfaceselectioncontext, void* pinterfaceselectioncontext, uint64_t pcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -459,7 +459,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx2(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResult(void* hresolver, void* pproxyresult) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult(void* hresolver, void* pproxyresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResult(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResultEx(void* hresolver, void* pproxyresultex) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx(void* hresolver, void* pproxyresultex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -505,7 +505,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResultEx(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsEx(void* hresolver, int32_t proxysettingstype, void* pproxysettingsparam, uint64_t pcontext) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx(void* hresolver, int32_t proxysettingstype, void* pproxysettingsparam, uint64_t pcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsEx(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsResultEx(void* hresolver, void* pproxysettingsex) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx(void* hresolver, void* pproxysettingsex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -553,7 +553,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsResu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsVersion(void* hsession, void* pdwproxysettingsversion) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion(void* hsession, void* pdwproxysettingsversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -576,7 +576,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsVers
 #endif
 }
 
-void* windowssys_windows_win32_networking_winhttp_WinHttpOpen(void* pszagentw, uint32_t dwaccesstype, void* pszproxyw, void* pszproxybypassw, uint32_t dwflags) {
+void* windowssys_windows_win32_networking_winhttp_winHttpOpen(void* pszagentw, uint32_t dwaccesstype, void* pszproxyw, void* pszproxybypassw, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ void* windowssys_windows_win32_networking_winhttp_WinHttpOpen(void* pszagentw, u
 #endif
 }
 
-void* windowssys_windows_win32_networking_winhttp_WinHttpOpenRequest(void* hconnect, void* pwszverb, void* pwszobjectname, void* pwszversion, void* pwszreferrer, void* ppwszaccepttypes, uint32_t dwflags) {
+void* windowssys_windows_win32_networking_winhttp_winHttpOpenRequest(void* hconnect, void* pwszverb, void* pwszobjectname, void* pwszversion, void* pwszreferrer, void* ppwszaccepttypes, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ void* windowssys_windows_win32_networking_winhttp_WinHttpOpenRequest(void* hconn
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryAuthSchemes(void* hrequest, void* lpdwsupportedschemes, void* lpdwfirstscheme, void* pdwauthtarget) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes(void* hrequest, void* lpdwsupportedschemes, void* lpdwfirstscheme, void* pdwauthtarget) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -655,7 +655,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryAuthSchemes(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryConnectionGroup(void* hinternet, void* pguidconnection, uint64_t ullflags, void* ppresult) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup(void* hinternet, void* pguidconnection, uint64_t ullflags, void* ppresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -680,7 +680,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryConnectionGroup
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryDataAvailable(void* hrequest, void* lpdwnumberofbytesavailable) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable(void* hrequest, void* lpdwnumberofbytesavailable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -703,7 +703,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryDataAvailable(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryHeaders(void* hrequest, uint32_t dwinfolevel, void* pwszname, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders(void* hrequest, uint32_t dwinfolevel, void* pwszname, void* lpbuffer, void* lpdwbufferlength, void* lpdwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -730,7 +730,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryHeaders(void* hr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryHeadersEx(void* hrequest, uint32_t dwinfolevel, uint64_t ullflags, uint32_t uicodepage, void* pdwindex, void* pheadername, void* pbuffer, void* pdwbufferlength, void* ppheaders, void* pdwheaderscount) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx(void* hrequest, uint32_t dwinfolevel, uint64_t ullflags, uint32_t uicodepage, void* pdwindex, void* pheadername, void* pbuffer, void* pdwbufferlength, void* ppheaders, void* pdwheaderscount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -761,7 +761,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryHeadersEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryOption(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpQueryOption(void* hinternet, uint32_t dwoption, void* lpbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpQueryOption(void* hin
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpReadData(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpReadData(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -811,7 +811,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpReadData(void* hreque
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpReadDataEx(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread, uint64_t ullflags, uint32_t cbproperty, void* pvproperty) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpReadDataEx(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestoread, void* lpdwnumberofbytesread, uint64_t ullflags, uint32_t cbproperty, void* pvproperty) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -839,7 +839,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpReadDataEx(void* hre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpReadProxySettings(void* hsession, void* pcwszconnectionname, int32_t ffallbacktodefaultsettings, int32_t fsetautodiscoverfordefaultsettings, void* pdwsettingsversion, void* pfdefaultsettingsarereturned, void* pwinhttpproxysettings) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings(void* hsession, void* pcwszconnectionname, int32_t ffallbacktodefaultsettings, int32_t fsetautodiscoverfordefaultsettings, void* pdwsettingsversion, void* pfdefaultsettingsarereturned, void* pwinhttpproxysettings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -867,7 +867,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpReadProxySettings(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpReceiveResponse(void* hrequest, void* lpreserved) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse(void* hrequest, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -890,7 +890,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpReceiveResponse(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpRegisterProxyChangeNotification(uint64_t ullflags, void* pfncallback, void* pvcontext, void* hregistration) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification(uint64_t ullflags, void* pfncallback, void* pvcontext, void* hregistration) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -915,7 +915,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpRegisterProxyChangeN
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpResetAutoProxy(void* hsession, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy(void* hsession, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -938,7 +938,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpResetAutoProxy(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpSendRequest(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength, uint32_t dwtotallength, uint64_t dwcontext) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpSendRequest(void* hrequest, void* lpszheaders, uint32_t dwheaderslength, void* lpoptional, uint32_t dwoptionallength, uint32_t dwtotallength, uint64_t dwcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpSendRequest(void* hre
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetCredentials(void* hrequest, uint32_t authtargets, uint32_t authscheme, void* pwszusername, void* pwszpassword, void* pauthparams) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpSetCredentials(void* hrequest, uint32_t authtargets, uint32_t authscheme, void* pwszusername, void* pwszpassword, void* pauthparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetCredentials(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetDefaultProxyConfiguration(void* pproxyinfo) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration(void* pproxyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1015,7 +1015,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetDefaultProxyConfig
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetOption(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpSetOption(void* hinternet, uint32_t dwoption, void* lpbuffer, uint32_t dwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1040,7 +1040,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetOption(void* hinte
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpSetProxySettingsPerUser(int32_t fproxysettingsperuser) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser(int32_t fproxysettingsperuser) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpSetProxySettingsPerU
 #endif
 }
 
-void* windowssys_windows_win32_networking_winhttp_WinHttpSetStatusCallback(void* hinternet, void* lpfninternetcallback, uint32_t dwnotificationflags, uint64_t dwreserved) {
+void* windowssys_windows_win32_networking_winhttp_winHttpSetStatusCallback(void* hinternet, void* lpfninternetcallback, uint32_t dwnotificationflags, uint64_t dwreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1087,7 +1087,7 @@ void* windowssys_windows_win32_networking_winhttp_WinHttpSetStatusCallback(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetTimeouts(void* hinternet, int32_t nresolvetimeout, int32_t nconnecttimeout, int32_t nsendtimeout, int32_t nreceivetimeout) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts(void* hinternet, int32_t nresolvetimeout, int32_t nconnecttimeout, int32_t nsendtimeout, int32_t nreceivetimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpSetTimeouts(void* hin
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpTimeFromSystemTime(void* pst, void* pwsztime) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime(void* pst, void* pwsztime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1136,7 +1136,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpTimeFromSystemTime(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpTimeToSystemTime(void* pwsztime, void* pst) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime(void* pwsztime, void* pst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpTimeToSystemTime(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpUnregisterProxyChangeNotification(void* hregistration) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification(void* hregistration) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1181,7 +1181,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpUnregisterProxyChang
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketClose(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1206,7 +1206,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketClose(void*
 #endif
 }
 
-void* windowssys_windows_win32_networking_winhttp_WinHttpWebSocketCompleteUpgrade(void* hrequest, uint64_t pcontext) {
+void* windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade(void* hrequest, uint64_t pcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1229,7 +1229,7 @@ void* windowssys_windows_win32_networking_winhttp_WinHttpWebSocketCompleteUpgrad
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketQueryCloseStatus(void* hwebsocket, void* pusstatus, void* pvreason, uint32_t dwreasonlength, void* pdwreasonlengthconsumed) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus(void* hwebsocket, void* pusstatus, void* pvreason, uint32_t dwreasonlength, void* pdwreasonlengthconsumed) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1255,7 +1255,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketQueryCloseS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketReceive(void* hwebsocket, void* pvbuffer, uint32_t dwbufferlength, void* pdwbytesread, void* pebuffertype) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive(void* hwebsocket, void* pvbuffer, uint32_t dwbufferlength, void* pdwbytesread, void* pebuffertype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1281,7 +1281,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketReceive(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketSend(void* hwebsocket, int32_t ebuffertype, void* pvbuffer, uint32_t dwbufferlength) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend(void* hwebsocket, int32_t ebuffertype, void* pvbuffer, uint32_t dwbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1306,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketSend(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketShutdown(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown(void* hwebsocket, uint16_t usstatus, void* pvreason, uint32_t dwreasonlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1331,7 +1331,7 @@ uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWebSocketShutdown(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winhttp_WinHttpWriteData(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestowrite, void* lpdwnumberofbyteswritten) {
+int32_t windowssys_windows_win32_networking_winhttp_winHttpWriteData(void* hrequest, void* lpbuffer, uint32_t dwnumberofbytestowrite, void* lpdwnumberofbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1356,7 +1356,7 @@ int32_t windowssys_windows_win32_networking_winhttp_WinHttpWriteData(void* hrequ
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winhttp_WinHttpWriteProxySettings(void* hsession, int32_t fforceupdate, void* pwinhttpproxysettings) {
+uint32_t windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings(void* hsession, int32_t fforceupdate, void* pwinhttpproxysettings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

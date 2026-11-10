@@ -1,180 +1,180 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 
-public data class APPDATA(
-    public var m_idApp: UInt = 0u,
-    public var m_szAppGuid: UShortArray = UShortArray(40),
-    public var m_dwAppProcessId: UInt = 0u,
-    public var m_AppStatistics: APPSTATISTICS = APPSTATISTICS(),
+public data class Appdata(
+    public var mIdApp: UInt = 0u,
+    public var mSzAppGuid: UShortArray = UShortArray(40),
+    public var mDwAppProcessId: UInt = 0u,
+    public var mAppStatistics: Appstatistics = Appstatistics(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is APPDATA) return false
-        if (this.m_idApp != other.m_idApp) return false
-        if (!this.m_szAppGuid.contentEquals(other.m_szAppGuid)) return false
-        if (this.m_dwAppProcessId != other.m_dwAppProcessId) return false
-        if (this.m_AppStatistics != other.m_AppStatistics) return false
+        if (other !is Appdata) return false
+        if (this.mIdApp != other.mIdApp) return false
+        if (!this.mSzAppGuid.contentEquals(other.mSzAppGuid)) return false
+        if (this.mDwAppProcessId != other.mDwAppProcessId) return false
+        if (this.mAppStatistics != other.mAppStatistics) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.m_idApp.hashCode()
-        result = 31 * result + this.m_szAppGuid.contentHashCode()
-        result = 31 * result + this.m_dwAppProcessId.hashCode()
-        result = 31 * result + this.m_AppStatistics.hashCode()
+        var result = this.mIdApp.hashCode()
+        result = 31 * result + this.mSzAppGuid.contentHashCode()
+        result = 31 * result + this.mDwAppProcessId.hashCode()
+        result = 31 * result + this.mAppStatistics.hashCode()
         return result
     }
 }
 
-public data class APPSTATISTICS(
-    public var m_cTotalCalls: UInt = 0u,
-    public var m_cTotalInstances: UInt = 0u,
-    public var m_cTotalClasses: UInt = 0u,
-    public var m_cCallsPerSecond: UInt = 0u,
+public data class Appstatistics(
+    public var mCTotalCalls: UInt = 0u,
+    public var mCTotalInstances: UInt = 0u,
+    public var mCTotalClasses: UInt = 0u,
+    public var mCCallsPerSecond: UInt = 0u,
 )
 
 public data class ApplicationProcessRecycleInfo(
-    public var IsRecyclable: BOOL = 0,
-    public var IsRecycled: BOOL = 0,
-    public var TimeRecycled: FILETIME = FILETIME(),
-    public var TimeToTerminate: FILETIME = FILETIME(),
-    public var RecycleReasonCode: Int = 0,
-    public var IsPendingRecycle: BOOL = 0,
-    public var HasAutomaticLifetimeRecycling: BOOL = 0,
-    public var TimeForAutomaticRecycling: FILETIME = FILETIME(),
-    public var MemoryLimitInKB: UInt = 0u,
-    public var MemoryUsageInKBLastCheck: UInt = 0u,
-    public var ActivationLimit: UInt = 0u,
-    public var NumActivationsLastReported: UInt = 0u,
-    public var CallLimit: UInt = 0u,
-    public var NumCallsLastReported: UInt = 0u,
+    public var isRecyclable: Bool = 0,
+    public var isRecycled: Bool = 0,
+    public var timeRecycled: Filetime = Filetime(),
+    public var timeToTerminate: Filetime = Filetime(),
+    public var recycleReasonCode: Int = 0,
+    public var isPendingRecycle: Bool = 0,
+    public var hasAutomaticLifetimeRecycling: Bool = 0,
+    public var timeForAutomaticRecycling: Filetime = Filetime(),
+    public var memoryLimitInKB: UInt = 0u,
+    public var memoryUsageInKBLastCheck: UInt = 0u,
+    public var activationLimit: UInt = 0u,
+    public var numActivationsLastReported: UInt = 0u,
+    public var callLimit: UInt = 0u,
+    public var numCallsLastReported: UInt = 0u,
 )
 
 public data class ApplicationProcessStatistics(
-    public var NumCallsOutstanding: UInt = 0u,
-    public var NumTrackedComponents: UInt = 0u,
-    public var NumComponentInstances: UInt = 0u,
-    public var AvgCallsPerSecond: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: UInt = 0u,
-    public var Reserved4: UInt = 0u,
+    public var numCallsOutstanding: UInt = 0u,
+    public var numTrackedComponents: UInt = 0u,
+    public var numComponentInstances: UInt = 0u,
+    public var avgCallsPerSecond: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var reserved3: UInt = 0u,
+    public var reserved4: UInt = 0u,
 )
 
 public data class ApplicationProcessSummary(
-    public var PartitionIdPrimaryApplication: GUID = GUID(),
-    public var ApplicationIdPrimaryApplication: GUID = GUID(),
-    public var ApplicationInstanceId: GUID = GUID(),
-    public var ProcessId: UInt = 0u,
-    public var Type: COMPLUS_APPTYPE = 0,
-    public var ProcessExeName: PWSTR = 0L,
-    public var IsService: BOOL = 0,
-    public var IsPaused: BOOL = 0,
-    public var IsRecycled: BOOL = 0,
+    public var partitionIdPrimaryApplication: Guid = Guid(),
+    public var applicationIdPrimaryApplication: Guid = Guid(),
+    public var applicationInstanceId: Guid = Guid(),
+    public var processId: UInt = 0u,
+    public var type: ComplusApptype = 0,
+    public var processExeName: Pwstr = null,
+    public var isService: Bool = 0,
+    public var isPaused: Bool = 0,
+    public var isRecycled: Bool = 0,
 )
 
 public data class ApplicationSummary(
-    public var ApplicationInstanceId: GUID = GUID(),
-    public var PartitionId: GUID = GUID(),
-    public var ApplicationId: GUID = GUID(),
-    public var Type: COMPLUS_APPTYPE = 0,
-    public var ApplicationName: PWSTR = 0L,
-    public var NumTrackedComponents: UInt = 0u,
-    public var NumComponentInstances: UInt = 0u,
+    public var applicationInstanceId: Guid = Guid(),
+    public var partitionId: Guid = Guid(),
+    public var applicationId: Guid = Guid(),
+    public var type: ComplusApptype = 0,
+    public var applicationName: Pwstr = null,
+    public var numTrackedComponents: UInt = 0u,
+    public var numComponentInstances: UInt = 0u,
 )
 
-public data class CLSIDDATA(
-    public var m_clsid: GUID = GUID(),
-    public var m_cReferences: UInt = 0u,
-    public var m_cBound: UInt = 0u,
-    public var m_cPooled: UInt = 0u,
-    public var m_cInCall: UInt = 0u,
-    public var m_dwRespTime: UInt = 0u,
-    public var m_cCallsCompleted: UInt = 0u,
-    public var m_cCallsFailed: UInt = 0u,
+public data class Clsiddata(
+    public var mClsid: Guid = Guid(),
+    public var mCReferences: UInt = 0u,
+    public var mCBound: UInt = 0u,
+    public var mCPooled: UInt = 0u,
+    public var mCInCall: UInt = 0u,
+    public var mDwRespTime: UInt = 0u,
+    public var mCCallsCompleted: UInt = 0u,
+    public var mCCallsFailed: UInt = 0u,
 )
 
-public data class CLSIDDATA2(
-    public var m_clsid: GUID = GUID(),
-    public var m_appid: GUID = GUID(),
-    public var m_partid: GUID = GUID(),
-    public var m_pwszAppName: PWSTR = 0L,
-    public var m_pwszCtxName: PWSTR = 0L,
-    public var m_eAppType: COMPLUS_APPTYPE = 0,
-    public var m_cReferences: UInt = 0u,
-    public var m_cBound: UInt = 0u,
-    public var m_cPooled: UInt = 0u,
-    public var m_cInCall: UInt = 0u,
-    public var m_dwRespTime: UInt = 0u,
-    public var m_cCallsCompleted: UInt = 0u,
-    public var m_cCallsFailed: UInt = 0u,
+public data class Clsiddata2(
+    public var mClsid: Guid = Guid(),
+    public var mAppid: Guid = Guid(),
+    public var mPartid: Guid = Guid(),
+    public var mPwszAppName: Pwstr = null,
+    public var mPwszCtxName: Pwstr = null,
+    public var mEAppType: ComplusApptype = 0,
+    public var mCReferences: UInt = 0u,
+    public var mCBound: UInt = 0u,
+    public var mCPooled: UInt = 0u,
+    public var mCInCall: UInt = 0u,
+    public var mDwRespTime: UInt = 0u,
+    public var mCCallsCompleted: UInt = 0u,
+    public var mCCallsFailed: UInt = 0u,
 )
 
-public data class COMSVCSEVENTINFO(
+public data class Comsvcseventinfo(
     public var cbSize: UInt = 0u,
     public var dwPid: UInt = 0u,
     public var lTime: Long = 0L,
     public var lMicroTime: Int = 0,
     public var perfCount: Long = 0L,
-    public var guidApp: GUID = GUID(),
-    public var sMachineName: PWSTR = 0L,
+    public var guidApp: Guid = Guid(),
+    public var sMachineName: Pwstr = null,
 )
 
 public data class ComponentHangMonitorInfo(
-    public var IsMonitored: BOOL = 0,
-    public var TerminateOnHang: BOOL = 0,
-    public var AvgCallThresholdInMs: UInt = 0u,
+    public var isMonitored: Bool = 0,
+    public var terminateOnHang: Bool = 0,
+    public var avgCallThresholdInMs: UInt = 0u,
 )
 
 public data class ComponentStatistics(
-    public var NumInstances: UInt = 0u,
-    public var NumBoundReferences: UInt = 0u,
-    public var NumPooledObjects: UInt = 0u,
-    public var NumObjectsInCall: UInt = 0u,
-    public var AvgResponseTimeInMs: UInt = 0u,
-    public var NumCallsCompletedRecent: UInt = 0u,
-    public var NumCallsFailedRecent: UInt = 0u,
-    public var NumCallsCompletedTotal: UInt = 0u,
-    public var NumCallsFailedTotal: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: UInt = 0u,
-    public var Reserved4: UInt = 0u,
+    public var numInstances: UInt = 0u,
+    public var numBoundReferences: UInt = 0u,
+    public var numPooledObjects: UInt = 0u,
+    public var numObjectsInCall: UInt = 0u,
+    public var avgResponseTimeInMs: UInt = 0u,
+    public var numCallsCompletedRecent: UInt = 0u,
+    public var numCallsFailedRecent: UInt = 0u,
+    public var numCallsCompletedTotal: UInt = 0u,
+    public var numCallsFailedTotal: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var reserved3: UInt = 0u,
+    public var reserved4: UInt = 0u,
 )
 
 public data class ComponentSummary(
-    public var ApplicationInstanceId: GUID = GUID(),
-    public var PartitionId: GUID = GUID(),
-    public var ApplicationId: GUID = GUID(),
-    public var Clsid: GUID = GUID(),
-    public var ClassName: PWSTR = 0L,
-    public var ApplicationName: PWSTR = 0L,
+    public var applicationInstanceId: Guid = Guid(),
+    public var partitionId: Guid = Guid(),
+    public var applicationId: Guid = Guid(),
+    public var clsid: Guid = Guid(),
+    public var className: Pwstr = null,
+    public var applicationName: Pwstr = null,
 )
 
 public data class CrmLogRecordRead(
     public var dwCrmFlags: UInt = 0u,
     public var dwSequenceNumber: UInt = 0u,
-    public var blobUserData: BLOB = BLOB(),
+    public var blobUserData: Blob = Blob(),
 )
 
-public data class HANG_INFO(
-    public var fAppHangMonitorEnabled: BOOL = 0,
-    public var fTerminateOnHang: BOOL = 0,
-    public var DumpType: DUMPTYPE = 0,
+public data class HangInfo(
+    public var fAppHangMonitorEnabled: Bool = 0,
+    public var fTerminateOnHang: Bool = 0,
+    public var dumpType: Dumptype = 0,
     public var dwHangTimeout: UInt = 0u,
     public var dwDumpCount: UInt = 0u,
     public var dwInfoMsgCount: UInt = 0u,
 )
 
-public data class RECYCLE_INFO(
-    public var guidCombaseProcessIdentifier: GUID = GUID(),
-    public var ProcessStartTime: Long = 0L,
+public data class RecycleInfo(
+    public var guidCombaseProcessIdentifier: Guid = Guid(),
+    public var processStartTime: Long = 0L,
     public var dwRecycleLifetimeLimit: UInt = 0u,
     public var dwRecycleMemoryLimit: UInt = 0u,
     public var dwRecycleExpirationTimeout: UInt = 0u,

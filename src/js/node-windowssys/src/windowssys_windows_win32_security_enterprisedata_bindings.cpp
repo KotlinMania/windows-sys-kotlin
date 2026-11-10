@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileorfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* identity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_ProtectFileT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadnetworkcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpCloseThre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enterpriseid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* threadnetworkcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpCreateThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpDisablePe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packageid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* isallowed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -145,7 +145,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpDoesPolic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enterpriseid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpEnablePer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpGetEnterp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policyflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpGetEnterp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpHostingInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t version = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpHostingIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpHostingTerminate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t type = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -248,7 +248,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpHostingTe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpIsTokenService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpIsTokenService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* istokenservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -268,7 +268,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpIsTokenSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enterpriseid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -288,7 +288,7 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_SrpSetTokenE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_enterprisedata_UnprotectFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_enterprisedata_unprotectFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileorfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* options = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -309,19 +309,19 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_UnprotectFil
 }
 
 static void register_windows_win32_security_enterprisedata_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpIsTokenService", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpIsTokenService_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId_napi));
-    exports.Set("windowssys_windows_win32_security_enterprisedata_UnprotectFile", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_UnprotectFile_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpHostingInitialize", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpHostingInitialize_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpHostingTerminate", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpHostingTerminate_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpIsTokenService", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpIsTokenService_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId_napi));
+    exports.Set("windowssys_windows_win32_security_enterprisedata_unprotectFile", Napi::Function::New(env, windowssys_windows_win32_security_enterprisedata_unprotectFile_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_enterprisedata_napi, nullptr };

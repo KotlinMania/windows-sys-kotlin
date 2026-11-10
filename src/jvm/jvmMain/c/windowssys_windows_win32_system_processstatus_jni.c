@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EmptyWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1emptyWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumDeviceDrivers(JNIEnv* km_env, jclass km_clazz, jlong lpimagebase, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumDeviceDrivers(JNIEnv* km_env, jclass km_clazz, jlong lpimagebase, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumPageFilesA(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumPageFilesA(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumPageFilesW(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumPageFilesW(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumProcessModules(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumProcessModules(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumProcessModulesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded, jint dwfilterflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumProcessModulesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded, jint dwfilterflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1EnumProcesses(JNIEnv* km_env, jclass km_clazz, jlong lpidprocess, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1enumProcesses(JNIEnv* km_env, jclass km_clazz, jlong lpidprocess, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -157,7 +157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetDeviceDriverBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getDeviceDriverBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetDeviceDriverBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getDeviceDriverBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetDeviceDriverFileNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getDeviceDriverFileNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetDeviceDriverFileNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getDeviceDriverFileNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -237,7 +237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetMappedFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getMappedFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetMappedFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getMappedFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetModuleBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getModuleBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -300,7 +300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetModuleBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getModuleBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetModuleFileNameExA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getModuleFileNameExA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetModuleFileNameExW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getModuleFileNameExW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -363,7 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetModuleInformation(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpmodinfo, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getModuleInformation(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpmodinfo, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -384,7 +384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetPerformanceInfo(JNIEnv* km_env, jclass km_clazz, jlong pperformanceinformation, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getPerformanceInfo(JNIEnv* km_env, jclass km_clazz, jlong pperformanceinformation, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -403,7 +403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetProcessImageFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getProcessImageFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetProcessImageFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getProcessImageFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -443,7 +443,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetProcessMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong process, jlong ppsmemcounters, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getProcessMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong process, jlong ppsmemcounters, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -463,7 +463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetWsChanges(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfo, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getWsChanges(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfo, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -483,7 +483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1GetWsChangesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfoex, jlong cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1getWsChangesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfoex, jlong cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -503,7 +503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1InitializeProcessForWsWatch(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1initializeProcessForWsWatch(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -521,7 +521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EmptyWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EmptyWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumDeviceDrivers(JNIEnv* km_env, jclass km_clazz, jlong lpimagebase, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumDeviceDrivers(JNIEnv* km_env, jclass km_clazz, jlong lpimagebase, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -559,7 +559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumPageFilesA(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumPageFilesA(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -578,7 +578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumPageFilesW(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumPageFilesW(JNIEnv* km_env, jclass km_clazz, jlong pcallbackroutine, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -597,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumProcessModules(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumProcessModules(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -618,7 +618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumProcessModulesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded, jint dwfilterflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumProcessModulesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lphmodule, jint cb, jlong lpcbneeded, jint dwfilterflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -640,7 +640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32EnumProcesses(JNIEnv* km_env, jclass km_clazz, jlong lpidprocess, jint cb, jlong lpcbneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32EnumProcesses(JNIEnv* km_env, jclass km_clazz, jlong lpidprocess, jint cb, jlong lpcbneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -660,7 +660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetDeviceDriverBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetDeviceDriverBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -680,7 +680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetDeviceDriverBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetDeviceDriverBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -700,7 +700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetDeviceDriverFileNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetDeviceDriverFileNameA(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -720,7 +720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetDeviceDriverFileNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetDeviceDriverFileNameW(JNIEnv* km_env, jclass km_clazz, jlong imagebase, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -740,7 +740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetMappedFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetMappedFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -761,7 +761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetMappedFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetMappedFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpv, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -782,7 +782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetModuleBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetModuleBaseNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -803,7 +803,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetModuleBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetModuleBaseNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpbasename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -824,7 +824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetModuleFileNameExA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetModuleFileNameExA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -845,7 +845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetModuleFileNameExW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetModuleFileNameExW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpfilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -866,7 +866,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetModuleInformation(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpmodinfo, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetModuleInformation(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong hmodule, jlong lpmodinfo, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -887,7 +887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetPerformanceInfo(JNIEnv* km_env, jclass km_clazz, jlong pperformanceinformation, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetPerformanceInfo(JNIEnv* km_env, jclass km_clazz, jlong pperformanceinformation, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -906,7 +906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetProcessImageFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetProcessImageFileNameA(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -926,7 +926,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetProcessImageFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetProcessImageFileNameW(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpimagefilename, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -946,7 +946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetProcessMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong process, jlong ppsmemcounters, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetProcessMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong process, jlong ppsmemcounters, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -966,7 +966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetWsChanges(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfo, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetWsChanges(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfo, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -986,7 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32GetWsChangesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfoex, jlong cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32GetWsChangesEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong lpwatchinfoex, jlong cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1006,7 +1006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32InitializeProcessForWsWatch(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32InitializeProcessForWsWatch(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1024,7 +1024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32QueryWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32QueryWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1044,7 +1044,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1K32QueryWorkingSetEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1k32QueryWorkingSetEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1064,7 +1064,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1QueryWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1queryWorkingSet(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1084,7 +1084,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1QueryWorkingSetEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_processstatus_WindowsWin32SystemProcessstatusJniBridge_windowssys_1windows_1win32_1system_1processstatus_1queryWorkingSetEx(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1AssociateColorProfileWithDeviceA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1associateColorProfileWithDeviceA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1AssociateColorProfileWithDeviceW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1associateColorProfileWithDeviceW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCheckColors(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpainputcolors, jint ncolors, jint ctinput, jlong lparesult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCheckColors(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpainputcolors, jint ncolors, jint ctinput, jlong lparesult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -80,7 +80,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCheckColorsInGamut(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpargbtriple, jlong lparesult, jint ncount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCheckColorsInGamut(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpargbtriple, jlong lparesult, jint ncount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCheckRGBs(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong lparesult, jlong pfncallback, jlong ulcallbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCheckRGBs(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong lparesult, jlong pfncallback, jlong ulcallbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMConvertColorNameToIndex(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pacolorname, jlong paindex, jint dwcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMConvertColorNameToIndex(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pacolorname, jlong paindex, jint dwcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMConvertIndexToColorName(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong paindex, jlong pacolorname, jint dwcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMConvertIndexToColorName(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong paindex, jlong pacolorname, jint dwcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -169,7 +169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateDeviceLinkProfile(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintents, jint nintents, jint dwflags, jlong lpprofiledata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateDeviceLinkProfile(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintents, jint nintents, jint dwflags, jlong lpprofiledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -192,7 +192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateMultiProfileTransform(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintents, jint nintents, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateMultiProfileTransform(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintents, jint nintents, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -214,7 +214,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateProfile(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpprofiledata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateProfile(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpprofiledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateProfileW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpprofiledata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateProfileW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpprofiledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -252,7 +252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateTransform(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateTransform(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -272,7 +272,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateTransformExt(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateTransformExt(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateTransformExtW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateTransformExtW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -314,7 +314,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMCreateTransformW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMCreateTransformW(JNIEnv* km_env, jclass km_clazz, jlong lpcolorspace, jlong lpdevcharacter, jlong lptargetdevcharacter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMDeleteTransform(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMDeleteTransform(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -352,7 +352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMGetInfo(JNIEnv* km_env, jclass km_clazz, jint dwinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMGetInfo(JNIEnv* km_env, jclass km_clazz, jint dwinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMGetNamedProfileInfo(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnamedprofileinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMGetNamedProfileInfo(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnamedprofileinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMIsProfileValid(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong lpbvalid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMIsProfileValid(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong lpbvalid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -408,7 +408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMTranslateColors(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpainputcolors, jint ncolors, jint ctinput, jlong lpaoutputcolors, jint ctoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMTranslateColors(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpainputcolors, jint ncolors, jint ctinput, jlong lpaoutputcolors, jint ctoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMTranslateRGB(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jint colorref, jlong lpcolorref, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMTranslateRGB(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jint colorref, jlong lpcolorref, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMTranslateRGBs(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong lpdestbits, jint bmoutput, jint dwtranslatedirection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMTranslateRGBs(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong lpdestbits, jint bmoutput, jint dwtranslatedirection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -478,7 +478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CMTranslateRGBsExt(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwinputstride, jlong lpdestbits, jint bmoutput, jint dwoutputstride, jlong lpfncallback, jlong ulcallbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1cMTranslateRGBsExt(JNIEnv* km_env, jclass km_clazz, jlong hcmtransform, jlong lpsrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwinputstride, jlong lpdestbits, jint bmoutput, jint dwoutputstride, jlong lpfncallback, jlong ulcallbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CheckBitmapBits(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong psrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong paresult, jlong pfncallback, jlong lpcallbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1checkBitmapBits(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong psrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwstride, jlong paresult, jlong pfncallback, jlong lpcallbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -532,7 +532,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CheckColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong painputcolors, jint ncolors, jint ctinput, jlong paresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1checkColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong painputcolors, jint ncolors, jint ctinput, jlong paresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -554,7 +554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CheckColorsInGamut(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lprgbtriple, jlong dlpbuffer, jint ncount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1checkColorsInGamut(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lprgbtriple, jlong dlpbuffer, jint ncount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CloseColorProfile(JNIEnv* km_env, jclass km_clazz, jlong hprofile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1closeColorProfile(JNIEnv* km_env, jclass km_clazz, jlong hprofile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1ColorCorrectPalette(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hpal, jint defirst, jint num) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1colorCorrectPalette(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hpal, jint defirst, jint num) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -614,7 +614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1ColorMatchToTarget(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hdctarget, jint action) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1colorMatchToTarget(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hdctarget, jint action) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -634,7 +634,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1ConvertColorNameToIndex(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pacolorname, jlong paindex, jint dwcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1convertColorNameToIndex(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pacolorname, jlong paindex, jint dwcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -655,7 +655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1ConvertIndexToColorName(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong paindex, jlong pacolorname, jint dwcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1convertIndexToColorName(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong paindex, jlong pacolorname, jint dwcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -676,7 +676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong lplcs) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong lplcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong lplcs) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong lplcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -712,7 +712,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateColorTransformA(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong hdestprofile, jlong htargetprofile, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createColorTransformA(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong hdestprofile, jlong htargetprofile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -733,7 +733,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateColorTransformW(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong hdestprofile, jlong htargetprofile, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createColorTransformW(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong hdestprofile, jlong htargetprofile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -754,7 +754,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateDeviceLinkProfile(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint nprofiles, jlong padwintent, jint nintents, jint dwflags, jlong pprofiledata, jint indexpreferredcmm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createDeviceLinkProfile(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint nprofiles, jlong padwintent, jint nintents, jint dwflags, jlong pprofiledata, jint indexpreferredcmm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateMultiProfileTransform(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintent, jint nintents, jint dwflags, jint indexpreferredcmm) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createMultiProfileTransform(JNIEnv* km_env, jclass km_clazz, jlong pahprofiles, jint nprofiles, jlong padwintent, jint nintents, jint dwflags, jint indexpreferredcmm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -801,7 +801,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateProfileFromLogColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong pprofile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createProfileFromLogColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong pprofile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -820,7 +820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1CreateProfileFromLogColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong pprofile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1createProfileFromLogColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong plogcolorspace, jlong pprofile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -839,7 +839,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1DeleteColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hcs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1deleteColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -857,7 +857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1DeleteColorTransform(JNIEnv* km_env, jclass km_clazz, jlong hxform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1deleteColorTransform(JNIEnv* km_env, jclass km_clazz, jlong hxform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -875,7 +875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1DisassociateColorProfileFromDeviceA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1disassociateColorProfileFromDeviceA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1DisassociateColorProfileFromDeviceW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1disassociateColorProfileFromDeviceW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -915,7 +915,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1EnumColorProfilesA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong penumrecord, jlong penumerationbuffer, jlong pdwsizeofenumerationbuffer, jlong pnprofiles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1enumColorProfilesA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong penumrecord, jlong penumerationbuffer, jlong pdwsizeofenumerationbuffer, jlong pnprofiles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -937,7 +937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1EnumColorProfilesW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong penumrecord, jlong penumerationbuffer, jlong pdwsizeofenumerationbuffer, jlong pnprofiles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1enumColorProfilesW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong penumrecord, jlong penumerationbuffer, jlong pdwsizeofenumerationbuffer, jlong pnprofiles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -959,7 +959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1EnumICMProfilesA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1enumICMProfilesA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -979,7 +979,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1EnumICMProfilesW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1enumICMProfilesW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong proc, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -999,7 +999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetCMMInfo(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getCMMInfo(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1018,7 +1018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorDirectoryA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1038,7 +1038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pbuffer, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorDirectoryW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pbuffer, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1058,7 +1058,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorProfileElement(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jint dwoffset, jlong pcbelement, jlong pelement, jlong pbreference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorProfileElement(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jint dwoffset, jlong pcbelement, jlong pelement, jlong pbreference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1081,7 +1081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorProfileElementTag(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwindex, jlong ptag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorProfileElementTag(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwindex, jlong ptag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1101,7 +1101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorProfileFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pprofile, jlong pcbprofile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorProfileFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pprofile, jlong pcbprofile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1121,7 +1121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorProfileHeader(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorProfileHeader(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1140,7 +1140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hdc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1158,7 +1158,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetCountColorProfileElements(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnelementcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getCountColorProfileElements(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnelementcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1177,7 +1177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetDeviceGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpramp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getDeviceGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpramp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1196,7 +1196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetICMProfileA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong pbufsize, jlong pszfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getICMProfileA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong pbufsize, jlong pszfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1216,7 +1216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetICMProfileW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong pbufsize, jlong pszfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getICMProfileW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong pbufsize, jlong pszfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1236,7 +1236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetLogColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong hcolorspace, jlong lpbuffer, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getLogColorSpaceA(JNIEnv* km_env, jclass km_clazz, jlong hcolorspace, jlong lpbuffer, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1256,7 +1256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetLogColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong hcolorspace, jlong lpbuffer, jint nsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getLogColorSpaceW(JNIEnv* km_env, jclass km_clazz, jlong hcolorspace, jlong lpbuffer, jint nsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1276,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetNamedProfileInfo(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnamedprofileinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getNamedProfileInfo(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pnamedprofileinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetPS2ColorRenderingDictionary(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jlong pps2colorrenderingdictionary, jlong pcbps2colorrenderingdictionary, jlong pbbinary) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getPS2ColorRenderingDictionary(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jlong pps2colorrenderingdictionary, jlong pcbps2colorrenderingdictionary, jlong pbbinary) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1317,7 +1317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetPS2ColorRenderingIntent(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jlong pbuffer, jlong pcbps2colorrenderingintent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getPS2ColorRenderingIntent(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jlong pbuffer, jlong pcbps2colorrenderingintent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1338,7 +1338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetPS2ColorSpaceArray(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jint dwcsatype, jlong pps2colorspacearray, jlong pcbps2colorspacearray, jlong pbbinary) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getPS2ColorSpaceArray(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint dwintent, jint dwcsatype, jlong pps2colorspacearray, jlong pcbps2colorspacearray, jlong pbbinary) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetStandardColorSpaceProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwscs, jlong pbuffer, jlong pcbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getStandardColorSpaceProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwscs, jlong pbuffer, jlong pcbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1382,7 +1382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1GetStandardColorSpaceProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwscs, jlong pbuffer, jlong pcbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1getStandardColorSpaceProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwscs, jlong pbuffer, jlong pcbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1403,7 +1403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1InstallColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1installColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1422,7 +1422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1InstallColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1installColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1441,7 +1441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1IsColorProfileTagPresent(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jlong pbpresent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1isColorProfileTagPresent(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jlong pbpresent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1461,7 +1461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1IsColorProfileValid(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pbvalid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1isColorProfileValid(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pbvalid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1480,7 +1480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1OpenColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pprofile, jint dwdesiredaccess, jint dwsharemode, jint dwcreationmode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1openColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pprofile, jint dwdesiredaccess, jint dwsharemode, jint dwcreationmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1501,7 +1501,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1OpenColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pprofile, jint dwdesiredaccess, jint dwsharemode, jint dwcreationmode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1openColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pprofile, jint dwdesiredaccess, jint dwsharemode, jint dwcreationmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1522,7 +1522,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1RegisterCMMA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid, jlong pcmmdll) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1registerCMMA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid, jlong pcmmdll) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1542,7 +1542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1RegisterCMMW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid, jlong pcmmdll) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1registerCMMW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid, jlong pcmmdll) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1562,7 +1562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SelectCMM(JNIEnv* km_env, jclass km_clazz, jint dwcmmtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1selectCMM(JNIEnv* km_env, jclass km_clazz, jint dwcmmtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1580,7 +1580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetColorProfileElement(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jint dwoffset, jlong pcbelement, jlong pelement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setColorProfileElement(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tag, jint dwoffset, jlong pcbelement, jlong pelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1602,7 +1602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetColorProfileElementReference(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint newtag, jint reftag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setColorProfileElementReference(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint newtag, jint reftag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1622,7 +1622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetColorProfileElementSize(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tagtype, jint pcbelement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setColorProfileElementSize(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jint tagtype, jint pcbelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1642,7 +1642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetColorProfileHeader(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pheader) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setColorProfileHeader(JNIEnv* km_env, jclass km_clazz, jlong hprofile, jlong pheader) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1661,7 +1661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hcs) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setColorSpace(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong hcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1680,7 +1680,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetDeviceGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpramp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setDeviceGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpramp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1699,7 +1699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetICMMode(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint mode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setICMMode(JNIEnv* km_env, jclass km_clazz, jlong hdc, jint mode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1718,7 +1718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetICMProfileA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setICMProfileA(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1737,7 +1737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetICMProfileW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setICMProfileW(JNIEnv* km_env, jclass km_clazz, jlong hdc, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1756,7 +1756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetStandardColorSpaceProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwprofileid, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setStandardColorSpaceProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwprofileid, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1776,7 +1776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetStandardColorSpaceProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwprofileid, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setStandardColorSpaceProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint dwprofileid, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1796,7 +1796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetupColorMatchingA(JNIEnv* km_env, jclass km_clazz, jlong pcms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setupColorMatchingA(JNIEnv* km_env, jclass km_clazz, jlong pcms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1814,7 +1814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1SetupColorMatchingW(JNIEnv* km_env, jclass km_clazz, jlong pcms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1setupColorMatchingW(JNIEnv* km_env, jclass km_clazz, jlong pcms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1832,7 +1832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1TranslateBitmapBits(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong psrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwinputstride, jlong pdestbits, jint bmoutput, jint dwoutputstride, jlong pfncallback, jlong ulcallbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1translateBitmapBits(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong psrcbits, jint bminput, jint dwwidth, jint dwheight, jint dwinputstride, jlong pdestbits, jint bmoutput, jint dwoutputstride, jlong pfncallback, jlong ulcallbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1860,7 +1860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1TranslateColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong painputcolors, jint ncolors, jint ctinput, jlong paoutputcolors, jint ctoutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1translateColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jlong painputcolors, jint ncolors, jint ctinput, jlong paoutputcolors, jint ctoutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1883,7 +1883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UninstallColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jint bdelete) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1uninstallColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jint bdelete) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1903,7 +1903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UninstallColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jint bdelete) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1uninstallColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jlong pprofilename, jint bdelete) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1923,7 +1923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UnregisterCMMA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1unregisterCMMA(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1942,7 +1942,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UnregisterCMMW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1unregisterCMMW(JNIEnv* km_env, jclass km_clazz, jlong pmachinename, jint cmmid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1961,7 +1961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UpdateICMRegKeyA(JNIEnv* km_env, jclass km_clazz, jint reserved, jlong lpszcmid, jlong lpszfilename, jint command) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1updateICMRegKeyA(JNIEnv* km_env, jclass km_clazz, jint reserved, jlong lpszcmid, jlong lpszfilename, jint command) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1982,7 +1982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1UpdateICMRegKeyW(JNIEnv* km_env, jclass km_clazz, jint reserved, jlong lpszcmid, jlong lpszfilename, jint command) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1updateICMRegKeyW(JNIEnv* km_env, jclass km_clazz, jint reserved, jlong lpszcmid, jlong lpszfilename, jint command) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2003,7 +2003,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsAssociateColorProfileWithDevice(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsAssociateColorProfileWithDevice(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2023,7 +2023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsCheckColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint ncolors, jint ninputchannels, jint cdtinput, jint cbinput, jlong pinputdata, jlong paresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsCheckColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint ncolors, jint ninputchannels, jint cdtinput, jint cbinput, jlong pinputdata, jlong paresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2047,7 +2047,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsCreateIccProfile(JNIEnv* km_env, jclass km_clazz, jlong hwcsprofile, jint dwoptions) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsCreateIccProfile(JNIEnv* km_env, jclass km_clazz, jlong hwcsprofile, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2066,7 +2066,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsDisassociateColorProfileFromDevice(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pprofilename, jlong pdevicename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsDisassociateColorProfileFromDevice(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pprofilename, jlong pdevicename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2086,7 +2086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsEnumColorProfiles(JNIEnv* km_env, jclass km_clazz, jint scope, jlong penumrecord, jlong pbuffer, jint dwsize, jlong pnprofiles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsEnumColorProfiles(JNIEnv* km_env, jclass km_clazz, jint scope, jlong penumrecord, jlong pbuffer, jint dwsize, jlong pnprofiles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2108,7 +2108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsEnumColorProfilesSize(JNIEnv* km_env, jclass km_clazz, jint scope, jlong penumrecord, jlong pdwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsEnumColorProfilesSize(JNIEnv* km_env, jclass km_clazz, jint scope, jlong penumrecord, jlong pdwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2128,7 +2128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsGetCalibrationManagementState(JNIEnv* km_env, jclass km_clazz, jlong pbisenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsGetCalibrationManagementState(JNIEnv* km_env, jclass km_clazz, jlong pbisenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2146,7 +2146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsGetDefaultColorProfile(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jint cbprofilename, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsGetDefaultColorProfile(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jint cbprofilename, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2170,7 +2170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsGetDefaultColorProfileSize(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jlong pcbprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsGetDefaultColorProfileSize(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jlong pcbprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2193,7 +2193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsGetDefaultRenderingIntent(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdwrenderingintent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsGetDefaultRenderingIntent(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdwrenderingintent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2212,7 +2212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsGetUsePerUserProfiles(JNIEnv* km_env, jclass km_clazz, jlong pdevicename, jint dwdeviceclass, jlong puseperuserprofiles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsGetUsePerUserProfiles(JNIEnv* km_env, jclass km_clazz, jlong pdevicename, jint dwdeviceclass, jlong puseperuserprofiles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2232,7 +2232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsOpenColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pcdmpprofile, jlong pcampprofile, jlong pgmmpprofile, jint dwdesireaccess, jint dwsharemode, jint dwcreationmode, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsOpenColorProfileA(JNIEnv* km_env, jclass km_clazz, jlong pcdmpprofile, jlong pcampprofile, jlong pgmmpprofile, jint dwdesireaccess, jint dwsharemode, jint dwcreationmode, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2256,7 +2256,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsOpenColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pcdmpprofile, jlong pcampprofile, jlong pgmmpprofile, jint dwdesireaccess, jint dwsharemode, jint dwcreationmode, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsOpenColorProfileW(JNIEnv* km_env, jclass km_clazz, jlong pcdmpprofile, jlong pcampprofile, jlong pgmmpprofile, jint dwdesireaccess, jint dwsharemode, jint dwcreationmode, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2280,7 +2280,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsSetCalibrationManagementState(JNIEnv* km_env, jclass km_clazz, jint bisenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsSetCalibrationManagementState(JNIEnv* km_env, jclass km_clazz, jint bisenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2298,7 +2298,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsSetDefaultColorProfile(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jlong pprofilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsSetDefaultColorProfile(JNIEnv* km_env, jclass km_clazz, jint scope, jlong pdevicename, jint cptcolorprofiletype, jint cpstcolorprofilesubtype, jint dwprofileid, jlong pprofilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2321,7 +2321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsSetDefaultRenderingIntent(JNIEnv* km_env, jclass km_clazz, jint scope, jint dwrenderingintent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsSetDefaultRenderingIntent(JNIEnv* km_env, jclass km_clazz, jint scope, jint dwrenderingintent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2340,7 +2340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsSetUsePerUserProfiles(JNIEnv* km_env, jclass km_clazz, jlong pdevicename, jint dwdeviceclass, jint useperuserprofiles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsSetUsePerUserProfiles(JNIEnv* km_env, jclass km_clazz, jlong pdevicename, jint dwdeviceclass, jint useperuserprofiles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2360,7 +2360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1WcsTranslateColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint ncolors, jint ninputchannels, jint cdtinput, jint cbinput, jlong pinputdata, jint noutputchannels, jint cdtoutput, jint cboutput, jlong poutputdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_colorsystem_WindowsWin32UiColorsystemJniBridge_windowssys_1windows_1win32_1ui_1colorsystem_1wcsTranslateColors(JNIEnv* km_env, jclass km_clazz, jlong hcolortransform, jint ncolors, jint ninputchannels, jint cdtinput, jint cbinput, jlong pinputdata, jint noutputchannels, jint cdtoutput, jint cboutput, jlong poutputdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

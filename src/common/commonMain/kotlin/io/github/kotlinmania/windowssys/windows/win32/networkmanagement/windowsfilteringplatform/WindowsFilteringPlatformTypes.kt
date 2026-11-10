@@ -1,221 +1,223 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform
 
-public typealias DL_ADDRESS_TYPE = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias FWPM_APPC_NETWORK_CAPABILITY_TYPE = Int
+public typealias DlAddressType = Int
 
-public fun interface FWPM_CALLOUT_CHANGE_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public typealias FwpmAppcNetworkCapabilityType = Int
+
+public fun interface FwpmCalloutChangeCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias FWPM_CALLOUT_CHANGE_CALLBACK0 = FWPM_CALLOUT_CHANGE_CALLBACK0Fn?
+public typealias FwpmCalloutChangeCallback0 = FwpmCalloutChangeCallback0Fn?
 
-public typealias FWPM_CHANGE_TYPE = Int
+public typealias FwpmChangeType = Int
 
-public fun interface FWPM_CONNECTION_CALLBACK0Fn {
-    public operator fun invoke(context: Long, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: Long)
+public fun interface FwpmConnectionCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, eventtype: FwpmConnectionEventType, connection: COpaquePointer?)
 }
 
-public typealias FWPM_CONNECTION_CALLBACK0 = FWPM_CONNECTION_CALLBACK0Fn?
+public typealias FwpmConnectionCallback0 = FwpmConnectionCallback0Fn?
 
-public typealias FWPM_CONNECTION_EVENT_TYPE = Int
+public typealias FwpmConnectionEventType = Int
 
-public fun interface FWPM_DYNAMIC_KEYWORD_CALLBACK0Fn {
-    public operator fun invoke(notification: Long, context: Long)
+public fun interface FwpmDynamicKeywordCallback0Fn {
+    public operator fun invoke(notification: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias FWPM_DYNAMIC_KEYWORD_CALLBACK0 = FWPM_DYNAMIC_KEYWORD_CALLBACK0Fn?
+public typealias FwpmDynamicKeywordCallback0 = FwpmDynamicKeywordCallback0Fn?
 
-public typealias FWPM_ENGINE_OPTION = Int
+public typealias FwpmEngineOption = Int
 
-public typealias FWPM_FIELD_TYPE = Int
+public typealias FwpmFieldType = Int
 
-public fun interface FWPM_FILTER_CHANGE_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public fun interface FwpmFilterChangeCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias FWPM_FILTER_CHANGE_CALLBACK0 = FWPM_FILTER_CHANGE_CALLBACK0Fn?
+public typealias FwpmFilterChangeCallback0 = FwpmFilterChangeCallback0Fn?
 
-public typealias FWPM_FILTER_FLAGS = UInt
+public typealias FwpmFilterFlags = UInt
 
-public fun interface FWPM_NET_EVENT_CALLBACK0Fn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface FwpmNetEventCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias FWPM_NET_EVENT_CALLBACK0 = FWPM_NET_EVENT_CALLBACK0Fn?
+public typealias FwpmNetEventCallback0 = FwpmNetEventCallback0Fn?
 
-public fun interface FWPM_NET_EVENT_CALLBACK1Fn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface FwpmNetEventCallback1Fn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias FWPM_NET_EVENT_CALLBACK1 = FWPM_NET_EVENT_CALLBACK1Fn?
+public typealias FwpmNetEventCallback1 = FwpmNetEventCallback1Fn?
 
-public fun interface FWPM_NET_EVENT_CALLBACK2Fn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface FwpmNetEventCallback2Fn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias FWPM_NET_EVENT_CALLBACK2 = FWPM_NET_EVENT_CALLBACK2Fn?
+public typealias FwpmNetEventCallback2 = FwpmNetEventCallback2Fn?
 
-public fun interface FWPM_NET_EVENT_CALLBACK3Fn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface FwpmNetEventCallback3Fn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias FWPM_NET_EVENT_CALLBACK3 = FWPM_NET_EVENT_CALLBACK3Fn?
+public typealias FwpmNetEventCallback3 = FwpmNetEventCallback3Fn?
 
-public fun interface FWPM_NET_EVENT_CALLBACK4Fn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface FwpmNetEventCallback4Fn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias FWPM_NET_EVENT_CALLBACK4 = FWPM_NET_EVENT_CALLBACK4Fn?
+public typealias FwpmNetEventCallback4 = FwpmNetEventCallback4Fn?
 
-public typealias FWPM_NET_EVENT_TYPE = Int
+public typealias FwpmNetEventType = Int
 
-public fun interface FWPM_PROVIDER_CHANGE_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public fun interface FwpmProviderChangeCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias FWPM_PROVIDER_CHANGE_CALLBACK0 = FWPM_PROVIDER_CHANGE_CALLBACK0Fn?
+public typealias FwpmProviderChangeCallback0 = FwpmProviderChangeCallback0Fn?
 
-public fun interface FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public fun interface FwpmProviderContextChangeCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0Fn?
+public typealias FwpmProviderContextChangeCallback0 = FwpmProviderContextChangeCallback0Fn?
 
-public typealias FWPM_PROVIDER_CONTEXT_TYPE = Int
+public typealias FwpmProviderContextType = Int
 
-public typealias FWPM_SERVICE_STATE = Int
+public typealias FwpmServiceState = Int
 
-public fun interface FWPM_SUBLAYER_CHANGE_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public fun interface FwpmSublayerChangeCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias FWPM_SUBLAYER_CHANGE_CALLBACK0 = FWPM_SUBLAYER_CHANGE_CALLBACK0Fn?
+public typealias FwpmSublayerChangeCallback0 = FwpmSublayerChangeCallback0Fn?
 
-public typealias FWPM_SUBSCRIPTION_FLAGS = UInt
+public typealias FwpmSubscriptionFlags = UInt
 
-public fun interface FWPM_SYSTEM_PORTS_CALLBACK0Fn {
-    public operator fun invoke(context: Long, sysports: Long)
+public fun interface FwpmSystemPortsCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, sysports: COpaquePointer?)
 }
 
-public typealias FWPM_SYSTEM_PORTS_CALLBACK0 = FWPM_SYSTEM_PORTS_CALLBACK0Fn?
+public typealias FwpmSystemPortsCallback0 = FwpmSystemPortsCallback0Fn?
 
-public typealias FWPM_SYSTEM_PORT_TYPE = Int
+public typealias FwpmSystemPortType = Int
 
-public fun interface FWPM_VSWITCH_EVENT_CALLBACK0Fn {
-    public operator fun invoke(context: Long, vswitchevent: Long): UInt
+public fun interface FwpmVswitchEventCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, vswitchevent: COpaquePointer?): UInt
 }
 
-public typealias FWPM_VSWITCH_EVENT_CALLBACK0 = FWPM_VSWITCH_EVENT_CALLBACK0Fn?
+public typealias FwpmVswitchEventCallback0 = FwpmVswitchEventCallback0Fn?
 
-public typealias FWPM_VSWITCH_EVENT_TYPE = Int
+public typealias FwpmVswitchEventType = Int
 
-public typealias FWP_ACTION_TYPE = UInt
+public typealias FwpActionType = UInt
 
-public typealias FWP_AF = Int
+public typealias FwpAf = Int
 
-public typealias FWP_CLASSIFY_OPTION_TYPE = Int
+public typealias FwpClassifyOptionType = Int
 
-public typealias FWP_DATA_TYPE = Int
+public typealias FwpDataType = Int
 
-public typealias FWP_DIRECTION = Int
+public typealias FwpDirection = Int
 
-public typealias FWP_ETHER_ENCAP_METHOD = Int
+public typealias FwpEtherEncapMethod = Int
 
-public typealias FWP_FILTER_ENUM_TYPE = Int
+public typealias FwpFilterEnumType = Int
 
-public typealias FWP_IP_VERSION = Int
+public typealias FwpIpVersion = Int
 
-public typealias FWP_MATCH_TYPE = Int
+public typealias FwpMatchType = Int
 
-public typealias FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = Int
+public typealias FwpNetworkConnectionPolicySettingType = Int
 
-public typealias FWP_VSWITCH_NETWORK_TYPE = Int
+public typealias FwpVswitchNetworkType = Int
 
-public typealias IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = Int
+public typealias IkeextAuthenticationImpersonationType = Int
 
-public typealias IKEEXT_AUTHENTICATION_METHOD_TYPE = Int
+public typealias IkeextAuthenticationMethodType = Int
 
-public typealias IKEEXT_CERT_AUTH = UInt
+public typealias IkeextCertAuth = UInt
 
-public typealias IKEEXT_CERT_CONFIG_TYPE = Int
+public typealias IkeextCertConfigType = Int
 
-public typealias IKEEXT_CERT_CRITERIA_NAME_TYPE = Int
+public typealias IkeextCertCriteriaNameType = Int
 
-public typealias IKEEXT_CERT_FLAGS = UInt
+public typealias IkeextCertFlags = UInt
 
-public typealias IKEEXT_CIPHER_TYPE = Int
+public typealias IkeextCipherType = Int
 
-public typealias IKEEXT_DH_GROUP = Int
+public typealias IkeextDhGroup = Int
 
-public typealias IKEEXT_EAP_AUTHENTICATION_FLAGS = UInt
+public typealias IkeextEapAuthenticationFlags = UInt
 
-public typealias IKEEXT_EM_SA_STATE = Int
+public typealias IkeextEmSaState = Int
 
-public typealias IKEEXT_INTEGRITY_TYPE = Int
+public typealias IkeextIntegrityType = Int
 
-public typealias IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = UInt
+public typealias IkeextKerberosAuthenticationFlags = UInt
 
-public typealias IKEEXT_KEY_MODULE_TYPE = Int
+public typealias IkeextKeyModuleType = Int
 
-public typealias IKEEXT_MM_SA_STATE = Int
+public typealias IkeextMmSaState = Int
 
-public typealias IKEEXT_POLICY_FLAG = UInt
+public typealias IkeextPolicyFlag = UInt
 
-public typealias IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = UInt
+public typealias IkeextPresharedKeyAuthenticationFlags = UInt
 
-public typealias IKEEXT_QM_SA_STATE = Int
+public typealias IkeextQmSaState = Int
 
-public typealias IKEEXT_RESERVED_AUTHENTICATION_FLAGS = UInt
+public typealias IkeextReservedAuthenticationFlags = UInt
 
-public typealias IKEEXT_SA_ROLE = Int
+public typealias IkeextSaRole = Int
 
-public typealias IPSEC_AUTH_TYPE = Int
+public typealias IpsecAuthType = Int
 
-public typealias IPSEC_CIPHER_TYPE = Int
+public typealias IpsecCipherType = Int
 
-public typealias IPSEC_DOSP_FLAGS = UInt
+public typealias IpsecDospFlags = UInt
 
-public typealias IPSEC_FAILURE_POINT = Int
+public typealias IpsecFailurePoint = Int
 
-public fun interface IPSEC_KEY_MANAGER_DICTATE_KEY0Fn {
-    public operator fun invoke(inboundsadetails: Long, outboundsadetails: Long, keyingmodulegenkey: Long): UInt
+public fun interface IpsecKeyManagerDictateKey0Fn {
+    public operator fun invoke(inboundsadetails: COpaquePointer?, outboundsadetails: COpaquePointer?, keyingmodulegenkey: COpaquePointer?): UInt
 }
 
-public typealias IPSEC_KEY_MANAGER_DICTATE_KEY0 = IPSEC_KEY_MANAGER_DICTATE_KEY0Fn?
+public typealias IpsecKeyManagerDictateKey0 = IpsecKeyManagerDictateKey0Fn?
 
-public fun interface IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0Fn {
-    public operator fun invoke(iketraffic: Long, willdictatekey: Long, weight: Long)
+public fun interface IpsecKeyManagerKeyDictationCheck0Fn {
+    public operator fun invoke(iketraffic: COpaquePointer?, willdictatekey: COpaquePointer?, weight: COpaquePointer?)
 }
 
-public typealias IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0Fn?
+public typealias IpsecKeyManagerKeyDictationCheck0 = IpsecKeyManagerKeyDictationCheck0Fn?
 
-public fun interface IPSEC_KEY_MANAGER_NOTIFY_KEY0Fn {
-    public operator fun invoke(inboundsa: Long, outboundsa: Long)
+public fun interface IpsecKeyManagerNotifyKey0Fn {
+    public operator fun invoke(inboundsa: COpaquePointer?, outboundsa: COpaquePointer?)
 }
 
-public typealias IPSEC_KEY_MANAGER_NOTIFY_KEY0 = IPSEC_KEY_MANAGER_NOTIFY_KEY0Fn?
+public typealias IpsecKeyManagerNotifyKey0 = IpsecKeyManagerNotifyKey0Fn?
 
-public typealias IPSEC_PFS_GROUP = Int
+public typealias IpsecPfsGroup = Int
 
-public typealias IPSEC_POLICY_FLAG = UInt
+public typealias IpsecPolicyFlag = UInt
 
-public typealias IPSEC_SA_BUNDLE_FLAGS = UInt
+public typealias IpsecSaBundleFlags = UInt
 
-public fun interface IPSEC_SA_CONTEXT_CALLBACK0Fn {
-    public operator fun invoke(context: Long, change: Long)
+public fun interface IpsecSaContextCallback0Fn {
+    public operator fun invoke(context: COpaquePointer?, change: COpaquePointer?)
 }
 
-public typealias IPSEC_SA_CONTEXT_CALLBACK0 = IPSEC_SA_CONTEXT_CALLBACK0Fn?
+public typealias IpsecSaContextCallback0 = IpsecSaContextCallback0Fn?
 
-public typealias IPSEC_SA_CONTEXT_EVENT_TYPE0 = Int
+public typealias IpsecSaContextEventType0 = Int
 
-public typealias IPSEC_TOKEN_MODE = Int
+public typealias IpsecTokenMode = Int
 
-public typealias IPSEC_TOKEN_PRINCIPAL = Int
+public typealias IpsecTokenPrincipal = Int
 
-public typealias IPSEC_TOKEN_TYPE = Int
+public typealias IpsecTokenType = Int
 
-public typealias IPSEC_TRAFFIC_TYPE = Int
+public typealias IpsecTrafficType = Int
 
-public typealias IPSEC_TRANSFORM_TYPE = Int
+public typealias IpsecTransformType = Int

@@ -1,138 +1,139 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.NMHDR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
-public data class COLUMNSTATUS(public var cPropCount: Int = 0, public var cPropsLoaded: Int = 0)
+public data class Columnstatus(public var cPropCount: Int = 0, public var cPropsLoaded: Int = 0)
 
 public data class CProperty(
     public var dwPropID: UInt = 0u,
     public var cbData: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var Anonymous: CProperty_0 = CProperty_0(),
-    public var fPersist: BOOL = 0,
+    public var anonymous: Cproperty0 = Cproperty0(),
+    public var fPersist: Bool = 0,
 )
 
-public data class CProperty_0(
-    public var lpszwData: PWSTR = 0L,
-    public var lpvData: Long = 0L,
+public data class Cproperty0(
+    public var lpszwData: Pwstr = null,
+    public var lpvData: COpaquePointer? = null,
     public var dwValue: UInt = 0u,
 )
 
-public data class HHNTRACK(
-    public var hdr: NMHDR = NMHDR(),
-    public var pszCurUrl: PCSTR = 0L,
+public data class Hhntrack(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszCurUrl: Pcstr = null,
     public var idAction: Int = 0,
-    public var phhWinType: Long = 0L,
+    public var phhWinType: HhWintype? = null,
 )
 
-public data class HHN_NOTIFY(public var hdr: NMHDR = NMHDR(), public var pszUrl: PCSTR = 0L)
+public data class HhnNotify(public var hdr: Nmhdr = Nmhdr(), public var pszUrl: Pcstr = null)
 
-public data class HH_AKLINK(
+public data class HhAklink(
     public var cbStruct: Int = 0,
-    public var fReserved: BOOL = 0,
-    public var pszKeywords: Long = 0L,
-    public var pszUrl: Long = 0L,
-    public var pszMsgText: Long = 0L,
-    public var pszMsgTitle: Long = 0L,
-    public var pszWindow: Long = 0L,
-    public var fIndexOnFail: BOOL = 0,
+    public var fReserved: Bool = 0,
+    public var pszKeywords: COpaquePointer? = null,
+    public var pszUrl: COpaquePointer? = null,
+    public var pszMsgText: COpaquePointer? = null,
+    public var pszMsgTitle: COpaquePointer? = null,
+    public var pszWindow: COpaquePointer? = null,
+    public var fIndexOnFail: Bool = 0,
 )
 
-public data class HH_ENUM_CAT(
+public data class HhEnumCat(
     public var cbStruct: Int = 0,
-    public var pszCatName: PCSTR = 0L,
-    public var pszCatDescription: PCSTR = 0L,
+    public var pszCatName: Pcstr = null,
+    public var pszCatDescription: Pcstr = null,
 )
 
-public data class HH_ENUM_IT(
+public data class HhEnumIt(
     public var cbStruct: Int = 0,
     public var iType: Int = 0,
-    public var pszCatName: PCSTR = 0L,
-    public var pszITName: PCSTR = 0L,
-    public var pszITDescription: PCSTR = 0L,
+    public var pszCatName: Pcstr = null,
+    public var pszITName: Pcstr = null,
+    public var pszITDescription: Pcstr = null,
 )
 
-public data class HH_FTS_QUERY(
+public data class HhFtsQuery(
     public var cbStruct: Int = 0,
-    public var fUniCodeStrings: BOOL = 0,
-    public var pszSearchQuery: Long = 0L,
+    public var fUniCodeStrings: Bool = 0,
+    public var pszSearchQuery: COpaquePointer? = null,
     public var iProximity: Int = 0,
-    public var fStemmedSearch: BOOL = 0,
-    public var fTitleOnly: BOOL = 0,
-    public var fExecute: BOOL = 0,
-    public var pszWindow: Long = 0L,
+    public var fStemmedSearch: Bool = 0,
+    public var fTitleOnly: Bool = 0,
+    public var fExecute: Bool = 0,
+    public var pszWindow: COpaquePointer? = null,
 )
 
-public data class HH_GLOBAL_PROPERTY(public var id: HH_GPROPID = 0, public var variable: VARIANT = VARIANT())
+public data class HhGlobalProperty(public var id: HhGpropid = 0, public var variable: Variant = Variant())
 
-public data class HH_POPUP(
+public data class HhPopup(
     public var cbStruct: Int = 0,
-    public var hinst: HINSTANCE = 0L,
+    public var hinst: Hinstance = null,
     public var idString: UInt = 0u,
-    public var pszText: Long = 0L,
-    public var pt: POINT = POINT(),
-    public var clrForeground: COLORREF = 0u,
-    public var clrBackground: COLORREF = 0u,
-    public var rcMargins: RECT = RECT(),
-    public var pszFont: Long = 0L,
+    public var pszText: COpaquePointer? = null,
+    public var pt: Point = Point(),
+    public var clrForeground: Colorref = 0u,
+    public var clrBackground: Colorref = 0u,
+    public var rcMargins: Rect = Rect(),
+    public var pszFont: COpaquePointer? = null,
 )
 
-public data class HH_SET_INFOTYPE(
+public data class HhSetInfotype(
     public var cbStruct: Int = 0,
-    public var pszCatName: PCSTR = 0L,
-    public var pszInfoTypeName: PCSTR = 0L,
+    public var pszCatName: Pcstr = null,
+    public var pszInfoTypeName: Pcstr = null,
 )
 
-public class HH_WINTYPE(
+public class HhWintype(
     public var cbStruct: Int = 0,
-    public var fUniCodeStrings: BOOL = 0,
-    public var pszType: Long = 0L,
+    public var fUniCodeStrings: Bool = 0,
+    public var pszType: COpaquePointer? = null,
     public var fsValidMembers: UInt = 0u,
     public var fsWinProperties: UInt = 0u,
-    public var pszCaption: Long = 0L,
+    public var pszCaption: COpaquePointer? = null,
     public var dwStyles: UInt = 0u,
     public var dwExStyles: UInt = 0u,
-    public var rcWindowPos: RECT = RECT(),
+    public var rcWindowPos: Rect = Rect(),
     public var nShowState: Int = 0,
-    public var hwndHelp: HWND = 0L,
-    public var hwndCaller: HWND = 0L,
-    public var paInfoTypes: Long = 0L,
-    public var hwndToolBar: HWND = 0L,
-    public var hwndNavigation: HWND = 0L,
-    public var hwndHTML: HWND = 0L,
+    public var hwndHelp: Hwnd = null,
+    public var hwndCaller: Hwnd = null,
+    public var paInfoTypes: UInt? = null,
+    public var hwndToolBar: Hwnd = null,
+    public var hwndNavigation: Hwnd = null,
+    public var hwndHTML: Hwnd = null,
     public var iNavWidth: Int = 0,
-    public var rcHTML: RECT = RECT(),
-    public var pszToc: Long = 0L,
-    public var pszIndex: Long = 0L,
-    public var pszFile: Long = 0L,
-    public var pszHome: Long = 0L,
+    public var rcHTML: Rect = Rect(),
+    public var pszToc: COpaquePointer? = null,
+    public var pszIndex: COpaquePointer? = null,
+    public var pszFile: COpaquePointer? = null,
+    public var pszHome: COpaquePointer? = null,
     public var fsToolBarFlags: UInt = 0u,
-    public var fNotExpanded: BOOL = 0,
+    public var fNotExpanded: Bool = 0,
     public var curNavType: Int = 0,
     public var tabpos: Int = 0,
     public var idNotify: Int = 0,
     public var tabOrder: UByteArray = UByteArray(20),
     public var cHistory: Int = 0,
-    public var pszJump1: Long = 0L,
-    public var pszJump2: Long = 0L,
-    public var pszUrlJump1: Long = 0L,
-    public var pszUrlJump2: Long = 0L,
-    public var rcMinSize: RECT = RECT(),
+    public var pszJump1: COpaquePointer? = null,
+    public var pszJump2: COpaquePointer? = null,
+    public var pszUrlJump1: COpaquePointer? = null,
+    public var pszUrlJump2: COpaquePointer? = null,
+    public var rcMinSize: Rect = Rect(),
     public var cbInfoTypes: Int = 0,
-    public var pszCustomTabs: Long = 0L,
+    public var pszCustomTabs: COpaquePointer? = null,
 )
 
-public data class ROWSTATUS(
+public data class Rowstatus(
     public var lRowFirst: Int = 0,
     public var cRows: Int = 0,
     public var cProperties: Int = 0,

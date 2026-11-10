@@ -174,23 +174,23 @@ public val DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: UInt = 128u
 
 public val DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: UInt = 256u
 
-public val DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = 0
+public val DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DnsConnectionProxyInfoSwitch = 0
 
-public val DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = 1
+public val DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DnsConnectionProxyInfoSwitch = 1
 
-public val DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2
+public val DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DnsConnectionProxyInfoSwitch = 2
 
 public val DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: UInt = 128u
 
-public val DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1
+public val DNS_CONNECTION_PROXY_TYPE_HTTP: DnsConnectionProxyType = 1
 
-public val DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = 0
+public val DNS_CONNECTION_PROXY_TYPE_NULL: DnsConnectionProxyType = 0
 
-public val DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = 4
+public val DNS_CONNECTION_PROXY_TYPE_SOCKS4: DnsConnectionProxyType = 4
 
-public val DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = 5
+public val DNS_CONNECTION_PROXY_TYPE_SOCKS5: DnsConnectionProxyType = 5
 
-public val DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = 2
+public val DNS_CONNECTION_PROXY_TYPE_WAP: DnsConnectionProxyType = 2
 
 public val DNS_CUSTOM_SERVER_TYPE_DOH: UInt = 2u
 
@@ -246,73 +246,73 @@ public val DNS_PROTOCOL_UDP: UInt = 1u
 
 public val DNS_PROTOCOL_UNSPECIFIED: UInt = 0u
 
-public val DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1
+public val DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DnsProxyInformationType = 1
 
-public val DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0
+public val DNS_PROXY_INFORMATION_DIRECT: DnsProxyInformationType = 0
 
-public val DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3
+public val DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DnsProxyInformationType = 3
 
-public val DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2
+public val DNS_PROXY_INFORMATION_PROXY_NAME: DnsProxyInformationType = 2
 
-public val DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: DnsQueryOptions = 1u
 
-public val DNS_QUERY_ADDRCONFIG: DNS_QUERY_OPTIONS = 8192u
+public val DNS_QUERY_ADDRCONFIG: DnsQueryOptions = 8192u
 
-public val DNS_QUERY_APPEND_MULTILABEL: DNS_QUERY_OPTIONS = 8388608u
+public val DNS_QUERY_APPEND_MULTILABEL: DnsQueryOptions = 8388608u
 
-public val DNS_QUERY_BYPASS_CACHE: DNS_QUERY_OPTIONS = 8u
+public val DNS_QUERY_BYPASS_CACHE: DnsQueryOptions = 8u
 
-public val DNS_QUERY_CACHE_ONLY: DNS_QUERY_OPTIONS = 16u
+public val DNS_QUERY_CACHE_ONLY: DnsQueryOptions = 16u
 
-public val DNS_QUERY_DISABLE_IDN_ENCODING: DNS_QUERY_OPTIONS = 2097152u
+public val DNS_QUERY_DISABLE_IDN_ENCODING: DnsQueryOptions = 2097152u
 
-public val DNS_QUERY_DNSSEC_CHECKING_DISABLED: DNS_QUERY_OPTIONS = 33554432u
+public val DNS_QUERY_DNSSEC_CHECKING_DISABLED: DnsQueryOptions = 33554432u
 
-public val DNS_QUERY_DNSSEC_OK: DNS_QUERY_OPTIONS = 16777216u
+public val DNS_QUERY_DNSSEC_OK: DnsQueryOptions = 16777216u
 
-public val DNS_QUERY_DONT_RESET_TTL_VALUES: DNS_QUERY_OPTIONS = 1048576u
+public val DNS_QUERY_DONT_RESET_TTL_VALUES: DnsQueryOptions = 1048576u
 
-public val DNS_QUERY_DUAL_ADDR: DNS_QUERY_OPTIONS = 16384u
+public val DNS_QUERY_DUAL_ADDR: DnsQueryOptions = 16384u
 
-public val DNS_QUERY_MULTICAST_ONLY: DNS_QUERY_OPTIONS = 1024u
+public val DNS_QUERY_MULTICAST_ONLY: DnsQueryOptions = 1024u
 
-public val DNS_QUERY_NO_HOSTS_FILE: DNS_QUERY_OPTIONS = 64u
+public val DNS_QUERY_NO_HOSTS_FILE: DnsQueryOptions = 64u
 
-public val DNS_QUERY_NO_LOCAL_NAME: DNS_QUERY_OPTIONS = 32u
+public val DNS_QUERY_NO_LOCAL_NAME: DnsQueryOptions = 32u
 
-public val DNS_QUERY_NO_MULTICAST: DNS_QUERY_OPTIONS = 2048u
+public val DNS_QUERY_NO_MULTICAST: DnsQueryOptions = 2048u
 
-public val DNS_QUERY_NO_NETBT: DNS_QUERY_OPTIONS = 128u
+public val DNS_QUERY_NO_NETBT: DnsQueryOptions = 128u
 
-public val DNS_QUERY_NO_RECURSION: DNS_QUERY_OPTIONS = 4u
+public val DNS_QUERY_NO_RECURSION: DnsQueryOptions = 4u
 
-public val DNS_QUERY_NO_WIRE_QUERY: DNS_QUERY_OPTIONS = 16u
+public val DNS_QUERY_NO_WIRE_QUERY: DnsQueryOptions = 16u
 
-public val DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: DnsQueryOptions = 1u
 
-public val DNS_QUERY_RAW_REQUEST_VERSION1: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_RAW_REQUEST_VERSION1: DnsQueryOptions = 1u
 
-public val DNS_QUERY_RAW_RESULTS_VERSION1: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_RAW_RESULTS_VERSION1: DnsQueryOptions = 1u
 
-public val DNS_QUERY_REQUEST_VERSION1: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_REQUEST_VERSION1: DnsQueryOptions = 1u
 
-public val DNS_QUERY_REQUEST_VERSION2: DNS_QUERY_OPTIONS = 2u
+public val DNS_QUERY_REQUEST_VERSION2: DnsQueryOptions = 2u
 
-public val DNS_QUERY_REQUEST_VERSION3: DNS_QUERY_OPTIONS = 3u
+public val DNS_QUERY_REQUEST_VERSION3: DnsQueryOptions = 3u
 
-public val DNS_QUERY_RESERVED: DNS_QUERY_OPTIONS = 4026531840u
+public val DNS_QUERY_RESERVED: DnsQueryOptions = 4026531840u
 
-public val DNS_QUERY_RESULTS_VERSION1: DNS_QUERY_OPTIONS = 1u
+public val DNS_QUERY_RESULTS_VERSION1: DnsQueryOptions = 1u
 
-public val DNS_QUERY_RETURN_MESSAGE: DNS_QUERY_OPTIONS = 512u
+public val DNS_QUERY_RETURN_MESSAGE: DnsQueryOptions = 512u
 
-public val DNS_QUERY_STANDARD: DNS_QUERY_OPTIONS = 0u
+public val DNS_QUERY_STANDARD: DnsQueryOptions = 0u
 
-public val DNS_QUERY_TREAT_AS_FQDN: DNS_QUERY_OPTIONS = 4096u
+public val DNS_QUERY_TREAT_AS_FQDN: DnsQueryOptions = 4096u
 
-public val DNS_QUERY_USE_TCP_ONLY: DNS_QUERY_OPTIONS = 2u
+public val DNS_QUERY_USE_TCP_ONLY: DnsQueryOptions = 2u
 
-public val DNS_QUERY_WIRE_ONLY: DNS_QUERY_OPTIONS = 256u
+public val DNS_QUERY_WIRE_ONLY: DnsQueryOptions = 256u
 
 public val DNS_RCLASS_ALL: UInt = 65280u
 
@@ -510,141 +510,141 @@ public val DNS_TKEY_MODE_RESOLVER_ASSIGN: UInt = 4u
 
 public val DNS_TKEY_MODE_SERVER_ASSIGN: UInt = 1u
 
-public val DNS_TYPE_A: DNS_TYPE = 1u
+public val DNS_TYPE_A: DnsType = 1u.toUShort()
 
-public val DNS_TYPE_A6: DNS_TYPE = 38u
+public val DNS_TYPE_A6: DnsType = 38u.toUShort()
 
-public val DNS_TYPE_AAAA: DNS_TYPE = 28u
+public val DNS_TYPE_AAAA: DnsType = 28u.toUShort()
 
-public val DNS_TYPE_ADDRS: DNS_TYPE = 248u
+public val DNS_TYPE_ADDRS: DnsType = 248u.toUShort()
 
-public val DNS_TYPE_AFSDB: DNS_TYPE = 18u
+public val DNS_TYPE_AFSDB: DnsType = 18u.toUShort()
 
-public val DNS_TYPE_ALL: DNS_TYPE = 255u
+public val DNS_TYPE_ALL: DnsType = 255u.toUShort()
 
-public val DNS_TYPE_ANY: DNS_TYPE = 255u
+public val DNS_TYPE_ANY: DnsType = 255u.toUShort()
 
-public val DNS_TYPE_ATMA: DNS_TYPE = 34u
+public val DNS_TYPE_ATMA: DnsType = 34u.toUShort()
 
-public val DNS_TYPE_AXFR: DNS_TYPE = 252u
+public val DNS_TYPE_AXFR: DnsType = 252u.toUShort()
 
-public val DNS_TYPE_CERT: DNS_TYPE = 37u
+public val DNS_TYPE_CERT: DnsType = 37u.toUShort()
 
-public val DNS_TYPE_CNAME: DNS_TYPE = 5u
+public val DNS_TYPE_CNAME: DnsType = 5u.toUShort()
 
-public val DNS_TYPE_DHCID: DNS_TYPE = 49u
+public val DNS_TYPE_DHCID: DnsType = 49u.toUShort()
 
-public val DNS_TYPE_DNAME: DNS_TYPE = 39u
+public val DNS_TYPE_DNAME: DnsType = 39u.toUShort()
 
-public val DNS_TYPE_DNSKEY: DNS_TYPE = 48u
+public val DNS_TYPE_DNSKEY: DnsType = 48u.toUShort()
 
-public val DNS_TYPE_DS: DNS_TYPE = 43u
+public val DNS_TYPE_DS: DnsType = 43u.toUShort()
 
-public val DNS_TYPE_EID: DNS_TYPE = 31u
+public val DNS_TYPE_EID: DnsType = 31u.toUShort()
 
-public val DNS_TYPE_GID: DNS_TYPE = 102u
+public val DNS_TYPE_GID: DnsType = 102u.toUShort()
 
-public val DNS_TYPE_GPOS: DNS_TYPE = 27u
+public val DNS_TYPE_GPOS: DnsType = 27u.toUShort()
 
-public val DNS_TYPE_HINFO: DNS_TYPE = 13u
+public val DNS_TYPE_HINFO: DnsType = 13u.toUShort()
 
-public val DNS_TYPE_HTTPS: DNS_TYPE = 65u
+public val DNS_TYPE_HTTPS: DnsType = 65u.toUShort()
 
-public val DNS_TYPE_ISDN: DNS_TYPE = 20u
+public val DNS_TYPE_ISDN: DnsType = 20u.toUShort()
 
-public val DNS_TYPE_IXFR: DNS_TYPE = 251u
+public val DNS_TYPE_IXFR: DnsType = 251u.toUShort()
 
-public val DNS_TYPE_KEY: DNS_TYPE = 25u
+public val DNS_TYPE_KEY: DnsType = 25u.toUShort()
 
-public val DNS_TYPE_KX: DNS_TYPE = 36u
+public val DNS_TYPE_KX: DnsType = 36u.toUShort()
 
-public val DNS_TYPE_LOC: DNS_TYPE = 29u
+public val DNS_TYPE_LOC: DnsType = 29u.toUShort()
 
-public val DNS_TYPE_MAILA: DNS_TYPE = 254u
+public val DNS_TYPE_MAILA: DnsType = 254u.toUShort()
 
-public val DNS_TYPE_MAILB: DNS_TYPE = 253u
+public val DNS_TYPE_MAILB: DnsType = 253u.toUShort()
 
-public val DNS_TYPE_MB: DNS_TYPE = 7u
+public val DNS_TYPE_MB: DnsType = 7u.toUShort()
 
-public val DNS_TYPE_MD: DNS_TYPE = 3u
+public val DNS_TYPE_MD: DnsType = 3u.toUShort()
 
-public val DNS_TYPE_MF: DNS_TYPE = 4u
+public val DNS_TYPE_MF: DnsType = 4u.toUShort()
 
-public val DNS_TYPE_MG: DNS_TYPE = 8u
+public val DNS_TYPE_MG: DnsType = 8u.toUShort()
 
-public val DNS_TYPE_MINFO: DNS_TYPE = 14u
+public val DNS_TYPE_MINFO: DnsType = 14u.toUShort()
 
-public val DNS_TYPE_MR: DNS_TYPE = 9u
+public val DNS_TYPE_MR: DnsType = 9u.toUShort()
 
-public val DNS_TYPE_MX: DNS_TYPE = 15u
+public val DNS_TYPE_MX: DnsType = 15u.toUShort()
 
-public val DNS_TYPE_NAPTR: DNS_TYPE = 35u
+public val DNS_TYPE_NAPTR: DnsType = 35u.toUShort()
 
-public val DNS_TYPE_NBSTAT: DNS_TYPE = 65282u
+public val DNS_TYPE_NBSTAT: DnsType = 65282u.toUShort()
 
-public val DNS_TYPE_NIMLOC: DNS_TYPE = 32u
+public val DNS_TYPE_NIMLOC: DnsType = 32u.toUShort()
 
-public val DNS_TYPE_NS: DNS_TYPE = 2u
+public val DNS_TYPE_NS: DnsType = 2u.toUShort()
 
-public val DNS_TYPE_NSAP: DNS_TYPE = 22u
+public val DNS_TYPE_NSAP: DnsType = 22u.toUShort()
 
-public val DNS_TYPE_NSAPPTR: DNS_TYPE = 23u
+public val DNS_TYPE_NSAPPTR: DnsType = 23u.toUShort()
 
-public val DNS_TYPE_NSEC: DNS_TYPE = 47u
+public val DNS_TYPE_NSEC: DnsType = 47u.toUShort()
 
-public val DNS_TYPE_NSEC3: DNS_TYPE = 50u
+public val DNS_TYPE_NSEC3: DnsType = 50u.toUShort()
 
-public val DNS_TYPE_NSEC3PARAM: DNS_TYPE = 51u
+public val DNS_TYPE_NSEC3PARAM: DnsType = 51u.toUShort()
 
-public val DNS_TYPE_NULL: DNS_TYPE = 10u
+public val DNS_TYPE_NULL: DnsType = 10u.toUShort()
 
-public val DNS_TYPE_NXT: DNS_TYPE = 30u
+public val DNS_TYPE_NXT: DnsType = 30u.toUShort()
 
-public val DNS_TYPE_OPT: DNS_TYPE = 41u
+public val DNS_TYPE_OPT: DnsType = 41u.toUShort()
 
-public val DNS_TYPE_PTR: DNS_TYPE = 12u
+public val DNS_TYPE_PTR: DnsType = 12u.toUShort()
 
-public val DNS_TYPE_PX: DNS_TYPE = 26u
+public val DNS_TYPE_PX: DnsType = 26u.toUShort()
 
-public val DNS_TYPE_RP: DNS_TYPE = 17u
+public val DNS_TYPE_RP: DnsType = 17u.toUShort()
 
-public val DNS_TYPE_RRSIG: DNS_TYPE = 46u
+public val DNS_TYPE_RRSIG: DnsType = 46u.toUShort()
 
-public val DNS_TYPE_RT: DNS_TYPE = 21u
+public val DNS_TYPE_RT: DnsType = 21u.toUShort()
 
-public val DNS_TYPE_SIG: DNS_TYPE = 24u
+public val DNS_TYPE_SIG: DnsType = 24u.toUShort()
 
-public val DNS_TYPE_SINK: DNS_TYPE = 40u
+public val DNS_TYPE_SINK: DnsType = 40u.toUShort()
 
-public val DNS_TYPE_SOA: DNS_TYPE = 6u
+public val DNS_TYPE_SOA: DnsType = 6u.toUShort()
 
-public val DNS_TYPE_SRV: DNS_TYPE = 33u
+public val DNS_TYPE_SRV: DnsType = 33u.toUShort()
 
-public val DNS_TYPE_SVCB: DNS_TYPE = 64u
+public val DNS_TYPE_SVCB: DnsType = 64u.toUShort()
 
-public val DNS_TYPE_TEXT: DNS_TYPE = 16u
+public val DNS_TYPE_TEXT: DnsType = 16u.toUShort()
 
-public val DNS_TYPE_TKEY: DNS_TYPE = 249u
+public val DNS_TYPE_TKEY: DnsType = 249u.toUShort()
 
-public val DNS_TYPE_TLSA: DNS_TYPE = 52u
+public val DNS_TYPE_TLSA: DnsType = 52u.toUShort()
 
-public val DNS_TYPE_TSIG: DNS_TYPE = 250u
+public val DNS_TYPE_TSIG: DnsType = 250u.toUShort()
 
-public val DNS_TYPE_UID: DNS_TYPE = 101u
+public val DNS_TYPE_UID: DnsType = 101u.toUShort()
 
-public val DNS_TYPE_UINFO: DNS_TYPE = 100u
+public val DNS_TYPE_UINFO: DnsType = 100u.toUShort()
 
-public val DNS_TYPE_UNSPEC: DNS_TYPE = 103u
+public val DNS_TYPE_UNSPEC: DnsType = 103u.toUShort()
 
-public val DNS_TYPE_WINS: DNS_TYPE = 65281u
+public val DNS_TYPE_WINS: DnsType = 65281u.toUShort()
 
-public val DNS_TYPE_WINSR: DNS_TYPE = 65282u
+public val DNS_TYPE_WINSR: DnsType = 65282u.toUShort()
 
-public val DNS_TYPE_WKS: DNS_TYPE = 11u
+public val DNS_TYPE_WKS: DnsType = 11u.toUShort()
 
-public val DNS_TYPE_X25: DNS_TYPE = 19u
+public val DNS_TYPE_X25: DnsType = 19u.toUShort()
 
-public val DNS_TYPE_ZERO: DNS_TYPE = 0u
+public val DNS_TYPE_ZERO: DnsType = 0u.toUShort()
 
 public val DNS_UPDATE_CACHE_SECURITY_CONTEXT: UInt = 512u
 
@@ -688,99 +688,99 @@ public val DNS_WINS_FLAG_LOCAL: UInt = 65536u
 
 public val DNS_WINS_FLAG_SCOPE: UInt = 2147483648u
 
-public val DnsCharSetAnsi: DNS_CHARSET = 3
+public val DNS_CHAR_SET_ANSI: DnsCharset = 3
 
-public val DnsCharSetUnicode: DNS_CHARSET = 1
+public val DNS_CHAR_SET_UNICODE: DnsCharset = 1
 
-public val DnsCharSetUnknown: DNS_CHARSET = 0
+public val DNS_CHAR_SET_UNKNOWN: DnsCharset = 0
 
-public val DnsCharSetUtf8: DNS_CHARSET = 2
+public val DNS_CHAR_SET_UTF8: DnsCharset = 2
 
-public val DnsConfigAdapterDomainName_A: DNS_CONFIG_TYPE = 4
+public val DNS_CONFIG_ADAPTER_DOMAIN_NAME_A: DnsConfigType = 4
 
-public val DnsConfigAdapterDomainName_UTF8: DNS_CONFIG_TYPE = 5
+public val DNS_CONFIG_ADAPTER_DOMAIN_NAME_UTF8: DnsConfigType = 5
 
-public val DnsConfigAdapterDomainName_W: DNS_CONFIG_TYPE = 3
+public val DNS_CONFIG_ADAPTER_DOMAIN_NAME_W: DnsConfigType = 3
 
-public val DnsConfigAdapterHostNameRegistrationEnabled: DNS_CONFIG_TYPE = 10
+public val DNS_CONFIG_ADAPTER_HOST_NAME_REGISTRATION_ENABLED: DnsConfigType = 10
 
-public val DnsConfigAdapterInfo: DNS_CONFIG_TYPE = 8
+public val DNS_CONFIG_ADAPTER_INFO: DnsConfigType = 8
 
-public val DnsConfigAddressRegistrationMaxCount: DNS_CONFIG_TYPE = 11
+public val DNS_CONFIG_ADDRESS_REGISTRATION_MAX_COUNT: DnsConfigType = 11
 
-public val DnsConfigDnsServerList: DNS_CONFIG_TYPE = 6
+public val DNS_CONFIG_DNS_SERVER_LIST: DnsConfigType = 6
 
-public val DnsConfigFullHostName_A: DNS_CONFIG_TYPE = 16
+public val DNS_CONFIG_FULL_HOST_NAME_A: DnsConfigType = 16
 
-public val DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = 17
+public val DNS_CONFIG_FULL_HOST_NAME_UTF8: DnsConfigType = 17
 
-public val DnsConfigFullHostName_W: DNS_CONFIG_TYPE = 15
+public val DNS_CONFIG_FULL_HOST_NAME_W: DnsConfigType = 15
 
-public val DnsConfigHostName_A: DNS_CONFIG_TYPE = 13
+public val DNS_CONFIG_HOST_NAME_A: DnsConfigType = 13
 
-public val DnsConfigHostName_UTF8: DNS_CONFIG_TYPE = 14
+public val DNS_CONFIG_HOST_NAME_UTF8: DnsConfigType = 14
 
-public val DnsConfigHostName_W: DNS_CONFIG_TYPE = 12
+public val DNS_CONFIG_HOST_NAME_W: DnsConfigType = 12
 
-public val DnsConfigNameServer: DNS_CONFIG_TYPE = 18
+public val DNS_CONFIG_NAME_SERVER: DnsConfigType = 18
 
-public val DnsConfigPrimaryDomainName_A: DNS_CONFIG_TYPE = 1
+public val DNS_CONFIG_PRIMARY_DOMAIN_NAME_A: DnsConfigType = 1
 
-public val DnsConfigPrimaryDomainName_UTF8: DNS_CONFIG_TYPE = 2
+public val DNS_CONFIG_PRIMARY_DOMAIN_NAME_UTF8: DnsConfigType = 2
 
-public val DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = 0
+public val DNS_CONFIG_PRIMARY_DOMAIN_NAME_W: DnsConfigType = 0
 
-public val DnsConfigPrimaryHostNameRegistrationEnabled: DNS_CONFIG_TYPE = 9
+public val DNS_CONFIG_PRIMARY_HOST_NAME_REGISTRATION_ENABLED: DnsConfigType = 9
 
-public val DnsConfigSearchList: DNS_CONFIG_TYPE = 7
+public val DNS_CONFIG_SEARCH_LIST: DnsConfigType = 7
 
-public val DnsFreeFlat: DNS_FREE_TYPE = 0
+public val DNS_FREE_FLAT: DnsFreeType = 0
 
-public val DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2
+public val DNS_FREE_PARSED_MESSAGE_FIELDS: DnsFreeType = 2
 
-public val DnsFreeRecordList: DNS_FREE_TYPE = 1
+public val DNS_FREE_RECORD_LIST: DnsFreeType = 1
 
-public val DnsNameDomain: DNS_NAME_FORMAT = 0
+public val DNS_NAME_DOMAIN: DnsNameFormat = 0
 
-public val DnsNameDomainLabel: DNS_NAME_FORMAT = 1
+public val DNS_NAME_DOMAIN_LABEL: DnsNameFormat = 1
 
-public val DnsNameHostnameFull: DNS_NAME_FORMAT = 2
+public val DNS_NAME_HOSTNAME_FULL: DnsNameFormat = 2
 
-public val DnsNameHostnameLabel: DNS_NAME_FORMAT = 3
+public val DNS_NAME_HOSTNAME_LABEL: DnsNameFormat = 3
 
-public val DnsNameSrvRecord: DNS_NAME_FORMAT = 5
+public val DNS_NAME_SRV_RECORD: DnsNameFormat = 5
 
-public val DnsNameValidateTld: DNS_NAME_FORMAT = 6
+public val DNS_NAME_VALIDATE_TLD: DnsNameFormat = 6
 
-public val DnsNameWildcard: DNS_NAME_FORMAT = 4
+public val DNS_NAME_WILDCARD: DnsNameFormat = 4
 
-public val DnsSectionAddtional: DNS_SECTION = 3
+public val DNS_SECTION_ADDTIONAL: DnsSection = 3
 
-public val DnsSectionAnswer: DNS_SECTION = 1
+public val DNS_SECTION_ANSWER: DnsSection = 1
 
-public val DnsSectionAuthority: DNS_SECTION = 2
+public val DNS_SECTION_AUTHORITY: DnsSection = 2
 
-public val DnsSectionQuestion: DNS_SECTION = 0
+public val DNS_SECTION_QUESTION: DnsSection = 0
 
-public val DnsSvcbParamAlpn: DNS_SVCB_PARAM_TYPE = 1
+public val DNS_SVCB_PARAM_ALPN: DnsSvcbParamType = 1
 
-public val DnsSvcbParamDohPath: DNS_SVCB_PARAM_TYPE = 7
+public val DNS_SVCB_PARAM_DOH_PATH: DnsSvcbParamType = 7
 
-public val DnsSvcbParamDohPathOpenDns: DNS_SVCB_PARAM_TYPE = 65432
+public val DNS_SVCB_PARAM_DOH_PATH_OPEN_DNS: DnsSvcbParamType = 65432
 
-public val DnsSvcbParamDohPathQuad9: DNS_SVCB_PARAM_TYPE = 65380
+public val DNS_SVCB_PARAM_DOH_PATH_QUAD9: DnsSvcbParamType = 65380
 
-public val DnsSvcbParamEch: DNS_SVCB_PARAM_TYPE = 5
+public val DNS_SVCB_PARAM_ECH: DnsSvcbParamType = 5
 
-public val DnsSvcbParamIpv4Hint: DNS_SVCB_PARAM_TYPE = 4
+public val DNS_SVCB_PARAM_IPV4HINT: DnsSvcbParamType = 4
 
-public val DnsSvcbParamIpv6Hint: DNS_SVCB_PARAM_TYPE = 6
+public val DNS_SVCB_PARAM_IPV6HINT: DnsSvcbParamType = 6
 
-public val DnsSvcbParamMandatory: DNS_SVCB_PARAM_TYPE = 0
+public val DNS_SVCB_PARAM_MANDATORY: DnsSvcbParamType = 0
 
-public val DnsSvcbParamNoDefaultAlpn: DNS_SVCB_PARAM_TYPE = 2
+public val DNS_SVCB_PARAM_NO_DEFAULT_ALPN: DnsSvcbParamType = 2
 
-public val DnsSvcbParamPort: DNS_SVCB_PARAM_TYPE = 3
+public val DNS_SVCB_PARAM_PORT: DnsSvcbParamType = 3
 
 public val IP4_ADDRESS_STRING_BUFFER_LENGTH: UInt = 16u
 
@@ -792,8 +792,8 @@ public val IP6_ADDRESS_STRING_LENGTH: UInt = 65u
 
 public val SIZEOF_IP4_ADDRESS: UInt = 4u
 
-public val TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1
+public val TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DnsConnectionPolicyTag = 1
 
-public val TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0
+public val TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DnsConnectionPolicyTag = 0
 
-public val TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2
+public val TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DnsConnectionPolicyTag = 2

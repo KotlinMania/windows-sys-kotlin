@@ -2,1901 +2,1905 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public actual fun GdipAddPathArc(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipAddPathArc(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathArcI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipAddPathArcI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathBezier(path: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    0
+public actual fun gdipAddPathBezier(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathBezierI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    0
+public actual fun gdipAddPathBezierI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathBeziers(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathBeziers(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathBeziersI(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathBeziersI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathClosedCurve(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathClosedCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathClosedCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathClosedCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathClosedCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathClosedCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathClosedCurveI(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathClosedCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurve(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurve3(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathCurve3(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurve3I(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+public actual fun gdipAddPathCurve3I(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathCurveI(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathEllipse(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipAddPathEllipse(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathEllipseI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipAddPathEllipseI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathLine(path: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    0
+public actual fun gdipAddPathLine(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathLine2(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathLine2(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathLine2I(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathLine2I(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathLineI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    0
+public actual fun gdipAddPathLineI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathPath(path: Long, addingpath: Long, connect: BOOL): Status =
-    0
+public actual fun gdipAddPathPath(path: COpaquePointer?, addingpath: COpaquePointer?, connect: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathPie(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipAddPathPie(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathPieI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipAddPathPieI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathPolygon(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathPolygon(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathPolygonI(path: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathPolygonI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathRectangle(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipAddPathRectangle(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathRectangleI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipAddPathRectangleI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathRectangles(path: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathRectangles(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathRectanglesI(path: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipAddPathRectanglesI(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathString(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    0
+public actual fun gdipAddPathString(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAddPathStringI(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    0
+public actual fun gdipAddPathStringI(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipAlloc(size: ULong): Long =
-    0L
+public actual fun gdipAlloc(size: ULong): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBeginContainer(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    0
+public actual fun gdipBeginContainer(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBeginContainer2(graphics: Long, state: Long): Status =
-    0
+public actual fun gdipBeginContainer2(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBeginContainerI(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    0
+public actual fun gdipBeginContainerI(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapApplyEffect(bitmap: Long, effect: Long, roi: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    0
+public actual fun gdipBitmapApplyEffect(bitmap: COpaquePointer?, effect: COpaquePointer?, roi: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapConvertFormat(pinputbitmap: Long, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: Long, alphathresholdpercent: Float): Status =
-    0
+public actual fun gdipBitmapConvertFormat(pinputbitmap: COpaquePointer?, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: COpaquePointer?, alphathresholdpercent: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapCreateApplyEffect(inputbitmaps: Long, numinputs: Int, effect: Long, roi: Long, outputrect: Long, outputbitmap: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    0
+public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: COpaquePointer?, numinputs: Int, effect: COpaquePointer?, roi: COpaquePointer?, outputrect: COpaquePointer?, outputbitmap: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapGetHistogram(bitmap: Long, format: HistogramFormat, numberofentries: UInt, channel0: Long, channel1: Long, channel2: Long, channel3: Long): Status =
-    0
+public actual fun gdipBitmapGetHistogram(bitmap: COpaquePointer?, format: HistogramFormat, numberofentries: UInt, channel0: COpaquePointer?, channel1: COpaquePointer?, channel2: COpaquePointer?, channel3: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: Long): Status =
-    0
+public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapGetPixel(bitmap: Long, x: Int, y: Int, color: Long): Status =
-    0
+public actual fun gdipBitmapGetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapLockBits(bitmap: Long, rect: Long, flags: UInt, format: Int, lockedbitmapdata: Long): Status =
-    0
+public actual fun gdipBitmapLockBits(bitmap: COpaquePointer?, rect: COpaquePointer?, flags: UInt, format: Int, lockedbitmapdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapSetPixel(bitmap: Long, x: Int, y: Int, color: UInt): Status =
-    0
+public actual fun gdipBitmapSetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapSetResolution(bitmap: Long, xdpi: Float, ydpi: Float): Status =
-    0
+public actual fun gdipBitmapSetResolution(bitmap: COpaquePointer?, xdpi: Float, ydpi: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipBitmapUnlockBits(bitmap: Long, lockedbitmapdata: Long): Status =
-    0
+public actual fun gdipBitmapUnlockBits(bitmap: COpaquePointer?, lockedbitmapdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipClearPathMarkers(path: Long): Status =
-    0
+public actual fun gdipClearPathMarkers(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    0
+public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    0
+public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneBrush(brush: Long, clonebrush: Long): Status =
-    0
+public actual fun gdipCloneBrush(brush: COpaquePointer?, clonebrush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneCustomLineCap(customcap: Long, clonedcap: Long): Status =
-    0
+public actual fun gdipCloneCustomLineCap(customcap: COpaquePointer?, clonedcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneFont(font: Long, clonefont: Long): Status =
-    0
+public actual fun gdipCloneFont(font: COpaquePointer?, clonefont: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneFontFamily(fontfamily: Long, clonedfontfamily: Long): Status =
-    0
+public actual fun gdipCloneFontFamily(fontfamily: COpaquePointer?, clonedfontfamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneImage(image: Long, cloneimage: Long): Status =
-    0
+public actual fun gdipCloneImage(image: COpaquePointer?, cloneimage: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneImageAttributes(imageattr: Long, cloneimageattr: Long): Status =
-    0
+public actual fun gdipCloneImageAttributes(imageattr: COpaquePointer?, cloneimageattr: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneMatrix(matrix: Long, clonematrix: Long): Status =
-    0
+public actual fun gdipCloneMatrix(matrix: COpaquePointer?, clonematrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipClonePath(path: Long, clonepath: Long): Status =
-    0
+public actual fun gdipClonePath(path: COpaquePointer?, clonepath: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipClonePen(pen: Long, clonepen: Long): Status =
-    0
+public actual fun gdipClonePen(pen: COpaquePointer?, clonepen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneRegion(region: Long, cloneregion: Long): Status =
-    0
+public actual fun gdipCloneRegion(region: COpaquePointer?, cloneregion: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCloneStringFormat(format: Long, newformat: Long): Status =
-    0
+public actual fun gdipCloneStringFormat(format: COpaquePointer?, newformat: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipClosePathFigure(path: Long): Status =
-    0
+public actual fun gdipClosePathFigure(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipClosePathFigures(path: Long): Status =
-    0
+public actual fun gdipClosePathFigures(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCombineRegionPath(region: Long, path: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipCombineRegionPath(region: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCombineRegionRect(region: Long, rect: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipCombineRegionRect(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCombineRegionRectI(region: Long, rect: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipCombineRegionRectI(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCombineRegionRegion(region: Long, region2: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipCombineRegionRegion(region: COpaquePointer?, region2: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipComment(graphics: Long, sizedata: UInt, data: Long): Status =
-    0
+public actual fun gdipComment(graphics: COpaquePointer?, sizedata: UInt, data: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipConvertToEmfPlus(refgraphics: Long, metafile: Long, conversionfailureflag: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+public actual fun gdipConvertToEmfPlus(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipConvertToEmfPlusToFile(refgraphics: Long, metafile: Long, conversionfailureflag: Long, filename: PCWSTR, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+public actual fun gdipConvertToEmfPlusToFile(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipConvertToEmfPlusToStream(refgraphics: Long, metafile: Long, conversionfailureflag: Long, stream: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+public actual fun gdipConvertToEmfPlusToStream(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, stream: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: BOOL, cap: Long): Status =
-    0
+public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromFile(filename: PCWSTR, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromFileICM(filename: PCWSTR, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromGdiDib(gdibitmapinfo: Long, gdibitmapdata: Long, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: COpaquePointer?, gdibitmapdata: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromGraphics(width: Int, height: Int, target: Long, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromHBITMAP(hbm: HBITMAP, hpal: HPALETTE, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromHICON(hicon: HICON, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromResource(hinstance: HINSTANCE, lpbitmapname: PCWSTR, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: Long, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromStream(stream: Long, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromStream(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateBitmapFromStreamICM(stream: Long, bitmap: Long): Status =
-    0
+public actual fun gdipCreateBitmapFromStreamICM(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateCachedBitmap(bitmap: Long, graphics: Long, cachedbitmap: Long): Status =
-    0
+public actual fun gdipCreateCachedBitmap(bitmap: COpaquePointer?, graphics: COpaquePointer?, cachedbitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateCustomLineCap(fillpath: Long, strokepath: Long, basecap: LineCap, baseinset: Float, customcap: Long): Status =
-    0
+public actual fun gdipCreateCustomLineCap(fillpath: COpaquePointer?, strokepath: COpaquePointer?, basecap: LineCap, baseinset: Float, customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateEffect(guid: GUID, effect: Long): Status =
-    0
+public actual fun gdipCreateEffect(guid: Guid, effect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFont(fontfamily: Long, emsize: Float, style: Int, unit: Unit, font: Long): Status =
-    0
+public actual fun gdipCreateFont(fontfamily: COpaquePointer?, emsize: Float, style: Int, unit: Unit, font: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFontFamilyFromName(name: PCWSTR, fontcollection: Long, fontfamily: Long): Status =
-    0
+public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: COpaquePointer?, fontfamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFontFromDC(hdc: HDC, font: Long): Status =
-    0
+public actual fun gdipCreateFontFromDC(hdc: Hdc, font: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFontFromLogfontA(hdc: HDC, logfont: Long, font: Long): Status =
-    0
+public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFontFromLogfontW(hdc: HDC, logfont: Long, font: Long): Status =
-    0
+public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFromHDC(hdc: HDC, graphics: Long): Status =
-    0
+public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFromHDC2(hdc: HDC, hdevice: HANDLE, graphics: Long): Status =
-    0
+public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFromHWND(hwnd: HWND, graphics: Long): Status =
-    0
+public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateFromHWNDICM(hwnd: HWND, graphics: Long): Status =
-    0
+public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateHBITMAPFromBitmap(bitmap: Long, hbmreturn: Long, background: UInt): Status =
-    0
+public actual fun gdipCreateHBITMAPFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?, background: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateHICONFromBitmap(bitmap: Long, hbmreturn: Long): Status =
-    0
+public actual fun gdipCreateHICONFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateHalftonePalette(): HPALETTE =
-    0L
+public actual fun gdipCreateHalftonePalette(): Hpalette =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: Long): Status =
-    0
+public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateImageAttributes(imageattr: Long): Status =
-    0
+public actual fun gdipCreateImageAttributes(imageattr: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrush(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrush(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrushFromRect(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrushFromRect(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrushFromRectI(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrushFromRectI(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrushFromRectWithAngle(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrushFromRectWithAngle(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrushFromRectWithAngleI(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateLineBrushI(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+public actual fun gdipCreateLineBrushI(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMatrix(matrix: Long): Status =
-    0
+public actual fun gdipCreateMatrix(matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: Long): Status =
-    0
+public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMatrix3(rect: Long, dstplg: Long, matrix: Long): Status =
-    0
+public actual fun gdipCreateMatrix3(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMatrix3I(rect: Long, dstplg: Long, matrix: Long): Status =
-    0
+public actual fun gdipCreateMatrix3I(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMetafileFromEmf(hemf: HENHMETAFILE, deleteemf: BOOL, metafile: Long): Status =
-    0
+public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMetafileFromFile(file: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMetafileFromStream(stream: Long, metafile: Long): Status =
-    0
+public actual fun gdipCreateMetafileFromStream(stream: COpaquePointer?, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMetafileFromWmf(hwmf: HMETAFILE, deletewmf: BOOL, wmfplaceablefileheader: Long, metafile: Long): Status =
-    0
+public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateMetafileFromWmfFile(file: PCWSTR, wmfplaceablefileheader: Long, metafile: Long): Status =
-    0
+public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePath(brushmode: FillMode, path: Long): Status =
-    0
+public actual fun gdipCreatePath(brushmode: FillMode, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePath2(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    0
+public actual fun gdipCreatePath2(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePath2I(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    0
+public actual fun gdipCreatePath2I(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePathGradient(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    0
+public actual fun gdipCreatePathGradient(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePathGradientFromPath(path: Long, polygradient: Long): Status =
-    0
+public actual fun gdipCreatePathGradientFromPath(path: COpaquePointer?, polygradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePathGradientI(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    0
+public actual fun gdipCreatePathGradientI(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePathIter(iterator: Long, path: Long): Status =
-    0
+public actual fun gdipCreatePathIter(iterator: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: Long): Status =
-    0
+public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreatePen2(brush: Long, width: Float, unit: Unit, pen: Long): Status =
-    0
+public actual fun gdipCreatePen2(brush: COpaquePointer?, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegion(region: Long): Status =
-    0
+public actual fun gdipCreateRegion(region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegionHrgn(hrgn: HRGN, region: Long): Status =
-    0
+public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegionPath(path: Long, region: Long): Status =
-    0
+public actual fun gdipCreateRegionPath(path: COpaquePointer?, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegionRect(rect: Long, region: Long): Status =
-    0
+public actual fun gdipCreateRegionRect(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegionRectI(rect: Long, region: Long): Status =
-    0
+public actual fun gdipCreateRegionRectI(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateRegionRgnData(regiondata: Long, size: Int, region: Long): Status =
-    0
+public actual fun gdipCreateRegionRgnData(regiondata: COpaquePointer?, size: Int, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateSolidFill(color: UInt, brush: Long): Status =
-    0
+public actual fun gdipCreateSolidFill(color: UInt, brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateStreamOnFile(filename: PCWSTR, access: UInt, stream: Long): Status =
-    0
+public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateStringFormat(formatattributes: Int, language: UShort, format: Long): Status =
-    0
+public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateTexture(image: Long, wrapmode: WrapMode, texture: Long): Status =
-    0
+public actual fun gdipCreateTexture(image: COpaquePointer?, wrapmode: WrapMode, texture: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateTexture2(image: Long, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    0
+public actual fun gdipCreateTexture2(image: COpaquePointer?, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateTexture2I(image: Long, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    0
+public actual fun gdipCreateTexture2I(image: COpaquePointer?, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateTextureIA(image: Long, imageattributes: Long, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    0
+public actual fun gdipCreateTextureIA(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipCreateTextureIAI(image: Long, imageattributes: Long, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    0
+public actual fun gdipCreateTextureIAI(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteBrush(brush: Long): Status =
-    0
+public actual fun gdipDeleteBrush(brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteCachedBitmap(cachedbitmap: Long): Status =
-    0
+public actual fun gdipDeleteCachedBitmap(cachedbitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteCustomLineCap(customcap: Long): Status =
-    0
+public actual fun gdipDeleteCustomLineCap(customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteEffect(effect: Long): Status =
-    0
+public actual fun gdipDeleteEffect(effect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteFont(font: Long): Status =
-    0
+public actual fun gdipDeleteFont(font: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteFontFamily(fontfamily: Long): Status =
-    0
+public actual fun gdipDeleteFontFamily(fontfamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteGraphics(graphics: Long): Status =
-    0
+public actual fun gdipDeleteGraphics(graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteMatrix(matrix: Long): Status =
-    0
+public actual fun gdipDeleteMatrix(matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeletePath(path: Long): Status =
-    0
+public actual fun gdipDeletePath(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeletePathIter(iterator: Long): Status =
-    0
+public actual fun gdipDeletePathIter(iterator: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeletePen(pen: Long): Status =
-    0
+public actual fun gdipDeletePen(pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeletePrivateFontCollection(fontcollection: Long): Status =
-    0
+public actual fun gdipDeletePrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteRegion(region: Long): Status =
-    0
+public actual fun gdipDeleteRegion(region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDeleteStringFormat(format: Long): Status =
-    0
+public actual fun gdipDeleteStringFormat(format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDisposeImage(image: Long): Status =
-    0
+public actual fun gdipDisposeImage(image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDisposeImageAttributes(imageattr: Long): Status =
-    0
+public actual fun gdipDisposeImageAttributes(imageattr: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawArc(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipDrawArc(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawArcI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipDrawArcI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawBezier(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    0
+public actual fun gdipDrawBezier(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawBezierI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    0
+public actual fun gdipDrawBezierI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawBeziers(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawBeziers(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawBeziersI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawBeziersI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCachedBitmap(graphics: Long, cachedbitmap: Long, x: Int, y: Int): Status =
-    0
+public actual fun gdipDrawCachedBitmap(graphics: COpaquePointer?, cachedbitmap: COpaquePointer?, x: Int, y: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawClosedCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawClosedCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawClosedCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawClosedCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawClosedCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawClosedCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawClosedCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawClosedCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurve3(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawCurve3(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurve3I(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+public actual fun gdipDrawCurve3I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawDriverString(graphics: Long, text: Long, length: Int, font: Long, brush: Long, positions: Long, flags: Int, matrix: Long): Status =
-    0
+public actual fun gdipDrawDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, brush: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawEllipse(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipDrawEllipse(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawEllipseI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipDrawEllipseI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImage(graphics: Long, image: Long, x: Float, y: Float): Status =
-    0
+public actual fun gdipDrawImage(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageFX(graphics: Long, image: Long, source: Long, xform: Long, effect: Long, imageattributes: Long, srcunit: Unit): Status =
-    0
+public actual fun gdipDrawImageFX(graphics: COpaquePointer?, image: COpaquePointer?, source: COpaquePointer?, xform: COpaquePointer?, effect: COpaquePointer?, imageattributes: COpaquePointer?, srcunit: Unit): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageI(graphics: Long, image: Long, x: Int, y: Int): Status =
-    0
+public actual fun gdipDrawImageI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePointRect(graphics: Long, image: Long, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
-    0
+public actual fun gdipDrawImagePointRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePointRectI(graphics: Long, image: Long, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
-    0
+public actual fun gdipDrawImagePointRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePoints(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    0
+public actual fun gdipDrawImagePoints(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePointsI(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    0
+public actual fun gdipDrawImagePointsI(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePointsRect(graphics: Long, image: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipDrawImagePointsRect(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImagePointsRectI(graphics: Long, image: Long, points: Long, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipDrawImagePointsRectI(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageRect(graphics: Long, image: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipDrawImageRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageRectI(graphics: Long, image: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipDrawImageRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageRectRect(graphics: Long, image: Long, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipDrawImageRectRect(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawImageRectRectI(graphics: Long, image: Long, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipDrawImageRectRectI(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawLine(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    0
+public actual fun gdipDrawLine(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawLineI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    0
+public actual fun gdipDrawLineI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawLines(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawLines(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawLinesI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawLinesI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawPath(graphics: Long, pen: Long, path: Long): Status =
-    0
+public actual fun gdipDrawPath(graphics: COpaquePointer?, pen: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawPie(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipDrawPie(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawPieI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipDrawPieI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawPolygon(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawPolygon(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawPolygonI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipDrawPolygonI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawRectangle(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipDrawRectangle(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawRectangleI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipDrawRectangleI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawRectangles(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipDrawRectangles(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawRectanglesI(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipDrawRectanglesI(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipDrawString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, brush: Long): Status =
-    0
+public actual fun gdipDrawString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEmfToWmfBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, eflags: Int): UInt =
-    0u
+public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, eflags: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEndContainer(graphics: Long, state: UInt): Status =
-    0
+public actual fun gdipEndContainer(graphics: COpaquePointer?, state: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestPoint(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestPointI(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestRect(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileDestRectI(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoint(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointI(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestRect(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipEnumerateMetafileSrcRectDestRectI(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillClosedCurve(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipFillClosedCurve(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillClosedCurve2(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    0
+public actual fun gdipFillClosedCurve2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillClosedCurve2I(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    0
+public actual fun gdipFillClosedCurve2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillClosedCurveI(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipFillClosedCurveI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillEllipse(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipFillEllipse(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillEllipseI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipFillEllipseI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPath(graphics: Long, brush: Long, path: Long): Status =
-    0
+public actual fun gdipFillPath(graphics: COpaquePointer?, brush: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPie(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipFillPie(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPieI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+public actual fun gdipFillPieI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPolygon(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    0
+public actual fun gdipFillPolygon(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPolygon2(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipFillPolygon2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPolygon2I(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipFillPolygon2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillPolygonI(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    0
+public actual fun gdipFillPolygonI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillRectangle(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+public actual fun gdipFillRectangle(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillRectangleI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+public actual fun gdipFillRectangleI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillRectangles(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipFillRectangles(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillRectanglesI(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    0
+public actual fun gdipFillRectanglesI(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFillRegion(graphics: Long, brush: Long, region: Long): Status =
-    0
+public actual fun gdipFillRegion(graphics: COpaquePointer?, brush: COpaquePointer?, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFindFirstImageItem(image: Long, item: Long): Status =
-    0
+public actual fun gdipFindFirstImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFindNextImageItem(image: Long, item: Long): Status =
-    0
+public actual fun gdipFindNextImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFlattenPath(path: Long, matrix: Long, flatness: Float): Status =
-    0
+public actual fun gdipFlattenPath(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFlush(graphics: Long, intention: FlushIntention): Status =
-    0
+public actual fun gdipFlush(graphics: COpaquePointer?, intention: FlushIntention): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipFree(ptr: Long) {
+public actual fun gdipFree(ptr: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun GdipGetAdjustableArrowCapFillState(cap: Long, fillstate: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetAdjustableArrowCapHeight(cap: Long, height: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapHeight(cap: COpaquePointer?, height: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetAdjustableArrowCapWidth(cap: Long, width: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapWidth(cap: COpaquePointer?, width: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetAllPropertyItems(image: Long, totalbuffersize: UInt, numproperties: UInt, allitems: Long): Status =
-    0
+public actual fun gdipGetAllPropertyItems(image: COpaquePointer?, totalbuffersize: UInt, numproperties: UInt, allitems: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetBrushType(brush: Long, type: Long): Status =
-    0
+public actual fun gdipGetBrushType(brush: COpaquePointer?, type: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCellAscent(family: Long, style: Int, cellascent: Long): Status =
-    0
+public actual fun gdipGetCellAscent(family: COpaquePointer?, style: Int, cellascent: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCellDescent(family: Long, style: Int, celldescent: Long): Status =
-    0
+public actual fun gdipGetCellDescent(family: COpaquePointer?, style: Int, celldescent: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetClip(graphics: Long, region: Long): Status =
-    0
+public actual fun gdipGetClip(graphics: COpaquePointer?, region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetClipBounds(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetClipBoundsI(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCompositingMode(graphics: Long, compositingmode: Long): Status =
-    0
+public actual fun gdipGetCompositingMode(graphics: COpaquePointer?, compositingmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCompositingQuality(graphics: Long, compositingquality: Long): Status =
-    0
+public actual fun gdipGetCompositingQuality(graphics: COpaquePointer?, compositingquality: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapBaseCap(customcap: Long, basecap: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapBaseInset(customcap: Long, inset: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapStrokeCaps(customcap: Long, startcap: Long, endcap: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: COpaquePointer?, endcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapStrokeJoin(customcap: Long, linejoin: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapType(customcap: Long, captype: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapType(customcap: COpaquePointer?, captype: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetCustomLineCapWidthScale(customcap: Long, widthscale: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetDC(graphics: Long, hdc: Long): Status =
-    0
+public actual fun gdipGetDC(graphics: COpaquePointer?, hdc: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetDpiX(graphics: Long, dpi: Long): Status =
-    0
+public actual fun gdipGetDpiX(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetDpiY(graphics: Long, dpi: Long): Status =
-    0
+public actual fun gdipGetDpiY(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetEffectParameterSize(effect: Long, size: Long): Status =
-    0
+public actual fun gdipGetEffectParameterSize(effect: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetEffectParameters(effect: Long, size: Long, params: Long): Status =
-    0
+public actual fun gdipGetEffectParameters(effect: COpaquePointer?, size: COpaquePointer?, params: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetEmHeight(family: Long, style: Int, emheight: Long): Status =
-    0
+public actual fun gdipGetEmHeight(family: COpaquePointer?, style: Int, emheight: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetEncoderParameterList(image: Long, clsidencoder: Long, size: UInt, buffer: Long): Status =
-    0
+public actual fun gdipGetEncoderParameterList(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: UInt, buffer: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetEncoderParameterListSize(image: Long, clsidencoder: Long, size: Long): Status =
-    0
+public actual fun gdipGetEncoderParameterListSize(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFamily(font: Long, family: Long): Status =
-    0
+public actual fun gdipGetFamily(font: COpaquePointer?, family: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFamilyName(family: Long, name: PWSTR, language: UShort): Status =
-    0
+public actual fun gdipGetFamilyName(family: COpaquePointer?, name: Pwstr, language: UShort): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontCollectionFamilyCount(fontcollection: Long, numfound: Long): Status =
-    0
+public actual fun gdipGetFontCollectionFamilyCount(fontcollection: COpaquePointer?, numfound: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontCollectionFamilyList(fontcollection: Long, numsought: Int, gpfamilies: Long, numfound: Long): Status =
-    0
+public actual fun gdipGetFontCollectionFamilyList(fontcollection: COpaquePointer?, numsought: Int, gpfamilies: COpaquePointer?, numfound: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontHeight(font: Long, graphics: Long, height: Long): Status =
-    0
+public actual fun gdipGetFontHeight(font: COpaquePointer?, graphics: COpaquePointer?, height: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontHeightGivenDPI(font: Long, dpi: Float, height: Long): Status =
-    0
+public actual fun gdipGetFontHeightGivenDPI(font: COpaquePointer?, dpi: Float, height: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontSize(font: Long, size: Long): Status =
-    0
+public actual fun gdipGetFontSize(font: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontStyle(font: Long, style: Long): Status =
-    0
+public actual fun gdipGetFontStyle(font: COpaquePointer?, style: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetFontUnit(font: Long, unit: Long): Status =
-    0
+public actual fun gdipGetFontUnit(font: COpaquePointer?, unit: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetGenericFontFamilyMonospace(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetGenericFontFamilySansSerif(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetGenericFontFamilySerif(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilySerif(nativefamily: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetHatchBackgroundColor(brush: Long, backcol: Long): Status =
-    0
+public actual fun gdipGetHatchBackgroundColor(brush: COpaquePointer?, backcol: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetHatchForegroundColor(brush: Long, forecol: Long): Status =
-    0
+public actual fun gdipGetHatchForegroundColor(brush: COpaquePointer?, forecol: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetHatchStyle(brush: Long, hatchstyle: Long): Status =
-    0
+public actual fun gdipGetHatchStyle(brush: COpaquePointer?, hatchstyle: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetHemfFromMetafile(metafile: Long, hemf: Long): Status =
-    0
+public actual fun gdipGetHemfFromMetafile(metafile: COpaquePointer?, hemf: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageAttributesAdjustedPalette(imageattr: Long, colorpalette: Long, coloradjusttype: ColorAdjustType): Status =
-    0
+public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: COpaquePointer?, colorpalette: COpaquePointer?, coloradjusttype: ColorAdjustType): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageBounds(image: Long, srcrect: Long, srcunit: Long): Status =
-    0
+public actual fun gdipGetImageBounds(image: COpaquePointer?, srcrect: COpaquePointer?, srcunit: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: Long): Status =
-    0
+public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageDecodersSize(numdecoders: Long, size: Long): Status =
-    0
+public actual fun gdipGetImageDecodersSize(numdecoders: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageDimension(image: Long, width: Long, height: Long): Status =
-    0
+public actual fun gdipGetImageDimension(image: COpaquePointer?, width: COpaquePointer?, height: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: Long): Status =
-    0
+public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageEncodersSize(numencoders: Long, size: Long): Status =
-    0
+public actual fun gdipGetImageEncodersSize(numencoders: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageFlags(image: Long, flags: Long): Status =
-    0
+public actual fun gdipGetImageFlags(image: COpaquePointer?, flags: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageGraphicsContext(image: Long, graphics: Long): Status =
-    0
+public actual fun gdipGetImageGraphicsContext(image: COpaquePointer?, graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageHeight(image: Long, height: Long): Status =
-    0
+public actual fun gdipGetImageHeight(image: COpaquePointer?, height: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageHorizontalResolution(image: Long, resolution: Long): Status =
-    0
+public actual fun gdipGetImageHorizontalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageItemData(image: Long, item: Long): Status =
-    0
+public actual fun gdipGetImageItemData(image: COpaquePointer?, item: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImagePalette(image: Long, palette: Long, size: Int): Status =
-    0
+public actual fun gdipGetImagePalette(image: COpaquePointer?, palette: COpaquePointer?, size: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImagePaletteSize(image: Long, size: Long): Status =
-    0
+public actual fun gdipGetImagePaletteSize(image: COpaquePointer?, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImagePixelFormat(image: Long, format: Long): Status =
-    0
+public actual fun gdipGetImagePixelFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageRawFormat(image: Long, format: Long): Status =
-    0
+public actual fun gdipGetImageRawFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageThumbnail(image: Long, thumbwidth: UInt, thumbheight: UInt, thumbimage: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipGetImageThumbnail(image: COpaquePointer?, thumbwidth: UInt, thumbheight: UInt, thumbimage: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageType(image: Long, type: Long): Status =
-    0
+public actual fun gdipGetImageType(image: COpaquePointer?, type: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageVerticalResolution(image: Long, resolution: Long): Status =
-    0
+public actual fun gdipGetImageVerticalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetImageWidth(image: Long, width: Long): Status =
-    0
+public actual fun gdipGetImageWidth(image: COpaquePointer?, width: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetInterpolationMode(graphics: Long, interpolationmode: Long): Status =
-    0
+public actual fun gdipGetInterpolationMode(graphics: COpaquePointer?, interpolationmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetLineBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineColors(brush: Long, colors: Long): Status =
-    0
+public actual fun gdipGetLineColors(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    0
+public actual fun gdipGetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLinePresetBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetLinePresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineRect(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetLineRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineRectI(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetLineRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineSpacing(family: Long, style: Int, linespacing: Long): Status =
-    0
+public actual fun gdipGetLineSpacing(family: COpaquePointer?, style: Int, linespacing: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLineWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetLineWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLogFontA(font: Long, graphics: Long, logfonta: Long): Status =
-    0
+public actual fun gdipGetLogFontA(font: COpaquePointer?, graphics: COpaquePointer?, logfonta: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetLogFontW(font: Long, graphics: Long, logfontw: Long): Status =
-    0
+public actual fun gdipGetLogFontW(font: COpaquePointer?, graphics: COpaquePointer?, logfontw: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMatrixElements(matrix: Long, matrixout: Long): Status =
-    0
+public actual fun gdipGetMatrixElements(matrix: COpaquePointer?, matrixout: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: Long): Status =
-    0
+public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileHeaderFromEmf(hemf: HENHMETAFILE, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileHeaderFromFile(filename: PCWSTR, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileHeaderFromMetafile(metafile: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromMetafile(metafile: COpaquePointer?, header: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileHeaderFromStream(stream: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromStream(stream: COpaquePointer?, header: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetMetafileHeaderFromWmf(hwmf: HMETAFILE, wmfplaceablefileheader: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: COpaquePointer?, header: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetNearestColor(graphics: Long, argb: Long): Status =
-    0
+public actual fun gdipGetNearestColor(graphics: COpaquePointer?, argb: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPageScale(graphics: Long, scale: Long): Status =
-    0
+public actual fun gdipGetPageScale(graphics: COpaquePointer?, scale: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPageUnit(graphics: Long, unit: Long): Status =
-    0
+public actual fun gdipGetPageUnit(graphics: COpaquePointer?, unit: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathData(path: Long, pathdata: Long): Status =
-    0
+public actual fun gdipGetPathData(path: COpaquePointer?, pathdata: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathFillMode(path: Long, fillmode: Long): Status =
-    0
+public actual fun gdipGetPathFillMode(path: COpaquePointer?, fillmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientCenterColor(brush: Long, colors: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterColor(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientFocusScales(brush: Long, xscale: Long, yscale: Long): Status =
-    0
+public actual fun gdipGetPathGradientFocusScales(brush: COpaquePointer?, xscale: COpaquePointer?, yscale: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    0
+public actual fun gdipGetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientPath(brush: Long, path: Long): Status =
-    0
+public actual fun gdipGetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientPointCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientPointCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientPresetBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientPresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientRect(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetPathGradientRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientRectI(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetPathGradientRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientSurroundColorCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientSurroundColorCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathGradientWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathLastPoint(path: Long, lastpoint: Long): Status =
-    0
+public actual fun gdipGetPathLastPoint(path: COpaquePointer?, lastpoint: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathPoints(param0: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathPoints(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathPointsI(param0: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathPointsI(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathTypes(path: Long, types: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathTypes(path: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathWorldBounds(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    0
+public actual fun gdipGetPathWorldBounds(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPathWorldBoundsI(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    0
+public actual fun gdipGetPathWorldBoundsI(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenBrushFill(pen: Long, brush: Long): Status =
-    0
+public actual fun gdipGetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenColor(pen: Long, argb: Long): Status =
-    0
+public actual fun gdipGetPenColor(pen: COpaquePointer?, argb: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipGetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenCompoundCount(pen: Long, count: Long): Status =
-    0
+public actual fun gdipGetPenCompoundCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipGetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipGetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipGetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenDashCap197819(pen: Long, dashcap: Long): Status =
-    0
+public actual fun gdipGetPenDashCap197819(pen: COpaquePointer?, dashcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenDashCount(pen: Long, count: Long): Status =
-    0
+public actual fun gdipGetPenDashCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenDashOffset(pen: Long, offset: Long): Status =
-    0
+public actual fun gdipGetPenDashOffset(pen: COpaquePointer?, offset: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenDashStyle(pen: Long, dashstyle: Long): Status =
-    0
+public actual fun gdipGetPenDashStyle(pen: COpaquePointer?, dashstyle: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenEndCap(pen: Long, endcap: Long): Status =
-    0
+public actual fun gdipGetPenEndCap(pen: COpaquePointer?, endcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenFillType(pen: Long, type: Long): Status =
-    0
+public actual fun gdipGetPenFillType(pen: COpaquePointer?, type: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenLineJoin(pen: Long, linejoin: Long): Status =
-    0
+public actual fun gdipGetPenLineJoin(pen: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenMiterLimit(pen: Long, miterlimit: Long): Status =
-    0
+public actual fun gdipGetPenMiterLimit(pen: COpaquePointer?, miterlimit: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenMode(pen: Long, penmode: Long): Status =
-    0
+public actual fun gdipGetPenMode(pen: COpaquePointer?, penmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenStartCap(pen: Long, startcap: Long): Status =
-    0
+public actual fun gdipGetPenStartCap(pen: COpaquePointer?, startcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenTransform(pen: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenUnit(pen: Long, unit: Long): Status =
-    0
+public actual fun gdipGetPenUnit(pen: COpaquePointer?, unit: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPenWidth(pen: Long, width: Long): Status =
-    0
+public actual fun gdipGetPenWidth(pen: COpaquePointer?, width: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPixelOffsetMode(graphics: Long, pixeloffsetmode: Long): Status =
-    0
+public actual fun gdipGetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPointCount(path: Long, count: Long): Status =
-    0
+public actual fun gdipGetPointCount(path: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPropertyCount(image: Long, numofproperty: Long): Status =
-    0
+public actual fun gdipGetPropertyCount(image: COpaquePointer?, numofproperty: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPropertyIdList(image: Long, numofproperty: UInt, list: Long): Status =
-    0
+public actual fun gdipGetPropertyIdList(image: COpaquePointer?, numofproperty: UInt, list: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPropertyItem(image: Long, propid: UInt, propsize: UInt, buffer: Long): Status =
-    0
+public actual fun gdipGetPropertyItem(image: COpaquePointer?, propid: UInt, propsize: UInt, buffer: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPropertyItemSize(image: Long, propid: UInt, size: Long): Status =
-    0
+public actual fun gdipGetPropertyItemSize(image: COpaquePointer?, propid: UInt, size: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetPropertySize(image: Long, totalbuffersize: Long, numproperties: Long): Status =
-    0
+public actual fun gdipGetPropertySize(image: COpaquePointer?, totalbuffersize: COpaquePointer?, numproperties: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionBounds(region: Long, graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetRegionBounds(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionBoundsI(region: Long, graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetRegionBoundsI(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionData(region: Long, buffer: Long, buffersize: UInt, sizefilled: Long): Status =
-    0
+public actual fun gdipGetRegionData(region: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, sizefilled: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionDataSize(region: Long, buffersize: Long): Status =
-    0
+public actual fun gdipGetRegionDataSize(region: COpaquePointer?, buffersize: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionHRgn(region: Long, graphics: Long, hrgn: Long): Status =
-    0
+public actual fun gdipGetRegionHRgn(region: COpaquePointer?, graphics: COpaquePointer?, hrgn: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionScans(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScans(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionScansCount(region: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScansCount(region: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRegionScansI(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScansI(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetRenderingOrigin(graphics: Long, x: Long, y: Long): Status =
-    0
+public actual fun gdipGetRenderingOrigin(graphics: COpaquePointer?, x: COpaquePointer?, y: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetSmoothingMode(graphics: Long, smoothingmode: Long): Status =
-    0
+public actual fun gdipGetSmoothingMode(graphics: COpaquePointer?, smoothingmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetSolidFillColor(brush: Long, color: Long): Status =
-    0
+public actual fun gdipGetSolidFillColor(brush: COpaquePointer?, color: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatAlign(format: Long, align: Long): Status =
-    0
+public actual fun gdipGetStringFormatAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatDigitSubstitution(format: Long, language: Long, substitute: Long): Status =
-    0
+public actual fun gdipGetStringFormatDigitSubstitution(format: COpaquePointer?, language: COpaquePointer?, substitute: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatFlags(format: Long, flags: Long): Status =
-    0
+public actual fun gdipGetStringFormatFlags(format: COpaquePointer?, flags: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Long): Status =
-    0
+public actual fun gdipGetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatLineAlign(format: Long, align: Long): Status =
-    0
+public actual fun gdipGetStringFormatLineAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatMeasurableCharacterRangeCount(format: Long, count: Long): Status =
-    0
+public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatTabStopCount(format: Long, count: Long): Status =
-    0
+public actual fun gdipGetStringFormatTabStopCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatTabStops(format: Long, count: Int, firsttaboffset: Long, tabstops: Long): Status =
-    0
+public actual fun gdipGetStringFormatTabStops(format: COpaquePointer?, count: Int, firsttaboffset: COpaquePointer?, tabstops: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetStringFormatTrimming(format: Long, trimming: Long): Status =
-    0
+public actual fun gdipGetStringFormatTrimming(format: COpaquePointer?, trimming: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetTextContrast(graphics: Long, contrast: Long): Status =
-    0
+public actual fun gdipGetTextContrast(graphics: COpaquePointer?, contrast: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetTextRenderingHint(graphics: Long, mode: Long): Status =
-    0
+public actual fun gdipGetTextRenderingHint(graphics: COpaquePointer?, mode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetTextureImage(brush: Long, image: Long): Status =
-    0
+public actual fun gdipGetTextureImage(brush: COpaquePointer?, image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetTextureTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetTextureWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetTextureWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetVisibleClipBounds(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetVisibleClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetVisibleClipBoundsI(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetVisibleClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGetWorldTransform(graphics: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGraphicsClear(graphics: Long, color: UInt): Status =
-    0
+public actual fun gdipGraphicsClear(graphics: COpaquePointer?, color: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipGraphicsSetAbort(pgraphics: Long, piabort: Long): Status =
-    0
+public actual fun gdipGraphicsSetAbort(pgraphics: COpaquePointer?, piabort: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageForceValidation(image: Long): Status =
-    0
+public actual fun gdipImageForceValidation(image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageGetFrameCount(image: Long, dimensionid: Long, count: Long): Status =
-    0
+public actual fun gdipImageGetFrameCount(image: COpaquePointer?, dimensionid: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageGetFrameDimensionsCount(image: Long, count: Long): Status =
-    0
+public actual fun gdipImageGetFrameDimensionsCount(image: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageGetFrameDimensionsList(image: Long, dimensionids: Long, count: UInt): Status =
-    0
+public actual fun gdipImageGetFrameDimensionsList(image: COpaquePointer?, dimensionids: COpaquePointer?, count: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageRotateFlip(image: Long, rftype: RotateFlipType): Status =
-    0
+public actual fun gdipImageRotateFlip(image: COpaquePointer?, rftype: RotateFlipType): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageSelectActiveFrame(image: Long, dimensionid: Long, frameindex: UInt): Status =
-    0
+public actual fun gdipImageSelectActiveFrame(image: COpaquePointer?, dimensionid: COpaquePointer?, frameindex: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipImageSetAbort(pimage: Long, piabort: Long): Status =
-    0
+public actual fun gdipImageSetAbort(pimage: COpaquePointer?, piabort: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipInitializePalette(palette: Long, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: BOOL, bitmap: Long): Status =
-    0
+public actual fun gdipInitializePalette(palette: COpaquePointer?, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipInvertMatrix(matrix: Long): Status =
-    0
+public actual fun gdipInvertMatrix(matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsClipEmpty(graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsEmptyRegion(region: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsEmptyRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsEqualRegion(region: Long, region2: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsEqualRegion(region: COpaquePointer?, region2: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsInfiniteRegion(region: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsInfiniteRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsMatrixEqual(matrix: Long, matrix2: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixEqual(matrix: COpaquePointer?, matrix2: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsMatrixIdentity(matrix: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixIdentity(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsMatrixInvertible(matrix: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixInvertible(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsOutlineVisiblePathPoint(path: Long, x: Float, y: Float, pen: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsOutlineVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsOutlineVisiblePathPointI(path: Long, x: Int, y: Int, pen: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsOutlineVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsStyleAvailable(family: Long, style: Int, isstyleavailable: Long): Status =
-    0
+public actual fun gdipIsStyleAvailable(family: COpaquePointer?, style: Int, isstyleavailable: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleClipEmpty(graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisiblePathPoint(path: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisiblePathPointI(path: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisiblePoint(graphics: Long, x: Float, y: Float, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePoint(graphics: COpaquePointer?, x: Float, y: Float, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisiblePointI(graphics: Long, x: Int, y: Int, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePointI(graphics: COpaquePointer?, x: Int, y: Int, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRegionPoint(region: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionPoint(region: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRegionPointI(region: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionPointI(region: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRegionRect(region: Long, x: Float, y: Float, width: Float, height: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionRect(region: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipIsVisibleRegionRectI(region: Long, x: Int, y: Int, width: Int, height: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionRectI(region: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipLoadImageFromFile(filename: PCWSTR, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipLoadImageFromFileICM(filename: PCWSTR, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipLoadImageFromStream(stream: Long, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromStream(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipLoadImageFromStreamICM(stream: Long, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromStreamICM(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMeasureCharacterRanges(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, regioncount: Int, regions: Long): Status =
-    0
+public actual fun gdipMeasureCharacterRanges(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, regioncount: Int, regions: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMeasureDriverString(graphics: Long, text: Long, length: Int, font: Long, positions: Long, flags: Int, matrix: Long, boundingbox: Long): Status =
-    0
+public actual fun gdipMeasureDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?, boundingbox: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMeasureString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, boundingbox: Long, codepointsfitted: Long, linesfilled: Long): Status =
-    0
+public actual fun gdipMeasureString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, boundingbox: COpaquePointer?, codepointsfitted: COpaquePointer?, linesfilled: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyLineTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyMatrix(matrix: Long, matrix2: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyMatrix(matrix: COpaquePointer?, matrix2: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyPathGradientTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyPenTransform(pen: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyTextureTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipMultiplyWorldTransform(graphics: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipNewInstalledFontCollection(fontcollection: Long): Status =
-    0
+public actual fun gdipNewInstalledFontCollection(fontcollection: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipNewPrivateFontCollection(fontcollection: Long): Status =
-    0
+public actual fun gdipNewPrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterCopyData(iterator: Long, resultcount: Long, points: Long, types: Long, startindex: Int, endindex: Int): Status =
-    0
+public actual fun gdipPathIterCopyData(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, startindex: Int, endindex: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterEnumerate(iterator: Long, resultcount: Long, points: Long, types: Long, count: Int): Status =
-    0
+public actual fun gdipPathIterEnumerate(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterGetCount(iterator: Long, count: Long): Status =
-    0
+public actual fun gdipPathIterGetCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterGetSubpathCount(iterator: Long, count: Long): Status =
-    0
+public actual fun gdipPathIterGetSubpathCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterHasCurve(iterator: Long, hascurve: Long): Status =
-    0
+public actual fun gdipPathIterHasCurve(iterator: COpaquePointer?, hascurve: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterIsValid(iterator: Long, valid: Long): Status =
-    0
+public actual fun gdipPathIterIsValid(iterator: COpaquePointer?, valid: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterNextMarker(iterator: Long, resultcount: Long, startindex: Long, endindex: Long): Status =
-    0
+public actual fun gdipPathIterNextMarker(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterNextMarkerPath(iterator: Long, resultcount: Long, path: Long): Status =
-    0
+public actual fun gdipPathIterNextMarkerPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterNextPathType(iterator: Long, resultcount: Long, pathtype: Long, startindex: Long, endindex: Long): Status =
-    0
+public actual fun gdipPathIterNextPathType(iterator: COpaquePointer?, resultcount: COpaquePointer?, pathtype: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterNextSubpath(iterator: Long, resultcount: Long, startindex: Long, endindex: Long, isclosed: Long): Status =
-    0
+public actual fun gdipPathIterNextSubpath(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterNextSubpathPath(iterator: Long, resultcount: Long, path: Long, isclosed: Long): Status =
-    0
+public actual fun gdipPathIterNextSubpathPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPathIterRewind(iterator: Long): Status =
-    0
+public actual fun gdipPathIterRewind(iterator: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPlayMetafileRecord(metafile: Long, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: Long): Status =
-    0
+public actual fun gdipPlayMetafileRecord(metafile: COpaquePointer?, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPrivateAddFontFile(fontcollection: Long, filename: PCWSTR): Status =
-    0
+public actual fun gdipPrivateAddFontFile(fontcollection: COpaquePointer?, filename: Pcwstr): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipPrivateAddMemoryFont(fontcollection: Long, memory: Long, length: Int): Status =
-    0
+public actual fun gdipPrivateAddMemoryFont(fontcollection: COpaquePointer?, memory: COpaquePointer?, length: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafile(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafileFileName(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafileFileNameI(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafileI(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafileStream(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileStream(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRecordMetafileStreamI(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileStreamI(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipReleaseDC(graphics: Long, hdc: HDC): Status =
-    0
+public actual fun gdipReleaseDC(graphics: COpaquePointer?, hdc: Hdc): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRemovePropertyItem(image: Long, propid: UInt): Status =
-    0
+public actual fun gdipRemovePropertyItem(image: COpaquePointer?, propid: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetClip(graphics: Long): Status =
-    0
+public actual fun gdipResetClip(graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetImageAttributes(imageattr: Long, type: ColorAdjustType): Status =
-    0
+public actual fun gdipResetImageAttributes(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetLineTransform(brush: Long): Status =
-    0
+public actual fun gdipResetLineTransform(brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetPageTransform(graphics: Long): Status =
-    0
+public actual fun gdipResetPageTransform(graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetPath(path: Long): Status =
-    0
+public actual fun gdipResetPath(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetPathGradientTransform(brush: Long): Status =
-    0
+public actual fun gdipResetPathGradientTransform(brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetPenTransform(pen: Long): Status =
-    0
+public actual fun gdipResetPenTransform(pen: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetTextureTransform(brush: Long): Status =
-    0
+public actual fun gdipResetTextureTransform(brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipResetWorldTransform(graphics: Long): Status =
-    0
+public actual fun gdipResetWorldTransform(graphics: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRestoreGraphics(graphics: Long, state: UInt): Status =
-    0
+public actual fun gdipRestoreGraphics(graphics: COpaquePointer?, state: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipReversePath(path: Long): Status =
-    0
+public actual fun gdipReversePath(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotateLineTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateLineTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotateMatrix(matrix: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateMatrix(matrix: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotatePathGradientTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotatePathGradientTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotatePenTransform(pen: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotatePenTransform(pen: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotateTextureTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateTextureTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipRotateWorldTransform(graphics: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateWorldTransform(graphics: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSaveAdd(image: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveAdd(image: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSaveAddImage(image: Long, newimage: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveAddImage(image: COpaquePointer?, newimage: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSaveGraphics(graphics: Long, state: Long): Status =
-    0
+public actual fun gdipSaveGraphics(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSaveImageToFile(image: Long, filename: PCWSTR, clsidencoder: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveImageToFile(image: COpaquePointer?, filename: Pcwstr, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSaveImageToStream(image: Long, stream: Long, clsidencoder: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveImageToStream(image: COpaquePointer?, stream: COpaquePointer?, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScaleLineTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleLineTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScaleMatrix(matrix: Long, scalex: Float, scaley: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleMatrix(matrix: COpaquePointer?, scalex: Float, scaley: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScalePathGradientTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScalePathGradientTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScalePenTransform(pen: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScalePenTransform(pen: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScaleTextureTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleTextureTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipScaleWorldTransform(graphics: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleWorldTransform(graphics: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetAdjustableArrowCapFillState(cap: Long, fillstate: BOOL): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetAdjustableArrowCapHeight(cap: Long, height: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapHeight(cap: COpaquePointer?, height: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetAdjustableArrowCapWidth(cap: Long, width: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapWidth(cap: COpaquePointer?, width: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipGraphics(graphics: Long, srcgraphics: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipGraphics(graphics: COpaquePointer?, srcgraphics: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipHrgn(graphics: Long, hrgn: HRGN, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipHrgn(graphics: COpaquePointer?, hrgn: Hrgn, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipPath(graphics: Long, path: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipPath(graphics: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetClipRegion(graphics: Long, region: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRegion(graphics: COpaquePointer?, region: COpaquePointer?, combinemode: CombineMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCompositingMode(graphics: Long, compositingmode: CompositingMode): Status =
-    0
+public actual fun gdipSetCompositingMode(graphics: COpaquePointer?, compositingmode: CompositingMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCompositingQuality(graphics: Long, compositingquality: CompositingQuality): Status =
-    0
+public actual fun gdipSetCompositingQuality(graphics: COpaquePointer?, compositingquality: CompositingQuality): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCustomLineCapBaseCap(customcap: Long, basecap: LineCap): Status =
-    0
+public actual fun gdipSetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: LineCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCustomLineCapBaseInset(customcap: Long, inset: Float): Status =
-    0
+public actual fun gdipSetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCustomLineCapStrokeCaps(customcap: Long, startcap: LineCap, endcap: LineCap): Status =
-    0
+public actual fun gdipSetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: LineCap, endcap: LineCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCustomLineCapStrokeJoin(customcap: Long, linejoin: LineJoin): Status =
-    0
+public actual fun gdipSetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: LineJoin): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetCustomLineCapWidthScale(customcap: Long, widthscale: Float): Status =
-    0
+public actual fun gdipSetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetEffectParameters(effect: Long, params: Long, size: UInt): Status =
-    0
+public actual fun gdipSetEffectParameters(effect: COpaquePointer?, params: COpaquePointer?, size: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetEmpty(region: Long): Status =
-    0
+public actual fun gdipSetEmpty(region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesCachedBackground(imageattr: Long, enableflag: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesCachedBackground(imageattr: COpaquePointer?, enableflag: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesColorKeys(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorlow: UInt, colorhigh: UInt): Status =
-    0
+public actual fun gdipSetImageAttributesColorKeys(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesColorMatrix(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colormatrix: Long, graymatrix: Long, flags: ColorMatrixFlags): Status =
-    0
+public actual fun gdipSetImageAttributesColorMatrix(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colormatrix: COpaquePointer?, graymatrix: COpaquePointer?, flags: ColorMatrixFlags): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesGamma(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, gamma: Float): Status =
-    0
+public actual fun gdipSetImageAttributesGamma(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesNoOp(imageattr: Long, type: ColorAdjustType, enableflag: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesNoOp(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesOutputChannel(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, channelflags: ColorChannelFlags): Status =
-    0
+public actual fun gdipSetImageAttributesOutputChannel(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesOutputChannelColorProfile(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorprofilefilename: PCWSTR): Status =
-    0
+public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesRemapTable(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, mapsize: UInt, map: Long): Status =
-    0
+public actual fun gdipSetImageAttributesRemapTable(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesThreshold(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, threshold: Float): Status =
-    0
+public actual fun gdipSetImageAttributesThreshold(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesToIdentity(imageattr: Long, type: ColorAdjustType): Status =
-    0
+public actual fun gdipSetImageAttributesToIdentity(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImageAttributesWrapMode(imageattr: Long, wrap: WrapMode, argb: UInt, clamp: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesWrapMode(imageattr: COpaquePointer?, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetImagePalette(image: Long, palette: Long): Status =
-    0
+public actual fun gdipSetImagePalette(image: COpaquePointer?, palette: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetInfinite(region: Long): Status =
-    0
+public actual fun gdipSetInfinite(region: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetInterpolationMode(graphics: Long, interpolationmode: InterpolationMode): Status =
-    0
+public actual fun gdipSetInterpolationMode(graphics: COpaquePointer?, interpolationmode: InterpolationMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineColors(brush: Long, color1: UInt, color2: UInt): Status =
-    0
+public actual fun gdipSetLineColors(brush: COpaquePointer?, color1: UInt, color2: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    0
+public actual fun gdipSetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetLineLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetLineSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetLineWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetLineWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetMatrixElements(matrix: Long, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipSetMatrixElements(matrix: COpaquePointer?, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: UInt): Status =
-    0
+public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPageScale(graphics: Long, scale: Float): Status =
-    0
+public actual fun gdipSetPageScale(graphics: COpaquePointer?, scale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPageUnit(graphics: Long, unit: Unit): Status =
-    0
+public actual fun gdipSetPageUnit(graphics: COpaquePointer?, unit: Unit): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathFillMode(path: Long, fillmode: FillMode): Status =
-    0
+public actual fun gdipSetPathFillMode(path: COpaquePointer?, fillmode: FillMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientCenterColor(brush: Long, colors: UInt): Status =
-    0
+public actual fun gdipSetPathGradientCenterColor(brush: COpaquePointer?, colors: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    0
+public actual fun gdipSetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    0
+public actual fun gdipSetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientFocusScales(brush: Long, xscale: Float, yscale: Float): Status =
-    0
+public actual fun gdipSetPathGradientFocusScales(brush: COpaquePointer?, xscale: Float, yscale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    0
+public actual fun gdipSetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetPathGradientLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientPath(brush: Long, path: Long): Status =
-    0
+public actual fun gdipSetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetPathGradientSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    0
+public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathGradientWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPathMarker(path: Long): Status =
-    0
+public actual fun gdipSetPathMarker(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenBrushFill(pen: Long, brush: Long): Status =
-    0
+public actual fun gdipSetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenColor(pen: Long, argb: UInt): Status =
-    0
+public actual fun gdipSetPenColor(pen: COpaquePointer?, argb: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipSetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipSetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipSetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipSetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenDashCap197819(pen: Long, dashcap: DashCap): Status =
-    0
+public actual fun gdipSetPenDashCap197819(pen: COpaquePointer?, dashcap: DashCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenDashOffset(pen: Long, offset: Float): Status =
-    0
+public actual fun gdipSetPenDashOffset(pen: COpaquePointer?, offset: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenDashStyle(pen: Long, dashstyle: DashStyle): Status =
-    0
+public actual fun gdipSetPenDashStyle(pen: COpaquePointer?, dashstyle: DashStyle): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenEndCap(pen: Long, endcap: LineCap): Status =
-    0
+public actual fun gdipSetPenEndCap(pen: COpaquePointer?, endcap: LineCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenLineCap197819(pen: Long, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
-    0
+public actual fun gdipSetPenLineCap197819(pen: COpaquePointer?, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenLineJoin(pen: Long, linejoin: LineJoin): Status =
-    0
+public actual fun gdipSetPenLineJoin(pen: COpaquePointer?, linejoin: LineJoin): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenMiterLimit(pen: Long, miterlimit: Float): Status =
-    0
+public actual fun gdipSetPenMiterLimit(pen: COpaquePointer?, miterlimit: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenMode(pen: Long, penmode: PenAlignment): Status =
-    0
+public actual fun gdipSetPenMode(pen: COpaquePointer?, penmode: PenAlignment): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenStartCap(pen: Long, startcap: LineCap): Status =
-    0
+public actual fun gdipSetPenStartCap(pen: COpaquePointer?, startcap: LineCap): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenTransform(pen: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenUnit(pen: Long, unit: Unit): Status =
-    0
+public actual fun gdipSetPenUnit(pen: COpaquePointer?, unit: Unit): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPenWidth(pen: Long, width: Float): Status =
-    0
+public actual fun gdipSetPenWidth(pen: COpaquePointer?, width: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPixelOffsetMode(graphics: Long, pixeloffsetmode: PixelOffsetMode): Status =
-    0
+public actual fun gdipSetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: PixelOffsetMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetPropertyItem(image: Long, item: Long): Status =
-    0
+public actual fun gdipSetPropertyItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetRenderingOrigin(graphics: Long, x: Int, y: Int): Status =
-    0
+public actual fun gdipSetRenderingOrigin(graphics: COpaquePointer?, x: Int, y: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetSmoothingMode(graphics: Long, smoothingmode: SmoothingMode): Status =
-    0
+public actual fun gdipSetSmoothingMode(graphics: COpaquePointer?, smoothingmode: SmoothingMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetSolidFillColor(brush: Long, color: UInt): Status =
-    0
+public actual fun gdipSetSolidFillColor(brush: COpaquePointer?, color: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatAlign(format: Long, align: StringAlignment): Status =
-    0
+public actual fun gdipSetStringFormatAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatDigitSubstitution(format: Long, language: UShort, substitute: StringDigitSubstitute): Status =
-    0
+public actual fun gdipSetStringFormatDigitSubstitution(format: COpaquePointer?, language: UShort, substitute: StringDigitSubstitute): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatFlags(format: Long, flags: Int): Status =
-    0
+public actual fun gdipSetStringFormatFlags(format: COpaquePointer?, flags: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Int): Status =
-    0
+public actual fun gdipSetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatLineAlign(format: Long, align: StringAlignment): Status =
-    0
+public actual fun gdipSetStringFormatLineAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatMeasurableCharacterRanges(format: Long, rangecount: Int, ranges: Long): Status =
-    0
+public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: COpaquePointer?, rangecount: Int, ranges: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatTabStops(format: Long, firsttaboffset: Float, count: Int, tabstops: Long): Status =
-    0
+public actual fun gdipSetStringFormatTabStops(format: COpaquePointer?, firsttaboffset: Float, count: Int, tabstops: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetStringFormatTrimming(format: Long, trimming: StringTrimming): Status =
-    0
+public actual fun gdipSetStringFormatTrimming(format: COpaquePointer?, trimming: StringTrimming): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetTextContrast(graphics: Long, contrast: UInt): Status =
-    0
+public actual fun gdipSetTextContrast(graphics: COpaquePointer?, contrast: UInt): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetTextRenderingHint(graphics: Long, mode: TextRenderingHint): Status =
-    0
+public actual fun gdipSetTextRenderingHint(graphics: COpaquePointer?, mode: TextRenderingHint): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetTextureTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetTextureWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetTextureWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipSetWorldTransform(graphics: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipShearMatrix(matrix: Long, shearx: Float, sheary: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipShearMatrix(matrix: COpaquePointer?, shearx: Float, sheary: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipStartPathFigure(path: Long): Status =
-    0
+public actual fun gdipStartPathFigure(path: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipStringFormatGetGenericDefault(format: Long): Status =
-    0
+public actual fun gdipStringFormatGetGenericDefault(format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipStringFormatGetGenericTypographic(format: Long): Status =
-    0
+public actual fun gdipStringFormatGetGenericTypographic(format: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTestControl(control: GpTestControlEnum, param1: Long): Status =
-    0
+public actual fun gdipTestControl(control: GpTestControlEnum, param1: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformPath(path: Long, matrix: Long): Status =
-    0
+public actual fun gdipTransformPath(path: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformPoints(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    0
+public actual fun gdipTransformPoints(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformPointsI(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    0
+public actual fun gdipTransformPointsI(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTransformRegion(region: Long, matrix: Long): Status =
-    0
+public actual fun gdipTransformRegion(region: COpaquePointer?, matrix: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateClip(graphics: Long, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipTranslateClip(graphics: COpaquePointer?, dx: Float, dy: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateClipI(graphics: Long, dx: Int, dy: Int): Status =
-    0
+public actual fun gdipTranslateClipI(graphics: COpaquePointer?, dx: Int, dy: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateLineTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateLineTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateMatrix(matrix: Long, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateMatrix(matrix: COpaquePointer?, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslatePathGradientTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslatePathGradientTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslatePenTransform(pen: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslatePenTransform(pen: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateRegion(region: Long, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipTranslateRegion(region: COpaquePointer?, dx: Float, dy: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateRegionI(region: Long, dx: Int, dy: Int): Status =
-    0
+public actual fun gdipTranslateRegionI(region: COpaquePointer?, dx: Int, dy: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateTextureTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateTextureTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipTranslateWorldTransform(graphics: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateWorldTransform(graphics: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipVectorTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipVectorTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipVectorTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipVectorTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipWarpPath(path: Long, matrix: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
-    0
+public actual fun gdipWarpPath(path: COpaquePointer?, matrix: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipWidenPath(nativepath: Long, pen: Long, matrix: Long, flatness: Float): Status =
-    0
+public actual fun gdipWidenPath(nativepath: COpaquePointer?, pen: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdipWindingModeOutline(path: Long, matrix: Long, flatness: Float): Status =
-    0
+public actual fun gdipWindingModeOutline(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdiplusNotificationHook(token: Long): Status =
-    0
+public actual fun gdiplusNotificationHook(token: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GdiplusNotificationUnhook(token: ULong) {
+public actual fun gdiplusNotificationUnhook(token: ULong) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun GdiplusShutdown(token: ULong) {
+public actual fun gdiplusShutdown(token: ULong) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun GdiplusStartup(token: Long, input: Long, output: Long): Status =
-    0
+public actual fun gdiplusStartup(token: COpaquePointer?, input: COpaquePointer?, output: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

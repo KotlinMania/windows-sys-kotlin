@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ApplyControlToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_applyControlToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ApplyControlToken_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -103,7 +103,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCanIWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCanIWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t bytestowrite = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCanIWrite_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -152,7 +152,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAnd
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCopyRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -180,7 +180,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyRead_napi(con
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyReadEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCopyReadEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -210,7 +210,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyReadEx_napi(c
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCopyWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -236,7 +236,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWrite_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -264,7 +264,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx_napi(
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -286,7 +286,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlus
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcDeferWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccDeferWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* postroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcDeferWrite_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -331,7 +331,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFastCopyRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccFastCopyRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fileoffset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -358,7 +358,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFastCopyRead_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fileoffset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -381,7 +381,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFlushCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccFlushCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -404,7 +404,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcFlushCache_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dirtypageroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -428,7 +428,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -446,7 +446,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -464,7 +464,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFrom
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool bcblistheld = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -502,7 +502,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidDa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filesizes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -527,7 +527,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filesizes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -554,7 +554,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -572,7 +572,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCal
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vpb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vpb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberofdirtypages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -610,7 +610,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMapData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccMapData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -638,7 +638,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMapData_napi(cons
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccMdlRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlRead_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mdlchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -682,7 +682,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mdlchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -701,7 +701,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -722,7 +722,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPinMappedData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccPinMappedData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -748,7 +748,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPinMappedData_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPinRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccPinRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -776,7 +776,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPinRead_napi(cons
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -801,7 +801,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -855,7 +855,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcRemapBcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccRemapBcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -873,7 +873,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcRemapBcb_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcRepinBcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccRepinBcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -890,7 +890,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcRepinBcb_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -911,7 +911,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -934,7 +934,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool disablereadahead = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -955,7 +955,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCach
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -974,7 +974,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCach
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -993,7 +993,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dirtypagethreshold = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThres
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcbvoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1031,7 +1031,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedDat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetFileSizes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetFileSizes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filesizes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1050,7 +1050,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetFileSizes_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filesizes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1070,7 +1070,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool enableparallelflush = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1110,7 +1110,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushF
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t granularity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* truncatesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1151,7 +1151,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUninitializeCache
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccUnpinData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1168,7 +1168,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinData_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t resourcethreadid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThrea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool writethrough = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -1208,7 +1208,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1224,7 +1224,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLaz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CcZeroData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ccZeroData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* startoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1248,7 +1248,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CcZeroData_napi(con
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_CompleteAuthToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_completeAuthToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_CompleteAuthToken_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1285,7 +1285,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ExDisableResourceBo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poolblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* quotacharged = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSiz
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ExportSecurityContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_exportSecurityContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1329,7 +1329,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ExportSecurityConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1346,7 +1346,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1363,7 +1363,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1387,7 +1387,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1435,7 +1435,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEnt
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vbn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1459,7 +1459,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t directorykey = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1488,7 +1488,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCac
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t directorykey = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1517,7 +1517,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCac
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t tag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1537,7 +1537,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePush
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sizeofcontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1565,7 +1565,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t sizeofcontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1593,7 +1593,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1613,7 +1613,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completelockirproutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* unlockroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1633,7 +1633,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1649,7 +1649,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResour
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* constantnamea = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* constantnameb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1691,7 +1691,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurren
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1709,7 +1709,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -1725,7 +1725,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStart
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1743,7 +1743,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* objectarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1771,7 +1771,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWai
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timeout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1793,7 +1793,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWai
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentfileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1817,7 +1817,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* allocationsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1837,7 +1837,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOp
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1857,7 +1857,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForRe
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1877,7 +1877,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1903,7 +1903,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1931,7 +1931,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1967,7 +1967,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t newloweroplockstate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1995,7 +1995,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2027,7 +2027,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead_napi(
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2059,7 +2059,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite_napi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectionobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2095,7 +2095,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2113,7 +2113,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOp
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lookaside = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2168,7 +2168,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t directorykey = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromT
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2221,7 +2221,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncP
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dismountstatus = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2240,7 +2240,30 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDismountComple
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    bool path_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
+    std::string path_str = path_null ? std::string() : km_info[0].ToString().Utf8Value();
+    const char* path = path_null ? nullptr : path_str.c_str();
+    void* firstname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* remainingname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(const char*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlDissectDbcs")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr(path, firstname, remainingname);
+#else
+    (void)path;
+    (void)firstname;
+    (void)remainingname;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2258,7 +2281,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContai
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2276,7 +2299,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContai
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* startingbyte = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2304,7 +2327,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockF
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* startingbyte = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2332,7 +2355,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockF
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2356,7 +2379,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2382,7 +2405,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2414,7 +2437,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSing
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ecptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2438,7 +2461,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t directorykey = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2468,7 +2491,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCa
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t directorykey = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2500,7 +2523,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCa
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* aepushlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2517,7 +2540,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2534,7 +2557,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2551,7 +2574,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2568,7 +2591,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2584,7 +2607,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2604,7 +2627,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFrom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2624,7 +2647,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t runindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2650,7 +2673,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcb
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* currentecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2676,7 +2699,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool restart = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -2696,7 +2719,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLoc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t runindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2722,7 +2745,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMc
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t runindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2748,7 +2771,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sectorsizeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2768,7 +2791,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* supportedfeatures = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2788,7 +2811,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nestinglevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2810,7 +2833,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDisk
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2825,7 +2848,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2840,7 +2863,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2855,7 +2878,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2870,7 +2893,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2885,7 +2908,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lookaside = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2908,7 +2931,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2927,7 +2950,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBase
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2949,7 +2972,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBase
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ecpflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2976,7 +2999,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2994,7 +3017,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completelockirproutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3015,7 +3038,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFile
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3034,7 +3057,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLarg
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3053,7 +3076,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3070,7 +3093,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cache = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3087,7 +3110,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunn
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3107,7 +3130,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perfilecontextpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3127,7 +3150,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3147,7 +3170,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perstreamcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3167,7 +3190,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3185,7 +3208,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3203,7 +3226,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3223,7 +3246,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpres
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3241,7 +3264,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowled
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3259,7 +3282,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserM
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t startpage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t numberofpages = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3281,7 +3304,59 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    bool dbcsname_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
+    std::string dbcsname_str = dbcsname_null ? std::string() : km_info[0].ToString().Utf8Value();
+    const char* dbcsname = dbcsname_null ? nullptr : dbcsname_str.c_str();
+    bool wildcardspermissible = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
+    bool pathnamepermissible = km_info.Length() > 2 ? km_info[2].ToBoolean().Value() : false;
+    bool leadingbackslashpermissible = km_info.Length() > 3 ? km_info[3].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlIsFatDbcsLegal")));
+    }
+    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) : false;
+#else
+    (void)dbcsname;
+    (void)wildcardspermissible;
+    (void)pathnamepermissible;
+    (void)leadingbackslashpermissible;
+    bool km_res = false;
+#endif
+    return Napi::Boolean::New(km_env, km_res);
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    bool dbcsname_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
+    std::string dbcsname_str = dbcsname_null ? std::string() : km_info[0].ToString().Utf8Value();
+    const char* dbcsname = dbcsname_null ? nullptr : dbcsname_str.c_str();
+    bool wildcardspermissible = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
+    bool pathnamepermissible = km_info.Length() > 2 ? km_info[2].ToBoolean().Value() : false;
+    bool leadingbackslashpermissible = km_info.Length() > 3 ? km_info[3].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlIsHpfsDbcsLegal")));
+    }
+    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) : false;
+#else
+    (void)dbcsname;
+    (void)wildcardspermissible;
+    (void)pathnamepermissible;
+    (void)leadingbackslashpermissible;
+    bool km_res = false;
+#endif
+    return Napi::Boolean::New(km_env, km_res);
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -3297,7 +3372,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3321,7 +3396,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpres
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* expression = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3345,7 +3420,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpca
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reparsetag = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3363,7 +3438,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDire
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t exception = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3381,7 +3456,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpe
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3399,7 +3474,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3417,7 +3492,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPaging
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ioctl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3449,7 +3524,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fscontrolcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3479,7 +3554,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsContro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3505,7 +3580,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushErro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3535,7 +3610,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3565,7 +3640,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcb
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vbn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3587,7 +3662,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBase
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* opaquemcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* largevbn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3611,7 +3686,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBase
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vbn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3633,7 +3708,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLarg
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* opaquemcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* largevbn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3657,7 +3732,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLarg
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vbn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3679,7 +3754,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vbn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3705,7 +3780,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perfilecontextpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3727,7 +3802,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3749,7 +3824,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileO
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* streamcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3771,7 +3846,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStrea
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mdlchain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3793,7 +3868,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadComplet
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3823,7 +3898,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3851,7 +3926,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3875,7 +3950,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteComple
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3895,7 +3970,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3919,7 +3994,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t exception = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t genericexception = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3939,7 +4014,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtsta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3960,7 +4035,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3979,7 +4054,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupA
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4016,7 +4091,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterCh
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4051,7 +4126,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterRe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4086,7 +4161,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChan
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t notifysync = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* notifylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4119,7 +4194,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullRepo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notifysync = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4136,7 +4211,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitiali
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* notifysync = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4153,7 +4228,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitia
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t eventcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4173,7 +4248,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t eventcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4195,7 +4270,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4213,7 +4288,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4231,7 +4306,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4249,7 +4324,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4277,7 +4352,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4309,7 +4384,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irpsp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4337,7 +4412,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4365,7 +4440,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4387,7 +4462,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4411,7 +4486,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4429,7 +4504,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4447,7 +4522,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIo
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4465,7 +4540,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsShared
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fo1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fo2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4485,7 +4560,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqua
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4506,7 +4581,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFile
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4527,7 +4602,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverf
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4557,7 +4632,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWrit
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4585,7 +4660,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecpcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4602,7 +4677,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuse
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4642,7 +4717,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4664,7 +4739,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vdl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4684,7 +4759,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4710,7 +4785,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* returnedeadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4744,7 +4819,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4760,7 +4835,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterdriverobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4780,7 +4855,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* muphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* redirectordevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4802,7 +4877,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* muphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* redirdevname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4826,7 +4901,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* redirdevname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4850,7 +4925,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4867,7 +4942,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4889,7 +4964,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* originalstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t pathlength = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4911,7 +4986,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFrom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ecptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4935,7 +5010,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -4956,7 +5031,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcb
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vbn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4977,7 +5052,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perfilecontextpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4999,7 +5074,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5021,7 +5096,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileO
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* streamcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ownerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5043,7 +5118,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStrea
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5060,7 +5135,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool selfsynchronized = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -5079,7 +5154,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5099,7 +5174,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacki
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ecplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5119,7 +5194,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListInto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eabuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5141,7 +5216,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5163,7 +5238,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5185,7 +5260,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* perfilecontextpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5202,7 +5277,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFil
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* advancedheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5219,7 +5294,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5238,7 +5313,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t vbn = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5257,7 +5332,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeM
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vbn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5276,7 +5351,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5293,7 +5368,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filelock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5310,7 +5385,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5327,7 +5402,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5344,7 +5419,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5361,7 +5436,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOp
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t bytesread = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t byteswritten = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5380,7 +5455,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCoun
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oplock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5406,7 +5481,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t bufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* reparsebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5426,7 +5501,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlValidateRepars
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumedeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5446,7 +5521,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logonid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5468,7 +5543,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irql = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5485,7 +5560,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLoc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inputpriorityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outputpriorityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5507,7 +5582,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* desiredaccess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grantedaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5527,7 +5602,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAcces
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eabuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ealength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5549,7 +5624,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferVali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grantedaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t majorfunction = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5577,7 +5652,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAcce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5599,7 +5674,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fsinformationclass = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5621,7 +5696,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* quotabuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t quotalength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5643,7 +5718,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5661,7 +5736,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5681,7 +5756,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileO
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5703,7 +5778,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileO
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* createoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5729,7 +5804,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5749,7 +5824,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileO
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceobjectlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5773,7 +5848,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverobjectlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t driverobjectlistsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5795,7 +5870,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoEnumerateRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5821,7 +5896,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkA
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5839,7 +5914,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5857,7 +5932,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystem
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5875,7 +5950,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachme
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5893,7 +5968,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filesystemdeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* diskdeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5913,7 +5988,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* retfstrackoffsetblob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5935,7 +6010,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5953,7 +6028,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObj
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5971,7 +6046,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyConte
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5989,7 +6064,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyConte
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6007,7 +6082,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorProce
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6025,7 +6100,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6045,7 +6120,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6063,7 +6138,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffs
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6081,7 +6156,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsSystemThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioIsSystemThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6099,7 +6174,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsSystemThread_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reparsebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6119,7 +6194,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoIsValidNameGrafti
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoPageRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioPageRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memorydescriptorlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6145,7 +6220,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoPageRead_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* objectnameinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6165,7 +6240,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6191,7 +6266,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryFileInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fsinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6217,7 +6292,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6234,7 +6309,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6251,7 +6326,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRegisterFileSyste
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t irql = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6268,7 +6343,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLoc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6290,7 +6365,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoReplaceFileObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* physicaldeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6310,7 +6385,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6334,7 +6409,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6353,7 +6428,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* irp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fstrackoffsetblob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6375,7 +6450,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioSetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6399,7 +6474,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSetInformation_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memorydescriptorlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6425,7 +6500,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoThreadToProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioThreadToProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6443,7 +6518,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoThreadToProcess_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6460,7 +6535,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSys
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_IoVerifyVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ioVerifyVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool allowrawmount = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -6480,7 +6555,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_IoVerifyVolume_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t number = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6498,7 +6573,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* spinlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6516,7 +6591,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAttachProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keAttachProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6533,7 +6608,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeAttachProcess_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeDetachProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keDetachProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -6548,7 +6623,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeDetachProcess_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInitializeMutant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keInitializeMutant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mutant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool initialowner = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -6567,7 +6642,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInitializeMutant_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInitializeQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keInitializeQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6586,7 +6661,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInitializeQueue_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6606,7 +6681,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInsertQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keInsertQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6626,7 +6701,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeInsertQueue_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReadStateMutant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keReadStateMutant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mutant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6644,7 +6719,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReadStateMutant_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReadStateQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keReadStateQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6662,7 +6737,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReadStateQueue_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReleaseMutant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keReleaseMutant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mutant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t increment = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6686,7 +6761,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReleaseMutant_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t number = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t oldirql = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6705,7 +6780,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpin
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRemoveQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keRemoveQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int8_t waitmode = static_cast<int8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6727,7 +6802,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRemoveQueue_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int8_t waitmode = static_cast<int8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6755,7 +6830,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRundownQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keRundownQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* queue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6773,7 +6848,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeRundownQueue_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint8_t processor = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6793,7 +6868,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool enable = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
 #ifdef _WIN32
@@ -6811,7 +6886,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwa
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keStackAttachProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* apcstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6830,7 +6905,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeStackAttachProces
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t number = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* oldirql = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6850,7 +6925,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* apcstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6867,7 +6942,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MakeSignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_makeSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fqop = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6891,7 +6966,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MakeSignature_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MapSecurityError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mapSecurityError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t secstatus = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6909,7 +6984,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MapSecurityError_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfilesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6929,7 +7004,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncate
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6947,7 +7022,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmFlushImageSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmFlushImageSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flushtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6967,7 +7042,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmFlushImageSection
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool delayclose = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -6987,7 +7062,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmForceSectionClose
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionobjectpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t forcecloseflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7007,7 +7082,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmForceSectionClose
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
@@ -7023,7 +7098,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSec
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fssectionpointer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7045,7 +7120,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -7061,7 +7136,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFaul
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* mdl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7079,7 +7154,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmPrefetchPages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmPrefetchPages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t numberoflists = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* readlists = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7099,7 +7174,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmPrefetchPages_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -7119,7 +7194,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeMo
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7157,7 +7232,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAud
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7205,7 +7280,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7253,7 +7328,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7303,7 +7378,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool resettodefault = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -7331,7 +7406,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool disableallprivileges = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -7359,7 +7434,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7387,7 +7462,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7417,7 +7492,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iorequesttocancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7439,7 +7514,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7461,7 +7536,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7483,7 +7558,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCreateEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7509,7 +7584,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateEvent_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCreateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7547,7 +7622,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCreateSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7577,7 +7652,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateSection_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7611,7 +7686,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDeleteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntDeleteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7629,7 +7704,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDeleteFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7651,7 +7726,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAudit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDuplicateObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntDuplicateObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceprocesshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7681,7 +7756,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDuplicateObject_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDuplicateToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntDuplicateToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* existingtokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7709,7 +7784,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtDuplicateToken_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFilterToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFilterToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* existingtokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7737,7 +7812,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFilterToken_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7757,7 +7832,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7783,7 +7858,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7807,7 +7882,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7831,7 +7906,43 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntFsControlFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t fscontrolcode = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    void* inputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t inputbufferlength = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    void* outputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+    uint32_t outputbufferlength = static_cast<uint32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtFsControlFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fscontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fscontrolcode;
+    (void)inputbuffer;
+    (void)inputbufferlength;
+    (void)outputbuffer;
+    (void)outputbufferlength;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7849,7 +7960,79 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonym
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntLockFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* byteoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t key = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool failimmediately = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    bool exclusivelock = km_info.Length() > 9 ? km_info[9].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, bool, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtLockFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, byteoffset, length, key, failimmediately, exclusivelock) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)byteoffset;
+    (void)length;
+    (void)key;
+    (void)failimmediately;
+    (void)exclusivelock;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t completionfilter = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    bool watchtree = km_info.Length() > 6 ? km_info[6].ToBoolean().Value() : false;
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    bool asynchronous = km_info.Length() > 9 ? km_info[9].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtNotifyChangeKey")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+#else
+    (void)keyhandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7871,7 +8054,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7899,7 +8082,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7939,7 +8122,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7961,7 +8144,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7985,7 +8168,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* linkhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8007,7 +8190,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8031,7 +8214,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8057,7 +8240,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clienttoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requiredprivileges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8079,7 +8262,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8107,7 +8290,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8133,7 +8316,81 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtPrivilegedService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool returnsingleentry = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+    bool restartscan = km_info.Length() > 10 ? km_info[10].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, bool, void*, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryDirectoryFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry, filename, restartscan) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)returnsingleentry;
+    (void)filename;
+    (void)restartscan;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryDirectoryFileEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, queryflags, filename) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)queryflags;
+    (void)filename;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8163,7 +8420,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObj
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8197,7 +8454,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryEaFile_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8217,7 +8474,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryFullAttribut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8243,7 +8500,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8269,7 +8526,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tokeninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8295,7 +8552,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryInformationT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8329,7 +8586,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInforma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8355,7 +8612,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* linkhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* linktarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8377,7 +8634,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLink
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8405,7 +8662,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8431,7 +8688,41 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntReadFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    void* byteoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtReadFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, buffer, length, byteoffset, key) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8455,7 +8746,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetEaFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* previousstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8475,7 +8766,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetEvent_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8501,7 +8792,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetInformationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tokeninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8525,7 +8816,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationTok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t vminformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8553,7 +8844,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetInformationVir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8577,7 +8868,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8599,7 +8890,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8625,7 +8916,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_NtUnlockFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntUnlockFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8651,7 +8942,41 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_NtUnlockFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObInsertObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_ntWriteFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    void* byteoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtWriteFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, buffer, length, byteoffset, key) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obInsertObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* passedaccessstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8679,7 +9004,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObInsertObject_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obIsKernelHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8697,7 +9022,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8714,7 +9039,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObje
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t handleattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8744,7 +9069,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPoint
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t handleattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8776,7 +9101,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPoint
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObQueryNameString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obQueryNameString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* objectnameinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8800,7 +9125,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObQueryNameString_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* generateonclose = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8820,7 +9145,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxFindPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_pfxFindPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8840,7 +9165,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxFindPrefix_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_pfxInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8857,7 +9182,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxInitialize_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8879,7 +9204,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefixtableentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8898,7 +9223,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* workitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8916,7 +9241,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8936,7 +9261,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsAssignImpersonati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psChargePoolQuota_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8957,7 +9282,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8979,7 +9304,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsChargeProcessPool
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* impersonationtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8996,7 +9321,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDereferenceImpers
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* primarytoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9013,7 +9338,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDereferencePrimar
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psDisableImpersonation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* impersonationstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9033,7 +9358,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsDisableImpersonat
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -9049,7 +9374,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTim
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psGetThreadProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9067,7 +9392,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9093,7 +9418,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsImpersonateClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -9109,7 +9434,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEna
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsSystemThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psIsSystemThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9127,7 +9452,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsSystemThread_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9145,7 +9470,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminati
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9165,7 +9490,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsLookupProcessByPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9185,7 +9510,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* copyonopen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9209,7 +9534,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReferenceImperson
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -9227,7 +9552,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryT
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* impersonationstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9246,7 +9571,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t pooltype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9267,7 +9592,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsRevertToSelf_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psRevertToSelf_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -9282,7 +9607,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsRevertToSelf_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t bytesread = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -9309,7 +9634,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounter
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_querySecurityContextToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9329,7 +9654,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_QuerySecurityContex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* absolutesecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* selfrelativesecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9351,7 +9676,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t acerevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9375,7 +9700,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowed
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t acerevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9401,7 +9726,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowed
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAddAce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t acerevision = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9427,7 +9752,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAddAce_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* identifierauthority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t subauthoritycount = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9465,7 +9790,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateAndIniti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* identifierauthority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t subauthoritycount = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9489,7 +9814,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateAndIniti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9511,7 +9836,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9531,7 +9856,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlAppendStringToSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* altitude1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* altitude2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9551,7 +9876,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t length = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -9573,7 +9898,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlo
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformatandengine = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9605,7 +9930,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompressChunks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCompressChunks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uncompressedbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9635,7 +9960,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCompressChunks_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCopyLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCopyLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourceluid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9654,7 +9979,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCopyLuid_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCopySid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCopySid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t destinationsidlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* destinationsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9676,7 +10001,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCopySid_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateAcl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateAcl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t acllength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9698,7 +10023,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateAcl_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* heapbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9726,7 +10051,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateHeap_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicesid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9748,7 +10073,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumerootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9766,7 +10091,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9786,7 +10111,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeStr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t basesubauthority = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9810,7 +10135,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAcc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* customcp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* unicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9838,7 +10163,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9866,7 +10191,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9896,7 +10221,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9928,7 +10253,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncompressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uncompressedbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9958,7 +10283,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedfragment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9990,7 +10315,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressFragme
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* uncompressedfragment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10024,7 +10349,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDecompressFragme
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDeleteAce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDeleteAce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t aceindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10044,7 +10369,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDeleteAce_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* compressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10070,7 +10395,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10088,7 +10413,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dosfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ntfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10112,7 +10437,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10134,7 +10459,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* stringin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10156,7 +10481,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sid2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10176,7 +10501,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlEqualSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlEqualSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sid2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10196,7 +10521,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlEqualSid_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10218,7 +10543,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFreeHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlFreeHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10240,7 +10565,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFreeHeap_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFreeSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlFreeSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10258,7 +10583,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlFreeSid_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool allowextendedcharacters = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -10282,7 +10607,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Nam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetAce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetAce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* acl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t aceindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10304,7 +10629,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetAce_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformatandengine = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* compressbufferworkspacesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10326,7 +10651,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* daclpresent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10350,7 +10675,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10372,7 +10697,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10394,7 +10719,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* saclpresent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10418,7 +10743,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10436,7 +10761,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthor
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10462,7 +10787,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10488,7 +10813,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10514,7 +10839,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tablebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* codepagetable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10533,7 +10858,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTabl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10553,7 +10878,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitializeSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInitializeSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* identifierauthority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10575,7 +10900,44 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitializeSid_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* identifierauthority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint8_t subauthoritycount = static_cast<uint8_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va1 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va2 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va3 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, uint8_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitializeSidEx")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(sid, identifierauthority, subauthoritycount); break;
+            case 1: km_res = km_fn_ptr(sid, identifierauthority, subauthoritycount, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(sid, identifierauthority, subauthoritycount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(sid, identifierauthority, subauthoritycount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(sid, identifierauthority, subauthoritycount, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)sid;
+    (void)identifierauthority;
+    (void)subauthoritycount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10592,7 +10954,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicod
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10614,7 +10976,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePre
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fileattributes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t reparsetag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10634,7 +10996,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlac
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dosfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10652,7 +11014,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reparsetag = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10670,7 +11032,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirect
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t normform = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10694,7 +11056,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedStri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fileattributes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t reparsetag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10714,7 +11076,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceho
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ispartialplaceholder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10734,7 +11096,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* infobuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10756,7 +11118,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int8_t previousmode = static_cast<int8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10776,7 +11138,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* arg_0_char = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10794,7 +11156,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharac
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t subauthoritycount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10812,7 +11174,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlLengthSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlLengthSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10830,7 +11192,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlLengthSid_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinunicodestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10856,7 +11218,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnico
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bytesinunicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* multibytestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10878,7 +11240,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnico
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool restart = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -10898,7 +11260,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNormalizeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlNormalizeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t normform = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10924,7 +11286,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNormalizeString_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10942,7 +11304,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10964,7 +11326,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemStringToCount
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10986,7 +11348,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnico
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinunicodestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11012,7 +11374,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlPrefixString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlPrefixString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* string2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11034,7 +11396,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlPrefixString_nap
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11062,7 +11424,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIden
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11092,7 +11454,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIden
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
@@ -11108,7 +11470,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
@@ -11124,7 +11486,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRandom_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlRandom_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* seed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11142,7 +11504,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRandom_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRandomEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlRandomEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* seed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11160,7 +11522,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRandomEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prefixtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefixtableentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11179,7 +11541,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11203,7 +11565,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlReserveChunk_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlReserveChunk_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t compressionformat = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* compressedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11229,7 +11591,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlReserveChunk_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t elapsedseconds = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* arg_1_time = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11248,7 +11610,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t elapsedseconds = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* arg_1_time = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11267,7 +11629,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* selfrelativesecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* absolutesecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11305,7 +11667,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* group = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11327,7 +11689,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* owner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11349,7 +11711,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t mode = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -11367,7 +11729,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t mode = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -11385,7 +11747,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceho
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11403,7 +11765,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCoun
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t subauthority = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11423,7 +11785,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* arg_0_time = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* elapsedseconds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11443,7 +11805,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11465,7 +11827,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* customcp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* customcpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11493,7 +11855,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* multibytestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinmultibytestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11519,7 +11881,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiBy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oemstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinoemstring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11545,7 +11907,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11567,7 +11929,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destinationstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11589,7 +11951,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* customcp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* customcpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11617,7 +11979,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* multibytestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinmultibytestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11643,7 +12005,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oemstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinoemstring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11669,7 +12031,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlValidSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlValidSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11687,7 +12049,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlValidSid_napi(co
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11707,7 +12069,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oemstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11725,7 +12087,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11743,7 +12105,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* primarytokeninformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11779,7 +12141,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromSt
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* primarytoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11815,7 +12177,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromSt
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11836,7 +12198,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustAccessState
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11857,7 +12219,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustAccessState
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* originaldescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11885,7 +12247,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAppendPrivileges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* accessstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* privileges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11905,7 +12267,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool bsuccess = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     uint32_t selftestcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11924,7 +12286,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* linkname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11945,7 +12307,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCrea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* linkname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11968,7 +12330,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCrea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resourcemanagerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11989,7 +12351,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditTransactionS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subjectsecuritycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12009,7 +12371,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEv
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subjectsecuritycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12031,7 +12393,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEv
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12051,7 +12413,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvent
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12073,7 +12435,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvent
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12097,7 +12459,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvent
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12119,7 +12481,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlo
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12139,7 +12501,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool accessgranted = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12161,7 +12523,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkE
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t thread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t process = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -12182,7 +12544,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectCon
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12205,7 +12567,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalA
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t clientthread = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* clientsecurityqos = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12229,7 +12591,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCreateClientSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subjectcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientsecurityqos = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12253,7 +12615,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeCreateClientSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12270,7 +12632,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecur
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12289,7 +12651,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAudit
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12310,7 +12672,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAudit
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeExamineSacl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seExamineSacl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resourcesacl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12339,7 +12701,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeExamineSacl_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeFilterToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seFilterToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* existingtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12367,7 +12729,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeFilterToken_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeFreePrivileges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seFreePrivileges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* privileges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12384,7 +12746,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeFreePrivileges_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t serverthread = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -12403,7 +12765,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeImpersonateClient
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clientcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t serverthread = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -12423,7 +12785,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeImpersonateClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t process = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pimagefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12443,7 +12805,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeLocateProcessImag
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logonid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12461,7 +12823,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logonid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t pserversilo = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -12481,7 +12843,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12514,7 +12876,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12549,7 +12911,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12582,7 +12944,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDele
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12617,7 +12979,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDele
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requiredprivileges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subjectsecuritycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12639,7 +13001,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck_na
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* authenticationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12659,7 +13021,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tokeninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12681,7 +13043,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryInformationT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securityinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securitydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12705,7 +13067,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDesc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pserversilo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12725,7 +13087,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12745,7 +13107,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12767,7 +13129,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12785,7 +13147,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12805,7 +13167,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12831,7 +13193,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeReportSecurityEve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* accessstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* genericmapping = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12850,7 +13212,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGen
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securityinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12878,7 +13240,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* securityinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12908,7 +13270,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objecttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* childdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12930,7 +13292,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAcc
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* accessinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12954,7 +13316,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12972,7 +13334,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin_napi
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12990,7 +13352,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13008,7 +13370,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seTokenType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13026,7 +13388,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeTokenType_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13044,7 +13406,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13064,7 +13426,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupAccountName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secLookupAccountName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sidsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13092,7 +13454,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupAccountNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secLookupAccountSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13120,7 +13482,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t sidtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13144,7 +13506,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secMakeSPN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13176,7 +13538,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPN_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secMakeSPNEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13210,7 +13572,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13246,7 +13608,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SetContextAttributesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_setContextAttributesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulattribute = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13270,7 +13632,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SetContextAttribute
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13306,7 +13668,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -13322,7 +13684,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncCont
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13342,7 +13704,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13359,7 +13721,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContex
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13379,7 +13741,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiFreeCredentials
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13397,7 +13759,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13439,7 +13801,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiInitializeSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcredential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13481,7 +13843,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiInitializeSecur
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13499,7 +13861,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13521,7 +13883,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_VerifySignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_verifySignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13545,7 +13907,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_VerifySignature_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13583,7 +13945,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAud
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13631,7 +13993,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13679,7 +14041,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13729,7 +14091,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByType
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool resettodefault = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -13757,7 +14119,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool disableallprivileges = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -13785,7 +14147,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13813,7 +14175,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13843,7 +14205,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iorequesttocancel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13865,7 +14227,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13887,7 +14249,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13909,7 +14271,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwCreateEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13935,7 +14297,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateEvent_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13969,7 +14331,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDeleteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwDeleteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13987,7 +14349,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDeleteFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14009,7 +14371,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAudit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwDuplicateObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceprocesshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14039,7 +14401,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwDuplicateToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* existingtokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14067,7 +14429,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFilterToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFilterToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* existingtokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14095,7 +14457,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFilterToken_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14115,7 +14477,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14141,7 +14503,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14165,7 +14527,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14189,7 +14551,43 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwFsControlFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t fscontrolcode = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    void* inputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t inputbufferlength = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    void* outputbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+    uint32_t outputbufferlength = static_cast<uint32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwFsControlFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fscontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fscontrolcode;
+    (void)inputbuffer;
+    (void)inputbufferlength;
+    (void)outputbuffer;
+    (void)outputbufferlength;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14207,7 +14605,79 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonym
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwLockFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* byteoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t key = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool failimmediately = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    bool exclusivelock = km_info.Length() > 9 ? km_info[9].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, bool, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwLockFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, byteoffset, length, key, failimmediately, exclusivelock) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)byteoffset;
+    (void)length;
+    (void)key;
+    (void)failimmediately;
+    (void)exclusivelock;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t completionfilter = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    bool watchtree = km_info.Length() > 6 ? km_info[6].ToBoolean().Value() : false;
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    bool asynchronous = km_info.Length() > 9 ? km_info[9].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwNotifyChangeKey")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+#else
+    (void)keyhandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14229,7 +14699,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14269,7 +14739,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14291,7 +14761,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14315,7 +14785,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14339,7 +14809,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14365,7 +14835,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clienttoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requiredprivileges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14387,7 +14857,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* handleid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14415,7 +14885,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subsystemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14441,7 +14911,81 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwPrivilegedService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool returnsingleentry = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+    bool restartscan = km_info.Length() > 10 ? km_info[10].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, bool, void*, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryDirectoryFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry, filename, restartscan) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)returnsingleentry;
+    (void)filename;
+    (void)restartscan;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t length = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    uint32_t queryflags = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryDirectoryFileEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, queryflags, filename) : -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)queryflags;
+    (void)filename;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* directoryhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14471,7 +15015,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObj
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14505,7 +15049,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* objectattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* fileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14525,7 +15069,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttribut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tokeninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14551,7 +15095,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryInformationT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t objectinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14577,7 +15121,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryObject_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14611,7 +15155,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInforma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14637,7 +15181,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14665,7 +15209,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14691,7 +15235,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetEaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetEaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14715,7 +15259,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetEaFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* eventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* previousstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14735,7 +15279,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetEvent_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetInformationToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tokeninformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14759,7 +15303,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetInformationTok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t vminformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14787,7 +15331,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetInformationVir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14811,7 +15355,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinformation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14833,7 +15377,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14859,7 +15403,7 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwUnlockFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_storage_filesystem_zwUnlockFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14886,653 +15430,669 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_ZwUnlockFile_napi(c
 }
 
 static void register_windows_wdk_storage_filesystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ApplyControlToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ApplyControlToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCanIWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCanIWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCopyRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCopyReadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCopyReadEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCopyWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcDeferWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcDeferWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcFastCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcFastCopyRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcFlushCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcFlushCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcMapData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcMapData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcMdlRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcMdlRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcPinMappedData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcPinMappedData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcPinRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcPinRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcRemapBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcRemapBcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcRepinBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcRepinBcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetFileSizes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetFileSizes_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcUnpinData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcUnpinData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CcZeroData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CcZeroData_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_CompleteAuthToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_CompleteAuthToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ExportSecurityContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ExportSecurityContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoIsSystemThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoIsSystemThread_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoPageRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoPageRead_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoSetInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoSetInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoThreadToProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoThreadToProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_IoVerifyVolume", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_IoVerifyVolume_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeAttachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeAttachProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeDetachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeDetachProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeInitializeMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeInitializeMutant_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeInitializeQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeInitializeQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeInsertQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeInsertQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeReadStateMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeReadStateMutant_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeReadStateQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeReadStateQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeReleaseMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeReleaseMutant_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeRemoveQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeRemoveQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeRundownQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeRundownQueue_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MakeSignature", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MakeSignature_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MapSecurityError", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MapSecurityError_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmFlushImageSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmFlushImageSection_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmPrefetchPages", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmPrefetchPages_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCreateEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCreateEvent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCreateFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCreateFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCreateSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCreateSection_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtDeleteFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtDeleteFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtDuplicateObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtDuplicateObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtDuplicateToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtDuplicateToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtFilterToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetEvent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetInformationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_NtUnlockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_NtUnlockFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObInsertObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObInsertObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObQueryNameString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObQueryNameString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PfxFindPrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PfxFindPrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PfxInitialize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PfxInitialize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsImpersonateClient", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsImpersonateClient_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsIsSystemThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsIsSystemThread_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsRevertToSelf", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsRevertToSelf_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAddAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAddAce_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCompressChunks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCompressChunks_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCopyLuid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCopyLuid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCopySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCopySid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateAcl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateAcl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateHeap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDeleteAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDeleteAce_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlEqualSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlEqualSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlFreeHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlFreeHeap_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlFreeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlFreeSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetAce_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlInitializeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlInitializeSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlLengthSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlLengthSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlNormalizeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlNormalizeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlPrefixString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlPrefixString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlRandom", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlRandom_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlRandomEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlRandomEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlReserveChunk", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlReserveChunk_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlValidSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlValidSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeExamineSacl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeExamineSacl_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeFilterToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeFreePrivileges", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeFreePrivileges_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeImpersonateClient", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeImpersonateClient_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeTokenType", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeTokenType_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecLookupAccountName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecLookupAccountName_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecMakeSPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecMakeSPN_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SetContextAttributesW", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SetContextAttributesW_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_VerifySignature", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_VerifySignature_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwCreateEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwCreateEvent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwDeleteFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwDeleteFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwFilterToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetEaFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetEvent_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_ZwUnlockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ZwUnlockFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_applyControlToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_applyControlToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCanIWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCanIWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCopyRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCopyReadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCopyReadEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCopyWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccDeferWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccDeferWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccFastCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccFastCopyRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccFlushCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccFlushCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccMapData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccMapData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccMdlRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccMdlRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccPinMappedData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccPinMappedData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccPinRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccPinRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccRemapBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccRemapBcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccRepinBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccRepinBcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetFileSizes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetFileSizes_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccUnpinData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccUnpinData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ccZeroData", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ccZeroData_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_completeAuthToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_completeAuthToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_exportSecurityContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_exportSecurityContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioIsSystemThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioIsSystemThread_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioPageRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioPageRead_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioSetInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioSetInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioThreadToProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioThreadToProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ioVerifyVolume", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ioVerifyVolume_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keAttachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keAttachProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keDetachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keDetachProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keInitializeMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keInitializeMutant_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keInitializeQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keInitializeQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keInsertQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keInsertQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keReadStateMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keReadStateMutant_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keReadStateQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keReadStateQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keReleaseMutant", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keReleaseMutant_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keRemoveQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keRemoveQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keRundownQueue", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keRundownQueue_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keStackAttachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keStackAttachProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_makeSignature", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_makeSignature_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mapSecurityError", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mapSecurityError_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmFlushImageSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmFlushImageSection_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmPrefetchPages", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmPrefetchPages_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCreateEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCreateEvent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCreateFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCreateFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCreateSection", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCreateSection_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntDeleteFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntDeleteFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntDuplicateObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntDuplicateObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntDuplicateToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntDuplicateToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFilterToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntFsControlFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntFsControlFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntLockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntLockFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntReadFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntReadFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetEvent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetInformationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntUnlockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntUnlockFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_ntWriteFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_ntWriteFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obInsertObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obInsertObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obIsKernelHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obIsKernelHandle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obQueryNameString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obQueryNameString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_pfxFindPrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_pfxFindPrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_pfxInitialize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_pfxInitialize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psChargePoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psChargePoolQuota_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psDisableImpersonation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psDisableImpersonation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psGetThreadProcess", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psGetThreadProcess_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psImpersonateClient", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psImpersonateClient_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psIsSystemThread", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psIsSystemThread_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psRevertToSelf", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psRevertToSelf_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_querySecurityContextToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_querySecurityContextToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAddAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAddAce_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCompressChunks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCompressChunks_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCopyLuid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCopyLuid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCopySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCopySid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateAcl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateAcl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateHeap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDeleteAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDeleteAce_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlEqualSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlEqualSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlFreeHeap", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlFreeHeap_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlFreeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlFreeSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetAce", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetAce_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInitializeSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInitializeSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlLengthSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlLengthSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlNormalizeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlNormalizeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlPrefixString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlPrefixString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlRandom", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlRandom_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlRandomEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlRandomEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlReserveChunk", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlReserveChunk_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlValidSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlValidSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAppendPrivileges", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAppendPrivileges_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seExamineSacl", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seExamineSacl_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seFilterToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seFreePrivileges", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seFreePrivileges_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seImpersonateClient", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seImpersonateClient_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQueryInformationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seTokenType", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seTokenType_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secLookupAccountName", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secLookupAccountName_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secLookupAccountSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secLookupAccountSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secMakeSPN", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secMakeSPN_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secMakeSPNEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secMakeSPNEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_setContextAttributesW", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_setContextAttributesW_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_verifySignature", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_verifySignature_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwCreateEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwCreateEvent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwDeleteFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwDeleteFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwDuplicateObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwDuplicateObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwDuplicateToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwDuplicateToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFilterToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFilterToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwFsControlFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwFsControlFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwLockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwLockFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetEaFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetEaFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetEvent", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetEvent_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetInformationToken", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetInformationToken_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile_napi));
+    exports.Set("windowssys_windows_wdk_storage_filesystem_zwUnlockFile", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_zwUnlockFile_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_storage_filesystem_napi, nullptr };

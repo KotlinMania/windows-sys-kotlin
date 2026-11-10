@@ -1,18 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEBUFFER
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEMORE
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPFREEBUFFER
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatebuffer
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatemore
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpfreebuffer
 
-public expect fun CloseIMsgSession(lpmsgsess: LPMSGSESS)
+public expect fun closeIMsgSession(lpmsgsess: Lpmsgsess)
 
-public expect fun GetAttribIMsgOnIStg(lpobject: Long, lpproptagarray: Long, lpppropattrarray: Long): HRESULT
+public expect fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult
 
-public expect fun MapStorageSCode(stgscode: Int): Int
+public expect fun mapStorageSCode(stgscode: Int): Int
 
-public expect fun OpenIMsgOnIStg(lpmsgsess: LPMSGSESS, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, lpmapisup: Long, lpstg: Long, lpfmsgcallrelease: Long, ulcallerdata: UInt, ulflags: UInt, lppmsg: Long): Int
+public expect fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, lpmapisup: COpaquePointer?, lpstg: COpaquePointer?, lpfmsgcallrelease: COpaquePointer?, ulcallerdata: UInt, ulflags: UInt, lppmsg: COpaquePointer?): Int
 
-public expect fun OpenIMsgSession(lpmalloc: Long, ulflags: UInt, lppmsgsess: Long): Int
+public expect fun openIMsgSession(lpmalloc: COpaquePointer?, ulflags: UInt, lppmsgsess: COpaquePointer?): Int
 
-public expect fun SetAttribIMsgOnIStg(lpobject: Long, lpproptags: Long, lppropattrs: Long, lpppropproblems: Long): HRESULT
+public expect fun setAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptags: COpaquePointer?, lppropattrs: COpaquePointer?, lpppropproblems: COpaquePointer?): Hresult

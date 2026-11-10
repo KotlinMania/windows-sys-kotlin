@@ -1,73 +1,73 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.vhd
 
-public typealias APPLY_SNAPSHOT_VHDSET_FLAG = Int
+public typealias ApplySnapshotVhdsetFlag = Int
 
-public typealias APPLY_SNAPSHOT_VHDSET_VERSION = Int
+public typealias ApplySnapshotVhdsetVersion = Int
 
-public typealias ATTACH_VIRTUAL_DISK_FLAG = Int
+public typealias AttachVirtualDiskFlag = Int
 
-public typealias ATTACH_VIRTUAL_DISK_VERSION = Int
+public typealias AttachVirtualDiskVersion = Int
 
-public typealias COMPACT_VIRTUAL_DISK_FLAG = Int
+public typealias CompactVirtualDiskFlag = Int
 
-public typealias COMPACT_VIRTUAL_DISK_VERSION = Int
+public typealias CompactVirtualDiskVersion = Int
 
-public typealias CREATE_VIRTUAL_DISK_FLAG = Int
+public typealias CreateVirtualDiskFlag = Int
 
-public typealias CREATE_VIRTUAL_DISK_VERSION = Int
+public typealias CreateVirtualDiskVersion = Int
 
-public typealias DELETE_SNAPSHOT_VHDSET_FLAG = Int
+public typealias DeleteSnapshotVhdsetFlag = Int
 
-public typealias DELETE_SNAPSHOT_VHDSET_VERSION = Int
+public typealias DeleteSnapshotVhdsetVersion = Int
 
-public typealias DEPENDENT_DISK_FLAG = Int
+public typealias DependentDiskFlag = Int
 
-public typealias DETACH_VIRTUAL_DISK_FLAG = Int
+public typealias DetachVirtualDiskFlag = Int
 
-public typealias EXPAND_VIRTUAL_DISK_FLAG = Int
+public typealias ExpandVirtualDiskFlag = Int
 
-public typealias EXPAND_VIRTUAL_DISK_VERSION = Int
+public typealias ExpandVirtualDiskVersion = Int
 
-public typealias FORK_VIRTUAL_DISK_FLAG = Int
+public typealias ForkVirtualDiskFlag = Int
 
-public typealias FORK_VIRTUAL_DISK_VERSION = Int
+public typealias ForkVirtualDiskVersion = Int
 
-public typealias GET_STORAGE_DEPENDENCY_FLAG = Int
+public typealias GetStorageDependencyFlag = Int
 
-public typealias GET_VIRTUAL_DISK_INFO_VERSION = Int
+public typealias GetVirtualDiskInfoVersion = Int
 
-public typealias MERGE_VIRTUAL_DISK_FLAG = Int
+public typealias MergeVirtualDiskFlag = Int
 
-public typealias MERGE_VIRTUAL_DISK_VERSION = Int
+public typealias MergeVirtualDiskVersion = Int
 
-public typealias MIRROR_VIRTUAL_DISK_FLAG = Int
+public typealias MirrorVirtualDiskFlag = Int
 
-public typealias MIRROR_VIRTUAL_DISK_VERSION = Int
+public typealias MirrorVirtualDiskVersion = Int
 
-public typealias MODIFY_VHDSET_FLAG = Int
+public typealias ModifyVhdsetFlag = Int
 
-public typealias MODIFY_VHDSET_VERSION = Int
+public typealias ModifyVhdsetVersion = Int
 
-public typealias OPEN_VIRTUAL_DISK_FLAG = Int
+public typealias OpenVirtualDiskFlag = Int
 
-public typealias OPEN_VIRTUAL_DISK_VERSION = Int
+public typealias OpenVirtualDiskVersion = Int
 
-public typealias QUERY_CHANGES_VIRTUAL_DISK_FLAG = Int
+public typealias QueryChangesVirtualDiskFlag = Int
 
-public typealias RAW_SCSI_VIRTUAL_DISK_FLAG = Int
+public typealias RawScsiVirtualDiskFlag = Int
 
-public typealias RAW_SCSI_VIRTUAL_DISK_VERSION = Int
+public typealias RawScsiVirtualDiskVersion = Int
 
-public typealias RESIZE_VIRTUAL_DISK_FLAG = Int
+public typealias ResizeVirtualDiskFlag = Int
 
-public typealias RESIZE_VIRTUAL_DISK_VERSION = Int
+public typealias ResizeVirtualDiskVersion = Int
 
-public typealias SET_VIRTUAL_DISK_INFO_VERSION = Int
+public typealias SetVirtualDiskInfoVersion = Int
 
-public typealias STORAGE_DEPENDENCY_INFO_VERSION = Int
+public typealias StorageDependencyInfoVersion = Int
 
-public typealias TAKE_SNAPSHOT_VHDSET_FLAG = Int
+public typealias TakeSnapshotVhdsetFlag = Int
 
-public typealias TAKE_SNAPSHOT_VHDSET_VERSION = Int
+public typealias TakeSnapshotVhdsetVersion = Int
 
-public typealias VIRTUAL_DISK_ACCESS_MASK = Int
+public typealias VirtualDiskAccessMask = Int

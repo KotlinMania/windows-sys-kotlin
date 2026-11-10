@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_systeminformation_DnsHostnameToComputerNameExW(void* hostname, void* computername, void* nsize) {
+int32_t windowssys_windows_win32_system_systeminformation_dnsHostnameToComputerNameExW(void* hostname, void* computername, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_system_systeminformation_DnsHostnameToComputerN
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_EnumSystemFirmwareTables(uint32_t firmwaretableprovidersignature, void* pfirmwaretableenumbuffer, uint32_t buffersize) {
+uint32_t windowssys_windows_win32_system_systeminformation_enumSystemFirmwareTables(uint32_t firmwaretableprovidersignature, void* pfirmwaretableenumbuffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_EnumSystemFirmwareTab
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetComputerNameExA(int32_t nametype, void* lpbuffer, void* nsize) {
+int32_t windowssys_windows_win32_system_systeminformation_getComputerNameExA(int32_t nametype, void* lpbuffer, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetComputerNameExA(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetComputerNameExW(int32_t nametype, void* lpbuffer, void* nsize) {
+int32_t windowssys_windows_win32_system_systeminformation_getComputerNameExW(int32_t nametype, void* lpbuffer, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetComputerNameExW(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetDeveloperDriveEnablementState(void) {
+int32_t windowssys_windows_win32_system_systeminformation_getDeveloperDriveEnablementState(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetDeveloperDriveEnabl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetFirmwareType(void* firmwaretype) {
+int32_t windowssys_windows_win32_system_systeminformation_getFirmwareType(void* firmwaretype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetFirmwareType(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetIntegratedDisplaySize(void* sizeininches) {
+int32_t windowssys_windows_win32_system_systeminformation_getIntegratedDisplaySize(void* sizeininches) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetIntegratedDisplaySi
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetLocalTime(void* lpsystemtime) {
+void windowssys_windows_win32_system_systeminformation_getLocalTime(void* lpsystemtime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ void windowssys_windows_win32_system_systeminformation_GetLocalTime(void* lpsyst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetLogicalProcessorInformation(void* buffer, void* returnedlength) {
+int32_t windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformation(void* buffer, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetLogicalProcessorInf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetLogicalProcessorInformationEx(int32_t relationshiptype, void* buffer, void* returnedlength) {
+int32_t windowssys_windows_win32_system_systeminformation_getLogicalProcessorInformationEx(int32_t relationshiptype, void* buffer, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetLogicalProcessorInf
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetNativeSystemInfo(void* lpsysteminfo) {
+void windowssys_windows_win32_system_systeminformation_getNativeSystemInfo(void* lpsysteminfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ void windowssys_windows_win32_system_systeminformation_GetNativeSystemInfo(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetOsManufacturingMode(void* pbenabled) {
+int32_t windowssys_windows_win32_system_systeminformation_getOsManufacturingMode(void* pbenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetOsManufacturingMode
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetOsSafeBootMode(void* flags) {
+int32_t windowssys_windows_win32_system_systeminformation_getOsSafeBootMode(void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetOsSafeBootMode(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetPhysicallyInstalledSystemMemory(void* totalmemoryinkilobytes) {
+int32_t windowssys_windows_win32_system_systeminformation_getPhysicallyInstalledSystemMemory(void* totalmemoryinkilobytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetPhysicallyInstalled
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetProcessorSystemCycleTime(uint16_t group, void* buffer, void* returnedlength) {
+int32_t windowssys_windows_win32_system_systeminformation_getProcessorSystemCycleTime(uint16_t group, void* buffer, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -355,7 +355,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetProcessorSystemCycl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetProductInfo(uint32_t dwosmajorversion, uint32_t dwosminorversion, uint32_t dwspmajorversion, uint32_t dwspminorversion, void* pdwreturnedproducttype) {
+int32_t windowssys_windows_win32_system_systeminformation_getProductInfo(uint32_t dwosmajorversion, uint32_t dwosminorversion, uint32_t dwspmajorversion, uint32_t dwspminorversion, void* pdwreturnedproducttype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -381,7 +381,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetProductInfo(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetSystemCpuSetInformation(void* information, uint32_t bufferlength, void* returnedlength, void* process, uint32_t flags) {
+int32_t windowssys_windows_win32_system_systeminformation_getSystemCpuSetInformation(void* information, uint32_t bufferlength, void* returnedlength, void* process, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetSystemCpuSetInforma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetSystemDEPPolicy(void) {
+int32_t windowssys_windows_win32_system_systeminformation_getSystemDEPPolicy(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetSystemDEPPolicy(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemDirectoryA(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemDirectoryA(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -451,7 +451,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemDirectoryA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemDirectoryW(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemDirectoryW(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -474,7 +474,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemDirectoryW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemFirmwareTable(uint32_t firmwaretableprovidersignature, uint32_t firmwaretableid, void* pfirmwaretablebuffer, uint32_t buffersize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemFirmwareTable(uint32_t firmwaretableprovidersignature, uint32_t firmwaretableid, void* pfirmwaretablebuffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemFirmwareTabl
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetSystemInfo(void* lpsysteminfo) {
+void windowssys_windows_win32_system_systeminformation_getSystemInfo(void* lpsysteminfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -520,7 +520,7 @@ void windowssys_windows_win32_system_systeminformation_GetSystemInfo(void* lpsys
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetSystemLeapSecondInformation(void* enabled, void* flags) {
+int32_t windowssys_windows_win32_system_systeminformation_getSystemLeapSecondInformation(void* enabled, void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetSystemLeapSecondInf
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetSystemTime(void* lpsystemtime) {
+void windowssys_windows_win32_system_systeminformation_getSystemTime(void* lpsystemtime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ void windowssys_windows_win32_system_systeminformation_GetSystemTime(void* lpsys
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetSystemTimeAdjustment(void* lptimeadjustment, void* lptimeincrement, void* lptimeadjustmentdisabled) {
+int32_t windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustment(void* lptimeadjustment, void* lptimeincrement, void* lptimeadjustmentdisabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetSystemTimeAdjustmen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetSystemTimeAdjustmentPrecise(void* lptimeadjustment, void* lptimeincrement, void* lptimeadjustmentdisabled) {
+int32_t windowssys_windows_win32_system_systeminformation_getSystemTimeAdjustmentPrecise(void* lptimeadjustment, void* lptimeincrement, void* lptimeadjustmentdisabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -612,7 +612,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetSystemTimeAdjustmen
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetSystemTimeAsFileTime(void* lpsystemtimeasfiletime) {
+void windowssys_windows_win32_system_systeminformation_getSystemTimeAsFileTime(void* lpsystemtimeasfiletime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ void windowssys_windows_win32_system_systeminformation_GetSystemTimeAsFileTime(v
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GetSystemTimePreciseAsFileTime(void* lpsystemtimeasfiletime) {
+void windowssys_windows_win32_system_systeminformation_getSystemTimePreciseAsFileTime(void* lpsystemtimeasfiletime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -654,7 +654,7 @@ void windowssys_windows_win32_system_systeminformation_GetSystemTimePreciseAsFil
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWindowsDirectoryA(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryA(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWindowsDirec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWindowsDirectoryW(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWindowsDirectoryW(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWindowsDirec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directory2A(void* lpbuffer, uint32_t usize, uint16_t imagefilemachinetype) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2A(void* lpbuffer, uint32_t usize, uint16_t imagefilemachinetype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directory2W(void* lpbuffer, uint32_t usize, uint16_t imagefilemachinetype) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWow64Directory2W(void* lpbuffer, uint32_t usize, uint16_t imagefilemachinetype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64DirectoryA(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryA(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -771,7 +771,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64DirectoryW(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getSystemWow64DirectoryW(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -794,7 +794,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetSystemWow64Directo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetTickCount(void) {
+uint32_t windowssys_windows_win32_system_systeminformation_getTickCount(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -815,7 +815,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetTickCount(void) {
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_systeminformation_GetTickCount64(void) {
+uint64_t windowssys_windows_win32_system_systeminformation_getTickCount64(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -836,7 +836,7 @@ uint64_t windowssys_windows_win32_system_systeminformation_GetTickCount64(void) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetVersion(void) {
+uint32_t windowssys_windows_win32_system_systeminformation_getVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -857,7 +857,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetVersion(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetVersionExA(void* lpversioninformation) {
+int32_t windowssys_windows_win32_system_systeminformation_getVersionExA(void* lpversioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -879,7 +879,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetVersionExA(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GetVersionExW(void* lpversioninformation) {
+int32_t windowssys_windows_win32_system_systeminformation_getVersionExW(void* lpversioninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -901,7 +901,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GetVersionExW(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetWindowsDirectoryA(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getWindowsDirectoryA(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -924,7 +924,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetWindowsDirectoryA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_GetWindowsDirectoryW(void* lpbuffer, uint32_t usize) {
+uint32_t windowssys_windows_win32_system_systeminformation_getWindowsDirectoryW(void* lpbuffer, uint32_t usize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -947,7 +947,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_GetWindowsDirectoryW(
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_GlobalMemoryStatus(void* lpbuffer) {
+void windowssys_windows_win32_system_systeminformation_globalMemoryStatus(void* lpbuffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -968,7 +968,7 @@ void windowssys_windows_win32_system_systeminformation_GlobalMemoryStatus(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_GlobalMemoryStatusEx(void* lpbuffer) {
+int32_t windowssys_windows_win32_system_systeminformation_globalMemoryStatusEx(void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -990,7 +990,7 @@ int32_t windowssys_windows_win32_system_systeminformation_GlobalMemoryStatusEx(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_IsUserCetAvailableInEnvironment(uint32_t usercetenvironment) {
+int32_t windowssys_windows_win32_system_systeminformation_isUserCetAvailableInEnvironment(uint32_t usercetenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1012,7 +1012,7 @@ int32_t windowssys_windows_win32_system_systeminformation_IsUserCetAvailableInEn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_IsWow64GuestMachineSupported(uint16_t wowguestmachine, void* machineissupported) {
+int32_t windowssys_windows_win32_system_systeminformation_isWow64GuestMachineSupported(uint16_t wowguestmachine, void* machineissupported) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1035,7 +1035,7 @@ int32_t windowssys_windows_win32_system_systeminformation_IsWow64GuestMachineSup
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_RtlConvertDeviceFamilyInfoToString(void* puldevicefamilybuffersize, void* puldeviceformbuffersize, void* devicefamily, void* deviceform) {
+uint32_t windowssys_windows_win32_system_systeminformation_rtlConvertDeviceFamilyInfoToString(void* puldevicefamilybuffersize, void* puldeviceformbuffersize, void* devicefamily, void* deviceform) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1060,7 +1060,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_RtlConvertDeviceFamil
 #endif
 }
 
-void windowssys_windows_win32_system_systeminformation_RtlGetDeviceFamilyInfoEnum(void* pulluapinfo, void* puldevicefamily, void* puldeviceform) {
+void windowssys_windows_win32_system_systeminformation_rtlGetDeviceFamilyInfoEnum(void* pulluapinfo, void* puldevicefamily, void* puldeviceform) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ void windowssys_windows_win32_system_systeminformation_RtlGetDeviceFamilyInfoEnu
 #endif
 }
 
-bool windowssys_windows_win32_system_systeminformation_RtlGetProductInfo(uint32_t osmajorversion, uint32_t osminorversion, uint32_t spmajorversion, uint32_t spminorversion, void* returnedproducttype) {
+bool windowssys_windows_win32_system_systeminformation_rtlGetProductInfo(uint32_t osmajorversion, uint32_t osminorversion, uint32_t spmajorversion, uint32_t spminorversion, void* returnedproducttype) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ bool windowssys_windows_win32_system_systeminformation_RtlGetProductInfo(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_RtlGetSystemGlobalData(int32_t dataid, void* buffer, uint32_t size) {
+uint32_t windowssys_windows_win32_system_systeminformation_rtlGetSystemGlobalData(int32_t dataid, void* buffer, uint32_t size) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1133,7 +1133,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_RtlGetSystemGlobalDat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_RtlOsDeploymentState(uint32_t flags) {
+int32_t windowssys_windows_win32_system_systeminformation_rtlOsDeploymentState(uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1155,7 +1155,7 @@ int32_t windowssys_windows_win32_system_systeminformation_RtlOsDeploymentState(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_systeminformation_RtlSwitchedVVI(void* versioninfo, uint32_t typemask, uint64_t conditionmask) {
+uint32_t windowssys_windows_win32_system_systeminformation_rtlSwitchedVVI(void* versioninfo, uint32_t typemask, uint64_t conditionmask) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1179,7 +1179,7 @@ uint32_t windowssys_windows_win32_system_systeminformation_RtlSwitchedVVI(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameA(void* lpcomputername) {
+int32_t windowssys_windows_win32_system_systeminformation_setComputerNameA(void* lpcomputername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1201,7 +1201,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameEx2W(int32_t nametype, uint32_t flags, void* lpbuffer) {
+int32_t windowssys_windows_win32_system_systeminformation_setComputerNameEx2W(int32_t nametype, uint32_t flags, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1225,7 +1225,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameEx2W(in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameExA(int32_t nametype, void* lpbuffer) {
+int32_t windowssys_windows_win32_system_systeminformation_setComputerNameExA(int32_t nametype, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1248,7 +1248,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameExA(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameExW(int32_t nametype, void* lpbuffer) {
+int32_t windowssys_windows_win32_system_systeminformation_setComputerNameExW(int32_t nametype, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameExW(int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameW(void* lpcomputername) {
+int32_t windowssys_windows_win32_system_systeminformation_setComputerNameW(void* lpcomputername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1293,7 +1293,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetComputerNameW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetLocalTime(void* lpsystemtime) {
+int32_t windowssys_windows_win32_system_systeminformation_setLocalTime(void* lpsystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1315,7 +1315,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetLocalTime(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetSystemTime(void* lpsystemtime) {
+int32_t windowssys_windows_win32_system_systeminformation_setSystemTime(void* lpsystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1337,7 +1337,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetSystemTime(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetSystemTimeAdjustment(uint32_t dwtimeadjustment, int32_t btimeadjustmentdisabled) {
+int32_t windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustment(uint32_t dwtimeadjustment, int32_t btimeadjustmentdisabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1360,7 +1360,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetSystemTimeAdjustmen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_SetSystemTimeAdjustmentPrecise(uint64_t dwtimeadjustment, int32_t btimeadjustmentdisabled) {
+int32_t windowssys_windows_win32_system_systeminformation_setSystemTimeAdjustmentPrecise(uint64_t dwtimeadjustment, int32_t btimeadjustmentdisabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1383,7 +1383,7 @@ int32_t windowssys_windows_win32_system_systeminformation_SetSystemTimeAdjustmen
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_systeminformation_VerSetConditionMask(uint64_t conditionmask, uint32_t typemask, uint8_t condition) {
+uint64_t windowssys_windows_win32_system_systeminformation_verSetConditionMask(uint64_t conditionmask, uint32_t typemask, uint8_t condition) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1407,7 +1407,7 @@ uint64_t windowssys_windows_win32_system_systeminformation_VerSetConditionMask(u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_VerifyVersionInfoA(void* lpversioninformation, uint32_t dwtypemask, uint64_t dwlconditionmask) {
+int32_t windowssys_windows_win32_system_systeminformation_verifyVersionInfoA(void* lpversioninformation, uint32_t dwtypemask, uint64_t dwlconditionmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1431,7 +1431,7 @@ int32_t windowssys_windows_win32_system_systeminformation_VerifyVersionInfoA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_systeminformation_VerifyVersionInfoW(void* lpversioninformation, uint32_t dwtypemask, uint64_t dwlconditionmask) {
+int32_t windowssys_windows_win32_system_systeminformation_verifyVersionInfoW(void* lpversioninformation, uint32_t dwtypemask, uint64_t dwlconditionmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

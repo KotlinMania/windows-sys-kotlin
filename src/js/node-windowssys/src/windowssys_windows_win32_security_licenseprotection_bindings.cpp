@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* licensekey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t validityindays = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_security_licenseprotection_RegisterL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* licensekey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* notvalidbefore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -98,8 +98,8 @@ static Napi::Value windowssys_windows_win32_security_licenseprotection_ValidateL
 }
 
 static void register_windows_win32_security_licenseprotection_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration", Napi::Function::New(env, windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration_napi));
-    exports.Set("windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection", Napi::Function::New(env, windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection_napi));
+    exports.Set("windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration", Napi::Function::New(env, windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration_napi));
+    exports.Set("windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection", Napi::Function::New(env, windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_licenseprotection_napi, nullptr };

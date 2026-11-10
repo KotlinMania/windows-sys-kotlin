@@ -1,44 +1,45 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
-public data class CONNECTDLGSTRUCTA(
+public data class Connectdlgstructa(
     public var cbStructure: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var lpConnRes: Long = 0L,
-    public var dwFlags: CONNECTDLGSTRUCT_FLAGS = 0u,
+    public var hwndOwner: Hwnd = null,
+    public var lpConnRes: Netresourcea? = null,
+    public var dwFlags: ConnectdlgstructFlags = 0u,
     public var dwDevNum: UInt = 0u,
 )
 
-public data class CONNECTDLGSTRUCTW(
+public data class Connectdlgstructw(
     public var cbStructure: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var lpConnRes: Long = 0L,
-    public var dwFlags: CONNECTDLGSTRUCT_FLAGS = 0u,
+    public var hwndOwner: Hwnd = null,
+    public var lpConnRes: Netresourcew? = null,
+    public var dwFlags: ConnectdlgstructFlags = 0u,
     public var dwDevNum: UInt = 0u,
 )
 
-public data class DISCDLGSTRUCTA(
+public data class Discdlgstructa(
     public var cbStructure: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var lpLocalName: PSTR = 0L,
-    public var lpRemoteName: PSTR = 0L,
-    public var dwFlags: DISCDLGSTRUCT_FLAGS = 0u,
+    public var hwndOwner: Hwnd = null,
+    public var lpLocalName: Pstr = null,
+    public var lpRemoteName: Pstr = null,
+    public var dwFlags: DiscdlgstructFlags = 0u,
 )
 
-public data class DISCDLGSTRUCTW(
+public data class Discdlgstructw(
     public var cbStructure: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var lpLocalName: PWSTR = 0L,
-    public var lpRemoteName: PWSTR = 0L,
-    public var dwFlags: DISCDLGSTRUCT_FLAGS = 0u,
+    public var hwndOwner: Hwnd = null,
+    public var lpLocalName: Pwstr = null,
+    public var lpRemoteName: Pwstr = null,
+    public var dwFlags: DiscdlgstructFlags = 0u,
 )
 
-public data class NETCONNECTINFOSTRUCT(
+public data class Netconnectinfostruct(
     public var cbStructure: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwSpeed: UInt = 0u,
@@ -46,70 +47,70 @@ public data class NETCONNECTINFOSTRUCT(
     public var dwOptDataSize: UInt = 0u,
 )
 
-public data class NETINFOSTRUCT(
+public data class Netinfostruct(
     public var cbStructure: UInt = 0u,
     public var dwProviderVersion: UInt = 0u,
-    public var dwStatus: WIN32_ERROR = 0u,
-    public var dwCharacteristics: NETINFOSTRUCT_CHARACTERISTICS = 0u,
-    public var dwHandle: ULong = 0uL,
+    public var dwStatus: Win32Error = 0u,
+    public var dwCharacteristics: NetinfostructCharacteristics = 0u,
+    public var dwHandle: Int = 0,
     public var wNetType: UShort = 0u,
     public var dwPrinters: UInt = 0u,
     public var dwDrives: UInt = 0u,
 )
 
-public data class NETRESOURCEA(
-    public var dwScope: NET_RESOURCE_SCOPE = 0u,
-    public var dwType: NET_RESOURCE_TYPE = 0u,
+public data class Netresourcea(
+    public var dwScope: NetResourceScope = 0u,
+    public var dwType: NetResourceType = 0u,
     public var dwDisplayType: UInt = 0u,
     public var dwUsage: UInt = 0u,
-    public var lpLocalName: PSTR = 0L,
-    public var lpRemoteName: PSTR = 0L,
-    public var lpComment: PSTR = 0L,
-    public var lpProvider: PSTR = 0L,
+    public var lpLocalName: Pstr = null,
+    public var lpRemoteName: Pstr = null,
+    public var lpComment: Pstr = null,
+    public var lpProvider: Pstr = null,
 )
 
-public data class NETRESOURCEW(
-    public var dwScope: NET_RESOURCE_SCOPE = 0u,
-    public var dwType: NET_RESOURCE_TYPE = 0u,
+public data class Netresourcew(
+    public var dwScope: NetResourceScope = 0u,
+    public var dwType: NetResourceType = 0u,
     public var dwDisplayType: UInt = 0u,
     public var dwUsage: UInt = 0u,
-    public var lpLocalName: PWSTR = 0L,
-    public var lpRemoteName: PWSTR = 0L,
-    public var lpComment: PWSTR = 0L,
-    public var lpProvider: PWSTR = 0L,
+    public var lpLocalName: Pwstr = null,
+    public var lpRemoteName: Pwstr = null,
+    public var lpComment: Pwstr = null,
+    public var lpProvider: Pwstr = null,
 )
 
-public data class NOTIFYADD(
-    public var hwndOwner: HWND = 0L,
-    public var NetResource: NETRESOURCEA = NETRESOURCEA(),
-    public var dwAddFlags: NET_CONNECT_FLAGS = 0u,
+public data class Notifyadd(
+    public var hwndOwner: Hwnd = null,
+    public var netResource: Netresourcea = Netresourcea(),
+    public var dwAddFlags: NetConnectFlags = 0u,
 )
 
-public data class NOTIFYCANCEL(
-    public var lpName: PWSTR = 0L,
-    public var lpProvider: PWSTR = 0L,
+public data class Notifycancel(
+    public var lpName: Pwstr = null,
+    public var lpProvider: Pwstr = null,
     public var dwFlags: UInt = 0u,
-    public var fForce: BOOL = 0,
+    public var fForce: Bool = 0,
 )
 
-public data class NOTIFYINFO(
+public data class Notifyinfo(
     public var dwNotifyStatus: UInt = 0u,
     public var dwOperationStatus: UInt = 0u,
-    public var lpContext: Long = 0L,
+    public var lpContext: COpaquePointer? = null,
 )
 
-public data class REMOTE_NAME_INFOA(
-    public var lpUniversalName: PSTR = 0L,
-    public var lpConnectionName: PSTR = 0L,
-    public var lpRemainingPath: PSTR = 0L,
+public data class RemoteNameInfoa(
+    public var lpUniversalName: Pstr = null,
+    public var lpConnectionName: Pstr = null,
+    public var lpRemainingPath: Pstr = null,
 )
 
-public data class REMOTE_NAME_INFOW(
-    public var lpUniversalName: PWSTR = 0L,
-    public var lpConnectionName: PWSTR = 0L,
-    public var lpRemainingPath: PWSTR = 0L,
+public data class RemoteNameInfow(
+    public var lpUniversalName: Pwstr = null,
+    public var lpConnectionName: Pwstr = null,
+    public var lpRemainingPath: Pwstr = null,
 )
 
-public data class UNIVERSAL_NAME_INFOA(public var lpUniversalName: PSTR = 0L)
+public data class UniversalNameInfoa(public var lpUniversalName: Pstr = null)
 
-public data class UNIVERSAL_NAME_INFOW(public var lpUniversalName: PWSTR = 0L)
+public data class UniversalNameInfow(public var lpUniversalName: Pwstr = null)

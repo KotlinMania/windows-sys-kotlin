@@ -2,25 +2,26 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.memory
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun NtMapViewOfSection(sectionhandle: HANDLE, processhandle: HANDLE, baseaddress: Long, zerobits: ULong, commitsize: ULong, sectionoffset: Long, viewsize: Long, inheritdisposition: SECTION_INHERIT, allocationtype: UInt, win32protect: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_NtMapViewOfSection(sectionhandle.toCPointer<ByteVar>(), processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), zerobits, commitsize, sectionoffset.toCPointer<ByteVar>(), viewsize.toCPointer<ByteVar>(), inheritdisposition, allocationtype, win32protect)
+public actual fun ntMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, commitsize: ULong, sectionoffset: COpaquePointer?, viewsize: COpaquePointer?, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ntMapViewOfSection(sectionhandle?.value?.toCPointer<ByteVar>(), processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), zerobits, commitsize, sectionoffset?.value?.toCPointer<ByteVar>(), viewsize?.value?.toCPointer<ByteVar>(), inheritdisposition, allocationtype, win32protect)
 
-public actual fun NtOpenSection(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_NtOpenSection(sectionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun ntOpenSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ntOpenSection(sectionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun NtUnmapViewOfSection(processhandle: HANDLE, baseaddress: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_NtUnmapViewOfSection(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>())
+public actual fun ntUnmapViewOfSection(processhandle: Handle, baseaddress: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ntUnmapViewOfSection(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwMapViewOfSection(sectionhandle: HANDLE, processhandle: HANDLE, baseaddress: Long, zerobits: ULong, commitsize: ULong, sectionoffset: Long, viewsize: Long, inheritdisposition: SECTION_INHERIT, allocationtype: UInt, win32protect: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ZwMapViewOfSection(sectionhandle.toCPointer<ByteVar>(), processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), zerobits, commitsize, sectionoffset.toCPointer<ByteVar>(), viewsize.toCPointer<ByteVar>(), inheritdisposition, allocationtype, win32protect)
+public actual fun zwMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, commitsize: ULong, sectionoffset: COpaquePointer?, viewsize: COpaquePointer?, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_zwMapViewOfSection(sectionhandle?.value?.toCPointer<ByteVar>(), processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), zerobits, commitsize, sectionoffset?.value?.toCPointer<ByteVar>(), viewsize?.value?.toCPointer<ByteVar>(), inheritdisposition, allocationtype, win32protect)
 
-public actual fun ZwOpenSection(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ZwOpenSection(sectionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun zwOpenSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_zwOpenSection(sectionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwUnmapViewOfSection(processhandle: HANDLE, baseaddress: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_ZwUnmapViewOfSection(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>())
+public actual fun zwUnmapViewOfSection(processhandle: Handle, baseaddress: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.memory.cinterop.windowssys_windows_wdk_system_memory_zwUnmapViewOfSection(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>())

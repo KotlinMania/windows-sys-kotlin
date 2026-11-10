@@ -1,65 +1,65 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class NET_INTERFACE_CONTEXT(public var InterfaceIndex: UInt = 0u, public var ConfigurationName: PWSTR = 0L)
+public data class NetInterfaceContext(public var interfaceIndex: UInt = 0u, public var configurationName: Pwstr = null)
 
-public data class NET_INTERFACE_CONTEXT_TABLE(
-    public var InterfaceContextHandle: HANDLE = 0L,
-    public var NumberOfEntries: UInt = 0u,
-    public var InterfaceContextArray: Long = 0L,
+public data class NetInterfaceContextTable(
+    public var interfaceContextHandle: Handle = null,
+    public var numberOfEntries: UInt = 0u,
+    public var interfaceContextArray: NetInterfaceContext? = null,
 )
 
-public data class WCM_BILLING_CYCLE_INFO(
-    public var StartDate: FILETIME = FILETIME(),
-    public var Duration: WCM_TIME_INTERVAL = WCM_TIME_INTERVAL(),
-    public var Reset: BOOL = 0,
+public data class WcmBillingCycleInfo(
+    public var startDate: Filetime = Filetime(),
+    public var duration: WcmTimeInterval = WcmTimeInterval(),
+    public var reset: Bool = 0,
 )
 
-public data class WCM_CONNECTION_COST_DATA(public var ConnectionCost: UInt = 0u, public var CostSource: WCM_CONNECTION_COST_SOURCE = 0)
+public data class WcmConnectionCostData(public var connectionCost: UInt = 0u, public var costSource: WcmConnectionCostSource = 0)
 
-public data class WCM_DATAPLAN_STATUS(
-    public var UsageData: WCM_USAGE_DATA = WCM_USAGE_DATA(),
-    public var DataLimitInMegabytes: UInt = 0u,
-    public var InboundBandwidthInKbps: UInt = 0u,
-    public var OutboundBandwidthInKbps: UInt = 0u,
-    public var BillingCycle: WCM_BILLING_CYCLE_INFO = WCM_BILLING_CYCLE_INFO(),
-    public var MaxTransferSizeInMegabytes: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class WcmDataplanStatus(
+    public var usageData: WcmUsageData = WcmUsageData(),
+    public var dataLimitInMegabytes: UInt = 0u,
+    public var inboundBandwidthInKbps: UInt = 0u,
+    public var outboundBandwidthInKbps: UInt = 0u,
+    public var billingCycle: WcmBillingCycleInfo = WcmBillingCycleInfo(),
+    public var maxTransferSizeInMegabytes: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class WCM_POLICY_VALUE(public var fValue: BOOL = 0, public var fIsGroupPolicy: BOOL = 0)
+public data class WcmPolicyValue(public var fValue: Bool = 0, public var fIsGroupPolicy: Bool = 0)
 
-public data class WCM_PROFILE_INFO(
+public data class WcmProfileInfo(
     public var strProfileName: UShortArray = UShortArray(256),
-    public var AdapterGUID: GUID = GUID(),
-    public var Media: WCM_MEDIA_TYPE = 0,
+    public var adapterGUID: Guid = Guid(),
+    public var media: WcmMediaType = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WCM_PROFILE_INFO) return false
+        if (other !is WcmProfileInfo) return false
         if (!this.strProfileName.contentEquals(other.strProfileName)) return false
-        if (this.AdapterGUID != other.AdapterGUID) return false
-        if (this.Media != other.Media) return false
+        if (this.adapterGUID != other.adapterGUID) return false
+        if (this.media != other.media) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.strProfileName.contentHashCode()
-        result = 31 * result + this.AdapterGUID.hashCode()
-        result = 31 * result + this.Media.hashCode()
+        result = 31 * result + this.adapterGUID.hashCode()
+        result = 31 * result + this.media.hashCode()
         return result
     }
 }
 
-public data class WCM_PROFILE_INFO_LIST(public var dwNumberOfItems: UInt = 0u, public var ProfileInfo: List<WCM_PROFILE_INFO> = List(1) { WCM_PROFILE_INFO() })
+public data class WcmProfileInfoList(public var dwNumberOfItems: UInt = 0u, public var profileInfo: List<WcmProfileInfo> = List(1) { WcmProfileInfo() })
 
-public data class WCM_TIME_INTERVAL(
+public data class WcmTimeInterval(
     public var wYear: UShort = 0u,
     public var wMonth: UShort = 0u,
     public var wDay: UShort = 0u,
@@ -69,4 +69,4 @@ public data class WCM_TIME_INTERVAL(
     public var wMilliseconds: UShort = 0u,
 )
 
-public data class WCM_USAGE_DATA(public var UsageInMegabytes: UInt = 0u, public var LastSyncTime: FILETIME = FILETIME())
+public data class WcmUsageData(public var usageInMegabytes: UInt = 0u, public var lastSyncTime: Filetime = Filetime())

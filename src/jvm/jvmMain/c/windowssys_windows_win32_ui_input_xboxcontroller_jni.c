@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputEnable(JNIEnv* km_env, jclass km_clazz, jint enable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputEnable(JNIEnv* km_env, jclass km_clazz, jint enable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputGetAudioDeviceIds(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong prenderdeviceid, jlong prendercount, jlong pcapturedeviceid, jlong pcapturecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputGetAudioDeviceIds(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong prenderdeviceid, jlong prendercount, jlong pcapturedeviceid, jlong pcapturecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputGetBatteryInformation(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jbyte devtype, jlong pbatteryinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputGetBatteryInformation(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jbyte devtype, jlong pbatteryinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputGetCapabilities(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jint dwflags, jlong pcapabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputGetCapabilities(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jint dwflags, jlong pcapabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputGetKeystroke(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jint dwreserved, jlong pkeystroke) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputGetKeystroke(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jint dwreserved, jlong pkeystroke) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputGetState(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong pstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputGetState(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong pstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -135,7 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1XInputSetState(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong pvibration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_xboxcontroller_WindowsWin32UiInputXboxcontrollerJniBridge_windowssys_1windows_1win32_1ui_1input_1xboxcontroller_1xInputSetState(JNIEnv* km_env, jclass km_clazz, jint dwuserindex, jlong pvibration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

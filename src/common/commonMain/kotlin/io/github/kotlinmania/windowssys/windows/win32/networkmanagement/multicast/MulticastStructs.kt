@@ -1,54 +1,55 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multicast
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
-public data class IPNG_ADDRESS(public var IpAddrV4: UInt = 0u, public var IpAddrV6: UByteArray = UByteArray(16)) {
+public data class IpngAddress(public var ipAddrV4: UInt = 0u, public var ipAddrV6: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPNG_ADDRESS) return false
-        if (this.IpAddrV4 != other.IpAddrV4) return false
-        if (!this.IpAddrV6.contentEquals(other.IpAddrV6)) return false
+        if (other !is IpngAddress) return false
+        if (this.ipAddrV4 != other.ipAddrV4) return false
+        if (!this.ipAddrV6.contentEquals(other.ipAddrV6)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.IpAddrV4.hashCode()
-        result = 31 * result + this.IpAddrV6.contentHashCode()
+        var result = this.ipAddrV4.hashCode()
+        result = 31 * result + this.ipAddrV6.contentHashCode()
         return result
     }
 }
 
-public data class MCAST_CLIENT_UID(public var ClientUID: Long = 0L, public var ClientUIDLength: UInt = 0u)
+public data class McastClientUid(public var clientUID: COpaquePointer? = null, public var clientUIDLength: UInt = 0u)
 
-public data class MCAST_LEASE_REQUEST(
-    public var LeaseStartTime: Int = 0,
-    public var MaxLeaseStartTime: Int = 0,
-    public var LeaseDuration: UInt = 0u,
-    public var MinLeaseDuration: UInt = 0u,
-    public var ServerAddress: IPNG_ADDRESS = IPNG_ADDRESS(),
-    public var MinAddrCount: UShort = 0u,
-    public var AddrCount: UShort = 0u,
-    public var pAddrBuf: Long = 0L,
+public data class McastLeaseRequest(
+    public var leaseStartTime: Int = 0,
+    public var maxLeaseStartTime: Int = 0,
+    public var leaseDuration: UInt = 0u,
+    public var minLeaseDuration: UInt = 0u,
+    public var serverAddress: IpngAddress = IpngAddress(),
+    public var minAddrCount: UShort = 0u,
+    public var addrCount: UShort = 0u,
+    public var pAddrBuf: COpaquePointer? = null,
 )
 
-public data class MCAST_LEASE_RESPONSE(
-    public var LeaseStartTime: Int = 0,
-    public var LeaseEndTime: Int = 0,
-    public var ServerAddress: IPNG_ADDRESS = IPNG_ADDRESS(),
-    public var AddrCount: UShort = 0u,
-    public var pAddrBuf: Long = 0L,
+public data class McastLeaseResponse(
+    public var leaseStartTime: Int = 0,
+    public var leaseEndTime: Int = 0,
+    public var serverAddress: IpngAddress = IpngAddress(),
+    public var addrCount: UShort = 0u,
+    public var pAddrBuf: COpaquePointer? = null,
 )
 
-public data class MCAST_SCOPE_CTX(
-    public var ScopeID: IPNG_ADDRESS = IPNG_ADDRESS(),
-    public var Interface: IPNG_ADDRESS = IPNG_ADDRESS(),
-    public var ServerID: IPNG_ADDRESS = IPNG_ADDRESS(),
+public data class McastScopeCtx(
+    public var scopeID: IpngAddress = IpngAddress(),
+    public var iface: IpngAddress = IpngAddress(),
+    public var serverID: IpngAddress = IpngAddress(),
 )
 
-public data class MCAST_SCOPE_ENTRY(
-    public var ScopeCtx: MCAST_SCOPE_CTX = MCAST_SCOPE_CTX(),
-    public var LastAddr: IPNG_ADDRESS = IPNG_ADDRESS(),
-    public var TTL: UInt = 0u,
-    public var ScopeDesc: UNICODE_STRING = UNICODE_STRING(),
+public data class McastScopeEntry(
+    public var scopeCtx: McastScopeCtx = McastScopeCtx(),
+    public var lastAddr: IpngAddress = IpngAddress(),
+    public var ttl: UInt = 0u,
+    public var scopeDesc: UnicodeString = UnicodeString(),
 )

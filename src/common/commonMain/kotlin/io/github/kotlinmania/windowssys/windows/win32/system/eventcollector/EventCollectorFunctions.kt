@@ -1,35 +1,36 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.eventcollector
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public expect fun EcClose(obj: Long): BOOL
+public expect fun ecClose(obj: Long): Bool
 
-public expect fun EcDeleteSubscription(subscriptionname: PCWSTR, flags: UInt): BOOL
+public expect fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool
 
-public expect fun EcEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: PWSTR, subscriptionnamebufferused: Long): BOOL
+public expect fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: COpaquePointer?): Bool
 
-public expect fun EcGetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EcGetObjectArraySize(objectarray: Long, objectarraysize: Long): BOOL
+public expect fun ecGetObjectArraySize(objectarray: Long, objectarraysize: COpaquePointer?): Bool
 
-public expect fun EcGetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EcGetSubscriptionRunTimeStatus(subscriptionname: PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: PCWSTR, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: Long, statusvaluebufferused: Long): BOOL
+public expect fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: COpaquePointer?, statusvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EcInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL
+public expect fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool
 
-public expect fun EcOpenSubscription(subscriptionname: PCWSTR, accessmask: UInt, flags: UInt): Long
+public expect fun ecOpenSubscription(subscriptionname: Pcwstr, accessmask: UInt, flags: UInt): Long
 
-public expect fun EcOpenSubscriptionEnum(flags: UInt): Long
+public expect fun ecOpenSubscriptionEnum(flags: UInt): Long
 
-public expect fun EcRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL
+public expect fun ecRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool
 
-public expect fun EcRetrySubscription(subscriptionname: PCWSTR, eventsourcename: PCWSTR, flags: UInt): BOOL
+public expect fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename: Pcwstr, flags: UInt): Bool
 
-public expect fun EcSaveSubscription(subscription: Long, flags: UInt): BOOL
+public expect fun ecSaveSubscription(subscription: Long, flags: UInt): Bool
 
-public expect fun EcSetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvalue: Long): BOOL
+public expect fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: COpaquePointer?): Bool
 
-public expect fun EcSetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvalue: Long): BOOL
+public expect fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: COpaquePointer?): Bool

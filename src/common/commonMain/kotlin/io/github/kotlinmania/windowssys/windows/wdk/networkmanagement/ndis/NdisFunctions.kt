@@ -1,217 +1,218 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
-public expect fun NdisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long)
+public expect fun ndisAcquireReadWriteLock(lock: COpaquePointer?, fwrite: Boolean, lockstate: COpaquePointer?)
 
-public expect fun NdisAllocateMemoryWithTag(virtualaddress: Long, length: UInt, tag: UInt): Int
+public expect fun ndisAllocateMemoryWithTag(virtualaddress: COpaquePointer?, length: UInt, tag: UInt): Int
 
-public expect fun NdisCancelTimer(timer: Long, timercancelled: Long)
+public expect fun ndisCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?)
 
-public expect fun NdisClAddParty(ndisvchandle: Long, protocolpartycontext: Long, callparameters: Long, ndispartyhandle: Long): Int
+public expect fun ndisClAddParty(ndisvchandle: COpaquePointer?, protocolpartycontext: COpaquePointer?, callparameters: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int
 
-public expect fun NdisClCloseAddressFamily(ndisafhandle: Long): Int
+public expect fun ndisClCloseAddressFamily(ndisafhandle: COpaquePointer?): Int
 
-public expect fun NdisClCloseCall(ndisvchandle: Long, ndispartyhandle: Long, buffer: Long, size: UInt): Int
+public expect fun ndisClCloseCall(ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int
 
-public expect fun NdisClDeregisterSap(ndissaphandle: Long): Int
+public expect fun ndisClDeregisterSap(ndissaphandle: COpaquePointer?): Int
 
-public expect fun NdisClDropParty(ndispartyhandle: Long, buffer: Long, size: UInt): Int
+public expect fun ndisClDropParty(ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int
 
-public expect fun NdisClGetProtocolVcContextFromTapiCallId(tapicallid: UNICODE_STRING, protocolvccontext: Long): Int
+public expect fun ndisClGetProtocolVcContextFromTapiCallId(tapicallid: UnicodeString, protocolvccontext: COpaquePointer?): Int
 
-public expect fun NdisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+public expect fun ndisClIncomingCallComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisClMakeCall(ndisvchandle: Long, callparameters: Long, protocolpartycontext: Long, ndispartyhandle: Long): Int
+public expect fun ndisClMakeCall(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?, protocolpartycontext: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int
 
-public expect fun NdisClModifyCallQoS(ndisvchandle: Long, callparameters: Long): Int
+public expect fun ndisClModifyCallQoS(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int
 
-public expect fun NdisClRegisterSap(ndisafhandle: Long, protocolsapcontext: Long, sap: Long, ndissaphandle: Long): Int
+public expect fun ndisClRegisterSap(ndisafhandle: COpaquePointer?, protocolsapcontext: COpaquePointer?, sap: COpaquePointer?, ndissaphandle: COpaquePointer?): Int
 
-public expect fun NdisCloseConfiguration(configurationhandle: Long)
+public expect fun ndisCloseConfiguration(configurationhandle: COpaquePointer?)
 
-public expect fun NdisCloseFile(filehandle: Long)
+public expect fun ndisCloseFile(filehandle: COpaquePointer?)
 
-public expect fun NdisCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
+public expect fun ndisCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int
 
-public expect fun NdisCmAddPartyComplete(status: Int, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
+public expect fun ndisCmAddPartyComplete(status: Int, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: Long)
+public expect fun ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?)
 
-public expect fun NdisCmCloseCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long)
+public expect fun ndisCmCloseCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?)
 
-public expect fun NdisCmDeactivateVc(ndisvchandle: Long): Int
+public expect fun ndisCmDeactivateVc(ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisCmDeregisterSapComplete(status: Int, ndissaphandle: Long)
+public expect fun ndisCmDeregisterSapComplete(status: Int, ndissaphandle: COpaquePointer?)
 
-public expect fun NdisCmDispatchCallConnected(ndisvchandle: Long)
+public expect fun ndisCmDispatchCallConnected(ndisvchandle: COpaquePointer?)
 
-public expect fun NdisCmDispatchIncomingCall(ndissaphandle: Long, ndisvchandle: Long, callparameters: Long): Int
+public expect fun ndisCmDispatchIncomingCall(ndissaphandle: COpaquePointer?, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int
 
-public expect fun NdisCmDispatchIncomingCallQoSChange(ndisvchandle: Long, callparameters: Long)
+public expect fun ndisCmDispatchIncomingCallQoSChange(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: Long, buffer: Long, size: UInt)
+public expect fun ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt)
 
-public expect fun NdisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: Long, buffer: Long, size: UInt)
+public expect fun ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt)
 
-public expect fun NdisCmDropPartyComplete(status: Int, ndispartyhandle: Long)
+public expect fun ndisCmDropPartyComplete(status: Int, ndispartyhandle: COpaquePointer?)
 
-public expect fun NdisCmMakeCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
+public expect fun ndisCmMakeCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisCmModifyCallQoSComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+public expect fun ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: Long, callmgrafcontext: Long)
+public expect fun ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?, callmgrafcontext: COpaquePointer?)
 
-public expect fun NdisCmRegisterSapComplete(status: Int, ndissaphandle: Long, callmgrsapcontext: Long)
+public expect fun ndisCmRegisterSapComplete(status: Int, ndissaphandle: COpaquePointer?, callmgrsapcontext: COpaquePointer?)
 
-public expect fun NdisCoAssignInstanceName(ndisvchandle: Long, baseinstancename: Long, vcinstancename: Long): Int
+public expect fun ndisCoAssignInstanceName(ndisvchandle: COpaquePointer?, baseinstancename: COpaquePointer?, vcinstancename: COpaquePointer?): Int
 
-public expect fun NdisCoCreateVc(ndisbindinghandle: Long, ndisafhandle: Long, protocolvccontext: Long, ndisvchandle: Long): Int
+public expect fun ndisCoCreateVc(ndisbindinghandle: COpaquePointer?, ndisafhandle: COpaquePointer?, protocolvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisCoDeleteVc(ndisvchandle: Long): Int
+public expect fun ndisCoDeleteVc(ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisCoGetTapiCallId(ndisvchandle: Long, tapicallid: Long): Int
+public expect fun ndisCoGetTapiCallId(ndisvchandle: COpaquePointer?, tapicallid: COpaquePointer?): Int
 
-public expect fun NdisCompleteDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean)
+public expect fun ndisCompleteDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean)
 
-public expect fun NdisCopyBuffer(status: Long, buffer: Long, poolhandle: Long, memorydescriptor: Long, offset: UInt, length: UInt)
+public expect fun ndisCopyBuffer(status: COpaquePointer?, buffer: COpaquePointer?, poolhandle: COpaquePointer?, memorydescriptor: COpaquePointer?, offset: UInt, length: UInt)
 
-public expect fun NdisDeregisterTdiCallBack()
+public expect fun ndisDeregisterTdiCallBack()
 
-public expect fun NdisFreeMemory(virtualaddress: Long, length: UInt, memoryflags: UInt)
+public expect fun ndisFreeMemory(virtualaddress: COpaquePointer?, length: UInt, memoryflags: UInt)
 
-public expect fun NdisGeneratePartialCancelId(): UByte
+public expect fun ndisGeneratePartialCancelId(): UByte
 
-public expect fun NdisGetCurrentProcessorCounts(pidlecount: Long, pkernelanduser: Long, pindex: Long)
+public expect fun ndisGetCurrentProcessorCounts(pidlecount: COpaquePointer?, pkernelanduser: COpaquePointer?, pindex: COpaquePointer?)
 
-public expect fun NdisGetCurrentProcessorCpuUsage(pcpuusage: Long)
+public expect fun ndisGetCurrentProcessorCpuUsage(pcpuusage: COpaquePointer?)
 
-public expect fun NdisGetRoutineAddress(ndisroutinename: Long): Long
+public expect fun ndisGetRoutineAddress(ndisroutinename: COpaquePointer?): COpaquePointer?
 
-public expect fun NdisGetSharedDataAlignment(): UInt
+public expect fun ndisGetSharedDataAlignment(): UInt
 
-public expect fun NdisGetVersion(): UInt
+public expect fun ndisGetVersion(): UInt
 
-public expect fun NdisIMAssociateMiniport(driverhandle: Long, protocolhandle: Long)
+public expect fun ndisIMAssociateMiniport(driverhandle: COpaquePointer?, protocolhandle: COpaquePointer?)
 
-public expect fun NdisIMCancelInitializeDeviceInstance(driverhandle: Long, deviceinstance: Long): Int
+public expect fun ndisIMCancelInitializeDeviceInstance(driverhandle: COpaquePointer?, deviceinstance: COpaquePointer?): Int
 
-public expect fun NdisIMDeInitializeDeviceInstance(ndisminiporthandle: Long): Int
+public expect fun ndisIMDeInitializeDeviceInstance(ndisminiporthandle: COpaquePointer?): Int
 
-public expect fun NdisIMGetBindingContext(ndisbindinghandle: Long): Long
+public expect fun ndisIMGetBindingContext(ndisbindinghandle: COpaquePointer?): COpaquePointer?
 
-public expect fun NdisIMInitializeDeviceInstanceEx(driverhandle: Long, driverinstance: Long, devicecontext: Long): Int
+public expect fun ndisIMInitializeDeviceInstanceEx(driverhandle: COpaquePointer?, driverinstance: COpaquePointer?, devicecontext: COpaquePointer?): Int
 
-public expect fun NdisInitializeEvent(event: Long)
+public expect fun ndisInitializeEvent(event: COpaquePointer?)
 
-public expect fun NdisInitializeReadWriteLock(lock: Long)
+public expect fun ndisInitializeReadWriteLock(lock: COpaquePointer?)
 
-public expect fun NdisInitializeString(destination: Long, source: Long)
+public expect fun ndisInitializeString(destination: COpaquePointer?, source: COpaquePointer?)
 
-public expect fun NdisInitializeTimer(timer: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long)
+public expect fun ndisInitializeTimer(timer: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?)
 
-public expect fun NdisMAllocateSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
+public expect fun ndisMAllocateSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: COpaquePointer?)
 
-public expect fun NdisMAllocateSharedMemoryAsync(miniportadapterhandle: Long, length: UInt, cached: Boolean, context: Long): Int
+public expect fun ndisMAllocateSharedMemoryAsync(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, context: COpaquePointer?): Int
 
-public expect fun NdisMCancelTimer(timer: Long, timercancelled: Long)
+public expect fun ndisMCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?)
 
-public expect fun NdisMCloseLog(loghandle: Long)
+public expect fun ndisMCloseLog(loghandle: COpaquePointer?)
 
-public expect fun NdisMCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
+public expect fun ndisMCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int
 
-public expect fun NdisMCmCreateVc(miniportadapterhandle: Long, ndisafhandle: Long, miniportvccontext: Long, ndisvchandle: Long): Int
+public expect fun ndisMCmCreateVc(miniportadapterhandle: COpaquePointer?, ndisafhandle: COpaquePointer?, miniportvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisMCmDeactivateVc(ndisvchandle: Long): Int
+public expect fun ndisMCmDeactivateVc(ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisMCmDeleteVc(ndisvchandle: Long): Int
+public expect fun ndisMCmDeleteVc(ndisvchandle: COpaquePointer?): Int
 
-public expect fun NdisMCmRegisterAddressFamily(miniportadapterhandle: Long, addressfamily: Long, cmcharacteristics: Long, sizeofcmcharacteristics: UInt): Int
+public expect fun ndisMCmRegisterAddressFamily(miniportadapterhandle: COpaquePointer?, addressfamily: COpaquePointer?, cmcharacteristics: COpaquePointer?, sizeofcmcharacteristics: UInt): Int
 
-public expect fun NdisMCoActivateVcComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+public expect fun ndisMCoActivateVcComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?)
 
-public expect fun NdisMCoDeactivateVcComplete(status: Int, ndisvchandle: Long)
+public expect fun ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: COpaquePointer?)
 
-public expect fun NdisMCreateLog(miniportadapterhandle: Long, size: UInt, loghandle: Long): Int
+public expect fun ndisMCreateLog(miniportadapterhandle: COpaquePointer?, size: UInt, loghandle: COpaquePointer?): Int
 
-public expect fun NdisMDeregisterDmaChannel(miniportdmahandle: Long)
+public expect fun ndisMDeregisterDmaChannel(miniportdmahandle: COpaquePointer?)
 
-public expect fun NdisMDeregisterIoPortRange(miniportadapterhandle: Long, initialport: UInt, numberofports: UInt, portoffset: Long)
+public expect fun ndisMDeregisterIoPortRange(miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt, portoffset: COpaquePointer?)
 
-public expect fun NdisMFlushLog(loghandle: Long)
+public expect fun ndisMFlushLog(loghandle: COpaquePointer?)
 
-public expect fun NdisMFreeSharedMemory(miniportadapterhandle: Long, length: UInt, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
+public expect fun ndisMFreeSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: Long)
 
-public expect fun NdisMGetDeviceProperty(miniportadapterhandle: Long, physicaldeviceobject: Long, functionaldeviceobject: Long, nextdeviceobject: Long, allocatedresources: Long, allocatedresourcestranslated: Long)
+public expect fun ndisMGetDeviceProperty(miniportadapterhandle: COpaquePointer?, physicaldeviceobject: COpaquePointer?, functionaldeviceobject: COpaquePointer?, nextdeviceobject: COpaquePointer?, allocatedresources: COpaquePointer?, allocatedresourcestranslated: COpaquePointer?)
 
-public expect fun NdisMGetDmaAlignment(miniportadapterhandle: Long): UInt
+public expect fun ndisMGetDmaAlignment(miniportadapterhandle: COpaquePointer?): UInt
 
-public expect fun NdisMInitializeTimer(timer: Long, miniportadapterhandle: Long, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Long)
+public expect fun ndisMInitializeTimer(timer: COpaquePointer?, miniportadapterhandle: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?)
 
-public expect fun NdisMMapIoSpace(virtualaddress: Long, miniportadapterhandle: Long, physicaladdress: Long, length: UInt): Int
+public expect fun ndisMMapIoSpace(virtualaddress: COpaquePointer?, miniportadapterhandle: COpaquePointer?, physicaladdress: Long, length: UInt): Int
 
-public expect fun NdisMQueryAdapterInstanceName(padapterinstancename: Long, miniporthandle: Long): Int
+public expect fun ndisMQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, miniporthandle: COpaquePointer?): Int
 
-public expect fun NdisMReadDmaCounter(miniportdmahandle: Long): UInt
+public expect fun ndisMReadDmaCounter(miniportdmahandle: COpaquePointer?): UInt
 
-public expect fun NdisMRegisterDmaChannel(miniportdmahandle: Long, miniportadapterhandle: Long, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: Long, maximumlength: UInt): Int
+public expect fun ndisMRegisterDmaChannel(miniportdmahandle: COpaquePointer?, miniportadapterhandle: COpaquePointer?, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: COpaquePointer?, maximumlength: UInt): Int
 
-public expect fun NdisMRegisterIoPortRange(portoffset: Long, miniportadapterhandle: Long, initialport: UInt, numberofports: UInt): Int
+public expect fun ndisMRegisterIoPortRange(portoffset: COpaquePointer?, miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt): Int
 
-public expect fun NdisMRemoveMiniport(miniporthandle: Long): Int
+public expect fun ndisMRemoveMiniport(miniporthandle: COpaquePointer?): Int
 
-public expect fun NdisMSetPeriodicTimer(timer: Long, millisecondperiod: UInt)
+public expect fun ndisMSetPeriodicTimer(timer: COpaquePointer?, millisecondperiod: UInt)
 
-public expect fun NdisMSleep(microsecondstosleep: UInt)
+public expect fun ndisMSleep(microsecondstosleep: UInt)
 
-public expect fun NdisMUnmapIoSpace(miniportadapterhandle: Long, virtualaddress: Long, length: UInt)
+public expect fun ndisMUnmapIoSpace(miniportadapterhandle: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt)
 
-public expect fun NdisMWriteLogData(loghandle: Long, logbuffer: Long, logbuffersize: UInt): Int
+public expect fun ndisMWriteLogData(loghandle: COpaquePointer?, logbuffer: COpaquePointer?, logbuffersize: UInt): Int
 
-public expect fun NdisMapFile(status: Long, mappedbuffer: Long, filehandle: Long)
+public expect fun ndisMapFile(status: COpaquePointer?, mappedbuffer: COpaquePointer?, filehandle: COpaquePointer?)
 
-public expect fun NdisOpenConfigurationKeyByIndex(status: Long, configurationhandle: Long, index: UInt, keyname: Long, keyhandle: Long)
+public expect fun ndisOpenConfigurationKeyByIndex(status: COpaquePointer?, configurationhandle: COpaquePointer?, index: UInt, keyname: COpaquePointer?, keyhandle: COpaquePointer?)
 
-public expect fun NdisOpenConfigurationKeyByName(status: Long, configurationhandle: Long, subkeyname: Long, subkeyhandle: Long)
+public expect fun ndisOpenConfigurationKeyByName(status: COpaquePointer?, configurationhandle: COpaquePointer?, subkeyname: COpaquePointer?, subkeyhandle: COpaquePointer?)
 
-public expect fun NdisOpenFile(status: Long, filehandle: Long, filelength: Long, filename: Long, highestacceptableaddress: Long)
+public expect fun ndisOpenFile(status: COpaquePointer?, filehandle: COpaquePointer?, filelength: COpaquePointer?, filename: COpaquePointer?, highestacceptableaddress: Long)
 
-public expect fun NdisQueryAdapterInstanceName(padapterinstancename: Long, ndisbindinghandle: Long): Int
+public expect fun ndisQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, ndisbindinghandle: COpaquePointer?): Int
 
-public expect fun NdisQueryBindInstanceName(padapterinstancename: Long, bindingcontext: Long): Int
+public expect fun ndisQueryBindInstanceName(padapterinstancename: COpaquePointer?, bindingcontext: COpaquePointer?): Int
 
-public expect fun NdisReEnumerateProtocolBindings(ndisprotocolhandle: Long)
+public expect fun ndisReEnumerateProtocolBindings(ndisprotocolhandle: COpaquePointer?)
 
-public expect fun NdisReadConfiguration(status: Long, parametervalue: Long, configurationhandle: Long, keyword: Long, parametertype: NDIS_PARAMETER_TYPE)
+public expect fun ndisReadConfiguration(status: COpaquePointer?, parametervalue: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametertype: NdisParameterType)
 
-public expect fun NdisReadNetworkAddress(status: Long, networkaddress: Long, networkaddresslength: Long, configurationhandle: Long)
+public expect fun ndisReadNetworkAddress(status: COpaquePointer?, networkaddress: COpaquePointer?, networkaddresslength: COpaquePointer?, configurationhandle: COpaquePointer?)
 
-public expect fun NdisRegisterTdiCallBack(registercallback: TDI_REGISTER_CALLBACK, pnphandler: TDI_PNP_HANDLER)
+public expect fun ndisRegisterTdiCallBack(registercallback: TdiRegisterCallback, pnphandler: TdiPnpHandler)
 
-public expect fun NdisReleaseReadWriteLock(lock: Long, lockstate: Long)
+public expect fun ndisReleaseReadWriteLock(lock: COpaquePointer?, lockstate: COpaquePointer?)
 
-public expect fun NdisResetEvent(event: Long)
+public expect fun ndisResetEvent(event: COpaquePointer?)
 
-public expect fun NdisSetEvent(event: Long)
+public expect fun ndisSetEvent(event: COpaquePointer?)
 
-public expect fun NdisSetPeriodicTimer(ndistimer: Long, millisecondsperiod: UInt)
+public expect fun ndisSetPeriodicTimer(ndistimer: COpaquePointer?, millisecondsperiod: UInt)
 
-public expect fun NdisSetTimer(timer: Long, millisecondstodelay: UInt)
+public expect fun ndisSetTimer(timer: COpaquePointer?, millisecondstodelay: UInt)
 
-public expect fun NdisSetTimerEx(ndistimer: Long, millisecondstodelay: UInt, functioncontext: Long)
+public expect fun ndisSetTimerEx(ndistimer: COpaquePointer?, millisecondstodelay: UInt, functioncontext: COpaquePointer?)
 
-public expect fun NdisSetupDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: UInt, length: UInt, writetodevice: Boolean)
+public expect fun ndisSetupDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean)
 
-public expect fun NdisSystemProcessorCount(): Byte
+public expect fun ndisSystemProcessorCount(): Byte
 
-public expect fun NdisUnmapFile(filehandle: Long)
+public expect fun ndisUnmapFile(filehandle: COpaquePointer?)
 
-public expect fun NdisUpdateSharedMemory(ndisadapterhandle: Long, length: UInt, virtualaddress: Long, physicaladdress: Long)
+public expect fun ndisUpdateSharedMemory(ndisadapterhandle: COpaquePointer?, length: UInt, virtualaddress: COpaquePointer?, physicaladdress: Long)
 
-public expect fun NdisWaitEvent(event: Long, mstowait: UInt): Boolean
+public expect fun ndisWaitEvent(event: COpaquePointer?, mstowait: UInt): Boolean
 
-public expect fun NdisWriteConfiguration(status: Long, configurationhandle: Long, keyword: Long, parametervalue: Long)
+public expect fun ndisWriteConfiguration(status: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametervalue: COpaquePointer?)
 
-public expect fun NdisWriteErrorLogEntry(ndisadapterhandle: Long, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long)
+public expect fun ndisWriteErrorLogEntry(ndisadapterhandle: COpaquePointer?, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long)
 
-public expect fun NdisWriteEventLogEntry(loghandle: Long, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: Long, datasize: UInt, data: Long): Int
+public expect fun ndisWriteEventLogEntry(loghandle: COpaquePointer?, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: COpaquePointer?, datasize: UInt, data: COpaquePointer?): Int

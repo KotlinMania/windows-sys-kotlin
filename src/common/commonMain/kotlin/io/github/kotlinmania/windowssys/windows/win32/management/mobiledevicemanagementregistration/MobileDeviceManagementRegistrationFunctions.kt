@@ -1,43 +1,44 @@
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun ApplyLocalManagementSyncML(syncmlrequest: PCWSTR, syncmlresult: Long): HRESULT
+public expect fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: COpaquePointer?): Hresult
 
-public expect fun DiscoverManagementService(pszupn: PCWSTR, ppmgmtinfo: Long): HRESULT
+public expect fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult
 
-public expect fun DiscoverManagementServiceEx(pszupn: PCWSTR, pszdiscoveryservicecandidate: PCWSTR, ppmgmtinfo: Long): HRESULT
+public expect fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: COpaquePointer?): Hresult
 
-public expect fun GetDeviceManagementConfigInfo(providerid: PCWSTR, configstringbufferlength: Long, configstring: PWSTR): HRESULT
+public expect fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: COpaquePointer?, configstring: Pwstr): Hresult
 
-public expect fun GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: Long): HRESULT
+public expect fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: COpaquePointer?): Hresult
 
-public expect fun GetManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: PWSTR): HRESULT
+public expect fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult
 
-public expect fun IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: UInt, pszupn: PWSTR): HRESULT
+public expect fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: COpaquePointer?, cchupn: UInt, pszupn: Pwstr): Hresult
 
-public expect fun IsManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): HRESULT
+public expect fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: COpaquePointer?): Hresult
 
-public expect fun IsMdmUxWithoutAadAllowed(isenrollmentallowed: Long): HRESULT
+public expect fun isMdmUxWithoutAadAllowed(isenrollmentallowed: COpaquePointer?): Hresult
 
-public expect fun RegisterDeviceWithLocalManagement(alreadyregistered: Long): HRESULT
+public expect fun registerDeviceWithLocalManagement(alreadyregistered: COpaquePointer?): Hresult
 
-public expect fun RegisterDeviceWithManagement(pszupn: PCWSTR, ppszmdmserviceuri: PCWSTR, ppzsaccesstoken: PCWSTR): HRESULT
+public expect fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult
 
-public expect fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: HANDLE): HRESULT
+public expect fun registerDeviceWithManagementUsingAADCredentials(usertoken: Handle): Hresult
 
-public expect fun RegisterDeviceWithManagementUsingAADDeviceCredentials(): HRESULT
+public expect fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult
 
-public expect fun RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: PCWSTR): HRESULT
+public expect fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult
 
-public expect fun SetDeviceManagementConfigInfo(providerid: PCWSTR, configstring: PCWSTR): HRESULT
+public expect fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring: Pcwstr): Hresult
 
-public expect fun SetManagedExternally(ismanagedexternally: BOOL): HRESULT
+public expect fun setManagedExternally(ismanagedexternally: Bool): Hresult
 
-public expect fun UnregisterDeviceWithLocalManagement(): HRESULT
+public expect fun unregisterDeviceWithLocalManagement(): Hresult
 
-public expect fun UnregisterDeviceWithManagement(enrollmentid: PCWSTR): HRESULT
+public expect fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult

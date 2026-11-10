@@ -1,247 +1,248 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 
-public expect fun BRUSHOBJ_hGetColorTransform(pbo: Long): HANDLE
+public expect fun brushobjHGetColorTransform(pbo: COpaquePointer?): Handle
 
-public expect fun BRUSHOBJ_pvAllocRbrush(pbo: Long, cj: UInt): Long
+public expect fun brushobjPvAllocRbrush(pbo: COpaquePointer?, cj: UInt): COpaquePointer?
 
-public expect fun BRUSHOBJ_pvGetRbrush(pbo: Long): Long
+public expect fun brushobjPvGetRbrush(pbo: COpaquePointer?): COpaquePointer?
 
-public expect fun BRUSHOBJ_ulGetBrushColor(pbo: Long): UInt
+public expect fun brushobjUlGetBrushColor(pbo: COpaquePointer?): UInt
 
-public expect fun CLIPOBJ_bEnum(pco: Long, cj: UInt, pul: Long): BOOL
+public expect fun clipobjBEnum(pco: COpaquePointer?, cj: UInt, pul: COpaquePointer?): Bool
 
-public expect fun CLIPOBJ_cEnumStart(pco: Long, ball: BOOL, itype: UInt, idirection: UInt, climit: UInt): UInt
+public expect fun clipobjCEnumStart(pco: COpaquePointer?, ball: Bool, itype: UInt, idirection: UInt, climit: UInt): UInt
 
-public expect fun CLIPOBJ_ppoGetPath(pco: Long): Long
+public expect fun clipobjPpoGetPath(pco: COpaquePointer?): COpaquePointer?
 
-public expect fun CapabilitiesRequestAndCapabilitiesReply(hmonitor: HANDLE, pszasciicapabilitiesstring: PSTR, dwcapabilitiesstringlengthincharacters: UInt): Int
+public expect fun capabilitiesRequestAndCapabilitiesReply(hmonitor: Handle, pszasciicapabilitiesstring: Pstr, dwcapabilitiesstringlengthincharacters: UInt): Int
 
-public expect fun DegaussMonitor(hmonitor: HANDLE): Int
+public expect fun degaussMonitor(hmonitor: Handle): Int
 
-public expect fun DestroyPhysicalMonitor(hmonitor: HANDLE): BOOL
+public expect fun destroyPhysicalMonitor(hmonitor: Handle): Bool
 
-public expect fun DestroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL
+public expect fun destroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool
 
-public expect fun DisplayConfigGetDeviceInfo(requestpacket: Long): Int
+public expect fun displayConfigGetDeviceInfo(requestpacket: COpaquePointer?): Int
 
-public expect fun DisplayConfigSetDeviceInfo(setpacket: Long): Int
+public expect fun displayConfigSetDeviceInfo(setpacket: COpaquePointer?): Int
 
-public expect fun EngAcquireSemaphore(hsem: HSEMAPHORE)
+public expect fun engAcquireSemaphore(hsem: Hsemaphore)
 
-public expect fun EngAlphaBlend(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, prclsrc: Long, pblendobj: Long): BOOL
+public expect fun engAlphaBlend(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pblendobj: COpaquePointer?): Bool
 
-public expect fun EngAssociateSurface(hsurf: HSURF, hdev: HDEV, flhooks: UInt): BOOL
+public expect fun engAssociateSurface(hsurf: Hsurf, hdev: Hdev, flhooks: UInt): Bool
 
-public expect fun EngBitBlt(psotrg: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, prcltrg: Long, pptlsrc: Long, pptlmask: Long, pbo: Long, pptlbrush: Long, rop4: UInt): BOOL
+public expect fun engBitBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcltrg: COpaquePointer?, pptlsrc: COpaquePointer?, pptlmask: COpaquePointer?, pbo: COpaquePointer?, pptlbrush: COpaquePointer?, rop4: UInt): Bool
 
-public expect fun EngCheckAbort(pso: Long): BOOL
+public expect fun engCheckAbort(pso: COpaquePointer?): Bool
 
-public expect fun EngComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): Long
+public expect fun engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): COpaquePointer?
 
-public expect fun EngCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, pptlsrc: Long): BOOL
+public expect fun engCopyBits(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, pptlsrc: COpaquePointer?): Bool
 
-public expect fun EngCreateBitmap(sizl: SIZE, lwidth: Int, iformat: UInt, fl: UInt, pvbits: Long): HBITMAP
+public expect fun engCreateBitmap(sizl: Size, lwidth: Int, iformat: UInt, fl: UInt, pvbits: COpaquePointer?): Hbitmap
 
-public expect fun EngCreateClip(): Long
+public expect fun engCreateClip(): COpaquePointer?
 
-public expect fun EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HBITMAP
+public expect fun engCreateDeviceBitmap(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hbitmap
 
-public expect fun EngCreateDeviceSurface(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HSURF
+public expect fun engCreateDeviceSurface(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hsurf
 
-public expect fun EngCreatePalette(imode: UInt, ccolors: UInt, pulcolors: Long, flred: UInt, flgreen: UInt, flblue: UInt): HPALETTE
+public expect fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: COpaquePointer?, flred: UInt, flgreen: UInt, flblue: UInt): Hpalette
 
-public expect fun EngCreateSemaphore(): HSEMAPHORE
+public expect fun engCreateSemaphore(): Hsemaphore
 
-public expect fun EngDeleteClip(pco: Long)
+public expect fun engDeleteClip(pco: COpaquePointer?)
 
-public expect fun EngDeletePalette(hpal: HPALETTE): BOOL
+public expect fun engDeletePalette(hpal: Hpalette): Bool
 
-public expect fun EngDeletePath(ppo: Long)
+public expect fun engDeletePath(ppo: COpaquePointer?)
 
-public expect fun EngDeleteSemaphore(hsem: HSEMAPHORE)
+public expect fun engDeleteSemaphore(hsem: Hsemaphore)
 
-public expect fun EngDeleteSurface(hsurf: HSURF): BOOL
+public expect fun engDeleteSurface(hsurf: Hsurf): Bool
 
-public expect fun EngEraseSurface(pso: Long, prcl: Long, icolor: UInt): BOOL
+public expect fun engEraseSurface(pso: COpaquePointer?, prcl: COpaquePointer?, icolor: UInt): Bool
 
-public expect fun EngFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt, floptions: UInt): BOOL
+public expect fun engFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt, floptions: UInt): Bool
 
-public expect fun EngFindResource(h: HANDLE, iname: Int, itype: Int, pulsize: Long): Long
+public expect fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: COpaquePointer?): COpaquePointer?
 
-public expect fun EngFreeModule(h: HANDLE)
+public expect fun engFreeModule(h: Handle)
 
-public expect fun EngGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long)
+public expect fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?)
 
-public expect fun EngGetDriverName(hdev: HDEV): PWSTR
+public expect fun engGetDriverName(hdev: Hdev): Pwstr
 
-public expect fun EngGetPrinterDataFileName(hdev: HDEV): PWSTR
+public expect fun engGetPrinterDataFileName(hdev: Hdev): Pwstr
 
-public expect fun EngGradientFill(psodest: Long, pco: Long, pxlo: Long, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, prclextents: Long, pptlditherorg: Long, ulmode: UInt): BOOL
+public expect fun engGradientFill(psodest: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, prclextents: COpaquePointer?, pptlditherorg: COpaquePointer?, ulmode: UInt): Bool
 
-public expect fun EngLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: Long, mix: UInt): BOOL
+public expect fun engLineTo(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: COpaquePointer?, mix: UInt): Bool
 
-public expect fun EngLoadModule(pwsz: PCWSTR): HANDLE
+public expect fun engLoadModule(pwsz: Pcwstr): Handle
 
-public expect fun EngLockSurface(hsurf: HSURF): Long
+public expect fun engLockSurface(hsurf: Hsurf): COpaquePointer?
 
-public expect fun EngMarkBandingSurface(hsurf: HSURF): BOOL
+public expect fun engMarkBandingSurface(hsurf: Hsurf): Bool
 
-public expect fun EngMultiByteToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt)
+public expect fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt)
 
-public expect fun EngMultiByteToWideChar(codepage: UInt, widecharstring: PWSTR, bytesinwidecharstring: Int, multibytestring: PCSTR, bytesinmultibytestring: Int): Int
+public expect fun engMultiByteToWideChar(codepage: UInt, widecharstring: Pwstr, bytesinwidecharstring: Int, multibytestring: Pcstr, bytesinmultibytestring: Int): Int
 
-public expect fun EngPaint(pso: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt): BOOL
+public expect fun engPaint(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt): Bool
 
-public expect fun EngPlgBlt(psotrg: Long, psosrc: Long, psomsk: Long, pco: Long, pxlo: Long, pca: Long, pptlbrushorg: Long, pptfx: Long, prcl: Long, pptl: Long, imode: UInt): BOOL
+public expect fun engPlgBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomsk: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlbrushorg: COpaquePointer?, pptfx: COpaquePointer?, prcl: COpaquePointer?, pptl: COpaquePointer?, imode: UInt): Bool
 
-public expect fun EngQueryEMFInfo(hdev: HDEV, pemfinfo: Long): BOOL
+public expect fun engQueryEMFInfo(hdev: Hdev, pemfinfo: COpaquePointer?): Bool
 
-public expect fun EngQueryLocalTime(param0: Long)
+public expect fun engQueryLocalTime(param0: COpaquePointer?)
 
-public expect fun EngReleaseSemaphore(hsem: HSEMAPHORE)
+public expect fun engReleaseSemaphore(hsem: Hsemaphore)
 
-public expect fun EngStretchBlt(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt): BOOL
+public expect fun engStretchBlt(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt): Bool
 
-public expect fun EngStretchBltROP(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt, pbo: Long, rop4: UInt): BOOL
+public expect fun engStretchBltROP(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt, pbo: COpaquePointer?, rop4: UInt): Bool
 
-public expect fun EngStrokeAndFillPath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbostroke: Long, plineattrs: Long, pbofill: Long, pptlbrushorg: Long, mixfill: UInt, floptions: UInt): BOOL
+public expect fun engStrokeAndFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbostroke: COpaquePointer?, plineattrs: COpaquePointer?, pbofill: COpaquePointer?, pptlbrushorg: COpaquePointer?, mixfill: UInt, floptions: UInt): Bool
 
-public expect fun EngStrokePath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbo: Long, pptlbrushorg: Long, plineattrs: Long, mix: UInt): BOOL
+public expect fun engStrokePath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, plineattrs: COpaquePointer?, mix: UInt): Bool
 
-public expect fun EngTextOut(pso: Long, pstro: Long, pfo: Long, pco: Long, prclextra: Long, prclopaque: Long, pbofore: Long, pboopaque: Long, pptlorg: Long, mix: UInt): BOOL
+public expect fun engTextOut(pso: COpaquePointer?, pstro: COpaquePointer?, pfo: COpaquePointer?, pco: COpaquePointer?, prclextra: COpaquePointer?, prclopaque: COpaquePointer?, pbofore: COpaquePointer?, pboopaque: COpaquePointer?, pptlorg: COpaquePointer?, mix: UInt): Bool
 
-public expect fun EngTransparentBlt(psodst: Long, psosrc: Long, pco: Long, pxlo: Long, prcldst: Long, prclsrc: Long, transcolor: UInt, bcalledfrombitblt: UInt): BOOL
+public expect fun engTransparentBlt(psodst: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldst: COpaquePointer?, prclsrc: COpaquePointer?, transcolor: UInt, bcalledfrombitblt: UInt): Bool
 
-public expect fun EngUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt)
+public expect fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt)
 
-public expect fun EngUnlockSurface(pso: Long)
+public expect fun engUnlockSurface(pso: COpaquePointer?)
 
-public expect fun EngWideCharToMultiByte(codepage: UInt, widecharstring: PCWSTR, bytesinwidecharstring: Int, multibytestring: PSTR, bytesinmultibytestring: Int): Int
+public expect fun engWideCharToMultiByte(codepage: UInt, widecharstring: Pcwstr, bytesinwidecharstring: Int, multibytestring: Pstr, bytesinmultibytestring: Int): Int
 
-public expect fun FONTOBJ_cGetAllGlyphHandles(pfo: Long, phg: Long): UInt
+public expect fun fontobjCGetAllGlyphHandles(pfo: COpaquePointer?, phg: COpaquePointer?): UInt
 
-public expect fun FONTOBJ_cGetGlyphs(pfo: Long, imode: UInt, cglyph: UInt, phg: Long, ppvglyph: Long): UInt
+public expect fun fontobjCGetGlyphs(pfo: COpaquePointer?, imode: UInt, cglyph: UInt, phg: COpaquePointer?, ppvglyph: COpaquePointer?): UInt
 
-public expect fun FONTOBJ_pQueryGlyphAttrs(pfo: Long, imode: UInt): Long
+public expect fun fontobjPQueryGlyphAttrs(pfo: COpaquePointer?, imode: UInt): COpaquePointer?
 
-public expect fun FONTOBJ_pfdg(pfo: Long): Long
+public expect fun fontobjPfdg(pfo: COpaquePointer?): COpaquePointer?
 
-public expect fun FONTOBJ_pifi(pfo: Long): Long
+public expect fun fontobjPifi(pfo: COpaquePointer?): COpaquePointer?
 
-public expect fun FONTOBJ_pvTrueTypeFontFile(pfo: Long, pcjfile: Long): Long
+public expect fun fontobjPvTrueTypeFontFile(pfo: COpaquePointer?, pcjfile: COpaquePointer?): COpaquePointer?
 
-public expect fun FONTOBJ_pxoGetXform(pfo: Long): Long
+public expect fun fontobjPxoGetXform(pfo: COpaquePointer?): COpaquePointer?
 
-public expect fun FONTOBJ_vGetInfo(pfo: Long, cjsize: UInt, pfi: Long)
+public expect fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?)
 
-public expect fun GetAutoRotationState(pstate: Long): BOOL
+public expect fun getAutoRotationState(pstate: COpaquePointer?): Bool
 
-public expect fun GetCapabilitiesStringLength(hmonitor: HANDLE, pdwcapabilitiesstringlengthincharacters: Long): Int
+public expect fun getCapabilitiesStringLength(hmonitor: Handle, pdwcapabilitiesstringlengthincharacters: COpaquePointer?): Int
 
-public expect fun GetDisplayAutoRotationPreferences(porientation: Long): BOOL
+public expect fun getDisplayAutoRotationPreferences(porientation: COpaquePointer?): Bool
 
-public expect fun GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, nummodeinfoarrayelements: Long): WIN32_ERROR
+public expect fun getDisplayConfigBufferSizes(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?): Win32Error
 
-public expect fun GetMonitorBrightness(hmonitor: HANDLE, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int
+public expect fun getMonitorBrightness(hmonitor: Handle, pdwminimumbrightness: COpaquePointer?, pdwcurrentbrightness: COpaquePointer?, pdwmaximumbrightness: COpaquePointer?): Int
 
-public expect fun GetMonitorCapabilities(hmonitor: HANDLE, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int
+public expect fun getMonitorCapabilities(hmonitor: Handle, pdwmonitorcapabilities: COpaquePointer?, pdwsupportedcolortemperatures: COpaquePointer?): Int
 
-public expect fun GetMonitorColorTemperature(hmonitor: HANDLE, pctcurrentcolortemperature: Long): Int
+public expect fun getMonitorColorTemperature(hmonitor: Handle, pctcurrentcolortemperature: COpaquePointer?): Int
 
-public expect fun GetMonitorContrast(hmonitor: HANDLE, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int
+public expect fun getMonitorContrast(hmonitor: Handle, pdwminimumcontrast: COpaquePointer?, pdwcurrentcontrast: COpaquePointer?, pdwmaximumcontrast: COpaquePointer?): Int
 
-public expect fun GetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int
+public expect fun getMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, pdwminimumposition: COpaquePointer?, pdwcurrentposition: COpaquePointer?, pdwmaximumposition: COpaquePointer?): Int
 
-public expect fun GetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int
+public expect fun getMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, pdwminimumwidthorheight: COpaquePointer?, pdwcurrentwidthorheight: COpaquePointer?, pdwmaximumwidthorheight: COpaquePointer?): Int
 
-public expect fun GetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int
+public expect fun getMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, pdwminimumdrive: COpaquePointer?, pdwcurrentdrive: COpaquePointer?, pdwmaximumdrive: COpaquePointer?): Int
 
-public expect fun GetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int
+public expect fun getMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, pdwminimumgain: COpaquePointer?, pdwcurrentgain: COpaquePointer?, pdwmaximumgain: COpaquePointer?): Int
 
-public expect fun GetMonitorTechnologyType(hmonitor: HANDLE, pdtydisplaytechnologytype: Long): Int
+public expect fun getMonitorTechnologyType(hmonitor: Handle, pdtydisplaytechnologytype: COpaquePointer?): Int
 
-public expect fun GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, pdwnumberofphysicalmonitors: Long): BOOL
+public expect fun getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, pdwnumberofphysicalmonitors: COpaquePointer?): Bool
 
-public expect fun GetPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL
+public expect fun getPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool
 
-public expect fun GetTimingReport(hmonitor: HANDLE, pmtrmonitortimingreport: Long): Int
+public expect fun getTimingReport(hmonitor: Handle, pmtrmonitortimingreport: COpaquePointer?): Int
 
-public expect fun GetVCPFeatureAndVCPFeatureReply(hmonitor: HANDLE, bvcpcode: UByte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int
+public expect fun getVCPFeatureAndVCPFeatureReply(hmonitor: Handle, bvcpcode: UByte, pvct: COpaquePointer?, pdwcurrentvalue: COpaquePointer?, pdwmaximumvalue: COpaquePointer?): Int
 
-public expect fun HT_Get8BPPFormatPalette(ppaletteentry: Long, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int
+public expect fun htGet8BppformatPalette(ppaletteentry: COpaquePointer?, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int
 
-public expect fun HT_Get8BPPMaskPalette(ppaletteentry: Long, use8bppmaskpal: BOOL, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int
+public expect fun htGet8BppmaskPalette(ppaletteentry: COpaquePointer?, use8bppmaskpal: Bool, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int
 
-public expect fun PATHOBJ_bEnum(ppo: Long, ppd: Long): BOOL
+public expect fun pathobjBEnum(ppo: COpaquePointer?, ppd: COpaquePointer?): Bool
 
-public expect fun PATHOBJ_bEnumClipLines(ppo: Long, cb: UInt, pcl: Long): BOOL
+public expect fun pathobjBEnumClipLines(ppo: COpaquePointer?, cb: UInt, pcl: COpaquePointer?): Bool
 
-public expect fun PATHOBJ_vEnumStart(ppo: Long)
+public expect fun pathobjVEnumStart(ppo: COpaquePointer?)
 
-public expect fun PATHOBJ_vEnumStartClipLines(ppo: Long, pco: Long, pso: Long, pla: Long)
+public expect fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?)
 
-public expect fun PATHOBJ_vGetBounds(ppo: Long, prectfx: Long)
+public expect fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?)
 
-public expect fun QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): WIN32_ERROR
+public expect fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, patharray: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?, modeinfoarray: COpaquePointer?, currenttopologyid: COpaquePointer?): Win32Error
 
-public expect fun RestoreMonitorFactoryColorDefaults(hmonitor: HANDLE): Int
+public expect fun restoreMonitorFactoryColorDefaults(hmonitor: Handle): Int
 
-public expect fun RestoreMonitorFactoryDefaults(hmonitor: HANDLE): Int
+public expect fun restoreMonitorFactoryDefaults(hmonitor: Handle): Int
 
-public expect fun STROBJ_bEnum(pstro: Long, pc: Long, ppgpos: Long): BOOL
+public expect fun strobjBEnum(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool
 
-public expect fun STROBJ_bEnumPositionsOnly(pstro: Long, pc: Long, ppgpos: Long): BOOL
+public expect fun strobjBEnumPositionsOnly(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool
 
-public expect fun STROBJ_bGetAdvanceWidths(pso: Long, ifirst: UInt, c: UInt, pptqd: Long): BOOL
+public expect fun strobjBGetAdvanceWidths(pso: COpaquePointer?, ifirst: UInt, c: UInt, pptqd: COpaquePointer?): Bool
 
-public expect fun STROBJ_dwGetCodePage(pstro: Long): UInt
+public expect fun strobjDwGetCodePage(pstro: COpaquePointer?): UInt
 
-public expect fun STROBJ_vEnumStart(pstro: Long)
+public expect fun strobjVEnumStart(pstro: COpaquePointer?)
 
-public expect fun SaveCurrentMonitorSettings(hmonitor: HANDLE): Int
+public expect fun saveCurrentMonitorSettings(hmonitor: Handle): Int
 
-public expect fun SaveCurrentSettings(hmonitor: HANDLE): Int
+public expect fun saveCurrentSettings(hmonitor: Handle): Int
 
-public expect fun SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE): BOOL
+public expect fun setDisplayAutoRotationPreferences(orientation: OrientationPreference): Bool
 
-public expect fun SetDisplayConfig(numpatharrayelements: UInt, patharray: Long, nummodeinfoarrayelements: UInt, modeinfoarray: Long, flags: SET_DISPLAY_CONFIG_FLAGS): Int
+public expect fun setDisplayConfig(numpatharrayelements: UInt, patharray: COpaquePointer?, nummodeinfoarrayelements: UInt, modeinfoarray: COpaquePointer?, flags: SetDisplayConfigFlags): Int
 
-public expect fun SetMonitorBrightness(hmonitor: HANDLE, dwnewbrightness: UInt): Int
+public expect fun setMonitorBrightness(hmonitor: Handle, dwnewbrightness: UInt): Int
 
-public expect fun SetMonitorColorTemperature(hmonitor: HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE): Int
+public expect fun setMonitorColorTemperature(hmonitor: Handle, ctcurrentcolortemperature: McColorTemperature): Int
 
-public expect fun SetMonitorContrast(hmonitor: HANDLE, dwnewcontrast: UInt): Int
+public expect fun setMonitorContrast(hmonitor: Handle, dwnewcontrast: UInt): Int
 
-public expect fun SetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: UInt): Int
+public expect fun setMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, dwnewposition: UInt): Int
 
-public expect fun SetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: UInt): Int
+public expect fun setMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, dwnewdisplayareawidthorheight: UInt): Int
 
-public expect fun SetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: UInt): Int
+public expect fun setMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, dwnewdrive: UInt): Int
 
-public expect fun SetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: UInt): Int
+public expect fun setMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, dwnewgain: UInt): Int
 
-public expect fun SetVCPFeature(hmonitor: HANDLE, bvcpcode: UByte, dwnewvalue: UInt): Int
+public expect fun setVCPFeature(hmonitor: Handle, bvcpcode: UByte, dwnewvalue: UInt): Int
 
-public expect fun XFORMOBJ_bApplyXform(pxo: Long, imode: UInt, cpoints: UInt, pvin: Long, pvout: Long): BOOL
+public expect fun xformobjBApplyXform(pxo: COpaquePointer?, imode: UInt, cpoints: UInt, pvin: COpaquePointer?, pvout: COpaquePointer?): Bool
 
-public expect fun XFORMOBJ_iGetXform(pxo: Long, pxform: Long): UInt
+public expect fun xformobjIGetXform(pxo: COpaquePointer?, pxform: COpaquePointer?): UInt
 
-public expect fun XLATEOBJ_cGetPalette(pxlo: Long, ipal: UInt, cpal: UInt, ppal: Long): UInt
+public expect fun xlateobjCGetPalette(pxlo: COpaquePointer?, ipal: UInt, cpal: UInt, ppal: COpaquePointer?): UInt
 
-public expect fun XLATEOBJ_hGetColorTransform(pxlo: Long): HANDLE
+public expect fun xlateobjHGetColorTransform(pxlo: COpaquePointer?): Handle
 
-public expect fun XLATEOBJ_iXlate(pxlo: Long, icolor: UInt): UInt
+public expect fun xlateobjIXlate(pxlo: COpaquePointer?, icolor: UInt): UInt
 
-public expect fun XLATEOBJ_piVector(pxlo: Long): Long
+public expect fun xlateobjPiVector(pxlo: COpaquePointer?): COpaquePointer?

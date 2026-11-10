@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public actual fun OfflineFilesEnable(benable: BOOL, pbrebootrequired: Long): UInt =
-    0u
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): UInt =
-    0u
+public actual fun offlineFilesQueryStatus(pbactive: COpaquePointer?, pbenabled: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): UInt =
-    0u
+public actual fun offlineFilesQueryStatusEx(pbactive: COpaquePointer?, pbenabled: COpaquePointer?, pbavailable: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineFilesStart(): UInt =
-    0u
+public actual fun offlineFilesStart(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

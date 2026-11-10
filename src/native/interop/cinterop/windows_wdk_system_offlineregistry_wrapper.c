@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORCloseHive(void* handle) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRCloseHive(void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORCloseHive(void* handle)
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORCloseKey(void* keyhandle) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRCloseKey(void* keyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORCloseKey(void* keyhandl
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORCreateHive(void* horkey) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRCreateHive(void* horkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORCreateHive(void* horkey
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORCreateKey(void* keyhandle, void* lpsubkey, void* lpclass, uint32_t dwoptions, void* psecuritydescriptor, void* phkresult, void* pdwdisposition) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRCreateKey(void* keyhandle, void* lpsubkey, void* lpclass, uint32_t dwoptions, void* psecuritydescriptor, void* phkresult, void* pdwdisposition) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORCreateKey(void* keyhand
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORDeleteKey(void* handle, void* lpsubkey) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRDeleteKey(void* handle, void* lpsubkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORDeleteKey(void* handle,
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORDeleteValue(void* handle, void* lpvaluename) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRDeleteValue(void* handle, void* lpvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORDeleteValue(void* handl
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_OREnumKey(void* handle, uint32_t dwindex, void* lpname, void* lpcname, void* lpclass, void* lpcclass, void* lpftlastwritetime) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oREnumKey(void* handle, uint32_t dwindex, void* lpname, void* lpcname, void* lpclass, void* lpcclass, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_OREnumKey(void* handle, u
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_OREnumValue(void* handle, uint32_t dwindex, void* lpvaluename, void* lpcvaluename, void* lptype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oREnumValue(void* handle, uint32_t dwindex, void* lpvaluename, void* lpcvaluename, void* lptype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -211,7 +211,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_OREnumValue(void* handle,
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetKeySecurity(void* handle, uint32_t securityinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurity(void* handle, uint32_t securityinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetKeySecurity(void* ha
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetValue(void* handle, void* lpsubkey, void* lpvalue, void* pdwtype, void* pvdata, void* pcbdata) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRGetValue(void* handle, void* lpsubkey, void* lpvalue, void* pdwtype, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -263,7 +263,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetValue(void* handle, 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetVersion(void* pdwmajorversion, void* pdwminorversion) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRGetVersion(void* pdwmajorversion, void* pdwminorversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -286,7 +286,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetVersion(void* pdwmaj
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetVirtualFlags(void* handle, void* pdwflags) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFlags(void* handle, void* pdwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORGetVirtualFlags(void* h
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORMergeHives(void* hivehandles, uint32_t hivecount, void* phkresult) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRMergeHives(void* hivehandles, uint32_t hivecount, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORMergeHives(void* hiveha
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenHive(void* filepath, void* horkey) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oROpenHive(void* filepath, void* horkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -356,7 +356,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenHive(void* filepath
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenHiveByHandle(void* filehandle, void* horkey) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHandle(void* filehandle, void* horkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -379,7 +379,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenHiveByHandle(void* 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenKey(void* handle, void* lpsubkey, void* phkresult) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oROpenKey(void* handle, void* lpsubkey, void* phkresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_OROpenKey(void* handle, v
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORQueryInfoKey(void* handle, void* lpclass, void* lpcclass, void* lpcsubkeys, void* lpcmaxsubkeylen, void* lpcmaxclasslen, void* lpcvalues, void* lpcmaxvaluenamelen, void* lpcmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey(void* handle, void* lpclass, void* lpcclass, void* lpcsubkeys, void* lpcmaxsubkeylen, void* lpcmaxclasslen, void* lpcvalues, void* lpcmaxvaluenamelen, void* lpcmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORQueryInfoKey(void* hand
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORRenameKey(void* handle, void* lpnewname) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRRenameKey(void* handle, void* lpnewname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORRenameKey(void* handle,
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORSaveHive(void* horkey, void* hivepath, uint32_t osmajorversion, uint32_t osminorversion) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRSaveHive(void* horkey, void* hivepath, uint32_t osmajorversion, uint32_t osminorversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -483,7 +483,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORSaveHive(void* horkey, 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetKeySecurity(void* handle, uint32_t securityinformation, void* psecuritydescriptor) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurity(void* handle, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -507,7 +507,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetKeySecurity(void* ha
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetValue(void* handle, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRSetValue(void* handle, void* lpvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetValue(void* handle, 
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetVirtualFlags(void* handle, uint32_t dwflags) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFlags(void* handle, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -556,7 +556,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORSetVirtualFlags(void* h
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORShutdown(void) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRShutdown(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ uint32_t windowssys_windows_wdk_system_offlineregistry_ORShutdown(void) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_system_offlineregistry_ORStart(void) {
+uint32_t windowssys_windows_wdk_system_offlineregistry_oRStart(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

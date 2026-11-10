@@ -1,352 +1,353 @@
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IO_ALLOCATION_ACTION
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IoAllocationAction
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public typealias DMA_COMMON_BUFFER_VECTOR = Long
+public typealias DmaCommonBufferVector = Long
 
-public fun interface DRIVER_ADD_DEVICEFn {
-    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long): NTSTATUS
+public fun interface DriverAddDeviceFn {
+    public operator fun invoke(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?): Ntstatus
 }
 
-public typealias DRIVER_ADD_DEVICE = DRIVER_ADD_DEVICEFn?
+public typealias DriverAddDevice = DriverAddDeviceFn?
 
-public fun interface DRIVER_CANCELFn {
-    public operator fun invoke(deviceobject: Long, irp: Long)
+public fun interface DriverCancelFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias DRIVER_CANCEL = DRIVER_CANCELFn?
+public typealias DriverCancel = DriverCancelFn?
 
-public fun interface DRIVER_CONTROLFn {
-    public operator fun invoke(deviceobject: Long, irp: Long, mapregisterbase: Long, context: Long): IO_ALLOCATION_ACTION
+public fun interface DriverControlFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?, mapregisterbase: COpaquePointer?, context: COpaquePointer?): IoAllocationAction
 }
 
-public typealias DRIVER_CONTROL = DRIVER_CONTROLFn?
+public typealias DriverControl = DriverControlFn?
 
-public fun interface DRIVER_DISPATCHFn {
-    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
+public fun interface DriverDispatchFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus
 }
 
-public typealias DRIVER_DISPATCH = DRIVER_DISPATCHFn?
+public typealias DriverDispatch = DriverDispatchFn?
 
-public fun interface DRIVER_DISPATCH_PAGEDFn {
-    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
+public fun interface DriverDispatchPagedFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus
 }
 
-public typealias DRIVER_DISPATCH_PAGED = DRIVER_DISPATCH_PAGEDFn?
+public typealias DriverDispatchPaged = DriverDispatchPagedFn?
 
-public fun interface DRIVER_FS_NOTIFICATIONFn {
-    public operator fun invoke(deviceobject: Long, fsactive: Boolean)
+public fun interface DriverFsNotificationFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, fsactive: Boolean)
 }
 
-public typealias DRIVER_FS_NOTIFICATION = DRIVER_FS_NOTIFICATIONFn?
+public typealias DriverFsNotification = DriverFsNotificationFn?
 
-public fun interface DRIVER_INITIALIZEFn {
-    public operator fun invoke(driverobject: Long, registrypath: Long): NTSTATUS
+public fun interface DriverInitializeFn {
+    public operator fun invoke(driverobject: COpaquePointer?, registrypath: COpaquePointer?): Ntstatus
 }
 
-public typealias DRIVER_INITIALIZE = DRIVER_INITIALIZEFn?
+public typealias DriverInitialize = DriverInitializeFn?
 
-public fun interface DRIVER_NOTIFICATION_CALLBACK_ROUTINEFn {
-    public operator fun invoke(notificationstructure: Long, context: Long): NTSTATUS
+public fun interface DriverNotificationCallbackRoutineFn {
+    public operator fun invoke(notificationstructure: COpaquePointer?, context: COpaquePointer?): Ntstatus
 }
 
-public typealias DRIVER_NOTIFICATION_CALLBACK_ROUTINE = DRIVER_NOTIFICATION_CALLBACK_ROUTINEFn?
+public typealias DriverNotificationCallbackRoutine = DriverNotificationCallbackRoutineFn?
 
-public fun interface DRIVER_REINITIALIZEFn {
-    public operator fun invoke(driverobject: Long, context: Long, count: UInt)
+public fun interface DriverReinitializeFn {
+    public operator fun invoke(driverobject: COpaquePointer?, context: COpaquePointer?, count: UInt)
 }
 
-public typealias DRIVER_REINITIALIZE = DRIVER_REINITIALIZEFn?
+public typealias DriverReinitialize = DriverReinitializeFn?
 
-public fun interface DRIVER_STARTIOFn {
-    public operator fun invoke(deviceobject: Long, irp: Long)
+public fun interface DriverStartioFn {
+    public operator fun invoke(deviceobject: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias DRIVER_STARTIO = DRIVER_STARTIOFn?
+public typealias DriverStartio = DriverStartioFn?
 
-public fun interface DRIVER_UNLOADFn {
-    public operator fun invoke(driverobject: Long)
+public fun interface DriverUnloadFn {
+    public operator fun invoke(driverobject: COpaquePointer?)
 }
 
-public typealias DRIVER_UNLOAD = DRIVER_UNLOADFn?
+public typealias DriverUnload = DriverUnloadFn?
 
-public typealias ECP_HEADER = Long
+public typealias EcpHeader = Long
 
-public typealias ECP_LIST = Long
+public typealias EcpList = Long
 
-public fun interface FAST_IO_ACQUIRE_FILEFn {
-    public operator fun invoke(fileobject: Long)
+public fun interface FastIoAcquireFileFn {
+    public operator fun invoke(fileobject: COpaquePointer?)
 }
 
-public typealias FAST_IO_ACQUIRE_FILE = FAST_IO_ACQUIRE_FILEFn?
+public typealias FastIoAcquireFile = FastIoAcquireFileFn?
 
-public fun interface FAST_IO_ACQUIRE_FOR_CCFLUSHFn {
-    public operator fun invoke(fileobject: Long, deviceobject: Long): NTSTATUS
+public fun interface FastIoAcquireForCcflushFn {
+    public operator fun invoke(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): Ntstatus
 }
 
-public typealias FAST_IO_ACQUIRE_FOR_CCFLUSH = FAST_IO_ACQUIRE_FOR_CCFLUSHFn?
+public typealias FastIoAcquireForCcflush = FastIoAcquireForCcflushFn?
 
-public fun interface FAST_IO_ACQUIRE_FOR_MOD_WRITEFn {
-    public operator fun invoke(fileobject: Long, endingoffset: Long, resourcetorelease: Long, deviceobject: Long): NTSTATUS
+public fun interface FastIoAcquireForModWriteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, endingoffset: COpaquePointer?, resourcetorelease: COpaquePointer?, deviceobject: COpaquePointer?): Ntstatus
 }
 
-public typealias FAST_IO_ACQUIRE_FOR_MOD_WRITE = FAST_IO_ACQUIRE_FOR_MOD_WRITEFn?
+public typealias FastIoAcquireForModWrite = FastIoAcquireForModWriteFn?
 
-public fun interface FAST_IO_CHECK_IF_POSSIBLEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, checkforreadoperation: Boolean, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoCheckIfPossibleFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, checkforreadoperation: Boolean, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_CHECK_IF_POSSIBLE = FAST_IO_CHECK_IF_POSSIBLEFn?
+public typealias FastIoCheckIfPossible = FastIoCheckIfPossibleFn?
 
-public fun interface FAST_IO_DETACH_DEVICEFn {
-    public operator fun invoke(sourcedevice: Long, targetdevice: Long)
+public fun interface FastIoDetachDeviceFn {
+    public operator fun invoke(sourcedevice: COpaquePointer?, targetdevice: COpaquePointer?)
 }
 
-public typealias FAST_IO_DETACH_DEVICE = FAST_IO_DETACH_DEVICEFn?
+public typealias FastIoDetachDevice = FastIoDetachDeviceFn?
 
-public fun interface FAST_IO_DEVICE_CONTROLFn {
-    public operator fun invoke(fileobject: Long, wait: Boolean, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, iocontrolcode: UInt, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoDeviceControlFn {
+    public operator fun invoke(fileobject: COpaquePointer?, wait: Boolean, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, iocontrolcode: UInt, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_DEVICE_CONTROL = FAST_IO_DEVICE_CONTROLFn?
+public typealias FastIoDeviceControl = FastIoDeviceControlFn?
 
-public fun interface FAST_IO_LOCKFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoLockFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_LOCK = FAST_IO_LOCKFn?
+public typealias FastIoLock = FastIoLockFn?
 
-public fun interface FAST_IO_MDL_READFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoMdlReadFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_MDL_READ = FAST_IO_MDL_READFn?
+public typealias FastIoMdlRead = FastIoMdlReadFn?
 
-public fun interface FAST_IO_MDL_READ_COMPLETEFn {
-    public operator fun invoke(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean
+public fun interface FastIoMdlReadCompleteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_MDL_READ_COMPLETE = FAST_IO_MDL_READ_COMPLETEFn?
+public typealias FastIoMdlReadComplete = FastIoMdlReadCompleteFn?
 
-public fun interface FAST_IO_MDL_READ_COMPLETE_COMPRESSEDFn {
-    public operator fun invoke(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean
+public fun interface FastIoMdlReadCompleteCompressedFn {
+    public operator fun invoke(fileobject: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_MDL_READ_COMPLETE_COMPRESSED = FAST_IO_MDL_READ_COMPLETE_COMPRESSEDFn?
+public typealias FastIoMdlReadCompleteCompressed = FastIoMdlReadCompleteCompressedFn?
 
-public fun interface FAST_IO_MDL_WRITE_COMPLETEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean
+public fun interface FastIoMdlWriteCompleteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_MDL_WRITE_COMPLETE = FAST_IO_MDL_WRITE_COMPLETEFn?
+public typealias FastIoMdlWriteComplete = FastIoMdlWriteCompleteFn?
 
-public fun interface FAST_IO_MDL_WRITE_COMPLETE_COMPRESSEDFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean
+public fun interface FastIoMdlWriteCompleteCompressedFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = FAST_IO_MDL_WRITE_COMPLETE_COMPRESSEDFn?
+public typealias FastIoMdlWriteCompleteCompressed = FastIoMdlWriteCompleteCompressedFn?
 
-public fun interface FAST_IO_PREPARE_MDL_WRITEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoPrepareMdlWriteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_PREPARE_MDL_WRITE = FAST_IO_PREPARE_MDL_WRITEFn?
+public typealias FastIoPrepareMdlWrite = FastIoPrepareMdlWriteFn?
 
-public fun interface FAST_IO_QUERY_BASIC_INFOFn {
-    public operator fun invoke(fileobject: Long, wait: Boolean, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoQueryBasicInfoFn {
+    public operator fun invoke(fileobject: COpaquePointer?, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_QUERY_BASIC_INFO = FAST_IO_QUERY_BASIC_INFOFn?
+public typealias FastIoQueryBasicInfo = FastIoQueryBasicInfoFn?
 
-public fun interface FAST_IO_QUERY_NETWORK_OPEN_INFOFn {
-    public operator fun invoke(fileobject: Long, wait: Boolean, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoQueryNetworkOpenInfoFn {
+    public operator fun invoke(fileobject: COpaquePointer?, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_QUERY_NETWORK_OPEN_INFO = FAST_IO_QUERY_NETWORK_OPEN_INFOFn?
+public typealias FastIoQueryNetworkOpenInfo = FastIoQueryNetworkOpenInfoFn?
 
-public fun interface FAST_IO_QUERY_OPENFn {
-    public operator fun invoke(irp: Long, networkinformation: Long, deviceobject: Long): Boolean
+public fun interface FastIoQueryOpenFn {
+    public operator fun invoke(irp: COpaquePointer?, networkinformation: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_QUERY_OPEN = FAST_IO_QUERY_OPENFn?
+public typealias FastIoQueryOpen = FastIoQueryOpenFn?
 
-public fun interface FAST_IO_QUERY_STANDARD_INFOFn {
-    public operator fun invoke(fileobject: Long, wait: Boolean, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoQueryStandardInfoFn {
+    public operator fun invoke(fileobject: COpaquePointer?, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_QUERY_STANDARD_INFO = FAST_IO_QUERY_STANDARD_INFOFn?
+public typealias FastIoQueryStandardInfo = FastIoQueryStandardInfoFn?
 
-public fun interface FAST_IO_READFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoReadFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_READ = FAST_IO_READFn?
+public typealias FastIoRead = FastIoReadFn?
 
-public fun interface FAST_IO_READ_COMPRESSEDFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, buffer: Long, mdlchain: Long, iostatus: Long, compresseddatainfo: Long, compresseddatainfolength: UInt, deviceobject: Long): Boolean
+public fun interface FastIoReadCompressedFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, buffer: COpaquePointer?, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, compresseddatainfo: COpaquePointer?, compresseddatainfolength: UInt, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_READ_COMPRESSED = FAST_IO_READ_COMPRESSEDFn?
+public typealias FastIoReadCompressed = FastIoReadCompressedFn?
 
-public fun interface FAST_IO_RELEASE_FILEFn {
-    public operator fun invoke(fileobject: Long)
+public fun interface FastIoReleaseFileFn {
+    public operator fun invoke(fileobject: COpaquePointer?)
 }
 
-public typealias FAST_IO_RELEASE_FILE = FAST_IO_RELEASE_FILEFn?
+public typealias FastIoReleaseFile = FastIoReleaseFileFn?
 
-public fun interface FAST_IO_RELEASE_FOR_CCFLUSHFn {
-    public operator fun invoke(fileobject: Long, deviceobject: Long): NTSTATUS
+public fun interface FastIoReleaseForCcflushFn {
+    public operator fun invoke(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): Ntstatus
 }
 
-public typealias FAST_IO_RELEASE_FOR_CCFLUSH = FAST_IO_RELEASE_FOR_CCFLUSHFn?
+public typealias FastIoReleaseForCcflush = FastIoReleaseForCcflushFn?
 
-public fun interface FAST_IO_RELEASE_FOR_MOD_WRITEFn {
-    public operator fun invoke(fileobject: Long, resourcetorelease: Long, deviceobject: Long): NTSTATUS
+public fun interface FastIoReleaseForModWriteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, resourcetorelease: COpaquePointer?, deviceobject: COpaquePointer?): Ntstatus
 }
 
-public typealias FAST_IO_RELEASE_FOR_MOD_WRITE = FAST_IO_RELEASE_FOR_MOD_WRITEFn?
+public typealias FastIoReleaseForModWrite = FastIoReleaseForModWriteFn?
 
-public fun interface FAST_IO_UNLOCK_ALLFn {
-    public operator fun invoke(fileobject: Long, processid: PEPROCESS, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoUnlockAllFn {
+    public operator fun invoke(fileobject: COpaquePointer?, processid: Peprocess, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_UNLOCK_ALL = FAST_IO_UNLOCK_ALLFn?
+public typealias FastIoUnlockAll = FastIoUnlockAllFn?
 
-public fun interface FAST_IO_UNLOCK_ALL_BY_KEYFn {
-    public operator fun invoke(fileobject: Long, processid: Long, key: UInt, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoUnlockAllByKeyFn {
+    public operator fun invoke(fileobject: COpaquePointer?, processid: COpaquePointer?, key: UInt, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_UNLOCK_ALL_BY_KEY = FAST_IO_UNLOCK_ALL_BY_KEYFn?
+public typealias FastIoUnlockAllByKey = FastIoUnlockAllByKeyFn?
 
-public fun interface FAST_IO_UNLOCK_SINGLEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoUnlockSingleFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_UNLOCK_SINGLE = FAST_IO_UNLOCK_SINGLEFn?
+public typealias FastIoUnlockSingle = FastIoUnlockSingleFn?
 
-public fun interface FAST_IO_WRITEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean
+public fun interface FastIoWriteFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_WRITE = FAST_IO_WRITEFn?
+public typealias FastIoWrite = FastIoWriteFn?
 
-public fun interface FAST_IO_WRITE_COMPRESSEDFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, buffer: Long, mdlchain: Long, iostatus: Long, compresseddatainfo: Long, compresseddatainfolength: UInt, deviceobject: Long): Boolean
+public fun interface FastIoWriteCompressedFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, buffer: COpaquePointer?, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, compresseddatainfo: COpaquePointer?, compresseddatainfolength: UInt, deviceobject: COpaquePointer?): Boolean
 }
 
-public typealias FAST_IO_WRITE_COMPRESSED = FAST_IO_WRITE_COMPRESSEDFn?
+public typealias FastIoWriteCompressed = FastIoWriteCompressedFn?
 
-public typealias IOMMU_DMA_DEVICE = Long
+public typealias IommuDmaDevice = Long
 
-public typealias IOMMU_DMA_DOMAIN = Long
+public typealias IommuDmaDomain = Long
 
-public typealias IO_PRIORITY_HINT = Int
+public typealias IoPriorityHint = Int
 
-public typealias KENLISTMENT = Long
+public typealias Kenlistment = Long
 
-public typealias KGDT = Long
+public typealias Kgdt = Long
 
-public typealias KIDT = Long
+public typealias Kidt = Long
 
-public typealias KPCR = Long
+public typealias Kpcr = Long
 
-public typealias KPRCB = Long
+public typealias Kprcb = Long
 
-public typealias KRESOURCEMANAGER = Long
+public typealias Kresourcemanager = Long
 
-public typealias KSPIN_LOCK_QUEUE_NUMBER = Int
+public typealias KspinLockQueueNumber = Int
 
-public typealias KTM = Long
+public typealias Ktm = Long
 
-public typealias KTRANSACTION = Long
+public typealias Ktransaction = Long
 
-public typealias KTSS = Long
+public typealias Ktss = Long
 
-public typealias LOADER_PARAMETER_BLOCK = Long
+public typealias LoaderParameterBlock = Long
 
-public typealias OBJECT_INFORMATION_CLASS = Int
+public typealias ObjectInformationClass = Int
 
-public typealias PAFFINITY_TOKEN = Long
+public typealias PaffinityToken = Long
 
-public typealias PBUS_HANDLER = Long
+public typealias PbusHandler = Long
 
-public typealias PCALLBACK_OBJECT = Long
+public typealias PcallbackObject = Long
 
-public typealias PDEVICE_HANDLER_OBJECT = Long
+public typealias PdeviceHandlerObject = Long
 
-public typealias PEJOB = Long
+public typealias Pejob = Long
 
-public typealias PEPROCESS = Long
+public typealias Peprocess = Long
 
-public typealias PESILO = Long
+public typealias Pesilo = Long
 
-public typealias PETHREAD = Long
+public typealias Pethread = Long
 
-public typealias PEX_RUNDOWN_REF_CACHE_AWARE = Long
+public typealias PexRundownRefCacheAware = Long
 
-public typealias PEX_TIMER = Long
+public typealias PexTimer = Long
 
-public fun interface PFREE_FUNCTIONFn {
+public fun interface PfreeFunctionFn {
     public operator fun invoke()
 }
 
-public typealias PFREE_FUNCTION = PFREE_FUNCTIONFn?
+public typealias PfreeFunction = PfreeFunctionFn?
 
-public fun interface PIO_COMPLETION_ROUTINEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PioCompletionRoutineFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PIO_COMPLETION_ROUTINE = PIO_COMPLETION_ROUTINEFn?
+public typealias PioCompletionRoutine = PioCompletionRoutineFn?
 
-public typealias PIO_REMOVE_LOCK_TRACKING_BLOCK = Long
+public typealias PioRemoveLockTrackingBlock = Long
 
-public typealias PIO_TIMER = Long
+public typealias PioTimer = Long
 
-public typealias PIO_WORKITEM = Long
+public typealias PioWorkitem = Long
 
-public fun interface PKDEFERRED_ROUTINEFn {
+public fun interface PkdeferredRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PKDEFERRED_ROUTINE = PKDEFERRED_ROUTINEFn?
+public typealias PkdeferredRoutine = PkdeferredRoutineFn?
 
-public typealias PKINTERRUPT = Long
+public typealias Pkinterrupt = Long
 
-public typealias PKPROCESS = Long
+public typealias Pkprocess = Long
 
-public typealias PKTHREAD = Long
+public typealias Pkthread = Long
 
-public typealias PNOTIFY_SYNC = Long
+public typealias PnotifySync = Long
 
-public typealias POBJECT_TYPE = Long
+public typealias PobjectType = Long
 
-public typealias POHANDLE = Long
+public typealias Pohandle = COpaquePointer?
 
-public typealias POOL_TYPE = Int
+public typealias PoolType = Int
 
-public typealias PPCW_BUFFER = Long
+public typealias PpcwBuffer = Long
 
-public typealias PPCW_INSTANCE = Long
+public typealias PpcwInstance = Long
 
-public typealias PPCW_REGISTRATION = Long
+public typealias PpcwRegistration = Long
 
-public typealias PRKPROCESS = Long
+public typealias Prkprocess = Long
 
-public typealias PRKTHREAD = Long
+public typealias Prkthread = Long
 
-public typealias PSILO_MONITOR = Long
+public typealias PsiloMonitor = Long
 
-public fun interface PWORKER_THREAD_ROUTINEFn {
+public fun interface PworkerThreadRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PWORKER_THREAD_ROUTINE = PWORKER_THREAD_ROUTINEFn?
+public typealias PworkerThreadRoutine = PworkerThreadRoutineFn?
 
 public typealias SspiAsyncContext = Long
 
-public typealias _DEVICE_OBJECT_POWER_EXTENSION = Long
+public typealias DeviceObjectPowerExtension = Long
 
-public typealias _IORING_OBJECT = Long
+public typealias IoringObject = Long
 
-public typealias _SCSI_REQUEST_BLOCK = Long
+public typealias ScsiRequestBlock = Long

@@ -2,96 +2,97 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext(interactioncontext.toCPointer<ByteVar>(), pointerid)
+public actual fun addPointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), pointerid)
 
-public actual fun BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointerinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext(interactioncontext.toCPointer<ByteVar>(), entriescount, pointerinfo.toCPointer<ByteVar>())
+public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), entriescount, pointerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateInteractionContext(interactioncontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun createInteractionContext(interactioncontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_createInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun destroyInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), threshold, distance.toCPointer<ByteVar>())
+public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), threshold, distance?.value?.toCPointer<ByteVar>())
 
-public actual fun GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value.toCPointer<ByteVar>())
+public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), inertiaparameter, value.toCPointer<ByteVar>())
+public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), inertiaparameter, value?.value?.toCPointer<ByteVar>())
 
-public actual fun GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext(interactioncontext.toCPointer<ByteVar>(), configurationcount, configuration.toCPointer<ByteVar>())
+public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), configurationcount, configuration?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value.toCPointer<ByteVar>())
+public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext(interactioncontext.toCPointer<ByteVar>(), contextproperty, value.toCPointer<ByteVar>())
+public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), contextproperty, value?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: Long, state: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext(interactioncontext.toCPointer<ByteVar>(), pointerinfo.toCPointer<ByteVar>(), state.toCPointer<ByteVar>())
+public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: COpaquePointer?, state: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), pointerinfo?.value?.toCPointer<ByteVar>(), state?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value.toCPointer<ByteVar>())
+public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value.toCPointer<ByteVar>())
+public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value?.value?.toCPointer<ByteVar>())
 
-public actual fun ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun processBufferedPacketsInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun processInertiaInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointercount: UInt, pointerinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext(interactioncontext.toCPointer<ByteVar>(), entriescount, pointercount, pointerinfo.toCPointer<ByteVar>())
+public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), entriescount, pointercount, pointerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext(interactioncontext.toCPointer<ByteVar>(), outputcallback.toLong().toCPointer<ByteVar>(), clientdata.toCPointer<ByteVar>())
+public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), clientdata?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2(interactioncontext.toCPointer<ByteVar>(), outputcallback.toLong().toCPointer<ByteVar>(), clientdata.toCPointer<ByteVar>())
+public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2(interactioncontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), clientdata?.value?.toCPointer<ByteVar>())
 
-public actual fun RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext(interactioncontext.toCPointer<ByteVar>(), pointerid)
+public actual fun removePointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), pointerid)
 
-public actual fun ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun resetInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_resetInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: UInt, crossslideparameters: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext(interactioncontext.toCPointer<ByteVar>(), parametercount, crossslideparameters.toCPointer<ByteVar>())
+public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parametercount, crossslideparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value)
+public actual fun setHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value)
 
-public actual fun SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), inertiaparameter, value)
+public actual fun setInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), inertiaparameter, value)
 
-public actual fun SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext(interactioncontext.toCPointer<ByteVar>(), configurationcount, configuration.toCPointer<ByteVar>())
+public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), configurationcount, configuration?.value?.toCPointer<ByteVar>())
 
-public actual fun SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value)
+public actual fun setMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value)
 
-public actual fun SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: Float, y: Float, radius: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext(interactioncontext.toCPointer<ByteVar>(), x, y, radius)
+public actual fun setPivotInteractionContext(interactioncontext: Hinteractioncontext, x: Float, y: Float, radius: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), x, y, radius)
 
-public actual fun SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext(interactioncontext.toCPointer<ByteVar>(), contextproperty, value)
+public actual fun setPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), contextproperty, value)
 
-public actual fun SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value)
+public actual fun setTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value)
 
-public actual fun SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Float): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext(interactioncontext.toCPointer<ByteVar>(), parameter, value)
+public actual fun setTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: Float): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>(), parameter, value)
 
-public actual fun StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_StopInteractionContext(interactioncontext.toCPointer<ByteVar>())
+public actual fun stopInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext.cinterop.windowssys_windows_win32_ui_interactioncontext_stopInteractionContext(interactioncontext?.value?.toCPointer<ByteVar>())

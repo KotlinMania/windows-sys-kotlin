@@ -1,53 +1,53 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class CHAR_INFO(public var Char: CHAR_INFO_0 = CHAR_INFO_0(), public var Attributes: UShort = 0u)
+public data class CharInfo(public var char: CharInfo0 = CharInfo0(), public var attributes: UShort = 0u)
 
-public data class CHAR_INFO_0(public var UnicodeChar: UShort = 0u, public var AsciiChar: Byte = 0)
+public data class CharInfo0(public var unicodeChar: UShort = 0u, public var asciiChar: Byte = 0)
 
-public data class CONSOLEENDTASK(
-    public var ProcessId: HANDLE = 0L,
-    public var hwnd: HWND = 0L,
-    public var ConsoleEventCode: UInt = 0u,
-    public var ConsoleFlags: UInt = 0u,
+public data class Consoleendtask(
+    public var processId: Handle = null,
+    public var hwnd: Hwnd = null,
+    public var consoleEventCode: UInt = 0u,
+    public var consoleFlags: UInt = 0u,
 )
 
-public data class CONSOLESETFOREGROUND(public var hProcess: HANDLE = 0L, public var bForeground: BOOL = 0)
+public data class Consolesetforeground(public var hProcess: Handle = null, public var bForeground: Bool = 0)
 
-public data class CONSOLEWINDOWOWNER(
-    public var hwnd: HWND = 0L,
-    public var ProcessId: UInt = 0u,
-    public var ThreadId: UInt = 0u,
+public data class Consolewindowowner(
+    public var hwnd: Hwnd = null,
+    public var processId: UInt = 0u,
+    public var threadId: UInt = 0u,
 )
 
-public data class CONSOLE_CARET_INFO(public var hwnd: HWND = 0L, public var rc: RECT = RECT())
+public data class ConsoleCaretInfo(public var hwnd: Hwnd = null, public var rc: Rect = Rect())
 
-public data class CONSOLE_CURSOR_INFO(public var dwSize: UInt = 0u, public var bVisible: BOOL = 0)
+public data class ConsoleCursorInfo(public var dwSize: UInt = 0u, public var bVisible: Bool = 0)
 
-public data class CONSOLE_FONT_INFO(public var nFont: UInt = 0u, public var dwFontSize: COORD = COORD())
+public data class ConsoleFontInfo(public var nFont: UInt = 0u, public var dwFontSize: Coord = Coord())
 
-public data class CONSOLE_FONT_INFOEX(
+public data class ConsoleFontInfoex(
     public var cbSize: UInt = 0u,
     public var nFont: UInt = 0u,
-    public var dwFontSize: COORD = COORD(),
-    public var FontFamily: UInt = 0u,
-    public var FontWeight: UInt = 0u,
-    public var FaceName: UShortArray = UShortArray(32),
+    public var dwFontSize: Coord = Coord(),
+    public var fontFamily: UInt = 0u,
+    public var fontWeight: UInt = 0u,
+    public var faceName: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONSOLE_FONT_INFOEX) return false
+        if (other !is ConsoleFontInfoex) return false
         if (this.cbSize != other.cbSize) return false
         if (this.nFont != other.nFont) return false
         if (this.dwFontSize != other.dwFontSize) return false
-        if (this.FontFamily != other.FontFamily) return false
-        if (this.FontWeight != other.FontWeight) return false
-        if (!this.FaceName.contentEquals(other.FaceName)) return false
+        if (this.fontFamily != other.fontFamily) return false
+        if (this.fontWeight != other.fontWeight) return false
+        if (!this.faceName.contentEquals(other.faceName)) return false
         return true
     }
 
@@ -55,51 +55,51 @@ public data class CONSOLE_FONT_INFOEX(
         var result = this.cbSize.hashCode()
         result = 31 * result + this.nFont.hashCode()
         result = 31 * result + this.dwFontSize.hashCode()
-        result = 31 * result + this.FontFamily.hashCode()
-        result = 31 * result + this.FontWeight.hashCode()
-        result = 31 * result + this.FaceName.contentHashCode()
+        result = 31 * result + this.fontFamily.hashCode()
+        result = 31 * result + this.fontWeight.hashCode()
+        result = 31 * result + this.faceName.contentHashCode()
         return result
     }
 }
 
-public data class CONSOLE_HISTORY_INFO(
+public data class ConsoleHistoryInfo(
     public var cbSize: UInt = 0u,
-    public var HistoryBufferSize: UInt = 0u,
-    public var NumberOfHistoryBuffers: UInt = 0u,
+    public var historyBufferSize: UInt = 0u,
+    public var numberOfHistoryBuffers: UInt = 0u,
     public var dwFlags: UInt = 0u,
 )
 
-public data class CONSOLE_PROCESS_INFO(public var dwProcessID: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class ConsoleProcessInfo(public var dwProcessID: UInt = 0u, public var dwFlags: UInt = 0u)
 
-public data class CONSOLE_READCONSOLE_CONTROL(
+public data class ConsoleReadconsoleControl(
     public var nLength: UInt = 0u,
     public var nInitialChars: UInt = 0u,
     public var dwCtrlWakeupMask: UInt = 0u,
     public var dwControlKeyState: UInt = 0u,
 )
 
-public data class CONSOLE_SCREEN_BUFFER_INFO(
-    public var dwSize: COORD = COORD(),
-    public var dwCursorPosition: COORD = COORD(),
-    public var wAttributes: CONSOLE_CHARACTER_ATTRIBUTES = 0u,
-    public var srWindow: SMALL_RECT = SMALL_RECT(),
-    public var dwMaximumWindowSize: COORD = COORD(),
+public data class ConsoleScreenBufferInfo(
+    public var dwSize: Coord = Coord(),
+    public var dwCursorPosition: Coord = Coord(),
+    public var wAttributes: ConsoleCharacterAttributes = 0u,
+    public var srWindow: SmallRect = SmallRect(),
+    public var dwMaximumWindowSize: Coord = Coord(),
 )
 
-public data class CONSOLE_SCREEN_BUFFER_INFOEX(
+public data class ConsoleScreenBufferInfoex(
     public var cbSize: UInt = 0u,
-    public var dwSize: COORD = COORD(),
-    public var dwCursorPosition: COORD = COORD(),
-    public var wAttributes: CONSOLE_CHARACTER_ATTRIBUTES = 0u,
-    public var srWindow: SMALL_RECT = SMALL_RECT(),
-    public var dwMaximumWindowSize: COORD = COORD(),
+    public var dwSize: Coord = Coord(),
+    public var dwCursorPosition: Coord = Coord(),
+    public var wAttributes: ConsoleCharacterAttributes = 0u,
+    public var srWindow: SmallRect = SmallRect(),
+    public var dwMaximumWindowSize: Coord = Coord(),
     public var wPopupAttributes: UShort = 0u,
-    public var bFullscreenSupported: BOOL = 0,
-    public var ColorTable: UIntArray = UIntArray(16),
+    public var bFullscreenSupported: Bool = 0,
+    public var colorTable: UIntArray = UIntArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONSOLE_SCREEN_BUFFER_INFOEX) return false
+        if (other !is ConsoleScreenBufferInfoex) return false
         if (this.cbSize != other.cbSize) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwCursorPosition != other.dwCursorPosition) return false
@@ -108,7 +108,7 @@ public data class CONSOLE_SCREEN_BUFFER_INFOEX(
         if (this.dwMaximumWindowSize != other.dwMaximumWindowSize) return false
         if (this.wPopupAttributes != other.wPopupAttributes) return false
         if (this.bFullscreenSupported != other.bFullscreenSupported) return false
-        if (!this.ColorTable.contentEquals(other.ColorTable)) return false
+        if (!this.colorTable.contentEquals(other.colorTable)) return false
         return true
     }
 
@@ -121,56 +121,56 @@ public data class CONSOLE_SCREEN_BUFFER_INFOEX(
         result = 31 * result + this.dwMaximumWindowSize.hashCode()
         result = 31 * result + this.wPopupAttributes.hashCode()
         result = 31 * result + this.bFullscreenSupported.hashCode()
-        result = 31 * result + this.ColorTable.contentHashCode()
+        result = 31 * result + this.colorTable.contentHashCode()
         return result
     }
 }
 
-public data class CONSOLE_SELECTION_INFO(
+public data class ConsoleSelectionInfo(
     public var dwFlags: UInt = 0u,
-    public var dwSelectionAnchor: COORD = COORD(),
-    public var srSelection: SMALL_RECT = SMALL_RECT(),
+    public var dwSelectionAnchor: Coord = Coord(),
+    public var srSelection: SmallRect = SmallRect(),
 )
 
-public data class COORD(public var X: Short = 0, public var Y: Short = 0)
+public data class Coord(public var x: Short = 0, public var y: Short = 0)
 
-public data class FOCUS_EVENT_RECORD(public var bSetFocus: BOOL = 0)
+public data class FocusEventRecord(public var bSetFocus: Bool = 0)
 
-public data class INPUT_RECORD(public var EventType: UShort = 0u, public var Event: INPUT_RECORD_0 = INPUT_RECORD_0())
+public data class InputRecord(public var eventType: UShort = 0u, public var event: InputRecord0 = InputRecord0())
 
-public data class INPUT_RECORD_0(
-    public var KeyEvent: KEY_EVENT_RECORD = KEY_EVENT_RECORD(),
-    public var MouseEvent: MOUSE_EVENT_RECORD = MOUSE_EVENT_RECORD(),
-    public var WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD = WINDOW_BUFFER_SIZE_RECORD(),
-    public var MenuEvent: MENU_EVENT_RECORD = MENU_EVENT_RECORD(),
-    public var FocusEvent: FOCUS_EVENT_RECORD = FOCUS_EVENT_RECORD(),
+public data class InputRecord0(
+    public var keyEvent: KeyEventRecord = KeyEventRecord(),
+    public var mouseEvent: MouseEventRecord = MouseEventRecord(),
+    public var windowBufferSizeEvent: WindowBufferSizeRecord = WindowBufferSizeRecord(),
+    public var menuEvent: MenuEventRecord = MenuEventRecord(),
+    public var focusEvent: FocusEventRecord = FocusEventRecord(),
 )
 
-public data class KEY_EVENT_RECORD(
-    public var bKeyDown: BOOL = 0,
+public data class KeyEventRecord(
+    public var bKeyDown: Bool = 0,
     public var wRepeatCount: UShort = 0u,
     public var wVirtualKeyCode: UShort = 0u,
     public var wVirtualScanCode: UShort = 0u,
-    public var uChar: KEY_EVENT_RECORD_0 = KEY_EVENT_RECORD_0(),
+    public var uChar: KeyEventRecord0 = KeyEventRecord0(),
     public var dwControlKeyState: UInt = 0u,
 )
 
-public data class KEY_EVENT_RECORD_0(public var UnicodeChar: UShort = 0u, public var AsciiChar: Byte = 0)
+public data class KeyEventRecord0(public var unicodeChar: UShort = 0u, public var asciiChar: Byte = 0)
 
-public data class MENU_EVENT_RECORD(public var dwCommandId: UInt = 0u)
+public data class MenuEventRecord(public var dwCommandId: UInt = 0u)
 
-public data class MOUSE_EVENT_RECORD(
-    public var dwMousePosition: COORD = COORD(),
+public data class MouseEventRecord(
+    public var dwMousePosition: Coord = Coord(),
     public var dwButtonState: UInt = 0u,
     public var dwControlKeyState: UInt = 0u,
     public var dwEventFlags: UInt = 0u,
 )
 
-public data class SMALL_RECT(
-    public var Left: Short = 0,
-    public var Top: Short = 0,
-    public var Right: Short = 0,
-    public var Bottom: Short = 0,
+public data class SmallRect(
+    public var left: Short = 0,
+    public var top: Short = 0,
+    public var right: Short = 0,
+    public var bottom: Short = 0,
 )
 
-public data class WINDOW_BUFFER_SIZE_RECORD(public var dwSize: COORD = COORD())
+public data class WindowBufferSizeRecord(public var dwSize: Coord = Coord())

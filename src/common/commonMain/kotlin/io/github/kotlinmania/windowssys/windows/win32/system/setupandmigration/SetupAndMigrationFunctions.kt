@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun OOBEComplete(isoobecomplete: Long): BOOL
+public expect fun oOBEComplete(isoobecomplete: COpaquePointer?): Bool
 
-public expect fun RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: Long, waithandle: Long): BOOL
+public expect fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: COpaquePointer?, waithandle: COpaquePointer?): Bool
 
-public expect fun UnregisterWaitUntilOOBECompleted(waithandle: Long): BOOL
+public expect fun unregisterWaitUntilOOBECompleted(waithandle: COpaquePointer?): Bool

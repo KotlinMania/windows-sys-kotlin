@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_indexserver_BindIFilterFromStorage(void* pstg, void* punkouter, void* ppiunk) {
+int32_t windowssys_windows_win32_storage_indexserver_bindIFilterFromStorage(void* pstg, void* punkouter, void* ppiunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_storage_indexserver_BindIFilterFromStorage(void
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_indexserver_BindIFilterFromStream(void* pstm, void* punkouter, void* ppiunk) {
+int32_t windowssys_windows_win32_storage_indexserver_bindIFilterFromStream(void* pstm, void* punkouter, void* ppiunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_storage_indexserver_BindIFilterFromStream(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_indexserver_LoadIFilter(void* pwcspath, void* punkouter, void* ppiunk) {
+int32_t windowssys_windows_win32_storage_indexserver_loadIFilter(void* pwcspath, void* punkouter, void* ppiunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_storage_indexserver_LoadIFilter(void* pwcspath,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_indexserver_LoadIFilterEx(void* pwcspath, uint32_t dwflags, void* riid, void* ppiunk) {
+int32_t windowssys_windows_win32_storage_indexserver_loadIFilterEx(void* pwcspath, uint32_t dwflags, void* riid, void* ppiunk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

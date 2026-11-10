@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -67,7 +67,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* changehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -133,7 +133,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -347,7 +347,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t authnservice = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -591,7 +591,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -641,7 +641,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -665,7 +665,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -707,7 +707,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -727,7 +727,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -773,7 +773,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -795,7 +795,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -817,7 +817,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -849,7 +849,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -879,7 +879,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* p = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -926,7 +926,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -958,7 +958,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -990,7 +990,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1022,7 +1022,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1042,7 +1042,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1064,7 +1064,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1084,7 +1084,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1110,7 +1110,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t id = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1132,7 +1132,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1154,7 +1154,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1186,7 +1186,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1216,7 +1216,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1238,7 +1238,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1258,7 +1258,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1284,7 +1284,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1310,7 +1310,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1336,7 +1336,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1362,7 +1362,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1388,7 +1388,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1414,7 +1414,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1444,7 +1444,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1472,7 +1472,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1494,7 +1494,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1518,7 +1518,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1542,7 +1542,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1566,7 +1566,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* providercontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1590,7 +1590,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1612,7 +1612,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1632,7 +1632,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1652,7 +1652,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1672,7 +1672,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1698,7 +1698,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1724,7 +1724,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1750,7 +1750,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1776,7 +1776,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1798,7 +1798,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1820,7 +1820,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1842,7 +1842,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1864,7 +1864,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1886,7 +1886,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1908,7 +1908,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1930,7 +1930,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1952,7 +1952,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1984,7 +1984,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2014,7 +2014,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2036,7 +2036,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2056,7 +2056,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2076,7 +2076,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2102,7 +2102,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2124,7 +2124,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2156,7 +2156,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2186,7 +2186,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2208,7 +2208,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2228,7 +2228,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2254,7 +2254,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sublayer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2276,7 +2276,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2298,7 +2298,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2318,7 +2318,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2338,7 +2338,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2364,7 +2364,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2386,7 +2386,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2418,7 +2418,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2448,7 +2448,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2466,7 +2466,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2486,7 +2486,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2504,7 +2504,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2534,7 +2534,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2562,7 +2562,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2592,7 +2592,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* idpstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2612,7 +2612,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2640,7 +2640,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2662,7 +2662,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2682,7 +2682,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2708,7 +2708,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ipsecstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2728,7 +2728,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ipsecstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2748,7 +2748,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2770,7 +2770,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2792,7 +2792,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2814,7 +2814,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2836,7 +2836,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outboundtraffic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2860,7 +2860,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outboundtraffic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2886,7 +2886,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2908,7 +2908,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2928,7 +2928,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2948,7 +2948,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2974,7 +2974,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3000,7 +3000,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3020,7 +3020,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3042,7 +3042,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3064,7 +3064,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3088,7 +3088,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3112,7 +3112,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3136,7 +3136,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t flags = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3158,7 +3158,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3180,7 +3180,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3210,7 +3210,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3238,7 +3238,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3258,7 +3258,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3284,7 +3284,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3310,7 +3310,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ikeextstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3330,7 +3330,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ikeextstatistics = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3350,7 +3350,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3372,7 +3372,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3402,7 +3402,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t securityinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3430,7 +3430,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3450,7 +3450,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3470,7 +3470,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3496,7 +3496,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3522,7 +3522,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3548,7 +3548,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3570,7 +3570,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3594,7 +3594,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enginehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t id = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3619,155 +3619,155 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
 }
 
 static void register_windows_wdk_networkmanagement_windowsfilteringplatform_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1_napi));
+    exports.Set("windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_networkmanagement_windowsfilteringplatform_napi, nullptr };

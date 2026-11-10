@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_system_diagnostics_debug_AddVectoredContinueHandler(uint32_t first, void* handler) {
+void* windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler(uint32_t first, void* handler) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_AddVectoredContinueHandl
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_AddVectoredExceptionHandler(uint32_t first, void* handler) {
+void* windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler(uint32_t first, void* handler) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_AddVectoredExceptionHand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_Beep(uint32_t dwfreq, uint32_t dwduration) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_beep(uint32_t dwfreq, uint32_t dwduration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_Beep(uint32_t dwfreq, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_BindImage(void* imagename, void* dllpath, void* symbolpath) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_bindImage(void* imagename, void* dllpath, void* symbolpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_BindImage(void* imagen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_BindImageEx(uint32_t flags, void* imagename, void* dllpath, void* symbolpath, void* statusroutine) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_bindImageEx(uint32_t flags, void* imagename, void* dllpath, void* symbolpath, void* statusroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_BindImageEx(uint32_t f
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_CheckRemoteDebuggerPresent(void* hprocess, void* pbdebuggerpresent) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent(void* hprocess, void* pbdebuggerpresent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_CheckRemoteDebuggerPre
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_CheckSumMappedFile(void* baseaddress, uint32_t filelength, void* headersum, void* checksum) {
+void* windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile(void* baseaddress, uint32_t filelength, void* headersum, void* checksum) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_CheckSumMappedFile(void*
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_CloseThreadWaitChainSession(void* wcthandle) {
+void windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession(void* wcthandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ void windowssys_windows_win32_system_diagnostics_debug_CloseThreadWaitChainSessi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ContinueDebugEvent(uint32_t dwprocessid, uint32_t dwthreadid, int32_t dwcontinuestatus) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent(uint32_t dwprocessid, uint32_t dwthreadid, int32_t dwcontinuestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ContinueDebugEvent(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_CopyContext(void* destination, uint32_t contextflags, void* source) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_copyContext(void* destination, uint32_t contextflags, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_CopyContext(void* dest
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DbgHelpCreateUserDump(void* filename, void* callback, void* userdata) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump(void* filename, void* callback, void* userdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -275,7 +275,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DbgHelpCreateUserDump(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DbgHelpCreateUserDumpW(void* filename, void* callback, void* userdata) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW(void* filename, void* callback, void* userdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -299,7 +299,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DbgHelpCreateUserDumpW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DebugActiveProcess(uint32_t dwprocessid) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess(uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DebugActiveProcess(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DebugActiveProcessStop(uint32_t dwprocessid) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop(uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -343,7 +343,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DebugActiveProcessStop
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_DebugBreak(void) {
+void windowssys_windows_win32_system_diagnostics_debug_debugBreak(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ void windowssys_windows_win32_system_diagnostics_debug_DebugBreak(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DebugBreakProcess(void* process) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess(void* process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -385,7 +385,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DebugBreakProcess(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DebugSetProcessKillOnExit(int32_t killonexit) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit(int32_t killonexit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DebugSetProcessKillOnE
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_DecodePointer(void* ptr) {
+void* windowssys_windows_win32_system_diagnostics_debug_decodePointer(void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -429,7 +429,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_DecodePointer(void* ptr)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_DecodeRemotePointer(void* processhandle, void* ptr, void* decodedptr) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer(void* processhandle, void* ptr, void* decodedptr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -453,7 +453,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_DecodeRemotePointer(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_DecodeSystemPointer(void* ptr) {
+void* windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer(void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_DecodeSystemPointer(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_EncodePointer(void* ptr) {
+void* windowssys_windows_win32_system_diagnostics_debug_encodePointer(void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -497,7 +497,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_EncodePointer(void* ptr)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EncodeRemotePointer(void* processhandle, void* ptr, void* encodedptr) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer(void* processhandle, void* ptr, void* encodedptr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -521,7 +521,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EncodeRemotePointer(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_EncodeSystemPointer(void* ptr) {
+void* windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer(void* ptr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_EncodeSystemPointer(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumDirTree(void* hprocess, void* rootpath, void* inputpathname, void* outputpathbuffer, void* cb, void* data) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumDirTree(void* hprocess, void* rootpath, void* inputpathname, void* outputpathbuffer, void* cb, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -570,7 +570,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumDirTree(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumDirTreeW(void* hprocess, void* rootpath, void* inputpathname, void* outputpathbuffer, void* cb, void* data) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW(void* hprocess, void* rootpath, void* inputpathname, void* outputpathbuffer, void* cb, void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumDirTreeW(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModules64(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModules
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModulesEx(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModules
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModulesExW(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModules
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModulesW64(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64(void* hprocess, void* enumloadedmodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -693,7 +693,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_EnumerateLoadedModules
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_FatalAppExitA(uint32_t uaction, void* lpmessagetext) {
+void windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA(uint32_t uaction, void* lpmessagetext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -715,7 +715,7 @@ void windowssys_windows_win32_system_diagnostics_debug_FatalAppExitA(uint32_t ua
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_FatalAppExitW(uint32_t uaction, void* lpmessagetext) {
+void windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW(uint32_t uaction, void* lpmessagetext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ void windowssys_windows_win32_system_diagnostics_debug_FatalAppExitW(uint32_t ua
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_FatalExit(int32_t exitcode) {
+void windowssys_windows_win32_system_diagnostics_debug_fatalExit(int32_t exitcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -758,7 +758,7 @@ void windowssys_windows_win32_system_diagnostics_debug_FatalExit(int32_t exitcod
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFile(void* filename, void* symbolpath, void* debugfilepath) {
+void* windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile(void* filename, void* symbolpath, void* debugfilepath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -782,7 +782,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFile(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFileEx(void* filename, void* symbolpath, void* debugfilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx(void* filename, void* symbolpath, void* debugfilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -808,7 +808,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFileEx(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFileExW(void* filename, void* symbolpath, void* debugfilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW(void* filename, void* symbolpath, void* debugfilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -834,7 +834,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindDebugInfoFileExW(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImage(void* filename, void* symbolpath, void* imagefilepath) {
+void* windowssys_windows_win32_system_diagnostics_debug_findExecutableImage(void* filename, void* symbolpath, void* imagefilepath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -858,7 +858,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImage(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImageEx(void* filename, void* symbolpath, void* imagefilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx(void* filename, void* symbolpath, void* imagefilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -884,7 +884,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImageEx(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImageExW(void* filename, void* symbolpath, void* imagefilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW(void* filename, void* symbolpath, void* imagefilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -910,7 +910,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_FindExecutableImageExW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_FindFileInPath(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* filepath) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_findFileInPath(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -939,7 +939,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_FindFileInPath(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_FindFileInSearchPath(void* hprocess, void* searchpatha, void* filename, uint32_t one, uint32_t two, uint32_t three, void* filepath) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath(void* hprocess, void* searchpatha, void* filename, uint32_t one, uint32_t two, uint32_t three, void* filepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -967,7 +967,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_FindFileInSearchPath(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_FlushInstructionCache(void* hprocess, void* lpbaseaddress, uint64_t dwsize) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache(void* hprocess, void* lpbaseaddress, uint64_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_FlushInstructionCache(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_FormatMessageA(uint32_t dwflags, void* lpsource, uint32_t dwmessageid, uint32_t dwlanguageid, void* lpbuffer, uint32_t nsize, void* arguments) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_formatMessageA(uint32_t dwflags, void* lpsource, uint32_t dwmessageid, uint32_t dwlanguageid, void* lpbuffer, uint32_t nsize, void* arguments) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1019,7 +1019,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_FormatMessageA(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_FormatMessageW(uint32_t dwflags, void* lpsource, uint32_t dwmessageid, uint32_t dwlanguageid, void* lpbuffer, uint32_t nsize, void* arguments) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_formatMessageW(uint32_t dwflags, void* lpsource, uint32_t dwmessageid, uint32_t dwlanguageid, void* lpbuffer, uint32_t nsize, void* arguments) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1047,7 +1047,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_FormatMessageW(uint32
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_debug_GetEnabledXStateFeatures(void) {
+uint64_t windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1068,7 +1068,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_debug_GetEnabledXStateFeatu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_GetErrorMode(void) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_getErrorMode(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1089,7 +1089,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_GetErrorMode(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_GetImageConfigInformation(void* loadedimage, void* imageconfiginformation) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation(void* loadedimage, void* imageconfiginformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1112,7 +1112,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_GetImageConfigInformat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_GetImageUnusedHeaderBytes(void* loadedimage, void* sizeunusedheaderbytes) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes(void* loadedimage, void* sizeunusedheaderbytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1135,7 +1135,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_GetImageUnusedHeaderB
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_GetSymLoadError(void) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_getSymLoadError(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1156,7 +1156,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_GetSymLoadError(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadContext(void* hthread, void* lpcontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_getThreadContext(void* hthread, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1179,7 +1179,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadContext(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadErrorMode(void) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1200,7 +1200,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadErrorMode(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadSelectorEntry(void* hthread, uint32_t dwselector, void* lpselectorentry) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry(void* hthread, uint32_t dwselector, void* lpselectorentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1224,7 +1224,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadSelectorEntry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadWaitChain(void* wcthandle, uint64_t context, uint32_t flags, uint32_t threadid, void* nodecount, void* nodeinfoarray, void* iscycle) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain(void* wcthandle, uint64_t context, uint32_t flags, uint32_t threadid, void* nodecount, void* nodeinfoarray, void* iscycle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1252,7 +1252,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_GetThreadWaitChain(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_GetTimestampForLoadedLibrary(void* module) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary(void* module) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1274,7 +1274,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_GetTimestampForLoaded
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_GetXStateFeaturesMask(void* context, void* featuremask) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask(void* context, void* featuremask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_GetXStateFeaturesMask(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageAddCertificate(void* filehandle, void* certificate, void* arg_2_index) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate(void* filehandle, void* certificate, void* arg_2_index) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1321,7 +1321,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageAddCertificate(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageDirectoryEntryToData(void* base, bool mappedasimage, uint16_t directoryentry, void* size) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData(void* base, bool mappedasimage, uint16_t directoryentry, void* size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1346,7 +1346,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageDirectoryEntryToDat
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageDirectoryEntryToDataEx(void* base, bool mappedasimage, uint16_t directoryentry, void* size, void* foundheader) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx(void* base, bool mappedasimage, uint16_t directoryentry, void* size, void* foundheader) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1372,7 +1372,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageDirectoryEntryToDat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageEnumerateCertificates(void* filehandle, uint16_t typefilter, void* certificatecount, void* indices, uint32_t indexcount) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates(void* filehandle, uint16_t typefilter, void* certificatecount, void* indices, uint32_t indexcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1398,7 +1398,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageEnumerateCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetCertificateData(void* filehandle, uint32_t certificateindex, void* certificate, void* requiredlength) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData(void* filehandle, uint32_t certificateindex, void* certificate, void* requiredlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1423,7 +1423,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetCertificateDat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetCertificateHeader(void* filehandle, uint32_t certificateindex, void* certificateheader) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader(void* filehandle, uint32_t certificateindex, void* certificateheader) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1447,7 +1447,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetCertificateHea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetDigestStream(void* filehandle, uint32_t digestlevel, void* digestfunction, void* digesthandle) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream(void* filehandle, uint32_t digestlevel, void* digestfunction, void* digesthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1472,7 +1472,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageGetDigestStream(v
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageLoad(void* dllname, void* dllpath) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageLoad(void* dllname, void* dllpath) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1495,7 +1495,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageLoad(void* dllname,
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageNtHeader(void* base) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageNtHeader(void* base) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageNtHeader(void* base
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageRemoveCertificate(void* filehandle, uint32_t arg_1_index) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate(void* filehandle, uint32_t arg_1_index) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1540,7 +1540,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageRemoveCertificate
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageRvaToSection(void* ntheaders, void* base, uint32_t rva) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection(void* ntheaders, void* base, uint32_t rva) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1564,7 +1564,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageRvaToSection(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImageRvaToVa(void* ntheaders, void* base, uint32_t rva, void* lastrvasection) {
+void* windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa(void* ntheaders, void* base, uint32_t rva, void* lastrvasection) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1589,7 +1589,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImageRvaToVa(void* nthea
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ImageUnload(void* loadedimage) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_imageUnload(void* loadedimage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1611,7 +1611,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ImageUnload(void* load
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImagehlpApiVersion(void) {
+void* windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1632,7 +1632,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImagehlpApiVersion(void)
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_ImagehlpApiVersionEx(void* appversion) {
+void* windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx(void* appversion) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1654,7 +1654,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_ImagehlpApiVersionEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_InitializeContext(void* buffer, uint32_t contextflags, void* context, void* contextlength) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_initializeContext(void* buffer, uint32_t contextflags, void* context, void* contextlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1679,7 +1679,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_InitializeContext(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_InitializeContext2(void* buffer, uint32_t contextflags, void* context, void* contextlength, uint64_t xstatecompactionmask) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_initializeContext2(void* buffer, uint32_t contextflags, void* context, void* contextlength, uint64_t xstatecompactionmask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1705,7 +1705,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_InitializeContext2(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_IsDebuggerPresent(void) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1726,7 +1726,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_IsDebuggerPresent(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_LocateXStateFeature(void* context, uint32_t featureid, void* length) {
+void* windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature(void* context, uint32_t featureid, void* length) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1750,7 +1750,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_LocateXStateFeature(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_MakeSureDirectoryPathExists(void* dirpath) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists(void* dirpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1772,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_MakeSureDirectoryPathE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_MapAndLoad(void* imagename, void* dllpath, void* loadedimage, int32_t dotdll, int32_t readonly) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_mapAndLoad(void* imagename, void* dllpath, void* loadedimage, int32_t dotdll, int32_t readonly) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1798,7 +1798,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_MapAndLoad(void* image
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_MapFileAndCheckSumA(void* filename, void* headersum, void* checksum) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA(void* filename, void* headersum, void* checksum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1822,7 +1822,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_MapFileAndCheckSumA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_MapFileAndCheckSumW(void* filename, void* headersum, void* checksum) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW(void* filename, void* headersum, void* checksum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_MapFileAndCheckSumW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_MessageBeep(uint32_t utype) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_messageBeep(uint32_t utype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1868,7 +1868,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_MessageBeep(uint32_t u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_MiniDumpReadDumpStream(void* baseofdump, uint32_t streamnumber, void* dir, void* streampointer, void* streamsize) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream(void* baseofdump, uint32_t streamnumber, void* dir, void* streampointer, void* streamsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1894,7 +1894,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_MiniDumpReadDumpStream
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_MiniDumpWriteDump(void* hprocess, uint32_t processid, void* hfile, int32_t dumptype, void* exceptionparam, void* userstreamparam, void* callbackparam) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump(void* hprocess, uint32_t processid, void* hfile, int32_t dumptype, void* exceptionparam, void* userstreamparam, void* callbackparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1922,7 +1922,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_MiniDumpWriteDump(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_OpenThreadWaitChainSession(uint32_t flags, void* callback) {
+void* windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession(uint32_t flags, void* callback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1945,7 +1945,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_OpenThreadWaitChainSessi
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_OutputDebugStringA(void* lpoutputstring) {
+void windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA(void* lpoutputstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ void windowssys_windows_win32_system_diagnostics_debug_OutputDebugStringA(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_OutputDebugStringW(void* lpoutputstring) {
+void windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW(void* lpoutputstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1987,7 +1987,7 @@ void windowssys_windows_win32_system_diagnostics_debug_OutputDebugStringW(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RaiseException(uint32_t dwexceptioncode, uint32_t dwexceptionflags, uint32_t nnumberofarguments, void* lparguments) {
+void windowssys_windows_win32_system_diagnostics_debug_raiseException(uint32_t dwexceptioncode, uint32_t dwexceptionflags, uint32_t nnumberofarguments, void* lparguments) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2011,7 +2011,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RaiseException(uint32_t d
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RaiseFailFastException(void* pexceptionrecord, void* pcontextrecord, uint32_t dwflags) {
+void windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException(void* pexceptionrecord, void* pcontextrecord, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2034,7 +2034,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RaiseFailFastException(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapAddPeImageSections(void* rmaphandle, void* imagename, void* mappedimage, uint32_t mappingbytes, uint64_t imagebase, uint64_t usertag, uint32_t mappingflags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections(void* rmaphandle, void* imagename, void* mappedimage, uint32_t mappingbytes, uint64_t imagebase, uint64_t usertag, uint32_t mappingflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2062,7 +2062,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapAddPeImageSect
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_RangeMapCreate(void) {
+void* windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2083,7 +2083,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_RangeMapCreate(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RangeMapFree(void* rmaphandle) {
+void windowssys_windows_win32_system_diagnostics_debug_rangeMapFree(void* rmaphandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2104,7 +2104,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RangeMapFree(void* rmapha
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapRead(void* rmaphandle, uint64_t offset, void* buffer, uint32_t requestbytes, uint32_t flags, void* donebytes) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_rangeMapRead(void* rmaphandle, uint64_t offset, void* buffer, uint32_t requestbytes, uint32_t flags, void* donebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2131,7 +2131,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapRead(void* rma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapRemove(void* rmaphandle, uint64_t usertag) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove(void* rmaphandle, uint64_t usertag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2154,7 +2154,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapRemove(void* r
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapWrite(void* rmaphandle, uint64_t offset, void* buffer, uint32_t requestbytes, uint32_t flags, void* donebytes) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite(void* rmaphandle, uint64_t offset, void* buffer, uint32_t requestbytes, uint32_t flags, void* donebytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2181,7 +2181,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_RangeMapWrite(void* rm
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ReBaseImage(void* currentimagename, void* symbolpath, int32_t frebase, int32_t frebasesysfileok, int32_t fgoingdown, uint32_t checkimagesize, void* oldimagesize, void* oldimagebase, void* newimagesize, void* newimagebase, uint32_t timestamp) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_reBaseImage(void* currentimagename, void* symbolpath, int32_t frebase, int32_t frebasesysfileok, int32_t fgoingdown, uint32_t checkimagesize, void* oldimagesize, void* oldimagebase, void* newimagesize, void* newimagebase, uint32_t timestamp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ReBaseImage(void* curr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ReBaseImage64(void* currentimagename, void* symbolpath, int32_t frebase, int32_t frebasesysfileok, int32_t fgoingdown, uint32_t checkimagesize, void* oldimagesize, void* oldimagebase, void* newimagesize, void* newimagebase, uint32_t timestamp) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_reBaseImage64(void* currentimagename, void* symbolpath, int32_t frebase, int32_t frebasesysfileok, int32_t fgoingdown, uint32_t checkimagesize, void* oldimagesize, void* oldimagebase, void* newimagesize, void* newimagebase, uint32_t timestamp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2245,7 +2245,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ReBaseImage64(void* cu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ReadProcessMemory(void* hprocess, void* lpbaseaddress, void* lpbuffer, uint64_t nsize, void* lpnumberofbytesread) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_readProcessMemory(void* hprocess, void* lpbaseaddress, void* lpbuffer, uint64_t nsize, void* lpnumberofbytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2271,7 +2271,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ReadProcessMemory(void
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RegisterWaitChainCOMCallback(void* callstatecallback, void* activationstatecallback) {
+void windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback(void* callstatecallback, void* activationstatecallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2293,7 +2293,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RegisterWaitChainCOMCallb
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RemoveInvalidModuleList(void* hprocess) {
+void windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList(void* hprocess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2314,7 +2314,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RemoveInvalidModuleList(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_RemoveVectoredContinueHandler(void* handle) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler(void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2336,7 +2336,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_RemoveVectoredContinu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_RemoveVectoredExceptionHandler(void* handle) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler(void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2358,7 +2358,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_RemoveVectoredExcepti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_ReportSymbolLoadSummary(void* hprocess, void* ploadmodule, void* psymboldata) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary(void* hprocess, void* ploadmodule, void* psymboldata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2382,7 +2382,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_ReportSymbolLoadSummar
 #endif
 }
 
-bool windowssys_windows_win32_system_diagnostics_debug_RtlAddFunctionTable(void* functiontable, uint32_t entrycount, uint64_t baseaddress) {
+bool windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable(void* functiontable, uint32_t entrycount, uint64_t baseaddress) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2406,7 +2406,7 @@ bool windowssys_windows_win32_system_diagnostics_debug_RtlAddFunctionTable(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_RtlAddGrowableFunctionTable(void* dynamictable, void* functiontable, uint32_t entrycount, uint32_t maximumentrycount, uint64_t rangebase, uint64_t rangeend) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable(void* dynamictable, void* functiontable, uint32_t entrycount, uint32_t maximumentrycount, uint64_t rangebase, uint64_t rangeend) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2433,7 +2433,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_RtlAddGrowableFunctio
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlCaptureContext(void* contextrecord) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext(void* contextrecord) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2454,7 +2454,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlCaptureContext(void* c
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlCaptureContext2(void* contextrecord) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2(void* contextrecord) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2475,7 +2475,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlCaptureContext2(void* 
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_diagnostics_debug_RtlCaptureStackBackTrace(uint32_t framestoskip, uint32_t framestocapture, void* backtrace, void* backtracehash) {
+uint16_t windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace(uint32_t framestoskip, uint32_t framestocapture, void* backtrace, void* backtracehash) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2500,7 +2500,7 @@ uint16_t windowssys_windows_win32_system_diagnostics_debug_RtlCaptureStackBackTr
 #endif
 }
 
-bool windowssys_windows_win32_system_diagnostics_debug_RtlDeleteFunctionTable(void* functiontable) {
+bool windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable(void* functiontable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2522,7 +2522,7 @@ bool windowssys_windows_win32_system_diagnostics_debug_RtlDeleteFunctionTable(vo
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlDeleteGrowableFunctionTable(void* dynamictable) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable(void* dynamictable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2543,7 +2543,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlDeleteGrowableFunction
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlGrowFunctionTable(void* dynamictable, uint32_t newentrycount) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable(void* dynamictable, uint32_t newentrycount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2565,7 +2565,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlGrowFunctionTable(void
 #endif
 }
 
-bool windowssys_windows_win32_system_diagnostics_debug_RtlInstallFunctionTableCallback(uint64_t tableidentifier, uint64_t baseaddress, uint32_t length, void* callback, void* context, void* outofprocesscallbackdll) {
+bool windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback(uint64_t tableidentifier, uint64_t baseaddress, uint32_t length, void* callback, void* context, void* outofprocesscallbackdll) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2592,7 +2592,7 @@ bool windowssys_windows_win32_system_diagnostics_debug_RtlInstallFunctionTableCa
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_RtlLookupFunctionEntry(uint64_t controlpc, void* imagebase, void* historytable) {
+void* windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry(uint64_t controlpc, void* imagebase, void* historytable) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2616,7 +2616,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_RtlLookupFunctionEntry(u
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_RtlPcToFileHeader(void* pcvalue, void* baseofimage) {
+void* windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader(void* pcvalue, void* baseofimage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2639,7 +2639,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_RtlPcToFileHeader(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlRaiseException(void* exceptionrecord) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException(void* exceptionrecord) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2660,7 +2660,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlRaiseException(void* e
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlRestoreContext(void* contextrecord, void* exceptionrecord) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext(void* contextrecord, void* exceptionrecord) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2682,7 +2682,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlRestoreContext(void* c
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlUnwind(void* targetframe, void* targetip, void* exceptionrecord, void* returnvalue) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlUnwind(void* targetframe, void* targetip, void* exceptionrecord, void* returnvalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2706,7 +2706,7 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlUnwind(void* targetfra
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_RtlUnwindEx(void* targetframe, void* targetip, void* exceptionrecord, void* returnvalue, void* contextrecord, void* historytable) {
+void windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx(void* targetframe, void* targetip, void* exceptionrecord, void* returnvalue, void* contextrecord, void* historytable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2732,7 +2732,36 @@ void windowssys_windows_win32_system_diagnostics_debug_RtlUnwindEx(void* targetf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SearchTreeForFile(void* rootpath, void* inputpathname, void* outputpathbuffer) {
+void* windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind(uint32_t handlertype, uint64_t imagebase, uint64_t controlpc, void* functionentry, void* contextrecord, void* handlerdata, void* establisherframe, void* contextpointers) {
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint32_t, uint64_t, uint64_t, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlVirtualUnwind");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, contextpointers);
+    }
+    errno = ENOSYS;
+    return NULL;
+#else
+    (void)handlertype;
+    (void)imagebase;
+    (void)controlpc;
+    (void)functionentry;
+    (void)contextrecord;
+    (void)handlerdata;
+    (void)establisherframe;
+    (void)contextpointers;
+    errno = ENOSYS;
+    return NULL;
+#endif
+}
+
+int32_t windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile(void* rootpath, void* inputpathname, void* outputpathbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2756,7 +2785,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SearchTreeForFile(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SearchTreeForFileW(void* rootpath, void* inputpathname, void* outputpathbuffer) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW(void* rootpath, void* inputpathname, void* outputpathbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2780,7 +2809,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SearchTreeForFileW(voi
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_SetCheckUserInterruptShared(void* lpstartaddress) {
+void windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared(void* lpstartaddress) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2801,7 +2830,7 @@ void windowssys_windows_win32_system_diagnostics_debug_SetCheckUserInterruptShar
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SetErrorMode(uint32_t umode) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_setErrorMode(uint32_t umode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2823,7 +2852,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SetErrorMode(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SetImageConfigInformation(void* loadedimage, void* imageconfiginformation) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation(void* loadedimage, void* imageconfiginformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2846,7 +2875,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SetImageConfigInformat
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_SetSymLoadError(uint32_t error) {
+void windowssys_windows_win32_system_diagnostics_debug_setSymLoadError(uint32_t error) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2867,7 +2896,7 @@ void windowssys_windows_win32_system_diagnostics_debug_SetSymLoadError(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SetThreadContext(void* hthread, void* lpcontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_setThreadContext(void* hthread, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2890,7 +2919,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SetThreadContext(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SetThreadErrorMode(uint32_t dwnewmode, void* lpoldmode) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode(uint32_t dwnewmode, void* lpoldmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2913,7 +2942,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SetThreadErrorMode(uin
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SetUnhandledExceptionFilter(void* lptoplevelexceptionfilter) {
+void* windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter(void* lptoplevelexceptionfilter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2935,7 +2964,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SetUnhandledExceptionFil
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SetXStateFeaturesMask(void* context, uint64_t featuremask) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask(void* context, uint64_t featuremask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2958,7 +2987,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SetXStateFeaturesMask(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalk2(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress, void* gettargetattributevalue, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_stackWalk2(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress, void* gettargetattributevalue, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2990,7 +3019,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalk2(uint32_t ma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalk64(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_stackWalk64(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3020,7 +3049,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalk64(uint32_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalkEx(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_stackWalkEx(uint32_t machinetype, void* hprocess, void* hthread, void* stackframe, void* contextrecord, void* readmemoryroutine, void* functiontableaccessroutine, void* getmodulebaseroutine, void* translateaddress, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3051,7 +3080,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_StackWalkEx(uint32_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStream(void* hprocess, uint64_t base, void* streamfile, void* buffer, uint64_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream(void* hprocess, uint64_t base, void* streamfile, void* buffer, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3077,7 +3106,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStream(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStreamA(void* hprocess, uint64_t base, void* streamfile, void* buffer, uint64_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA(void* hprocess, uint64_t base, void* streamfile, void* buffer, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3103,7 +3132,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStreamA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStreamW(void* hprocess, uint64_t base, void* filespec, void* buffer, uint64_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW(void* hprocess, uint64_t base, void* filespec, void* buffer, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3129,7 +3158,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSourceStreamW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSymbol(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t size, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symAddSymbol(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3156,7 +3185,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSymbol(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSymbolW(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t size, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3183,7 +3212,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymAddSymbolW(void* hp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SymAddrIncludeInlineTrace(void* hprocess, uint64_t address) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace(void* hprocess, uint64_t address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3206,7 +3235,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SymAddrIncludeInlineT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymCleanup(void* hprocess) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symCleanup(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3228,7 +3257,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymCleanup(void* hproc
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SymCompareInlineTrace(void* hprocess, uint64_t address1, uint32_t inlinecontext1, uint64_t retaddress1, uint64_t address2, uint64_t retaddress2) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace(void* hprocess, uint64_t address1, uint32_t inlinecontext1, uint64_t retaddress1, uint64_t address2, uint64_t retaddress2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3255,7 +3284,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SymCompareInlineTrace
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymDeleteSymbol(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3281,7 +3310,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymDeleteSymbol(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymDeleteSymbolW(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW(void* hprocess, uint64_t baseofdll, void* name, uint64_t address, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3307,7 +3336,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymDeleteSymbolW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumLines(void* hprocess, uint64_t base, void* obj, void* file, void* enumlinescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumLines(void* hprocess, uint64_t base, void* obj, void* file, void* enumlinescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3334,7 +3363,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumLines(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumLinesW(void* hprocess, uint64_t base, void* obj, void* file, void* enumlinescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW(void* hprocess, uint64_t base, void* obj, void* file, void* enumlinescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3361,7 +3390,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumLinesW(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumProcesses(void* enumprocessescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses(void* enumprocessescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3384,7 +3413,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumProcesses(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFileTokens(void* hprocess, uint64_t base, void* callback) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens(void* hprocess, uint64_t base, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3408,7 +3437,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFileToken
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFiles(void* hprocess, uint64_t modbase, void* mask, void* cbsrcfiles, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles(void* hprocess, uint64_t modbase, void* mask, void* cbsrcfiles, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3434,7 +3463,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFiles(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFilesW(void* hprocess, uint64_t modbase, void* mask, void* cbsrcfiles, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW(void* hprocess, uint64_t modbase, void* mask, void* cbsrcfiles, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3460,7 +3489,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceFilesW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceLines(void* hprocess, uint64_t base, void* obj, void* file, uint32_t line, uint32_t flags, void* enumlinescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines(void* hprocess, uint64_t base, void* obj, void* file, uint32_t line, uint32_t flags, void* enumlinescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3489,7 +3518,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceLines(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceLinesW(void* hprocess, uint64_t base, void* obj, void* file, uint32_t line, uint32_t flags, void* enumlinescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW(void* hprocess, uint64_t base, void* obj, void* file, uint32_t line, uint32_t flags, void* enumlinescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3518,7 +3547,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSourceLinesW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSym(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSym(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3543,7 +3572,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSym(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbols(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3569,7 +3598,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbols(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsEx(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext, uint32_t options) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3596,7 +3625,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsExW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext, uint32_t options) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3623,7 +3652,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsExW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsForAddr(void* hprocess, uint64_t address, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr(void* hprocess, uint64_t address, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3648,7 +3677,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsForAddr(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsForAddrW(void* hprocess, uint64_t address, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW(void* hprocess, uint64_t address, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3673,7 +3702,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsForAddrW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3699,7 +3728,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumSymbolsW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypes(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumTypes(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3724,7 +3753,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypes(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesByName(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3750,7 +3779,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesByName(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesByNameW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW(void* hprocess, uint64_t baseofdll, void* mask, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3776,7 +3805,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesByNameW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesW(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3801,7 +3830,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumTypesW(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateModules64(void* hprocess, void* enummodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64(void* hprocess, void* enummodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,7 +3854,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateModules64(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateModulesW64(void* hprocess, void* enummodulescallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64(void* hprocess, void* enummodulescallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3878,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateModulesW64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateSymbols64(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3874,7 +3903,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateSymbols64(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateSymbolsW64(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64(void* hprocess, uint64_t baseofdll, void* enumsymbolscallback, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3899,7 +3928,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymEnumerateSymbolsW64
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFindDebugInfoFile(void* hprocess, void* filename, void* debugfilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile(void* hprocess, void* filename, void* debugfilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3925,7 +3954,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFindDebugInfoFile(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFindDebugInfoFileW(void* hprocess, void* filename, void* debugfilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW(void* hprocess, void* filename, void* debugfilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3951,7 +3980,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFindDebugInfoFileW(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFindExecutableImage(void* hprocess, void* filename, void* imagefilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage(void* hprocess, void* filename, void* imagefilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3977,7 +4006,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFindExecutableImage(v
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFindExecutableImageW(void* hprocess, void* filename, void* imagefilepath, void* callback, void* callerdata) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW(void* hprocess, void* filename, void* imagefilepath, void* callback, void* callerdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4003,7 +4032,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFindExecutableImageW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFindFileInPath(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* foundfile, void* callback, void* context) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* foundfile, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4034,7 +4063,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFindFileInPath(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFindFileInPathW(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* foundfile, void* callback, void* context) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW(void* hprocess, void* searchpatha, void* filename, void* id, uint32_t two, uint32_t three, uint32_t flags, void* foundfile, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4065,7 +4094,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFindFileInPathW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromAddr(void* hprocess, uint64_t address, void* displacement, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromAddr(void* hprocess, uint64_t address, void* displacement, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4090,7 +4119,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromAddr(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromAddrW(void* hprocess, uint64_t address, void* displacement, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromAddrW(void* hprocess, uint64_t address, void* displacement, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4115,7 +4144,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromAddrW(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromIndex(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromIndex(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4140,7 +4169,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromIndex(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromIndexW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromIndexW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4165,7 +4194,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromIndexW(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromInlineContext(void* hprocess, uint64_t address, uint32_t inlinecontext, void* displacement, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext(void* hprocess, uint64_t address, uint32_t inlinecontext, void* displacement, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4191,7 +4220,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromInlineContext(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromInlineContextW(void* hprocess, uint64_t address, uint32_t inlinecontext, void* displacement, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW(void* hprocess, uint64_t address, uint32_t inlinecontext, void* displacement, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4217,7 +4246,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromInlineContextW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromName(void* hprocess, void* name, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromName(void* hprocess, void* name, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4241,7 +4270,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromName(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromNameW(void* hprocess, void* name, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromNameW(void* hprocess, void* name, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4265,7 +4294,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromNameW(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromToken(void* hprocess, uint64_t base, uint32_t token, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromToken(void* hprocess, uint64_t base, uint32_t token, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4290,7 +4319,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromToken(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromTokenW(void* hprocess, uint64_t base, uint32_t token, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symFromTokenW(void* hprocess, uint64_t base, uint32_t token, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4315,7 +4344,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymFromTokenW(void* hp
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFunctionTableAccess64(void* hprocess, uint64_t addrbase) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64(void* hprocess, uint64_t addrbase) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4338,7 +4367,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFunctionTableAccess64
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymFunctionTableAccess64AccessRoutines(void* hprocess, uint64_t addrbase, void* readmemoryroutine, void* getmodulebaseroutine) {
+void* windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines(void* hprocess, uint64_t addrbase, void* readmemoryroutine, void* getmodulebaseroutine) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4363,7 +4392,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymFunctionTableAccess64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetExtendedOption(int32_t option) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption(int32_t option) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4385,7 +4414,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetExtendedOption(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SymGetFileLineOffsets64(void* hprocess, void* modulename, void* filename, void* buffer, uint32_t bufferlines) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64(void* hprocess, void* modulename, void* filename, void* buffer, uint32_t bufferlines) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4411,7 +4440,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SymGetFileLineOffsets
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymGetHomeDirectory(uint32_t type, void* dir, uint64_t size) {
+void* windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory(uint32_t type, void* dir, uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4435,7 +4464,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymGetHomeDirectory(uint
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymGetHomeDirectoryW(uint32_t type, void* dir, uint64_t size) {
+void* windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW(uint32_t type, void* dir, uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4459,7 +4488,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymGetHomeDirectoryW(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromAddr64(void* hprocess, uint64_t qwaddr, void* pdwdisplacement, void* line64) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64(void* hprocess, uint64_t qwaddr, void* pdwdisplacement, void* line64) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4484,7 +4513,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromAddr64(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromAddrW64(void* hprocess, uint64_t dwaddr, void* pdwdisplacement, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64(void* hprocess, uint64_t dwaddr, void* pdwdisplacement, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4509,7 +4538,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromAddrW64(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromInlineContext(void* hprocess, uint64_t qwaddr, uint32_t inlinecontext, uint64_t qwmodulebaseaddress, void* pdwdisplacement, void* line64) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext(void* hprocess, uint64_t qwaddr, uint32_t inlinecontext, uint64_t qwmodulebaseaddress, void* pdwdisplacement, void* line64) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4536,7 +4565,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromInlineCo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromInlineContextW(void* hprocess, uint64_t dwaddr, uint32_t inlinecontext, uint64_t qwmodulebaseaddress, void* pdwdisplacement, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW(void* hprocess, uint64_t dwaddr, uint32_t inlinecontext, uint64_t qwmodulebaseaddress, void* pdwdisplacement, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4563,7 +4592,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromInlineCo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromName64(void* hprocess, void* modulename, void* filename, uint32_t dwlinenumber, void* pldisplacement, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64(void* hprocess, void* modulename, void* filename, uint32_t dwlinenumber, void* pldisplacement, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4590,7 +4619,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromName64(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromNameW64(void* hprocess, void* modulename, void* filename, uint32_t dwlinenumber, void* pldisplacement, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64(void* hprocess, void* modulename, void* filename, uint32_t dwlinenumber, void* pldisplacement, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4617,7 +4646,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineFromNameW64(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineNext64(void* hprocess, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64(void* hprocess, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4640,7 +4669,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineNext64(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineNextW64(void* hprocess, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64(void* hprocess, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4663,7 +4692,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLineNextW64(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLinePrev64(void* hprocess, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64(void* hprocess, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4686,7 +4715,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLinePrev64(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLinePrevW64(void* hprocess, void* line) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64(void* hprocess, void* line) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4709,7 +4738,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetLinePrevW64(void
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleBase64(void* hprocess, uint64_t qwaddr) {
+uint64_t windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64(void* hprocess, uint64_t qwaddr) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4732,7 +4761,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleBase64(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleInfo64(void* hprocess, uint64_t qwaddr, void* moduleinfo) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64(void* hprocess, uint64_t qwaddr, void* moduleinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4756,7 +4785,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleInfo64(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleInfoW64(void* hprocess, uint64_t qwaddr, void* moduleinfo) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64(void* hprocess, uint64_t qwaddr, void* moduleinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4780,7 +4809,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetModuleInfoW64(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetOmaps(void* hprocess, uint64_t baseofdll, void* omapto, void* comapto, void* omapfrom, void* comapfrom) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetOmaps(void* hprocess, uint64_t baseofdll, void* omapto, void* comapto, void* omapfrom, void* comapfrom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4807,7 +4836,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetOmaps(void* hpro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SymGetOptions(void) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_symGetOptions(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4828,7 +4857,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SymGetOptions(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetScope(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetScope(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4853,7 +4882,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetScope(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetScopeW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetScopeW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4878,7 +4907,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetScopeW(void* hpr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSearchPath(void* hprocess, void* searchpatha, uint32_t searchpathlength) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath(void* hprocess, void* searchpatha, uint32_t searchpathlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4902,7 +4931,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSearchPath(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSearchPathW(void* hprocess, void* searchpatha, uint32_t searchpathlength) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW(void* hprocess, void* searchpatha, uint32_t searchpathlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4926,7 +4955,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSearchPathW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFile(void* hprocess, uint64_t base, void* params, void* filespec, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile(void* hprocess, uint64_t base, void* params, void* filespec, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4953,7 +4982,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFile(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileChecksum(void* hprocess, uint64_t base, void* filespec, void* pchecksumtype, void* pchecksum, uint32_t checksumsize, void* pactualbyteswritten) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum(void* hprocess, uint64_t base, void* filespec, void* pchecksumtype, void* pchecksum, uint32_t checksumsize, void* pactualbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4981,7 +5010,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileChecks
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileChecksumW(void* hprocess, uint64_t base, void* filespec, void* pchecksumtype, void* pchecksum, uint32_t checksumsize, void* pactualbyteswritten) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW(void* hprocess, uint64_t base, void* filespec, void* pchecksumtype, void* pchecksum, uint32_t checksumsize, void* pactualbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5009,7 +5038,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileChecks
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromToken(void* hprocess, void* token, void* params, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken(void* hprocess, void* token, void* params, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5035,7 +5064,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTokenByTokenName(void* hprocess, void* token, void* tokenname, void* params, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName(void* hprocess, void* token, void* tokenname, void* params, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5062,7 +5091,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTokenByTokenNameW(void* hprocess, void* token, void* tokenname, void* params, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW(void* hprocess, void* token, void* tokenname, void* params, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5089,7 +5118,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTokenW(void* hprocess, void* token, void* params, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW(void* hprocess, void* token, void* params, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5115,7 +5144,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileFromTo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileToken(void* hprocess, uint64_t base, void* filespec, void* token, void* size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken(void* hprocess, uint64_t base, void* filespec, void* token, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5141,7 +5170,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileToken(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenByTokenName(void* hprocess, uint64_t base, void* filespec, void* tokenname, void* tokenparameters, void* token, void* size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName(void* hprocess, uint64_t base, void* filespec, void* tokenname, void* tokenparameters, void* token, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5169,7 +5198,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenB
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenByTokenNameW(void* hprocess, uint64_t base, void* filespec, void* tokenname, void* tokenparameters, void* token, void* size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW(void* hprocess, uint64_t base, void* filespec, void* tokenname, void* tokenparameters, void* token, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5197,7 +5226,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenB
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenW(void* hprocess, uint64_t base, void* filespec, void* token, void* size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW(void* hprocess, uint64_t base, void* filespec, void* token, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5223,7 +5252,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileTokenW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileW(void* hprocess, uint64_t base, void* params, void* filespec, void* filepath, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW(void* hprocess, uint64_t base, void* params, void* filespec, void* filepath, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5250,7 +5279,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceFileW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceVarFromToken(void* hprocess, void* token, void* params, void* varname, void* value, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken(void* hprocess, void* token, void* params, void* varname, void* value, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5277,7 +5306,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceVarFromTok
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceVarFromTokenW(void* hprocess, void* token, void* params, void* varname, void* value, uint32_t size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW(void* hprocess, void* token, void* params, void* varname, void* value, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5304,7 +5333,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSourceVarFromTok
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymFromAddr64(void* hprocess, uint64_t qwaddr, void* pdwdisplacement, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64(void* hprocess, uint64_t qwaddr, void* pdwdisplacement, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5329,7 +5358,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymFromAddr64(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymFromName64(void* hprocess, void* name, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64(void* hprocess, void* name, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5353,7 +5382,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymFromName64(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymNext64(void* hprocess, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64(void* hprocess, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5376,7 +5405,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymNext64(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymPrev64(void* hprocess, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64(void* hprocess, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5399,7 +5428,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymPrev64(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymbolFile(void* hprocess, void* sympath, void* imagefile, uint32_t type, void* symbolfile, uint64_t csymbolfile, void* dbgfile, uint64_t cdbgfile) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile(void* hprocess, void* sympath, void* imagefile, uint32_t type, void* symbolfile, uint64_t csymbolfile, void* dbgfile, uint64_t cdbgfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5428,7 +5457,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymbolFile(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymbolFileW(void* hprocess, void* sympath, void* imagefile, uint32_t type, void* symbolfile, uint64_t csymbolfile, void* dbgfile, uint64_t cdbgfile) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW(void* hprocess, void* sympath, void* imagefile, uint32_t type, void* symbolfile, uint64_t csymbolfile, void* dbgfile, uint64_t cdbgfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5457,7 +5486,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetSymbolFileW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeFromName(void* hprocess, uint64_t baseofdll, void* name, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName(void* hprocess, uint64_t baseofdll, void* name, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5482,7 +5511,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeFromName(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeFromNameW(void* hprocess, uint64_t baseofdll, void* name, void* symbol) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW(void* hprocess, uint64_t baseofdll, void* name, void* symbol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5507,7 +5536,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeFromNameW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeInfo(void* hprocess, uint64_t modbase, uint32_t typeid, int32_t gettype, void* pinfo) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo(void* hprocess, uint64_t modbase, uint32_t arg_2_typeid, int32_t gettype, void* pinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5518,14 +5547,14 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeInfo(void* h
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(hprocess, modbase, typeid, gettype, pinfo);
+        return km_fn_ptr(hprocess, modbase, arg_2_typeid, gettype, pinfo);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)hprocess;
     (void)modbase;
-    (void)typeid;
+    (void)arg_2_typeid;
     (void)gettype;
     (void)pinfo;
     errno = ENOSYS;
@@ -5533,7 +5562,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeInfo(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeInfoEx(void* hprocess, uint64_t modbase, void* params) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx(void* hprocess, uint64_t modbase, void* params) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5557,7 +5586,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetTypeInfoEx(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetUnwindInfo(void* hprocess, uint64_t address, void* buffer, void* size) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo(void* hprocess, uint64_t address, void* buffer, void* size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5582,7 +5611,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymGetUnwindInfo(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymInitialize(void* hprocess, void* usersearchpath, int32_t finvadeprocess) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symInitialize(void* hprocess, void* usersearchpath, int32_t finvadeprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5606,7 +5635,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymInitialize(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymInitializeW(void* hprocess, void* usersearchpath, int32_t finvadeprocess) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symInitializeW(void* hprocess, void* usersearchpath, int32_t finvadeprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5630,7 +5659,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymInitializeW(void* h
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModule64(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t sizeofdll) {
+uint64_t windowssys_windows_win32_system_diagnostics_debug_symLoadModule64(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t sizeofdll) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5657,7 +5686,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModule64(void*
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModuleEx(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t dllsize, void* data, uint32_t flags) {
+uint64_t windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t dllsize, void* data, uint32_t flags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5686,7 +5715,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModuleEx(void*
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModuleExW(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t dllsize, void* data, uint32_t flags) {
+uint64_t windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW(void* hprocess, void* hfile, void* imagename, void* modulename, uint64_t baseofdll, uint32_t dllsize, void* data, uint32_t flags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5715,7 +5744,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_debug_SymLoadModuleExW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchFileName(void* filename, void* match, void* filenamestop, void* matchstop) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symMatchFileName(void* filename, void* match, void* filenamestop, void* matchstop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5740,7 +5769,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchFileName(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchFileNameW(void* filename, void* match, void* filenamestop, void* matchstop) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW(void* filename, void* match, void* filenamestop, void* matchstop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5765,7 +5794,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchFileNameW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchString(void* string, void* expression, int32_t fcase) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symMatchString(void* string, void* expression, int32_t fcase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5789,7 +5818,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchString(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchStringA(void* string, void* expression, int32_t fcase) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symMatchStringA(void* string, void* expression, int32_t fcase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5813,7 +5842,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchStringA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchStringW(void* string, void* expression, int32_t fcase) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symMatchStringW(void* string, void* expression, int32_t fcase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5837,7 +5866,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymMatchStringW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymNext(void* hprocess, void* si) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symNext(void* hprocess, void* si) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5860,7 +5889,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymNext(void* hprocess
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymNextW(void* hprocess, void* siw) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symNextW(void* hprocess, void* siw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5883,7 +5912,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymNextW(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymPrev(void* hprocess, void* si) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symPrev(void* hprocess, void* si) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5906,7 +5935,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymPrev(void* hprocess
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymPrevW(void* hprocess, void* siw) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symPrevW(void* hprocess, void* siw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5929,7 +5958,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymPrevW(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymQueryInlineTrace(void* hprocess, uint64_t startaddress, uint32_t startcontext, uint64_t startretaddress, uint64_t curaddress, void* curcontext, void* curframeindex) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace(void* hprocess, uint64_t startaddress, uint32_t startcontext, uint64_t startretaddress, uint64_t curaddress, void* curcontext, void* curframeindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5957,7 +5986,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymQueryInlineTrace(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymRefreshModuleList(void* hprocess) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList(void* hprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5979,7 +6008,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymRefreshModuleList(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterCallback64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6003,7 +6032,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterCallback64(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterCallbackW64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6027,7 +6056,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterCallbackW64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterFunctionEntryCallback64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64(void* hprocess, void* callbackfunction, uint64_t usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6051,7 +6080,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymRegisterFunctionEnt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSearch(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, uint32_t symtag, void* mask, uint64_t address, void* enumsymbolscallback, void* usercontext, uint32_t options) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSearch(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, uint32_t symtag, void* mask, uint64_t address, void* enumsymbolscallback, void* usercontext, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t, void*, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6081,7 +6110,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSearch(void* hproce
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSearchW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, uint32_t symtag, void* mask, uint64_t address, void* enumsymbolscallback, void* usercontext, uint32_t options) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSearchW(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index, uint32_t symtag, void* mask, uint64_t address, void* enumsymbolscallback, void* usercontext, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t, void*, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6111,7 +6140,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSearchW(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetContext(void* hprocess, void* stackframe, void* context) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetContext(void* hprocess, void* stackframe, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6135,7 +6164,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetContext(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetExtendedOption(int32_t option, int32_t value) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption(int32_t option, int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6158,7 +6187,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetExtendedOption(i
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSetHomeDirectory(void* hprocess, void* dir) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory(void* hprocess, void* dir) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6181,7 +6210,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSetHomeDirectory(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSetHomeDirectoryW(void* hprocess, void* dir) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW(void* hprocess, void* dir) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6204,7 +6233,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSetHomeDirectoryW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_SymSetOptions(uint32_t symoptions) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_symSetOptions(uint32_t symoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6226,7 +6255,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_SymSetOptions(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetParentWindow(void* hwnd) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6248,7 +6277,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetParentWindow(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromAddr(void* hprocess, uint64_t address) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr(void* hprocess, uint64_t address) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6271,7 +6300,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromAddr(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromIndex(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex(void* hprocess, uint64_t baseofdll, uint32_t arg_2_index) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6295,7 +6324,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromIndex(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromInlineContext(void* hprocess, uint64_t address, uint32_t inlinecontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext(void* hprocess, uint64_t address, uint32_t inlinecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6319,7 +6348,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetScopeFromInlineC
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetSearchPath(void* hprocess, void* searchpatha) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath(void* hprocess, void* searchpatha) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6342,7 +6371,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetSearchPath(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetSearchPathW(void* hprocess, void* searchpatha) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW(void* hprocess, void* searchpatha) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6365,7 +6394,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSetSearchPathW(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvDeltaName(void* hprocess, void* sympath, void* type, void* file1, void* file2) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName(void* hprocess, void* sympath, void* type, void* file1, void* file2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6391,7 +6420,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvDeltaName(void* hp
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvDeltaNameW(void* hprocess, void* sympath, void* type, void* file1, void* file2) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW(void* hprocess, void* sympath, void* type, void* file1, void* file2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6417,7 +6446,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvDeltaNameW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexInfo(void* file, void* info, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo(void* file, void* info, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6441,7 +6470,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexInfoW(void* file, void* info, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW(void* file, void* info, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6465,7 +6494,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexString(void* hprocess, void* srvpath, void* file, void* arg_3_index, uint64_t size, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString(void* hprocess, void* srvpath, void* file, void* arg_3_index, uint64_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6492,7 +6521,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexStri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexStringW(void* hprocess, void* srvpath, void* file, void* arg_3_index, uint64_t size, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW(void* hprocess, void* srvpath, void* file, void* arg_3_index, uint64_t size, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6519,7 +6548,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexStri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexes(void* file, void* id, void* val1, void* val2, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes(void* file, void* id, void* val1, void* val2, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6545,7 +6574,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexes(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexesW(void* file, void* id, void* val1, void* val2, uint32_t flags) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW(void* file, void* id, void* val1, void* val2, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6571,7 +6600,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvGetFileIndexesW(
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvGetSupplement(void* hprocess, void* sympath, void* node, void* file) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement(void* hprocess, void* sympath, void* node, void* file) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6596,7 +6625,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvGetSupplement(void
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvGetSupplementW(void* hprocess, void* sympath, void* node, void* file) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW(void* hprocess, void* sympath, void* node, void* file) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6621,7 +6650,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvGetSupplementW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvIsStore(void* hprocess, void* path) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore(void* hprocess, void* path) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6644,7 +6673,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvIsStore(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvIsStoreW(void* hprocess, void* path) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW(void* hprocess, void* path) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6667,7 +6696,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymSrvIsStoreW(void* h
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreFile(void* hprocess, void* srvpath, void* file, uint32_t flags) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile(void* hprocess, void* srvpath, void* file, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6692,7 +6721,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreFile(void* hp
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreFileW(void* hprocess, void* srvpath, void* file, uint32_t flags) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW(void* hprocess, void* srvpath, void* file, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6717,7 +6746,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreFileW(void* h
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreSupplement(void* hprocess, void* srvpath, void* node, void* file, uint32_t flags) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement(void* hprocess, void* srvpath, void* node, void* file, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6743,7 +6772,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreSupplement(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreSupplementW(void* hprocess, void* sympath, void* node, void* file, uint32_t flags) {
+void* windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW(void* hprocess, void* sympath, void* node, void* file, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6769,7 +6798,7 @@ void* windowssys_windows_win32_system_diagnostics_debug_SymSrvStoreSupplementW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymUnDName64(void* sym, void* undecname, uint32_t undecnamelength) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symUnDName64(void* sym, void* undecname, uint32_t undecnamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6793,7 +6822,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymUnDName64(void* sym
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_SymUnloadModule64(void* hprocess, uint64_t baseofdll) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64(void* hprocess, uint64_t baseofdll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6816,7 +6845,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_SymUnloadModule64(void
 #endif
 }
 
-void windowssys_windows_win32_system_diagnostics_debug_TerminateProcessOnMemoryExhaustion(uint64_t failedallocationsize) {
+void windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion(uint64_t failedallocationsize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6837,7 +6866,7 @@ void windowssys_windows_win32_system_diagnostics_debug_TerminateProcessOnMemoryE
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_TouchFileTimes(void* filehandle, void* psystemtime) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_touchFileTimes(void* filehandle, void* psystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6860,7 +6889,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_TouchFileTimes(void* f
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_UnDecorateSymbolName(void* name, void* outputstring, uint32_t maxstringlength, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName(void* name, void* outputstring, uint32_t maxstringlength, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6885,7 +6914,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_UnDecorateSymbolName(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_debug_UnDecorateSymbolNameW(void* name, void* outputstring, uint32_t maxstringlength, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW(void* name, void* outputstring, uint32_t maxstringlength, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6910,7 +6939,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_debug_UnDecorateSymbolNameW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_UnMapAndLoad(void* loadedimage) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad(void* loadedimage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6932,7 +6961,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_UnMapAndLoad(void* loa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_UnhandledExceptionFilter(void* exceptioninfo) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter(void* exceptioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6954,7 +6983,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_UnhandledExceptionFilt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_UpdateDebugInfoFile(void* imagefilename, void* symbolpath, void* debugfilepath, void* ntheaders) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile(void* imagefilename, void* symbolpath, void* debugfilepath, void* ntheaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6979,7 +7008,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_UpdateDebugInfoFile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_UpdateDebugInfoFileEx(void* imagefilename, void* symbolpath, void* debugfilepath, void* ntheaders, uint32_t oldchecksum) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx(void* imagefilename, void* symbolpath, void* debugfilepath, void* ntheaders, uint32_t oldchecksum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7005,7 +7034,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_UpdateDebugInfoFileEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_WaitForDebugEvent(void* lpdebugevent, uint32_t dwmilliseconds) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent(void* lpdebugevent, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7028,7 +7057,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_WaitForDebugEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_WaitForDebugEventEx(void* lpdebugevent, uint32_t dwmilliseconds) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx(void* lpdebugevent, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7051,7 +7080,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_WaitForDebugEventEx(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64GetThreadContext(void* hthread, void* lpcontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext(void* hthread, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7074,7 +7103,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64GetThreadContext(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64GetThreadSelectorEntry(void* hthread, uint32_t dwselector, void* lpselectorentry) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry(void* hthread, uint32_t dwselector, void* lpselectorentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7098,7 +7127,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64GetThreadSelector
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64SetThreadContext(void* hthread, void* lpcontext) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext(void* hthread, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7121,7 +7150,7 @@ int32_t windowssys_windows_win32_system_diagnostics_debug_Wow64SetThreadContext(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_debug_WriteProcessMemory(void* hprocess, void* lpbaseaddress, void* lpbuffer, uint64_t nsize, void* lpnumberofbyteswritten) {
+int32_t windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory(void* hprocess, void* lpbaseaddress, void* lpbuffer, uint64_t nsize, void* lpnumberofbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;

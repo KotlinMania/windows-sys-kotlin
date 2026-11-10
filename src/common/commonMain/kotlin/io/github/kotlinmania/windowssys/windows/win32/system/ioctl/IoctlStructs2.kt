@@ -1,1124 +1,1124 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.STORAGE_BUS_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.storage.vhd.VIRTUAL_STORAGE_TYPE
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileId128
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.StorageBusType
+import io.github.kotlinmania.windowssys.windows.win32.storage.vhd.VirtualStorageType
 
-public data class PERSISTENT_RESERVE_COMMAND_0_1(
-    public var _bitfield1: UByte = 0u,
-    public var _bitfield2: UByte = 0u,
-    public var ParameterList: UByteArray = UByteArray(1),
+public data class PersistentReserveCommand01(
+    public var bitfield1: UByte = 0u,
+    public var bitfield2: UByte = 0u,
+    public var parameterList: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PERSISTENT_RESERVE_COMMAND_0_1) return false
-        if (this._bitfield1 != other._bitfield1) return false
-        if (this._bitfield2 != other._bitfield2) return false
-        if (!this.ParameterList.contentEquals(other.ParameterList)) return false
+        if (other !is PersistentReserveCommand01) return false
+        if (this.bitfield1 != other.bitfield1) return false
+        if (this.bitfield2 != other.bitfield2) return false
+        if (!this.parameterList.contentEquals(other.parameterList)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield1.hashCode()
-        result = 31 * result + this._bitfield2.hashCode()
-        result = 31 * result + this.ParameterList.contentHashCode()
+        var result = this.bitfield1.hashCode()
+        result = 31 * result + this.bitfield2.hashCode()
+        result = 31 * result + this.parameterList.contentHashCode()
         return result
     }
 }
 
-public data class PHYSICAL_ELEMENT_STATUS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DescriptorCount: UInt = 0u,
-    public var ReturnedDescriptorCount: UInt = 0u,
-    public var ElementIdentifierBeingDepoped: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var Descriptors: List<PHYSICAL_ELEMENT_STATUS_DESCRIPTOR> = List(1) { PHYSICAL_ELEMENT_STATUS_DESCRIPTOR() },
+public data class PhysicalElementStatus(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var descriptorCount: UInt = 0u,
+    public var returnedDescriptorCount: UInt = 0u,
+    public var elementIdentifierBeingDepoped: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var descriptors: List<PhysicalElementStatusDescriptor> = List(1) { PhysicalElementStatusDescriptor() },
 )
 
-public data class PHYSICAL_ELEMENT_STATUS_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ElementIdentifier: UInt = 0u,
-    public var PhysicalElementType: UByte = 0u,
-    public var PhysicalElementHealth: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(2),
-    public var AssociatedCapacity: ULong = 0uL,
-    public var Reserved2: UIntArray = UIntArray(4),
+public data class PhysicalElementStatusDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var elementIdentifier: UInt = 0u,
+    public var physicalElementType: UByte = 0u,
+    public var physicalElementHealth: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(2),
+    public var associatedCapacity: ULong = 0uL,
+    public var reserved2: UIntArray = UIntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PHYSICAL_ELEMENT_STATUS_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.ElementIdentifier != other.ElementIdentifier) return false
-        if (this.PhysicalElementType != other.PhysicalElementType) return false
-        if (this.PhysicalElementHealth != other.PhysicalElementHealth) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.AssociatedCapacity != other.AssociatedCapacity) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is PhysicalElementStatusDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.elementIdentifier != other.elementIdentifier) return false
+        if (this.physicalElementType != other.physicalElementType) return false
+        if (this.physicalElementHealth != other.physicalElementHealth) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.associatedCapacity != other.associatedCapacity) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.ElementIdentifier.hashCode()
-        result = 31 * result + this.PhysicalElementType.hashCode()
-        result = 31 * result + this.PhysicalElementHealth.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.AssociatedCapacity.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.elementIdentifier.hashCode()
+        result = 31 * result + this.physicalElementType.hashCode()
+        result = 31 * result + this.physicalElementHealth.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.associatedCapacity.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class PHYSICAL_ELEMENT_STATUS_REQUEST(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var StartingElement: UInt = 0u,
-    public var Filter: UByte = 0u,
-    public var ReportType: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(2),
+public data class PhysicalElementStatusRequest(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var startingElement: UInt = 0u,
+    public var filter: UByte = 0u,
+    public var reportType: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PHYSICAL_ELEMENT_STATUS_REQUEST) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.StartingElement != other.StartingElement) return false
-        if (this.Filter != other.Filter) return false
-        if (this.ReportType != other.ReportType) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is PhysicalElementStatusRequest) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.startingElement != other.startingElement) return false
+        if (this.filter != other.filter) return false
+        if (this.reportType != other.reportType) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.StartingElement.hashCode()
-        result = 31 * result + this.Filter.hashCode()
-        result = 31 * result + this.ReportType.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.startingElement.hashCode()
+        result = 31 * result + this.filter.hashCode()
+        result = 31 * result + this.reportType.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class PLEX_READ_DATA_REQUEST(
-    public var ByteOffset: Long = 0L,
-    public var ByteLength: UInt = 0u,
-    public var PlexNumber: UInt = 0u,
+public data class PlexReadDataRequest(
+    public var byteOffset: Long = 0L,
+    public var byteLength: UInt = 0u,
+    public var plexNumber: UInt = 0u,
 )
 
-public data class PREVENT_MEDIA_REMOVAL(public var PreventMediaRemoval: Boolean = false)
+public data class PreventMediaRemoval(public var preventMediaRemoval: Boolean = false)
 
-public data class QUERY_BAD_RANGES_INPUT(
-    public var Flags: UInt = 0u,
-    public var NumRanges: UInt = 0u,
-    public var Ranges: List<QUERY_BAD_RANGES_INPUT_RANGE> = List(1) { QUERY_BAD_RANGES_INPUT_RANGE() },
+public data class QueryBadRangesInput(
+    public var flags: UInt = 0u,
+    public var numRanges: UInt = 0u,
+    public var ranges: List<QueryBadRangesInputRange> = List(1) { QueryBadRangesInputRange() },
 )
 
-public data class QUERY_BAD_RANGES_INPUT_RANGE(public var StartOffset: ULong = 0uL, public var LengthInBytes: ULong = 0uL)
+public data class QueryBadRangesInputRange(public var startOffset: ULong = 0uL, public var lengthInBytes: ULong = 0uL)
 
-public data class QUERY_BAD_RANGES_OUTPUT(
-    public var Flags: UInt = 0u,
-    public var NumBadRanges: UInt = 0u,
-    public var NextOffsetToLookUp: ULong = 0uL,
-    public var BadRanges: List<QUERY_BAD_RANGES_OUTPUT_RANGE> = List(1) { QUERY_BAD_RANGES_OUTPUT_RANGE() },
+public data class QueryBadRangesOutput(
+    public var flags: UInt = 0u,
+    public var numBadRanges: UInt = 0u,
+    public var nextOffsetToLookUp: ULong = 0uL,
+    public var badRanges: List<QueryBadRangesOutputRange> = List(1) { QueryBadRangesOutputRange() },
 )
 
-public data class QUERY_BAD_RANGES_OUTPUT_RANGE(
-    public var Flags: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var StartOffset: ULong = 0uL,
-    public var LengthInBytes: ULong = 0uL,
+public data class QueryBadRangesOutputRange(
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var startOffset: ULong = 0uL,
+    public var lengthInBytes: ULong = 0uL,
 )
 
-public data class QUERY_FILE_LAYOUT_INPUT(
-    public var Anonymous: QUERY_FILE_LAYOUT_INPUT_0 = QUERY_FILE_LAYOUT_INPUT_0(),
-    public var Flags: UInt = 0u,
-    public var FilterType: QUERY_FILE_LAYOUT_FILTER_TYPE = 0,
-    public var Reserved: UInt = 0u,
-    public var Filter: QUERY_FILE_LAYOUT_INPUT_1 = QUERY_FILE_LAYOUT_INPUT_1(),
+public data class QueryFileLayoutInput(
+    public var anonymous: QueryFileLayoutInput0 = QueryFileLayoutInput0(),
+    public var flags: UInt = 0u,
+    public var filterType: QueryFileLayoutFilterType = 0,
+    public var reserved: UInt = 0u,
+    public var filter: QueryFileLayoutInput1 = QueryFileLayoutInput1(),
 )
 
-public data class QUERY_FILE_LAYOUT_INPUT_0(public var FilterEntryCount: UInt = 0u, public var NumberOfPairs: UInt = 0u)
+public data class QueryFileLayoutInput0(public var filterEntryCount: UInt = 0u, public var numberOfPairs: UInt = 0u)
 
-public data class QUERY_FILE_LAYOUT_INPUT_1(
-    public var ClusterRanges: List<CLUSTER_RANGE> = List(1) { CLUSTER_RANGE() },
-    public var FileReferenceRanges: List<FILE_REFERENCE_RANGE> = List(1) { FILE_REFERENCE_RANGE() },
-    public var StorageReserveIds: IntArray = IntArray(1),
+public data class QueryFileLayoutInput1(
+    public var clusterRanges: List<ClusterRange> = List(1) { ClusterRange() },
+    public var fileReferenceRanges: List<FileReferenceRange> = List(1) { FileReferenceRange() },
+    public var storageReserveIds: IntArray = IntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is QUERY_FILE_LAYOUT_INPUT_1) return false
-        if (this.ClusterRanges != other.ClusterRanges) return false
-        if (this.FileReferenceRanges != other.FileReferenceRanges) return false
-        if (!this.StorageReserveIds.contentEquals(other.StorageReserveIds)) return false
+        if (other !is QueryFileLayoutInput1) return false
+        if (this.clusterRanges != other.clusterRanges) return false
+        if (this.fileReferenceRanges != other.fileReferenceRanges) return false
+        if (!this.storageReserveIds.contentEquals(other.storageReserveIds)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClusterRanges.hashCode()
-        result = 31 * result + this.FileReferenceRanges.hashCode()
-        result = 31 * result + this.StorageReserveIds.contentHashCode()
+        var result = this.clusterRanges.hashCode()
+        result = 31 * result + this.fileReferenceRanges.hashCode()
+        result = 31 * result + this.storageReserveIds.contentHashCode()
         return result
     }
 }
 
-public data class QUERY_FILE_LAYOUT_OUTPUT(
-    public var FileEntryCount: UInt = 0u,
-    public var FirstFileOffset: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class QueryFileLayoutOutput(
+    public var fileEntryCount: UInt = 0u,
+    public var firstFileOffset: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class READ_ELEMENT_ADDRESS_INFO(public var NumberOfElements: UInt = 0u, public var ElementStatus: List<CHANGER_ELEMENT_STATUS> = List(1) { CHANGER_ELEMENT_STATUS() })
+public data class ReadElementAddressInfo(public var numberOfElements: UInt = 0u, public var elementStatus: List<ChangerElementStatus> = List(1) { ChangerElementStatus() })
 
-public data class READ_FILE_USN_DATA(public var MinMajorVersion: UShort = 0u, public var MaxMajorVersion: UShort = 0u)
+public data class ReadFileUsnData(public var minMajorVersion: UShort = 0u, public var maxMajorVersion: UShort = 0u)
 
-public data class READ_USN_JOURNAL_DATA_V0(
-    public var StartUsn: Long = 0L,
-    public var ReasonMask: UInt = 0u,
-    public var ReturnOnlyOnClose: UInt = 0u,
-    public var Timeout: ULong = 0uL,
-    public var BytesToWaitFor: ULong = 0uL,
-    public var UsnJournalID: ULong = 0uL,
+public data class ReadUsnJournalDataV0(
+    public var startUsn: Long = 0L,
+    public var reasonMask: UInt = 0u,
+    public var returnOnlyOnClose: UInt = 0u,
+    public var timeout: ULong = 0uL,
+    public var bytesToWaitFor: ULong = 0uL,
+    public var usnJournalID: ULong = 0uL,
 )
 
-public data class READ_USN_JOURNAL_DATA_V1(
-    public var StartUsn: Long = 0L,
-    public var ReasonMask: UInt = 0u,
-    public var ReturnOnlyOnClose: UInt = 0u,
-    public var Timeout: ULong = 0uL,
-    public var BytesToWaitFor: ULong = 0uL,
-    public var UsnJournalID: ULong = 0uL,
-    public var MinMajorVersion: UShort = 0u,
-    public var MaxMajorVersion: UShort = 0u,
+public data class ReadUsnJournalDataV1(
+    public var startUsn: Long = 0L,
+    public var reasonMask: UInt = 0u,
+    public var returnOnlyOnClose: UInt = 0u,
+    public var timeout: ULong = 0uL,
+    public var bytesToWaitFor: ULong = 0uL,
+    public var usnJournalID: ULong = 0uL,
+    public var minMajorVersion: UShort = 0u,
+    public var maxMajorVersion: UShort = 0u,
 )
 
-public data class REASSIGN_BLOCKS(
-    public var Reserved: UShort = 0u,
-    public var Count: UShort = 0u,
-    public var BlockNumber: UIntArray = UIntArray(1),
+public data class ReassignBlocks(
+    public var reserved: UShort = 0u,
+    public var count: UShort = 0u,
+    public var blockNumber: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is REASSIGN_BLOCKS) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.Count != other.Count) return false
-        if (!this.BlockNumber.contentEquals(other.BlockNumber)) return false
+        if (other !is ReassignBlocks) return false
+        if (this.reserved != other.reserved) return false
+        if (this.count != other.count) return false
+        if (!this.blockNumber.contentEquals(other.blockNumber)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.hashCode()
-        result = 31 * result + this.Count.hashCode()
-        result = 31 * result + this.BlockNumber.contentHashCode()
+        var result = this.reserved.hashCode()
+        result = 31 * result + this.count.hashCode()
+        result = 31 * result + this.blockNumber.contentHashCode()
         return result
     }
 }
 
-public data class REASSIGN_BLOCKS_EX(
-    public var Reserved: UShort = 0u,
-    public var Count: UShort = 0u,
-    public var BlockNumber: LongArray = LongArray(1),
+public data class ReassignBlocksEx(
+    public var reserved: UShort = 0u,
+    public var count: UShort = 0u,
+    public var blockNumber: LongArray = LongArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is REASSIGN_BLOCKS_EX) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.Count != other.Count) return false
-        if (!this.BlockNumber.contentEquals(other.BlockNumber)) return false
+        if (other !is ReassignBlocksEx) return false
+        if (this.reserved != other.reserved) return false
+        if (this.count != other.count) return false
+        if (!this.blockNumber.contentEquals(other.blockNumber)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.hashCode()
-        result = 31 * result + this.Count.hashCode()
-        result = 31 * result + this.BlockNumber.contentHashCode()
+        var result = this.reserved.hashCode()
+        result = 31 * result + this.count.hashCode()
+        result = 31 * result + this.blockNumber.contentHashCode()
         return result
     }
 }
 
-public data class REFS_SMR_VOLUME_GC_PARAMETERS(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Action: REFS_SMR_VOLUME_GC_ACTION = 0,
-    public var Method: REFS_SMR_VOLUME_GC_METHOD = 0,
-    public var IoGranularity: UInt = 0u,
-    public var CompressionFormat: UInt = 0u,
-    public var Unused: ULongArray = ULongArray(8),
+public data class RefsSmrVolumeGcParameters(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var action: RefsSmrVolumeGcAction = 0,
+    public var method: RefsSmrVolumeGcMethod = 0,
+    public var ioGranularity: UInt = 0u,
+    public var compressionFormat: UInt = 0u,
+    public var unused: ULongArray = ULongArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is REFS_SMR_VOLUME_GC_PARAMETERS) return false
-        if (this.Version != other.Version) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Action != other.Action) return false
-        if (this.Method != other.Method) return false
-        if (this.IoGranularity != other.IoGranularity) return false
-        if (this.CompressionFormat != other.CompressionFormat) return false
-        if (!this.Unused.contentEquals(other.Unused)) return false
+        if (other !is RefsSmrVolumeGcParameters) return false
+        if (this.version != other.version) return false
+        if (this.flags != other.flags) return false
+        if (this.action != other.action) return false
+        if (this.method != other.method) return false
+        if (this.ioGranularity != other.ioGranularity) return false
+        if (this.compressionFormat != other.compressionFormat) return false
+        if (!this.unused.contentEquals(other.unused)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Action.hashCode()
-        result = 31 * result + this.Method.hashCode()
-        result = 31 * result + this.IoGranularity.hashCode()
-        result = 31 * result + this.CompressionFormat.hashCode()
-        result = 31 * result + this.Unused.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.action.hashCode()
+        result = 31 * result + this.method.hashCode()
+        result = 31 * result + this.ioGranularity.hashCode()
+        result = 31 * result + this.compressionFormat.hashCode()
+        result = 31 * result + this.unused.contentHashCode()
         return result
     }
 }
 
-public data class REFS_SMR_VOLUME_INFO_OUTPUT(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var SizeOfRandomlyWritableTier: Long = 0L,
-    public var FreeSpaceInRandomlyWritableTier: Long = 0L,
-    public var SizeofSMRTier: Long = 0L,
-    public var FreeSpaceInSMRTier: Long = 0L,
-    public var UsableFreeSpaceInSMRTier: Long = 0L,
-    public var VolumeGcState: REFS_SMR_VOLUME_GC_STATE = 0,
-    public var VolumeGcLastStatus: UInt = 0u,
-    public var CurrentGcBandFillPercentage: UInt = 0u,
-    public var Unused: ULongArray = ULongArray(6),
+public data class RefsSmrVolumeInfoOutput(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var sizeOfRandomlyWritableTier: Long = 0L,
+    public var freeSpaceInRandomlyWritableTier: Long = 0L,
+    public var sizeofSMRTier: Long = 0L,
+    public var freeSpaceInSMRTier: Long = 0L,
+    public var usableFreeSpaceInSMRTier: Long = 0L,
+    public var volumeGcState: RefsSmrVolumeGcState = 0,
+    public var volumeGcLastStatus: UInt = 0u,
+    public var currentGcBandFillPercentage: UInt = 0u,
+    public var unused: ULongArray = ULongArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is REFS_SMR_VOLUME_INFO_OUTPUT) return false
-        if (this.Version != other.Version) return false
-        if (this.Flags != other.Flags) return false
-        if (this.SizeOfRandomlyWritableTier != other.SizeOfRandomlyWritableTier) return false
-        if (this.FreeSpaceInRandomlyWritableTier != other.FreeSpaceInRandomlyWritableTier) return false
-        if (this.SizeofSMRTier != other.SizeofSMRTier) return false
-        if (this.FreeSpaceInSMRTier != other.FreeSpaceInSMRTier) return false
-        if (this.UsableFreeSpaceInSMRTier != other.UsableFreeSpaceInSMRTier) return false
-        if (this.VolumeGcState != other.VolumeGcState) return false
-        if (this.VolumeGcLastStatus != other.VolumeGcLastStatus) return false
-        if (this.CurrentGcBandFillPercentage != other.CurrentGcBandFillPercentage) return false
-        if (!this.Unused.contentEquals(other.Unused)) return false
+        if (other !is RefsSmrVolumeInfoOutput) return false
+        if (this.version != other.version) return false
+        if (this.flags != other.flags) return false
+        if (this.sizeOfRandomlyWritableTier != other.sizeOfRandomlyWritableTier) return false
+        if (this.freeSpaceInRandomlyWritableTier != other.freeSpaceInRandomlyWritableTier) return false
+        if (this.sizeofSMRTier != other.sizeofSMRTier) return false
+        if (this.freeSpaceInSMRTier != other.freeSpaceInSMRTier) return false
+        if (this.usableFreeSpaceInSMRTier != other.usableFreeSpaceInSMRTier) return false
+        if (this.volumeGcState != other.volumeGcState) return false
+        if (this.volumeGcLastStatus != other.volumeGcLastStatus) return false
+        if (this.currentGcBandFillPercentage != other.currentGcBandFillPercentage) return false
+        if (!this.unused.contentEquals(other.unused)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.SizeOfRandomlyWritableTier.hashCode()
-        result = 31 * result + this.FreeSpaceInRandomlyWritableTier.hashCode()
-        result = 31 * result + this.SizeofSMRTier.hashCode()
-        result = 31 * result + this.FreeSpaceInSMRTier.hashCode()
-        result = 31 * result + this.UsableFreeSpaceInSMRTier.hashCode()
-        result = 31 * result + this.VolumeGcState.hashCode()
-        result = 31 * result + this.VolumeGcLastStatus.hashCode()
-        result = 31 * result + this.CurrentGcBandFillPercentage.hashCode()
-        result = 31 * result + this.Unused.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.sizeOfRandomlyWritableTier.hashCode()
+        result = 31 * result + this.freeSpaceInRandomlyWritableTier.hashCode()
+        result = 31 * result + this.sizeofSMRTier.hashCode()
+        result = 31 * result + this.freeSpaceInSMRTier.hashCode()
+        result = 31 * result + this.usableFreeSpaceInSMRTier.hashCode()
+        result = 31 * result + this.volumeGcState.hashCode()
+        result = 31 * result + this.volumeGcLastStatus.hashCode()
+        result = 31 * result + this.currentGcBandFillPercentage.hashCode()
+        result = 31 * result + this.unused.contentHashCode()
         return result
     }
 }
 
-public class REFS_VOLUME_DATA_BUFFER(
-    public var ByteCount: UInt = 0u,
-    public var MajorVersion: UInt = 0u,
-    public var MinorVersion: UInt = 0u,
-    public var BytesPerPhysicalSector: UInt = 0u,
-    public var VolumeSerialNumber: Long = 0L,
-    public var NumberSectors: Long = 0L,
-    public var TotalClusters: Long = 0L,
-    public var FreeClusters: Long = 0L,
-    public var TotalReserved: Long = 0L,
-    public var BytesPerSector: UInt = 0u,
-    public var BytesPerCluster: UInt = 0u,
-    public var MaximumSizeOfResidentFile: Long = 0L,
-    public var FastTierDataFillRatio: UShort = 0u,
-    public var SlowTierDataFillRatio: UShort = 0u,
-    public var DestagesFastTierToSlowTierRate: UInt = 0u,
-    public var MetadataChecksumType: UShort = 0u,
-    public var Reserved0: UByteArray = UByteArray(6),
-    public var Reserved: LongArray = LongArray(8),
+public class RefsVolumeDataBuffer(
+    public var byteCount: UInt = 0u,
+    public var majorVersion: UInt = 0u,
+    public var minorVersion: UInt = 0u,
+    public var bytesPerPhysicalSector: UInt = 0u,
+    public var volumeSerialNumber: Long = 0L,
+    public var numberSectors: Long = 0L,
+    public var totalClusters: Long = 0L,
+    public var freeClusters: Long = 0L,
+    public var totalReserved: Long = 0L,
+    public var bytesPerSector: UInt = 0u,
+    public var bytesPerCluster: UInt = 0u,
+    public var maximumSizeOfResidentFile: Long = 0L,
+    public var fastTierDataFillRatio: UShort = 0u,
+    public var slowTierDataFillRatio: UShort = 0u,
+    public var destagesFastTierToSlowTierRate: UInt = 0u,
+    public var metadataChecksumType: UShort = 0u,
+    public var reserved0: UByteArray = UByteArray(6),
+    public var reserved: LongArray = LongArray(8),
 )
 
-public data class REMOVE_ELEMENT_AND_TRUNCATE_REQUEST(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var RequestCapacity: ULong = 0uL,
-    public var ElementIdentifier: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class RemoveElementAndTruncateRequest(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var requestCapacity: ULong = 0uL,
+    public var elementIdentifier: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class REPAIR_COPIES_INPUT(
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var FileOffset: Long = 0L,
-    public var Length: UInt = 0u,
-    public var SourceCopy: UInt = 0u,
-    public var NumberOfRepairCopies: UInt = 0u,
-    public var RepairCopies: UIntArray = UIntArray(1),
+public data class RepairCopiesInput(
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var fileOffset: Long = 0L,
+    public var length: UInt = 0u,
+    public var sourceCopy: UInt = 0u,
+    public var numberOfRepairCopies: UInt = 0u,
+    public var repairCopies: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is REPAIR_COPIES_INPUT) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.FileOffset != other.FileOffset) return false
-        if (this.Length != other.Length) return false
-        if (this.SourceCopy != other.SourceCopy) return false
-        if (this.NumberOfRepairCopies != other.NumberOfRepairCopies) return false
-        if (!this.RepairCopies.contentEquals(other.RepairCopies)) return false
+        if (other !is RepairCopiesInput) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.fileOffset != other.fileOffset) return false
+        if (this.length != other.length) return false
+        if (this.sourceCopy != other.sourceCopy) return false
+        if (this.numberOfRepairCopies != other.numberOfRepairCopies) return false
+        if (!this.repairCopies.contentEquals(other.repairCopies)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.FileOffset.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.SourceCopy.hashCode()
-        result = 31 * result + this.NumberOfRepairCopies.hashCode()
-        result = 31 * result + this.RepairCopies.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.fileOffset.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.sourceCopy.hashCode()
+        result = 31 * result + this.numberOfRepairCopies.hashCode()
+        result = 31 * result + this.repairCopies.contentHashCode()
         return result
     }
 }
 
-public data class REPAIR_COPIES_OUTPUT(
-    public var Size: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var ResumeFileOffset: Long = 0L,
+public data class RepairCopiesOutput(
+    public var size: UInt = 0u,
+    public var status: UInt = 0u,
+    public var resumeFileOffset: Long = 0L,
 )
 
-public data class REQUEST_OPLOCK_INPUT_BUFFER(
-    public var StructureVersion: UShort = 0u,
-    public var StructureLength: UShort = 0u,
-    public var RequestedOplockLevel: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class RequestOplockInputBuffer(
+    public var structureVersion: UShort = 0u,
+    public var structureLength: UShort = 0u,
+    public var requestedOplockLevel: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class REQUEST_OPLOCK_OUTPUT_BUFFER(
-    public var StructureVersion: UShort = 0u,
-    public var StructureLength: UShort = 0u,
-    public var OriginalOplockLevel: UInt = 0u,
-    public var NewOplockLevel: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var AccessMode: UInt = 0u,
-    public var ShareMode: UShort = 0u,
+public data class RequestOplockOutputBuffer(
+    public var structureVersion: UShort = 0u,
+    public var structureLength: UShort = 0u,
+    public var originalOplockLevel: UInt = 0u,
+    public var newOplockLevel: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var accessMode: UInt = 0u,
+    public var shareMode: UShort = 0u,
 )
 
-public data class REQUEST_RAW_ENCRYPTED_DATA(public var FileOffset: Long = 0L, public var Length: UInt = 0u)
+public data class RequestRawEncryptedData(public var fileOffset: Long = 0L, public var length: UInt = 0u)
 
-public data class RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER(
-    public var ExtentCount: UInt = 0u,
-    public var StartingVcn: Long = 0L,
-    public var Extents: List<RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0> = List(1) { RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0() },
+public data class RetrievalPointersAndRefcountBuffer(
+    public var extentCount: UInt = 0u,
+    public var startingVcn: Long = 0L,
+    public var extents: List<RetrievalPointersAndRefcountBuffer0> = List(1) { RetrievalPointersAndRefcountBuffer0() },
 )
 
-public data class RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0(
-    public var NextVcn: Long = 0L,
-    public var Lcn: Long = 0L,
-    public var ReferenceCount: UInt = 0u,
+public data class RetrievalPointersAndRefcountBuffer0(
+    public var nextVcn: Long = 0L,
+    public var lcn: Long = 0L,
+    public var referenceCount: UInt = 0u,
 )
 
-public data class RETRIEVAL_POINTERS_BUFFER(
-    public var ExtentCount: UInt = 0u,
-    public var StartingVcn: Long = 0L,
-    public var Extents: List<RETRIEVAL_POINTERS_BUFFER_0> = List(1) { RETRIEVAL_POINTERS_BUFFER_0() },
+public data class RetrievalPointersBuffer(
+    public var extentCount: UInt = 0u,
+    public var startingVcn: Long = 0L,
+    public var extents: List<RetrievalPointersBuffer0> = List(1) { RetrievalPointersBuffer0() },
 )
 
-public data class RETRIEVAL_POINTERS_BUFFER_0(public var NextVcn: Long = 0L, public var Lcn: Long = 0L)
+public data class RetrievalPointersBuffer0(public var nextVcn: Long = 0L, public var lcn: Long = 0L)
 
-public data class RETRIEVAL_POINTER_BASE(public var FileAreaOffset: Long = 0L)
+public data class RetrievalPointerBase(public var fileAreaOffset: Long = 0L)
 
-public data class RETRIEVAL_POINTER_COUNT(public var ExtentCount: UInt = 0u)
+public data class RetrievalPointerCount(public var extentCount: UInt = 0u)
 
-public data class SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceCount: UInt = 0u,
-    public var Devices: List<SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO> = List(1) { SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO() },
+public data class ScmBusDedicatedMemoryDevicesInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceCount: UInt = 0u,
+    public var devices: List<ScmBusDedicatedMemoryDeviceInfo> = List(1) { ScmBusDedicatedMemoryDeviceInfo() },
 )
 
-public data class SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO(
-    public var DeviceGuid: GUID = GUID(),
-    public var DeviceNumber: UInt = 0u,
-    public var Flags: SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 = SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0(),
-    public var DeviceSize: ULong = 0uL,
+public data class ScmBusDedicatedMemoryDeviceInfo(
+    public var deviceGuid: Guid = Guid(),
+    public var deviceNumber: UInt = 0u,
+    public var flags: ScmBusDedicatedMemoryDeviceInfo0 = ScmBusDedicatedMemoryDeviceInfo0(),
+    public var deviceSize: ULong = 0uL,
 )
 
-public data class SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0(public var _bitfield: UInt = 0u)
+public data class ScmBusDedicatedMemoryDeviceInfo0(public var bitfield: UInt = 0u)
 
-public data class SCM_BUS_DEDICATED_MEMORY_STATE(public var ActivateState: Boolean = false)
+public data class ScmBusDedicatedMemoryState(public var activateState: Boolean = false)
 
-public data class SCM_BUS_PROPERTY_QUERY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PropertyId: SCM_BUS_PROPERTY_ID = 0,
-    public var QueryType: SCM_BUS_QUERY_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class ScmBusPropertyQuery(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var propertyId: ScmBusPropertyId = 0,
+    public var queryType: ScmBusQueryType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_BUS_PROPERTY_QUERY) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.QueryType != other.QueryType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is ScmBusPropertyQuery) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.queryType != other.queryType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.PropertyId.hashCode()
-        result = 31 * result + this.QueryType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.propertyId.hashCode()
+        result = 31 * result + this.queryType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public data class SCM_BUS_PROPERTY_SET(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PropertyId: SCM_BUS_PROPERTY_ID = 0,
-    public var SetType: SCM_BUS_SET_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class ScmBusPropertySet(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var propertyId: ScmBusPropertyId = 0,
+    public var setType: ScmBusSetType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_BUS_PROPERTY_SET) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.SetType != other.SetType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is ScmBusPropertySet) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.setType != other.setType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.PropertyId.hashCode()
-        result = 31 * result + this.SetType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.propertyId.hashCode()
+        result = 31 * result + this.setType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public data class SCM_BUS_RUNTIME_FW_ACTIVATION_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var RuntimeFwActivationSupported: Boolean = false,
-    public var FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE = 0,
-    public var FirmwareActivationCapability: SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 = SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0(),
-    public var EstimatedFirmwareActivationTimeInUSecs: ULong = 0uL,
-    public var EstimatedProcessorAccessQuiesceTimeInUSecs: ULong = 0uL,
-    public var EstimatedIOAccessQuiesceTimeInUSecs: ULong = 0uL,
-    public var PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: ULong = 0uL,
+public data class ScmBusRuntimeFwActivationInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var runtimeFwActivationSupported: Boolean = false,
+    public var firmwareActivationState: ScmBusFirmwareActivationState = 0,
+    public var firmwareActivationCapability: ScmBusRuntimeFwActivationInfo0 = ScmBusRuntimeFwActivationInfo0(),
+    public var estimatedFirmwareActivationTimeInUSecs: ULong = 0uL,
+    public var estimatedProcessorAccessQuiesceTimeInUSecs: ULong = 0uL,
+    public var estimatedIOAccessQuiesceTimeInUSecs: ULong = 0uL,
+    public var platformSupportedMaxIOAccessQuiesceTimeInUSecs: ULong = 0uL,
 )
 
-public data class SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0(public var _bitfield: UInt = 0u)
+public data class ScmBusRuntimeFwActivationInfo0(public var bitfield: UInt = 0u)
 
-public data class SCM_INTERLEAVED_PD_INFO(public var DeviceHandle: UInt = 0u, public var DeviceGuid: GUID = GUID())
+public data class ScmInterleavedPdInfo(public var deviceHandle: UInt = 0u, public var deviceGuid: Guid = Guid())
 
-public data class SCM_LD_INTERLEAVE_SET_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var InterleaveSetSize: UInt = 0u,
-    public var InterleaveSet: List<SCM_INTERLEAVED_PD_INFO> = List(1) { SCM_INTERLEAVED_PD_INFO() },
+public data class ScmLdInterleaveSetInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var interleaveSetSize: UInt = 0u,
+    public var interleaveSet: List<ScmInterleavedPdInfo> = List(1) { ScmInterleavedPdInfo() },
 )
 
-public data class SCM_LOGICAL_DEVICES(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceCount: UInt = 0u,
-    public var Devices: List<SCM_LOGICAL_DEVICE_INSTANCE> = List(1) { SCM_LOGICAL_DEVICE_INSTANCE() },
+public data class ScmLogicalDevices(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceCount: UInt = 0u,
+    public var devices: List<ScmLogicalDeviceInstance> = List(1) { ScmLogicalDeviceInstance() },
 )
 
-public data class SCM_LOGICAL_DEVICE_INSTANCE(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceGuid: GUID = GUID(),
-    public var SymbolicLink: UShortArray = UShortArray(256),
+public data class ScmLogicalDeviceInstance(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceGuid: Guid = Guid(),
+    public var symbolicLink: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_LOGICAL_DEVICE_INSTANCE) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.DeviceGuid != other.DeviceGuid) return false
-        if (!this.SymbolicLink.contentEquals(other.SymbolicLink)) return false
+        if (other !is ScmLogicalDeviceInstance) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.deviceGuid != other.deviceGuid) return false
+        if (!this.symbolicLink.contentEquals(other.symbolicLink)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.DeviceGuid.hashCode()
-        result = 31 * result + this.SymbolicLink.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.deviceGuid.hashCode()
+        result = 31 * result + this.symbolicLink.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_DESCRIPTOR_HEADER(public var Version: UInt = 0u, public var Size: UInt = 0u)
+public data class ScmPdDescriptorHeader(public var version: UInt = 0u, public var size: UInt = 0u)
 
-public data class SCM_PD_DEVICE_HANDLE(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceGuid: GUID = GUID(),
-    public var DeviceHandle: UInt = 0u,
+public data class ScmPdDeviceHandle(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceGuid: Guid = Guid(),
+    public var deviceHandle: UInt = 0u,
 )
 
-public class SCM_PD_DEVICE_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceGuid: GUID = GUID(),
-    public var UnsafeShutdownCount: UInt = 0u,
-    public var PersistentMemorySizeInBytes: ULong = 0uL,
-    public var VolatileMemorySizeInBytes: ULong = 0uL,
-    public var TotalMemorySizeInBytes: ULong = 0uL,
-    public var SlotNumber: UInt = 0u,
-    public var DeviceHandle: UInt = 0u,
-    public var PhysicalId: UShort = 0u,
-    public var NumberOfFormatInterfaceCodes: UByte = 0u,
-    public var FormatInterfaceCodes: UShortArray = UShortArray(8),
-    public var VendorId: UInt = 0u,
-    public var ProductId: UInt = 0u,
-    public var SubsystemDeviceId: UInt = 0u,
-    public var SubsystemVendorId: UInt = 0u,
-    public var ManufacturingLocation: UByte = 0u,
-    public var ManufacturingWeek: UByte = 0u,
-    public var ManufacturingYear: UByte = 0u,
-    public var SerialNumber4Byte: UInt = 0u,
-    public var SerialNumberLengthInChars: UInt = 0u,
-    public var SerialNumber: ByteArray = ByteArray(1),
+public class ScmPdDeviceInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceGuid: Guid = Guid(),
+    public var unsafeShutdownCount: UInt = 0u,
+    public var persistentMemorySizeInBytes: ULong = 0uL,
+    public var volatileMemorySizeInBytes: ULong = 0uL,
+    public var totalMemorySizeInBytes: ULong = 0uL,
+    public var slotNumber: UInt = 0u,
+    public var deviceHandle: UInt = 0u,
+    public var physicalId: UShort = 0u,
+    public var numberOfFormatInterfaceCodes: UByte = 0u,
+    public var formatInterfaceCodes: UShortArray = UShortArray(8),
+    public var vendorId: UInt = 0u,
+    public var productId: UInt = 0u,
+    public var subsystemDeviceId: UInt = 0u,
+    public var subsystemVendorId: UInt = 0u,
+    public var manufacturingLocation: UByte = 0u,
+    public var manufacturingWeek: UByte = 0u,
+    public var manufacturingYear: UByte = 0u,
+    public var serialNumber4Byte: UInt = 0u,
+    public var serialNumberLengthInChars: UInt = 0u,
+    public var serialNumber: ByteArray = ByteArray(1),
 )
 
-public data class SCM_PD_DEVICE_SPECIFIC_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumberOfProperties: UInt = 0u,
-    public var DeviceSpecificProperties: List<SCM_PD_DEVICE_SPECIFIC_PROPERTY> = List(1) { SCM_PD_DEVICE_SPECIFIC_PROPERTY() },
+public data class ScmPdDeviceSpecificInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numberOfProperties: UInt = 0u,
+    public var deviceSpecificProperties: List<ScmPdDeviceSpecificProperty> = List(1) { ScmPdDeviceSpecificProperty() },
 )
 
-public data class SCM_PD_DEVICE_SPECIFIC_PROPERTY(public var Name: UShortArray = UShortArray(128), public var Value: Long = 0L) {
+public data class ScmPdDeviceSpecificProperty(public var name: UShortArray = UShortArray(128), public var value: Long = 0L) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_DEVICE_SPECIFIC_PROPERTY) return false
-        if (!this.Name.contentEquals(other.Name)) return false
-        if (this.Value != other.Value) return false
+        if (other !is ScmPdDeviceSpecificProperty) return false
+        if (!this.name.contentEquals(other.name)) return false
+        if (this.value != other.value) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Name.contentHashCode()
-        result = 31 * result + this.Value.hashCode()
+        var result = this.name.contentHashCode()
+        result = 31 * result + this.value.hashCode()
         return result
     }
 }
 
-public data class SCM_PD_FIRMWARE_ACTIVATE(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Slot: UByte = 0u,
+public data class ScmPdFirmwareActivate(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var slot: UByte = 0u,
 )
 
-public data class SCM_PD_FIRMWARE_DOWNLOAD(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Slot: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var Offset: ULong = 0uL,
-    public var FirmwareImageSizeInBytes: UInt = 0u,
-    public var FirmwareImage: UByteArray = UByteArray(1),
+public data class ScmPdFirmwareDownload(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var slot: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var offset: ULong = 0uL,
+    public var firmwareImageSizeInBytes: UInt = 0u,
+    public var firmwareImage: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_FIRMWARE_DOWNLOAD) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Slot != other.Slot) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Offset != other.Offset) return false
-        if (this.FirmwareImageSizeInBytes != other.FirmwareImageSizeInBytes) return false
-        if (!this.FirmwareImage.contentEquals(other.FirmwareImage)) return false
+        if (other !is ScmPdFirmwareDownload) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.slot != other.slot) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.offset != other.offset) return false
+        if (this.firmwareImageSizeInBytes != other.firmwareImageSizeInBytes) return false
+        if (!this.firmwareImage.contentEquals(other.firmwareImage)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Slot.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Offset.hashCode()
-        result = 31 * result + this.FirmwareImageSizeInBytes.hashCode()
-        result = 31 * result + this.FirmwareImage.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.slot.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.offset.hashCode()
+        result = 31 * result + this.firmwareImageSizeInBytes.hashCode()
+        result = 31 * result + this.firmwareImage.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_FIRMWARE_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ActiveSlot: UByte = 0u,
-    public var NextActiveSlot: UByte = 0u,
-    public var SlotCount: UByte = 0u,
-    public var Slots: List<SCM_PD_FIRMWARE_SLOT_INFO> = List(1) { SCM_PD_FIRMWARE_SLOT_INFO() },
+public data class ScmPdFirmwareInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var activeSlot: UByte = 0u,
+    public var nextActiveSlot: UByte = 0u,
+    public var slotCount: UByte = 0u,
+    public var slots: List<ScmPdFirmwareSlotInfo> = List(1) { ScmPdFirmwareSlotInfo() },
 )
 
-public data class SCM_PD_FIRMWARE_SLOT_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SlotNumber: UByte = 0u,
-    public var _bitfield: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(6),
-    public var Revision: UByteArray = UByteArray(32),
+public data class ScmPdFirmwareSlotInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var slotNumber: UByte = 0u,
+    public var bitfield: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(6),
+    public var revision: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_FIRMWARE_SLOT_INFO) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.SlotNumber != other.SlotNumber) return false
-        if (this._bitfield != other._bitfield) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (!this.Revision.contentEquals(other.Revision)) return false
+        if (other !is ScmPdFirmwareSlotInfo) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.slotNumber != other.slotNumber) return false
+        if (this.bitfield != other.bitfield) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (!this.revision.contentEquals(other.revision)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.SlotNumber.hashCode()
-        result = 31 * result + this._bitfield.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Revision.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.slotNumber.hashCode()
+        result = 31 * result + this.bitfield.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.revision.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_FRU_ID_STRING(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var IdentifierSize: UInt = 0u,
-    public var Identifier: UByteArray = UByteArray(1),
+public data class ScmPdFruIdString(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var identifierSize: UInt = 0u,
+    public var identifier: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_FRU_ID_STRING) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.IdentifierSize != other.IdentifierSize) return false
-        if (!this.Identifier.contentEquals(other.Identifier)) return false
+        if (other !is ScmPdFruIdString) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.identifierSize != other.identifierSize) return false
+        if (!this.identifier.contentEquals(other.identifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.IdentifierSize.hashCode()
-        result = 31 * result + this.Identifier.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.identifierSize.hashCode()
+        result = 31 * result + this.identifier.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_HEALTH_NOTIFICATION_DATA(public var DeviceGuid: GUID = GUID())
+public data class ScmPdHealthNotificationData(public var deviceGuid: Guid = Guid())
 
-public data class SCM_PD_LOCATION_STRING(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Location: UShortArray = UShortArray(1),
+public data class ScmPdLocationString(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var location: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_LOCATION_STRING) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (!this.Location.contentEquals(other.Location)) return false
+        if (other !is ScmPdLocationString) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (!this.location.contentEquals(other.location)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Location.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.location.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_MANAGEMENT_STATUS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Health: SCM_PD_HEALTH_STATUS = 0,
-    public var NumberOfOperationalStatus: UInt = 0u,
-    public var NumberOfAdditionalReasons: UInt = 0u,
-    public var OperationalStatus: IntArray = IntArray(16),
-    public var AdditionalReasons: IntArray = IntArray(1),
+public data class ScmPdManagementStatus(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var health: ScmPdHealthStatus = 0,
+    public var numberOfOperationalStatus: UInt = 0u,
+    public var numberOfAdditionalReasons: UInt = 0u,
+    public var operationalStatus: IntArray = IntArray(16),
+    public var additionalReasons: IntArray = IntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_MANAGEMENT_STATUS) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Health != other.Health) return false
-        if (this.NumberOfOperationalStatus != other.NumberOfOperationalStatus) return false
-        if (this.NumberOfAdditionalReasons != other.NumberOfAdditionalReasons) return false
-        if (!this.OperationalStatus.contentEquals(other.OperationalStatus)) return false
-        if (!this.AdditionalReasons.contentEquals(other.AdditionalReasons)) return false
+        if (other !is ScmPdManagementStatus) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.health != other.health) return false
+        if (this.numberOfOperationalStatus != other.numberOfOperationalStatus) return false
+        if (this.numberOfAdditionalReasons != other.numberOfAdditionalReasons) return false
+        if (!this.operationalStatus.contentEquals(other.operationalStatus)) return false
+        if (!this.additionalReasons.contentEquals(other.additionalReasons)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Health.hashCode()
-        result = 31 * result + this.NumberOfOperationalStatus.hashCode()
-        result = 31 * result + this.NumberOfAdditionalReasons.hashCode()
-        result = 31 * result + this.OperationalStatus.contentHashCode()
-        result = 31 * result + this.AdditionalReasons.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.health.hashCode()
+        result = 31 * result + this.numberOfOperationalStatus.hashCode()
+        result = 31 * result + this.numberOfAdditionalReasons.hashCode()
+        result = 31 * result + this.operationalStatus.contentHashCode()
+        result = 31 * result + this.additionalReasons.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PASSTHROUGH_INPUT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ProtocolGuid: GUID = GUID(),
-    public var DataSize: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class ScmPdPassthroughInput(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var protocolGuid: Guid = Guid(),
+    public var dataSize: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PASSTHROUGH_INPUT) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.ProtocolGuid != other.ProtocolGuid) return false
-        if (this.DataSize != other.DataSize) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is ScmPdPassthroughInput) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.protocolGuid != other.protocolGuid) return false
+        if (this.dataSize != other.dataSize) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.ProtocolGuid.hashCode()
-        result = 31 * result + this.DataSize.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.protocolGuid.hashCode()
+        result = 31 * result + this.dataSize.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PASSTHROUGH_INVDIMM_INPUT(
-    public var Opcode: UInt = 0u,
-    public var OpcodeParametersLength: UInt = 0u,
-    public var OpcodeParameters: UByteArray = UByteArray(1),
+public data class ScmPdPassthroughInvdimmInput(
+    public var opcode: UInt = 0u,
+    public var opcodeParametersLength: UInt = 0u,
+    public var opcodeParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PASSTHROUGH_INVDIMM_INPUT) return false
-        if (this.Opcode != other.Opcode) return false
-        if (this.OpcodeParametersLength != other.OpcodeParametersLength) return false
-        if (!this.OpcodeParameters.contentEquals(other.OpcodeParameters)) return false
+        if (other !is ScmPdPassthroughInvdimmInput) return false
+        if (this.opcode != other.opcode) return false
+        if (this.opcodeParametersLength != other.opcodeParametersLength) return false
+        if (!this.opcodeParameters.contentEquals(other.opcodeParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Opcode.hashCode()
-        result = 31 * result + this.OpcodeParametersLength.hashCode()
-        result = 31 * result + this.OpcodeParameters.contentHashCode()
+        var result = this.opcode.hashCode()
+        result = 31 * result + this.opcodeParametersLength.hashCode()
+        result = 31 * result + this.opcodeParameters.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT(
-    public var GeneralStatus: UShort = 0u,
-    public var ExtendedStatus: UShort = 0u,
-    public var OutputDataLength: UInt = 0u,
-    public var OutputData: UByteArray = UByteArray(1),
+public data class ScmPdPassthroughInvdimmOutput(
+    public var generalStatus: UShort = 0u,
+    public var extendedStatus: UShort = 0u,
+    public var outputDataLength: UInt = 0u,
+    public var outputData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT) return false
-        if (this.GeneralStatus != other.GeneralStatus) return false
-        if (this.ExtendedStatus != other.ExtendedStatus) return false
-        if (this.OutputDataLength != other.OutputDataLength) return false
-        if (!this.OutputData.contentEquals(other.OutputData)) return false
+        if (other !is ScmPdPassthroughInvdimmOutput) return false
+        if (this.generalStatus != other.generalStatus) return false
+        if (this.extendedStatus != other.extendedStatus) return false
+        if (this.outputDataLength != other.outputDataLength) return false
+        if (!this.outputData.contentEquals(other.outputData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.GeneralStatus.hashCode()
-        result = 31 * result + this.ExtendedStatus.hashCode()
-        result = 31 * result + this.OutputDataLength.hashCode()
-        result = 31 * result + this.OutputData.contentHashCode()
+        var result = this.generalStatus.hashCode()
+        result = 31 * result + this.extendedStatus.hashCode()
+        result = 31 * result + this.outputDataLength.hashCode()
+        result = 31 * result + this.outputData.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PASSTHROUGH_OUTPUT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ProtocolGuid: GUID = GUID(),
-    public var DataSize: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class ScmPdPassthroughOutput(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var protocolGuid: Guid = Guid(),
+    public var dataSize: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PASSTHROUGH_OUTPUT) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.ProtocolGuid != other.ProtocolGuid) return false
-        if (this.DataSize != other.DataSize) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is ScmPdPassthroughOutput) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.protocolGuid != other.protocolGuid) return false
+        if (this.dataSize != other.dataSize) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.ProtocolGuid.hashCode()
-        result = 31 * result + this.DataSize.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.protocolGuid.hashCode()
+        result = 31 * result + this.dataSize.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PROPERTY_QUERY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PropertyId: SCM_PD_PROPERTY_ID = 0,
-    public var QueryType: SCM_PD_QUERY_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class ScmPdPropertyQuery(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var propertyId: ScmPdPropertyId = 0,
+    public var queryType: ScmPdQueryType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PROPERTY_QUERY) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.QueryType != other.QueryType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is ScmPdPropertyQuery) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.queryType != other.queryType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.PropertyId.hashCode()
-        result = 31 * result + this.QueryType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.propertyId.hashCode()
+        result = 31 * result + this.queryType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_PROPERTY_SET(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PropertyId: SCM_PD_PROPERTY_ID = 0,
-    public var SetType: SCM_PD_SET_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class ScmPdPropertySet(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var propertyId: ScmPdPropertyId = 0,
+    public var setType: ScmPdSetType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PD_PROPERTY_SET) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.SetType != other.SetType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is ScmPdPropertySet) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.setType != other.setType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.PropertyId.hashCode()
-        result = 31 * result + this.SetType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.propertyId.hashCode()
+        result = 31 * result + this.setType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public data class SCM_PD_REINITIALIZE_MEDIA_INPUT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Options: SCM_PD_REINITIALIZE_MEDIA_INPUT_0 = SCM_PD_REINITIALIZE_MEDIA_INPUT_0(),
+public data class ScmPdReinitializeMediaInput(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var options: ScmPdReinitializeMediaInput0 = ScmPdReinitializeMediaInput0(),
 )
 
-public data class SCM_PD_REINITIALIZE_MEDIA_INPUT_0(public var _bitfield: UInt = 0u)
+public data class ScmPdReinitializeMediaInput0(public var bitfield: UInt = 0u)
 
-public data class SCM_PD_REINITIALIZE_MEDIA_OUTPUT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Status: SCM_PD_MEDIA_REINITIALIZATION_STATUS = 0,
+public data class ScmPdReinitializeMediaOutput(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var status: ScmPdMediaReinitializationStatus = 0,
 )
 
-public data class SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE(public var ArmState: Boolean = false)
+public data class ScmPdRuntimeFwActivationArmState(public var armState: Boolean = false)
 
-public data class SCM_PD_RUNTIME_FW_ACTIVATION_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var LastFirmwareActivationStatus: SCM_PD_LAST_FW_ACTIVATION_STATUS = 0,
-    public var FirmwareActivationState: SCM_PD_FIRMWARE_ACTIVATION_STATE = 0,
+public data class ScmPdRuntimeFwActivationInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var lastFirmwareActivationStatus: ScmPdLastFwActivationStatus = 0,
+    public var firmwareActivationState: ScmPdFirmwareActivationState = 0,
 )
 
-public data class SCM_PHYSICAL_DEVICES(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceCount: UInt = 0u,
-    public var Devices: List<SCM_PHYSICAL_DEVICE_INSTANCE> = List(1) { SCM_PHYSICAL_DEVICE_INSTANCE() },
+public data class ScmPhysicalDevices(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceCount: UInt = 0u,
+    public var devices: List<ScmPhysicalDeviceInstance> = List(1) { ScmPhysicalDeviceInstance() },
 )
 
-public data class SCM_PHYSICAL_DEVICE_INSTANCE(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NfitHandle: UInt = 0u,
-    public var SymbolicLink: UShortArray = UShortArray(256),
+public data class ScmPhysicalDeviceInstance(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var nfitHandle: UInt = 0u,
+    public var symbolicLink: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCM_PHYSICAL_DEVICE_INSTANCE) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.NfitHandle != other.NfitHandle) return false
-        if (!this.SymbolicLink.contentEquals(other.SymbolicLink)) return false
+        if (other !is ScmPhysicalDeviceInstance) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.nfitHandle != other.nfitHandle) return false
+        if (!this.symbolicLink.contentEquals(other.symbolicLink)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.NfitHandle.hashCode()
-        result = 31 * result + this.SymbolicLink.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.nfitHandle.hashCode()
+        result = 31 * result + this.symbolicLink.contentHashCode()
         return result
     }
 }
 
-public data class SCM_REGION(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var NfitHandle: UInt = 0u,
-    public var LogicalDeviceGuid: GUID = GUID(),
-    public var AddressRangeType: GUID = GUID(),
-    public var AssociatedId: UInt = 0u,
-    public var Length: ULong = 0uL,
-    public var StartingDPA: ULong = 0uL,
-    public var BaseSPA: ULong = 0uL,
-    public var SPAOffset: ULong = 0uL,
-    public var RegionOffset: ULong = 0uL,
+public data class ScmRegion(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var nfitHandle: UInt = 0u,
+    public var logicalDeviceGuid: Guid = Guid(),
+    public var addressRangeType: Guid = Guid(),
+    public var associatedId: UInt = 0u,
+    public var length: ULong = 0uL,
+    public var startingDPA: ULong = 0uL,
+    public var baseSPA: ULong = 0uL,
+    public var sPAOffset: ULong = 0uL,
+    public var regionOffset: ULong = 0uL,
 )
 
-public data class SCM_REGIONS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var RegionCount: UInt = 0u,
-    public var Regions: List<SCM_REGION> = List(1) { SCM_REGION() },
+public data class ScmRegions(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var regionCount: UInt = 0u,
+    public var regions: List<ScmRegion> = List(1) { ScmRegion() },
 )
 
-public data class SD_CHANGE_MACHINE_SID_INPUT(
-    public var CurrentMachineSIDOffset: UShort = 0u,
-    public var CurrentMachineSIDLength: UShort = 0u,
-    public var NewMachineSIDOffset: UShort = 0u,
-    public var NewMachineSIDLength: UShort = 0u,
+public data class SdChangeMachineSidInput(
+    public var currentMachineSIDOffset: UShort = 0u,
+    public var currentMachineSIDLength: UShort = 0u,
+    public var newMachineSIDOffset: UShort = 0u,
+    public var newMachineSIDLength: UShort = 0u,
 )
 
-public data class SD_CHANGE_MACHINE_SID_OUTPUT(
-    public var NumSDChangedSuccess: ULong = 0uL,
-    public var NumSDChangedFail: ULong = 0uL,
-    public var NumSDUnused: ULong = 0uL,
-    public var NumSDTotal: ULong = 0uL,
-    public var NumMftSDChangedSuccess: ULong = 0uL,
-    public var NumMftSDChangedFail: ULong = 0uL,
-    public var NumMftSDTotal: ULong = 0uL,
+public data class SdChangeMachineSidOutput(
+    public var numSDChangedSuccess: ULong = 0uL,
+    public var numSDChangedFail: ULong = 0uL,
+    public var numSDUnused: ULong = 0uL,
+    public var numSDTotal: ULong = 0uL,
+    public var numMftSDChangedSuccess: ULong = 0uL,
+    public var numMftSDChangedFail: ULong = 0uL,
+    public var numMftSDTotal: ULong = 0uL,
 )
 
-public data class SD_ENUM_SDS_ENTRY(
-    public var Hash: UInt = 0u,
-    public var SecurityId: UInt = 0u,
-    public var Offset: ULong = 0uL,
-    public var Length: UInt = 0u,
-    public var Descriptor: UByteArray = UByteArray(1),
+public data class SdEnumSdsEntry(
+    public var hash: UInt = 0u,
+    public var securityId: UInt = 0u,
+    public var offset: ULong = 0uL,
+    public var length: UInt = 0u,
+    public var descriptor: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SD_ENUM_SDS_ENTRY) return false
-        if (this.Hash != other.Hash) return false
-        if (this.SecurityId != other.SecurityId) return false
-        if (this.Offset != other.Offset) return false
-        if (this.Length != other.Length) return false
-        if (!this.Descriptor.contentEquals(other.Descriptor)) return false
+        if (other !is SdEnumSdsEntry) return false
+        if (this.hash != other.hash) return false
+        if (this.securityId != other.securityId) return false
+        if (this.offset != other.offset) return false
+        if (this.length != other.length) return false
+        if (!this.descriptor.contentEquals(other.descriptor)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hash.hashCode()
-        result = 31 * result + this.SecurityId.hashCode()
-        result = 31 * result + this.Offset.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Descriptor.contentHashCode()
+        var result = this.hash.hashCode()
+        result = 31 * result + this.securityId.hashCode()
+        result = 31 * result + this.offset.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.descriptor.contentHashCode()
         return result
     }
 }
 
-public data class SD_ENUM_SDS_INPUT(public var StartingOffset: ULong = 0uL, public var MaxSDEntriesToReturn: ULong = 0uL)
+public data class SdEnumSdsInput(public var startingOffset: ULong = 0uL, public var maxSDEntriesToReturn: ULong = 0uL)
 
-public data class SD_ENUM_SDS_OUTPUT(
-    public var NextOffset: ULong = 0uL,
-    public var NumSDEntriesReturned: ULong = 0uL,
-    public var NumSDBytesReturned: ULong = 0uL,
-    public var SDEntry: List<SD_ENUM_SDS_ENTRY> = List(1) { SD_ENUM_SDS_ENTRY() },
+public data class SdEnumSdsOutput(
+    public var nextOffset: ULong = 0uL,
+    public var numSDEntriesReturned: ULong = 0uL,
+    public var numSDBytesReturned: ULong = 0uL,
+    public var sDEntry: List<SdEnumSdsEntry> = List(1) { SdEnumSdsEntry() },
 )
 
-public data class SD_GLOBAL_CHANGE_INPUT(
-    public var Flags: UInt = 0u,
-    public var ChangeType: UInt = 0u,
-    public var Anonymous: SD_GLOBAL_CHANGE_INPUT_0 = SD_GLOBAL_CHANGE_INPUT_0(),
+public data class SdGlobalChangeInput(
+    public var flags: UInt = 0u,
+    public var changeType: UInt = 0u,
+    public var anonymous: SdGlobalChangeInput0 = SdGlobalChangeInput0(),
 )
 
-public data class SD_GLOBAL_CHANGE_INPUT_0(
-    public var SdChange: SD_CHANGE_MACHINE_SID_INPUT = SD_CHANGE_MACHINE_SID_INPUT(),
-    public var SdQueryStats: SD_QUERY_STATS_INPUT = SD_QUERY_STATS_INPUT(),
-    public var SdEnumSds: SD_ENUM_SDS_INPUT = SD_ENUM_SDS_INPUT(),
+public data class SdGlobalChangeInput0(
+    public var sdChange: SdChangeMachineSidInput = SdChangeMachineSidInput(),
+    public var sdQueryStats: SdQueryStatsInput = SdQueryStatsInput(),
+    public var sdEnumSds: SdEnumSdsInput = SdEnumSdsInput(),
 )
 
-public data class SD_GLOBAL_CHANGE_OUTPUT(
-    public var Flags: UInt = 0u,
-    public var ChangeType: UInt = 0u,
-    public var Anonymous: SD_GLOBAL_CHANGE_OUTPUT_0 = SD_GLOBAL_CHANGE_OUTPUT_0(),
+public data class SdGlobalChangeOutput(
+    public var flags: UInt = 0u,
+    public var changeType: UInt = 0u,
+    public var anonymous: SdGlobalChangeOutput0 = SdGlobalChangeOutput0(),
 )
 
-public data class SD_GLOBAL_CHANGE_OUTPUT_0(
-    public var SdChange: SD_CHANGE_MACHINE_SID_OUTPUT = SD_CHANGE_MACHINE_SID_OUTPUT(),
-    public var SdQueryStats: SD_QUERY_STATS_OUTPUT = SD_QUERY_STATS_OUTPUT(),
-    public var SdEnumSds: SD_ENUM_SDS_OUTPUT = SD_ENUM_SDS_OUTPUT(),
+public data class SdGlobalChangeOutput0(
+    public var sdChange: SdChangeMachineSidOutput = SdChangeMachineSidOutput(),
+    public var sdQueryStats: SdQueryStatsOutput = SdQueryStatsOutput(),
+    public var sdEnumSds: SdEnumSdsOutput = SdEnumSdsOutput(),
 )
 
-public data class SD_QUERY_STATS_INPUT(public var Reserved: UInt = 0u)
+public data class SdQueryStatsInput(public var reserved: UInt = 0u)
 
-public data class SD_QUERY_STATS_OUTPUT(
-    public var SdsStreamSize: ULong = 0uL,
-    public var SdsAllocationSize: ULong = 0uL,
-    public var SiiStreamSize: ULong = 0uL,
-    public var SiiAllocationSize: ULong = 0uL,
-    public var SdhStreamSize: ULong = 0uL,
-    public var SdhAllocationSize: ULong = 0uL,
-    public var NumSDTotal: ULong = 0uL,
-    public var NumSDUnused: ULong = 0uL,
+public data class SdQueryStatsOutput(
+    public var sdsStreamSize: ULong = 0uL,
+    public var sdsAllocationSize: ULong = 0uL,
+    public var siiStreamSize: ULong = 0uL,
+    public var siiAllocationSize: ULong = 0uL,
+    public var sdhStreamSize: ULong = 0uL,
+    public var sdhAllocationSize: ULong = 0uL,
+    public var numSDTotal: ULong = 0uL,
+    public var numSDUnused: ULong = 0uL,
 )
 
-public data class SENDCMDINPARAMS(
+public data class Sendcmdinparams(
     public var cBufferSize: UInt = 0u,
-    public var irDriveRegs: IDEREGS = IDEREGS(),
+    public var irDriveRegs: Ideregs = Ideregs(),
     public var bDriveNumber: UByte = 0u,
     public var bReserved: UByteArray = UByteArray(3),
     public var dwReserved: UIntArray = UIntArray(4),
@@ -1126,7 +1126,7 @@ public data class SENDCMDINPARAMS(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SENDCMDINPARAMS) return false
+        if (other !is Sendcmdinparams) return false
         if (this.cBufferSize != other.cBufferSize) return false
         if (this.irDriveRegs != other.irDriveRegs) return false
         if (this.bDriveNumber != other.bDriveNumber) return false
@@ -1147,2151 +1147,2151 @@ public data class SENDCMDINPARAMS(
     }
 }
 
-public data class SENDCMDOUTPARAMS(
+public data class Sendcmdoutparams(
     public var cBufferSize: UInt = 0u,
-    public var DriverStatus: DRIVERSTATUS = DRIVERSTATUS(),
+    public var driverStatus: Driverstatus = Driverstatus(),
     public var bBuffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SENDCMDOUTPARAMS) return false
+        if (other !is Sendcmdoutparams) return false
         if (this.cBufferSize != other.cBufferSize) return false
-        if (this.DriverStatus != other.DriverStatus) return false
+        if (this.driverStatus != other.driverStatus) return false
         if (!this.bBuffer.contentEquals(other.bBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cBufferSize.hashCode()
-        result = 31 * result + this.DriverStatus.hashCode()
+        result = 31 * result + this.driverStatus.hashCode()
         result = 31 * result + this.bBuffer.contentHashCode()
         return result
     }
 }
 
-public data class SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT(
-    public var Flags: UInt = 0u,
-    public var AlignmentShift: UInt = 0u,
-    public var FileOffsetToAlign: ULong = 0uL,
-    public var FallbackAlignmentShift: UInt = 0u,
+public data class SetDaxAllocAlignmentHintInput(
+    public var flags: UInt = 0u,
+    public var alignmentShift: UInt = 0u,
+    public var fileOffsetToAlign: ULong = 0uL,
+    public var fallbackAlignmentShift: UInt = 0u,
 )
 
-public data class SET_DISK_ATTRIBUTES(
-    public var Version: UInt = 0u,
-    public var Persist: Boolean = false,
-    public var Reserved1: UByteArray = UByteArray(3),
-    public var Attributes: ULong = 0uL,
-    public var AttributesMask: ULong = 0uL,
-    public var Reserved2: UIntArray = UIntArray(4),
+public data class SetDiskAttributes(
+    public var version: UInt = 0u,
+    public var persist: Boolean = false,
+    public var reserved1: UByteArray = UByteArray(3),
+    public var attributes: ULong = 0uL,
+    public var attributesMask: ULong = 0uL,
+    public var reserved2: UIntArray = UIntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SET_DISK_ATTRIBUTES) return false
-        if (this.Version != other.Version) return false
-        if (this.Persist != other.Persist) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.Attributes != other.Attributes) return false
-        if (this.AttributesMask != other.AttributesMask) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is SetDiskAttributes) return false
+        if (this.version != other.version) return false
+        if (this.persist != other.persist) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.attributes != other.attributes) return false
+        if (this.attributesMask != other.attributesMask) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Persist.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Attributes.hashCode()
-        result = 31 * result + this.AttributesMask.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.persist.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.attributes.hashCode()
+        result = 31 * result + this.attributesMask.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class SET_PARTITION_INFORMATION(public var PartitionType: UByte = 0u)
+public data class SetPartitionInformation(public var partitionType: UByte = 0u)
 
-public data class SET_PARTITION_INFORMATION_EX(public var PartitionStyle: PARTITION_STYLE = 0, public var Anonymous: SET_PARTITION_INFORMATION_EX_0 = SET_PARTITION_INFORMATION_EX_0())
+public data class SetPartitionInformationEx(public var partitionStyle: PartitionStyle = 0, public var anonymous: SetPartitionInformationEx0 = SetPartitionInformationEx0())
 
-public data class SET_PARTITION_INFORMATION_EX_0(public var Mbr: SET_PARTITION_INFORMATION = SET_PARTITION_INFORMATION(), public var Gpt: PARTITION_INFORMATION_GPT = PARTITION_INFORMATION_GPT())
+public data class SetPartitionInformationEx0(public var mbr: SetPartitionInformation = SetPartitionInformation(), public var gpt: PartitionInformationGpt = PartitionInformationGpt())
 
-public data class SET_PURGE_FAILURE_MODE_INPUT(public var Flags: UInt = 0u)
+public data class SetPurgeFailureModeInput(public var flags: UInt = 0u)
 
-public data class SHRINK_VOLUME_INFORMATION(
-    public var ShrinkRequestType: SHRINK_VOLUME_REQUEST_TYPES = 0,
-    public var Flags: ULong = 0uL,
-    public var NewNumberOfSectors: Long = 0L,
+public data class ShrinkVolumeInformation(
+    public var shrinkRequestType: ShrinkVolumeRequestTypes = 0,
+    public var flags: ULong = 0uL,
+    public var newNumberOfSectors: Long = 0L,
 )
 
-public data class SI_COPYFILE(
-    public var SourceFileNameLength: UInt = 0u,
-    public var DestinationFileNameLength: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var FileNameBuffer: UShortArray = UShortArray(1),
+public data class SiCopyfile(
+    public var sourceFileNameLength: UInt = 0u,
+    public var destinationFileNameLength: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var fileNameBuffer: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SI_COPYFILE) return false
-        if (this.SourceFileNameLength != other.SourceFileNameLength) return false
-        if (this.DestinationFileNameLength != other.DestinationFileNameLength) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.FileNameBuffer.contentEquals(other.FileNameBuffer)) return false
+        if (other !is SiCopyfile) return false
+        if (this.sourceFileNameLength != other.sourceFileNameLength) return false
+        if (this.destinationFileNameLength != other.destinationFileNameLength) return false
+        if (this.flags != other.flags) return false
+        if (!this.fileNameBuffer.contentEquals(other.fileNameBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SourceFileNameLength.hashCode()
-        result = 31 * result + this.DestinationFileNameLength.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.FileNameBuffer.contentHashCode()
+        var result = this.sourceFileNameLength.hashCode()
+        result = 31 * result + this.destinationFileNameLength.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.fileNameBuffer.contentHashCode()
         return result
     }
 }
 
-public data class SMB_SHARE_FLUSH_AND_PURGE_INPUT(public var Version: UShort = 0u)
+public data class SmbShareFlushAndPurgeInput(public var version: UShort = 0u)
 
-public data class SMB_SHARE_FLUSH_AND_PURGE_OUTPUT(public var cEntriesPurged: UInt = 0u)
+public data class SmbShareFlushAndPurgeOutput(public var cEntriesPurged: UInt = 0u)
 
-public data class STARTING_LCN_INPUT_BUFFER(public var StartingLcn: Long = 0L)
+public data class StartingLcnInputBuffer(public var startingLcn: Long = 0L)
 
-public data class STARTING_LCN_INPUT_BUFFER_EX(public var StartingLcn: Long = 0L, public var Flags: UInt = 0u)
+public data class StartingLcnInputBufferEx(public var startingLcn: Long = 0L, public var flags: UInt = 0u)
 
-public data class STARTING_VCN_INPUT_BUFFER(public var StartingVcn: Long = 0L)
+public data class StartingVcnInputBuffer(public var startingVcn: Long = 0L)
 
-public data class STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var BytesPerCacheLine: UInt = 0u,
-    public var BytesOffsetForCacheAlignment: UInt = 0u,
-    public var BytesPerLogicalSector: UInt = 0u,
-    public var BytesPerPhysicalSector: UInt = 0u,
-    public var BytesOffsetForSectorAlignment: UInt = 0u,
+public data class StorageAccessAlignmentDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var bytesPerCacheLine: UInt = 0u,
+    public var bytesOffsetForCacheAlignment: UInt = 0u,
+    public var bytesPerLogicalSector: UInt = 0u,
+    public var bytesPerPhysicalSector: UInt = 0u,
+    public var bytesOffsetForSectorAlignment: UInt = 0u,
 )
 
-public data class STORAGE_ADAPTER_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var MaximumTransferLength: UInt = 0u,
-    public var MaximumPhysicalPages: UInt = 0u,
-    public var AlignmentMask: UInt = 0u,
-    public var AdapterUsesPio: Boolean = false,
-    public var AdapterScansDown: Boolean = false,
-    public var CommandQueueing: Boolean = false,
-    public var AcceleratedTransfer: Boolean = false,
-    public var BusType: UByte = 0u,
-    public var BusMajorVersion: UShort = 0u,
-    public var BusMinorVersion: UShort = 0u,
-    public var SrbType: UByte = 0u,
-    public var AddressType: UByte = 0u,
+public data class StorageAdapterDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var maximumTransferLength: UInt = 0u,
+    public var maximumPhysicalPages: UInt = 0u,
+    public var alignmentMask: UInt = 0u,
+    public var adapterUsesPio: Boolean = false,
+    public var adapterScansDown: Boolean = false,
+    public var commandQueueing: Boolean = false,
+    public var acceleratedTransfer: Boolean = false,
+    public var busType: UByte = 0u,
+    public var busMajorVersion: UShort = 0u,
+    public var busMinorVersion: UShort = 0u,
+    public var srbType: UByte = 0u,
+    public var addressType: UByte = 0u,
 )
 
-public data class STORAGE_ADAPTER_SERIAL_NUMBER(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SerialNumber: UShortArray = UShortArray(128),
+public data class StorageAdapterSerialNumber(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var serialNumber: UShortArray = UShortArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_ADAPTER_SERIAL_NUMBER) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (!this.SerialNumber.contentEquals(other.SerialNumber)) return false
+        if (other !is StorageAdapterSerialNumber) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (!this.serialNumber.contentEquals(other.serialNumber)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.SerialNumber.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.serialNumber.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_ALLOCATE_BC_STREAM_INPUT(
-    public var Version: UInt = 0u,
-    public var RequestsPerPeriod: UInt = 0u,
-    public var Period: UInt = 0u,
-    public var RetryFailures: Boolean = false,
-    public var Discardable: Boolean = false,
-    public var Reserved1: BooleanArray = BooleanArray(2),
-    public var AccessType: UInt = 0u,
-    public var AccessMode: UInt = 0u,
+public data class StorageAllocateBcStreamInput(
+    public var version: UInt = 0u,
+    public var requestsPerPeriod: UInt = 0u,
+    public var period: UInt = 0u,
+    public var retryFailures: Boolean = false,
+    public var discardable: Boolean = false,
+    public var reserved1: BooleanArray = BooleanArray(2),
+    public var accessType: UInt = 0u,
+    public var accessMode: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_ALLOCATE_BC_STREAM_INPUT) return false
-        if (this.Version != other.Version) return false
-        if (this.RequestsPerPeriod != other.RequestsPerPeriod) return false
-        if (this.Period != other.Period) return false
-        if (this.RetryFailures != other.RetryFailures) return false
-        if (this.Discardable != other.Discardable) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.AccessType != other.AccessType) return false
-        if (this.AccessMode != other.AccessMode) return false
+        if (other !is StorageAllocateBcStreamInput) return false
+        if (this.version != other.version) return false
+        if (this.requestsPerPeriod != other.requestsPerPeriod) return false
+        if (this.period != other.period) return false
+        if (this.retryFailures != other.retryFailures) return false
+        if (this.discardable != other.discardable) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.accessType != other.accessType) return false
+        if (this.accessMode != other.accessMode) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.RequestsPerPeriod.hashCode()
-        result = 31 * result + this.Period.hashCode()
-        result = 31 * result + this.RetryFailures.hashCode()
-        result = 31 * result + this.Discardable.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.AccessType.hashCode()
-        result = 31 * result + this.AccessMode.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.requestsPerPeriod.hashCode()
+        result = 31 * result + this.period.hashCode()
+        result = 31 * result + this.retryFailures.hashCode()
+        result = 31 * result + this.discardable.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.accessType.hashCode()
+        result = 31 * result + this.accessMode.hashCode()
         return result
     }
 }
 
-public data class STORAGE_ALLOCATE_BC_STREAM_OUTPUT(public var RequestSize: ULong = 0uL, public var NumOutStandingRequests: UInt = 0u)
+public data class StorageAllocateBcStreamOutput(public var requestSize: ULong = 0uL, public var numOutStandingRequests: UInt = 0u)
 
-public data class STORAGE_ATTRIBUTE_MGMT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Action: STORAGE_ATTRIBUTE_MGMT_ACTION = 0,
-    public var Attribute: UInt = 0u,
+public data class StorageAttributeMgmt(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var action: StorageAttributeMgmtAction = 0,
+    public var attribute: UInt = 0u,
 )
 
-public data class STORAGE_BREAK_RESERVATION_REQUEST(
-    public var Length: UInt = 0u,
-    public var _unused: UByte = 0u,
-    public var PathId: UByte = 0u,
-    public var TargetId: UByte = 0u,
-    public var Lun: UByte = 0u,
+public data class StorageBreakReservationRequest(
+    public var length: UInt = 0u,
+    public var unused: UByte = 0u,
+    public var pathId: UByte = 0u,
+    public var targetId: UByte = 0u,
+    public var lun: UByte = 0u,
 )
 
-public data class STORAGE_BUS_RESET_REQUEST(public var PathId: UByte = 0u)
+public data class StorageBusResetRequest(public var pathId: UByte = 0u)
 
-public data class STORAGE_COUNTER(public var Type: STORAGE_COUNTER_TYPE = 0, public var Value: STORAGE_COUNTER_0 = STORAGE_COUNTER_0())
+public data class StorageCounter(public var type: StorageCounterType = 0, public var value: StorageCounter0 = StorageCounter0())
 
-public data class STORAGE_COUNTER_0(public var ManufactureDate: STORAGE_COUNTER_0_0 = STORAGE_COUNTER_0_0(), public var AsUlonglong: ULong = 0uL)
+public data class StorageCounter0(public var manufactureDate: StorageCounter00 = StorageCounter00(), public var asUlonglong: ULong = 0uL)
 
-public data class STORAGE_COUNTER_0_0(public var Week: UInt = 0u, public var Year: UInt = 0u)
+public data class StorageCounter00(public var week: UInt = 0u, public var year: UInt = 0u)
 
-public data class STORAGE_COUNTERS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumberOfCounters: UInt = 0u,
-    public var Counters: List<STORAGE_COUNTER> = List(1) { STORAGE_COUNTER() },
+public data class StorageCounters(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numberOfCounters: UInt = 0u,
+    public var counters: List<StorageCounter> = List(1) { StorageCounter() },
 )
 
-public data class STORAGE_CRYPTO_CAPABILITY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var CryptoCapabilityIndex: UInt = 0u,
-    public var AlgorithmId: STORAGE_CRYPTO_ALGORITHM_ID = 0,
-    public var KeySize: STORAGE_CRYPTO_KEY_SIZE = 0,
-    public var DataUnitSizeBitmask: UInt = 0u,
+public data class StorageCryptoCapability(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var cryptoCapabilityIndex: UInt = 0u,
+    public var algorithmId: StorageCryptoAlgorithmId = 0,
+    public var keySize: StorageCryptoKeySize = 0,
+    public var dataUnitSizeBitmask: UInt = 0u,
 )
 
-public data class STORAGE_CRYPTO_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumKeysSupported: UInt = 0u,
-    public var NumCryptoCapabilities: UInt = 0u,
-    public var CryptoCapabilities: List<STORAGE_CRYPTO_CAPABILITY> = List(1) { STORAGE_CRYPTO_CAPABILITY() },
+public data class StorageCryptoDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numKeysSupported: UInt = 0u,
+    public var numCryptoCapabilities: UInt = 0u,
+    public var cryptoCapabilities: List<StorageCryptoCapability> = List(1) { StorageCryptoCapability() },
 )
 
-public data class STORAGE_DESCRIPTOR_HEADER(public var Version: UInt = 0u, public var Size: UInt = 0u)
+public data class StorageDescriptorHeader(public var version: UInt = 0u, public var size: UInt = 0u)
 
-public data class STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Attributes: ULong = 0uL,
+public data class StorageDeviceAttributesDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var attributes: ULong = 0uL,
 )
 
-public data class STORAGE_DEVICE_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceType: UByte = 0u,
-    public var DeviceTypeModifier: UByte = 0u,
-    public var RemovableMedia: Boolean = false,
-    public var CommandQueueing: Boolean = false,
-    public var VendorIdOffset: UInt = 0u,
-    public var ProductIdOffset: UInt = 0u,
-    public var ProductRevisionOffset: UInt = 0u,
-    public var SerialNumberOffset: UInt = 0u,
-    public var BusType: STORAGE_BUS_TYPE = 0,
-    public var RawPropertiesLength: UInt = 0u,
-    public var RawDeviceProperties: UByteArray = UByteArray(1),
+public data class StorageDeviceDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceType: UByte = 0u,
+    public var deviceTypeModifier: UByte = 0u,
+    public var removableMedia: Boolean = false,
+    public var commandQueueing: Boolean = false,
+    public var vendorIdOffset: UInt = 0u,
+    public var productIdOffset: UInt = 0u,
+    public var productRevisionOffset: UInt = 0u,
+    public var serialNumberOffset: UInt = 0u,
+    public var busType: StorageBusType = 0,
+    public var rawPropertiesLength: UInt = 0u,
+    public var rawDeviceProperties: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_DEVICE_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.DeviceType != other.DeviceType) return false
-        if (this.DeviceTypeModifier != other.DeviceTypeModifier) return false
-        if (this.RemovableMedia != other.RemovableMedia) return false
-        if (this.CommandQueueing != other.CommandQueueing) return false
-        if (this.VendorIdOffset != other.VendorIdOffset) return false
-        if (this.ProductIdOffset != other.ProductIdOffset) return false
-        if (this.ProductRevisionOffset != other.ProductRevisionOffset) return false
-        if (this.SerialNumberOffset != other.SerialNumberOffset) return false
-        if (this.BusType != other.BusType) return false
-        if (this.RawPropertiesLength != other.RawPropertiesLength) return false
-        if (!this.RawDeviceProperties.contentEquals(other.RawDeviceProperties)) return false
+        if (other !is StorageDeviceDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.deviceType != other.deviceType) return false
+        if (this.deviceTypeModifier != other.deviceTypeModifier) return false
+        if (this.removableMedia != other.removableMedia) return false
+        if (this.commandQueueing != other.commandQueueing) return false
+        if (this.vendorIdOffset != other.vendorIdOffset) return false
+        if (this.productIdOffset != other.productIdOffset) return false
+        if (this.productRevisionOffset != other.productRevisionOffset) return false
+        if (this.serialNumberOffset != other.serialNumberOffset) return false
+        if (this.busType != other.busType) return false
+        if (this.rawPropertiesLength != other.rawPropertiesLength) return false
+        if (!this.rawDeviceProperties.contentEquals(other.rawDeviceProperties)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.DeviceType.hashCode()
-        result = 31 * result + this.DeviceTypeModifier.hashCode()
-        result = 31 * result + this.RemovableMedia.hashCode()
-        result = 31 * result + this.CommandQueueing.hashCode()
-        result = 31 * result + this.VendorIdOffset.hashCode()
-        result = 31 * result + this.ProductIdOffset.hashCode()
-        result = 31 * result + this.ProductRevisionOffset.hashCode()
-        result = 31 * result + this.SerialNumberOffset.hashCode()
-        result = 31 * result + this.BusType.hashCode()
-        result = 31 * result + this.RawPropertiesLength.hashCode()
-        result = 31 * result + this.RawDeviceProperties.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.deviceType.hashCode()
+        result = 31 * result + this.deviceTypeModifier.hashCode()
+        result = 31 * result + this.removableMedia.hashCode()
+        result = 31 * result + this.commandQueueing.hashCode()
+        result = 31 * result + this.vendorIdOffset.hashCode()
+        result = 31 * result + this.productIdOffset.hashCode()
+        result = 31 * result + this.productRevisionOffset.hashCode()
+        result = 31 * result + this.serialNumberOffset.hashCode()
+        result = 31 * result + this.busType.hashCode()
+        result = 31 * result + this.rawPropertiesLength.hashCode()
+        result = 31 * result + this.rawDeviceProperties.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumberOfFaultDomains: UInt = 0u,
-    public var FaultDomainIds: List<GUID> = List(1) { GUID() },
+public data class StorageDeviceFaultDomainDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numberOfFaultDomains: UInt = 0u,
+    public var faultDomainIds: List<Guid> = List(1) { Guid() },
 )
 
-public data class STORAGE_DEVICE_ID_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumberOfIdentifiers: UInt = 0u,
-    public var Identifiers: UByteArray = UByteArray(1),
+public data class StorageDeviceIdDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numberOfIdentifiers: UInt = 0u,
+    public var identifiers: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_DEVICE_ID_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.NumberOfIdentifiers != other.NumberOfIdentifiers) return false
-        if (!this.Identifiers.contentEquals(other.Identifiers)) return false
+        if (other !is StorageDeviceIdDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.numberOfIdentifiers != other.numberOfIdentifiers) return false
+        if (!this.identifiers.contentEquals(other.identifiers)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.NumberOfIdentifiers.hashCode()
-        result = 31 * result + this.Identifiers.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.numberOfIdentifiers.hashCode()
+        result = 31 * result + this.identifiers.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var LunMaxIoCount: UInt = 0u,
-    public var AdapterMaxIoCount: UInt = 0u,
+public data class StorageDeviceIoCapabilityDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var lunMaxIoCount: UInt = 0u,
+    public var adapterMaxIoCount: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_LED_STATE_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var State: ULong = 0uL,
+public data class StorageDeviceLedStateDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var state: ULong = 0uL,
 )
 
-public data class STORAGE_DEVICE_LOCATION_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Location: DEVICE_LOCATION = DEVICE_LOCATION(),
-    public var StringOffset: UInt = 0u,
+public data class StorageDeviceLocationDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var location: DeviceLocation = DeviceLocation(),
+    public var stringOffset: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_MANAGEMENT_STATUS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Health: STORAGE_DISK_HEALTH_STATUS = 0,
-    public var NumberOfOperationalStatus: UInt = 0u,
-    public var NumberOfAdditionalReasons: UInt = 0u,
-    public var OperationalStatus: IntArray = IntArray(16),
-    public var AdditionalReasons: List<STORAGE_OPERATIONAL_REASON> = List(1) { STORAGE_OPERATIONAL_REASON() },
+public data class StorageDeviceManagementStatus(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var health: StorageDiskHealthStatus = 0,
+    public var numberOfOperationalStatus: UInt = 0u,
+    public var numberOfAdditionalReasons: UInt = 0u,
+    public var operationalStatus: IntArray = IntArray(16),
+    public var additionalReasons: List<StorageOperationalReason> = List(1) { StorageOperationalReason() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_DEVICE_MANAGEMENT_STATUS) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Health != other.Health) return false
-        if (this.NumberOfOperationalStatus != other.NumberOfOperationalStatus) return false
-        if (this.NumberOfAdditionalReasons != other.NumberOfAdditionalReasons) return false
-        if (!this.OperationalStatus.contentEquals(other.OperationalStatus)) return false
-        if (this.AdditionalReasons != other.AdditionalReasons) return false
+        if (other !is StorageDeviceManagementStatus) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.health != other.health) return false
+        if (this.numberOfOperationalStatus != other.numberOfOperationalStatus) return false
+        if (this.numberOfAdditionalReasons != other.numberOfAdditionalReasons) return false
+        if (!this.operationalStatus.contentEquals(other.operationalStatus)) return false
+        if (this.additionalReasons != other.additionalReasons) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Health.hashCode()
-        result = 31 * result + this.NumberOfOperationalStatus.hashCode()
-        result = 31 * result + this.NumberOfAdditionalReasons.hashCode()
-        result = 31 * result + this.OperationalStatus.contentHashCode()
-        result = 31 * result + this.AdditionalReasons.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.health.hashCode()
+        result = 31 * result + this.numberOfOperationalStatus.hashCode()
+        result = 31 * result + this.numberOfAdditionalReasons.hashCode()
+        result = 31 * result + this.operationalStatus.contentHashCode()
+        result = 31 * result + this.additionalReasons.hashCode()
         return result
     }
 }
 
-public data class STORAGE_DEVICE_NUMA_PROPERTY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumaNode: UInt = 0u,
+public data class StorageDeviceNumaProperty(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numaNode: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_NUMBER(
-    public var DeviceType: UInt = 0u,
-    public var DeviceNumber: UInt = 0u,
-    public var PartitionNumber: UInt = 0u,
+public data class StorageDeviceNumber(
+    public var deviceType: UInt = 0u,
+    public var deviceNumber: UInt = 0u,
+    public var partitionNumber: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_NUMBERS(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NumberOfDevices: UInt = 0u,
-    public var Devices: List<STORAGE_DEVICE_NUMBER> = List(1) { STORAGE_DEVICE_NUMBER() },
+public data class StorageDeviceNumbers(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var numberOfDevices: UInt = 0u,
+    public var devices: List<StorageDeviceNumber> = List(1) { StorageDeviceNumber() },
 )
 
-public data class STORAGE_DEVICE_NUMBER_EX(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var DeviceType: UInt = 0u,
-    public var DeviceNumber: UInt = 0u,
-    public var DeviceGuid: GUID = GUID(),
-    public var PartitionNumber: UInt = 0u,
+public data class StorageDeviceNumberEx(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var deviceType: UInt = 0u,
+    public var deviceNumber: UInt = 0u,
+    public var deviceGuid: Guid = Guid(),
+    public var partitionNumber: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_POWER_CAP(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Units: STORAGE_DEVICE_POWER_CAP_UNITS = 0,
-    public var MaxPower: ULong = 0uL,
+public data class StorageDevicePowerCap(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var units: StorageDevicePowerCapUnits = 0,
+    public var maxPower: ULong = 0uL,
 )
 
-public data class STORAGE_DEVICE_RESILIENCY_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NameOffset: UInt = 0u,
-    public var NumberOfLogicalCopies: UInt = 0u,
-    public var NumberOfPhysicalCopies: UInt = 0u,
-    public var PhysicalDiskRedundancy: UInt = 0u,
-    public var NumberOfColumns: UInt = 0u,
-    public var Interleave: UInt = 0u,
+public data class StorageDeviceResiliencyDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var nameOffset: UInt = 0u,
+    public var numberOfLogicalCopies: UInt = 0u,
+    public var numberOfPhysicalCopies: UInt = 0u,
+    public var physicalDiskRedundancy: UInt = 0u,
+    public var numberOfColumns: UInt = 0u,
+    public var interleave: UInt = 0u,
 )
 
-public data class STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SupportsSelfEncryption: Boolean = false,
+public data class StorageDeviceSelfEncryptionProperty(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var supportsSelfEncryption: Boolean = false,
 )
 
-public data class STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SupportsSelfEncryption: Boolean = false,
-    public var EncryptionType: STORAGE_ENCRYPTION_TYPE = 0,
+public data class StorageDeviceSelfEncryptionPropertyV2(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var supportsSelfEncryption: Boolean = false,
+    public var encryptionType: StorageEncryptionType = 0,
 )
 
-public data class STORAGE_DEVICE_TIERING_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var TotalNumberOfTiers: UInt = 0u,
-    public var NumberOfTiersReturned: UInt = 0u,
-    public var Tiers: List<STORAGE_TIER> = List(1) { STORAGE_TIER() },
+public data class StorageDeviceTieringDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var totalNumberOfTiers: UInt = 0u,
+    public var numberOfTiersReturned: UInt = 0u,
+    public var tiers: List<StorageTier> = List(1) { StorageTier() },
 )
 
-public data class STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var UnsafeShutdownCount: UInt = 0u,
+public data class StorageDeviceUnsafeShutdownCount(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var unsafeShutdownCount: UInt = 0u,
 )
 
-public data class STORAGE_DIAGNOSTIC_DATA(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ProviderId: GUID = GUID(),
-    public var BufferSize: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var DiagnosticDataBuffer: UByteArray = UByteArray(1),
+public data class StorageDiagnosticData(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var providerId: Guid = Guid(),
+    public var bufferSize: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var diagnosticDataBuffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_DIAGNOSTIC_DATA) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.ProviderId != other.ProviderId) return false
-        if (this.BufferSize != other.BufferSize) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.DiagnosticDataBuffer.contentEquals(other.DiagnosticDataBuffer)) return false
+        if (other !is StorageDiagnosticData) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.providerId != other.providerId) return false
+        if (this.bufferSize != other.bufferSize) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.diagnosticDataBuffer.contentEquals(other.diagnosticDataBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.ProviderId.hashCode()
-        result = 31 * result + this.BufferSize.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.DiagnosticDataBuffer.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.providerId.hashCode()
+        result = 31 * result + this.bufferSize.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.diagnosticDataBuffer.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_DIAGNOSTIC_REQUEST(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var TargetType: STORAGE_DIAGNOSTIC_TARGET_TYPE = 0,
-    public var Level: STORAGE_DIAGNOSTIC_LEVEL = 0,
+public data class StorageDiagnosticRequest(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var targetType: StorageDiagnosticTargetType = 0,
+    public var level: StorageDiagnosticLevel = 0,
 )
 
-public data class STORAGE_EVENT_NOTIFICATION(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Events: ULong = 0uL,
+public data class StorageEventNotification(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var events: ULong = 0uL,
 )
 
-public data class STORAGE_FAILURE_PREDICTION_CONFIG(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Set: Boolean = false,
-    public var Enabled: Boolean = false,
-    public var Reserved: UShort = 0u,
+public data class StorageFailurePredictionConfig(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var set: Boolean = false,
+    public var enabled: Boolean = false,
+    public var reserved: UShort = 0u,
 )
 
-public data class STORAGE_FRU_ID_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var IdentifierSize: UInt = 0u,
-    public var Identifier: UByteArray = UByteArray(1),
+public data class StorageFruIdDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var identifierSize: UInt = 0u,
+    public var identifier: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_FRU_ID_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.IdentifierSize != other.IdentifierSize) return false
-        if (!this.Identifier.contentEquals(other.Identifier)) return false
+        if (other !is StorageFruIdDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.identifierSize != other.identifierSize) return false
+        if (!this.identifier.contentEquals(other.identifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.IdentifierSize.hashCode()
-        result = 31 * result + this.Identifier.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.identifierSize.hashCode()
+        result = 31 * result + this.identifier.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_GET_BC_PROPERTIES_OUTPUT(
-    public var MaximumRequestsPerPeriod: UInt = 0u,
-    public var MinimumPeriod: UInt = 0u,
-    public var MaximumRequestSize: ULong = 0uL,
-    public var EstimatedTimePerRequest: UInt = 0u,
-    public var NumOutStandingRequests: UInt = 0u,
-    public var RequestSize: ULong = 0uL,
+public data class StorageGetBcPropertiesOutput(
+    public var maximumRequestsPerPeriod: UInt = 0u,
+    public var minimumPeriod: UInt = 0u,
+    public var maximumRequestSize: ULong = 0uL,
+    public var estimatedTimePerRequest: UInt = 0u,
+    public var numOutStandingRequests: UInt = 0u,
+    public var requestSize: ULong = 0uL,
 )
 
-public data class STORAGE_HOTPLUG_INFO(
-    public var Size: UInt = 0u,
-    public var MediaRemovable: Boolean = false,
-    public var MediaHotplug: Boolean = false,
-    public var DeviceHotplug: Boolean = false,
-    public var WriteCacheEnableOverride: Boolean = false,
+public data class StorageHotplugInfo(
+    public var size: UInt = 0u,
+    public var mediaRemovable: Boolean = false,
+    public var mediaHotplug: Boolean = false,
+    public var deviceHotplug: Boolean = false,
+    public var writeCacheEnableOverride: Boolean = false,
 )
 
-public data class STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var EnduranceInfo: STORAGE_HW_ENDURANCE_INFO = STORAGE_HW_ENDURANCE_INFO(),
+public data class StorageHwEnduranceDataDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var enduranceInfo: StorageHwEnduranceInfo = StorageHwEnduranceInfo(),
 )
 
-public data class STORAGE_HW_ENDURANCE_INFO(
-    public var ValidFields: UInt = 0u,
-    public var GroupId: UInt = 0u,
-    public var Flags: STORAGE_HW_ENDURANCE_INFO_0 = STORAGE_HW_ENDURANCE_INFO_0(),
-    public var LifePercentage: UInt = 0u,
-    public var BytesReadCount: UByteArray = UByteArray(16),
-    public var ByteWriteCount: UByteArray = UByteArray(16),
+public data class StorageHwEnduranceInfo(
+    public var validFields: UInt = 0u,
+    public var groupId: UInt = 0u,
+    public var flags: StorageHwEnduranceInfo0 = StorageHwEnduranceInfo0(),
+    public var lifePercentage: UInt = 0u,
+    public var bytesReadCount: UByteArray = UByteArray(16),
+    public var byteWriteCount: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_ENDURANCE_INFO) return false
-        if (this.ValidFields != other.ValidFields) return false
-        if (this.GroupId != other.GroupId) return false
-        if (this.Flags != other.Flags) return false
-        if (this.LifePercentage != other.LifePercentage) return false
-        if (!this.BytesReadCount.contentEquals(other.BytesReadCount)) return false
-        if (!this.ByteWriteCount.contentEquals(other.ByteWriteCount)) return false
+        if (other !is StorageHwEnduranceInfo) return false
+        if (this.validFields != other.validFields) return false
+        if (this.groupId != other.groupId) return false
+        if (this.flags != other.flags) return false
+        if (this.lifePercentage != other.lifePercentage) return false
+        if (!this.bytesReadCount.contentEquals(other.bytesReadCount)) return false
+        if (!this.byteWriteCount.contentEquals(other.byteWriteCount)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ValidFields.hashCode()
-        result = 31 * result + this.GroupId.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.LifePercentage.hashCode()
-        result = 31 * result + this.BytesReadCount.contentHashCode()
-        result = 31 * result + this.ByteWriteCount.contentHashCode()
+        var result = this.validFields.hashCode()
+        result = 31 * result + this.groupId.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.lifePercentage.hashCode()
+        result = 31 * result + this.bytesReadCount.contentHashCode()
+        result = 31 * result + this.byteWriteCount.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_HW_ENDURANCE_INFO_0(public var _bitfield: UInt = 0u)
+public data class StorageHwEnduranceInfo0(public var bitfield: UInt = 0u)
 
-public data class STORAGE_HW_FIRMWARE_ACTIVATE(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Slot: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(3),
+public data class StorageHwFirmwareActivate(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var slot: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_FIRMWARE_ACTIVATE) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Slot != other.Slot) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
+        if (other !is StorageHwFirmwareActivate) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.slot != other.slot) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Slot.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.slot.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_HW_FIRMWARE_DOWNLOAD(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Slot: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var Offset: ULong = 0uL,
-    public var BufferSize: ULong = 0uL,
-    public var ImageBuffer: UByteArray = UByteArray(1),
+public data class StorageHwFirmwareDownload(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var slot: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var offset: ULong = 0uL,
+    public var bufferSize: ULong = 0uL,
+    public var imageBuffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_FIRMWARE_DOWNLOAD) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Slot != other.Slot) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Offset != other.Offset) return false
-        if (this.BufferSize != other.BufferSize) return false
-        if (!this.ImageBuffer.contentEquals(other.ImageBuffer)) return false
+        if (other !is StorageHwFirmwareDownload) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.slot != other.slot) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.offset != other.offset) return false
+        if (this.bufferSize != other.bufferSize) return false
+        if (!this.imageBuffer.contentEquals(other.imageBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Slot.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Offset.hashCode()
-        result = 31 * result + this.BufferSize.hashCode()
-        result = 31 * result + this.ImageBuffer.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.slot.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.offset.hashCode()
+        result = 31 * result + this.bufferSize.hashCode()
+        result = 31 * result + this.imageBuffer.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_HW_FIRMWARE_DOWNLOAD_V2(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Slot: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var Offset: ULong = 0uL,
-    public var BufferSize: ULong = 0uL,
-    public var ImageSize: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var ImageBuffer: UByteArray = UByteArray(1),
+public data class StorageHwFirmwareDownloadV2(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var slot: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var offset: ULong = 0uL,
+    public var bufferSize: ULong = 0uL,
+    public var imageSize: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var imageBuffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_FIRMWARE_DOWNLOAD_V2) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Slot != other.Slot) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Offset != other.Offset) return false
-        if (this.BufferSize != other.BufferSize) return false
-        if (this.ImageSize != other.ImageSize) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (!this.ImageBuffer.contentEquals(other.ImageBuffer)) return false
+        if (other !is StorageHwFirmwareDownloadV2) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.slot != other.slot) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.offset != other.offset) return false
+        if (this.bufferSize != other.bufferSize) return false
+        if (this.imageSize != other.imageSize) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (!this.imageBuffer.contentEquals(other.imageBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Slot.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Offset.hashCode()
-        result = 31 * result + this.BufferSize.hashCode()
-        result = 31 * result + this.ImageSize.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.ImageBuffer.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.slot.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.offset.hashCode()
+        result = 31 * result + this.bufferSize.hashCode()
+        result = 31 * result + this.imageSize.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.imageBuffer.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_HW_FIRMWARE_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var _bitfield: UByte = 0u,
-    public var SlotCount: UByte = 0u,
-    public var ActiveSlot: UByte = 0u,
-    public var PendingActivateSlot: UByte = 0u,
-    public var FirmwareShared: Boolean = false,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var ImagePayloadAlignment: UInt = 0u,
-    public var ImagePayloadMaxSize: UInt = 0u,
-    public var Slot: List<STORAGE_HW_FIRMWARE_SLOT_INFO> = List(1) { STORAGE_HW_FIRMWARE_SLOT_INFO() },
+public data class StorageHwFirmwareInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var bitfield: UByte = 0u,
+    public var slotCount: UByte = 0u,
+    public var activeSlot: UByte = 0u,
+    public var pendingActivateSlot: UByte = 0u,
+    public var firmwareShared: Boolean = false,
+    public var reserved: UByteArray = UByteArray(3),
+    public var imagePayloadAlignment: UInt = 0u,
+    public var imagePayloadMaxSize: UInt = 0u,
+    public var slot: List<StorageHwFirmwareSlotInfo> = List(1) { StorageHwFirmwareSlotInfo() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_FIRMWARE_INFO) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this._bitfield != other._bitfield) return false
-        if (this.SlotCount != other.SlotCount) return false
-        if (this.ActiveSlot != other.ActiveSlot) return false
-        if (this.PendingActivateSlot != other.PendingActivateSlot) return false
-        if (this.FirmwareShared != other.FirmwareShared) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.ImagePayloadAlignment != other.ImagePayloadAlignment) return false
-        if (this.ImagePayloadMaxSize != other.ImagePayloadMaxSize) return false
-        if (this.Slot != other.Slot) return false
+        if (other !is StorageHwFirmwareInfo) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.bitfield != other.bitfield) return false
+        if (this.slotCount != other.slotCount) return false
+        if (this.activeSlot != other.activeSlot) return false
+        if (this.pendingActivateSlot != other.pendingActivateSlot) return false
+        if (this.firmwareShared != other.firmwareShared) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.imagePayloadAlignment != other.imagePayloadAlignment) return false
+        if (this.imagePayloadMaxSize != other.imagePayloadMaxSize) return false
+        if (this.slot != other.slot) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this._bitfield.hashCode()
-        result = 31 * result + this.SlotCount.hashCode()
-        result = 31 * result + this.ActiveSlot.hashCode()
-        result = 31 * result + this.PendingActivateSlot.hashCode()
-        result = 31 * result + this.FirmwareShared.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.ImagePayloadAlignment.hashCode()
-        result = 31 * result + this.ImagePayloadMaxSize.hashCode()
-        result = 31 * result + this.Slot.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.bitfield.hashCode()
+        result = 31 * result + this.slotCount.hashCode()
+        result = 31 * result + this.activeSlot.hashCode()
+        result = 31 * result + this.pendingActivateSlot.hashCode()
+        result = 31 * result + this.firmwareShared.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.imagePayloadAlignment.hashCode()
+        result = 31 * result + this.imagePayloadMaxSize.hashCode()
+        result = 31 * result + this.slot.hashCode()
         return result
     }
 }
 
-public data class STORAGE_HW_FIRMWARE_INFO_QUERY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class StorageHwFirmwareInfoQuery(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class STORAGE_HW_FIRMWARE_SLOT_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SlotNumber: UByte = 0u,
-    public var _bitfield: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(6),
-    public var Revision: UByteArray = UByteArray(16),
+public data class StorageHwFirmwareSlotInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var slotNumber: UByte = 0u,
+    public var bitfield: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(6),
+    public var revision: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_HW_FIRMWARE_SLOT_INFO) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.SlotNumber != other.SlotNumber) return false
-        if (this._bitfield != other._bitfield) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (!this.Revision.contentEquals(other.Revision)) return false
+        if (other !is StorageHwFirmwareSlotInfo) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.slotNumber != other.slotNumber) return false
+        if (this.bitfield != other.bitfield) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (!this.revision.contentEquals(other.revision)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.SlotNumber.hashCode()
-        result = 31 * result + this._bitfield.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.Revision.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.slotNumber.hashCode()
+        result = 31 * result + this.bitfield.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.revision.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_IDENTIFIER(
-    public var CodeSet: STORAGE_IDENTIFIER_CODE_SET = 0,
-    public var Type: STORAGE_IDENTIFIER_TYPE = 0,
-    public var IdentifierSize: UShort = 0u,
-    public var NextOffset: UShort = 0u,
-    public var Association: STORAGE_ASSOCIATION_TYPE = 0,
-    public var Identifier: UByteArray = UByteArray(1),
+public data class StorageIdentifier(
+    public var codeSet: StorageIdentifierCodeSet = 0,
+    public var type: StorageIdentifierType = 0,
+    public var identifierSize: UShort = 0u,
+    public var nextOffset: UShort = 0u,
+    public var association: StorageAssociationType = 0,
+    public var identifier: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_IDENTIFIER) return false
-        if (this.CodeSet != other.CodeSet) return false
-        if (this.Type != other.Type) return false
-        if (this.IdentifierSize != other.IdentifierSize) return false
-        if (this.NextOffset != other.NextOffset) return false
-        if (this.Association != other.Association) return false
-        if (!this.Identifier.contentEquals(other.Identifier)) return false
+        if (other !is StorageIdentifier) return false
+        if (this.codeSet != other.codeSet) return false
+        if (this.type != other.type) return false
+        if (this.identifierSize != other.identifierSize) return false
+        if (this.nextOffset != other.nextOffset) return false
+        if (this.association != other.association) return false
+        if (!this.identifier.contentEquals(other.identifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CodeSet.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.IdentifierSize.hashCode()
-        result = 31 * result + this.NextOffset.hashCode()
-        result = 31 * result + this.Association.hashCode()
-        result = 31 * result + this.Identifier.contentHashCode()
+        var result = this.codeSet.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.identifierSize.hashCode()
+        result = 31 * result + this.nextOffset.hashCode()
+        result = 31 * result + this.association.hashCode()
+        result = 31 * result + this.identifier.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_IDLE_POWER(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var _bitfield: UInt = 0u,
-    public var D3IdleTimeout: UInt = 0u,
+public data class StorageIdlePower(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var bitfield: UInt = 0u,
+    public var d3IdleTimeout: UInt = 0u,
 )
 
-public data class STORAGE_IDLE_POWERUP_REASON(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var PowerupReason: STORAGE_POWERUP_REASON_TYPE = 0,
+public data class StorageIdlePowerupReason(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var powerupReason: StoragePowerupReasonType = 0,
 )
 
-public data class STORAGE_LB_PROVISIONING_MAP_RESOURCES(
-    public var Size: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var _bitfield1: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(3),
-    public var _bitfield2: UByte = 0u,
-    public var Reserved3: UByteArray = UByteArray(3),
-    public var AvailableMappingResources: ULong = 0uL,
-    public var UsedMappingResources: ULong = 0uL,
+public data class StorageLbProvisioningMapResources(
+    public var size: UInt = 0u,
+    public var version: UInt = 0u,
+    public var bitfield1: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(3),
+    public var bitfield2: UByte = 0u,
+    public var reserved3: UByteArray = UByteArray(3),
+    public var availableMappingResources: ULong = 0uL,
+    public var usedMappingResources: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_LB_PROVISIONING_MAP_RESOURCES) return false
-        if (this.Size != other.Size) return false
-        if (this.Version != other.Version) return false
-        if (this._bitfield1 != other._bitfield1) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this._bitfield2 != other._bitfield2) return false
-        if (!this.Reserved3.contentEquals(other.Reserved3)) return false
-        if (this.AvailableMappingResources != other.AvailableMappingResources) return false
-        if (this.UsedMappingResources != other.UsedMappingResources) return false
+        if (other !is StorageLbProvisioningMapResources) return false
+        if (this.size != other.size) return false
+        if (this.version != other.version) return false
+        if (this.bitfield1 != other.bitfield1) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.bitfield2 != other.bitfield2) return false
+        if (!this.reserved3.contentEquals(other.reserved3)) return false
+        if (this.availableMappingResources != other.availableMappingResources) return false
+        if (this.usedMappingResources != other.usedMappingResources) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.Version.hashCode()
-        result = 31 * result + this._bitfield1.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this._bitfield2.hashCode()
-        result = 31 * result + this.Reserved3.contentHashCode()
-        result = 31 * result + this.AvailableMappingResources.hashCode()
-        result = 31 * result + this.UsedMappingResources.hashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.version.hashCode()
+        result = 31 * result + this.bitfield1.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.bitfield2.hashCode()
+        result = 31 * result + this.reserved3.contentHashCode()
+        result = 31 * result + this.availableMappingResources.hashCode()
+        result = 31 * result + this.usedMappingResources.hashCode()
         return result
     }
 }
 
-public data class STORAGE_MEDIA_SERIAL_NUMBER_DATA(
-    public var Reserved: UShort = 0u,
-    public var SerialNumberLength: UShort = 0u,
-    public var SerialNumber: UByteArray = UByteArray(1),
+public data class StorageMediaSerialNumberData(
+    public var reserved: UShort = 0u,
+    public var serialNumberLength: UShort = 0u,
+    public var serialNumber: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_MEDIA_SERIAL_NUMBER_DATA) return false
-        if (this.Reserved != other.Reserved) return false
-        if (this.SerialNumberLength != other.SerialNumberLength) return false
-        if (!this.SerialNumber.contentEquals(other.SerialNumber)) return false
+        if (other !is StorageMediaSerialNumberData) return false
+        if (this.reserved != other.reserved) return false
+        if (this.serialNumberLength != other.serialNumberLength) return false
+        if (!this.serialNumber.contentEquals(other.serialNumber)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.hashCode()
-        result = 31 * result + this.SerialNumberLength.hashCode()
-        result = 31 * result + this.SerialNumber.contentHashCode()
+        var result = this.reserved.hashCode()
+        result = 31 * result + this.serialNumberLength.hashCode()
+        result = 31 * result + this.serialNumber.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var MediumProductType: UInt = 0u,
+public data class StorageMediumProductTypeDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var mediumProductType: UInt = 0u,
 )
 
-public data class STORAGE_MINIPORT_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Portdriver: STORAGE_PORT_CODE_SET = 0,
-    public var LUNResetSupported: Boolean = false,
-    public var TargetResetSupported: Boolean = false,
-    public var IoTimeoutValue: UShort = 0u,
-    public var ExtraIoInfoSupported: Boolean = false,
-    public var Flags: STORAGE_MINIPORT_DESCRIPTOR_0 = STORAGE_MINIPORT_DESCRIPTOR_0(),
-    public var Reserved0: UByteArray = UByteArray(2),
-    public var Reserved1: UInt = 0u,
+public data class StorageMiniportDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var portdriver: StoragePortCodeSet = 0,
+    public var lUNResetSupported: Boolean = false,
+    public var targetResetSupported: Boolean = false,
+    public var ioTimeoutValue: UShort = 0u,
+    public var extraIoInfoSupported: Boolean = false,
+    public var flags: StorageMiniportDescriptor0 = StorageMiniportDescriptor0(),
+    public var reserved0: UByteArray = UByteArray(2),
+    public var reserved1: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_MINIPORT_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.Portdriver != other.Portdriver) return false
-        if (this.LUNResetSupported != other.LUNResetSupported) return false
-        if (this.TargetResetSupported != other.TargetResetSupported) return false
-        if (this.IoTimeoutValue != other.IoTimeoutValue) return false
-        if (this.ExtraIoInfoSupported != other.ExtraIoInfoSupported) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.Reserved1 != other.Reserved1) return false
+        if (other !is StorageMiniportDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.portdriver != other.portdriver) return false
+        if (this.lUNResetSupported != other.lUNResetSupported) return false
+        if (this.targetResetSupported != other.targetResetSupported) return false
+        if (this.ioTimeoutValue != other.ioTimeoutValue) return false
+        if (this.extraIoInfoSupported != other.extraIoInfoSupported) return false
+        if (this.flags != other.flags) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.reserved1 != other.reserved1) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Portdriver.hashCode()
-        result = 31 * result + this.LUNResetSupported.hashCode()
-        result = 31 * result + this.TargetResetSupported.hashCode()
-        result = 31 * result + this.IoTimeoutValue.hashCode()
-        result = 31 * result + this.ExtraIoInfoSupported.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.Reserved1.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.portdriver.hashCode()
+        result = 31 * result + this.lUNResetSupported.hashCode()
+        result = 31 * result + this.targetResetSupported.hashCode()
+        result = 31 * result + this.ioTimeoutValue.hashCode()
+        result = 31 * result + this.extraIoInfoSupported.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.reserved1.hashCode()
         return result
     }
 }
 
-public data class STORAGE_MINIPORT_DESCRIPTOR_0(public var Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0 = STORAGE_MINIPORT_DESCRIPTOR_0_0(), public var AsBYTE: UByte = 0u)
+public data class StorageMiniportDescriptor0(public var anonymous: StorageMiniportDescriptor00 = StorageMiniportDescriptor00(), public var asBYTE: UByte = 0u)
 
-public data class STORAGE_MINIPORT_DESCRIPTOR_0_0(public var _bitfield: UByte = 0u)
+public data class StorageMiniportDescriptor00(public var bitfield: UByte = 0u)
 
-public data class STORAGE_OFFLOAD_READ_OUTPUT(
-    public var OffloadReadFlags: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var LengthProtected: ULong = 0uL,
-    public var TokenLength: UInt = 0u,
-    public var Token: STORAGE_OFFLOAD_TOKEN = STORAGE_OFFLOAD_TOKEN(),
+public data class StorageOffloadReadOutput(
+    public var offloadReadFlags: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var lengthProtected: ULong = 0uL,
+    public var tokenLength: UInt = 0u,
+    public var token: StorageOffloadToken = StorageOffloadToken(),
 )
 
-public data class STORAGE_OFFLOAD_TOKEN(
-    public var TokenType: UByteArray = UByteArray(4),
-    public var Reserved: UByteArray = UByteArray(2),
-    public var TokenIdLength: UByteArray = UByteArray(2),
-    public var Anonymous: STORAGE_OFFLOAD_TOKEN_0 = STORAGE_OFFLOAD_TOKEN_0(),
+public data class StorageOffloadToken(
+    public var tokenType: UByteArray = UByteArray(4),
+    public var reserved: UByteArray = UByteArray(2),
+    public var tokenIdLength: UByteArray = UByteArray(2),
+    public var anonymous: StorageOffloadToken0 = StorageOffloadToken0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_OFFLOAD_TOKEN) return false
-        if (!this.TokenType.contentEquals(other.TokenType)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.TokenIdLength.contentEquals(other.TokenIdLength)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is StorageOffloadToken) return false
+        if (!this.tokenType.contentEquals(other.tokenType)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.tokenIdLength.contentEquals(other.tokenIdLength)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.TokenType.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.TokenIdLength.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.tokenType.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.tokenIdLength.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class STORAGE_OFFLOAD_TOKEN_0(public var StorageOffloadZeroDataToken: STORAGE_OFFLOAD_TOKEN_0_0 = STORAGE_OFFLOAD_TOKEN_0_0(), public var Token: UByteArray = UByteArray(504)) {
+public data class StorageOffloadToken0(public var storageOffloadZeroDataToken: StorageOffloadToken00 = StorageOffloadToken00(), public var token: UByteArray = UByteArray(504)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_OFFLOAD_TOKEN_0) return false
-        if (this.StorageOffloadZeroDataToken != other.StorageOffloadZeroDataToken) return false
-        if (!this.Token.contentEquals(other.Token)) return false
+        if (other !is StorageOffloadToken0) return false
+        if (this.storageOffloadZeroDataToken != other.storageOffloadZeroDataToken) return false
+        if (!this.token.contentEquals(other.token)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.StorageOffloadZeroDataToken.hashCode()
-        result = 31 * result + this.Token.contentHashCode()
+        var result = this.storageOffloadZeroDataToken.hashCode()
+        result = 31 * result + this.token.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_OFFLOAD_TOKEN_0_0(public var Reserved2: UByteArray = UByteArray(504)) {
+public data class StorageOffloadToken00(public var reserved2: UByteArray = UByteArray(504)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_OFFLOAD_TOKEN_0_0) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is StorageOffloadToken00) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Reserved2.contentHashCode()
+        return this.reserved2.contentHashCode()
     }
 }
 
-public data class STORAGE_OFFLOAD_WRITE_OUTPUT(
-    public var OffloadWriteFlags: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var LengthCopied: ULong = 0uL,
+public data class StorageOffloadWriteOutput(
+    public var offloadWriteFlags: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var lengthCopied: ULong = 0uL,
 )
 
-public data class STORAGE_OPERATIONAL_REASON(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Reason: STORAGE_OPERATIONAL_STATUS_REASON = 0,
-    public var RawBytes: STORAGE_OPERATIONAL_REASON_0 = STORAGE_OPERATIONAL_REASON_0(),
+public data class StorageOperationalReason(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var reason: StorageOperationalStatusReason = 0,
+    public var rawBytes: StorageOperationalReason0 = StorageOperationalReason0(),
 )
 
-public data class STORAGE_OPERATIONAL_REASON_0(
-    public var ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_0 = STORAGE_OPERATIONAL_REASON_0_0(),
-    public var NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_1 = STORAGE_OPERATIONAL_REASON_0_1(),
-    public var AsUlong: UInt = 0u,
+public data class StorageOperationalReason0(
+    public var scsiSenseKey: StorageOperationalReason00 = StorageOperationalReason00(),
+    public var nvdimmN: StorageOperationalReason01 = StorageOperationalReason01(),
+    public var asUlong: UInt = 0u,
 )
 
-public data class STORAGE_OPERATIONAL_REASON_0_1(
-    public var CriticalHealth: UByte = 0u,
-    public var ModuleHealth: UByteArray = UByteArray(2),
-    public var ErrorThresholdStatus: UByte = 0u,
+public data class StorageOperationalReason01(
+    public var criticalHealth: UByte = 0u,
+    public var moduleHealth: UByteArray = UByteArray(2),
+    public var errorThresholdStatus: UByte = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_OPERATIONAL_REASON_0_1) return false
-        if (this.CriticalHealth != other.CriticalHealth) return false
-        if (!this.ModuleHealth.contentEquals(other.ModuleHealth)) return false
-        if (this.ErrorThresholdStatus != other.ErrorThresholdStatus) return false
+        if (other !is StorageOperationalReason01) return false
+        if (this.criticalHealth != other.criticalHealth) return false
+        if (!this.moduleHealth.contentEquals(other.moduleHealth)) return false
+        if (this.errorThresholdStatus != other.errorThresholdStatus) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CriticalHealth.hashCode()
-        result = 31 * result + this.ModuleHealth.contentHashCode()
-        result = 31 * result + this.ErrorThresholdStatus.hashCode()
+        var result = this.criticalHealth.hashCode()
+        result = 31 * result + this.moduleHealth.contentHashCode()
+        result = 31 * result + this.errorThresholdStatus.hashCode()
         return result
     }
 }
 
-public data class STORAGE_OPERATIONAL_REASON_0_0(
-    public var SenseKey: UByte = 0u,
-    public var ASC: UByte = 0u,
-    public var ASCQ: UByte = 0u,
-    public var Reserved: UByte = 0u,
+public data class StorageOperationalReason00(
+    public var senseKey: UByte = 0u,
+    public var asc: UByte = 0u,
+    public var ascq: UByte = 0u,
+    public var reserved: UByte = 0u,
 )
 
-public data class STORAGE_PHYSICAL_ADAPTER_DATA(
-    public var AdapterId: UInt = 0u,
-    public var HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS = 0,
-    public var CommandProtocol: STORAGE_PROTOCOL_TYPE = 0,
-    public var SpecVersion: STORAGE_SPEC_VERSION = STORAGE_SPEC_VERSION(),
-    public var Vendor: UByteArray = UByteArray(8),
-    public var Model: UByteArray = UByteArray(40),
-    public var FirmwareRevision: UByteArray = UByteArray(16),
-    public var PhysicalLocation: UByteArray = UByteArray(32),
-    public var ExpanderConnected: Boolean = false,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var Reserved1: UIntArray = UIntArray(3),
+public data class StoragePhysicalAdapterData(
+    public var adapterId: UInt = 0u,
+    public var healthStatus: StorageComponentHealthStatus = 0,
+    public var commandProtocol: StorageProtocolType = 0,
+    public var specVersion: StorageSpecVersion = StorageSpecVersion(),
+    public var vendor: UByteArray = UByteArray(8),
+    public var model: UByteArray = UByteArray(40),
+    public var firmwareRevision: UByteArray = UByteArray(16),
+    public var physicalLocation: UByteArray = UByteArray(32),
+    public var expanderConnected: Boolean = false,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var reserved1: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PHYSICAL_ADAPTER_DATA) return false
-        if (this.AdapterId != other.AdapterId) return false
-        if (this.HealthStatus != other.HealthStatus) return false
-        if (this.CommandProtocol != other.CommandProtocol) return false
-        if (this.SpecVersion != other.SpecVersion) return false
-        if (!this.Vendor.contentEquals(other.Vendor)) return false
-        if (!this.Model.contentEquals(other.Model)) return false
-        if (!this.FirmwareRevision.contentEquals(other.FirmwareRevision)) return false
-        if (!this.PhysicalLocation.contentEquals(other.PhysicalLocation)) return false
-        if (this.ExpanderConnected != other.ExpanderConnected) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is StoragePhysicalAdapterData) return false
+        if (this.adapterId != other.adapterId) return false
+        if (this.healthStatus != other.healthStatus) return false
+        if (this.commandProtocol != other.commandProtocol) return false
+        if (this.specVersion != other.specVersion) return false
+        if (!this.vendor.contentEquals(other.vendor)) return false
+        if (!this.model.contentEquals(other.model)) return false
+        if (!this.firmwareRevision.contentEquals(other.firmwareRevision)) return false
+        if (!this.physicalLocation.contentEquals(other.physicalLocation)) return false
+        if (this.expanderConnected != other.expanderConnected) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AdapterId.hashCode()
-        result = 31 * result + this.HealthStatus.hashCode()
-        result = 31 * result + this.CommandProtocol.hashCode()
-        result = 31 * result + this.SpecVersion.hashCode()
-        result = 31 * result + this.Vendor.contentHashCode()
-        result = 31 * result + this.Model.contentHashCode()
-        result = 31 * result + this.FirmwareRevision.contentHashCode()
-        result = 31 * result + this.PhysicalLocation.contentHashCode()
-        result = 31 * result + this.ExpanderConnected.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.adapterId.hashCode()
+        result = 31 * result + this.healthStatus.hashCode()
+        result = 31 * result + this.commandProtocol.hashCode()
+        result = 31 * result + this.specVersion.hashCode()
+        result = 31 * result + this.vendor.contentHashCode()
+        result = 31 * result + this.model.contentHashCode()
+        result = 31 * result + this.firmwareRevision.contentHashCode()
+        result = 31 * result + this.physicalLocation.contentHashCode()
+        result = 31 * result + this.expanderConnected.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_PHYSICAL_DEVICE_DATA(
-    public var DeviceId: UInt = 0u,
-    public var Role: UInt = 0u,
-    public var HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS = 0,
-    public var CommandProtocol: STORAGE_PROTOCOL_TYPE = 0,
-    public var SpecVersion: STORAGE_SPEC_VERSION = STORAGE_SPEC_VERSION(),
-    public var FormFactor: STORAGE_DEVICE_FORM_FACTOR = 0,
-    public var Vendor: UByteArray = UByteArray(8),
-    public var Model: UByteArray = UByteArray(40),
-    public var FirmwareRevision: UByteArray = UByteArray(16),
-    public var Capacity: ULong = 0uL,
-    public var PhysicalLocation: UByteArray = UByteArray(32),
-    public var Reserved: UIntArray = UIntArray(2),
+public data class StoragePhysicalDeviceData(
+    public var deviceId: UInt = 0u,
+    public var role: UInt = 0u,
+    public var healthStatus: StorageComponentHealthStatus = 0,
+    public var commandProtocol: StorageProtocolType = 0,
+    public var specVersion: StorageSpecVersion = StorageSpecVersion(),
+    public var formFactor: StorageDeviceFormFactor = 0,
+    public var vendor: UByteArray = UByteArray(8),
+    public var model: UByteArray = UByteArray(40),
+    public var firmwareRevision: UByteArray = UByteArray(16),
+    public var capacity: ULong = 0uL,
+    public var physicalLocation: UByteArray = UByteArray(32),
+    public var reserved: UIntArray = UIntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PHYSICAL_DEVICE_DATA) return false
-        if (this.DeviceId != other.DeviceId) return false
-        if (this.Role != other.Role) return false
-        if (this.HealthStatus != other.HealthStatus) return false
-        if (this.CommandProtocol != other.CommandProtocol) return false
-        if (this.SpecVersion != other.SpecVersion) return false
-        if (this.FormFactor != other.FormFactor) return false
-        if (!this.Vendor.contentEquals(other.Vendor)) return false
-        if (!this.Model.contentEquals(other.Model)) return false
-        if (!this.FirmwareRevision.contentEquals(other.FirmwareRevision)) return false
-        if (this.Capacity != other.Capacity) return false
-        if (!this.PhysicalLocation.contentEquals(other.PhysicalLocation)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is StoragePhysicalDeviceData) return false
+        if (this.deviceId != other.deviceId) return false
+        if (this.role != other.role) return false
+        if (this.healthStatus != other.healthStatus) return false
+        if (this.commandProtocol != other.commandProtocol) return false
+        if (this.specVersion != other.specVersion) return false
+        if (this.formFactor != other.formFactor) return false
+        if (!this.vendor.contentEquals(other.vendor)) return false
+        if (!this.model.contentEquals(other.model)) return false
+        if (!this.firmwareRevision.contentEquals(other.firmwareRevision)) return false
+        if (this.capacity != other.capacity) return false
+        if (!this.physicalLocation.contentEquals(other.physicalLocation)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DeviceId.hashCode()
-        result = 31 * result + this.Role.hashCode()
-        result = 31 * result + this.HealthStatus.hashCode()
-        result = 31 * result + this.CommandProtocol.hashCode()
-        result = 31 * result + this.SpecVersion.hashCode()
-        result = 31 * result + this.FormFactor.hashCode()
-        result = 31 * result + this.Vendor.contentHashCode()
-        result = 31 * result + this.Model.contentHashCode()
-        result = 31 * result + this.FirmwareRevision.contentHashCode()
-        result = 31 * result + this.Capacity.hashCode()
-        result = 31 * result + this.PhysicalLocation.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.deviceId.hashCode()
+        result = 31 * result + this.role.hashCode()
+        result = 31 * result + this.healthStatus.hashCode()
+        result = 31 * result + this.commandProtocol.hashCode()
+        result = 31 * result + this.specVersion.hashCode()
+        result = 31 * result + this.formFactor.hashCode()
+        result = 31 * result + this.vendor.contentHashCode()
+        result = 31 * result + this.model.contentHashCode()
+        result = 31 * result + this.firmwareRevision.contentHashCode()
+        result = 31 * result + this.capacity.hashCode()
+        result = 31 * result + this.physicalLocation.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_PHYSICAL_NODE_DATA(
-    public var NodeId: UInt = 0u,
-    public var AdapterCount: UInt = 0u,
-    public var AdapterDataLength: UInt = 0u,
-    public var AdapterDataOffset: UInt = 0u,
-    public var DeviceCount: UInt = 0u,
-    public var DeviceDataLength: UInt = 0u,
-    public var DeviceDataOffset: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(3),
+public data class StoragePhysicalNodeData(
+    public var nodeId: UInt = 0u,
+    public var adapterCount: UInt = 0u,
+    public var adapterDataLength: UInt = 0u,
+    public var adapterDataOffset: UInt = 0u,
+    public var deviceCount: UInt = 0u,
+    public var deviceDataLength: UInt = 0u,
+    public var deviceDataOffset: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PHYSICAL_NODE_DATA) return false
-        if (this.NodeId != other.NodeId) return false
-        if (this.AdapterCount != other.AdapterCount) return false
-        if (this.AdapterDataLength != other.AdapterDataLength) return false
-        if (this.AdapterDataOffset != other.AdapterDataOffset) return false
-        if (this.DeviceCount != other.DeviceCount) return false
-        if (this.DeviceDataLength != other.DeviceDataLength) return false
-        if (this.DeviceDataOffset != other.DeviceDataOffset) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is StoragePhysicalNodeData) return false
+        if (this.nodeId != other.nodeId) return false
+        if (this.adapterCount != other.adapterCount) return false
+        if (this.adapterDataLength != other.adapterDataLength) return false
+        if (this.adapterDataOffset != other.adapterDataOffset) return false
+        if (this.deviceCount != other.deviceCount) return false
+        if (this.deviceDataLength != other.deviceDataLength) return false
+        if (this.deviceDataOffset != other.deviceDataOffset) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NodeId.hashCode()
-        result = 31 * result + this.AdapterCount.hashCode()
-        result = 31 * result + this.AdapterDataLength.hashCode()
-        result = 31 * result + this.AdapterDataOffset.hashCode()
-        result = 31 * result + this.DeviceCount.hashCode()
-        result = 31 * result + this.DeviceDataLength.hashCode()
-        result = 31 * result + this.DeviceDataOffset.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.nodeId.hashCode()
+        result = 31 * result + this.adapterCount.hashCode()
+        result = 31 * result + this.adapterDataLength.hashCode()
+        result = 31 * result + this.adapterDataOffset.hashCode()
+        result = 31 * result + this.deviceCount.hashCode()
+        result = 31 * result + this.deviceDataLength.hashCode()
+        result = 31 * result + this.deviceDataOffset.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var NodeCount: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var Node: List<STORAGE_PHYSICAL_NODE_DATA> = List(1) { STORAGE_PHYSICAL_NODE_DATA() },
+public data class StoragePhysicalTopologyDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var nodeCount: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var node: List<StoragePhysicalNodeData> = List(1) { StoragePhysicalNodeData() },
 )
 
-public data class STORAGE_PREDICT_FAILURE(public var PredictFailure: UInt = 0u, public var VendorSpecific: UByteArray = UByteArray(512)) {
+public data class StoragePredictFailure(public var predictFailure: UInt = 0u, public var vendorSpecific: UByteArray = UByteArray(512)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PREDICT_FAILURE) return false
-        if (this.PredictFailure != other.PredictFailure) return false
-        if (!this.VendorSpecific.contentEquals(other.VendorSpecific)) return false
+        if (other !is StoragePredictFailure) return false
+        if (this.predictFailure != other.predictFailure) return false
+        if (!this.vendorSpecific.contentEquals(other.vendorSpecific)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PredictFailure.hashCode()
-        result = 31 * result + this.VendorSpecific.contentHashCode()
+        var result = this.predictFailure.hashCode()
+        result = 31 * result + this.vendorSpecific.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_PRIORITY_HINT_SUPPORT(public var SupportFlags: UInt = 0u)
+public data class StoragePriorityHintSupport(public var supportFlags: UInt = 0u)
 
-public data class STORAGE_PROPERTY_QUERY(
-    public var PropertyId: STORAGE_PROPERTY_ID = 0,
-    public var QueryType: STORAGE_QUERY_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class StoragePropertyQuery(
+    public var propertyId: StoragePropertyId = 0,
+    public var queryType: StorageQueryType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PROPERTY_QUERY) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.QueryType != other.QueryType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is StoragePropertyQuery) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.queryType != other.queryType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PropertyId.hashCode()
-        result = 31 * result + this.QueryType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.propertyId.hashCode()
+        result = 31 * result + this.queryType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_PROPERTY_SET(
-    public var PropertyId: STORAGE_PROPERTY_ID = 0,
-    public var SetType: STORAGE_SET_TYPE = 0,
-    public var AdditionalParameters: UByteArray = UByteArray(1),
+public data class StoragePropertySet(
+    public var propertyId: StoragePropertyId = 0,
+    public var setType: StorageSetType = 0,
+    public var additionalParameters: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PROPERTY_SET) return false
-        if (this.PropertyId != other.PropertyId) return false
-        if (this.SetType != other.SetType) return false
-        if (!this.AdditionalParameters.contentEquals(other.AdditionalParameters)) return false
+        if (other !is StoragePropertySet) return false
+        if (this.propertyId != other.propertyId) return false
+        if (this.setType != other.setType) return false
+        if (!this.additionalParameters.contentEquals(other.additionalParameters)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PropertyId.hashCode()
-        result = 31 * result + this.SetType.hashCode()
-        result = 31 * result + this.AdditionalParameters.contentHashCode()
+        var result = this.propertyId.hashCode()
+        result = 31 * result + this.setType.hashCode()
+        result = 31 * result + this.additionalParameters.contentHashCode()
         return result
     }
 }
 
-public class STORAGE_PROTOCOL_COMMAND(
-    public var Version: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var ProtocolType: STORAGE_PROTOCOL_TYPE = 0,
-    public var Flags: UInt = 0u,
-    public var ReturnStatus: UInt = 0u,
-    public var ErrorCode: UInt = 0u,
-    public var CommandLength: UInt = 0u,
-    public var ErrorInfoLength: UInt = 0u,
-    public var DataToDeviceTransferLength: UInt = 0u,
-    public var DataFromDeviceTransferLength: UInt = 0u,
-    public var TimeOutValue: UInt = 0u,
-    public var ErrorInfoOffset: UInt = 0u,
-    public var DataToDeviceBufferOffset: UInt = 0u,
-    public var DataFromDeviceBufferOffset: UInt = 0u,
-    public var CommandSpecific: UInt = 0u,
-    public var Reserved0: UInt = 0u,
-    public var FixedProtocolReturnData: UInt = 0u,
-    public var Reserved1: UIntArray = UIntArray(3),
-    public var Command: UByteArray = UByteArray(1),
+public class StorageProtocolCommand(
+    public var version: UInt = 0u,
+    public var length: UInt = 0u,
+    public var protocolType: StorageProtocolType = 0,
+    public var flags: UInt = 0u,
+    public var returnStatus: UInt = 0u,
+    public var errorCode: UInt = 0u,
+    public var commandLength: UInt = 0u,
+    public var errorInfoLength: UInt = 0u,
+    public var dataToDeviceTransferLength: UInt = 0u,
+    public var dataFromDeviceTransferLength: UInt = 0u,
+    public var timeOutValue: UInt = 0u,
+    public var errorInfoOffset: UInt = 0u,
+    public var dataToDeviceBufferOffset: UInt = 0u,
+    public var dataFromDeviceBufferOffset: UInt = 0u,
+    public var commandSpecific: UInt = 0u,
+    public var reserved0: UInt = 0u,
+    public var fixedProtocolReturnData: UInt = 0u,
+    public var reserved1: UIntArray = UIntArray(3),
+    public var command: UByteArray = UByteArray(1),
 )
 
-public data class STORAGE_PROTOCOL_DATA_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA = STORAGE_PROTOCOL_SPECIFIC_DATA(),
+public data class StorageProtocolDataDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var protocolSpecificData: StorageProtocolSpecificData = StorageProtocolSpecificData(),
 )
 
-public data class STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA_EXT = STORAGE_PROTOCOL_SPECIFIC_DATA_EXT(),
+public data class StorageProtocolDataDescriptorExt(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var protocolSpecificData: StorageProtocolSpecificDataExt = StorageProtocolSpecificDataExt(),
 )
 
-public data class STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE(public var Anonymous: STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 = STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0(), public var AsUlong: UInt = 0u)
+public data class StorageProtocolDataSubvalueGetLogPage(public var anonymous: StorageProtocolDataSubvalueGetLogPage0 = StorageProtocolDataSubvalueGetLogPage0(), public var asUlong: UInt = 0u)
 
-public data class STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0(public var _bitfield: UInt = 0u)
+public data class StorageProtocolDataSubvalueGetLogPage0(public var bitfield: UInt = 0u)
 
-public data class STORAGE_PROTOCOL_SPECIFIC_DATA(
-    public var ProtocolType: STORAGE_PROTOCOL_TYPE = 0,
-    public var DataType: UInt = 0u,
-    public var ProtocolDataRequestValue: UInt = 0u,
-    public var ProtocolDataRequestSubValue: UInt = 0u,
-    public var ProtocolDataOffset: UInt = 0u,
-    public var ProtocolDataLength: UInt = 0u,
-    public var FixedProtocolReturnData: UInt = 0u,
-    public var ProtocolDataRequestSubValue2: UInt = 0u,
-    public var ProtocolDataRequestSubValue3: UInt = 0u,
-    public var ProtocolDataRequestSubValue4: UInt = 0u,
+public data class StorageProtocolSpecificData(
+    public var protocolType: StorageProtocolType = 0,
+    public var dataType: UInt = 0u,
+    public var protocolDataRequestValue: UInt = 0u,
+    public var protocolDataRequestSubValue: UInt = 0u,
+    public var protocolDataOffset: UInt = 0u,
+    public var protocolDataLength: UInt = 0u,
+    public var fixedProtocolReturnData: UInt = 0u,
+    public var protocolDataRequestSubValue2: UInt = 0u,
+    public var protocolDataRequestSubValue3: UInt = 0u,
+    public var protocolDataRequestSubValue4: UInt = 0u,
 )
 
-public data class STORAGE_PROTOCOL_SPECIFIC_DATA_EXT(
-    public var ProtocolType: STORAGE_PROTOCOL_TYPE = 0,
-    public var DataType: UInt = 0u,
-    public var ProtocolDataValue: UInt = 0u,
-    public var ProtocolDataSubValue: UInt = 0u,
-    public var ProtocolDataOffset: UInt = 0u,
-    public var ProtocolDataLength: UInt = 0u,
-    public var FixedProtocolReturnData: UInt = 0u,
-    public var ProtocolDataSubValue2: UInt = 0u,
-    public var ProtocolDataSubValue3: UInt = 0u,
-    public var ProtocolDataSubValue4: UInt = 0u,
-    public var ProtocolDataSubValue5: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(5),
+public data class StorageProtocolSpecificDataExt(
+    public var protocolType: StorageProtocolType = 0,
+    public var dataType: UInt = 0u,
+    public var protocolDataValue: UInt = 0u,
+    public var protocolDataSubValue: UInt = 0u,
+    public var protocolDataOffset: UInt = 0u,
+    public var protocolDataLength: UInt = 0u,
+    public var fixedProtocolReturnData: UInt = 0u,
+    public var protocolDataSubValue2: UInt = 0u,
+    public var protocolDataSubValue3: UInt = 0u,
+    public var protocolDataSubValue4: UInt = 0u,
+    public var protocolDataSubValue5: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_PROTOCOL_SPECIFIC_DATA_EXT) return false
-        if (this.ProtocolType != other.ProtocolType) return false
-        if (this.DataType != other.DataType) return false
-        if (this.ProtocolDataValue != other.ProtocolDataValue) return false
-        if (this.ProtocolDataSubValue != other.ProtocolDataSubValue) return false
-        if (this.ProtocolDataOffset != other.ProtocolDataOffset) return false
-        if (this.ProtocolDataLength != other.ProtocolDataLength) return false
-        if (this.FixedProtocolReturnData != other.FixedProtocolReturnData) return false
-        if (this.ProtocolDataSubValue2 != other.ProtocolDataSubValue2) return false
-        if (this.ProtocolDataSubValue3 != other.ProtocolDataSubValue3) return false
-        if (this.ProtocolDataSubValue4 != other.ProtocolDataSubValue4) return false
-        if (this.ProtocolDataSubValue5 != other.ProtocolDataSubValue5) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is StorageProtocolSpecificDataExt) return false
+        if (this.protocolType != other.protocolType) return false
+        if (this.dataType != other.dataType) return false
+        if (this.protocolDataValue != other.protocolDataValue) return false
+        if (this.protocolDataSubValue != other.protocolDataSubValue) return false
+        if (this.protocolDataOffset != other.protocolDataOffset) return false
+        if (this.protocolDataLength != other.protocolDataLength) return false
+        if (this.fixedProtocolReturnData != other.fixedProtocolReturnData) return false
+        if (this.protocolDataSubValue2 != other.protocolDataSubValue2) return false
+        if (this.protocolDataSubValue3 != other.protocolDataSubValue3) return false
+        if (this.protocolDataSubValue4 != other.protocolDataSubValue4) return false
+        if (this.protocolDataSubValue5 != other.protocolDataSubValue5) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ProtocolType.hashCode()
-        result = 31 * result + this.DataType.hashCode()
-        result = 31 * result + this.ProtocolDataValue.hashCode()
-        result = 31 * result + this.ProtocolDataSubValue.hashCode()
-        result = 31 * result + this.ProtocolDataOffset.hashCode()
-        result = 31 * result + this.ProtocolDataLength.hashCode()
-        result = 31 * result + this.FixedProtocolReturnData.hashCode()
-        result = 31 * result + this.ProtocolDataSubValue2.hashCode()
-        result = 31 * result + this.ProtocolDataSubValue3.hashCode()
-        result = 31 * result + this.ProtocolDataSubValue4.hashCode()
-        result = 31 * result + this.ProtocolDataSubValue5.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.protocolType.hashCode()
+        result = 31 * result + this.dataType.hashCode()
+        result = 31 * result + this.protocolDataValue.hashCode()
+        result = 31 * result + this.protocolDataSubValue.hashCode()
+        result = 31 * result + this.protocolDataOffset.hashCode()
+        result = 31 * result + this.protocolDataLength.hashCode()
+        result = 31 * result + this.fixedProtocolReturnData.hashCode()
+        result = 31 * result + this.protocolDataSubValue2.hashCode()
+        result = 31 * result + this.protocolDataSubValue3.hashCode()
+        result = 31 * result + this.protocolDataSubValue4.hashCode()
+        result = 31 * result + this.protocolDataSubValue5.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY(
-    public var EntryLength: UInt = 0u,
-    public var DependencyTypeFlags: UInt = 0u,
-    public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
+public data class StorageQueryDependentVolumeLev1Entry(
+    public var entryLength: UInt = 0u,
+    public var dependencyTypeFlags: UInt = 0u,
+    public var providerSpecificFlags: UInt = 0u,
+    public var virtualStorageType: VirtualStorageType = VirtualStorageType(),
 )
 
-public data class STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY(
-    public var EntryLength: UInt = 0u,
-    public var DependencyTypeFlags: UInt = 0u,
-    public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var AncestorLevel: UInt = 0u,
-    public var HostVolumeNameOffset: UInt = 0u,
-    public var HostVolumeNameSize: UInt = 0u,
-    public var DependentVolumeNameOffset: UInt = 0u,
-    public var DependentVolumeNameSize: UInt = 0u,
-    public var RelativePathOffset: UInt = 0u,
-    public var RelativePathSize: UInt = 0u,
-    public var DependentDeviceNameOffset: UInt = 0u,
-    public var DependentDeviceNameSize: UInt = 0u,
+public data class StorageQueryDependentVolumeLev2Entry(
+    public var entryLength: UInt = 0u,
+    public var dependencyTypeFlags: UInt = 0u,
+    public var providerSpecificFlags: UInt = 0u,
+    public var virtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var ancestorLevel: UInt = 0u,
+    public var hostVolumeNameOffset: UInt = 0u,
+    public var hostVolumeNameSize: UInt = 0u,
+    public var dependentVolumeNameOffset: UInt = 0u,
+    public var dependentVolumeNameSize: UInt = 0u,
+    public var relativePathOffset: UInt = 0u,
+    public var relativePathSize: UInt = 0u,
+    public var dependentDeviceNameOffset: UInt = 0u,
+    public var dependentDeviceNameSize: UInt = 0u,
 )
 
-public data class STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST(public var RequestLevel: UInt = 0u, public var RequestFlags: UInt = 0u)
+public data class StorageQueryDependentVolumeRequest(public var requestLevel: UInt = 0u, public var requestFlags: UInt = 0u)
 
-public data class STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE(
-    public var ResponseLevel: UInt = 0u,
-    public var NumberEntries: UInt = 0u,
-    public var Anonymous: STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 = STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0(),
+public data class StorageQueryDependentVolumeResponse(
+    public var responseLevel: UInt = 0u,
+    public var numberEntries: UInt = 0u,
+    public var anonymous: StorageQueryDependentVolumeResponse0 = StorageQueryDependentVolumeResponse0(),
 )
 
-public data class STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0(public var Lev1Depends: List<STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY> = List(1) { STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY() }, public var Lev2Depends: List<STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY> = List(1) { STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY() })
+public data class StorageQueryDependentVolumeResponse0(public var lev1Depends: List<StorageQueryDependentVolumeLev1Entry> = List(1) { StorageQueryDependentVolumeLev1Entry() }, public var lev2Depends: List<StorageQueryDependentVolumeLev2Entry> = List(1) { StorageQueryDependentVolumeLev2Entry() })
 
-public data class STORAGE_READ_CAPACITY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var BlockLength: UInt = 0u,
-    public var NumberOfBlocks: Long = 0L,
-    public var DiskLength: Long = 0L,
+public data class StorageReadCapacity(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var blockLength: UInt = 0u,
+    public var numberOfBlocks: Long = 0L,
+    public var diskLength: Long = 0L,
 )
 
-public data class STORAGE_REINITIALIZE_MEDIA(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var TimeoutInSeconds: UInt = 0u,
-    public var SanitizeOption: STORAGE_REINITIALIZE_MEDIA_0 = STORAGE_REINITIALIZE_MEDIA_0(),
+public data class StorageReinitializeMedia(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var timeoutInSeconds: UInt = 0u,
+    public var sanitizeOption: StorageReinitializeMedia0 = StorageReinitializeMedia0(),
 )
 
-public data class STORAGE_REINITIALIZE_MEDIA_0(public var _bitfield: UInt = 0u)
+public data class StorageReinitializeMedia0(public var bitfield: UInt = 0u)
 
-public data class STORAGE_RPMB_DATA_FRAME(
-    public var Stuff: UByteArray = UByteArray(196),
-    public var KeyOrMAC: UByteArray = UByteArray(32),
-    public var Data: UByteArray = UByteArray(256),
-    public var Nonce: UByteArray = UByteArray(16),
-    public var WriteCounter: UByteArray = UByteArray(4),
-    public var Address: UByteArray = UByteArray(2),
-    public var BlockCount: UByteArray = UByteArray(2),
-    public var OperationResult: UByteArray = UByteArray(2),
-    public var RequestOrResponseType: UByteArray = UByteArray(2),
+public data class StorageRpmbDataFrame(
+    public var stuff: UByteArray = UByteArray(196),
+    public var keyOrMAC: UByteArray = UByteArray(32),
+    public var data: UByteArray = UByteArray(256),
+    public var nonce: UByteArray = UByteArray(16),
+    public var writeCounter: UByteArray = UByteArray(4),
+    public var address: UByteArray = UByteArray(2),
+    public var blockCount: UByteArray = UByteArray(2),
+    public var operationResult: UByteArray = UByteArray(2),
+    public var requestOrResponseType: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_RPMB_DATA_FRAME) return false
-        if (!this.Stuff.contentEquals(other.Stuff)) return false
-        if (!this.KeyOrMAC.contentEquals(other.KeyOrMAC)) return false
-        if (!this.Data.contentEquals(other.Data)) return false
-        if (!this.Nonce.contentEquals(other.Nonce)) return false
-        if (!this.WriteCounter.contentEquals(other.WriteCounter)) return false
-        if (!this.Address.contentEquals(other.Address)) return false
-        if (!this.BlockCount.contentEquals(other.BlockCount)) return false
-        if (!this.OperationResult.contentEquals(other.OperationResult)) return false
-        if (!this.RequestOrResponseType.contentEquals(other.RequestOrResponseType)) return false
+        if (other !is StorageRpmbDataFrame) return false
+        if (!this.stuff.contentEquals(other.stuff)) return false
+        if (!this.keyOrMAC.contentEquals(other.keyOrMAC)) return false
+        if (!this.data.contentEquals(other.data)) return false
+        if (!this.nonce.contentEquals(other.nonce)) return false
+        if (!this.writeCounter.contentEquals(other.writeCounter)) return false
+        if (!this.address.contentEquals(other.address)) return false
+        if (!this.blockCount.contentEquals(other.blockCount)) return false
+        if (!this.operationResult.contentEquals(other.operationResult)) return false
+        if (!this.requestOrResponseType.contentEquals(other.requestOrResponseType)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Stuff.contentHashCode()
-        result = 31 * result + this.KeyOrMAC.contentHashCode()
-        result = 31 * result + this.Data.contentHashCode()
-        result = 31 * result + this.Nonce.contentHashCode()
-        result = 31 * result + this.WriteCounter.contentHashCode()
-        result = 31 * result + this.Address.contentHashCode()
-        result = 31 * result + this.BlockCount.contentHashCode()
-        result = 31 * result + this.OperationResult.contentHashCode()
-        result = 31 * result + this.RequestOrResponseType.contentHashCode()
+        var result = this.stuff.contentHashCode()
+        result = 31 * result + this.keyOrMAC.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
+        result = 31 * result + this.nonce.contentHashCode()
+        result = 31 * result + this.writeCounter.contentHashCode()
+        result = 31 * result + this.address.contentHashCode()
+        result = 31 * result + this.blockCount.contentHashCode()
+        result = 31 * result + this.operationResult.contentHashCode()
+        result = 31 * result + this.requestOrResponseType.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_RPMB_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SizeInBytes: UInt = 0u,
-    public var MaxReliableWriteSizeInBytes: UInt = 0u,
-    public var FrameFormat: STORAGE_RPMB_FRAME_TYPE = 0,
+public data class StorageRpmbDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var sizeInBytes: UInt = 0u,
+    public var maxReliableWriteSizeInBytes: UInt = 0u,
+    public var frameFormat: StorageRpmbFrameType = 0,
 )
 
-public data class STORAGE_SPEC_VERSION(public var Anonymous: STORAGE_SPEC_VERSION_0 = STORAGE_SPEC_VERSION_0(), public var AsUlong: UInt = 0u)
+public data class StorageSpecVersion(public var anonymous: StorageSpecVersion0 = StorageSpecVersion0(), public var asUlong: UInt = 0u)
 
-public data class STORAGE_SPEC_VERSION_0(public var MinorVersion: STORAGE_SPEC_VERSION_0_0 = STORAGE_SPEC_VERSION_0_0(), public var MajorVersion: UShort = 0u)
+public data class StorageSpecVersion0(public var minorVersion: StorageSpecVersion00 = StorageSpecVersion00(), public var majorVersion: UShort = 0u)
 
-public data class STORAGE_SPEC_VERSION_0_0(public var Anonymous: STORAGE_SPEC_VERSION_0_0_0 = STORAGE_SPEC_VERSION_0_0_0(), public var AsUshort: UShort = 0u)
+public data class StorageSpecVersion00(public var anonymous: StorageSpecVersion000 = StorageSpecVersion000(), public var asUshort: UShort = 0u)
 
-public data class STORAGE_SPEC_VERSION_0_0_0(public var SubMinor: UByte = 0u, public var Minor: UByte = 0u)
+public data class StorageSpecVersion000(public var subMinor: UByte = 0u, public var minor: UByte = 0u)
 
-public data class STORAGE_TEMPERATURE_DATA_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var CriticalTemperature: Short = 0,
-    public var WarningTemperature: Short = 0,
-    public var InfoCount: UShort = 0u,
-    public var Reserved0: UByteArray = UByteArray(2),
-    public var Reserved1: UIntArray = UIntArray(2),
-    public var TemperatureInfo: List<STORAGE_TEMPERATURE_INFO> = List(1) { STORAGE_TEMPERATURE_INFO() },
+public data class StorageTemperatureDataDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var criticalTemperature: Short = 0,
+    public var warningTemperature: Short = 0,
+    public var infoCount: UShort = 0u,
+    public var reserved0: UByteArray = UByteArray(2),
+    public var reserved1: UIntArray = UIntArray(2),
+    public var temperatureInfo: List<StorageTemperatureInfo> = List(1) { StorageTemperatureInfo() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_TEMPERATURE_DATA_DESCRIPTOR) return false
-        if (this.Version != other.Version) return false
-        if (this.Size != other.Size) return false
-        if (this.CriticalTemperature != other.CriticalTemperature) return false
-        if (this.WarningTemperature != other.WarningTemperature) return false
-        if (this.InfoCount != other.InfoCount) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
-        if (this.TemperatureInfo != other.TemperatureInfo) return false
+        if (other !is StorageTemperatureDataDescriptor) return false
+        if (this.version != other.version) return false
+        if (this.size != other.size) return false
+        if (this.criticalTemperature != other.criticalTemperature) return false
+        if (this.warningTemperature != other.warningTemperature) return false
+        if (this.infoCount != other.infoCount) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
+        if (this.temperatureInfo != other.temperatureInfo) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.CriticalTemperature.hashCode()
-        result = 31 * result + this.WarningTemperature.hashCode()
-        result = 31 * result + this.InfoCount.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
-        result = 31 * result + this.TemperatureInfo.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.criticalTemperature.hashCode()
+        result = 31 * result + this.warningTemperature.hashCode()
+        result = 31 * result + this.infoCount.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
+        result = 31 * result + this.temperatureInfo.hashCode()
         return result
     }
 }
 
-public data class STORAGE_TEMPERATURE_INFO(
-    public var Index: UShort = 0u,
-    public var Temperature: Short = 0,
-    public var OverThreshold: Short = 0,
-    public var UnderThreshold: Short = 0,
-    public var OverThresholdChangable: Boolean = false,
-    public var UnderThresholdChangable: Boolean = false,
-    public var EventGenerated: Boolean = false,
-    public var Reserved0: UByte = 0u,
-    public var Reserved1: UInt = 0u,
+public data class StorageTemperatureInfo(
+    public var index: UShort = 0u,
+    public var temperature: Short = 0,
+    public var overThreshold: Short = 0,
+    public var underThreshold: Short = 0,
+    public var overThresholdChangable: Boolean = false,
+    public var underThresholdChangable: Boolean = false,
+    public var eventGenerated: Boolean = false,
+    public var reserved0: UByte = 0u,
+    public var reserved1: UInt = 0u,
 )
 
-public data class STORAGE_TEMPERATURE_THRESHOLD(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Flags: UShort = 0u,
-    public var Index: UShort = 0u,
-    public var Threshold: Short = 0,
-    public var OverThreshold: Boolean = false,
-    public var Reserved: UByte = 0u,
+public data class StorageTemperatureThreshold(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var flags: UShort = 0u,
+    public var index: UShort = 0u,
+    public var threshold: Short = 0,
+    public var overThreshold: Boolean = false,
+    public var reserved: UByte = 0u,
 )
 
-public data class STORAGE_TIER(
-    public var Id: GUID = GUID(),
-    public var Name: UShortArray = UShortArray(256),
-    public var Description: UShortArray = UShortArray(256),
-    public var Flags: ULong = 0uL,
-    public var ProvisionedCapacity: ULong = 0uL,
-    public var MediaType: STORAGE_TIER_MEDIA_TYPE = 0,
-    public var Class: STORAGE_TIER_CLASS = 0,
+public data class StorageTier(
+    public var id: Guid = Guid(),
+    public var name: UShortArray = UShortArray(256),
+    public var description: UShortArray = UShortArray(256),
+    public var flags: ULong = 0uL,
+    public var provisionedCapacity: ULong = 0uL,
+    public var mediaType: StorageTierMediaType = 0,
+    public var cls: StorageTierClass = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_TIER) return false
-        if (this.Id != other.Id) return false
-        if (!this.Name.contentEquals(other.Name)) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (this.Flags != other.Flags) return false
-        if (this.ProvisionedCapacity != other.ProvisionedCapacity) return false
-        if (this.MediaType != other.MediaType) return false
-        if (this.Class != other.Class) return false
+        if (other !is StorageTier) return false
+        if (this.id != other.id) return false
+        if (!this.name.contentEquals(other.name)) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (this.flags != other.flags) return false
+        if (this.provisionedCapacity != other.provisionedCapacity) return false
+        if (this.mediaType != other.mediaType) return false
+        if (this.cls != other.cls) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Id.hashCode()
-        result = 31 * result + this.Name.contentHashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.ProvisionedCapacity.hashCode()
-        result = 31 * result + this.MediaType.hashCode()
-        result = 31 * result + this.Class.hashCode()
+        var result = this.id.hashCode()
+        result = 31 * result + this.name.contentHashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.provisionedCapacity.hashCode()
+        result = 31 * result + this.mediaType.hashCode()
+        result = 31 * result + this.cls.hashCode()
         return result
     }
 }
 
-public data class STORAGE_TIER_REGION(
-    public var TierId: GUID = GUID(),
-    public var Offset: ULong = 0uL,
-    public var Length: ULong = 0uL,
+public data class StorageTierRegion(
+    public var tierId: Guid = Guid(),
+    public var offset: ULong = 0uL,
+    public var length: ULong = 0uL,
 )
 
-public data class STORAGE_WRITE_CACHE_PROPERTY(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var WriteCacheType: WRITE_CACHE_TYPE = 0,
-    public var WriteCacheEnabled: WRITE_CACHE_ENABLE = 0,
-    public var WriteCacheChangeable: WRITE_CACHE_CHANGE = 0,
-    public var WriteThroughSupported: WRITE_THROUGH = 0,
-    public var FlushCacheSupported: Boolean = false,
-    public var UserDefinedPowerProtection: Boolean = false,
-    public var NVCacheEnabled: Boolean = false,
+public data class StorageWriteCacheProperty(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var writeCacheType: WriteCacheType = 0,
+    public var writeCacheEnabled: WriteCacheEnable = 0,
+    public var writeCacheChangeable: WriteCacheChange = 0,
+    public var writeThroughSupported: WriteThrough = 0,
+    public var flushCacheSupported: Boolean = false,
+    public var userDefinedPowerProtection: Boolean = false,
+    public var nVCacheEnabled: Boolean = false,
 )
 
-public data class STORAGE_ZONED_DEVICE_DESCRIPTOR(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var DeviceType: STORAGE_ZONED_DEVICE_TYPES = 0,
-    public var ZoneCount: UInt = 0u,
-    public var ZoneAttributes: STORAGE_ZONED_DEVICE_DESCRIPTOR_0 = STORAGE_ZONED_DEVICE_DESCRIPTOR_0(),
-    public var ZoneGroupCount: UInt = 0u,
-    public var ZoneGroup: List<STORAGE_ZONE_GROUP> = List(1) { STORAGE_ZONE_GROUP() },
+public data class StorageZonedDeviceDescriptor(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var deviceType: StorageZonedDeviceTypes = 0,
+    public var zoneCount: UInt = 0u,
+    public var zoneAttributes: StorageZonedDeviceDescriptor0 = StorageZonedDeviceDescriptor0(),
+    public var zoneGroupCount: UInt = 0u,
+    public var zoneGroup: List<StorageZoneGroup> = List(1) { StorageZoneGroup() },
 )
 
-public data class STORAGE_ZONED_DEVICE_DESCRIPTOR_0(public var SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 = STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0(), public var SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 = STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1())
+public data class StorageZonedDeviceDescriptor0(public var sequentialRequiredZone: StorageZonedDeviceDescriptor00 = StorageZonedDeviceDescriptor00(), public var sequentialPreferredZone: StorageZonedDeviceDescriptor01 = StorageZonedDeviceDescriptor01())
 
-public data class STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1(public var OptimalOpenZoneCount: UInt = 0u, public var Reserved: UInt = 0u)
+public data class StorageZonedDeviceDescriptor01(public var optimalOpenZoneCount: UInt = 0u, public var reserved: UInt = 0u)
 
-public data class STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0(
-    public var MaxOpenZoneCount: UInt = 0u,
-    public var UnrestrictedRead: Boolean = false,
-    public var Reserved: UByteArray = UByteArray(3),
+public data class StorageZonedDeviceDescriptor00(
+    public var maxOpenZoneCount: UInt = 0u,
+    public var unrestrictedRead: Boolean = false,
+    public var reserved: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0) return false
-        if (this.MaxOpenZoneCount != other.MaxOpenZoneCount) return false
-        if (this.UnrestrictedRead != other.UnrestrictedRead) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is StorageZonedDeviceDescriptor00) return false
+        if (this.maxOpenZoneCount != other.maxOpenZoneCount) return false
+        if (this.unrestrictedRead != other.unrestrictedRead) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaxOpenZoneCount.hashCode()
-        result = 31 * result + this.UnrestrictedRead.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.maxOpenZoneCount.hashCode()
+        result = 31 * result + this.unrestrictedRead.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class STORAGE_ZONE_DESCRIPTOR(
-    public var Size: UInt = 0u,
-    public var ZoneType: STORAGE_ZONE_TYPES = 0,
-    public var ZoneCondition: STORAGE_ZONE_CONDITION = 0,
-    public var ResetWritePointerRecommend: Boolean = false,
-    public var Reserved0: UByteArray = UByteArray(3),
-    public var ZoneSize: ULong = 0uL,
-    public var WritePointerOffset: ULong = 0uL,
+public data class StorageZoneDescriptor(
+    public var size: UInt = 0u,
+    public var zoneType: StorageZoneTypes = 0,
+    public var zoneCondition: StorageZoneCondition = 0,
+    public var resetWritePointerRecommend: Boolean = false,
+    public var reserved0: UByteArray = UByteArray(3),
+    public var zoneSize: ULong = 0uL,
+    public var writePointerOffset: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STORAGE_ZONE_DESCRIPTOR) return false
-        if (this.Size != other.Size) return false
-        if (this.ZoneType != other.ZoneType) return false
-        if (this.ZoneCondition != other.ZoneCondition) return false
-        if (this.ResetWritePointerRecommend != other.ResetWritePointerRecommend) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.ZoneSize != other.ZoneSize) return false
-        if (this.WritePointerOffset != other.WritePointerOffset) return false
+        if (other !is StorageZoneDescriptor) return false
+        if (this.size != other.size) return false
+        if (this.zoneType != other.zoneType) return false
+        if (this.zoneCondition != other.zoneCondition) return false
+        if (this.resetWritePointerRecommend != other.resetWritePointerRecommend) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.zoneSize != other.zoneSize) return false
+        if (this.writePointerOffset != other.writePointerOffset) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.ZoneType.hashCode()
-        result = 31 * result + this.ZoneCondition.hashCode()
-        result = 31 * result + this.ResetWritePointerRecommend.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.ZoneSize.hashCode()
-        result = 31 * result + this.WritePointerOffset.hashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.zoneType.hashCode()
+        result = 31 * result + this.zoneCondition.hashCode()
+        result = 31 * result + this.resetWritePointerRecommend.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.zoneSize.hashCode()
+        result = 31 * result + this.writePointerOffset.hashCode()
         return result
     }
 }
 
-public data class STORAGE_ZONE_GROUP(
-    public var ZoneCount: UInt = 0u,
-    public var ZoneType: STORAGE_ZONE_TYPES = 0,
-    public var ZoneSize: ULong = 0uL,
+public data class StorageZoneGroup(
+    public var zoneCount: UInt = 0u,
+    public var zoneType: StorageZoneTypes = 0,
+    public var zoneSize: ULong = 0uL,
 )
 
-public data class STREAMS_ASSOCIATE_ID_INPUT_BUFFER(public var Flags: UInt = 0u, public var StreamId: UInt = 0u)
+public data class StreamsAssociateIdInputBuffer(public var flags: UInt = 0u, public var streamId: UInt = 0u)
 
-public data class STREAMS_QUERY_ID_OUTPUT_BUFFER(public var StreamId: UInt = 0u)
+public data class StreamsQueryIdOutputBuffer(public var streamId: UInt = 0u)
 
-public data class STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER(
-    public var OptimalWriteSize: UInt = 0u,
-    public var StreamGranularitySize: UInt = 0u,
-    public var StreamIdMin: UInt = 0u,
-    public var StreamIdMax: UInt = 0u,
+public data class StreamsQueryParametersOutputBuffer(
+    public var optimalWriteSize: UInt = 0u,
+    public var streamGranularitySize: UInt = 0u,
+    public var streamIdMin: UInt = 0u,
+    public var streamIdMax: UInt = 0u,
 )
 
-public data class STREAM_EXTENT_ENTRY(public var Flags: UInt = 0u, public var ExtentInformation: STREAM_EXTENT_ENTRY_0 = STREAM_EXTENT_ENTRY_0())
+public data class StreamExtentEntry(public var flags: UInt = 0u, public var extentInformation: StreamExtentEntry0 = StreamExtentEntry0())
 
-public data class STREAM_EXTENT_ENTRY_0(public var RetrievalPointers: RETRIEVAL_POINTERS_BUFFER = RETRIEVAL_POINTERS_BUFFER())
+public data class StreamExtentEntry0(public var retrievalPointers: RetrievalPointersBuffer = RetrievalPointersBuffer())
 
-public data class STREAM_INFORMATION_ENTRY(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var StreamInformation: STREAM_INFORMATION_ENTRY_0 = STREAM_INFORMATION_ENTRY_0(),
+public data class StreamInformationEntry(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var streamInformation: StreamInformationEntry0 = StreamInformationEntry0(),
 )
 
-public data class STREAM_INFORMATION_ENTRY_0(
-    public var DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_0 = STREAM_INFORMATION_ENTRY_0_0(),
-    public var DataStream: STREAM_INFORMATION_ENTRY_0_1 = STREAM_INFORMATION_ENTRY_0_1(),
-    public var Reparse: STREAM_INFORMATION_ENTRY_0_2 = STREAM_INFORMATION_ENTRY_0_2(),
-    public var Ea: STREAM_INFORMATION_ENTRY_0_3 = STREAM_INFORMATION_ENTRY_0_3(),
+public data class StreamInformationEntry0(
+    public var desiredStorageClass: StreamInformationEntry00 = StreamInformationEntry00(),
+    public var dataStream: StreamInformationEntry01 = StreamInformationEntry01(),
+    public var reparse: StreamInformationEntry02 = StreamInformationEntry02(),
+    public var ea: StreamInformationEntry03 = StreamInformationEntry03(),
 )
 
-public data class STREAM_INFORMATION_ENTRY_0_1(
-    public var Length: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Reserved: UInt = 0u,
-    public var Vdl: ULong = 0uL,
+public data class StreamInformationEntry01(
+    public var length: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var reserved: UInt = 0u,
+    public var vdl: ULong = 0uL,
 )
 
-public data class STREAM_INFORMATION_ENTRY_0_0(public var Class: FILE_STORAGE_TIER_CLASS = 0, public var Flags: UInt = 0u)
+public data class StreamInformationEntry00(public var cls: FileStorageTierClass = 0, public var flags: UInt = 0u)
 
-public data class STREAM_INFORMATION_ENTRY_0_3(
-    public var Length: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var EaSize: UInt = 0u,
-    public var EaInformationOffset: UInt = 0u,
+public data class StreamInformationEntry03(
+    public var length: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var eaSize: UInt = 0u,
+    public var eaInformationOffset: UInt = 0u,
 )
 
-public data class STREAM_INFORMATION_ENTRY_0_2(
-    public var Length: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var ReparseDataSize: UInt = 0u,
-    public var ReparseDataOffset: UInt = 0u,
+public data class StreamInformationEntry02(
+    public var length: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var reparseDataSize: UInt = 0u,
+    public var reparseDataOffset: UInt = 0u,
 )
 
-public data class STREAM_LAYOUT_ENTRY(
-    public var Version: UInt = 0u,
-    public var NextStreamOffset: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var ExtentInformationOffset: UInt = 0u,
-    public var AllocationSize: Long = 0L,
-    public var EndOfFile: Long = 0L,
-    public var StreamInformationOffset: UInt = 0u,
-    public var AttributeTypeCode: UInt = 0u,
-    public var AttributeFlags: UInt = 0u,
-    public var StreamIdentifierLength: UInt = 0u,
-    public var StreamIdentifier: UShortArray = UShortArray(1),
+public data class StreamLayoutEntry(
+    public var version: UInt = 0u,
+    public var nextStreamOffset: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var extentInformationOffset: UInt = 0u,
+    public var allocationSize: Long = 0L,
+    public var endOfFile: Long = 0L,
+    public var streamInformationOffset: UInt = 0u,
+    public var attributeTypeCode: UInt = 0u,
+    public var attributeFlags: UInt = 0u,
+    public var streamIdentifierLength: UInt = 0u,
+    public var streamIdentifier: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STREAM_LAYOUT_ENTRY) return false
-        if (this.Version != other.Version) return false
-        if (this.NextStreamOffset != other.NextStreamOffset) return false
-        if (this.Flags != other.Flags) return false
-        if (this.ExtentInformationOffset != other.ExtentInformationOffset) return false
-        if (this.AllocationSize != other.AllocationSize) return false
-        if (this.EndOfFile != other.EndOfFile) return false
-        if (this.StreamInformationOffset != other.StreamInformationOffset) return false
-        if (this.AttributeTypeCode != other.AttributeTypeCode) return false
-        if (this.AttributeFlags != other.AttributeFlags) return false
-        if (this.StreamIdentifierLength != other.StreamIdentifierLength) return false
-        if (!this.StreamIdentifier.contentEquals(other.StreamIdentifier)) return false
+        if (other !is StreamLayoutEntry) return false
+        if (this.version != other.version) return false
+        if (this.nextStreamOffset != other.nextStreamOffset) return false
+        if (this.flags != other.flags) return false
+        if (this.extentInformationOffset != other.extentInformationOffset) return false
+        if (this.allocationSize != other.allocationSize) return false
+        if (this.endOfFile != other.endOfFile) return false
+        if (this.streamInformationOffset != other.streamInformationOffset) return false
+        if (this.attributeTypeCode != other.attributeTypeCode) return false
+        if (this.attributeFlags != other.attributeFlags) return false
+        if (this.streamIdentifierLength != other.streamIdentifierLength) return false
+        if (!this.streamIdentifier.contentEquals(other.streamIdentifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.NextStreamOffset.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.ExtentInformationOffset.hashCode()
-        result = 31 * result + this.AllocationSize.hashCode()
-        result = 31 * result + this.EndOfFile.hashCode()
-        result = 31 * result + this.StreamInformationOffset.hashCode()
-        result = 31 * result + this.AttributeTypeCode.hashCode()
-        result = 31 * result + this.AttributeFlags.hashCode()
-        result = 31 * result + this.StreamIdentifierLength.hashCode()
-        result = 31 * result + this.StreamIdentifier.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.nextStreamOffset.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.extentInformationOffset.hashCode()
+        result = 31 * result + this.allocationSize.hashCode()
+        result = 31 * result + this.endOfFile.hashCode()
+        result = 31 * result + this.streamInformationOffset.hashCode()
+        result = 31 * result + this.attributeTypeCode.hashCode()
+        result = 31 * result + this.attributeFlags.hashCode()
+        result = 31 * result + this.streamIdentifierLength.hashCode()
+        result = 31 * result + this.streamIdentifier.contentHashCode()
         return result
     }
 }
 
-public data class TAPE_GET_STATISTICS(public var Operation: UInt = 0u)
+public data class TapeGetStatistics(public var operation: UInt = 0u)
 
-public data class TAPE_STATISTICS(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var RecoveredWrites: Long = 0L,
-    public var UnrecoveredWrites: Long = 0L,
-    public var RecoveredReads: Long = 0L,
-    public var UnrecoveredReads: Long = 0L,
-    public var CompressionRatioReads: UByte = 0u,
-    public var CompressionRatioWrites: UByte = 0u,
+public data class TapeStatistics(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var recoveredWrites: Long = 0L,
+    public var unrecoveredWrites: Long = 0L,
+    public var recoveredReads: Long = 0L,
+    public var unrecoveredReads: Long = 0L,
+    public var compressionRatioReads: UByte = 0u,
+    public var compressionRatioWrites: UByte = 0u,
 )
 
-public data class TXFS_CREATE_MINIVERSION_INFO(
-    public var StructureVersion: UShort = 0u,
-    public var StructureLength: UShort = 0u,
-    public var BaseVersion: UInt = 0u,
-    public var MiniVersion: UShort = 0u,
+public data class TxfsCreateMiniversionInfo(
+    public var structureVersion: UShort = 0u,
+    public var structureLength: UShort = 0u,
+    public var baseVersion: UInt = 0u,
+    public var miniVersion: UShort = 0u,
 )
 
-public data class TXFS_GET_METADATA_INFO_OUT(
-    public var TxfFileId: TXFS_GET_METADATA_INFO_OUT_0 = TXFS_GET_METADATA_INFO_OUT_0(),
-    public var LockingTransaction: GUID = GUID(),
-    public var LastLsn: ULong = 0uL,
-    public var TransactionState: UInt = 0u,
+public data class TxfsGetMetadataInfoOut(
+    public var txfFileId: TxfsGetMetadataInfoOut0 = TxfsGetMetadataInfoOut0(),
+    public var lockingTransaction: Guid = Guid(),
+    public var lastLsn: ULong = 0uL,
+    public var transactionState: UInt = 0u,
 )
 
-public data class TXFS_GET_METADATA_INFO_OUT_0(public var LowPart: Long = 0L, public var HighPart: Long = 0L)
+public data class TxfsGetMetadataInfoOut0(public var lowPart: Long = 0L, public var highPart: Long = 0L)
 
-public data class TXFS_GET_TRANSACTED_VERSION(
-    public var ThisBaseVersion: UInt = 0u,
-    public var LatestVersion: UInt = 0u,
-    public var ThisMiniVersion: UShort = 0u,
-    public var FirstMiniVersion: UShort = 0u,
-    public var LatestMiniVersion: UShort = 0u,
+public data class TxfsGetTransactedVersion(
+    public var thisBaseVersion: UInt = 0u,
+    public var latestVersion: UInt = 0u,
+    public var thisMiniVersion: UShort = 0u,
+    public var firstMiniVersion: UShort = 0u,
+    public var latestMiniVersion: UShort = 0u,
 )
 
-public data class TXFS_LIST_TRANSACTIONS(public var NumberOfTransactions: ULong = 0uL, public var BufferSizeRequired: ULong = 0uL)
+public data class TxfsListTransactions(public var numberOfTransactions: ULong = 0uL, public var bufferSizeRequired: ULong = 0uL)
 
-public data class TXFS_LIST_TRANSACTIONS_ENTRY(
-    public var TransactionId: GUID = GUID(),
-    public var TransactionState: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: Long = 0L,
+public data class TxfsListTransactionsEntry(
+    public var transactionId: Guid = Guid(),
+    public var transactionState: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var reserved3: Long = 0L,
 )
 
-public data class TXFS_LIST_TRANSACTION_LOCKED_FILES(
-    public var KtmTransaction: GUID = GUID(),
-    public var NumberOfFiles: ULong = 0uL,
-    public var BufferSizeRequired: ULong = 0uL,
-    public var Offset: ULong = 0uL,
+public data class TxfsListTransactionLockedFiles(
+    public var ktmTransaction: Guid = Guid(),
+    public var numberOfFiles: ULong = 0uL,
+    public var bufferSizeRequired: ULong = 0uL,
+    public var offset: ULong = 0uL,
 )
 
-public data class TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY(
-    public var Offset: ULong = 0uL,
-    public var NameFlags: UInt = 0u,
-    public var FileId: Long = 0L,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Reserved3: Long = 0L,
-    public var FileName: UShortArray = UShortArray(1),
+public data class TxfsListTransactionLockedFilesEntry(
+    public var offset: ULong = 0uL,
+    public var nameFlags: UInt = 0u,
+    public var fileId: Long = 0L,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var reserved3: Long = 0L,
+    public var fileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY) return false
-        if (this.Offset != other.Offset) return false
-        if (this.NameFlags != other.NameFlags) return false
-        if (this.FileId != other.FileId) return false
-        if (this.Reserved1 != other.Reserved1) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (this.Reserved3 != other.Reserved3) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is TxfsListTransactionLockedFilesEntry) return false
+        if (this.offset != other.offset) return false
+        if (this.nameFlags != other.nameFlags) return false
+        if (this.fileId != other.fileId) return false
+        if (this.reserved1 != other.reserved1) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (this.reserved3 != other.reserved3) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Offset.hashCode()
-        result = 31 * result + this.NameFlags.hashCode()
-        result = 31 * result + this.FileId.hashCode()
-        result = 31 * result + this.Reserved1.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.Reserved3.hashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.offset.hashCode()
+        result = 31 * result + this.nameFlags.hashCode()
+        result = 31 * result + this.fileId.hashCode()
+        result = 31 * result + this.reserved1.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.reserved3.hashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }
 
-public data class TXFS_MODIFY_RM(
-    public var Flags: TXFS_RMF_LAGS = 0u,
-    public var LogContainerCountMax: UInt = 0u,
-    public var LogContainerCountMin: UInt = 0u,
-    public var LogContainerCount: UInt = 0u,
-    public var LogGrowthIncrement: UInt = 0u,
-    public var LogAutoShrinkPercentage: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var LoggingMode: UShort = 0u,
+public data class TxfsModifyRm(
+    public var flags: TxfsRmfLags = 0u,
+    public var logContainerCountMax: UInt = 0u,
+    public var logContainerCountMin: UInt = 0u,
+    public var logContainerCount: UInt = 0u,
+    public var logGrowthIncrement: UInt = 0u,
+    public var logAutoShrinkPercentage: UInt = 0u,
+    public var reserved: ULong = 0uL,
+    public var loggingMode: UShort = 0u,
 )
 
-public class TXFS_QUERY_RM_INFORMATION(
-    public var BytesRequired: UInt = 0u,
-    public var TailLsn: ULong = 0uL,
-    public var CurrentLsn: ULong = 0uL,
-    public var ArchiveTailLsn: ULong = 0uL,
-    public var LogContainerSize: ULong = 0uL,
-    public var HighestVirtualClock: Long = 0L,
-    public var LogContainerCount: UInt = 0u,
-    public var LogContainerCountMax: UInt = 0u,
-    public var LogContainerCountMin: UInt = 0u,
-    public var LogGrowthIncrement: UInt = 0u,
-    public var LogAutoShrinkPercentage: UInt = 0u,
-    public var Flags: TXFS_RMF_LAGS = 0u,
-    public var LoggingMode: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var RmState: UInt = 0u,
-    public var LogCapacity: ULong = 0uL,
-    public var LogFree: ULong = 0uL,
-    public var TopsSize: ULong = 0uL,
-    public var TopsUsed: ULong = 0uL,
-    public var TransactionCount: ULong = 0uL,
-    public var OnePCCount: ULong = 0uL,
-    public var TwoPCCount: ULong = 0uL,
-    public var NumberLogFileFull: ULong = 0uL,
-    public var OldestTransactionAge: ULong = 0uL,
-    public var RMName: GUID = GUID(),
-    public var TmLogPathOffset: UInt = 0u,
+public class TxfsQueryRmInformation(
+    public var bytesRequired: UInt = 0u,
+    public var tailLsn: ULong = 0uL,
+    public var currentLsn: ULong = 0uL,
+    public var archiveTailLsn: ULong = 0uL,
+    public var logContainerSize: ULong = 0uL,
+    public var highestVirtualClock: Long = 0L,
+    public var logContainerCount: UInt = 0u,
+    public var logContainerCountMax: UInt = 0u,
+    public var logContainerCountMin: UInt = 0u,
+    public var logGrowthIncrement: UInt = 0u,
+    public var logAutoShrinkPercentage: UInt = 0u,
+    public var flags: TxfsRmfLags = 0u,
+    public var loggingMode: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var rmState: UInt = 0u,
+    public var logCapacity: ULong = 0uL,
+    public var logFree: ULong = 0uL,
+    public var topsSize: ULong = 0uL,
+    public var topsUsed: ULong = 0uL,
+    public var transactionCount: ULong = 0uL,
+    public var onePCCount: ULong = 0uL,
+    public var twoPCCount: ULong = 0uL,
+    public var numberLogFileFull: ULong = 0uL,
+    public var oldestTransactionAge: ULong = 0uL,
+    public var rMName: Guid = Guid(),
+    public var tmLogPathOffset: UInt = 0u,
 )
 
-public data class TXFS_READ_BACKUP_INFORMATION_OUT(public var Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0 = TXFS_READ_BACKUP_INFORMATION_OUT_0())
+public data class TxfsReadBackupInformationOut(public var anonymous: TxfsReadBackupInformationOut0 = TxfsReadBackupInformationOut0())
 
-public data class TXFS_READ_BACKUP_INFORMATION_OUT_0(public var BufferLength: UInt = 0u, public var Buffer: UByteArray = UByteArray(1)) {
+public data class TxfsReadBackupInformationOut0(public var bufferLength: UInt = 0u, public var buffer: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TXFS_READ_BACKUP_INFORMATION_OUT_0) return false
-        if (this.BufferLength != other.BufferLength) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is TxfsReadBackupInformationOut0) return false
+        if (this.bufferLength != other.bufferLength) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.BufferLength.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.bufferLength.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class TXFS_ROLLFORWARD_REDO_INFORMATION(
-    public var LastVirtualClock: Long = 0L,
-    public var LastRedoLsn: ULong = 0uL,
-    public var HighestRecoveryLsn: ULong = 0uL,
-    public var Flags: UInt = 0u,
+public data class TxfsRollforwardRedoInformation(
+    public var lastVirtualClock: Long = 0L,
+    public var lastRedoLsn: ULong = 0uL,
+    public var highestRecoveryLsn: ULong = 0uL,
+    public var flags: UInt = 0u,
 )
 
-public data class TXFS_SAVEPOINT_INFORMATION(
-    public var KtmTransaction: HANDLE = 0L,
-    public var ActionCode: UInt = 0u,
-    public var SavepointId: UInt = 0u,
+public data class TxfsSavepointInformation(
+    public var ktmTransaction: Handle = null,
+    public var actionCode: UInt = 0u,
+    public var savepointId: UInt = 0u,
 )
 
-public data class TXFS_START_RM_INFORMATION(
-    public var Flags: UInt = 0u,
-    public var LogContainerSize: ULong = 0uL,
-    public var LogContainerCountMin: UInt = 0u,
-    public var LogContainerCountMax: UInt = 0u,
-    public var LogGrowthIncrement: UInt = 0u,
-    public var LogAutoShrinkPercentage: UInt = 0u,
-    public var TmLogPathOffset: UInt = 0u,
-    public var TmLogPathLength: UShort = 0u,
-    public var LoggingMode: UShort = 0u,
-    public var LogPathLength: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var LogPath: UShortArray = UShortArray(1),
+public data class TxfsStartRmInformation(
+    public var flags: UInt = 0u,
+    public var logContainerSize: ULong = 0uL,
+    public var logContainerCountMin: UInt = 0u,
+    public var logContainerCountMax: UInt = 0u,
+    public var logGrowthIncrement: UInt = 0u,
+    public var logAutoShrinkPercentage: UInt = 0u,
+    public var tmLogPathOffset: UInt = 0u,
+    public var tmLogPathLength: UShort = 0u,
+    public var loggingMode: UShort = 0u,
+    public var logPathLength: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var logPath: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TXFS_START_RM_INFORMATION) return false
-        if (this.Flags != other.Flags) return false
-        if (this.LogContainerSize != other.LogContainerSize) return false
-        if (this.LogContainerCountMin != other.LogContainerCountMin) return false
-        if (this.LogContainerCountMax != other.LogContainerCountMax) return false
-        if (this.LogGrowthIncrement != other.LogGrowthIncrement) return false
-        if (this.LogAutoShrinkPercentage != other.LogAutoShrinkPercentage) return false
-        if (this.TmLogPathOffset != other.TmLogPathOffset) return false
-        if (this.TmLogPathLength != other.TmLogPathLength) return false
-        if (this.LoggingMode != other.LoggingMode) return false
-        if (this.LogPathLength != other.LogPathLength) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.LogPath.contentEquals(other.LogPath)) return false
+        if (other !is TxfsStartRmInformation) return false
+        if (this.flags != other.flags) return false
+        if (this.logContainerSize != other.logContainerSize) return false
+        if (this.logContainerCountMin != other.logContainerCountMin) return false
+        if (this.logContainerCountMax != other.logContainerCountMax) return false
+        if (this.logGrowthIncrement != other.logGrowthIncrement) return false
+        if (this.logAutoShrinkPercentage != other.logAutoShrinkPercentage) return false
+        if (this.tmLogPathOffset != other.tmLogPathOffset) return false
+        if (this.tmLogPathLength != other.tmLogPathLength) return false
+        if (this.loggingMode != other.loggingMode) return false
+        if (this.logPathLength != other.logPathLength) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.logPath.contentEquals(other.logPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Flags.hashCode()
-        result = 31 * result + this.LogContainerSize.hashCode()
-        result = 31 * result + this.LogContainerCountMin.hashCode()
-        result = 31 * result + this.LogContainerCountMax.hashCode()
-        result = 31 * result + this.LogGrowthIncrement.hashCode()
-        result = 31 * result + this.LogAutoShrinkPercentage.hashCode()
-        result = 31 * result + this.TmLogPathOffset.hashCode()
-        result = 31 * result + this.TmLogPathLength.hashCode()
-        result = 31 * result + this.LoggingMode.hashCode()
-        result = 31 * result + this.LogPathLength.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.LogPath.contentHashCode()
+        var result = this.flags.hashCode()
+        result = 31 * result + this.logContainerSize.hashCode()
+        result = 31 * result + this.logContainerCountMin.hashCode()
+        result = 31 * result + this.logContainerCountMax.hashCode()
+        result = 31 * result + this.logGrowthIncrement.hashCode()
+        result = 31 * result + this.logAutoShrinkPercentage.hashCode()
+        result = 31 * result + this.tmLogPathOffset.hashCode()
+        result = 31 * result + this.tmLogPathLength.hashCode()
+        result = 31 * result + this.loggingMode.hashCode()
+        result = 31 * result + this.logPathLength.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.logPath.contentHashCode()
         return result
     }
 }
 
-public data class TXFS_TRANSACTION_ACTIVE_INFO(public var TransactionsActiveAtSnapshot: Boolean = false)
+public data class TxfsTransactionActiveInfo(public var transactionsActiveAtSnapshot: Boolean = false)
 
-public data class TXFS_WRITE_BACKUP_INFORMATION(public var Buffer: UByteArray = UByteArray(1)) {
+public data class TxfsWriteBackupInformation(public var buffer: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TXFS_WRITE_BACKUP_INFORMATION) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is TxfsWriteBackupInformation) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Buffer.contentHashCode()
+        return this.buffer.contentHashCode()
     }
 }
 
-public data class USN_JOURNAL_DATA_V0(
-    public var UsnJournalID: ULong = 0uL,
-    public var FirstUsn: Long = 0L,
-    public var NextUsn: Long = 0L,
-    public var LowestValidUsn: Long = 0L,
-    public var MaxUsn: Long = 0L,
-    public var MaximumSize: ULong = 0uL,
-    public var AllocationDelta: ULong = 0uL,
+public data class UsnJournalDataV0(
+    public var usnJournalID: ULong = 0uL,
+    public var firstUsn: Long = 0L,
+    public var nextUsn: Long = 0L,
+    public var lowestValidUsn: Long = 0L,
+    public var maxUsn: Long = 0L,
+    public var maximumSize: ULong = 0uL,
+    public var allocationDelta: ULong = 0uL,
 )
 
-public data class USN_JOURNAL_DATA_V1(
-    public var UsnJournalID: ULong = 0uL,
-    public var FirstUsn: Long = 0L,
-    public var NextUsn: Long = 0L,
-    public var LowestValidUsn: Long = 0L,
-    public var MaxUsn: Long = 0L,
-    public var MaximumSize: ULong = 0uL,
-    public var AllocationDelta: ULong = 0uL,
-    public var MinSupportedMajorVersion: UShort = 0u,
-    public var MaxSupportedMajorVersion: UShort = 0u,
+public data class UsnJournalDataV1(
+    public var usnJournalID: ULong = 0uL,
+    public var firstUsn: Long = 0L,
+    public var nextUsn: Long = 0L,
+    public var lowestValidUsn: Long = 0L,
+    public var maxUsn: Long = 0L,
+    public var maximumSize: ULong = 0uL,
+    public var allocationDelta: ULong = 0uL,
+    public var minSupportedMajorVersion: UShort = 0u,
+    public var maxSupportedMajorVersion: UShort = 0u,
 )
 
-public data class USN_JOURNAL_DATA_V2(
-    public var UsnJournalID: ULong = 0uL,
-    public var FirstUsn: Long = 0L,
-    public var NextUsn: Long = 0L,
-    public var LowestValidUsn: Long = 0L,
-    public var MaxUsn: Long = 0L,
-    public var MaximumSize: ULong = 0uL,
-    public var AllocationDelta: ULong = 0uL,
-    public var MinSupportedMajorVersion: UShort = 0u,
-    public var MaxSupportedMajorVersion: UShort = 0u,
-    public var Flags: UInt = 0u,
-    public var RangeTrackChunkSize: ULong = 0uL,
-    public var RangeTrackFileSizeThreshold: Long = 0L,
+public data class UsnJournalDataV2(
+    public var usnJournalID: ULong = 0uL,
+    public var firstUsn: Long = 0L,
+    public var nextUsn: Long = 0L,
+    public var lowestValidUsn: Long = 0L,
+    public var maxUsn: Long = 0L,
+    public var maximumSize: ULong = 0uL,
+    public var allocationDelta: ULong = 0uL,
+    public var minSupportedMajorVersion: UShort = 0u,
+    public var maxSupportedMajorVersion: UShort = 0u,
+    public var flags: UInt = 0u,
+    public var rangeTrackChunkSize: ULong = 0uL,
+    public var rangeTrackFileSizeThreshold: Long = 0L,
 )
 
-public data class USN_RANGE_TRACK_OUTPUT(public var Usn: Long = 0L)
+public data class UsnRangeTrackOutput(public var usn: Long = 0L)
 
-public data class USN_RECORD_COMMON_HEADER(
-    public var RecordLength: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
+public data class UsnRecordCommonHeader(
+    public var recordLength: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
 )
 
-public data class USN_RECORD_EXTENT(public var Offset: Long = 0L, public var Length: Long = 0L)
+public data class UsnRecordExtent(public var offset: Long = 0L, public var length: Long = 0L)
 
-public data class USN_RECORD_UNION(
-    public var Header: USN_RECORD_COMMON_HEADER = USN_RECORD_COMMON_HEADER(),
-    public var V2: USN_RECORD_V2 = USN_RECORD_V2(),
-    public var V3: USN_RECORD_V3 = USN_RECORD_V3(),
-    public var V4: USN_RECORD_V4 = USN_RECORD_V4(),
+public data class UsnRecordUnion(
+    public var header: UsnRecordCommonHeader = UsnRecordCommonHeader(),
+    public var v2: UsnRecordV2 = UsnRecordV2(),
+    public var v3: UsnRecordV3 = UsnRecordV3(),
+    public var v4: UsnRecordV4 = UsnRecordV4(),
 )
 
-public data class USN_RECORD_V2(
-    public var RecordLength: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var FileReferenceNumber: ULong = 0uL,
-    public var ParentFileReferenceNumber: ULong = 0uL,
-    public var Usn: Long = 0L,
-    public var TimeStamp: Long = 0L,
-    public var Reason: UInt = 0u,
-    public var SourceInfo: UInt = 0u,
-    public var SecurityId: UInt = 0u,
-    public var FileAttributes: UInt = 0u,
-    public var FileNameLength: UShort = 0u,
-    public var FileNameOffset: UShort = 0u,
-    public var FileName: UShortArray = UShortArray(1),
+public data class UsnRecordV2(
+    public var recordLength: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var fileReferenceNumber: ULong = 0uL,
+    public var parentFileReferenceNumber: ULong = 0uL,
+    public var usn: Long = 0L,
+    public var timeStamp: Long = 0L,
+    public var reason: UInt = 0u,
+    public var sourceInfo: UInt = 0u,
+    public var securityId: UInt = 0u,
+    public var fileAttributes: UInt = 0u,
+    public var fileNameLength: UShort = 0u,
+    public var fileNameOffset: UShort = 0u,
+    public var fileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USN_RECORD_V2) return false
-        if (this.RecordLength != other.RecordLength) return false
-        if (this.MajorVersion != other.MajorVersion) return false
-        if (this.MinorVersion != other.MinorVersion) return false
-        if (this.FileReferenceNumber != other.FileReferenceNumber) return false
-        if (this.ParentFileReferenceNumber != other.ParentFileReferenceNumber) return false
-        if (this.Usn != other.Usn) return false
-        if (this.TimeStamp != other.TimeStamp) return false
-        if (this.Reason != other.Reason) return false
-        if (this.SourceInfo != other.SourceInfo) return false
-        if (this.SecurityId != other.SecurityId) return false
-        if (this.FileAttributes != other.FileAttributes) return false
-        if (this.FileNameLength != other.FileNameLength) return false
-        if (this.FileNameOffset != other.FileNameOffset) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is UsnRecordV2) return false
+        if (this.recordLength != other.recordLength) return false
+        if (this.majorVersion != other.majorVersion) return false
+        if (this.minorVersion != other.minorVersion) return false
+        if (this.fileReferenceNumber != other.fileReferenceNumber) return false
+        if (this.parentFileReferenceNumber != other.parentFileReferenceNumber) return false
+        if (this.usn != other.usn) return false
+        if (this.timeStamp != other.timeStamp) return false
+        if (this.reason != other.reason) return false
+        if (this.sourceInfo != other.sourceInfo) return false
+        if (this.securityId != other.securityId) return false
+        if (this.fileAttributes != other.fileAttributes) return false
+        if (this.fileNameLength != other.fileNameLength) return false
+        if (this.fileNameOffset != other.fileNameOffset) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RecordLength.hashCode()
-        result = 31 * result + this.MajorVersion.hashCode()
-        result = 31 * result + this.MinorVersion.hashCode()
-        result = 31 * result + this.FileReferenceNumber.hashCode()
-        result = 31 * result + this.ParentFileReferenceNumber.hashCode()
-        result = 31 * result + this.Usn.hashCode()
-        result = 31 * result + this.TimeStamp.hashCode()
-        result = 31 * result + this.Reason.hashCode()
-        result = 31 * result + this.SourceInfo.hashCode()
-        result = 31 * result + this.SecurityId.hashCode()
-        result = 31 * result + this.FileAttributes.hashCode()
-        result = 31 * result + this.FileNameLength.hashCode()
-        result = 31 * result + this.FileNameOffset.hashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.recordLength.hashCode()
+        result = 31 * result + this.majorVersion.hashCode()
+        result = 31 * result + this.minorVersion.hashCode()
+        result = 31 * result + this.fileReferenceNumber.hashCode()
+        result = 31 * result + this.parentFileReferenceNumber.hashCode()
+        result = 31 * result + this.usn.hashCode()
+        result = 31 * result + this.timeStamp.hashCode()
+        result = 31 * result + this.reason.hashCode()
+        result = 31 * result + this.sourceInfo.hashCode()
+        result = 31 * result + this.securityId.hashCode()
+        result = 31 * result + this.fileAttributes.hashCode()
+        result = 31 * result + this.fileNameLength.hashCode()
+        result = 31 * result + this.fileNameOffset.hashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }
 
-public data class USN_RECORD_V3(
-    public var RecordLength: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var FileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
-    public var ParentFileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
-    public var Usn: Long = 0L,
-    public var TimeStamp: Long = 0L,
-    public var Reason: UInt = 0u,
-    public var SourceInfo: UInt = 0u,
-    public var SecurityId: UInt = 0u,
-    public var FileAttributes: UInt = 0u,
-    public var FileNameLength: UShort = 0u,
-    public var FileNameOffset: UShort = 0u,
-    public var FileName: UShortArray = UShortArray(1),
+public data class UsnRecordV3(
+    public var recordLength: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var fileReferenceNumber: FileId128 = FileId128(),
+    public var parentFileReferenceNumber: FileId128 = FileId128(),
+    public var usn: Long = 0L,
+    public var timeStamp: Long = 0L,
+    public var reason: UInt = 0u,
+    public var sourceInfo: UInt = 0u,
+    public var securityId: UInt = 0u,
+    public var fileAttributes: UInt = 0u,
+    public var fileNameLength: UShort = 0u,
+    public var fileNameOffset: UShort = 0u,
+    public var fileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USN_RECORD_V3) return false
-        if (this.RecordLength != other.RecordLength) return false
-        if (this.MajorVersion != other.MajorVersion) return false
-        if (this.MinorVersion != other.MinorVersion) return false
-        if (this.FileReferenceNumber != other.FileReferenceNumber) return false
-        if (this.ParentFileReferenceNumber != other.ParentFileReferenceNumber) return false
-        if (this.Usn != other.Usn) return false
-        if (this.TimeStamp != other.TimeStamp) return false
-        if (this.Reason != other.Reason) return false
-        if (this.SourceInfo != other.SourceInfo) return false
-        if (this.SecurityId != other.SecurityId) return false
-        if (this.FileAttributes != other.FileAttributes) return false
-        if (this.FileNameLength != other.FileNameLength) return false
-        if (this.FileNameOffset != other.FileNameOffset) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is UsnRecordV3) return false
+        if (this.recordLength != other.recordLength) return false
+        if (this.majorVersion != other.majorVersion) return false
+        if (this.minorVersion != other.minorVersion) return false
+        if (this.fileReferenceNumber != other.fileReferenceNumber) return false
+        if (this.parentFileReferenceNumber != other.parentFileReferenceNumber) return false
+        if (this.usn != other.usn) return false
+        if (this.timeStamp != other.timeStamp) return false
+        if (this.reason != other.reason) return false
+        if (this.sourceInfo != other.sourceInfo) return false
+        if (this.securityId != other.securityId) return false
+        if (this.fileAttributes != other.fileAttributes) return false
+        if (this.fileNameLength != other.fileNameLength) return false
+        if (this.fileNameOffset != other.fileNameOffset) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RecordLength.hashCode()
-        result = 31 * result + this.MajorVersion.hashCode()
-        result = 31 * result + this.MinorVersion.hashCode()
-        result = 31 * result + this.FileReferenceNumber.hashCode()
-        result = 31 * result + this.ParentFileReferenceNumber.hashCode()
-        result = 31 * result + this.Usn.hashCode()
-        result = 31 * result + this.TimeStamp.hashCode()
-        result = 31 * result + this.Reason.hashCode()
-        result = 31 * result + this.SourceInfo.hashCode()
-        result = 31 * result + this.SecurityId.hashCode()
-        result = 31 * result + this.FileAttributes.hashCode()
-        result = 31 * result + this.FileNameLength.hashCode()
-        result = 31 * result + this.FileNameOffset.hashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.recordLength.hashCode()
+        result = 31 * result + this.majorVersion.hashCode()
+        result = 31 * result + this.minorVersion.hashCode()
+        result = 31 * result + this.fileReferenceNumber.hashCode()
+        result = 31 * result + this.parentFileReferenceNumber.hashCode()
+        result = 31 * result + this.usn.hashCode()
+        result = 31 * result + this.timeStamp.hashCode()
+        result = 31 * result + this.reason.hashCode()
+        result = 31 * result + this.sourceInfo.hashCode()
+        result = 31 * result + this.securityId.hashCode()
+        result = 31 * result + this.fileAttributes.hashCode()
+        result = 31 * result + this.fileNameLength.hashCode()
+        result = 31 * result + this.fileNameOffset.hashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }
 
-public data class USN_RECORD_V4(
-    public var Header: USN_RECORD_COMMON_HEADER = USN_RECORD_COMMON_HEADER(),
-    public var FileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
-    public var ParentFileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
-    public var Usn: Long = 0L,
-    public var Reason: UInt = 0u,
-    public var SourceInfo: USN_SOURCE_INFO_ID = 0u,
-    public var RemainingExtents: UInt = 0u,
-    public var NumberOfExtents: UShort = 0u,
-    public var ExtentSize: UShort = 0u,
-    public var Extents: List<USN_RECORD_EXTENT> = List(1) { USN_RECORD_EXTENT() },
+public data class UsnRecordV4(
+    public var header: UsnRecordCommonHeader = UsnRecordCommonHeader(),
+    public var fileReferenceNumber: FileId128 = FileId128(),
+    public var parentFileReferenceNumber: FileId128 = FileId128(),
+    public var usn: Long = 0L,
+    public var reason: UInt = 0u,
+    public var sourceInfo: UsnSourceInfoId = 0u,
+    public var remainingExtents: UInt = 0u,
+    public var numberOfExtents: UShort = 0u,
+    public var extentSize: UShort = 0u,
+    public var extents: List<UsnRecordExtent> = List(1) { UsnRecordExtent() },
 )

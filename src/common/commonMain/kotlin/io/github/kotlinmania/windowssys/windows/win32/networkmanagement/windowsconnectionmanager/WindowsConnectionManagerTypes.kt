@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-public fun interface ONDEMAND_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(param0: Long)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public fun interface OndemandNotificationCallbackFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias ONDEMAND_NOTIFICATION_CALLBACK = ONDEMAND_NOTIFICATION_CALLBACKFn?
+public typealias OndemandNotificationCallback = OndemandNotificationCallbackFn?
 
-public typealias WCM_CONNECTION_COST = Int
+public typealias WcmConnectionCost = Int
 
-public typealias WCM_CONNECTION_COST_SOURCE = Int
+public typealias WcmConnectionCostSource = Int
 
-public typealias WCM_MEDIA_TYPE = Int
+public typealias WcmMediaType = Int
 
-public typealias WCM_PROPERTY = Int
+public typealias WcmProperty = Int

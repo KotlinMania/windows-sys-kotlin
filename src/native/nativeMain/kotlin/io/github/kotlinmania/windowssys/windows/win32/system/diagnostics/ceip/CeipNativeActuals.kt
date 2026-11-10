@@ -2,7 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.ceip
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.core.Bool
 
-public actual fun CeipIsOptedIn(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.ceip.cinterop.windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn()
+public actual fun ceipIsOptedIn(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.ceip.cinterop.windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn()

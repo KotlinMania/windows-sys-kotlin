@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_devices_devicequery_DevCloseObjectQuery(void* hdevquery) {
+void windowssys_windows_win32_devices_devicequery_devCloseObjectQuery(void* hdevquery) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_devices_devicequery_DevCloseObjectQuery(void* hdev
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQuery(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQuery(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQuery(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryEx(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -98,7 +98,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryEx(int3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromId(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromId(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdEx(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdE
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIds(int32_t objecttype, void* pszzobjectids, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds(int32_t objecttype, void* pszzobjectids, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIds
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdsEx(int32_t objecttype, void* pszzobjectids, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
+int32_t windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx(int32_t objecttype, void* pszzobjectids, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcallback, void* pcontext, void* phdevquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -226,7 +226,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIds
 #endif
 }
 
-void* windowssys_windows_win32_devices_devicequery_DevFindProperty(void* pkey, int32_t store, void* pszlocalename, uint32_t cproperties, void* pproperties) {
+void* windowssys_windows_win32_devices_devicequery_devFindProperty(void* pkey, int32_t store, void* pszlocalename, uint32_t cproperties, void* pproperties) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -252,7 +252,7 @@ void* windowssys_windows_win32_devices_devicequery_DevFindProperty(void* pkey, i
 #endif
 }
 
-void windowssys_windows_win32_devices_devicequery_DevFreeObjectProperties(uint32_t cpropertycount, void* pproperties) {
+void windowssys_windows_win32_devices_devicequery_devFreeObjectProperties(uint32_t cpropertycount, void* pproperties) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ void windowssys_windows_win32_devices_devicequery_DevFreeObjectProperties(uint32
 #endif
 }
 
-void windowssys_windows_win32_devices_devicequery_DevFreeObjects(uint32_t cobjectcount, void* pobjects) {
+void windowssys_windows_win32_devices_devicequery_devFreeObjects(uint32_t cobjectcount, void* pobjects) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -296,7 +296,7 @@ void windowssys_windows_win32_devices_devicequery_DevFreeObjects(uint32_t cobjec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevGetObjectProperties(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, void* pcpropertycount, void* ppproperties) {
+int32_t windowssys_windows_win32_devices_devicequery_devGetObjectProperties(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, void* pcpropertycount, void* ppproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -324,7 +324,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevGetObjectProperties(int3
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevGetObjectPropertiesEx(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cextendedparametercount, void* pextendedparameters, void* pcpropertycount, void* ppproperties) {
+int32_t windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx(int32_t objecttype, void* pszobjectid, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cextendedparametercount, void* pextendedparameters, void* pcpropertycount, void* ppproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevGetObjectPropertiesEx(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevGetObjects(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcobjectcount, void* ppobjects) {
+int32_t windowssys_windows_win32_devices_devicequery_devGetObjects(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, void* pcobjectcount, void* ppobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -383,7 +383,7 @@ int32_t windowssys_windows_win32_devices_devicequery_DevGetObjects(int32_t objec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_devicequery_DevGetObjectsEx(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcobjectcount, void* ppobjects) {
+int32_t windowssys_windows_win32_devices_devicequery_devGetObjectsEx(int32_t objecttype, uint32_t queryflags, uint32_t crequestedproperties, void* prequestedproperties, uint32_t cfilterexpressioncount, void* pfilter, uint32_t cextendedparametercount, void* pextendedparameters, void* pcobjectcount, void* ppobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

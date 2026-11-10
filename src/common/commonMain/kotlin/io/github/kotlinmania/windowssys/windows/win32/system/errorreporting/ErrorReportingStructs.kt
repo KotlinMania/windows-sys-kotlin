@@ -1,21 +1,23 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.CONTEXT
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.EXCEPTION_RECORD
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.Context
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionRecord
 
-public data class WER_DUMP_CUSTOM_OPTIONS(
+public data class WerDumpCustomOptions(
     public var dwSize: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var dwDumpFlags: UInt = 0u,
-    public var bOnlyThisThread: BOOL = 0,
+    public var bOnlyThisThread: Bool = 0,
     public var dwExceptionThreadFlags: UInt = 0u,
     public var dwOtherThreadFlags: UInt = 0u,
     public var dwExceptionThreadExFlags: UInt = 0u,
@@ -26,7 +28,7 @@ public data class WER_DUMP_CUSTOM_OPTIONS(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_DUMP_CUSTOM_OPTIONS) return false
+        if (other !is WerDumpCustomOptions) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwMask != other.dwMask) return false
         if (this.dwDumpFlags != other.dwDumpFlags) return false
@@ -57,11 +59,11 @@ public data class WER_DUMP_CUSTOM_OPTIONS(
     }
 }
 
-public data class WER_DUMP_CUSTOM_OPTIONS_V2(
+public data class WerDumpCustomOptionsV2(
     public var dwSize: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var dwDumpFlags: UInt = 0u,
-    public var bOnlyThisThread: BOOL = 0,
+    public var bOnlyThisThread: Bool = 0,
     public var dwExceptionThreadFlags: UInt = 0u,
     public var dwOtherThreadFlags: UInt = 0u,
     public var dwExceptionThreadExFlags: UInt = 0u,
@@ -74,7 +76,7 @@ public data class WER_DUMP_CUSTOM_OPTIONS_V2(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_DUMP_CUSTOM_OPTIONS_V2) return false
+        if (other !is WerDumpCustomOptionsV2) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwMask != other.dwMask) return false
         if (this.dwDumpFlags != other.dwDumpFlags) return false
@@ -109,11 +111,11 @@ public data class WER_DUMP_CUSTOM_OPTIONS_V2(
     }
 }
 
-public data class WER_DUMP_CUSTOM_OPTIONS_V3(
+public data class WerDumpCustomOptionsV3(
     public var dwSize: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var dwDumpFlags: UInt = 0u,
-    public var bOnlyThisThread: BOOL = 0,
+    public var bOnlyThisThread: Bool = 0,
     public var dwExceptionThreadFlags: UInt = 0u,
     public var dwOtherThreadFlags: UInt = 0u,
     public var dwExceptionThreadExFlags: UInt = 0u,
@@ -123,13 +125,13 @@ public data class WER_DUMP_CUSTOM_OPTIONS_V3(
     public var wzPreferredModuleList: UShortArray = UShortArray(256),
     public var dwPreferredModuleResetFlags: UInt = 0u,
     public var dwOtherModuleResetFlags: UInt = 0u,
-    public var pvDumpKey: Long = 0L,
-    public var hSnapshot: HANDLE = 0L,
+    public var pvDumpKey: COpaquePointer? = null,
+    public var hSnapshot: Handle = null,
     public var dwThreadID: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_DUMP_CUSTOM_OPTIONS_V3) return false
+        if (other !is WerDumpCustomOptionsV3) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwMask != other.dwMask) return false
         if (this.dwDumpFlags != other.dwDumpFlags) return false
@@ -170,21 +172,21 @@ public data class WER_DUMP_CUSTOM_OPTIONS_V3(
     }
 }
 
-public data class WER_EXCEPTION_INFORMATION(public var pExceptionPointers: Long = 0L, public var bClientPointers: BOOL = 0)
+public data class WerExceptionInformation(public var pExceptionPointers: ExceptionPointers? = null, public var bClientPointers: Bool = 0)
 
-public data class WER_REPORT_INFORMATION(
+public data class WerReportInformation(
     public var dwSize: UInt = 0u,
-    public var hProcess: HANDLE = 0L,
+    public var hProcess: Handle = null,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: HWND = 0L,
+    public var hwndParent: Hwnd = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_INFORMATION) return false
+        if (other !is WerReportInformation) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hProcess != other.hProcess) return false
         if (!this.wzConsentKey.contentEquals(other.wzConsentKey)) return false
@@ -209,21 +211,21 @@ public data class WER_REPORT_INFORMATION(
     }
 }
 
-public data class WER_REPORT_INFORMATION_V3(
+public data class WerReportInformationV3(
     public var dwSize: UInt = 0u,
-    public var hProcess: HANDLE = 0L,
+    public var hProcess: Handle = null,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: HWND = 0L,
+    public var hwndParent: Hwnd = null,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_INFORMATION_V3) return false
+        if (other !is WerReportInformationV3) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hProcess != other.hProcess) return false
         if (!this.wzConsentKey.contentEquals(other.wzConsentKey)) return false
@@ -252,24 +254,24 @@ public data class WER_REPORT_INFORMATION_V3(
     }
 }
 
-public data class WER_REPORT_INFORMATION_V4(
+public data class WerReportInformationV4(
     public var dwSize: UInt = 0u,
-    public var hProcess: HANDLE = 0L,
+    public var hProcess: Handle = null,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: HWND = 0L,
+    public var hwndParent: Hwnd = null,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
     public var rgbApplicationIdentity: UByteArray = UByteArray(16),
-    public var hSnapshot: HANDLE = 0L,
-    public var hDeleteFilesImpersonationToken: HANDLE = 0L,
+    public var hSnapshot: Handle = null,
+    public var hDeleteFilesImpersonationToken: Handle = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_INFORMATION_V4) return false
+        if (other !is WerReportInformationV4) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hProcess != other.hProcess) return false
         if (!this.wzConsentKey.contentEquals(other.wzConsentKey)) return false
@@ -304,25 +306,25 @@ public data class WER_REPORT_INFORMATION_V4(
     }
 }
 
-public data class WER_REPORT_INFORMATION_V5(
+public data class WerReportInformationV5(
     public var dwSize: UInt = 0u,
-    public var hProcess: HANDLE = 0L,
+    public var hProcess: Handle = null,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: HWND = 0L,
+    public var hwndParent: Hwnd = null,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
     public var rgbApplicationIdentity: UByteArray = UByteArray(16),
-    public var hSnapshot: HANDLE = 0L,
-    public var hDeleteFilesImpersonationToken: HANDLE = 0L,
-    public var submitResultMax: WER_SUBMIT_RESULT = 0,
+    public var hSnapshot: Handle = null,
+    public var hDeleteFilesImpersonationToken: Handle = null,
+    public var submitResultMax: WerSubmitResult = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_INFORMATION_V5) return false
+        if (other !is WerReportInformationV5) return false
         if (this.dwSize != other.dwSize) return false
         if (this.hProcess != other.hProcess) return false
         if (!this.wzConsentKey.contentEquals(other.wzConsentKey)) return false
@@ -359,119 +361,119 @@ public data class WER_REPORT_INFORMATION_V5(
     }
 }
 
-public data class WER_REPORT_METADATA_V1(
-    public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
-    public var BucketId: GUID = GUID(),
-    public var ReportId: GUID = GUID(),
-    public var CreationTime: FILETIME = FILETIME(),
-    public var SizeInBytes: ULong = 0uL,
+public data class WerReportMetadataV1(
+    public var signature: WerReportSignature = WerReportSignature(),
+    public var bucketId: Guid = Guid(),
+    public var reportId: Guid = Guid(),
+    public var creationTime: Filetime = Filetime(),
+    public var sizeInBytes: ULong = 0uL,
 )
 
-public data class WER_REPORT_METADATA_V2(
-    public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
-    public var BucketId: GUID = GUID(),
-    public var ReportId: GUID = GUID(),
-    public var CreationTime: FILETIME = FILETIME(),
-    public var SizeInBytes: ULong = 0uL,
-    public var CabId: UShortArray = UShortArray(260),
-    public var ReportStatus: UInt = 0u,
-    public var ReportIntegratorId: GUID = GUID(),
-    public var NumberOfFiles: UInt = 0u,
-    public var SizeOfFileNames: UInt = 0u,
-    public var FileNames: PWSTR = 0L,
+public data class WerReportMetadataV2(
+    public var signature: WerReportSignature = WerReportSignature(),
+    public var bucketId: Guid = Guid(),
+    public var reportId: Guid = Guid(),
+    public var creationTime: Filetime = Filetime(),
+    public var sizeInBytes: ULong = 0uL,
+    public var cabId: UShortArray = UShortArray(260),
+    public var reportStatus: UInt = 0u,
+    public var reportIntegratorId: Guid = Guid(),
+    public var numberOfFiles: UInt = 0u,
+    public var sizeOfFileNames: UInt = 0u,
+    public var fileNames: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_METADATA_V2) return false
-        if (this.Signature != other.Signature) return false
-        if (this.BucketId != other.BucketId) return false
-        if (this.ReportId != other.ReportId) return false
-        if (this.CreationTime != other.CreationTime) return false
-        if (this.SizeInBytes != other.SizeInBytes) return false
-        if (!this.CabId.contentEquals(other.CabId)) return false
-        if (this.ReportStatus != other.ReportStatus) return false
-        if (this.ReportIntegratorId != other.ReportIntegratorId) return false
-        if (this.NumberOfFiles != other.NumberOfFiles) return false
-        if (this.SizeOfFileNames != other.SizeOfFileNames) return false
-        if (this.FileNames != other.FileNames) return false
+        if (other !is WerReportMetadataV2) return false
+        if (this.signature != other.signature) return false
+        if (this.bucketId != other.bucketId) return false
+        if (this.reportId != other.reportId) return false
+        if (this.creationTime != other.creationTime) return false
+        if (this.sizeInBytes != other.sizeInBytes) return false
+        if (!this.cabId.contentEquals(other.cabId)) return false
+        if (this.reportStatus != other.reportStatus) return false
+        if (this.reportIntegratorId != other.reportIntegratorId) return false
+        if (this.numberOfFiles != other.numberOfFiles) return false
+        if (this.sizeOfFileNames != other.sizeOfFileNames) return false
+        if (this.fileNames != other.fileNames) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Signature.hashCode()
-        result = 31 * result + this.BucketId.hashCode()
-        result = 31 * result + this.ReportId.hashCode()
-        result = 31 * result + this.CreationTime.hashCode()
-        result = 31 * result + this.SizeInBytes.hashCode()
-        result = 31 * result + this.CabId.contentHashCode()
-        result = 31 * result + this.ReportStatus.hashCode()
-        result = 31 * result + this.ReportIntegratorId.hashCode()
-        result = 31 * result + this.NumberOfFiles.hashCode()
-        result = 31 * result + this.SizeOfFileNames.hashCode()
-        result = 31 * result + this.FileNames.hashCode()
+        var result = this.signature.hashCode()
+        result = 31 * result + this.bucketId.hashCode()
+        result = 31 * result + this.reportId.hashCode()
+        result = 31 * result + this.creationTime.hashCode()
+        result = 31 * result + this.sizeInBytes.hashCode()
+        result = 31 * result + this.cabId.contentHashCode()
+        result = 31 * result + this.reportStatus.hashCode()
+        result = 31 * result + this.reportIntegratorId.hashCode()
+        result = 31 * result + this.numberOfFiles.hashCode()
+        result = 31 * result + this.sizeOfFileNames.hashCode()
+        result = 31 * result + this.fileNames.hashCode()
         return result
     }
 }
 
-public class WER_REPORT_METADATA_V3(
-    public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
-    public var BucketId: GUID = GUID(),
-    public var ReportId: GUID = GUID(),
-    public var CreationTime: FILETIME = FILETIME(),
-    public var SizeInBytes: ULong = 0uL,
-    public var CabId: UShortArray = UShortArray(260),
-    public var ReportStatus: UInt = 0u,
-    public var ReportIntegratorId: GUID = GUID(),
-    public var NumberOfFiles: UInt = 0u,
-    public var SizeOfFileNames: UInt = 0u,
-    public var FileNames: PWSTR = 0L,
-    public var FriendlyEventName: UShortArray = UShortArray(128),
-    public var ApplicationName: UShortArray = UShortArray(128),
-    public var ApplicationPath: UShortArray = UShortArray(260),
-    public var Description: UShortArray = UShortArray(512),
-    public var BucketIdString: UShortArray = UShortArray(260),
-    public var LegacyBucketId: ULong = 0uL,
+public class WerReportMetadataV3(
+    public var signature: WerReportSignature = WerReportSignature(),
+    public var bucketId: Guid = Guid(),
+    public var reportId: Guid = Guid(),
+    public var creationTime: Filetime = Filetime(),
+    public var sizeInBytes: ULong = 0uL,
+    public var cabId: UShortArray = UShortArray(260),
+    public var reportStatus: UInt = 0u,
+    public var reportIntegratorId: Guid = Guid(),
+    public var numberOfFiles: UInt = 0u,
+    public var sizeOfFileNames: UInt = 0u,
+    public var fileNames: Pwstr = null,
+    public var friendlyEventName: UShortArray = UShortArray(128),
+    public var applicationName: UShortArray = UShortArray(128),
+    public var applicationPath: UShortArray = UShortArray(260),
+    public var description: UShortArray = UShortArray(512),
+    public var bucketIdString: UShortArray = UShortArray(260),
+    public var legacyBucketId: ULong = 0uL,
 )
 
-public data class WER_REPORT_PARAMETER(public var Name: UShortArray = UShortArray(129), public var Value: UShortArray = UShortArray(260)) {
+public data class WerReportParameter(public var name: UShortArray = UShortArray(129), public var value: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_PARAMETER) return false
-        if (!this.Name.contentEquals(other.Name)) return false
-        if (!this.Value.contentEquals(other.Value)) return false
+        if (other !is WerReportParameter) return false
+        if (!this.name.contentEquals(other.name)) return false
+        if (!this.value.contentEquals(other.value)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Name.contentHashCode()
-        result = 31 * result + this.Value.contentHashCode()
+        var result = this.name.contentHashCode()
+        result = 31 * result + this.value.contentHashCode()
         return result
     }
 }
 
-public data class WER_REPORT_SIGNATURE(public var EventName: UShortArray = UShortArray(65), public var Parameters: List<WER_REPORT_PARAMETER> = List(10) { WER_REPORT_PARAMETER() }) {
+public data class WerReportSignature(public var eventName: UShortArray = UShortArray(65), public var parameters: List<WerReportParameter> = List(10) { WerReportParameter() }) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WER_REPORT_SIGNATURE) return false
-        if (!this.EventName.contentEquals(other.EventName)) return false
-        if (this.Parameters != other.Parameters) return false
+        if (other !is WerReportSignature) return false
+        if (!this.eventName.contentEquals(other.eventName)) return false
+        if (this.parameters != other.parameters) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.EventName.contentHashCode()
-        result = 31 * result + this.Parameters.hashCode()
+        var result = this.eventName.contentHashCode()
+        result = 31 * result + this.parameters.hashCode()
         return result
     }
 }
 
-public data class WER_RUNTIME_EXCEPTION_INFORMATION(
+public data class WerRuntimeExceptionInformation(
     public var dwSize: UInt = 0u,
-    public var hProcess: HANDLE = 0L,
-    public var hThread: HANDLE = 0L,
-    public var exceptionRecord: EXCEPTION_RECORD = EXCEPTION_RECORD(),
-    public var context: CONTEXT = CONTEXT(),
-    public var pwszReportId: PCWSTR = 0L,
-    public var bIsFatal: BOOL = 0,
+    public var hProcess: Handle = null,
+    public var hThread: Handle = null,
+    public var exceptionRecord: ExceptionRecord = ExceptionRecord(),
+    public var context: Context = Context(),
+    public var pwszReportId: Pcwstr = null,
+    public var bIsFatal: Bool = 0,
     public var dwReserved: UInt = 0u,
 )

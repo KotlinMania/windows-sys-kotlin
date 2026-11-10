@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NcFreeNetconProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ncFreeNetconProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprops = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Nc
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NcIsValidConnectionName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ncIsValidConnectionName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszwname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -86,7 +86,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Nc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationDiagnoseConnectFailureAndGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationDiagnoseConnectFailureAndGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* netisoerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -106,7 +106,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumAppContainers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumAppContainers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwnumpublicappcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumerateAppContainerRules_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumerateAppContainerRules_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* newenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationFreeAppContainers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationFreeAppContainers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppublicappcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetAppContainerConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetAppContainerConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwnumpublicappcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* appcontainersids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -184,7 +184,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -210,7 +210,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hoperation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bwaitforoperation = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -230,7 +230,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationRegisterForAppContainerChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationRegisterForAppContainerChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetAppContainerConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetAppContainerConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwnumpublicappcs = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* appcontainersids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -274,7 +274,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetupAppContainerBinaries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetupAppContainerBinaries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* applicationcontainersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* packagefullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -304,7 +304,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationUnregisterForAppContainerChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationUnregisterForAppContainerChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* registrationobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -323,19 +323,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_Ne
 }
 
 static void register_windows_win32_networkmanagement_windowsfirewall_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NcFreeNetconProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NcFreeNetconProperties_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NcIsValidConnectionName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NcIsValidConnectionName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationDiagnoseConnectFailureAndGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationDiagnoseConnectFailureAndGetInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumAppContainers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumAppContainers_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumerateAppContainerRules", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationEnumerateAppContainerRules_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationFreeAppContainers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationFreeAppContainers_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetAppContainerConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetAppContainerConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdAsync", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdAsync_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationGetEnterpriseIdClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationRegisterForAppContainerChanges", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationRegisterForAppContainerChanges_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetAppContainerConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetAppContainerConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetupAppContainerBinaries", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationSetupAppContainerBinaries_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationUnregisterForAppContainerChanges", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_NetworkIsolationUnregisterForAppContainerChanges_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_ncFreeNetconProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_ncFreeNetconProperties_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_ncIsValidConnectionName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_ncIsValidConnectionName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationDiagnoseConnectFailureAndGetInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationDiagnoseConnectFailureAndGetInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumAppContainers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumAppContainers_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumerateAppContainerRules", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationEnumerateAppContainerRules_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationFreeAppContainers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationFreeAppContainers_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetAppContainerConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetAppContainerConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdAsync", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdAsync_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationGetEnterpriseIdClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationRegisterForAppContainerChanges", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationRegisterForAppContainerChanges_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetAppContainerConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetAppContainerConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetupAppContainerBinaries", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationSetupAppContainerBinaries_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationUnregisterForAppContainerChanges", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_windowsfirewall_networkIsolationUnregisterForAppContainerChanges_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_windowsfirewall_napi, nullptr };

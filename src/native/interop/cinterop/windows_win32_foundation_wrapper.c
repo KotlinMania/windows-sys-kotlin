@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_foundation_CloseHandle(void* hobject) {
+int32_t windowssys_windows_win32_foundation_closeHandle(void* hobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_foundation_CloseHandle(void* hobject) {
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_CompareObjectHandles(void* hfirstobjecthandle, void* hsecondobjecthandle) {
+int32_t windowssys_windows_win32_foundation_compareObjectHandles(void* hfirstobjecthandle, void* hsecondobjecthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_foundation_CompareObjectHandles(void* hfirstobj
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_DuplicateHandle(void* hsourceprocesshandle, void* hsourcehandle, void* htargetprocesshandle, void* lptargethandle, uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwoptions) {
+int32_t windowssys_windows_win32_foundation_duplicateHandle(void* hsourceprocesshandle, void* hsourcehandle, void* htargetprocesshandle, void* lptargethandle, uint32_t dwdesiredaccess, int32_t binherithandle, uint32_t dwoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_win32_foundation_DuplicateHandle(void* hsourceprocess
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_FreeLibrary(void* hlibmodule) {
+int32_t windowssys_windows_win32_foundation_freeLibrary(void* hlibmodule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_foundation_FreeLibrary(void* hlibmodule) {
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_GetHandleInformation(void* hobject, void* lpdwflags) {
+int32_t windowssys_windows_win32_foundation_getHandleInformation(void* hobject, void* lpdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_foundation_GetHandleInformation(void* hobject, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_foundation_GetLastError(void) {
+uint32_t windowssys_windows_win32_foundation_getLastError(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ uint32_t windowssys_windows_win32_foundation_GetLastError(void) {
 #endif
 }
 
-void* windowssys_windows_win32_foundation_GlobalFree(void* hmem) {
+void* windowssys_windows_win32_foundation_globalFree(void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ void* windowssys_windows_win32_foundation_GlobalFree(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_foundation_LocalFree(void* hmem) {
+void* windowssys_windows_win32_foundation_localFree(void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ void* windowssys_windows_win32_foundation_LocalFree(void* hmem) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_foundation_RtlNtStatusToDosError(int32_t status) {
+uint32_t windowssys_windows_win32_foundation_rtlNtStatusToDosError(int32_t status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ uint32_t windowssys_windows_win32_foundation_RtlNtStatusToDosError(int32_t statu
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_SetHandleInformation(void* hobject, uint32_t dwmask, uint32_t dwflags) {
+int32_t windowssys_windows_win32_foundation_setHandleInformation(void* hobject, uint32_t dwmask, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ int32_t windowssys_windows_win32_foundation_SetHandleInformation(void* hobject, 
 #endif
 }
 
-void windowssys_windows_win32_foundation_SetLastError(uint32_t dwerrcode) {
+void windowssys_windows_win32_foundation_setLastError(uint32_t dwerrcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ void windowssys_windows_win32_foundation_SetLastError(uint32_t dwerrcode) {
 #endif
 }
 
-void windowssys_windows_win32_foundation_SetLastErrorEx(uint32_t dwerrcode, uint32_t dwtype) {
+void windowssys_windows_win32_foundation_setLastErrorEx(uint32_t dwerrcode, uint32_t dwtype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ void windowssys_windows_win32_foundation_SetLastErrorEx(uint32_t dwerrcode, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_SysAddRefString(void* bstrstring) {
+int32_t windowssys_windows_win32_foundation_sysAddRefString(void* bstrstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ int32_t windowssys_windows_win32_foundation_SysAddRefString(void* bstrstring) {
 #endif
 }
 
-void* windowssys_windows_win32_foundation_SysAllocString(void* psz) {
+void* windowssys_windows_win32_foundation_sysAllocString(void* psz) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ void* windowssys_windows_win32_foundation_SysAllocString(void* psz) {
 #endif
 }
 
-void* windowssys_windows_win32_foundation_SysAllocStringByteLen(void* psz, uint32_t len) {
+void* windowssys_windows_win32_foundation_sysAllocStringByteLen(void* psz, uint32_t len) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ void* windowssys_windows_win32_foundation_SysAllocStringByteLen(void* psz, uint3
 #endif
 }
 
-void* windowssys_windows_win32_foundation_SysAllocStringLen(void* strin, uint32_t ui) {
+void* windowssys_windows_win32_foundation_sysAllocStringLen(void* strin, uint32_t ui) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -377,7 +377,7 @@ void* windowssys_windows_win32_foundation_SysAllocStringLen(void* strin, uint32_
 #endif
 }
 
-void windowssys_windows_win32_foundation_SysFreeString(void* bstrstring) {
+void windowssys_windows_win32_foundation_sysFreeString(void* bstrstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ void windowssys_windows_win32_foundation_SysFreeString(void* bstrstring) {
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_SysReAllocString(void* pbstr, void* psz) {
+int32_t windowssys_windows_win32_foundation_sysReAllocString(void* pbstr, void* psz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_foundation_SysReAllocString(void* pbstr, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_foundation_SysReAllocStringLen(void* pbstr, void* psz, uint32_t len) {
+int32_t windowssys_windows_win32_foundation_sysReAllocStringLen(void* pbstr, void* psz, uint32_t len) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ int32_t windowssys_windows_win32_foundation_SysReAllocStringLen(void* pbstr, voi
 #endif
 }
 
-void windowssys_windows_win32_foundation_SysReleaseString(void* bstrstring) {
+void windowssys_windows_win32_foundation_sysReleaseString(void* bstrstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -466,7 +466,7 @@ void windowssys_windows_win32_foundation_SysReleaseString(void* bstrstring) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_foundation_SysStringByteLen(void* bstr) {
+uint32_t windowssys_windows_win32_foundation_sysStringByteLen(void* bstr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -488,7 +488,7 @@ uint32_t windowssys_windows_win32_foundation_SysStringByteLen(void* bstr) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_foundation_SysStringLen(void* pbstr) {
+uint32_t windowssys_windows_win32_foundation_sysStringLen(void* pbstr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

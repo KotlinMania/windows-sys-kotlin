@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1ApplicationRecoveryFinished(JNIEnv* km_env, jclass km_clazz, jint bsuccess) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1applicationRecoveryFinished(JNIEnv* km_env, jclass km_clazz, jint bsuccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1ApplicationRecoveryInProgress(JNIEnv* km_env, jclass km_clazz, jlong pbcancelled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1applicationRecoveryInProgress(JNIEnv* km_env, jclass km_clazz, jlong pbcancelled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1GetApplicationRecoveryCallback(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong precoverycallback, jlong ppvparameter, jlong pdwpinginterval, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1getApplicationRecoveryCallback(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong precoverycallback, jlong ppvparameter, jlong pdwpinginterval, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1GetApplicationRestartSettings(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pwzcommandline, jlong pcchsize, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1getApplicationRestartSettings(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pwzcommandline, jlong pcchsize, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,28 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1RegisterApplicationRestart(JNIEnv* km_env, jclass km_clazz, jlong pwzcommandline, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1registerApplicationRecoveryCallback(JNIEnv* km_env, jclass km_clazz, jlong precoveycallback, jlong pvparameter, jint dwpinginterval, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterApplicationRecoveryCallback");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precoveycallback, (void*)(uintptr_t)pvparameter, (uint32_t)dwpinginterval, (uint32_t)dwflags) : -1;
+#else
+    (void)precoveycallback;
+    (void)pvparameter;
+    (void)dwpinginterval;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1registerApplicationRestart(JNIEnv* km_env, jclass km_clazz, jlong pwzcommandline, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1UnregisterApplicationRecoveryCallback(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1unregisterApplicationRecoveryCallback(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1UnregisterApplicationRestart(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_recovery_WindowsWin32SystemRecoveryJniBridge_windowssys_1windows_1win32_1system_1recovery_1unregisterApplicationRestart(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

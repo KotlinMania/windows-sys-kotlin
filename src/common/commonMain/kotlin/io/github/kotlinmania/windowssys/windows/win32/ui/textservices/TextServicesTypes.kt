@@ -1,28 +1,28 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 
-public typealias ANCHOR_CHANGE_HISTORY_FLAGS = UInt
+public typealias AnchorChangeHistoryFlags = UInt
 
-public typealias GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = UInt
+public typealias GetTextAndPropertyUpdatesFlags = UInt
 
-public typealias INSERT_TEXT_AT_SELECTION_FLAGS = UInt
+public typealias InsertTextAtSelectionFlags = UInt
 
 public typealias InputScope = Int
 
-public typealias LANG_BAR_ITEM_ICON_MODE_FLAGS = UInt
+public typealias LangBarItemIconModeFlags = UInt
 
-public typealias TEXT_STORE_CHANGE_FLAGS = UInt
+public typealias TextStoreChangeFlags = UInt
 
-public typealias TEXT_STORE_LOCK_FLAGS = UInt
+public typealias TextStoreLockFlags = UInt
 
-public typealias TEXT_STORE_TEXT_CHANGE_FLAGS = UInt
+public typealias TextStoreTextChangeFlags = UInt
 
-public typealias TF_CONTEXT_EDIT_CONTEXT_FLAGS = UInt
+public typealias TfContextEditContextFlags = UInt
 
-public typealias TF_DA_ATTR_INFO = Int
+public typealias TfDaAttrInfo = Int
 
-public typealias TF_DA_COLORTYPE = Int
+public typealias TfDaColortype = Int
 
-public typealias TF_DA_LINESTYLE = Int
+public typealias TfDaLinestyle = Int
 
 public typealias TKBLayoutType = Int
 

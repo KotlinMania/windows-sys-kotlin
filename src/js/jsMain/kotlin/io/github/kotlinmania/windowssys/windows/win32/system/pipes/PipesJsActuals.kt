@@ -2,79 +2,80 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.pipes
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
 
 private val _windowsWin32SystemPipesNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CallNamedPipeA(lpnamedpipename: PCSTR, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, ntimeout: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_CallNamedPipeA(lpnamedpipename.toString(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesread.toString(), ntimeout.toInt()) as Int) else 0
+public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_callNamedPipeA((lpnamedpipename?.value ?: 0L).toString(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L).toString(), ntimeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallNamedPipeW(lpnamedpipename: PCWSTR, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, ntimeout: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_CallNamedPipeW(lpnamedpipename.toString(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesread.toString(), ntimeout.toInt()) as Int) else 0
+public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_callNamedPipeW((lpnamedpipename?.value ?: 0L).toString(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L).toString(), ntimeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConnectNamedPipe(hnamedpipe: HANDLE, lpoverlapped: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_ConnectNamedPipe(hnamedpipe.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_connectNamedPipe((hnamedpipe?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateNamedPipeA(lpname: PCSTR, dwopenmode: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_CreateNamedPipeA(lpname.toString(), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes.toString()) as String).toLong() else 0L
+public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_createNamedPipeA((lpname?.value ?: 0L).toString(), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateNamedPipeW(lpname: PCWSTR, dwopenmode: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_CreateNamedPipeW(lpname.toString(), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes.toString()) as String).toLong() else 0L
+public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_createNamedPipeW((lpname?.value ?: 0L).toString(), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePipe(hreadpipe: Long, hwritepipe: Long, lppipeattributes: Long, nsize: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_CreatePipe(hreadpipe.toString(), hwritepipe.toString(), lppipeattributes.toString(), nsize.toInt()) as Int) else 0
+public actual fun createPipe(hreadpipe: COpaquePointer?, hwritepipe: COpaquePointer?, lppipeattributes: COpaquePointer?, nsize: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_createPipe((hreadpipe?.value ?: 0L).toString(), (hwritepipe?.value ?: 0L).toString(), (lppipeattributes?.value ?: 0L).toString(), nsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisconnectNamedPipe(hnamedpipe: HANDLE): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_DisconnectNamedPipe(hnamedpipe.toString()) as Int) else 0
+public actual fun disconnectNamedPipe(hnamedpipe: Handle): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_disconnectNamedPipe((hnamedpipe?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeClientComputerNameA(pipe: HANDLE, clientcomputername: PSTR, clientcomputernamelength: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameA(pipe.toString(), clientcomputername.toString(), clientcomputernamelength.toInt()) as Int) else 0
+public actual fun getNamedPipeClientComputerNameA(pipe: Handle, clientcomputername: Pstr, clientcomputernamelength: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA((pipe?.value ?: 0L).toString(), (clientcomputername?.value ?: 0L).toString(), clientcomputernamelength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeClientComputerNameW(pipe: HANDLE, clientcomputername: PWSTR, clientcomputernamelength: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameW(pipe.toString(), clientcomputername.toString(), clientcomputernamelength.toInt()) as Int) else 0
+public actual fun getNamedPipeClientComputerNameW(pipe: Handle, clientcomputername: Pwstr, clientcomputernamelength: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW((pipe?.value ?: 0L).toString(), (clientcomputername?.value ?: 0L).toString(), clientcomputernamelength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeClientProcessId(pipe: HANDLE, clientprocessid: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeClientProcessId(pipe.toString(), clientprocessid.toString()) as Int) else 0
+public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId((pipe?.value ?: 0L).toString(), (clientprocessid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeClientSessionId(pipe: HANDLE, clientsessionid: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeClientSessionId(pipe.toString(), clientsessionid.toString()) as Int) else 0
+public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId((pipe?.value ?: 0L).toString(), (clientsessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeHandleStateA(hnamedpipe: HANDLE, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: PSTR, nmaxusernamesize: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateA(hnamedpipe.toString(), lpstate.toString(), lpcurinstances.toString(), lpmaxcollectioncount.toString(), lpcollectdatatimeout.toString(), lpusername.toString(), nmaxusernamesize.toInt()) as Int) else 0
+public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA((hnamedpipe?.value ?: 0L).toString(), (lpstate?.value ?: 0L).toString(), (lpcurinstances?.value ?: 0L).toString(), (lpmaxcollectioncount?.value ?: 0L).toString(), (lpcollectdatatimeout?.value ?: 0L).toString(), (lpusername?.value ?: 0L).toString(), nmaxusernamesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeHandleStateW(hnamedpipe: HANDLE, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: PWSTR, nmaxusernamesize: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateW(hnamedpipe.toString(), lpstate.toString(), lpcurinstances.toString(), lpmaxcollectioncount.toString(), lpcollectdatatimeout.toString(), lpusername.toString(), nmaxusernamesize.toInt()) as Int) else 0
+public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW((hnamedpipe?.value ?: 0L).toString(), (lpstate?.value ?: 0L).toString(), (lpcurinstances?.value ?: 0L).toString(), (lpmaxcollectioncount?.value ?: 0L).toString(), (lpcollectdatatimeout?.value ?: 0L).toString(), (lpusername?.value ?: 0L).toString(), nmaxusernamesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeInfo(hnamedpipe: HANDLE, lpflags: Long, lpoutbuffersize: Long, lpinbuffersize: Long, lpmaxinstances: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeInfo(hnamedpipe.toString(), lpflags.toString(), lpoutbuffersize.toString(), lpinbuffersize.toString(), lpmaxinstances.toString()) as Int) else 0
+public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: COpaquePointer?, lpoutbuffersize: COpaquePointer?, lpinbuffersize: COpaquePointer?, lpmaxinstances: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeInfo((hnamedpipe?.value ?: 0L).toString(), (lpflags?.value ?: 0L).toString(), (lpoutbuffersize?.value ?: 0L).toString(), (lpinbuffersize?.value ?: 0L).toString(), (lpmaxinstances?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeServerProcessId(pipe: HANDLE, serverprocessid: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeServerProcessId(pipe.toString(), serverprocessid.toString()) as Int) else 0
+public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId((pipe?.value ?: 0L).toString(), (serverprocessid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedPipeServerSessionId(pipe: HANDLE, serversessionid: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_GetNamedPipeServerSessionId(pipe.toString(), serversessionid.toString()) as Int) else 0
+public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId((pipe?.value ?: 0L).toString(), (serversessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonateNamedPipeClient(hnamedpipe: HANDLE): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_ImpersonateNamedPipeClient(hnamedpipe.toString()) as Int) else 0
+public actual fun impersonateNamedPipeClient(hnamedpipe: Handle): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_impersonateNamedPipeClient((hnamedpipe?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeekNamedPipe(hnamedpipe: HANDLE, lpbuffer: Long, nbuffersize: UInt, lpbytesread: Long, lptotalbytesavail: Long, lpbytesleftthismessage: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_PeekNamedPipe(hnamedpipe.toString(), lpbuffer.toString(), nbuffersize.toInt(), lpbytesread.toString(), lptotalbytesavail.toString(), lpbytesleftthismessage.toString()) as Int) else 0
+public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: COpaquePointer?, nbuffersize: UInt, lpbytesread: COpaquePointer?, lptotalbytesavail: COpaquePointer?, lpbytesleftthismessage: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_peekNamedPipe((hnamedpipe?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nbuffersize.toInt(), (lpbytesread?.value ?: 0L).toString(), (lptotalbytesavail?.value ?: 0L).toString(), (lpbytesleftthismessage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetNamedPipeHandleState(hnamedpipe: HANDLE, lpmode: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_SetNamedPipeHandleState(hnamedpipe.toString(), lpmode.toString(), lpmaxcollectioncount.toString(), lpcollectdatatimeout.toString()) as Int) else 0
+public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_setNamedPipeHandleState((hnamedpipe?.value ?: 0L).toString(), (lpmode?.value ?: 0L).toString(), (lpmaxcollectioncount?.value ?: 0L).toString(), (lpcollectdatatimeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TransactNamedPipe(hnamedpipe: HANDLE, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_TransactNamedPipe(hnamedpipe.toString(), lpinbuffer.toString(), ninbuffersize.toInt(), lpoutbuffer.toString(), noutbuffersize.toInt(), lpbytesread.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_transactNamedPipe((hnamedpipe?.value ?: 0L).toString(), (lpinbuffer?.value ?: 0L).toString(), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L).toString(), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitNamedPipeA(lpnamedpipename: PCSTR, ntimeout: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_WaitNamedPipeA(lpnamedpipename.toString(), ntimeout.toInt()) as Int) else 0
+public actual fun waitNamedPipeA(lpnamedpipename: Pcstr, ntimeout: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_waitNamedPipeA((lpnamedpipename?.value ?: 0L).toString(), ntimeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitNamedPipeW(lpnamedpipename: PCWSTR, ntimeout: UInt): BOOL =
-    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_WaitNamedPipeW(lpnamedpipename.toString(), ntimeout.toInt()) as Int) else 0
+public actual fun waitNamedPipeW(lpnamedpipename: Pcwstr, ntimeout: UInt): Bool =
+    if (_windowsWin32SystemPipesNapiAddon != null) (_windowsWin32SystemPipesNapiAddon.windowssys_windows_win32_system_pipes_waitNamedPipeW((lpnamedpipename?.value ?: 0L).toString(), ntimeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

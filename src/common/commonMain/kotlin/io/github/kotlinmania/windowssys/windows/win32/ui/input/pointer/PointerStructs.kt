@@ -1,76 +1,76 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
-public data class INPUT_INJECTION_VALUE(
+public data class InputInjectionValue(
     public var page: UShort = 0u,
     public var usage: UShort = 0u,
     public var value: Int = 0,
     public var index: UShort = 0u,
 )
 
-public data class INPUT_TRANSFORM(public var Anonymous: INPUT_TRANSFORM_0 = INPUT_TRANSFORM_0())
+public data class InputTransform(public var anonymous: InputTransform0 = InputTransform0())
 
-public data class INPUT_TRANSFORM_0(public var Anonymous: INPUT_TRANSFORM_0_0 = INPUT_TRANSFORM_0_0(), public var m: FloatArray = FloatArray(16)) {
+public data class InputTransform0(public var anonymous: InputTransform00 = InputTransform00(), public var m: FloatArray = FloatArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INPUT_TRANSFORM_0) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is InputTransform0) return false
+        if (this.anonymous != other.anonymous) return false
         if (!this.m.contentEquals(other.m)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Anonymous.hashCode()
+        var result = this.anonymous.hashCode()
         result = 31 * result + this.m.contentHashCode()
         return result
     }
 }
 
-public data class INPUT_TRANSFORM_0_0(
-    public var _11: Float = 0.0f,
-    public var _12: Float = 0.0f,
-    public var _13: Float = 0.0f,
-    public var _14: Float = 0.0f,
-    public var _21: Float = 0.0f,
-    public var _22: Float = 0.0f,
-    public var _23: Float = 0.0f,
-    public var _24: Float = 0.0f,
-    public var _31: Float = 0.0f,
-    public var _32: Float = 0.0f,
-    public var _33: Float = 0.0f,
-    public var _34: Float = 0.0f,
-    public var _41: Float = 0.0f,
-    public var _42: Float = 0.0f,
-    public var _43: Float = 0.0f,
-    public var _44: Float = 0.0f,
+public data class InputTransform00(
+    public var v11: Float = 0.0f,
+    public var v12: Float = 0.0f,
+    public var v13: Float = 0.0f,
+    public var v14: Float = 0.0f,
+    public var v21: Float = 0.0f,
+    public var v22: Float = 0.0f,
+    public var v23: Float = 0.0f,
+    public var v24: Float = 0.0f,
+    public var v31: Float = 0.0f,
+    public var v32: Float = 0.0f,
+    public var v33: Float = 0.0f,
+    public var v34: Float = 0.0f,
+    public var v41: Float = 0.0f,
+    public var v42: Float = 0.0f,
+    public var v43: Float = 0.0f,
+    public var v44: Float = 0.0f,
 )
 
-public data class POINTER_INFO(
-    public var pointerType: POINTER_INPUT_TYPE = 0,
+public data class PointerInfo(
+    public var pointerType: PointerInputType = 0,
     public var pointerId: UInt = 0u,
     public var frameId: UInt = 0u,
-    public var pointerFlags: POINTER_FLAGS = 0u,
-    public var sourceDevice: HANDLE = 0L,
-    public var hwndTarget: HWND = 0L,
-    public var ptPixelLocation: POINT = POINT(),
-    public var ptHimetricLocation: POINT = POINT(),
-    public var ptPixelLocationRaw: POINT = POINT(),
-    public var ptHimetricLocationRaw: POINT = POINT(),
+    public var pointerFlags: PointerFlags = 0u,
+    public var sourceDevice: Handle = null,
+    public var hwndTarget: Hwnd = null,
+    public var ptPixelLocation: Point = Point(),
+    public var ptHimetricLocation: Point = Point(),
+    public var ptPixelLocationRaw: Point = Point(),
+    public var ptHimetricLocationRaw: Point = Point(),
     public var dwTime: UInt = 0u,
     public var historyCount: UInt = 0u,
-    public var InputData: Int = 0,
+    public var inputData: Int = 0,
     public var dwKeyStates: UInt = 0u,
-    public var PerformanceCount: ULong = 0uL,
-    public var ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE = 0,
+    public var performanceCount: ULong = 0uL,
+    public var buttonChangeType: PointerButtonChangeType = 0,
 )
 
-public data class POINTER_PEN_INFO(
-    public var pointerInfo: POINTER_INFO = POINTER_INFO(),
+public data class PointerPenInfo(
+    public var pointerInfo: PointerInfo = PointerInfo(),
     public var penFlags: UInt = 0u,
     public var penMask: UInt = 0u,
     public var pressure: UInt = 0u,
@@ -79,12 +79,12 @@ public data class POINTER_PEN_INFO(
     public var tiltY: Int = 0,
 )
 
-public data class POINTER_TOUCH_INFO(
-    public var pointerInfo: POINTER_INFO = POINTER_INFO(),
+public data class PointerTouchInfo(
+    public var pointerInfo: PointerInfo = PointerInfo(),
     public var touchFlags: UInt = 0u,
     public var touchMask: UInt = 0u,
-    public var rcContact: RECT = RECT(),
-    public var rcContactRaw: RECT = RECT(),
+    public var rcContact: Rect = Rect(),
+    public var rcContactRaw: Rect = Rect(),
     public var orientation: UInt = 0u,
     public var pressure: UInt = 0u,
 )

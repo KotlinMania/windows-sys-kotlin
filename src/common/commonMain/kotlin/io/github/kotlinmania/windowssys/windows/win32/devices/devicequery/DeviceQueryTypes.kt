@@ -1,19 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 
-public typealias DEVPROP_OPERATOR = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias DEV_OBJECT_TYPE = Int
+public typealias DevpropOperator = UInt
 
-public typealias DEV_QUERY_FLAGS = Int
+public typealias DevObjectType = Int
 
-public typealias DEV_QUERY_RESULT_ACTION = Int
+public typealias DevQueryFlags = Int
 
-public typealias DEV_QUERY_STATE = Int
+public typealias DevQueryResultAction = Int
 
-public typealias HDEVQUERY = Long
+public typealias DevQueryState = Int
 
-public fun interface PDEV_QUERY_RESULT_CALLBACKFn {
-    public operator fun invoke(hdevquery: HDEVQUERY, pcontext: Long, pactiondata: Long)
+public typealias Hdevquery = COpaquePointer?
+
+public fun interface PdevQueryResultCallbackFn {
+    public operator fun invoke(hdevquery: Hdevquery, pcontext: COpaquePointer?, pactiondata: COpaquePointer?)
 }
 
-public typealias PDEV_QUERY_RESULT_CALLBACK = PDEV_QUERY_RESULT_CALLBACKFn?
+public typealias PdevQueryResultCallback = PdevQueryResultCallbackFn?

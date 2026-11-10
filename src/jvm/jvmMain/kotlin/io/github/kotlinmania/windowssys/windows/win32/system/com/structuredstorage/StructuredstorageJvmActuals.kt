@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.com.CLSCTX
-import io.github.kotlinmania.windowssys.windows.win32.system.com.STGM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.PSTIME_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 private object WindowsWin32SystemComStructuredstorageJniBridge {
     init {
@@ -20,747 +21,747 @@ private object WindowsWin32SystemComStructuredstorageJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_ClearPropVariantArray(rgpropvar: Long, cvars: Int)
+    external fun windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray(rgpropvar: Long, cvars: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromFile(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: Int, grfmode: Int, pwszname: Long, dwcount: Int, presults: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: Int, grfmode: Int, pwszname: Long, dwcount: Int, presults: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromIStorage(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: Int, pstg: Long, dwcount: Int, presults: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: Int, pstg: Long, dwcount: Int, presults: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_CoGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_CreateILockBytesOnHGlobal(hglobal: Long, fdeleteonrelease: Int, pplkbyt: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal(hglobal: Long, fdeleteonrelease: Int, pplkbyt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_CreateStreamOnHGlobal(hglobal: Long, fdeleteonrelease: Int, ppstm: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal(hglobal: Long, fdeleteonrelease: Int, ppstm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_FmtIdToPropStgName(pfmtid: Long, oszname: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName(pfmtid: Long, oszname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_FreePropVariantArray(cvariants: Int, rgvars: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray(cvariants: Int, rgvars: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_GetConvertStg(pstg: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_getConvertStg(pstg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromILockBytes(plkbyt: Long, phglobal: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes(plkbyt: Long, phglobal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromStream(pstm: Long, phglobal: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream(pstm: Long, phglobal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBooleanVector(prgf: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector(prgf: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBuffer(pv: Long, cb: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer(pv: Long, cb: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromCLSID(clsid: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID(clsid: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromDoubleVector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTime(pftin: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime(pftin: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTimeVector(prgft: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector(prgft: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromGUIDAsString(guid: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString(guid: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt16Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt32Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt64Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromResource(hinst: Long, id: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource(hinst: Long, id: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringAsVector(psz: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector(psz: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringVector(prgsz: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector(prgsz: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt16Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt32Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt64Vector(prgn: Long, celems: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector(prgn: Long, celems: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_InitPropVariantVectorFromPropVariant(propvarsingle: Long, ppropvarvector: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant(propvarsingle: Long, ppropvarvector: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAM(pstg: Long, lpolestream: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM(pstg: Long, lpolestream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAMEx(pstg: Long, cfformat: Short, lwidth: Int, lheight: Int, dwsize: Int, pmedium: Long, polestm: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx(pstg: Long, cfformat: Short, lwidth: Int, lheight: Int, dwsize: Int, pmedium: Long, polestm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorage(lpolestream: Long, pstg: Long, ptd: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage(lpolestream: Long, pstg: Long, ptd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorageEx(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropStgNameToFmtId(oszname: Long, pfmtid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId(oszname: Long, pfmtid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: Int, vt: Short): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: Int, vt: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantClear(pvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantClear(pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantCompareEx(propvar1: Long, propvar2: Long, unit: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx(propvar1: Long, propvar2: Long, unit: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantCopy(pvardest: Long, pvarsrc: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantCopy(pvardest: Long, pvarsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetBooleanElem(propvar: Long, ielem: Int, pfval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem(propvar: Long, ielem: Int, pfval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetDoubleElem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetElementCount(propvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount(propvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetFileTimeElem(propvar: Long, ielem: Int, pftval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem(propvar: Long, ielem: Int, pftval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt16Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt32Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt64Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetStringElem(propvar: Long, ielem: Int, ppszval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem(propvar: Long, ielem: Int, ppszval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt16Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt32Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt64Elem(propvar: Long, ielem: Int, pnval: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem(propvar: Long, ielem: Int, pnval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBSTR(propvar: Long, pbstrout: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR(propvar: Long, pbstrout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoolean(propvarin: Long, pfret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean(propvarin: Long, pfret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVector(propvar: Long, prgf: Long, crgf: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector(propvar: Long, prgf: Long, crgf: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVectorAlloc(propvar: Long, pprgf: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc(propvar: Long, pprgf: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanWithDefault(propvarin: Long, fdefault: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault(propvarin: Long, fdefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToBuffer(propvar: Long, pv: Long, cb: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer(propvar: Long, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToDouble(propvarin: Long, pdblret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble(propvarin: Long, pdblret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): Double
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): Double
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTime(propvar: Long, pstfout: Int, pftout: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime(propvar: Long, pstfout: Int, pftout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVectorAlloc(propvar: Long, pprgft: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc(propvar: Long, pprgft: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToGUID(propvar: Long, pguid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID(propvar: Long, pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16(propvarin: Long, piret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16(propvarin: Long, piret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16WithDefault(propvarin: Long, idefault: Short): Short
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault(propvarin: Long, idefault: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32(propvarin: Long, plret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32(propvarin: Long, plret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32WithDefault(propvarin: Long, ldefault: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault(propvarin: Long, ldefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64(propvarin: Long, pllret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64(propvarin: Long, pllret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64WithDefault(propvarin: Long, lldefault: Long): Long
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault(propvarin: Long, lldefault: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToString(propvar: Long, psz: Long, cch: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToString(propvar: Long, psz: Long, cch: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringAlloc(propvar: Long, ppszout: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc(propvar: Long, ppszout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVector(propvar: Long, prgsz: Long, crgsz: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector(propvar: Long, prgsz: Long, crgsz: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVectorAlloc(propvar: Long, pprgsz: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc(propvar: Long, pprgsz: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringWithDefault(propvarin: Long, pszdefault: Long): Long
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault(propvarin: Long, pszdefault: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16(propvarin: Long, puiret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16(propvarin: Long, puiret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16WithDefault(propvarin: Long, uidefault: Short): Short
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault(propvarin: Long, uidefault: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32(propvarin: Long, pulret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32(propvarin: Long, pulret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32WithDefault(propvarin: Long, uldefault: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault(propvarin: Long, uldefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64(propvarin: Long, pullret: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64(propvarin: Long, pullret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector(propvar: Long, prgn: Long, crgn: Int, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64WithDefault(propvarin: Long, ulldefault: Long): Long
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault(propvarin: Long, ulldefault: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToVariant(ppropvar: Long, pvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant(ppropvar: Long, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_PropVariantToWinRTPropertyValue(propvar: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue(propvar: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_ReadClassStg(pstg: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_readClassStg(pstg: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_ReadClassStm(pstm: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_readClassStm(pstm: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_ReadFmtUserTypeStg(pstg: Long, pcf: Long, lplpszusertype: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg(pstg: Long, pcf: Long, lplpszusertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_SetConvertStg(pstg: Long, fconvert: Int): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_setConvertStg(pstg: Long, fconvert: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgConvertPropertyToVariant(pprop: Long, codepage: Short, pvar: Long, pma: Long): Boolean
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant(pprop: Long, codepage: Short, pvar: Long, pma: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgConvertVariantToProperty(pvar: Long, codepage: Short, pprop: Long, pcb: Long, pid: Int, freserved: Boolean, pcindirect: Long): Long
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty(pvar: Long, codepage: Short, pprop: Long, pcb: Long, pid: Int, freserved: Boolean, pcindirect: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfile(pwcsname: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile(pwcsname: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfileOnILockBytes(plkbyt: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes(plkbyt: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgCreatePropSetStg(pstorage: Long, dwreserved: Int, pppropsetstg: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg(pstorage: Long, dwreserved: Int, pppropsetstg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: Int, dwreserved: Int, pppropstg: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: Int, dwreserved: Int, pppropstg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgCreateStorageEx(pwcsname: Long, grfmode: Int, stgfmt: Int, grfattrs: Int, pstgoptions: Long, psecuritydescriptor: Long, riid: Long, ppobjectopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx(pwcsname: Long, grfmode: Int, stgfmt: Int, grfattrs: Int, pstgoptions: Long, psecuritydescriptor: Long, riid: Long, ppobjectopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgDeserializePropVariant(pprop: Long, cbmax: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant(pprop: Long, cbmax: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnFile(pwcsname: Long, ppflb: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile(pwcsname: Long, ppflb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnILockBytes(pilb: Long, ppflb: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes(pilb: Long, ppflb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgIsStorageFile(pwcsname: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile(pwcsname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgIsStorageILockBytes(plkbyt: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes(plkbyt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenAsyncDocfileOnIFillLockBytes(pflb: Long, grfmode: Int, asyncflags: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes(pflb: Long, grfmode: Int, asyncflags: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenLayoutDocfile(pwcsdfname: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile(pwcsdfname: Long, grfmode: Int, reserved: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenPropStg(punk: Long, fmtid: Long, grfflags: Int, dwreserved: Int, pppropstg: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg(punk: Long, fmtid: Long, grfflags: Int, dwreserved: Int, pppropstg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenStorage(pwcsname: Long, pstgpriority: Long, grfmode: Int, snbexclude: Long, reserved: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage(pwcsname: Long, pstgpriority: Long, grfmode: Int, snbexclude: Long, reserved: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageEx(pwcsname: Long, grfmode: Int, stgfmt: Int, grfattrs: Int, pstgoptions: Long, psecuritydescriptor: Long, riid: Long, ppobjectopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx(pwcsname: Long, grfmode: Int, stgfmt: Int, grfattrs: Int, pstgoptions: Long, psecuritydescriptor: Long, riid: Long, ppobjectopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: Int, snbexclude: Long, reserved: Int, ppstgopen: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: Int, snbexclude: Long, reserved: Int, ppstgopen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgPropertyLengthAsVariant(pprop: Long, cbprop: Int, codepage: Short, breserved: Byte): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant(pprop: Long, cbprop: Int, codepage: Short, breserved: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgSerializePropVariant(ppropvar: Long, ppprop: Long, pcb: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant(ppropvar: Long, ppprop: Long, pcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_StgSetTimes(lpszname: Long, pctime: Long, patime: Long, pmtime: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_stgSetTimes(lpszname: Long, pctime: Long, patime: Long, pmtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_VariantToPropVariant(pvar: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant(pvar: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_WinRTPropertyValueToPropVariant(punkpropertyvalue: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant(punkpropertyvalue: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_WriteClassStg(pstg: Long, rclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_writeClassStg(pstg: Long, rclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_WriteClassStm(pstm: Long, rclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_writeClassStm(pstm: Long, rclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_structuredstorage_WriteFmtUserTypeStg(pstg: Long, cf: Short, lpszusertype: Long): Int
+    external fun windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg(pstg: Long, cf: Short, lpszusertype: Long): Int
 }
 
-public actual fun ClearPropVariantArray(rgpropvar: Long, cvars: UInt) {
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_ClearPropVariantArray(rgpropvar, cvars.toInt())
+public actual fun clearPropVariantArray(rgpropvar: COpaquePointer?, cvars: UInt) {
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray((rgpropvar?.value ?: 0L), cvars.toInt())
 }
 
-public actual fun CoGetInstanceFromFile(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, grfmode: UInt, pwszname: PCWSTR, dwcount: UInt, presults: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromFile(pserverinfo, pclsid, punkouter, dwclsctx.toInt(), grfmode.toInt(), pwszname, dwcount.toInt(), presults)
+public actual fun coGetInstanceFromFile(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, grfmode: UInt, pwszname: Pcwstr, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile((pserverinfo?.value ?: 0L), (pclsid?.value ?: 0L), (punkouter?.value ?: 0L), dwclsctx.toInt(), grfmode.toInt(), (pwszname?.value ?: 0L), dwcount.toInt(), (presults?.value ?: 0L))
 
-public actual fun CoGetInstanceFromIStorage(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, pstg: Long, dwcount: UInt, presults: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromIStorage(pserverinfo, pclsid, punkouter, dwclsctx.toInt(), pstg, dwcount.toInt(), presults)
+public actual fun coGetInstanceFromIStorage(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pstg: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage((pserverinfo?.value ?: 0L), (pclsid?.value ?: 0L), (punkouter?.value ?: 0L), dwclsctx.toInt(), (pstg?.value ?: 0L), dwcount.toInt(), (presults?.value ?: 0L))
 
-public actual fun CoGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_CoGetInterfaceAndReleaseStream(pstm, iid, ppv)
+public actual fun coGetInterfaceAndReleaseStream(pstm: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream((pstm?.value ?: 0L), (iid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CreateILockBytesOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, pplkbyt: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_CreateILockBytesOnHGlobal(hglobal, fdeleteonrelease, pplkbyt)
+public actual fun createILockBytesOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, pplkbyt: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal((hglobal?.value ?: 0L), fdeleteonrelease, (pplkbyt?.value ?: 0L))
 
-public actual fun CreateStreamOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, ppstm: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_CreateStreamOnHGlobal(hglobal, fdeleteonrelease, ppstm)
+public actual fun createStreamOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, ppstm: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal((hglobal?.value ?: 0L), fdeleteonrelease, (ppstm?.value ?: 0L))
 
-public actual fun FmtIdToPropStgName(pfmtid: Long, oszname: PWSTR): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_FmtIdToPropStgName(pfmtid, oszname)
+public actual fun fmtIdToPropStgName(pfmtid: COpaquePointer?, oszname: Pwstr): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName((pfmtid?.value ?: 0L), (oszname?.value ?: 0L))
 
-public actual fun FreePropVariantArray(cvariants: UInt, rgvars: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_FreePropVariantArray(cvariants.toInt(), rgvars)
+public actual fun freePropVariantArray(cvariants: UInt, rgvars: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray(cvariants.toInt(), (rgvars?.value ?: 0L))
 
-public actual fun GetConvertStg(pstg: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_GetConvertStg(pstg)
+public actual fun getConvertStg(pstg: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_getConvertStg((pstg?.value ?: 0L))
 
-public actual fun GetHGlobalFromILockBytes(plkbyt: Long, phglobal: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromILockBytes(plkbyt, phglobal)
+public actual fun getHGlobalFromILockBytes(plkbyt: COpaquePointer?, phglobal: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes((plkbyt?.value ?: 0L), (phglobal?.value ?: 0L))
 
-public actual fun GetHGlobalFromStream(pstm: Long, phglobal: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromStream(pstm, phglobal)
+public actual fun getHGlobalFromStream(pstm: COpaquePointer?, phglobal: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream((pstm?.value ?: 0L), (phglobal?.value ?: 0L))
 
-public actual fun InitPropVariantFromBooleanVector(prgf: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBooleanVector(prgf, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromBooleanVector(prgf: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector((prgf?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromBuffer(pv: Long, cb: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBuffer(pv, cb.toInt(), ppropvar)
+public actual fun initPropVariantFromBuffer(pv: COpaquePointer?, cb: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer((pv?.value ?: 0L), cb.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromCLSID(clsid: Long, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromCLSID(clsid, ppropvar)
+public actual fun initPropVariantFromCLSID(clsid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID((clsid?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromDoubleVector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromDoubleVector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromDoubleVector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromFileTime(pftin: Long, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTime(pftin, ppropvar)
+public actual fun initPropVariantFromFileTime(pftin: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime((pftin?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromFileTimeVector(prgft: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTimeVector(prgft, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromFileTimeVector(prgft: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector((prgft?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromGUIDAsString(guid: Long, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromGUIDAsString(guid, ppropvar)
+public actual fun initPropVariantFromGUIDAsString(guid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString((guid?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt16Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt32Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt64Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromPropVariantVectorElem(propvarin, ielem.toInt(), ppropvar)
+public actual fun initPropVariantFromPropVariantVectorElem(propvarin: COpaquePointer?, ielem: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem((propvarin?.value ?: 0L), ielem.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromResource(hinst: HINSTANCE, id: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromResource(hinst, id.toInt(), ppropvar)
+public actual fun initPropVariantFromResource(hinst: Hinstance, id: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource((hinst?.value ?: 0L), id.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromStringAsVector(psz: PCWSTR, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringAsVector(psz, ppropvar)
+public actual fun initPropVariantFromStringAsVector(psz: Pcwstr, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector((psz?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromStringVector(prgsz: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringVector(prgsz, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromStringVector(prgsz: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector((prgsz?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromUInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt16Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromUInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromUInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt32Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromUInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromUInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt64Vector(prgn, celems.toInt(), ppropvar)
+public actual fun initPropVariantFromUInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector((prgn?.value ?: 0L), celems.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantVectorFromPropVariant(propvarsingle: Long, ppropvarvector: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_InitPropVariantVectorFromPropVariant(propvarsingle, ppropvarvector)
+public actual fun initPropVariantVectorFromPropVariant(propvarsingle: COpaquePointer?, ppropvarvector: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant((propvarsingle?.value ?: 0L), (ppropvarvector?.value ?: 0L))
 
-public actual fun OleConvertIStorageToOLESTREAM(pstg: Long, lpolestream: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAM(pstg, lpolestream)
+public actual fun oleConvertIStorageToOLESTREAM(pstg: COpaquePointer?, lpolestream: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM((pstg?.value ?: 0L), (lpolestream?.value ?: 0L))
 
-public actual fun OleConvertIStorageToOLESTREAMEx(pstg: Long, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: Long, polestm: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAMEx(pstg, cfformat.toShort(), lwidth, lheight, dwsize.toInt(), pmedium, polestm)
+public actual fun oleConvertIStorageToOLESTREAMEx(pstg: COpaquePointer?, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: COpaquePointer?, polestm: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx((pstg?.value ?: 0L), cfformat.toShort(), lwidth, lheight, dwsize.toInt(), (pmedium?.value ?: 0L), (polestm?.value ?: 0L))
 
-public actual fun OleConvertOLESTREAMToIStorage(lpolestream: Long, pstg: Long, ptd: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorage(lpolestream, pstg, ptd)
+public actual fun oleConvertOLESTREAMToIStorage(lpolestream: COpaquePointer?, pstg: COpaquePointer?, ptd: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage((lpolestream?.value ?: 0L), (pstg?.value ?: 0L), (ptd?.value ?: 0L))
 
-public actual fun OleConvertOLESTREAMToIStorageEx(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorageEx(polestm, pstg, pcfformat, plwwidth, plheight, pdwsize, pmedium)
+public actual fun oleConvertOLESTREAMToIStorageEx(polestm: COpaquePointer?, pstg: COpaquePointer?, pcfformat: COpaquePointer?, plwwidth: COpaquePointer?, plheight: COpaquePointer?, pdwsize: COpaquePointer?, pmedium: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx((polestm?.value ?: 0L), (pstg?.value ?: 0L), (pcfformat?.value ?: 0L), (plwwidth?.value ?: 0L), (plheight?.value ?: 0L), (pdwsize?.value ?: 0L), (pmedium?.value ?: 0L))
 
-public actual fun PropStgNameToFmtId(oszname: PCWSTR, pfmtid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropStgNameToFmtId(oszname, pfmtid)
+public actual fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId((oszname?.value ?: 0L), (pfmtid?.value ?: 0L))
 
-public actual fun PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: PROPVAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantChangeType(ppropvardest, propvarsrc, flags, vt.toShort())
+public actual fun propVariantChangeType(ppropvardest: COpaquePointer?, propvarsrc: COpaquePointer?, flags: PropvarChangeFlags, vt: Varenum): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType((ppropvardest?.value ?: 0L), (propvarsrc?.value ?: 0L), flags, vt.toShort())
 
-public actual fun PropVariantClear(pvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantClear(pvar)
+public actual fun propVariantClear(pvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantClear((pvar?.value ?: 0L))
 
-public actual fun PropVariantCompareEx(propvar1: Long, propvar2: Long, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS): Int =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantCompareEx(propvar1, propvar2, unit, flags)
+public actual fun propVariantCompareEx(propvar1: COpaquePointer?, propvar2: COpaquePointer?, unit: PropvarCompareUnit, flags: PropvarCompareFlags): Int =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx((propvar1?.value ?: 0L), (propvar2?.value ?: 0L), unit, flags)
 
-public actual fun PropVariantCopy(pvardest: Long, pvarsrc: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantCopy(pvardest, pvarsrc)
+public actual fun propVariantCopy(pvardest: COpaquePointer?, pvarsrc: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantCopy((pvardest?.value ?: 0L), (pvarsrc?.value ?: 0L))
 
-public actual fun PropVariantGetBooleanElem(propvar: Long, ielem: UInt, pfval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetBooleanElem(propvar, ielem.toInt(), pfval)
+public actual fun propVariantGetBooleanElem(propvar: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem((propvar?.value ?: 0L), ielem.toInt(), (pfval?.value ?: 0L))
 
-public actual fun PropVariantGetDoubleElem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetDoubleElem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetDoubleElem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetElementCount(propvar: Long): UInt =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetElementCount(propvar).toUInt()
+public actual fun propVariantGetElementCount(propvar: COpaquePointer?): UInt =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount((propvar?.value ?: 0L)).toUInt()
 
-public actual fun PropVariantGetFileTimeElem(propvar: Long, ielem: UInt, pftval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetFileTimeElem(propvar, ielem.toInt(), pftval)
+public actual fun propVariantGetFileTimeElem(propvar: COpaquePointer?, ielem: UInt, pftval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem((propvar?.value ?: 0L), ielem.toInt(), (pftval?.value ?: 0L))
 
-public actual fun PropVariantGetInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt16Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt32Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt64Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetStringElem(propvar: Long, ielem: UInt, ppszval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetStringElem(propvar, ielem.toInt(), ppszval)
+public actual fun propVariantGetStringElem(propvar: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem((propvar?.value ?: 0L), ielem.toInt(), (ppszval?.value ?: 0L))
 
-public actual fun PropVariantGetUInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt16Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetUInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetUInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt32Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetUInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantGetUInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt64Elem(propvar, ielem.toInt(), pnval)
+public actual fun propVariantGetUInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem((propvar?.value ?: 0L), ielem.toInt(), (pnval?.value ?: 0L))
 
-public actual fun PropVariantToBSTR(propvar: Long, pbstrout: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBSTR(propvar, pbstrout)
+public actual fun propVariantToBSTR(propvar: COpaquePointer?, pbstrout: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR((propvar?.value ?: 0L), (pbstrout?.value ?: 0L))
 
-public actual fun PropVariantToBoolean(propvarin: Long, pfret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoolean(propvarin, pfret)
+public actual fun propVariantToBoolean(propvarin: COpaquePointer?, pfret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean((propvarin?.value ?: 0L), (pfret?.value ?: 0L))
 
-public actual fun PropVariantToBooleanVector(propvar: Long, prgf: Long, crgf: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVector(propvar, prgf, crgf.toInt(), pcelem)
+public actual fun propVariantToBooleanVector(propvar: COpaquePointer?, prgf: COpaquePointer?, crgf: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector((propvar?.value ?: 0L), (prgf?.value ?: 0L), crgf.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToBooleanVectorAlloc(propvar: Long, pprgf: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVectorAlloc(propvar, pprgf, pcelem)
+public actual fun propVariantToBooleanVectorAlloc(propvar: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc((propvar?.value ?: 0L), (pprgf?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToBooleanWithDefault(propvarin: Long, fdefault: BOOL): BOOL =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanWithDefault(propvarin, fdefault)
+public actual fun propVariantToBooleanWithDefault(propvarin: COpaquePointer?, fdefault: Bool): Bool =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault((propvarin?.value ?: 0L), fdefault)
 
-public actual fun PropVariantToBuffer(propvar: Long, pv: Long, cb: UInt): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToBuffer(propvar, pv, cb.toInt())
+public actual fun propVariantToBuffer(propvar: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer((propvar?.value ?: 0L), (pv?.value ?: 0L), cb.toInt())
 
-public actual fun PropVariantToDouble(propvarin: Long, pdblret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDouble(propvarin, pdblret)
+public actual fun propVariantToDouble(propvarin: COpaquePointer?, pdblret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble((propvarin?.value ?: 0L), (pdblret?.value ?: 0L))
 
-public actual fun PropVariantToDoubleVector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToDoubleVector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToDoubleVectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToDoubleVectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): Double =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleWithDefault(propvarin, dbldefault)
+public actual fun propVariantToDoubleWithDefault(propvarin: COpaquePointer?, dbldefault: Double): Double =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault((propvarin?.value ?: 0L), dbldefault)
 
-public actual fun PropVariantToFileTime(propvar: Long, pstfout: PSTIME_FLAGS, pftout: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTime(propvar, pstfout, pftout)
+public actual fun propVariantToFileTime(propvar: COpaquePointer?, pstfout: PstimeFlags, pftout: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime((propvar?.value ?: 0L), pstfout, (pftout?.value ?: 0L))
 
-public actual fun PropVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVector(propvar, prgft, crgft.toInt(), pcelem)
+public actual fun propVariantToFileTimeVector(propvar: COpaquePointer?, prgft: COpaquePointer?, crgft: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector((propvar?.value ?: 0L), (prgft?.value ?: 0L), crgft.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToFileTimeVectorAlloc(propvar: Long, pprgft: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVectorAlloc(propvar, pprgft, pcelem)
+public actual fun propVariantToFileTimeVectorAlloc(propvar: COpaquePointer?, pprgft: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc((propvar?.value ?: 0L), (pprgft?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToGUID(propvar: Long, pguid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToGUID(propvar, pguid)
+public actual fun propVariantToGUID(propvar: COpaquePointer?, pguid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID((propvar?.value ?: 0L), (pguid?.value ?: 0L))
 
-public actual fun PropVariantToInt16(propvarin: Long, piret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16(propvarin, piret)
+public actual fun propVariantToInt16(propvarin: COpaquePointer?, piret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16((propvarin?.value ?: 0L), (piret?.value ?: 0L))
 
-public actual fun PropVariantToInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt16WithDefault(propvarin: Long, idefault: Short): Short =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16WithDefault(propvarin, idefault)
+public actual fun propVariantToInt16WithDefault(propvarin: COpaquePointer?, idefault: Short): Short =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault((propvarin?.value ?: 0L), idefault)
 
-public actual fun PropVariantToInt32(propvarin: Long, plret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32(propvarin, plret)
+public actual fun propVariantToInt32(propvarin: COpaquePointer?, plret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32((propvarin?.value ?: 0L), (plret?.value ?: 0L))
 
-public actual fun PropVariantToInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt32WithDefault(propvarin: Long, ldefault: Int): Int =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32WithDefault(propvarin, ldefault)
+public actual fun propVariantToInt32WithDefault(propvarin: COpaquePointer?, ldefault: Int): Int =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault((propvarin?.value ?: 0L), ldefault)
 
-public actual fun PropVariantToInt64(propvarin: Long, pllret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64(propvarin, pllret)
+public actual fun propVariantToInt64(propvarin: COpaquePointer?, pllret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64((propvarin?.value ?: 0L), (pllret?.value ?: 0L))
 
-public actual fun PropVariantToInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToInt64WithDefault(propvarin: Long, lldefault: Long): Long =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64WithDefault(propvarin, lldefault)
+public actual fun propVariantToInt64WithDefault(propvarin: COpaquePointer?, lldefault: Long): Long =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault((propvarin?.value ?: 0L), lldefault)
 
-public actual fun PropVariantToString(propvar: Long, psz: PWSTR, cch: UInt): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToString(propvar, psz, cch.toInt())
+public actual fun propVariantToString(propvar: COpaquePointer?, psz: Pwstr, cch: UInt): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToString((propvar?.value ?: 0L), (psz?.value ?: 0L), cch.toInt())
 
-public actual fun PropVariantToStringAlloc(propvar: Long, ppszout: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringAlloc(propvar, ppszout)
+public actual fun propVariantToStringAlloc(propvar: COpaquePointer?, ppszout: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc((propvar?.value ?: 0L), (ppszout?.value ?: 0L))
 
-public actual fun PropVariantToStringVector(propvar: Long, prgsz: Long, crgsz: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVector(propvar, prgsz, crgsz.toInt(), pcelem)
+public actual fun propVariantToStringVector(propvar: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector((propvar?.value ?: 0L), (prgsz?.value ?: 0L), crgsz.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToStringVectorAlloc(propvar: Long, pprgsz: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVectorAlloc(propvar, pprgsz, pcelem)
+public actual fun propVariantToStringVectorAlloc(propvar: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc((propvar?.value ?: 0L), (pprgsz?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToStringWithDefault(propvarin: Long, pszdefault: PCWSTR): PCWSTR =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringWithDefault(propvarin, pszdefault)
+public actual fun propVariantToStringWithDefault(propvarin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault((propvarin?.value ?: 0L), (pszdefault?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PropVariantToUInt16(propvarin: Long, puiret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16(propvarin, puiret)
+public actual fun propVariantToUInt16(propvarin: COpaquePointer?, puiret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16((propvarin?.value ?: 0L), (puiret?.value ?: 0L))
 
-public actual fun PropVariantToUInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToUInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToUInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt16WithDefault(propvarin: Long, uidefault: UShort): UShort =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16WithDefault(propvarin, uidefault.toShort()).toUShort()
+public actual fun propVariantToUInt16WithDefault(propvarin: COpaquePointer?, uidefault: UShort): UShort =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault((propvarin?.value ?: 0L), uidefault.toShort()).toUShort()
 
-public actual fun PropVariantToUInt32(propvarin: Long, pulret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32(propvarin, pulret)
+public actual fun propVariantToUInt32(propvarin: COpaquePointer?, pulret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32((propvarin?.value ?: 0L), (pulret?.value ?: 0L))
 
-public actual fun PropVariantToUInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToUInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToUInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt32WithDefault(propvarin: Long, uldefault: UInt): UInt =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32WithDefault(propvarin, uldefault.toInt()).toUInt()
+public actual fun propVariantToUInt32WithDefault(propvarin: COpaquePointer?, uldefault: UInt): UInt =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault((propvarin?.value ?: 0L), uldefault.toInt()).toUInt()
 
-public actual fun PropVariantToUInt64(propvarin: Long, pullret: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64(propvarin, pullret)
+public actual fun propVariantToUInt64(propvarin: COpaquePointer?, pullret: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64((propvarin?.value ?: 0L), (pullret?.value ?: 0L))
 
-public actual fun PropVariantToUInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64Vector(propvar, prgn, crgn.toInt(), pcelem)
+public actual fun propVariantToUInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector((propvar?.value ?: 0L), (prgn?.value ?: 0L), crgn.toInt(), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64VectorAlloc(propvar, pprgn, pcelem)
+public actual fun propVariantToUInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc((propvar?.value ?: 0L), (pprgn?.value ?: 0L), (pcelem?.value ?: 0L))
 
-public actual fun PropVariantToUInt64WithDefault(propvarin: Long, ulldefault: ULong): ULong =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64WithDefault(propvarin, ulldefault.toLong()).toULong()
+public actual fun propVariantToUInt64WithDefault(propvarin: COpaquePointer?, ulldefault: ULong): ULong =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault((propvarin?.value ?: 0L), ulldefault.toLong()).toULong()
 
-public actual fun PropVariantToVariant(ppropvar: Long, pvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToVariant(ppropvar, pvar)
+public actual fun propVariantToVariant(ppropvar: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant((ppropvar?.value ?: 0L), (pvar?.value ?: 0L))
 
-public actual fun PropVariantToWinRTPropertyValue(propvar: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_PropVariantToWinRTPropertyValue(propvar, riid, ppv)
+public actual fun propVariantToWinRTPropertyValue(propvar: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue((propvar?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun ReadClassStg(pstg: Long, pclsid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_ReadClassStg(pstg, pclsid)
+public actual fun readClassStg(pstg: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_readClassStg((pstg?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun ReadClassStm(pstm: Long, pclsid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_ReadClassStm(pstm, pclsid)
+public actual fun readClassStm(pstm: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_readClassStm((pstm?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun ReadFmtUserTypeStg(pstg: Long, pcf: Long, lplpszusertype: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_ReadFmtUserTypeStg(pstg, pcf, lplpszusertype)
+public actual fun readFmtUserTypeStg(pstg: COpaquePointer?, pcf: COpaquePointer?, lplpszusertype: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg((pstg?.value ?: 0L), (pcf?.value ?: 0L), (lplpszusertype?.value ?: 0L))
 
-public actual fun SetConvertStg(pstg: Long, fconvert: BOOL): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_SetConvertStg(pstg, fconvert)
+public actual fun setConvertStg(pstg: COpaquePointer?, fconvert: Bool): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_setConvertStg((pstg?.value ?: 0L), fconvert)
 
-public actual fun StgConvertPropertyToVariant(pprop: Long, codepage: UShort, pvar: Long, pma: Long): Boolean =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgConvertPropertyToVariant(pprop, codepage.toShort(), pvar, pma)
+public actual fun stgConvertPropertyToVariant(pprop: COpaquePointer?, codepage: UShort, pvar: COpaquePointer?, pma: COpaquePointer?): Boolean =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant((pprop?.value ?: 0L), codepage.toShort(), (pvar?.value ?: 0L), (pma?.value ?: 0L))
 
-public actual fun StgConvertVariantToProperty(pvar: Long, codepage: UShort, pprop: Long, pcb: Long, pid: UInt, freserved: Boolean, pcindirect: Long): Long =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgConvertVariantToProperty(pvar, codepage.toShort(), pprop, pcb, pid.toInt(), freserved, pcindirect)
+public actual fun stgConvertVariantToProperty(pvar: COpaquePointer?, codepage: UShort, pprop: COpaquePointer?, pcb: COpaquePointer?, pid: UInt, freserved: Boolean, pcindirect: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty((pvar?.value ?: 0L), codepage.toShort(), (pprop?.value ?: 0L), (pcb?.value ?: 0L), pid.toInt(), freserved, (pcindirect?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StgCreateDocfile(pwcsname: PCWSTR, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfile(pwcsname, grfmode.toInt(), reserved.toInt(), ppstgopen)
+public actual fun stgCreateDocfile(pwcsname: Pcwstr, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile((pwcsname?.value ?: 0L), grfmode.toInt(), reserved.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgCreateDocfileOnILockBytes(plkbyt: Long, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfileOnILockBytes(plkbyt, grfmode.toInt(), reserved.toInt(), ppstgopen)
+public actual fun stgCreateDocfileOnILockBytes(plkbyt: COpaquePointer?, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes((plkbyt?.value ?: 0L), grfmode.toInt(), reserved.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgCreatePropSetStg(pstorage: Long, dwreserved: UInt, pppropsetstg: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgCreatePropSetStg(pstorage, dwreserved.toInt(), pppropsetstg)
+public actual fun stgCreatePropSetStg(pstorage: COpaquePointer?, dwreserved: UInt, pppropsetstg: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg((pstorage?.value ?: 0L), dwreserved.toInt(), (pppropsetstg?.value ?: 0L))
 
-public actual fun StgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgCreatePropStg(punk, fmtid, pclsid, grfflags.toInt(), dwreserved.toInt(), pppropstg)
+public actual fun stgCreatePropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, pclsid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg((punk?.value ?: 0L), (fmtid?.value ?: 0L), (pclsid?.value ?: 0L), grfflags.toInt(), dwreserved.toInt(), (pppropstg?.value ?: 0L))
 
-public actual fun StgCreateStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgCreateStorageEx(pwcsname, grfmode.toInt(), stgfmt.toInt(), grfattrs.toInt(), pstgoptions, psecuritydescriptor, riid, ppobjectopen)
+public actual fun stgCreateStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx((pwcsname?.value ?: 0L), grfmode.toInt(), stgfmt.toInt(), grfattrs.toInt(), (pstgoptions?.value ?: 0L), (psecuritydescriptor?.value ?: 0L), (riid?.value ?: 0L), (ppobjectopen?.value ?: 0L))
 
-public actual fun StgDeserializePropVariant(pprop: Long, cbmax: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgDeserializePropVariant(pprop, cbmax.toInt(), ppropvar)
+public actual fun stgDeserializePropVariant(pprop: COpaquePointer?, cbmax: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant((pprop?.value ?: 0L), cbmax.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun StgGetIFillLockBytesOnFile(pwcsname: PCWSTR, ppflb: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnFile(pwcsname, ppflb)
+public actual fun stgGetIFillLockBytesOnFile(pwcsname: Pcwstr, ppflb: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile((pwcsname?.value ?: 0L), (ppflb?.value ?: 0L))
 
-public actual fun StgGetIFillLockBytesOnILockBytes(pilb: Long, ppflb: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnILockBytes(pilb, ppflb)
+public actual fun stgGetIFillLockBytesOnILockBytes(pilb: COpaquePointer?, ppflb: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes((pilb?.value ?: 0L), (ppflb?.value ?: 0L))
 
-public actual fun StgIsStorageFile(pwcsname: PCWSTR): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgIsStorageFile(pwcsname)
+public actual fun stgIsStorageFile(pwcsname: Pcwstr): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile((pwcsname?.value ?: 0L))
 
-public actual fun StgIsStorageILockBytes(plkbyt: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgIsStorageILockBytes(plkbyt)
+public actual fun stgIsStorageILockBytes(plkbyt: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes((plkbyt?.value ?: 0L))
 
-public actual fun StgOpenAsyncDocfileOnIFillLockBytes(pflb: Long, grfmode: UInt, asyncflags: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenAsyncDocfileOnIFillLockBytes(pflb, grfmode.toInt(), asyncflags.toInt(), ppstgopen)
+public actual fun stgOpenAsyncDocfileOnIFillLockBytes(pflb: COpaquePointer?, grfmode: UInt, asyncflags: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes((pflb?.value ?: 0L), grfmode.toInt(), asyncflags.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgOpenLayoutDocfile(pwcsdfname: PCWSTR, grfmode: UInt, reserved: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenLayoutDocfile(pwcsdfname, grfmode.toInt(), reserved.toInt(), ppstgopen)
+public actual fun stgOpenLayoutDocfile(pwcsdfname: Pcwstr, grfmode: UInt, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile((pwcsdfname?.value ?: 0L), grfmode.toInt(), reserved.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgOpenPropStg(punk: Long, fmtid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenPropStg(punk, fmtid, grfflags.toInt(), dwreserved.toInt(), pppropstg)
+public actual fun stgOpenPropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg((punk?.value ?: 0L), (fmtid?.value ?: 0L), grfflags.toInt(), dwreserved.toInt(), (pppropstg?.value ?: 0L))
 
-public actual fun StgOpenStorage(pwcsname: PCWSTR, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorage(pwcsname, pstgpriority, grfmode.toInt(), snbexclude, reserved.toInt(), ppstgopen)
+public actual fun stgOpenStorage(pwcsname: Pcwstr, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage((pwcsname?.value ?: 0L), (pstgpriority?.value ?: 0L), grfmode.toInt(), (snbexclude?.value ?: 0L), reserved.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgOpenStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageEx(pwcsname, grfmode.toInt(), stgfmt.toInt(), grfattrs.toInt(), pstgoptions, psecuritydescriptor, riid, ppobjectopen)
+public actual fun stgOpenStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx((pwcsname?.value ?: 0L), grfmode.toInt(), stgfmt.toInt(), grfattrs.toInt(), (pstgoptions?.value ?: 0L), (psecuritydescriptor?.value ?: 0L), (riid?.value ?: 0L), (ppobjectopen?.value ?: 0L))
 
-public actual fun StgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageOnILockBytes(plkbyt, pstgpriority, grfmode.toInt(), snbexclude, reserved.toInt(), ppstgopen)
+public actual fun stgOpenStorageOnILockBytes(plkbyt: COpaquePointer?, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes((plkbyt?.value ?: 0L), (pstgpriority?.value ?: 0L), grfmode.toInt(), (snbexclude?.value ?: 0L), reserved.toInt(), (ppstgopen?.value ?: 0L))
 
-public actual fun StgPropertyLengthAsVariant(pprop: Long, cbprop: UInt, codepage: UShort, breserved: UByte): UInt =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgPropertyLengthAsVariant(pprop, cbprop.toInt(), codepage.toShort(), breserved.toByte()).toUInt()
+public actual fun stgPropertyLengthAsVariant(pprop: COpaquePointer?, cbprop: UInt, codepage: UShort, breserved: UByte): UInt =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant((pprop?.value ?: 0L), cbprop.toInt(), codepage.toShort(), breserved.toByte()).toUInt()
 
-public actual fun StgSerializePropVariant(ppropvar: Long, ppprop: Long, pcb: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgSerializePropVariant(ppropvar, ppprop, pcb)
+public actual fun stgSerializePropVariant(ppropvar: COpaquePointer?, ppprop: COpaquePointer?, pcb: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant((ppropvar?.value ?: 0L), (ppprop?.value ?: 0L), (pcb?.value ?: 0L))
 
-public actual fun StgSetTimes(lpszname: PCWSTR, pctime: Long, patime: Long, pmtime: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_StgSetTimes(lpszname, pctime, patime, pmtime)
+public actual fun stgSetTimes(lpszname: Pcwstr, pctime: COpaquePointer?, patime: COpaquePointer?, pmtime: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_stgSetTimes((lpszname?.value ?: 0L), (pctime?.value ?: 0L), (patime?.value ?: 0L), (pmtime?.value ?: 0L))
 
-public actual fun VariantToPropVariant(pvar: Long, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_VariantToPropVariant(pvar, ppropvar)
+public actual fun variantToPropVariant(pvar: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant((pvar?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun WinRTPropertyValueToPropVariant(punkpropertyvalue: Long, ppropvar: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_WinRTPropertyValueToPropVariant(punkpropertyvalue, ppropvar)
+public actual fun winRTPropertyValueToPropVariant(punkpropertyvalue: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant((punkpropertyvalue?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun WriteClassStg(pstg: Long, rclsid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_WriteClassStg(pstg, rclsid)
+public actual fun writeClassStg(pstg: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_writeClassStg((pstg?.value ?: 0L), (rclsid?.value ?: 0L))
 
-public actual fun WriteClassStm(pstm: Long, rclsid: Long): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_WriteClassStm(pstm, rclsid)
+public actual fun writeClassStm(pstm: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_writeClassStm((pstm?.value ?: 0L), (rclsid?.value ?: 0L))
 
-public actual fun WriteFmtUserTypeStg(pstg: Long, cf: UShort, lpszusertype: PCWSTR): HRESULT =
-    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_WriteFmtUserTypeStg(pstg, cf.toShort(), lpszusertype)
+public actual fun writeFmtUserTypeStg(pstg: COpaquePointer?, cf: UShort, lpszusertype: Pcwstr): Hresult =
+    WindowsWin32SystemComStructuredstorageJniBridge.windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg((pstg?.value ?: 0L), cf.toShort(), (lpszusertype?.value ?: 0L))

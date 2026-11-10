@@ -2,567 +2,568 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun FwpmCalloutAdd0(enginehandle: HANDLE, callout: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0(enginehandle.toCPointer<ByteVar>(), callout.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmCalloutAdd0(enginehandle: Handle, callout: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0(enginehandle?.value?.toCPointer<ByteVar>(), callout?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmCalloutCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutDeleteById0(enginehandle: HANDLE, id: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun fwpmCalloutDeleteById0(enginehandle: Handle, id: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun FwpmCalloutDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmCalloutDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmCalloutDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmCalloutEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutGetById0(enginehandle: HANDLE, id: UInt, callout: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0(enginehandle.toCPointer<ByteVar>(), id, callout.toCPointer<ByteVar>())
+public actual fun fwpmCalloutGetById0(enginehandle: Handle, id: UInt, callout: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, callout?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutGetByKey0(enginehandle: HANDLE, key: Long, callout: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), callout.toCPointer<ByteVar>())
+public actual fun fwpmCalloutGetByKey0(enginehandle: Handle, key: COpaquePointer?, callout: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), callout?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmCalloutGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmCalloutSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutSubscribeChanges0(enginehandle: HANDLE, subscription: Long, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: Long, changehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSubscribeChanges0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmCalloutSubscribeChanges0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmCalloutChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmCalloutSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmCalloutUnsubscribeChanges0(enginehandle: HANDLE, changehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutUnsubscribeChanges0(enginehandle.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmCalloutUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutUnsubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmConnectionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmConnectionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmConnectionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionGetById0(enginehandle: HANDLE, id: ULong, connection: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0(enginehandle.toCPointer<ByteVar>(), id, connection.toCPointer<ByteVar>())
+public actual fun fwpmConnectionGetById0(enginehandle: Handle, id: ULong, connection: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, connection?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmConnectionGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmConnectionSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionSubscribe0(enginehandle: HANDLE, subscription: Long, callback: FWPM_CONNECTION_CALLBACK0, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionSubscribe0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmConnectionSubscribe0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmConnectionCallback0, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionSubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmConnectionUnsubscribe0(enginehandle: HANDLE, eventshandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionUnsubscribe0(enginehandle.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmConnectionUnsubscribe0(enginehandle: Handle, eventshandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionUnsubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmDynamicKeywordSubscribe0(flags: UInt, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, context: Long, subscriptionhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmDynamicKeywordSubscribe0(flags, callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), subscriptionhandle.toCPointer<ByteVar>())
+public actual fun fwpmDynamicKeywordSubscribe0(flags: UInt, callback: FwpmDynamicKeywordCallback0, context: COpaquePointer?, subscriptionhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmDynamicKeywordSubscribe0(flags, 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), subscriptionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmDynamicKeywordUnsubscribe0(subscriptionhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmDynamicKeywordUnsubscribe0(subscriptionhandle.toCPointer<ByteVar>())
+public actual fun fwpmDynamicKeywordUnsubscribe0(subscriptionhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmDynamicKeywordUnsubscribe0(subscriptionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineClose0(enginehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineClose0(enginehandle.toCPointer<ByteVar>())
+public actual fun fwpmEngineClose0(enginehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineClose0(enginehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineGetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, value: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0(enginehandle.toCPointer<ByteVar>(), option, value.toCPointer<ByteVar>())
+public actual fun fwpmEngineGetOption0(enginehandle: Handle, option: FwpmEngineOption, value: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0(enginehandle?.value?.toCPointer<ByteVar>(), option, value?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmEngineGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineOpen0(servername: PCWSTR, authnservice: UInt, authidentity: Long, session: Long, enginehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0(servername.toCPointer<ByteVar>(), authnservice, authidentity.toCPointer<ByteVar>(), session.toCPointer<ByteVar>(), enginehandle.toCPointer<ByteVar>())
+public actual fun fwpmEngineOpen0(servername: Pcwstr, authnservice: UInt, authidentity: COpaquePointer?, session: COpaquePointer?, enginehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0(servername?.value?.toCPointer<ByteVar>(), authnservice, authidentity?.value?.toCPointer<ByteVar>(), session?.value?.toCPointer<ByteVar>(), enginehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineSetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, newvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0(enginehandle.toCPointer<ByteVar>(), option, newvalue.toCPointer<ByteVar>())
+public actual fun fwpmEngineSetOption0(enginehandle: Handle, option: FwpmEngineOption, newvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0(enginehandle?.value?.toCPointer<ByteVar>(), option, newvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmEngineSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmEngineSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterAdd0(enginehandle: HANDLE, filter: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0(enginehandle.toCPointer<ByteVar>(), filter.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmFilterAdd0(enginehandle: Handle, filter: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0(enginehandle?.value?.toCPointer<ByteVar>(), filter?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmFilterCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterDeleteById0(enginehandle: HANDLE, id: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun fwpmFilterDeleteById0(enginehandle: Handle, id: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun FwpmFilterDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmFilterDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmFilterDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmFilterEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterGetById0(enginehandle: HANDLE, id: ULong, filter: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0(enginehandle.toCPointer<ByteVar>(), id, filter.toCPointer<ByteVar>())
+public actual fun fwpmFilterGetById0(enginehandle: Handle, id: ULong, filter: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, filter?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterGetByKey0(enginehandle: HANDLE, key: Long, filter: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), filter.toCPointer<ByteVar>())
+public actual fun fwpmFilterGetByKey0(enginehandle: Handle, key: COpaquePointer?, filter: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), filter?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmFilterGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmFilterSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterSubscribeChanges0(enginehandle: HANDLE, subscription: Long, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: Long, changehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSubscribeChanges0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmFilterSubscribeChanges0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmFilterChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmFilterSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFilterUnsubscribeChanges0(enginehandle: HANDLE, changehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterUnsubscribeChanges0(enginehandle.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmFilterUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterUnsubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmFreeMemory0(p: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0(p.toCPointer<ByteVar>())
+public actual fun fwpmFreeMemory0(p: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0(p?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FwpmGetAppIdFromFileName0(filename: PCWSTR, appid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmGetAppIdFromFileName0(filename.toCPointer<ByteVar>(), appid.toCPointer<ByteVar>())
+public actual fun fwpmGetAppIdFromFileName0(filename: Pcwstr, appid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmGetAppIdFromFileName0(filename?.value?.toCPointer<ByteVar>(), appid?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmIPsecTunnelAdd0(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0(enginehandle.toCPointer<ByteVar>(), flags, mainmodepolicy.toCPointer<ByteVar>(), tunnelpolicy.toCPointer<ByteVar>(), numfilterconditions, filterconditions.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmIPsecTunnelAdd0(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0(enginehandle?.value?.toCPointer<ByteVar>(), flags, mainmodepolicy?.value?.toCPointer<ByteVar>(), tunnelpolicy?.value?.toCPointer<ByteVar>(), numfilterconditions, filterconditions?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmIPsecTunnelAdd1(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1(enginehandle.toCPointer<ByteVar>(), flags, mainmodepolicy.toCPointer<ByteVar>(), tunnelpolicy.toCPointer<ByteVar>(), numfilterconditions, filterconditions.toCPointer<ByteVar>(), keymodkey.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmIPsecTunnelAdd1(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1(enginehandle?.value?.toCPointer<ByteVar>(), flags, mainmodepolicy?.value?.toCPointer<ByteVar>(), tunnelpolicy?.value?.toCPointer<ByteVar>(), numfilterconditions, filterconditions?.value?.toCPointer<ByteVar>(), keymodkey?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmIPsecTunnelAdd2(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2(enginehandle.toCPointer<ByteVar>(), flags, mainmodepolicy.toCPointer<ByteVar>(), tunnelpolicy.toCPointer<ByteVar>(), numfilterconditions, filterconditions.toCPointer<ByteVar>(), keymodkey.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmIPsecTunnelAdd2(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2(enginehandle?.value?.toCPointer<ByteVar>(), flags, mainmodepolicy?.value?.toCPointer<ByteVar>(), tunnelpolicy?.value?.toCPointer<ByteVar>(), numfilterconditions, filterconditions?.value?.toCPointer<ByteVar>(), keymodkey?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmIPsecTunnelAdd3(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3(enginehandle.toCPointer<ByteVar>(), flags, mainmodepolicy.toCPointer<ByteVar>(), tunnelpolicy.toCPointer<ByteVar>(), numfilterconditions, filterconditions.toCPointer<ByteVar>(), keymodkey.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmIPsecTunnelAdd3(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3(enginehandle?.value?.toCPointer<ByteVar>(), flags, mainmodepolicy?.value?.toCPointer<ByteVar>(), tunnelpolicy?.value?.toCPointer<ByteVar>(), numfilterconditions, filterconditions?.value?.toCPointer<ByteVar>(), keymodkey?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmIPsecTunnelDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmIPsecTunnelDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerGetById0(enginehandle: HANDLE, id: UShort, layer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0(enginehandle.toCPointer<ByteVar>(), id, layer.toCPointer<ByteVar>())
+public actual fun fwpmLayerGetById0(enginehandle: Handle, id: UShort, layer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, layer?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerGetByKey0(enginehandle: HANDLE, key: Long, layer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), layer.toCPointer<ByteVar>())
+public actual fun fwpmLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, layer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), layer?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum4(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum4(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventEnum5(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmNetEventEnum5(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscribe0(enginehandle: HANDLE, subscription: Long, callback: FWPM_NET_EVENT_CALLBACK0, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscribe0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmNetEventCallback0, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscribe1(enginehandle: HANDLE, subscription: Long, callback: FWPM_NET_EVENT_CALLBACK1, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe1(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscribe1(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmNetEventCallback1, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe1(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscribe2(enginehandle: HANDLE, subscription: Long, callback: FWPM_NET_EVENT_CALLBACK2, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe2(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscribe2(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmNetEventCallback2, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe2(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscribe3(enginehandle: HANDLE, subscription: Long, callback: FWPM_NET_EVENT_CALLBACK3, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe3(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscribe3(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmNetEventCallback3, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe3(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscribe4(enginehandle: HANDLE, subscription: Long, callback: FWPM_NET_EVENT_CALLBACK4, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe4(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscribe4(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmNetEventCallback4, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe4(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmNetEventSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventUnsubscribe0(enginehandle: HANDLE, eventshandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventUnsubscribe0(enginehandle.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun fwpmNetEventUnsubscribe0(enginehandle: Handle, eventshandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventUnsubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmNetEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmNetEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmNetEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderAdd0(enginehandle: HANDLE, provider: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0(enginehandle.toCPointer<ByteVar>(), provider.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmProviderAdd0(enginehandle: Handle, provider: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0(enginehandle?.value?.toCPointer<ByteVar>(), provider?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextAdd0(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0(enginehandle.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextAdd0(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0(enginehandle?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextAdd1(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1(enginehandle.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextAdd1(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1(enginehandle?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextAdd2(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2(enginehandle.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextAdd2(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2(enginehandle?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextAdd3(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3(enginehandle.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextAdd3(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3(enginehandle?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextDeleteById0(enginehandle: HANDLE, id: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun fwpmProviderContextDeleteById0(enginehandle: Handle, id: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun FwpmProviderContextDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetById0(enginehandle: HANDLE, id: ULong, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0(enginehandle.toCPointer<ByteVar>(), id, providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetById0(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetById1(enginehandle: HANDLE, id: ULong, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1(enginehandle.toCPointer<ByteVar>(), id, providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetById1(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1(enginehandle?.value?.toCPointer<ByteVar>(), id, providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetById2(enginehandle: HANDLE, id: ULong, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2(enginehandle.toCPointer<ByteVar>(), id, providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetById2(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2(enginehandle?.value?.toCPointer<ByteVar>(), id, providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetById3(enginehandle: HANDLE, id: ULong, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3(enginehandle.toCPointer<ByteVar>(), id, providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetById3(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3(enginehandle?.value?.toCPointer<ByteVar>(), id, providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetByKey0(enginehandle: HANDLE, key: Long, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetByKey0(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetByKey1(enginehandle: HANDLE, key: Long, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetByKey1(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetByKey2(enginehandle: HANDLE, key: Long, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetByKey2(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetByKey3(enginehandle: HANDLE, key: Long, providercontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), providercontext.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetByKey3(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), providercontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextSubscribeChanges0(enginehandle: HANDLE, subscription: Long, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: Long, changehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSubscribeChanges0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextSubscribeChanges0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmProviderContextChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderContextUnsubscribeChanges0(enginehandle: HANDLE, changehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextUnsubscribeChanges0(enginehandle.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderContextUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextUnsubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmProviderDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmProviderEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderGetByKey0(enginehandle: HANDLE, key: Long, provider: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), provider.toCPointer<ByteVar>())
+public actual fun fwpmProviderGetByKey0(enginehandle: Handle, key: COpaquePointer?, provider: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), provider?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmProviderGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmProviderSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderSubscribeChanges0(enginehandle: HANDLE, subscription: Long, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: Long, changehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSubscribeChanges0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderSubscribeChanges0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmProviderChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmProviderSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmProviderUnsubscribeChanges0(enginehandle: HANDLE, changehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderUnsubscribeChanges0(enginehandle.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmProviderUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderUnsubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSessionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmSessionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSessionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmSessionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSessionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmSessionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerAdd0(enginehandle: HANDLE, sublayer: Long, sd: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0(enginehandle.toCPointer<ByteVar>(), sublayer.toCPointer<ByteVar>(), sd.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerAdd0(enginehandle: Handle, sublayer: COpaquePointer?, sd: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0(enginehandle?.value?.toCPointer<ByteVar>(), sublayer?.value?.toCPointer<ByteVar>(), sd?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerDeleteByKey0(enginehandle: HANDLE, key: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerGetByKey0(enginehandle: HANDLE, key: Long, sublayer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), sublayer.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, sublayer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), sublayer?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), key.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerSubscribeChanges0(enginehandle: HANDLE, subscription: Long, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: Long, changehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSubscribeChanges0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerSubscribeChanges0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmSublayerChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSubLayerUnsubscribeChanges0(enginehandle: HANDLE, changehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerUnsubscribeChanges0(enginehandle.toCPointer<ByteVar>(), changehandle.toCPointer<ByteVar>())
+public actual fun fwpmSubLayerUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerUnsubscribeChanges0(enginehandle?.value?.toCPointer<ByteVar>(), changehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSystemPortsGet0(enginehandle: HANDLE, sysports: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsGet0(enginehandle.toCPointer<ByteVar>(), sysports.toCPointer<ByteVar>())
+public actual fun fwpmSystemPortsGet0(enginehandle: Handle, sysports: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsGet0(enginehandle?.value?.toCPointer<ByteVar>(), sysports?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSystemPortsSubscribe0(enginehandle: HANDLE, reserved: Long, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: Long, sysportshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsSubscribe0(enginehandle.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), sysportshandle.toCPointer<ByteVar>())
+public actual fun fwpmSystemPortsSubscribe0(enginehandle: Handle, reserved: COpaquePointer?, callback: FwpmSystemPortsCallback0, context: COpaquePointer?, sysportshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsSubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), sysportshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmSystemPortsUnsubscribe0(enginehandle: HANDLE, sysportshandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsUnsubscribe0(enginehandle.toCPointer<ByteVar>(), sysportshandle.toCPointer<ByteVar>())
+public actual fun fwpmSystemPortsUnsubscribe0(enginehandle: Handle, sysportshandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsUnsubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), sysportshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmTransactionAbort0(enginehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0(enginehandle.toCPointer<ByteVar>())
+public actual fun fwpmTransactionAbort0(enginehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0(enginehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmTransactionBegin0(enginehandle: HANDLE, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0(enginehandle.toCPointer<ByteVar>(), flags)
+public actual fun fwpmTransactionBegin0(enginehandle: Handle, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0(enginehandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun FwpmTransactionCommit0(enginehandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0(enginehandle.toCPointer<ByteVar>())
+public actual fun fwpmTransactionCommit0(enginehandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0(enginehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmvSwitchEventSubscribe0(enginehandle: HANDLE, subscription: Long, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: Long, subscriptionhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventSubscribe0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), subscriptionhandle.toCPointer<ByteVar>())
+public actual fun fwpmvSwitchEventSubscribe0(enginehandle: Handle, subscription: COpaquePointer?, callback: FwpmVswitchEventCallback0, context: COpaquePointer?, subscriptionhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventSubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), subscriptionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmvSwitchEventUnsubscribe0(enginehandle: HANDLE, subscriptionhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventUnsubscribe0(enginehandle.toCPointer<ByteVar>(), subscriptionhandle.toCPointer<ByteVar>())
+public actual fun fwpmvSwitchEventUnsubscribe0(enginehandle: Handle, subscriptionhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventUnsubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), subscriptionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmvSwitchEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun fwpmvSwitchEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun FwpmvSwitchEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun fwpmvSwitchEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun iPsecDospGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospGetStatistics0(enginehandle: HANDLE, idpstatistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0(enginehandle.toCPointer<ByteVar>(), idpstatistics.toCPointer<ByteVar>())
+public actual fun iPsecDospGetStatistics0(enginehandle: Handle, idpstatistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0(enginehandle?.value?.toCPointer<ByteVar>(), idpstatistics?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun iPsecDospSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospStateCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecDospStateCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospStateDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecDospStateDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecDospStateEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun iPsecDospStateEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecGetStatistics0(enginehandle: HANDLE, ipsecstatistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0(enginehandle.toCPointer<ByteVar>(), ipsecstatistics.toCPointer<ByteVar>())
+public actual fun iPsecGetStatistics0(enginehandle: Handle, ipsecstatistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0(enginehandle?.value?.toCPointer<ByteVar>(), ipsecstatistics?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecGetStatistics1(enginehandle: HANDLE, ipsecstatistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1(enginehandle.toCPointer<ByteVar>(), ipsecstatistics.toCPointer<ByteVar>())
+public actual fun iPsecGetStatistics1(enginehandle: Handle, ipsecstatistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1(enginehandle?.value?.toCPointer<ByteVar>(), ipsecstatistics?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecKeyManagerAddAndRegister0(enginehandle: HANDLE, keymanager: Long, keymanagercallbacks: Long, keymgmthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerAddAndRegister0(enginehandle.toCPointer<ByteVar>(), keymanager.toCPointer<ByteVar>(), keymanagercallbacks.toCPointer<ByteVar>(), keymgmthandle.toCPointer<ByteVar>())
+public actual fun iPsecKeyManagerAddAndRegister0(enginehandle: Handle, keymanager: COpaquePointer?, keymanagercallbacks: COpaquePointer?, keymgmthandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerAddAndRegister0(enginehandle?.value?.toCPointer<ByteVar>(), keymanager?.value?.toCPointer<ByteVar>(), keymanagercallbacks?.value?.toCPointer<ByteVar>(), keymgmthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: HANDLE, reserved: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun iPsecKeyManagerGetSecurityInfoByKey0(enginehandle: Handle, reserved: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerGetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: HANDLE, reserved: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun iPsecKeyManagerSetSecurityInfoByKey0(enginehandle: Handle, reserved: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerSetSecurityInfoByKey0(enginehandle?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecKeyManagerUnregisterAndDelete0(enginehandle: HANDLE, keymgmthandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerUnregisterAndDelete0(enginehandle.toCPointer<ByteVar>(), keymgmthandle.toCPointer<ByteVar>())
+public actual fun iPsecKeyManagerUnregisterAndDelete0(enginehandle: Handle, keymgmthandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerUnregisterAndDelete0(enginehandle?.value?.toCPointer<ByteVar>(), keymgmthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecKeyManagersGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagersGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun iPsecKeyManagersGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagersGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextAddInbound0(enginehandle: HANDLE, id: ULong, inboundbundle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0(enginehandle.toCPointer<ByteVar>(), id, inboundbundle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextAddInbound0(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0(enginehandle?.value?.toCPointer<ByteVar>(), id, inboundbundle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextAddInbound1(enginehandle: HANDLE, id: ULong, inboundbundle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1(enginehandle.toCPointer<ByteVar>(), id, inboundbundle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextAddInbound1(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1(enginehandle?.value?.toCPointer<ByteVar>(), id, inboundbundle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextAddOutbound0(enginehandle: HANDLE, id: ULong, outboundbundle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0(enginehandle.toCPointer<ByteVar>(), id, outboundbundle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextAddOutbound0(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0(enginehandle?.value?.toCPointer<ByteVar>(), id, outboundbundle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextAddOutbound1(enginehandle: HANDLE, id: ULong, outboundbundle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1(enginehandle.toCPointer<ByteVar>(), id, outboundbundle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextAddOutbound1(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1(enginehandle?.value?.toCPointer<ByteVar>(), id, outboundbundle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextCreate0(enginehandle: HANDLE, outboundtraffic: Long, inboundfilterid: Long, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0(enginehandle.toCPointer<ByteVar>(), outboundtraffic.toCPointer<ByteVar>(), inboundfilterid.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun iPsecSaContextCreate0(enginehandle: Handle, outboundtraffic: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0(enginehandle?.value?.toCPointer<ByteVar>(), outboundtraffic?.value?.toCPointer<ByteVar>(), inboundfilterid?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextCreate1(enginehandle: HANDLE, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1(enginehandle.toCPointer<ByteVar>(), outboundtraffic.toCPointer<ByteVar>(), virtualiftunnelinfo.toCPointer<ByteVar>(), inboundfilterid.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun iPsecSaContextCreate1(enginehandle: Handle, outboundtraffic: COpaquePointer?, virtualiftunnelinfo: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1(enginehandle?.value?.toCPointer<ByteVar>(), outboundtraffic?.value?.toCPointer<ByteVar>(), virtualiftunnelinfo?.value?.toCPointer<ByteVar>(), inboundfilterid?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextDeleteById0(enginehandle: HANDLE, id: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun iPsecSaContextDeleteById0(enginehandle: Handle, id: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun IPsecSaContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun iPsecSaContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun iPsecSaContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextExpire0(enginehandle: HANDLE, id: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun iPsecSaContextExpire0(enginehandle: Handle, id: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun IPsecSaContextGetById0(enginehandle: HANDLE, id: ULong, sacontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0(enginehandle.toCPointer<ByteVar>(), id, sacontext.toCPointer<ByteVar>())
+public actual fun iPsecSaContextGetById0(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, sacontext?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextGetById1(enginehandle: HANDLE, id: ULong, sacontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1(enginehandle.toCPointer<ByteVar>(), id, sacontext.toCPointer<ByteVar>())
+public actual fun iPsecSaContextGetById1(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1(enginehandle?.value?.toCPointer<ByteVar>(), id, sacontext?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextGetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0(enginehandle.toCPointer<ByteVar>(), id, getspi.toCPointer<ByteVar>(), inboundspi.toCPointer<ByteVar>())
+public actual fun iPsecSaContextGetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0(enginehandle?.value?.toCPointer<ByteVar>(), id, getspi?.value?.toCPointer<ByteVar>(), inboundspi?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextGetSpi1(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1(enginehandle.toCPointer<ByteVar>(), id, getspi.toCPointer<ByteVar>(), inboundspi.toCPointer<ByteVar>())
+public actual fun iPsecSaContextGetSpi1(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1(enginehandle?.value?.toCPointer<ByteVar>(), id, getspi?.value?.toCPointer<ByteVar>(), inboundspi?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextSetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0(enginehandle.toCPointer<ByteVar>(), id, getspi.toCPointer<ByteVar>(), inboundspi)
+public actual fun iPsecSaContextSetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0(enginehandle?.value?.toCPointer<ByteVar>(), id, getspi?.value?.toCPointer<ByteVar>(), inboundspi)
 
-public actual fun IPsecSaContextSubscribe0(enginehandle: HANDLE, subscription: Long, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: Long, eventshandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSubscribe0(enginehandle.toCPointer<ByteVar>(), subscription.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextSubscribe0(enginehandle: Handle, subscription: COpaquePointer?, callback: IpsecSaContextCallback0, context: COpaquePointer?, eventshandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), subscription?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextSubscriptionsGet0(enginehandle: HANDLE, entries: Long, numentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSubscriptionsGet0(enginehandle.toCPointer<ByteVar>(), entries.toCPointer<ByteVar>(), numentries.toCPointer<ByteVar>())
+public actual fun iPsecSaContextSubscriptionsGet0(enginehandle: Handle, entries: COpaquePointer?, numentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSubscriptionsGet0(enginehandle?.value?.toCPointer<ByteVar>(), entries?.value?.toCPointer<ByteVar>(), numentries?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextUnsubscribe0(enginehandle: HANDLE, eventshandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextUnsubscribe0(enginehandle.toCPointer<ByteVar>(), eventshandle.toCPointer<ByteVar>())
+public actual fun iPsecSaContextUnsubscribe0(enginehandle: Handle, eventshandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextUnsubscribe0(enginehandle?.value?.toCPointer<ByteVar>(), eventshandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaContextUpdate0(enginehandle: HANDLE, flags: ULong, newvalues: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0(enginehandle.toCPointer<ByteVar>(), flags, newvalues.toCPointer<ByteVar>())
+public actual fun iPsecSaContextUpdate0(enginehandle: Handle, flags: ULong, newvalues: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0(enginehandle?.value?.toCPointer<ByteVar>(), flags, newvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun iPsecSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun iPsecSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun iPsecSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun iPsecSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IPsecSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaEnum1(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun iPsecSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaEnum1(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextGetStatistics0(enginehandle: HANDLE, ikeextstatistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0(enginehandle.toCPointer<ByteVar>(), ikeextstatistics.toCPointer<ByteVar>())
+public actual fun ikeextGetStatistics0(enginehandle: Handle, ikeextstatistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0(enginehandle?.value?.toCPointer<ByteVar>(), ikeextstatistics?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextGetStatistics1(enginehandle: HANDLE, ikeextstatistics: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1(enginehandle.toCPointer<ByteVar>(), ikeextstatistics.toCPointer<ByteVar>())
+public actual fun ikeextGetStatistics1(enginehandle: Handle, ikeextstatistics: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1(enginehandle?.value?.toCPointer<ByteVar>(), ikeextstatistics?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumtemplate.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun ikeextSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumtemplate?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>())
+public actual fun ikeextSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0(enginehandle.toCPointer<ByteVar>(), securityinfo, sidowner.toCPointer<ByteVar>(), sidgroup.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>())
+public actual fun ikeextSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0(enginehandle?.value?.toCPointer<ByteVar>(), securityinfo, sidowner?.value?.toCPointer<ByteVar>(), sidgroup?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaDeleteById0(enginehandle: HANDLE, id: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0(enginehandle.toCPointer<ByteVar>(), id)
+public actual fun ikeextSaDeleteById0(enginehandle: Handle, id: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0(enginehandle?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun IkeextSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>())
+public actual fun ikeextSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum0(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun ikeextSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum0(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum1(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun ikeextSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum1(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum2(enginehandle.toCPointer<ByteVar>(), enumhandle.toCPointer<ByteVar>(), numentriesrequested, entries.toCPointer<ByteVar>(), numentriesreturned.toCPointer<ByteVar>())
+public actual fun ikeextSaEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum2(enginehandle?.value?.toCPointer<ByteVar>(), enumhandle?.value?.toCPointer<ByteVar>(), numentriesrequested, entries?.value?.toCPointer<ByteVar>(), numentriesreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaGetById0(enginehandle: HANDLE, id: ULong, sa: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById0(enginehandle.toCPointer<ByteVar>(), id, sa.toCPointer<ByteVar>())
+public actual fun ikeextSaGetById0(enginehandle: Handle, id: ULong, sa: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById0(enginehandle?.value?.toCPointer<ByteVar>(), id, sa?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaGetById1(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById1(enginehandle.toCPointer<ByteVar>(), id, salookupcontext.toCPointer<ByteVar>(), sa.toCPointer<ByteVar>())
+public actual fun ikeextSaGetById1(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById1(enginehandle?.value?.toCPointer<ByteVar>(), id, salookupcontext?.value?.toCPointer<ByteVar>(), sa?.value?.toCPointer<ByteVar>())
 
-public actual fun IkeextSaGetById2(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById2(enginehandle.toCPointer<ByteVar>(), id, salookupcontext.toCPointer<ByteVar>(), sa.toCPointer<ByteVar>())
+public actual fun ikeextSaGetById2(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.cinterop.windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById2(enginehandle?.value?.toCPointer<ByteVar>(), id, salookupcontext?.value?.toCPointer<ByteVar>(), sa?.value?.toCPointer<ByteVar>())

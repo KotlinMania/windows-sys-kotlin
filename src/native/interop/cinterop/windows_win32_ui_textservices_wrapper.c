@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_textservices_DoMsCtfMonitor(uint32_t dwflags, void* heventforservicestop) {
+int32_t windowssys_windows_win32_ui_textservices_doMsCtfMonitor(uint32_t dwflags, void* heventforservicestop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_ui_textservices_DoMsCtfMonitor(uint32_t dwflags
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor(uint32_t dwflags) {
+int32_t windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor(void) {
+int32_t windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

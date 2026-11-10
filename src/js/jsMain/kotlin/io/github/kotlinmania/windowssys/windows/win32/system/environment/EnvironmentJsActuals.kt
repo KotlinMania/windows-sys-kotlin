@@ -2,124 +2,125 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32SystemEnvironmentNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CallEnclave(lproutine: Long, lpparameter: Long, fwaitforthread: BOOL, lpreturnvalue: Long): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_CallEnclave(lproutine.toString(), lpparameter.toString(), fwaitforthread, lpreturnvalue.toString()) as Int) else 0
+public actual fun callEnclave(lproutine: Long, lpparameter: COpaquePointer?, fwaitforthread: Bool, lpreturnvalue: COpaquePointer?): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_callEnclave(lproutine.toString(), (lpparameter?.value ?: 0L).toString(), fwaitforthread, (lpreturnvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEnclave(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): Long =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_CreateEnclave(hprocess.toString(), lpaddress.toString(), dwsize.toString(), dwinitialcommitment.toString(), flenclavetype.toInt(), lpenclaveinformation.toString(), dwinfolength.toInt(), lpenclaveerror.toString()) as String).toLong() else 0L
+public actual fun createEnclave(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_createEnclave((hprocess?.value ?: 0L).toString(), (lpaddress?.value ?: 0L).toString(), dwsize.toString(), dwinitialcommitment.toString(), flenclavetype.toInt(), (lpenclaveinformation?.value ?: 0L).toString(), dwinfolength.toInt(), (lpenclaveerror?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEnvironmentBlock(lpenvironment: Long, htoken: HANDLE, binherit: BOOL): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_CreateEnvironmentBlock(lpenvironment.toString(), htoken.toString(), binherit) as Int) else 0
+public actual fun createEnvironmentBlock(lpenvironment: COpaquePointer?, htoken: Handle, binherit: Bool): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_createEnvironmentBlock((lpenvironment?.value ?: 0L).toString(), (htoken?.value ?: 0L).toString(), binherit) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteEnclave(lpaddress: Long): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_DeleteEnclave(lpaddress.toString()) as Int) else 0
+public actual fun deleteEnclave(lpaddress: COpaquePointer?): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_deleteEnclave((lpaddress?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyEnvironmentBlock(lpenvironment: Long): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_DestroyEnvironmentBlock(lpenvironment.toString()) as Int) else 0
+public actual fun destroyEnvironmentBlock(lpenvironment: COpaquePointer?): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_destroyEnvironmentBlock((lpenvironment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnclaveGetAttestationReport(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): HRESULT =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_EnclaveGetAttestationReport(enclavedata.toString(), report.toString(), buffersize.toInt(), outputsize.toString()) as Int) else 0
+public actual fun enclaveGetAttestationReport(enclavedata: COpaquePointer?, report: COpaquePointer?, buffersize: UInt, outputsize: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_enclaveGetAttestationReport((enclavedata?.value ?: 0L).toString(), (report?.value ?: 0L).toString(), buffersize.toInt(), (outputsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: Long): HRESULT =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation(informationsize.toInt(), enclaveinformation.toString()) as Int) else 0
+public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation(informationsize.toInt(), (enclaveinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnclaveSealData(datatoencrypt: Long, datatoencryptsize: UInt, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: UInt, protectedblob: Long, buffersize: UInt, protectedblobsize: Long): HRESULT =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_EnclaveSealData(datatoencrypt.toString(), datatoencryptsize.toInt(), identitypolicy, runtimepolicy.toInt(), protectedblob.toString(), buffersize.toInt(), protectedblobsize.toString()) as Int) else 0
+public actual fun enclaveSealData(datatoencrypt: COpaquePointer?, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: COpaquePointer?, buffersize: UInt, protectedblobsize: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_enclaveSealData((datatoencrypt?.value ?: 0L).toString(), datatoencryptsize.toInt(), identitypolicy, runtimepolicy.toInt(), (protectedblob?.value ?: 0L).toString(), buffersize.toInt(), (protectedblobsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnclaveUnsealData(protectedblob: Long, protectedblobsize: UInt, decrypteddata: Long, buffersize: UInt, decrypteddatasize: Long, sealingidentity: Long, unsealingflags: Long): HRESULT =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_EnclaveUnsealData(protectedblob.toString(), protectedblobsize.toInt(), decrypteddata.toString(), buffersize.toInt(), decrypteddatasize.toString(), sealingidentity.toString(), unsealingflags.toString()) as Int) else 0
+public actual fun enclaveUnsealData(protectedblob: COpaquePointer?, protectedblobsize: UInt, decrypteddata: COpaquePointer?, buffersize: UInt, decrypteddatasize: COpaquePointer?, sealingidentity: COpaquePointer?, unsealingflags: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_enclaveUnsealData((protectedblob?.value ?: 0L).toString(), protectedblobsize.toInt(), (decrypteddata?.value ?: 0L).toString(), buffersize.toInt(), (decrypteddatasize?.value ?: 0L).toString(), (sealingidentity?.value ?: 0L).toString(), (unsealingflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnclaveVerifyAttestationReport(enclavetype: UInt, report: Long, reportsize: UInt): HRESULT =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport(enclavetype.toInt(), report.toString(), reportsize.toInt()) as Int) else 0
+public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: COpaquePointer?, reportsize: UInt): Hresult =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport(enclavetype.toInt(), (report?.value ?: 0L).toString(), reportsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExpandEnvironmentStringsA(lpsrc: PCSTR, lpdst: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA(lpsrc.toString(), lpdst.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_expandEnvironmentStringsA((lpsrc?.value ?: 0L).toString(), (lpdst?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExpandEnvironmentStringsForUserA(htoken: HANDLE, lpsrc: PCSTR, lpdest: PSTR, dwsize: UInt): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA(htoken.toString(), lpsrc.toString(), lpdest.toString(), dwsize.toInt()) as Int) else 0
+public actual fun expandEnvironmentStringsForUserA(htoken: Handle, lpsrc: Pcstr, lpdest: Pstr, dwsize: UInt): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA((htoken?.value ?: 0L).toString(), (lpsrc?.value ?: 0L).toString(), (lpdest?.value ?: 0L).toString(), dwsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExpandEnvironmentStringsForUserW(htoken: HANDLE, lpsrc: PCWSTR, lpdest: PWSTR, dwsize: UInt): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW(htoken.toString(), lpsrc.toString(), lpdest.toString(), dwsize.toInt()) as Int) else 0
+public actual fun expandEnvironmentStringsForUserW(htoken: Handle, lpsrc: Pcwstr, lpdest: Pwstr, dwsize: UInt): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW((htoken?.value ?: 0L).toString(), (lpsrc?.value ?: 0L).toString(), (lpdest?.value ?: 0L).toString(), dwsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExpandEnvironmentStringsW(lpsrc: PCWSTR, lpdst: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW(lpsrc.toString(), lpdst.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun expandEnvironmentStringsW(lpsrc: Pcwstr, lpdst: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_expandEnvironmentStringsW((lpsrc?.value ?: 0L).toString(), (lpdst?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeEnvironmentStringsA(penv: PCSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_FreeEnvironmentStringsA(penv.toString()) as Int) else 0
+public actual fun freeEnvironmentStringsA(penv: Pcstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_freeEnvironmentStringsA((penv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeEnvironmentStringsW(penv: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_FreeEnvironmentStringsW(penv.toString()) as Int) else 0
+public actual fun freeEnvironmentStringsW(penv: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_freeEnvironmentStringsW((penv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCommandLineA(): PCSTR =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetCommandLineA() as String).toLong() else 0L
+public actual fun getCommandLineA(): Pcstr =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getCommandLineA() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCommandLineW(): PCWSTR =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetCommandLineW() as String).toLong() else 0L
+public actual fun getCommandLineW(): Pcwstr =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getCommandLineW() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetCurrentDirectoryA(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getCurrentDirectoryA(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetCurrentDirectoryW(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getCurrentDirectoryW(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnvironmentStrings(): PSTR =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetEnvironmentStrings() as String).toLong() else 0L
+public actual fun getEnvironmentStrings(): Pstr =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getEnvironmentStrings() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnvironmentStringsW(): PWSTR =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetEnvironmentStringsW() as String).toLong() else 0L
+public actual fun getEnvironmentStringsW(): Pwstr =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getEnvironmentStringsW() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnvironmentVariableA(lpname: PCSTR, lpbuffer: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetEnvironmentVariableA(lpname.toString(), lpbuffer.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getEnvironmentVariableA((lpname?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnvironmentVariableW(lpname: PCWSTR, lpbuffer: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_GetEnvironmentVariableW(lpname.toString(), lpbuffer.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_getEnvironmentVariableW((lpname?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeEnclave(hprocess: HANDLE, lpaddress: Long, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_InitializeEnclave(hprocess.toString(), lpaddress.toString(), lpenclaveinformation.toString(), dwinfolength.toInt(), lpenclaveerror.toString()) as Int) else 0
+public actual fun initializeEnclave(hprocess: Handle, lpaddress: COpaquePointer?, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_initializeEnclave((hprocess?.value ?: 0L).toString(), (lpaddress?.value ?: 0L).toString(), (lpenclaveinformation?.value ?: 0L).toString(), dwinfolength.toInt(), (lpenclaveerror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsEnclaveTypeSupported(flenclavetype: UInt): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_IsEnclaveTypeSupported(flenclavetype.toInt()) as Int) else 0
+public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_isEnclaveTypeSupported(flenclavetype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadEnclaveData(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, nsize: ULong, flprotect: UInt, lppageinformation: Long, dwinfolength: UInt, lpnumberofbyteswritten: Long, lpenclaveerror: Long): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_LoadEnclaveData(hprocess.toString(), lpaddress.toString(), lpbuffer.toString(), nsize.toString(), flprotect.toInt(), lppageinformation.toString(), dwinfolength.toInt(), lpnumberofbyteswritten.toString(), lpenclaveerror.toString()) as Int) else 0
+public actual fun loadEnclaveData(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, flprotect: UInt, lppageinformation: COpaquePointer?, dwinfolength: UInt, lpnumberofbyteswritten: COpaquePointer?, lpenclaveerror: COpaquePointer?): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_loadEnclaveData((hprocess?.value ?: 0L).toString(), (lpaddress?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toString(), flprotect.toInt(), (lppageinformation?.value ?: 0L).toString(), dwinfolength.toInt(), (lpnumberofbyteswritten?.value ?: 0L).toString(), (lpenclaveerror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadEnclaveImageA(lpenclaveaddress: Long, lpimagename: PCSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_LoadEnclaveImageA(lpenclaveaddress.toString(), lpimagename.toString()) as Int) else 0
+public actual fun loadEnclaveImageA(lpenclaveaddress: COpaquePointer?, lpimagename: Pcstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_loadEnclaveImageA((lpenclaveaddress?.value ?: 0L).toString(), (lpimagename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadEnclaveImageW(lpenclaveaddress: Long, lpimagename: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_LoadEnclaveImageW(lpenclaveaddress.toString(), lpimagename.toString()) as Int) else 0
+public actual fun loadEnclaveImageW(lpenclaveaddress: COpaquePointer?, lpimagename: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_loadEnclaveImageW((lpenclaveaddress?.value ?: 0L).toString(), (lpimagename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NeedCurrentDirectoryForExePathA(exename: PCSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA(exename.toString()) as Int) else 0
+public actual fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA((exename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NeedCurrentDirectoryForExePathW(exename: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW(exename.toString()) as Int) else 0
+public actual fun needCurrentDirectoryForExePathW(exename: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW((exename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCurrentDirectoryA(lppathname: PCSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_SetCurrentDirectoryA(lppathname.toString()) as Int) else 0
+public actual fun setCurrentDirectoryA(lppathname: Pcstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_setCurrentDirectoryA((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCurrentDirectoryW(lppathname: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_SetCurrentDirectoryW(lppathname.toString()) as Int) else 0
+public actual fun setCurrentDirectoryW(lppathname: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_setCurrentDirectoryW((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEnvironmentStringsW(newenvironment: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_SetEnvironmentStringsW(newenvironment.toString()) as Int) else 0
+public actual fun setEnvironmentStringsW(newenvironment: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_setEnvironmentStringsW((newenvironment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEnvironmentVariableA(lpname: PCSTR, lpvalue: PCSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_SetEnvironmentVariableA(lpname.toString(), lpvalue.toString()) as Int) else 0
+public actual fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_setEnvironmentVariableA((lpname?.value ?: 0L).toString(), (lpvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEnvironmentVariableW(lpname: PCWSTR, lpvalue: PCWSTR): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_SetEnvironmentVariableW(lpname.toString(), lpvalue.toString()) as Int) else 0
+public actual fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_setEnvironmentVariableW((lpname?.value ?: 0L).toString(), (lpvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TerminateEnclave(lpaddress: Long, fwait: BOOL): BOOL =
-    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_TerminateEnclave(lpaddress.toString(), fwait) as Int) else 0
+public actual fun terminateEnclave(lpaddress: COpaquePointer?, fwait: Bool): Bool =
+    if (_windowsWin32SystemEnvironmentNapiAddon != null) (_windowsWin32SystemEnvironmentNapiAddon.windowssys_windows_win32_system_environment_terminateEnclave((lpaddress?.value ?: 0L).toString(), fwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

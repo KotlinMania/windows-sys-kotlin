@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AddLogContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_addLogContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AddLogContainer_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AddLogContainerSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_addLogContainerSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ccontainer = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AddLogContainerSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AddUsersToEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_addUsersToEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pencryptioncertificates = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AddUsersToEncrypt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AdvanceLogBase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_advanceLogBase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -145,7 +145,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AdvanceLogBase_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AlignReservedLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_alignReservedLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t creservedrecords = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AlignReservedLog_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AllocReservedLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_allocReservedLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t creservedrecords = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AllocReservedLog_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AreFileApisANSI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_areFileApisANSI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AreFileApisANSI_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_AreShortNamesEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_areShortNamesEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_AreShortNamesEnab
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_BackupRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_backupRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -257,7 +257,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_BackupRead_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_BackupSeek_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_backupSeek_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlowbytestoseek = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_BackupSeek_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_BackupWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_backupWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_BackupWrite_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_buildIoRingRegisterBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_BuildIoRingRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterFileHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_buildIoRingRegisterFileHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_BuildIoRingRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoemname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CloseAndResetLogFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_closeAndResetLogFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -433,7 +433,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CloseAndResetLogF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CloseEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_closeEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -450,7 +450,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CloseEncryptedFil
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CloseIoRing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_closeIoRing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -468,7 +468,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CloseIoRing_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CommitComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_commitComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -488,7 +488,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CommitComplete_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CommitEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_commitEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -508,7 +508,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CommitEnlistment_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CommitTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_commitTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -526,7 +526,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CommitTransaction
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CommitTransactionAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_commitTransactionAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -544,7 +544,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CommitTransaction
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CompareFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_compareFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiletime1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfiletime2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -564,7 +564,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CompareFileTime_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFile2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFile2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwsznewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -586,7 +586,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFile2_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -608,7 +608,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -636,7 +636,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileExA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -664,7 +664,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileExW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -686,7 +686,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileFromAppW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -716,7 +716,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileTransacte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -746,7 +746,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileTransacte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -768,7 +768,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyFileW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CopyLZFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_copyLZFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfsource = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t hfdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -788,7 +788,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CopyLZFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -808,7 +808,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptemplatedirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -830,7 +830,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptemplatedirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -852,7 +852,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptemplatedirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptemplatedirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -920,7 +920,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -940,7 +940,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateDirectoryW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenlistmentattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -968,7 +968,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateEnlistment_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFile2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFile2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -994,7 +994,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFile2_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFile2FromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFile2FromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1020,7 +1020,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFile2FromAp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1050,7 +1050,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1080,7 +1080,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileFromApp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1116,7 +1116,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileTransac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1152,7 +1152,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileTransac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1182,7 +1182,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateFileW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createHardLinkA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1204,7 +1204,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createHardLinkTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1228,7 +1228,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createHardLinkTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1252,7 +1252,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createHardLinkW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1274,7 +1274,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateHardLinkW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogContainerScanContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createLogContainerScanContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cfromcontainer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1302,7 +1302,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createLogFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1330,7 +1330,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogFile_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogMarshallingArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createLogMarshallingArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnallocbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1362,7 +1362,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateLogMarshall
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpresourcemanagerattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resourcemanagerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1388,7 +1388,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateResourceMan
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createSymbolicLinkA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsymlinkfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1410,7 +1410,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsymlinkfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1434,7 +1434,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsymlinkfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1458,7 +1458,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createSymbolicLinkW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsymlinkfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1480,7 +1480,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateSymbolicLin
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTapePartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createTapePartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpartitionmethod = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1504,7 +1504,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTapePartiti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptransactionattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1534,7 +1534,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTransaction
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_createTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptransactionattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_CreateTransaction
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DecryptFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_decryptFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1578,7 +1578,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DecryptFileA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DecryptFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_decryptFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1598,7 +1598,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DecryptFileW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DefineDosDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_defineDosDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1620,7 +1620,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DefineDosDeviceA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DefineDosDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_defineDosDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1642,7 +1642,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DefineDosDeviceW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1660,7 +1660,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1678,7 +1678,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileFromApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* htransaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1698,7 +1698,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileTransac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* htransaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1718,7 +1718,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileTransac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1736,7 +1736,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteFileW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteLogByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1754,7 +1754,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogByHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteLogFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1774,7 +1774,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogFile_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogMarshallingArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteLogMarshallingArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1792,7 +1792,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteLogMarshall
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1810,7 +1810,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteVolumeMount
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1828,7 +1828,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeleteVolumeMount
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DeregisterManageableLogClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_deregisterManageableLogClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1846,7 +1846,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DeregisterManagea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_DuplicateEncryptionInfoFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_duplicateEncryptionInfoFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srcfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dstfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1872,7 +1872,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_DuplicateEncrypti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_encryptFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1890,7 +1890,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptFileA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_encryptFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1908,7 +1908,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptFileW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptionDisable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_encryptionDisable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dirpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t disable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1928,7 +1928,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_EncryptionDisable
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_EraseTape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_eraseTape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwerasetype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1950,7 +1950,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_EraseTape_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FileEncryptionStatusA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_fileEncryptionStatusA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1970,7 +1970,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FileEncryptionSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FileEncryptionStatusW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_fileEncryptionStatusW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1990,7 +1990,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FileEncryptionSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FileTimeToLocalFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_fileTimeToLocalFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplocalfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2010,7 +2010,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FileTimeToLocalFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2028,7 +2028,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindClose_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindCloseChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findCloseChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchangehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2046,7 +2046,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindCloseChangeNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bwatchsubtree = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2068,7 +2068,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstChangeNo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bwatchsubtree = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2090,7 +2090,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstChangeNo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2110,7 +2110,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2138,7 +2138,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileExFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2166,7 +2166,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExFr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2194,7 +2194,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileExW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2220,7 +2220,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileName
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2244,7 +2244,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileName
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2274,7 +2274,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileTran
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2304,7 +2304,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileTran
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2324,7 +2324,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstFileW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstStreamTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstStreamTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2350,7 +2350,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstStreamTr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2374,7 +2374,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstStreamW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstVolumeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2394,7 +2394,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszrootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2416,7 +2416,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeMo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszrootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2438,7 +2438,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeMo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findFirstVolumeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2458,7 +2458,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindFirstVolumeW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchangehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2476,7 +2476,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextChangeNot
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2496,7 +2496,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stringlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2518,7 +2518,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2538,7 +2538,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextFileW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindstreamdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2558,7 +2558,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextStreamW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextVolumeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2580,7 +2580,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2602,7 +2602,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeMou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2624,7 +2624,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeMou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findNextVolumeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2646,7 +2646,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindNextVolumeW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindVolumeClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findVolumeClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2664,7 +2664,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindVolumeClose_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FindVolumeMountPointClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_findVolumeMountPointClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfindvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2682,7 +2682,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FindVolumeMountPo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FlushFileBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_flushFileBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2700,7 +2700,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FlushFileBuffers_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FlushLogBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_flushLogBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2720,7 +2720,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FlushLogBuffers_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FlushLogToLsn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_flushLogToLsn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshalcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnflush = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2744,7 +2744,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FlushLogToLsn_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FreeEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_freeEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbmetadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2761,7 +2761,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FreeEncryptedFile
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FreeEncryptionCertificateHashList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_freeEncryptionCertificateHashList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pusers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2778,7 +2778,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FreeEncryptionCer
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_FreeReservedLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_freeReservedLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t creservedrecords = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2800,7 +2800,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_FreeReservedLog_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetBinaryTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getBinaryTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbinarytype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2820,7 +2820,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetBinaryTypeA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetBinaryTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getBinaryTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbinarytype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2840,7 +2840,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetBinaryTypeW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getCompressedFileSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2860,7 +2860,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2882,7 +2882,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2904,7 +2904,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getCompressedFileSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2924,7 +2924,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetCompressedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetCurrentClockTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getCurrentClockTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionmanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2944,7 +2944,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetCurrentClockTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsectorspercluster = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2970,7 +2970,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdirectoryname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfreebytesavailabletocaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2994,7 +2994,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdirectoryname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfreebytesavailabletocaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3018,7 +3018,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsectorspercluster = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3044,7 +3044,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* diskspaceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3064,7 +3064,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskSpaceInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* diskspaceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3084,7 +3084,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDiskSpaceInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDriveTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDriveTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3102,7 +3102,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDriveTypeA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetDriveTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getDriveTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3120,7 +3120,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetDriveTypeW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbmetadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3142,7 +3142,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetEncryptedFileM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetEnlistmentId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getEnlistmentId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enlistmentid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3162,7 +3162,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetEnlistmentId_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetEnlistmentRecoveryInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getEnlistmentRecoveryInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3186,7 +3186,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetEnlistmentReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetExpandedNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getExpandedNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3206,7 +3206,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetExpandedNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetExpandedNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getExpandedNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3226,7 +3226,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetExpandedNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3244,7 +3244,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3266,7 +3266,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesExFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesExFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3288,7 +3288,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3310,7 +3310,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3334,7 +3334,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3358,7 +3358,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileAttributesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3376,7 +3376,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileBandwidthReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileBandwidthReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpperiodmilliseconds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3404,7 +3404,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileBandwidthR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3424,7 +3424,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileInformationByHandleEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileInformationByHandleEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3448,7 +3448,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesizehigh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3468,7 +3468,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileSize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3488,7 +3488,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileSizeEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcreationtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3512,7 +3512,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileTime_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3530,7 +3530,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileType_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwhandle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3554,7 +3554,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3580,7 +3580,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3606,7 +3606,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3626,7 +3626,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3648,7 +3648,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3670,7 +3670,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3690,7 +3690,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFileVersionInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwhandle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3714,7 +3714,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFileVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3738,7 +3738,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFinalPathNameB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3762,7 +3762,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFinalPathNameB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFullPathNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3786,7 +3786,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3812,7 +3812,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3838,7 +3838,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getFullPathNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3862,7 +3862,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetFullPathNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetIoRingInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getIoRingInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* info = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3882,7 +3882,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetIoRingInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogContainerName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogContainerName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cidlogicalcontainer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3908,7 +3908,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogContainerNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogFileInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogFileInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinfobuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3930,7 +3930,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogFileInforma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogIoStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogIoStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvstatsbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3956,7 +3956,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogIoStatistic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogReservationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogReservationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbrecordnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3980,7 +3980,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogReservation
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4000,7 +4000,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDriveSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4020,7 +4020,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDriveSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDrives_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLogicalDrives_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4036,7 +4036,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLogicalDrives_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLongPathNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4058,7 +4058,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4082,7 +4082,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4106,7 +4106,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getLongPathNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4128,7 +4128,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetLongPathNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetNextLogArchiveExtent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getNextLogArchiveExtent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarchivecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgadextent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4152,7 +4152,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetNextLogArchive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetNotificationResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getNotificationResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transactionnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4178,7 +4178,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetNotificationRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetNotificationResourceManagerAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getNotificationResourceManagerAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transactionnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4204,7 +4204,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetNotificationRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetShortPathNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getShortPathNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4226,7 +4226,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetShortPathNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetShortPathNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getShortPathNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszshortpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4248,7 +4248,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetShortPathNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapeParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTapeParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoperation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4272,7 +4272,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapeParameters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapePosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTapePosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpositiontype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4298,7 +4298,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapePosition_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapeStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTapeStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4316,7 +4316,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTapeStatus_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprefixstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4340,7 +4340,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempFileNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprefixstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4364,7 +4364,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempFileNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPath2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempPath2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t bufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4384,7 +4384,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPath2A_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPath2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempPath2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t bufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4404,7 +4404,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPath2W_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4424,7 +4424,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPathA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTempPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4444,7 +4444,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTempPathW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTransactionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4464,7 +4464,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionId_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTransactionInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outcome = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4494,7 +4494,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionManagerId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getTransactionManagerId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionmanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* transactionmanagerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4514,7 +4514,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetTransactionMan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumeInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4546,7 +4546,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformationByHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumeInformationByHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4578,7 +4578,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumeInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4610,7 +4610,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeInformat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4632,7 +4632,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeNameForV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4654,7 +4654,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumeNameForV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumePathNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4676,7 +4676,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumePathNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4698,7 +4698,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathnames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4722,7 +4722,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumepathnames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4746,7 +4746,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_GetVolumePathName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_HandleLogFull_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_handleLogFull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4764,7 +4764,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_HandleLogFull_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_InstallLogPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_installLogPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppolicy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4784,7 +4784,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_InstallLogPolicy_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_IsIoRingOpSupported_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_isIoRingOpSupported_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t op = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4804,7 +4804,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_IsIoRingOpSupport
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfile = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4821,7 +4821,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZClose_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfsource = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t hfdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4841,7 +4841,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZCopy_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZDone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZDone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -4856,7 +4856,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZDone_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfsource = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4874,7 +4874,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZInit_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZOpenFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZOpenFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreopenbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4896,7 +4896,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZOpenFileA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZOpenFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZOpenFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreopenbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4918,7 +4918,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZOpenFileW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfile = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4940,7 +4940,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZRead_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZSeek_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZSeek_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hfile = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t loffset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4962,7 +4962,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZSeek_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LZStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lZStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4978,7 +4978,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LZStart_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LocalFileTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_localFileTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplocalfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4998,7 +4998,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LocalFileTimeToFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LockFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lockFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileoffsetlow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5024,7 +5024,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LockFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LockFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lockFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5052,7 +5052,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LockFileEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LogTailAdvanceFailure_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_logTailAdvanceFailure_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreason = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5072,7 +5072,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LogTailAdvanceFai
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnBlockOffset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnBlockOffset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5090,7 +5090,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnBlockOffset_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5108,7 +5108,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnContainer_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsn2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5128,7 +5128,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnEqual_napi(con
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnGreater_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnGreater_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsn2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5148,7 +5148,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnGreater_napi(c
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnInvalid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnInvalid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5166,7 +5166,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnInvalid_napi(c
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnLess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnLess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsn2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5186,7 +5186,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnLess_napi(cons
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnNull_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnNull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5204,7 +5204,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnNull_napi(cons
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_LsnRecordSequence_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_lsnRecordSequence_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5222,7 +5222,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_LsnRecordSequence
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5242,7 +5242,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5264,7 +5264,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileExA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5286,7 +5286,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileExW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5306,7 +5306,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileFromAppW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5334,7 +5334,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileTransacte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5362,7 +5362,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileTransacte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5382,7 +5382,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileWithProgressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileWithProgressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5408,7 +5408,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileWithProgr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileWithProgressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_moveFileWithProgressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5434,7 +5434,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_MoveFileWithProgr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetConnectionEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netConnectionEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* qualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5466,7 +5466,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetConnectionEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netFileClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fileid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5486,7 +5486,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileClose_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netFileEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* basepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5520,7 +5520,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileEnum_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netFileGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fileid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5544,7 +5544,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetFileGetInfo_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netServerAliasAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5566,7 +5566,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasAdd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasDel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netServerAliasDel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5588,7 +5588,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasDel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netServerAliasEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5618,7 +5618,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetServerAliasEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionDel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netSessionDel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uncclientname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5640,7 +5640,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionDel_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netSessionEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uncclientname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5674,7 +5674,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionEnum_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netSessionGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uncclientname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5700,7 +5700,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetSessionGetInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5724,7 +5724,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareAdd_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* device = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5746,7 +5746,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareCheck_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareDel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* netname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5768,7 +5768,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDel_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDelEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareDelEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5790,7 +5790,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDelEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDelSticky_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareDelSticky_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* netname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5812,7 +5812,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareDelSticky
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5842,7 +5842,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareEnum_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareEnumSticky_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareEnumSticky_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t level = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5872,7 +5872,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareEnumStick
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* netname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5896,7 +5896,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareGetInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareSetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netShareSetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* netname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5922,7 +5922,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetShareSetInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_NetStatisticsGet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_netStatisticsGet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* service = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5948,7 +5948,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_NetStatisticsGet_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openEncryptedFileRawA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5970,7 +5970,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEncryptedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openEncryptedFileRawW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5992,7 +5992,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEncryptedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6014,7 +6014,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenEnlistment_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreopenbuff = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6036,7 +6036,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenFileById_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openFileById_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hvolumehint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfileid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6064,7 +6064,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenFileById_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* tmhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6086,7 +6086,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenResourceManag
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* transactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6106,7 +6106,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransaction_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6128,7 +6128,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransactionMa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransactionManagerById_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_openTransactionManagerById_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionmanagerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6150,7 +6150,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_OpenTransactionMa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PopIoRingCompletion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_popIoRingCompletion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cqe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6170,7 +6170,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PopIoRingCompleti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrePrepareComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prePrepareComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6190,7 +6190,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrePrepareComplet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrePrepareEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prePrepareEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6210,7 +6210,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrePrepareEnlistm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prepareComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6230,7 +6230,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareComplete_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prepareEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6250,7 +6250,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareEnlistment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareLogArchive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prepareLogArchive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbaselogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6290,7 +6290,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareLogArchive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareTape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_prepareTape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoperation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6312,7 +6312,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_PrepareTape_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryDosDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryDosDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6334,7 +6334,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryDosDeviceA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryDosDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryDosDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptargetpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6356,7 +6356,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryDosDeviceW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryIoRingCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryIoRingCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* capabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6374,7 +6374,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryIoRingCapabi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryLogPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryLogPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t epolicytype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6398,7 +6398,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryLogPolicy_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryRecoveryAgentsOnEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryRecoveryAgentsOnEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precoveryagents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6418,7 +6418,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryRecoveryAgen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_QueryUsersOnEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_queryUsersOnEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pusers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6438,7 +6438,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_QueryUsersOnEncry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReOpenFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_reOpenFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* horiginalfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6462,7 +6462,73 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReOpenFile_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readDirectoryChangesExW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    int32_t bwatchsubtree = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwnotifyfilter = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpbytesreturned = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* lpcompletionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    int32_t readdirectorynotifyinformationclass = static_cast<int32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadDirectoryChangesExW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdirectory, lpbuffer, nbufferlength, bwatchsubtree, dwnotifyfilter, lpbytesreturned, lpoverlapped, lpcompletionroutine, readdirectorynotifyinformationclass) : -1;
+#else
+    (void)hdirectory;
+    (void)lpbuffer;
+    (void)nbufferlength;
+    (void)bwatchsubtree;
+    (void)dwnotifyfilter;
+    (void)lpbytesreturned;
+    (void)lpoverlapped;
+    (void)lpcompletionroutine;
+    (void)readdirectorynotifyinformationclass;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_storage_filesystem_readDirectoryChangesW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    int32_t bwatchsubtree = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwnotifyfilter = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpbytesreturned = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* lpcompletionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadDirectoryChangesW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdirectory, lpbuffer, nbufferlength, bwatchsubtree, dwnotifyfilter, lpbytesreturned, lpoverlapped, lpcompletionroutine) : -1;
+#else
+    (void)hdirectory;
+    (void)lpbuffer;
+    (void)nbufferlength;
+    (void)bwatchsubtree;
+    (void)dwnotifyfilter;
+    (void)lpbytesreturned;
+    (void)lpoverlapped;
+    (void)lpcompletionroutine;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_storage_filesystem_readEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfexportcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvcallbackcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6484,7 +6550,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadEncryptedFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6510,7 +6576,33 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadFile_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadFileScatter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readFileEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nnumberofbytestoread = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpcompletionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadFileEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, nnumberofbytestoread, lpoverlapped, lpcompletionroutine) : -1;
+#else
+    (void)hfile;
+    (void)lpbuffer;
+    (void)nnumberofbytestoread;
+    (void)lpoverlapped;
+    (void)lpcompletionroutine;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_storage_filesystem_readFileScatter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asegmentarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6536,7 +6628,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadFileScatter_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogArchiveMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readLogArchiveMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarchivecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cboffset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6562,7 +6654,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogArchiveMet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readLogNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnotification = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6584,7 +6676,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogNotificati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readLogRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6620,7 +6712,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogRecord_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppvrestartbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6648,7 +6740,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadLogRestartAre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadNextLogRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readNextLogRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreadcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6682,7 +6774,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadNextLogRecord
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadOnlyEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readOnlyEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6702,7 +6794,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadOnlyEnlistmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReadPreviousLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_readPreviousLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreadcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppvrestartbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6728,7 +6820,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReadPreviousLogRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_recoverEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enlistmentkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6748,7 +6840,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverEnlistment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverResourceManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_recoverResourceManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6766,7 +6858,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverResourceMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_recoverTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionmanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6784,7 +6876,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RecoverTransactio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RegisterForLogWriteNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_registerForLogWriteNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbthreshold = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6806,7 +6898,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RegisterForLogWri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RegisterManageableLogClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_registerManageableLogClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcallbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6826,7 +6918,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RegisterManageabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6844,7 +6936,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeDirectoryFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6862,7 +6954,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* htransaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6882,7 +6974,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* htransaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6902,7 +6994,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6920,7 +7012,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveDirectoryW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogContainer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeLogContainer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszcontainerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6944,7 +7036,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogContainerSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeLogContainerSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ccontainer = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6970,7 +7062,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogContaine
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeLogPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t epolicytype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6990,7 +7082,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveLogPolicy_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveUsersFromEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_removeUsersFromEncryptedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phashes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7010,7 +7102,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RemoveUsersFromEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RenameTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_renameTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* logfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* existingtransactionmanagerguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7030,7 +7122,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RenameTransaction
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_replaceFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpreplacedfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreplacementfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7058,7 +7150,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_replaceFileFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpreplacedfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreplacementfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7086,7 +7178,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileFromAp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_replaceFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpreplacedfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpreplacementfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7114,7 +7206,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReplaceFileW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReserveAndAppendLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_reserveAndAppendLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgwriteentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7150,7 +7242,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReserveAndAppendL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ReserveAndAppendLogAligned_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_reserveAndAppendLogAligned_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgwriteentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7188,7 +7280,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ReserveAndAppendL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_rollbackComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7208,7 +7300,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackComplete_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackEnlistment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_rollbackEnlistment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7228,7 +7320,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackEnlistmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_rollbackTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7246,7 +7338,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackTransacti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackTransactionAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_rollbackTransactionAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7264,7 +7356,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RollbackTransacti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_RollforwardTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_rollforwardTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionmanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7284,7 +7376,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_RollforwardTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ScanLogContainers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_scanLogContainers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcxscan = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t escanmode = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7306,7 +7398,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ScanLogContainers
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SearchPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_searchPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7334,7 +7426,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SearchPathA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SearchPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_searchPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7362,7 +7454,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SearchPathW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setEncryptedFileMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pboldmetadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7390,7 +7482,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetEncryptedFileM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetEndOfFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setEndOfFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7408,7 +7500,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetEndOfFile_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetEndOfLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setEndOfLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7430,7 +7522,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetEndOfLog_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetEnlistmentRecoveryInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setEnlistmentRecoveryInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7452,7 +7544,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetEnlistmentReco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileApisToANSI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileApisToANSI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -7467,7 +7559,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileApisToANSI
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileApisToOEM_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileApisToOEM_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -7482,7 +7574,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileApisToOEM_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileAttributesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7502,7 +7594,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributesFromAppW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileAttributesFromAppW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7522,7 +7614,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7544,7 +7636,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7566,7 +7658,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileAttributesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7586,7 +7678,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileAttributes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileBandwidthReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileBandwidthReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nperiodmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7614,7 +7706,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileBandwidthR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileCompletionNotificationModes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileCompletionNotificationModes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t flags = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7634,7 +7726,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileCompletion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fileinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7658,7 +7750,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileIoOverlappedRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileIoOverlappedRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* overlappedrangestart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7680,7 +7772,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileIoOverlapp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFilePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFilePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ldistancetomove = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7704,7 +7796,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFilePointer_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFilePointerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFilePointerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lidistancetomove = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7728,7 +7820,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFilePointerEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileShortNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileShortNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpshortname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7748,7 +7840,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileShortNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileShortNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileShortNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpshortname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7768,7 +7860,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileShortNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcreationtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7792,7 +7884,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileTime_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileValidData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setFileValidData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t validdatalength = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -7812,7 +7904,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetFileValidData_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetIoRingCompletionEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setIoRingCompletionEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7832,7 +7924,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetIoRingCompleti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogArchiveMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setLogArchiveMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t emode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7852,7 +7944,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogArchiveMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogArchiveTail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setLogArchiveTail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnarchivetail = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7874,7 +7966,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogArchiveTail
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogFileSizeWithPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setLogFileSizeWithPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdesiredsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7896,7 +7988,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetLogFileSizeWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetResourceManagerCompletionPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setResourceManagerCompletionPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourcemanagerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iocompletionporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7918,7 +8010,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetResourceManage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetSearchPathMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setSearchPathMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7936,7 +8028,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetSearchPathMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetTapeParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setTapeParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoperation = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7958,7 +8050,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetTapeParameters
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetTapePosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setTapePosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpositionmethod = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7986,7 +8078,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetTapePosition_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetTransactionInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setTransactionInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t isolationlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8012,7 +8104,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetTransactionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pencryptioncertificate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8030,7 +8122,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetUserFileEncryp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pencryptioncertificate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcapabilities = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8054,7 +8146,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetUserFileEncryp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeLabelA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setVolumeLabelA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8074,7 +8166,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeLabelA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeLabelW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setVolumeLabelW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprootpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8094,7 +8186,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeLabelW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setVolumeMountPointA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8114,7 +8206,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeMountPoi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_setVolumeMountPointW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszvolumemountpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszvolumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8134,7 +8226,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SetVolumeMountPoi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SinglePhaseReject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_singlePhaseReject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enlistmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tmvirtualclock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8154,7 +8246,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SinglePhaseReject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_SubmitIoRing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_submitIoRing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ioring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t waitoperations = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8178,7 +8270,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_SubmitIoRing_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TerminateLogArchive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_terminateLogArchive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarchivecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8196,7 +8288,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TerminateLogArchi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TerminateReadLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_terminateReadLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvcursorcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8214,7 +8306,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TerminateReadLog_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TruncateLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_truncateLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plsnend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8236,7 +8328,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TruncateLog_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfGetThreadMiniVersionForCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfGetThreadMiniVersionForCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8253,7 +8345,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfGetThreadMiniV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogDestroyReadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfLogDestroyReadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* txflogcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8271,7 +8363,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogDestroyRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogReadRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfLogReadRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* txflogcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t bufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8297,7 +8389,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogReadRecords
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogRecordGetFileName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfLogRecordGetFileName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* recordbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t recordbufferlengthinbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8323,7 +8415,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogRecordGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogRecordGetGenericType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfLogRecordGetGenericType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* recordbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t recordbufferlengthinbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8347,7 +8439,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfLogRecordGetGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfReadMetadataInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfReadMetadataInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* txffileid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8373,7 +8465,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfReadMetadataIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_TxfSetThreadMiniVersionForCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_txfSetThreadMiniVersionForCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t miniversion = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -8390,7 +8482,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_TxfSetThreadMiniV
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_UnlockFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_unlockFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileoffsetlow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8416,7 +8508,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_UnlockFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_UnlockFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_unlockFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8442,7 +8534,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_UnlockFileEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_ValidateLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_validateLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlogfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psalogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8466,7 +8558,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_ValidateLog_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerFindFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verFindFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8498,7 +8590,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerFindFileA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerFindFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verFindFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8530,7 +8622,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerFindFileW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerInstallFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verInstallFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szsrcfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8562,7 +8654,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerInstallFileA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerInstallFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verInstallFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szsrcfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8594,7 +8686,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerInstallFileW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerLanguageNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verLanguageNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wlang = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szlang = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8616,7 +8708,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerLanguageNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerLanguageNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verLanguageNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wlang = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szlang = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8638,7 +8730,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerLanguageNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerQueryValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verQueryValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8662,7 +8754,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerQueryValueA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_VerQueryValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_verQueryValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsubblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8686,7 +8778,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_VerQueryValueW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofEnumEntries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofEnumEntries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t provider = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8710,7 +8802,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofEnumEntries_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofFileEnumFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofFileEnumFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t algorithm = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8734,7 +8826,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofFileEnumFiles_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofGetDriverVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofGetDriverVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fileorvolumehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t provider = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8756,7 +8848,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofGetDriverVersi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofIsExternalFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofIsExternalFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* isexternalfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8782,7 +8874,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofIsExternalFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofSetFileDataLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofSetFileDataLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t provider = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8806,7 +8898,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofSetFileDataLoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofShouldCompressBinaries_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofShouldCompressBinaries_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volume = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* algorithm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8826,7 +8918,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofShouldCompress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimAddEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofWimAddEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* wimpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8852,7 +8944,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimAddEntry_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimEnumFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofWimEnumFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t datasourceid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8876,7 +8968,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimEnumFiles_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimRemoveEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofWimRemoveEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t datasourceid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8896,7 +8988,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimRemoveEntry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimSuspendEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofWimSuspendEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t datasourceid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8916,7 +9008,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimSuspendEntr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimUpdateEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wofWimUpdateEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t datasourceid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -8938,7 +9030,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WofWimUpdateEntry
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64DisableWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wow64DisableWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8956,7 +9048,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64DisableWow64
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64EnableWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wow64EnableWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool wow64fsenableredirection = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
 #ifdef _WIN32
@@ -8974,7 +9066,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64EnableWow64F
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64RevertWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_wow64RevertWow64FsRedirection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* olvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8992,7 +9084,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_Wow64RevertWow64F
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WriteEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeEncryptedFileRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfimportcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvcallbackcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9014,7 +9106,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WriteEncryptedFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WriteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9040,7 +9132,33 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WriteFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WriteFileGather_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeFileEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nnumberofbytestowrite = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpcompletionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteFileEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, nnumberofbytestowrite, lpoverlapped, lpcompletionroutine) : -1;
+#else
+    (void)hfile;
+    (void)lpbuffer;
+    (void)nnumberofbytestowrite;
+    (void)lpoverlapped;
+    (void)lpcompletionroutine;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeFileGather_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asegmentarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9066,7 +9184,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WriteFileGather_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WriteLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeLogRestartArea_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvrestartbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9098,7 +9216,7 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WriteLogRestartAr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_filesystem_WriteTapemark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_filesystem_writeTapemark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtapemarktype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9123,405 +9241,409 @@ static Napi::Value windowssys_windows_win32_storage_filesystem_WriteTapemark_nap
 }
 
 static void register_windows_win32_storage_filesystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_filesystem_AddLogContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AddLogContainer_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AddLogContainerSet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AddLogContainerSet_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AddUsersToEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AddUsersToEncryptedFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AdvanceLogBase", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AdvanceLogBase_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AlignReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AlignReservedLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AllocReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AllocReservedLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AreFileApisANSI", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AreFileApisANSI_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_AreShortNamesEnabled", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_AreShortNamesEnabled_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_BackupRead", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_BackupRead_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_BackupSeek", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_BackupSeek_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_BackupWrite", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_BackupWrite_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterBuffers_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterFileHandles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterFileHandles_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3A", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3A_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3W", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3W_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CloseAndResetLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CloseAndResetLogFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CloseEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CloseEncryptedFileRaw_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CloseIoRing", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CloseIoRing_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CommitComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CommitComplete_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CommitEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CommitEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CommitTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CommitTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CommitTransactionAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CommitTransactionAsync_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CompareFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CompareFileTime_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFile2", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFile2_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CopyLZFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CopyLZFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateDirectoryW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFile2", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFile2_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFile2FromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFile2FromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFileFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFileTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFileTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateHardLinkA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateHardLinkA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateHardLinkW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateHardLinkW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateLogContainerScanContext", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateLogContainerScanContext_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateLogFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateLogMarshallingArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateLogMarshallingArea_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateResourceManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateTapePartition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateTapePartition_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_CreateTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_CreateTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DecryptFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DecryptFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DecryptFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DecryptFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DefineDosDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DefineDosDeviceA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DefineDosDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DefineDosDeviceW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteFileFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteFileTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteFileTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteLogByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteLogByHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteLogFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteLogMarshallingArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteLogMarshallingArea_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DeregisterManageableLogClient", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DeregisterManageableLogClient_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_DuplicateEncryptionInfoFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_DuplicateEncryptionInfoFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_EncryptFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_EncryptFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_EncryptFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_EncryptFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_EncryptionDisable", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_EncryptionDisable_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_EraseTape", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_EraseTape_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FileEncryptionStatusA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FileEncryptionStatusA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FileEncryptionStatusW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FileEncryptionStatusW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FileTimeToLocalFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FileTimeToLocalFileTime_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindClose_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindCloseChangeNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindCloseChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileExFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileExFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileNameTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstStreamTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstStreamTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstStreamW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstStreamW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstVolumeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstVolumeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindFirstVolumeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindFirstVolumeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextChangeNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextFileNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextStreamW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextStreamW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextVolumeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextVolumeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindNextVolumeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindNextVolumeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindVolumeClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindVolumeClose_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FindVolumeMountPointClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FindVolumeMountPointClose_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FlushFileBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FlushFileBuffers_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FlushLogBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FlushLogBuffers_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FlushLogToLsn", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FlushLogToLsn_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FreeEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FreeEncryptedFileMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FreeEncryptionCertificateHashList", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FreeEncryptionCertificateHashList_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_FreeReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_FreeReservedLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetBinaryTypeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetBinaryTypeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetBinaryTypeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetBinaryTypeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetCurrentClockTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetCurrentClockTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDriveTypeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDriveTypeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetDriveTypeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetDriveTypeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetEncryptedFileMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetEnlistmentId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetEnlistmentId_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetEnlistmentRecoveryInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetEnlistmentRecoveryInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetExpandedNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetExpandedNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetExpandedNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetExpandedNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesExFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesExFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileAttributesW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileAttributesW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileBandwidthReservation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileBandwidthReservation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileInformationByHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileInformationByHandleEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileInformationByHandleEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileSize", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileSize_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileSizeEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileSizeEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileTime_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileType", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileType_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFileVersionInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFileVersionInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFullPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFullPathNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetFullPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetFullPathNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetIoRingInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetIoRingInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogContainerName", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogContainerName_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogFileInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogFileInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogIoStatistics", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogIoStatistics_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogReservationInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogReservationInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLogicalDrives", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLogicalDrives_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLongPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLongPathNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetLongPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetLongPathNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetNextLogArchiveExtent", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetNextLogArchiveExtent_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetNotificationResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetNotificationResourceManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetNotificationResourceManagerAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetNotificationResourceManagerAsync_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetShortPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetShortPathNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetShortPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetShortPathNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTapeParameters", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTapeParameters_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTapePosition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTapePosition_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTapeStatus", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTapeStatus_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempFileNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempFileNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempFileNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempPath2A", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempPath2A_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempPath2W", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempPath2W_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempPathA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempPathA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTempPathW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTempPathW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTransactionId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTransactionId_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTransactionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTransactionInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetTransactionManagerId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetTransactionManagerId_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumeInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumeInformationA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumeInformationByHandleW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumeInformationByHandleW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumeInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumeInformationW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumePathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumePathNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumePathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumePathNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_HandleLogFull", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_HandleLogFull_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_InstallLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_InstallLogPolicy_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_IsIoRingOpSupported", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_IsIoRingOpSupported_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZClose_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZCopy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZCopy_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZDone", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZDone_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZInit", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZInit_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZOpenFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZOpenFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZOpenFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZOpenFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZRead", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZRead_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZSeek", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZSeek_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LZStart", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LZStart_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LocalFileTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LocalFileTimeToFileTime_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LockFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LockFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LockFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LockFileEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LogTailAdvanceFailure", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LogTailAdvanceFailure_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnBlockOffset", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnBlockOffset_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnContainer_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnEqual", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnEqual_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnGreater", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnGreater_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnInvalid", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnInvalid_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnLess", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnLess_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnNull", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnNull_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_LsnRecordSequence", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_LsnRecordSequence_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileExA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileExW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileWithProgressA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileWithProgressA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_MoveFileWithProgressW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_MoveFileWithProgressW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetConnectionEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetConnectionEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetFileClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetFileClose_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetFileEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetFileEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetFileGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetFileGetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetServerAliasAdd", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetServerAliasAdd_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetServerAliasDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetServerAliasDel_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetServerAliasEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetServerAliasEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetSessionDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetSessionDel_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetSessionEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetSessionEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetSessionGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetSessionGetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareAdd", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareAdd_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareCheck", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareCheck_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareDel_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareDelEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareDelEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareDelSticky", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareDelSticky_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareEnum_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareEnumSticky", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareEnumSticky_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareGetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetShareSetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetShareSetInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_NetStatisticsGet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_NetStatisticsGet_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenFileById", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenFileById_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenResourceManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_OpenTransactionManagerById", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_OpenTransactionManagerById_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PopIoRingCompletion", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PopIoRingCompletion_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrePrepareComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrePrepareComplete_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrePrepareEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrePrepareEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrepareComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrepareComplete_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrepareEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrepareEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrepareLogArchive", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrepareLogArchive_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_PrepareTape", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_PrepareTape_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryDosDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryDosDeviceA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryDosDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryDosDeviceW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryIoRingCapabilities", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryIoRingCapabilities_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryLogPolicy_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryRecoveryAgentsOnEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryRecoveryAgentsOnEncryptedFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_QueryUsersOnEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_QueryUsersOnEncryptedFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReOpenFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReOpenFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadEncryptedFileRaw_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadFileScatter", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadFileScatter_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadLogArchiveMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadLogArchiveMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadLogNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadLogNotification_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadLogRecord", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadLogRecord_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadLogRestartArea_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadNextLogRecord", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadNextLogRecord_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadOnlyEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadOnlyEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReadPreviousLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReadPreviousLogRestartArea_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RecoverEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RecoverEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RecoverResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RecoverResourceManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RecoverTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RecoverTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RegisterForLogWriteNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RegisterForLogWriteNotification_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RegisterManageableLogClient", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RegisterManageableLogClient_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveDirectoryA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveDirectoryFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveDirectoryFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveDirectoryW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveLogContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveLogContainer_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveLogContainerSet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveLogContainerSet_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveLogPolicy_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RemoveUsersFromEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RemoveUsersFromEncryptedFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RenameTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RenameTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReplaceFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReplaceFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReplaceFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReplaceFileFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReplaceFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReplaceFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReserveAndAppendLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReserveAndAppendLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ReserveAndAppendLogAligned", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ReserveAndAppendLogAligned_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RollbackComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RollbackComplete_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RollbackEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RollbackEnlistment_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RollbackTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RollbackTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RollbackTransactionAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RollbackTransactionAsync_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_RollforwardTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_RollforwardTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ScanLogContainers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ScanLogContainers_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SearchPathA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SearchPathA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SearchPathW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SearchPathW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetEncryptedFileMetadata_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetEndOfFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetEndOfFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetEndOfLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetEndOfLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetEnlistmentRecoveryInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetEnlistmentRecoveryInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileApisToANSI", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileApisToANSI_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileApisToOEM", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileApisToOEM_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileAttributesA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileAttributesA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileAttributesFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileAttributesFromAppW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileAttributesW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileAttributesW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileBandwidthReservation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileBandwidthReservation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileCompletionNotificationModes", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileCompletionNotificationModes_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileInformationByHandle_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileIoOverlappedRange", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileIoOverlappedRange_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFilePointer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFilePointer_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFilePointerEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFilePointerEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileShortNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileShortNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileShortNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileShortNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileTime_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetFileValidData", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetFileValidData_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetIoRingCompletionEvent", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetIoRingCompletionEvent_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetLogArchiveMode", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetLogArchiveMode_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetLogArchiveTail", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetLogArchiveTail_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetLogFileSizeWithPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetLogFileSizeWithPolicy_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetResourceManagerCompletionPort", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetResourceManagerCompletionPort_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetSearchPathMode", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetSearchPathMode_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetTapeParameters", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetTapeParameters_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetTapePosition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetTapePosition_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetTransactionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetTransactionInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKey", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKey_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKeyEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKeyEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetVolumeLabelA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetVolumeLabelA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetVolumeLabelW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetVolumeLabelW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetVolumeMountPointA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SetVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SetVolumeMountPointW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SinglePhaseReject", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SinglePhaseReject_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_SubmitIoRing", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_SubmitIoRing_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TerminateLogArchive", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TerminateLogArchive_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TerminateReadLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TerminateReadLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TruncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TruncateLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfGetThreadMiniVersionForCreate", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfGetThreadMiniVersionForCreate_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfLogDestroyReadContext", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfLogDestroyReadContext_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfLogReadRecords", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfLogReadRecords_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfLogRecordGetFileName", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfLogRecordGetFileName_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfLogRecordGetGenericType", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfLogRecordGetGenericType_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfReadMetadataInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfReadMetadataInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_TxfSetThreadMiniVersionForCreate", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_TxfSetThreadMiniVersionForCreate_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_UnlockFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_UnlockFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_UnlockFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_UnlockFileEx_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_ValidateLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_ValidateLog_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerFindFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerFindFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerFindFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerFindFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerInstallFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerInstallFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerInstallFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerInstallFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerLanguageNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerLanguageNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerLanguageNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerLanguageNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerQueryValueA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerQueryValueA_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_VerQueryValueW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_VerQueryValueW_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofEnumEntries", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofEnumEntries_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofFileEnumFiles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofFileEnumFiles_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofGetDriverVersion", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofGetDriverVersion_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofIsExternalFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofIsExternalFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofSetFileDataLocation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofSetFileDataLocation_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofShouldCompressBinaries", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofShouldCompressBinaries_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofWimAddEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofWimAddEntry_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofWimEnumFiles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofWimEnumFiles_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofWimRemoveEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofWimRemoveEntry_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofWimSuspendEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofWimSuspendEntry_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WofWimUpdateEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WofWimUpdateEntry_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_Wow64DisableWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_Wow64DisableWow64FsRedirection_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_Wow64EnableWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_Wow64EnableWow64FsRedirection_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_Wow64RevertWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_Wow64RevertWow64FsRedirection_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WriteEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WriteEncryptedFileRaw_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WriteFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WriteFile_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WriteFileGather", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WriteFileGather_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WriteLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WriteLogRestartArea_napi));
-    exports.Set("windowssys_windows_win32_storage_filesystem_WriteTapemark", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_WriteTapemark_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_addLogContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_addLogContainer_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_addLogContainerSet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_addLogContainerSet_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_addUsersToEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_addUsersToEncryptedFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_advanceLogBase", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_advanceLogBase_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_alignReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_alignReservedLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_allocReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_allocReservedLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_areFileApisANSI", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_areFileApisANSI_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_areShortNamesEnabled", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_areShortNamesEnabled_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_backupRead", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_backupRead_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_backupSeek", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_backupSeek_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_backupWrite", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_backupWrite_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_buildIoRingRegisterBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_buildIoRingRegisterBuffers_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_buildIoRingRegisterFileHandles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_buildIoRingRegisterFileHandles_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3A", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3A_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3W", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3W_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_closeAndResetLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_closeAndResetLogFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_closeEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_closeEncryptedFileRaw_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_closeIoRing", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_closeIoRing_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_commitComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_commitComplete_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_commitEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_commitEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_commitTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_commitTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_commitTransactionAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_commitTransactionAsync_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_compareFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_compareFileTime_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFile2", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFile2_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_copyLZFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_copyLZFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createDirectoryW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFile2", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFile2_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFile2FromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFile2FromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFileFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFileTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFileTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createHardLinkA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createHardLinkA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createHardLinkTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createHardLinkTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createHardLinkTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createHardLinkTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createHardLinkW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createHardLinkW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createLogContainerScanContext", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createLogContainerScanContext_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createLogFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createLogMarshallingArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createLogMarshallingArea_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createResourceManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createSymbolicLinkA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createSymbolicLinkA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createSymbolicLinkW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createSymbolicLinkW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createTapePartition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createTapePartition_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_createTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_createTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_decryptFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_decryptFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_decryptFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_decryptFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_defineDosDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_defineDosDeviceA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_defineDosDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_defineDosDeviceW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteFileFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteFileTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteFileTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteLogByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteLogByHandle_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteLogFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteLogFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteLogMarshallingArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteLogMarshallingArea_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_deregisterManageableLogClient", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_deregisterManageableLogClient_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_duplicateEncryptionInfoFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_duplicateEncryptionInfoFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_encryptFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_encryptFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_encryptFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_encryptFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_encryptionDisable", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_encryptionDisable_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_eraseTape", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_eraseTape_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_fileEncryptionStatusA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_fileEncryptionStatusA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_fileEncryptionStatusW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_fileEncryptionStatusW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_fileTimeToLocalFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_fileTimeToLocalFileTime_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findClose_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findCloseChangeNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findCloseChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileExFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileExFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileNameTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstStreamTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstStreamTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstStreamW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstStreamW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstVolumeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstVolumeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findFirstVolumeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findFirstVolumeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextChangeNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextFileNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextStreamW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextStreamW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextVolumeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextVolumeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findNextVolumeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findNextVolumeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findVolumeClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findVolumeClose_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_findVolumeMountPointClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_findVolumeMountPointClose_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_flushFileBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_flushFileBuffers_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_flushLogBuffers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_flushLogBuffers_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_flushLogToLsn", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_flushLogToLsn_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_freeEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_freeEncryptedFileMetadata_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_freeEncryptionCertificateHashList", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_freeEncryptionCertificateHashList_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_freeReservedLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_freeReservedLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getBinaryTypeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getBinaryTypeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getBinaryTypeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getBinaryTypeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getCompressedFileSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getCompressedFileSizeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getCompressedFileSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getCompressedFileSizeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getCurrentClockTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getCurrentClockTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDriveTypeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDriveTypeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getDriveTypeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getDriveTypeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getEncryptedFileMetadata_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getEnlistmentId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getEnlistmentId_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getEnlistmentRecoveryInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getEnlistmentRecoveryInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getExpandedNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getExpandedNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getExpandedNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getExpandedNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesExFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesExFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileAttributesW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileAttributesW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileBandwidthReservation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileBandwidthReservation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileInformationByHandle_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileInformationByHandleEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileInformationByHandleEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileSize", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileSize_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileSizeEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileSizeEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileTime_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileType", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileType_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFileVersionInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFileVersionInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFullPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFullPathNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getFullPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getFullPathNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getIoRingInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getIoRingInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogContainerName", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogContainerName_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogFileInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogFileInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogIoStatistics", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogIoStatistics_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogReservationInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogReservationInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLogicalDrives", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLogicalDrives_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLongPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLongPathNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getLongPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getLongPathNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getNextLogArchiveExtent", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getNextLogArchiveExtent_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getNotificationResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getNotificationResourceManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getNotificationResourceManagerAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getNotificationResourceManagerAsync_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getShortPathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getShortPathNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getShortPathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getShortPathNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTapeParameters", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTapeParameters_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTapePosition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTapePosition_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTapeStatus", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTapeStatus_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempFileNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempFileNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempFileNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempFileNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempPath2A", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempPath2A_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempPath2W", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempPath2W_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempPathA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempPathA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTempPathW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTempPathW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTransactionId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTransactionId_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTransactionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTransactionInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getTransactionManagerId", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getTransactionManagerId_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumeInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumeInformationA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumeInformationByHandleW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumeInformationByHandleW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumeInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumeInformationW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumePathNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumePathNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumePathNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumePathNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_handleLogFull", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_handleLogFull_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_installLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_installLogPolicy_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_isIoRingOpSupported", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_isIoRingOpSupported_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZClose_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZCopy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZCopy_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZDone", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZDone_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZInit", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZInit_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZOpenFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZOpenFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZOpenFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZOpenFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZRead", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZRead_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZSeek", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZSeek_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lZStart", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lZStart_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_localFileTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_localFileTimeToFileTime_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lockFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lockFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lockFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lockFileEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_logTailAdvanceFailure", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_logTailAdvanceFailure_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnBlockOffset", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnBlockOffset_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnContainer_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnEqual", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnEqual_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnGreater", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnGreater_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnInvalid", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnInvalid_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnLess", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnLess_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnNull", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnNull_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_lsnRecordSequence", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_lsnRecordSequence_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileExA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileExA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileWithProgressA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileWithProgressA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_moveFileWithProgressW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_moveFileWithProgressW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netConnectionEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netConnectionEnum_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netFileClose", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netFileClose_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netFileEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netFileEnum_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netFileGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netFileGetInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netServerAliasAdd", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netServerAliasAdd_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netServerAliasDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netServerAliasDel_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netServerAliasEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netServerAliasEnum_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netSessionDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netSessionDel_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netSessionEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netSessionEnum_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netSessionGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netSessionGetInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareAdd", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareAdd_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareCheck", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareCheck_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareDel", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareDel_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareDelEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareDelEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareDelSticky", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareDelSticky_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareEnum", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareEnum_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareEnumSticky", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareEnumSticky_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareGetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareGetInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netShareSetInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netShareSetInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_netStatisticsGet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_netStatisticsGet_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openEncryptedFileRawA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openEncryptedFileRawA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openEncryptedFileRawW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openEncryptedFileRawW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openFileById", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openFileById_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openResourceManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_openTransactionManagerById", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_openTransactionManagerById_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_popIoRingCompletion", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_popIoRingCompletion_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prePrepareComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prePrepareComplete_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prePrepareEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prePrepareEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prepareComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prepareComplete_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prepareEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prepareEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prepareLogArchive", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prepareLogArchive_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_prepareTape", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_prepareTape_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryDosDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryDosDeviceA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryDosDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryDosDeviceW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryIoRingCapabilities", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryIoRingCapabilities_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryLogPolicy_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryRecoveryAgentsOnEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryRecoveryAgentsOnEncryptedFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_queryUsersOnEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_queryUsersOnEncryptedFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_reOpenFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_reOpenFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readDirectoryChangesExW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readDirectoryChangesExW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readDirectoryChangesW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readDirectoryChangesW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readEncryptedFileRaw_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readFileEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readFileScatter", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readFileScatter_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readLogArchiveMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readLogArchiveMetadata_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readLogNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readLogNotification_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readLogRecord", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readLogRecord_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readLogRestartArea_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readNextLogRecord", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readNextLogRecord_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readOnlyEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readOnlyEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_readPreviousLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_readPreviousLogRestartArea_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_recoverEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_recoverEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_recoverResourceManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_recoverResourceManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_recoverTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_recoverTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_registerForLogWriteNotification", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_registerForLogWriteNotification_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_registerManageableLogClient", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_registerManageableLogClient_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeDirectoryA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeDirectoryFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeDirectoryFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeDirectoryW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeLogContainer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeLogContainer_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeLogContainerSet", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeLogContainerSet_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeLogPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeLogPolicy_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_removeUsersFromEncryptedFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_removeUsersFromEncryptedFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_renameTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_renameTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_replaceFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_replaceFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_replaceFileFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_replaceFileFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_replaceFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_replaceFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_reserveAndAppendLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_reserveAndAppendLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_reserveAndAppendLogAligned", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_reserveAndAppendLogAligned_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_rollbackComplete", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_rollbackComplete_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_rollbackEnlistment", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_rollbackEnlistment_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_rollbackTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_rollbackTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_rollbackTransactionAsync", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_rollbackTransactionAsync_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_rollforwardTransactionManager", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_rollforwardTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_scanLogContainers", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_scanLogContainers_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_searchPathA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_searchPathA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_searchPathW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_searchPathW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setEncryptedFileMetadata", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setEncryptedFileMetadata_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setEndOfFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setEndOfFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setEndOfLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setEndOfLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setEnlistmentRecoveryInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setEnlistmentRecoveryInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileApisToANSI", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileApisToANSI_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileApisToOEM", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileApisToOEM_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileAttributesA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileAttributesA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileAttributesFromAppW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileAttributesFromAppW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileAttributesW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileAttributesW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileBandwidthReservation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileBandwidthReservation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileCompletionNotificationModes", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileCompletionNotificationModes_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileInformationByHandle_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileIoOverlappedRange", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileIoOverlappedRange_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFilePointer", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFilePointer_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFilePointerEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFilePointerEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileShortNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileShortNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileShortNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileShortNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileTime", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileTime_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setFileValidData", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setFileValidData_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setIoRingCompletionEvent", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setIoRingCompletionEvent_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setLogArchiveMode", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setLogArchiveMode_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setLogArchiveTail", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setLogArchiveTail_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setLogFileSizeWithPolicy", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setLogFileSizeWithPolicy_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setResourceManagerCompletionPort", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setResourceManagerCompletionPort_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setSearchPathMode", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setSearchPathMode_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setTapeParameters", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setTapeParameters_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setTapePosition", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setTapePosition_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setTransactionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setTransactionInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKey", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKey_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKeyEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKeyEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setVolumeLabelA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setVolumeLabelA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setVolumeLabelW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setVolumeLabelW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setVolumeMountPointA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setVolumeMountPointA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_setVolumeMountPointW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_setVolumeMountPointW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_singlePhaseReject", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_singlePhaseReject_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_submitIoRing", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_submitIoRing_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_terminateLogArchive", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_terminateLogArchive_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_terminateReadLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_terminateReadLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_truncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_truncateLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfGetThreadMiniVersionForCreate", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfGetThreadMiniVersionForCreate_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfLogDestroyReadContext", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfLogDestroyReadContext_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfLogReadRecords", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfLogReadRecords_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfLogRecordGetFileName", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfLogRecordGetFileName_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfLogRecordGetGenericType", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfLogRecordGetGenericType_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfReadMetadataInfo", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfReadMetadataInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_txfSetThreadMiniVersionForCreate", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_txfSetThreadMiniVersionForCreate_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_unlockFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_unlockFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_unlockFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_unlockFileEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_validateLog", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_validateLog_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verFindFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verFindFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verFindFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verFindFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verInstallFileA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verInstallFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verInstallFileW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verInstallFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verLanguageNameA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verLanguageNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verLanguageNameW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verLanguageNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verQueryValueA", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verQueryValueA_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_verQueryValueW", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_verQueryValueW_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofEnumEntries", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofEnumEntries_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofFileEnumFiles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofFileEnumFiles_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofGetDriverVersion", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofGetDriverVersion_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofIsExternalFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofIsExternalFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofSetFileDataLocation", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofSetFileDataLocation_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofShouldCompressBinaries", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofShouldCompressBinaries_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofWimAddEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofWimAddEntry_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofWimEnumFiles", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofWimEnumFiles_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofWimRemoveEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofWimRemoveEntry_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofWimSuspendEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofWimSuspendEntry_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wofWimUpdateEntry", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wofWimUpdateEntry_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wow64DisableWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wow64DisableWow64FsRedirection_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wow64EnableWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wow64EnableWow64FsRedirection_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_wow64RevertWow64FsRedirection", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_wow64RevertWow64FsRedirection_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeEncryptedFileRaw", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeEncryptedFileRaw_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeFile", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeFile_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeFileEx", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeFileEx_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeFileGather", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeFileGather_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeLogRestartArea", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeLogRestartArea_napi));
+    exports.Set("windowssys_windows_win32_storage_filesystem_writeTapemark", Napi::Function::New(env, windowssys_windows_win32_storage_filesystem_writeTapemark_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_filesystem_napi, nullptr };

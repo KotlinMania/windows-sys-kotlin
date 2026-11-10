@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.restartmanager
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
 private object WindowsWin32SystemRestartmanagerJniBridge {
     init {
@@ -12,68 +13,68 @@ private object WindowsWin32SystemRestartmanagerJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmAddFilter(dwsessionhandle: Int, strmodulename: Long, pprocess: Long, strserviceshortname: Long, filteraction: Int): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmAddFilter(dwsessionhandle: Int, strmodulename: Long, pprocess: Long, strserviceshortname: Long, filteraction: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmCancelCurrentTask(dwsessionhandle: Int): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask(dwsessionhandle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmEndSession(dwsessionhandle: Int): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmEndSession(dwsessionhandle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmGetFilterList(dwsessionhandle: Int, pbfilterbuf: Long, cbfilterbuf: Int, cbfilterbufneeded: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmGetFilterList(dwsessionhandle: Int, pbfilterbuf: Long, cbfilterbuf: Int, cbfilterbufneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmGetList(dwsessionhandle: Int, pnprocinfoneeded: Long, pnprocinfo: Long, rgaffectedapps: Long, lpdwrebootreasons: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmGetList(dwsessionhandle: Int, pnprocinfoneeded: Long, pnprocinfo: Long, rgaffectedapps: Long, lpdwrebootreasons: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmJoinSession(psessionhandle: Long, strsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmJoinSession(psessionhandle: Long, strsessionkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmRegisterResources(dwsessionhandle: Int, nfiles: Int, rgsfilenames: Long, napplications: Int, rgapplications: Long, nservices: Int, rgsservicenames: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmRegisterResources(dwsessionhandle: Int, nfiles: Int, rgsfilenames: Long, napplications: Int, rgapplications: Long, nservices: Int, rgsservicenames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmRemoveFilter(dwsessionhandle: Int, strmodulename: Long, pprocess: Long, strserviceshortname: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmRemoveFilter(dwsessionhandle: Int, strmodulename: Long, pprocess: Long, strserviceshortname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmRestart(dwsessionhandle: Int, dwrestartflags: Int, fnstatus: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmRestart(dwsessionhandle: Int, dwrestartflags: Int, fnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmShutdown(dwsessionhandle: Int, lactionflags: Int, fnstatus: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmShutdown(dwsessionhandle: Int, lactionflags: Int, fnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_restartmanager_RmStartSession(psessionhandle: Long, dwsessionflags: Int, strsessionkey: Long): Int
+    external fun windowssys_windows_win32_system_restartmanager_rmStartSession(psessionhandle: Long, dwsessionflags: Int, strsessionkey: Long): Int
 }
 
-public actual fun RmAddFilter(dwsessionhandle: UInt, strmodulename: PCWSTR, pprocess: Long, strserviceshortname: PCWSTR, filteraction: RM_FILTER_ACTION): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmAddFilter(dwsessionhandle.toInt(), strmodulename, pprocess, strserviceshortname, filteraction).toUInt()
+public actual fun rmAddFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: COpaquePointer?, strserviceshortname: Pcwstr, filteraction: RmFilterAction): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmAddFilter(dwsessionhandle.toInt(), (strmodulename?.value ?: 0L), (pprocess?.value ?: 0L), (strserviceshortname?.value ?: 0L), filteraction).toUInt()
 
-public actual fun RmCancelCurrentTask(dwsessionhandle: UInt): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmCancelCurrentTask(dwsessionhandle.toInt()).toUInt()
+public actual fun rmCancelCurrentTask(dwsessionhandle: UInt): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask(dwsessionhandle.toInt()).toUInt()
 
-public actual fun RmEndSession(dwsessionhandle: UInt): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmEndSession(dwsessionhandle.toInt()).toUInt()
+public actual fun rmEndSession(dwsessionhandle: UInt): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmEndSession(dwsessionhandle.toInt()).toUInt()
 
-public actual fun RmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: Long, cbfilterbuf: UInt, cbfilterbufneeded: Long): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmGetFilterList(dwsessionhandle.toInt(), pbfilterbuf, cbfilterbuf.toInt(), cbfilterbufneeded).toUInt()
+public actual fun rmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: COpaquePointer?, cbfilterbuf: UInt, cbfilterbufneeded: COpaquePointer?): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmGetFilterList(dwsessionhandle.toInt(), (pbfilterbuf?.value ?: 0L), cbfilterbuf.toInt(), (cbfilterbufneeded?.value ?: 0L)).toUInt()
 
-public actual fun RmGetList(dwsessionhandle: UInt, pnprocinfoneeded: Long, pnprocinfo: Long, rgaffectedapps: Long, lpdwrebootreasons: Long): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmGetList(dwsessionhandle.toInt(), pnprocinfoneeded, pnprocinfo, rgaffectedapps, lpdwrebootreasons).toUInt()
+public actual fun rmGetList(dwsessionhandle: UInt, pnprocinfoneeded: COpaquePointer?, pnprocinfo: COpaquePointer?, rgaffectedapps: COpaquePointer?, lpdwrebootreasons: COpaquePointer?): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmGetList(dwsessionhandle.toInt(), (pnprocinfoneeded?.value ?: 0L), (pnprocinfo?.value ?: 0L), (rgaffectedapps?.value ?: 0L), (lpdwrebootreasons?.value ?: 0L)).toUInt()
 
-public actual fun RmJoinSession(psessionhandle: Long, strsessionkey: PCWSTR): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmJoinSession(psessionhandle, strsessionkey).toUInt()
+public actual fun rmJoinSession(psessionhandle: COpaquePointer?, strsessionkey: Pcwstr): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmJoinSession((psessionhandle?.value ?: 0L), (strsessionkey?.value ?: 0L)).toUInt()
 
-public actual fun RmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: Long, napplications: UInt, rgapplications: Long, nservices: UInt, rgsservicenames: Long): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmRegisterResources(dwsessionhandle.toInt(), nfiles.toInt(), rgsfilenames, napplications.toInt(), rgapplications, nservices.toInt(), rgsservicenames).toUInt()
+public actual fun rmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: COpaquePointer?, napplications: UInt, rgapplications: COpaquePointer?, nservices: UInt, rgsservicenames: COpaquePointer?): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmRegisterResources(dwsessionhandle.toInt(), nfiles.toInt(), (rgsfilenames?.value ?: 0L), napplications.toInt(), (rgapplications?.value ?: 0L), nservices.toInt(), (rgsservicenames?.value ?: 0L)).toUInt()
 
-public actual fun RmRemoveFilter(dwsessionhandle: UInt, strmodulename: PCWSTR, pprocess: Long, strserviceshortname: PCWSTR): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmRemoveFilter(dwsessionhandle.toInt(), strmodulename, pprocess, strserviceshortname).toUInt()
+public actual fun rmRemoveFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: COpaquePointer?, strserviceshortname: Pcwstr): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmRemoveFilter(dwsessionhandle.toInt(), (strmodulename?.value ?: 0L), (pprocess?.value ?: 0L), (strserviceshortname?.value ?: 0L)).toUInt()
 
-public actual fun RmRestart(dwsessionhandle: UInt, dwrestartflags: UInt, fnstatus: RM_WRITE_STATUS_CALLBACK): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmRestart(dwsessionhandle.toInt(), dwrestartflags.toInt(), fnstatus.toLong()).toUInt()
+public actual fun rmRestart(dwsessionhandle: UInt, dwrestartflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmRestart(dwsessionhandle.toInt(), dwrestartflags.toInt(), 0L).toUInt()
 
-public actual fun RmShutdown(dwsessionhandle: UInt, lactionflags: UInt, fnstatus: RM_WRITE_STATUS_CALLBACK): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmShutdown(dwsessionhandle.toInt(), lactionflags.toInt(), fnstatus.toLong()).toUInt()
+public actual fun rmShutdown(dwsessionhandle: UInt, lactionflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmShutdown(dwsessionhandle.toInt(), lactionflags.toInt(), 0L).toUInt()
 
-public actual fun RmStartSession(psessionhandle: Long, dwsessionflags: UInt, strsessionkey: PWSTR): WIN32_ERROR =
-    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_RmStartSession(psessionhandle, dwsessionflags.toInt(), strsessionkey).toUInt()
+public actual fun rmStartSession(psessionhandle: COpaquePointer?, dwsessionflags: UInt, strsessionkey: Pwstr): Win32Error =
+    WindowsWin32SystemRestartmanagerJniBridge.windowssys_windows_win32_system_restartmanager_rmStartSession((psessionhandle?.value ?: 0L), dwsessionflags.toInt(), (strsessionkey?.value ?: 0L)).toUInt()

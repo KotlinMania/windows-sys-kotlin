@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_errorreporting_AddERExcludedApplicationA(void* szapplication) {
+int32_t windowssys_windows_win32_system_errorreporting_addERExcludedApplicationA(void* szapplication) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_errorreporting_AddERExcludedApplicationA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_AddERExcludedApplicationW(void* wszapplication) {
+int32_t windowssys_windows_win32_system_errorreporting_addERExcludedApplicationW(void* wszapplication) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_system_errorreporting_AddERExcludedApplicationW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_ReportFault(void* pep, uint32_t dwopt) {
+int32_t windowssys_windows_win32_system_errorreporting_reportFault(void* pep, uint32_t dwopt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_system_errorreporting_ReportFault(void* pep, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerAddExcludedApplication(void* pwzexename, int32_t ballusers) {
+int32_t windowssys_windows_win32_system_errorreporting_werAddExcludedApplication(void* pwzexename, int32_t ballusers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerAddExcludedApplication
 #endif
 }
 
-void windowssys_windows_win32_system_errorreporting_WerFreeString(void* pwszstr) {
+void windowssys_windows_win32_system_errorreporting_werFreeString(void* pwszstr) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -126,7 +126,7 @@ void windowssys_windows_win32_system_errorreporting_WerFreeString(void* pwszstr)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerGetFlags(void* hprocess, void* pdwflags) {
+int32_t windowssys_windows_win32_system_errorreporting_werGetFlags(void* hprocess, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerGetFlags(void* hproces
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterAdditionalProcess(uint32_t processid, uint32_t captureextrainfoforthreadid) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterAdditionalProcess(uint32_t processid, uint32_t captureextrainfoforthreadid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterAdditionalProc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterAppLocalDump(void* localappdatarelativepath) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterAppLocalDump(void* localappdatarelativepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterAppLocalDump(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterCustomMetadata(void* key, void* value) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterCustomMetadata(void* key, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -217,7 +217,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterCustomMetadata
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterExcludedMemoryBlock(void* address, uint32_t size) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterExcludedMemoryBlock(void* address, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -240,7 +240,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterExcludedMemory
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterFile(void* pwzfile, int32_t regfiletype, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterFile(void* pwzfile, int32_t regfiletype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterFile(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterMemoryBlock(void* pvaddress, uint32_t dwsize) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterMemoryBlock(void* pvaddress, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterMemoryBlock(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRegisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext) {
+int32_t windowssys_windows_win32_system_errorreporting_werRegisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -310,7 +310,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRegisterRuntimeExcepti
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerRemoveExcludedApplication(void* pwzexename, int32_t ballusers) {
+int32_t windowssys_windows_win32_system_errorreporting_werRemoveExcludedApplication(void* pwzexename, int32_t ballusers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerRemoveExcludedApplicat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportAddDump(void* hreporthandle, void* hprocess, void* hthread, int32_t dumptype, void* pexceptionparam, void* pdumpcustomoptions, uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportAddDump(void* hreporthandle, void* hprocess, void* hthread, int32_t dumptype, void* pexceptionparam, void* pdumpcustomoptions, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -361,7 +361,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportAddDump(void* hr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportAddFile(void* hreporthandle, void* pwzpath, int32_t repfiletype, uint32_t dwfileflags) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportAddFile(void* hreporthandle, void* pwzpath, int32_t repfiletype, uint32_t dwfileflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportAddFile(void* hr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportCloseHandle(void* hreporthandle) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportCloseHandle(void* hreporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -408,7 +408,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportCloseHandle(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportCreate(void* pwzeventtype, int32_t reptype, void* preportinformation, void* phreporthandle) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportCreate(void* pwzeventtype, int32_t reptype, void* preportinformation, void* phreporthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportCreate(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportHang(void* hwndhungapp, void* pwzhungapplicationname) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportHang(void* hwndhungapp, void* pwzhungapplicationname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportHang(void* hwndh
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportSetParameter(void* hreporthandle, uint32_t dwparamid, void* pwzname, void* pwzvalue) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportSetParameter(void* hreporthandle, uint32_t dwparamid, void* pwzname, void* pwzvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -481,7 +481,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportSetParameter(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportSetUIOption(void* hreporthandle, int32_t repuitypeid, void* pwzvalue) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportSetUIOption(void* hreporthandle, int32_t repuitypeid, void* pwzvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -505,7 +505,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportSetUIOption(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerReportSubmit(void* hreporthandle, int32_t consent, uint32_t dwflags, void* psubmitresult) {
+int32_t windowssys_windows_win32_system_errorreporting_werReportSubmit(void* hreporthandle, int32_t consent, uint32_t dwflags, void* psubmitresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerReportSubmit(void* hre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerSetFlags(uint32_t dwflags) {
+int32_t windowssys_windows_win32_system_errorreporting_werSetFlags(uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerSetFlags(uint32_t dwfl
 #endif
 }
 
-void windowssys_windows_win32_system_errorreporting_WerStoreClose(void* hreportstore) {
+void windowssys_windows_win32_system_errorreporting_werStoreClose(void* hreportstore) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -573,7 +573,7 @@ void windowssys_windows_win32_system_errorreporting_WerStoreClose(void* hreports
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetFirstReportKey(void* hreportstore, void* ppszreportkey) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreGetFirstReportKey(void* hreportstore, void* ppszreportkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetFirstReportKey
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetNextReportKey(void* hreportstore, void* ppszreportkey) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreGetNextReportKey(void* hreportstore, void* ppszreportkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetNextReportKey(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetReportCount(void* hreportstore, void* pdwreportcount) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreGetReportCount(void* hreportstore, void* pdwreportcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -642,7 +642,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetReportCount(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetSizeOnDisk(void* hreportstore, void* pqwsizeinbytes) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreGetSizeOnDisk(void* hreportstore, void* pqwsizeinbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreGetSizeOnDisk(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreOpen(int32_t repstoretype, void* phreportstore) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreOpen(int32_t repstoretype, void* phreportstore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -688,7 +688,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreOpen(int32_t reps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStorePurge(void) {
+int32_t windowssys_windows_win32_system_errorreporting_werStorePurge(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStorePurge(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetadataV1(void* hreportstore, void* pszreportkey, void* preportmetadata) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV1(void* hreportstore, void* pszreportkey, void* preportmetadata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -733,7 +733,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetada
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetadataV2(void* hreportstore, void* pszreportkey, void* preportmetadata) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV2(void* hreportstore, void* pszreportkey, void* preportmetadata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -757,7 +757,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetada
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetadataV3(void* hreportstore, void* pszreportkey, void* preportmetadata) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreQueryReportMetadataV3(void* hreportstore, void* pszreportkey, void* preportmetadata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreQueryReportMetada
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerStoreUploadReport(void* hreportstore, void* pszreportkey, uint32_t dwflags, void* psubmitresult) {
+int32_t windowssys_windows_win32_system_errorreporting_werStoreUploadReport(void* hreportstore, void* pszreportkey, uint32_t dwflags, void* psubmitresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -806,7 +806,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerStoreUploadReport(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterAdditionalProcess(uint32_t processid) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterAdditionalProcess(uint32_t processid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -828,7 +828,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterAdditionalPr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterAppLocalDump(void) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterAppLocalDump(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -849,7 +849,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterAppLocalDump
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterCustomMetadata(void* key) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterCustomMetadata(void* key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -871,7 +871,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterCustomMetada
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterExcludedMemoryBlock(void* address) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterExcludedMemoryBlock(void* address) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -893,7 +893,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterExcludedMemo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterFile(void* pwzfilepath) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterFile(void* pwzfilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -915,7 +915,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterFile(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterMemoryBlock(void* pvaddress) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterMemoryBlock(void* pvaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -937,7 +937,7 @@ int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterMemoryBlock(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_errorreporting_WerUnregisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext) {
+int32_t windowssys_windows_win32_system_errorreporting_werUnregisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

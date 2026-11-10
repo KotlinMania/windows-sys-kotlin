@@ -1,739 +1,1514 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
-public actual fun LdapGetLastError(): UInt =
-    0u
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32NetworkingLdapNapiAddon(): Boolean
 
-public actual fun LdapMapErrorToWin32(ldaperror: UInt): WIN32_ERROR =
-    0u
+private val _windowsWin32NetworkingLdapNapiAvailable: Boolean = _initWindowsWin32NetworkingLdapNapiAddon()
 
-public actual fun LdapUTF8ToUnicode(lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    0
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetLastError()")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetLastError(): Int
 
-public actual fun LdapUnicodeToUTF8(lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(p0: Int): Int
 
-public actual fun ber_alloc_t(options: Int): Long =
-    0L
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun ber_bvdup(pberval: Long): Long =
-    0L
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun ber_bvecfree(pberval: Long) {
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berAllocT(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berAllocT(p0: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berBvdup(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berBvdup(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berBvecfree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berBvecfree(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berBvfree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berBvfree(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berFirstElement(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berFirstElement(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berFlatten(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berFlatten(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berFree(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berFree(p0: String, p1: Int)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berInit(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berInit(p0: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berNextElement(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berNextElement(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berPeekTag(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berPeekTag(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berPrintf(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berPrintf(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berScanf(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berScanf(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_berSkipTag(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_berSkipTag(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_cldapOpen(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_cldapOpen(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_cldapOpenA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_cldapOpenA(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_cldapOpenW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_cldapOpenW(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAbandon(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAbandon(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAdd(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAdd(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExt(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExtA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExtW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExtS(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtS(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExtSA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtSA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddExtSW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtSW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddS(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddS(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddSA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddSA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapAddSW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapAddSW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBind(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBind(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBindA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBindA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBindW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBindW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBindS(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBindS(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBindSA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBindSA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapBindSW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapBindSW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCheckFilterA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCheckFilterA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCheckFilterW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCheckFilterW(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCleanup(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCleanup(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompare(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompare(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExt(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExtA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExtW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExtS(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtS(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExtSA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtSA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareExtSW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtSW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareS(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareS(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareSA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareSA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCompareSW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCompareSW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapConnFromMsg(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapConnFromMsg(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapConnect(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapConnect(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlFree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlFree(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlFreeA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlFreeA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlFreeW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlFreeW(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlsFree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFree(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlsFreeA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFreeA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapControlsFreeW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFreeW(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountEntries(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountEntries(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountReferences(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountReferences(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountValues(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountValues(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountValuesA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountValuesW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesW(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCountValuesLen(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesLen(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreatePageControl(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControl(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreatePageControlA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControlA(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreatePageControlW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControlW(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreateSortControl(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControl(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreateSortControlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControlA(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreateSortControlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControlW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDelete(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDelete(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExt(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExt(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExtA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExtW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExtS(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtS(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExtSA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtSA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteExtSW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtSW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteS(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteS(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteSA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteSA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDeleteSW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteSW(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDn2ufn(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufn(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDn2ufnA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufnA(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapDn2ufnW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufnW(p0: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA(p0: String, p1: String, p2: String, p3: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW(p0: String, p1: String, p2: String, p3: Boolean): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapErr2string(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapErr2string(p0: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapErr2stringA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapErr2stringA(p0: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapErr2stringW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapErr2stringW(p0: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExplodeDn(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDn(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExplodeDnA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDnA(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExplodeDnW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDnW(p0: String, p1: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExtendedOperation(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperation(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExtendedOperationA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExtendedOperationW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFirstAttribute(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttribute(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFirstAttributeA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttributeA(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFirstAttributeW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttributeW(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFirstEntry(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFirstEntry(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFirstReference(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFirstReference(p0: String, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFreeControls(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControls(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFreeControlsA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControlsA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapFreeControlsW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControlsW(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetDn(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetDn(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetDnA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetDnA(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetDnW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetDnW(p0: String, p1: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetNextPage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetNextPage(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetNextPageS(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetNextPageS(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetOption(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetOption(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetOptionW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetOptionW(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetPagedCount(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetPagedCount(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValues(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValues(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValuesA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesA(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValuesW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesW(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValuesLen(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLen(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValuesLenA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLenA(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapGetValuesLenW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLenW(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapInit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapInit(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapInitA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapInitA(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapInitW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapInitW(p0: String, p1: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapMemfree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapMemfree(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapMemfreeA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapMemfreeA(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapMemfreeW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapMemfreeW(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModify(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModify(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExt(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExtA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExtW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExtS(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtS(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExtSA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtSA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyExtSW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtSW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifyS(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifyS(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifySA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifySA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModifySW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModifySW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2A(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2A(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2W(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2W(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2S(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2S(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2SA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2SA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdn2SW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2SW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdnA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdnW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdnS(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnS(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdnSA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnSA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapModrdnSW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnSW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapMsgfree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapMsgfree(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapNextAttribute(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttribute(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapNextAttributeA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttributeA(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapNextAttributeW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttributeW(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapNextEntry(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapNextEntry(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapNextReference(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapNextReference(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapOpen(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapOpen(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapOpenA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapOpenA(p0: String, p1: Int): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapOpenW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapOpenW(p0: String, p1: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA(p0: String, p1: String, p2: String, p3: String, p4: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW(p0: String, p1: String, p2: String, p3: String, p4: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParsePageControl(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControl(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParsePageControlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControlA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParsePageControlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControlW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseReference(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseReference(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseReferenceA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseReferenceA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseReferenceW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseReferenceW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseResult(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseResult(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseResultA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseResultA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseResultW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseResultW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Boolean): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseSortControl(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControl(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseSortControlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControlA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseSortControlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControlW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseVlvControlA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseVlvControlA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapParseVlvControlW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapParseVlvControlW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapPerror(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapPerror(p0: String, p1: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExt(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExt(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExtA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExtW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExtS(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtS(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExtSA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtSA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapRenameExtSW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtSW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapResult(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapResult(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapResult2error(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapResult2error(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSaslBindA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSaslBindW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSaslBindSA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindSA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSaslBindSW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindSW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearch(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearch(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExt(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExt(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExtA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExtW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExtS(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtS(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: String, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExtSA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtSA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: String, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchExtSW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtSW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: String, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchInitPage(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPage(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: Int, p9: Int, p10: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchS(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchS(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchSA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchSW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchSt(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSt(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchStA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchStA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSearchStW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSearchStW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(p0: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSetOption(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSetOption(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSetOptionW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSetOptionW(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBind(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBind(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBindA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBindW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBindS(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindS(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBindSA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindSA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSimpleBindSW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindSW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSslinit(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSslinit(p0: String, p1: Int, p2: Int): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSslinitA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSslinitA(p0: String, p1: Int, p2: Int): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapSslinitW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapSslinitW(p0: String, p1: Int, p2: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapStartTlsSA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapStartTlsSA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapStartTlsSW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapStartTlsSW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapStartup(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapStartup(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapStopTlsS(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapStopTlsS(p0: String): Boolean
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUfn2dn(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dn(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUfn2dnA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dnA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUfn2dnW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dnW(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUnbind(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUnbind(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapUnbindS(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapUnbindS(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapValueFree(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapValueFree(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapValueFreeA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapValueFreeW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeW(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_ldap_ldapValueFreeLen(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeLen(p0: String): Int
+
+public actual fun ldapGetLastError(): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetLastError().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ldapMapErrorToWin32(ldaperror: UInt): Win32Error =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32(ldaperror.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ldapUTF8ToUnicode(lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode((lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ldapUnicodeToUTF8(lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8((lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun berAllocT(options: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berAllocT(options).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun berBvdup(pberval: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berBvdup((pberval?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun berBvecfree(pberval: COpaquePointer?) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_berBvecfree((pberval?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ber_bvfree(bv: Long) {
+public actual fun berBvfree(bv: COpaquePointer?) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_berBvfree((bv?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ber_first_element(pberelement: Long, plen: Long, ppopaque: Long): UInt =
-    0u
+public actual fun berFirstElement(pberelement: COpaquePointer?, plen: COpaquePointer?, ppopaque: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berFirstElement((pberelement?.value ?: 0L).toString(), (plen?.value ?: 0L).toString(), (ppopaque?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_flatten(pberelement: Long, pberval: Long): Int =
-    0
+public actual fun berFlatten(pberelement: COpaquePointer?, pberval: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berFlatten((pberelement?.value ?: 0L).toString(), (pberval?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_free(pberelement: Long, fbuf: Int) {
+public actual fun berFree(pberelement: COpaquePointer?, fbuf: Int) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_berFree((pberelement?.value ?: 0L).toString(), fbuf)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ber_init(pberval: Long): Long =
-    0L
+public actual fun berInit(pberval: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berInit((pberval?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_next_element(pberelement: Long, plen: Long, opaque: PCSTR): UInt =
-    0u
+public actual fun berNextElement(pberelement: COpaquePointer?, plen: COpaquePointer?, opaque: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berNextElement((pberelement?.value ?: 0L).toString(), (plen?.value ?: 0L).toString(), (opaque?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_peek_tag(pberelement: Long, plen: Long): UInt =
-    0u
+public actual fun berPeekTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berPeekTag((pberelement?.value ?: 0L).toString(), (plen?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_printf(pberelement: Long, fmt: PCSTR): Int =
-    0
+public actual fun berPrintf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berPrintf((pberelement?.value ?: 0L).toString(), (fmt?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_scanf(pberelement: Long, fmt: PCSTR): UInt =
-    0u
+public actual fun berScanf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berScanf((pberelement?.value ?: 0L).toString(), (fmt?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ber_skip_tag(pberelement: Long, plen: Long): UInt =
-    0u
+public actual fun berSkipTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_berSkipTag((pberelement?.value ?: 0L).toString(), (plen?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cldap_open(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun cldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_cldapOpen((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cldap_openA(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun cldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_cldapOpenA((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cldap_openW(hostname: PCWSTR, portnumber: UInt): Long =
-    0L
+public actual fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_cldapOpenW((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_abandon(ld: Long, msgid: UInt): UInt =
-    0u
+public actual fun ldapAbandon(ld: COpaquePointer?, msgid: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAbandon((ld?.value ?: 0L).toString(), msgid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add(ld: Long, dn: PCSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAdd(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAdd((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_addA(ld: Long, dn: PCSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAddA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_addW(ld: Long, dn: PCWSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAddW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_ext(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapAddExt(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExt((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_extA(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapAddExtA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_extW(ld: Long, dn: PCWSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapAddExtW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_ext_s(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapAddExtS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_ext_sA(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapAddExtSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_ext_sW(ld: Long, dn: PCWSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapAddExtSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddExtSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_s(ld: Long, dn: PCSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAddS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_sA(ld: Long, dn: PCSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAddSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_add_sW(ld: Long, dn: PCWSTR, attrs: Long): UInt =
-    0u
+public actual fun ldapAddSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapAddSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bind(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBind(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBind((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bindA(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBindA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBindA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bindW(ld: Long, dn: PCWSTR, cred: PCWSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBindW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBindW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bind_s(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBindS(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBindS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bind_sA(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBindSA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBindSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_bind_sW(ld: Long, dn: PCWSTR, cred: PCWSTR, method: UInt): UInt =
-    0u
+public actual fun ldapBindSW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapBindSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), method.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_check_filterA(ld: Long, searchfilter: PCSTR): UInt =
-    0u
+public actual fun ldapCheckFilterA(ld: COpaquePointer?, searchfilter: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCheckFilterA((ld?.value ?: 0L).toString(), (searchfilter?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_check_filterW(ld: Long, searchfilter: PCWSTR): UInt =
-    0u
+public actual fun ldapCheckFilterW(ld: COpaquePointer?, searchfilter: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCheckFilterW((ld?.value ?: 0L).toString(), (searchfilter?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_cleanup(hinstance: HANDLE): UInt =
-    0u
+public actual fun ldapCleanup(hinstance: Handle): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCleanup((hinstance?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_close_extended_op(ld: Long, messagenumber: UInt): UInt =
-    0u
+public actual fun ldapCloseExtendedOp(ld: COpaquePointer?, messagenumber: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp((ld?.value ?: 0L).toString(), messagenumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt =
-    0u
+public actual fun ldapCompare(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompare((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compareA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt =
-    0u
+public actual fun ldapCompareA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compareW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR): UInt =
-    0u
+public actual fun ldapCompareW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_ext(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapCompareExt(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExt((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_extA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapCompareExtA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_extW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapCompareExtW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_ext_s(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapCompareExtS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_ext_sA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapCompareExtSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_ext_sW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapCompareExtSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareExtSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_s(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt =
-    0u
+public actual fun ldapCompareS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_sA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt =
-    0u
+public actual fun ldapCompareSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_compare_sW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR): UInt =
-    0u
+public actual fun ldapCompareSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCompareSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (attr?.value ?: 0L).toString(), (value?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_conn_from_msg(primaryconn: Long, res: Long): Long =
-    0L
+public actual fun ldapConnFromMsg(primaryconn: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapConnFromMsg((primaryconn?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_connect(ld: Long, timeout: Long): UInt =
-    0u
+public actual fun ldapConnect(ld: COpaquePointer?, timeout: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapConnect((ld?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_control_free(control: Long): UInt =
-    0u
+public actual fun ldapControlFree(control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlFree((control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_control_freeA(controls: Long): UInt =
-    0u
+public actual fun ldapControlFreeA(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlFreeA((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_control_freeW(control: Long): UInt =
-    0u
+public actual fun ldapControlFreeW(control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlFreeW((control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_controls_free(controls: Long): UInt =
-    0u
+public actual fun ldapControlsFree(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFree((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_controls_freeA(controls: Long): UInt =
-    0u
+public actual fun ldapControlsFreeA(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFreeA((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_controls_freeW(control: Long): UInt =
-    0u
+public actual fun ldapControlsFreeW(control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapControlsFreeW((control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_entries(ld: Long, res: Long): UInt =
-    0u
+public actual fun ldapCountEntries(ld: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountEntries((ld?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_references(ld: Long, res: Long): UInt =
-    0u
+public actual fun ldapCountReferences(ld: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountReferences((ld?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_values(vals: Long): UInt =
-    0u
+public actual fun ldapCountValues(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountValues((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_valuesA(vals: Long): UInt =
-    0u
+public actual fun ldapCountValuesA(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesA((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_valuesW(vals: Long): UInt =
-    0u
+public actual fun ldapCountValuesW(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesW((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_count_values_len(vals: Long): UInt =
-    0u
+public actual fun ldapCountValuesLen(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCountValuesLen((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_page_control(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreatePageControl(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControl((externalhandle?.value ?: 0L).toString(), pagesize.toInt(), (cookie?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_page_controlA(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreatePageControlA(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControlA((externalhandle?.value ?: 0L).toString(), pagesize.toInt(), (cookie?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_page_controlW(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreatePageControlW(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreatePageControlW((externalhandle?.value ?: 0L).toString(), pagesize.toInt(), (cookie?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_sort_control(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreateSortControl(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControl((externalhandle?.value ?: 0L).toString(), (sortkeys?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_sort_controlA(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreateSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControlA((externalhandle?.value ?: 0L).toString(), (sortkeys?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_sort_controlW(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt =
-    0u
+public actual fun ldapCreateSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreateSortControlW((externalhandle?.value ?: 0L).toString(), (sortkeys?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_vlv_controlA(externalhandle: Long, vlvinfo: Long, iscritical: UByte, control: Long): Int =
-    0
+public actual fun ldapCreateVlvControlA(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreateVlvControlA((externalhandle?.value ?: 0L).toString(), (vlvinfo?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_create_vlv_controlW(externalhandle: Long, vlvinfo: Long, iscritical: UByte, control: Long): Int =
-    0
+public actual fun ldapCreateVlvControlW(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapCreateVlvControlW((externalhandle?.value ?: 0L).toString(), (vlvinfo?.value ?: 0L).toString(), iscritical.toInt(), (control?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete(ld: Long, dn: PCSTR): UInt =
-    0u
+public actual fun ldapDelete(ld: COpaquePointer?, dn: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDelete((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_deleteA(ld: Long, dn: PCSTR): UInt =
-    0u
+public actual fun ldapDeleteA(ld: COpaquePointer?, dn: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_deleteW(ld: Long, dn: PCWSTR): UInt =
-    0u
+public actual fun ldapDeleteW(ld: COpaquePointer?, dn: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_ext(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapDeleteExt(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExt((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_extA(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapDeleteExtA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_extW(ld: Long, dn: PCWSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapDeleteExtW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_ext_s(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapDeleteExtS(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_ext_sA(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapDeleteExtSA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_ext_sW(ld: Long, dn: PCWSTR, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapDeleteExtSW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteExtSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_s(ld: Long, dn: PCSTR): UInt =
-    0u
+public actual fun ldapDeleteS(ld: COpaquePointer?, dn: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_sA(ld: Long, dn: PCSTR): UInt =
-    0u
+public actual fun ldapDeleteSA(ld: COpaquePointer?, dn: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_delete_sW(ld: Long, dn: PCWSTR): UInt =
-    0u
+public actual fun ldapDeleteSW(ld: COpaquePointer?, dn: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDeleteSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_dn2ufn(dn: PCSTR): PSTR =
-    0L
+public actual fun ldapDn2ufn(dn: Pcstr): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufn((dn?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_dn2ufnA(dn: PCSTR): PSTR =
-    0L
+public actual fun ldapDn2ufnA(dn: Pcstr): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufnA((dn?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_dn2ufnW(dn: PCWSTR): PWSTR =
-    0L
+public actual fun ldapDn2ufnW(dn: Pcwstr): Pwstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapDn2ufnW((dn?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_encode_sort_controlA(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): UInt =
-    0u
+public actual fun ldapEncodeSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapEncodeSortControlA((externalhandle?.value ?: 0L).toString(), (sortkeys?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), criticality).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_encode_sort_controlW(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): UInt =
-    0u
+public actual fun ldapEncodeSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapEncodeSortControlW((externalhandle?.value ?: 0L).toString(), (sortkeys?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), criticality).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_err2string(err: UInt): PSTR =
-    0L
+public actual fun ldapErr2string(err: UInt): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapErr2string(err.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_err2stringA(err: UInt): PSTR =
-    0L
+public actual fun ldapErr2stringA(err: UInt): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapErr2stringA(err.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_err2stringW(err: UInt): PWSTR =
-    0L
+public actual fun ldapErr2stringW(err: UInt): Pwstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapErr2stringW(err.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_escape_filter_element(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PSTR, destlength: UInt): UInt =
-    0u
+public actual fun ldapEscapeFilterElement(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElement((sourcefilterelement?.value ?: 0L).toString(), sourcelength.toInt(), (destfilterelement?.value ?: 0L).toString(), destlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_escape_filter_elementA(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PSTR, destlength: UInt): UInt =
-    0u
+public actual fun ldapEscapeFilterElementA(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementA((sourcefilterelement?.value ?: 0L).toString(), sourcelength.toInt(), (destfilterelement?.value ?: 0L).toString(), destlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_escape_filter_elementW(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PWSTR, destlength: UInt): UInt =
-    0u
+public actual fun ldapEscapeFilterElementW(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pwstr, destlength: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapEscapeFilterElementW((sourcefilterelement?.value ?: 0L).toString(), sourcelength.toInt(), (destfilterelement?.value ?: 0L).toString(), destlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_explode_dn(dn: PCSTR, notypes: UInt): Long =
-    0L
+public actual fun ldapExplodeDn(dn: Pcstr, notypes: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDn((dn?.value ?: 0L).toString(), notypes.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_explode_dnA(dn: PCSTR, notypes: UInt): Long =
-    0L
+public actual fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDnA((dn?.value ?: 0L).toString(), notypes.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_explode_dnW(dn: PCWSTR, notypes: UInt): Long =
-    0L
+public actual fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExplodeDnW((dn?.value ?: 0L).toString(), notypes.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_extended_operation(ld: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapExtendedOperation(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperation((ld?.value ?: 0L).toString(), (oid?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_extended_operationA(ld: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapExtendedOperationA(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationA((ld?.value ?: 0L).toString(), (oid?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_extended_operationW(ld: Long, oid: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapExtendedOperationW(ld: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationW((ld?.value ?: 0L).toString(), (oid?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_extended_operation_sA(externalhandle: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): UInt =
-    0u
+public actual fun ldapExtendedOperationSA(externalhandle: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationSA((externalhandle?.value ?: 0L).toString(), (oid?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (returnedoid?.value ?: 0L).toString(), (returneddata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_extended_operation_sW(externalhandle: Long, oid: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): UInt =
-    0u
+public actual fun ldapExtendedOperationSW(externalhandle: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapExtendedOperationSW((externalhandle?.value ?: 0L).toString(), (oid?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (returnedoid?.value ?: 0L).toString(), (returneddata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_first_attribute(ld: Long, entry: Long, ptr: Long): PSTR =
-    0L
+public actual fun ldapFirstAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttribute((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_first_attributeA(ld: Long, entry: Long, ptr: Long): PSTR =
-    0L
+public actual fun ldapFirstAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttributeA((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_first_attributeW(ld: Long, entry: Long, ptr: Long): PWSTR =
-    0L
+public actual fun ldapFirstAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFirstAttributeW((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_first_entry(ld: Long, res: Long): Long =
-    0L
+public actual fun ldapFirstEntry(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFirstEntry((ld?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_first_reference(ld: Long, res: Long): Long =
-    0L
+public actual fun ldapFirstReference(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFirstReference((ld?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_free_controls(controls: Long): UInt =
-    0u
+public actual fun ldapFreeControls(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControls((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_free_controlsA(controls: Long): UInt =
-    0u
+public actual fun ldapFreeControlsA(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControlsA((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_free_controlsW(controls: Long): UInt =
-    0u
+public actual fun ldapFreeControlsW(controls: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapFreeControlsW((controls?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_dn(ld: Long, entry: Long): PSTR =
-    0L
+public actual fun ldapGetDn(ld: COpaquePointer?, entry: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetDn((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_dnA(ld: Long, entry: Long): PSTR =
-    0L
+public actual fun ldapGetDnA(ld: COpaquePointer?, entry: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetDnA((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_dnW(ld: Long, entry: Long): PWSTR =
-    0L
+public actual fun ldapGetDnW(ld: COpaquePointer?, entry: COpaquePointer?): Pwstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetDnW((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_next_page(externalhandle: Long, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: Long): UInt =
-    0u
+public actual fun ldapGetNextPage(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetNextPage((externalhandle?.value ?: 0L).toString(), searchhandle.toString(), pagesize.toInt(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_next_page_s(externalhandle: Long, searchhandle: PLDAPSearch, timeout: Long, pagesize: UInt, totalcount: Long, results: Long): UInt =
-    0u
+public actual fun ldapGetNextPageS(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, timeout: COpaquePointer?, pagesize: UInt, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetNextPageS((externalhandle?.value ?: 0L).toString(), searchhandle.toString(), (timeout?.value ?: 0L).toString(), pagesize.toInt(), (totalcount?.value ?: 0L).toString(), (results?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_option(ld: Long, option: Int, outvalue: Long): UInt =
-    0u
+public actual fun ldapGetOption(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetOption((ld?.value ?: 0L).toString(), option, (outvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_optionW(ld: Long, option: Int, outvalue: Long): UInt =
-    0u
+public actual fun ldapGetOptionW(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetOptionW((ld?.value ?: 0L).toString(), option, (outvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_paged_count(externalhandle: Long, searchblock: PLDAPSearch, totalcount: Long, results: Long): UInt =
-    0u
+public actual fun ldapGetPagedCount(externalhandle: COpaquePointer?, searchblock: PLDAPSearch, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetPagedCount((externalhandle?.value ?: 0L).toString(), searchblock.toString(), (totalcount?.value ?: 0L).toString(), (results?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_values(ld: Long, entry: Long, attr: PCSTR): Long =
-    0L
+public actual fun ldapGetValues(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValues((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_valuesA(ld: Long, entry: Long, attr: PCSTR): Long =
-    0L
+public actual fun ldapGetValuesA(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesA((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_valuesW(ld: Long, entry: Long, attr: PCWSTR): Long =
-    0L
+public actual fun ldapGetValuesW(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcwstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesW((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_values_len(externalhandle: Long, message: Long, attr: PCSTR): Long =
-    0L
+public actual fun ldapGetValuesLen(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLen((externalhandle?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_values_lenA(externalhandle: Long, message: Long, attr: PCSTR): Long =
-    0L
+public actual fun ldapGetValuesLenA(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLenA((externalhandle?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_get_values_lenW(externalhandle: Long, message: Long, attr: PCWSTR): Long =
-    0L
+public actual fun ldapGetValuesLenW(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcwstr): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapGetValuesLenW((externalhandle?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (attr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_init(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapInit(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapInit((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_initA(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapInitA((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_initW(hostname: PCWSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapInitW((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_memfree(block: PCSTR) {
+public actual fun ldapMemfree(block: Pcstr) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_ldapMemfree((block?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ldap_memfreeA(block: PCSTR) {
+public actual fun ldapMemfreeA(block: Pcstr) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_ldapMemfreeA((block?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ldap_memfreeW(block: PCWSTR) {
+public actual fun ldapMemfreeW(block: Pcwstr) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_ldapMemfreeW((block?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ldap_modify(ld: Long, dn: PCSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModify(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModify((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modifyA(ld: Long, dn: PCSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModifyA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modifyW(ld: Long, dn: PCWSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModifyW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_ext(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapModifyExt(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExt((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_extA(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapModifyExtA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_extW(ld: Long, dn: PCWSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapModifyExtW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_ext_s(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapModifyExtS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_ext_sA(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapModifyExtSA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_ext_sW(ld: Long, dn: PCWSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapModifyExtSW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyExtSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_s(ld: Long, dn: PCSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModifyS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifyS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_sA(ld: Long, dn: PCSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModifySA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifySA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modify_sW(ld: Long, dn: PCWSTR, mods: Long): UInt =
-    0u
+public actual fun ldapModifySW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModifySW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (mods?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt =
-    0u
+public actual fun ldapModrdn(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2A(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2A(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2A((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2W(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2W(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2W((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2_s(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2S(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2S((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2_sA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2SA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2SA((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn2_sW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR, deleteoldrdn: Int): UInt =
-    0u
+public actual fun ldapModrdn2SW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdn2SW((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString(), deleteoldrdn).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdnA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt =
-    0u
+public actual fun ldapModrdnA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnA((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdnW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR): UInt =
-    0u
+public actual fun ldapModrdnW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnW((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn_s(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt =
-    0u
+public actual fun ldapModrdnS(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnS((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn_sA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt =
-    0u
+public actual fun ldapModrdnSA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnSA((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_modrdn_sW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR): UInt =
-    0u
+public actual fun ldapModrdnSW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapModrdnSW((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), (newdistinguishedname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_msgfree(res: Long): UInt =
-    0u
+public actual fun ldapMsgfree(res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapMsgfree((res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_next_attribute(ld: Long, entry: Long, ptr: Long): PSTR =
-    0L
+public actual fun ldapNextAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttribute((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_next_attributeA(ld: Long, entry: Long, ptr: Long): PSTR =
-    0L
+public actual fun ldapNextAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttributeA((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_next_attributeW(ld: Long, entry: Long, ptr: Long): PWSTR =
-    0L
+public actual fun ldapNextAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapNextAttributeW((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_next_entry(ld: Long, entry: Long): Long =
-    0L
+public actual fun ldapNextEntry(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapNextEntry((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_next_reference(ld: Long, entry: Long): Long =
-    0L
+public actual fun ldapNextReference(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapNextReference((ld?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_open(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapOpen((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_openA(hostname: PCSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapOpenA((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_openW(hostname: PCWSTR, portnumber: UInt): Long =
-    0L
+public actual fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapOpenW((hostname?.value ?: 0L).toString(), portnumber.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_extended_resultA(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): UInt =
-    0u
+public actual fun ldapParseExtendedResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseExtendedResultA((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (resultoid?.value ?: 0L).toString(), (resultdata?.value ?: 0L).toString(), freeit).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_extended_resultW(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): UInt =
-    0u
+public actual fun ldapParseExtendedResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseExtendedResultW((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (resultoid?.value ?: 0L).toString(), (resultdata?.value ?: 0L).toString(), freeit).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_page_control(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt =
-    0u
+public actual fun ldapParsePageControl(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControl((externalhandle?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (totalcount?.value ?: 0L).toString(), (cookie?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_page_controlA(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt =
-    0u
+public actual fun ldapParsePageControlA(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControlA((externalhandle?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (totalcount?.value ?: 0L).toString(), (cookie?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_page_controlW(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt =
-    0u
+public actual fun ldapParsePageControlW(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParsePageControlW((externalhandle?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (totalcount?.value ?: 0L).toString(), (cookie?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_reference(connection: Long, resultmessage: Long, referrals: Long): UInt =
-    0u
+public actual fun ldapParseReference(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseReference((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_referenceA(connection: Long, resultmessage: Long, referrals: Long): UInt =
-    0u
+public actual fun ldapParseReferenceA(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseReferenceA((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_referenceW(connection: Long, resultmessage: Long, referrals: Long): UInt =
-    0u
+public actual fun ldapParseReferenceW(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseReferenceW((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_result(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt =
-    0u
+public actual fun ldapParseResult(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseResult((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (returncode?.value ?: 0L).toString(), (matcheddns?.value ?: 0L).toString(), (errormessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), freeit).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_resultA(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt =
-    0u
+public actual fun ldapParseResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseResultA((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (returncode?.value ?: 0L).toString(), (matcheddns?.value ?: 0L).toString(), (errormessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), freeit).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_resultW(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt =
-    0u
+public actual fun ldapParseResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseResultW((connection?.value ?: 0L).toString(), (resultmessage?.value ?: 0L).toString(), (returncode?.value ?: 0L).toString(), (matcheddns?.value ?: 0L).toString(), (errormessage?.value ?: 0L).toString(), (referrals?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), freeit).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_sort_control(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt =
-    0u
+public actual fun ldapParseSortControl(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControl((externalhandle?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (attribute?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_sort_controlA(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt =
-    0u
+public actual fun ldapParseSortControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControlA((externalhandle?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (attribute?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_sort_controlW(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt =
-    0u
+public actual fun ldapParseSortControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseSortControlW((externalhandle?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (attribute?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_vlv_controlA(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int =
-    0
+public actual fun ldapParseVlvControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseVlvControlA((externalhandle?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), (targetpos?.value ?: 0L).toString(), (listcount?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (errcode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_parse_vlv_controlW(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int =
-    0
+public actual fun ldapParseVlvControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapParseVlvControlW((externalhandle?.value ?: 0L).toString(), (control?.value ?: 0L).toString(), (targetpos?.value ?: 0L).toString(), (listcount?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (errcode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_perror(ld: Long, msg: PCSTR) {
+public actual fun ldapPerror(ld: COpaquePointer?, msg: Pcstr) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_ldapPerror((ld?.value ?: 0L).toString(), (msg?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ldap_rename_ext(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapRenameExt(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExt((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_rename_extA(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapRenameExtA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_rename_extW(ld: Long, dn: PCWSTR, newrdn: PCWSTR, newparent: PCWSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt =
-    0u
+public actual fun ldapRenameExtW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_rename_ext_s(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapRenameExtS(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_rename_ext_sA(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapRenameExtSA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_rename_ext_sW(ld: Long, dn: PCWSTR, newrdn: PCWSTR, newparent: PCWSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapRenameExtSW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapRenameExtSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (newrdn?.value ?: 0L).toString(), (newparent?.value ?: 0L).toString(), deleteoldrdn, (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_result(ld: Long, msgid: UInt, all: UInt, timeout: Long, res: Long): UInt =
-    0u
+public actual fun ldapResult(ld: COpaquePointer?, msgid: UInt, all: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapResult((ld?.value ?: 0L).toString(), msgid.toInt(), all.toInt(), (timeout?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_result2error(ld: Long, res: Long, freeit: UInt): UInt =
-    0u
+public actual fun ldapResult2error(ld: COpaquePointer?, res: COpaquePointer?, freeit: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapResult2error((ld?.value ?: 0L).toString(), (res?.value ?: 0L).toString(), freeit.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sasl_bindA(externalhandle: Long, distname: PCSTR, authmechanism: PCSTR, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int =
-    0
+public actual fun ldapSaslBindA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindA((externalhandle?.value ?: 0L).toString(), (distname?.value ?: 0L).toString(), (authmechanism?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), (serverctrls?.value ?: 0L).toString(), (clientctrls?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sasl_bindW(externalhandle: Long, distname: PCWSTR, authmechanism: PCWSTR, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int =
-    0
+public actual fun ldapSaslBindW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindW((externalhandle?.value ?: 0L).toString(), (distname?.value ?: 0L).toString(), (authmechanism?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), (serverctrls?.value ?: 0L).toString(), (clientctrls?.value ?: 0L).toString(), (messagenumber?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sasl_bind_sA(externalhandle: Long, distname: PCSTR, authmechanism: PCSTR, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int =
-    0
+public actual fun ldapSaslBindSA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindSA((externalhandle?.value ?: 0L).toString(), (distname?.value ?: 0L).toString(), (authmechanism?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), (serverctrls?.value ?: 0L).toString(), (clientctrls?.value ?: 0L).toString(), (serverdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sasl_bind_sW(externalhandle: Long, distname: PCWSTR, authmechanism: PCWSTR, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int =
-    0
+public actual fun ldapSaslBindSW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSaslBindSW((externalhandle?.value ?: 0L).toString(), (distname?.value ?: 0L).toString(), (authmechanism?.value ?: 0L).toString(), (cred?.value ?: 0L).toString(), (serverctrls?.value ?: 0L).toString(), (clientctrls?.value ?: 0L).toString(), (serverdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt): UInt =
-    0u
+public actual fun ldapSearch(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearch((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_searchA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt): UInt =
-    0u
+public actual fun ldapSearchA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchA((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_searchW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt): UInt =
-    0u
+public actual fun ldapSearchW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchW((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_abandon_page(externalhandle: Long, searchblock: PLDAPSearch): UInt =
-    0u
+public actual fun ldapSearchAbandonPage(externalhandle: COpaquePointer?, searchblock: PLDAPSearch): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage((externalhandle?.value ?: 0L).toString(), searchblock.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_ext(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt =
-    0u
+public actual fun ldapSearchExt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExt((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_extA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt =
-    0u
+public actual fun ldapSearchExtA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtA((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_extW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt =
-    0u
+public actual fun ldapSearchExtW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtW((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_ext_s(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchExtS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtS((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), sizelimit.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_ext_sA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchExtSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtSA((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), sizelimit.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_ext_sW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchExtSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchExtSW((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), sizelimit.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_init_page(externalhandle: Long, distinguishedname: PCSTR, scopeofsearch: UInt, searchfilter: PCSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch =
-    0L
+public actual fun ldapSearchInitPage(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPage((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), scopeofsearch.toInt(), (searchfilter?.value ?: 0L).toString(), (attributelist?.value ?: 0L).toString(), attributesonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_init_pageA(externalhandle: Long, distinguishedname: PCSTR, scopeofsearch: UInt, searchfilter: PCSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch =
-    0L
+public actual fun ldapSearchInitPageA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPageA((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), scopeofsearch.toInt(), (searchfilter?.value ?: 0L).toString(), (attributelist?.value ?: 0L).toString(), attributesonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_init_pageW(externalhandle: Long, distinguishedname: PCWSTR, scopeofsearch: UInt, searchfilter: PCWSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch =
-    0L
+public actual fun ldapSearchInitPageW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchInitPageW((externalhandle?.value ?: 0L).toString(), (distinguishedname?.value ?: 0L).toString(), scopeofsearch.toInt(), (searchfilter?.value ?: 0L).toString(), (attributelist?.value ?: 0L).toString(), attributesonly.toInt(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString(), pagetimelimit.toInt(), totalsizelimit.toInt(), (sortkeys?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_s(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchS((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_sA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSA((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_sW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, res: Long): UInt =
-    0u
+public actual fun ldapSearchSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSW((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_st(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt =
-    0u
+public actual fun ldapSearchSt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchSt((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (timeout?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_stA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt =
-    0u
+public actual fun ldapSearchStA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchStA((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (timeout?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_search_stW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt =
-    0u
+public actual fun ldapSearchStW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSearchStW((ld?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), scope.toInt(), (filter?.value ?: 0L).toString(), (attrs?.value ?: 0L).toString(), attrsonly.toInt(), (timeout?.value ?: 0L).toString(), (res?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_set_dbg_flags(newflags: UInt): UInt =
-    0u
+public actual fun ldapSetDbgFlags(newflags: UInt): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSetDbgFlags(newflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
+public actual fun ldapSetDbgRoutine(debugprintroutine: Dbgprint) {
+    if (_windowsWin32NetworkingLdapNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine(0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ldap_set_option(ld: Long, option: Int, invalue: Long): UInt =
-    0u
+public actual fun ldapSetOption(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSetOption((ld?.value ?: 0L).toString(), option, (invalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_set_optionW(ld: Long, option: Int, invalue: Long): UInt =
-    0u
+public actual fun ldapSetOptionW(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSetOptionW((ld?.value ?: 0L).toString(), option, (invalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bind(ld: Long, dn: PCSTR, passwd: PCSTR): UInt =
-    0u
+public actual fun ldapSimpleBind(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBind((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bindA(ld: Long, dn: PCSTR, passwd: PCSTR): UInt =
-    0u
+public actual fun ldapSimpleBindA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bindW(ld: Long, dn: PCWSTR, passwd: PCWSTR): UInt =
-    0u
+public actual fun ldapSimpleBindW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bind_s(ld: Long, dn: PCSTR, passwd: PCSTR): UInt =
-    0u
+public actual fun ldapSimpleBindS(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindS((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bind_sA(ld: Long, dn: PCSTR, passwd: PCSTR): UInt =
-    0u
+public actual fun ldapSimpleBindSA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindSA((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_simple_bind_sW(ld: Long, dn: PCWSTR, passwd: PCWSTR): UInt =
-    0u
+public actual fun ldapSimpleBindSW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSimpleBindSW((ld?.value ?: 0L).toString(), (dn?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sslinit(hostname: PCSTR, portnumber: UInt, secure: Int): Long =
-    0L
+public actual fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSslinit((hostname?.value ?: 0L).toString(), portnumber.toInt(), secure).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sslinitA(hostname: PCSTR, portnumber: UInt, secure: Int): Long =
-    0L
+public actual fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSslinitA((hostname?.value ?: 0L).toString(), portnumber.toInt(), secure).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_sslinitW(hostname: PCWSTR, portnumber: UInt, secure: Int): Long =
-    0L
+public actual fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapSslinitW((hostname?.value ?: 0L).toString(), portnumber.toInt(), secure).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_start_tls_sA(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapStartTlsSA(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapStartTlsSA((externalhandle?.value ?: 0L).toString(), (serverreturnvalue?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_start_tls_sW(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): UInt =
-    0u
+public actual fun ldapStartTlsSW(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapStartTlsSW((externalhandle?.value ?: 0L).toString(), (serverreturnvalue?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (servercontrols?.value ?: 0L).toString(), (clientcontrols?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_startup(version: Long, instance: Long): UInt =
-    0u
+public actual fun ldapStartup(version: COpaquePointer?, instance: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapStartup((version?.value ?: 0L).toString(), (instance?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_stop_tls_s(externalhandle: Long): Boolean =
-    false
+public actual fun ldapStopTlsS(externalhandle: COpaquePointer?): Boolean =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapStopTlsS((externalhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_ufn2dn(ufn: PCSTR, pdn: Long): UInt =
-    0u
+public actual fun ldapUfn2dn(ufn: Pcstr, pdn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dn((ufn?.value ?: 0L).toString(), (pdn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_ufn2dnA(ufn: PCSTR, pdn: Long): UInt =
-    0u
+public actual fun ldapUfn2dnA(ufn: Pcstr, pdn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dnA((ufn?.value ?: 0L).toString(), (pdn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_ufn2dnW(ufn: PCWSTR, pdn: Long): UInt =
-    0u
+public actual fun ldapUfn2dnW(ufn: Pcwstr, pdn: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUfn2dnW((ufn?.value ?: 0L).toString(), (pdn?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_unbind(ld: Long): UInt =
-    0u
+public actual fun ldapUnbind(ld: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUnbind((ld?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_unbind_s(ld: Long): UInt =
-    0u
+public actual fun ldapUnbindS(ld: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapUnbindS((ld?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_value_free(vals: Long): UInt =
-    0u
+public actual fun ldapValueFree(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapValueFree((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_value_freeA(vals: Long): UInt =
-    0u
+public actual fun ldapValueFreeA(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeA((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_value_freeW(vals: Long): UInt =
-    0u
+public actual fun ldapValueFreeW(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeW((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ldap_value_free_len(vals: Long): UInt =
-    0u
+public actual fun ldapValueFreeLen(vals: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingLdapNapiAvailable) _wasm_windowssys_windows_win32_networking_ldap_ldapValueFreeLen((vals?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

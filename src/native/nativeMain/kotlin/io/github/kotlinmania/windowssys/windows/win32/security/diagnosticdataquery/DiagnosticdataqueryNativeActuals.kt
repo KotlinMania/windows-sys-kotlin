@@ -2,112 +2,113 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DdqCancelDiagnosticRecordOperation(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqCancelDiagnosticRecordOperation(hsession.toCPointer<ByteVar>())
+public actual fun ddqCancelDiagnosticRecordOperation(hsession: HdiagnosticDataQuerySession): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation(hsession?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqCloseSession(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqCloseSession(hsession.toCPointer<ByteVar>())
+public actual fun ddqCloseSession(hsession: HdiagnosticDataQuerySession): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession(hsession?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqCreateSession(accesslevel: DdqAccessLevel, hsession: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqCreateSession(accesslevel, hsession.toCPointer<ByteVar>())
+public actual fun ddqCreateSession(accesslevel: DdqAccessLevel, hsession: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(accesslevel, hsession?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqExtractDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportkey: PCWSTR, destinationpath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqExtractDiagnosticReport(hsession.toCPointer<ByteVar>(), reportstoretype, reportkey.toCPointer<ByteVar>(), destinationpath.toCPointer<ByteVar>())
+public actual fun ddqExtractDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportkey: Pcwstr, destinationpath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport(hsession?.value?.toCPointer<ByteVar>(), reportstoretype, reportkey?.value?.toCPointer<ByteVar>(), destinationpath?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqFreeDiagnosticRecordLocaleTags(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordLocaleTags(htagdescription.toCPointer<ByteVar>())
+public actual fun ddqFreeDiagnosticRecordLocaleTags(htagdescription: HdiagnosticEventTagDescription): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags(htagdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqFreeDiagnosticRecordPage(hrecord: HDIAGNOSTIC_RECORD): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordPage(hrecord.toCPointer<ByteVar>())
+public actual fun ddqFreeDiagnosticRecordPage(hrecord: HdiagnosticRecord): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage(hrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducerCategories(hcategorydescription.toCPointer<ByteVar>())
+public actual fun ddqFreeDiagnosticRecordProducerCategories(hcategorydescription: HdiagnosticEventCategoryDescription): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories(hcategorydescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqFreeDiagnosticRecordProducers(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducers(hproducerdescription.toCPointer<ByteVar>())
+public actual fun ddqFreeDiagnosticRecordProducers(hproducerdescription: HdiagnosticEventProducerDescription): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers(hproducerdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqFreeDiagnosticReport(hreport: HDIAGNOSTIC_REPORT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticReport(hreport.toCPointer<ByteVar>())
+public actual fun ddqFreeDiagnosticReport(hreport: HdiagnosticReport): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport(hreport?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticDataAccessLevelAllowed(accesslevel.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticDataAccessLevelAllowed(accesslevel: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed(accesslevel?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordAtIndex(hrecord: HDIAGNOSTIC_RECORD, index: UInt, record: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordAtIndex(hrecord.toCPointer<ByteVar>(), index, record.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordAtIndex(hrecord: HdiagnosticRecord, index: UInt, record: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex(hrecord?.value?.toCPointer<ByteVar>(), index, record?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordBinaryDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, topnbinaries: UInt, binarystats: Long, statcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordBinaryDistribution(hsession.toCPointer<ByteVar>(), producernames.toCPointer<ByteVar>(), producernamecount, topnbinaries, binarystats.toCPointer<ByteVar>(), statcount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordBinaryDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, topnbinaries: UInt, binarystats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution(hsession?.value?.toCPointer<ByteVar>(), producernames?.value?.toCPointer<ByteVar>(), producernamecount, topnbinaries, binarystats?.value?.toCPointer<ByteVar>(), statcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: UInt, categorydescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.toCPointer<ByteVar>(), index, categorydescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HdiagnosticEventCategoryDescription, index: UInt, categorydescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex(hcategorydescription?.value?.toCPointer<ByteVar>(), index, categorydescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordCategoryCount(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryCount(hcategorydescription.toCPointer<ByteVar>(), categorydescriptioncount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordCategoryCount(hcategorydescription: HdiagnosticEventCategoryDescription, categorydescriptioncount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount(hcategorydescription?.value?.toCPointer<ByteVar>(), categorydescriptioncount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordCount(hrecord: HDIAGNOSTIC_RECORD, recordcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCount(hrecord.toCPointer<ByteVar>(), recordcount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordCount(hrecord: HdiagnosticRecord, recordcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount(hrecord?.value?.toCPointer<ByteVar>(), recordcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: UInt, tagdescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.toCPointer<ByteVar>(), index, tagdescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HdiagnosticEventTagDescription, index: UInt, tagdescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex(htagdescription?.value?.toCPointer<ByteVar>(), index, tagdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordLocaleTagCount(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagCount(htagdescription.toCPointer<ByteVar>(), tagdescriptioncount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordLocaleTagCount(htagdescription: HdiagnosticEventTagDescription, tagdescriptioncount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount(htagdescription?.value?.toCPointer<ByteVar>(), tagdescriptioncount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordLocaleTags(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, locale: PCWSTR, htagdescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTags(hsession.toCPointer<ByteVar>(), locale.toCPointer<ByteVar>(), htagdescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordLocaleTags(hsession: HdiagnosticDataQuerySession, locale: Pcwstr, htagdescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags(hsession?.value?.toCPointer<ByteVar>(), locale?.value?.toCPointer<ByteVar>(), htagdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordPage(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPage(hsession.toCPointer<ByteVar>(), searchcriteria.toCPointer<ByteVar>(), offset, pagerecordcount, baserowid, hrecord.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordPage(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage(hsession?.value?.toCPointer<ByteVar>(), searchcriteria?.value?.toCPointer<ByteVar>(), offset, pagerecordcount, baserowid, hrecord?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordPayload(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: Long, payload: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPayload(hsession.toCPointer<ByteVar>(), rowid, payload.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordPayload(hsession: HdiagnosticDataQuerySession, rowid: Long, payload: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload(hsession?.value?.toCPointer<ByteVar>(), rowid, payload?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: UInt, producerdescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.toCPointer<ByteVar>(), index, producerdescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HdiagnosticEventProducerDescription, index: UInt, producerdescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex(hproducerdescription?.value?.toCPointer<ByteVar>(), index, producerdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordProducerCategories(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producername: PCWSTR, hcategorydescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCategories(hsession.toCPointer<ByteVar>(), producername.toCPointer<ByteVar>(), hcategorydescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordProducerCategories(hsession: HdiagnosticDataQuerySession, producername: Pcwstr, hcategorydescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories(hsession?.value?.toCPointer<ByteVar>(), producername?.value?.toCPointer<ByteVar>(), hcategorydescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordProducerCount(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCount(hproducerdescription.toCPointer<ByteVar>(), producerdescriptioncount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordProducerCount(hproducerdescription: HdiagnosticEventProducerDescription, producerdescriptioncount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount(hproducerdescription?.value?.toCPointer<ByteVar>(), producerdescriptioncount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordProducers(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducers(hsession.toCPointer<ByteVar>(), hproducerdescription.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordProducers(hsession: HdiagnosticDataQuerySession, hproducerdescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers(hsession?.value?.toCPointer<ByteVar>(), hproducerdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordStats(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, recordcount: Long, minrowid: Long, maxrowid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordStats(hsession.toCPointer<ByteVar>(), searchcriteria.toCPointer<ByteVar>(), recordcount.toCPointer<ByteVar>(), minrowid.toCPointer<ByteVar>(), maxrowid.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordStats(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, recordcount: COpaquePointer?, minrowid: COpaquePointer?, maxrowid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats(hsession?.value?.toCPointer<ByteVar>(), searchcriteria?.value?.toCPointer<ByteVar>(), recordcount?.value?.toCPointer<ByteVar>(), minrowid?.value?.toCPointer<ByteVar>(), maxrowid?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordSummary(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, generalstats: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordSummary(hsession.toCPointer<ByteVar>(), producernames.toCPointer<ByteVar>(), producernamecount, generalstats.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordSummary(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, generalstats: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary(hsession?.value?.toCPointer<ByteVar>(), producernames?.value?.toCPointer<ByteVar>(), producernamecount, generalstats?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticRecordTagDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, tagstats: Long, statcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordTagDistribution(hsession.toCPointer<ByteVar>(), producernames.toCPointer<ByteVar>(), producernamecount, tagstats.toCPointer<ByteVar>(), statcount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticRecordTagDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, tagstats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution(hsession?.value?.toCPointer<ByteVar>(), producernames?.value?.toCPointer<ByteVar>(), producernamecount, tagstats?.value?.toCPointer<ByteVar>(), statcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, hreport: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReport(hsession.toCPointer<ByteVar>(), reportstoretype, hreport.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, hreport: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport(hsession?.value?.toCPointer<ByteVar>(), reportstoretype, hreport?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticReportAtIndex(hreport: HDIAGNOSTIC_REPORT, index: UInt, report: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportAtIndex(hreport.toCPointer<ByteVar>(), index, report.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticReportAtIndex(hreport: HdiagnosticReport, index: UInt, report: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex(hreport?.value?.toCPointer<ByteVar>(), index, report?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticReportCount(hreport: HDIAGNOSTIC_REPORT, reportcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportCount(hreport.toCPointer<ByteVar>(), reportcount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticReportCount(hreport: HdiagnosticReport, reportcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount(hreport?.value?.toCPointer<ByteVar>(), reportcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetDiagnosticReportStoreReportCount(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportStoreReportCount(hsession.toCPointer<ByteVar>(), reportstoretype, reportcount.toCPointer<ByteVar>())
+public actual fun ddqGetDiagnosticReportStoreReportCount(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount(hsession?.value?.toCPointer<ByteVar>(), reportstoretype, reportcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetSessionAccessLevel(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetSessionAccessLevel(hsession.toCPointer<ByteVar>(), accesslevel.toCPointer<ByteVar>())
+public actual fun ddqGetSessionAccessLevel(hsession: HdiagnosticDataQuerySession, accesslevel: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel(hsession?.value?.toCPointer<ByteVar>(), accesslevel?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqGetTranscriptConfiguration(hsession.toCPointer<ByteVar>(), currentconfig.toCPointer<ByteVar>())
+public actual fun ddqGetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, currentconfig: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration(hsession?.value?.toCPointer<ByteVar>(), currentconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqIsDiagnosticRecordSampledIn(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: Long, providerid: Long, providername: PCWSTR, eventid: Long, eventname: PCWSTR, eventversion: Long, eventkeywords: Long, issampledin: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqIsDiagnosticRecordSampledIn(hsession.toCPointer<ByteVar>(), providergroup.toCPointer<ByteVar>(), providerid.toCPointer<ByteVar>(), providername.toCPointer<ByteVar>(), eventid.toCPointer<ByteVar>(), eventname.toCPointer<ByteVar>(), eventversion.toCPointer<ByteVar>(), eventkeywords.toCPointer<ByteVar>(), issampledin.toCPointer<ByteVar>())
+public actual fun ddqIsDiagnosticRecordSampledIn(hsession: HdiagnosticDataQuerySession, providergroup: COpaquePointer?, providerid: COpaquePointer?, providername: Pcwstr, eventid: COpaquePointer?, eventname: Pcwstr, eventversion: COpaquePointer?, eventkeywords: COpaquePointer?, issampledin: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn(hsession?.value?.toCPointer<ByteVar>(), providergroup?.value?.toCPointer<ByteVar>(), providerid?.value?.toCPointer<ByteVar>(), providername?.value?.toCPointer<ByteVar>(), eventid?.value?.toCPointer<ByteVar>(), eventname?.value?.toCPointer<ByteVar>(), eventversion?.value?.toCPointer<ByteVar>(), eventkeywords?.value?.toCPointer<ByteVar>(), issampledin?.value?.toCPointer<ByteVar>())
 
-public actual fun DdqSetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_DdqSetTranscriptConfiguration(hsession.toCPointer<ByteVar>(), desiredconfig.toCPointer<ByteVar>())
+public actual fun ddqSetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, desiredconfig: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery.cinterop.windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration(hsession?.value?.toCPointer<ByteVar>(), desiredconfig?.value?.toCPointer<ByteVar>())

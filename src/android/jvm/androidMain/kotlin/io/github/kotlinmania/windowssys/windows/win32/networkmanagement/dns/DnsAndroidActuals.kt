@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
 private object WindowsWin32NetworkmanagementDnsJniBridge {
     init {
@@ -14,396 +15,396 @@ private object WindowsWin32NetworkmanagementDnsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_A(credentialflags: Int, credentials: Long, pcontext: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA(credentialflags: Int, credentials: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_W(credentialflags: Int, credentials: Long, pcontext: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW(credentialflags: Int, credentials: Long, pcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsCancelQuery(pcancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery(pcancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsCancelQueryRaw(cancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw(cancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeletePolicyEntries(policyentrytag: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries(policyentrytag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeleteProxyInfo(pwszconnectionname: Long, type: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo(pwszconnectionname: Long, type: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeNameList(pnamelist: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList(pnamelist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfo(pproxyinfo: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo(pproxyinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfoEx(pproxyinfoex: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx(pproxyinfoex: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyList(pproxylist: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList(pproxylist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetNameList(pnamelist: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList(pnamelist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfo(pwszconnectionname: Long, type: Int, pproxyinfo: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo(pwszconnectionname: Long, type: Int, pproxyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Long, pselectioncontext: Long, dwselectioncontextlength: Int, dwexplicitinterfaceindex: Int, pproxyinfoex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Long, pselectioncontext: Long, dwselectioncontextlength: Int, dwexplicitinterfaceindex: Int, pproxyinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Long, pselectioncontext: Long, dwselectioncontextlength: Int, dwexplicitinterfaceindex: Int, pwszconnectionname: Long, pproxyinfoex: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Long, pselectioncontext: Long, dwselectioncontextlength: Int, dwexplicitinterfaceindex: Int, pwszconnectionname: Long, pproxyinfoex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyList(pwszconnectionname: Long, pproxylist: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList(pwszconnectionname: Long, pproxylist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetPolicyEntries(policyentrytag: Int, ppolicyentrylist: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries(policyentrytag: Int, ppolicyentrylist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetProxyInfo(pwszconnectionname: Long, type: Int, pproxyinfo: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo(pwszconnectionname: Long, type: Int, pproxyinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: Long, wmessagelength: Short, pprecord: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8(pdnsbuffer: Long, wmessagelength: Short, pprecord: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_W(pdnsbuffer: Long, wmessagelength: Short, pprecord: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW(pdnsbuffer: Long, wmessagelength: Short, pprecord: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsFree(pdata: Long, freetype: Int)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsFree(pdata: Long, freetype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsFreeCustomServers(pcservers: Long, ppservers: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers(pcservers: Long, ppservers: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsFreeProxyName(proxyname: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName(proxyname: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsGetApplicationSettings(pcservers: Long, ppdefaultservers: Long, psettings: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings(pcservers: Long, ppdefaultservers: Long, psettings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsGetProxyInformation(hostname: Long, proxyinformation: Long, defaultproxyinformation: Long, completionroutine: Long, completioncontext: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation(hostname: Long, proxyinformation: Long, defaultproxyinformation: Long, completionroutine: Long, completioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_A(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_UTF8(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_W(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW(paddrecords: Long, pdeleterecords: Long, options: Int, hcredentials: Long, pextralist: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_A(pname1: Long, pname2: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA(pname1: Long, pname2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_W(pname1: Long, pname2: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW(pname1: Long, pname2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQueryConfig(config: Int, flag: Int, pwsadaptername: Long, preserved: Long, pbuffer: Long, pbuflen: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig(config: Int, flag: Int, pwsadaptername: Long, preserved: Long, pbuffer: Long, pbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQueryEx(pqueryrequest: Long, pqueryresults: Long, pcancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryEx(pqueryrequest: Long, pqueryresults: Long, pcancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQueryRaw(queryrequest: Long, cancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw(queryrequest: Long, cancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQueryRawResultFree(queryresults: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree(queryresults: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQuery_A(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryA(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQuery_UTF8(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsQuery_W(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsQueryW(pszname: Long, wtype: Short, options: Int, pextra: Long, ppqueryresults: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsRecordCompare(precord1: Long, precord2: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare(precord1: Long, precord2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsRecordCopyEx(precord: Long, charsetin: Int, charsetout: Int): Long
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx(precord: Long, charsetin: Int, charsetout: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCompare(prr1: Long, prr2: Long, ppdiff1: Long, ppdiff2: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare(prr1: Long, prr2: Long, ppdiff1: Long, ppdiff2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCopyEx(precordset: Long, charsetin: Int, charsetout: Int): Long
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx(precordset: Long, charsetin: Int, charsetout: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsRecordSetDetach(precordlist: Long): Long
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach(precordlist: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsReleaseContextHandle(hcontext: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle(hcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetA(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetUTF8(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetW(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW(preplaceset: Long, options: Int, hcontext: Long, pextrainfo: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowse(prequest: Long, pcancel: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse(prequest: Long, pcancel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowseCancel(pcancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel(pcancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceConstructInstance(pservicename: Long, phostname: Long, pip4: Long, pip6: Long, wport: Short, wpriority: Short, wweight: Short, dwpropertiescount: Int, keys: Long, values: Long): Long
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance(pservicename: Long, phostname: Long, pip4: Long, pip6: Long, wport: Short, wpriority: Short, wweight: Short, dwpropertiescount: Int, keys: Long, values: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceCopyInstance(porig: Long): Long
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance(porig: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceDeRegister(prequest: Long, pcancel: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister(prequest: Long, pcancel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceFreeInstance(pinstance: Long)
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance(pinstance: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceRegister(prequest: Long, pcancel: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister(prequest: Long, pcancel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceRegisterCancel(pcancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel(pcancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceResolve(prequest: Long, pcancel: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve(prequest: Long, pcancel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsServiceResolveCancel(pcancelhandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel(pcancelhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsSetApplicationSettings(cservers: Int, pservers: Long, psettings: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings(cservers: Int, pservers: Long, psettings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsStartMulticastQuery(pqueryrequest: Long, phandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery(pqueryrequest: Long, phandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsStopMulticastQuery(phandle: Long): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery(phandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsValidateName_A(pszname: Long, format: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA(pszname: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsValidateName_UTF8(pszname: Long, format: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8(pszname: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsValidateName_W(pszname: Long, format: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW(pszname: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_UTF8(pdnsbuffer: Long, pdwbuffersize: Long, pszname: Long, wtype: Short, xid: Short, frecursiondesired: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8(pdnsbuffer: Long, pdwbuffersize: Long, pszname: Long, wtype: Short, xid: Short, frecursiondesired: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_W(pdnsbuffer: Long, pdwbuffersize: Long, pszname: Long, wtype: Short, xid: Short, frecursiondesired: Int): Int
+    external fun windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW(pdnsbuffer: Long, pdwbuffersize: Long, pszname: Long, wtype: Short, xid: Short, frecursiondesired: Int): Int
 }
 
-public actual fun DnsAcquireContextHandle_A(credentialflags: UInt, credentials: Long, pcontext: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_A(credentialflags.toInt(), credentials, pcontext)
+public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: COpaquePointer?, pcontext: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA(credentialflags.toInt(), (credentials?.value ?: 0L), (pcontext?.value ?: 0L))
 
-public actual fun DnsAcquireContextHandle_W(credentialflags: UInt, credentials: Long, pcontext: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_W(credentialflags.toInt(), credentials, pcontext)
+public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: COpaquePointer?, pcontext: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW(credentialflags.toInt(), (credentials?.value ?: 0L), (pcontext?.value ?: 0L))
 
-public actual fun DnsCancelQuery(pcancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsCancelQuery(pcancelhandle)
+public actual fun dnsCancelQuery(pcancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery((pcancelhandle?.value ?: 0L))
 
-public actual fun DnsCancelQueryRaw(cancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsCancelQueryRaw(cancelhandle)
+public actual fun dnsCancelQueryRaw(cancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw((cancelhandle?.value ?: 0L))
 
-public actual fun DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeletePolicyEntries(policyentrytag).toUInt()
+public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnectionPolicyTag): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries(policyentrytag).toUInt()
 
-public actual fun DnsConnectionDeleteProxyInfo(pwszconnectionname: PCWSTR, type: DNS_CONNECTION_PROXY_TYPE): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeleteProxyInfo(pwszconnectionname, type).toUInt()
+public actual fun dnsConnectionDeleteProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo((pwszconnectionname?.value ?: 0L), type).toUInt()
 
-public actual fun DnsConnectionFreeNameList(pnamelist: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeNameList(pnamelist)
+public actual fun dnsConnectionFreeNameList(pnamelist: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList((pnamelist?.value ?: 0L))
 }
 
-public actual fun DnsConnectionFreeProxyInfo(pproxyinfo: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfo(pproxyinfo)
+public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo((pproxyinfo?.value ?: 0L))
 }
 
-public actual fun DnsConnectionFreeProxyInfoEx(pproxyinfoex: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfoEx(pproxyinfoex)
+public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx((pproxyinfoex?.value ?: 0L))
 }
 
-public actual fun DnsConnectionFreeProxyList(pproxylist: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyList(pproxylist)
+public actual fun dnsConnectionFreeProxyList(pproxylist: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList((pproxylist?.value ?: 0L))
 }
 
-public actual fun DnsConnectionGetNameList(pnamelist: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetNameList(pnamelist).toUInt()
+public actual fun dnsConnectionGetNameList(pnamelist: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList((pnamelist?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionGetProxyInfo(pwszconnectionname: PCWSTR, type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfo(pwszconnectionname, type, pproxyinfo).toUInt()
+public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo((pwszconnectionname?.value ?: 0L), type, (pproxyinfo?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: PCWSTR, pselectioncontext: Long, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrl(pwszhosturl, pselectioncontext, dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pproxyinfoex).toUInt()
+public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: COpaquePointer?, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl((pwszhosturl?.value ?: 0L), (pselectioncontext?.value ?: 0L), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), (pproxyinfoex?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: PCWSTR, pselectioncontext: Long, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: PCWSTR, pproxyinfoex: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl, pselectioncontext, dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pwszconnectionname, pproxyinfoex).toUInt()
+public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: COpaquePointer?, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx((pwszhosturl?.value ?: 0L), (pselectioncontext?.value ?: 0L), dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), (pwszconnectionname?.value ?: 0L), (pproxyinfoex?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionGetProxyList(pwszconnectionname: PCWSTR, pproxylist: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyList(pwszconnectionname, pproxylist).toUInt()
+public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList((pwszconnectionname?.value ?: 0L), (pproxylist?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist).toUInt()
+public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries(policyentrytag, (ppolicyentrylist?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionSetProxyInfo(pwszconnectionname: PCWSTR, type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetProxyInfo(pwszconnectionname, type, pproxyinfo).toUInt()
+public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo((pwszconnectionname?.value ?: 0L), type, (pproxyinfo?.value ?: 0L)).toUInt()
 
-public actual fun DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsConnectionUpdateIfIndexTable(pconnectionifindexentries).toUInt()
+public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable((pconnectionifindexentries?.value ?: 0L)).toUInt()
 
-public actual fun DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: Long, wmessagelength: UShort, pprecord: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_UTF8(pdnsbuffer, wmessagelength.toShort(), pprecord)
+public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: COpaquePointer?, wmessagelength: UShort, pprecord: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8((pdnsbuffer?.value ?: 0L), wmessagelength.toShort(), (pprecord?.value ?: 0L))
 
-public actual fun DnsExtractRecordsFromMessage_W(pdnsbuffer: Long, wmessagelength: UShort, pprecord: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_W(pdnsbuffer, wmessagelength.toShort(), pprecord)
+public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: COpaquePointer?, wmessagelength: UShort, pprecord: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW((pdnsbuffer?.value ?: 0L), wmessagelength.toShort(), (pprecord?.value ?: 0L))
 
-public actual fun DnsFree(pdata: Long, freetype: DNS_FREE_TYPE) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsFree(pdata, freetype)
+public actual fun dnsFree(pdata: COpaquePointer?, freetype: DnsFreeType) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsFree((pdata?.value ?: 0L), freetype)
 }
 
-public actual fun DnsFreeCustomServers(pcservers: Long, ppservers: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsFreeCustomServers(pcservers, ppservers)
+public actual fun dnsFreeCustomServers(pcservers: COpaquePointer?, ppservers: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers((pcservers?.value ?: 0L), (ppservers?.value ?: 0L))
 }
 
-public actual fun DnsFreeProxyName(proxyname: PCWSTR) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsFreeProxyName(proxyname)
+public actual fun dnsFreeProxyName(proxyname: Pcwstr) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName((proxyname?.value ?: 0L))
 }
 
-public actual fun DnsGetApplicationSettings(pcservers: Long, ppdefaultservers: Long, psettings: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsGetApplicationSettings(pcservers, ppdefaultservers, psettings).toUInt()
+public actual fun dnsGetApplicationSettings(pcservers: COpaquePointer?, ppdefaultservers: COpaquePointer?, psettings: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings((pcservers?.value ?: 0L), (ppdefaultservers?.value ?: 0L), (psettings?.value ?: 0L)).toUInt()
 
-public actual fun DnsGetProxyInformation(hostname: PCWSTR, proxyinformation: Long, defaultproxyinformation: Long, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsGetProxyInformation(hostname, proxyinformation, defaultproxyinformation, completionroutine.toLong(), completioncontext).toUInt()
+public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: COpaquePointer?, defaultproxyinformation: COpaquePointer?, completionroutine: DnsProxyCompletionRoutine, completioncontext: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation((hostname?.value ?: 0L), (proxyinformation?.value ?: 0L), (defaultproxyinformation?.value ?: 0L), 0L, (completioncontext?.value ?: 0L)).toUInt()
 
-public actual fun DnsModifyRecordsInSet_A(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_A(paddrecords, pdeleterecords, options.toInt(), hcredentials, pextralist, preserved)
+public actual fun dnsModifyRecordsInSetA(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA((paddrecords?.value ?: 0L), (pdeleterecords?.value ?: 0L), options.toInt(), (hcredentials?.value ?: 0L), (pextralist?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsModifyRecordsInSet_UTF8(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_UTF8(paddrecords, pdeleterecords, options.toInt(), hcredentials, pextralist, preserved)
+public actual fun dnsModifyRecordsInSetUtf8(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8((paddrecords?.value ?: 0L), (pdeleterecords?.value ?: 0L), options.toInt(), (hcredentials?.value ?: 0L), (pextralist?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsModifyRecordsInSet_W(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_W(paddrecords, pdeleterecords, options.toInt(), hcredentials, pextralist, preserved)
+public actual fun dnsModifyRecordsInSetW(paddrecords: COpaquePointer?, pdeleterecords: COpaquePointer?, options: UInt, hcredentials: Handle, pextralist: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW((paddrecords?.value ?: 0L), (pdeleterecords?.value ?: 0L), options.toInt(), (hcredentials?.value ?: 0L), (pextralist?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsNameCompare_A(pname1: PCSTR, pname2: PCSTR): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_A(pname1, pname2)
+public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA((pname1?.value ?: 0L), (pname2?.value ?: 0L))
 
-public actual fun DnsNameCompare_W(pname1: PCWSTR, pname2: PCWSTR): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_W(pname1, pname2)
+public actual fun dnsNameCompareW(pname1: Pcwstr, pname2: Pcwstr): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW((pname1?.value ?: 0L), (pname2?.value ?: 0L))
 
-public actual fun DnsQueryConfig(config: DNS_CONFIG_TYPE, flag: UInt, pwsadaptername: PCWSTR, preserved: Long, pbuffer: Long, pbuflen: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQueryConfig(config, flag.toInt(), pwsadaptername, preserved, pbuffer, pbuflen)
+public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: COpaquePointer?, pbuffer: COpaquePointer?, pbuflen: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig(config, flag.toInt(), (pwsadaptername?.value ?: 0L), (preserved?.value ?: 0L), (pbuffer?.value ?: 0L), (pbuflen?.value ?: 0L))
 
-public actual fun DnsQueryEx(pqueryrequest: Long, pqueryresults: Long, pcancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQueryEx(pqueryrequest, pqueryresults, pcancelhandle)
+public actual fun dnsQueryEx(pqueryrequest: COpaquePointer?, pqueryresults: COpaquePointer?, pcancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryEx((pqueryrequest?.value ?: 0L), (pqueryresults?.value ?: 0L), (pcancelhandle?.value ?: 0L))
 
-public actual fun DnsQueryRaw(queryrequest: Long, cancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQueryRaw(queryrequest, cancelhandle)
+public actual fun dnsQueryRaw(queryrequest: COpaquePointer?, cancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw((queryrequest?.value ?: 0L), (cancelhandle?.value ?: 0L))
 
-public actual fun DnsQueryRawResultFree(queryresults: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQueryRawResultFree(queryresults)
+public actual fun dnsQueryRawResultFree(queryresults: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree((queryresults?.value ?: 0L))
 }
 
-public actual fun DnsQuery_A(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQuery_A(pszname, wtype.toShort(), options.toInt(), pextra, ppqueryresults, preserved).toUInt()
+public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryA((pszname?.value ?: 0L), wtype.toShort(), options.toInt(), (pextra?.value ?: 0L), (ppqueryresults?.value ?: 0L), (preserved?.value ?: 0L)).toUInt()
 
-public actual fun DnsQuery_UTF8(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQuery_UTF8(pszname, wtype.toShort(), options.toInt(), pextra, ppqueryresults, preserved).toUInt()
+public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8((pszname?.value ?: 0L), wtype.toShort(), options.toInt(), (pextra?.value ?: 0L), (ppqueryresults?.value ?: 0L), (preserved?.value ?: 0L)).toUInt()
 
-public actual fun DnsQuery_W(pszname: PCWSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsQuery_W(pszname, wtype.toShort(), options.toInt(), pextra, ppqueryresults, preserved).toUInt()
+public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsQueryW((pszname?.value ?: 0L), wtype.toShort(), options.toInt(), (pextra?.value ?: 0L), (ppqueryresults?.value ?: 0L), (preserved?.value ?: 0L)).toUInt()
 
-public actual fun DnsRecordCompare(precord1: Long, precord2: Long): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsRecordCompare(precord1, precord2)
+public actual fun dnsRecordCompare(precord1: COpaquePointer?, precord2: COpaquePointer?): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare((precord1?.value ?: 0L), (precord2?.value ?: 0L))
 
-public actual fun DnsRecordCopyEx(precord: Long, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET): Long =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsRecordCopyEx(precord, charsetin, charsetout)
+public actual fun dnsRecordCopyEx(precord: COpaquePointer?, charsetin: DnsCharset, charsetout: DnsCharset): COpaquePointer? =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx((precord?.value ?: 0L), charsetin, charsetout).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DnsRecordSetCompare(prr1: Long, prr2: Long, ppdiff1: Long, ppdiff2: Long): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCompare(prr1, prr2, ppdiff1, ppdiff2)
+public actual fun dnsRecordSetCompare(prr1: COpaquePointer?, prr2: COpaquePointer?, ppdiff1: COpaquePointer?, ppdiff2: COpaquePointer?): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare((prr1?.value ?: 0L), (prr2?.value ?: 0L), (ppdiff1?.value ?: 0L), (ppdiff2?.value ?: 0L))
 
-public actual fun DnsRecordSetCopyEx(precordset: Long, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET): Long =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCopyEx(precordset, charsetin, charsetout)
+public actual fun dnsRecordSetCopyEx(precordset: COpaquePointer?, charsetin: DnsCharset, charsetout: DnsCharset): COpaquePointer? =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx((precordset?.value ?: 0L), charsetin, charsetout).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DnsRecordSetDetach(precordlist: Long): Long =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsRecordSetDetach(precordlist)
+public actual fun dnsRecordSetDetach(precordlist: COpaquePointer?): COpaquePointer? =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach((precordlist?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DnsReleaseContextHandle(hcontext: HANDLE) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsReleaseContextHandle(hcontext)
+public actual fun dnsReleaseContextHandle(hcontext: Handle) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle((hcontext?.value ?: 0L))
 }
 
-public actual fun DnsReplaceRecordSetA(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetA(preplaceset, options.toInt(), hcontext, pextrainfo, preserved)
+public actual fun dnsReplaceRecordSetA(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA((preplaceset?.value ?: 0L), options.toInt(), (hcontext?.value ?: 0L), (pextrainfo?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsReplaceRecordSetUTF8(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetUTF8(preplaceset, options.toInt(), hcontext, pextrainfo, preserved)
+public actual fun dnsReplaceRecordSetUTF8(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8((preplaceset?.value ?: 0L), options.toInt(), (hcontext?.value ?: 0L), (pextrainfo?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsReplaceRecordSetW(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetW(preplaceset, options.toInt(), hcontext, pextrainfo, preserved)
+public actual fun dnsReplaceRecordSetW(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW((preplaceset?.value ?: 0L), options.toInt(), (hcontext?.value ?: 0L), (pextrainfo?.value ?: 0L), (preserved?.value ?: 0L))
 
-public actual fun DnsServiceBrowse(prequest: Long, pcancel: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowse(prequest, pcancel)
+public actual fun dnsServiceBrowse(prequest: COpaquePointer?, pcancel: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse((prequest?.value ?: 0L), (pcancel?.value ?: 0L))
 
-public actual fun DnsServiceBrowseCancel(pcancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowseCancel(pcancelhandle)
+public actual fun dnsServiceBrowseCancel(pcancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel((pcancelhandle?.value ?: 0L))
 
-public actual fun DnsServiceConstructInstance(pservicename: PCWSTR, phostname: PCWSTR, pip4: Long, pip6: Long, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: Long, values: Long): Long =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceConstructInstance(pservicename, phostname, pip4, pip6, wport.toShort(), wpriority.toShort(), wweight.toShort(), dwpropertiescount.toInt(), keys, values)
+public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: COpaquePointer?, pip6: COpaquePointer?, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: COpaquePointer?, values: COpaquePointer?): COpaquePointer? =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance((pservicename?.value ?: 0L), (phostname?.value ?: 0L), (pip4?.value ?: 0L), (pip6?.value ?: 0L), wport.toShort(), wpriority.toShort(), wweight.toShort(), dwpropertiescount.toInt(), (keys?.value ?: 0L), (values?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DnsServiceCopyInstance(porig: Long): Long =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceCopyInstance(porig)
+public actual fun dnsServiceCopyInstance(porig: COpaquePointer?): COpaquePointer? =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance((porig?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DnsServiceDeRegister(prequest: Long, pcancel: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceDeRegister(prequest, pcancel).toUInt()
+public actual fun dnsServiceDeRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister((prequest?.value ?: 0L), (pcancel?.value ?: 0L)).toUInt()
 
-public actual fun DnsServiceFreeInstance(pinstance: Long) {
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceFreeInstance(pinstance)
+public actual fun dnsServiceFreeInstance(pinstance: COpaquePointer?) {
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance((pinstance?.value ?: 0L))
 }
 
-public actual fun DnsServiceRegister(prequest: Long, pcancel: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceRegister(prequest, pcancel).toUInt()
+public actual fun dnsServiceRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister((prequest?.value ?: 0L), (pcancel?.value ?: 0L)).toUInt()
 
-public actual fun DnsServiceRegisterCancel(pcancelhandle: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceRegisterCancel(pcancelhandle).toUInt()
+public actual fun dnsServiceRegisterCancel(pcancelhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel((pcancelhandle?.value ?: 0L)).toUInt()
 
-public actual fun DnsServiceResolve(prequest: Long, pcancel: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceResolve(prequest, pcancel)
+public actual fun dnsServiceResolve(prequest: COpaquePointer?, pcancel: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve((prequest?.value ?: 0L), (pcancel?.value ?: 0L))
 
-public actual fun DnsServiceResolveCancel(pcancelhandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsServiceResolveCancel(pcancelhandle)
+public actual fun dnsServiceResolveCancel(pcancelhandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel((pcancelhandle?.value ?: 0L))
 
-public actual fun DnsSetApplicationSettings(cservers: UInt, pservers: Long, psettings: Long): UInt =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsSetApplicationSettings(cservers.toInt(), pservers, psettings).toUInt()
+public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: COpaquePointer?, psettings: COpaquePointer?): UInt =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings(cservers.toInt(), (pservers?.value ?: 0L), (psettings?.value ?: 0L)).toUInt()
 
-public actual fun DnsStartMulticastQuery(pqueryrequest: Long, phandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsStartMulticastQuery(pqueryrequest, phandle)
+public actual fun dnsStartMulticastQuery(pqueryrequest: COpaquePointer?, phandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery((pqueryrequest?.value ?: 0L), (phandle?.value ?: 0L))
 
-public actual fun DnsStopMulticastQuery(phandle: Long): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsStopMulticastQuery(phandle)
+public actual fun dnsStopMulticastQuery(phandle: COpaquePointer?): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery((phandle?.value ?: 0L))
 
-public actual fun DnsValidateName_A(pszname: PCSTR, format: DNS_NAME_FORMAT): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsValidateName_A(pszname, format)
+public actual fun dnsValidateNameA(pszname: Pcstr, format: DnsNameFormat): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA((pszname?.value ?: 0L), format)
 
-public actual fun DnsValidateName_UTF8(pszname: PCSTR, format: DNS_NAME_FORMAT): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsValidateName_UTF8(pszname, format)
+public actual fun dnsValidateNameUtf8(pszname: Pcstr, format: DnsNameFormat): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8((pszname?.value ?: 0L), format)
 
-public actual fun DnsValidateName_W(pszname: PCWSTR, format: DNS_NAME_FORMAT): Int =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsValidateName_W(pszname, format)
+public actual fun dnsValidateNameW(pszname: Pcwstr, format: DnsNameFormat): Int =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW((pszname?.value ?: 0L), format)
 
-public actual fun DnsWriteQuestionToBuffer_UTF8(pdnsbuffer: Long, pdwbuffersize: Long, pszname: PCSTR, wtype: UShort, xid: UShort, frecursiondesired: BOOL): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_UTF8(pdnsbuffer, pdwbuffersize, pszname, wtype.toShort(), xid.toShort(), frecursiondesired)
+public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: COpaquePointer?, pdwbuffersize: COpaquePointer?, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8((pdnsbuffer?.value ?: 0L), (pdwbuffersize?.value ?: 0L), (pszname?.value ?: 0L), wtype.toShort(), xid.toShort(), frecursiondesired)
 
-public actual fun DnsWriteQuestionToBuffer_W(pdnsbuffer: Long, pdwbuffersize: Long, pszname: PCWSTR, wtype: UShort, xid: UShort, frecursiondesired: BOOL): BOOL =
-    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_W(pdnsbuffer, pdwbuffersize, pszname, wtype.toShort(), xid.toShort(), frecursiondesired)
+public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: COpaquePointer?, pdwbuffersize: COpaquePointer?, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+    WindowsWin32NetworkmanagementDnsJniBridge.windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW((pdnsbuffer?.value ?: 0L), (pdwbuffersize?.value ?: 0L), (pszname?.value ?: 0L), wtype.toShort(), xid.toShort(), frecursiondesired)

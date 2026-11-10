@@ -1,13 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 public val DIMSGWP_NEWAPPSTART: UInt = 1u
 
@@ -39,111 +39,111 @@ public val DIPROPCALIBRATIONMODE_COOKED: UInt = 0u
 
 public val DIPROPCALIBRATIONMODE_RAW: UInt = 1u
 
-public val DIPROP_APPDATA: GUID = GUID.from_u128(U128(0x0uL, 0x16uL))
+public val DIPROP_APPDATA: Guid = Guid.fromU128(U128(0x0uL, 0x16uL))
 
-public val DIPROP_AUTOCENTER: GUID = GUID.from_u128(U128(0x0uL, 0x9uL))
+public val DIPROP_AUTOCENTER: Guid = Guid.fromU128(U128(0x0uL, 0x9uL))
 
-public val DIPROP_AXISMODE: GUID = GUID.from_u128(U128(0x0uL, 0x2uL))
+public val DIPROP_AXISMODE: Guid = Guid.fromU128(U128(0x0uL, 0x2uL))
 
-public val DIPROP_BUFFERSIZE: GUID = GUID.from_u128(U128(0x0uL, 0x1uL))
+public val DIPROP_BUFFERSIZE: Guid = Guid.fromU128(U128(0x0uL, 0x1uL))
 
-public val DIPROP_CALIBRATION: GUID = GUID.from_u128(U128(0x0uL, 0xbuL))
+public val DIPROP_CALIBRATION: Guid = Guid.fromU128(U128(0x0uL, 0xbuL))
 
-public val DIPROP_CALIBRATIONMODE: GUID = GUID.from_u128(U128(0x0uL, 0xauL))
+public val DIPROP_CALIBRATIONMODE: Guid = Guid.fromU128(U128(0x0uL, 0xauL))
 
-public val DIPROP_CPOINTS: GUID = GUID.from_u128(U128(0x0uL, 0x15uL))
+public val DIPROP_CPOINTS: Guid = Guid.fromU128(U128(0x0uL, 0x15uL))
 
-public val DIPROP_DEADZONE: GUID = GUID.from_u128(U128(0x0uL, 0x5uL))
+public val DIPROP_DEADZONE: Guid = Guid.fromU128(U128(0x0uL, 0x5uL))
 
-public val DIPROP_FFGAIN: GUID = GUID.from_u128(U128(0x0uL, 0x7uL))
+public val DIPROP_FFGAIN: Guid = Guid.fromU128(U128(0x0uL, 0x7uL))
 
-public val DIPROP_FFLOAD: GUID = GUID.from_u128(U128(0x0uL, 0x8uL))
+public val DIPROP_FFLOAD: Guid = Guid.fromU128(U128(0x0uL, 0x8uL))
 
-public val DIPROP_GETPORTDISPLAYNAME: GUID = GUID.from_u128(U128(0x0uL, 0x10uL))
+public val DIPROP_GETPORTDISPLAYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x10uL))
 
-public val DIPROP_GRANULARITY: GUID = GUID.from_u128(U128(0x0uL, 0x3uL))
+public val DIPROP_GRANULARITY: Guid = Guid.fromU128(U128(0x0uL, 0x3uL))
 
-public val DIPROP_GUIDANDPATH: GUID = GUID.from_u128(U128(0x0uL, 0xcuL))
+public val DIPROP_GUIDANDPATH: Guid = Guid.fromU128(U128(0x0uL, 0xcuL))
 
-public val DIPROP_INSTANCENAME: GUID = GUID.from_u128(U128(0x0uL, 0xduL))
+public val DIPROP_INSTANCENAME: Guid = Guid.fromU128(U128(0x0uL, 0xduL))
 
-public val DIPROP_JOYSTICKID: GUID = GUID.from_u128(U128(0x0uL, 0xfuL))
+public val DIPROP_JOYSTICKID: Guid = Guid.fromU128(U128(0x0uL, 0xfuL))
 
-public val DIPROP_KEYNAME: GUID = GUID.from_u128(U128(0x0uL, 0x14uL))
+public val DIPROP_KEYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x14uL))
 
-public val DIPROP_LOGICALRANGE: GUID = GUID.from_u128(U128(0x0uL, 0x13uL))
+public val DIPROP_LOGICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x13uL))
 
-public val DIPROP_PHYSICALRANGE: GUID = GUID.from_u128(U128(0x0uL, 0x12uL))
+public val DIPROP_PHYSICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x12uL))
 
-public val DIPROP_PRODUCTNAME: GUID = GUID.from_u128(U128(0x0uL, 0xeuL))
+public val DIPROP_PRODUCTNAME: Guid = Guid.fromU128(U128(0x0uL, 0xeuL))
 
-public val DIPROP_RANGE: GUID = GUID.from_u128(U128(0x0uL, 0x4uL))
+public val DIPROP_RANGE: Guid = Guid.fromU128(U128(0x0uL, 0x4uL))
 
-public val DIPROP_SATURATION: GUID = GUID.from_u128(U128(0x0uL, 0x6uL))
+public val DIPROP_SATURATION: Guid = Guid.fromU128(U128(0x0uL, 0x6uL))
 
-public val DIPROP_SCANCODE: GUID = GUID.from_u128(U128(0x0uL, 0x17uL))
+public val DIPROP_SCANCODE: Guid = Guid.fromU128(U128(0x0uL, 0x17uL))
 
-public val DIPROP_TYPENAME: GUID = GUID.from_u128(U128(0x0uL, 0x1auL))
+public val DIPROP_TYPENAME: Guid = Guid.fromU128(U128(0x0uL, 0x1auL))
 
-public val DIPROP_USERNAME: GUID = GUID.from_u128(U128(0x0uL, 0x19uL))
+public val DIPROP_USERNAME: Guid = Guid.fromU128(U128(0x0uL, 0x19uL))
 
-public val DIPROP_VIDPID: GUID = GUID.from_u128(U128(0x0uL, 0x18uL))
+public val DIPROP_VIDPID: Guid = Guid.fromU128(U128(0x0uL, 0x18uL))
 
 public val DIRECTINPUT_HEADER_VERSION: UInt = 2048u
 
-public val DIRECTINPUT_NOTIFICATION_MSGSTRING: PCWSTR = w("DIRECTINPUT_NOTIFICATION_MSGSTRING")
+public val DIRECTINPUT_NOTIFICATION_MSGSTRING: Pcwstr = w("DIRECTINPUT_NOTIFICATION_MSGSTRING")
 
-public val DIRECTINPUT_NOTIFICATION_MSGSTRINGA: PCSTR = s("DIRECTINPUT_NOTIFICATION_MSGSTRING")
+public val DIRECTINPUT_NOTIFICATION_MSGSTRINGA: Pcstr = s("DIRECTINPUT_NOTIFICATION_MSGSTRING")
 
-public val DIRECTINPUT_NOTIFICATION_MSGSTRINGW: PCWSTR = w("DIRECTINPUT_NOTIFICATION_MSGSTRING")
+public val DIRECTINPUT_NOTIFICATION_MSGSTRINGW: Pcwstr = w("DIRECTINPUT_NOTIFICATION_MSGSTRING")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTAPP: PCWSTR = w("MostRecentApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTAPP: Pcwstr = w("MostRecentApplication")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTAPPA: PCSTR = s("MostRecentApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTAPPA: Pcstr = s("MostRecentApplication")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTAPPW: PCWSTR = w("MostRecentApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTAPPW: Pcwstr = w("MostRecentApplication")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: PCWSTR = w("MostRecentMapperApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: Pcwstr = w("MostRecentMapperApplication")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: PCSTR = s("MostRecentMapperApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: Pcstr = s("MostRecentMapperApplication")
 
-public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: PCWSTR = w("MostRecentMapperApplication")
+public val DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: Pcwstr = w("MostRecentMapperApplication")
 
-public val DIRECTINPUT_REGSTR_VAL_APPIDFLAG: PCWSTR = w("AppIdFlag")
+public val DIRECTINPUT_REGSTR_VAL_APPIDFLAG: Pcwstr = w("AppIdFlag")
 
-public val DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: PCSTR = s("AppIdFlag")
+public val DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: Pcstr = s("AppIdFlag")
 
-public val DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: PCWSTR = w("AppIdFlag")
+public val DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: Pcwstr = w("AppIdFlag")
 
-public val DIRECTINPUT_REGSTR_VAL_ID: PCWSTR = w("Id")
+public val DIRECTINPUT_REGSTR_VAL_ID: Pcwstr = w("Id")
 
-public val DIRECTINPUT_REGSTR_VAL_IDA: PCSTR = s("Id")
+public val DIRECTINPUT_REGSTR_VAL_IDA: Pcstr = s("Id")
 
-public val DIRECTINPUT_REGSTR_VAL_IDW: PCWSTR = w("Id")
+public val DIRECTINPUT_REGSTR_VAL_IDW: Pcwstr = w("Id")
 
-public val DIRECTINPUT_REGSTR_VAL_LASTSTART: PCWSTR = w("MostRecentStart")
+public val DIRECTINPUT_REGSTR_VAL_LASTSTART: Pcwstr = w("MostRecentStart")
 
-public val DIRECTINPUT_REGSTR_VAL_LASTSTARTA: PCSTR = s("MostRecentStart")
+public val DIRECTINPUT_REGSTR_VAL_LASTSTARTA: Pcstr = s("MostRecentStart")
 
-public val DIRECTINPUT_REGSTR_VAL_LASTSTARTW: PCWSTR = w("MostRecentStart")
+public val DIRECTINPUT_REGSTR_VAL_LASTSTARTW: Pcwstr = w("MostRecentStart")
 
-public val DIRECTINPUT_REGSTR_VAL_MAPPER: PCWSTR = w("UsesMapper")
+public val DIRECTINPUT_REGSTR_VAL_MAPPER: Pcwstr = w("UsesMapper")
 
-public val DIRECTINPUT_REGSTR_VAL_MAPPERA: PCSTR = s("UsesMapper")
+public val DIRECTINPUT_REGSTR_VAL_MAPPERA: Pcstr = s("UsesMapper")
 
-public val DIRECTINPUT_REGSTR_VAL_MAPPERW: PCWSTR = w("UsesMapper")
+public val DIRECTINPUT_REGSTR_VAL_MAPPERW: Pcwstr = w("UsesMapper")
 
-public val DIRECTINPUT_REGSTR_VAL_NAME: PCWSTR = w("Name")
+public val DIRECTINPUT_REGSTR_VAL_NAME: Pcwstr = w("Name")
 
-public val DIRECTINPUT_REGSTR_VAL_NAMEA: PCSTR = s("Name")
+public val DIRECTINPUT_REGSTR_VAL_NAMEA: Pcstr = s("Name")
 
-public val DIRECTINPUT_REGSTR_VAL_NAMEW: PCWSTR = w("Name")
+public val DIRECTINPUT_REGSTR_VAL_NAMEW: Pcwstr = w("Name")
 
-public val DIRECTINPUT_REGSTR_VAL_VERSION: PCWSTR = w("Version")
+public val DIRECTINPUT_REGSTR_VAL_VERSION: Pcwstr = w("Version")
 
-public val DIRECTINPUT_REGSTR_VAL_VERSIONA: PCSTR = s("Version")
+public val DIRECTINPUT_REGSTR_VAL_VERSIONA: Pcstr = s("Version")
 
-public val DIRECTINPUT_REGSTR_VAL_VERSIONW: PCWSTR = w("Version")
+public val DIRECTINPUT_REGSTR_VAL_VERSIONW: Pcwstr = w("Version")
 
 public val DIRECTINPUT_VERSION: UInt = 2048u
 
@@ -301,9 +301,9 @@ public val DI_BUFFEROVERFLOW: Int = 1
 
 public val DI_DEGREES: UInt = 100u
 
-public val DI_DOWNLOADSKIPPED: HRESULT = 0x3u.toInt()
+public val DI_DOWNLOADSKIPPED: Hresult = 0x3u.toInt()
 
-public val DI_EFFECTRESTARTED: HRESULT = 0x4u.toInt()
+public val DI_EFFECTRESTARTED: Hresult = 0x4u.toInt()
 
 public val DI_FFNOMINALMAX: UInt = 10000u
 
@@ -313,1419 +313,1419 @@ public val DI_NOTATTACHED: Int = 1
 
 public val DI_OK: Int = 0
 
-public val DI_POLLEDDEVICE: HRESULT = 0x2u.toInt()
+public val DI_POLLEDDEVICE: Hresult = 0x2u.toInt()
 
 public val DI_PROPNOEFFECT: Int = 1
 
 public val DI_SECONDS: UInt = 1000000u
 
-public val DI_SETTINGSNOTSAVED: HRESULT = 0xBu.toInt()
+public val DI_SETTINGSNOTSAVED: Hresult = 0xBu.toInt()
 
-public val DI_TRUNCATED: HRESULT = 0x8u.toInt()
+public val DI_TRUNCATED: Hresult = 0x8u.toInt()
 
-public val DI_TRUNCATEDANDRESTARTED: HRESULT = 0xCu.toInt()
+public val DI_TRUNCATEDANDRESTARTED: Hresult = 0xCu.toInt()
 
-public val DI_WRITEPROTECT: HRESULT = 0x13u.toInt()
+public val DI_WRITEPROTECT: Hresult = 0x13u.toInt()
 
-public val GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5
+public val GPIO_BUTTON_BACK: GpiobuttonsButtonType = 5
 
-public val GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7
+public val GPIO_BUTTON_CAMERA_FOCUS: GpiobuttonsButtonType = 7
 
-public val GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12
+public val GPIO_BUTTON_CAMERA_LENS: GpiobuttonsButtonType = 12
 
-public val GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = 8
+public val GPIO_BUTTON_CAMERA_SHUTTER: GpiobuttonsButtonType = 8
 
-public val GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = 16
+public val GPIO_BUTTON_COUNT: GpiobuttonsButtonType = 16
 
-public val GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = 5
+public val GPIO_BUTTON_COUNT_MIN: GpiobuttonsButtonType = 5
 
-public val GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = 10
+public val GPIO_BUTTON_HEADSET: GpiobuttonsButtonType = 10
 
-public val GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = 11
+public val GPIO_BUTTON_HWKB_DEPLOY: GpiobuttonsButtonType = 11
 
-public val GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = 13
+public val GPIO_BUTTON_OEM_CUSTOM: GpiobuttonsButtonType = 13
 
-public val GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = 14
+public val GPIO_BUTTON_OEM_CUSTOM2: GpiobuttonsButtonType = 14
 
-public val GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = 15
+public val GPIO_BUTTON_OEM_CUSTOM3: GpiobuttonsButtonType = 15
 
-public val GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = 0
+public val GPIO_BUTTON_POWER: GpiobuttonsButtonType = 0
 
-public val GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = 9
+public val GPIO_BUTTON_RINGER_TOGGLE: GpiobuttonsButtonType = 9
 
-public val GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = 4
+public val GPIO_BUTTON_ROTATION_LOCK: GpiobuttonsButtonType = 4
 
-public val GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6
+public val GPIO_BUTTON_SEARCH: GpiobuttonsButtonType = 6
 
-public val GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3
+public val GPIO_BUTTON_VOLUME_DOWN: GpiobuttonsButtonType = 3
 
-public val GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2
+public val GPIO_BUTTON_VOLUME_UP: GpiobuttonsButtonType = 2
 
-public val GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1
+public val GPIO_BUTTON_WINDOWS: GpiobuttonsButtonType = 1
 
-public val GUID_Button: GUID = GUID.from_u128(U128(0xa36d02f0c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_BUTTON: Guid = Guid.fromU128(U128(0xa36d02f0c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_ConstantForce: GUID = GUID.from_u128(U128(0x13541c208e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_CONSTANT_FORCE: Guid = Guid.fromU128(U128(0x13541c208e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_CustomForce: GUID = GUID.from_u128(U128(0x13541c2b8e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_CUSTOM_FORCE: Guid = Guid.fromU128(U128(0x13541c2b8e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_DEVINTERFACE_HID: GUID = GUID.from_u128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
+public val GUID_DEVINTERFACE_HID: Guid = Guid.fromU128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
 
-public val GUID_DEVINTERFACE_KEYBOARD: GUID = GUID.from_u128(U128(0x884b96c356ef11d1uL, 0xbc8c00a0c91405dduL))
+public val GUID_DEVINTERFACE_KEYBOARD: Guid = Guid.fromU128(U128(0x884b96c356ef11d1uL, 0xbc8c00a0c91405dduL))
 
-public val GUID_DEVINTERFACE_MOUSE: GUID = GUID.from_u128(U128(0x378de44c56ef11d1uL, 0xbc8c00a0c91405dduL))
+public val GUID_DEVINTERFACE_MOUSE: Guid = Guid.fromU128(U128(0x378de44c56ef11d1uL, 0xbc8c00a0c91405dduL))
 
-public val GUID_Damper: GUID = GUID.from_u128(U128(0x13541c288e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_DAMPER: Guid = Guid.fromU128(U128(0x13541c288e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Friction: GUID = GUID.from_u128(U128(0x13541c2a8e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_FRICTION: Guid = Guid.fromU128(U128(0x13541c2a8e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_HIDClass: GUID = GUID.from_u128(U128(0x745a17a074d311d0uL, 0xb6fe00a0c90f57dauL))
+public val GUID_HID_CLASS: Guid = Guid.fromU128(U128(0x745a17a074d311d0uL, 0xb6fe00a0c90f57dauL))
 
-public val GUID_HID_INTERFACE_HIDPARSE: GUID = GUID.from_u128(U128(0xf5c315a569ac4bc2uL, 0x9279d0b64576f44buL))
+public val GUID_HID_INTERFACE_HIDPARSE: Guid = Guid.fromU128(U128(0xf5c315a569ac4bc2uL, 0x9279d0b64576f44buL))
 
-public val GUID_HID_INTERFACE_NOTIFY: GUID = GUID.from_u128(U128(0x2c4e2e8825e64c33uL, 0x882f3d82e6073681uL))
+public val GUID_HID_INTERFACE_NOTIFY: Guid = Guid.fromU128(U128(0x2c4e2e8825e64c33uL, 0x882f3d82e6073681uL))
 
-public val GUID_Inertia: GUID = GUID.from_u128(U128(0x13541c298e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_INERTIA: Guid = Guid.fromU128(U128(0x13541c298e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Joystick: GUID = GUID.from_u128(U128(0x6f1d2b70d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_JOYSTICK: Guid = Guid.fromU128(U128(0x6f1d2b70d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_Key: GUID = GUID.from_u128(U128(0x55728220d33c11cfuL, 0xbfc7444553540000uL))
+public val GUID_KEY: Guid = Guid.fromU128(U128(0x55728220d33c11cfuL, 0xbfc7444553540000uL))
 
-public val GUID_KeyboardClass: GUID = GUID.from_u128(U128(0x4d36e96be32511ceuL, 0xbfc108002be10318uL))
+public val GUID_KEYBOARD_CLASS: Guid = Guid.fromU128(U128(0x4d36e96be32511ceuL, 0xbfc108002be10318uL))
 
-public val GUID_MediaClass: GUID = GUID.from_u128(U128(0x4d36e96ce32511ceuL, 0xbfc108002be10318uL))
+public val GUID_MEDIA_CLASS: Guid = Guid.fromU128(U128(0x4d36e96ce32511ceuL, 0xbfc108002be10318uL))
 
-public val GUID_MouseClass: GUID = GUID.from_u128(U128(0x4d36e96fe32511ceuL, 0xbfc108002be10318uL))
+public val GUID_MOUSE_CLASS: Guid = Guid.fromU128(U128(0x4d36e96fe32511ceuL, 0xbfc108002be10318uL))
 
-public val GUID_POV: GUID = GUID.from_u128(U128(0xa36d02f2c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_POV: Guid = Guid.fromU128(U128(0xa36d02f2c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_RampForce: GUID = GUID.from_u128(U128(0x13541c218e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_RAMP_FORCE: Guid = Guid.fromU128(U128(0x13541c218e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_RxAxis: GUID = GUID.from_u128(U128(0xa36d02f4c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_RX_AXIS: Guid = Guid.fromU128(U128(0xa36d02f4c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_RyAxis: GUID = GUID.from_u128(U128(0xa36d02f5c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_RY_AXIS: Guid = Guid.fromU128(U128(0xa36d02f5c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_RzAxis: GUID = GUID.from_u128(U128(0xa36d02e3c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_RZ_AXIS: Guid = Guid.fromU128(U128(0xa36d02e3c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SawtoothDown: GUID = GUID.from_u128(U128(0x13541c268e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_SAWTOOTH_DOWN: Guid = Guid.fromU128(U128(0x13541c268e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_SawtoothUp: GUID = GUID.from_u128(U128(0x13541c258e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_SAWTOOTH_UP: Guid = Guid.fromU128(U128(0x13541c258e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Sine: GUID = GUID.from_u128(U128(0x13541c238e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_SINE: Guid = Guid.fromU128(U128(0x13541c238e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Slider: GUID = GUID.from_u128(U128(0xa36d02e4c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_SLIDER: Guid = Guid.fromU128(U128(0xa36d02e4c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_Spring: GUID = GUID.from_u128(U128(0x13541c278e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_SPRING: Guid = Guid.fromU128(U128(0x13541c278e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Square: GUID = GUID.from_u128(U128(0x13541c228e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_SQUARE: Guid = Guid.fromU128(U128(0x13541c228e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_SysKeyboard: GUID = GUID.from_u128(U128(0x6f1d2b61d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_KEYBOARD: Guid = Guid.fromU128(U128(0x6f1d2b61d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SysKeyboardEm: GUID = GUID.from_u128(U128(0x6f1d2b82d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_KEYBOARD_EM: Guid = Guid.fromU128(U128(0x6f1d2b82d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SysKeyboardEm2: GUID = GUID.from_u128(U128(0x6f1d2b83d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_KEYBOARD_EM2: Guid = Guid.fromU128(U128(0x6f1d2b83d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SysMouse: GUID = GUID.from_u128(U128(0x6f1d2b60d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_MOUSE: Guid = Guid.fromU128(U128(0x6f1d2b60d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SysMouseEm: GUID = GUID.from_u128(U128(0x6f1d2b80d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_MOUSE_EM: Guid = Guid.fromU128(U128(0x6f1d2b80d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_SysMouseEm2: GUID = GUID.from_u128(U128(0x6f1d2b81d5a011cfuL, 0xbfc7444553540000uL))
+public val GUID_SYS_MOUSE_EM2: Guid = Guid.fromU128(U128(0x6f1d2b81d5a011cfuL, 0xbfc7444553540000uL))
 
-public val GUID_Triangle: GUID = GUID.from_u128(U128(0x13541c248e3311d0uL, 0x9ad000a0c9a06e35uL))
+public val GUID_TRIANGLE: Guid = Guid.fromU128(U128(0x13541c248e3311d0uL, 0x9ad000a0c9a06e35uL))
 
-public val GUID_Unknown: GUID = GUID.from_u128(U128(0xa36d02f3c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_UNKNOWN: Guid = Guid.fromU128(U128(0xa36d02f3c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_XAxis: GUID = GUID.from_u128(U128(0xa36d02e0c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_X_AXIS: Guid = Guid.fromU128(U128(0xa36d02e0c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_YAxis: GUID = GUID.from_u128(U128(0xa36d02e1c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_Y_AXIS: Guid = Guid.fromU128(U128(0xa36d02e1c9f311cfuL, 0xbfc7444553540000uL))
 
-public val GUID_ZAxis: GUID = GUID.from_u128(U128(0xa36d02e2c9f311cfuL, 0xbfc7444553540000uL))
+public val GUID_Z_AXIS: Guid = Guid.fromU128(U128(0xa36d02e2c9f311cfuL, 0xbfc7444553540000uL))
 
-public val HIDP_STATUS_BAD_LOG_PHY_VALUES: NTSTATUS = 0xC0110006u.toInt()
+public val HIDP_STATUS_BAD_LOG_PHY_VALUES: Ntstatus = 0xC0110006u.toInt()
 
-public val HIDP_STATUS_BUFFER_TOO_SMALL: NTSTATUS = 0xC0110007u.toInt()
+public val HIDP_STATUS_BUFFER_TOO_SMALL: Ntstatus = 0xC0110007u.toInt()
 
-public val HIDP_STATUS_BUTTON_NOT_PRESSED: NTSTATUS = 0xC011000Fu.toInt()
+public val HIDP_STATUS_BUTTON_NOT_PRESSED: Ntstatus = 0xC011000Fu.toInt()
 
-public val HIDP_STATUS_DATA_INDEX_NOT_FOUND: NTSTATUS = 0xC011000Du.toInt()
+public val HIDP_STATUS_DATA_INDEX_NOT_FOUND: Ntstatus = 0xC011000Du.toInt()
 
-public val HIDP_STATUS_DATA_INDEX_OUT_OF_RANGE: NTSTATUS = 0xC011000Eu.toInt()
+public val HIDP_STATUS_DATA_INDEX_OUT_OF_RANGE: Ntstatus = 0xC011000Eu.toInt()
 
-public val HIDP_STATUS_I8042_TRANS_UNKNOWN: NTSTATUS = 0xC0110009u.toInt()
+public val HIDP_STATUS_I8042_TRANS_UNKNOWN: Ntstatus = 0xC0110009u.toInt()
 
-public val HIDP_STATUS_I8242_TRANS_UNKNOWN: NTSTATUS = 0xC0110009u.toInt()
+public val HIDP_STATUS_I8242_TRANS_UNKNOWN: Ntstatus = 0xC0110009u.toInt()
 
-public val HIDP_STATUS_INCOMPATIBLE_REPORT_ID: NTSTATUS = 0xC011000Au.toInt()
+public val HIDP_STATUS_INCOMPATIBLE_REPORT_ID: Ntstatus = 0xC011000Au.toInt()
 
-public val HIDP_STATUS_INTERNAL_ERROR: NTSTATUS = 0xC0110008u.toInt()
+public val HIDP_STATUS_INTERNAL_ERROR: Ntstatus = 0xC0110008u.toInt()
 
-public val HIDP_STATUS_INVALID_PREPARSED_DATA: NTSTATUS = 0xC0110001u.toInt()
+public val HIDP_STATUS_INVALID_PREPARSED_DATA: Ntstatus = 0xC0110001u.toInt()
 
-public val HIDP_STATUS_INVALID_REPORT_LENGTH: NTSTATUS = 0xC0110003u.toInt()
+public val HIDP_STATUS_INVALID_REPORT_LENGTH: Ntstatus = 0xC0110003u.toInt()
 
-public val HIDP_STATUS_INVALID_REPORT_TYPE: NTSTATUS = 0xC0110002u.toInt()
+public val HIDP_STATUS_INVALID_REPORT_TYPE: Ntstatus = 0xC0110002u.toInt()
 
-public val HIDP_STATUS_IS_VALUE_ARRAY: NTSTATUS = 0xC011000Cu.toInt()
+public val HIDP_STATUS_IS_VALUE_ARRAY: Ntstatus = 0xC011000Cu.toInt()
 
-public val HIDP_STATUS_NOT_BUTTON_ARRAY: NTSTATUS = 0xC0110021u.toInt()
+public val HIDP_STATUS_NOT_BUTTON_ARRAY: Ntstatus = 0xC0110021u.toInt()
 
-public val HIDP_STATUS_NOT_IMPLEMENTED: NTSTATUS = 0xC0110020u.toInt()
+public val HIDP_STATUS_NOT_IMPLEMENTED: Ntstatus = 0xC0110020u.toInt()
 
-public val HIDP_STATUS_NOT_VALUE_ARRAY: NTSTATUS = 0xC011000Bu.toInt()
+public val HIDP_STATUS_NOT_VALUE_ARRAY: Ntstatus = 0xC011000Bu.toInt()
 
-public val HIDP_STATUS_NULL: NTSTATUS = 0x80110001u.toInt()
+public val HIDP_STATUS_NULL: Ntstatus = 0x80110001u.toInt()
 
-public val HIDP_STATUS_REPORT_DOES_NOT_EXIST: NTSTATUS = 0xC0110010u.toInt()
+public val HIDP_STATUS_REPORT_DOES_NOT_EXIST: Ntstatus = 0xC0110010u.toInt()
 
-public val HIDP_STATUS_SUCCESS: NTSTATUS = 0x110000u.toInt()
+public val HIDP_STATUS_SUCCESS: Ntstatus = 0x110000u.toInt()
 
-public val HIDP_STATUS_USAGE_NOT_FOUND: NTSTATUS = 0xC0110004u.toInt()
+public val HIDP_STATUS_USAGE_NOT_FOUND: Ntstatus = 0xC0110004u.toInt()
 
-public val HIDP_STATUS_VALUE_OUT_OF_RANGE: NTSTATUS = 0xC0110005u.toInt()
+public val HIDP_STATUS_VALUE_OUT_OF_RANGE: Ntstatus = 0xC0110005u.toInt()
 
 public val HID_REVISION: UInt = 1u
 
-public val HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: UShort = 69u
+public val HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: UShort = 69u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_7_SEGMENT_DIRECT_MAP: UShort = 67u
+public val HID_USAGE_ALPHANUMERIC_7_SEGMENT_DIRECT_MAP: UShort = 67u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ALPHANUMERIC_DISPLAY: UShort = 1u
+public val HID_USAGE_ALPHANUMERIC_ALPHANUMERIC_DISPLAY: UShort = 1u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ASCII_CHARACTER_SET: UShort = 33u
+public val HID_USAGE_ALPHANUMERIC_ASCII_CHARACTER_SET: UShort = 33u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ATTRIBUTE_DATA: UShort = 74u
+public val HID_USAGE_ALPHANUMERIC_ATTRIBUTE_DATA: UShort = 74u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ATTRIBUTE_READBACK: UShort = 73u
+public val HID_USAGE_ALPHANUMERIC_ATTRIBUTE_READBACK: UShort = 73u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BITMAPPED_DISPLAY: UShort = 2u
+public val HID_USAGE_ALPHANUMERIC_BITMAPPED_DISPLAY: UShort = 2u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BITMAP_SIZE_X: UShort = 128u
+public val HID_USAGE_ALPHANUMERIC_BITMAP_SIZE_X: UShort = 128u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BITMAP_SIZE_Y: UShort = 129u
+public val HID_USAGE_ALPHANUMERIC_BITMAP_SIZE_Y: UShort = 129u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BIT_DEPTH_FORMAT: UShort = 131u
+public val HID_USAGE_ALPHANUMERIC_BIT_DEPTH_FORMAT: UShort = 131u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_DATA: UShort = 143u
+public val HID_USAGE_ALPHANUMERIC_BLIT_DATA: UShort = 143u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_X1: UShort = 139u
+public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_X1: UShort = 139u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_X2: UShort = 141u
+public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_X2: UShort = 141u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_Y1: UShort = 140u
+public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_Y1: UShort = 140u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_Y2: UShort = 142u
+public val HID_USAGE_ALPHANUMERIC_BLIT_RECTANGLE_Y2: UShort = 142u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_BLIT_REPORT: UShort = 138u
+public val HID_USAGE_ALPHANUMERIC_BLIT_REPORT: UShort = 138u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHARACTER_ATTRIBUTE: UShort = 72u
+public val HID_USAGE_ALPHANUMERIC_CHARACTER_ATTRIBUTE: UShort = 72u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHARACTER_REPORT: UShort = 43u
+public val HID_USAGE_ALPHANUMERIC_CHARACTER_REPORT: UShort = 43u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_BLINK: UShort = 77u
+public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_BLINK: UShort = 77u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_ENHANCE: UShort = 75u
+public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_ENHANCE: UShort = 75u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_UNDERLINE: UShort = 76u
+public val HID_USAGE_ALPHANUMERIC_CHAR_ATTR_UNDERLINE: UShort = 76u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_HEIGHT: UShort = 62u
+public val HID_USAGE_ALPHANUMERIC_CHAR_HEIGHT: UShort = 62u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_SPACING_HORIZONTAL: UShort = 63u
+public val HID_USAGE_ALPHANUMERIC_CHAR_SPACING_HORIZONTAL: UShort = 63u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_SPACING_VERTICAL: UShort = 64u
+public val HID_USAGE_ALPHANUMERIC_CHAR_SPACING_VERTICAL: UShort = 64u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CHAR_WIDTH: UShort = 61u
+public val HID_USAGE_ALPHANUMERIC_CHAR_WIDTH: UShort = 61u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CLEAR_DISPLAY: UShort = 37u
+public val HID_USAGE_ALPHANUMERIC_CLEAR_DISPLAY: UShort = 37u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_COLUMN: UShort = 52u
+public val HID_USAGE_ALPHANUMERIC_COLUMN: UShort = 52u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_COLUMNS: UShort = 54u
+public val HID_USAGE_ALPHANUMERIC_COLUMNS: UShort = 54u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CURSOR_BLINK: UShort = 58u
+public val HID_USAGE_ALPHANUMERIC_CURSOR_BLINK: UShort = 58u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CURSOR_ENABLE: UShort = 57u
+public val HID_USAGE_ALPHANUMERIC_CURSOR_ENABLE: UShort = 57u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CURSOR_MODE: UShort = 56u
+public val HID_USAGE_ALPHANUMERIC_CURSOR_MODE: UShort = 56u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CURSOR_PIXEL_POSITIONING: UShort = 55u
+public val HID_USAGE_ALPHANUMERIC_CURSOR_PIXEL_POSITIONING: UShort = 55u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_CURSOR_POSITION_REPORT: UShort = 50u
+public val HID_USAGE_ALPHANUMERIC_CURSOR_POSITION_REPORT: UShort = 50u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DATA_READ_BACK: UShort = 34u
+public val HID_USAGE_ALPHANUMERIC_DATA_READ_BACK: UShort = 34u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_ATTRIBUTES_REPORT: UShort = 32u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_ATTRIBUTES_REPORT: UShort = 32u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_BRIGHTNESS: UShort = 70u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_BRIGHTNESS: UShort = 70u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_CONTRAST: UShort = 71u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_CONTRAST: UShort = 71u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_CONTROL_REPORT: UShort = 36u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_CONTROL_REPORT: UShort = 36u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_DATA: UShort = 44u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_DATA: UShort = 44u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_ENABLE: UShort = 38u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_ENABLE: UShort = 38u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_ORIENTATION: UShort = 132u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_ORIENTATION: UShort = 132u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_DISPLAY_STATUS: UShort = 45u
+public val HID_USAGE_ALPHANUMERIC_DISPLAY_STATUS: UShort = 45u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ERR_FONT_DATA_CANNOT_BE_READ: UShort = 49u
+public val HID_USAGE_ALPHANUMERIC_ERR_FONT_DATA_CANNOT_BE_READ: UShort = 49u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ERR_NOT_A_LOADABLE_CHARACTER: UShort = 48u
+public val HID_USAGE_ALPHANUMERIC_ERR_NOT_A_LOADABLE_CHARACTER: UShort = 48u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_FONT_14_SEGMENT: UShort = 68u
+public val HID_USAGE_ALPHANUMERIC_FONT_14_SEGMENT: UShort = 68u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_FONT_7_SEGMENT: UShort = 66u
+public val HID_USAGE_ALPHANUMERIC_FONT_7_SEGMENT: UShort = 66u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_FONT_DATA: UShort = 60u
+public val HID_USAGE_ALPHANUMERIC_FONT_DATA: UShort = 60u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_FONT_READ_BACK: UShort = 35u
+public val HID_USAGE_ALPHANUMERIC_FONT_READ_BACK: UShort = 35u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_FONT_REPORT: UShort = 59u
+public val HID_USAGE_ALPHANUMERIC_FONT_REPORT: UShort = 59u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_HORIZONTAL_SCROLL: UShort = 42u
+public val HID_USAGE_ALPHANUMERIC_HORIZONTAL_SCROLL: UShort = 42u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA: UShort = 136u
+public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA: UShort = 136u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA_OFFSET: UShort = 135u
+public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA_OFFSET: UShort = 135u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA_SIZE: UShort = 134u
+public val HID_USAGE_ALPHANUMERIC_PALETTE_DATA_SIZE: UShort = 134u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_PALETTE_REPORT: UShort = 133u
+public val HID_USAGE_ALPHANUMERIC_PALETTE_REPORT: UShort = 133u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ROW: UShort = 51u
+public val HID_USAGE_ALPHANUMERIC_ROW: UShort = 51u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_ROWS: UShort = 53u
+public val HID_USAGE_ALPHANUMERIC_ROWS: UShort = 53u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SCREEN_SAVER_DELAY: UShort = 39u
+public val HID_USAGE_ALPHANUMERIC_SCREEN_SAVER_DELAY: UShort = 39u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SCREEN_SAVER_ENABLE: UShort = 40u
+public val HID_USAGE_ALPHANUMERIC_SCREEN_SAVER_ENABLE: UShort = 40u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON: UShort = 144u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON: UShort = 144u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_ID: UShort = 145u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_ID: UShort = 145u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_OFFSET1: UShort = 147u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_OFFSET1: UShort = 147u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_OFFSET2: UShort = 148u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_OFFSET2: UShort = 148u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_REPORT: UShort = 149u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_REPORT: UShort = 149u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_SIDE: UShort = 146u
+public val HID_USAGE_ALPHANUMERIC_SOFT_BUTTON_SIDE: UShort = 146u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_STATUS_NOT_READY: UShort = 46u
+public val HID_USAGE_ALPHANUMERIC_STATUS_NOT_READY: UShort = 46u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_STATUS_READY: UShort = 47u
+public val HID_USAGE_ALPHANUMERIC_STATUS_READY: UShort = 47u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_UNICODE_CHAR_SET: UShort = 65u
+public val HID_USAGE_ALPHANUMERIC_UNICODE_CHAR_SET: UShort = 65u.toUShort()
 
-public val HID_USAGE_ALPHANUMERIC_VERTICAL_SCROLL: UShort = 41u
+public val HID_USAGE_ALPHANUMERIC_VERTICAL_SCROLL: UShort = 41u.toUShort()
 
-public val HID_USAGE_CAMERA_AUTO_FOCUS: UShort = 32u
+public val HID_USAGE_CAMERA_AUTO_FOCUS: UShort = 32u.toUShort()
 
-public val HID_USAGE_CAMERA_SHUTTER: UShort = 33u
+public val HID_USAGE_CAMERA_SHUTTER: UShort = 33u.toUShort()
 
-public val HID_USAGE_CONSUMERCTRL: UShort = 1u
+public val HID_USAGE_CONSUMERCTRL: UShort = 1u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_BACK: UShort = 548u
+public val HID_USAGE_CONSUMER_AC_BACK: UShort = 548u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_BOOKMARKS: UShort = 554u
+public val HID_USAGE_CONSUMER_AC_BOOKMARKS: UShort = 554u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_FORWARD: UShort = 549u
+public val HID_USAGE_CONSUMER_AC_FORWARD: UShort = 549u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_GOTO: UShort = 546u
+public val HID_USAGE_CONSUMER_AC_GOTO: UShort = 546u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_HOME: UShort = 547u
+public val HID_USAGE_CONSUMER_AC_HOME: UShort = 547u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_NEXT: UShort = 553u
+public val HID_USAGE_CONSUMER_AC_NEXT: UShort = 553u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_PAN: UShort = 568u
+public val HID_USAGE_CONSUMER_AC_PAN: UShort = 568u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_PREVIOUS: UShort = 552u
+public val HID_USAGE_CONSUMER_AC_PREVIOUS: UShort = 552u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_REFRESH: UShort = 551u
+public val HID_USAGE_CONSUMER_AC_REFRESH: UShort = 551u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_SEARCH: UShort = 545u
+public val HID_USAGE_CONSUMER_AC_SEARCH: UShort = 545u.toUShort()
 
-public val HID_USAGE_CONSUMER_AC_STOP: UShort = 550u
+public val HID_USAGE_CONSUMER_AC_STOP: UShort = 550u.toUShort()
 
-public val HID_USAGE_CONSUMER_AL_BROWSER: UShort = 404u
+public val HID_USAGE_CONSUMER_AL_BROWSER: UShort = 404u.toUShort()
 
-public val HID_USAGE_CONSUMER_AL_CALCULATOR: UShort = 402u
+public val HID_USAGE_CONSUMER_AL_CALCULATOR: UShort = 402u.toUShort()
 
-public val HID_USAGE_CONSUMER_AL_CONFIGURATION: UShort = 387u
+public val HID_USAGE_CONSUMER_AL_CONFIGURATION: UShort = 387u.toUShort()
 
-public val HID_USAGE_CONSUMER_AL_EMAIL: UShort = 394u
+public val HID_USAGE_CONSUMER_AL_EMAIL: UShort = 394u.toUShort()
 
-public val HID_USAGE_CONSUMER_AL_SEARCH: UShort = 454u
+public val HID_USAGE_CONSUMER_AL_SEARCH: UShort = 454u.toUShort()
 
-public val HID_USAGE_CONSUMER_BALANCE: UShort = 225u
+public val HID_USAGE_CONSUMER_BALANCE: UShort = 225u.toUShort()
 
-public val HID_USAGE_CONSUMER_BASS: UShort = 227u
+public val HID_USAGE_CONSUMER_BASS: UShort = 227u.toUShort()
 
-public val HID_USAGE_CONSUMER_BASS_BOOST: UShort = 229u
+public val HID_USAGE_CONSUMER_BASS_BOOST: UShort = 229u.toUShort()
 
-public val HID_USAGE_CONSUMER_BASS_DECREMENT: UShort = 339u
+public val HID_USAGE_CONSUMER_BASS_DECREMENT: UShort = 339u.toUShort()
 
-public val HID_USAGE_CONSUMER_BASS_INCREMENT: UShort = 338u
+public val HID_USAGE_CONSUMER_BASS_INCREMENT: UShort = 338u.toUShort()
 
-public val HID_USAGE_CONSUMER_CHANNEL_DECREMENT: UShort = 157u
+public val HID_USAGE_CONSUMER_CHANNEL_DECREMENT: UShort = 157u.toUShort()
 
-public val HID_USAGE_CONSUMER_CHANNEL_INCREMENT: UShort = 156u
+public val HID_USAGE_CONSUMER_CHANNEL_INCREMENT: UShort = 156u.toUShort()
 
-public val HID_USAGE_CONSUMER_EXTENDED_KEYBOARD_ATTRIBUTES_COLLECTION: UShort = 704u
+public val HID_USAGE_CONSUMER_EXTENDED_KEYBOARD_ATTRIBUTES_COLLECTION: UShort = 704u.toUShort()
 
-public val HID_USAGE_CONSUMER_FAST_FORWARD: UShort = 179u
+public val HID_USAGE_CONSUMER_FAST_FORWARD: UShort = 179u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_OPEN_GAMEBAR: UShort = 208u
+public val HID_USAGE_CONSUMER_GAMEDVR_OPEN_GAMEBAR: UShort = 208u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_RECORD_CLIP: UShort = 210u
+public val HID_USAGE_CONSUMER_GAMEDVR_RECORD_CLIP: UShort = 210u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_SCREENSHOT: UShort = 211u
+public val HID_USAGE_CONSUMER_GAMEDVR_SCREENSHOT: UShort = 211u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_BROADCAST: UShort = 215u
+public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_BROADCAST: UShort = 215u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_CAMERA: UShort = 214u
+public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_CAMERA: UShort = 214u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_INDICATOR: UShort = 212u
+public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_INDICATOR: UShort = 212u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_MICROPHONE: UShort = 213u
+public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_MICROPHONE: UShort = 213u.toUShort()
 
-public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_RECORD: UShort = 209u
+public val HID_USAGE_CONSUMER_GAMEDVR_TOGGLE_RECORD: UShort = 209u.toUShort()
 
-public val HID_USAGE_CONSUMER_IMPLEMENTED_KEYBOARD_INPUT_ASSIST_CONTROLS: UShort = 710u
+public val HID_USAGE_CONSUMER_IMPLEMENTED_KEYBOARD_INPUT_ASSIST_CONTROLS: UShort = 710u.toUShort()
 
-public val HID_USAGE_CONSUMER_KEYBOARD_FORM_FACTOR: UShort = 705u
+public val HID_USAGE_CONSUMER_KEYBOARD_FORM_FACTOR: UShort = 705u.toUShort()
 
-public val HID_USAGE_CONSUMER_KEYBOARD_IETF_LANGUAGE_TAG_INDEX: UShort = 709u
+public val HID_USAGE_CONSUMER_KEYBOARD_IETF_LANGUAGE_TAG_INDEX: UShort = 709u.toUShort()
 
-public val HID_USAGE_CONSUMER_KEYBOARD_KEY_TYPE: UShort = 706u
+public val HID_USAGE_CONSUMER_KEYBOARD_KEY_TYPE: UShort = 706u.toUShort()
 
-public val HID_USAGE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT: UShort = 707u
+public val HID_USAGE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT: UShort = 707u.toUShort()
 
-public val HID_USAGE_CONSUMER_LOUDNESS: UShort = 231u
+public val HID_USAGE_CONSUMER_LOUDNESS: UShort = 231u.toUShort()
 
-public val HID_USAGE_CONSUMER_MPX: UShort = 232u
+public val HID_USAGE_CONSUMER_MPX: UShort = 232u.toUShort()
 
-public val HID_USAGE_CONSUMER_MUTE: UShort = 226u
+public val HID_USAGE_CONSUMER_MUTE: UShort = 226u.toUShort()
 
-public val HID_USAGE_CONSUMER_PAUSE: UShort = 177u
+public val HID_USAGE_CONSUMER_PAUSE: UShort = 177u.toUShort()
 
-public val HID_USAGE_CONSUMER_PLAY: UShort = 176u
+public val HID_USAGE_CONSUMER_PLAY: UShort = 176u.toUShort()
 
-public val HID_USAGE_CONSUMER_PLAY_PAUSE: UShort = 205u
+public val HID_USAGE_CONSUMER_PLAY_PAUSE: UShort = 205u.toUShort()
 
-public val HID_USAGE_CONSUMER_RECORD: UShort = 178u
+public val HID_USAGE_CONSUMER_RECORD: UShort = 178u.toUShort()
 
-public val HID_USAGE_CONSUMER_REWIND: UShort = 180u
+public val HID_USAGE_CONSUMER_REWIND: UShort = 180u.toUShort()
 
-public val HID_USAGE_CONSUMER_SCAN_NEXT_TRACK: UShort = 181u
+public val HID_USAGE_CONSUMER_SCAN_NEXT_TRACK: UShort = 181u.toUShort()
 
-public val HID_USAGE_CONSUMER_SCAN_PREV_TRACK: UShort = 182u
+public val HID_USAGE_CONSUMER_SCAN_PREV_TRACK: UShort = 182u.toUShort()
 
-public val HID_USAGE_CONSUMER_STOP: UShort = 183u
+public val HID_USAGE_CONSUMER_STOP: UShort = 183u.toUShort()
 
-public val HID_USAGE_CONSUMER_SURROUND_MODE: UShort = 230u
+public val HID_USAGE_CONSUMER_SURROUND_MODE: UShort = 230u.toUShort()
 
-public val HID_USAGE_CONSUMER_TREBLE: UShort = 228u
+public val HID_USAGE_CONSUMER_TREBLE: UShort = 228u.toUShort()
 
-public val HID_USAGE_CONSUMER_TREBLE_DECREMENT: UShort = 341u
+public val HID_USAGE_CONSUMER_TREBLE_DECREMENT: UShort = 341u.toUShort()
 
-public val HID_USAGE_CONSUMER_TREBLE_INCREMENT: UShort = 340u
+public val HID_USAGE_CONSUMER_TREBLE_INCREMENT: UShort = 340u.toUShort()
 
-public val HID_USAGE_CONSUMER_VENDOR_SPECIFIC_KEYBOARD_PHYSICAL_LAYOUT: UShort = 708u
+public val HID_USAGE_CONSUMER_VENDOR_SPECIFIC_KEYBOARD_PHYSICAL_LAYOUT: UShort = 708u.toUShort()
 
-public val HID_USAGE_CONSUMER_VOLUME: UShort = 224u
+public val HID_USAGE_CONSUMER_VOLUME: UShort = 224u.toUShort()
 
-public val HID_USAGE_CONSUMER_VOLUME_DECREMENT: UShort = 234u
+public val HID_USAGE_CONSUMER_VOLUME_DECREMENT: UShort = 234u.toUShort()
 
-public val HID_USAGE_CONSUMER_VOLUME_INCREMENT: UShort = 233u
+public val HID_USAGE_CONSUMER_VOLUME_INCREMENT: UShort = 233u.toUShort()
 
-public val HID_USAGE_DIGITIZER_3D_DIGITIZER: UShort = 8u
+public val HID_USAGE_DIGITIZER_3D_DIGITIZER: UShort = 8u.toUShort()
 
-public val HID_USAGE_DIGITIZER_ALTITUDE: UShort = 64u
+public val HID_USAGE_DIGITIZER_ALTITUDE: UShort = 64u.toUShort()
 
-public val HID_USAGE_DIGITIZER_ARMATURE: UShort = 11u
+public val HID_USAGE_DIGITIZER_ARMATURE: UShort = 11u.toUShort()
 
-public val HID_USAGE_DIGITIZER_ARTICULATED_ARM: UShort = 10u
+public val HID_USAGE_DIGITIZER_ARTICULATED_ARM: UShort = 10u.toUShort()
 
-public val HID_USAGE_DIGITIZER_AZIMUTH: UShort = 63u
+public val HID_USAGE_DIGITIZER_AZIMUTH: UShort = 63u.toUShort()
 
-public val HID_USAGE_DIGITIZER_BARREL_PRESSURE: UShort = 49u
+public val HID_USAGE_DIGITIZER_BARREL_PRESSURE: UShort = 49u.toUShort()
 
-public val HID_USAGE_DIGITIZER_BARREL_SWITCH: UShort = 68u
+public val HID_USAGE_DIGITIZER_BARREL_SWITCH: UShort = 68u.toUShort()
 
-public val HID_USAGE_DIGITIZER_BATTERY_STRENGTH: UShort = 59u
+public val HID_USAGE_DIGITIZER_BATTERY_STRENGTH: UShort = 59u.toUShort()
 
-public val HID_USAGE_DIGITIZER_COORD_MEASURING: UShort = 7u
+public val HID_USAGE_DIGITIZER_COORD_MEASURING: UShort = 7u.toUShort()
 
-public val HID_USAGE_DIGITIZER_DATA_VALID: UShort = 55u
+public val HID_USAGE_DIGITIZER_DATA_VALID: UShort = 55u.toUShort()
 
-public val HID_USAGE_DIGITIZER_DIGITIZER: UShort = 1u
+public val HID_USAGE_DIGITIZER_DIGITIZER: UShort = 1u.toUShort()
 
-public val HID_USAGE_DIGITIZER_ERASER: UShort = 69u
+public val HID_USAGE_DIGITIZER_ERASER: UShort = 69u.toUShort()
 
-public val HID_USAGE_DIGITIZER_FINGER: UShort = 34u
+public val HID_USAGE_DIGITIZER_FINGER: UShort = 34u.toUShort()
 
-public val HID_USAGE_DIGITIZER_FREE_SPACE_WAND: UShort = 13u
+public val HID_USAGE_DIGITIZER_FREE_SPACE_WAND: UShort = 13u.toUShort()
 
-public val HID_USAGE_DIGITIZER_HEAT_MAP: UShort = 15u
+public val HID_USAGE_DIGITIZER_HEAT_MAP: UShort = 15u.toUShort()
 
-public val HID_USAGE_DIGITIZER_HEAT_MAP_FRAME_DATA: UShort = 108u
+public val HID_USAGE_DIGITIZER_HEAT_MAP_FRAME_DATA: UShort = 108u.toUShort()
 
-public val HID_USAGE_DIGITIZER_HEAT_MAP_PROTOCOL_VENDOR_ID: UShort = 106u
+public val HID_USAGE_DIGITIZER_HEAT_MAP_PROTOCOL_VENDOR_ID: UShort = 106u.toUShort()
 
-public val HID_USAGE_DIGITIZER_HEAT_MAP_PROTOCOL_VERSION: UShort = 107u
+public val HID_USAGE_DIGITIZER_HEAT_MAP_PROTOCOL_VERSION: UShort = 107u.toUShort()
 
-public val HID_USAGE_DIGITIZER_INVERT: UShort = 60u
+public val HID_USAGE_DIGITIZER_INVERT: UShort = 60u.toUShort()
 
-public val HID_USAGE_DIGITIZER_IN_RANGE: UShort = 50u
+public val HID_USAGE_DIGITIZER_IN_RANGE: UShort = 50u.toUShort()
 
-public val HID_USAGE_DIGITIZER_LIGHT_PEN: UShort = 3u
+public val HID_USAGE_DIGITIZER_LIGHT_PEN: UShort = 3u.toUShort()
 
-public val HID_USAGE_DIGITIZER_MULTI_POINT: UShort = 12u
+public val HID_USAGE_DIGITIZER_MULTI_POINT: UShort = 12u.toUShort()
 
-public val HID_USAGE_DIGITIZER_PEN: UShort = 2u
+public val HID_USAGE_DIGITIZER_PEN: UShort = 2u.toUShort()
 
-public val HID_USAGE_DIGITIZER_PROG_CHANGE_KEYS: UShort = 58u
+public val HID_USAGE_DIGITIZER_PROG_CHANGE_KEYS: UShort = 58u.toUShort()
 
-public val HID_USAGE_DIGITIZER_PUCK: UShort = 33u
+public val HID_USAGE_DIGITIZER_PUCK: UShort = 33u.toUShort()
 
-public val HID_USAGE_DIGITIZER_QUALITY: UShort = 54u
+public val HID_USAGE_DIGITIZER_QUALITY: UShort = 54u.toUShort()
 
-public val HID_USAGE_DIGITIZER_SECONDARY_TIP_SWITCH: UShort = 67u
+public val HID_USAGE_DIGITIZER_SECONDARY_TIP_SWITCH: UShort = 67u.toUShort()
 
-public val HID_USAGE_DIGITIZER_STEREO_PLOTTER: UShort = 9u
+public val HID_USAGE_DIGITIZER_STEREO_PLOTTER: UShort = 9u.toUShort()
 
-public val HID_USAGE_DIGITIZER_STYLUS: UShort = 32u
+public val HID_USAGE_DIGITIZER_STYLUS: UShort = 32u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TABLET_FUNC_KEYS: UShort = 57u
+public val HID_USAGE_DIGITIZER_TABLET_FUNC_KEYS: UShort = 57u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TABLET_PICK: UShort = 70u
+public val HID_USAGE_DIGITIZER_TABLET_PICK: UShort = 70u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TAP: UShort = 53u
+public val HID_USAGE_DIGITIZER_TAP: UShort = 53u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TIP_PRESSURE: UShort = 48u
+public val HID_USAGE_DIGITIZER_TIP_PRESSURE: UShort = 48u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TIP_SWITCH: UShort = 66u
+public val HID_USAGE_DIGITIZER_TIP_SWITCH: UShort = 66u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TOUCH: UShort = 51u
+public val HID_USAGE_DIGITIZER_TOUCH: UShort = 51u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TOUCH_PAD: UShort = 5u
+public val HID_USAGE_DIGITIZER_TOUCH_PAD: UShort = 5u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TOUCH_SCREEN: UShort = 4u
+public val HID_USAGE_DIGITIZER_TOUCH_SCREEN: UShort = 4u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_CONNECTED: UShort = 162u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_CONNECTED: UShort = 162u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_INDEX: UShort = 56u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_INDEX: UShort = 56u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_PRODUCT: UShort = 146u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_PRODUCT: UShort = 146u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL: UShort = 91u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL: UShort = 91u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL_PART2: UShort = 110u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_SERIAL_PART2: UShort = 110u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TRANSDUCER_VENDOR: UShort = 145u
+public val HID_USAGE_DIGITIZER_TRANSDUCER_VENDOR: UShort = 145u.toUShort()
 
-public val HID_USAGE_DIGITIZER_TWIST: UShort = 65u
+public val HID_USAGE_DIGITIZER_TWIST: UShort = 65u.toUShort()
 
-public val HID_USAGE_DIGITIZER_UNTOUCH: UShort = 52u
+public val HID_USAGE_DIGITIZER_UNTOUCH: UShort = 52u.toUShort()
 
-public val HID_USAGE_DIGITIZER_WHITE_BOARD: UShort = 6u
+public val HID_USAGE_DIGITIZER_WHITE_BOARD: UShort = 6u.toUShort()
 
-public val HID_USAGE_DIGITIZER_X_TILT: UShort = 61u
+public val HID_USAGE_DIGITIZER_X_TILT: UShort = 61u.toUShort()
 
-public val HID_USAGE_DIGITIZER_Y_TILT: UShort = 62u
+public val HID_USAGE_DIGITIZER_Y_TILT: UShort = 62u.toUShort()
 
-public val HID_USAGE_GAME_3D_GAME_CONTROLLER: UShort = 1u
+public val HID_USAGE_GAME_3D_GAME_CONTROLLER: UShort = 1u.toUShort()
 
-public val HID_USAGE_GAME_BUMP: UShort = 44u
+public val HID_USAGE_GAME_BUMP: UShort = 44u.toUShort()
 
-public val HID_USAGE_GAME_FLIPPER: UShort = 42u
+public val HID_USAGE_GAME_FLIPPER: UShort = 42u.toUShort()
 
-public val HID_USAGE_GAME_GAMEPAD_FIRE_JUMP: UShort = 55u
+public val HID_USAGE_GAME_GAMEPAD_FIRE_JUMP: UShort = 55u.toUShort()
 
-public val HID_USAGE_GAME_GAMEPAD_TRIGGER: UShort = 57u
+public val HID_USAGE_GAME_GAMEPAD_TRIGGER: UShort = 57u.toUShort()
 
-public val HID_USAGE_GAME_GUN_AUTOMATIC: UShort = 53u
+public val HID_USAGE_GAME_GUN_AUTOMATIC: UShort = 53u.toUShort()
 
-public val HID_USAGE_GAME_GUN_BOLT: UShort = 48u
+public val HID_USAGE_GAME_GUN_BOLT: UShort = 48u.toUShort()
 
-public val HID_USAGE_GAME_GUN_BURST: UShort = 52u
+public val HID_USAGE_GAME_GUN_BURST: UShort = 52u.toUShort()
 
-public val HID_USAGE_GAME_GUN_CLIP: UShort = 49u
+public val HID_USAGE_GAME_GUN_CLIP: UShort = 49u.toUShort()
 
-public val HID_USAGE_GAME_GUN_DEVICE: UShort = 3u
+public val HID_USAGE_GAME_GUN_DEVICE: UShort = 3u.toUShort()
 
-public val HID_USAGE_GAME_GUN_SAFETY: UShort = 54u
+public val HID_USAGE_GAME_GUN_SAFETY: UShort = 54u.toUShort()
 
-public val HID_USAGE_GAME_GUN_SELECTOR: UShort = 50u
+public val HID_USAGE_GAME_GUN_SELECTOR: UShort = 50u.toUShort()
 
-public val HID_USAGE_GAME_GUN_SINGLE_SHOT: UShort = 51u
+public val HID_USAGE_GAME_GUN_SINGLE_SHOT: UShort = 51u.toUShort()
 
-public val HID_USAGE_GAME_LEAN_FORWARD_BACK: UShort = 40u
+public val HID_USAGE_GAME_LEAN_FORWARD_BACK: UShort = 40u.toUShort()
 
-public val HID_USAGE_GAME_LEAN_RIGHT_LEFT: UShort = 39u
+public val HID_USAGE_GAME_LEAN_RIGHT_LEFT: UShort = 39u.toUShort()
 
-public val HID_USAGE_GAME_MOVE_FORWARD_BACK: UShort = 37u
+public val HID_USAGE_GAME_MOVE_FORWARD_BACK: UShort = 37u.toUShort()
 
-public val HID_USAGE_GAME_MOVE_RIGHT_LEFT: UShort = 36u
+public val HID_USAGE_GAME_MOVE_RIGHT_LEFT: UShort = 36u.toUShort()
 
-public val HID_USAGE_GAME_MOVE_UP_DOWN: UShort = 38u
+public val HID_USAGE_GAME_MOVE_UP_DOWN: UShort = 38u.toUShort()
 
-public val HID_USAGE_GAME_NEW_GAME: UShort = 45u
+public val HID_USAGE_GAME_NEW_GAME: UShort = 45u.toUShort()
 
-public val HID_USAGE_GAME_PINBALL_DEVICE: UShort = 2u
+public val HID_USAGE_GAME_PINBALL_DEVICE: UShort = 2u.toUShort()
 
-public val HID_USAGE_GAME_PITCH_FORWARD_BACK: UShort = 34u
+public val HID_USAGE_GAME_PITCH_FORWARD_BACK: UShort = 34u.toUShort()
 
-public val HID_USAGE_GAME_PLAYER: UShort = 47u
+public val HID_USAGE_GAME_PLAYER: UShort = 47u.toUShort()
 
-public val HID_USAGE_GAME_POINT_OF_VIEW: UShort = 32u
+public val HID_USAGE_GAME_POINT_OF_VIEW: UShort = 32u.toUShort()
 
-public val HID_USAGE_GAME_POV_HEIGHT: UShort = 41u
+public val HID_USAGE_GAME_POV_HEIGHT: UShort = 41u.toUShort()
 
-public val HID_USAGE_GAME_ROLL_RIGHT_LEFT: UShort = 35u
+public val HID_USAGE_GAME_ROLL_RIGHT_LEFT: UShort = 35u.toUShort()
 
-public val HID_USAGE_GAME_SECONDARY_FLIPPER: UShort = 43u
+public val HID_USAGE_GAME_SECONDARY_FLIPPER: UShort = 43u.toUShort()
 
-public val HID_USAGE_GAME_SHOOT_BALL: UShort = 46u
+public val HID_USAGE_GAME_SHOOT_BALL: UShort = 46u.toUShort()
 
-public val HID_USAGE_GAME_TURN_RIGHT_LEFT: UShort = 33u
+public val HID_USAGE_GAME_TURN_RIGHT_LEFT: UShort = 33u.toUShort()
 
-public val HID_USAGE_GENERIC_BYTE_COUNT: UShort = 59u
+public val HID_USAGE_GENERIC_BYTE_COUNT: UShort = 59u.toUShort()
 
-public val HID_USAGE_GENERIC_CONTROL_ENABLE: UShort = 203u
+public val HID_USAGE_GENERIC_CONTROL_ENABLE: UShort = 203u.toUShort()
 
-public val HID_USAGE_GENERIC_COUNTED_BUFFER: UShort = 58u
+public val HID_USAGE_GENERIC_COUNTED_BUFFER: UShort = 58u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_BATTERY_STRENGTH: UShort = 32u
+public val HID_USAGE_GENERIC_DEVICE_BATTERY_STRENGTH: UShort = 32u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_DISCOVER_WIRELESS_CONTROL: UShort = 35u
+public val HID_USAGE_GENERIC_DEVICE_DISCOVER_WIRELESS_CONTROL: UShort = 35u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CHAR_ENTERED: UShort = 36u
+public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CHAR_ENTERED: UShort = 36u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CHAR_ERASED: UShort = 37u
+public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CHAR_ERASED: UShort = 37u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CLEARED: UShort = 38u
+public val HID_USAGE_GENERIC_DEVICE_SECURITY_CODE_CLEARED: UShort = 38u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_WIRELESS_CHANNEL: UShort = 33u
+public val HID_USAGE_GENERIC_DEVICE_WIRELESS_CHANNEL: UShort = 33u.toUShort()
 
-public val HID_USAGE_GENERIC_DEVICE_WIRELESS_ID: UShort = 34u
+public val HID_USAGE_GENERIC_DEVICE_WIRELESS_ID: UShort = 34u.toUShort()
 
-public val HID_USAGE_GENERIC_DIAL: UShort = 55u
+public val HID_USAGE_GENERIC_DIAL: UShort = 55u.toUShort()
 
-public val HID_USAGE_GENERIC_DPAD_DOWN: UShort = 145u
+public val HID_USAGE_GENERIC_DPAD_DOWN: UShort = 145u.toUShort()
 
-public val HID_USAGE_GENERIC_DPAD_LEFT: UShort = 147u
+public val HID_USAGE_GENERIC_DPAD_LEFT: UShort = 147u.toUShort()
 
-public val HID_USAGE_GENERIC_DPAD_RIGHT: UShort = 146u
+public val HID_USAGE_GENERIC_DPAD_RIGHT: UShort = 146u.toUShort()
 
-public val HID_USAGE_GENERIC_DPAD_UP: UShort = 144u
+public val HID_USAGE_GENERIC_DPAD_UP: UShort = 144u.toUShort()
 
-public val HID_USAGE_GENERIC_FEATURE_NOTIFICATION: UShort = 71u
+public val HID_USAGE_GENERIC_FEATURE_NOTIFICATION: UShort = 71u.toUShort()
 
-public val HID_USAGE_GENERIC_GAMEPAD: UShort = 5u
+public val HID_USAGE_GENERIC_GAMEPAD: UShort = 5u.toUShort()
 
-public val HID_USAGE_GENERIC_HATSWITCH: UShort = 57u
+public val HID_USAGE_GENERIC_HATSWITCH: UShort = 57u.toUShort()
 
-public val HID_USAGE_GENERIC_INTERACTIVE_CONTROL: UShort = 14u
+public val HID_USAGE_GENERIC_INTERACTIVE_CONTROL: UShort = 14u.toUShort()
 
-public val HID_USAGE_GENERIC_JOYSTICK: UShort = 4u
+public val HID_USAGE_GENERIC_JOYSTICK: UShort = 4u.toUShort()
 
-public val HID_USAGE_GENERIC_KEYBOARD: UShort = 6u
+public val HID_USAGE_GENERIC_KEYBOARD: UShort = 6u.toUShort()
 
-public val HID_USAGE_GENERIC_KEYPAD: UShort = 7u
+public val HID_USAGE_GENERIC_KEYPAD: UShort = 7u.toUShort()
 
-public val HID_USAGE_GENERIC_MOTION_WAKEUP: UShort = 60u
+public val HID_USAGE_GENERIC_MOTION_WAKEUP: UShort = 60u.toUShort()
 
-public val HID_USAGE_GENERIC_MOUSE: UShort = 2u
+public val HID_USAGE_GENERIC_MOUSE: UShort = 2u.toUShort()
 
-public val HID_USAGE_GENERIC_MULTI_AXIS_CONTROLLER: UShort = 8u
+public val HID_USAGE_GENERIC_MULTI_AXIS_CONTROLLER: UShort = 8u.toUShort()
 
-public val HID_USAGE_GENERIC_POINTER: UShort = 1u
+public val HID_USAGE_GENERIC_POINTER: UShort = 1u.toUShort()
 
-public val HID_USAGE_GENERIC_PORTABLE_DEVICE_CONTROL: UShort = 13u
+public val HID_USAGE_GENERIC_PORTABLE_DEVICE_CONTROL: UShort = 13u.toUShort()
 
-public val HID_USAGE_GENERIC_RESOLUTION_MULTIPLIER: UShort = 72u
+public val HID_USAGE_GENERIC_RESOLUTION_MULTIPLIER: UShort = 72u.toUShort()
 
-public val HID_USAGE_GENERIC_RX: UShort = 51u
+public val HID_USAGE_GENERIC_RX: UShort = 51u.toUShort()
 
-public val HID_USAGE_GENERIC_RY: UShort = 52u
+public val HID_USAGE_GENERIC_RY: UShort = 52u.toUShort()
 
-public val HID_USAGE_GENERIC_RZ: UShort = 53u
+public val HID_USAGE_GENERIC_RZ: UShort = 53u.toUShort()
 
-public val HID_USAGE_GENERIC_SELECT: UShort = 62u
+public val HID_USAGE_GENERIC_SELECT: UShort = 62u.toUShort()
 
-public val HID_USAGE_GENERIC_SLIDER: UShort = 54u
+public val HID_USAGE_GENERIC_SLIDER: UShort = 54u.toUShort()
 
-public val HID_USAGE_GENERIC_START: UShort = 61u
+public val HID_USAGE_GENERIC_START: UShort = 61u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_APP_BREAK: UShort = 165u
+public val HID_USAGE_GENERIC_SYSCTL_APP_BREAK: UShort = 165u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_APP_DBG_BREAK: UShort = 166u
+public val HID_USAGE_GENERIC_SYSCTL_APP_DBG_BREAK: UShort = 166u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_APP_MENU: UShort = 134u
+public val HID_USAGE_GENERIC_SYSCTL_APP_MENU: UShort = 134u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_COLD_RESTART: UShort = 142u
+public val HID_USAGE_GENERIC_SYSCTL_COLD_RESTART: UShort = 142u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_CONTEXT_MENU: UShort = 132u
+public val HID_USAGE_GENERIC_SYSCTL_CONTEXT_MENU: UShort = 132u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISMISS_NOTIFICATION: UShort = 154u
+public val HID_USAGE_GENERIC_SYSCTL_DISMISS_NOTIFICATION: UShort = 154u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_AUTOSCALE: UShort = 183u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_AUTOSCALE: UShort = 183u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_BOTH: UShort = 179u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_BOTH: UShort = 179u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_DUAL: UShort = 180u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_DUAL: UShort = 180u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_EXTERNAL: UShort = 178u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_EXTERNAL: UShort = 178u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_INTERNAL: UShort = 177u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_INTERNAL: UShort = 177u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_INVERT: UShort = 176u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_INVERT: UShort = 176u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_SWAP: UShort = 182u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_SWAP: UShort = 182u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DISP_TOGGLE: UShort = 181u
+public val HID_USAGE_GENERIC_SYSCTL_DISP_TOGGLE: UShort = 181u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_DOCK: UShort = 160u
+public val HID_USAGE_GENERIC_SYSCTL_DOCK: UShort = 160u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_FN: UShort = 151u
+public val HID_USAGE_GENERIC_SYSCTL_FN: UShort = 151u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_FN_LOCK: UShort = 152u
+public val HID_USAGE_GENERIC_SYSCTL_FN_LOCK: UShort = 152u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_FN_LOCK_INDICATOR: UShort = 153u
+public val HID_USAGE_GENERIC_SYSCTL_FN_LOCK_INDICATOR: UShort = 153u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_HELP_MENU: UShort = 135u
+public val HID_USAGE_GENERIC_SYSCTL_HELP_MENU: UShort = 135u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_HIBERNATE: UShort = 168u
+public val HID_USAGE_GENERIC_SYSCTL_HIBERNATE: UShort = 168u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MAIN_MENU: UShort = 133u
+public val HID_USAGE_GENERIC_SYSCTL_MAIN_MENU: UShort = 133u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_DOWN: UShort = 141u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_DOWN: UShort = 141u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_EXIT: UShort = 136u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_EXIT: UShort = 136u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_LEFT: UShort = 139u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_LEFT: UShort = 139u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_RIGHT: UShort = 138u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_RIGHT: UShort = 138u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_SELECT: UShort = 137u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_SELECT: UShort = 137u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MENU_UP: UShort = 140u
+public val HID_USAGE_GENERIC_SYSCTL_MENU_UP: UShort = 140u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_MUTE: UShort = 167u
+public val HID_USAGE_GENERIC_SYSCTL_MUTE: UShort = 167u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_POWER: UShort = 129u
+public val HID_USAGE_GENERIC_SYSCTL_POWER: UShort = 129u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_SETUP: UShort = 162u
+public val HID_USAGE_GENERIC_SYSCTL_SETUP: UShort = 162u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_SLEEP: UShort = 130u
+public val HID_USAGE_GENERIC_SYSCTL_SLEEP: UShort = 130u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_SYS_BREAK: UShort = 163u
+public val HID_USAGE_GENERIC_SYSCTL_SYS_BREAK: UShort = 163u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_SYS_DBG_BREAK: UShort = 164u
+public val HID_USAGE_GENERIC_SYSCTL_SYS_DBG_BREAK: UShort = 164u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_UNDOCK: UShort = 161u
+public val HID_USAGE_GENERIC_SYSCTL_UNDOCK: UShort = 161u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_WAKE: UShort = 131u
+public val HID_USAGE_GENERIC_SYSCTL_WAKE: UShort = 131u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSCTL_WARM_RESTART: UShort = 143u
+public val HID_USAGE_GENERIC_SYSCTL_WARM_RESTART: UShort = 143u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSTEM_CTL: UShort = 128u
+public val HID_USAGE_GENERIC_SYSTEM_CTL: UShort = 128u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSTEM_DISPLAY_ROTATION_LOCK_BUTTON: UShort = 201u
+public val HID_USAGE_GENERIC_SYSTEM_DISPLAY_ROTATION_LOCK_BUTTON: UShort = 201u.toUShort()
 
-public val HID_USAGE_GENERIC_SYSTEM_DISPLAY_ROTATION_LOCK_SLIDER_SWITCH: UShort = 202u
+public val HID_USAGE_GENERIC_SYSTEM_DISPLAY_ROTATION_LOCK_SLIDER_SWITCH: UShort = 202u.toUShort()
 
-public val HID_USAGE_GENERIC_TABLET_PC_SYSTEM_CTL: UShort = 9u
+public val HID_USAGE_GENERIC_TABLET_PC_SYSTEM_CTL: UShort = 9u.toUShort()
 
-public val HID_USAGE_GENERIC_VBRX: UShort = 67u
+public val HID_USAGE_GENERIC_VBRX: UShort = 67u.toUShort()
 
-public val HID_USAGE_GENERIC_VBRY: UShort = 68u
+public val HID_USAGE_GENERIC_VBRY: UShort = 68u.toUShort()
 
-public val HID_USAGE_GENERIC_VBRZ: UShort = 69u
+public val HID_USAGE_GENERIC_VBRZ: UShort = 69u.toUShort()
 
-public val HID_USAGE_GENERIC_VNO: UShort = 70u
+public val HID_USAGE_GENERIC_VNO: UShort = 70u.toUShort()
 
-public val HID_USAGE_GENERIC_VX: UShort = 64u
+public val HID_USAGE_GENERIC_VX: UShort = 64u.toUShort()
 
-public val HID_USAGE_GENERIC_VY: UShort = 65u
+public val HID_USAGE_GENERIC_VY: UShort = 65u.toUShort()
 
-public val HID_USAGE_GENERIC_VZ: UShort = 66u
+public val HID_USAGE_GENERIC_VZ: UShort = 66u.toUShort()
 
-public val HID_USAGE_GENERIC_WHEEL: UShort = 56u
+public val HID_USAGE_GENERIC_WHEEL: UShort = 56u.toUShort()
 
-public val HID_USAGE_GENERIC_X: UShort = 48u
+public val HID_USAGE_GENERIC_X: UShort = 48u.toUShort()
 
-public val HID_USAGE_GENERIC_Y: UShort = 49u
+public val HID_USAGE_GENERIC_Y: UShort = 49u.toUShort()
 
-public val HID_USAGE_GENERIC_Z: UShort = 50u
+public val HID_USAGE_GENERIC_Z: UShort = 50u.toUShort()
 
-public val HID_USAGE_HAPTICS_AUTO_ASSOCIATED_CONTROL: UShort = 34u
+public val HID_USAGE_HAPTICS_AUTO_ASSOCIATED_CONTROL: UShort = 34u.toUShort()
 
-public val HID_USAGE_HAPTICS_AUTO_TRIGGER: UShort = 32u
+public val HID_USAGE_HAPTICS_AUTO_TRIGGER: UShort = 32u.toUShort()
 
-public val HID_USAGE_HAPTICS_DURATION_LIST: UShort = 17u
+public val HID_USAGE_HAPTICS_DURATION_LIST: UShort = 17u.toUShort()
 
-public val HID_USAGE_HAPTICS_INTENSITY: UShort = 35u
+public val HID_USAGE_HAPTICS_INTENSITY: UShort = 35u.toUShort()
 
-public val HID_USAGE_HAPTICS_MANUAL_TRIGGER: UShort = 33u
+public val HID_USAGE_HAPTICS_MANUAL_TRIGGER: UShort = 33u.toUShort()
 
-public val HID_USAGE_HAPTICS_REPEAT_COUNT: UShort = 36u
+public val HID_USAGE_HAPTICS_REPEAT_COUNT: UShort = 36u.toUShort()
 
-public val HID_USAGE_HAPTICS_RETRIGGER_PERIOD: UShort = 37u
+public val HID_USAGE_HAPTICS_RETRIGGER_PERIOD: UShort = 37u.toUShort()
 
-public val HID_USAGE_HAPTICS_SIMPLE_CONTROLLER: UShort = 1u
+public val HID_USAGE_HAPTICS_SIMPLE_CONTROLLER: UShort = 1u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_BEGIN: UShort = 4096u
+public val HID_USAGE_HAPTICS_WAVEFORM_BEGIN: UShort = 4096u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_BUZZ: UShort = 4100u
+public val HID_USAGE_HAPTICS_WAVEFORM_BUZZ: UShort = 4100u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_CLICK: UShort = 4099u
+public val HID_USAGE_HAPTICS_WAVEFORM_CLICK: UShort = 4099u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_CUTOFF_TIME: UShort = 40u
+public val HID_USAGE_HAPTICS_WAVEFORM_CUTOFF_TIME: UShort = 40u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_END: UShort = 8191u
+public val HID_USAGE_HAPTICS_WAVEFORM_END: UShort = 8191u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_LIST: UShort = 16u
+public val HID_USAGE_HAPTICS_WAVEFORM_LIST: UShort = 16u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_NULL: UShort = 4098u
+public val HID_USAGE_HAPTICS_WAVEFORM_NULL: UShort = 4098u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_PRESS: UShort = 4102u
+public val HID_USAGE_HAPTICS_WAVEFORM_PRESS: UShort = 4102u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_RELEASE: UShort = 4103u
+public val HID_USAGE_HAPTICS_WAVEFORM_RELEASE: UShort = 4103u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_RUMBLE: UShort = 4101u
+public val HID_USAGE_HAPTICS_WAVEFORM_RUMBLE: UShort = 4101u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_STOP: UShort = 4097u
+public val HID_USAGE_HAPTICS_WAVEFORM_STOP: UShort = 4097u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_BEGIN: UShort = 8192u
+public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_BEGIN: UShort = 8192u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_END: UShort = 12287u
+public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_END: UShort = 12287u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_ID: UShort = 39u
+public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_ID: UShort = 39u.toUShort()
 
-public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_PAGE: UShort = 38u
+public val HID_USAGE_HAPTICS_WAVEFORM_VENDOR_PAGE: UShort = 38u.toUShort()
 
-public val HID_USAGE_KEYBOARD_CAPS_LOCK: UShort = 57u
+public val HID_USAGE_KEYBOARD_CAPS_LOCK: UShort = 57u.toUShort()
 
-public val HID_USAGE_KEYBOARD_DELETE: UShort = 42u
+public val HID_USAGE_KEYBOARD_DELETE: UShort = 42u.toUShort()
 
-public val HID_USAGE_KEYBOARD_DELETE_FORWARD: UShort = 76u
+public val HID_USAGE_KEYBOARD_DELETE_FORWARD: UShort = 76u.toUShort()
 
-public val HID_USAGE_KEYBOARD_ESCAPE: UShort = 41u
+public val HID_USAGE_KEYBOARD_ESCAPE: UShort = 41u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F1: UShort = 58u
+public val HID_USAGE_KEYBOARD_F1: UShort = 58u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F10: UShort = 67u
+public val HID_USAGE_KEYBOARD_F10: UShort = 67u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F11: UShort = 68u
+public val HID_USAGE_KEYBOARD_F11: UShort = 68u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F12: UShort = 69u
+public val HID_USAGE_KEYBOARD_F12: UShort = 69u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F13: UShort = 104u
+public val HID_USAGE_KEYBOARD_F13: UShort = 104u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F14: UShort = 105u
+public val HID_USAGE_KEYBOARD_F14: UShort = 105u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F15: UShort = 106u
+public val HID_USAGE_KEYBOARD_F15: UShort = 106u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F16: UShort = 107u
+public val HID_USAGE_KEYBOARD_F16: UShort = 107u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F17: UShort = 108u
+public val HID_USAGE_KEYBOARD_F17: UShort = 108u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F18: UShort = 109u
+public val HID_USAGE_KEYBOARD_F18: UShort = 109u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F19: UShort = 110u
+public val HID_USAGE_KEYBOARD_F19: UShort = 110u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F2: UShort = 59u
+public val HID_USAGE_KEYBOARD_F2: UShort = 59u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F20: UShort = 111u
+public val HID_USAGE_KEYBOARD_F20: UShort = 111u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F21: UShort = 112u
+public val HID_USAGE_KEYBOARD_F21: UShort = 112u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F22: UShort = 113u
+public val HID_USAGE_KEYBOARD_F22: UShort = 113u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F23: UShort = 114u
+public val HID_USAGE_KEYBOARD_F23: UShort = 114u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F24: UShort = 115u
+public val HID_USAGE_KEYBOARD_F24: UShort = 115u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F3: UShort = 60u
+public val HID_USAGE_KEYBOARD_F3: UShort = 60u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F4: UShort = 61u
+public val HID_USAGE_KEYBOARD_F4: UShort = 61u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F5: UShort = 62u
+public val HID_USAGE_KEYBOARD_F5: UShort = 62u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F6: UShort = 63u
+public val HID_USAGE_KEYBOARD_F6: UShort = 63u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F7: UShort = 64u
+public val HID_USAGE_KEYBOARD_F7: UShort = 64u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F8: UShort = 65u
+public val HID_USAGE_KEYBOARD_F8: UShort = 65u.toUShort()
 
-public val HID_USAGE_KEYBOARD_F9: UShort = 66u
+public val HID_USAGE_KEYBOARD_F9: UShort = 66u.toUShort()
 
-public val HID_USAGE_KEYBOARD_KEYPAD_0_AND_INSERT: UShort = 98u
+public val HID_USAGE_KEYBOARD_KEYPAD_0_AND_INSERT: UShort = 98u.toUShort()
 
-public val HID_USAGE_KEYBOARD_KEYPAD_1_AND_END: UShort = 89u
+public val HID_USAGE_KEYBOARD_KEYPAD_1_AND_END: UShort = 89u.toUShort()
 
-public val HID_USAGE_KEYBOARD_LALT: UShort = 226u
+public val HID_USAGE_KEYBOARD_LALT: UShort = 226u.toUShort()
 
-public val HID_USAGE_KEYBOARD_LCTRL: UShort = 224u
+public val HID_USAGE_KEYBOARD_LCTRL: UShort = 224u.toUShort()
 
-public val HID_USAGE_KEYBOARD_LGUI: UShort = 227u
+public val HID_USAGE_KEYBOARD_LGUI: UShort = 227u.toUShort()
 
-public val HID_USAGE_KEYBOARD_LSHFT: UShort = 225u
+public val HID_USAGE_KEYBOARD_LSHFT: UShort = 225u.toUShort()
 
-public val HID_USAGE_KEYBOARD_NOEVENT: UShort = 0u
+public val HID_USAGE_KEYBOARD_NOEVENT: UShort = 0u.toUShort()
 
-public val HID_USAGE_KEYBOARD_NUM_LOCK: UShort = 83u
+public val HID_USAGE_KEYBOARD_NUM_LOCK: UShort = 83u.toUShort()
 
-public val HID_USAGE_KEYBOARD_ONE: UShort = 30u
+public val HID_USAGE_KEYBOARD_ONE: UShort = 30u.toUShort()
 
-public val HID_USAGE_KEYBOARD_POSTFAIL: UShort = 2u
+public val HID_USAGE_KEYBOARD_POSTFAIL: UShort = 2u.toUShort()
 
-public val HID_USAGE_KEYBOARD_PRINT_SCREEN: UShort = 70u
+public val HID_USAGE_KEYBOARD_PRINT_SCREEN: UShort = 70u.toUShort()
 
-public val HID_USAGE_KEYBOARD_RALT: UShort = 230u
+public val HID_USAGE_KEYBOARD_RALT: UShort = 230u.toUShort()
 
-public val HID_USAGE_KEYBOARD_RCTRL: UShort = 228u
+public val HID_USAGE_KEYBOARD_RCTRL: UShort = 228u.toUShort()
 
-public val HID_USAGE_KEYBOARD_RETURN: UShort = 40u
+public val HID_USAGE_KEYBOARD_RETURN: UShort = 40u.toUShort()
 
-public val HID_USAGE_KEYBOARD_RGUI: UShort = 231u
+public val HID_USAGE_KEYBOARD_RGUI: UShort = 231u.toUShort()
 
-public val HID_USAGE_KEYBOARD_ROLLOVER: UShort = 1u
+public val HID_USAGE_KEYBOARD_ROLLOVER: UShort = 1u.toUShort()
 
-public val HID_USAGE_KEYBOARD_RSHFT: UShort = 229u
+public val HID_USAGE_KEYBOARD_RSHFT: UShort = 229u.toUShort()
 
-public val HID_USAGE_KEYBOARD_SCROLL_LOCK: UShort = 71u
+public val HID_USAGE_KEYBOARD_SCROLL_LOCK: UShort = 71u.toUShort()
 
-public val HID_USAGE_KEYBOARD_UNDEFINED: UShort = 3u
+public val HID_USAGE_KEYBOARD_UNDEFINED: UShort = 3u.toUShort()
 
-public val HID_USAGE_KEYBOARD_ZERO: UShort = 39u
+public val HID_USAGE_KEYBOARD_ZERO: UShort = 39u.toUShort()
 
-public val HID_USAGE_KEYBOARD_aA: UShort = 4u
+public val HID_USAGE_KEYBOARD_A_A: UShort = 4u.toUShort()
 
-public val HID_USAGE_KEYBOARD_zZ: UShort = 29u
+public val HID_USAGE_KEYBOARD_Z_Z: UShort = 29u.toUShort()
 
-public val HID_USAGE_LAMPARRAY: UShort = 1u
+public val HID_USAGE_LAMPARRAY: UShort = 1u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_ATTRBIUTES_REPORT: UShort = 2u
+public val HID_USAGE_LAMPARRAY_ATTRBIUTES_REPORT: UShort = 2u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_AUTONOMOUS_MODE: UShort = 113u
+public val HID_USAGE_LAMPARRAY_AUTONOMOUS_MODE: UShort = 113u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_BLUE_LEVEL_COUNT: UShort = 42u
+public val HID_USAGE_LAMPARRAY_BLUE_LEVEL_COUNT: UShort = 42u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_DEPTH_IN_MICROMETERS: UShort = 6u
+public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_DEPTH_IN_MICROMETERS: UShort = 6u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_HEIGHT_IN_MICROMETERS: UShort = 5u
+public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_HEIGHT_IN_MICROMETERS: UShort = 5u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_WIDTH_IN_MICROMETERS: UShort = 4u
+public val HID_USAGE_LAMPARRAY_BOUNDING_BOX_WIDTH_IN_MICROMETERS: UShort = 4u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_CONTROL_REPORT: UShort = 112u
+public val HID_USAGE_LAMPARRAY_CONTROL_REPORT: UShort = 112u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_GREEN_LEVEL_COUNT: UShort = 41u
+public val HID_USAGE_LAMPARRAY_GREEN_LEVEL_COUNT: UShort = 41u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_INPUT_BINDING: UShort = 45u
+public val HID_USAGE_LAMPARRAY_INPUT_BINDING: UShort = 45u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_INTENSITY_LEVEL_COUNT: UShort = 43u
+public val HID_USAGE_LAMPARRAY_INTENSITY_LEVEL_COUNT: UShort = 43u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_IS_PROGRAMMABLE: UShort = 44u
+public val HID_USAGE_LAMPARRAY_IS_PROGRAMMABLE: UShort = 44u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_KIND: UShort = 7u
+public val HID_USAGE_LAMPARRAY_KIND: UShort = 7u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_ATTRIBUTES_REQUEST_REPORT: UShort = 32u
+public val HID_USAGE_LAMPARRAY_LAMP_ATTRIBUTES_REQUEST_REPORT: UShort = 32u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_ATTRIBUTES_RESPONSE_REPORT: UShort = 34u
+public val HID_USAGE_LAMPARRAY_LAMP_ATTRIBUTES_RESPONSE_REPORT: UShort = 34u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_BLUE_UPDATE_CHANNEL: UShort = 83u
+public val HID_USAGE_LAMPARRAY_LAMP_BLUE_UPDATE_CHANNEL: UShort = 83u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_COUNT: UShort = 3u
+public val HID_USAGE_LAMPARRAY_LAMP_COUNT: UShort = 3u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_GREEN_UPDATE_CHANNEL: UShort = 82u
+public val HID_USAGE_LAMPARRAY_LAMP_GREEN_UPDATE_CHANNEL: UShort = 82u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_ID: UShort = 33u
+public val HID_USAGE_LAMPARRAY_LAMP_ID: UShort = 33u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_ID_END: UShort = 98u
+public val HID_USAGE_LAMPARRAY_LAMP_ID_END: UShort = 98u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_ID_START: UShort = 97u
+public val HID_USAGE_LAMPARRAY_LAMP_ID_START: UShort = 97u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_INTENSITY_UPDATE_CHANNEL: UShort = 84u
+public val HID_USAGE_LAMPARRAY_LAMP_INTENSITY_UPDATE_CHANNEL: UShort = 84u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_MULTI_UPDATE_REPORT: UShort = 80u
+public val HID_USAGE_LAMPARRAY_LAMP_MULTI_UPDATE_REPORT: UShort = 80u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_PURPOSES: UShort = 38u
+public val HID_USAGE_LAMPARRAY_LAMP_PURPOSES: UShort = 38u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_RANGE_UPDATE_REPORT: UShort = 96u
+public val HID_USAGE_LAMPARRAY_LAMP_RANGE_UPDATE_REPORT: UShort = 96u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_RED_UPDATE_CHANNEL: UShort = 81u
+public val HID_USAGE_LAMPARRAY_LAMP_RED_UPDATE_CHANNEL: UShort = 81u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_LAMP_UPDATE_FLAGS: UShort = 85u
+public val HID_USAGE_LAMPARRAY_LAMP_UPDATE_FLAGS: UShort = 85u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_MIN_UPDATE_INTERVAL_IN_MICROSECONDS: UShort = 8u
+public val HID_USAGE_LAMPARRAY_MIN_UPDATE_INTERVAL_IN_MICROSECONDS: UShort = 8u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_POSITION_X_IN_MICROMETERS: UShort = 35u
+public val HID_USAGE_LAMPARRAY_POSITION_X_IN_MICROMETERS: UShort = 35u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_POSITION_Y_IN_MICROMETERS: UShort = 36u
+public val HID_USAGE_LAMPARRAY_POSITION_Y_IN_MICROMETERS: UShort = 36u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_POSITION_Z_IN_MICROMETERS: UShort = 37u
+public val HID_USAGE_LAMPARRAY_POSITION_Z_IN_MICROMETERS: UShort = 37u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_RED_LEVEL_COUNT: UShort = 40u
+public val HID_USAGE_LAMPARRAY_RED_LEVEL_COUNT: UShort = 40u.toUShort()
 
-public val HID_USAGE_LAMPARRAY_UPDATE_LATENCY_IN_MICROSECONDS: UShort = 39u
+public val HID_USAGE_LAMPARRAY_UPDATE_LATENCY_IN_MICROSECONDS: UShort = 39u.toUShort()
 
-public val HID_USAGE_LED_AMBER: UShort = 74u
+public val HID_USAGE_LED_AMBER: UShort = 74u.toUShort()
 
-public val HID_USAGE_LED_BATTERY_LOW: UShort = 29u
+public val HID_USAGE_LED_BATTERY_LOW: UShort = 29u.toUShort()
 
-public val HID_USAGE_LED_BATTERY_OK: UShort = 28u
+public val HID_USAGE_LED_BATTERY_OK: UShort = 28u.toUShort()
 
-public val HID_USAGE_LED_BATTERY_OPERATION: UShort = 27u
+public val HID_USAGE_LED_BATTERY_OPERATION: UShort = 27u.toUShort()
 
-public val HID_USAGE_LED_BUSY: UShort = 44u
+public val HID_USAGE_LED_BUSY: UShort = 44u.toUShort()
 
-public val HID_USAGE_LED_CALL_PICKUP: UShort = 37u
+public val HID_USAGE_LED_CALL_PICKUP: UShort = 37u.toUShort()
 
-public val HID_USAGE_LED_CAMERA_OFF: UShort = 41u
+public val HID_USAGE_LED_CAMERA_OFF: UShort = 41u.toUShort()
 
-public val HID_USAGE_LED_CAMERA_ON: UShort = 40u
+public val HID_USAGE_LED_CAMERA_ON: UShort = 40u.toUShort()
 
-public val HID_USAGE_LED_CAPS_LOCK: UShort = 2u
+public val HID_USAGE_LED_CAPS_LOCK: UShort = 2u.toUShort()
 
-public val HID_USAGE_LED_CAV: UShort = 20u
+public val HID_USAGE_LED_CAV: UShort = 20u.toUShort()
 
-public val HID_USAGE_LED_CLV: UShort = 21u
+public val HID_USAGE_LED_CLV: UShort = 21u.toUShort()
 
-public val HID_USAGE_LED_COMPOSE: UShort = 4u
+public val HID_USAGE_LED_COMPOSE: UShort = 4u.toUShort()
 
-public val HID_USAGE_LED_CONFERENCE: UShort = 38u
+public val HID_USAGE_LED_CONFERENCE: UShort = 38u.toUShort()
 
-public val HID_USAGE_LED_COVERAGE: UShort = 34u
+public val HID_USAGE_LED_COVERAGE: UShort = 34u.toUShort()
 
-public val HID_USAGE_LED_DATA_MODE: UShort = 26u
+public val HID_USAGE_LED_DATA_MODE: UShort = 26u.toUShort()
 
-public val HID_USAGE_LED_DO_NOT_DISTURB: UShort = 8u
+public val HID_USAGE_LED_DO_NOT_DISTURB: UShort = 8u.toUShort()
 
-public val HID_USAGE_LED_EQUALIZER_ENABLE: UShort = 13u
+public val HID_USAGE_LED_EQUALIZER_ENABLE: UShort = 13u.toUShort()
 
-public val HID_USAGE_LED_ERROR: UShort = 57u
+public val HID_USAGE_LED_ERROR: UShort = 57u.toUShort()
 
-public val HID_USAGE_LED_EXTERNAL_POWER: UShort = 77u
+public val HID_USAGE_LED_EXTERNAL_POWER: UShort = 77u.toUShort()
 
-public val HID_USAGE_LED_FAST_BLINK_OFF_TIME: UShort = 70u
+public val HID_USAGE_LED_FAST_BLINK_OFF_TIME: UShort = 70u.toUShort()
 
-public val HID_USAGE_LED_FAST_BLINK_ON_TIME: UShort = 69u
+public val HID_USAGE_LED_FAST_BLINK_ON_TIME: UShort = 69u.toUShort()
 
-public val HID_USAGE_LED_FAST_FORWARD: UShort = 53u
+public val HID_USAGE_LED_FAST_FORWARD: UShort = 53u.toUShort()
 
-public val HID_USAGE_LED_FLASH_ON_TIME: UShort = 66u
+public val HID_USAGE_LED_FLASH_ON_TIME: UShort = 66u.toUShort()
 
-public val HID_USAGE_LED_FORWARD: UShort = 49u
+public val HID_USAGE_LED_FORWARD: UShort = 49u.toUShort()
 
-public val HID_USAGE_LED_GENERIC_INDICATOR: UShort = 75u
+public val HID_USAGE_LED_GENERIC_INDICATOR: UShort = 75u.toUShort()
 
-public val HID_USAGE_LED_GREEN: UShort = 73u
+public val HID_USAGE_LED_GREEN: UShort = 73u.toUShort()
 
-public val HID_USAGE_LED_HEAD_SET: UShort = 31u
+public val HID_USAGE_LED_HEAD_SET: UShort = 31u.toUShort()
 
-public val HID_USAGE_LED_HIGH_CUT_FILTER: UShort = 11u
+public val HID_USAGE_LED_HIGH_CUT_FILTER: UShort = 11u.toUShort()
 
-public val HID_USAGE_LED_HOLD: UShort = 32u
+public val HID_USAGE_LED_HOLD: UShort = 32u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_COLOR: UShort = 71u
+public val HID_USAGE_LED_INDICATOR_COLOR: UShort = 71u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_FAST_BLINK: UShort = 64u
+public val HID_USAGE_LED_INDICATOR_FAST_BLINK: UShort = 64u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_FLASH: UShort = 62u
+public val HID_USAGE_LED_INDICATOR_FLASH: UShort = 62u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_OFF: UShort = 65u
+public val HID_USAGE_LED_INDICATOR_OFF: UShort = 65u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_ON: UShort = 61u
+public val HID_USAGE_LED_INDICATOR_ON: UShort = 61u.toUShort()
 
-public val HID_USAGE_LED_INDICATOR_SLOW_BLINK: UShort = 63u
+public val HID_USAGE_LED_INDICATOR_SLOW_BLINK: UShort = 63u.toUShort()
 
-public val HID_USAGE_LED_IN_USE_INDICATOR: UShort = 59u
+public val HID_USAGE_LED_IN_USE_INDICATOR: UShort = 59u.toUShort()
 
-public val HID_USAGE_LED_KANA: UShort = 5u
+public val HID_USAGE_LED_KANA: UShort = 5u.toUShort()
 
-public val HID_USAGE_LED_LOW_CUT_FILTER: UShort = 12u
+public val HID_USAGE_LED_LOW_CUT_FILTER: UShort = 12u.toUShort()
 
-public val HID_USAGE_LED_MESSAGE_WAITING: UShort = 25u
+public val HID_USAGE_LED_MESSAGE_WAITING: UShort = 25u.toUShort()
 
-public val HID_USAGE_LED_MICROPHONE: UShort = 33u
+public val HID_USAGE_LED_MICROPHONE: UShort = 33u.toUShort()
 
-public val HID_USAGE_LED_MULTI_MODE_INDICATOR: UShort = 60u
+public val HID_USAGE_LED_MULTI_MODE_INDICATOR: UShort = 60u.toUShort()
 
-public val HID_USAGE_LED_MUTE: UShort = 9u
+public val HID_USAGE_LED_MUTE: UShort = 9u.toUShort()
 
-public val HID_USAGE_LED_NIGHT_MODE: UShort = 35u
+public val HID_USAGE_LED_NIGHT_MODE: UShort = 35u.toUShort()
 
-public val HID_USAGE_LED_NUM_LOCK: UShort = 1u
+public val HID_USAGE_LED_NUM_LOCK: UShort = 1u.toUShort()
 
-public val HID_USAGE_LED_OFF_HOOK: UShort = 23u
+public val HID_USAGE_LED_OFF_HOOK: UShort = 23u.toUShort()
 
-public val HID_USAGE_LED_OFF_LINE: UShort = 43u
+public val HID_USAGE_LED_OFF_LINE: UShort = 43u.toUShort()
 
-public val HID_USAGE_LED_ON_LINE: UShort = 42u
+public val HID_USAGE_LED_ON_LINE: UShort = 42u.toUShort()
 
-public val HID_USAGE_LED_PAPER_JAM: UShort = 47u
+public val HID_USAGE_LED_PAPER_JAM: UShort = 47u.toUShort()
 
-public val HID_USAGE_LED_PAPER_OUT: UShort = 46u
+public val HID_USAGE_LED_PAPER_OUT: UShort = 46u.toUShort()
 
-public val HID_USAGE_LED_PAUSE: UShort = 55u
+public val HID_USAGE_LED_PAUSE: UShort = 55u.toUShort()
 
-public val HID_USAGE_LED_PLAY: UShort = 54u
+public val HID_USAGE_LED_PLAY: UShort = 54u.toUShort()
 
-public val HID_USAGE_LED_POWER: UShort = 6u
+public val HID_USAGE_LED_POWER: UShort = 6u.toUShort()
 
-public val HID_USAGE_LED_READY: UShort = 45u
+public val HID_USAGE_LED_READY: UShort = 45u.toUShort()
 
-public val HID_USAGE_LED_RECORD: UShort = 56u
+public val HID_USAGE_LED_RECORD: UShort = 56u.toUShort()
 
-public val HID_USAGE_LED_RECORDING_FORMAT_DET: UShort = 22u
+public val HID_USAGE_LED_RECORDING_FORMAT_DET: UShort = 22u.toUShort()
 
-public val HID_USAGE_LED_RED: UShort = 72u
+public val HID_USAGE_LED_RED: UShort = 72u.toUShort()
 
-public val HID_USAGE_LED_REMOTE: UShort = 48u
+public val HID_USAGE_LED_REMOTE: UShort = 48u.toUShort()
 
-public val HID_USAGE_LED_REPEAT: UShort = 16u
+public val HID_USAGE_LED_REPEAT: UShort = 16u.toUShort()
 
-public val HID_USAGE_LED_REVERSE: UShort = 50u
+public val HID_USAGE_LED_REVERSE: UShort = 50u.toUShort()
 
-public val HID_USAGE_LED_REWIND: UShort = 52u
+public val HID_USAGE_LED_REWIND: UShort = 52u.toUShort()
 
-public val HID_USAGE_LED_RING: UShort = 24u
+public val HID_USAGE_LED_RING: UShort = 24u.toUShort()
 
-public val HID_USAGE_LED_SAMPLING_RATE_DETECT: UShort = 18u
+public val HID_USAGE_LED_SAMPLING_RATE_DETECT: UShort = 18u.toUShort()
 
-public val HID_USAGE_LED_SCROLL_LOCK: UShort = 3u
+public val HID_USAGE_LED_SCROLL_LOCK: UShort = 3u.toUShort()
 
-public val HID_USAGE_LED_SELECTED_INDICATOR: UShort = 58u
+public val HID_USAGE_LED_SELECTED_INDICATOR: UShort = 58u.toUShort()
 
-public val HID_USAGE_LED_SEND_CALLS: UShort = 36u
+public val HID_USAGE_LED_SEND_CALLS: UShort = 36u.toUShort()
 
-public val HID_USAGE_LED_SHIFT: UShort = 7u
+public val HID_USAGE_LED_SHIFT: UShort = 7u.toUShort()
 
-public val HID_USAGE_LED_SLOW_BLINK_OFF_TIME: UShort = 68u
+public val HID_USAGE_LED_SLOW_BLINK_OFF_TIME: UShort = 68u.toUShort()
 
-public val HID_USAGE_LED_SLOW_BLINK_ON_TIME: UShort = 67u
+public val HID_USAGE_LED_SLOW_BLINK_ON_TIME: UShort = 67u.toUShort()
 
-public val HID_USAGE_LED_SOUND_FIELD_ON: UShort = 14u
+public val HID_USAGE_LED_SOUND_FIELD_ON: UShort = 14u.toUShort()
 
-public val HID_USAGE_LED_SPEAKER: UShort = 30u
+public val HID_USAGE_LED_SPEAKER: UShort = 30u.toUShort()
 
-public val HID_USAGE_LED_SPINNING: UShort = 19u
+public val HID_USAGE_LED_SPINNING: UShort = 19u.toUShort()
 
-public val HID_USAGE_LED_STAND_BY: UShort = 39u
+public val HID_USAGE_LED_STAND_BY: UShort = 39u.toUShort()
 
-public val HID_USAGE_LED_STEREO: UShort = 17u
+public val HID_USAGE_LED_STEREO: UShort = 17u.toUShort()
 
-public val HID_USAGE_LED_STOP: UShort = 51u
+public val HID_USAGE_LED_STOP: UShort = 51u.toUShort()
 
-public val HID_USAGE_LED_SURROUND_FIELD_ON: UShort = 15u
+public val HID_USAGE_LED_SURROUND_FIELD_ON: UShort = 15u.toUShort()
 
-public val HID_USAGE_LED_SYSTEM_SUSPEND: UShort = 76u
+public val HID_USAGE_LED_SYSTEM_SUSPEND: UShort = 76u.toUShort()
 
-public val HID_USAGE_LED_TONE_ENABLE: UShort = 10u
+public val HID_USAGE_LED_TONE_ENABLE: UShort = 10u.toUShort()
 
-public val HID_USAGE_MS_BTH_HF_DIALMEMORY: UShort = 34u
+public val HID_USAGE_MS_BTH_HF_DIALMEMORY: UShort = 34u.toUShort()
 
-public val HID_USAGE_MS_BTH_HF_DIALNUMBER: UShort = 33u
+public val HID_USAGE_MS_BTH_HF_DIALNUMBER: UShort = 33u.toUShort()
 
-public val HID_USAGE_PAGE_ALPHANUMERIC: UShort = 20u
+public val HID_USAGE_PAGE_ALPHANUMERIC: UShort = 20u.toUShort()
 
-public val HID_USAGE_PAGE_ARCADE: UShort = 145u
+public val HID_USAGE_PAGE_ARCADE: UShort = 145u.toUShort()
 
-public val HID_USAGE_PAGE_BARCODE_SCANNER: UShort = 140u
+public val HID_USAGE_PAGE_BARCODE_SCANNER: UShort = 140u.toUShort()
 
-public val HID_USAGE_PAGE_BUTTON: UShort = 9u
+public val HID_USAGE_PAGE_BUTTON: UShort = 9u.toUShort()
 
-public val HID_USAGE_PAGE_CAMERA_CONTROL: UShort = 144u
+public val HID_USAGE_PAGE_CAMERA_CONTROL: UShort = 144u.toUShort()
 
-public val HID_USAGE_PAGE_CONSUMER: UShort = 12u
+public val HID_USAGE_PAGE_CONSUMER: UShort = 12u.toUShort()
 
-public val HID_USAGE_PAGE_DIGITIZER: UShort = 13u
+public val HID_USAGE_PAGE_DIGITIZER: UShort = 13u.toUShort()
 
-public val HID_USAGE_PAGE_GAME: UShort = 5u
+public val HID_USAGE_PAGE_GAME: UShort = 5u.toUShort()
 
-public val HID_USAGE_PAGE_GENERIC: UShort = 1u
+public val HID_USAGE_PAGE_GENERIC: UShort = 1u.toUShort()
 
-public val HID_USAGE_PAGE_GENERIC_DEVICE: UShort = 6u
+public val HID_USAGE_PAGE_GENERIC_DEVICE: UShort = 6u.toUShort()
 
-public val HID_USAGE_PAGE_HAPTICS: UShort = 14u
+public val HID_USAGE_PAGE_HAPTICS: UShort = 14u.toUShort()
 
-public val HID_USAGE_PAGE_KEYBOARD: UShort = 7u
+public val HID_USAGE_PAGE_KEYBOARD: UShort = 7u.toUShort()
 
-public val HID_USAGE_PAGE_LED: UShort = 8u
+public val HID_USAGE_PAGE_LED: UShort = 8u.toUShort()
 
-public val HID_USAGE_PAGE_LIGHTING_ILLUMINATION: UShort = 89u
+public val HID_USAGE_PAGE_LIGHTING_ILLUMINATION: UShort = 89u.toUShort()
 
-public val HID_USAGE_PAGE_MAGNETIC_STRIPE_READER: UShort = 142u
+public val HID_USAGE_PAGE_MAGNETIC_STRIPE_READER: UShort = 142u.toUShort()
 
-public val HID_USAGE_PAGE_MICROSOFT_BLUETOOTH_HANDSFREE: UShort = 65523u
+public val HID_USAGE_PAGE_MICROSOFT_BLUETOOTH_HANDSFREE: UShort = 65523u.toUShort()
 
-public val HID_USAGE_PAGE_ORDINAL: UShort = 10u
+public val HID_USAGE_PAGE_ORDINAL: UShort = 10u.toUShort()
 
-public val HID_USAGE_PAGE_PID: UShort = 15u
+public val HID_USAGE_PAGE_PID: UShort = 15u.toUShort()
 
-public val HID_USAGE_PAGE_SENSOR: UShort = 32u
+public val HID_USAGE_PAGE_SENSOR: UShort = 32u.toUShort()
 
-public val HID_USAGE_PAGE_SIMULATION: UShort = 2u
+public val HID_USAGE_PAGE_SIMULATION: UShort = 2u.toUShort()
 
-public val HID_USAGE_PAGE_SPORT: UShort = 4u
+public val HID_USAGE_PAGE_SPORT: UShort = 4u.toUShort()
 
-public val HID_USAGE_PAGE_TELEPHONY: UShort = 11u
+public val HID_USAGE_PAGE_TELEPHONY: UShort = 11u.toUShort()
 
-public val HID_USAGE_PAGE_UNDEFINED: UShort = 0u
+public val HID_USAGE_PAGE_UNDEFINED: UShort = 0u.toUShort()
 
-public val HID_USAGE_PAGE_UNICODE: UShort = 16u
+public val HID_USAGE_PAGE_UNICODE: UShort = 16u.toUShort()
 
-public val HID_USAGE_PAGE_VENDOR_DEFINED_BEGIN: UShort = 65280u
+public val HID_USAGE_PAGE_VENDOR_DEFINED_BEGIN: UShort = 65280u.toUShort()
 
-public val HID_USAGE_PAGE_VENDOR_DEFINED_END: UShort = 65535u
+public val HID_USAGE_PAGE_VENDOR_DEFINED_END: UShort = 65535u.toUShort()
 
-public val HID_USAGE_PAGE_VR: UShort = 3u
+public val HID_USAGE_PAGE_VR: UShort = 3u.toUShort()
 
-public val HID_USAGE_PAGE_WEIGHING_DEVICE: UShort = 141u
+public val HID_USAGE_PAGE_WEIGHING_DEVICE: UShort = 141u.toUShort()
 
-public val HID_USAGE_SIMULATION_ACCELLERATOR: UShort = 196u
+public val HID_USAGE_SIMULATION_ACCELLERATOR: UShort = 196u.toUShort()
 
-public val HID_USAGE_SIMULATION_AILERON: UShort = 176u
+public val HID_USAGE_SIMULATION_AILERON: UShort = 176u.toUShort()
 
-public val HID_USAGE_SIMULATION_AILERON_TRIM: UShort = 177u
+public val HID_USAGE_SIMULATION_AILERON_TRIM: UShort = 177u.toUShort()
 
-public val HID_USAGE_SIMULATION_AIRPLANE_SIMULATION_DEVICE: UShort = 9u
+public val HID_USAGE_SIMULATION_AIRPLANE_SIMULATION_DEVICE: UShort = 9u.toUShort()
 
-public val HID_USAGE_SIMULATION_ANTI_TORQUE_CONTROL: UShort = 178u
+public val HID_USAGE_SIMULATION_ANTI_TORQUE_CONTROL: UShort = 178u.toUShort()
 
-public val HID_USAGE_SIMULATION_AUTOMOBILE_SIMULATION_DEVICE: UShort = 2u
+public val HID_USAGE_SIMULATION_AUTOMOBILE_SIMULATION_DEVICE: UShort = 2u.toUShort()
 
-public val HID_USAGE_SIMULATION_AUTOPIOLOT_ENABLE: UShort = 179u
+public val HID_USAGE_SIMULATION_AUTOPIOLOT_ENABLE: UShort = 179u.toUShort()
 
-public val HID_USAGE_SIMULATION_BALLAST: UShort = 204u
+public val HID_USAGE_SIMULATION_BALLAST: UShort = 204u.toUShort()
 
-public val HID_USAGE_SIMULATION_BARREL_ELEVATION: UShort = 202u
+public val HID_USAGE_SIMULATION_BARREL_ELEVATION: UShort = 202u.toUShort()
 
-public val HID_USAGE_SIMULATION_BICYCLE_CRANK: UShort = 205u
+public val HID_USAGE_SIMULATION_BICYCLE_CRANK: UShort = 205u.toUShort()
 
-public val HID_USAGE_SIMULATION_BICYCLE_SIMULATION_DEVICE: UShort = 12u
+public val HID_USAGE_SIMULATION_BICYCLE_SIMULATION_DEVICE: UShort = 12u.toUShort()
 
-public val HID_USAGE_SIMULATION_BRAKE: UShort = 197u
+public val HID_USAGE_SIMULATION_BRAKE: UShort = 197u.toUShort()
 
-public val HID_USAGE_SIMULATION_CHAFF_RELEASE: UShort = 180u
+public val HID_USAGE_SIMULATION_CHAFF_RELEASE: UShort = 180u.toUShort()
 
-public val HID_USAGE_SIMULATION_CLUTCH: UShort = 198u
+public val HID_USAGE_SIMULATION_CLUTCH: UShort = 198u.toUShort()
 
-public val HID_USAGE_SIMULATION_COLLECTIVE_CONTROL: UShort = 181u
+public val HID_USAGE_SIMULATION_COLLECTIVE_CONTROL: UShort = 181u.toUShort()
 
-public val HID_USAGE_SIMULATION_CYCLIC_CONTROL: UShort = 34u
+public val HID_USAGE_SIMULATION_CYCLIC_CONTROL: UShort = 34u.toUShort()
 
-public val HID_USAGE_SIMULATION_CYCLIC_TRIM: UShort = 35u
+public val HID_USAGE_SIMULATION_CYCLIC_TRIM: UShort = 35u.toUShort()
 
-public val HID_USAGE_SIMULATION_DIVE_BRAKE: UShort = 182u
+public val HID_USAGE_SIMULATION_DIVE_BRAKE: UShort = 182u.toUShort()
 
-public val HID_USAGE_SIMULATION_DIVE_PLANE: UShort = 203u
+public val HID_USAGE_SIMULATION_DIVE_PLANE: UShort = 203u.toUShort()
 
-public val HID_USAGE_SIMULATION_ELECTRONIC_COUNTERMEASURES: UShort = 183u
+public val HID_USAGE_SIMULATION_ELECTRONIC_COUNTERMEASURES: UShort = 183u.toUShort()
 
-public val HID_USAGE_SIMULATION_ELEVATOR: UShort = 184u
+public val HID_USAGE_SIMULATION_ELEVATOR: UShort = 184u.toUShort()
 
-public val HID_USAGE_SIMULATION_ELEVATOR_TRIM: UShort = 185u
+public val HID_USAGE_SIMULATION_ELEVATOR_TRIM: UShort = 185u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLARE_RELEASE: UShort = 189u
+public val HID_USAGE_SIMULATION_FLARE_RELEASE: UShort = 189u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLIGHT_COMMUNICATIONS: UShort = 188u
+public val HID_USAGE_SIMULATION_FLIGHT_COMMUNICATIONS: UShort = 188u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLIGHT_CONTROL_STICK: UShort = 32u
+public val HID_USAGE_SIMULATION_FLIGHT_CONTROL_STICK: UShort = 32u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLIGHT_SIMULATION_DEVICE: UShort = 1u
+public val HID_USAGE_SIMULATION_FLIGHT_SIMULATION_DEVICE: UShort = 1u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLIGHT_STICK: UShort = 33u
+public val HID_USAGE_SIMULATION_FLIGHT_STICK: UShort = 33u.toUShort()
 
-public val HID_USAGE_SIMULATION_FLIGHT_YOKE: UShort = 36u
+public val HID_USAGE_SIMULATION_FLIGHT_YOKE: UShort = 36u.toUShort()
 
-public val HID_USAGE_SIMULATION_FRONT_BRAKE: UShort = 207u
+public val HID_USAGE_SIMULATION_FRONT_BRAKE: UShort = 207u.toUShort()
 
-public val HID_USAGE_SIMULATION_HANDLE_BARS: UShort = 206u
+public val HID_USAGE_SIMULATION_HANDLE_BARS: UShort = 206u.toUShort()
 
-public val HID_USAGE_SIMULATION_HELICOPTER_SIMULATION_DEVICE: UShort = 10u
+public val HID_USAGE_SIMULATION_HELICOPTER_SIMULATION_DEVICE: UShort = 10u.toUShort()
 
-public val HID_USAGE_SIMULATION_LANDING_GEAR: UShort = 190u
+public val HID_USAGE_SIMULATION_LANDING_GEAR: UShort = 190u.toUShort()
 
-public val HID_USAGE_SIMULATION_MAGIC_CARPET_SIMULATION_DEVICE: UShort = 11u
+public val HID_USAGE_SIMULATION_MAGIC_CARPET_SIMULATION_DEVICE: UShort = 11u.toUShort()
 
-public val HID_USAGE_SIMULATION_MOTORCYCLE_SIMULATION_DEVICE: UShort = 7u
+public val HID_USAGE_SIMULATION_MOTORCYCLE_SIMULATION_DEVICE: UShort = 7u.toUShort()
 
-public val HID_USAGE_SIMULATION_REAR_BRAKE: UShort = 208u
+public val HID_USAGE_SIMULATION_REAR_BRAKE: UShort = 208u.toUShort()
 
-public val HID_USAGE_SIMULATION_RUDDER: UShort = 186u
+public val HID_USAGE_SIMULATION_RUDDER: UShort = 186u.toUShort()
 
-public val HID_USAGE_SIMULATION_SAILING_SIMULATION_DEVICE: UShort = 6u
+public val HID_USAGE_SIMULATION_SAILING_SIMULATION_DEVICE: UShort = 6u.toUShort()
 
-public val HID_USAGE_SIMULATION_SHIFTER: UShort = 199u
+public val HID_USAGE_SIMULATION_SHIFTER: UShort = 199u.toUShort()
 
-public val HID_USAGE_SIMULATION_SPACESHIP_SIMULATION_DEVICE: UShort = 4u
+public val HID_USAGE_SIMULATION_SPACESHIP_SIMULATION_DEVICE: UShort = 4u.toUShort()
 
-public val HID_USAGE_SIMULATION_SPORTS_SIMULATION_DEVICE: UShort = 8u
+public val HID_USAGE_SIMULATION_SPORTS_SIMULATION_DEVICE: UShort = 8u.toUShort()
 
-public val HID_USAGE_SIMULATION_STEERING: UShort = 200u
+public val HID_USAGE_SIMULATION_STEERING: UShort = 200u.toUShort()
 
-public val HID_USAGE_SIMULATION_SUBMARINE_SIMULATION_DEVICE: UShort = 5u
+public val HID_USAGE_SIMULATION_SUBMARINE_SIMULATION_DEVICE: UShort = 5u.toUShort()
 
-public val HID_USAGE_SIMULATION_TANK_SIMULATION_DEVICE: UShort = 3u
+public val HID_USAGE_SIMULATION_TANK_SIMULATION_DEVICE: UShort = 3u.toUShort()
 
-public val HID_USAGE_SIMULATION_THROTTLE: UShort = 187u
+public val HID_USAGE_SIMULATION_THROTTLE: UShort = 187u.toUShort()
 
-public val HID_USAGE_SIMULATION_TOE_BRAKE: UShort = 191u
+public val HID_USAGE_SIMULATION_TOE_BRAKE: UShort = 191u.toUShort()
 
-public val HID_USAGE_SIMULATION_TRACK_CONTROL: UShort = 37u
+public val HID_USAGE_SIMULATION_TRACK_CONTROL: UShort = 37u.toUShort()
 
-public val HID_USAGE_SIMULATION_TRIGGER: UShort = 192u
+public val HID_USAGE_SIMULATION_TRIGGER: UShort = 192u.toUShort()
 
-public val HID_USAGE_SIMULATION_TURRET_DIRECTION: UShort = 201u
+public val HID_USAGE_SIMULATION_TURRET_DIRECTION: UShort = 201u.toUShort()
 
-public val HID_USAGE_SIMULATION_WEAPONS_ARM: UShort = 193u
+public val HID_USAGE_SIMULATION_WEAPONS_ARM: UShort = 193u.toUShort()
 
-public val HID_USAGE_SIMULATION_WEAPONS_SELECT: UShort = 194u
+public val HID_USAGE_SIMULATION_WEAPONS_SELECT: UShort = 194u.toUShort()
 
-public val HID_USAGE_SIMULATION_WING_FLAPS: UShort = 195u
+public val HID_USAGE_SIMULATION_WING_FLAPS: UShort = 195u.toUShort()
 
-public val HID_USAGE_SPORT_10_IRON: UShort = 90u
+public val HID_USAGE_SPORT_10_IRON: UShort = 90u.toUShort()
 
-public val HID_USAGE_SPORT_11_IRON: UShort = 91u
+public val HID_USAGE_SPORT_11_IRON: UShort = 91u.toUShort()
 
-public val HID_USAGE_SPORT_1_IRON: UShort = 81u
+public val HID_USAGE_SPORT_1_IRON: UShort = 81u.toUShort()
 
-public val HID_USAGE_SPORT_1_WOOD: UShort = 95u
+public val HID_USAGE_SPORT_1_WOOD: UShort = 95u.toUShort()
 
-public val HID_USAGE_SPORT_2_IRON: UShort = 82u
+public val HID_USAGE_SPORT_2_IRON: UShort = 82u.toUShort()
 
-public val HID_USAGE_SPORT_3_IRON: UShort = 83u
+public val HID_USAGE_SPORT_3_IRON: UShort = 83u.toUShort()
 
-public val HID_USAGE_SPORT_3_WOOD: UShort = 96u
+public val HID_USAGE_SPORT_3_WOOD: UShort = 96u.toUShort()
 
-public val HID_USAGE_SPORT_4_IRON: UShort = 84u
+public val HID_USAGE_SPORT_4_IRON: UShort = 84u.toUShort()
 
-public val HID_USAGE_SPORT_5_IRON: UShort = 85u
+public val HID_USAGE_SPORT_5_IRON: UShort = 85u.toUShort()
 
-public val HID_USAGE_SPORT_5_WOOD: UShort = 97u
+public val HID_USAGE_SPORT_5_WOOD: UShort = 97u.toUShort()
 
-public val HID_USAGE_SPORT_6_IRON: UShort = 86u
+public val HID_USAGE_SPORT_6_IRON: UShort = 86u.toUShort()
 
-public val HID_USAGE_SPORT_7_IRON: UShort = 87u
+public val HID_USAGE_SPORT_7_IRON: UShort = 87u.toUShort()
 
-public val HID_USAGE_SPORT_7_WOOD: UShort = 98u
+public val HID_USAGE_SPORT_7_WOOD: UShort = 98u.toUShort()
 
-public val HID_USAGE_SPORT_8_IRON: UShort = 88u
+public val HID_USAGE_SPORT_8_IRON: UShort = 88u.toUShort()
 
-public val HID_USAGE_SPORT_9_IRON: UShort = 89u
+public val HID_USAGE_SPORT_9_IRON: UShort = 89u.toUShort()
 
-public val HID_USAGE_SPORT_9_WOOD: UShort = 99u
+public val HID_USAGE_SPORT_9_WOOD: UShort = 99u.toUShort()
 
-public val HID_USAGE_SPORT_BASEBALL_BAT: UShort = 1u
+public val HID_USAGE_SPORT_BASEBALL_BAT: UShort = 1u.toUShort()
 
-public val HID_USAGE_SPORT_FOLLOW_THROUGH: UShort = 54u
+public val HID_USAGE_SPORT_FOLLOW_THROUGH: UShort = 54u.toUShort()
 
-public val HID_USAGE_SPORT_GOLF_CLUB: UShort = 2u
+public val HID_USAGE_SPORT_GOLF_CLUB: UShort = 2u.toUShort()
 
-public val HID_USAGE_SPORT_HEEL_TOE: UShort = 53u
+public val HID_USAGE_SPORT_HEEL_TOE: UShort = 53u.toUShort()
 
-public val HID_USAGE_SPORT_HEIGHT: UShort = 57u
+public val HID_USAGE_SPORT_HEIGHT: UShort = 57u.toUShort()
 
-public val HID_USAGE_SPORT_LOFT_WEDGE: UShort = 93u
+public val HID_USAGE_SPORT_LOFT_WEDGE: UShort = 93u.toUShort()
 
-public val HID_USAGE_SPORT_OAR: UShort = 48u
+public val HID_USAGE_SPORT_OAR: UShort = 48u.toUShort()
 
-public val HID_USAGE_SPORT_POWER_WEDGE: UShort = 94u
+public val HID_USAGE_SPORT_POWER_WEDGE: UShort = 94u.toUShort()
 
-public val HID_USAGE_SPORT_PUTTER: UShort = 80u
+public val HID_USAGE_SPORT_PUTTER: UShort = 80u.toUShort()
 
-public val HID_USAGE_SPORT_RATE: UShort = 50u
+public val HID_USAGE_SPORT_RATE: UShort = 50u.toUShort()
 
-public val HID_USAGE_SPORT_ROWING_MACHINE: UShort = 3u
+public val HID_USAGE_SPORT_ROWING_MACHINE: UShort = 3u.toUShort()
 
-public val HID_USAGE_SPORT_SAND_WEDGE: UShort = 92u
+public val HID_USAGE_SPORT_SAND_WEDGE: UShort = 92u.toUShort()
 
-public val HID_USAGE_SPORT_SLOPE: UShort = 49u
+public val HID_USAGE_SPORT_SLOPE: UShort = 49u.toUShort()
 
-public val HID_USAGE_SPORT_STICK_FACE_ANGLE: UShort = 52u
+public val HID_USAGE_SPORT_STICK_FACE_ANGLE: UShort = 52u.toUShort()
 
-public val HID_USAGE_SPORT_STICK_SPEED: UShort = 51u
+public val HID_USAGE_SPORT_STICK_SPEED: UShort = 51u.toUShort()
 
-public val HID_USAGE_SPORT_STICK_TYPE: UShort = 56u
+public val HID_USAGE_SPORT_STICK_TYPE: UShort = 56u.toUShort()
 
-public val HID_USAGE_SPORT_TEMPO: UShort = 55u
+public val HID_USAGE_SPORT_TEMPO: UShort = 55u.toUShort()
 
-public val HID_USAGE_SPORT_TREADMILL: UShort = 4u
+public val HID_USAGE_SPORT_TREADMILL: UShort = 4u.toUShort()
 
-public val HID_USAGE_TELEPHONY_ANSWERING_MACHINE: UShort = 2u
+public val HID_USAGE_TELEPHONY_ANSWERING_MACHINE: UShort = 2u.toUShort()
 
-public val HID_USAGE_TELEPHONY_DROP: UShort = 38u
+public val HID_USAGE_TELEPHONY_DROP: UShort = 38u.toUShort()
 
-public val HID_USAGE_TELEPHONY_HANDSET: UShort = 4u
+public val HID_USAGE_TELEPHONY_HANDSET: UShort = 4u.toUShort()
 
-public val HID_USAGE_TELEPHONY_HEADSET: UShort = 5u
+public val HID_USAGE_TELEPHONY_HEADSET: UShort = 5u.toUShort()
 
-public val HID_USAGE_TELEPHONY_HOST_AVAILABLE: UShort = 241u
+public val HID_USAGE_TELEPHONY_HOST_AVAILABLE: UShort = 241u.toUShort()
 
-public val HID_USAGE_TELEPHONY_KEYPAD: UShort = 6u
+public val HID_USAGE_TELEPHONY_KEYPAD: UShort = 6u.toUShort()
 
-public val HID_USAGE_TELEPHONY_KEYPAD_0: UShort = 176u
+public val HID_USAGE_TELEPHONY_KEYPAD_0: UShort = 176u.toUShort()
 
-public val HID_USAGE_TELEPHONY_KEYPAD_D: UShort = 191u
+public val HID_USAGE_TELEPHONY_KEYPAD_D: UShort = 191u.toUShort()
 
-public val HID_USAGE_TELEPHONY_LINE: UShort = 42u
+public val HID_USAGE_TELEPHONY_LINE: UShort = 42u.toUShort()
 
-public val HID_USAGE_TELEPHONY_MESSAGE_CONTROLS: UShort = 3u
+public val HID_USAGE_TELEPHONY_MESSAGE_CONTROLS: UShort = 3u.toUShort()
 
-public val HID_USAGE_TELEPHONY_PHONE: UShort = 1u
+public val HID_USAGE_TELEPHONY_PHONE: UShort = 1u.toUShort()
 
-public val HID_USAGE_TELEPHONY_PROGRAMMABLE_BUTTON: UShort = 7u
+public val HID_USAGE_TELEPHONY_PROGRAMMABLE_BUTTON: UShort = 7u.toUShort()
 
-public val HID_USAGE_TELEPHONY_REDIAL: UShort = 36u
+public val HID_USAGE_TELEPHONY_REDIAL: UShort = 36u.toUShort()
 
-public val HID_USAGE_TELEPHONY_RING_ENABLE: UShort = 45u
+public val HID_USAGE_TELEPHONY_RING_ENABLE: UShort = 45u.toUShort()
 
-public val HID_USAGE_TELEPHONY_SEND: UShort = 49u
+public val HID_USAGE_TELEPHONY_SEND: UShort = 49u.toUShort()
 
-public val HID_USAGE_TELEPHONY_TRANSFER: UShort = 37u
+public val HID_USAGE_TELEPHONY_TRANSFER: UShort = 37u.toUShort()
 
-public val HID_USAGE_VR_ANIMATRONIC_DEVICE: UShort = 10u
+public val HID_USAGE_VR_ANIMATRONIC_DEVICE: UShort = 10u.toUShort()
 
-public val HID_USAGE_VR_BELT: UShort = 1u
+public val HID_USAGE_VR_BELT: UShort = 1u.toUShort()
 
-public val HID_USAGE_VR_BODY_SUIT: UShort = 2u
+public val HID_USAGE_VR_BODY_SUIT: UShort = 2u.toUShort()
 
-public val HID_USAGE_VR_DISPLAY_ENABLE: UShort = 33u
+public val HID_USAGE_VR_DISPLAY_ENABLE: UShort = 33u.toUShort()
 
-public val HID_USAGE_VR_FLEXOR: UShort = 3u
+public val HID_USAGE_VR_FLEXOR: UShort = 3u.toUShort()
 
-public val HID_USAGE_VR_GLOVE: UShort = 4u
+public val HID_USAGE_VR_GLOVE: UShort = 4u.toUShort()
 
-public val HID_USAGE_VR_HAND_TRACKER: UShort = 7u
+public val HID_USAGE_VR_HAND_TRACKER: UShort = 7u.toUShort()
 
-public val HID_USAGE_VR_HEAD_MOUNTED_DISPLAY: UShort = 6u
+public val HID_USAGE_VR_HEAD_MOUNTED_DISPLAY: UShort = 6u.toUShort()
 
-public val HID_USAGE_VR_HEAD_TRACKER: UShort = 5u
+public val HID_USAGE_VR_HEAD_TRACKER: UShort = 5u.toUShort()
 
-public val HID_USAGE_VR_OCULOMETER: UShort = 8u
+public val HID_USAGE_VR_OCULOMETER: UShort = 8u.toUShort()
 
-public val HID_USAGE_VR_STEREO_ENABLE: UShort = 32u
+public val HID_USAGE_VR_STEREO_ENABLE: UShort = 32u.toUShort()
 
-public val HID_USAGE_VR_VEST: UShort = 9u
+public val HID_USAGE_VR_VEST: UShort = 9u.toUShort()
 
 public val HORIZONTAL_WHEEL_PRESENT: UInt = 32768u
 
-public val HidP_Feature: HIDP_REPORT_TYPE = 2
+public val HID_P_FEATURE: HidpReportType = 2
 
-public val HidP_Input: HIDP_REPORT_TYPE = 0
+public val HID_P_INPUT: HidpReportType = 0
 
-public val HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = 0
+public val HID_P_KEYBOARD_BREAK: HidpKeyboardDirection = 0
 
-public val HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1
+public val HID_P_KEYBOARD_MAKE: HidpKeyboardDirection = 1
 
-public val HidP_Output: HIDP_REPORT_TYPE = 1
+public val HID_P_OUTPUT: HidpReportType = 1
 
 public val IOCTL_BUTTON_GET_ENABLED_ON_IDLE: UInt = 721580u
 
@@ -1757,7 +1757,7 @@ public val IOCTL_MOUSE_QUERY_ATTRIBUTES: UInt = 983040u
 
 public val JOYTYPE_ANALOGCOMPAT: Int = 8
 
-public val JOYTYPE_DEFAULTPROPSHEET: Int = -2147483648
+public val JOYTYPE_DEFAULTPROPSHEET: Int = -2147483648.toInt()
 
 public val JOYTYPE_DEVICEHIDE: Int = 65536
 
@@ -1813,7 +1813,7 @@ public val JOY_HWS_ISCARCTRL: Int = 64
 
 public val JOY_HWS_ISGAMEPAD: Int = 32
 
-public val JOY_HWS_ISGAMEPORTBUS: Int = -2147483648
+public val JOY_HWS_ISGAMEPORTBUS: Int = -2147483648.toInt()
 
 public val JOY_HWS_ISGAMEPORTDRIVER: Int = 67108864
 
@@ -1917,7 +1917,7 @@ public val JOY_US_ISOEM: Int = 4
 
 public val JOY_US_PRESENT: Int = 2
 
-public val JOY_US_RESERVED: Int = -2147483648
+public val JOY_US_RESERVED: Int = -2147483648.toInt()
 
 public val JOY_US_VOLATILE: Int = 8
 

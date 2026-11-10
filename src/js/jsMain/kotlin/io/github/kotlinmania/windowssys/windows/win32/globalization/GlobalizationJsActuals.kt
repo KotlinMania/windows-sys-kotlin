@@ -2,4435 +2,4957 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.ETO_OPTIONS
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EtoOptions
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private val _windowsWin32GlobalizationNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AdjustCalendarDate(lpcaldatetime: Long, calunit: CALDATETIME_DATEUNIT, amount: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_AdjustCalendarDate(lpcaldatetime.toString(), calunit, amount) as Int) else 0
+public actual fun adjustCalendarDate(lpcaldatetime: COpaquePointer?, calunit: CaldatetimeDateunit, amount: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_adjustCalendarDate((lpcaldatetime?.value ?: 0L).toString(), calunit, amount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: Long, cchcount1: Int, lpstring2: Long, cchcount2: Int): COMPARESTRING_RESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_CompareStringA(locale.toInt(), dwcmpflags.toInt(), lpstring1.toString(), cchcount1, lpstring2.toString(), cchcount2) as Int) else 0
+public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: COpaquePointer?, cchcount1: Int, lpstring2: COpaquePointer?, cchcount2: Int): ComparestringResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_compareStringA(locale.toInt(), dwcmpflags.toInt(), (lpstring1?.value ?: 0L).toString(), cchcount1, (lpstring2?.value ?: 0L).toString(), cchcount2) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompareStringEx(lplocalename: PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: LPARAM): COMPARESTRING_RESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_CompareStringEx(lplocalename.toString(), dwcmpflags.toInt(), lpstring1.toString(), cchcount1, lpstring2.toString(), cchcount2, lpversioninformation.toString(), lpreserved.toString(), lparam.toString()) as Int) else 0
+public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, lparam: Lparam): ComparestringResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_compareStringEx((lplocalename?.value ?: 0L).toString(), dwcmpflags.toInt(), (lpstring1?.value ?: 0L).toString(), cchcount1, (lpstring2?.value ?: 0L).toString(), cchcount2, (lpversioninformation?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompareStringOrdinal(lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, bignorecase: BOOL): COMPARESTRING_RESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_CompareStringOrdinal(lpstring1.toString(), cchcount1, lpstring2.toString(), cchcount2, bignorecase) as Int) else 0
+public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, bignorecase: Bool): ComparestringResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_compareStringOrdinal((lpstring1?.value ?: 0L).toString(), cchcount1, (lpstring2?.value ?: 0L).toString(), cchcount2, bignorecase) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int): COMPARESTRING_RESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_CompareStringW(locale.toInt(), dwcmpflags.toInt(), lpstring1.toString(), cchcount1, lpstring2.toString(), cchcount2) as Int) else 0
+public actual fun compareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int): ComparestringResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_compareStringW(locale.toInt(), dwcmpflags.toInt(), (lpstring1?.value ?: 0L).toString(), cchcount1, (lpstring2?.value ?: 0L).toString(), cchcount2) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertCalDateTimeToSystemTime(lpcaldatetime: Long, lpsystime: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ConvertCalDateTimeToSystemTime(lpcaldatetime.toString(), lpsystime.toString()) as Int) else 0
+public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: COpaquePointer?, lpsystime: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_convertCalDateTimeToSystemTime((lpcaldatetime?.value ?: 0L).toString(), (lpsystime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertDefaultLocale(locale: UInt): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ConvertDefaultLocale(locale.toInt()) as Int).toUInt() else 0u
+public actual fun convertDefaultLocale(locale: UInt): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_convertDefaultLocale(locale.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertSystemTimeToCalDateTime(lpsystime: Long, calid: UInt, lpcaldatetime: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ConvertSystemTimeToCalDateTime(lpsystime.toString(), calid.toInt(), lpcaldatetime.toString()) as Int) else 0
+public actual fun convertSystemTimeToCalDateTime(lpsystime: COpaquePointer?, calid: UInt, lpcaldatetime: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_convertSystemTimeToCalDateTime((lpsystime?.value ?: 0L).toString(), calid.toInt(), (lpcaldatetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumCalendarInfoA(lpcalinfoenumproc.toLong().toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else 0
+public actual fun enumCalendarInfoA(lpcalinfoenumproc: CalinfoEnumproca, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumCalendarInfoA(0L.toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumCalendarInfoExA(lpcalinfoenumprocex.toLong().toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else 0
+public actual fun enumCalendarInfoExA(lpcalinfoenumprocex: CalinfoEnumprocexa, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumCalendarInfoExA(0L.toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lparam: LPARAM): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumCalendarInfoExEx(pcalinfoenumprocexex.toLong().toString(), lplocalename.toString(), calendar.toInt(), lpreserved.toString(), caltype.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumCalendarInfoExEx(pcalinfoenumprocexex: CalinfoEnumprocexex, lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lparam: Lparam): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumCalendarInfoExEx(0L.toString(), (lplocalename?.value ?: 0L).toString(), calendar.toInt(), (lpreserved?.value ?: 0L).toString(), caltype.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumCalendarInfoExW(lpcalinfoenumprocex.toLong().toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else 0
+public actual fun enumCalendarInfoExW(lpcalinfoenumprocex: CalinfoEnumprocexw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumCalendarInfoExW(0L.toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: UInt, calendar: UInt, caltype: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumCalendarInfoW(lpcalinfoenumproc.toLong().toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else 0
+public actual fun enumCalendarInfoW(lpcalinfoenumproc: CalinfoEnumprocw, locale: UInt, calendar: UInt, caltype: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumCalendarInfoW(0L.toString(), locale.toInt(), calendar.toInt(), caltype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumDateFormatsA(lpdatefmtenumproc.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumDateFormatsA(lpdatefmtenumproc: DatefmtEnumproca, locale: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumDateFormatsA(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumDateFormatsExA(lpdatefmtenumprocex.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumDateFormatsExA(lpdatefmtenumprocex: DatefmtEnumprocexa, locale: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumDateFormatsExA(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: LPARAM): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumDateFormatsExEx(lpdatefmtenumprocexex.toLong().toString(), lplocalename.toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumDateFormatsExEx(lpdatefmtenumprocexex: DatefmtEnumprocexex, lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lparam: Lparam): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumDateFormatsExEx(0L.toString(), (lplocalename?.value ?: 0L).toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumDateFormatsExW(lpdatefmtenumprocex.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumDateFormatsExW(lpdatefmtenumprocex: DatefmtEnumprocexw, locale: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumDateFormatsExW(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumDateFormatsW(lpdatefmtenumproc.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumDateFormatsW(lpdatefmtenumproc: DatefmtEnumprocw, locale: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumDateFormatsW(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc.toLong().toString(), languagegroup.toInt(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LanggrouplocaleEnumproca, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumLanguageGroupLocalesA(0L.toString(), languagegroup.toInt(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: UInt, dwflags: UInt, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc.toLong().toString(), languagegroup.toInt(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LanggrouplocaleEnumprocw, languagegroup: UInt, dwflags: UInt, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumLanguageGroupLocalesW(0L.toString(), languagegroup.toInt(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemCodePagesA(lpcodepageenumproc.toLong().toString(), dwflags.toInt()) as Int) else 0
+public actual fun enumSystemCodePagesA(lpcodepageenumproc: CodepageEnumproca, dwflags: EnumSystemCodePagesFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemCodePagesA(0L.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemCodePagesW(lpcodepageenumproc.toLong().toString(), dwflags.toInt()) as Int) else 0
+public actual fun enumSystemCodePagesW(lpcodepageenumproc: CodepageEnumprocw, dwflags: EnumSystemCodePagesFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemCodePagesW(0L.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GEO_ENUMPROC): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemGeoID(geoclass.toInt(), parentgeoid, lpgeoenumproc.toLong().toString()) as Int) else 0
+public actual fun enumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GeoEnumproc): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemGeoID(geoclass.toInt(), parentgeoid, 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemGeoNames(geoclass: UInt, geoenumproc: GEO_ENUMNAMEPROC, data: LPARAM): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemGeoNames(geoclass.toInt(), geoenumproc.toLong().toString(), data.toString()) as Int) else 0
+public actual fun enumSystemGeoNames(geoclass: UInt, geoenumproc: GeoEnumnameproc, data: Lparam): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemGeoNames(geoclass.toInt(), 0L.toString(), data.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsA(lplanguagegroupenumproc.toLong().toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumSystemLanguageGroupsA(lplanguagegroupenumproc: LanguagegroupEnumproca, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemLanguageGroupsA(0L.toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemLanguageGroupsW(lplanguagegroupenumproc.toLong().toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumSystemLanguageGroupsW(lplanguagegroupenumproc: LanguagegroupEnumprocw, dwflags: EnumSystemLanguageGroupsFlags, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemLanguageGroupsW(0L.toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemLocalesA(lplocaleenumproc.toLong().toString(), dwflags.toInt()) as Int) else 0
+public actual fun enumSystemLocalesA(lplocaleenumproc: LocaleEnumproca, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemLocalesA(0L.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: UInt, lparam: LPARAM, lpreserved: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemLocalesEx(lplocaleenumprocex.toLong().toString(), dwflags.toInt(), lparam.toString(), lpreserved.toString()) as Int) else 0
+public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemLocalesEx(0L.toString(), dwflags.toInt(), lparam.toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumSystemLocalesW(lplocaleenumproc.toLong().toString(), dwflags.toInt()) as Int) else 0
+public actual fun enumSystemLocalesW(lplocaleenumproc: LocaleEnumprocw, dwflags: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumSystemLocalesW(0L.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumTimeFormatsA(lptimefmtenumproc.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumTimeFormatsA(lptimefmtenumproc: TimefmtEnumproca, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumTimeFormatsA(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: PCWSTR, dwflags: UInt, lparam: LPARAM): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumTimeFormatsEx(lptimefmtenumprocex.toLong().toString(), lplocalename.toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumTimeFormatsEx(lptimefmtenumprocex: TimefmtEnumprocex, lplocalename: Pcwstr, dwflags: UInt, lparam: Lparam): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumTimeFormatsEx(0L.toString(), (lplocalename?.value ?: 0L).toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumTimeFormatsW(lptimefmtenumproc.toLong().toString(), locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun enumTimeFormatsW(lptimefmtenumproc: TimefmtEnumprocw, locale: UInt, dwflags: TimeFormatFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumTimeFormatsW(0L.toString(), locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: UInt, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumUILanguagesA(lpuilanguageenumproc.toLong().toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumUILanguagesA(lpuilanguageenumproc: UilanguageEnumproca, dwflags: UInt, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumUILanguagesA(0L.toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: UInt, lparam: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_EnumUILanguagesW(lpuilanguageenumproc.toLong().toString(), dwflags.toInt(), lparam.toString()) as Int) else 0
+public actual fun enumUILanguagesW(lpuilanguageenumproc: UilanguageEnumprocw, dwflags: UInt, lparam: Long): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_enumUILanguagesW(0L.toString(), dwflags.toInt(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_FindNLSString(locale.toInt(), dwfindnlsstringflags.toInt(), lpstringsource.toString(), cchsource, lpstringvalue.toString(), cchvalue, pcchfound.toString()) as Int) else 0
+public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_findNLSString(locale.toInt(), dwfindnlsstringflags.toInt(), (lpstringsource?.value ?: 0L).toString(), cchsource, (lpstringvalue?.value ?: 0L).toString(), cchvalue, (pcchfound?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNLSStringEx(lplocalename: PCWSTR, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_FindNLSStringEx(lplocalename.toString(), dwfindnlsstringflags.toInt(), lpstringsource.toString(), cchsource, lpstringvalue.toString(), cchvalue, pcchfound.toString(), lpversioninformation.toString(), lpreserved.toString(), sorthandle.toString()) as Int) else 0
+public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: COpaquePointer?, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_findNLSStringEx((lplocalename?.value ?: 0L).toString(), dwfindnlsstringflags.toInt(), (lpstringsource?.value ?: 0L).toString(), cchsource, (lpstringvalue?.value ?: 0L).toString(), cchvalue, (pcchfound?.value ?: 0L).toString(), (lpversioninformation?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString(), sorthandle.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, bignorecase: BOOL): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_FindStringOrdinal(dwfindstringordinalflags.toInt(), lpstringsource.toString(), cchsource, lpstringvalue.toString(), cchvalue, bignorecase) as Int) else 0
+public actual fun findStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, bignorecase: Bool): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_findStringOrdinal(dwfindstringordinalflags.toInt(), (lpstringsource?.value ?: 0L).toString(), cchsource, (lpstringvalue?.value ?: 0L).toString(), cchvalue, bignorecase) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_FoldStringA(dwmapflags.toInt(), lpsrcstr.toString(), cchsrc, lpdeststr.toString(), cchdest) as Int) else 0
+public actual fun foldStringA(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_foldStringA(dwmapflags.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_FoldStringW(dwmapflags.toInt(), lpsrcstr.toString(), cchsrc, lpdeststr.toString(), cchdest) as Int) else 0
+public actual fun foldStringW(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_foldStringW(dwmapflags.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetACP(): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetACP() as Int).toUInt() else 0u
+public actual fun getACP(): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getACP() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCPInfo(codepage: UInt, lpcpinfo: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCPInfo(codepage.toInt(), lpcpinfo.toString()) as Int) else 0
+public actual fun getCPInfo(codepage: UInt, lpcpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCPInfo(codepage.toInt(), (lpcpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCPInfoExA(codepage.toInt(), dwflags.toInt(), lpcpinfoex.toString()) as Int) else 0
+public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCPInfoExA(codepage.toInt(), dwflags.toInt(), (lpcpinfoex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCPInfoExW(codepage.toInt(), dwflags.toInt(), lpcpinfoex.toString()) as Int) else 0
+public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCPInfoExW(codepage.toInt(), dwflags.toInt(), (lpcpinfoex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCalendarDateFormatEx(lpszlocale: PCWSTR, dwflags: UInt, lpcaldatetime: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCalendarDateFormatEx(lpszlocale.toString(), dwflags.toInt(), lpcaldatetime.toString(), lpformat.toString(), lpdatestr.toString(), cchdate) as Int) else 0
+public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCalendarDateFormatEx((lpszlocale?.value ?: 0L).toString(), dwflags.toInt(), (lpcaldatetime?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpdatestr?.value ?: 0L).toString(), cchdate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PSTR, cchdata: Int, lpvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.toString(), cchdata, lpvalue.toString()) as Int) else 0
+public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L).toString(), cchdata, (lpvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCalendarInfoEx(lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCalendarInfoEx(lplocalename.toString(), calendar.toInt(), lpreserved.toString(), caltype.toInt(), lpcaldata.toString(), cchdata, lpvalue.toString()) as Int) else 0
+public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCalendarInfoEx((lplocalename?.value ?: 0L).toString(), calendar.toInt(), (lpreserved?.value ?: 0L).toString(), caltype.toInt(), (lpcaldata?.value ?: 0L).toString(), cchdata, (lpvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PWSTR, cchdata: Int, lpvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.toString(), cchdata, lpvalue.toString()) as Int) else 0
+public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L).toString(), cchdata, (lpvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: Long, lpcalmaxdatetime: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCalendarSupportedDateRange(calendar.toInt(), lpcalmindatetime.toString(), lpcalmaxdatetime.toString()) as Int) else 0
+public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: COpaquePointer?, lpcalmaxdatetime: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCalendarSupportedDateRange(calendar.toInt(), (lpcalmindatetime?.value ?: 0L).toString(), (lpcalmaxdatetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpcurrencystr: PSTR, cchcurrency: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCurrencyFormatA(locale.toInt(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpcurrencystr.toString(), cchcurrency) as Int) else 0
+public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpcurrencystr: Pstr, cchcurrency: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCurrencyFormatA(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpcurrencystr?.value ?: 0L).toString(), cchcurrency) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrencyFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCurrencyFormatEx(lplocalename.toString(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpcurrencystr.toString(), cchcurrency) as Int) else 0
+public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCurrencyFormatEx((lplocalename?.value ?: 0L).toString(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpcurrencystr?.value ?: 0L).toString(), cchcurrency) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpcurrencystr: PWSTR, cchcurrency: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetCurrencyFormatW(locale.toInt(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpcurrencystr.toString(), cchcurrency) as Int) else 0
+public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getCurrencyFormatW(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpcurrencystr?.value ?: 0L).toString(), cchcurrency) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDateFormatA(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCSTR, lpdatestr: PSTR, cchdate: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDateFormatA(locale.toInt(), dwflags.toInt(), lpdate.toString(), lpformat.toString(), lpdatestr.toString(), cchdate) as Int) else 0
+public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDateFormatA(locale.toInt(), dwflags.toInt(), (lpdate?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpdatestr?.value ?: 0L).toString(), cchdate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDateFormatEx(lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int, lpcalendar: PCWSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDateFormatEx(lplocalename.toString(), dwflags.toInt(), lpdate.toString(), lpformat.toString(), lpdatestr.toString(), cchdate, lpcalendar.toString()) as Int) else 0
+public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDateFormatEx((lplocalename?.value ?: 0L).toString(), dwflags.toInt(), (lpdate?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpdatestr?.value ?: 0L).toString(), cchdate, (lpcalendar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDateFormatW(locale: UInt, dwflags: UInt, lpdate: Long, lpformat: PCWSTR, lpdatestr: PWSTR, cchdate: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDateFormatW(locale.toInt(), dwflags.toInt(), lpdate.toString(), lpformat.toString(), lpdatestr.toString(), cchdate) as Int) else 0
+public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: COpaquePointer?, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDateFormatW(locale.toInt(), dwflags.toInt(), (lpdate?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpdatestr?.value ?: 0L).toString(), cchdate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDistanceOfClosestLanguageInList(pszlanguage: PCWSTR, pszlanguageslist: PCWSTR, wchlistdelimiter: UShort, pclosestdistance: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDistanceOfClosestLanguageInList(pszlanguage.toString(), pszlanguageslist.toString(), wchlistdelimiter.toInt(), pclosestdistance.toString()) as Int) else 0
+public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDistanceOfClosestLanguageInList((pszlanguage?.value ?: 0L).toString(), (pszlanguageslist?.value ?: 0L).toString(), wchlistdelimiter.toInt(), (pclosestdistance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDurationFormat(locale: UInt, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDurationFormat(locale.toInt(), dwflags.toInt(), lpduration.toString(), ullduration.toString(), lpformat.toString(), lpdurationstr.toString(), cchduration) as Int) else 0
+public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDurationFormat(locale.toInt(), dwflags.toInt(), (lpduration?.value ?: 0L).toString(), ullduration.toString(), (lpformat?.value ?: 0L).toString(), (lpdurationstr?.value ?: 0L).toString(), cchduration) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDurationFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpduration: Long, ullduration: ULong, lpformat: PCWSTR, lpdurationstr: PWSTR, cchduration: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetDurationFormatEx(lplocalename.toString(), dwflags.toInt(), lpduration.toString(), ullduration.toString(), lpformat.toString(), lpdurationstr.toString(), cchduration) as Int) else 0
+public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: COpaquePointer?, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getDurationFormatEx((lplocalename?.value ?: 0L).toString(), dwflags.toInt(), (lpduration?.value ?: 0L).toString(), ullduration.toString(), (lpformat?.value ?: 0L).toString(), (lpdurationstr?.value ?: 0L).toString(), cchduration) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileMUIInfo(dwflags: UInt, pcwszfilepath: PCWSTR, pfilemuiinfo: Long, pcbfilemuiinfo: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetFileMUIInfo(dwflags.toInt(), pcwszfilepath.toString(), pfilemuiinfo.toString(), pcbfilemuiinfo.toString()) as Int) else 0
+public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: COpaquePointer?, pcbfilemuiinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getFileMUIInfo(dwflags.toInt(), (pcwszfilepath?.value ?: 0L).toString(), (pfilemuiinfo?.value ?: 0L).toString(), (pcbfilemuiinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileMUIPath(dwflags: UInt, pcwszfilepath: PCWSTR, pwszlanguage: PWSTR, pcchlanguage: Long, pwszfilemuipath: PWSTR, pcchfilemuipath: Long, pululenumerator: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetFileMUIPath(dwflags.toInt(), pcwszfilepath.toString(), pwszlanguage.toString(), pcchlanguage.toString(), pwszfilemuipath.toString(), pcchfilemuipath.toString(), pululenumerator.toString()) as Int) else 0
+public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: COpaquePointer?, pwszfilemuipath: Pwstr, pcchfilemuipath: COpaquePointer?, pululenumerator: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getFileMUIPath(dwflags.toInt(), (pcwszfilepath?.value ?: 0L).toString(), (pwszlanguage?.value ?: 0L).toString(), (pcchlanguage?.value ?: 0L).toString(), (pwszfilemuipath?.value ?: 0L).toString(), (pcchfilemuipath?.value ?: 0L).toString(), (pululenumerator?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGeoInfoA(location: Int, geotype: SYSGEOTYPE, lpgeodata: PSTR, cchdata: Int, langid: UShort): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetGeoInfoA(location, geotype, lpgeodata.toString(), cchdata, langid.toInt()) as Int) else 0
+public actual fun getGeoInfoA(location: Int, geotype: Sysgeotype, lpgeodata: Pstr, cchdata: Int, langid: UShort): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getGeoInfoA(location, geotype, (lpgeodata?.value ?: 0L).toString(), cchdata, langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGeoInfoEx(location: PCWSTR, geotype: SYSGEOTYPE, geodata: PWSTR, geodatacount: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetGeoInfoEx(location.toString(), geotype, geodata.toString(), geodatacount) as Int) else 0
+public actual fun getGeoInfoEx(location: Pcwstr, geotype: Sysgeotype, geodata: Pwstr, geodatacount: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getGeoInfoEx((location?.value ?: 0L).toString(), geotype, (geodata?.value ?: 0L).toString(), geodatacount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGeoInfoW(location: Int, geotype: SYSGEOTYPE, lpgeodata: PWSTR, cchdata: Int, langid: UShort): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetGeoInfoW(location, geotype, lpgeodata.toString(), cchdata, langid.toInt()) as Int) else 0
+public actual fun getGeoInfoW(location: Int, geotype: Sysgeotype, lpgeodata: Pwstr, cchdata: Int, langid: UShort): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getGeoInfoW(location, geotype, (lpgeodata?.value ?: 0L).toString(), cchdata, langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PSTR, cchdata: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetLocaleInfoA(locale.toInt(), lctype.toInt(), lplcdata.toString(), cchdata) as Int) else 0
+public actual fun getLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pstr, cchdata: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getLocaleInfoA(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L).toString(), cchdata) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLocaleInfoEx(lplocalename: PCWSTR, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetLocaleInfoEx(lplocalename.toString(), lctype.toInt(), lplcdata.toString(), cchdata) as Int) else 0
+public actual fun getLocaleInfoEx(lplocalename: Pcwstr, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getLocaleInfoEx((lplocalename?.value ?: 0L).toString(), lctype.toInt(), (lplcdata?.value ?: 0L).toString(), cchdata) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PWSTR, cchdata: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata.toString(), cchdata) as Int) else 0
+public actual fun getLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getLocaleInfoW(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L).toString(), cchdata) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNLSVersion(function: UInt, locale: UInt, lpversioninformation: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetNLSVersion(function.toInt(), locale.toInt(), lpversioninformation.toString()) as Int) else 0
+public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getNLSVersion(function.toInt(), locale.toInt(), (lpversioninformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNLSVersionEx(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetNLSVersionEx(function.toInt(), lplocalename.toString(), lpversioninformation.toString()) as Int) else 0
+public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getNLSVersionEx(function.toInt(), (lplocalename?.value ?: 0L).toString(), (lpversioninformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: PCSTR, lpformat: Long, lpnumberstr: PSTR, cchnumber: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetNumberFormatA(locale.toInt(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpnumberstr.toString(), cchnumber) as Int) else 0
+public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: COpaquePointer?, lpnumberstr: Pstr, cchnumber: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getNumberFormatA(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpnumberstr?.value ?: 0L).toString(), cchnumber) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNumberFormatEx(lplocalename: PCWSTR, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetNumberFormatEx(lplocalename.toString(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpnumberstr.toString(), cchnumber) as Int) else 0
+public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getNumberFormatEx((lplocalename?.value ?: 0L).toString(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpnumberstr?.value ?: 0L).toString(), cchnumber) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: PCWSTR, lpformat: Long, lpnumberstr: PWSTR, cchnumber: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetNumberFormatW(locale.toInt(), dwflags.toInt(), lpvalue.toString(), lpformat.toString(), lpnumberstr.toString(), cchnumber) as Int) else 0
+public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: COpaquePointer?, lpnumberstr: Pwstr, cchnumber: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getNumberFormatW(locale.toInt(), dwflags.toInt(), (lpvalue?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lpnumberstr?.value ?: 0L).toString(), cchnumber) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetOEMCP(): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetOEMCP() as Int).toUInt() else 0u
+public actual fun getOEMCP(): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getOEMCP() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetProcessPreferredUILanguages(dwflags.toInt(), pulnumlanguages.toString(), pwszlanguagesbuffer.toString(), pcchlanguagesbuffer.toString()) as Int) else 0
+public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getProcessPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L).toString(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pcchlanguagesbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStringScripts(dwflags: UInt, lpstring: PCWSTR, cchstring: Int, lpscripts: PWSTR, cchscripts: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetStringScripts(dwflags.toInt(), lpstring.toString(), cchstring, lpscripts.toString(), cchscripts) as Int) else 0
+public actual fun getStringScripts(dwflags: UInt, lpstring: Pcwstr, cchstring: Int, lpscripts: Pwstr, cchscripts: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getStringScripts(dwflags.toInt(), (lpstring?.value ?: 0L).toString(), cchstring, (lpscripts?.value ?: 0L).toString(), cchscripts) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetStringTypeA(locale.toInt(), dwinfotype.toInt(), lpsrcstr.toString(), cchsrc, lpchartype.toString()) as Int) else 0
+public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getStringTypeA(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpchartype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetStringTypeExA(locale.toInt(), dwinfotype.toInt(), lpsrcstr.toString(), cchsrc, lpchartype.toString()) as Int) else 0
+public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getStringTypeExA(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpchartype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetStringTypeExW(locale.toInt(), dwinfotype.toInt(), lpsrcstr.toString(), cchsrc, lpchartype.toString()) as Int) else 0
+public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getStringTypeExW(locale.toInt(), dwinfotype.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpchartype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStringTypeW(dwinfotype: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpchartype: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetStringTypeW(dwinfotype.toInt(), lpsrcstr.toString(), cchsrc, lpchartype.toString()) as Int) else 0
+public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getStringTypeW(dwinfotype.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpchartype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemDefaultLCID(): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetSystemDefaultLCID() as Int).toUInt() else 0u
+public actual fun getSystemDefaultLCID(): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getSystemDefaultLCID() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemDefaultLangID(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetSystemDefaultLangID() as Int).toUShort() else 0u
+public actual fun getSystemDefaultLangID(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getSystemDefaultLangID() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetSystemDefaultLocaleName(lplocalename.toString(), cchlocalename) as Int) else 0
+public actual fun getSystemDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getSystemDefaultLocaleName((lplocalename?.value ?: 0L).toString(), cchlocalename) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemDefaultUILanguage(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetSystemDefaultUILanguage() as Int).toUShort() else 0u
+public actual fun getSystemDefaultUILanguage(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getSystemDefaultUILanguage() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetSystemPreferredUILanguages(dwflags.toInt(), pulnumlanguages.toString(), pwszlanguagesbuffer.toString(), pcchlanguagesbuffer.toString()) as Int) else 0
+public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getSystemPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L).toString(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pcchlanguagesbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTextCharset(hdc: HDC): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetTextCharset(hdc.toString()) as Int) else 0
+public actual fun getTextCharset(hdc: Hdc): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getTextCharset((hdc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTextCharsetInfo(hdc: HDC, lpsig: Long, dwflags: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetTextCharsetInfo(hdc.toString(), lpsig.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: COpaquePointer?, dwflags: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getTextCharsetInfo((hdc?.value ?: 0L).toString(), (lpsig?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadLocale(): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetThreadLocale() as Int).toUInt() else 0u
+public actual fun getThreadLocale(): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getThreadLocale() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetThreadPreferredUILanguages(dwflags.toInt(), pulnumlanguages.toString(), pwszlanguagesbuffer.toString(), pcchlanguagesbuffer.toString()) as Int) else 0
+public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getThreadPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L).toString(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pcchlanguagesbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadUILanguage(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetThreadUILanguage() as Int).toUShort() else 0u
+public actual fun getThreadUILanguage(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getThreadUILanguage() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimeFormatA(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCSTR, lptimestr: PSTR, cchtime: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetTimeFormatA(locale.toInt(), dwflags.toInt(), lptime.toString(), lpformat.toString(), lptimestr.toString(), cchtime) as Int) else 0
+public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getTimeFormatA(locale.toInt(), dwflags.toInt(), (lptime?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lptimestr?.value ?: 0L).toString(), cchtime) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimeFormatEx(lplocalename: PCWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetTimeFormatEx(lplocalename.toString(), dwflags.toInt(), lptime.toString(), lpformat.toString(), lptimestr.toString(), cchtime) as Int) else 0
+public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getTimeFormatEx((lplocalename?.value ?: 0L).toString(), dwflags.toInt(), (lptime?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lptimestr?.value ?: 0L).toString(), cchtime) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimeFormatW(locale: UInt, dwflags: UInt, lptime: Long, lpformat: PCWSTR, lptimestr: PWSTR, cchtime: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetTimeFormatW(locale.toInt(), dwflags.toInt(), lptime.toString(), lpformat.toString(), lptimestr.toString(), cchtime) as Int) else 0
+public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: COpaquePointer?, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getTimeFormatW(locale.toInt(), dwflags.toInt(), (lptime?.value ?: 0L).toString(), (lpformat?.value ?: 0L).toString(), (lptimestr?.value ?: 0L).toString(), cchtime) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUILanguageInfo(dwflags: UInt, pwmszlanguage: PCWSTR, pwszfallbacklanguages: PWSTR, pcchfallbacklanguages: Long, pattributes: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUILanguageInfo(dwflags.toInt(), pwmszlanguage.toString(), pwszfallbacklanguages.toString(), pcchfallbacklanguages.toString(), pattributes.toString()) as Int) else 0
+public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: COpaquePointer?, pattributes: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUILanguageInfo(dwflags.toInt(), (pwmszlanguage?.value ?: 0L).toString(), (pwszfallbacklanguages?.value ?: 0L).toString(), (pcchfallbacklanguages?.value ?: 0L).toString(), (pattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserDefaultGeoName(geoname: PWSTR, geonamecount: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserDefaultGeoName(geoname.toString(), geonamecount) as Int) else 0
+public actual fun getUserDefaultGeoName(geoname: Pwstr, geonamecount: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserDefaultGeoName((geoname?.value ?: 0L).toString(), geonamecount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserDefaultLCID(): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserDefaultLCID() as Int).toUInt() else 0u
+public actual fun getUserDefaultLCID(): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserDefaultLCID() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserDefaultLangID(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserDefaultLangID() as Int).toUShort() else 0u
+public actual fun getUserDefaultLangID(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserDefaultLangID() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserDefaultLocaleName(lplocalename: PWSTR, cchlocalename: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserDefaultLocaleName(lplocalename.toString(), cchlocalename) as Int) else 0
+public actual fun getUserDefaultLocaleName(lplocalename: Pwstr, cchlocalename: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserDefaultLocaleName((lplocalename?.value ?: 0L).toString(), cchlocalename) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserDefaultUILanguage(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserDefaultUILanguage() as Int).toUShort() else 0u
+public actual fun getUserDefaultUILanguage(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserDefaultUILanguage() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserGeoID(geoclass: SYSGEOCLASS): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserGeoID(geoclass) as Int) else 0
+public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserGeoID(geoclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, pwszlanguagesbuffer: PWSTR, pcchlanguagesbuffer: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_GetUserPreferredUILanguages(dwflags.toInt(), pulnumlanguages.toString(), pwszlanguagesbuffer.toString(), pcchlanguagesbuffer.toString()) as Int) else 0
+public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: COpaquePointer?, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_getUserPreferredUILanguages(dwflags.toInt(), (pulnumlanguages?.value ?: 0L).toString(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pcchlanguagesbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IdnToAscii(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpasciicharstr: PWSTR, cchasciichar: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IdnToAscii(dwflags.toInt(), lpunicodecharstr.toString(), cchunicodechar, lpasciicharstr.toString(), cchasciichar) as Int) else 0
+public actual fun idnToAscii(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpasciicharstr: Pwstr, cchasciichar: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_idnToAscii(dwflags.toInt(), (lpunicodecharstr?.value ?: 0L).toString(), cchunicodechar, (lpasciicharstr?.value ?: 0L).toString(), cchasciichar) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IdnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: PCWSTR, cchunicodechar: Int, lpnameprepcharstr: PWSTR, cchnameprepchar: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IdnToNameprepUnicode(dwflags.toInt(), lpunicodecharstr.toString(), cchunicodechar, lpnameprepcharstr.toString(), cchnameprepchar) as Int) else 0
+public actual fun idnToNameprepUnicode(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpnameprepcharstr: Pwstr, cchnameprepchar: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_idnToNameprepUnicode(dwflags.toInt(), (lpunicodecharstr?.value ?: 0L).toString(), cchunicodechar, (lpnameprepcharstr?.value ?: 0L).toString(), cchnameprepchar) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IdnToUnicode(dwflags: UInt, lpasciicharstr: PCWSTR, cchasciichar: Int, lpunicodecharstr: PWSTR, cchunicodechar: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IdnToUnicode(dwflags.toInt(), lpasciicharstr.toString(), cchasciichar, lpunicodecharstr.toString(), cchunicodechar) as Int) else 0
+public actual fun idnToUnicode(dwflags: UInt, lpasciicharstr: Pcwstr, cchasciichar: Int, lpunicodecharstr: Pwstr, cchunicodechar: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_idnToUnicode(dwflags.toInt(), (lpasciicharstr?.value ?: 0L).toString(), cchasciichar, (lpunicodecharstr?.value ?: 0L).toString(), cchunicodechar) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCalendarLeapYear(calid: UInt, year: UInt, era: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt()) as Int) else 0
+public actual fun isCalendarLeapYear(calid: UInt, year: UInt, era: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isCalendarLeapYear(calid.toInt(), year.toInt(), era.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDBCSLeadByte(testchar: UByte): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsDBCSLeadByte(testchar.toInt()) as Int) else 0
+public actual fun isDBCSLeadByte(testchar: UByte): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isDBCSLeadByte(testchar.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDBCSLeadByteEx(codepage: UInt, testchar: UByte): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsDBCSLeadByteEx(codepage.toInt(), testchar.toInt()) as Int) else 0
+public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isDBCSLeadByteEx(codepage.toInt(), testchar.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: Long, lpstring: PCWSTR, cchstr: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsNLSDefinedString(function.toInt(), dwflags.toInt(), lpversioninformation.toString(), lpstring.toString(), cchstr) as Int) else 0
+public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: COpaquePointer?, lpstring: Pcwstr, cchstr: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isNLSDefinedString(function.toInt(), dwflags.toInt(), (lpversioninformation?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString(), cchstr) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsNormalizedString(normform: NORM_FORM, lpstring: PCWSTR, cwlength: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsNormalizedString(normform, lpstring.toString(), cwlength) as Int) else 0
+public actual fun isNormalizedString(normform: NormForm, lpstring: Pcwstr, cwlength: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isNormalizedString(normform, (lpstring?.value ?: 0L).toString(), cwlength) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsTextUnicode(lpv: Long, isize: Int, lpiresult: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsTextUnicode(lpv.toString(), isize, lpiresult.toString()) as Int) else 0
+public actual fun isTextUnicode(lpv: COpaquePointer?, isize: Int, lpiresult: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isTextUnicode((lpv?.value ?: 0L).toString(), isize, (lpiresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidCodePage(codepage: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsValidCodePage(codepage.toInt()) as Int) else 0
+public actual fun isValidCodePage(codepage: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isValidCodePage(codepage.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidLanguageGroup(languagegroup: UInt, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsValidLanguageGroup(languagegroup.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun isValidLanguageGroup(languagegroup: UInt, dwflags: EnumSystemLanguageGroupsFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isValidLanguageGroup(languagegroup.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidLocale(locale: UInt, dwflags: IS_VALID_LOCALE_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsValidLocale(locale.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isValidLocale(locale.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidLocaleName(lplocalename: PCWSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsValidLocaleName(lplocalename.toString()) as Int) else 0
+public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isValidLocaleName((lplocalename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidNLSVersion(function: UInt, lplocalename: PCWSTR, lpversioninformation: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsValidNLSVersion(function.toInt(), lplocalename.toString(), lpversioninformation.toString()) as Int).toUInt() else 0u
+public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isValidNLSVersion(function.toInt(), (lplocalename?.value ?: 0L).toString(), (lpversioninformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWellFormedTag(psztag: PCWSTR): UByte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_IsWellFormedTag(psztag.toString()) as Int).toUByte() else 0u
+public actual fun isWellFormedTag(psztag: Pcwstr): UByte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_isWellFormedTag((psztag?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LCIDToLocaleName(locale: UInt, lpname: PWSTR, cchname: Int, dwflags: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_LCIDToLocaleName(locale.toInt(), lpname.toString(), cchname, dwflags.toInt()) as Int) else 0
+public actual fun lCIDToLocaleName(locale: UInt, lpname: Pwstr, cchname: Int, dwflags: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lCIDToLocaleName(locale.toInt(), (lpname?.value ?: 0L).toString(), cchname, dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_LCMapStringA(locale.toInt(), dwmapflags.toInt(), lpsrcstr.toString(), cchsrc, lpdeststr.toString(), cchdest) as Int) else 0
+public actual fun lCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lCMapStringA(locale.toInt(), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LCMapStringEx(lplocalename: PCWSTR, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_LCMapStringEx(lplocalename.toString(), dwmapflags.toInt(), lpsrcstr.toString(), cchsrc, lpdeststr.toString(), cchdest, lpversioninformation.toString(), lpreserved.toString(), sorthandle.toString()) as Int) else 0
+public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: COpaquePointer?, lpreserved: COpaquePointer?, sorthandle: Lparam): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lCMapStringEx((lplocalename?.value ?: 0L).toString(), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest, (lpversioninformation?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString(), sorthandle.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_LCMapStringW(locale.toInt(), dwmapflags.toInt(), lpsrcstr.toString(), cchsrc, lpdeststr.toString(), cchdest) as Int) else 0
+public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lCMapStringW(locale.toInt(), dwmapflags.toInt(), (lpsrcstr?.value ?: 0L).toString(), cchsrc, (lpdeststr?.value ?: 0L).toString(), cchdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LocaleNameToLCID(lpname: PCWSTR, dwflags: UInt): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_LocaleNameToLCID(lpname.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun localeNameToLCID(lpname: Pcwstr, dwflags: UInt): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_localeNameToLCID((lpname?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MappingDoAction(pbag: Long, dwrangeindex: UInt, pszactionid: PCWSTR): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MappingDoAction(pbag.toString(), dwrangeindex.toInt(), pszactionid.toString()) as Int) else 0
+public actual fun mappingDoAction(pbag: COpaquePointer?, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_mappingDoAction((pbag?.value ?: 0L).toString(), dwrangeindex.toInt(), (pszactionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MappingFreePropertyBag(pbag: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MappingFreePropertyBag(pbag.toString()) as Int) else 0
+public actual fun mappingFreePropertyBag(pbag: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_mappingFreePropertyBag((pbag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MappingFreeServices(pserviceinfo: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MappingFreeServices(pserviceinfo.toString()) as Int) else 0
+public actual fun mappingFreeServices(pserviceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_mappingFreeServices((pserviceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MappingGetServices(poptions: Long, prgservices: Long, pdwservicescount: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MappingGetServices(poptions.toString(), prgservices.toString(), pdwservicescount.toString()) as Int) else 0
+public actual fun mappingGetServices(poptions: COpaquePointer?, prgservices: COpaquePointer?, pdwservicescount: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_mappingGetServices((poptions?.value ?: 0L).toString(), (prgservices?.value ?: 0L).toString(), (pdwservicescount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MappingRecognizeText(pserviceinfo: Long, psztext: PCWSTR, dwlength: UInt, dwindex: UInt, poptions: Long, pbag: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MappingRecognizeText(pserviceinfo.toString(), psztext.toString(), dwlength.toInt(), dwindex.toInt(), poptions.toString(), pbag.toString()) as Int) else 0
+public actual fun mappingRecognizeText(pserviceinfo: COpaquePointer?, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: COpaquePointer?, pbag: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_mappingRecognizeText((pserviceinfo?.value ?: 0L).toString(), (psztext?.value ?: 0L).toString(), dwlength.toInt(), dwindex.toInt(), (poptions?.value ?: 0L).toString(), (pbag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MultiByteToWideChar(codepage: UInt, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: PCSTR, cbmultibyte: Int, lpwidecharstr: PWSTR, cchwidechar: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_MultiByteToWideChar(codepage.toInt(), dwflags.toInt(), lpmultibytestr.toString(), cbmultibyte, lpwidecharstr.toString(), cchwidechar) as Int) else 0
+public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCharFlags, lpmultibytestr: Pcstr, cbmultibyte: Int, lpwidecharstr: Pwstr, cchwidechar: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_multiByteToWideChar(codepage.toInt(), dwflags.toInt(), (lpmultibytestr?.value ?: 0L).toString(), cbmultibyte, (lpwidecharstr?.value ?: 0L).toString(), cchwidechar) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NormalizeString(normform: NORM_FORM, lpsrcstring: PCWSTR, cwsrclength: Int, lpdststring: PWSTR, cwdstlength: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_NormalizeString(normform, lpsrcstring.toString(), cwsrclength, lpdststring.toString(), cwdstlength) as Int) else 0
+public actual fun normalizeString(normform: NormForm, lpsrcstring: Pcwstr, cwsrclength: Int, lpdststring: Pwstr, cwdstlength: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_normalizeString(normform, (lpsrcstring?.value ?: 0L).toString(), cwsrclength, (lpdststring?.value ?: 0L).toString(), cwdstlength) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NotifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: PCWSTR, pcwstrpreviouslanguage: PCWSTR, dwreserved: UInt, pdwstatusrtrn: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_NotifyUILanguageChange(dwflags.toInt(), pcwstrnewlanguage.toString(), pcwstrpreviouslanguage.toString(), dwreserved.toInt(), pdwstatusrtrn.toString()) as Int) else 0
+public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_notifyUILanguageChange(dwflags.toInt(), (pcwstrnewlanguage?.value ?: 0L).toString(), (pcwstrpreviouslanguage?.value ?: 0L).toString(), dwreserved.toInt(), (pdwstatusrtrn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResolveLocaleName(lpnametoresolve: PCWSTR, lplocalename: PWSTR, cchlocalename: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ResolveLocaleName(lpnametoresolve.toString(), lplocalename.toString(), cchlocalename) as Int) else 0
+public actual fun resolveLocaleName(lpnametoresolve: Pcwstr, lplocalename: Pwstr, cchlocalename: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_resolveLocaleName((lpnametoresolve?.value ?: 0L).toString(), (lplocalename?.value ?: 0L).toString(), cchlocalename) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
+public actual fun restoreThreadPreferredUILanguages(snapshot: Hsaveduilanguages) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_RestoreThreadPreferredUILanguages(snapshot.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_restoreThreadPreferredUILanguages((snapshot?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ScriptApplyDigitSubstitution(psds: Long, psc: Long, pss: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptApplyDigitSubstitution(psds.toString(), psc.toString(), pss.toString()) as Int) else 0
+public actual fun scriptApplyDigitSubstitution(psds: COpaquePointer?, psc: COpaquePointer?, pss: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptApplyDigitSubstitution((psds?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (pss?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptApplyLogicalWidth(pidx: Long, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pabc: Long, pijustify: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptApplyLogicalWidth(pidx.toString(), cchars, cglyphs, pwlogclust.toString(), psva.toString(), piadvance.toString(), psa.toString(), pabc.toString(), pijustify.toString()) as Int) else 0
+public actual fun scriptApplyLogicalWidth(pidx: COpaquePointer?, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pabc: COpaquePointer?, pijustify: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptApplyLogicalWidth((pidx?.value ?: 0L).toString(), cchars, cglyphs, (pwlogclust?.value ?: 0L).toString(), (psva?.value ?: 0L).toString(), (piadvance?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), (pabc?.value ?: 0L).toString(), (pijustify?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptBreak(pwcchars: PCWSTR, cchars: Int, psa: Long, psla: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptBreak(pwcchars.toString(), cchars, psa.toString(), psla.toString()) as Int) else 0
+public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: COpaquePointer?, psla: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptBreak((pwcchars?.value ?: 0L).toString(), cchars, (psa?.value ?: 0L).toString(), (psla?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptCPtoX(icp: Int, ftrailing: BOOL, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, pix: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust.toString(), psva.toString(), piadvance.toString(), psa.toString(), pix.toString()) as Int) else 0
+public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, pix: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptCPtoX(icp, ftrailing, cchars, cglyphs, (pwlogclust?.value ?: 0L).toString(), (psva?.value ?: 0L).toString(), (piadvance?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), (pix?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptCacheGetHeight(hdc: HDC, psc: Long, tmheight: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptCacheGetHeight(hdc.toString(), psc.toString(), tmheight.toString()) as Int) else 0
+public actual fun scriptCacheGetHeight(hdc: Hdc, psc: COpaquePointer?, tmheight: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptCacheGetHeight((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (tmheight?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptFreeCache(psc: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptFreeCache(psc.toString()) as Int) else 0
+public actual fun scriptFreeCache(psc: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptFreeCache((psc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetCMap(hdc: HDC, psc: Long, pwcinchars: PCWSTR, cchars: Int, dwflags: UInt, pwoutglyphs: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetCMap(hdc.toString(), psc.toString(), pwcinchars.toString(), cchars, dwflags.toInt(), pwoutglyphs.toString()) as Int) else 0
+public actual fun scriptGetCMap(hdc: Hdc, psc: COpaquePointer?, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetCMap((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (pwcinchars?.value ?: 0L).toString(), cchars, dwflags.toInt(), (pwoutglyphs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetFontAlternateGlyphs(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetFontAlternateGlyphs(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), wglyphid.toInt(), cmaxalternates, palternateglyphs.toString(), pcalternates.toString()) as Int) else 0
+public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: COpaquePointer?, pcalternates: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetFontAlternateGlyphs((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), wglyphid.toInt(), cmaxalternates, (palternateglyphs?.value ?: 0L).toString(), (pcalternates?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetFontFeatureTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: Long, pctags: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetFontFeatureTags(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), taglangsys.toInt(), cmaxtags, pfeaturetags.toString(), pctags.toString()) as Int) else 0
+public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetFontFeatureTags((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), taglangsys.toInt(), cmaxtags, (pfeaturetags?.value ?: 0L).toString(), (pctags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetFontLanguageTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, cmaxtags: Int, plangsystags: Long, pctags: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetFontLanguageTags(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), cmaxtags, plangsystags.toString(), pctags.toString()) as Int) else 0
+public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, cmaxtags: Int, plangsystags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetFontLanguageTags((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), cmaxtags, (plangsystags?.value ?: 0L).toString(), (pctags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetFontProperties(hdc: HDC, psc: Long, sfp: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetFontProperties(hdc.toString(), psc.toString(), sfp.toString()) as Int) else 0
+public actual fun scriptGetFontProperties(hdc: Hdc, psc: COpaquePointer?, sfp: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetFontProperties((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (sfp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetFontScriptTags(hdc: HDC, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetFontScriptTags(hdc.toString(), psc.toString(), psa.toString(), cmaxtags, pscripttags.toString(), pctags.toString()) as Int) else 0
+public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, cmaxtags: Int, pscripttags: COpaquePointer?, pctags: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetFontScriptTags((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), cmaxtags, (pscripttags?.value ?: 0L).toString(), (pctags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetGlyphABCWidth(hdc: HDC, psc: Long, wglyph: UShort, pabc: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetGlyphABCWidth(hdc.toString(), psc.toString(), wglyph.toInt(), pabc.toString()) as Int) else 0
+public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: COpaquePointer?, wglyph: UShort, pabc: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetGlyphABCWidth((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), wglyph.toInt(), (pabc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetLogicalWidths(psa.toString(), cchars, cglyphs, piglyphwidth.toString(), pwlogclust.toString(), psva.toString(), pidx.toString()) as Int) else 0
+public actual fun scriptGetLogicalWidths(psa: COpaquePointer?, cchars: Int, cglyphs: Int, piglyphwidth: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetLogicalWidths((psa?.value ?: 0L).toString(), cchars, cglyphs, (piglyphwidth?.value ?: 0L).toString(), (pwlogclust?.value ?: 0L).toString(), (psva?.value ?: 0L).toString(), (pidx?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptGetProperties(ppsp: Long, pinumscripts: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptGetProperties(ppsp.toString(), pinumscripts.toString()) as Int) else 0
+public actual fun scriptGetProperties(ppsp: COpaquePointer?, pinumscripts: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptGetProperties((ppsp?.value ?: 0L).toString(), (pinumscripts?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptIsComplex(pwcinchars: PCWSTR, cinchars: Int, dwflags: SCRIPT_IS_COMPLEX_FLAGS): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptIsComplex(pwcinchars.toString(), cinchars, dwflags.toInt()) as Int) else 0
+public actual fun scriptIsComplex(pwcinchars: Pcwstr, cinchars: Int, dwflags: ScriptIsComplexFlags): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptIsComplex((pwcinchars?.value ?: 0L).toString(), cinchars, dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptItemize(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pcitems: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptItemize(pwcinchars.toString(), cinchars, cmaxitems, pscontrol.toString(), psstate.toString(), pitems.toString(), pcitems.toString()) as Int) else 0
+public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptItemize((pwcinchars?.value ?: 0L).toString(), cinchars, cmaxitems, (pscontrol?.value ?: 0L).toString(), (psstate?.value ?: 0L).toString(), (pitems?.value ?: 0L).toString(), (pcitems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptItemizeOpenType(pwcinchars: PCWSTR, cinchars: Int, cmaxitems: Int, pscontrol: Long, psstate: Long, pitems: Long, pscripttags: Long, pcitems: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptItemizeOpenType(pwcinchars.toString(), cinchars, cmaxitems, pscontrol.toString(), psstate.toString(), pitems.toString(), pscripttags.toString(), pcitems.toString()) as Int) else 0
+public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pitems: COpaquePointer?, pscripttags: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptItemizeOpenType((pwcinchars?.value ?: 0L).toString(), cinchars, cmaxitems, (pscontrol?.value ?: 0L).toString(), (psstate?.value ?: 0L).toString(), (pitems?.value ?: 0L).toString(), (pscripttags?.value ?: 0L).toString(), (pcitems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptJustify(psva: Long, piadvance: Long, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptJustify(psva.toString(), piadvance.toString(), cglyphs, idx, iminkashida, pijustify.toString()) as Int) else 0
+public actual fun scriptJustify(psva: COpaquePointer?, piadvance: COpaquePointer?, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptJustify((psva?.value ?: 0L).toString(), (piadvance?.value ?: 0L).toString(), cglyphs, idx, iminkashida, (pijustify?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilogicaltovisual: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptLayout(cruns, pblevel.toString(), pivisualtological.toString(), pilogicaltovisual.toString()) as Int) else 0
+public actual fun scriptLayout(cruns: Int, pblevel: COpaquePointer?, pivisualtological: COpaquePointer?, pilogicaltovisual: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptLayout(cruns, (pblevel?.value ?: 0L).toString(), (pivisualtological?.value ?: 0L).toString(), (pilogicaltovisual?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptPlace(hdc: HDC, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptPlace(hdc.toString(), psc.toString(), pwglyphs.toString(), cglyphs, psva.toString(), psa.toString(), piadvance.toString(), pgoffset.toString(), pabc.toString()) as Int) else 0
+public actual fun scriptPlace(hdc: Hdc, psc: COpaquePointer?, pwglyphs: COpaquePointer?, cglyphs: Int, psva: COpaquePointer?, psa: COpaquePointer?, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptPlace((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (pwglyphs?.value ?: 0L).toString(), cglyphs, (psva?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), (piadvance?.value ?: 0L).toString(), (pgoffset?.value ?: 0L).toString(), (pabc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptPlaceOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptPlaceOpenType(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), taglangsys.toInt(), rcrangechars.toString(), rprangeproperties.toString(), cranges, pwcchars.toString(), pwlogclust.toString(), pcharprops.toString(), cchars, pwglyphs.toString(), pglyphprops.toString(), cglyphs, piadvance.toString(), pgoffset.toString(), pabc.toString()) as Int) else 0
+public actual fun scriptPlaceOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, cchars: Int, pwglyphs: COpaquePointer?, pglyphprops: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pgoffset: COpaquePointer?, pabc: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptPlaceOpenType((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), taglangsys.toInt(), (rcrangechars?.value ?: 0L).toString(), (rprangeproperties?.value ?: 0L).toString(), cranges, (pwcchars?.value ?: 0L).toString(), (pwlogclust?.value ?: 0L).toString(), (pcharprops?.value ?: 0L).toString(), cchars, (pwglyphs?.value ?: 0L).toString(), (pglyphprops?.value ?: 0L).toString(), cglyphs, (piadvance?.value ?: 0L).toString(), (pgoffset?.value ?: 0L).toString(), (pabc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptPositionSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: GOFFSET, pioutadvance: Long, poutgoffset: Long): HRESULT =
-    0
+public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: COpaquePointer?, poutgoffset: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptRecordDigitSubstitution(locale: UInt, psds: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptRecordDigitSubstitution(locale.toInt(), psds.toString()) as Int) else 0
+public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptRecordDigitSubstitution(locale.toInt(), (psds?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptShape(hdc: HDC, psc: Long, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptShape(hdc.toString(), psc.toString(), pwcchars.toString(), cchars, cmaxglyphs, psa.toString(), pwoutglyphs.toString(), pwlogclust.toString(), psva.toString(), pcglyphs.toString()) as Int) else 0
+public actual fun scriptShape(hdc: Hdc, psc: COpaquePointer?, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: COpaquePointer?, pwoutglyphs: COpaquePointer?, pwlogclust: COpaquePointer?, psva: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptShape((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (pwcchars?.value ?: 0L).toString(), cchars, cmaxglyphs, (psa?.value ?: 0L).toString(), (pwoutglyphs?.value ?: 0L).toString(), (pwlogclust?.value ?: 0L).toString(), (psva?.value ?: 0L).toString(), (pcglyphs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptShapeOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptShapeOpenType(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), taglangsys.toInt(), rcrangechars.toString(), rprangeproperties.toString(), cranges, pwcchars.toString(), cchars, cmaxglyphs, pwlogclust.toString(), pcharprops.toString(), pwoutglyphs.toString(), poutglyphprops.toString(), pcglyphs.toString()) as Int) else 0
+public actual fun scriptShapeOpenType(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, rcrangechars: COpaquePointer?, rprangeproperties: COpaquePointer?, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: COpaquePointer?, pcharprops: COpaquePointer?, pwoutglyphs: COpaquePointer?, poutglyphprops: COpaquePointer?, pcglyphs: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptShapeOpenType((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), taglangsys.toInt(), (rcrangechars?.value ?: 0L).toString(), (rprangeproperties?.value ?: 0L).toString(), cranges, (pwcchars?.value ?: 0L).toString(), cchars, cmaxglyphs, (pwlogclust?.value ?: 0L).toString(), (pcharprops?.value ?: 0L).toString(), (pwoutglyphs?.value ?: 0L).toString(), (poutglyphprops?.value ?: 0L).toString(), (pcglyphs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringAnalyse(hdc: HDC, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringAnalyse(hdc.toString(), pstring.toString(), cstring, cglyphs, icharset, dwflags.toInt(), ireqwidth, pscontrol.toString(), psstate.toString(), pidx.toString(), ptabdef.toString(), pbinclass.toString(), pssa.toString()) as Int) else 0
+public actual fun scriptStringAnalyse(hdc: Hdc, pstring: COpaquePointer?, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: COpaquePointer?, psstate: COpaquePointer?, pidx: COpaquePointer?, ptabdef: COpaquePointer?, pbinclass: COpaquePointer?, pssa: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringAnalyse((hdc?.value ?: 0L).toString(), (pstring?.value ?: 0L).toString(), cstring, cglyphs, icharset, dwflags.toInt(), ireqwidth, (pscontrol?.value ?: 0L).toString(), (psstate?.value ?: 0L).toString(), (pidx?.value ?: 0L).toString(), (ptabdef?.value ?: 0L).toString(), (pbinclass?.value ?: 0L).toString(), (pssa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringCPtoX(ssa: Long, icp: Int, ftrailing: BOOL, px: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringCPtoX(ssa.toString(), icp, ftrailing, px.toString()) as Int) else 0
+public actual fun scriptStringCPtoX(ssa: COpaquePointer?, icp: Int, ftrailing: Bool, px: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringCPtoX((ssa?.value ?: 0L).toString(), icp, ftrailing, (px?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringFree(pssa: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringFree(pssa.toString()) as Int) else 0
+public actual fun scriptStringFree(pssa: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringFree((pssa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringGetLogicalWidths(ssa: Long, pidx: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringGetLogicalWidths(ssa.toString(), pidx.toString()) as Int) else 0
+public actual fun scriptStringGetLogicalWidths(ssa: COpaquePointer?, pidx: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringGetLogicalWidths((ssa?.value ?: 0L).toString(), (pidx?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringGetOrder(ssa: Long, puorder: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringGetOrder(ssa.toString(), puorder.toString()) as Int) else 0
+public actual fun scriptStringGetOrder(ssa: COpaquePointer?, puorder: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringGetOrder((ssa?.value ?: 0L).toString(), (puorder?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: ETO_OPTIONS, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: BOOL): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringOut(ssa.toString(), ix, iy, uoptions.toInt(), prc.toString(), iminsel, imaxsel, fdisabled) as Int) else 0
+public actual fun scriptStringOut(ssa: COpaquePointer?, ix: Int, iy: Int, uoptions: EtoOptions, prc: COpaquePointer?, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringOut((ssa?.value ?: 0L).toString(), ix, iy, uoptions.toInt(), (prc?.value ?: 0L).toString(), iminsel, imaxsel, fdisabled) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringValidate(ssa: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringValidate(ssa.toString()) as Int) else 0
+public actual fun scriptStringValidate(ssa: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringValidate((ssa?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptStringXtoCP(ssa: Long, ix: Int, pich: Long, pitrailing: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptStringXtoCP(ssa.toString(), ix, pich.toString(), pitrailing.toString()) as Int) else 0
+public actual fun scriptStringXtoCP(ssa: COpaquePointer?, ix: Int, pich: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringXtoCP((ssa?.value ?: 0L).toString(), ix, (pich?.value ?: 0L).toString(), (pitrailing?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptString_pLogAttr(ssa: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptString_pLogAttr(ssa.toString()) as String).toLong() else 0L
+public actual fun scriptStringPLogAttr(ssa: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringPLogAttr((ssa?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptString_pSize(ssa: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptString_pSize(ssa.toString()) as String).toLong() else 0L
+public actual fun scriptStringPSize(ssa: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringPSize((ssa?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptString_pcOutChars(ssa: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptString_pcOutChars(ssa.toString()) as String).toLong() else 0L
+public actual fun scriptStringPcOutChars(ssa: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptStringPcOutChars((ssa?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptSubstituteSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptSubstituteSingleGlyph(hdc.toString(), psc.toString(), psa.toString(), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), lparameter, wglyphid.toInt(), pwoutglyphid.toString()) as Int) else 0
+public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: COpaquePointer?, psa: COpaquePointer?, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptSubstituteSingleGlyph((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), lparameter, wglyphid.toInt(), (pwoutglyphid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptTextOut(hdc: HDC, psc: Long, x: Int, y: Int, fuoptions: UInt, lprc: Long, psa: Long, pwcreserved: PCWSTR, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptTextOut(hdc.toString(), psc.toString(), x, y, fuoptions.toInt(), lprc.toString(), psa.toString(), pwcreserved.toString(), ireserved, pwglyphs.toString(), cglyphs, piadvance.toString(), pijustify.toString(), pgoffset.toString()) as Int) else 0
+public actual fun scriptTextOut(hdc: Hdc, psc: COpaquePointer?, x: Int, y: Int, fuoptions: UInt, lprc: COpaquePointer?, psa: COpaquePointer?, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: COpaquePointer?, cglyphs: Int, piadvance: COpaquePointer?, pijustify: COpaquePointer?, pgoffset: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptTextOut((hdc?.value ?: 0L).toString(), (psc?.value ?: 0L).toString(), x, y, fuoptions.toInt(), (lprc?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), (pwcreserved?.value ?: 0L).toString(), ireserved, (pwglyphs?.value ?: 0L).toString(), cglyphs, (piadvance?.value ?: 0L).toString(), (pijustify?.value ?: 0L).toString(), (pgoffset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): HRESULT =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ScriptXtoCP(ix, cchars, cglyphs, pwlogclust.toString(), psva.toString(), piadvance.toString(), psa.toString(), picp.toString(), pitrailing.toString()) as Int) else 0
+public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: COpaquePointer?, psva: COpaquePointer?, piadvance: COpaquePointer?, psa: COpaquePointer?, picp: COpaquePointer?, pitrailing: COpaquePointer?): Hresult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_scriptXtoCP(ix, cchars, cglyphs, (pwlogclust?.value ?: 0L).toString(), (psva?.value ?: 0L).toString(), (piadvance?.value ?: 0L).toString(), (psa?.value ?: 0L).toString(), (picp?.value ?: 0L).toString(), (pitrailing?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.toString()) as Int) else 0
+public actual fun setCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: PCWSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.toString()) as Int) else 0
+public actual fun setCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcwstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), (lpcaldata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: PCSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetLocaleInfoA(locale.toInt(), lctype.toInt(), lplcdata.toString()) as Int) else 0
+public actual fun setLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pcstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setLocaleInfoA(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: PCWSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata.toString()) as Int) else 0
+public actual fun setLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pcwstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setLocaleInfoW(locale.toInt(), lctype.toInt(), (lplcdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetProcessPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer.toString(), pulnumlanguages.toString()) as Int) else 0
+public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setProcessPreferredUILanguages(dwflags.toInt(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pulnumlanguages?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadLocale(locale: UInt): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetThreadLocale(locale.toInt()) as Int) else 0
+public actual fun setThreadLocale(locale: UInt): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setThreadLocale(locale.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: PCWSTR, pulnumlanguages: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer.toString(), pulnumlanguages.toString()) as Int) else 0
+public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setThreadPreferredUILanguages(dwflags.toInt(), (pwszlanguagesbuffer?.value ?: 0L).toString(), (pulnumlanguages?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadPreferredUILanguages2(flags: UInt, languages: PCWSTR, numlanguagesset: Long, snapshot: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetThreadPreferredUILanguages2(flags.toInt(), languages.toString(), numlanguagesset.toString(), snapshot.toString()) as Int) else 0
+public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: COpaquePointer?, snapshot: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setThreadPreferredUILanguages2(flags.toInt(), (languages?.value ?: 0L).toString(), (numlanguagesset?.value ?: 0L).toString(), (snapshot?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadUILanguage(langid: UShort): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetThreadUILanguage(langid.toInt()) as Int).toUShort() else 0u
+public actual fun setThreadUILanguage(langid: UShort): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setThreadUILanguage(langid.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUserGeoID(geoid: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetUserGeoID(geoid) as Int) else 0
+public actual fun setUserGeoID(geoid: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setUserGeoID(geoid) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUserGeoName(geoname: PCWSTR): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_SetUserGeoName(geoname.toString()) as Int) else 0
+public actual fun setUserGeoName(geoname: Pcwstr): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_setUserGeoName((geoname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateCharsetInfo(lpsrc: Long, lpcs: Long, dwflags: TRANSLATE_CHARSET_INFO_FLAGS): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_TranslateCharsetInfo(lpsrc.toString(), lpcs.toString(), dwflags.toInt()) as Int) else 0
+public actual fun translateCharsetInfo(lpsrc: COpaquePointer?, lpcs: COpaquePointer?, dwflags: TranslateCharsetInfoFlags): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_translateCharsetInfo((lpsrc?.value ?: 0L).toString(), (lpcs?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UCNV_FROM_U_CALLBACK_ESCAPE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvFromUCallbackEscape(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_ESCAPE(context.toString(), fromuargs.toString(), codeunits.toString(), length, codepoint, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUCallbackEscape((context?.value ?: 0L).toString(), (fromuargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, codepoint, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SKIP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvFromUCallbackSkip(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SKIP(context.toString(), fromuargs.toString(), codeunits.toString(), length, codepoint, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUCallbackSkip((context?.value ?: 0L).toString(), (fromuargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, codepoint, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_STOP(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvFromUCallbackStop(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_STOP(context.toString(), fromuargs.toString(), codeunits.toString(), length, codepoint, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUCallbackStop((context?.value ?: 0L).toString(), (fromuargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, codepoint, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: Long, fromuargs: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvFromUCallbackSubstitute(context: COpaquePointer?, fromuargs: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_FROM_U_CALLBACK_SUBSTITUTE(context.toString(), fromuargs.toString(), codeunits.toString(), length, codepoint, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUCallbackSubstitute((context?.value ?: 0L).toString(), (fromuargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, codepoint, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_TO_U_CALLBACK_ESCAPE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvToUCallbackEscape(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_ESCAPE(context.toString(), touargs.toString(), codeunits.toString(), length, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUCallbackEscape((context?.value ?: 0L).toString(), (touargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SKIP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvToUCallbackSkip(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SKIP(context.toString(), touargs.toString(), codeunits.toString(), length, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUCallbackSkip((context?.value ?: 0L).toString(), (touargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_TO_U_CALLBACK_STOP(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvToUCallbackStop(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_STOP(context.toString(), touargs.toString(), codeunits.toString(), length, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUCallbackStop((context?.value ?: 0L).toString(), (touargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UCNV_TO_U_CALLBACK_SUBSTITUTE(context: Long, touargs: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, err: Long) {
+public actual fun ucnvToUCallbackSubstitute(context: COpaquePointer?, touargs: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UCNV_TO_U_CALLBACK_SUBSTITUTE(context.toString(), touargs.toString(), codeunits.toString(), length, reason, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUCallbackSubstitute((context?.value ?: 0L).toString(), (touargs?.value ?: 0L).toString(), (codeunits?.value ?: 0L).toString(), length, reason, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UpdateCalendarDayOfWeek(lpcaldatetime: Long): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_UpdateCalendarDayOfWeek(lpcaldatetime.toString()) as Int) else 0
+public actual fun updateCalendarDayOfWeek(lpcaldatetime: COpaquePointer?): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_updateCalendarDayOfWeek((lpcaldatetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyScripts(dwflags: UInt, lplocalescripts: PCWSTR, cchlocalescripts: Int, lptestscripts: PCWSTR, cchtestscripts: Int): BOOL =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_VerifyScripts(dwflags.toInt(), lplocalescripts.toString(), cchlocalescripts, lptestscripts.toString(), cchtestscripts) as Int) else 0
+public actual fun verifyScripts(dwflags: UInt, lplocalescripts: Pcwstr, cchlocalescripts: Int, lptestscripts: Pcwstr, cchtestscripts: Int): Bool =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_verifyScripts(dwflags.toInt(), (lplocalescripts?.value ?: 0L).toString(), cchlocalescripts, (lptestscripts?.value ?: 0L).toString(), cchtestscripts) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: PCWSTR, cchwidechar: Int, lpmultibytestr: PSTR, cbmultibyte: Int, lpdefaultchar: PCSTR, lpuseddefaultchar: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_WideCharToMultiByte(codepage.toInt(), dwflags.toInt(), lpwidecharstr.toString(), cchwidechar, lpmultibytestr.toString(), cbmultibyte, lpdefaultchar.toString(), lpuseddefaultchar.toString()) as Int) else 0
+public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_wideCharToMultiByte(codepage.toInt(), dwflags.toInt(), (lpwidecharstr?.value ?: 0L).toString(), cchwidechar, (lpmultibytestr?.value ?: 0L).toString(), cbmultibyte, (lpdefaultchar?.value ?: 0L).toString(), (lpuseddefaultchar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcatA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcatA(lpstring1.toString(), lpstring2.toString()) as String).toLong() else 0L
+public actual fun lstrcatA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcatA((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcatW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcatW(lpstring1.toString(), lpstring2.toString()) as String).toLong() else 0L
+public actual fun lstrcatW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcatW((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcmpA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpA(lpstring1.toString(), lpstring2.toString()) as Int) else 0
+public actual fun lstrcmpA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpA((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcmpW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpW(lpstring1.toString(), lpstring2.toString()) as Int) else 0
+public actual fun lstrcmpW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpW((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcmpiA(lpstring1: PCSTR, lpstring2: PCSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpiA(lpstring1.toString(), lpstring2.toString()) as Int) else 0
+public actual fun lstrcmpiA(lpstring1: Pcstr, lpstring2: Pcstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpiA((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcmpiW(lpstring1: PCWSTR, lpstring2: PCWSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpiW(lpstring1.toString(), lpstring2.toString()) as Int) else 0
+public actual fun lstrcmpiW(lpstring1: Pcwstr, lpstring2: Pcwstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcmpiW((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcpyA(lpstring1: PSTR, lpstring2: PCSTR): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpyA(lpstring1.toString(), lpstring2.toString()) as String).toLong() else 0L
+public actual fun lstrcpyA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpyA((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcpyW(lpstring1: PWSTR, lpstring2: PCWSTR): PWSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpyW(lpstring1.toString(), lpstring2.toString()) as String).toLong() else 0L
+public actual fun lstrcpyW(lpstring1: Pwstr, lpstring2: Pcwstr): Pwstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpyW((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcpynA(lpstring1: PSTR, lpstring2: PCSTR, imaxlength: Int): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpynA(lpstring1.toString(), lpstring2.toString(), imaxlength) as String).toLong() else 0L
+public actual fun lstrcpynA(lpstring1: Pstr, lpstring2: Pcstr, imaxlength: Int): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpynA((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString(), imaxlength) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrcpynW(lpstring1: PWSTR, lpstring2: PCWSTR, imaxlength: Int): PWSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpynW(lpstring1.toString(), lpstring2.toString(), imaxlength) as String).toLong() else 0L
+public actual fun lstrcpynW(lpstring1: Pwstr, lpstring2: Pcwstr, imaxlength: Int): Pwstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrcpynW((lpstring1?.value ?: 0L).toString(), (lpstring2?.value ?: 0L).toString(), imaxlength) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrlenA(lpstring: PCSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrlenA(lpstring.toString()) as Int) else 0
+public actual fun lstrlenA(lpstring: Pcstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrlenA((lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lstrlenW(lpstring: PCWSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrlenW(lpstring.toString()) as Int) else 0
+public actual fun lstrlenW(lpstring: Pcwstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_lstrlenW((lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_UCharsToChars(us: Long, cs: PCSTR, length: Int) {
+public actual fun uUcharsToChars(us: COpaquePointer?, cs: Pcstr, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_UCharsToChars(us.toString(), cs.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uUcharsToChars((us?.value ?: 0L).toString(), (cs?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_austrcpy(dst: PCSTR, src: Long): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_austrcpy(dst.toString(), src.toString()) as String).toLong() else 0L
+public actual fun uAustrcpy(dst: Pcstr, src: COpaquePointer?): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uAustrcpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_austrncpy(dst: PCSTR, src: Long, n: Int): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_austrncpy(dst.toString(), src.toString(), n) as String).toLong() else 0L
+public actual fun uAustrncpy(dst: Pcstr, src: COpaquePointer?, n: Int): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uAustrncpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_catclose(catd: Long) {
+public actual fun uCatclose(catd: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_catclose(catd.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCatclose((catd?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_catgets(catd: Long, set_num: Int, msg_num: Int, s: Long, len: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_catgets(catd.toString(), set_num, msg_num, s.toString(), len.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun uCatgets(catd: COpaquePointer?, setNum: Int, msgNum: Int, s: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCatgets((catd?.value ?: 0L).toString(), setNum, msgNum, (s?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_catopen(name: PCSTR, locale: PCSTR, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_catopen(name.toString(), locale.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCatopen((name?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charAge(c: Int, versionarray: Long) {
+public actual fun uCharAge(c: Int, versionarray: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charAge(c, versionarray.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharAge(c, (versionarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_charDigitValue(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charDigitValue(c) as Int) else 0
+public actual fun uCharDigitValue(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharDigitValue(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charDirection(c: Int): UCharDirection =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charDirection(c) as Int) else 0
+public actual fun uCharDirection(c: Int): UCharDirection =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharDirection(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charFromName(namechoice: UCharNameChoice, name: PCSTR, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charFromName(namechoice, name.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharFromName(namechoice, (name?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charMirror(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charMirror(c) as Int) else 0
+public actual fun uCharMirror(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharMirror(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charName(code: Int, namechoice: UCharNameChoice, buffer: PCSTR, bufferlength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charName(code, namechoice, buffer.toString(), bufferlength, perrorcode.toString()) as Int) else 0
+public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharName(code, namechoice, (buffer?.value ?: 0L).toString(), bufferlength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charType(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charType(c) as Int).toByte() else 0
+public actual fun uCharType(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharType(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_charsToUChars(cs: PCSTR, us: Long, length: Int) {
+public actual fun uCharsToUchars(cs: Pcstr, us: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_charsToUChars(cs.toString(), us.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCharsToUchars((cs?.value ?: 0L).toString(), (us?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_cleanup() {
+public actual fun uCleanup() {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_cleanup()
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCleanup()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_countChar32(s: Long, length: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_countChar32(s.toString(), length) as Int) else 0
+public actual fun uCountChar32(s: COpaquePointer?, length: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uCountChar32((s?.value ?: 0L).toString(), length) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_digit(ch: Int, radix: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_digit(ch, radix.toInt()) as Int) else 0
+public actual fun uDigit(ch: Int, radix: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uDigit(ch, radix.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_enumCharNames(start: Int, limit: Int, fn: Long, context: Long, namechoice: UCharNameChoice, perrorcode: Long) {
+public actual fun uEnumCharNames(start: Int, limit: Int, fn: COpaquePointer?, context: COpaquePointer?, namechoice: UCharNameChoice, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_enumCharNames(start, limit, fn.toString(), context.toString(), namechoice, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uEnumCharNames(start, limit, (fn?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), namechoice, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_enumCharTypes(enumrange: Long, context: Long) {
+public actual fun uEnumCharTypes(enumrange: COpaquePointer?, context: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_enumCharTypes(enumrange.toString(), context.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uEnumCharTypes((enumrange?.value ?: 0L).toString(), (context?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_errorName(code: UErrorCode): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_errorName(code) as String).toLong() else 0L
+public actual fun uErrorName(code: UErrorCode): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uErrorName(code) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_foldCase(c: Int, options: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_foldCase(c, options.toInt()) as Int) else 0
+public actual fun uFoldCase(c: Int, options: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uFoldCase(c, options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_forDigit(digit: Int, radix: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_forDigit(digit, radix.toInt()) as Int) else 0
+public actual fun uForDigit(digit: Int, radix: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uForDigit(digit, radix.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_formatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun uFormatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uFormatMessage((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_formatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, status: Long): Int =
-    0
+public actual fun uFormatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uFormatMessageWithError((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (result?.value ?: 0L).toString(), resultlength, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getBidiPairedBracket(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getBidiPairedBracket(c) as Int) else 0
+public actual fun uGetBidiPairedBracket(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetBidiPairedBracket(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getBinaryPropertySet(property: UProperty, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getBinaryPropertySet(property, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetBinaryPropertySet(property, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getCombiningClass(c: Int): UByte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getCombiningClass(c) as Int).toUByte() else 0u
+public actual fun uGetCombiningClass(c: Int): UByte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetCombiningClass(c) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getDataVersion(dataversionfillin: Long, status: Long) {
+public actual fun uGetDataVersion(dataversionfillin: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getDataVersion(dataversionfillin.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetDataVersion((dataversionfillin?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_getFC_NFKC_Closure(c: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getFC_NFKC_Closure(c, dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun uGetFcNfkcClosure(c: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetFcNfkcClosure(c, (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getIntPropertyMap(property: UProperty, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getIntPropertyMap(property, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetIntPropertyMap(property, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getIntPropertyMaxValue(which: UProperty): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getIntPropertyMaxValue(which) as Int) else 0
+public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetIntPropertyMaxValue(which) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getIntPropertyMinValue(which: UProperty): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getIntPropertyMinValue(which) as Int) else 0
+public actual fun uGetIntPropertyMinValue(which: UProperty): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetIntPropertyMinValue(which) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getIntPropertyValue(c: Int, which: UProperty): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getIntPropertyValue(c, which) as Int) else 0
+public actual fun uGetIntPropertyValue(c: Int, which: UProperty): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetIntPropertyValue(c, which) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getNumericValue(c: Int): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getNumericValue(c) as Double) else 0.0
+public actual fun uGetNumericValue(c: Int): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetNumericValue(c) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getPropertyEnum(alias: PCSTR): UProperty =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getPropertyEnum(alias.toString()) as Int) else 0
+public actual fun uGetPropertyEnum(alias: Pcstr): UProperty =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetPropertyEnum((alias?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getPropertyName(property, namechoice) as String).toLong() else 0L
+public actual fun uGetPropertyName(property: UProperty, namechoice: UPropertyNameChoice): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetPropertyName(property, namechoice) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getPropertyValueEnum(property: UProperty, alias: PCSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getPropertyValueEnum(property, alias.toString()) as Int) else 0
+public actual fun uGetPropertyValueEnum(property: UProperty, alias: Pcstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetPropertyValueEnum(property, (alias?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getPropertyValueName(property, value, namechoice) as String).toLong() else 0L
+public actual fun uGetPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetPropertyValueName(property, value, namechoice) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_getUnicodeVersion(versionarray: Long) {
+public actual fun uGetUnicodeVersion(versionarray: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getUnicodeVersion(versionarray.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetUnicodeVersion((versionarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_getVersion(versionarray: Long) {
+public actual fun uGetVersion(versionarray: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_getVersion(versionarray.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uGetVersion((versionarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_hasBinaryProperty(c: Int, which: UProperty): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_hasBinaryProperty(c, which) as Int).toByte() else 0
+public actual fun uHasBinaryProperty(c: Int, which: UProperty): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uHasBinaryProperty(c, which) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_init(status: Long) {
+public actual fun uInit(status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_init(status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uInit((status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_isIDIgnorable(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isIDIgnorable(c) as Int).toByte() else 0
+public actual fun uIsIdignorable(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsIdignorable(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isIDPart(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isIDPart(c) as Int).toByte() else 0
+public actual fun uIsIdpart(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsIdpart(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isIDStart(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isIDStart(c) as Int).toByte() else 0
+public actual fun uIsIdstart(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsIdstart(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isISOControl(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isISOControl(c) as Int).toByte() else 0
+public actual fun uIsIsocontrol(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsIsocontrol(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isJavaIDPart(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isJavaIDPart(c) as Int).toByte() else 0
+public actual fun uIsJavaIdpart(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsJavaIdpart(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isJavaIDStart(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isJavaIDStart(c) as Int).toByte() else 0
+public actual fun uIsJavaIdstart(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsJavaIdstart(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isJavaSpaceChar(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isJavaSpaceChar(c) as Int).toByte() else 0
+public actual fun uIsJavaSpaceChar(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsJavaSpaceChar(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isMirrored(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isMirrored(c) as Int).toByte() else 0
+public actual fun uIsMirrored(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsMirrored(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isUAlphabetic(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isUAlphabetic(c) as Int).toByte() else 0
+public actual fun uIsUalphabetic(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsUalphabetic(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isULowercase(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isULowercase(c) as Int).toByte() else 0
+public actual fun uIsUlowercase(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsUlowercase(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isUUppercase(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isUUppercase(c) as Int).toByte() else 0
+public actual fun uIsUuppercase(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsUuppercase(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isUWhiteSpace(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isUWhiteSpace(c) as Int).toByte() else 0
+public actual fun uIsUwhiteSpace(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsUwhiteSpace(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isWhitespace(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isWhitespace(c) as Int).toByte() else 0
+public actual fun uIsWhitespace(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsWhitespace(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isalnum(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isalnum(c) as Int).toByte() else 0
+public actual fun uIsalnum(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsalnum(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isalpha(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isalpha(c) as Int).toByte() else 0
+public actual fun uIsalpha(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsalpha(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isbase(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isbase(c) as Int).toByte() else 0
+public actual fun uIsbase(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsbase(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isblank(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isblank(c) as Int).toByte() else 0
+public actual fun uIsblank(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsblank(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_iscntrl(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_iscntrl(c) as Int).toByte() else 0
+public actual fun uIscntrl(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIscntrl(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isdefined(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isdefined(c) as Int).toByte() else 0
+public actual fun uIsdefined(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsdefined(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isdigit(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isdigit(c) as Int).toByte() else 0
+public actual fun uIsdigit(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsdigit(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isgraph(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isgraph(c) as Int).toByte() else 0
+public actual fun uIsgraph(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsgraph(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_islower(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_islower(c) as Int).toByte() else 0
+public actual fun uIslower(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIslower(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isprint(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isprint(c) as Int).toByte() else 0
+public actual fun uIsprint(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsprint(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_ispunct(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_ispunct(c) as Int).toByte() else 0
+public actual fun uIspunct(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIspunct(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isspace(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isspace(c) as Int).toByte() else 0
+public actual fun uIsspace(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsspace(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_istitle(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_istitle(c) as Int).toByte() else 0
+public actual fun uIstitle(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIstitle(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isupper(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isupper(c) as Int).toByte() else 0
+public actual fun uIsupper(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsupper(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_isxdigit(c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_isxdigit(c) as Int).toByte() else 0
+public actual fun uIsxdigit(c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uIsxdigit(c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memcasecmp(s1: Long, s2: Long, length: Int, options: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memcasecmp(s1.toString(), s2.toString(), length, options.toInt()) as Int) else 0
+public actual fun uMemcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, length: Int, options: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemcasecmp((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString(), length, options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memchr(s: Long, c: UShort, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memchr(s.toString(), c.toInt(), count) as String).toLong() else 0L
+public actual fun uMemchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemchr((s?.value ?: 0L).toString(), c.toInt(), count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memchr32(s: Long, c: Int, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memchr32(s.toString(), c, count) as String).toLong() else 0L
+public actual fun uMemchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemchr32((s?.value ?: 0L).toString(), c, count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memcmp(buf1: Long, buf2: Long, count: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memcmp(buf1.toString(), buf2.toString(), count) as Int) else 0
+public actual fun uMemcmp(buf1: COpaquePointer?, buf2: COpaquePointer?, count: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemcmp((buf1?.value ?: 0L).toString(), (buf2?.value ?: 0L).toString(), count) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memcmpCodePointOrder(s1: Long, s2: Long, count: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memcmpCodePointOrder(s1.toString(), s2.toString(), count) as Int) else 0
+public actual fun uMemcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, count: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemcmpCodePointOrder((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString(), count) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memcpy(dest: Long, src: Long, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memcpy(dest.toString(), src.toString(), count) as String).toLong() else 0L
+public actual fun uMemcpy(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemcpy((dest?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memmove(dest: Long, src: Long, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memmove(dest.toString(), src.toString(), count) as String).toLong() else 0L
+public actual fun uMemmove(dest: COpaquePointer?, src: COpaquePointer?, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemmove((dest?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memrchr(s: Long, c: UShort, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memrchr(s.toString(), c.toInt(), count) as String).toLong() else 0L
+public actual fun uMemrchr(s: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemrchr((s?.value ?: 0L).toString(), c.toInt(), count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memrchr32(s: Long, c: Int, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memrchr32(s.toString(), c, count) as String).toLong() else 0L
+public actual fun uMemrchr32(s: COpaquePointer?, c: Int, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemrchr32((s?.value ?: 0L).toString(), c, count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_memset(dest: Long, c: UShort, count: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_memset(dest.toString(), c.toInt(), count) as String).toLong() else 0L
+public actual fun uMemset(dest: COpaquePointer?, c: UShort, count: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uMemset((dest?.value ?: 0L).toString(), c.toInt(), count) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_parseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, status: Long) {
+public actual fun uParseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, status: COpaquePointer?, vararg variadicArgs: Long) {
+    if (_windowsWin32GlobalizationNapiAddon != null) {
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uParseMessage((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (source?.value ?: 0L).toString(), sourcelength, (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun u_parseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, parseerror: Long, status: Long) {
+public actual fun uParseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, parseerror: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    if (_windowsWin32GlobalizationNapiAddon != null) {
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uParseMessageWithError((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (source?.value ?: 0L).toString(), sourcelength, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun u_setMemoryFunctions(context: Long, a: Long, r: Long, f: Long, status: Long) {
+public actual fun uSetMemoryFunctions(context: COpaquePointer?, a: COpaquePointer?, r: COpaquePointer?, f: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_setMemoryFunctions(context.toString(), a.toString(), r.toString(), f.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uSetMemoryFunctions((context?.value ?: 0L).toString(), (a?.value ?: 0L).toString(), (r?.value ?: 0L).toString(), (f?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_shapeArabic(source: Long, sourcelength: Int, dest: Long, destsize: Int, options: UInt, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_shapeArabic(source.toString(), sourcelength, dest.toString(), destsize, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun uShapeArabic(source: COpaquePointer?, sourcelength: Int, dest: COpaquePointer?, destsize: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uShapeArabic((source?.value ?: 0L).toString(), sourcelength, (dest?.value ?: 0L).toString(), destsize, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strCaseCompare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strCaseCompare(s1.toString(), length1, s2.toString(), length2, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun uStrCaseCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrCaseCompare((s1?.value ?: 0L).toString(), length1, (s2?.value ?: 0L).toString(), length2, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strCompare(s1: Long, length1: Int, s2: Long, length2: Int, codepointorder: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strCompare(s1.toString(), length1, s2.toString(), length2, codepointorder.toInt()) as Int) else 0
+public actual fun uStrCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, codepointorder: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrCompare((s1?.value ?: 0L).toString(), length1, (s2?.value ?: 0L).toString(), length2, codepointorder.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strCompareIter(iter1: Long, iter2: Long, codepointorder: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strCompareIter(iter1.toString(), iter2.toString(), codepointorder.toInt()) as Int) else 0
+public actual fun uStrCompareIter(iter1: COpaquePointer?, iter2: COpaquePointer?, codepointorder: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrCompareIter((iter1?.value ?: 0L).toString(), (iter2?.value ?: 0L).toString(), codepointorder.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFindFirst(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFindFirst(s.toString(), length, substring.toString(), sublength) as String).toLong() else 0L
+public actual fun uStrFindFirst(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFindFirst((s?.value ?: 0L).toString(), length, (substring?.value ?: 0L).toString(), sublength) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFindLast(s: Long, length: Int, substring: Long, sublength: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFindLast(s.toString(), length, substring.toString(), sublength) as String).toLong() else 0L
+public actual fun uStrFindLast(s: COpaquePointer?, length: Int, substring: COpaquePointer?, sublength: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFindLast((s?.value ?: 0L).toString(), length, (substring?.value ?: 0L).toString(), sublength) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFoldCase(dest: Long, destcapacity: Int, src: Long, srclength: Int, options: UInt, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFoldCase(dest.toString(), destcapacity, src.toString(), srclength, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun uStrFoldCase(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFoldCase((dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromJavaModifiedUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromJavaModifiedUTF8WithSub(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, subchar, pnumsubstitutions.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromJavaModifiedUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromJavaModifiedUtf8WithSub((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, subchar, (pnumsubstitutions?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromUTF32(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromUtf32((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromUTF32WithSub(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, subchar, pnumsubstitutions.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromUtf32WithSub((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, subchar, (pnumsubstitutions?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromUTF8(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromUTF8(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromUtf8(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromUtf8((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromUTF8Lenient(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromUTF8Lenient(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromUtf8Lenient(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromUtf8Lenient((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromUTF8WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: PCSTR, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromUTF8WithSub(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, subchar, pnumsubstitutions.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromUtf8WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromUtf8WithSub((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, subchar, (pnumsubstitutions?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strFromWCS(dest: Long, destcapacity: Int, pdestlength: Long, src: PCWSTR, srclength: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strFromWCS(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrFromWcs(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: Pcwstr, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrFromWcs((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strHasMoreChar32Than(s: Long, length: Int, number: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strHasMoreChar32Than(s.toString(), length, number) as Int).toByte() else 0
+public actual fun uStrHasMoreChar32Than(s: COpaquePointer?, length: Int, number: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrHasMoreChar32Than((s?.value ?: 0L).toString(), length, number) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToJavaModifiedUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToJavaModifiedUTF8(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToJavaModifiedUtf8((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToLower(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToLower(dest.toString(), destcapacity, src.toString(), srclength, locale.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uStrToLower(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToLower((dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (locale?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToTitle(dest: Long, destcapacity: Int, src: Long, srclength: Int, titleiter: Long, locale: PCSTR, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToTitle(dest.toString(), destcapacity, src.toString(), srclength, titleiter.toString(), locale.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uStrToTitle(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, titleiter: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToTitle((dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (titleiter?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToUTF32(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToUTF32(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToUtf32(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToUtf32((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToUTF32WithSub(dest: Long, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToUTF32WithSub(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, subchar, pnumsubstitutions.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToUtf32WithSub(dest: COpaquePointer?, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToUtf32WithSub((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, subchar, (pnumsubstitutions?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToUTF8(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToUTF8(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToUtf8((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToUTF8WithSub(dest: PCSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, subchar: Int, pnumsubstitutions: Long, perrorcode: Long): PSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToUTF8WithSub(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, subchar, pnumsubstitutions.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, subchar: Int, pnumsubstitutions: COpaquePointer?, perrorcode: COpaquePointer?): Pstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToUtf8WithSub((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, subchar, (pnumsubstitutions?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToUpper(dest: Long, destcapacity: Int, src: Long, srclength: Int, locale: PCSTR, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToUpper(dest.toString(), destcapacity, src.toString(), srclength, locale.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uStrToUpper(dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, locale: Pcstr, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToUpper((dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (locale?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strToWCS(dest: PCWSTR, destcapacity: Int, pdestlength: Long, src: Long, srclength: Int, perrorcode: Long): PWSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strToWCS(dest.toString(), destcapacity, pdestlength.toString(), src.toString(), srclength, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: COpaquePointer?, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Pwstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrToWcs((dest?.value ?: 0L).toString(), destcapacity, (pdestlength?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcasecmp(s1: Long, s2: Long, options: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcasecmp(s1.toString(), s2.toString(), options.toInt()) as Int) else 0
+public actual fun uStrcasecmp(s1: COpaquePointer?, s2: COpaquePointer?, options: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcasecmp((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString(), options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcat(dst: Long, src: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcat(dst.toString(), src.toString()) as String).toLong() else 0L
+public actual fun uStrcat(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcat((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strchr(s: Long, c: UShort): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strchr(s.toString(), c.toInt()) as String).toLong() else 0L
+public actual fun uStrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrchr((s?.value ?: 0L).toString(), c.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strchr32(s: Long, c: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strchr32(s.toString(), c) as String).toLong() else 0L
+public actual fun uStrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrchr32((s?.value ?: 0L).toString(), c) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcmp(s1: Long, s2: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcmp(s1.toString(), s2.toString()) as Int) else 0
+public actual fun uStrcmp(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcmp((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcmpCodePointOrder(s1: Long, s2: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcmpCodePointOrder(s1.toString(), s2.toString()) as Int) else 0
+public actual fun uStrcmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcmpCodePointOrder((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcpy(dst: Long, src: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcpy(dst.toString(), src.toString()) as String).toLong() else 0L
+public actual fun uStrcpy(dst: COpaquePointer?, src: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strcspn(string: Long, matchset: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strcspn(string.toString(), matchset.toString()) as Int) else 0
+public actual fun uStrcspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrcspn((string?.value ?: 0L).toString(), (matchset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strlen(s: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strlen(s.toString()) as Int) else 0
+public actual fun uStrlen(s: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrlen((s?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strncasecmp(s1: Long, s2: Long, n: Int, options: UInt): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strncasecmp(s1.toString(), s2.toString(), n, options.toInt()) as Int) else 0
+public actual fun uStrncasecmp(s1: COpaquePointer?, s2: COpaquePointer?, n: Int, options: UInt): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrncasecmp((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString(), n, options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strncat(dst: Long, src: Long, n: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strncat(dst.toString(), src.toString(), n) as String).toLong() else 0L
+public actual fun uStrncat(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrncat((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strncmp(ucs1: Long, ucs2: Long, n: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strncmp(ucs1.toString(), ucs2.toString(), n) as Int) else 0
+public actual fun uStrncmp(ucs1: COpaquePointer?, ucs2: COpaquePointer?, n: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrncmp((ucs1?.value ?: 0L).toString(), (ucs2?.value ?: 0L).toString(), n) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strncmpCodePointOrder(s1: Long, s2: Long, n: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strncmpCodePointOrder(s1.toString(), s2.toString(), n) as Int) else 0
+public actual fun uStrncmpCodePointOrder(s1: COpaquePointer?, s2: COpaquePointer?, n: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrncmpCodePointOrder((s1?.value ?: 0L).toString(), (s2?.value ?: 0L).toString(), n) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strncpy(dst: Long, src: Long, n: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strncpy(dst.toString(), src.toString(), n) as String).toLong() else 0L
+public actual fun uStrncpy(dst: COpaquePointer?, src: COpaquePointer?, n: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrncpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strpbrk(string: Long, matchset: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strpbrk(string.toString(), matchset.toString()) as String).toLong() else 0L
+public actual fun uStrpbrk(string: COpaquePointer?, matchset: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrpbrk((string?.value ?: 0L).toString(), (matchset?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strrchr(s: Long, c: UShort): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strrchr(s.toString(), c.toInt()) as String).toLong() else 0L
+public actual fun uStrrchr(s: COpaquePointer?, c: UShort): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrrchr((s?.value ?: 0L).toString(), c.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strrchr32(s: Long, c: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strrchr32(s.toString(), c) as String).toLong() else 0L
+public actual fun uStrrchr32(s: COpaquePointer?, c: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrrchr32((s?.value ?: 0L).toString(), c) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strrstr(s: Long, substring: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strrstr(s.toString(), substring.toString()) as String).toLong() else 0L
+public actual fun uStrrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrrstr((s?.value ?: 0L).toString(), (substring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strspn(string: Long, matchset: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strspn(string.toString(), matchset.toString()) as Int) else 0
+public actual fun uStrspn(string: COpaquePointer?, matchset: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrspn((string?.value ?: 0L).toString(), (matchset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strstr(s: Long, substring: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strstr(s.toString(), substring.toString()) as String).toLong() else 0L
+public actual fun uStrstr(s: COpaquePointer?, substring: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrstr((s?.value ?: 0L).toString(), (substring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_strtok_r(src: Long, delim: Long, savestate: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_strtok_r(src.toString(), delim.toString(), savestate.toString()) as String).toLong() else 0L
+public actual fun uStrtokR(src: COpaquePointer?, delim: COpaquePointer?, savestate: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uStrtokR((src?.value ?: 0L).toString(), (delim?.value ?: 0L).toString(), (savestate?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_tolower(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_tolower(c) as Int) else 0
+public actual fun uTolower(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uTolower(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_totitle(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_totitle(c) as Int) else 0
+public actual fun uTotitle(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uTotitle(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_toupper(c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_toupper(c) as Int) else 0
+public actual fun uToupper(c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uToupper(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_uastrcpy(dst: Long, src: PCSTR): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_uastrcpy(dst.toString(), src.toString()) as String).toLong() else 0L
+public actual fun uUastrcpy(dst: COpaquePointer?, src: Pcstr): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uUastrcpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_uastrncpy(dst: Long, src: PCSTR, n: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_uastrncpy(dst.toString(), src.toString(), n) as String).toLong() else 0L
+public actual fun uUastrncpy(dst: COpaquePointer?, src: Pcstr, n: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uUastrncpy((dst?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_unescape(src: PCSTR, dest: Long, destcapacity: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_unescape(src.toString(), dest.toString(), destcapacity) as Int) else 0
+public actual fun uUnescape(src: Pcstr, dest: COpaquePointer?, destcapacity: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uUnescape((src?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: Long, length: Int, context: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_unescapeAt(charat.toLong().toString(), offset.toString(), length, context.toString()) as Int) else 0
+public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: COpaquePointer?, length: Int, context: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uUnescapeAt(0L.toString(), (offset?.value ?: 0L).toString(), length, (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_versionFromString(versionarray: Long, versionstring: PCSTR) {
+public actual fun uVersionFromString(versionarray: COpaquePointer?, versionstring: Pcstr) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_versionFromString(versionarray.toString(), versionstring.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVersionFromString((versionarray?.value ?: 0L).toString(), (versionstring?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_versionFromUString(versionarray: Long, versionstring: Long) {
+public actual fun uVersionFromUstring(versionarray: COpaquePointer?, versionstring: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_versionFromUString(versionarray.toString(), versionstring.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVersionFromUstring((versionarray?.value ?: 0L).toString(), (versionstring?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_versionToString(versionarray: Long, versionstring: PCSTR) {
+public actual fun uVersionToString(versionarray: COpaquePointer?, versionstring: Pcstr) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_versionToString(versionarray.toString(), versionstring.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVersionToString((versionarray?.value ?: 0L).toString(), (versionstring?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_vformatMessage(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_vformatMessage(locale.toString(), pattern.toString(), patternlength, result.toString(), resultlength, ap.toString(), status.toString()) as Int) else 0
+public actual fun uVformatMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVformatMessage((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (result?.value ?: 0L).toString(), resultlength, (ap?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_vformatMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, result: Long, resultlength: Int, parseerror: Long, ap: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_vformatMessageWithError(locale.toString(), pattern.toString(), patternlength, result.toString(), resultlength, parseerror.toString(), ap.toString(), status.toString()) as Int) else 0
+public actual fun uVformatMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, result: COpaquePointer?, resultlength: Int, parseerror: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVformatMessageWithError((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (result?.value ?: 0L).toString(), resultlength, (parseerror?.value ?: 0L).toString(), (ap?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun u_vparseMessage(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, status: Long) {
+public actual fun uVparseMessage(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_vparseMessage(locale.toString(), pattern.toString(), patternlength, source.toString(), sourcelength, ap.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVparseMessage((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (source?.value ?: 0L).toString(), sourcelength, (ap?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun u_vparseMessageWithError(locale: PCSTR, pattern: Long, patternlength: Int, source: Long, sourcelength: Int, ap: Long, parseerror: Long, status: Long) {
+public actual fun uVparseMessageWithError(locale: Pcstr, pattern: COpaquePointer?, patternlength: Int, source: COpaquePointer?, sourcelength: Int, ap: COpaquePointer?, parseerror: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_u_vparseMessageWithError(locale.toString(), pattern.toString(), patternlength, source.toString(), sourcelength, ap.toString(), parseerror.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uVparseMessageWithError((locale?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (source?.value ?: 0L).toString(), sourcelength, (ap?.value ?: 0L).toString(), (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_close(pbidi: Long) {
+public actual fun ubidiClose(pbidi: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_close(pbidi.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiClose((pbidi?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_countParagraphs(pbidi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_countParagraphs(pbidi.toString()) as Int) else 0
+public actual fun ubidiCountParagraphs(pbidi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiCountParagraphs((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_countRuns(pbidi: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_countRuns(pbidi.toString(), perrorcode.toString()) as Int) else 0
+public actual fun ubidiCountRuns(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiCountRuns((pbidi?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getBaseDirection(text: Long, length: Int): UBiDiDirection =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getBaseDirection(text.toString(), length) as Int) else 0
+public actual fun ubidiGetBaseDirection(text: COpaquePointer?, length: Int): UBiDiDirection =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetBaseDirection((text?.value ?: 0L).toString(), length) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getClassCallback(pbidi: Long, fn: Long, context: Long) {
+public actual fun ubidiGetClassCallback(pbidi: COpaquePointer?, fn: COpaquePointer?, context: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getClassCallback(pbidi.toString(), fn.toString(), context.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetClassCallback((pbidi?.value ?: 0L).toString(), (fn?.value ?: 0L).toString(), (context?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_getCustomizedClass(pbidi: Long, c: Int): UCharDirection =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getCustomizedClass(pbidi.toString(), c) as Int) else 0
+public actual fun ubidiGetCustomizedClass(pbidi: COpaquePointer?, c: Int): UCharDirection =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetCustomizedClass((pbidi?.value ?: 0L).toString(), c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getDirection(pbidi: Long): UBiDiDirection =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getDirection(pbidi.toString()) as Int) else 0
+public actual fun ubidiGetDirection(pbidi: COpaquePointer?): UBiDiDirection =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetDirection((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getLength(pbidi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLength(pbidi.toString()) as Int) else 0
+public actual fun ubidiGetLength(pbidi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLength((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getLevelAt(pbidi: Long, charindex: Int): UByte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLevelAt(pbidi.toString(), charindex) as Int).toUByte() else 0u
+public actual fun ubidiGetLevelAt(pbidi: COpaquePointer?, charindex: Int): UByte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLevelAt((pbidi?.value ?: 0L).toString(), charindex) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getLevels(pbidi: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLevels(pbidi.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ubidiGetLevels(pbidi: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLevels((pbidi?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getLogicalIndex(pbidi: Long, visualindex: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLogicalIndex(pbidi.toString(), visualindex, perrorcode.toString()) as Int) else 0
+public actual fun ubidiGetLogicalIndex(pbidi: COpaquePointer?, visualindex: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLogicalIndex((pbidi?.value ?: 0L).toString(), visualindex, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getLogicalMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
+public actual fun ubidiGetLogicalMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLogicalMap(pbidi.toString(), indexmap.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLogicalMap((pbidi?.value ?: 0L).toString(), (indexmap?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_getLogicalRun(pbidi: Long, logicalposition: Int, plogicallimit: Long, plevel: Long) {
+public actual fun ubidiGetLogicalRun(pbidi: COpaquePointer?, logicalposition: Int, plogicallimit: COpaquePointer?, plevel: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getLogicalRun(pbidi.toString(), logicalposition, plogicallimit.toString(), plevel.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetLogicalRun((pbidi?.value ?: 0L).toString(), logicalposition, (plogicallimit?.value ?: 0L).toString(), (plevel?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_getParaLevel(pbidi: Long): UByte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getParaLevel(pbidi.toString()) as Int).toUByte() else 0u
+public actual fun ubidiGetParaLevel(pbidi: COpaquePointer?): UByte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetParaLevel((pbidi?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getParagraph(pbidi: Long, charindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getParagraph(pbidi.toString(), charindex, pparastart.toString(), pparalimit.toString(), pparalevel.toString(), perrorcode.toString()) as Int) else 0
+public actual fun ubidiGetParagraph(pbidi: COpaquePointer?, charindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetParagraph((pbidi?.value ?: 0L).toString(), charindex, (pparastart?.value ?: 0L).toString(), (pparalimit?.value ?: 0L).toString(), (pparalevel?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getParagraphByIndex(pbidi: Long, paraindex: Int, pparastart: Long, pparalimit: Long, pparalevel: Long, perrorcode: Long) {
+public actual fun ubidiGetParagraphByIndex(pbidi: COpaquePointer?, paraindex: Int, pparastart: COpaquePointer?, pparalimit: COpaquePointer?, pparalevel: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getParagraphByIndex(pbidi.toString(), paraindex, pparastart.toString(), pparalimit.toString(), pparalevel.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetParagraphByIndex((pbidi?.value ?: 0L).toString(), paraindex, (pparastart?.value ?: 0L).toString(), (pparalimit?.value ?: 0L).toString(), (pparalevel?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_getProcessedLength(pbidi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getProcessedLength(pbidi.toString()) as Int) else 0
+public actual fun ubidiGetProcessedLength(pbidi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetProcessedLength((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getReorderingMode(pbidi: Long): UBiDiReorderingMode =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getReorderingMode(pbidi.toString()) as Int) else 0
+public actual fun ubidiGetReorderingMode(pbidi: COpaquePointer?): UBiDiReorderingMode =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetReorderingMode((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getReorderingOptions(pbidi: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getReorderingOptions(pbidi.toString()) as Int).toUInt() else 0u
+public actual fun ubidiGetReorderingOptions(pbidi: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetReorderingOptions((pbidi?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getResultLength(pbidi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getResultLength(pbidi.toString()) as Int) else 0
+public actual fun ubidiGetResultLength(pbidi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetResultLength((pbidi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getText(pbidi: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getText(pbidi.toString()) as String).toLong() else 0L
+public actual fun ubidiGetText(pbidi: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetText((pbidi?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getVisualIndex(pbidi: Long, logicalindex: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getVisualIndex(pbidi.toString(), logicalindex, perrorcode.toString()) as Int) else 0
+public actual fun ubidiGetVisualIndex(pbidi: COpaquePointer?, logicalindex: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetVisualIndex((pbidi?.value ?: 0L).toString(), logicalindex, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_getVisualMap(pbidi: Long, indexmap: Long, perrorcode: Long) {
+public actual fun ubidiGetVisualMap(pbidi: COpaquePointer?, indexmap: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getVisualMap(pbidi.toString(), indexmap.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetVisualMap((pbidi?.value ?: 0L).toString(), (indexmap?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_getVisualRun(pbidi: Long, runindex: Int, plogicalstart: Long, plength: Long): UBiDiDirection =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_getVisualRun(pbidi.toString(), runindex, plogicalstart.toString(), plength.toString()) as Int) else 0
+public actual fun ubidiGetVisualRun(pbidi: COpaquePointer?, runindex: Int, plogicalstart: COpaquePointer?, plength: COpaquePointer?): UBiDiDirection =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiGetVisualRun((pbidi?.value ?: 0L).toString(), runindex, (plogicalstart?.value ?: 0L).toString(), (plength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_invertMap(srcmap: Long, destmap: Long, length: Int) {
+public actual fun ubidiInvertMap(srcmap: COpaquePointer?, destmap: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_invertMap(srcmap.toString(), destmap.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiInvertMap((srcmap?.value ?: 0L).toString(), (destmap?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_isInverse(pbidi: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_isInverse(pbidi.toString()) as Int).toByte() else 0
+public actual fun ubidiIsInverse(pbidi: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiIsInverse((pbidi?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_isOrderParagraphsLTR(pbidi: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_isOrderParagraphsLTR(pbidi.toString()) as Int).toByte() else 0
+public actual fun ubidiIsOrderParagraphsLtr(pbidi: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiIsOrderParagraphsLtr((pbidi?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_open(): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_open() as String).toLong() else 0L
+public actual fun ubidiOpen(): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiOpen() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_openSized(maxlength: Int, maxruncount: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_openSized(maxlength, maxruncount, perrorcode.toString()) as String).toLong() else 0L
+public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiOpenSized(maxlength, maxruncount, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_orderParagraphsLTR(pbidi: Long, orderparagraphsltr: Byte) {
+public actual fun ubidiOrderParagraphsLtr(pbidi: COpaquePointer?, orderparagraphsltr: Byte) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_orderParagraphsLTR(pbidi.toString(), orderparagraphsltr.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiOrderParagraphsLtr((pbidi?.value ?: 0L).toString(), orderparagraphsltr.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_reorderLogical(levels: Long, length: Int, indexmap: Long) {
+public actual fun ubidiReorderLogical(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_reorderLogical(levels.toString(), length, indexmap.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiReorderLogical((levels?.value ?: 0L).toString(), length, (indexmap?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_reorderVisual(levels: Long, length: Int, indexmap: Long) {
+public actual fun ubidiReorderVisual(levels: COpaquePointer?, length: Int, indexmap: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_reorderVisual(levels.toString(), length, indexmap.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiReorderVisual((levels?.value ?: 0L).toString(), length, (indexmap?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setClassCallback(pbidi: Long, newfn: UBiDiClassCallback, newcontext: Long, oldfn: Long, oldcontext: Long, perrorcode: Long) {
+public actual fun ubidiSetClassCallback(pbidi: COpaquePointer?, newfn: UBiDiClassCallback, newcontext: COpaquePointer?, oldfn: COpaquePointer?, oldcontext: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setClassCallback(pbidi.toString(), newfn.toLong().toString(), newcontext.toString(), oldfn.toString(), oldcontext.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetClassCallback((pbidi?.value ?: 0L).toString(), 0L.toString(), (newcontext?.value ?: 0L).toString(), (oldfn?.value ?: 0L).toString(), (oldcontext?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setContext(pbidi: Long, prologue: Long, prolength: Int, epilogue: Long, epilength: Int, perrorcode: Long) {
+public actual fun ubidiSetContext(pbidi: COpaquePointer?, prologue: COpaquePointer?, prolength: Int, epilogue: COpaquePointer?, epilength: Int, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setContext(pbidi.toString(), prologue.toString(), prolength, epilogue.toString(), epilength, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetContext((pbidi?.value ?: 0L).toString(), (prologue?.value ?: 0L).toString(), prolength, (epilogue?.value ?: 0L).toString(), epilength, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setInverse(pbidi: Long, isinverse: Byte) {
+public actual fun ubidiSetInverse(pbidi: COpaquePointer?, isinverse: Byte) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setInverse(pbidi.toString(), isinverse.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetInverse((pbidi?.value ?: 0L).toString(), isinverse.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setLine(pparabidi: Long, start: Int, limit: Int, plinebidi: Long, perrorcode: Long) {
+public actual fun ubidiSetLine(pparabidi: COpaquePointer?, start: Int, limit: Int, plinebidi: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setLine(pparabidi.toString(), start, limit, plinebidi.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetLine((pparabidi?.value ?: 0L).toString(), start, limit, (plinebidi?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setPara(pbidi: Long, text: Long, length: Int, paralevel: UByte, embeddinglevels: Long, perrorcode: Long) {
+public actual fun ubidiSetPara(pbidi: COpaquePointer?, text: COpaquePointer?, length: Int, paralevel: UByte, embeddinglevels: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setPara(pbidi.toString(), text.toString(), length, paralevel.toInt(), embeddinglevels.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetPara((pbidi?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), length, paralevel.toInt(), (embeddinglevels?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setReorderingMode(pbidi: Long, reorderingmode: UBiDiReorderingMode) {
+public actual fun ubidiSetReorderingMode(pbidi: COpaquePointer?, reorderingmode: UBiDiReorderingMode) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setReorderingMode(pbidi.toString(), reorderingmode)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetReorderingMode((pbidi?.value ?: 0L).toString(), reorderingmode)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_setReorderingOptions(pbidi: Long, reorderingoptions: UInt) {
+public actual fun ubidiSetReorderingOptions(pbidi: COpaquePointer?, reorderingoptions: UInt) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_setReorderingOptions(pbidi.toString(), reorderingoptions.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiSetReorderingOptions((pbidi?.value ?: 0L).toString(), reorderingoptions.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubidi_writeReordered(pbidi: Long, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_writeReordered(pbidi.toString(), dest.toString(), destsize, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun ubidiWriteReordered(pbidi: COpaquePointer?, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiWriteReordered((pbidi?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destsize, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubidi_writeReverse(src: Long, srclength: Int, dest: Long, destsize: Int, options: UShort, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidi_writeReverse(src.toString(), srclength, dest.toString(), destsize, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun ubidiWriteReverse(src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, options: UShort, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubidiWriteReverse((src?.value ?: 0L).toString(), srclength, (dest?.value ?: 0L).toString(), destsize, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubiditransform_close(pbiditransform: Long) {
+public actual fun ubiditransformClose(pbiditransform: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransform_close(pbiditransform.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransformClose((pbiditransform?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubiditransform_open(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransform_open(perrorcode.toString()) as String).toLong() else 0L
+public actual fun ubiditransformOpen(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransformOpen((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubiditransform_transform(pbiditransform: Long, src: Long, srclength: Int, dest: Long, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransform_transform(pbiditransform.toString(), src.toString(), srclength, dest.toString(), destsize, inparalevel.toInt(), inorder, outparalevel.toInt(), outorder, domirroring, shapingoptions.toInt(), perrorcode.toString()) as Int).toUInt() else 0u
+public actual fun ubiditransformTransform(pbiditransform: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubiditransformTransform((pbiditransform?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (dest?.value ?: 0L).toString(), destsize, inparalevel.toInt(), inorder, outparalevel.toInt(), outorder, domirroring, shapingoptions.toInt(), (perrorcode?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ublock_getCode(c: Int): UBlockCode =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ublock_getCode(c) as Int) else 0
+public actual fun ublockGetCode(c: Int): UBlockCode =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ublockGetCode(c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_close(bi: Long) {
+public actual fun ubrkClose(bi: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_close(bi.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkClose((bi?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubrk_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_countAvailable() as Int) else 0
+public actual fun ubrkCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_current(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_current(bi.toString()) as Int) else 0
+public actual fun ubrkCurrent(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkCurrent((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_first(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_first(bi.toString()) as Int) else 0
+public actual fun ubrkFirst(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkFirst((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_following(bi: Long, offset: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_following(bi.toString(), offset) as Int) else 0
+public actual fun ubrkFollowing(bi: COpaquePointer?, offset: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkFollowing((bi?.value ?: 0L).toString(), offset) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_getAvailable(index: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_getAvailable(index) as String).toLong() else 0L
+public actual fun ubrkGetAvailable(index: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkGetAvailable(index) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_getBinaryRules(bi: Long, binaryrules: Long, rulescapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_getBinaryRules(bi.toString(), binaryrules.toString(), rulescapacity, status.toString()) as Int) else 0
+public actual fun ubrkGetBinaryRules(bi: COpaquePointer?, binaryrules: COpaquePointer?, rulescapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkGetBinaryRules((bi?.value ?: 0L).toString(), (binaryrules?.value ?: 0L).toString(), rulescapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_getLocaleByType(bi: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_getLocaleByType(bi.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun ubrkGetLocaleByType(bi: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkGetLocaleByType((bi?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_getRuleStatus(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_getRuleStatus(bi.toString()) as Int) else 0
+public actual fun ubrkGetRuleStatus(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkGetRuleStatus((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_getRuleStatusVec(bi: Long, fillinvec: Long, capacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_getRuleStatusVec(bi.toString(), fillinvec.toString(), capacity, status.toString()) as Int) else 0
+public actual fun ubrkGetRuleStatusVec(bi: COpaquePointer?, fillinvec: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkGetRuleStatusVec((bi?.value ?: 0L).toString(), (fillinvec?.value ?: 0L).toString(), capacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_isBoundary(bi: Long, offset: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_isBoundary(bi.toString(), offset) as Int).toByte() else 0
+public actual fun ubrkIsBoundary(bi: COpaquePointer?, offset: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkIsBoundary((bi?.value ?: 0L).toString(), offset) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_last(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_last(bi.toString()) as Int) else 0
+public actual fun ubrkLast(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkLast((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_next(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_next(bi.toString()) as Int) else 0
+public actual fun ubrkNext(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkNext((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_open(type: UBreakIteratorType, locale: PCSTR, text: Long, textlength: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_open(type, locale.toString(), text.toString(), textlength, status.toString()) as String).toLong() else 0L
+public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkOpen(type, (locale?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_openBinaryRules(binaryrules: Long, ruleslength: Int, text: Long, textlength: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_openBinaryRules(binaryrules.toString(), ruleslength, text.toString(), textlength, status.toString()) as String).toLong() else 0L
+public actual fun ubrkOpenBinaryRules(binaryrules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkOpenBinaryRules((binaryrules?.value ?: 0L).toString(), ruleslength, (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_openRules(rules: Long, ruleslength: Int, text: Long, textlength: Int, parseerr: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_openRules(rules.toString(), ruleslength, text.toString(), textlength, parseerr.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ubrkOpenRules(rules: COpaquePointer?, ruleslength: Int, text: COpaquePointer?, textlength: Int, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkOpenRules((rules?.value ?: 0L).toString(), ruleslength, (text?.value ?: 0L).toString(), textlength, (parseerr?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_preceding(bi: Long, offset: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_preceding(bi.toString(), offset) as Int) else 0
+public actual fun ubrkPreceding(bi: COpaquePointer?, offset: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkPreceding((bi?.value ?: 0L).toString(), offset) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_previous(bi: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_previous(bi.toString()) as Int) else 0
+public actual fun ubrkPrevious(bi: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkPrevious((bi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_refreshUText(bi: Long, text: Long, status: Long) {
+public actual fun ubrkRefreshUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_refreshUText(bi.toString(), text.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkRefreshUtext((bi?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubrk_safeClone(bi: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_safeClone(bi.toString(), stackbuffer.toString(), pbuffersize.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ubrkSafeClone(bi: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkSafeClone((bi?.value ?: 0L).toString(), (stackbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ubrk_setText(bi: Long, text: Long, textlength: Int, status: Long) {
+public actual fun ubrkSetText(bi: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_setText(bi.toString(), text.toString(), textlength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkSetText((bi?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ubrk_setUText(bi: Long, text: Long, status: Long) {
+public actual fun ubrkSetUtext(bi: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrk_setUText(bi.toString(), text.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ubrkSetUtext((bi?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_add(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
+public actual fun ucalAdd(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_add(cal.toString(), field, amount, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalAdd((cal?.value ?: 0L).toString(), field, amount, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_clear(calendar: Long) {
+public actual fun ucalClear(calendar: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_clear(calendar.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalClear((calendar?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_clearField(cal: Long, field: UCalendarDateFields) {
+public actual fun ucalClearField(cal: COpaquePointer?, field: UCalendarDateFields) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_clearField(cal.toString(), field)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalClearField((cal?.value ?: 0L).toString(), field)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_clone(cal: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_clone(cal.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucalClone(cal: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalClone((cal?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_close(cal: Long) {
+public actual fun ucalClose(cal: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_close(cal.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalClose((cal?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_countAvailable() as Int) else 0
+public actual fun ucalCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_equivalentTo(cal1: Long, cal2: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_equivalentTo(cal1.toString(), cal2.toString()) as Int).toByte() else 0
+public actual fun ucalEquivalentTo(cal1: COpaquePointer?, cal2: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalEquivalentTo((cal1?.value ?: 0L).toString(), (cal2?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_get(cal: Long, field: UCalendarDateFields, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_get(cal.toString(), field, status.toString()) as Int) else 0
+public actual fun ucalGet(cal: COpaquePointer?, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGet((cal?.value ?: 0L).toString(), field, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getAttribute(cal: Long, attr: UCalendarAttribute): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getAttribute(cal.toString(), attr) as Int) else 0
+public actual fun ucalGetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetAttribute((cal?.value ?: 0L).toString(), attr) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getAvailable(localeindex: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getAvailable(localeindex) as String).toLong() else 0L
+public actual fun ucalGetAvailable(localeindex: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetAvailable(localeindex) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getCanonicalTimeZoneID(id: Long, len: Int, result: Long, resultcapacity: Int, issystemid: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getCanonicalTimeZoneID(id.toString(), len, result.toString(), resultcapacity, issystemid.toString(), status.toString()) as Int) else 0
+public actual fun ucalGetCanonicalTimeZoneId(id: COpaquePointer?, len: Int, result: COpaquePointer?, resultcapacity: Int, issystemid: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetCanonicalTimeZoneId((id?.value ?: 0L).toString(), len, (result?.value ?: 0L).toString(), resultcapacity, (issystemid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getDSTSavings(zoneid: Long, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getDSTSavings(zoneid.toString(), ec.toString()) as Int) else 0
+public actual fun ucalGetDstsavings(zoneid: COpaquePointer?, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetDstsavings((zoneid?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getDayOfWeekType(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): UCalendarWeekdayType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getDayOfWeekType(cal.toString(), dayofweek, status.toString()) as Int) else 0
+public actual fun ucalGetDayOfWeekType(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): UCalendarWeekdayType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetDayOfWeekType((cal?.value ?: 0L).toString(), dayofweek, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getDefaultTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getDefaultTimeZone(result.toString(), resultcapacity, ec.toString()) as Int) else 0
+public actual fun ucalGetDefaultTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetDefaultTimeZone((result?.value ?: 0L).toString(), resultcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getFieldDifference(cal: Long, target: Double, field: UCalendarDateFields, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getFieldDifference(cal.toString(), target, field, status.toString()) as Int) else 0
+public actual fun ucalGetFieldDifference(cal: COpaquePointer?, target: Double, field: UCalendarDateFields, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetFieldDifference((cal?.value ?: 0L).toString(), target, field, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getGregorianChange(cal: Long, perrorcode: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getGregorianChange(cal.toString(), perrorcode.toString()) as Double) else 0.0
+public actual fun ucalGetGregorianChange(cal: COpaquePointer?, perrorcode: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetGregorianChange((cal?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getHostTimeZone(result: Long, resultcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getHostTimeZone(result.toString(), resultcapacity, ec.toString()) as Int) else 0
+public actual fun ucalGetHostTimeZone(result: COpaquePointer?, resultcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetHostTimeZone((result?.value ?: 0L).toString(), resultcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getKeywordValuesForLocale(key.toString(), locale.toString(), commonlyused.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetKeywordValuesForLocale((key?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), commonlyused.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getLimit(cal: Long, field: UCalendarDateFields, type: UCalendarLimitType, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getLimit(cal.toString(), field, type, status.toString()) as Int) else 0
+public actual fun ucalGetLimit(cal: COpaquePointer?, field: UCalendarDateFields, type: UCalendarLimitType, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetLimit((cal?.value ?: 0L).toString(), field, type, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getLocaleByType(cal: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getLocaleByType(cal.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun ucalGetLocaleByType(cal: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetLocaleByType((cal?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getMillis(cal: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getMillis(cal.toString(), status.toString()) as Double) else 0.0
+public actual fun ucalGetMillis(cal: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetMillis((cal?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getNow(): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getNow() as Double) else 0.0
+public actual fun ucalGetNow(): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetNow() as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getTZDataVersion(status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getTZDataVersion(status.toString()) as String).toLong() else 0L
+public actual fun ucalGetTzdataVersion(status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetTzdataVersion((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getTimeZoneDisplayName(cal: Long, type: UCalendarDisplayNameType, locale: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getTimeZoneDisplayName(cal.toString(), type, locale.toString(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun ucalGetTimeZoneDisplayName(cal: COpaquePointer?, type: UCalendarDisplayNameType, locale: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetTimeZoneDisplayName((cal?.value ?: 0L).toString(), type, (locale?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getTimeZoneID(cal: Long, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getTimeZoneID(cal.toString(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun ucalGetTimeZoneId(cal: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetTimeZoneId((cal?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getTimeZoneIDForWindowsID(winid: Long, len: Int, region: PCSTR, id: Long, idcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getTimeZoneIDForWindowsID(winid.toString(), len, region.toString(), id.toString(), idcapacity, status.toString()) as Int) else 0
+public actual fun ucalGetTimeZoneIdforWindowsId(winid: COpaquePointer?, len: Int, region: Pcstr, id: COpaquePointer?, idcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetTimeZoneIdforWindowsId((winid?.value ?: 0L).toString(), len, (region?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), idcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getTimeZoneTransitionDate(cal: Long, type: UTimeZoneTransitionType, transition: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getTimeZoneTransitionDate(cal.toString(), type, transition.toString(), status.toString()) as Int).toByte() else 0
+public actual fun ucalGetTimeZoneTransitionDate(cal: COpaquePointer?, type: UTimeZoneTransitionType, transition: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetTimeZoneTransitionDate((cal?.value ?: 0L).toString(), type, (transition?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getType(cal: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getType(cal.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucalGetType(cal: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetType((cal?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getWeekendTransition(cal: Long, dayofweek: UCalendarDaysOfWeek, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getWeekendTransition(cal.toString(), dayofweek, status.toString()) as Int) else 0
+public actual fun ucalGetWeekendTransition(cal: COpaquePointer?, dayofweek: UCalendarDaysOfWeek, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetWeekendTransition((cal?.value ?: 0L).toString(), dayofweek, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_getWindowsTimeZoneID(id: Long, len: Int, winid: Long, winidcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_getWindowsTimeZoneID(id.toString(), len, winid.toString(), winidcapacity, status.toString()) as Int) else 0
+public actual fun ucalGetWindowsTimeZoneId(id: COpaquePointer?, len: Int, winid: COpaquePointer?, winidcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalGetWindowsTimeZoneId((id?.value ?: 0L).toString(), len, (winid?.value ?: 0L).toString(), winidcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_inDaylightTime(cal: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_inDaylightTime(cal.toString(), status.toString()) as Int).toByte() else 0
+public actual fun ucalInDaylightTime(cal: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalInDaylightTime((cal?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_isSet(cal: Long, field: UCalendarDateFields): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_isSet(cal.toString(), field) as Int).toByte() else 0
+public actual fun ucalIsSet(cal: COpaquePointer?, field: UCalendarDateFields): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalIsSet((cal?.value ?: 0L).toString(), field) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_isWeekend(cal: Long, date: Double, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_isWeekend(cal.toString(), date, status.toString()) as Int).toByte() else 0
+public actual fun ucalIsWeekend(cal: COpaquePointer?, date: Double, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalIsWeekend((cal?.value ?: 0L).toString(), date, (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_open(zoneid: Long, len: Int, locale: PCSTR, type: UCalendarType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_open(zoneid.toString(), len, locale.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun ucalOpen(zoneid: COpaquePointer?, len: Int, locale: Pcstr, type: UCalendarType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalOpen((zoneid?.value ?: 0L).toString(), len, (locale?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_openCountryTimeZones(country: PCSTR, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_openCountryTimeZones(country.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalOpenCountryTimeZones((country?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_openTimeZoneIDEnumeration(zonetype: USystemTimeZoneType, region: PCSTR, rawoffset: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_openTimeZoneIDEnumeration(zonetype, region.toString(), rawoffset.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalOpenTimeZoneIdenumeration(zonetype, (region?.value ?: 0L).toString(), (rawoffset?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_openTimeZones(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_openTimeZones(ec.toString()) as String).toLong() else 0L
+public actual fun ucalOpenTimeZones(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalOpenTimeZones((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucal_roll(cal: Long, field: UCalendarDateFields, amount: Int, status: Long) {
+public actual fun ucalRoll(cal: COpaquePointer?, field: UCalendarDateFields, amount: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_roll(cal.toString(), field, amount, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalRoll((cal?.value ?: 0L).toString(), field, amount, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_set(cal: Long, field: UCalendarDateFields, value: Int) {
+public actual fun ucalSet(cal: COpaquePointer?, field: UCalendarDateFields, value: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_set(cal.toString(), field, value)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSet((cal?.value ?: 0L).toString(), field, value)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setAttribute(cal: Long, attr: UCalendarAttribute, newvalue: Int) {
+public actual fun ucalSetAttribute(cal: COpaquePointer?, attr: UCalendarAttribute, newvalue: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setAttribute(cal.toString(), attr, newvalue)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetAttribute((cal?.value ?: 0L).toString(), attr, newvalue)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setDate(cal: Long, year: Int, month: Int, date: Int, status: Long) {
+public actual fun ucalSetDate(cal: COpaquePointer?, year: Int, month: Int, date: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setDate(cal.toString(), year, month, date, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetDate((cal?.value ?: 0L).toString(), year, month, date, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setDateTime(cal: Long, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: Long) {
+public actual fun ucalSetDateTime(cal: COpaquePointer?, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setDateTime(cal.toString(), year, month, date, hour, minute, second, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetDateTime((cal?.value ?: 0L).toString(), year, month, date, hour, minute, second, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setDefaultTimeZone(zoneid: Long, ec: Long) {
+public actual fun ucalSetDefaultTimeZone(zoneid: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setDefaultTimeZone(zoneid.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetDefaultTimeZone((zoneid?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setGregorianChange(cal: Long, date: Double, perrorcode: Long) {
+public actual fun ucalSetGregorianChange(cal: COpaquePointer?, date: Double, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setGregorianChange(cal.toString(), date, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetGregorianChange((cal?.value ?: 0L).toString(), date, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setMillis(cal: Long, datetime: Double, status: Long) {
+public actual fun ucalSetMillis(cal: COpaquePointer?, datetime: Double, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setMillis(cal.toString(), datetime, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetMillis((cal?.value ?: 0L).toString(), datetime, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucal_setTimeZone(cal: Long, zoneid: Long, len: Int, status: Long) {
+public actual fun ucalSetTimeZone(cal: COpaquePointer?, zoneid: COpaquePointer?, len: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucal_setTimeZone(cal.toString(), zoneid.toString(), len, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucalSetTimeZone((cal?.value ?: 0L).toString(), (zoneid?.value ?: 0L).toString(), len, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucasemap_close(csm: Long) {
+public actual fun ucasemapClose(csm: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_close(csm.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapClose((csm?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucasemap_getBreakIterator(csm: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_getBreakIterator(csm.toString()) as String).toLong() else 0L
+public actual fun ucasemapGetBreakIterator(csm: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapGetBreakIterator((csm?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_getLocale(csm: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_getLocale(csm.toString()) as String).toLong() else 0L
+public actual fun ucasemapGetLocale(csm: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapGetLocale((csm?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_getOptions(csm: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_getOptions(csm.toString()) as Int).toUInt() else 0u
+public actual fun ucasemapGetOptions(csm: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapGetOptions((csm?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_open(locale: PCSTR, options: UInt, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_open(locale.toString(), options.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapOpen((locale?.value ?: 0L).toString(), options.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_setBreakIterator(csm: Long, itertoadopt: Long, perrorcode: Long) {
+public actual fun ucasemapSetBreakIterator(csm: COpaquePointer?, itertoadopt: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_setBreakIterator(csm.toString(), itertoadopt.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapSetBreakIterator((csm?.value ?: 0L).toString(), (itertoadopt?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucasemap_setLocale(csm: Long, locale: PCSTR, perrorcode: Long) {
+public actual fun ucasemapSetLocale(csm: COpaquePointer?, locale: Pcstr, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_setLocale(csm.toString(), locale.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapSetLocale((csm?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucasemap_setOptions(csm: Long, options: UInt, perrorcode: Long) {
+public actual fun ucasemapSetOptions(csm: COpaquePointer?, options: UInt, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_setOptions(csm.toString(), options.toInt(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapSetOptions((csm?.value ?: 0L).toString(), options.toInt(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucasemap_toTitle(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_toTitle(csm.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucasemapToTitle(csm: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapToTitle((csm?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_utf8FoldCase(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_utf8FoldCase(csm.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucasemapUtf8FoldCase(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapUtf8FoldCase((csm?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_utf8ToLower(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_utf8ToLower(csm.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucasemapUtf8ToLower(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapUtf8ToLower((csm?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_utf8ToTitle(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_utf8ToTitle(csm.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucasemapUtf8ToTitle(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapUtf8ToTitle((csm?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucasemap_utf8ToUpper(csm: Long, dest: PCSTR, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemap_utf8ToUpper(csm.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucasemapUtf8ToUpper(csm: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucasemapUtf8ToUpper((csm?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_close(ucfpos: Long) {
+public actual fun ucfposClose(ucfpos: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_close(ucfpos.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposClose((ucfpos?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_constrainCategory(ucfpos: Long, category: Int, ec: Long) {
+public actual fun ucfposConstrainCategory(ucfpos: COpaquePointer?, category: Int, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_constrainCategory(ucfpos.toString(), category, ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposConstrainCategory((ucfpos?.value ?: 0L).toString(), category, (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_constrainField(ucfpos: Long, category: Int, field: Int, ec: Long) {
+public actual fun ucfposConstrainField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_constrainField(ucfpos.toString(), category, field, ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposConstrainField((ucfpos?.value ?: 0L).toString(), category, field, (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_getCategory(ucfpos: Long, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_getCategory(ucfpos.toString(), ec.toString()) as Int) else 0
+public actual fun ucfposGetCategory(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposGetCategory((ucfpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_getField(ucfpos: Long, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_getField(ucfpos.toString(), ec.toString()) as Int) else 0
+public actual fun ucfposGetField(ucfpos: COpaquePointer?, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposGetField((ucfpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_getIndexes(ucfpos: Long, pstart: Long, plimit: Long, ec: Long) {
+public actual fun ucfposGetIndexes(ucfpos: COpaquePointer?, pstart: COpaquePointer?, plimit: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_getIndexes(ucfpos.toString(), pstart.toString(), plimit.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposGetIndexes((ucfpos?.value ?: 0L).toString(), (pstart?.value ?: 0L).toString(), (plimit?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_getInt64IterationContext(ucfpos: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_getInt64IterationContext(ucfpos.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ucfposGetInt64IterationContext(ucfpos: COpaquePointer?, ec: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposGetInt64IterationContext((ucfpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_matchesField(ucfpos: Long, category: Int, field: Int, ec: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_matchesField(ucfpos.toString(), category, field, ec.toString()) as Int).toByte() else 0
+public actual fun ucfposMatchesField(ucfpos: COpaquePointer?, category: Int, field: Int, ec: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposMatchesField((ucfpos?.value ?: 0L).toString(), category, field, (ec?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_open(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_open(ec.toString()) as String).toLong() else 0L
+public actual fun ucfposOpen(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposOpen((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucfpos_reset(ucfpos: Long, ec: Long) {
+public actual fun ucfposReset(ucfpos: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_reset(ucfpos.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposReset((ucfpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_setInt64IterationContext(ucfpos: Long, context: Long, ec: Long) {
+public actual fun ucfposSetInt64IterationContext(ucfpos: COpaquePointer?, context: Long, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_setInt64IterationContext(ucfpos.toString(), context.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposSetInt64IterationContext((ucfpos?.value ?: 0L).toString(), context.toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucfpos_setState(ucfpos: Long, category: Int, field: Int, start: Int, limit: Int, ec: Long) {
+public actual fun ucfposSetState(ucfpos: COpaquePointer?, category: Int, field: Int, start: Int, limit: Int, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfpos_setState(ucfpos.toString(), category, field, start, limit, ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucfposSetState((ucfpos?.value ?: 0L).toString(), category, field, start, limit, (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_cbFromUWriteBytes(args: Long, source: PCSTR, length: Int, offsetindex: Int, err: Long) {
+public actual fun ucnvCbFromUwriteBytes(args: COpaquePointer?, source: Pcstr, length: Int, offsetindex: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_cbFromUWriteBytes(args.toString(), source.toString(), length, offsetindex, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCbFromUwriteBytes((args?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), length, offsetindex, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_cbFromUWriteSub(args: Long, offsetindex: Int, err: Long) {
+public actual fun ucnvCbFromUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_cbFromUWriteSub(args.toString(), offsetindex, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCbFromUwriteSub((args?.value ?: 0L).toString(), offsetindex, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_cbFromUWriteUChars(args: Long, source: Long, sourcelimit: Long, offsetindex: Int, err: Long) {
+public actual fun ucnvCbFromUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_cbFromUWriteUChars(args.toString(), source.toString(), sourcelimit.toString(), offsetindex, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCbFromUwriteUchars((args?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (sourcelimit?.value ?: 0L).toString(), offsetindex, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_cbToUWriteSub(args: Long, offsetindex: Int, err: Long) {
+public actual fun ucnvCbToUwriteSub(args: COpaquePointer?, offsetindex: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_cbToUWriteSub(args.toString(), offsetindex, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCbToUwriteSub((args?.value ?: 0L).toString(), offsetindex, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_cbToUWriteUChars(args: Long, source: Long, length: Int, offsetindex: Int, err: Long) {
+public actual fun ucnvCbToUwriteUchars(args: COpaquePointer?, source: COpaquePointer?, length: Int, offsetindex: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_cbToUWriteUChars(args.toString(), source.toString(), length, offsetindex, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCbToUwriteUchars((args?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), length, offsetindex, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_close(converter: Long) {
+public actual fun ucnvClose(converter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_close(converter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvClose((converter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_compareNames(name1: PCSTR, name2: PCSTR): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_compareNames(name1.toString(), name2.toString()) as Int) else 0
+public actual fun ucnvCompareNames(name1: Pcstr, name2: Pcstr): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCompareNames((name1?.value ?: 0L).toString(), (name2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_convert(toconvertername: PCSTR, fromconvertername: PCSTR, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_convert(toconvertername.toString(), fromconvertername.toString(), target.toString(), targetcapacity, source.toString(), sourcelength, perrorcode.toString()) as Int) else 0
+public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvConvert((toconvertername?.value ?: 0L).toString(), (fromconvertername?.value ?: 0L).toString(), (target?.value ?: 0L).toString(), targetcapacity, (source?.value ?: 0L).toString(), sourcelength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_convertEx(targetcnv: Long, sourcecnv: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: PCSTR, pivotstart: Long, pivotsource: Long, pivottarget: Long, pivotlimit: Long, reset: Byte, flush: Byte, perrorcode: Long) {
+public actual fun ucnvConvertEx(targetcnv: COpaquePointer?, sourcecnv: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: Pcstr, pivotstart: COpaquePointer?, pivotsource: COpaquePointer?, pivottarget: COpaquePointer?, pivotlimit: COpaquePointer?, reset: Byte, flush: Byte, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_convertEx(targetcnv.toString(), sourcecnv.toString(), target.toString(), targetlimit.toString(), source.toString(), sourcelimit.toString(), pivotstart.toString(), pivotsource.toString(), pivottarget.toString(), pivotlimit.toString(), reset.toInt(), flush.toInt(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvConvertEx((targetcnv?.value ?: 0L).toString(), (sourcecnv?.value ?: 0L).toString(), (target?.value ?: 0L).toString(), (targetlimit?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (sourcelimit?.value ?: 0L).toString(), (pivotstart?.value ?: 0L).toString(), (pivotsource?.value ?: 0L).toString(), (pivottarget?.value ?: 0L).toString(), (pivotlimit?.value ?: 0L).toString(), reset.toInt(), flush.toInt(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_countAliases(alias: PCSTR, perrorcode: Long): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_countAliases(alias.toString(), perrorcode.toString()) as Int).toUShort() else 0u
+public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: COpaquePointer?): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCountAliases((alias?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_countAvailable() as Int) else 0
+public actual fun ucnvCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_countStandards(): UShort =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_countStandards() as Int).toUShort() else 0u
+public actual fun ucnvCountStandards(): UShort =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvCountStandards() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_detectUnicodeSignature(source: PCSTR, sourcelength: Int, signaturelength: Long, perrorcode: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_detectUnicodeSignature(source.toString(), sourcelength, signaturelength.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: COpaquePointer?, perrorcode: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvDetectUnicodeSignature((source?.value ?: 0L).toString(), sourcelength, (signaturelength?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_fixFileSeparator(cnv: Long, source: Long, sourcelen: Int) {
+public actual fun ucnvFixFileSeparator(cnv: COpaquePointer?, source: COpaquePointer?, sourcelen: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_fixFileSeparator(cnv.toString(), source.toString(), sourcelen)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFixFileSeparator((cnv?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelen)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_flushCache(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_flushCache() as Int) else 0
+public actual fun ucnvFlushCache(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFlushCache() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_fromAlgorithmic(cnv: Long, algorithmictype: UConverterType, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_fromAlgorithmic(cnv.toString(), algorithmictype, target.toString(), targetcapacity, source.toString(), sourcelength, perrorcode.toString()) as Int) else 0
+public actual fun ucnvFromAlgorithmic(cnv: COpaquePointer?, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromAlgorithmic((cnv?.value ?: 0L).toString(), algorithmictype, (target?.value ?: 0L).toString(), targetcapacity, (source?.value ?: 0L).toString(), sourcelength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_fromUChars(cnv: Long, dest: PCSTR, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_fromUChars(cnv.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucnvFromUchars(cnv: COpaquePointer?, dest: Pcstr, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUchars((cnv?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_fromUCountPending(cnv: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_fromUCountPending(cnv.toString(), status.toString()) as Int) else 0
+public actual fun ucnvFromUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUcountPending((cnv?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_fromUnicode(converter: Long, target: Long, targetlimit: PCSTR, source: Long, sourcelimit: Long, offsets: Long, flush: Byte, err: Long) {
+public actual fun ucnvFromUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: Pcstr, source: COpaquePointer?, sourcelimit: COpaquePointer?, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_fromUnicode(converter.toString(), target.toString(), targetlimit.toString(), source.toString(), sourcelimit.toString(), offsets.toString(), flush.toInt(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvFromUnicode((converter?.value ?: 0L).toString(), (target?.value ?: 0L).toString(), (targetlimit?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (sourcelimit?.value ?: 0L).toString(), (offsets?.value ?: 0L).toString(), flush.toInt(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getAlias(alias: PCSTR, n: UShort, perrorcode: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getAlias(alias.toString(), n.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetAlias((alias?.value ?: 0L).toString(), n.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getAliases(alias: PCSTR, aliases: Long, perrorcode: Long) {
+public actual fun ucnvGetAliases(alias: Pcstr, aliases: COpaquePointer?, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getAliases(alias.toString(), aliases.toString(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetAliases((alias?.value ?: 0L).toString(), (aliases?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getAvailableName(n: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getAvailableName(n) as String).toLong() else 0L
+public actual fun ucnvGetAvailableName(n: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetAvailableName(n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getCCSID(converter: Long, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getCCSID(converter.toString(), err.toString()) as Int) else 0
+public actual fun ucnvGetCcsid(converter: COpaquePointer?, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetCcsid((converter?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getCanonicalName(alias: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getCanonicalName(alias.toString(), standard.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetCanonicalName((alias?.value ?: 0L).toString(), (standard?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getDefaultName(): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getDefaultName() as String).toLong() else 0L
+public actual fun ucnvGetDefaultName(): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetDefaultName() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getDisplayName(converter: Long, displaylocale: PCSTR, displayname: Long, displaynamecapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getDisplayName(converter.toString(), displaylocale.toString(), displayname.toString(), displaynamecapacity, err.toString()) as Int) else 0
+public actual fun ucnvGetDisplayName(converter: COpaquePointer?, displaylocale: Pcstr, displayname: COpaquePointer?, displaynamecapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetDisplayName((converter?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (displayname?.value ?: 0L).toString(), displaynamecapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getFromUCallBack(converter: Long, action: Long, context: Long) {
+public actual fun ucnvGetFromUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getFromUCallBack(converter.toString(), action.toString(), context.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetFromUcallBack((converter?.value ?: 0L).toString(), (action?.value ?: 0L).toString(), (context?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getInvalidChars(converter: Long, errbytes: PCSTR, len: Long, err: Long) {
+public actual fun ucnvGetInvalidChars(converter: COpaquePointer?, errbytes: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getInvalidChars(converter.toString(), errbytes.toString(), len.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetInvalidChars((converter?.value ?: 0L).toString(), (errbytes?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getInvalidUChars(converter: Long, erruchars: Long, len: Long, err: Long) {
+public actual fun ucnvGetInvalidUchars(converter: COpaquePointer?, erruchars: COpaquePointer?, len: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getInvalidUChars(converter.toString(), erruchars.toString(), len.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetInvalidUchars((converter?.value ?: 0L).toString(), (erruchars?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getMaxCharSize(converter: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getMaxCharSize(converter.toString()) as Int).toByte() else 0
+public actual fun ucnvGetMaxCharSize(converter: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetMaxCharSize((converter?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getMinCharSize(converter: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getMinCharSize(converter.toString()) as Int).toByte() else 0
+public actual fun ucnvGetMinCharSize(converter: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetMinCharSize((converter?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getName(converter: Long, err: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getName(converter.toString(), err.toString()) as String).toLong() else 0L
+public actual fun ucnvGetName(converter: COpaquePointer?, err: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetName((converter?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getNextUChar(converter: Long, source: Long, sourcelimit: PCSTR, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getNextUChar(converter.toString(), source.toString(), sourcelimit.toString(), err.toString()) as Int) else 0
+public actual fun ucnvGetNextUchar(converter: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetNextUchar((converter?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (sourcelimit?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getPlatform(converter: Long, err: Long): UConverterPlatform =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getPlatform(converter.toString(), err.toString()) as Int) else 0
+public actual fun ucnvGetPlatform(converter: COpaquePointer?, err: COpaquePointer?): UConverterPlatform =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetPlatform((converter?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getStandard(n: UShort, perrorcode: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getStandard(n.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvGetStandard(n: UShort, perrorcode: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetStandard(n.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getStandardName(name: PCSTR, standard: PCSTR, perrorcode: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getStandardName(name.toString(), standard.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetStandardName((name?.value ?: 0L).toString(), (standard?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getStarters(converter: Long, starters: Long, err: Long) {
+public actual fun ucnvGetStarters(converter: COpaquePointer?, starters: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getStarters(converter.toString(), starters.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetStarters((converter?.value ?: 0L).toString(), (starters?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getSubstChars(converter: Long, subchars: PCSTR, len: Long, err: Long) {
+public actual fun ucnvGetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getSubstChars(converter.toString(), subchars.toString(), len.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetSubstChars((converter?.value ?: 0L).toString(), (subchars?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getToUCallBack(converter: Long, action: Long, context: Long) {
+public actual fun ucnvGetToUcallBack(converter: COpaquePointer?, action: COpaquePointer?, context: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getToUCallBack(converter.toString(), action.toString(), context.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetToUcallBack((converter?.value ?: 0L).toString(), (action?.value ?: 0L).toString(), (context?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_getType(converter: Long): UConverterType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getType(converter.toString()) as Int) else 0
+public actual fun ucnvGetType(converter: COpaquePointer?): UConverterType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetType((converter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_getUnicodeSet(cnv: Long, setfillin: Long, whichset: UConverterUnicodeSet, perrorcode: Long) {
+public actual fun ucnvGetUnicodeSet(cnv: COpaquePointer?, setfillin: COpaquePointer?, whichset: UConverterUnicodeSet, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_getUnicodeSet(cnv.toString(), setfillin.toString(), whichset, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvGetUnicodeSet((cnv?.value ?: 0L).toString(), (setfillin?.value ?: 0L).toString(), whichset, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_isAmbiguous(cnv: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_isAmbiguous(cnv.toString()) as Int).toByte() else 0
+public actual fun ucnvIsAmbiguous(cnv: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvIsAmbiguous((cnv?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_isFixedWidth(cnv: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_isFixedWidth(cnv.toString(), status.toString()) as Int).toByte() else 0
+public actual fun ucnvIsFixedWidth(cnv: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvIsFixedWidth((cnv?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_open(convertername: PCSTR, err: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_open(convertername.toString(), err.toString()) as String).toLong() else 0L
+public actual fun ucnvOpen(convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpen((convertername?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_openAllNames(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_openAllNames(perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvOpenAllNames(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpenAllNames((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_openCCSID(codepage: Int, platform: UConverterPlatform, err: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_openCCSID(codepage, platform, err.toString()) as String).toLong() else 0L
+public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpenCcsid(codepage, platform, (err?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_openPackage(packagename: PCSTR, convertername: PCSTR, err: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_openPackage(packagename.toString(), convertername.toString(), err.toString()) as String).toLong() else 0L
+public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpenPackage((packagename?.value ?: 0L).toString(), (convertername?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_openStandardNames(convname: PCSTR, standard: PCSTR, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_openStandardNames(convname.toString(), standard.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpenStandardNames((convname?.value ?: 0L).toString(), (standard?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_openU(name: Long, err: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_openU(name.toString(), err.toString()) as String).toLong() else 0L
+public actual fun ucnvOpenU(name: COpaquePointer?, err: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvOpenU((name?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_reset(converter: Long) {
+public actual fun ucnvReset(converter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_reset(converter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvReset((converter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_resetFromUnicode(converter: Long) {
+public actual fun ucnvResetFromUnicode(converter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_resetFromUnicode(converter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvResetFromUnicode((converter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_resetToUnicode(converter: Long) {
+public actual fun ucnvResetToUnicode(converter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_resetToUnicode(converter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvResetToUnicode((converter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_safeClone(cnv: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_safeClone(cnv.toString(), stackbuffer.toString(), pbuffersize.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucnvSafeClone(cnv: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSafeClone((cnv?.value ?: 0L).toString(), (stackbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_setDefaultName(name: PCSTR) {
+public actual fun ucnvSetDefaultName(name: Pcstr) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setDefaultName(name.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetDefaultName((name?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_setFallback(cnv: Long, usesfallback: Byte) {
+public actual fun ucnvSetFallback(cnv: COpaquePointer?, usesfallback: Byte) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setFallback(cnv.toString(), usesfallback.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetFallback((cnv?.value ?: 0L).toString(), usesfallback.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_setFromUCallBack(converter: Long, newaction: UConverterFromUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
+public actual fun ucnvSetFromUcallBack(converter: COpaquePointer?, newaction: UConverterFromUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setFromUCallBack(converter.toString(), newaction.toLong().toString(), newcontext.toString(), oldaction.toString(), oldcontext.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetFromUcallBack((converter?.value ?: 0L).toString(), 0L.toString(), (newcontext?.value ?: 0L).toString(), (oldaction?.value ?: 0L).toString(), (oldcontext?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_setSubstChars(converter: Long, subchars: PCSTR, len: Byte, err: Long) {
+public actual fun ucnvSetSubstChars(converter: COpaquePointer?, subchars: Pcstr, len: Byte, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setSubstChars(converter.toString(), subchars.toString(), len.toInt(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetSubstChars((converter?.value ?: 0L).toString(), (subchars?.value ?: 0L).toString(), len.toInt(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_setSubstString(cnv: Long, s: Long, length: Int, err: Long) {
+public actual fun ucnvSetSubstString(cnv: COpaquePointer?, s: COpaquePointer?, length: Int, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setSubstString(cnv.toString(), s.toString(), length, err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetSubstString((cnv?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_setToUCallBack(converter: Long, newaction: UConverterToUCallback, newcontext: Long, oldaction: Long, oldcontext: Long, err: Long) {
+public actual fun ucnvSetToUcallBack(converter: COpaquePointer?, newaction: UConverterToUCallback, newcontext: COpaquePointer?, oldaction: COpaquePointer?, oldcontext: COpaquePointer?, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_setToUCallBack(converter.toString(), newaction.toLong().toString(), newcontext.toString(), oldaction.toString(), oldcontext.toString(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvSetToUcallBack((converter?.value ?: 0L).toString(), 0L.toString(), (newcontext?.value ?: 0L).toString(), (oldaction?.value ?: 0L).toString(), (oldcontext?.value ?: 0L).toString(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: Long, target: PCSTR, targetcapacity: Int, source: PCSTR, sourcelength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_toAlgorithmic(algorithmictype, cnv.toString(), target.toString(), targetcapacity, source.toString(), sourcelength, perrorcode.toString()) as Int) else 0
+public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: COpaquePointer?, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToAlgorithmic(algorithmictype, (cnv?.value ?: 0L).toString(), (target?.value ?: 0L).toString(), targetcapacity, (source?.value ?: 0L).toString(), sourcelength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_toUChars(cnv: Long, dest: Long, destcapacity: Int, src: PCSTR, srclength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_toUChars(cnv.toString(), dest.toString(), destcapacity, src.toString(), srclength, perrorcode.toString()) as Int) else 0
+public actual fun ucnvToUchars(cnv: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUchars((cnv?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (src?.value ?: 0L).toString(), srclength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_toUCountPending(cnv: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_toUCountPending(cnv.toString(), status.toString()) as Int) else 0
+public actual fun ucnvToUcountPending(cnv: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUcountPending((cnv?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnv_toUnicode(converter: Long, target: Long, targetlimit: Long, source: Long, sourcelimit: PCSTR, offsets: Long, flush: Byte, err: Long) {
+public actual fun ucnvToUnicode(converter: COpaquePointer?, target: COpaquePointer?, targetlimit: COpaquePointer?, source: COpaquePointer?, sourcelimit: Pcstr, offsets: COpaquePointer?, flush: Byte, err: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_toUnicode(converter.toString(), target.toString(), targetlimit.toString(), source.toString(), sourcelimit.toString(), offsets.toString(), flush.toInt(), err.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvToUnicode((converter?.value ?: 0L).toString(), (target?.value ?: 0L).toString(), (targetlimit?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (sourcelimit?.value ?: 0L).toString(), (offsets?.value ?: 0L).toString(), flush.toInt(), (err?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnv_usesFallback(cnv: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnv_usesFallback(cnv.toString()) as Int).toByte() else 0
+public actual fun ucnvUsesFallback(cnv: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvUsesFallback((cnv?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnvsel_close(sel: Long) {
+public actual fun ucnvselClose(sel: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_close(sel.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselClose((sel?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucnvsel_open(converterlist: Long, converterlistsize: Int, excludedcodepoints: Long, whichset: UConverterUnicodeSet, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_open(converterlist.toString(), converterlistsize, excludedcodepoints.toString(), whichset, status.toString()) as String).toLong() else 0L
+public actual fun ucnvselOpen(converterlist: COpaquePointer?, converterlistsize: Int, excludedcodepoints: COpaquePointer?, whichset: UConverterUnicodeSet, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselOpen((converterlist?.value ?: 0L).toString(), converterlistsize, (excludedcodepoints?.value ?: 0L).toString(), whichset, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnvsel_openFromSerialized(buffer: Long, length: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_openFromSerialized(buffer.toString(), length, status.toString()) as String).toLong() else 0L
+public actual fun ucnvselOpenFromSerialized(buffer: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselOpenFromSerialized((buffer?.value ?: 0L).toString(), length, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnvsel_selectForString(sel: Long, s: Long, length: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_selectForString(sel.toString(), s.toString(), length, status.toString()) as String).toLong() else 0L
+public actual fun ucnvselSelectForString(sel: COpaquePointer?, s: COpaquePointer?, length: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselSelectForString((sel?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnvsel_selectForUTF8(sel: Long, s: PCSTR, length: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_selectForUTF8(sel.toString(), s.toString(), length, status.toString()) as String).toLong() else 0L
+public actual fun ucnvselSelectForUtf8(sel: COpaquePointer?, s: Pcstr, length: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselSelectForUtf8((sel?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucnvsel_serialize(sel: Long, buffer: Long, buffercapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvsel_serialize(sel.toString(), buffer.toString(), buffercapacity, status.toString()) as Int) else 0
+public actual fun ucnvselSerialize(sel: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucnvselSerialize((sel?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffercapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_cloneBinary(coll: Long, buffer: Long, capacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_cloneBinary(coll.toString(), buffer.toString(), capacity, status.toString()) as Int) else 0
+public actual fun ucolCloneBinary(coll: COpaquePointer?, buffer: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolCloneBinary((coll?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), capacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_close(coll: Long) {
+public actual fun ucolClose(coll: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_close(coll.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolClose((coll?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_closeElements(elems: Long) {
+public actual fun ucolCloseElements(elems: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_closeElements(elems.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolCloseElements((elems?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_countAvailable() as Int) else 0
+public actual fun ucolCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_equal(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_equal(coll.toString(), source.toString(), sourcelength, target.toString(), targetlength) as Int).toByte() else 0
+public actual fun ucolEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolEqual((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (target?.value ?: 0L).toString(), targetlength) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getAttribute(coll: Long, attr: UColAttribute, status: Long): UColAttributeValue =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getAttribute(coll.toString(), attr, status.toString()) as Int) else 0
+public actual fun ucolGetAttribute(coll: COpaquePointer?, attr: UColAttribute, status: COpaquePointer?): UColAttributeValue =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetAttribute((coll?.value ?: 0L).toString(), attr, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getAvailable(localeindex: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getAvailable(localeindex) as String).toLong() else 0L
+public actual fun ucolGetAvailable(localeindex: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetAvailable(localeindex) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getBound(source: Long, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getBound(source.toString(), sourcelength, boundtype, nooflevels.toInt(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun ucolGetBound(source: COpaquePointer?, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetBound((source?.value ?: 0L).toString(), sourcelength, boundtype, nooflevels.toInt(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getContractionsAndExpansions(coll: Long, contractions: Long, expansions: Long, addprefixes: Byte, status: Long) {
+public actual fun ucolGetContractionsAndExpansions(coll: COpaquePointer?, contractions: COpaquePointer?, expansions: COpaquePointer?, addprefixes: Byte, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getContractionsAndExpansions(coll.toString(), contractions.toString(), expansions.toString(), addprefixes.toInt(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetContractionsAndExpansions((coll?.value ?: 0L).toString(), (contractions?.value ?: 0L).toString(), (expansions?.value ?: 0L).toString(), addprefixes.toInt(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_getDisplayName(objloc: PCSTR, disploc: PCSTR, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getDisplayName(objloc.toString(), disploc.toString(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetDisplayName((objloc?.value ?: 0L).toString(), (disploc?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getEquivalentReorderCodes(reordercode: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getEquivalentReorderCodes(reordercode, dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetEquivalentReorderCodes(reordercode, (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getFunctionalEquivalent(result: PCSTR, resultcapacity: Int, keyword: PCSTR, locale: PCSTR, isavailable: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getFunctionalEquivalent(result.toString(), resultcapacity, keyword.toString(), locale.toString(), isavailable.toString(), status.toString()) as Int) else 0
+public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetFunctionalEquivalent((result?.value ?: 0L).toString(), resultcapacity, (keyword?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (isavailable?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getKeywordValues(keyword: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getKeywordValues(keyword.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolGetKeywordValues(keyword: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetKeywordValues((keyword?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getKeywordValuesForLocale(key.toString(), locale.toString(), commonlyused.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetKeywordValuesForLocale((key?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), commonlyused.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getKeywords(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getKeywords(status.toString()) as String).toLong() else 0L
+public actual fun ucolGetKeywords(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetKeywords((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getLocaleByType(coll: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getLocaleByType(coll.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun ucolGetLocaleByType(coll: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetLocaleByType((coll?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getMaxExpansion(elems: Long, order: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getMaxExpansion(elems.toString(), order) as Int) else 0
+public actual fun ucolGetMaxExpansion(elems: COpaquePointer?, order: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetMaxExpansion((elems?.value ?: 0L).toString(), order) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getMaxVariable(coll: Long): UColReorderCode =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getMaxVariable(coll.toString()) as Int) else 0
+public actual fun ucolGetMaxVariable(coll: COpaquePointer?): UColReorderCode =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetMaxVariable((coll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getOffset(elems: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getOffset(elems.toString()) as Int) else 0
+public actual fun ucolGetOffset(elems: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetOffset((elems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getReorderCodes(coll: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getReorderCodes(coll.toString(), dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun ucolGetReorderCodes(coll: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetReorderCodes((coll?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getRules(coll: Long, length: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getRules(coll.toString(), length.toString()) as String).toLong() else 0L
+public actual fun ucolGetRules(coll: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetRules((coll?.value ?: 0L).toString(), (length?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getRulesEx(coll: Long, delta: UColRuleOption, buffer: Long, bufferlen: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getRulesEx(coll.toString(), delta, buffer.toString(), bufferlen) as Int) else 0
+public actual fun ucolGetRulesEx(coll: COpaquePointer?, delta: UColRuleOption, buffer: COpaquePointer?, bufferlen: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetRulesEx((coll?.value ?: 0L).toString(), delta, (buffer?.value ?: 0L).toString(), bufferlen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getSortKey(coll: Long, source: Long, sourcelength: Int, result: Long, resultlength: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getSortKey(coll.toString(), source.toString(), sourcelength, result.toString(), resultlength) as Int) else 0
+public actual fun ucolGetSortKey(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, result: COpaquePointer?, resultlength: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetSortKey((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (result?.value ?: 0L).toString(), resultlength) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getStrength(coll: Long): UColAttributeValue =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getStrength(coll.toString()) as Int) else 0
+public actual fun ucolGetStrength(coll: COpaquePointer?): UColAttributeValue =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetStrength((coll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getTailoredSet(coll: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getTailoredSet(coll.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolGetTailoredSet(coll: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetTailoredSet((coll?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getUCAVersion(coll: Long, info: Long) {
+public actual fun ucolGetUcaversion(coll: COpaquePointer?, info: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getUCAVersion(coll.toString(), info.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetUcaversion((coll?.value ?: 0L).toString(), (info?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_getVariableTop(coll: Long, status: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getVariableTop(coll.toString(), status.toString()) as Int).toUInt() else 0u
+public actual fun ucolGetVariableTop(coll: COpaquePointer?, status: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetVariableTop((coll?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_getVersion(coll: Long, info: Long) {
+public actual fun ucolGetVersion(coll: COpaquePointer?, info: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_getVersion(coll.toString(), info.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGetVersion((coll?.value ?: 0L).toString(), (info?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_greater(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_greater(coll.toString(), source.toString(), sourcelength, target.toString(), targetlength) as Int).toByte() else 0
+public actual fun ucolGreater(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGreater((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (target?.value ?: 0L).toString(), targetlength) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_greaterOrEqual(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_greaterOrEqual(coll.toString(), source.toString(), sourcelength, target.toString(), targetlength) as Int).toByte() else 0
+public actual fun ucolGreaterOrEqual(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolGreaterOrEqual((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (target?.value ?: 0L).toString(), targetlength) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_keyHashCode(key: Long, length: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_keyHashCode(key.toString(), length) as Int) else 0
+public actual fun ucolKeyHashCode(key: COpaquePointer?, length: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolKeyHashCode((key?.value ?: 0L).toString(), length) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_mergeSortkeys(src1: Long, src1length: Int, src2: Long, src2length: Int, dest: Long, destcapacity: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_mergeSortkeys(src1.toString(), src1length, src2.toString(), src2length, dest.toString(), destcapacity) as Int) else 0
+public actual fun ucolMergeSortkeys(src1: COpaquePointer?, src1length: Int, src2: COpaquePointer?, src2length: Int, dest: COpaquePointer?, destcapacity: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolMergeSortkeys((src1?.value ?: 0L).toString(), src1length, (src2?.value ?: 0L).toString(), src2length, (dest?.value ?: 0L).toString(), destcapacity) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_next(elems: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_next(elems.toString(), status.toString()) as Int) else 0
+public actual fun ucolNext(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolNext((elems?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_nextSortKeyPart(coll: Long, iter: Long, state: Long, dest: Long, count: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_nextSortKeyPart(coll.toString(), iter.toString(), state.toString(), dest.toString(), count, status.toString()) as Int) else 0
+public actual fun ucolNextSortKeyPart(coll: COpaquePointer?, iter: COpaquePointer?, state: COpaquePointer?, dest: COpaquePointer?, count: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolNextSortKeyPart((coll?.value ?: 0L).toString(), (iter?.value ?: 0L).toString(), (state?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), count, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_open(loc: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_open(loc.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolOpen(loc: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolOpen((loc?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_openAvailableLocales(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_openAvailableLocales(status.toString()) as String).toLong() else 0L
+public actual fun ucolOpenAvailableLocales(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolOpenAvailableLocales((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_openBinary(bin: Long, length: Int, base: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_openBinary(bin.toString(), length, base.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolOpenBinary(bin: COpaquePointer?, length: Int, base: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolOpenBinary((bin?.value ?: 0L).toString(), length, (base?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_openElements(coll: Long, text: Long, textlength: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_openElements(coll.toString(), text.toString(), textlength, status.toString()) as String).toLong() else 0L
+public actual fun ucolOpenElements(coll: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolOpenElements((coll?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_openRules(rules: Long, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_openRules(rules.toString(), ruleslength, normalizationmode, strength, parseerror.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolOpenRules(rules: COpaquePointer?, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolOpenRules((rules?.value ?: 0L).toString(), ruleslength, normalizationmode, strength, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_previous(elems: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_previous(elems.toString(), status.toString()) as Int) else 0
+public actual fun ucolPrevious(elems: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolPrevious((elems?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_primaryOrder(order: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_primaryOrder(order) as Int) else 0
+public actual fun ucolPrimaryOrder(order: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolPrimaryOrder(order) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_reset(elems: Long) {
+public actual fun ucolReset(elems: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_reset(elems.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolReset((elems?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_safeClone(coll: Long, stackbuffer: Long, pbuffersize: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_safeClone(coll.toString(), stackbuffer.toString(), pbuffersize.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucolSafeClone(coll: COpaquePointer?, stackbuffer: COpaquePointer?, pbuffersize: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSafeClone((coll?.value ?: 0L).toString(), (stackbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_secondaryOrder(order: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_secondaryOrder(order) as Int) else 0
+public actual fun ucolSecondaryOrder(order: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSecondaryOrder(order) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_setAttribute(coll: Long, attr: UColAttribute, value: UColAttributeValue, status: Long) {
+public actual fun ucolSetAttribute(coll: COpaquePointer?, attr: UColAttribute, value: UColAttributeValue, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setAttribute(coll.toString(), attr, value, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetAttribute((coll?.value ?: 0L).toString(), attr, value, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_setMaxVariable(coll: Long, group: UColReorderCode, perrorcode: Long) {
+public actual fun ucolSetMaxVariable(coll: COpaquePointer?, group: UColReorderCode, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setMaxVariable(coll.toString(), group, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetMaxVariable((coll?.value ?: 0L).toString(), group, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_setOffset(elems: Long, offset: Int, status: Long) {
+public actual fun ucolSetOffset(elems: COpaquePointer?, offset: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setOffset(elems.toString(), offset, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetOffset((elems?.value ?: 0L).toString(), offset, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_setReorderCodes(coll: Long, reordercodes: Long, reordercodeslength: Int, perrorcode: Long) {
+public actual fun ucolSetReorderCodes(coll: COpaquePointer?, reordercodes: COpaquePointer?, reordercodeslength: Int, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setReorderCodes(coll.toString(), reordercodes.toString(), reordercodeslength, perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetReorderCodes((coll?.value ?: 0L).toString(), (reordercodes?.value ?: 0L).toString(), reordercodeslength, (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_setStrength(coll: Long, strength: UColAttributeValue) {
+public actual fun ucolSetStrength(coll: COpaquePointer?, strength: UColAttributeValue) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setStrength(coll.toString(), strength)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetStrength((coll?.value ?: 0L).toString(), strength)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_setText(elems: Long, text: Long, textlength: Int, status: Long) {
+public actual fun ucolSetText(elems: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_setText(elems.toString(), text.toString(), textlength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolSetText((elems?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucol_strcoll(coll: Long, source: Long, sourcelength: Int, target: Long, targetlength: Int): UCollationResult =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_strcoll(coll.toString(), source.toString(), sourcelength, target.toString(), targetlength) as Int) else 0
+public actual fun ucolStrcoll(coll: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, target: COpaquePointer?, targetlength: Int): UCollationResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolStrcoll((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (target?.value ?: 0L).toString(), targetlength) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_strcollIter(coll: Long, siter: Long, titer: Long, status: Long): UCollationResult =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_strcollIter(coll.toString(), siter.toString(), titer.toString(), status.toString()) as Int) else 0
+public actual fun ucolStrcollIter(coll: COpaquePointer?, siter: COpaquePointer?, titer: COpaquePointer?, status: COpaquePointer?): UCollationResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolStrcollIter((coll?.value ?: 0L).toString(), (siter?.value ?: 0L).toString(), (titer?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_strcollUTF8(coll: Long, source: PCSTR, sourcelength: Int, target: PCSTR, targetlength: Int, status: Long): UCollationResult =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_strcollUTF8(coll.toString(), source.toString(), sourcelength, target.toString(), targetlength, status.toString()) as Int) else 0
+public actual fun ucolStrcollUtf8(coll: COpaquePointer?, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: COpaquePointer?): UCollationResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolStrcollUtf8((coll?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (target?.value ?: 0L).toString(), targetlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucol_tertiaryOrder(order: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucol_tertiaryOrder(order) as Int) else 0
+public actual fun ucolTertiaryOrder(order: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucolTertiaryOrder(order) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucpmap_get(map: Long, c: Int): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucpmap_get(map.toString(), c) as Int).toUInt() else 0u
+public actual fun ucpmapGet(map: COpaquePointer?, c: Int): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucpmapGet((map?.value ?: 0L).toString(), c) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucpmap_getRange(map: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucpmap_getRange(map.toString(), start, option, surrogatevalue.toInt(), filter.toString(), context.toString(), pvalue.toString()) as Int) else 0
+public actual fun ucpmapGetRange(map: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucpmapGetRange((map?.value ?: 0L).toString(), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (pvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_close(trie: Long) {
+public actual fun ucptrieClose(trie: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_close(trie.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieClose((trie?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucptrie_get(trie: Long, c: Int): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_get(trie.toString(), c) as Int).toUInt() else 0u
+public actual fun ucptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieGet((trie?.value ?: 0L).toString(), c) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_getRange(trie.toString(), start, option, surrogatevalue.toInt(), filter.toString(), context.toString(), pvalue.toString()) as Int) else 0
+public actual fun ucptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieGetRange((trie?.value ?: 0L).toString(), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (pvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_getType(trie: Long): UCPTrieType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_getType(trie.toString()) as Int) else 0
+public actual fun ucptrieGetType(trie: COpaquePointer?): UCPTrieType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieGetType((trie?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_getValueWidth(trie: Long): UCPTrieValueWidth =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_getValueWidth(trie.toString()) as Int) else 0
+public actual fun ucptrieGetValueWidth(trie: COpaquePointer?): UCPTrieValueWidth =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieGetValueWidth((trie?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_internalSmallIndex(trie: Long, c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_internalSmallIndex(trie.toString(), c) as Int) else 0
+public actual fun ucptrieInternalSmallIndex(trie: COpaquePointer?, c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieInternalSmallIndex((trie?.value ?: 0L).toString(), c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_internalSmallU8Index(trie: Long, lt1: Int, t2: UByte, t3: UByte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_internalSmallU8Index(trie.toString(), lt1, t2.toInt(), t3.toInt()) as Int) else 0
+public actual fun ucptrieInternalSmallU8Index(trie: COpaquePointer?, lt1: Int, t2: UByte, t3: UByte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieInternalSmallU8Index((trie?.value ?: 0L).toString(), lt1, t2.toInt(), t3.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_internalU8PrevIndex(trie: Long, c: Int, start: Long, src: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_internalU8PrevIndex(trie.toString(), c, start.toString(), src.toString()) as Int) else 0
+public actual fun ucptrieInternalU8PrevIndex(trie: COpaquePointer?, c: Int, start: COpaquePointer?, src: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieInternalU8PrevIndex((trie?.value ?: 0L).toString(), c, (start?.value ?: 0L).toString(), (src?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_openFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_openFromBinary(type, valuewidth, data.toString(), length, pactuallength.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieOpenFromBinary(type, valuewidth, (data?.value ?: 0L).toString(), length, (pactuallength?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucptrie_toBinary(trie: Long, data: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrie_toBinary(trie.toString(), data.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun ucptrieToBinary(trie: COpaquePointer?, data: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucptrieToBinary((trie?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_close(ucsd: Long) {
+public actual fun ucsdetClose(ucsd: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_close(ucsd.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetClose((ucsd?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucsdet_detect(ucsd: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_detect(ucsd.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucsdetDetect(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetDetect((ucsd?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_detectAll(ucsd: Long, matchesfound: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_detectAll(ucsd.toString(), matchesfound.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucsdetDetectAll(ucsd: COpaquePointer?, matchesfound: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetDetectAll((ucsd?.value ?: 0L).toString(), (matchesfound?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_enableInputFilter(ucsd: Long, filter: Byte): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_enableInputFilter(ucsd.toString(), filter.toInt()) as Int).toByte() else 0
+public actual fun ucsdetEnableInputFilter(ucsd: COpaquePointer?, filter: Byte): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetEnableInputFilter((ucsd?.value ?: 0L).toString(), filter.toInt()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_getAllDetectableCharsets(ucsd: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_getAllDetectableCharsets(ucsd.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucsdetGetAllDetectableCharsets(ucsd: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetGetAllDetectableCharsets((ucsd?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_getConfidence(ucsm: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_getConfidence(ucsm.toString(), status.toString()) as Int) else 0
+public actual fun ucsdetGetConfidence(ucsm: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetGetConfidence((ucsm?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_getLanguage(ucsm: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_getLanguage(ucsm.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucsdetGetLanguage(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetGetLanguage((ucsm?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_getName(ucsm: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_getName(ucsm.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucsdetGetName(ucsm: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetGetName((ucsm?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_getUChars(ucsm: Long, buf: Long, cap: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_getUChars(ucsm.toString(), buf.toString(), cap, status.toString()) as Int) else 0
+public actual fun ucsdetGetUchars(ucsm: COpaquePointer?, buf: COpaquePointer?, cap: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetGetUchars((ucsm?.value ?: 0L).toString(), (buf?.value ?: 0L).toString(), cap, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_isInputFilterEnabled(ucsd: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_isInputFilterEnabled(ucsd.toString()) as Int).toByte() else 0
+public actual fun ucsdetIsInputFilterEnabled(ucsd: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetIsInputFilterEnabled((ucsd?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_open(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_open(status.toString()) as String).toLong() else 0L
+public actual fun ucsdetOpen(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetOpen((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucsdet_setDeclaredEncoding(ucsd: Long, encoding: PCSTR, length: Int, status: Long) {
+public actual fun ucsdetSetDeclaredEncoding(ucsd: COpaquePointer?, encoding: Pcstr, length: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_setDeclaredEncoding(ucsd.toString(), encoding.toString(), length, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetSetDeclaredEncoding((ucsd?.value ?: 0L).toString(), (encoding?.value ?: 0L).toString(), length, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucsdet_setText(ucsd: Long, textin: PCSTR, len: Int, status: Long) {
+public actual fun ucsdetSetText(ucsd: COpaquePointer?, textin: Pcstr, len: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdet_setText(ucsd.toString(), textin.toString(), len, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucsdetSetText((ucsd?.value ?: 0L).toString(), (textin?.value ?: 0L).toString(), len, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ucurr_countCurrencies(locale: PCSTR, date: Double, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_countCurrencies(locale.toString(), date, ec.toString()) as Int) else 0
+public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrCountCurrencies((locale?.value ?: 0L).toString(), date, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_forLocale(locale: PCSTR, buff: Long, buffcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_forLocale(locale.toString(), buff.toString(), buffcapacity, ec.toString()) as Int) else 0
+public actual fun ucurrForLocale(locale: Pcstr, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrForLocale((locale?.value ?: 0L).toString(), (buff?.value ?: 0L).toString(), buffcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_forLocaleAndDate(locale: PCSTR, date: Double, index: Int, buff: Long, buffcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_forLocaleAndDate(locale.toString(), date, index, buff.toString(), buffcapacity, ec.toString()) as Int) else 0
+public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: COpaquePointer?, buffcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrForLocaleAndDate((locale?.value ?: 0L).toString(), date, index, (buff?.value ?: 0L).toString(), buffcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getDefaultFractionDigits(currency: Long, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigits(currency.toString(), ec.toString()) as Int) else 0
+public actual fun ucurrGetDefaultFractionDigits(currency: COpaquePointer?, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigits((currency?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getDefaultFractionDigitsForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getDefaultFractionDigitsForUsage(currency.toString(), usage, ec.toString()) as Int) else 0
+public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetDefaultFractionDigitsForUsage((currency?.value ?: 0L).toString(), usage, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getKeywordValuesForLocale(key: PCSTR, locale: PCSTR, commonlyused: Byte, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getKeywordValuesForLocale(key.toString(), locale.toString(), commonlyused.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetKeywordValuesForLocale((key?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), commonlyused.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getName(currency: Long, locale: PCSTR, namestyle: UCurrNameStyle, ischoiceformat: Long, len: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getName(currency.toString(), locale.toString(), namestyle, ischoiceformat.toString(), len.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ucurrGetName(currency: COpaquePointer?, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: COpaquePointer?, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetName((currency?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), namestyle, (ischoiceformat?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getNumericCode(currency: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getNumericCode(currency.toString()) as Int) else 0
+public actual fun ucurrGetNumericCode(currency: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetNumericCode((currency?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getPluralName(currency: Long, locale: PCSTR, ischoiceformat: Long, pluralcount: PCSTR, len: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getPluralName(currency.toString(), locale.toString(), ischoiceformat.toString(), pluralcount.toString(), len.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ucurrGetPluralName(currency: COpaquePointer?, locale: Pcstr, ischoiceformat: COpaquePointer?, pluralcount: Pcstr, len: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetPluralName((currency?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (ischoiceformat?.value ?: 0L).toString(), (pluralcount?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getRoundingIncrement(currency: Long, ec: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getRoundingIncrement(currency.toString(), ec.toString()) as Double) else 0.0
+public actual fun ucurrGetRoundingIncrement(currency: COpaquePointer?, ec: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetRoundingIncrement((currency?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_getRoundingIncrementForUsage(currency: Long, usage: UCurrencyUsage, ec: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_getRoundingIncrementForUsage(currency.toString(), usage, ec.toString()) as Double) else 0.0
+public actual fun ucurrGetRoundingIncrementForUsage(currency: COpaquePointer?, usage: UCurrencyUsage, ec: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrGetRoundingIncrementForUsage((currency?.value ?: 0L).toString(), usage, (ec?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_isAvailable(isocode: Long, from: Double, to: Double, errorcode: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_isAvailable(isocode.toString(), from, to, errorcode.toString()) as Int).toByte() else 0
+public actual fun ucurrIsAvailable(isocode: COpaquePointer?, from: Double, to: Double, errorcode: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrIsAvailable((isocode?.value ?: 0L).toString(), from, to, (errorcode?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_openISOCurrencies(currtype: UInt, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_openISOCurrencies(currtype.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrOpenIsocurrencies(currtype.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_register(isocode: Long, locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_register(isocode.toString(), locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ucurrRegister(isocode: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrRegister((isocode?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ucurr_unregister(key: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurr_unregister(key.toString(), status.toString()) as Int).toByte() else 0
+public actual fun ucurrUnregister(key: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ucurrUnregister((key?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_adoptNumberFormat(fmt: Long, numberformattoadopt: Long) {
+public actual fun udatAdoptNumberFormat(fmt: COpaquePointer?, numberformattoadopt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_adoptNumberFormat(fmt.toString(), numberformattoadopt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatAdoptNumberFormat((fmt?.value ?: 0L).toString(), (numberformattoadopt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_adoptNumberFormatForFields(fmt: Long, fields: Long, numberformattoset: Long, status: Long) {
+public actual fun udatAdoptNumberFormatForFields(fmt: COpaquePointer?, fields: COpaquePointer?, numberformattoset: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_adoptNumberFormatForFields(fmt.toString(), fields.toString(), numberformattoset.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatAdoptNumberFormatForFields((fmt?.value ?: 0L).toString(), (fields?.value ?: 0L).toString(), (numberformattoset?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int) {
+public actual fun udatApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_applyPattern(format.toString(), localized.toInt(), pattern.toString(), patternlength)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatApplyPattern((format?.value ?: 0L).toString(), localized.toInt(), (pattern?.value ?: 0L).toString(), patternlength)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_clone(fmt: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_clone(fmt.toString(), status.toString()) as String).toLong() else 0L
+public actual fun udatClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatClone((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_close(format: Long) {
+public actual fun udatClose(format: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_close(format.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatClose((format?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_countAvailable() as Int) else 0
+public actual fun udatCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_countSymbols(fmt: Long, type: UDateFormatSymbolType): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_countSymbols(fmt.toString(), type) as Int) else 0
+public actual fun udatCountSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatCountSymbols((fmt?.value ?: 0L).toString(), type) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_format(format: Long, datetoformat: Double, result: Long, resultlength: Int, position: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_format(format.toString(), datetoformat, result.toString(), resultlength, position.toString(), status.toString()) as Int) else 0
+public actual fun udatFormat(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatFormat((format?.value ?: 0L).toString(), datetoformat, (result?.value ?: 0L).toString(), resultlength, (position?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_formatCalendar(format: Long, calendar: Long, result: Long, capacity: Int, position: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_formatCalendar(format.toString(), calendar.toString(), result.toString(), capacity, position.toString(), status.toString()) as Int) else 0
+public actual fun udatFormatCalendar(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatFormatCalendar((format?.value ?: 0L).toString(), (calendar?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), capacity, (position?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_formatCalendarForFields(format: Long, calendar: Long, result: Long, capacity: Int, fpositer: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_formatCalendarForFields(format.toString(), calendar.toString(), result.toString(), capacity, fpositer.toString(), status.toString()) as Int) else 0
+public actual fun udatFormatCalendarForFields(format: COpaquePointer?, calendar: COpaquePointer?, result: COpaquePointer?, capacity: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatFormatCalendarForFields((format?.value ?: 0L).toString(), (calendar?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), capacity, (fpositer?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_formatForFields(format: Long, datetoformat: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_formatForFields(format.toString(), datetoformat, result.toString(), resultlength, fpositer.toString(), status.toString()) as Int) else 0
+public actual fun udatFormatForFields(format: COpaquePointer?, datetoformat: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatFormatForFields((format?.value ?: 0L).toString(), datetoformat, (result?.value ?: 0L).toString(), resultlength, (fpositer?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_get2DigitYearStart(fmt: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_get2DigitYearStart(fmt.toString(), status.toString()) as Double) else 0.0
+public actual fun udatGet2DigitYearStart(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGet2DigitYearStart((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getAvailable(localeindex: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getAvailable(localeindex) as String).toLong() else 0L
+public actual fun udatGetAvailable(localeindex: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetAvailable(localeindex) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getBooleanAttribute(fmt.toString(), attr, status.toString()) as Int).toByte() else 0
+public actual fun udatGetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetBooleanAttribute((fmt?.value ?: 0L).toString(), attr, (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getCalendar(fmt: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getCalendar(fmt.toString()) as String).toLong() else 0L
+public actual fun udatGetCalendar(fmt: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetCalendar((fmt?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getContext(fmt.toString(), type, status.toString()) as Int) else 0
+public actual fun udatGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetContext((fmt?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getLocaleByType(fmt.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun udatGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetLocaleByType((fmt?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getNumberFormat(fmt: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getNumberFormat(fmt.toString()) as String).toLong() else 0L
+public actual fun udatGetNumberFormat(fmt: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetNumberFormat((fmt?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getNumberFormatForField(fmt: Long, field: UShort): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getNumberFormatForField(fmt.toString(), field.toInt()) as String).toLong() else 0L
+public actual fun udatGetNumberFormatForField(fmt: COpaquePointer?, field: UShort): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetNumberFormatForField((fmt?.value ?: 0L).toString(), field.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_getSymbols(fmt: Long, type: UDateFormatSymbolType, symbolindex: Int, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_getSymbols(fmt.toString(), type, symbolindex, result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun udatGetSymbols(fmt: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatGetSymbols((fmt?.value ?: 0L).toString(), type, symbolindex, (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_isLenient(fmt: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_isLenient(fmt.toString()) as Int).toByte() else 0
+public actual fun udatIsLenient(fmt: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatIsLenient((fmt?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: PCSTR, tzid: Long, tzidlength: Int, pattern: Long, patternlength: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_open(timestyle, datestyle, locale.toString(), tzid.toString(), tzidlength, pattern.toString(), patternlength, status.toString()) as String).toLong() else 0L
+public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: COpaquePointer?, tzidlength: Int, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatOpen(timestyle, datestyle, (locale?.value ?: 0L).toString(), (tzid?.value ?: 0L).toString(), tzidlength, (pattern?.value ?: 0L).toString(), patternlength, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_parse(format: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_parse(format.toString(), text.toString(), textlength, parsepos.toString(), status.toString()) as Double) else 0.0
+public actual fun udatParse(format: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatParse((format?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_parseCalendar(format: Long, calendar: Long, text: Long, textlength: Int, parsepos: Long, status: Long) {
+public actual fun udatParseCalendar(format: COpaquePointer?, calendar: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_parseCalendar(format.toString(), calendar.toString(), text.toString(), textlength, parsepos.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatParseCalendar((format?.value ?: 0L).toString(), (calendar?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_set2DigitYearStart(fmt: Long, d: Double, status: Long) {
+public actual fun udatSet2DigitYearStart(fmt: COpaquePointer?, d: Double, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_set2DigitYearStart(fmt.toString(), d, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSet2DigitYearStart((fmt?.value ?: 0L).toString(), d, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setBooleanAttribute(fmt: Long, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: Long) {
+public actual fun udatSetBooleanAttribute(fmt: COpaquePointer?, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setBooleanAttribute(fmt.toString(), attr, newvalue.toInt(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetBooleanAttribute((fmt?.value ?: 0L).toString(), attr, newvalue.toInt(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setCalendar(fmt: Long, calendartoset: Long) {
+public actual fun udatSetCalendar(fmt: COpaquePointer?, calendartoset: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setCalendar(fmt.toString(), calendartoset.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetCalendar((fmt?.value ?: 0L).toString(), (calendartoset?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setContext(fmt: Long, value: UDisplayContext, status: Long) {
+public actual fun udatSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setContext(fmt.toString(), value, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetContext((fmt?.value ?: 0L).toString(), value, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setLenient(fmt: Long, islenient: Byte) {
+public actual fun udatSetLenient(fmt: COpaquePointer?, islenient: Byte) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setLenient(fmt.toString(), islenient.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetLenient((fmt?.value ?: 0L).toString(), islenient.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setNumberFormat(fmt: Long, numberformattoset: Long) {
+public actual fun udatSetNumberFormat(fmt: COpaquePointer?, numberformattoset: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setNumberFormat(fmt.toString(), numberformattoset.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetNumberFormat((fmt?.value ?: 0L).toString(), (numberformattoset?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_setSymbols(format: Long, type: UDateFormatSymbolType, symbolindex: Int, value: Long, valuelength: Int, status: Long) {
+public actual fun udatSetSymbols(format: COpaquePointer?, type: UDateFormatSymbolType, symbolindex: Int, value: COpaquePointer?, valuelength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_setSymbols(format.toString(), type, symbolindex, value.toString(), valuelength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatSetSymbols((format?.value ?: 0L).toString(), type, symbolindex, (value?.value ?: 0L).toString(), valuelength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udat_toCalendarDateField(field: UDateFormatField): UCalendarDateFields =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_toCalendarDateField(field) as Int) else 0
+public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatToCalendarDateField(field) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udat_toPattern(fmt: Long, localized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udat_toPattern(fmt.toString(), localized.toInt(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun udatToPattern(fmt: COpaquePointer?, localized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatToPattern((fmt?.value ?: 0L).toString(), localized.toInt(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_addPattern(dtpg: Long, pattern: Long, patternlength: Int, override: Byte, conflictingpattern: Long, capacity: Int, plength: Long, perrorcode: Long): UDateTimePatternConflict =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_addPattern(dtpg.toString(), pattern.toString(), patternlength, override.toInt(), conflictingpattern.toString(), capacity, plength.toString(), perrorcode.toString()) as Int) else 0
+public actual fun udatpgAddPattern(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, override: Byte, conflictingpattern: COpaquePointer?, capacity: Int, plength: COpaquePointer?, perrorcode: COpaquePointer?): UDateTimePatternConflict =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgAddPattern((dtpg?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, override.toInt(), (conflictingpattern?.value ?: 0L).toString(), capacity, (plength?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_clone(dtpg: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_clone(dtpg.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun udatpgClone(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgClone((dtpg?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_close(dtpg: Long) {
+public actual fun udatpgClose(dtpg: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_close(dtpg.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgClose((dtpg?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udatpg_getAppendItemFormat(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getAppendItemFormat(dtpg.toString(), field, plength.toString()) as String).toLong() else 0L
+public actual fun udatpgGetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetAppendItemFormat((dtpg?.value ?: 0L).toString(), field, (plength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getAppendItemName(dtpg: Long, field: UDateTimePatternField, plength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getAppendItemName(dtpg.toString(), field, plength.toString()) as String).toLong() else 0L
+public actual fun udatpgGetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, plength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetAppendItemName((dtpg?.value ?: 0L).toString(), field, (plength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getBaseSkeleton(unuseddtpg: Long, pattern: Long, length: Int, baseskeleton: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getBaseSkeleton(unuseddtpg.toString(), pattern.toString(), length, baseskeleton.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgGetBaseSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, baseskeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetBaseSkeleton((unuseddtpg?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), length, (baseskeleton?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getBestPattern(dtpg: Long, skeleton: Long, length: Int, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getBestPattern(dtpg.toString(), skeleton.toString(), length, bestpattern.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgGetBestPattern(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetBestPattern((dtpg?.value ?: 0L).toString(), (skeleton?.value ?: 0L).toString(), length, (bestpattern?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getBestPatternWithOptions(dtpg: Long, skeleton: Long, length: Int, options: UDateTimePatternMatchOptions, bestpattern: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getBestPatternWithOptions(dtpg.toString(), skeleton.toString(), length, options, bestpattern.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgGetBestPatternWithOptions(dtpg: COpaquePointer?, skeleton: COpaquePointer?, length: Int, options: UDateTimePatternMatchOptions, bestpattern: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetBestPatternWithOptions((dtpg?.value ?: 0L).toString(), (skeleton?.value ?: 0L).toString(), length, options, (bestpattern?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getDateTimeFormat(dtpg: Long, plength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getDateTimeFormat(dtpg.toString(), plength.toString()) as String).toLong() else 0L
+public actual fun udatpgGetDateTimeFormat(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetDateTimeFormat((dtpg?.value ?: 0L).toString(), (plength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getDecimal(dtpg: Long, plength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getDecimal(dtpg.toString(), plength.toString()) as String).toLong() else 0L
+public actual fun udatpgGetDecimal(dtpg: COpaquePointer?, plength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetDecimal((dtpg?.value ?: 0L).toString(), (plength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getFieldDisplayName(dtpg: Long, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getFieldDisplayName(dtpg.toString(), field, width, fieldname.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgGetFieldDisplayName(dtpg: COpaquePointer?, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetFieldDisplayName((dtpg?.value ?: 0L).toString(), field, width, (fieldname?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getPatternForSkeleton(dtpg: Long, skeleton: Long, skeletonlength: Int, plength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getPatternForSkeleton(dtpg.toString(), skeleton.toString(), skeletonlength, plength.toString()) as String).toLong() else 0L
+public actual fun udatpgGetPatternForSkeleton(dtpg: COpaquePointer?, skeleton: COpaquePointer?, skeletonlength: Int, plength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetPatternForSkeleton((dtpg?.value ?: 0L).toString(), (skeleton?.value ?: 0L).toString(), skeletonlength, (plength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_getSkeleton(unuseddtpg: Long, pattern: Long, length: Int, skeleton: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_getSkeleton(unuseddtpg.toString(), pattern.toString(), length, skeleton.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgGetSkeleton(unuseddtpg: COpaquePointer?, pattern: COpaquePointer?, length: Int, skeleton: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgGetSkeleton((unuseddtpg?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), length, (skeleton?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_open(locale: PCSTR, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_open(locale.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun udatpgOpen(locale: Pcstr, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgOpen((locale?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_openBaseSkeletons(dtpg: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_openBaseSkeletons(dtpg.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun udatpgOpenBaseSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgOpenBaseSkeletons((dtpg?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_openEmpty(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_openEmpty(perrorcode.toString()) as String).toLong() else 0L
+public actual fun udatpgOpenEmpty(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgOpenEmpty((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_openSkeletons(dtpg: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_openSkeletons(dtpg.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun udatpgOpenSkeletons(dtpg: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgOpenSkeletons((dtpg?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_replaceFieldTypes(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_replaceFieldTypes(dtpg.toString(), pattern.toString(), patternlength, skeleton.toString(), skeletonlength, dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgReplaceFieldTypes(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgReplaceFieldTypes((dtpg?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (skeleton?.value ?: 0L).toString(), skeletonlength, (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_replaceFieldTypesWithOptions(dtpg: Long, pattern: Long, patternlength: Int, skeleton: Long, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_replaceFieldTypesWithOptions(dtpg.toString(), pattern.toString(), patternlength, skeleton.toString(), skeletonlength, options, dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, skeleton: COpaquePointer?, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgReplaceFieldTypesWithOptions((dtpg?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (skeleton?.value ?: 0L).toString(), skeletonlength, options, (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udatpg_setAppendItemFormat(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
+public actual fun udatpgSetAppendItemFormat(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_setAppendItemFormat(dtpg.toString(), field, value.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgSetAppendItemFormat((dtpg?.value ?: 0L).toString(), field, (value?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udatpg_setAppendItemName(dtpg: Long, field: UDateTimePatternField, value: Long, length: Int) {
+public actual fun udatpgSetAppendItemName(dtpg: COpaquePointer?, field: UDateTimePatternField, value: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_setAppendItemName(dtpg.toString(), field, value.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgSetAppendItemName((dtpg?.value ?: 0L).toString(), field, (value?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udatpg_setDateTimeFormat(dtpg: Long, dtformat: Long, length: Int) {
+public actual fun udatpgSetDateTimeFormat(dtpg: COpaquePointer?, dtformat: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_setDateTimeFormat(dtpg.toString(), dtformat.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgSetDateTimeFormat((dtpg?.value ?: 0L).toString(), (dtformat?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udatpg_setDecimal(dtpg: Long, decimal: Long, length: Int) {
+public actual fun udatpgSetDecimal(dtpg: COpaquePointer?, decimal: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpg_setDecimal(dtpg.toString(), decimal.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udatpgSetDecimal((dtpg?.value ?: 0L).toString(), (decimal?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udtitvfmt_close(formatter: Long) {
+public actual fun udtitvfmtClose(formatter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_close(formatter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtClose((formatter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udtitvfmt_closeResult(uresult: Long) {
+public actual fun udtitvfmtCloseResult(uresult: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_closeResult(uresult.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtCloseResult((uresult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun udtitvfmt_format(formatter: Long, fromdate: Double, todate: Double, result: Long, resultcapacity: Int, position: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_format(formatter.toString(), fromdate, todate, result.toString(), resultcapacity, position.toString(), status.toString()) as Int) else 0
+public actual fun udtitvfmtFormat(formatter: COpaquePointer?, fromdate: Double, todate: Double, result: COpaquePointer?, resultcapacity: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtFormat((formatter?.value ?: 0L).toString(), fromdate, todate, (result?.value ?: 0L).toString(), resultcapacity, (position?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udtitvfmt_open(locale: PCSTR, skeleton: Long, skeletonlength: Int, tzid: Long, tzidlength: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_open(locale.toString(), skeleton.toString(), skeletonlength, tzid.toString(), tzidlength, status.toString()) as String).toLong() else 0L
+public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: COpaquePointer?, skeletonlength: Int, tzid: COpaquePointer?, tzidlength: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtOpen((locale?.value ?: 0L).toString(), (skeleton?.value ?: 0L).toString(), skeletonlength, (tzid?.value ?: 0L).toString(), tzidlength, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udtitvfmt_openResult(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_openResult(ec.toString()) as String).toLong() else 0L
+public actual fun udtitvfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtOpenResult((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun udtitvfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmt_resultAsValue(uresult.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun udtitvfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_udtitvfmtResultAsValue((uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uenum_close(en: Long) {
+public actual fun uenumClose(en: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_close(en.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumClose((en?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uenum_count(en: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_count(en.toString(), status.toString()) as Int) else 0
+public actual fun uenumCount(en: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumCount((en?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uenum_next(en: Long, resultlength: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_next(en.toString(), resultlength.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uenumNext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumNext((en?.value ?: 0L).toString(), (resultlength?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uenum_openCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_openCharStringsEnumeration(strings.toString(), count, ec.toString()) as String).toLong() else 0L
+public actual fun uenumOpenCharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumOpenCharStringsEnumeration((strings?.value ?: 0L).toString(), count, (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uenum_openUCharStringsEnumeration(strings: Long, count: Int, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_openUCharStringsEnumeration(strings.toString(), count, ec.toString()) as String).toLong() else 0L
+public actual fun uenumOpenUcharStringsEnumeration(strings: COpaquePointer?, count: Int, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumOpenUcharStringsEnumeration((strings?.value ?: 0L).toString(), count, (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uenum_reset(en: Long, status: Long) {
+public actual fun uenumReset(en: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_reset(en.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumReset((en?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uenum_unext(en: Long, resultlength: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenum_unext(en.toString(), resultlength.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uenumUnext(en: COpaquePointer?, resultlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uenumUnext((en?.value ?: 0L).toString(), (resultlength?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufieldpositer_close(fpositer: Long) {
+public actual fun ufieldpositerClose(fpositer: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositer_close(fpositer.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositerClose((fpositer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ufieldpositer_next(fpositer: Long, beginindex: Long, endindex: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositer_next(fpositer.toString(), beginindex.toString(), endindex.toString()) as Int) else 0
+public actual fun ufieldpositerNext(fpositer: COpaquePointer?, beginindex: COpaquePointer?, endindex: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositerNext((fpositer?.value ?: 0L).toString(), (beginindex?.value ?: 0L).toString(), (endindex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufieldpositer_open(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositer_open(status.toString()) as String).toLong() else 0L
+public actual fun ufieldpositerOpen(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufieldpositerOpen((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_close(fmt: Long) {
+public actual fun ufmtClose(fmt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_close(fmt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtClose((fmt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ufmt_getArrayItemByIndex(fmt: Long, n: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getArrayItemByIndex(fmt.toString(), n, status.toString()) as String).toLong() else 0L
+public actual fun ufmtGetArrayItemByIndex(fmt: COpaquePointer?, n: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetArrayItemByIndex((fmt?.value ?: 0L).toString(), n, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getArrayLength(fmt: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getArrayLength(fmt.toString(), status.toString()) as Int) else 0
+public actual fun ufmtGetArrayLength(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetArrayLength((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getDate(fmt: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getDate(fmt.toString(), status.toString()) as Double) else 0.0
+public actual fun ufmtGetDate(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetDate((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getDecNumChars(fmt: Long, len: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getDecNumChars(fmt.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ufmtGetDecNumChars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetDecNumChars((fmt?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getDouble(fmt: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getDouble(fmt.toString(), status.toString()) as Double) else 0.0
+public actual fun ufmtGetDouble(fmt: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetDouble((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getInt64(fmt: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getInt64(fmt.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ufmtGetInt64(fmt: COpaquePointer?, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetInt64((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getLong(fmt: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getLong(fmt.toString(), status.toString()) as Int) else 0
+public actual fun ufmtGetLong(fmt: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetLong((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getObject(fmt: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getObject(fmt.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ufmtGetObject(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetObject((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getType(fmt: Long, status: Long): UFormattableType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getType(fmt.toString(), status.toString()) as Int) else 0
+public actual fun ufmtGetType(fmt: COpaquePointer?, status: COpaquePointer?): UFormattableType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetType((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_getUChars(fmt: Long, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_getUChars(fmt.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ufmtGetUchars(fmt: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtGetUchars((fmt?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_isNumeric(fmt: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_isNumeric(fmt.toString()) as Int).toByte() else 0
+public actual fun ufmtIsNumeric(fmt: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtIsNumeric((fmt?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmt_open(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmt_open(status.toString()) as String).toLong() else 0L
+public actual fun ufmtOpen(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtOpen((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmtval_getString(ufmtval: Long, plength: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtval_getString(ufmtval.toString(), plength.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ufmtvalGetString(ufmtval: COpaquePointer?, plength: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtvalGetString((ufmtval?.value ?: 0L).toString(), (plength?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ufmtval_nextPosition(ufmtval: Long, ucfpos: Long, ec: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtval_nextPosition(ufmtval.toString(), ucfpos.toString(), ec.toString()) as Int).toByte() else 0
+public actual fun ufmtvalNextPosition(ufmtval: COpaquePointer?, ucfpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ufmtvalNextPosition((ufmtval?.value ?: 0L).toString(), (ucfpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ugender_getInstance(locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ugender_getInstance(locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ugenderGetInstance(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ugenderGetInstance((locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ugender_getListGender(genderinfo: Long, genders: Long, size: Int, status: Long): UGender =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ugender_getListGender(genderinfo.toString(), genders.toString(), size, status.toString()) as Int) else 0
+public actual fun ugenderGetListGender(genderinfo: COpaquePointer?, genders: COpaquePointer?, size: Int, status: COpaquePointer?): UGender =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ugenderGetListGender((genderinfo?.value ?: 0L).toString(), (genders?.value ?: 0L).toString(), size, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_close(idna: Long) {
+public actual fun uidnaClose(idna: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_close(idna.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaClose((idna?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uidna_labelToASCII(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_labelToASCII(idna.toString(), label.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaLabelToAscii(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaLabelToAscii((idna?.value ?: 0L).toString(), (label?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_labelToASCII_UTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_labelToASCII_UTF8(idna.toString(), label.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaLabelToAsciiUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaLabelToAsciiUtf8((idna?.value ?: 0L).toString(), (label?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_labelToUnicode(idna: Long, label: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_labelToUnicode(idna.toString(), label.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaLabelToUnicode(idna: COpaquePointer?, label: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaLabelToUnicode((idna?.value ?: 0L).toString(), (label?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_labelToUnicodeUTF8(idna: Long, label: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_labelToUnicodeUTF8(idna.toString(), label.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaLabelToUnicodeUtf8(idna: COpaquePointer?, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaLabelToUnicodeUtf8((idna?.value ?: 0L).toString(), (label?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_nameToASCII(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_nameToASCII(idna.toString(), name.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaNameToAscii(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaNameToAscii((idna?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_nameToASCII_UTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_nameToASCII_UTF8(idna.toString(), name.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaNameToAsciiUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaNameToAsciiUtf8((idna?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_nameToUnicode(idna: Long, name: Long, length: Int, dest: Long, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_nameToUnicode(idna.toString(), name.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaNameToUnicode(idna: COpaquePointer?, name: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaNameToUnicode((idna?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_nameToUnicodeUTF8(idna: Long, name: PCSTR, length: Int, dest: PCSTR, capacity: Int, pinfo: Long, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_nameToUnicodeUTF8(idna.toString(), name.toString(), length, dest.toString(), capacity, pinfo.toString(), perrorcode.toString()) as Int) else 0
+public actual fun uidnaNameToUnicodeUtf8(idna: COpaquePointer?, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: COpaquePointer?, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaNameToUnicodeUtf8((idna?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (pinfo?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uidna_openUTS46(options: UInt, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidna_openUTS46(options.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uidnaOpenUts46(options: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uidnaOpenUts46(options.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiter_current32(iter: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_current32(iter.toString()) as Int) else 0
+public actual fun uiterCurrent32(iter: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterCurrent32((iter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiter_getState(iter: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_getState(iter.toString()) as Int).toUInt() else 0u
+public actual fun uiterGetState(iter: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterGetState((iter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiter_next32(iter: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_next32(iter.toString()) as Int) else 0
+public actual fun uiterNext32(iter: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterNext32((iter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiter_previous32(iter: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_previous32(iter.toString()) as Int) else 0
+public actual fun uiterPrevious32(iter: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterPrevious32((iter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiter_setState(iter: Long, state: UInt, perrorcode: Long) {
+public actual fun uiterSetState(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_setState(iter.toString(), state.toInt(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterSetState((iter?.value ?: 0L).toString(), state.toInt(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uiter_setString(iter: Long, s: Long, length: Int) {
+public actual fun uiterSetString(iter: COpaquePointer?, s: COpaquePointer?, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_setString(iter.toString(), s.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterSetString((iter?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uiter_setUTF16BE(iter: Long, s: PCSTR, length: Int) {
+public actual fun uiterSetUtf16Be(iter: COpaquePointer?, s: Pcstr, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_setUTF16BE(iter.toString(), s.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterSetUtf16Be((iter?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uiter_setUTF8(iter: Long, s: PCSTR, length: Int) {
+public actual fun uiterSetUtf8(iter: COpaquePointer?, s: Pcstr, length: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiter_setUTF8(iter.toString(), s.toString(), length)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uiterSetUtf8((iter?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uldn_close(ldn: Long) {
+public actual fun uldnClose(ldn: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_close(ldn.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnClose((ldn?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uldn_getContext(ldn: Long, type: UDisplayContextType, perrorcode: Long): UDisplayContext =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_getContext(ldn.toString(), type, perrorcode.toString()) as Int) else 0
+public actual fun uldnGetContext(ldn: COpaquePointer?, type: UDisplayContextType, perrorcode: COpaquePointer?): UDisplayContext =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnGetContext((ldn?.value ?: 0L).toString(), type, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_getDialectHandling(ldn: Long): UDialectHandling =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_getDialectHandling(ldn.toString()) as Int) else 0
+public actual fun uldnGetDialectHandling(ldn: COpaquePointer?): UDialectHandling =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnGetDialectHandling((ldn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_getLocale(ldn: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_getLocale(ldn.toString()) as String).toLong() else 0L
+public actual fun uldnGetLocale(ldn: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnGetLocale((ldn?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_keyDisplayName(ldn: Long, key: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_keyDisplayName(ldn.toString(), key.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnKeyDisplayName(ldn: COpaquePointer?, key: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnKeyDisplayName((ldn?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_keyValueDisplayName(ldn: Long, key: PCSTR, value: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_keyValueDisplayName(ldn.toString(), key.toString(), value.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnKeyValueDisplayName(ldn: COpaquePointer?, key: Pcstr, value: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnKeyValueDisplayName((ldn?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_languageDisplayName(ldn: Long, lang: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_languageDisplayName(ldn.toString(), lang.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnLanguageDisplayName(ldn: COpaquePointer?, lang: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnLanguageDisplayName((ldn?.value ?: 0L).toString(), (lang?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_localeDisplayName(ldn: Long, locale: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_localeDisplayName(ldn.toString(), locale.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnLocaleDisplayName(ldn: COpaquePointer?, locale: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnLocaleDisplayName((ldn?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_open(locale: PCSTR, dialecthandling: UDialectHandling, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_open(locale.toString(), dialecthandling, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnOpen((locale?.value ?: 0L).toString(), dialecthandling, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_openForContext(locale: PCSTR, contexts: Long, length: Int, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_openForContext(locale.toString(), contexts.toString(), length, perrorcode.toString()) as String).toLong() else 0L
+public actual fun uldnOpenForContext(locale: Pcstr, contexts: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnOpenForContext((locale?.value ?: 0L).toString(), (contexts?.value ?: 0L).toString(), length, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_regionDisplayName(ldn: Long, region: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_regionDisplayName(ldn.toString(), region.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnRegionDisplayName(ldn: COpaquePointer?, region: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnRegionDisplayName((ldn?.value ?: 0L).toString(), (region?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_scriptCodeDisplayName(ldn: Long, scriptcode: UScriptCode, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_scriptCodeDisplayName(ldn.toString(), scriptcode, result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnScriptCodeDisplayName(ldn: COpaquePointer?, scriptcode: UScriptCode, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnScriptCodeDisplayName((ldn?.value ?: 0L).toString(), scriptcode, (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_scriptDisplayName(ldn: Long, script: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_scriptDisplayName(ldn.toString(), script.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnScriptDisplayName(ldn: COpaquePointer?, script: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnScriptDisplayName((ldn?.value ?: 0L).toString(), (script?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uldn_variantDisplayName(ldn: Long, variant: PCSTR, result: Long, maxresultsize: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldn_variantDisplayName(ldn.toString(), variant.toString(), result.toString(), maxresultsize, perrorcode.toString()) as Int) else 0
+public actual fun uldnVariantDisplayName(ldn: COpaquePointer?, variant: Pcstr, result: COpaquePointer?, maxresultsize: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uldnVariantDisplayName((ldn?.value ?: 0L).toString(), (variant?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulistfmt_close(listfmt: Long) {
+public actual fun ulistfmtClose(listfmt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_close(listfmt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtClose((listfmt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulistfmt_closeResult(uresult: Long) {
+public actual fun ulistfmtCloseResult(uresult: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_closeResult(uresult.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtCloseResult((uresult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulistfmt_format(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_format(listfmt.toString(), strings.toString(), stringlengths.toString(), stringcount, result.toString(), resultcapacity, status.toString()) as Int) else 0
+public actual fun ulistfmtFormat(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtFormat((listfmt?.value ?: 0L).toString(), (strings?.value ?: 0L).toString(), (stringlengths?.value ?: 0L).toString(), stringcount, (result?.value ?: 0L).toString(), resultcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulistfmt_formatStringsToResult(listfmt: Long, strings: Long, stringlengths: Long, stringcount: Int, uresult: Long, status: Long) {
+public actual fun ulistfmtFormatStringsToResult(listfmt: COpaquePointer?, strings: COpaquePointer?, stringlengths: COpaquePointer?, stringcount: Int, uresult: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_formatStringsToResult(listfmt.toString(), strings.toString(), stringlengths.toString(), stringcount, uresult.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtFormatStringsToResult((listfmt?.value ?: 0L).toString(), (strings?.value ?: 0L).toString(), (stringlengths?.value ?: 0L).toString(), stringcount, (uresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulistfmt_open(locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_open(locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ulistfmtOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtOpen((locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulistfmt_openForType(locale: PCSTR, type: UListFormatterType, width: UListFormatterWidth, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_openForType(locale.toString(), type, width, status.toString()) as String).toLong() else 0L
+public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtOpenForType((locale?.value ?: 0L).toString(), type, width, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulistfmt_openResult(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_openResult(ec.toString()) as String).toLong() else 0L
+public actual fun ulistfmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtOpenResult((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulistfmt_resultAsValue(uresult: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmt_resultAsValue(uresult.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ulistfmtResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulistfmtResultAsValue((uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_acceptLanguage(result: PCSTR, resultavailable: Int, outresult: Long, acceptlist: Long, acceptlistcount: Int, availablelocales: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_acceptLanguage(result.toString(), resultavailable, outresult.toString(), acceptlist.toString(), acceptlistcount, availablelocales.toString(), status.toString()) as Int) else 0
+public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, acceptlist: COpaquePointer?, acceptlistcount: Int, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocAcceptLanguage((result?.value ?: 0L).toString(), resultavailable, (outresult?.value ?: 0L).toString(), (acceptlist?.value ?: 0L).toString(), acceptlistcount, (availablelocales?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_acceptLanguageFromHTTP(result: PCSTR, resultavailable: Int, outresult: Long, httpacceptlanguage: PCSTR, availablelocales: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_acceptLanguageFromHTTP(result.toString(), resultavailable, outresult.toString(), httpacceptlanguage.toString(), availablelocales.toString(), status.toString()) as Int) else 0
+public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: COpaquePointer?, httpacceptlanguage: Pcstr, availablelocales: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocAcceptLanguageFromHttp((result?.value ?: 0L).toString(), resultavailable, (outresult?.value ?: 0L).toString(), (httpacceptlanguage?.value ?: 0L).toString(), (availablelocales?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_addLikelySubtags(localeid: PCSTR, maximizedlocaleid: PCSTR, maximizedlocaleidcapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_addLikelySubtags(localeid.toString(), maximizedlocaleid.toString(), maximizedlocaleidcapacity, err.toString()) as Int) else 0
+public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocAddLikelySubtags((localeid?.value ?: 0L).toString(), (maximizedlocaleid?.value ?: 0L).toString(), maximizedlocaleidcapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_canonicalize(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_canonicalize(localeid.toString(), name.toString(), namecapacity, err.toString()) as Int) else 0
+public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocCanonicalize((localeid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), namecapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_countAvailable() as Int) else 0
+public actual fun ulocCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_forLanguageTag(langtag: PCSTR, localeid: PCSTR, localeidcapacity: Int, parsedlength: Long, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_forLanguageTag(langtag.toString(), localeid.toString(), localeidcapacity, parsedlength.toString(), err.toString()) as Int) else 0
+public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: COpaquePointer?, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocForLanguageTag((langtag?.value ?: 0L).toString(), (localeid?.value ?: 0L).toString(), localeidcapacity, (parsedlength?.value ?: 0L).toString(), (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getAvailable(n: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getAvailable(n) as String).toLong() else 0L
+public actual fun ulocGetAvailable(n: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetAvailable(n) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getBaseName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getBaseName(localeid.toString(), name.toString(), namecapacity, err.toString()) as Int) else 0
+public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetBaseName((localeid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), namecapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getCharacterOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getCharacterOrientation(localeid.toString(), status.toString()) as Int) else 0
+public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetCharacterOrientation((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getCountry(localeid: PCSTR, country: PCSTR, countrycapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getCountry(localeid.toString(), country.toString(), countrycapacity, err.toString()) as Int) else 0
+public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetCountry((localeid?.value ?: 0L).toString(), (country?.value ?: 0L).toString(), countrycapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDefault(): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDefault() as String).toLong() else 0L
+public actual fun ulocGetDefault(): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDefault() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayCountry(locale: PCSTR, displaylocale: PCSTR, country: Long, countrycapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayCountry(locale.toString(), displaylocale.toString(), country.toString(), countrycapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: COpaquePointer?, countrycapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayCountry((locale?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (country?.value ?: 0L).toString(), countrycapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayKeyword(keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayKeyword(keyword.toString(), displaylocale.toString(), dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayKeyword((keyword?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayKeywordValue(locale: PCSTR, keyword: PCSTR, displaylocale: PCSTR, dest: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayKeywordValue(locale.toString(), keyword.toString(), displaylocale.toString(), dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayKeywordValue((locale?.value ?: 0L).toString(), (keyword?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayLanguage(locale: PCSTR, displaylocale: PCSTR, language: Long, languagecapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayLanguage(locale.toString(), displaylocale.toString(), language.toString(), languagecapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: COpaquePointer?, languagecapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayLanguage((locale?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (language?.value ?: 0L).toString(), languagecapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayName(localeid: PCSTR, inlocaleid: PCSTR, result: Long, maxresultsize: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayName(localeid.toString(), inlocaleid.toString(), result.toString(), maxresultsize, err.toString()) as Int) else 0
+public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: COpaquePointer?, maxresultsize: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayName((localeid?.value ?: 0L).toString(), (inlocaleid?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), maxresultsize, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayScript(locale: PCSTR, displaylocale: PCSTR, script: Long, scriptcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayScript(locale.toString(), displaylocale.toString(), script.toString(), scriptcapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: COpaquePointer?, scriptcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayScript((locale?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (script?.value ?: 0L).toString(), scriptcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getDisplayVariant(locale: PCSTR, displaylocale: PCSTR, variant: Long, variantcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getDisplayVariant(locale.toString(), displaylocale.toString(), variant.toString(), variantcapacity, status.toString()) as Int) else 0
+public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: COpaquePointer?, variantcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetDisplayVariant((locale?.value ?: 0L).toString(), (displaylocale?.value ?: 0L).toString(), (variant?.value ?: 0L).toString(), variantcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getISO3Country(localeid: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getISO3Country(localeid.toString()) as String).toLong() else 0L
+public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetIso3Country((localeid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getISO3Language(localeid: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getISO3Language(localeid.toString()) as String).toLong() else 0L
+public actual fun ulocGetIso3Language(localeid: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetIso3Language((localeid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getISOCountries(): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getISOCountries() as String).toLong() else 0L
+public actual fun ulocGetIsocountries(): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetIsocountries() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getISOLanguages(): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getISOLanguages() as String).toLong() else 0L
+public actual fun ulocGetIsolanguages(): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetIsolanguages() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getKeywordValue(localeid: PCSTR, keywordname: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getKeywordValue(localeid.toString(), keywordname.toString(), buffer.toString(), buffercapacity, status.toString()) as Int) else 0
+public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetKeywordValue((localeid?.value ?: 0L).toString(), (keywordname?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffercapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getLCID(localeid: PCSTR): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getLCID(localeid.toString()) as Int).toUInt() else 0u
+public actual fun ulocGetLcid(localeid: Pcstr): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetLcid((localeid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getLanguage(localeid: PCSTR, language: PCSTR, languagecapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getLanguage(localeid.toString(), language.toString(), languagecapacity, err.toString()) as Int) else 0
+public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetLanguage((localeid?.value ?: 0L).toString(), (language?.value ?: 0L).toString(), languagecapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getLineOrientation(localeid: PCSTR, status: Long): ULayoutType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getLineOrientation(localeid.toString(), status.toString()) as Int) else 0
+public actual fun ulocGetLineOrientation(localeid: Pcstr, status: COpaquePointer?): ULayoutType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetLineOrientation((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getLocaleForLCID(hostid: UInt, locale: PCSTR, localecapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getLocaleForLCID(hostid.toInt(), locale.toString(), localecapacity, status.toString()) as Int) else 0
+public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetLocaleForLcid(hostid.toInt(), (locale?.value ?: 0L).toString(), localecapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getName(localeid: PCSTR, name: PCSTR, namecapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getName(localeid.toString(), name.toString(), namecapacity, err.toString()) as Int) else 0
+public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetName((localeid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), namecapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getParent(localeid: PCSTR, parent: PCSTR, parentcapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getParent(localeid.toString(), parent.toString(), parentcapacity, err.toString()) as Int) else 0
+public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetParent((localeid?.value ?: 0L).toString(), (parent?.value ?: 0L).toString(), parentcapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getScript(localeid: PCSTR, script: PCSTR, scriptcapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getScript(localeid.toString(), script.toString(), scriptcapacity, err.toString()) as Int) else 0
+public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetScript((localeid?.value ?: 0L).toString(), (script?.value ?: 0L).toString(), scriptcapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_getVariant(localeid: PCSTR, variant: PCSTR, variantcapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_getVariant(localeid.toString(), variant.toString(), variantcapacity, err.toString()) as Int) else 0
+public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocGetVariant((localeid?.value ?: 0L).toString(), (variant?.value ?: 0L).toString(), variantcapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_isRightToLeft(locale: PCSTR): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_isRightToLeft(locale.toString()) as Int).toByte() else 0
+public actual fun ulocIsRightToLeft(locale: Pcstr): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocIsRightToLeft((locale?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_minimizeSubtags(localeid: PCSTR, minimizedlocaleid: PCSTR, minimizedlocaleidcapacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_minimizeSubtags(localeid.toString(), minimizedlocaleid.toString(), minimizedlocaleidcapacity, err.toString()) as Int) else 0
+public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocMinimizeSubtags((localeid?.value ?: 0L).toString(), (minimizedlocaleid?.value ?: 0L).toString(), minimizedlocaleidcapacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_openAvailableByType(type: ULocAvailableType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_openAvailableByType(type, status.toString()) as String).toLong() else 0L
+public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocOpenAvailableByType(type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_openKeywords(localeid: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_openKeywords(localeid.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ulocOpenKeywords(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocOpenKeywords((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_setDefault(localeid: PCSTR, status: Long) {
+public actual fun ulocSetDefault(localeid: Pcstr, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_setDefault(localeid.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocSetDefault((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uloc_setKeywordValue(keywordname: PCSTR, keywordvalue: PCSTR, buffer: PCSTR, buffercapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_setKeywordValue(keywordname.toString(), keywordvalue.toString(), buffer.toString(), buffercapacity, status.toString()) as Int) else 0
+public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocSetKeywordValue((keywordname?.value ?: 0L).toString(), (keywordvalue?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffercapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_toLanguageTag(localeid: PCSTR, langtag: PCSTR, langtagcapacity: Int, strict: Byte, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_toLanguageTag(localeid.toString(), langtag.toString(), langtagcapacity, strict.toInt(), err.toString()) as Int) else 0
+public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocToLanguageTag((localeid?.value ?: 0L).toString(), (langtag?.value ?: 0L).toString(), langtagcapacity, strict.toInt(), (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_toLegacyKey(keyword: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_toLegacyKey(keyword.toString()) as String).toLong() else 0L
+public actual fun ulocToLegacyKey(keyword: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocToLegacyKey((keyword?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_toLegacyType(keyword: PCSTR, value: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_toLegacyType(keyword.toString(), value.toString()) as String).toLong() else 0L
+public actual fun ulocToLegacyType(keyword: Pcstr, value: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocToLegacyType((keyword?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_toUnicodeLocaleKey(keyword: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleKey(keyword.toString()) as String).toLong() else 0L
+public actual fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocToUnicodeLocaleKey((keyword?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uloc_toUnicodeLocaleType(keyword: PCSTR, value: PCSTR): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uloc_toUnicodeLocaleType(keyword.toString(), value.toString()) as String).toLong() else 0L
+public actual fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocToUnicodeLocaleType((keyword?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_close(uld: Long) {
+public actual fun ulocdataClose(uld: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_close(uld.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataClose((uld?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulocdata_getCLDRVersion(versionarray: Long, status: Long) {
+public actual fun ulocdataGetCldrversion(versionarray: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getCLDRVersion(versionarray.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetCldrversion((versionarray?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulocdata_getDelimiter(uld: Long, type: ULocaleDataDelimiterType, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getDelimiter(uld.toString(), type, result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun ulocdataGetDelimiter(uld: COpaquePointer?, type: ULocaleDataDelimiterType, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetDelimiter((uld?.value ?: 0L).toString(), type, (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getExemplarSet(uld: Long, fillin: Long, options: UInt, extype: ULocaleDataExemplarSetType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getExemplarSet(uld.toString(), fillin.toString(), options.toInt(), extype, status.toString()) as String).toLong() else 0L
+public actual fun ulocdataGetExemplarSet(uld: COpaquePointer?, fillin: COpaquePointer?, options: UInt, extype: ULocaleDataExemplarSetType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetExemplarSet((uld?.value ?: 0L).toString(), (fillin?.value ?: 0L).toString(), options.toInt(), extype, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getLocaleDisplayPattern(uld: Long, pattern: Long, patterncapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getLocaleDisplayPattern(uld.toString(), pattern.toString(), patterncapacity, status.toString()) as Int) else 0
+public actual fun ulocdataGetLocaleDisplayPattern(uld: COpaquePointer?, pattern: COpaquePointer?, patterncapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetLocaleDisplayPattern((uld?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patterncapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getLocaleSeparator(uld: Long, separator: Long, separatorcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getLocaleSeparator(uld.toString(), separator.toString(), separatorcapacity, status.toString()) as Int) else 0
+public actual fun ulocdataGetLocaleSeparator(uld: COpaquePointer?, separator: COpaquePointer?, separatorcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetLocaleSeparator((uld?.value ?: 0L).toString(), (separator?.value ?: 0L).toString(), separatorcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getMeasurementSystem(localeid: PCSTR, status: Long): UMeasurementSystem =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getMeasurementSystem(localeid.toString(), status.toString()) as Int) else 0
+public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: COpaquePointer?): UMeasurementSystem =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetMeasurementSystem((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getNoSubstitute(uld: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getNoSubstitute(uld.toString()) as Int).toByte() else 0
+public actual fun ulocdataGetNoSubstitute(uld: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetNoSubstitute((uld?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_getPaperSize(localeid: PCSTR, height: Long, width: Long, status: Long) {
+public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: COpaquePointer?, width: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_getPaperSize(localeid.toString(), height.toString(), width.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataGetPaperSize((localeid?.value ?: 0L).toString(), (height?.value ?: 0L).toString(), (width?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ulocdata_open(localeid: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_open(localeid.toString(), status.toString()) as String).toLong() else 0L
+public actual fun ulocdataOpen(localeid: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataOpen((localeid?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ulocdata_setNoSubstitute(uld: Long, setting: Byte) {
+public actual fun ulocdataSetNoSubstitute(uld: COpaquePointer?, setting: Byte) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdata_setNoSubstitute(uld.toString(), setting.toInt())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ulocdataSetNoSubstitute((uld?.value ?: 0L).toString(), setting.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umsg_applyPattern(fmt: Long, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
+public actual fun umsgApplyPattern(fmt: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_applyPattern(fmt.toString(), pattern.toString(), patternlength, parseerror.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgApplyPattern((fmt?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umsg_autoQuoteApostrophe(pattern: Long, patternlength: Int, dest: Long, destcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_autoQuoteApostrophe(pattern.toString(), patternlength, dest.toString(), destcapacity, ec.toString()) as Int) else 0
+public actual fun umsgAutoQuoteApostrophe(pattern: COpaquePointer?, patternlength: Int, dest: COpaquePointer?, destcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgAutoQuoteApostrophe((pattern?.value ?: 0L).toString(), patternlength, (dest?.value ?: 0L).toString(), destcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_clone(fmt: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_clone(fmt.toString(), status.toString()) as String).toLong() else 0L
+public actual fun umsgClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgClone((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_close(format: Long) {
+public actual fun umsgClose(format: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_close(format.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgClose((format?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umsg_format(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    0
+public actual fun umsgFormat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?, vararg variadicArgs: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgFormat((fmt?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_getLocale(fmt: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_getLocale(fmt.toString()) as String).toLong() else 0L
+public actual fun umsgGetLocale(fmt: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgGetLocale((fmt?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_open(pattern: Long, patternlength: Int, locale: PCSTR, parseerror: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_open(pattern.toString(), patternlength, locale.toString(), parseerror.toString(), status.toString()) as String).toLong() else 0L
+public actual fun umsgOpen(pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerror: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgOpen((pattern?.value ?: 0L).toString(), patternlength, (locale?.value ?: 0L).toString(), (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_parse(fmt: Long, source: Long, sourcelength: Int, count: Long, status: Long) {
+public actual fun umsgParse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, status: COpaquePointer?, vararg variadicArgs: Long) {
+    if (_windowsWin32GlobalizationNapiAddon != null) {
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgParse((fmt?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (count?.value ?: 0L).toString(), (status?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun umsg_setLocale(fmt: Long, locale: PCSTR) {
+public actual fun umsgSetLocale(fmt: COpaquePointer?, locale: Pcstr) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_setLocale(fmt.toString(), locale.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgSetLocale((fmt?.value ?: 0L).toString(), (locale?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umsg_toPattern(fmt: Long, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_toPattern(fmt.toString(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun umsgToPattern(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgToPattern((fmt?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_vformat(fmt: Long, result: Long, resultlength: Int, ap: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_vformat(fmt.toString(), result.toString(), resultlength, ap.toString(), status.toString()) as Int) else 0
+public actual fun umsgVformat(fmt: COpaquePointer?, result: COpaquePointer?, resultlength: Int, ap: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgVformat((fmt?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (ap?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umsg_vparse(fmt: Long, source: Long, sourcelength: Int, count: Long, ap: Long, status: Long) {
+public actual fun umsgVparse(fmt: COpaquePointer?, source: COpaquePointer?, sourcelength: Int, count: COpaquePointer?, ap: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsg_vparse(fmt.toString(), source.toString(), sourcelength, count.toString(), ap.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umsgVparse((fmt?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), sourcelength, (count?.value ?: 0L).toString(), (ap?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umutablecptrie_buildImmutable(trie: Long, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_buildImmutable(trie.toString(), type, valuewidth, perrorcode.toString()) as String).toLong() else 0L
+public actual fun umutablecptrieBuildImmutable(trie: COpaquePointer?, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieBuildImmutable((trie?.value ?: 0L).toString(), type, valuewidth, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_clone(other: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_clone(other.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun umutablecptrieClone(other: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieClone((other?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_close(trie: Long) {
+public actual fun umutablecptrieClose(trie: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_close(trie.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieClose((trie?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umutablecptrie_fromUCPMap(map: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_fromUCPMap(map.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun umutablecptrieFromUcpmap(map: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieFromUcpmap((map?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_fromUCPTrie(trie: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_fromUCPTrie(trie.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun umutablecptrieFromUcptrie(trie: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieFromUcptrie((trie?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_get(trie: Long, c: Int): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_get(trie.toString(), c) as Int).toUInt() else 0u
+public actual fun umutablecptrieGet(trie: COpaquePointer?, c: Int): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieGet((trie?.value ?: 0L).toString(), c) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_getRange(trie: Long, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: Long, context: Long, pvalue: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_getRange(trie.toString(), start, option, surrogatevalue.toInt(), filter.toString(), context.toString(), pvalue.toString()) as Int) else 0
+public actual fun umutablecptrieGetRange(trie: COpaquePointer?, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: COpaquePointer?, context: COpaquePointer?, pvalue: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieGetRange((trie?.value ?: 0L).toString(), start, option, surrogatevalue.toInt(), (filter?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (pvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_open(initialvalue: UInt, errorvalue: UInt, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_open(initialvalue.toInt(), errorvalue.toInt(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieOpen(initialvalue.toInt(), errorvalue.toInt(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun umutablecptrie_set(trie: Long, c: Int, value: UInt, perrorcode: Long) {
+public actual fun umutablecptrieSet(trie: COpaquePointer?, c: Int, value: UInt, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_set(trie.toString(), c, value.toInt(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieSet((trie?.value ?: 0L).toString(), c, value.toInt(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun umutablecptrie_setRange(trie: Long, start: Int, end: Int, value: UInt, perrorcode: Long) {
+public actual fun umutablecptrieSetRange(trie: COpaquePointer?, start: Int, end: Int, value: UInt, perrorcode: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrie_setRange(trie.toString(), start, end, value.toInt(), perrorcode.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_umutablecptrieSetRange((trie?.value ?: 0L).toString(), start, end, value.toInt(), (perrorcode?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unorm2_append(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_append(norm2.toString(), first.toString(), firstlength, firstcapacity, second.toString(), secondlength, perrorcode.toString()) as Int) else 0
+public actual fun unorm2Append(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2Append((norm2?.value ?: 0L).toString(), (first?.value ?: 0L).toString(), firstlength, firstcapacity, (second?.value ?: 0L).toString(), secondlength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_close(norm2: Long) {
+public actual fun unorm2Close(norm2: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_close(norm2.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2Close((norm2?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unorm2_composePair(norm2: Long, a: Int, b: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_composePair(norm2.toString(), a, b) as Int) else 0
+public actual fun unorm2ComposePair(norm2: COpaquePointer?, a: Int, b: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2ComposePair((norm2?.value ?: 0L).toString(), a, b) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getCombiningClass(norm2: Long, c: Int): UByte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getCombiningClass(norm2.toString(), c) as Int).toUByte() else 0u
+public actual fun unorm2GetCombiningClass(norm2: COpaquePointer?, c: Int): UByte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetCombiningClass((norm2?.value ?: 0L).toString(), c) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getDecomposition(norm2.toString(), c, decomposition.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun unorm2GetDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetDecomposition((norm2?.value ?: 0L).toString(), c, (decomposition?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getInstance(packagename: PCSTR, name: PCSTR, mode: UNormalization2Mode, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getInstance(packagename.toString(), name.toString(), mode, perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetInstance((packagename?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), mode, (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getNFCInstance(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getNFCInstance(perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetNfcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetNfcinstance((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getNFDInstance(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getNFDInstance(perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetNfdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetNfdinstance((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getNFKCCasefoldInstance(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getNFKCCasefoldInstance(perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetNfkccasefoldInstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetNfkccasefoldInstance((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getNFKCInstance(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getNFKCInstance(perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetNfkcinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetNfkcinstance((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getNFKDInstance(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getNFKDInstance(perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2GetNfkdinstance(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetNfkdinstance((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_getRawDecomposition(norm2: Long, c: Int, decomposition: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_getRawDecomposition(norm2.toString(), c, decomposition.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun unorm2GetRawDecomposition(norm2: COpaquePointer?, c: Int, decomposition: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2GetRawDecomposition((norm2?.value ?: 0L).toString(), c, (decomposition?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_hasBoundaryAfter(norm2: Long, c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_hasBoundaryAfter(norm2.toString(), c) as Int).toByte() else 0
+public actual fun unorm2HasBoundaryAfter(norm2: COpaquePointer?, c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2HasBoundaryAfter((norm2?.value ?: 0L).toString(), c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_hasBoundaryBefore(norm2: Long, c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_hasBoundaryBefore(norm2.toString(), c) as Int).toByte() else 0
+public actual fun unorm2HasBoundaryBefore(norm2: COpaquePointer?, c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2HasBoundaryBefore((norm2?.value ?: 0L).toString(), c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_isInert(norm2: Long, c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_isInert(norm2.toString(), c) as Int).toByte() else 0
+public actual fun unorm2IsInert(norm2: COpaquePointer?, c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2IsInert((norm2?.value ?: 0L).toString(), c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_isNormalized(norm2: Long, s: Long, length: Int, perrorcode: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_isNormalized(norm2.toString(), s.toString(), length, perrorcode.toString()) as Int).toByte() else 0
+public actual fun unorm2IsNormalized(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2IsNormalized((norm2?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (perrorcode?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_normalize(norm2: Long, src: Long, length: Int, dest: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_normalize(norm2.toString(), src.toString(), length, dest.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun unorm2Normalize(norm2: COpaquePointer?, src: COpaquePointer?, length: Int, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2Normalize((norm2?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_normalizeSecondAndAppend(norm2: Long, first: Long, firstlength: Int, firstcapacity: Int, second: Long, secondlength: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_normalizeSecondAndAppend(norm2.toString(), first.toString(), firstlength, firstcapacity, second.toString(), secondlength, perrorcode.toString()) as Int) else 0
+public actual fun unorm2NormalizeSecondAndAppend(norm2: COpaquePointer?, first: COpaquePointer?, firstlength: Int, firstcapacity: Int, second: COpaquePointer?, secondlength: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2NormalizeSecondAndAppend((norm2?.value ?: 0L).toString(), (first?.value ?: 0L).toString(), firstlength, firstcapacity, (second?.value ?: 0L).toString(), secondlength, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_openFiltered(norm2: Long, filterset: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_openFiltered(norm2.toString(), filterset.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun unorm2OpenFiltered(norm2: COpaquePointer?, filterset: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2OpenFiltered((norm2?.value ?: 0L).toString(), (filterset?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_quickCheck(norm2: Long, s: Long, length: Int, perrorcode: Long): UNormalizationCheckResult =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_quickCheck(norm2.toString(), s.toString(), length, perrorcode.toString()) as Int) else 0
+public actual fun unorm2QuickCheck(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): UNormalizationCheckResult =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2QuickCheck((norm2?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm2_spanQuickCheckYes(norm2: Long, s: Long, length: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2_spanQuickCheckYes(norm2.toString(), s.toString(), length, perrorcode.toString()) as Int) else 0
+public actual fun unorm2SpanQuickCheckYes(norm2: COpaquePointer?, s: COpaquePointer?, length: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm2SpanQuickCheckYes((norm2?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unorm_compare(s1: Long, length1: Int, s2: Long, length2: Int, options: UInt, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unorm_compare(s1.toString(), length1, s2.toString(), length2, options.toInt(), perrorcode.toString()) as Int) else 0
+public actual fun unormCompare(s1: COpaquePointer?, length1: Int, s2: COpaquePointer?, length2: Int, options: UInt, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unormCompare((s1?.value ?: 0L).toString(), length1, (s2?.value ?: 0L).toString(), length2, options.toInt(), (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_applyPattern(format: Long, localized: Byte, pattern: Long, patternlength: Int, parseerror: Long, status: Long) {
+public actual fun unumApplyPattern(format: COpaquePointer?, localized: Byte, pattern: COpaquePointer?, patternlength: Int, parseerror: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_applyPattern(format.toString(), localized.toInt(), pattern.toString(), patternlength, parseerror.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumApplyPattern((format?.value ?: 0L).toString(), localized.toInt(), (pattern?.value ?: 0L).toString(), patternlength, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_clone(fmt: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_clone(fmt.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumClone(fmt: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumClone((fmt?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_close(fmt: Long) {
+public actual fun unumClose(fmt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_close(fmt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumClose((fmt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_countAvailable(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_countAvailable() as Int) else 0
+public actual fun unumCountAvailable(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumCountAvailable() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_format(fmt: Long, number: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_format(fmt.toString(), number, result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormat(fmt: COpaquePointer?, number: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormat((fmt?.value ?: 0L).toString(), number, (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatDecimal(fmt: Long, number: PCSTR, length: Int, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatDecimal(fmt.toString(), number.toString(), length, result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatDecimal(fmt: COpaquePointer?, number: Pcstr, length: Int, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatDecimal((fmt?.value ?: 0L).toString(), (number?.value ?: 0L).toString(), length, (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatDouble(fmt: Long, number: Double, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatDouble(fmt.toString(), number, result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatDouble(fmt: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatDouble((fmt?.value ?: 0L).toString(), number, (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatDoubleCurrency(fmt: Long, number: Double, currency: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatDoubleCurrency(fmt.toString(), number, currency.toString(), result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatDoubleCurrency(fmt: COpaquePointer?, number: Double, currency: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatDoubleCurrency((fmt?.value ?: 0L).toString(), number, (currency?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatDoubleForFields(format: Long, number: Double, result: Long, resultlength: Int, fpositer: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatDoubleForFields(format.toString(), number, result.toString(), resultlength, fpositer.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatDoubleForFields(format: COpaquePointer?, number: Double, result: COpaquePointer?, resultlength: Int, fpositer: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatDoubleForFields((format?.value ?: 0L).toString(), number, (result?.value ?: 0L).toString(), resultlength, (fpositer?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatInt64(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatInt64(fmt.toString(), number.toString(), result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatInt64(fmt: COpaquePointer?, number: Long, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatInt64((fmt?.value ?: 0L).toString(), number.toString(), (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_formatUFormattable(fmt: Long, number: Long, result: Long, resultlength: Int, pos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_formatUFormattable(fmt.toString(), number.toString(), result.toString(), resultlength, pos.toString(), status.toString()) as Int) else 0
+public actual fun unumFormatUformattable(fmt: COpaquePointer?, number: COpaquePointer?, result: COpaquePointer?, resultlength: Int, pos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumFormatUformattable((fmt?.value ?: 0L).toString(), (number?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getAttribute(fmt: Long, attr: UNumberFormatAttribute): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getAttribute(fmt.toString(), attr) as Int) else 0
+public actual fun unumGetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetAttribute((fmt?.value ?: 0L).toString(), attr) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getAvailable(localeindex: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getAvailable(localeindex) as String).toLong() else 0L
+public actual fun unumGetAvailable(localeindex: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetAvailable(localeindex) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getContext(fmt: Long, type: UDisplayContextType, status: Long): UDisplayContext =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getContext(fmt.toString(), type, status.toString()) as Int) else 0
+public actual fun unumGetContext(fmt: COpaquePointer?, type: UDisplayContextType, status: COpaquePointer?): UDisplayContext =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetContext((fmt?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getDoubleAttribute(fmt.toString(), attr) as Double) else 0.0
+public actual fun unumGetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetDoubleAttribute((fmt?.value ?: 0L).toString(), attr) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getLocaleByType(fmt: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getLocaleByType(fmt.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun unumGetLocaleByType(fmt: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetLocaleByType((fmt?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getSymbol(fmt: Long, symbol: UNumberFormatSymbol, buffer: Long, size: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getSymbol(fmt.toString(), symbol, buffer.toString(), size, status.toString()) as Int) else 0
+public actual fun unumGetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, buffer: COpaquePointer?, size: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetSymbol((fmt?.value ?: 0L).toString(), symbol, (buffer?.value ?: 0L).toString(), size, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_getTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_getTextAttribute(fmt.toString(), tag, result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun unumGetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumGetTextAttribute((fmt?.value ?: 0L).toString(), tag, (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_open(style: UNumberFormatStyle, pattern: Long, patternlength: Int, locale: PCSTR, parseerr: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_open(style, pattern.toString(), patternlength, locale.toString(), parseerr.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumOpen(style: UNumberFormatStyle, pattern: COpaquePointer?, patternlength: Int, locale: Pcstr, parseerr: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumOpen(style, (pattern?.value ?: 0L).toString(), patternlength, (locale?.value ?: 0L).toString(), (parseerr?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parse(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parse(fmt.toString(), text.toString(), textlength, parsepos.toString(), status.toString()) as Int) else 0
+public actual fun unumParse(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParse((fmt?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parseDecimal(fmt: Long, text: Long, textlength: Int, parsepos: Long, outbuf: PCSTR, outbuflength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parseDecimal(fmt.toString(), text.toString(), textlength, parsepos.toString(), outbuf.toString(), outbuflength, status.toString()) as Int) else 0
+public actual fun unumParseDecimal(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, outbuf: Pcstr, outbuflength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParseDecimal((fmt?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (outbuf?.value ?: 0L).toString(), outbuflength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parseDouble(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parseDouble(fmt.toString(), text.toString(), textlength, parsepos.toString(), status.toString()) as Double) else 0.0
+public actual fun unumParseDouble(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParseDouble((fmt?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parseDoubleCurrency(fmt: Long, text: Long, textlength: Int, parsepos: Long, currency: Long, status: Long): Double =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parseDoubleCurrency(fmt.toString(), text.toString(), textlength, parsepos.toString(), currency.toString(), status.toString()) as Double) else 0.0
+public actual fun unumParseDoubleCurrency(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, currency: COpaquePointer?, status: COpaquePointer?): Double =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParseDoubleCurrency((fmt?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (currency?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parseInt64(fmt: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parseInt64(fmt.toString(), text.toString(), textlength, parsepos.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumParseInt64(fmt: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParseInt64((fmt?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_parseToUFormattable(fmt: Long, result: Long, text: Long, textlength: Int, parsepos: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_parseToUFormattable(fmt.toString(), result.toString(), text.toString(), textlength, parsepos.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumParseToUformattable(fmt: COpaquePointer?, result: COpaquePointer?, text: COpaquePointer?, textlength: Int, parsepos: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumParseToUformattable((fmt?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (parsepos?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unum_setAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Int) {
+public actual fun unumSetAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_setAttribute(fmt.toString(), attr, newvalue)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumSetAttribute((fmt?.value ?: 0L).toString(), attr, newvalue)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_setContext(fmt: Long, value: UDisplayContext, status: Long) {
+public actual fun unumSetContext(fmt: COpaquePointer?, value: UDisplayContext, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_setContext(fmt.toString(), value, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumSetContext((fmt?.value ?: 0L).toString(), value, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_setDoubleAttribute(fmt: Long, attr: UNumberFormatAttribute, newvalue: Double) {
+public actual fun unumSetDoubleAttribute(fmt: COpaquePointer?, attr: UNumberFormatAttribute, newvalue: Double) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_setDoubleAttribute(fmt.toString(), attr, newvalue)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumSetDoubleAttribute((fmt?.value ?: 0L).toString(), attr, newvalue)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_setSymbol(fmt: Long, symbol: UNumberFormatSymbol, value: Long, length: Int, status: Long) {
+public actual fun unumSetSymbol(fmt: COpaquePointer?, symbol: UNumberFormatSymbol, value: COpaquePointer?, length: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_setSymbol(fmt.toString(), symbol, value.toString(), length, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumSetSymbol((fmt?.value ?: 0L).toString(), symbol, (value?.value ?: 0L).toString(), length, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_setTextAttribute(fmt: Long, tag: UNumberFormatTextAttribute, newvalue: Long, newvaluelength: Int, status: Long) {
+public actual fun unumSetTextAttribute(fmt: COpaquePointer?, tag: UNumberFormatTextAttribute, newvalue: COpaquePointer?, newvaluelength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_setTextAttribute(fmt.toString(), tag, newvalue.toString(), newvaluelength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumSetTextAttribute((fmt?.value ?: 0L).toString(), tag, (newvalue?.value ?: 0L).toString(), newvaluelength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unum_toPattern(fmt: Long, ispatternlocalized: Byte, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unum_toPattern(fmt.toString(), ispatternlocalized.toInt(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun unumToPattern(fmt: COpaquePointer?, ispatternlocalized: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumToPattern((fmt?.value ?: 0L).toString(), ispatternlocalized.toInt(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_close(uformatter: Long) {
+public actual fun unumfClose(uformatter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_close(uformatter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfClose((uformatter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_closeResult(uresult: Long) {
+public actual fun unumfCloseResult(uresult: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_closeResult(uresult.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfCloseResult((uresult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_formatDecimal(uformatter: Long, value: PCSTR, valuelen: Int, uresult: Long, ec: Long) {
+public actual fun unumfFormatDecimal(uformatter: COpaquePointer?, value: Pcstr, valuelen: Int, uresult: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_formatDecimal(uformatter.toString(), value.toString(), valuelen, uresult.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfFormatDecimal((uformatter?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuelen, (uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_formatDouble(uformatter: Long, value: Double, uresult: Long, ec: Long) {
+public actual fun unumfFormatDouble(uformatter: COpaquePointer?, value: Double, uresult: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_formatDouble(uformatter.toString(), value, uresult.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfFormatDouble((uformatter?.value ?: 0L).toString(), value, (uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_formatInt(uformatter: Long, value: Long, uresult: Long, ec: Long) {
+public actual fun unumfFormatInt(uformatter: COpaquePointer?, value: Long, uresult: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_formatInt(uformatter.toString(), value.toString(), uresult.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfFormatInt((uformatter?.value ?: 0L).toString(), value.toString(), (uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_openForSkeletonAndLocale(skeleton: Long, skeletonlen: Int, locale: PCSTR, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocale(skeleton.toString(), skeletonlen, locale.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun unumfOpenForSkeletonAndLocale(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocale((skeleton?.value ?: 0L).toString(), skeletonlen, (locale?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_openForSkeletonAndLocaleWithError(skeleton: Long, skeletonlen: Int, locale: PCSTR, perror: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_openForSkeletonAndLocaleWithError(skeleton.toString(), skeletonlen, locale.toString(), perror.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: COpaquePointer?, skeletonlen: Int, locale: Pcstr, perror: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfOpenForSkeletonAndLocaleWithError((skeleton?.value ?: 0L).toString(), skeletonlen, (locale?.value ?: 0L).toString(), (perror?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_openResult(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_openResult(ec.toString()) as String).toLong() else 0L
+public actual fun unumfOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfOpenResult((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_resultAsValue(uresult: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_resultAsValue(uresult.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun unumfResultAsValue(uresult: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfResultAsValue((uresult?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_resultGetAllFieldPositions(uresult: Long, ufpositer: Long, ec: Long) {
+public actual fun unumfResultGetAllFieldPositions(uresult: COpaquePointer?, ufpositer: COpaquePointer?, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_resultGetAllFieldPositions(uresult.toString(), ufpositer.toString(), ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfResultGetAllFieldPositions((uresult?.value ?: 0L).toString(), (ufpositer?.value ?: 0L).toString(), (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumf_resultNextFieldPosition(uresult: Long, ufpos: Long, ec: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_resultNextFieldPosition(uresult.toString(), ufpos.toString(), ec.toString()) as Int).toByte() else 0
+public actual fun unumfResultNextFieldPosition(uresult: COpaquePointer?, ufpos: COpaquePointer?, ec: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfResultNextFieldPosition((uresult?.value ?: 0L).toString(), (ufpos?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumf_resultToString(uresult: Long, buffer: Long, buffercapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumf_resultToString(uresult.toString(), buffer.toString(), buffercapacity, ec.toString()) as Int) else 0
+public actual fun unumfResultToString(uresult: COpaquePointer?, buffer: COpaquePointer?, buffercapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumfResultToString((uresult?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffercapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_close(unumsys: Long) {
+public actual fun unumsysClose(unumsys: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_close(unumsys.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysClose((unumsys?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun unumsys_getDescription(unumsys: Long, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_getDescription(unumsys.toString(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun unumsysGetDescription(unumsys: COpaquePointer?, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysGetDescription((unumsys?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_getName(unumsys: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_getName(unumsys.toString()) as String).toLong() else 0L
+public actual fun unumsysGetName(unumsys: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysGetName((unumsys?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_getRadix(unumsys: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_getRadix(unumsys.toString()) as Int) else 0
+public actual fun unumsysGetRadix(unumsys: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysGetRadix((unumsys?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_isAlgorithmic(unumsys: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_isAlgorithmic(unumsys.toString()) as Int).toByte() else 0
+public actual fun unumsysIsAlgorithmic(unumsys: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysIsAlgorithmic((unumsys?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_open(locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_open(locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumsysOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysOpen((locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_openAvailableNames(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_openAvailableNames(status.toString()) as String).toLong() else 0L
+public actual fun unumsysOpenAvailableNames(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysOpenAvailableNames((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unumsys_openByName(name: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsys_openByName(name.toString(), status.toString()) as String).toLong() else 0L
+public actual fun unumsysOpenByName(name: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_unumsysOpenByName((name?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uplrules_close(uplrules: Long) {
+public actual fun uplrulesClose(uplrules: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_close(uplrules.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesClose((uplrules?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uplrules_getKeywords(uplrules: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_getKeywords(uplrules.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uplrulesGetKeywords(uplrules: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesGetKeywords((uplrules?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uplrules_open(locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_open(locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uplrulesOpen(locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesOpen((locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uplrules_openForType(locale: PCSTR, type: UPluralType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_openForType(locale.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesOpenForType((locale?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uplrules_select(uplrules: Long, number: Double, keyword: Long, capacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_select(uplrules.toString(), number, keyword.toString(), capacity, status.toString()) as Int) else 0
+public actual fun uplrulesSelect(uplrules: COpaquePointer?, number: Double, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesSelect((uplrules?.value ?: 0L).toString(), number, (keyword?.value ?: 0L).toString(), capacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uplrules_selectFormatted(uplrules: Long, number: Long, keyword: Long, capacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrules_selectFormatted(uplrules.toString(), number.toString(), keyword.toString(), capacity, status.toString()) as Int) else 0
+public actual fun uplrulesSelectFormatted(uplrules: COpaquePointer?, number: COpaquePointer?, keyword: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uplrulesSelectFormatted((uplrules?.value ?: 0L).toString(), (number?.value ?: 0L).toString(), (keyword?.value ?: 0L).toString(), capacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_appendReplacement(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_appendReplacement(regexp.toString(), replacementtext.toString(), replacementlength, destbuf.toString(), destcapacity.toString(), status.toString()) as Int) else 0
+public actual fun uregexAppendReplacement(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexAppendReplacement((regexp?.value ?: 0L).toString(), (replacementtext?.value ?: 0L).toString(), replacementlength, (destbuf?.value ?: 0L).toString(), (destcapacity?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_appendReplacementUText(regexp: Long, replacementtext: Long, dest: Long, status: Long) {
+public actual fun uregexAppendReplacementUtext(regexp: COpaquePointer?, replacementtext: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_appendReplacementUText(regexp.toString(), replacementtext.toString(), dest.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexAppendReplacementUtext((regexp?.value ?: 0L).toString(), (replacementtext?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_appendTail(regexp: Long, destbuf: Long, destcapacity: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_appendTail(regexp.toString(), destbuf.toString(), destcapacity.toString(), status.toString()) as Int) else 0
+public actual fun uregexAppendTail(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexAppendTail((regexp?.value ?: 0L).toString(), (destbuf?.value ?: 0L).toString(), (destcapacity?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_appendTailUText(regexp: Long, dest: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_appendTailUText(regexp.toString(), dest.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexAppendTailUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexAppendTailUtext((regexp?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_clone(regexp: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_clone(regexp.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexClone(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexClone((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_close(regexp: Long) {
+public actual fun uregexClose(regexp: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_close(regexp.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexClose((regexp?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_end(regexp: Long, groupnum: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_end(regexp.toString(), groupnum, status.toString()) as Int) else 0
+public actual fun uregexEnd(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexEnd((regexp?.value ?: 0L).toString(), groupnum, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_end64(regexp: Long, groupnum: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_end64(regexp.toString(), groupnum, status.toString()) as String).toLong() else 0L
+public actual fun uregexEnd64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexEnd64((regexp?.value ?: 0L).toString(), groupnum, (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_find(regexp: Long, startindex: Int, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_find(regexp.toString(), startindex, status.toString()) as Int).toByte() else 0
+public actual fun uregexFind(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexFind((regexp?.value ?: 0L).toString(), startindex, (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_find64(regexp: Long, startindex: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_find64(regexp.toString(), startindex.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexFind64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexFind64((regexp?.value ?: 0L).toString(), startindex.toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_findNext(regexp: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_findNext(regexp.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexFindNext(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexFindNext((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_flags(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_flags(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexFlags(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexFlags((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_getFindProgressCallback(regexp: Long, callback: Long, context: Long, status: Long) {
+public actual fun uregexGetFindProgressCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getFindProgressCallback(regexp.toString(), callback.toString(), context.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetFindProgressCallback((regexp?.value ?: 0L).toString(), (callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_getMatchCallback(regexp: Long, callback: Long, context: Long, status: Long) {
+public actual fun uregexGetMatchCallback(regexp: COpaquePointer?, callback: COpaquePointer?, context: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getMatchCallback(regexp.toString(), callback.toString(), context.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetMatchCallback((regexp?.value ?: 0L).toString(), (callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_getStackLimit(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getStackLimit(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexGetStackLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetStackLimit((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_getText(regexp: Long, textlength: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getText(regexp.toString(), textlength.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexGetText(regexp: COpaquePointer?, textlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetText((regexp?.value ?: 0L).toString(), (textlength?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_getTimeLimit(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getTimeLimit(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexGetTimeLimit(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetTimeLimit((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_getUText(regexp: Long, dest: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_getUText(regexp.toString(), dest.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexGetUtext(regexp: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGetUtext((regexp?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_group(regexp: Long, groupnum: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_group(regexp.toString(), groupnum, dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun uregexGroup(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGroup((regexp?.value ?: 0L).toString(), groupnum, (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_groupCount(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_groupCount(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexGroupCount(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGroupCount((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_groupNumberFromCName(regexp: Long, groupname: PCSTR, namelength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_groupNumberFromCName(regexp.toString(), groupname.toString(), namelength, status.toString()) as Int) else 0
+public actual fun uregexGroupNumberFromCname(regexp: COpaquePointer?, groupname: Pcstr, namelength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGroupNumberFromCname((regexp?.value ?: 0L).toString(), (groupname?.value ?: 0L).toString(), namelength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_groupNumberFromName(regexp: Long, groupname: Long, namelength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_groupNumberFromName(regexp.toString(), groupname.toString(), namelength, status.toString()) as Int) else 0
+public actual fun uregexGroupNumberFromName(regexp: COpaquePointer?, groupname: COpaquePointer?, namelength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGroupNumberFromName((regexp?.value ?: 0L).toString(), (groupname?.value ?: 0L).toString(), namelength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_groupUText(regexp: Long, groupnum: Int, dest: Long, grouplength: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_groupUText(regexp.toString(), groupnum, dest.toString(), grouplength.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexGroupUtext(regexp: COpaquePointer?, groupnum: Int, dest: COpaquePointer?, grouplength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexGroupUtext((regexp?.value ?: 0L).toString(), groupnum, (dest?.value ?: 0L).toString(), (grouplength?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_hasAnchoringBounds(regexp: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_hasAnchoringBounds(regexp.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexHasAnchoringBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexHasAnchoringBounds((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_hasTransparentBounds(regexp: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_hasTransparentBounds(regexp.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexHasTransparentBounds(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexHasTransparentBounds((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_hitEnd(regexp: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_hitEnd(regexp.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexHitEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexHitEnd((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_lookingAt(regexp: Long, startindex: Int, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_lookingAt(regexp.toString(), startindex, status.toString()) as Int).toByte() else 0
+public actual fun uregexLookingAt(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexLookingAt((regexp?.value ?: 0L).toString(), startindex, (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_lookingAt64(regexp: Long, startindex: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_lookingAt64(regexp.toString(), startindex.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexLookingAt64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexLookingAt64((regexp?.value ?: 0L).toString(), startindex.toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_matches(regexp: Long, startindex: Int, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_matches(regexp.toString(), startindex, status.toString()) as Int).toByte() else 0
+public actual fun uregexMatches(regexp: COpaquePointer?, startindex: Int, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexMatches((regexp?.value ?: 0L).toString(), startindex, (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_matches64(regexp: Long, startindex: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_matches64(regexp.toString(), startindex.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexMatches64(regexp: COpaquePointer?, startindex: Long, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexMatches64((regexp?.value ?: 0L).toString(), startindex.toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_open(pattern: Long, patternlength: Int, flags: UInt, pe: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_open(pattern.toString(), patternlength, flags.toInt(), pe.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexOpen(pattern: COpaquePointer?, patternlength: Int, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexOpen((pattern?.value ?: 0L).toString(), patternlength, flags.toInt(), (pe?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_openC(pattern: PCSTR, flags: UInt, pe: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_openC(pattern.toString(), flags.toInt(), pe.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexOpenC((pattern?.value ?: 0L).toString(), flags.toInt(), (pe?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_openUText(pattern: Long, flags: UInt, pe: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_openUText(pattern.toString(), flags.toInt(), pe.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexOpenUtext(pattern: COpaquePointer?, flags: UInt, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexOpenUtext((pattern?.value ?: 0L).toString(), flags.toInt(), (pe?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_pattern(regexp: Long, patlength: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_pattern(regexp.toString(), patlength.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexPattern(regexp: COpaquePointer?, patlength: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexPattern((regexp?.value ?: 0L).toString(), (patlength?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_patternUText(regexp: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_patternUText(regexp.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexPatternUtext(regexp: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexPatternUtext((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_refreshUText(regexp: Long, text: Long, status: Long) {
+public actual fun uregexRefreshUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_refreshUText(regexp.toString(), text.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRefreshUtext((regexp?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_regionEnd(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_regionEnd(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexRegionEnd(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRegionEnd((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_regionEnd64(regexp: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_regionEnd64(regexp.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexRegionEnd64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRegionEnd64((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_regionStart(regexp: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_regionStart(regexp.toString(), status.toString()) as Int) else 0
+public actual fun uregexRegionStart(regexp: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRegionStart((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_regionStart64(regexp: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_regionStart64(regexp.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexRegionStart64(regexp: COpaquePointer?, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRegionStart64((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_replaceAll(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_replaceAll(regexp.toString(), replacementtext.toString(), replacementlength, destbuf.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun uregexReplaceAll(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReplaceAll((regexp?.value ?: 0L).toString(), (replacementtext?.value ?: 0L).toString(), replacementlength, (destbuf?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_replaceAllUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_replaceAllUText(regexp.toString(), replacement.toString(), dest.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexReplaceAllUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReplaceAllUtext((regexp?.value ?: 0L).toString(), (replacement?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_replaceFirst(regexp: Long, replacementtext: Long, replacementlength: Int, destbuf: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_replaceFirst(regexp.toString(), replacementtext.toString(), replacementlength, destbuf.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun uregexReplaceFirst(regexp: COpaquePointer?, replacementtext: COpaquePointer?, replacementlength: Int, destbuf: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReplaceFirst((regexp?.value ?: 0L).toString(), (replacementtext?.value ?: 0L).toString(), replacementlength, (destbuf?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_replaceFirstUText(regexp: Long, replacement: Long, dest: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_replaceFirstUText(regexp.toString(), replacement.toString(), dest.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregexReplaceFirstUtext(regexp: COpaquePointer?, replacement: COpaquePointer?, dest: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReplaceFirstUtext((regexp?.value ?: 0L).toString(), (replacement?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_requireEnd(regexp: Long, status: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_requireEnd(regexp.toString(), status.toString()) as Int).toByte() else 0
+public actual fun uregexRequireEnd(regexp: COpaquePointer?, status: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexRequireEnd((regexp?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_reset(regexp: Long, index: Int, status: Long) {
+public actual fun uregexReset(regexp: COpaquePointer?, index: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_reset(regexp.toString(), index, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReset((regexp?.value ?: 0L).toString(), index, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_reset64(regexp: Long, index: Long, status: Long) {
+public actual fun uregexReset64(regexp: COpaquePointer?, index: Long, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_reset64(regexp.toString(), index.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexReset64((regexp?.value ?: 0L).toString(), index.toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setFindProgressCallback(regexp: Long, callback: URegexFindProgressCallback, context: Long, status: Long) {
+public actual fun uregexSetFindProgressCallback(regexp: COpaquePointer?, callback: URegexFindProgressCallback, context: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setFindProgressCallback(regexp.toString(), callback.toLong().toString(), context.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetFindProgressCallback((regexp?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setMatchCallback(regexp: Long, callback: URegexMatchCallback, context: Long, status: Long) {
+public actual fun uregexSetMatchCallback(regexp: COpaquePointer?, callback: URegexMatchCallback, context: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setMatchCallback(regexp.toString(), callback.toLong().toString(), context.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetMatchCallback((regexp?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setRegion(regexp: Long, regionstart: Int, regionlimit: Int, status: Long) {
+public actual fun uregexSetRegion(regexp: COpaquePointer?, regionstart: Int, regionlimit: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setRegion(regexp.toString(), regionstart, regionlimit, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetRegion((regexp?.value ?: 0L).toString(), regionstart, regionlimit, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setRegion64(regexp: Long, regionstart: Long, regionlimit: Long, status: Long) {
+public actual fun uregexSetRegion64(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setRegion64(regexp.toString(), regionstart.toString(), regionlimit.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetRegion64((regexp?.value ?: 0L).toString(), regionstart.toString(), regionlimit.toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setRegionAndStart(regexp: Long, regionstart: Long, regionlimit: Long, startindex: Long, status: Long) {
+public actual fun uregexSetRegionAndStart(regexp: COpaquePointer?, regionstart: Long, regionlimit: Long, startindex: Long, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setRegionAndStart(regexp.toString(), regionstart.toString(), regionlimit.toString(), startindex.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetRegionAndStart((regexp?.value ?: 0L).toString(), regionstart.toString(), regionlimit.toString(), startindex.toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setStackLimit(regexp: Long, limit: Int, status: Long) {
+public actual fun uregexSetStackLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setStackLimit(regexp.toString(), limit, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetStackLimit((regexp?.value ?: 0L).toString(), limit, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setText(regexp: Long, text: Long, textlength: Int, status: Long) {
+public actual fun uregexSetText(regexp: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setText(regexp.toString(), text.toString(), textlength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetText((regexp?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setTimeLimit(regexp: Long, limit: Int, status: Long) {
+public actual fun uregexSetTimeLimit(regexp: COpaquePointer?, limit: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setTimeLimit(regexp.toString(), limit, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetTimeLimit((regexp?.value ?: 0L).toString(), limit, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_setUText(regexp: Long, text: Long, status: Long) {
+public actual fun uregexSetUtext(regexp: COpaquePointer?, text: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_setUText(regexp.toString(), text.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSetUtext((regexp?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_split(regexp: Long, destbuf: Long, destcapacity: Int, requiredcapacity: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_split(regexp.toString(), destbuf.toString(), destcapacity, requiredcapacity.toString(), destfields.toString(), destfieldscapacity, status.toString()) as Int) else 0
+public actual fun uregexSplit(regexp: COpaquePointer?, destbuf: COpaquePointer?, destcapacity: Int, requiredcapacity: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSplit((regexp?.value ?: 0L).toString(), (destbuf?.value ?: 0L).toString(), destcapacity, (requiredcapacity?.value ?: 0L).toString(), (destfields?.value ?: 0L).toString(), destfieldscapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_splitUText(regexp: Long, destfields: Long, destfieldscapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_splitUText(regexp.toString(), destfields.toString(), destfieldscapacity, status.toString()) as Int) else 0
+public actual fun uregexSplitUtext(regexp: COpaquePointer?, destfields: COpaquePointer?, destfieldscapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexSplitUtext((regexp?.value ?: 0L).toString(), (destfields?.value ?: 0L).toString(), destfieldscapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_start(regexp: Long, groupnum: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_start(regexp.toString(), groupnum, status.toString()) as Int) else 0
+public actual fun uregexStart(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexStart((regexp?.value ?: 0L).toString(), groupnum, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_start64(regexp: Long, groupnum: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_start64(regexp.toString(), groupnum, status.toString()) as String).toLong() else 0L
+public actual fun uregexStart64(regexp: COpaquePointer?, groupnum: Int, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexStart64((regexp?.value ?: 0L).toString(), groupnum, (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregex_useAnchoringBounds(regexp: Long, b: Byte, status: Long) {
+public actual fun uregexUseAnchoringBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_useAnchoringBounds(regexp.toString(), b.toInt(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexUseAnchoringBounds((regexp?.value ?: 0L).toString(), b.toInt(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregex_useTransparentBounds(regexp: Long, b: Byte, status: Long) {
+public actual fun uregexUseTransparentBounds(regexp: COpaquePointer?, b: Byte, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregex_useTransparentBounds(regexp.toString(), b.toInt(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregexUseTransparentBounds((regexp?.value ?: 0L).toString(), b.toInt(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uregion_areEqual(uregion: Long, otherregion: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_areEqual(uregion.toString(), otherregion.toString()) as Int).toByte() else 0
+public actual fun uregionAreEqual(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionAreEqual((uregion?.value ?: 0L).toString(), (otherregion?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_contains(uregion: Long, otherregion: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_contains(uregion.toString(), otherregion.toString()) as Int).toByte() else 0
+public actual fun uregionContains(uregion: COpaquePointer?, otherregion: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionContains((uregion?.value ?: 0L).toString(), (otherregion?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getAvailable(type: URegionType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getAvailable(type, status.toString()) as String).toLong() else 0L
+public actual fun uregionGetAvailable(type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetAvailable(type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getContainedRegions(uregion: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getContainedRegions(uregion.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregionGetContainedRegions(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetContainedRegions((uregion?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getContainedRegionsOfType(uregion: Long, type: URegionType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getContainedRegionsOfType(uregion.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun uregionGetContainedRegionsOfType(uregion: COpaquePointer?, type: URegionType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetContainedRegionsOfType((uregion?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getContainingRegion(uregion: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getContainingRegion(uregion.toString()) as String).toLong() else 0L
+public actual fun uregionGetContainingRegion(uregion: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetContainingRegion((uregion?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getContainingRegionOfType(uregion: Long, type: URegionType): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getContainingRegionOfType(uregion.toString(), type) as String).toLong() else 0L
+public actual fun uregionGetContainingRegionOfType(uregion: COpaquePointer?, type: URegionType): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetContainingRegionOfType((uregion?.value ?: 0L).toString(), type) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getNumericCode(uregion: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getNumericCode(uregion.toString()) as Int) else 0
+public actual fun uregionGetNumericCode(uregion: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetNumericCode((uregion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getPreferredValues(uregion: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getPreferredValues(uregion.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregionGetPreferredValues(uregion: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetPreferredValues((uregion?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getRegionCode(uregion: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getRegionCode(uregion.toString()) as String).toLong() else 0L
+public actual fun uregionGetRegionCode(uregion: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetRegionCode((uregion?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getRegionFromCode(regioncode: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getRegionFromCode(regioncode.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetRegionFromCode((regioncode?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getRegionFromNumericCode(code: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getRegionFromNumericCode(code, status.toString()) as String).toLong() else 0L
+public actual fun uregionGetRegionFromNumericCode(code: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetRegionFromNumericCode(code, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uregion_getType(uregion: Long): URegionType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregion_getType(uregion.toString()) as Int) else 0
+public actual fun uregionGetType(uregion: COpaquePointer?): URegionType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uregionGetType((uregion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_close(reldatefmt: Long) {
+public actual fun ureldatefmtClose(reldatefmt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_close(reldatefmt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtClose((reldatefmt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ureldatefmt_closeResult(ufrdt: Long) {
+public actual fun ureldatefmtCloseResult(ufrdt: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_closeResult(ufrdt.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtCloseResult((ufrdt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ureldatefmt_combineDateAndTime(reldatefmt: Long, relativedatestring: Long, relativedatestringlen: Int, timestring: Long, timestringlen: Int, result: Long, resultcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_combineDateAndTime(reldatefmt.toString(), relativedatestring.toString(), relativedatestringlen, timestring.toString(), timestringlen, result.toString(), resultcapacity, status.toString()) as Int) else 0
+public actual fun ureldatefmtCombineDateAndTime(reldatefmt: COpaquePointer?, relativedatestring: COpaquePointer?, relativedatestringlen: Int, timestring: COpaquePointer?, timestringlen: Int, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtCombineDateAndTime((reldatefmt?.value ?: 0L).toString(), (relativedatestring?.value ?: 0L).toString(), relativedatestringlen, (timestring?.value ?: 0L).toString(), timestringlen, (result?.value ?: 0L).toString(), resultcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_format(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_format(reldatefmt.toString(), offset, unit, result.toString(), resultcapacity, status.toString()) as Int) else 0
+public actual fun ureldatefmtFormat(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtFormat((reldatefmt?.value ?: 0L).toString(), offset, unit, (result?.value ?: 0L).toString(), resultcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_formatNumeric(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, resultcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_formatNumeric(reldatefmt.toString(), offset, unit, result.toString(), resultcapacity, status.toString()) as Int) else 0
+public actual fun ureldatefmtFormatNumeric(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtFormatNumeric((reldatefmt?.value ?: 0L).toString(), offset, unit, (result?.value ?: 0L).toString(), resultcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_formatNumericToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
+public actual fun ureldatefmtFormatNumericToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_formatNumericToResult(reldatefmt.toString(), offset, unit, result.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtFormatNumericToResult((reldatefmt?.value ?: 0L).toString(), offset, unit, (result?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ureldatefmt_formatToResult(reldatefmt: Long, offset: Double, unit: URelativeDateTimeUnit, result: Long, status: Long) {
+public actual fun ureldatefmtFormatToResult(reldatefmt: COpaquePointer?, offset: Double, unit: URelativeDateTimeUnit, result: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_formatToResult(reldatefmt.toString(), offset, unit, result.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtFormatToResult((reldatefmt?.value ?: 0L).toString(), offset, unit, (result?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ureldatefmt_open(locale: PCSTR, nftoadopt: Long, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_open(locale.toString(), nftoadopt.toString(), width, capitalizationcontext, status.toString()) as String).toLong() else 0L
+public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: COpaquePointer?, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtOpen((locale?.value ?: 0L).toString(), (nftoadopt?.value ?: 0L).toString(), width, capitalizationcontext, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_openResult(ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_openResult(ec.toString()) as String).toLong() else 0L
+public actual fun ureldatefmtOpenResult(ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtOpenResult((ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ureldatefmt_resultAsValue(ufrdt: Long, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmt_resultAsValue(ufrdt.toString(), ec.toString()) as String).toLong() else 0L
+public actual fun ureldatefmtResultAsValue(ufrdt: COpaquePointer?, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ureldatefmtResultAsValue((ufrdt?.value ?: 0L).toString(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_close(resourcebundle: Long) {
+public actual fun uresClose(resourcebundle: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_close(resourcebundle.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresClose((resourcebundle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ures_getBinary(resourcebundle: Long, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getBinary(resourcebundle.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetBinary(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetBinary((resourcebundle?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getByIndex(resourcebundle: Long, indexr: Int, fillin: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getByIndex(resourcebundle.toString(), indexr, fillin.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetByIndex(resourcebundle: COpaquePointer?, indexr: Int, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetByIndex((resourcebundle?.value ?: 0L).toString(), indexr, (fillin?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getByKey(resourcebundle: Long, key: PCSTR, fillin: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getByKey(resourcebundle.toString(), key.toString(), fillin.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetByKey(resourcebundle: COpaquePointer?, key: Pcstr, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetByKey((resourcebundle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (fillin?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getInt(resourcebundle: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getInt(resourcebundle.toString(), status.toString()) as Int) else 0
+public actual fun uresGetInt(resourcebundle: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetInt((resourcebundle?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getIntVector(resourcebundle: Long, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getIntVector(resourcebundle.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetIntVector(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetIntVector((resourcebundle?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getKey(resourcebundle: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getKey(resourcebundle.toString()) as String).toLong() else 0L
+public actual fun uresGetKey(resourcebundle: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetKey((resourcebundle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getLocaleByType(resourcebundle: Long, type: ULocDataLocaleType, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getLocaleByType(resourcebundle.toString(), type, status.toString()) as String).toLong() else 0L
+public actual fun uresGetLocaleByType(resourcebundle: COpaquePointer?, type: ULocDataLocaleType, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetLocaleByType((resourcebundle?.value ?: 0L).toString(), type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getNextResource(resourcebundle: Long, fillin: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getNextResource(resourcebundle.toString(), fillin.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetNextResource(resourcebundle: COpaquePointer?, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetNextResource((resourcebundle?.value ?: 0L).toString(), (fillin?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getNextString(resourcebundle: Long, len: Long, key: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getNextString(resourcebundle.toString(), len.toString(), key.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetNextString(resourcebundle: COpaquePointer?, len: COpaquePointer?, key: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetNextString((resourcebundle?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getSize(resourcebundle: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getSize(resourcebundle.toString()) as Int) else 0
+public actual fun uresGetSize(resourcebundle: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetSize((resourcebundle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getString(resourcebundle: Long, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getString(resourcebundle.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetString(resourcebundle: COpaquePointer?, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetString((resourcebundle?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getStringByIndex(resourcebundle: Long, indexs: Int, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getStringByIndex(resourcebundle.toString(), indexs, len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetStringByIndex(resourcebundle: COpaquePointer?, indexs: Int, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetStringByIndex((resourcebundle?.value ?: 0L).toString(), indexs, (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getStringByKey(resb: Long, key: PCSTR, len: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getStringByKey(resb.toString(), key.toString(), len.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetStringByKey(resb: COpaquePointer?, key: Pcstr, len: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetStringByKey((resb?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (len?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getType(resourcebundle: Long): UResType =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getType(resourcebundle.toString()) as Int) else 0
+public actual fun uresGetType(resourcebundle: COpaquePointer?): UResType =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetType((resourcebundle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getUInt(resourcebundle: Long, status: Long): UInt =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getUInt(resourcebundle.toString(), status.toString()) as Int).toUInt() else 0u
+public actual fun uresGetUint(resourcebundle: COpaquePointer?, status: COpaquePointer?): UInt =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetUint((resourcebundle?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getUTF8String(resb: Long, dest: PCSTR, length: Long, forcecopy: Byte, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getUTF8String(resb.toString(), dest.toString(), length.toString(), forcecopy.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetUtf8String(resb: COpaquePointer?, dest: Pcstr, length: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetUtf8String((resb?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), forcecopy.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getUTF8StringByIndex(resb: Long, stringindex: Int, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getUTF8StringByIndex(resb.toString(), stringindex, dest.toString(), plength.toString(), forcecopy.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetUtf8StringByIndex(resb: COpaquePointer?, stringindex: Int, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetUtf8StringByIndex((resb?.value ?: 0L).toString(), stringindex, (dest?.value ?: 0L).toString(), (plength?.value ?: 0L).toString(), forcecopy.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getUTF8StringByKey(resb: Long, key: PCSTR, dest: PCSTR, plength: Long, forcecopy: Byte, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getUTF8StringByKey(resb.toString(), key.toString(), dest.toString(), plength.toString(), forcecopy.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun uresGetUtf8StringByKey(resb: COpaquePointer?, key: Pcstr, dest: Pcstr, plength: COpaquePointer?, forcecopy: Byte, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetUtf8StringByKey((resb?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), (plength?.value ?: 0L).toString(), forcecopy.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_getVersion(resb: Long, versioninfo: Long) {
+public actual fun uresGetVersion(resb: COpaquePointer?, versioninfo: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_getVersion(resb.toString(), versioninfo.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresGetVersion((resb?.value ?: 0L).toString(), (versioninfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ures_hasNext(resourcebundle: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_hasNext(resourcebundle.toString()) as Int).toByte() else 0
+public actual fun uresHasNext(resourcebundle: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresHasNext((resourcebundle?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_open(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_open(packagename.toString(), locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresOpen((packagename?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_openAvailableLocales(packagename: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_openAvailableLocales(packagename.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresOpenAvailableLocales((packagename?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_openDirect(packagename: PCSTR, locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_openDirect(packagename.toString(), locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresOpenDirect((packagename?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_openU(packagename: Long, locale: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_openU(packagename.toString(), locale.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uresOpenU(packagename: COpaquePointer?, locale: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresOpenU((packagename?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ures_resetIterator(resourcebundle: Long) {
+public actual fun uresResetIterator(resourcebundle: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_ures_resetIterator(resourcebundle.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uresResetIterator((resourcebundle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uscript_breaksBetweenLetters(script: UScriptCode): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_breaksBetweenLetters(script) as Int).toByte() else 0
+public actual fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptBreaksBetweenLetters(script) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getCode(nameorabbrorlocale: PCSTR, fillin: Long, capacity: Int, err: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getCode(nameorabbrorlocale.toString(), fillin.toString(), capacity, err.toString()) as Int) else 0
+public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: COpaquePointer?, capacity: Int, err: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetCode((nameorabbrorlocale?.value ?: 0L).toString(), (fillin?.value ?: 0L).toString(), capacity, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getName(scriptcode: UScriptCode): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getName(scriptcode) as String).toLong() else 0L
+public actual fun uscriptGetName(scriptcode: UScriptCode): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetName(scriptcode) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getSampleString(script: UScriptCode, dest: Long, capacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getSampleString(script, dest.toString(), capacity, perrorcode.toString()) as Int) else 0
+public actual fun uscriptGetSampleString(script: UScriptCode, dest: COpaquePointer?, capacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetSampleString(script, (dest?.value ?: 0L).toString(), capacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getScript(codepoint: Int, err: Long): UScriptCode =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getScript(codepoint, err.toString()) as Int) else 0
+public actual fun uscriptGetScript(codepoint: Int, err: COpaquePointer?): UScriptCode =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetScript(codepoint, (err?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getScriptExtensions(c: Int, scripts: Long, capacity: Int, errorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getScriptExtensions(c, scripts.toString(), capacity, errorcode.toString()) as Int) else 0
+public actual fun uscriptGetScriptExtensions(c: Int, scripts: COpaquePointer?, capacity: Int, errorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetScriptExtensions(c, (scripts?.value ?: 0L).toString(), capacity, (errorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getShortName(scriptcode: UScriptCode): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getShortName(scriptcode) as String).toLong() else 0L
+public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetShortName(scriptcode) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_getUsage(script: UScriptCode): UScriptUsage =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_getUsage(script) as Int) else 0
+public actual fun uscriptGetUsage(script: UScriptCode): UScriptUsage =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptGetUsage(script) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_hasScript(c: Int, sc: UScriptCode): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_hasScript(c, sc) as Int).toByte() else 0
+public actual fun uscriptHasScript(c: Int, sc: UScriptCode): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptHasScript(c, sc) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_isCased(script: UScriptCode): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_isCased(script) as Int).toByte() else 0
+public actual fun uscriptIsCased(script: UScriptCode): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptIsCased(script) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uscript_isRightToLeft(script: UScriptCode): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscript_isRightToLeft(script) as Int).toByte() else 0
+public actual fun uscriptIsRightToLeft(script: UScriptCode): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uscriptIsRightToLeft(script) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_close(searchiter: Long) {
+public actual fun usearchClose(searchiter: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_close(searchiter.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchClose((searchiter?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_first(strsrch: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_first(strsrch.toString(), status.toString()) as Int) else 0
+public actual fun usearchFirst(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchFirst((strsrch?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_following(strsrch: Long, position: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_following(strsrch.toString(), position, status.toString()) as Int) else 0
+public actual fun usearchFollowing(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchFollowing((strsrch?.value ?: 0L).toString(), position, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getAttribute(strsrch: Long, attribute: USearchAttribute): USearchAttributeValue =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getAttribute(strsrch.toString(), attribute) as Int) else 0
+public actual fun usearchGetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute): USearchAttributeValue =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetAttribute((strsrch?.value ?: 0L).toString(), attribute) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getBreakIterator(strsrch: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getBreakIterator(strsrch.toString()) as String).toLong() else 0L
+public actual fun usearchGetBreakIterator(strsrch: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetBreakIterator((strsrch?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getCollator(strsrch: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getCollator(strsrch.toString()) as String).toLong() else 0L
+public actual fun usearchGetCollator(strsrch: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetCollator((strsrch?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getMatchedLength(strsrch: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getMatchedLength(strsrch.toString()) as Int) else 0
+public actual fun usearchGetMatchedLength(strsrch: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetMatchedLength((strsrch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getMatchedStart(strsrch: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getMatchedStart(strsrch.toString()) as Int) else 0
+public actual fun usearchGetMatchedStart(strsrch: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetMatchedStart((strsrch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getMatchedText(strsrch: Long, result: Long, resultcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getMatchedText(strsrch.toString(), result.toString(), resultcapacity, status.toString()) as Int) else 0
+public actual fun usearchGetMatchedText(strsrch: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetMatchedText((strsrch?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getOffset(strsrch: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getOffset(strsrch.toString()) as Int) else 0
+public actual fun usearchGetOffset(strsrch: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetOffset((strsrch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getPattern(strsrch: Long, length: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getPattern(strsrch.toString(), length.toString()) as String).toLong() else 0L
+public actual fun usearchGetPattern(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetPattern((strsrch?.value ?: 0L).toString(), (length?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_getText(strsrch: Long, length: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_getText(strsrch.toString(), length.toString()) as String).toLong() else 0L
+public actual fun usearchGetText(strsrch: COpaquePointer?, length: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchGetText((strsrch?.value ?: 0L).toString(), (length?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_last(strsrch: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_last(strsrch.toString(), status.toString()) as Int) else 0
+public actual fun usearchLast(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchLast((strsrch?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_next(strsrch: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_next(strsrch.toString(), status.toString()) as Int) else 0
+public actual fun usearchNext(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchNext((strsrch?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_open(pattern: Long, patternlength: Int, text: Long, textlength: Int, locale: PCSTR, breakiter: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_open(pattern.toString(), patternlength, text.toString(), textlength, locale.toString(), breakiter.toString(), status.toString()) as String).toLong() else 0L
+public actual fun usearchOpen(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, locale: Pcstr, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchOpen((pattern?.value ?: 0L).toString(), patternlength, (text?.value ?: 0L).toString(), textlength, (locale?.value ?: 0L).toString(), (breakiter?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_openFromCollator(pattern: Long, patternlength: Int, text: Long, textlength: Int, collator: Long, breakiter: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_openFromCollator(pattern.toString(), patternlength, text.toString(), textlength, collator.toString(), breakiter.toString(), status.toString()) as String).toLong() else 0L
+public actual fun usearchOpenFromCollator(pattern: COpaquePointer?, patternlength: Int, text: COpaquePointer?, textlength: Int, collator: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchOpenFromCollator((pattern?.value ?: 0L).toString(), patternlength, (text?.value ?: 0L).toString(), textlength, (collator?.value ?: 0L).toString(), (breakiter?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_preceding(strsrch: Long, position: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_preceding(strsrch.toString(), position, status.toString()) as Int) else 0
+public actual fun usearchPreceding(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchPreceding((strsrch?.value ?: 0L).toString(), position, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_previous(strsrch: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_previous(strsrch.toString(), status.toString()) as Int) else 0
+public actual fun usearchPrevious(strsrch: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchPrevious((strsrch?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usearch_reset(strsrch: Long) {
+public actual fun usearchReset(strsrch: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_reset(strsrch.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchReset((strsrch?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setAttribute(strsrch: Long, attribute: USearchAttribute, value: USearchAttributeValue, status: Long) {
+public actual fun usearchSetAttribute(strsrch: COpaquePointer?, attribute: USearchAttribute, value: USearchAttributeValue, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setAttribute(strsrch.toString(), attribute, value, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetAttribute((strsrch?.value ?: 0L).toString(), attribute, value, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setBreakIterator(strsrch: Long, breakiter: Long, status: Long) {
+public actual fun usearchSetBreakIterator(strsrch: COpaquePointer?, breakiter: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setBreakIterator(strsrch.toString(), breakiter.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetBreakIterator((strsrch?.value ?: 0L).toString(), (breakiter?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setCollator(strsrch: Long, collator: Long, status: Long) {
+public actual fun usearchSetCollator(strsrch: COpaquePointer?, collator: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setCollator(strsrch.toString(), collator.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetCollator((strsrch?.value ?: 0L).toString(), (collator?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setOffset(strsrch: Long, position: Int, status: Long) {
+public actual fun usearchSetOffset(strsrch: COpaquePointer?, position: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setOffset(strsrch.toString(), position, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetOffset((strsrch?.value ?: 0L).toString(), position, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setPattern(strsrch: Long, pattern: Long, patternlength: Int, status: Long) {
+public actual fun usearchSetPattern(strsrch: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setPattern(strsrch.toString(), pattern.toString(), patternlength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetPattern((strsrch?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usearch_setText(strsrch: Long, text: Long, textlength: Int, status: Long) {
+public actual fun usearchSetText(strsrch: COpaquePointer?, text: COpaquePointer?, textlength: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearch_setText(strsrch.toString(), text.toString(), textlength, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usearchSetText((strsrch?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), textlength, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_add(set: Long, c: Int) {
+public actual fun usetAdd(set: COpaquePointer?, c: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_add(set.toString(), c)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetAdd((set?.value ?: 0L).toString(), c)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_addAll(set: Long, additionalset: Long) {
+public actual fun usetAddAll(set: COpaquePointer?, additionalset: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_addAll(set.toString(), additionalset.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetAddAll((set?.value ?: 0L).toString(), (additionalset?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_addAllCodePoints(set: Long, str: Long, strlen: Int) {
+public actual fun usetAddAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_addAllCodePoints(set.toString(), str.toString(), strlen)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetAddAllCodePoints((set?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strlen)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_addRange(set: Long, start: Int, end: Int) {
+public actual fun usetAddRange(set: COpaquePointer?, start: Int, end: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_addRange(set.toString(), start, end)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetAddRange((set?.value ?: 0L).toString(), start, end)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_addString(set: Long, str: Long, strlen: Int) {
+public actual fun usetAddString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_addString(set.toString(), str.toString(), strlen)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetAddString((set?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strlen)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_applyIntPropertyValue(set: Long, prop: UProperty, value: Int, ec: Long) {
+public actual fun usetApplyIntPropertyValue(set: COpaquePointer?, prop: UProperty, value: Int, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_applyIntPropertyValue(set.toString(), prop, value, ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetApplyIntPropertyValue((set?.value ?: 0L).toString(), prop, value, (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_applyPattern(set: Long, pattern: Long, patternlength: Int, options: UInt, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_applyPattern(set.toString(), pattern.toString(), patternlength, options.toInt(), status.toString()) as Int) else 0
+public actual fun usetApplyPattern(set: COpaquePointer?, pattern: COpaquePointer?, patternlength: Int, options: UInt, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetApplyPattern((set?.value ?: 0L).toString(), (pattern?.value ?: 0L).toString(), patternlength, options.toInt(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_applyPropertyAlias(set: Long, prop: Long, proplength: Int, value: Long, valuelength: Int, ec: Long) {
+public actual fun usetApplyPropertyAlias(set: COpaquePointer?, prop: COpaquePointer?, proplength: Int, value: COpaquePointer?, valuelength: Int, ec: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_applyPropertyAlias(set.toString(), prop.toString(), proplength, value.toString(), valuelength, ec.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetApplyPropertyAlias((set?.value ?: 0L).toString(), (prop?.value ?: 0L).toString(), proplength, (value?.value ?: 0L).toString(), valuelength, (ec?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_charAt(set: Long, charindex: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_charAt(set.toString(), charindex) as Int) else 0
+public actual fun usetCharAt(set: COpaquePointer?, charindex: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetCharAt((set?.value ?: 0L).toString(), charindex) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_clear(set: Long) {
+public actual fun usetClear(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_clear(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetClear((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_clone(set: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_clone(set.toString()) as String).toLong() else 0L
+public actual fun usetClone(set: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetClone((set?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_cloneAsThawed(set: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_cloneAsThawed(set.toString()) as String).toLong() else 0L
+public actual fun usetCloneAsThawed(set: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetCloneAsThawed((set?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_close(set: Long) {
+public actual fun usetClose(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_close(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetClose((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_closeOver(set: Long, attributes: Int) {
+public actual fun usetCloseOver(set: COpaquePointer?, attributes: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_closeOver(set.toString(), attributes)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetCloseOver((set?.value ?: 0L).toString(), attributes)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_compact(set: Long) {
+public actual fun usetCompact(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_compact(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetCompact((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_complement(set: Long) {
+public actual fun usetComplement(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_complement(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetComplement((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_complementAll(set: Long, complement: Long) {
+public actual fun usetComplementAll(set: COpaquePointer?, complement: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_complementAll(set.toString(), complement.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetComplementAll((set?.value ?: 0L).toString(), (complement?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_contains(set: Long, c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_contains(set.toString(), c) as Int).toByte() else 0
+public actual fun usetContains(set: COpaquePointer?, c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContains((set?.value ?: 0L).toString(), c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsAll(set1: Long, set2: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsAll(set1.toString(), set2.toString()) as Int).toByte() else 0
+public actual fun usetContainsAll(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsAll((set1?.value ?: 0L).toString(), (set2?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsAllCodePoints(set: Long, str: Long, strlen: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsAllCodePoints(set.toString(), str.toString(), strlen) as Int).toByte() else 0
+public actual fun usetContainsAllCodePoints(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsAllCodePoints((set?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strlen) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsNone(set1: Long, set2: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsNone(set1.toString(), set2.toString()) as Int).toByte() else 0
+public actual fun usetContainsNone(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsNone((set1?.value ?: 0L).toString(), (set2?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsRange(set: Long, start: Int, end: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsRange(set.toString(), start, end) as Int).toByte() else 0
+public actual fun usetContainsRange(set: COpaquePointer?, start: Int, end: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsRange((set?.value ?: 0L).toString(), start, end) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsSome(set1: Long, set2: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsSome(set1.toString(), set2.toString()) as Int).toByte() else 0
+public actual fun usetContainsSome(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsSome((set1?.value ?: 0L).toString(), (set2?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_containsString(set: Long, str: Long, strlen: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_containsString(set.toString(), str.toString(), strlen) as Int).toByte() else 0
+public actual fun usetContainsString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetContainsString((set?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strlen) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_equals(set1: Long, set2: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_equals(set1.toString(), set2.toString()) as Int).toByte() else 0
+public actual fun usetEquals(set1: COpaquePointer?, set2: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetEquals((set1?.value ?: 0L).toString(), (set2?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_freeze(set: Long) {
+public actual fun usetFreeze(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_freeze(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetFreeze((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_getItem(set: Long, itemindex: Int, start: Long, end: Long, str: Long, strcapacity: Int, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_getItem(set.toString(), itemindex, start.toString(), end.toString(), str.toString(), strcapacity, ec.toString()) as Int) else 0
+public actual fun usetGetItem(set: COpaquePointer?, itemindex: Int, start: COpaquePointer?, end: COpaquePointer?, str: COpaquePointer?, strcapacity: Int, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetGetItem((set?.value ?: 0L).toString(), itemindex, (start?.value ?: 0L).toString(), (end?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strcapacity, (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_getItemCount(set: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_getItemCount(set.toString()) as Int) else 0
+public actual fun usetGetItemCount(set: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetGetItemCount((set?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_getSerializedRange(set: Long, rangeindex: Int, pstart: Long, pend: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_getSerializedRange(set.toString(), rangeindex, pstart.toString(), pend.toString()) as Int).toByte() else 0
+public actual fun usetGetSerializedRange(set: COpaquePointer?, rangeindex: Int, pstart: COpaquePointer?, pend: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetGetSerializedRange((set?.value ?: 0L).toString(), rangeindex, (pstart?.value ?: 0L).toString(), (pend?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_getSerializedRangeCount(set: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_getSerializedRangeCount(set.toString()) as Int) else 0
+public actual fun usetGetSerializedRangeCount(set: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetGetSerializedRangeCount((set?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_getSerializedSet(fillset: Long, src: Long, srclength: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_getSerializedSet(fillset.toString(), src.toString(), srclength) as Int).toByte() else 0
+public actual fun usetGetSerializedSet(fillset: COpaquePointer?, src: COpaquePointer?, srclength: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetGetSerializedSet((fillset?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_indexOf(set: Long, c: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_indexOf(set.toString(), c) as Int) else 0
+public actual fun usetIndexOf(set: COpaquePointer?, c: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetIndexOf((set?.value ?: 0L).toString(), c) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_isEmpty(set: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_isEmpty(set.toString()) as Int).toByte() else 0
+public actual fun usetIsEmpty(set: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetIsEmpty((set?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_isFrozen(set: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_isFrozen(set.toString()) as Int).toByte() else 0
+public actual fun usetIsFrozen(set: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetIsFrozen((set?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_open(start: Int, end: Int): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_open(start, end) as String).toLong() else 0L
+public actual fun usetOpen(start: Int, end: Int): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetOpen(start, end) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_openEmpty(): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_openEmpty() as String).toLong() else 0L
+public actual fun usetOpenEmpty(): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetOpenEmpty() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_openPattern(pattern: Long, patternlength: Int, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_openPattern(pattern.toString(), patternlength, ec.toString()) as String).toLong() else 0L
+public actual fun usetOpenPattern(pattern: COpaquePointer?, patternlength: Int, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetOpenPattern((pattern?.value ?: 0L).toString(), patternlength, (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_openPatternOptions(pattern: Long, patternlength: Int, options: UInt, ec: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_openPatternOptions(pattern.toString(), patternlength, options.toInt(), ec.toString()) as String).toLong() else 0L
+public actual fun usetOpenPatternOptions(pattern: COpaquePointer?, patternlength: Int, options: UInt, ec: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetOpenPatternOptions((pattern?.value ?: 0L).toString(), patternlength, options.toInt(), (ec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_remove(set: Long, c: Int) {
+public actual fun usetRemove(set: COpaquePointer?, c: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_remove(set.toString(), c)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRemove((set?.value ?: 0L).toString(), c)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_removeAll(set: Long, removeset: Long) {
+public actual fun usetRemoveAll(set: COpaquePointer?, removeset: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_removeAll(set.toString(), removeset.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRemoveAll((set?.value ?: 0L).toString(), (removeset?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_removeAllStrings(set: Long) {
+public actual fun usetRemoveAllStrings(set: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_removeAllStrings(set.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRemoveAllStrings((set?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_removeRange(set: Long, start: Int, end: Int) {
+public actual fun usetRemoveRange(set: COpaquePointer?, start: Int, end: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_removeRange(set.toString(), start, end)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRemoveRange((set?.value ?: 0L).toString(), start, end)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_removeString(set: Long, str: Long, strlen: Int) {
+public actual fun usetRemoveString(set: COpaquePointer?, str: COpaquePointer?, strlen: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_removeString(set.toString(), str.toString(), strlen)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRemoveString((set?.value ?: 0L).toString(), (str?.value ?: 0L).toString(), strlen)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_resemblesPattern(pattern: Long, patternlength: Int, pos: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_resemblesPattern(pattern.toString(), patternlength, pos) as Int).toByte() else 0
+public actual fun usetResemblesPattern(pattern: COpaquePointer?, patternlength: Int, pos: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetResemblesPattern((pattern?.value ?: 0L).toString(), patternlength, pos) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_retain(set: Long, start: Int, end: Int) {
+public actual fun usetRetain(set: COpaquePointer?, start: Int, end: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_retain(set.toString(), start, end)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRetain((set?.value ?: 0L).toString(), start, end)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_retainAll(set: Long, retain: Long) {
+public actual fun usetRetainAll(set: COpaquePointer?, retain: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_retainAll(set.toString(), retain.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetRetainAll((set?.value ?: 0L).toString(), (retain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_serialize(set: Long, dest: Long, destcapacity: Int, perrorcode: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_serialize(set.toString(), dest.toString(), destcapacity, perrorcode.toString()) as Int) else 0
+public actual fun usetSerialize(set: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, perrorcode: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSerialize((set?.value ?: 0L).toString(), (dest?.value ?: 0L).toString(), destcapacity, (perrorcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_serializedContains(set: Long, c: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_serializedContains(set.toString(), c) as Int).toByte() else 0
+public actual fun usetSerializedContains(set: COpaquePointer?, c: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSerializedContains((set?.value ?: 0L).toString(), c) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_set(set: Long, start: Int, end: Int) {
+public actual fun usetSet(set: COpaquePointer?, start: Int, end: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_set(set.toString(), start, end)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSet((set?.value ?: 0L).toString(), start, end)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_setSerializedToOne(fillset: Long, c: Int) {
+public actual fun usetSetSerializedToOne(fillset: COpaquePointer?, c: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_setSerializedToOne(fillset.toString(), c)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSetSerializedToOne((fillset?.value ?: 0L).toString(), c)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uset_size(set: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_size(set.toString()) as Int) else 0
+public actual fun usetSize(set: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSize((set?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_span(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_span(set.toString(), s.toString(), length, spancondition) as Int) else 0
+public actual fun usetSpan(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSpan((set?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, spancondition) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_spanBack(set: Long, s: Long, length: Int, spancondition: USetSpanCondition): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_spanBack(set.toString(), s.toString(), length, spancondition) as Int) else 0
+public actual fun usetSpanBack(set: COpaquePointer?, s: COpaquePointer?, length: Int, spancondition: USetSpanCondition): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSpanBack((set?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, spancondition) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_spanBackUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_spanBackUTF8(set.toString(), s.toString(), length, spancondition) as Int) else 0
+public actual fun usetSpanBackUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSpanBackUtf8((set?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, spancondition) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_spanUTF8(set: Long, s: PCSTR, length: Int, spancondition: USetSpanCondition): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_spanUTF8(set.toString(), s.toString(), length, spancondition) as Int) else 0
+public actual fun usetSpanUtf8(set: COpaquePointer?, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetSpanUtf8((set?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length, spancondition) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uset_toPattern(set: Long, result: Long, resultcapacity: Int, escapeunprintable: Byte, ec: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uset_toPattern(set.toString(), result.toString(), resultcapacity, escapeunprintable.toInt(), ec.toString()) as Int) else 0
+public actual fun usetToPattern(set: COpaquePointer?, result: COpaquePointer?, resultcapacity: Int, escapeunprintable: Byte, ec: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usetToPattern((set?.value ?: 0L).toString(), (result?.value ?: 0L).toString(), resultcapacity, escapeunprintable.toInt(), (ec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_areConfusable(sc: Long, id1: Long, length1: Int, id2: Long, length2: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_areConfusable(sc.toString(), id1.toString(), length1, id2.toString(), length2, status.toString()) as Int) else 0
+public actual fun uspoofAreConfusable(sc: COpaquePointer?, id1: COpaquePointer?, length1: Int, id2: COpaquePointer?, length2: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofAreConfusable((sc?.value ?: 0L).toString(), (id1?.value ?: 0L).toString(), length1, (id2?.value ?: 0L).toString(), length2, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_areConfusableUTF8(sc: Long, id1: PCSTR, length1: Int, id2: PCSTR, length2: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_areConfusableUTF8(sc.toString(), id1.toString(), length1, id2.toString(), length2, status.toString()) as Int) else 0
+public actual fun uspoofAreConfusableUtf8(sc: COpaquePointer?, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofAreConfusableUtf8((sc?.value ?: 0L).toString(), (id1?.value ?: 0L).toString(), length1, (id2?.value ?: 0L).toString(), length2, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_check(sc: Long, id: Long, length: Int, position: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_check(sc.toString(), id.toString(), length, position.toString(), status.toString()) as Int) else 0
+public actual fun uspoofCheck(sc: COpaquePointer?, id: COpaquePointer?, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofCheck((sc?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), length, (position?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_check2(sc: Long, id: Long, length: Int, checkresult: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_check2(sc.toString(), id.toString(), length, checkresult.toString(), status.toString()) as Int) else 0
+public actual fun uspoofCheck2(sc: COpaquePointer?, id: COpaquePointer?, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofCheck2((sc?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), length, (checkresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_check2UTF8(sc: Long, id: PCSTR, length: Int, checkresult: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_check2UTF8(sc.toString(), id.toString(), length, checkresult.toString(), status.toString()) as Int) else 0
+public actual fun uspoofCheck2Utf8(sc: COpaquePointer?, id: Pcstr, length: Int, checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofCheck2Utf8((sc?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), length, (checkresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_checkUTF8(sc: Long, id: PCSTR, length: Int, position: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_checkUTF8(sc.toString(), id.toString(), length, position.toString(), status.toString()) as Int) else 0
+public actual fun uspoofCheckUtf8(sc: COpaquePointer?, id: Pcstr, length: Int, position: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofCheckUtf8((sc?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), length, (position?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_clone(sc: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_clone(sc.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uspoofClone(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofClone((sc?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_close(sc: Long) {
+public actual fun uspoofClose(sc: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_close(sc.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofClose((sc?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uspoof_closeCheckResult(checkresult: Long) {
+public actual fun uspoofCloseCheckResult(checkresult: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_closeCheckResult(checkresult.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofCloseCheckResult((checkresult?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uspoof_getAllowedChars(sc: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getAllowedChars(sc.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uspoofGetAllowedChars(sc: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetAllowedChars((sc?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getAllowedLocales(sc: Long, status: Long): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getAllowedLocales(sc.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uspoofGetAllowedLocales(sc: COpaquePointer?, status: COpaquePointer?): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetAllowedLocales((sc?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getCheckResultChecks(checkresult: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getCheckResultChecks(checkresult.toString(), status.toString()) as Int) else 0
+public actual fun uspoofGetCheckResultChecks(checkresult: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetCheckResultChecks((checkresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getCheckResultNumerics(checkresult: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getCheckResultNumerics(checkresult.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uspoofGetCheckResultNumerics(checkresult: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetCheckResultNumerics((checkresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getCheckResultRestrictionLevel(checkresult: Long, status: Long): URestrictionLevel =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getCheckResultRestrictionLevel(checkresult.toString(), status.toString()) as Int) else 0
+public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: COpaquePointer?, status: COpaquePointer?): URestrictionLevel =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetCheckResultRestrictionLevel((checkresult?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getChecks(sc: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getChecks(sc.toString(), status.toString()) as Int) else 0
+public actual fun uspoofGetChecks(sc: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetChecks((sc?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getInclusionSet(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getInclusionSet(status.toString()) as String).toLong() else 0L
+public actual fun uspoofGetInclusionSet(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetInclusionSet((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getRecommendedSet(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getRecommendedSet(status.toString()) as String).toLong() else 0L
+public actual fun uspoofGetRecommendedSet(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetRecommendedSet((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getRestrictionLevel(sc: Long): URestrictionLevel =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getRestrictionLevel(sc.toString()) as Int) else 0
+public actual fun uspoofGetRestrictionLevel(sc: COpaquePointer?): URestrictionLevel =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetRestrictionLevel((sc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getSkeleton(sc: Long, type: UInt, id: Long, length: Int, dest: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getSkeleton(sc.toString(), type.toInt(), id.toString(), length, dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun uspoofGetSkeleton(sc: COpaquePointer?, type: UInt, id: COpaquePointer?, length: Int, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetSkeleton((sc?.value ?: 0L).toString(), type.toInt(), (id?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_getSkeletonUTF8(sc: Long, type: UInt, id: PCSTR, length: Int, dest: PCSTR, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_getSkeletonUTF8(sc.toString(), type.toInt(), id.toString(), length, dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun uspoofGetSkeletonUtf8(sc: COpaquePointer?, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofGetSkeletonUtf8((sc?.value ?: 0L).toString(), type.toInt(), (id?.value ?: 0L).toString(), length, (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_open(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_open(status.toString()) as String).toLong() else 0L
+public actual fun uspoofOpen(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofOpen((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_openCheckResult(status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_openCheckResult(status.toString()) as String).toLong() else 0L
+public actual fun uspoofOpenCheckResult(status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofOpenCheckResult((status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_openFromSerialized(data: Long, length: Int, pactuallength: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_openFromSerialized(data.toString(), length, pactuallength.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun uspoofOpenFromSerialized(data: COpaquePointer?, length: Int, pactuallength: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofOpenFromSerialized((data?.value ?: 0L).toString(), length, (pactuallength?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_openFromSource(confusables: PCSTR, confusableslen: Int, confusableswholescript: PCSTR, confusableswholescriptlen: Int, errtype: Long, pe: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_openFromSource(confusables.toString(), confusableslen, confusableswholescript.toString(), confusableswholescriptlen, errtype.toString(), pe.toString(), status.toString()) as String).toLong() else 0L
+public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: COpaquePointer?, pe: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofOpenFromSource((confusables?.value ?: 0L).toString(), confusableslen, (confusableswholescript?.value ?: 0L).toString(), confusableswholescriptlen, (errtype?.value ?: 0L).toString(), (pe?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_serialize(sc: Long, data: Long, capacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_serialize(sc.toString(), data.toString(), capacity, status.toString()) as Int) else 0
+public actual fun uspoofSerialize(sc: COpaquePointer?, data: COpaquePointer?, capacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofSerialize((sc?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), capacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uspoof_setAllowedChars(sc: Long, chars: Long, status: Long) {
+public actual fun uspoofSetAllowedChars(sc: COpaquePointer?, chars: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_setAllowedChars(sc.toString(), chars.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofSetAllowedChars((sc?.value ?: 0L).toString(), (chars?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uspoof_setAllowedLocales(sc: Long, localeslist: PCSTR, status: Long) {
+public actual fun uspoofSetAllowedLocales(sc: COpaquePointer?, localeslist: Pcstr, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_setAllowedLocales(sc.toString(), localeslist.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofSetAllowedLocales((sc?.value ?: 0L).toString(), (localeslist?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uspoof_setChecks(sc: Long, checks: Int, status: Long) {
+public actual fun uspoofSetChecks(sc: COpaquePointer?, checks: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_setChecks(sc.toString(), checks, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofSetChecks((sc?.value ?: 0L).toString(), checks, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun uspoof_setRestrictionLevel(sc: Long, restrictionlevel: URestrictionLevel) {
+public actual fun uspoofSetRestrictionLevel(sc: COpaquePointer?, restrictionlevel: URestrictionLevel) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoof_setRestrictionLevel(sc.toString(), restrictionlevel)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_uspoofSetRestrictionLevel((sc?.value ?: 0L).toString(), restrictionlevel)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usprep_close(profile: Long) {
+public actual fun usprepClose(profile: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprep_close(profile.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprepClose((profile?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun usprep_open(path: PCSTR, filename: PCSTR, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprep_open(path.toString(), filename.toString(), status.toString()) as String).toLong() else 0L
+public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprepOpen((path?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usprep_openByType(type: UStringPrepProfileType, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprep_openByType(type, status.toString()) as String).toLong() else 0L
+public actual fun usprepOpenByType(type: UStringPrepProfileType, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprepOpenByType(type, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun usprep_prepare(prep: Long, src: Long, srclength: Int, dest: Long, destcapacity: Int, options: Int, parseerror: Long, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprep_prepare(prep.toString(), src.toString(), srclength, dest.toString(), destcapacity, options, parseerror.toString(), status.toString()) as Int) else 0
+public actual fun usprepPrepare(prep: COpaquePointer?, src: COpaquePointer?, srclength: Int, dest: COpaquePointer?, destcapacity: Int, options: Int, parseerror: COpaquePointer?, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_usprepPrepare((prep?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), srclength, (dest?.value ?: 0L).toString(), destcapacity, options, (parseerror?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_char32At(ut: Long, nativeindex: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_char32At(ut.toString(), nativeindex.toString()) as Int) else 0
+public actual fun utextChar32At(ut: COpaquePointer?, nativeindex: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextChar32At((ut?.value ?: 0L).toString(), nativeindex.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_clone(dest: Long, src: Long, deep: Byte, readonly: Byte, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_clone(dest.toString(), src.toString(), deep.toInt(), readonly.toInt(), status.toString()) as String).toLong() else 0L
+public actual fun utextClone(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, readonly: Byte, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextClone((dest?.value ?: 0L).toString(), (src?.value ?: 0L).toString(), deep.toInt(), readonly.toInt(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_close(ut: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_close(ut.toString()) as String).toLong() else 0L
+public actual fun utextClose(ut: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextClose((ut?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_copy(ut: Long, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: Long) {
+public actual fun utextCopy(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_copy(ut.toString(), nativestart.toString(), nativelimit.toString(), destindex.toString(), move.toInt(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextCopy((ut?.value ?: 0L).toString(), nativestart.toString(), nativelimit.toString(), destindex.toString(), move.toInt(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utext_current32(ut: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_current32(ut.toString()) as Int) else 0
+public actual fun utextCurrent32(ut: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextCurrent32((ut?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_equals(a: Long, b: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_equals(a.toString(), b.toString()) as Int).toByte() else 0
+public actual fun utextEquals(a: COpaquePointer?, b: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextEquals((a?.value ?: 0L).toString(), (b?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_extract(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_extract(ut.toString(), nativestart.toString(), nativelimit.toString(), dest.toString(), destcapacity, status.toString()) as Int) else 0
+public actual fun utextExtract(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextExtract((ut?.value ?: 0L).toString(), nativestart.toString(), nativelimit.toString(), (dest?.value ?: 0L).toString(), destcapacity, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_freeze(ut: Long) {
+public actual fun utextFreeze(ut: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_freeze(ut.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextFreeze((ut?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utext_getNativeIndex(ut: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_getNativeIndex(ut.toString()) as String).toLong() else 0L
+public actual fun utextGetNativeIndex(ut: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextGetNativeIndex((ut?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_getPreviousNativeIndex(ut: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_getPreviousNativeIndex(ut.toString()) as String).toLong() else 0L
+public actual fun utextGetPreviousNativeIndex(ut: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextGetPreviousNativeIndex((ut?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_hasMetaData(ut: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_hasMetaData(ut.toString()) as Int).toByte() else 0
+public actual fun utextHasMetaData(ut: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextHasMetaData((ut?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_isLengthExpensive(ut: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_isLengthExpensive(ut.toString()) as Int).toByte() else 0
+public actual fun utextIsLengthExpensive(ut: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextIsLengthExpensive((ut?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_isWritable(ut: Long): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_isWritable(ut.toString()) as Int).toByte() else 0
+public actual fun utextIsWritable(ut: COpaquePointer?): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextIsWritable((ut?.value ?: 0L).toString()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_moveIndex32(ut: Long, delta: Int): Byte =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_moveIndex32(ut.toString(), delta) as Int).toByte() else 0
+public actual fun utextMoveIndex32(ut: COpaquePointer?, delta: Int): Byte =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextMoveIndex32((ut?.value ?: 0L).toString(), delta) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_nativeLength(ut: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_nativeLength(ut.toString()) as String).toLong() else 0L
+public actual fun utextNativeLength(ut: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextNativeLength((ut?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_next32(ut: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_next32(ut.toString()) as Int) else 0
+public actual fun utextNext32(ut: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextNext32((ut?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_next32From(ut: Long, nativeindex: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_next32From(ut.toString(), nativeindex.toString()) as Int) else 0
+public actual fun utextNext32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextNext32From((ut?.value ?: 0L).toString(), nativeindex.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_openUChars(ut: Long, s: Long, length: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_openUChars(ut.toString(), s.toString(), length.toString(), status.toString()) as String).toLong() else 0L
+public actual fun utextOpenUchars(ut: COpaquePointer?, s: COpaquePointer?, length: Long, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextOpenUchars((ut?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length.toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_openUTF8(ut: Long, s: PCSTR, length: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_openUTF8(ut.toString(), s.toString(), length.toString(), status.toString()) as String).toLong() else 0L
+public actual fun utextOpenUtf8(ut: COpaquePointer?, s: Pcstr, length: Long, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextOpenUtf8((ut?.value ?: 0L).toString(), (s?.value ?: 0L).toString(), length.toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_previous32(ut: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_previous32(ut.toString()) as Int) else 0
+public actual fun utextPrevious32(ut: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextPrevious32((ut?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_previous32From(ut: Long, nativeindex: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_previous32From(ut.toString(), nativeindex.toString()) as Int) else 0
+public actual fun utextPrevious32From(ut: COpaquePointer?, nativeindex: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextPrevious32From((ut?.value ?: 0L).toString(), nativeindex.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_replace(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacementlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_replace(ut.toString(), nativestart.toString(), nativelimit.toString(), replacementtext.toString(), replacementlength, status.toString()) as Int) else 0
+public actual fun utextReplace(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacementlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextReplace((ut?.value ?: 0L).toString(), nativestart.toString(), nativelimit.toString(), (replacementtext?.value ?: 0L).toString(), replacementlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utext_setNativeIndex(ut: Long, nativeindex: Long) {
+public actual fun utextSetNativeIndex(ut: COpaquePointer?, nativeindex: Long) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_setNativeIndex(ut.toString(), nativeindex.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextSetNativeIndex((ut?.value ?: 0L).toString(), nativeindex.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utext_setup(ut: Long, extraspace: Int, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utext_setup(ut.toString(), extraspace, status.toString()) as String).toLong() else 0L
+public actual fun utextSetup(ut: COpaquePointer?, extraspace: Int, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utextSetup((ut?.value ?: 0L).toString(), extraspace, (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utf8_appendCharSafeBody(s: Long, i: Int, length: Int, c: Int, piserror: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8_appendCharSafeBody(s.toString(), i, length, c, piserror.toString()) as Int) else 0
+public actual fun utf8AppendCharSafeBody(s: COpaquePointer?, i: Int, length: Int, c: Int, piserror: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8AppendCharSafeBody((s?.value ?: 0L).toString(), i, length, c, (piserror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utf8_back1SafeBody(s: Long, start: Int, i: Int): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8_back1SafeBody(s.toString(), start, i) as Int) else 0
+public actual fun utf8Back1SafeBody(s: COpaquePointer?, start: Int, i: Int): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8Back1SafeBody((s?.value ?: 0L).toString(), start, i) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utf8_nextCharSafeBody(s: Long, pi: Long, length: Int, c: Int, strict: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8_nextCharSafeBody(s.toString(), pi.toString(), length, c, strict.toInt()) as Int) else 0
+public actual fun utf8NextCharSafeBody(s: COpaquePointer?, pi: COpaquePointer?, length: Int, c: Int, strict: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8NextCharSafeBody((s?.value ?: 0L).toString(), (pi?.value ?: 0L).toString(), length, c, strict.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utf8_prevCharSafeBody(s: Long, start: Int, pi: Long, c: Int, strict: Byte): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8_prevCharSafeBody(s.toString(), start, pi.toString(), c, strict.toInt()) as Int) else 0
+public actual fun utf8PrevCharSafeBody(s: COpaquePointer?, start: Int, pi: COpaquePointer?, c: Int, strict: Byte): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utf8PrevCharSafeBody((s?.value ?: 0L).toString(), start, (pi?.value ?: 0L).toString(), c, strict.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utmscale_fromInt64(othertime: Long, timescale: UDateTimeScale, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscale_fromInt64(othertime.toString(), timescale, status.toString()) as String).toLong() else 0L
+public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscaleFromInt64(othertime.toString(), timescale, (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscale_getTimeScaleValue(timescale, value, status.toString()) as String).toLong() else 0L
+public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscaleGetTimeScaleValue(timescale, value, (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utmscale_toInt64(universaltime: Long, timescale: UDateTimeScale, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscale_toInt64(universaltime.toString(), timescale, status.toString()) as String).toLong() else 0L
+public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: COpaquePointer?): Long =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utmscaleToInt64(universaltime.toString(), timescale, (status?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrace_format(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR): Int =
-    0
+public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceFormat((outbuf?.value ?: 0L).toString(), capacity, indent, (fmt?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrace_functionName(fnnumber: Int): PCSTR =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_functionName(fnnumber) as String).toLong() else 0L
+public actual fun utraceFunctionName(fnnumber: Int): Pcstr =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceFunctionName(fnnumber) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrace_getFunctions(context: Long, e: Long, x: Long, d: Long) {
+public actual fun utraceGetFunctions(context: COpaquePointer?, e: COpaquePointer?, x: COpaquePointer?, d: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_getFunctions(context.toString(), e.toString(), x.toString(), d.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceGetFunctions((context?.value ?: 0L).toString(), (e?.value ?: 0L).toString(), (x?.value ?: 0L).toString(), (d?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrace_getLevel(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_getLevel() as Int) else 0
+public actual fun utraceGetLevel(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceGetLevel() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrace_setFunctions(context: Long, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
+public actual fun utraceSetFunctions(context: COpaquePointer?, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_setFunctions(context.toString(), e.toLong().toString(), x.toLong().toString(), d.toLong().toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceSetFunctions((context?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrace_setLevel(tracelevel: Int) {
+public actual fun utraceSetLevel(tracelevel: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_setLevel(tracelevel)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceSetLevel(tracelevel)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrace_vformat(outbuf: PCSTR, capacity: Int, indent: Int, fmt: PCSTR, args: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrace_vformat(outbuf.toString(), capacity, indent, fmt.toString(), args.toString()) as Int) else 0
+public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utraceVformat((outbuf?.value ?: 0L).toString(), capacity, indent, (fmt?.value ?: 0L).toString(), (args?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_clone(trans: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_clone(trans.toString(), status.toString()) as String).toLong() else 0L
+public actual fun utransClone(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransClone((trans?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_close(trans: Long) {
+public actual fun utransClose(trans: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_close(trans.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransClose((trans?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_countAvailableIDs(): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_countAvailableIDs() as Int) else 0
+public actual fun utransCountAvailableIds(): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransCountAvailableIds() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_getSourceSet(trans: Long, ignorefilter: Byte, fillin: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_getSourceSet(trans.toString(), ignorefilter.toInt(), fillin.toString(), status.toString()) as String).toLong() else 0L
+public actual fun utransGetSourceSet(trans: COpaquePointer?, ignorefilter: Byte, fillin: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransGetSourceSet((trans?.value ?: 0L).toString(), ignorefilter.toInt(), (fillin?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_getUnicodeID(trans: Long, resultlength: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_getUnicodeID(trans.toString(), resultlength.toString()) as String).toLong() else 0L
+public actual fun utransGetUnicodeId(trans: COpaquePointer?, resultlength: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransGetUnicodeId((trans?.value ?: 0L).toString(), (resultlength?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_openIDs(perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_openIDs(perrorcode.toString()) as String).toLong() else 0L
+public actual fun utransOpenIds(perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransOpenIds((perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_openInverse(trans: Long, status: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_openInverse(trans.toString(), status.toString()) as String).toLong() else 0L
+public actual fun utransOpenInverse(trans: COpaquePointer?, status: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransOpenInverse((trans?.value ?: 0L).toString(), (status?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_openU(id: Long, idlength: Int, dir: UTransDirection, rules: Long, ruleslength: Int, parseerror: Long, perrorcode: Long): Long =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_openU(id.toString(), idlength, dir, rules.toString(), ruleslength, parseerror.toString(), perrorcode.toString()) as String).toLong() else 0L
+public actual fun utransOpenU(id: COpaquePointer?, idlength: Int, dir: UTransDirection, rules: COpaquePointer?, ruleslength: Int, parseerror: COpaquePointer?, perrorcode: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransOpenU((id?.value ?: 0L).toString(), idlength, dir, (rules?.value ?: 0L).toString(), ruleslength, (parseerror?.value ?: 0L).toString(), (perrorcode?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_register(adoptedtrans: Long, status: Long) {
+public actual fun utransRegister(adoptedtrans: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_register(adoptedtrans.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransRegister((adoptedtrans?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_setFilter(trans: Long, filterpattern: Long, filterpatternlen: Int, status: Long) {
+public actual fun utransSetFilter(trans: COpaquePointer?, filterpattern: COpaquePointer?, filterpatternlen: Int, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_setFilter(trans.toString(), filterpattern.toString(), filterpatternlen, status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransSetFilter((trans?.value ?: 0L).toString(), (filterpattern?.value ?: 0L).toString(), filterpatternlen, (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_toRules(trans: Long, escapeunprintable: Byte, result: Long, resultlength: Int, status: Long): Int =
-    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_toRules(trans.toString(), escapeunprintable.toInt(), result.toString(), resultlength, status.toString()) as Int) else 0
+public actual fun utransToRules(trans: COpaquePointer?, escapeunprintable: Byte, result: COpaquePointer?, resultlength: Int, status: COpaquePointer?): Int =
+    if (_windowsWin32GlobalizationNapiAddon != null) (_windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransToRules((trans?.value ?: 0L).toString(), escapeunprintable.toInt(), (result?.value ?: 0L).toString(), resultlength, (status?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun utrans_trans(trans: Long, rep: Long, repfunc: Long, start: Int, limit: Long, status: Long) {
+public actual fun utransTrans(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_trans(trans.toString(), rep.toString(), repfunc.toString(), start, limit.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransTrans((trans?.value ?: 0L).toString(), (rep?.value ?: 0L).toString(), (repfunc?.value ?: 0L).toString(), start, (limit?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_transIncremental(trans: Long, rep: Long, repfunc: Long, pos: Long, status: Long) {
+public actual fun utransTransIncremental(trans: COpaquePointer?, rep: COpaquePointer?, repfunc: COpaquePointer?, pos: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_transIncremental(trans.toString(), rep.toString(), repfunc.toString(), pos.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransTransIncremental((trans?.value ?: 0L).toString(), (rep?.value ?: 0L).toString(), (repfunc?.value ?: 0L).toString(), (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_transIncrementalUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, pos: Long, status: Long) {
+public actual fun utransTransIncrementalUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, pos: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_transIncrementalUChars(trans.toString(), text.toString(), textlength.toString(), textcapacity, pos.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransTransIncrementalUchars((trans?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (textlength?.value ?: 0L).toString(), textcapacity, (pos?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_transUChars(trans: Long, text: Long, textlength: Long, textcapacity: Int, start: Int, limit: Long, status: Long) {
+public actual fun utransTransUchars(trans: COpaquePointer?, text: COpaquePointer?, textlength: COpaquePointer?, textcapacity: Int, start: Int, limit: COpaquePointer?, status: COpaquePointer?) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_transUChars(trans.toString(), text.toString(), textlength.toString(), textcapacity, start, limit.toString(), status.toString())
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransTransUchars((trans?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (textlength?.value ?: 0L).toString(), textcapacity, start, (limit?.value ?: 0L).toString(), (status?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun utrans_unregisterID(id: Long, idlength: Int) {
+public actual fun utransUnregisterId(id: COpaquePointer?, idlength: Int) {
     if (_windowsWin32GlobalizationNapiAddon != null) {
-        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utrans_unregisterID(id.toString(), idlength)
+        _windowsWin32GlobalizationNapiAddon.windowssys_windows_win32_globalization_utransUnregisterId((id?.value ?: 0L).toString(), idlength)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }

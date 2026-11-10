@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpAddFragmentToCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jlong datachunk, jlong cachepolicy, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpAddFragmentToCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jlong datachunk, jlong cachepolicy, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpAddUrl(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong fullyqualifiedurl, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpAddUrl(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong fullyqualifiedurl, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpAddUrlToUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jlong pfullyqualifiedurl, jlong urlcontext, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpAddUrlToUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jlong pfullyqualifiedurl, jlong urlcontext, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -81,7 +81,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCancelHttpRequest(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCancelHttpRequest(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCloseRequestQueue(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCloseRequestQueue(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCloseServerSession(JNIEnv* km_env, jclass km_clazz, jlong serversessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCloseServerSession(JNIEnv* km_env, jclass km_clazz, jlong serversessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCloseUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCloseUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCreateHttpHandle(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCreateHttpHandle(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpCreateUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jlong purlgroupid, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpCreateUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jlong purlgroupid, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -194,7 +194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpDeclarePush(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint verb, jlong path, jlong query, jlong headers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpDeclarePush(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint verb, jlong path, jlong query, jlong headers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpDelegateRequestEx(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong delegatequeuehandle, jlong requestid, jlong delegateurlgroupid, jint propertyinfosetsize, jlong propertyinfoset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpDelegateRequestEx(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong delegatequeuehandle, jlong requestid, jlong delegateurlgroupid, jint propertyinfosetsize, jlong propertyinfoset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpDeleteServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pconfiginformation, jint configinformationlength, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpDeleteServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pconfiginformation, jint configinformationlength, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -262,7 +262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpFindUrlGroupId(JNIEnv* km_env, jclass km_clazz, jlong fullyqualifiedurl, jlong requestqueuehandle, jlong urlgroupid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpFindUrlGroupId(JNIEnv* km_env, jclass km_clazz, jlong fullyqualifiedurl, jlong requestqueuehandle, jlong urlgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -282,7 +282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpFlushResponseCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jint flags, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpFlushResponseCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jint flags, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpIsFeatureSupported(JNIEnv* km_env, jclass km_clazz, jint featureid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpIsFeatureSupported(JNIEnv* km_env, jclass km_clazz, jint featureid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -321,7 +321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpPrepareUrl(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint flags, jlong url, jlong preparedurl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpPrepareUrl(JNIEnv* km_env, jclass km_clazz, jlong reserved, jint flags, jlong url, jlong preparedurl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpQueryRequestQueueProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint property, jlong propertyinformation, jint propertyinformationlength, jint reserved1, jlong returnlength, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpQueryRequestQueueProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint property, jlong propertyinformation, jint propertyinformationlength, jint reserved1, jlong returnlength, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -366,7 +366,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpQueryServerSessionProperty(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jint property, jlong propertyinformation, jint propertyinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpQueryServerSessionProperty(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jint property, jlong propertyinformation, jint propertyinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -388,7 +388,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpQueryServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pinput, jint inputlength, jlong poutput, jint outputlength, jlong preturnlength, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpQueryServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pinput, jint inputlength, jlong poutput, jint outputlength, jlong preturnlength, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -413,7 +413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpQueryUrlGroupProperty(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jint property, jlong propertyinformation, jint propertyinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpQueryUrlGroupProperty(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jint property, jlong propertyinformation, jint propertyinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -435,7 +435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpReadFragmentFromCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jlong byterange, jlong buffer, jint bufferlength, jlong bytesread, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpReadFragmentFromCache(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong urlprefix, jlong byterange, jlong buffer, jint bufferlength, jlong bytesread, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpReceiveClientCertificate(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jint flags, jlong sslclientcertinfo, jint sslclientcertinfosize, jlong bytesreceived, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpReceiveClientCertificate(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jint flags, jlong sslclientcertinfo, jint sslclientcertinfosize, jlong bytesreceived, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -483,7 +483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpReceiveHttpRequest(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong requestbuffer, jint requestbufferlength, jlong bytesreturned, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpReceiveHttpRequest(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong requestbuffer, jint requestbufferlength, jlong bytesreturned, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -507,7 +507,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpReceiveRequestEntityBody(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong entitybuffer, jint entitybufferlength, jlong bytesreturned, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpReceiveRequestEntityBody(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong entitybuffer, jint entitybufferlength, jlong bytesreturned, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -531,7 +531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpRemoveUrl(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong fullyqualifiedurl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpRemoveUrl(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong fullyqualifiedurl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -550,7 +550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpRemoveUrlFromUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jlong pfullyqualifiedurl, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpRemoveUrlFromUrlGroup(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jlong pfullyqualifiedurl, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSendHttpResponse(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong httpresponse, jlong cachepolicy, jlong bytessent, jlong reserved1, jint reserved2, jlong overlapped, jlong logdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSendHttpResponse(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jlong httpresponse, jlong cachepolicy, jlong bytessent, jlong reserved1, jint reserved2, jlong overlapped, jlong logdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -597,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSendResponseEntityBody(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jshort entitychunkcount, jlong entitychunks, jlong bytessent, jlong reserved1, jint reserved2, jlong overlapped, jlong logdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSendResponseEntityBody(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong requestid, jint flags, jshort entitychunkcount, jlong entitychunks, jlong bytessent, jlong reserved1, jint reserved2, jlong overlapped, jlong logdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -624,7 +624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSetRequestProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong id, jint propertyid, jlong input, jint inputpropertysize, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSetRequestProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong id, jint propertyid, jlong input, jint inputpropertysize, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSetRequestQueueProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint property, jlong propertyinformation, jint propertyinformationlength, jint reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSetRequestQueueProperty(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jint property, jlong propertyinformation, jint propertyinformationlength, jint reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -670,7 +670,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSetServerSessionProperty(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jint property, jlong propertyinformation, jint propertyinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSetServerSessionProperty(JNIEnv* km_env, jclass km_clazz, jlong serversessionid, jint property, jlong propertyinformation, jint propertyinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -691,7 +691,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSetServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pconfiginformation, jint configinformationlength, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSetServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint configid, jlong pconfiginformation, jint configinformationlength, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -713,7 +713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpSetUrlGroupProperty(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jint property, jlong propertyinformation, jint propertyinformationlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpSetUrlGroupProperty(JNIEnv* km_env, jclass km_clazz, jlong urlgroupid, jint property, jlong propertyinformation, jint propertyinformationlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpShutdownRequestQueue(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpShutdownRequestQueue(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -752,7 +752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpTerminate(JNIEnv* km_env, jclass km_clazz, jint flags, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpTerminate(JNIEnv* km_env, jclass km_clazz, jint flags, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,7 +771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpUpdateServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong handle, jint configid, jlong configinfo, jint configinfolength, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpUpdateServiceConfiguration(JNIEnv* km_env, jclass km_clazz, jlong handle, jint configid, jlong configinfo, jint configinfolength, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -793,7 +793,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpWaitForDemandStart(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpWaitForDemandStart(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -812,7 +812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpWaitForDisconnect(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpWaitForDisconnect(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -832,7 +832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1HttpWaitForDisconnectEx(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jint reserved, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_httpserver_WindowsWin32NetworkingHttpserverJniBridge_windowssys_1windows_1win32_1networking_1httpserver_1httpWaitForDisconnectEx(JNIEnv* km_env, jclass km_clazz, jlong requestqueuehandle, jlong connectionid, jint reserved, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

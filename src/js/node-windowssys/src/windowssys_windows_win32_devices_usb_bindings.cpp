@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_AbortPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbAbortPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_AbortPipe_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_FlushPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbFlushPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_FlushPipe_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_Free_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_Free_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentframenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t timestamp = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t associatedinterfaceindex = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlternateSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settingnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -171,7 +171,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlterna
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* currentframenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumberAndQpc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* frameqpcinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t descriptortype = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetPipePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t policytype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_Initialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_Initialize_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ParseConfigurationDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* configurationdescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* startposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -367,7 +367,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ParseConfiguratio
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbParseDescriptors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t totallength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -391,7 +391,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t informationtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t alternateinterfacenumber = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t alternateinterfacenumber = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryPipe_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryPipeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t alternatesettingnumber = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t offset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -515,7 +515,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t offset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -573,7 +573,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ReadPipe_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -599,7 +599,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ResetPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbResetPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -619,7 +619,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_ResetPipe_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlternateSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t settingnumber = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -639,7 +639,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlterna
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetPipePolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -665,7 +665,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t policytype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -689,7 +689,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForTimeSync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* starttrackinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -709,7 +709,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTimeSync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stoptrackinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -729,7 +729,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* isochbufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t offset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -773,7 +773,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bufferhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t offset = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -799,7 +799,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WritePipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_usb_winUsbWritePipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfacehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t pipeid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -828,39 +828,39 @@ static Napi::Value windowssys_windows_win32_devices_usb_WinUsb_WritePipe_napi(co
 }
 
 static void register_windows_win32_devices_usb_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_AbortPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_AbortPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_FlushPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_FlushPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_Free", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_Free_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameNumber", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameNumber_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInterface", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInterface_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlternateSetting", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlternateSetting_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumber", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumber_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumberAndQpc", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumberAndQpc_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_Initialize", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_Initialize_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ParseConfigurationDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ParseConfigurationDescriptor_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInformation", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInformation_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSettings", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSettings_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_QueryPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_QueryPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ReadPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ReadPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuffer_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_ResetPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_ResetPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlternateSetting", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlternateSetting_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForTimeSync", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForTimeSync_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTimeSync", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTimeSync_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBuffer_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsap", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsap_napi));
-    exports.Set("windowssys_windows_win32_devices_usb_WinUsb_WritePipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_WinUsb_WritePipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbAbortPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbAbortPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbFlushPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbFlushPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbFree", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbFree_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetDescriptor_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetPipePolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetPipePolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbInitialize", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbInitialize_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbParseDescriptors", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbParseDescriptors_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbQueryPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbQueryPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbQueryPipeEx", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbQueryPipeEx_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbReadIsochPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbReadIsochPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbReadPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbReadPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbResetPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbResetPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbSetPipePolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbSetPipePolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap_napi));
+    exports.Set("windowssys_windows_win32_devices_usb_winUsbWritePipe", Napi::Function::New(env, windowssys_windows_win32_devices_usb_winUsbWritePipe_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_usb_napi, nullptr };

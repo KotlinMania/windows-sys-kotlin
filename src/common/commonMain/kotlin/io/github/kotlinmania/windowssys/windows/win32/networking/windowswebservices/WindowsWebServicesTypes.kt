@@ -1,603 +1,604 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public fun interface WS_ABANDON_MESSAGE_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, message: Long, error: Long): HRESULT
+public fun interface WsAbandonMessageCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ABANDON_MESSAGE_CALLBACK = WS_ABANDON_MESSAGE_CALLBACKFn?
+public typealias WsAbandonMessageCallback = WsAbandonMessageCallbackFn?
 
-public fun interface WS_ABORT_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, error: Long): HRESULT
+public fun interface WsAbortChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ABORT_CHANNEL_CALLBACK = WS_ABORT_CHANNEL_CALLBACKFn?
+public typealias WsAbortChannelCallback = WsAbortChannelCallbackFn?
 
-public fun interface WS_ABORT_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, error: Long): HRESULT
+public fun interface WsAbortListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ABORT_LISTENER_CALLBACK = WS_ABORT_LISTENER_CALLBACKFn?
+public typealias WsAbortListenerCallback = WsAbortListenerCallbackFn?
 
-public fun interface WS_ACCEPT_CHANNEL_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, channelinstance: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsAcceptChannelCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ACCEPT_CHANNEL_CALLBACK = WS_ACCEPT_CHANNEL_CALLBACKFn?
+public typealias WsAcceptChannelCallback = WsAcceptChannelCallbackFn?
 
-public typealias WS_ADDRESSING_VERSION = Int
+public typealias WsAddressingVersion = Int
 
-public fun interface WS_ASYNC_CALLBACKFn {
-    public operator fun invoke(errorcode: HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long)
+public fun interface WsAsyncCallbackFn {
+    public operator fun invoke(errorcode: Hresult, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?)
 }
 
-public typealias WS_ASYNC_CALLBACK = WS_ASYNC_CALLBACKFn?
+public typealias WsAsyncCallback = WsAsyncCallbackFn?
 
-public fun interface WS_ASYNC_FUNCTIONFn {
-    public operator fun invoke(hr: HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long, next: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsAsyncFunctionFn {
+    public operator fun invoke(hr: Hresult, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?, next: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ASYNC_FUNCTION = WS_ASYNC_FUNCTIONFn?
+public typealias WsAsyncFunction = WsAsyncFunctionFn?
 
-public typealias WS_BINDING_TEMPLATE_TYPE = Int
+public typealias WsBindingTemplateType = Int
 
-public typealias WS_CALLBACK_MODEL = Int
+public typealias WsCallbackModel = Int
 
-public typealias WS_CALL_PROPERTY_ID = Int
+public typealias WsCallPropertyId = Int
 
-public fun interface WS_CERTIFICATE_VALIDATION_CALLBACKFn {
-    public operator fun invoke(certcontext: Long, state: Long): HRESULT
+public fun interface WsCertificateValidationCallbackFn {
+    public operator fun invoke(certcontext: COpaquePointer?, state: COpaquePointer?): Hresult
 }
 
-public typealias WS_CERTIFICATE_VALIDATION_CALLBACK = WS_CERTIFICATE_VALIDATION_CALLBACKFn?
+public typealias WsCertificateValidationCallback = WsCertificateValidationCallbackFn?
 
-public typealias WS_CERT_CREDENTIAL_TYPE = Int
+public typealias WsCertCredentialType = Int
 
-public fun interface WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(certissuerlistnotificationcallbackstate: Long, issuerlist: Long, error: Long): HRESULT
+public fun interface WsCertIssuerListNotificationCallbackFn {
+    public operator fun invoke(certissuerlistnotificationcallbackstate: COpaquePointer?, issuerlist: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACKFn?
+public typealias WsCertIssuerListNotificationCallback = WsCertIssuerListNotificationCallbackFn?
 
-public typealias WS_CHANNEL = Long
+public typealias WsChannel = Long
 
-public typealias WS_CHANNEL_BINDING = Int
+public typealias WsChannelBinding = Int
 
-public typealias WS_CHANNEL_PROPERTY_ID = Int
+public typealias WsChannelPropertyId = Int
 
-public typealias WS_CHANNEL_STATE = Int
+public typealias WsChannelState = Int
 
-public typealias WS_CHANNEL_TYPE = Int
+public typealias WsChannelType = Int
 
-public typealias WS_CHARSET = Int
+public typealias WsCharset = Int
 
-public fun interface WS_CLOSE_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsCloseChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CLOSE_CHANNEL_CALLBACK = WS_CLOSE_CHANNEL_CALLBACKFn?
+public typealias WsCloseChannelCallback = WsCloseChannelCallbackFn?
 
-public fun interface WS_CLOSE_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsCloseListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CLOSE_LISTENER_CALLBACK = WS_CLOSE_LISTENER_CALLBACKFn?
+public typealias WsCloseListenerCallback = WsCloseListenerCallbackFn?
 
-public typealias WS_COOKIE_MODE = Int
+public typealias WsCookieMode = Int
 
-public fun interface WS_CREATE_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channeltype: WS_CHANNEL_TYPE, channelparameters: Long, channelparameterssize: UInt, channelinstance: Long, error: Long): HRESULT
+public fun interface WsCreateChannelCallbackFn {
+    public operator fun invoke(channeltype: WsChannelType, channelparameters: COpaquePointer?, channelparameterssize: UInt, channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CREATE_CHANNEL_CALLBACK = WS_CREATE_CHANNEL_CALLBACKFn?
+public typealias WsCreateChannelCallback = WsCreateChannelCallbackFn?
 
-public fun interface WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, channelparameters: Long, channelparameterssize: UInt, channelinstance: Long, error: Long): HRESULT
+public fun interface WsCreateChannelForListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, channelparameters: COpaquePointer?, channelparameterssize: UInt, channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACKFn?
+public typealias WsCreateChannelForListenerCallback = WsCreateChannelForListenerCallbackFn?
 
-public fun interface WS_CREATE_DECODER_CALLBACKFn {
-    public operator fun invoke(createcontext: Long, readcallback: WS_READ_CALLBACK, readcontext: Long, decodercontext: Long, error: Long): HRESULT
+public fun interface WsCreateDecoderCallbackFn {
+    public operator fun invoke(createcontext: COpaquePointer?, readcallback: WsReadCallback, readcontext: COpaquePointer?, decodercontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CREATE_DECODER_CALLBACK = WS_CREATE_DECODER_CALLBACKFn?
+public typealias WsCreateDecoderCallback = WsCreateDecoderCallbackFn?
 
-public fun interface WS_CREATE_ENCODER_CALLBACKFn {
-    public operator fun invoke(createcontext: Long, writecallback: WS_WRITE_CALLBACK, writecontext: Long, encodercontext: Long, error: Long): HRESULT
+public fun interface WsCreateEncoderCallbackFn {
+    public operator fun invoke(createcontext: COpaquePointer?, writecallback: WsWriteCallback, writecontext: COpaquePointer?, encodercontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CREATE_ENCODER_CALLBACK = WS_CREATE_ENCODER_CALLBACKFn?
+public typealias WsCreateEncoderCallback = WsCreateEncoderCallbackFn?
 
-public fun interface WS_CREATE_LISTENER_CALLBACKFn {
-    public operator fun invoke(channeltype: WS_CHANNEL_TYPE, listenerparameters: Long, listenerparameterssize: UInt, listenerinstance: Long, error: Long): HRESULT
+public fun interface WsCreateListenerCallbackFn {
+    public operator fun invoke(channeltype: WsChannelType, listenerparameters: COpaquePointer?, listenerparameterssize: UInt, listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_CREATE_LISTENER_CALLBACK = WS_CREATE_LISTENER_CALLBACKFn?
+public typealias WsCreateListenerCallback = WsCreateListenerCallbackFn?
 
-public typealias WS_DATETIME_FORMAT = Int
+public typealias WsDatetimeFormat = Int
 
-public fun interface WS_DECODER_DECODE_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, buffer: Long, maxlength: UInt, length: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsDecoderDecodeCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, buffer: COpaquePointer?, maxlength: UInt, length: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DECODER_DECODE_CALLBACK = WS_DECODER_DECODE_CALLBACKFn?
+public typealias WsDecoderDecodeCallback = WsDecoderDecodeCallbackFn?
 
-public fun interface WS_DECODER_END_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsDecoderEndCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DECODER_END_CALLBACK = WS_DECODER_END_CALLBACKFn?
+public typealias WsDecoderEndCallback = WsDecoderEndCallbackFn?
 
-public fun interface WS_DECODER_GET_CONTENT_TYPE_CALLBACKFn {
-    public operator fun invoke(decodercontext: Long, contenttype: Long, contentencoding: Long, newcontenttype: Long, error: Long): HRESULT
+public fun interface WsDecoderGetContentTypeCallbackFn {
+    public operator fun invoke(decodercontext: COpaquePointer?, contenttype: COpaquePointer?, contentencoding: COpaquePointer?, newcontenttype: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DECODER_GET_CONTENT_TYPE_CALLBACK = WS_DECODER_GET_CONTENT_TYPE_CALLBACKFn?
+public typealias WsDecoderGetContentTypeCallback = WsDecoderGetContentTypeCallbackFn?
 
-public fun interface WS_DECODER_START_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsDecoderStartCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DECODER_START_CALLBACK = WS_DECODER_START_CALLBACKFn?
+public typealias WsDecoderStartCallback = WsDecoderStartCallbackFn?
 
-public fun interface WS_DURATION_COMPARISON_CALLBACKFn {
-    public operator fun invoke(duration1: Long, duration2: Long, result: Long, error: Long): HRESULT
+public fun interface WsDurationComparisonCallbackFn {
+    public operator fun invoke(duration1: COpaquePointer?, duration2: COpaquePointer?, result: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DURATION_COMPARISON_CALLBACK = WS_DURATION_COMPARISON_CALLBACKFn?
+public typealias WsDurationComparisonCallback = WsDurationComparisonCallbackFn?
 
-public fun interface WS_DYNAMIC_STRING_CALLBACKFn {
-    public operator fun invoke(callbackstate: Long, string: Long, found: Long, id: Long, error: Long): HRESULT
+public fun interface WsDynamicStringCallbackFn {
+    public operator fun invoke(callbackstate: COpaquePointer?, string: COpaquePointer?, found: COpaquePointer?, id: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_DYNAMIC_STRING_CALLBACK = WS_DYNAMIC_STRING_CALLBACKFn?
+public typealias WsDynamicStringCallback = WsDynamicStringCallbackFn?
 
-public fun interface WS_ENCODER_ENCODE_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, buffers: Long, count: UInt, asynccontext: Long, error: Long): HRESULT
+public fun interface WsEncoderEncodeCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, buffers: COpaquePointer?, count: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ENCODER_ENCODE_CALLBACK = WS_ENCODER_ENCODE_CALLBACKFn?
+public typealias WsEncoderEncodeCallback = WsEncoderEncodeCallbackFn?
 
-public fun interface WS_ENCODER_END_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsEncoderEndCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ENCODER_END_CALLBACK = WS_ENCODER_END_CALLBACKFn?
+public typealias WsEncoderEndCallback = WsEncoderEndCallbackFn?
 
-public fun interface WS_ENCODER_GET_CONTENT_TYPE_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, contenttype: Long, newcontenttype: Long, contentencoding: Long, error: Long): HRESULT
+public fun interface WsEncoderGetContentTypeCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, contenttype: COpaquePointer?, newcontenttype: COpaquePointer?, contentencoding: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = WS_ENCODER_GET_CONTENT_TYPE_CALLBACKFn?
+public typealias WsEncoderGetContentTypeCallback = WsEncoderGetContentTypeCallbackFn?
 
-public fun interface WS_ENCODER_START_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsEncoderStartCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_ENCODER_START_CALLBACK = WS_ENCODER_START_CALLBACKFn?
+public typealias WsEncoderStartCallback = WsEncoderStartCallbackFn?
 
-public typealias WS_ENCODING = Int
+public typealias WsEncoding = Int
 
-public typealias WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = Int
+public typealias WsEndpointAddressExtensionType = Int
 
-public typealias WS_ENDPOINT_IDENTITY_TYPE = Int
+public typealias WsEndpointIdentityType = Int
 
-public typealias WS_ENVELOPE_VERSION = Int
+public typealias WsEnvelopeVersion = Int
 
-public typealias WS_ERROR = Long
+public typealias WsError = Long
 
-public typealias WS_ERROR_PROPERTY_ID = Int
+public typealias WsErrorPropertyId = Int
 
-public typealias WS_EXCEPTION_CODE = Int
+public typealias WsExceptionCode = Int
 
-public typealias WS_EXTENDED_PROTECTION_POLICY = Int
+public typealias WsExtendedProtectionPolicy = Int
 
-public typealias WS_EXTENDED_PROTECTION_SCENARIO = Int
+public typealias WsExtendedProtectionScenario = Int
 
-public typealias WS_FAULT_DISCLOSURE = Int
+public typealias WsFaultDisclosure = Int
 
-public typealias WS_FAULT_ERROR_PROPERTY_ID = Int
+public typealias WsFaultErrorPropertyId = Int
 
-public typealias WS_FIELD_MAPPING = Int
+public typealias WsFieldMapping = Int
 
-public fun interface WS_FREE_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long)
+public fun interface WsFreeChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?)
 }
 
-public typealias WS_FREE_CHANNEL_CALLBACK = WS_FREE_CHANNEL_CALLBACKFn?
+public typealias WsFreeChannelCallback = WsFreeChannelCallbackFn?
 
-public fun interface WS_FREE_DECODER_CALLBACKFn {
-    public operator fun invoke(decodercontext: Long)
+public fun interface WsFreeDecoderCallbackFn {
+    public operator fun invoke(decodercontext: COpaquePointer?)
 }
 
-public typealias WS_FREE_DECODER_CALLBACK = WS_FREE_DECODER_CALLBACKFn?
+public typealias WsFreeDecoderCallback = WsFreeDecoderCallbackFn?
 
-public fun interface WS_FREE_ENCODER_CALLBACKFn {
-    public operator fun invoke(encodercontext: Long)
+public fun interface WsFreeEncoderCallbackFn {
+    public operator fun invoke(encodercontext: COpaquePointer?)
 }
 
-public typealias WS_FREE_ENCODER_CALLBACK = WS_FREE_ENCODER_CALLBACKFn?
+public typealias WsFreeEncoderCallback = WsFreeEncoderCallbackFn?
 
-public fun interface WS_FREE_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long)
+public fun interface WsFreeListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?)
 }
 
-public typealias WS_FREE_LISTENER_CALLBACK = WS_FREE_LISTENER_CALLBACKFn?
+public typealias WsFreeListenerCallback = WsFreeListenerCallbackFn?
 
-public fun interface WS_GET_CERT_CALLBACKFn {
-    public operator fun invoke(getcertcallbackstate: Long, targetaddress: Long, viauri: Long, cert: Long, error: Long): HRESULT
+public fun interface WsGetCertCallbackFn {
+    public operator fun invoke(getcertcallbackstate: COpaquePointer?, targetaddress: COpaquePointer?, viauri: COpaquePointer?, cert: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_GET_CERT_CALLBACK = WS_GET_CERT_CALLBACKFn?
+public typealias WsGetCertCallback = WsGetCertCallbackFn?
 
-public fun interface WS_GET_CHANNEL_PROPERTY_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsGetChannelPropertyCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_GET_CHANNEL_PROPERTY_CALLBACK = WS_GET_CHANNEL_PROPERTY_CALLBACKFn?
+public typealias WsGetChannelPropertyCallback = WsGetChannelPropertyCallbackFn?
 
-public fun interface WS_GET_LISTENER_PROPERTY_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsGetListenerPropertyCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_GET_LISTENER_PROPERTY_CALLBACK = WS_GET_LISTENER_PROPERTY_CALLBACKFn?
+public typealias WsGetListenerPropertyCallback = WsGetListenerPropertyCallbackFn?
 
-public typealias WS_HEADER_TYPE = Int
+public typealias WsHeaderType = Int
 
-public typealias WS_HEAP = Long
+public typealias WsHeap = Long
 
-public typealias WS_HEAP_PROPERTY_ID = Int
+public typealias WsHeapPropertyId = Int
 
-public typealias WS_HTTP_HEADER_AUTH_TARGET = Int
+public typealias WsHttpHeaderAuthTarget = Int
 
-public typealias WS_HTTP_PROXY_SETTING_MODE = Int
+public typealias WsHttpProxySettingMode = Int
 
-public fun interface WS_HTTP_REDIRECT_CALLBACKFn {
-    public operator fun invoke(state: Long, originalurl: Long, newurl: Long): HRESULT
+public fun interface WsHttpRedirectCallbackFn {
+    public operator fun invoke(state: COpaquePointer?, originalurl: COpaquePointer?, newurl: COpaquePointer?): Hresult
 }
 
-public typealias WS_HTTP_REDIRECT_CALLBACK = WS_HTTP_REDIRECT_CALLBACKFn?
+public typealias WsHttpRedirectCallback = WsHttpRedirectCallbackFn?
 
-public typealias WS_IP_VERSION = Int
+public typealias WsIpVersion = Int
 
-public fun interface WS_IS_DEFAULT_VALUE_CALLBACKFn {
-    public operator fun invoke(descriptiondata: Long, value: Long, defaultvalue: Long, valuesize: UInt, isdefault: Long, error: Long): HRESULT
+public fun interface WsIsDefaultValueCallbackFn {
+    public operator fun invoke(descriptiondata: COpaquePointer?, value: COpaquePointer?, defaultvalue: COpaquePointer?, valuesize: UInt, isdefault: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_IS_DEFAULT_VALUE_CALLBACK = WS_IS_DEFAULT_VALUE_CALLBACKFn?
+public typealias WsIsDefaultValueCallback = WsIsDefaultValueCallbackFn?
 
-public typealias WS_LISTENER = Long
+public typealias WsListener = Long
 
-public typealias WS_LISTENER_PROPERTY_ID = Int
+public typealias WsListenerPropertyId = Int
 
-public typealias WS_LISTENER_STATE = Int
+public typealias WsListenerState = Int
 
-public typealias WS_MESSAGE = Long
+public typealias WsMessage = Long
 
-public fun interface WS_MESSAGE_DONE_CALLBACKFn {
-    public operator fun invoke(donecallbackstate: Long)
+public fun interface WsMessageDoneCallbackFn {
+    public operator fun invoke(donecallbackstate: COpaquePointer?)
 }
 
-public typealias WS_MESSAGE_DONE_CALLBACK = WS_MESSAGE_DONE_CALLBACKFn?
+public typealias WsMessageDoneCallback = WsMessageDoneCallbackFn?
 
-public typealias WS_MESSAGE_INITIALIZATION = Int
+public typealias WsMessageInitialization = Int
 
-public typealias WS_MESSAGE_PROPERTY_ID = Int
+public typealias WsMessagePropertyId = Int
 
-public typealias WS_MESSAGE_SECURITY_USAGE = Int
+public typealias WsMessageSecurityUsage = Int
 
-public typealias WS_MESSAGE_STATE = Int
+public typealias WsMessageState = Int
 
-public typealias WS_METADATA = Long
+public typealias WsMetadata = Long
 
-public typealias WS_METADATA_EXCHANGE_TYPE = Int
+public typealias WsMetadataExchangeType = Int
 
-public typealias WS_METADATA_PROPERTY_ID = Int
+public typealias WsMetadataPropertyId = Int
 
-public typealias WS_METADATA_STATE = Int
+public typealias WsMetadataState = Int
 
-public typealias WS_MOVE_TO = Int
+public typealias WsMoveTo = Int
 
-public fun interface WS_OPEN_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, endpointaddress: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsOpenChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, endpointaddress: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_OPEN_CHANNEL_CALLBACK = WS_OPEN_CHANNEL_CALLBACKFn?
+public typealias WsOpenChannelCallback = WsOpenChannelCallbackFn?
 
-public fun interface WS_OPEN_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, url: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsOpenListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, url: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_OPEN_LISTENER_CALLBACK = WS_OPEN_LISTENER_CALLBACKFn?
+public typealias WsOpenListenerCallback = WsOpenListenerCallbackFn?
 
-public fun interface WS_OPERATION_CANCEL_CALLBACKFn {
-    public operator fun invoke(reason: WS_SERVICE_CANCEL_REASON, state: Long)
+public fun interface WsOperationCancelCallbackFn {
+    public operator fun invoke(reason: WsServiceCancelReason, state: COpaquePointer?)
 }
 
-public typealias WS_OPERATION_CANCEL_CALLBACK = WS_OPERATION_CANCEL_CALLBACKFn?
+public typealias WsOperationCancelCallback = WsOperationCancelCallbackFn?
 
-public typealias WS_OPERATION_CONTEXT = Long
+public typealias WsOperationContext = Long
 
-public typealias WS_OPERATION_CONTEXT_PROPERTY_ID = Int
+public typealias WsOperationContextPropertyId = Int
 
-public fun interface WS_OPERATION_FREE_STATE_CALLBACKFn {
-    public operator fun invoke(state: Long)
+public fun interface WsOperationFreeStateCallbackFn {
+    public operator fun invoke(state: COpaquePointer?)
 }
 
-public typealias WS_OPERATION_FREE_STATE_CALLBACK = WS_OPERATION_FREE_STATE_CALLBACKFn?
+public typealias WsOperationFreeStateCallback = WsOperationFreeStateCallbackFn?
 
-public typealias WS_OPERATION_STYLE = Int
+public typealias WsOperationStyle = Int
 
-public typealias WS_PARAMETER_TYPE = Int
+public typealias WsParameterType = Int
 
-public typealias WS_POLICY = Long
+public typealias WsPolicy = Long
 
-public typealias WS_POLICY_EXTENSION_TYPE = Int
+public typealias WsPolicyExtensionType = Int
 
-public typealias WS_POLICY_PROPERTY_ID = Int
+public typealias WsPolicyPropertyId = Int
 
-public typealias WS_POLICY_STATE = Int
+public typealias WsPolicyState = Int
 
-public typealias WS_PROTECTION_LEVEL = Int
+public typealias WsProtectionLevel = Int
 
-public fun interface WS_PROXY_MESSAGE_CALLBACKFn {
-    public operator fun invoke(message: Long, heap: Long, state: Long, error: Long): HRESULT
+public fun interface WsProxyMessageCallbackFn {
+    public operator fun invoke(message: COpaquePointer?, heap: COpaquePointer?, state: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_PROXY_MESSAGE_CALLBACK = WS_PROXY_MESSAGE_CALLBACKFn?
+public typealias WsProxyMessageCallback = WsProxyMessageCallbackFn?
 
-public typealias WS_PROXY_PROPERTY_ID = Int
+public typealias WsProxyPropertyId = Int
 
-public fun interface WS_PULL_BYTES_CALLBACKFn {
-    public operator fun invoke(callbackstate: Long, bytes: Long, maxsize: UInt, actualsize: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsPullBytesCallbackFn {
+    public operator fun invoke(callbackstate: COpaquePointer?, bytes: COpaquePointer?, maxsize: UInt, actualsize: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_PULL_BYTES_CALLBACK = WS_PULL_BYTES_CALLBACKFn?
+public typealias WsPullBytesCallback = WsPullBytesCallbackFn?
 
-public fun interface WS_PUSH_BYTES_CALLBACKFn {
-    public operator fun invoke(callbackstate: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsPushBytesCallbackFn {
+    public operator fun invoke(callbackstate: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_PUSH_BYTES_CALLBACK = WS_PUSH_BYTES_CALLBACKFn?
+public typealias WsPushBytesCallback = WsPushBytesCallbackFn?
 
-public fun interface WS_READ_CALLBACKFn {
-    public operator fun invoke(callbackstate: Long, bytes: Long, maxsize: UInt, actualsize: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsReadCallbackFn {
+    public operator fun invoke(callbackstate: COpaquePointer?, bytes: COpaquePointer?, maxsize: UInt, actualsize: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_READ_CALLBACK = WS_READ_CALLBACKFn?
+public typealias WsReadCallback = WsReadCallbackFn?
 
-public fun interface WS_READ_MESSAGE_END_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, message: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsReadMessageEndCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_READ_MESSAGE_END_CALLBACK = WS_READ_MESSAGE_END_CALLBACKFn?
+public typealias WsReadMessageEndCallback = WsReadMessageEndCallbackFn?
 
-public fun interface WS_READ_MESSAGE_START_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, message: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsReadMessageStartCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_READ_MESSAGE_START_CALLBACK = WS_READ_MESSAGE_START_CALLBACKFn?
+public typealias WsReadMessageStartCallback = WsReadMessageStartCallbackFn?
 
-public typealias WS_READ_OPTION = Int
+public typealias WsReadOption = Int
 
-public fun interface WS_READ_TYPE_CALLBACKFn {
-    public operator fun invoke(reader: Long, typemapping: WS_TYPE_MAPPING, descriptiondata: Long, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsReadTypeCallbackFn {
+    public operator fun invoke(reader: COpaquePointer?, typemapping: WsTypeMapping, descriptiondata: COpaquePointer?, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_READ_TYPE_CALLBACK = WS_READ_TYPE_CALLBACKFn?
+public typealias WsReadTypeCallback = WsReadTypeCallbackFn?
 
-public typealias WS_RECEIVE_OPTION = Int
+public typealias WsReceiveOption = Int
 
-public typealias WS_REPEATING_HEADER_OPTION = Int
+public typealias WsRepeatingHeaderOption = Int
 
-public typealias WS_REQUEST_SECURITY_TOKEN_ACTION = Int
+public typealias WsRequestSecurityTokenAction = Int
 
-public typealias WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = Int
+public typealias WsRequestSecurityTokenPropertyId = Int
 
-public fun interface WS_RESET_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, error: Long): HRESULT
+public fun interface WsResetChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_RESET_CHANNEL_CALLBACK = WS_RESET_CHANNEL_CALLBACKFn?
+public typealias WsResetChannelCallback = WsResetChannelCallbackFn?
 
-public fun interface WS_RESET_LISTENER_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, error: Long): HRESULT
+public fun interface WsResetListenerCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_RESET_LISTENER_CALLBACK = WS_RESET_LISTENER_CALLBACKFn?
+public typealias WsResetListenerCallback = WsResetListenerCallbackFn?
 
-public typealias WS_SAML_AUTHENTICATOR_TYPE = Int
+public typealias WsSamlAuthenticatorType = Int
 
-public typealias WS_SECURE_CONVERSATION_VERSION = Int
+public typealias WsSecureConversationVersion = Int
 
-public typealias WS_SECURE_PROTOCOL = Int
+public typealias WsSecureProtocol = Int
 
-public typealias WS_SECURITY_ALGORITHM_ID = Int
+public typealias WsSecurityAlgorithmId = Int
 
-public typealias WS_SECURITY_ALGORITHM_PROPERTY_ID = Int
+public typealias WsSecurityAlgorithmPropertyId = Int
 
-public typealias WS_SECURITY_ALGORITHM_SUITE_NAME = Int
+public typealias WsSecurityAlgorithmSuiteName = Int
 
-public typealias WS_SECURITY_BEARER_KEY_TYPE_VERSION = Int
+public typealias WsSecurityBearerKeyTypeVersion = Int
 
-public typealias WS_SECURITY_BINDING_CONSTRAINT_TYPE = Int
+public typealias WsSecurityBindingConstraintType = Int
 
-public typealias WS_SECURITY_BINDING_PROPERTY_ID = Int
+public typealias WsSecurityBindingPropertyId = Int
 
-public typealias WS_SECURITY_BINDING_TYPE = Int
+public typealias WsSecurityBindingType = Int
 
-public typealias WS_SECURITY_CONTEXT = Long
+public typealias WsSecurityContext = Long
 
-public typealias WS_SECURITY_CONTEXT_PROPERTY_ID = Int
+public typealias WsSecurityContextPropertyId = Int
 
-public typealias WS_SECURITY_HEADER_LAYOUT = Int
+public typealias WsSecurityHeaderLayout = Int
 
-public typealias WS_SECURITY_HEADER_VERSION = Int
+public typealias WsSecurityHeaderVersion = Int
 
-public typealias WS_SECURITY_KEY_ENTROPY_MODE = Int
+public typealias WsSecurityKeyEntropyMode = Int
 
-public typealias WS_SECURITY_KEY_HANDLE_TYPE = Int
+public typealias WsSecurityKeyHandleType = Int
 
-public typealias WS_SECURITY_KEY_TYPE = Int
+public typealias WsSecurityKeyType = Int
 
-public typealias WS_SECURITY_PROPERTY_ID = Int
+public typealias WsSecurityPropertyId = Int
 
-public typealias WS_SECURITY_TIMESTAMP_USAGE = Int
+public typealias WsSecurityTimestampUsage = Int
 
-public typealias WS_SECURITY_TOKEN = Long
+public typealias WsSecurityToken = Long
 
-public typealias WS_SECURITY_TOKEN_PROPERTY_ID = Int
+public typealias WsSecurityTokenPropertyId = Int
 
-public typealias WS_SECURITY_TOKEN_REFERENCE_MODE = Int
+public typealias WsSecurityTokenReferenceMode = Int
 
-public fun interface WS_SERVICE_ACCEPT_CHANNEL_CALLBACKFn {
-    public operator fun invoke(context: Long, channelstate: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsServiceAcceptChannelCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, channelstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = WS_SERVICE_ACCEPT_CHANNEL_CALLBACKFn?
+public typealias WsServiceAcceptChannelCallback = WsServiceAcceptChannelCallbackFn?
 
-public typealias WS_SERVICE_CANCEL_REASON = Int
+public typealias WsServiceCancelReason = Int
 
-public fun interface WS_SERVICE_CLOSE_CHANNEL_CALLBACKFn {
-    public operator fun invoke(context: Long, asynccontext: Long): HRESULT
+public fun interface WsServiceCloseChannelCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, asynccontext: COpaquePointer?): Hresult
 }
 
-public typealias WS_SERVICE_CLOSE_CHANNEL_CALLBACK = WS_SERVICE_CLOSE_CHANNEL_CALLBACKFn?
+public typealias WsServiceCloseChannelCallback = WsServiceCloseChannelCallbackFn?
 
-public typealias WS_SERVICE_ENDPOINT_PROPERTY_ID = Int
+public typealias WsServiceEndpointPropertyId = Int
 
-public typealias WS_SERVICE_HOST = Long
+public typealias WsServiceHost = Long
 
-public typealias WS_SERVICE_HOST_STATE = Int
+public typealias WsServiceHostState = Int
 
-public fun interface WS_SERVICE_MESSAGE_RECEIVE_CALLBACKFn {
-    public operator fun invoke(context: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsServiceMessageReceiveCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = WS_SERVICE_MESSAGE_RECEIVE_CALLBACKFn?
+public typealias WsServiceMessageReceiveCallback = WsServiceMessageReceiveCallbackFn?
 
-public typealias WS_SERVICE_PROPERTY_ID = Int
+public typealias WsServicePropertyId = Int
 
-public typealias WS_SERVICE_PROXY = Long
+public typealias WsServiceProxy = Long
 
-public typealias WS_SERVICE_PROXY_STATE = Int
+public typealias WsServiceProxyState = Int
 
-public fun interface WS_SERVICE_SECURITY_CALLBACKFn {
-    public operator fun invoke(context: Long, authorized: Long, error: Long): HRESULT
+public fun interface WsServiceSecurityCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, authorized: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SERVICE_SECURITY_CALLBACK = WS_SERVICE_SECURITY_CALLBACKFn?
+public typealias WsServiceSecurityCallback = WsServiceSecurityCallbackFn?
 
-public fun interface WS_SERVICE_STUB_CALLBACKFn {
-    public operator fun invoke(context: Long, frame: Long, callback: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsServiceStubCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, frame: COpaquePointer?, callback: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SERVICE_STUB_CALLBACK = WS_SERVICE_STUB_CALLBACKFn?
+public typealias WsServiceStubCallback = WsServiceStubCallbackFn?
 
-public fun interface WS_SET_CHANNEL_PROPERTY_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsSetChannelPropertyCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SET_CHANNEL_PROPERTY_CALLBACK = WS_SET_CHANNEL_PROPERTY_CALLBACKFn?
+public typealias WsSetChannelPropertyCallback = WsSetChannelPropertyCallbackFn?
 
-public fun interface WS_SET_LISTENER_PROPERTY_CALLBACKFn {
-    public operator fun invoke(listenerinstance: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsSetListenerPropertyCallbackFn {
+    public operator fun invoke(listenerinstance: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SET_LISTENER_PROPERTY_CALLBACK = WS_SET_LISTENER_PROPERTY_CALLBACKFn?
+public typealias WsSetListenerPropertyCallback = WsSetListenerPropertyCallbackFn?
 
-public fun interface WS_SHUTDOWN_SESSION_CHANNEL_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsShutdownSessionChannelCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = WS_SHUTDOWN_SESSION_CHANNEL_CALLBACKFn?
+public typealias WsShutdownSessionChannelCallback = WsShutdownSessionChannelCallbackFn?
 
-public typealias WS_TRACE_API = Int
+public typealias WsTraceApi = Int
 
-public typealias WS_TRANSFER_MODE = Int
+public typealias WsTransferMode = Int
 
-public typealias WS_TRUST_VERSION = Int
+public typealias WsTrustVersion = Int
 
-public typealias WS_TYPE = Int
+public typealias WsType = Int
 
-public typealias WS_TYPE_MAPPING = Int
+public typealias WsTypeMapping = Int
 
-public typealias WS_URL_SCHEME_TYPE = Int
+public typealias WsUrlSchemeType = Int
 
-public typealias WS_USERNAME_CREDENTIAL_TYPE = Int
+public typealias WsUsernameCredentialType = Int
 
-public fun interface WS_VALIDATE_PASSWORD_CALLBACKFn {
-    public operator fun invoke(passwordvalidatorcallbackstate: Long, username: Long, password: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsValidatePasswordCallbackFn {
+    public operator fun invoke(passwordvalidatorcallbackstate: COpaquePointer?, username: COpaquePointer?, password: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_VALIDATE_PASSWORD_CALLBACK = WS_VALIDATE_PASSWORD_CALLBACKFn?
+public typealias WsValidatePasswordCallback = WsValidatePasswordCallbackFn?
 
-public fun interface WS_VALIDATE_SAML_CALLBACKFn {
-    public operator fun invoke(samlvalidatorcallbackstate: Long, samlassertion: Long, error: Long): HRESULT
+public fun interface WsValidateSamlCallbackFn {
+    public operator fun invoke(samlvalidatorcallbackstate: COpaquePointer?, samlassertion: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_VALIDATE_SAML_CALLBACK = WS_VALIDATE_SAML_CALLBACKFn?
+public typealias WsValidateSamlCallback = WsValidateSamlCallbackFn?
 
-public typealias WS_VALUE_TYPE = Int
+public typealias WsValueType = Int
 
-public typealias WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = Int
+public typealias WsWindowsIntegratedAuthCredentialType = Int
 
-public typealias WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = Int
+public typealias WsWindowsIntegratedAuthPackage = Int
 
-public fun interface WS_WRITE_CALLBACKFn {
-    public operator fun invoke(callbackstate: Long, buffers: Long, count: UInt, asynccontext: Long, error: Long): HRESULT
+public fun interface WsWriteCallbackFn {
+    public operator fun invoke(callbackstate: COpaquePointer?, buffers: COpaquePointer?, count: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_WRITE_CALLBACK = WS_WRITE_CALLBACKFn?
+public typealias WsWriteCallback = WsWriteCallbackFn?
 
-public fun interface WS_WRITE_MESSAGE_END_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, message: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsWriteMessageEndCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_WRITE_MESSAGE_END_CALLBACK = WS_WRITE_MESSAGE_END_CALLBACKFn?
+public typealias WsWriteMessageEndCallback = WsWriteMessageEndCallbackFn?
 
-public fun interface WS_WRITE_MESSAGE_START_CALLBACKFn {
-    public operator fun invoke(channelinstance: Long, message: Long, asynccontext: Long, error: Long): HRESULT
+public fun interface WsWriteMessageStartCallbackFn {
+    public operator fun invoke(channelinstance: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_WRITE_MESSAGE_START_CALLBACK = WS_WRITE_MESSAGE_START_CALLBACKFn?
+public typealias WsWriteMessageStartCallback = WsWriteMessageStartCallbackFn?
 
-public typealias WS_WRITE_OPTION = Int
+public typealias WsWriteOption = Int
 
-public fun interface WS_WRITE_TYPE_CALLBACKFn {
-    public operator fun invoke(writer: Long, typemapping: WS_TYPE_MAPPING, descriptiondata: Long, value: Long, valuesize: UInt, error: Long): HRESULT
+public fun interface WsWriteTypeCallbackFn {
+    public operator fun invoke(writer: COpaquePointer?, typemapping: WsTypeMapping, descriptiondata: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult
 }
 
-public typealias WS_WRITE_TYPE_CALLBACK = WS_WRITE_TYPE_CALLBACKFn?
+public typealias WsWriteTypeCallback = WsWriteTypeCallbackFn?
 
-public typealias WS_XML_BUFFER = Long
+public typealias WsXmlBuffer = Long
 
-public typealias WS_XML_BUFFER_PROPERTY_ID = Int
+public typealias WsXmlBufferPropertyId = Int
 
-public typealias WS_XML_CANONICALIZATION_ALGORITHM = Int
+public typealias WsXmlCanonicalizationAlgorithm = Int
 
-public typealias WS_XML_CANONICALIZATION_PROPERTY_ID = Int
+public typealias WsXmlCanonicalizationPropertyId = Int
 
-public typealias WS_XML_NODE_TYPE = Int
+public typealias WsXmlNodeType = Int
 
-public typealias WS_XML_READER = Long
+public typealias WsXmlReader = Long
 
-public typealias WS_XML_READER_ENCODING_TYPE = Int
+public typealias WsXmlReaderEncodingType = Int
 
-public typealias WS_XML_READER_INPUT_TYPE = Int
+public typealias WsXmlReaderInputType = Int
 
-public typealias WS_XML_READER_PROPERTY_ID = Int
+public typealias WsXmlReaderPropertyId = Int
 
-public typealias WS_XML_SECURITY_TOKEN_PROPERTY_ID = Int
+public typealias WsXmlSecurityTokenPropertyId = Int
 
-public typealias WS_XML_TEXT_TYPE = Int
+public typealias WsXmlTextType = Int
 
-public typealias WS_XML_WRITER = Long
+public typealias WsXmlWriter = Long
 
-public typealias WS_XML_WRITER_ENCODING_TYPE = Int
+public typealias WsXmlWriterEncodingType = Int
 
-public typealias WS_XML_WRITER_OUTPUT_TYPE = Int
+public typealias WsXmlWriterOutputType = Int
 
-public typealias WS_XML_WRITER_PROPERTY_ID = Int
+public typealias WsXmlWriterPropertyId = Int

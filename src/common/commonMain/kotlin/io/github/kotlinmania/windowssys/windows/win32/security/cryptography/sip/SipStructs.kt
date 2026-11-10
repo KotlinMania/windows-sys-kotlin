@@ -1,80 +1,83 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ALGORITHM_IDENTIFIER
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAlgorithmIdentifier
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAttributeTypeValue
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.MsAddinfoCatalogmember
 
-public data class MS_ADDINFO_BLOB(
+public data class MsAddinfoBlob(
     public var cbStruct: UInt = 0u,
     public var cbMemObject: UInt = 0u,
-    public var pbMemObject: Long = 0L,
+    public var pbMemObject: COpaquePointer? = null,
     public var cbMemSignedMsg: UInt = 0u,
-    public var pbMemSignedMsg: Long = 0L,
+    public var pbMemSignedMsg: COpaquePointer? = null,
 )
 
-public data class MS_ADDINFO_FLAT(public var cbStruct: UInt = 0u, public var pIndirectData: Long = 0L)
+public data class MsAddinfoFlat(public var cbStruct: UInt = 0u, public var pIndirectData: SipIndirectData? = null)
 
-public data class SIP_ADD_NEWPROVIDER(
+public data class SipAddNewprovider(
     public var cbStruct: UInt = 0u,
-    public var pgSubject: Long = 0L,
-    public var pwszDLLFileName: PWSTR = 0L,
-    public var pwszMagicNumber: PWSTR = 0L,
-    public var pwszIsFunctionName: PWSTR = 0L,
-    public var pwszGetFuncName: PWSTR = 0L,
-    public var pwszPutFuncName: PWSTR = 0L,
-    public var pwszCreateFuncName: PWSTR = 0L,
-    public var pwszVerifyFuncName: PWSTR = 0L,
-    public var pwszRemoveFuncName: PWSTR = 0L,
-    public var pwszIsFunctionNameFmt2: PWSTR = 0L,
-    public var pwszGetCapFuncName: PWSTR = 0L,
+    public var pgSubject: Guid? = null,
+    public var pwszDLLFileName: Pwstr = null,
+    public var pwszMagicNumber: Pwstr = null,
+    public var pwszIsFunctionName: Pwstr = null,
+    public var pwszGetFuncName: Pwstr = null,
+    public var pwszPutFuncName: Pwstr = null,
+    public var pwszCreateFuncName: Pwstr = null,
+    public var pwszVerifyFuncName: Pwstr = null,
+    public var pwszRemoveFuncName: Pwstr = null,
+    public var pwszIsFunctionNameFmt2: Pwstr = null,
+    public var pwszGetCapFuncName: Pwstr = null,
 )
 
-public data class SIP_CAP_SET_V2(
+public data class SipCapSetV2(
     public var cbSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var isMultiSign: BOOL = 0,
+    public var isMultiSign: Bool = 0,
     public var dwReserved: UInt = 0u,
 )
 
-public data class SIP_CAP_SET_V3(
+public data class SipCapSetV3(
     public var cbSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var isMultiSign: BOOL = 0,
-    public var Anonymous: SIP_CAP_SET_V3_0 = SIP_CAP_SET_V3_0(),
+    public var isMultiSign: Bool = 0,
+    public var anonymous: SipCapSetV30 = SipCapSetV30(),
 )
 
-public data class SIP_CAP_SET_V3_0(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class SipCapSetV30(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
 
-public data class SIP_DISPATCH_INFO(
+public data class SipDispatchInfo(
     public var cbSize: UInt = 0u,
-    public var hSIP: HANDLE = 0L,
-    public var pfGet: pCryptSIPGetSignedDataMsg = null,
-    public var pfPut: pCryptSIPPutSignedDataMsg = null,
-    public var pfCreate: pCryptSIPCreateIndirectData = null,
-    public var pfVerify: pCryptSIPVerifyIndirectData = null,
-    public var pfRemove: pCryptSIPRemoveSignedDataMsg = null,
+    public var hSIP: Handle = null,
+    public var pfGet: PCryptSipgetSignedDataMsg = null,
+    public var pfPut: PCryptSipputSignedDataMsg = null,
+    public var pfCreate: PCryptSipcreateIndirectData = null,
+    public var pfVerify: PCryptSipverifyIndirectData = null,
+    public var pfRemove: PCryptSipremoveSignedDataMsg = null,
 )
 
-public data class SIP_INDIRECT_DATA(
-    public var Data: CRYPT_ATTRIBUTE_TYPE_VALUE = CRYPT_ATTRIBUTE_TYPE_VALUE(),
-    public var DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Digest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class SipIndirectData(
+    public var data: CryptAttributeTypeValue = CryptAttributeTypeValue(),
+    public var digestAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var digest: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public class SIP_SUBJECTINFO(
+public class SipSubjectinfo(
     public var cbSize: UInt = 0u,
-    public var pgSubjectType: Long = 0L,
-    public var hFile: HANDLE = 0L,
-    public var pwsFileName: PCWSTR = 0L,
-    public var pwsDisplayName: PCWSTR = 0L,
+    public var pgSubjectType: Guid? = null,
+    public var hFile: Handle = null,
+    public var pwsFileName: Pcwstr = null,
+    public var pwsDisplayName: Pcwstr = null,
     public var dwReserved1: UInt = 0u,
     public var dwIntVersion: UInt = 0u,
-    public var hProv: ULong = 0uL,
-    public var DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
+    public var hProv: Int = 0,
+    public var digestAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
     public var dwFlags: UInt = 0u,
     public var dwEncodingType: UInt = 0u,
     public var dwReserved2: UInt = 0u,
@@ -82,12 +85,12 @@ public class SIP_SUBJECTINFO(
     public var fdwSecuritySettings: UInt = 0u,
     public var dwIndex: UInt = 0u,
     public var dwUnionChoice: UInt = 0u,
-    public var Anonymous: SIP_SUBJECTINFO_0 = SIP_SUBJECTINFO_0(),
-    public var pClientData: Long = 0L,
+    public var anonymous: SipSubjectinfo0 = SipSubjectinfo0(),
+    public var pClientData: COpaquePointer? = null,
 )
 
-public data class SIP_SUBJECTINFO_0(
-    public var psFlat: Long = 0L,
-    public var psCatMember: Long = 0L,
-    public var psBlob: Long = 0L,
+public data class SipSubjectinfo0(
+    public var psFlat: MsAddinfoFlat? = null,
+    public var psCatMember: MsAddinfoCatalogmember? = null,
+    public var psBlob: MsAddinfoBlob? = null,
 )

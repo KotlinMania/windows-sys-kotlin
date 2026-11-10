@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_memory_AddSecureMemoryCacheCallback(void* pfncallback) {
+int32_t windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback(void* pfncallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_memory_AddSecureMemoryCacheCallback(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPages(void* hprocess, void* numberofpages, void* pagearray) {
+int32_t windowssys_windows_win32_system_memory_allocateUserPhysicalPages(void* hprocess, void* numberofpages, void* pagearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPages(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPages2(void* objecthandle, void* numberofpages, void* pagearray, void* extendedparameters, uint32_t extendedparametercount) {
+int32_t windowssys_windows_win32_system_memory_allocateUserPhysicalPages2(void* objecthandle, void* numberofpages, void* pagearray, void* extendedparameters, uint32_t extendedparametercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPages2(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPagesNuma(void* hprocess, void* numberofpages, void* pagearray, uint32_t nndpreferred) {
+int32_t windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma(void* hprocess, void* numberofpages, void* pagearray, uint32_t nndpreferred) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ int32_t windowssys_windows_win32_system_memory_AllocateUserPhysicalPagesNuma(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMapping2(void* file, void* securityattributes, uint32_t desiredaccess, uint32_t pageprotection, uint32_t allocationattributes, uint64_t maximumsize, void* name, void* extendedparameters, uint32_t parametercount) {
+void* windowssys_windows_win32_system_memory_createFileMapping2(void* file, void* securityattributes, uint32_t desiredaccess, uint32_t pageprotection, uint32_t allocationattributes, uint64_t maximumsize, void* name, void* extendedparameters, uint32_t parametercount) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMapping2(void* file, void
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMappingA(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname) {
+void* windowssys_windows_win32_system_memory_createFileMappingA(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -169,7 +169,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMappingA(void* hfile, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMappingFromApp(void* hfile, void* securityattributes, uint32_t pageprotection, uint64_t maximumsize, void* name) {
+void* windowssys_windows_win32_system_memory_createFileMappingFromApp(void* hfile, void* securityattributes, uint32_t pageprotection, uint64_t maximumsize, void* name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -195,7 +195,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMappingFromApp(void* hfil
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMappingNumaA(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname, uint32_t nndpreferred) {
+void* windowssys_windows_win32_system_memory_createFileMappingNumaA(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname, uint32_t nndpreferred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMappingNumaA(void* hfile,
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMappingNumaW(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname, uint32_t nndpreferred) {
+void* windowssys_windows_win32_system_memory_createFileMappingNumaW(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname, uint32_t nndpreferred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMappingNumaW(void* hfile,
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateFileMappingW(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname) {
+void* windowssys_windows_win32_system_memory_createFileMappingW(void* hfile, void* lpfilemappingattributes, uint32_t flprotect, uint32_t dwmaximumsizehigh, uint32_t dwmaximumsizelow, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -278,7 +278,7 @@ void* windowssys_windows_win32_system_memory_CreateFileMappingW(void* hfile, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_CreateMemoryResourceNotification(int32_t notificationtype) {
+void* windowssys_windows_win32_system_memory_createMemoryResourceNotification(int32_t notificationtype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -300,7 +300,7 @@ void* windowssys_windows_win32_system_memory_CreateMemoryResourceNotification(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_DiscardVirtualMemory(void* virtualaddress, uint64_t size) {
+uint32_t windowssys_windows_win32_system_memory_discardVirtualMemory(void* virtualaddress, uint64_t size) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -323,7 +323,7 @@ uint32_t windowssys_windows_win32_system_memory_DiscardVirtualMemory(void* virtu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_FlushViewOfFile(void* lpbaseaddress, uint64_t dwnumberofbytestoflush) {
+int32_t windowssys_windows_win32_system_memory_flushViewOfFile(void* lpbaseaddress, uint64_t dwnumberofbytestoflush) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -346,7 +346,7 @@ int32_t windowssys_windows_win32_system_memory_FlushViewOfFile(void* lpbaseaddre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_FreeUserPhysicalPages(void* hprocess, void* numberofpages, void* pagearray) {
+int32_t windowssys_windows_win32_system_memory_freeUserPhysicalPages(void* hprocess, void* numberofpages, void* pagearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -370,7 +370,7 @@ int32_t windowssys_windows_win32_system_memory_FreeUserPhysicalPages(void* hproc
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_GetLargePageMinimum(void) {
+uint64_t windowssys_windows_win32_system_memory_getLargePageMinimum(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ uint64_t windowssys_windows_win32_system_memory_GetLargePageMinimum(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_GetMemoryErrorHandlingCapabilities(void* capabilities) {
+int32_t windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities(void* capabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ int32_t windowssys_windows_win32_system_memory_GetMemoryErrorHandlingCapabilitie
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_GetProcessHeap(void) {
+void* windowssys_windows_win32_system_memory_getProcessHeap(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -434,7 +434,7 @@ void* windowssys_windows_win32_system_memory_GetProcessHeap(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_GetProcessHeaps(uint32_t numberofheaps, void* processheaps) {
+uint32_t windowssys_windows_win32_system_memory_getProcessHeaps(uint32_t numberofheaps, void* processheaps) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -457,7 +457,7 @@ uint32_t windowssys_windows_win32_system_memory_GetProcessHeaps(uint32_t numbero
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_GetProcessWorkingSetSizeEx(void* hprocess, void* lpminimumworkingsetsize, void* lpmaximumworkingsetsize, void* flags) {
+int32_t windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx(void* hprocess, void* lpminimumworkingsetsize, void* lpmaximumworkingsetsize, void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ int32_t windowssys_windows_win32_system_memory_GetProcessWorkingSetSizeEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_GetSystemFileCacheSize(void* lpminimumfilecachesize, void* lpmaximumfilecachesize, void* lpflags) {
+int32_t windowssys_windows_win32_system_memory_getSystemFileCacheSize(void* lpminimumfilecachesize, void* lpmaximumfilecachesize, void* lpflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ int32_t windowssys_windows_win32_system_memory_GetSystemFileCacheSize(void* lpmi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_GetWriteWatch(uint32_t dwflags, void* lpbaseaddress, uint64_t dwregionsize, void* lpaddresses, void* lpdwcount, void* lpdwgranularity) {
+uint32_t windowssys_windows_win32_system_memory_getWriteWatch(uint32_t dwflags, void* lpbaseaddress, uint64_t dwregionsize, void* lpaddresses, void* lpdwcount, void* lpdwgranularity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ uint32_t windowssys_windows_win32_system_memory_GetWriteWatch(uint32_t dwflags, 
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_GlobalAlloc(uint32_t uflags, uint64_t dwbytes) {
+void* windowssys_windows_win32_system_memory_globalAlloc(uint32_t uflags, uint64_t dwbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -556,7 +556,7 @@ void* windowssys_windows_win32_system_memory_GlobalAlloc(uint32_t uflags, uint64
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_GlobalFlags(void* hmem) {
+uint32_t windowssys_windows_win32_system_memory_globalFlags(void* hmem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -578,7 +578,7 @@ uint32_t windowssys_windows_win32_system_memory_GlobalFlags(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_GlobalHandle(void* pmem) {
+void* windowssys_windows_win32_system_memory_globalHandle(void* pmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ void* windowssys_windows_win32_system_memory_GlobalHandle(void* pmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_GlobalLock(void* hmem) {
+void* windowssys_windows_win32_system_memory_globalLock(void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ void* windowssys_windows_win32_system_memory_GlobalLock(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_GlobalReAlloc(void* hmem, uint64_t dwbytes, uint32_t uflags) {
+void* windowssys_windows_win32_system_memory_globalReAlloc(void* hmem, uint64_t dwbytes, uint32_t uflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -646,7 +646,7 @@ void* windowssys_windows_win32_system_memory_GlobalReAlloc(void* hmem, uint64_t 
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_GlobalSize(void* hmem) {
+uint64_t windowssys_windows_win32_system_memory_globalSize(void* hmem) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -668,7 +668,7 @@ uint64_t windowssys_windows_win32_system_memory_GlobalSize(void* hmem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_GlobalUnlock(void* hmem) {
+int32_t windowssys_windows_win32_system_memory_globalUnlock(void* hmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -690,7 +690,7 @@ int32_t windowssys_windows_win32_system_memory_GlobalUnlock(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_HeapAlloc(void* hheap, uint32_t dwflags, uint64_t dwbytes) {
+void* windowssys_windows_win32_system_memory_heapAlloc(void* hheap, uint32_t dwflags, uint64_t dwbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -714,7 +714,7 @@ void* windowssys_windows_win32_system_memory_HeapAlloc(void* hheap, uint32_t dwf
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_HeapCompact(void* hheap, uint32_t dwflags) {
+uint64_t windowssys_windows_win32_system_memory_heapCompact(void* hheap, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ uint64_t windowssys_windows_win32_system_memory_HeapCompact(void* hheap, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_HeapCreate(uint32_t floptions, uint64_t dwinitialsize, uint64_t dwmaximumsize) {
+void* windowssys_windows_win32_system_memory_heapCreate(uint32_t floptions, uint64_t dwinitialsize, uint64_t dwmaximumsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -761,7 +761,7 @@ void* windowssys_windows_win32_system_memory_HeapCreate(uint32_t floptions, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapDestroy(void* hheap) {
+int32_t windowssys_windows_win32_system_memory_heapDestroy(void* hheap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -783,7 +783,7 @@ int32_t windowssys_windows_win32_system_memory_HeapDestroy(void* hheap) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapFree(void* hheap, uint32_t dwflags, void* lpmem) {
+int32_t windowssys_windows_win32_system_memory_heapFree(void* hheap, uint32_t dwflags, void* lpmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -807,7 +807,7 @@ int32_t windowssys_windows_win32_system_memory_HeapFree(void* hheap, uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapLock(void* hheap) {
+int32_t windowssys_windows_win32_system_memory_heapLock(void* hheap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -829,7 +829,7 @@ int32_t windowssys_windows_win32_system_memory_HeapLock(void* hheap) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapQueryInformation(void* heaphandle, int32_t heapinformationclass, void* heapinformation, uint64_t heapinformationlength, void* returnlength) {
+int32_t windowssys_windows_win32_system_memory_heapQueryInformation(void* heaphandle, int32_t heapinformationclass, void* heapinformation, uint64_t heapinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -855,7 +855,7 @@ int32_t windowssys_windows_win32_system_memory_HeapQueryInformation(void* heapha
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_HeapReAlloc(void* hheap, uint32_t dwflags, void* lpmem, uint64_t dwbytes) {
+void* windowssys_windows_win32_system_memory_heapReAlloc(void* hheap, uint32_t dwflags, void* lpmem, uint64_t dwbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -880,7 +880,7 @@ void* windowssys_windows_win32_system_memory_HeapReAlloc(void* hheap, uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapSetInformation(void* heaphandle, int32_t heapinformationclass, void* heapinformation, uint64_t heapinformationlength) {
+int32_t windowssys_windows_win32_system_memory_heapSetInformation(void* heaphandle, int32_t heapinformationclass, void* heapinformation, uint64_t heapinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -905,7 +905,7 @@ int32_t windowssys_windows_win32_system_memory_HeapSetInformation(void* heaphand
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_HeapSize(void* hheap, uint32_t dwflags, void* lpmem) {
+uint64_t windowssys_windows_win32_system_memory_heapSize(void* hheap, uint32_t dwflags, void* lpmem) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ uint64_t windowssys_windows_win32_system_memory_HeapSize(void* hheap, uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapSummary(void* hheap, uint32_t dwflags, void* lpsummary) {
+int32_t windowssys_windows_win32_system_memory_heapSummary(void* hheap, uint32_t dwflags, void* lpsummary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -953,7 +953,7 @@ int32_t windowssys_windows_win32_system_memory_HeapSummary(void* hheap, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapUnlock(void* hheap) {
+int32_t windowssys_windows_win32_system_memory_heapUnlock(void* hheap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -975,7 +975,7 @@ int32_t windowssys_windows_win32_system_memory_HeapUnlock(void* hheap) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapValidate(void* hheap, uint32_t dwflags, void* lpmem) {
+int32_t windowssys_windows_win32_system_memory_heapValidate(void* hheap, uint32_t dwflags, void* lpmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -999,7 +999,7 @@ int32_t windowssys_windows_win32_system_memory_HeapValidate(void* hheap, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_HeapWalk(void* hheap, void* lpentry) {
+int32_t windowssys_windows_win32_system_memory_heapWalk(void* hheap, void* lpentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1022,7 +1022,7 @@ int32_t windowssys_windows_win32_system_memory_HeapWalk(void* hheap, void* lpent
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_IsBadReadPtr(void* lp, uint64_t ucb) {
+int32_t windowssys_windows_win32_system_memory_isBadReadPtr(void* lp, uint64_t ucb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1045,7 +1045,7 @@ int32_t windowssys_windows_win32_system_memory_IsBadReadPtr(void* lp, uint64_t u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_IsBadStringPtrA(void* lpsz, uint64_t ucchmax) {
+int32_t windowssys_windows_win32_system_memory_isBadStringPtrA(void* lpsz, uint64_t ucchmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1068,7 +1068,7 @@ int32_t windowssys_windows_win32_system_memory_IsBadStringPtrA(void* lpsz, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_IsBadStringPtrW(void* lpsz, uint64_t ucchmax) {
+int32_t windowssys_windows_win32_system_memory_isBadStringPtrW(void* lpsz, uint64_t ucchmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ int32_t windowssys_windows_win32_system_memory_IsBadStringPtrW(void* lpsz, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_IsBadWritePtr(void* lp, uint64_t ucb) {
+int32_t windowssys_windows_win32_system_memory_isBadWritePtr(void* lp, uint64_t ucb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ int32_t windowssys_windows_win32_system_memory_IsBadWritePtr(void* lp, uint64_t 
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_LocalAlloc(uint32_t uflags, uint64_t ubytes) {
+void* windowssys_windows_win32_system_memory_localAlloc(uint32_t uflags, uint64_t ubytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ void* windowssys_windows_win32_system_memory_LocalAlloc(uint32_t uflags, uint64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_LocalFlags(void* hmem) {
+uint32_t windowssys_windows_win32_system_memory_localFlags(void* hmem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ uint32_t windowssys_windows_win32_system_memory_LocalFlags(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_LocalHandle(void* pmem) {
+void* windowssys_windows_win32_system_memory_localHandle(void* pmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1181,7 +1181,7 @@ void* windowssys_windows_win32_system_memory_LocalHandle(void* pmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_LocalLock(void* hmem) {
+void* windowssys_windows_win32_system_memory_localLock(void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1203,7 +1203,7 @@ void* windowssys_windows_win32_system_memory_LocalLock(void* hmem) {
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_LocalReAlloc(void* hmem, uint64_t ubytes, uint32_t uflags) {
+void* windowssys_windows_win32_system_memory_localReAlloc(void* hmem, uint64_t ubytes, uint32_t uflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1227,7 +1227,7 @@ void* windowssys_windows_win32_system_memory_LocalReAlloc(void* hmem, uint64_t u
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_LocalSize(void* hmem) {
+uint64_t windowssys_windows_win32_system_memory_localSize(void* hmem) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1249,7 +1249,7 @@ uint64_t windowssys_windows_win32_system_memory_LocalSize(void* hmem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_LocalUnlock(void* hmem) {
+int32_t windowssys_windows_win32_system_memory_localUnlock(void* hmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ int32_t windowssys_windows_win32_system_memory_LocalUnlock(void* hmem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_MapUserPhysicalPages(void* virtualaddress, uint64_t numberofpages, void* pagearray) {
+int32_t windowssys_windows_win32_system_memory_mapUserPhysicalPages(void* virtualaddress, uint64_t numberofpages, void* pagearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ int32_t windowssys_windows_win32_system_memory_MapUserPhysicalPages(void* virtua
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_MapUserPhysicalPagesScatter(void* virtualaddresses, uint64_t numberofpages, void* pagearray) {
+int32_t windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter(void* virtualaddresses, uint64_t numberofpages, void* pagearray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1319,7 +1319,7 @@ int32_t windowssys_windows_win32_system_memory_MapUserPhysicalPagesScatter(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_OfferVirtualMemory(void* virtualaddress, uint64_t size, int32_t priority) {
+uint32_t windowssys_windows_win32_system_memory_offerVirtualMemory(void* virtualaddress, uint64_t size, int32_t priority) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1343,7 +1343,7 @@ uint32_t windowssys_windows_win32_system_memory_OfferVirtualMemory(void* virtual
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_OpenDedicatedMemoryPartition(void* partition, uint64_t dedicatedmemorytypeid, uint32_t desiredaccess, int32_t inherithandle) {
+void* windowssys_windows_win32_system_memory_openDedicatedMemoryPartition(void* partition, uint64_t dedicatedmemorytypeid, uint32_t desiredaccess, int32_t inherithandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1368,7 +1368,7 @@ void* windowssys_windows_win32_system_memory_OpenDedicatedMemoryPartition(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_OpenFileMappingA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_memory_openFileMappingA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1392,7 +1392,7 @@ void* windowssys_windows_win32_system_memory_OpenFileMappingA(uint32_t dwdesired
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_OpenFileMappingFromApp(uint32_t desiredaccess, int32_t inherithandle, void* name) {
+void* windowssys_windows_win32_system_memory_openFileMappingFromApp(uint32_t desiredaccess, int32_t inherithandle, void* name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1416,7 +1416,7 @@ void* windowssys_windows_win32_system_memory_OpenFileMappingFromApp(uint32_t des
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_OpenFileMappingW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssys_windows_win32_system_memory_openFileMappingW(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1440,7 +1440,7 @@ void* windowssys_windows_win32_system_memory_OpenFileMappingW(uint32_t dwdesired
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_PrefetchVirtualMemory(void* hprocess, uint64_t numberofentries, void* virtualaddresses, uint32_t flags) {
+int32_t windowssys_windows_win32_system_memory_prefetchVirtualMemory(void* hprocess, uint64_t numberofentries, void* virtualaddresses, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1465,7 +1465,7 @@ int32_t windowssys_windows_win32_system_memory_PrefetchVirtualMemory(void* hproc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_QueryMemoryResourceNotification(void* resourcenotificationhandle, void* resourcestate) {
+int32_t windowssys_windows_win32_system_memory_queryMemoryResourceNotification(void* resourcenotificationhandle, void* resourcestate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1488,7 +1488,7 @@ int32_t windowssys_windows_win32_system_memory_QueryMemoryResourceNotification(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_QueryPartitionInformation(void* partition, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
+int32_t windowssys_windows_win32_system_memory_queryPartitionInformation(void* partition, int32_t partitioninformationclass, void* partitioninformation, uint32_t partitioninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ int32_t windowssys_windows_win32_system_memory_QueryPartitionInformation(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_QueryVirtualMemoryInformation(void* process, void* virtualaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationsize, void* returnsize) {
+int32_t windowssys_windows_win32_system_memory_queryVirtualMemoryInformation(void* process, void* virtualaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationsize, void* returnsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1540,7 +1540,7 @@ int32_t windowssys_windows_win32_system_memory_QueryVirtualMemoryInformation(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_ReclaimVirtualMemory(void* virtualaddress, uint64_t size) {
+uint32_t windowssys_windows_win32_system_memory_reclaimVirtualMemory(void* virtualaddress, uint64_t size) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1563,7 +1563,7 @@ uint32_t windowssys_windows_win32_system_memory_ReclaimVirtualMemory(void* virtu
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_RegisterBadMemoryNotification(void* callback) {
+void* windowssys_windows_win32_system_memory_registerBadMemoryNotification(void* callback) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1585,7 +1585,7 @@ void* windowssys_windows_win32_system_memory_RegisterBadMemoryNotification(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_RemoveSecureMemoryCacheCallback(void* pfncallback) {
+int32_t windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback(void* pfncallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1607,7 +1607,7 @@ int32_t windowssys_windows_win32_system_memory_RemoveSecureMemoryCacheCallback(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_ResetWriteWatch(void* lpbaseaddress, uint64_t dwregionsize) {
+uint32_t windowssys_windows_win32_system_memory_resetWriteWatch(void* lpbaseaddress, uint64_t dwregionsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1630,7 +1630,7 @@ uint32_t windowssys_windows_win32_system_memory_ResetWriteWatch(void* lpbaseaddr
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_RtlCompareMemory(void* source1, void* source2, uint64_t length) {
+uint64_t windowssys_windows_win32_system_memory_rtlCompareMemory(void* source1, void* source2, uint64_t length) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1654,7 +1654,7 @@ uint64_t windowssys_windows_win32_system_memory_RtlCompareMemory(void* source1, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_memory_RtlCrc32(void* buffer, uint64_t size, uint32_t initialcrc) {
+uint32_t windowssys_windows_win32_system_memory_rtlCrc32(void* buffer, uint64_t size, uint32_t initialcrc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1678,7 +1678,7 @@ uint32_t windowssys_windows_win32_system_memory_RtlCrc32(void* buffer, uint64_t 
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_RtlCrc64(void* buffer, uint64_t size, uint64_t initialcrc) {
+uint64_t windowssys_windows_win32_system_memory_rtlCrc64(void* buffer, uint64_t size, uint64_t initialcrc) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1702,7 +1702,7 @@ uint64_t windowssys_windows_win32_system_memory_RtlCrc64(void* buffer, uint64_t 
 #endif
 }
 
-bool windowssys_windows_win32_system_memory_RtlIsZeroMemory(void* buffer, uint64_t length) {
+bool windowssys_windows_win32_system_memory_rtlIsZeroMemory(void* buffer, uint64_t length) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1725,7 +1725,7 @@ bool windowssys_windows_win32_system_memory_RtlIsZeroMemory(void* buffer, uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_SetProcessValidCallTargets(void* hprocess, void* virtualaddress, uint64_t regionsize, uint32_t numberofoffsets, void* offsetinformation) {
+int32_t windowssys_windows_win32_system_memory_setProcessValidCallTargets(void* hprocess, void* virtualaddress, uint64_t regionsize, uint32_t numberofoffsets, void* offsetinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1751,7 +1751,7 @@ int32_t windowssys_windows_win32_system_memory_SetProcessValidCallTargets(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_SetProcessValidCallTargetsForMappedView(void* process, void* virtualaddress, uint64_t regionsize, uint32_t numberofoffsets, void* offsetinformation, void* section, uint64_t expectedfileoffset) {
+int32_t windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView(void* process, void* virtualaddress, uint64_t regionsize, uint32_t numberofoffsets, void* offsetinformation, void* section, uint64_t expectedfileoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1779,7 +1779,7 @@ int32_t windowssys_windows_win32_system_memory_SetProcessValidCallTargetsForMapp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_SetProcessWorkingSetSizeEx(void* hprocess, uint64_t dwminimumworkingsetsize, uint64_t dwmaximumworkingsetsize, uint32_t flags) {
+int32_t windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx(void* hprocess, uint64_t dwminimumworkingsetsize, uint64_t dwmaximumworkingsetsize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1804,7 +1804,7 @@ int32_t windowssys_windows_win32_system_memory_SetProcessWorkingSetSizeEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_SetSystemFileCacheSize(uint64_t minimumfilecachesize, uint64_t maximumfilecachesize, uint32_t flags) {
+int32_t windowssys_windows_win32_system_memory_setSystemFileCacheSize(uint64_t minimumfilecachesize, uint64_t maximumfilecachesize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1828,7 +1828,7 @@ int32_t windowssys_windows_win32_system_memory_SetSystemFileCacheSize(uint64_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_UnregisterBadMemoryNotification(void* registrationhandle) {
+int32_t windowssys_windows_win32_system_memory_unregisterBadMemoryNotification(void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1850,7 +1850,7 @@ int32_t windowssys_windows_win32_system_memory_UnregisterBadMemoryNotification(v
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAlloc(void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect) {
+void* windowssys_windows_win32_system_memory_virtualAlloc(void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1875,7 +1875,7 @@ void* windowssys_windows_win32_system_memory_VirtualAlloc(void* lpaddress, uint6
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAlloc2(void* process, void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t parametercount) {
+void* windowssys_windows_win32_system_memory_virtualAlloc2(void* process, void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t parametercount) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1903,7 +1903,7 @@ void* windowssys_windows_win32_system_memory_VirtualAlloc2(void* process, void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAlloc2FromApp(void* process, void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t parametercount) {
+void* windowssys_windows_win32_system_memory_virtualAlloc2FromApp(void* process, void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t parametercount) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1931,7 +1931,7 @@ void* windowssys_windows_win32_system_memory_VirtualAlloc2FromApp(void* process,
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAllocEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect) {
+void* windowssys_windows_win32_system_memory_virtualAllocEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1957,7 +1957,7 @@ void* windowssys_windows_win32_system_memory_VirtualAllocEx(void* hprocess, void
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAllocExNuma(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect, uint32_t nndpreferred) {
+void* windowssys_windows_win32_system_memory_virtualAllocExNuma(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flallocationtype, uint32_t flprotect, uint32_t nndpreferred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1984,7 +1984,7 @@ void* windowssys_windows_win32_system_memory_VirtualAllocExNuma(void* hprocess, 
 #endif
 }
 
-void* windowssys_windows_win32_system_memory_VirtualAllocFromApp(void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t protection) {
+void* windowssys_windows_win32_system_memory_virtualAllocFromApp(void* baseaddress, uint64_t size, uint32_t allocationtype, uint32_t protection) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2009,7 +2009,7 @@ void* windowssys_windows_win32_system_memory_VirtualAllocFromApp(void* baseaddre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualFree(void* lpaddress, uint64_t dwsize, uint32_t dwfreetype) {
+int32_t windowssys_windows_win32_system_memory_virtualFree(void* lpaddress, uint64_t dwsize, uint32_t dwfreetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2033,7 +2033,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualFree(void* lpaddress, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualFreeEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t dwfreetype) {
+int32_t windowssys_windows_win32_system_memory_virtualFreeEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t dwfreetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2058,7 +2058,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualFreeEx(void* hprocess, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualLock(void* lpaddress, uint64_t dwsize) {
+int32_t windowssys_windows_win32_system_memory_virtualLock(void* lpaddress, uint64_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2081,7 +2081,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualLock(void* lpaddress, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualProtect(void* lpaddress, uint64_t dwsize, uint32_t flnewprotect, void* lpfloldprotect) {
+int32_t windowssys_windows_win32_system_memory_virtualProtect(void* lpaddress, uint64_t dwsize, uint32_t flnewprotect, void* lpfloldprotect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2106,7 +2106,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualProtect(void* lpaddress, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualProtectEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flnewprotect, void* lpfloldprotect) {
+int32_t windowssys_windows_win32_system_memory_virtualProtectEx(void* hprocess, void* lpaddress, uint64_t dwsize, uint32_t flnewprotect, void* lpfloldprotect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2132,7 +2132,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualProtectEx(void* hprocess, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualProtectFromApp(void* address, uint64_t size, uint32_t newprotection, void* oldprotection) {
+int32_t windowssys_windows_win32_system_memory_virtualProtectFromApp(void* address, uint64_t size, uint32_t newprotection, void* oldprotection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2157,7 +2157,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualProtectFromApp(void* addre
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_VirtualQuery(void* lpaddress, void* lpbuffer, uint64_t dwlength) {
+uint64_t windowssys_windows_win32_system_memory_virtualQuery(void* lpaddress, void* lpbuffer, uint64_t dwlength) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2181,7 +2181,7 @@ uint64_t windowssys_windows_win32_system_memory_VirtualQuery(void* lpaddress, vo
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_memory_VirtualQueryEx(void* hprocess, void* lpaddress, void* lpbuffer, uint64_t dwlength) {
+uint64_t windowssys_windows_win32_system_memory_virtualQueryEx(void* hprocess, void* lpaddress, void* lpbuffer, uint64_t dwlength) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2206,7 +2206,7 @@ uint64_t windowssys_windows_win32_system_memory_VirtualQueryEx(void* hprocess, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualUnlock(void* lpaddress, uint64_t dwsize) {
+int32_t windowssys_windows_win32_system_memory_virtualUnlock(void* lpaddress, uint64_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ int32_t windowssys_windows_win32_system_memory_VirtualUnlock(void* lpaddress, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_memory_VirtualUnlockEx(void* process, void* address, uint64_t size) {
+int32_t windowssys_windows_win32_system_memory_virtualUnlockEx(void* process, void* address, uint64_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

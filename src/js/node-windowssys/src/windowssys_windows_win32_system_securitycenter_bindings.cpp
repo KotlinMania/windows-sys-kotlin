@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppszuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_WscGetAntiMalw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t providers = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phealth = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_WscGetSecurity
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -105,7 +105,31 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_WscQueryAntiMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscRegisterForChanges_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* phcallbackregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpcallbackaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscRegisterForChanges")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, phcallbackregistration, lpcallbackaddress, pcontext) : -1;
+#else
+    (void)reserved;
+    (void)phcallbackregistration;
+    (void)lpcallbackaddress;
+    (void)pcontext;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -121,7 +145,7 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_WscRegisterFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hregistrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -140,11 +164,12 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_WscUnRegisterC
 }
 
 static void register_windows_win32_system_securitycenter_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri_napi));
-    exports.Set("windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth_napi));
-    exports.Set("windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri_napi));
-    exports.Set("windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscGetAntiMalwareUri_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscGetSecurityProviderHealth_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscQueryAntiMalwareUri_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscRegisterForChanges", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscRegisterForChanges_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscRegisterForUserNotifications_napi));
+    exports.Set("windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges", Napi::Function::New(env, windowssys_windows_win32_system_securitycenter_wscUnRegisterChanges_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_securitycenter_napi, nullptr };

@@ -2,190 +2,191 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CanSendToFaxRecipient(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_CanSendToFaxRecipient()
+public actual fun canSendToFaxRecipient(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_canSendToFaxRecipient()
 
-public actual fun FaxAbort(faxhandle: HANDLE, jobid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxAbort(faxhandle.toCPointer<ByteVar>(), jobid)
+public actual fun faxAbort(faxhandle: Handle, jobid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxAbort(faxhandle?.value?.toCPointer<ByteVar>(), jobid)
 
-public actual fun FaxAccessCheck(faxhandle: HANDLE, accessmask: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxAccessCheck(faxhandle.toCPointer<ByteVar>(), accessmask)
+public actual fun faxAccessCheck(faxhandle: Handle, accessmask: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxAccessCheck(faxhandle?.value?.toCPointer<ByteVar>(), accessmask)
 
-public actual fun FaxClose(faxhandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxClose(faxhandle.toCPointer<ByteVar>())
+public actual fun faxClose(faxhandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxClose(faxhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxCompleteJobParamsA(jobparams: Long, coverpageinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxCompleteJobParamsA(jobparams.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>())
+public actual fun faxCompleteJobParamsA(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxCompleteJobParamsA(jobparams?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxCompleteJobParamsW(jobparams: Long, coverpageinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxCompleteJobParamsW(jobparams.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>())
+public actual fun faxCompleteJobParamsW(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxCompleteJobParamsW(jobparams?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxConnectFaxServerA(machinename: PCSTR, faxhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxConnectFaxServerA(machinename.toCPointer<ByteVar>(), faxhandle.toCPointer<ByteVar>())
+public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxConnectFaxServerA(machinename?.value?.toCPointer<ByteVar>(), faxhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxConnectFaxServerW(machinename: PCWSTR, faxhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxConnectFaxServerW(machinename.toCPointer<ByteVar>(), faxhandle.toCPointer<ByteVar>())
+public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxConnectFaxServerW(machinename?.value?.toCPointer<ByteVar>(), faxhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnableRoutingMethodA(faxporthandle: HANDLE, routingguid: PCSTR, enabled: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodA(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), enabled)
+public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), enabled)
 
-public actual fun FaxEnableRoutingMethodW(faxporthandle: HANDLE, routingguid: PCWSTR, enabled: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodW(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), enabled)
+public actual fun faxEnableRoutingMethodW(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), enabled)
 
-public actual fun FaxEnumGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoA(faxhandle.toCPointer<ByteVar>(), routinginfo.toCPointer<ByteVar>(), methodsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA(faxhandle?.value?.toCPointer<ByteVar>(), routinginfo?.value?.toCPointer<ByteVar>(), methodsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoW(faxhandle.toCPointer<ByteVar>(), routinginfo.toCPointer<ByteVar>(), methodsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW(faxhandle?.value?.toCPointer<ByteVar>(), routinginfo?.value?.toCPointer<ByteVar>(), methodsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumJobsA(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumJobsA(faxhandle.toCPointer<ByteVar>(), jobentry.toCPointer<ByteVar>(), jobsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumJobsA(faxhandle?.value?.toCPointer<ByteVar>(), jobentry?.value?.toCPointer<ByteVar>(), jobsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumJobsW(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumJobsW(faxhandle.toCPointer<ByteVar>(), jobentry.toCPointer<ByteVar>(), jobsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumJobsW(faxhandle?.value?.toCPointer<ByteVar>(), jobentry?.value?.toCPointer<ByteVar>(), jobsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumPortsA(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumPortsA(faxhandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>(), portsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumPortsA(faxhandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>(), portsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumPortsW(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumPortsW(faxhandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>(), portsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumPortsW(faxhandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>(), portsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumRoutingMethodsA(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsA(faxporthandle.toCPointer<ByteVar>(), routingmethod.toCPointer<ByteVar>(), methodsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA(faxporthandle?.value?.toCPointer<ByteVar>(), routingmethod?.value?.toCPointer<ByteVar>(), methodsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxEnumRoutingMethodsW(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsW(faxporthandle.toCPointer<ByteVar>(), routingmethod.toCPointer<ByteVar>(), methodsreturned.toCPointer<ByteVar>())
+public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW(faxporthandle?.value?.toCPointer<ByteVar>(), routingmethod?.value?.toCPointer<ByteVar>(), methodsreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxFreeBuffer(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxFreeBuffer(buffer.toCPointer<ByteVar>())
+public actual fun faxFreeBuffer(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxFreeBuffer(buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FaxGetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetConfigurationA(faxhandle.toCPointer<ByteVar>(), faxconfig.toCPointer<ByteVar>())
+public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetConfigurationA(faxhandle?.value?.toCPointer<ByteVar>(), faxconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetConfigurationW(faxhandle.toCPointer<ByteVar>(), faxconfig.toCPointer<ByteVar>())
+public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetConfigurationW(faxhandle?.value?.toCPointer<ByteVar>(), faxconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetDeviceStatusA(faxporthandle: HANDLE, devicestatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetDeviceStatusA(faxporthandle.toCPointer<ByteVar>(), devicestatus.toCPointer<ByteVar>())
+public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetDeviceStatusA(faxporthandle?.value?.toCPointer<ByteVar>(), devicestatus?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetDeviceStatusW(faxporthandle: HANDLE, devicestatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetDeviceStatusW(faxporthandle.toCPointer<ByteVar>(), devicestatus.toCPointer<ByteVar>())
+public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetDeviceStatusW(faxporthandle?.value?.toCPointer<ByteVar>(), devicestatus?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetJobA(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetJobA(faxhandle.toCPointer<ByteVar>(), jobid, jobentry.toCPointer<ByteVar>())
+public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetJobA(faxhandle?.value?.toCPointer<ByteVar>(), jobid, jobentry?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetJobW(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetJobW(faxhandle.toCPointer<ByteVar>(), jobid, jobentry.toCPointer<ByteVar>())
+public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetJobW(faxhandle?.value?.toCPointer<ByteVar>(), jobid, jobentry?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesA(faxhandle.toCPointer<ByteVar>(), categories.toCPointer<ByteVar>(), numbercategories.toCPointer<ByteVar>())
+public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA(faxhandle?.value?.toCPointer<ByteVar>(), categories?.value?.toCPointer<ByteVar>(), numbercategories?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesW(faxhandle.toCPointer<ByteVar>(), categories.toCPointer<ByteVar>(), numbercategories.toCPointer<ByteVar>())
+public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW(faxhandle?.value?.toCPointer<ByteVar>(), categories?.value?.toCPointer<ByteVar>(), numbercategories?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetPageData(faxhandle: HANDLE, jobid: UInt, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetPageData(faxhandle.toCPointer<ByteVar>(), jobid, buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>(), imagewidth.toCPointer<ByteVar>(), imageheight.toCPointer<ByteVar>())
+public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?, imagewidth: COpaquePointer?, imageheight: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetPageData(faxhandle?.value?.toCPointer<ByteVar>(), jobid, buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), imagewidth?.value?.toCPointer<ByteVar>(), imageheight?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetPortA(faxporthandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>())
+public actual fun faxGetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetPortA(faxporthandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetPortW(faxporthandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>())
+public actual fun faxGetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetPortW(faxporthandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetRoutingInfoA(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), routinginfobuffer.toCPointer<ByteVar>(), routinginfobuffersize.toCPointer<ByteVar>())
+public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetRoutingInfoA(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), routinginfobuffer?.value?.toCPointer<ByteVar>(), routinginfobuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxGetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxGetRoutingInfoW(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), routinginfobuffer.toCPointer<ByteVar>(), routinginfobuffersize.toCPointer<ByteVar>())
+public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxGetRoutingInfoW(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), routinginfobuffer?.value?.toCPointer<ByteVar>(), routinginfobuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxInitializeEventQueue(faxhandle: HANDLE, completionport: HANDLE, completionkey: ULong, hwnd: HWND, messagestart: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxInitializeEventQueue(faxhandle.toCPointer<ByteVar>(), completionport.toCPointer<ByteVar>(), completionkey, hwnd.toCPointer<ByteVar>(), messagestart)
+public actual fun faxInitializeEventQueue(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxInitializeEventQueue(faxhandle?.value?.toCPointer<ByteVar>(), completionport?.value?.toCPointer<ByteVar>(), completionkey, hwnd?.value?.toCPointer<ByteVar>(), messagestart)
 
-public actual fun FaxOpenPort(faxhandle: HANDLE, deviceid: UInt, flags: UInt, faxporthandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxOpenPort(faxhandle.toCPointer<ByteVar>(), deviceid, flags, faxporthandle.toCPointer<ByteVar>())
+public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxOpenPort(faxhandle?.value?.toCPointer<ByteVar>(), deviceid, flags, faxporthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxPrintCoverPageA(faxcontextinfo: Long, coverpageinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxPrintCoverPageA(faxcontextinfo.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>())
+public actual fun faxPrintCoverPageA(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxPrintCoverPageA(faxcontextinfo?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxPrintCoverPageW(faxcontextinfo: Long, coverpageinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxPrintCoverPageW(faxcontextinfo.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>())
+public actual fun faxPrintCoverPageW(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxPrintCoverPageW(faxcontextinfo?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxRegisterRoutingExtensionW(faxhandle: HANDLE, extensionname: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxRegisterRoutingExtensionW(faxhandle.toCPointer<ByteVar>(), extensionname.toCPointer<ByteVar>(), friendlyname.toCPointer<ByteVar>(), imagename.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW(faxhandle?.value?.toCPointer<ByteVar>(), extensionname?.value?.toCPointer<ByteVar>(), friendlyname?.value?.toCPointer<ByteVar>(), imagename?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxRegisterServiceProviderW(deviceprovider: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, tspname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxRegisterServiceProviderW(deviceprovider.toCPointer<ByteVar>(), friendlyname.toCPointer<ByteVar>(), imagename.toCPointer<ByteVar>(), tspname.toCPointer<ByteVar>())
+public actual fun faxRegisterServiceProviderW(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW(deviceprovider?.value?.toCPointer<ByteVar>(), friendlyname?.value?.toCPointer<ByteVar>(), imagename?.value?.toCPointer<ByteVar>(), tspname?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSendDocumentA(faxhandle: HANDLE, filename: PCSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSendDocumentA(faxhandle.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), jobparams.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>())
+public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSendDocumentA(faxhandle?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), jobparams?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSendDocumentForBroadcastA(faxhandle: HANDLE, filename: PCSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastA(faxhandle.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>(), faxrecipientcallback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbacka, context: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA(faxhandle?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSendDocumentForBroadcastW(faxhandle: HANDLE, filename: PCWSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastW(faxhandle.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>(), faxrecipientcallback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbackw, context: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW(faxhandle?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSendDocumentW(faxhandle: HANDLE, filename: PCWSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSendDocumentW(faxhandle.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), jobparams.toCPointer<ByteVar>(), coverpageinfo.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>())
+public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSendDocumentW(faxhandle?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), jobparams?.value?.toCPointer<ByteVar>(), coverpageinfo?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetConfigurationA(faxhandle.toCPointer<ByteVar>(), faxconfig.toCPointer<ByteVar>())
+public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetConfigurationA(faxhandle?.value?.toCPointer<ByteVar>(), faxconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetConfigurationW(faxhandle.toCPointer<ByteVar>(), faxconfig.toCPointer<ByteVar>())
+public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetConfigurationW(faxhandle?.value?.toCPointer<ByteVar>(), faxconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoA(faxhandle.toCPointer<ByteVar>(), routinginfo.toCPointer<ByteVar>())
+public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA(faxhandle?.value?.toCPointer<ByteVar>(), routinginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoW(faxhandle.toCPointer<ByteVar>(), routinginfo.toCPointer<ByteVar>())
+public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW(faxhandle?.value?.toCPointer<ByteVar>(), routinginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetJobA(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetJobA(faxhandle.toCPointer<ByteVar>(), jobid, command, jobentry.toCPointer<ByteVar>())
+public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetJobA(faxhandle?.value?.toCPointer<ByteVar>(), jobid, command, jobentry?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetJobW(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetJobW(faxhandle.toCPointer<ByteVar>(), jobid, command, jobentry.toCPointer<ByteVar>())
+public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetJobW(faxhandle?.value?.toCPointer<ByteVar>(), jobid, command, jobentry?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesA(faxhandle.toCPointer<ByteVar>(), categories.toCPointer<ByteVar>(), numbercategories)
+public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA(faxhandle?.value?.toCPointer<ByteVar>(), categories?.value?.toCPointer<ByteVar>(), numbercategories)
 
-public actual fun FaxSetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesW(faxhandle.toCPointer<ByteVar>(), categories.toCPointer<ByteVar>(), numbercategories)
+public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW(faxhandle?.value?.toCPointer<ByteVar>(), categories?.value?.toCPointer<ByteVar>(), numbercategories)
 
-public actual fun FaxSetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetPortA(faxporthandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>())
+public actual fun faxSetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetPortA(faxporthandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetPortW(faxporthandle.toCPointer<ByteVar>(), portinfo.toCPointer<ByteVar>())
+public actual fun faxSetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetPortW(faxporthandle?.value?.toCPointer<ByteVar>(), portinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxSetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetRoutingInfoA(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), routinginfobuffer.toCPointer<ByteVar>(), routinginfobuffersize)
+public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetRoutingInfoA(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), routinginfobuffer?.value?.toCPointer<ByteVar>(), routinginfobuffersize)
 
-public actual fun FaxSetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxSetRoutingInfoW(faxporthandle.toCPointer<ByteVar>(), routingguid.toCPointer<ByteVar>(), routinginfobuffer.toCPointer<ByteVar>(), routinginfobuffersize)
+public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxSetRoutingInfoW(faxporthandle?.value?.toCPointer<ByteVar>(), routingguid?.value?.toCPointer<ByteVar>(), routinginfobuffer?.value?.toCPointer<ByteVar>(), routinginfobuffersize)
 
-public actual fun FaxStartPrintJobA(printername: PCSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxStartPrintJobA(printername.toCPointer<ByteVar>(), printinfo.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>(), faxcontextinfo.toCPointer<ByteVar>())
+public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxStartPrintJobA(printername?.value?.toCPointer<ByteVar>(), printinfo?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>(), faxcontextinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxStartPrintJobW(printername: PCWSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxStartPrintJobW(printername.toCPointer<ByteVar>(), printinfo.toCPointer<ByteVar>(), faxjobid.toCPointer<ByteVar>(), faxcontextinfo.toCPointer<ByteVar>())
+public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxStartPrintJobW(printername?.value?.toCPointer<ByteVar>(), printinfo?.value?.toCPointer<ByteVar>(), faxjobid?.value?.toCPointer<ByteVar>(), faxcontextinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FaxUnregisterServiceProviderW(deviceprovider: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_FaxUnregisterServiceProviderW(deviceprovider.toCPointer<ByteVar>())
+public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW(deviceprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun SendToFaxRecipient(sndmode: SendToMode, lpfilename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_SendToFaxRecipient(sndmode, lpfilename.toCPointer<ByteVar>())
+public actual fun sendToFaxRecipient(sndmode: SendToMode, lpfilename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_sendToFaxRecipient(sndmode, lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun StiCreateInstanceW(hinst: HINSTANCE, dwver: UInt, ppsti: Long, punkouter: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_StiCreateInstanceW(hinst.toCPointer<ByteVar>(), dwver, ppsti.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>())
+public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: COpaquePointer?, punkouter: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.fax.cinterop.windowssys_windows_win32_devices_fax_stiCreateInstanceW(hinst?.value?.toCPointer<ByteVar>(), dwver, ppsti?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>())

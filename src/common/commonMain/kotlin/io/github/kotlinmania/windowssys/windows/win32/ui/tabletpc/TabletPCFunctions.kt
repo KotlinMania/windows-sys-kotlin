@@ -1,61 +1,62 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public expect fun AddStroke(hrc: HRECOCONTEXT, ppacketdesc: Long, cbpacket: UInt, ppacket: Long, pxform: Long): HRESULT
+public expect fun addStroke(hrc: Hrecocontext, ppacketdesc: COpaquePointer?, cbpacket: UInt, ppacket: COpaquePointer?, pxform: COpaquePointer?): Hresult
 
-public expect fun AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: PCWSTR): HRESULT
+public expect fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult
 
-public expect fun AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: BOOL): HRESULT
+public expect fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult
 
-public expect fun CreateContext(hrec: HRECOGNIZER, phrc: Long): HRESULT
+public expect fun createContext(hrec: Hrecognizer, phrc: COpaquePointer?): Hresult
 
-public expect fun CreateRecognizer(pclsid: Long, phrec: Long): HRESULT
+public expect fun createRecognizer(pclsid: COpaquePointer?, phrec: COpaquePointer?): Hresult
 
-public expect fun DestroyContext(hrc: HRECOCONTEXT): HRESULT
+public expect fun destroyContext(hrc: Hrecocontext): Hresult
 
-public expect fun DestroyRecognizer(hrec: HRECOGNIZER): HRESULT
+public expect fun destroyRecognizer(hrec: Hrecognizer): Hresult
 
-public expect fun DestroyWordList(hwl: HRECOWORDLIST): HRESULT
+public expect fun destroyWordList(hwl: Hrecowordlist): Hresult
 
-public expect fun EndInkInput(hrc: HRECOCONTEXT): HRESULT
+public expect fun endInkInput(hrc: Hrecocontext): Hresult
 
-public expect fun GetAllRecognizers(recognizerclsids: Long, count: Long): HRESULT
+public expect fun getAllRecognizers(recognizerclsids: COpaquePointer?, count: COpaquePointer?): Hresult
 
-public expect fun GetBestResultString(hrc: HRECOCONTEXT, pcsize: Long, pwcbestresult: PWSTR): HRESULT
+public expect fun getBestResultString(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcbestresult: Pwstr): Hresult
 
-public expect fun GetLatticePtr(hrc: HRECOCONTEXT, pplattice: Long): HRESULT
+public expect fun getLatticePtr(hrc: Hrecocontext, pplattice: COpaquePointer?): Hresult
 
-public expect fun GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcleftseparator: PWSTR): HRESULT
+public expect fun getLeftSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcleftseparator: Pwstr): Hresult
 
-public expect fun GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: Long): HRESULT
+public expect fun getRecoAttributes(hrec: Hrecognizer, precoattrs: COpaquePointer?): Hresult
 
-public expect fun GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: Long, ppropertyguid: Long): HRESULT
+public expect fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: COpaquePointer?, ppropertyguid: COpaquePointer?): Hresult
 
-public expect fun GetRightSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcrightseparator: PWSTR): HRESULT
+public expect fun getRightSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcrightseparator: Pwstr): Hresult
 
-public expect fun GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: Long, pcr: Long): HRESULT
+public expect fun getUnicodeRanges(hrec: Hrecognizer, pcranges: COpaquePointer?, pcr: COpaquePointer?): Hresult
 
-public expect fun IsStringSupported(hrc: HRECOCONTEXT, wcstring: UInt, pwcstring: PCWSTR): HRESULT
+public expect fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult
 
-public expect fun LoadCachedAttributes(clsid: GUID, precoattributes: Long): HRESULT
+public expect fun loadCachedAttributes(clsid: Guid, precoattributes: COpaquePointer?): Hresult
 
-public expect fun MakeWordList(hrec: HRECOGNIZER, pbuffer: PCWSTR, phwl: Long): HRESULT
+public expect fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: COpaquePointer?): Hresult
 
-public expect fun Process(hrc: HRECOCONTEXT, pbpartialprocessing: Long): HRESULT
+public expect fun process(hrc: Hrecocontext, pbpartialprocessing: COpaquePointer?): Hresult
 
-public expect fun SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: UInt, pcr: Long): HRESULT
+public expect fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: COpaquePointer?): Hresult
 
-public expect fun SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: UInt, pwcfactoid: PCWSTR): HRESULT
+public expect fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult
 
-public expect fun SetFlags(hrc: HRECOCONTEXT, dwflags: UInt): HRESULT
+public expect fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult
 
-public expect fun SetGuide(hrc: HRECOCONTEXT, pguide: Long, iindex: UInt): HRESULT
+public expect fun setGuide(hrc: Hrecocontext, pguide: COpaquePointer?, iindex: UInt): Hresult
 
-public expect fun SetTextContext(hrc: HRECOCONTEXT, cwcbefore: UInt, pwcbefore: PCWSTR, cwcafter: UInt, pwcafter: PCWSTR): HRESULT
+public expect fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult
 
-public expect fun SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST): HRESULT
+public expect fun setWordList(hrc: Hrecocontext, hwl: Hrecowordlist): Hresult

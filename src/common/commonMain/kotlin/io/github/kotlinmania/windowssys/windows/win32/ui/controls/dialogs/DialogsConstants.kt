@@ -1,59 +1,59 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = 256u
+public val BOLD_FONTTYPE: ChoosefontFontType = 256u.toUShort()
 
-public val CCERR_CHOOSECOLORCODES: COMMON_DLG_ERRORS = 20480u
+public val CCERR_CHOOSECOLORCODES: CommonDlgErrors = 20480u
 
-public val CC_ANYCOLOR: CHOOSECOLOR_FLAGS = 256u
+public val CC_ANYCOLOR: ChoosecolorFlags = 256u
 
-public val CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = 16u
+public val CC_ENABLEHOOK: ChoosecolorFlags = 16u
 
-public val CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = 32u
+public val CC_ENABLETEMPLATE: ChoosecolorFlags = 32u
 
-public val CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = 64u
+public val CC_ENABLETEMPLATEHANDLE: ChoosecolorFlags = 64u
 
-public val CC_FULLOPEN: CHOOSECOLOR_FLAGS = 2u
+public val CC_FULLOPEN: ChoosecolorFlags = 2u
 
-public val CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = 4u
+public val CC_PREVENTFULLOPEN: ChoosecolorFlags = 4u
 
-public val CC_RGBINIT: CHOOSECOLOR_FLAGS = 1u
+public val CC_RGBINIT: ChoosecolorFlags = 1u
 
-public val CC_SHOWHELP: CHOOSECOLOR_FLAGS = 8u
+public val CC_SHOWHELP: ChoosecolorFlags = 8u
 
-public val CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = 128u
+public val CC_SOLIDCOLOR: ChoosecolorFlags = 128u
 
-public val CDERR_DIALOGFAILURE: COMMON_DLG_ERRORS = 65535u
+public val CDERR_DIALOGFAILURE: CommonDlgErrors = 65535u
 
-public val CDERR_FINDRESFAILURE: COMMON_DLG_ERRORS = 6u
+public val CDERR_FINDRESFAILURE: CommonDlgErrors = 6u
 
-public val CDERR_GENERALCODES: COMMON_DLG_ERRORS = 0u
+public val CDERR_GENERALCODES: CommonDlgErrors = 0u
 
-public val CDERR_INITIALIZATION: COMMON_DLG_ERRORS = 2u
+public val CDERR_INITIALIZATION: CommonDlgErrors = 2u
 
-public val CDERR_LOADRESFAILURE: COMMON_DLG_ERRORS = 7u
+public val CDERR_LOADRESFAILURE: CommonDlgErrors = 7u
 
-public val CDERR_LOADSTRFAILURE: COMMON_DLG_ERRORS = 5u
+public val CDERR_LOADSTRFAILURE: CommonDlgErrors = 5u
 
-public val CDERR_LOCKRESFAILURE: COMMON_DLG_ERRORS = 8u
+public val CDERR_LOCKRESFAILURE: CommonDlgErrors = 8u
 
-public val CDERR_MEMALLOCFAILURE: COMMON_DLG_ERRORS = 9u
+public val CDERR_MEMALLOCFAILURE: CommonDlgErrors = 9u
 
-public val CDERR_MEMLOCKFAILURE: COMMON_DLG_ERRORS = 10u
+public val CDERR_MEMLOCKFAILURE: CommonDlgErrors = 10u
 
-public val CDERR_NOHINSTANCE: COMMON_DLG_ERRORS = 4u
+public val CDERR_NOHINSTANCE: CommonDlgErrors = 4u
 
-public val CDERR_NOHOOK: COMMON_DLG_ERRORS = 11u
+public val CDERR_NOHOOK: CommonDlgErrors = 11u
 
-public val CDERR_NOTEMPLATE: COMMON_DLG_ERRORS = 3u
+public val CDERR_NOTEMPLATE: CommonDlgErrors = 3u
 
-public val CDERR_REGISTERMSGFAIL: COMMON_DLG_ERRORS = 12u
+public val CDERR_REGISTERMSGFAIL: CommonDlgErrors = 12u
 
-public val CDERR_STRUCTSIZE: COMMON_DLG_ERRORS = 1u
+public val CDERR_STRUCTSIZE: CommonDlgErrors = 1u
 
 public val CDM_FIRST: UInt = 1124u
 
@@ -97,75 +97,75 @@ public val CD_LBSELNOITEMS: Int = -1
 
 public val CD_LBSELSUB: UInt = 1u
 
-public val CFERR_CHOOSEFONTCODES: COMMON_DLG_ERRORS = 8192u
+public val CFERR_CHOOSEFONTCODES: CommonDlgErrors = 8192u
 
-public val CFERR_MAXLESSTHANMIN: COMMON_DLG_ERRORS = 8194u
+public val CFERR_MAXLESSTHANMIN: CommonDlgErrors = 8194u
 
-public val CFERR_NOFONTS: COMMON_DLG_ERRORS = 8193u
+public val CFERR_NOFONTS: CommonDlgErrors = 8193u
 
-public val CF_ANSIONLY: CHOOSEFONT_FLAGS = 1024u
+public val CF_ANSIONLY: ChoosefontFlags = 1024u
 
-public val CF_APPLY: CHOOSEFONT_FLAGS = 512u
+public val CF_APPLY: ChoosefontFlags = 512u
 
-public val CF_BOTH: CHOOSEFONT_FLAGS = 3u
+public val CF_BOTH: ChoosefontFlags = 3u
 
-public val CF_EFFECTS: CHOOSEFONT_FLAGS = 256u
+public val CF_EFFECTS: ChoosefontFlags = 256u
 
-public val CF_ENABLEHOOK: CHOOSEFONT_FLAGS = 8u
+public val CF_ENABLEHOOK: ChoosefontFlags = 8u
 
-public val CF_ENABLETEMPLATE: CHOOSEFONT_FLAGS = 16u
+public val CF_ENABLETEMPLATE: ChoosefontFlags = 16u
 
-public val CF_ENABLETEMPLATEHANDLE: CHOOSEFONT_FLAGS = 32u
+public val CF_ENABLETEMPLATEHANDLE: ChoosefontFlags = 32u
 
-public val CF_FIXEDPITCHONLY: CHOOSEFONT_FLAGS = 16384u
+public val CF_FIXEDPITCHONLY: ChoosefontFlags = 16384u
 
-public val CF_FORCEFONTEXIST: CHOOSEFONT_FLAGS = 65536u
+public val CF_FORCEFONTEXIST: ChoosefontFlags = 65536u
 
-public val CF_INACTIVEFONTS: CHOOSEFONT_FLAGS = 33554432u
+public val CF_INACTIVEFONTS: ChoosefontFlags = 33554432u
 
-public val CF_INITTOLOGFONTSTRUCT: CHOOSEFONT_FLAGS = 64u
+public val CF_INITTOLOGFONTSTRUCT: ChoosefontFlags = 64u
 
-public val CF_LIMITSIZE: CHOOSEFONT_FLAGS = 8192u
+public val CF_LIMITSIZE: ChoosefontFlags = 8192u
 
-public val CF_NOFACESEL: CHOOSEFONT_FLAGS = 524288u
+public val CF_NOFACESEL: ChoosefontFlags = 524288u
 
-public val CF_NOOEMFONTS: CHOOSEFONT_FLAGS = 2048u
+public val CF_NOOEMFONTS: ChoosefontFlags = 2048u
 
-public val CF_NOSCRIPTSEL: CHOOSEFONT_FLAGS = 8388608u
+public val CF_NOSCRIPTSEL: ChoosefontFlags = 8388608u
 
-public val CF_NOSIMULATIONS: CHOOSEFONT_FLAGS = 4096u
+public val CF_NOSIMULATIONS: ChoosefontFlags = 4096u
 
-public val CF_NOSIZESEL: CHOOSEFONT_FLAGS = 2097152u
+public val CF_NOSIZESEL: ChoosefontFlags = 2097152u
 
-public val CF_NOSTYLESEL: CHOOSEFONT_FLAGS = 1048576u
+public val CF_NOSTYLESEL: ChoosefontFlags = 1048576u
 
-public val CF_NOVECTORFONTS: CHOOSEFONT_FLAGS = 2048u
+public val CF_NOVECTORFONTS: ChoosefontFlags = 2048u
 
-public val CF_NOVERTFONTS: CHOOSEFONT_FLAGS = 16777216u
+public val CF_NOVERTFONTS: ChoosefontFlags = 16777216u
 
-public val CF_PRINTERFONTS: CHOOSEFONT_FLAGS = 2u
+public val CF_PRINTERFONTS: ChoosefontFlags = 2u
 
-public val CF_SCALABLEONLY: CHOOSEFONT_FLAGS = 131072u
+public val CF_SCALABLEONLY: ChoosefontFlags = 131072u
 
-public val CF_SCREENFONTS: CHOOSEFONT_FLAGS = 1u
+public val CF_SCREENFONTS: ChoosefontFlags = 1u
 
-public val CF_SCRIPTSONLY: CHOOSEFONT_FLAGS = 1024u
+public val CF_SCRIPTSONLY: ChoosefontFlags = 1024u
 
-public val CF_SELECTSCRIPT: CHOOSEFONT_FLAGS = 4194304u
+public val CF_SELECTSCRIPT: ChoosefontFlags = 4194304u
 
-public val CF_SHOWHELP: CHOOSEFONT_FLAGS = 4u
+public val CF_SHOWHELP: ChoosefontFlags = 4u
 
-public val CF_TTONLY: CHOOSEFONT_FLAGS = 262144u
+public val CF_TTONLY: ChoosefontFlags = 262144u
 
-public val CF_USESTYLE: CHOOSEFONT_FLAGS = 128u
+public val CF_USESTYLE: ChoosefontFlags = 128u
 
-public val CF_WYSIWYG: CHOOSEFONT_FLAGS = 32768u
+public val CF_WYSIWYG: ChoosefontFlags = 32768u
 
-public val COLOROKSTRING: PCWSTR = w("commdlg_ColorOK")
+public val COLOROKSTRING: Pcwstr = w("commdlg_ColorOK")
 
-public val COLOROKSTRINGA: PCSTR = s("commdlg_ColorOK")
+public val COLOROKSTRINGA: Pcstr = s("commdlg_ColorOK")
 
-public val COLOROKSTRINGW: PCWSTR = w("commdlg_ColorOK")
+public val COLOROKSTRINGW: Pcwstr = w("commdlg_ColorOK")
 
 public val COLOR_ADD: UInt = 712u
 
@@ -231,29 +231,29 @@ public val DLG_COLOR: UInt = 10u
 
 public val DN_DEFAULTPRN: UInt = 1u
 
-public val FILEOKSTRING: PCWSTR = w("commdlg_FileNameOK")
+public val FILEOKSTRING: Pcwstr = w("commdlg_FileNameOK")
 
-public val FILEOKSTRINGA: PCSTR = s("commdlg_FileNameOK")
+public val FILEOKSTRINGA: Pcstr = s("commdlg_FileNameOK")
 
-public val FILEOKSTRINGW: PCWSTR = w("commdlg_FileNameOK")
+public val FILEOKSTRINGW: Pcwstr = w("commdlg_FileNameOK")
 
-public val FINDMSGSTRING: PCWSTR = w("commdlg_FindReplace")
+public val FINDMSGSTRING: Pcwstr = w("commdlg_FindReplace")
 
-public val FINDMSGSTRINGA: PCSTR = s("commdlg_FindReplace")
+public val FINDMSGSTRINGA: Pcstr = s("commdlg_FindReplace")
 
-public val FINDMSGSTRINGW: PCWSTR = w("commdlg_FindReplace")
+public val FINDMSGSTRINGW: Pcwstr = w("commdlg_FindReplace")
 
-public val FNERR_BUFFERTOOSMALL: COMMON_DLG_ERRORS = 12291u
+public val FNERR_BUFFERTOOSMALL: CommonDlgErrors = 12291u
 
-public val FNERR_FILENAMECODES: COMMON_DLG_ERRORS = 12288u
+public val FNERR_FILENAMECODES: CommonDlgErrors = 12288u
 
-public val FNERR_INVALIDFILENAME: COMMON_DLG_ERRORS = 12290u
+public val FNERR_INVALIDFILENAME: CommonDlgErrors = 12290u
 
-public val FNERR_SUBCLASSFAILURE: COMMON_DLG_ERRORS = 12289u
+public val FNERR_SUBCLASSFAILURE: CommonDlgErrors = 12289u
 
-public val FRERR_BUFFERLENGTHZERO: COMMON_DLG_ERRORS = 16385u
+public val FRERR_BUFFERLENGTHZERO: CommonDlgErrors = 16385u
 
-public val FRERR_FINDREPLACECODES: COMMON_DLG_ERRORS = 16384u
+public val FRERR_FINDREPLACECODES: CommonDlgErrors = 16384u
 
 public val FRM_FIRST: UInt = 1124u
 
@@ -263,125 +263,125 @@ public val FRM_SETOPERATIONRESULT: UInt = 1124u
 
 public val FRM_SETOPERATIONRESULTTEXT: UInt = 1125u
 
-public val FR_DIALOGTERM: FINDREPLACE_FLAGS = 64u
+public val FR_DIALOGTERM: FindreplaceFlags = 64u
 
-public val FR_DOWN: FINDREPLACE_FLAGS = 1u
+public val FR_DOWN: FindreplaceFlags = 1u
 
-public val FR_ENABLEHOOK: FINDREPLACE_FLAGS = 256u
+public val FR_ENABLEHOOK: FindreplaceFlags = 256u
 
-public val FR_ENABLETEMPLATE: FINDREPLACE_FLAGS = 512u
+public val FR_ENABLETEMPLATE: FindreplaceFlags = 512u
 
-public val FR_ENABLETEMPLATEHANDLE: FINDREPLACE_FLAGS = 8192u
+public val FR_ENABLETEMPLATEHANDLE: FindreplaceFlags = 8192u
 
-public val FR_FINDNEXT: FINDREPLACE_FLAGS = 8u
+public val FR_FINDNEXT: FindreplaceFlags = 8u
 
-public val FR_HIDEMATCHCASE: FINDREPLACE_FLAGS = 32768u
+public val FR_HIDEMATCHCASE: FindreplaceFlags = 32768u
 
-public val FR_HIDEUPDOWN: FINDREPLACE_FLAGS = 16384u
+public val FR_HIDEUPDOWN: FindreplaceFlags = 16384u
 
-public val FR_HIDEWHOLEWORD: FINDREPLACE_FLAGS = 65536u
+public val FR_HIDEWHOLEWORD: FindreplaceFlags = 65536u
 
-public val FR_MATCHALEFHAMZA: FINDREPLACE_FLAGS = 2147483648u
+public val FR_MATCHALEFHAMZA: FindreplaceFlags = 2147483648u
 
-public val FR_MATCHCASE: FINDREPLACE_FLAGS = 4u
+public val FR_MATCHCASE: FindreplaceFlags = 4u
 
-public val FR_MATCHDIAC: FINDREPLACE_FLAGS = 536870912u
+public val FR_MATCHDIAC: FindreplaceFlags = 536870912u
 
-public val FR_MATCHKASHIDA: FINDREPLACE_FLAGS = 1073741824u
+public val FR_MATCHKASHIDA: FindreplaceFlags = 1073741824u
 
-public val FR_NOMATCHCASE: FINDREPLACE_FLAGS = 2048u
+public val FR_NOMATCHCASE: FindreplaceFlags = 2048u
 
-public val FR_NOUPDOWN: FINDREPLACE_FLAGS = 1024u
+public val FR_NOUPDOWN: FindreplaceFlags = 1024u
 
-public val FR_NOWHOLEWORD: FINDREPLACE_FLAGS = 4096u
+public val FR_NOWHOLEWORD: FindreplaceFlags = 4096u
 
-public val FR_NOWRAPAROUND: FINDREPLACE_FLAGS = 524288u
+public val FR_NOWRAPAROUND: FindreplaceFlags = 524288u
 
-public val FR_RAW: FINDREPLACE_FLAGS = 131072u
+public val FR_RAW: FindreplaceFlags = 131072u
 
-public val FR_REPLACE: FINDREPLACE_FLAGS = 16u
+public val FR_REPLACE: FindreplaceFlags = 16u
 
-public val FR_REPLACEALL: FINDREPLACE_FLAGS = 32u
+public val FR_REPLACEALL: FindreplaceFlags = 32u
 
-public val FR_SHOWHELP: FINDREPLACE_FLAGS = 128u
+public val FR_SHOWHELP: FindreplaceFlags = 128u
 
-public val FR_SHOWWRAPAROUND: FINDREPLACE_FLAGS = 262144u
+public val FR_SHOWWRAPAROUND: FindreplaceFlags = 262144u
 
-public val FR_WHOLEWORD: FINDREPLACE_FLAGS = 2u
+public val FR_WHOLEWORD: FindreplaceFlags = 2u
 
-public val FR_WRAPAROUND: FINDREPLACE_FLAGS = 1048576u
+public val FR_WRAPAROUND: FindreplaceFlags = 1048576u
 
-public val HELPMSGSTRING: PCWSTR = w("commdlg_help")
+public val HELPMSGSTRING: Pcwstr = w("commdlg_help")
 
-public val HELPMSGSTRINGA: PCSTR = s("commdlg_help")
+public val HELPMSGSTRINGA: Pcstr = s("commdlg_help")
 
-public val HELPMSGSTRINGW: PCWSTR = w("commdlg_help")
+public val HELPMSGSTRINGW: Pcwstr = w("commdlg_help")
 
-public val ITALIC_FONTTYPE: CHOOSEFONT_FONT_TYPE = 512u
+public val ITALIC_FONTTYPE: ChoosefontFontType = 512u.toUShort()
 
-public val LBSELCHSTRING: PCWSTR = w("commdlg_LBSelChangedNotify")
+public val LBSELCHSTRING: Pcwstr = w("commdlg_LBSelChangedNotify")
 
-public val LBSELCHSTRINGA: PCSTR = s("commdlg_LBSelChangedNotify")
+public val LBSELCHSTRINGA: Pcstr = s("commdlg_LBSelChangedNotify")
 
-public val LBSELCHSTRINGW: PCWSTR = w("commdlg_LBSelChangedNotify")
+public val LBSELCHSTRINGW: Pcwstr = w("commdlg_LBSelChangedNotify")
 
 public val NUM_BASIC_COLORS: UInt = 48u
 
 public val NUM_CUSTOM_COLORS: UInt = 16u
 
-public val OFN_ALLOWMULTISELECT: OPEN_FILENAME_FLAGS = 512u
+public val OFN_ALLOWMULTISELECT: OpenFilenameFlags = 512u
 
-public val OFN_CREATEPROMPT: OPEN_FILENAME_FLAGS = 8192u
+public val OFN_CREATEPROMPT: OpenFilenameFlags = 8192u
 
-public val OFN_DONTADDTORECENT: OPEN_FILENAME_FLAGS = 33554432u
+public val OFN_DONTADDTORECENT: OpenFilenameFlags = 33554432u
 
-public val OFN_ENABLEHOOK: OPEN_FILENAME_FLAGS = 32u
+public val OFN_ENABLEHOOK: OpenFilenameFlags = 32u
 
-public val OFN_ENABLEINCLUDENOTIFY: OPEN_FILENAME_FLAGS = 4194304u
+public val OFN_ENABLEINCLUDENOTIFY: OpenFilenameFlags = 4194304u
 
-public val OFN_ENABLESIZING: OPEN_FILENAME_FLAGS = 8388608u
+public val OFN_ENABLESIZING: OpenFilenameFlags = 8388608u
 
-public val OFN_ENABLETEMPLATE: OPEN_FILENAME_FLAGS = 64u
+public val OFN_ENABLETEMPLATE: OpenFilenameFlags = 64u
 
-public val OFN_ENABLETEMPLATEHANDLE: OPEN_FILENAME_FLAGS = 128u
+public val OFN_ENABLETEMPLATEHANDLE: OpenFilenameFlags = 128u
 
-public val OFN_EXPLORER: OPEN_FILENAME_FLAGS = 524288u
+public val OFN_EXPLORER: OpenFilenameFlags = 524288u
 
-public val OFN_EXTENSIONDIFFERENT: OPEN_FILENAME_FLAGS = 1024u
+public val OFN_EXTENSIONDIFFERENT: OpenFilenameFlags = 1024u
 
-public val OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = 0u
+public val OFN_EX_NONE: OpenFilenameFlagsEx = 0u
 
-public val OFN_EX_NOPLACESBAR: OPEN_FILENAME_FLAGS_EX = 1u
+public val OFN_EX_NOPLACESBAR: OpenFilenameFlagsEx = 1u
 
-public val OFN_FILEMUSTEXIST: OPEN_FILENAME_FLAGS = 4096u
+public val OFN_FILEMUSTEXIST: OpenFilenameFlags = 4096u
 
-public val OFN_FORCESHOWHIDDEN: OPEN_FILENAME_FLAGS = 268435456u
+public val OFN_FORCESHOWHIDDEN: OpenFilenameFlags = 268435456u
 
-public val OFN_HIDEREADONLY: OPEN_FILENAME_FLAGS = 4u
+public val OFN_HIDEREADONLY: OpenFilenameFlags = 4u
 
-public val OFN_LONGNAMES: OPEN_FILENAME_FLAGS = 2097152u
+public val OFN_LONGNAMES: OpenFilenameFlags = 2097152u
 
-public val OFN_NOCHANGEDIR: OPEN_FILENAME_FLAGS = 8u
+public val OFN_NOCHANGEDIR: OpenFilenameFlags = 8u
 
-public val OFN_NODEREFERENCELINKS: OPEN_FILENAME_FLAGS = 1048576u
+public val OFN_NODEREFERENCELINKS: OpenFilenameFlags = 1048576u
 
-public val OFN_NOLONGNAMES: OPEN_FILENAME_FLAGS = 262144u
+public val OFN_NOLONGNAMES: OpenFilenameFlags = 262144u
 
-public val OFN_NONETWORKBUTTON: OPEN_FILENAME_FLAGS = 131072u
+public val OFN_NONETWORKBUTTON: OpenFilenameFlags = 131072u
 
-public val OFN_NOREADONLYRETURN: OPEN_FILENAME_FLAGS = 32768u
+public val OFN_NOREADONLYRETURN: OpenFilenameFlags = 32768u
 
-public val OFN_NOTESTFILECREATE: OPEN_FILENAME_FLAGS = 65536u
+public val OFN_NOTESTFILECREATE: OpenFilenameFlags = 65536u
 
-public val OFN_NOVALIDATE: OPEN_FILENAME_FLAGS = 256u
+public val OFN_NOVALIDATE: OpenFilenameFlags = 256u
 
-public val OFN_OVERWRITEPROMPT: OPEN_FILENAME_FLAGS = 2u
+public val OFN_OVERWRITEPROMPT: OpenFilenameFlags = 2u
 
-public val OFN_PATHMUSTEXIST: OPEN_FILENAME_FLAGS = 2048u
+public val OFN_PATHMUSTEXIST: OpenFilenameFlags = 2048u
 
-public val OFN_READONLY: OPEN_FILENAME_FLAGS = 1u
+public val OFN_READONLY: OpenFilenameFlags = 1u
 
-public val OFN_SHAREAWARE: OPEN_FILENAME_FLAGS = 16384u
+public val OFN_SHAREAWARE: OpenFilenameFlags = 16384u
 
 public val OFN_SHAREFALLTHROUGH: UInt = 2u
 
@@ -389,73 +389,73 @@ public val OFN_SHARENOWARN: UInt = 1u
 
 public val OFN_SHAREWARN: UInt = 0u
 
-public val OFN_SHOWHELP: OPEN_FILENAME_FLAGS = 16u
+public val OFN_SHOWHELP: OpenFilenameFlags = 16u
 
-public val PDERR_CREATEICFAILURE: COMMON_DLG_ERRORS = 4106u
+public val PDERR_CREATEICFAILURE: CommonDlgErrors = 4106u
 
-public val PDERR_DEFAULTDIFFERENT: COMMON_DLG_ERRORS = 4108u
+public val PDERR_DEFAULTDIFFERENT: CommonDlgErrors = 4108u
 
-public val PDERR_DNDMMISMATCH: COMMON_DLG_ERRORS = 4105u
+public val PDERR_DNDMMISMATCH: CommonDlgErrors = 4105u
 
-public val PDERR_GETDEVMODEFAIL: COMMON_DLG_ERRORS = 4101u
+public val PDERR_GETDEVMODEFAIL: CommonDlgErrors = 4101u
 
-public val PDERR_INITFAILURE: COMMON_DLG_ERRORS = 4102u
+public val PDERR_INITFAILURE: CommonDlgErrors = 4102u
 
-public val PDERR_LOADDRVFAILURE: COMMON_DLG_ERRORS = 4100u
+public val PDERR_LOADDRVFAILURE: CommonDlgErrors = 4100u
 
-public val PDERR_NODEFAULTPRN: COMMON_DLG_ERRORS = 4104u
+public val PDERR_NODEFAULTPRN: CommonDlgErrors = 4104u
 
-public val PDERR_NODEVICES: COMMON_DLG_ERRORS = 4103u
+public val PDERR_NODEVICES: CommonDlgErrors = 4103u
 
-public val PDERR_PARSEFAILURE: COMMON_DLG_ERRORS = 4098u
+public val PDERR_PARSEFAILURE: CommonDlgErrors = 4098u
 
-public val PDERR_PRINTERCODES: COMMON_DLG_ERRORS = 4096u
+public val PDERR_PRINTERCODES: CommonDlgErrors = 4096u
 
-public val PDERR_PRINTERNOTFOUND: COMMON_DLG_ERRORS = 4107u
+public val PDERR_PRINTERNOTFOUND: CommonDlgErrors = 4107u
 
-public val PDERR_RETDEFFAILURE: COMMON_DLG_ERRORS = 4099u
+public val PDERR_RETDEFFAILURE: CommonDlgErrors = 4099u
 
-public val PDERR_SETUPFAILURE: COMMON_DLG_ERRORS = 4097u
+public val PDERR_SETUPFAILURE: CommonDlgErrors = 4097u
 
-public val PD_ALLPAGES: PRINTDLGEX_FLAGS = 0u
+public val PD_ALLPAGES: PrintdlgexFlags = 0u
 
-public val PD_COLLATE: PRINTDLGEX_FLAGS = 16u
+public val PD_COLLATE: PrintdlgexFlags = 16u
 
-public val PD_CURRENTPAGE: PRINTDLGEX_FLAGS = 4194304u
+public val PD_CURRENTPAGE: PrintdlgexFlags = 4194304u
 
-public val PD_DISABLEPRINTTOFILE: PRINTDLGEX_FLAGS = 524288u
+public val PD_DISABLEPRINTTOFILE: PrintdlgexFlags = 524288u
 
-public val PD_ENABLEPRINTHOOK: PRINTDLGEX_FLAGS = 4096u
+public val PD_ENABLEPRINTHOOK: PrintdlgexFlags = 4096u
 
-public val PD_ENABLEPRINTTEMPLATE: PRINTDLGEX_FLAGS = 16384u
+public val PD_ENABLEPRINTTEMPLATE: PrintdlgexFlags = 16384u
 
-public val PD_ENABLEPRINTTEMPLATEHANDLE: PRINTDLGEX_FLAGS = 65536u
+public val PD_ENABLEPRINTTEMPLATEHANDLE: PrintdlgexFlags = 65536u
 
-public val PD_ENABLESETUPHOOK: PRINTDLGEX_FLAGS = 8192u
+public val PD_ENABLESETUPHOOK: PrintdlgexFlags = 8192u
 
-public val PD_ENABLESETUPTEMPLATE: PRINTDLGEX_FLAGS = 32768u
+public val PD_ENABLESETUPTEMPLATE: PrintdlgexFlags = 32768u
 
-public val PD_ENABLESETUPTEMPLATEHANDLE: PRINTDLGEX_FLAGS = 131072u
+public val PD_ENABLESETUPTEMPLATEHANDLE: PrintdlgexFlags = 131072u
 
-public val PD_EXCLUSIONFLAGS: PRINTDLGEX_FLAGS = 16777216u
+public val PD_EXCLUSIONFLAGS: PrintdlgexFlags = 16777216u
 
-public val PD_HIDEPRINTTOFILE: PRINTDLGEX_FLAGS = 1048576u
+public val PD_HIDEPRINTTOFILE: PrintdlgexFlags = 1048576u
 
-public val PD_NOCURRENTPAGE: PRINTDLGEX_FLAGS = 8388608u
+public val PD_NOCURRENTPAGE: PrintdlgexFlags = 8388608u
 
-public val PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = 2097152u
+public val PD_NONETWORKBUTTON: PrintdlgexFlags = 2097152u
 
-public val PD_NOPAGENUMS: PRINTDLGEX_FLAGS = 8u
+public val PD_NOPAGENUMS: PrintdlgexFlags = 8u
 
-public val PD_NOSELECTION: PRINTDLGEX_FLAGS = 4u
+public val PD_NOSELECTION: PrintdlgexFlags = 4u
 
-public val PD_NOWARNING: PRINTDLGEX_FLAGS = 128u
+public val PD_NOWARNING: PrintdlgexFlags = 128u
 
-public val PD_PAGENUMS: PRINTDLGEX_FLAGS = 2u
+public val PD_PAGENUMS: PrintdlgexFlags = 2u
 
-public val PD_PRINTSETUP: PRINTDLGEX_FLAGS = 64u
+public val PD_PRINTSETUP: PrintdlgexFlags = 64u
 
-public val PD_PRINTTOFILE: PRINTDLGEX_FLAGS = 32u
+public val PD_PRINTTOFILE: PrintdlgexFlags = 32u
 
 public val PD_RESULT_APPLY: UInt = 2u
 
@@ -463,81 +463,81 @@ public val PD_RESULT_CANCEL: UInt = 0u
 
 public val PD_RESULT_PRINT: UInt = 1u
 
-public val PD_RETURNDC: PRINTDLGEX_FLAGS = 256u
+public val PD_RETURNDC: PrintdlgexFlags = 256u
 
-public val PD_RETURNDEFAULT: PRINTDLGEX_FLAGS = 1024u
+public val PD_RETURNDEFAULT: PrintdlgexFlags = 1024u
 
-public val PD_RETURNIC: PRINTDLGEX_FLAGS = 512u
+public val PD_RETURNIC: PrintdlgexFlags = 512u
 
-public val PD_SELECTION: PRINTDLGEX_FLAGS = 1u
+public val PD_SELECTION: PrintdlgexFlags = 1u
 
-public val PD_SHOWHELP: PRINTDLGEX_FLAGS = 2048u
+public val PD_SHOWHELP: PrintdlgexFlags = 2048u
 
-public val PD_USEDEVMODECOPIES: PRINTDLGEX_FLAGS = 262144u
+public val PD_USEDEVMODECOPIES: PrintdlgexFlags = 262144u
 
-public val PD_USEDEVMODECOPIESANDCOLLATE: PRINTDLGEX_FLAGS = 262144u
+public val PD_USEDEVMODECOPIESANDCOLLATE: PrintdlgexFlags = 262144u
 
-public val PD_USELARGETEMPLATE: PRINTDLGEX_FLAGS = 268435456u
+public val PD_USELARGETEMPLATE: PrintdlgexFlags = 268435456u
 
-public val PRINTER_FONTTYPE: CHOOSEFONT_FONT_TYPE = 16384u
+public val PRINTER_FONTTYPE: ChoosefontFontType = 16384u.toUShort()
 
-public val PSD_DEFAULTMINMARGINS: PAGESETUPDLG_FLAGS = 0u
+public val PSD_DEFAULTMINMARGINS: PagesetupdlgFlags = 0u
 
-public val PSD_DISABLEMARGINS: PAGESETUPDLG_FLAGS = 16u
+public val PSD_DISABLEMARGINS: PagesetupdlgFlags = 16u
 
-public val PSD_DISABLEORIENTATION: PAGESETUPDLG_FLAGS = 256u
+public val PSD_DISABLEORIENTATION: PagesetupdlgFlags = 256u
 
-public val PSD_DISABLEPAGEPAINTING: PAGESETUPDLG_FLAGS = 524288u
+public val PSD_DISABLEPAGEPAINTING: PagesetupdlgFlags = 524288u
 
-public val PSD_DISABLEPAPER: PAGESETUPDLG_FLAGS = 512u
+public val PSD_DISABLEPAPER: PagesetupdlgFlags = 512u
 
-public val PSD_DISABLEPRINTER: PAGESETUPDLG_FLAGS = 32u
+public val PSD_DISABLEPRINTER: PagesetupdlgFlags = 32u
 
-public val PSD_ENABLEPAGEPAINTHOOK: PAGESETUPDLG_FLAGS = 262144u
+public val PSD_ENABLEPAGEPAINTHOOK: PagesetupdlgFlags = 262144u
 
-public val PSD_ENABLEPAGESETUPHOOK: PAGESETUPDLG_FLAGS = 8192u
+public val PSD_ENABLEPAGESETUPHOOK: PagesetupdlgFlags = 8192u
 
-public val PSD_ENABLEPAGESETUPTEMPLATE: PAGESETUPDLG_FLAGS = 32768u
+public val PSD_ENABLEPAGESETUPTEMPLATE: PagesetupdlgFlags = 32768u
 
-public val PSD_ENABLEPAGESETUPTEMPLATEHANDLE: PAGESETUPDLG_FLAGS = 131072u
+public val PSD_ENABLEPAGESETUPTEMPLATEHANDLE: PagesetupdlgFlags = 131072u
 
-public val PSD_INHUNDREDTHSOFMILLIMETERS: PAGESETUPDLG_FLAGS = 8u
+public val PSD_INHUNDREDTHSOFMILLIMETERS: PagesetupdlgFlags = 8u
 
-public val PSD_INTHOUSANDTHSOFINCHES: PAGESETUPDLG_FLAGS = 4u
+public val PSD_INTHOUSANDTHSOFINCHES: PagesetupdlgFlags = 4u
 
-public val PSD_INWININIINTLMEASURE: PAGESETUPDLG_FLAGS = 0u
+public val PSD_INWININIINTLMEASURE: PagesetupdlgFlags = 0u
 
-public val PSD_MARGINS: PAGESETUPDLG_FLAGS = 2u
+public val PSD_MARGINS: PagesetupdlgFlags = 2u
 
-public val PSD_MINMARGINS: PAGESETUPDLG_FLAGS = 1u
+public val PSD_MINMARGINS: PagesetupdlgFlags = 1u
 
-public val PSD_NONETWORKBUTTON: PAGESETUPDLG_FLAGS = 2097152u
+public val PSD_NONETWORKBUTTON: PagesetupdlgFlags = 2097152u
 
-public val PSD_NOWARNING: PAGESETUPDLG_FLAGS = 128u
+public val PSD_NOWARNING: PagesetupdlgFlags = 128u
 
-public val PSD_RETURNDEFAULT: PAGESETUPDLG_FLAGS = 1024u
+public val PSD_RETURNDEFAULT: PagesetupdlgFlags = 1024u
 
-public val PSD_SHOWHELP: PAGESETUPDLG_FLAGS = 2048u
+public val PSD_SHOWHELP: PagesetupdlgFlags = 2048u
 
 public val PS_OPENTYPE_FONTTYPE: UInt = 65536u
 
-public val REGULAR_FONTTYPE: CHOOSEFONT_FONT_TYPE = 1024u
+public val REGULAR_FONTTYPE: ChoosefontFontType = 1024u.toUShort()
 
-public val SCREEN_FONTTYPE: CHOOSEFONT_FONT_TYPE = 8192u
+public val SCREEN_FONTTYPE: ChoosefontFontType = 8192u.toUShort()
 
-public val SETRGBSTRING: PCWSTR = w("commdlg_SetRGBColor")
+public val SETRGBSTRING: Pcwstr = w("commdlg_SetRGBColor")
 
-public val SETRGBSTRINGA: PCSTR = s("commdlg_SetRGBColor")
+public val SETRGBSTRINGA: Pcstr = s("commdlg_SetRGBColor")
 
-public val SETRGBSTRINGW: PCWSTR = w("commdlg_SetRGBColor")
+public val SETRGBSTRINGW: Pcwstr = w("commdlg_SetRGBColor")
 
-public val SHAREVISTRING: PCWSTR = w("commdlg_ShareViolation")
+public val SHAREVISTRING: Pcwstr = w("commdlg_ShareViolation")
 
-public val SHAREVISTRINGA: PCSTR = s("commdlg_ShareViolation")
+public val SHAREVISTRINGA: Pcstr = s("commdlg_ShareViolation")
 
-public val SHAREVISTRINGW: PCWSTR = w("commdlg_ShareViolation")
+public val SHAREVISTRINGW: Pcwstr = w("commdlg_ShareViolation")
 
-public val SIMULATED_FONTTYPE: CHOOSEFONT_FONT_TYPE = 32768u
+public val SIMULATED_FONTTYPE: ChoosefontFontType = 32768u.toUShort()
 
 public val START_PAGE_GENERAL: UInt = 4294967295u
 

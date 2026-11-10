@@ -1,62 +1,67 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPEN
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.POINTER_PEN_INFO
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.POINTER_TOUCH_INFO
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpen
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.PointerPenInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.PointerTouchInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgtemplate
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Windowpos
 
-public data class BP_ANIMATIONPARAMS(
+public data class BpAnimationparams(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var style: BP_ANIMATIONSTYLE = 0,
+    public var style: BpAnimationstyle = 0,
     public var dwDuration: UInt = 0u,
 )
 
-public data class BP_PAINTPARAMS(
+public data class BpPaintparams(
     public var cbSize: UInt = 0u,
-    public var dwFlags: BP_PAINTPARAMS_FLAGS = 0u,
-    public var prcExclude: Long = 0L,
-    public var pBlendFunction: Long = 0L,
+    public var dwFlags: BpPaintparamsFlags = 0u,
+    public var prcExclude: Rect? = null,
+    public var pBlendFunction: Blendfunction? = null,
 )
 
-public data class BUTTON_IMAGELIST(
-    public var himl: HIMAGELIST = 0L,
-    public var margin: RECT = RECT(),
-    public var uAlign: BUTTON_IMAGELIST_ALIGN = 0u,
+public data class ButtonImagelist(
+    public var himl: Himagelist = 0L,
+    public var margin: Rect = Rect(),
+    public var uAlign: ButtonImagelistAlign = 0u,
 )
 
-public data class BUTTON_SPLITINFO(
+public data class ButtonSplitinfo(
     public var mask: UInt = 0u,
-    public var himlGlyph: HIMAGELIST = 0L,
+    public var himlGlyph: Himagelist = 0L,
     public var uSplitStyle: UInt = 0u,
-    public var size: SIZE = SIZE(),
+    public var size: Size = Size(),
 )
 
-public data class CCINFOA(
+public data class Ccinfoa(
     public var szClass: ByteArray = ByteArray(32),
     public var flOptions: UInt = 0u,
     public var szDesc: ByteArray = ByteArray(32),
@@ -67,15 +72,15 @@ public data class CCINFOA(
     public var flCtrlTypeMask: UInt = 0u,
     public var szTextDefault: ByteArray = ByteArray(256),
     public var cStyleFlags: Int = 0,
-    public var aStyleFlags: Long = 0L,
-    public var lpfnStyle: LPFNCCSTYLEA = null,
-    public var lpfnSizeToText: LPFNCCSIZETOTEXTA = null,
+    public var aStyleFlags: Ccstyleflaga? = null,
+    public var lpfnStyle: Lpfnccstylea = null,
+    public var lpfnSizeToText: Lpfnccsizetotexta = null,
     public var dwReserved1: UInt = 0u,
     public var dwReserved2: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CCINFOA) return false
+        if (other !is Ccinfoa) return false
         if (!this.szClass.contentEquals(other.szClass)) return false
         if (this.flOptions != other.flOptions) return false
         if (!this.szDesc.contentEquals(other.szDesc)) return false
@@ -114,7 +119,7 @@ public data class CCINFOA(
     }
 }
 
-public data class CCINFOW(
+public data class Ccinfow(
     public var szClass: UShortArray = UShortArray(32),
     public var flOptions: UInt = 0u,
     public var szDesc: UShortArray = UShortArray(32),
@@ -124,16 +129,16 @@ public data class CCINFOW(
     public var flExtStyleDefault: UInt = 0u,
     public var flCtrlTypeMask: UInt = 0u,
     public var cStyleFlags: Int = 0,
-    public var aStyleFlags: Long = 0L,
+    public var aStyleFlags: Ccstyleflagw? = null,
     public var szTextDefault: UShortArray = UShortArray(256),
-    public var lpfnStyle: LPFNCCSTYLEW = null,
-    public var lpfnSizeToText: LPFNCCSIZETOTEXTW = null,
+    public var lpfnStyle: Lpfnccstylew = null,
+    public var lpfnSizeToText: Lpfnccsizetotextw = null,
     public var dwReserved1: UInt = 0u,
     public var dwReserved2: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CCINFOW) return false
+        if (other !is Ccinfow) return false
         if (!this.szClass.contentEquals(other.szClass)) return false
         if (this.flOptions != other.flOptions) return false
         if (!this.szDesc.contentEquals(other.szDesc)) return false
@@ -172,7 +177,7 @@ public data class CCINFOW(
     }
 }
 
-public data class CCSTYLEA(
+public data class Ccstylea(
     public var flStyle: UInt = 0u,
     public var flExtStyle: UInt = 0u,
     public var szText: ByteArray = ByteArray(256),
@@ -181,7 +186,7 @@ public data class CCSTYLEA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CCSTYLEA) return false
+        if (other !is Ccstylea) return false
         if (this.flStyle != other.flStyle) return false
         if (this.flExtStyle != other.flExtStyle) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -200,19 +205,19 @@ public data class CCSTYLEA(
     }
 }
 
-public data class CCSTYLEFLAGA(
+public data class Ccstyleflaga(
     public var flStyle: UInt = 0u,
     public var flStyleMask: UInt = 0u,
-    public var pszStyle: PSTR = 0L,
+    public var pszStyle: Pstr = null,
 )
 
-public data class CCSTYLEFLAGW(
+public data class Ccstyleflagw(
     public var flStyle: UInt = 0u,
     public var flStyleMask: UInt = 0u,
-    public var pszStyle: PWSTR = 0L,
+    public var pszStyle: Pwstr = null,
 )
 
-public data class CCSTYLEW(
+public data class Ccstylew(
     public var flStyle: UInt = 0u,
     public var flExtStyle: UInt = 0u,
     public var szText: UShortArray = UShortArray(256),
@@ -221,7 +226,7 @@ public data class CCSTYLEW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CCSTYLEW) return false
+        if (other !is Ccstylew) return false
         if (this.flStyle != other.flStyle) return false
         if (this.flExtStyle != other.flExtStyle) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -240,212 +245,212 @@ public data class CCSTYLEW(
     }
 }
 
-public data class COLORMAP(public var from: COLORREF = 0u, public var to: COLORREF = 0u)
+public data class Colormap(public var from: Colorref = 0u, public var to: Colorref = 0u)
 
-public data class COLORSCHEME(
+public data class Colorscheme(
     public var dwSize: UInt = 0u,
-    public var clrBtnHighlight: COLORREF = 0u,
-    public var clrBtnShadow: COLORREF = 0u,
+    public var clrBtnHighlight: Colorref = 0u,
+    public var clrBtnShadow: Colorref = 0u,
 )
 
-public data class COMBOBOXEXITEMA(
-    public var mask: COMBOBOX_EX_ITEM_FLAGS = 0u,
-    public var iItem: Long = 0L,
-    public var pszText: PSTR = 0L,
+public data class Comboboxexitema(
+    public var mask: ComboboxExItemFlags = 0u,
+    public var iItem: Int = 0,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var iOverlay: Int = 0,
     public var iIndent: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class COMBOBOXEXITEMW(
-    public var mask: COMBOBOX_EX_ITEM_FLAGS = 0u,
-    public var iItem: Long = 0L,
-    public var pszText: PWSTR = 0L,
+public data class Comboboxexitemw(
+    public var mask: ComboboxExItemFlags = 0u,
+    public var iItem: Int = 0,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var iOverlay: Int = 0,
     public var iIndent: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class COMBOBOXINFO(
+public data class Comboboxinfo(
     public var cbSize: UInt = 0u,
-    public var rcItem: RECT = RECT(),
-    public var rcButton: RECT = RECT(),
-    public var stateButton: COMBOBOXINFO_BUTTON_STATE = 0u,
-    public var hwndCombo: HWND = 0L,
-    public var hwndItem: HWND = 0L,
-    public var hwndList: HWND = 0L,
+    public var rcItem: Rect = Rect(),
+    public var rcButton: Rect = Rect(),
+    public var stateButton: ComboboxinfoButtonState = 0u,
+    public var hwndCombo: Hwnd = null,
+    public var hwndItem: Hwnd = null,
+    public var hwndList: Hwnd = null,
 )
 
-public data class COMPAREITEMSTRUCT(
-    public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
-    public var CtlID: UInt = 0u,
-    public var hwndItem: HWND = 0L,
+public data class Compareitemstruct(
+    public var ctlType: DrawitemstructCtlType = 0u,
+    public var ctlID: UInt = 0u,
+    public var hwndItem: Hwnd = null,
     public var itemID1: UInt = 0u,
-    public var itemData1: ULong = 0uL,
+    public var itemData1: Int = 0,
     public var itemID2: UInt = 0u,
-    public var itemData2: ULong = 0uL,
+    public var itemData2: Int = 0,
     public var dwLocaleId: UInt = 0u,
 )
 
-public data class DATETIMEPICKERINFO(
+public data class Datetimepickerinfo(
     public var cbSize: UInt = 0u,
-    public var rcCheck: RECT = RECT(),
+    public var rcCheck: Rect = Rect(),
     public var stateCheck: UInt = 0u,
-    public var rcButton: RECT = RECT(),
+    public var rcButton: Rect = Rect(),
     public var stateButton: UInt = 0u,
-    public var hwndEdit: HWND = 0L,
-    public var hwndUD: HWND = 0L,
-    public var hwndDropDown: HWND = 0L,
+    public var hwndEdit: Hwnd = null,
+    public var hwndUD: Hwnd = null,
+    public var hwndDropDown: Hwnd = null,
 )
 
-public data class DELETEITEMSTRUCT(
-    public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
-    public var CtlID: UInt = 0u,
+public data class Deleteitemstruct(
+    public var ctlType: DrawitemstructCtlType = 0u,
+    public var ctlID: UInt = 0u,
     public var itemID: UInt = 0u,
-    public var hwndItem: HWND = 0L,
-    public var itemData: ULong = 0uL,
+    public var hwndItem: Hwnd = null,
+    public var itemData: Int = 0,
 )
 
-public data class DPASTREAMINFO(public var iPos: Int = 0, public var pvItem: Long = 0L)
+public data class Dpastreaminfo(public var iPos: Int = 0, public var pvItem: COpaquePointer? = null)
 
-public data class DRAGLISTINFO(
-    public var uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS = 0u,
-    public var hWnd: HWND = 0L,
-    public var ptCursor: POINT = POINT(),
+public data class Draglistinfo(
+    public var uNotification: DraglistinfoNotificationFlags = 0u,
+    public var hWnd: Hwnd = null,
+    public var ptCursor: Point = Point(),
 )
 
-public data class DRAWITEMSTRUCT(
-    public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
-    public var CtlID: UInt = 0u,
+public data class Drawitemstruct(
+    public var ctlType: DrawitemstructCtlType = 0u,
+    public var ctlID: UInt = 0u,
     public var itemID: UInt = 0u,
-    public var itemAction: ODA_FLAGS = 0u,
-    public var itemState: ODS_FLAGS = 0u,
-    public var hwndItem: HWND = 0L,
-    public var hDC: HDC = 0L,
-    public var rcItem: RECT = RECT(),
-    public var itemData: ULong = 0uL,
+    public var itemAction: OdaFlags = 0u,
+    public var itemState: OdsFlags = 0u,
+    public var hwndItem: Hwnd = null,
+    public var hDC: Hdc = null,
+    public var rcItem: Rect = Rect(),
+    public var itemData: Int = 0,
 )
 
-public data class DTBGOPTS(
+public data class Dtbgopts(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var rcClip: RECT = RECT(),
+    public var rcClip: Rect = Rect(),
 )
 
-public data class DTTOPTS(
+public data class Dttopts(
     public var dwSize: UInt = 0u,
-    public var dwFlags: DTTOPTS_FLAGS = 0u,
-    public var crText: COLORREF = 0u,
-    public var crBorder: COLORREF = 0u,
-    public var crShadow: COLORREF = 0u,
+    public var dwFlags: DttoptsFlags = 0u,
+    public var crText: Colorref = 0u,
+    public var crBorder: Colorref = 0u,
+    public var crShadow: Colorref = 0u,
     public var iTextShadowType: Int = 0,
-    public var ptShadowOffset: POINT = POINT(),
+    public var ptShadowOffset: Point = Point(),
     public var iBorderSize: Int = 0,
     public var iFontPropId: Int = 0,
     public var iColorPropId: Int = 0,
     public var iStateId: Int = 0,
-    public var fApplyOverlay: BOOL = 0,
+    public var fApplyOverlay: Bool = 0,
     public var iGlowSize: Int = 0,
-    public var pfnDrawTextCallback: DTT_CALLBACK_PROC = null,
-    public var lParam: LPARAM = 0L,
+    public var pfnDrawTextCallback: DttCallbackProc = null,
+    public var lParam: Lparam = 0L,
 )
 
-public data class EDITBALLOONTIP(
+public data class Editballoontip(
     public var cbStruct: UInt = 0u,
-    public var pszTitle: PCWSTR = 0L,
-    public var pszText: PCWSTR = 0L,
-    public var ttiIcon: EDITBALLOONTIP_ICON = 0,
+    public var pszTitle: Pcwstr = null,
+    public var pszText: Pcwstr = null,
+    public var ttiIcon: EditballoontipIcon = 0,
 )
 
-public data class HDHITTESTINFO(
-    public var pt: POINT = POINT(),
-    public var flags: HEADER_HITTEST_INFO_FLAGS = 0u,
+public data class Hdhittestinfo(
+    public var pt: Point = Point(),
+    public var flags: HeaderHittestInfoFlags = 0u,
     public var iItem: Int = 0,
 )
 
-public data class HDITEMA(
-    public var mask: HDI_MASK = 0u,
+public data class Hditema(
+    public var mask: HdiMask = 0u,
     public var cxy: Int = 0,
-    public var pszText: PSTR = 0L,
-    public var hbm: HBITMAP = 0L,
+    public var pszText: Pstr = null,
+    public var hbm: Hbitmap = null,
     public var cchTextMax: Int = 0,
-    public var fmt: HEADER_CONTROL_FORMAT_FLAGS = 0,
-    public var lParam: LPARAM = 0L,
+    public var fmt: HeaderControlFormatFlags = 0,
+    public var lParam: Lparam = 0L,
     public var iImage: Int = 0,
     public var iOrder: Int = 0,
-    public var type: HEADER_CONTROL_FORMAT_TYPE = 0u,
-    public var pvFilter: Long = 0L,
-    public var state: HEADER_CONTROL_FORMAT_STATE = 0u,
+    public var type: HeaderControlFormatType = 0u,
+    public var pvFilter: COpaquePointer? = null,
+    public var state: HeaderControlFormatState = 0u,
 )
 
-public data class HDITEMW(
-    public var mask: HDI_MASK = 0u,
+public data class Hditemw(
+    public var mask: HdiMask = 0u,
     public var cxy: Int = 0,
-    public var pszText: PWSTR = 0L,
-    public var hbm: HBITMAP = 0L,
+    public var pszText: Pwstr = null,
+    public var hbm: Hbitmap = null,
     public var cchTextMax: Int = 0,
-    public var fmt: HEADER_CONTROL_FORMAT_FLAGS = 0,
-    public var lParam: LPARAM = 0L,
+    public var fmt: HeaderControlFormatFlags = 0,
+    public var lParam: Lparam = 0L,
     public var iImage: Int = 0,
     public var iOrder: Int = 0,
-    public var type: HEADER_CONTROL_FORMAT_TYPE = 0u,
-    public var pvFilter: Long = 0L,
-    public var state: HEADER_CONTROL_FORMAT_STATE = 0u,
+    public var type: HeaderControlFormatType = 0u,
+    public var pvFilter: COpaquePointer? = null,
+    public var state: HeaderControlFormatState = 0u,
 )
 
-public data class HDLAYOUT(public var prc: Long = 0L, public var pwpos: Long = 0L)
+public data class Hdlayout(public var prc: Rect? = null, public var pwpos: Windowpos? = null)
 
-public data class HD_TEXTFILTERA(public var pszText: PSTR = 0L, public var cchTextMax: Int = 0)
+public data class HdTextfiltera(public var pszText: Pstr = null, public var cchTextMax: Int = 0)
 
-public data class HD_TEXTFILTERW(public var pszText: PWSTR = 0L, public var cchTextMax: Int = 0)
+public data class HdTextfilterw(public var pszText: Pwstr = null, public var cchTextMax: Int = 0)
 
-public data class IMAGEINFO(
-    public var hbmImage: HBITMAP = 0L,
-    public var hbmMask: HBITMAP = 0L,
-    public var Unused1: Int = 0,
-    public var Unused2: Int = 0,
-    public var rcImage: RECT = RECT(),
+public data class Imageinfo(
+    public var hbmImage: Hbitmap = null,
+    public var hbmMask: Hbitmap = null,
+    public var unused1: Int = 0,
+    public var unused2: Int = 0,
+    public var rcImage: Rect = Rect(),
 )
 
-public class IMAGELISTDRAWPARAMS(
+public class Imagelistdrawparams(
     public var cbSize: UInt = 0u,
-    public var himl: HIMAGELIST = 0L,
+    public var himl: Himagelist = 0L,
     public var i: Int = 0,
-    public var hdcDst: HDC = 0L,
+    public var hdcDst: Hdc = null,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
     public var xBitmap: Int = 0,
     public var yBitmap: Int = 0,
-    public var rgbBk: COLORREF = 0u,
-    public var rgbFg: COLORREF = 0u,
+    public var rgbBk: Colorref = 0u,
+    public var rgbFg: Colorref = 0u,
     public var fStyle: UInt = 0u,
     public var dwRop: UInt = 0u,
     public var fState: UInt = 0u,
-    public var Frame: UInt = 0u,
-    public var crEffect: COLORREF = 0u,
+    public var frame: UInt = 0u,
+    public var crEffect: Colorref = 0u,
 )
 
-public data class IMAGELISTSTATS(
+public data class Imageliststats(
     public var cbSize: UInt = 0u,
     public var cAlloc: Int = 0,
     public var cUsed: Int = 0,
     public var cStandby: Int = 0,
 )
 
-public data class INITCOMMONCONTROLSEX(public var dwSize: UInt = 0u, public var dwICC: INITCOMMONCONTROLSEX_ICC = 0u)
+public data class Initcommoncontrolsex(public var dwSize: UInt = 0u, public var dwICC: InitcommoncontrolsexIcc = 0u)
 
-public data class INTLIST(public var iValueCount: Int = 0, public var iValues: IntArray = IntArray(402)) {
+public data class Intlist(public var iValueCount: Int = 0, public var iValues: IntArray = IntArray(402)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTLIST) return false
+        if (other !is Intlist) return false
         if (this.iValueCount != other.iValueCount) return false
         if (!this.iValues.contentEquals(other.iValues)) return false
         return true
@@ -458,19 +463,19 @@ public data class INTLIST(public var iValueCount: Int = 0, public var iValues: I
     }
 }
 
-public data class LHITTESTINFO(public var pt: POINT = POINT(), public var item: LITEM = LITEM())
+public data class Lhittestinfo(public var pt: Point = Point(), public var item: Litem = Litem())
 
-public data class LITEM(
-    public var mask: LIST_ITEM_FLAGS = 0u,
+public data class Litem(
+    public var mask: ListItemFlags = 0u,
     public var iLink: Int = 0,
-    public var state: LIST_ITEM_STATE_FLAGS = 0u,
-    public var stateMask: LIST_ITEM_STATE_FLAGS = 0u,
+    public var state: ListItemStateFlags = 0u,
+    public var stateMask: ListItemStateFlags = 0u,
     public var szID: UShortArray = UShortArray(48),
     public var szUrl: UShortArray = UShortArray(2084),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LITEM) return false
+        if (other !is Litem) return false
         if (this.mask != other.mask) return false
         if (this.iLink != other.iLink) return false
         if (this.state != other.state) return false
@@ -491,29 +496,29 @@ public data class LITEM(
     }
 }
 
-public data class LVBKIMAGEA(
-    public var ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u,
-    public var hbm: HBITMAP = 0L,
-    public var pszImage: PSTR = 0L,
+public data class Lvbkimagea(
+    public var ulFlags: ListViewBackgroundImageFlags = 0u,
+    public var hbm: Hbitmap = null,
+    public var pszImage: Pstr = null,
     public var cchImageMax: UInt = 0u,
     public var xOffsetPercent: Int = 0,
     public var yOffsetPercent: Int = 0,
 )
 
-public data class LVBKIMAGEW(
-    public var ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u,
-    public var hbm: HBITMAP = 0L,
-    public var pszImage: PWSTR = 0L,
+public data class Lvbkimagew(
+    public var ulFlags: ListViewBackgroundImageFlags = 0u,
+    public var hbm: Hbitmap = null,
+    public var pszImage: Pwstr = null,
     public var cchImageMax: UInt = 0u,
     public var xOffsetPercent: Int = 0,
     public var yOffsetPercent: Int = 0,
 )
 
-public data class LVCOLUMNA(
-    public var mask: LVCOLUMNW_MASK = 0u,
-    public var fmt: LVCOLUMNW_FORMAT = 0,
+public data class Lvcolumna(
+    public var mask: LvcolumnwMask = 0u,
+    public var fmt: LvcolumnwFormat = 0,
     public var cx: Int = 0,
-    public var pszText: PSTR = 0L,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iSubItem: Int = 0,
     public var iImage: Int = 0,
@@ -523,11 +528,11 @@ public data class LVCOLUMNA(
     public var cxIdeal: Int = 0,
 )
 
-public data class LVCOLUMNW(
-    public var mask: LVCOLUMNW_MASK = 0u,
-    public var fmt: LVCOLUMNW_FORMAT = 0,
+public data class Lvcolumnw(
+    public var mask: LvcolumnwMask = 0u,
+    public var fmt: LvcolumnwFormat = 0,
     public var cx: Int = 0,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iSubItem: Int = 0,
     public var iImage: Int = 0,
@@ -537,218 +542,218 @@ public data class LVCOLUMNW(
     public var cxIdeal: Int = 0,
 )
 
-public data class LVFINDINFOA(
-    public var flags: LVFINDINFOW_FLAGS = 0u,
-    public var psz: PCSTR = 0L,
-    public var lParam: LPARAM = 0L,
-    public var pt: POINT = POINT(),
+public data class Lvfindinfoa(
+    public var flags: LvfindinfowFlags = 0u,
+    public var psz: Pcstr = null,
+    public var lParam: Lparam = 0L,
+    public var pt: Point = Point(),
     public var vkDirection: UInt = 0u,
 )
 
-public data class LVFINDINFOW(
-    public var flags: LVFINDINFOW_FLAGS = 0u,
-    public var psz: PCWSTR = 0L,
-    public var lParam: LPARAM = 0L,
-    public var pt: POINT = POINT(),
+public data class Lvfindinfow(
+    public var flags: LvfindinfowFlags = 0u,
+    public var psz: Pcwstr = null,
+    public var lParam: Lparam = 0L,
+    public var pt: Point = Point(),
     public var vkDirection: UInt = 0u,
 )
 
-public data class LVFOOTERINFO(
+public data class Lvfooterinfo(
     public var mask: UInt = 0u,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var cItems: UInt = 0u,
 )
 
-public data class LVFOOTERITEM(
-    public var mask: LVFOOTERITEM_MASK = 0u,
+public data class Lvfooteritem(
+    public var mask: LvfooteritemMask = 0u,
     public var iItem: Int = 0,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var state: UInt = 0u,
     public var stateMask: UInt = 0u,
 )
 
-public class LVGROUP(
+public class Lvgroup(
     public var cbSize: UInt = 0u,
-    public var mask: LVGROUP_MASK = 0u,
-    public var pszHeader: PWSTR = 0L,
+    public var mask: LvgroupMask = 0u,
+    public var pszHeader: Pwstr = null,
     public var cchHeader: Int = 0,
-    public var pszFooter: PWSTR = 0L,
+    public var pszFooter: Pwstr = null,
     public var cchFooter: Int = 0,
     public var iGroupId: Int = 0,
-    public var stateMask: LIST_VIEW_GROUP_STATE_FLAGS = 0u,
-    public var state: LIST_VIEW_GROUP_STATE_FLAGS = 0u,
-    public var uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS = 0u,
-    public var pszSubtitle: PWSTR = 0L,
+    public var stateMask: ListViewGroupStateFlags = 0u,
+    public var state: ListViewGroupStateFlags = 0u,
+    public var uAlign: ListViewGroupAlignFlags = 0u,
+    public var pszSubtitle: Pwstr = null,
     public var cchSubtitle: UInt = 0u,
-    public var pszTask: PWSTR = 0L,
+    public var pszTask: Pwstr = null,
     public var cchTask: UInt = 0u,
-    public var pszDescriptionTop: PWSTR = 0L,
+    public var pszDescriptionTop: Pwstr = null,
     public var cchDescriptionTop: UInt = 0u,
-    public var pszDescriptionBottom: PWSTR = 0L,
+    public var pszDescriptionBottom: Pwstr = null,
     public var cchDescriptionBottom: UInt = 0u,
     public var iTitleImage: Int = 0,
     public var iExtendedImage: Int = 0,
     public var iFirstItem: Int = 0,
     public var cItems: UInt = 0u,
-    public var pszSubsetTitle: PWSTR = 0L,
+    public var pszSubsetTitle: Pwstr = null,
     public var cchSubsetTitle: UInt = 0u,
 )
 
-public data class LVGROUPMETRICS(
+public data class Lvgroupmetrics(
     public var cbSize: UInt = 0u,
     public var mask: UInt = 0u,
-    public var Left: UInt = 0u,
-    public var Top: UInt = 0u,
-    public var Right: UInt = 0u,
-    public var Bottom: UInt = 0u,
-    public var crLeft: COLORREF = 0u,
-    public var crTop: COLORREF = 0u,
-    public var crRight: COLORREF = 0u,
-    public var crBottom: COLORREF = 0u,
-    public var crHeader: COLORREF = 0u,
-    public var crFooter: COLORREF = 0u,
+    public var left: UInt = 0u,
+    public var top: UInt = 0u,
+    public var right: UInt = 0u,
+    public var bottom: UInt = 0u,
+    public var crLeft: Colorref = 0u,
+    public var crTop: Colorref = 0u,
+    public var crRight: Colorref = 0u,
+    public var crBottom: Colorref = 0u,
+    public var crHeader: Colorref = 0u,
+    public var crFooter: Colorref = 0u,
 )
 
-public data class LVHITTESTINFO(
-    public var pt: POINT = POINT(),
-    public var flags: LVHITTESTINFO_FLAGS = 0u,
+public data class Lvhittestinfo(
+    public var pt: Point = Point(),
+    public var flags: LvhittestinfoFlags = 0u,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
     public var iGroup: Int = 0,
 )
 
-public data class LVINSERTGROUPSORTED(
-    public var pfnGroupCompare: PFNLVGROUPCOMPARE = null,
-    public var pvData: Long = 0L,
-    public var lvGroup: LVGROUP = LVGROUP(),
+public data class Lvinsertgroupsorted(
+    public var pfnGroupCompare: Pfnlvgroupcompare = null,
+    public var pvData: COpaquePointer? = null,
+    public var lvGroup: Lvgroup = Lvgroup(),
 )
 
-public data class LVINSERTMARK(
+public data class Lvinsertmark(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var iItem: Int = 0,
     public var dwReserved: UInt = 0u,
 )
 
-public data class LVITEMA(
-    public var mask: LIST_VIEW_ITEM_FLAGS = 0u,
+public data class Lvitema(
+    public var mask: ListViewItemFlags = 0u,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var state: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var stateMask: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var pszText: PSTR = 0L,
+    public var state: ListViewItemStateFlags = 0u,
+    public var stateMask: ListViewItemStateFlags = 0u,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var iIndent: Int = 0,
     public var iGroupId: Int = 0,
     public var cColumns: UInt = 0u,
-    public var puColumns: Long = 0L,
-    public var piColFmt: Long = 0L,
+    public var puColumns: UInt? = null,
+    public var piColFmt: Int? = null,
     public var iGroup: Int = 0,
 )
 
-public data class LVITEMINDEX(public var iItem: Int = 0, public var iGroup: Int = 0)
+public data class Lvitemindex(public var iItem: Int = 0, public var iGroup: Int = 0)
 
-public data class LVITEMW(
-    public var mask: LIST_VIEW_ITEM_FLAGS = 0u,
+public data class Lvitemw(
+    public var mask: ListViewItemFlags = 0u,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var state: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var stateMask: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var pszText: PWSTR = 0L,
+    public var state: ListViewItemStateFlags = 0u,
+    public var stateMask: ListViewItemStateFlags = 0u,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var iIndent: Int = 0,
     public var iGroupId: Int = 0,
     public var cColumns: UInt = 0u,
-    public var puColumns: Long = 0L,
-    public var piColFmt: Long = 0L,
+    public var puColumns: UInt? = null,
+    public var piColFmt: Int? = null,
     public var iGroup: Int = 0,
 )
 
-public data class LVSETINFOTIP(
+public data class Lvsetinfotip(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
 )
 
-public data class LVTILEINFO(
+public data class Lvtileinfo(
     public var cbSize: UInt = 0u,
     public var iItem: Int = 0,
     public var cColumns: UInt = 0u,
-    public var puColumns: Long = 0L,
-    public var piColFmt: Long = 0L,
+    public var puColumns: UInt? = null,
+    public var piColFmt: Int? = null,
 )
 
-public data class LVTILEVIEWINFO(
+public data class Lvtileviewinfo(
     public var cbSize: UInt = 0u,
-    public var dwMask: LVTILEVIEWINFO_MASK = 0u,
-    public var dwFlags: LVTILEVIEWINFO_FLAGS = 0u,
-    public var sizeTile: SIZE = SIZE(),
+    public var dwMask: LvtileviewinfoMask = 0u,
+    public var dwFlags: LvtileviewinfoFlags = 0u,
+    public var sizeTile: Size = Size(),
     public var cLines: Int = 0,
-    public var rcLabelMargin: RECT = RECT(),
+    public var rcLabelMargin: Rect = Rect(),
 )
 
-public data class MARGINS(
+public data class Margins(
     public var cxLeftWidth: Int = 0,
     public var cxRightWidth: Int = 0,
     public var cyTopHeight: Int = 0,
     public var cyBottomHeight: Int = 0,
 )
 
-public data class MCGRIDINFO(
+public data class Mcgridinfo(
     public var cbSize: UInt = 0u,
-    public var dwPart: MCGRIDINFO_PART = 0u,
-    public var dwFlags: MCGRIDINFO_FLAGS = 0u,
+    public var dwPart: McgridinfoPart = 0u,
+    public var dwFlags: McgridinfoFlags = 0u,
     public var iCalendar: Int = 0,
     public var iRow: Int = 0,
     public var iCol: Int = 0,
-    public var bSelected: BOOL = 0,
-    public var stStart: SYSTEMTIME = SYSTEMTIME(),
-    public var stEnd: SYSTEMTIME = SYSTEMTIME(),
-    public var rc: RECT = RECT(),
-    public var pszName: PWSTR = 0L,
-    public var cchName: ULong = 0uL,
+    public var bSelected: Bool = 0,
+    public var stStart: Systemtime = Systemtime(),
+    public var stEnd: Systemtime = Systemtime(),
+    public var rc: Rect = Rect(),
+    public var pszName: Pwstr = null,
+    public var cchName: Int = 0,
 )
 
-public data class MCHITTESTINFO(
+public data class Mchittestinfo(
     public var cbSize: UInt = 0u,
-    public var pt: POINT = POINT(),
-    public var uHit: MCHITTESTINFO_HIT_FLAGS = 0u,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
-    public var rc: RECT = RECT(),
+    public var pt: Point = Point(),
+    public var uHit: MchittestinfoHitFlags = 0u,
+    public var st: Systemtime = Systemtime(),
+    public var rc: Rect = Rect(),
     public var iOffset: Int = 0,
     public var iRow: Int = 0,
     public var iCol: Int = 0,
 )
 
-public data class MEASUREITEMSTRUCT(
-    public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
-    public var CtlID: UInt = 0u,
+public data class Measureitemstruct(
+    public var ctlType: DrawitemstructCtlType = 0u,
+    public var ctlID: UInt = 0u,
     public var itemID: UInt = 0u,
     public var itemWidth: UInt = 0u,
     public var itemHeight: UInt = 0u,
-    public var itemData: ULong = 0uL,
+    public var itemData: Int = 0,
 )
 
-public data class NMBCDROPDOWN(public var hdr: NMHDR = NMHDR(), public var rcButton: RECT = RECT())
+public data class Nmbcdropdown(public var hdr: Nmhdr = Nmhdr(), public var rcButton: Rect = Rect())
 
-public data class NMBCHOTITEM(public var hdr: NMHDR = NMHDR(), public var dwFlags: NMTBHOTITEM_FLAGS = 0u)
+public data class Nmbchotitem(public var hdr: Nmhdr = Nmhdr(), public var dwFlags: NmtbhotitemFlags = 0u)
 
-public data class NMCBEDRAGBEGINA(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmcbedragbegina(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItemid: Int = 0,
     public var szText: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMCBEDRAGBEGINA) return false
+        if (other !is Nmcbedragbegina) return false
         if (this.hdr != other.hdr) return false
         if (this.iItemid != other.iItemid) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -763,14 +768,14 @@ public data class NMCBEDRAGBEGINA(
     }
 }
 
-public data class NMCBEDRAGBEGINW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmcbedragbeginw(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItemid: Int = 0,
     public var szText: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMCBEDRAGBEGINW) return false
+        if (other !is Nmcbedragbeginw) return false
         if (this.hdr != other.hdr) return false
         if (this.iItemid != other.iItemid) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -785,16 +790,16 @@ public data class NMCBEDRAGBEGINW(
     }
 }
 
-public data class NMCBEENDEDITA(
-    public var hdr: NMHDR = NMHDR(),
-    public var fChanged: BOOL = 0,
+public data class Nmcbeendedita(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var fChanged: Bool = 0,
     public var iNewSelection: Int = 0,
     public var szText: ByteArray = ByteArray(260),
     public var iWhy: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMCBEENDEDITA) return false
+        if (other !is Nmcbeendedita) return false
         if (this.hdr != other.hdr) return false
         if (this.fChanged != other.fChanged) return false
         if (this.iNewSelection != other.iNewSelection) return false
@@ -813,16 +818,16 @@ public data class NMCBEENDEDITA(
     }
 }
 
-public data class NMCBEENDEDITW(
-    public var hdr: NMHDR = NMHDR(),
-    public var fChanged: BOOL = 0,
+public data class Nmcbeendeditw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var fChanged: Bool = 0,
     public var iNewSelection: Int = 0,
     public var szText: UShortArray = UShortArray(260),
     public var iWhy: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMCBEENDEDITW) return false
+        if (other !is Nmcbeendeditw) return false
         if (this.hdr != other.hdr) return false
         if (this.fChanged != other.fChanged) return false
         if (this.iNewSelection != other.iNewSelection) return false
@@ -841,60 +846,60 @@ public data class NMCBEENDEDITW(
     }
 }
 
-public data class NMCHAR(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmchar(
+    public var hdr: Nmhdr = Nmhdr(),
     public var ch: UInt = 0u,
     public var dwItemPrev: UInt = 0u,
     public var dwItemNext: UInt = 0u,
 )
 
-public data class NMCOMBOBOXEXA(public var hdr: NMHDR = NMHDR(), public var ceItem: COMBOBOXEXITEMA = COMBOBOXEXITEMA())
+public data class Nmcomboboxexa(public var hdr: Nmhdr = Nmhdr(), public var ceItem: Comboboxexitema = Comboboxexitema())
 
-public data class NMCOMBOBOXEXW(public var hdr: NMHDR = NMHDR(), public var ceItem: COMBOBOXEXITEMW = COMBOBOXEXITEMW())
+public data class Nmcomboboxexw(public var hdr: Nmhdr = Nmhdr(), public var ceItem: Comboboxexitemw = Comboboxexitemw())
 
-public data class NMCUSTOMDRAW(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwDrawStage: NMCUSTOMDRAW_DRAW_STAGE = 0u,
-    public var hdc: HDC = 0L,
-    public var rc: RECT = RECT(),
-    public var dwItemSpec: ULong = 0uL,
-    public var uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 0u,
-    public var lItemlParam: LPARAM = 0L,
+public data class Nmcustomdraw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwDrawStage: NmcustomdrawDrawStage = 0u,
+    public var hdc: Hdc = null,
+    public var rc: Rect = Rect(),
+    public var dwItemSpec: Int = 0,
+    public var uItemState: NmcustomdrawDrawStateFlags = 0u,
+    public var lItemlParam: Lparam = 0L,
 )
 
-public data class NMCUSTOMSPLITRECTINFO(
-    public var hdr: NMHDR = NMHDR(),
-    public var rcClient: RECT = RECT(),
-    public var rcButton: RECT = RECT(),
-    public var rcSplit: RECT = RECT(),
+public data class Nmcustomsplitrectinfo(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var rcClient: Rect = Rect(),
+    public var rcButton: Rect = Rect(),
+    public var rcSplit: Rect = Rect(),
 )
 
-public data class NMCUSTOMTEXT(
-    public var hdr: NMHDR = NMHDR(),
-    public var hDC: HDC = 0L,
-    public var lpString: PCWSTR = 0L,
+public data class Nmcustomtext(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var hDC: Hdc = null,
+    public var lpString: Pcwstr = null,
     public var nCount: Int = 0,
-    public var lpRect: Long = 0L,
+    public var lpRect: Rect? = null,
     public var uFormat: UInt = 0u,
-    public var fLink: BOOL = 0,
+    public var fLink: Bool = 0,
 )
 
-public data class NMDATETIMECHANGE(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var dwFlags: NMDATETIMECHANGE_FLAGS = 0u,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
+public data class Nmdatetimechange(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var dwFlags: NmdatetimechangeFlags = 0u,
+    public var st: Systemtime = Systemtime(),
 )
 
-public data class NMDATETIMEFORMATA(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszFormat: PCSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
-    public var pszDisplay: PCSTR = 0L,
+public data class Nmdatetimeformata(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszFormat: Pcstr = null,
+    public var st: Systemtime = Systemtime(),
+    public var pszDisplay: Pcstr = null,
     public var szDisplay: ByteArray = ByteArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMDATETIMEFORMATA) return false
+        if (other !is Nmdatetimeformata) return false
         if (this.nmhdr != other.nmhdr) return false
         if (this.pszFormat != other.pszFormat) return false
         if (this.st != other.st) return false
@@ -913,28 +918,28 @@ public data class NMDATETIMEFORMATA(
     }
 }
 
-public data class NMDATETIMEFORMATQUERYA(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszFormat: PCSTR = 0L,
-    public var szMax: SIZE = SIZE(),
+public data class Nmdatetimeformatquerya(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszFormat: Pcstr = null,
+    public var szMax: Size = Size(),
 )
 
-public data class NMDATETIMEFORMATQUERYW(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszFormat: PCWSTR = 0L,
-    public var szMax: SIZE = SIZE(),
+public data class Nmdatetimeformatqueryw(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszFormat: Pcwstr = null,
+    public var szMax: Size = Size(),
 )
 
-public data class NMDATETIMEFORMATW(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszFormat: PCWSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
-    public var pszDisplay: PCWSTR = 0L,
+public data class Nmdatetimeformatw(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszFormat: Pcwstr = null,
+    public var st: Systemtime = Systemtime(),
+    public var pszDisplay: Pcwstr = null,
     public var szDisplay: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMDATETIMEFORMATW) return false
+        if (other !is Nmdatetimeformatw) return false
         if (this.nmhdr != other.nmhdr) return false
         if (this.pszFormat != other.pszFormat) return false
         if (this.st != other.st) return false
@@ -953,157 +958,157 @@ public data class NMDATETIMEFORMATW(
     }
 }
 
-public data class NMDATETIMESTRINGA(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszUserString: PCSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
+public data class Nmdatetimestringa(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszUserString: Pcstr = null,
+    public var st: Systemtime = Systemtime(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class NMDATETIMESTRINGW(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var pszUserString: PCWSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
+public data class Nmdatetimestringw(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var pszUserString: Pcwstr = null,
+    public var st: Systemtime = Systemtime(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class NMDATETIMEWMKEYDOWNA(
-    public var nmhdr: NMHDR = NMHDR(),
+public data class Nmdatetimewmkeydowna(
+    public var nmhdr: Nmhdr = Nmhdr(),
     public var nVirtKey: Int = 0,
-    public var pszFormat: PCSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
+    public var pszFormat: Pcstr = null,
+    public var st: Systemtime = Systemtime(),
 )
 
-public data class NMDATETIMEWMKEYDOWNW(
-    public var nmhdr: NMHDR = NMHDR(),
+public data class Nmdatetimewmkeydownw(
+    public var nmhdr: Nmhdr = Nmhdr(),
     public var nVirtKey: Int = 0,
-    public var pszFormat: PCWSTR = 0L,
-    public var st: SYSTEMTIME = SYSTEMTIME(),
+    public var pszFormat: Pcwstr = null,
+    public var st: Systemtime = Systemtime(),
 )
 
-public data class NMDAYSTATE(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var stStart: SYSTEMTIME = SYSTEMTIME(),
+public data class Nmdaystate(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var stStart: Systemtime = Systemtime(),
     public var cDayState: Int = 0,
-    public var prgDayState: Long = 0L,
+    public var prgDayState: UInt? = null,
 )
 
-public data class NMHDDISPINFOA(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmhddispinfoa(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var mask: HDI_MASK = 0u,
-    public var pszText: PSTR = 0L,
+    public var mask: HdiMask = 0u,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMHDDISPINFOW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmhddispinfow(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var mask: HDI_MASK = 0u,
-    public var pszText: PWSTR = 0L,
+    public var mask: HdiMask = 0u,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMHDFILTERBTNCLICK(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmhdfilterbtnclick(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var rc: RECT = RECT(),
+    public var rc: Rect = Rect(),
 )
 
-public data class NMHDR(
-    public var hwndFrom: HWND = 0L,
-    public var idFrom: ULong = 0uL,
+public data class Nmhdr(
+    public var hwndFrom: Hwnd = null,
+    public var idFrom: Int = 0,
     public var code: UInt = 0u,
 )
 
-public data class NMHEADERA(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmheadera(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var iButton: HEADER_CONTROL_NOTIFICATION_BUTTON = 0,
-    public var pitem: Long = 0L,
+    public var iButton: HeaderControlNotificationButton = 0,
+    public var pitem: Hditema? = null,
 )
 
-public data class NMHEADERW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmheaderw(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var iButton: HEADER_CONTROL_NOTIFICATION_BUTTON = 0,
-    public var pitem: Long = 0L,
+    public var iButton: HeaderControlNotificationButton = 0,
+    public var pitem: Hditemw? = null,
 )
 
-public data class NMIPADDRESS(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmipaddress(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iField: Int = 0,
     public var iValue: Int = 0,
 )
 
-public data class NMITEMACTIVATE(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmitemactivate(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
     public var uNewState: UInt = 0u,
     public var uOldState: UInt = 0u,
     public var uChanged: UInt = 0u,
-    public var ptAction: POINT = POINT(),
-    public var lParam: LPARAM = 0L,
+    public var ptAction: Point = Point(),
+    public var lParam: Lparam = 0L,
     public var uKeyFlags: UInt = 0u,
 )
 
-public data class NMKEY(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmkey(
+    public var hdr: Nmhdr = Nmhdr(),
     public var nVKey: UInt = 0u,
     public var uFlags: UInt = 0u,
 )
 
-public data class NMLINK(public var hdr: NMHDR = NMHDR(), public var item: LITEM = LITEM())
+public data class Nmlink(public var hdr: Nmhdr = Nmhdr(), public var item: Litem = Litem())
 
-public data class NMLISTVIEW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlistview(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
     public var uNewState: UInt = 0u,
     public var uOldState: UInt = 0u,
-    public var uChanged: LIST_VIEW_ITEM_FLAGS = 0u,
-    public var ptAction: POINT = POINT(),
-    public var lParam: LPARAM = 0L,
+    public var uChanged: ListViewItemFlags = 0u,
+    public var ptAction: Point = Point(),
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMLVCACHEHINT(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvcachehint(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iFrom: Int = 0,
     public var iTo: Int = 0,
 )
 
-public data class NMLVCUSTOMDRAW(
-    public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var clrText: COLORREF = 0u,
-    public var clrTextBk: COLORREF = 0u,
+public data class Nmlvcustomdraw(
+    public var nmcd: Nmcustomdraw = Nmcustomdraw(),
+    public var clrText: Colorref = 0u,
+    public var clrTextBk: Colorref = 0u,
     public var iSubItem: Int = 0,
-    public var dwItemType: NMLVCUSTOMDRAW_ITEM_TYPE = 0u,
-    public var clrFace: COLORREF = 0u,
+    public var dwItemType: NmlvcustomdrawItemType = 0u,
+    public var clrFace: Colorref = 0u,
     public var iIconEffect: Int = 0,
     public var iIconPhase: Int = 0,
     public var iPartId: Int = 0,
     public var iStateId: Int = 0,
-    public var rcText: RECT = RECT(),
-    public var uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS = 0u,
+    public var rcText: Rect = Rect(),
+    public var uAlign: ListViewGroupAlignFlags = 0u,
 )
 
-public data class NMLVDISPINFOA(public var hdr: NMHDR = NMHDR(), public var item: LVITEMA = LVITEMA())
+public data class Nmlvdispinfoa(public var hdr: Nmhdr = Nmhdr(), public var item: Lvitema = Lvitema())
 
-public data class NMLVDISPINFOW(public var hdr: NMHDR = NMHDR(), public var item: LVITEMW = LVITEMW())
+public data class Nmlvdispinfow(public var hdr: Nmhdr = Nmhdr(), public var item: Lvitemw = Lvitemw())
 
-public data class NMLVEMPTYMARKUP(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwFlags: NMLVEMPTYMARKUP_FLAGS = 0u,
+public data class Nmlvemptymarkup(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwFlags: NmlvemptymarkupFlags = 0u,
     public var szMarkup: UShortArray = UShortArray(2084),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMLVEMPTYMARKUP) return false
+        if (other !is Nmlvemptymarkup) return false
         if (this.hdr != other.hdr) return false
         if (this.dwFlags != other.dwFlags) return false
         if (!this.szMarkup.contentEquals(other.szMarkup)) return false
@@ -1118,306 +1123,306 @@ public data class NMLVEMPTYMARKUP(
     }
 }
 
-public data class NMLVFINDITEMA(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvfinditema(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iStart: Int = 0,
-    public var lvfi: LVFINDINFOA = LVFINDINFOA(),
+    public var lvfi: Lvfindinfoa = Lvfindinfoa(),
 )
 
-public data class NMLVFINDITEMW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvfinditemw(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iStart: Int = 0,
-    public var lvfi: LVFINDINFOW = LVFINDINFOW(),
+    public var lvfi: Lvfindinfow = Lvfindinfow(),
 )
 
-public data class NMLVGETINFOTIPA(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwFlags: NMLVGETINFOTIP_FLAGS = 0u,
-    public var pszText: PSTR = 0L,
+public data class Nmlvgetinfotipa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwFlags: NmlvgetinfotipFlags = 0u,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMLVGETINFOTIPW(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwFlags: NMLVGETINFOTIP_FLAGS = 0u,
-    public var pszText: PWSTR = 0L,
+public data class Nmlvgetinfotipw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwFlags: NmlvgetinfotipFlags = 0u,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMLVKEYDOWN(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvkeydown(
+    public var hdr: Nmhdr = Nmhdr(),
     public var wVKey: UShort = 0u,
     public var flags: UInt = 0u,
 )
 
-public data class NMLVLINK(
-    public var hdr: NMHDR = NMHDR(),
-    public var link: LITEM = LITEM(),
+public data class Nmlvlink(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var link: Litem = Litem(),
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
 )
 
-public data class NMLVODSTATECHANGE(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvodstatechange(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iFrom: Int = 0,
     public var iTo: Int = 0,
-    public var uNewState: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var uOldState: LIST_VIEW_ITEM_STATE_FLAGS = 0u,
+    public var uNewState: ListViewItemStateFlags = 0u,
+    public var uOldState: ListViewItemStateFlags = 0u,
 )
 
-public data class NMLVSCROLL(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmlvscroll(
+    public var hdr: Nmhdr = Nmhdr(),
     public var dx: Int = 0,
     public var dy: Int = 0,
 )
 
-public data class NMMOUSE(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwItemSpec: ULong = 0uL,
-    public var dwItemData: ULong = 0uL,
-    public var pt: POINT = POINT(),
-    public var dwHitInfo: LPARAM = 0L,
+public data class Nmmouse(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwItemSpec: Int = 0,
+    public var dwItemData: Int = 0,
+    public var pt: Point = Point(),
+    public var dwHitInfo: Lparam = 0L,
 )
 
-public data class NMOBJECTNOTIFY(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmobjectnotify(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var piid: Long = 0L,
-    public var pObject: Long = 0L,
-    public var hResult: HRESULT = 0,
+    public var piid: Guid? = null,
+    public var pObject: COpaquePointer? = null,
+    public var hResult: Hresult = 0,
     public var dwFlags: UInt = 0u,
 )
 
-public data class NMPGCALCSIZE(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwFlag: NMPGCALCSIZE_FLAGS = 0u,
+public data class Nmpgcalcsize(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwFlag: NmpgcalcsizeFlags = 0u,
     public var iWidth: Int = 0,
     public var iHeight: Int = 0,
 )
 
-public data class NMPGHOTITEM(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmpghotitem(
+    public var hdr: Nmhdr = Nmhdr(),
     public var idOld: Int = 0,
     public var idNew: Int = 0,
     public var dwFlags: UInt = 0u,
 )
 
-public data class NMPGSCROLL(
-    public var hdr: NMHDR = NMHDR(),
-    public var fwKeys: NMPGSCROLL_KEYS = 0u,
-    public var rcParent: RECT = RECT(),
-    public var iDir: NMPGSCROLL_DIR = 0,
+public data class Nmpgscroll(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var fwKeys: NmpgscrollKeys = 0u,
+    public var rcParent: Rect = Rect(),
+    public var iDir: NmpgscrollDir = 0,
     public var iXpos: Int = 0,
     public var iYpos: Int = 0,
     public var iScroll: Int = 0,
 )
 
-public data class NMRBAUTOSIZE(
-    public var hdr: NMHDR = NMHDR(),
-    public var fChanged: BOOL = 0,
-    public var rcTarget: RECT = RECT(),
-    public var rcActual: RECT = RECT(),
+public data class Nmrbautosize(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var fChanged: Bool = 0,
+    public var rcTarget: Rect = Rect(),
+    public var rcActual: Rect = Rect(),
 )
 
-public data class NMREBAR(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwMask: NMREBAR_MASK_FLAGS = 0u,
+public data class Nmrebar(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwMask: NmrebarMaskFlags = 0u,
     public var uBand: UInt = 0u,
     public var fStyle: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMREBARAUTOBREAK(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmrebarautobreak(
+    public var hdr: Nmhdr = Nmhdr(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var uMsg: UInt = 0u,
     public var fStyleCurrent: UInt = 0u,
-    public var fAutoBreak: BOOL = 0,
+    public var fAutoBreak: Bool = 0,
 )
 
-public data class NMREBARCHEVRON(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmrebarchevron(
+    public var hdr: Nmhdr = Nmhdr(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: LPARAM = 0L,
-    public var rc: RECT = RECT(),
-    public var lParamNM: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
+    public var rc: Rect = Rect(),
+    public var lParamNM: Lparam = 0L,
 )
 
-public data class NMREBARCHILDSIZE(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmrebarchildsize(
+    public var hdr: Nmhdr = Nmhdr(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var rcChild: RECT = RECT(),
-    public var rcBand: RECT = RECT(),
+    public var rcChild: Rect = Rect(),
+    public var rcBand: Rect = Rect(),
 )
 
-public data class NMREBARSPLITTER(public var hdr: NMHDR = NMHDR(), public var rcSizing: RECT = RECT())
+public data class Nmrebarsplitter(public var hdr: Nmhdr = Nmhdr(), public var rcSizing: Rect = Rect())
 
-public data class NMSEARCHWEB(
-    public var hdr: NMHDR = NMHDR(),
-    public var entrypoint: EC_SEARCHWEB_ENTRYPOINT = 0,
-    public var hasQueryText: BOOL = 0,
-    public var invokeSucceeded: BOOL = 0,
+public data class Nmsearchweb(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var entrypoint: EcSearchwebEntrypoint = 0,
+    public var hasQueryText: Bool = 0,
+    public var invokeSucceeded: Bool = 0,
 )
 
-public data class NMSELCHANGE(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var stSelStart: SYSTEMTIME = SYSTEMTIME(),
-    public var stSelEnd: SYSTEMTIME = SYSTEMTIME(),
+public data class Nmselchange(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var stSelStart: Systemtime = Systemtime(),
+    public var stSelEnd: Systemtime = Systemtime(),
 )
 
-public data class NMTBCUSTOMDRAW(
-    public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var hbrMonoDither: HBRUSH = 0L,
-    public var hbrLines: HBRUSH = 0L,
-    public var hpenLines: HPEN = 0L,
-    public var clrText: COLORREF = 0u,
-    public var clrMark: COLORREF = 0u,
-    public var clrTextHighlight: COLORREF = 0u,
-    public var clrBtnFace: COLORREF = 0u,
-    public var clrBtnHighlight: COLORREF = 0u,
-    public var clrHighlightHotTrack: COLORREF = 0u,
-    public var rcText: RECT = RECT(),
+public data class Nmtbcustomdraw(
+    public var nmcd: Nmcustomdraw = Nmcustomdraw(),
+    public var hbrMonoDither: Hbrush = null,
+    public var hbrLines: Hbrush = null,
+    public var hpenLines: Hpen = null,
+    public var clrText: Colorref = 0u,
+    public var clrMark: Colorref = 0u,
+    public var clrTextHighlight: Colorref = 0u,
+    public var clrBtnFace: Colorref = 0u,
+    public var clrBtnHighlight: Colorref = 0u,
+    public var clrHighlightHotTrack: Colorref = 0u,
+    public var rcText: Rect = Rect(),
     public var nStringBkMode: Int = 0,
     public var nHLStringBkMode: Int = 0,
     public var iListGap: Int = 0,
 )
 
-public data class NMTBDISPINFOA(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwMask: NMTBDISPINFOW_MASK = 0u,
+public data class Nmtbdispinfoa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwMask: NmtbdispinfowMask = 0u,
     public var idCommand: Int = 0,
-    public var lParam: ULong = 0uL,
+    public var lParam: Int = 0,
     public var iImage: Int = 0,
-    public var pszText: PSTR = 0L,
+    public var pszText: Pstr = null,
     public var cchText: Int = 0,
 )
 
-public data class NMTBDISPINFOW(
-    public var hdr: NMHDR = NMHDR(),
-    public var dwMask: NMTBDISPINFOW_MASK = 0u,
+public data class Nmtbdispinfow(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwMask: NmtbdispinfowMask = 0u,
     public var idCommand: Int = 0,
-    public var lParam: ULong = 0uL,
+    public var lParam: Int = 0,
     public var iImage: Int = 0,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchText: Int = 0,
 )
 
-public data class NMTBGETINFOTIPA(
-    public var hdr: NMHDR = NMHDR(),
-    public var pszText: PSTR = 0L,
+public data class Nmtbgetinfotipa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMTBGETINFOTIPW(
-    public var hdr: NMHDR = NMHDR(),
-    public var pszText: PWSTR = 0L,
+public data class Nmtbgetinfotipw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMTBHOTITEM(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtbhotitem(
+    public var hdr: Nmhdr = Nmhdr(),
     public var idOld: Int = 0,
     public var idNew: Int = 0,
-    public var dwFlags: NMTBHOTITEM_FLAGS = 0u,
+    public var dwFlags: NmtbhotitemFlags = 0u,
 )
 
-public data class NMTBRESTORE(
-    public var hdr: NMHDR = NMHDR(),
-    public var pData: Long = 0L,
-    public var pCurrent: Long = 0L,
+public data class Nmtbrestore(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pData: UInt? = null,
+    public var pCurrent: UInt? = null,
     public var cbData: UInt = 0u,
     public var iItem: Int = 0,
     public var cButtons: Int = 0,
     public var cbBytesPerRecord: Int = 0,
-    public var tbButton: TBBUTTON = TBBUTTON(),
+    public var tbButton: Tbbutton = Tbbutton(),
 )
 
-public data class NMTBSAVE(
-    public var hdr: NMHDR = NMHDR(),
-    public var pData: Long = 0L,
-    public var pCurrent: Long = 0L,
+public data class Nmtbsave(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pData: UInt? = null,
+    public var pCurrent: UInt? = null,
     public var cbData: UInt = 0u,
     public var iItem: Int = 0,
     public var cButtons: Int = 0,
-    public var tbButton: TBBUTTON = TBBUTTON(),
+    public var tbButton: Tbbutton = Tbbutton(),
 )
 
-public data class NMTCKEYDOWN(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtckeydown(
+    public var hdr: Nmhdr = Nmhdr(),
     public var wVKey: UShort = 0u,
     public var flags: UInt = 0u,
 )
 
-public data class NMTOOLBARA(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtoolbara(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var tbButton: TBBUTTON = TBBUTTON(),
+    public var tbButton: Tbbutton = Tbbutton(),
     public var cchText: Int = 0,
-    public var pszText: PSTR = 0L,
-    public var rcButton: RECT = RECT(),
+    public var pszText: Pstr = null,
+    public var rcButton: Rect = Rect(),
 )
 
-public data class NMTOOLBARW(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtoolbarw(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iItem: Int = 0,
-    public var tbButton: TBBUTTON = TBBUTTON(),
+    public var tbButton: Tbbutton = Tbbutton(),
     public var cchText: Int = 0,
-    public var pszText: PWSTR = 0L,
-    public var rcButton: RECT = RECT(),
+    public var pszText: Pwstr = null,
+    public var rcButton: Rect = Rect(),
 )
 
-public data class NMTOOLTIPSCREATED(public var hdr: NMHDR = NMHDR(), public var hwndToolTips: HWND = 0L)
+public data class Nmtooltipscreated(public var hdr: Nmhdr = Nmhdr(), public var hwndToolTips: Hwnd = null)
 
-public data class NMTRBTHUMBPOSCHANGING(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtrbthumbposchanging(
+    public var hdr: Nmhdr = Nmhdr(),
     public var dwPos: UInt = 0u,
     public var nReason: Int = 0,
 )
 
-public data class NMTREEVIEWA(
-    public var hdr: NMHDR = NMHDR(),
-    public var action: NM_TREEVIEW_ACTION = 0u,
-    public var itemOld: TVITEMA = TVITEMA(),
-    public var itemNew: TVITEMA = TVITEMA(),
-    public var ptDrag: POINT = POINT(),
+public data class Nmtreeviewa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var action: NmTreeviewAction = 0u,
+    public var itemOld: Tvitema = Tvitema(),
+    public var itemNew: Tvitema = Tvitema(),
+    public var ptDrag: Point = Point(),
 )
 
-public data class NMTREEVIEWW(
-    public var hdr: NMHDR = NMHDR(),
-    public var action: NM_TREEVIEW_ACTION = 0u,
-    public var itemOld: TVITEMW = TVITEMW(),
-    public var itemNew: TVITEMW = TVITEMW(),
-    public var ptDrag: POINT = POINT(),
+public data class Nmtreevieww(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var action: NmTreeviewAction = 0u,
+    public var itemOld: Tvitemw = Tvitemw(),
+    public var itemNew: Tvitemw = Tvitemw(),
+    public var ptDrag: Point = Point(),
 )
 
-public data class NMTTCUSTOMDRAW(public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(), public var uDrawFlags: UInt = 0u)
+public data class Nmttcustomdraw(public var nmcd: Nmcustomdraw = Nmcustomdraw(), public var uDrawFlags: UInt = 0u)
 
-public data class NMTTDISPINFOA(
-    public var hdr: NMHDR = NMHDR(),
-    public var lpszText: PSTR = 0L,
+public data class Nmttdispinfoa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var lpszText: Pstr = null,
     public var szText: ByteArray = ByteArray(80),
-    public var hinst: HINSTANCE = 0L,
-    public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var lParam: LPARAM = 0L,
+    public var hinst: Hinstance = null,
+    public var uFlags: TooltipFlags = 0u,
+    public var lParam: Lparam = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMTTDISPINFOA) return false
+        if (other !is Nmttdispinfoa) return false
         if (this.hdr != other.hdr) return false
         if (this.lpszText != other.lpszText) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -1438,17 +1443,17 @@ public data class NMTTDISPINFOA(
     }
 }
 
-public data class NMTTDISPINFOW(
-    public var hdr: NMHDR = NMHDR(),
-    public var lpszText: PWSTR = 0L,
+public data class Nmttdispinfow(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var lpszText: Pwstr = null,
     public var szText: UShortArray = UShortArray(80),
-    public var hinst: HINSTANCE = 0L,
-    public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var lParam: LPARAM = 0L,
+    public var hinst: Hinstance = null,
+    public var uFlags: TooltipFlags = 0u,
+    public var lParam: Lparam = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NMTTDISPINFOW) return false
+        if (other !is Nmttdispinfow) return false
         if (this.hdr != other.hdr) return false
         if (this.lpszText != other.lpszText) return false
         if (!this.szText.contentEquals(other.szText)) return false
@@ -1469,97 +1474,97 @@ public data class NMTTDISPINFOW(
     }
 }
 
-public data class NMTVASYNCDRAW(
-    public var hdr: NMHDR = NMHDR(),
-    public var pimldp: Long = 0L,
-    public var hr: HRESULT = 0,
-    public var hItem: HTREEITEM = 0L,
-    public var lParam: LPARAM = 0L,
+public data class Nmtvasyncdraw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pimldp: Imagelistdrawparams? = null,
+    public var hr: Hresult = 0,
+    public var hItem: Htreeitem = 0,
+    public var lParam: Lparam = 0L,
     public var dwRetFlags: UInt = 0u,
     public var iRetImageIndex: Int = 0,
 )
 
-public data class NMTVCUSTOMDRAW(
-    public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var clrText: COLORREF = 0u,
-    public var clrTextBk: COLORREF = 0u,
+public data class Nmtvcustomdraw(
+    public var nmcd: Nmcustomdraw = Nmcustomdraw(),
+    public var clrText: Colorref = 0u,
+    public var clrTextBk: Colorref = 0u,
     public var iLevel: Int = 0,
 )
 
-public data class NMTVDISPINFOA(public var hdr: NMHDR = NMHDR(), public var item: TVITEMA = TVITEMA())
+public data class Nmtvdispinfoa(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitema = Tvitema())
 
-public data class NMTVDISPINFOEXA(public var hdr: NMHDR = NMHDR(), public var item: TVITEMEXA = TVITEMEXA())
+public data class Nmtvdispinfoexa(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemexa = Tvitemexa())
 
-public data class NMTVDISPINFOEXW(public var hdr: NMHDR = NMHDR(), public var item: TVITEMEXW = TVITEMEXW())
+public data class Nmtvdispinfoexw(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemexw = Tvitemexw())
 
-public data class NMTVDISPINFOW(public var hdr: NMHDR = NMHDR(), public var item: TVITEMW = TVITEMW())
+public data class Nmtvdispinfow(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemw = Tvitemw())
 
-public data class NMTVGETINFOTIPA(
-    public var hdr: NMHDR = NMHDR(),
-    public var pszText: PSTR = 0L,
+public data class Nmtvgetinfotipa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
-    public var hItem: HTREEITEM = 0L,
-    public var lParam: LPARAM = 0L,
+    public var hItem: Htreeitem = 0,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMTVGETINFOTIPW(
-    public var hdr: NMHDR = NMHDR(),
-    public var pszText: PWSTR = 0L,
+public data class Nmtvgetinfotipw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
-    public var hItem: HTREEITEM = 0L,
-    public var lParam: LPARAM = 0L,
+    public var hItem: Htreeitem = 0,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMTVITEMCHANGE(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtvitemchange(
+    public var hdr: Nmhdr = Nmhdr(),
     public var uChanged: UInt = 0u,
-    public var hItem: HTREEITEM = 0L,
+    public var hItem: Htreeitem = 0,
     public var uStateNew: UInt = 0u,
     public var uStateOld: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class NMTVKEYDOWN(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmtvkeydown(
+    public var hdr: Nmhdr = Nmhdr(),
     public var wVKey: UShort = 0u,
     public var flags: UInt = 0u,
 )
 
-public data class NMTVSTATEIMAGECHANGING(
-    public var hdr: NMHDR = NMHDR(),
-    public var hti: HTREEITEM = 0L,
+public data class Nmtvstateimagechanging(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var hti: Htreeitem = 0,
     public var iOldStateImageIndex: Int = 0,
     public var iNewStateImageIndex: Int = 0,
 )
 
-public data class NMUPDOWN(
-    public var hdr: NMHDR = NMHDR(),
+public data class Nmupdown(
+    public var hdr: Nmhdr = Nmhdr(),
     public var iPos: Int = 0,
     public var iDelta: Int = 0,
 )
 
-public data class NMVIEWCHANGE(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW = 0u,
-    public var dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW = 0u,
+public data class Nmviewchange(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var dwOldView: MonthCaldendarMessagesView = 0u,
+    public var dwNewView: MonthCaldendarMessagesView = 0u,
 )
 
-public data class PBRANGE(public var iLow: Int = 0, public var iHigh: Int = 0)
+public data class Pbrange(public var iLow: Int = 0, public var iHigh: Int = 0)
 
-public data class POINTER_DEVICE_CURSOR_INFO(public var cursorId: UInt = 0u, public var cursor: POINTER_DEVICE_CURSOR_TYPE = 0)
+public data class PointerDeviceCursorInfo(public var cursorId: UInt = 0u, public var cursor: PointerDeviceCursorType = 0)
 
-public data class POINTER_DEVICE_INFO(
+public data class PointerDeviceInfo(
     public var displayOrientation: UInt = 0u,
-    public var device: HANDLE = 0L,
-    public var pointerDeviceType: POINTER_DEVICE_TYPE = 0,
-    public var monitor: HMONITOR = 0L,
+    public var device: Handle = null,
+    public var pointerDeviceType: PointerDeviceType = 0,
+    public var monitor: Hmonitor = null,
     public var startingCursorId: UInt = 0u,
     public var maxActiveContacts: UShort = 0u,
     public var productString: UShortArray = UShortArray(520),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is POINTER_DEVICE_INFO) return false
+        if (other !is PointerDeviceInfo) return false
         if (this.displayOrientation != other.displayOrientation) return false
         if (this.device != other.device) return false
         if (this.pointerDeviceType != other.pointerDeviceType) return false
@@ -1582,7 +1587,7 @@ public data class POINTER_DEVICE_INFO(
     }
 }
 
-public data class POINTER_DEVICE_PROPERTY(
+public data class PointerDeviceProperty(
     public var logicalMin: Int = 0,
     public var logicalMax: Int = 0,
     public var physicalMin: Int = 0,
@@ -1593,375 +1598,375 @@ public data class POINTER_DEVICE_PROPERTY(
     public var usageId: UShort = 0u,
 )
 
-public data class POINTER_TYPE_INFO(public var type: POINTER_INPUT_TYPE = 0, public var Anonymous: POINTER_TYPE_INFO_0 = POINTER_TYPE_INFO_0())
+public data class PointerTypeInfo(public var type: PointerInputType = 0, public var anonymous: PointerTypeInfo0 = PointerTypeInfo0())
 
-public data class POINTER_TYPE_INFO_0(public var touchInfo: POINTER_TOUCH_INFO = POINTER_TOUCH_INFO(), public var penInfo: POINTER_PEN_INFO = POINTER_PEN_INFO())
+public data class PointerTypeInfo0(public var touchInfo: PointerTouchInfo = PointerTouchInfo(), public var penInfo: PointerPenInfo = PointerPenInfo())
 
-public data class PROPSHEETHEADERA_V1(
+public data class PropsheetheaderaV1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETHEADERA_V1_0 = PROPSHEETHEADERA_V1_0(),
-    public var pszCaption: PCSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetheaderaV10 = PropsheetheaderaV10(),
+    public var pszCaption: Pcstr = null,
     public var nPages: UInt = 0u,
-    public var Anonymous2: PROPSHEETHEADERA_V1_1 = PROPSHEETHEADERA_V1_1(),
-    public var Anonymous3: PROPSHEETHEADERA_V1_2 = PROPSHEETHEADERA_V1_2(),
-    public var pfnCallback: PFNPROPSHEETCALLBACK = null,
+    public var anonymous2: PropsheetheaderaV11 = PropsheetheaderaV11(),
+    public var anonymous3: PropsheetheaderaV12 = PropsheetheaderaV12(),
+    public var pfnCallback: Pfnpropsheetcallback = null,
 )
 
-public data class PROPSHEETHEADERA_V1_0(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class PropsheetheaderaV10(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETHEADERA_V1_1(public var nStartPage: UInt = 0u, public var pStartPage: PCSTR = 0L)
+public data class PropsheetheaderaV11(public var nStartPage: UInt = 0u, public var pStartPage: Pcstr = null)
 
-public data class PROPSHEETHEADERA_V1_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
+public data class PropsheetheaderaV12(public var ppsp: Propsheetpagea? = null, public var phpage: COpaquePointer? = null)
 
-public data class PROPSHEETHEADERA_V2(
+public data class PropsheetheaderaV2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETHEADERA_V2_0 = PROPSHEETHEADERA_V2_0(),
-    public var pszCaption: PCSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetheaderaV20 = PropsheetheaderaV20(),
+    public var pszCaption: Pcstr = null,
     public var nPages: UInt = 0u,
-    public var Anonymous2: PROPSHEETHEADERA_V2_1 = PROPSHEETHEADERA_V2_1(),
-    public var Anonymous3: PROPSHEETHEADERA_V2_2 = PROPSHEETHEADERA_V2_2(),
-    public var pfnCallback: PFNPROPSHEETCALLBACK = null,
-    public var Anonymous4: PROPSHEETHEADERA_V2_3 = PROPSHEETHEADERA_V2_3(),
-    public var hplWatermark: HPALETTE = 0L,
-    public var Anonymous5: PROPSHEETHEADERA_V2_4 = PROPSHEETHEADERA_V2_4(),
+    public var anonymous2: PropsheetheaderaV21 = PropsheetheaderaV21(),
+    public var anonymous3: PropsheetheaderaV22 = PropsheetheaderaV22(),
+    public var pfnCallback: Pfnpropsheetcallback = null,
+    public var anonymous4: PropsheetheaderaV23 = PropsheetheaderaV23(),
+    public var hplWatermark: Hpalette = null,
+    public var anonymous5: PropsheetheaderaV24 = PropsheetheaderaV24(),
 )
 
-public data class PROPSHEETHEADERA_V2_0(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class PropsheetheaderaV20(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETHEADERA_V2_1(public var nStartPage: UInt = 0u, public var pStartPage: PCSTR = 0L)
+public data class PropsheetheaderaV21(public var nStartPage: UInt = 0u, public var pStartPage: Pcstr = null)
 
-public data class PROPSHEETHEADERA_V2_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
+public data class PropsheetheaderaV22(public var ppsp: Propsheetpagea? = null, public var phpage: COpaquePointer? = null)
 
-public data class PROPSHEETHEADERA_V2_3(public var hbmWatermark: HBITMAP = 0L, public var pszbmWatermark: PCSTR = 0L)
+public data class PropsheetheaderaV23(public var hbmWatermark: Hbitmap = null, public var pszbmWatermark: Pcstr = null)
 
-public data class PROPSHEETHEADERA_V2_4(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCSTR = 0L)
+public data class PropsheetheaderaV24(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcstr = null)
 
-public data class PROPSHEETHEADERW_V1(
+public data class PropsheetheaderwV1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETHEADERW_V1_0 = PROPSHEETHEADERW_V1_0(),
-    public var pszCaption: PCWSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetheaderwV10 = PropsheetheaderwV10(),
+    public var pszCaption: Pcwstr = null,
     public var nPages: UInt = 0u,
-    public var Anonymous2: PROPSHEETHEADERW_V1_1 = PROPSHEETHEADERW_V1_1(),
-    public var Anonymous3: PROPSHEETHEADERW_V1_2 = PROPSHEETHEADERW_V1_2(),
-    public var pfnCallback: PFNPROPSHEETCALLBACK = null,
+    public var anonymous2: PropsheetheaderwV11 = PropsheetheaderwV11(),
+    public var anonymous3: PropsheetheaderwV12 = PropsheetheaderwV12(),
+    public var pfnCallback: Pfnpropsheetcallback = null,
 )
 
-public data class PROPSHEETHEADERW_V1_0(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class PropsheetheaderwV10(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PROPSHEETHEADERW_V1_1(public var nStartPage: UInt = 0u, public var pStartPage: PCWSTR = 0L)
+public data class PropsheetheaderwV11(public var nStartPage: UInt = 0u, public var pStartPage: Pcwstr = null)
 
-public data class PROPSHEETHEADERW_V1_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
+public data class PropsheetheaderwV12(public var ppsp: Propsheetpagew? = null, public var phpage: COpaquePointer? = null)
 
-public data class PROPSHEETHEADERW_V2(
+public data class PropsheetheaderwV2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETHEADERW_V2_0 = PROPSHEETHEADERW_V2_0(),
-    public var pszCaption: PCWSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetheaderwV20 = PropsheetheaderwV20(),
+    public var pszCaption: Pcwstr = null,
     public var nPages: UInt = 0u,
-    public var Anonymous2: PROPSHEETHEADERW_V2_1 = PROPSHEETHEADERW_V2_1(),
-    public var Anonymous3: PROPSHEETHEADERW_V2_2 = PROPSHEETHEADERW_V2_2(),
-    public var pfnCallback: PFNPROPSHEETCALLBACK = null,
-    public var Anonymous4: PROPSHEETHEADERW_V2_3 = PROPSHEETHEADERW_V2_3(),
-    public var hplWatermark: HPALETTE = 0L,
-    public var Anonymous5: PROPSHEETHEADERW_V2_4 = PROPSHEETHEADERW_V2_4(),
+    public var anonymous2: PropsheetheaderwV21 = PropsheetheaderwV21(),
+    public var anonymous3: PropsheetheaderwV22 = PropsheetheaderwV22(),
+    public var pfnCallback: Pfnpropsheetcallback = null,
+    public var anonymous4: PropsheetheaderwV23 = PropsheetheaderwV23(),
+    public var hplWatermark: Hpalette = null,
+    public var anonymous5: PropsheetheaderwV24 = PropsheetheaderwV24(),
 )
 
-public data class PROPSHEETHEADERW_V2_0(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class PropsheetheaderwV20(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PROPSHEETHEADERW_V2_1(public var nStartPage: UInt = 0u, public var pStartPage: PCWSTR = 0L)
+public data class PropsheetheaderwV21(public var nStartPage: UInt = 0u, public var pStartPage: Pcwstr = null)
 
-public data class PROPSHEETHEADERW_V2_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
+public data class PropsheetheaderwV22(public var ppsp: Propsheetpagew? = null, public var phpage: COpaquePointer? = null)
 
-public data class PROPSHEETHEADERW_V2_3(public var hbmWatermark: HBITMAP = 0L, public var pszbmWatermark: PCWSTR = 0L)
+public data class PropsheetheaderwV23(public var hbmWatermark: Hbitmap = null, public var pszbmWatermark: Pcwstr = null)
 
-public data class PROPSHEETHEADERW_V2_4(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCWSTR = 0L)
+public data class PropsheetheaderwV24(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcwstr = null)
 
-public data class PROPSHEETPAGEA(
+public data class Propsheetpagea(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEA_0 = PROPSHEETPAGEA_0(),
-    public var Anonymous2: PROPSHEETPAGEA_1 = PROPSHEETPAGEA_1(),
-    public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKA = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCSTR = 0L,
-    public var pszHeaderSubTitle: PCSTR = 0L,
-    public var hActCtx: HANDLE = 0L,
-    public var Anonymous3: PROPSHEETPAGEA_2 = PROPSHEETPAGEA_2(),
+    public var hInstance: Hinstance = null,
+    public var anonymous1: Propsheetpagea0 = Propsheetpagea0(),
+    public var anonymous2: Propsheetpagea1 = Propsheetpagea1(),
+    public var pszTitle: Pcstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbacka = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcstr = null,
+    public var pszHeaderSubTitle: Pcstr = null,
+    public var hActCtx: Handle = null,
+    public var anonymous3: Propsheetpagea2 = Propsheetpagea2(),
 )
 
-public data class PROPSHEETPAGEA_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
+public data class Propsheetpagea0(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEA_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class Propsheetpagea1(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETPAGEA_2(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCSTR = 0L)
+public data class Propsheetpagea2(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcstr = null)
 
-public data class PROPSHEETPAGEA_V1(
+public data class PropsheetpageaV1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEA_V1_0 = PROPSHEETPAGEA_V1_0(),
-    public var Anonymous2: PROPSHEETPAGEA_V1_1 = PROPSHEETPAGEA_V1_1(),
-    public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKA = null,
-    public var pcRefParent: Long = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpageaV10 = PropsheetpageaV10(),
+    public var anonymous2: PropsheetpageaV11 = PropsheetpageaV11(),
+    public var pszTitle: Pcstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbacka = null,
+    public var pcRefParent: UInt? = null,
 )
 
-public data class PROPSHEETPAGEA_V1_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpageaV10(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEA_V1_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class PropsheetpageaV11(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETPAGEA_V2(
+public data class PropsheetpageaV2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEA_V2_0 = PROPSHEETPAGEA_V2_0(),
-    public var Anonymous2: PROPSHEETPAGEA_V2_1 = PROPSHEETPAGEA_V2_1(),
-    public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKA = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCSTR = 0L,
-    public var pszHeaderSubTitle: PCSTR = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpageaV20 = PropsheetpageaV20(),
+    public var anonymous2: PropsheetpageaV21 = PropsheetpageaV21(),
+    public var pszTitle: Pcstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbacka = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcstr = null,
+    public var pszHeaderSubTitle: Pcstr = null,
 )
 
-public data class PROPSHEETPAGEA_V2_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpageaV20(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEA_V2_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class PropsheetpageaV21(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETPAGEA_V3(
+public data class PropsheetpageaV3(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEA_V3_0 = PROPSHEETPAGEA_V3_0(),
-    public var Anonymous2: PROPSHEETPAGEA_V3_1 = PROPSHEETPAGEA_V3_1(),
-    public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKA = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCSTR = 0L,
-    public var pszHeaderSubTitle: PCSTR = 0L,
-    public var hActCtx: HANDLE = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpageaV30 = PropsheetpageaV30(),
+    public var anonymous2: PropsheetpageaV31 = PropsheetpageaV31(),
+    public var pszTitle: Pcstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbacka = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcstr = null,
+    public var pszHeaderSubTitle: Pcstr = null,
+    public var hActCtx: Handle = null,
 )
 
-public data class PROPSHEETPAGEA_V3_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpageaV30(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEA_V3_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
+public data class PropsheetpageaV31(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
 
-public data class PROPSHEETPAGEW(
+public data class Propsheetpagew(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEW_0 = PROPSHEETPAGEW_0(),
-    public var Anonymous2: PROPSHEETPAGEW_1 = PROPSHEETPAGEW_1(),
-    public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKW = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCWSTR = 0L,
-    public var pszHeaderSubTitle: PCWSTR = 0L,
-    public var hActCtx: HANDLE = 0L,
-    public var Anonymous3: PROPSHEETPAGEW_2 = PROPSHEETPAGEW_2(),
+    public var hInstance: Hinstance = null,
+    public var anonymous1: Propsheetpagew0 = Propsheetpagew0(),
+    public var anonymous2: Propsheetpagew1 = Propsheetpagew1(),
+    public var pszTitle: Pcwstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbackw = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcwstr = null,
+    public var pszHeaderSubTitle: Pcwstr = null,
+    public var hActCtx: Handle = null,
+    public var anonymous3: Propsheetpagew2 = Propsheetpagew2(),
 )
 
-public data class PROPSHEETPAGEW_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
+public data class Propsheetpagew0(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEW_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class Propsheetpagew1(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PROPSHEETPAGEW_2(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCWSTR = 0L)
+public data class Propsheetpagew2(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcwstr = null)
 
-public data class PROPSHEETPAGEW_V1(
+public data class PropsheetpagewV1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEW_V1_0 = PROPSHEETPAGEW_V1_0(),
-    public var Anonymous2: PROPSHEETPAGEW_V1_1 = PROPSHEETPAGEW_V1_1(),
-    public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKW = null,
-    public var pcRefParent: Long = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpagewV10 = PropsheetpagewV10(),
+    public var anonymous2: PropsheetpagewV11 = PropsheetpagewV11(),
+    public var pszTitle: Pcwstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbackw = null,
+    public var pcRefParent: UInt? = null,
 )
 
-public data class PROPSHEETPAGEW_V1_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpagewV10(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEW_V1_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class PropsheetpagewV11(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PROPSHEETPAGEW_V2(
+public data class PropsheetpagewV2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEW_V2_0 = PROPSHEETPAGEW_V2_0(),
-    public var Anonymous2: PROPSHEETPAGEW_V2_1 = PROPSHEETPAGEW_V2_1(),
-    public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKW = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCWSTR = 0L,
-    public var pszHeaderSubTitle: PCWSTR = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpagewV20 = PropsheetpagewV20(),
+    public var anonymous2: PropsheetpagewV21 = PropsheetpagewV21(),
+    public var pszTitle: Pcwstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbackw = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcwstr = null,
+    public var pszHeaderSubTitle: Pcwstr = null,
 )
 
-public data class PROPSHEETPAGEW_V2_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpagewV20(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEW_V2_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class PropsheetpagewV21(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PROPSHEETPAGEW_V3(
+public data class PropsheetpagewV3(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
-    public var Anonymous1: PROPSHEETPAGEW_V3_0 = PROPSHEETPAGEW_V3_0(),
-    public var Anonymous2: PROPSHEETPAGEW_V3_1 = PROPSHEETPAGEW_V3_1(),
-    public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var pfnCallback: LPFNPSPCALLBACKW = null,
-    public var pcRefParent: Long = 0L,
-    public var pszHeaderTitle: PCWSTR = 0L,
-    public var pszHeaderSubTitle: PCWSTR = 0L,
-    public var hActCtx: HANDLE = 0L,
+    public var hInstance: Hinstance = null,
+    public var anonymous1: PropsheetpagewV30 = PropsheetpagewV30(),
+    public var anonymous2: PropsheetpagewV31 = PropsheetpagewV31(),
+    public var pszTitle: Pcwstr = null,
+    public var pfnDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var pfnCallback: Lpfnpspcallbackw = null,
+    public var pcRefParent: UInt? = null,
+    public var pszHeaderTitle: Pcwstr = null,
+    public var pszHeaderSubTitle: Pcwstr = null,
+    public var hActCtx: Handle = null,
 )
 
-public data class PROPSHEETPAGEW_V3_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
+public data class PropsheetpagewV30(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
 
-public data class PROPSHEETPAGEW_V3_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
+public data class PropsheetpagewV31(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
 
-public data class PSHNOTIFY(public var hdr: NMHDR = NMHDR(), public var lParam: LPARAM = 0L)
+public data class Pshnotify(public var hdr: Nmhdr = Nmhdr(), public var lParam: Lparam = 0L)
 
-public data class RBHITTESTINFO(
-    public var pt: POINT = POINT(),
+public data class Rbhittestinfo(
+    public var pt: Point = Point(),
     public var flags: UInt = 0u,
     public var iBand: Int = 0,
 )
 
-public class REBARBANDINFOA(
+public class Rebarbandinfoa(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
     public var fStyle: UInt = 0u,
-    public var clrFore: COLORREF = 0u,
-    public var clrBack: COLORREF = 0u,
-    public var lpText: PSTR = 0L,
+    public var clrFore: Colorref = 0u,
+    public var clrBack: Colorref = 0u,
+    public var lpText: Pstr = null,
     public var cch: UInt = 0u,
     public var iImage: Int = 0,
-    public var hwndChild: HWND = 0L,
+    public var hwndChild: Hwnd = null,
     public var cxMinChild: UInt = 0u,
     public var cyMinChild: UInt = 0u,
     public var cx: UInt = 0u,
-    public var hbmBack: HBITMAP = 0L,
+    public var hbmBack: Hbitmap = null,
     public var wID: UInt = 0u,
     public var cyChild: UInt = 0u,
     public var cyMaxChild: UInt = 0u,
     public var cyIntegral: UInt = 0u,
     public var cxIdeal: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var cxHeader: UInt = 0u,
-    public var rcChevronLocation: RECT = RECT(),
+    public var rcChevronLocation: Rect = Rect(),
     public var uChevronState: UInt = 0u,
 )
 
-public class REBARBANDINFOW(
+public class Rebarbandinfow(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
     public var fStyle: UInt = 0u,
-    public var clrFore: COLORREF = 0u,
-    public var clrBack: COLORREF = 0u,
-    public var lpText: PWSTR = 0L,
+    public var clrFore: Colorref = 0u,
+    public var clrBack: Colorref = 0u,
+    public var lpText: Pwstr = null,
     public var cch: UInt = 0u,
     public var iImage: Int = 0,
-    public var hwndChild: HWND = 0L,
+    public var hwndChild: Hwnd = null,
     public var cxMinChild: UInt = 0u,
     public var cyMinChild: UInt = 0u,
     public var cx: UInt = 0u,
-    public var hbmBack: HBITMAP = 0L,
+    public var hbmBack: Hbitmap = null,
     public var wID: UInt = 0u,
     public var cyChild: UInt = 0u,
     public var cyMaxChild: UInt = 0u,
     public var cyIntegral: UInt = 0u,
     public var cxIdeal: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var cxHeader: UInt = 0u,
-    public var rcChevronLocation: RECT = RECT(),
+    public var rcChevronLocation: Rect = Rect(),
     public var uChevronState: UInt = 0u,
 )
 
-public data class REBARINFO(
+public data class Rebarinfo(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var himl: HIMAGELIST = 0L,
+    public var himl: Himagelist = 0L,
 )
 
-public class TASKDIALOGCONFIG(
+public class Taskdialogconfig(
     public var cbSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var dwFlags: TASKDIALOG_FLAGS = 0,
-    public var dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS = 0,
-    public var pszWindowTitle: PCWSTR = 0L,
-    public var Anonymous1: TASKDIALOGCONFIG_0 = TASKDIALOGCONFIG_0(),
-    public var pszMainInstruction: PCWSTR = 0L,
-    public var pszContent: PCWSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var dwFlags: TaskdialogFlags = 0,
+    public var dwCommonButtons: TaskdialogCommonButtonFlags = 0,
+    public var pszWindowTitle: Pcwstr = null,
+    public var anonymous1: Taskdialogconfig0 = Taskdialogconfig0(),
+    public var pszMainInstruction: Pcwstr = null,
+    public var pszContent: Pcwstr = null,
     public var cButtons: UInt = 0u,
-    public var pButtons: Long = 0L,
+    public var pButtons: TaskdialogButton? = null,
     public var nDefaultButton: Int = 0,
     public var cRadioButtons: UInt = 0u,
-    public var pRadioButtons: Long = 0L,
+    public var pRadioButtons: TaskdialogButton? = null,
     public var nDefaultRadioButton: Int = 0,
-    public var pszVerificationText: PCWSTR = 0L,
-    public var pszExpandedInformation: PCWSTR = 0L,
-    public var pszExpandedControlText: PCWSTR = 0L,
-    public var pszCollapsedControlText: PCWSTR = 0L,
-    public var Anonymous2: TASKDIALOGCONFIG_1 = TASKDIALOGCONFIG_1(),
-    public var pszFooter: PCWSTR = 0L,
-    public var pfCallback: PFTASKDIALOGCALLBACK = null,
-    public var lpCallbackData: Long = 0L,
+    public var pszVerificationText: Pcwstr = null,
+    public var pszExpandedInformation: Pcwstr = null,
+    public var pszExpandedControlText: Pcwstr = null,
+    public var pszCollapsedControlText: Pcwstr = null,
+    public var anonymous2: Taskdialogconfig1 = Taskdialogconfig1(),
+    public var pszFooter: Pcwstr = null,
+    public var pfCallback: Pftaskdialogcallback = null,
+    public var lpCallbackData: Int = 0,
     public var cxWidth: UInt = 0u,
 )
 
-public data class TASKDIALOGCONFIG_0(public var hMainIcon: HICON = 0L, public var pszMainIcon: PCWSTR = 0L)
+public data class Taskdialogconfig0(public var hMainIcon: Hicon = null, public var pszMainIcon: Pcwstr = null)
 
-public data class TASKDIALOGCONFIG_1(public var hFooterIcon: HICON = 0L, public var pszFooterIcon: PCWSTR = 0L)
+public data class Taskdialogconfig1(public var hFooterIcon: Hicon = null, public var pszFooterIcon: Pcwstr = null)
 
-public data class TASKDIALOG_BUTTON(public var nButtonID: Int = 0, public var pszButtonText: PCWSTR = 0L)
+public data class TaskdialogButton(public var nButtonID: Int = 0, public var pszButtonText: Pcwstr = null)
 
-public data class TA_CUBIC_BEZIER(
-    public var header: TA_TIMINGFUNCTION = TA_TIMINGFUNCTION(),
+public data class TaCubicBezier(
+    public var header: TaTimingfunction = TaTimingfunction(),
     public var rX0: Float = 0.0f,
     public var rY0: Float = 0.0f,
     public var rX1: Float = 0.0f,
     public var rY1: Float = 0.0f,
 )
 
-public data class TA_TIMINGFUNCTION(public var eTimingFunctionType: TA_TIMINGFUNCTION_TYPE = 0)
+public data class TaTimingfunction(public var eTimingFunctionType: TaTimingfunctionType = 0)
 
-public data class TA_TRANSFORM(
-    public var eTransformType: TA_TRANSFORM_TYPE = 0,
+public data class TaTransform(
+    public var eTransformType: TaTransformType = 0,
     public var dwTimingFunctionId: UInt = 0u,
     public var dwStartTime: UInt = 0u,
     public var dwDurationTime: UInt = 0u,
-    public var eFlags: TA_TRANSFORM_FLAG = 0,
+    public var eFlags: TaTransformFlag = 0,
 )
 
-public data class TA_TRANSFORM_2D(
-    public var header: TA_TRANSFORM = TA_TRANSFORM(),
+public data class TaTransform2d(
+    public var header: TaTransform = TaTransform(),
     public var rX: Float = 0.0f,
     public var rY: Float = 0.0f,
     public var rInitialX: Float = 0.0f,
@@ -1970,8 +1975,8 @@ public data class TA_TRANSFORM_2D(
     public var rOriginY: Float = 0.0f,
 )
 
-public data class TA_TRANSFORM_CLIP(
-    public var header: TA_TRANSFORM = TA_TRANSFORM(),
+public data class TaTransformClip(
+    public var header: TaTransform = TaTransform(),
     public var rLeft: Float = 0.0f,
     public var rTop: Float = 0.0f,
     public var rRight: Float = 0.0f,
@@ -1982,26 +1987,26 @@ public data class TA_TRANSFORM_CLIP(
     public var rInitialBottom: Float = 0.0f,
 )
 
-public data class TA_TRANSFORM_OPACITY(
-    public var header: TA_TRANSFORM = TA_TRANSFORM(),
+public data class TaTransformOpacity(
+    public var header: TaTransform = TaTransform(),
     public var rOpacity: Float = 0.0f,
     public var rInitialOpacity: Float = 0.0f,
 )
 
-public data class TBADDBITMAP(public var hInst: HINSTANCE = 0L, public var nID: ULong = 0uL)
+public data class Tbaddbitmap(public var hInst: Hinstance = null, public var nID: Int = 0)
 
-public data class TBBUTTON(
+public data class Tbbutton(
     public var iBitmap: Int = 0,
     public var idCommand: Int = 0,
     public var fsState: UByte = 0u,
     public var fsStyle: UByte = 0u,
     public var bReserved: UByteArray = UByteArray(6),
-    public var dwData: ULong = 0uL,
-    public var iString: Long = 0L,
+    public var dwData: Int = 0,
+    public var iString: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TBBUTTON) return false
+        if (other !is Tbbutton) return false
         if (this.iBitmap != other.iBitmap) return false
         if (this.idCommand != other.idCommand) return false
         if (this.fsState != other.fsState) return false
@@ -2024,35 +2029,35 @@ public data class TBBUTTON(
     }
 }
 
-public data class TBBUTTONINFOA(
+public data class Tbbuttoninfoa(
     public var cbSize: UInt = 0u,
-    public var dwMask: TBBUTTONINFOW_MASK = 0u,
+    public var dwMask: TbbuttoninfowMask = 0u,
     public var idCommand: Int = 0,
     public var iImage: Int = 0,
     public var fsState: UByte = 0u,
     public var fsStyle: UByte = 0u,
     public var cx: UShort = 0u,
-    public var lParam: ULong = 0uL,
-    public var pszText: PSTR = 0L,
+    public var lParam: Int = 0,
+    public var pszText: Pstr = null,
     public var cchText: Int = 0,
 )
 
-public data class TBBUTTONINFOW(
+public data class Tbbuttoninfow(
     public var cbSize: UInt = 0u,
-    public var dwMask: TBBUTTONINFOW_MASK = 0u,
+    public var dwMask: TbbuttoninfowMask = 0u,
     public var idCommand: Int = 0,
     public var iImage: Int = 0,
     public var fsState: UByte = 0u,
     public var fsStyle: UByte = 0u,
     public var cx: UShort = 0u,
-    public var lParam: ULong = 0uL,
-    public var pszText: PWSTR = 0L,
+    public var lParam: Int = 0,
+    public var pszText: Pwstr = null,
     public var cchText: Int = 0,
 )
 
-public data class TBINSERTMARK(public var iButton: Int = 0, public var dwFlags: TBINSERTMARK_FLAGS = 0u)
+public data class Tbinsertmark(public var iButton: Int = 0, public var dwFlags: TbinsertmarkFlags = 0u)
 
-public data class TBMETRICS(
+public data class Tbmetrics(
     public var cbSize: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var cxPad: Int = 0,
@@ -2063,213 +2068,213 @@ public data class TBMETRICS(
     public var cyButtonSpacing: Int = 0,
 )
 
-public data class TBREPLACEBITMAP(
-    public var hInstOld: HINSTANCE = 0L,
-    public var nIDOld: ULong = 0uL,
-    public var hInstNew: HINSTANCE = 0L,
-    public var nIDNew: ULong = 0uL,
+public data class Tbreplacebitmap(
+    public var hInstOld: Hinstance = null,
+    public var nIDOld: Int = 0,
+    public var hInstNew: Hinstance = null,
+    public var nIDNew: Int = 0,
     public var nButtons: Int = 0,
 )
 
-public data class TBSAVEPARAMSA(
-    public var hkr: HKEY = 0L,
-    public var pszSubKey: PCSTR = 0L,
-    public var pszValueName: PCSTR = 0L,
+public data class Tbsaveparamsa(
+    public var hkr: Hkey = null,
+    public var pszSubKey: Pcstr = null,
+    public var pszValueName: Pcstr = null,
 )
 
-public data class TBSAVEPARAMSW(
-    public var hkr: HKEY = 0L,
-    public var pszSubKey: PCWSTR = 0L,
-    public var pszValueName: PCWSTR = 0L,
+public data class Tbsaveparamsw(
+    public var hkr: Hkey = null,
+    public var pszSubKey: Pcwstr = null,
+    public var pszValueName: Pcwstr = null,
 )
 
-public data class TCHITTESTINFO(public var pt: POINT = POINT(), public var flags: TCHITTESTINFO_FLAGS = 0u)
+public data class Tchittestinfo(public var pt: Point = Point(), public var flags: TchittestinfoFlags = 0u)
 
-public data class TCITEMA(
-    public var mask: TCITEMHEADERA_MASK = 0u,
-    public var dwState: TAB_CONTROL_ITEM_STATE = 0u,
-    public var dwStateMask: TAB_CONTROL_ITEM_STATE = 0u,
-    public var pszText: PSTR = 0L,
+public data class Tcitema(
+    public var mask: TcitemheaderaMask = 0u,
+    public var dwState: TabControlItemState = 0u,
+    public var dwStateMask: TabControlItemState = 0u,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class TCITEMHEADERA(
-    public var mask: TCITEMHEADERA_MASK = 0u,
+public data class Tcitemheadera(
+    public var mask: TcitemheaderaMask = 0u,
     public var lpReserved1: UInt = 0u,
     public var lpReserved2: UInt = 0u,
-    public var pszText: PSTR = 0L,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
 )
 
-public data class TCITEMHEADERW(
-    public var mask: TCITEMHEADERA_MASK = 0u,
+public data class Tcitemheaderw(
+    public var mask: TcitemheaderaMask = 0u,
     public var lpReserved1: UInt = 0u,
     public var lpReserved2: UInt = 0u,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
 )
 
-public data class TCITEMW(
-    public var mask: TCITEMHEADERA_MASK = 0u,
-    public var dwState: TAB_CONTROL_ITEM_STATE = 0u,
-    public var dwStateMask: TAB_CONTROL_ITEM_STATE = 0u,
-    public var pszText: PWSTR = 0L,
+public data class Tcitemw(
+    public var mask: TcitemheaderaMask = 0u,
+    public var dwState: TabControlItemState = 0u,
+    public var dwStateMask: TabControlItemState = 0u,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
 )
 
-public data class TOUCH_HIT_TESTING_INPUT(
+public data class TouchHitTestingInput(
     public var pointerId: UInt = 0u,
-    public var point: POINT = POINT(),
-    public var boundingBox: RECT = RECT(),
-    public var nonOccludedBoundingBox: RECT = RECT(),
+    public var point: Point = Point(),
+    public var boundingBox: Rect = Rect(),
+    public var nonOccludedBoundingBox: Rect = Rect(),
     public var orientation: UInt = 0u,
 )
 
-public data class TOUCH_HIT_TESTING_PROXIMITY_EVALUATION(public var score: UShort = 0u, public var adjustedPoint: POINT = POINT())
+public data class TouchHitTestingProximityEvaluation(public var score: UShort = 0u, public var adjustedPoint: Point = Point())
 
-public data class TTGETTITLE(
+public data class Ttgettitle(
     public var dwSize: UInt = 0u,
     public var uTitleBitmap: UInt = 0u,
     public var cch: UInt = 0u,
-    public var pszTitle: PWSTR = 0L,
+    public var pszTitle: Pwstr = null,
 )
 
-public data class TTHITTESTINFOA(
-    public var hwnd: HWND = 0L,
-    public var pt: POINT = POINT(),
-    public var ti: TTTOOLINFOA = TTTOOLINFOA(),
+public data class Tthittestinfoa(
+    public var hwnd: Hwnd = null,
+    public var pt: Point = Point(),
+    public var ti: Tttoolinfoa = Tttoolinfoa(),
 )
 
-public data class TTHITTESTINFOW(
-    public var hwnd: HWND = 0L,
-    public var pt: POINT = POINT(),
-    public var ti: TTTOOLINFOW = TTTOOLINFOW(),
+public data class Tthittestinfow(
+    public var hwnd: Hwnd = null,
+    public var pt: Point = Point(),
+    public var ti: Tttoolinfow = Tttoolinfow(),
 )
 
-public data class TTTOOLINFOA(
+public data class Tttoolinfoa(
     public var cbSize: UInt = 0u,
-    public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var hwnd: HWND = 0L,
-    public var uId: ULong = 0uL,
-    public var rect: RECT = RECT(),
-    public var hinst: HINSTANCE = 0L,
-    public var lpszText: PSTR = 0L,
-    public var lParam: LPARAM = 0L,
-    public var lpReserved: Long = 0L,
+    public var uFlags: TooltipFlags = 0u,
+    public var hwnd: Hwnd = null,
+    public var uId: Int = 0,
+    public var rect: Rect = Rect(),
+    public var hinst: Hinstance = null,
+    public var lpszText: Pstr = null,
+    public var lParam: Lparam = 0L,
+    public var lpReserved: COpaquePointer? = null,
 )
 
-public data class TTTOOLINFOW(
+public data class Tttoolinfow(
     public var cbSize: UInt = 0u,
-    public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var hwnd: HWND = 0L,
-    public var uId: ULong = 0uL,
-    public var rect: RECT = RECT(),
-    public var hinst: HINSTANCE = 0L,
-    public var lpszText: PWSTR = 0L,
-    public var lParam: LPARAM = 0L,
-    public var lpReserved: Long = 0L,
+    public var uFlags: TooltipFlags = 0u,
+    public var hwnd: Hwnd = null,
+    public var uId: Int = 0,
+    public var rect: Rect = Rect(),
+    public var hinst: Hinstance = null,
+    public var lpszText: Pwstr = null,
+    public var lParam: Lparam = 0L,
+    public var lpReserved: COpaquePointer? = null,
 )
 
-public data class TVGETITEMPARTRECTINFO(
-    public var hti: HTREEITEM = 0L,
-    public var prc: Long = 0L,
-    public var partID: TVITEMPART = 0,
+public data class Tvgetitempartrectinfo(
+    public var hti: Htreeitem = 0,
+    public var prc: Rect? = null,
+    public var partID: Tvitempart = 0,
 )
 
-public data class TVHITTESTINFO(
-    public var pt: POINT = POINT(),
-    public var flags: TVHITTESTINFO_FLAGS = 0u,
-    public var hItem: HTREEITEM = 0L,
+public data class Tvhittestinfo(
+    public var pt: Point = Point(),
+    public var flags: TvhittestinfoFlags = 0u,
+    public var hItem: Htreeitem = 0,
 )
 
-public data class TVINSERTSTRUCTA(
-    public var hParent: HTREEITEM = 0L,
-    public var hInsertAfter: HTREEITEM = 0L,
-    public var Anonymous: TVINSERTSTRUCTA_0 = TVINSERTSTRUCTA_0(),
+public data class Tvinsertstructa(
+    public var hParent: Htreeitem = 0,
+    public var hInsertAfter: Htreeitem = 0,
+    public var anonymous: Tvinsertstructa0 = Tvinsertstructa0(),
 )
 
-public data class TVINSERTSTRUCTA_0(public var itemex: TVITEMEXA = TVITEMEXA(), public var item: TVITEMA = TVITEMA())
+public data class Tvinsertstructa0(public var itemex: Tvitemexa = Tvitemexa(), public var item: Tvitema = Tvitema())
 
-public data class TVINSERTSTRUCTW(
-    public var hParent: HTREEITEM = 0L,
-    public var hInsertAfter: HTREEITEM = 0L,
-    public var Anonymous: TVINSERTSTRUCTW_0 = TVINSERTSTRUCTW_0(),
+public data class Tvinsertstructw(
+    public var hParent: Htreeitem = 0,
+    public var hInsertAfter: Htreeitem = 0,
+    public var anonymous: Tvinsertstructw0 = Tvinsertstructw0(),
 )
 
-public data class TVINSERTSTRUCTW_0(public var itemex: TVITEMEXW = TVITEMEXW(), public var item: TVITEMW = TVITEMW())
+public data class Tvinsertstructw0(public var itemex: Tvitemexw = Tvitemexw(), public var item: Tvitemw = Tvitemw())
 
-public data class TVITEMA(
-    public var mask: TVITEM_MASK = 0u,
-    public var hItem: HTREEITEM = 0L,
-    public var state: TREE_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var stateMask: TREE_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var pszText: PSTR = 0L,
+public data class Tvitema(
+    public var mask: TvitemMask = 0u,
+    public var hItem: Htreeitem = 0,
+    public var state: TreeViewItemStateFlags = 0u,
+    public var stateMask: TreeViewItemStateFlags = 0u,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
-    public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: LPARAM = 0L,
+    public var cChildren: TvitemexwChildren = 0,
+    public var lParam: Lparam = 0L,
 )
 
-public data class TVITEMEXA(
-    public var mask: TVITEM_MASK = 0u,
-    public var hItem: HTREEITEM = 0L,
+public data class Tvitemexa(
+    public var mask: TvitemMask = 0u,
+    public var hItem: Htreeitem = 0,
     public var state: UInt = 0u,
     public var stateMask: UInt = 0u,
-    public var pszText: PSTR = 0L,
+    public var pszText: Pstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
-    public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: LPARAM = 0L,
+    public var cChildren: TvitemexwChildren = 0,
+    public var lParam: Lparam = 0L,
     public var iIntegral: Int = 0,
     public var uStateEx: UInt = 0u,
-    public var hwnd: HWND = 0L,
+    public var hwnd: Hwnd = null,
     public var iExpandedImage: Int = 0,
     public var iReserved: Int = 0,
 )
 
-public data class TVITEMEXW(
-    public var mask: TVITEM_MASK = 0u,
-    public var hItem: HTREEITEM = 0L,
+public data class Tvitemexw(
+    public var mask: TvitemMask = 0u,
+    public var hItem: Htreeitem = 0,
     public var state: UInt = 0u,
     public var stateMask: UInt = 0u,
-    public var pszText: PWSTR = 0L,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
-    public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: LPARAM = 0L,
+    public var cChildren: TvitemexwChildren = 0,
+    public var lParam: Lparam = 0L,
     public var iIntegral: Int = 0,
     public var uStateEx: UInt = 0u,
-    public var hwnd: HWND = 0L,
+    public var hwnd: Hwnd = null,
     public var iExpandedImage: Int = 0,
     public var iReserved: Int = 0,
 )
 
-public data class TVITEMW(
-    public var mask: TVITEM_MASK = 0u,
-    public var hItem: HTREEITEM = 0L,
-    public var state: TREE_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var stateMask: TREE_VIEW_ITEM_STATE_FLAGS = 0u,
-    public var pszText: PWSTR = 0L,
+public data class Tvitemw(
+    public var mask: TvitemMask = 0u,
+    public var hItem: Htreeitem = 0,
+    public var state: TreeViewItemStateFlags = 0u,
+    public var stateMask: TreeViewItemStateFlags = 0u,
+    public var pszText: Pwstr = null,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
-    public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: LPARAM = 0L,
+    public var cChildren: TvitemexwChildren = 0,
+    public var lParam: Lparam = 0L,
 )
 
-public data class TVSORTCB(
-    public var hParent: HTREEITEM = 0L,
-    public var lpfnCompare: PFNTVCOMPARE = null,
-    public var lParam: LPARAM = 0L,
+public data class Tvsortcb(
+    public var hParent: Htreeitem = 0,
+    public var lpfnCompare: Pfntvcompare = null,
+    public var lParam: Lparam = 0L,
 )
 
-public data class UDACCEL(public var nSec: UInt = 0u, public var nInc: UInt = 0u)
+public data class Udaccel(public var nSec: UInt = 0u, public var nInc: UInt = 0u)

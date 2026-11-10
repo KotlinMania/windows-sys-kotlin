@@ -1,889 +1,1884 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EXCEPTION_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ExceptionRoutine
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
 
-public actual fun AddVectoredContinueHandler(first: UInt, handler: PVECTORED_EXCEPTION_HANDLER): Long =
-    0L
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32SystemDiagnosticsDebugNapiAddon(): Boolean
 
-public actual fun AddVectoredExceptionHandler(first: UInt, handler: PVECTORED_EXCEPTION_HANDLER): Long =
-    0L
+private val _windowsWin32SystemDiagnosticsDebugNapiAvailable: Boolean = _initWindowsWin32SystemDiagnosticsDebugNapiAddon()
 
-public actual fun Beep(dwfreq: UInt, dwduration: UInt): BOOL =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler(p0: Int, p1: String): String
 
-public actual fun BindImage(imagename: PCSTR, dllpath: PCSTR, symbolpath: PCSTR): BOOL =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler(p0: Int, p1: String): String
 
-public actual fun BindImageEx(flags: UInt, imagename: PCSTR, dllpath: PCSTR, symbolpath: PCSTR, statusroutine: PIMAGEHLP_STATUS_ROUTINE): BOOL =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_beep(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_beep(p0: Int, p1: Int): Int
 
-public actual fun CheckRemoteDebuggerPresent(hprocess: HANDLE, pbdebuggerpresent: Long): BOOL =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_bindImage(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_bindImage(p0: String, p1: String, p2: String): Int
 
-public actual fun CheckSumMappedFile(baseaddress: Long, filelength: UInt, headersum: Long, checksum: Long): Long =
-    0L
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_bindImageEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_bindImageEx(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-public actual fun CloseThreadWaitChainSession(wcthandle: Long) {
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile(p0: String, p1: Int, p2: String, p3: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent(p0: Int, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_copyContext(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_copyContext(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess(p0: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop(p0: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_debugBreak()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_debugBreak()
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit(p0: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_decodePointer(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_decodePointer(p0: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_encodePointer(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_encodePointer(p0: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer(p0: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumDirTree(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumDirTree(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA(p0: Int, p1: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW(p0: Int, p1: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_fatalExit(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalExit(p0: Int)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findExecutableImage(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImage(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findFileInPath(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findFileInPath(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: Int, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_formatMessageA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_formatMessageA(p0: Int, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_formatMessageW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_formatMessageW(p0: Int, p1: String, p2: Int, p3: Int, p4: String, p5: Int, p6: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures(): String
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getErrorMode()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getErrorMode(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getSymLoadError()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getSymLoadError(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getThreadContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadContext(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode(): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData(p0: String, p1: Boolean, p2: Int, p3: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx(p0: String, p1: Boolean, p2: Int, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageLoad(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageLoad(p0: String, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageNtHeader(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageNtHeader(p0: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection(p0: String, p1: String, p2: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa(p0: String, p1: String, p2: Int, p3: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imageUnload(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imageUnload(p0: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion(): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx(p0: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_initializeContext(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_initializeContext(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_initializeContext2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_initializeContext2(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent(): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature(p0: String, p1: Int, p2: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_mapAndLoad(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_mapAndLoad(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_messageBeep(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_messageBeep(p0: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession(p0: Int, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW(p0: String)
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_raiseException(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_raiseException(p0: Int, p1: Int, p2: Int, p3: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException(p0: String, p1: String, p2: Int)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate(): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapFree(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapFree(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapRead(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapRead(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_reBaseImage(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_reBaseImage(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_reBaseImage64(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_reBaseImage64(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_readProcessMemory(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_readProcessMemory(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback(p0: String, p1: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable(p0: String, p1: Int, p2: String): Boolean
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2(p0: String)
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace(p0: Int, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable(p0: String): Boolean
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable(p0: String, p1: Int)
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Boolean
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader(p0: String, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext(p0: String, p1: String)
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlUnwind(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlUnwind(p0: String, p1: String, p2: String, p3: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlVirtualUnwind(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setErrorMode(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setErrorMode(p0: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setSymLoadError(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setSymLoadError(p0: Int)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setThreadContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setThreadContext(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode(p0: Int, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setUnhandledExceptionFilter(p0: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_stackWalk2(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalk2(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_stackWalk64(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalk64(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_stackWalkEx(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalkEx(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddSymbol(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSymbol(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symCleanup(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symCleanup(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumLines(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumLines(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSym(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSym(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumTypes(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypes(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: Int, p7: String, p8: String, p9: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: Int, p7: String, p8: String, p9: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromAddr(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromAddr(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromAddrW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromAddrW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromIndex(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromIndex(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromIndexW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromIndexW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromName(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromNameW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromNameW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromToken(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromToken(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFromTokenW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromTokenW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64(p0: String, p1: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines(p0: String, p1: String, p2: String, p3: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption(p0: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory(p0: Int, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW(p0: Int, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64(p0: String, p1: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetOmaps(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetOmaps(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetOptions()")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetOptions(): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetScope(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetScope(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetScopeW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetScopeW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symInitialize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symInitialize(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symInitializeW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symInitializeW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symLoadModule64(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModule64(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symMatchFileName(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchFileName(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symMatchString(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchString(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symMatchStringA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchStringA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symMatchStringW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchStringW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symNext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symNext(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symNextW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symNextW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symPrev(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symPrev(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symPrevW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symPrevW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSearch(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSearch(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSearchW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSearchW(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetContext(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetContext(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption(p0: Int, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW(p0: String, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetOptions(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetOptions(p0: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW(p0: String, p1: String, p2: String, p3: String, p4: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement(p0: String, p1: String, p2: String, p3: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW(p0: String, p1: String, p2: String, p3: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile(p0: String, p1: String, p2: String, p3: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW(p0: String, p1: String, p2: String, p3: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement(p0: String, p1: String, p2: String, p3: String, p4: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW(p0: String, p1: String, p2: String, p3: String, p4: Int): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symUnDName64(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symUnDName64(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_touchFileTimes(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_touchFileTimes(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter(p0)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+public actual fun addVectoredContinueHandler(first: UInt, handler: PvectoredExceptionHandler): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_addVectoredContinueHandler(first.toInt(), 0L.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExceptionHandler): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_addVectoredExceptionHandler(first.toInt(), 0L.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun beep(dwfreq: UInt, dwduration: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_beep(dwfreq.toInt(), dwduration.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun bindImage(imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_bindImage((imagename?.value ?: 0L).toString(), (dllpath?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun bindImageEx(flags: UInt, imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr, statusroutine: PimagehlpStatusRoutine): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_bindImageEx(flags.toInt(), (imagename?.value ?: 0L).toString(), (dllpath?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun checkRemoteDebuggerPresent(hprocess: Handle, pbdebuggerpresent: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_checkRemoteDebuggerPresent((hprocess?.value ?: 0L).toString(), (pbdebuggerpresent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun checkSumMappedFile(baseaddress: COpaquePointer?, filelength: UInt, headersum: COpaquePointer?, checksum: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_checkSumMappedFile((baseaddress?.value ?: 0L).toString(), filelength.toInt(), (headersum?.value ?: 0L).toString(), (checksum?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun closeThreadWaitChainSession(wcthandle: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_closeThreadWaitChainSession((wcthandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun ContinueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: NTSTATUS): BOOL =
-    0
+public actual fun continueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: Ntstatus): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_continueDebugEvent(dwprocessid.toInt(), dwthreadid.toInt(), dwcontinuestatus) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyContext(destination: Long, contextflags: CONTEXT_FLAGS, source: Long): BOOL =
-    0
+public actual fun copyContext(destination: COpaquePointer?, contextflags: ContextFlags, source: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_copyContext((destination?.value ?: 0L).toString(), contextflags.toInt(), (source?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DbgHelpCreateUserDump(filename: PCSTR, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Long): BOOL =
-    0
+public actual fun dbgHelpCreateUserDump(filename: Pcstr, callback: PdbghelpCreateUserDumpCallback, userdata: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDump((filename?.value ?: 0L).toString(), 0L.toString(), (userdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DbgHelpCreateUserDumpW(filename: PCWSTR, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Long): BOOL =
-    0
+public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCreateUserDumpCallback, userdata: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_dbgHelpCreateUserDumpW((filename?.value ?: 0L).toString(), 0L.toString(), (userdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DebugActiveProcess(dwprocessid: UInt): BOOL =
-    0
+public actual fun debugActiveProcess(dwprocessid: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_debugActiveProcess(dwprocessid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DebugActiveProcessStop(dwprocessid: UInt): BOOL =
-    0
+public actual fun debugActiveProcessStop(dwprocessid: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_debugActiveProcessStop(dwprocessid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DebugBreak() {
+public actual fun debugBreak() {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_debugBreak()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DebugBreakProcess(process: HANDLE): BOOL =
-    0
+public actual fun debugBreakProcess(process: Handle): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_debugBreakProcess((process?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DebugSetProcessKillOnExit(killonexit: BOOL): BOOL =
-    0
+public actual fun debugSetProcessKillOnExit(killonexit: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_debugSetProcessKillOnExit(killonexit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecodePointer(ptr: Long): Long =
-    0L
+public actual fun decodePointer(ptr: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_decodePointer((ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecodeRemotePointer(processhandle: HANDLE, ptr: Long, decodedptr: Long): HRESULT =
-    0
+public actual fun decodeRemotePointer(processhandle: Handle, ptr: COpaquePointer?, decodedptr: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_decodeRemotePointer((processhandle?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString(), (decodedptr?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecodeSystemPointer(ptr: Long): Long =
-    0L
+public actual fun decodeSystemPointer(ptr: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_decodeSystemPointer((ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncodePointer(ptr: Long): Long =
-    0L
+public actual fun encodePointer(ptr: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_encodePointer((ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncodeRemotePointer(processhandle: HANDLE, ptr: Long, encodedptr: Long): HRESULT =
-    0
+public actual fun encodeRemotePointer(processhandle: Handle, ptr: COpaquePointer?, encodedptr: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_encodeRemotePointer((processhandle?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString(), (encodedptr?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncodeSystemPointer(ptr: Long): Long =
-    0L
+public actual fun encodeSystemPointer(ptr: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_encodeSystemPointer((ptr?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDirTree(hprocess: HANDLE, rootpath: PCSTR, inputpathname: PCSTR, outputpathbuffer: PSTR, cb: PENUMDIRTREE_CALLBACK, data: Long): BOOL =
-    0
+public actual fun enumDirTree(hprocess: Handle, rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr, cb: PenumdirtreeCallback, data: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumDirTree((hprocess?.value ?: 0L).toString(), (rootpath?.value ?: 0L).toString(), (inputpathname?.value ?: 0L).toString(), (outputpathbuffer?.value ?: 0L).toString(), 0L.toString(), (data?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumDirTreeW(hprocess: HANDLE, rootpath: PCWSTR, inputpathname: PCWSTR, outputpathbuffer: PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: Long): BOOL =
-    0
+public actual fun enumDirTreeW(hprocess: Handle, rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr, cb: PenumdirtreeCallbackw, data: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumDirTreeW((hprocess?.value ?: 0L).toString(), (rootpath?.value ?: 0L).toString(), (inputpathname?.value ?: 0L).toString(), (outputpathbuffer?.value ?: 0L).toString(), 0L.toString(), (data?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateLoadedModules64(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL =
-    0
+public actual fun enumerateLoadedModules64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModules64((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateLoadedModulesEx(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL =
-    0
+public actual fun enumerateLoadedModulesEx(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesEx((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateLoadedModulesExW(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL =
-    0
+public actual fun enumerateLoadedModulesExW(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesExW((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateLoadedModulesW64(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL =
-    0
+public actual fun enumerateLoadedModulesW64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_enumerateLoadedModulesW64((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FatalAppExitA(uaction: UInt, lpmessagetext: PCSTR) {
+public actual fun fatalAppExitA(uaction: UInt, lpmessagetext: Pcstr) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalAppExitA(uaction.toInt(), (lpmessagetext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun FatalAppExitW(uaction: UInt, lpmessagetext: PCWSTR) {
+public actual fun fatalAppExitW(uaction: UInt, lpmessagetext: Pcwstr) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalAppExitW(uaction.toInt(), (lpmessagetext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun FatalExit(exitcode: Int): Nothing =
-    error("Unreachable noreturn C function FatalExit")
-
-public actual fun FindDebugInfoFile(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR): HANDLE =
-    0L
-
-public actual fun FindDebugInfoFileEx(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): HANDLE =
-    0L
-
-public actual fun FindDebugInfoFileExW(filename: PCWSTR, symbolpath: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): HANDLE =
-    0L
-
-public actual fun FindExecutableImage(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR): HANDLE =
-    0L
-
-public actual fun FindExecutableImageEx(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): HANDLE =
-    0L
-
-public actual fun FindExecutableImageExW(filename: PCWSTR, symbolpath: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): HANDLE =
-    0L
-
-public actual fun FindFileInPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: UInt, filepath: PSTR): BOOL =
-    0
-
-public actual fun FindFileInSearchPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, one: UInt, two: UInt, three: UInt, filepath: PSTR): BOOL =
-    0
-
-public actual fun FlushInstructionCache(hprocess: HANDLE, lpbaseaddress: Long, dwsize: ULong): BOOL =
-    0
-
-public actual fun FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Long, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: PSTR, nsize: UInt, arguments: Long): UInt =
-    0u
-
-public actual fun FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Long, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: PWSTR, nsize: UInt, arguments: Long): UInt =
-    0u
-
-public actual fun GetEnabledXStateFeatures(): ULong =
-    0uL
-
-public actual fun GetErrorMode(): UInt =
-    0u
-
-public actual fun GetImageConfigInformation(loadedimage: Long, imageconfiginformation: Long): BOOL =
-    0
-
-public actual fun GetImageUnusedHeaderBytes(loadedimage: Long, sizeunusedheaderbytes: Long): UInt =
-    0u
-
-public actual fun GetSymLoadError(): UInt =
-    0u
-
-public actual fun GetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL =
-    0
-
-public actual fun GetThreadErrorMode(): UInt =
-    0u
-
-public actual fun GetThreadSelectorEntry(hthread: HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL =
-    0
-
-public actual fun GetThreadWaitChain(wcthandle: Long, context: ULong, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: UInt, nodecount: Long, nodeinfoarray: Long, iscycle: Long): BOOL =
-    0
-
-public actual fun GetTimestampForLoadedLibrary(module: HMODULE): UInt =
-    0u
-
-public actual fun GetXStateFeaturesMask(context: Long, featuremask: Long): BOOL =
-    0
-
-public actual fun ImageAddCertificate(filehandle: HANDLE, certificate: Long, index: Long): BOOL =
-    0
-
-public actual fun ImageDirectoryEntryToData(base: Long, mappedasimage: Boolean, directoryentry: IMAGE_DIRECTORY_ENTRY, size: Long): Long =
-    0L
-
-public actual fun ImageDirectoryEntryToDataEx(base: Long, mappedasimage: Boolean, directoryentry: IMAGE_DIRECTORY_ENTRY, size: Long, foundheader: Long): Long =
-    0L
-
-public actual fun ImageEnumerateCertificates(filehandle: HANDLE, typefilter: UShort, certificatecount: Long, indices: Long, indexcount: UInt): BOOL =
-    0
-
-public actual fun ImageGetCertificateData(filehandle: HANDLE, certificateindex: UInt, certificate: Long, requiredlength: Long): BOOL =
-    0
-
-public actual fun ImageGetCertificateHeader(filehandle: HANDLE, certificateindex: UInt, certificateheader: Long): BOOL =
-    0
-
-public actual fun ImageGetDigestStream(filehandle: HANDLE, digestlevel: UInt, digestfunction: DIGEST_FUNCTION, digesthandle: Long): BOOL =
-    0
-
-public actual fun ImageLoad(dllname: PCSTR, dllpath: PCSTR): Long =
-    0L
-
-public actual fun ImageNtHeader(base: Long): Long =
-    0L
-
-public actual fun ImageRemoveCertificate(filehandle: HANDLE, index: UInt): BOOL =
-    0
-
-public actual fun ImageRvaToSection(ntheaders: Long, base: Long, rva: UInt): Long =
-    0L
-
-public actual fun ImageRvaToVa(ntheaders: Long, base: Long, rva: UInt, lastrvasection: Long): Long =
-    0L
-
-public actual fun ImageUnload(loadedimage: Long): BOOL =
-    0
-
-public actual fun ImagehlpApiVersion(): Long =
-    0L
-
-public actual fun ImagehlpApiVersionEx(appversion: Long): Long =
-    0L
-
-public actual fun InitializeContext(buffer: Long, contextflags: CONTEXT_FLAGS, context: Long, contextlength: Long): BOOL =
-    0
-
-public actual fun InitializeContext2(buffer: Long, contextflags: CONTEXT_FLAGS, context: Long, contextlength: Long, xstatecompactionmask: ULong): BOOL =
-    0
-
-public actual fun IsDebuggerPresent(): BOOL =
-    0
-
-public actual fun LocateXStateFeature(context: Long, featureid: UInt, length: Long): Long =
-    0L
-
-public actual fun MakeSureDirectoryPathExists(dirpath: PCSTR): BOOL =
-    0
-
-public actual fun MapAndLoad(imagename: PCSTR, dllpath: PCSTR, loadedimage: Long, dotdll: BOOL, readonly: BOOL): BOOL =
-    0
-
-public actual fun MapFileAndCheckSumA(filename: PCSTR, headersum: Long, checksum: Long): UInt =
-    0u
-
-public actual fun MapFileAndCheckSumW(filename: PCWSTR, headersum: Long, checksum: Long): UInt =
-    0u
-
-public actual fun MessageBeep(utype: MESSAGEBOX_STYLE): BOOL =
-    0
-
-public actual fun MiniDumpReadDumpStream(baseofdump: Long, streamnumber: UInt, dir: Long, streampointer: Long, streamsize: Long): BOOL =
-    0
-
-public actual fun MiniDumpWriteDump(hprocess: HANDLE, processid: UInt, hfile: HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Long, userstreamparam: Long, callbackparam: Long): BOOL =
-    0
-
-public actual fun OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK): Long =
-    0L
-
-public actual fun OutputDebugStringA(lpoutputstring: PCSTR) {
+public actual fun fatalExit(exitcode: Int): Nothing {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_fatalExit(exitcode)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
+    error("Unreachable noreturn C function fatalExit")
 }
 
-public actual fun OutputDebugStringW(lpoutputstring: PCWSTR) {
+public actual fun findDebugInfoFile(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFile((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findDebugInfoFileEx(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileEx((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findDebugInfoFileExW(filename: Pcwstr, symbolpath: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findDebugInfoFileExW((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findExecutableImage(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImage((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (imagefilepath?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findExecutableImageEx(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImageEx((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (imagefilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findExecutableImageExW(filename: Pcwstr, symbolpath: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findExecutableImageExW((filename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (imagefilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: COpaquePointer?, two: UInt, three: UInt, flags: UInt, filepath: Pstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findFileInPath((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), two.toInt(), three.toInt(), flags.toInt(), (filepath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun findFileInSearchPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, one: UInt, two: UInt, three: UInt, filepath: Pstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_findFileInSearchPath((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), one.toInt(), two.toInt(), three.toInt(), (filepath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun flushInstructionCache(hprocess: Handle, lpbaseaddress: COpaquePointer?, dwsize: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_flushInstructionCache((hprocess?.value ?: 0L).toString(), (lpbaseaddress?.value ?: 0L).toString(), dwsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun formatMessageA(dwflags: FormatMessageOptions, lpsource: COpaquePointer?, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pstr, nsize: UInt, arguments: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_formatMessageA(dwflags.toInt(), (lpsource?.value ?: 0L).toString(), dwmessageid.toInt(), dwlanguageid.toInt(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt(), (arguments?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun formatMessageW(dwflags: FormatMessageOptions, lpsource: COpaquePointer?, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pwstr, nsize: UInt, arguments: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_formatMessageW(dwflags.toInt(), (lpsource?.value ?: 0L).toString(), dwmessageid.toInt(), dwlanguageid.toInt(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt(), (arguments?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getEnabledXStateFeatures(): ULong =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getEnabledXStateFeatures().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getErrorMode(): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getErrorMode().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getImageConfigInformation(loadedimage: COpaquePointer?, imageconfiginformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getImageConfigInformation((loadedimage?.value ?: 0L).toString(), (imageconfiginformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getImageUnusedHeaderBytes(loadedimage: COpaquePointer?, sizeunusedheaderbytes: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getImageUnusedHeaderBytes((loadedimage?.value ?: 0L).toString(), (sizeunusedheaderbytes?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getSymLoadError(): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getSymLoadError().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadContext(hthread: Handle, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadContext((hthread?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadErrorMode(): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadErrorMode().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadSelectorEntry((hthread?.value ?: 0L).toString(), dwselector.toInt(), (lpselectorentry?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadWaitChain(wcthandle: COpaquePointer?, context: ULong, flags: WaitChainThreadOptions, threadid: UInt, nodecount: COpaquePointer?, nodeinfoarray: COpaquePointer?, iscycle: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getThreadWaitChain((wcthandle?.value ?: 0L).toString(), context.toString(), flags.toInt(), threadid.toInt(), (nodecount?.value ?: 0L).toString(), (nodeinfoarray?.value ?: 0L).toString(), (iscycle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getTimestampForLoadedLibrary(module: Hmodule): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getTimestampForLoadedLibrary((module?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getXStateFeaturesMask(context: COpaquePointer?, featuremask: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_getXStateFeaturesMask((context?.value ?: 0L).toString(), (featuremask?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageAddCertificate(filehandle: Handle, certificate: COpaquePointer?, index: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageAddCertificate((filehandle?.value ?: 0L).toString(), (certificate?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageDirectoryEntryToData(base: COpaquePointer?, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToData((base?.value ?: 0L).toString(), mappedasimage, directoryentry.toInt(), (size?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageDirectoryEntryToDataEx(base: COpaquePointer?, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: COpaquePointer?, foundheader: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageDirectoryEntryToDataEx((base?.value ?: 0L).toString(), mappedasimage, directoryentry.toInt(), (size?.value ?: 0L).toString(), (foundheader?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageEnumerateCertificates(filehandle: Handle, typefilter: UShort, certificatecount: COpaquePointer?, indices: COpaquePointer?, indexcount: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageEnumerateCertificates((filehandle?.value ?: 0L).toString(), typefilter.toInt(), (certificatecount?.value ?: 0L).toString(), (indices?.value ?: 0L).toString(), indexcount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageGetCertificateData(filehandle: Handle, certificateindex: UInt, certificate: COpaquePointer?, requiredlength: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateData((filehandle?.value ?: 0L).toString(), certificateindex.toInt(), (certificate?.value ?: 0L).toString(), (requiredlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageGetCertificateHeader(filehandle: Handle, certificateindex: UInt, certificateheader: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetCertificateHeader((filehandle?.value ?: 0L).toString(), certificateindex.toInt(), (certificateheader?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageGetDigestStream(filehandle: Handle, digestlevel: UInt, digestfunction: DigestFunction, digesthandle: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageGetDigestStream((filehandle?.value ?: 0L).toString(), digestlevel.toInt(), 0L.toString(), (digesthandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageLoad(dllname: Pcstr, dllpath: Pcstr): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageLoad((dllname?.value ?: 0L).toString(), (dllpath?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageNtHeader(base: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageNtHeader((base?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageRemoveCertificate(filehandle: Handle, index: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRemoveCertificate((filehandle?.value ?: 0L).toString(), index.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageRvaToSection(ntheaders: COpaquePointer?, base: COpaquePointer?, rva: UInt): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRvaToSection((ntheaders?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), rva.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageRvaToVa(ntheaders: COpaquePointer?, base: COpaquePointer?, rva: UInt, lastrvasection: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageRvaToVa((ntheaders?.value ?: 0L).toString(), (base?.value ?: 0L).toString(), rva.toInt(), (lastrvasection?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imageUnload(loadedimage: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imageUnload((loadedimage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imagehlpApiVersion(): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersion().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun imagehlpApiVersionEx(appversion: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_imagehlpApiVersionEx((appversion?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initializeContext(buffer: COpaquePointer?, contextflags: ContextFlags, context: COpaquePointer?, contextlength: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_initializeContext((buffer?.value ?: 0L).toString(), contextflags.toInt(), (context?.value ?: 0L).toString(), (contextlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initializeContext2(buffer: COpaquePointer?, contextflags: ContextFlags, context: COpaquePointer?, contextlength: COpaquePointer?, xstatecompactionmask: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_initializeContext2((buffer?.value ?: 0L).toString(), contextflags.toInt(), (context?.value ?: 0L).toString(), (contextlength?.value ?: 0L).toString(), xstatecompactionmask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun isDebuggerPresent(): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_isDebuggerPresent() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun locateXStateFeature(context: COpaquePointer?, featureid: UInt, length: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_locateXStateFeature((context?.value ?: 0L).toString(), featureid.toInt(), (length?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun makeSureDirectoryPathExists(dirpath: Pcstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_makeSureDirectoryPathExists((dirpath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mapAndLoad(imagename: Pcstr, dllpath: Pcstr, loadedimage: COpaquePointer?, dotdll: Bool, readonly: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_mapAndLoad((imagename?.value ?: 0L).toString(), (dllpath?.value ?: 0L).toString(), (loadedimage?.value ?: 0L).toString(), dotdll, readonly) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mapFileAndCheckSumA(filename: Pcstr, headersum: COpaquePointer?, checksum: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumA((filename?.value ?: 0L).toString(), (headersum?.value ?: 0L).toString(), (checksum?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: COpaquePointer?, checksum: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_mapFileAndCheckSumW((filename?.value ?: 0L).toString(), (headersum?.value ?: 0L).toString(), (checksum?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun messageBeep(utype: MessageboxStyle): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_messageBeep(utype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun miniDumpReadDumpStream(baseofdump: COpaquePointer?, streamnumber: UInt, dir: COpaquePointer?, streampointer: COpaquePointer?, streamsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_miniDumpReadDumpStream((baseofdump?.value ?: 0L).toString(), streamnumber.toInt(), (dir?.value ?: 0L).toString(), (streampointer?.value ?: 0L).toString(), (streamsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun miniDumpWriteDump(hprocess: Handle, processid: UInt, hfile: Handle, dumptype: MinidumpType, exceptionparam: COpaquePointer?, userstreamparam: COpaquePointer?, callbackparam: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_miniDumpWriteDump((hprocess?.value ?: 0L).toString(), processid.toInt(), (hfile?.value ?: 0L).toString(), dumptype, (exceptionparam?.value ?: 0L).toString(), (userstreamparam?.value ?: 0L).toString(), (callbackparam?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openThreadWaitChainSession(flags: OpenThreadWaitChainSessionFlags, callback: Pwaitchaincallback): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_openThreadWaitChainSession(flags.toInt(), 0L.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun outputDebugStringA(lpoutputstring: Pcstr) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_outputDebugStringA((lpoutputstring?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RaiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: Long) {
+public actual fun outputDebugStringW(lpoutputstring: Pcwstr) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_outputDebugStringW((lpoutputstring?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RaiseFailFastException(pexceptionrecord: Long, pcontextrecord: Long, dwflags: UInt) {
+public actual fun raiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_raiseException(dwexceptioncode.toInt(), dwexceptionflags.toInt(), nnumberofarguments.toInt(), (lparguments?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RangeMapAddPeImageSections(rmaphandle: Long, imagename: PCWSTR, mappedimage: Long, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): BOOL =
-    0
-
-public actual fun RangeMapCreate(): Long =
-    0L
-
-public actual fun RangeMapFree(rmaphandle: Long) {
+public actual fun raiseFailFastException(pexceptionrecord: COpaquePointer?, pcontextrecord: COpaquePointer?, dwflags: UInt) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_raiseFailFastException((pexceptionrecord?.value ?: 0L).toString(), (pcontextrecord?.value ?: 0L).toString(), dwflags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RangeMapRead(rmaphandle: Long, offset: ULong, buffer: Long, requestbytes: UInt, flags: UInt, donebytes: Long): BOOL =
-    0
+public actual fun rangeMapAddPeImageSections(rmaphandle: COpaquePointer?, imagename: Pcwstr, mappedimage: COpaquePointer?, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapAddPeImageSections((rmaphandle?.value ?: 0L).toString(), (imagename?.value ?: 0L).toString(), (mappedimage?.value ?: 0L).toString(), mappingbytes.toInt(), imagebase.toString(), usertag.toString(), mappingflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RangeMapRemove(rmaphandle: Long, usertag: ULong): BOOL =
-    0
+public actual fun rangeMapCreate(): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapCreate().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RangeMapWrite(rmaphandle: Long, offset: ULong, buffer: Long, requestbytes: UInt, flags: UInt, donebytes: Long): BOOL =
-    0
-
-public actual fun ReBaseImage(currentimagename: PCSTR, symbolpath: PCSTR, frebase: BOOL, frebasesysfileok: BOOL, fgoingdown: BOOL, checkimagesize: UInt, oldimagesize: Long, oldimagebase: Long, newimagesize: Long, newimagebase: Long, timestamp: UInt): BOOL =
-    0
-
-public actual fun ReBaseImage64(currentimagename: PCSTR, symbolpath: PCSTR, frebase: BOOL, frebasesysfileok: BOOL, fgoingdown: BOOL, checkimagesize: UInt, oldimagesize: Long, oldimagebase: Long, newimagesize: Long, newimagebase: Long, timestamp: UInt): BOOL =
-    0
-
-public actual fun ReadProcessMemory(hprocess: HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbytesread: Long): BOOL =
-    0
-
-public actual fun RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
+public actual fun rangeMapFree(rmaphandle: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapFree((rmaphandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RemoveInvalidModuleList(hprocess: HANDLE) {
+public actual fun rangeMapRead(rmaphandle: COpaquePointer?, offset: ULong, buffer: COpaquePointer?, requestbytes: UInt, flags: UInt, donebytes: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapRead((rmaphandle?.value ?: 0L).toString(), offset.toString(), (buffer?.value ?: 0L).toString(), requestbytes.toInt(), flags.toInt(), (donebytes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rangeMapRemove(rmaphandle: COpaquePointer?, usertag: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapRemove((rmaphandle?.value ?: 0L).toString(), usertag.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rangeMapWrite(rmaphandle: COpaquePointer?, offset: ULong, buffer: COpaquePointer?, requestbytes: UInt, flags: UInt, donebytes: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rangeMapWrite((rmaphandle?.value ?: 0L).toString(), offset.toString(), (buffer?.value ?: 0L).toString(), requestbytes.toInt(), flags.toInt(), (donebytes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun reBaseImage(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: COpaquePointer?, oldimagebase: COpaquePointer?, newimagesize: COpaquePointer?, newimagebase: COpaquePointer?, timestamp: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_reBaseImage((currentimagename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), frebase, frebasesysfileok, fgoingdown, checkimagesize.toInt(), (oldimagesize?.value ?: 0L).toString(), (oldimagebase?.value ?: 0L).toString(), (newimagesize?.value ?: 0L).toString(), (newimagebase?.value ?: 0L).toString(), timestamp.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun reBaseImage64(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: COpaquePointer?, oldimagebase: COpaquePointer?, newimagesize: COpaquePointer?, newimagebase: COpaquePointer?, timestamp: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_reBaseImage64((currentimagename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), frebase, frebasesysfileok, fgoingdown, checkimagesize.toInt(), (oldimagesize?.value ?: 0L).toString(), (oldimagebase?.value ?: 0L).toString(), (newimagesize?.value ?: 0L).toString(), (newimagebase?.value ?: 0L).toString(), timestamp.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun readProcessMemory(hprocess: Handle, lpbaseaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, lpnumberofbytesread: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_readProcessMemory((hprocess?.value ?: 0L).toString(), (lpbaseaddress?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toString(), (lpnumberofbytesread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun registerWaitChainCOMCallback(callstatecallback: Pcogetcallstate, activationstatecallback: Pcogetactivationstate) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_registerWaitChainCOMCallback(0L.toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RemoveVectoredContinueHandler(handle: Long): UInt =
-    0u
-
-public actual fun RemoveVectoredExceptionHandler(handle: Long): UInt =
-    0u
-
-public actual fun ReportSymbolLoadSummary(hprocess: HANDLE, ploadmodule: PCWSTR, psymboldata: Long): BOOL =
-    0
-
-public actual fun RtlAddFunctionTable(functiontable: Long, entrycount: UInt, baseaddress: ULong): Boolean =
-    false
-
-public actual fun RtlAddGrowableFunctionTable(dynamictable: Long, functiontable: Long, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
-    0u
-
-public actual fun RtlCaptureContext(contextrecord: Long) {
+public actual fun removeInvalidModuleList(hprocess: Handle) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_removeInvalidModuleList((hprocess?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlCaptureContext2(contextrecord: Long) {
+public actual fun removeVectoredContinueHandler(handle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_removeVectoredContinueHandler((handle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun removeVectoredExceptionHandler(handle: COpaquePointer?): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_removeVectoredExceptionHandler((handle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun reportSymbolLoadSummary(hprocess: Handle, ploadmodule: Pcwstr, psymboldata: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_reportSymbolLoadSummary((hprocess?.value ?: 0L).toString(), (ploadmodule?.value ?: 0L).toString(), (psymboldata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlAddFunctionTable(functiontable: COpaquePointer?, entrycount: UInt, baseaddress: ULong): Boolean =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlAddFunctionTable((functiontable?.value ?: 0L).toString(), entrycount.toInt(), baseaddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlAddGrowableFunctionTable(dynamictable: COpaquePointer?, functiontable: COpaquePointer?, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowableFunctionTable((dynamictable?.value ?: 0L).toString(), (functiontable?.value ?: 0L).toString(), entrycount.toInt(), maximumentrycount.toInt(), rangebase.toString(), rangeend.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlCaptureContext(contextrecord: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext((contextrecord?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: Long, backtracehash: Long): UShort =
-    0u
-
-public actual fun RtlDeleteFunctionTable(functiontable: Long): Boolean =
-    false
-
-public actual fun RtlDeleteGrowableFunctionTable(dynamictable: Long) {
+public actual fun rtlCaptureContext2(contextrecord: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureContext2((contextrecord?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlGrowFunctionTable(dynamictable: Long, newentrycount: UInt) {
+public actual fun rtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: COpaquePointer?, backtracehash: COpaquePointer?): UShort =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlCaptureStackBackTrace(framestoskip.toInt(), framestocapture.toInt(), (backtrace?.value ?: 0L).toString(), (backtracehash?.value ?: 0L).toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlDeleteFunctionTable(functiontable: COpaquePointer?): Boolean =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFunctionTable((functiontable?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlDeleteGrowableFunctionTable(dynamictable: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGrowableFunctionTable((dynamictable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Long, outofprocesscallbackdll: PCWSTR): Boolean =
-    false
-
-public actual fun RtlLookupFunctionEntry(controlpc: ULong, imagebase: Long, historytable: Long): Long =
-    0L
-
-public actual fun RtlPcToFileHeader(pcvalue: Long, baseofimage: Long): Long =
-    0L
-
-public actual fun RtlRaiseException(exceptionrecord: Long) {
+public actual fun rtlGrowFunctionTable(dynamictable: COpaquePointer?, newentrycount: UInt) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunctionTable((dynamictable?.value ?: 0L).toString(), newentrycount.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlRestoreContext(contextrecord: Long, exceptionrecord: Long) {
+public actual fun rtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PgetRuntimeFunctionCallback, context: COpaquePointer?, outofprocesscallbackdll: Pcwstr): Boolean =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlInstallFunctionTableCallback(tableidentifier.toString(), baseaddress.toString(), length.toInt(), 0L.toString(), (context?.value ?: 0L).toString(), (outofprocesscallbackdll?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlLookupFunctionEntry(controlpc: ULong, imagebase: COpaquePointer?, historytable: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlLookupFunctionEntry(controlpc.toString(), (imagebase?.value ?: 0L).toString(), (historytable?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlPcToFileHeader(pcvalue: COpaquePointer?, baseofimage: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlPcToFileHeader((pcvalue?.value ?: 0L).toString(), (baseofimage?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtlRaiseException(exceptionrecord: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlRaiseException((exceptionrecord?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlUnwind(targetframe: Long, targetip: Long, exceptionrecord: Long, returnvalue: Long) {
+public actual fun rtlRestoreContext(contextrecord: COpaquePointer?, exceptionrecord: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlRestoreContext((contextrecord?.value ?: 0L).toString(), (exceptionrecord?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlUnwindEx(targetframe: Long, targetip: Long, exceptionrecord: Long, returnvalue: Long, contextrecord: Long, historytable: Long) {
+public actual fun rtlUnwind(targetframe: COpaquePointer?, targetip: COpaquePointer?, exceptionrecord: COpaquePointer?, returnvalue: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlUnwind((targetframe?.value ?: 0L).toString(), (targetip?.value ?: 0L).toString(), (exceptionrecord?.value ?: 0L).toString(), (returnvalue?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: ULong, controlpc: ULong, functionentry: Long, contextrecord: Long, handlerdata: Long, establisherframe: Long, contextpointers: Long): EXCEPTION_ROUTINE =
-    null
-
-public actual fun SearchTreeForFile(rootpath: PCSTR, inputpathname: PCSTR, outputpathbuffer: PSTR): BOOL =
-    0
-
-public actual fun SearchTreeForFileW(rootpath: PCWSTR, inputpathname: PCWSTR, outputpathbuffer: PWSTR): BOOL =
-    0
-
-public actual fun SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
+public actual fun rtlUnwindEx(targetframe: COpaquePointer?, targetip: COpaquePointer?, exceptionrecord: COpaquePointer?, returnvalue: COpaquePointer?, contextrecord: COpaquePointer?, historytable: COpaquePointer?) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx((targetframe?.value ?: 0L).toString(), (targetip?.value ?: 0L).toString(), (exceptionrecord?.value ?: 0L).toString(), (returnvalue?.value ?: 0L).toString(), (contextrecord?.value ?: 0L).toString(), (historytable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun SetErrorMode(umode: THREAD_ERROR_MODE): THREAD_ERROR_MODE =
-    0u
+public actual fun rtlVirtualUnwind(handlertype: RtlVirtualUnwindHandlerType, imagebase: ULong, controlpc: ULong, functionentry: COpaquePointer?, contextrecord: COpaquePointer?, handlerdata: COpaquePointer?, establisherframe: COpaquePointer?, contextpointers: COpaquePointer?): ExceptionRoutine =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetImageConfigInformation(loadedimage: Long, imageconfiginformation: Long): BOOL =
-    0
+public actual fun searchTreeForFile(rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_searchTreeForFile((rootpath?.value ?: 0L).toString(), (inputpathname?.value ?: 0L).toString(), (outputpathbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSymLoadError(error: UInt) {
+public actual fun searchTreeForFileW(rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_searchTreeForFileW((rootpath?.value ?: 0L).toString(), (inputpathname?.value ?: 0L).toString(), (outputpathbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setCheckUserInterruptShared(lpstartaddress: LpcallBackUserInterruptRoutine) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_setCheckUserInterruptShared(0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun SetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL =
-    0
-
-public actual fun SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Long): BOOL =
-    0
-
-public actual fun SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER): LPTOP_LEVEL_EXCEPTION_FILTER =
-    null
-
-public actual fun SetXStateFeaturesMask(context: Long, featuremask: ULong): BOOL =
-    0
-
-public actual fun StackWalk2(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: UInt): BOOL =
-    0
-
-public actual fun StackWalk64(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64): BOOL =
-    0
-
-public actual fun StackWalkEx(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: UInt): BOOL =
-    0
-
-public actual fun SymAddSourceStream(hprocess: HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL =
-    0
-
-public actual fun SymAddSourceStreamA(hprocess: HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL =
-    0
-
-public actual fun SymAddSourceStreamW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, buffer: Long, size: ULong): BOOL =
-    0
-
-public actual fun SymAddSymbol(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, size: UInt, flags: UInt): BOOL =
-    0
-
-public actual fun SymAddSymbolW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, size: UInt, flags: UInt): BOOL =
-    0
-
-public actual fun SymAddrIncludeInlineTrace(hprocess: HANDLE, address: ULong): UInt =
-    0u
-
-public actual fun SymCleanup(hprocess: HANDLE): BOOL =
-    0
-
-public actual fun SymCompareInlineTrace(hprocess: HANDLE, address1: ULong, inlinecontext1: UInt, retaddress1: ULong, address2: ULong, retaddress2: ULong): UInt =
-    0u
-
-public actual fun SymDeleteSymbol(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, flags: UInt): BOOL =
-    0
-
-public actual fun SymDeleteSymbolW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, flags: UInt): BOOL =
-    0
-
-public actual fun SymEnumLines(hprocess: HANDLE, base: ULong, obj: PCSTR, file: PCSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumLinesW(hprocess: HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSourceFileTokens(hprocess: HANDLE, base: ULong, callback: PENUMSOURCEFILETOKENSCALLBACK): BOOL =
-    0
-
-public actual fun SymEnumSourceFiles(hprocess: HANDLE, modbase: ULong, mask: PCSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSourceFilesW(hprocess: HANDLE, modbase: ULong, mask: PCWSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSourceLines(hprocess: HANDLE, base: ULong, obj: PCSTR, file: PCSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSourceLinesW(hprocess: HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSym(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSymbols(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSymbolsEx(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL =
-    0
-
-public actual fun SymEnumSymbolsExW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL =
-    0
-
-public actual fun SymEnumSymbolsForAddr(hprocess: HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSymbolsForAddrW(hprocess: HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumSymbolsW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumTypes(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumTypesByName(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumTypesByNameW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumTypesW(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumerateModules64(hprocess: HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumerateModulesW64(hprocess: HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumerateSymbols64(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Long): BOOL =
-    0
-
-public actual fun SymEnumerateSymbolsW64(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Long): BOOL =
-    0
-
-public actual fun SymFindDebugInfoFile(hprocess: HANDLE, filename: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): HANDLE =
-    0L
-
-public actual fun SymFindDebugInfoFileW(hprocess: HANDLE, filename: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): HANDLE =
-    0L
-
-public actual fun SymFindExecutableImage(hprocess: HANDLE, filename: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): HANDLE =
-    0L
-
-public actual fun SymFindExecutableImageW(hprocess: HANDLE, filename: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): HANDLE =
-    0L
-
-public actual fun SymFindFileInPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PSTR, callback: PFINDFILEINPATHCALLBACK, context: Long): BOOL =
-    0
-
-public actual fun SymFindFileInPathW(hprocess: HANDLE, searchpatha: PCWSTR, filename: PCWSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Long): BOOL =
-    0
-
-public actual fun SymFromAddr(hprocess: HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromAddrW(hprocess: HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromIndex(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromIndexW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromInlineContext(hprocess: HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromInlineContextW(hprocess: HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromName(hprocess: HANDLE, name: PCSTR, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromNameW(hprocess: HANDLE, name: PCWSTR, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromToken(hprocess: HANDLE, base: ULong, token: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymFromTokenW(hprocess: HANDLE, base: ULong, token: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymFunctionTableAccess64(hprocess: HANDLE, addrbase: ULong): Long =
-    0L
-
-public actual fun SymFunctionTableAccess64AccessRoutines(hprocess: HANDLE, addrbase: ULong, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64): Long =
-    0L
-
-public actual fun SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS): BOOL =
-    0
-
-public actual fun SymGetFileLineOffsets64(hprocess: HANDLE, modulename: PCSTR, filename: PCSTR, buffer: Long, bufferlines: UInt): UInt =
-    0u
-
-public actual fun SymGetHomeDirectory(type: UInt, dir: PSTR, size: ULong): PSTR =
-    0L
-
-public actual fun SymGetHomeDirectoryW(type: UInt, dir: PWSTR, size: ULong): PWSTR =
-    0L
-
-public actual fun SymGetLineFromAddr64(hprocess: HANDLE, qwaddr: ULong, pdwdisplacement: Long, line64: Long): BOOL =
-    0
-
-public actual fun SymGetLineFromAddrW64(hprocess: HANDLE, dwaddr: ULong, pdwdisplacement: Long, line: Long): BOOL =
-    0
-
-public actual fun SymGetLineFromInlineContext(hprocess: HANDLE, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line64: Long): BOOL =
-    0
-
-public actual fun SymGetLineFromInlineContextW(hprocess: HANDLE, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line: Long): BOOL =
-    0
-
-public actual fun SymGetLineFromName64(hprocess: HANDLE, modulename: PCSTR, filename: PCSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL =
-    0
-
-public actual fun SymGetLineFromNameW64(hprocess: HANDLE, modulename: PCWSTR, filename: PCWSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL =
-    0
-
-public actual fun SymGetLineNext64(hprocess: HANDLE, line: Long): BOOL =
-    0
-
-public actual fun SymGetLineNextW64(hprocess: HANDLE, line: Long): BOOL =
-    0
-
-public actual fun SymGetLinePrev64(hprocess: HANDLE, line: Long): BOOL =
-    0
-
-public actual fun SymGetLinePrevW64(hprocess: HANDLE, line: Long): BOOL =
-    0
-
-public actual fun SymGetModuleBase64(hprocess: HANDLE, qwaddr: ULong): ULong =
-    0uL
-
-public actual fun SymGetModuleInfo64(hprocess: HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL =
-    0
-
-public actual fun SymGetModuleInfoW64(hprocess: HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL =
-    0
-
-public actual fun SymGetOmaps(hprocess: HANDLE, baseofdll: ULong, omapto: Long, comapto: Long, omapfrom: Long, comapfrom: Long): BOOL =
-    0
-
-public actual fun SymGetOptions(): UInt =
-    0u
-
-public actual fun SymGetScope(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetScopeW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetSearchPath(hprocess: HANDLE, searchpatha: PSTR, searchpathlength: UInt): BOOL =
-    0
-
-public actual fun SymGetSearchPathW(hprocess: HANDLE, searchpatha: PWSTR, searchpathlength: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFile(hprocess: HANDLE, base: ULong, params: PCSTR, filespec: PCSTR, filepath: PSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFileChecksum(hprocess: HANDLE, base: ULong, filespec: PCSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileChecksumW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileFromToken(hprocess: HANDLE, token: Long, params: PCSTR, filepath: PSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFileFromTokenByTokenName(hprocess: HANDLE, token: Long, tokenname: PCSTR, params: PCSTR, filepath: PSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFileFromTokenByTokenNameW(hprocess: HANDLE, token: Long, tokenname: PCWSTR, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFileFromTokenW(hprocess: HANDLE, token: Long, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceFileToken(hprocess: HANDLE, base: ULong, filespec: PCSTR, token: Long, size: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileTokenByTokenName(hprocess: HANDLE, base: ULong, filespec: PCSTR, tokenname: PCSTR, tokenparameters: PCSTR, token: Long, size: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileTokenByTokenNameW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, tokenname: PCWSTR, tokenparameters: PCWSTR, token: Long, size: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileTokenW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, token: Long, size: Long): BOOL =
-    0
-
-public actual fun SymGetSourceFileW(hprocess: HANDLE, base: ULong, params: PCWSTR, filespec: PCWSTR, filepath: PWSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceVarFromToken(hprocess: HANDLE, token: Long, params: PCSTR, varname: PCSTR, value: PSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSourceVarFromTokenW(hprocess: HANDLE, token: Long, params: PCWSTR, varname: PCWSTR, value: PWSTR, size: UInt): BOOL =
-    0
-
-public actual fun SymGetSymFromAddr64(hprocess: HANDLE, qwaddr: ULong, pdwdisplacement: Long, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetSymFromName64(hprocess: HANDLE, name: PCSTR, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetSymNext64(hprocess: HANDLE, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetSymPrev64(hprocess: HANDLE, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetSymbolFile(hprocess: HANDLE, sympath: PCSTR, imagefile: PCSTR, type: UInt, symbolfile: PSTR, csymbolfile: ULong, dbgfile: PSTR, cdbgfile: ULong): BOOL =
-    0
-
-public actual fun SymGetSymbolFileW(hprocess: HANDLE, sympath: PCWSTR, imagefile: PCWSTR, type: UInt, symbolfile: PWSTR, csymbolfile: ULong, dbgfile: PWSTR, cdbgfile: ULong): BOOL =
-    0
-
-public actual fun SymGetTypeFromName(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetTypeFromNameW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, symbol: Long): BOOL =
-    0
-
-public actual fun SymGetTypeInfo(hprocess: HANDLE, modbase: ULong, typeid: UInt, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: Long): BOOL =
-    0
-
-public actual fun SymGetTypeInfoEx(hprocess: HANDLE, modbase: ULong, params: Long): BOOL =
-    0
-
-public actual fun SymGetUnwindInfo(hprocess: HANDLE, address: ULong, buffer: Long, size: Long): BOOL =
-    0
-
-public actual fun SymInitialize(hprocess: HANDLE, usersearchpath: PCSTR, finvadeprocess: BOOL): BOOL =
-    0
-
-public actual fun SymInitializeW(hprocess: HANDLE, usersearchpath: PCWSTR, finvadeprocess: BOOL): BOOL =
-    0
-
-public actual fun SymLoadModule64(hprocess: HANDLE, hfile: HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, sizeofdll: UInt): ULong =
-    0uL
-
-public actual fun SymLoadModuleEx(hprocess: HANDLE, hfile: HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong =
-    0uL
-
-public actual fun SymLoadModuleExW(hprocess: HANDLE, hfile: HANDLE, imagename: PCWSTR, modulename: PCWSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong =
-    0uL
-
-public actual fun SymMatchFileName(filename: PCSTR, match: PCSTR, filenamestop: Long, matchstop: Long): BOOL =
-    0
-
-public actual fun SymMatchFileNameW(filename: PCWSTR, match: PCWSTR, filenamestop: Long, matchstop: Long): BOOL =
-    0
-
-public actual fun SymMatchString(string: PCSTR, expression: PCSTR, fcase: BOOL): BOOL =
-    0
-
-public actual fun SymMatchStringA(string: PCSTR, expression: PCSTR, fcase: BOOL): BOOL =
-    0
-
-public actual fun SymMatchStringW(string: PCWSTR, expression: PCWSTR, fcase: BOOL): BOOL =
-    0
-
-public actual fun SymNext(hprocess: HANDLE, si: Long): BOOL =
-    0
-
-public actual fun SymNextW(hprocess: HANDLE, siw: Long): BOOL =
-    0
-
-public actual fun SymPrev(hprocess: HANDLE, si: Long): BOOL =
-    0
-
-public actual fun SymPrevW(hprocess: HANDLE, siw: Long): BOOL =
-    0
-
-public actual fun SymQueryInlineTrace(hprocess: HANDLE, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: Long, curframeindex: Long): BOOL =
-    0
-
-public actual fun SymRefreshModuleList(hprocess: HANDLE): BOOL =
-    0
-
-public actual fun SymRegisterCallback64(hprocess: HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL =
-    0
-
-public actual fun SymRegisterCallbackW64(hprocess: HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL =
-    0
-
-public actual fun SymRegisterFunctionEntryCallback64(hprocess: HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: ULong): BOOL =
-    0
-
-public actual fun SymSearch(hprocess: HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL =
-    0
-
-public actual fun SymSearchW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCWSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL =
-    0
-
-public actual fun SymSetContext(hprocess: HANDLE, stackframe: Long, context: Long): BOOL =
-    0
-
-public actual fun SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: BOOL): BOOL =
-    0
-
-public actual fun SymSetHomeDirectory(hprocess: HANDLE, dir: PCSTR): PSTR =
-    0L
-
-public actual fun SymSetHomeDirectoryW(hprocess: HANDLE, dir: PCWSTR): PWSTR =
-    0L
-
-public actual fun SymSetOptions(symoptions: UInt): UInt =
-    0u
-
-public actual fun SymSetParentWindow(hwnd: HWND): BOOL =
-    0
-
-public actual fun SymSetScopeFromAddr(hprocess: HANDLE, address: ULong): BOOL =
-    0
-
-public actual fun SymSetScopeFromIndex(hprocess: HANDLE, baseofdll: ULong, index: UInt): BOOL =
-    0
-
-public actual fun SymSetScopeFromInlineContext(hprocess: HANDLE, address: ULong, inlinecontext: UInt): BOOL =
-    0
-
-public actual fun SymSetSearchPath(hprocess: HANDLE, searchpatha: PCSTR): BOOL =
-    0
-
-public actual fun SymSetSearchPathW(hprocess: HANDLE, searchpatha: PCWSTR): BOOL =
-    0
-
-public actual fun SymSrvDeltaName(hprocess: HANDLE, sympath: PCSTR, type: PCSTR, file1: PCSTR, file2: PCSTR): PCSTR =
-    0L
-
-public actual fun SymSrvDeltaNameW(hprocess: HANDLE, sympath: PCWSTR, type: PCWSTR, file1: PCWSTR, file2: PCWSTR): PCWSTR =
-    0L
-
-public actual fun SymSrvGetFileIndexInfo(file: PCSTR, info: Long, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetFileIndexInfoW(file: PCWSTR, info: Long, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetFileIndexString(hprocess: HANDLE, srvpath: PCSTR, file: PCSTR, index: PSTR, size: ULong, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetFileIndexStringW(hprocess: HANDLE, srvpath: PCWSTR, file: PCWSTR, index: PWSTR, size: ULong, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetFileIndexes(file: PCSTR, id: Long, val1: Long, val2: Long, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetFileIndexesW(file: PCWSTR, id: Long, val1: Long, val2: Long, flags: UInt): BOOL =
-    0
-
-public actual fun SymSrvGetSupplement(hprocess: HANDLE, sympath: PCSTR, node: PCSTR, file: PCSTR): PCSTR =
-    0L
-
-public actual fun SymSrvGetSupplementW(hprocess: HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR): PCWSTR =
-    0L
-
-public actual fun SymSrvIsStore(hprocess: HANDLE, path: PCSTR): BOOL =
-    0
-
-public actual fun SymSrvIsStoreW(hprocess: HANDLE, path: PCWSTR): BOOL =
-    0
-
-public actual fun SymSrvStoreFile(hprocess: HANDLE, srvpath: PCSTR, file: PCSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCSTR =
-    0L
-
-public actual fun SymSrvStoreFileW(hprocess: HANDLE, srvpath: PCWSTR, file: PCWSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCWSTR =
-    0L
-
-public actual fun SymSrvStoreSupplement(hprocess: HANDLE, srvpath: PCSTR, node: PCSTR, file: PCSTR, flags: UInt): PCSTR =
-    0L
-
-public actual fun SymSrvStoreSupplementW(hprocess: HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR, flags: UInt): PCWSTR =
-    0L
-
-public actual fun SymUnDName64(sym: Long, undecname: PSTR, undecnamelength: UInt): BOOL =
-    0
-
-public actual fun SymUnloadModule64(hprocess: HANDLE, baseofdll: ULong): BOOL =
-    0
-
-public actual fun TerminateProcessOnMemoryExhaustion(failedallocationsize: ULong) {
+public actual fun setErrorMode(umode: ThreadErrorMode): ThreadErrorMode =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_setErrorMode(umode.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setImageConfigInformation(loadedimage: COpaquePointer?, imageconfiginformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_setImageConfigInformation((loadedimage?.value ?: 0L).toString(), (imageconfiginformation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setSymLoadError(error: UInt) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_setSymLoadError(error.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun TouchFileTimes(filehandle: HANDLE, psystemtime: Long): BOOL =
-    0
+public actual fun setThreadContext(hthread: Handle, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_setThreadContext((hthread?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnDecorateSymbolName(name: PCSTR, outputstring: PSTR, maxstringlength: UInt, flags: UInt): UInt =
-    0u
+public actual fun setThreadErrorMode(dwnewmode: ThreadErrorMode, lpoldmode: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_setThreadErrorMode(dwnewmode.toInt(), (lpoldmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnDecorateSymbolNameW(name: PCWSTR, outputstring: PWSTR, maxstringlength: UInt, flags: UInt): UInt =
-    0u
+public actual fun setUnhandledExceptionFilter(lptoplevelexceptionfilter: LptopLevelExceptionFilter): LptopLevelExceptionFilter =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnMapAndLoad(loadedimage: Long): BOOL =
-    0
+public actual fun setXStateFeaturesMask(context: COpaquePointer?, featuremask: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_setXStateFeaturesMask((context?.value ?: 0L).toString(), featuremask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnhandledExceptionFilter(exceptioninfo: Long): Int =
-    0
+public actual fun stackWalk2(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: COpaquePointer?, contextrecord: COpaquePointer?, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, gettargetattributevalue: PgetTargetAttributeValue64, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalk2(machinetype.toInt(), (hprocess?.value ?: 0L).toString(), (hthread?.value ?: 0L).toString(), (stackframe?.value ?: 0L).toString(), (contextrecord?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateDebugInfoFile(imagefilename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR, ntheaders: Long): BOOL =
-    0
+public actual fun stackWalk64(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: COpaquePointer?, contextrecord: COpaquePointer?, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalk64(machinetype.toInt(), (hprocess?.value ?: 0L).toString(), (hthread?.value ?: 0L).toString(), (stackframe?.value ?: 0L).toString(), (contextrecord?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateDebugInfoFileEx(imagefilename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR, ntheaders: Long, oldchecksum: UInt): BOOL =
-    0
+public actual fun stackWalkEx(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: COpaquePointer?, contextrecord: COpaquePointer?, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_stackWalkEx(machinetype.toInt(), (hprocess?.value ?: 0L).toString(), (hthread?.value ?: 0L).toString(), (stackframe?.value ?: 0L).toString(), (contextrecord?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitForDebugEvent(lpdebugevent: Long, dwmilliseconds: UInt): BOOL =
-    0
+public actual fun symAddSourceStream(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: COpaquePointer?, size: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStream((hprocess?.value ?: 0L).toString(), base.toString(), (streamfile?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitForDebugEventEx(lpdebugevent: Long, dwmilliseconds: UInt): BOOL =
-    0
+public actual fun symAddSourceStreamA(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: COpaquePointer?, size: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamA((hprocess?.value ?: 0L).toString(), base.toString(), (streamfile?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64GetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL =
-    0
+public actual fun symAddSourceStreamW(hprocess: Handle, base: ULong, filespec: Pcwstr, buffer: COpaquePointer?, size: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSourceStreamW((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64GetThreadSelectorEntry(hthread: HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL =
-    0
+public actual fun symAddSymbol(hprocess: Handle, baseofdll: ULong, name: Pcstr, address: ULong, size: UInt, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSymbol((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), address.toString(), size.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64SetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL =
-    0
+public actual fun symAddSymbolW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, address: ULong, size: UInt, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddSymbolW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), address.toString(), size.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteProcessMemory(hprocess: HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbyteswritten: Long): BOOL =
-    0
+public actual fun symAddrIncludeInlineTrace(hprocess: Handle, address: ULong): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symAddrIncludeInlineTrace((hprocess?.value ?: 0L).toString(), address.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symCleanup(hprocess: Handle): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symCleanup((hprocess?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symCompareInlineTrace(hprocess: Handle, address1: ULong, inlinecontext1: UInt, retaddress1: ULong, address2: ULong, retaddress2: ULong): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symCompareInlineTrace((hprocess?.value ?: 0L).toString(), address1.toString(), inlinecontext1.toInt(), retaddress1.toString(), address2.toString(), retaddress2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symDeleteSymbol(hprocess: Handle, baseofdll: ULong, name: Pcstr, address: ULong, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbol((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), address.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symDeleteSymbolW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, address: ULong, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symDeleteSymbolW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), address.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, enumlinescallback: PsymEnumlinesCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumLines((hprocess?.value ?: 0L).toString(), base.toString(), (obj?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, enumlinescallback: PsymEnumlinesCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumLinesW((hprocess?.value ?: 0L).toString(), base.toString(), (obj?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumProcesses(enumprocessescallback: PsymEnumprocessesCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumProcesses(0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSourceFileTokens(hprocess: Handle, base: ULong, callback: Penumsourcefiletokenscallback): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFileTokens((hprocess?.value ?: 0L).toString(), base.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSourceFiles(hprocess: Handle, modbase: ULong, mask: Pcstr, cbsrcfiles: PsymEnumsourcefilesCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFiles((hprocess?.value ?: 0L).toString(), modbase.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSourceFilesW(hprocess: Handle, modbase: ULong, mask: Pcwstr, cbsrcfiles: PsymEnumsourcefilesCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceFilesW((hprocess?.value ?: 0L).toString(), modbase.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSourceLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLines((hprocess?.value ?: 0L).toString(), base.toString(), (obj?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), line.toInt(), flags.toInt(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSourceLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSourceLinesW((hprocess?.value ?: 0L).toString(), base.toString(), (obj?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), line.toInt(), flags.toInt(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSym(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSym((hprocess?.value ?: 0L).toString(), baseofdll.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbols(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbols((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbolsEx(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?, options: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsEx((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString(), options.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbolsExW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?, options: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsExW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString(), options.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbolsForAddr(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddr((hprocess?.value ?: 0L).toString(), address.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbolsForAddrW(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsForAddrW((hprocess?.value ?: 0L).toString(), address.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumSymbolsW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumSymbolsW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumTypes(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypes((hprocess?.value ?: 0L).toString(), baseofdll.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumTypesByName(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByName((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumTypesByNameW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesByNameW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (mask?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumTypesW(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumTypesW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumerateModules64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallback64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateModules64((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumerateModulesW64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallbackw64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateModulesW64((hprocess?.value ?: 0L).toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumerateSymbols64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbols64((hprocess?.value ?: 0L).toString(), baseofdll.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symEnumerateSymbolsW64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64w, usercontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symEnumerateSymbolsW64((hprocess?.value ?: 0L).toString(), baseofdll.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindDebugInfoFile(hprocess: Handle, filename: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFile((hprocess?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindDebugInfoFileW(hprocess: Handle, filename: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindDebugInfoFileW((hprocess?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindExecutableImage(hprocess: Handle, filename: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImage((hprocess?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (imagefilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindExecutableImageW(hprocess: Handle, filename: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: COpaquePointer?): Handle =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindExecutableImageW((hprocess?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (imagefilepath?.value ?: 0L).toString(), 0L.toString(), (callerdata?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: COpaquePointer?, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pstr, callback: Pfindfileinpathcallback, context: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindFileInPath((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), two.toInt(), three.toInt(), flags.toInt(), (foundfile?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFindFileInPathW(hprocess: Handle, searchpatha: Pcwstr, filename: Pcwstr, id: COpaquePointer?, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pwstr, callback: Pfindfileinpathcallbackw, context: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFindFileInPathW((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), two.toInt(), three.toInt(), flags.toInt(), (foundfile?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromAddr(hprocess: Handle, address: ULong, displacement: COpaquePointer?, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromAddr((hprocess?.value ?: 0L).toString(), address.toString(), (displacement?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromAddrW(hprocess: Handle, address: ULong, displacement: COpaquePointer?, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromAddrW((hprocess?.value ?: 0L).toString(), address.toString(), (displacement?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromIndex((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromIndexW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromIndexW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: COpaquePointer?, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromInlineContext((hprocess?.value ?: 0L).toString(), address.toString(), inlinecontext.toInt(), (displacement?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromInlineContextW(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: COpaquePointer?, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromInlineContextW((hprocess?.value ?: 0L).toString(), address.toString(), inlinecontext.toInt(), (displacement?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromName(hprocess: Handle, name: Pcstr, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromName((hprocess?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromNameW(hprocess: Handle, name: Pcwstr, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromNameW((hprocess?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromToken(hprocess: Handle, base: ULong, token: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromToken((hprocess?.value ?: 0L).toString(), base.toString(), token.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFromTokenW(hprocess: Handle, base: ULong, token: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFromTokenW((hprocess?.value ?: 0L).toString(), base.toString(), token.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFunctionTableAccess64(hprocess: Handle, addrbase: ULong): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64((hprocess?.value ?: 0L).toString(), addrbase.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrbase: ULong, readmemoryroutine: PreadProcessMemoryRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64): COpaquePointer? =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symFunctionTableAccess64AccessRoutines((hprocess?.value ?: 0L).toString(), addrbase.toString(), 0L.toString(), 0L.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetExtendedOption(option: ImagehlpExtendedOptions): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetExtendedOption(option) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: COpaquePointer?, bufferlines: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetFileLineOffsets64((hprocess?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bufferlines.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetHomeDirectory(type: UInt, dir: Pstr, size: ULong): Pstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectory(type.toInt(), (dir?.value ?: 0L).toString(), size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetHomeDirectoryW(type: UInt, dir: Pwstr, size: ULong): Pwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetHomeDirectoryW(type.toInt(), (dir?.value ?: 0L).toString(), size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: COpaquePointer?, line64: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddr64((hprocess?.value ?: 0L).toString(), qwaddr.toString(), (pdwdisplacement?.value ?: 0L).toString(), (line64?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromAddrW64(hprocess: Handle, dwaddr: ULong, pdwdisplacement: COpaquePointer?, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromAddrW64((hprocess?.value ?: 0L).toString(), dwaddr.toString(), (pdwdisplacement?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromInlineContext(hprocess: Handle, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: COpaquePointer?, line64: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContext((hprocess?.value ?: 0L).toString(), qwaddr.toString(), inlinecontext.toInt(), qwmodulebaseaddress.toString(), (pdwdisplacement?.value ?: 0L).toString(), (line64?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromInlineContextW(hprocess: Handle, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: COpaquePointer?, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromInlineContextW((hprocess?.value ?: 0L).toString(), dwaddr.toString(), inlinecontext.toInt(), qwmodulebaseaddress.toString(), (pdwdisplacement?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromName64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, dwlinenumber: UInt, pldisplacement: COpaquePointer?, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromName64((hprocess?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), dwlinenumber.toInt(), (pldisplacement?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineFromNameW64(hprocess: Handle, modulename: Pcwstr, filename: Pcwstr, dwlinenumber: UInt, pldisplacement: COpaquePointer?, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineFromNameW64((hprocess?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), dwlinenumber.toInt(), (pldisplacement?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineNext64(hprocess: Handle, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineNext64((hprocess?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLineNextW64(hprocess: Handle, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLineNextW64((hprocess?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLinePrev64(hprocess: Handle, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLinePrev64((hprocess?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetLinePrevW64(hprocess: Handle, line: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetLinePrevW64((hprocess?.value ?: 0L).toString(), (line?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetModuleBase64(hprocess: Handle, qwaddr: ULong): ULong =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleBase64((hprocess?.value ?: 0L).toString(), qwaddr.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetModuleInfo64(hprocess: Handle, qwaddr: ULong, moduleinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfo64((hprocess?.value ?: 0L).toString(), qwaddr.toString(), (moduleinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetModuleInfoW64(hprocess: Handle, qwaddr: ULong, moduleinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetModuleInfoW64((hprocess?.value ?: 0L).toString(), qwaddr.toString(), (moduleinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetOmaps(hprocess: Handle, baseofdll: ULong, omapto: COpaquePointer?, comapto: COpaquePointer?, omapfrom: COpaquePointer?, comapfrom: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetOmaps((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (omapto?.value ?: 0L).toString(), (comapto?.value ?: 0L).toString(), (omapfrom?.value ?: 0L).toString(), (comapfrom?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetOptions(): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetOptions().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetScope(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetScope((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetScopeW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetScopeW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSearchPath(hprocess: Handle, searchpatha: Pstr, searchpathlength: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSearchPath((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), searchpathlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSearchPathW(hprocess: Handle, searchpatha: Pwstr, searchpathlength: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSearchPathW((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString(), searchpathlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFile(hprocess: Handle, base: ULong, params: Pcstr, filespec: Pcstr, filepath: Pstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFile((hprocess?.value ?: 0L).toString(), base.toString(), (params?.value ?: 0L).toString(), (filespec?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileChecksum(hprocess: Handle, base: ULong, filespec: Pcstr, pchecksumtype: COpaquePointer?, pchecksum: COpaquePointer?, checksumsize: UInt, pactualbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksum((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (pchecksumtype?.value ?: 0L).toString(), (pchecksum?.value ?: 0L).toString(), checksumsize.toInt(), (pactualbyteswritten?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileChecksumW(hprocess: Handle, base: ULong, filespec: Pcwstr, pchecksumtype: COpaquePointer?, pchecksum: COpaquePointer?, checksumsize: UInt, pactualbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileChecksumW((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (pchecksumtype?.value ?: 0L).toString(), (pchecksum?.value ?: 0L).toString(), checksumsize.toInt(), (pactualbyteswritten?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileFromToken(hprocess: Handle, token: COpaquePointer?, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromToken((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileFromTokenByTokenName(hprocess: Handle, token: COpaquePointer?, tokenname: Pcstr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenName((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (tokenname?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileFromTokenByTokenNameW(hprocess: Handle, token: COpaquePointer?, tokenname: Pcwstr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenByTokenNameW((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (tokenname?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileFromTokenW(hprocess: Handle, token: COpaquePointer?, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileFromTokenW((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileToken(hprocess: Handle, base: ULong, filespec: Pcstr, token: COpaquePointer?, size: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileToken((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileTokenByTokenName(hprocess: Handle, base: ULong, filespec: Pcstr, tokenname: Pcstr, tokenparameters: Pcstr, token: COpaquePointer?, size: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenName((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (tokenname?.value ?: 0L).toString(), (tokenparameters?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileTokenByTokenNameW(hprocess: Handle, base: ULong, filespec: Pcwstr, tokenname: Pcwstr, tokenparameters: Pcwstr, token: COpaquePointer?, size: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenByTokenNameW((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (tokenname?.value ?: 0L).toString(), (tokenparameters?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileTokenW(hprocess: Handle, base: ULong, filespec: Pcwstr, token: COpaquePointer?, size: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileTokenW((hprocess?.value ?: 0L).toString(), base.toString(), (filespec?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceFileW(hprocess: Handle, base: ULong, params: Pcwstr, filespec: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceFileW((hprocess?.value ?: 0L).toString(), base.toString(), (params?.value ?: 0L).toString(), (filespec?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceVarFromToken(hprocess: Handle, token: COpaquePointer?, params: Pcstr, varname: Pcstr, value: Pstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromToken((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (varname?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSourceVarFromTokenW(hprocess: Handle, token: COpaquePointer?, params: Pcwstr, varname: Pcwstr, value: Pwstr, size: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSourceVarFromTokenW((hprocess?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), (varname?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: COpaquePointer?, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymFromAddr64((hprocess?.value ?: 0L).toString(), qwaddr.toString(), (pdwdisplacement?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymFromName64(hprocess: Handle, name: Pcstr, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymFromName64((hprocess?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymNext64(hprocess: Handle, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymNext64((hprocess?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymPrev64(hprocess: Handle, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymPrev64((hprocess?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymbolFile(hprocess: Handle, sympath: Pcstr, imagefile: Pcstr, type: UInt, symbolfile: Pstr, csymbolfile: ULong, dbgfile: Pstr, cdbgfile: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFile((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (imagefile?.value ?: 0L).toString(), type.toInt(), (symbolfile?.value ?: 0L).toString(), csymbolfile.toString(), (dbgfile?.value ?: 0L).toString(), cdbgfile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetSymbolFileW(hprocess: Handle, sympath: Pcwstr, imagefile: Pcwstr, type: UInt, symbolfile: Pwstr, csymbolfile: ULong, dbgfile: Pwstr, cdbgfile: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetSymbolFileW((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (imagefile?.value ?: 0L).toString(), type.toInt(), (symbolfile?.value ?: 0L).toString(), csymbolfile.toString(), (dbgfile?.value ?: 0L).toString(), cdbgfile.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetTypeFromName(hprocess: Handle, baseofdll: ULong, name: Pcstr, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromName((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetTypeFromNameW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, symbol: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeFromNameW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), (name?.value ?: 0L).toString(), (symbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetTypeInfo(hprocess: Handle, modbase: ULong, typeid: UInt, gettype: ImagehlpSymbolTypeInfo, pinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfo((hprocess?.value ?: 0L).toString(), modbase.toString(), typeid.toInt(), gettype, (pinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetTypeInfoEx(hprocess: Handle, modbase: ULong, params: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetTypeInfoEx((hprocess?.value ?: 0L).toString(), modbase.toString(), (params?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symGetUnwindInfo(hprocess: Handle, address: ULong, buffer: COpaquePointer?, size: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symGetUnwindInfo((hprocess?.value ?: 0L).toString(), address.toString(), (buffer?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symInitialize(hprocess: Handle, usersearchpath: Pcstr, finvadeprocess: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symInitialize((hprocess?.value ?: 0L).toString(), (usersearchpath?.value ?: 0L).toString(), finvadeprocess) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symInitializeW(hprocess: Handle, usersearchpath: Pcwstr, finvadeprocess: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symInitializeW((hprocess?.value ?: 0L).toString(), (usersearchpath?.value ?: 0L).toString(), finvadeprocess) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symLoadModule64(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, sizeofdll: UInt): ULong =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModule64((hprocess?.value ?: 0L).toString(), (hfile?.value ?: 0L).toString(), (imagename?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), baseofdll.toString(), sizeofdll.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symLoadModuleEx(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, dllsize: UInt, data: COpaquePointer?, flags: SymLoadFlags): ULong =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModuleEx((hprocess?.value ?: 0L).toString(), (hfile?.value ?: 0L).toString(), (imagename?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), baseofdll.toString(), dllsize.toInt(), (data?.value ?: 0L).toString(), flags.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symLoadModuleExW(hprocess: Handle, hfile: Handle, imagename: Pcwstr, modulename: Pcwstr, baseofdll: ULong, dllsize: UInt, data: COpaquePointer?, flags: SymLoadFlags): ULong =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symLoadModuleExW((hprocess?.value ?: 0L).toString(), (hfile?.value ?: 0L).toString(), (imagename?.value ?: 0L).toString(), (modulename?.value ?: 0L).toString(), baseofdll.toString(), dllsize.toInt(), (data?.value ?: 0L).toString(), flags.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symMatchFileName(filename: Pcstr, match: Pcstr, filenamestop: COpaquePointer?, matchstop: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchFileName((filename?.value ?: 0L).toString(), (match?.value ?: 0L).toString(), (filenamestop?.value ?: 0L).toString(), (matchstop?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symMatchFileNameW(filename: Pcwstr, match: Pcwstr, filenamestop: COpaquePointer?, matchstop: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchFileNameW((filename?.value ?: 0L).toString(), (match?.value ?: 0L).toString(), (filenamestop?.value ?: 0L).toString(), (matchstop?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symMatchString(string: Pcstr, expression: Pcstr, fcase: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchString((string?.value ?: 0L).toString(), (expression?.value ?: 0L).toString(), fcase) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symMatchStringA(string: Pcstr, expression: Pcstr, fcase: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchStringA((string?.value ?: 0L).toString(), (expression?.value ?: 0L).toString(), fcase) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symMatchStringW(string: Pcwstr, expression: Pcwstr, fcase: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symMatchStringW((string?.value ?: 0L).toString(), (expression?.value ?: 0L).toString(), fcase) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symNext(hprocess: Handle, si: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symNext((hprocess?.value ?: 0L).toString(), (si?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symNextW(hprocess: Handle, siw: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symNextW((hprocess?.value ?: 0L).toString(), (siw?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symPrev(hprocess: Handle, si: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symPrev((hprocess?.value ?: 0L).toString(), (si?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symPrevW(hprocess: Handle, siw: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symPrevW((hprocess?.value ?: 0L).toString(), (siw?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symQueryInlineTrace(hprocess: Handle, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: COpaquePointer?, curframeindex: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symQueryInlineTrace((hprocess?.value ?: 0L).toString(), startaddress.toString(), startcontext.toInt(), startretaddress.toString(), curaddress.toString(), (curcontext?.value ?: 0L).toString(), (curframeindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symRefreshModuleList(hprocess: Handle): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symRefreshModuleList((hprocess?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symRegisterCallback64(hprocess: Handle, callbackfunction: PsymbolRegisteredCallback64, usercontext: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterCallback64((hprocess?.value ?: 0L).toString(), 0L.toString(), usercontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symRegisterCallbackW64(hprocess: Handle, callbackfunction: PsymbolRegisteredCallback64, usercontext: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterCallbackW64((hprocess?.value ?: 0L).toString(), 0L.toString(), usercontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symRegisterFunctionEntryCallback64(hprocess: Handle, callbackfunction: PsymbolFuncentryCallback64, usercontext: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symRegisterFunctionEntryCallback64((hprocess?.value ?: 0L).toString(), 0L.toString(), usercontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSearch(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: COpaquePointer?, options: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSearch((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), symtag.toInt(), (mask?.value ?: 0L).toString(), address.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString(), options.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSearchW(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcwstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: COpaquePointer?, options: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSearchW((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt(), symtag.toInt(), (mask?.value ?: 0L).toString(), address.toString(), 0L.toString(), (usercontext?.value ?: 0L).toString(), options.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetContext(hprocess: Handle, stackframe: COpaquePointer?, context: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetContext((hprocess?.value ?: 0L).toString(), (stackframe?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetExtendedOption(option: ImagehlpExtendedOptions, value: Bool): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetExtendedOption(option, value) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetHomeDirectory(hprocess: Handle, dir: Pcstr): Pstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectory((hprocess?.value ?: 0L).toString(), (dir?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetHomeDirectoryW(hprocess: Handle, dir: Pcwstr): Pwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetHomeDirectoryW((hprocess?.value ?: 0L).toString(), (dir?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetOptions(symoptions: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetOptions(symoptions.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetParentWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetParentWindow((hwnd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetScopeFromAddr(hprocess: Handle, address: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromAddr((hprocess?.value ?: 0L).toString(), address.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetScopeFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromIndex((hprocess?.value ?: 0L).toString(), baseofdll.toString(), index.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetScopeFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetScopeFromInlineContext((hprocess?.value ?: 0L).toString(), address.toString(), inlinecontext.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetSearchPath(hprocess: Handle, searchpatha: Pcstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetSearchPath((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSetSearchPathW(hprocess: Handle, searchpatha: Pcwstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSetSearchPathW((hprocess?.value ?: 0L).toString(), (searchpatha?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvDeltaName(hprocess: Handle, sympath: Pcstr, type: Pcstr, file1: Pcstr, file2: Pcstr): Pcstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaName((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (type?.value ?: 0L).toString(), (file1?.value ?: 0L).toString(), (file2?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvDeltaNameW(hprocess: Handle, sympath: Pcwstr, type: Pcwstr, file1: Pcwstr, file2: Pcwstr): Pcwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvDeltaNameW((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (type?.value ?: 0L).toString(), (file1?.value ?: 0L).toString(), (file2?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexInfo(file: Pcstr, info: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfo((file?.value ?: 0L).toString(), (info?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexInfoW(file: Pcwstr, info: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexInfoW((file?.value ?: 0L).toString(), (info?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexString(hprocess: Handle, srvpath: Pcstr, file: Pcstr, index: Pstr, size: ULong, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexString((hprocess?.value ?: 0L).toString(), (srvpath?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), (index?.value ?: 0L).toString(), size.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexStringW(hprocess: Handle, srvpath: Pcwstr, file: Pcwstr, index: Pwstr, size: ULong, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexStringW((hprocess?.value ?: 0L).toString(), (srvpath?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), (index?.value ?: 0L).toString(), size.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexes(file: Pcstr, id: COpaquePointer?, val1: COpaquePointer?, val2: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexes((file?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), (val1?.value ?: 0L).toString(), (val2?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetFileIndexesW(file: Pcwstr, id: COpaquePointer?, val1: COpaquePointer?, val2: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetFileIndexesW((file?.value ?: 0L).toString(), (id?.value ?: 0L).toString(), (val1?.value ?: 0L).toString(), (val2?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetSupplement(hprocess: Handle, sympath: Pcstr, node: Pcstr, file: Pcstr): Pcstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplement((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (file?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvGetSupplementW(hprocess: Handle, sympath: Pcwstr, node: Pcwstr, file: Pcwstr): Pcwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvGetSupplementW((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (file?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvIsStore(hprocess: Handle, path: Pcstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvIsStore((hprocess?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvIsStoreW(hprocess: Handle, path: Pcwstr): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvIsStoreW((hprocess?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvStoreFile(hprocess: Handle, srvpath: Pcstr, file: Pcstr, flags: SymSrvStoreFileFlags): Pcstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFile((hprocess?.value ?: 0L).toString(), (srvpath?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvStoreFileW(hprocess: Handle, srvpath: Pcwstr, file: Pcwstr, flags: SymSrvStoreFileFlags): Pcwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreFileW((hprocess?.value ?: 0L).toString(), (srvpath?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvStoreSupplement(hprocess: Handle, srvpath: Pcstr, node: Pcstr, file: Pcstr, flags: UInt): Pcstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplement((hprocess?.value ?: 0L).toString(), (srvpath?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symSrvStoreSupplementW(hprocess: Handle, sympath: Pcwstr, node: Pcwstr, file: Pcwstr, flags: UInt): Pcwstr =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symSrvStoreSupplementW((hprocess?.value ?: 0L).toString(), (sympath?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (file?.value ?: 0L).toString(), flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symUnDName64(sym: COpaquePointer?, undecname: Pstr, undecnamelength: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symUnDName64((sym?.value ?: 0L).toString(), (undecname?.value ?: 0L).toString(), undecnamelength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun symUnloadModule64(hprocess: Handle, baseofdll: ULong): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_symUnloadModule64((hprocess?.value ?: 0L).toString(), baseofdll.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun terminateProcessOnMemoryExhaustion(failedallocationsize: ULong) {
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_diagnostics_debug_terminateProcessOnMemoryExhaustion(failedallocationsize.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
+}
+
+public actual fun touchFileTimes(filehandle: Handle, psystemtime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_touchFileTimes((filehandle?.value ?: 0L).toString(), (psystemtime?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unDecorateSymbolName(name: Pcstr, outputstring: Pstr, maxstringlength: UInt, flags: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolName((name?.value ?: 0L).toString(), (outputstring?.value ?: 0L).toString(), maxstringlength.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unDecorateSymbolNameW(name: Pcwstr, outputstring: Pwstr, maxstringlength: UInt, flags: UInt): UInt =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_unDecorateSymbolNameW((name?.value ?: 0L).toString(), (outputstring?.value ?: 0L).toString(), maxstringlength.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unMapAndLoad(loadedimage: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_unMapAndLoad((loadedimage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unhandledExceptionFilter(exceptioninfo: COpaquePointer?): Int =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_unhandledExceptionFilter((exceptioninfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun updateDebugInfoFile(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFile((imagefilename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), (ntheaders?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun updateDebugInfoFileEx(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: COpaquePointer?, oldchecksum: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_updateDebugInfoFileEx((imagefilename?.value ?: 0L).toString(), (symbolpath?.value ?: 0L).toString(), (debugfilepath?.value ?: 0L).toString(), (ntheaders?.value ?: 0L).toString(), oldchecksum.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForDebugEvent(lpdebugevent: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_waitForDebugEvent((lpdebugevent?.value ?: 0L).toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForDebugEventEx(lpdebugevent: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_waitForDebugEventEx((lpdebugevent?.value ?: 0L).toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wow64GetThreadContext(hthread: Handle, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadContext((hthread?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wow64GetThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64GetThreadSelectorEntry((hthread?.value ?: 0L).toString(), dwselector.toInt(), (lpselectorentry?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wow64SetThreadContext(hthread: Handle, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_wow64SetThreadContext((hthread?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun writeProcessMemory(hprocess: Handle, lpbaseaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, lpnumberofbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32SystemDiagnosticsDebugNapiAvailable) _wasm_windowssys_windows_win32_system_diagnostics_debug_writeProcessMemory((hprocess?.value ?: 0L).toString(), (lpbaseaddress?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toString(), (lpnumberofbyteswritten?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1CheckGamingPrivilegeSilently(JNIEnv* km_env, jclass km_clazz, jint privilegeid, jlong scope, jlong policy, jlong hasprivilege) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1checkGamingPrivilegeSilently(JNIEnv* km_env, jclass km_clazz, jint privilegeid, jlong scope, jlong policy, jlong hasprivilege) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1CheckGamingPrivilegeSilentlyForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint privilegeid, jlong scope, jlong policy, jlong hasprivilege) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1checkGamingPrivilegeSilentlyForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint privilegeid, jlong scope, jlong policy, jlong hasprivilege) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1CheckGamingPrivilegeWithUI(JNIEnv* km_env, jclass km_clazz, jint privilegeid, jlong scope, jlong policy, jlong friendlymessage, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1checkGamingPrivilegeWithUI(JNIEnv* km_env, jclass km_clazz, jint privilegeid, jlong scope, jlong policy, jlong friendlymessage, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1CheckGamingPrivilegeWithUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint privilegeid, jlong scope, jlong policy, jlong friendlymessage, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1checkGamingPrivilegeWithUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint privilegeid, jlong scope, jlong policy, jlong friendlymessage, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1GetExpandedResourceExclusiveCpuCount(JNIEnv* km_env, jclass km_clazz, jlong exclusivecpucount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1getExpandedResourceExclusiveCpuCount(JNIEnv* km_env, jclass km_clazz, jlong exclusivecpucount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1GetGamingDeviceModelInformation(JNIEnv* km_env, jclass km_clazz, jlong information) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1getGamingDeviceModelInformation(JNIEnv* km_env, jclass km_clazz, jlong information) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -144,7 +144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1HasExpandedResources(JNIEnv* km_env, jclass km_clazz, jlong hasexpandedresources) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1hasExpandedResources(JNIEnv* km_env, jclass km_clazz, jlong hasexpandedresources) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -162,7 +162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ProcessPendingGameUI(JNIEnv* km_env, jclass km_clazz, jint waitforcompletion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1processPendingGameUI(JNIEnv* km_env, jclass km_clazz, jint waitforcompletion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ReleaseExclusiveCpuSets(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1releaseExclusiveCpuSets(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowChangeFriendRelationshipUI(JNIEnv* km_env, jclass km_clazz, jlong targetuserxuid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showChangeFriendRelationshipUI(JNIEnv* km_env, jclass km_clazz, jlong targetuserxuid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowChangeFriendRelationshipUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong targetuserxuid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showChangeFriendRelationshipUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong targetuserxuid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -238,7 +238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowCustomizeUserProfileUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showCustomizeUserProfileUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowCustomizeUserProfileUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showCustomizeUserProfileUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -277,7 +277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowFindFriendsUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showFindFriendsUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -296,7 +296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowFindFriendsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showFindFriendsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -316,7 +316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInfoUI(JNIEnv* km_env, jclass km_clazz, jint titleid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInfoUI(JNIEnv* km_env, jclass km_clazz, jint titleid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -336,7 +336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInfoUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint titleid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInfoUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint titleid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -357,7 +357,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInviteUI(JNIEnv* km_env, jclass km_clazz, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInviteUI(JNIEnv* km_env, jclass km_clazz, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInviteUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInviteUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -404,7 +404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInviteUIWithContext(JNIEnv* km_env, jclass km_clazz, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong customactivationcontext, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInviteUIWithContext(JNIEnv* km_env, jclass km_clazz, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong customactivationcontext, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -428,7 +428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowGameInviteUIWithContextForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong customactivationcontext, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showGameInviteUIWithContextForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong serviceconfigurationid, jlong sessiontemplatename, jlong sessionid, jlong invitationdisplaytext, jlong customactivationcontext, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -453,7 +453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowPlayerPickerUI(JNIEnv* km_env, jclass km_clazz, jlong promptdisplaytext, jlong xuids, jlong xuidscount, jlong preselectedxuids, jlong preselectedxuidscount, jlong minselectioncount, jlong maxselectioncount, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showPlayerPickerUI(JNIEnv* km_env, jclass km_clazz, jlong promptdisplaytext, jlong xuids, jlong xuidscount, jlong preselectedxuids, jlong preselectedxuidscount, jlong minselectioncount, jlong maxselectioncount, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowPlayerPickerUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong promptdisplaytext, jlong xuids, jlong xuidscount, jlong preselectedxuids, jlong preselectedxuidscount, jlong minselectioncount, jlong maxselectioncount, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showPlayerPickerUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong promptdisplaytext, jlong xuids, jlong xuidscount, jlong preselectedxuids, jlong preselectedxuidscount, jlong minselectioncount, jlong maxselectioncount, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowProfileCardUI(JNIEnv* km_env, jclass km_clazz, jlong targetuserxuid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showProfileCardUI(JNIEnv* km_env, jclass km_clazz, jlong targetuserxuid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -526,7 +526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowProfileCardUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong targetuserxuid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showProfileCardUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong targetuserxuid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -547,7 +547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowTitleAchievementsUI(JNIEnv* km_env, jclass km_clazz, jint titleid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showTitleAchievementsUI(JNIEnv* km_env, jclass km_clazz, jint titleid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -567,7 +567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowTitleAchievementsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint titleid, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showTitleAchievementsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jint titleid, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -588,7 +588,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowUserSettingsUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showUserSettingsUI(JNIEnv* km_env, jclass km_clazz, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -607,7 +607,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1ShowUserSettingsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1showUserSettingsUIForUser(JNIEnv* km_env, jclass km_clazz, jlong user, jlong completionroutine, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gamin
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1TryCancelPendingGameUI(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_gaming_WindowsWin32GamingJniBridge_windowssys_1windows_1win32_1gaming_1tryCancelPendingGameUI(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,22 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public val ADVFCACHE_FORCEBUILTIN: ADVF = 16
+public val ADVFCACHE_FORCEBUILTIN: Advf = 16
 
-public val ADVFCACHE_NOHANDLER: ADVF = 8
+public val ADVFCACHE_NOHANDLER: Advf = 8
 
-public val ADVFCACHE_ONSAVE: ADVF = 32
+public val ADVFCACHE_ONSAVE: Advf = 32
 
-public val ADVF_DATAONSTOP: ADVF = 64
+public val ADVF_DATAONSTOP: Advf = 64
 
-public val ADVF_NODATA: ADVF = 1
+public val ADVF_NODATA: Advf = 1
 
-public val ADVF_ONLYONCE: ADVF = 4
+public val ADVF_ONLYONCE: Advf = 4
 
-public val ADVF_PRIMEFIRST: ADVF = 2
+public val ADVF_PRIMEFIRST: Advf = 2
 
 public val APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: UInt = 2048u
 
@@ -48,219 +49,219 @@ public val APPIDREGFLAGS_RESERVED9: UInt = 16384u
 
 public val APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: UInt = 2u
 
-public val APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = 6
+public val APTTYPEQUALIFIER_APPLICATION_STA: Apttypequalifier = 6
 
-public val APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = 1
+public val APTTYPEQUALIFIER_IMPLICIT_MTA: Apttypequalifier = 1
 
-public val APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = 4
+public val APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: Apttypequalifier = 4
 
-public val APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = 5
+public val APTTYPEQUALIFIER_NA_ON_MAINSTA: Apttypequalifier = 5
 
-public val APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = 2
+public val APTTYPEQUALIFIER_NA_ON_MTA: Apttypequalifier = 2
 
-public val APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = 3
+public val APTTYPEQUALIFIER_NA_ON_STA: Apttypequalifier = 3
 
-public val APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = 0
+public val APTTYPEQUALIFIER_NONE: Apttypequalifier = 0
 
-public val APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = 7
+public val APTTYPEQUALIFIER_RESERVED_1: Apttypequalifier = 7
 
-public val APTTYPE_CURRENT: APTTYPE = -1
+public val APTTYPE_CURRENT: Apttype = -1
 
-public val APTTYPE_MAINSTA: APTTYPE = 3
+public val APTTYPE_MAINSTA: Apttype = 3
 
-public val APTTYPE_MTA: APTTYPE = 1
+public val APTTYPE_MTA: Apttype = 1
 
-public val APTTYPE_NA: APTTYPE = 2
+public val APTTYPE_NA: Apttype = 2
 
-public val APTTYPE_STA: APTTYPE = 0
+public val APTTYPE_STA: Apttype = 0
 
 public val ASYNC_MODE_COMPATIBILITY: Int = 1
 
 public val ASYNC_MODE_DEFAULT: Int = 0
 
-public val BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = 2
+public val BINDINFOF_URLENCODEDEXTRAINFO: Bindinfof = 2
 
-public val BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = 1
+public val BINDINFOF_URLENCODESTGMEDDATA: Bindinfof = 1
 
-public val BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2
+public val BIND_JUSTTESTEXISTENCE: BindFlags = 2
 
-public val BIND_MAYBOTHERUSER: BIND_FLAGS = 1
+public val BIND_MAYBOTHERUSER: BindFlags = 1
 
-public val CALLTYPE_ASYNC: CALLTYPE = 3
+public val CALLTYPE_ASYNC: Calltype = 3
 
-public val CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = 5
+public val CALLTYPE_ASYNC_CALLPENDING: Calltype = 5
 
-public val CALLTYPE_NESTED: CALLTYPE = 2
+public val CALLTYPE_NESTED: Calltype = 2
 
-public val CALLTYPE_TOPLEVEL: CALLTYPE = 1
+public val CALLTYPE_TOPLEVEL: Calltype = 1
 
-public val CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = 4
+public val CALLTYPE_TOPLEVEL_CALLPENDING: Calltype = 4
 
-public val CC_CDECL: CALLCONV = 1
+public val CC_CDECL: Callconv = 1
 
-public val CC_FASTCALL: CALLCONV = 0
+public val CC_FASTCALL: Callconv = 0
 
-public val CC_FPFASTCALL: CALLCONV = 5
+public val CC_FPFASTCALL: Callconv = 5
 
-public val CC_MACPASCAL: CALLCONV = 3
+public val CC_MACPASCAL: Callconv = 3
 
-public val CC_MAX: CALLCONV = 9
+public val CC_MAX: Callconv = 9
 
-public val CC_MPWCDECL: CALLCONV = 7
+public val CC_MPWCDECL: Callconv = 7
 
-public val CC_MPWPASCAL: CALLCONV = 8
+public val CC_MPWPASCAL: Callconv = 8
 
-public val CC_MSCPASCAL: CALLCONV = 2
+public val CC_MSCPASCAL: Callconv = 2
 
-public val CC_PASCAL: CALLCONV = 2
+public val CC_PASCAL: Callconv = 2
 
-public val CC_STDCALL: CALLCONV = 4
+public val CC_STDCALL: Callconv = 4
 
-public val CC_SYSCALL: CALLCONV = 6
+public val CC_SYSCALL: Callconv = 6
 
-public val CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = 262144u
+public val CLSCTX_ACTIVATE_32_BIT_SERVER: Clsctx = 262144u
 
-public val CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = 524288u
+public val CLSCTX_ACTIVATE_64_BIT_SERVER: Clsctx = 524288u
 
-public val CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = 8388608u
+public val CLSCTX_ACTIVATE_AAA_AS_IU: Clsctx = 8388608u
 
-public val CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = 33554432u
+public val CLSCTX_ACTIVATE_ARM32_SERVER: Clsctx = 33554432u
 
-public val CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = 262144u
+public val CLSCTX_ACTIVATE_X86_SERVER: Clsctx = 262144u
 
-public val CLSCTX_ALL: CLSCTX = 23u
+public val CLSCTX_ALL: Clsctx = 23u
 
-public val CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = 67108864u
+public val CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: Clsctx = 67108864u
 
-public val CLSCTX_APPCONTAINER: CLSCTX = 4194304u
+public val CLSCTX_APPCONTAINER: Clsctx = 4194304u
 
-public val CLSCTX_DISABLE_AAA: CLSCTX = 32768u
+public val CLSCTX_DISABLE_AAA: Clsctx = 32768u
 
-public val CLSCTX_ENABLE_AAA: CLSCTX = 65536u
+public val CLSCTX_ENABLE_AAA: Clsctx = 65536u
 
-public val CLSCTX_ENABLE_CLOAKING: CLSCTX = 1048576u
+public val CLSCTX_ENABLE_CLOAKING: Clsctx = 1048576u
 
-public val CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = 8192u
+public val CLSCTX_ENABLE_CODE_DOWNLOAD: Clsctx = 8192u
 
-public val CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = 131072u
+public val CLSCTX_FROM_DEFAULT_CONTEXT: Clsctx = 131072u
 
-public val CLSCTX_INPROC_HANDLER: CLSCTX = 2u
+public val CLSCTX_INPROC_HANDLER: Clsctx = 2u
 
-public val CLSCTX_INPROC_HANDLER16: CLSCTX = 32u
+public val CLSCTX_INPROC_HANDLER16: Clsctx = 32u
 
-public val CLSCTX_INPROC_SERVER: CLSCTX = 1u
+public val CLSCTX_INPROC_SERVER: Clsctx = 1u
 
-public val CLSCTX_INPROC_SERVER16: CLSCTX = 8u
+public val CLSCTX_INPROC_SERVER16: Clsctx = 8u
 
-public val CLSCTX_LOCAL_SERVER: CLSCTX = 4u
+public val CLSCTX_LOCAL_SERVER: Clsctx = 4u
 
-public val CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = 1024u
+public val CLSCTX_NO_CODE_DOWNLOAD: Clsctx = 1024u
 
-public val CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = 4096u
+public val CLSCTX_NO_CUSTOM_MARSHAL: Clsctx = 4096u
 
-public val CLSCTX_NO_FAILURE_LOG: CLSCTX = 16384u
+public val CLSCTX_NO_FAILURE_LOG: Clsctx = 16384u
 
-public val CLSCTX_PS_DLL: CLSCTX = 2147483648u
+public val CLSCTX_PS_DLL: Clsctx = 2147483648u
 
-public val CLSCTX_REMOTE_SERVER: CLSCTX = 16u
+public val CLSCTX_REMOTE_SERVER: Clsctx = 16u
 
-public val CLSCTX_RESERVED1: CLSCTX = 64u
+public val CLSCTX_RESERVED1: Clsctx = 64u
 
-public val CLSCTX_RESERVED2: CLSCTX = 128u
+public val CLSCTX_RESERVED2: Clsctx = 128u
 
-public val CLSCTX_RESERVED3: CLSCTX = 256u
+public val CLSCTX_RESERVED3: Clsctx = 256u
 
-public val CLSCTX_RESERVED4: CLSCTX = 512u
+public val CLSCTX_RESERVED4: Clsctx = 512u
 
-public val CLSCTX_RESERVED5: CLSCTX = 2048u
+public val CLSCTX_RESERVED5: Clsctx = 2048u
 
-public val CLSCTX_RESERVED6: CLSCTX = 16777216u
+public val CLSCTX_RESERVED6: Clsctx = 16777216u
 
-public val CLSCTX_SERVER: CLSCTX = 21u
+public val CLSCTX_SERVER: Clsctx = 21u
 
-public val CLSID_GlobalOptions: GUID = GUID.from_u128(U128(0x34b00000000uL, 0xc000000000000046uL))
+public val CLSID_GLOBAL_OPTIONS: Guid = Guid.fromU128(U128(0x34b00000000uL, 0xc000000000000046uL))
 
-public val COINITBASE_MULTITHREADED: COINITBASE = 0
+public val COINITBASE_MULTITHREADED: Coinitbase = 0
 
-public val COINIT_APARTMENTTHREADED: COINIT = 2
+public val COINIT_APARTMENTTHREADED: Coinit = 2
 
-public val COINIT_DISABLE_OLE1DDE: COINIT = 4
+public val COINIT_DISABLE_OLE1DDE: Coinit = 4
 
-public val COINIT_MULTITHREADED: COINIT = 0
+public val COINIT_MULTITHREADED: Coinit = 0
 
-public val COINIT_SPEED_OVER_MEMORY: COINIT = 8
+public val COINIT_SPEED_OVER_MEMORY: Coinit = 8
 
 public val COLE_DEFAULT_AUTHINFO: Int = -1
 
-public val COLE_DEFAULT_PRINCIPAL: PCWSTR = (-1).toLong()
+public val COLE_DEFAULT_PRINCIPAL: Pcwstr = COpaquePointer((-1).toLong())
 
-public val COMBND_RESERVED1: RPCOPT_PROPERTIES = 4
+public val COMBND_RESERVED1: RpcoptProperties = 4
 
-public val COMBND_RESERVED2: RPCOPT_PROPERTIES = 5
+public val COMBND_RESERVED2: RpcoptProperties = 5
 
-public val COMBND_RESERVED3: RPCOPT_PROPERTIES = 8
+public val COMBND_RESERVED3: RpcoptProperties = 8
 
-public val COMBND_RESERVED4: RPCOPT_PROPERTIES = 16
+public val COMBND_RESERVED4: RpcoptProperties = 16
 
-public val COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = 1
+public val COMBND_RPCTIMEOUT: RpcoptProperties = 1
 
-public val COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = 2
+public val COMBND_SERVER_LOCALITY: RpcoptProperties = 2
 
-public val COMGLB_APPID: GLOBALOPT_PROPERTIES = 2
+public val COMGLB_APPID: GlobaloptProperties = 2
 
-public val COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = 1
+public val COMGLB_EXCEPTION_DONOT_HANDLE: GlobaloptEhValues = 1
 
-public val COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = 2
+public val COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GlobaloptEhValues = 2
 
-public val COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = 1
+public val COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GlobaloptEhValues = 1
 
-public val COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = 0
+public val COMGLB_EXCEPTION_HANDLE: GlobaloptEhValues = 0
 
-public val COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = 1
+public val COMGLB_EXCEPTION_HANDLING: GlobaloptProperties = 1
 
-public val COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = 8
+public val COMGLB_FAST_RUNDOWN: GlobaloptRoFlags = 8
 
-public val COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = 6
+public val COMGLB_PROPERTIES_RESERVED1: GlobaloptProperties = 6
 
-public val COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = 7
+public val COMGLB_PROPERTIES_RESERVED2: GlobaloptProperties = 7
 
-public val COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = 8
+public val COMGLB_PROPERTIES_RESERVED3: GlobaloptProperties = 8
 
-public val COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = 16
+public val COMGLB_RESERVED1: GlobaloptRoFlags = 16
 
-public val COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = 32
+public val COMGLB_RESERVED2: GlobaloptRoFlags = 32
 
-public val COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = 64
+public val COMGLB_RESERVED3: GlobaloptRoFlags = 64
 
-public val COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = 256
+public val COMGLB_RESERVED4: GlobaloptRoFlags = 256
 
-public val COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = 512
+public val COMGLB_RESERVED5: GlobaloptRoFlags = 512
 
-public val COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = 1024
+public val COMGLB_RESERVED6: GlobaloptRoFlags = 1024
 
-public val COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = 4
+public val COMGLB_RO_SETTINGS: GlobaloptProperties = 4
 
-public val COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = 3
+public val COMGLB_RPC_THREADPOOL_SETTING: GlobaloptProperties = 3
 
-public val COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = 0
+public val COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GlobaloptRpctpValues = 0
 
-public val COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = 1
+public val COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GlobaloptRpctpValues = 1
 
-public val COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = 1
+public val COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GlobaloptRoFlags = 1
 
-public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = 4
+public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GlobaloptRoFlags = 4
 
-public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = 2
+public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GlobaloptRoFlags = 2
 
-public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = 128
+public val COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GlobaloptRoFlags = 128
 
-public val COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = 5
+public val COMGLB_UNMARSHALING_POLICY: GlobaloptProperties = 5
 
-public val COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 2
+public val COMGLB_UNMARSHALING_POLICY_HYBRID: GlobaloptUnmarshalingPolicyValues = 2
 
-public val COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 0
+public val COMGLB_UNMARSHALING_POLICY_NORMAL: GlobaloptUnmarshalingPolicyValues = 0
 
-public val COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1
+public val COMGLB_UNMARSHALING_POLICY_STRONG: GlobaloptUnmarshalingPolicyValues = 1
 
 public val COM_RIGHTS_ACTIVATE_LOCAL: UInt = 8u
 
@@ -276,67 +277,67 @@ public val COM_RIGHTS_RESERVED1: UInt = 32u
 
 public val COM_RIGHTS_RESERVED2: UInt = 64u
 
-public val COWAIT_ALERTABLE: COWAIT_FLAGS = 2
+public val COWAIT_ALERTABLE: CowaitFlags = 2
 
-public val COWAIT_DEFAULT: COWAIT_FLAGS = 0
+public val COWAIT_DEFAULT: CowaitFlags = 0
 
-public val COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = 8
+public val COWAIT_DISPATCH_CALLS: CowaitFlags = 8
 
-public val COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = 16
+public val COWAIT_DISPATCH_WINDOW_MESSAGES: CowaitFlags = 16
 
-public val COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4
+public val COWAIT_INPUTAVAILABLE: CowaitFlags = 4
 
-public val COWAIT_WAITALL: COWAIT_FLAGS = 1
+public val COWAIT_WAITALL: CowaitFlags = 1
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483648
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CoMarshalingContextAttributes = -2147483648.toInt()
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483639
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CoMarshalingContextAttributes = -2147483639
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483638
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CoMarshalingContextAttributes = -2147483638
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483637
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CoMarshalingContextAttributes = -2147483637
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483636
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CoMarshalingContextAttributes = -2147483636
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483635
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CoMarshalingContextAttributes = -2147483635
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483634
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CoMarshalingContextAttributes = -2147483634
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483633
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CoMarshalingContextAttributes = -2147483633
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483632
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CoMarshalingContextAttributes = -2147483632
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483631
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CoMarshalingContextAttributes = -2147483631
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483647
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CoMarshalingContextAttributes = -2147483647
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483646
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CoMarshalingContextAttributes = -2147483646
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483645
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CoMarshalingContextAttributes = -2147483645
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483644
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CoMarshalingContextAttributes = -2147483644
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483643
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CoMarshalingContextAttributes = -2147483643
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483642
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CoMarshalingContextAttributes = -2147483642
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483641
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CoMarshalingContextAttributes = -2147483641
 
-public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483640
+public val CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CoMarshalingContextAttributes = -2147483640
 
-public val CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = 0
+public val CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CoMarshalingContextAttributes = 0
 
-public val CWMO_DEFAULT: CWMO_FLAGS = 0
+public val CWMO_DEFAULT: CwmoFlags = 0
 
-public val CWMO_DISPATCH_CALLS: CWMO_FLAGS = 1
+public val CWMO_DISPATCH_CALLS: CwmoFlags = 1
 
-public val CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = 2
+public val CWMO_DISPATCH_WINDOW_MESSAGES: CwmoFlags = 2
 
 public val CWMO_MAX_HANDLES: UInt = 56u
 
-public val DATADIR_GET: DATADIR = 1
+public val DATADIR_GET: Datadir = 1
 
-public val DATADIR_SET: DATADIR = 2
+public val DATADIR_SET: Datadir = 2
 
 public val DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: UInt = 2u
 
@@ -350,385 +351,385 @@ public val DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: UInt = 8u
 
 public val DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: UInt = 4u
 
-public val DCOM_CALL_CANCELED: DCOM_CALL_STATE = 2
+public val DCOM_CALL_CANCELED: DcomCallState = 2
 
-public val DCOM_CALL_COMPLETE: DCOM_CALL_STATE = 1
+public val DCOM_CALL_COMPLETE: DcomCallState = 1
 
-public val DCOM_NONE: DCOM_CALL_STATE = 0
+public val DCOM_NONE: DcomCallState = 0
 
-public val DESCKIND_FUNCDESC: DESCKIND = 1
+public val DESCKIND_FUNCDESC: Desckind = 1
 
-public val DESCKIND_IMPLICITAPPOBJ: DESCKIND = 4
+public val DESCKIND_IMPLICITAPPOBJ: Desckind = 4
 
-public val DESCKIND_MAX: DESCKIND = 5
+public val DESCKIND_MAX: Desckind = 5
 
-public val DESCKIND_NONE: DESCKIND = 0
+public val DESCKIND_NONE: Desckind = 0
 
-public val DESCKIND_TYPECOMP: DESCKIND = 3
+public val DESCKIND_TYPECOMP: Desckind = 3
 
-public val DESCKIND_VARDESC: DESCKIND = 2
+public val DESCKIND_VARDESC: Desckind = 2
 
-public val DISPATCH_METHOD: DISPATCH_FLAGS = 1u
+public val DISPATCH_METHOD: DispatchFlags = 1u.toUShort()
 
-public val DISPATCH_PROPERTYGET: DISPATCH_FLAGS = 2u
+public val DISPATCH_PROPERTYGET: DispatchFlags = 2u.toUShort()
 
-public val DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = 4u
+public val DISPATCH_PROPERTYPUT: DispatchFlags = 4u.toUShort()
 
-public val DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = 8u
+public val DISPATCH_PROPERTYPUTREF: DispatchFlags = 8u.toUShort()
 
 public val DMUS_ERRBASE: UInt = 4096u
 
-public val DVASPECT_CONTENT: DVASPECT = 1u
+public val DVASPECT_CONTENT: Dvaspect = 1u
 
-public val DVASPECT_DOCPRINT: DVASPECT = 8u
+public val DVASPECT_DOCPRINT: Dvaspect = 8u
 
-public val DVASPECT_ICON: DVASPECT = 4u
+public val DVASPECT_ICON: Dvaspect = 4u
 
-public val DVASPECT_OPAQUE: DVASPECT = 16u
+public val DVASPECT_OPAQUE: Dvaspect = 16u
 
-public val DVASPECT_THUMBNAIL: DVASPECT = 2u
+public val DVASPECT_THUMBNAIL: Dvaspect = 2u
 
-public val DVASPECT_TRANSPARENT: DVASPECT = 32u
+public val DVASPECT_TRANSPARENT: Dvaspect = 32u
 
-public val EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = 4
+public val EOAC_ACCESS_CONTROL: EoleAuthenticationCapabilities = 4
 
-public val EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = 128
+public val EOAC_ANY_AUTHORITY: EoleAuthenticationCapabilities = 128
 
-public val EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = 8
+public val EOAC_APPID: EoleAuthenticationCapabilities = 8
 
-public val EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = 1024
+public val EOAC_AUTO_IMPERSONATE: EoleAuthenticationCapabilities = 1024
 
-public val EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = 2048
+public val EOAC_DEFAULT: EoleAuthenticationCapabilities = 2048
 
-public val EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = 4096
+public val EOAC_DISABLE_AAA: EoleAuthenticationCapabilities = 4096
 
-public val EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = 16
+public val EOAC_DYNAMIC: EoleAuthenticationCapabilities = 16
 
-public val EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = 64
+public val EOAC_DYNAMIC_CLOAKING: EoleAuthenticationCapabilities = 64
 
-public val EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = 256
+public val EOAC_MAKE_FULLSIC: EoleAuthenticationCapabilities = 256
 
-public val EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = 1
+public val EOAC_MUTUAL_AUTH: EoleAuthenticationCapabilities = 1
 
-public val EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = 0
+public val EOAC_NONE: EoleAuthenticationCapabilities = 0
 
-public val EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = 8192
+public val EOAC_NO_CUSTOM_MARSHAL: EoleAuthenticationCapabilities = 8192
 
-public val EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = 512
+public val EOAC_REQUIRE_FULLSIC: EoleAuthenticationCapabilities = 512
 
-public val EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = 16384
+public val EOAC_RESERVED1: EoleAuthenticationCapabilities = 16384
 
-public val EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = 2
+public val EOAC_SECURE_REFS: EoleAuthenticationCapabilities = 2
 
-public val EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = 32
+public val EOAC_STATIC_CLOAKING: EoleAuthenticationCapabilities = 32
 
-public val EXTCONN_CALLABLE: EXTCONN = 4
+public val EXTCONN_CALLABLE: Extconn = 4
 
-public val EXTCONN_STRONG: EXTCONN = 1
+public val EXTCONN_STRONG: Extconn = 1
 
-public val EXTCONN_WEAK: EXTCONN = 2
+public val EXTCONN_WEAK: Extconn = 2
 
-public val FADF_AUTO: ADVANCED_FEATURE_FLAGS = 1u
+public val FADF_AUTO: AdvancedFeatureFlags = 1u.toUShort()
 
-public val FADF_BSTR: ADVANCED_FEATURE_FLAGS = 256u
+public val FADF_BSTR: AdvancedFeatureFlags = 256u.toUShort()
 
-public val FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = 1024u
+public val FADF_DISPATCH: AdvancedFeatureFlags = 1024u.toUShort()
 
-public val FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = 4u
+public val FADF_EMBEDDED: AdvancedFeatureFlags = 4u.toUShort()
 
-public val FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = 16u
+public val FADF_FIXEDSIZE: AdvancedFeatureFlags = 16u.toUShort()
 
-public val FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = 64u
+public val FADF_HAVEIID: AdvancedFeatureFlags = 64u.toUShort()
 
-public val FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = 128u
+public val FADF_HAVEVARTYPE: AdvancedFeatureFlags = 128u.toUShort()
 
-public val FADF_RECORD: ADVANCED_FEATURE_FLAGS = 32u
+public val FADF_RECORD: AdvancedFeatureFlags = 32u.toUShort()
 
-public val FADF_RESERVED: ADVANCED_FEATURE_FLAGS = 61448u
+public val FADF_RESERVED: AdvancedFeatureFlags = 61448u.toUShort()
 
-public val FADF_STATIC: ADVANCED_FEATURE_FLAGS = 2u
+public val FADF_STATIC: AdvancedFeatureFlags = 2u.toUShort()
 
-public val FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = 512u
+public val FADF_UNKNOWN: AdvancedFeatureFlags = 512u.toUShort()
 
-public val FADF_VARIANT: ADVANCED_FEATURE_FLAGS = 2048u
+public val FADF_VARIANT: AdvancedFeatureFlags = 2048u.toUShort()
 
-public val FUNCFLAG_FBINDABLE: FUNCFLAGS = 4u
+public val FUNCFLAG_FBINDABLE: Funcflags = 4u.toUShort()
 
-public val FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = 32u
+public val FUNCFLAG_FDEFAULTBIND: Funcflags = 32u.toUShort()
 
-public val FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = 256u
+public val FUNCFLAG_FDEFAULTCOLLELEM: Funcflags = 256u.toUShort()
 
-public val FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = 16u
+public val FUNCFLAG_FDISPLAYBIND: Funcflags = 16u.toUShort()
 
-public val FUNCFLAG_FHIDDEN: FUNCFLAGS = 64u
+public val FUNCFLAG_FHIDDEN: Funcflags = 64u.toUShort()
 
-public val FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = 4096u
+public val FUNCFLAG_FIMMEDIATEBIND: Funcflags = 4096u.toUShort()
 
-public val FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = 1024u
+public val FUNCFLAG_FNONBROWSABLE: Funcflags = 1024u.toUShort()
 
-public val FUNCFLAG_FREPLACEABLE: FUNCFLAGS = 2048u
+public val FUNCFLAG_FREPLACEABLE: Funcflags = 2048u.toUShort()
 
-public val FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = 8u
+public val FUNCFLAG_FREQUESTEDIT: Funcflags = 8u.toUShort()
 
-public val FUNCFLAG_FRESTRICTED: FUNCFLAGS = 1u
+public val FUNCFLAG_FRESTRICTED: Funcflags = 1u.toUShort()
 
-public val FUNCFLAG_FSOURCE: FUNCFLAGS = 2u
+public val FUNCFLAG_FSOURCE: Funcflags = 2u.toUShort()
 
-public val FUNCFLAG_FUIDEFAULT: FUNCFLAGS = 512u
+public val FUNCFLAG_FUIDEFAULT: Funcflags = 512u.toUShort()
 
-public val FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = 128u
+public val FUNCFLAG_FUSESGETLASTERROR: Funcflags = 128u.toUShort()
 
-public val FUNC_DISPATCH: FUNCKIND = 4
+public val FUNC_DISPATCH: Funckind = 4
 
-public val FUNC_NONVIRTUAL: FUNCKIND = 2
+public val FUNC_NONVIRTUAL: Funckind = 2
 
-public val FUNC_PUREVIRTUAL: FUNCKIND = 1
+public val FUNC_PUREVIRTUAL: Funckind = 1
 
-public val FUNC_STATIC: FUNCKIND = 3
+public val FUNC_STATIC: Funckind = 3
 
-public val FUNC_VIRTUAL: FUNCKIND = 0
+public val FUNC_VIRTUAL: Funckind = 0
 
-public val ForcedShutdown: ShutdownType = 1
+public val FORCED_SHUTDOWN: ShutdownType = 1
 
-public val IDLFLAG_FIN: IDLFLAGS = 1u
+public val IDLFLAG_FIN: Idlflags = 1u.toUShort()
 
-public val IDLFLAG_FLCID: IDLFLAGS = 4u
+public val IDLFLAG_FLCID: Idlflags = 4u.toUShort()
 
-public val IDLFLAG_FOUT: IDLFLAGS = 2u
+public val IDLFLAG_FOUT: Idlflags = 2u.toUShort()
 
-public val IDLFLAG_FRETVAL: IDLFLAGS = 8u
+public val IDLFLAG_FRETVAL: Idlflags = 8u.toUShort()
 
-public val IDLFLAG_NONE: IDLFLAGS = 0u
+public val IDLFLAG_NONE: Idlflags = 0u.toUShort()
 
-public val IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = 1
+public val IMPLTYPEFLAG_FDEFAULT: Impltypeflags = 1
 
-public val IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = 8
+public val IMPLTYPEFLAG_FDEFAULTVTABLE: Impltypeflags = 8
 
-public val IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = 4
+public val IMPLTYPEFLAG_FRESTRICTED: Impltypeflags = 4
 
-public val IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = 2
+public val IMPLTYPEFLAG_FSOURCE: Impltypeflags = 2
 
-public val INVOKE_FUNC: INVOKEKIND = 1
+public val INVOKE_FUNC: Invokekind = 1
 
-public val INVOKE_PROPERTYGET: INVOKEKIND = 2
+public val INVOKE_PROPERTYGET: Invokekind = 2
 
-public val INVOKE_PROPERTYPUT: INVOKEKIND = 4
+public val INVOKE_PROPERTYPUT: Invokekind = 4
 
-public val INVOKE_PROPERTYPUTREF: INVOKEKIND = 8
+public val INVOKE_PROPERTYPUTREF: Invokekind = 8
 
-public val IdleShutdown: ShutdownType = 0
+public val IDLE_SHUTDOWN: ShutdownType = 0
 
-public val LOCK_EXCLUSIVE: LOCKTYPE = 2
+public val LOCK_EXCLUSIVE: Locktype = 2
 
-public val LOCK_ONLYONCE: LOCKTYPE = 4
+public val LOCK_ONLYONCE: Locktype = 4
 
-public val LOCK_WRITE: LOCKTYPE = 1
+public val LOCK_WRITE: Locktype = 1
 
-public val LibraryApplication: ApplicationType = 1
+public val LIBRARY_APPLICATION: ApplicationType = 1
 
 public val MARSHALINTERFACE_MIN: UInt = 500u
 
 public val MAXLSN: ULong = 9223372036854775807uL
 
-public val MEMCTX_MACSYSTEM: MEMCTX = 3
+public val MEMCTX_MACSYSTEM: Memctx = 3
 
-public val MEMCTX_SAME: MEMCTX = -2
+public val MEMCTX_SAME: Memctx = -2
 
-public val MEMCTX_SHARED: MEMCTX = 2
+public val MEMCTX_SHARED: Memctx = 2
 
-public val MEMCTX_TASK: MEMCTX = 1
+public val MEMCTX_TASK: Memctx = 1
 
-public val MEMCTX_UNKNOWN: MEMCTX = -1
+public val MEMCTX_UNKNOWN: Memctx = -1
 
-public val MKRREDUCE_ALL: MKRREDUCE = 0
+public val MKRREDUCE_ALL: Mkrreduce = 0
 
-public val MKRREDUCE_ONE: MKRREDUCE = 196608
+public val MKRREDUCE_ONE: Mkrreduce = 196608
 
-public val MKRREDUCE_THROUGHUSER: MKRREDUCE = 65536
+public val MKRREDUCE_THROUGHUSER: Mkrreduce = 65536
 
-public val MKRREDUCE_TOUSER: MKRREDUCE = 131072
+public val MKRREDUCE_TOUSER: Mkrreduce = 131072
 
-public val MKSYS_ANTIMONIKER: MKSYS = 3
+public val MKSYS_ANTIMONIKER: Mksys = 3
 
-public val MKSYS_CLASSMONIKER: MKSYS = 7
+public val MKSYS_CLASSMONIKER: Mksys = 7
 
-public val MKSYS_FILEMONIKER: MKSYS = 2
+public val MKSYS_FILEMONIKER: Mksys = 2
 
-public val MKSYS_GENERICCOMPOSITE: MKSYS = 1
+public val MKSYS_GENERICCOMPOSITE: Mksys = 1
 
-public val MKSYS_ITEMMONIKER: MKSYS = 4
+public val MKSYS_ITEMMONIKER: Mksys = 4
 
-public val MKSYS_LUAMONIKER: MKSYS = 10
+public val MKSYS_LUAMONIKER: Mksys = 10
 
-public val MKSYS_NONE: MKSYS = 0
+public val MKSYS_NONE: Mksys = 0
 
-public val MKSYS_OBJREFMONIKER: MKSYS = 8
+public val MKSYS_OBJREFMONIKER: Mksys = 8
 
-public val MKSYS_POINTERMONIKER: MKSYS = 5
+public val MKSYS_POINTERMONIKER: Mksys = 5
 
-public val MKSYS_SESSIONMONIKER: MKSYS = 9
+public val MKSYS_SESSIONMONIKER: Mksys = 9
 
-public val MSHCTX_CONTAINER: MSHCTX = 5
+public val MSHCTX_CONTAINER: Mshctx = 5
 
-public val MSHCTX_CROSSCTX: MSHCTX = 4
+public val MSHCTX_CROSSCTX: Mshctx = 4
 
-public val MSHCTX_DIFFERENTMACHINE: MSHCTX = 2
+public val MSHCTX_DIFFERENTMACHINE: Mshctx = 2
 
-public val MSHCTX_INPROC: MSHCTX = 3
+public val MSHCTX_INPROC: Mshctx = 3
 
-public val MSHCTX_LOCAL: MSHCTX = 0
+public val MSHCTX_LOCAL: Mshctx = 0
 
-public val MSHCTX_NOSHAREDMEM: MSHCTX = 1
+public val MSHCTX_NOSHAREDMEM: Mshctx = 1
 
-public val MSHLFLAGS_NOPING: MSHLFLAGS = 4
+public val MSHLFLAGS_NOPING: Mshlflags = 4
 
-public val MSHLFLAGS_NORMAL: MSHLFLAGS = 0
+public val MSHLFLAGS_NORMAL: Mshlflags = 0
 
-public val MSHLFLAGS_RESERVED1: MSHLFLAGS = 8
+public val MSHLFLAGS_RESERVED1: Mshlflags = 8
 
-public val MSHLFLAGS_RESERVED2: MSHLFLAGS = 16
+public val MSHLFLAGS_RESERVED2: Mshlflags = 16
 
-public val MSHLFLAGS_RESERVED3: MSHLFLAGS = 32
+public val MSHLFLAGS_RESERVED3: Mshlflags = 32
 
-public val MSHLFLAGS_RESERVED4: MSHLFLAGS = 64
+public val MSHLFLAGS_RESERVED4: Mshlflags = 64
 
-public val MSHLFLAGS_TABLESTRONG: MSHLFLAGS = 1
+public val MSHLFLAGS_TABLESTRONG: Mshlflags = 1
 
-public val MSHLFLAGS_TABLEWEAK: MSHLFLAGS = 2
+public val MSHLFLAGS_TABLEWEAK: Mshlflags = 2
 
-public val PENDINGMSG_CANCELCALL: PENDINGMSG = 0
+public val PENDINGMSG_CANCELCALL: Pendingmsg = 0
 
-public val PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = 2
+public val PENDINGMSG_WAITDEFPROCESS: Pendingmsg = 2
 
-public val PENDINGMSG_WAITNOPROCESS: PENDINGMSG = 1
+public val PENDINGMSG_WAITNOPROCESS: Pendingmsg = 1
 
-public val PENDINGTYPE_NESTED: PENDINGTYPE = 2
+public val PENDINGTYPE_NESTED: Pendingtype = 2
 
-public val PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1
+public val PENDINGTYPE_TOPLEVEL: Pendingtype = 1
 
-public val REGCLS_AGILE: REGCLS = 16
+public val REGCLS_AGILE: Regcls = 16
 
-public val REGCLS_MULTIPLEUSE: REGCLS = 1
+public val REGCLS_MULTIPLEUSE: Regcls = 1
 
-public val REGCLS_MULTI_SEPARATE: REGCLS = 2
+public val REGCLS_MULTI_SEPARATE: Regcls = 2
 
-public val REGCLS_SINGLEUSE: REGCLS = 0
+public val REGCLS_SINGLEUSE: Regcls = 0
 
-public val REGCLS_SURROGATE: REGCLS = 8
+public val REGCLS_SURROGATE: Regcls = 8
 
-public val REGCLS_SUSPENDED: REGCLS = 4
+public val REGCLS_SUSPENDED: Regcls = 4
 
-public val ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = 2u
+public val ROTFLAGS_ALLOWANYCLIENT: RotFlags = 2u
 
-public val ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = 1u
+public val ROTFLAGS_REGISTRATIONKEEPSALIVE: RotFlags = 1u
 
 public val ROTREGFLAGS_ALLOWANYCLIENT: UInt = 1u
 
-public val RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = 3u
+public val RPC_C_AUTHN_LEVEL_CALL: RpcCAuthnLevel = 3u
 
-public val RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = 2u
+public val RPC_C_AUTHN_LEVEL_CONNECT: RpcCAuthnLevel = 2u
 
-public val RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = 0u
+public val RPC_C_AUTHN_LEVEL_DEFAULT: RpcCAuthnLevel = 0u
 
-public val RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = 1u
+public val RPC_C_AUTHN_LEVEL_NONE: RpcCAuthnLevel = 1u
 
-public val RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = 4u
+public val RPC_C_AUTHN_LEVEL_PKT: RpcCAuthnLevel = 4u
 
-public val RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = 5u
+public val RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RpcCAuthnLevel = 5u
 
-public val RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = 6u
+public val RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RpcCAuthnLevel = 6u
 
-public val RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = 1u
+public val RPC_C_IMP_LEVEL_ANONYMOUS: RpcCImpLevel = 1u
 
-public val RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = 0u
+public val RPC_C_IMP_LEVEL_DEFAULT: RpcCImpLevel = 0u
 
-public val RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = 4u
+public val RPC_C_IMP_LEVEL_DELEGATE: RpcCImpLevel = 4u
 
-public val RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = 2u
+public val RPC_C_IMP_LEVEL_IDENTIFY: RpcCImpLevel = 2u
 
-public val RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = 3u
+public val RPC_C_IMP_LEVEL_IMPERSONATE: RpcCImpLevel = 3u
 
-public val SD_ACCESSPERMISSIONS: COMSD = 1
+public val SD_ACCESSPERMISSIONS: Comsd = 1
 
-public val SD_ACCESSRESTRICTIONS: COMSD = 3
+public val SD_ACCESSRESTRICTIONS: Comsd = 3
 
-public val SD_LAUNCHPERMISSIONS: COMSD = 0
+public val SD_LAUNCHPERMISSIONS: Comsd = 0
 
-public val SD_LAUNCHRESTRICTIONS: COMSD = 2
+public val SD_LAUNCHRESTRICTIONS: Comsd = 2
 
-public val SERVERCALL_ISHANDLED: SERVERCALL = 0
+public val SERVERCALL_ISHANDLED: Servercall = 0
 
-public val SERVERCALL_REJECTED: SERVERCALL = 1
+public val SERVERCALL_REJECTED: Servercall = 1
 
-public val SERVERCALL_RETRYLATER: SERVERCALL = 2
+public val SERVERCALL_RETRYLATER: Servercall = 2
 
-public val SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1
+public val SERVER_LOCALITY_MACHINE_LOCAL: RpcoptServerLocalityValues = 1
 
-public val SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0
+public val SERVER_LOCALITY_PROCESS_LOCAL: RpcoptServerLocalityValues = 0
 
-public val SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2
+public val SERVER_LOCALITY_REMOTE: RpcoptServerLocalityValues = 2
 
-public val STATFLAG_DEFAULT: STATFLAG = 0
+public val STATFLAG_DEFAULT: Statflag = 0
 
-public val STATFLAG_NONAME: STATFLAG = 1
+public val STATFLAG_NONAME: Statflag = 1
 
-public val STATFLAG_NOOPEN: STATFLAG = 2
+public val STATFLAG_NOOPEN: Statflag = 2
 
-public val STGC_CONSOLIDATE: STGC = 8
+public val STGC_CONSOLIDATE: Stgc = 8
 
-public val STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4
+public val STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: Stgc = 4
 
-public val STGC_DEFAULT: STGC = 0
+public val STGC_DEFAULT: Stgc = 0
 
-public val STGC_ONLYIFCURRENT: STGC = 2
+public val STGC_ONLYIFCURRENT: Stgc = 2
 
-public val STGC_OVERWRITE: STGC = 1
+public val STGC_OVERWRITE: Stgc = 1
 
-public val STGM_CONVERT: STGM = 131072u
+public val STGM_CONVERT: Stgm = 131072u
 
-public val STGM_CREATE: STGM = 4096u
+public val STGM_CREATE: Stgm = 4096u
 
-public val STGM_DELETEONRELEASE: STGM = 67108864u
+public val STGM_DELETEONRELEASE: Stgm = 67108864u
 
-public val STGM_DIRECT: STGM = 0u
+public val STGM_DIRECT: Stgm = 0u
 
-public val STGM_DIRECT_SWMR: STGM = 4194304u
+public val STGM_DIRECT_SWMR: Stgm = 4194304u
 
-public val STGM_FAILIFTHERE: STGM = 0u
+public val STGM_FAILIFTHERE: Stgm = 0u
 
-public val STGM_NOSCRATCH: STGM = 1048576u
+public val STGM_NOSCRATCH: Stgm = 1048576u
 
-public val STGM_NOSNAPSHOT: STGM = 2097152u
+public val STGM_NOSNAPSHOT: Stgm = 2097152u
 
-public val STGM_PRIORITY: STGM = 262144u
+public val STGM_PRIORITY: Stgm = 262144u
 
-public val STGM_READ: STGM = 0u
+public val STGM_READ: Stgm = 0u
 
-public val STGM_READWRITE: STGM = 2u
+public val STGM_READWRITE: Stgm = 2u
 
-public val STGM_SHARE_DENY_NONE: STGM = 64u
+public val STGM_SHARE_DENY_NONE: Stgm = 64u
 
-public val STGM_SHARE_DENY_READ: STGM = 48u
+public val STGM_SHARE_DENY_READ: Stgm = 48u
 
-public val STGM_SHARE_DENY_WRITE: STGM = 32u
+public val STGM_SHARE_DENY_WRITE: Stgm = 32u
 
-public val STGM_SHARE_EXCLUSIVE: STGM = 16u
+public val STGM_SHARE_EXCLUSIVE: Stgm = 16u
 
-public val STGM_SIMPLE: STGM = 134217728u
+public val STGM_SIMPLE: Stgm = 134217728u
 
-public val STGM_TRANSACTED: STGM = 65536u
+public val STGM_TRANSACTED: Stgm = 65536u
 
-public val STGM_WRITE: STGM = 1u
+public val STGM_WRITE: Stgm = 1u
 
-public val STGTY_LOCKBYTES: STGTY = 3
+public val STGTY_LOCKBYTES: Stgty = 3
 
-public val STGTY_PROPERTY: STGTY = 4
+public val STGTY_PROPERTY: Stgty = 4
 
 public val STGTY_REPEAT: Int = 256
 
-public val STGTY_STORAGE: STGTY = 1
+public val STGTY_STORAGE: Stgty = 1
 
-public val STGTY_STREAM: STGTY = 2
+public val STGTY_STREAM: Stgty = 2
 
 public val STG_LAYOUT_INTERLEAVED: Int = 1
 
@@ -736,186 +737,186 @@ public val STG_LAYOUT_SEQUENTIAL: Int = 0
 
 public val STG_TOEND: Int = -1
 
-public val STREAM_SEEK_CUR: STREAM_SEEK = 1u
+public val STREAM_SEEK_CUR: StreamSeek = 1u
 
-public val STREAM_SEEK_END: STREAM_SEEK = 2u
+public val STREAM_SEEK_END: StreamSeek = 2u
 
-public val STREAM_SEEK_SET: STREAM_SEEK = 0u
+public val STREAM_SEEK_SET: StreamSeek = 0u
 
-public val SYS_MAC: SYSKIND = 2
+public val SYS_MAC: Syskind = 2
 
-public val SYS_WIN16: SYSKIND = 0
+public val SYS_WIN16: Syskind = 0
 
-public val SYS_WIN32: SYSKIND = 1
+public val SYS_WIN32: Syskind = 1
 
-public val SYS_WIN64: SYSKIND = 3
+public val SYS_WIN64: Syskind = 3
 
-public val ServerApplication: ApplicationType = 0
+public val SERVER_APPLICATION: ApplicationType = 0
 
-public val THDTYPE_BLOCKMESSAGES: THDTYPE = 0
+public val THDTYPE_BLOCKMESSAGES: Thdtype = 0
 
-public val THDTYPE_PROCESSMESSAGES: THDTYPE = 1
+public val THDTYPE_PROCESSMESSAGES: Thdtype = 1
 
-public val TKIND_ALIAS: TYPEKIND = 6
+public val TKIND_ALIAS: Typekind = 6
 
-public val TKIND_COCLASS: TYPEKIND = 5
+public val TKIND_COCLASS: Typekind = 5
 
-public val TKIND_DISPATCH: TYPEKIND = 4
+public val TKIND_DISPATCH: Typekind = 4
 
-public val TKIND_ENUM: TYPEKIND = 0
+public val TKIND_ENUM: Typekind = 0
 
-public val TKIND_INTERFACE: TYPEKIND = 3
+public val TKIND_INTERFACE: Typekind = 3
 
-public val TKIND_MAX: TYPEKIND = 8
+public val TKIND_MAX: Typekind = 8
 
-public val TKIND_MODULE: TYPEKIND = 2
+public val TKIND_MODULE: Typekind = 2
 
-public val TKIND_RECORD: TYPEKIND = 1
+public val TKIND_RECORD: Typekind = 1
 
-public val TKIND_UNION: TYPEKIND = 7
+public val TKIND_UNION: Typekind = 7
 
-public val TYMED_ENHMF: TYMED = 64
+public val TYMED_ENHMF: Tymed = 64
 
-public val TYMED_FILE: TYMED = 2
+public val TYMED_FILE: Tymed = 2
 
-public val TYMED_GDI: TYMED = 16
+public val TYMED_GDI: Tymed = 16
 
-public val TYMED_HGLOBAL: TYMED = 1
+public val TYMED_HGLOBAL: Tymed = 1
 
-public val TYMED_ISTORAGE: TYMED = 8
+public val TYMED_ISTORAGE: Tymed = 8
 
-public val TYMED_ISTREAM: TYMED = 4
+public val TYMED_ISTREAM: Tymed = 4
 
-public val TYMED_MFPICT: TYMED = 32
+public val TYMED_MFPICT: Tymed = 32
 
-public val TYMED_NULL: TYMED = 0
+public val TYMED_NULL: Tymed = 0
 
-public val TYSPEC_CLSID: TYSPEC = 0
+public val TYSPEC_CLSID: Tyspec = 0
 
-public val TYSPEC_FILEEXT: TYSPEC = 1
+public val TYSPEC_FILEEXT: Tyspec = 1
 
-public val TYSPEC_FILENAME: TYSPEC = 3
+public val TYSPEC_FILENAME: Tyspec = 3
 
-public val TYSPEC_MIMETYPE: TYSPEC = 2
+public val TYSPEC_MIMETYPE: Tyspec = 2
 
-public val TYSPEC_OBJECTID: TYSPEC = 6
+public val TYSPEC_OBJECTID: Tyspec = 6
 
-public val TYSPEC_PACKAGENAME: TYSPEC = 5
+public val TYSPEC_PACKAGENAME: Tyspec = 5
 
-public val TYSPEC_PROGID: TYSPEC = 4
+public val TYSPEC_PROGID: Tyspec = 4
 
-public val Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = 4u
+public val URI_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: UriCreateFlags = 4u
 
-public val Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = 2u
+public val URI_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: UriCreateFlags = 2u
 
-public val Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = 1u
+public val URI_CREATE_ALLOW_RELATIVE: UriCreateFlags = 1u
 
-public val Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = 256u
+public val URI_CREATE_CANONICALIZE: UriCreateFlags = 256u
 
-public val Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = 131072u
+public val URI_CREATE_CANONICALIZE_ABSOLUTE: UriCreateFlags = 131072u
 
-public val Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = 512u
+public val URI_CREATE_CRACK_UNKNOWN_SCHEMES: UriCreateFlags = 512u
 
-public val Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = 64u
+public val URI_CREATE_DECODE_EXTRA_INFO: UriCreateFlags = 64u
 
-public val Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = 32u
+public val URI_CREATE_FILE_USE_DOS_PATH: UriCreateFlags = 32u
 
-public val Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = 8192u
+public val URI_CREATE_IE_SETTINGS: UriCreateFlags = 8192u
 
-public val Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = 8u
+public val URI_CREATE_NOFRAG: UriCreateFlags = 8u
 
-public val Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = 65536u
+public val URI_CREATE_NORMALIZE_INTL_CHARACTERS: UriCreateFlags = 65536u
 
-public val Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = 16u
+public val URI_CREATE_NO_CANONICALIZE: UriCreateFlags = 16u
 
-public val Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = 1024u
+public val URI_CREATE_NO_CRACK_UNKNOWN_SCHEMES: UriCreateFlags = 1024u
 
-public val Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = 128u
+public val URI_CREATE_NO_DECODE_EXTRA_INFO: UriCreateFlags = 128u
 
-public val Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = 32768u
+public val URI_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: UriCreateFlags = 32768u
 
-public val Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = 16384u
+public val URI_CREATE_NO_IE_SETTINGS: UriCreateFlags = 16384u
 
-public val Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = 4096u
+public val URI_CREATE_NO_PRE_PROCESS_HTML_URI: UriCreateFlags = 4096u
 
-public val Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = 2048u
+public val URI_CREATE_PRE_PROCESS_HTML_URI: UriCreateFlags = 2048u
 
-public val Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = 0
+public val URI_PROPERTY_ABSOLUTE_URI: UriProperty = 0
 
-public val Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = 1
+public val URI_PROPERTY_AUTHORITY: UriProperty = 1
 
-public val Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = 2
+public val URI_PROPERTY_DISPLAY_URI: UriProperty = 2
 
-public val Uri_PROPERTY_DOMAIN: Uri_PROPERTY = 3
+public val URI_PROPERTY_DOMAIN: UriProperty = 3
 
-public val Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = 18
+public val URI_PROPERTY_DWORD_LAST: UriProperty = 18
 
-public val Uri_PROPERTY_DWORD_START: Uri_PROPERTY = 15
+public val URI_PROPERTY_DWORD_START: UriProperty = 15
 
-public val Uri_PROPERTY_EXTENSION: Uri_PROPERTY = 4
+public val URI_PROPERTY_EXTENSION: UriProperty = 4
 
-public val Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = 5
+public val URI_PROPERTY_FRAGMENT: UriProperty = 5
 
-public val Uri_PROPERTY_HOST: Uri_PROPERTY = 6
+public val URI_PROPERTY_HOST: UriProperty = 6
 
-public val Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = 15
+public val URI_PROPERTY_HOST_TYPE: UriProperty = 15
 
-public val Uri_PROPERTY_PASSWORD: Uri_PROPERTY = 7
+public val URI_PROPERTY_PASSWORD: UriProperty = 7
 
-public val Uri_PROPERTY_PATH: Uri_PROPERTY = 8
+public val URI_PROPERTY_PATH: UriProperty = 8
 
-public val Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = 9
+public val URI_PROPERTY_PATH_AND_QUERY: UriProperty = 9
 
-public val Uri_PROPERTY_PORT: Uri_PROPERTY = 16
+public val URI_PROPERTY_PORT: UriProperty = 16
 
-public val Uri_PROPERTY_QUERY: Uri_PROPERTY = 10
+public val URI_PROPERTY_QUERY: UriProperty = 10
 
-public val Uri_PROPERTY_RAW_URI: Uri_PROPERTY = 11
+public val URI_PROPERTY_RAW_URI: UriProperty = 11
 
-public val Uri_PROPERTY_SCHEME: Uri_PROPERTY = 17
+public val URI_PROPERTY_SCHEME: UriProperty = 17
 
-public val Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = 12
+public val URI_PROPERTY_SCHEME_NAME: UriProperty = 12
 
-public val Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = 14
+public val URI_PROPERTY_STRING_LAST: UriProperty = 14
 
-public val Uri_PROPERTY_STRING_START: Uri_PROPERTY = 0
+public val URI_PROPERTY_STRING_START: UriProperty = 0
 
-public val Uri_PROPERTY_USER_INFO: Uri_PROPERTY = 13
+public val URI_PROPERTY_USER_INFO: UriProperty = 13
 
-public val Uri_PROPERTY_USER_NAME: Uri_PROPERTY = 14
+public val URI_PROPERTY_USER_NAME: UriProperty = 14
 
-public val Uri_PROPERTY_ZONE: Uri_PROPERTY = 18
+public val URI_PROPERTY_ZONE: UriProperty = 18
 
-public val VARFLAG_FBINDABLE: VARFLAGS = 4u
+public val VARFLAG_FBINDABLE: Varflags = 4u.toUShort()
 
-public val VARFLAG_FDEFAULTBIND: VARFLAGS = 32u
+public val VARFLAG_FDEFAULTBIND: Varflags = 32u.toUShort()
 
-public val VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = 256u
+public val VARFLAG_FDEFAULTCOLLELEM: Varflags = 256u.toUShort()
 
-public val VARFLAG_FDISPLAYBIND: VARFLAGS = 16u
+public val VARFLAG_FDISPLAYBIND: Varflags = 16u.toUShort()
 
-public val VARFLAG_FHIDDEN: VARFLAGS = 64u
+public val VARFLAG_FHIDDEN: Varflags = 64u.toUShort()
 
-public val VARFLAG_FIMMEDIATEBIND: VARFLAGS = 4096u
+public val VARFLAG_FIMMEDIATEBIND: Varflags = 4096u.toUShort()
 
-public val VARFLAG_FNONBROWSABLE: VARFLAGS = 1024u
+public val VARFLAG_FNONBROWSABLE: Varflags = 1024u.toUShort()
 
-public val VARFLAG_FREADONLY: VARFLAGS = 1u
+public val VARFLAG_FREADONLY: Varflags = 1u.toUShort()
 
-public val VARFLAG_FREPLACEABLE: VARFLAGS = 2048u
+public val VARFLAG_FREPLACEABLE: Varflags = 2048u.toUShort()
 
-public val VARFLAG_FREQUESTEDIT: VARFLAGS = 8u
+public val VARFLAG_FREQUESTEDIT: Varflags = 8u.toUShort()
 
-public val VARFLAG_FRESTRICTED: VARFLAGS = 128u
+public val VARFLAG_FRESTRICTED: Varflags = 128u.toUShort()
 
-public val VARFLAG_FSOURCE: VARFLAGS = 2u
+public val VARFLAG_FSOURCE: Varflags = 2u.toUShort()
 
-public val VARFLAG_FUIDEFAULT: VARFLAGS = 512u
+public val VARFLAG_FUIDEFAULT: Varflags = 512u.toUShort()
 
-public val VAR_CONST: VARKIND = 2
+public val VAR_CONST: Varkind = 2
 
-public val VAR_DISPATCH: VARKIND = 3
+public val VAR_DISPATCH: Varkind = 3
 
-public val VAR_PERINSTANCE: VARKIND = 0
+public val VAR_PERINSTANCE: Varkind = 0
 
-public val VAR_STATIC: VARKIND = 1
+public val VAR_STATIC: Varkind = 1

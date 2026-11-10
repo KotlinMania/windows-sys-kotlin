@@ -1,84 +1,85 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.snmp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public fun interface PFNSNMPCLEANUPEXFn {
+public fun interface PfnsnmpcleanupexFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PFNSNMPCLEANUPEX = PFNSNMPCLEANUPEXFn?
+public typealias Pfnsnmpcleanupex = PfnsnmpcleanupexFn?
 
-public fun interface PFNSNMPEXTENSIONCLOSEFn {
+public fun interface PfnsnmpextensioncloseFn {
     public operator fun invoke()
 }
 
-public typealias PFNSNMPEXTENSIONCLOSE = PFNSNMPEXTENSIONCLOSEFn?
+public typealias Pfnsnmpextensionclose = PfnsnmpextensioncloseFn?
 
-public fun interface PFNSNMPEXTENSIONINITFn {
-    public operator fun invoke(dwuptimereference: UInt, phsubagenttrapevent: Long, pfirstsupportedregion: Long): BOOL
+public fun interface PfnsnmpextensioninitFn {
+    public operator fun invoke(dwuptimereference: UInt, phsubagenttrapevent: COpaquePointer?, pfirstsupportedregion: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONINIT = PFNSNMPEXTENSIONINITFn?
+public typealias Pfnsnmpextensioninit = PfnsnmpextensioninitFn?
 
-public fun interface PFNSNMPEXTENSIONINITEXFn {
-    public operator fun invoke(pnextsupportedregion: Long): BOOL
+public fun interface PfnsnmpextensioninitexFn {
+    public operator fun invoke(pnextsupportedregion: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONINITEX = PFNSNMPEXTENSIONINITEXFn?
+public typealias Pfnsnmpextensioninitex = PfnsnmpextensioninitexFn?
 
-public fun interface PFNSNMPEXTENSIONMONITORFn {
-    public operator fun invoke(pagentmgmtdata: Long): BOOL
+public fun interface PfnsnmpextensionmonitorFn {
+    public operator fun invoke(pagentmgmtdata: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONMONITOR = PFNSNMPEXTENSIONMONITORFn?
+public typealias Pfnsnmpextensionmonitor = PfnsnmpextensionmonitorFn?
 
-public fun interface PFNSNMPEXTENSIONQUERYFn {
-    public operator fun invoke(bpdutype: UByte, pvarbindlist: Long, perrorstatus: Long, perrorindex: Long): BOOL
+public fun interface PfnsnmpextensionqueryFn {
+    public operator fun invoke(bpdutype: UByte, pvarbindlist: COpaquePointer?, perrorstatus: COpaquePointer?, perrorindex: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONQUERY = PFNSNMPEXTENSIONQUERYFn?
+public typealias Pfnsnmpextensionquery = PfnsnmpextensionqueryFn?
 
-public fun interface PFNSNMPEXTENSIONQUERYEXFn {
-    public operator fun invoke(nrequesttype: UInt, ntransactionid: UInt, pvarbindlist: Long, pcontextinfo: Long, perrorstatus: Long, perrorindex: Long): BOOL
+public fun interface PfnsnmpextensionqueryexFn {
+    public operator fun invoke(nrequesttype: UInt, ntransactionid: UInt, pvarbindlist: COpaquePointer?, pcontextinfo: COpaquePointer?, perrorstatus: COpaquePointer?, perrorindex: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONQUERYEX = PFNSNMPEXTENSIONQUERYEXFn?
+public typealias Pfnsnmpextensionqueryex = PfnsnmpextensionqueryexFn?
 
-public fun interface PFNSNMPEXTENSIONTRAPFn {
-    public operator fun invoke(penterpriseoid: Long, pgenerictrapid: Long, pspecifictrapid: Long, ptimestamp: Long, pvarbindlist: Long): BOOL
+public fun interface PfnsnmpextensiontrapFn {
+    public operator fun invoke(penterpriseoid: COpaquePointer?, pgenerictrapid: COpaquePointer?, pspecifictrapid: COpaquePointer?, ptimestamp: COpaquePointer?, pvarbindlist: COpaquePointer?): Bool
 }
 
-public typealias PFNSNMPEXTENSIONTRAP = PFNSNMPEXTENSIONTRAPFn?
+public typealias Pfnsnmpextensiontrap = PfnsnmpextensiontrapFn?
 
-public fun interface PFNSNMPSTARTUPEXFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long, param4: Long): UInt
+public fun interface PfnsnmpstartupexFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt
 }
 
-public typealias PFNSNMPSTARTUPEX = PFNSNMPSTARTUPEXFn?
+public typealias Pfnsnmpstartupex = PfnsnmpstartupexFn?
 
-public fun interface SNMPAPI_CALLBACKFn {
-    public operator fun invoke(hsession: Long, hwnd: HWND, wmsg: UInt, wparam: WPARAM, lparam: LPARAM, lpclientdata: Long): UInt
+public fun interface SnmpapiCallbackFn {
+    public operator fun invoke(hsession: Long, hwnd: Hwnd, wmsg: UInt, wparam: Wparam, lparam: Lparam, lpclientdata: COpaquePointer?): UInt
 }
 
-public typealias SNMPAPI_CALLBACK = SNMPAPI_CALLBACKFn?
+public typealias SnmpapiCallback = SnmpapiCallbackFn?
 
-public typealias SNMP_API_TRANSLATE_MODE = UInt
+public typealias SnmpApiTranslateMode = UInt
 
-public typealias SNMP_ERROR = UInt
+public typealias SnmpError = UInt
 
-public typealias SNMP_ERROR_STATUS = UInt
+public typealias SnmpErrorStatus = UInt
 
-public typealias SNMP_EXTENSION_REQUEST_TYPE = UInt
+public typealias SnmpExtensionRequestType = UInt
 
-public typealias SNMP_GENERICTRAP = UInt
+public typealias SnmpGenerictrap = UInt
 
-public typealias SNMP_LOG = Int
+public typealias SnmpLog = Int
 
-public typealias SNMP_OUTPUT_LOG_TYPE = UInt
+public typealias SnmpOutputLogType = UInt
 
-public typealias SNMP_PDU_TYPE = UInt
+public typealias SnmpPduType = UInt
 
-public typealias SNMP_STATUS = UInt
+public typealias SnmpStatus = UInt

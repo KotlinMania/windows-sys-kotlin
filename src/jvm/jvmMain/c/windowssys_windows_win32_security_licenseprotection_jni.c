@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_licenseprotection_WindowsWin32SecurityLicenseprotectionJniBridge_windowssys_1windows_1win32_1security_1licenseprotection_1RegisterLicenseKeyWithExpiration(JNIEnv* km_env, jclass km_clazz, jlong licensekey, jint validityindays, jlong status) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_licenseprotection_WindowsWin32SecurityLicenseprotectionJniBridge_windowssys_1windows_1win32_1security_1licenseprotection_1registerLicenseKeyWithExpiration(JNIEnv* km_env, jclass km_clazz, jlong licensekey, jint validityindays, jlong status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_licenseprotection_WindowsWin32SecurityLicenseprotectionJniBridge_windowssys_1windows_1win32_1security_1licenseprotection_1ValidateLicenseKeyProtection(JNIEnv* km_env, jclass km_clazz, jlong licensekey, jlong notvalidbefore, jlong notvalidafter, jlong status) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_licenseprotection_WindowsWin32SecurityLicenseprotectionJniBridge_windowssys_1windows_1win32_1security_1licenseprotection_1validateLicenseKeyProtection(JNIEnv* km_env, jclass km_clazz, jlong licensekey, jlong notvalidbefore, jlong notvalidafter, jlong status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_remotemanagement_WSManCloseCommand(int64_t commandhandle, uint32_t flags, void* async) {
+void windowssys_windows_win32_system_remotemanagement_wSManCloseCommand(int64_t commandhandle, uint32_t flags, void* async) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManCloseCommand(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManCloseOperation(int64_t operationhandle, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(int64_t operationhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManCloseOperation(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManCloseSession(int64_t session, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManCloseSession(int64_t session, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManCloseSession(int6
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManCloseShell(int64_t shellhandle, uint32_t flags, void* async) {
+void windowssys_windows_win32_system_remotemanagement_wSManCloseShell(int64_t shellhandle, uint32_t flags, void* async) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManCloseShell(int64_t sh
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManConnectShell(int64_t session, uint32_t flags, void* resourceuri, void* shellid, void* options, void* connectxml, void* async, void* shell) {
+void windowssys_windows_win32_system_remotemanagement_wSManConnectShell(int64_t session, uint32_t flags, void* resourceuri, void* shellid, void* options, void* connectxml, void* async, void* shell) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManConnectShell(int64_t 
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManConnectShellCommand(int64_t shell, uint32_t flags, void* commandid, void* options, void* connectxml, void* async, void* command) {
+void windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand(int64_t shell, uint32_t flags, void* commandid, void* options, void* connectxml, void* async, void* command) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManConnectShellCommand(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManCreateSession(int64_t apihandle, void* connection, uint32_t flags, void* serverauthenticationcredentials, void* proxyinfo, void* session) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManCreateSession(int64_t apihandle, void* connection, uint32_t flags, void* serverauthenticationcredentials, void* proxyinfo, void* session) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManCreateSession(int
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManCreateShell(int64_t session, uint32_t flags, void* resourceuri, void* startupinfo, void* options, void* createxml, void* async, void* shell) {
+void windowssys_windows_win32_system_remotemanagement_wSManCreateShell(int64_t session, uint32_t flags, void* resourceuri, void* startupinfo, void* options, void* createxml, void* async, void* shell) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -217,7 +217,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManCreateShell(int64_t s
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManCreateShellEx(int64_t session, uint32_t flags, void* resourceuri, void* shellid, void* startupinfo, void* options, void* createxml, void* async, void* shell) {
+void windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(int64_t session, uint32_t flags, void* resourceuri, void* shellid, void* startupinfo, void* options, void* createxml, void* async, void* shell) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -246,7 +246,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManCreateShellEx(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManDeinitialize(int64_t apihandle, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(int64_t apihandle, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManDeinitialize(int6
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManDisconnectShell(int64_t shell, uint32_t flags, void* disconnectinfo, void* async) {
+void windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(int64_t shell, uint32_t flags, void* disconnectinfo, void* async) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManDisconnectShell(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetErrorMessage(int64_t apihandle, uint32_t flags, void* languagecode, uint32_t errorcode, uint32_t messagelength, void* message, void* messagelengthused) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(int64_t apihandle, uint32_t flags, void* languagecode, uint32_t errorcode, uint32_t messagelength, void* message, void* messagelengthused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetErrorMessage(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsDword(int64_t session, int32_t option, void* value) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(int64_t session, int32_t option, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -345,7 +345,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionA
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsString(int64_t session, int32_t option, uint32_t stringlength, void* string, void* stringlengthused) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(int64_t session, int32_t option, uint32_t stringlength, void* string, void* stringlengthused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -371,7 +371,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionA
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManInitialize(uint32_t flags, void* apihandle) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManInitialize(uint32_t flags, void* apihandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -394,7 +394,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManInitialize(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzOperationComplete(void* senderdetails, uint32_t flags, void* userauthorizationcontext, uint32_t errorcode, void* extendederrorinformation) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete(void* senderdetails, uint32_t flags, void* userauthorizationcontext, uint32_t errorcode, void* extendederrorinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -420,7 +420,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzOperat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzQueryQuotaComplete(void* senderdetails, uint32_t flags, void* quota, uint32_t errorcode, void* extendederrorinformation) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete(void* senderdetails, uint32_t flags, void* quota, uint32_t errorcode, void* extendederrorinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -446,7 +446,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzQueryQ
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzUserComplete(void* senderdetails, uint32_t flags, void* userauthorizationcontext, void* impersonationtoken, int32_t userisadministrator, uint32_t errorcode, void* extendederrorinformation) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete(void* senderdetails, uint32_t flags, void* userauthorizationcontext, void* impersonationtoken, int32_t userisadministrator, uint32_t errorcode, void* extendederrorinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -474,7 +474,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzUserCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginFreeRequestDetails(void* requestdetails) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails(void* requestdetails) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -496,7 +496,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginFreeRequest
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginGetConfiguration(void* plugincontext, uint32_t flags, void* data) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration(void* plugincontext, uint32_t flags, void* data) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -520,7 +520,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginGetConfigur
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginGetOperationParameters(void* requestdetails, uint32_t flags, void* data) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters(void* requestdetails, uint32_t flags, void* data) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -544,7 +544,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginGetOperatio
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginOperationComplete(void* requestdetails, uint32_t flags, uint32_t errorcode, void* extendedinformation) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete(void* requestdetails, uint32_t flags, uint32_t errorcode, void* extendedinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -569,7 +569,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginOperationCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReceiveResult(void* requestdetails, uint32_t flags, void* stream, void* streamresult, void* commandstate, uint32_t exitcode) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult(void* requestdetails, uint32_t flags, void* stream, void* streamresult, void* commandstate, uint32_t exitcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReceiveResu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReportCompletion(void* plugincontext, uint32_t flags) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion(void* plugincontext, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReportCompl
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReportContext(void* requestdetails, uint32_t flags, void* context) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext(void* requestdetails, uint32_t flags, void* context) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -643,7 +643,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManPluginReportConte
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManReceiveShellOutput(int64_t shell, int64_t command, uint32_t flags, void* desiredstreamset, void* async, void* receiveoperation) {
+void windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput(int64_t shell, int64_t command, uint32_t flags, void* desiredstreamset, void* async, void* receiveoperation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManReceiveShellOutput(in
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManReconnectShell(int64_t shell, uint32_t flags, void* async) {
+void windowssys_windows_win32_system_remotemanagement_wSManReconnectShell(int64_t shell, uint32_t flags, void* async) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -692,7 +692,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManReconnectShell(int64_
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManReconnectShellCommand(int64_t commandhandle, uint32_t flags, void* async) {
+void windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand(int64_t commandhandle, uint32_t flags, void* async) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -715,7 +715,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManReconnectShellCommand
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManRunShellCommand(int64_t shell, uint32_t flags, void* commandline, void* args, void* options, void* async, void* command) {
+void windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand(int64_t shell, uint32_t flags, void* commandline, void* args, void* options, void* async, void* command) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -742,7 +742,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManRunShellCommand(int64
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManRunShellCommandEx(int64_t shell, uint32_t flags, void* commandid, void* commandline, void* args, void* options, void* async, void* command) {
+void windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx(int64_t shell, uint32_t flags, void* commandid, void* commandline, void* args, void* options, void* async, void* command) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -770,7 +770,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManRunShellCommandEx(int
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManSendShellInput(int64_t shell, int64_t command, uint32_t flags, void* streamid, void* streamdata, int32_t endofstream, void* async, void* sendoperation) {
+void windowssys_windows_win32_system_remotemanagement_wSManSendShellInput(int64_t shell, int64_t command, uint32_t flags, void* streamid, void* streamdata, int32_t endofstream, void* async, void* sendoperation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -798,7 +798,7 @@ void windowssys_windows_win32_system_remotemanagement_WSManSendShellInput(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_remotemanagement_WSManSetSessionOption(int64_t session, int32_t option, void* data) {
+uint32_t windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(int64_t session, int32_t option, void* data) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ uint32_t windowssys_windows_win32_system_remotemanagement_WSManSetSessionOption(
 #endif
 }
 
-void windowssys_windows_win32_system_remotemanagement_WSManSignalShell(int64_t shell, int64_t command, uint32_t flags, void* code, void* async, void* signaloperation) {
+void windowssys_windows_win32_system_remotemanagement_wSManSignalShell(int64_t shell, int64_t command, uint32_t flags, void* code, void* async, void* signaloperation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CMP_1WaitNoPendingInstallEvents(JNIEnv* km_env, jclass km_clazz, jint dwtimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmpWaitNoPendingInstallEvents(JNIEnv* km_env, jclass km_clazz, jint dwtimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1Empty_1Log_1Conf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint priority, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddEmptyLogConf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint priority, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1Empty_1Log_1Conf_1Ex(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint priority, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddEmptyLogConfEx(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint priority, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -79,7 +79,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1IDA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddIda(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1IDW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddIdw(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1ID_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddIdExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -140,7 +140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1ID_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddIdExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -161,7 +161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1Range(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddRange(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1Res_1Des(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong lclogconf, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddResDes(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong lclogconf, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Add_1Res_1Des_1Ex(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong lclogconf, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmAddResDesEx(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong lclogconf, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -229,7 +229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Connect_1MachineA(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong phmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmConnectMachineA(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong phmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -248,7 +248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Connect_1MachineW(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong phmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmConnectMachineW(JNIEnv* km_env, jclass km_clazz, jlong uncservername, jlong phmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -267,7 +267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Create_1DevNodeA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmCreateDevNodeA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -288,7 +288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Create_1DevNodeW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmCreateDevNodeW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -309,7 +309,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Create_1DevNode_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmCreateDevNodeExA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Create_1DevNode_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmCreateDevNodeExW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint dnparent, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -353,7 +353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Create_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong prlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmCreateRangeList(JNIEnv* km_env, jclass km_clazz, jlong prlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -372,7 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Class_1Key(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteClassKey(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -391,7 +391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Class_1Key_1Ex(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteClassKeyEx(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -411,7 +411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1DevNode_1Key(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint ulhardwareprofile, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDevNodeKey(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint ulhardwareprofile, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1DevNode_1Key_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint ulhardwareprofile, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDevNodeKeyEx(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint ulhardwareprofile, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Device_1Interface_1KeyA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDeviceInterfaceKeyA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Device_1Interface_1KeyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDeviceInterfaceKeyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -490,7 +490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Device_1Interface_1Key_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDeviceInterfaceKeyExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -510,7 +510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Device_1Interface_1Key_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteDeviceInterfaceKeyExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Delete_1Range(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDeleteRange(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -551,7 +551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Detect_1Resource_1Conflict(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jlong pbconflictdetected, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDetectResourceConflict(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jlong pbconflictdetected, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -574,7 +574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Detect_1Resource_1Conflict_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jlong pbconflictdetected, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDetectResourceConflictEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jlong pbconflictdetected, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -598,7 +598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Disable_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDisableDevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -617,7 +617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Disable_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDisableDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -637,7 +637,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Disconnect_1Machine(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDisconnectMachine(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -655,7 +655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Dup_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong rlhold, jlong rlhnew, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmDupRangeList(JNIEnv* km_env, jclass km_clazz, jlong rlhold, jlong rlhnew, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -675,7 +675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enable_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnableDevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enable_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnableDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -714,7 +714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1Classes(JNIEnv* km_env, jclass km_clazz, jint ulclassindex, jlong classguid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateClasses(JNIEnv* km_env, jclass km_clazz, jint ulclassindex, jlong classguid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1Classes_1Ex(JNIEnv* km_env, jclass km_clazz, jint ulclassindex, jlong classguid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateClassesEx(JNIEnv* km_env, jclass km_clazz, jint ulclassindex, jlong classguid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -755,7 +755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1EnumeratorsA(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateEnumeratorsA(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -776,7 +776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1EnumeratorsW(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateEnumeratorsW(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -797,7 +797,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1Enumerators_1ExA(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateEnumeratorsExA(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -819,7 +819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Enumerate_1Enumerators_1ExW(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmEnumerateEnumeratorsExW(JNIEnv* km_env, jclass km_clazz, jint ulenumindex, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -841,7 +841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Find_1Range(JNIEnv* km_env, jclass km_clazz, jlong pullstart, jlong ullstart, jint ullength, jlong ullalignment, jlong ullend, jlong rlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFindRange(JNIEnv* km_env, jclass km_clazz, jlong pullstart, jlong ullstart, jint ullength, jlong ullalignment, jlong ullend, jlong rlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1First_1Range(JNIEnv* km_env, jclass km_clazz, jlong rlh, jlong pullstart, jlong pullend, jlong preelement, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFirstRange(JNIEnv* km_env, jclass km_clazz, jlong rlh, jlong pullstart, jlong pullend, jlong preelement, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -887,7 +887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Log_1Conf(JNIEnv* km_env, jclass km_clazz, jlong lclogconftobefreed, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeLogConf(JNIEnv* km_env, jclass km_clazz, jlong lclogconftobefreed, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -906,7 +906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Log_1Conf_1Ex(JNIEnv* km_env, jclass km_clazz, jlong lclogconftobefreed, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeLogConfEx(JNIEnv* km_env, jclass km_clazz, jlong lclogconftobefreed, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -926,7 +926,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Log_1Conf_1Handle(JNIEnv* km_env, jclass km_clazz, jlong lclogconf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeLogConfHandle(JNIEnv* km_env, jclass km_clazz, jlong lclogconf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -944,7 +944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong rlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeRangeList(JNIEnv* km_env, jclass km_clazz, jlong rlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -963,7 +963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Res_1Des(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeResDes(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -983,7 +983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Res_1Des_1Ex(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeResDesEx(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1004,7 +1004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Res_1Des_1Handle(JNIEnv* km_env, jclass km_clazz, jlong rdresdes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeResDesHandle(JNIEnv* km_env, jclass km_clazz, jlong rdresdes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1022,7 +1022,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Free_1Resource_1Conflict_1Handle(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmFreeResourceConflictHandle(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1040,7 +1040,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Child(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetChild(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1060,7 +1060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Child_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetChildEx(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1081,7 +1081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Key_1NameA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassKeyNameA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1102,7 +1102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Key_1NameW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassKeyNameW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1123,7 +1123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Key_1Name_1ExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassKeyNameExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1145,7 +1145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Key_1Name_1ExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassKeyNameExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszkeyname, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1167,7 +1167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1NameA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassNameA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1188,7 +1188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1NameW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassNameW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1209,7 +1209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Name_1ExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassNameExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1231,7 +1231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Name_1ExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassNameExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1253,7 +1253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1276,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1300,7 +1300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Property_1Keys(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassPropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1321,7 +1321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Property_1Keys_1Ex(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassPropertyKeysEx(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1343,7 +1343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Registry_1PropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1367,7 +1367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Class_1Registry_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1391,7 +1391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Depth(JNIEnv* km_env, jclass km_clazz, jlong puldepth, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDepth(JNIEnv* km_env, jclass km_clazz, jlong puldepth, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Depth_1Ex(JNIEnv* km_env, jclass km_clazz, jlong puldepth, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDepthEx(JNIEnv* km_env, jclass km_clazz, jlong puldepth, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1432,7 +1432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Custom_1PropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeCustomPropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Custom_1PropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeCustomPropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1478,7 +1478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Custom_1Property_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeCustomPropertyExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1502,7 +1502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Custom_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeCustomPropertyExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pszcustompropertyname, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1526,7 +1526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1PropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodePropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1549,7 +1549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodePropertyExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1573,7 +1573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Property_1Keys(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodePropertyKeys(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1594,7 +1594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Property_1Keys_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodePropertyKeysEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1616,7 +1616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Registry_1PropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1639,7 +1639,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Registry_1PropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1662,7 +1662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Registry_1Property_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeRegistryPropertyExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1686,7 +1686,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Registry_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeRegistryPropertyExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong pulregdatatype, jlong buffer, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1710,7 +1710,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Status(JNIEnv* km_env, jclass km_clazz, jlong pulstatus, jlong pulproblemnumber, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeStatus(JNIEnv* km_env, jclass km_clazz, jlong pulstatus, jlong pulproblemnumber, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1731,7 +1731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1DevNode_1Status_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pulstatus, jlong pulproblemnumber, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDevNodeStatusEx(JNIEnv* km_env, jclass km_clazz, jlong pulstatus, jlong pulproblemnumber, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1753,7 +1753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1IDA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIda(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1774,7 +1774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1IDW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdw(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1795,7 +1795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1817,7 +1817,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1839,7 +1839,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1ListA(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListA(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1860,7 +1860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1ListW(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListW(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1881,7 +1881,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListExA(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1903,7 +1903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListExW(JNIEnv* km_env, jclass km_clazz, jlong pszfilter, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1925,7 +1925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1SizeA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListSizeA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1945,7 +1945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1SizeW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListSizeW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1965,7 +1965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1Size_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListSizeExA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1986,7 +1986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1List_1Size_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdListSizeExW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong pszfilter, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2007,7 +2007,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1Size(JNIEnv* km_env, jclass km_clazz, jlong pullen, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdSize(JNIEnv* km_env, jclass km_clazz, jlong pullen, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2027,7 +2027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1ID_1Size_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pullen, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceIdSizeEx(JNIEnv* km_env, jclass km_clazz, jlong pullen, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2048,7 +2048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1AliasA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceAliasA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2070,7 +2070,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1AliasW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceAliasW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2092,7 +2092,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1Alias_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceAliasExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2115,7 +2115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1Alias_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceAliasExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong aliasinterfaceguid, jlong pszaliasdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2138,7 +2138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1ListA(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListA(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2160,7 +2160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1ListW(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListW(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2182,7 +2182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1ExA(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListExA(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2205,7 +2205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1ExW(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListExW(JNIEnv* km_env, jclass km_clazz, jlong interfaceclassguid, jlong pdeviceid, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2228,7 +2228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1SizeA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListSizeA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1SizeW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListSizeW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2270,7 +2270,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1Size_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListSizeExA(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2292,7 +2292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1List_1Size_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfaceListSizeExW(JNIEnv* km_env, jclass km_clazz, jlong pullen, jlong interfaceclassguid, jlong pdeviceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2314,7 +2314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2337,7 +2337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfacePropertyExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jlong propertytype, jlong propertybuffer, jlong propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2361,7 +2361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1Property_1KeysW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfacePropertyKeysW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykeyarray, jlong propertykeycount, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2382,7 +2382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Device_1Interface_1Property_1Keys_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetDeviceInterfacePropertyKeysExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykeyarray, jlong propertykeycount, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2404,7 +2404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1First_1Log_1Conf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetFirstLogConf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2424,7 +2424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1First_1Log_1Conf_1Ex(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetFirstLogConfEx(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2445,7 +2445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Global_1State(JNIEnv* km_env, jclass km_clazz, jlong pulstate, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetGlobalState(JNIEnv* km_env, jclass km_clazz, jlong pulstate, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2464,7 +2464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Global_1State_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pulstate, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetGlobalStateEx(JNIEnv* km_env, jclass km_clazz, jlong pulstate, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2484,7 +2484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1HW_1Prof_1FlagsA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHwProfFlagsA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2505,7 +2505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1HW_1Prof_1FlagsW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHwProfFlagsW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2526,7 +2526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1HW_1Prof_1Flags_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHwProfFlagsExA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2548,7 +2548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1HW_1Prof_1Flags_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHwProfFlagsExW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulhardwareprofile, jlong pulvalue, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2570,7 +2570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Hardware_1Profile_1InfoA(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHardwareProfileInfoA(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2590,7 +2590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Hardware_1Profile_1InfoW(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHardwareProfileInfoW(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2610,7 +2610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Hardware_1Profile_1Info_1ExA(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHardwareProfileInfoExA(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2631,7 +2631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Hardware_1Profile_1Info_1ExW(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetHardwareProfileInfoExW(JNIEnv* km_env, jclass km_clazz, jint ulindex, jlong phwprofileinfo, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2652,7 +2652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Log_1Conf_1Priority(JNIEnv* km_env, jclass km_clazz, jlong lclogconf, jlong ppriority, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetLogConfPriority(JNIEnv* km_env, jclass km_clazz, jlong lclogconf, jlong ppriority, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2672,7 +2672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Log_1Conf_1Priority_1Ex(JNIEnv* km_env, jclass km_clazz, jlong lclogconf, jlong ppriority, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetLogConfPriorityEx(JNIEnv* km_env, jclass km_clazz, jlong lclogconf, jlong ppriority, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2693,7 +2693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Next_1Log_1Conf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jlong lclogconf, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetNextLogConf(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jlong lclogconf, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2713,7 +2713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Next_1Log_1Conf_1Ex(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jlong lclogconf, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetNextLogConfEx(JNIEnv* km_env, jclass km_clazz, jlong plclogconf, jlong lclogconf, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2734,7 +2734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Next_1Res_1Des(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint forresource, jlong presourceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetNextResDes(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint forresource, jlong presourceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2756,7 +2756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Next_1Res_1Des_1Ex(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint forresource, jlong presourceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetNextResDesEx(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint forresource, jlong presourceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2779,7 +2779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Parent(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetParent(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2799,7 +2799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Parent_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetParentEx(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2820,7 +2820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Res_1Des_1Data(JNIEnv* km_env, jclass km_clazz, jlong rdresdes, jlong buffer, jint bufferlen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResDesData(JNIEnv* km_env, jclass km_clazz, jlong rdresdes, jlong buffer, jint bufferlen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2841,7 +2841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Res_1Des_1Data_1Ex(JNIEnv* km_env, jclass km_clazz, jlong rdresdes, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResDesDataEx(JNIEnv* km_env, jclass km_clazz, jlong rdresdes, jlong buffer, jint bufferlen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2863,7 +2863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Res_1Des_1Data_1Size(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jlong rdresdes, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResDesDataSize(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jlong rdresdes, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2883,7 +2883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Res_1Des_1Data_1Size_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jlong rdresdes, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResDesDataSizeEx(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jlong rdresdes, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2904,7 +2904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Resource_1Conflict_1Count(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jlong pulcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResourceConflictCount(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jlong pulcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2923,7 +2923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Resource_1Conflict_1DetailsA(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jint ulindex, jlong pconflictdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResourceConflictDetailsA(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jint ulindex, jlong pconflictdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2943,7 +2943,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Resource_1Conflict_1DetailsW(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jint ulindex, jlong pconflictdetails) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetResourceConflictDetailsW(JNIEnv* km_env, jclass km_clazz, jlong clconflictlist, jint ulindex, jlong pconflictdetails) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2963,7 +2963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Sibling(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetSibling(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2983,7 +2983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Sibling_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetSiblingEx(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3004,7 +3004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Version(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetVersion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3021,7 +3021,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_dev
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Get_1Version_1Ex(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmGetVersionEx(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3039,7 +3039,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_dev
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Intersect_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong rlhold1, jlong rlhold2, jlong rlhnew, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmIntersectRangeList(JNIEnv* km_env, jclass km_clazz, jlong rlhold1, jlong rlhold2, jlong rlhnew, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3060,7 +3060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Invert_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong rlhold, jlong rlhnew, jlong ullmaxvalue, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmInvertRangeList(JNIEnv* km_env, jclass km_clazz, jlong rlhold, jlong rlhnew, jlong ullmaxvalue, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3081,7 +3081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Is_1Dock_1Station_1Present(JNIEnv* km_env, jclass km_clazz, jlong pbpresent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmIsDockStationPresent(JNIEnv* km_env, jclass km_clazz, jlong pbpresent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3099,7 +3099,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Is_1Dock_1Station_1Present_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pbpresent, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmIsDockStationPresentEx(JNIEnv* km_env, jclass km_clazz, jlong pbpresent, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3118,7 +3118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Is_1Version_1Available(JNIEnv* km_env, jclass km_clazz, jshort wversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmIsVersionAvailable(JNIEnv* km_env, jclass km_clazz, jshort wversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3136,7 +3136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Is_1Version_1Available_1Ex(JNIEnv* km_env, jclass km_clazz, jshort wversion, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmIsVersionAvailableEx(JNIEnv* km_env, jclass km_clazz, jshort wversion, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3155,7 +3155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Locate_1DevNodeA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmLocateDevNodeA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3175,7 +3175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Locate_1DevNodeW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmLocateDevNodeW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3195,7 +3195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Locate_1DevNode_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmLocateDevNodeExA(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3216,7 +3216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Locate_1DevNode_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmLocateDevNodeExW(JNIEnv* km_env, jclass km_clazz, jlong pdndevinst, jlong pdeviceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3237,7 +3237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1MapCrToWin32Err(JNIEnv* km_env, jclass km_clazz, jint cmreturncode, jint defaulterr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmMapCrToWin32Err(JNIEnv* km_env, jclass km_clazz, jint cmreturncode, jint defaulterr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3256,7 +3256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Merge_1Range_1List(JNIEnv* km_env, jclass km_clazz, jlong rlhold1, jlong rlhold2, jlong rlhnew, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmMergeRangeList(JNIEnv* km_env, jclass km_clazz, jlong rlhold1, jlong rlhold2, jlong rlhnew, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3277,7 +3277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Modify_1Res_1Des(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmModifyResDes(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3300,7 +3300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Modify_1Res_1Des_1Ex(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmModifyResDesEx(JNIEnv* km_env, jclass km_clazz, jlong prdresdes, jlong rdresdes, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3324,7 +3324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Move_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dnfromdevinst, jint dntodevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmMoveDevNode(JNIEnv* km_env, jclass km_clazz, jint dnfromdevinst, jint dntodevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3344,7 +3344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Move_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dnfromdevinst, jint dntodevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmMoveDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dnfromdevinst, jint dntodevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3365,7 +3365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Next_1Range(JNIEnv* km_env, jclass km_clazz, jlong preelement, jlong pullstart, jlong pullend, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmNextRange(JNIEnv* km_env, jclass km_clazz, jlong preelement, jlong pullstart, jlong pullend, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3386,7 +3386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Class_1KeyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenClassKeyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3409,7 +3409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Class_1KeyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenClassKeyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3432,7 +3432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Class_1Key_1ExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenClassKeyExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3456,7 +3456,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Class_1Key_1ExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenClassKeyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong pszclassname, jint samdesired, jint disposition, jlong phkclass, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3480,7 +3480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1DevNode_1Key(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint samdesired, jint ulhardwareprofile, jint disposition, jlong phkdevice, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDevNodeKey(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint samdesired, jint ulhardwareprofile, jint disposition, jlong phkdevice, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3503,7 +3503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1DevNode_1Key_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint samdesired, jint ulhardwareprofile, jint disposition, jlong phkdevice, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDevNodeKeyEx(JNIEnv* km_env, jclass km_clazz, jint dndevnode, jint samdesired, jint ulhardwareprofile, jint disposition, jlong phkdevice, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3527,7 +3527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Device_1Interface_1KeyA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDeviceInterfaceKeyA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3549,7 +3549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Device_1Interface_1KeyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDeviceInterfaceKeyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3571,7 +3571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Device_1Interface_1Key_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDeviceInterfaceKeyExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3594,7 +3594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Open_1Device_1Interface_1Key_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmOpenDeviceInterfaceKeyExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint samdesired, jint disposition, jlong phkdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3617,7 +3617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1And_1Remove_1SubTreeA(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryAndRemoveSubTreeA(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3639,7 +3639,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1And_1Remove_1SubTreeW(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryAndRemoveSubTreeW(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3661,7 +3661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1And_1Remove_1SubTree_1ExA(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryAndRemoveSubTreeExA(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3684,7 +3684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1And_1Remove_1SubTree_1ExW(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryAndRemoveSubTreeExW(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3707,7 +3707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Arbitrator_1Free_1Data(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint datalen, jint dndevinst, jint resourceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryArbitratorFreeData(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint datalen, jint dndevinst, jint resourceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3729,7 +3729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Arbitrator_1Free_1Data_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint datalen, jint dndevinst, jint resourceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryArbitratorFreeDataEx(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint datalen, jint dndevinst, jint resourceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3752,7 +3752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Arbitrator_1Free_1Size(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jint dndevinst, jint resourceid, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryArbitratorFreeSize(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jint dndevinst, jint resourceid, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3773,7 +3773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Arbitrator_1Free_1Size_1Ex(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jint dndevinst, jint resourceid, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryArbitratorFreeSizeEx(JNIEnv* km_env, jclass km_clazz, jlong pulsize, jint dndevinst, jint resourceid, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3795,7 +3795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Remove_1SubTree(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryRemoveSubTree(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3814,7 +3814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Remove_1SubTree_1Ex(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryRemoveSubTreeEx(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3834,7 +3834,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Query_1Resource_1Conflict_1List(JNIEnv* km_env, jclass km_clazz, jlong pclconflictlist, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmQueryResourceConflictList(JNIEnv* km_env, jclass km_clazz, jlong pclconflictlist, jint dndevinst, jint resourceid, jlong resourcedata, jint resourcelen, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3858,7 +3858,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Reenumerate_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmReenumerateDevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3877,7 +3877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Reenumerate_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmReenumerateDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3897,7 +3897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1Driver(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceDriver(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3916,7 +3916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1Driver_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceDriverEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3936,7 +3936,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1InterfaceA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3959,7 +3959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1InterfaceW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3982,7 +3982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1Interface_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceInterfaceExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4006,7 +4006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Device_1Interface_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterDeviceInterfaceExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong interfaceclassguid, jlong pszreference, jlong pszdeviceinterface, jlong pullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4030,7 +4030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Register_1Notification(JNIEnv* km_env, jclass km_clazz, jlong pfilter, jlong pcontext, jlong pcallback, jlong pnotifycontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong pfilter, jlong pcontext, jlong pcallback, jlong pnotifycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4051,7 +4051,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Remove_1SubTree(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRemoveSubTree(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4070,7 +4070,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Remove_1SubTree_1Ex(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRemoveSubTreeEx(JNIEnv* km_env, jclass km_clazz, jint dnancestor, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4090,7 +4090,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Device_1EjectA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestDeviceEjectA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4112,7 +4112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Device_1EjectW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestDeviceEjectW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4134,7 +4134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Device_1Eject_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestDeviceEjectExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4157,7 +4157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Device_1Eject_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestDeviceEjectExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong pvetotype, jlong pszvetoname, jint ulnamelength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4180,7 +4180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Eject_1PC(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestEjectPc(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4197,7 +4197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Request_1Eject_1PC_1Ex(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRequestEjectPcEx(JNIEnv* km_env, jclass km_clazz, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4215,7 +4215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Run_1Detection(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRunDetection(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4233,7 +4233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Run_1Detection_1Ex(JNIEnv* km_env, jclass km_clazz, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmRunDetectionEx(JNIEnv* km_env, jclass km_clazz, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4252,7 +4252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Class_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4275,7 +4275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Class_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4299,7 +4299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Class_1Registry_1PropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4322,7 +4322,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Class_1Registry_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4345,7 +4345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Problem(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproblem, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeProblem(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproblem, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4365,7 +4365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Problem_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproblem, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeProblemEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproblem, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4386,7 +4386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1PropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodePropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4409,7 +4409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodePropertyExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4433,7 +4433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Registry_1PropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4455,7 +4455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Registry_1PropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4477,7 +4477,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Registry_1Property_1ExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeRegistryPropertyExA(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4500,7 +4500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1DevNode_1Registry_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDevNodeRegistryPropertyExW(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulproperty, jlong buffer, jint ullength, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4523,7 +4523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Device_1Interface_1PropertyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4546,7 +4546,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1Device_1Interface_1Property_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetDeviceInterfacePropertyExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4570,7 +4570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof(JNIEnv* km_env, jclass km_clazz, jint ulhardwareprofile, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProf(JNIEnv* km_env, jclass km_clazz, jint ulhardwareprofile, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4589,7 +4589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof_1Ex(JNIEnv* km_env, jclass km_clazz, jint ulhardwareprofile, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProfEx(JNIEnv* km_env, jclass km_clazz, jint ulhardwareprofile, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4609,7 +4609,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof_1FlagsA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProfFlagsA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4630,7 +4630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof_1FlagsW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProfFlagsW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4651,7 +4651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof_1Flags_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProfFlagsExA(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4673,7 +4673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Set_1HW_1Prof_1Flags_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetHwProfFlagsExW(JNIEnv* km_env, jclass km_clazz, jlong pdeviceid, jint ulconfig, jint ulvalue, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4695,7 +4695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Setup_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetupDevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4714,7 +4714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Setup_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmSetupDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4734,7 +4734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Test_1Range_1Available(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmTestRangeAvailable(JNIEnv* km_env, jclass km_clazz, jlong ullstartvalue, jlong ullendvalue, jlong rlh, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4755,7 +4755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Uninstall_1DevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUninstallDevNode(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4774,7 +4774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Uninstall_1DevNode_1Ex(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUninstallDevNodeEx(JNIEnv* km_env, jclass km_clazz, jint dndevinst, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4794,7 +4794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Unregister_1Device_1InterfaceA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUnregisterDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4813,7 +4813,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Unregister_1Device_1InterfaceW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUnregisterDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4832,7 +4832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Unregister_1Device_1Interface_1ExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUnregisterDeviceInterfaceExA(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4852,7 +4852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Unregister_1Device_1Interface_1ExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUnregisterDeviceInterfaceExW(JNIEnv* km_env, jclass km_clazz, jlong pszdeviceinterface, jint ulflags, jlong hmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4872,7 +4872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1CM_1Unregister_1Notification(JNIEnv* km_env, jclass km_clazz, jlong notifycontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1cmUnregisterNotification(JNIEnv* km_env, jclass km_clazz, jlong notifycontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4890,7 +4890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiInstallDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diInstallDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4913,7 +4913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiInstallDriverA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diInstallDriverA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4934,7 +4934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiInstallDriverW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diInstallDriverW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4955,7 +4955,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiRollbackDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong hwndparent, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diRollbackDriver(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong hwndparent, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4977,7 +4977,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiShowUpdateDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diShowUpdateDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4999,7 +4999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiShowUpdateDriver(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong filepath, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diShowUpdateDriver(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong filepath, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5020,7 +5020,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiUninstallDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diUninstallDevice(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5042,7 +5042,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiUninstallDriverA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diUninstallDriverA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5063,7 +5063,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1DiUninstallDriverW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1diUninstallDriverW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong infpath, jint flags, jlong needreboot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5084,7 +5084,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1InstallHinfSectionA(JNIEnv* km_env, jclass km_clazz, jlong window, jlong modulehandle, jlong commandline, jint showcommand) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1installHinfSectionA(JNIEnv* km_env, jclass km_clazz, jlong window, jlong modulehandle, jlong commandline, jint showcommand) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5103,7 +5103,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1InstallHinfSectionW(JNIEnv* km_env, jclass km_clazz, jlong window, jlong modulehandle, jlong commandline, jint showcommand) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1installHinfSectionW(JNIEnv* km_env, jclass km_clazz, jlong window, jlong modulehandle, jlong commandline, jint showcommand) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5122,7 +5122,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddInstallSectionToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddInstallSectionToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5145,7 +5145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddInstallSectionToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddInstallSectionToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5168,7 +5168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddSectionToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddSectionToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5192,7 +5192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddSectionToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddSectionToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5216,7 +5216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jlong filesize, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddToDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jlong filesize, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5239,7 +5239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jlong filesize, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddToDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jlong filesize, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5262,7 +5262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddToSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddToSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5281,7 +5281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAddToSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAddToSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5300,7 +5300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAdjustDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong driveroot, jlong amount, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAdjustDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong driveroot, jlong amount, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5322,7 +5322,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupAdjustDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong driveroot, jlong amount, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupAdjustDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong driveroot, jlong amount, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5344,7 +5344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupBackupErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupBackupErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5367,7 +5367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupBackupErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupBackupErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5390,7 +5390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCancelTemporarySourceList(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCancelTemporarySourceList(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5407,7 +5407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCloseFileQueue(JNIEnv* km_env, jclass km_clazz, jlong queuehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCloseFileQueue(JNIEnv* km_env, jclass km_clazz, jlong queuehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5425,7 +5425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCloseInfFile(JNIEnv* km_env, jclass km_clazz, jlong infhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCloseInfFile(JNIEnv* km_env, jclass km_clazz, jlong infhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5441,7 +5441,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCloseLog(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCloseLog(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5456,7 +5456,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCommitFileQueueA(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong queuehandle, jlong msghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCommitFileQueueA(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong queuehandle, jlong msghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5477,7 +5477,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCommitFileQueueW(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong queuehandle, jlong msghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCommitFileQueueW(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong queuehandle, jlong msghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5498,7 +5498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupConfigureWmiFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupConfigureWmiFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5518,7 +5518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupConfigureWmiFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupConfigureWmiFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5538,7 +5538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCopyErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong sourcefile, jlong targetpathfile, jint win32errorcode, jint style, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCopyErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong sourcefile, jlong targetpathfile, jint win32errorcode, jint style, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5566,7 +5566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCopyErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong sourcefile, jlong targetpathfile, jint win32errorcode, jint style, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCopyErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong sourcefile, jlong targetpathfile, jint win32errorcode, jint style, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5594,7 +5594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCopyOEMInfA(JNIEnv* km_env, jclass km_clazz, jlong sourceinffilename, jlong oemsourcemedialocation, jint oemsourcemediatype, jint copystyle, jlong destinationinffilename, jint destinationinffilenamesize, jlong requiredsize, jlong destinationinffilenamecomponent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCopyOEMInfA(JNIEnv* km_env, jclass km_clazz, jlong sourceinffilename, jlong oemsourcemedialocation, jint oemsourcemediatype, jint copystyle, jlong destinationinffilename, jint destinationinffilenamesize, jlong requiredsize, jlong destinationinffilenamecomponent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5619,7 +5619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCopyOEMInfW(JNIEnv* km_env, jclass km_clazz, jlong sourceinffilename, jlong oemsourcemedialocation, jint oemsourcemediatype, jint copystyle, jlong destinationinffilename, jint destinationinffilenamesize, jlong requiredsize, jlong destinationinffilenamecomponent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCopyOEMInfW(JNIEnv* km_env, jclass km_clazz, jlong sourceinffilename, jlong oemsourcemedialocation, jint oemsourcemediatype, jint copystyle, jlong destinationinffilename, jint destinationinffilenamesize, jlong requiredsize, jlong destinationinffilenamecomponent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5644,7 +5644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCreateDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint reserved2, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCreateDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint reserved2, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5664,7 +5664,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupCreateDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint reserved2, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupCreateDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong reserved1, jint reserved2, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5684,7 +5684,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDecompressOrCopyFileA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong targetfilename, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDecompressOrCopyFileA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong targetfilename, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5704,7 +5704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDecompressOrCopyFileW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong targetfilename, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDecompressOrCopyFileW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong targetfilename, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5724,7 +5724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDefaultQueueCallbackA(JNIEnv* km_env, jclass km_clazz, jlong context, jint notification, jlong param1, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDefaultQueueCallbackA(JNIEnv* km_env, jclass km_clazz, jlong context, jint notification, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5745,7 +5745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDefaultQueueCallbackW(JNIEnv* km_env, jclass km_clazz, jlong context, jint notification, jlong param1, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDefaultQueueCallbackW(JNIEnv* km_env, jclass km_clazz, jlong context, jint notification, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5766,7 +5766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDeleteErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong file, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDeleteErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong file, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5788,7 +5788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDeleteErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong file, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDeleteErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong file, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5810,7 +5810,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDestroyDiskSpaceList(JNIEnv* km_env, jclass km_clazz, jlong diskspace) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDestroyDiskSpaceList(JNIEnv* km_env, jclass km_clazz, jlong diskspace) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5828,7 +5828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiAskForOEMDisk(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiAskForOEMDisk(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5847,7 +5847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiBuildClassInfoList(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiBuildClassInfoList(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5868,7 +5868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiBuildClassInfoListExA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiBuildClassInfoListExA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5891,7 +5891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiBuildClassInfoListExW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiBuildClassInfoListExW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5914,7 +5914,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiBuildDriverInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiBuildDriverInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5934,7 +5934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCallClassInstaller(JNIEnv* km_env, jclass km_clazz, jint installfunction, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCallClassInstaller(JNIEnv* km_env, jclass km_clazz, jint installfunction, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5954,7 +5954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCancelDriverInfoSearch(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCancelDriverInfoSearch(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5972,7 +5972,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiChangeState(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiChangeState(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5991,7 +5991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassGuidsFromNameA(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassGuidsFromNameA(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6012,7 +6012,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassGuidsFromNameExA(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassGuidsFromNameExA(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6035,7 +6035,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassGuidsFromNameExW(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassGuidsFromNameExW(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6058,7 +6058,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassGuidsFromNameW(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassGuidsFromNameW(JNIEnv* km_env, jclass km_clazz, jlong classname, jlong classguidlist, jint classguidlistsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6079,7 +6079,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassNameFromGuidA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassNameFromGuidA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6100,7 +6100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassNameFromGuidExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassNameFromGuidExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6123,7 +6123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassNameFromGuidExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassNameFromGuidExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6146,7 +6146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiClassNameFromGuidW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiClassNameFromGuidW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6167,7 +6167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDevRegKeyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jlong infhandle, jlong infsectionname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDevRegKeyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jlong infhandle, jlong infsectionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6191,7 +6191,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDevRegKeyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jlong infhandle, jlong infsectionname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDevRegKeyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jlong infhandle, jlong infsectionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6215,7 +6215,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicename, jlong classguid, jlong devicedescription, jlong hwndparent, jint creationflags, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicename, jlong classguid, jlong devicedescription, jlong hwndparent, jint creationflags, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6239,7 +6239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInfoList(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInfoList(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6258,7 +6258,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInfoListExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInfoListExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6279,7 +6279,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInfoListExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInfoListExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong hwndparent, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6300,7 +6300,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicename, jlong classguid, jlong devicedescription, jlong hwndparent, jint creationflags, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicename, jlong classguid, jlong devicedescription, jlong hwndparent, jint creationflags, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6324,7 +6324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jlong referencestring, jint creationflags, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jlong referencestring, jint creationflags, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6347,7 +6347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInterfaceRegKeyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired, jlong infhandle, jlong infsectionname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInterfaceRegKeyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired, jlong infhandle, jlong infsectionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6370,7 +6370,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInterfaceRegKeyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired, jlong infhandle, jlong infsectionname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInterfaceRegKeyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired, jlong infhandle, jlong infsectionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6393,7 +6393,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiCreateDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jlong referencestring, jint creationflags, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiCreateDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jlong referencestring, jint creationflags, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6416,7 +6416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDeleteDevRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDeleteDevRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6438,7 +6438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDeleteDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDeleteDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6457,7 +6457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDeleteDeviceInterfaceData(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDeleteDeviceInterfaceData(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6476,7 +6476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDeleteDeviceInterfaceRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDeleteDeviceInterfaceRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6496,7 +6496,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDestroyClassImageList(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDestroyClassImageList(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6514,7 +6514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDestroyDeviceInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDestroyDeviceInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6532,7 +6532,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiDestroyDriverInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiDestroyDriverInfoList(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6552,7 +6552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiEnumDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jint memberindex, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiEnumDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jint memberindex, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6572,7 +6572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiEnumDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jint memberindex, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiEnumDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong interfaceclassguid, jint memberindex, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6594,7 +6594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiEnumDriverInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype, jint memberindex, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiEnumDriverInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype, jint memberindex, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6616,7 +6616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiEnumDriverInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype, jint memberindex, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiEnumDriverInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint drivertype, jint memberindex, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6638,7 +6638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualModelsSectionA(JNIEnv* km_env, jclass km_clazz, jlong context, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualModelsSectionA(JNIEnv* km_env, jclass km_clazz, jlong context, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6661,7 +6661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualModelsSectionW(JNIEnv* km_env, jclass km_clazz, jlong context, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualModelsSectionW(JNIEnv* km_env, jclass km_clazz, jlong context, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6684,7 +6684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualSectionToInstallA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualSectionToInstallA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6707,7 +6707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualSectionToInstallExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualSectionToInstallExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6732,7 +6732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualSectionToInstallExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualSectionToInstallExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong alternateplatforminfo, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6757,7 +6757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetActualSectionToInstallW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetActualSectionToInstallW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infsectionname, jlong infsectionwithext, jint infsectionwithextsize, jlong requiredsize, jlong extension) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6780,7 +6780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassBitmapIndex(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong miniiconindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassBitmapIndex(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong miniiconindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6799,7 +6799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDescriptionA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDescriptionA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6820,7 +6820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDescriptionExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDescriptionExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6843,7 +6843,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDescriptionExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDescriptionExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6866,7 +6866,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDescriptionW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDescriptionW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong classdescription, jint classdescriptionsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6887,7 +6887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevPropertySheetsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertysheetheader, jint propertysheetheaderpagelistsize, jlong requiredsize, jint propertysheettype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevPropertySheetsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertysheetheader, jint propertysheetheaderpagelistsize, jlong requiredsize, jint propertysheettype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6910,7 +6910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevPropertySheetsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertysheetheader, jint propertysheetheaderpagelistsize, jlong requiredsize, jint propertysheettype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevPropertySheetsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertysheetheader, jint propertysheetheaderpagelistsize, jlong requiredsize, jint propertysheettype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6933,7 +6933,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevsA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevsA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6954,7 +6954,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevsExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags, jlong deviceinfoset, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevsExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags, jlong deviceinfoset, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6978,7 +6978,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevsExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags, jlong deviceinfoset, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevsExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags, jlong deviceinfoset, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7002,7 +7002,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassDevsW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassDevsW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong enumerator, jlong hwndparent, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7023,7 +7023,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassImageIndex(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong classguid, jlong imageindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassImageIndex(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong classguid, jlong imageindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7043,7 +7043,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassImageList(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassImageList(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7061,7 +7061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassImageListExA(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassImageListExA(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7081,7 +7081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassImageListExW(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassImageListExW(JNIEnv* km_env, jclass km_clazz, jlong classimagelistdata, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7101,7 +7101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7123,7 +7123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7145,7 +7145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7171,7 +7171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassPropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassPropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7193,7 +7193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassPropertyKeysExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassPropertyKeysExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7217,7 +7217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7241,7 +7241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7266,7 +7266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7291,7 +7291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetCustomDevicePropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong custompropertyname, jint flags, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetCustomDevicePropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong custompropertyname, jint flags, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7316,7 +7316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetCustomDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong custompropertyname, jint flags, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetCustomDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong custompropertyname, jint flags, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7341,7 +7341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInfoListClass(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong classguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInfoListClass(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong classguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7360,7 +7360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInfoListDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfosetdetaildata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInfoListDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfosetdetaildata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7379,7 +7379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInfoListDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfosetdetaildata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInfoListDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfosetdetaildata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7398,7 +7398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7418,7 +7418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7438,7 +7438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInstanceIdA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstanceid, jint deviceinstanceidsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInstanceIdA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstanceid, jint deviceinstanceidsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7460,7 +7460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInstanceIdW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstanceid, jint deviceinstanceidsize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInstanceIdW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstanceid, jint deviceinstanceidsize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7482,7 +7482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInterfaceAlias(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong aliasinterfaceclassguid, jlong aliasdeviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInterfaceAlias(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong aliasinterfaceclassguid, jlong aliasdeviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7503,7 +7503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInterfaceDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong deviceinterfacedetaildata, jint deviceinterfacedetaildatasize, jlong requiredsize, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInterfaceDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong deviceinterfacedetaildata, jint deviceinterfacedetaildatasize, jlong requiredsize, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7526,7 +7526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInterfaceDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong deviceinterfacedetaildata, jint deviceinterfacedetaildatasize, jlong requiredsize, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInterfaceDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong deviceinterfacedetaildata, jint deviceinterfacedetaildatasize, jlong requiredsize, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7549,7 +7549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInterfacePropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInterfacePropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7572,7 +7572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7597,7 +7597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDevicePropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDevicePropertyKeys(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykeyarray, jint propertykeycount, jlong requiredpropertykeycount, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7620,7 +7620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykey, jlong propertytype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7645,7 +7645,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7669,7 +7669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDeviceRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDeviceRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertyregdatatype, jlong propertybuffer, jint propertybuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7693,7 +7693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDriverInfoDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinfodetaildata, jint driverinfodetaildatasize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDriverInfoDetailA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinfodetaildata, jint driverinfodetaildatasize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7716,7 +7716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDriverInfoDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinfodetaildata, jint driverinfodetaildatasize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDriverInfoDetailW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinfodetaildata, jint driverinfodetaildatasize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7739,7 +7739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDriverInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDriverInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7760,7 +7760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetDriverInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetDriverInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7781,7 +7781,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileFriendlyNameA(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileFriendlyNameA(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7802,7 +7802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileFriendlyNameExA(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileFriendlyNameExA(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7825,7 +7825,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileFriendlyNameExW(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileFriendlyNameExW(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7848,7 +7848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileFriendlyNameW(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileFriendlyNameW(JNIEnv* km_env, jclass km_clazz, jint hwprofile, jlong friendlyname, jint friendlynamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7869,7 +7869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileList(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileList(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7890,7 +7890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileListExA(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileListExA(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7913,7 +7913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetHwProfileListExW(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetHwProfileListExW(JNIEnv* km_env, jclass km_clazz, jlong hwprofilelist, jint hwprofilelistsize, jlong requiredsize, jlong currentlyactiveindex, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7936,7 +7936,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetINFClassA(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetINFClassA(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7958,7 +7958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetINFClassW(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetINFClassW(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong classguid, jlong classname, jint classnamesize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7980,7 +7980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetSelectedDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetSelectedDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7999,7 +7999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetSelectedDriverA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetSelectedDriverA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8019,7 +8019,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetSelectedDriverW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetSelectedDriverW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8039,7 +8039,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiGetWizardPage(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong installwizarddata, jint pagetype, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiGetWizardPage(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong installwizarddata, jint pagetype, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8061,7 +8061,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallClassA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallClassA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8082,7 +8082,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallClassExA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue, jlong interfaceclassguid, jlong reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallClassExA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue, jlong interfaceclassguid, jlong reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8106,7 +8106,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallClassExW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue, jlong interfaceclassguid, jlong reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallClassExW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue, jlong interfaceclassguid, jlong reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8130,7 +8130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallClassW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallClassW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong inffilename, jint flags, jlong filequeue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8151,7 +8151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8170,7 +8170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallDeviceInterfaces(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8189,7 +8189,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiInstallDriverFiles(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiInstallDriverFiles(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8208,7 +8208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiLoadClassIcon(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong largeicon, jlong miniiconindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiLoadClassIcon(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong largeicon, jlong miniiconindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8228,7 +8228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiLoadDeviceIcon(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint cxicon, jint cyicon, jint flags, jlong hicon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiLoadDeviceIcon(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint cxicon, jint cyicon, jint flags, jlong hicon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8251,7 +8251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenClassRegKey(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenClassRegKey(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8270,7 +8270,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenClassRegKeyExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired, jint flags, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenClassRegKeyExA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired, jint flags, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8292,7 +8292,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenClassRegKeyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired, jint flags, jlong machinename, jlong reserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenClassRegKeyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint samdesired, jint flags, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8314,7 +8314,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDevRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDevRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint scope, jint hwprofile, jint keytype, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8337,7 +8337,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinstanceid, jlong hwndparent, jint openflags, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDeviceInfoA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinstanceid, jlong hwndparent, jint openflags, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8359,7 +8359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinstanceid, jlong hwndparent, jint openflags, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDeviceInfoW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinstanceid, jlong hwndparent, jint openflags, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8381,7 +8381,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicepath, jint openflags, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDeviceInterfaceA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicepath, jint openflags, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8402,7 +8402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDeviceInterfaceRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDeviceInterfaceRegKey(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint reserved, jint samdesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8423,7 +8423,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiOpenDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicepath, jint openflags, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiOpenDeviceInterfaceW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong devicepath, jint openflags, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8444,7 +8444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiRegisterCoDeviceInstallers(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiRegisterCoDeviceInstallers(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8463,7 +8463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiRegisterDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong compareproc, jlong comparecontext, jlong dupdeviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiRegisterDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint flags, jlong compareproc, jlong comparecontext, jlong dupdeviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8486,7 +8486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiRemoveDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiRemoveDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8505,7 +8505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiRemoveDeviceInterface(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiRemoveDeviceInterface(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8524,7 +8524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiRestartDevices(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiRestartDevices(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8543,7 +8543,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSelectBestCompatDrv(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSelectBestCompatDrv(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8562,7 +8562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSelectDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSelectDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8581,7 +8581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSelectOEMDrv(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSelectOEMDrv(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8601,7 +8601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8622,7 +8622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong classinstallparams, jint classinstallparamssize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8643,7 +8643,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassPropertyExW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8668,7 +8668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8691,7 +8691,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertybuffer, jint propertybuffersize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertybuffer, jint propertybuffersize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8714,7 +8714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertybuffer, jint propertybuffersize, jlong machinename, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetClassRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong classguid, jint property, jlong propertybuffer, jint propertybuffersize, jlong machinename, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8737,7 +8737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8757,7 +8757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong deviceinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8777,7 +8777,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceInterfaceDefault(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint flags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceInterfaceDefault(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jint flags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8798,7 +8798,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceInterfacePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinterfacedata, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8822,7 +8822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDevicePropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong propertykey, jint propertytype, jlong propertybuffer, jint propertybuffersize, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8846,7 +8846,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertybuffer, jint propertybuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceRegistryPropertyA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertybuffer, jint propertybuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8868,7 +8868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDeviceRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertybuffer, jint propertybuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDeviceRegistryPropertyW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jint property, jlong propertybuffer, jint propertybuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8890,7 +8890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDriverInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDriverInstallParamsA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8911,7 +8911,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetDriverInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetDriverInstallParamsW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata, jlong driverinstallparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8932,7 +8932,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetSelectedDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetSelectedDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8951,7 +8951,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetSelectedDriverA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetSelectedDriverA(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8971,7 +8971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiSetSelectedDriverW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiSetSelectedDriverW(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata, jlong driverinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8991,7 +8991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDiUnremoveDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDiUnremoveDevice(JNIEnv* km_env, jclass km_clazz, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9010,7 +9010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDuplicateDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong reserved1, jint reserved2, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDuplicateDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong reserved1, jint reserved2, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9031,7 +9031,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupDuplicateDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong reserved1, jint reserved2, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupDuplicateDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong reserved1, jint reserved2, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9052,7 +9052,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupEnumInfSectionsA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint arg_1_index, jlong buffer, jint size, jlong sizeneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupEnumInfSectionsA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint arg_1_index, jlong buffer, jint size, jlong sizeneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9074,7 +9074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupEnumInfSectionsW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint arg_1_index, jlong buffer, jint size, jlong sizeneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupEnumInfSectionsW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint arg_1_index, jlong buffer, jint size, jlong sizeneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9096,7 +9096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFindFirstLineA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jlong key, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFindFirstLineA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jlong key, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9117,7 +9117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFindFirstLineW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jlong key, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFindFirstLineW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jlong key, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9138,7 +9138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFindNextLine(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong contextout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFindNextLine(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong contextout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9157,7 +9157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFindNextMatchLineA(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong key, jlong contextout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFindNextMatchLineA(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong key, jlong contextout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9177,7 +9177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFindNextMatchLineW(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong key, jlong contextout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFindNextMatchLineW(JNIEnv* km_env, jclass km_clazz, jlong contextin, jlong key, jlong contextout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9197,7 +9197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFreeSourceListA(JNIEnv* km_env, jclass km_clazz, jlong list, jint count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFreeSourceListA(JNIEnv* km_env, jclass km_clazz, jlong list, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9216,7 +9216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupFreeSourceListW(JNIEnv* km_env, jclass km_clazz, jlong list, jint count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupFreeSourceListW(JNIEnv* km_env, jclass km_clazz, jlong list, jint count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9235,7 +9235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetBackupInformationA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backupparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetBackupInformationA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backupparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9254,7 +9254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetBackupInformationW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backupparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetBackupInformationW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backupparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9273,7 +9273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetBinaryField(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetBinaryField(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9295,7 +9295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFieldCount(JNIEnv* km_env, jclass km_clazz, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFieldCount(JNIEnv* km_env, jclass km_clazz, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9313,7 +9313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileCompressionInfoA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilename, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileCompressionInfoA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilename, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9335,7 +9335,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileCompressionInfoExA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilenamebuffer, jint actualsourcefilenamebufferlen, jlong requiredbufferlen, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileCompressionInfoExA(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilenamebuffer, jint actualsourcefilenamebufferlen, jlong requiredbufferlen, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9359,7 +9359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileCompressionInfoExW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilenamebuffer, jint actualsourcefilenamebufferlen, jlong requiredbufferlen, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileCompressionInfoExW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilenamebuffer, jint actualsourcefilenamebufferlen, jlong requiredbufferlen, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9383,7 +9383,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileCompressionInfoW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilename, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileCompressionInfoW(JNIEnv* km_env, jclass km_clazz, jlong sourcefilename, jlong actualsourcefilename, jlong sourcefilesize, jlong targetfilesize, jlong compressiontype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9405,7 +9405,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileQueueCount(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint subqueuefileop, jlong numoperations) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileQueueCount(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint subqueuefileop, jlong numoperations) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9425,7 +9425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetFileQueueFlags(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jlong flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetFileQueueFlags(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jlong flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9444,7 +9444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfDriverStoreLocationA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong alternateplatforminfo, jlong localename, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfDriverStoreLocationA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong alternateplatforminfo, jlong localename, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9467,7 +9467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfDriverStoreLocationW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong alternateplatforminfo, jlong localename, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfDriverStoreLocationW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong alternateplatforminfo, jlong localename, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9490,7 +9490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfFileListA(JNIEnv* km_env, jclass km_clazz, jlong directorypath, jint infstyle, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfFileListA(JNIEnv* km_env, jclass km_clazz, jlong directorypath, jint infstyle, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9512,7 +9512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfFileListW(JNIEnv* km_env, jclass km_clazz, jlong directorypath, jint infstyle, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfFileListW(JNIEnv* km_env, jclass km_clazz, jlong directorypath, jint infstyle, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9534,7 +9534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfInformationA(JNIEnv* km_env, jclass km_clazz, jlong infspec, jint searchcontrol, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfInformationA(JNIEnv* km_env, jclass km_clazz, jlong infspec, jint searchcontrol, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9556,7 +9556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfInformationW(JNIEnv* km_env, jclass km_clazz, jlong infspec, jint searchcontrol, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfInformationW(JNIEnv* km_env, jclass km_clazz, jlong infspec, jint searchcontrol, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9578,7 +9578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfPublishedNameA(JNIEnv* km_env, jclass km_clazz, jlong driverstorelocation, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfPublishedNameA(JNIEnv* km_env, jclass km_clazz, jlong driverstorelocation, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9599,7 +9599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetInfPublishedNameW(JNIEnv* km_env, jclass km_clazz, jlong driverstorelocation, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetInfPublishedNameW(JNIEnv* km_env, jclass km_clazz, jlong driverstorelocation, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9620,7 +9620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetIntField(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong integervalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetIntField(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong integervalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9640,7 +9640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineByIndexA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jint arg_2_index, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineByIndexA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jint arg_2_index, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9661,7 +9661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineByIndexW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jint arg_2_index, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineByIndexW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section, jint arg_2_index, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9682,7 +9682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineCountA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineCountA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9701,7 +9701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineCountW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineCountW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9720,7 +9720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineTextA(JNIEnv* km_env, jclass km_clazz, jlong context, jlong infhandle, jlong section, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineTextA(JNIEnv* km_env, jclass km_clazz, jlong context, jlong infhandle, jlong section, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9744,7 +9744,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetLineTextW(JNIEnv* km_env, jclass km_clazz, jlong context, jlong infhandle, jlong section, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetLineTextW(JNIEnv* km_env, jclass km_clazz, jlong context, jlong infhandle, jlong section, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9768,7 +9768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetMultiSzFieldA(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetMultiSzFieldA(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9790,7 +9790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetMultiSzFieldW(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetMultiSzFieldW(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9812,7 +9812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetNonInteractiveMode(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetNonInteractiveMode(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9829,7 +9829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceFileLocationA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong sourceid, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceFileLocationA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong sourceid, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9853,7 +9853,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceFileLocationW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong sourceid, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceFileLocationW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong sourceid, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9877,7 +9877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceFileSizeA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong section, jlong filesize, jint roundingfactor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceFileSizeA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong section, jlong filesize, jint roundingfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9900,7 +9900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceFileSizeW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong section, jlong filesize, jint roundingfactor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceFileSizeW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong filename, jlong section, jlong filesize, jint roundingfactor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9923,7 +9923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceInfoA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint sourceid, jint infodesired, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceInfoA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint sourceid, jint infodesired, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9946,7 +9946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetSourceInfoW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint sourceid, jint infodesired, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetSourceInfoW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint sourceid, jint infodesired, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9969,7 +9969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetStringFieldA(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetStringFieldA(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9991,7 +9991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetStringFieldW(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetStringFieldW(JNIEnv* km_env, jclass km_clazz, jlong context, jint fieldindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10013,7 +10013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetTargetPathA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong section, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetTargetPathA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong section, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10036,7 +10036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetTargetPathW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong section, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetTargetPathW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong section, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10059,7 +10059,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupGetThreadLogToken(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupGetThreadLogToken(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10076,7 +10076,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInitDefaultQueueCallback(JNIEnv* km_env, jclass km_clazz, jlong ownerwindow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInitDefaultQueueCallback(JNIEnv* km_env, jclass km_clazz, jlong ownerwindow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10094,7 +10094,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInitDefaultQueueCallbackEx(JNIEnv* km_env, jclass km_clazz, jlong ownerwindow, jlong alternateprogresswindow, jint progressmessage, jint reserved1, jlong reserved2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInitDefaultQueueCallbackEx(JNIEnv* km_env, jclass km_clazz, jlong ownerwindow, jlong alternateprogresswindow, jint progressmessage, jint reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10116,7 +10116,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInitializeFileLogA(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInitializeFileLogA(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10135,7 +10135,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInitializeFileLogW(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInitializeFileLogW(JNIEnv* km_env, jclass km_clazz, jlong logfilename, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10154,7 +10154,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFileA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFileA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10179,7 +10179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFileExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context, jlong filewasinuse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFileExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context, jlong filewasinuse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10205,7 +10205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFileExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context, jlong filewasinuse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFileExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context, jlong filewasinuse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10231,7 +10231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFileW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFileW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong infcontext, jlong sourcefile, jlong sourcepathroot, jlong destinationname, jint copystyle, jlong copymsghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10256,7 +10256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFilesFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong layoutinfhandle, jlong filequeue, jlong sectionname, jlong sourcerootpath, jint copyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFilesFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong layoutinfhandle, jlong filequeue, jlong sectionname, jlong sourcerootpath, jint copyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10279,7 +10279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFilesFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong layoutinfhandle, jlong filequeue, jlong sectionname, jlong sourcerootpath, jint copyflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFilesFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong layoutinfhandle, jlong filequeue, jlong sectionname, jlong sourcerootpath, jint copyflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10302,7 +10302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong infhandle, jlong sectionname, jint flags, jlong relativekeyroot, jlong sourcerootpath, jint copyflags, jlong msghandler, jlong context, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong infhandle, jlong sectionname, jint flags, jlong relativekeyroot, jlong sourcerootpath, jint copyflags, jlong msghandler, jlong context, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10330,7 +10330,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong infhandle, jlong sectionname, jint flags, jlong relativekeyroot, jlong sourcerootpath, jint copyflags, jlong msghandler, jlong context, jlong deviceinfoset, jlong deviceinfodata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong owner, jlong infhandle, jlong sectionname, jint flags, jlong relativekeyroot, jlong sourcerootpath, jint copyflags, jlong msghandler, jlong context, jlong deviceinfoset, jlong deviceinfodata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10358,7 +10358,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallServicesFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallServicesFromInfSectionA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10378,7 +10378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallServicesFromInfSectionExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags, jlong deviceinfoset, jlong deviceinfodata, jlong reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallServicesFromInfSectionExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags, jlong deviceinfoset, jlong deviceinfodata, jlong reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10402,7 +10402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallServicesFromInfSectionExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags, jlong deviceinfoset, jlong deviceinfodata, jlong reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallServicesFromInfSectionExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags, jlong deviceinfoset, jlong deviceinfodata, jlong reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10426,7 +10426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupInstallServicesFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupInstallServicesFromInfSectionW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jlong sectionname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10446,7 +10446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupIterateCabinetA(JNIEnv* km_env, jclass km_clazz, jlong cabinetfile, jint reserved, jlong msghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupIterateCabinetA(JNIEnv* km_env, jclass km_clazz, jlong cabinetfile, jint reserved, jlong msghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10467,7 +10467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupIterateCabinetW(JNIEnv* km_env, jclass km_clazz, jlong cabinetfile, jint reserved, jlong msghandler, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupIterateCabinetW(JNIEnv* km_env, jclass km_clazz, jlong cabinetfile, jint reserved, jlong msghandler, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10488,7 +10488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupLogErrorA(JNIEnv* km_env, jclass km_clazz, jlong messagestring, jint severity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupLogErrorA(JNIEnv* km_env, jclass km_clazz, jlong messagestring, jint severity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10507,7 +10507,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupLogErrorW(JNIEnv* km_env, jclass km_clazz, jlong messagestring, jint severity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupLogErrorW(JNIEnv* km_env, jclass km_clazz, jlong messagestring, jint severity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10526,7 +10526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupLogFileA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong sourcefilename, jlong targetfilename, jint checksum, jlong disktagfile, jlong diskdescription, jlong otherinfo, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupLogFileA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong sourcefilename, jlong targetfilename, jint checksum, jlong disktagfile, jlong diskdescription, jlong otherinfo, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10552,7 +10552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupLogFileW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong sourcefilename, jlong targetfilename, jint checksum, jlong disktagfile, jlong diskdescription, jlong otherinfo, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupLogFileW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong sourcefilename, jlong targetfilename, jint checksum, jlong disktagfile, jlong diskdescription, jlong otherinfo, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10578,7 +10578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenAppendInfFileA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infhandle, jlong errorline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenAppendInfFileA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infhandle, jlong errorline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10598,7 +10598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenAppendInfFileW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infhandle, jlong errorline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenAppendInfFileW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infhandle, jlong errorline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10618,7 +10618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenFileQueue(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenFileQueue(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10635,7 +10635,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenInfFileA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infclass, jint infstyle, jlong errorline) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenInfFileA(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infclass, jint infstyle, jlong errorline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10656,7 +10656,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenInfFileW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infclass, jint infstyle, jlong errorline) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenInfFileW(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong infclass, jint infstyle, jlong errorline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10677,7 +10677,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenLog(JNIEnv* km_env, jclass km_clazz, jint erase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenLog(JNIEnv* km_env, jclass km_clazz, jint erase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10695,7 +10695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupOpenMasterInf(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupOpenMasterInf(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10712,7 +10712,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupPrepareQueueForRestoreA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backuppath, jint restoreflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupPrepareQueueForRestoreA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backuppath, jint restoreflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10732,7 +10732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupPrepareQueueForRestoreW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backuppath, jint restoreflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupPrepareQueueForRestoreW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong backuppath, jint restoreflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10752,7 +10752,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupPromptForDiskA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong filesought, jlong tagfile, jint diskpromptstyle, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupPromptForDiskA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong filesought, jlong tagfile, jint diskpromptstyle, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10779,7 +10779,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupPromptForDiskW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong filesought, jlong tagfile, jint diskpromptstyle, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupPromptForDiskW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong diskname, jlong pathtosource, jlong filesought, jlong tagfile, jint diskpromptstyle, jlong pathbuffer, jint pathbuffersize, jlong pathrequiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10806,7 +10806,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupPromptReboot(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jlong owner, jint scanonly) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupPromptReboot(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jlong owner, jint scanonly) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10826,7 +10826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryDrivesInDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryDrivesInDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10847,7 +10847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryDrivesInDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryDrivesInDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10868,7 +10868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryFileLogA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename, jint desiredinfo, jlong dataout, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryFileLogA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename, jint desiredinfo, jlong dataout, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10892,7 +10892,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryFileLogW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename, jint desiredinfo, jlong dataout, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryFileLogW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename, jint desiredinfo, jlong dataout, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10916,7 +10916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfFileInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfFileInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10938,7 +10938,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfFileInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfFileInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10960,7 +10960,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfOriginalFileInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong alternateplatforminfo, jlong originalfileinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfOriginalFileInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong alternateplatforminfo, jlong originalfileinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10981,7 +10981,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfOriginalFileInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong alternateplatforminfo, jlong originalfileinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfOriginalFileInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong alternateplatforminfo, jlong originalfileinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11002,7 +11002,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfVersionInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfVersionInformationA(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11025,7 +11025,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueryInfVersionInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueryInfVersionInformationW(JNIEnv* km_env, jclass km_clazz, jlong infinformation, jint infindex, jlong key, jlong returnbuffer, jint returnbuffersize, jlong requiredsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11048,7 +11048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQuerySourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong list, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQuerySourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong list, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11068,7 +11068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQuerySourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong list, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQuerySourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong list, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11088,7 +11088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQuerySpaceRequiredOnDriveA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong drivespec, jlong spacerequired, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQuerySpaceRequiredOnDriveA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong drivespec, jlong spacerequired, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11110,7 +11110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQuerySpaceRequiredOnDriveW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong drivespec, jlong spacerequired, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQuerySpaceRequiredOnDriveW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong drivespec, jlong spacerequired, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11132,7 +11132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopyA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong sourcepath, jlong sourcefilename, jlong sourcedescription, jlong sourcetagfile, jlong targetdirectory, jlong targetfilename, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopyA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong sourcepath, jlong sourcefilename, jlong sourcedescription, jlong sourcetagfile, jlong targetdirectory, jlong targetfilename, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11158,7 +11158,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopyIndirectA(JNIEnv* km_env, jclass km_clazz, jlong copyparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopyIndirectA(JNIEnv* km_env, jclass km_clazz, jlong copyparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11176,7 +11176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopyIndirectW(JNIEnv* km_env, jclass km_clazz, jlong copyparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopyIndirectW(JNIEnv* km_env, jclass km_clazz, jlong copyparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11194,7 +11194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopySectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong infhandle, jlong listinfhandle, jlong section, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopySectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong infhandle, jlong listinfhandle, jlong section, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11217,7 +11217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopySectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong infhandle, jlong listinfhandle, jlong section, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopySectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong infhandle, jlong listinfhandle, jlong section, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11240,7 +11240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueCopyW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong sourcepath, jlong sourcefilename, jlong sourcedescription, jlong sourcetagfile, jlong targetdirectory, jlong targetfilename, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueCopyW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcerootpath, jlong sourcepath, jlong sourcefilename, jlong sourcedescription, jlong sourcetagfile, jlong targetdirectory, jlong targetfilename, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11266,7 +11266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDefaultCopyA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong sourcerootpath, jlong sourcefilename, jlong targetfilename, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDefaultCopyA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong sourcerootpath, jlong sourcefilename, jlong targetfilename, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11289,7 +11289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDefaultCopyW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong sourcerootpath, jlong sourcefilename, jlong targetfilename, jint copystyle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDefaultCopyW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong sourcerootpath, jlong sourcefilename, jlong targetfilename, jint copystyle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11312,7 +11312,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDeleteA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong pathpart1, jlong pathpart2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDeleteA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong pathpart1, jlong pathpart2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11332,7 +11332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDeleteSectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDeleteSectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11353,7 +11353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDeleteSectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDeleteSectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11374,7 +11374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueDeleteW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong pathpart1, jlong pathpart2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueDeleteW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong pathpart1, jlong pathpart2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11394,7 +11394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueRenameA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcepath, jlong sourcefilename, jlong targetpath, jlong targetfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueRenameA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcepath, jlong sourcefilename, jlong targetpath, jlong targetfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11416,7 +11416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueRenameSectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueRenameSectionA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11437,7 +11437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueRenameSectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueRenameSectionW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong infhandle, jlong listinfhandle, jlong section) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11458,7 +11458,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupQueueRenameW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcepath, jlong sourcefilename, jlong targetpath, jlong targetfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupQueueRenameW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong sourcepath, jlong sourcefilename, jlong targetpath, jlong targetfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11480,7 +11480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFileLogEntryA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFileLogEntryA(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11500,7 +11500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFileLogEntryW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFileLogEntryW(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle, jlong logsectionname, jlong targetfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11520,7 +11520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11542,7 +11542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong targetfilespec, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11564,7 +11564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFromSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFromSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11583,7 +11583,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveFromSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveFromSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11602,7 +11602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveInstallSectionFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveInstallSectionFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11625,7 +11625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveInstallSectionFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveInstallSectionFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong layoutinfhandle, jlong sectionname, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11648,7 +11648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveSectionFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveSectionFromDiskSpaceListA(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11672,7 +11672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRemoveSectionFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRemoveSectionFromDiskSpaceListW(JNIEnv* km_env, jclass km_clazz, jlong diskspace, jlong infhandle, jlong listinfhandle, jlong sectionname, jint operation, jlong reserved1, jint reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11696,7 +11696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRenameErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRenameErrorA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11719,7 +11719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupRenameErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupRenameErrorW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong dialogtitle, jlong sourcefile, jlong targetfile, jint win32errorcode, jint style) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11742,7 +11742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupScanFileQueueA(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong window, jlong callbackroutine, jlong callbackcontext, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupScanFileQueueA(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong window, jlong callbackroutine, jlong callbackcontext, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11765,7 +11765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupScanFileQueueW(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong window, jlong callbackroutine, jlong callbackcontext, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupScanFileQueueW(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong window, jlong callbackroutine, jlong callbackcontext, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11788,7 +11788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetDirectoryIdA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetDirectoryIdA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11808,7 +11808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetDirectoryIdExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory, jint flags, jint reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetDirectoryIdExA(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory, jint flags, jint reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11831,7 +11831,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetDirectoryIdExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory, jint flags, jint reserved1, jlong reserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetDirectoryIdExW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory, jint flags, jint reserved1, jlong reserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11854,7 +11854,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetDirectoryIdW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetDirectoryIdW(JNIEnv* km_env, jclass km_clazz, jlong infhandle, jint id, jlong directory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11874,7 +11874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetFileQueueAlternatePlatformA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong alternateplatforminfo, jlong alternatedefaultcatalogfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetFileQueueAlternatePlatformA(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong alternateplatforminfo, jlong alternatedefaultcatalogfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11894,7 +11894,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetFileQueueAlternatePlatformW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong alternateplatforminfo, jlong alternatedefaultcatalogfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetFileQueueAlternatePlatformW(JNIEnv* km_env, jclass km_clazz, jlong queuehandle, jlong alternateplatforminfo, jlong alternatedefaultcatalogfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11914,7 +11914,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetFileQueueFlags(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flagmask, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetFileQueueFlags(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flagmask, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11934,7 +11934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetNonInteractiveMode(JNIEnv* km_env, jclass km_clazz, jint noninteractiveflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetNonInteractiveMode(JNIEnv* km_env, jclass km_clazz, jint noninteractiveflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11952,7 +11952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetPlatformPathOverrideA(JNIEnv* km_env, jclass km_clazz, jlong override) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetPlatformPathOverrideA(JNIEnv* km_env, jclass km_clazz, jlong override) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11970,7 +11970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetPlatformPathOverrideW(JNIEnv* km_env, jclass km_clazz, jlong override) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetPlatformPathOverrideW(JNIEnv* km_env, jclass km_clazz, jlong override) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11988,7 +11988,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcelist, jint sourcecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetSourceListA(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcelist, jint sourcecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12008,7 +12008,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcelist, jint sourcecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetSourceListW(JNIEnv* km_env, jclass km_clazz, jint flags, jlong sourcelist, jint sourcecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12028,7 +12028,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupSetThreadLogToken(JNIEnv* km_env, jclass km_clazz, jlong logtoken) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupSetThreadLogToken(JNIEnv* km_env, jclass km_clazz, jlong logtoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12044,7 +12044,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupTermDefaultQueueCallback(JNIEnv* km_env, jclass km_clazz, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupTermDefaultQueueCallback(JNIEnv* km_env, jclass km_clazz, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12060,7 +12060,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupTerminateFileLog(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupTerminateFileLog(JNIEnv* km_env, jclass km_clazz, jlong fileloghandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12078,7 +12078,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupUninstallNewlyCopiedInfs(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupUninstallNewlyCopiedInfs(JNIEnv* km_env, jclass km_clazz, jlong filequeue, jint flags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12098,7 +12098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupUninstallOEMInfA(JNIEnv* km_env, jclass km_clazz, jlong inffilename, jint flags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupUninstallOEMInfA(JNIEnv* km_env, jclass km_clazz, jlong inffilename, jint flags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12118,7 +12118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupUninstallOEMInfW(JNIEnv* km_env, jclass km_clazz, jlong inffilename, jint flags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupUninstallOEMInfW(JNIEnv* km_env, jclass km_clazz, jlong inffilename, jint flags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12138,7 +12138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupVerifyInfFileA(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong altplatforminfo, jlong infsignerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupVerifyInfFileA(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong altplatforminfo, jlong infsignerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12158,7 +12158,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupVerifyInfFileW(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong altplatforminfo, jlong infsignerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupVerifyInfFileW(JNIEnv* km_env, jclass km_clazz, jlong infname, jlong altplatforminfo, jlong infsignerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12178,7 +12178,64 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1SetupWriteTextLogInfLine(JNIEnv* km_env, jclass km_clazz, jlong logtoken, jint flags, jlong infhandle, jlong context) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupWriteTextLog(JNIEnv* km_env, jclass km_clazz, jlong logtoken, jint category, jint flags, jlong messagestr, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (*km_fn_t)(uint64_t, uint32_t, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupWriteTextLog");
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)flags, (void*)(uintptr_t)messagestr); break;
+            case 1: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)flags, (void*)(uintptr_t)messagestr, (intptr_t)km_va0); break;
+            case 2: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)flags, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)flags, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)flags, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)logtoken;
+    (void)category;
+    (void)flags;
+    (void)messagestr;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupWriteTextLogError(JNIEnv* km_env, jclass km_clazz, jlong logtoken, jint category, jint logflags, jint error, jlong messagestr, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (*km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupWriteTextLogError");
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)logflags, (uint32_t)error, (void*)(uintptr_t)messagestr); break;
+            case 1: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)logflags, (uint32_t)error, (void*)(uintptr_t)messagestr, (intptr_t)km_va0); break;
+            case 2: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)logflags, (uint32_t)error, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)logflags, (uint32_t)error, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_fn_ptr((uint64_t)logtoken, (uint32_t)category, (uint32_t)logflags, (uint32_t)error, (void*)(uintptr_t)messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)logtoken;
+    (void)category;
+    (void)logflags;
+    (void)error;
+    (void)messagestr;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1setupWriteTextLogInfLine(JNIEnv* km_env, jclass km_clazz, jlong logtoken, jint flags, jlong infhandle, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12197,7 +12254,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1UpdateDriverForPlugAndPlayDevicesA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hardwareid, jlong fullinfpath, jint installflags, jlong brebootrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1updateDriverForPlugAndPlayDevicesA(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hardwareid, jlong fullinfpath, jint installflags, jlong brebootrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12219,7 +12276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1UpdateDriverForPlugAndPlayDevicesW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hardwareid, jlong fullinfpath, jint installflags, jlong brebootrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_deviceanddriverinstallation_WindowsWin32DevicesDeviceanddriverinstallationJniBridge_windowssys_1windows_1win32_1devices_1deviceanddriverinstallation_1updateDriverForPlugAndPlayDevicesW(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jlong hardwareid, jlong fullinfpath, jint installflags, jlong brebootrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

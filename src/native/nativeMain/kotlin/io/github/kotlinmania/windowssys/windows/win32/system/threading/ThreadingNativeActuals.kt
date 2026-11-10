@@ -2,1074 +2,1075 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.PAPCFUNC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_ACCESS_MASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Papcfunc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessMask
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AcquireSRWLockExclusive(srwlock: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(srwlock.toCPointer<ByteVar>())
+public actual fun acquireSRWLockExclusive(srwlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_acquireSRWLockExclusive(srwlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AcquireSRWLockShared(srwlock: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AcquireSRWLockShared(srwlock.toCPointer<ByteVar>())
+public actual fun acquireSRWLockShared(srwlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_acquireSRWLockShared(srwlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: PSID): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor.toCPointer<ByteVar>(), integritylabel.toCPointer<ByteVar>())
+public actual fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, integritylabel: Psid): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor(boundarydescriptor?.value?.toCPointer<ByteVar>(), integritylabel?.value?.toCPointer<ByteVar>())
 
-public actual fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: PSID): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(boundarydescriptor.toCPointer<ByteVar>(), requiredsid.toCPointer<ByteVar>())
+public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, requiredsid: Psid): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor(boundarydescriptor?.value?.toCPointer<ByteVar>(), requiredsid?.value?.toCPointer<ByteVar>())
 
-public actual fun AttachThreadInput(idattach: UInt, idattachto: UInt, fattach: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AttachThreadInput(idattach, idattachto, fattach)
+public actual fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_attachThreadInput(idattach, idattachto, fattach)
 
-public actual fun AvQuerySystemResponsiveness(avrthandle: HANDLE, systemresponsivenessvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(avrthandle.toCPointer<ByteVar>(), systemresponsivenessvalue.toCPointer<ByteVar>())
+public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avQuerySystemResponsiveness(avrthandle?.value?.toCPointer<ByteVar>(), systemresponsivenessvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRevertMmThreadCharacteristics(avrthandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics(avrthandle.toCPointer<ByteVar>())
+public actual fun avRevertMmThreadCharacteristics(avrthandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics(avrthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(context.toCPointer<ByteVar>(), period.toCPointer<ByteVar>(), threadorderingguid.toCPointer<ByteVar>(), timeout.toCPointer<ByteVar>())
+public actual fun avRtCreateThreadOrderingGroup(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup(context?.value?.toCPointer<ByteVar>(), period?.value?.toCPointer<ByteVar>(), threadorderingguid?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA(context.toCPointer<ByteVar>(), period.toCPointer<ByteVar>(), threadorderingguid.toCPointer<ByteVar>(), timeout.toCPointer<ByteVar>(), taskname.toCPointer<ByteVar>())
+public actual fun avRtCreateThreadOrderingGroupExA(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA(context?.value?.toCPointer<ByteVar>(), period?.value?.toCPointer<ByteVar>(), threadorderingguid?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>(), taskname?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW(context.toCPointer<ByteVar>(), period.toCPointer<ByteVar>(), threadorderingguid.toCPointer<ByteVar>(), timeout.toCPointer<ByteVar>(), taskname.toCPointer<ByteVar>())
+public actual fun avRtCreateThreadOrderingGroupExW(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW(context?.value?.toCPointer<ByteVar>(), period?.value?.toCPointer<ByteVar>(), threadorderingguid?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>(), taskname?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtDeleteThreadOrderingGroup(context: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(context.toCPointer<ByteVar>())
+public actual fun avRtDeleteThreadOrderingGroup(context: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup(context?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(context.toCPointer<ByteVar>(), threadorderingguid.toCPointer<ByteVar>(), before)
+public actual fun avRtJoinThreadOrderingGroup(context: COpaquePointer?, threadorderingguid: COpaquePointer?, before: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup(context?.value?.toCPointer<ByteVar>(), threadorderingguid?.value?.toCPointer<ByteVar>(), before)
 
-public actual fun AvRtLeaveThreadOrderingGroup(context: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(context.toCPointer<ByteVar>())
+public actual fun avRtLeaveThreadOrderingGroup(context: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup(context?.value?.toCPointer<ByteVar>())
 
-public actual fun AvRtWaitOnThreadOrderingGroup(context: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(context.toCPointer<ByteVar>())
+public actual fun avRtWaitOnThreadOrderingGroup(context: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup(context?.value?.toCPointer<ByteVar>())
 
-public actual fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA(firsttask.toCPointer<ByteVar>(), secondtask.toCPointer<ByteVar>(), taskindex.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA(firsttask?.value?.toCPointer<ByteVar>(), secondtask?.value?.toCPointer<ByteVar>(), taskindex?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW(firsttask.toCPointer<ByteVar>(), secondtask.toCPointer<ByteVar>(), taskindex.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW(firsttask?.value?.toCPointer<ByteVar>(), secondtask?.value?.toCPointer<ByteVar>(), taskindex?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(taskname.toCPointer<ByteVar>(), taskindex.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA(taskname?.value?.toCPointer<ByteVar>(), taskindex?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(taskname.toCPointer<ByteVar>(), taskindex.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW(taskname?.value?.toCPointer<ByteVar>(), taskindex?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AvSetMmThreadPriority(avrthandle: HANDLE, priority: AVRT_PRIORITY): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_AvSetMmThreadPriority(avrthandle.toCPointer<ByteVar>(), priority)
+public actual fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriority): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_avSetMmThreadPriority(avrthandle?.value?.toCPointer<ByteVar>(), priority)
 
-public actual fun CallbackMayRunLong(pci: PTP_CALLBACK_INSTANCE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CallbackMayRunLong(pci)
+public actual fun callbackMayRunLong(pci: PtpCallbackInstance): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_callbackMayRunLong(pci)
 
-public actual fun CancelThreadpoolIo(pio: PTP_IO) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CancelThreadpoolIo(pio)
+public actual fun cancelThreadpoolIo(pio: PtpIo) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_cancelThreadpoolIo(pio)
 }
 
-public actual fun CancelTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CancelTimerQueueTimer(timerqueue.toCPointer<ByteVar>(), timer.toCPointer<ByteVar>())
+public actual fun cancelTimerQueueTimer(timerqueue: Handle, timer: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_cancelTimerQueueTimer(timerqueue?.value?.toCPointer<ByteVar>(), timer?.value?.toCPointer<ByteVar>())
 
-public actual fun CancelWaitableTimer(htimer: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CancelWaitableTimer(htimer.toCPointer<ByteVar>())
+public actual fun cancelWaitableTimer(htimer: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_cancelWaitableTimer(htimer?.value?.toCPointer<ByteVar>())
 
-public actual fun ChangeTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, duetime: UInt, period: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(timerqueue.toCPointer<ByteVar>(), timer.toCPointer<ByteVar>(), duetime, period)
+public actual fun changeTimerQueueTimer(timerqueue: Handle, timer: Handle, duetime: UInt, period: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_changeTimerQueueTimer(timerqueue?.value?.toCPointer<ByteVar>(), timer?.value?.toCPointer<ByteVar>(), duetime, period)
 
-public actual fun ClosePrivateNamespace(handle: HANDLE, flags: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ClosePrivateNamespace(handle.toCPointer<ByteVar>(), flags)
+public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closePrivateNamespace(handle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun CloseThreadpool(ptpp: PTP_POOL) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpool(ptpp)
+public actual fun closeThreadpool(ptpp: PtpPool) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toLong())
 }
 
-public actual fun CloseThreadpoolCleanupGroup(ptpcg: PTP_CLEANUP_GROUP) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(ptpcg)
+public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toLong())
 }
 
-public actual fun CloseThreadpoolCleanupGroupMembers(ptpcg: PTP_CLEANUP_GROUP, fcancelpendingcallbacks: BOOL, pvcleanupcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks, pvcleanupcontext.toCPointer<ByteVar>())
+public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toLong(), fcancelpendingcallbacks, pvcleanupcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CloseThreadpoolIo(pio: PTP_IO) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolIo(pio)
+public actual fun closeThreadpoolIo(pio: PtpIo) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolIo(pio)
 }
 
-public actual fun CloseThreadpoolTimer(pti: PTP_TIMER) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolTimer(pti)
+public actual fun closeThreadpoolTimer(pti: PtpTimer) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolTimer(pti)
 }
 
-public actual fun CloseThreadpoolWait(pwa: PTP_WAIT) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolWait(pwa)
+public actual fun closeThreadpoolWait(pwa: PtpWait) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolWait(pwa)
 }
 
-public actual fun CloseThreadpoolWork(pwk: PTP_WORK) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CloseThreadpoolWork(pwk)
+public actual fun closeThreadpoolWork(pwk: PtpWork) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_closeThreadpoolWork(pwk)
 }
 
-public actual fun ConvertFiberToThread(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ConvertFiberToThread()
+public actual fun convertFiberToThread(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_convertFiberToThread()
 
-public actual fun ConvertThreadToFiber(lpparameter: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ConvertThreadToFiber(lpparameter.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun convertThreadToFiber(lpparameter: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_convertThreadToFiber(lpparameter?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ConvertThreadToFiberEx(lpparameter: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(lpparameter.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun convertThreadToFiberEx(lpparameter: COpaquePointer?, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_convertThreadToFiberEx(lpparameter?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(name.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun createBoundaryDescriptorA(name: Pcstr, flags: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createBoundaryDescriptorA(name?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(name.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun createBoundaryDescriptorW(name: Pcwstr, flags: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createBoundaryDescriptorW(name?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateEventA(lpeventattributes.toCPointer<ByteVar>(), bmanualreset, binitialstate, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEventA(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createEventA(lpeventattributes?.value?.toCPointer<ByteVar>(), bmanualreset, binitialstate, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateEventExA(lpeventattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createEventExA(lpeventattributes: COpaquePointer?, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createEventExA(lpeventattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateEventExW(lpeventattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createEventExW(lpeventattributes: COpaquePointer?, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createEventExW(lpeventattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateEventW(lpeventattributes.toCPointer<ByteVar>(), bmanualreset, binitialstate, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEventW(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createEventW(lpeventattributes?.value?.toCPointer<ByteVar>(), bmanualreset, binitialstate, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFiber(dwstacksize: ULong, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateFiber(dwstacksize, lpstartaddress.toLong().toCPointer<ByteVar>(), lpparameter.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createFiber(dwstacksize, 0L.toCPointer<ByteVar>(), lpparameter?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, lpstartaddress.toLong().toCPointer<ByteVar>(), lpparameter.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, 0L.toCPointer<ByteVar>(), lpparameter?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateMutexA(lpmutexattributes.toCPointer<ByteVar>(), binitialowner, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createMutexA(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createMutexA(lpmutexattributes?.value?.toCPointer<ByteVar>(), binitialowner, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateMutexExA(lpmutexattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createMutexExA(lpmutexattributes: COpaquePointer?, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createMutexExA(lpmutexattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateMutexExW(lpmutexattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createMutexExW(lpmutexattributes: COpaquePointer?, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createMutexExW(lpmutexattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateMutexW(lpmutexattributes.toCPointer<ByteVar>(), binitialowner, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createMutexW(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createMutexW(lpmutexattributes?.value?.toCPointer<ByteVar>(), binitialowner, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(lpprivatenamespaceattributes.toCPointer<ByteVar>(), lpboundarydescriptor.toCPointer<ByteVar>(), lpaliasprefix.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createPrivateNamespaceA(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createPrivateNamespaceA(lpprivatenamespaceattributes?.value?.toCPointer<ByteVar>(), lpboundarydescriptor?.value?.toCPointer<ByteVar>(), lpaliasprefix?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(lpprivatenamespaceattributes.toCPointer<ByteVar>(), lpboundarydescriptor.toCPointer<ByteVar>(), lpaliasprefix.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createPrivateNamespaceW(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createPrivateNamespaceW(lpprivatenamespaceattributes?.value?.toCPointer<ByteVar>(), lpboundarydescriptor?.value?.toCPointer<ByteVar>(), lpaliasprefix?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateProcessA(lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessA(lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), lpprocessattributes.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessA(lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), lpprocessattributes?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProcessAsUserA(htoken: HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessAsUserA(htoken.toCPointer<ByteVar>(), lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), lpprocessattributes.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessAsUserA(htoken?.value?.toCPointer<ByteVar>(), lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), lpprocessattributes?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProcessAsUserW(htoken: HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessAsUserW(htoken.toCPointer<ByteVar>(), lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), lpprocessattributes.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessAsUserW(htoken?.value?.toCPointer<ByteVar>(), lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), lpprocessattributes?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProcessW(lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessW(lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), lpprocessattributes.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessW(lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), lpprocessattributes?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), binherithandles, dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProcessWithLogonW(lpusername: PCWSTR, lpdomain: PCWSTR, lppassword: PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessWithLogonW(lpusername.toCPointer<ByteVar>(), lpdomain.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), dwlogonflags, lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessWithLogonW(lpusername?.value?.toCPointer<ByteVar>(), lpdomain?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), dwlogonflags, lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProcessWithTokenW(htoken: HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateProcessWithTokenW(htoken.toCPointer<ByteVar>(), dwlogonflags, lpapplicationname.toCPointer<ByteVar>(), lpcommandline.toCPointer<ByteVar>(), dwcreationflags, lpenvironment.toCPointer<ByteVar>(), lpcurrentdirectory.toCPointer<ByteVar>(), lpstartupinfo.toCPointer<ByteVar>(), lpprocessinformation.toCPointer<ByteVar>())
+public actual fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createProcessWithTokenW(htoken?.value?.toCPointer<ByteVar>(), dwlogonflags, lpapplicationname?.value?.toCPointer<ByteVar>(), lpcommandline?.value?.toCPointer<ByteVar>(), dwcreationflags, lpenvironment?.value?.toCPointer<ByteVar>(), lpcurrentdirectory?.value?.toCPointer<ByteVar>(), lpstartupinfo?.value?.toCPointer<ByteVar>(), lpprocessinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateRemoteThread(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateRemoteThread(hprocess.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), dwstacksize, lpstartaddress.toLong().toCPointer<ByteVar>(), lpparameter.toCPointer<ByteVar>(), dwcreationflags, lpthreadid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createRemoteThread(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpthreadid: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createRemoteThread(hprocess?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), dwstacksize, 0L.toCPointer<ByteVar>(), lpparameter?.value?.toCPointer<ByteVar>(), dwcreationflags, lpthreadid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateRemoteThreadEx(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateRemoteThreadEx(hprocess.toCPointer<ByteVar>(), lpthreadattributes.toCPointer<ByteVar>(), dwstacksize, lpstartaddress.toLong().toCPointer<ByteVar>(), lpparameter.toCPointer<ByteVar>(), dwcreationflags, lpattributelist.toCPointer<ByteVar>(), lpthreadid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createRemoteThreadEx(hprocess?.value?.toCPointer<ByteVar>(), lpthreadattributes?.value?.toCPointer<ByteVar>(), dwstacksize, 0L.toCPointer<ByteVar>(), lpparameter?.value?.toCPointer<ByteVar>(), dwcreationflags, lpattributelist?.value?.toCPointer<ByteVar>(), lpthreadid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateSemaphoreA(lpsemaphoreattributes.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createSemaphoreA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createSemaphoreA(lpsemaphoreattributes?.value?.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateSemaphoreExA(lpsemaphoreattributes.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createSemaphoreExA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createSemaphoreExA(lpsemaphoreattributes?.value?.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateSemaphoreExW(lpsemaphoreattributes.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createSemaphoreExW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createSemaphoreExW(lpsemaphoreattributes?.value?.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateSemaphoreW(lpsemaphoreattributes.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createSemaphoreW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createSemaphoreW(lpsemaphoreattributes?.value?.toCPointer<ByteVar>(), linitialcount, lmaximumcount, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThread(lpthreadattributes.toCPointer<ByteVar>(), dwstacksize, lpstartaddress.toLong().toCPointer<ByteVar>(), lpparameter.toCPointer<ByteVar>(), dwcreationflags, lpthreadid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: ThreadCreationFlags, lpthreadid: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThread(lpthreadattributes?.value?.toCPointer<ByteVar>(), dwstacksize, 0L.toCPointer<ByteVar>(), lpparameter?.value?.toCPointer<ByteVar>(), dwcreationflags, lpthreadid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateThreadpool(reserved: Long): PTP_POOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpool(reserved.toCPointer<ByteVar>())
+public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpool(reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateThreadpoolCleanupGroup(): PTP_CLEANUP_GROUP =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup()
+public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup()
 
-public actual fun CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpoolIo(fl.toCPointer<ByteVar>(), pfnio.toLong().toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pcbe.toCPointer<ByteVar>())
+public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpoolIo(fl?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pcbe?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Long, pcbe: Long): PTP_TIMER =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpoolTimer(pfnti.toLong().toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pcbe.toCPointer<ByteVar>())
+public actual fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpTimer =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpoolTimer(0L.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pcbe?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: Long, pcbe: Long): PTP_WAIT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpoolWait(pfnwa.toLong().toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pcbe.toCPointer<ByteVar>())
+public actual fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWait =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpoolWait(0L.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pcbe?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Long, pcbe: Long): PTP_WORK =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateThreadpoolWork(pfnwk.toLong().toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pcbe.toCPointer<ByteVar>())
+public actual fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWork =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createThreadpoolWork(0L.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pcbe?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateTimerQueue(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateTimerQueue()?.toLong() ?: 0L
+public actual fun createTimerQueue(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createTimerQueue()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateTimerQueueTimer(phnewtimer.toCPointer<ByteVar>(), timerqueue.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), parameter.toCPointer<ByteVar>(), duetime, period, flags)
+public actual fun createTimerQueueTimer(phnewtimer: COpaquePointer?, timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createTimerQueueTimer(phnewtimer?.value?.toCPointer<ByteVar>(), timerqueue?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), parameter?.value?.toCPointer<ByteVar>(), duetime, period, flags)
 
-public actual fun CreateUmsCompletionList(umscompletionlist: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateUmsCompletionList(umscompletionlist.toCPointer<ByteVar>())
+public actual fun createUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createUmsCompletionList(umscompletionlist?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateUmsThreadContext(lpumsthread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateUmsThreadContext(lpumsthread.toCPointer<ByteVar>())
+public actual fun createUmsThreadContext(lpumsthread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createUmsThreadContext(lpumsthread?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateWaitableTimerA(lptimerattributes.toCPointer<ByteVar>(), bmanualreset, lptimername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createWaitableTimerA(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createWaitableTimerA(lptimerattributes?.value?.toCPointer<ByteVar>(), bmanualreset, lptimername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateWaitableTimerExA(lptimerattributes.toCPointer<ByteVar>(), lptimername.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createWaitableTimerExA(lptimerattributes: COpaquePointer?, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createWaitableTimerExA(lptimerattributes?.value?.toCPointer<ByteVar>(), lptimername?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateWaitableTimerExW(lptimerattributes.toCPointer<ByteVar>(), lptimername.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.toLong() ?: 0L
+public actual fun createWaitableTimerExW(lptimerattributes: COpaquePointer?, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createWaitableTimerExW(lptimerattributes?.value?.toCPointer<ByteVar>(), lptimername?.value?.toCPointer<ByteVar>(), dwflags, dwdesiredaccess)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_CreateWaitableTimerW(lptimerattributes.toCPointer<ByteVar>(), bmanualreset, lptimername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createWaitableTimerW(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_createWaitableTimerW(lptimerattributes?.value?.toCPointer<ByteVar>(), bmanualreset, lptimername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DeleteBoundaryDescriptor(boundarydescriptor: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(boundarydescriptor.toCPointer<ByteVar>())
+public actual fun deleteBoundaryDescriptor(boundarydescriptor: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteBoundaryDescriptor(boundarydescriptor?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DeleteCriticalSection(lpcriticalsection: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteCriticalSection(lpcriticalsection.toCPointer<ByteVar>())
+public actual fun deleteCriticalSection(lpcriticalsection: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteCriticalSection(lpcriticalsection?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DeleteFiber(lpfiber: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteFiber(lpfiber.toCPointer<ByteVar>())
+public actual fun deleteFiber(lpfiber: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteFiber(lpfiber?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(lpattributelist.toCPointer<ByteVar>())
+public actual fun deleteProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteProcThreadAttributeList(lpattributelist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DeleteSynchronizationBarrier(lpbarrier: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(lpbarrier.toCPointer<ByteVar>())
+public actual fun deleteSynchronizationBarrier(lpbarrier: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteSynchronizationBarrier(lpbarrier?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteTimerQueue(timerqueue: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteTimerQueue(timerqueue.toCPointer<ByteVar>())
+public actual fun deleteTimerQueue(timerqueue: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteTimerQueue(timerqueue?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteTimerQueueEx(timerqueue: HANDLE, completionevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteTimerQueueEx(timerqueue.toCPointer<ByteVar>(), completionevent.toCPointer<ByteVar>())
+public actual fun deleteTimerQueueEx(timerqueue: Handle, completionevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteTimerQueueEx(timerqueue?.value?.toCPointer<ByteVar>(), completionevent?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, completionevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(timerqueue.toCPointer<ByteVar>(), timer.toCPointer<ByteVar>(), completionevent.toCPointer<ByteVar>())
+public actual fun deleteTimerQueueTimer(timerqueue: Handle, timer: Handle, completionevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteTimerQueueTimer(timerqueue?.value?.toCPointer<ByteVar>(), timer?.value?.toCPointer<ByteVar>(), completionevent?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteUmsCompletionList(umscompletionlist: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteUmsCompletionList(umscompletionlist.toCPointer<ByteVar>())
+public actual fun deleteUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteUmsCompletionList(umscompletionlist?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteUmsThreadContext(umsthread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DeleteUmsThreadContext(umsthread.toCPointer<ByteVar>())
+public actual fun deleteUmsThreadContext(umsthread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_deleteUmsThreadContext(umsthread?.value?.toCPointer<ByteVar>())
 
-public actual fun DequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: UInt, umsthreadlist: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(umscompletionlist.toCPointer<ByteVar>(), waittimeout, umsthreadlist.toCPointer<ByteVar>())
+public actual fun dequeueUmsCompletionListItems(umscompletionlist: COpaquePointer?, waittimeout: UInt, umsthreadlist: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems(umscompletionlist?.value?.toCPointer<ByteVar>(), waittimeout, umsthreadlist?.value?.toCPointer<ByteVar>())
 
-public actual fun DisassociateCurrentThreadFromCallback(pci: PTP_CALLBACK_INSTANCE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback(pci)
+public actual fun disassociateCurrentThreadFromCallback(pci: PtpCallbackInstance) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(pci)
 }
 
-public actual fun EnterCriticalSection(lpcriticalsection: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_EnterCriticalSection(lpcriticalsection.toCPointer<ByteVar>())
+public actual fun enterCriticalSection(lpcriticalsection: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_enterCriticalSection(lpcriticalsection?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EnterSynchronizationBarrier(lpbarrier: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(lpbarrier.toCPointer<ByteVar>(), dwflags)
+public actual fun enterSynchronizationBarrier(lpbarrier: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_enterSynchronizationBarrier(lpbarrier?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnterUmsSchedulingMode(schedulerstartupinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(schedulerstartupinfo.toCPointer<ByteVar>())
+public actual fun enterUmsSchedulingMode(schedulerstartupinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_enterUmsSchedulingMode(schedulerstartupinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ExecuteUmsThread(umsthread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ExecuteUmsThread(umsthread.toCPointer<ByteVar>())
+public actual fun executeUmsThread(umsthread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_executeUmsThread(umsthread?.value?.toCPointer<ByteVar>())
 
-public actual fun ExitProcess(uexitcode: UInt): Nothing {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ExitProcess(uexitcode)
-    error("Unreachable noreturn C function ExitProcess")
+public actual fun exitProcess(uexitcode: UInt): Nothing {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_exitProcess(uexitcode)
+    error("Unreachable noreturn C function exitProcess")
 }
 
-public actual fun ExitThread(dwexitcode: UInt): Nothing {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ExitThread(dwexitcode)
-    error("Unreachable noreturn C function ExitThread")
+public actual fun exitThread(dwexitcode: UInt): Nothing {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_exitThread(dwexitcode)
+    error("Unreachable noreturn C function exitThread")
 }
 
-public actual fun FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FlsAlloc(lpcallback.toLong().toCPointer<ByteVar>())
+public actual fun flsAlloc(lpcallback: PflsCallbackFunction): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_flsAlloc(0L.toCPointer<ByteVar>())
 
-public actual fun FlsFree(dwflsindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FlsFree(dwflsindex)
+public actual fun flsFree(dwflsindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_flsFree(dwflsindex)
 
-public actual fun FlsGetValue(dwflsindex: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FlsGetValue(dwflsindex)?.toLong() ?: 0L
+public actual fun flsGetValue(dwflsindex: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_flsGetValue(dwflsindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FlsSetValue(dwflsindex: UInt, lpflsdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FlsSetValue(dwflsindex, lpflsdata.toCPointer<ByteVar>())
+public actual fun flsSetValue(dwflsindex: UInt, lpflsdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_flsSetValue(dwflsindex, lpflsdata?.value?.toCPointer<ByteVar>())
 
-public actual fun FlushProcessWriteBuffers() {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FlushProcessWriteBuffers()
+public actual fun flushProcessWriteBuffers() {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
 }
 
-public actual fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: HMODULE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(pci, mod.toCPointer<ByteVar>())
+public actual fun freeLibraryWhenCallbackReturns(pci: PtpCallbackInstance, mod: Hmodule) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(pci, mod?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetActiveProcessorCount(groupnumber: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetActiveProcessorCount(groupnumber)
+public actual fun getActiveProcessorCount(groupnumber: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getActiveProcessorCount(groupnumber)
 
-public actual fun GetActiveProcessorGroupCount(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount()
+public actual fun getActiveProcessorGroupCount(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getActiveProcessorGroupCount()
 
-public actual fun GetCurrentProcess(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentProcess()?.toLong() ?: 0L
+public actual fun getCurrentProcess(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentProcess()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCurrentProcessId(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentProcessId()
+public actual fun getCurrentProcessId(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentProcessId()
 
-public actual fun GetCurrentProcessorNumber(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentProcessorNumber()
+public actual fun getCurrentProcessorNumber(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentProcessorNumber()
 
-public actual fun GetCurrentProcessorNumberEx(procnumber: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(procnumber.toCPointer<ByteVar>())
+public actual fun getCurrentProcessorNumberEx(procnumber: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx(procnumber?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetCurrentThread(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentThread()?.toLong() ?: 0L
+public actual fun getCurrentThread(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentThread()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCurrentThreadId(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentThreadId()
+public actual fun getCurrentThreadId(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentThreadId()
 
-public actual fun GetCurrentThreadStackLimits(lowlimit: Long, highlimit: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(lowlimit.toCPointer<ByteVar>(), highlimit.toCPointer<ByteVar>())
+public actual fun getCurrentThreadStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentThreadStackLimits(lowlimit?.value?.toCPointer<ByteVar>(), highlimit?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetCurrentUmsThread(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetCurrentUmsThread()?.toLong() ?: 0L
+public actual fun getCurrentUmsThread(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getCurrentUmsThread()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetExitCodeProcess(hprocess: HANDLE, lpexitcode: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetExitCodeProcess(hprocess.toCPointer<ByteVar>(), lpexitcode.toCPointer<ByteVar>())
+public actual fun getExitCodeProcess(hprocess: Handle, lpexitcode: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getExitCodeProcess(hprocess?.value?.toCPointer<ByteVar>(), lpexitcode?.value?.toCPointer<ByteVar>())
 
-public actual fun GetExitCodeThread(hthread: HANDLE, lpexitcode: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetExitCodeThread(hthread.toCPointer<ByteVar>(), lpexitcode.toCPointer<ByteVar>())
+public actual fun getExitCodeThread(hthread: Handle, lpexitcode: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getExitCodeThread(hthread?.value?.toCPointer<ByteVar>(), lpexitcode?.value?.toCPointer<ByteVar>())
 
-public actual fun GetGuiResources(hprocess: HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetGuiResources(hprocess.toCPointer<ByteVar>(), uiflags)
+public actual fun getGuiResources(hprocess: Handle, uiflags: GetGuiResourcesFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getGuiResources(hprocess?.value?.toCPointer<ByteVar>(), uiflags)
 
-public actual fun GetMachineTypeAttributes(machine: UShort, machinetypeattributes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetMachineTypeAttributes(machine, machinetypeattributes.toCPointer<ByteVar>())
+public actual fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getMachineTypeAttributes(machine, machinetypeattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMaximumProcessorCount(groupnumber: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetMaximumProcessorCount(groupnumber)
+public actual fun getMaximumProcessorCount(groupnumber: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getMaximumProcessorCount(groupnumber)
 
-public actual fun GetMaximumProcessorGroupCount(): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount()
+public actual fun getMaximumProcessorGroupCount(): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount()
 
-public actual fun GetNextUmsListItem(umscontext: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNextUmsListItem(umscontext.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getNextUmsListItem(umscontext: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNextUmsListItem(umscontext?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetNumaAvailableMemoryNode(node: UByte, availablebytes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(node, availablebytes.toCPointer<ByteVar>())
+public actual fun getNumaAvailableMemoryNode(node: UByte, availablebytes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(node, availablebytes?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaAvailableMemoryNodeEx(node: UShort, availablebytes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(node, availablebytes.toCPointer<ByteVar>())
+public actual fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(node, availablebytes?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaHighestNodeNumber(highestnodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(highestnodenumber.toCPointer<ByteVar>())
+public actual fun getNumaHighestNodeNumber(highestnodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaHighestNodeNumber(highestnodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaNodeNumberFromHandle(hfile: HANDLE, nodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(hfile.toCPointer<ByteVar>(), nodenumber.toCPointer<ByteVar>())
+public actual fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle(hfile?.value?.toCPointer<ByteVar>(), nodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaNodeProcessorMask(node: UByte, processormask: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(node, processormask.toCPointer<ByteVar>())
+public actual fun getNumaNodeProcessorMask(node: UByte, processormask: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(node, processormask?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaNodeProcessorMask2(nodenumber: UShort, processormasks: Long, processormaskcount: UShort, requiredmaskcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(nodenumber, processormasks.toCPointer<ByteVar>(), processormaskcount, requiredmaskcount.toCPointer<ByteVar>())
+public actual fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: COpaquePointer?, processormaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(nodenumber, processormasks?.value?.toCPointer<ByteVar>(), processormaskcount, requiredmaskcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaNodeProcessorMaskEx(node: UShort, processormask: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(node, processormask.toCPointer<ByteVar>())
+public actual fun getNumaNodeProcessorMaskEx(node: UShort, processormask: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(node, processormask?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaProcessorNode(processor: UByte, nodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaProcessorNode(processor, nodenumber.toCPointer<ByteVar>())
+public actual fun getNumaProcessorNode(processor: UByte, nodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaProcessorNode(processor, nodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaProcessorNodeEx(processor: Long, nodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(processor.toCPointer<ByteVar>(), nodenumber.toCPointer<ByteVar>())
+public actual fun getNumaProcessorNodeEx(processor: COpaquePointer?, nodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaProcessorNodeEx(processor?.value?.toCPointer<ByteVar>(), nodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaProximityNode(proximityid: UInt, nodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaProximityNode(proximityid, nodenumber.toCPointer<ByteVar>())
+public actual fun getNumaProximityNode(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaProximityNode(proximityid, nodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumaProximityNodeEx(proximityid: UInt, nodenumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(proximityid, nodenumber.toCPointer<ByteVar>())
+public actual fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getNumaProximityNodeEx(proximityid, nodenumber?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPriorityClass(hprocess: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetPriorityClass(hprocess.toCPointer<ByteVar>())
+public actual fun getPriorityClass(hprocess: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getPriorityClass(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessAffinityMask(hprocess: HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessAffinityMask(hprocess.toCPointer<ByteVar>(), lpprocessaffinitymask.toCPointer<ByteVar>(), lpsystemaffinitymask.toCPointer<ByteVar>())
+public actual fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: COpaquePointer?, lpsystemaffinitymask: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessAffinityMask(hprocess?.value?.toCPointer<ByteVar>(), lpprocessaffinitymask?.value?.toCPointer<ByteVar>(), lpsystemaffinitymask?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessDEPPolicy(hprocess: HANDLE, lpflags: Long, lppermanent: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessDEPPolicy(hprocess.toCPointer<ByteVar>(), lpflags.toCPointer<ByteVar>(), lppermanent.toCPointer<ByteVar>())
+public actual fun getProcessDEPPolicy(hprocess: Handle, lpflags: COpaquePointer?, lppermanent: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessDEPPolicy(hprocess?.value?.toCPointer<ByteVar>(), lpflags?.value?.toCPointer<ByteVar>(), lppermanent?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(process.toCPointer<ByteVar>(), cpusetmasks.toCPointer<ByteVar>(), cpusetmaskcount, requiredmaskcount.toCPointer<ByteVar>())
+public actual fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks(process?.value?.toCPointer<ByteVar>(), cpusetmasks?.value?.toCPointer<ByteVar>(), cpusetmaskcount, requiredmaskcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(process.toCPointer<ByteVar>(), cpusetids.toCPointer<ByteVar>(), cpusetidcount, requiredidcount.toCPointer<ByteVar>())
+public actual fun getProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessDefaultCpuSets(process?.value?.toCPointer<ByteVar>(), cpusetids?.value?.toCPointer<ByteVar>(), cpusetidcount, requiredidcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessGroupAffinity(hprocess: HANDLE, groupcount: Long, grouparray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessGroupAffinity(hprocess.toCPointer<ByteVar>(), groupcount.toCPointer<ByteVar>(), grouparray.toCPointer<ByteVar>())
+public actual fun getProcessGroupAffinity(hprocess: Handle, groupcount: COpaquePointer?, grouparray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessGroupAffinity(hprocess?.value?.toCPointer<ByteVar>(), groupcount?.value?.toCPointer<ByteVar>(), grouparray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessHandleCount(hprocess: HANDLE, pdwhandlecount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessHandleCount(hprocess.toCPointer<ByteVar>(), pdwhandlecount.toCPointer<ByteVar>())
+public actual fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessHandleCount(hprocess?.value?.toCPointer<ByteVar>(), pdwhandlecount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessHandleFromHwnd(hwnd: HWND): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getProcessHandleFromHwnd(hwnd: Hwnd): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessHandleFromHwnd(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetProcessId(process: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessId(process.toCPointer<ByteVar>())
+public actual fun getProcessId(process: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessId(process?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessIdOfThread(thread: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessIdOfThread(thread.toCPointer<ByteVar>())
+public actual fun getProcessIdOfThread(thread: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessIdOfThread(thread?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessInformation(hprocess.toCPointer<ByteVar>(), processinformationclass, processinformation.toCPointer<ByteVar>(), processinformationsize)
+public actual fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessInformation(hprocess?.value?.toCPointer<ByteVar>(), processinformationclass, processinformation?.value?.toCPointer<ByteVar>(), processinformationsize)
 
-public actual fun GetProcessIoCounters(hprocess: HANDLE, lpiocounters: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessIoCounters(hprocess.toCPointer<ByteVar>(), lpiocounters.toCPointer<ByteVar>())
+public actual fun getProcessIoCounters(hprocess: Handle, lpiocounters: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessIoCounters(hprocess?.value?.toCPointer<ByteVar>(), lpiocounters?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessMitigationPolicy(hprocess: HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(hprocess.toCPointer<ByteVar>(), mitigationpolicy, lpbuffer.toCPointer<ByteVar>(), dwlength)
+public actual fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessMitigationPolicy(hprocess?.value?.toCPointer<ByteVar>(), mitigationpolicy, lpbuffer?.value?.toCPointer<ByteVar>(), dwlength)
 
-public actual fun GetProcessPriorityBoost(hprocess: HANDLE, pdisablepriorityboost: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessPriorityBoost(hprocess.toCPointer<ByteVar>(), pdisablepriorityboost.toCPointer<ByteVar>())
+public actual fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessPriorityBoost(hprocess?.value?.toCPointer<ByteVar>(), pdisablepriorityboost?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessShutdownParameters(lpdwlevel.toCPointer<ByteVar>(), lpdwflags.toCPointer<ByteVar>())
+public actual fun getProcessShutdownParameters(lpdwlevel: COpaquePointer?, lpdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessShutdownParameters(lpdwlevel?.value?.toCPointer<ByteVar>(), lpdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessTimes(hprocess: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessTimes(hprocess.toCPointer<ByteVar>(), lpcreationtime.toCPointer<ByteVar>(), lpexittime.toCPointer<ByteVar>(), lpkerneltime.toCPointer<ByteVar>(), lpusertime.toCPointer<ByteVar>())
+public actual fun getProcessTimes(hprocess: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessTimes(hprocess?.value?.toCPointer<ByteVar>(), lpcreationtime?.value?.toCPointer<ByteVar>(), lpexittime?.value?.toCPointer<ByteVar>(), lpkerneltime?.value?.toCPointer<ByteVar>(), lpusertime?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessVersion(processid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessVersion(processid)
+public actual fun getProcessVersion(processid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessVersion(processid)
 
-public actual fun GetProcessWorkingSetSize(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(hprocess.toCPointer<ByteVar>(), lpminimumworkingsetsize.toCPointer<ByteVar>(), lpmaximumworkingsetsize.toCPointer<ByteVar>())
+public actual fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getProcessWorkingSetSize(hprocess?.value?.toCPointer<ByteVar>(), lpminimumworkingsetsize?.value?.toCPointer<ByteVar>(), lpmaximumworkingsetsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStartupInfoA(lpstartupinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetStartupInfoA(lpstartupinfo.toCPointer<ByteVar>())
+public actual fun getStartupInfoA(lpstartupinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getStartupInfoA(lpstartupinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetStartupInfoW(lpstartupinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetStartupInfoW(lpstartupinfo.toCPointer<ByteVar>())
+public actual fun getStartupInfoW(lpstartupinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getStartupInfoW(lpstartupinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetSystemTimes(lpidletime.toCPointer<ByteVar>(), lpkerneltime.toCPointer<ByteVar>(), lpusertime.toCPointer<ByteVar>())
+public actual fun getSystemTimes(lpidletime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getSystemTimes(lpidletime?.value?.toCPointer<ByteVar>(), lpkerneltime?.value?.toCPointer<ByteVar>(), lpusertime?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadDescription(hthread: HANDLE, ppszthreaddescription: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadDescription(hthread.toCPointer<ByteVar>(), ppszthreaddescription.toCPointer<ByteVar>())
+public actual fun getThreadDescription(hthread: Handle, ppszthreaddescription: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadDescription(hthread?.value?.toCPointer<ByteVar>(), ppszthreaddescription?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadGroupAffinity(hthread.toCPointer<ByteVar>(), groupaffinity.toCPointer<ByteVar>())
+public actual fun getThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadGroupAffinity(hthread?.value?.toCPointer<ByteVar>(), groupaffinity?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadIOPendingFlag(hthread: HANDLE, lpioispending: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(hthread.toCPointer<ByteVar>(), lpioispending.toCPointer<ByteVar>())
+public actual fun getThreadIOPendingFlag(hthread: Handle, lpioispending: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadIOPendingFlag(hthread?.value?.toCPointer<ByteVar>(), lpioispending?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadId(thread: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadId(thread.toCPointer<ByteVar>())
+public actual fun getThreadId(thread: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadId(thread?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(hthread.toCPointer<ByteVar>(), lpidealprocessor.toCPointer<ByteVar>())
+public actual fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadIdealProcessorEx(hthread?.value?.toCPointer<ByteVar>(), lpidealprocessor?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadInformation(hthread.toCPointer<ByteVar>(), threadinformationclass, threadinformation.toCPointer<ByteVar>(), threadinformationsize)
+public actual fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadInformation(hthread?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationsize)
 
-public actual fun GetThreadPriority(hthread: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadPriority(hthread.toCPointer<ByteVar>())
+public actual fun getThreadPriority(hthread: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadPriority(hthread?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadPriorityBoost(hthread: HANDLE, pdisablepriorityboost: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadPriorityBoost(hthread.toCPointer<ByteVar>(), pdisablepriorityboost.toCPointer<ByteVar>())
+public actual fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadPriorityBoost(hthread?.value?.toCPointer<ByteVar>(), pdisablepriorityboost?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(thread.toCPointer<ByteVar>(), cpusetmasks.toCPointer<ByteVar>(), cpusetmaskcount, requiredmaskcount.toCPointer<ByteVar>())
+public actual fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks(thread?.value?.toCPointer<ByteVar>(), cpusetmasks?.value?.toCPointer<ByteVar>(), cpusetmaskcount, requiredmaskcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(thread.toCPointer<ByteVar>(), cpusetids.toCPointer<ByteVar>(), cpusetidcount, requiredidcount.toCPointer<ByteVar>())
+public actual fun getThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadSelectedCpuSets(thread?.value?.toCPointer<ByteVar>(), cpusetids?.value?.toCPointer<ByteVar>(), cpusetidcount, requiredidcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetThreadTimes(hthread: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetThreadTimes(hthread.toCPointer<ByteVar>(), lpcreationtime.toCPointer<ByteVar>(), lpexittime.toCPointer<ByteVar>(), lpkerneltime.toCPointer<ByteVar>(), lpusertime.toCPointer<ByteVar>())
+public actual fun getThreadTimes(hthread: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getThreadTimes(hthread?.value?.toCPointer<ByteVar>(), lpcreationtime?.value?.toCPointer<ByteVar>(), lpexittime?.value?.toCPointer<ByteVar>(), lpkerneltime?.value?.toCPointer<ByteVar>(), lpusertime?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(umscompletionlist.toCPointer<ByteVar>(), umscompletionevent.toCPointer<ByteVar>())
+public actual fun getUmsCompletionListEvent(umscompletionlist: COpaquePointer?, umscompletionevent: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getUmsCompletionListEvent(umscompletionlist?.value?.toCPointer<ByteVar>(), umscompletionevent?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUmsSystemThreadInformation(threadhandle: HANDLE, systemthreadinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(threadhandle.toCPointer<ByteVar>(), systemthreadinfo.toCPointer<ByteVar>())
+public actual fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_getUmsSystemThreadInformation(threadhandle?.value?.toCPointer<ByteVar>(), systemthreadinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun InitOnceBeginInitialize(lpinitonce: Long, dwflags: UInt, fpending: Long, lpcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitOnceBeginInitialize(lpinitonce.toCPointer<ByteVar>(), dwflags, fpending.toCPointer<ByteVar>(), lpcontext.toCPointer<ByteVar>())
+public actual fun initOnceBeginInitialize(lpinitonce: COpaquePointer?, dwflags: UInt, fpending: COpaquePointer?, lpcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initOnceBeginInitialize(lpinitonce?.value?.toCPointer<ByteVar>(), dwflags, fpending?.value?.toCPointer<ByteVar>(), lpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun InitOnceComplete(lpinitonce: Long, dwflags: UInt, lpcontext: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitOnceComplete(lpinitonce.toCPointer<ByteVar>(), dwflags, lpcontext.toCPointer<ByteVar>())
+public actual fun initOnceComplete(lpinitonce: COpaquePointer?, dwflags: UInt, lpcontext: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initOnceComplete(lpinitonce?.value?.toCPointer<ByteVar>(), dwflags, lpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun InitOnceExecuteOnce(initonce: Long, initfn: PINIT_ONCE_FN, parameter: Long, context: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitOnceExecuteOnce(initonce.toCPointer<ByteVar>(), initfn.toLong().toCPointer<ByteVar>(), parameter.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun initOnceExecuteOnce(initonce: COpaquePointer?, initfn: PinitOnceFn, parameter: COpaquePointer?, context: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initOnceExecuteOnce(initonce?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), parameter?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
-public actual fun InitOnceInitialize(initonce: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitOnceInitialize(initonce.toCPointer<ByteVar>())
+public actual fun initOnceInitialize(initonce: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initOnceInitialize(initonce?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeConditionVariable(conditionvariable: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeConditionVariable(conditionvariable.toCPointer<ByteVar>())
+public actual fun initializeConditionVariable(conditionvariable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeConditionVariable(conditionvariable?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeCriticalSection(lpcriticalsection: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeCriticalSection(lpcriticalsection.toCPointer<ByteVar>())
+public actual fun initializeCriticalSection(lpcriticalsection: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeCriticalSection(lpcriticalsection?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount(lpcriticalsection.toCPointer<ByteVar>(), dwspincount)
+public actual fun initializeCriticalSectionAndSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount(lpcriticalsection?.value?.toCPointer<ByteVar>(), dwspincount)
 
-public actual fun InitializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: UInt, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(lpcriticalsection.toCPointer<ByteVar>(), dwspincount, flags)
+public actual fun initializeCriticalSectionEx(lpcriticalsection: COpaquePointer?, dwspincount: UInt, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeCriticalSectionEx(lpcriticalsection?.value?.toCPointer<ByteVar>(), dwspincount, flags)
 
-public actual fun InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: UInt, dwflags: UInt, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList(lpattributelist.toCPointer<ByteVar>(), dwattributecount, dwflags, lpsize.toCPointer<ByteVar>())
+public actual fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeProcThreadAttributeList(lpattributelist?.value?.toCPointer<ByteVar>(), dwattributecount, dwflags, lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun InitializeSListHead(listhead: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeSListHead(listhead.toCPointer<ByteVar>())
+public actual fun initializeSListHead(listhead: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeSListHead(listhead?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeSRWLock(srwlock: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeSRWLock(srwlock.toCPointer<ByteVar>())
+public actual fun initializeSRWLock(srwlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeSRWLock(srwlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun InitializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier(lpbarrier.toCPointer<ByteVar>(), ltotalthreads, lspincount)
+public actual fun initializeSynchronizationBarrier(lpbarrier: COpaquePointer?, ltotalthreads: Int, lspincount: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_initializeSynchronizationBarrier(lpbarrier?.value?.toCPointer<ByteVar>(), ltotalthreads, lspincount)
 
-public actual fun InterlockedFlushSList(listhead: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InterlockedFlushSList(listhead.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun interlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_interlockedFlushSList(listhead?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InterlockedPopEntrySList(listhead: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InterlockedPopEntrySList(listhead.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun interlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_interlockedPopEntrySList(listhead?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InterlockedPushEntrySList(listhead: Long, listentry: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InterlockedPushEntrySList(listhead.toCPointer<ByteVar>(), listentry.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun interlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_interlockedPushEntrySList(listhead?.value?.toCPointer<ByteVar>(), listentry?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_InterlockedPushListSListEx(listhead.toCPointer<ByteVar>(), list.toCPointer<ByteVar>(), listend.toCPointer<ByteVar>(), count)?.toLong() ?: 0L
+public actual fun interlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_interlockedPushListSListEx(listhead?.value?.toCPointer<ByteVar>(), list?.value?.toCPointer<ByteVar>(), listend?.value?.toCPointer<ByteVar>(), count)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IsImmersiveProcess(hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsImmersiveProcess(hprocess.toCPointer<ByteVar>())
+public actual fun isImmersiveProcess(hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isImmersiveProcess(hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun IsProcessCritical(hprocess: HANDLE, critical: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsProcessCritical(hprocess.toCPointer<ByteVar>(), critical.toCPointer<ByteVar>())
+public actual fun isProcessCritical(hprocess: Handle, critical: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isProcessCritical(hprocess?.value?.toCPointer<ByteVar>(), critical?.value?.toCPointer<ByteVar>())
 
-public actual fun IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(processorfeature)
+public actual fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isProcessorFeaturePresent(processorfeature)
 
-public actual fun IsThreadAFiber(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsThreadAFiber()
+public actual fun isThreadAFiber(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isThreadAFiber()
 
-public actual fun IsThreadpoolTimerSet(pti: PTP_TIMER): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(pti)
+public actual fun isThreadpoolTimerSet(pti: PtpTimer): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isThreadpoolTimerSet(pti)
 
-public actual fun IsWow64Process(hprocess: HANDLE, wow64process: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsWow64Process(hprocess.toCPointer<ByteVar>(), wow64process.toCPointer<ByteVar>())
+public actual fun isWow64Process(hprocess: Handle, wow64process: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isWow64Process(hprocess?.value?.toCPointer<ByteVar>(), wow64process?.value?.toCPointer<ByteVar>())
 
-public actual fun IsWow64Process2(hprocess: HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_IsWow64Process2(hprocess.toCPointer<ByteVar>(), pprocessmachine.toCPointer<ByteVar>(), pnativemachine.toCPointer<ByteVar>())
+public actual fun isWow64Process2(hprocess: Handle, pprocessmachine: COpaquePointer?, pnativemachine: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_isWow64Process2(hprocess?.value?.toCPointer<ByteVar>(), pprocessmachine?.value?.toCPointer<ByteVar>(), pnativemachine?.value?.toCPointer<ByteVar>())
 
-public actual fun LeaveCriticalSection(lpcriticalsection: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_LeaveCriticalSection(lpcriticalsection.toCPointer<ByteVar>())
+public actual fun leaveCriticalSection(lpcriticalsection: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_leaveCriticalSection(lpcriticalsection?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun LeaveCriticalSectionWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, pcs: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns(pci, pcs.toCPointer<ByteVar>())
+public actual fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(pci, pcs?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenEventA(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openEventA(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openEventA(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenEventW(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openEventW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openEventW(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenMutexW(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openMutexW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openMutexW(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(lpboundarydescriptor.toCPointer<ByteVar>(), lpaliasprefix.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openPrivateNamespaceA(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openPrivateNamespaceA(lpboundarydescriptor?.value?.toCPointer<ByteVar>(), lpaliasprefix?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(lpboundarydescriptor.toCPointer<ByteVar>(), lpaliasprefix.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openPrivateNamespaceW(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openPrivateNamespaceW(lpboundarydescriptor?.value?.toCPointer<ByteVar>(), lpaliasprefix?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenProcess(dwdesiredaccess, binherithandle, dwprocessid)?.toLong() ?: 0L
+public actual fun openProcess(dwdesiredaccess: ProcessAccessRights, binherithandle: Bool, dwprocessid: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openProcess(dwdesiredaccess, binherithandle, dwprocessid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenProcessToken(processhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenProcessToken(processhandle.toCPointer<ByteVar>(), desiredaccess, tokenhandle.toCPointer<ByteVar>())
+public actual fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openProcessToken(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenSemaphoreW(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openSemaphoreW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openSemaphoreW(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenThread(dwdesiredaccess, binherithandle, dwthreadid)?.toLong() ?: 0L
+public actual fun openThread(dwdesiredaccess: ThreadAccessRights, binherithandle: Bool, dwthreadid: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openThread(dwdesiredaccess, binherithandle, dwthreadid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenThreadToken(threadhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenThreadToken(threadhandle.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle.toCPointer<ByteVar>())
+public actual fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openThreadToken(threadhandle?.value?.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenWaitableTimerA(dwdesiredaccess, binherithandle, lptimername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openWaitableTimerA(dwdesiredaccess: UInt, binherithandle: Bool, lptimername: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openWaitableTimerA(dwdesiredaccess, binherithandle, lptimername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_OpenWaitableTimerW(dwdesiredaccess, binherithandle, lptimername.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openWaitableTimerW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lptimername: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_openWaitableTimerW(dwdesiredaccess, binherithandle, lptimername?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PulseEvent(hevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_PulseEvent(hevent.toCPointer<ByteVar>())
+public actual fun pulseEvent(hevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_pulseEvent(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryDepthSList(listhead: Long): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryDepthSList(listhead.toCPointer<ByteVar>())
+public actual fun queryDepthSList(listhead: COpaquePointer?): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryDepthSList(listhead?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryFullProcessImageNameA(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(hprocess.toCPointer<ByteVar>(), dwflags, lpexename.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>())
+public actual fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryFullProcessImageNameA(hprocess?.value?.toCPointer<ByteVar>(), dwflags, lpexename?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryFullProcessImageNameW(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(hprocess.toCPointer<ByteVar>(), dwflags, lpexename.toCPointer<ByteVar>(), lpdwsize.toCPointer<ByteVar>())
+public actual fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryFullProcessImageNameW(hprocess?.value?.toCPointer<ByteVar>(), dwflags, lpexename?.value?.toCPointer<ByteVar>(), lpdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryProcessAffinityUpdateMode(hprocess: HANDLE, lpdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode(hprocess.toCPointer<ByteVar>(), lpdwflags.toCPointer<ByteVar>())
+public actual fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode(hprocess?.value?.toCPointer<ByteVar>(), lpdwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryProtectedPolicy(policyguid: Long, policyvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryProtectedPolicy(policyguid.toCPointer<ByteVar>(), policyvalue.toCPointer<ByteVar>())
+public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryProtectedPolicy(policyguid?.value?.toCPointer<ByteVar>(), policyvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation(ptpp, ptpsi.toCPointer<ByteVar>())
+public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toLong(), ptpsi?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt, returnlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueryUmsThreadInformation(umsthread.toCPointer<ByteVar>(), umsthreadinfoclass, umsthreadinformation.toCPointer<ByteVar>(), umsthreadinformationlength, returnlength.toCPointer<ByteVar>())
+public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queryUmsThreadInformation(umsthread?.value?.toCPointer<ByteVar>(), umsthreadinfoclass, umsthreadinformation?.value?.toCPointer<ByteVar>(), umsthreadinformationlength, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun QueueUserAPC(pfnapc: PAPCFUNC, hthread: HANDLE, dwdata: ULong): UInt =
+public actual fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong): UInt =
     0u
 
-public actual fun QueueUserAPC2(apcroutine: PAPCFUNC, thread: HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL =
+public actual fun queueUserAPC2(apcroutine: Papcfunc, thread: Handle, data: ULong, flags: QueueUserApcFlags): Bool =
     0
 
-public actual fun QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Long, flags: WORKER_THREAD_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_QueueUserWorkItem(function.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), flags)
+public actual fun queueUserWorkItem(function: LpthreadStartRoutine, context: COpaquePointer?, flags: WorkerThreadFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_queueUserWorkItem(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(phnewwaitobject.toCPointer<ByteVar>(), hobject.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), dwmilliseconds, dwflags)
+public actual fun registerWaitForSingleObject(phnewwaitobject: COpaquePointer?, hobject: Handle, callback: Waitortimercallback, context: COpaquePointer?, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_registerWaitForSingleObject(phnewwaitobject?.value?.toCPointer<ByteVar>(), hobject?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), dwmilliseconds, dwflags)
 
-public actual fun ReleaseMutex(hmutex: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseMutex(hmutex.toCPointer<ByteVar>())
+public actual fun releaseMutex(hmutex: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseMutex(hmutex?.value?.toCPointer<ByteVar>())
 
-public actual fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(pci, mut.toCPointer<ByteVar>())
+public actual fun releaseMutexWhenCallbackReturns(pci: PtpCallbackInstance, mut: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(pci, mut?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ReleaseSRWLockExclusive(srwlock: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(srwlock.toCPointer<ByteVar>())
+public actual fun releaseSRWLockExclusive(srwlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseSRWLockExclusive(srwlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ReleaseSRWLockShared(srwlock: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseSRWLockShared(srwlock.toCPointer<ByteVar>())
+public actual fun releaseSRWLockShared(srwlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseSRWLockShared(srwlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ReleaseSemaphore(hsemaphore: HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseSemaphore(hsemaphore.toCPointer<ByteVar>(), lreleasecount, lppreviouscount.toCPointer<ByteVar>())
+public actual fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseSemaphore(hsemaphore?.value?.toCPointer<ByteVar>(), lreleasecount, lppreviouscount?.value?.toCPointer<ByteVar>())
 
-public actual fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns(pci, sem.toCPointer<ByteVar>(), crel)
+public actual fun releaseSemaphoreWhenCallbackReturns(pci: PtpCallbackInstance, sem: Handle, crel: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(pci, sem?.value?.toCPointer<ByteVar>(), crel)
 }
 
-public actual fun ResetEvent(hevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ResetEvent(hevent.toCPointer<ByteVar>())
+public actual fun resetEvent(hevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_resetEvent(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun ResumeThread(hthread: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_ResumeThread(hthread.toCPointer<ByteVar>())
+public actual fun resumeThread(hthread: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_resumeThread(hthread?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqAddPeriodicCallback(callback: RTWQPERIODICCALLBACK, context: Long, key: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: COpaquePointer?, key: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(workqueueidin, workqueueidout.toCPointer<ByteVar>())
+public actual fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(workqueueidin, workqueueidout?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE, workqueueid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(workqueuetype, workqueueid.toCPointer<ByteVar>())
+public actual fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(workqueuetype, workqueueid?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: PCWSTR, dwtaskid: UInt, lpriority: Int, donecallback: Long, donestate: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, usageclass.toCPointer<ByteVar>(), dwtaskid, lpriority, donecallback.toCPointer<ByteVar>(), donestate.toCPointer<ByteVar>())
+public actual fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, usageclass?.value?.toCPointer<ByteVar>(), dwtaskid, lpriority, donecallback?.value?.toCPointer<ByteVar>(), donestate?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: Long, donestate: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback.toCPointer<ByteVar>(), donestate.toCPointer<ByteVar>())
+public actual fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback?.value?.toCPointer<ByteVar>(), donestate?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqCancelDeadline(prequest: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqCancelDeadline(prequest.toCPointer<ByteVar>())
+public actual fun rtwqCancelDeadline(prequest: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqCancelDeadline(prequest?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqCancelWorkItem(key: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqCancelWorkItem(key)
+public actual fun rtwqCancelWorkItem(key: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqCancelWorkItem(key)
 
-public actual fun RtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(appobject.toCPointer<ByteVar>(), callback.toCPointer<ByteVar>(), appstate.toCPointer<ByteVar>(), asyncresult.toCPointer<ByteVar>())
+public actual fun rtwqCreateAsyncResult(appobject: COpaquePointer?, callback: COpaquePointer?, appstate: COpaquePointer?, asyncresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqCreateAsyncResult(appobject?.value?.toCPointer<ByteVar>(), callback?.value?.toCPointer<ByteVar>(), appstate?.value?.toCPointer<ByteVar>(), asyncresult?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS(result.toCPointer<ByteVar>(), taskid.toCPointer<ByteVar>())
+public actual fun rtwqEndRegisterWorkQueueWithMMCSS(result: COpaquePointer?, taskid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS(result?.value?.toCPointer<ByteVar>(), taskid?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: PWSTR, usageclasslength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(workqueueid, usageclass.toCPointer<ByteVar>(), usageclasslength.toCPointer<ByteVar>())
+public actual fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(workqueueid, usageclass?.value?.toCPointer<ByteVar>(), usageclasslength?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(workqueueid, priority.toCPointer<ByteVar>())
+public actual fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(workqueueid, priority?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(workqueueid, taskid.toCPointer<ByteVar>())
+public actual fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(workqueueid, taskid?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqInvokeCallback(result: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqInvokeCallback(result.toCPointer<ByteVar>())
+public actual fun rtwqInvokeCallback(result: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqInvokeCallback(result?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: HANDLE, out: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(workqueueid, hfile.toCPointer<ByteVar>(), out.toCPointer<ByteVar>())
+public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(workqueueid, hfile?.value?.toCPointer<ByteVar>(), out?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqLockPlatform(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqLockPlatform()
+public actual fun rtwqLockPlatform(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqLockPlatform()
 
-public actual fun RtwqLockSharedWorkQueue(usageclass: PCWSTR, basepriority: Int, taskid: Long, id: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(usageclass.toCPointer<ByteVar>(), basepriority, taskid.toCPointer<ByteVar>(), id.toCPointer<ByteVar>())
+public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: COpaquePointer?, id: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue(usageclass?.value?.toCPointer<ByteVar>(), basepriority, taskid?.value?.toCPointer<ByteVar>(), id?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqLockWorkQueue(workqueueid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqLockWorkQueue(workqueueid)
+public actual fun rtwqLockWorkQueue(workqueueid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqLockWorkQueue(workqueueid)
 
-public actual fun RtwqPutWaitingWorkItem(hevent: HANDLE, lpriority: Int, result: Long, key: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(hevent.toCPointer<ByteVar>(), lpriority, result.toCPointer<ByteVar>(), key.toCPointer<ByteVar>())
+public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: COpaquePointer?, key: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem(hevent?.value?.toCPointer<ByteVar>(), lpriority, result?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqPutWorkItem(dwqueue, lpriority, result.toCPointer<ByteVar>())
+public actual fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqPutWorkItem(dwqueue, lpriority, result?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqRegisterPlatformEvents(platformevents: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(platformevents.toCPointer<ByteVar>())
+public actual fun rtwqRegisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents(platformevents?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqRegisterPlatformWithMMCSS(usageclass: PCWSTR, taskid: Long, lpriority: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(usageclass.toCPointer<ByteVar>(), taskid.toCPointer<ByteVar>(), lpriority)
+public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: COpaquePointer?, lpriority: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS(usageclass?.value?.toCPointer<ByteVar>(), taskid?.value?.toCPointer<ByteVar>(), lpriority)
 
-public actual fun RtwqRemovePeriodicCallback(dwkey: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(dwkey)
+public actual fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(dwkey)
 
-public actual fun RtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(result.toCPointer<ByteVar>(), timeout, key.toCPointer<ByteVar>())
+public actual fun rtwqScheduleWorkItem(result: COpaquePointer?, timeout: Long, key: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqScheduleWorkItem(result?.value?.toCPointer<ByteVar>(), timeout, key?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqSetDeadline(workqueueid, deadlineinhns, prequest.toCPointer<ByteVar>())
+public actual fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqSetDeadline(workqueueid, deadlineinhns, prequest?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, prequest.toCPointer<ByteVar>())
+public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, prequest?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqSetLongRunning(workqueueid: UInt, enable: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqSetLongRunning(workqueueid, enable)
+public actual fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqSetLongRunning(workqueueid, enable)
 
-public actual fun RtwqShutdown(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqShutdown()
+public actual fun rtwqShutdown(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqShutdown()
 
-public actual fun RtwqStartup(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqStartup()
+public actual fun rtwqStartup(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqStartup()
 
-public actual fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(workqueueid, hfile.toCPointer<ByteVar>())
+public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(workqueueid, hfile?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqUnlockPlatform(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqUnlockPlatform()
+public actual fun rtwqUnlockPlatform(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqUnlockPlatform()
 
-public actual fun RtwqUnlockWorkQueue(workqueueid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(workqueueid)
+public actual fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(workqueueid)
 
-public actual fun RtwqUnregisterPlatformEvents(platformevents: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(platformevents.toCPointer<ByteVar>())
+public actual fun rtwqUnregisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents(platformevents?.value?.toCPointer<ByteVar>())
 
-public actual fun RtwqUnregisterPlatformFromMMCSS(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS()
+public actual fun rtwqUnregisterPlatformFromMMCSS(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS()
 
-public actual fun SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(lpcriticalsection.toCPointer<ByteVar>(), dwspincount)
+public actual fun setCriticalSectionSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setCriticalSectionSpinCount(lpcriticalsection?.value?.toCPointer<ByteVar>(), dwspincount)
 
-public actual fun SetEvent(hevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetEvent(hevent.toCPointer<ByteVar>())
+public actual fun setEvent(hevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setEvent(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(pci, evt.toCPointer<ByteVar>())
+public actual fun setEventWhenCallbackReturns(pci: PtpCallbackInstance, evt: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(pci, evt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SetPriorityClass(hprocess: HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetPriorityClass(hprocess.toCPointer<ByteVar>(), dwpriorityclass)
+public actual fun setPriorityClass(hprocess: Handle, dwpriorityclass: ProcessCreationFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setPriorityClass(hprocess?.value?.toCPointer<ByteVar>(), dwpriorityclass)
 
-public actual fun SetProcessAffinityMask(hprocess: HANDLE, dwprocessaffinitymask: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessAffinityMask(hprocess.toCPointer<ByteVar>(), dwprocessaffinitymask)
+public actual fun setProcessAffinityMask(hprocess: Handle, dwprocessaffinitymask: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessAffinityMask(hprocess?.value?.toCPointer<ByteVar>(), dwprocessaffinitymask)
 
-public actual fun SetProcessAffinityUpdateMode(hprocess: HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(hprocess.toCPointer<ByteVar>(), dwflags)
+public actual fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: ProcessAffinityAutoUpdateFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode(hprocess?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessDEPPolicy(dwflags)
+public actual fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessDEPPolicy(dwflags)
 
-public actual fun SetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(process.toCPointer<ByteVar>(), cpusetmasks.toCPointer<ByteVar>(), cpusetmaskcount)
+public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks(process?.value?.toCPointer<ByteVar>(), cpusetmasks?.value?.toCPointer<ByteVar>(), cpusetmaskcount)
 
-public actual fun SetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(process.toCPointer<ByteVar>(), cpusetids.toCPointer<ByteVar>(), cpusetidcount)
+public actual fun setProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessDefaultCpuSets(process?.value?.toCPointer<ByteVar>(), cpusetids?.value?.toCPointer<ByteVar>(), cpusetidcount)
 
-public actual fun SetProcessDynamicEHContinuationTargets(process: HANDLE, numberoftargets: UShort, targets: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets(process.toCPointer<ByteVar>(), numberoftargets, targets.toCPointer<ByteVar>())
+public actual fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets(process?.value?.toCPointer<ByteVar>(), numberoftargets, targets?.value?.toCPointer<ByteVar>())
 
-public actual fun SetProcessDynamicEnforcedCetCompatibleRanges(process: HANDLE, numberofranges: UShort, ranges: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges(process.toCPointer<ByteVar>(), numberofranges, ranges.toCPointer<ByteVar>())
+public actual fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges(process?.value?.toCPointer<ByteVar>(), numberofranges, ranges?.value?.toCPointer<ByteVar>())
 
-public actual fun SetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessInformation(hprocess.toCPointer<ByteVar>(), processinformationclass, processinformation.toCPointer<ByteVar>(), processinformationsize)
+public actual fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessInformation(hprocess?.value?.toCPointer<ByteVar>(), processinformationclass, processinformation?.value?.toCPointer<ByteVar>(), processinformationsize)
 
-public actual fun SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(mitigationpolicy, lpbuffer.toCPointer<ByteVar>(), dwlength)
+public actual fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessMitigationPolicy(mitigationpolicy, lpbuffer?.value?.toCPointer<ByteVar>(), dwlength)
 
-public actual fun SetProcessPriorityBoost(hprocess: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessPriorityBoost(hprocess.toCPointer<ByteVar>(), bdisablepriorityboost)
+public actual fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboost: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessPriorityBoost(hprocess?.value?.toCPointer<ByteVar>(), bdisablepriorityboost)
 
-public actual fun SetProcessRestrictionExemption(fenableexemption: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessRestrictionExemption(fenableexemption)
+public actual fun setProcessRestrictionExemption(fenableexemption: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessRestrictionExemption(fenableexemption)
 
-public actual fun SetProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessShutdownParameters(dwlevel, dwflags)
+public actual fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessShutdownParameters(dwlevel, dwflags)
 
-public actual fun SetProcessWorkingSetSize(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(hprocess.toCPointer<ByteVar>(), dwminimumworkingsetsize, dwmaximumworkingsetsize)
+public actual fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProcessWorkingSetSize(hprocess?.value?.toCPointer<ByteVar>(), dwminimumworkingsetsize, dwmaximumworkingsetsize)
 
-public actual fun SetProtectedPolicy(policyguid: Long, policyvalue: ULong, oldpolicyvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetProtectedPolicy(policyguid.toCPointer<ByteVar>(), policyvalue, oldpolicyvalue.toCPointer<ByteVar>())
+public actual fun setProtectedPolicy(policyguid: COpaquePointer?, policyvalue: ULong, oldpolicyvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setProtectedPolicy(policyguid?.value?.toCPointer<ByteVar>(), policyvalue, oldpolicyvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadAffinityMask(hthread: HANDLE, dwthreadaffinitymask: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadAffinityMask(hthread.toCPointer<ByteVar>(), dwthreadaffinitymask)
+public actual fun setThreadAffinityMask(hthread: Handle, dwthreadaffinitymask: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadAffinityMask(hthread?.value?.toCPointer<ByteVar>(), dwthreadaffinitymask)
 
-public actual fun SetThreadDescription(hthread: HANDLE, lpthreaddescription: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadDescription(hthread.toCPointer<ByteVar>(), lpthreaddescription.toCPointer<ByteVar>())
+public actual fun setThreadDescription(hthread: Handle, lpthreaddescription: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadDescription(hthread?.value?.toCPointer<ByteVar>(), lpthreaddescription?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadGroupAffinity(hthread.toCPointer<ByteVar>(), groupaffinity.toCPointer<ByteVar>(), previousgroupaffinity.toCPointer<ByteVar>())
+public actual fun setThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?, previousgroupaffinity: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadGroupAffinity(hthread?.value?.toCPointer<ByteVar>(), groupaffinity?.value?.toCPointer<ByteVar>(), previousgroupaffinity?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadIdealProcessor(hthread: HANDLE, dwidealprocessor: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadIdealProcessor(hthread.toCPointer<ByteVar>(), dwidealprocessor)
+public actual fun setThreadIdealProcessor(hthread: Handle, dwidealprocessor: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadIdealProcessor(hthread?.value?.toCPointer<ByteVar>(), dwidealprocessor)
 
-public actual fun SetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(hthread.toCPointer<ByteVar>(), lpidealprocessor.toCPointer<ByteVar>(), lppreviousidealprocessor.toCPointer<ByteVar>())
+public actual fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?, lppreviousidealprocessor: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadIdealProcessorEx(hthread?.value?.toCPointer<ByteVar>(), lpidealprocessor?.value?.toCPointer<ByteVar>(), lppreviousidealprocessor?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadInformation(hthread.toCPointer<ByteVar>(), threadinformationclass, threadinformation.toCPointer<ByteVar>(), threadinformationsize)
+public actual fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadInformation(hthread?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationsize)
 
-public actual fun SetThreadPriority(hthread: HANDLE, npriority: THREAD_PRIORITY): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadPriority(hthread.toCPointer<ByteVar>(), npriority)
+public actual fun setThreadPriority(hthread: Handle, npriority: ThreadPriority): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadPriority(hthread?.value?.toCPointer<ByteVar>(), npriority)
 
-public actual fun SetThreadPriorityBoost(hthread: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadPriorityBoost(hthread.toCPointer<ByteVar>(), bdisablepriorityboost)
+public actual fun setThreadPriorityBoost(hthread: Handle, bdisablepriorityboost: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadPriorityBoost(hthread?.value?.toCPointer<ByteVar>(), bdisablepriorityboost)
 
-public actual fun SetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(thread.toCPointer<ByteVar>(), cpusetmasks.toCPointer<ByteVar>(), cpusetmaskcount)
+public actual fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks(thread?.value?.toCPointer<ByteVar>(), cpusetmasks?.value?.toCPointer<ByteVar>(), cpusetmaskcount)
 
-public actual fun SetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(thread.toCPointer<ByteVar>(), cpusetids.toCPointer<ByteVar>(), cpusetidcount)
+public actual fun setThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadSelectedCpuSets(thread?.value?.toCPointer<ByteVar>(), cpusetids?.value?.toCPointer<ByteVar>(), cpusetidcount)
 
-public actual fun SetThreadStackGuarantee(stacksizeinbytes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadStackGuarantee(stacksizeinbytes.toCPointer<ByteVar>())
+public actual fun setThreadStackGuarantee(stacksizeinbytes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadStackGuarantee(stacksizeinbytes?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadToken(thread: Long, token: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadToken(thread.toCPointer<ByteVar>(), token.toCPointer<ByteVar>())
+public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadToken(thread?.value?.toCPointer<ByteVar>(), token?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(ptpp, ptpsi.toCPointer<ByteVar>())
+public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toLong(), ptpsi?.value?.toCPointer<ByteVar>())
 
-public actual fun SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(ptpp, cthrdmost)
+public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toLong(), cthrdmost)
 }
 
-public actual fun SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(ptpp, cthrdmic)
+public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toLong(), cthrdmic)
 
-public actual fun SetThreadpoolTimer(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolTimer(pti, pftduetime.toCPointer<ByteVar>(), msperiod, mswindowlength)
+public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolTimer(pti, pftduetime?.value?.toCPointer<ByteVar>(), msperiod, mswindowlength)
 }
 
-public actual fun SetThreadpoolTimerEx(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(pti, pftduetime.toCPointer<ByteVar>(), msperiod, mswindowlength)
+public actual fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolTimerEx(pti, pftduetime?.value?.toCPointer<ByteVar>(), msperiod, mswindowlength)
 
-public actual fun SetThreadpoolWait(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolWait(pwa, h.toCPointer<ByteVar>(), pfttimeout.toCPointer<ByteVar>())
+public actual fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolWait(pwa, h?.value?.toCPointer<ByteVar>(), pfttimeout?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long, reserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(pwa, h.toCPointer<ByteVar>(), pfttimeout.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>())
+public actual fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setThreadpoolWaitEx(pwa, h?.value?.toCPointer<ByteVar>(), pfttimeout?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SetTimerQueueTimer(timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetTimerQueueTimer(timerqueue.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), parameter.toCPointer<ByteVar>(), duetime, period, preferio)?.toLong() ?: 0L
+public actual fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, preferio: Bool): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setTimerQueueTimer(timerqueue?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), parameter?.value?.toCPointer<ByteVar>(), duetime, period, preferio)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetUmsThreadInformation(umsthread.toCPointer<ByteVar>(), umsthreadinfoclass, umsthreadinformation.toCPointer<ByteVar>(), umsthreadinformationlength)
+public actual fun setUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setUmsThreadInformation(umsthread?.value?.toCPointer<ByteVar>(), umsthreadinfoclass, umsthreadinformation?.value?.toCPointer<ByteVar>(), umsthreadinformationlength)
 
-public actual fun SetWaitableTimer(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetWaitableTimer(htimer.toCPointer<ByteVar>(), lpduetime.toCPointer<ByteVar>(), lperiod, pfncompletionroutine.toLong().toCPointer<ByteVar>(), lpargtocompletionroutine.toCPointer<ByteVar>(), fresume)
+public actual fun setWaitableTimer(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, fresume: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setWaitableTimer(htimer?.value?.toCPointer<ByteVar>(), lpduetime?.value?.toCPointer<ByteVar>(), lperiod, 0L.toCPointer<ByteVar>(), lpargtocompletionroutine?.value?.toCPointer<ByteVar>(), fresume)
 
-public actual fun SetWaitableTimerEx(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SetWaitableTimerEx(htimer.toCPointer<ByteVar>(), lpduetime.toCPointer<ByteVar>(), lperiod, pfncompletionroutine.toLong().toCPointer<ByteVar>(), lpargtocompletionroutine.toCPointer<ByteVar>(), wakecontext.toCPointer<ByteVar>(), tolerabledelay)
+public actual fun setWaitableTimerEx(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, wakecontext: COpaquePointer?, tolerabledelay: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_setWaitableTimerEx(htimer?.value?.toCPointer<ByteVar>(), lpduetime?.value?.toCPointer<ByteVar>(), lperiod, 0L.toCPointer<ByteVar>(), lpargtocompletionroutine?.value?.toCPointer<ByteVar>(), wakecontext?.value?.toCPointer<ByteVar>(), tolerabledelay)
 
-public actual fun SignalObjectAndWait(hobjecttosignal: HANDLE, hobjecttowaiton: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SignalObjectAndWait(hobjecttosignal.toCPointer<ByteVar>(), hobjecttowaiton.toCPointer<ByteVar>(), dwmilliseconds, balertable)
+public actual fun signalObjectAndWait(hobjecttosignal: Handle, hobjecttowaiton: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_signalObjectAndWait(hobjecttosignal?.value?.toCPointer<ByteVar>(), hobjecttowaiton?.value?.toCPointer<ByteVar>(), dwmilliseconds, balertable)
 
-public actual fun Sleep(dwmilliseconds: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_Sleep(dwmilliseconds)
+public actual fun sleep(dwmilliseconds: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_sleep(dwmilliseconds)
 }
 
-public actual fun SleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SleepConditionVariableCS(conditionvariable.toCPointer<ByteVar>(), criticalsection.toCPointer<ByteVar>(), dwmilliseconds)
+public actual fun sleepConditionVariableCS(conditionvariable: COpaquePointer?, criticalsection: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_sleepConditionVariableCS(conditionvariable?.value?.toCPointer<ByteVar>(), criticalsection?.value?.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun SleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: UInt, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SleepConditionVariableSRW(conditionvariable.toCPointer<ByteVar>(), srwlock.toCPointer<ByteVar>(), dwmilliseconds, flags)
+public actual fun sleepConditionVariableSRW(conditionvariable: COpaquePointer?, srwlock: COpaquePointer?, dwmilliseconds: UInt, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_sleepConditionVariableSRW(conditionvariable?.value?.toCPointer<ByteVar>(), srwlock?.value?.toCPointer<ByteVar>(), dwmilliseconds, flags)
 
-public actual fun SleepEx(dwmilliseconds: UInt, balertable: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SleepEx(dwmilliseconds, balertable)
+public actual fun sleepEx(dwmilliseconds: UInt, balertable: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_sleepEx(dwmilliseconds, balertable)
 
-public actual fun StartThreadpoolIo(pio: PTP_IO) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_StartThreadpoolIo(pio)
+public actual fun startThreadpoolIo(pio: PtpIo) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_startThreadpoolIo(pio)
 }
 
-public actual fun SubmitThreadpoolWork(pwk: PTP_WORK) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SubmitThreadpoolWork(pwk)
+public actual fun submitThreadpoolWork(pwk: PtpWork) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_submitThreadpoolWork(pwk)
 }
 
-public actual fun SuspendThread(hthread: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SuspendThread(hthread.toCPointer<ByteVar>())
+public actual fun suspendThread(hthread: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_suspendThread(hthread?.value?.toCPointer<ByteVar>())
 
-public actual fun SwitchToFiber(lpfiber: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SwitchToFiber(lpfiber.toCPointer<ByteVar>())
+public actual fun switchToFiber(lpfiber: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_switchToFiber(lpfiber?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SwitchToThread(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_SwitchToThread()
+public actual fun switchToThread(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_switchToThread()
 
-public actual fun TerminateProcess(hprocess: HANDLE, uexitcode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TerminateProcess(hprocess.toCPointer<ByteVar>(), uexitcode)
+public actual fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_terminateProcess(hprocess?.value?.toCPointer<ByteVar>(), uexitcode)
 
-public actual fun TerminateThread(hthread: HANDLE, dwexitcode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TerminateThread(hthread.toCPointer<ByteVar>(), dwexitcode)
+public actual fun terminateThread(hthread: Handle, dwexitcode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_terminateThread(hthread?.value?.toCPointer<ByteVar>(), dwexitcode)
 
-public actual fun TlsAlloc(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TlsAlloc()
+public actual fun tlsAlloc(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tlsAlloc()
 
-public actual fun TlsFree(dwtlsindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TlsFree(dwtlsindex)
+public actual fun tlsFree(dwtlsindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tlsFree(dwtlsindex)
 
-public actual fun TlsGetValue(dwtlsindex: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TlsGetValue(dwtlsindex)?.toLong() ?: 0L
+public actual fun tlsGetValue(dwtlsindex: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tlsGetValue(dwtlsindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun TlsSetValue(dwtlsindex: UInt, lptlsvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TlsSetValue(dwtlsindex, lptlsvalue.toCPointer<ByteVar>())
+public actual fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tlsSetValue(dwtlsindex, lptlsvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun TryAcquireSRWLockExclusive(srwlock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(srwlock.toCPointer<ByteVar>())
+public actual fun tryAcquireSRWLockExclusive(srwlock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive(srwlock?.value?.toCPointer<ByteVar>())
 
-public actual fun TryAcquireSRWLockShared(srwlock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(srwlock.toCPointer<ByteVar>())
+public actual fun tryAcquireSRWLockShared(srwlock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tryAcquireSRWLockShared(srwlock?.value?.toCPointer<ByteVar>())
 
-public actual fun TryEnterCriticalSection(lpcriticalsection: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TryEnterCriticalSection(lpcriticalsection.toCPointer<ByteVar>())
+public actual fun tryEnterCriticalSection(lpcriticalsection: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_tryEnterCriticalSection(lpcriticalsection?.value?.toCPointer<ByteVar>())
 
-public actual fun TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: Long, pcbe: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(pfns.toLong().toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pcbe.toCPointer<ByteVar>())
+public actual fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(0L.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pcbe?.value?.toCPointer<ByteVar>())
 
-public actual fun UmsThreadYield(schedulerparam: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_UmsThreadYield(schedulerparam.toCPointer<ByteVar>())
+public actual fun umsThreadYield(schedulerparam: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_umsThreadYield(schedulerparam?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterWait(waithandle: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_UnregisterWait(waithandle.toCPointer<ByteVar>())
+public actual fun unregisterWait(waithandle: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_unregisterWait(waithandle?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterWaitEx(waithandle: HANDLE, completionevent: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_UnregisterWaitEx(waithandle.toCPointer<ByteVar>(), completionevent.toCPointer<ByteVar>())
+public actual fun unregisterWaitEx(waithandle: Handle, completionevent: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_unregisterWaitEx(waithandle?.value?.toCPointer<ByteVar>(), completionevent?.value?.toCPointer<ByteVar>())
 
-public actual fun UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: UInt, attribute: ULong, lpvalue: Long, cbsize: ULong, lppreviousvalue: Long, lpreturnsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(lpattributelist.toCPointer<ByteVar>(), dwflags, attribute, lpvalue.toCPointer<ByteVar>(), cbsize, lppreviousvalue.toCPointer<ByteVar>(), lpreturnsize.toCPointer<ByteVar>())
+public actual fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: COpaquePointer?, cbsize: ULong, lppreviousvalue: COpaquePointer?, lpreturnsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_updateProcThreadAttribute(lpattributelist?.value?.toCPointer<ByteVar>(), dwflags, attribute, lpvalue?.value?.toCPointer<ByteVar>(), cbsize, lppreviousvalue?.value?.toCPointer<ByteVar>(), lpreturnsize?.value?.toCPointer<ByteVar>())
 
-public actual fun WaitForInputIdle(hprocess: HANDLE, dwmilliseconds: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForInputIdle(hprocess.toCPointer<ByteVar>(), dwmilliseconds)
+public actual fun waitForInputIdle(hprocess: Handle, dwmilliseconds: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForInputIdle(hprocess?.value?.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): WAIT_EVENT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForMultipleObjects(ncount, lphandles.toCPointer<ByteVar>(), bwaitall, dwmilliseconds)
+public actual fun waitForMultipleObjects(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForMultipleObjects(ncount, lphandles?.value?.toCPointer<ByteVar>(), bwaitall, dwmilliseconds)
 
-public actual fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(ncount, lphandles.toCPointer<ByteVar>(), bwaitall, dwmilliseconds, balertable)
+public actual fun waitForMultipleObjectsEx(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(ncount, lphandles?.value?.toCPointer<ByteVar>(), bwaitall, dwmilliseconds, balertable)
 
-public actual fun WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: UInt): WAIT_EVENT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForSingleObject(hhandle.toCPointer<ByteVar>(), dwmilliseconds)
+public actual fun waitForSingleObject(hhandle: Handle, dwmilliseconds: UInt): WaitEvent =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForSingleObject(hhandle?.value?.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun WaitForSingleObjectEx(hhandle: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForSingleObjectEx(hhandle.toCPointer<ByteVar>(), dwmilliseconds, balertable)
+public actual fun waitForSingleObjectEx(hhandle: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForSingleObjectEx(hhandle?.value?.toCPointer<ByteVar>(), dwmilliseconds, balertable)
 
-public actual fun WaitForThreadpoolIoCallbacks(pio: PTP_IO, fcancelpendingcallbacks: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(pio, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolIoCallbacks(pio: PtpIo, fcancelpendingcallbacks: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(pio, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolTimerCallbacks(pti: PTP_TIMER, fcancelpendingcallbacks: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(pti, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolTimerCallbacks(pti: PtpTimer, fcancelpendingcallbacks: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(pti, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolWaitCallbacks(pwa: PTP_WAIT, fcancelpendingcallbacks: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(pwa, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolWaitCallbacks(pwa: PtpWait, fcancelpendingcallbacks: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(pwa, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolWorkCallbacks(pwk: PTP_WORK, fcancelpendingcallbacks: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(pwk, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolWorkCallbacks(pwk: PtpWork, fcancelpendingcallbacks: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(pwk, fcancelpendingcallbacks)
 }
 
-public actual fun WaitOnAddress(address: Long, compareaddress: Long, addresssize: ULong, dwmilliseconds: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WaitOnAddress(address.toCPointer<ByteVar>(), compareaddress.toCPointer<ByteVar>(), addresssize, dwmilliseconds)
+public actual fun waitOnAddress(address: COpaquePointer?, compareaddress: COpaquePointer?, addresssize: ULong, dwmilliseconds: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_waitOnAddress(address?.value?.toCPointer<ByteVar>(), compareaddress?.value?.toCPointer<ByteVar>(), addresssize, dwmilliseconds)
 
-public actual fun WakeAllConditionVariable(conditionvariable: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WakeAllConditionVariable(conditionvariable.toCPointer<ByteVar>())
+public actual fun wakeAllConditionVariable(conditionvariable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wakeAllConditionVariable(conditionvariable?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WakeByAddressAll(address: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WakeByAddressAll(address.toCPointer<ByteVar>())
+public actual fun wakeByAddressAll(address: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wakeByAddressAll(address?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WakeByAddressSingle(address: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WakeByAddressSingle(address.toCPointer<ByteVar>())
+public actual fun wakeByAddressSingle(address: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wakeByAddressSingle(address?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WakeConditionVariable(conditionvariable: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WakeConditionVariable(conditionvariable.toCPointer<ByteVar>())
+public actual fun wakeConditionVariable(conditionvariable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wakeConditionVariable(conditionvariable?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinExec(lpcmdline: PCSTR, ucmdshow: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_WinExec(lpcmdline.toCPointer<ByteVar>(), ucmdshow)
+public actual fun winExec(lpcmdline: Pcstr, ucmdshow: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_winExec(lpcmdline?.value?.toCPointer<ByteVar>(), ucmdshow)
 
-public actual fun Wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine(machine)
+public actual fun wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(machine)
 
-public actual fun Wow64SuspendThread(hthread: HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_Wow64SuspendThread(hthread.toCPointer<ByteVar>())
+public actual fun wow64SuspendThread(hthread: Handle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.threading.cinterop.windowssys_windows_win32_system_threading_wow64SuspendThread(hthread?.value?.toCPointer<ByteVar>())

@@ -2,2437 +2,2704 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_FS_NOTIFICATION
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KSPIN_LOCK_QUEUE_NUMBER
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.OBJECT_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PETHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKTHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PNOTIFY_SYNC
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POBJECT_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PRKPROCESS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
-import io.github.kotlinmania.windowssys.windows.win32.security.AUDIT_EVENT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.WELL_KNOWN_SID_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SEC_GET_KEY_FN
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ACCESS_RIGHTS
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_SHARE_MODE
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EVENT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.STRING
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WAIT_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverFsNotification
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KspinLockQueueNumber
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectInformationClass
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pkthread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PnotifySync
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PobjectType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Prkprocess
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersonationLevel
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenType
+import io.github.kotlinmania.windowssys.windows.win32.security.WellKnownSidType
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecGetKeyFn
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileAccessRights
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileShareMode
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
 
 private val _windowsWdkStorageFilesystemNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ApplyControlToken(phcontext: Long, pinput: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ApplyControlToken(phcontext.toString(), pinput.toString()) as Int) else 0
+public actual fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_applyControlToken((phcontext?.value ?: 0L).toString(), (pinput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcAsyncCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: PETHREAD, asyncreadcontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, buffer.toString(), iostatus.toString(), ioissuerthread.toString(), asyncreadcontext.toString()) as Boolean) else false
+public actual fun ccAsyncCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread, asyncreadcontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), ioissuerthread.toString(), (asyncreadcontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCanIWrite(fileobject: Long, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCanIWrite(fileobject.toString(), bytestowrite.toInt(), wait, retrying.toInt()) as Boolean) else false
+public actual fun ccCanIWrite(fileobject: COpaquePointer?, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCanIWrite((fileobject?.value ?: 0L).toString(), bytestowrite.toInt(), wait, retrying.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCoherencyFlushAndPurgeCache(sectionobjectpointer: Long, fileoffset: Long, length: UInt, iostatus: Long, flags: UInt) {
+public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?, flags: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache(sectionobjectpointer.toString(), fileoffset.toString(), length.toInt(), iostatus.toString(), flags.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache((sectionobjectpointer?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), (iostatus?.value ?: 0L).toString(), flags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCopyRead(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, buffer.toString(), iostatus.toString()) as Boolean) else false
+public actual fun ccCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCopyRead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCopyReadEx(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: PETHREAD): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCopyReadEx(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, buffer.toString(), iostatus.toString(), ioissuerthread.toString()) as Boolean) else false
+public actual fun ccCopyReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCopyReadEx((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), ioissuerthread.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCopyWrite(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCopyWrite(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, buffer.toString()) as Boolean) else false
+public actual fun ccCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCopyWrite((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, (buffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCopyWriteEx(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, ioissuerthread: PETHREAD): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, buffer.toString(), ioissuerthread.toString()) as Boolean) else false
+public actual fun ccCopyWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, ioissuerthread: Pethread): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, (buffer?.value ?: 0L).toString(), ioissuerthread.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcCopyWriteWontFlush(fileobject: Long, fileoffset: Long, length: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush(fileobject.toString(), fileoffset.toString(), length.toInt()) as Boolean) else false
+public actual fun ccCopyWriteWontFlush(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcDeferWrite(fileobject: Long, postroutine: PCC_POST_DEFERRED_WRITE, context1: Long, context2: Long, bytestowrite: UInt, retrying: Boolean) {
+public actual fun ccDeferWrite(fileobject: COpaquePointer?, postroutine: PccPostDeferredWrite, context1: COpaquePointer?, context2: COpaquePointer?, bytestowrite: UInt, retrying: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcDeferWrite(fileobject.toString(), postroutine.toLong().toString(), context1.toString(), context2.toString(), bytestowrite.toInt(), retrying)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccDeferWrite((fileobject?.value ?: 0L).toString(), 0L.toString(), (context1?.value ?: 0L).toString(), (context2?.value ?: 0L).toString(), bytestowrite.toInt(), retrying)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcErrorCallbackRoutine(context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine(context.toString()) as Int) else 0
+public actual fun ccErrorCallbackRoutine(context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine((context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcFastCopyRead(fileobject: Long, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: Long, iostatus: Long) {
+public actual fun ccFastCopyRead(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcFastCopyRead(fileobject.toString(), fileoffset.toInt(), length.toInt(), pagecount.toInt(), buffer.toString(), iostatus.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccFastCopyRead((fileobject?.value ?: 0L).toString(), fileoffset.toInt(), length.toInt(), pagecount.toInt(), (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcFastCopyWrite(fileobject: Long, fileoffset: UInt, length: UInt, buffer: Long) {
+public actual fun ccFastCopyWrite(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, buffer: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite(fileobject.toString(), fileoffset.toInt(), length.toInt(), buffer.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite((fileobject?.value ?: 0L).toString(), fileoffset.toInt(), length.toInt(), (buffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcFlushCache(sectionobjectpointer: Long, fileoffset: Long, length: UInt, iostatus: Long) {
+public actual fun ccFlushCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcFlushCache(sectionobjectpointer.toString(), fileoffset.toString(), length.toInt(), iostatus.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccFlushCache((sectionobjectpointer?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), (iostatus?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcGetDirtyPages(loghandle: Long, dirtypageroutine: PDIRTY_PAGE_ROUTINE, context1: Long, context2: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages(loghandle.toString(), dirtypageroutine.toLong().toString(), context1.toString(), context2.toString()) as String).toLong() else 0L
+public actual fun ccGetDirtyPages(loghandle: COpaquePointer?, dirtypageroutine: PdirtyPageRoutine, context1: COpaquePointer?, context2: COpaquePointer?): Long =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages((loghandle?.value ?: 0L).toString(), 0L.toString(), (context1?.value ?: 0L).toString(), (context2?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcGetFileObjectFromBcb(bcb: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb(bcb.toString()) as String).toLong() else 0L
+public actual fun ccGetFileObjectFromBcb(bcb: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb((bcb?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcGetFileObjectFromSectionPtrs(sectionobjectpointer: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs(sectionobjectpointer.toString()) as String).toLong() else 0L
+public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs((sectionobjectpointer?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcGetFileObjectFromSectionPtrsRef(sectionobjectpointer: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef(sectionobjectpointer.toString()) as String).toLong() else 0L
+public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef((sectionobjectpointer?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcGetFlushedValidData(sectionobjectpointer: Long, bcblistheld: Boolean): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData(sectionobjectpointer.toString(), bcblistheld) as String).toLong() else 0L
+public actual fun ccGetFlushedValidData(sectionobjectpointer: COpaquePointer?, bcblistheld: Boolean): Long =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData((sectionobjectpointer?.value ?: 0L).toString(), bcblistheld) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcInitializeCacheMap(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long) {
+public actual fun ccInitializeCacheMap(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap(fileobject.toString(), filesizes.toString(), pinaccess, callbacks.toString(), lazywritecontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap((fileobject?.value ?: 0L).toString(), (filesizes?.value ?: 0L).toString(), pinaccess, (callbacks?.value ?: 0L).toString(), (lazywritecontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcInitializeCacheMapEx(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long, flags: UInt) {
+public actual fun ccInitializeCacheMapEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?, flags: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx(fileobject.toString(), filesizes.toString(), pinaccess, callbacks.toString(), lazywritecontext.toString(), flags.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx((fileobject?.value ?: 0L).toString(), (filesizes?.value ?: 0L).toString(), pinaccess, (callbacks?.value ?: 0L).toString(), (lazywritecontext?.value ?: 0L).toString(), flags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcIsCacheManagerCallbackNeeded(status: NTSTATUS): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded(status) as Boolean) else false
+public actual fun ccIsCacheManagerCallbackNeeded(status: Ntstatus): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded(status) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcIsThereDirtyData(vpb: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData(vpb.toString()) as Boolean) else false
+public actual fun ccIsThereDirtyData(vpb: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData((vpb?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcIsThereDirtyDataEx(vpb: Long, numberofdirtypages: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx(vpb.toString(), numberofdirtypages.toString()) as Boolean) else false
+public actual fun ccIsThereDirtyDataEx(vpb: COpaquePointer?, numberofdirtypages: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx((vpb?.value ?: 0L).toString(), (numberofdirtypages?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcMapData(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcMapData(fileobject.toString(), fileoffset.toString(), length.toInt(), flags.toInt(), bcb.toString(), buffer.toString()) as Boolean) else false
+public actual fun ccMapData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccMapData((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), flags.toInt(), (bcb?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcMdlRead(fileobject: Long, fileoffset: Long, length: UInt, mdlchain: Long, iostatus: Long) {
+public actual fun ccMdlRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcMdlRead(fileobject.toString(), fileoffset.toString(), length.toInt(), mdlchain.toString(), iostatus.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccMdlRead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcMdlReadComplete(fileobject: Long, mdlchain: Long) {
+public actual fun ccMdlReadComplete(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete(fileobject.toString(), mdlchain.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete((fileobject?.value ?: 0L).toString(), (mdlchain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcMdlWriteAbort(fileobject: Long, mdlchain: Long) {
+public actual fun ccMdlWriteAbort(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort(fileobject.toString(), mdlchain.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort((fileobject?.value ?: 0L).toString(), (mdlchain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcMdlWriteComplete(fileobject: Long, fileoffset: Long, mdlchain: Long) {
+public actual fun ccMdlWriteComplete(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete(fileobject.toString(), fileoffset.toString(), mdlchain.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), (mdlchain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcPinMappedData(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcPinMappedData(fileobject.toString(), fileoffset.toString(), length.toInt(), flags.toInt(), bcb.toString()) as Boolean) else false
+public actual fun ccPinMappedData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccPinMappedData((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), flags.toInt(), (bcb?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcPinRead(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcPinRead(fileobject.toString(), fileoffset.toString(), length.toInt(), flags.toInt(), bcb.toString(), buffer.toString()) as Boolean) else false
+public actual fun ccPinRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccPinRead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), flags.toInt(), (bcb?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcPrepareMdlWrite(fileobject: Long, fileoffset: Long, length: UInt, mdlchain: Long, iostatus: Long) {
+public actual fun ccPrepareMdlWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite(fileobject.toString(), fileoffset.toString(), length.toInt(), mdlchain.toString(), iostatus.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcPreparePinWrite(fileobject: Long, fileoffset: Long, length: UInt, zero: Boolean, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite(fileobject.toString(), fileoffset.toString(), length.toInt(), zero, flags.toInt(), bcb.toString(), buffer.toString()) as Boolean) else false
+public actual fun ccPreparePinWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, zero: Boolean, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), zero, flags.toInt(), (bcb?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcPurgeCacheSection(sectionobjectpointer: Long, fileoffset: Long, length: UInt, flags: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection(sectionobjectpointer.toString(), fileoffset.toString(), length.toInt(), flags.toInt()) as Boolean) else false
+public actual fun ccPurgeCacheSection(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection((sectionobjectpointer?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), flags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcRemapBcb(bcb: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcRemapBcb(bcb.toString()) as String).toLong() else 0L
+public actual fun ccRemapBcb(bcb: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccRemapBcb((bcb?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcRepinBcb(bcb: Long) {
+public actual fun ccRepinBcb(bcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcRepinBcb(bcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccRepinBcb((bcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcScheduleReadAhead(fileobject: Long, fileoffset: Long, length: UInt) {
+public actual fun ccScheduleReadAhead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead(fileobject.toString(), fileoffset.toString(), length.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcScheduleReadAheadEx(fileobject: Long, fileoffset: Long, length: UInt, ioissuerthread: PETHREAD) {
+public actual fun ccScheduleReadAheadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, ioissuerthread: Pethread) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx(fileobject.toString(), fileoffset.toString(), length.toInt(), ioissuerthread.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), ioissuerthread.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetAdditionalCacheAttributes(fileobject: Long, disablereadahead: Boolean, disablewritebehind: Boolean) {
+public actual fun ccSetAdditionalCacheAttributes(fileobject: COpaquePointer?, disablereadahead: Boolean, disablewritebehind: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes(fileobject.toString(), disablereadahead, disablewritebehind)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes((fileobject?.value ?: 0L).toString(), disablereadahead, disablewritebehind)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetAdditionalCacheAttributesEx(fileobject: Long, flags: UInt) {
+public actual fun ccSetAdditionalCacheAttributesEx(fileobject: COpaquePointer?, flags: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx(fileobject.toString(), flags.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx((fileobject?.value ?: 0L).toString(), flags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetBcbOwnerPointer(bcb: Long, ownerpointer: Long) {
+public actual fun ccSetBcbOwnerPointer(bcb: COpaquePointer?, ownerpointer: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer(bcb.toString(), ownerpointer.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer((bcb?.value ?: 0L).toString(), (ownerpointer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetDirtyPageThreshold(fileobject: Long, dirtypagethreshold: UInt) {
+public actual fun ccSetDirtyPageThreshold(fileobject: COpaquePointer?, dirtypagethreshold: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold(fileobject.toString(), dirtypagethreshold.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold((fileobject?.value ?: 0L).toString(), dirtypagethreshold.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetDirtyPinnedData(bcbvoid: Long, lsn: Long) {
+public actual fun ccSetDirtyPinnedData(bcbvoid: COpaquePointer?, lsn: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData(bcbvoid.toString(), lsn.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData((bcbvoid?.value ?: 0L).toString(), (lsn?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetFileSizes(fileobject: Long, filesizes: Long) {
+public actual fun ccSetFileSizes(fileobject: COpaquePointer?, filesizes: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetFileSizes(fileobject.toString(), filesizes.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetFileSizes((fileobject?.value ?: 0L).toString(), (filesizes?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetFileSizesEx(fileobject: Long, filesizes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx(fileobject.toString(), filesizes.toString()) as Int) else 0
+public actual fun ccSetFileSizesEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx((fileobject?.value ?: 0L).toString(), (filesizes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcSetLogHandleForFile(fileobject: Long, loghandle: Long, flushtolsnroutine: PFLUSH_TO_LSN) {
+public actual fun ccSetLogHandleForFile(fileobject: COpaquePointer?, loghandle: COpaquePointer?, flushtolsnroutine: PflushToLsn) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile(fileobject.toString(), loghandle.toString(), flushtolsnroutine.toLong().toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile((fileobject?.value ?: 0L).toString(), (loghandle?.value ?: 0L).toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetParallelFlushFile(fileobject: Long, enableparallelflush: Boolean) {
+public actual fun ccSetParallelFlushFile(fileobject: COpaquePointer?, enableparallelflush: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile(fileobject.toString(), enableparallelflush)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile((fileobject?.value ?: 0L).toString(), enableparallelflush)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcSetReadAheadGranularity(fileobject: Long, granularity: UInt) {
+public actual fun ccSetReadAheadGranularity(fileobject: COpaquePointer?, granularity: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity(fileobject.toString(), granularity.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity((fileobject?.value ?: 0L).toString(), granularity.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcUninitializeCacheMap(fileobject: Long, truncatesize: Long, uninitializeevent: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap(fileobject.toString(), truncatesize.toString(), uninitializeevent.toString()) as Boolean) else false
+public actual fun ccUninitializeCacheMap(fileobject: COpaquePointer?, truncatesize: COpaquePointer?, uninitializeevent: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap((fileobject?.value ?: 0L).toString(), (truncatesize?.value ?: 0L).toString(), (uninitializeevent?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcUnpinData(bcb: Long) {
+public actual fun ccUnpinData(bcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcUnpinData(bcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccUnpinData((bcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcUnpinDataForThread(bcb: Long, resourcethreadid: ULong) {
+public actual fun ccUnpinDataForThread(bcb: COpaquePointer?, resourcethreadid: ULong) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread(bcb.toString(), resourcethreadid.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread((bcb?.value ?: 0L).toString(), resourcethreadid.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcUnpinRepinnedBcb(bcb: Long, writethrough: Boolean, iostatus: Long) {
+public actual fun ccUnpinRepinnedBcb(bcb: COpaquePointer?, writethrough: Boolean, iostatus: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb(bcb.toString(), writethrough, iostatus.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb((bcb?.value ?: 0L).toString(), writethrough, (iostatus?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CcWaitForCurrentLazyWriterActivity(): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity() as Int) else 0
+public actual fun ccWaitForCurrentLazyWriterActivity(): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CcZeroData(fileobject: Long, startoffset: Long, endoffset: Long, wait: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CcZeroData(fileobject.toString(), startoffset.toString(), endoffset.toString(), wait) as Boolean) else false
+public actual fun ccZeroData(fileobject: COpaquePointer?, startoffset: COpaquePointer?, endoffset: COpaquePointer?, wait: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ccZeroData((fileobject?.value ?: 0L).toString(), (startoffset?.value ?: 0L).toString(), (endoffset?.value ?: 0L).toString(), wait) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompleteAuthToken(phcontext: Long, ptoken: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_CompleteAuthToken(phcontext.toString(), ptoken.toString()) as Int) else 0
+public actual fun completeAuthToken(phcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_completeAuthToken((phcontext?.value ?: 0L).toString(), (ptoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExDisableResourceBoostLite(resource: Long) {
+public actual fun exDisableResourceBoostLite(resource: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite(resource.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite((resource?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ExQueryPoolBlockSize(poolblock: Long, quotacharged: Long): ULong =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize(poolblock.toString(), quotacharged.toString()) as String).toULong() else 0uL
+public actual fun exQueryPoolBlockSize(poolblock: COpaquePointer?, quotacharged: COpaquePointer?): ULong =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize((poolblock?.value ?: 0L).toString(), (quotacharged?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExportSecurityContext(phcontext: Long, fflags: UInt, ppackedcontext: Long, ptoken: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ExportSecurityContext(phcontext.toString(), fflags.toInt(), ppackedcontext.toString(), ptoken.toString()) as Int) else 0
+public actual fun exportSecurityContext(phcontext: COpaquePointer?, fflags: UInt, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_exportSecurityContext((phcontext?.value ?: 0L).toString(), fflags.toInt(), (ppackedcontext?.value ?: 0L).toString(), (ptoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAcknowledgeEcp(ecpcontext: Long) {
+public actual fun fsRtlAcknowledgeEcp(ecpcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp(ecpcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp((ecpcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlAcquireFileExclusive(fileobject: Long) {
+public actual fun fsRtlAcquireFileExclusive(fileobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive(fileobject.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive((fileobject?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlAddBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry(mcb.toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlAddBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAddBaseMcbEntryEx(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx(mcb.toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Int) else 0
+public actual fun fsRtlAddBaseMcbEntryEx(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx((mcb?.value ?: 0L).toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAddLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry(mcb.toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlAddLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAddMcbEntry(mcb: Long, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry(mcb.toString(), vbn.toInt(), lbn.toInt(), sectorcount.toInt()) as Boolean) else false
+public actual fun fsRtlAddMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry((mcb?.value ?: 0L).toString(), vbn.toInt(), lbn.toInt(), sectorcount.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAddToTunnelCache(cache: Long, directorykey: ULong, shortname: Long, longname: Long, keybyshortname: Boolean, datalength: UInt, data: Long) {
+public actual fun fsRtlAddToTunnelCache(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, keybyshortname: Boolean, datalength: UInt, data: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache(cache.toString(), directorykey.toString(), shortname.toString(), longname.toString(), keybyshortname, datalength.toInt(), data.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache((cache?.value ?: 0L).toString(), directorykey.toString(), (shortname?.value ?: 0L).toString(), (longname?.value ?: 0L).toString(), keybyshortname, datalength.toInt(), (data?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlAddToTunnelCacheEx(cache: Long, directorykey: ULong, shortname: Long, longname: Long, flags: UInt, datalength: UInt, data: Long) {
+public actual fun fsRtlAddToTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: UInt, data: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx(cache.toString(), directorykey.toString(), shortname.toString(), longname.toString(), flags.toInt(), datalength.toInt(), data.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx((cache?.value ?: 0L).toString(), directorykey.toString(), (shortname?.value ?: 0L).toString(), (longname?.value ?: 0L).toString(), flags.toInt(), datalength.toInt(), (data?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlAllocateAePushLock(pooltype: POOL_TYPE, tag: UInt): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock(pooltype, tag.toInt()) as String).toLong() else 0L
+public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock(pooltype, tag.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAllocateExtraCreateParameter(ecptype: Long, sizeofcontext: UInt, flags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, pooltag: UInt, ecpcontext: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter(ecptype.toString(), sizeofcontext.toInt(), flags.toInt(), cleanupcallback.toLong().toString(), pooltag.toInt(), ecpcontext.toString()) as Int) else 0
+public actual fun fsRtlAllocateExtraCreateParameter(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter((ecptype?.value ?: 0L).toString(), sizeofcontext.toInt(), flags.toInt(), 0L.toString(), pooltag.toInt(), (ecpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: Long, sizeofcontext: UInt, flags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, lookasidelist: Long, ecpcontext: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList(ecptype.toString(), sizeofcontext.toInt(), flags.toInt(), cleanupcallback.toLong().toString(), lookasidelist.toString(), ecpcontext.toString()) as Int) else 0
+public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList((ecptype?.value ?: 0L).toString(), sizeofcontext.toInt(), flags.toInt(), 0L.toString(), (lookasidelist?.value ?: 0L).toString(), (ecpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList(flags.toInt(), ecplist.toString()) as Int) else 0
+public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList(flags.toInt(), (ecplist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAllocateFileLock(completelockirproutine: PCOMPLETE_LOCK_IRP_ROUTINE, unlockroutine: PUNLOCK_ROUTINE): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock(completelockirproutine.toLong().toString(), unlockroutine.toLong().toString()) as String).toLong() else 0L
+public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock(0L.toString(), 0L.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAllocateResource(): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource() as String).toLong() else 0L
+public actual fun fsRtlAllocateResource(): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAreNamesEqual(constantnamea: Long, constantnameb: Long, ignorecase: Boolean, upcasetable: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual(constantnamea.toString(), constantnameb.toString(), ignorecase, upcasetable.toString()) as Boolean) else false
+public actual fun fsRtlAreNamesEqual(constantnamea: COpaquePointer?, constantnameb: COpaquePointer?, ignorecase: Boolean, upcasetable: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual((constantnamea?.value ?: 0L).toString(), (constantnameb?.value ?: 0L).toString(), ignorecase, (upcasetable?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAreThereCurrentOrInProgressFileLocks(filelock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks(filelock.toString()) as Boolean) else false
+public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks((filelock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAreThereWaitingFileLocks(filelock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks(filelock.toString()) as Boolean) else false
+public actual fun fsRtlAreThereWaitingFileLocks(filelock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks((filelock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlAreVolumeStartupApplicationsComplete(): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete() as Boolean) else false
+public actual fun fsRtlAreVolumeStartupApplicationsComplete(): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete() as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlBalanceReads(targetdevice: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads(targetdevice.toString()) as Int) else 0
+public actual fun fsRtlBalanceReads(targetdevice: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads((targetdevice?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: Long, waittype: WAIT_TYPE, timeout: Long, waitblockarray: Long, irp: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects(count.toInt(), objectarray.toString(), waittype, timeout.toString(), waitblockarray.toString(), irp.toString()) as Int) else 0
+public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: COpaquePointer?, waittype: WaitType, timeout: COpaquePointer?, waitblockarray: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects(count.toInt(), (objectarray?.value ?: 0L).toString(), waittype, (timeout?.value ?: 0L).toString(), (waitblockarray?.value ?: 0L).toString(), (irp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCancellableWaitForSingleObject(obj: Long, timeout: Long, irp: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject(obj.toString(), timeout.toString(), irp.toString()) as Int) else 0
+public actual fun fsRtlCancellableWaitForSingleObject(obj: COpaquePointer?, timeout: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject((obj?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (irp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlChangeBackingFileObject(currentfileobject: Long, newfileobject: Long, changebackingtype: FSRTL_CHANGE_BACKING_TYPE, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject(currentfileobject.toString(), newfileobject.toString(), changebackingtype, flags.toInt()) as Int) else 0
+public actual fun fsRtlChangeBackingFileObject(currentfileobject: COpaquePointer?, newfileobject: COpaquePointer?, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject((currentfileobject?.value ?: 0L).toString(), (newfileobject?.value ?: 0L).toString(), changebackingtype, flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckLockForOplockRequest(filelock: Long, allocationsize: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest(filelock.toString(), allocationsize.toString()) as Boolean) else false
+public actual fun fsRtlCheckLockForOplockRequest(filelock: COpaquePointer?, allocationsize: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest((filelock?.value ?: 0L).toString(), (allocationsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckLockForReadAccess(filelock: Long, irp: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess(filelock.toString(), irp.toString()) as Boolean) else false
+public actual fun fsRtlCheckLockForReadAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess((filelock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckLockForWriteAccess(filelock: Long, irp: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess(filelock.toString(), irp.toString()) as Boolean) else false
+public actual fun fsRtlCheckLockForWriteAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess((filelock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckOplock(oplock: Long, irp: Long, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock(oplock.toString(), irp.toString(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlCheckOplock(oplock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckOplockEx(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx(oplock.toString(), irp.toString(), flags.toInt(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlCheckOplockEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), flags.toInt(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckOplockEx2(oplock: Long, irp: Long, flags: UInt, flagsex2: UInt, completionroutinecontext: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP, timeout: ULong, notifycontext: Long, notifyroutine: POPLOCK_NOTIFY_ROUTINE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2(oplock.toString(), irp.toString(), flags.toInt(), flagsex2.toInt(), completionroutinecontext.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString(), timeout.toString(), notifycontext.toString(), notifyroutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlCheckOplockEx2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, flagsex2: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: COpaquePointer?, notifyroutine: PoplockNotifyRoutine): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), flags.toInt(), flagsex2.toInt(), (completionroutinecontext?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), timeout.toString(), (notifycontext?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCheckUpperOplock(oplock: Long, newloweroplockstate: UInt, completionroutinecontext: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, prependroutine: POPLOCK_FS_PREPOST_IRP, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock(oplock.toString(), newloweroplockstate.toInt(), completionroutinecontext.toString(), completionroutine.toLong().toString(), prependroutine.toLong().toString(), flags.toInt()) as Int) else 0
+public actual fun fsRtlCheckUpperOplock(oplock: COpaquePointer?, newloweroplockstate: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock((oplock?.value ?: 0L).toString(), newloweroplockstate.toInt(), (completionroutinecontext?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, lockkey.toInt(), buffer.toString(), iostatus.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, lockkey.toInt(), (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCopyWrite(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite(fileobject.toString(), fileoffset.toString(), length.toInt(), wait, lockkey.toInt(), buffer.toString(), iostatus.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), wait, lockkey.toInt(), (buffer?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCreateSectionForDataScan(sectionhandle: Long, sectionobject: Long, sectionfilesize: Long, fileobject: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan(sectionhandle.toString(), sectionobject.toString(), sectionfilesize.toString(), fileobject.toString(), desiredaccess.toInt(), objectattributes.toString(), maximumsize.toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt()) as Int) else 0
+public actual fun fsRtlCreateSectionForDataScan(sectionhandle: COpaquePointer?, sectionobject: COpaquePointer?, sectionfilesize: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan((sectionhandle?.value ?: 0L).toString(), (sectionobject?.value ?: 0L).toString(), (sectionfilesize?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (maximumsize?.value ?: 0L).toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCurrentBatchOplock(oplock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock(oplock.toString()) as Boolean) else false
+public actual fun fsRtlCurrentBatchOplock(oplock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock((oplock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCurrentOplock(oplock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock(oplock.toString()) as Boolean) else false
+public actual fun fsRtlCurrentOplock(oplock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock((oplock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlCurrentOplockH(oplock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH(oplock.toString()) as Boolean) else false
+public actual fun fsRtlCurrentOplockH(oplock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH((oplock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlDeleteExtraCreateParameterLookasideList(lookaside: Long, flags: UInt) {
+public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList(lookaside.toString(), flags.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList((lookaside?.value ?: 0L).toString(), flags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlDeleteKeyFromTunnelCache(cache: Long, directorykey: ULong) {
+public actual fun fsRtlDeleteKeyFromTunnelCache(cache: COpaquePointer?, directorykey: ULong) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache(cache.toString(), directorykey.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache((cache?.value ?: 0L).toString(), directorykey.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlDeleteTunnelCache(cache: Long) {
+public actual fun fsRtlDeleteTunnelCache(cache: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache(cache.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache((cache?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlDeregisterUncProvider(handle: HANDLE) {
+public actual fun fsRtlDeregisterUncProvider(handle: Handle) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider(handle.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider((handle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlDismountComplete(deviceobject: Long, dismountstatus: NTSTATUS) {
+public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismountstatus: Ntstatus) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete(deviceobject.toString(), dismountstatus)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete((deviceobject?.value ?: 0L).toString(), dismountstatus)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlDissectDbcs(path: STRING, firstname: Long, remainingname: Long) {
+public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+    if (_windowsWdkStorageFilesystemNapiAddon != null) {
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, (firstname?.value ?: 0L).toString(), (remainingname?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun FsRtlDissectName(path: UNICODE_STRING, firstname: Long, remainingname: Long) {
+public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI addon is not available")
 }
 
-public actual fun FsRtlDoesDbcsContainWildCards(name: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards(name.toString()) as Boolean) else false
+public actual fun fsRtlDoesDbcsContainWildCards(name: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards((name?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlDoesNameContainWildCards(name: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards(name.toString()) as Boolean) else false
+public actual fun fsRtlDoesNameContainWildCards(name: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards((name?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFastCheckLockForRead(filelock: Long, startingbyte: Long, length: Long, key: UInt, fileobject: Long, processid: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead(filelock.toString(), startingbyte.toString(), length.toString(), key.toInt(), fileobject.toString(), processid.toString()) as Boolean) else false
+public actual fun fsRtlFastCheckLockForRead(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead((filelock?.value ?: 0L).toString(), (startingbyte?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt(), (fileobject?.value ?: 0L).toString(), (processid?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFastCheckLockForWrite(filelock: Long, startingbyte: Long, length: Long, key: UInt, fileobject: Long, processid: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite(filelock.toString(), startingbyte.toString(), length.toString(), key.toInt(), fileobject.toString(), processid.toString()) as Boolean) else false
+public actual fun fsRtlFastCheckLockForWrite(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite((filelock?.value ?: 0L).toString(), (startingbyte?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt(), (fileobject?.value ?: 0L).toString(), (processid?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFastUnlockAll(filelock: Long, fileobject: Long, processid: PEPROCESS, context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll(filelock.toString(), fileobject.toString(), processid.toString(), context.toString()) as Int) else 0
+public actual fun fsRtlFastUnlockAll(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll((filelock?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), processid.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFastUnlockAllByKey(filelock: Long, fileobject: Long, processid: PEPROCESS, key: UInt, context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey(filelock.toString(), fileobject.toString(), processid.toString(), key.toInt(), context.toString()) as Int) else 0
+public actual fun fsRtlFastUnlockAllByKey(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey((filelock?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), processid.toString(), key.toInt(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFastUnlockSingle(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, context: Long, alreadysynchronized: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle(filelock.toString(), fileobject.toString(), fileoffset.toString(), length.toString(), processid.toString(), key.toInt(), context.toString(), alreadysynchronized) as Int) else 0
+public actual fun fsRtlFastUnlockSingle(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?, alreadysynchronized: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle((filelock?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), processid.toString(), key.toInt(), (context?.value ?: 0L).toString(), alreadysynchronized) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFindExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter(ecplist.toString(), ecptype.toString(), ecpcontext.toString(), ecpcontextsize.toString()) as Int) else 0
+public actual fun fsRtlFindExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter((ecplist?.value ?: 0L).toString(), (ecptype?.value ?: 0L).toString(), (ecpcontext?.value ?: 0L).toString(), (ecpcontextsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFindInTunnelCache(cache: Long, directorykey: ULong, name: Long, shortname: Long, longname: Long, datalength: Long, data: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache(cache.toString(), directorykey.toString(), name.toString(), shortname.toString(), longname.toString(), datalength.toString(), data.toString()) as Boolean) else false
+public actual fun fsRtlFindInTunnelCache(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache((cache?.value ?: 0L).toString(), directorykey.toString(), (name?.value ?: 0L).toString(), (shortname?.value ?: 0L).toString(), (longname?.value ?: 0L).toString(), (datalength?.value ?: 0L).toString(), (data?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFindInTunnelCacheEx(cache: Long, directorykey: ULong, name: Long, shortname: Long, longname: Long, flags: UInt, datalength: Long, data: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx(cache.toString(), directorykey.toString(), name.toString(), shortname.toString(), longname.toString(), flags.toInt(), datalength.toString(), data.toString()) as Boolean) else false
+public actual fun fsRtlFindInTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx((cache?.value ?: 0L).toString(), directorykey.toString(), (name?.value ?: 0L).toString(), (shortname?.value ?: 0L).toString(), (longname?.value ?: 0L).toString(), flags.toInt(), (datalength?.value ?: 0L).toString(), (data?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlFreeAePushLock(aepushlock: Long) {
+public actual fun fsRtlFreeAePushLock(aepushlock: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock(aepushlock.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock((aepushlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlFreeExtraCreateParameter(ecpcontext: Long) {
+public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter(ecpcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter((ecpcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlFreeExtraCreateParameterList(ecplist: Long) {
+public actual fun fsRtlFreeExtraCreateParameterList(ecplist: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList(ecplist.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList((ecplist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlFreeFileLock(filelock: Long) {
+public actual fun fsRtlFreeFileLock(filelock: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock(filelock.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock((filelock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlGetCurrentProcessLoaderList(): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList() as String).toLong() else 0L
+public actual fun fsRtlGetCurrentProcessLoaderList(): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetEcpListFromIrp(irp: Long, ecplist: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp(irp.toString(), ecplist.toString()) as Int) else 0
+public actual fun fsRtlGetEcpListFromIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp((irp?.value ?: 0L).toString(), (ecplist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetFileSize(fileobject: Long, filesize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize(fileobject.toString(), filesize.toString()) as Int) else 0
+public actual fun fsRtlGetFileSize(fileobject: COpaquePointer?, filesize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize((fileobject?.value ?: 0L).toString(), (filesize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetNextBaseMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry(mcb.toString(), runindex.toInt(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlGetNextBaseMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry((mcb?.value ?: 0L).toString(), runindex.toInt(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString(), (sectorcount?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetNextExtraCreateParameter(ecplist: Long, currentecpcontext: Long, nextecptype: Long, nextecpcontext: Long, nextecpcontextsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter(ecplist.toString(), currentecpcontext.toString(), nextecptype.toString(), nextecpcontext.toString(), nextecpcontextsize.toString()) as Int) else 0
+public actual fun fsRtlGetNextExtraCreateParameter(ecplist: COpaquePointer?, currentecpcontext: COpaquePointer?, nextecptype: COpaquePointer?, nextecpcontext: COpaquePointer?, nextecpcontextsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter((ecplist?.value ?: 0L).toString(), (currentecpcontext?.value ?: 0L).toString(), (nextecptype?.value ?: 0L).toString(), (nextecpcontext?.value ?: 0L).toString(), (nextecpcontextsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetNextFileLock(filelock: Long, restart: Boolean): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock(filelock.toString(), restart) as String).toLong() else 0L
+public actual fun fsRtlGetNextFileLock(filelock: COpaquePointer?, restart: Boolean): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock((filelock?.value ?: 0L).toString(), restart) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetNextLargeMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry(mcb.toString(), runindex.toInt(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlGetNextLargeMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry((mcb?.value ?: 0L).toString(), runindex.toInt(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString(), (sectorcount?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetNextMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry(mcb.toString(), runindex.toInt(), vbn.toString(), lbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlGetNextMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry((mcb?.value ?: 0L).toString(), runindex.toInt(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString(), (sectorcount?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetSectorSizeInformation(deviceobject: Long, sectorsizeinfo: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation(deviceobject.toString(), sectorsizeinfo.toString()) as Int) else 0
+public actual fun fsRtlGetSectorSizeInformation(deviceobject: COpaquePointer?, sectorsizeinfo: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation((deviceobject?.value ?: 0L).toString(), (sectorsizeinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetSupportedFeatures(deviceobject: Long, supportedfeatures: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures(deviceobject.toString(), supportedfeatures.toString()) as Int) else 0
+public actual fun fsRtlGetSupportedFeatures(deviceobject: COpaquePointer?, supportedfeatures: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures((deviceobject?.value ?: 0L).toString(), (supportedfeatures?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlGetVirtualDiskNestingLevel(deviceobject: Long, nestinglevel: Long, nestingflags: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel(deviceobject.toString(), nestinglevel.toString(), nestingflags.toString()) as Int) else 0
+public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: COpaquePointer?, nestinglevel: COpaquePointer?, nestingflags: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel((deviceobject?.value ?: 0L).toString(), (nestinglevel?.value ?: 0L).toString(), (nestingflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIncrementCcFastMdlReadWait() {
+public actual fun fsRtlIncrementCcFastMdlReadWait() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlIncrementCcFastReadNoWait() {
+public actual fun fsRtlIncrementCcFastReadNoWait() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlIncrementCcFastReadNotPossible() {
+public actual fun fsRtlIncrementCcFastReadNotPossible() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlIncrementCcFastReadResourceMiss() {
+public actual fun fsRtlIncrementCcFastReadResourceMiss() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlIncrementCcFastReadWait() {
+public actual fun fsRtlIncrementCcFastReadWait() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitExtraCreateParameterLookasideList(lookaside: Long, flags: UInt, size: ULong, tag: UInt) {
+public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt, size: ULong, tag: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList(lookaside.toString(), flags.toInt(), size.toString(), tag.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList((lookaside?.value ?: 0L).toString(), flags.toInt(), size.toString(), tag.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeBaseMcb(mcb: Long, pooltype: POOL_TYPE) {
+public actual fun fsRtlInitializeBaseMcb(mcb: COpaquePointer?, pooltype: PoolType) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb(mcb.toString(), pooltype)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb((mcb?.value ?: 0L).toString(), pooltype)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeBaseMcbEx(mcb: Long, pooltype: POOL_TYPE, flags: UShort): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx(mcb.toString(), pooltype, flags.toInt()) as Boolean) else false
+public actual fun fsRtlInitializeBaseMcbEx(mcb: COpaquePointer?, pooltype: PoolType, flags: UShort): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx((mcb?.value ?: 0L).toString(), pooltype, flags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlInitializeExtraCreateParameter(ecp: Long, ecpflags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, totalsize: UInt, ecptype: Long, listallocatedfrom: Long) {
+public actual fun fsRtlInitializeExtraCreateParameter(ecp: COpaquePointer?, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: COpaquePointer?, listallocatedfrom: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter(ecp.toString(), ecpflags.toInt(), cleanupcallback.toLong().toString(), totalsize.toInt(), ecptype.toString(), listallocatedfrom.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter((ecp?.value ?: 0L).toString(), ecpflags.toInt(), 0L.toString(), totalsize.toInt(), (ecptype?.value ?: 0L).toString(), (listallocatedfrom?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeExtraCreateParameterList(ecplist: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList(ecplist.toString()) as Int) else 0
+public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList((ecplist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlInitializeFileLock(filelock: Long, completelockirproutine: PCOMPLETE_LOCK_IRP_ROUTINE, unlockroutine: PUNLOCK_ROUTINE) {
+public actual fun fsRtlInitializeFileLock(filelock: COpaquePointer?, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock(filelock.toString(), completelockirproutine.toLong().toString(), unlockroutine.toLong().toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock((filelock?.value ?: 0L).toString(), 0L.toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeLargeMcb(mcb: Long, pooltype: POOL_TYPE) {
+public actual fun fsRtlInitializeLargeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb(mcb.toString(), pooltype)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb((mcb?.value ?: 0L).toString(), pooltype)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeMcb(mcb: Long, pooltype: POOL_TYPE) {
+public actual fun fsRtlInitializeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb(mcb.toString(), pooltype)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb((mcb?.value ?: 0L).toString(), pooltype)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeOplock(oplock: Long) {
+public actual fun fsRtlInitializeOplock(oplock: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock(oplock.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock((oplock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInitializeTunnelCache(cache: Long) {
+public actual fun fsRtlInitializeTunnelCache(cache: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache(cache.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache((cache?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlInsertExtraCreateParameter(ecplist: Long, ecpcontext: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter(ecplist.toString(), ecpcontext.toString()) as Int) else 0
+public actual fun fsRtlInsertExtraCreateParameter(ecplist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter((ecplist?.value ?: 0L).toString(), (ecpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlInsertPerFileContext(perfilecontextpointer: Long, ptr: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext(perfilecontextpointer.toString(), ptr.toString()) as Int) else 0
+public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext((perfilecontextpointer?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlInsertPerFileObjectContext(fileobject: Long, ptr: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext(fileobject.toString(), ptr.toString()) as Int) else 0
+public actual fun fsRtlInsertPerFileObjectContext(fileobject: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext((fileobject?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlInsertPerStreamContext(perstreamcontext: Long, ptr: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext(perstreamcontext.toString(), ptr.toString()) as Int) else 0
+public actual fun fsRtlInsertPerStreamContext(perstreamcontext: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext((perstreamcontext?.value ?: 0L).toString(), (ptr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIs32BitProcess(process: PEPROCESS): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess(process.toString()) as Boolean) else false
+public actual fun fsRtlIs32BitProcess(process: Peprocess): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess(process.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsDaxVolume(fileobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume(fileobject.toString()) as Boolean) else false
+public actual fun fsRtlIsDaxVolume(fileobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume((fileobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsDbcsInExpression(expression: Long, name: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression(expression.toString(), name.toString()) as Boolean) else false
+public actual fun fsRtlIsDbcsInExpression(expression: COpaquePointer?, name: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression((expression?.value ?: 0L).toString(), (name?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsEcpAcknowledged(ecpcontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged(ecpcontext.toString()) as Boolean) else false
+public actual fun fsRtlIsEcpAcknowledged(ecpcontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged((ecpcontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsEcpFromUserMode(ecpcontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode(ecpcontext.toString()) as Boolean) else false
+public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode((ecpcontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsFatDbcsLegal(dbcsname: STRING, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    false
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsHpfsDbcsLegal(dbcsname: STRING, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    false
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsMobileOS(): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS() as Boolean) else false
+public actual fun fsRtlIsMobileOS(): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS() as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsNameInExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: PCWSTR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression(expression.toString(), name.toString(), ignorecase, upcasetable.toString()) as Boolean) else false
+public actual fun fsRtlIsNameInExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression((expression?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), ignorecase, (upcasetable?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsNameInUnUpcasedExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: PCWSTR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression(expression.toString(), name.toString(), ignorecase, upcasetable.toString()) as Boolean) else false
+public actual fun fsRtlIsNameInUnUpcasedExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression((expression?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), ignorecase, (upcasetable?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt()) as Boolean) else false
+public actual fun fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsNtstatusExpected(exception: NTSTATUS): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected(exception) as Boolean) else false
+public actual fun fsRtlIsNtstatusExpected(exception: Ntstatus): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected(exception) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsPagingFile(fileobject: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile(fileobject.toString()) as Int).toUInt() else 0u
+public actual fun fsRtlIsPagingFile(fileobject: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile((fileobject?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIsSystemPagingFile(fileobject: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile(fileobject.toString()) as Int).toUInt() else 0u
+public actual fun fsRtlIsSystemPagingFile(fileobject: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile((fileobject?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlIssueDeviceIoControl(deviceobject: Long, ioctl: UInt, flags: UByte, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, iosbinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl(deviceobject.toString(), ioctl.toInt(), flags.toInt(), inputbuffer.toString(), inputbufferlength.toInt(), outputbuffer.toString(), outputbufferlength.toInt(), iosbinformation.toString()) as Int) else 0
+public actual fun fsRtlIssueDeviceIoControl(deviceobject: COpaquePointer?, ioctl: UInt, flags: UByte, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, iosbinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl((deviceobject?.value ?: 0L).toString(), ioctl.toInt(), flags.toInt(), (inputbuffer?.value ?: 0L).toString(), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L).toString(), outputbufferlength.toInt(), (iosbinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlKernelFsControlFile(fileobject: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, retoutputbuffersize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile(fileobject.toString(), fscontrolcode.toInt(), inputbuffer.toString(), inputbufferlength.toInt(), outputbuffer.toString(), outputbufferlength.toInt(), retoutputbuffersize.toString()) as Int) else 0
+public actual fun fsRtlKernelFsControlFile(fileobject: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, retoutputbuffersize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile((fileobject?.value ?: 0L).toString(), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L).toString(), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L).toString(), outputbufferlength.toInt(), (retoutputbuffersize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLogCcFlushError(filename: Long, deviceobject: Long, sectionobjectpointer: Long, flusherror: NTSTATUS, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError(filename.toString(), deviceobject.toString(), sectionobjectpointer.toString(), flusherror, flags.toInt()) as Int) else 0
+public actual fun fsRtlLogCcFlushError(filename: COpaquePointer?, deviceobject: COpaquePointer?, sectionobjectpointer: COpaquePointer?, flusherror: Ntstatus, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError((filename?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString(), (sectionobjectpointer?.value ?: 0L).toString(), flusherror, flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry(mcb.toString(), vbn.toString(), lbn.toString(), sectorcountfromlbn.toString(), startinglbn.toString(), sectorcountfromstartinglbn.toString(), index.toString()) as Boolean) else false
+public actual fun fsRtlLookupBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), (lbn?.value ?: 0L).toString(), (sectorcountfromlbn?.value ?: 0L).toString(), (startinglbn?.value ?: 0L).toString(), (sectorcountfromstartinglbn?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry(mcb.toString(), vbn.toString(), lbn.toString(), sectorcountfromlbn.toString(), startinglbn.toString(), sectorcountfromstartinglbn.toString(), index.toString()) as Boolean) else false
+public actual fun fsRtlLookupLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), (lbn?.value ?: 0L).toString(), (sectorcountfromlbn?.value ?: 0L).toString(), (startinglbn?.value ?: 0L).toString(), (sectorcountfromstartinglbn?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLastBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry(mcb.toString(), vbn.toString(), lbn.toString()) as Boolean) else false
+public actual fun fsRtlLookupLastBaseMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry((mcb?.value ?: 0L).toString(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb.toString(), largevbn.toString(), largelbn.toString(), index.toString()) as Boolean) else false
+public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex((opaquemcb?.value ?: 0L).toString(), (largevbn?.value ?: 0L).toString(), (largelbn?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLastLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry(mcb.toString(), vbn.toString(), lbn.toString()) as Boolean) else false
+public actual fun fsRtlLookupLastLargeMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry((mcb?.value ?: 0L).toString(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb.toString(), largevbn.toString(), largelbn.toString(), index.toString()) as Boolean) else false
+public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex((opaquemcb?.value ?: 0L).toString(), (largevbn?.value ?: 0L).toString(), (largelbn?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupLastMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry(mcb.toString(), vbn.toString(), lbn.toString()) as Boolean) else false
+public actual fun fsRtlLookupLastMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry((mcb?.value ?: 0L).toString(), (vbn?.value ?: 0L).toString(), (lbn?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupMcbEntry(mcb: Long, vbn: UInt, lbn: Long, sectorcount: Long, index: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry(mcb.toString(), vbn.toInt(), lbn.toString(), sectorcount.toString(), index.toString()) as Boolean) else false
+public actual fun fsRtlLookupMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: COpaquePointer?, sectorcount: COpaquePointer?, index: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry((mcb?.value ?: 0L).toString(), vbn.toInt(), (lbn?.value ?: 0L).toString(), (sectorcount?.value ?: 0L).toString(), (index?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupPerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext(perfilecontextpointer.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext((perfilecontextpointer?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupPerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext(fileobject.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlLookupPerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext((fileobject?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlLookupPerStreamContextInternal(streamcontext: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal(streamcontext.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal((streamcontext?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMdlReadCompleteDev(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev(fileobject.toString(), mdlchain.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlMdlReadCompleteDev(fileobject: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev((fileobject?.value ?: 0L).toString(), (mdlchain?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMdlReadDev(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev(fileobject.toString(), fileoffset.toString(), length.toInt(), lockkey.toInt(), mdlchain.toString(), iostatus.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlMdlReadDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMdlReadEx(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx(fileobject.toString(), fileoffset.toString(), length.toInt(), lockkey.toInt(), mdlchain.toString(), iostatus.toString()) as Int) else 0
+public actual fun fsRtlMdlReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMdlWriteCompleteDev(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev(fileobject.toString(), fileoffset.toString(), mdlchain.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlMdlWriteCompleteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), (mdlchain?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMupGetProviderIdFromName(pprovidername: Long, pproviderid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName(pprovidername.toString(), pproviderid.toString()) as Int) else 0
+public actual fun fsRtlMupGetProviderIdFromName(pprovidername: COpaquePointer?, pproviderid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName((pprovidername?.value ?: 0L).toString(), (pproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlMupGetProviderInfoFromFileObject(pfileobject: Long, level: UInt, pbuffer: Long, pbuffersize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject(pfileobject.toString(), level.toInt(), pbuffer.toString(), pbuffersize.toString()) as Int) else 0
+public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: COpaquePointer?, level: UInt, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject((pfileobject?.value ?: 0L).toString(), level.toInt(), (pbuffer?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNormalizeNtstatus(exception: NTSTATUS, genericexception: NTSTATUS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus(exception, genericexception) as Int) else 0
+public actual fun fsRtlNormalizeNtstatus(exception: Ntstatus, genericexception: Ntstatus): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus(exception, genericexception) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNotifyCleanup(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long) {
+public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup(notifysync.toString(), notifylist.toString(), fscontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup(notifysync.toString(), (notifylist?.value ?: 0L).toString(), (fscontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyCleanupAll(notifysync: PNOTIFY_SYNC, notifylist: Long) {
+public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll(notifysync.toString(), notifylist.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll(notifysync.toString(), (notifylist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyFilterChangeDirectory(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: Long, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Long, filtercallback: PFILTER_REPORT_CHANGE) {
+public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?, filtercallback: PfilterReportChange) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory(notifysync.toString(), notifylist.toString(), fscontext.toString(), fulldirectoryname.toString(), watchtree, ignorebuffer, completionfilter.toInt(), notifyirp.toString(), traversecallback.toLong().toString(), subjectcontext.toString(), filtercallback.toLong().toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory(notifysync.toString(), (notifylist?.value ?: 0L).toString(), (fscontext?.value ?: 0L).toString(), (fulldirectoryname?.value ?: 0L).toString(), watchtree, ignorebuffer, completionfilter.toInt(), (notifyirp?.value ?: 0L).toString(), 0L.toString(), (subjectcontext?.value ?: 0L).toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyFilterReportChange(notifysync: PNOTIFY_SYNC, notifylist: Long, fulltargetname: Long, targetnameoffset: UShort, streamname: Long, normalizedparentname: Long, filtermatch: UInt, action: UInt, targetcontext: Long, filtercontext: Long) {
+public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?, filtercontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange(notifysync.toString(), notifylist.toString(), fulltargetname.toString(), targetnameoffset.toInt(), streamname.toString(), normalizedparentname.toString(), filtermatch.toInt(), action.toInt(), targetcontext.toString(), filtercontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange(notifysync.toString(), (notifylist?.value ?: 0L).toString(), (fulltargetname?.value ?: 0L).toString(), targetnameoffset.toInt(), (streamname?.value ?: 0L).toString(), (normalizedparentname?.value ?: 0L).toString(), filtermatch.toInt(), action.toInt(), (targetcontext?.value ?: 0L).toString(), (filtercontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyFullChangeDirectory(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: Long, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Long) {
+public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory(notifysync.toString(), notifylist.toString(), fscontext.toString(), fulldirectoryname.toString(), watchtree, ignorebuffer, completionfilter.toInt(), notifyirp.toString(), traversecallback.toLong().toString(), subjectcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory(notifysync.toString(), (notifylist?.value ?: 0L).toString(), (fscontext?.value ?: 0L).toString(), (fulldirectoryname?.value ?: 0L).toString(), watchtree, ignorebuffer, completionfilter.toInt(), (notifyirp?.value ?: 0L).toString(), 0L.toString(), (subjectcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyFullReportChange(notifysync: PNOTIFY_SYNC, notifylist: Long, fulltargetname: Long, targetnameoffset: UShort, streamname: Long, normalizedparentname: Long, filtermatch: UInt, action: UInt, targetcontext: Long) {
+public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange(notifysync.toString(), notifylist.toString(), fulltargetname.toString(), targetnameoffset.toInt(), streamname.toString(), normalizedparentname.toString(), filtermatch.toInt(), action.toInt(), targetcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange(notifysync.toString(), (notifylist?.value ?: 0L).toString(), (fulltargetname?.value ?: 0L).toString(), targetnameoffset.toInt(), (streamname?.value ?: 0L).toString(), (normalizedparentname?.value ?: 0L).toString(), filtermatch.toInt(), action.toInt(), (targetcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyInitializeSync(notifysync: Long) {
+public actual fun fsRtlNotifyInitializeSync(notifysync: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync(notifysync.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync((notifysync?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyUninitializeSync(notifysync: Long) {
+public actual fun fsRtlNotifyUninitializeSync(notifysync: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync(notifysync.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync((notifysync?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlNotifyVolumeEvent(fileobject: Long, eventcode: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent(fileobject.toString(), eventcode.toInt()) as Int) else 0
+public actual fun fsRtlNotifyVolumeEvent(fileobject: COpaquePointer?, eventcode: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent((fileobject?.value ?: 0L).toString(), eventcode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNotifyVolumeEventEx(fileobject: Long, eventcode: UInt, event: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx(fileobject.toString(), eventcode.toInt(), event.toString()) as Int) else 0
+public actual fun fsRtlNotifyVolumeEventEx(fileobject: COpaquePointer?, eventcode: UInt, event: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx((fileobject?.value ?: 0L).toString(), eventcode.toInt(), (event?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNumberOfRunsInBaseMcb(mcb: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb(mcb.toString()) as Int).toUInt() else 0u
+public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb((mcb?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNumberOfRunsInLargeMcb(mcb: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb(mcb.toString()) as Int).toUInt() else 0u
+public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb((mcb?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlNumberOfRunsInMcb(mcb: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb(mcb.toString()) as Int).toUInt() else 0u
+public actual fun fsRtlNumberOfRunsInMcb(mcb: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb((mcb?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockBreakH(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH(oplock.toString(), irp.toString(), flags.toInt(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlOplockBreakH(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), flags.toInt(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockBreakH2(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP, grantedaccess: Long, shareaccess: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2(oplock.toString(), irp.toString(), flags.toInt(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString(), grantedaccess.toString(), shareaccess.toString()) as Int) else 0
+public actual fun fsRtlOplockBreakH2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: COpaquePointer?, shareaccess: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), flags.toInt(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), (grantedaccess?.value ?: 0L).toString(), (shareaccess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockBreakToNone(oplock: Long, irpsp: Long, irp: Long, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone(oplock.toString(), irpsp.toString(), irp.toString(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlOplockBreakToNone(oplock: COpaquePointer?, irpsp: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone((oplock?.value ?: 0L).toString(), (irpsp?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockBreakToNoneEx(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx(oplock.toString(), irp.toString(), flags.toInt(), context.toString(), completionroutine.toLong().toString(), postirproutine.toLong().toString()) as Int) else 0
+public actual fun fsRtlOplockBreakToNoneEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), flags.toInt(), (context?.value ?: 0L).toString(), 0L.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockFsctrl(oplock: Long, irp: Long, opencount: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl(oplock.toString(), irp.toString(), opencount.toInt()) as Int) else 0
+public actual fun fsRtlOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), opencount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockFsctrlEx(oplock: Long, irp: Long, opencount: UInt, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx(oplock.toString(), irp.toString(), opencount.toInt(), flags.toInt()) as Int) else 0
+public actual fun fsRtlOplockFsctrlEx(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), opencount.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockGetAnyBreakOwnerProcess(oplock: Long): PEPROCESS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess(oplock.toString()) as String).toLong() else 0L
+public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: COpaquePointer?): Peprocess =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess((oplock?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockIsFastIoPossible(oplock: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible(oplock.toString()) as Boolean) else false
+public actual fun fsRtlOplockIsFastIoPossible(oplock: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible((oplock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockIsSharedRequest(irp: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest(irp.toString()) as Boolean) else false
+public actual fun fsRtlOplockIsSharedRequest(irp: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest((irp?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlOplockKeysEqual(fo1: Long, fo2: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual(fo1.toString(), fo2.toString()) as Boolean) else false
+public actual fun fsRtlOplockKeysEqual(fo1: COpaquePointer?, fo2: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual((fo1?.value ?: 0L).toString(), (fo2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlPostPagingFileStackOverflow(context: Long, event: Long, stackoverflowroutine: PFSRTL_STACK_OVERFLOW_ROUTINE) {
+public actual fun fsRtlPostPagingFileStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow(context.toString(), event.toString(), stackoverflowroutine.toLong().toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow((context?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlPostStackOverflow(context: Long, event: Long, stackoverflowroutine: PFSRTL_STACK_OVERFLOW_ROUTINE) {
+public actual fun fsRtlPostStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow(context.toString(), event.toString(), stackoverflowroutine.toLong().toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow((context?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlPrepareMdlWriteDev(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev(fileobject.toString(), fileoffset.toString(), length.toInt(), lockkey.toInt(), mdlchain.toString(), iostatus.toString(), deviceobject.toString()) as Boolean) else false
+public actual fun fsRtlPrepareMdlWriteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlPrepareMdlWriteEx(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx(fileobject.toString(), fileoffset.toString(), length.toInt(), lockkey.toInt(), mdlchain.toString(), iostatus.toString()) as Int) else 0
+public actual fun fsRtlPrepareMdlWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx((fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlPrepareToReuseEcp(ecpcontext: Long) {
+public actual fun fsRtlPrepareToReuseEcp(ecpcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp(ecpcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp((ecpcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlPrivateLock(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: Long, irp: Long, context: Long, alreadysynchronized: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock(filelock.toString(), fileobject.toString(), fileoffset.toString(), length.toString(), processid.toString(), key.toInt(), failimmediately, exclusivelock, iosb.toString(), irp.toString(), context.toString(), alreadysynchronized) as Boolean) else false
+public actual fun fsRtlPrivateLock(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, alreadysynchronized: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock((filelock?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), (fileoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), processid.toString(), key.toInt(), failimmediately, exclusivelock, (iosb?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), (context?.value ?: 0L).toString(), alreadysynchronized) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlProcessFileLock(filelock: Long, irp: Long, context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock(filelock.toString(), irp.toString(), context.toString()) as Int) else 0
+public actual fun fsRtlProcessFileLock(filelock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock((filelock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlQueryCachedVdl(fileobject: Long, vdl: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl(fileobject.toString(), vdl.toString()) as Int) else 0
+public actual fun fsRtlQueryCachedVdl(fileobject: COpaquePointer?, vdl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl((fileobject?.value ?: 0L).toString(), (vdl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlQueryInformationFile(fileobject: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, retfileinformationsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile(fileobject.toString(), fileinformation.toString(), length.toInt(), fileinformationclass, retfileinformationsize.toString()) as Int) else 0
+public actual fun fsRtlQueryInformationFile(fileobject: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile((fileobject?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass, (retfileinformationsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlQueryKernelEaFile(fileobject: Long, returnedeadata: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean, lengthreturned: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile(fileobject.toString(), returnedeadata.toString(), length.toInt(), returnsingleentry, ealist.toString(), ealistlength.toInt(), eaindex.toString(), restartscan, lengthreturned.toString()) as Int) else 0
+public actual fun fsRtlQueryKernelEaFile(fileobject: COpaquePointer?, returnedeadata: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean, lengthreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile((fileobject?.value ?: 0L).toString(), (returnedeadata?.value ?: 0L).toString(), length.toInt(), returnsingleentry, (ealist?.value ?: 0L).toString(), ealistlength.toInt(), (eaindex?.value ?: 0L).toString(), restartscan, (lengthreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel() as Int).toUInt() else 0u
+public actual fun fsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: Long, callbacks: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject.toString(), callbacks.toString()) as Int) else 0
+public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: COpaquePointer?, callbacks: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks((filterdriverobject?.value ?: 0L).toString(), (callbacks?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRegisterUncProvider(muphandle: Long, redirectordevicename: Long, mailslotssupported: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider(muphandle.toString(), redirectordevicename.toString(), mailslotssupported) as Int) else 0
+public actual fun fsRtlRegisterUncProvider(muphandle: COpaquePointer?, redirectordevicename: COpaquePointer?, mailslotssupported: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider((muphandle?.value ?: 0L).toString(), (redirectordevicename?.value ?: 0L).toString(), mailslotssupported) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRegisterUncProviderEx(muphandle: Long, redirdevname: Long, deviceobject: Long, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx(muphandle.toString(), redirdevname.toString(), deviceobject.toString(), flags.toInt()) as Int) else 0
+public actual fun fsRtlRegisterUncProviderEx(muphandle: COpaquePointer?, redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx((muphandle?.value ?: 0L).toString(), (redirdevname?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRegisterUncProviderEx2(redirdevname: Long, deviceobject: Long, registration: Long, muphandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2(redirdevname.toString(), deviceobject.toString(), registration.toString(), muphandle.toString()) as Int) else 0
+public actual fun fsRtlRegisterUncProviderEx2(redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, registration: COpaquePointer?, muphandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2((redirdevname?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString(), (registration?.value ?: 0L).toString(), (muphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlReleaseFile(fileobject: Long) {
+public actual fun fsRtlReleaseFile(fileobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile(fileobject.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile((fileobject?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlRemoveBaseMcbEntry(mcb: Long, vbn: Long, sectorcount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry(mcb.toString(), vbn.toString(), sectorcount.toString()) as Boolean) else false
+public actual fun fsRtlRemoveBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), sectorcount.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRemoveDotsFromPath(originalstring: PWSTR, pathlength: UShort, newlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath(originalstring.toString(), pathlength.toInt(), newlength.toString()) as Int) else 0
+public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath((originalstring?.value ?: 0L).toString(), pathlength.toInt(), (newlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRemoveExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter(ecplist.toString(), ecptype.toString(), ecpcontext.toString(), ecpcontextsize.toString()) as Int) else 0
+public actual fun fsRtlRemoveExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter((ecplist?.value ?: 0L).toString(), (ecptype?.value ?: 0L).toString(), (ecpcontext?.value ?: 0L).toString(), (ecpcontextsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRemoveLargeMcbEntry(mcb: Long, vbn: Long, sectorcount: Long) {
+public actual fun fsRtlRemoveLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry(mcb.toString(), vbn.toString(), sectorcount.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry((mcb?.value ?: 0L).toString(), vbn.toString(), sectorcount.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlRemoveMcbEntry(mcb: Long, vbn: UInt, sectorcount: UInt) {
+public actual fun fsRtlRemoveMcbEntry(mcb: COpaquePointer?, vbn: UInt, sectorcount: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry(mcb.toString(), vbn.toInt(), sectorcount.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry((mcb?.value ?: 0L).toString(), vbn.toInt(), sectorcount.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlRemovePerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext(perfilecontextpointer.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext((perfilecontextpointer?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRemovePerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext(fileobject.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlRemovePerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext((fileobject?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlRemovePerStreamContext(streamcontext: Long, ownerid: Long, instanceid: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext(streamcontext.toString(), ownerid.toString(), instanceid.toString()) as String).toLong() else 0L
+public actual fun fsRtlRemovePerStreamContext(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext((streamcontext?.value ?: 0L).toString(), (ownerid?.value ?: 0L).toString(), (instanceid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlResetBaseMcb(mcb: Long) {
+public actual fun fsRtlResetBaseMcb(mcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb(mcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb((mcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlResetLargeMcb(mcb: Long, selfsynchronized: Boolean) {
+public actual fun fsRtlResetLargeMcb(mcb: COpaquePointer?, selfsynchronized: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb(mcb.toString(), selfsynchronized)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb((mcb?.value ?: 0L).toString(), selfsynchronized)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlSetDriverBacking(driverobj: Long, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking(driverobj.toString(), flags.toInt()) as Int) else 0
+public actual fun fsRtlSetDriverBacking(driverobj: COpaquePointer?, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking((driverobj?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlSetEcpListIntoIrp(irp: Long, ecplist: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp(irp.toString(), ecplist.toString()) as Int) else 0
+public actual fun fsRtlSetEcpListIntoIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp((irp?.value ?: 0L).toString(), (ecplist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlSetKernelEaFile(fileobject: Long, eabuffer: Long, length: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile(fileobject.toString(), eabuffer.toString(), length.toInt()) as Int) else 0
+public actual fun fsRtlSetKernelEaFile(fileobject: COpaquePointer?, eabuffer: COpaquePointer?, length: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile((fileobject?.value ?: 0L).toString(), (eabuffer?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlSplitBaseMcb(mcb: Long, vbn: Long, amount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb(mcb.toString(), vbn.toString(), amount.toString()) as Boolean) else false
+public actual fun fsRtlSplitBaseMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb((mcb?.value ?: 0L).toString(), vbn.toString(), amount.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlSplitLargeMcb(mcb: Long, vbn: Long, amount: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb(mcb.toString(), vbn.toString(), amount.toString()) as Boolean) else false
+public actual fun fsRtlSplitLargeMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb((mcb?.value ?: 0L).toString(), vbn.toString(), amount.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlTeardownPerFileContexts(perfilecontextpointer: Long) {
+public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts(perfilecontextpointer.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts((perfilecontextpointer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlTeardownPerStreamContexts(advancedheader: Long) {
+public actual fun fsRtlTeardownPerStreamContexts(advancedheader: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts(advancedheader.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts((advancedheader?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlTruncateBaseMcb(mcb: Long, vbn: Long) {
+public actual fun fsRtlTruncateBaseMcb(mcb: COpaquePointer?, vbn: Long) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb(mcb.toString(), vbn.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb((mcb?.value ?: 0L).toString(), vbn.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlTruncateLargeMcb(mcb: Long, vbn: Long) {
+public actual fun fsRtlTruncateLargeMcb(mcb: COpaquePointer?, vbn: Long) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb(mcb.toString(), vbn.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb((mcb?.value ?: 0L).toString(), vbn.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlTruncateMcb(mcb: Long, vbn: UInt) {
+public actual fun fsRtlTruncateMcb(mcb: COpaquePointer?, vbn: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb(mcb.toString(), vbn.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb((mcb?.value ?: 0L).toString(), vbn.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUninitializeBaseMcb(mcb: Long) {
+public actual fun fsRtlUninitializeBaseMcb(mcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb(mcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb((mcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUninitializeFileLock(filelock: Long) {
+public actual fun fsRtlUninitializeFileLock(filelock: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock(filelock.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock((filelock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUninitializeLargeMcb(mcb: Long) {
+public actual fun fsRtlUninitializeLargeMcb(mcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb(mcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb((mcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUninitializeMcb(mcb: Long) {
+public actual fun fsRtlUninitializeMcb(mcb: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb(mcb.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb((mcb?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUninitializeOplock(oplock: Long) {
+public actual fun fsRtlUninitializeOplock(oplock: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock(oplock.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock((oplock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong) {
+public actual fun fsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters(bytesread.toString(), byteswritten.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters(bytesread.toString(), byteswritten.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FsRtlUpperOplockFsctrl(oplock: Long, irp: Long, opencount: UInt, loweroplockstate: UInt, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl(oplock.toString(), irp.toString(), opencount.toInt(), loweroplockstate.toInt(), flags.toInt()) as Int) else 0
+public actual fun fsRtlUpperOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl((oplock?.value ?: 0L).toString(), (irp?.value ?: 0L).toString(), opencount.toInt(), loweroplockstate.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer(bufferlength.toInt(), reparsebuffer.toString()) as Int) else 0
+public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer(bufferlength.toInt(), (reparsebuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FsRtlVolumeDeviceToCorrelationId(volumedeviceobject: Long, guid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId(volumedeviceobject.toString(), guid.toString()) as Int) else 0
+public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId((volumedeviceobject?.value ?: 0L).toString(), (guid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityUserInfo(logonid: Long, flags: UInt, userinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo(logonid.toString(), flags.toInt(), userinformation.toString()) as Int) else 0
+public actual fun getSecurityUserInfo(logonid: COpaquePointer?, flags: UInt, userinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo((logonid?.value ?: 0L).toString(), flags.toInt(), (userinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoAcquireVpbSpinLock(irql: Long) {
+public actual fun ioAcquireVpbSpinLock(irql: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock(irql.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock((irql?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoApplyPriorityInfoThread(inputpriorityinfo: Long, outputpriorityinfo: Long, thread: PETHREAD): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread(inputpriorityinfo.toString(), outputpriorityinfo.toString(), thread.toString()) as Int) else 0
+public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: COpaquePointer?, outputpriorityinfo: COpaquePointer?, thread: Pethread): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread((inputpriorityinfo?.value ?: 0L).toString(), (outputpriorityinfo?.value ?: 0L).toString(), thread.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckDesiredAccess(desiredaccess: Long, grantedaccess: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess(desiredaccess.toString(), grantedaccess.toInt()) as Int) else 0
+public actual fun ioCheckDesiredAccess(desiredaccess: COpaquePointer?, grantedaccess: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess((desiredaccess?.value ?: 0L).toString(), grantedaccess.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckEaBufferValidity(eabuffer: Long, ealength: UInt, erroroffset: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity(eabuffer.toString(), ealength.toInt(), erroroffset.toString()) as Int) else 0
+public actual fun ioCheckEaBufferValidity(eabuffer: COpaquePointer?, ealength: UInt, erroroffset: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity((eabuffer?.value ?: 0L).toString(), ealength.toInt(), (erroroffset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: Long, arg2: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess(grantedaccess.toInt(), majorfunction.toInt(), minorfunction.toInt(), iocontrolcode.toInt(), arg1.toString(), arg2.toString()) as Int) else 0
+public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: COpaquePointer?, arg2: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess(grantedaccess.toInt(), majorfunction.toInt(), minorfunction.toInt(), iocontrolcode.toInt(), (arg1?.value ?: 0L).toString(), (arg2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckQuerySetFileInformation(fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, setoperation: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation(fileinformationclass, length.toInt(), setoperation) as Int) else 0
+public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation(fileinformationclass, length.toInt(), setoperation) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckQuerySetVolumeInformation(fsinformationclass: FS_INFORMATION_CLASS, length: UInt, setoperation: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), setoperation) as Int) else 0
+public actual fun ioCheckQuerySetVolumeInformation(fsinformationclass: FsInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation(fsinformationclass, length.toInt(), setoperation) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCheckQuotaBufferValidity(quotabuffer: Long, quotalength: UInt, erroroffset: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity(quotabuffer.toString(), quotalength.toInt(), erroroffset.toString()) as Int) else 0
+public actual fun ioCheckQuotaBufferValidity(quotabuffer: COpaquePointer?, quotalength: UInt, erroroffset: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity((quotabuffer?.value ?: 0L).toString(), quotalength.toInt(), (erroroffset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoClearFsTrackOffsetState(irp: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState(irp.toString()) as Int) else 0
+public actual fun ioClearFsTrackOffsetState(irp: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState((irp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCreateStreamFileObject(fileobject: Long, deviceobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject(fileobject.toString(), deviceobject.toString()) as String).toLong() else 0L
+public actual fun ioCreateStreamFileObject(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject((fileobject?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCreateStreamFileObjectEx(fileobject: Long, deviceobject: Long, filehandle: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx(fileobject.toString(), deviceobject.toString(), filehandle.toString()) as String).toLong() else 0L
+public actual fun ioCreateStreamFileObjectEx(fileobject: COpaquePointer?, deviceobject: COpaquePointer?, filehandle: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx((fileobject?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString(), (filehandle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCreateStreamFileObjectEx2(createoptions: Long, fileobject: Long, deviceobject: Long, streamfileobject: Long, filehandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2(createoptions.toString(), fileobject.toString(), deviceobject.toString(), streamfileobject.toString(), filehandle.toString()) as Int) else 0
+public actual fun ioCreateStreamFileObjectEx2(createoptions: COpaquePointer?, fileobject: COpaquePointer?, deviceobject: COpaquePointer?, streamfileobject: COpaquePointer?, filehandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2((createoptions?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString(), (streamfileobject?.value ?: 0L).toString(), (filehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoCreateStreamFileObjectLite(fileobject: Long, deviceobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite(fileobject.toString(), deviceobject.toString()) as String).toLong() else 0L
+public actual fun ioCreateStreamFileObjectLite(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite((fileobject?.value ?: 0L).toString(), (deviceobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoEnumerateDeviceObjectList(driverobject: Long, deviceobjectlist: Long, deviceobjectlistsize: UInt, actualnumberdeviceobjects: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList(driverobject.toString(), deviceobjectlist.toString(), deviceobjectlistsize.toInt(), actualnumberdeviceobjects.toString()) as Int) else 0
+public actual fun ioEnumerateDeviceObjectList(driverobject: COpaquePointer?, deviceobjectlist: COpaquePointer?, deviceobjectlistsize: UInt, actualnumberdeviceobjects: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList((driverobject?.value ?: 0L).toString(), (deviceobjectlist?.value ?: 0L).toString(), deviceobjectlistsize.toInt(), (actualnumberdeviceobjects?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoEnumerateRegisteredFiltersList(driverobjectlist: Long, driverobjectlistsize: UInt, actualnumberdriverobjects: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList(driverobjectlist.toString(), driverobjectlistsize.toInt(), actualnumberdriverobjects.toString()) as Int) else 0
+public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: COpaquePointer?, driverobjectlistsize: UInt, actualnumberdriverobjects: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList((driverobjectlist?.value ?: 0L).toString(), driverobjectlistsize.toInt(), (actualnumberdriverobjects?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoFastQueryNetworkAttributes(objectattributes: Long, desiredaccess: UInt, openoptions: UInt, iostatus: Long, buffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes(objectattributes.toString(), desiredaccess.toInt(), openoptions.toInt(), iostatus.toString(), buffer.toString()) as Boolean) else false
+public actual fun ioFastQueryNetworkAttributes(objectattributes: COpaquePointer?, desiredaccess: UInt, openoptions: UInt, iostatus: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes((objectattributes?.value ?: 0L).toString(), desiredaccess.toInt(), openoptions.toInt(), (iostatus?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetAttachedDevice(deviceobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice(deviceobject.toString()) as String).toLong() else 0L
+public actual fun ioGetAttachedDevice(deviceobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice((deviceobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetBaseFileSystemDeviceObject(fileobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject(fileobject.toString()) as String).toLong() else 0L
+public actual fun ioGetBaseFileSystemDeviceObject(fileobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject((fileobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetDeviceAttachmentBaseRef(deviceobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef(deviceobject.toString()) as String).toLong() else 0L
+public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef((deviceobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetDeviceToVerify(thread: PETHREAD): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify(thread.toString()) as String).toLong() else 0L
+public actual fun ioGetDeviceToVerify(thread: Pethread): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify(thread.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetDiskDeviceObject(filesystemdeviceobject: Long, diskdeviceobject: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject(filesystemdeviceobject.toString(), diskdeviceobject.toString()) as Int) else 0
+public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: COpaquePointer?, diskdeviceobject: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject((filesystemdeviceobject?.value ?: 0L).toString(), (diskdeviceobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetFsTrackOffsetState(irp: Long, retfstrackoffsetblob: Long, rettrackedoffset: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState(irp.toString(), retfstrackoffsetblob.toString(), rettrackedoffset.toString()) as Int) else 0
+public actual fun ioGetFsTrackOffsetState(irp: COpaquePointer?, retfstrackoffsetblob: COpaquePointer?, rettrackedoffset: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState((irp?.value ?: 0L).toString(), (retfstrackoffsetblob?.value ?: 0L).toString(), (rettrackedoffset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetLowerDeviceObject(deviceobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject(deviceobject.toString()) as String).toLong() else 0L
+public actual fun ioGetLowerDeviceObject(deviceobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject((deviceobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetOplockKeyContext(fileobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext(fileobject.toString()) as String).toLong() else 0L
+public actual fun ioGetOplockKeyContext(fileobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext((fileobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetOplockKeyContextEx(fileobject: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx(fileobject.toString()) as String).toLong() else 0L
+public actual fun ioGetOplockKeyContextEx(fileobject: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx((fileobject?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetRequestorProcess(irp: Long): PEPROCESS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess(irp.toString()) as String).toLong() else 0L
+public actual fun ioGetRequestorProcess(irp: COpaquePointer?): Peprocess =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess((irp?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetRequestorProcessId(irp: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId(irp.toString()) as Int).toUInt() else 0u
+public actual fun ioGetRequestorProcessId(irp: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId((irp?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoGetRequestorSessionId(irp: Long, psessionid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId(irp.toString(), psessionid.toString()) as Int) else 0
+public actual fun ioGetRequestorSessionId(irp: COpaquePointer?, psessionid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId((irp?.value ?: 0L).toString(), (psessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoIrpHasFsTrackOffsetExtensionType(irp: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType(irp.toString()) as Boolean) else false
+public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType((irp?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoIsOperationSynchronous(irp: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous(irp.toString()) as Boolean) else false
+public actual fun ioIsOperationSynchronous(irp: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous((irp?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoIsSystemThread(thread: PETHREAD): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoIsSystemThread(thread.toString()) as Boolean) else false
+public actual fun ioIsSystemThread(thread: Pethread): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioIsSystemThread(thread.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoIsValidNameGraftingBuffer(irp: Long, reparsebuffer: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer(irp.toString(), reparsebuffer.toString()) as Boolean) else false
+public actual fun ioIsValidNameGraftingBuffer(irp: COpaquePointer?, reparsebuffer: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer((irp?.value ?: 0L).toString(), (reparsebuffer?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoPageRead(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoPageRead(fileobject.toString(), memorydescriptorlist.toString(), startingoffset.toString(), event.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun ioPageRead(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioPageRead((fileobject?.value ?: 0L).toString(), (memorydescriptorlist?.value ?: 0L).toString(), (startingoffset?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoQueryFileDosDeviceName(fileobject: Long, objectnameinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName(fileobject.toString(), objectnameinformation.toString()) as Int) else 0
+public actual fun ioQueryFileDosDeviceName(fileobject: COpaquePointer?, objectnameinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName((fileobject?.value ?: 0L).toString(), (objectnameinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoQueryFileInformation(fileobject: Long, fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, fileinformation: Long, returnedlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation(fileobject.toString(), fileinformationclass, length.toInt(), fileinformation.toString(), returnedlength.toString()) as Int) else 0
+public actual fun ioQueryFileInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation((fileobject?.value ?: 0L).toString(), fileinformationclass, length.toInt(), (fileinformation?.value ?: 0L).toString(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoQueryVolumeInformation(fileobject: Long, fsinformationclass: FS_INFORMATION_CLASS, length: UInt, fsinformation: Long, returnedlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation(fileobject.toString(), fsinformationclass, length.toInt(), fsinformation.toString(), returnedlength.toString()) as Int) else 0
+public actual fun ioQueryVolumeInformation(fileobject: COpaquePointer?, fsinformationclass: FsInformationClass, length: UInt, fsinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation((fileobject?.value ?: 0L).toString(), fsinformationclass, length.toInt(), (fsinformation?.value ?: 0L).toString(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoQueueThreadIrp(irp: Long) {
+public actual fun ioQueueThreadIrp(irp: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp(irp.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp((irp?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoRegisterFileSystem(deviceobject: Long) {
+public actual fun ioRegisterFileSystem(deviceobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem(deviceobject.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem((deviceobject?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoRegisterFsRegistrationChange(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION): NTSTATUS =
-    0
+public actual fun ioRegisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification): Ntstatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoRegisterFsRegistrationChangeMountAware(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION, synchronizewithmounts: Boolean): NTSTATUS =
-    0
+public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoReleaseVpbSpinLock(irql: UByte) {
+public actual fun ioReleaseVpbSpinLock(irql: UByte) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock(irql.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock(irql.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoReplaceFileObjectName(fileobject: Long, newfilename: PCWSTR, filenamelength: UShort): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName(fileobject.toString(), newfilename.toString(), filenamelength.toInt()) as Int) else 0
+public actual fun ioReplaceFileObjectName(fileobject: COpaquePointer?, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName((fileobject?.value ?: 0L).toString(), (newfilename?.value ?: 0L).toString(), filenamelength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoRequestDeviceRemovalForReset(physicaldeviceobject: Long, flags: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset(physicaldeviceobject.toString(), flags.toInt()) as Int) else 0
+public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: COpaquePointer?, flags: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset((physicaldeviceobject?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoRetrievePriorityInfo(irp: Long, fileobject: Long, thread: PETHREAD, priorityinfo: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo(irp.toString(), fileobject.toString(), thread.toString(), priorityinfo.toString()) as Int) else 0
+public actual fun ioRetrievePriorityInfo(irp: COpaquePointer?, fileobject: COpaquePointer?, thread: Pethread, priorityinfo: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo((irp?.value ?: 0L).toString(), (fileobject?.value ?: 0L).toString(), thread.toString(), (priorityinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoSetDeviceToVerify(thread: PETHREAD, deviceobject: Long) {
+public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify(thread.toString(), deviceobject.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify(thread.toString(), (deviceobject?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoSetFsTrackOffsetState(irp: Long, fstrackoffsetblob: Long, trackedoffset: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState(irp.toString(), fstrackoffsetblob.toString(), trackedoffset.toString()) as Int) else 0
+public actual fun ioSetFsTrackOffsetState(irp: COpaquePointer?, fstrackoffsetblob: COpaquePointer?, trackedoffset: Long): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState((irp?.value ?: 0L).toString(), (fstrackoffsetblob?.value ?: 0L).toString(), trackedoffset.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoSetInformation(fileobject: Long, fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, fileinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoSetInformation(fileobject.toString(), fileinformationclass, length.toInt(), fileinformation.toString()) as Int) else 0
+public actual fun ioSetInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioSetInformation((fileobject?.value ?: 0L).toString(), fileinformationclass, length.toInt(), (fileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoSynchronousPageWrite(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite(fileobject.toString(), memorydescriptorlist.toString(), startingoffset.toString(), event.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun ioSynchronousPageWrite(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite((fileobject?.value ?: 0L).toString(), (memorydescriptorlist?.value ?: 0L).toString(), (startingoffset?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoThreadToProcess(thread: PETHREAD): PEPROCESS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoThreadToProcess(thread.toString()) as String).toLong() else 0L
+public actual fun ioThreadToProcess(thread: Pethread): Peprocess =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioThreadToProcess(thread.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IoUnregisterFileSystem(deviceobject: Long) {
+public actual fun ioUnregisterFileSystem(deviceobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem(deviceobject.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem((deviceobject?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun IoUnregisterFsRegistrationChange(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION) {
+public actual fun ioUnregisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification) {
+    throw UnsupportedOperationException("Native FFI addon is not available")
 }
 
-public actual fun IoVerifyVolume(deviceobject: Long, allowrawmount: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_IoVerifyVolume(deviceobject.toString(), allowrawmount) as Int) else 0
+public actual fun ioVerifyVolume(deviceobject: COpaquePointer?, allowrawmount: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ioVerifyVolume((deviceobject?.value ?: 0L).toString(), allowrawmount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeAcquireQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER): UByte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock(number) as Int).toUByte() else 0u
+public actual fun keAcquireQueuedSpinLock(number: KspinLockQueueNumber): UByte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock(number) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeAcquireSpinLockRaiseToSynch(spinlock: Long): UByte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch(spinlock.toString()) as Int).toUByte() else 0u
+public actual fun keAcquireSpinLockRaiseToSynch(spinlock: COpaquePointer?): UByte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch((spinlock?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeAttachProcess(process: PRKPROCESS) {
+public actual fun keAttachProcess(process: Prkprocess) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeAttachProcess(process.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keAttachProcess(process.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeDetachProcess() {
+public actual fun keDetachProcess() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeDetachProcess()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keDetachProcess()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeInitializeMutant(mutant: Long, initialowner: Boolean) {
+public actual fun keInitializeMutant(mutant: COpaquePointer?, initialowner: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeInitializeMutant(mutant.toString(), initialowner)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keInitializeMutant((mutant?.value ?: 0L).toString(), initialowner)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeInitializeQueue(queue: Long, count: UInt) {
+public actual fun keInitializeQueue(queue: COpaquePointer?, count: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeInitializeQueue(queue.toString(), count.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keInitializeQueue((queue?.value ?: 0L).toString(), count.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeInsertHeadQueue(queue: Long, entry: Long): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue(queue.toString(), entry.toString()) as Int) else 0
+public actual fun keInsertHeadQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue((queue?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeInsertQueue(queue: Long, entry: Long): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeInsertQueue(queue.toString(), entry.toString()) as Int) else 0
+public actual fun keInsertQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keInsertQueue((queue?.value ?: 0L).toString(), (entry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeReadStateMutant(mutant: Long): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeReadStateMutant(mutant.toString()) as Int) else 0
+public actual fun keReadStateMutant(mutant: COpaquePointer?): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keReadStateMutant((mutant?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeReadStateQueue(queue: Long): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeReadStateQueue(queue.toString()) as Int) else 0
+public actual fun keReadStateQueue(queue: COpaquePointer?): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keReadStateQueue((queue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeReleaseMutant(mutant: Long, increment: Int, abandoned: Boolean, wait: Boolean): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeReleaseMutant(mutant.toString(), increment, abandoned, wait) as Int) else 0
+public actual fun keReleaseMutant(mutant: COpaquePointer?, increment: Int, abandoned: Boolean, wait: Boolean): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keReleaseMutant((mutant?.value ?: 0L).toString(), increment, abandoned, wait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeReleaseQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER, oldirql: UByte) {
+public actual fun keReleaseQueuedSpinLock(number: KspinLockQueueNumber, oldirql: UByte) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock(number, oldirql.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock(number, oldirql.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeRemoveQueue(queue: Long, waitmode: Byte, timeout: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeRemoveQueue(queue.toString(), waitmode.toInt(), timeout.toString()) as String).toLong() else 0L
+public actual fun keRemoveQueue(queue: COpaquePointer?, waitmode: Byte, timeout: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keRemoveQueue((queue?.value ?: 0L).toString(), waitmode.toInt(), (timeout?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeRemoveQueueEx(queue: Long, waitmode: Byte, alertable: Boolean, timeout: Long, entryarray: Long, count: UInt): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx(queue.toString(), waitmode.toInt(), alertable, timeout.toString(), entryarray.toString(), count.toInt()) as Int).toUInt() else 0u
+public actual fun keRemoveQueueEx(queue: COpaquePointer?, waitmode: Byte, alertable: Boolean, timeout: COpaquePointer?, entryarray: COpaquePointer?, count: UInt): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx((queue?.value ?: 0L).toString(), waitmode.toInt(), alertable, (timeout?.value ?: 0L).toString(), (entryarray?.value ?: 0L).toString(), count.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeRundownQueue(queue: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeRundownQueue(queue.toString()) as String).toLong() else 0L
+public actual fun keRundownQueue(queue: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keRundownQueue((queue?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeSetIdealProcessorThread(thread: PKTHREAD, processor: UByte): UByte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread(thread.toString(), processor.toInt()) as Int).toUByte() else 0u
+public actual fun keSetIdealProcessorThread(thread: Pkthread, processor: UByte): UByte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread(thread.toString(), processor.toInt()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeSetKernelStackSwapEnable(enable: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable(enable) as Boolean) else false
+public actual fun keSetKernelStackSwapEnable(enable: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable(enable) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeStackAttachProcess(process: PRKPROCESS, apcstate: Long) {
+public actual fun keStackAttachProcess(process: Prkprocess, apcstate: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess(process.toString(), apcstate.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keStackAttachProcess(process.toString(), (apcstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun KeTryToAcquireQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER, oldirql: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock(number, oldirql.toString()) as Int).toUInt() else 0u
+public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock(number, (oldirql?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KeUnstackDetachProcess(apcstate: Long) {
+public actual fun keUnstackDetachProcess(apcstate: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess(apcstate.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess((apcstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun MakeSignature(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MakeSignature(phcontext.toString(), fqop.toInt(), pmessage.toString(), messageseqno.toInt()) as Int) else 0
+public actual fun makeSignature(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_makeSignature((phcontext?.value ?: 0L).toString(), fqop.toInt(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MapSecurityError(secstatus: HRESULT): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MapSecurityError(secstatus) as Int) else 0
+public actual fun mapSecurityError(secstatus: Hresult): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mapSecurityError(secstatus) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmCanFileBeTruncated(sectionpointer: Long, newfilesize: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated(sectionpointer.toString(), newfilesize.toString()) as Boolean) else false
+public actual fun mmCanFileBeTruncated(sectionpointer: COpaquePointer?, newfilesize: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated((sectionpointer?.value ?: 0L).toString(), (newfilesize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmDoesFileHaveUserWritableReferences(sectionpointer: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences(sectionpointer.toString()) as Int).toUInt() else 0u
+public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences((sectionpointer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmFlushImageSection(sectionobjectpointer: Long, flushtype: MMFLUSH_TYPE): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmFlushImageSection(sectionobjectpointer.toString(), flushtype) as Boolean) else false
+public actual fun mmFlushImageSection(sectionobjectpointer: COpaquePointer?, flushtype: MmflushType): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmFlushImageSection((sectionobjectpointer?.value ?: 0L).toString(), flushtype) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmForceSectionClosed(sectionobjectpointer: Long, delayclose: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed(sectionobjectpointer.toString(), delayclose) as Boolean) else false
+public actual fun mmForceSectionClosed(sectionobjectpointer: COpaquePointer?, delayclose: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed((sectionobjectpointer?.value ?: 0L).toString(), delayclose) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmForceSectionClosedEx(sectionobjectpointer: Long, forcecloseflags: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx(sectionobjectpointer.toString(), forcecloseflags.toInt()) as Boolean) else false
+public actual fun mmForceSectionClosedEx(sectionobjectpointer: COpaquePointer?, forcecloseflags: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx((sectionobjectpointer?.value ?: 0L).toString(), forcecloseflags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmGetMaximumFileSectionSize(): ULong =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize() as String).toULong() else 0uL
+public actual fun mmGetMaximumFileSectionSize(): ULong =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize() as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmIsFileSectionActive(fssectionpointer: Long, flags: UInt, sectionisactive: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive(fssectionpointer.toString(), flags.toInt(), sectionisactive.toString()) as Int) else 0
+public actual fun mmIsFileSectionActive(fssectionpointer: COpaquePointer?, flags: UInt, sectionisactive: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive((fssectionpointer?.value ?: 0L).toString(), flags.toInt(), (sectionisactive?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmIsRecursiveIoFault(): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault() as Boolean) else false
+public actual fun mmIsRecursiveIoFault(): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault() as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmMdlPagesAreZero(mdl: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero(mdl.toString()) as Int).toUInt() else 0u
+public actual fun mmMdlPagesAreZero(mdl: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero((mdl?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmPrefetchPages(numberoflists: UInt, readlists: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmPrefetchPages(numberoflists.toInt(), readlists.toString()) as Int) else 0
+public actual fun mmPrefetchPages(numberoflists: UInt, readlists: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmPrefetchPages(numberoflists.toInt(), (readlists?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MmSetAddressRangeModified(address: Long, length: ULong): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified(address.toString(), length.toString()) as Boolean) else false
+public actual fun mmSetAddressRangeModified(address: COpaquePointer?, length: ULong): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified((address?.value ?: 0L).toString(), length.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), desiredaccess.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun ntAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), desiredaccess.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: HANDLE, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.toString(), handleid.toString(), clienttoken.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAdjustGroupsToken(tokenhandle: HANDLE, resettodefault: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken(tokenhandle.toString(), resettodefault, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken((tokenhandle?.value ?: 0L).toString(), resettodefault, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAdjustPrivilegesToken(tokenhandle: HANDLE, disableallprivileges: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken(tokenhandle.toString(), disableallprivileges, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken((tokenhandle?.value ?: 0L).toString(), disableallprivileges, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAllocateVirtualMemory(processhandle: HANDLE, baseaddress: Long, zerobits: ULong, regionsize: Long, allocationtype: UInt, protect: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory(processhandle.toString(), baseaddress.toString(), zerobits.toString(), regionsize.toString(), allocationtype.toInt(), protect.toInt()) as Int) else 0
+public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), zerobits.toString(), (regionsize?.value ?: 0L).toString(), allocationtype.toInt(), protect.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtAllocateVirtualMemoryEx(processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx(processhandle.toString(), baseaddress.toString(), regionsize.toString(), allocationtype.toInt(), pageprotection.toInt(), extendedparameters.toString(), extendedparametercount.toInt()) as Int) else 0
+public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L).toString(), extendedparametercount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCancelIoFileEx(filehandle: HANDLE, iorequesttocancel: Long, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx(filehandle.toString(), iorequesttocancel.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx((filehandle?.value ?: 0L).toString(), (iorequesttocancel?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun ntCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCreateDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject(directoryhandle.toString(), desiredaccess.toInt(), objectattributes.toString()) as Int) else 0
+public actual fun ntCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject((directoryhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCreateEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long, eventtype: EVENT_TYPE, initialstate: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCreateEvent(eventhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), eventtype, initialstate) as Int) else 0
+public actual fun ntCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCreateEvent((eventhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), eventtype, initialstate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCreateFile(filehandle: Long, desiredaccess: FILE_ACCESS_RIGHTS, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: FILE_FLAGS_AND_ATTRIBUTES, shareaccess: FILE_SHARE_MODE, createdisposition: NTCREATEFILE_CREATE_DISPOSITION, createoptions: NTCREATEFILE_CREATE_OPTIONS, eabuffer: Long, ealength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCreateFile(filehandle.toString(), desiredaccess.toInt(), objectattributes.toString(), iostatusblock.toString(), allocationsize.toString(), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.toString(), ealength.toInt()) as Int) else 0
+public actual fun ntCreateFile(filehandle: COpaquePointer?, desiredaccess: FileAccessRights, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: COpaquePointer?, ealength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCreateFile((filehandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (allocationsize?.value ?: 0L).toString(), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L).toString(), ealength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCreateSection(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCreateSection(sectionhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), maximumsize.toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.toString()) as Int) else 0
+public actual fun ntCreateSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCreateSection((sectionhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (maximumsize?.value ?: 0L).toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtCreateSectionEx(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx(sectionhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), maximumsize.toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.toString(), extendedparameters.toString(), extendedparametercount.toInt()) as Int) else 0
+public actual fun ntCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx((sectionhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (maximumsize?.value ?: 0L).toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L).toString(), (extendedparameters?.value ?: 0L).toString(), extendedparametercount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtDeleteFile(objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtDeleteFile(objectattributes.toString()) as Int) else 0
+public actual fun ntDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntDeleteFile((objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun ntDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtDuplicateObject(sourceprocesshandle: HANDLE, sourcehandle: HANDLE, targetprocesshandle: HANDLE, targethandle: Long, desiredaccess: UInt, handleattributes: UInt, options: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtDuplicateObject(sourceprocesshandle.toString(), sourcehandle.toString(), targetprocesshandle.toString(), targethandle.toString(), desiredaccess.toInt(), handleattributes.toInt(), options.toInt()) as Int) else 0
+public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntDuplicateObject((sourceprocesshandle?.value ?: 0L).toString(), (sourcehandle?.value ?: 0L).toString(), (targetprocesshandle?.value ?: 0L).toString(), (targethandle?.value ?: 0L).toString(), desiredaccess.toInt(), handleattributes.toInt(), options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtDuplicateToken(existingtokenhandle: HANDLE, desiredaccess: UInt, objectattributes: Long, effectiveonly: Boolean, tokentype: TOKEN_TYPE, newtokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtDuplicateToken(existingtokenhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), effectiveonly, tokentype, newtokenhandle.toString()) as Int) else 0
+public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntDuplicateToken((existingtokenhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), effectiveonly, tokentype, (newtokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFilterToken(existingtokenhandle: HANDLE, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtFilterToken(existingtokenhandle.toString(), flags.toInt(), sidstodisable.toString(), privilegestodelete.toString(), restrictedsids.toString(), newtokenhandle.toString()) as Int) else 0
+public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFilterToken((existingtokenhandle?.value ?: 0L).toString(), flags.toInt(), (sidstodisable?.value ?: 0L).toString(), (privilegestodelete?.value ?: 0L).toString(), (restrictedsids?.value ?: 0L).toString(), (newtokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFlushBuffersFile(filehandle: HANDLE, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile(filehandle.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFlushBuffersFileEx(filehandle: HANDLE, flags: UInt, parameters: Long, parameterssize: UInt, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx(filehandle.toString(), flags.toInt(), parameters.toString(), parameterssize.toInt(), iostatusblock.toString()) as Int) else 0
+public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx((filehandle?.value ?: 0L).toString(), flags.toInt(), (parameters?.value ?: 0L).toString(), parameterssize.toInt(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFlushVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, iostatus: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory(processhandle.toString(), baseaddress.toString(), regionsize.toString(), iostatus.toString()) as Int) else 0
+public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFreeVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory(processhandle.toString(), baseaddress.toString(), regionsize.toString(), freetype.toInt()) as Int) else 0
+public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), freetype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtFsControlFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS =
-    0
+public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntFsControlFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L).toString(), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L).toString(), outputbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtImpersonateAnonymousToken(threadhandle: HANDLE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken(threadhandle.toString()) as Int) else 0
+public actual fun ntImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken((threadhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtLockFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): NTSTATUS =
-    0
+public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntLockFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (byteoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt(), failimmediately, exclusivelock) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtNotifyChangeKey(keyhandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey((keyhandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L).toString(), buffersize.toInt(), asynchronous) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject(directoryhandle.toString(), desiredaccess.toInt(), objectattributes.toString()) as Int) else 0
+public actual fun ntOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject((directoryhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenFile(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, shareaccess: UInt, openoptions: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenFile(filehandle.toString(), desiredaccess.toInt(), objectattributes.toString(), iostatusblock.toString(), shareaccess.toInt(), openoptions.toInt()) as Int) else 0
+public actual fun ntOpenFile(filehandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, shareaccess: UInt, openoptions: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenFile((filehandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), shareaccess.toInt(), openoptions.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), clienttoken.toString(), desiredaccess.toInt(), grantedaccess.toInt(), privileges.toString(), objectcreation, accessgranted, generateonclose.toString()) as Int) else 0
+public actual fun ntOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L).toString(), objectcreation, accessgranted, (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenProcessToken(processhandle: HANDLE, desiredaccess: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken(processhandle.toString(), desiredaccess.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenProcessTokenEx(processhandle: HANDLE, desiredaccess: UInt, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx(processhandle.toString(), desiredaccess.toInt(), handleattributes.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), handleattributes.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenSymbolicLinkObject(linkhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject(linkhandle.toString(), desiredaccess.toInt(), objectattributes.toString()) as Int) else 0
+public actual fun ntOpenSymbolicLinkObject(linkhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject((linkhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenThreadToken(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken(threadhandle.toString(), desiredaccess.toInt(), openasself, tokenhandle.toString()) as Int) else 0
+public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtOpenThreadTokenEx(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx(threadhandle.toString(), desiredaccess.toInt(), openasself, handleattributes.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, handleattributes.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtPrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, result: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck(clienttoken.toString(), requiredprivileges.toString(), result.toString()) as Int) else 0
+public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck((clienttoken?.value ?: 0L).toString(), (requiredprivileges?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm(subsystemname.toString(), handleid.toString(), clienttoken.toString(), desiredaccess.toInt(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: HANDLE, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm(subsystemname.toString(), servicename.toString(), clienttoken.toString(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm((subsystemname?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryDirectoryFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): NTSTATUS =
-    0
+public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass, returnsingleentry, (filename?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryDirectoryFileEx(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, queryflags: UInt, filename: Long): NTSTATUS =
-    0
+public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass, queryflags.toInt(), (filename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryDirectoryObject(directoryhandle: HANDLE, buffer: Long, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject(directoryhandle.toString(), buffer.toString(), length.toInt(), returnsingleentry, restartscan, context.toString(), returnlength.toString()) as Int) else 0
+public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject((directoryhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, restartscan, (context?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryEaFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt(), returnsingleentry, ealist.toString(), ealistlength.toInt(), eaindex.toString(), restartscan) as Int) else 0
+public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryEaFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, (ealist?.value ?: 0L).toString(), ealistlength.toInt(), (eaindex?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile(objectattributes.toString(), fileinformation.toString()) as Int) else 0
+public actual fun ntQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile((objectattributes?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName(objectattributes.toString(), iostatusblock.toString(), fileinformation.toString(), length.toInt(), fileinformationclass) as Int) else 0
+public actual fun ntQueryInformationByName(objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName((objectattributes?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryInformationFile(filehandle: HANDLE, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile(filehandle.toString(), iostatusblock.toString(), fileinformation.toString(), length.toInt(), fileinformationclass) as Int) else 0
+public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt(), returnlength.toString()) as Int) else 0
+public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, sidlist: Long, sidlistlength: UInt, startsid: PSID, restartscan: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt(), returnsingleentry, sidlist.toString(), sidlistlength.toInt(), startsid.toString(), restartscan) as Int) else 0
+public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, (sidlist?.value ?: 0L).toString(), sidlistlength.toInt(), (startsid?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQuerySecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR, length: UInt, lengthneeded: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject(handle.toString(), securityinformation.toInt(), securitydescriptor.toString(), length.toInt(), lengthneeded.toString()) as Int) else 0
+public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject((handle?.value ?: 0L).toString(), securityinformation.toInt(), (securitydescriptor?.value ?: 0L).toString(), length.toInt(), (lengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQuerySymbolicLinkObject(linkhandle: HANDLE, linktarget: Long, returnedlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject(linkhandle.toString(), linktarget.toString(), returnedlength.toString()) as Int) else 0
+public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject((linkhandle?.value ?: 0L).toString(), (linktarget?.value ?: 0L).toString(), (returnedlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryVirtualMemory(processhandle: HANDLE, baseaddress: Long, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory(processhandle.toString(), baseaddress.toString(), memoryinformationclass, memoryinformation.toString(), memoryinformationlength.toString(), returnlength.toString()) as Int) else 0
+public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), memoryinformationclass, (memoryinformation?.value ?: 0L).toString(), memoryinformationlength.toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtQueryVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile(filehandle.toString(), iostatusblock.toString(), fsinformation.toString(), length.toInt(), fsinformationclass) as Int) else 0
+public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fsinformation?.value ?: 0L).toString(), length.toInt(), fsinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtReadFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, buffer: Long, length: UInt, byteoffset: Long, key: Long): NTSTATUS =
-    0
+public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntReadFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), (byteoffset?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetEaFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt()) as Int) else 0
+public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetEaFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetEvent(eventhandle: HANDLE, previousstate: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetEvent(eventhandle.toString(), previousstate.toString()) as Int) else 0
+public actual fun ntSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetEvent((eventhandle?.value ?: 0L).toString(), (previousstate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetInformationFile(filehandle: HANDLE, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetInformationFile(filehandle.toString(), iostatusblock.toString(), fileinformation.toString(), length.toInt(), fileinformationclass) as Int) else 0
+public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetInformationToken(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt()) as Int) else 0
+public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetInformationToken((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetInformationVirtualMemory(processhandle: HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: ULong, virtualaddresses: Long, vminformation: Long, vminformationlength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory(processhandle.toString(), vminformationclass, numberofentries.toString(), virtualaddresses.toString(), vminformation.toString(), vminformationlength.toInt()) as Int) else 0
+public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory((processhandle?.value ?: 0L).toString(), vminformationclass, numberofentries.toString(), (virtualaddresses?.value ?: 0L).toString(), (vminformation?.value ?: 0L).toString(), vminformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt()) as Int) else 0
+public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetSecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject(handle.toString(), securityinformation.toInt(), securitydescriptor.toString()) as Int) else 0
+public actual fun ntSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject((handle?.value ?: 0L).toString(), securityinformation.toInt(), (securitydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtSetVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile(filehandle.toString(), iostatusblock.toString(), fsinformation.toString(), length.toInt(), fsinformationclass) as Int) else 0
+public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fsinformation?.value ?: 0L).toString(), length.toInt(), fsinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtUnlockFile(filehandle: HANDLE, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_NtUnlockFile(filehandle.toString(), iostatusblock.toString(), byteoffset.toString(), length.toString(), key.toInt()) as Int) else 0
+public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntUnlockFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (byteoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NtWriteFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, buffer: Long, length: UInt, byteoffset: Long, key: Long): NTSTATUS =
-    0
+public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ntWriteFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), (byteoffset?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObInsertObject(obj: Long, passedaccessstate: Long, desiredaccess: UInt, objectpointerbias: UInt, newobject: Long, handle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObInsertObject(obj.toString(), passedaccessstate.toString(), desiredaccess.toInt(), objectpointerbias.toInt(), newobject.toString(), handle.toString()) as Int) else 0
+public actual fun obInsertObject(obj: COpaquePointer?, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objectpointerbias: UInt, newobject: COpaquePointer?, handle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obInsertObject((obj?.value ?: 0L).toString(), (passedaccessstate?.value ?: 0L).toString(), desiredaccess.toInt(), objectpointerbias.toInt(), (newobject?.value ?: 0L).toString(), (handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObIsKernelHandle(handle: HANDLE): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle(handle.toString()) as Boolean) else false
+public actual fun obIsKernelHandle(handle: Handle): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obIsKernelHandle((handle?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObMakeTemporaryObject(obj: Long) {
+public actual fun obMakeTemporaryObject(obj: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject(obj.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject((obj?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ObOpenObjectByPointer(obj: Long, handleattributes: UInt, passedaccessstate: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, handle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer(obj.toString(), handleattributes.toInt(), passedaccessstate.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), handle.toString()) as Int) else 0
+public actual fun obOpenObjectByPointer(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer((obj?.value ?: 0L).toString(), handleattributes.toInt(), (passedaccessstate?.value ?: 0L).toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), (handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObOpenObjectByPointerWithTag(obj: Long, handleattributes: UInt, passedaccessstate: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, tag: UInt, handle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag(obj.toString(), handleattributes.toInt(), passedaccessstate.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), tag.toInt(), handle.toString()) as Int) else 0
+public actual fun obOpenObjectByPointerWithTag(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag((obj?.value ?: 0L).toString(), handleattributes.toInt(), (passedaccessstate?.value ?: 0L).toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), tag.toInt(), (handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObQueryNameString(obj: Long, objectnameinfo: Long, length: UInt, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObQueryNameString(obj.toString(), objectnameinfo.toString(), length.toInt(), returnlength.toString()) as Int) else 0
+public actual fun obQueryNameString(obj: COpaquePointer?, objectnameinfo: COpaquePointer?, length: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obQueryNameString((obj?.value ?: 0L).toString(), (objectnameinfo?.value ?: 0L).toString(), length.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObQueryObjectAuditingByHandle(handle: HANDLE, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle(handle.toString(), generateonclose.toString()) as Int) else 0
+public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle((handle?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PfxFindPrefix(prefixtable: Long, fullname: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PfxFindPrefix(prefixtable.toString(), fullname.toString()) as String).toLong() else 0L
+public actual fun pfxFindPrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_pfxFindPrefix((prefixtable?.value ?: 0L).toString(), (fullname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PfxInitialize(prefixtable: Long) {
+public actual fun pfxInitialize(prefixtable: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PfxInitialize(prefixtable.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_pfxInitialize((prefixtable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PfxInsertPrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix(prefixtable.toString(), prefix.toString(), prefixtableentry.toString()) as Boolean) else false
+public actual fun pfxInsertPrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix((prefixtable?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (prefixtableentry?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PfxRemovePrefix(prefixtable: Long, prefixtableentry: Long) {
+public actual fun pfxRemovePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix(prefixtable.toString(), prefixtableentry.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix((prefixtable?.value ?: 0L).toString(), (prefixtableentry?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PoQueueShutdownWorkItem(workitem: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem(workitem.toString()) as Int) else 0
+public actual fun poQueueShutdownWorkItem(workitem: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem((workitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsAssignImpersonationToken(thread: PETHREAD, token: HANDLE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken(thread.toString(), token.toString()) as Int) else 0
+public actual fun psAssignImpersonationToken(thread: Pethread, token: Handle): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken(thread.toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsChargePoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong) {
+public actual fun psChargePoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota(process.toString(), pooltype, amount.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psChargePoolQuota(process.toString(), pooltype, amount.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsChargeProcessPoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota(process.toString(), pooltype, amount.toString()) as Int) else 0
+public actual fun psChargeProcessPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota(process.toString(), pooltype, amount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsDereferenceImpersonationToken(impersonationtoken: Long) {
+public actual fun psDereferenceImpersonationToken(impersonationtoken: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken(impersonationtoken.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken((impersonationtoken?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsDereferencePrimaryToken(primarytoken: Long) {
+public actual fun psDereferencePrimaryToken(primarytoken: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken(primarytoken.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken((primarytoken?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsDisableImpersonation(thread: PETHREAD, impersonationstate: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation(thread.toString(), impersonationstate.toString()) as Boolean) else false
+public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psDisableImpersonation(thread.toString(), (impersonationstate?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsGetProcessExitTime(): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime() as String).toLong() else 0L
+public actual fun psGetProcessExitTime(): Long =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsGetThreadProcess(thread: PETHREAD): PEPROCESS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess(thread.toString()) as String).toLong() else 0L
+public actual fun psGetThreadProcess(thread: Pethread): Peprocess =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psGetThreadProcess(thread.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsImpersonateClient(thread: PETHREAD, token: Long, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SECURITY_IMPERSONATION_LEVEL): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsImpersonateClient(thread.toString(), token.toString(), copyonopen, effectiveonly, impersonationlevel) as Int) else 0
+public actual fun psImpersonateClient(thread: Pethread, token: COpaquePointer?, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psImpersonateClient(thread.toString(), (token?.value ?: 0L).toString(), copyonopen, effectiveonly, impersonationlevel) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsIsDiskCountersEnabled(): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled() as Boolean) else false
+public actual fun psIsDiskCountersEnabled(): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled() as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsIsSystemThread(thread: PETHREAD): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsIsSystemThread(thread.toString()) as Boolean) else false
+public actual fun psIsSystemThread(thread: Pethread): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psIsSystemThread(thread.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsIsThreadTerminating(thread: PETHREAD): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating(thread.toString()) as Boolean) else false
+public actual fun psIsThreadTerminating(thread: Pethread): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating(thread.toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsLookupProcessByProcessId(processid: HANDLE, process: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId(processid.toString(), process.toString()) as Int) else 0
+public actual fun psLookupProcessByProcessId(processid: Handle, process: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId((processid?.value ?: 0L).toString(), (process?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsLookupThreadByThreadId(threadid: HANDLE, thread: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId(threadid.toString(), thread.toString()) as Int) else 0
+public actual fun psLookupThreadByThreadId(threadid: Handle, thread: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId((threadid?.value ?: 0L).toString(), (thread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsReferenceImpersonationToken(thread: PETHREAD, copyonopen: Long, effectiveonly: Long, impersonationlevel: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken(thread.toString(), copyonopen.toString(), effectiveonly.toString(), impersonationlevel.toString()) as String).toLong() else 0L
+public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: COpaquePointer?, effectiveonly: COpaquePointer?, impersonationlevel: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken(thread.toString(), (copyonopen?.value ?: 0L).toString(), (effectiveonly?.value ?: 0L).toString(), (impersonationlevel?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsReferencePrimaryToken(process: PEPROCESS): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken(process.toString()) as String).toLong() else 0L
+public actual fun psReferencePrimaryToken(process: Peprocess): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken(process.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PsRestoreImpersonation(thread: PETHREAD, impersonationstate: Long) {
+public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation(thread.toString(), impersonationstate.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation(thread.toString(), (impersonationstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsReturnPoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong) {
+public actual fun psReturnPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota(process.toString(), pooltype, amount.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota(process.toString(), pooltype, amount.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsRevertToSelf() {
+public actual fun psRevertToSelf() {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsRevertToSelf()
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psRevertToSelf()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PsUpdateDiskCounters(process: PEPROCESS, bytesread: ULong, byteswritten: ULong, readoperationcount: UInt, writeoperationcount: UInt, flushoperationcount: UInt) {
+public actual fun psUpdateDiskCounters(process: Peprocess, bytesread: ULong, byteswritten: ULong, readoperationcount: UInt, writeoperationcount: UInt, flushoperationcount: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters(process.toString(), bytesread.toString(), byteswritten.toString(), readoperationcount.toInt(), writeoperationcount.toInt(), flushoperationcount.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters(process.toString(), bytesread.toString(), byteswritten.toString(), readoperationcount.toInt(), writeoperationcount.toInt(), flushoperationcount.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun QuerySecurityContextToken(phcontext: Long, token: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken(phcontext.toString(), token.toString()) as Int) else 0
+public actual fun querySecurityContextToken(phcontext: COpaquePointer?, token: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_querySecurityContextToken((phcontext?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, bufferlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor.toString(), selfrelativesecuritydescriptor.toString(), bufferlength.toString()) as Int) else 0
+public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD((absolutesecuritydescriptor?.value ?: 0L).toString(), (selfrelativesecuritydescriptor?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAddAccessAllowedAce(acl: Long, acerevision: UInt, accessmask: UInt, sid: PSID): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce(acl.toString(), acerevision.toInt(), accessmask.toInt(), sid.toString()) as Int) else 0
+public actual fun rtlAddAccessAllowedAce(acl: COpaquePointer?, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce((acl?.value ?: 0L).toString(), acerevision.toInt(), accessmask.toInt(), (sid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAddAccessAllowedAceEx(acl: Long, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: PSID): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx(acl.toString(), acerevision.toInt(), aceflags.toInt(), accessmask.toInt(), sid.toString()) as Int) else 0
+public actual fun rtlAddAccessAllowedAceEx(acl: COpaquePointer?, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx((acl?.value ?: 0L).toString(), acerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (sid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAddAce(acl: Long, acerevision: UInt, startingaceindex: UInt, acelist: Long, acelistlength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAddAce(acl.toString(), acerevision.toInt(), startingaceindex.toInt(), acelist.toString(), acelistlength.toInt()) as Int) else 0
+public actual fun rtlAddAce(acl: COpaquePointer?, acerevision: UInt, startingaceindex: UInt, acelist: COpaquePointer?, acelistlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAddAce((acl?.value ?: 0L).toString(), acerevision.toInt(), startingaceindex.toInt(), (acelist?.value ?: 0L).toString(), acelistlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAllocateAndInitializeSid(identifierauthority: Long, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid(identifierauthority.toString(), subauthoritycount.toInt(), subauthority0.toInt(), subauthority1.toInt(), subauthority2.toInt(), subauthority3.toInt(), subauthority4.toInt(), subauthority5.toInt(), subauthority6.toInt(), subauthority7.toInt(), sid.toString()) as Int) else 0
+public actual fun rtlAllocateAndInitializeSid(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid((identifierauthority?.value ?: 0L).toString(), subauthoritycount.toInt(), subauthority0.toInt(), subauthority1.toInt(), subauthority2.toInt(), subauthority3.toInt(), subauthority4.toInt(), subauthority5.toInt(), subauthority6.toInt(), subauthority7.toInt(), (sid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAllocateAndInitializeSidEx(identifierauthority: Long, subauthoritycount: UByte, subauthorities: Long, sid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx(identifierauthority.toString(), subauthoritycount.toInt(), subauthorities.toString(), sid.toString()) as Int) else 0
+public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthorities: COpaquePointer?, sid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx((identifierauthority?.value ?: 0L).toString(), subauthoritycount.toInt(), (subauthorities?.value ?: 0L).toString(), (sid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAllocateHeap(heaphandle: Long, flags: UInt, size: ULong): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap(heaphandle.toString(), flags.toInt(), size.toString()) as String).toLong() else 0L
+public actual fun rtlAllocateHeap(heaphandle: COpaquePointer?, flags: UInt, size: ULong): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap((heaphandle?.value ?: 0L).toString(), flags.toInt(), size.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlAppendStringToString(destination: Long, source: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString(destination.toString(), source.toString()) as Int) else 0
+public actual fun rtlAppendStringToString(destination: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString((destination?.value ?: 0L).toString(), (source?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCompareAltitudes(altitude1: Long, altitude2: Long): Int =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes(altitude1.toString(), altitude2.toString()) as Int) else 0
+public actual fun rtlCompareAltitudes(altitude1: COpaquePointer?, altitude2: COpaquePointer?): Int =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes((altitude1?.value ?: 0L).toString(), (altitude2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCompareMemoryUlong(source: Long, length: ULong, pattern: UInt): ULong =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong(source.toString(), length.toString(), pattern.toInt()) as String).toULong() else 0uL
+public actual fun rtlCompareMemoryUlong(source: COpaquePointer?, length: ULong, pattern: UInt): ULong =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong((source?.value ?: 0L).toString(), length.toString(), pattern.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: Long, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer(compressionformatandengine.toInt(), uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), finalcompressedsize.toString(), workspace.toString()) as Int) else 0
+public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer(compressionformatandengine.toInt(), (uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), (finalcompressedsize?.value ?: 0L).toString(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, compresseddatainfo: Long, compresseddatainfolength: UInt, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCompressChunks(uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), compresseddatainfo.toString(), compresseddatainfolength.toInt(), workspace.toString()) as Int) else 0
+public actual fun rtlCompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compresseddatainfo: COpaquePointer?, compresseddatainfolength: UInt, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCompressChunks((uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), (compresseddatainfo?.value ?: 0L).toString(), compresseddatainfolength.toInt(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCopyLuid(destinationluid: Long, sourceluid: Long) {
+public actual fun rtlCopyLuid(destinationluid: COpaquePointer?, sourceluid: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCopyLuid(destinationluid.toString(), sourceluid.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCopyLuid((destinationluid?.value ?: 0L).toString(), (sourceluid?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlCopySid(destinationsidlength: UInt, destinationsid: PSID, sourcesid: PSID): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCopySid(destinationsidlength.toInt(), destinationsid.toString(), sourcesid.toString()) as Int) else 0
+public actual fun rtlCopySid(destinationsidlength: UInt, destinationsid: Psid, sourcesid: Psid): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCopySid(destinationsidlength.toInt(), (destinationsid?.value ?: 0L).toString(), (sourcesid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateAcl(acl: Long, acllength: UInt, aclrevision: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateAcl(acl.toString(), acllength.toInt(), aclrevision.toInt()) as Int) else 0
+public actual fun rtlCreateAcl(acl: COpaquePointer?, acllength: UInt, aclrevision: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateAcl((acl?.value ?: 0L).toString(), acllength.toInt(), aclrevision.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateHeap(flags: UInt, heapbase: Long, reservesize: ULong, commitsize: ULong, lock: Long, parameters: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateHeap(flags.toInt(), heapbase.toString(), reservesize.toString(), commitsize.toString(), lock.toString(), parameters.toString()) as String).toLong() else 0L
+public actual fun rtlCreateHeap(flags: UInt, heapbase: COpaquePointer?, reservesize: ULong, commitsize: ULong, lock: COpaquePointer?, parameters: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateHeap(flags.toInt(), (heapbase?.value ?: 0L).toString(), reservesize.toString(), commitsize.toString(), (lock?.value ?: 0L).toString(), (parameters?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateServiceSid(servicename: Long, servicesid: PSID, servicesidlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid(servicename.toString(), servicesid.toString(), servicesidlength.toString()) as Int) else 0
+public actual fun rtlCreateServiceSid(servicename: COpaquePointer?, servicesid: Psid, servicesidlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid((servicename?.value ?: 0L).toString(), (servicesid?.value ?: 0L).toString(), (servicesidlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateSystemVolumeInformationFolder(volumerootpath: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder(volumerootpath.toString()) as Int) else 0
+public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder((volumerootpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateUnicodeString(destinationstring: Long, sourcestring: PCWSTR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString(destinationstring.toString(), sourcestring.toString()) as Boolean) else false
+public actual fun rtlCreateUnicodeString(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCreateVirtualAccountSid(name: Long, basesubauthority: UInt, sid: PSID, sidlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid(name.toString(), basesubauthority.toInt(), sid.toString(), sidlength.toString()) as Int) else 0
+public actual fun rtlCreateVirtualAccountSid(name: COpaquePointer?, basesubauthority: UInt, sid: Psid, sidlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid((name?.value ?: 0L).toString(), basesubauthority.toInt(), (sid?.value ?: 0L).toString(), (sidlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlCustomCPToUnicodeN(customcp: Long, unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, customcpstring: PCSTR, bytesincustomcpstring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN(customcp.toString(), unicodestring.toString(), maxbytesinunicodestring.toInt(), bytesinunicodestring.toString(), customcpstring.toString(), bytesincustomcpstring.toInt()) as Int) else 0
+public actual fun rtlCustomCPToUnicodeN(customcp: COpaquePointer?, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN((customcp?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L).toString(), (customcpstring?.value ?: 0L).toString(), bytesincustomcpstring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, finaluncompressedsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer(compressionformat.toInt(), uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), finaluncompressedsize.toString()) as Int) else 0
+public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer(compressionformat.toInt(), (uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), (finaluncompressedsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx(compressionformat.toInt(), uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), finaluncompressedsize.toString(), workspace.toString()) as Int) else 0
+public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx(compressionformat.toInt(), (uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), (finaluncompressedsize?.value ?: 0L).toString(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2(compressionformat.toInt(), uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), finaluncompressedsize.toString(), workspace.toString()) as Int) else 0
+public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2(compressionformat.toInt(), (uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), uncompressedchunksize.toInt(), (finaluncompressedsize?.value ?: 0L).toString(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, compressedtail: Long, compressedtailsize: UInt, compresseddatainfo: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks(uncompressedbuffer.toString(), uncompressedbuffersize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), compressedtail.toString(), compressedtailsize.toInt(), compresseddatainfo.toString()) as Int) else 0
+public actual fun rtlDecompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compressedtail: COpaquePointer?, compressedtailsize: UInt, compresseddatainfo: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks((uncompressedbuffer?.value ?: 0L).toString(), uncompressedbuffersize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), (compressedtail?.value ?: 0L).toString(), compressedtailsize.toInt(), (compresseddatainfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressFragment(compressionformat: UShort, uncompressedfragment: Long, uncompressedfragmentsize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment(compressionformat.toInt(), uncompressedfragment.toString(), uncompressedfragmentsize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), fragmentoffset.toInt(), finaluncompressedsize.toString(), workspace.toString()) as Int) else 0
+public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment(compressionformat.toInt(), (uncompressedfragment?.value ?: 0L).toString(), uncompressedfragmentsize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), fragmentoffset.toInt(), (finaluncompressedsize?.value ?: 0L).toString(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: Long, uncompressedfragmentsize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx(compressionformat.toInt(), uncompressedfragment.toString(), uncompressedfragmentsize.toInt(), compressedbuffer.toString(), compressedbuffersize.toInt(), fragmentoffset.toInt(), uncompressedchunksize.toInt(), finaluncompressedsize.toString(), workspace.toString()) as Int) else 0
+public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx(compressionformat.toInt(), (uncompressedfragment?.value ?: 0L).toString(), uncompressedfragmentsize.toInt(), (compressedbuffer?.value ?: 0L).toString(), compressedbuffersize.toInt(), fragmentoffset.toInt(), uncompressedchunksize.toInt(), (finaluncompressedsize?.value ?: 0L).toString(), (workspace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDeleteAce(acl: Long, aceindex: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDeleteAce(acl.toString(), aceindex.toInt()) as Int) else 0
+public actual fun rtlDeleteAce(acl: COpaquePointer?, aceindex: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDeleteAce((acl?.value ?: 0L).toString(), aceindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDescribeChunk(compressionformat: UShort, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk(compressionformat.toInt(), compressedbuffer.toString(), endofcompressedbufferplus1.toString(), chunkbuffer.toString(), chunksize.toString()) as Int) else 0
+public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk(compressionformat.toInt(), (compressedbuffer?.value ?: 0L).toString(), (endofcompressedbufferplus1?.value ?: 0L).toString(), (chunkbuffer?.value ?: 0L).toString(), (chunksize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDestroyHeap(heaphandle: Long): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap(heaphandle.toString()) as String).toLong() else 0L
+public actual fun rtlDestroyHeap(heaphandle: COpaquePointer?): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap((heaphandle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDosPathNameToNtPathName_U_WithStatus(dosfilename: PCWSTR, ntfilename: Long, filepart: Long, reserved: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus(dosfilename.toString(), ntfilename.toString(), filepart.toString(), reserved.toString()) as Int) else 0
+public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: COpaquePointer?, filepart: COpaquePointer?, reserved: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus((dosfilename?.value ?: 0L).toString(), (ntfilename?.value ?: 0L).toString(), (filepart?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDowncaseUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlDowncaseUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDuplicateUnicodeString(flags: UInt, stringin: Long, stringout: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString(flags.toInt(), stringin.toString(), stringout.toString()) as Int) else 0
+public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: COpaquePointer?, stringout: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString(flags.toInt(), (stringin?.value ?: 0L).toString(), (stringout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEqualPrefixSid(sid1: PSID, sid2: PSID): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid(sid1.toString(), sid2.toString()) as Boolean) else false
+public actual fun rtlEqualPrefixSid(sid1: Psid, sid2: Psid): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid((sid1?.value ?: 0L).toString(), (sid2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEqualSid(sid1: PSID, sid2: PSID): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlEqualSid(sid1.toString(), sid2.toString()) as Boolean) else false
+public actual fun rtlEqualSid(sid1: Psid, sid2: Psid): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlEqualSid((sid1?.value ?: 0L).toString(), (sid2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlFindUnicodePrefix(prefixtable: Long, fullname: Long, caseinsensitiveindex: UInt): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix(prefixtable.toString(), fullname.toString(), caseinsensitiveindex.toInt()) as String).toLong() else 0L
+public actual fun rtlFindUnicodePrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?, caseinsensitiveindex: UInt): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix((prefixtable?.value ?: 0L).toString(), (fullname?.value ?: 0L).toString(), caseinsensitiveindex.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlFreeHeap(heaphandle: Long, flags: UInt, baseaddress: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlFreeHeap(heaphandle.toString(), flags.toInt(), baseaddress.toString()) as Int).toUInt() else 0u
+public actual fun rtlFreeHeap(heaphandle: COpaquePointer?, flags: UInt, baseaddress: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlFreeHeap((heaphandle?.value ?: 0L).toString(), flags.toInt(), (baseaddress?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlFreeSid(sid: PSID): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlFreeSid(sid.toString()) as String).toLong() else 0L
+public actual fun rtlFreeSid(sid: Psid): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlFreeSid((sid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGenerate8dot3Name(name: Long, allowextendedcharacters: Boolean, context: Long, name8dot3: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name(name.toString(), allowextendedcharacters, context.toString(), name8dot3.toString()) as Int) else 0
+public actual fun rtlGenerate8dot3Name(name: COpaquePointer?, allowextendedcharacters: Boolean, context: COpaquePointer?, name8dot3: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name((name?.value ?: 0L).toString(), allowextendedcharacters, (context?.value ?: 0L).toString(), (name8dot3?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetAce(acl: Long, aceindex: UInt, ace: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetAce(acl.toString(), aceindex.toInt(), ace.toString()) as Int) else 0
+public actual fun rtlGetAce(acl: COpaquePointer?, aceindex: UInt, ace: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetAce((acl?.value ?: 0L).toString(), aceindex.toInt(), (ace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: Long, compressfragmentworkspacesize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize(compressionformatandengine.toInt(), compressbufferworkspacesize.toString(), compressfragmentworkspacesize.toString()) as Int) else 0
+public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: COpaquePointer?, compressfragmentworkspacesize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize(compressionformatandengine.toInt(), (compressbufferworkspacesize?.value ?: 0L).toString(), (compressfragmentworkspacesize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetDaclSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, daclpresent: Long, dacl: Long, dacldefaulted: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor(securitydescriptor.toString(), daclpresent.toString(), dacl.toString(), dacldefaulted.toString()) as Int) else 0
+public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: COpaquePointer?, dacl: COpaquePointer?, dacldefaulted: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (daclpresent?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (dacldefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetGroupSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, group: Long, groupdefaulted: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor(securitydescriptor.toString(), group.toString(), groupdefaulted.toString()) as Int) else 0
+public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: COpaquePointer?, groupdefaulted: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (group?.value ?: 0L).toString(), (groupdefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetOwnerSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, owner: Long, ownerdefaulted: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor(securitydescriptor.toString(), owner.toString(), ownerdefaulted.toString()) as Int) else 0
+public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: COpaquePointer?, ownerdefaulted: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (owner?.value ?: 0L).toString(), (ownerdefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGetSaclSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, saclpresent: Long, sacl: Long, sacldefaulted: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor(securitydescriptor.toString(), saclpresent.toString(), sacl.toString(), sacldefaulted.toString()) as Int) else 0
+public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: COpaquePointer?, sacl: COpaquePointer?, sacldefaulted: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (saclpresent?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (sacldefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIdentifierAuthoritySid(sid: PSID): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid(sid.toString()) as String).toLong() else 0L
+public actual fun rtlIdentifierAuthoritySid(sid: Psid): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid((sid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIdnToAscii(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii(flags.toInt(), sourcestring.toString(), sourcestringlength, destinationstring.toString(), destinationstringlength.toString()) as Int) else 0
+public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii(flags.toInt(), (sourcestring?.value ?: 0L).toString(), sourcestringlength, (destinationstring?.value ?: 0L).toString(), (destinationstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIdnToNameprepUnicode(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode(flags.toInt(), sourcestring.toString(), sourcestringlength, destinationstring.toString(), destinationstringlength.toString()) as Int) else 0
+public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode(flags.toInt(), (sourcestring?.value ?: 0L).toString(), sourcestringlength, (destinationstring?.value ?: 0L).toString(), (destinationstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIdnToUnicode(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode(flags.toInt(), sourcestring.toString(), sourcestringlength, destinationstring.toString(), destinationstringlength.toString()) as Int) else 0
+public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode(flags.toInt(), (sourcestring?.value ?: 0L).toString(), sourcestringlength, (destinationstring?.value ?: 0L).toString(), (destinationstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlInitCodePageTable(tablebase: Long, codepagetable: Long) {
+public actual fun rtlInitCodePageTable(tablebase: COpaquePointer?, codepagetable: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable(tablebase.toString(), codepagetable.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable((tablebase?.value ?: 0L).toString(), (codepagetable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlInitUnicodeStringEx(destinationstring: Long, sourcestring: PCWSTR): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx(destinationstring.toString(), sourcestring.toString()) as Int) else 0
+public actual fun rtlInitUnicodeStringEx(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlInitializeSid(sid: PSID, identifierauthority: Long, subauthoritycount: UByte): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlInitializeSid(sid.toString(), identifierauthority.toString(), subauthoritycount.toInt()) as Int) else 0
+public actual fun rtlInitializeSid(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInitializeSid((sid?.value ?: 0L).toString(), (identifierauthority?.value ?: 0L).toString(), subauthoritycount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlInitializeSidEx(sid: PSID, identifierauthority: Long, subauthoritycount: UByte): NTSTATUS =
-    0
+public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx((sid?.value ?: 0L).toString(), (identifierauthority?.value ?: 0L).toString(), subauthoritycount.toInt(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlInitializeUnicodePrefix(prefixtable: Long) {
+public actual fun rtlInitializeUnicodePrefix(prefixtable: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix(prefixtable.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix((prefixtable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlInsertUnicodePrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix(prefixtable.toString(), prefix.toString(), prefixtableentry.toString()) as Boolean) else false
+public actual fun rtlInsertUnicodePrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix((prefixtable?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (prefixtableentry?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder(fileattributes.toInt(), reparsetag.toInt()) as Boolean) else false
+public actual fun rtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder(fileattributes.toInt(), reparsetag.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsDosDeviceName_U(dosfilename: PCWSTR): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U(dosfilename.toString()) as Int).toUInt() else 0u
+public actual fun rtlIsDosDeviceNameU(dosfilename: Pcwstr): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU((dosfilename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt()) as Boolean) else false
+public actual fun rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsNormalizedString(normform: UInt, sourcestring: PCWSTR, sourcestringlength: Int, normalized: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString(normform.toInt(), sourcestring.toString(), sourcestringlength, normalized.toString()) as Int) else 0
+public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString(normform.toInt(), (sourcestring?.value ?: 0L).toString(), sourcestringlength, (normalized?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder(fileattributes.toInt(), reparsetag.toInt()) as Boolean) else false
+public actual fun rtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder(fileattributes.toInt(), reparsetag.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsPartialPlaceholderFileHandle(filehandle: HANDLE, ispartialplaceholder: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle(filehandle.toString(), ispartialplaceholder.toString()) as Int) else 0
+public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle((filehandle?.value ?: 0L).toString(), (ispartialplaceholder?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsPartialPlaceholderFileInfo(infobuffer: Long, infoclass: FILE_INFORMATION_CLASS, ispartialplaceholder: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo(infobuffer.toString(), infoclass, ispartialplaceholder.toString()) as Int) else 0
+public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: COpaquePointer?, infoclass: FileInformationClass, ispartialplaceholder: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo((infobuffer?.value ?: 0L).toString(), infoclass, (ispartialplaceholder?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsSandboxedToken(context: Long, previousmode: Byte): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken(context.toString(), previousmode.toInt()) as Boolean) else false
+public actual fun rtlIsSandboxedToken(context: COpaquePointer?, previousmode: Byte): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken((context?.value ?: 0L).toString(), previousmode.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIsValidOemCharacter(char: PWSTR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter(char.toString()) as Boolean) else false
+public actual fun rtlIsValidOemCharacter(char: Pwstr): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter((char?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlLengthRequiredSid(subauthoritycount: UInt): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid(subauthoritycount.toInt()) as Int).toUInt() else 0u
+public actual fun rtlLengthRequiredSid(subauthoritycount: UInt): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid(subauthoritycount.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlLengthSid(sid: PSID): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlLengthSid(sid.toString()) as Int).toUInt() else 0u
+public actual fun rtlLengthSid(sid: Psid): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlLengthSid((sid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlMultiByteToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN(unicodestring.toString(), maxbytesinunicodestring.toInt(), bytesinunicodestring.toString(), multibytestring.toString(), bytesinmultibytestring.toInt()) as Int) else 0
+public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN((unicodestring?.value ?: 0L).toString(), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L).toString(), (multibytestring?.value ?: 0L).toString(), bytesinmultibytestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlMultiByteToUnicodeSize(bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize(bytesinunicodestring.toString(), multibytestring.toString(), bytesinmultibytestring.toInt()) as Int) else 0
+public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize((bytesinunicodestring?.value ?: 0L).toString(), (multibytestring?.value ?: 0L).toString(), bytesinmultibytestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlNextUnicodePrefix(prefixtable: Long, restart: Boolean): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix(prefixtable.toString(), restart) as String).toLong() else 0L
+public actual fun rtlNextUnicodePrefix(prefixtable: COpaquePointer?, restart: Boolean): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix((prefixtable?.value ?: 0L).toString(), restart) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlNormalizeString(normform: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlNormalizeString(normform.toInt(), sourcestring.toString(), sourcestringlength, destinationstring.toString(), destinationstringlength.toString()) as Int) else 0
+public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlNormalizeString(normform.toInt(), (sourcestring?.value ?: 0L).toString(), sourcestringlength, (destinationstring?.value ?: 0L).toString(), (destinationstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlNtStatusToDosErrorNoTeb(status: NTSTATUS): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb(status) as Int).toUInt() else 0u
+public actual fun rtlNtStatusToDosErrorNoTeb(status: Ntstatus): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb(status) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlOemStringToCountedUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlOemStringToCountedUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlOemStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlOemStringToUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlOemToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, oemstring: PCSTR, bytesinoemstring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN(unicodestring.toString(), maxbytesinunicodestring.toInt(), bytesinunicodestring.toString(), oemstring.toString(), bytesinoemstring.toInt()) as Int) else 0
+public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN((unicodestring?.value ?: 0L).toString(), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L).toString(), (oemstring?.value ?: 0L).toString(), bytesinoemstring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlPrefixString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlPrefixString(string1.toString(), string2.toString(), caseinsensitive) as Boolean) else false
+public actual fun rtlPrefixString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlPrefixString((string1?.value ?: 0L).toString(), (string2?.value ?: 0L).toString(), caseinsensitive) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlQueryPackageIdentity(tokenobject: Long, packagefullname: PWSTR, packagesize: Long, appid: PWSTR, appidsize: Long, packaged: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity(tokenobject.toString(), packagefullname.toString(), packagesize.toString(), appid.toString(), appidsize.toString(), packaged.toString()) as Int) else 0
+public actual fun rtlQueryPackageIdentity(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, packaged: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity((tokenobject?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString(), (packagesize?.value ?: 0L).toString(), (appid?.value ?: 0L).toString(), (appidsize?.value ?: 0L).toString(), (packaged?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlQueryPackageIdentityEx(tokenobject: Long, packagefullname: PWSTR, packagesize: Long, appid: PWSTR, appidsize: Long, dynamicid: Long, flags: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx(tokenobject.toString(), packagefullname.toString(), packagesize.toString(), appid.toString(), appidsize.toString(), dynamicid.toString(), flags.toString()) as Int) else 0
+public actual fun rtlQueryPackageIdentityEx(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, dynamicid: COpaquePointer?, flags: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx((tokenobject?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString(), (packagesize?.value ?: 0L).toString(), (appid?.value ?: 0L).toString(), (appidsize?.value ?: 0L).toString(), (dynamicid?.value ?: 0L).toString(), (flags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlQueryProcessPlaceholderCompatibilityMode(): Byte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode() as Int).toByte() else 0
+public actual fun rtlQueryProcessPlaceholderCompatibilityMode(): Byte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode() as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlQueryThreadPlaceholderCompatibilityMode(): Byte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode() as Int).toByte() else 0
+public actual fun rtlQueryThreadPlaceholderCompatibilityMode(): Byte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode() as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlRandom(seed: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlRandom(seed.toString()) as Int).toUInt() else 0u
+public actual fun rtlRandom(seed: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlRandom((seed?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlRandomEx(seed: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlRandomEx(seed.toString()) as Int).toUInt() else 0u
+public actual fun rtlRandomEx(seed: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlRandomEx((seed?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlRemoveUnicodePrefix(prefixtable: Long, prefixtableentry: Long) {
+public actual fun rtlRemoveUnicodePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix(prefixtable.toString(), prefixtableentry.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix((prefixtable?.value ?: 0L).toString(), (prefixtableentry?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlReplaceSidInSd(securitydescriptor: PSECURITY_DESCRIPTOR, oldsid: PSID, newsid: PSID, numchanges: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd(securitydescriptor.toString(), oldsid.toString(), newsid.toString(), numchanges.toString()) as Int) else 0
+public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd((securitydescriptor?.value ?: 0L).toString(), (oldsid?.value ?: 0L).toString(), (newsid?.value ?: 0L).toString(), (numchanges?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlReserveChunk(compressionformat: UShort, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlReserveChunk(compressionformat.toInt(), compressedbuffer.toString(), endofcompressedbufferplus1.toString(), chunkbuffer.toString(), chunksize.toInt()) as Int) else 0
+public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlReserveChunk(compressionformat.toInt(), (compressedbuffer?.value ?: 0L).toString(), (endofcompressedbufferplus1?.value ?: 0L).toString(), (chunkbuffer?.value ?: 0L).toString(), chunksize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSecondsSince1970ToTime(elapsedseconds: UInt, time: Long) {
+public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime(elapsedseconds.toInt(), time.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime(elapsedseconds.toInt(), (time?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlSecondsSince1980ToTime(elapsedseconds: UInt, time: Long) {
+public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime(elapsedseconds.toInt(), time.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime(elapsedseconds.toInt(), (time?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, absolutesecuritydescriptor: PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize: Long, dacl: Long, daclsize: Long, sacl: Long, saclsize: Long, owner: PSID, ownersize: Long, primarygroup: PSID, primarygroupsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.toString(), absolutesecuritydescriptor.toString(), absolutesecuritydescriptorsize.toString(), dacl.toString(), daclsize.toString(), sacl.toString(), saclsize.toString(), owner.toString(), ownersize.toString(), primarygroup.toString(), primarygroupsize.toString()) as Int) else 0
+public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: COpaquePointer?, dacl: COpaquePointer?, daclsize: COpaquePointer?, sacl: COpaquePointer?, saclsize: COpaquePointer?, owner: Psid, ownersize: COpaquePointer?, primarygroup: Psid, primarygroupsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD((selfrelativesecuritydescriptor?.value ?: 0L).toString(), (absolutesecuritydescriptor?.value ?: 0L).toString(), (absolutesecuritydescriptorsize?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (daclsize?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (saclsize?.value ?: 0L).toString(), (owner?.value ?: 0L).toString(), (ownersize?.value ?: 0L).toString(), (primarygroup?.value ?: 0L).toString(), (primarygroupsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSetGroupSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, group: PSID, groupdefaulted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor(securitydescriptor.toString(), group.toString(), groupdefaulted) as Int) else 0
+public actual fun rtlSetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: Psid, groupdefaulted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (group?.value ?: 0L).toString(), groupdefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSetOwnerSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, owner: PSID, ownerdefaulted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor(securitydescriptor.toString(), owner.toString(), ownerdefaulted) as Int) else 0
+public actual fun rtlSetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: Psid, ownerdefaulted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), (owner?.value ?: 0L).toString(), ownerdefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode(mode.toInt()) as Int).toByte() else 0
+public actual fun rtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode(mode.toInt()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode(mode.toInt()) as Int).toByte() else 0
+public actual fun rtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode(mode.toInt()) as Int).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSubAuthorityCountSid(sid: PSID): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid(sid.toString()) as String).toLong() else 0L
+public actual fun rtlSubAuthorityCountSid(sid: Psid): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid((sid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlSubAuthoritySid(sid: PSID, subauthority: UInt): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid(sid.toString(), subauthority.toInt()) as String).toLong() else 0L
+public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid((sid?.value ?: 0L).toString(), subauthority.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlTimeToSecondsSince1980(time: Long, elapsedseconds: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980(time.toString(), elapsedseconds.toString()) as Boolean) else false
+public actual fun rtlTimeToSecondsSince1980(time: COpaquePointer?, elapsedseconds: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980((time?.value ?: 0L).toString(), (elapsedseconds?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUnicodeToCustomCPN(customcp: Long, customcpstring: PSTR, maxbytesincustomcpstring: UInt, bytesincustomcpstring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN(customcp.toString(), customcpstring.toString(), maxbytesincustomcpstring.toInt(), bytesincustomcpstring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN((customcp?.value ?: 0L).toString(), (customcpstring?.value ?: 0L).toString(), maxbytesincustomcpstring.toInt(), (bytesincustomcpstring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN(multibytestring.toString(), maxbytesinmultibytestring.toInt(), bytesinmultibytestring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN((multibytestring?.value ?: 0L).toString(), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUnicodeToOemN(oemstring: PSTR, maxbytesinoemstring: UInt, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN(oemstring.toString(), maxbytesinoemstring.toInt(), bytesinoemstring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN((oemstring?.value ?: 0L).toString(), maxbytesinoemstring.toInt(), (bytesinoemstring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUpcaseUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUpcaseUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString(destinationstring.toString(), sourcestring.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString((destinationstring?.value ?: 0L).toString(), (sourcestring?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUpcaseUnicodeToCustomCPN(customcp: Long, customcpstring: PSTR, maxbytesincustomcpstring: UInt, bytesincustomcpstring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN(customcp.toString(), customcpstring.toString(), maxbytesincustomcpstring.toInt(), bytesincustomcpstring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN((customcp?.value ?: 0L).toString(), (customcpstring?.value ?: 0L).toString(), maxbytesincustomcpstring.toInt(), (bytesincustomcpstring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUpcaseUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN(multibytestring.toString(), maxbytesinmultibytestring.toInt(), bytesinmultibytestring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN((multibytestring?.value ?: 0L).toString(), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlUpcaseUnicodeToOemN(oemstring: PSTR, maxbytesinoemstring: UInt, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN(oemstring.toString(), maxbytesinoemstring.toInt(), bytesinoemstring.toString(), unicodestring.toString(), bytesinunicodestring.toInt()) as Int) else 0
+public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN((oemstring?.value ?: 0L).toString(), maxbytesinoemstring.toInt(), (bytesinoemstring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlValidSid(sid: PSID): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlValidSid(sid.toString()) as Boolean) else false
+public actual fun rtlValidSid(sid: Psid): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlValidSid((sid?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlValidateUnicodeString(flags: UInt, string: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString(flags.toInt(), string.toString()) as Int) else 0
+public actual fun rtlValidateUnicodeString(flags: UInt, string: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString(flags.toInt(), (string?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlxOemStringToUnicodeSize(oemstring: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize(oemstring.toString()) as Int).toUInt() else 0u
+public actual fun rtlxOemStringToUnicodeSize(oemstring: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize((oemstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlxUnicodeStringToOemSize(unicodestring: Long): UInt =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize(unicodestring.toString()) as Int).toUInt() else 0u
+public actual fun rtlxUnicodeStringToOemSize(unicodestring: COpaquePointer?): UInt =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize((unicodestring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAccessCheckFromState(securitydescriptor: PSECURITY_DESCRIPTOR, primarytokeninformation: Long, clienttokeninformation: Long, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState(securitydescriptor.toString(), primarytokeninformation.toString(), clienttokeninformation.toString(), desiredaccess.toInt(), previouslygrantedaccess.toInt(), privileges.toString(), genericmapping.toString(), accessmode.toInt(), grantedaccess.toString(), accessstatus.toString()) as Boolean) else false
+public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: COpaquePointer?, clienttokeninformation: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState((securitydescriptor?.value ?: 0L).toString(), (primarytokeninformation?.value ?: 0L).toString(), (clienttokeninformation?.value ?: 0L).toString(), desiredaccess.toInt(), previouslygrantedaccess.toInt(), (privileges?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString(), accessmode.toInt(), (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAccessCheckFromStateEx(securitydescriptor: PSECURITY_DESCRIPTOR, primarytoken: Long, clienttoken: Long, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx(securitydescriptor.toString(), primarytoken.toString(), clienttoken.toString(), desiredaccess.toInt(), previouslygrantedaccess.toInt(), privileges.toString(), genericmapping.toString(), accessmode.toInt(), grantedaccess.toString(), accessstatus.toString()) as Boolean) else false
+public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: COpaquePointer?, clienttoken: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx((securitydescriptor?.value ?: 0L).toString(), (primarytoken?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), previouslygrantedaccess.toInt(), (privileges?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString(), accessmode.toInt(), (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAdjustAccessStateForAccessConstraints(objecttype: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long) {
+public actual fun seAdjustAccessStateForAccessConstraints(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints(objecttype.toString(), securitydescriptor.toString(), accessstate.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints((objecttype?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAdjustAccessStateForTrustLabel(objecttype: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long) {
+public actual fun seAdjustAccessStateForTrustLabel(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel(objecttype.toString(), securitydescriptor.toString(), accessstate.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel((objecttype?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAdjustObjectSecurity(objectname: Long, originaldescriptor: PSECURITY_DESCRIPTOR, proposeddescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, adjusteddescriptor: Long, applyadjusteddescriptor: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity(objectname.toString(), originaldescriptor.toString(), proposeddescriptor.toString(), subjectsecuritycontext.toString(), adjusteddescriptor.toString(), applyadjusteddescriptor.toString()) as Int) else 0
+public actual fun seAdjustObjectSecurity(objectname: COpaquePointer?, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, adjusteddescriptor: COpaquePointer?, applyadjusteddescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity((objectname?.value ?: 0L).toString(), (originaldescriptor?.value ?: 0L).toString(), (proposeddescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString(), (adjusteddescriptor?.value ?: 0L).toString(), (applyadjusteddescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAppendPrivileges(accessstate: Long, privileges: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges(accessstate.toString(), privileges.toString()) as Int) else 0
+public actual fun seAppendPrivileges(accessstate: COpaquePointer?, privileges: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAppendPrivileges((accessstate?.value ?: 0L).toString(), (privileges?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
+public actual fun seAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests(bsuccess, selftestcode.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests(bsuccess, selftestcode.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAuditHardLinkCreation(filename: Long, linkname: Long, bsuccess: Boolean) {
+public actual fun seAuditHardLinkCreation(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation(filename.toString(), linkname.toString(), bsuccess)
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation((filename?.value ?: 0L).toString(), (linkname?.value ?: 0L).toString(), bsuccess)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAuditHardLinkCreationWithTransaction(filename: Long, linkname: Long, bsuccess: Boolean, transactionid: Long) {
+public actual fun seAuditHardLinkCreationWithTransaction(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean, transactionid: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction(filename.toString(), linkname.toString(), bsuccess, transactionid.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction((filename?.value ?: 0L).toString(), (linkname?.value ?: 0L).toString(), bsuccess, (transactionid?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAuditTransactionStateChange(transactionid: Long, resourcemanagerid: Long, newtransactionstate: UInt) {
+public actual fun seAuditTransactionStateChange(transactionid: COpaquePointer?, resourcemanagerid: COpaquePointer?, newtransactionstate: UInt) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange(transactionid.toString(), resourcemanagerid.toString(), newtransactionstate.toInt())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange((transactionid?.value ?: 0L).toString(), (resourcemanagerid?.value ?: 0L).toString(), newtransactionstate.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeAuditingAnyFileEventsWithContext(securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext(securitydescriptor.toString(), subjectsecuritycontext.toString()) as Boolean) else false
+public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext((securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingAnyFileEventsWithContextEx(securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, stagingenabled: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx(securitydescriptor.toString(), subjectsecuritycontext.toString(), stagingenabled.toString()) as Boolean) else false
+public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx((securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString(), (stagingenabled?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents(accessgranted, securitydescriptor.toString()) as Boolean) else false
+public actual fun seAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents(accessgranted, (securitydescriptor?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext(accessgranted, securitydescriptor.toString(), subjectsecuritycontext.toString()) as Boolean) else false
+public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext(accessgranted, (securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, stagingenabled: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx(accessgranted, securitydescriptor.toString(), subjectsecuritycontext.toString(), stagingenabled.toString()) as Boolean) else false
+public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx(accessgranted, (securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString(), (stagingenabled?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents(accessgranted, securitydescriptor.toString(), subjectsecuritycontext.toString()) as Boolean) else false
+public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents(accessgranted, (securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents(accessgranted, securitydescriptor.toString()) as Boolean) else false
+public actual fun seAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents(accessgranted, (securitydescriptor?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext(accessgranted, securitydescriptor.toString(), subjectsecuritycontext.toString()) as Boolean) else false
+public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext(accessgranted, (securitydescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeCaptureSubjectContextEx(thread: PETHREAD, process: PEPROCESS, subjectcontext: Long) {
+public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx(thread.toString(), process.toString(), subjectcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx(thread.toString(), process.toString(), (subjectcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeCheckForCriticalAceRemoval(currentdescriptor: PSECURITY_DESCRIPTOR, newdescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, aceremoved: Long) {
+public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, aceremoved: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval(currentdescriptor.toString(), newdescriptor.toString(), subjectsecuritycontext.toString(), aceremoved.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval((currentdescriptor?.value ?: 0L).toString(), (newdescriptor?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString(), (aceremoved?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeCreateClientSecurity(clientthread: PETHREAD, clientsecurityqos: Long, remotesession: Boolean, clientcontext: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity(clientthread.toString(), clientsecurityqos.toString(), remotesession, clientcontext.toString()) as Int) else 0
+public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: COpaquePointer?, remotesession: Boolean, clientcontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity(clientthread.toString(), (clientsecurityqos?.value ?: 0L).toString(), remotesession, (clientcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeCreateClientSecurityFromSubjectContext(subjectcontext: Long, clientsecurityqos: Long, serverisremote: Boolean, clientcontext: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext(subjectcontext.toString(), clientsecurityqos.toString(), serverisremote, clientcontext.toString()) as Int) else 0
+public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: COpaquePointer?, clientsecurityqos: COpaquePointer?, serverisremote: Boolean, clientcontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext((subjectcontext?.value ?: 0L).toString(), (clientsecurityqos?.value ?: 0L).toString(), serverisremote, (clientcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeDeleteClientSecurity(clientcontext: Long) {
+public actual fun seDeleteClientSecurity(clientcontext: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity(clientcontext.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity((clientcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeDeleteObjectAuditAlarm(obj: Long, handle: HANDLE) {
+public actual fun seDeleteObjectAuditAlarm(obj: COpaquePointer?, handle: Handle) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm(obj.toString(), handle.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm((obj?.value ?: 0L).toString(), (handle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeDeleteObjectAuditAlarmWithTransaction(obj: Long, handle: HANDLE, transactionid: Long) {
+public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: COpaquePointer?, handle: Handle, transactionid: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction(obj.toString(), handle.toString(), transactionid.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction((obj?.value ?: 0L).toString(), (handle?.value ?: 0L).toString(), (transactionid?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeExamineSacl(sacl: Long, resourcesacl: Long, token: Long, desiredaccess: UInt, accessgranted: Boolean, generateaudit: Long, generatealarm: Long) {
+public actual fun seExamineSacl(sacl: COpaquePointer?, resourcesacl: COpaquePointer?, token: COpaquePointer?, desiredaccess: UInt, accessgranted: Boolean, generateaudit: COpaquePointer?, generatealarm: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeExamineSacl(sacl.toString(), resourcesacl.toString(), token.toString(), desiredaccess.toInt(), accessgranted, generateaudit.toString(), generatealarm.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seExamineSacl((sacl?.value ?: 0L).toString(), (resourcesacl?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), desiredaccess.toInt(), accessgranted, (generateaudit?.value ?: 0L).toString(), (generatealarm?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeFilterToken(existingtoken: Long, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, filteredtoken: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeFilterToken(existingtoken.toString(), flags.toInt(), sidstodisable.toString(), privilegestodelete.toString(), restrictedsids.toString(), filteredtoken.toString()) as Int) else 0
+public actual fun seFilterToken(existingtoken: COpaquePointer?, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, filteredtoken: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seFilterToken((existingtoken?.value ?: 0L).toString(), flags.toInt(), (sidstodisable?.value ?: 0L).toString(), (privilegestodelete?.value ?: 0L).toString(), (restrictedsids?.value ?: 0L).toString(), (filteredtoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeFreePrivileges(privileges: Long) {
+public actual fun seFreePrivileges(privileges: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeFreePrivileges(privileges.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seFreePrivileges((privileges?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeImpersonateClient(clientcontext: Long, serverthread: PETHREAD) {
+public actual fun seImpersonateClient(clientcontext: COpaquePointer?, serverthread: Pethread) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeImpersonateClient(clientcontext.toString(), serverthread.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seImpersonateClient((clientcontext?.value ?: 0L).toString(), serverthread.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeImpersonateClientEx(clientcontext: Long, serverthread: PETHREAD): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx(clientcontext.toString(), serverthread.toString()) as Int) else 0
+public actual fun seImpersonateClientEx(clientcontext: COpaquePointer?, serverthread: Pethread): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx((clientcontext?.value ?: 0L).toString(), serverthread.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeLocateProcessImageName(process: PEPROCESS, pimagefilename: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName(process.toString(), pimagefilename.toString()) as Int) else 0
+public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName(process.toString(), (pimagefilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeMarkLogonSessionForTerminationNotification(logonid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification(logonid.toString()) as Int) else 0
+public actual fun seMarkLogonSessionForTerminationNotification(logonid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification((logonid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeMarkLogonSessionForTerminationNotificationEx(logonid: Long, pserversilo: PESILO): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx(logonid.toString(), pserversilo.toString()) as Int) else 0
+public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: COpaquePointer?, pserversilo: Pesilo): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx((logonid?.value ?: 0L).toString(), pserversilo.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeOpenObjectAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long) {
+public actual fun seOpenObjectAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm(objecttypename.toString(), obj.toString(), absoluteobjectname.toString(), securitydescriptor.toString(), accessstate.toString(), objectcreated, accessgranted, accessmode.toInt(), generateonclose.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm((objecttypename?.value ?: 0L).toString(), (obj?.value ?: 0L).toString(), (absoluteobjectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString(), objectcreated, accessgranted, accessmode.toInt(), (generateonclose?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeOpenObjectAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long) {
+public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction(objecttypename.toString(), obj.toString(), absoluteobjectname.toString(), securitydescriptor.toString(), accessstate.toString(), objectcreated, accessgranted, accessmode.toInt(), transactionid.toString(), generateonclose.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction((objecttypename?.value ?: 0L).toString(), (obj?.value ?: 0L).toString(), (absoluteobjectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString(), objectcreated, accessgranted, accessmode.toInt(), (transactionid?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeOpenObjectForDeleteAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long) {
+public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm(objecttypename.toString(), obj.toString(), absoluteobjectname.toString(), securitydescriptor.toString(), accessstate.toString(), objectcreated, accessgranted, accessmode.toInt(), generateonclose.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm((objecttypename?.value ?: 0L).toString(), (obj?.value ?: 0L).toString(), (absoluteobjectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString(), objectcreated, accessgranted, accessmode.toInt(), (generateonclose?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long) {
+public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename.toString(), obj.toString(), absoluteobjectname.toString(), securitydescriptor.toString(), accessstate.toString(), objectcreated, accessgranted, accessmode.toInt(), transactionid.toString(), generateonclose.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction((objecttypename?.value ?: 0L).toString(), (obj?.value ?: 0L).toString(), (absoluteobjectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString(), objectcreated, accessgranted, accessmode.toInt(), (transactionid?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SePrivilegeCheck(requiredprivileges: Long, subjectsecuritycontext: Long, accessmode: Byte): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck(requiredprivileges.toString(), subjectsecuritycontext.toString(), accessmode.toInt()) as Boolean) else false
+public actual fun sePrivilegeCheck(requiredprivileges: COpaquePointer?, subjectsecuritycontext: COpaquePointer?, accessmode: Byte): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck((requiredprivileges?.value ?: 0L).toString(), (subjectsecuritycontext?.value ?: 0L).toString(), accessmode.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQueryAuthenticationIdToken(token: Long, authenticationid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken(token.toString(), authenticationid.toString()) as Int) else 0
+public actual fun seQueryAuthenticationIdToken(token: COpaquePointer?, authenticationid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken((token?.value ?: 0L).toString(), (authenticationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQueryInformationToken(token: Long, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken(token.toString(), tokeninformationclass, tokeninformation.toString()) as Int) else 0
+public actual fun seQueryInformationToken(token: COpaquePointer?, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQueryInformationToken((token?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQuerySecurityDescriptorInfo(securityinformation: Long, securitydescriptor: PSECURITY_DESCRIPTOR, length: Long, objectssecuritydescriptor: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo(securityinformation.toString(), securitydescriptor.toString(), length.toString(), objectssecuritydescriptor.toString()) as Int) else 0
+public actual fun seQuerySecurityDescriptorInfo(securityinformation: COpaquePointer?, securitydescriptor: PsecurityDescriptor, length: COpaquePointer?, objectssecuritydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo((securityinformation?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), (objectssecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQueryServerSiloToken(token: Long, pserversilo: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken(token.toString(), pserversilo.toString()) as Int) else 0
+public actual fun seQueryServerSiloToken(token: COpaquePointer?, pserversilo: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken((token?.value ?: 0L).toString(), (pserversilo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQuerySessionIdToken(token: Long, sessionid: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken(token.toString(), sessionid.toString()) as Int) else 0
+public actual fun seQuerySessionIdToken(token: COpaquePointer?, sessionid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken((token?.value ?: 0L).toString(), (sessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeQuerySessionIdTokenEx(token: Long, sessionid: Long, isservicesession: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx(token.toString(), sessionid.toString(), isservicesession.toString()) as Int) else 0
+public actual fun seQuerySessionIdTokenEx(token: COpaquePointer?, sessionid: COpaquePointer?, isservicesession: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx((token?.value ?: 0L).toString(), (sessionid?.value ?: 0L).toString(), (isservicesession?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeRegisterLogonSessionTerminatedRoutine(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine(callbackroutine.toLong().toString()) as Int) else 0
+public actual fun seRegisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine(0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX, context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine.toLong().toString(), context.toString()) as Int) else 0
+public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx(0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeReportSecurityEventWithSubCategory(flags: UInt, sourcename: Long, usersid: PSID, auditparameters: Long, auditsubcategoryid: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory(flags.toInt(), sourcename.toString(), usersid.toString(), auditparameters.toString(), auditsubcategoryid.toInt()) as Int) else 0
+public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: COpaquePointer?, usersid: Psid, auditparameters: COpaquePointer?, auditsubcategoryid: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory(flags.toInt(), (sourcename?.value ?: 0L).toString(), (usersid?.value ?: 0L).toString(), (auditparameters?.value ?: 0L).toString(), auditsubcategoryid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeSetAccessStateGenericMapping(accessstate: Long, genericmapping: Long) {
+public actual fun seSetAccessStateGenericMapping(accessstate: COpaquePointer?, genericmapping: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping(accessstate.toString(), genericmapping.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping((accessstate?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SeSetSecurityDescriptorInfo(obj: Long, securityinformation: Long, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, pooltype: POOL_TYPE, genericmapping: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo(obj.toString(), securityinformation.toString(), modificationdescriptor.toString(), objectssecuritydescriptor.toString(), pooltype, genericmapping.toString()) as Int) else 0
+public actual fun seSetSecurityDescriptorInfo(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo((obj?.value ?: 0L).toString(), (securityinformation?.value ?: 0L).toString(), (modificationdescriptor?.value ?: 0L).toString(), (objectssecuritydescriptor?.value ?: 0L).toString(), pooltype, (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeSetSecurityDescriptorInfoEx(obj: Long, securityinformation: Long, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, autoinheritflags: UInt, pooltype: POOL_TYPE, genericmapping: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx(obj.toString(), securityinformation.toString(), modificationdescriptor.toString(), objectssecuritydescriptor.toString(), autoinheritflags.toInt(), pooltype, genericmapping.toString()) as Int) else 0
+public actual fun seSetSecurityDescriptorInfoEx(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: UInt, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx((obj?.value ?: 0L).toString(), (securityinformation?.value ?: 0L).toString(), (modificationdescriptor?.value ?: 0L).toString(), (objectssecuritydescriptor?.value ?: 0L).toString(), autoinheritflags.toInt(), pooltype, (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeShouldCheckForAccessRightsFromParent(objecttype: Long, childdescriptor: PSECURITY_DESCRIPTOR, accessstate: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent(objecttype.toString(), childdescriptor.toString(), accessstate.toString()) as Boolean) else false
+public actual fun seShouldCheckForAccessRightsFromParent(objecttype: COpaquePointer?, childdescriptor: PsecurityDescriptor, accessstate: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent((objecttype?.value ?: 0L).toString(), (childdescriptor?.value ?: 0L).toString(), (accessstate?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeTokenFromAccessInformation(accessinformation: Long, token: Long, length: UInt, requiredlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation(accessinformation.toString(), token.toString(), length.toInt(), requiredlength.toString()) as Int) else 0
+public actual fun seTokenFromAccessInformation(accessinformation: COpaquePointer?, token: COpaquePointer?, length: UInt, requiredlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation((accessinformation?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), length.toInt(), (requiredlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeTokenIsAdmin(token: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin(token.toString()) as Boolean) else false
+public actual fun seTokenIsAdmin(token: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin((token?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeTokenIsRestricted(token: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted(token.toString()) as Boolean) else false
+public actual fun seTokenIsRestricted(token: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted((token?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeTokenIsWriteRestricted(token: Long): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted(token.toString()) as Boolean) else false
+public actual fun seTokenIsWriteRestricted(token: COpaquePointer?): Boolean =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted((token?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeTokenType(token: Long): TOKEN_TYPE =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeTokenType(token.toString()) as Int) else 0
+public actual fun seTokenType(token: COpaquePointer?): TokenType =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seTokenType((token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeUnregisterLogonSessionTerminatedRoutine(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine(callbackroutine.toLong().toString()) as Int) else 0
+public actual fun seUnregisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine(0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX, context: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine.toLong().toString(), context.toString()) as Int) else 0
+public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx(0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecLookupAccountName(name: Long, sidsize: Long, sid: PSID, nameuse: Long, domainsize: Long, referenceddomain: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecLookupAccountName(name.toString(), sidsize.toString(), sid.toString(), nameuse.toString(), domainsize.toString(), referenceddomain.toString()) as Int) else 0
+public actual fun secLookupAccountName(name: COpaquePointer?, sidsize: COpaquePointer?, sid: Psid, nameuse: COpaquePointer?, domainsize: COpaquePointer?, referenceddomain: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secLookupAccountName((name?.value ?: 0L).toString(), (sidsize?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), (nameuse?.value ?: 0L).toString(), (domainsize?.value ?: 0L).toString(), (referenceddomain?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecLookupAccountSid(sid: PSID, namesize: Long, namebuffer: Long, domainsize: Long, domainbuffer: Long, nameuse: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid(sid.toString(), namesize.toString(), namebuffer.toString(), domainsize.toString(), domainbuffer.toString(), nameuse.toString()) as Int) else 0
+public actual fun secLookupAccountSid(sid: Psid, namesize: COpaquePointer?, namebuffer: COpaquePointer?, domainsize: COpaquePointer?, domainbuffer: COpaquePointer?, nameuse: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secLookupAccountSid((sid?.value ?: 0L).toString(), (namesize?.value ?: 0L).toString(), (namebuffer?.value ?: 0L).toString(), (domainsize?.value ?: 0L).toString(), (domainbuffer?.value ?: 0L).toString(), (nameuse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecLookupWellKnownSid(sidtype: WELL_KNOWN_SID_TYPE, sid: PSID, sidbuffersize: UInt, sidsize: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid(sidtype, sid.toString(), sidbuffersize.toInt(), sidsize.toString()) as Int) else 0
+public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid(sidtype, (sid?.value ?: 0L).toString(), sidbuffersize.toInt(), (sidsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecMakeSPN(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, spn: Long, length: Long, allocate: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecMakeSPN(serviceclass.toString(), servicename.toString(), instancename.toString(), instanceport.toInt(), referrer.toString(), spn.toString(), length.toString(), allocate) as Int) else 0
+public actual fun secMakeSPN(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secMakeSPN((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), instanceport.toInt(), (referrer?.value ?: 0L).toString(), (spn?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), allocate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecMakeSPNEx(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, targetinfo: Long, spn: Long, length: Long, allocate: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx(serviceclass.toString(), servicename.toString(), instancename.toString(), instanceport.toInt(), referrer.toString(), targetinfo.toString(), spn.toString(), length.toString(), allocate) as Int) else 0
+public actual fun secMakeSPNEx(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, targetinfo: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), instanceport.toInt(), (referrer?.value ?: 0L).toString(), (targetinfo?.value ?: 0L).toString(), (spn?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), allocate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SecMakeSPNEx2(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, intargetinfo: Long, spn: Long, totalsize: Long, allocate: Boolean, istargetinfomarshaled: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2(serviceclass.toString(), servicename.toString(), instancename.toString(), instanceport.toInt(), referrer.toString(), intargetinfo.toString(), spn.toString(), totalsize.toString(), allocate, istargetinfomarshaled) as Int) else 0
+public actual fun secMakeSPNEx2(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, intargetinfo: COpaquePointer?, spn: COpaquePointer?, totalsize: COpaquePointer?, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2((serviceclass?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (instancename?.value ?: 0L).toString(), instanceport.toInt(), (referrer?.value ?: 0L).toString(), (intargetinfo?.value ?: 0L).toString(), (spn?.value ?: 0L).toString(), (totalsize?.value ?: 0L).toString(), allocate, istargetinfomarshaled) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetContextAttributesW(phcontext: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SetContextAttributesW(phcontext.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun setContextAttributesW(phcontext: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_setContextAttributesW((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiAcceptSecurityContextAsync(asynccontext: Long, phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync(asynccontext.toString(), phcredential.toString(), phcontext.toString(), pinput.toString(), fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun sspiAcceptSecurityContextAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync((asynccontext?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (pinput?.value ?: 0L).toString(), fcontextreq.toInt(), targetdatarep.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiAcquireCredentialsHandleAsyncA(asynccontext: Long, pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: UInt, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: COpaquePointer?, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiAcquireCredentialsHandleAsyncW(asynccontext: Long, pszprincipal: Long, pszpackage: Long, fcredentialuse: UInt, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: COpaquePointer?, pszprincipal: COpaquePointer?, pszpackage: COpaquePointer?, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiCreateAsyncContext(): Long =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext() as String).toLong() else 0L
+public actual fun sspiCreateAsyncContext(): COpaquePointer? =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiDeleteSecurityContextAsync(asynccontext: Long, phcontext: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync(asynccontext.toString(), phcontext.toString()) as Int) else 0
+public actual fun sspiDeleteSecurityContextAsync(asynccontext: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync((asynccontext?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiFreeAsyncContext(handle: Long) {
+public actual fun sspiFreeAsyncContext(handle: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext(handle.toString())
+        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext((handle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SspiFreeCredentialsHandleAsync(asynccontext: Long, phcredential: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync(asynccontext.toString(), phcredential.toString()) as Int) else 0
+public actual fun sspiFreeCredentialsHandleAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync((asynccontext?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiGetAsyncCallStatus(handle: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus(handle.toString()) as Int) else 0
+public actual fun sspiGetAsyncCallStatus(handle: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus((handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiInitializeSecurityContextAsyncA(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: PCSTR, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA(asynccontext.toString(), phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA((asynccontext?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiInitializeSecurityContextAsyncW(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW(asynccontext.toString(), phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW((asynccontext?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiReinitAsyncContext(handle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext(handle.toString()) as Int) else 0
+public actual fun sspiReinitAsyncContext(handle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext((handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiSetAsyncNotifyCallback(context: Long, callback: SspiAsyncNotifyCallback, callbackdata: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback(context.toString(), callback.toLong().toString(), callbackdata.toString()) as Int) else 0
+public actual fun sspiSetAsyncNotifyCallback(context: COpaquePointer?, callback: SspiAsyncNotifyCallback, callbackdata: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback((context?.value ?: 0L).toString(), 0L.toString(), (callbackdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifySignature(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_VerifySignature(phcontext.toString(), pmessage.toString(), messageseqno.toInt(), pfqop.toString()) as Int) else 0
+public actual fun verifySignature(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_verifySignature((phcontext?.value ?: 0L).toString(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt(), (pfqop?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), desiredaccess.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun zwAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), desiredaccess.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: HANDLE, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.toString(), handleid.toString(), clienttoken.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), generateonclose.toString()) as Int) else 0
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAdjustGroupsToken(tokenhandle: HANDLE, resettodefault: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken(tokenhandle.toString(), resettodefault, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken((tokenhandle?.value ?: 0L).toString(), resettodefault, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAdjustPrivilegesToken(tokenhandle: HANDLE, disableallprivileges: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken(tokenhandle.toString(), disableallprivileges, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken((tokenhandle?.value ?: 0L).toString(), disableallprivileges, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAllocateVirtualMemory(processhandle: HANDLE, baseaddress: Long, zerobits: ULong, regionsize: Long, allocationtype: UInt, protect: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory(processhandle.toString(), baseaddress.toString(), zerobits.toString(), regionsize.toString(), allocationtype.toInt(), protect.toInt()) as Int) else 0
+public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), zerobits.toString(), (regionsize?.value ?: 0L).toString(), allocationtype.toInt(), protect.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwAllocateVirtualMemoryEx(processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx(processhandle.toString(), baseaddress.toString(), regionsize.toString(), allocationtype.toInt(), pageprotection.toInt(), extendedparameters.toString(), extendedparametercount.toInt()) as Int) else 0
+public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), allocationtype.toInt(), pageprotection.toInt(), (extendedparameters?.value ?: 0L).toString(), extendedparametercount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwCancelIoFileEx(filehandle: HANDLE, iorequesttocancel: Long, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx(filehandle.toString(), iorequesttocancel.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx((filehandle?.value ?: 0L).toString(), (iorequesttocancel?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun zwCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwCreateDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject(directoryhandle.toString(), desiredaccess.toInt(), objectattributes.toString()) as Int) else 0
+public actual fun zwCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject((directoryhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwCreateEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long, eventtype: EVENT_TYPE, initialstate: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwCreateEvent(eventhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), eventtype, initialstate) as Int) else 0
+public actual fun zwCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwCreateEvent((eventhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), eventtype, initialstate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwCreateSectionEx(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx(sectionhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), maximumsize.toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.toString(), extendedparameters.toString(), extendedparametercount.toInt()) as Int) else 0
+public actual fun zwCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx((sectionhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (maximumsize?.value ?: 0L).toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), (filehandle?.value ?: 0L).toString(), (extendedparameters?.value ?: 0L).toString(), extendedparametercount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwDeleteFile(objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwDeleteFile(objectattributes.toString()) as Int) else 0
+public actual fun zwDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwDeleteFile((objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun zwDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwDuplicateObject(sourceprocesshandle: HANDLE, sourcehandle: HANDLE, targetprocesshandle: HANDLE, targethandle: Long, desiredaccess: UInt, handleattributes: UInt, options: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject(sourceprocesshandle.toString(), sourcehandle.toString(), targetprocesshandle.toString(), targethandle.toString(), desiredaccess.toInt(), handleattributes.toInt(), options.toInt()) as Int) else 0
+public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwDuplicateObject((sourceprocesshandle?.value ?: 0L).toString(), (sourcehandle?.value ?: 0L).toString(), (targetprocesshandle?.value ?: 0L).toString(), (targethandle?.value ?: 0L).toString(), desiredaccess.toInt(), handleattributes.toInt(), options.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwDuplicateToken(existingtokenhandle: HANDLE, desiredaccess: UInt, objectattributes: Long, effectiveonly: Boolean, tokentype: TOKEN_TYPE, newtokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken(existingtokenhandle.toString(), desiredaccess.toInt(), objectattributes.toString(), effectiveonly, tokentype, newtokenhandle.toString()) as Int) else 0
+public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwDuplicateToken((existingtokenhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), effectiveonly, tokentype, (newtokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFilterToken(existingtokenhandle: HANDLE, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwFilterToken(existingtokenhandle.toString(), flags.toInt(), sidstodisable.toString(), privilegestodelete.toString(), restrictedsids.toString(), newtokenhandle.toString()) as Int) else 0
+public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFilterToken((existingtokenhandle?.value ?: 0L).toString(), flags.toInt(), (sidstodisable?.value ?: 0L).toString(), (privilegestodelete?.value ?: 0L).toString(), (restrictedsids?.value ?: 0L).toString(), (newtokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFlushBuffersFile(filehandle: HANDLE, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile(filehandle.toString(), iostatusblock.toString()) as Int) else 0
+public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFlushBuffersFileEx(filehandle: HANDLE, flags: UInt, parameters: Long, parameterssize: UInt, iostatusblock: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx(filehandle.toString(), flags.toInt(), parameters.toString(), parameterssize.toInt(), iostatusblock.toString()) as Int) else 0
+public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx((filehandle?.value ?: 0L).toString(), flags.toInt(), (parameters?.value ?: 0L).toString(), parameterssize.toInt(), (iostatusblock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFlushVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, iostatus: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory(processhandle.toString(), baseaddress.toString(), regionsize.toString(), iostatus.toString()) as Int) else 0
+public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), (iostatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFreeVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory(processhandle.toString(), baseaddress.toString(), regionsize.toString(), freetype.toInt()) as Int) else 0
+public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), (regionsize?.value ?: 0L).toString(), freetype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwFsControlFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS =
-    0
+public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwFsControlFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), fscontrolcode.toInt(), (inputbuffer?.value ?: 0L).toString(), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L).toString(), outputbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwImpersonateAnonymousToken(threadhandle: HANDLE): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken(threadhandle.toString()) as Int) else 0
+public actual fun zwImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken((threadhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwLockFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): NTSTATUS =
-    0
+public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwLockFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (byteoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt(), failimmediately, exclusivelock) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwNotifyChangeKey(keyhandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey((keyhandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L).toString(), buffersize.toInt(), asynchronous) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject(directoryhandle.toString(), desiredaccess.toInt(), objectattributes.toString()) as Int) else 0
+public actual fun zwOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject((directoryhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), clienttoken.toString(), desiredaccess.toInt(), grantedaccess.toInt(), privileges.toString(), objectcreation, accessgranted, generateonclose.toString()) as Int) else 0
+public actual fun zwOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L).toString(), objectcreation, accessgranted, (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenProcessToken(processhandle: HANDLE, desiredaccess: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken(processhandle.toString(), desiredaccess.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenProcessTokenEx(processhandle: HANDLE, desiredaccess: UInt, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx(processhandle.toString(), desiredaccess.toInt(), handleattributes.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), handleattributes.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenThreadToken(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken(threadhandle.toString(), desiredaccess.toInt(), openasself, tokenhandle.toString()) as Int) else 0
+public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwOpenThreadTokenEx(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx(threadhandle.toString(), desiredaccess.toInt(), openasself, handleattributes.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, handleattributes.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwPrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, result: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck(clienttoken.toString(), requiredprivileges.toString(), result.toString()) as Int) else 0
+public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck((clienttoken?.value ?: 0L).toString(), (requiredprivileges?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm(subsystemname.toString(), handleid.toString(), clienttoken.toString(), desiredaccess.toInt(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: HANDLE, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm(subsystemname.toString(), servicename.toString(), clienttoken.toString(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm((subsystemname?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryDirectoryFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): NTSTATUS =
-    0
+public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass, returnsingleentry, (filename?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryDirectoryFileEx(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, queryflags: UInt, filename: Long): NTSTATUS =
-    0
+public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx((filehandle?.value ?: 0L).toString(), (event?.value ?: 0L).toString(), 0L.toString(), (apccontext?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString(), length.toInt(), fileinformationclass, queryflags.toInt(), (filename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryDirectoryObject(directoryhandle: HANDLE, buffer: Long, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject(directoryhandle.toString(), buffer.toString(), length.toInt(), returnsingleentry, restartscan, context.toString(), returnlength.toString()) as Int) else 0
+public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject((directoryhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, restartscan, (context?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt(), returnsingleentry, ealist.toString(), ealistlength.toInt(), eaindex.toString(), restartscan) as Int) else 0
+public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryEaFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, (ealist?.value ?: 0L).toString(), ealistlength.toInt(), (eaindex?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile(objectattributes.toString(), fileinformation.toString()) as Int) else 0
+public actual fun zwQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile((objectattributes?.value ?: 0L).toString(), (fileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt(), returnlength.toString()) as Int) else 0
+public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryObject(handle: HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Long, objectinformationlength: UInt, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryObject(handle.toString(), objectinformationclass, objectinformation.toString(), objectinformationlength.toInt(), returnlength.toString()) as Int) else 0
+public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: COpaquePointer?, objectinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryObject((handle?.value ?: 0L).toString(), objectinformationclass, (objectinformation?.value ?: 0L).toString(), objectinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, sidlist: Long, sidlistlength: UInt, startsid: PSID, restartscan: Boolean): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt(), returnsingleentry, sidlist.toString(), sidlistlength.toInt(), startsid.toString(), restartscan) as Int) else 0
+public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), returnsingleentry, (sidlist?.value ?: 0L).toString(), sidlistlength.toInt(), (startsid?.value ?: 0L).toString(), restartscan) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQuerySecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR, length: UInt, lengthneeded: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject(handle.toString(), securityinformation.toInt(), securitydescriptor.toString(), length.toInt(), lengthneeded.toString()) as Int) else 0
+public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject((handle?.value ?: 0L).toString(), securityinformation.toInt(), (securitydescriptor?.value ?: 0L).toString(), length.toInt(), (lengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryVirtualMemory(processhandle: HANDLE, baseaddress: Long, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory(processhandle.toString(), baseaddress.toString(), memoryinformationclass, memoryinformation.toString(), memoryinformationlength.toString(), returnlength.toString()) as Int) else 0
+public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory((processhandle?.value ?: 0L).toString(), (baseaddress?.value ?: 0L).toString(), memoryinformationclass, (memoryinformation?.value ?: 0L).toString(), memoryinformationlength.toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwQueryVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile(filehandle.toString(), iostatusblock.toString(), fsinformation.toString(), length.toInt(), fsinformationclass) as Int) else 0
+public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fsinformation?.value ?: 0L).toString(), length.toInt(), fsinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetEaFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt()) as Int) else 0
+public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetEaFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetEvent(eventhandle: HANDLE, previousstate: Long): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetEvent(eventhandle.toString(), previousstate.toString()) as Int) else 0
+public actual fun zwSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetEvent((eventhandle?.value ?: 0L).toString(), (previousstate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt()) as Int) else 0
+public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetInformationToken((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetInformationVirtualMemory(processhandle: HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: ULong, virtualaddresses: Long, vminformation: Long, vminformationlength: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory(processhandle.toString(), vminformationclass, numberofentries.toString(), virtualaddresses.toString(), vminformation.toString(), vminformationlength.toInt()) as Int) else 0
+public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory((processhandle?.value ?: 0L).toString(), vminformationclass, numberofentries.toString(), (virtualaddresses?.value ?: 0L).toString(), (vminformation?.value ?: 0L).toString(), vminformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile(filehandle.toString(), iostatusblock.toString(), buffer.toString(), length.toInt()) as Int) else 0
+public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetSecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject(handle.toString(), securityinformation.toInt(), securitydescriptor.toString()) as Int) else 0
+public actual fun zwSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject((handle?.value ?: 0L).toString(), securityinformation.toInt(), (securitydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwSetVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile(filehandle.toString(), iostatusblock.toString(), fsinformation.toString(), length.toInt(), fsinformationclass) as Int) else 0
+public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (fsinformation?.value ?: 0L).toString(), length.toInt(), fsinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ZwUnlockFile(filehandle: HANDLE, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt): NTSTATUS =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_ZwUnlockFile(filehandle.toString(), iostatusblock.toString(), byteoffset.toString(), length.toString(), key.toInt()) as Int) else 0
+public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
+    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_zwUnlockFile((filehandle?.value ?: 0L).toString(), (iostatusblock?.value ?: 0L).toString(), (byteoffset?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), key.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

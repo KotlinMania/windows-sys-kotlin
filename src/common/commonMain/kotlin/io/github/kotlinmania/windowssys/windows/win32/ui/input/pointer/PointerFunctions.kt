@@ -1,61 +1,62 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HSYNTHETICPOINTERDEVICE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hsyntheticpointerdevice
 
-public expect fun EnableMouseInPointer(fenable: BOOL): BOOL
+public expect fun enableMouseInPointer(fenable: Bool): Bool
 
-public expect fun GetPointerCursorId(pointerid: UInt, cursorid: Long): BOOL
+public expect fun getPointerCursorId(pointerid: UInt, cursorid: COpaquePointer?): Bool
 
-public expect fun GetPointerDevice(device: HANDLE, pointerdevice: Long): BOOL
+public expect fun getPointerDevice(device: Handle, pointerdevice: COpaquePointer?): Bool
 
-public expect fun GetPointerDeviceCursors(device: HANDLE, cursorcount: Long, devicecursors: Long): BOOL
+public expect fun getPointerDeviceCursors(device: Handle, cursorcount: COpaquePointer?, devicecursors: COpaquePointer?): Bool
 
-public expect fun GetPointerDeviceProperties(device: HANDLE, propertycount: Long, pointerproperties: Long): BOOL
+public expect fun getPointerDeviceProperties(device: Handle, propertycount: COpaquePointer?, pointerproperties: COpaquePointer?): Bool
 
-public expect fun GetPointerDeviceRects(device: HANDLE, pointerdevicerect: Long, displayrect: Long): BOOL
+public expect fun getPointerDeviceRects(device: Handle, pointerdevicerect: COpaquePointer?, displayrect: COpaquePointer?): Bool
 
-public expect fun GetPointerDevices(devicecount: Long, pointerdevices: Long): BOOL
+public expect fun getPointerDevices(devicecount: COpaquePointer?, pointerdevices: COpaquePointer?): Bool
 
-public expect fun GetPointerFrameInfo(pointerid: UInt, pointercount: Long, pointerinfo: Long): BOOL
+public expect fun getPointerFrameInfo(pointerid: UInt, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerFrameInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, pointerinfo: Long): BOOL
+public expect fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerFramePenInfo(pointerid: UInt, pointercount: Long, peninfo: Long): BOOL
+public expect fun getPointerFramePenInfo(pointerid: UInt, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool
 
-public expect fun GetPointerFramePenInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, peninfo: Long): BOOL
+public expect fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool
 
-public expect fun GetPointerFrameTouchInfo(pointerid: UInt, pointercount: Long, touchinfo: Long): BOOL
+public expect fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, touchinfo: Long): BOOL
+public expect fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerInfo(pointerid: UInt, pointerinfo: Long): BOOL
+public expect fun getPointerInfo(pointerid: UInt, pointerinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerInfoHistory(pointerid: UInt, entriescount: Long, pointerinfo: Long): BOOL
+public expect fun getPointerInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: Long): BOOL
+public expect fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: COpaquePointer?): Bool
 
-public expect fun GetPointerPenInfo(pointerid: UInt, peninfo: Long): BOOL
+public expect fun getPointerPenInfo(pointerid: UInt, peninfo: COpaquePointer?): Bool
 
-public expect fun GetPointerPenInfoHistory(pointerid: UInt, entriescount: Long, peninfo: Long): BOOL
+public expect fun getPointerPenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, peninfo: COpaquePointer?): Bool
 
-public expect fun GetPointerTouchInfo(pointerid: UInt, touchinfo: Long): BOOL
+public expect fun getPointerTouchInfo(pointerid: UInt, touchinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerTouchInfoHistory(pointerid: UInt, entriescount: Long, touchinfo: Long): BOOL
+public expect fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, touchinfo: COpaquePointer?): Bool
 
-public expect fun GetPointerType(pointerid: UInt, pointertype: Long): BOOL
+public expect fun getPointerType(pointerid: UInt, pointertype: COpaquePointer?): Bool
 
-public expect fun GetRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: Long, pvalues: Long): BOOL
+public expect fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: COpaquePointer?, pvalues: COpaquePointer?): Bool
 
-public expect fun GetUnpredictedMessagePos(): UInt
+public expect fun getUnpredictedMessagePos(): UInt
 
-public expect fun InitializeTouchInjection(maxcount: UInt, dwmode: TOUCH_FEEDBACK_MODE): BOOL
+public expect fun initializeTouchInjection(maxcount: UInt, dwmode: TouchFeedbackMode): Bool
 
-public expect fun InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, pointerinfo: Long, count: UInt): BOOL
+public expect fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: COpaquePointer?, count: UInt): Bool
 
-public expect fun InjectTouchInput(count: UInt, contacts: Long): BOOL
+public expect fun injectTouchInput(count: UInt, contacts: COpaquePointer?): Bool
 
-public expect fun IsMouseInPointerEnabled(): BOOL
+public expect fun isMouseInPointerEnabled(): Bool
 
-public expect fun SkipPointerFrameMessages(pointerid: UInt): BOOL
+public expect fun skipPointerFrameMessages(pointerid: UInt): Bool

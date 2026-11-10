@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzAccessCheck(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauthzclientcontext, jlong prequest, jlong hauditevent, jlong psecuritydescriptor, jlong optionalsecuritydescriptorarray, jint optionalsecuritydescriptorcount, jlong preply, jlong phaccesscheckresults) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzAccessCheck(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauthzclientcontext, jlong prequest, jlong hauditevent, jlong psecuritydescriptor, jlong optionalsecuritydescriptorarray, jint optionalsecuritydescriptorcount, jlong preply, jlong phaccesscheckresults) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzAddSidsToContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong sids, jint sidcount, jlong restrictedsids, jint restrictedsidcount, jlong phnewauthzclientcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzAddSidsToContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong sids, jint sidcount, jlong restrictedsids, jint restrictedsidcount, jlong phnewauthzclientcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -67,7 +67,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzCachedAccessCheck(JNIEnv* km_env, jclass km_clazz, jint flags, jlong haccesscheckresults, jlong prequest, jlong hauditevent, jlong preply) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzCachedAccessCheck(JNIEnv* km_env, jclass km_clazz, jint flags, jlong haccesscheckresults, jlong prequest, jlong hauditevent, jlong preply) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -89,7 +89,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzEnumerateSecurityEventSources(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong buffer, jlong pdwcount, jlong pdwlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzEnumerateSecurityEventSources(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong buffer, jlong pdwcount, jlong pdwlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzEvaluateSacl(JNIEnv* km_env, jclass km_clazz, jlong authzclientcontext, jlong prequest, jlong sacl, jint grantedaccess, jint accessgranted, jlong pbgenerateaudit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzEvaluateSacl(JNIEnv* km_env, jclass km_clazz, jlong authzclientcontext, jlong prequest, jlong sacl, jint grantedaccess, jint accessgranted, jlong pbgenerateaudit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -133,7 +133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzFreeAuditEvent(JNIEnv* km_env, jclass km_clazz, jlong hauditevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzFreeAuditEvent(JNIEnv* km_env, jclass km_clazz, jlong hauditevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -151,7 +151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzFreeCentralAccessPolicyCache(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzFreeCentralAccessPolicyCache(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzFreeContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzFreeContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -186,7 +186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzFreeHandle(JNIEnv* km_env, jclass km_clazz, jlong haccesscheckresults) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzFreeHandle(JNIEnv* km_env, jclass km_clazz, jlong haccesscheckresults) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -204,7 +204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzFreeResourceManager(JNIEnv* km_env, jclass km_clazz, jlong hauthzresourcemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzFreeResourceManager(JNIEnv* km_env, jclass km_clazz, jlong hauthzresourcemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -222,7 +222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzGetInformationFromContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint infoclass, jint buffersize, jlong psizerequired, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzGetInformationFromContext(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint infoclass, jint buffersize, jlong psizerequired, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -244,7 +244,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzInitializeCompoundContext(JNIEnv* km_env, jclass km_clazz, jlong usercontext, jlong devicecontext, jlong phcompoundcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeCompoundContext(JNIEnv* km_env, jclass km_clazz, jlong usercontext, jlong devicecontext, jlong phcompoundcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,78 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzInitializeRemoteResourceManager(JNIEnv* km_env, jclass km_clazz, jlong prpcinitinfo, jlong phauthzresourcemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeObjectAccessAuditEvent(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauditeventtype, jlong szoperationtype, jlong szobjecttype, jlong szobjectname, jlong szadditionalinfo, jlong phauditevent, jint dwadditionalparametercount, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AuthzInitializeObjectAccessAuditEvent");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount); break;
+            case 1: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)flags;
+    (void)hauditeventtype;
+    (void)szoperationtype;
+    (void)szobjecttype;
+    (void)szobjectname;
+    (void)szadditionalinfo;
+    (void)phauditevent;
+    (void)dwadditionalparametercount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeObjectAccessAuditEvent2(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauditeventtype, jlong szoperationtype, jlong szobjecttype, jlong szobjectname, jlong szadditionalinfo, jlong szadditionalinfo2, jlong phauditevent, jint dwadditionalparametercount, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AuthzInitializeObjectAccessAuditEvent2");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)szadditionalinfo2, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount); break;
+            case 1: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)szadditionalinfo2, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)szadditionalinfo2, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)szadditionalinfo2, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)hauditeventtype, (void*)(uintptr_t)szoperationtype, (void*)(uintptr_t)szobjecttype, (void*)(uintptr_t)szobjectname, (void*)(uintptr_t)szadditionalinfo, (void*)(uintptr_t)szadditionalinfo2, (void*)(uintptr_t)phauditevent, (uint32_t)dwadditionalparametercount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)flags;
+    (void)hauditeventtype;
+    (void)szoperationtype;
+    (void)szobjecttype;
+    (void)szobjectname;
+    (void)szadditionalinfo;
+    (void)szadditionalinfo2;
+    (void)phauditevent;
+    (void)dwadditionalparametercount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeRemoteResourceManager(JNIEnv* km_env, jclass km_clazz, jlong prpcinitinfo, jlong phauthzresourcemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -283,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzInitializeResourceManager(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pfndynamicaccesscheck, jlong pfncomputedynamicgroups, jlong pfnfreedynamicgroups, jlong szresourcemanagername, jlong phauthzresourcemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeResourceManager(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pfndynamicaccesscheck, jlong pfncomputedynamicgroups, jlong pfnfreedynamicgroups, jlong szresourcemanagername, jlong phauthzresourcemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -306,7 +377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzInitializeResourceManagerEx(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pauthzinitinfo, jlong phauthzresourcemanager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInitializeResourceManagerEx(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pauthzinitinfo, jlong phauthzresourcemanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -326,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzInstallSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pregistration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzInstallSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -345,7 +416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzModifyClaims(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint claimclass, jlong pclaimoperations, jlong pclaims) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzModifyClaims(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint claimclass, jlong pclaimoperations, jlong pclaims) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -366,7 +437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzModifySecurityAttributes(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong poperations, jlong pattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzModifySecurityAttributes(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong poperations, jlong pattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -386,7 +457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzModifySids(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint sidclass, jlong psidoperations, jlong psids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzModifySids(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jint sidclass, jlong psidoperations, jlong psids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -407,7 +478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzOpenObjectAudit(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauthzclientcontext, jlong prequest, jlong hauditevent, jlong psecuritydescriptor, jlong optionalsecuritydescriptorarray, jint optionalsecuritydescriptorcount, jlong preply) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzOpenObjectAudit(JNIEnv* km_env, jclass km_clazz, jint flags, jlong hauthzclientcontext, jlong prequest, jlong hauditevent, jlong psecuritydescriptor, jlong optionalsecuritydescriptorarray, jint optionalsecuritydescriptorcount, jlong preply) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -432,7 +503,27 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzRegisterSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong szeventsourcename, jlong pheventprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzRegisterCapChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong phcapchangesubscription, jlong pfncapchangecallback, jlong pcallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AuthzRegisterCapChangeNotification");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phcapchangesubscription, (void*)(uintptr_t)pfncapchangecallback, (void*)(uintptr_t)pcallbackcontext) : -1;
+#else
+    (void)phcapchangesubscription;
+    (void)pfncapchangecallback;
+    (void)pcallbackcontext;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzRegisterSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong szeventsourcename, jlong pheventprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +543,39 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzReportSecurityEventFromParams(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong heventprovider, jint dwauditid, jlong pusersid, jlong pparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzReportSecurityEvent(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong heventprovider, jint dwauditid, jlong pusersid, jint dwcount, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("authz.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AuthzReportSecurityEvent");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)heventprovider, (uint32_t)dwauditid, (void*)(uintptr_t)pusersid, (uint32_t)dwcount); break;
+            case 1: km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)heventprovider, (uint32_t)dwauditid, (void*)(uintptr_t)pusersid, (uint32_t)dwcount, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)heventprovider, (uint32_t)dwauditid, (void*)(uintptr_t)pusersid, (uint32_t)dwcount, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)heventprovider, (uint32_t)dwauditid, (void*)(uintptr_t)pusersid, (uint32_t)dwcount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)heventprovider, (uint32_t)dwauditid, (void*)(uintptr_t)pusersid, (uint32_t)dwcount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)dwflags;
+    (void)heventprovider;
+    (void)dwauditid;
+    (void)pusersid;
+    (void)dwcount;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzReportSecurityEventFromParams(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong heventprovider, jint dwauditid, jlong pusersid, jlong pparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -474,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzSetAppContainerInformation(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong pappcontainersid, jint capabilitycount, jlong pcapabilitysids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzSetAppContainerInformation(JNIEnv* km_env, jclass km_clazz, jlong hauthzclientcontext, jlong pappcontainersid, jint capabilitycount, jlong pcapabilitysids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzUninstallSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong szeventsourcename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzUninstallSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong szeventsourcename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -514,7 +637,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzUnregisterCapChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hcapchangesubscription) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzUnregisterCapChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hcapchangesubscription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -532,7 +655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1AuthzUnregisterSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pheventprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1authzUnregisterSecurityEventSource(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pheventprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -551,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildExplicitAccessWithNameA(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jint accesspermissions, jint accessmode, jint inheritance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildExplicitAccessWithNameA(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jint accesspermissions, jint accessmode, jint inheritance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +694,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildExplicitAccessWithNameW(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jint accesspermissions, jint accessmode, jint inheritance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildExplicitAccessWithNameW(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jint accesspermissions, jint accessmode, jint inheritance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -591,7 +714,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildImpersonateExplicitAccessWithNameA(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jlong ptrustee, jint accesspermissions, jint accessmode, jint inheritance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildImpersonateExplicitAccessWithNameA(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jlong ptrustee, jint accesspermissions, jint accessmode, jint inheritance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -612,7 +735,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildImpersonateExplicitAccessWithNameW(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jlong ptrustee, jint accesspermissions, jint accessmode, jint inheritance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildImpersonateExplicitAccessWithNameW(JNIEnv* km_env, jclass km_clazz, jlong pexplicitaccess, jlong ptrusteename, jlong ptrustee, jint accesspermissions, jint accessmode, jint inheritance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -633,7 +756,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildImpersonateTrusteeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pimpersonatetrustee) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildImpersonateTrusteeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pimpersonatetrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -650,7 +773,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildImpersonateTrusteeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pimpersonatetrustee) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildImpersonateTrusteeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pimpersonatetrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -667,7 +790,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong powner, jlong pgroup, jint ccountofaccessentries, jlong plistofaccessentries, jint ccountofauditentries, jlong plistofauditentries, jlong poldsd, jlong psizenewsd, jlong pnewsd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong powner, jlong pgroup, jint ccountofaccessentries, jlong plistofaccessentries, jint ccountofauditentries, jlong plistofauditentries, jlong poldsd, jlong psizenewsd, jlong pnewsd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -693,7 +816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong powner, jlong pgroup, jint ccountofaccessentries, jlong plistofaccessentries, jint ccountofauditentries, jlong plistofauditentries, jlong poldsd, jlong psizenewsd, jlong pnewsd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong powner, jlong pgroup, jint ccountofaccessentries, jlong plistofaccessentries, jint ccountofauditentries, jlong plistofauditentries, jlong poldsd, jlong psizenewsd, jlong pnewsd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -719,7 +842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pname) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -736,7 +859,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pname) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -753,7 +876,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithObjectsAndNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjname, jint objecttype, jlong objecttypename, jlong inheritedobjecttypename, jlong name) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithObjectsAndNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjname, jint objecttype, jlong objecttypename, jlong inheritedobjecttypename, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -774,7 +897,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithObjectsAndNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjname, jint objecttype, jlong objecttypename, jlong inheritedobjecttypename, jlong name) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithObjectsAndNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjname, jint objecttype, jlong objecttypename, jlong inheritedobjecttypename, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -795,7 +918,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithObjectsAndSidA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjsid, jlong pobjectguid, jlong pinheritedobjectguid, jlong psid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithObjectsAndSidA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjsid, jlong pobjectguid, jlong pinheritedobjectguid, jlong psid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -815,7 +938,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithObjectsAndSidW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjsid, jlong pobjectguid, jlong pinheritedobjectguid, jlong psid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithObjectsAndSidW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong pobjsid, jlong pobjectguid, jlong pinheritedobjectguid, jlong psid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -835,7 +958,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithSidA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong psid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithSidA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong psid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -852,7 +975,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1BuildTrusteeWithSidW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong psid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1buildTrusteeWithSidW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee, jlong psid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -869,7 +992,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertSecurityDescriptorToStringSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint requestedstringsdrevision, jint securityinformation, jlong stringsecuritydescriptor, jlong stringsecuritydescriptorlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertSecurityDescriptorToStringSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint requestedstringsdrevision, jint securityinformation, jlong stringsecuritydescriptor, jlong stringsecuritydescriptorlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -891,7 +1014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertSecurityDescriptorToStringSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint requestedstringsdrevision, jint securityinformation, jlong stringsecuritydescriptor, jlong stringsecuritydescriptorlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertSecurityDescriptorToStringSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong securitydescriptor, jint requestedstringsdrevision, jint securityinformation, jlong stringsecuritydescriptor, jlong stringsecuritydescriptorlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -913,7 +1036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertSidToStringSidA(JNIEnv* km_env, jclass km_clazz, jlong sid, jlong stringsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertSidToStringSidA(JNIEnv* km_env, jclass km_clazz, jlong sid, jlong stringsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -932,7 +1055,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertSidToStringSidW(JNIEnv* km_env, jclass km_clazz, jlong sid, jlong stringsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertSidToStringSidW(JNIEnv* km_env, jclass km_clazz, jlong sid, jlong stringsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -951,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertStringSecurityDescriptorToSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong stringsecuritydescriptor, jint stringsdrevision, jlong securitydescriptor, jlong securitydescriptorsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertStringSecurityDescriptorToSecurityDescriptorA(JNIEnv* km_env, jclass km_clazz, jlong stringsecuritydescriptor, jint stringsdrevision, jlong securitydescriptor, jlong securitydescriptorsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -972,7 +1095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertStringSecurityDescriptorToSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong stringsecuritydescriptor, jint stringsdrevision, jlong securitydescriptor, jlong securitydescriptorsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertStringSecurityDescriptorToSecurityDescriptorW(JNIEnv* km_env, jclass km_clazz, jlong stringsecuritydescriptor, jint stringsdrevision, jlong securitydescriptor, jlong securitydescriptorsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -993,7 +1116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertStringSidToSidA(JNIEnv* km_env, jclass km_clazz, jlong stringsid, jlong sid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertStringSidToSidA(JNIEnv* km_env, jclass km_clazz, jlong stringsid, jlong sid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1012,7 +1135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1ConvertStringSidToSidW(JNIEnv* km_env, jclass km_clazz, jlong stringsid, jlong sid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1convertStringSidToSidW(JNIEnv* km_env, jclass km_clazz, jlong stringsid, jlong sid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1031,7 +1154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1FreeInheritedFromArray(JNIEnv* km_env, jclass km_clazz, jlong pinheritarray, jshort acecnt, jlong pfnarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1freeInheritedFromArray(JNIEnv* km_env, jclass km_clazz, jlong pinheritarray, jshort acecnt, jlong pfnarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1051,7 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetAuditedPermissionsFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong psuccessfulauditedrights, jlong pfailedauditrights) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getAuditedPermissionsFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong psuccessfulauditedrights, jlong pfailedauditrights) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1072,7 +1195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetAuditedPermissionsFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong psuccessfulauditedrights, jlong pfailedauditrights) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getAuditedPermissionsFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong psuccessfulauditedrights, jlong pfailedauditrights) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1093,7 +1216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetEffectiveRightsFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong paccessrights) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getEffectiveRightsFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong paccessrights) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1113,7 +1236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetEffectiveRightsFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong paccessrights) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getEffectiveRightsFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong ptrustee, jlong paccessrights) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1133,7 +1256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetExplicitEntriesFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong pccountofexplicitentries, jlong plistofexplicitentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getExplicitEntriesFromAclA(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong pccountofexplicitentries, jlong plistofexplicitentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1153,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetExplicitEntriesFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong pccountofexplicitentries, jlong plistofexplicitentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getExplicitEntriesFromAclW(JNIEnv* km_env, jclass km_clazz, jlong pacl, jlong pccountofexplicitentries, jlong plistofexplicitentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1173,7 +1296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetInheritanceSourceA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jint container, jlong pobjectclassguids, jint guidcount, jlong pacl, jlong pfnarray, jlong pgenericmapping, jlong pinheritarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getInheritanceSourceA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jint container, jlong pobjectclassguids, jint guidcount, jlong pacl, jlong pfnarray, jlong pgenericmapping, jlong pinheritarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1200,7 +1323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetInheritanceSourceW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jint container, jlong pobjectclassguids, jint guidcount, jlong pacl, jlong pfnarray, jlong pgenericmapping, jlong pinheritarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getInheritanceSourceW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jint container, jlong pobjectclassguids, jint guidcount, jlong pacl, jlong pfnarray, jlong pgenericmapping, jlong pinheritarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1227,7 +1350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetMultipleTrusteeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getMultipleTrusteeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1245,7 +1368,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetMultipleTrusteeOperationA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getMultipleTrusteeOperationA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1263,7 +1386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetMultipleTrusteeOperationW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getMultipleTrusteeOperationW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1281,7 +1404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetMultipleTrusteeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getMultipleTrusteeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1299,7 +1422,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1324,7 +1447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1349,7 +1472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetSecurityInfo(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getSecurityInfo(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objecttype, jint securityinfo, jlong ppsidowner, jlong ppsidgroup, jlong ppdacl, jlong ppsacl, jlong ppsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1374,7 +1497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeFormA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeFormA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1392,7 +1515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeFormW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeFormW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1410,7 +1533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeNameA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1428,7 +1551,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeNameW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1446,7 +1569,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeTypeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeTypeA(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1464,7 +1587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1GetTrusteeTypeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1getTrusteeTypeW(JNIEnv* km_env, jclass km_clazz, jlong ptrustee) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1482,7 +1605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1LookupSecurityDescriptorPartsA(JNIEnv* km_env, jclass km_clazz, jlong ppowner, jlong ppgroup, jlong pccountofaccessentries, jlong pplistofaccessentries, jlong pccountofauditentries, jlong pplistofauditentries, jlong psd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1lookupSecurityDescriptorPartsA(JNIEnv* km_env, jclass km_clazz, jlong ppowner, jlong ppgroup, jlong pccountofaccessentries, jlong pplistofaccessentries, jlong pccountofauditentries, jlong pplistofauditentries, jlong psd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1506,7 +1629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1LookupSecurityDescriptorPartsW(JNIEnv* km_env, jclass km_clazz, jlong ppowner, jlong ppgroup, jlong pccountofaccessentries, jlong pplistofaccessentries, jlong pccountofauditentries, jlong pplistofauditentries, jlong psd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1lookupSecurityDescriptorPartsW(JNIEnv* km_env, jclass km_clazz, jlong ppowner, jlong ppgroup, jlong pccountofaccessentries, jlong pplistofaccessentries, jlong pccountofauditentries, jlong pplistofauditentries, jlong psd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1530,7 +1653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1SetEntriesInAclA(JNIEnv* km_env, jclass km_clazz, jint ccountofexplicitentries, jlong plistofexplicitentries, jlong oldacl, jlong newacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1setEntriesInAclA(JNIEnv* km_env, jclass km_clazz, jint ccountofexplicitentries, jlong plistofexplicitentries, jlong oldacl, jlong newacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1551,7 +1674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1SetEntriesInAclW(JNIEnv* km_env, jclass km_clazz, jint ccountofexplicitentries, jlong plistofexplicitentries, jlong oldacl, jlong newacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1setEntriesInAclW(JNIEnv* km_env, jclass km_clazz, jint ccountofexplicitentries, jlong plistofexplicitentries, jlong oldacl, jlong newacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1572,7 +1695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1SetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1setNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1596,7 +1719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1SetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1setNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1620,7 +1743,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1SetSecurityInfo(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1setSecurityInfo(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objecttype, jint securityinfo, jlong psidowner, jlong psidgroup, jlong pdacl, jlong psacl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1644,7 +1767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1TreeResetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint keepexplicit, jlong fnprogress, jint progressinvokesetting, jlong args) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1treeResetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint keepexplicit, jlong fnprogress, jint progressinvokesetting, jlong args) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1672,7 +1795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1TreeResetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint keepexplicit, jlong fnprogress, jint progressinvokesetting, jlong args) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1treeResetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint keepexplicit, jlong fnprogress, jint progressinvokesetting, jlong args) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1700,7 +1823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1TreeSetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint dwaction, jlong fnprogress, jint progressinvokesetting, jlong args) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1treeSetNamedSecurityInfoA(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint dwaction, jlong fnprogress, jint progressinvokesetting, jlong args) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1728,7 +1851,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1TreeSetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint dwaction, jlong fnprogress, jint progressinvokesetting, jlong args) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_authorization_WindowsWin32SecurityAuthorizationJniBridge_windowssys_1windows_1win32_1security_1authorization_1treeSetNamedSecurityInfoW(JNIEnv* km_env, jclass km_clazz, jlong pobjectname, jint objecttype, jint securityinfo, jlong powner, jlong pgroup, jlong pdacl, jlong psacl, jint dwaction, jlong fnprogress, jint progressinvokesetting, jlong args) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

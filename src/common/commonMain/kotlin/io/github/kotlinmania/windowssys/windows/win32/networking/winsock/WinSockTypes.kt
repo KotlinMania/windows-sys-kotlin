@@ -1,761 +1,762 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias AAL_TYPE = Int
+public typealias AalType = Int
 
-public typealias ADDRESS_FAMILY = UShort
+public typealias AddressFamily = UShort
 
-public typealias ARP_HARDWARE_TYPE = Int
+public typealias ArpHardwareType = Int
 
-public typealias ARP_OPCODE = Int
+public typealias ArpOpcode = Int
 
-public typealias CONTROL_CHANNEL_TRIGGER_STATUS = Int
+public typealias ControlChannelTriggerStatus = Int
 
-public typealias FALLBACK_INDEX = Int
+public typealias FallbackIndex = Int
 
-public typealias ICMP4_TIME_EXCEED_CODE = Int
+public typealias Icmp4TimeExceedCode = Int
 
-public typealias ICMP4_UNREACH_CODE = Int
+public typealias Icmp4UnreachCode = Int
 
-public typealias IGMP_MAX_RESP_CODE_TYPE = Int
+public typealias IgmpMaxRespCodeType = Int
 
-public typealias IPPROTO = Int
+public typealias Ipproto = Int
 
-public typealias IPV4_OPTION_TYPE = Int
+public typealias Ipv4OptionType = Int
 
-public typealias IPV6_OPTION_TYPE = Int
+public typealias Ipv6OptionType = Int
 
-public typealias IP_OPTION_TIMESTAMP_FLAGS = Int
+public typealias IpOptionTimestampFlags = Int
 
-public fun interface LPBLOCKINGCALLBACKFn {
-    public operator fun invoke(dwcontext: ULong): BOOL
+public fun interface LpblockingcallbackFn {
+    public operator fun invoke(dwcontext: ULong): Bool
 }
 
-public typealias LPBLOCKINGCALLBACK = LPBLOCKINGCALLBACKFn?
+public typealias Lpblockingcallback = LpblockingcallbackFn?
 
-public fun interface LPCONDITIONPROCFn {
-    public operator fun invoke(lpcallerid: Long, lpcallerdata: Long, lpsqos: Long, lpgqos: Long, lpcalleeid: Long, lpcalleedata: Long, g: Long, dwcallbackdata: ULong): Int
+public fun interface LpconditionprocFn {
+    public operator fun invoke(lpcallerid: COpaquePointer?, lpcallerdata: COpaquePointer?, lpsqos: COpaquePointer?, lpgqos: COpaquePointer?, lpcalleeid: COpaquePointer?, lpcalleedata: COpaquePointer?, g: COpaquePointer?, dwcallbackdata: ULong): Int
 }
 
-public typealias LPCONDITIONPROC = LPCONDITIONPROCFn?
+public typealias Lpconditionproc = LpconditionprocFn?
 
-public fun interface LPFN_ACCEPTEXFn {
-    public operator fun invoke(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: Long, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: Long, lpoverlapped: Long): BOOL
+public fun interface LpfnAcceptexFn {
+    public operator fun invoke(slistensocket: Socket, sacceptsocket: Socket, lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool
 }
 
-public typealias LPFN_ACCEPTEX = LPFN_ACCEPTEXFn?
+public typealias LpfnAcceptex = LpfnAcceptexFn?
 
-public fun interface LPFN_CONNECTEXFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Int, lpsendbuffer: Long, dwsenddatalength: UInt, lpdwbytessent: Long, lpoverlapped: Long): BOOL
+public fun interface LpfnConnectexFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: Int, lpsendbuffer: COpaquePointer?, dwsenddatalength: UInt, lpdwbytessent: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool
 }
 
-public typealias LPFN_CONNECTEX = LPFN_CONNECTEXFn?
+public typealias LpfnConnectex = LpfnConnectexFn?
 
-public fun interface LPFN_DISCONNECTEXFn {
-    public operator fun invoke(s: SOCKET, lpoverlapped: Long, dwflags: UInt, dwreserved: UInt): BOOL
+public fun interface LpfnDisconnectexFn {
+    public operator fun invoke(s: Socket, lpoverlapped: COpaquePointer?, dwflags: UInt, dwreserved: UInt): Bool
 }
 
-public typealias LPFN_DISCONNECTEX = LPFN_DISCONNECTEXFn?
+public typealias LpfnDisconnectex = LpfnDisconnectexFn?
 
-public fun interface LPFN_GETACCEPTEXSOCKADDRSFn {
-    public operator fun invoke(lpoutputbuffer: Long, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: Long, localsockaddrlength: Long, remotesockaddr: Long, remotesockaddrlength: Long)
+public fun interface LpfnGetacceptexsockaddrsFn {
+    public operator fun invoke(lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: COpaquePointer?, localsockaddrlength: COpaquePointer?, remotesockaddr: COpaquePointer?, remotesockaddrlength: COpaquePointer?)
 }
 
-public typealias LPFN_GETACCEPTEXSOCKADDRS = LPFN_GETACCEPTEXSOCKADDRSFn?
+public typealias LpfnGetacceptexsockaddrs = LpfnGetacceptexsockaddrsFn?
 
-public fun interface LPFN_NSPAPIFn {
+public fun interface LpfnNspapiFn {
     public operator fun invoke(): UInt
 }
 
-public typealias LPFN_NSPAPI = LPFN_NSPAPIFn?
+public typealias LpfnNspapi = LpfnNspapiFn?
 
-public fun interface LPFN_RIOCLOSECOMPLETIONQUEUEFn {
-    public operator fun invoke(cq: RIO_CQ)
+public fun interface LpfnRioclosecompletionqueueFn {
+    public operator fun invoke(cq: RioCq)
 }
 
-public typealias LPFN_RIOCLOSECOMPLETIONQUEUE = LPFN_RIOCLOSECOMPLETIONQUEUEFn?
+public typealias LpfnRioclosecompletionqueue = LpfnRioclosecompletionqueueFn?
 
-public fun interface LPFN_RIOCREATECOMPLETIONQUEUEFn {
-    public operator fun invoke(queuesize: UInt, notificationcompletion: Long): RIO_CQ
+public fun interface LpfnRiocreatecompletionqueueFn {
+    public operator fun invoke(queuesize: UInt, notificationcompletion: COpaquePointer?): RioCq
 }
 
-public typealias LPFN_RIOCREATECOMPLETIONQUEUE = LPFN_RIOCREATECOMPLETIONQUEUEFn?
+public typealias LpfnRiocreatecompletionqueue = LpfnRiocreatecompletionqueueFn?
 
-public fun interface LPFN_RIOCREATEREQUESTQUEUEFn {
-    public operator fun invoke(socket: SOCKET, maxoutstandingreceive: UInt, maxreceivedatabuffers: UInt, maxoutstandingsend: UInt, maxsenddatabuffers: UInt, receivecq: RIO_CQ, sendcq: RIO_CQ, socketcontext: Long): RIO_RQ
+public fun interface LpfnRiocreaterequestqueueFn {
+    public operator fun invoke(socket: Socket, maxoutstandingreceive: UInt, maxreceivedatabuffers: UInt, maxoutstandingsend: UInt, maxsenddatabuffers: UInt, receivecq: RioCq, sendcq: RioCq, socketcontext: COpaquePointer?): RioRq
 }
 
-public typealias LPFN_RIOCREATEREQUESTQUEUE = LPFN_RIOCREATEREQUESTQUEUEFn?
+public typealias LpfnRiocreaterequestqueue = LpfnRiocreaterequestqueueFn?
 
-public fun interface LPFN_RIODEQUEUECOMPLETIONFn {
-    public operator fun invoke(cq: RIO_CQ, array: Long, arraysize: UInt): UInt
+public fun interface LpfnRiodequeuecompletionFn {
+    public operator fun invoke(cq: RioCq, array: COpaquePointer?, arraysize: UInt): UInt
 }
 
-public typealias LPFN_RIODEQUEUECOMPLETION = LPFN_RIODEQUEUECOMPLETIONFn?
+public typealias LpfnRiodequeuecompletion = LpfnRiodequeuecompletionFn?
 
-public fun interface LPFN_RIODEREGISTERBUFFERFn {
-    public operator fun invoke(bufferid: RIO_BUFFERID)
+public fun interface LpfnRioderegisterbufferFn {
+    public operator fun invoke(bufferid: RioBufferid)
 }
 
-public typealias LPFN_RIODEREGISTERBUFFER = LPFN_RIODEREGISTERBUFFERFn?
+public typealias LpfnRioderegisterbuffer = LpfnRioderegisterbufferFn?
 
-public fun interface LPFN_RIONOTIFYFn {
-    public operator fun invoke(cq: RIO_CQ): Int
+public fun interface LpfnRionotifyFn {
+    public operator fun invoke(cq: RioCq): Int
 }
 
-public typealias LPFN_RIONOTIFY = LPFN_RIONOTIFYFn?
+public typealias LpfnRionotify = LpfnRionotifyFn?
 
-public fun interface LPFN_RIORECEIVEFn {
-    public operator fun invoke(socketqueue: RIO_RQ, pdata: Long, databuffercount: UInt, flags: UInt, requestcontext: Long): BOOL
+public fun interface LpfnRioreceiveFn {
+    public operator fun invoke(socketqueue: RioRq, pdata: COpaquePointer?, databuffercount: UInt, flags: UInt, requestcontext: COpaquePointer?): Bool
 }
 
-public typealias LPFN_RIORECEIVE = LPFN_RIORECEIVEFn?
+public typealias LpfnRioreceive = LpfnRioreceiveFn?
 
-public fun interface LPFN_RIORECEIVEEXFn {
-    public operator fun invoke(socketqueue: RIO_RQ, pdata: Long, databuffercount: UInt, plocaladdress: Long, premoteaddress: Long, pcontrolcontext: Long, pflags: Long, flags: UInt, requestcontext: Long): Int
+public fun interface LpfnRioreceiveexFn {
+    public operator fun invoke(socketqueue: RioRq, pdata: COpaquePointer?, databuffercount: UInt, plocaladdress: COpaquePointer?, premoteaddress: COpaquePointer?, pcontrolcontext: COpaquePointer?, pflags: COpaquePointer?, flags: UInt, requestcontext: COpaquePointer?): Int
 }
 
-public typealias LPFN_RIORECEIVEEX = LPFN_RIORECEIVEEXFn?
+public typealias LpfnRioreceiveex = LpfnRioreceiveexFn?
 
-public fun interface LPFN_RIOREGISTERBUFFERFn {
-    public operator fun invoke(databuffer: PCSTR, datalength: UInt): RIO_BUFFERID
+public fun interface LpfnRioregisterbufferFn {
+    public operator fun invoke(databuffer: Pcstr, datalength: UInt): RioBufferid
 }
 
-public typealias LPFN_RIOREGISTERBUFFER = LPFN_RIOREGISTERBUFFERFn?
+public typealias LpfnRioregisterbuffer = LpfnRioregisterbufferFn?
 
-public fun interface LPFN_RIORESIZECOMPLETIONQUEUEFn {
-    public operator fun invoke(cq: RIO_CQ, queuesize: UInt): BOOL
+public fun interface LpfnRioresizecompletionqueueFn {
+    public operator fun invoke(cq: RioCq, queuesize: UInt): Bool
 }
 
-public typealias LPFN_RIORESIZECOMPLETIONQUEUE = LPFN_RIORESIZECOMPLETIONQUEUEFn?
+public typealias LpfnRioresizecompletionqueue = LpfnRioresizecompletionqueueFn?
 
-public fun interface LPFN_RIORESIZEREQUESTQUEUEFn {
-    public operator fun invoke(rq: RIO_RQ, maxoutstandingreceive: UInt, maxoutstandingsend: UInt): BOOL
+public fun interface LpfnRioresizerequestqueueFn {
+    public operator fun invoke(rq: RioRq, maxoutstandingreceive: UInt, maxoutstandingsend: UInt): Bool
 }
 
-public typealias LPFN_RIORESIZEREQUESTQUEUE = LPFN_RIORESIZEREQUESTQUEUEFn?
+public typealias LpfnRioresizerequestqueue = LpfnRioresizerequestqueueFn?
 
-public fun interface LPFN_RIOSENDFn {
-    public operator fun invoke(socketqueue: RIO_RQ, pdata: Long, databuffercount: UInt, flags: UInt, requestcontext: Long): BOOL
+public fun interface LpfnRiosendFn {
+    public operator fun invoke(socketqueue: RioRq, pdata: COpaquePointer?, databuffercount: UInt, flags: UInt, requestcontext: COpaquePointer?): Bool
 }
 
-public typealias LPFN_RIOSEND = LPFN_RIOSENDFn?
+public typealias LpfnRiosend = LpfnRiosendFn?
 
-public fun interface LPFN_RIOSENDEXFn {
-    public operator fun invoke(socketqueue: RIO_RQ, pdata: Long, databuffercount: UInt, plocaladdress: Long, premoteaddress: Long, pcontrolcontext: Long, pflags: Long, flags: UInt, requestcontext: Long): BOOL
+public fun interface LpfnRiosendexFn {
+    public operator fun invoke(socketqueue: RioRq, pdata: COpaquePointer?, databuffercount: UInt, plocaladdress: COpaquePointer?, premoteaddress: COpaquePointer?, pcontrolcontext: COpaquePointer?, pflags: COpaquePointer?, flags: UInt, requestcontext: COpaquePointer?): Bool
 }
 
-public typealias LPFN_RIOSENDEX = LPFN_RIOSENDEXFn?
+public typealias LpfnRiosendex = LpfnRiosendexFn?
 
-public fun interface LPFN_TRANSMITFILEFn {
-    public operator fun invoke(hsocket: SOCKET, hfile: HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL
+public fun interface LpfnTransmitfileFn {
+    public operator fun invoke(hsocket: Socket, hfile: Handle, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: COpaquePointer?, lptransmitbuffers: COpaquePointer?, dwreserved: UInt): Bool
 }
 
-public typealias LPFN_TRANSMITFILE = LPFN_TRANSMITFILEFn?
+public typealias LpfnTransmitfile = LpfnTransmitfileFn?
 
-public fun interface LPFN_TRANSMITPACKETSFn {
-    public operator fun invoke(hsocket: SOCKET, lppacketarray: Long, nelementcount: UInt, nsendsize: UInt, lpoverlapped: Long, dwflags: UInt): BOOL
+public fun interface LpfnTransmitpacketsFn {
+    public operator fun invoke(hsocket: Socket, lppacketarray: COpaquePointer?, nelementcount: UInt, nsendsize: UInt, lpoverlapped: COpaquePointer?, dwflags: UInt): Bool
 }
 
-public typealias LPFN_TRANSMITPACKETS = LPFN_TRANSMITPACKETSFn?
+public typealias LpfnTransmitpackets = LpfnTransmitpacketsFn?
 
-public fun interface LPFN_WSAPOLLFn {
-    public operator fun invoke(fdarray: Long, nfds: UInt, timeout: Int): Int
+public fun interface LpfnWsapollFn {
+    public operator fun invoke(fdarray: COpaquePointer?, nfds: UInt, timeout: Int): Int
 }
 
-public typealias LPFN_WSAPOLL = LPFN_WSAPOLLFn?
+public typealias LpfnWsapoll = LpfnWsapollFn?
 
-public fun interface LPFN_WSARECVMSGFn {
-    public operator fun invoke(s: SOCKET, lpmsg: Long, lpdwnumberofbytesrecvd: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int
+public fun interface LpfnWsarecvmsgFn {
+    public operator fun invoke(s: Socket, lpmsg: COpaquePointer?, lpdwnumberofbytesrecvd: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int
 }
 
-public typealias LPFN_WSARECVMSG = LPFN_WSARECVMSGFn?
+public typealias LpfnWsarecvmsg = LpfnWsarecvmsgFn?
 
-public fun interface LPFN_WSASENDMSGFn {
-    public operator fun invoke(s: SOCKET, lpmsg: Long, dwflags: UInt, lpnumberofbytessent: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int
+public fun interface LpfnWsasendmsgFn {
+    public operator fun invoke(s: Socket, lpmsg: COpaquePointer?, dwflags: UInt, lpnumberofbytessent: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int
 }
 
-public typealias LPFN_WSASENDMSG = LPFN_WSASENDMSGFn?
+public typealias LpfnWsasendmsg = LpfnWsasendmsgFn?
 
-public fun interface LPLOOKUPSERVICE_COMPLETION_ROUTINEFn {
-    public operator fun invoke(dwerror: UInt, dwbytes: UInt, lpoverlapped: Long)
+public fun interface LplookupserviceCompletionRoutineFn {
+    public operator fun invoke(dwerror: UInt, dwbytes: UInt, lpoverlapped: COpaquePointer?)
 }
 
-public typealias LPLOOKUPSERVICE_COMPLETION_ROUTINE = LPLOOKUPSERVICE_COMPLETION_ROUTINEFn?
+public typealias LplookupserviceCompletionRoutine = LplookupserviceCompletionRoutineFn?
 
-public fun interface LPNSPCLEANUPFn {
-    public operator fun invoke(lpproviderid: Long): Int
+public fun interface LpnspcleanupFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?): Int
 }
 
-public typealias LPNSPCLEANUP = LPNSPCLEANUPFn?
+public typealias Lpnspcleanup = LpnspcleanupFn?
 
-public fun interface LPNSPGETSERVICECLASSINFOFn {
-    public operator fun invoke(lpproviderid: Long, lpdwbufsize: Long, lpserviceclassinfo: Long): Int
+public fun interface LpnspgetserviceclassinfoFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpdwbufsize: COpaquePointer?, lpserviceclassinfo: COpaquePointer?): Int
 }
 
-public typealias LPNSPGETSERVICECLASSINFO = LPNSPGETSERVICECLASSINFOFn?
+public typealias Lpnspgetserviceclassinfo = LpnspgetserviceclassinfoFn?
 
-public fun interface LPNSPINSTALLSERVICECLASSFn {
-    public operator fun invoke(lpproviderid: Long, lpserviceclassinfo: Long): Int
+public fun interface LpnspinstallserviceclassFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpserviceclassinfo: COpaquePointer?): Int
 }
 
-public typealias LPNSPINSTALLSERVICECLASS = LPNSPINSTALLSERVICECLASSFn?
+public typealias Lpnspinstallserviceclass = LpnspinstallserviceclassFn?
 
-public fun interface LPNSPIOCTLFn {
-    public operator fun invoke(hlookup: HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long, lpthreadid: Long): Int
+public fun interface LpnspioctlFn {
+    public operator fun invoke(hlookup: Handle, dwcontrolcode: UInt, lpvinbuffer: COpaquePointer?, cbinbuffer: UInt, lpvoutbuffer: COpaquePointer?, cboutbuffer: UInt, lpcbbytesreturned: COpaquePointer?, lpcompletion: COpaquePointer?, lpthreadid: COpaquePointer?): Int
 }
 
-public typealias LPNSPIOCTL = LPNSPIOCTLFn?
+public typealias Lpnspioctl = LpnspioctlFn?
 
-public fun interface LPNSPLOOKUPSERVICEBEGINFn {
-    public operator fun invoke(lpproviderid: Long, lpqsrestrictions: Long, lpserviceclassinfo: Long, dwcontrolflags: UInt, lphlookup: Long): Int
+public fun interface LpnsplookupservicebeginFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpqsrestrictions: COpaquePointer?, lpserviceclassinfo: COpaquePointer?, dwcontrolflags: UInt, lphlookup: COpaquePointer?): Int
 }
 
-public typealias LPNSPLOOKUPSERVICEBEGIN = LPNSPLOOKUPSERVICEBEGINFn?
+public typealias Lpnsplookupservicebegin = LpnsplookupservicebeginFn?
 
-public fun interface LPNSPLOOKUPSERVICEENDFn {
-    public operator fun invoke(hlookup: HANDLE): Int
+public fun interface LpnsplookupserviceendFn {
+    public operator fun invoke(hlookup: Handle): Int
 }
 
-public typealias LPNSPLOOKUPSERVICEEND = LPNSPLOOKUPSERVICEENDFn?
+public typealias Lpnsplookupserviceend = LpnsplookupserviceendFn?
 
-public fun interface LPNSPLOOKUPSERVICENEXTFn {
-    public operator fun invoke(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int
+public fun interface LpnsplookupservicenextFn {
+    public operator fun invoke(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: COpaquePointer?, lpqsresults: COpaquePointer?): Int
 }
 
-public typealias LPNSPLOOKUPSERVICENEXT = LPNSPLOOKUPSERVICENEXTFn?
+public typealias Lpnsplookupservicenext = LpnsplookupservicenextFn?
 
-public fun interface LPNSPREMOVESERVICECLASSFn {
-    public operator fun invoke(lpproviderid: Long, lpserviceclassid: Long): Int
+public fun interface LpnspremoveserviceclassFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpserviceclassid: COpaquePointer?): Int
 }
 
-public typealias LPNSPREMOVESERVICECLASS = LPNSPREMOVESERVICECLASSFn?
+public typealias Lpnspremoveserviceclass = LpnspremoveserviceclassFn?
 
-public fun interface LPNSPSETSERVICEFn {
-    public operator fun invoke(lpproviderid: Long, lpserviceclassinfo: Long, lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt): Int
+public fun interface LpnspsetserviceFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpserviceclassinfo: COpaquePointer?, lpqsreginfo: COpaquePointer?, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int
 }
 
-public typealias LPNSPSETSERVICE = LPNSPSETSERVICEFn?
+public typealias Lpnspsetservice = LpnspsetserviceFn?
 
-public fun interface LPNSPSTARTUPFn {
-    public operator fun invoke(lpproviderid: Long, lpnsproutines: Long): Int
+public fun interface LpnspstartupFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpnsproutines: COpaquePointer?): Int
 }
 
-public typealias LPNSPSTARTUP = LPNSPSTARTUPFn?
+public typealias Lpnspstartup = LpnspstartupFn?
 
-public fun interface LPNSPV2CLEANUPFn {
-    public operator fun invoke(lpproviderid: Long, pvclientsessionarg: Long): Int
+public fun interface Lpnspv2cleanupFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, pvclientsessionarg: COpaquePointer?): Int
 }
 
-public typealias LPNSPV2CLEANUP = LPNSPV2CLEANUPFn?
+public typealias Lpnspv2cleanup = Lpnspv2cleanupFn?
 
-public fun interface LPNSPV2CLIENTSESSIONRUNDOWNFn {
-    public operator fun invoke(lpproviderid: Long, pvclientsessionarg: Long)
+public fun interface Lpnspv2clientsessionrundownFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, pvclientsessionarg: COpaquePointer?)
 }
 
-public typealias LPNSPV2CLIENTSESSIONRUNDOWN = LPNSPV2CLIENTSESSIONRUNDOWNFn?
+public typealias Lpnspv2clientsessionrundown = Lpnspv2clientsessionrundownFn?
 
-public fun interface LPNSPV2LOOKUPSERVICEBEGINFn {
-    public operator fun invoke(lpproviderid: Long, lpqsrestrictions: Long, dwcontrolflags: UInt, lpvclientsessionarg: Long, lphlookup: Long): Int
+public fun interface Lpnspv2lookupservicebeginFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpqsrestrictions: COpaquePointer?, dwcontrolflags: UInt, lpvclientsessionarg: COpaquePointer?, lphlookup: COpaquePointer?): Int
 }
 
-public typealias LPNSPV2LOOKUPSERVICEBEGIN = LPNSPV2LOOKUPSERVICEBEGINFn?
+public typealias Lpnspv2lookupservicebegin = Lpnspv2lookupservicebeginFn?
 
-public fun interface LPNSPV2LOOKUPSERVICEENDFn {
-    public operator fun invoke(hlookup: HANDLE): Int
+public fun interface Lpnspv2lookupserviceendFn {
+    public operator fun invoke(hlookup: Handle): Int
 }
 
-public typealias LPNSPV2LOOKUPSERVICEEND = LPNSPV2LOOKUPSERVICEENDFn?
+public typealias Lpnspv2lookupserviceend = Lpnspv2lookupserviceendFn?
 
-public fun interface LPNSPV2LOOKUPSERVICENEXTEXFn {
-    public operator fun invoke(hasynccall: HANDLE, hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long)
+public fun interface Lpnspv2lookupservicenextexFn {
+    public operator fun invoke(hasynccall: Handle, hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: COpaquePointer?, lpqsresults: COpaquePointer?)
 }
 
-public typealias LPNSPV2LOOKUPSERVICENEXTEX = LPNSPV2LOOKUPSERVICENEXTEXFn?
+public typealias Lpnspv2lookupservicenextex = Lpnspv2lookupservicenextexFn?
 
-public fun interface LPNSPV2SETSERVICEEXFn {
-    public operator fun invoke(hasynccall: HANDLE, lpproviderid: Long, lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt, lpvclientsessionarg: Long)
+public fun interface Lpnspv2setserviceexFn {
+    public operator fun invoke(hasynccall: Handle, lpproviderid: COpaquePointer?, lpqsreginfo: COpaquePointer?, essoperation: Wsaesetserviceop, dwcontrolflags: UInt, lpvclientsessionarg: COpaquePointer?)
 }
 
-public typealias LPNSPV2SETSERVICEEX = LPNSPV2SETSERVICEEXFn?
+public typealias Lpnspv2setserviceex = Lpnspv2setserviceexFn?
 
-public fun interface LPNSPV2STARTUPFn {
-    public operator fun invoke(lpproviderid: Long, ppvclientsessionarg: Long): Int
+public fun interface Lpnspv2startupFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, ppvclientsessionarg: COpaquePointer?): Int
 }
 
-public typealias LPNSPV2STARTUP = LPNSPV2STARTUPFn?
+public typealias Lpnspv2startup = Lpnspv2startupFn?
 
-public fun interface LPSERVICE_CALLBACK_PROCFn {
-    public operator fun invoke(lparam: LPARAM, hasynctaskhandle: HANDLE)
+public fun interface LpserviceCallbackProcFn {
+    public operator fun invoke(lparam: Lparam, hasynctaskhandle: Handle)
 }
 
-public typealias LPSERVICE_CALLBACK_PROC = LPSERVICE_CALLBACK_PROCFn?
+public typealias LpserviceCallbackProc = LpserviceCallbackProcFn?
 
-public fun interface LPWPUCLOSEEVENTFn {
-    public operator fun invoke(hevent: WSAEVENT, lperrno: Long): BOOL
+public fun interface LpwpucloseeventFn {
+    public operator fun invoke(hevent: Wsaevent, lperrno: COpaquePointer?): Bool
 }
 
-public typealias LPWPUCLOSEEVENT = LPWPUCLOSEEVENTFn?
+public typealias Lpwpucloseevent = LpwpucloseeventFn?
 
-public fun interface LPWPUCLOSESOCKETHANDLEFn {
-    public operator fun invoke(s: SOCKET, lperrno: Long): Int
+public fun interface LpwpuclosesockethandleFn {
+    public operator fun invoke(s: Socket, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUCLOSESOCKETHANDLE = LPWPUCLOSESOCKETHANDLEFn?
+public typealias Lpwpuclosesockethandle = LpwpuclosesockethandleFn?
 
-public fun interface LPWPUCLOSETHREADFn {
-    public operator fun invoke(lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwpuclosethreadFn {
+    public operator fun invoke(lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUCLOSETHREAD = LPWPUCLOSETHREADFn?
+public typealias Lpwpuclosethread = LpwpuclosethreadFn?
 
-public fun interface LPWPUCOMPLETEOVERLAPPEDREQUESTFn {
-    public operator fun invoke(s: SOCKET, lpoverlapped: Long, dwerror: UInt, cbtransferred: UInt, lperrno: Long): Int
+public fun interface LpwpucompleteoverlappedrequestFn {
+    public operator fun invoke(s: Socket, lpoverlapped: COpaquePointer?, dwerror: UInt, cbtransferred: UInt, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUCOMPLETEOVERLAPPEDREQUEST = LPWPUCOMPLETEOVERLAPPEDREQUESTFn?
+public typealias Lpwpucompleteoverlappedrequest = LpwpucompleteoverlappedrequestFn?
 
-public fun interface LPWPUCREATEEVENTFn {
-    public operator fun invoke(lperrno: Long): WSAEVENT
+public fun interface LpwpucreateeventFn {
+    public operator fun invoke(lperrno: COpaquePointer?): Wsaevent
 }
 
-public typealias LPWPUCREATEEVENT = LPWPUCREATEEVENTFn?
+public typealias Lpwpucreateevent = LpwpucreateeventFn?
 
-public fun interface LPWPUCREATESOCKETHANDLEFn {
-    public operator fun invoke(dwcatalogentryid: UInt, dwcontext: ULong, lperrno: Long): SOCKET
+public fun interface LpwpucreatesockethandleFn {
+    public operator fun invoke(dwcatalogentryid: UInt, dwcontext: ULong, lperrno: COpaquePointer?): Socket
 }
 
-public typealias LPWPUCREATESOCKETHANDLE = LPWPUCREATESOCKETHANDLEFn?
+public typealias Lpwpucreatesockethandle = LpwpucreatesockethandleFn?
 
-public fun interface LPWPUFDISSETFn {
-    public operator fun invoke(s: SOCKET, fdset: Long): Int
+public fun interface LpwpufdissetFn {
+    public operator fun invoke(s: Socket, fdset: COpaquePointer?): Int
 }
 
-public typealias LPWPUFDISSET = LPWPUFDISSETFn?
+public typealias Lpwpufdisset = LpwpufdissetFn?
 
-public fun interface LPWPUGETPROVIDERPATHFn {
-    public operator fun invoke(lpproviderid: Long, lpszproviderdllpath: PWSTR, lpproviderdllpathlen: Long, lperrno: Long): Int
+public fun interface LpwpugetproviderpathFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUGETPROVIDERPATH = LPWPUGETPROVIDERPATHFn?
+public typealias Lpwpugetproviderpath = LpwpugetproviderpathFn?
 
-public fun interface LPWPUMODIFYIFSHANDLEFn {
-    public operator fun invoke(dwcatalogentryid: UInt, proposedhandle: SOCKET, lperrno: Long): SOCKET
+public fun interface LpwpumodifyifshandleFn {
+    public operator fun invoke(dwcatalogentryid: UInt, proposedhandle: Socket, lperrno: COpaquePointer?): Socket
 }
 
-public typealias LPWPUMODIFYIFSHANDLE = LPWPUMODIFYIFSHANDLEFn?
+public typealias Lpwpumodifyifshandle = LpwpumodifyifshandleFn?
 
-public fun interface LPWPUOPENCURRENTTHREADFn {
-    public operator fun invoke(lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwpuopencurrentthreadFn {
+    public operator fun invoke(lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUOPENCURRENTTHREAD = LPWPUOPENCURRENTTHREADFn?
+public typealias Lpwpuopencurrentthread = LpwpuopencurrentthreadFn?
 
-public fun interface LPWPUPOSTMESSAGEFn {
-    public operator fun invoke(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public fun interface LpwpupostmessageFn {
+    public operator fun invoke(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 }
 
-public typealias LPWPUPOSTMESSAGE = LPWPUPOSTMESSAGEFn?
+public typealias Lpwpupostmessage = LpwpupostmessageFn?
 
-public fun interface LPWPUQUERYBLOCKINGCALLBACKFn {
-    public operator fun invoke(dwcatalogentryid: UInt, lplpfncallback: Long, lpdwcontext: Long, lperrno: Long): Int
+public fun interface LpwpuqueryblockingcallbackFn {
+    public operator fun invoke(dwcatalogentryid: UInt, lplpfncallback: COpaquePointer?, lpdwcontext: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUQUERYBLOCKINGCALLBACK = LPWPUQUERYBLOCKINGCALLBACKFn?
+public typealias Lpwpuqueryblockingcallback = LpwpuqueryblockingcallbackFn?
 
-public fun interface LPWPUQUERYSOCKETHANDLECONTEXTFn {
-    public operator fun invoke(s: SOCKET, lpcontext: Long, lperrno: Long): Int
+public fun interface LpwpuquerysockethandlecontextFn {
+    public operator fun invoke(s: Socket, lpcontext: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUQUERYSOCKETHANDLECONTEXT = LPWPUQUERYSOCKETHANDLECONTEXTFn?
+public typealias Lpwpuquerysockethandlecontext = LpwpuquerysockethandlecontextFn?
 
-public fun interface LPWPUQUEUEAPCFn {
-    public operator fun invoke(lpthreadid: Long, lpfnuserapc: LPWSAUSERAPC, dwcontext: ULong, lperrno: Long): Int
+public fun interface LpwpuqueueapcFn {
+    public operator fun invoke(lpthreadid: COpaquePointer?, lpfnuserapc: Lpwsauserapc, dwcontext: ULong, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWPUQUEUEAPC = LPWPUQUEUEAPCFn?
+public typealias Lpwpuqueueapc = LpwpuqueueapcFn?
 
-public fun interface LPWPURESETEVENTFn {
-    public operator fun invoke(hevent: WSAEVENT, lperrno: Long): BOOL
+public fun interface LpwpureseteventFn {
+    public operator fun invoke(hevent: Wsaevent, lperrno: COpaquePointer?): Bool
 }
 
-public typealias LPWPURESETEVENT = LPWPURESETEVENTFn?
+public typealias Lpwpuresetevent = LpwpureseteventFn?
 
-public fun interface LPWPUSETEVENTFn {
-    public operator fun invoke(hevent: WSAEVENT, lperrno: Long): BOOL
+public fun interface LpwpuseteventFn {
+    public operator fun invoke(hevent: Wsaevent, lperrno: COpaquePointer?): Bool
 }
 
-public typealias LPWPUSETEVENT = LPWPUSETEVENTFn?
+public typealias Lpwpusetevent = LpwpuseteventFn?
 
-public fun interface LPWSAOVERLAPPED_COMPLETION_ROUTINEFn {
-    public operator fun invoke(dwerror: UInt, cbtransferred: UInt, lpoverlapped: Long, dwflags: UInt)
+public fun interface LpwsaoverlappedCompletionRoutineFn {
+    public operator fun invoke(dwerror: UInt, cbtransferred: UInt, lpoverlapped: COpaquePointer?, dwflags: UInt)
 }
 
-public typealias LPWSAOVERLAPPED_COMPLETION_ROUTINE = LPWSAOVERLAPPED_COMPLETION_ROUTINEFn?
+public typealias LpwsaoverlappedCompletionRoutine = LpwsaoverlappedCompletionRoutineFn?
 
-public fun interface LPWSAUSERAPCFn {
+public fun interface LpwsauserapcFn {
     public operator fun invoke(dwcontext: ULong)
 }
 
-public typealias LPWSAUSERAPC = LPWSAUSERAPCFn?
+public typealias Lpwsauserapc = LpwsauserapcFn?
 
-public fun interface LPWSCDEINSTALLPROVIDERFn {
-    public operator fun invoke(lpproviderid: Long, lperrno: Long): Int
+public fun interface LpwscdeinstallproviderFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSCDEINSTALLPROVIDER = LPWSCDEINSTALLPROVIDERFn?
+public typealias Lpwscdeinstallprovider = LpwscdeinstallproviderFn?
 
-public fun interface LPWSCENABLENSPROVIDERFn {
-    public operator fun invoke(lpproviderid: Long, fenable: BOOL): Int
+public fun interface LpwscenablensproviderFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, fenable: Bool): Int
 }
 
-public typealias LPWSCENABLENSPROVIDER = LPWSCENABLENSPROVIDERFn?
+public typealias Lpwscenablensprovider = LpwscenablensproviderFn?
 
-public fun interface LPWSCENUMPROTOCOLSFn {
-    public operator fun invoke(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long, lperrno: Long): Int
+public fun interface LpwscenumprotocolsFn {
+    public operator fun invoke(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSCENUMPROTOCOLS = LPWSCENUMPROTOCOLSFn?
+public typealias Lpwscenumprotocols = LpwscenumprotocolsFn?
 
-public fun interface LPWSCGETPROVIDERPATHFn {
-    public operator fun invoke(lpproviderid: Long, lpszproviderdllpath: PWSTR, lpproviderdllpathlen: Long, lperrno: Long): Int
+public fun interface LpwscgetproviderpathFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSCGETPROVIDERPATH = LPWSCGETPROVIDERPATHFn?
+public typealias Lpwscgetproviderpath = LpwscgetproviderpathFn?
 
-public fun interface LPWSCINSTALLNAMESPACEFn {
-    public operator fun invoke(lpszidentifier: PCWSTR, lpszpathname: PCWSTR, dwnamespace: UInt, dwversion: UInt, lpproviderid: Long): Int
+public fun interface LpwscinstallnamespaceFn {
+    public operator fun invoke(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: COpaquePointer?): Int
 }
 
-public typealias LPWSCINSTALLNAMESPACE = LPWSCINSTALLNAMESPACEFn?
+public typealias Lpwscinstallnamespace = LpwscinstallnamespaceFn?
 
-public fun interface LPWSCINSTALLPROVIDERFn {
-    public operator fun invoke(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int
+public fun interface LpwscinstallproviderFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSCINSTALLPROVIDER = LPWSCINSTALLPROVIDERFn?
+public typealias Lpwscinstallprovider = LpwscinstallproviderFn?
 
-public fun interface LPWSCUNINSTALLNAMESPACEFn {
-    public operator fun invoke(lpproviderid: Long): Int
+public fun interface LpwscuninstallnamespaceFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?): Int
 }
 
-public typealias LPWSCUNINSTALLNAMESPACE = LPWSCUNINSTALLNAMESPACEFn?
+public typealias Lpwscuninstallnamespace = LpwscuninstallnamespaceFn?
 
-public fun interface LPWSCUPDATEPROVIDERFn {
-    public operator fun invoke(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int
+public fun interface LpwscupdateproviderFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSCUPDATEPROVIDER = LPWSCUPDATEPROVIDERFn?
+public typealias Lpwscupdateprovider = LpwscupdateproviderFn?
 
-public fun interface LPWSCWRITENAMESPACEORDERFn {
-    public operator fun invoke(lpproviderid: Long, dwnumberofentries: UInt): Int
+public fun interface LpwscwritenamespaceorderFn {
+    public operator fun invoke(lpproviderid: COpaquePointer?, dwnumberofentries: UInt): Int
 }
 
-public typealias LPWSCWRITENAMESPACEORDER = LPWSCWRITENAMESPACEORDERFn?
+public typealias Lpwscwritenamespaceorder = LpwscwritenamespaceorderFn?
 
-public fun interface LPWSCWRITEPROVIDERORDERFn {
-    public operator fun invoke(lpwdcatalogentryid: Long, dwnumberofentries: UInt): Int
+public fun interface LpwscwriteproviderorderFn {
+    public operator fun invoke(lpwdcatalogentryid: COpaquePointer?, dwnumberofentries: UInt): Int
 }
 
-public typealias LPWSCWRITEPROVIDERORDER = LPWSCWRITEPROVIDERORDERFn?
+public typealias Lpwscwriteproviderorder = LpwscwriteproviderorderFn?
 
-public fun interface LPWSPACCEPTFn {
-    public operator fun invoke(s: SOCKET, addr: Long, addrlen: Long, lpfncondition: LPCONDITIONPROC, dwcallbackdata: ULong, lperrno: Long): SOCKET
+public fun interface LpwspacceptFn {
+    public operator fun invoke(s: Socket, addr: COpaquePointer?, addrlen: COpaquePointer?, lpfncondition: Lpconditionproc, dwcallbackdata: ULong, lperrno: COpaquePointer?): Socket
 }
 
-public typealias LPWSPACCEPT = LPWSPACCEPTFn?
+public typealias Lpwspaccept = LpwspacceptFn?
 
-public fun interface LPWSPADDRESSTOSTRINGFn {
-    public operator fun invoke(lpsaaddress: Long, dwaddresslength: UInt, lpprotocolinfo: Long, lpszaddressstring: PWSTR, lpdwaddressstringlength: Long, lperrno: Long): Int
+public fun interface LpwspaddresstostringFn {
+    public operator fun invoke(lpsaaddress: COpaquePointer?, dwaddresslength: UInt, lpprotocolinfo: COpaquePointer?, lpszaddressstring: Pwstr, lpdwaddressstringlength: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPADDRESSTOSTRING = LPWSPADDRESSTOSTRINGFn?
+public typealias Lpwspaddresstostring = LpwspaddresstostringFn?
 
-public fun interface LPWSPASYNCSELECTFn {
-    public operator fun invoke(s: SOCKET, hwnd: HWND, wmsg: UInt, levent: Int, lperrno: Long): Int
+public fun interface LpwspasyncselectFn {
+    public operator fun invoke(s: Socket, hwnd: Hwnd, wmsg: UInt, levent: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPASYNCSELECT = LPWSPASYNCSELECTFn?
+public typealias Lpwspasyncselect = LpwspasyncselectFn?
 
-public fun interface LPWSPBINDFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Int, lperrno: Long): Int
+public fun interface LpwspbindFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPBIND = LPWSPBINDFn?
+public typealias Lpwspbind = LpwspbindFn?
 
-public fun interface LPWSPCANCELBLOCKINGCALLFn {
-    public operator fun invoke(lperrno: Long): Int
+public fun interface LpwspcancelblockingcallFn {
+    public operator fun invoke(lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPCANCELBLOCKINGCALL = LPWSPCANCELBLOCKINGCALLFn?
+public typealias Lpwspcancelblockingcall = LpwspcancelblockingcallFn?
 
-public fun interface LPWSPCLEANUPFn {
-    public operator fun invoke(lperrno: Long): Int
+public fun interface LpwspcleanupFn {
+    public operator fun invoke(lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPCLEANUP = LPWSPCLEANUPFn?
+public typealias Lpwspcleanup = LpwspcleanupFn?
 
-public fun interface LPWSPCLOSESOCKETFn {
-    public operator fun invoke(s: SOCKET, lperrno: Long): Int
+public fun interface LpwspclosesocketFn {
+    public operator fun invoke(s: Socket, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPCLOSESOCKET = LPWSPCLOSESOCKETFn?
+public typealias Lpwspclosesocket = LpwspclosesocketFn?
 
-public fun interface LPWSPCONNECTFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Int, lpcallerdata: Long, lpcalleedata: Long, lpsqos: Long, lpgqos: Long, lperrno: Long): Int
+public fun interface LpwspconnectFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: Int, lpcallerdata: COpaquePointer?, lpcalleedata: COpaquePointer?, lpsqos: COpaquePointer?, lpgqos: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPCONNECT = LPWSPCONNECTFn?
+public typealias Lpwspconnect = LpwspconnectFn?
 
-public fun interface LPWSPDUPLICATESOCKETFn {
-    public operator fun invoke(s: SOCKET, dwprocessid: UInt, lpprotocolinfo: Long, lperrno: Long): Int
+public fun interface LpwspduplicatesocketFn {
+    public operator fun invoke(s: Socket, dwprocessid: UInt, lpprotocolinfo: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPDUPLICATESOCKET = LPWSPDUPLICATESOCKETFn?
+public typealias Lpwspduplicatesocket = LpwspduplicatesocketFn?
 
-public fun interface LPWSPENUMNETWORKEVENTSFn {
-    public operator fun invoke(s: SOCKET, heventobject: HANDLE, lpnetworkevents: Long, lperrno: Long): Int
+public fun interface LpwspenumnetworkeventsFn {
+    public operator fun invoke(s: Socket, heventobject: Handle, lpnetworkevents: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPENUMNETWORKEVENTS = LPWSPENUMNETWORKEVENTSFn?
+public typealias Lpwspenumnetworkevents = LpwspenumnetworkeventsFn?
 
-public fun interface LPWSPEVENTSELECTFn {
-    public operator fun invoke(s: SOCKET, heventobject: WSAEVENT, lnetworkevents: Int, lperrno: Long): Int
+public fun interface LpwspeventselectFn {
+    public operator fun invoke(s: Socket, heventobject: Wsaevent, lnetworkevents: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPEVENTSELECT = LPWSPEVENTSELECTFn?
+public typealias Lpwspeventselect = LpwspeventselectFn?
 
-public fun interface LPWSPGETOVERLAPPEDRESULTFn {
-    public operator fun invoke(s: SOCKET, lpoverlapped: Long, lpcbtransfer: Long, fwait: BOOL, lpdwflags: Long, lperrno: Long): BOOL
+public fun interface LpwspgetoverlappedresultFn {
+    public operator fun invoke(s: Socket, lpoverlapped: COpaquePointer?, lpcbtransfer: COpaquePointer?, fwait: Bool, lpdwflags: COpaquePointer?, lperrno: COpaquePointer?): Bool
 }
 
-public typealias LPWSPGETOVERLAPPEDRESULT = LPWSPGETOVERLAPPEDRESULTFn?
+public typealias Lpwspgetoverlappedresult = LpwspgetoverlappedresultFn?
 
-public fun interface LPWSPGETPEERNAMEFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Long, lperrno: Long): Int
+public fun interface LpwspgetpeernameFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPGETPEERNAME = LPWSPGETPEERNAMEFn?
+public typealias Lpwspgetpeername = LpwspgetpeernameFn?
 
-public fun interface LPWSPGETQOSBYNAMEFn {
-    public operator fun invoke(s: SOCKET, lpqosname: Long, lpqos: Long, lperrno: Long): BOOL
+public fun interface LpwspgetqosbynameFn {
+    public operator fun invoke(s: Socket, lpqosname: COpaquePointer?, lpqos: COpaquePointer?, lperrno: COpaquePointer?): Bool
 }
 
-public typealias LPWSPGETQOSBYNAME = LPWSPGETQOSBYNAMEFn?
+public typealias Lpwspgetqosbyname = LpwspgetqosbynameFn?
 
-public fun interface LPWSPGETSOCKNAMEFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Long, lperrno: Long): Int
+public fun interface LpwspgetsocknameFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPGETSOCKNAME = LPWSPGETSOCKNAMEFn?
+public typealias Lpwspgetsockname = LpwspgetsocknameFn?
 
-public fun interface LPWSPGETSOCKOPTFn {
-    public operator fun invoke(s: SOCKET, level: Int, optname: Int, optval: PSTR, optlen: Long, lperrno: Long): Int
+public fun interface LpwspgetsockoptFn {
+    public operator fun invoke(s: Socket, level: Int, optname: Int, optval: Pstr, optlen: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPGETSOCKOPT = LPWSPGETSOCKOPTFn?
+public typealias Lpwspgetsockopt = LpwspgetsockoptFn?
 
-public fun interface LPWSPIOCTLFn {
-    public operator fun invoke(s: SOCKET, dwiocontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwspioctlFn {
+    public operator fun invoke(s: Socket, dwiocontrolcode: UInt, lpvinbuffer: COpaquePointer?, cbinbuffer: UInt, lpvoutbuffer: COpaquePointer?, cboutbuffer: UInt, lpcbbytesreturned: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine, lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPIOCTL = LPWSPIOCTLFn?
+public typealias Lpwspioctl = LpwspioctlFn?
 
-public fun interface LPWSPJOINLEAFFn {
-    public operator fun invoke(s: SOCKET, name: Long, namelen: Int, lpcallerdata: Long, lpcalleedata: Long, lpsqos: Long, lpgqos: Long, dwflags: UInt, lperrno: Long): SOCKET
+public fun interface LpwspjoinleafFn {
+    public operator fun invoke(s: Socket, name: COpaquePointer?, namelen: Int, lpcallerdata: COpaquePointer?, lpcalleedata: COpaquePointer?, lpsqos: COpaquePointer?, lpgqos: COpaquePointer?, dwflags: UInt, lperrno: COpaquePointer?): Socket
 }
 
-public typealias LPWSPJOINLEAF = LPWSPJOINLEAFFn?
+public typealias Lpwspjoinleaf = LpwspjoinleafFn?
 
-public fun interface LPWSPLISTENFn {
-    public operator fun invoke(s: SOCKET, backlog: Int, lperrno: Long): Int
+public fun interface LpwsplistenFn {
+    public operator fun invoke(s: Socket, backlog: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPLISTEN = LPWSPLISTENFn?
+public typealias Lpwsplisten = LpwsplistenFn?
 
-public fun interface LPWSPRECVFn {
-    public operator fun invoke(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytesrecvd: Long, lpflags: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwsprecvFn {
+    public operator fun invoke(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytesrecvd: COpaquePointer?, lpflags: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine, lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPRECV = LPWSPRECVFn?
+public typealias Lpwsprecv = LpwsprecvFn?
 
-public fun interface LPWSPRECVDISCONNECTFn {
-    public operator fun invoke(s: SOCKET, lpinbounddisconnectdata: Long, lperrno: Long): Int
+public fun interface LpwsprecvdisconnectFn {
+    public operator fun invoke(s: Socket, lpinbounddisconnectdata: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPRECVDISCONNECT = LPWSPRECVDISCONNECTFn?
+public typealias Lpwsprecvdisconnect = LpwsprecvdisconnectFn?
 
-public fun interface LPWSPRECVFROMFn {
-    public operator fun invoke(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytesrecvd: Long, lpflags: Long, lpfrom: Long, lpfromlen: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwsprecvfromFn {
+    public operator fun invoke(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytesrecvd: COpaquePointer?, lpflags: COpaquePointer?, lpfrom: COpaquePointer?, lpfromlen: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine, lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPRECVFROM = LPWSPRECVFROMFn?
+public typealias Lpwsprecvfrom = LpwsprecvfromFn?
 
-public fun interface LPWSPSELECTFn {
-    public operator fun invoke(nfds: Int, readfds: Long, writefds: Long, exceptfds: Long, timeout: Long, lperrno: Long): Int
+public fun interface LpwspselectFn {
+    public operator fun invoke(nfds: Int, readfds: COpaquePointer?, writefds: COpaquePointer?, exceptfds: COpaquePointer?, timeout: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSELECT = LPWSPSELECTFn?
+public typealias Lpwspselect = LpwspselectFn?
 
-public fun interface LPWSPSENDFn {
-    public operator fun invoke(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytessent: Long, dwflags: UInt, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwspsendFn {
+    public operator fun invoke(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytessent: COpaquePointer?, dwflags: UInt, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine, lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSEND = LPWSPSENDFn?
+public typealias Lpwspsend = LpwspsendFn?
 
-public fun interface LPWSPSENDDISCONNECTFn {
-    public operator fun invoke(s: SOCKET, lpoutbounddisconnectdata: Long, lperrno: Long): Int
+public fun interface LpwspsenddisconnectFn {
+    public operator fun invoke(s: Socket, lpoutbounddisconnectdata: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSENDDISCONNECT = LPWSPSENDDISCONNECTFn?
+public typealias Lpwspsenddisconnect = LpwspsenddisconnectFn?
 
-public fun interface LPWSPSENDTOFn {
-    public operator fun invoke(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytessent: Long, dwflags: UInt, lpto: Long, itolen: Int, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: Long, lperrno: Long): Int
+public fun interface LpwspsendtoFn {
+    public operator fun invoke(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytessent: COpaquePointer?, dwflags: UInt, lpto: COpaquePointer?, itolen: Int, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine, lpthreadid: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSENDTO = LPWSPSENDTOFn?
+public typealias Lpwspsendto = LpwspsendtoFn?
 
-public fun interface LPWSPSETSOCKOPTFn {
-    public operator fun invoke(s: SOCKET, level: Int, optname: Int, optval: PCSTR, optlen: Int, lperrno: Long): Int
+public fun interface LpwspsetsockoptFn {
+    public operator fun invoke(s: Socket, level: Int, optname: Int, optval: Pcstr, optlen: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSETSOCKOPT = LPWSPSETSOCKOPTFn?
+public typealias Lpwspsetsockopt = LpwspsetsockoptFn?
 
-public fun interface LPWSPSHUTDOWNFn {
-    public operator fun invoke(s: SOCKET, how: Int, lperrno: Long): Int
+public fun interface LpwspshutdownFn {
+    public operator fun invoke(s: Socket, how: Int, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSHUTDOWN = LPWSPSHUTDOWNFn?
+public typealias Lpwspshutdown = LpwspshutdownFn?
 
-public fun interface LPWSPSOCKETFn {
-    public operator fun invoke(af: Int, type: Int, protocol: Int, lpprotocolinfo: Long, g: UInt, dwflags: UInt, lperrno: Long): SOCKET
+public fun interface LpwspsocketFn {
+    public operator fun invoke(af: Int, type: Int, protocol: Int, lpprotocolinfo: COpaquePointer?, g: UInt, dwflags: UInt, lperrno: COpaquePointer?): Socket
 }
 
-public typealias LPWSPSOCKET = LPWSPSOCKETFn?
+public typealias Lpwspsocket = LpwspsocketFn?
 
-public fun interface LPWSPSTARTUPFn {
-    public operator fun invoke(wversionrequested: UShort, lpwspdata: Long, lpprotocolinfo: Long, upcalltable: WSPUPCALLTABLE, lpproctable: Long): Int
+public fun interface LpwspstartupFn {
+    public operator fun invoke(wversionrequested: UShort, lpwspdata: COpaquePointer?, lpprotocolinfo: COpaquePointer?, upcalltable: Wspupcalltable, lpproctable: COpaquePointer?): Int
 }
 
-public typealias LPWSPSTARTUP = LPWSPSTARTUPFn?
+public typealias Lpwspstartup = LpwspstartupFn?
 
-public fun interface LPWSPSTRINGTOADDRESSFn {
-    public operator fun invoke(addressstring: PCWSTR, addressfamily: Int, lpprotocolinfo: Long, lpaddress: Long, lpaddresslength: Long, lperrno: Long): Int
+public fun interface LpwspstringtoaddressFn {
+    public operator fun invoke(addressstring: Pcwstr, addressfamily: Int, lpprotocolinfo: COpaquePointer?, lpaddress: COpaquePointer?, lpaddresslength: COpaquePointer?, lperrno: COpaquePointer?): Int
 }
 
-public typealias LPWSPSTRINGTOADDRESS = LPWSPSTRINGTOADDRESSFn?
+public typealias Lpwspstringtoaddress = LpwspstringtoaddressFn?
 
-public typealias MLD_MAX_RESP_CODE_TYPE = Int
+public typealias MldMaxRespCodeType = Int
 
-public typealias MULTICAST_MODE_TYPE = Int
+public typealias MulticastModeType = Int
 
-public typealias NAPI_PROVIDER_LEVEL = Int
+public typealias NapiProviderLevel = Int
 
-public typealias NAPI_PROVIDER_TYPE = Int
+public typealias NapiProviderType = Int
 
-public typealias ND_OPTION_TYPE = Int
+public typealias NdOptionType = Int
 
-public typealias NLA_BLOB_DATA_TYPE = Int
+public typealias NlaBlobDataType = Int
 
-public typealias NLA_CONNECTIVITY_TYPE = Int
+public typealias NlaConnectivityType = Int
 
-public typealias NLA_INTERNET = Int
+public typealias NlaInternet = Int
 
-public typealias NL_ADDRESS_TYPE = Int
+public typealias NlAddressType = Int
 
-public typealias NL_BANDWIDTH_FLAG = Int
+public typealias NlBandwidthFlag = Int
 
-public typealias NL_DAD_STATE = Int
+public typealias NlDadState = Int
 
-public typealias NL_INTERFACE_NETWORK_CATEGORY_STATE = Int
+public typealias NlInterfaceNetworkCategoryState = Int
 
-public typealias NL_LINK_LOCAL_ADDRESS_BEHAVIOR = Int
+public typealias NlLinkLocalAddressBehavior = Int
 
-public typealias NL_NEIGHBOR_STATE = Int
+public typealias NlNeighborState = Int
 
-public typealias NL_NETWORK_CATEGORY = Int
+public typealias NlNetworkCategory = Int
 
-public typealias NL_NETWORK_CONNECTIVITY_COST_HINT = Int
+public typealias NlNetworkConnectivityCostHint = Int
 
-public typealias NL_NETWORK_CONNECTIVITY_LEVEL_HINT = Int
+public typealias NlNetworkConnectivityLevelHint = Int
 
-public typealias NL_PREFIX_ORIGIN = Int
+public typealias NlPrefixOrigin = Int
 
-public typealias NL_ROUTER_DISCOVERY_BEHAVIOR = Int
+public typealias NlRouterDiscoveryBehavior = Int
 
-public typealias NL_ROUTE_ORIGIN = Int
+public typealias NlRouteOrigin = Int
 
-public typealias NL_ROUTE_PROTOCOL = Int
+public typealias NlRouteProtocol = Int
 
-public typealias NL_SUFFIX_ORIGIN = Int
+public typealias NlSuffixOrigin = Int
 
-public typealias NPI_MODULEID_TYPE = Int
+public typealias NpiModuleidType = Int
 
-public typealias PMTUD_STATE = Int
+public typealias PmtudState = Int
 
-public typealias Q2931_IE_TYPE = Int
+public typealias Q2931IeType = Int
 
-public typealias RCVALL_VALUE = Int
+public typealias RcvallValue = Int
 
-public typealias RESOURCE_DISPLAY_TYPE = UInt
+public typealias ResourceDisplayType = UInt
 
-public typealias RIO_BUFFERID = Long
+public typealias RioBufferid = Long
 
-public typealias RIO_CQ = Long
+public typealias RioCq = Long
 
-public typealias RIO_NOTIFICATION_COMPLETION_TYPE = Int
+public typealias RioNotificationCompletionType = Int
 
-public typealias RIO_RQ = Long
+public typealias RioRq = Long
 
-public typealias SCOPE_LEVEL = Int
+public typealias ScopeLevel = Int
 
-public typealias SEND_RECV_FLAGS = Int
+public typealias SendRecvFlags = Int
 
-public typealias SET_SERVICE_OPERATION = UInt
+public typealias SetServiceOperation = UInt
 
-public typealias SOCKET = ULong
+public typealias Socket = ULong
 
-public typealias SOCKET_PRIORITY_HINT = Int
+public typealias SocketPriorityHint = Int
 
-public typealias SOCKET_SECURITY_PROTOCOL = Int
+public typealias SocketSecurityProtocol = Int
 
-public typealias SOCKET_USAGE_TYPE = Int
+public typealias SocketUsageType = Int
 
-public typealias TCPSTATE = Int
+public typealias Tcpstate = Int
 
-public typealias TCP_ICW_LEVEL = Int
+public typealias TcpIcwLevel = Int
 
-public typealias TUNNEL_SUB_TYPE = Int
+public typealias TunnelSubType = Int
 
-public typealias WINSOCK_SHUTDOWN_HOW = Int
+public typealias WinsockShutdownHow = Int
 
-public typealias WINSOCK_SOCKET_TYPE = Int
+public typealias WinsockSocketType = Int
 
-public typealias WSACOMPLETIONTYPE = Int
+public typealias Wsacompletiontype = Int
 
-public typealias WSAECOMPARATOR = Int
+public typealias Wsaecomparator = Int
 
-public typealias WSAESETSERVICEOP = Int
+public typealias Wsaesetserviceop = Int
 
-public typealias WSAEVENT = Long
+public typealias Wsaevent = Long
 
-public typealias WSAPOLL_EVENT_FLAGS = Short
+public typealias WsapollEventFlags = Short
 
-public typealias WSA_COMPATIBILITY_BEHAVIOR_ID = Int
+public typealias WsaCompatibilityBehaviorId = Int
 
-public typealias WSA_ERROR = Int
+public typealias WsaError = Int
 
-public typealias WSC_PROVIDER_INFO_TYPE = Int
+public typealias WscProviderInfoType = Int
 
-public typealias eWINDOW_ADVANCE_METHOD = Int
+public typealias EWindowAdvanceMethod = Int
 
-public typealias socklen_t = Int
+public typealias SocklenT = Int

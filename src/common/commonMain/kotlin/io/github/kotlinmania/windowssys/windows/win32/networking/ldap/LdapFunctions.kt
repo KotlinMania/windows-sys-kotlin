@@ -1,494 +1,495 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
-public expect fun LdapGetLastError(): UInt
+public expect fun ldapGetLastError(): UInt
 
-public expect fun LdapMapErrorToWin32(ldaperror: UInt): WIN32_ERROR
+public expect fun ldapMapErrorToWin32(ldaperror: UInt): Win32Error
 
-public expect fun LdapUTF8ToUnicode(lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int
+public expect fun ldapUTF8ToUnicode(lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int
 
-public expect fun LdapUnicodeToUTF8(lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PSTR, cchdest: Int): Int
+public expect fun ldapUnicodeToUTF8(lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int
 
-public expect fun ber_alloc_t(options: Int): Long
+public expect fun berAllocT(options: Int): COpaquePointer?
 
-public expect fun ber_bvdup(pberval: Long): Long
+public expect fun berBvdup(pberval: COpaquePointer?): COpaquePointer?
 
-public expect fun ber_bvecfree(pberval: Long)
+public expect fun berBvecfree(pberval: COpaquePointer?)
 
-public expect fun ber_bvfree(bv: Long)
+public expect fun berBvfree(bv: COpaquePointer?)
 
-public expect fun ber_first_element(pberelement: Long, plen: Long, ppopaque: Long): UInt
+public expect fun berFirstElement(pberelement: COpaquePointer?, plen: COpaquePointer?, ppopaque: COpaquePointer?): UInt
 
-public expect fun ber_flatten(pberelement: Long, pberval: Long): Int
+public expect fun berFlatten(pberelement: COpaquePointer?, pberval: COpaquePointer?): Int
 
-public expect fun ber_free(pberelement: Long, fbuf: Int)
+public expect fun berFree(pberelement: COpaquePointer?, fbuf: Int)
 
-public expect fun ber_init(pberval: Long): Long
+public expect fun berInit(pberval: COpaquePointer?): COpaquePointer?
 
-public expect fun ber_next_element(pberelement: Long, plen: Long, opaque: PCSTR): UInt
+public expect fun berNextElement(pberelement: COpaquePointer?, plen: COpaquePointer?, opaque: Pcstr): UInt
 
-public expect fun ber_peek_tag(pberelement: Long, plen: Long): UInt
+public expect fun berPeekTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt
 
-public expect fun ber_printf(pberelement: Long, fmt: PCSTR, vararg variadicArgs: Long): Int
+public expect fun berPrintf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): Int
 
-public expect fun ber_scanf(pberelement: Long, fmt: PCSTR, vararg variadicArgs: Long): UInt
+public expect fun berScanf(pberelement: COpaquePointer?, fmt: Pcstr, vararg variadicArgs: Long): UInt
 
-public expect fun ber_skip_tag(pberelement: Long, plen: Long): UInt
+public expect fun berSkipTag(pberelement: COpaquePointer?, plen: COpaquePointer?): UInt
 
-public expect fun cldap_open(hostname: PCSTR, portnumber: UInt): Long
+public expect fun cldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun cldap_openA(hostname: PCSTR, portnumber: UInt): Long
+public expect fun cldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun cldap_openW(hostname: PCWSTR, portnumber: UInt): Long
+public expect fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_abandon(ld: Long, msgid: UInt): UInt
+public expect fun ldapAbandon(ld: COpaquePointer?, msgid: UInt): UInt
 
-public expect fun ldap_add(ld: Long, dn: PCSTR, attrs: Long): UInt
+public expect fun ldapAdd(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_addA(ld: Long, dn: PCSTR, attrs: Long): UInt
+public expect fun ldapAddA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_addW(ld: Long, dn: PCWSTR, attrs: Long): UInt
+public expect fun ldapAddW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_add_ext(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapAddExt(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_add_extA(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapAddExtA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_add_extW(ld: Long, dn: PCWSTR, attrs: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapAddExtW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_add_ext_s(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapAddExtS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_add_ext_sA(ld: Long, dn: PCSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapAddExtSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_add_ext_sW(ld: Long, dn: PCWSTR, attrs: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapAddExtSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_add_s(ld: Long, dn: PCSTR, attrs: Long): UInt
+public expect fun ldapAddS(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_add_sA(ld: Long, dn: PCSTR, attrs: Long): UInt
+public expect fun ldapAddSA(ld: COpaquePointer?, dn: Pcstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_add_sW(ld: Long, dn: PCWSTR, attrs: Long): UInt
+public expect fun ldapAddSW(ld: COpaquePointer?, dn: Pcwstr, attrs: COpaquePointer?): UInt
 
-public expect fun ldap_bind(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt
+public expect fun ldapBind(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt
 
-public expect fun ldap_bindA(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt
+public expect fun ldapBindA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt
 
-public expect fun ldap_bindW(ld: Long, dn: PCWSTR, cred: PCWSTR, method: UInt): UInt
+public expect fun ldapBindW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt
 
-public expect fun ldap_bind_s(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt
+public expect fun ldapBindS(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt
 
-public expect fun ldap_bind_sA(ld: Long, dn: PCSTR, cred: PCSTR, method: UInt): UInt
+public expect fun ldapBindSA(ld: COpaquePointer?, dn: Pcstr, cred: Pcstr, method: UInt): UInt
 
-public expect fun ldap_bind_sW(ld: Long, dn: PCWSTR, cred: PCWSTR, method: UInt): UInt
+public expect fun ldapBindSW(ld: COpaquePointer?, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt
 
-public expect fun ldap_check_filterA(ld: Long, searchfilter: PCSTR): UInt
+public expect fun ldapCheckFilterA(ld: COpaquePointer?, searchfilter: Pcstr): UInt
 
-public expect fun ldap_check_filterW(ld: Long, searchfilter: PCWSTR): UInt
+public expect fun ldapCheckFilterW(ld: COpaquePointer?, searchfilter: Pcwstr): UInt
 
-public expect fun ldap_cleanup(hinstance: HANDLE): UInt
+public expect fun ldapCleanup(hinstance: Handle): UInt
 
-public expect fun ldap_close_extended_op(ld: Long, messagenumber: UInt): UInt
+public expect fun ldapCloseExtendedOp(ld: COpaquePointer?, messagenumber: UInt): UInt
 
-public expect fun ldap_compare(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt
+public expect fun ldapCompare(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt
 
-public expect fun ldap_compareA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt
+public expect fun ldapCompareA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt
 
-public expect fun ldap_compareW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR): UInt
+public expect fun ldapCompareW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt
 
-public expect fun ldap_compare_ext(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapCompareExt(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_compare_extA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapCompareExtA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_compare_extW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapCompareExtW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_compare_ext_s(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapCompareExtS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_compare_ext_sA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapCompareExtSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_compare_ext_sW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapCompareExtSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_compare_s(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt
+public expect fun ldapCompareS(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt
 
-public expect fun ldap_compare_sA(ld: Long, dn: PCSTR, attr: PCSTR, value: PCSTR): UInt
+public expect fun ldapCompareSA(ld: COpaquePointer?, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt
 
-public expect fun ldap_compare_sW(ld: Long, dn: PCWSTR, attr: PCWSTR, value: PCWSTR): UInt
+public expect fun ldapCompareSW(ld: COpaquePointer?, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt
 
-public expect fun ldap_conn_from_msg(primaryconn: Long, res: Long): Long
+public expect fun ldapConnFromMsg(primaryconn: COpaquePointer?, res: COpaquePointer?): COpaquePointer?
 
-public expect fun ldap_connect(ld: Long, timeout: Long): UInt
+public expect fun ldapConnect(ld: COpaquePointer?, timeout: COpaquePointer?): UInt
 
-public expect fun ldap_control_free(control: Long): UInt
+public expect fun ldapControlFree(control: COpaquePointer?): UInt
 
-public expect fun ldap_control_freeA(controls: Long): UInt
+public expect fun ldapControlFreeA(controls: COpaquePointer?): UInt
 
-public expect fun ldap_control_freeW(control: Long): UInt
+public expect fun ldapControlFreeW(control: COpaquePointer?): UInt
 
-public expect fun ldap_controls_free(controls: Long): UInt
+public expect fun ldapControlsFree(controls: COpaquePointer?): UInt
 
-public expect fun ldap_controls_freeA(controls: Long): UInt
+public expect fun ldapControlsFreeA(controls: COpaquePointer?): UInt
 
-public expect fun ldap_controls_freeW(control: Long): UInt
+public expect fun ldapControlsFreeW(control: COpaquePointer?): UInt
 
-public expect fun ldap_count_entries(ld: Long, res: Long): UInt
+public expect fun ldapCountEntries(ld: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_count_references(ld: Long, res: Long): UInt
+public expect fun ldapCountReferences(ld: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_count_values(vals: Long): UInt
+public expect fun ldapCountValues(vals: COpaquePointer?): UInt
 
-public expect fun ldap_count_valuesA(vals: Long): UInt
+public expect fun ldapCountValuesA(vals: COpaquePointer?): UInt
 
-public expect fun ldap_count_valuesW(vals: Long): UInt
+public expect fun ldapCountValuesW(vals: COpaquePointer?): UInt
 
-public expect fun ldap_count_values_len(vals: Long): UInt
+public expect fun ldapCountValuesLen(vals: COpaquePointer?): UInt
 
-public expect fun ldap_create_page_control(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreatePageControl(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_page_controlA(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreatePageControlA(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_page_controlW(externalhandle: Long, pagesize: UInt, cookie: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreatePageControlW(externalhandle: COpaquePointer?, pagesize: UInt, cookie: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_sort_control(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreateSortControl(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_sort_controlA(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreateSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_sort_controlW(externalhandle: Long, sortkeys: Long, iscritical: UByte, control: Long): UInt
+public expect fun ldapCreateSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): UInt
 
-public expect fun ldap_create_vlv_controlA(externalhandle: Long, vlvinfo: Long, iscritical: UByte, control: Long): Int
+public expect fun ldapCreateVlvControlA(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int
 
-public expect fun ldap_create_vlv_controlW(externalhandle: Long, vlvinfo: Long, iscritical: UByte, control: Long): Int
+public expect fun ldapCreateVlvControlW(externalhandle: COpaquePointer?, vlvinfo: COpaquePointer?, iscritical: UByte, control: COpaquePointer?): Int
 
-public expect fun ldap_delete(ld: Long, dn: PCSTR): UInt
+public expect fun ldapDelete(ld: COpaquePointer?, dn: Pcstr): UInt
 
-public expect fun ldap_deleteA(ld: Long, dn: PCSTR): UInt
+public expect fun ldapDeleteA(ld: COpaquePointer?, dn: Pcstr): UInt
 
-public expect fun ldap_deleteW(ld: Long, dn: PCWSTR): UInt
+public expect fun ldapDeleteW(ld: COpaquePointer?, dn: Pcwstr): UInt
 
-public expect fun ldap_delete_ext(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapDeleteExt(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_delete_extA(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapDeleteExtA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_delete_extW(ld: Long, dn: PCWSTR, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapDeleteExtW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_delete_ext_s(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapDeleteExtS(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_delete_ext_sA(ld: Long, dn: PCSTR, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapDeleteExtSA(ld: COpaquePointer?, dn: Pcstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_delete_ext_sW(ld: Long, dn: PCWSTR, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapDeleteExtSW(ld: COpaquePointer?, dn: Pcwstr, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_delete_s(ld: Long, dn: PCSTR): UInt
+public expect fun ldapDeleteS(ld: COpaquePointer?, dn: Pcstr): UInt
 
-public expect fun ldap_delete_sA(ld: Long, dn: PCSTR): UInt
+public expect fun ldapDeleteSA(ld: COpaquePointer?, dn: Pcstr): UInt
 
-public expect fun ldap_delete_sW(ld: Long, dn: PCWSTR): UInt
+public expect fun ldapDeleteSW(ld: COpaquePointer?, dn: Pcwstr): UInt
 
-public expect fun ldap_dn2ufn(dn: PCSTR): PSTR
+public expect fun ldapDn2ufn(dn: Pcstr): Pstr
 
-public expect fun ldap_dn2ufnA(dn: PCSTR): PSTR
+public expect fun ldapDn2ufnA(dn: Pcstr): Pstr
 
-public expect fun ldap_dn2ufnW(dn: PCWSTR): PWSTR
+public expect fun ldapDn2ufnW(dn: Pcwstr): Pwstr
 
-public expect fun ldap_encode_sort_controlA(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): UInt
+public expect fun ldapEncodeSortControlA(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt
 
-public expect fun ldap_encode_sort_controlW(externalhandle: Long, sortkeys: Long, control: Long, criticality: Boolean): UInt
+public expect fun ldapEncodeSortControlW(externalhandle: COpaquePointer?, sortkeys: COpaquePointer?, control: COpaquePointer?, criticality: Boolean): UInt
 
-public expect fun ldap_err2string(err: UInt): PSTR
+public expect fun ldapErr2string(err: UInt): Pstr
 
-public expect fun ldap_err2stringA(err: UInt): PSTR
+public expect fun ldapErr2stringA(err: UInt): Pstr
 
-public expect fun ldap_err2stringW(err: UInt): PWSTR
+public expect fun ldapErr2stringW(err: UInt): Pwstr
 
-public expect fun ldap_escape_filter_element(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PSTR, destlength: UInt): UInt
+public expect fun ldapEscapeFilterElement(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt
 
-public expect fun ldap_escape_filter_elementA(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PSTR, destlength: UInt): UInt
+public expect fun ldapEscapeFilterElementA(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pstr, destlength: UInt): UInt
 
-public expect fun ldap_escape_filter_elementW(sourcefilterelement: PCSTR, sourcelength: UInt, destfilterelement: PWSTR, destlength: UInt): UInt
+public expect fun ldapEscapeFilterElementW(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pwstr, destlength: UInt): UInt
 
-public expect fun ldap_explode_dn(dn: PCSTR, notypes: UInt): Long
+public expect fun ldapExplodeDn(dn: Pcstr, notypes: UInt): COpaquePointer?
 
-public expect fun ldap_explode_dnA(dn: PCSTR, notypes: UInt): Long
+public expect fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): COpaquePointer?
 
-public expect fun ldap_explode_dnW(dn: PCWSTR, notypes: UInt): Long
+public expect fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): COpaquePointer?
 
-public expect fun ldap_extended_operation(ld: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapExtendedOperation(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_extended_operationA(ld: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapExtendedOperationA(ld: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_extended_operationW(ld: Long, oid: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapExtendedOperationW(ld: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_extended_operation_sA(externalhandle: Long, oid: PCSTR, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): UInt
+public expect fun ldapExtendedOperationSA(externalhandle: COpaquePointer?, oid: Pcstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt
 
-public expect fun ldap_extended_operation_sW(externalhandle: Long, oid: PCWSTR, data: Long, servercontrols: Long, clientcontrols: Long, returnedoid: Long, returneddata: Long): UInt
+public expect fun ldapExtendedOperationSW(externalhandle: COpaquePointer?, oid: Pcwstr, data: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, returnedoid: COpaquePointer?, returneddata: COpaquePointer?): UInt
 
-public expect fun ldap_first_attribute(ld: Long, entry: Long, ptr: Long): PSTR
+public expect fun ldapFirstAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr
 
-public expect fun ldap_first_attributeA(ld: Long, entry: Long, ptr: Long): PSTR
+public expect fun ldapFirstAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr
 
-public expect fun ldap_first_attributeW(ld: Long, entry: Long, ptr: Long): PWSTR
+public expect fun ldapFirstAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr
 
-public expect fun ldap_first_entry(ld: Long, res: Long): Long
+public expect fun ldapFirstEntry(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer?
 
-public expect fun ldap_first_reference(ld: Long, res: Long): Long
+public expect fun ldapFirstReference(ld: COpaquePointer?, res: COpaquePointer?): COpaquePointer?
 
-public expect fun ldap_free_controls(controls: Long): UInt
+public expect fun ldapFreeControls(controls: COpaquePointer?): UInt
 
-public expect fun ldap_free_controlsA(controls: Long): UInt
+public expect fun ldapFreeControlsA(controls: COpaquePointer?): UInt
 
-public expect fun ldap_free_controlsW(controls: Long): UInt
+public expect fun ldapFreeControlsW(controls: COpaquePointer?): UInt
 
-public expect fun ldap_get_dn(ld: Long, entry: Long): PSTR
+public expect fun ldapGetDn(ld: COpaquePointer?, entry: COpaquePointer?): Pstr
 
-public expect fun ldap_get_dnA(ld: Long, entry: Long): PSTR
+public expect fun ldapGetDnA(ld: COpaquePointer?, entry: COpaquePointer?): Pstr
 
-public expect fun ldap_get_dnW(ld: Long, entry: Long): PWSTR
+public expect fun ldapGetDnW(ld: COpaquePointer?, entry: COpaquePointer?): Pwstr
 
-public expect fun ldap_get_next_page(externalhandle: Long, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: Long): UInt
+public expect fun ldapGetNextPage(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_get_next_page_s(externalhandle: Long, searchhandle: PLDAPSearch, timeout: Long, pagesize: UInt, totalcount: Long, results: Long): UInt
+public expect fun ldapGetNextPageS(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, timeout: COpaquePointer?, pagesize: UInt, totalcount: COpaquePointer?, results: COpaquePointer?): UInt
 
-public expect fun ldap_get_option(ld: Long, option: Int, outvalue: Long): UInt
+public expect fun ldapGetOption(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt
 
-public expect fun ldap_get_optionW(ld: Long, option: Int, outvalue: Long): UInt
+public expect fun ldapGetOptionW(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt
 
-public expect fun ldap_get_paged_count(externalhandle: Long, searchblock: PLDAPSearch, totalcount: Long, results: Long): UInt
+public expect fun ldapGetPagedCount(externalhandle: COpaquePointer?, searchblock: PLDAPSearch, totalcount: COpaquePointer?, results: COpaquePointer?): UInt
 
-public expect fun ldap_get_values(ld: Long, entry: Long, attr: PCSTR): Long
+public expect fun ldapGetValues(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer?
 
-public expect fun ldap_get_valuesA(ld: Long, entry: Long, attr: PCSTR): Long
+public expect fun ldapGetValuesA(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer?
 
-public expect fun ldap_get_valuesW(ld: Long, entry: Long, attr: PCWSTR): Long
+public expect fun ldapGetValuesW(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcwstr): COpaquePointer?
 
-public expect fun ldap_get_values_len(externalhandle: Long, message: Long, attr: PCSTR): Long
+public expect fun ldapGetValuesLen(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer?
 
-public expect fun ldap_get_values_lenA(externalhandle: Long, message: Long, attr: PCSTR): Long
+public expect fun ldapGetValuesLenA(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcstr): COpaquePointer?
 
-public expect fun ldap_get_values_lenW(externalhandle: Long, message: Long, attr: PCWSTR): Long
+public expect fun ldapGetValuesLenW(externalhandle: COpaquePointer?, message: COpaquePointer?, attr: Pcwstr): COpaquePointer?
 
-public expect fun ldap_init(hostname: PCSTR, portnumber: UInt): Long
+public expect fun ldapInit(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_initA(hostname: PCSTR, portnumber: UInt): Long
+public expect fun ldapInitA(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_initW(hostname: PCWSTR, portnumber: UInt): Long
+public expect fun ldapInitW(hostname: Pcwstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_memfree(block: PCSTR)
+public expect fun ldapMemfree(block: Pcstr)
 
-public expect fun ldap_memfreeA(block: PCSTR)
+public expect fun ldapMemfreeA(block: Pcstr)
 
-public expect fun ldap_memfreeW(block: PCWSTR)
+public expect fun ldapMemfreeW(block: Pcwstr)
 
-public expect fun ldap_modify(ld: Long, dn: PCSTR, mods: Long): UInt
+public expect fun ldapModify(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modifyA(ld: Long, dn: PCSTR, mods: Long): UInt
+public expect fun ldapModifyA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modifyW(ld: Long, dn: PCWSTR, mods: Long): UInt
+public expect fun ldapModifyW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modify_ext(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapModifyExt(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_modify_extA(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapModifyExtA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_modify_extW(ld: Long, dn: PCWSTR, mods: Long, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapModifyExtW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_modify_ext_s(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapModifyExtS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_modify_ext_sA(ld: Long, dn: PCSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapModifyExtSA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_modify_ext_sW(ld: Long, dn: PCWSTR, mods: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapModifyExtSW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_modify_s(ld: Long, dn: PCSTR, mods: Long): UInt
+public expect fun ldapModifyS(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modify_sA(ld: Long, dn: PCSTR, mods: Long): UInt
+public expect fun ldapModifySA(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modify_sW(ld: Long, dn: PCWSTR, mods: Long): UInt
+public expect fun ldapModifySW(ld: COpaquePointer?, dn: Pcwstr, mods: COpaquePointer?): UInt
 
-public expect fun ldap_modrdn(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt
+public expect fun ldapModrdn(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt
 
-public expect fun ldap_modrdn2(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdn2A(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2A(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdn2W(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2W(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdn2_s(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2S(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdn2_sA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2SA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdn2_sW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR, deleteoldrdn: Int): UInt
+public expect fun ldapModrdn2SW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt
 
-public expect fun ldap_modrdnA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt
+public expect fun ldapModrdnA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt
 
-public expect fun ldap_modrdnW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR): UInt
+public expect fun ldapModrdnW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt
 
-public expect fun ldap_modrdn_s(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt
+public expect fun ldapModrdnS(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt
 
-public expect fun ldap_modrdn_sA(externalhandle: Long, distinguishedname: PCSTR, newdistinguishedname: PCSTR): UInt
+public expect fun ldapModrdnSA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt
 
-public expect fun ldap_modrdn_sW(externalhandle: Long, distinguishedname: PCWSTR, newdistinguishedname: PCWSTR): UInt
+public expect fun ldapModrdnSW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt
 
-public expect fun ldap_msgfree(res: Long): UInt
+public expect fun ldapMsgfree(res: COpaquePointer?): UInt
 
-public expect fun ldap_next_attribute(ld: Long, entry: Long, ptr: Long): PSTR
+public expect fun ldapNextAttribute(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr
 
-public expect fun ldap_next_attributeA(ld: Long, entry: Long, ptr: Long): PSTR
+public expect fun ldapNextAttributeA(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pstr
 
-public expect fun ldap_next_attributeW(ld: Long, entry: Long, ptr: Long): PWSTR
+public expect fun ldapNextAttributeW(ld: COpaquePointer?, entry: COpaquePointer?, ptr: COpaquePointer?): Pwstr
 
-public expect fun ldap_next_entry(ld: Long, entry: Long): Long
+public expect fun ldapNextEntry(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer?
 
-public expect fun ldap_next_reference(ld: Long, entry: Long): Long
+public expect fun ldapNextReference(ld: COpaquePointer?, entry: COpaquePointer?): COpaquePointer?
 
-public expect fun ldap_open(hostname: PCSTR, portnumber: UInt): Long
+public expect fun ldapOpen(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_openA(hostname: PCSTR, portnumber: UInt): Long
+public expect fun ldapOpenA(hostname: Pcstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_openW(hostname: PCWSTR, portnumber: UInt): Long
+public expect fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): COpaquePointer?
 
-public expect fun ldap_parse_extended_resultA(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): UInt
+public expect fun ldapParseExtendedResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt
 
-public expect fun ldap_parse_extended_resultW(connection: Long, resultmessage: Long, resultoid: Long, resultdata: Long, freeit: Boolean): UInt
+public expect fun ldapParseExtendedResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, resultoid: COpaquePointer?, resultdata: COpaquePointer?, freeit: Boolean): UInt
 
-public expect fun ldap_parse_page_control(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt
+public expect fun ldapParsePageControl(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt
 
-public expect fun ldap_parse_page_controlA(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt
+public expect fun ldapParsePageControlA(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt
 
-public expect fun ldap_parse_page_controlW(externalhandle: Long, servercontrols: Long, totalcount: Long, cookie: Long): UInt
+public expect fun ldapParsePageControlW(externalhandle: COpaquePointer?, servercontrols: COpaquePointer?, totalcount: COpaquePointer?, cookie: COpaquePointer?): UInt
 
-public expect fun ldap_parse_reference(connection: Long, resultmessage: Long, referrals: Long): UInt
+public expect fun ldapParseReference(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt
 
-public expect fun ldap_parse_referenceA(connection: Long, resultmessage: Long, referrals: Long): UInt
+public expect fun ldapParseReferenceA(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt
 
-public expect fun ldap_parse_referenceW(connection: Long, resultmessage: Long, referrals: Long): UInt
+public expect fun ldapParseReferenceW(connection: COpaquePointer?, resultmessage: COpaquePointer?, referrals: COpaquePointer?): UInt
 
-public expect fun ldap_parse_result(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt
+public expect fun ldapParseResult(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt
 
-public expect fun ldap_parse_resultA(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt
+public expect fun ldapParseResultA(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt
 
-public expect fun ldap_parse_resultW(connection: Long, resultmessage: Long, returncode: Long, matcheddns: Long, errormessage: Long, referrals: Long, servercontrols: Long, freeit: Boolean): UInt
+public expect fun ldapParseResultW(connection: COpaquePointer?, resultmessage: COpaquePointer?, returncode: COpaquePointer?, matcheddns: COpaquePointer?, errormessage: COpaquePointer?, referrals: COpaquePointer?, servercontrols: COpaquePointer?, freeit: Boolean): UInt
 
-public expect fun ldap_parse_sort_control(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt
+public expect fun ldapParseSortControl(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt
 
-public expect fun ldap_parse_sort_controlA(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt
+public expect fun ldapParseSortControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt
 
-public expect fun ldap_parse_sort_controlW(externalhandle: Long, control: Long, result: Long, attribute: Long): UInt
+public expect fun ldapParseSortControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, result: COpaquePointer?, attribute: COpaquePointer?): UInt
 
-public expect fun ldap_parse_vlv_controlA(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
+public expect fun ldapParseVlvControlA(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int
 
-public expect fun ldap_parse_vlv_controlW(externalhandle: Long, control: Long, targetpos: Long, listcount: Long, context: Long, errcode: Long): Int
+public expect fun ldapParseVlvControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int
 
-public expect fun ldap_perror(ld: Long, msg: PCSTR)
+public expect fun ldapPerror(ld: COpaquePointer?, msg: Pcstr)
 
-public expect fun ldap_rename_ext(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapRenameExt(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_rename_extA(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapRenameExtA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_rename_extW(ld: Long, dn: PCWSTR, newrdn: PCWSTR, newparent: PCWSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long, messagenumber: Long): UInt
+public expect fun ldapRenameExtW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_rename_ext_s(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapRenameExtS(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_rename_ext_sA(ld: Long, dn: PCSTR, newrdn: PCSTR, newparent: PCSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapRenameExtSA(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_rename_ext_sW(ld: Long, dn: PCWSTR, newrdn: PCWSTR, newparent: PCWSTR, deleteoldrdn: Int, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapRenameExtSW(ld: COpaquePointer?, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_result(ld: Long, msgid: UInt, all: UInt, timeout: Long, res: Long): UInt
+public expect fun ldapResult(ld: COpaquePointer?, msgid: UInt, all: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_result2error(ld: Long, res: Long, freeit: UInt): UInt
+public expect fun ldapResult2error(ld: COpaquePointer?, res: COpaquePointer?, freeit: UInt): UInt
 
-public expect fun ldap_sasl_bindA(externalhandle: Long, distname: PCSTR, authmechanism: PCSTR, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
+public expect fun ldapSaslBindA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int
 
-public expect fun ldap_sasl_bindW(externalhandle: Long, distname: PCWSTR, authmechanism: PCWSTR, cred: Long, serverctrls: Long, clientctrls: Long, messagenumber: Long): Int
+public expect fun ldapSaslBindW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, messagenumber: COpaquePointer?): Int
 
-public expect fun ldap_sasl_bind_sA(externalhandle: Long, distname: PCSTR, authmechanism: PCSTR, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
+public expect fun ldapSaslBindSA(externalhandle: COpaquePointer?, distname: Pcstr, authmechanism: Pcstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int
 
-public expect fun ldap_sasl_bind_sW(externalhandle: Long, distname: PCWSTR, authmechanism: PCWSTR, cred: Long, serverctrls: Long, clientctrls: Long, serverdata: Long): Int
+public expect fun ldapSaslBindSW(externalhandle: COpaquePointer?, distname: Pcwstr, authmechanism: Pcwstr, cred: COpaquePointer?, serverctrls: COpaquePointer?, clientctrls: COpaquePointer?, serverdata: COpaquePointer?): Int
 
-public expect fun ldap_search(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt): UInt
+public expect fun ldapSearch(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt
 
-public expect fun ldap_searchA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt): UInt
+public expect fun ldapSearchA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt): UInt
 
-public expect fun ldap_searchW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt): UInt
+public expect fun ldapSearchW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt): UInt
 
-public expect fun ldap_search_abandon_page(externalhandle: Long, searchblock: PLDAPSearch): UInt
+public expect fun ldapSearchAbandonPage(externalhandle: COpaquePointer?, searchblock: PLDAPSearch): UInt
 
-public expect fun ldap_search_ext(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt
+public expect fun ldapSearchExt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_search_extA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt
+public expect fun ldapSearchExtA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_search_extW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timelimit: UInt, sizelimit: UInt, messagenumber: Long): UInt
+public expect fun ldapSearchExtW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt
 
-public expect fun ldap_search_ext_s(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt
+public expect fun ldapSearchExtS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_ext_sA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt
+public expect fun ldapSearchExtSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_ext_sW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: UInt, res: Long): UInt
+public expect fun ldapSearchExtSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timeout: COpaquePointer?, sizelimit: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_init_page(externalhandle: Long, distinguishedname: PCSTR, scopeofsearch: UInt, searchfilter: PCSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch
+public expect fun ldapSearchInitPage(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch
 
-public expect fun ldap_search_init_pageA(externalhandle: Long, distinguishedname: PCSTR, scopeofsearch: UInt, searchfilter: PCSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch
+public expect fun ldapSearchInitPageA(externalhandle: COpaquePointer?, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch
 
-public expect fun ldap_search_init_pageW(externalhandle: Long, distinguishedname: PCWSTR, scopeofsearch: UInt, searchfilter: PCWSTR, attributelist: Long, attributesonly: UInt, servercontrols: Long, clientcontrols: Long, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: Long): PLDAPSearch
+public expect fun ldapSearchInitPageW(externalhandle: COpaquePointer?, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: COpaquePointer?, attributesonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: COpaquePointer?): PLDAPSearch
 
-public expect fun ldap_search_s(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, res: Long): UInt
+public expect fun ldapSearchS(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_sA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, res: Long): UInt
+public expect fun ldapSearchSA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_sW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, res: Long): UInt
+public expect fun ldapSearchSW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_st(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt
+public expect fun ldapSearchSt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_stA(ld: Long, base: PCSTR, scope: UInt, filter: PCSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt
+public expect fun ldapSearchStA(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_search_stW(ld: Long, base: PCWSTR, scope: UInt, filter: PCWSTR, attrs: Long, attrsonly: UInt, timeout: Long, res: Long): UInt
+public expect fun ldapSearchStW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: COpaquePointer?, attrsonly: UInt, timeout: COpaquePointer?, res: COpaquePointer?): UInt
 
-public expect fun ldap_set_dbg_flags(newflags: UInt): UInt
+public expect fun ldapSetDbgFlags(newflags: UInt): UInt
 
-public expect fun ldap_set_dbg_routine(debugprintroutine: DBGPRINT)
+public expect fun ldapSetDbgRoutine(debugprintroutine: Dbgprint)
 
-public expect fun ldap_set_option(ld: Long, option: Int, invalue: Long): UInt
+public expect fun ldapSetOption(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt
 
-public expect fun ldap_set_optionW(ld: Long, option: Int, invalue: Long): UInt
+public expect fun ldapSetOptionW(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt
 
-public expect fun ldap_simple_bind(ld: Long, dn: PCSTR, passwd: PCSTR): UInt
+public expect fun ldapSimpleBind(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt
 
-public expect fun ldap_simple_bindA(ld: Long, dn: PCSTR, passwd: PCSTR): UInt
+public expect fun ldapSimpleBindA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt
 
-public expect fun ldap_simple_bindW(ld: Long, dn: PCWSTR, passwd: PCWSTR): UInt
+public expect fun ldapSimpleBindW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt
 
-public expect fun ldap_simple_bind_s(ld: Long, dn: PCSTR, passwd: PCSTR): UInt
+public expect fun ldapSimpleBindS(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt
 
-public expect fun ldap_simple_bind_sA(ld: Long, dn: PCSTR, passwd: PCSTR): UInt
+public expect fun ldapSimpleBindSA(ld: COpaquePointer?, dn: Pcstr, passwd: Pcstr): UInt
 
-public expect fun ldap_simple_bind_sW(ld: Long, dn: PCWSTR, passwd: PCWSTR): UInt
+public expect fun ldapSimpleBindSW(ld: COpaquePointer?, dn: Pcwstr, passwd: Pcwstr): UInt
 
-public expect fun ldap_sslinit(hostname: PCSTR, portnumber: UInt, secure: Int): Long
+public expect fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer?
 
-public expect fun ldap_sslinitA(hostname: PCSTR, portnumber: UInt, secure: Int): Long
+public expect fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): COpaquePointer?
 
-public expect fun ldap_sslinitW(hostname: PCWSTR, portnumber: UInt, secure: Int): Long
+public expect fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): COpaquePointer?
 
-public expect fun ldap_start_tls_sA(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapStartTlsSA(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_start_tls_sW(externalhandle: Long, serverreturnvalue: Long, result: Long, servercontrols: Long, clientcontrols: Long): UInt
+public expect fun ldapStartTlsSW(externalhandle: COpaquePointer?, serverreturnvalue: COpaquePointer?, result: COpaquePointer?, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?): UInt
 
-public expect fun ldap_startup(version: Long, instance: Long): UInt
+public expect fun ldapStartup(version: COpaquePointer?, instance: COpaquePointer?): UInt
 
-public expect fun ldap_stop_tls_s(externalhandle: Long): Boolean
+public expect fun ldapStopTlsS(externalhandle: COpaquePointer?): Boolean
 
-public expect fun ldap_ufn2dn(ufn: PCSTR, pdn: Long): UInt
+public expect fun ldapUfn2dn(ufn: Pcstr, pdn: COpaquePointer?): UInt
 
-public expect fun ldap_ufn2dnA(ufn: PCSTR, pdn: Long): UInt
+public expect fun ldapUfn2dnA(ufn: Pcstr, pdn: COpaquePointer?): UInt
 
-public expect fun ldap_ufn2dnW(ufn: PCWSTR, pdn: Long): UInt
+public expect fun ldapUfn2dnW(ufn: Pcwstr, pdn: COpaquePointer?): UInt
 
-public expect fun ldap_unbind(ld: Long): UInt
+public expect fun ldapUnbind(ld: COpaquePointer?): UInt
 
-public expect fun ldap_unbind_s(ld: Long): UInt
+public expect fun ldapUnbindS(ld: COpaquePointer?): UInt
 
-public expect fun ldap_value_free(vals: Long): UInt
+public expect fun ldapValueFree(vals: COpaquePointer?): UInt
 
-public expect fun ldap_value_freeA(vals: Long): UInt
+public expect fun ldapValueFreeA(vals: COpaquePointer?): UInt
 
-public expect fun ldap_value_freeW(vals: Long): UInt
+public expect fun ldapValueFreeW(vals: COpaquePointer?): UInt
 
-public expect fun ldap_value_free_len(vals: Long): UInt
+public expect fun ldapValueFreeLen(vals: COpaquePointer?): UInt

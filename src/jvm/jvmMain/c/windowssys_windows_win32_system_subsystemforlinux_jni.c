@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslConfigureDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jint defaultuid, jint wsldistributionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslConfigureDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jint defaultuid, jint wsldistributionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslGetDistributionConfiguration(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong distributionversion, jlong defaultuid, jlong wsldistributionflags, jlong defaultenvironmentvariables, jlong defaultenvironmentvariablecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslGetDistributionConfiguration(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong distributionversion, jlong defaultuid, jlong wsldistributionflags, jlong defaultenvironmentvariables, jlong defaultenvironmentvariablecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslIsDistributionRegistered(JNIEnv* km_env, jclass km_clazz, jlong distributionname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslIsDistributionRegistered(JNIEnv* km_env, jclass km_clazz, jlong distributionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -79,7 +79,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslLaunch(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong command, jint usecurrentworkingdirectory, jlong arg_3_stdin, jlong arg_4_stdout, jlong arg_5_stderr, jlong process) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslLaunch(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong command, jint usecurrentworkingdirectory, jlong arg_3_stdin, jlong arg_4_stdout, jlong arg_5_stderr, jlong process) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -103,7 +103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslLaunchInteractive(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong command, jint usecurrentworkingdirectory, jlong exitcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslLaunchInteractive(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong command, jint usecurrentworkingdirectory, jlong exitcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslRegisterDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong targzfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslRegisterDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname, jlong targzfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1WslUnregisterDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_subsystemforlinux_WindowsWin32SystemSubsystemforlinuxJniBridge_windowssys_1windows_1win32_1system_1subsystemforlinux_1wslUnregisterDistribution(JNIEnv* km_env, jclass km_clazz, jlong distributionname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

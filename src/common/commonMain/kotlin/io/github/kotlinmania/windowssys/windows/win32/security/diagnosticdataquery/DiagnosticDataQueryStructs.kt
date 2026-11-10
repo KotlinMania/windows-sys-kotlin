@@ -1,38 +1,38 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
-public data class DIAGNOSTIC_DATA_EVENT_BINARY_STATS(
-    public var moduleName: PWSTR = 0L,
-    public var friendlyModuleName: PWSTR = 0L,
+public data class DiagnosticDataEventBinaryStats(
+    public var moduleName: Pwstr = null,
+    public var friendlyModuleName: Pwstr = null,
     public var eventCount: UInt = 0u,
     public var uploadSizeBytes: ULong = 0uL,
 )
 
-public data class DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION(public var id: Int = 0, public var name: PWSTR = 0L)
+public data class DiagnosticDataEventCategoryDescription(public var id: Int = 0, public var name: Pwstr = null)
 
-public data class DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION(public var name: PWSTR = 0L)
+public data class DiagnosticDataEventProducerDescription(public var name: Pwstr = null)
 
-public data class DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION(
+public data class DiagnosticDataEventTagDescription(
     public var privacyTag: Int = 0,
-    public var name: PWSTR = 0L,
-    public var description: PWSTR = 0L,
+    public var name: Pwstr = null,
+    public var description: Pwstr = null,
 )
 
-public data class DIAGNOSTIC_DATA_EVENT_TAG_STATS(public var privacyTag: Int = 0, public var eventCount: UInt = 0u)
+public data class DiagnosticDataEventTagStats(public var privacyTag: Int = 0, public var eventCount: UInt = 0u)
 
-public data class DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION(
+public data class DiagnosticDataEventTranscriptConfiguration(
     public var hoursOfHistoryToKeep: UInt = 0u,
     public var maxStoreMegabytes: UInt = 0u,
     public var requestedMaxStoreMegabytes: UInt = 0u,
 )
 
-public data class DIAGNOSTIC_DATA_GENERAL_STATS(
+public data class DiagnosticDataGeneralStats(
     public var optInLevel: UInt = 0u,
     public var transcriptSizeBytes: ULong = 0uL,
     public var oldestEventTimestamp: ULong = 0uL,
@@ -40,58 +40,58 @@ public data class DIAGNOSTIC_DATA_GENERAL_STATS(
     public var averageDailyEvents: Float = 0.0f,
 )
 
-public data class DIAGNOSTIC_DATA_RECORD(
+public data class DiagnosticDataRecord(
     public var rowId: Long = 0L,
     public var timestamp: ULong = 0uL,
     public var eventKeywords: ULong = 0uL,
-    public var fullEventName: PWSTR = 0L,
-    public var providerGroupGuid: PWSTR = 0L,
-    public var producerName: PWSTR = 0L,
-    public var privacyTags: Long = 0L,
+    public var fullEventName: Pwstr = null,
+    public var providerGroupGuid: Pwstr = null,
+    public var producerName: Pwstr = null,
+    public var privacyTags: Int? = null,
     public var privacyTagCount: UInt = 0u,
-    public var categoryIds: Long = 0L,
+    public var categoryIds: Int? = null,
     public var categoryIdCount: UInt = 0u,
-    public var isCoreData: BOOL = 0,
-    public var extra1: PWSTR = 0L,
-    public var extra2: PWSTR = 0L,
-    public var extra3: PWSTR = 0L,
+    public var isCoreData: Bool = 0,
+    public var extra1: Pwstr = null,
+    public var extra2: Pwstr = null,
+    public var extra3: Pwstr = null,
 )
 
-public data class DIAGNOSTIC_DATA_SEARCH_CRITERIA(
-    public var producerNames: Long = 0L,
+public data class DiagnosticDataSearchCriteria(
+    public var producerNames: Pcwstr? = null,
     public var producerNameCount: UInt = 0u,
-    public var textToMatch: PCWSTR = 0L,
-    public var categoryIds: Long = 0L,
+    public var textToMatch: Pcwstr = null,
+    public var categoryIds: Int? = null,
     public var categoryIdCount: UInt = 0u,
-    public var privacyTags: Long = 0L,
+    public var privacyTags: Int? = null,
     public var privacyTagCount: UInt = 0u,
-    public var coreDataOnly: BOOL = 0,
+    public var coreDataOnly: Bool = 0,
 )
 
-public class DIAGNOSTIC_REPORT_DATA(
-    public var signature: DIAGNOSTIC_REPORT_SIGNATURE = DIAGNOSTIC_REPORT_SIGNATURE(),
-    public var bucketId: GUID = GUID(),
-    public var reportId: GUID = GUID(),
-    public var creationTime: FILETIME = FILETIME(),
+public class DiagnosticReportData(
+    public var signature: DiagnosticReportSignature = DiagnosticReportSignature(),
+    public var bucketId: Guid = Guid(),
+    public var reportId: Guid = Guid(),
+    public var creationTime: Filetime = Filetime(),
     public var sizeInBytes: ULong = 0uL,
-    public var cabId: PWSTR = 0L,
+    public var cabId: Pwstr = null,
     public var reportStatus: UInt = 0u,
-    public var reportIntegratorId: GUID = GUID(),
-    public var fileNames: Long = 0L,
+    public var reportIntegratorId: Guid = Guid(),
+    public var fileNames: Pwstr? = null,
     public var fileCount: UInt = 0u,
-    public var friendlyEventName: PWSTR = 0L,
-    public var applicationName: PWSTR = 0L,
-    public var applicationPath: PWSTR = 0L,
-    public var description: PWSTR = 0L,
-    public var bucketIdString: PWSTR = 0L,
+    public var friendlyEventName: Pwstr = null,
+    public var applicationName: Pwstr = null,
+    public var applicationPath: Pwstr = null,
+    public var description: Pwstr = null,
+    public var bucketIdString: Pwstr = null,
     public var legacyBucketId: ULong = 0uL,
-    public var reportKey: PWSTR = 0L,
+    public var reportKey: Pwstr = null,
 )
 
-public data class DIAGNOSTIC_REPORT_PARAMETER(public var name: UShortArray = UShortArray(129), public var value: UShortArray = UShortArray(260)) {
+public data class DiagnosticReportParameter(public var name: UShortArray = UShortArray(129), public var value: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIAGNOSTIC_REPORT_PARAMETER) return false
+        if (other !is DiagnosticReportParameter) return false
         if (!this.name.contentEquals(other.name)) return false
         if (!this.value.contentEquals(other.value)) return false
         return true
@@ -104,10 +104,10 @@ public data class DIAGNOSTIC_REPORT_PARAMETER(public var name: UShortArray = USh
     }
 }
 
-public data class DIAGNOSTIC_REPORT_SIGNATURE(public var eventName: UShortArray = UShortArray(65), public var parameters: List<DIAGNOSTIC_REPORT_PARAMETER> = List(10) { DIAGNOSTIC_REPORT_PARAMETER() }) {
+public data class DiagnosticReportSignature(public var eventName: UShortArray = UShortArray(65), public var parameters: List<DiagnosticReportParameter> = List(10) { DiagnosticReportParameter() }) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIAGNOSTIC_REPORT_SIGNATURE) return false
+        if (other !is DiagnosticReportSignature) return false
         if (!this.eventName.contentEquals(other.eventName)) return false
         if (this.parameters != other.parameters) return false
         return true

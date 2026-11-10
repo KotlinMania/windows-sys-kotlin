@@ -2,173 +2,174 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun WinBioAcquireFocus(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAcquireFocus()
+public actual fun winBioAcquireFocus(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus()
 
-public actual fun WinBioAsyncEnumBiometricUnits(frameworkhandle: UInt, factor: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumBiometricUnits(frameworkhandle, factor)
+public actual fun winBioAsyncEnumBiometricUnits(frameworkhandle: UInt, factor: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiometricUnits(frameworkhandle, factor)
 
-public actual fun WinBioAsyncEnumDatabases(frameworkhandle: UInt, factor: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumDatabases(frameworkhandle, factor)
+public actual fun winBioAsyncEnumDatabases(frameworkhandle: UInt, factor: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatabases(frameworkhandle, factor)
 
-public actual fun WinBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumServiceProviders(frameworkhandle, factor)
+public actual fun winBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServiceProviders(frameworkhandle, factor)
 
-public actual fun WinBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncMonitorFrameworkChanges(frameworkhandle, changetypes)
+public actual fun winBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFrameworkChanges(frameworkhandle, changetypes)
 
-public actual fun WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, frameworkhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenFramework(notificationmethod, targetwindow.toCPointer<ByteVar>(), messagecode, callbackroutine.toLong().toCPointer<ByteVar>(), userdata.toCPointer<ByteVar>(), asynchronousopen, frameworkhandle.toCPointer<ByteVar>())
+public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: COpaquePointer?, asynchronousopen: Bool, frameworkhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFramework(notificationmethod, targetwindow?.value?.toCPointer<ByteVar>(), messagecode, 0L.toCPointer<ByteVar>(), userdata?.value?.toCPointer<ByteVar>(), asynchronousopen, frameworkhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioAsyncOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, sessionhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenSession(factor, pooltype, flags, unitarray.toCPointer<ByteVar>(), unitcount, databaseid.toCPointer<ByteVar>(), notificationmethod, targetwindow.toCPointer<ByteVar>(), messagecode, callbackroutine.toLong().toCPointer<ByteVar>(), userdata.toCPointer<ByteVar>(), asynchronousopen, sessionhandle.toCPointer<ByteVar>())
+public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: COpaquePointer?, unitcount: ULong, databaseid: COpaquePointer?, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: COpaquePointer?, asynchronousopen: Bool, sessionhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSession(factor, pooltype, flags, unitarray?.value?.toCPointer<ByteVar>(), unitcount, databaseid?.value?.toCPointer<ByteVar>(), notificationmethod, targetwindow?.value?.toCPointer<ByteVar>(), messagecode, 0L.toCPointer<ByteVar>(), userdata?.value?.toCPointer<ByteVar>(), asynchronousopen, sessionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioCancel(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioCancel(sessionhandle)
+public actual fun winBioCancel(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioCancel(sessionhandle)
 
-public actual fun WinBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: Long, sample: Long, samplesize: Long, rejectdetail: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioCaptureSample(sessionhandle, purpose, flags, unitid.toCPointer<ByteVar>(), sample.toCPointer<ByteVar>(), samplesize.toCPointer<ByteVar>(), rejectdetail.toCPointer<ByteVar>())
+public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: COpaquePointer?, sample: COpaquePointer?, samplesize: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioCaptureSample(sessionhandle, purpose, flags, unitid?.value?.toCPointer<ByteVar>(), sample?.value?.toCPointer<ByteVar>(), samplesize?.value?.toCPointer<ByteVar>(), rejectdetail?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioCaptureSampleWithCallback(sessionhandle, purpose, flags, capturecallback.toLong().toCPointer<ByteVar>(), capturecallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleWithCallback(sessionhandle, purpose, flags, 0L.toCPointer<ByteVar>(), capturecallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioCloseFramework(frameworkhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioCloseFramework(frameworkhandle)
+public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioCloseFramework(frameworkhandle)
 
-public actual fun WinBioCloseSession(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioCloseSession(sessionhandle)
+public actual fun winBioCloseSession(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioCloseSession(sessionhandle)
 
-public actual fun WinBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WINBIO_COMPONENT, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer.toCPointer<ByteVar>(), sendbuffersize, receivebuffer.toCPointer<ByteVar>(), receivebuffersize, receivedatasize.toCPointer<ByteVar>(), operationstatus.toCPointer<ByteVar>())
+public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer?.value?.toCPointer<ByteVar>(), sendbuffersize, receivebuffer?.value?.toCPointer<ByteVar>(), receivebuffersize, receivedatasize?.value?.toCPointer<ByteVar>(), operationstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WINBIO_COMPONENT, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer.toCPointer<ByteVar>(), sendbuffersize, receivebuffer.toCPointer<ByteVar>(), receivebuffersize, receivedatasize.toCPointer<ByteVar>(), operationstatus.toCPointer<ByteVar>())
+public actual fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer?.value?.toCPointer<ByteVar>(), sendbuffersize, receivebuffer?.value?.toCPointer<ByteVar>(), receivebuffersize, receivedatasize?.value?.toCPointer<ByteVar>(), operationstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: Long, subfactor: UByte): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioDeleteTemplate(sessionhandle, unitid, identity.toCPointer<ByteVar>(), subfactor)
+public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate(sessionhandle, unitid, identity?.value?.toCPointer<ByteVar>(), subfactor)
 
-public actual fun WinBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollBegin(sessionhandle, subfactor, unitid)
+public actual fun winBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin(sessionhandle, subfactor, unitid)
 
-public actual fun WinBioEnrollCapture(sessionhandle: UInt, rejectdetail: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollCapture(sessionhandle, rejectdetail.toCPointer<ByteVar>())
+public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture(sessionhandle, rejectdetail?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollCaptureWithCallback(sessionhandle, enrollcallback.toLong().toCPointer<ByteVar>(), enrollcallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureWithCallback(sessionhandle, 0L.toCPointer<ByteVar>(), enrollcallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnrollCommit(sessionhandle: UInt, identity: Long, isnewtemplate: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollCommit(sessionhandle, identity.toCPointer<ByteVar>(), isnewtemplate.toCPointer<ByteVar>())
+public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: COpaquePointer?, isnewtemplate: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit(sessionhandle, identity?.value?.toCPointer<ByteVar>(), isnewtemplate?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnrollDiscard(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollDiscard(sessionhandle)
+public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard(sessionhandle)
 
-public actual fun WinBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnrollSelect(sessionhandle, selectorvalue)
+public actual fun winBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect(sessionhandle, selectorvalue)
 
-public actual fun WinBioEnumBiometricUnits(factor: UInt, unitschemaarray: Long, unitcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnumBiometricUnits(factor, unitschemaarray.toCPointer<ByteVar>(), unitcount.toCPointer<ByteVar>())
+public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: COpaquePointer?, unitcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricUnits(factor, unitschemaarray?.value?.toCPointer<ByteVar>(), unitcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnumDatabases(factor: UInt, storageschemaarray: Long, storagecount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnumDatabases(factor, storageschemaarray.toCPointer<ByteVar>(), storagecount.toCPointer<ByteVar>())
+public actual fun winBioEnumDatabases(factor: UInt, storageschemaarray: COpaquePointer?, storagecount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases(factor, storageschemaarray?.value?.toCPointer<ByteVar>(), storagecount?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: Long, subfactorarray: Long, subfactorcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnumEnrollments(sessionhandle, unitid, identity.toCPointer<ByteVar>(), subfactorarray.toCPointer<ByteVar>(), subfactorcount.toCPointer<ByteVar>())
+public actual fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: COpaquePointer?, subfactorarray: COpaquePointer?, subfactorcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollments(sessionhandle, unitid, identity?.value?.toCPointer<ByteVar>(), subfactorarray?.value?.toCPointer<ByteVar>(), subfactorcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioEnumServiceProviders(factor: UInt, bspschemaarray: Long, bspcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioEnumServiceProviders(factor, bspschemaarray.toCPointer<ByteVar>(), bspcount.toCPointer<ByteVar>())
+public actual fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: COpaquePointer?, bspcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioEnumServiceProviders(factor, bspschemaarray?.value?.toCPointer<ByteVar>(), bspcount?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioFree(address: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioFree(address.toCPointer<ByteVar>())
+public actual fun winBioFree(address: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioFree(address?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioGetCredentialState(identity: WINBIO_IDENTITY, type: WINBIO_CREDENTIAL_TYPE, credentialstate: Long): HRESULT =
+public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: COpaquePointer?): Hresult =
     0
 
-public actual fun WinBioGetDomainLogonSetting(value: Long, source: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioGetDomainLogonSetting(value.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun winBioGetDomainLogonSetting(value: COpaquePointer?, source: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSetting(value?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinBioGetEnabledSetting(value: Long, source: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioGetEnabledSetting(value.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun winBioGetEnabledSetting(value: COpaquePointer?, source: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting(value?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinBioGetEnrolledFactors(accountowner: Long, enrolledfactors: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioGetEnrolledFactors(accountowner.toCPointer<ByteVar>(), enrolledfactors.toCPointer<ByteVar>())
+public actual fun winBioGetEnrolledFactors(accountowner: COpaquePointer?, enrolledfactors: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFactors(accountowner?.value?.toCPointer<ByteVar>(), enrolledfactors?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioGetLogonSetting(value: Long, source: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioGetLogonSetting(value.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun winBioGetLogonSetting(value: COpaquePointer?, source: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting(value?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: Long, subfactor: UByte, propertybuffer: Long, propertybuffersize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioGetProperty(sessionhandle, propertytype, propertyid, unitid, identity.toCPointer<ByteVar>(), subfactor, propertybuffer.toCPointer<ByteVar>(), propertybuffersize.toCPointer<ByteVar>())
+public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioGetProperty(sessionhandle, propertytype, propertyid, unitid, identity?.value?.toCPointer<ByteVar>(), subfactor, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioIdentify(sessionhandle: UInt, unitid: Long, identity: Long, subfactor: Long, rejectdetail: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioIdentify(sessionhandle, unitid.toCPointer<ByteVar>(), identity.toCPointer<ByteVar>(), subfactor.toCPointer<ByteVar>(), rejectdetail.toCPointer<ByteVar>())
+public actual fun winBioIdentify(sessionhandle: UInt, unitid: COpaquePointer?, identity: COpaquePointer?, subfactor: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioIdentify(sessionhandle, unitid?.value?.toCPointer<ByteVar>(), identity?.value?.toCPointer<ByteVar>(), subfactor?.value?.toCPointer<ByteVar>(), rejectdetail?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioIdentifyWithCallback(sessionhandle, identifycallback.toLong().toCPointer<ByteVar>(), identifycallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCallback(sessionhandle, 0L.toCPointer<ByteVar>(), identifycallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioImproveBegin(sessionhandle: UInt, unitid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioImproveBegin(sessionhandle, unitid)
+public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioImproveBegin(sessionhandle, unitid)
 
-public actual fun WinBioImproveEnd(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioImproveEnd(sessionhandle)
+public actual fun winBioImproveEnd(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioImproveEnd(sessionhandle)
 
-public actual fun WinBioLocateSensor(sessionhandle: UInt, unitid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioLocateSensor(sessionhandle, unitid.toCPointer<ByteVar>())
+public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioLocateSensor(sessionhandle, unitid?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioLocateSensorWithCallback(sessionhandle, locatecallback.toLong().toCPointer<ByteVar>(), locatecallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWithCallback(sessionhandle, 0L.toCPointer<ByteVar>(), locatecallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioLockUnit(sessionhandle: UInt, unitid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioLockUnit(sessionhandle, unitid)
+public actual fun winBioLockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioLockUnit(sessionhandle, unitid)
 
-public actual fun WinBioLogonIdentifiedUser(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioLogonIdentifiedUser(sessionhandle)
+public actual fun winBioLogonIdentifiedUser(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifiedUser(sessionhandle)
 
-public actual fun WinBioMonitorPresence(sessionhandle: UInt, unitid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioMonitorPresence(sessionhandle, unitid)
+public actual fun winBioMonitorPresence(sessionhandle: UInt, unitid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioMonitorPresence(sessionhandle, unitid)
 
-public actual fun WinBioOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, sessionhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioOpenSession(factor, pooltype, flags, unitarray.toCPointer<ByteVar>(), unitcount, databaseid.toCPointer<ByteVar>(), sessionhandle.toCPointer<ByteVar>())
+public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: COpaquePointer?, unitcount: ULong, databaseid: COpaquePointer?, sessionhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioOpenSession(factor, pooltype, flags, unitarray?.value?.toCPointer<ByteVar>(), unitcount, databaseid?.value?.toCPointer<ByteVar>(), sessionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioRegisterEventMonitor(sessionhandle, eventmask, eventcallback.toLong().toCPointer<ByteVar>(), eventcallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioRegisterEventMonitor(sessionhandle, eventmask, 0L.toCPointer<ByteVar>(), eventcallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioReleaseFocus(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioReleaseFocus()
+public actual fun winBioReleaseFocus(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus()
 
-public actual fun WinBioRemoveAllCredentials(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllCredentials()
+public actual fun winBioRemoveAllCredentials(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCredentials()
 
-public actual fun WinBioRemoveAllDomainCredentials(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllDomainCredentials()
+public actual fun winBioRemoveAllDomainCredentials(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomainCredentials()
 
-public actual fun WinBioRemoveCredential(identity: WINBIO_IDENTITY, type: WINBIO_CREDENTIAL_TYPE): HRESULT =
+public actual fun winBioRemoveCredential(identity: WinbioIdentity, type: WinbioCredentialType): Hresult =
     0
 
-public actual fun WinBioSetCredential(type: WINBIO_CREDENTIAL_TYPE, credential: Long, credentialsize: ULong, format: WINBIO_CREDENTIAL_FORMAT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioSetCredential(type, credential.toCPointer<ByteVar>(), credentialsize, format)
+public actual fun winBioSetCredential(type: WinbioCredentialType, credential: COpaquePointer?, credentialsize: ULong, format: WinbioCredentialFormat): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioSetCredential(type, credential?.value?.toCPointer<ByteVar>(), credentialsize, format)
 
-public actual fun WinBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: Long, subfactor: UByte, propertybuffer: Long, propertybuffersize: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioSetProperty(sessionhandle, propertytype, propertyid, unitid, identity.toCPointer<ByteVar>(), subfactor, propertybuffer.toCPointer<ByteVar>(), propertybuffersize)
+public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioSetProperty(sessionhandle, propertytype, propertyid, unitid, identity?.value?.toCPointer<ByteVar>(), subfactor, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersize)
 
-public actual fun WinBioUnlockUnit(sessionhandle: UInt, unitid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioUnlockUnit(sessionhandle, unitid)
+public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit(sessionhandle, unitid)
 
-public actual fun WinBioUnregisterEventMonitor(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioUnregisterEventMonitor(sessionhandle)
+public actual fun winBioUnregisterEventMonitor(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioUnregisterEventMonitor(sessionhandle)
 
-public actual fun WinBioVerify(sessionhandle: UInt, identity: Long, subfactor: UByte, unitid: Long, match: Long, rejectdetail: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioVerify(sessionhandle, identity.toCPointer<ByteVar>(), subfactor, unitid.toCPointer<ByteVar>(), match.toCPointer<ByteVar>(), rejectdetail.toCPointer<ByteVar>())
+public actual fun winBioVerify(sessionhandle: UInt, identity: COpaquePointer?, subfactor: UByte, unitid: COpaquePointer?, match: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioVerify(sessionhandle, identity?.value?.toCPointer<ByteVar>(), subfactor, unitid?.value?.toCPointer<ByteVar>(), match?.value?.toCPointer<ByteVar>(), rejectdetail?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioVerifyWithCallback(sessionhandle: UInt, identity: Long, subfactor: UByte, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioVerifyWithCallback(sessionhandle, identity.toCPointer<ByteVar>(), subfactor, verifycallback.toLong().toCPointer<ByteVar>(), verifycallbackcontext.toCPointer<ByteVar>())
+public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: COpaquePointer?, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCallback(sessionhandle, identity?.value?.toCPointer<ByteVar>(), subfactor, 0L.toCPointer<ByteVar>(), verifycallbackcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun WinBioWait(sessionhandle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_WinBioWait(sessionhandle)
+public actual fun winBioWait(sessionhandle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework.cinterop.windowssys_windows_win32_devices_biometricframework_winBioWait(sessionhandle)

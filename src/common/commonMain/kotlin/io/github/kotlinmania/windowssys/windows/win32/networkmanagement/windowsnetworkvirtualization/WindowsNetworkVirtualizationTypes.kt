@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
-public typealias WNV_CA_NOTIFICATION_TYPE = Int
+public typealias WnvCaNotificationType = Int
 
-public typealias WNV_NOTIFICATION_TYPE = Int
+public typealias WnvNotificationType = Int
 
-public typealias WNV_OBJECT_TYPE = Int
+public typealias WnvObjectType = Int

@@ -1,467 +1,467 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public val DC_BINNAMES: PRINTER_DEVICE_CAPABILITIES = 12u
+public val DC_BINNAMES: PrinterDeviceCapabilities = 12u.toUShort()
 
-public val DC_BINS: PRINTER_DEVICE_CAPABILITIES = 6u
+public val DC_BINS: PrinterDeviceCapabilities = 6u.toUShort()
 
-public val DC_COLLATE: PRINTER_DEVICE_CAPABILITIES = 22u
+public val DC_COLLATE: PrinterDeviceCapabilities = 22u.toUShort()
 
-public val DC_COLORDEVICE: PRINTER_DEVICE_CAPABILITIES = 32u
+public val DC_COLORDEVICE: PrinterDeviceCapabilities = 32u.toUShort()
 
-public val DC_COPIES: PRINTER_DEVICE_CAPABILITIES = 18u
+public val DC_COPIES: PrinterDeviceCapabilities = 18u.toUShort()
 
-public val DC_DRIVER: PRINTER_DEVICE_CAPABILITIES = 11u
+public val DC_DRIVER: PrinterDeviceCapabilities = 11u.toUShort()
 
-public val DC_DUPLEX: PRINTER_DEVICE_CAPABILITIES = 7u
+public val DC_DUPLEX: PrinterDeviceCapabilities = 7u.toUShort()
 
-public val DC_ENUMRESOLUTIONS: PRINTER_DEVICE_CAPABILITIES = 13u
+public val DC_ENUMRESOLUTIONS: PrinterDeviceCapabilities = 13u.toUShort()
 
-public val DC_EXTRA: PRINTER_DEVICE_CAPABILITIES = 9u
+public val DC_EXTRA: PrinterDeviceCapabilities = 9u.toUShort()
 
-public val DC_FIELDS: PRINTER_DEVICE_CAPABILITIES = 1u
+public val DC_FIELDS: PrinterDeviceCapabilities = 1u.toUShort()
 
-public val DC_FILEDEPENDENCIES: PRINTER_DEVICE_CAPABILITIES = 14u
+public val DC_FILEDEPENDENCIES: PrinterDeviceCapabilities = 14u.toUShort()
 
-public val DC_MAXEXTENT: PRINTER_DEVICE_CAPABILITIES = 5u
+public val DC_MAXEXTENT: PrinterDeviceCapabilities = 5u.toUShort()
 
-public val DC_MEDIAREADY: PRINTER_DEVICE_CAPABILITIES = 29u
+public val DC_MEDIAREADY: PrinterDeviceCapabilities = 29u.toUShort()
 
-public val DC_MEDIATYPENAMES: PRINTER_DEVICE_CAPABILITIES = 34u
+public val DC_MEDIATYPENAMES: PrinterDeviceCapabilities = 34u.toUShort()
 
-public val DC_MEDIATYPES: PRINTER_DEVICE_CAPABILITIES = 35u
+public val DC_MEDIATYPES: PrinterDeviceCapabilities = 35u.toUShort()
 
-public val DC_MINEXTENT: PRINTER_DEVICE_CAPABILITIES = 4u
+public val DC_MINEXTENT: PrinterDeviceCapabilities = 4u.toUShort()
 
-public val DC_NUP: PRINTER_DEVICE_CAPABILITIES = 33u
+public val DC_NUP: PrinterDeviceCapabilities = 33u.toUShort()
 
-public val DC_ORIENTATION: PRINTER_DEVICE_CAPABILITIES = 17u
+public val DC_ORIENTATION: PrinterDeviceCapabilities = 17u.toUShort()
 
-public val DC_PAPERNAMES: PRINTER_DEVICE_CAPABILITIES = 16u
+public val DC_PAPERNAMES: PrinterDeviceCapabilities = 16u.toUShort()
 
-public val DC_PAPERS: PRINTER_DEVICE_CAPABILITIES = 2u
+public val DC_PAPERS: PrinterDeviceCapabilities = 2u.toUShort()
 
-public val DC_PAPERSIZE: PRINTER_DEVICE_CAPABILITIES = 3u
+public val DC_PAPERSIZE: PrinterDeviceCapabilities = 3u.toUShort()
 
-public val DC_PERSONALITY: PRINTER_DEVICE_CAPABILITIES = 25u
+public val DC_PERSONALITY: PrinterDeviceCapabilities = 25u.toUShort()
 
-public val DC_PRINTERMEM: PRINTER_DEVICE_CAPABILITIES = 28u
+public val DC_PRINTERMEM: PrinterDeviceCapabilities = 28u.toUShort()
 
-public val DC_PRINTRATE: PRINTER_DEVICE_CAPABILITIES = 26u
+public val DC_PRINTRATE: PrinterDeviceCapabilities = 26u.toUShort()
 
-public val DC_PRINTRATEPPM: PRINTER_DEVICE_CAPABILITIES = 31u
+public val DC_PRINTRATEPPM: PrinterDeviceCapabilities = 31u.toUShort()
 
-public val DC_PRINTRATEUNIT: PRINTER_DEVICE_CAPABILITIES = 27u
+public val DC_PRINTRATEUNIT: PrinterDeviceCapabilities = 27u.toUShort()
 
-public val DC_SIZE: PRINTER_DEVICE_CAPABILITIES = 8u
+public val DC_SIZE: PrinterDeviceCapabilities = 8u.toUShort()
 
-public val DC_STAPLE: PRINTER_DEVICE_CAPABILITIES = 30u
+public val DC_STAPLE: PrinterDeviceCapabilities = 30u.toUShort()
 
-public val DC_TRUETYPE: PRINTER_DEVICE_CAPABILITIES = 15u
+public val DC_TRUETYPE: PrinterDeviceCapabilities = 15u.toUShort()
 
-public val DC_VERSION: PRINTER_DEVICE_CAPABILITIES = 10u
+public val DC_VERSION: PrinterDeviceCapabilities = 10u.toUShort()
 
-public val PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = 12u
+public val PSINJECT_BEGINDEFAULTS: PsinjectPoint = 12u.toUShort()
 
-public val PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = 101u
+public val PSINJECT_BEGINPAGESETUP: PsinjectPoint = 101u.toUShort()
 
-public val PSINJECT_BEGINPROLOG: PSINJECT_POINT = 14u
+public val PSINJECT_BEGINPROLOG: PsinjectPoint = 14u.toUShort()
 
-public val PSINJECT_BEGINSETUP: PSINJECT_POINT = 16u
+public val PSINJECT_BEGINSETUP: PsinjectPoint = 16u.toUShort()
 
-public val PSINJECT_BEGINSTREAM: PSINJECT_POINT = 1u
+public val PSINJECT_BEGINSTREAM: PsinjectPoint = 1u.toUShort()
 
-public val PSINJECT_BOUNDINGBOX: PSINJECT_POINT = 9u
+public val PSINJECT_BOUNDINGBOX: PsinjectPoint = 9u.toUShort()
 
-public val PSINJECT_COMMENTS: PSINJECT_POINT = 11u
+public val PSINJECT_COMMENTS: PsinjectPoint = 11u.toUShort()
 
-public val PSINJECT_DOCNEEDEDRES: PSINJECT_POINT = 5u
+public val PSINJECT_DOCNEEDEDRES: PsinjectPoint = 5u.toUShort()
 
-public val PSINJECT_DOCSUPPLIEDRES: PSINJECT_POINT = 6u
+public val PSINJECT_DOCSUPPLIEDRES: PsinjectPoint = 6u.toUShort()
 
-public val PSINJECT_DOCUMENTPROCESSCOLORS: PSINJECT_POINT = 10u
+public val PSINJECT_DOCUMENTPROCESSCOLORS: PsinjectPoint = 10u.toUShort()
 
-public val PSINJECT_DOCUMENTPROCESSCOLORSATEND: PSINJECT_POINT = 21u
+public val PSINJECT_DOCUMENTPROCESSCOLORSATEND: PsinjectPoint = 21u.toUShort()
 
-public val PSINJECT_ENDDEFAULTS: PSINJECT_POINT = 13u
+public val PSINJECT_ENDDEFAULTS: PsinjectPoint = 13u.toUShort()
 
-public val PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = 107u
+public val PSINJECT_ENDPAGECOMMENTS: PsinjectPoint = 107u.toUShort()
 
-public val PSINJECT_ENDPAGESETUP: PSINJECT_POINT = 102u
+public val PSINJECT_ENDPAGESETUP: PsinjectPoint = 102u.toUShort()
 
-public val PSINJECT_ENDPROLOG: PSINJECT_POINT = 15u
+public val PSINJECT_ENDPROLOG: PsinjectPoint = 15u.toUShort()
 
-public val PSINJECT_ENDSETUP: PSINJECT_POINT = 17u
+public val PSINJECT_ENDSETUP: PsinjectPoint = 17u.toUShort()
 
-public val PSINJECT_ENDSTREAM: PSINJECT_POINT = 20u
+public val PSINJECT_ENDSTREAM: PsinjectPoint = 20u.toUShort()
 
-public val PSINJECT_EOF: PSINJECT_POINT = 19u
+public val PSINJECT_EOF: PsinjectPoint = 19u.toUShort()
 
-public val PSINJECT_ORIENTATION: PSINJECT_POINT = 8u
+public val PSINJECT_ORIENTATION: PsinjectPoint = 8u.toUShort()
 
-public val PSINJECT_PAGEBBOX: PSINJECT_POINT = 106u
+public val PSINJECT_PAGEBBOX: PsinjectPoint = 106u.toUShort()
 
-public val PSINJECT_PAGENUMBER: PSINJECT_POINT = 100u
+public val PSINJECT_PAGENUMBER: PsinjectPoint = 100u.toUShort()
 
-public val PSINJECT_PAGEORDER: PSINJECT_POINT = 7u
+public val PSINJECT_PAGEORDER: PsinjectPoint = 7u.toUShort()
 
-public val PSINJECT_PAGES: PSINJECT_POINT = 4u
+public val PSINJECT_PAGES: PsinjectPoint = 4u.toUShort()
 
-public val PSINJECT_PAGESATEND: PSINJECT_POINT = 3u
+public val PSINJECT_PAGESATEND: PsinjectPoint = 3u.toUShort()
 
-public val PSINJECT_PAGETRAILER: PSINJECT_POINT = 103u
+public val PSINJECT_PAGETRAILER: PsinjectPoint = 103u.toUShort()
 
-public val PSINJECT_PLATECOLOR: PSINJECT_POINT = 104u
+public val PSINJECT_PLATECOLOR: PsinjectPoint = 104u.toUShort()
 
-public val PSINJECT_PSADOBE: PSINJECT_POINT = 2u
+public val PSINJECT_PSADOBE: PsinjectPoint = 2u.toUShort()
 
-public val PSINJECT_SHOWPAGE: PSINJECT_POINT = 105u
+public val PSINJECT_SHOWPAGE: PsinjectPoint = 105u.toUShort()
 
-public val PSINJECT_TRAILER: PSINJECT_POINT = 18u
+public val PSINJECT_TRAILER: PsinjectPoint = 18u.toUShort()
 
-public val PSINJECT_VMRESTORE: PSINJECT_POINT = 201u
+public val PSINJECT_VMRESTORE: PsinjectPoint = 201u.toUShort()
 
-public val PSINJECT_VMSAVE: PSINJECT_POINT = 200u
+public val PSINJECT_VMSAVE: PsinjectPoint = 200u.toUShort()
 
-public val PW_CLIENTONLY: PRINT_WINDOW_FLAGS = 1u
+public val PW_CLIENTONLY: PrintWindowFlags = 1u
 
-public val XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = 1
+public val XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XpsColorInterpolation = 1
 
-public val XPS_COLOR_INTERPOLATION_SRGBLINEAR: XPS_COLOR_INTERPOLATION = 2
+public val XPS_COLOR_INTERPOLATION_SRGBLINEAR: XpsColorInterpolation = 2
 
-public val XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3
+public val XPS_COLOR_TYPE_CONTEXT: XpsColorType = 3
 
-public val XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2
+public val XPS_COLOR_TYPE_SCRGB: XpsColorType = 2
 
-public val XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1
+public val XPS_COLOR_TYPE_SRGB: XpsColorType = 1
 
-public val XPS_DASH_CAP_FLAT: XPS_DASH_CAP = 1
+public val XPS_DASH_CAP_FLAT: XpsDashCap = 1
 
-public val XPS_DASH_CAP_ROUND: XPS_DASH_CAP = 2
+public val XPS_DASH_CAP_ROUND: XpsDashCap = 2
 
-public val XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = 3
+public val XPS_DASH_CAP_SQUARE: XpsDashCap = 3
 
-public val XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = 4
+public val XPS_DASH_CAP_TRIANGLE: XpsDashCap = 4
 
-public val XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = 3
+public val XPS_DOCUMENT_TYPE_OPENXPS: XpsDocumentType = 3
 
-public val XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = 1
+public val XPS_DOCUMENT_TYPE_UNSPECIFIED: XpsDocumentType = 1
 
-public val XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = 2
+public val XPS_DOCUMENT_TYPE_XPS: XpsDocumentType = 2
 
-public val XPS_E_ABSOLUTE_REFERENCE: HRESULT = 0x80520601u.toInt()
+public val XPS_E_ABSOLUTE_REFERENCE: Hresult = 0x80520601u.toInt()
 
-public val XPS_E_ALREADY_OWNED: HRESULT = 0x80520503u.toInt()
+public val XPS_E_ALREADY_OWNED: Hresult = 0x80520503u.toInt()
 
-public val XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: HRESULT = 0x80520509u.toInt()
+public val XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: Hresult = 0x80520509u.toInt()
 
-public val XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: HRESULT = 0x80520507u.toInt()
+public val XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: Hresult = 0x80520507u.toInt()
 
-public val XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: HRESULT = 0x80520508u.toInt()
+public val XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: Hresult = 0x80520508u.toInt()
 
-public val XPS_E_CARET_OUTSIDE_STRING: HRESULT = 0x80520305u.toInt()
+public val XPS_E_CARET_OUTSIDE_STRING: Hresult = 0x80520305u.toInt()
 
-public val XPS_E_CARET_OUT_OF_ORDER: HRESULT = 0x80520306u.toInt()
+public val XPS_E_CARET_OUT_OF_ORDER: Hresult = 0x80520306u.toInt()
 
-public val XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: HRESULT = 0x80520506u.toInt()
+public val XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: Hresult = 0x80520506u.toInt()
 
-public val XPS_E_DICTIONARY_ITEM_NAMED: HRESULT = 0x80520401u.toInt()
+public val XPS_E_DICTIONARY_ITEM_NAMED: Hresult = 0x80520401u.toInt()
 
-public val XPS_E_DUPLICATE_NAMES: HRESULT = 0x80520209u.toInt()
+public val XPS_E_DUPLICATE_NAMES: Hresult = 0x80520209u.toInt()
 
-public val XPS_E_DUPLICATE_RESOURCE_KEYS: HRESULT = 0x80520200u.toInt()
+public val XPS_E_DUPLICATE_RESOURCE_KEYS: Hresult = 0x80520200u.toInt()
 
-public val XPS_E_INDEX_OUT_OF_RANGE: HRESULT = 0x80520500u.toInt()
+public val XPS_E_INDEX_OUT_OF_RANGE: Hresult = 0x80520500u.toInt()
 
-public val XPS_E_INVALID_BLEED_BOX: HRESULT = 0x80520004u.toInt()
+public val XPS_E_INVALID_BLEED_BOX: Hresult = 0x80520004u.toInt()
 
-public val XPS_E_INVALID_CONTENT_BOX: HRESULT = 0x8052000Bu.toInt()
+public val XPS_E_INVALID_CONTENT_BOX: Hresult = 0x8052000Bu.toInt()
 
-public val XPS_E_INVALID_CONTENT_TYPE: HRESULT = 0x8052000Eu.toInt()
+public val XPS_E_INVALID_CONTENT_TYPE: Hresult = 0x8052000Eu.toInt()
 
-public val XPS_E_INVALID_FLOAT: HRESULT = 0x80520007u.toInt()
+public val XPS_E_INVALID_FLOAT: Hresult = 0x80520007u.toInt()
 
-public val XPS_E_INVALID_FONT_URI: HRESULT = 0x8052000Au.toInt()
+public val XPS_E_INVALID_FONT_URI: Hresult = 0x8052000Au.toInt()
 
-public val XPS_E_INVALID_LANGUAGE: HRESULT = 0x80520000u.toInt()
+public val XPS_E_INVALID_LANGUAGE: Hresult = 0x80520000u.toInt()
 
-public val XPS_E_INVALID_LOOKUP_TYPE: HRESULT = 0x80520006u.toInt()
+public val XPS_E_INVALID_LOOKUP_TYPE: Hresult = 0x80520006u.toInt()
 
-public val XPS_E_INVALID_MARKUP: HRESULT = 0x8052000Cu.toInt()
+public val XPS_E_INVALID_MARKUP: Hresult = 0x8052000Cu.toInt()
 
-public val XPS_E_INVALID_NAME: HRESULT = 0x80520001u.toInt()
+public val XPS_E_INVALID_NAME: Hresult = 0x80520001u.toInt()
 
-public val XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: HRESULT = 0x80520602u.toInt()
+public val XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: Hresult = 0x80520602u.toInt()
 
-public val XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: HRESULT = 0x80520600u.toInt()
+public val XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: Hresult = 0x80520600u.toInt()
 
-public val XPS_E_INVALID_OBFUSCATED_FONT_URI: HRESULT = 0x8052000Fu.toInt()
+public val XPS_E_INVALID_OBFUSCATED_FONT_URI: Hresult = 0x8052000Fu.toInt()
 
-public val XPS_E_INVALID_PAGE_SIZE: HRESULT = 0x80520003u.toInt()
+public val XPS_E_INVALID_PAGE_SIZE: Hresult = 0x80520003u.toInt()
 
-public val XPS_E_INVALID_RESOURCE_KEY: HRESULT = 0x80520002u.toInt()
+public val XPS_E_INVALID_RESOURCE_KEY: Hresult = 0x80520002u.toInt()
 
-public val XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: HRESULT = 0x8052038Bu.toInt()
+public val XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: Hresult = 0x8052038Bu.toInt()
 
-public val XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: HRESULT = 0x80520005u.toInt()
+public val XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: Hresult = 0x80520005u.toInt()
 
-public val XPS_E_INVALID_XML_ENCODING: HRESULT = 0x8052000Du.toInt()
+public val XPS_E_INVALID_XML_ENCODING: Hresult = 0x8052000Du.toInt()
 
-public val XPS_E_MAPPING_OUTSIDE_INDICES: HRESULT = 0x80520304u.toInt()
+public val XPS_E_MAPPING_OUTSIDE_INDICES: Hresult = 0x80520304u.toInt()
 
-public val XPS_E_MAPPING_OUTSIDE_STRING: HRESULT = 0x80520303u.toInt()
+public val XPS_E_MAPPING_OUTSIDE_STRING: Hresult = 0x80520303u.toInt()
 
-public val XPS_E_MAPPING_OUT_OF_ORDER: HRESULT = 0x80520302u.toInt()
+public val XPS_E_MAPPING_OUT_OF_ORDER: Hresult = 0x80520302u.toInt()
 
-public val XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: HRESULT = 0x80520389u.toInt()
+public val XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: Hresult = 0x80520389u.toInt()
 
-public val XPS_E_MISSING_COLORPROFILE: HRESULT = 0x80520104u.toInt()
+public val XPS_E_MISSING_COLORPROFILE: Hresult = 0x80520104u.toInt()
 
-public val XPS_E_MISSING_DISCARDCONTROL: HRESULT = 0x80520112u.toInt()
+public val XPS_E_MISSING_DISCARDCONTROL: Hresult = 0x80520112u.toInt()
 
-public val XPS_E_MISSING_DOCUMENT: HRESULT = 0x80520109u.toInt()
+public val XPS_E_MISSING_DOCUMENT: Hresult = 0x80520109u.toInt()
 
-public val XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: HRESULT = 0x80520108u.toInt()
+public val XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: Hresult = 0x80520108u.toInt()
 
-public val XPS_E_MISSING_FONTURI: HRESULT = 0x80520107u.toInt()
+public val XPS_E_MISSING_FONTURI: Hresult = 0x80520107u.toInt()
 
-public val XPS_E_MISSING_GLYPHS: HRESULT = 0x80520102u.toInt()
+public val XPS_E_MISSING_GLYPHS: Hresult = 0x80520102u.toInt()
 
-public val XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: HRESULT = 0x8052010Eu.toInt()
+public val XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: Hresult = 0x8052010Eu.toInt()
 
-public val XPS_E_MISSING_LOOKUP: HRESULT = 0x80520101u.toInt()
+public val XPS_E_MISSING_LOOKUP: Hresult = 0x80520101u.toInt()
 
-public val XPS_E_MISSING_NAME: HRESULT = 0x80520100u.toInt()
+public val XPS_E_MISSING_NAME: Hresult = 0x80520100u.toInt()
 
-public val XPS_E_MISSING_PAGE_IN_DOCUMENT: HRESULT = 0x8052010Cu.toInt()
+public val XPS_E_MISSING_PAGE_IN_DOCUMENT: Hresult = 0x8052010Cu.toInt()
 
-public val XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: HRESULT = 0x8052010Du.toInt()
+public val XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: Hresult = 0x8052010Du.toInt()
 
-public val XPS_E_MISSING_PART_REFERENCE: HRESULT = 0x80520110u.toInt()
+public val XPS_E_MISSING_PART_REFERENCE: Hresult = 0x80520110u.toInt()
 
-public val XPS_E_MISSING_PART_STREAM: HRESULT = 0x80520113u.toInt()
+public val XPS_E_MISSING_PART_STREAM: Hresult = 0x80520113u.toInt()
 
-public val XPS_E_MISSING_REFERRED_DOCUMENT: HRESULT = 0x8052010Au.toInt()
+public val XPS_E_MISSING_REFERRED_DOCUMENT: Hresult = 0x8052010Au.toInt()
 
-public val XPS_E_MISSING_REFERRED_PAGE: HRESULT = 0x8052010Bu.toInt()
+public val XPS_E_MISSING_REFERRED_PAGE: Hresult = 0x8052010Bu.toInt()
 
-public val XPS_E_MISSING_RELATIONSHIP_TARGET: HRESULT = 0x80520105u.toInt()
+public val XPS_E_MISSING_RELATIONSHIP_TARGET: Hresult = 0x80520105u.toInt()
 
-public val XPS_E_MISSING_RESOURCE_KEY: HRESULT = 0x8052010Fu.toInt()
+public val XPS_E_MISSING_RESOURCE_KEY: Hresult = 0x8052010Fu.toInt()
 
-public val XPS_E_MISSING_RESOURCE_RELATIONSHIP: HRESULT = 0x80520106u.toInt()
+public val XPS_E_MISSING_RESOURCE_RELATIONSHIP: Hresult = 0x80520106u.toInt()
 
-public val XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: HRESULT = 0x80520111u.toInt()
+public val XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: Hresult = 0x80520111u.toInt()
 
-public val XPS_E_MISSING_SEGMENT_DATA: HRESULT = 0x80520103u.toInt()
+public val XPS_E_MISSING_SEGMENT_DATA: Hresult = 0x80520103u.toInt()
 
-public val XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: HRESULT = 0x80520202u.toInt()
+public val XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: Hresult = 0x80520202u.toInt()
 
-public val XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: HRESULT = 0x80520206u.toInt()
+public val XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: Hresult = 0x80520206u.toInt()
 
-public val XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: HRESULT = 0x80520207u.toInt()
+public val XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: Hresult = 0x80520207u.toInt()
 
-public val XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: HRESULT = 0x80520205u.toInt()
+public val XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: Hresult = 0x80520205u.toInt()
 
-public val XPS_E_MULTIPLE_REFERENCES_TO_PART: HRESULT = 0x80520208u.toInt()
+public val XPS_E_MULTIPLE_REFERENCES_TO_PART: Hresult = 0x80520208u.toInt()
 
-public val XPS_E_MULTIPLE_RESOURCES: HRESULT = 0x80520201u.toInt()
+public val XPS_E_MULTIPLE_RESOURCES: Hresult = 0x80520201u.toInt()
 
-public val XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: HRESULT = 0x80520204u.toInt()
+public val XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: Hresult = 0x80520204u.toInt()
 
-public val XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: HRESULT = 0x80520203u.toInt()
+public val XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: Hresult = 0x80520203u.toInt()
 
-public val XPS_E_NEGATIVE_FLOAT: HRESULT = 0x8052030Au.toInt()
+public val XPS_E_NEGATIVE_FLOAT: Hresult = 0x8052030Au.toInt()
 
-public val XPS_E_NESTED_REMOTE_DICTIONARY: HRESULT = 0x80520402u.toInt()
+public val XPS_E_NESTED_REMOTE_DICTIONARY: Hresult = 0x80520402u.toInt()
 
-public val XPS_E_NOT_ENOUGH_GRADIENT_STOPS: HRESULT = 0x8052050Bu.toInt()
+public val XPS_E_NOT_ENOUGH_GRADIENT_STOPS: Hresult = 0x8052050Bu.toInt()
 
-public val XPS_E_NO_CUSTOM_OBJECTS: HRESULT = 0x80520502u.toInt()
+public val XPS_E_NO_CUSTOM_OBJECTS: Hresult = 0x80520502u.toInt()
 
-public val XPS_E_OBJECT_DETACHED: HRESULT = 0x8052038Au.toInt()
+public val XPS_E_OBJECT_DETACHED: Hresult = 0x8052038Au.toInt()
 
-public val XPS_E_ODD_BIDILEVEL: HRESULT = 0x80520307u.toInt()
+public val XPS_E_ODD_BIDILEVEL: Hresult = 0x80520307u.toInt()
 
-public val XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: HRESULT = 0x80520308u.toInt()
+public val XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: Hresult = 0x80520308u.toInt()
 
-public val XPS_E_PACKAGE_ALREADY_OPENED: HRESULT = 0x80520387u.toInt()
+public val XPS_E_PACKAGE_ALREADY_OPENED: Hresult = 0x80520387u.toInt()
 
-public val XPS_E_PACKAGE_NOT_OPENED: HRESULT = 0x80520386u.toInt()
+public val XPS_E_PACKAGE_NOT_OPENED: Hresult = 0x80520386u.toInt()
 
-public val XPS_E_PACKAGE_WRITER_NOT_CLOSED: HRESULT = 0x8052050Cu.toInt()
+public val XPS_E_PACKAGE_WRITER_NOT_CLOSED: Hresult = 0x8052050Cu.toInt()
 
-public val XPS_E_RELATIONSHIP_EXTERNAL: HRESULT = 0x8052050Au.toInt()
+public val XPS_E_RELATIONSHIP_EXTERNAL: Hresult = 0x8052050Au.toInt()
 
-public val XPS_E_RESOURCE_NOT_OWNED: HRESULT = 0x80520504u.toInt()
+public val XPS_E_RESOURCE_NOT_OWNED: Hresult = 0x80520504u.toInt()
 
-public val XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: HRESULT = 0x80520309u.toInt()
+public val XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: Hresult = 0x80520309u.toInt()
 
-public val XPS_E_SIGNATUREID_DUP: HRESULT = 0x80520388u.toInt()
+public val XPS_E_SIGNATUREID_DUP: Hresult = 0x80520388u.toInt()
 
-public val XPS_E_SIGREQUESTID_DUP: HRESULT = 0x80520385u.toInt()
+public val XPS_E_SIGREQUESTID_DUP: Hresult = 0x80520385u.toInt()
 
-public val XPS_E_STRING_TOO_LONG: HRESULT = 0x80520300u.toInt()
+public val XPS_E_STRING_TOO_LONG: Hresult = 0x80520300u.toInt()
 
-public val XPS_E_TOO_MANY_INDICES: HRESULT = 0x80520301u.toInt()
+public val XPS_E_TOO_MANY_INDICES: Hresult = 0x80520301u.toInt()
 
-public val XPS_E_UNAVAILABLE_PACKAGE: HRESULT = 0x80520114u.toInt()
+public val XPS_E_UNAVAILABLE_PACKAGE: Hresult = 0x80520114u.toInt()
 
-public val XPS_E_UNEXPECTED_COLORPROFILE: HRESULT = 0x80520505u.toInt()
+public val XPS_E_UNEXPECTED_COLORPROFILE: Hresult = 0x80520505u.toInt()
 
-public val XPS_E_UNEXPECTED_CONTENT_TYPE: HRESULT = 0x80520008u.toInt()
+public val XPS_E_UNEXPECTED_CONTENT_TYPE: Hresult = 0x80520008u.toInt()
 
-public val XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: HRESULT = 0x80520010u.toInt()
+public val XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: Hresult = 0x80520010u.toInt()
 
-public val XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: HRESULT = 0x80520011u.toInt()
+public val XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: Hresult = 0x80520011u.toInt()
 
-public val XPS_E_VISUAL_CIRCULAR_REF: HRESULT = 0x80520501u.toInt()
+public val XPS_E_VISUAL_CIRCULAR_REF: Hresult = 0x80520501u.toInt()
 
-public val XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: HRESULT = 0x80520400u.toInt()
+public val XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: Hresult = 0x80520400u.toInt()
 
-public val XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = 1
+public val XPS_FILL_RULE_EVENODD: XpsFillRule = 1
 
-public val XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = 2
+public val XPS_FILL_RULE_NONZERO: XpsFillRule = 2
 
-public val XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = 1
+public val XPS_FONT_EMBEDDING_NORMAL: XpsFontEmbedding = 1
 
-public val XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2
+public val XPS_FONT_EMBEDDING_OBFUSCATED: XpsFontEmbedding = 2
 
-public val XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3
+public val XPS_FONT_EMBEDDING_RESTRICTED: XpsFontEmbedding = 3
 
-public val XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4
+public val XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XpsFontEmbedding = 4
 
-public val XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = 1
+public val XPS_IMAGE_TYPE_JPEG: XpsImageType = 1
 
-public val XPS_IMAGE_TYPE_JXR: XPS_IMAGE_TYPE = 5
+public val XPS_IMAGE_TYPE_JXR: XpsImageType = 5
 
-public val XPS_IMAGE_TYPE_PNG: XPS_IMAGE_TYPE = 2
+public val XPS_IMAGE_TYPE_PNG: XpsImageType = 2
 
-public val XPS_IMAGE_TYPE_TIFF: XPS_IMAGE_TYPE = 3
+public val XPS_IMAGE_TYPE_TIFF: XpsImageType = 3
 
-public val XPS_IMAGE_TYPE_WDP: XPS_IMAGE_TYPE = 4
+public val XPS_IMAGE_TYPE_WDP: XpsImageType = 4
 
-public val XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = 1
+public val XPS_INTERLEAVING_OFF: XpsInterleaving = 1
 
-public val XPS_INTERLEAVING_ON: XPS_INTERLEAVING = 2
+public val XPS_INTERLEAVING_ON: XpsInterleaving = 2
 
-public val XPS_LINE_CAP_FLAT: XPS_LINE_CAP = 1
+public val XPS_LINE_CAP_FLAT: XpsLineCap = 1
 
-public val XPS_LINE_CAP_ROUND: XPS_LINE_CAP = 2
+public val XPS_LINE_CAP_ROUND: XpsLineCap = 2
 
-public val XPS_LINE_CAP_SQUARE: XPS_LINE_CAP = 3
+public val XPS_LINE_CAP_SQUARE: XpsLineCap = 3
 
-public val XPS_LINE_CAP_TRIANGLE: XPS_LINE_CAP = 4
+public val XPS_LINE_CAP_TRIANGLE: XpsLineCap = 4
 
-public val XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2
+public val XPS_LINE_JOIN_BEVEL: XpsLineJoin = 2
 
-public val XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1
+public val XPS_LINE_JOIN_MITER: XpsLineJoin = 1
 
-public val XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3
+public val XPS_LINE_JOIN_ROUND: XpsLineJoin = 3
 
-public val XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = 1
+public val XPS_OBJECT_TYPE_CANVAS: XpsObjectType = 1
 
-public val XPS_OBJECT_TYPE_GEOMETRY: XPS_OBJECT_TYPE = 5
+public val XPS_OBJECT_TYPE_GEOMETRY: XpsObjectType = 5
 
-public val XPS_OBJECT_TYPE_GLYPHS: XPS_OBJECT_TYPE = 2
+public val XPS_OBJECT_TYPE_GLYPHS: XpsObjectType = 2
 
-public val XPS_OBJECT_TYPE_IMAGE_BRUSH: XPS_OBJECT_TYPE = 7
+public val XPS_OBJECT_TYPE_IMAGE_BRUSH: XpsObjectType = 7
 
-public val XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 8
+public val XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XpsObjectType = 8
 
-public val XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XPS_OBJECT_TYPE = 4
+public val XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XpsObjectType = 4
 
-public val XPS_OBJECT_TYPE_PATH: XPS_OBJECT_TYPE = 3
+public val XPS_OBJECT_TYPE_PATH: XpsObjectType = 3
 
-public val XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9
+public val XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XpsObjectType = 9
 
-public val XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6
+public val XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XpsObjectType = 6
 
-public val XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10
+public val XPS_OBJECT_TYPE_VISUAL_BRUSH: XpsObjectType = 10
 
-public val XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = 1
+public val XPS_SEGMENT_STROKE_PATTERN_ALL: XpsSegmentStrokePattern = 1
 
-public val XPS_SEGMENT_STROKE_PATTERN_MIXED: XPS_SEGMENT_STROKE_PATTERN = 3
+public val XPS_SEGMENT_STROKE_PATTERN_MIXED: XpsSegmentStrokePattern = 3
 
-public val XPS_SEGMENT_STROKE_PATTERN_NONE: XPS_SEGMENT_STROKE_PATTERN = 2
+public val XPS_SEGMENT_STROKE_PATTERN_NONE: XpsSegmentStrokePattern = 2
 
-public val XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = 1
+public val XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XpsSegmentType = 1
 
-public val XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 2
+public val XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XpsSegmentType = 2
 
-public val XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XPS_SEGMENT_TYPE = 3
+public val XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XpsSegmentType = 3
 
-public val XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 4
+public val XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XpsSegmentType = 4
 
-public val XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = 5
+public val XPS_SEGMENT_TYPE_BEZIER: XpsSegmentType = 5
 
-public val XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = 6
+public val XPS_SEGMENT_TYPE_LINE: XpsSegmentType = 6
 
-public val XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = 7
+public val XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XpsSegmentType = 7
 
-public val XPS_SIGNATURE_STATUS_BROKEN: XPS_SIGNATURE_STATUS = 3
+public val XPS_SIGNATURE_STATUS_BROKEN: XpsSignatureStatus = 3
 
-public val XPS_SIGNATURE_STATUS_INCOMPLETE: XPS_SIGNATURE_STATUS = 2
+public val XPS_SIGNATURE_STATUS_INCOMPLETE: XpsSignatureStatus = 2
 
-public val XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = 1
+public val XPS_SIGNATURE_STATUS_INCOMPLIANT: XpsSignatureStatus = 1
 
-public val XPS_SIGNATURE_STATUS_QUESTIONABLE: XPS_SIGNATURE_STATUS = 4
+public val XPS_SIGNATURE_STATUS_QUESTIONABLE: XpsSignatureStatus = 4
 
-public val XPS_SIGNATURE_STATUS_VALID: XPS_SIGNATURE_STATUS = 5
+public val XPS_SIGNATURE_STATUS_VALID: XpsSignatureStatus = 5
 
-public val XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XPS_SIGN_FLAGS = 1
+public val XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XpsSignFlags = 1
 
-public val XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = 0
+public val XPS_SIGN_FLAGS_NONE: XpsSignFlags = 0
 
-public val XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = 15
+public val XPS_SIGN_POLICY_ALL: XpsSignPolicy = 15
 
-public val XPS_SIGN_POLICY_CORE_PROPERTIES: XPS_SIGN_POLICY = 1
+public val XPS_SIGN_POLICY_CORE_PROPERTIES: XpsSignPolicy = 1
 
-public val XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = 8
+public val XPS_SIGN_POLICY_DISCARD_CONTROL: XpsSignPolicy = 8
 
-public val XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = 0
+public val XPS_SIGN_POLICY_NONE: XpsSignPolicy = 0
 
-public val XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = 4
+public val XPS_SIGN_POLICY_PRINT_TICKET: XpsSignPolicy = 4
 
-public val XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = 2
+public val XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XpsSignPolicy = 2
 
-public val XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = 1
+public val XPS_SPREAD_METHOD_PAD: XpsSpreadMethod = 1
 
-public val XPS_SPREAD_METHOD_REFLECT: XPS_SPREAD_METHOD = 2
+public val XPS_SPREAD_METHOD_REFLECT: XpsSpreadMethod = 2
 
-public val XPS_SPREAD_METHOD_REPEAT: XPS_SPREAD_METHOD = 3
+public val XPS_SPREAD_METHOD_REPEAT: XpsSpreadMethod = 3
 
-public val XPS_STYLE_SIMULATION_BOLD: XPS_STYLE_SIMULATION = 3
+public val XPS_STYLE_SIMULATION_BOLD: XpsStyleSimulation = 3
 
-public val XPS_STYLE_SIMULATION_BOLDITALIC: XPS_STYLE_SIMULATION = 4
+public val XPS_STYLE_SIMULATION_BOLDITALIC: XpsStyleSimulation = 4
 
-public val XPS_STYLE_SIMULATION_ITALIC: XPS_STYLE_SIMULATION = 2
+public val XPS_STYLE_SIMULATION_ITALIC: XpsStyleSimulation = 2
 
-public val XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = 1
+public val XPS_STYLE_SIMULATION_NONE: XpsStyleSimulation = 1
 
-public val XPS_THUMBNAIL_SIZE_LARGE: XPS_THUMBNAIL_SIZE = 4
+public val XPS_THUMBNAIL_SIZE_LARGE: XpsThumbnailSize = 4
 
-public val XPS_THUMBNAIL_SIZE_MEDIUM: XPS_THUMBNAIL_SIZE = 3
+public val XPS_THUMBNAIL_SIZE_MEDIUM: XpsThumbnailSize = 3
 
-public val XPS_THUMBNAIL_SIZE_SMALL: XPS_THUMBNAIL_SIZE = 2
+public val XPS_THUMBNAIL_SIZE_SMALL: XpsThumbnailSize = 2
 
-public val XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = 1
+public val XPS_THUMBNAIL_SIZE_VERYSMALL: XpsThumbnailSize = 1
 
-public val XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = 3
+public val XPS_TILE_MODE_FLIPX: XpsTileMode = 3
 
-public val XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5
+public val XPS_TILE_MODE_FLIPXY: XpsTileMode = 5
 
-public val XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = 4
+public val XPS_TILE_MODE_FLIPY: XpsTileMode = 4
 
-public val XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1
+public val XPS_TILE_MODE_NONE: XpsTileMode = 1
 
-public val XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2
+public val XPS_TILE_MODE_TILE: XpsTileMode = 2
 
-public val XpsOMObjectFactory: GUID = GUID.from_u128(U128(0xe974d26d3d9b4d47uL, 0x88cc3872f2dc3585uL))
+public val XPS_OM_OBJECT_FACTORY: Guid = Guid.fromU128(U128(0xe974d26d3d9b4d47uL, 0x88cc3872f2dc3585uL))
 
-public val XpsOMThumbnailGenerator: GUID = GUID.from_u128(U128(0x7e4a23e2b9694761uL, 0xbe351a8ced58e323uL))
+public val XPS_OM_THUMBNAIL_GENERATOR: Guid = Guid.fromU128(U128(0x7e4a23e2b9694761uL, 0xbe351a8ced58e323uL))
 
-public val XpsSignatureManager: GUID = GUID.from_u128(U128(0xb0c43320231544a2uL, 0xb70a0943a140a8eeuL))
+public val XPS_SIGNATURE_MANAGER: Guid = Guid.fromU128(U128(0xb0c43320231544a2uL, 0xb70a0943a140a8eeuL))

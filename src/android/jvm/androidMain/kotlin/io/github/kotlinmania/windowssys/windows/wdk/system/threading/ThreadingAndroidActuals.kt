@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.threading
 
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PTIMER_APC_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TIMER_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PtimerApcRoutine
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
 
 private object WindowsWdkSystemThreadingJniBridge {
     init {
@@ -13,140 +14,146 @@ private object WindowsWdkSystemThreadingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtCancelTimer(timerhandle: Long, currentstate: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntCancelTimer(timerhandle: Long, currentstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtCreateTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long, timertype: Int): Int
+    external fun windowssys_windows_wdk_system_threading_ntCreateTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long, timertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtOpenEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntOpenEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtOpenProcess(processhandle: Long, desiredaccess: Int, objectattributes: Long, clientid: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntOpenProcess(processhandle: Long, desiredaccess: Int, objectattributes: Long, clientid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtOpenTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntOpenTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtQueryInformationProcess(processhandle: Long, processinformationclass: Int, processinformation: Long, processinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntQueryInformationProcess(processhandle: Long, processinformationclass: Int, processinformation: Long, processinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtQueryInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntQueryInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtSetInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_threading_ntSetInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtSetTimerEx(timerhandle: Long, timersetinformationclass: Int, timersetinformation: Long, timersetinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_threading_ntSetTimer(timerhandle: Long, duetime: Long, timerapcroutine: Long, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtTerminateProcess(processhandle: Long, exitstatus: Int): Int
+    external fun windowssys_windows_wdk_system_threading_ntSetTimerEx(timerhandle: Long, timersetinformationclass: Int, timersetinformation: Long, timersetinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_NtWaitForSingleObject(handle: Long, alertable: Boolean, timeout: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntTerminateProcess(processhandle: Long, exitstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwCancelTimer(timerhandle: Long, currentstate: Long): Int
+    external fun windowssys_windows_wdk_system_threading_ntWaitForSingleObject(handle: Long, alertable: Boolean, timeout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwCreateTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long, timertype: Int): Int
+    external fun windowssys_windows_wdk_system_threading_zwCancelTimer(timerhandle: Long, currentstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwOpenEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwCreateTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long, timertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwOpenProcess(processhandle: Long, desiredaccess: Int, objectattributes: Long, clientid: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwOpenEvent(eventhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwOpenTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwOpenProcess(processhandle: Long, desiredaccess: Int, objectattributes: Long, clientid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwQueryInformationProcess(processhandle: Long, processinformationclass: Int, processinformation: Long, processinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwOpenTimer(timerhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwQueryInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwQueryInformationProcess(processhandle: Long, processinformationclass: Int, processinformation: Long, processinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwSetInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_threading_zwQueryInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwSetTimerEx(timerhandle: Long, timersetinformationclass: Int, timersetinformation: Long, timersetinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_threading_zwSetInformationThread(threadhandle: Long, threadinformationclass: Int, threadinformation: Long, threadinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwTerminateProcess(processhandle: Long, exitstatus: Int): Int
+    external fun windowssys_windows_wdk_system_threading_zwSetTimer(timerhandle: Long, duetime: Long, timerapcroutine: Long, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_threading_ZwWaitForSingleObject(handle: Long, alertable: Boolean, timeout: Long): Int
+    external fun windowssys_windows_wdk_system_threading_zwSetTimerEx(timerhandle: Long, timersetinformationclass: Int, timersetinformation: Long, timersetinformationlength: Int): Int
+
+    @JvmStatic
+    external fun windowssys_windows_wdk_system_threading_zwTerminateProcess(processhandle: Long, exitstatus: Int): Int
+
+    @JvmStatic
+    external fun windowssys_windows_wdk_system_threading_zwWaitForSingleObject(handle: Long, alertable: Boolean, timeout: Long): Int
 }
 
-public actual fun NtCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtCancelTimer(timerhandle, currentstate)
+public actual fun ntCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntCancelTimer((timerhandle?.value ?: 0L), (currentstate?.value ?: 0L))
 
-public actual fun NtCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtCreateTimer(timerhandle, desiredaccess.toInt(), objectattributes, timertype)
+public actual fun ntCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntCreateTimer((timerhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), timertype)
 
-public actual fun NtOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtOpenEvent(eventhandle, desiredaccess.toInt(), objectattributes)
+public actual fun ntOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntOpenEvent((eventhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun NtOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtOpenProcess(processhandle, desiredaccess.toInt(), objectattributes, clientid)
+public actual fun ntOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntOpenProcess((processhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (clientid?.value ?: 0L))
 
-public actual fun NtOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtOpenTimer(timerhandle, desiredaccess.toInt(), objectattributes)
+public actual fun ntOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntOpenTimer((timerhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun NtQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtQueryInformationProcess(processhandle, processinformationclass, processinformation, processinformationlength.toInt(), returnlength)
+public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntQueryInformationProcess((processhandle?.value ?: 0L), processinformationclass, (processinformation?.value ?: 0L), processinformationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun NtQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtQueryInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength.toInt(), returnlength)
+public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntQueryInformationThread((threadhandle?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun NtSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtSetInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength.toInt())
+public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntSetInformationThread((threadhandle?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationlength.toInt())
 
-public actual fun NtSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS =
-    0
+public actual fun ntSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntSetTimer((timerhandle?.value ?: 0L), (duetime?.value ?: 0L), 0L, (timercontext?.value ?: 0L), resumetimer, period, (previousstate?.value ?: 0L))
 
-public actual fun NtSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtSetTimerEx(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength.toInt())
+public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntSetTimerEx((timerhandle?.value ?: 0L), timersetinformationclass, (timersetinformation?.value ?: 0L), timersetinformationlength.toInt())
 
-public actual fun NtTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtTerminateProcess(processhandle, exitstatus)
+public actual fun ntTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntTerminateProcess((processhandle?.value ?: 0L), exitstatus)
 
-public actual fun NtWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_NtWaitForSingleObject(handle, alertable, timeout)
+public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ntWaitForSingleObject((handle?.value ?: 0L), alertable, (timeout?.value ?: 0L))
 
-public actual fun ZwCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwCancelTimer(timerhandle, currentstate)
+public actual fun zwCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwCancelTimer((timerhandle?.value ?: 0L), (currentstate?.value ?: 0L))
 
-public actual fun ZwCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwCreateTimer(timerhandle, desiredaccess.toInt(), objectattributes, timertype)
+public actual fun zwCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwCreateTimer((timerhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), timertype)
 
-public actual fun ZwOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwOpenEvent(eventhandle, desiredaccess.toInt(), objectattributes)
+public actual fun zwOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwOpenEvent((eventhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun ZwOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwOpenProcess(processhandle, desiredaccess.toInt(), objectattributes, clientid)
+public actual fun zwOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwOpenProcess((processhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (clientid?.value ?: 0L))
 
-public actual fun ZwOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwOpenTimer(timerhandle, desiredaccess.toInt(), objectattributes)
+public actual fun zwOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwOpenTimer((timerhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun ZwQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwQueryInformationProcess(processhandle, processinformationclass, processinformation, processinformationlength.toInt(), returnlength)
+public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwQueryInformationProcess((processhandle?.value ?: 0L), processinformationclass, (processinformation?.value ?: 0L), processinformationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun ZwQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwQueryInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength.toInt(), returnlength)
+public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwQueryInformationThread((threadhandle?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun ZwSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwSetInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength.toInt())
+public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwSetInformationThread((threadhandle?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationlength.toInt())
 
-public actual fun ZwSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS =
-    0
+public actual fun zwSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwSetTimer((timerhandle?.value ?: 0L), (duetime?.value ?: 0L), 0L, (timercontext?.value ?: 0L), resumetimer, period, (previousstate?.value ?: 0L))
 
-public actual fun ZwSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwSetTimerEx(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength.toInt())
+public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwSetTimerEx((timerhandle?.value ?: 0L), timersetinformationclass, (timersetinformation?.value ?: 0L), timersetinformationlength.toInt())
 
-public actual fun ZwTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwTerminateProcess(processhandle, exitstatus)
+public actual fun zwTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwTerminateProcess((processhandle?.value ?: 0L), exitstatus)
 
-public actual fun ZwWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS =
-    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_ZwWaitForSingleObject(handle, alertable, timeout)
+public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemThreadingJniBridge.windowssys_windows_wdk_system_threading_zwWaitForSingleObject((handle?.value ?: 0L), alertable, (timeout?.value ?: 0L))

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId(void* reghandle, void* instinfo) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId(void* reghandle, void* instinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_etw_CveEventWrite(void* cveid, void* additionaldetails) {
+int32_t windowssys_windows_win32_system_diagnostics_etw_cveEventWrite(void* cveid, void* additionaldetails) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_diagnostics_etw_CveEventWrite(void* cvei
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids(void* guidpropertiesarray, uint32_t propertyarraycount, void* guidcount) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids(void* guidpropertiesarray, uint32_t propertyarraycount, void* guidcount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx(int32_t tracequeryinfoclass, void* inbuffer, uint32_t inbuffersize, void* outbuffer, uint32_t outbuffersize, void* returnlength) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx(int32_t tracequeryinfoclass, void* inbuffer, uint32_t inbuffersize, void* outbuffer, uint32_t outbuffersize, void* returnlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessControl(void* guid, uint32_t operation, void* sid, uint32_t rights, bool allowordeny) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventAccessControl(void* guid, uint32_t operation, void* sid, uint32_t rights, bool allowordeny) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -138,7 +138,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessControl(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery(void* guid, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery(void* guid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove(void* guid) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove(void* guid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -184,7 +184,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl(uint32_t controlcode, void* activityid) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl(uint32_t controlcode, void* activityid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl(
 #endif
 }
 
-bool windowssys_windows_win32_system_diagnostics_etw_EventEnabled(int64_t reghandle, void* eventdescriptor) {
+bool windowssys_windows_win32_system_diagnostics_etw_eventEnabled(int64_t reghandle, void* eventdescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ bool windowssys_windows_win32_system_diagnostics_etw_EventEnabled(int64_t reghan
 #endif
 }
 
-bool windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled(int64_t reghandle, uint8_t level, uint64_t keyword) {
+bool windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled(int64_t reghandle, uint8_t level, uint64_t keyword) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, uint8_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ bool windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventRegister(void* providerid, void* enablecallback, void* callbackcontext, void* reghandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventRegister(void* providerid, void* enablecallback, void* callbackcontext, void* reghandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -279,7 +279,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventRegister(void* pro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventSetInformation(int64_t reghandle, int32_t informationclass, void* eventinformation, uint32_t informationlength) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventSetInformation(int64_t reghandle, int32_t informationclass, void* eventinformation, uint32_t informationlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -304,7 +304,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventSetInformation(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventUnregister(int64_t reghandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventUnregister(int64_t reghandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -326,7 +326,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventUnregister(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWrite(int64_t reghandle, void* eventdescriptor, uint32_t userdatacount, void* userdata) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventWrite(int64_t reghandle, void* eventdescriptor, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWrite(int64_t regh
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteEx(int64_t reghandle, void* eventdescriptor, uint64_t filter, uint32_t flags, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventWriteEx(int64_t reghandle, void* eventdescriptor, uint64_t filter, uint32_t flags, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -380,7 +380,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteEx(int64_t re
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteString(int64_t reghandle, uint8_t level, uint64_t keyword, void* string) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventWriteString(int64_t reghandle, uint8_t level, uint64_t keyword, void* string) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint8_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteString(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer(int64_t reghandle, void* eventdescriptor, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer(int64_t reghandle, void* eventdescriptor, void* activityid, void* relatedactivityid, uint32_t userdatacount, void* userdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags(uint64_t tracehandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags(uint64_t tracehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -454,7 +454,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags(uin
 #endif
 }
 
-uint8_t windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel(uint64_t tracehandle) {
+uint8_t windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel(uint64_t tracehandle) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ uint8_t windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel(uint
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle(void* buffer) {
+uint64_t windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle(void* buffer) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -498,7 +498,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle(vo
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream(void* options, void* buffercompletioncallback, void* buffercompletioncontext) {
+uint64_t windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream(void* options, void* buffercompletioncallback, void* buffercompletioncontext) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -522,7 +522,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStre
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile(void* logfilename, void* options, void* logfileheader) {
+uint64_t windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile(void* logfilename, void* options, void* logfileheader) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -546,7 +546,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile(void*
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger(void* loggername, void* options, void* logfileheader) {
+uint64_t windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger(void* loggername, void* options, void* logfileheader) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -570,7 +570,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLo
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions(void* loggername, void* options, uint64_t allocationsize, void* memorypartitionhandle, void* logfileheader) {
+uint64_t windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions(void* loggername, void* options, uint64_t allocationsize, void* memorypartitionhandle, void* logfileheader) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -596,7 +596,7 @@ uint64_t windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTrace(void* handlearray, uint32_t handlecount, void* starttime, void* endtime) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_processTrace(void* handlearray, uint32_t handlecount, void* starttime, void* endtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTrace(void* hand
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream(uint64_t tracehandle, void* buffer, uint32_t buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream(uint64_t tracehandle, void* buffer, uint32_t buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferTo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference(void* buffer) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference(void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -667,7 +667,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecre
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference(uint64_t tracehandle, void* buffer) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference(uint64_t tracehandle, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -690,7 +690,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncre
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA(void* propertyarray, uint32_t propertyarraycount, void* loggercount) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA(void* propertyarray, uint32_t propertyarraycount, void* loggercount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -714,7 +714,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW(void* propertyarray, uint32_t propertyarraycount, void* loggercount) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW(void* propertyarray, uint32_t propertyarraycount, void* loggercount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -738,7 +738,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA(void* requestaddress, void* requestcontext, void* controlguid, uint32_t guidcount, void* traceguidreg, void* mofimagepath, void* mofresourcename, void* registrationhandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA(void* requestaddress, void* requestcontext, void* controlguid, uint32_t guidcount, void* traceguidreg, void* mofimagepath, void* mofresourcename, void* registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -767,7 +767,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW(void* requestaddress, void* requestcontext, void* controlguid, uint32_t guidcount, void* traceguidreg, void* mofimagepath, void* mofresourcename, void* registrationhandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW(void* requestaddress, void* requestcontext, void* controlguid, uint32_t guidcount, void* traceguidreg, void* mofimagepath, void* mofresourcename, void* registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -796,7 +796,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback(void* pguid) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback(void* pguid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -818,7 +818,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback(void* pguid, void* eventcallback) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_setTraceCallback(void* pguid, void* eventcallback) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -841,7 +841,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_StartTraceA(void* tracehandle, void* instancename, void* properties) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_startTraceA(void* tracehandle, void* instancename, void* properties) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +865,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_StartTraceA(void* trace
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_StartTraceW(void* tracehandle, void* instancename, void* properties) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_startTraceW(void* tracehandle, void* instancename, void* properties) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -889,7 +889,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_StartTraceW(void* trace
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters(uint32_t payloadfiltercount, void* payloadfilterptrs, void* eventmatchallflags, void* eventfilterdescriptor) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters(uint32_t payloadfiltercount, void* payloadfilterptrs, void* eventmatchallflags, void* eventfilterdescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilt
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor(void* eventfilterdescriptor) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor(void* eventfilterdescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -936,7 +936,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventF
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle(int64_t handle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(int64_t handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -958,7 +958,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter(void* providerguid, void* eventdescriptor, bool eventmatchany, uint32_t payloadpredicatecount, void* payloadpredicates, void* payloadfilter) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter(void* providerguid, void* eventdescriptor, bool eventmatchany, uint32_t payloadpredicatecount, void* payloadpredicates, void* payloadfilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, bool, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -985,7 +985,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter(void* payloadfilter) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter(void* payloadfilter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents(void* providerguid, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents(void* providerguid, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1031,7 +1031,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestPro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation(void* pguid, int32_t eventfieldtype, void* pbuffer, void* pbuffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation(void* pguid, int32_t eventfieldtype, void* pbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFie
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters(void* guid, uint32_t tdhcontextcount, void* tdhcontext, void* filtercount, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters(void* guid, uint32_t tdhcontextcount, void* tdhcontext, void* filtercount, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFil
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders(void* pbuffer, void* pbuffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders(void* pbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1106,7 +1106,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource(int32_t filter, void* buffer, uint32_t buffersize, void* bufferrequired) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource(int32_t filter, void* buffer, uint32_t buffersize, void* bufferrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1131,7 +1131,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersFo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty(void* eventinfo, void* mapinfo, uint32_t pointersize, uint16_t propertyintype, uint16_t propertyouttype, uint16_t propertylength, uint16_t userdatalength, void* userdata, void* buffersize, void* buffer, void* userdataconsumed) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty(void* eventinfo, void* mapinfo, uint32_t pointersize, uint16_t propertyintype, uint16_t propertyouttype, uint16_t propertylength, uint16_t userdatalength, void* userdata, void* buffersize, void* buffer, void* userdataconsumed) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint16_t, uint16_t, uint16_t, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1163,7 +1163,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter(int64_t handle, void* tdhcontext) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(int64_t handle, void* tdhcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1186,7 +1186,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation(void* event, uint32_t tdhcontextcount, void* tdhcontext, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation(void* event, uint32_t tdhcontextcount, void* tdhcontext, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1212,7 +1212,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation(void* pevent, void* pmapname, void* pbuffer, void* pbuffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation(void* pevent, void* pmapname, void* pbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1237,7 +1237,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformati
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation(void* providerguid, void* eventdescriptor, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation(void* providerguid, void* eventdescriptor, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1262,7 +1262,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInfo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty(void* pevent, uint32_t tdhcontextcount, void* ptdhcontext, uint32_t propertydatacount, void* ppropertydata, uint32_t buffersize, void* pbuffer) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty(void* pevent, uint32_t tdhcontextcount, void* ptdhcontext, uint32_t propertydatacount, void* ppropertydata, uint32_t buffersize, void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1290,7 +1290,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty(void* pe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize(void* pevent, uint32_t tdhcontextcount, void* ptdhcontext, uint32_t propertydatacount, void* ppropertydata, void* ppropertysize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize(void* pevent, uint32_t tdhcontextcount, void* ptdhcontext, uint32_t propertydatacount, void* ppropertydata, void* ppropertysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1317,7 +1317,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage(int64_t handle, void* eventrecord, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(int64_t handle, void* eventrecord, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1342,7 +1342,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty(int64_t handle, void* eventrecord, void* propertyname, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(int64_t handle, void* eventrecord, void* propertyname, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1368,7 +1368,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest(void* manifest) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest(void* manifest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1390,7 +1390,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest(void* m
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary(void* binarypath) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary(void* binarypath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1412,7 +1412,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBina
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory(void* pdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory(void* pdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle(void* handle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle(void* handle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation(void* pguid, uint64_t eventfieldvalue, int32_t eventfieldtype, void* pbuffer, void* pbuffersize) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation(void* pguid, uint64_t eventfieldvalue, int32_t eventfieldtype, void* pbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1483,7 +1483,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter(int64_t handle, void* tdhcontext) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(int64_t handle, void* tdhcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1506,7 +1506,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest(void* manifest) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest(void* manifest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1528,7 +1528,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory(void* pdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory(void* pdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1551,7 +1551,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceEvent(uint64_t tracehandle, void* eventtrace) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_traceEvent(uint64_t tracehandle, void* eventtrace) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1574,7 +1574,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceEvent(uint64_t tra
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance(uint64_t tracehandle, void* eventtrace, void* instinfo, void* parentinstinfo) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_traceEventInstance(uint64_t tracehandle, void* eventtrace, void* instinfo, void* parentinstinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1599,7 +1599,43 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa(uint64_t loggerhandle, uint32_t messageflags, void* messageguid, uint16_t messagenumber, void* messagearglist) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_traceMessage(uint64_t loggerhandle, uint32_t messageflags, void* messageguid, uint16_t messagenumber, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(uint64_t, uint32_t, void*, uint16_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TraceMessage");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber);
+            case 1: return km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return 0;
+#else
+    (void)loggerhandle;
+    (void)messageflags;
+    (void)messageguid;
+    (void)messagenumber;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return 0;
+#endif
+}
+
+uint32_t windowssys_windows_win32_system_diagnostics_etw_traceMessageVa(uint64_t loggerhandle, uint32_t messageflags, void* messageguid, uint16_t messagenumber, void* messagearglist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1625,7 +1661,7 @@ uint32_t windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa(uint64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids(uint64_t registrationhandle) {
+uint32_t windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids(uint64_t registrationhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;

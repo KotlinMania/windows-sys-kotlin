@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector(void* correlationvector) {
+uint32_t windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector(void* correlationvector) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationV
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector(void* correlationvector) {
+uint32_t windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector(void* correlationvector) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelati
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector(void* correlationvector, int32_t version, void* guid) {
+uint32_t windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector(void* correlationvector, int32_t version, void* guid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ uint32_t windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector(void* vector) {
+uint32_t windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector(void* vector) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

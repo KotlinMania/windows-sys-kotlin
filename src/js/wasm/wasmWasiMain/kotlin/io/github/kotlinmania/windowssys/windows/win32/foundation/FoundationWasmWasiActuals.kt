@@ -2,74 +2,79 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public actual fun CloseHandle(hobject: HANDLE): BOOL =
-    0
+public actual fun closeHandle(hobject: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE): BOOL =
-    0
+public actual fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: Long, dwdesiredaccess: UInt, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS): BOOL =
-    0
+public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: COpaquePointer?, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeLibrary(hlibmodule: HMODULE): BOOL =
-    0
+public actual fun freeLibrary(hlibmodule: Hmodule): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetHandleInformation(hobject: HANDLE, lpdwflags: Long): BOOL =
-    0
+public actual fun getHandleInformation(hobject: Handle, lpdwflags: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetLastError(): WIN32_ERROR =
-    0u
+public actual fun getLastError(): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalFree(hmem: HGLOBAL): HGLOBAL =
-    0L
+public actual fun globalFree(hmem: Hglobal): Hglobal =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LocalFree(hmem: HLOCAL): HLOCAL =
-    0L
+public actual fun localFree(hmem: Hlocal): Hlocal =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlNtStatusToDosError(status: NTSTATUS): UInt =
-    0u
+public actual fun rtlNtStatusToDosError(status: Ntstatus): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetHandleInformation(hobject: HANDLE, dwmask: UInt, dwflags: HANDLE_FLAGS): BOOL =
-    0
+public actual fun setHandleInformation(hobject: Handle, dwmask: UInt, dwflags: HandleFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetLastError(dwerrcode: WIN32_ERROR) {
+public actual fun setLastError(dwerrcode: Win32Error) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: UInt) {
+public actual fun setLastErrorEx(dwerrcode: Win32Error, dwtype: UInt) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SysAddRefString(bstrstring: BSTR): HRESULT =
-    0
+public actual fun sysAddRefString(bstrstring: Bstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysAllocString(psz: PCWSTR): BSTR =
-    0L
+public actual fun sysAllocString(psz: Pcwstr): Bstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysAllocStringByteLen(psz: PCSTR, len: UInt): BSTR =
-    0L
+public actual fun sysAllocStringByteLen(psz: Pcstr, len: UInt): Bstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysAllocStringLen(strin: PCWSTR, ui: UInt): BSTR =
-    0L
+public actual fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysFreeString(bstrstring: BSTR) {
+public actual fun sysFreeString(bstrstring: Bstr) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SysReAllocString(pbstr: Long, psz: PCWSTR): Int =
-    0
+public actual fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysReAllocStringLen(pbstr: Long, psz: PCWSTR, len: UInt): Int =
-    0
+public actual fun sysReAllocStringLen(pbstr: COpaquePointer?, psz: Pcwstr, len: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysReleaseString(bstrstring: BSTR) {
+public actual fun sysReleaseString(bstrstring: Bstr) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SysStringByteLen(bstr: BSTR): UInt =
-    0u
+public actual fun sysStringByteLen(bstr: Bstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SysStringLen(pbstr: BSTR): UInt =
-    0u
+public actual fun sysStringLen(pbstr: Bstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

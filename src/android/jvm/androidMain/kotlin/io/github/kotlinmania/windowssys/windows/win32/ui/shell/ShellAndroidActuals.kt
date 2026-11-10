@@ -2,36 +2,37 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
-import io.github.kotlinmania.windowssys.windows.win32.system.ole.DROPEFFECT
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HIMAGELIST
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.LPFNSVADDPROPSHEETPAGE
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DEVICE_SCALE_FACTOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SHOW_WINDOW_CMD
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.Dropeffect
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DeviceScaleFactor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.ShowWindowCmd
 
 private object WindowsWin32UiShellJniBridge {
     init {
@@ -39,2038 +40,2056 @@ private object WindowsWin32UiShellJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocCreateForClasses(rgclasses: Long, cclasses: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocCreateForClasses(rgclasses: Long, cclasses: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey(psf: Long, pidl: Long, pkey: Long, pv: Long, pffoundpropkey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey(psf: Long, pidl: Long, pkey: Long, pv: Long, pffoundpropkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocGetPerceivedType(pszext: Long, ptype: Long, pflag: Long, ppsztype: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocGetPerceivedType(pszext: Long, ptype: Long, pflag: Long, ppsztype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocIsDangerous(pszassoc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocIsDangerous(pszassoc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryKeyA(flags: Int, key: Int, pszassoc: Long, pszextra: Long, phkeyout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryKeyA(flags: Int, key: Int, pszassoc: Long, pszextra: Long, phkeyout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryKeyW(flags: Int, key: Int, pszassoc: Long, pszextra: Long, phkeyout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryKeyW(flags: Int, key: Int, pszassoc: Long, pszextra: Long, phkeyout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryStringA(flags: Int, str: Int, pszassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryStringA(flags: Int, str: Int, pszassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA(flags: Int, str: Int, hkassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryStringByKeyA(flags: Int, str: Int, hkassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW(flags: Int, str: Int, hkassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryStringByKeyW(flags: Int, str: Int, hkassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_AssocQueryStringW(flags: Int, str: Int, pszassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_assocQueryStringW(flags: Int, str: Int, pszassoc: Long, pszextra: Long, pszout: Long, pcchout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2(pidlfolder: Long, hwnd: Long, cidl: Int, apidl: Long, psf: Long, pfn: Long, nkeys: Int, ahkeys: Long, ppcm: Long): Int
+    external fun windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2(pidlfolder: Long, hwnd: Long, cidl: Int, apidl: Long, psf: Long, pfn: Long, nkeys: Int, ahkeys: Long, ppcm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray(pidlfolder: Long, cidl: Int, apidl: Long, ppdtobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray(pidlfolder: Long, cidl: Int, apidl: Long, ppdtobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ChrCmpIA(w1: Short, w2: Short): Int
+    external fun windowssys_windows_win32_ui_shell_chrCmpIA(w1: Short, w2: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ChrCmpIW(w1: Short, w2: Short): Int
+    external fun windowssys_windows_win32_ui_shell_chrCmpIW(w1: Short, w2: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ColorAdjustLuma(clrrgb: Int, n: Int, fscale: Int): Int
+    external fun windowssys_windows_win32_ui_shell_colorAdjustLuma(clrrgb: Int, n: Int, fscale: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ColorHLSToRGB(whue: Short, wluminance: Short, wsaturation: Short): Int
+    external fun windowssys_windows_win32_ui_shell_colorHLSToRGB(whue: Short, wluminance: Short, wsaturation: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ColorRGBToHLS(clrrgb: Int, pwhue: Long, pwluminance: Long, pwsaturation: Long)
+    external fun windowssys_windows_win32_ui_shell_colorRGBToHLS(clrrgb: Int, pwhue: Long, pwluminance: Long, pwsaturation: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_CommandLineToArgvW(lpcmdline: Long, pnumargs: Long): Long
+    external fun windowssys_windows_win32_ui_shell_commandLineToArgvW(lpcmdline: Long, pnumargs: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ConnectToConnectionPoint(punk: Long, riidevent: Long, fconnect: Int, punktarget: Long, pdwcookie: Long, ppcpout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_connectToConnectionPoint(punk: Long, riidevent: Long, fconnect: Int, punktarget: Long, pdwcookie: Long, ppcpout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_CreateProfile(pszusersid: Long, pszusername: Long, pszprofilepath: Long, cchprofilepath: Int): Int
+    external fun windowssys_windows_win32_ui_shell_createProfile(pszusersid: Long, pszusername: Long, pszprofilepath: Long, cchprofilepath: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DAD_AutoScroll(hwnd: Long, pad: Long, pptnow: Long): Int
+    external fun windowssys_windows_win32_ui_shell_dadAutoScroll(hwnd: Long, pad: Long, pptnow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DAD_DragLeave(): Int
+    external fun windowssys_windows_win32_ui_shell_dadDragLeave(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DAD_SetDragImage(him: Long, pptoffset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_dadSetDragImage(him: Long, pptoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DAD_ShowDragImage(fshow: Int): Int
+    external fun windowssys_windows_win32_ui_shell_dadShowDragImage(fshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DefSubclassProc(hwnd: Long, umsg: Int, wparam: Long, lparam: Long): Long
+    external fun windowssys_windows_win32_ui_shell_defSubclassProc(hwnd: Long, umsg: Int, wparam: Long, lparam: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DeleteProfileA(lpsidstring: Long, lpprofilepath: Long, lpcomputername: Long): Int
+    external fun windowssys_windows_win32_ui_shell_deleteProfileA(lpsidstring: Long, lpprofilepath: Long, lpcomputername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DeleteProfileW(lpsidstring: Long, lpprofilepath: Long, lpcomputername: Long): Int
+    external fun windowssys_windows_win32_ui_shell_deleteProfileW(lpsidstring: Long, lpprofilepath: Long, lpcomputername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DoEnvironmentSubstA(pszsrc: Long, cchsrc: Int): Int
+    external fun windowssys_windows_win32_ui_shell_doEnvironmentSubstA(pszsrc: Long, cchsrc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DoEnvironmentSubstW(pszsrc: Long, cchsrc: Int): Int
+    external fun windowssys_windows_win32_ui_shell_doEnvironmentSubstW(pszsrc: Long, cchsrc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DragAcceptFiles(hwnd: Long, faccept: Int)
+    external fun windowssys_windows_win32_ui_shell_dragAcceptFiles(hwnd: Long, faccept: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DragFinish(hdrop: Long)
+    external fun windowssys_windows_win32_ui_shell_dragFinish(hdrop: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DragQueryFileA(hdrop: Long, ifile: Int, lpszfile: Long, cch: Int): Int
+    external fun windowssys_windows_win32_ui_shell_dragQueryFileA(hdrop: Long, ifile: Int, lpszfile: Long, cch: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DragQueryFileW(hdrop: Long, ifile: Int, lpszfile: Long, cch: Int): Int
+    external fun windowssys_windows_win32_ui_shell_dragQueryFileW(hdrop: Long, ifile: Int, lpszfile: Long, cch: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DragQueryPoint(hdrop: Long, ppt: Long): Int
+    external fun windowssys_windows_win32_ui_shell_dragQueryPoint(hdrop: Long, ppt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DriveType(idrive: Int): Int
+    external fun windowssys_windows_win32_ui_shell_driveType(idrive: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_DuplicateIcon(hinst: Long, hicon: Long): Long
+    external fun windowssys_windows_win32_ui_shell_duplicateIcon(hinst: Long, hicon: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractAssociatedIconA(hinst: Long, psziconpath: Long, piicon: Long): Long
+    external fun windowssys_windows_win32_ui_shell_extractAssociatedIconA(hinst: Long, psziconpath: Long, piicon: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA(hinst: Long, psziconpath: Long, piiconindex: Long, piiconid: Long): Long
+    external fun windowssys_windows_win32_ui_shell_extractAssociatedIconExA(hinst: Long, psziconpath: Long, piiconindex: Long, piiconid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW(hinst: Long, psziconpath: Long, piiconindex: Long, piiconid: Long): Long
+    external fun windowssys_windows_win32_ui_shell_extractAssociatedIconExW(hinst: Long, psziconpath: Long, piiconindex: Long, piiconid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractAssociatedIconW(hinst: Long, psziconpath: Long, piicon: Long): Long
+    external fun windowssys_windows_win32_ui_shell_extractAssociatedIconW(hinst: Long, psziconpath: Long, piicon: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractIconA(hinst: Long, pszexefilename: Long, niconindex: Int): Long
+    external fun windowssys_windows_win32_ui_shell_extractIconA(hinst: Long, pszexefilename: Long, niconindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractIconExA(lpszfile: Long, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: Int): Int
+    external fun windowssys_windows_win32_ui_shell_extractIconExA(lpszfile: Long, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractIconExW(lpszfile: Long, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: Int): Int
+    external fun windowssys_windows_win32_ui_shell_extractIconExW(lpszfile: Long, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ExtractIconW(hinst: Long, pszexefilename: Long, niconindex: Int): Long
+    external fun windowssys_windows_win32_ui_shell_extractIconW(hinst: Long, pszexefilename: Long, niconindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_FindExecutableA(lpfile: Long, lpdirectory: Long, lpresult: Long): Long
+    external fun windowssys_windows_win32_ui_shell_findExecutableA(lpfile: Long, lpdirectory: Long, lpresult: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_FindExecutableW(lpfile: Long, lpdirectory: Long, lpresult: Long): Long
+    external fun windowssys_windows_win32_ui_shell_findExecutableW(lpfile: Long, lpdirectory: Long, lpresult: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetAcceptLanguagesA(pszlanguages: Long, pcchlanguages: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getAcceptLanguagesA(pszlanguages: Long, pcchlanguages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetAcceptLanguagesW(pszlanguages: Long, pcchlanguages: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getAcceptLanguagesW(pszlanguages: Long, pcchlanguages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID(appid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID(appid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent(param0: Int): Int
+    external fun windowssys_windows_win32_ui_shell_getDpiForShellUIComponent(param0: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetFileNameFromBrowse(hwnd: Long, pszfilepath: Long, cchfilepath: Int, pszworkingdir: Long, pszdefext: Long, pszfilters: Long, psztitle: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getFileNameFromBrowse(hwnd: Long, pszfilepath: Long, cchfilepath: Int, pszworkingdir: Long, pszdefext: Long, pszfilters: Long, psztitle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetMenuContextHelpId(param0: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getMenuContextHelpId(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetMenuPosFromID(hmenu: Long, id: Int): Int
+    external fun windowssys_windows_win32_ui_shell_getMenuPosFromID(hmenu: Long, id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetProfileType(dwflags: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getProfileType(dwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetProfilesDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getProfilesDirectoryA(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetProfilesDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getProfilesDirectoryW(lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetScaleFactorForDevice(devicetype: Int): Int
+    external fun windowssys_windows_win32_ui_shell_getScaleFactorForDevice(devicetype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor(hmon: Long, pscale: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getScaleFactorForMonitor(hmon: Long, pscale: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA(htoken: Long, lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getUserProfileDirectoryA(htoken: Long, lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW(htoken: Long, lpprofiledir: Long, lpcchsize: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getUserProfileDirectoryW(htoken: Long, lpprofiledir: Long, lpcchsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetWindowContextHelpId(param0: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getWindowContextHelpId(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_GetWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long, pdwrefdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_getWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long, pdwrefdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserFree(param0: Long, param1: Long)
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserFree(param0: Long, param1: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserFree64(param0: Long, param1: Long)
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserFree64(param0: Long, param1: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserMarshal(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserMarshal64(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserSize(param0: Long, param1: Int, param2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserSize(param0: Long, param1: Int, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserSize64(param0: Long, param1: Int, param2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserSize64(param0: Long, param1: Int, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HashData(pbdata: Long, cbdata: Int, pbhash: Long, cbhash: Int): Int
+    external fun windowssys_windows_win32_ui_shell_hashData(pbdata: Long, cbdata: Int, pbhash: Long, cbhash: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkClone(pihl: Long, riid: Long, pihlsiteforclone: Long, dwsitedata: Int, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkClone(pihl: Long, riid: Long, pihlsiteforclone: Long, dwsitedata: Int, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext(piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext(piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices(pwzadditionalheaders: Long, phwnd: Long, pszusername: Long, pszpassword: Long, piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices(pwzadditionalheaders: Long, phwnd: Long, pszusername: Long, pszpassword: Long, piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateFromData(pidataobj: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateFromData(pidataobj: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker(pimktrgt: Long, pwzlocation: Long, pwzfriendlyname: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker(pimktrgt: Long, pwzlocation: Long, pwzfriendlyname: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateFromString(pwztarget: Long, pwzlocation: Long, pwzfriendlyname: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateFromString(pwztarget: Long, pwzlocation: Long, pwzfriendlyname: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateShortcut(grfhlshortcutf: Int, pihl: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateShortcut(grfhlshortcutf: Int, pihl: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker(grfhlshortcutf: Int, pimktarget: Long, pwzlocation: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker(grfhlshortcutf: Int, pimktarget: Long, pwzlocation: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString(grfhlshortcutf: Int, pwztarget: Long, pwzlocation: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString(grfhlshortcutf: Int, pwztarget: Long, pwzlocation: Long, pwzdir: Long, pwzfilename: Long, ppwzshortcutfile: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkGetSpecialReference(ureference: Int, ppwzreference: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkGetSpecialReference(ureference: Int, ppwzreference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkGetValueFromParams(pwzparams: Long, pwzname: Long, ppwzvalue: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkGetValueFromParams(pwzparams: Long, pwzname: Long, ppwzvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkIsShortcut(pwzfilename: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkIsShortcut(pwzfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkNavigate(pihl: Long, pihlframe: Long, grfhlnf: Int, pbc: Long, pibsc: Long, pihlbc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkNavigate(pihl: Long, pihlframe: Long, grfhlnf: Int, pbc: Long, pibsc: Long, pihlbc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference(pwztarget: Long, pwzlocation: Long, pihlsite: Long, dwsitedata: Int, pihlframe: Long, grfhlnf: Int, pibc: Long, pibsc: Long, pihlbc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference(pwztarget: Long, pwzlocation: Long, pihlsite: Long, dwsitedata: Int, pihlframe: Long, grfhlnf: Int, pibc: Long, pibsc: Long, pihlbc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkOnNavigate(pihlframe: Long, pihlbc: Long, grfhlnf: Int, pimktarget: Long, pwzlocation: Long, pwzfriendlyname: Long, puhlid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkOnNavigate(pihlframe: Long, pihlbc: Long, grfhlnf: Int, pimktarget: Long, pwzlocation: Long, pwzfriendlyname: Long, puhlid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkOnRenameDocument(dwreserved: Int, pihlbc: Long, pimkold: Long, pimknew: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkOnRenameDocument(dwreserved: Int, pihlbc: Long, pimkold: Long, pimknew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkParseDisplayName(pibc: Long, pwzdisplayname: Long, fnoforceabs: Int, pccheaten: Long, ppimk: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkParseDisplayName(pibc: Long, pwzdisplayname: Long, fnoforceabs: Int, pccheaten: Long, ppimk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker(pibc: Long, pimkin: Long, ppimkout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker(pibc: Long, pimkin: Long, ppimkout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData(pidataobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData(pidataobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData(pimkreference: Long, reserved: Int, pibc: Long, cfmtetc: Int, rgfmtetc: Long, pibsc: Long, pimkbase: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData(pimkreference: Long, reserved: Int, pibc: Long, cfmtetc: Int, rgfmtetc: Long, pibsc: Long, pimkbase: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkResolveShortcut(pwzshortcutfilename: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkResolveShortcut(pwzshortcutfilename: Long, pihlsite: Long, dwsitedata: Int, piunkouter: Long, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker(pwzshortcutfilename: Long, ppimktarget: Long, ppwzlocation: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker(pwzshortcutfilename: Long, ppimktarget: Long, ppwzlocation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString(pwzshortcutfilename: Long, ppwztarget: Long, ppwzlocation: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString(pwzshortcutfilename: Long, ppwztarget: Long, ppwzlocation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkResolveStringForData(pwzreference: Long, reserved: Int, pibc: Long, cfmtetc: Int, rgfmtetc: Long, pibsc: Long, pimkbase: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkResolveStringForData(pwzreference: Long, reserved: Int, pibc: Long, cfmtetc: Int, rgfmtetc: Long, pibsc: Long, pimkbase: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkSetSpecialReference(ureference: Int, pwzreference: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkSetSpecialReference(ureference: Int, pwzreference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkTranslateURL(pwzurl: Long, grfflags: Int, ppwztranslatedurl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkTranslateURL(pwzurl: Long, grfflags: Int, ppwztranslatedurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_HlinkUpdateStackItem(pihlframe: Long, pihlbc: Long, uhlid: Int, pimktrgt: Long, pwzlocation: Long, pwzfriendlyname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_hlinkUpdateStackItem(pihlframe: Long, pihlbc: Long, uhlid: Int, pimktrgt: Long, pwzlocation: Long, pwzfriendlyname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILAppendID(pidl: Long, pmkid: Long, fappend: Int): Long
+    external fun windowssys_windows_win32_ui_shell_iLAppendID(pidl: Long, pmkid: Long, fappend: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILClone(pidl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLClone(pidl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILCloneFirst(pidl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLCloneFirst(pidl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILCombine(pidl1: Long, pidl2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLCombine(pidl1: Long, pidl2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILCreateFromPathA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLCreateFromPathA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILCreateFromPathW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLCreateFromPathW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILFindChild(pidlparent: Long, pidlchild: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLFindChild(pidlparent: Long, pidlchild: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILFindLastID(pidl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLFindLastID(pidl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILFree(pidl: Long)
+    external fun windowssys_windows_win32_ui_shell_iLFree(pidl: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILGetNext(pidl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_iLGetNext(pidl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILGetSize(pidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iLGetSize(pidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILIsEqual(pidl1: Long, pidl2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iLIsEqual(pidl1: Long, pidl2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILIsParent(pidl1: Long, pidl2: Long, fimmediate: Int): Int
+    external fun windowssys_windows_win32_ui_shell_iLIsParent(pidl1: Long, pidl2: Long, fimmediate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILLoadFromStreamEx(pstm: Long, pidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iLLoadFromStreamEx(pstm: Long, pidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILRemoveLastID(pidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iLRemoveLastID(pidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ILSaveToStream(pstm: Long, pidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iLSaveToStream(pstm: Long, pidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_Copy(pstmfrom: Long, pstmto: Long, cb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_istreamCopy(pstmfrom: Long, pstmto: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_Read(pstm: Long, pv: Long, cb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_istreamRead(pstm: Long, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_ReadPidl(pstm: Long, ppidlout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamReadPidl(pstm: Long, ppidlout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_ReadStr(pstm: Long, ppsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamReadStr(pstm: Long, ppsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_Reset(pstm: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamReset(pstm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_Size(pstm: Long, pui: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamSize(pstm: Long, pui: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_Write(pstm: Long, pv: Long, cb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_istreamWrite(pstm: Long, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_WritePidl(pstm: Long, pidlwrite: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamWritePidl(pstm: Long, pidlwrite: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IStream_WriteStr(pstm: Long, psz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_istreamWriteStr(pstm: Long, psz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease(ppunk: Long)
+    external fun windowssys_windows_win32_ui_shell_iunknownAtomicRelease(ppunk: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_GetSite(punk: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iunknownGetSite(punk: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_GetWindow(punk: Long, phwnd: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iunknownGetWindow(punk: Long, phwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_QueryService(punk: Long, guidservice: Long, riid: Long, ppvout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iunknownQueryService(punk: Long, guidservice: Long, riid: Long, ppvout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_Set(ppunk: Long, punk: Long)
+    external fun windowssys_windows_win32_ui_shell_iunknownSet(ppunk: Long, punk: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IUnknown_SetSite(punk: Long, punksite: Long): Int
+    external fun windowssys_windows_win32_ui_shell_iunknownSetSite(punk: Long, punksite: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ImportPrivacySettings(pszfilename: Long, pfparseprivacypreferences: Long, pfparsepersiterules: Long): Int
+    external fun windowssys_windows_win32_ui_shell_importPrivacySettings(pszfilename: Long, pfparseprivacypreferences: Long, pfparsepersiterules: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_InitNetworkAddressControl(): Int
+    external fun windowssys_windows_win32_ui_shell_initNetworkAddressControl(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet(pstrret: Long, pidl: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_ui_shell_initPropVariantFromStrRet(pstrret: Long, pidl: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_InitVariantFromStrRet(pstrret: Long, pidl: Long, pvar: Long): Int
+    external fun windowssys_windows_win32_ui_shell_initVariantFromStrRet(pstrret: Long, pidl: Long, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IntlStrEqWorkerA(fcasesens: Int, lpstring1: Long, lpstring2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_intlStrEqWorkerA(fcasesens: Int, lpstring1: Long, lpstring2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IntlStrEqWorkerW(fcasesens: Int, lpstring1: Long, lpstring2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_intlStrEqWorkerW(fcasesens: Int, lpstring1: Long, lpstring2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsCharSpaceA(wch: Byte): Int
+    external fun windowssys_windows_win32_ui_shell_isCharSpaceA(wch: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsCharSpaceW(wch: Short): Int
+    external fun windowssys_windows_win32_ui_shell_isCharSpaceW(wch: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsInternetESCEnabled(): Int
+    external fun windowssys_windows_win32_ui_shell_isInternetESCEnabled(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsLFNDriveA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_isLFNDriveA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsLFNDriveW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_isLFNDriveW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsNetDrive(idrive: Int): Int
+    external fun windowssys_windows_win32_ui_shell_isNetDrive(idrive: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsOS(dwos: Int): Int
+    external fun windowssys_windows_win32_ui_shell_isOS(dwos: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_IsUserAnAdmin(): Int
+    external fun windowssys_windows_win32_ui_shell_isUserAnAdmin(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_LoadUserProfileA(htoken: Long, lpprofileinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_loadUserProfileA(htoken: Long, lpprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_LoadUserProfileW(htoken: Long, lpprofileinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_loadUserProfileW(htoken: Long, lpprofileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_OleSaveToStreamEx(piunk: Long, pistm: Long, fcleardirty: Int): Int
+    external fun windowssys_windows_win32_ui_shell_oleSaveToStreamEx(piunk: Long, pistm: Long, fcleardirty: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_OpenRegStream(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
+    external fun windowssys_windows_win32_ui_shell_openRegStream(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ParseURLA(pcszurl: Long, ppu: Long): Int
+    external fun windowssys_windows_win32_ui_shell_parseURLA(pcszurl: Long, ppu: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ParseURLW(pcszurl: Long, ppu: Long): Int
+    external fun windowssys_windows_win32_ui_shell_parseURLW(pcszurl: Long, ppu: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAddBackslashA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathAddBackslashA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAddBackslashW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathAddBackslashW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAddExtensionA(pszpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAddExtensionA(pszpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAddExtensionW(pszpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAddExtensionW(pszpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAllocCanonicalize(pszpathin: Long, dwflags: Int, ppszpathout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAllocCanonicalize(pszpathin: Long, dwflags: Int, ppszpathout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAllocCombine(pszpathin: Long, pszmore: Long, dwflags: Int, ppszpathout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAllocCombine(pszpathin: Long, pszmore: Long, dwflags: Int, ppszpathout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAppendA(pszpath: Long, pszmore: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAppendA(pszpath: Long, pszmore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathAppendW(pszpath: Long, pszmore: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathAppendW(pszpath: Long, pszmore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathBuildRootA(pszroot: Long, idrive: Int): Long
+    external fun windowssys_windows_win32_ui_shell_pathBuildRootA(pszroot: Long, idrive: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathBuildRootW(pszroot: Long, idrive: Int): Long
+    external fun windowssys_windows_win32_ui_shell_pathBuildRootW(pszroot: Long, idrive: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCanonicalizeA(pszbuf: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCanonicalizeA(pszbuf: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCanonicalizeW(pszbuf: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCanonicalizeW(pszbuf: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchAddBackslash(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchAddBackslash(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchAddBackslashEx(pszpath: Long, cchpath: Long, ppszend: Long, pcchremaining: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchAddBackslashEx(pszpath: Long, cchpath: Long, ppszend: Long, pcchremaining: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchAddExtension(pszpath: Long, cchpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchAddExtension(pszpath: Long, cchpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchAppend(pszpath: Long, cchpath: Long, pszmore: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchAppend(pszpath: Long, cchpath: Long, pszmore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchAppendEx(pszpath: Long, cchpath: Long, pszmore: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchAppendEx(pszpath: Long, cchpath: Long, pszmore: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchCanonicalize(pszpathout: Long, cchpathout: Long, pszpathin: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchCanonicalize(pszpathout: Long, cchpathout: Long, pszpathin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx(pszpathout: Long, cchpathout: Long, pszpathin: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx(pszpathout: Long, cchpathout: Long, pszpathin: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchCombine(pszpathout: Long, cchpathout: Long, pszpathin: Long, pszmore: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchCombine(pszpathout: Long, cchpathout: Long, pszpathin: Long, pszmore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchCombineEx(pszpathout: Long, cchpathout: Long, pszpathin: Long, pszmore: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchCombineEx(pszpathout: Long, cchpathout: Long, pszpathin: Long, pszmore: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchFindExtension(pszpath: Long, cchpath: Long, ppszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchFindExtension(pszpath: Long, cchpath: Long, ppszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchIsRoot(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchIsRoot(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchRemoveBackslash(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchRemoveBackslash(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx(pszpath: Long, cchpath: Long, ppszend: Long, pcchremaining: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx(pszpath: Long, cchpath: Long, ppszend: Long, pcchremaining: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchRemoveExtension(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchRemoveExtension(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchRenameExtension(pszpath: Long, cchpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchRenameExtension(pszpath: Long, cchpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchSkipRoot(pszpath: Long, ppszrootend: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchSkipRoot(pszpath: Long, ppszrootend: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchStripPrefix(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchStripPrefix(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCchStripToRoot(pszpath: Long, cchpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCchStripToRoot(pszpath: Long, cchpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCleanupSpec(pszdir: Long, pszspec: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCleanupSpec(pszdir: Long, pszspec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCombineA(pszdest: Long, pszdir: Long, pszfile: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathCombineA(pszdest: Long, pszdir: Long, pszfile: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCombineW(pszdest: Long, pszdir: Long, pszfile: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathCombineW(pszdest: Long, pszdir: Long, pszfile: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCommonPrefixA(pszfile1: Long, pszfile2: Long, achpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCommonPrefixA(pszfile1: Long, pszfile2: Long, achpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCommonPrefixW(pszfile1: Long, pszfile2: Long, achpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathCommonPrefixW(pszfile1: Long, pszfile2: Long, achpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCompactPathA(hdc: Long, pszpath: Long, dx: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCompactPathA(hdc: Long, pszpath: Long, dx: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCompactPathExA(pszout: Long, pszsrc: Long, cchmax: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCompactPathExA(pszout: Long, pszsrc: Long, cchmax: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCompactPathExW(pszout: Long, pszsrc: Long, cchmax: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCompactPathExW(pszout: Long, pszsrc: Long, cchmax: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCompactPathW(hdc: Long, pszpath: Long, dx: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCompactPathW(hdc: Long, pszpath: Long, dx: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCreateFromUrlA(pszurl: Long, pszpath: Long, pcchpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCreateFromUrlA(pszurl: Long, pszpath: Long, pcchpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc(pszin: Long, ppszout: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc(pszin: Long, ppszout: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathCreateFromUrlW(pszurl: Long, pszpath: Long, pcchpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathCreateFromUrlW(pszurl: Long, pszpath: Long, pcchpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFileExistsA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathFileExistsA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFileExistsW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathFileExistsW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindExtensionA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindExtensionA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindExtensionW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindExtensionW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindFileNameA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindFileNameA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindFileNameW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindFileNameW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindNextComponentA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindNextComponentA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindNextComponentW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindNextComponentW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindOnPathA(pszpath: Long, ppszotherdirs: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathFindOnPathA(pszpath: Long, ppszotherdirs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindOnPathW(pszpath: Long, ppszotherdirs: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathFindOnPathW(pszpath: Long, ppszotherdirs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindSuffixArrayA(pszpath: Long, apszsuffix: Long, iarraysize: Int): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindSuffixArrayA(pszpath: Long, apszsuffix: Long, iarraysize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathFindSuffixArrayW(pszpath: Long, apszsuffix: Long, iarraysize: Int): Long
+    external fun windowssys_windows_win32_ui_shell_pathFindSuffixArrayW(pszpath: Long, apszsuffix: Long, iarraysize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetArgsA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathGetArgsA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetArgsW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathGetArgsW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetCharTypeA(ch: Byte): Int
+    external fun windowssys_windows_win32_ui_shell_pathGetCharTypeA(ch: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetCharTypeW(ch: Short): Int
+    external fun windowssys_windows_win32_ui_shell_pathGetCharTypeW(ch: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetDriveNumberA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathGetDriveNumberA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetDriveNumberW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathGetDriveNumberW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathGetShortPath(pszlongpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathGetShortPath(pszlongpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsContentTypeA(pszpath: Long, pszcontenttype: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsContentTypeA(pszpath: Long, pszcontenttype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsContentTypeW(pszpath: Long, pszcontenttype: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsContentTypeW(pszpath: Long, pszcontenttype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsDirectoryA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsDirectoryA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsDirectoryW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsDirectoryW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsExe(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsExe(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsFileSpecA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsFileSpecA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsFileSpecW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsFileSpecW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA(pszname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA(pszname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW(pszname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW(pszname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsNetworkPathA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsNetworkPathA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsNetworkPathW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsNetworkPathW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsPrefixA(pszprefix: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsPrefixA(pszprefix: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsPrefixW(pszprefix: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsPrefixW(pszprefix: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsRelativeA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsRelativeA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsRelativeW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsRelativeW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsRootA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsRootA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsRootW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsRootW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSameRootA(pszpath1: Long, pszpath2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSameRootA(pszpath1: Long, pszpath2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSameRootW(pszpath1: Long, pszpath2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSameRootW(pszpath1: Long, pszpath2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSlowA(pszfile: Long, dwattr: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSlowA(pszfile: Long, dwattr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSlowW(pszfile: Long, dwattr: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSlowW(pszfile: Long, dwattr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSystemFolderA(pszpath: Long, dwattrb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSystemFolderA(pszpath: Long, dwattrb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsSystemFolderW(pszpath: Long, dwattrb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsSystemFolderW(pszpath: Long, dwattrb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCEx(pszpath: Long, ppszserver: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCEx(pszpath: Long, ppszserver: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCServerA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCServerA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCServerShareA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCServerShareA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCServerShareW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCServerShareW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCServerW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCServerW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsUNCW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsUNCW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsURLA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsURLA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathIsURLW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathIsURLW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMakePrettyA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMakePrettyA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMakePrettyW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMakePrettyW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMakeSystemFolderA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMakeSystemFolderA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMakeSystemFolderW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMakeSystemFolderW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMakeUniqueName(pszuniquename: Long, cchmax: Int, psztemplate: Long, pszlongplate: Long, pszdir: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMakeUniqueName(pszuniquename: Long, cchmax: Int, psztemplate: Long, pszlongplate: Long, pszdir: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMatchSpecA(pszfile: Long, pszspec: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMatchSpecA(pszfile: Long, pszspec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMatchSpecExA(pszfile: Long, pszspec: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathMatchSpecExA(pszfile: Long, pszspec: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMatchSpecExW(pszfile: Long, pszspec: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathMatchSpecExW(pszfile: Long, pszspec: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathMatchSpecW(pszfile: Long, pszspec: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathMatchSpecW(pszfile: Long, pszspec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathParseIconLocationA(psziconfile: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathParseIconLocationA(psziconfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathParseIconLocationW(psziconfile: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathParseIconLocationW(psziconfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathQualify(psz: Long)
+    external fun windowssys_windows_win32_ui_shell_pathQualify(psz: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathQuoteSpacesA(lpsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathQuoteSpacesA(lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathQuoteSpacesW(lpsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathQuoteSpacesW(lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRelativePathToA(pszpath: Long, pszfrom: Long, dwattrfrom: Int, pszto: Long, dwattrto: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathRelativePathToA(pszpath: Long, pszfrom: Long, dwattrfrom: Int, pszto: Long, dwattrto: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRelativePathToW(pszpath: Long, pszfrom: Long, dwattrfrom: Int, pszto: Long, dwattrto: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathRelativePathToW(pszpath: Long, pszfrom: Long, dwattrfrom: Int, pszto: Long, dwattrto: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveArgsA(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveArgsA(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveArgsW(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveArgsW(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveBackslashA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathRemoveBackslashA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveBackslashW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathRemoveBackslashW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveBlanksA(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveBlanksA(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveBlanksW(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveBlanksW(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveExtensionA(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveExtensionA(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveExtensionW(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathRemoveExtensionW(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveFileSpecA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathRemoveFileSpecA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRemoveFileSpecW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathRemoveFileSpecW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRenameExtensionA(pszpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathRenameExtensionA(pszpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathRenameExtensionW(pszpath: Long, pszext: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathRenameExtensionW(pszpath: Long, pszext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathResolve(pszpath: Long, dirs: Long, fflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathResolve(pszpath: Long, dirs: Long, fflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSearchAndQualifyA(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathSearchAndQualifyA(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSearchAndQualifyW(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathSearchAndQualifyW(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSetDlgItemPathA(hdlg: Long, id: Int, pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathSetDlgItemPathA(hdlg: Long, id: Int, pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSetDlgItemPathW(hdlg: Long, id: Int, pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathSetDlgItemPathW(hdlg: Long, id: Int, pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSkipRootA(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathSkipRootA(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathSkipRootW(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_pathSkipRootW(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathStripPathA(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathStripPathA(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathStripPathW(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathStripPathW(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathStripToRootA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathStripToRootA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathStripToRootW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathStripToRootW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW(pszpath: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUndecorateA(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathUndecorateA(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUndecorateW(pszpath: Long)
+    external fun windowssys_windows_win32_ui_shell_pathUndecorateW(pszpath: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnquoteSpacesA(lpsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnquoteSpacesA(lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathUnquoteSpacesW(lpsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathUnquoteSpacesW(lpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName(pszuniquename: Long, pszpath: Long, pszshort: Long, pszfilespec: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName(pszuniquename: Long, pszpath: Long, pszshort: Long, pszfilespec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PickIconDlg(hwnd: Long, psziconpath: Long, cchiconpath: Int, piiconindex: Long): Int
+    external fun windowssys_windows_win32_ui_shell_pickIconDlg(hwnd: Long, psziconpath: Long, cchiconpath: Int, piiconindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_PropVariantToStrRet(propvar: Long, pstrret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_propVariantToStrRet(propvar: Long, pstrret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_QISearch(that: Long, pqit: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_qISearch(that: Long, pqit: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ReadCabinetState(pcs: Long, clength: Int): Int
+    external fun windowssys_windows_win32_ui_shell_readCabinetState(pcs: Long, clength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RealDriveType(idrive: Int, foktohitnet: Int): Int
+    external fun windowssys_windows_win32_ui_shell_realDriveType(idrive: Int, foktohitnet: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification(routine: Long, context: Long, registration: Long): Int
+    external fun windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification(routine: Long, context: Long, registration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification(routine: Long, context: Long, registration: Long): Int
+    external fun windowssys_windows_win32_ui_shell_registerAppStateChangeNotification(routine: Long, context: Long, registration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent(hevent: Long, pdwcookie: Long): Int
+    external fun windowssys_windows_win32_ui_shell_registerScaleChangeEvent(hevent: Long, pdwcookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications(displaydevice: Int, hwndnotify: Long, umsgnotify: Int, pdwcookie: Long): Int
+    external fun windowssys_windows_win32_ui_shell_registerScaleChangeNotifications(displaydevice: Int, hwndnotify: Long, umsgnotify: Int, pdwcookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RemoveWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long): Int
+    external fun windowssys_windows_win32_ui_shell_removeWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RestartDialog(hwnd: Long, pszprompt: Long, dwreturn: Int): Int
+    external fun windowssys_windows_win32_ui_shell_restartDialog(hwnd: Long, pszprompt: Long, dwreturn: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RestartDialogEx(hwnd: Long, pszprompt: Long, dwreturn: Int, dwreasoncode: Int): Int
+    external fun windowssys_windows_win32_ui_shell_restartDialogEx(hwnd: Long, pszprompt: Long, dwreturn: Int, dwreasoncode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications(displaydevice: Int, dwcookie: Int): Int
+    external fun windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications(displaydevice: Int, dwcookie: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAddToRecentDocs(uflags: Int, pv: Long)
+    external fun windowssys_windows_win32_ui_shell_sHAddToRecentDocs(uflags: Int, pv: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAlloc(cb: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHAlloc(cb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAllocShared(pvdata: Long, dwsize: Int, dwprocessid: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHAllocShared(pvdata: Long, dwsize: Int, dwprocessid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAnsiToAnsi(pszsrc: Long, pszdst: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHAnsiToAnsi(pszsrc: Long, pszdst: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAnsiToUnicode(pszsrc: Long, pwszdst: Long, cwchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHAnsiToUnicode(pszsrc: Long, pwszdst: Long, cwchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAppBarMessage(dwmessage: Int, pdata: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHAppBarMessage(dwmessage: Int, pdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAssocEnumHandlers(pszextra: Long, affilter: Int, ppenumhandler: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHAssocEnumHandlers(pszextra: Long, affilter: Int, ppenumhandler: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication(protocol: Long, riid: Long, enumhandlers: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication(protocol: Long, riid: Long, enumhandlers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHAutoComplete(hwndedit: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHAutoComplete(hwndedit: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent(psfroot: Long, pidl: Long, riid: Long, ppv: Long, ppidllast: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent(psfroot: Long, pidl: Long, riid: Long, ppv: Long, ppidllast: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx(psfroot: Long, pidl: Long, ppbc: Long, riid: Long, ppv: Long, ppidllast: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx(psfroot: Long, pidl: Long, ppbc: Long, riid: Long, ppv: Long, ppidllast: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBindToObject(psf: Long, pidl: Long, pbc: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHBindToObject(psf: Long, pidl: Long, pbc: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBindToParent(pidl: Long, riid: Long, ppv: Long, ppidllast: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHBindToParent(pidl: Long, riid: Long, ppv: Long, ppidllast: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBrowseForFolderA(lpbi: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHBrowseForFolderA(lpbi: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHBrowseForFolderW(lpbi: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHBrowseForFolderW(lpbi: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCLSIDFromString(psz: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCLSIDFromString(psz: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotification_Lock(hchange: Long, dwprocid: Int, pppidl: Long, plevent: Long): Long
+    external fun windowssys_windows_win32_ui_shell_shchangeNotificationLock(hchange: Long, dwprocid: Int, pppidl: Long, plevent: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock(hlock: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shchangeNotificationUnlock(hlock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotify(weventid: Int, uflags: Int, dwitem1: Long, dwitem2: Long)
+    external fun windowssys_windows_win32_ui_shell_sHChangeNotify(weventid: Int, uflags: Int, dwitem1: Long, dwitem2: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister(ulid: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister(ulid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotifyRegister(hwnd: Long, fsources: Int, fevents: Int, wmsg: Int, centries: Int, pshcne: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHChangeNotifyRegister(hwnd: Long, fsources: Int, fevents: Int, wmsg: Int, centries: Int, pshcne: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread(status: Int)
+    external fun windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread(status: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCloneSpecialIDList(hwnd: Long, csidl: Int, fcreate: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHCloneSpecialIDList(hwnd: Long, csidl: Int, fcreate: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCoCreateInstance(pszclsid: Long, pclsid: Long, punkouter: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCoCreateInstance(pszclsid: Long, pclsid: Long, punkouter: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCopyKeyA(hkeysrc: Long, pszsrcsubkey: Long, hkeydest: Long, freserved: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHCopyKeyA(hkeysrc: Long, pszsrcsubkey: Long, hkeydest: Long, freserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCopyKeyW(hkeysrc: Long, pszsrcsubkey: Long, hkeydest: Long, freserved: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHCopyKeyW(hkeysrc: Long, pszsrcsubkey: Long, hkeydest: Long, freserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration(riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration(riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDataObject(pidlfolder: Long, cidl: Int, apidl: Long, pdtinner: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDataObject(pidlfolder: Long, cidl: Int, apidl: Long, pdtinner: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu(pdcm: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu(pdcm: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon(riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon(riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp(psi: Long, ppfileop: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp(psi: Long, ppfileop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDirectory(hwnd: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDirectory(hwnd: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDirectoryExA(hwnd: Long, pszpath: Long, psa: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDirectoryExA(hwnd: Long, pszpath: Long, psa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateDirectoryExW(hwnd: Long, pszpath: Long, psa: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateDirectoryExW(hwnd: Long, pszpath: Long, psa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW(pszfile: Long, dwfileattributes: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW(pszfile: Long, dwfileattributes: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateItemFromIDList(pidl: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateItemFromIDList(pidl: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName(pszpath: Long, pbc: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName(pszpath: Long, pbc: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName(psiparent: Long, pszname: Long, pbc: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName(psiparent: Long, pszname: Long, pbc: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder(kfid: Long, dwkfflags: Int, pszitem: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder(kfid: Long, dwkfflags: Int, pszitem: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateItemWithParent(pidlparent: Long, psfparent: Long, pidl: Long, riid: Long, ppvitem: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateItemWithParent(pidlparent: Long, psfparent: Long, pidl: Long, riid: Long, ppvitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateMemStream(pinit: Long, cbinit: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHCreateMemStream(pinit: Long, cbinit: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW(pscpi: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW(pscpi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray(hkey: Long, pszsubkey: Long, max_iface: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray(hkey: Long, pszsubkey: Long, maxIface: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker(ppmoniker: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker(ppmoniker: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellFolderView(pcsfv: Long, ppsv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellFolderView(pcsfv: Long, ppsv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx(pcsfv: Long, ppsv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx(pcsfv: Long, ppsv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellItem(pidlparent: Long, psfparent: Long, pidl: Long, ppsi: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellItem(pidlparent: Long, psfparent: Long, pidl: Long, ppsi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellItemArray(pidlparent: Long, psf: Long, cidl: Int, ppidl: Long, ppsiitemarray: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellItemArray(pidlparent: Long, psf: Long, cidl: Int, ppidl: Long, ppsiitemarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject(pdo: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject(pdo: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists(cidl: Int, rgpidl: Long, ppsiitemarray: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists(cidl: Int, rgpidl: Long, ppsiitemarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem(psi: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem(psi: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateShellPalette(hdc: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHCreateShellPalette(hdc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc(cfmt: Int, afmt: Long, ppenumformatetc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc(cfmt: Int, afmt: Long, ppenumformatetc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA(pszfile: Long, grfmode: Int, ppstm: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA(pszfile: Long, grfmode: Int, ppstm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx(pszfile: Long, grfmode: Int, dwattributes: Int, fcreate: Int, pstmtemplate: Long, ppstm: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx(pszfile: Long, grfmode: Int, dwattributes: Int, fcreate: Int, pstmtemplate: Long, ppstm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW(pszfile: Long, grfmode: Int, ppstm: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW(pszfile: Long, grfmode: Int, ppstm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHCreateThreadRef(pcref: Long, ppunk: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateThread(pfnthreadproc: Long, pdata: Long, flags: Int, pfncallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDefExtractIconA(psziconfile: Long, iindex: Int, uflags: Int, phiconlarge: Long, phiconsmall: Long, niconsize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateThreadRef(pcref: Long, ppunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDefExtractIconW(psziconfile: Long, iindex: Int, uflags: Int, phiconlarge: Long, phiconsmall: Long, niconsize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle(pfnthreadproc: Long, pdata: Long, flags: Int, pfncallback: Long, phandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA(hkey: Long, pszsubkey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDefExtractIconA(psziconfile: Long, iindex: Int, uflags: Int, phiconlarge: Long, phiconsmall: Long, niconsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW(hkey: Long, pszsubkey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDefExtractIconW(psziconfile: Long, iindex: Int, uflags: Int, phiconlarge: Long, phiconsmall: Long, niconsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteKeyA(hkey: Long, pszsubkey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA(hkey: Long, pszsubkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteKeyW(hkey: Long, pszsubkey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW(hkey: Long, pszsubkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteValueA(hkey: Long, pszsubkey: Long, pszvalue: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDeleteKeyA(hkey: Long, pszsubkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDeleteValueW(hkey: Long, pszsubkey: Long, pszvalue: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDeleteKeyW(hkey: Long, pszsubkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray(hpsxa: Long)
+    external fun windowssys_windows_win32_ui_shell_sHDeleteValueA(hkey: Long, pszsubkey: Long, pszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHDoDragDrop(hwnd: Long, pdata: Long, pdsrc: Long, dweffect: Int, pdweffect: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHDeleteValueW(hkey: Long, pszsubkey: Long, pszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA(hwnd: Long, pszrootpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray(hpsxa: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW(hwnd: Long, pszrootpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHDoDragDrop(hwnd: Long, pdata: Long, pdsrc: Long, dweffect: Int, pdweffect: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEnumKeyExA(hkey: Long, dwindex: Int, pszname: Long, pcchname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA(hwnd: Long, pszrootpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEnumKeyExW(hkey: Long, dwindex: Int, pszname: Long, pcchname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW(hwnd: Long, pszrootpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEnumValueA(hkey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEnumKeyExA(hkey: Long, dwindex: Int, pszname: Long, pcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEnumValueW(hkey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEnumKeyExW(hkey: Long, dwindex: Int, pszname: Long, pcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW(hkeyuser: Long, dwindex: Int, pszmailaddress: Long, cchmailaddress: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHEnumValueA(hkey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate(pszcmdtemplate: Long, ppszapplication: Long, ppszcommandline: Long, ppszparameters: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEnumValueW(hkey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFileOperationA(lpfileop: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW(hkeyuser: Long, dwindex: Int, pszmailaddress: Long, cchmailaddress: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFileOperationW(lpfileop: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate(pszcmdtemplate: Long, ppszapplication: Long, ppszcommandline: Long, ppszparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFindFiles(pidlfolder: Long, pidlsavefile: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHFileOperationA(lpfileop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup(hmenu: Long, hwndowner: Long, idcmdfirst: Int, idcmdlast: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHFileOperationW(lpfileop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFlushSFCache()
+    external fun windowssys_windows_win32_ui_shell_sHFindFiles(pidlfolder: Long, pidlsavefile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFormatDateTimeA(pft: Long, pdwflags: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_shfindInitMenuPopup(hmenu: Long, hwndowner: Long, idcmdfirst: Int, idcmdlast: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFormatDateTimeW(pft: Long, pdwflags: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHFlushSFCache()
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFormatDrive(hwnd: Long, drive: Int, fmtid: Int, options: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHFormatDateTimeA(pft: Long, pdwflags: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFree(pv: Long)
+    external fun windowssys_windows_win32_ui_shell_sHFormatDateTimeW(pft: Long, pdwflags: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFreeNameMappings(hnamemappings: Long)
+    external fun windowssys_windows_win32_ui_shell_sHFormatDrive(hwnd: Long, drive: Int, fmtid: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHFreeShared(hdata: Long, dwprocessid: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHFree(pv: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject(pdo: Long, dwattributemask: Int, pdwattributes: Long, pcitems: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHFreeNameMappings(hnamemappings: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDataFromIDListA(psf: Long, pidl: Long, nformat: Int, pv: Long, cb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHFreeShared(hdata: Long, dwprocessid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDataFromIDListW(psf: Long, pidl: Long, nformat: Int, pv: Long, cb: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject(pdo: Long, dwattributemask: Int, pdwattributes: Long, pcitems: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDesktopFolder(ppshf: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetDataFromIDListA(psf: Long, pidl: Long, nformat: Int, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA(pszdirectoryname: Long, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetDataFromIDListW(psf: Long, pidl: Long, nformat: Int, pv: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW(pszdirectoryname: Long, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetDesktopFolder(ppshf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetDriveMedia(pszdrive: Long, pdwmediacontent: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA(pszdirectoryname: Long, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFileInfoA(pszpath: Long, dwfileattributes: Int, psfi: Long, cbfileinfo: Int, uflags: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW(pszdirectoryname: Long, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFileInfoW(pszpath: Long, dwfileattributes: Int, psfi: Long, cbfileinfo: Int, uflags: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHGetDriveMedia(pszdrive: Long, pdwmediacontent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFolderLocation(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, ppidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFileInfoA(pszpath: Long, dwfileattributes: Int, psfi: Long, cbfileinfo: Int, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFolderPathA(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFileInfoW(pszpath: Long, dwfileattributes: Int, psfi: Long, cbfileinfo: Int, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszsubdir: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFolderLocation(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, ppidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszsubdir: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFolderPathA(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetFolderPathW(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszsubdir: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetIDListFromObject(punk: Long, ppidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszsubdir: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA(psziconpath: Long, iiconindex: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetFolderPathW(hwnd: Long, csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW(psziconpath: Long, iiconindex: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetIDListFromObject(punk: Long, ppidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetImageList(iimagelist: Int, riid: Long, ppvobj: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA(psziconpath: Long, iiconindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetInstanceExplorer(ppunk: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW(psziconpath: Long, iiconindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetInverseCMAP(pbmap: Long, cbmap: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetImageList(iimagelist: Int, riid: Long, ppvobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetItemFromDataObject(pdtobj: Long, dwflags: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetInstanceExplorer(ppunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetItemFromObject(punk: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetInverseCMAP(pbmap: Long, cbmap: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList(rfid: Long, dwflags: Int, htoken: Long, ppidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetItemFromDataObject(pdtobj: Long, dwflags: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetKnownFolderItem(rfid: Long, flags: Int, htoken: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetItemFromObject(punk: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetKnownFolderPath(rfid: Long, dwflags: Int, htoken: Long, ppszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList(rfid: Long, dwflags: Int, htoken: Long, ppidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetLocalizedName(pszpath: Long, pszresmodule: Long, cch: Int, pidsres: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetKnownFolderItem(rfid: Long, flags: Int, htoken: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetMalloc(ppmalloc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetKnownFolderPath(rfid: Long, dwflags: Int, htoken: Long, ppszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetNameFromIDList(pidl: Long, sigdnname: Int, ppszname: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetLocalizedName(pszpath: Long, pszresmodule: Long, cch: Int, pidsres: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA(pszlinkto: Long, pszdir: Long, pszname: Long, pfmustcopy: Long, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetMalloc(ppmalloc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW(pszlinkto: Long, pszdir: Long, pszname: Long, pfmustcopy: Long, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetNameFromIDList(pidl: Long, sigdnname: Int, ppszname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetPathFromIDListA(pidl: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA(pszlinkto: Long, pszdir: Long, pszname: Long, pfmustcopy: Long, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx(pidl: Long, pszpath: Long, cchpath: Int, uopts: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW(pszlinkto: Long, pszdir: Long, pszname: Long, pfmustcopy: Long, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetPathFromIDListW(pidl: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetPathFromIDListA(pidl: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetRealIDL(psf: Long, pidlsimple: Long, ppidlreal: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx(pidl: Long, pszpath: Long, cchpath: Int, uopts: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings(pfcs: Long, pszpath: Long, dwreadwrite: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetPathFromIDListW(pidl: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSetSettings(lpss: Long, dwmask: Int, bset: Int)
+    external fun windowssys_windows_win32_ui_shell_sHGetRealIDL(psf: Long, pidlsimple: Long, ppidlreal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSettings(psfs: Long, dwmask: Int)
+    external fun windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings(pfcs: Long, pszpath: Long, dwreadwrite: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation(hwnd: Long, csidl: Int, ppidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetSetSettings(lpss: Long, dwmask: Int, bset: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA(hwnd: Long, pszpath: Long, csidl: Int, fcreate: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetSettings(psfs: Long, dwmask: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW(hwnd: Long, pszpath: Long, csidl: Int, fcreate: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation(hwnd: Long, csidl: Int, ppidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetStockIconInfo(siid: Int, uflags: Int, psii: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA(hwnd: Long, pszpath: Long, csidl: Int, fcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem(psi: Long, propkey: Long, ppropvar: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW(hwnd: Long, pszpath: Long, csidl: Int, fcreate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetThreadRef(ppunk: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetStockIconInfo(siid: Int, uflags: Int, psii: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW(hkeyuser: Long, pszmailaddress: Long, pdwcount: Long, pfiletime: Long, pszshellexecutecommand: Long, cchshellexecutecommand: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem(psi: Long, propkey: Long, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetThreadRef(ppunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW(hkeyuser: Long, pszmailaddress: Long, pdwcount: Long, pfiletime: Long, pszshellexecutecommand: Long, cchshellexecutecommand: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag(pidl: Long, pszbagname: Long, dwflags: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement(id: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue(id: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag(pidl: Long, pszbagname: Long, dwflags: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement(id: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement(id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHHandleUpdateImage(pidlextra: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue(id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHILCreateFromPath(pszpath: Long, ppidl: Long, rgfinout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement(id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA(hwnd: Long, uaction: Int, lpbuf1: Long, lpbuf2: Long, fmodal: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHHandleUpdateImage(pidlextra: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW(hwnd: Long, uaction: Int, lpbuf1: Long, lpbuf2: Long, fmodal: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHILCreateFromPath(pszpath: Long, ppidl: Long, rgfinout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline(pwszpath: Long, pdwstatus: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA(hwnd: Long, uaction: Int, lpbuf1: Long, lpbuf2: Long, fmodal: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine(dwtype: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW(hwnd: Long, uaction: Int, lpbuf1: Long, lpbuf2: Long, fmodal: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHLimitInputEdit(hwndedit: Long, psf: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline(pwszpath: Long, pdwstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHLoadInProc(rclsid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine(dwtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHLoadIndirectString(pszsource: Long, pszoutbuf: Long, cchoutbuf: Int, ppvreserved: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHLimitInputEdit(hwndedit: Long, psf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers(): Int
+    external fun windowssys_windows_win32_ui_shell_sHLoadInProc(rclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHLockShared(hdata: Long, dwprocessid: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHLoadIndirectString(pszsource: Long, pszoutbuf: Long, cchoutbuf: Int, ppvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex(pshf: Long, pidl: Long, piindexsel: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHMessageBoxCheckA(hwnd: Long, psztext: Long, pszcaption: Long, utype: Int, idefault: Int, pszregval: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHLockShared(hdata: Long, dwprocessid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHMessageBoxCheckW(hwnd: Long, psztext: Long, pszcaption: Long, utype: Int, idefault: Int, pszregval: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex(pshf: Long, pidl: Long, piindexsel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHMultiFileProperties(pdtobj: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHMessageBoxCheckA(hwnd: Long, psztext: Long, pszcaption: Long, utype: Int, idefault: Int, pszregval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHObjectProperties(hwnd: Long, shopobjecttype: Int, pszobjectname: Long, pszpropertypage: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHMessageBoxCheckW(hwnd: Long, psztext: Long, pszcaption: Long, utype: Int, idefault: Int, pszregval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems(pidlfolder: Long, cidl: Int, apidl: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHMultiFileProperties(pdtobj: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenPropSheetW(pszcaption: Long, ahkeys: Long, ckeys: Int, pclsiddefault: Long, pdtobj: Long, psb: Long, pstartpage: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHObjectProperties(hwnd: Long, shopobjecttype: Int, pszobjectname: Long, pszpropertypage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenRegStream2A(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems(pidlfolder: Long, cidl: Int, apidl: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenRegStream2W(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHOpenPropSheetW(pszcaption: Long, ahkeys: Long, ckeys: Int, pclsiddefault: Long, pdtobj: Long, psb: Long, pstartpage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenRegStreamA(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHOpenRegStream2A(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenRegStreamW(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
+    external fun windowssys_windows_win32_ui_shell_sHOpenRegStream2W(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHOpenWithDialog(hwndparent: Long, poainfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHOpenRegStreamA(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHParseDisplayName(pszname: Long, pbc: Long, ppidl: Long, sfgaoin: Int, psfgaoout: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHOpenRegStreamW(hkey: Long, pszsubkey: Long, pszvalue: Long, grfmode: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA(hwnd: Long, punkenablemodless: Long, pszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHOpenWithDialog(hwndparent: Long, poainfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW(hwnd: Long, punkenablemodless: Long, pszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHParseDisplayName(pszname: Long, pbc: Long, ppidl: Long, sfgaoin: Int, psfgaoout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryInfoKeyA(hkey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA(hwnd: Long, punkenablemodless: Long, pszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryInfoKeyW(hkey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW(hwnd: Long, punkenablemodless: Long, pszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryRecycleBinA(pszrootpath: Long, pshqueryrbinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryInfoKeyA(hkey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryRecycleBinW(pszrootpath: Long, pshqueryrbinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryInfoKeyW(hkey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryUserNotificationState(pquns: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryRecycleBinA(pszrootpath: Long, pshqueryrbinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryValueExA(hkey: Long, pszvalue: Long, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryRecycleBinW(pszrootpath: Long, pshqueryrbinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHQueryValueExW(hkey: Long, pszvalue: Long, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryUserNotificationState(pquns: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegCloseUSKey(huskey: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryValueExA(hkey: Long, pszvalue: Long, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA(pszpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHQueryValueExW(hkey: Long, pszvalue: Long, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW(pwzpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegCloseUSKey(huskey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Long, delregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA(pszpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: Long, delregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW(pwzpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA(huskey: Long, pszvalue: Long, delregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Long, delregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW(huskey: Long, pwzvalue: Long, delregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: Long, delregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegDuplicateHKey(hkey: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA(huskey: Long, pszvalue: Long, delregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA(huskey: Long, dwindex: Int, pszname: Long, pcchname: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW(huskey: Long, pwzvalue: Long, delregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW(huskey: Long, dwindex: Int, pwzname: Long, pcchname: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegDuplicateHKey(hkey: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegEnumUSValueA(huskey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA(huskey: Long, dwindex: Int, pszname: Long, pcchname: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegEnumUSValueW(huskey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW(huskey: Long, dwindex: Int, pwzname: Long, pcchname: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA(pszsubkey: Long, pszvalue: Long, fignorehkcu: Int, fdefault: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegEnumUSValueA(huskey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW(pszsubkey: Long, pszvalue: Long, fignorehkcu: Int, fdefault: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegEnumUSValueW(huskey: Long, dwindex: Int, pszvaluename: Long, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetIntW(hk: Long, pwzkey: Long, idefault: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA(pszsubkey: Long, pszvalue: Long, fignorehkcu: Int, fdefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetPathA(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW(pszsubkey: Long, pszvalue: Long, fignorehkcu: Int, fdefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetPathW(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetIntW(hk: Long, pwzkey: Long, idefault: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetUSValueA(pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetPathA(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetUSValueW(pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetPathW(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetUSValueA(pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM(pwszkey: Long, pwszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetUSValueW(pszsubkey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegGetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA(pszpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM(pwszkey: Long, pwszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW(pwzpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegGetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA(pszpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW(pwzpath: Long, samdesired: Int, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegQueryUSValueA(huskey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegQueryUSValueW(huskey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegSetPathA(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pcszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegQueryUSValueA(huskey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegSetPathW(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pcszpath: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegQueryUSValueW(huskey: Long, pszvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: Int, pvdefaultdata: Long, dwdefaultdatasize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegSetUSValueA(pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegSetPathA(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pcszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegSetUSValueW(pwzsubkey: Long, pwzvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegSetPathW(hkey: Long, pcszsubkey: Long, pcszvalue: Long, pcszpath: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegWriteUSValueA(huskey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegSetUSValueA(pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRegWriteUSValueW(huskey: Long, pwzvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegSetUSValueW(pwzsubkey: Long, pwzvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHReleaseThreadRef(): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegWriteUSValueA(huskey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRemoveLocalizedName(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHRegWriteUSValueW(huskey: Long, pwzvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHResolveLibrary(psilibrary: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHReleaseThreadRef(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHRestricted(rest: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHRemoveLocalizedName(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA(umsg: Int, wparam: Long, lparam: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHResolveLibrary(psilibrary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW(umsg: Int, wparam: Long, lparam: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHRestricted(rest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetDefaultProperties(hwnd: Long, psi: Long, dwfileopflags: Int, pfops: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA(umsg: Int, wparam: Long, lparam: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetFolderPathA(csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW(umsg: Int, wparam: Long, lparam: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetFolderPathW(csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetDefaultProperties(hwnd: Long, psi: Long, dwfileopflags: Int, pfops: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetInstanceExplorer(punk: Long)
+    external fun windowssys_windows_win32_ui_shell_sHSetFolderPathA(csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetKnownFolderPath(rfid: Long, dwflags: Int, htoken: Long, pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetFolderPathW(csidl: Int, htoken: Long, dwflags: Int, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetLocalizedName(pszpath: Long, pszresmodule: Long, idsres: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetInstanceExplorer(punk: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem(psi: Long, propkey: Long, propvar: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetKnownFolderPath(rfid: Long, dwflags: Int, htoken: Long, pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetThreadRef(punk: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetLocalizedName(pszpath: Long, pszresmodule: Long, idsres: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW(pszmailaddress: Long, dwcount: Int, pszshellexecutecommand: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem(psi: Long, propkey: Long, propvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetThreadRef(punk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW(pszmailaddress: Long, dwcount: Int, pszshellexecutecommand: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHShellFolderView_Message(hwndmain: Long, umsg: Int, lparam: Long): Long
+    external fun windowssys_windows_win32_ui_shell_sHSetValueA(hkey: Long, pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHShowManageLibraryUI(psilibrary: Long, hwndowner: Long, psztitle: Long, pszinstruction: Long, lmdoptions: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHSetValueW(hkey: Long, pszsubkey: Long, pszvalue: Long, dwtype: Int, pvdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath(pszpath: Long): Long
+    external fun windowssys_windows_win32_ui_shell_shshellFolderViewMessage(hwndmain: Long, umsg: Int, lparam: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHSkipJunction(pbc: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHShowManageLibraryUI(psilibrary: Long, hwndowner: Long, psztitle: Long, pszinstruction: Long, lmdoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW(hwnd: Long, pszremotename: Long, dwtype: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath(pszpath: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHStrDupA(psz: Long, ppwsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHSkipJunction(pbc: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHStrDupW(psz: Long, ppwsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW(hwnd: Long, pszremotename: Long, dwtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHStripMneumonicA(pszmenu: Long): Byte
+    external fun windowssys_windows_win32_ui_shell_sHStrDupA(psz: Long, ppwsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHStripMneumonicW(pszmenu: Long): Short
+    external fun windowssys_windows_win32_ui_shell_sHStrDupW(psz: Long, ppwsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHTestTokenMembership(htoken: Long, ulrid: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHStripMneumonicA(pszmenu: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHUnicodeToAnsi(pwszsrc: Long, pszdst: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHStripMneumonicW(pszmenu: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHUnicodeToUnicode(pwzsrc: Long, pwzdst: Long, cwchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHTestTokenMembership(htoken: Long, ulrid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHUnlockShared(pvdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHUnicodeToAnsi(pwszsrc: Long, pszdst: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHUpdateImageA(pszhashitem: Long, iindex: Int, uflags: Int, iimageindex: Int)
+    external fun windowssys_windows_win32_ui_shell_sHUnicodeToUnicode(pwzsrc: Long, pwzdst: Long, cwchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHUpdateImageW(pszhashitem: Long, iindex: Int, uflags: Int, iimageindex: Int)
+    external fun windowssys_windows_win32_ui_shell_sHUnlockShared(pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SHValidateUNC(hwndowner: Long, pszfile: Long, fconnect: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHUpdateImageA(pszhashitem: Long, iindex: Int, uflags: Int, iimageindex: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID(appid: Long): Int
+    external fun windowssys_windows_win32_ui_shell_sHUpdateImageW(pszhashitem: Long, iindex: Int, uflags: Int, iimageindex: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SetMenuContextHelpId(param0: Long, param1: Int): Int
+    external fun windowssys_windows_win32_ui_shell_sHValidateUNC(hwndowner: Long, pszfile: Long, fconnect: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SetWindowContextHelpId(param0: Long, param1: Int): Int
+    external fun windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID(appid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SetWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long, dwrefdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_setMenuContextHelpId(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellAboutA(hwnd: Long, szapp: Long, szotherstuff: Long, hicon: Long): Int
+    external fun windowssys_windows_win32_ui_shell_setWindowContextHelpId(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellAboutW(hwnd: Long, szapp: Long, szotherstuff: Long, hicon: Long): Int
+    external fun windowssys_windows_win32_ui_shell_setWindowSubclass(hwnd: Long, pfnsubclass: Long, uidsubclass: Long, dwrefdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellExecuteA(hwnd: Long, lpoperation: Long, lpfile: Long, lpparameters: Long, lpdirectory: Long, nshowcmd: Int): Long
+    external fun windowssys_windows_win32_ui_shell_shellAboutA(hwnd: Long, szapp: Long, szotherstuff: Long, hicon: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellExecuteExA(pexecinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellAboutW(hwnd: Long, szapp: Long, szotherstuff: Long, hicon: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellExecuteExW(pexecinfo: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellExecuteA(hwnd: Long, lpoperation: Long, lpfile: Long, lpparameters: Long, lpdirectory: Long, nshowcmd: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_ShellExecuteW(hwnd: Long, lpoperation: Long, lpfile: Long, lpparameters: Long, lpdirectory: Long, nshowcmd: Int): Long
+    external fun windowssys_windows_win32_ui_shell_shellExecuteExA(pexecinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex(pwsziconpath: Long, iiconindex: Int, uiconflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_shellExecuteExW(pexecinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA(psziconpath: Long, iiconindex: Int, uiconflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_shellExecuteW(hwnd: Long, lpoperation: Long, lpfile: Long, lpparameters: Long, lpdirectory: Long, nshowcmd: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW(psziconpath: Long, iiconindex: Int, uiconflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_shellMessageBoxA(happinst: Long, hwnd: Long, lpctext: Long, lpctitle: Long, fustyle: Int, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_GetImageLists(phiml: Long, phimlsmall: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellMessageBoxW(happinst: Long, hwnd: Long, lpctext: Long, lpctitle: Long, fustyle: Int, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_MergeMenus(hmdst: Long, hmsrc: Long, uinsert: Int, uidadjust: Int, uidadjustmax: Int, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_shellGetCachedImageIndex(pwsziconpath: Long, iiconindex: Int, uiconflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_NotifyIconA(dwmessage: Int, lpdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA(psziconpath: Long, iiconindex: Int, uiconflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect(identifier: Long, iconlocation: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW(psziconpath: Long, iiconindex: Int, uiconflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Shell_NotifyIconW(dwmessage: Int, lpdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellGetImageLists(phiml: Long, phimlsmall: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SignalFileOpen(pidl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellMergeMenus(hmdst: Long, hmsrc: Long, uinsert: Int, uidadjust: Int, uidadjustmax: Int, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox(hwnd: Long, pszdistunit: Long, dwflags: Int, psdi: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellNotifyIconA(dwmessage: Int, lpdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StgMakeUniqueName(pstgparent: Long, pszfilespec: Long, grfmode: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellNotifyIconGetRect(identifier: Long, iconlocation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCSpnA(pszstr: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_shellNotifyIconW(dwmessage: Int, lpdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCSpnIA(pszstr: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_signalFileOpen(pidl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCSpnIW(pszstr: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_softwareUpdateMessageBox(hwnd: Long, pszdistunit: Long, dwflags: Int, psdi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCSpnW(pszstr: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_stgMakeUniqueName(pstgparent: Long, pszfilespec: Long, grfmode: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCatBuffA(pszdest: Long, pszsrc: Long, cchdestbuffsize: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCSpnA(pszstr: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCatBuffW(pszdest: Long, pszsrc: Long, cchdestbuffsize: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCSpnIA(pszstr: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCatChainW(pszdst: Long, cchdst: Int, ichat: Int, pszsrc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strCSpnIW(pszstr: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCatW(psz1: Long, psz2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strCSpnW(pszstr: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrA(pszstart: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strCatBuffA(pszdest: Long, pszsrc: Long, cchdestbuffsize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrIA(pszstart: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strCatBuffW(pszdest: Long, pszsrc: Long, cchdestbuffsize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrIW(pszstart: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strCatChainW(pszdst: Long, cchdst: Int, ichat: Int, pszsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrNIW(pszstart: Long, wmatch: Short, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCatW(psz1: Long, psz2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrNW(pszstart: Long, wmatch: Short, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strChrA(pszstart: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrChrW(pszstart: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strChrIA(pszstart: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpCA(pszstr1: Long, pszstr2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strChrIW(pszstart: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpCW(pszstr1: Long, pszstr2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strChrNIW(pszstart: Long, wmatch: Short, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpICA(pszstr1: Long, pszstr2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strChrNW(pszstart: Long, wmatch: Short, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpICW(pszstr1: Long, pszstr2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strChrW(pszstart: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpIW(psz1: Long, psz2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpCA(pszstr1: Long, pszstr2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpLogicalW(psz1: Long, psz2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpCW(pszstr1: Long, pszstr2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNA(psz1: Long, psz2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpICA(pszstr1: Long, pszstr2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNCA(pszstr1: Long, pszstr2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpICW(pszstr1: Long, pszstr2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNCW(pszstr1: Long, pszstr2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpIW(psz1: Long, psz2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNIA(psz1: Long, psz2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpLogicalW(psz1: Long, psz2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNICA(pszstr1: Long, pszstr2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpNA(psz1: Long, psz2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNICW(pszstr1: Long, pszstr2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpNCA(pszstr1: Long, pszstr2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNIW(psz1: Long, psz2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpNCW(pszstr1: Long, pszstr2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpNW(psz1: Long, psz2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpNIA(psz1: Long, psz2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCmpW(psz1: Long, psz2: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strCmpNICA(pszstr1: Long, pszstr2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCpyNW(pszdst: Long, pszsrc: Long, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCmpNICW(pszstr1: Long, pszstr2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrCpyW(psz1: Long, psz2: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strCmpNIW(psz1: Long, psz2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrDupA(pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strCmpNW(psz1: Long, psz2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrDupW(pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strCmpW(psz1: Long, psz2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatByteSize64A(qdw: Long, pszbuf: Long, cchbuf: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCpyNW(pszdst: Long, pszsrc: Long, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatByteSizeA(dw: Int, pszbuf: Long, cchbuf: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strCpyW(psz1: Long, psz2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatByteSizeEx(ull: Long, flags: Int, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strDupA(pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatByteSizeW(qdw: Long, pszbuf: Long, cchbuf: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strDupW(pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatKBSizeA(qdw: Long, pszbuf: Long, cchbuf: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strFormatByteSize64A(qdw: Long, pszbuf: Long, cchbuf: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFormatKBSizeW(qdw: Long, pszbuf: Long, cchbuf: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strFormatByteSizeA(dw: Int, pszbuf: Long, cchbuf: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFromTimeIntervalA(pszout: Long, cchmax: Int, dwtimems: Int, digits: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strFormatByteSizeEx(ull: Long, flags: Int, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrFromTimeIntervalW(pszout: Long, cchmax: Int, dwtimems: Int, digits: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strFormatByteSizeW(qdw: Long, pszbuf: Long, cchbuf: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrIsIntlEqualA(fcasesens: Int, pszstring1: Long, pszstring2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strFormatKBSizeA(qdw: Long, pszbuf: Long, cchbuf: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrIsIntlEqualW(fcasesens: Int, pszstring1: Long, pszstring2: Long, nchar: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strFormatKBSizeW(qdw: Long, pszbuf: Long, cchbuf: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrNCatA(psz1: Long, psz2: Long, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strFromTimeIntervalA(pszout: Long, cchmax: Int, dwtimems: Int, digits: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrNCatW(psz1: Long, psz2: Long, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strFromTimeIntervalW(pszout: Long, cchmax: Int, dwtimems: Int, digits: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrPBrkA(psz: Long, pszset: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strIsIntlEqualA(fcasesens: Int, pszstring1: Long, pszstring2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrPBrkW(psz: Long, pszset: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strIsIntlEqualW(fcasesens: Int, pszstring1: Long, pszstring2: Long, nchar: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRChrA(pszstart: Long, pszend: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strNCatA(psz1: Long, psz2: Long, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRChrIA(pszstart: Long, pszend: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strNCatW(psz1: Long, psz2: Long, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRChrIW(pszstart: Long, pszend: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strPBrkA(psz: Long, pszset: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRChrW(pszstart: Long, pszend: Long, wmatch: Short): Long
+    external fun windowssys_windows_win32_ui_shell_strPBrkW(psz: Long, pszset: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRStrIA(pszsource: Long, pszlast: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strRChrA(pszstart: Long, pszend: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRStrIW(pszsource: Long, pszlast: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strRChrIA(pszstart: Long, pszend: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRetToBSTR(pstr: Long, pidl: Long, pbstr: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strRChrIW(pszstart: Long, pszend: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRetToBufA(pstr: Long, pidl: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strRChrW(pszstart: Long, pszend: Long, wmatch: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRetToBufW(pstr: Long, pidl: Long, pszbuf: Long, cchbuf: Int): Int
+    external fun windowssys_windows_win32_ui_shell_strRStrIA(pszsource: Long, pszlast: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRetToStrA(pstr: Long, pidl: Long, ppsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strRStrIW(pszsource: Long, pszlast: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrRetToStrW(pstr: Long, pidl: Long, ppsz: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strRetToBSTR(pstr: Long, pidl: Long, pbstr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrSpnA(psz: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strRetToBufA(pstr: Long, pidl: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrSpnW(psz: Long, pszset: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strRetToBufW(pstr: Long, pidl: Long, pszbuf: Long, cchbuf: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrA(pszfirst: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strRetToStrA(pstr: Long, pidl: Long, ppsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrIA(pszfirst: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strRetToStrW(pstr: Long, pidl: Long, ppsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrIW(pszfirst: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strSpnA(psz: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrNIW(pszfirst: Long, pszsrch: Long, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strSpnW(psz: Long, pszset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrNW(pszfirst: Long, pszsrch: Long, cchmax: Int): Long
+    external fun windowssys_windows_win32_ui_shell_strStrA(pszfirst: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrStrW(pszfirst: Long, pszsrch: Long): Long
+    external fun windowssys_windows_win32_ui_shell_strStrIA(pszfirst: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToInt64ExA(pszstring: Long, dwflags: Int, pllret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strStrIW(pszfirst: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToInt64ExW(pszstring: Long, dwflags: Int, pllret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strStrNIW(pszfirst: Long, pszsrch: Long, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToIntA(pszsrc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strStrNW(pszfirst: Long, pszsrch: Long, cchmax: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToIntExA(pszstring: Long, dwflags: Int, piret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strStrW(pszfirst: Long, pszsrch: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToIntExW(pszstring: Long, dwflags: Int, piret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strToInt64ExA(pszstring: Long, dwflags: Int, pllret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrToIntW(pszsrc: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strToInt64ExW(pszstring: Long, dwflags: Int, pllret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrTrimA(psz: Long, psztrimchars: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strToIntA(pszsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_StrTrimW(psz: Long, psztrimchars: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strToIntExA(pszstring: Long, dwflags: Int, piret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UnloadUserProfile(htoken: Long, hprofile: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strToIntExW(pszstring: Long, dwflags: Int, piret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification(registration: Long)
+    external fun windowssys_windows_win32_ui_shell_strToIntW(pszsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification(registration: Long)
+    external fun windowssys_windows_win32_ui_shell_strTrimA(psz: Long, psztrimchars: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent(dwcookie: Long): Int
+    external fun windowssys_windows_win32_ui_shell_strTrimW(psz: Long, psztrimchars: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlApplySchemeA(pszin: Long, pszout: Long, pcchout: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_unloadUserProfile(htoken: Long, hprofile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlApplySchemeW(pszin: Long, pszout: Long, pcchout: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCanonicalizeA(pszurl: Long, pszcanonicalized: Long, pcchcanonicalized: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCanonicalizeW(pszurl: Long, pszcanonicalized: Long, pcchcanonicalized: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent(dwcookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCombineA(pszbase: Long, pszrelative: Long, pszcombined: Long, pcchcombined: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlApplySchemeA(pszin: Long, pszout: Long, pcchout: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCombineW(pszbase: Long, pszrelative: Long, pszcombined: Long, pcchcombined: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlApplySchemeW(pszin: Long, pszout: Long, pcchout: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCompareA(psz1: Long, psz2: Long, fignoreslash: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCanonicalizeA(pszurl: Long, pszcanonicalized: Long, pcchcanonicalized: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCompareW(psz1: Long, psz2: Long, fignoreslash: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCanonicalizeW(pszurl: Long, pszcanonicalized: Long, pcchcanonicalized: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCreateFromPathA(pszpath: Long, pszurl: Long, pcchurl: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCombineA(pszbase: Long, pszrelative: Long, pszcombined: Long, pcchcombined: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlCreateFromPathW(pszpath: Long, pszurl: Long, pcchurl: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCombineW(pszbase: Long, pszrelative: Long, pszcombined: Long, pcchcombined: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlEscapeA(pszurl: Long, pszescaped: Long, pcchescaped: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCompareA(psz1: Long, psz2: Long, fignoreslash: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlEscapeW(pszurl: Long, pszescaped: Long, pcchescaped: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCompareW(psz1: Long, psz2: Long, fignoreslash: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlFixupW(pcszurl: Long, psztranslatedurl: Long, cchmax: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlCreateFromPathA(pszpath: Long, pszurl: Long, pcchurl: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlGetLocationA(pszurl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_urlCreateFromPathW(pszpath: Long, pszurl: Long, pcchurl: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlGetLocationW(pszurl: Long): Long
+    external fun windowssys_windows_win32_ui_shell_urlEscapeA(pszurl: Long, pszescaped: Long, pcchescaped: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlGetPartA(pszin: Long, pszout: Long, pcchout: Long, dwpart: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlEscapeW(pszurl: Long, pszescaped: Long, pcchescaped: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlGetPartW(pszin: Long, pszout: Long, pcchout: Long, dwpart: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlFixupW(pcszurl: Long, psztranslatedurl: Long, cchmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlHashA(pszurl: Long, pbhash: Long, cbhash: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlGetLocationA(pszurl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlHashW(pszurl: Long, pbhash: Long, cbhash: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlGetLocationW(pszurl: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsA(pszurl: Long, urlis: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlGetPartA(pszin: Long, pszout: Long, pcchout: Long, dwpart: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsNoHistoryA(pszurl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlGetPartW(pszin: Long, pszout: Long, pcchout: Long, dwpart: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsNoHistoryW(pszurl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlHashA(pszurl: Long, pbhash: Long, cbhash: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsOpaqueA(pszurl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlHashW(pszurl: Long, pbhash: Long, cbhash: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsOpaqueW(pszurl: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsA(pszurl: Long, urlis: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlIsW(pszurl: Long, urlis: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsNoHistoryA(pszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlUnescapeA(pszurl: Long, pszunescaped: Long, pcchunescaped: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsNoHistoryW(pszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_UrlUnescapeW(pszurl: Long, pszunescaped: Long, pcchunescaped: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsOpaqueA(pszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_VariantToStrRet(varin: Long, pstrret: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsOpaqueW(pszurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_WhichPlatform(): Int
+    external fun windowssys_windows_win32_ui_shell_urlIsW(pszurl: Long, urlis: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_Win32DeleteFile(pszpath: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlUnescapeA(pszurl: Long, pszunescaped: Long, pcchunescaped: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_WinHelpA(hwndmain: Long, lpszhelp: Long, ucommand: Int, dwdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_urlUnescapeW(pszurl: Long, pszunescaped: Long, pcchunescaped: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_WinHelpW(hwndmain: Long, lpszhelp: Long, ucommand: Int, dwdata: Long): Int
+    external fun windowssys_windows_win32_ui_shell_variantToStrRet(varin: Long, pstrret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_shell_WriteCabinetState(pcs: Long): Int
+    external fun windowssys_windows_win32_ui_shell_whichPlatform(): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_win32DeleteFile(pszpath: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_winHelpA(hwndmain: Long, lpszhelp: Long, ucommand: Int, dwdata: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_winHelpW(hwndmain: Long, lpszhelp: Long, ucommand: Int, dwdata: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_writeCabinetState(pcs: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_wnsprintfA(pszdest: Long, cchdest: Int, pszfmt: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_ui_shell_wnsprintfW(pszdest: Long, cchdest: Int, pszfmt: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_shell_wvnsprintfA(pszdest: Long, cchdest: Int, pszfmt: Long, arglist: Long): Int
@@ -2079,2114 +2098,2114 @@ private object WindowsWin32UiShellJniBridge {
     external fun windowssys_windows_win32_ui_shell_wvnsprintfW(pszdest: Long, cchdest: Int, pszfmt: Long, arglist: Long): Int
 }
 
-public actual fun AssocCreate(clsid: GUID, riid: Long, ppv: Long): HRESULT =
+public actual fun assocCreate(clsid: Guid, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     0
 
-public actual fun AssocCreateForClasses(rgclasses: Long, cclasses: UInt, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocCreateForClasses(rgclasses, cclasses.toInt(), riid, ppv)
+public actual fun assocCreateForClasses(rgclasses: COpaquePointer?, cclasses: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocCreateForClasses((rgclasses?.value ?: 0L), cclasses.toInt(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun AssocGetDetailsOfPropKey(psf: Long, pidl: Long, pkey: Long, pv: Long, pffoundpropkey: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey(psf, pidl, pkey, pv, pffoundpropkey)
+public actual fun assocGetDetailsOfPropKey(psf: COpaquePointer?, pidl: COpaquePointer?, pkey: COpaquePointer?, pv: COpaquePointer?, pffoundpropkey: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey((psf?.value ?: 0L), (pidl?.value ?: 0L), (pkey?.value ?: 0L), (pv?.value ?: 0L), (pffoundpropkey?.value ?: 0L))
 
-public actual fun AssocGetPerceivedType(pszext: PCWSTR, ptype: Long, pflag: Long, ppsztype: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocGetPerceivedType(pszext, ptype, pflag, ppsztype)
+public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: COpaquePointer?, pflag: COpaquePointer?, ppsztype: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocGetPerceivedType((pszext?.value ?: 0L), (ptype?.value ?: 0L), (pflag?.value ?: 0L), (ppsztype?.value ?: 0L))
 
-public actual fun AssocIsDangerous(pszassoc: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocIsDangerous(pszassoc)
+public actual fun assocIsDangerous(pszassoc: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocIsDangerous((pszassoc?.value ?: 0L))
 
-public actual fun AssocQueryKeyA(flags: ASSOCF, key: ASSOCKEY, pszassoc: PCSTR, pszextra: PCSTR, phkeyout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryKeyA(flags.toInt(), key, pszassoc, pszextra, phkeyout)
+public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryKeyA(flags.toInt(), key, (pszassoc?.value ?: 0L), (pszextra?.value ?: 0L), (phkeyout?.value ?: 0L))
 
-public actual fun AssocQueryKeyW(flags: ASSOCF, key: ASSOCKEY, pszassoc: PCWSTR, pszextra: PCWSTR, phkeyout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryKeyW(flags.toInt(), key, pszassoc, pszextra, phkeyout)
+public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryKeyW(flags.toInt(), key, (pszassoc?.value ?: 0L), (pszextra?.value ?: 0L), (phkeyout?.value ?: 0L))
 
-public actual fun AssocQueryStringA(flags: ASSOCF, str: ASSOCSTR, pszassoc: PCSTR, pszextra: PCSTR, pszout: PSTR, pcchout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryStringA(flags.toInt(), str, pszassoc, pszextra, pszout, pcchout)
+public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryStringA(flags.toInt(), str, (pszassoc?.value ?: 0L), (pszextra?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L))
 
-public actual fun AssocQueryStringByKeyA(flags: ASSOCF, str: ASSOCSTR, hkassoc: HKEY, pszextra: PCSTR, pszout: PSTR, pcchout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA(flags.toInt(), str, hkassoc, pszextra, pszout, pcchout)
+public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryStringByKeyA(flags.toInt(), str, (hkassoc?.value ?: 0L), (pszextra?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L))
 
-public actual fun AssocQueryStringByKeyW(flags: ASSOCF, str: ASSOCSTR, hkassoc: HKEY, pszextra: PCWSTR, pszout: PWSTR, pcchout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW(flags.toInt(), str, hkassoc, pszextra, pszout, pcchout)
+public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryStringByKeyW(flags.toInt(), str, (hkassoc?.value ?: 0L), (pszextra?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L))
 
-public actual fun AssocQueryStringW(flags: ASSOCF, str: ASSOCSTR, pszassoc: PCWSTR, pszextra: PCWSTR, pszout: PWSTR, pcchout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_AssocQueryStringW(flags.toInt(), str, pszassoc, pszextra, pszout, pcchout)
+public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_assocQueryStringW(flags.toInt(), str, (pszassoc?.value ?: 0L), (pszextra?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L))
 
-public actual fun CDefFolderMenu_Create2(pidlfolder: Long, hwnd: HWND, cidl: UInt, apidl: Long, psf: Long, pfn: LPFNDFMCALLBACK, nkeys: UInt, ahkeys: Long, ppcm: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2(pidlfolder, hwnd, cidl.toInt(), apidl, psf, pfn.toLong(), nkeys.toInt(), ahkeys, ppcm)
+public actual fun cdefFolderMenuCreate2(pidlfolder: COpaquePointer?, hwnd: Hwnd, cidl: UInt, apidl: COpaquePointer?, psf: COpaquePointer?, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: COpaquePointer?, ppcm: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2((pidlfolder?.value ?: 0L), (hwnd?.value ?: 0L), cidl.toInt(), (apidl?.value ?: 0L), (psf?.value ?: 0L), 0L, nkeys.toInt(), (ahkeys?.value ?: 0L), (ppcm?.value ?: 0L))
 
-public actual fun CIDLData_CreateFromIDArray(pidlfolder: Long, cidl: UInt, apidl: Long, ppdtobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray(pidlfolder, cidl.toInt(), apidl, ppdtobj)
+public actual fun cidldataCreateFromIdarray(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, ppdtobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray((pidlfolder?.value ?: 0L), cidl.toInt(), (apidl?.value ?: 0L), (ppdtobj?.value ?: 0L))
 
-public actual fun ChrCmpIA(w1: UShort, w2: UShort): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ChrCmpIA(w1.toShort(), w2.toShort())
+public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_chrCmpIA(w1.toShort(), w2.toShort())
 
-public actual fun ChrCmpIW(w1: UShort, w2: UShort): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ChrCmpIW(w1.toShort(), w2.toShort())
+public actual fun chrCmpIW(w1: UShort, w2: UShort): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_chrCmpIW(w1.toShort(), w2.toShort())
 
-public actual fun ColorAdjustLuma(clrrgb: COLORREF, n: Int, fscale: BOOL): COLORREF =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ColorAdjustLuma(clrrgb.toInt(), n, fscale).toUInt()
+public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Colorref =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_colorAdjustLuma(clrrgb.toInt(), n, fscale).toUInt()
 
-public actual fun ColorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): COLORREF =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ColorHLSToRGB(whue.toShort(), wluminance.toShort(), wsaturation.toShort()).toUInt()
+public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_colorHLSToRGB(whue.toShort(), wluminance.toShort(), wsaturation.toShort()).toUInt()
 
-public actual fun ColorRGBToHLS(clrrgb: COLORREF, pwhue: Long, pwluminance: Long, pwsaturation: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ColorRGBToHLS(clrrgb.toInt(), pwhue, pwluminance, pwsaturation)
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: COpaquePointer?, pwluminance: COpaquePointer?, pwsaturation: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_colorRGBToHLS(clrrgb.toInt(), (pwhue?.value ?: 0L), (pwluminance?.value ?: 0L), (pwsaturation?.value ?: 0L))
 }
 
-public actual fun CommandLineToArgvW(lpcmdline: PCWSTR, pnumargs: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_CommandLineToArgvW(lpcmdline, pnumargs)
+public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_commandLineToArgvW((lpcmdline?.value ?: 0L), (pnumargs?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ConnectToConnectionPoint(punk: Long, riidevent: Long, fconnect: BOOL, punktarget: Long, pdwcookie: Long, ppcpout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ConnectToConnectionPoint(punk, riidevent, fconnect, punktarget, pdwcookie, ppcpout)
+public actual fun connectToConnectionPoint(punk: COpaquePointer?, riidevent: COpaquePointer?, fconnect: Bool, punktarget: COpaquePointer?, pdwcookie: COpaquePointer?, ppcpout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_connectToConnectionPoint((punk?.value ?: 0L), (riidevent?.value ?: 0L), fconnect, (punktarget?.value ?: 0L), (pdwcookie?.value ?: 0L), (ppcpout?.value ?: 0L))
 
-public actual fun CreateProfile(pszusersid: PCWSTR, pszusername: PCWSTR, pszprofilepath: PWSTR, cchprofilepath: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_CreateProfile(pszusersid, pszusername, pszprofilepath, cchprofilepath.toInt())
+public actual fun createProfile(pszusersid: Pcwstr, pszusername: Pcwstr, pszprofilepath: Pwstr, cchprofilepath: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_createProfile((pszusersid?.value ?: 0L), (pszusername?.value ?: 0L), (pszprofilepath?.value ?: 0L), cchprofilepath.toInt())
 
-public actual fun DAD_AutoScroll(hwnd: HWND, pad: Long, pptnow: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DAD_AutoScroll(hwnd, pad, pptnow)
+public actual fun dadAutoScroll(hwnd: Hwnd, pad: COpaquePointer?, pptnow: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dadAutoScroll((hwnd?.value ?: 0L), (pad?.value ?: 0L), (pptnow?.value ?: 0L))
 
-public actual fun DAD_DragEnterEx(hwndtarget: HWND, ptstart: POINT): BOOL =
+public actual fun dadDragEnterEx(hwndtarget: Hwnd, ptstart: Point): Bool =
     0
 
-public actual fun DAD_DragEnterEx2(hwndtarget: HWND, ptstart: POINT, pdtobject: Long): BOOL =
+public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: COpaquePointer?): Bool =
     0
 
-public actual fun DAD_DragLeave(): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DAD_DragLeave()
+public actual fun dadDragLeave(): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dadDragLeave()
 
-public actual fun DAD_DragMove(pt: POINT): BOOL =
+public actual fun dadDragMove(pt: Point): Bool =
     0
 
-public actual fun DAD_SetDragImage(him: HIMAGELIST, pptoffset: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DAD_SetDragImage(him, pptoffset)
+public actual fun dadSetDragImage(him: Himagelist, pptoffset: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dadSetDragImage(him, (pptoffset?.value ?: 0L))
 
-public actual fun DAD_ShowDragImage(fshow: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DAD_ShowDragImage(fshow)
+public actual fun dadShowDragImage(fshow: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dadShowDragImage(fshow)
 
-public actual fun DefSubclassProc(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DefSubclassProc(hwnd, umsg.toInt(), wparam.toLong(), lparam)
+public actual fun defSubclassProc(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_defSubclassProc((hwnd?.value ?: 0L), umsg.toInt(), wparam.toLong(), lparam)
 
-public actual fun DeleteProfileA(lpsidstring: PCSTR, lpprofilepath: PCSTR, lpcomputername: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DeleteProfileA(lpsidstring, lpprofilepath, lpcomputername)
+public actual fun deleteProfileA(lpsidstring: Pcstr, lpprofilepath: Pcstr, lpcomputername: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_deleteProfileA((lpsidstring?.value ?: 0L), (lpprofilepath?.value ?: 0L), (lpcomputername?.value ?: 0L))
 
-public actual fun DeleteProfileW(lpsidstring: PCWSTR, lpprofilepath: PCWSTR, lpcomputername: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DeleteProfileW(lpsidstring, lpprofilepath, lpcomputername)
+public actual fun deleteProfileW(lpsidstring: Pcwstr, lpprofilepath: Pcwstr, lpcomputername: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_deleteProfileW((lpsidstring?.value ?: 0L), (lpprofilepath?.value ?: 0L), (lpcomputername?.value ?: 0L))
 
-public actual fun DoEnvironmentSubstA(pszsrc: PSTR, cchsrc: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DoEnvironmentSubstA(pszsrc, cchsrc.toInt()).toUInt()
+public actual fun doEnvironmentSubstA(pszsrc: Pstr, cchsrc: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_doEnvironmentSubstA((pszsrc?.value ?: 0L), cchsrc.toInt()).toUInt()
 
-public actual fun DoEnvironmentSubstW(pszsrc: PWSTR, cchsrc: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DoEnvironmentSubstW(pszsrc, cchsrc.toInt()).toUInt()
+public actual fun doEnvironmentSubstW(pszsrc: Pwstr, cchsrc: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_doEnvironmentSubstW((pszsrc?.value ?: 0L), cchsrc.toInt()).toUInt()
 
-public actual fun DragAcceptFiles(hwnd: HWND, faccept: BOOL) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DragAcceptFiles(hwnd, faccept)
+public actual fun dragAcceptFiles(hwnd: Hwnd, faccept: Bool) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dragAcceptFiles((hwnd?.value ?: 0L), faccept)
 }
 
-public actual fun DragFinish(hdrop: HDROP) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DragFinish(hdrop)
+public actual fun dragFinish(hdrop: Hdrop) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dragFinish((hdrop?.value ?: 0L))
 }
 
-public actual fun DragQueryFileA(hdrop: HDROP, ifile: UInt, lpszfile: PSTR, cch: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DragQueryFileA(hdrop, ifile.toInt(), lpszfile, cch.toInt()).toUInt()
+public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dragQueryFileA((hdrop?.value ?: 0L), ifile.toInt(), (lpszfile?.value ?: 0L), cch.toInt()).toUInt()
 
-public actual fun DragQueryFileW(hdrop: HDROP, ifile: UInt, lpszfile: PWSTR, cch: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DragQueryFileW(hdrop, ifile.toInt(), lpszfile, cch.toInt()).toUInt()
+public actual fun dragQueryFileW(hdrop: Hdrop, ifile: UInt, lpszfile: Pwstr, cch: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dragQueryFileW((hdrop?.value ?: 0L), ifile.toInt(), (lpszfile?.value ?: 0L), cch.toInt()).toUInt()
 
-public actual fun DragQueryPoint(hdrop: HDROP, ppt: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DragQueryPoint(hdrop, ppt)
+public actual fun dragQueryPoint(hdrop: Hdrop, ppt: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_dragQueryPoint((hdrop?.value ?: 0L), (ppt?.value ?: 0L))
 
-public actual fun DriveType(idrive: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DriveType(idrive)
+public actual fun driveType(idrive: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_driveType(idrive)
 
-public actual fun DuplicateIcon(hinst: HINSTANCE, hicon: HICON): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_DuplicateIcon(hinst, hicon)
+public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_duplicateIcon((hinst?.value ?: 0L), (hicon?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractAssociatedIconA(hinst: HINSTANCE, psziconpath: PSTR, piicon: Long): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractAssociatedIconA(hinst, psziconpath, piicon)
+public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: COpaquePointer?): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractAssociatedIconA((hinst?.value ?: 0L), (psziconpath?.value ?: 0L), (piicon?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractAssociatedIconExA(hinst: HINSTANCE, psziconpath: PSTR, piiconindex: Long, piiconid: Long): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA(hinst, psziconpath, piiconindex, piiconid)
+public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: COpaquePointer?, piiconid: COpaquePointer?): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractAssociatedIconExA((hinst?.value ?: 0L), (psziconpath?.value ?: 0L), (piiconindex?.value ?: 0L), (piiconid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractAssociatedIconExW(hinst: HINSTANCE, psziconpath: PWSTR, piiconindex: Long, piiconid: Long): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW(hinst, psziconpath, piiconindex, piiconid)
+public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: COpaquePointer?, piiconid: COpaquePointer?): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractAssociatedIconExW((hinst?.value ?: 0L), (psziconpath?.value ?: 0L), (piiconindex?.value ?: 0L), (piiconid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractAssociatedIconW(hinst: HINSTANCE, psziconpath: PWSTR, piicon: Long): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractAssociatedIconW(hinst, psziconpath, piicon)
+public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: COpaquePointer?): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractAssociatedIconW((hinst?.value ?: 0L), (psziconpath?.value ?: 0L), (piicon?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractIconA(hinst: HINSTANCE, pszexefilename: PCSTR, niconindex: UInt): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractIconA(hinst, pszexefilename, niconindex.toInt())
+public actual fun extractIconA(hinst: Hinstance, pszexefilename: Pcstr, niconindex: UInt): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractIconA((hinst?.value ?: 0L), (pszexefilename?.value ?: 0L), niconindex.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ExtractIconExA(lpszfile: PCSTR, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractIconExA(lpszfile, niconindex, phiconlarge, phiconsmall, nicons.toInt()).toUInt()
+public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, nicons: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractIconExA((lpszfile?.value ?: 0L), niconindex, (phiconlarge?.value ?: 0L), (phiconsmall?.value ?: 0L), nicons.toInt()).toUInt()
 
-public actual fun ExtractIconExW(lpszfile: PCWSTR, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractIconExW(lpszfile, niconindex, phiconlarge, phiconsmall, nicons.toInt()).toUInt()
+public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, nicons: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractIconExW((lpszfile?.value ?: 0L), niconindex, (phiconlarge?.value ?: 0L), (phiconsmall?.value ?: 0L), nicons.toInt()).toUInt()
 
-public actual fun ExtractIconW(hinst: HINSTANCE, pszexefilename: PCWSTR, niconindex: UInt): HICON =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ExtractIconW(hinst, pszexefilename, niconindex.toInt())
+public actual fun extractIconW(hinst: Hinstance, pszexefilename: Pcwstr, niconindex: UInt): Hicon =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_extractIconW((hinst?.value ?: 0L), (pszexefilename?.value ?: 0L), niconindex.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindExecutableA(lpfile: PCSTR, lpdirectory: PCSTR, lpresult: PSTR): HINSTANCE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_FindExecutableA(lpfile, lpdirectory, lpresult)
+public actual fun findExecutableA(lpfile: Pcstr, lpdirectory: Pcstr, lpresult: Pstr): Hinstance =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_findExecutableA((lpfile?.value ?: 0L), (lpdirectory?.value ?: 0L), (lpresult?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindExecutableW(lpfile: PCWSTR, lpdirectory: PCWSTR, lpresult: PWSTR): HINSTANCE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_FindExecutableW(lpfile, lpdirectory, lpresult)
+public actual fun findExecutableW(lpfile: Pcwstr, lpdirectory: Pcwstr, lpresult: Pwstr): Hinstance =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_findExecutableW((lpfile?.value ?: 0L), (lpdirectory?.value ?: 0L), (lpresult?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetAcceptLanguagesA(pszlanguages: PSTR, pcchlanguages: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetAcceptLanguagesA(pszlanguages, pcchlanguages)
+public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getAcceptLanguagesA((pszlanguages?.value ?: 0L), (pcchlanguages?.value ?: 0L))
 
-public actual fun GetAcceptLanguagesW(pszlanguages: PWSTR, pcchlanguages: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetAcceptLanguagesW(pszlanguages, pcchlanguages)
+public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getAcceptLanguagesW((pszlanguages?.value ?: 0L), (pcchlanguages?.value ?: 0L))
 
-public actual fun GetAllUsersProfileDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA(lpprofiledir, lpcchsize)
+public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetAllUsersProfileDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW(lpprofiledir, lpcchsize)
+public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetCurrentProcessExplicitAppUserModelID(appid: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID(appid)
+public actual fun getCurrentProcessExplicitAppUserModelID(appid: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID((appid?.value ?: 0L))
 
-public actual fun GetDefaultUserProfileDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA(lpprofiledir, lpcchsize)
+public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetDefaultUserProfileDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW(lpprofiledir, lpcchsize)
+public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent(param0).toUInt()
+public actual fun getDpiForShellUIComponent(param0: ShellUiComponent): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getDpiForShellUIComponent(param0).toUInt()
 
-public actual fun GetFileNameFromBrowse(hwnd: HWND, pszfilepath: PWSTR, cchfilepath: UInt, pszworkingdir: PCWSTR, pszdefext: PCWSTR, pszfilters: PCWSTR, psztitle: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetFileNameFromBrowse(hwnd, pszfilepath, cchfilepath.toInt(), pszworkingdir, pszdefext, pszfilters, psztitle)
+public actual fun getFileNameFromBrowse(hwnd: Hwnd, pszfilepath: Pwstr, cchfilepath: UInt, pszworkingdir: Pcwstr, pszdefext: Pcwstr, pszfilters: Pcwstr, psztitle: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getFileNameFromBrowse((hwnd?.value ?: 0L), (pszfilepath?.value ?: 0L), cchfilepath.toInt(), (pszworkingdir?.value ?: 0L), (pszdefext?.value ?: 0L), (pszfilters?.value ?: 0L), (psztitle?.value ?: 0L))
 
-public actual fun GetMenuContextHelpId(param0: HMENU): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetMenuContextHelpId(param0).toUInt()
+public actual fun getMenuContextHelpId(param0: Hmenu): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getMenuContextHelpId((param0?.value ?: 0L)).toUInt()
 
-public actual fun GetMenuPosFromID(hmenu: HMENU, id: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetMenuPosFromID(hmenu, id.toInt())
+public actual fun getMenuPosFromID(hmenu: Hmenu, id: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getMenuPosFromID((hmenu?.value ?: 0L), id.toInt())
 
-public actual fun GetProfileType(dwflags: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetProfileType(dwflags)
+public actual fun getProfileType(dwflags: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getProfileType((dwflags?.value ?: 0L))
 
-public actual fun GetProfilesDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetProfilesDirectoryA(lpprofiledir, lpcchsize)
+public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getProfilesDirectoryA((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetProfilesDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetProfilesDirectoryW(lpprofiledir, lpcchsize)
+public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getProfilesDirectoryW((lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetScaleFactorForDevice(devicetype: DISPLAY_DEVICE_TYPE): DEVICE_SCALE_FACTOR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetScaleFactorForDevice(devicetype)
+public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getScaleFactorForDevice(devicetype)
 
-public actual fun GetScaleFactorForMonitor(hmon: HMONITOR, pscale: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor(hmon, pscale)
+public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getScaleFactorForMonitor((hmon?.value ?: 0L), (pscale?.value ?: 0L))
 
-public actual fun GetUserProfileDirectoryA(htoken: HANDLE, lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA(htoken, lpprofiledir, lpcchsize)
+public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getUserProfileDirectoryA((htoken?.value ?: 0L), (lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetUserProfileDirectoryW(htoken: HANDLE, lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW(htoken, lpprofiledir, lpcchsize)
+public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getUserProfileDirectoryW((htoken?.value ?: 0L), (lpprofiledir?.value ?: 0L), (lpcchsize?.value ?: 0L))
 
-public actual fun GetWindowContextHelpId(param0: HWND): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetWindowContextHelpId(param0).toUInt()
+public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getWindowContextHelpId((param0?.value ?: 0L)).toUInt()
 
-public actual fun GetWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, pdwrefdata: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_GetWindowSubclass(hwnd, pfnsubclass.toLong(), uidsubclass.toLong(), pdwrefdata)
+public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_getWindowSubclass((hwnd?.value ?: 0L), 0L, uidsubclass.toLong(), (pdwrefdata?.value ?: 0L))
 
-public actual fun HMONITOR_UserFree(param0: Long, param1: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserFree(param0, param1)
+public actual fun hmonitorUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserFree((param0?.value ?: 0L), (param1?.value ?: 0L))
 }
 
-public actual fun HMONITOR_UserFree64(param0: Long, param1: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserFree64(param0, param1)
+public actual fun hmonitorUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserFree64((param0?.value ?: 0L), (param1?.value ?: 0L))
 }
 
-public actual fun HMONITOR_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal(param0, param1, param2)
+public actual fun hmonitorUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserMarshal((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HMONITOR_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64(param0, param1, param2)
+public actual fun hmonitorUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserMarshal64((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HMONITOR_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserSize(param0, param1.toInt(), param2).toUInt()
+public actual fun hmonitorUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserSize((param0?.value ?: 0L), param1.toInt(), (param2?.value ?: 0L)).toUInt()
 
-public actual fun HMONITOR_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserSize64(param0, param1.toInt(), param2).toUInt()
+public actual fun hmonitorUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserSize64((param0?.value ?: 0L), param1.toInt(), (param2?.value ?: 0L)).toUInt()
 
-public actual fun HMONITOR_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal(param0, param1, param2)
+public actual fun hmonitorUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HMONITOR_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64(param0, param1, param2)
+public actual fun hmonitorUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64((param0?.value ?: 0L), (param1?.value ?: 0L), (param2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HashData(pbdata: Long, cbdata: UInt, pbhash: Long, cbhash: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HashData(pbdata, cbdata.toInt(), pbhash, cbhash.toInt())
+public actual fun hashData(pbdata: COpaquePointer?, cbdata: UInt, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hashData((pbdata?.value ?: 0L), cbdata.toInt(), (pbhash?.value ?: 0L), cbhash.toInt())
 
-public actual fun HlinkClone(pihl: Long, riid: Long, pihlsiteforclone: Long, dwsitedata: UInt, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkClone(pihl, riid, pihlsiteforclone, dwsitedata.toInt(), ppvobj)
+public actual fun hlinkClone(pihl: COpaquePointer?, riid: COpaquePointer?, pihlsiteforclone: COpaquePointer?, dwsitedata: UInt, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkClone((pihl?.value ?: 0L), (riid?.value ?: 0L), (pihlsiteforclone?.value ?: 0L), dwsitedata.toInt(), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateBrowseContext(piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext(piunkouter, riid, ppvobj)
+public actual fun hlinkCreateBrowseContext(piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext((piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateExtensionServices(pwzadditionalheaders: PCWSTR, phwnd: HWND, pszusername: PCWSTR, pszpassword: PCWSTR, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices(pwzadditionalheaders, phwnd, pszusername, pszpassword, piunkouter, riid, ppvobj)
+public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices((pwzadditionalheaders?.value ?: 0L), (phwnd?.value ?: 0L), (pszusername?.value ?: 0L), (pszpassword?.value ?: 0L), (piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateFromData(pidataobj: Long, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateFromData(pidataobj, pihlsite, dwsitedata.toInt(), piunkouter, riid, ppvobj)
+public actual fun hlinkCreateFromData(pidataobj: COpaquePointer?, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateFromData((pidataobj?.value ?: 0L), (pihlsite?.value ?: 0L), dwsitedata.toInt(), (piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateFromMoniker(pimktrgt: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker(pimktrgt, pwzlocation, pwzfriendlyname, pihlsite, dwsitedata.toInt(), piunkouter, riid, ppvobj)
+public actual fun hlinkCreateFromMoniker(pimktrgt: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker((pimktrgt?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzfriendlyname?.value ?: 0L), (pihlsite?.value ?: 0L), dwsitedata.toInt(), (piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateFromString(pwztarget: PCWSTR, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateFromString(pwztarget, pwzlocation, pwzfriendlyname, pihlsite, dwsitedata.toInt(), piunkouter, riid, ppvobj)
+public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateFromString((pwztarget?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzfriendlyname?.value ?: 0L), (pihlsite?.value ?: 0L), dwsitedata.toInt(), (piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkCreateShortcut(grfhlshortcutf: UInt, pihl: Long, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateShortcut(grfhlshortcutf.toInt(), pihl, pwzdir, pwzfilename, ppwzshortcutfile, dwreserved.toInt())
+public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: COpaquePointer?, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateShortcut(grfhlshortcutf.toInt(), (pihl?.value ?: 0L), (pwzdir?.value ?: 0L), (pwzfilename?.value ?: 0L), (ppwzshortcutfile?.value ?: 0L), dwreserved.toInt())
 
-public actual fun HlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: Long, pwzlocation: PCWSTR, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker(grfhlshortcutf.toInt(), pimktarget, pwzlocation, pwzdir, pwzfilename, ppwzshortcutfile, dwreserved.toInt())
+public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: COpaquePointer?, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker(grfhlshortcutf.toInt(), (pimktarget?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzdir?.value ?: 0L), (pwzfilename?.value ?: 0L), (ppwzshortcutfile?.value ?: 0L), dwreserved.toInt())
 
-public actual fun HlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: PCWSTR, pwzlocation: PCWSTR, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString(grfhlshortcutf.toInt(), pwztarget, pwzlocation, pwzdir, pwzfilename, ppwzshortcutfile, dwreserved.toInt())
+public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString(grfhlshortcutf.toInt(), (pwztarget?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzdir?.value ?: 0L), (pwzfilename?.value ?: 0L), (ppwzshortcutfile?.value ?: 0L), dwreserved.toInt())
 
-public actual fun HlinkGetSpecialReference(ureference: UInt, ppwzreference: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkGetSpecialReference(ureference.toInt(), ppwzreference)
+public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkGetSpecialReference(ureference.toInt(), (ppwzreference?.value ?: 0L))
 
-public actual fun HlinkGetValueFromParams(pwzparams: PCWSTR, pwzname: PCWSTR, ppwzvalue: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkGetValueFromParams(pwzparams, pwzname, ppwzvalue)
+public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkGetValueFromParams((pwzparams?.value ?: 0L), (pwzname?.value ?: 0L), (ppwzvalue?.value ?: 0L))
 
-public actual fun HlinkIsShortcut(pwzfilename: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkIsShortcut(pwzfilename)
+public actual fun hlinkIsShortcut(pwzfilename: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkIsShortcut((pwzfilename?.value ?: 0L))
 
-public actual fun HlinkNavigate(pihl: Long, pihlframe: Long, grfhlnf: UInt, pbc: Long, pibsc: Long, pihlbc: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkNavigate(pihl, pihlframe, grfhlnf.toInt(), pbc, pibsc, pihlbc)
+public actual fun hlinkNavigate(pihl: COpaquePointer?, pihlframe: COpaquePointer?, grfhlnf: UInt, pbc: COpaquePointer?, pibsc: COpaquePointer?, pihlbc: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkNavigate((pihl?.value ?: 0L), (pihlframe?.value ?: 0L), grfhlnf.toInt(), (pbc?.value ?: 0L), (pibsc?.value ?: 0L), (pihlbc?.value ?: 0L))
 
-public actual fun HlinkNavigateToStringReference(pwztarget: PCWSTR, pwzlocation: PCWSTR, pihlsite: Long, dwsitedata: UInt, pihlframe: Long, grfhlnf: UInt, pibc: Long, pibsc: Long, pihlbc: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference(pwztarget, pwzlocation, pihlsite, dwsitedata.toInt(), pihlframe, grfhlnf.toInt(), pibc, pibsc, pihlbc)
+public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, pihlframe: COpaquePointer?, grfhlnf: UInt, pibc: COpaquePointer?, pibsc: COpaquePointer?, pihlbc: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference((pwztarget?.value ?: 0L), (pwzlocation?.value ?: 0L), (pihlsite?.value ?: 0L), dwsitedata.toInt(), (pihlframe?.value ?: 0L), grfhlnf.toInt(), (pibc?.value ?: 0L), (pibsc?.value ?: 0L), (pihlbc?.value ?: 0L))
 
-public actual fun HlinkOnNavigate(pihlframe: Long, pihlbc: Long, grfhlnf: UInt, pimktarget: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, puhlid: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkOnNavigate(pihlframe, pihlbc, grfhlnf.toInt(), pimktarget, pwzlocation, pwzfriendlyname, puhlid)
+public actual fun hlinkOnNavigate(pihlframe: COpaquePointer?, pihlbc: COpaquePointer?, grfhlnf: UInt, pimktarget: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkOnNavigate((pihlframe?.value ?: 0L), (pihlbc?.value ?: 0L), grfhlnf.toInt(), (pimktarget?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzfriendlyname?.value ?: 0L), (puhlid?.value ?: 0L))
 
-public actual fun HlinkOnRenameDocument(dwreserved: UInt, pihlbc: Long, pimkold: Long, pimknew: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkOnRenameDocument(dwreserved.toInt(), pihlbc, pimkold, pimknew)
+public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: COpaquePointer?, pimkold: COpaquePointer?, pimknew: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkOnRenameDocument(dwreserved.toInt(), (pihlbc?.value ?: 0L), (pimkold?.value ?: 0L), (pimknew?.value ?: 0L))
 
-public actual fun HlinkParseDisplayName(pibc: Long, pwzdisplayname: PCWSTR, fnoforceabs: BOOL, pccheaten: Long, ppimk: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkParseDisplayName(pibc, pwzdisplayname, fnoforceabs, pccheaten, ppimk)
+public actual fun hlinkParseDisplayName(pibc: COpaquePointer?, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: COpaquePointer?, ppimk: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkParseDisplayName((pibc?.value ?: 0L), (pwzdisplayname?.value ?: 0L), fnoforceabs, (pccheaten?.value ?: 0L), (ppimk?.value ?: 0L))
 
-public actual fun HlinkPreprocessMoniker(pibc: Long, pimkin: Long, ppimkout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker(pibc, pimkin, ppimkout)
+public actual fun hlinkPreprocessMoniker(pibc: COpaquePointer?, pimkin: COpaquePointer?, ppimkout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker((pibc?.value ?: 0L), (pimkin?.value ?: 0L), (ppimkout?.value ?: 0L))
 
-public actual fun HlinkQueryCreateFromData(pidataobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData(pidataobj)
+public actual fun hlinkQueryCreateFromData(pidataobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData((pidataobj?.value ?: 0L))
 
-public actual fun HlinkResolveMonikerForData(pimkreference: Long, reserved: UInt, pibc: Long, cfmtetc: UInt, rgfmtetc: Long, pibsc: Long, pimkbase: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData(pimkreference, reserved.toInt(), pibc, cfmtetc.toInt(), rgfmtetc, pibsc, pimkbase)
+public actual fun hlinkResolveMonikerForData(pimkreference: COpaquePointer?, reserved: UInt, pibc: COpaquePointer?, cfmtetc: UInt, rgfmtetc: COpaquePointer?, pibsc: COpaquePointer?, pimkbase: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData((pimkreference?.value ?: 0L), reserved.toInt(), (pibc?.value ?: 0L), cfmtetc.toInt(), (rgfmtetc?.value ?: 0L), (pibsc?.value ?: 0L), (pimkbase?.value ?: 0L))
 
-public actual fun HlinkResolveShortcut(pwzshortcutfilename: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkResolveShortcut(pwzshortcutfilename, pihlsite, dwsitedata.toInt(), piunkouter, riid, ppvobj)
+public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkResolveShortcut((pwzshortcutfilename?.value ?: 0L), (pihlsite?.value ?: 0L), dwsitedata.toInt(), (piunkouter?.value ?: 0L), (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun HlinkResolveShortcutToMoniker(pwzshortcutfilename: PCWSTR, ppimktarget: Long, ppwzlocation: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker(pwzshortcutfilename, ppimktarget, ppwzlocation)
+public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: COpaquePointer?, ppwzlocation: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker((pwzshortcutfilename?.value ?: 0L), (ppimktarget?.value ?: 0L), (ppwzlocation?.value ?: 0L))
 
-public actual fun HlinkResolveShortcutToString(pwzshortcutfilename: PCWSTR, ppwztarget: Long, ppwzlocation: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString(pwzshortcutfilename, ppwztarget, ppwzlocation)
+public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: COpaquePointer?, ppwzlocation: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString((pwzshortcutfilename?.value ?: 0L), (ppwztarget?.value ?: 0L), (ppwzlocation?.value ?: 0L))
 
-public actual fun HlinkResolveStringForData(pwzreference: PCWSTR, reserved: UInt, pibc: Long, cfmtetc: UInt, rgfmtetc: Long, pibsc: Long, pimkbase: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkResolveStringForData(pwzreference, reserved.toInt(), pibc, cfmtetc.toInt(), rgfmtetc, pibsc, pimkbase)
+public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: COpaquePointer?, cfmtetc: UInt, rgfmtetc: COpaquePointer?, pibsc: COpaquePointer?, pimkbase: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkResolveStringForData((pwzreference?.value ?: 0L), reserved.toInt(), (pibc?.value ?: 0L), cfmtetc.toInt(), (rgfmtetc?.value ?: 0L), (pibsc?.value ?: 0L), (pimkbase?.value ?: 0L))
 
-public actual fun HlinkSetSpecialReference(ureference: UInt, pwzreference: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkSetSpecialReference(ureference.toInt(), pwzreference)
+public actual fun hlinkSetSpecialReference(ureference: UInt, pwzreference: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkSetSpecialReference(ureference.toInt(), (pwzreference?.value ?: 0L))
 
-public actual fun HlinkTranslateURL(pwzurl: PCWSTR, grfflags: UInt, ppwztranslatedurl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkTranslateURL(pwzurl, grfflags.toInt(), ppwztranslatedurl)
+public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkTranslateURL((pwzurl?.value ?: 0L), grfflags.toInt(), (ppwztranslatedurl?.value ?: 0L))
 
-public actual fun HlinkUpdateStackItem(pihlframe: Long, pihlbc: Long, uhlid: UInt, pimktrgt: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_HlinkUpdateStackItem(pihlframe, pihlbc, uhlid.toInt(), pimktrgt, pwzlocation, pwzfriendlyname)
+public actual fun hlinkUpdateStackItem(pihlframe: COpaquePointer?, pihlbc: COpaquePointer?, uhlid: UInt, pimktrgt: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_hlinkUpdateStackItem((pihlframe?.value ?: 0L), (pihlbc?.value ?: 0L), uhlid.toInt(), (pimktrgt?.value ?: 0L), (pwzlocation?.value ?: 0L), (pwzfriendlyname?.value ?: 0L))
 
-public actual fun ILAppendID(pidl: Long, pmkid: Long, fappend: BOOL): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILAppendID(pidl, pmkid, fappend)
+public actual fun iLAppendID(pidl: COpaquePointer?, pmkid: COpaquePointer?, fappend: Bool): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLAppendID((pidl?.value ?: 0L), (pmkid?.value ?: 0L), fappend).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILClone(pidl: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILClone(pidl)
+public actual fun iLClone(pidl: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLClone((pidl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILCloneFirst(pidl: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILCloneFirst(pidl)
+public actual fun iLCloneFirst(pidl: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLCloneFirst((pidl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILCombine(pidl1: Long, pidl2: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILCombine(pidl1, pidl2)
+public actual fun iLCombine(pidl1: COpaquePointer?, pidl2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLCombine((pidl1?.value ?: 0L), (pidl2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILCreateFromPathA(pszpath: PCSTR): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILCreateFromPathA(pszpath)
+public actual fun iLCreateFromPathA(pszpath: Pcstr): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLCreateFromPathA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILCreateFromPathW(pszpath: PCWSTR): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILCreateFromPathW(pszpath)
+public actual fun iLCreateFromPathW(pszpath: Pcwstr): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLCreateFromPathW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILFindChild(pidlparent: Long, pidlchild: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILFindChild(pidlparent, pidlchild)
+public actual fun iLFindChild(pidlparent: COpaquePointer?, pidlchild: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLFindChild((pidlparent?.value ?: 0L), (pidlchild?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILFindLastID(pidl: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILFindLastID(pidl)
+public actual fun iLFindLastID(pidl: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLFindLastID((pidl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILFree(pidl: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILFree(pidl)
+public actual fun iLFree(pidl: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLFree((pidl?.value ?: 0L))
 }
 
-public actual fun ILGetNext(pidl: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILGetNext(pidl)
+public actual fun iLGetNext(pidl: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLGetNext((pidl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ILGetSize(pidl: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILGetSize(pidl).toUInt()
+public actual fun iLGetSize(pidl: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLGetSize((pidl?.value ?: 0L)).toUInt()
 
-public actual fun ILIsEqual(pidl1: Long, pidl2: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILIsEqual(pidl1, pidl2)
+public actual fun iLIsEqual(pidl1: COpaquePointer?, pidl2: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLIsEqual((pidl1?.value ?: 0L), (pidl2?.value ?: 0L))
 
-public actual fun ILIsParent(pidl1: Long, pidl2: Long, fimmediate: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILIsParent(pidl1, pidl2, fimmediate)
+public actual fun iLIsParent(pidl1: COpaquePointer?, pidl2: COpaquePointer?, fimmediate: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLIsParent((pidl1?.value ?: 0L), (pidl2?.value ?: 0L), fimmediate)
 
-public actual fun ILLoadFromStreamEx(pstm: Long, pidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILLoadFromStreamEx(pstm, pidl)
+public actual fun iLLoadFromStreamEx(pstm: COpaquePointer?, pidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLLoadFromStreamEx((pstm?.value ?: 0L), (pidl?.value ?: 0L))
 
-public actual fun ILRemoveLastID(pidl: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILRemoveLastID(pidl)
+public actual fun iLRemoveLastID(pidl: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLRemoveLastID((pidl?.value ?: 0L))
 
-public actual fun ILSaveToStream(pstm: Long, pidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ILSaveToStream(pstm, pidl)
+public actual fun iLSaveToStream(pstm: COpaquePointer?, pidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iLSaveToStream((pstm?.value ?: 0L), (pidl?.value ?: 0L))
 
-public actual fun IStream_Copy(pstmfrom: Long, pstmto: Long, cb: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_Copy(pstmfrom, pstmto, cb.toInt())
+public actual fun istreamCopy(pstmfrom: COpaquePointer?, pstmto: COpaquePointer?, cb: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamCopy((pstmfrom?.value ?: 0L), (pstmto?.value ?: 0L), cb.toInt())
 
-public actual fun IStream_Read(pstm: Long, pv: Long, cb: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_Read(pstm, pv, cb.toInt())
+public actual fun istreamRead(pstm: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamRead((pstm?.value ?: 0L), (pv?.value ?: 0L), cb.toInt())
 
-public actual fun IStream_ReadPidl(pstm: Long, ppidlout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_ReadPidl(pstm, ppidlout)
+public actual fun istreamReadPidl(pstm: COpaquePointer?, ppidlout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamReadPidl((pstm?.value ?: 0L), (ppidlout?.value ?: 0L))
 
-public actual fun IStream_ReadStr(pstm: Long, ppsz: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_ReadStr(pstm, ppsz)
+public actual fun istreamReadStr(pstm: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamReadStr((pstm?.value ?: 0L), (ppsz?.value ?: 0L))
 
-public actual fun IStream_Reset(pstm: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_Reset(pstm)
+public actual fun istreamReset(pstm: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamReset((pstm?.value ?: 0L))
 
-public actual fun IStream_Size(pstm: Long, pui: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_Size(pstm, pui)
+public actual fun istreamSize(pstm: COpaquePointer?, pui: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamSize((pstm?.value ?: 0L), (pui?.value ?: 0L))
 
-public actual fun IStream_Write(pstm: Long, pv: Long, cb: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_Write(pstm, pv, cb.toInt())
+public actual fun istreamWrite(pstm: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamWrite((pstm?.value ?: 0L), (pv?.value ?: 0L), cb.toInt())
 
-public actual fun IStream_WritePidl(pstm: Long, pidlwrite: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_WritePidl(pstm, pidlwrite)
+public actual fun istreamWritePidl(pstm: COpaquePointer?, pidlwrite: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamWritePidl((pstm?.value ?: 0L), (pidlwrite?.value ?: 0L))
 
-public actual fun IStream_WriteStr(pstm: Long, psz: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IStream_WriteStr(pstm, psz)
+public actual fun istreamWriteStr(pstm: COpaquePointer?, psz: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_istreamWriteStr((pstm?.value ?: 0L), (psz?.value ?: 0L))
 
-public actual fun IUnknown_AtomicRelease(ppunk: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease(ppunk)
+public actual fun iunknownAtomicRelease(ppunk: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownAtomicRelease((ppunk?.value ?: 0L))
 }
 
-public actual fun IUnknown_GetSite(punk: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_GetSite(punk, riid, ppv)
+public actual fun iunknownGetSite(punk: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownGetSite((punk?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun IUnknown_GetWindow(punk: Long, phwnd: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_GetWindow(punk, phwnd)
+public actual fun iunknownGetWindow(punk: COpaquePointer?, phwnd: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownGetWindow((punk?.value ?: 0L), (phwnd?.value ?: 0L))
 
-public actual fun IUnknown_QueryService(punk: Long, guidservice: Long, riid: Long, ppvout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_QueryService(punk, guidservice, riid, ppvout)
+public actual fun iunknownQueryService(punk: COpaquePointer?, guidservice: COpaquePointer?, riid: COpaquePointer?, ppvout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownQueryService((punk?.value ?: 0L), (guidservice?.value ?: 0L), (riid?.value ?: 0L), (ppvout?.value ?: 0L))
 
-public actual fun IUnknown_Set(ppunk: Long, punk: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_Set(ppunk, punk)
+public actual fun iunknownSet(ppunk: COpaquePointer?, punk: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownSet((ppunk?.value ?: 0L), (punk?.value ?: 0L))
 }
 
-public actual fun IUnknown_SetSite(punk: Long, punksite: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IUnknown_SetSite(punk, punksite)
+public actual fun iunknownSetSite(punk: COpaquePointer?, punksite: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_iunknownSetSite((punk?.value ?: 0L), (punksite?.value ?: 0L))
 
-public actual fun ImportPrivacySettings(pszfilename: PCWSTR, pfparseprivacypreferences: Long, pfparsepersiterules: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ImportPrivacySettings(pszfilename, pfparseprivacypreferences, pfparsepersiterules)
+public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: COpaquePointer?, pfparsepersiterules: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_importPrivacySettings((pszfilename?.value ?: 0L), (pfparseprivacypreferences?.value ?: 0L), (pfparsepersiterules?.value ?: 0L))
 
-public actual fun InitNetworkAddressControl(): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_InitNetworkAddressControl()
+public actual fun initNetworkAddressControl(): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_initNetworkAddressControl()
 
-public actual fun InitPropVariantFromStrRet(pstrret: Long, pidl: Long, ppropvar: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet(pstrret, pidl, ppropvar)
+public actual fun initPropVariantFromStrRet(pstrret: COpaquePointer?, pidl: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_initPropVariantFromStrRet((pstrret?.value ?: 0L), (pidl?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun InitVariantFromStrRet(pstrret: Long, pidl: Long, pvar: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_InitVariantFromStrRet(pstrret, pidl, pvar)
+public actual fun initVariantFromStrRet(pstrret: COpaquePointer?, pidl: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_initVariantFromStrRet((pstrret?.value ?: 0L), (pidl?.value ?: 0L), (pvar?.value ?: 0L))
 
-public actual fun IntlStrEqWorkerA(fcasesens: BOOL, lpstring1: PCSTR, lpstring2: PCSTR, nchar: Int): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IntlStrEqWorkerA(fcasesens, lpstring1, lpstring2, nchar)
+public actual fun intlStrEqWorkerA(fcasesens: Bool, lpstring1: Pcstr, lpstring2: Pcstr, nchar: Int): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_intlStrEqWorkerA(fcasesens, (lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L), nchar)
 
-public actual fun IntlStrEqWorkerW(fcasesens: BOOL, lpstring1: PCWSTR, lpstring2: PCWSTR, nchar: Int): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IntlStrEqWorkerW(fcasesens, lpstring1, lpstring2, nchar)
+public actual fun intlStrEqWorkerW(fcasesens: Bool, lpstring1: Pcwstr, lpstring2: Pcwstr, nchar: Int): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_intlStrEqWorkerW(fcasesens, (lpstring1?.value ?: 0L), (lpstring2?.value ?: 0L), nchar)
 
-public actual fun IsCharSpaceA(wch: Byte): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsCharSpaceA(wch)
+public actual fun isCharSpaceA(wch: Byte): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isCharSpaceA(wch)
 
-public actual fun IsCharSpaceW(wch: UShort): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsCharSpaceW(wch.toShort())
+public actual fun isCharSpaceW(wch: UShort): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isCharSpaceW(wch.toShort())
 
-public actual fun IsInternetESCEnabled(): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsInternetESCEnabled()
+public actual fun isInternetESCEnabled(): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isInternetESCEnabled()
 
-public actual fun IsLFNDriveA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsLFNDriveA(pszpath)
+public actual fun isLFNDriveA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isLFNDriveA((pszpath?.value ?: 0L))
 
-public actual fun IsLFNDriveW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsLFNDriveW(pszpath)
+public actual fun isLFNDriveW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isLFNDriveW((pszpath?.value ?: 0L))
 
-public actual fun IsNetDrive(idrive: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsNetDrive(idrive)
+public actual fun isNetDrive(idrive: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isNetDrive(idrive)
 
-public actual fun IsOS(dwos: OS): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsOS(dwos.toInt())
+public actual fun isOS(dwos: OS): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isOS(dwos.toInt())
 
-public actual fun IsUserAnAdmin(): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_IsUserAnAdmin()
+public actual fun isUserAnAdmin(): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_isUserAnAdmin()
 
-public actual fun LoadUserProfileA(htoken: HANDLE, lpprofileinfo: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_LoadUserProfileA(htoken, lpprofileinfo)
+public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_loadUserProfileA((htoken?.value ?: 0L), (lpprofileinfo?.value ?: 0L))
 
-public actual fun LoadUserProfileW(htoken: HANDLE, lpprofileinfo: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_LoadUserProfileW(htoken, lpprofileinfo)
+public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_loadUserProfileW((htoken?.value ?: 0L), (lpprofileinfo?.value ?: 0L))
 
-public actual fun OleSaveToStreamEx(piunk: Long, pistm: Long, fcleardirty: BOOL): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_OleSaveToStreamEx(piunk, pistm, fcleardirty)
+public actual fun oleSaveToStreamEx(piunk: COpaquePointer?, pistm: COpaquePointer?, fcleardirty: Bool): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_oleSaveToStreamEx((piunk?.value ?: 0L), (pistm?.value ?: 0L), fcleardirty)
 
-public actual fun OpenRegStream(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_OpenRegStream(hkey, pszsubkey, pszvalue, grfmode.toInt())
+public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_openRegStream((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), grfmode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ParseURLA(pcszurl: PCSTR, ppu: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ParseURLA(pcszurl, ppu)
+public actual fun parseURLA(pcszurl: Pcstr, ppu: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_parseURLA((pcszurl?.value ?: 0L), (ppu?.value ?: 0L))
 
-public actual fun ParseURLW(pcszurl: PCWSTR, ppu: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ParseURLW(pcszurl, ppu)
+public actual fun parseURLW(pcszurl: Pcwstr, ppu: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_parseURLW((pcszurl?.value ?: 0L), (ppu?.value ?: 0L))
 
-public actual fun PathAddBackslashA(pszpath: PSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAddBackslashA(pszpath)
+public actual fun pathAddBackslashA(pszpath: Pstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAddBackslashA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathAddBackslashW(pszpath: PWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAddBackslashW(pszpath)
+public actual fun pathAddBackslashW(pszpath: Pwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAddBackslashW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathAddExtensionA(pszpath: PSTR, pszext: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAddExtensionA(pszpath, pszext)
+public actual fun pathAddExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAddExtensionA((pszpath?.value ?: 0L), (pszext?.value ?: 0L))
 
-public actual fun PathAddExtensionW(pszpath: PWSTR, pszext: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAddExtensionW(pszpath, pszext)
+public actual fun pathAddExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAddExtensionW((pszpath?.value ?: 0L), (pszext?.value ?: 0L))
 
-public actual fun PathAllocCanonicalize(pszpathin: PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAllocCanonicalize(pszpathin, dwflags.toInt(), ppszpathout)
+public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAllocCanonicalize((pszpathin?.value ?: 0L), dwflags.toInt(), (ppszpathout?.value ?: 0L))
 
-public actual fun PathAllocCombine(pszpathin: PCWSTR, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAllocCombine(pszpathin, pszmore, dwflags.toInt(), ppszpathout)
+public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAllocCombine((pszpathin?.value ?: 0L), (pszmore?.value ?: 0L), dwflags.toInt(), (ppszpathout?.value ?: 0L))
 
-public actual fun PathAppendA(pszpath: PSTR, pszmore: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAppendA(pszpath, pszmore)
+public actual fun pathAppendA(pszpath: Pstr, pszmore: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAppendA((pszpath?.value ?: 0L), (pszmore?.value ?: 0L))
 
-public actual fun PathAppendW(pszpath: PWSTR, pszmore: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathAppendW(pszpath, pszmore)
+public actual fun pathAppendW(pszpath: Pwstr, pszmore: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathAppendW((pszpath?.value ?: 0L), (pszmore?.value ?: 0L))
 
-public actual fun PathBuildRootA(pszroot: PSTR, idrive: Int): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathBuildRootA(pszroot, idrive)
+public actual fun pathBuildRootA(pszroot: Pstr, idrive: Int): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathBuildRootA((pszroot?.value ?: 0L), idrive).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathBuildRootW(pszroot: PWSTR, idrive: Int): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathBuildRootW(pszroot, idrive)
+public actual fun pathBuildRootW(pszroot: Pwstr, idrive: Int): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathBuildRootW((pszroot?.value ?: 0L), idrive).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathCanonicalizeA(pszbuf: PSTR, pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCanonicalizeA(pszbuf, pszpath)
+public actual fun pathCanonicalizeA(pszbuf: Pstr, pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCanonicalizeA((pszbuf?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun PathCanonicalizeW(pszbuf: PWSTR, pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCanonicalizeW(pszbuf, pszpath)
+public actual fun pathCanonicalizeW(pszbuf: Pwstr, pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCanonicalizeW((pszbuf?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun PathCchAddBackslash(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchAddBackslash(pszpath, cchpath.toLong())
+public actual fun pathCchAddBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchAddBackslash((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCchAddBackslashEx(pszpath: PWSTR, cchpath: ULong, ppszend: Long, pcchremaining: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchAddBackslashEx(pszpath, cchpath.toLong(), ppszend, pcchremaining)
+public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: COpaquePointer?, pcchremaining: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchAddBackslashEx((pszpath?.value ?: 0L), cchpath.toLong(), (ppszend?.value ?: 0L), (pcchremaining?.value ?: 0L))
 
-public actual fun PathCchAddExtension(pszpath: PWSTR, cchpath: ULong, pszext: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchAddExtension(pszpath, cchpath.toLong(), pszext)
+public actual fun pathCchAddExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchAddExtension((pszpath?.value ?: 0L), cchpath.toLong(), (pszext?.value ?: 0L))
 
-public actual fun PathCchAppend(pszpath: PWSTR, cchpath: ULong, pszmore: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchAppend(pszpath, cchpath.toLong(), pszmore)
+public actual fun pathCchAppend(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchAppend((pszpath?.value ?: 0L), cchpath.toLong(), (pszmore?.value ?: 0L))
 
-public actual fun PathCchAppendEx(pszpath: PWSTR, cchpath: ULong, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchAppendEx(pszpath, cchpath.toLong(), pszmore, dwflags.toInt())
+public actual fun pathCchAppendEx(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchAppendEx((pszpath?.value ?: 0L), cchpath.toLong(), (pszmore?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathCchCanonicalize(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchCanonicalize(pszpathout, cchpathout.toLong(), pszpathin)
+public actual fun pathCchCanonicalize(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchCanonicalize((pszpathout?.value ?: 0L), cchpathout.toLong(), (pszpathin?.value ?: 0L))
 
-public actual fun PathCchCanonicalizeEx(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx(pszpathout, cchpathout.toLong(), pszpathin, dwflags.toInt())
+public actual fun pathCchCanonicalizeEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, dwflags: PathcchOptions): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx((pszpathout?.value ?: 0L), cchpathout.toLong(), (pszpathin?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathCchCombine(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, pszmore: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchCombine(pszpathout, cchpathout.toLong(), pszpathin, pszmore)
+public actual fun pathCchCombine(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchCombine((pszpathout?.value ?: 0L), cchpathout.toLong(), (pszpathin?.value ?: 0L), (pszmore?.value ?: 0L))
 
-public actual fun PathCchCombineEx(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchCombineEx(pszpathout, cchpathout.toLong(), pszpathin, pszmore, dwflags.toInt())
+public actual fun pathCchCombineEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchCombineEx((pszpathout?.value ?: 0L), cchpathout.toLong(), (pszpathin?.value ?: 0L), (pszmore?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathCchFindExtension(pszpath: PCWSTR, cchpath: ULong, ppszext: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchFindExtension(pszpath, cchpath.toLong(), ppszext)
+public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchFindExtension((pszpath?.value ?: 0L), cchpath.toLong(), (ppszext?.value ?: 0L))
 
-public actual fun PathCchIsRoot(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchIsRoot(pszpath)
+public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchIsRoot((pszpath?.value ?: 0L))
 
-public actual fun PathCchRemoveBackslash(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchRemoveBackslash(pszpath, cchpath.toLong())
+public actual fun pathCchRemoveBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchRemoveBackslash((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCchRemoveBackslashEx(pszpath: PWSTR, cchpath: ULong, ppszend: Long, pcchremaining: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx(pszpath, cchpath.toLong(), ppszend, pcchremaining)
+public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: COpaquePointer?, pcchremaining: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx((pszpath?.value ?: 0L), cchpath.toLong(), (ppszend?.value ?: 0L), (pcchremaining?.value ?: 0L))
 
-public actual fun PathCchRemoveExtension(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchRemoveExtension(pszpath, cchpath.toLong())
+public actual fun pathCchRemoveExtension(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchRemoveExtension((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCchRemoveFileSpec(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec(pszpath, cchpath.toLong())
+public actual fun pathCchRemoveFileSpec(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCchRenameExtension(pszpath: PWSTR, cchpath: ULong, pszext: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchRenameExtension(pszpath, cchpath.toLong(), pszext)
+public actual fun pathCchRenameExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchRenameExtension((pszpath?.value ?: 0L), cchpath.toLong(), (pszext?.value ?: 0L))
 
-public actual fun PathCchSkipRoot(pszpath: PCWSTR, ppszrootend: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchSkipRoot(pszpath, ppszrootend)
+public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchSkipRoot((pszpath?.value ?: 0L), (ppszrootend?.value ?: 0L))
 
-public actual fun PathCchStripPrefix(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchStripPrefix(pszpath, cchpath.toLong())
+public actual fun pathCchStripPrefix(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchStripPrefix((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCchStripToRoot(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCchStripToRoot(pszpath, cchpath.toLong())
+public actual fun pathCchStripToRoot(pszpath: Pwstr, cchpath: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCchStripToRoot((pszpath?.value ?: 0L), cchpath.toLong())
 
-public actual fun PathCleanupSpec(pszdir: PCWSTR, pszspec: PWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCleanupSpec(pszdir, pszspec)
+public actual fun pathCleanupSpec(pszdir: Pcwstr, pszspec: Pwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCleanupSpec((pszdir?.value ?: 0L), (pszspec?.value ?: 0L))
 
-public actual fun PathCombineA(pszdest: PSTR, pszdir: PCSTR, pszfile: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCombineA(pszdest, pszdir, pszfile)
+public actual fun pathCombineA(pszdest: Pstr, pszdir: Pcstr, pszfile: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCombineA((pszdest?.value ?: 0L), (pszdir?.value ?: 0L), (pszfile?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathCombineW(pszdest: PWSTR, pszdir: PCWSTR, pszfile: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCombineW(pszdest, pszdir, pszfile)
+public actual fun pathCombineW(pszdest: Pwstr, pszdir: Pcwstr, pszfile: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCombineW((pszdest?.value ?: 0L), (pszdir?.value ?: 0L), (pszfile?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathCommonPrefixA(pszfile1: PCSTR, pszfile2: PCSTR, achpath: PSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCommonPrefixA(pszfile1, pszfile2, achpath)
+public actual fun pathCommonPrefixA(pszfile1: Pcstr, pszfile2: Pcstr, achpath: Pstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCommonPrefixA((pszfile1?.value ?: 0L), (pszfile2?.value ?: 0L), (achpath?.value ?: 0L))
 
-public actual fun PathCommonPrefixW(pszfile1: PCWSTR, pszfile2: PCWSTR, achpath: PWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCommonPrefixW(pszfile1, pszfile2, achpath)
+public actual fun pathCommonPrefixW(pszfile1: Pcwstr, pszfile2: Pcwstr, achpath: Pwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCommonPrefixW((pszfile1?.value ?: 0L), (pszfile2?.value ?: 0L), (achpath?.value ?: 0L))
 
-public actual fun PathCompactPathA(hdc: HDC, pszpath: PSTR, dx: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCompactPathA(hdc, pszpath, dx.toInt())
+public actual fun pathCompactPathA(hdc: Hdc, pszpath: Pstr, dx: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCompactPathA((hdc?.value ?: 0L), (pszpath?.value ?: 0L), dx.toInt())
 
-public actual fun PathCompactPathExA(pszout: PSTR, pszsrc: PCSTR, cchmax: UInt, dwflags: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCompactPathExA(pszout, pszsrc, cchmax.toInt(), dwflags.toInt())
+public actual fun pathCompactPathExA(pszout: Pstr, pszsrc: Pcstr, cchmax: UInt, dwflags: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCompactPathExA((pszout?.value ?: 0L), (pszsrc?.value ?: 0L), cchmax.toInt(), dwflags.toInt())
 
-public actual fun PathCompactPathExW(pszout: PWSTR, pszsrc: PCWSTR, cchmax: UInt, dwflags: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCompactPathExW(pszout, pszsrc, cchmax.toInt(), dwflags.toInt())
+public actual fun pathCompactPathExW(pszout: Pwstr, pszsrc: Pcwstr, cchmax: UInt, dwflags: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCompactPathExW((pszout?.value ?: 0L), (pszsrc?.value ?: 0L), cchmax.toInt(), dwflags.toInt())
 
-public actual fun PathCompactPathW(hdc: HDC, pszpath: PWSTR, dx: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCompactPathW(hdc, pszpath, dx.toInt())
+public actual fun pathCompactPathW(hdc: Hdc, pszpath: Pwstr, dx: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCompactPathW((hdc?.value ?: 0L), (pszpath?.value ?: 0L), dx.toInt())
 
-public actual fun PathCreateFromUrlA(pszurl: PCSTR, pszpath: PSTR, pcchpath: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCreateFromUrlA(pszurl, pszpath, pcchpath, dwflags.toInt())
+public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCreateFromUrlA((pszurl?.value ?: 0L), (pszpath?.value ?: 0L), (pcchpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathCreateFromUrlAlloc(pszin: PCWSTR, ppszout: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc(pszin, ppszout, dwflags.toInt())
+public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc((pszin?.value ?: 0L), (ppszout?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathCreateFromUrlW(pszurl: PCWSTR, pszpath: PWSTR, pcchpath: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathCreateFromUrlW(pszurl, pszpath, pcchpath, dwflags.toInt())
+public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathCreateFromUrlW((pszurl?.value ?: 0L), (pszpath?.value ?: 0L), (pcchpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathFileExistsA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFileExistsA(pszpath)
+public actual fun pathFileExistsA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFileExistsA((pszpath?.value ?: 0L))
 
-public actual fun PathFileExistsW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFileExistsW(pszpath)
+public actual fun pathFileExistsW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFileExistsW((pszpath?.value ?: 0L))
 
-public actual fun PathFindExtensionA(pszpath: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindExtensionA(pszpath)
+public actual fun pathFindExtensionA(pszpath: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindExtensionA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindExtensionW(pszpath: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindExtensionW(pszpath)
+public actual fun pathFindExtensionW(pszpath: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindExtensionW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindFileNameA(pszpath: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindFileNameA(pszpath)
+public actual fun pathFindFileNameA(pszpath: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindFileNameA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindFileNameW(pszpath: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindFileNameW(pszpath)
+public actual fun pathFindFileNameW(pszpath: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindFileNameW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindNextComponentA(pszpath: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindNextComponentA(pszpath)
+public actual fun pathFindNextComponentA(pszpath: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindNextComponentA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindNextComponentW(pszpath: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindNextComponentW(pszpath)
+public actual fun pathFindNextComponentW(pszpath: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindNextComponentW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindOnPathA(pszpath: PSTR, ppszotherdirs: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindOnPathA(pszpath, ppszotherdirs)
+public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindOnPathA((pszpath?.value ?: 0L), (ppszotherdirs?.value ?: 0L))
 
-public actual fun PathFindOnPathW(pszpath: PWSTR, ppszotherdirs: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindOnPathW(pszpath, ppszotherdirs)
+public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindOnPathW((pszpath?.value ?: 0L), (ppszotherdirs?.value ?: 0L))
 
-public actual fun PathFindSuffixArrayA(pszpath: PCSTR, apszsuffix: Long, iarraysize: Int): PCSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindSuffixArrayA(pszpath, apszsuffix, iarraysize)
+public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: COpaquePointer?, iarraysize: Int): Pcstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindSuffixArrayA((pszpath?.value ?: 0L), (apszsuffix?.value ?: 0L), iarraysize).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathFindSuffixArrayW(pszpath: PCWSTR, apszsuffix: Long, iarraysize: Int): PCWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathFindSuffixArrayW(pszpath, apszsuffix, iarraysize)
+public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: COpaquePointer?, iarraysize: Int): Pcwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathFindSuffixArrayW((pszpath?.value ?: 0L), (apszsuffix?.value ?: 0L), iarraysize).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathGetArgsA(pszpath: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetArgsA(pszpath)
+public actual fun pathGetArgsA(pszpath: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetArgsA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathGetArgsW(pszpath: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetArgsW(pszpath)
+public actual fun pathGetArgsW(pszpath: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetArgsW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathGetCharTypeA(ch: UByte): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetCharTypeA(ch.toByte()).toUInt()
+public actual fun pathGetCharTypeA(ch: UByte): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetCharTypeA(ch.toByte()).toUInt()
 
-public actual fun PathGetCharTypeW(ch: UShort): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetCharTypeW(ch.toShort()).toUInt()
+public actual fun pathGetCharTypeW(ch: UShort): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetCharTypeW(ch.toShort()).toUInt()
 
-public actual fun PathGetDriveNumberA(pszpath: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetDriveNumberA(pszpath)
+public actual fun pathGetDriveNumberA(pszpath: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetDriveNumberA((pszpath?.value ?: 0L))
 
-public actual fun PathGetDriveNumberW(pszpath: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetDriveNumberW(pszpath)
+public actual fun pathGetDriveNumberW(pszpath: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetDriveNumberW((pszpath?.value ?: 0L))
 
-public actual fun PathGetShortPath(pszlongpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathGetShortPath(pszlongpath)
+public actual fun pathGetShortPath(pszlongpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathGetShortPath((pszlongpath?.value ?: 0L))
 }
 
-public actual fun PathIsContentTypeA(pszpath: PCSTR, pszcontenttype: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsContentTypeA(pszpath, pszcontenttype)
+public actual fun pathIsContentTypeA(pszpath: Pcstr, pszcontenttype: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsContentTypeA((pszpath?.value ?: 0L), (pszcontenttype?.value ?: 0L))
 
-public actual fun PathIsContentTypeW(pszpath: PCWSTR, pszcontenttype: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsContentTypeW(pszpath, pszcontenttype)
+public actual fun pathIsContentTypeW(pszpath: Pcwstr, pszcontenttype: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsContentTypeW((pszpath?.value ?: 0L), (pszcontenttype?.value ?: 0L))
 
-public actual fun PathIsDirectoryA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsDirectoryA(pszpath)
+public actual fun pathIsDirectoryA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsDirectoryA((pszpath?.value ?: 0L))
 
-public actual fun PathIsDirectoryEmptyA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA(pszpath)
+public actual fun pathIsDirectoryEmptyA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA((pszpath?.value ?: 0L))
 
-public actual fun PathIsDirectoryEmptyW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW(pszpath)
+public actual fun pathIsDirectoryEmptyW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW((pszpath?.value ?: 0L))
 
-public actual fun PathIsDirectoryW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsDirectoryW(pszpath)
+public actual fun pathIsDirectoryW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsDirectoryW((pszpath?.value ?: 0L))
 
-public actual fun PathIsExe(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsExe(pszpath)
+public actual fun pathIsExe(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsExe((pszpath?.value ?: 0L))
 
-public actual fun PathIsFileSpecA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsFileSpecA(pszpath)
+public actual fun pathIsFileSpecA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsFileSpecA((pszpath?.value ?: 0L))
 
-public actual fun PathIsFileSpecW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsFileSpecW(pszpath)
+public actual fun pathIsFileSpecW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsFileSpecW((pszpath?.value ?: 0L))
 
-public actual fun PathIsLFNFileSpecA(pszname: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA(pszname)
+public actual fun pathIsLFNFileSpecA(pszname: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA((pszname?.value ?: 0L))
 
-public actual fun PathIsLFNFileSpecW(pszname: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW(pszname)
+public actual fun pathIsLFNFileSpecW(pszname: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW((pszname?.value ?: 0L))
 
-public actual fun PathIsNetworkPathA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsNetworkPathA(pszpath)
+public actual fun pathIsNetworkPathA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsNetworkPathA((pszpath?.value ?: 0L))
 
-public actual fun PathIsNetworkPathW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsNetworkPathW(pszpath)
+public actual fun pathIsNetworkPathW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsNetworkPathW((pszpath?.value ?: 0L))
 
-public actual fun PathIsPrefixA(pszprefix: PCSTR, pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsPrefixA(pszprefix, pszpath)
+public actual fun pathIsPrefixA(pszprefix: Pcstr, pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsPrefixA((pszprefix?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun PathIsPrefixW(pszprefix: PCWSTR, pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsPrefixW(pszprefix, pszpath)
+public actual fun pathIsPrefixW(pszprefix: Pcwstr, pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsPrefixW((pszprefix?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun PathIsRelativeA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsRelativeA(pszpath)
+public actual fun pathIsRelativeA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsRelativeA((pszpath?.value ?: 0L))
 
-public actual fun PathIsRelativeW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsRelativeW(pszpath)
+public actual fun pathIsRelativeW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsRelativeW((pszpath?.value ?: 0L))
 
-public actual fun PathIsRootA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsRootA(pszpath)
+public actual fun pathIsRootA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsRootA((pszpath?.value ?: 0L))
 
-public actual fun PathIsRootW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsRootW(pszpath)
+public actual fun pathIsRootW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsRootW((pszpath?.value ?: 0L))
 
-public actual fun PathIsSameRootA(pszpath1: PCSTR, pszpath2: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSameRootA(pszpath1, pszpath2)
+public actual fun pathIsSameRootA(pszpath1: Pcstr, pszpath2: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSameRootA((pszpath1?.value ?: 0L), (pszpath2?.value ?: 0L))
 
-public actual fun PathIsSameRootW(pszpath1: PCWSTR, pszpath2: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSameRootW(pszpath1, pszpath2)
+public actual fun pathIsSameRootW(pszpath1: Pcwstr, pszpath2: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSameRootW((pszpath1?.value ?: 0L), (pszpath2?.value ?: 0L))
 
-public actual fun PathIsSlowA(pszfile: PCSTR, dwattr: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSlowA(pszfile, dwattr.toInt())
+public actual fun pathIsSlowA(pszfile: Pcstr, dwattr: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSlowA((pszfile?.value ?: 0L), dwattr.toInt())
 
-public actual fun PathIsSlowW(pszfile: PCWSTR, dwattr: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSlowW(pszfile, dwattr.toInt())
+public actual fun pathIsSlowW(pszfile: Pcwstr, dwattr: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSlowW((pszfile?.value ?: 0L), dwattr.toInt())
 
-public actual fun PathIsSystemFolderA(pszpath: PCSTR, dwattrb: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSystemFolderA(pszpath, dwattrb.toInt())
+public actual fun pathIsSystemFolderA(pszpath: Pcstr, dwattrb: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSystemFolderA((pszpath?.value ?: 0L), dwattrb.toInt())
 
-public actual fun PathIsSystemFolderW(pszpath: PCWSTR, dwattrb: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsSystemFolderW(pszpath, dwattrb.toInt())
+public actual fun pathIsSystemFolderW(pszpath: Pcwstr, dwattrb: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsSystemFolderW((pszpath?.value ?: 0L), dwattrb.toInt())
 
-public actual fun PathIsUNCA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCA(pszpath)
+public actual fun pathIsUNCA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCA((pszpath?.value ?: 0L))
 
-public actual fun PathIsUNCEx(pszpath: PCWSTR, ppszserver: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCEx(pszpath, ppszserver)
+public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCEx((pszpath?.value ?: 0L), (ppszserver?.value ?: 0L))
 
-public actual fun PathIsUNCServerA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCServerA(pszpath)
+public actual fun pathIsUNCServerA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCServerA((pszpath?.value ?: 0L))
 
-public actual fun PathIsUNCServerShareA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCServerShareA(pszpath)
+public actual fun pathIsUNCServerShareA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCServerShareA((pszpath?.value ?: 0L))
 
-public actual fun PathIsUNCServerShareW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCServerShareW(pszpath)
+public actual fun pathIsUNCServerShareW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCServerShareW((pszpath?.value ?: 0L))
 
-public actual fun PathIsUNCServerW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCServerW(pszpath)
+public actual fun pathIsUNCServerW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCServerW((pszpath?.value ?: 0L))
 
-public actual fun PathIsUNCW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsUNCW(pszpath)
+public actual fun pathIsUNCW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsUNCW((pszpath?.value ?: 0L))
 
-public actual fun PathIsURLA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsURLA(pszpath)
+public actual fun pathIsURLA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsURLA((pszpath?.value ?: 0L))
 
-public actual fun PathIsURLW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathIsURLW(pszpath)
+public actual fun pathIsURLW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathIsURLW((pszpath?.value ?: 0L))
 
-public actual fun PathMakePrettyA(pszpath: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMakePrettyA(pszpath)
+public actual fun pathMakePrettyA(pszpath: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMakePrettyA((pszpath?.value ?: 0L))
 
-public actual fun PathMakePrettyW(pszpath: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMakePrettyW(pszpath)
+public actual fun pathMakePrettyW(pszpath: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMakePrettyW((pszpath?.value ?: 0L))
 
-public actual fun PathMakeSystemFolderA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMakeSystemFolderA(pszpath)
+public actual fun pathMakeSystemFolderA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMakeSystemFolderA((pszpath?.value ?: 0L))
 
-public actual fun PathMakeSystemFolderW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMakeSystemFolderW(pszpath)
+public actual fun pathMakeSystemFolderW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMakeSystemFolderW((pszpath?.value ?: 0L))
 
-public actual fun PathMakeUniqueName(pszuniquename: PWSTR, cchmax: UInt, psztemplate: PCWSTR, pszlongplate: PCWSTR, pszdir: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMakeUniqueName(pszuniquename, cchmax.toInt(), psztemplate, pszlongplate, pszdir)
+public actual fun pathMakeUniqueName(pszuniquename: Pwstr, cchmax: UInt, psztemplate: Pcwstr, pszlongplate: Pcwstr, pszdir: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMakeUniqueName((pszuniquename?.value ?: 0L), cchmax.toInt(), (psztemplate?.value ?: 0L), (pszlongplate?.value ?: 0L), (pszdir?.value ?: 0L))
 
-public actual fun PathMatchSpecA(pszfile: PCSTR, pszspec: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMatchSpecA(pszfile, pszspec)
+public actual fun pathMatchSpecA(pszfile: Pcstr, pszspec: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMatchSpecA((pszfile?.value ?: 0L), (pszspec?.value ?: 0L))
 
-public actual fun PathMatchSpecExA(pszfile: PCSTR, pszspec: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMatchSpecExA(pszfile, pszspec, dwflags.toInt())
+public actual fun pathMatchSpecExA(pszfile: Pcstr, pszspec: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMatchSpecExA((pszfile?.value ?: 0L), (pszspec?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathMatchSpecExW(pszfile: PCWSTR, pszspec: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMatchSpecExW(pszfile, pszspec, dwflags.toInt())
+public actual fun pathMatchSpecExW(pszfile: Pcwstr, pszspec: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMatchSpecExW((pszfile?.value ?: 0L), (pszspec?.value ?: 0L), dwflags.toInt())
 
-public actual fun PathMatchSpecW(pszfile: PCWSTR, pszspec: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathMatchSpecW(pszfile, pszspec)
+public actual fun pathMatchSpecW(pszfile: Pcwstr, pszspec: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathMatchSpecW((pszfile?.value ?: 0L), (pszspec?.value ?: 0L))
 
-public actual fun PathParseIconLocationA(psziconfile: PSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathParseIconLocationA(psziconfile)
+public actual fun pathParseIconLocationA(psziconfile: Pstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathParseIconLocationA((psziconfile?.value ?: 0L))
 
-public actual fun PathParseIconLocationW(psziconfile: PWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathParseIconLocationW(psziconfile)
+public actual fun pathParseIconLocationW(psziconfile: Pwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathParseIconLocationW((psziconfile?.value ?: 0L))
 
-public actual fun PathQualify(psz: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathQualify(psz)
+public actual fun pathQualify(psz: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathQualify((psz?.value ?: 0L))
 }
 
-public actual fun PathQuoteSpacesA(lpsz: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathQuoteSpacesA(lpsz)
+public actual fun pathQuoteSpacesA(lpsz: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathQuoteSpacesA((lpsz?.value ?: 0L))
 
-public actual fun PathQuoteSpacesW(lpsz: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathQuoteSpacesW(lpsz)
+public actual fun pathQuoteSpacesW(lpsz: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathQuoteSpacesW((lpsz?.value ?: 0L))
 
-public actual fun PathRelativePathToA(pszpath: PSTR, pszfrom: PCSTR, dwattrfrom: UInt, pszto: PCSTR, dwattrto: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRelativePathToA(pszpath, pszfrom, dwattrfrom.toInt(), pszto, dwattrto.toInt())
+public actual fun pathRelativePathToA(pszpath: Pstr, pszfrom: Pcstr, dwattrfrom: UInt, pszto: Pcstr, dwattrto: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRelativePathToA((pszpath?.value ?: 0L), (pszfrom?.value ?: 0L), dwattrfrom.toInt(), (pszto?.value ?: 0L), dwattrto.toInt())
 
-public actual fun PathRelativePathToW(pszpath: PWSTR, pszfrom: PCWSTR, dwattrfrom: UInt, pszto: PCWSTR, dwattrto: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRelativePathToW(pszpath, pszfrom, dwattrfrom.toInt(), pszto, dwattrto.toInt())
+public actual fun pathRelativePathToW(pszpath: Pwstr, pszfrom: Pcwstr, dwattrfrom: UInt, pszto: Pcwstr, dwattrto: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRelativePathToW((pszpath?.value ?: 0L), (pszfrom?.value ?: 0L), dwattrfrom.toInt(), (pszto?.value ?: 0L), dwattrto.toInt())
 
-public actual fun PathRemoveArgsA(pszpath: PSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveArgsA(pszpath)
+public actual fun pathRemoveArgsA(pszpath: Pstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveArgsA((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveArgsW(pszpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveArgsW(pszpath)
+public actual fun pathRemoveArgsW(pszpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveArgsW((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveBackslashA(pszpath: PSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveBackslashA(pszpath)
+public actual fun pathRemoveBackslashA(pszpath: Pstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveBackslashA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathRemoveBackslashW(pszpath: PWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveBackslashW(pszpath)
+public actual fun pathRemoveBackslashW(pszpath: Pwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveBackslashW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathRemoveBlanksA(pszpath: PSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveBlanksA(pszpath)
+public actual fun pathRemoveBlanksA(pszpath: Pstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveBlanksA((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveBlanksW(pszpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveBlanksW(pszpath)
+public actual fun pathRemoveBlanksW(pszpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveBlanksW((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveExtensionA(pszpath: PSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveExtensionA(pszpath)
+public actual fun pathRemoveExtensionA(pszpath: Pstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveExtensionA((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveExtensionW(pszpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveExtensionW(pszpath)
+public actual fun pathRemoveExtensionW(pszpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveExtensionW((pszpath?.value ?: 0L))
 }
 
-public actual fun PathRemoveFileSpecA(pszpath: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveFileSpecA(pszpath)
+public actual fun pathRemoveFileSpecA(pszpath: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveFileSpecA((pszpath?.value ?: 0L))
 
-public actual fun PathRemoveFileSpecW(pszpath: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRemoveFileSpecW(pszpath)
+public actual fun pathRemoveFileSpecW(pszpath: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRemoveFileSpecW((pszpath?.value ?: 0L))
 
-public actual fun PathRenameExtensionA(pszpath: PSTR, pszext: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRenameExtensionA(pszpath, pszext)
+public actual fun pathRenameExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRenameExtensionA((pszpath?.value ?: 0L), (pszext?.value ?: 0L))
 
-public actual fun PathRenameExtensionW(pszpath: PWSTR, pszext: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathRenameExtensionW(pszpath, pszext)
+public actual fun pathRenameExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathRenameExtensionW((pszpath?.value ?: 0L), (pszext?.value ?: 0L))
 
-public actual fun PathResolve(pszpath: PWSTR, dirs: Long, fflags: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathResolve(pszpath, dirs, fflags.toInt())
+public actual fun pathResolve(pszpath: Pwstr, dirs: COpaquePointer?, fflags: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathResolve((pszpath?.value ?: 0L), (dirs?.value ?: 0L), fflags.toInt())
 
-public actual fun PathSearchAndQualifyA(pszpath: PCSTR, pszbuf: PSTR, cchbuf: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSearchAndQualifyA(pszpath, pszbuf, cchbuf.toInt())
+public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSearchAndQualifyA((pszpath?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun PathSearchAndQualifyW(pszpath: PCWSTR, pszbuf: PWSTR, cchbuf: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSearchAndQualifyW(pszpath, pszbuf, cchbuf.toInt())
+public actual fun pathSearchAndQualifyW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSearchAndQualifyW((pszpath?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun PathSetDlgItemPathA(hdlg: HWND, id: Int, pszpath: PCSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSetDlgItemPathA(hdlg, id, pszpath)
+public actual fun pathSetDlgItemPathA(hdlg: Hwnd, id: Int, pszpath: Pcstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSetDlgItemPathA((hdlg?.value ?: 0L), id, (pszpath?.value ?: 0L))
 }
 
-public actual fun PathSetDlgItemPathW(hdlg: HWND, id: Int, pszpath: PCWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSetDlgItemPathW(hdlg, id, pszpath)
+public actual fun pathSetDlgItemPathW(hdlg: Hwnd, id: Int, pszpath: Pcwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSetDlgItemPathW((hdlg?.value ?: 0L), id, (pszpath?.value ?: 0L))
 }
 
-public actual fun PathSkipRootA(pszpath: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSkipRootA(pszpath)
+public actual fun pathSkipRootA(pszpath: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSkipRootA((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathSkipRootW(pszpath: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathSkipRootW(pszpath)
+public actual fun pathSkipRootW(pszpath: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathSkipRootW((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PathStripPathA(pszpath: PSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathStripPathA(pszpath)
+public actual fun pathStripPathA(pszpath: Pstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathStripPathA((pszpath?.value ?: 0L))
 }
 
-public actual fun PathStripPathW(pszpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathStripPathW(pszpath)
+public actual fun pathStripPathW(pszpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathStripPathW((pszpath?.value ?: 0L))
 }
 
-public actual fun PathStripToRootA(pszpath: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathStripToRootA(pszpath)
+public actual fun pathStripToRootA(pszpath: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathStripToRootA((pszpath?.value ?: 0L))
 
-public actual fun PathStripToRootW(pszpath: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathStripToRootW(pszpath)
+public actual fun pathStripToRootW(pszpath: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathStripToRootW((pszpath?.value ?: 0L))
 
-public actual fun PathUnExpandEnvStringsA(pszpath: PCSTR, pszbuf: PSTR, cchbuf: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA(pszpath, pszbuf, cchbuf.toInt())
+public actual fun pathUnExpandEnvStringsA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA((pszpath?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun PathUnExpandEnvStringsW(pszpath: PCWSTR, pszbuf: PWSTR, cchbuf: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW(pszpath, pszbuf, cchbuf.toInt())
+public actual fun pathUnExpandEnvStringsW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW((pszpath?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun PathUndecorateA(pszpath: PSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUndecorateA(pszpath)
+public actual fun pathUndecorateA(pszpath: Pstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUndecorateA((pszpath?.value ?: 0L))
 }
 
-public actual fun PathUndecorateW(pszpath: PWSTR) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUndecorateW(pszpath)
+public actual fun pathUndecorateW(pszpath: Pwstr) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUndecorateW((pszpath?.value ?: 0L))
 }
 
-public actual fun PathUnmakeSystemFolderA(pszpath: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA(pszpath)
+public actual fun pathUnmakeSystemFolderA(pszpath: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA((pszpath?.value ?: 0L))
 
-public actual fun PathUnmakeSystemFolderW(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW(pszpath)
+public actual fun pathUnmakeSystemFolderW(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW((pszpath?.value ?: 0L))
 
-public actual fun PathUnquoteSpacesA(lpsz: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnquoteSpacesA(lpsz)
+public actual fun pathUnquoteSpacesA(lpsz: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnquoteSpacesA((lpsz?.value ?: 0L))
 
-public actual fun PathUnquoteSpacesW(lpsz: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathUnquoteSpacesW(lpsz)
+public actual fun pathUnquoteSpacesW(lpsz: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathUnquoteSpacesW((lpsz?.value ?: 0L))
 
-public actual fun PathYetAnotherMakeUniqueName(pszuniquename: PWSTR, pszpath: PCWSTR, pszshort: PCWSTR, pszfilespec: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName(pszuniquename, pszpath, pszshort, pszfilespec)
+public actual fun pathYetAnotherMakeUniqueName(pszuniquename: Pwstr, pszpath: Pcwstr, pszshort: Pcwstr, pszfilespec: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName((pszuniquename?.value ?: 0L), (pszpath?.value ?: 0L), (pszshort?.value ?: 0L), (pszfilespec?.value ?: 0L))
 
-public actual fun PickIconDlg(hwnd: HWND, psziconpath: PWSTR, cchiconpath: UInt, piiconindex: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PickIconDlg(hwnd, psziconpath, cchiconpath.toInt(), piiconindex)
+public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_pickIconDlg((hwnd?.value ?: 0L), (psziconpath?.value ?: 0L), cchiconpath.toInt(), (piiconindex?.value ?: 0L))
 
-public actual fun PropVariantToStrRet(propvar: Long, pstrret: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_PropVariantToStrRet(propvar, pstrret)
+public actual fun propVariantToStrRet(propvar: COpaquePointer?, pstrret: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_propVariantToStrRet((propvar?.value ?: 0L), (pstrret?.value ?: 0L))
 
-public actual fun QISearch(that: Long, pqit: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_QISearch(that, pqit, riid, ppv)
+public actual fun qISearch(that: COpaquePointer?, pqit: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_qISearch((that?.value ?: 0L), (pqit?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun ReadCabinetState(pcs: Long, clength: Int): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ReadCabinetState(pcs, clength)
+public actual fun readCabinetState(pcs: COpaquePointer?, clength: Int): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_readCabinetState((pcs?.value ?: 0L), clength)
 
-public actual fun RealDriveType(idrive: Int, foktohitnet: BOOL): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RealDriveType(idrive, foktohitnet)
+public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_realDriveType(idrive, foktohitnet)
 
-public actual fun RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: Long, registration: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification(routine.toLong(), context, registration).toUInt()
+public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: COpaquePointer?, registration: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification(0L, (context?.value ?: 0L), (registration?.value ?: 0L)).toUInt()
 
-public actual fun RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: Long, registration: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification(routine.toLong(), context, registration).toUInt()
+public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: COpaquePointer?, registration: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_registerAppStateChangeNotification(0L, (context?.value ?: 0L), (registration?.value ?: 0L)).toUInt()
 
-public actual fun RegisterScaleChangeEvent(hevent: HANDLE, pdwcookie: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent(hevent, pdwcookie)
+public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_registerScaleChangeEvent((hevent?.value ?: 0L), (pdwcookie?.value ?: 0L))
 
-public actual fun RegisterScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: HWND, umsgnotify: UInt, pdwcookie: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications(displaydevice, hwndnotify, umsgnotify.toInt(), pdwcookie)
+public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_registerScaleChangeNotifications(displaydevice, (hwndnotify?.value ?: 0L), umsgnotify.toInt(), (pdwcookie?.value ?: 0L))
 
-public actual fun RemoveWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RemoveWindowSubclass(hwnd, pfnsubclass.toLong(), uidsubclass.toLong())
+public actual fun removeWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_removeWindowSubclass((hwnd?.value ?: 0L), 0L, uidsubclass.toLong())
 
-public actual fun RestartDialog(hwnd: HWND, pszprompt: PCWSTR, dwreturn: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RestartDialog(hwnd, pszprompt, dwreturn.toInt())
+public actual fun restartDialog(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_restartDialog((hwnd?.value ?: 0L), (pszprompt?.value ?: 0L), dwreturn.toInt())
 
-public actual fun RestartDialogEx(hwnd: HWND, pszprompt: PCWSTR, dwreturn: UInt, dwreasoncode: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RestartDialogEx(hwnd, pszprompt, dwreturn.toInt(), dwreasoncode.toInt())
+public actual fun restartDialogEx(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt, dwreasoncode: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_restartDialogEx((hwnd?.value ?: 0L), (pszprompt?.value ?: 0L), dwreturn.toInt(), dwreasoncode.toInt())
 
-public actual fun RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications(displaydevice, dwcookie.toInt())
+public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceType, dwcookie: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications(displaydevice, dwcookie.toInt())
 
-public actual fun SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM): UInt =
+public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun SHAddToRecentDocs(uflags: UInt, pv: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAddToRecentDocs(uflags.toInt(), pv)
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAddToRecentDocs(uflags.toInt(), (pv?.value ?: 0L))
 }
 
-public actual fun SHAlloc(cb: ULong): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAlloc(cb.toLong())
+public actual fun sHAlloc(cb: ULong): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAlloc(cb.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHAllocShared(pvdata: Long, dwsize: UInt, dwprocessid: UInt): HANDLE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAllocShared(pvdata, dwsize.toInt(), dwprocessid.toInt())
+public actual fun sHAllocShared(pvdata: COpaquePointer?, dwsize: UInt, dwprocessid: UInt): Handle =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAllocShared((pvdata?.value ?: 0L), dwsize.toInt(), dwprocessid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHAnsiToAnsi(pszsrc: PCSTR, pszdst: PSTR, cchbuf: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAnsiToAnsi(pszsrc, pszdst, cchbuf)
+public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAnsiToAnsi((pszsrc?.value ?: 0L), (pszdst?.value ?: 0L), cchbuf)
 
-public actual fun SHAnsiToUnicode(pszsrc: PCSTR, pwszdst: PWSTR, cwchbuf: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAnsiToUnicode(pszsrc, pwszdst, cwchbuf)
+public actual fun sHAnsiToUnicode(pszsrc: Pcstr, pwszdst: Pwstr, cwchbuf: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAnsiToUnicode((pszsrc?.value ?: 0L), (pwszdst?.value ?: 0L), cwchbuf)
 
-public actual fun SHAppBarMessage(dwmessage: UInt, pdata: Long): ULong =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAppBarMessage(dwmessage.toInt(), pdata).toULong()
+public actual fun sHAppBarMessage(dwmessage: UInt, pdata: COpaquePointer?): ULong =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAppBarMessage(dwmessage.toInt(), (pdata?.value ?: 0L)).toULong()
 
-public actual fun SHAssocEnumHandlers(pszextra: PCWSTR, affilter: ASSOC_FILTER, ppenumhandler: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAssocEnumHandlers(pszextra, affilter, ppenumhandler)
+public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAssocEnumHandlers((pszextra?.value ?: 0L), affilter, (ppenumhandler?.value ?: 0L))
 
-public actual fun SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: Long, enumhandlers: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication(protocol, riid, enumhandlers)
+public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: COpaquePointer?, enumhandlers: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication((protocol?.value ?: 0L), (riid?.value ?: 0L), (enumhandlers?.value ?: 0L))
 
-public actual fun SHAutoComplete(hwndedit: HWND, dwflags: SHELL_AUTOCOMPLETE_FLAGS): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHAutoComplete(hwndedit, dwflags.toInt())
+public actual fun sHAutoComplete(hwndedit: Hwnd, dwflags: ShellAutocompleteFlags): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHAutoComplete((hwndedit?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHBindToFolderIDListParent(psfroot: Long, pidl: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent(psfroot, pidl, riid, ppv, ppidllast)
+public actual fun sHBindToFolderIDListParent(psfroot: COpaquePointer?, pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent((psfroot?.value ?: 0L), (pidl?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L), (ppidllast?.value ?: 0L))
 
-public actual fun SHBindToFolderIDListParentEx(psfroot: Long, pidl: Long, ppbc: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx(psfroot, pidl, ppbc, riid, ppv, ppidllast)
+public actual fun sHBindToFolderIDListParentEx(psfroot: COpaquePointer?, pidl: COpaquePointer?, ppbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx((psfroot?.value ?: 0L), (pidl?.value ?: 0L), (ppbc?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L), (ppidllast?.value ?: 0L))
 
-public actual fun SHBindToObject(psf: Long, pidl: Long, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBindToObject(psf, pidl, pbc, riid, ppv)
+public actual fun sHBindToObject(psf: COpaquePointer?, pidl: COpaquePointer?, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBindToObject((psf?.value ?: 0L), (pidl?.value ?: 0L), (pbc?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHBindToParent(pidl: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBindToParent(pidl, riid, ppv, ppidllast)
+public actual fun sHBindToParent(pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBindToParent((pidl?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L), (ppidllast?.value ?: 0L))
 
-public actual fun SHBrowseForFolderA(lpbi: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBrowseForFolderA(lpbi)
+public actual fun sHBrowseForFolderA(lpbi: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBrowseForFolderA((lpbi?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHBrowseForFolderW(lpbi: Long): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHBrowseForFolderW(lpbi)
+public actual fun sHBrowseForFolderW(lpbi: COpaquePointer?): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHBrowseForFolderW((lpbi?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHCLSIDFromString(psz: PCWSTR, pclsid: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCLSIDFromString(psz, pclsid)
+public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCLSIDFromString((psz?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun SHChangeNotification_Lock(hchange: HANDLE, dwprocid: UInt, pppidl: Long, plevent: Long): HANDLE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotification_Lock(hchange, dwprocid.toInt(), pppidl, plevent)
+public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: COpaquePointer?, plevent: COpaquePointer?): Handle =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shchangeNotificationLock((hchange?.value ?: 0L), dwprocid.toInt(), (pppidl?.value ?: 0L), (plevent?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHChangeNotification_Unlock(hlock: HANDLE): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock(hlock)
+public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shchangeNotificationUnlock((hlock?.value ?: 0L))
 
-public actual fun SHChangeNotify(weventid: Int, uflags: SHCNF_FLAGS, dwitem1: Long, dwitem2: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotify(weventid, uflags.toInt(), dwitem1, dwitem2)
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: COpaquePointer?, dwitem2: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHChangeNotify(weventid, uflags.toInt(), (dwitem1?.value ?: 0L), (dwitem2?.value ?: 0L))
 }
 
-public actual fun SHChangeNotifyDeregister(ulid: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister(ulid.toInt())
+public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister(ulid.toInt())
 
-public actual fun SHChangeNotifyRegister(hwnd: HWND, fsources: SHCNRF_SOURCE, fevents: Int, wmsg: UInt, centries: Int, pshcne: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotifyRegister(hwnd, fsources, fevents, wmsg.toInt(), centries, pshcne).toUInt()
+public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHChangeNotifyRegister((hwnd?.value ?: 0L), fsources, fevents, wmsg.toInt(), centries, (pshcne?.value ?: 0L)).toUInt()
 
-public actual fun SHChangeNotifyRegisterThread(status: SCNRT_STATUS) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread(status)
+public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread(status)
 }
 
-public actual fun SHCloneSpecialIDList(hwnd: HWND, csidl: Int, fcreate: BOOL): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCloneSpecialIDList(hwnd, csidl, fcreate)
+public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCloneSpecialIDList((hwnd?.value ?: 0L), csidl, fcreate).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHCoCreateInstance(pszclsid: PCWSTR, pclsid: Long, punkouter: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCoCreateInstance(pszclsid, pclsid, punkouter, riid, ppv)
+public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: COpaquePointer?, punkouter: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCoCreateInstance((pszclsid?.value ?: 0L), (pclsid?.value ?: 0L), (punkouter?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCopyKeyA(hkeysrc: HKEY, pszsrcsubkey: PCSTR, hkeydest: HKEY, freserved: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCopyKeyA(hkeysrc, pszsrcsubkey, hkeydest, freserved.toInt()).toUInt()
+public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCopyKeyA((hkeysrc?.value ?: 0L), (pszsrcsubkey?.value ?: 0L), (hkeydest?.value ?: 0L), freserved.toInt()).toUInt()
 
-public actual fun SHCopyKeyW(hkeysrc: HKEY, pszsrcsubkey: PCWSTR, hkeydest: HKEY, freserved: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCopyKeyW(hkeysrc, pszsrcsubkey, hkeydest, freserved.toInt()).toUInt()
+public actual fun sHCopyKeyW(hkeysrc: Hkey, pszsrcsubkey: Pcwstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCopyKeyW((hkeysrc?.value ?: 0L), (pszsrcsubkey?.value ?: 0L), (hkeydest?.value ?: 0L), freserved.toInt()).toUInt()
 
-public actual fun SHCreateAssociationRegistration(riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration(riid, ppv)
+public actual fun sHCreateAssociationRegistration(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration((riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateDataObject(pidlfolder: Long, cidl: UInt, apidl: Long, pdtinner: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDataObject(pidlfolder, cidl.toInt(), apidl, pdtinner, riid, ppv)
+public actual fun sHCreateDataObject(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, pdtinner: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDataObject((pidlfolder?.value ?: 0L), cidl.toInt(), (apidl?.value ?: 0L), (pdtinner?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateDefaultContextMenu(pdcm: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu(pdcm, riid, ppv)
+public actual fun sHCreateDefaultContextMenu(pdcm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu((pdcm?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateDefaultExtractIcon(riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon(riid, ppv)
+public actual fun sHCreateDefaultExtractIcon(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon((riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateDefaultPropertiesOp(psi: Long, ppfileop: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp(psi, ppfileop)
+public actual fun sHCreateDefaultPropertiesOp(psi: COpaquePointer?, ppfileop: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp((psi?.value ?: 0L), (ppfileop?.value ?: 0L))
 
-public actual fun SHCreateDirectory(hwnd: HWND, pszpath: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDirectory(hwnd, pszpath)
+public actual fun sHCreateDirectory(hwnd: Hwnd, pszpath: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDirectory((hwnd?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHCreateDirectoryExA(hwnd: HWND, pszpath: PCSTR, psa: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDirectoryExA(hwnd, pszpath, psa)
+public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDirectoryExA((hwnd?.value ?: 0L), (pszpath?.value ?: 0L), (psa?.value ?: 0L))
 
-public actual fun SHCreateDirectoryExW(hwnd: HWND, pszpath: PCWSTR, psa: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateDirectoryExW(hwnd, pszpath, psa)
+public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateDirectoryExW((hwnd?.value ?: 0L), (pszpath?.value ?: 0L), (psa?.value ?: 0L))
 
-public actual fun SHCreateFileExtractIconW(pszfile: PCWSTR, dwfileattributes: UInt, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW(pszfile, dwfileattributes.toInt(), riid, ppv)
+public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW((pszfile?.value ?: 0L), dwfileattributes.toInt(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateItemFromIDList(pidl: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateItemFromIDList(pidl, riid, ppv)
+public actual fun sHCreateItemFromIDList(pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateItemFromIDList((pidl?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateItemFromParsingName(pszpath: PCWSTR, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName(pszpath, pbc, riid, ppv)
+public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName((pszpath?.value ?: 0L), (pbc?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateItemFromRelativeName(psiparent: Long, pszname: PCWSTR, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName(psiparent, pszname, pbc, riid, ppv)
+public actual fun sHCreateItemFromRelativeName(psiparent: COpaquePointer?, pszname: Pcwstr, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName((psiparent?.value ?: 0L), (pszname?.value ?: 0L), (pbc?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateItemInKnownFolder(kfid: Long, dwkfflags: UInt, pszitem: PCWSTR, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder(kfid, dwkfflags.toInt(), pszitem, riid, ppv)
+public actual fun sHCreateItemInKnownFolder(kfid: COpaquePointer?, dwkfflags: UInt, pszitem: Pcwstr, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder((kfid?.value ?: 0L), dwkfflags.toInt(), (pszitem?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateItemWithParent(pidlparent: Long, psfparent: Long, pidl: Long, riid: Long, ppvitem: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateItemWithParent(pidlparent, psfparent, pidl, riid, ppvitem)
+public actual fun sHCreateItemWithParent(pidlparent: COpaquePointer?, psfparent: COpaquePointer?, pidl: COpaquePointer?, riid: COpaquePointer?, ppvitem: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateItemWithParent((pidlparent?.value ?: 0L), (psfparent?.value ?: 0L), (pidl?.value ?: 0L), (riid?.value ?: 0L), (ppvitem?.value ?: 0L))
 
-public actual fun SHCreateMemStream(pinit: Long, cbinit: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateMemStream(pinit, cbinit.toInt())
+public actual fun sHCreateMemStream(pinit: COpaquePointer?, cbinit: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateMemStream((pinit?.value ?: 0L), cbinit.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHCreateProcessAsUserW(pscpi: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW(pscpi)
+public actual fun sHCreateProcessAsUserW(pscpi: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW((pscpi?.value ?: 0L))
 
-public actual fun SHCreatePropSheetExtArray(hkey: HKEY, pszsubkey: PCWSTR, max_iface: UInt): HPSXA =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray(hkey, pszsubkey, max_iface.toInt())
+public actual fun sHCreatePropSheetExtArray(hkey: Hkey, pszsubkey: Pcwstr, maxIface: UInt): Hpsxa =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), maxIface.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHCreateQueryCancelAutoPlayMoniker(ppmoniker: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker(ppmoniker)
+public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker((ppmoniker?.value ?: 0L))
 
-public actual fun SHCreateShellFolderView(pcsfv: Long, ppsv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellFolderView(pcsfv, ppsv)
+public actual fun sHCreateShellFolderView(pcsfv: COpaquePointer?, ppsv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellFolderView((pcsfv?.value ?: 0L), (ppsv?.value ?: 0L))
 
-public actual fun SHCreateShellFolderViewEx(pcsfv: Long, ppsv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx(pcsfv, ppsv)
+public actual fun sHCreateShellFolderViewEx(pcsfv: COpaquePointer?, ppsv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx((pcsfv?.value ?: 0L), (ppsv?.value ?: 0L))
 
-public actual fun SHCreateShellItem(pidlparent: Long, psfparent: Long, pidl: Long, ppsi: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellItem(pidlparent, psfparent, pidl, ppsi)
+public actual fun sHCreateShellItem(pidlparent: COpaquePointer?, psfparent: COpaquePointer?, pidl: COpaquePointer?, ppsi: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellItem((pidlparent?.value ?: 0L), (psfparent?.value ?: 0L), (pidl?.value ?: 0L), (ppsi?.value ?: 0L))
 
-public actual fun SHCreateShellItemArray(pidlparent: Long, psf: Long, cidl: UInt, ppidl: Long, ppsiitemarray: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellItemArray(pidlparent, psf, cidl.toInt(), ppidl, ppsiitemarray)
+public actual fun sHCreateShellItemArray(pidlparent: COpaquePointer?, psf: COpaquePointer?, cidl: UInt, ppidl: COpaquePointer?, ppsiitemarray: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellItemArray((pidlparent?.value ?: 0L), (psf?.value ?: 0L), cidl.toInt(), (ppidl?.value ?: 0L), (ppsiitemarray?.value ?: 0L))
 
-public actual fun SHCreateShellItemArrayFromDataObject(pdo: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject(pdo, riid, ppv)
+public actual fun sHCreateShellItemArrayFromDataObject(pdo: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject((pdo?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: Long, ppsiitemarray: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists(cidl.toInt(), rgpidl, ppsiitemarray)
+public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: COpaquePointer?, ppsiitemarray: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists(cidl.toInt(), (rgpidl?.value ?: 0L), (ppsiitemarray?.value ?: 0L))
 
-public actual fun SHCreateShellItemArrayFromShellItem(psi: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem(psi, riid, ppv)
+public actual fun sHCreateShellItemArrayFromShellItem(psi: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem((psi?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHCreateShellPalette(hdc: HDC): HPALETTE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateShellPalette(hdc)
+public actual fun sHCreateShellPalette(hdc: Hdc): Hpalette =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateShellPalette((hdc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHCreateStdEnumFmtEtc(cfmt: UInt, afmt: Long, ppenumformatetc: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc(cfmt.toInt(), afmt, ppenumformatetc)
+public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: COpaquePointer?, ppenumformatetc: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc(cfmt.toInt(), (afmt?.value ?: 0L), (ppenumformatetc?.value ?: 0L))
 
-public actual fun SHCreateStreamOnFileA(pszfile: PCSTR, grfmode: UInt, ppstm: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA(pszfile, grfmode.toInt(), ppstm)
+public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA((pszfile?.value ?: 0L), grfmode.toInt(), (ppstm?.value ?: 0L))
 
-public actual fun SHCreateStreamOnFileEx(pszfile: PCWSTR, grfmode: UInt, dwattributes: UInt, fcreate: BOOL, pstmtemplate: Long, ppstm: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx(pszfile, grfmode.toInt(), dwattributes.toInt(), fcreate, pstmtemplate, ppstm)
+public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: COpaquePointer?, ppstm: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx((pszfile?.value ?: 0L), grfmode.toInt(), dwattributes.toInt(), fcreate, (pstmtemplate?.value ?: 0L), (ppstm?.value ?: 0L))
 
-public actual fun SHCreateStreamOnFileW(pszfile: PCWSTR, grfmode: UInt, ppstm: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW(pszfile, grfmode.toInt(), ppstm)
+public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW((pszfile?.value ?: 0L), grfmode.toInt(), (ppstm?.value ?: 0L))
 
-public actual fun SHCreateThread(pfnthreadproc: LPTHREAD_START_ROUTINE, pdata: Long, flags: UInt, pfncallback: LPTHREAD_START_ROUTINE): BOOL =
-    0
+public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: COpaquePointer?, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateThread(0L, (pdata?.value ?: 0L), flags.toInt(), 0L)
 
-public actual fun SHCreateThreadRef(pcref: Long, ppunk: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHCreateThreadRef(pcref, ppunk)
+public actual fun sHCreateThreadRef(pcref: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateThreadRef((pcref?.value ?: 0L), (ppunk?.value ?: 0L))
 
-public actual fun SHCreateThreadWithHandle(pfnthreadproc: LPTHREAD_START_ROUTINE, pdata: Long, flags: UInt, pfncallback: LPTHREAD_START_ROUTINE, phandle: Long): BOOL =
-    0
+public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: COpaquePointer?, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle(0L, (pdata?.value ?: 0L), flags.toInt(), 0L, (phandle?.value ?: 0L))
 
-public actual fun SHDefExtractIconA(psziconfile: PCSTR, iindex: Int, uflags: UInt, phiconlarge: Long, phiconsmall: Long, niconsize: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDefExtractIconA(psziconfile, iindex, uflags.toInt(), phiconlarge, phiconsmall, niconsize.toInt())
+public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, niconsize: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDefExtractIconA((psziconfile?.value ?: 0L), iindex, uflags.toInt(), (phiconlarge?.value ?: 0L), (phiconsmall?.value ?: 0L), niconsize.toInt())
 
-public actual fun SHDefExtractIconW(psziconfile: PCWSTR, iindex: Int, uflags: UInt, phiconlarge: Long, phiconsmall: Long, niconsize: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDefExtractIconW(psziconfile, iindex, uflags.toInt(), phiconlarge, phiconsmall, niconsize.toInt())
+public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, niconsize: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDefExtractIconW((psziconfile?.value ?: 0L), iindex, uflags.toInt(), (phiconlarge?.value ?: 0L), (phiconsmall?.value ?: 0L), niconsize.toInt())
 
-public actual fun SHDeleteEmptyKeyA(hkey: HKEY, pszsubkey: PCSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA(hkey, pszsubkey).toUInt()
+public actual fun sHDeleteEmptyKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L)).toUInt()
 
-public actual fun SHDeleteEmptyKeyW(hkey: HKEY, pszsubkey: PCWSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW(hkey, pszsubkey).toUInt()
+public actual fun sHDeleteEmptyKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L)).toUInt()
 
-public actual fun SHDeleteKeyA(hkey: HKEY, pszsubkey: PCSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteKeyA(hkey, pszsubkey).toUInt()
+public actual fun sHDeleteKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteKeyA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L)).toUInt()
 
-public actual fun SHDeleteKeyW(hkey: HKEY, pszsubkey: PCWSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteKeyW(hkey, pszsubkey).toUInt()
+public actual fun sHDeleteKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteKeyW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L)).toUInt()
 
-public actual fun SHDeleteValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteValueA(hkey, pszsubkey, pszvalue).toUInt()
+public actual fun sHDeleteValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteValueA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L)).toUInt()
 
-public actual fun SHDeleteValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDeleteValueW(hkey, pszsubkey, pszvalue).toUInt()
+public actual fun sHDeleteValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDeleteValueW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L)).toUInt()
 
-public actual fun SHDestroyPropSheetExtArray(hpsxa: HPSXA) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray(hpsxa)
+public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray((hpsxa?.value ?: 0L))
 }
 
-public actual fun SHDoDragDrop(hwnd: HWND, pdata: Long, pdsrc: Long, dweffect: DROPEFFECT, pdweffect: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHDoDragDrop(hwnd, pdata, pdsrc, dweffect.toInt(), pdweffect)
+public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: COpaquePointer?, pdsrc: COpaquePointer?, dweffect: Dropeffect, pdweffect: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHDoDragDrop((hwnd?.value ?: 0L), (pdata?.value ?: 0L), (pdsrc?.value ?: 0L), dweffect.toInt(), (pdweffect?.value ?: 0L))
 
-public actual fun SHEmptyRecycleBinA(hwnd: HWND, pszrootpath: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA(hwnd, pszrootpath, dwflags.toInt())
+public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA((hwnd?.value ?: 0L), (pszrootpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHEmptyRecycleBinW(hwnd: HWND, pszrootpath: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW(hwnd, pszrootpath, dwflags.toInt())
+public actual fun sHEmptyRecycleBinW(hwnd: Hwnd, pszrootpath: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW((hwnd?.value ?: 0L), (pszrootpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHEnumKeyExA(hkey: HKEY, dwindex: UInt, pszname: PSTR, pcchname: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEnumKeyExA(hkey, dwindex.toInt(), pszname, pcchname).toUInt()
+public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEnumKeyExA((hkey?.value ?: 0L), dwindex.toInt(), (pszname?.value ?: 0L), (pcchname?.value ?: 0L)).toUInt()
 
-public actual fun SHEnumKeyExW(hkey: HKEY, dwindex: UInt, pszname: PWSTR, pcchname: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEnumKeyExW(hkey, dwindex.toInt(), pszname, pcchname).toUInt()
+public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEnumKeyExW((hkey?.value ?: 0L), dwindex.toInt(), (pszname?.value ?: 0L), (pcchname?.value ?: 0L)).toUInt()
 
-public actual fun SHEnumValueA(hkey: HKEY, dwindex: UInt, pszvaluename: PSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEnumValueA(hkey, dwindex.toInt(), pszvaluename, pcchvaluename, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEnumValueA((hkey?.value ?: 0L), dwindex.toInt(), (pszvaluename?.value ?: 0L), (pcchvaluename?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHEnumValueW(hkey: HKEY, dwindex: UInt, pszvaluename: PWSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEnumValueW(hkey, dwindex.toInt(), pszvaluename, pcchvaluename, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEnumValueW((hkey?.value ?: 0L), dwindex.toInt(), (pszvaluename?.value ?: 0L), (pcchvaluename?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHEnumerateUnreadMailAccountsW(hkeyuser: HKEY, dwindex: UInt, pszmailaddress: PWSTR, cchmailaddress: Int): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW(hkeyuser, dwindex.toInt(), pszmailaddress, cchmailaddress)
+public actual fun sHEnumerateUnreadMailAccountsW(hkeyuser: Hkey, dwindex: UInt, pszmailaddress: Pwstr, cchmailaddress: Int): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW((hkeyuser?.value ?: 0L), dwindex.toInt(), (pszmailaddress?.value ?: 0L), cchmailaddress)
 
-public actual fun SHEvaluateSystemCommandTemplate(pszcmdtemplate: PCWSTR, ppszapplication: Long, ppszcommandline: Long, ppszparameters: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate(pszcmdtemplate, ppszapplication, ppszcommandline, ppszparameters)
+public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: COpaquePointer?, ppszcommandline: COpaquePointer?, ppszparameters: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate((pszcmdtemplate?.value ?: 0L), (ppszapplication?.value ?: 0L), (ppszcommandline?.value ?: 0L), (ppszparameters?.value ?: 0L))
 
-public actual fun SHFileOperationA(lpfileop: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFileOperationA(lpfileop)
+public actual fun sHFileOperationA(lpfileop: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFileOperationA((lpfileop?.value ?: 0L))
 
-public actual fun SHFileOperationW(lpfileop: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFileOperationW(lpfileop)
+public actual fun sHFileOperationW(lpfileop: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFileOperationW((lpfileop?.value ?: 0L))
 
-public actual fun SHFindFiles(pidlfolder: Long, pidlsavefile: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFindFiles(pidlfolder, pidlsavefile)
+public actual fun sHFindFiles(pidlfolder: COpaquePointer?, pidlsavefile: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFindFiles((pidlfolder?.value ?: 0L), (pidlsavefile?.value ?: 0L))
 
-public actual fun SHFind_InitMenuPopup(hmenu: HMENU, hwndowner: HWND, idcmdfirst: UInt, idcmdlast: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup(hmenu, hwndowner, idcmdfirst.toInt(), idcmdlast.toInt())
+public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shfindInitMenuPopup((hmenu?.value ?: 0L), (hwndowner?.value ?: 0L), idcmdfirst.toInt(), idcmdlast.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHFlushSFCache() {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFlushSFCache()
+public actual fun sHFlushSFCache() {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFlushSFCache()
 }
 
-public actual fun SHFormatDateTimeA(pft: Long, pdwflags: Long, pszbuf: PSTR, cchbuf: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFormatDateTimeA(pft, pdwflags, pszbuf, cchbuf.toInt())
+public actual fun sHFormatDateTimeA(pft: COpaquePointer?, pdwflags: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFormatDateTimeA((pft?.value ?: 0L), (pdwflags?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun SHFormatDateTimeW(pft: Long, pdwflags: Long, pszbuf: PWSTR, cchbuf: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFormatDateTimeW(pft, pdwflags, pszbuf, cchbuf.toInt())
+public actual fun sHFormatDateTimeW(pft: COpaquePointer?, pdwflags: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFormatDateTimeW((pft?.value ?: 0L), (pdwflags?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun SHFormatDrive(hwnd: HWND, drive: UInt, fmtid: SHFMT_ID, options: UInt): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFormatDrive(hwnd, drive.toInt(), fmtid.toInt(), options.toInt()).toUInt()
+public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFormatDrive((hwnd?.value ?: 0L), drive.toInt(), fmtid.toInt(), options.toInt()).toUInt()
 
-public actual fun SHFree(pv: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFree(pv)
+public actual fun sHFree(pv: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFree((pv?.value ?: 0L))
 }
 
-public actual fun SHFreeNameMappings(hnamemappings: HANDLE) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFreeNameMappings(hnamemappings)
+public actual fun sHFreeNameMappings(hnamemappings: Handle) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFreeNameMappings((hnamemappings?.value ?: 0L))
 }
 
-public actual fun SHFreeShared(hdata: HANDLE, dwprocessid: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHFreeShared(hdata, dwprocessid.toInt())
+public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHFreeShared((hdata?.value ?: 0L), dwprocessid.toInt())
 
-public actual fun SHGetAttributesFromDataObject(pdo: Long, dwattributemask: UInt, pdwattributes: Long, pcitems: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject(pdo, dwattributemask.toInt(), pdwattributes, pcitems)
+public actual fun sHGetAttributesFromDataObject(pdo: COpaquePointer?, dwattributemask: UInt, pdwattributes: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject((pdo?.value ?: 0L), dwattributemask.toInt(), (pdwattributes?.value ?: 0L), (pcitems?.value ?: 0L))
 
-public actual fun SHGetDataFromIDListA(psf: Long, pidl: Long, nformat: SHGDFIL_FORMAT, pv: Long, cb: Int): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDataFromIDListA(psf, pidl, nformat, pv, cb)
+public actual fun sHGetDataFromIDListA(psf: COpaquePointer?, pidl: COpaquePointer?, nformat: ShgdfilFormat, pv: COpaquePointer?, cb: Int): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDataFromIDListA((psf?.value ?: 0L), (pidl?.value ?: 0L), nformat, (pv?.value ?: 0L), cb)
 
-public actual fun SHGetDataFromIDListW(psf: Long, pidl: Long, nformat: SHGDFIL_FORMAT, pv: Long, cb: Int): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDataFromIDListW(psf, pidl, nformat, pv, cb)
+public actual fun sHGetDataFromIDListW(psf: COpaquePointer?, pidl: COpaquePointer?, nformat: ShgdfilFormat, pv: COpaquePointer?, cb: Int): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDataFromIDListW((psf?.value ?: 0L), (pidl?.value ?: 0L), nformat, (pv?.value ?: 0L), cb)
 
-public actual fun SHGetDesktopFolder(ppshf: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDesktopFolder(ppshf)
+public actual fun sHGetDesktopFolder(ppshf: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDesktopFolder((ppshf?.value ?: 0L))
 
-public actual fun SHGetDiskFreeSpaceExA(pszdirectoryname: PCSTR, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA(pszdirectoryname, pulfreebytesavailabletocaller, pultotalnumberofbytes, pultotalnumberoffreebytes)
+public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: COpaquePointer?, pultotalnumberofbytes: COpaquePointer?, pultotalnumberoffreebytes: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA((pszdirectoryname?.value ?: 0L), (pulfreebytesavailabletocaller?.value ?: 0L), (pultotalnumberofbytes?.value ?: 0L), (pultotalnumberoffreebytes?.value ?: 0L))
 
-public actual fun SHGetDiskFreeSpaceExW(pszdirectoryname: PCWSTR, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW(pszdirectoryname, pulfreebytesavailabletocaller, pultotalnumberofbytes, pultotalnumberoffreebytes)
+public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: COpaquePointer?, pultotalnumberofbytes: COpaquePointer?, pultotalnumberoffreebytes: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW((pszdirectoryname?.value ?: 0L), (pulfreebytesavailabletocaller?.value ?: 0L), (pultotalnumberofbytes?.value ?: 0L), (pultotalnumberoffreebytes?.value ?: 0L))
 
-public actual fun SHGetDriveMedia(pszdrive: PCWSTR, pdwmediacontent: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetDriveMedia(pszdrive, pdwmediacontent)
+public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetDriveMedia((pszdrive?.value ?: 0L), (pdwmediacontent?.value ?: 0L))
 
-public actual fun SHGetFileInfoA(pszpath: PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES, psfi: Long, cbfileinfo: UInt, uflags: SHGFI_FLAGS): ULong =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFileInfoA(pszpath, dwfileattributes.toInt(), psfi, cbfileinfo.toInt(), uflags.toInt()).toULong()
+public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: COpaquePointer?, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFileInfoA((pszpath?.value ?: 0L), dwfileattributes.toInt(), (psfi?.value ?: 0L), cbfileinfo.toInt(), uflags.toInt()).toULong()
 
-public actual fun SHGetFileInfoW(pszpath: PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES, psfi: Long, cbfileinfo: UInt, uflags: SHGFI_FLAGS): ULong =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFileInfoW(pszpath, dwfileattributes.toInt(), psfi, cbfileinfo.toInt(), uflags.toInt()).toULong()
+public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: COpaquePointer?, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFileInfoW((pszpath?.value ?: 0L), dwfileattributes.toInt(), (psfi?.value ?: 0L), cbfileinfo.toInt(), uflags.toInt()).toULong()
 
-public actual fun SHGetFolderLocation(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, ppidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFolderLocation(hwnd, csidl, htoken, dwflags.toInt(), ppidl)
+public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFolderLocation((hwnd?.value ?: 0L), csidl, (htoken?.value ?: 0L), dwflags.toInt(), (ppidl?.value ?: 0L))
 
-public actual fun SHGetFolderPathA(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFolderPathA(hwnd, csidl, htoken, dwflags.toInt(), pszpath)
+public actual fun sHGetFolderPathA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFolderPathA((hwnd?.value ?: 0L), csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszpath?.value ?: 0L))
 
-public actual fun SHGetFolderPathAndSubDirA(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszsubdir: PCSTR, pszpath: PSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA(hwnd, csidl, htoken, dwflags.toInt(), pszsubdir, pszpath)
+public actual fun sHGetFolderPathAndSubDirA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcstr, pszpath: Pstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA((hwnd?.value ?: 0L), csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszsubdir?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHGetFolderPathAndSubDirW(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszsubdir: PCWSTR, pszpath: PWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW(hwnd, csidl, htoken, dwflags.toInt(), pszsubdir, pszpath)
+public actual fun sHGetFolderPathAndSubDirW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcwstr, pszpath: Pwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW((hwnd?.value ?: 0L), csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszsubdir?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHGetFolderPathW(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetFolderPathW(hwnd, csidl, htoken, dwflags.toInt(), pszpath)
+public actual fun sHGetFolderPathW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetFolderPathW((hwnd?.value ?: 0L), csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszpath?.value ?: 0L))
 
-public actual fun SHGetIDListFromObject(punk: Long, ppidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetIDListFromObject(punk, ppidl)
+public actual fun sHGetIDListFromObject(punk: COpaquePointer?, ppidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetIDListFromObject((punk?.value ?: 0L), (ppidl?.value ?: 0L))
 
-public actual fun SHGetIconOverlayIndexA(psziconpath: PCSTR, iiconindex: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA(psziconpath, iiconindex)
+public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA((psziconpath?.value ?: 0L), iiconindex)
 
-public actual fun SHGetIconOverlayIndexW(psziconpath: PCWSTR, iiconindex: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW(psziconpath, iiconindex)
+public actual fun sHGetIconOverlayIndexW(psziconpath: Pcwstr, iiconindex: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW((psziconpath?.value ?: 0L), iiconindex)
 
-public actual fun SHGetImageList(iimagelist: Int, riid: Long, ppvobj: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetImageList(iimagelist, riid, ppvobj)
+public actual fun sHGetImageList(iimagelist: Int, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetImageList(iimagelist, (riid?.value ?: 0L), (ppvobj?.value ?: 0L))
 
-public actual fun SHGetInstanceExplorer(ppunk: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetInstanceExplorer(ppunk)
+public actual fun sHGetInstanceExplorer(ppunk: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetInstanceExplorer((ppunk?.value ?: 0L))
 
-public actual fun SHGetInverseCMAP(pbmap: Long, cbmap: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetInverseCMAP(pbmap, cbmap.toInt())
+public actual fun sHGetInverseCMAP(pbmap: COpaquePointer?, cbmap: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetInverseCMAP((pbmap?.value ?: 0L), cbmap.toInt())
 
-public actual fun SHGetItemFromDataObject(pdtobj: Long, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetItemFromDataObject(pdtobj, dwflags, riid, ppv)
+public actual fun sHGetItemFromDataObject(pdtobj: COpaquePointer?, dwflags: DataobjGetItemFlags, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetItemFromDataObject((pdtobj?.value ?: 0L), dwflags, (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHGetItemFromObject(punk: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetItemFromObject(punk, riid, ppv)
+public actual fun sHGetItemFromObject(punk: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetItemFromObject((punk?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHGetKnownFolderIDList(rfid: Long, dwflags: UInt, htoken: HANDLE, ppidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList(rfid, dwflags.toInt(), htoken, ppidl)
+public actual fun sHGetKnownFolderIDList(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, ppidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList((rfid?.value ?: 0L), dwflags.toInt(), (htoken?.value ?: 0L), (ppidl?.value ?: 0L))
 
-public actual fun SHGetKnownFolderItem(rfid: Long, flags: KNOWN_FOLDER_FLAG, htoken: HANDLE, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetKnownFolderItem(rfid, flags, htoken, riid, ppv)
+public actual fun sHGetKnownFolderItem(rfid: COpaquePointer?, flags: KnownFolderFlag, htoken: Handle, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetKnownFolderItem((rfid?.value ?: 0L), flags, (htoken?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHGetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: HANDLE, ppszpath: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetKnownFolderPath(rfid, dwflags.toInt(), htoken, ppszpath)
+public actual fun sHGetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, ppszpath: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetKnownFolderPath((rfid?.value ?: 0L), dwflags.toInt(), (htoken?.value ?: 0L), (ppszpath?.value ?: 0L))
 
-public actual fun SHGetLocalizedName(pszpath: PCWSTR, pszresmodule: PWSTR, cch: UInt, pidsres: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetLocalizedName(pszpath, pszresmodule, cch.toInt(), pidsres)
+public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetLocalizedName((pszpath?.value ?: 0L), (pszresmodule?.value ?: 0L), cch.toInt(), (pidsres?.value ?: 0L))
 
-public actual fun SHGetMalloc(ppmalloc: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetMalloc(ppmalloc)
+public actual fun sHGetMalloc(ppmalloc: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetMalloc((ppmalloc?.value ?: 0L))
 
-public actual fun SHGetNameFromIDList(pidl: Long, sigdnname: SIGDN, ppszname: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetNameFromIDList(pidl, sigdnname, ppszname)
+public actual fun sHGetNameFromIDList(pidl: COpaquePointer?, sigdnname: Sigdn, ppszname: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetNameFromIDList((pidl?.value ?: 0L), sigdnname, (ppszname?.value ?: 0L))
 
-public actual fun SHGetNewLinkInfoA(pszlinkto: PCSTR, pszdir: PCSTR, pszname: PSTR, pfmustcopy: Long, uflags: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA(pszlinkto, pszdir, pszname, pfmustcopy, uflags.toInt())
+public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: COpaquePointer?, uflags: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA((pszlinkto?.value ?: 0L), (pszdir?.value ?: 0L), (pszname?.value ?: 0L), (pfmustcopy?.value ?: 0L), uflags.toInt())
 
-public actual fun SHGetNewLinkInfoW(pszlinkto: PCWSTR, pszdir: PCWSTR, pszname: PWSTR, pfmustcopy: Long, uflags: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW(pszlinkto, pszdir, pszname, pfmustcopy, uflags.toInt())
+public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: COpaquePointer?, uflags: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW((pszlinkto?.value ?: 0L), (pszdir?.value ?: 0L), (pszname?.value ?: 0L), (pfmustcopy?.value ?: 0L), uflags.toInt())
 
-public actual fun SHGetPathFromIDListA(pidl: Long, pszpath: PSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetPathFromIDListA(pidl, pszpath)
+public actual fun sHGetPathFromIDListA(pidl: COpaquePointer?, pszpath: Pstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetPathFromIDListA((pidl?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHGetPathFromIDListEx(pidl: Long, pszpath: PWSTR, cchpath: UInt, uopts: GPFIDL_FLAGS): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx(pidl, pszpath, cchpath.toInt(), uopts.toInt())
+public actual fun sHGetPathFromIDListEx(pidl: COpaquePointer?, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx((pidl?.value ?: 0L), (pszpath?.value ?: 0L), cchpath.toInt(), uopts.toInt())
 
-public actual fun SHGetPathFromIDListW(pidl: Long, pszpath: PWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetPathFromIDListW(pidl, pszpath)
+public actual fun sHGetPathFromIDListW(pidl: COpaquePointer?, pszpath: Pwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetPathFromIDListW((pidl?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHGetRealIDL(psf: Long, pidlsimple: Long, ppidlreal: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetRealIDL(psf, pidlsimple, ppidlreal)
+public actual fun sHGetRealIDL(psf: COpaquePointer?, pidlsimple: COpaquePointer?, ppidlreal: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetRealIDL((psf?.value ?: 0L), (pidlsimple?.value ?: 0L), (ppidlreal?.value ?: 0L))
 
-public actual fun SHGetSetFolderCustomSettings(pfcs: Long, pszpath: PCWSTR, dwreadwrite: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings(pfcs, pszpath, dwreadwrite.toInt())
+public actual fun sHGetSetFolderCustomSettings(pfcs: COpaquePointer?, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings((pfcs?.value ?: 0L), (pszpath?.value ?: 0L), dwreadwrite.toInt())
 
-public actual fun SHGetSetSettings(lpss: Long, dwmask: SSF_MASK, bset: BOOL) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSetSettings(lpss, dwmask.toInt(), bset)
+public actual fun sHGetSetSettings(lpss: COpaquePointer?, dwmask: SsfMask, bset: Bool) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSetSettings((lpss?.value ?: 0L), dwmask.toInt(), bset)
 }
 
-public actual fun SHGetSettings(psfs: Long, dwmask: UInt) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSettings(psfs, dwmask.toInt())
+public actual fun sHGetSettings(psfs: COpaquePointer?, dwmask: UInt) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSettings((psfs?.value ?: 0L), dwmask.toInt())
 }
 
-public actual fun SHGetSpecialFolderLocation(hwnd: HWND, csidl: Int, ppidl: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation(hwnd, csidl, ppidl)
+public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation((hwnd?.value ?: 0L), csidl, (ppidl?.value ?: 0L))
 
-public actual fun SHGetSpecialFolderPathA(hwnd: HWND, pszpath: PSTR, csidl: Int, fcreate: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA(hwnd, pszpath, csidl, fcreate)
+public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int, fcreate: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA((hwnd?.value ?: 0L), (pszpath?.value ?: 0L), csidl, fcreate)
 
-public actual fun SHGetSpecialFolderPathW(hwnd: HWND, pszpath: PWSTR, csidl: Int, fcreate: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW(hwnd, pszpath, csidl, fcreate)
+public actual fun sHGetSpecialFolderPathW(hwnd: Hwnd, pszpath: Pwstr, csidl: Int, fcreate: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW((hwnd?.value ?: 0L), (pszpath?.value ?: 0L), csidl, fcreate)
 
-public actual fun SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetStockIconInfo(siid, uflags.toInt(), psii)
+public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetStockIconInfo(siid, uflags.toInt(), (psii?.value ?: 0L))
 
-public actual fun SHGetTemporaryPropertyForItem(psi: Long, propkey: Long, ppropvar: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem(psi, propkey, ppropvar)
+public actual fun sHGetTemporaryPropertyForItem(psi: COpaquePointer?, propkey: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem((psi?.value ?: 0L), (propkey?.value ?: 0L), (ppropvar?.value ?: 0L))
 
-public actual fun SHGetThreadRef(ppunk: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetThreadRef(ppunk)
+public actual fun sHGetThreadRef(ppunk: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetThreadRef((ppunk?.value ?: 0L))
 
-public actual fun SHGetUnreadMailCountW(hkeyuser: HKEY, pszmailaddress: PCWSTR, pdwcount: Long, pfiletime: Long, pszshellexecutecommand: PWSTR, cchshellexecutecommand: Int): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW(hkeyuser, pszmailaddress, pdwcount, pfiletime, pszshellexecutecommand, cchshellexecutecommand)
+public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: COpaquePointer?, pfiletime: COpaquePointer?, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW((hkeyuser?.value ?: 0L), (pszmailaddress?.value ?: 0L), (pdwcount?.value ?: 0L), (pfiletime?.value ?: 0L), (pszshellexecutecommand?.value ?: 0L), cchshellexecutecommand)
 
-public actual fun SHGetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetValueA(hkey, pszsubkey, pszvalue, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetValueA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHGetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetValueW(hkey, pszsubkey, pszvalue, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetValueW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHGetViewStatePropertyBag(pidl: Long, pszbagname: PCWSTR, dwflags: UInt, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag(pidl, pszbagname, dwflags.toInt(), riid, ppv)
+public actual fun sHGetViewStatePropertyBag(pidl: COpaquePointer?, pszbagname: Pcwstr, dwflags: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag((pidl?.value ?: 0L), (pszbagname?.value ?: 0L), dwflags.toInt(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun SHGlobalCounterDecrement(id: SHGLOBALCOUNTER): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement(id)
+public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement(id)
 
-public actual fun SHGlobalCounterGetValue(id: SHGLOBALCOUNTER): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue(id)
+public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue(id)
 
-public actual fun SHGlobalCounterIncrement(id: SHGLOBALCOUNTER): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement(id)
+public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement(id)
 
-public actual fun SHHandleUpdateImage(pidlextra: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHHandleUpdateImage(pidlextra)
+public actual fun sHHandleUpdateImage(pidlextra: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHHandleUpdateImage((pidlextra?.value ?: 0L))
 
-public actual fun SHILCreateFromPath(pszpath: PCWSTR, ppidl: Long, rgfinout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHILCreateFromPath(pszpath, ppidl, rgfinout)
+public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: COpaquePointer?, rgfinout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHILCreateFromPath((pszpath?.value ?: 0L), (ppidl?.value ?: 0L), (rgfinout?.value ?: 0L))
 
-public actual fun SHInvokePrinterCommandA(hwnd: HWND, uaction: UInt, lpbuf1: PCSTR, lpbuf2: PCSTR, fmodal: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA(hwnd, uaction.toInt(), lpbuf1, lpbuf2, fmodal)
+public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcstr, lpbuf2: Pcstr, fmodal: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA((hwnd?.value ?: 0L), uaction.toInt(), (lpbuf1?.value ?: 0L), (lpbuf2?.value ?: 0L), fmodal)
 
-public actual fun SHInvokePrinterCommandW(hwnd: HWND, uaction: UInt, lpbuf1: PCWSTR, lpbuf2: PCWSTR, fmodal: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW(hwnd, uaction.toInt(), lpbuf1, lpbuf2, fmodal)
+public actual fun sHInvokePrinterCommandW(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcwstr, lpbuf2: Pcwstr, fmodal: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW((hwnd?.value ?: 0L), uaction.toInt(), (lpbuf1?.value ?: 0L), (lpbuf2?.value ?: 0L), fmodal)
 
-public actual fun SHIsFileAvailableOffline(pwszpath: PCWSTR, pdwstatus: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline(pwszpath, pdwstatus)
+public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline((pwszpath?.value ?: 0L), (pdwstatus?.value ?: 0L))
 
-public actual fun SHIsLowMemoryMachine(dwtype: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine(dwtype.toInt())
+public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine(dwtype.toInt())
 
-public actual fun SHLimitInputEdit(hwndedit: HWND, psf: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHLimitInputEdit(hwndedit, psf)
+public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHLimitInputEdit((hwndedit?.value ?: 0L), (psf?.value ?: 0L))
 
-public actual fun SHLoadInProc(rclsid: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHLoadInProc(rclsid)
+public actual fun sHLoadInProc(rclsid: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHLoadInProc((rclsid?.value ?: 0L))
 
-public actual fun SHLoadIndirectString(pszsource: PCWSTR, pszoutbuf: PWSTR, cchoutbuf: UInt, ppvreserved: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHLoadIndirectString(pszsource, pszoutbuf, cchoutbuf.toInt(), ppvreserved)
+public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHLoadIndirectString((pszsource?.value ?: 0L), (pszoutbuf?.value ?: 0L), cchoutbuf.toInt(), (ppvreserved?.value ?: 0L))
 
-public actual fun SHLoadNonloadedIconOverlayIdentifiers(): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers()
+public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers()
 
-public actual fun SHLockShared(hdata: HANDLE, dwprocessid: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHLockShared(hdata, dwprocessid.toInt())
+public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHLockShared((hdata?.value ?: 0L), dwprocessid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHMapPIDLToSystemImageListIndex(pshf: Long, pidl: Long, piindexsel: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex(pshf, pidl, piindexsel)
+public actual fun sHMapPIDLToSystemImageListIndex(pshf: COpaquePointer?, pidl: COpaquePointer?, piindexsel: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex((pshf?.value ?: 0L), (pidl?.value ?: 0L), (piindexsel?.value ?: 0L))
 
-public actual fun SHMessageBoxCheckA(hwnd: HWND, psztext: PCSTR, pszcaption: PCSTR, utype: UInt, idefault: Int, pszregval: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHMessageBoxCheckA(hwnd, psztext, pszcaption, utype.toInt(), idefault, pszregval)
+public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcstr, utype: UInt, idefault: Int, pszregval: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHMessageBoxCheckA((hwnd?.value ?: 0L), (psztext?.value ?: 0L), (pszcaption?.value ?: 0L), utype.toInt(), idefault, (pszregval?.value ?: 0L))
 
-public actual fun SHMessageBoxCheckW(hwnd: HWND, psztext: PCWSTR, pszcaption: PCWSTR, utype: UInt, idefault: Int, pszregval: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHMessageBoxCheckW(hwnd, psztext, pszcaption, utype.toInt(), idefault, pszregval)
+public actual fun sHMessageBoxCheckW(hwnd: Hwnd, psztext: Pcwstr, pszcaption: Pcwstr, utype: UInt, idefault: Int, pszregval: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHMessageBoxCheckW((hwnd?.value ?: 0L), (psztext?.value ?: 0L), (pszcaption?.value ?: 0L), utype.toInt(), idefault, (pszregval?.value ?: 0L))
 
-public actual fun SHMultiFileProperties(pdtobj: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHMultiFileProperties(pdtobj, dwflags.toInt())
+public actual fun sHMultiFileProperties(pdtobj: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHMultiFileProperties((pdtobj?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHObjectProperties(hwnd: HWND, shopobjecttype: UInt, pszobjectname: PCWSTR, pszpropertypage: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHObjectProperties(hwnd, shopobjecttype.toInt(), pszobjectname, pszpropertypage)
+public actual fun sHObjectProperties(hwnd: Hwnd, shopobjecttype: UInt, pszobjectname: Pcwstr, pszpropertypage: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHObjectProperties((hwnd?.value ?: 0L), shopobjecttype.toInt(), (pszobjectname?.value ?: 0L), (pszpropertypage?.value ?: 0L))
 
-public actual fun SHOpenFolderAndSelectItems(pidlfolder: Long, cidl: UInt, apidl: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems(pidlfolder, cidl.toInt(), apidl, dwflags.toInt())
+public actual fun sHOpenFolderAndSelectItems(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems((pidlfolder?.value ?: 0L), cidl.toInt(), (apidl?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHOpenPropSheetW(pszcaption: PCWSTR, ahkeys: Long, ckeys: UInt, pclsiddefault: Long, pdtobj: Long, psb: Long, pstartpage: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenPropSheetW(pszcaption, ahkeys, ckeys.toInt(), pclsiddefault, pdtobj, psb, pstartpage)
+public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: COpaquePointer?, ckeys: UInt, pclsiddefault: COpaquePointer?, pdtobj: COpaquePointer?, psb: COpaquePointer?, pstartpage: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenPropSheetW((pszcaption?.value ?: 0L), (ahkeys?.value ?: 0L), ckeys.toInt(), (pclsiddefault?.value ?: 0L), (pdtobj?.value ?: 0L), (psb?.value ?: 0L), (pstartpage?.value ?: 0L))
 
-public actual fun SHOpenRegStream2A(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, grfmode: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenRegStream2A(hkey, pszsubkey, pszvalue, grfmode.toInt())
+public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenRegStream2A((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), grfmode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHOpenRegStream2W(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenRegStream2W(hkey, pszsubkey, pszvalue, grfmode.toInt())
+public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenRegStream2W((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), grfmode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHOpenRegStreamA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, grfmode: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenRegStreamA(hkey, pszsubkey, pszvalue, grfmode.toInt())
+public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenRegStreamA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), grfmode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHOpenRegStreamW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenRegStreamW(hkey, pszsubkey, pszvalue, grfmode.toInt())
+public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenRegStreamW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), grfmode.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHOpenWithDialog(hwndparent: HWND, poainfo: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHOpenWithDialog(hwndparent, poainfo)
+public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHOpenWithDialog((hwndparent?.value ?: 0L), (poainfo?.value ?: 0L))
 
-public actual fun SHParseDisplayName(pszname: PCWSTR, pbc: Long, ppidl: Long, sfgaoin: UInt, psfgaoout: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHParseDisplayName(pszname, pbc, ppidl, sfgaoin.toInt(), psfgaoout)
+public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: COpaquePointer?, ppidl: COpaquePointer?, sfgaoin: UInt, psfgaoout: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHParseDisplayName((pszname?.value ?: 0L), (pbc?.value ?: 0L), (ppidl?.value ?: 0L), sfgaoin.toInt(), (psfgaoout?.value ?: 0L))
 
-public actual fun SHPathPrepareForWriteA(hwnd: HWND, punkenablemodless: Long, pszpath: PCSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA(hwnd, punkenablemodless, pszpath, dwflags.toInt())
+public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: COpaquePointer?, pszpath: Pcstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA((hwnd?.value ?: 0L), (punkenablemodless?.value ?: 0L), (pszpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHPathPrepareForWriteW(hwnd: HWND, punkenablemodless: Long, pszpath: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW(hwnd, punkenablemodless, pszpath, dwflags.toInt())
+public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: COpaquePointer?, pszpath: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW((hwnd?.value ?: 0L), (punkenablemodless?.value ?: 0L), (pszpath?.value ?: 0L), dwflags.toInt())
 
-public actual fun SHQueryInfoKeyA(hkey: HKEY, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryInfoKeyA(hkey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen).toUInt()
+public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryInfoKeyA((hkey?.value ?: 0L), (pcsubkeys?.value ?: 0L), (pcchmaxsubkeylen?.value ?: 0L), (pcvalues?.value ?: 0L), (pcchmaxvaluenamelen?.value ?: 0L)).toUInt()
 
-public actual fun SHQueryInfoKeyW(hkey: HKEY, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryInfoKeyW(hkey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen).toUInt()
+public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryInfoKeyW((hkey?.value ?: 0L), (pcsubkeys?.value ?: 0L), (pcchmaxsubkeylen?.value ?: 0L), (pcvalues?.value ?: 0L), (pcchmaxvaluenamelen?.value ?: 0L)).toUInt()
 
-public actual fun SHQueryRecycleBinA(pszrootpath: PCSTR, pshqueryrbinfo: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryRecycleBinA(pszrootpath, pshqueryrbinfo)
+public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryRecycleBinA((pszrootpath?.value ?: 0L), (pshqueryrbinfo?.value ?: 0L))
 
-public actual fun SHQueryRecycleBinW(pszrootpath: PCWSTR, pshqueryrbinfo: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryRecycleBinW(pszrootpath, pshqueryrbinfo)
+public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryRecycleBinW((pszrootpath?.value ?: 0L), (pshqueryrbinfo?.value ?: 0L))
 
-public actual fun SHQueryUserNotificationState(pquns: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryUserNotificationState(pquns)
+public actual fun sHQueryUserNotificationState(pquns: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryUserNotificationState((pquns?.value ?: 0L))
 
-public actual fun SHQueryValueExA(hkey: HKEY, pszvalue: PCSTR, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryValueExA(hkey, pszvalue, pdwreserved, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryValueExA((hkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwreserved?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHQueryValueExW(hkey: HKEY, pszvalue: PCWSTR, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHQueryValueExW(hkey, pszvalue, pdwreserved, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHQueryValueExW((hkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwreserved?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHRegCloseUSKey(huskey: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegCloseUSKey(huskey).toUInt()
+public actual fun sHRegCloseUSKey(huskey: Long): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegCloseUSKey(huskey).toUInt()
 
-public actual fun SHRegCreateUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA(pszpath, samdesired.toInt(), hrelativeuskey, phnewuskey, dwflags.toInt()).toUInt()
+public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA((pszpath?.value ?: 0L), samdesired.toInt(), hrelativeuskey, (phnewuskey?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegCreateUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW(pwzpath, samdesired.toInt(), hrelativeuskey, phnewuskey, dwflags.toInt()).toUInt()
+public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW((pwzpath?.value ?: 0L), samdesired.toInt(), hrelativeuskey, (phnewuskey?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: PCSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA(huskey, pszsubkey, delregflags).toUInt()
+public actual fun sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA(huskey, (pszsubkey?.value ?: 0L), delregflags).toUInt()
 
-public actual fun SHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: PCWSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW(huskey, pwzsubkey, delregflags).toUInt()
+public actual fun sHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW(huskey, (pwzsubkey?.value ?: 0L), delregflags).toUInt()
 
-public actual fun SHRegDeleteUSValueA(huskey: Long, pszvalue: PCSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA(huskey, pszvalue, delregflags).toUInt()
+public actual fun sHRegDeleteUSValueA(huskey: Long, pszvalue: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA(huskey, (pszvalue?.value ?: 0L), delregflags).toUInt()
 
-public actual fun SHRegDeleteUSValueW(huskey: Long, pwzvalue: PCWSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW(huskey, pwzvalue, delregflags).toUInt()
+public actual fun sHRegDeleteUSValueW(huskey: Long, pwzvalue: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW(huskey, (pwzvalue?.value ?: 0L), delregflags).toUInt()
 
-public actual fun SHRegDuplicateHKey(hkey: HKEY): HKEY =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegDuplicateHKey(hkey)
+public actual fun sHRegDuplicateHKey(hkey: Hkey): Hkey =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegDuplicateHKey((hkey?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: PSTR, pcchname: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA(huskey, dwindex.toInt(), pszname, pcchname, enumregflags).toUInt()
+public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA(huskey, dwindex.toInt(), (pszname?.value ?: 0L), (pcchname?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: PWSTR, pcchname: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW(huskey, dwindex.toInt(), pwzname, pcchname, enumregflags).toUInt()
+public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW(huskey, dwindex.toInt(), (pwzname?.value ?: 0L), (pcchname?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: PSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegEnumUSValueA(huskey, dwindex.toInt(), pszvaluename, pcchvaluename, pdwtype, pvdata, pcbdata, enumregflags).toUInt()
+public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegEnumUSValueA(huskey, dwindex.toInt(), (pszvaluename?.value ?: 0L), (pcchvaluename?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: PWSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegEnumUSValueW(huskey, dwindex.toInt(), pszvaluename, pcchvaluename, pdwtype, pvdata, pcbdata, enumregflags).toUInt()
+public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegEnumUSValueW(huskey, dwindex.toInt(), (pszvaluename?.value ?: 0L), (pcchvaluename?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegGetBoolUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, fignorehkcu: BOOL, fdefault: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA(pszsubkey, pszvalue, fignorehkcu, fdefault)
+public actual fun sHRegGetBoolUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA((pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), fignorehkcu, fdefault)
 
-public actual fun SHRegGetBoolUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, fignorehkcu: BOOL, fdefault: BOOL): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW(pszsubkey, pszvalue, fignorehkcu, fdefault)
+public actual fun sHRegGetBoolUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW((pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), fignorehkcu, fdefault)
 
-public actual fun SHRegGetIntW(hk: HKEY, pwzkey: PCWSTR, idefault: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetIntW(hk, pwzkey, idefault)
+public actual fun sHRegGetIntW(hk: Hkey, pwzkey: Pcwstr, idefault: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetIntW((hk?.value ?: 0L), (pwzkey?.value ?: 0L), idefault)
 
-public actual fun SHRegGetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pszpath: PSTR, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetPathA(hkey, pcszsubkey, pcszvalue, pszpath, dwflags.toInt()).toUInt()
+public actual fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pszpath: Pstr, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetPathA((hkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvalue?.value ?: 0L), (pszpath?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegGetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pszpath: PWSTR, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetPathW(hkey, pcszsubkey, pcszvalue, pszpath, dwflags.toInt()).toUInt()
+public actual fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetPathW((hkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvalue?.value ?: 0L), (pszpath?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegGetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetUSValueA(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu, pvdefaultdata, dwdefaultdatasize.toInt()).toUInt()
+public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetUSValueA((pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), fignorehkcu, (pvdefaultdata?.value ?: 0L), dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun SHRegGetUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetUSValueW(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu, pvdefaultdata, dwdefaultdatasize.toInt()).toUInt()
+public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetUSValueW((pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), fignorehkcu, (pvdefaultdata?.value ?: 0L), dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun SHRegGetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetValueA(hkey, pszsubkey, pszvalue, srrfflags, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetValueA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), srrfflags, (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHRegGetValueFromHKCUHKLM(pwszkey: PCWSTR, pwszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM(pwszkey, pwszvalue, srrfflags, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM((pwszkey?.value ?: 0L), (pwszvalue?.value ?: 0L), srrfflags, (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHRegGetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegGetValueW(hkey, pszsubkey, pszvalue, srrfflags, pdwtype, pvdata, pcbdata).toUInt()
+public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegGetValueW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), srrfflags, (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun SHRegOpenUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA(pszpath, samdesired.toInt(), hrelativeuskey, phnewuskey, fignorehkcu).toUInt()
+public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA((pszpath?.value ?: 0L), samdesired.toInt(), hrelativeuskey, (phnewuskey?.value ?: 0L), fignorehkcu).toUInt()
 
-public actual fun SHRegOpenUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW(pwzpath, samdesired.toInt(), hrelativeuskey, phnewuskey, fignorehkcu).toUInt()
+public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW((pwzpath?.value ?: 0L), samdesired.toInt(), hrelativeuskey, (phnewuskey?.value ?: 0L), fignorehkcu).toUInt()
 
-public actual fun SHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags).toUInt()
+public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA(huskey, (pcsubkeys?.value ?: 0L), (pcchmaxsubkeylen?.value ?: 0L), (pcvalues?.value ?: 0L), (pcchmaxvaluenamelen?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags).toUInt()
+public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW(huskey, (pcsubkeys?.value ?: 0L), (pcchmaxsubkeylen?.value ?: 0L), (pcvalues?.value ?: 0L), (pcchmaxvaluenamelen?.value ?: 0L), enumregflags).toUInt()
 
-public actual fun SHRegQueryUSValueA(huskey: Long, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegQueryUSValueA(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu, pvdefaultdata, dwdefaultdatasize.toInt()).toUInt()
+public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegQueryUSValueA(huskey, (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), fignorehkcu, (pvdefaultdata?.value ?: 0L), dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun SHRegQueryUSValueW(huskey: Long, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegQueryUSValueW(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu, pvdefaultdata, dwdefaultdatasize.toInt()).toUInt()
+public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegQueryUSValueW(huskey, (pszvalue?.value ?: 0L), (pdwtype?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L), fignorehkcu, (pvdefaultdata?.value ?: 0L), dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun SHRegSetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pcszpath: PCSTR, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegSetPathA(hkey, pcszsubkey, pcszvalue, pcszpath, dwflags.toInt()).toUInt()
+public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegSetPathA((hkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvalue?.value ?: 0L), (pcszpath?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegSetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pcszpath: PCWSTR, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegSetPathW(hkey, pcszsubkey, pcszvalue, pcszpath, dwflags.toInt()).toUInt()
+public actual fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegSetPathW((hkey?.value ?: 0L), (pcszsubkey?.value ?: 0L), (pcszvalue?.value ?: 0L), (pcszpath?.value ?: 0L), dwflags.toInt()).toUInt()
 
-public actual fun SHRegSetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegSetUSValueA(pszsubkey, pszvalue, dwtype.toInt(), pvdata, cbdata.toInt(), dwflags.toInt()).toUInt()
+public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegSetUSValueA((pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun SHRegSetUSValueW(pwzsubkey: PCWSTR, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegSetUSValueW(pwzsubkey, pwzvalue, dwtype.toInt(), pvdata, cbdata.toInt(), dwflags.toInt()).toUInt()
+public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegSetUSValueW((pwzsubkey?.value ?: 0L), (pwzvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun SHRegWriteUSValueA(huskey: Long, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegWriteUSValueA(huskey, pszvalue, dwtype.toInt(), pvdata, cbdata.toInt(), dwflags.toInt()).toUInt()
+public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegWriteUSValueA(huskey, (pszvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun SHRegWriteUSValueW(huskey: Long, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRegWriteUSValueW(huskey, pwzvalue, dwtype.toInt(), pvdata, cbdata.toInt(), dwflags.toInt()).toUInt()
+public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRegWriteUSValueW(huskey, (pwzvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun SHReleaseThreadRef(): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHReleaseThreadRef()
+public actual fun sHReleaseThreadRef(): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHReleaseThreadRef()
 
-public actual fun SHRemoveLocalizedName(pszpath: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRemoveLocalizedName(pszpath)
+public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRemoveLocalizedName((pszpath?.value ?: 0L))
 
-public actual fun SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: UInt, lpfnreplacewith: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM): UInt =
+public actual fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun SHResolveLibrary(psilibrary: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHResolveLibrary(psilibrary)
+public actual fun sHResolveLibrary(psilibrary: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHResolveLibrary((psilibrary?.value ?: 0L))
 
-public actual fun SHRestricted(rest: RESTRICTIONS): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHRestricted(rest).toUInt()
+public actual fun sHRestricted(rest: Restrictions): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHRestricted(rest).toUInt()
 
-public actual fun SHSendMessageBroadcastA(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA(umsg.toInt(), wparam.toLong(), lparam)
+public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA(umsg.toInt(), wparam.toLong(), lparam)
 
-public actual fun SHSendMessageBroadcastW(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW(umsg.toInt(), wparam.toLong(), lparam)
+public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW(umsg.toInt(), wparam.toLong(), lparam)
 
-public actual fun SHSetDefaultProperties(hwnd: HWND, psi: Long, dwfileopflags: UInt, pfops: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetDefaultProperties(hwnd, psi, dwfileopflags.toInt(), pfops)
+public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: COpaquePointer?, dwfileopflags: UInt, pfops: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetDefaultProperties((hwnd?.value ?: 0L), (psi?.value ?: 0L), dwfileopflags.toInt(), (pfops?.value ?: 0L))
 
-public actual fun SHSetFolderPathA(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetFolderPathA(csidl, htoken, dwflags.toInt(), pszpath)
+public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetFolderPathA(csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszpath?.value ?: 0L))
 
-public actual fun SHSetFolderPathW(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetFolderPathW(csidl, htoken, dwflags.toInt(), pszpath)
+public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetFolderPathW(csidl, (htoken?.value ?: 0L), dwflags.toInt(), (pszpath?.value ?: 0L))
 
-public actual fun SHSetInstanceExplorer(punk: Long) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetInstanceExplorer(punk)
+public actual fun sHSetInstanceExplorer(punk: COpaquePointer?) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetInstanceExplorer((punk?.value ?: 0L))
 }
 
-public actual fun SHSetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: HANDLE, pszpath: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetKnownFolderPath(rfid, dwflags.toInt(), htoken, pszpath)
+public actual fun sHSetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetKnownFolderPath((rfid?.value ?: 0L), dwflags.toInt(), (htoken?.value ?: 0L), (pszpath?.value ?: 0L))
 
-public actual fun SHSetLocalizedName(pszpath: PCWSTR, pszresmodule: PCWSTR, idsres: Int): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetLocalizedName(pszpath, pszresmodule, idsres)
+public actual fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetLocalizedName((pszpath?.value ?: 0L), (pszresmodule?.value ?: 0L), idsres)
 
-public actual fun SHSetTemporaryPropertyForItem(psi: Long, propkey: Long, propvar: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem(psi, propkey, propvar)
+public actual fun sHSetTemporaryPropertyForItem(psi: COpaquePointer?, propkey: COpaquePointer?, propvar: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem((psi?.value ?: 0L), (propkey?.value ?: 0L), (propvar?.value ?: 0L))
 
-public actual fun SHSetThreadRef(punk: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetThreadRef(punk)
+public actual fun sHSetThreadRef(punk: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetThreadRef((punk?.value ?: 0L))
 
-public actual fun SHSetUnreadMailCountW(pszmailaddress: PCWSTR, dwcount: UInt, pszshellexecutecommand: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW(pszmailaddress, dwcount.toInt(), pszshellexecutecommand)
+public actual fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW((pszmailaddress?.value ?: 0L), dwcount.toInt(), (pszshellexecutecommand?.value ?: 0L))
 
-public actual fun SHSetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetValueA(hkey, pszsubkey, pszvalue, dwtype.toInt(), pvdata, cbdata.toInt())
+public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetValueA((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt())
 
-public actual fun SHSetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSetValueW(hkey, pszsubkey, pszvalue, dwtype.toInt(), pvdata, cbdata.toInt())
+public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSetValueW((hkey?.value ?: 0L), (pszsubkey?.value ?: 0L), (pszvalue?.value ?: 0L), dwtype.toInt(), (pvdata?.value ?: 0L), cbdata.toInt())
 
-public actual fun SHShellFolderView_Message(hwndmain: HWND, umsg: UInt, lparam: LPARAM): LRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHShellFolderView_Message(hwndmain, umsg.toInt(), lparam)
+public actual fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shshellFolderViewMessage((hwndmain?.value ?: 0L), umsg.toInt(), lparam)
 
-public actual fun SHShowManageLibraryUI(psilibrary: Long, hwndowner: HWND, psztitle: PCWSTR, pszinstruction: PCWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHShowManageLibraryUI(psilibrary, hwndowner, psztitle, pszinstruction, lmdoptions)
+public actual fun sHShowManageLibraryUI(psilibrary: COpaquePointer?, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHShowManageLibraryUI((psilibrary?.value ?: 0L), (hwndowner?.value ?: 0L), (psztitle?.value ?: 0L), (pszinstruction?.value ?: 0L), lmdoptions)
 
-public actual fun SHSimpleIDListFromPath(pszpath: PCWSTR): Long =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath(pszpath)
+public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): COpaquePointer? =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath((pszpath?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SHSkipJunction(pbc: Long, pclsid: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHSkipJunction(pbc, pclsid)
+public actual fun sHSkipJunction(pbc: COpaquePointer?, pclsid: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHSkipJunction((pbc?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun SHStartNetConnectionDialogW(hwnd: HWND, pszremotename: PCWSTR, dwtype: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW(hwnd, pszremotename, dwtype.toInt())
+public actual fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW((hwnd?.value ?: 0L), (pszremotename?.value ?: 0L), dwtype.toInt())
 
-public actual fun SHStrDupA(psz: PCSTR, ppwsz: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHStrDupA(psz, ppwsz)
+public actual fun sHStrDupA(psz: Pcstr, ppwsz: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHStrDupA((psz?.value ?: 0L), (ppwsz?.value ?: 0L))
 
-public actual fun SHStrDupW(psz: PCWSTR, ppwsz: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHStrDupW(psz, ppwsz)
+public actual fun sHStrDupW(psz: Pcwstr, ppwsz: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHStrDupW((psz?.value ?: 0L), (ppwsz?.value ?: 0L))
 
-public actual fun SHStripMneumonicA(pszmenu: PSTR): Byte =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHStripMneumonicA(pszmenu)
+public actual fun sHStripMneumonicA(pszmenu: Pstr): Byte =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHStripMneumonicA((pszmenu?.value ?: 0L))
 
-public actual fun SHStripMneumonicW(pszmenu: PWSTR): UShort =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHStripMneumonicW(pszmenu).toUShort()
+public actual fun sHStripMneumonicW(pszmenu: Pwstr): UShort =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHStripMneumonicW((pszmenu?.value ?: 0L)).toUShort()
 
-public actual fun SHTestTokenMembership(htoken: HANDLE, ulrid: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHTestTokenMembership(htoken, ulrid.toInt())
+public actual fun sHTestTokenMembership(htoken: Handle, ulrid: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHTestTokenMembership((htoken?.value ?: 0L), ulrid.toInt())
 
-public actual fun SHUnicodeToAnsi(pwszsrc: PCWSTR, pszdst: PSTR, cchbuf: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHUnicodeToAnsi(pwszsrc, pszdst, cchbuf)
+public actual fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHUnicodeToAnsi((pwszsrc?.value ?: 0L), (pszdst?.value ?: 0L), cchbuf)
 
-public actual fun SHUnicodeToUnicode(pwzsrc: PCWSTR, pwzdst: PWSTR, cwchbuf: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHUnicodeToUnicode(pwzsrc, pwzdst, cwchbuf)
+public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHUnicodeToUnicode((pwzsrc?.value ?: 0L), (pwzdst?.value ?: 0L), cwchbuf)
 
-public actual fun SHUnlockShared(pvdata: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHUnlockShared(pvdata)
+public actual fun sHUnlockShared(pvdata: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHUnlockShared((pvdata?.value ?: 0L))
 
-public actual fun SHUpdateImageA(pszhashitem: PCSTR, iindex: Int, uflags: UInt, iimageindex: Int) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHUpdateImageA(pszhashitem, iindex, uflags.toInt(), iimageindex)
+public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHUpdateImageA((pszhashitem?.value ?: 0L), iindex, uflags.toInt(), iimageindex)
 }
 
-public actual fun SHUpdateImageW(pszhashitem: PCWSTR, iindex: Int, uflags: UInt, iimageindex: Int) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHUpdateImageW(pszhashitem, iindex, uflags.toInt(), iimageindex)
+public actual fun sHUpdateImageW(pszhashitem: Pcwstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHUpdateImageW((pszhashitem?.value ?: 0L), iindex, uflags.toInt(), iimageindex)
 }
 
-public actual fun SHValidateUNC(hwndowner: HWND, pszfile: PWSTR, fconnect: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SHValidateUNC(hwndowner, pszfile, fconnect.toInt())
+public actual fun sHValidateUNC(hwndowner: Hwnd, pszfile: Pwstr, fconnect: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_sHValidateUNC((hwndowner?.value ?: 0L), (pszfile?.value ?: 0L), fconnect.toInt())
 
-public actual fun SetCurrentProcessExplicitAppUserModelID(appid: PCWSTR): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID(appid)
+public actual fun setCurrentProcessExplicitAppUserModelID(appid: Pcwstr): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID((appid?.value ?: 0L))
 
-public actual fun SetMenuContextHelpId(param0: HMENU, param1: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SetMenuContextHelpId(param0, param1.toInt())
+public actual fun setMenuContextHelpId(param0: Hmenu, param1: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_setMenuContextHelpId((param0?.value ?: 0L), param1.toInt())
 
-public actual fun SetWindowContextHelpId(param0: HWND, param1: UInt): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SetWindowContextHelpId(param0, param1.toInt())
+public actual fun setWindowContextHelpId(param0: Hwnd, param1: UInt): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_setWindowContextHelpId((param0?.value ?: 0L), param1.toInt())
 
-public actual fun SetWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, dwrefdata: ULong): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SetWindowSubclass(hwnd, pfnsubclass.toLong(), uidsubclass.toLong(), dwrefdata.toLong())
+public actual fun setWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, dwrefdata: ULong): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_setWindowSubclass((hwnd?.value ?: 0L), 0L, uidsubclass.toLong(), dwrefdata.toLong())
 
-public actual fun ShellAboutA(hwnd: HWND, szapp: PCSTR, szotherstuff: PCSTR, hicon: HICON): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellAboutA(hwnd, szapp, szotherstuff, hicon)
+public actual fun shellAboutA(hwnd: Hwnd, szapp: Pcstr, szotherstuff: Pcstr, hicon: Hicon): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellAboutA((hwnd?.value ?: 0L), (szapp?.value ?: 0L), (szotherstuff?.value ?: 0L), (hicon?.value ?: 0L))
 
-public actual fun ShellAboutW(hwnd: HWND, szapp: PCWSTR, szotherstuff: PCWSTR, hicon: HICON): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellAboutW(hwnd, szapp, szotherstuff, hicon)
+public actual fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, hicon: Hicon): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellAboutW((hwnd?.value ?: 0L), (szapp?.value ?: 0L), (szotherstuff?.value ?: 0L), (hicon?.value ?: 0L))
 
-public actual fun ShellExecuteA(hwnd: HWND, lpoperation: PCSTR, lpfile: PCSTR, lpparameters: PCSTR, lpdirectory: PCSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellExecuteA(hwnd, lpoperation, lpfile, lpparameters, lpdirectory, nshowcmd)
+public actual fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellExecuteA((hwnd?.value ?: 0L), (lpoperation?.value ?: 0L), (lpfile?.value ?: 0L), (lpparameters?.value ?: 0L), (lpdirectory?.value ?: 0L), nshowcmd).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ShellExecuteExA(pexecinfo: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellExecuteExA(pexecinfo)
+public actual fun shellExecuteExA(pexecinfo: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellExecuteExA((pexecinfo?.value ?: 0L))
 
-public actual fun ShellExecuteExW(pexecinfo: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellExecuteExW(pexecinfo)
+public actual fun shellExecuteExW(pexecinfo: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellExecuteExW((pexecinfo?.value ?: 0L))
 
-public actual fun ShellExecuteW(hwnd: HWND, lpoperation: PCWSTR, lpfile: PCWSTR, lpparameters: PCWSTR, lpdirectory: PCWSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_ShellExecuteW(hwnd, lpoperation, lpfile, lpparameters, lpdirectory, nshowcmd)
+public actual fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellExecuteW((hwnd?.value ?: 0L), (lpoperation?.value ?: 0L), (lpfile?.value ?: 0L), (lpparameters?.value ?: 0L), (lpdirectory?.value ?: 0L), nshowcmd).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ShellMessageBoxA(happinst: HINSTANCE, hwnd: HWND, lpctext: PCSTR, lpctitle: PCSTR, fustyle: MESSAGEBOX_STYLE): Int =
-    0
+public actual fun shellMessageBoxA(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcstr, lpctitle: Pcstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellMessageBoxA((happinst?.value ?: 0L), (hwnd?.value ?: 0L), (lpctext?.value ?: 0L), (lpctitle?.value ?: 0L), fustyle.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun ShellMessageBoxW(happinst: HINSTANCE, hwnd: HWND, lpctext: PCWSTR, lpctitle: PCWSTR, fustyle: MESSAGEBOX_STYLE): Int =
-    0
+public actual fun shellMessageBoxW(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcwstr, lpctitle: Pcwstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellMessageBoxW((happinst?.value ?: 0L), (hwnd?.value ?: 0L), (lpctext?.value ?: 0L), (lpctitle?.value ?: 0L), fustyle.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun Shell_GetCachedImageIndex(pwsziconpath: PCWSTR, iiconindex: Int, uiconflags: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex(pwsziconpath, iiconindex, uiconflags.toInt())
+public actual fun shellGetCachedImageIndex(pwsziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellGetCachedImageIndex((pwsziconpath?.value ?: 0L), iiconindex, uiconflags.toInt())
 
-public actual fun Shell_GetCachedImageIndexA(psziconpath: PCSTR, iiconindex: Int, uiconflags: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA(psziconpath, iiconindex, uiconflags.toInt())
+public actual fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int, uiconflags: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA((psziconpath?.value ?: 0L), iiconindex, uiconflags.toInt())
 
-public actual fun Shell_GetCachedImageIndexW(psziconpath: PCWSTR, iiconindex: Int, uiconflags: UInt): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW(psziconpath, iiconindex, uiconflags.toInt())
+public actual fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW((psziconpath?.value ?: 0L), iiconindex, uiconflags.toInt())
 
-public actual fun Shell_GetImageLists(phiml: Long, phimlsmall: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_GetImageLists(phiml, phimlsmall)
+public actual fun shellGetImageLists(phiml: COpaquePointer?, phimlsmall: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellGetImageLists((phiml?.value ?: 0L), (phimlsmall?.value ?: 0L))
 
-public actual fun Shell_MergeMenus(hmdst: HMENU, hmsrc: HMENU, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MM_FLAGS): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_MergeMenus(hmdst, hmsrc, uinsert.toInt(), uidadjust.toInt(), uidadjustmax.toInt(), uflags.toInt()).toUInt()
+public actual fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellMergeMenus((hmdst?.value ?: 0L), (hmsrc?.value ?: 0L), uinsert.toInt(), uidadjust.toInt(), uidadjustmax.toInt(), uflags.toInt()).toUInt()
 
-public actual fun Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_NotifyIconA(dwmessage.toInt(), lpdata)
+public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellNotifyIconA(dwmessage.toInt(), (lpdata?.value ?: 0L))
 
-public actual fun Shell_NotifyIconGetRect(identifier: Long, iconlocation: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect(identifier, iconlocation)
+public actual fun shellNotifyIconGetRect(identifier: COpaquePointer?, iconlocation: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellNotifyIconGetRect((identifier?.value ?: 0L), (iconlocation?.value ?: 0L))
 
-public actual fun Shell_NotifyIconW(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Shell_NotifyIconW(dwmessage.toInt(), lpdata)
+public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_shellNotifyIconW(dwmessage.toInt(), (lpdata?.value ?: 0L))
 
-public actual fun SignalFileOpen(pidl: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SignalFileOpen(pidl)
+public actual fun signalFileOpen(pidl: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_signalFileOpen((pidl?.value ?: 0L))
 
-public actual fun SoftwareUpdateMessageBox(hwnd: HWND, pszdistunit: PCWSTR, dwflags: UInt, psdi: Long): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox(hwnd, pszdistunit, dwflags.toInt(), psdi).toUInt()
+public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: COpaquePointer?): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_softwareUpdateMessageBox((hwnd?.value ?: 0L), (pszdistunit?.value ?: 0L), dwflags.toInt(), (psdi?.value ?: 0L)).toUInt()
 
-public actual fun StgMakeUniqueName(pstgparent: Long, pszfilespec: PCWSTR, grfmode: UInt, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StgMakeUniqueName(pstgparent, pszfilespec, grfmode.toInt(), riid, ppv)
+public actual fun stgMakeUniqueName(pstgparent: COpaquePointer?, pszfilespec: Pcwstr, grfmode: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_stgMakeUniqueName((pstgparent?.value ?: 0L), (pszfilespec?.value ?: 0L), grfmode.toInt(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun StrCSpnA(pszstr: PCSTR, pszset: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCSpnA(pszstr, pszset)
+public actual fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCSpnA((pszstr?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrCSpnIA(pszstr: PCSTR, pszset: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCSpnIA(pszstr, pszset)
+public actual fun strCSpnIA(pszstr: Pcstr, pszset: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCSpnIA((pszstr?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrCSpnIW(pszstr: PCWSTR, pszset: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCSpnIW(pszstr, pszset)
+public actual fun strCSpnIW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCSpnIW((pszstr?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrCSpnW(pszstr: PCWSTR, pszset: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCSpnW(pszstr, pszset)
+public actual fun strCSpnW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCSpnW((pszstr?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrCatBuffA(pszdest: PSTR, pszsrc: PCSTR, cchdestbuffsize: Int): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCatBuffA(pszdest, pszsrc, cchdestbuffsize)
+public actual fun strCatBuffA(pszdest: Pstr, pszsrc: Pcstr, cchdestbuffsize: Int): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCatBuffA((pszdest?.value ?: 0L), (pszsrc?.value ?: 0L), cchdestbuffsize).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrCatBuffW(pszdest: PWSTR, pszsrc: PCWSTR, cchdestbuffsize: Int): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCatBuffW(pszdest, pszsrc, cchdestbuffsize)
+public actual fun strCatBuffW(pszdest: Pwstr, pszsrc: Pcwstr, cchdestbuffsize: Int): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCatBuffW((pszdest?.value ?: 0L), (pszsrc?.value ?: 0L), cchdestbuffsize).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrCatChainW(pszdst: PWSTR, cchdst: UInt, ichat: UInt, pszsrc: PCWSTR): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCatChainW(pszdst, cchdst.toInt(), ichat.toInt(), pszsrc).toUInt()
+public actual fun strCatChainW(pszdst: Pwstr, cchdst: UInt, ichat: UInt, pszsrc: Pcwstr): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCatChainW((pszdst?.value ?: 0L), cchdst.toInt(), ichat.toInt(), (pszsrc?.value ?: 0L)).toUInt()
 
-public actual fun StrCatW(psz1: PWSTR, psz2: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCatW(psz1, psz2)
+public actual fun strCatW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCatW((psz1?.value ?: 0L), (psz2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrA(pszstart: PCSTR, wmatch: UShort): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrA(pszstart, wmatch.toShort())
+public actual fun strChrA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrA((pszstart?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrIA(pszstart: PCSTR, wmatch: UShort): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrIA(pszstart, wmatch.toShort())
+public actual fun strChrIA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrIA((pszstart?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrIW(pszstart: PCWSTR, wmatch: UShort): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrIW(pszstart, wmatch.toShort())
+public actual fun strChrIW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrIW((pszstart?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrNIW(pszstart: PCWSTR, wmatch: UShort, cchmax: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrNIW(pszstart, wmatch.toShort(), cchmax.toInt())
+public actual fun strChrNIW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrNIW((pszstart?.value ?: 0L), wmatch.toShort(), cchmax.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrNW(pszstart: PCWSTR, wmatch: UShort, cchmax: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrNW(pszstart, wmatch.toShort(), cchmax.toInt())
+public actual fun strChrNW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrNW((pszstart?.value ?: 0L), wmatch.toShort(), cchmax.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrChrW(pszstart: PCWSTR, wmatch: UShort): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrChrW(pszstart, wmatch.toShort())
+public actual fun strChrW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strChrW((pszstart?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrCmpCA(pszstr1: PCSTR, pszstr2: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpCA(pszstr1, pszstr2)
+public actual fun strCmpCA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpCA((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L))
 
-public actual fun StrCmpCW(pszstr1: PCWSTR, pszstr2: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpCW(pszstr1, pszstr2)
+public actual fun strCmpCW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpCW((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L))
 
-public actual fun StrCmpICA(pszstr1: PCSTR, pszstr2: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpICA(pszstr1, pszstr2)
+public actual fun strCmpICA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpICA((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L))
 
-public actual fun StrCmpICW(pszstr1: PCWSTR, pszstr2: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpICW(pszstr1, pszstr2)
+public actual fun strCmpICW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpICW((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L))
 
-public actual fun StrCmpIW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpIW(psz1, psz2)
+public actual fun strCmpIW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpIW((psz1?.value ?: 0L), (psz2?.value ?: 0L))
 
-public actual fun StrCmpLogicalW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpLogicalW(psz1, psz2)
+public actual fun strCmpLogicalW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpLogicalW((psz1?.value ?: 0L), (psz2?.value ?: 0L))
 
-public actual fun StrCmpNA(psz1: PCSTR, psz2: PCSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNA(psz1, psz2, nchar)
+public actual fun strCmpNA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNA((psz1?.value ?: 0L), (psz2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNCA(pszstr1: PCSTR, pszstr2: PCSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNCA(pszstr1, pszstr2, nchar)
+public actual fun strCmpNCA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNCA((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNCW(pszstr1: PCWSTR, pszstr2: PCWSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNCW(pszstr1, pszstr2, nchar)
+public actual fun strCmpNCW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNCW((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNIA(psz1: PCSTR, psz2: PCSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNIA(psz1, psz2, nchar)
+public actual fun strCmpNIA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNIA((psz1?.value ?: 0L), (psz2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNICA(pszstr1: PCSTR, pszstr2: PCSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNICA(pszstr1, pszstr2, nchar)
+public actual fun strCmpNICA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNICA((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNICW(pszstr1: PCWSTR, pszstr2: PCWSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNICW(pszstr1, pszstr2, nchar)
+public actual fun strCmpNICW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNICW((pszstr1?.value ?: 0L), (pszstr2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNIW(psz1: PCWSTR, psz2: PCWSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNIW(psz1, psz2, nchar)
+public actual fun strCmpNIW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNIW((psz1?.value ?: 0L), (psz2?.value ?: 0L), nchar)
 
-public actual fun StrCmpNW(psz1: PCWSTR, psz2: PCWSTR, nchar: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpNW(psz1, psz2, nchar)
+public actual fun strCmpNW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpNW((psz1?.value ?: 0L), (psz2?.value ?: 0L), nchar)
 
-public actual fun StrCmpW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCmpW(psz1, psz2)
+public actual fun strCmpW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCmpW((psz1?.value ?: 0L), (psz2?.value ?: 0L))
 
-public actual fun StrCpyNW(pszdst: PWSTR, pszsrc: PCWSTR, cchmax: Int): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCpyNW(pszdst, pszsrc, cchmax)
+public actual fun strCpyNW(pszdst: Pwstr, pszsrc: Pcwstr, cchmax: Int): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCpyNW((pszdst?.value ?: 0L), (pszsrc?.value ?: 0L), cchmax).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrCpyW(psz1: PWSTR, psz2: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrCpyW(psz1, psz2)
+public actual fun strCpyW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strCpyW((psz1?.value ?: 0L), (psz2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrDupA(pszsrch: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrDupA(pszsrch)
+public actual fun strDupA(pszsrch: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strDupA((pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrDupW(pszsrch: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrDupW(pszsrch)
+public actual fun strDupW(pszsrch: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strDupW((pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFormatByteSize64A(qdw: Long, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatByteSize64A(qdw, pszbuf, cchbuf.toInt())
+public actual fun strFormatByteSize64A(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatByteSize64A(qdw, (pszbuf?.value ?: 0L), cchbuf.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFormatByteSizeA(dw: UInt, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatByteSizeA(dw.toInt(), pszbuf, cchbuf.toInt())
+public actual fun strFormatByteSizeA(dw: UInt, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatByteSizeA(dw.toInt(), (pszbuf?.value ?: 0L), cchbuf.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFormatByteSizeEx(ull: ULong, flags: SFBS_FLAGS, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatByteSizeEx(ull.toLong(), flags, pszbuf, cchbuf.toInt())
+public actual fun strFormatByteSizeEx(ull: ULong, flags: SfbsFlags, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatByteSizeEx(ull.toLong(), flags, (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun StrFormatByteSizeW(qdw: Long, pszbuf: PWSTR, cchbuf: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatByteSizeW(qdw, pszbuf, cchbuf.toInt())
+public actual fun strFormatByteSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatByteSizeW(qdw, (pszbuf?.value ?: 0L), cchbuf.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFormatKBSizeA(qdw: Long, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatKBSizeA(qdw, pszbuf, cchbuf.toInt())
+public actual fun strFormatKBSizeA(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatKBSizeA(qdw, (pszbuf?.value ?: 0L), cchbuf.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFormatKBSizeW(qdw: Long, pszbuf: PWSTR, cchbuf: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFormatKBSizeW(qdw, pszbuf, cchbuf.toInt())
+public actual fun strFormatKBSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFormatKBSizeW(qdw, (pszbuf?.value ?: 0L), cchbuf.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrFromTimeIntervalA(pszout: PSTR, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFromTimeIntervalA(pszout, cchmax.toInt(), dwtimems.toInt(), digits)
+public actual fun strFromTimeIntervalA(pszout: Pstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFromTimeIntervalA((pszout?.value ?: 0L), cchmax.toInt(), dwtimems.toInt(), digits)
 
-public actual fun StrFromTimeIntervalW(pszout: PWSTR, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrFromTimeIntervalW(pszout, cchmax.toInt(), dwtimems.toInt(), digits)
+public actual fun strFromTimeIntervalW(pszout: Pwstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strFromTimeIntervalW((pszout?.value ?: 0L), cchmax.toInt(), dwtimems.toInt(), digits)
 
-public actual fun StrIsIntlEqualA(fcasesens: BOOL, pszstring1: PCSTR, pszstring2: PCSTR, nchar: Int): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrIsIntlEqualA(fcasesens, pszstring1, pszstring2, nchar)
+public actual fun strIsIntlEqualA(fcasesens: Bool, pszstring1: Pcstr, pszstring2: Pcstr, nchar: Int): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strIsIntlEqualA(fcasesens, (pszstring1?.value ?: 0L), (pszstring2?.value ?: 0L), nchar)
 
-public actual fun StrIsIntlEqualW(fcasesens: BOOL, pszstring1: PCWSTR, pszstring2: PCWSTR, nchar: Int): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrIsIntlEqualW(fcasesens, pszstring1, pszstring2, nchar)
+public actual fun strIsIntlEqualW(fcasesens: Bool, pszstring1: Pcwstr, pszstring2: Pcwstr, nchar: Int): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strIsIntlEqualW(fcasesens, (pszstring1?.value ?: 0L), (pszstring2?.value ?: 0L), nchar)
 
-public actual fun StrNCatA(psz1: PSTR, psz2: PCSTR, cchmax: Int): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrNCatA(psz1, psz2, cchmax)
+public actual fun strNCatA(psz1: Pstr, psz2: Pcstr, cchmax: Int): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strNCatA((psz1?.value ?: 0L), (psz2?.value ?: 0L), cchmax).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrNCatW(psz1: PWSTR, psz2: PCWSTR, cchmax: Int): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrNCatW(psz1, psz2, cchmax)
+public actual fun strNCatW(psz1: Pwstr, psz2: Pcwstr, cchmax: Int): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strNCatW((psz1?.value ?: 0L), (psz2?.value ?: 0L), cchmax).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrPBrkA(psz: PCSTR, pszset: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrPBrkA(psz, pszset)
+public actual fun strPBrkA(psz: Pcstr, pszset: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strPBrkA((psz?.value ?: 0L), (pszset?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrPBrkW(psz: PCWSTR, pszset: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrPBrkW(psz, pszset)
+public actual fun strPBrkW(psz: Pcwstr, pszset: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strPBrkW((psz?.value ?: 0L), (pszset?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRChrA(pszstart: PCSTR, pszend: PCSTR, wmatch: UShort): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRChrA(pszstart, pszend, wmatch.toShort())
+public actual fun strRChrA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRChrA((pszstart?.value ?: 0L), (pszend?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRChrIA(pszstart: PCSTR, pszend: PCSTR, wmatch: UShort): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRChrIA(pszstart, pszend, wmatch.toShort())
+public actual fun strRChrIA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRChrIA((pszstart?.value ?: 0L), (pszend?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRChrIW(pszstart: PCWSTR, pszend: PCWSTR, wmatch: UShort): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRChrIW(pszstart, pszend, wmatch.toShort())
+public actual fun strRChrIW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRChrIW((pszstart?.value ?: 0L), (pszend?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRChrW(pszstart: PCWSTR, pszend: PCWSTR, wmatch: UShort): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRChrW(pszstart, pszend, wmatch.toShort())
+public actual fun strRChrW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRChrW((pszstart?.value ?: 0L), (pszend?.value ?: 0L), wmatch.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRStrIA(pszsource: PCSTR, pszlast: PCSTR, pszsrch: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRStrIA(pszsource, pszlast, pszsrch)
+public actual fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRStrIA((pszsource?.value ?: 0L), (pszlast?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRStrIW(pszsource: PCWSTR, pszlast: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRStrIW(pszsource, pszlast, pszsrch)
+public actual fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRStrIW((pszsource?.value ?: 0L), (pszlast?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrRetToBSTR(pstr: Long, pidl: Long, pbstr: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRetToBSTR(pstr, pidl, pbstr)
+public actual fun strRetToBSTR(pstr: COpaquePointer?, pidl: COpaquePointer?, pbstr: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRetToBSTR((pstr?.value ?: 0L), (pidl?.value ?: 0L), (pbstr?.value ?: 0L))
 
-public actual fun StrRetToBufA(pstr: Long, pidl: Long, pszbuf: PSTR, cchbuf: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRetToBufA(pstr, pidl, pszbuf, cchbuf.toInt())
+public actual fun strRetToBufA(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRetToBufA((pstr?.value ?: 0L), (pidl?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun StrRetToBufW(pstr: Long, pidl: Long, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRetToBufW(pstr, pidl, pszbuf, cchbuf.toInt())
+public actual fun strRetToBufW(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRetToBufW((pstr?.value ?: 0L), (pidl?.value ?: 0L), (pszbuf?.value ?: 0L), cchbuf.toInt())
 
-public actual fun StrRetToStrA(pstr: Long, pidl: Long, ppsz: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRetToStrA(pstr, pidl, ppsz)
+public actual fun strRetToStrA(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRetToStrA((pstr?.value ?: 0L), (pidl?.value ?: 0L), (ppsz?.value ?: 0L))
 
-public actual fun StrRetToStrW(pstr: Long, pidl: Long, ppsz: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrRetToStrW(pstr, pidl, ppsz)
+public actual fun strRetToStrW(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strRetToStrW((pstr?.value ?: 0L), (pidl?.value ?: 0L), (ppsz?.value ?: 0L))
 
-public actual fun StrSpnA(psz: PCSTR, pszset: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrSpnA(psz, pszset)
+public actual fun strSpnA(psz: Pcstr, pszset: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strSpnA((psz?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrSpnW(psz: PCWSTR, pszset: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrSpnW(psz, pszset)
+public actual fun strSpnW(psz: Pcwstr, pszset: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strSpnW((psz?.value ?: 0L), (pszset?.value ?: 0L))
 
-public actual fun StrStrA(pszfirst: PCSTR, pszsrch: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrA(pszfirst, pszsrch)
+public actual fun strStrA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrA((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrStrIA(pszfirst: PCSTR, pszsrch: PCSTR): PSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrIA(pszfirst, pszsrch)
+public actual fun strStrIA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrIA((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrStrIW(pszfirst: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrIW(pszfirst, pszsrch)
+public actual fun strStrIW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrIW((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrStrNIW(pszfirst: PCWSTR, pszsrch: PCWSTR, cchmax: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrNIW(pszfirst, pszsrch, cchmax.toInt())
+public actual fun strStrNIW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrNIW((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L), cchmax.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrStrNW(pszfirst: PCWSTR, pszsrch: PCWSTR, cchmax: UInt): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrNW(pszfirst, pszsrch, cchmax.toInt())
+public actual fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrNW((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L), cchmax.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrStrW(pszfirst: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrStrW(pszfirst, pszsrch)
+public actual fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strStrW((pszfirst?.value ?: 0L), (pszsrch?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun StrToInt64ExA(pszstring: PCSTR, dwflags: Int, pllret: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToInt64ExA(pszstring, dwflags, pllret)
+public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToInt64ExA((pszstring?.value ?: 0L), dwflags, (pllret?.value ?: 0L))
 
-public actual fun StrToInt64ExW(pszstring: PCWSTR, dwflags: Int, pllret: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToInt64ExW(pszstring, dwflags, pllret)
+public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToInt64ExW((pszstring?.value ?: 0L), dwflags, (pllret?.value ?: 0L))
 
-public actual fun StrToIntA(pszsrc: PCSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToIntA(pszsrc)
+public actual fun strToIntA(pszsrc: Pcstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToIntA((pszsrc?.value ?: 0L))
 
-public actual fun StrToIntExA(pszstring: PCSTR, dwflags: Int, piret: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToIntExA(pszstring, dwflags, piret)
+public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToIntExA((pszstring?.value ?: 0L), dwflags, (piret?.value ?: 0L))
 
-public actual fun StrToIntExW(pszstring: PCWSTR, dwflags: Int, piret: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToIntExW(pszstring, dwflags, piret)
+public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToIntExW((pszstring?.value ?: 0L), dwflags, (piret?.value ?: 0L))
 
-public actual fun StrToIntW(pszsrc: PCWSTR): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrToIntW(pszsrc)
+public actual fun strToIntW(pszsrc: Pcwstr): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strToIntW((pszsrc?.value ?: 0L))
 
-public actual fun StrTrimA(psz: PSTR, psztrimchars: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrTrimA(psz, psztrimchars)
+public actual fun strTrimA(psz: Pstr, psztrimchars: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strTrimA((psz?.value ?: 0L), (psztrimchars?.value ?: 0L))
 
-public actual fun StrTrimW(psz: PWSTR, psztrimchars: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_StrTrimW(psz, psztrimchars)
+public actual fun strTrimW(psz: Pwstr, psztrimchars: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_strTrimW((psz?.value ?: 0L), (psztrimchars?.value ?: 0L))
 
-public actual fun UnloadUserProfile(htoken: HANDLE, hprofile: HANDLE): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UnloadUserProfile(htoken, hprofile)
+public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unloadUserProfile((htoken?.value ?: 0L), (hprofile?.value ?: 0L))
 
-public actual fun UnregisterAppConstrainedChangeNotification(registration: PAPPCONSTRAIN_REGISTRATION) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification(registration)
+public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration.toLong())
 }
 
-public actual fun UnregisterAppStateChangeNotification(registration: PAPPSTATE_REGISTRATION) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification(registration)
+public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration.toLong())
 }
 
-public actual fun UnregisterScaleChangeEvent(dwcookie: ULong): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent(dwcookie.toLong())
+public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent(dwcookie.toLong())
 
-public actual fun UrlApplySchemeA(pszin: PCSTR, pszout: PSTR, pcchout: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlApplySchemeA(pszin, pszout, pcchout, dwflags.toInt())
+public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlApplySchemeA((pszin?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlApplySchemeW(pszin: PCWSTR, pszout: PWSTR, pcchout: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlApplySchemeW(pszin, pszout, pcchout, dwflags.toInt())
+public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlApplySchemeW((pszin?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCanonicalizeA(pszurl: PCSTR, pszcanonicalized: PSTR, pcchcanonicalized: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCanonicalizeA(pszurl, pszcanonicalized, pcchcanonicalized, dwflags.toInt())
+public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCanonicalizeA((pszurl?.value ?: 0L), (pszcanonicalized?.value ?: 0L), (pcchcanonicalized?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCanonicalizeW(pszurl: PCWSTR, pszcanonicalized: PWSTR, pcchcanonicalized: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCanonicalizeW(pszurl, pszcanonicalized, pcchcanonicalized, dwflags.toInt())
+public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCanonicalizeW((pszurl?.value ?: 0L), (pszcanonicalized?.value ?: 0L), (pcchcanonicalized?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCombineA(pszbase: PCSTR, pszrelative: PCSTR, pszcombined: PSTR, pcchcombined: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCombineA(pszbase, pszrelative, pszcombined, pcchcombined, dwflags.toInt())
+public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCombineA((pszbase?.value ?: 0L), (pszrelative?.value ?: 0L), (pszcombined?.value ?: 0L), (pcchcombined?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCombineW(pszbase: PCWSTR, pszrelative: PCWSTR, pszcombined: PWSTR, pcchcombined: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCombineW(pszbase, pszrelative, pszcombined, pcchcombined, dwflags.toInt())
+public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCombineW((pszbase?.value ?: 0L), (pszrelative?.value ?: 0L), (pszcombined?.value ?: 0L), (pcchcombined?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCompareA(psz1: PCSTR, psz2: PCSTR, fignoreslash: BOOL): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCompareA(psz1, psz2, fignoreslash)
+public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCompareA((psz1?.value ?: 0L), (psz2?.value ?: 0L), fignoreslash)
 
-public actual fun UrlCompareW(psz1: PCWSTR, psz2: PCWSTR, fignoreslash: BOOL): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCompareW(psz1, psz2, fignoreslash)
+public actual fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCompareW((psz1?.value ?: 0L), (psz2?.value ?: 0L), fignoreslash)
 
-public actual fun UrlCreateFromPathA(pszpath: PCSTR, pszurl: PSTR, pcchurl: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCreateFromPathA(pszpath, pszurl, pcchurl, dwflags.toInt())
+public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCreateFromPathA((pszpath?.value ?: 0L), (pszurl?.value ?: 0L), (pcchurl?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlCreateFromPathW(pszpath: PCWSTR, pszurl: PWSTR, pcchurl: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlCreateFromPathW(pszpath, pszurl, pcchurl, dwflags.toInt())
+public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlCreateFromPathW((pszpath?.value ?: 0L), (pszurl?.value ?: 0L), (pcchurl?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlEscapeA(pszurl: PCSTR, pszescaped: PSTR, pcchescaped: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlEscapeA(pszurl, pszescaped, pcchescaped, dwflags.toInt())
+public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlEscapeA((pszurl?.value ?: 0L), (pszescaped?.value ?: 0L), (pcchescaped?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlEscapeW(pszurl: PCWSTR, pszescaped: PWSTR, pcchescaped: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlEscapeW(pszurl, pszescaped, pcchescaped, dwflags.toInt())
+public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlEscapeW((pszurl?.value ?: 0L), (pszescaped?.value ?: 0L), (pcchescaped?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlFixupW(pcszurl: PCWSTR, psztranslatedurl: PWSTR, cchmax: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlFixupW(pcszurl, psztranslatedurl, cchmax.toInt())
+public actual fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlFixupW((pcszurl?.value ?: 0L), (psztranslatedurl?.value ?: 0L), cchmax.toInt())
 
-public actual fun UrlGetLocationA(pszurl: PCSTR): PCSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlGetLocationA(pszurl)
+public actual fun urlGetLocationA(pszurl: Pcstr): Pcstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlGetLocationA((pszurl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun UrlGetLocationW(pszurl: PCWSTR): PCWSTR =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlGetLocationW(pszurl)
+public actual fun urlGetLocationW(pszurl: Pcwstr): Pcwstr =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlGetLocationW((pszurl?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun UrlGetPartA(pszin: PCSTR, pszout: PSTR, pcchout: Long, dwpart: UInt, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlGetPartA(pszin, pszout, pcchout, dwpart.toInt(), dwflags.toInt())
+public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlGetPartA((pszin?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L), dwpart.toInt(), dwflags.toInt())
 
-public actual fun UrlGetPartW(pszin: PCWSTR, pszout: PWSTR, pcchout: Long, dwpart: UInt, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlGetPartW(pszin, pszout, pcchout, dwpart.toInt(), dwflags.toInt())
+public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlGetPartW((pszin?.value ?: 0L), (pszout?.value ?: 0L), (pcchout?.value ?: 0L), dwpart.toInt(), dwflags.toInt())
 
-public actual fun UrlHashA(pszurl: PCSTR, pbhash: Long, cbhash: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlHashA(pszurl, pbhash, cbhash.toInt())
+public actual fun urlHashA(pszurl: Pcstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlHashA((pszurl?.value ?: 0L), (pbhash?.value ?: 0L), cbhash.toInt())
 
-public actual fun UrlHashW(pszurl: PCWSTR, pbhash: Long, cbhash: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlHashW(pszurl, pbhash, cbhash.toInt())
+public actual fun urlHashW(pszurl: Pcwstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlHashW((pszurl?.value ?: 0L), (pbhash?.value ?: 0L), cbhash.toInt())
 
-public actual fun UrlIsA(pszurl: PCSTR, urlis: URLIS): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsA(pszurl, urlis)
+public actual fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsA((pszurl?.value ?: 0L), urlis)
 
-public actual fun UrlIsNoHistoryA(pszurl: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsNoHistoryA(pszurl)
+public actual fun urlIsNoHistoryA(pszurl: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsNoHistoryA((pszurl?.value ?: 0L))
 
-public actual fun UrlIsNoHistoryW(pszurl: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsNoHistoryW(pszurl)
+public actual fun urlIsNoHistoryW(pszurl: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsNoHistoryW((pszurl?.value ?: 0L))
 
-public actual fun UrlIsOpaqueA(pszurl: PCSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsOpaqueA(pszurl)
+public actual fun urlIsOpaqueA(pszurl: Pcstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsOpaqueA((pszurl?.value ?: 0L))
 
-public actual fun UrlIsOpaqueW(pszurl: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsOpaqueW(pszurl)
+public actual fun urlIsOpaqueW(pszurl: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsOpaqueW((pszurl?.value ?: 0L))
 
-public actual fun UrlIsW(pszurl: PCWSTR, urlis: URLIS): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlIsW(pszurl, urlis)
+public actual fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlIsW((pszurl?.value ?: 0L), urlis)
 
-public actual fun UrlUnescapeA(pszurl: PSTR, pszunescaped: PSTR, pcchunescaped: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlUnescapeA(pszurl, pszunescaped, pcchunescaped, dwflags.toInt())
+public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlUnescapeA((pszurl?.value ?: 0L), (pszunescaped?.value ?: 0L), (pcchunescaped?.value ?: 0L), dwflags.toInt())
 
-public actual fun UrlUnescapeW(pszurl: PWSTR, pszunescaped: PWSTR, pcchunescaped: Long, dwflags: UInt): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_UrlUnescapeW(pszurl, pszunescaped, pcchunescaped, dwflags.toInt())
+public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_urlUnescapeW((pszurl?.value ?: 0L), (pszunescaped?.value ?: 0L), (pcchunescaped?.value ?: 0L), dwflags.toInt())
 
-public actual fun VariantToStrRet(varin: Long, pstrret: Long): HRESULT =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_VariantToStrRet(varin, pstrret)
+public actual fun variantToStrRet(varin: COpaquePointer?, pstrret: COpaquePointer?): Hresult =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_variantToStrRet((varin?.value ?: 0L), (pstrret?.value ?: 0L))
 
-public actual fun WhichPlatform(): UInt =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_WhichPlatform().toUInt()
+public actual fun whichPlatform(): UInt =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_whichPlatform().toUInt()
 
-public actual fun Win32DeleteFile(pszpath: PCWSTR): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_Win32DeleteFile(pszpath)
+public actual fun win32DeleteFile(pszpath: Pcwstr): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_win32DeleteFile((pszpath?.value ?: 0L))
 
-public actual fun WinHelpA(hwndmain: HWND, lpszhelp: PCSTR, ucommand: UInt, dwdata: ULong): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_WinHelpA(hwndmain, lpszhelp, ucommand.toInt(), dwdata.toLong())
+public actual fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwdata: ULong): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_winHelpA((hwndmain?.value ?: 0L), (lpszhelp?.value ?: 0L), ucommand.toInt(), dwdata.toLong())
 
-public actual fun WinHelpW(hwndmain: HWND, lpszhelp: PCWSTR, ucommand: UInt, dwdata: ULong): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_WinHelpW(hwndmain, lpszhelp, ucommand.toInt(), dwdata.toLong())
+public actual fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_winHelpW((hwndmain?.value ?: 0L), (lpszhelp?.value ?: 0L), ucommand.toInt(), dwdata.toLong())
 
-public actual fun WriteCabinetState(pcs: Long): BOOL =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_WriteCabinetState(pcs)
+public actual fun writeCabinetState(pcs: COpaquePointer?): Bool =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_writeCabinetState((pcs?.value ?: 0L))
 
-public actual fun wnsprintfA(pszdest: PSTR, cchdest: Int, pszfmt: PCSTR): Int =
-    0
+public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wnsprintfA((pszdest?.value ?: 0L), cchdest, (pszfmt?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wnsprintfW(pszdest: PWSTR, cchdest: Int, pszfmt: PCWSTR): Int =
-    0
+public actual fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wnsprintfW((pszdest?.value ?: 0L), cchdest, (pszfmt?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wvnsprintfA(pszdest: PSTR, cchdest: Int, pszfmt: PCSTR, arglist: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wvnsprintfA(pszdest, cchdest, pszfmt, arglist)
+public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wvnsprintfA((pszdest?.value ?: 0L), cchdest, (pszfmt?.value ?: 0L), (arglist?.value ?: 0L))
 
-public actual fun wvnsprintfW(pszdest: PWSTR, cchdest: Int, pszfmt: PCWSTR, arglist: Long): Int =
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wvnsprintfW(pszdest, cchdest, pszfmt, arglist)
+public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: COpaquePointer?): Int =
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_wvnsprintfW((pszdest?.value ?: 0L), cchdest, (pszfmt?.value ?: 0L), (arglist?.value ?: 0L))

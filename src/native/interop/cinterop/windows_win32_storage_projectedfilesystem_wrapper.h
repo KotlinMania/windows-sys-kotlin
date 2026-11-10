@@ -9,25 +9,25 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer(void* namespacevirtualizationcontext, uint64_t size);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache(void* namespacevirtualizationcontext, void* totalentrynumber);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand(void* namespacevirtualizationcontext, int32_t commandid, int32_t completionresult, void* extendedparameters);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile(void* namespacevirtualizationcontext, void* destinationfilename, int32_t updateflags, void* failurereason);
-bool windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards(void* filename);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare(void* filename1, void* filename2);
-bool windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch(void* filenametocheck, void* pattern);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer(void* filename, void* filebasicinfo, void* direntrybufferhandle);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2(void* direntrybufferhandle, void* filename, void* filebasicinfo, void* extendedinfo);
-void windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer(void* buffer);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState(void* destinationfilename, void* filestate);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo(void* namespacevirtualizationcontext, void* virtualizationinstanceinfo);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder(void* rootpathname, void* targetpathname, void* versioninfo, void* virtualizationinstanceid);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing(void* virtualizationrootpath, void* callbacks, void* instancecontext, void* options, void* namespacevirtualizationcontext);
-void windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing(void* namespacevirtualizationcontext);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, int32_t updateflags, void* failurereason);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData(void* namespacevirtualizationcontext, void* datastreamid, void* buffer, uint64_t byteoffset, uint32_t length);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize);
-int32_t windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, void* extendedinfo);
+void* windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer(void* namespacevirtualizationcontext, uint64_t size);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache(void* namespacevirtualizationcontext, void* totalentrynumber);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand(void* namespacevirtualizationcontext, int32_t commandid, int32_t completionresult, void* extendedparameters);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile(void* namespacevirtualizationcontext, void* destinationfilename, int32_t updateflags, void* failurereason);
+bool windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards(void* filename);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare(void* filename1, void* filename2);
+bool windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch(void* filenametocheck, void* pattern);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer(void* filename, void* filebasicinfo, void* direntrybufferhandle);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2(void* direntrybufferhandle, void* filename, void* filebasicinfo, void* extendedinfo);
+void windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer(void* buffer);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState(void* destinationfilename, void* filestate);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo(void* namespacevirtualizationcontext, void* virtualizationinstanceinfo);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder(void* rootpathname, void* targetpathname, void* versioninfo, void* virtualizationinstanceid);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing(void* virtualizationrootpath, void* callbacks, void* instancecontext, void* options, void* namespacevirtualizationcontext);
+void windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing(void* namespacevirtualizationcontext);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, int32_t updateflags, void* failurereason);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData(void* namespacevirtualizationcontext, void* datastreamid, void* buffer, uint64_t byteoffset, uint32_t length);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize);
+int32_t windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, void* extendedinfo);
 
 #ifdef __cplusplus
 }

@@ -1,28 +1,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-public typealias APPX_BUNDLE_FOOTPRINT_FILE_TYPE = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = Int
+public typealias AppxBundleFootprintFileType = Int
 
-public typealias APPX_CAPABILITIES = Int
+public typealias AppxBundlePayloadPackageType = Int
 
-public typealias APPX_CAPABILITY_CLASS_TYPE = Int
+public typealias AppxCapabilities = Int
 
-public typealias APPX_COMPRESSION_OPTION = Int
+public typealias AppxCapabilityClassType = Int
 
-public typealias APPX_ENCRYPTED_PACKAGE_OPTIONS = Int
+public typealias AppxCompressionOption = Int
 
-public typealias APPX_FOOTPRINT_FILE_TYPE = Int
+public typealias AppxEncryptedPackageOptions = Int
 
-public typealias APPX_PACKAGE_ARCHITECTURE = Int
+public typealias AppxFootprintFileType = Int
 
-public typealias APPX_PACKAGE_ARCHITECTURE2 = Int
+public typealias AppxPackageArchitecture = Int
 
-public typealias APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = Int
+public typealias AppxPackageArchitecture2 = Int
 
-public typealias APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = Int
+public typealias AppxPackageEditorUpdatePackageManifestOptions = Int
 
-public typealias APPX_PACKAGING_CONTEXT_CHANGE_TYPE = Int
+public typealias AppxPackageEditorUpdatePackageOption = Int
+
+public typealias AppxPackagingContextChangeType = Int
 
 public typealias AddPackageDependencyOptions = Int
 
@@ -44,11 +46,11 @@ public typealias AppPolicyWindowingModel = Int
 
 public typealias CreatePackageDependencyOptions = Int
 
-public typealias DX_FEATURE_LEVEL = Int
+public typealias DxFeatureLevel = Int
 
-public typealias PACKAGEDEPENDENCY_CONTEXT = Long
+public typealias PackagedependencyContext = COpaquePointer?
 
-public typealias PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE = Long
+public typealias PackageVirtualizationContextHandle = COpaquePointer?
 
 public typealias PackageDependencyLifetimeKind = Int
 

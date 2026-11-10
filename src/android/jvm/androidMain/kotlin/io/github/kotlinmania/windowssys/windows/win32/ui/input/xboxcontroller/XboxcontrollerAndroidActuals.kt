@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32UiInputXboxcontrollerJniBridge {
     init {
@@ -11,45 +12,45 @@ private object WindowsWin32UiInputXboxcontrollerJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputEnable(enable: Int)
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable(enable: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputGetAudioDeviceIds(dwuserindex: Int, prenderdeviceid: Long, prendercount: Long, pcapturedeviceid: Long, pcapturecount: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds(dwuserindex: Int, prenderdeviceid: Long, prendercount: Long, pcapturedeviceid: Long, pcapturecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputGetBatteryInformation(dwuserindex: Int, devtype: Byte, pbatteryinformation: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation(dwuserindex: Int, devtype: Byte, pbatteryinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputGetCapabilities(dwuserindex: Int, dwflags: Int, pcapabilities: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities(dwuserindex: Int, dwflags: Int, pcapabilities: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputGetKeystroke(dwuserindex: Int, dwreserved: Int, pkeystroke: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke(dwuserindex: Int, dwreserved: Int, pkeystroke: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputGetState(dwuserindex: Int, pstate: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState(dwuserindex: Int, pstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_xboxcontroller_XInputSetState(dwuserindex: Int, pvibration: Long): Int
+    external fun windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState(dwuserindex: Int, pvibration: Long): Int
 }
 
-public actual fun XInputEnable(enable: BOOL) {
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputEnable(enable)
+public actual fun xInputEnable(enable: Bool) {
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable(enable)
 }
 
-public actual fun XInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: PWSTR, prendercount: Long, pcapturedeviceid: PWSTR, pcapturecount: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputGetAudioDeviceIds(dwuserindex.toInt(), prenderdeviceid, prendercount, pcapturedeviceid, pcapturecount).toUInt()
+public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: COpaquePointer?, pcapturedeviceid: Pwstr, pcapturecount: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAudioDeviceIds(dwuserindex.toInt(), (prenderdeviceid?.value ?: 0L), (prendercount?.value ?: 0L), (pcapturedeviceid?.value ?: 0L), (pcapturecount?.value ?: 0L)).toUInt()
 
-public actual fun XInputGetBatteryInformation(dwuserindex: UInt, devtype: BATTERY_DEVTYPE, pbatteryinformation: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputGetBatteryInformation(dwuserindex.toInt(), devtype.toByte(), pbatteryinformation).toUInt()
+public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBatteryInformation(dwuserindex.toInt(), devtype.toByte(), (pbatteryinformation?.value ?: 0L)).toUInt()
 
-public actual fun XInputGetCapabilities(dwuserindex: UInt, dwflags: XINPUT_FLAG, pcapabilities: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputGetCapabilities(dwuserindex.toInt(), dwflags.toInt(), pcapabilities).toUInt()
+public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCapabilities(dwuserindex.toInt(), dwflags.toInt(), (pcapabilities?.value ?: 0L)).toUInt()
 
-public actual fun XInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputGetKeystroke(dwuserindex.toInt(), dwreserved.toInt(), pkeystroke).toUInt()
+public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKeystroke(dwuserindex.toInt(), dwreserved.toInt(), (pkeystroke?.value ?: 0L)).toUInt()
 
-public actual fun XInputGetState(dwuserindex: UInt, pstate: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputGetState(dwuserindex.toInt(), pstate).toUInt()
+public actual fun xInputGetState(dwuserindex: UInt, pstate: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputGetState(dwuserindex.toInt(), (pstate?.value ?: 0L)).toUInt()
 
-public actual fun XInputSetState(dwuserindex: UInt, pvibration: Long): UInt =
-    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_XInputSetState(dwuserindex.toInt(), pvibration).toUInt()
+public actual fun xInputSetState(dwuserindex: UInt, pvibration: COpaquePointer?): UInt =
+    WindowsWin32UiInputXboxcontrollerJniBridge.windowssys_windows_win32_ui_input_xboxcontroller_xInputSetState(dwuserindex.toInt(), (pvibration?.value ?: 0L)).toUInt()

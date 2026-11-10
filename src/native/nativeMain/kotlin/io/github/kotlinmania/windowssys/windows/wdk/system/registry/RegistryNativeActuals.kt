@@ -2,158 +2,159 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun NtCommitRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), flags)
+public actual fun ntCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NtCreateKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, disposition: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtCreateKey(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), titleindex, cls.toCPointer<ByteVar>(), createoptions, disposition.toCPointer<ByteVar>())
+public actual fun ntCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, disposition?.value?.toCPointer<ByteVar>())
 
-public actual fun NtCreateKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, transactionhandle: HANDLE, disposition: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtCreateKeyTransacted(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), titleindex, cls.toCPointer<ByteVar>(), createoptions, transactionhandle.toCPointer<ByteVar>(), disposition.toCPointer<ByteVar>())
+public actual fun ntCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, transactionhandle?.value?.toCPointer<ByteVar>(), disposition?.value?.toCPointer<ByteVar>())
 
-public actual fun NtCreateRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, createoptions: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), createoptions)
+public actual fun ntCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), createoptions)
 
-public actual fun NtDeleteKey(keyhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtDeleteKey(keyhandle.toCPointer<ByteVar>())
+public actual fun ntDeleteKey(keyhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntDeleteKey(keyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtDeleteValueKey(keyhandle: HANDLE, valuename: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtDeleteValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>())
+public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntDeleteValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>())
 
-public actual fun NtEnumerateKey(keyhandle: HANDLE, index: UInt, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtEnumerateKey(keyhandle.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntEnumerateKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtEnumerateValueKey(keyhandle: HANDLE, index: UInt, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtEnumerateValueKey(keyhandle.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntEnumerateValueKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFlushKey(keyhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtFlushKey(keyhandle.toCPointer<ByteVar>())
+public actual fun ntFlushKey(keyhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntFlushKey(keyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtNotifyChangeMultipleKeys(masterkeyhandle: HANDLE, count: UInt, subordinateobjects: Long, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys(masterkeyhandle?.value?.toCPointer<ByteVar>(), count, subordinateobjects?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun NtOpenKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtOpenKey(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun ntOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun NtOpenKeyEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtOpenKeyEx(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), openoptions)
+public actual fun ntOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions)
 
-public actual fun NtOpenKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, transactionhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtOpenKeyTransacted(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), transactionhandle.toCPointer<ByteVar>())
+public actual fun ntOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), transactionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtOpenKeyTransactedEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt, transactionhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), openoptions, transactionhandle.toCPointer<ByteVar>())
+public actual fun ntOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions, transactionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtOpenRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun ntOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun NtQueryKey(keyhandle: HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtQueryKey(keyhandle.toCPointer<ByteVar>(), keyinformationclass, keyinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryKey(keyhandle?.value?.toCPointer<ByteVar>(), keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtQueryMultipleValueKey(keyhandle: HANDLE, valueentries: Long, entrycount: UInt, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey(keyhandle.toCPointer<ByteVar>(), valueentries.toCPointer<ByteVar>(), entrycount, valuebuffer.toCPointer<ByteVar>(), bufferlength.toCPointer<ByteVar>(), requiredbufferlength.toCPointer<ByteVar>())
+public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valueentries?.value?.toCPointer<ByteVar>(), entrycount, valuebuffer?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), requiredbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtQueryValueKey(keyhandle: HANDLE, valuename: Long, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtQueryValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun ntQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntQueryValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtRenameKey(keyhandle: HANDLE, newname: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtRenameKey(keyhandle.toCPointer<ByteVar>(), newname.toCPointer<ByteVar>())
+public actual fun ntRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRenameKey(keyhandle?.value?.toCPointer<ByteVar>(), newname?.value?.toCPointer<ByteVar>())
 
-public actual fun NtRestoreKey(keyhandle: HANDLE, filehandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtRestoreKey(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>(), flags)
+public actual fun ntRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRestoreKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NtRollbackRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), flags)
+public actual fun ntRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NtSaveKey(keyhandle: HANDLE, filehandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtSaveKey(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>())
+public actual fun ntSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSaveKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtSaveKeyEx(keyhandle: HANDLE, filehandle: HANDLE, format: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtSaveKeyEx(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>(), format)
+public actual fun ntSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSaveKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), format)
 
-public actual fun NtSetInformationKey(keyhandle: HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: Long, keysetinformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtSetInformationKey(keyhandle.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation.toCPointer<ByteVar>(), keysetinformationlength)
+public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSetInformationKey(keyhandle?.value?.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation?.value?.toCPointer<ByteVar>(), keysetinformationlength)
 
-public actual fun NtSetValueKey(keyhandle: HANDLE, valuename: Long, titleindex: UInt, type: UInt, data: Long, datasize: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_NtSetValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>(), titleindex, type, data.toCPointer<ByteVar>(), datasize)
+public actual fun ntSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ntSetValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), titleindex, type, data?.value?.toCPointer<ByteVar>(), datasize)
 
-public actual fun ZwCommitRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), flags)
+public actual fun zwCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun ZwCreateKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, disposition: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwCreateKey(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), titleindex, cls.toCPointer<ByteVar>(), createoptions, disposition.toCPointer<ByteVar>())
+public actual fun zwCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, disposition?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwCreateKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, transactionhandle: HANDLE, disposition: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), titleindex, cls.toCPointer<ByteVar>(), createoptions, transactionhandle.toCPointer<ByteVar>(), disposition.toCPointer<ByteVar>())
+public actual fun zwCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), titleindex, cls?.value?.toCPointer<ByteVar>(), createoptions, transactionhandle?.value?.toCPointer<ByteVar>(), disposition?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwCreateRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, createoptions: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), createoptions)
+public actual fun zwCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), createoptions)
 
-public actual fun ZwDeleteKey(keyhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwDeleteKey(keyhandle.toCPointer<ByteVar>())
+public actual fun zwDeleteKey(keyhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwDeleteKey(keyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwDeleteValueKey(keyhandle: HANDLE, valuename: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwDeleteValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>())
+public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwDeleteValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwEnumerateKey(keyhandle: HANDLE, index: UInt, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwEnumerateKey(keyhandle.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwEnumerateKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwEnumerateValueKey(keyhandle: HANDLE, index: UInt, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwEnumerateValueKey(keyhandle.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwEnumerateValueKey(keyhandle?.value?.toCPointer<ByteVar>(), index, keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwFlushKey(keyhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwFlushKey(keyhandle.toCPointer<ByteVar>())
+public actual fun zwFlushKey(keyhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwFlushKey(keyhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwNotifyChangeMultipleKeys(masterkeyhandle: HANDLE, count: UInt, subordinateobjects: Long, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys(masterkeyhandle?.value?.toCPointer<ByteVar>(), count, subordinateobjects?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun ZwOpenKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwOpenKey(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun zwOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKey(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwOpenKeyEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwOpenKeyEx(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), openoptions)
+public actual fun zwOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions)
 
-public actual fun ZwOpenKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, transactionhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), transactionhandle.toCPointer<ByteVar>())
+public actual fun zwOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyTransacted(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), transactionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwOpenKeyTransactedEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt, transactionhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx(keyhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), openoptions, transactionhandle.toCPointer<ByteVar>())
+public actual fun zwOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx(keyhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), openoptions, transactionhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwOpenRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun zwOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwQueryKey(keyhandle: HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwQueryKey(keyhandle.toCPointer<ByteVar>(), keyinformationclass, keyinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryKey(keyhandle?.value?.toCPointer<ByteVar>(), keyinformationclass, keyinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwQueryMultipleValueKey(keyhandle: HANDLE, valueentries: Long, entrycount: UInt, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey(keyhandle.toCPointer<ByteVar>(), valueentries.toCPointer<ByteVar>(), entrycount, valuebuffer.toCPointer<ByteVar>(), bufferlength.toCPointer<ByteVar>(), requiredbufferlength.toCPointer<ByteVar>())
+public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valueentries?.value?.toCPointer<ByteVar>(), entrycount, valuebuffer?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>(), requiredbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwQueryValueKey(keyhandle: HANDLE, valuename: Long, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwQueryValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation.toCPointer<ByteVar>(), length, resultlength.toCPointer<ByteVar>())
+public actual fun zwQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwQueryValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), keyvalueinformationclass, keyvalueinformation?.value?.toCPointer<ByteVar>(), length, resultlength?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwRenameKey(keyhandle: HANDLE, newname: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwRenameKey(keyhandle.toCPointer<ByteVar>(), newname.toCPointer<ByteVar>())
+public actual fun zwRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRenameKey(keyhandle?.value?.toCPointer<ByteVar>(), newname?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwRestoreKey(keyhandle: HANDLE, filehandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwRestoreKey(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>(), flags)
+public actual fun zwRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRestoreKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun ZwRollbackRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction(transactionhandle.toCPointer<ByteVar>(), flags)
+public actual fun zwRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction(transactionhandle?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun ZwSaveKey(keyhandle: HANDLE, filehandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwSaveKey(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>())
+public actual fun zwSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSaveKey(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun ZwSaveKeyEx(keyhandle: HANDLE, filehandle: HANDLE, format: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwSaveKeyEx(keyhandle.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>(), format)
+public actual fun zwSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSaveKeyEx(keyhandle?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>(), format)
 
-public actual fun ZwSetInformationKey(keyhandle: HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: Long, keysetinformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwSetInformationKey(keyhandle.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation.toCPointer<ByteVar>(), keysetinformationlength)
+public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSetInformationKey(keyhandle?.value?.toCPointer<ByteVar>(), keysetinformationclass, keysetinformation?.value?.toCPointer<ByteVar>(), keysetinformationlength)
 
-public actual fun ZwSetValueKey(keyhandle: HANDLE, valuename: Long, titleindex: UInt, type: UInt, data: Long, datasize: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_ZwSetValueKey(keyhandle.toCPointer<ByteVar>(), valuename.toCPointer<ByteVar>(), titleindex, type, data.toCPointer<ByteVar>(), datasize)
+public actual fun zwSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.system.registry.cinterop.windowssys_windows_wdk_system_registry_zwSetValueKey(keyhandle?.value?.toCPointer<ByteVar>(), valuename?.value?.toCPointer<ByteVar>(), titleindex, type, data?.value?.toCPointer<ByteVar>(), datasize)

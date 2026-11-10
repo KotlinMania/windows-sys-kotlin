@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_console_AddConsoleAliasA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_addConsoleAliasA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* target = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_system_console_AddConsoleAliasA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_AddConsoleAliasW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_addConsoleAliasW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* target = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_system_console_AddConsoleAliasW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_AllocConsole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_allocConsole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_system_console_AllocConsole_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_AttachConsole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_attachConsole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_system_console_AttachConsole_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ClosePseudoConsole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_closePseudoConsole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpc = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_system_console_ClosePseudoConsole_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ConsoleControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_consoleControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t command = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* consoleinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -168,7 +168,7 @@ static Napi::Value windowssys_windows_win32_system_console_ConsoleControl_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_CreateConsoleScreenBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_createConsoleScreenBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwsharemode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -194,7 +194,7 @@ static Napi::Value windowssys_windows_win32_system_console_CreateConsoleScreenBu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_system_console_ExpungeConsoleCommand
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -228,7 +228,7 @@ static Napi::Value windowssys_windows_win32_system_console_ExpungeConsoleCommand
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_console_FlushConsoleInputBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_flushConsoleInputBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_system_console_FlushConsoleInputBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_FreeConsole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_freeConsole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -262,7 +262,7 @@ static Napi::Value windowssys_windows_win32_system_console_FreeConsole_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_generateConsoleCtrlEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwctrlevent = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwprocessgroupid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -282,7 +282,7 @@ static Napi::Value windowssys_windows_win32_system_console_GenerateConsoleCtrlEv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -306,7 +306,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasExesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t exenamebufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -326,7 +326,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasExesLengthA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -342,7 +342,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesLe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasExesLengthW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -358,7 +358,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesLe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasExesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exenamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t exenamebufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -378,7 +378,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasExesW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -402,7 +402,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* aliasbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t aliasbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -424,7 +424,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesLengthA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasesLengthA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -442,7 +442,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesLeng
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesLengthW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasesLengthW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -460,7 +460,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesLeng
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleAliasesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* aliasbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t aliasbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleAliasesW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -498,7 +498,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCP_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHistoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCommandHistoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* commands = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t commandbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -520,7 +520,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -538,7 +538,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -556,7 +556,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHistoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCommandHistoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* commands = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t commandbufferlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -578,7 +578,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCommandHist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleCursorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleCursorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpconsolecursorinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleCursorInfo_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleDisplayMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleDisplayMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmodeflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -616,7 +616,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleDisplayMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleHistoryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleHistoryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsolehistoryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -634,7 +634,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleHistoryInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsolehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -654,7 +654,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleMode_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleOriginalTitleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleOriginalTitleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -674,7 +674,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleOriginalTit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleOriginalTitleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleOriginalTitleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -694,7 +694,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleOriginalTit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleOutputCP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleOutputCP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleOutputCP_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleProcessList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleProcessList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwprocesslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprocesscount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -730,7 +730,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleProcessList
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleScreenBufferInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpconsolescreenbufferinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -750,7 +750,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleScreenBuffe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpconsolescreenbufferinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -770,7 +770,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleScreenBuffe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleSelectionInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleSelectionInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoleselectioninfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -788,7 +788,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleSelectionIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleTitleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleTitleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -808,7 +808,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleTitleA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleTitleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleTitleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -828,7 +828,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleTitleW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetConsoleWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getConsoleWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -844,7 +844,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetConsoleWindow_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetCurrentConsoleFont_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getCurrentConsoleFont_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmaximumwindow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -866,7 +866,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetCurrentConsoleFont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetCurrentConsoleFontEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getCurrentConsoleFontEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmaximumwindow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -888,7 +888,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetCurrentConsoleFont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnumberofevents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -908,7 +908,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetNumberOfConsoleInp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnumberofmousebuttons = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -926,7 +926,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetNumberOfConsoleMou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_GetStdHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_getStdHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nstdhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -944,7 +944,7 @@ static Napi::Value windowssys_windows_win32_system_console_GetStdHandle_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_PeekConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_peekConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -968,7 +968,7 @@ static Napi::Value windowssys_windows_win32_system_console_PeekConsoleInputA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_PeekConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_peekConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -992,7 +992,7 @@ static Napi::Value windowssys_windows_win32_system_console_PeekConsoleInputW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ReadConsoleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_readConsoleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1018,7 +1018,7 @@ static Napi::Value windowssys_windows_win32_system_console_ReadConsoleA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ReadConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_readConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1042,7 +1042,7 @@ static Napi::Value windowssys_windows_win32_system_console_ReadConsoleInputA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ReadConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_readConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1066,7 +1066,7 @@ static Napi::Value windowssys_windows_win32_system_console_ReadConsoleInputW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_ReadConsoleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_readConsoleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_win32_system_console_ReadConsoleW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1110,7 +1110,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleActiveScree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleCP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleCP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wcodepageid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1128,7 +1128,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleCP_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleCtrlHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleCtrlHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handlerroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t add = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1148,7 +1148,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleCtrlHandler
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleCursorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleCursorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpconsolecursorinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1168,7 +1168,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleCursorInfo_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleDisplayMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleDisplayMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1190,7 +1190,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleDisplayMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleHistoryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleHistoryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsolehistoryinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1208,7 +1208,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleHistoryInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsolehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1228,7 +1228,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleMode_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t number = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1248,7 +1248,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleNumberOfCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t number = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleNumberOfCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleOutputCP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleOutputCP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wcodepageid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1286,7 +1286,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleOutputCP_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpconsolescreenbufferinfoex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1306,7 +1306,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleScreenBuffe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleTextAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleTextAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wattributes = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1326,7 +1326,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleTextAttribu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleTitleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleTitleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1344,7 +1344,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleTitleA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleTitleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleTitleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpconsoletitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1362,7 +1362,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleTitleW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetConsoleWindowInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setConsoleWindowInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t babsolute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1384,7 +1384,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetConsoleWindowInfo_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetCurrentConsoleFontEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setCurrentConsoleFontEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmaximumwindow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1406,7 +1406,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetCurrentConsoleFont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetStdHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setStdHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nstdhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1426,7 +1426,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetStdHandle_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_SetStdHandleEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_setStdHandleEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nstdhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1448,7 +1448,7 @@ static Napi::Value windowssys_windows_win32_system_console_SetStdHandleEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_WriteConsoleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_writeConsoleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1474,7 +1474,7 @@ static Napi::Value windowssys_windows_win32_system_console_WriteConsoleA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_WriteConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_writeConsoleInputA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1498,7 +1498,7 @@ static Napi::Value windowssys_windows_win32_system_console_WriteConsoleInputA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_WriteConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_writeConsoleInputW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1522,7 +1522,7 @@ static Napi::Value windowssys_windows_win32_system_console_WriteConsoleInputW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_console_WriteConsoleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_console_writeConsoleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconsoleoutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1549,80 +1549,80 @@ static Napi::Value windowssys_windows_win32_system_console_WriteConsoleW_napi(co
 }
 
 static void register_windows_win32_system_console_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_console_AddConsoleAliasA", Napi::Function::New(env, windowssys_windows_win32_system_console_AddConsoleAliasA_napi));
-    exports.Set("windowssys_windows_win32_system_console_AddConsoleAliasW", Napi::Function::New(env, windowssys_windows_win32_system_console_AddConsoleAliasW_napi));
-    exports.Set("windowssys_windows_win32_system_console_AllocConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_AllocConsole_napi));
-    exports.Set("windowssys_windows_win32_system_console_AttachConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_AttachConsole_napi));
-    exports.Set("windowssys_windows_win32_system_console_ClosePseudoConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_ClosePseudoConsole_napi));
-    exports.Set("windowssys_windows_win32_system_console_ConsoleControl", Napi::Function::New(env, windowssys_windows_win32_system_console_ConsoleControl_napi));
-    exports.Set("windowssys_windows_win32_system_console_CreateConsoleScreenBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_CreateConsoleScreenBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA", Napi::Function::New(env, windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA_napi));
-    exports.Set("windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW", Napi::Function::New(env, windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW_napi));
-    exports.Set("windowssys_windows_win32_system_console_FlushConsoleInputBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_FlushConsoleInputBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_console_FreeConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_FreeConsole_napi));
-    exports.Set("windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent", Napi::Function::New(env, windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasExesA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasExesA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasExesW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasExesW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasesA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasesA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasesLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasesLengthA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasesLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasesLengthW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleAliasesW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleAliasesW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCP", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCP_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCommandHistoryA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCommandHistoryA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCommandHistoryW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCommandHistoryW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleCursorInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleCursorInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleDisplayMode", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleDisplayMode_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleHistoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleHistoryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleMode", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleMode_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleOriginalTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleOriginalTitleA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleOriginalTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleOriginalTitleW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleOutputCP", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleOutputCP_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleProcessList", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleProcessList_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleSelectionInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleSelectionInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleTitleA_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleTitleW_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetConsoleWindow", Napi::Function::New(env, windowssys_windows_win32_system_console_GetConsoleWindow_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetCurrentConsoleFont", Napi::Function::New(env, windowssys_windows_win32_system_console_GetCurrentConsoleFont_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetCurrentConsoleFontEx", Napi::Function::New(env, windowssys_windows_win32_system_console_GetCurrentConsoleFontEx_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents", Napi::Function::New(env, windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons", Napi::Function::New(env, windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons_napi));
-    exports.Set("windowssys_windows_win32_system_console_GetStdHandle", Napi::Function::New(env, windowssys_windows_win32_system_console_GetStdHandle_napi));
-    exports.Set("windowssys_windows_win32_system_console_PeekConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_PeekConsoleInputA_napi));
-    exports.Set("windowssys_windows_win32_system_console_PeekConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_PeekConsoleInputW_napi));
-    exports.Set("windowssys_windows_win32_system_console_ReadConsoleA", Napi::Function::New(env, windowssys_windows_win32_system_console_ReadConsoleA_napi));
-    exports.Set("windowssys_windows_win32_system_console_ReadConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_ReadConsoleInputA_napi));
-    exports.Set("windowssys_windows_win32_system_console_ReadConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_ReadConsoleInputW_napi));
-    exports.Set("windowssys_windows_win32_system_console_ReadConsoleW", Napi::Function::New(env, windowssys_windows_win32_system_console_ReadConsoleW_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleCP", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleCP_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleCtrlHandler", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleCtrlHandler_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleCursorInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleCursorInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleDisplayMode", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleDisplayMode_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleHistoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleHistoryInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleMode", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleMode_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleOutputCP", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleOutputCP_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleTextAttribute", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleTextAttribute_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleTitleA_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleTitleW_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetConsoleWindowInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_SetConsoleWindowInfo_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetCurrentConsoleFontEx", Napi::Function::New(env, windowssys_windows_win32_system_console_SetCurrentConsoleFontEx_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetStdHandle", Napi::Function::New(env, windowssys_windows_win32_system_console_SetStdHandle_napi));
-    exports.Set("windowssys_windows_win32_system_console_SetStdHandleEx", Napi::Function::New(env, windowssys_windows_win32_system_console_SetStdHandleEx_napi));
-    exports.Set("windowssys_windows_win32_system_console_WriteConsoleA", Napi::Function::New(env, windowssys_windows_win32_system_console_WriteConsoleA_napi));
-    exports.Set("windowssys_windows_win32_system_console_WriteConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_WriteConsoleInputA_napi));
-    exports.Set("windowssys_windows_win32_system_console_WriteConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_WriteConsoleInputW_napi));
-    exports.Set("windowssys_windows_win32_system_console_WriteConsoleW", Napi::Function::New(env, windowssys_windows_win32_system_console_WriteConsoleW_napi));
+    exports.Set("windowssys_windows_win32_system_console_addConsoleAliasA", Napi::Function::New(env, windowssys_windows_win32_system_console_addConsoleAliasA_napi));
+    exports.Set("windowssys_windows_win32_system_console_addConsoleAliasW", Napi::Function::New(env, windowssys_windows_win32_system_console_addConsoleAliasW_napi));
+    exports.Set("windowssys_windows_win32_system_console_allocConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_allocConsole_napi));
+    exports.Set("windowssys_windows_win32_system_console_attachConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_attachConsole_napi));
+    exports.Set("windowssys_windows_win32_system_console_closePseudoConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_closePseudoConsole_napi));
+    exports.Set("windowssys_windows_win32_system_console_consoleControl", Napi::Function::New(env, windowssys_windows_win32_system_console_consoleControl_napi));
+    exports.Set("windowssys_windows_win32_system_console_createConsoleScreenBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_createConsoleScreenBuffer_napi));
+    exports.Set("windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA", Napi::Function::New(env, windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA_napi));
+    exports.Set("windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW", Napi::Function::New(env, windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW_napi));
+    exports.Set("windowssys_windows_win32_system_console_flushConsoleInputBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_flushConsoleInputBuffer_napi));
+    exports.Set("windowssys_windows_win32_system_console_freeConsole", Napi::Function::New(env, windowssys_windows_win32_system_console_freeConsole_napi));
+    exports.Set("windowssys_windows_win32_system_console_generateConsoleCtrlEvent", Napi::Function::New(env, windowssys_windows_win32_system_console_generateConsoleCtrlEvent_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasExesA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasExesA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasExesLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasExesLengthA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasExesLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasExesLengthW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasExesW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasExesW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasesA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasesA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasesLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasesLengthA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasesLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasesLengthW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleAliasesW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleAliasesW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCP", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCP_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCommandHistoryA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCommandHistoryA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCommandHistoryW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCommandHistoryW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleCursorInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleCursorInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleDisplayMode", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleDisplayMode_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleHistoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleHistoryInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleMode", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleMode_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleOriginalTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleOriginalTitleA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleOriginalTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleOriginalTitleW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleOutputCP", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleOutputCP_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleProcessList", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleProcessList_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleScreenBufferInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleScreenBufferInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleSelectionInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleSelectionInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleTitleA_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleTitleW_napi));
+    exports.Set("windowssys_windows_win32_system_console_getConsoleWindow", Napi::Function::New(env, windowssys_windows_win32_system_console_getConsoleWindow_napi));
+    exports.Set("windowssys_windows_win32_system_console_getCurrentConsoleFont", Napi::Function::New(env, windowssys_windows_win32_system_console_getCurrentConsoleFont_napi));
+    exports.Set("windowssys_windows_win32_system_console_getCurrentConsoleFontEx", Napi::Function::New(env, windowssys_windows_win32_system_console_getCurrentConsoleFontEx_napi));
+    exports.Set("windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents", Napi::Function::New(env, windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents_napi));
+    exports.Set("windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons", Napi::Function::New(env, windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons_napi));
+    exports.Set("windowssys_windows_win32_system_console_getStdHandle", Napi::Function::New(env, windowssys_windows_win32_system_console_getStdHandle_napi));
+    exports.Set("windowssys_windows_win32_system_console_peekConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_peekConsoleInputA_napi));
+    exports.Set("windowssys_windows_win32_system_console_peekConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_peekConsoleInputW_napi));
+    exports.Set("windowssys_windows_win32_system_console_readConsoleA", Napi::Function::New(env, windowssys_windows_win32_system_console_readConsoleA_napi));
+    exports.Set("windowssys_windows_win32_system_console_readConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_readConsoleInputA_napi));
+    exports.Set("windowssys_windows_win32_system_console_readConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_readConsoleInputW_napi));
+    exports.Set("windowssys_windows_win32_system_console_readConsoleW", Napi::Function::New(env, windowssys_windows_win32_system_console_readConsoleW_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleCP", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleCP_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleCtrlHandler", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleCtrlHandler_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleCursorInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleCursorInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleDisplayMode", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleDisplayMode_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleHistoryInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleHistoryInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleMode", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleMode_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleOutputCP", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleOutputCP_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleTextAttribute", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleTextAttribute_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleTitleA", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleTitleA_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleTitleW", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleTitleW_napi));
+    exports.Set("windowssys_windows_win32_system_console_setConsoleWindowInfo", Napi::Function::New(env, windowssys_windows_win32_system_console_setConsoleWindowInfo_napi));
+    exports.Set("windowssys_windows_win32_system_console_setCurrentConsoleFontEx", Napi::Function::New(env, windowssys_windows_win32_system_console_setCurrentConsoleFontEx_napi));
+    exports.Set("windowssys_windows_win32_system_console_setStdHandle", Napi::Function::New(env, windowssys_windows_win32_system_console_setStdHandle_napi));
+    exports.Set("windowssys_windows_win32_system_console_setStdHandleEx", Napi::Function::New(env, windowssys_windows_win32_system_console_setStdHandleEx_napi));
+    exports.Set("windowssys_windows_win32_system_console_writeConsoleA", Napi::Function::New(env, windowssys_windows_win32_system_console_writeConsoleA_napi));
+    exports.Set("windowssys_windows_win32_system_console_writeConsoleInputA", Napi::Function::New(env, windowssys_windows_win32_system_console_writeConsoleInputA_napi));
+    exports.Set("windowssys_windows_win32_system_console_writeConsoleInputW", Napi::Function::New(env, windowssys_windows_win32_system_console_writeConsoleInputW_napi));
+    exports.Set("windowssys_windows_win32_system_console_writeConsoleW", Napi::Function::New(env, windowssys_windows_win32_system_console_writeConsoleW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_console_napi, nullptr };

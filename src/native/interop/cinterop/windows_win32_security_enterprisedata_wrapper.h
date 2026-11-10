@@ -9,19 +9,19 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(void* fileorfolderpath, void* identity);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(void* threadnetworkcontext);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(void* enterpriseid, void* threadnetworkcontext);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption(void);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(void* packageid, void* isallowed);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(void* enterpriseid);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(void* tokenhandle, void* numberofbytes, void* enterpriseids, void* enterpriseidcount);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(void* tokenhandle, void* policyflags);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(int32_t version, int32_t type, void* pvdata, uint32_t cbdata);
-void windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(int32_t type);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(void* tokenhandle, void* istokenservice);
-int32_t windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(void* tokenhandle, void* enterpriseid);
-int32_t windowssys_windows_win32_security_enterprisedata_UnprotectFile(void* fileorfolderpath, void* options);
+int32_t windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity(void* fileorfolderpath, void* identity);
+int32_t windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext(void* threadnetworkcontext);
+int32_t windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext(void* enterpriseid, void* threadnetworkcontext);
+int32_t windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption(void);
+int32_t windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution(void* packageid, void* isallowed);
+int32_t windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption(void* enterpriseid);
+int32_t windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds(void* tokenhandle, void* numberofbytes, void* enterpriseids, void* enterpriseidcount);
+int32_t windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy(void* tokenhandle, void* policyflags);
+int32_t windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(int32_t version, int32_t type, void* pvdata, uint32_t cbdata);
+void windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(int32_t type);
+int32_t windowssys_windows_win32_security_enterprisedata_srpIsTokenService(void* tokenhandle, void* istokenservice);
+int32_t windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId(void* tokenhandle, void* enterpriseid);
+int32_t windowssys_windows_win32_security_enterprisedata_unprotectFile(void* fileorfolderpath, void* options);
 
 #ifdef __cplusplus
 }

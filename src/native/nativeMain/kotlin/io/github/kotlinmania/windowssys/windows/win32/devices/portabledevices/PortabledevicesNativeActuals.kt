@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.portabledevices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DMProcessConfigXMLFiltered(pszxmlin: PCWSTR, rgszallowedcspnodes: Long, dwnumallowedcspnodes: UInt, pbstrxmlout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.portabledevices.cinterop.windowssys_windows_win32_devices_portabledevices_DMProcessConfigXMLFiltered(pszxmlin.toCPointer<ByteVar>(), rgszallowedcspnodes.toCPointer<ByteVar>(), dwnumallowedcspnodes, pbstrxmlout.toCPointer<ByteVar>())
+public actual fun dMProcessConfigXMLFiltered(pszxmlin: Pcwstr, rgszallowedcspnodes: COpaquePointer?, dwnumallowedcspnodes: UInt, pbstrxmlout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.portabledevices.cinterop.windowssys_windows_win32_devices_portabledevices_dMProcessConfigXMLFiltered(pszxmlin?.value?.toCPointer<ByteVar>(), rgszallowedcspnodes?.value?.toCPointer<ByteVar>(), dwnumallowedcspnodes, pbstrxmlout?.value?.toCPointer<ByteVar>())

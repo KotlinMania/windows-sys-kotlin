@@ -114,21 +114,21 @@ public val TSPI_PROVIDERREMOVE: UInt = 593u
 
 public val TSPI_PROVIDERSHUTDOWN: UInt = 594u
 
-public val TS_INUSE: TERMINAL_STATE = 0
+public val TS_INUSE: TerminalState = 0
 
-public val TS_NOTINUSE: TERMINAL_STATE = 1
+public val TS_NOTINUSE: TerminalState = 1
 
-public val TTM_BEEP: TAPI_TONEMODE = 8
+public val TTM_BEEP: TapiTonemode = 8
 
-public val TTM_BILLING: TAPI_TONEMODE = 16
+public val TTM_BILLING: TapiTonemode = 16
 
-public val TTM_BUSY: TAPI_TONEMODE = 4
+public val TTM_BUSY: TapiTonemode = 4
 
-public val TTM_RINGBACK: TAPI_TONEMODE = 2
+public val TTM_RINGBACK: TapiTonemode = 2
 
-public val TT_DYNAMIC: TERMINAL_TYPE = 1
+public val TT_DYNAMIC: TerminalType = 1
 
-public val TT_STATIC: TERMINAL_TYPE = 0
+public val TT_STATIC: TerminalType = 0
 
 public val TUISPIDLL_OBJECT_DIALOGINSTANCE: Int = 4
 
@@ -138,28 +138,28 @@ public val TUISPIDLL_OBJECT_PHONEID: Int = 2
 
 public val TUISPIDLL_OBJECT_PROVIDERID: Int = 3
 
-public val atypFile: Int = 1
+public val ATYP_FILE: Int = 1
 
-public val atypMax: Int = 4
+public val ATYP_MAX: Int = 4
 
-public val atypNull: Int = 0
+public val ATYP_NULL: Int = 0
 
-public val atypOle: Int = 2
+public val ATYP_OLE: Int = 2
 
-public val atypPicture: Int = 3
+public val ATYP_PICTURE: Int = 3
 
-public val cbDisplayName: UInt = 41u
+public val CB_DISPLAY_NAME: UInt = 41u
 
-public val cbEmailName: UInt = 11u
+public val CB_EMAIL_NAME: UInt = 11u
 
-public val cbMaxIdData: UInt = 200u
+public val CB_MAX_ID_DATA: UInt = 200u
 
-public val cbSeverName: UInt = 12u
+public val CB_SEVER_NAME: UInt = 12u
 
-public val cbTYPE: UInt = 16u
+public val CB_TYPE: UInt = 16u
 
-public val prioHigh: UInt = 1u
+public val PRIO_HIGH: UInt = 1u
 
-public val prioLow: UInt = 3u
+public val PRIO_LOW: UInt = 3u
 
-public val prioNorm: UInt = 2u
+public val PRIO_NORM: UInt = 2u

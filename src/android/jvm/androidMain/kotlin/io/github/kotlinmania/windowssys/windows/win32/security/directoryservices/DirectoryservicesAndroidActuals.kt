@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.directoryservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
 private object WindowsWin32SecurityDirectoryservicesJniBridge {
     init {
@@ -13,14 +14,14 @@ private object WindowsWin32SecurityDirectoryservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_directoryservices_DSCreateSecurityPage(pwszobjectpath: Long, pwszobjectclass: Long, dwflags: Int, phpage: Long, pfnreadsd: Long, pfnwritesd: Long, lpcontext: Long): Int
+    external fun windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage(pwszobjectpath: Long, pwszobjectclass: Long, dwflags: Int, phpage: Long, pfnreadsd: Long, pfnwritesd: Long, lpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_directoryservices_DSEditSecurity(hwndowner: Long, pwszobjectpath: Long, pwszobjectclass: Long, dwflags: Int, pwszcaption: Long, pfnreadsd: Long, pfnwritesd: Long, lpcontext: Long): Int
+    external fun windowssys_windows_win32_security_directoryservices_dSEditSecurity(hwndowner: Long, pwszobjectpath: Long, pwszobjectclass: Long, dwflags: Int, pwszcaption: Long, pfnreadsd: Long, pfnwritesd: Long, lpcontext: Long): Int
 }
 
-public actual fun DSCreateSecurityPage(pwszobjectpath: PCWSTR, pwszobjectclass: PCWSTR, dwflags: UInt, phpage: Long, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: LPARAM): HRESULT =
-    WindowsWin32SecurityDirectoryservicesJniBridge.windowssys_windows_win32_security_directoryservices_DSCreateSecurityPage(pwszobjectpath, pwszobjectclass, dwflags.toInt(), phpage, pfnreadsd.toLong(), pfnwritesd.toLong(), lpcontext)
+public actual fun dSCreateSecurityPage(pwszobjectpath: Pcwstr, pwszobjectclass: Pcwstr, dwflags: UInt, phpage: COpaquePointer?, pfnreadsd: Pfnreadobjectsecurity, pfnwritesd: Pfnwriteobjectsecurity, lpcontext: Lparam): Hresult =
+    WindowsWin32SecurityDirectoryservicesJniBridge.windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage((pwszobjectpath?.value ?: 0L), (pwszobjectclass?.value ?: 0L), dwflags.toInt(), (phpage?.value ?: 0L), 0L, 0L, lpcontext)
 
-public actual fun DSEditSecurity(hwndowner: HWND, pwszobjectpath: PCWSTR, pwszobjectclass: PCWSTR, dwflags: UInt, pwszcaption: PCWSTR, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: LPARAM): HRESULT =
-    WindowsWin32SecurityDirectoryservicesJniBridge.windowssys_windows_win32_security_directoryservices_DSEditSecurity(hwndowner, pwszobjectpath, pwszobjectclass, dwflags.toInt(), pwszcaption, pfnreadsd.toLong(), pfnwritesd.toLong(), lpcontext)
+public actual fun dSEditSecurity(hwndowner: Hwnd, pwszobjectpath: Pcwstr, pwszobjectclass: Pcwstr, dwflags: UInt, pwszcaption: Pcwstr, pfnreadsd: Pfnreadobjectsecurity, pfnwritesd: Pfnwriteobjectsecurity, lpcontext: Lparam): Hresult =
+    WindowsWin32SecurityDirectoryservicesJniBridge.windowssys_windows_win32_security_directoryservices_dSEditSecurity((hwndowner?.value ?: 0L), (pwszobjectpath?.value ?: 0L), (pwszobjectclass?.value ?: 0L), dwflags.toInt(), (pwszcaption?.value ?: 0L), 0L, 0L, lpcontext)

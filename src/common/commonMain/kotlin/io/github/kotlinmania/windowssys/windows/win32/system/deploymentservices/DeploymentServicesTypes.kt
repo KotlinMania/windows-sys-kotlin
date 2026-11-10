@@ -1,94 +1,95 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias CPU_ARCHITECTURE = UInt
+public typealias CpuArchitecture = UInt
 
-public typealias PFN_WDS_CLI_CALLBACK_MESSAGE_ID = UInt
+public typealias PfnWdsCliCallbackMessageId = UInt
 
-public fun interface PFN_WdsCliCallbackFn {
-    public operator fun invoke(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: WPARAM, lparam: LPARAM, pvuserdata: Long)
+public fun interface PfnWdsCliCallbackFn {
+    public operator fun invoke(dwmessageid: PfnWdsCliCallbackMessageId, wparam: Wparam, lparam: Lparam, pvuserdata: COpaquePointer?)
 }
 
-public typealias PFN_WdsCliCallback = PFN_WdsCliCallbackFn?
+public typealias PfnWdsCliCallback = PfnWdsCliCallbackFn?
 
-public fun interface PFN_WdsCliTraceFunctionFn {
-    public operator fun invoke(pwszformat: PCWSTR, params: Long)
+public fun interface PfnWdsCliTraceFunctionFn {
+    public operator fun invoke(pwszformat: Pcwstr, params: COpaquePointer?)
 }
 
-public typealias PFN_WdsCliTraceFunction = PFN_WdsCliTraceFunctionFn?
+public typealias PfnWdsCliTraceFunction = PfnWdsCliTraceFunctionFn?
 
-public fun interface PFN_WdsTransportClientReceiveContentsFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pcontents: Long, ulsize: UInt, pullcontentoffset: Long)
+public fun interface PfnWdsTransportClientReceiveContentsFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, pcontents: COpaquePointer?, ulsize: UInt, pullcontentoffset: COpaquePointer?)
 }
 
-public typealias PFN_WdsTransportClientReceiveContents = PFN_WdsTransportClientReceiveContentsFn?
+public typealias PfnWdsTransportClientReceiveContents = PfnWdsTransportClientReceiveContentsFn?
 
-public fun interface PFN_WdsTransportClientReceiveMetadataFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pmetadata: Long, ulsize: UInt)
+public fun interface PfnWdsTransportClientReceiveMetadataFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, pmetadata: COpaquePointer?, ulsize: UInt)
 }
 
-public typealias PFN_WdsTransportClientReceiveMetadata = PFN_WdsTransportClientReceiveMetadataFn?
+public typealias PfnWdsTransportClientReceiveMetadata = PfnWdsTransportClientReceiveMetadataFn?
 
-public fun interface PFN_WdsTransportClientSessionCompleteFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, dwerror: UInt)
+public fun interface PfnWdsTransportClientSessionCompleteFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, dwerror: UInt)
 }
 
-public typealias PFN_WdsTransportClientSessionComplete = PFN_WdsTransportClientSessionCompleteFn?
+public typealias PfnWdsTransportClientSessionComplete = PfnWdsTransportClientSessionCompleteFn?
 
-public fun interface PFN_WdsTransportClientSessionNegotiateFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pinfo: Long, hnegotiatekey: HANDLE)
+public fun interface PfnWdsTransportClientSessionNegotiateFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, pinfo: COpaquePointer?, hnegotiatekey: Handle)
 }
 
-public typealias PFN_WdsTransportClientSessionNegotiate = PFN_WdsTransportClientSessionNegotiateFn?
+public typealias PfnWdsTransportClientSessionNegotiate = PfnWdsTransportClientSessionNegotiateFn?
 
-public fun interface PFN_WdsTransportClientSessionStartFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, ullfilesize: Long)
+public fun interface PfnWdsTransportClientSessionStartFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, ullfilesize: COpaquePointer?)
 }
 
-public typealias PFN_WdsTransportClientSessionStart = PFN_WdsTransportClientSessionStartFn?
+public typealias PfnWdsTransportClientSessionStart = PfnWdsTransportClientSessionStartFn?
 
-public fun interface PFN_WdsTransportClientSessionStartExFn {
-    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, info: Long)
+public fun interface PfnWdsTransportClientSessionStartExFn {
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: COpaquePointer?, info: COpaquePointer?)
 }
 
-public typealias PFN_WdsTransportClientSessionStartEx = PFN_WdsTransportClientSessionStartExFn?
+public typealias PfnWdsTransportClientSessionStartEx = PfnWdsTransportClientSessionStartExFn?
 
-public typealias TRANSPORTCLIENT_CALLBACK_ID = Int
+public typealias TransportclientCallbackId = Int
 
-public typealias TRANSPORTPROVIDER_CALLBACK_ID = Int
+public typealias TransportproviderCallbackId = Int
 
-public typealias WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = Int
+public typealias WdstransportDiagnosticsComponentFlags = Int
 
-public typealias WDSTRANSPORT_DISCONNECT_TYPE = Int
+public typealias WdstransportDisconnectType = Int
 
-public typealias WDSTRANSPORT_FEATURE_FLAGS = Int
+public typealias WdstransportFeatureFlags = Int
 
-public typealias WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = Int
+public typealias WdstransportIpAddressSourceType = Int
 
-public typealias WDSTRANSPORT_IP_ADDRESS_TYPE = Int
+public typealias WdstransportIpAddressType = Int
 
-public typealias WDSTRANSPORT_NAMESPACE_TYPE = Int
+public typealias WdstransportNamespaceType = Int
 
-public typealias WDSTRANSPORT_NETWORK_PROFILE_TYPE = Int
+public typealias WdstransportNetworkProfileType = Int
 
-public typealias WDSTRANSPORT_PROTOCOL_FLAGS = Int
+public typealias WdstransportProtocolFlags = Int
 
-public typealias WDSTRANSPORT_SERVICE_NOTIFICATION = Int
+public typealias WdstransportServiceNotification = Int
 
-public typealias WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = Int
+public typealias WdstransportSlowClientHandlingType = Int
 
-public typealias WDSTRANSPORT_TFTP_CAPABILITY = Int
+public typealias WdstransportTftpCapability = Int
 
-public typealias WDSTRANSPORT_UDP_PORT_POLICY = Int
+public typealias WdstransportUdpPortPolicy = Int
 
-public typealias WDS_CLI_FIRMWARE_TYPE = Int
+public typealias WdsCliFirmwareType = Int
 
-public typealias WDS_CLI_IMAGE_PARAM_TYPE = Int
+public typealias WdsCliImageParamType = Int
 
-public typealias WDS_CLI_IMAGE_TYPE = Int
+public typealias WdsCliImageType = Int
 
-public typealias WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = UInt
+public typealias WdsTransportclientRequestAuthLevel = UInt

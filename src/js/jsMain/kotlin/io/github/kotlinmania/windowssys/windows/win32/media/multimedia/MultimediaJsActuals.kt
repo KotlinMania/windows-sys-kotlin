@@ -2,550 +2,563 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.media.HTASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.media.Htask
 
 private val _windowsWin32MediaMultimediaNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AVIBuildFilterA(lpszfilter: PSTR, cbfilter: Int, fsaving: BOOL): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIBuildFilterA(lpszfilter.toString(), cbfilter, fsaving) as Int) else 0
+public actual fun aVIBuildFilterA(lpszfilter: Pstr, cbfilter: Int, fsaving: Bool): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIBuildFilterA((lpszfilter?.value ?: 0L).toString(), cbfilter, fsaving) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIBuildFilterW(lpszfilter: PWSTR, cbfilter: Int, fsaving: BOOL): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIBuildFilterW(lpszfilter.toString(), cbfilter, fsaving) as Int) else 0
+public actual fun aVIBuildFilterW(lpszfilter: Pwstr, cbfilter: Int, fsaving: Bool): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIBuildFilterW((lpszfilter?.value ?: 0L).toString(), cbfilter, fsaving) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIClearClipboard(): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIClearClipboard() as Int) else 0
+public actual fun aVIClearClipboard(): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIClearClipboard() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileAddRef(pfile: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileAddRef(pfile.toString()) as Int).toUInt() else 0u
+public actual fun aVIFileAddRef(pfile: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileAddRef((pfile?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileCreateStreamA(pfile: Long, ppavi: Long, psi: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA(pfile.toString(), ppavi.toString(), psi.toString()) as Int) else 0
+public actual fun aVIFileCreateStreamA(pfile: COpaquePointer?, ppavi: COpaquePointer?, psi: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileCreateStreamA((pfile?.value ?: 0L).toString(), (ppavi?.value ?: 0L).toString(), (psi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileCreateStreamW(pfile: Long, ppavi: Long, psi: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW(pfile.toString(), ppavi.toString(), psi.toString()) as Int) else 0
+public actual fun aVIFileCreateStreamW(pfile: COpaquePointer?, ppavi: COpaquePointer?, psi: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileCreateStreamW((pfile?.value ?: 0L).toString(), (ppavi?.value ?: 0L).toString(), (psi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileEndRecord(pfile: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileEndRecord(pfile.toString()) as Int) else 0
+public actual fun aVIFileEndRecord(pfile: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileEndRecord((pfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileExit() {
+public actual fun aVIFileExit() {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
-        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileExit()
+        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileExit()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AVIFileGetStream(pfile: Long, ppavi: Long, fcctype: UInt, lparam: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileGetStream(pfile.toString(), ppavi.toString(), fcctype.toInt(), lparam) as Int) else 0
+public actual fun aVIFileGetStream(pfile: COpaquePointer?, ppavi: COpaquePointer?, fcctype: UInt, lparam: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileGetStream((pfile?.value ?: 0L).toString(), (ppavi?.value ?: 0L).toString(), fcctype.toInt(), lparam) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileInfoA(pfile: Long, pfi: Long, lsize: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileInfoA(pfile.toString(), pfi.toString(), lsize) as Int) else 0
+public actual fun aVIFileInfoA(pfile: COpaquePointer?, pfi: COpaquePointer?, lsize: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileInfoA((pfile?.value ?: 0L).toString(), (pfi?.value ?: 0L).toString(), lsize) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileInfoW(pfile: Long, pfi: Long, lsize: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileInfoW(pfile.toString(), pfi.toString(), lsize) as Int) else 0
+public actual fun aVIFileInfoW(pfile: COpaquePointer?, pfi: COpaquePointer?, lsize: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileInfoW((pfile?.value ?: 0L).toString(), (pfi?.value ?: 0L).toString(), lsize) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileInit() {
+public actual fun aVIFileInit() {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
-        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileInit()
+        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileInit()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AVIFileOpenA(ppfile: Long, szfile: PCSTR, umode: UInt, lphandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileOpenA(ppfile.toString(), szfile.toString(), umode.toInt(), lphandler.toString()) as Int) else 0
+public actual fun aVIFileOpenA(ppfile: COpaquePointer?, szfile: Pcstr, umode: UInt, lphandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileOpenA((ppfile?.value ?: 0L).toString(), (szfile?.value ?: 0L).toString(), umode.toInt(), (lphandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileOpenW(ppfile: Long, szfile: PCWSTR, umode: UInt, lphandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileOpenW(ppfile.toString(), szfile.toString(), umode.toInt(), lphandler.toString()) as Int) else 0
+public actual fun aVIFileOpenW(ppfile: COpaquePointer?, szfile: Pcwstr, umode: UInt, lphandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileOpenW((ppfile?.value ?: 0L).toString(), (szfile?.value ?: 0L).toString(), umode.toInt(), (lphandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileReadData(pfile: Long, ckid: UInt, lpdata: Long, lpcbdata: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileReadData(pfile.toString(), ckid.toInt(), lpdata.toString(), lpcbdata.toString()) as Int) else 0
+public actual fun aVIFileReadData(pfile: COpaquePointer?, ckid: UInt, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileReadData((pfile?.value ?: 0L).toString(), ckid.toInt(), (lpdata?.value ?: 0L).toString(), (lpcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileRelease(pfile: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileRelease(pfile.toString()) as Int).toUInt() else 0u
+public actual fun aVIFileRelease(pfile: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileRelease((pfile?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIFileWriteData(pfile: Long, ckid: UInt, lpdata: Long, cbdata: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIFileWriteData(pfile.toString(), ckid.toInt(), lpdata.toString(), cbdata) as Int) else 0
+public actual fun aVIFileWriteData(pfile: COpaquePointer?, ckid: UInt, lpdata: COpaquePointer?, cbdata: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIFileWriteData((pfile?.value ?: 0L).toString(), ckid.toInt(), (lpdata?.value ?: 0L).toString(), cbdata) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIGetFromClipboard(lppf: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIGetFromClipboard(lppf.toString()) as Int) else 0
+public actual fun aVIGetFromClipboard(lppf: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIGetFromClipboard((lppf?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIMakeCompressedStream(ppscompressed: Long, ppssource: Long, lpoptions: Long, pclsidhandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream(ppscompressed.toString(), ppssource.toString(), lpoptions.toString(), pclsidhandler.toString()) as Int) else 0
+public actual fun aVIMakeCompressedStream(ppscompressed: COpaquePointer?, ppssource: COpaquePointer?, lpoptions: COpaquePointer?, pclsidhandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIMakeCompressedStream((ppscompressed?.value ?: 0L).toString(), (ppssource?.value ?: 0L).toString(), (lpoptions?.value ?: 0L).toString(), (pclsidhandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIMakeFileFromStreams(ppfile: Long, nstreams: Int, papstreams: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams(ppfile.toString(), nstreams, papstreams.toString()) as Int) else 0
+public actual fun aVIMakeFileFromStreams(ppfile: COpaquePointer?, nstreams: Int, papstreams: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIMakeFileFromStreams((ppfile?.value ?: 0L).toString(), nstreams, (papstreams?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIMakeStreamFromClipboard(cfformat: UInt, hglobal: HANDLE, ppstream: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard(cfformat.toInt(), hglobal.toString(), ppstream.toString()) as Int) else 0
+public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIMakeStreamFromClipboard(cfformat.toInt(), (hglobal?.value ?: 0L).toString(), (ppstream?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIPutFileOnClipboard(pf: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard(pf.toString()) as Int) else 0
+public actual fun aVIPutFileOnClipboard(pf: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboard((pf?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveA(szfile: PCSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, pfile: Long, lpoptions: Long): HRESULT =
-    0
+public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, pfile: COpaquePointer?, lpoptions: COpaquePointer?, vararg variadicArgs: Long): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveA((szfile?.value ?: 0L).toString(), (pclsidhandler?.value ?: 0L).toString(), 0L.toString(), nstreams, (pfile?.value ?: 0L).toString(), (lpoptions?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveOptions(hwnd: HWND, uiflags: UInt, nstreams: Int, ppavi: Long, plpoptions: Long): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVISaveOptions(hwnd.toString(), uiflags.toInt(), nstreams, ppavi.toString(), plpoptions.toString()) as String).toLong() else 0L
+public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Long =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveOptions((hwnd?.value ?: 0L).toString(), uiflags.toInt(), nstreams, (ppavi?.value ?: 0L).toString(), (plpoptions?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveOptionsFree(nstreams: Int, plpoptions: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVISaveOptionsFree(nstreams, plpoptions.toString()) as Int) else 0
+public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveOptionsFree(nstreams, (plpoptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveVA(szfile: PCSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, ppavi: Long, plpoptions: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVISaveVA(szfile.toString(), pclsidhandler.toString(), lpfncallback.toLong().toString(), nstreams, ppavi.toString(), plpoptions.toString()) as Int) else 0
+public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveVA((szfile?.value ?: 0L).toString(), (pclsidhandler?.value ?: 0L).toString(), 0L.toString(), nstreams, (ppavi?.value ?: 0L).toString(), (plpoptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveVW(szfile: PCWSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, ppavi: Long, plpoptions: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVISaveVW(szfile.toString(), pclsidhandler.toString(), lpfncallback.toLong().toString(), nstreams, ppavi.toString(), plpoptions.toString()) as Int) else 0
+public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveVW((szfile?.value ?: 0L).toString(), (pclsidhandler?.value ?: 0L).toString(), 0L.toString(), nstreams, (ppavi?.value ?: 0L).toString(), (plpoptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVISaveW(szfile: PCWSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, pfile: Long, lpoptions: Long): HRESULT =
-    0
+public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, pfile: COpaquePointer?, lpoptions: COpaquePointer?, vararg variadicArgs: Long): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVISaveW((szfile?.value ?: 0L).toString(), (pclsidhandler?.value ?: 0L).toString(), 0L.toString(), nstreams, (pfile?.value ?: 0L).toString(), (lpoptions?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamAddRef(pavi: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamAddRef(pavi.toString()) as Int).toUInt() else 0u
+public actual fun aVIStreamAddRef(pavi: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamAddRef((pavi?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamBeginStreaming(pavi: Long, lstart: Int, lend: Int, lrate: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming(pavi.toString(), lstart, lend, lrate) as Int) else 0
+public actual fun aVIStreamBeginStreaming(pavi: COpaquePointer?, lstart: Int, lend: Int, lrate: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamBeginStreaming((pavi?.value ?: 0L).toString(), lstart, lend, lrate) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamCreate(ppavi: Long, lparam1: Int, lparam2: Int, pclsidhandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamCreate(ppavi.toString(), lparam1, lparam2, pclsidhandler.toString()) as Int) else 0
+public actual fun aVIStreamCreate(ppavi: COpaquePointer?, lparam1: Int, lparam2: Int, pclsidhandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamCreate((ppavi?.value ?: 0L).toString(), lparam1, lparam2, (pclsidhandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamEndStreaming(pavi: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming(pavi.toString()) as Int) else 0
+public actual fun aVIStreamEndStreaming(pavi: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamEndStreaming((pavi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamFindSample(pavi: Long, lpos: Int, lflags: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamFindSample(pavi.toString(), lpos, lflags) as Int) else 0
+public actual fun aVIStreamFindSample(pavi: COpaquePointer?, lpos: Int, lflags: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamFindSample((pavi?.value ?: 0L).toString(), lpos, lflags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamGetFrame(pg: Long, lpos: Int): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamGetFrame(pg.toString(), lpos) as String).toLong() else 0L
+public actual fun aVIStreamGetFrame(pg: COpaquePointer?, lpos: Int): COpaquePointer? =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamGetFrame((pg?.value ?: 0L).toString(), lpos) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamGetFrameClose(pg: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose(pg.toString()) as Int) else 0
+public actual fun aVIStreamGetFrameClose(pg: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamGetFrameClose((pg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamGetFrameOpen(pavi: Long, lpbiwanted: Long): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen(pavi.toString(), lpbiwanted.toString()) as String).toLong() else 0L
+public actual fun aVIStreamGetFrameOpen(pavi: COpaquePointer?, lpbiwanted: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOpen((pavi?.value ?: 0L).toString(), (lpbiwanted?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamInfoA(pavi: Long, psi: Long, lsize: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamInfoA(pavi.toString(), psi.toString(), lsize) as Int) else 0
+public actual fun aVIStreamInfoA(pavi: COpaquePointer?, psi: COpaquePointer?, lsize: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamInfoA((pavi?.value ?: 0L).toString(), (psi?.value ?: 0L).toString(), lsize) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamInfoW(pavi: Long, psi: Long, lsize: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamInfoW(pavi.toString(), psi.toString(), lsize) as Int) else 0
+public actual fun aVIStreamInfoW(pavi: COpaquePointer?, psi: COpaquePointer?, lsize: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamInfoW((pavi?.value ?: 0L).toString(), (psi?.value ?: 0L).toString(), lsize) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamLength(pavi: Long): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamLength(pavi.toString()) as Int) else 0
+public actual fun aVIStreamLength(pavi: COpaquePointer?): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamLength((pavi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamOpenFromFileA(ppavi: Long, szfile: PCSTR, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA(ppavi.toString(), szfile.toString(), fcctype.toInt(), lparam, mode.toInt(), pclsidhandler.toString()) as Int) else 0
+public actual fun aVIStreamOpenFromFileA(ppavi: COpaquePointer?, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileA((ppavi?.value ?: 0L).toString(), (szfile?.value ?: 0L).toString(), fcctype.toInt(), lparam, mode.toInt(), (pclsidhandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamOpenFromFileW(ppavi: Long, szfile: PCWSTR, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW(ppavi.toString(), szfile.toString(), fcctype.toInt(), lparam, mode.toInt(), pclsidhandler.toString()) as Int) else 0
+public actual fun aVIStreamOpenFromFileW(ppavi: COpaquePointer?, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileW((ppavi?.value ?: 0L).toString(), (szfile?.value ?: 0L).toString(), fcctype.toInt(), lparam, mode.toInt(), (pclsidhandler?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamRead(pavi: Long, lstart: Int, lsamples: Int, lpbuffer: Long, cbbuffer: Int, plbytes: Long, plsamples: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamRead(pavi.toString(), lstart, lsamples, lpbuffer.toString(), cbbuffer, plbytes.toString(), plsamples.toString()) as Int) else 0
+public actual fun aVIStreamRead(pavi: COpaquePointer?, lstart: Int, lsamples: Int, lpbuffer: COpaquePointer?, cbbuffer: Int, plbytes: COpaquePointer?, plsamples: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamRead((pavi?.value ?: 0L).toString(), lstart, lsamples, (lpbuffer?.value ?: 0L).toString(), cbbuffer, (plbytes?.value ?: 0L).toString(), (plsamples?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamReadData(pavi: Long, fcc: UInt, lp: Long, lpcb: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamReadData(pavi.toString(), fcc.toInt(), lp.toString(), lpcb.toString()) as Int) else 0
+public actual fun aVIStreamReadData(pavi: COpaquePointer?, fcc: UInt, lp: COpaquePointer?, lpcb: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamReadData((pavi?.value ?: 0L).toString(), fcc.toInt(), (lp?.value ?: 0L).toString(), (lpcb?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamReadFormat(pavi: Long, lpos: Int, lpformat: Long, lpcbformat: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamReadFormat(pavi.toString(), lpos, lpformat.toString(), lpcbformat.toString()) as Int) else 0
+public actual fun aVIStreamReadFormat(pavi: COpaquePointer?, lpos: Int, lpformat: COpaquePointer?, lpcbformat: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamReadFormat((pavi?.value ?: 0L).toString(), lpos, (lpformat?.value ?: 0L).toString(), (lpcbformat?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamRelease(pavi: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamRelease(pavi.toString()) as Int).toUInt() else 0u
+public actual fun aVIStreamRelease(pavi: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamRelease((pavi?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamSampleToTime(pavi: Long, lsample: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime(pavi.toString(), lsample) as Int) else 0
+public actual fun aVIStreamSampleToTime(pavi: COpaquePointer?, lsample: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamSampleToTime((pavi?.value ?: 0L).toString(), lsample) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamSetFormat(pavi: Long, lpos: Int, lpformat: Long, cbformat: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamSetFormat(pavi.toString(), lpos, lpformat.toString(), cbformat) as Int) else 0
+public actual fun aVIStreamSetFormat(pavi: COpaquePointer?, lpos: Int, lpformat: COpaquePointer?, cbformat: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamSetFormat((pavi?.value ?: 0L).toString(), lpos, (lpformat?.value ?: 0L).toString(), cbformat) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamStart(pavi: Long): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamStart(pavi.toString()) as Int) else 0
+public actual fun aVIStreamStart(pavi: COpaquePointer?): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamStart((pavi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamTimeToSample(pavi: Long, ltime: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample(pavi.toString(), ltime) as Int) else 0
+public actual fun aVIStreamTimeToSample(pavi: COpaquePointer?, ltime: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamTimeToSample((pavi?.value ?: 0L).toString(), ltime) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamWrite(pavi: Long, lstart: Int, lsamples: Int, lpbuffer: Long, cbbuffer: Int, dwflags: UInt, plsampwritten: Long, plbyteswritten: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamWrite(pavi.toString(), lstart, lsamples, lpbuffer.toString(), cbbuffer, dwflags.toInt(), plsampwritten.toString(), plbyteswritten.toString()) as Int) else 0
+public actual fun aVIStreamWrite(pavi: COpaquePointer?, lstart: Int, lsamples: Int, lpbuffer: COpaquePointer?, cbbuffer: Int, dwflags: UInt, plsampwritten: COpaquePointer?, plbyteswritten: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamWrite((pavi?.value ?: 0L).toString(), lstart, lsamples, (lpbuffer?.value ?: 0L).toString(), cbbuffer, dwflags.toInt(), (plsampwritten?.value ?: 0L).toString(), (plbyteswritten?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AVIStreamWriteData(pavi: Long, fcc: UInt, lp: Long, cb: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_AVIStreamWriteData(pavi.toString(), fcc.toInt(), lp.toString(), cb) as Int) else 0
+public actual fun aVIStreamWriteData(pavi: COpaquePointer?, fcc: UInt, lp: COpaquePointer?, cb: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_aVIStreamWriteData((pavi?.value ?: 0L).toString(), fcc.toInt(), (lp?.value ?: 0L).toString(), cb) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseDriver(hdriver: HDRVR, lparam1: LPARAM, lparam2: LPARAM): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_CloseDriver(hdriver.toString(), lparam1.toString(), lparam2.toString()) as String).toLong() else 0L
+public actual fun closeDriver(hdriver: Hdrvr, lparam1: Lparam, lparam2: Lparam): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_closeDriver((hdriver?.value ?: 0L).toString(), lparam1.toString(), lparam2.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEditableStream(ppseditable: Long, pssource: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_CreateEditableStream(ppseditable.toString(), pssource.toString()) as Int) else 0
+public actual fun createEditableStream(ppseditable: COpaquePointer?, pssource: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_createEditableStream((ppseditable?.value ?: 0L).toString(), (pssource?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefDriverProc(dwdriveridentifier: ULong, hdrvr: HDRVR, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DefDriverProc(dwdriveridentifier.toString(), hdrvr.toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else 0L
+public actual fun defDriverProc(dwdriveridentifier: ULong, hdrvr: Hdrvr, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_defDriverProc(dwdriveridentifier.toString(), (hdrvr?.value ?: 0L).toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibBegin(hdd: Long, hdc: HDC, dxdst: Int, dydst: Int, lpbi: Long, dxsrc: Int, dysrc: Int, wflags: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibBegin(hdd.toString(), hdc.toString(), dxdst, dydst, lpbi.toString(), dxsrc, dysrc, wflags.toInt()) as Int) else 0
+public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibBegin(hdd.toString(), (hdc?.value ?: 0L).toString(), dxdst, dydst, (lpbi?.value ?: 0L).toString(), dxsrc, dysrc, wflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibChangePalette(hdd.toString(), istart, ilen, lppe.toString()) as Int) else 0
+public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibChangePalette(hdd.toString(), istart, ilen, (lppe?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibClose(hdd: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibClose(hdd.toString()) as Int) else 0
+public actual fun drawDibClose(hdd: Long): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibClose(hdd.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibDraw(hdd: Long, hdc: HDC, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: Long, lpbits: Long, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibDraw(hdd.toString(), hdc.toString(), xdst, ydst, dxdst, dydst, lpbi.toString(), lpbits.toString(), xsrc, ysrc, dxsrc, dysrc, wflags.toInt()) as Int) else 0
+public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, lpbits: COpaquePointer?, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibDraw(hdd.toString(), (hdc?.value ?: 0L).toString(), xdst, ydst, dxdst, dydst, (lpbi?.value ?: 0L).toString(), (lpbits?.value ?: 0L).toString(), xsrc, ysrc, dxsrc, dysrc, wflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibEnd(hdd: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibEnd(hdd.toString()) as Int) else 0
+public actual fun drawDibEnd(hdd: Long): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibEnd(hdd.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibGetBuffer(hdd: Long, lpbi: Long, dwsize: UInt, dwflags: UInt): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibGetBuffer(hdd.toString(), lpbi.toString(), dwsize.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun drawDibGetBuffer(hdd: Long, lpbi: COpaquePointer?, dwsize: UInt, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibGetBuffer(hdd.toString(), (lpbi?.value ?: 0L).toString(), dwsize.toInt(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibGetPalette(hdd: Long): HPALETTE =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibGetPalette(hdd.toString()) as String).toLong() else 0L
+public actual fun drawDibGetPalette(hdd: Long): Hpalette =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibGetPalette(hdd.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibOpen(): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibOpen() as String).toLong() else 0L
+public actual fun drawDibOpen(): Long =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibOpen() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibProfileDisplay(lpbi: Long): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay(lpbi.toString()) as String).toLong() else 0L
+public actual fun drawDibProfileDisplay(lpbi: COpaquePointer?): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibProfileDisplay((lpbi?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibRealize(hdd: Long, hdc: HDC, fbackground: BOOL): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibRealize(hdd.toString(), hdc.toString(), fbackground) as Int).toUInt() else 0u
+public actual fun drawDibRealize(hdd: Long, hdc: Hdc, fbackground: Bool): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibRealize(hdd.toString(), (hdc?.value ?: 0L).toString(), fbackground) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibSetPalette(hdd: Long, hpal: HPALETTE): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibSetPalette(hdd.toString(), hpal.toString()) as Int) else 0
+public actual fun drawDibSetPalette(hdd: Long, hpal: Hpalette): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibSetPalette(hdd.toString(), (hpal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibStart(hdd: Long, rate: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibStart(hdd.toString(), rate.toInt()) as Int) else 0
+public actual fun drawDibStart(hdd: Long, rate: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibStart(hdd.toString(), rate.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibStop(hdd: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibStop(hdd.toString()) as Int) else 0
+public actual fun drawDibStop(hdd: Long): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibStop(hdd.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawDibTime(hdd: Long, lpddtime: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrawDibTime(hdd.toString(), lpddtime.toString()) as Int) else 0
+public actual fun drawDibTime(hdd: Long, lpddtime: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drawDibTime(hdd.toString(), (lpddtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DriverCallback(dwcallback: ULong, dwflags: UInt, hdevice: HDRVR, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DriverCallback(dwcallback.toString(), dwflags.toInt(), hdevice.toString(), dwmsg.toInt(), dwuser.toString(), dwparam1.toString(), dwparam2.toString()) as Int) else 0
+public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrvr, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_driverCallback(dwcallback.toString(), dwflags.toInt(), (hdevice?.value ?: 0L).toString(), dwmsg.toInt(), dwuser.toString(), dwparam1.toString(), dwparam2.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrvGetModuleHandle(hdriver: HDRVR): HMODULE =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_DrvGetModuleHandle(hdriver.toString()) as String).toLong() else 0L
+public actual fun drvGetModuleHandle(hdriver: Hdrvr): Hmodule =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_drvGetModuleHandle((hdriver?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamClone(pavi: Long, ppresult: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamClone(pavi.toString(), ppresult.toString()) as Int) else 0
+public actual fun editStreamClone(pavi: COpaquePointer?, ppresult: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamClone((pavi?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamCopy(pavi: Long, plstart: Long, pllength: Long, ppresult: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamCopy(pavi.toString(), plstart.toString(), pllength.toString(), ppresult.toString()) as Int) else 0
+public actual fun editStreamCopy(pavi: COpaquePointer?, plstart: COpaquePointer?, pllength: COpaquePointer?, ppresult: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamCopy((pavi?.value ?: 0L).toString(), (plstart?.value ?: 0L).toString(), (pllength?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamCut(pavi: Long, plstart: Long, pllength: Long, ppresult: Long): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamCut(pavi.toString(), plstart.toString(), pllength.toString(), ppresult.toString()) as Int) else 0
+public actual fun editStreamCut(pavi: COpaquePointer?, plstart: COpaquePointer?, pllength: COpaquePointer?, ppresult: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamCut((pavi?.value ?: 0L).toString(), (plstart?.value ?: 0L).toString(), (pllength?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamPaste(pavi: Long, plpos: Long, pllength: Long, pstream: Long, lstart: Int, lend: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamPaste(pavi.toString(), plpos.toString(), pllength.toString(), pstream.toString(), lstart, lend) as Int) else 0
+public actual fun editStreamPaste(pavi: COpaquePointer?, plpos: COpaquePointer?, pllength: COpaquePointer?, pstream: COpaquePointer?, lstart: Int, lend: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamPaste((pavi?.value ?: 0L).toString(), (plpos?.value ?: 0L).toString(), (pllength?.value ?: 0L).toString(), (pstream?.value ?: 0L).toString(), lstart, lend) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamSetInfoA(pavi: Long, lpinfo: Long, cbinfo: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamSetInfoA(pavi.toString(), lpinfo.toString(), cbinfo) as Int) else 0
+public actual fun editStreamSetInfoA(pavi: COpaquePointer?, lpinfo: COpaquePointer?, cbinfo: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamSetInfoA((pavi?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString(), cbinfo) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamSetInfoW(pavi: Long, lpinfo: Long, cbinfo: Int): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamSetInfoW(pavi.toString(), lpinfo.toString(), cbinfo) as Int) else 0
+public actual fun editStreamSetInfoW(pavi: COpaquePointer?, lpinfo: COpaquePointer?, cbinfo: Int): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamSetInfoW((pavi?.value ?: 0L).toString(), (lpinfo?.value ?: 0L).toString(), cbinfo) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamSetNameA(pavi: Long, lpszname: PCSTR): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamSetNameA(pavi.toString(), lpszname.toString()) as Int) else 0
+public actual fun editStreamSetNameA(pavi: COpaquePointer?, lpszname: Pcstr): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamSetNameA((pavi?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EditStreamSetNameW(pavi: Long, lpszname: PCWSTR): HRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_EditStreamSetNameW(pavi.toString(), lpszname.toString()) as Int) else 0
+public actual fun editStreamSetNameW(pavi: COpaquePointer?, lpszname: Pcwstr): Hresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_editStreamSetNameW((pavi?.value ?: 0L).toString(), (lpszname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDriverModuleHandle(hdriver: HDRVR): HMODULE =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_GetDriverModuleHandle(hdriver.toString()) as String).toLong() else 0L
+public actual fun getDriverModuleHandle(hdriver: Hdrvr): Hmodule =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_getDriverModuleHandle((hdriver?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetOpenFileNamePreviewA(lpofn: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA(lpofn.toString()) as Int) else 0
+public actual fun getOpenFileNamePreviewA(lpofn: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewA((lpofn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetOpenFileNamePreviewW(lpofn: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW(lpofn.toString()) as Int) else 0
+public actual fun getOpenFileNamePreviewW(lpofn: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewW((lpofn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSaveFileNamePreviewA(lpofn: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA(lpofn.toString()) as Int) else 0
+public actual fun getSaveFileNamePreviewA(lpofn: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewA((lpofn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSaveFileNamePreviewW(lpofn: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW(lpofn.toString()) as Int) else 0
+public actual fun getSaveFileNamePreviewW(lpofn: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewW((lpofn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICClose(hic: HIC): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICClose(hic.toString()) as String).toLong() else 0L
+public actual fun iCClose(hic: Hic): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCClose((hic?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICCompress(hic: HIC, dwflags: UInt, lpbioutput: Long, lpdata: Long, lpbiinput: Long, lpbits: Long, lpckid: Long, lpdwflags: Long, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: Long, lpprev: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICCompress(hic.toString(), dwflags.toInt(), lpbioutput.toString(), lpdata.toString(), lpbiinput.toString(), lpbits.toString(), lpckid.toString(), lpdwflags.toString(), lframenum, dwframesize.toInt(), dwquality.toInt(), lpbiprev.toString(), lpprev.toString()) as Int).toUInt() else 0u
+public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: COpaquePointer?, lpdata: COpaquePointer?, lpbiinput: COpaquePointer?, lpbits: COpaquePointer?, lpckid: COpaquePointer?, lpdwflags: COpaquePointer?, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: COpaquePointer?, lpprev: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCCompress((hic?.value ?: 0L).toString(), dwflags.toInt(), (lpbioutput?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), (lpbiinput?.value ?: 0L).toString(), (lpbits?.value ?: 0L).toString(), (lpckid?.value ?: 0L).toString(), (lpdwflags?.value ?: 0L).toString(), lframenum, dwframesize.toInt(), dwquality.toInt(), (lpbiprev?.value ?: 0L).toString(), (lpprev?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICCompressorChoose(hwnd: HWND, uiflags: UInt, pvin: Long, lpdata: Long, pc: Long, lpsztitle: PCSTR): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICCompressorChoose(hwnd.toString(), uiflags.toInt(), pvin.toString(), lpdata.toString(), pc.toString(), lpsztitle.toString()) as Int) else 0
+public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: COpaquePointer?, lpdata: COpaquePointer?, pc: COpaquePointer?, lpsztitle: Pcstr): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCCompressorChoose((hwnd?.value ?: 0L).toString(), uiflags.toInt(), (pvin?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), (pc?.value ?: 0L).toString(), (lpsztitle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICCompressorFree(pc: Long) {
+public actual fun iCCompressorFree(pc: COpaquePointer?) {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
-        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICCompressorFree(pc.toString())
+        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCCompressorFree((pc?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ICDecompress(hic: HIC, dwflags: UInt, lpbiformat: Long, lpdata: Long, lpbi: Long, lpbits: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICDecompress(hic.toString(), dwflags.toInt(), lpbiformat.toString(), lpdata.toString(), lpbi.toString(), lpbits.toString()) as Int).toUInt() else 0u
+public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: COpaquePointer?, lpdata: COpaquePointer?, lpbi: COpaquePointer?, lpbits: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCDecompress((hic?.value ?: 0L).toString(), dwflags.toInt(), (lpbiformat?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), (lpbi?.value ?: 0L).toString(), (lpbits?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICDraw(hic: HIC, dwflags: UInt, lpformat: Long, lpdata: Long, cbdata: UInt, ltime: Int): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICDraw(hic.toString(), dwflags.toInt(), lpformat.toString(), lpdata.toString(), cbdata.toInt(), ltime) as Int).toUInt() else 0u
+public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: COpaquePointer?, lpdata: COpaquePointer?, cbdata: UInt, ltime: Int): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCDraw((hic?.value ?: 0L).toString(), dwflags.toInt(), (lpformat?.value ?: 0L).toString(), (lpdata?.value ?: 0L).toString(), cbdata.toInt(), ltime) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICDrawBegin(hic: HIC, dwflags: UInt, hpal: HPALETTE, hwnd: HWND, hdc: HDC, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: Long, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICDrawBegin(hic.toString(), dwflags.toInt(), hpal.toString(), hwnd.toString(), hdc.toString(), xdst, ydst, dxdst, dydst, lpbi.toString(), xsrc, ysrc, dxsrc, dysrc, dwrate.toInt(), dwscale.toInt()) as Int).toUInt() else 0u
+public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCDrawBegin((hic?.value ?: 0L).toString(), dwflags.toInt(), (hpal?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (hdc?.value ?: 0L).toString(), xdst, ydst, dxdst, dydst, (lpbi?.value ?: 0L).toString(), xsrc, ysrc, dxsrc, dysrc, dwrate.toInt(), dwscale.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICGetDisplayFormat(hic: HIC, lpbiin: Long, lpbiout: Long, bitdepth: Int, dx: Int, dy: Int): HIC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICGetDisplayFormat(hic.toString(), lpbiin.toString(), lpbiout.toString(), bitdepth, dx, dy) as String).toLong() else 0L
+public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: COpaquePointer?, lpbiout: COpaquePointer?, bitdepth: Int, dx: Int, dy: Int): Hic =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCGetDisplayFormat((hic?.value ?: 0L).toString(), (lpbiin?.value ?: 0L).toString(), (lpbiout?.value ?: 0L).toString(), bitdepth, dx, dy) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICGetInfo(hic: HIC, picinfo: Long, cb: UInt): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICGetInfo(hic.toString(), picinfo.toString(), cb.toInt()) as String).toLong() else 0L
+public actual fun iCGetInfo(hic: Hic, picinfo: COpaquePointer?, cb: UInt): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCGetInfo((hic?.value ?: 0L).toString(), (picinfo?.value ?: 0L).toString(), cb.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICImageCompress(hic: HIC, uiflags: UInt, lpbiin: Long, lpbits: Long, lpbiout: Long, lquality: Int, plsize: Long): HANDLE =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICImageCompress(hic.toString(), uiflags.toInt(), lpbiin.toString(), lpbits.toString(), lpbiout.toString(), lquality, plsize.toString()) as String).toLong() else 0L
+public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: COpaquePointer?, lpbits: COpaquePointer?, lpbiout: COpaquePointer?, lquality: Int, plsize: COpaquePointer?): Handle =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCImageCompress((hic?.value ?: 0L).toString(), uiflags.toInt(), (lpbiin?.value ?: 0L).toString(), (lpbits?.value ?: 0L).toString(), (lpbiout?.value ?: 0L).toString(), lquality, (plsize?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICImageDecompress(hic: HIC, uiflags: UInt, lpbiin: Long, lpbits: Long, lpbiout: Long): HANDLE =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICImageDecompress(hic.toString(), uiflags.toInt(), lpbiin.toString(), lpbits.toString(), lpbiout.toString()) as String).toLong() else 0L
+public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: COpaquePointer?, lpbits: COpaquePointer?, lpbiout: COpaquePointer?): Handle =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCImageDecompress((hic?.value ?: 0L).toString(), uiflags.toInt(), (lpbiin?.value ?: 0L).toString(), (lpbits?.value ?: 0L).toString(), (lpbiout?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICInfo(fcctype.toInt(), fcchandler.toInt(), lpicinfo.toString()) as Int) else 0
+public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCInfo(fcctype.toInt(), fcchandler.toInt(), (lpicinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICInstall(fcctype: UInt, fcchandler: UInt, lparam: LPARAM, szdesc: PCSTR, wflags: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICInstall(fcctype.toInt(), fcchandler.toInt(), lparam.toString(), szdesc.toString(), wflags.toInt()) as Int) else 0
+public actual fun iCInstall(fcctype: UInt, fcchandler: UInt, lparam: Lparam, szdesc: Pcstr, wflags: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCInstall(fcctype.toInt(), fcchandler.toInt(), lparam.toString(), (szdesc?.value ?: 0L).toString(), wflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICLocate(fcctype: UInt, fcchandler: UInt, lpbiin: Long, lpbiout: Long, wflags: UShort): HIC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICLocate(fcctype.toInt(), fcchandler.toInt(), lpbiin.toString(), lpbiout.toString(), wflags.toInt()) as String).toLong() else 0L
+public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: COpaquePointer?, lpbiout: COpaquePointer?, wflags: UShort): Hic =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCLocate(fcctype.toInt(), fcchandler.toInt(), (lpbiin?.value ?: 0L).toString(), (lpbiout?.value ?: 0L).toString(), wflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): HIC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICOpen(fcctype.toInt(), fcchandler.toInt(), wmode.toInt()) as String).toLong() else 0L
+public actual fun iCOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): Hic =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCOpen(fcctype.toInt(), fcchandler.toInt(), wmode.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICOpenFunction(fcctype: UInt, fcchandler: UInt, wmode: UInt, lpfnhandler: FARPROC): HIC =
-    0L
+public actual fun iCOpenFunction(fcctype: UInt, fcchandler: UInt, wmode: UInt, lpfnhandler: Farproc): Hic =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICRemove(fcctype.toInt(), fcchandler.toInt(), wflags.toInt()) as Int) else 0
+public actual fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCRemove(fcctype.toInt(), fcchandler.toInt(), wflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICSendMessage(hic: HIC, msg: UInt, dw1: ULong, dw2: ULong): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICSendMessage(hic.toString(), msg.toInt(), dw1.toString(), dw2.toString()) as String).toLong() else 0L
+public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCSendMessage((hic?.value ?: 0L).toString(), msg.toInt(), dw1.toString(), dw2.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICSeqCompressFrame(pc: Long, uiflags: UInt, lpbits: Long, pfkey: Long, plsize: Long): Long =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICSeqCompressFrame(pc.toString(), uiflags.toInt(), lpbits.toString(), pfkey.toString(), plsize.toString()) as String).toLong() else 0L
+public actual fun iCSeqCompressFrame(pc: COpaquePointer?, uiflags: UInt, lpbits: COpaquePointer?, pfkey: COpaquePointer?, plsize: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCSeqCompressFrame((pc?.value ?: 0L).toString(), uiflags.toInt(), (lpbits?.value ?: 0L).toString(), (pfkey?.value ?: 0L).toString(), (plsize?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ICSeqCompressFrameEnd(pc: Long) {
+public actual fun iCSeqCompressFrameEnd(pc: COpaquePointer?) {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
-        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd(pc.toString())
+        _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCSeqCompressFrameEnd((pc?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ICSeqCompressFrameStart(pc: Long, lpbiin: Long): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart(pc.toString(), lpbiin.toString()) as Int) else 0
+public actual fun iCSeqCompressFrameStart(pc: COpaquePointer?, lpbiin: COpaquePointer?): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_iCSeqCompressFrameStart((pc?.value ?: 0L).toString(), (lpbiin?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MCIWndCreateA(hwndparent: HWND, hinstance: HINSTANCE, dwstyle: UInt, szfile: PCSTR): HWND =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_MCIWndCreateA(hwndparent.toString(), hinstance.toString(), dwstyle.toInt(), szfile.toString()) as String).toLong() else 0L
+public actual fun mCIWndCreateA(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcstr): Hwnd =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mCIWndCreateA((hwndparent?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), dwstyle.toInt(), (szfile?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MCIWndCreateW(hwndparent: HWND, hinstance: HINSTANCE, dwstyle: UInt, szfile: PCWSTR): HWND =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_MCIWndCreateW(hwndparent.toString(), hinstance.toString(), dwstyle.toInt(), szfile.toString()) as String).toLong() else 0L
+public actual fun mCIWndCreateW(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcwstr): Hwnd =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mCIWndCreateW((hwndparent?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), dwstyle.toInt(), (szfile?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MCIWndRegisterClass(): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_MCIWndRegisterClass() as Int) else 0
+public actual fun mCIWndRegisterClass(): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mCIWndRegisterClass() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenDriver(szdrivername: PCWSTR, szsectionname: PCWSTR, lparam2: LPARAM): HDRVR =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_OpenDriver(szdrivername.toString(), szsectionname.toString(), lparam2.toString()) as String).toLong() else 0L
+public actual fun openDriver(szdrivername: Pcwstr, szsectionname: Pcwstr, lparam2: Lparam): Hdrvr =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_openDriver((szdrivername?.value ?: 0L).toString(), (szsectionname?.value ?: 0L).toString(), lparam2.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendDriverMessage(hdriver: HDRVR, message: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_SendDriverMessage(hdriver.toString(), message.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else 0L
+public actual fun sendDriverMessage(hdriver: Hdrvr, message: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_sendDriverMessage((hdriver?.value ?: 0L).toString(), message.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VideoForWindowsVersion(): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_VideoForWindowsVersion() as Int).toUInt() else 0u
+public actual fun videoForWindowsVersion(): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_videoForWindowsVersion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun capCreateCaptureWindowA(lpszwindowname: PCSTR, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, nid: Int): HWND =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capCreateCaptureWindowA(lpszwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), nid) as String).toLong() else 0L
+public actual fun capCreateCaptureWindowA(lpszwindowname: Pcstr, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, nid: Int): Hwnd =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capCreateCaptureWindowA((lpszwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), nid) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun capCreateCaptureWindowW(lpszwindowname: PCWSTR, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, nid: Int): HWND =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capCreateCaptureWindowW(lpszwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), nid) as String).toLong() else 0L
+public actual fun capCreateCaptureWindowW(lpszwindowname: Pcwstr, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, nid: Int): Hwnd =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capCreateCaptureWindowW((lpszwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), nid) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: PSTR, cbname: Int, lpszver: PSTR, cbver: Int): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capGetDriverDescriptionA(wdriverindex.toInt(), lpszname.toString(), cbname, lpszver.toString(), cbver) as Int) else 0
+public actual fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: Pstr, cbname: Int, lpszver: Pstr, cbver: Int): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capGetDriverDescriptionA(wdriverindex.toInt(), (lpszname?.value ?: 0L).toString(), cbname, (lpszver?.value ?: 0L).toString(), cbver) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: PWSTR, cbname: Int, lpszver: PWSTR, cbver: Int): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capGetDriverDescriptionW(wdriverindex.toInt(), lpszname.toString(), cbname, lpszver.toString(), cbver) as Int) else 0
+public actual fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: Pwstr, cbname: Int, lpszver: Pwstr, cbver: Int): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_capGetDriverDescriptionW(wdriverindex.toInt(), (lpszname?.value ?: 0L).toString(), cbname, (lpszver?.value ?: 0L).toString(), cbver) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: Long, cbjc: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetDevCapsA(ujoyid.toString(), pjc.toString(), cbjc.toInt()) as Int).toUInt() else 0u
+public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: COpaquePointer?, cbjc: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetDevCapsA(ujoyid.toString(), (pjc?.value ?: 0L).toString(), cbjc.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: Long, cbjc: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetDevCapsW(ujoyid.toString(), pjc.toString(), cbjc.toInt()) as Int).toUInt() else 0u
+public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: COpaquePointer?, cbjc: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetDevCapsW(ujoyid.toString(), (pjc?.value ?: 0L).toString(), cbjc.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun joyGetNumDevs(): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetNumDevs() as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetNumDevs() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joyGetPos(ujoyid: UInt, pji: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetPos(ujoyid.toInt(), pji.toString()) as Int).toUInt() else 0u
+public actual fun joyGetPos(ujoyid: UInt, pji: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetPos(ujoyid.toInt(), (pji?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joyGetPosEx(ujoyid: UInt, pji: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetPosEx(ujoyid.toInt(), pji.toString()) as Int).toUInt() else 0u
+public actual fun joyGetPosEx(ujoyid: UInt, pji: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetPosEx(ujoyid.toInt(), (pji?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: Long): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetThreshold(ujoyid.toInt(), puthreshold.toString()) as Int).toUInt() else 0u
+public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: COpaquePointer?): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyGetThreshold(ujoyid.toInt(), (puthreshold?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun joyReleaseCapture(ujoyid: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyReleaseCapture(ujoyid.toInt()) as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joyReleaseCapture(ujoyid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun joySetCapture(hwnd: HWND, ujoyid: UInt, uperiod: UInt, fchanged: BOOL): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joySetCapture(hwnd.toString(), ujoyid.toInt(), uperiod.toInt(), fchanged) as Int).toUInt() else 0u
+public actual fun joySetCapture(hwnd: Hwnd, ujoyid: UInt, uperiod: UInt, fchanged: Bool): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joySetCapture((hwnd?.value ?: 0L).toString(), ujoyid.toInt(), uperiod.toInt(), fchanged) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun joySetThreshold(ujoyid: UInt, uthreshold: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joySetThreshold(ujoyid.toInt(), uthreshold.toInt()) as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_joySetThreshold(ujoyid.toInt(), uthreshold.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciDriverNotify(hwndcallback: HANDLE, wdeviceid: UInt, ustatus: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciDriverNotify(hwndcallback.toString(), wdeviceid.toInt(), ustatus.toInt()) as Int) else 0
+public actual fun mciDriverNotify(hwndcallback: Handle, wdeviceid: UInt, ustatus: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciDriverNotify((hwndcallback?.value ?: 0L).toString(), wdeviceid.toInt(), ustatus.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mciDriverYield(wdeviceid: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciDriverYield(wdeviceid.toInt()) as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciDriverYield(wdeviceid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciFreeCommandResource(wtable: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciFreeCommandResource(wtable.toInt()) as Int) else 0
+public actual fun mciFreeCommandResource(wtable: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciFreeCommandResource(wtable.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetCreatorTask(mciid: UInt): HTASK =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetCreatorTask(mciid.toInt()) as String).toLong() else 0L
+public actual fun mciGetCreatorTask(mciid: UInt): Htask =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetCreatorTask(mciid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetDeviceIDA(pszdevice: PCSTR): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDA(pszdevice.toString()) as Int).toUInt() else 0u
+public actual fun mciGetDeviceIDA(pszdevice: Pcstr): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDA((pszdevice?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetDeviceIDFromElementIDA(dwelementid: UInt, lpstrtype: PCSTR): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDA(dwelementid.toInt(), lpstrtype.toString()) as Int).toUInt() else 0u
+public actual fun mciGetDeviceIDFromElementIDA(dwelementid: UInt, lpstrtype: Pcstr): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDA(dwelementid.toInt(), (lpstrtype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetDeviceIDFromElementIDW(dwelementid: UInt, lpstrtype: PCWSTR): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDW(dwelementid.toInt(), lpstrtype.toString()) as Int).toUInt() else 0u
+public actual fun mciGetDeviceIDFromElementIDW(dwelementid: UInt, lpstrtype: Pcwstr): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDW(dwelementid.toInt(), (lpstrtype?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetDeviceIDW(pszdevice: PCWSTR): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDW(pszdevice.toString()) as Int).toUInt() else 0u
+public actual fun mciGetDeviceIDW(pszdevice: Pcwstr): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDeviceIDW((pszdevice?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mciGetDriverData(wdeviceid: UInt): ULong =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDriverData(wdeviceid.toInt()) as String).toULong() else 0uL
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetDriverData(wdeviceid.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetErrorStringA(mcierr: UInt, psztext: PSTR, cchtext: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetErrorStringA(mcierr.toInt(), psztext.toString(), cchtext.toInt()) as Int) else 0
+public actual fun mciGetErrorStringA(mcierr: UInt, psztext: Pstr, cchtext: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetErrorStringA(mcierr.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetErrorStringW(mcierr: UInt, psztext: PWSTR, cchtext: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetErrorStringW(mcierr.toInt(), psztext.toString(), cchtext.toInt()) as Int) else 0
+public actual fun mciGetErrorStringW(mcierr: UInt, psztext: Pwstr, cchtext: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetErrorStringW(mcierr.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: Long): YIELDPROC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciGetYieldProc(mciid.toInt(), pdwyielddata.toString()) as String).toLong() else null
+public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: COpaquePointer?): Yieldproc =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciLoadCommandResource(hinstance: HANDLE, lpresname: PCWSTR, wtype: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciLoadCommandResource(hinstance.toString(), lpresname.toString(), wtype.toInt()) as Int).toUInt() else 0u
+public actual fun mciLoadCommandResource(hinstance: Handle, lpresname: Pcwstr, wtype: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciLoadCommandResource((hinstance?.value ?: 0L).toString(), (lpresname?.value ?: 0L).toString(), wtype.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mciSendCommandA(mciid: UInt, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendCommandA(mciid.toInt(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()) as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendCommandA(mciid.toInt(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mciSendCommandW(mciid: UInt, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendCommandW(mciid.toInt(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()) as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendCommandW(mciid.toInt(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciSendStringA(lpstrcommand: PCSTR, lpstrreturnstring: PSTR, ureturnlength: UInt, hwndcallback: HWND): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendStringA(lpstrcommand.toString(), lpstrreturnstring.toString(), ureturnlength.toInt(), hwndcallback.toString()) as Int).toUInt() else 0u
+public actual fun mciSendStringA(lpstrcommand: Pcstr, lpstrreturnstring: Pstr, ureturnlength: UInt, hwndcallback: Hwnd): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendStringA((lpstrcommand?.value ?: 0L).toString(), (lpstrreturnstring?.value ?: 0L).toString(), ureturnlength.toInt(), (hwndcallback?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciSendStringW(lpstrcommand: PCWSTR, lpstrreturnstring: PWSTR, ureturnlength: UInt, hwndcallback: HWND): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendStringW(lpstrcommand.toString(), lpstrreturnstring.toString(), ureturnlength.toInt(), hwndcallback.toString()) as Int).toUInt() else 0u
+public actual fun mciSendStringW(lpstrcommand: Pcwstr, lpstrreturnstring: Pwstr, ureturnlength: UInt, hwndcallback: Hwnd): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSendStringW((lpstrcommand?.value ?: 0L).toString(), (lpstrreturnstring?.value ?: 0L).toString(), ureturnlength.toInt(), (hwndcallback?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciSetDriverData(wdeviceid: UInt, dwdata: ULong): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSetDriverData(wdeviceid.toInt(), dwdata.toString()) as Int) else 0
+public actual fun mciSetDriverData(wdeviceid: UInt, dwdata: ULong): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSetDriverData(wdeviceid.toInt(), dwdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mciSetYieldProc(mciid: UInt, fpyieldproc: YIELDPROC, dwyielddata: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSetYieldProc(mciid.toInt(), fpyieldproc.toLong().toString(), dwyielddata.toInt()) as Int) else 0
+public actual fun mciSetYieldProc(mciid: UInt, fpyieldproc: Yieldproc, dwyielddata: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mciSetYieldProc(mciid.toInt(), 0L.toString(), dwyielddata.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmDrvInstall(hdriver: HDRVR, wszdrventry: PCWSTR, drvmessage: DRIVERMSGPROC, wflags: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmDrvInstall(hdriver.toString(), wszdrventry.toString(), drvmessage.toLong().toString(), wflags.toInt()) as Int).toUInt() else 0u
+public actual fun mmDrvInstall(hdriver: Hdrvr, wszdrventry: Pcwstr, drvmessage: Drivermsgproc, wflags: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmDrvInstall((hdriver?.value ?: 0L).toString(), (wszdrventry?.value ?: 0L).toString(), 0L.toString(), wflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmGetCurrentTask(): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmGetCurrentTask() as Int).toUInt() else 0u
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmGetCurrentTask() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmTaskBlock(h: UInt) {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
         _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskBlock(h.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun mmTaskCreate(lpfn: LPTASKCALLBACK, lph: Long, dwinst: ULong): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskCreate(lpfn.toLong().toString(), lph.toString(), dwinst.toString()) as Int).toUInt() else 0u
+public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: COpaquePointer?, dwinst: ULong): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskCreate(0L.toString(), (lph?.value ?: 0L).toString(), dwinst.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmTaskSignal(h: UInt): BOOL =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskSignal(h.toInt()) as Int) else 0
+public actual fun mmTaskSignal(h: UInt): Bool =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskSignal(h.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmTaskYield() {
     if (_windowsWin32MediaMultimediaNapiAddon != null) {
         _windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmTaskYield()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun mmioAdvance(hmmio: HMMIO, pmmioinfo: Long, fuadvance: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioAdvance(hmmio.toString(), pmmioinfo.toString(), fuadvance.toInt()) as Int).toUInt() else 0u
+public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuadvance: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioAdvance((hmmio?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fuadvance.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioAscend(hmmio: HMMIO, pmmcki: Long, fuascend: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioAscend(hmmio.toString(), pmmcki.toString(), fuascend.toInt()) as Int).toUInt() else 0u
+public actual fun mmioAscend(hmmio: Hmmio, pmmcki: COpaquePointer?, fuascend: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioAscend((hmmio?.value ?: 0L).toString(), (pmmcki?.value ?: 0L).toString(), fuascend.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioClose(hmmio: HMMIO, fuclose: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioClose(hmmio.toString(), fuclose.toInt()) as Int).toUInt() else 0u
+public actual fun mmioClose(hmmio: Hmmio, fuclose: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioClose((hmmio?.value ?: 0L).toString(), fuclose.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioCreateChunk(hmmio: HMMIO, pmmcki: Long, fucreate: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioCreateChunk(hmmio.toString(), pmmcki.toString(), fucreate.toInt()) as Int).toUInt() else 0u
+public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: COpaquePointer?, fucreate: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioCreateChunk((hmmio?.value ?: 0L).toString(), (pmmcki?.value ?: 0L).toString(), fucreate.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioDescend(hmmio: HMMIO, pmmcki: Long, pmmckiparent: Long, fudescend: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioDescend(hmmio.toString(), pmmcki.toString(), pmmckiparent.toString(), fudescend.toInt()) as Int).toUInt() else 0u
+public actual fun mmioDescend(hmmio: Hmmio, pmmcki: COpaquePointer?, pmmckiparent: COpaquePointer?, fudescend: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioDescend((hmmio?.value ?: 0L).toString(), (pmmcki?.value ?: 0L).toString(), (pmmckiparent?.value ?: 0L).toString(), fudescend.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioFlush(hmmio: HMMIO, fuflush: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioFlush(hmmio.toString(), fuflush.toInt()) as Int).toUInt() else 0u
+public actual fun mmioFlush(hmmio: Hmmio, fuflush: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioFlush((hmmio?.value ?: 0L).toString(), fuflush.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioGetInfo(hmmio: HMMIO, pmmioinfo: Long, fuinfo: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioGetInfo(hmmio.toString(), pmmioinfo.toString(), fuinfo.toInt()) as Int).toUInt() else 0u
+public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuinfo: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioGetInfo((hmmio?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fuinfo.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: LPMMIOPROC, dwflags: UInt): LPMMIOPROC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioInstallIOProcA(fccioproc.toInt(), pioproc.toLong().toString(), dwflags.toInt()) as String).toLong() else null
+public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioInstallIOProcW(fccioproc: UInt, pioproc: LPMMIOPROC, dwflags: UInt): LPMMIOPROC =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioInstallIOProcW(fccioproc.toInt(), pioproc.toLong().toString(), dwflags.toInt()) as String).toLong() else null
+public actual fun mmioInstallIOProcW(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioOpenA(pszfilename: PSTR, pmmioinfo: Long, fdwopen: UInt): HMMIO =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioOpenA(pszfilename.toString(), pmmioinfo.toString(), fdwopen.toInt()) as String).toLong() else 0L
+public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: COpaquePointer?, fdwopen: UInt): Hmmio =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioOpenA((pszfilename?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fdwopen.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioOpenW(pszfilename: PWSTR, pmmioinfo: Long, fdwopen: UInt): HMMIO =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioOpenW(pszfilename.toString(), pmmioinfo.toString(), fdwopen.toInt()) as String).toLong() else 0L
+public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: COpaquePointer?, fdwopen: UInt): Hmmio =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioOpenW((pszfilename?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fdwopen.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioRead(hmmio: HMMIO, pch: Long, cch: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRead(hmmio.toString(), pch.toString(), cch) as Int) else 0
+public actual fun mmioRead(hmmio: Hmmio, pch: COpaquePointer?, cch: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRead((hmmio?.value ?: 0L).toString(), (pch?.value ?: 0L).toString(), cch) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioRenameA(pszfilename: PCSTR, psznewfilename: PCSTR, pmmioinfo: Long, fdwrename: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRenameA(pszfilename.toString(), psznewfilename.toString(), pmmioinfo.toString(), fdwrename.toInt()) as Int).toUInt() else 0u
+public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: COpaquePointer?, fdwrename: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRenameA((pszfilename?.value ?: 0L).toString(), (psznewfilename?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fdwrename.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioRenameW(pszfilename: PCWSTR, psznewfilename: PCWSTR, pmmioinfo: Long, fdwrename: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRenameW(pszfilename.toString(), psznewfilename.toString(), pmmioinfo.toString(), fdwrename.toInt()) as Int).toUInt() else 0u
+public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: COpaquePointer?, fdwrename: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioRenameW((pszfilename?.value ?: 0L).toString(), (psznewfilename?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fdwrename.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioSeek(hmmio: HMMIO, loffset: Int, iorigin: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSeek(hmmio.toString(), loffset, iorigin) as Int) else 0
+public actual fun mmioSeek(hmmio: Hmmio, loffset: Int, iorigin: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSeek((hmmio?.value ?: 0L).toString(), loffset, iorigin) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioSendMessage(hmmio: HMMIO, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSendMessage(hmmio.toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else 0L
+public actual fun mmioSendMessage(hmmio: Hmmio, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSendMessage((hmmio?.value ?: 0L).toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioSetBuffer(hmmio: HMMIO, pchbuffer: PSTR, cchbuffer: Int, fubuffer: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSetBuffer(hmmio.toString(), pchbuffer.toString(), cchbuffer, fubuffer.toInt()) as Int).toUInt() else 0u
+public actual fun mmioSetBuffer(hmmio: Hmmio, pchbuffer: Pstr, cchbuffer: Int, fubuffer: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSetBuffer((hmmio?.value ?: 0L).toString(), (pchbuffer?.value ?: 0L).toString(), cchbuffer, fubuffer.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioSetInfo(hmmio: HMMIO, pmmioinfo: Long, fuinfo: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSetInfo(hmmio.toString(), pmmioinfo.toString(), fuinfo.toInt()) as Int).toUInt() else 0u
+public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuinfo: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioSetInfo((hmmio?.value ?: 0L).toString(), (pmmioinfo?.value ?: 0L).toString(), fuinfo.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioStringToFOURCCA(sz: PCSTR, uflags: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioStringToFOURCCA(sz.toString(), uflags.toInt()) as Int).toUInt() else 0u
+public actual fun mmioStringToFOURCCA(sz: Pcstr, uflags: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioStringToFOURCCA((sz?.value ?: 0L).toString(), uflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioStringToFOURCCW(sz: PCWSTR, uflags: UInt): UInt =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioStringToFOURCCW(sz.toString(), uflags.toInt()) as Int).toUInt() else 0u
+public actual fun mmioStringToFOURCCW(sz: Pcwstr, uflags: UInt): UInt =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioStringToFOURCCW((sz?.value ?: 0L).toString(), uflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmioWrite(hmmio: HMMIO, pch: PCSTR, cch: Int): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioWrite(hmmio.toString(), pch.toString(), cch) as Int) else 0
+public actual fun mmioWrite(hmmio: Hmmio, pch: Pcstr, cch: Int): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_mmioWrite((hmmio?.value ?: 0L).toString(), (pch?.value ?: 0L).toString(), cch) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sndOpenSound(eventname: PCWSTR, appname: PCWSTR, flags: Int, filehandle: Long): Int =
-    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_sndOpenSound(eventname.toString(), appname.toString(), flags, filehandle.toString()) as Int) else 0
+public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: COpaquePointer?): Int =
+    if (_windowsWin32MediaMultimediaNapiAddon != null) (_windowsWin32MediaMultimediaNapiAddon.windowssys_windows_win32_media_multimedia_sndOpenSound((eventname?.value ?: 0L).toString(), (appname?.value ?: 0L).toString(), flags, (filehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,10 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -172,9 +172,9 @@ public val EX_USER: UInt = 16u
 
 public val FAIL: UInt = 0u
 
-public val FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = 1
+public val FF_INDEXCOMPLEXURLS: FollowFlags = 1
 
-public val FF_SUPPRESSINDEXING: FOLLOW_FLAGS = 2
+public val FF_SUPPRESSINDEXING: FollowFlags = 2
 
 public val FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: Int = -2147212282
 
@@ -376,7 +376,7 @@ public val FTE_S_STATUS_CHANGE_REQUEST: Int = 276011
 
 public val FTE_S_TRY_TO_FLUSH: Int = 276055
 
-public val FilterRegistration: GUID = GUID.from_u128(U128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL))
+public val FILTER_REGISTRATION: Guid = Guid.fromU128(U128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL))
 
 public val GENERATE_METHOD_PREFIXMATCH: UInt = 1u
 
@@ -668,57 +668,57 @@ public val IDENTIFIER_SDK_ERROR: UInt = 268435456u
 
 public val IDENTIFIER_SDK_MASK: UInt = 4026531840u
 
-public val IDS_MON_BUILTIN_PROPERTY: HRESULT = 0x4093Fu.toInt()
+public val IDS_MON_BUILTIN_PROPERTY: Hresult = 0x4093Fu.toInt()
 
-public val IDS_MON_BUILTIN_VIEW: HRESULT = 0x40937u.toInt()
+public val IDS_MON_BUILTIN_VIEW: Hresult = 0x40937u.toInt()
 
-public val IDS_MON_CANNOT_CAST: HRESULT = 0x40946u.toInt()
+public val IDS_MON_CANNOT_CAST: Hresult = 0x40946u.toInt()
 
-public val IDS_MON_CANNOT_CONVERT: HRESULT = 0x4093Bu.toInt()
+public val IDS_MON_CANNOT_CONVERT: Hresult = 0x4093Bu.toInt()
 
-public val IDS_MON_COLUMN_NOT_DEFINED: HRESULT = 0x40936u.toInt()
+public val IDS_MON_COLUMN_NOT_DEFINED: Hresult = 0x40936u.toInt()
 
-public val IDS_MON_DATE_OUT_OF_RANGE: HRESULT = 0x40947u.toInt()
+public val IDS_MON_DATE_OUT_OF_RANGE: Hresult = 0x40947u.toInt()
 
-public val IDS_MON_DEFAULT_ERROR: HRESULT = 0x4092Fu.toInt()
+public val IDS_MON_DEFAULT_ERROR: Hresult = 0x4092Fu.toInt()
 
-public val IDS_MON_ILLEGAL_PASSTHROUGH: HRESULT = 0x40930u.toInt()
+public val IDS_MON_ILLEGAL_PASSTHROUGH: Hresult = 0x40930u.toInt()
 
-public val IDS_MON_INVALIDSELECT_COALESCE: HRESULT = 0x40945u.toInt()
+public val IDS_MON_INVALIDSELECT_COALESCE: Hresult = 0x40945u.toInt()
 
-public val IDS_MON_INVALID_CATALOG: HRESULT = 0x40944u.toInt()
+public val IDS_MON_INVALID_CATALOG: Hresult = 0x40944u.toInt()
 
-public val IDS_MON_INVALID_IN_GROUP_CLAUSE: HRESULT = 0x40948u.toInt()
+public val IDS_MON_INVALID_IN_GROUP_CLAUSE: Hresult = 0x40948u.toInt()
 
-public val IDS_MON_MATCH_STRING: HRESULT = 0x40941u.toInt()
+public val IDS_MON_MATCH_STRING: Hresult = 0x40941u.toInt()
 
-public val IDS_MON_NOT_COLUMN_OF_VIEW: HRESULT = 0x4093Eu.toInt()
+public val IDS_MON_NOT_COLUMN_OF_VIEW: Hresult = 0x4093Eu.toInt()
 
-public val IDS_MON_ORDINAL_OUT_OF_RANGE: HRESULT = 0x40934u.toInt()
+public val IDS_MON_ORDINAL_OUT_OF_RANGE: Hresult = 0x40934u.toInt()
 
-public val IDS_MON_OR_NOT: HRESULT = 0x4093Au.toInt()
+public val IDS_MON_OR_NOT: Hresult = 0x4093Au.toInt()
 
-public val IDS_MON_OUT_OF_MEMORY: HRESULT = 0x40938u.toInt()
+public val IDS_MON_OUT_OF_MEMORY: Hresult = 0x40938u.toInt()
 
-public val IDS_MON_OUT_OF_RANGE: HRESULT = 0x4093Cu.toInt()
+public val IDS_MON_OUT_OF_RANGE: Hresult = 0x4093Cu.toInt()
 
-public val IDS_MON_PARSE_ERR_1_PARAM: HRESULT = 0x40931u.toInt()
+public val IDS_MON_PARSE_ERR_1_PARAM: Hresult = 0x40931u.toInt()
 
-public val IDS_MON_PARSE_ERR_2_PARAM: HRESULT = 0x40932u.toInt()
+public val IDS_MON_PARSE_ERR_2_PARAM: Hresult = 0x40932u.toInt()
 
-public val IDS_MON_PROPERTY_NAME_IN_VIEW: HRESULT = 0x40942u.toInt()
+public val IDS_MON_PROPERTY_NAME_IN_VIEW: Hresult = 0x40942u.toInt()
 
-public val IDS_MON_RELATIVE_INTERVAL: HRESULT = 0x4093Du.toInt()
+public val IDS_MON_RELATIVE_INTERVAL: Hresult = 0x4093Du.toInt()
 
-public val IDS_MON_SELECT_STAR: HRESULT = 0x40939u.toInt()
+public val IDS_MON_SELECT_STAR: Hresult = 0x40939u.toInt()
 
-public val IDS_MON_SEMI_COLON: HRESULT = 0x40933u.toInt()
+public val IDS_MON_SEMI_COLON: Hresult = 0x40933u.toInt()
 
-public val IDS_MON_VIEW_ALREADY_DEFINED: HRESULT = 0x40943u.toInt()
+public val IDS_MON_VIEW_ALREADY_DEFINED: Hresult = 0x40943u.toInt()
 
-public val IDS_MON_VIEW_NOT_DEFINED: HRESULT = 0x40935u.toInt()
+public val IDS_MON_VIEW_NOT_DEFINED: Hresult = 0x40935u.toInt()
 
-public val IDS_MON_WEIGHT_OUT_OF_RANGE: HRESULT = 0x40940u.toInt()
+public val IDS_MON_WEIGHT_OUT_OF_RANGE: Hresult = 0x40940u.toInt()
 
 public val IDX_E_BUILD_IN_PROGRESS: Int = -2147217147
 
@@ -780,35 +780,35 @@ public val IDX_S_SEARCH_SERVER_ALREADY_EXISTS: Int = 266517
 
 public val IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: Int = 266518
 
-public val ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = 1
+public val ILK_EXPLICIT_EXCLUDED: IntervalLimitKind = 1
 
-public val ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0
+public val ILK_EXPLICIT_INCLUDED: IntervalLimitKind = 0
 
-public val ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = 2
+public val ILK_NEGATIVE_INFINITY: IntervalLimitKind = 2
 
-public val ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = 3
+public val ILK_POSITIVE_INFINITY: IntervalLimitKind = 3
 
-public val INET_E_AGENT_CACHE_SIZE_EXCEEDED: HRESULT = 0x800C0F82u.toInt()
+public val INET_E_AGENT_CACHE_SIZE_EXCEEDED: Hresult = 0x800C0F82u.toInt()
 
-public val INET_E_AGENT_CONNECTION_FAILED: HRESULT = 0x800C0F83u.toInt()
+public val INET_E_AGENT_CONNECTION_FAILED: Hresult = 0x800C0F83u.toInt()
 
-public val INET_E_AGENT_EXCEEDING_CACHE_SIZE: HRESULT = 0x800C0F90u.toInt()
+public val INET_E_AGENT_EXCEEDING_CACHE_SIZE: Hresult = 0x800C0F90u.toInt()
 
-public val INET_E_AGENT_MAX_SIZE_EXCEEDED: HRESULT = 0x800C0F80u.toInt()
+public val INET_E_AGENT_MAX_SIZE_EXCEEDED: Hresult = 0x800C0F80u.toInt()
 
-public val INET_E_SCHEDULED_EXCLUDE_RANGE: HRESULT = 0x800C0F87u.toInt()
+public val INET_E_SCHEDULED_EXCLUDE_RANGE: Hresult = 0x800C0F87u.toInt()
 
-public val INET_E_SCHEDULED_UPDATES_DISABLED: HRESULT = 0x800C0F84u.toInt()
+public val INET_E_SCHEDULED_UPDATES_DISABLED: Hresult = 0x800C0F84u.toInt()
 
-public val INET_E_SCHEDULED_UPDATES_RESTRICTED: HRESULT = 0x800C0F85u.toInt()
+public val INET_E_SCHEDULED_UPDATES_RESTRICTED: Hresult = 0x800C0F85u.toInt()
 
-public val INET_E_SCHEDULED_UPDATE_INTERVAL: HRESULT = 0x800C0F86u.toInt()
+public val INET_E_SCHEDULED_UPDATE_INTERVAL: Hresult = 0x800C0F86u.toInt()
 
-public val INET_S_AGENT_INCREASED_CACHE_SIZE: HRESULT = 0xC0F90u.toInt()
+public val INET_S_AGENT_INCREASED_CACHE_SIZE: Hresult = 0xC0F90u.toInt()
 
-public val INET_S_AGENT_PART_FAIL: HRESULT = 0xC0F81u.toInt()
+public val INET_S_AGENT_PART_FAIL: Hresult = 0xC0F81u.toInt()
 
-public val Interval: GUID = GUID.from_u128(U128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL))
+public val INTERVAL: Guid = Guid.fromU128(U128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL))
 
 public val JET_GET_PROP_STORE_ERROR: Int = -1073732822
 
@@ -884,7 +884,7 @@ public val KAGPROP_FORCESSFIREHOSEMODE: UInt = 10u
 
 public val KAGPROP_INCLUDENONEXACT: UInt = 9u
 
-public val KAGPROP_IRowsetChangeExtInfo: UInt = 5u
+public val KAGPROP_I_ROWSET_CHANGE_EXT_INFO: UInt = 5u
 
 public val KAGPROP_LIKEESCAPECLAUSE: UInt = 10u
 
@@ -924,17 +924,17 @@ public val KAGPROP_SYSTEMFUNCTIONS: UInt = 21u
 
 public val KAGPROP_TIMEDATEFUNCTIONS: UInt = 22u
 
-public val KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = 1
+public val KAGREQDIAGFLAGS_HEADER: Kagreqdiagflagsenum = 1
 
-public val KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = 2
+public val KAGREQDIAGFLAGS_RECORD: Kagreqdiagflagsenum = 2
 
-public val LOCKMODE_EXCLUSIVE: LOCKMODEENUM = 1
+public val LOCKMODE_EXCLUSIVE: Lockmodeenum = 1
 
-public val LOCKMODE_INVALID: LOCKMODEENUM = 0
+public val LOCKMODE_INVALID: Lockmodeenum = 0
 
-public val LOCKMODE_SHARED: LOCKMODEENUM = 2
+public val LOCKMODE_SHARED: Lockmodeenum = 2
 
-public val LeafCondition: GUID = GUID.from_u128(U128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL))
+public val LEAF_CONDITION: Guid = Guid.fromU128(U128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL))
 
 public val MAXNAME: UInt = 129u
 
@@ -1214,53 +1214,53 @@ public val MDPROPVAL_VISUAL_MODE_VISUAL: Int = 1
 
 public val MDPROPVAL_VISUAL_MODE_VISUAL_OFF: Int = 2
 
-public val MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230
+public val MDPROP_AGGREGATECELL_UPDATE: Dbpropenum20 = 230
 
-public val MDPROP_AXES: DBPROPENUM20 = 252
+public val MDPROP_AXES: Dbpropenum20 = 252
 
 public val MDPROP_CELL: UInt = 2u
 
-public val MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = 253
+public val MDPROP_FLATTENING_SUPPORT: Dbpropenum20 = 253
 
-public val MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230
+public val MDPROP_MDX_AGGREGATECELL_UPDATE: Dbpropenum20 = 230
 
-public val MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = 222
+public val MDPROP_MDX_CASESUPPORT: Dbpropenum20 = 222
 
-public val MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = 219
+public val MDPROP_MDX_CUBEQUALIFICATION: Dbpropenum20 = 219
 
-public val MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = 225
+public val MDPROP_MDX_DESCFLAGS: Dbpropenum20 = 225
 
-public val MDPROP_MDX_FORMULAS: DBPROPENUM20 = 229
+public val MDPROP_MDX_FORMULAS: Dbpropenum20 = 229
 
-public val MDPROP_MDX_JOINCUBES: DBPROPENUM20 = 254
+public val MDPROP_MDX_JOINCUBES: Dbpropenum20 = 254
 
-public val MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = 227
+public val MDPROP_MDX_MEMBER_FUNCTIONS: Dbpropenum20 = 227
 
-public val MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = 262
+public val MDPROP_MDX_NONMEASURE_EXPRESSIONS: Dbpropenum20 = 262
 
-public val MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = 228
+public val MDPROP_MDX_NUMERIC_FUNCTIONS: Dbpropenum20 = 228
 
-public val MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = 261
+public val MDPROP_MDX_OBJQUALIFICATION: Dbpropenum20 = 261
 
-public val MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = 220
+public val MDPROP_MDX_OUTERREFERENCE: Dbpropenum20 = 220
 
-public val MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = 221
+public val MDPROP_MDX_QUERYBYPROPERTY: Dbpropenum20 = 221
 
-public val MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = 226
+public val MDPROP_MDX_SET_FUNCTIONS: Dbpropenum20 = 226
 
-public val MDPROP_MDX_SLICER: DBPROPENUM20 = 218
+public val MDPROP_MDX_SLICER: Dbpropenum20 = 218
 
-public val MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = 224
+public val MDPROP_MDX_STRING_COMPOP: Dbpropenum20 = 224
 
 public val MDPROP_MEMBER: UInt = 1u
 
-public val MDPROP_NAMED_LEVELS: DBPROPENUM20 = 255
+public val MDPROP_NAMED_LEVELS: Dbpropenum20 = 255
 
-public val MDPROP_RANGEROWSET: DBPROPENUM20 = 256
+public val MDPROP_RANGEROWSET: Dbpropenum20 = 256
 
-public val MDPROP_VISUALMODE: DBPROPENUM26 = 293
+public val MDPROP_VISUALMODE: Dbpropenum26 = 293
 
-public val MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = 14
+public val MDSTATUS_S_CELLEMPTY: Dbstatusenum20 = 14
 
 public val MDTREEOP_ANCESTORS: UInt = 32u
 
@@ -1282,53 +1282,53 @@ public val MD_DIMTYPE_TIME: UInt = 1u
 
 public val MD_DIMTYPE_UNKNOWN: UInt = 0u
 
-public val MD_E_BADCOORDINATE: HRESULT = 0x80040E62u.toInt()
+public val MD_E_BADCOORDINATE: Hresult = 0x80040E62u.toInt()
 
-public val MD_E_BADTUPLE: HRESULT = 0x80040E61u.toInt()
+public val MD_E_BADTUPLE: Hresult = 0x80040E61u.toInt()
 
-public val MD_E_INVALIDAXIS: HRESULT = 0x80040E63u.toInt()
+public val MD_E_INVALIDAXIS: Hresult = 0x80040E63u.toInt()
 
-public val MD_E_INVALIDCELLRANGE: HRESULT = 0x80040E64u.toInt()
+public val MD_E_INVALIDCELLRANGE: Hresult = 0x80040E64u.toInt()
 
 public val MINFATALERR: UInt = 20u
 
 public val MIN_USER_DATATYPE: UInt = 256u
 
-public val MSDAINITIALIZE: GUID = GUID.from_u128(U128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL))
+public val MSDAINITIALIZE: Guid = Guid.fromU128(U128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL))
 
-public val MSDAORA: GUID = GUID.from_u128(U128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL))
+public val MSDAORA: Guid = Guid.fromU128(U128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL))
 
-public val MSDAORA8: GUID = GUID.from_u128(U128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL))
+public val MSDAORA8: Guid = Guid.fromU128(U128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL))
 
-public val MSDAORA8_ERROR: GUID = GUID.from_u128(U128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL))
+public val MSDAORA8_ERROR: Guid = Guid.fromU128(U128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL))
 
-public val MSDAORA_ERROR: GUID = GUID.from_u128(U128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL))
+public val MSDAORA_ERROR: Guid = Guid.fromU128(U128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL))
 
-public val MSG_CI_CORRUPT_INDEX_COMPONENT: HRESULT = 0x4000102Au.toInt()
+public val MSG_CI_CORRUPT_INDEX_COMPONENT: Hresult = 0x4000102Au.toInt()
 
-public val MSG_CI_CREATE_SEVER_ITEM_FAILED: HRESULT = 0x80001048u.toInt()
+public val MSG_CI_CREATE_SEVER_ITEM_FAILED: Hresult = 0x80001048u.toInt()
 
-public val MSG_CI_MASTER_MERGE_ABORTED: HRESULT = 0x40001008u.toInt()
+public val MSG_CI_MASTER_MERGE_ABORTED: Hresult = 0x40001008u.toInt()
 
-public val MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: HRESULT = 0x40001043u.toInt()
+public val MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: Hresult = 0x40001043u.toInt()
 
-public val MSG_CI_MASTER_MERGE_CANT_RESTART: HRESULT = 0xC000100Au.toInt()
+public val MSG_CI_MASTER_MERGE_CANT_RESTART: Hresult = 0xC000100Au.toInt()
 
-public val MSG_CI_MASTER_MERGE_CANT_START: HRESULT = 0xC0001009u.toInt()
+public val MSG_CI_MASTER_MERGE_CANT_START: Hresult = 0xC0001009u.toInt()
 
-public val MSG_CI_MASTER_MERGE_COMPLETED: HRESULT = 0x40001007u.toInt()
+public val MSG_CI_MASTER_MERGE_COMPLETED: Hresult = 0x40001007u.toInt()
 
-public val MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: HRESULT = 0x40001046u.toInt()
+public val MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: Hresult = 0x40001046u.toInt()
 
-public val MSG_CI_MASTER_MERGE_REASON_EXTERNAL: HRESULT = 0x40001044u.toInt()
+public val MSG_CI_MASTER_MERGE_REASON_EXTERNAL: Hresult = 0x40001044u.toInt()
 
-public val MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: HRESULT = 0x40001045u.toInt()
+public val MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: Hresult = 0x40001045u.toInt()
 
-public val MSG_CI_MASTER_MERGE_REASON_NUMBER: HRESULT = 0x40001047u.toInt()
+public val MSG_CI_MASTER_MERGE_REASON_NUMBER: Hresult = 0x40001047u.toInt()
 
-public val MSG_CI_MASTER_MERGE_RESTARTED: HRESULT = 0x40001019u.toInt()
+public val MSG_CI_MASTER_MERGE_RESTARTED: Hresult = 0x40001019u.toInt()
 
-public val MSG_CI_MASTER_MERGE_STARTED: HRESULT = 0x40001006u.toInt()
+public val MSG_CI_MASTER_MERGE_STARTED: Hresult = 0x40001006u.toInt()
 
 public val MSG_TEST_MESSAGE: Int = 1074008064
 
@@ -1346,13 +1346,13 @@ public val MSS_E_INVALIDAPPNAME: Int = -2147213056
 
 public val MSS_E_UNICODEFILEHEADERMISSING: Int = -2147213051
 
-public val MS_PERSIST_PROGID: PCSTR = s("MSPersist")
+public val MS_PERSIST_PROGID: Pcstr = s("MSPersist")
 
-public val NEC_HIGH: NAMED_ENTITY_CERTAINTY = 2
+public val NEC_HIGH: NamedEntityCertainty = 2
 
-public val NEC_LOW: NAMED_ENTITY_CERTAINTY = 0
+public val NEC_LOW: NamedEntityCertainty = 0
 
-public val NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = 1
+public val NEC_MEDIUM: NamedEntityCertainty = 1
 
 public val NET_E_DISCONNECTED: Int = -2147220733
 
@@ -1392,9 +1392,9 @@ public val NOTESPH_S_IGNORE_ID: Int = 271874
 
 public val NOTESPH_S_LISTKNOWNFIELDS: Int = 271888
 
-public val NOT_N_PARSE_ERROR: HRESULT = 0x8092Eu.toInt()
+public val NOT_N_PARSE_ERROR: Hresult = 0x8092Eu.toInt()
 
-public val NegationCondition: GUID = GUID.from_u128(U128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL))
+public val NEGATION_CONDITION: Guid = Guid.fromU128(U128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL))
 
 public val OCC_INVALID: UInt = 4294967295u
 
@@ -1492,53 +1492,53 @@ public val OLEDBVER: UInt = 624u
 
 public val OLEDB_BINDER_CUSTOM_ERROR: Int = -2147212032
 
-public val OSPCOMP_DEFAULT: OSPCOMP = 1
+public val OSPCOMP_DEFAULT: Ospcomp = 1
 
-public val OSPCOMP_EQ: OSPCOMP = 1
+public val OSPCOMP_EQ: Ospcomp = 1
 
-public val OSPCOMP_GE: OSPCOMP = 4
+public val OSPCOMP_GE: Ospcomp = 4
 
-public val OSPCOMP_GT: OSPCOMP = 5
+public val OSPCOMP_GT: Ospcomp = 5
 
-public val OSPCOMP_LE: OSPCOMP = 3
+public val OSPCOMP_LE: Ospcomp = 3
 
-public val OSPCOMP_LT: OSPCOMP = 2
+public val OSPCOMP_LT: Ospcomp = 2
 
-public val OSPCOMP_NE: OSPCOMP = 6
+public val OSPCOMP_NE: Ospcomp = 6
 
-public val OSPFIND_CASESENSITIVE: OSPFIND = 2
+public val OSPFIND_CASESENSITIVE: Ospfind = 2
 
-public val OSPFIND_DEFAULT: OSPFIND = 0
+public val OSPFIND_DEFAULT: Ospfind = 0
 
-public val OSPFIND_UP: OSPFIND = 1
+public val OSPFIND_UP: Ospfind = 1
 
-public val OSPFIND_UPCASESENSITIVE: OSPFIND = 3
+public val OSPFIND_UPCASESENSITIVE: Ospfind = 3
 
-public val OSPFORMAT_DEFAULT: OSPFORMAT = 0
+public val OSPFORMAT_DEFAULT: Ospformat = 0
 
-public val OSPFORMAT_FORMATTED: OSPFORMAT = 1
+public val OSPFORMAT_FORMATTED: Ospformat = 1
 
-public val OSPFORMAT_HTML: OSPFORMAT = 2
+public val OSPFORMAT_HTML: Ospformat = 2
 
-public val OSPFORMAT_RAW: OSPFORMAT = 0
+public val OSPFORMAT_RAW: Ospformat = 0
 
-public val OSPRW_DEFAULT: OSPRW = 1
+public val OSPRW_DEFAULT: Osprw = 1
 
-public val OSPRW_MIXED: OSPRW = 2
+public val OSPRW_MIXED: Osprw = 2
 
-public val OSPRW_READONLY: OSPRW = 0
+public val OSPRW_READONLY: Osprw = 0
 
-public val OSPRW_READWRITE: OSPRW = 1
+public val OSPRW_READWRITE: Osprw = 1
 
-public val OSPXFER_ABORT: OSPXFER = 1
+public val OSPXFER_ABORT: Ospxfer = 1
 
-public val OSPXFER_COMPLETE: OSPXFER = 0
+public val OSPXFER_COMPLETE: Ospxfer = 0
 
-public val OSPXFER_ERROR: OSPXFER = 2
+public val OSPXFER_ERROR: Ospxfer = 2
 
-public val OSP_IndexLabel: UInt = 0u
+public val OSP_INDEX_LABEL: UInt = 0u
 
-public val PDPO: GUID = GUID.from_u128(U128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL))
+public val PDPO: Guid = Guid.fromU128(U128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL))
 
 public val PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: Int = -2147205110
 
@@ -1576,61 +1576,61 @@ public val PEOPLE_IMPORT_NODSDEFINED: Int = -2147205119
 
 public val PEOPLE_IMPORT_NOMAPPINGDEFINED: Int = -2147205117
 
-public val PERM_ALL: ACCESS_MASKENUM = 268435456
+public val PERM_ALL: AccessMaskenum = 268435456
 
-public val PERM_CREATE: ACCESS_MASKENUM = 16384
+public val PERM_CREATE: AccessMaskenum = 16384
 
-public val PERM_DELETE: ACCESS_MASKENUM = 65536
+public val PERM_DELETE: AccessMaskenum = 65536
 
-public val PERM_DROP: ACCESS_MASKENUM = 256
+public val PERM_DROP: AccessMaskenum = 256
 
-public val PERM_EXCLUSIVE: ACCESS_MASKENUM = 512
+public val PERM_EXCLUSIVE: AccessMaskenum = 512
 
-public val PERM_EXECUTE: ACCESS_MASKENUM = 536870912
+public val PERM_EXECUTE: AccessMaskenum = 536870912
 
-public val PERM_INSERT: ACCESS_MASKENUM = 32768
+public val PERM_INSERT: AccessMaskenum = 32768
 
-public val PERM_MAXIMUM_ALLOWED: ACCESS_MASKENUM = 33554432
+public val PERM_MAXIMUM_ALLOWED: AccessMaskenum = 33554432
 
-public val PERM_READ: ACCESS_MASKENUM = -2147483648
+public val PERM_READ: AccessMaskenum = -2147483648.toInt()
 
-public val PERM_READCONTROL: ACCESS_MASKENUM = 131072
+public val PERM_READCONTROL: AccessMaskenum = 131072
 
-public val PERM_READDESIGN: ACCESS_MASKENUM = 1024
+public val PERM_READDESIGN: AccessMaskenum = 1024
 
-public val PERM_REFERENCE: ACCESS_MASKENUM = 8192
+public val PERM_REFERENCE: AccessMaskenum = 8192
 
-public val PERM_UPDATE: ACCESS_MASKENUM = 1073741824
+public val PERM_UPDATE: AccessMaskenum = 1073741824
 
-public val PERM_WITHGRANT: ACCESS_MASKENUM = 4096
+public val PERM_WITHGRANT: AccessMaskenum = 4096
 
-public val PERM_WRITEDESIGN: ACCESS_MASKENUM = 2048
+public val PERM_WRITEDESIGN: AccessMaskenum = 2048
 
-public val PERM_WRITEOWNER: ACCESS_MASKENUM = 524288
+public val PERM_WRITEOWNER: AccessMaskenum = 524288
 
-public val PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144
+public val PERM_WRITEPERMISSIONS: AccessMaskenum = 262144
 
-public val PRAll: UInt = 256u
+public val PR_ALL: UInt = 256u
 
-public val PRAllBits: UInt = 7u
+public val PR_ALL_BITS: UInt = 7u
 
-public val PRAny: UInt = 512u
+public val PR_ANY: UInt = 512u
 
-public val PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = 2
+public val PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PrioritizeFlags = 2
 
-public val PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = 1
+public val PRIORITIZE_FLAG_RETRYFAILEDITEMS: PrioritizeFlags = 1
 
-public val PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = 3
+public val PRIORITY_LEVEL_DEFAULT: PriorityLevel = 3
 
-public val PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = 0
+public val PRIORITY_LEVEL_FOREGROUND: PriorityLevel = 0
 
-public val PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = 1
+public val PRIORITY_LEVEL_HIGH: PriorityLevel = 1
 
-public val PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = 2
+public val PRIORITY_LEVEL_LOW: PriorityLevel = 2
 
-public val PROGID_MSPersist_Version_W: PCWSTR = w("MSPersist.1")
+public val PROGID_MS_PERSIST_VERSION_W: Pcwstr = w("MSPersist.1")
 
-public val PROGID_MSPersist_W: PCWSTR = w("MSPersist")
+public val PROGID_MS_PERSIST_W: Pcwstr = w("MSPersist")
 
 public val PROPID_DBBMK_BOOKMARK: UInt = 2u
 
@@ -1638,15 +1638,15 @@ public val PROPID_DBBMK_CHAPTER: UInt = 3u
 
 public val PROPID_DBSELF_SELF: UInt = 2u
 
-public val PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1
+public val PROXY_ACCESS_DIRECT: ProxyAccess = 1
 
-public val PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0
+public val PROXY_ACCESS_PRECONFIG: ProxyAccess = 0
 
-public val PROXY_ACCESS_PROXY: PROXY_ACCESS = 2
+public val PROXY_ACCESS_PROXY: ProxyAccess = 2
 
 public val PRRE: UInt = 6u
 
-public val PRSomeBits: UInt = 8u
+public val PR_SOME_BITS: UInt = 8u
 
 public val PRTH_E_ACCESS_DENIED: UInt = 2147750405u
 
@@ -1712,25 +1712,25 @@ public val PRTH_S_TRY_IMPERSONATING: Int = 266789
 
 public val PRTH_S_USE_ROSEBUD: Int = 266772
 
-public val PSGUID_CHARACTERIZATION: GUID = GUID.from_u128(U128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL))
+public val PSGUID_CHARACTERIZATION: Guid = Guid.fromU128(U128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL))
 
-public val PSGUID_QUERY_METADATA: GUID = GUID.from_u128(U128(0x624c936093d011cfuL, 0xa78700004c752752uL))
+public val PSGUID_QUERY_METADATA: Guid = Guid.fromU128(U128(0x624c936093d011cfuL, 0xa78700004c752752uL))
 
-public val PSGUID_STORAGE: GUID = GUID.from_u128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
+public val PSGUID_STORAGE: Guid = Guid.fromU128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
 
 public val PWPROP_OSPVALUE: UInt = 2u
 
-public val QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = 4
+public val QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QueryParserManagerOption = 4
 
-public val QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 3
+public val QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QueryParserManagerOption = 3
 
-public val QPMO_LOCALIZER_SUPPORT: QUERY_PARSER_MANAGER_OPTION = 5
+public val QPMO_LOCALIZER_SUPPORT: QueryParserManagerOption = 5
 
-public val QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 1
+public val QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH: QueryParserManagerOption = 1
 
-public val QPMO_SCHEMA_BINARY_NAME: QUERY_PARSER_MANAGER_OPTION = 0
+public val QPMO_SCHEMA_BINARY_NAME: QueryParserManagerOption = 0
 
-public val QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 2
+public val QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QueryParserManagerOption = 2
 
 public val QRY_E_COLUMNNOTSEARCHABLE: Int = -2147219700
 
@@ -1794,35 +1794,35 @@ public val QRY_S_NOROWSFOUND: Int = 263940
 
 public val QRY_S_TERMIGNORED: Int = 263954
 
-public val QUERY_E_AGGREGATE_NOT_SUPPORTED: HRESULT = 0x80041619u.toInt()
+public val QUERY_E_AGGREGATE_NOT_SUPPORTED: Hresult = 0x80041619u.toInt()
 
-public val QUERY_E_ALLNOISE_AND_NO_RELDOC: HRESULT = 0x8004160Du.toInt()
+public val QUERY_E_ALLNOISE_AND_NO_RELDOC: Hresult = 0x8004160Du.toInt()
 
-public val QUERY_E_ALLNOISE_AND_NO_RELPROP: HRESULT = 0x8004160Fu.toInt()
+public val QUERY_E_ALLNOISE_AND_NO_RELPROP: Hresult = 0x8004160Fu.toInt()
 
-public val QUERY_E_DUPLICATE_RANGE_NAME: HRESULT = 0x8004161Bu.toInt()
+public val QUERY_E_DUPLICATE_RANGE_NAME: Hresult = 0x8004161Bu.toInt()
 
-public val QUERY_E_INCORRECT_VERSION: HRESULT = 0x80041614u.toInt()
+public val QUERY_E_INCORRECT_VERSION: Hresult = 0x80041614u.toInt()
 
-public val QUERY_E_INVALIDCOALESCE: HRESULT = 0x80041617u.toInt()
+public val QUERY_E_INVALIDCOALESCE: Hresult = 0x80041617u.toInt()
 
-public val QUERY_E_INVALIDSCOPE_COALESCE: HRESULT = 0x80041615u.toInt()
+public val QUERY_E_INVALIDSCOPE_COALESCE: Hresult = 0x80041615u.toInt()
 
-public val QUERY_E_INVALIDSORT_COALESCE: HRESULT = 0x80041616u.toInt()
+public val QUERY_E_INVALIDSORT_COALESCE: Hresult = 0x80041616u.toInt()
 
-public val QUERY_E_INVALID_DOCUMENT_IDENTIFIER: HRESULT = 0x80041613u.toInt()
+public val QUERY_E_INVALID_DOCUMENT_IDENTIFIER: Hresult = 0x80041613u.toInt()
 
-public val QUERY_E_NO_RELDOC: HRESULT = 0x8004160Eu.toInt()
+public val QUERY_E_NO_RELDOC: Hresult = 0x8004160Eu.toInt()
 
-public val QUERY_E_NO_RELPROP: HRESULT = 0x80041610u.toInt()
+public val QUERY_E_NO_RELPROP: Hresult = 0x80041610u.toInt()
 
-public val QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: HRESULT = 0x80041612u.toInt()
+public val QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: Hresult = 0x80041612u.toInt()
 
-public val QUERY_E_REPEATED_RELDOC: HRESULT = 0x80041611u.toInt()
+public val QUERY_E_REPEATED_RELDOC: Hresult = 0x80041611u.toInt()
 
-public val QUERY_E_TOP_LEVEL_IN_GROUP: HRESULT = 0x8004161Au.toInt()
+public val QUERY_E_TOP_LEVEL_IN_GROUP: Hresult = 0x8004161Au.toInt()
 
-public val QUERY_E_UPGRADEINPROGRESS: HRESULT = 0x80041618u.toInt()
+public val QUERY_E_UPGRADEINPROGRESS: Hresult = 0x80041618u.toInt()
 
 public val QUERY_SORTDEFAULT: UInt = 4u
 
@@ -1832,9 +1832,9 @@ public val QUERY_SORTXDESCEND: UInt = 3u
 
 public val QUERY_VALIDBITS: UInt = 3u
 
-public val QueryParser: GUID = GUID.from_u128(U128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL))
+public val QUERY_PARSER: Guid = Guid.fromU128(U128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL))
 
-public val QueryParserManager: GUID = GUID.from_u128(U128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL))
+public val QUERY_PARSER_MANAGER: Guid = Guid.fromU128(U128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL))
 
 public val REXSPH_E_DUPLICATE_PROPERTY: Int = -2147207927
 
@@ -1856,17 +1856,17 @@ public val REXSPH_E_UNKNOWN_DATA_TYPE: Int = -2147207929
 
 public val REXSPH_S_REDIRECTED: Int = 275713
 
-public val ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = 1
+public val ROWSETEVENT_ITEMSTATE_INROWSET: RowseteventItemstate = 1
 
-public val ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = 0
+public val ROWSETEVENT_ITEMSTATE_NOTINROWSET: RowseteventItemstate = 0
 
-public val ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = 2
+public val ROWSETEVENT_ITEMSTATE_UNKNOWN: RowseteventItemstate = 2
 
-public val ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = 0
+public val ROWSETEVENT_TYPE_DATAEXPIRED: RowseteventType = 0
 
-public val ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = 1
+public val ROWSETEVENT_TYPE_FOREGROUNDLOST: RowseteventType = 1
 
-public val ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = 2
+public val ROWSETEVENT_TYPE_SCOPESTATISTICS: RowseteventType = 2
 
 public val RS_COMPLETED: UInt = 2147483648u
 
@@ -1880,25 +1880,25 @@ public val RS_SUSPENDONIDLE: UInt = 65536u
 
 public val RS_UPDATING: UInt = 4u
 
-public val RTAnd: UInt = 1u
+public val RT_AND: UInt = 1u
 
-public val RTContent: UInt = 4u
+public val RT_CONTENT: UInt = 4u
 
-public val RTNatLanguage: UInt = 8u
+public val RT_NAT_LANGUAGE: UInt = 8u
 
-public val RTNone: UInt = 0u
+public val RT_NONE: UInt = 0u
 
-public val RTNot: UInt = 3u
+public val RT_NOT: UInt = 3u
 
-public val RTOr: UInt = 2u
+public val RT_OR: UInt = 2u
 
-public val RTProperty: UInt = 5u
+public val RT_PROPERTY: UInt = 5u
 
-public val RTProximity: UInt = 6u
+public val RT_PROXIMITY: UInt = 6u
 
-public val RTVector: UInt = 7u
+public val RT_VECTOR: UInt = 7u
 
-public val RootBinder: GUID = GUID.from_u128(U128(0xff151822b0bf11d1uL, 0xa80d000000000000uL))
+public val ROOT_BINDER: Guid = Guid.fromU128(U128(0xff151822b0bf11d1uL, 0xa80d000000000000uL))
 
 public val SCHEMA_E_ADDSTOPWORDS: Int = -2147218420
 
@@ -1958,65 +1958,65 @@ public val SCRIPTPI_E_PID_NOT_NAME: Int = -2147213311
 
 public val SCRIPTPI_E_PID_NOT_NUMERIC: Int = -2147213310
 
-public val SEARCH_ADVANCED_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 1
+public val SEARCH_ADVANCED_QUERY_SYNTAX: SearchQuerySyntax = 1
 
-public val SEARCH_CHANGE_ADD: SEARCH_KIND_OF_CHANGE = 0
+public val SEARCH_CHANGE_ADD: SearchKindOfChange = 0
 
-public val SEARCH_CHANGE_DELETE: SEARCH_KIND_OF_CHANGE = 1
+public val SEARCH_CHANGE_DELETE: SearchKindOfChange = 1
 
-public val SEARCH_CHANGE_MODIFY: SEARCH_KIND_OF_CHANGE = 2
+public val SEARCH_CHANGE_MODIFY: SearchKindOfChange = 2
 
-public val SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = 3
+public val SEARCH_CHANGE_MOVE_RENAME: SearchKindOfChange = 3
 
-public val SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = 262144
+public val SEARCH_CHANGE_SEMANTICS_DIRECTORY: SearchKindOfChange = 262144
 
-public val SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = 524288
+public val SEARCH_CHANGE_SEMANTICS_SHALLOW: SearchKindOfChange = 524288
 
-public val SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = 4194304
+public val SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SearchKindOfChange = 4194304
 
-public val SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 1
+public val SEARCH_HIGH_PRIORITY: SearchNotificationPriority = 1
 
-public val SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0
+public val SEARCH_INDEXING_PHASE_GATHERER: SearchIndexingPhase = 0
 
-public val SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2
+public val SEARCH_INDEXING_PHASE_PERSISTED: SearchIndexingPhase = 2
 
-public val SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1
+public val SEARCH_INDEXING_PHASE_QUERYABLE: SearchIndexingPhase = 1
 
-public val SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 2
+public val SEARCH_NATURAL_QUERY_SYNTAX: SearchQuerySyntax = 2
 
-public val SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 0
+public val SEARCH_NORMAL_PRIORITY: SearchNotificationPriority = 0
 
-public val SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 0
+public val SEARCH_NO_QUERY_SYNTAX: SearchQuerySyntax = 0
 
-public val SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0
+public val SEARCH_TERM_NO_EXPANSION: SearchTermExpansion = 0
 
-public val SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1
+public val SEARCH_TERM_PREFIX_ALL: SearchTermExpansion = 1
 
-public val SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2
+public val SEARCH_TERM_STEM_ALL: SearchTermExpansion = 2
 
 public val SEC_E_ACCESSDENIED: Int = -2147216129
 
-public val SEC_E_BADTRUSTEEID: HRESULT = 0x80040E6Au.toInt()
+public val SEC_E_BADTRUSTEEID: Hresult = 0x80040E6Au.toInt()
 
 public val SEC_E_INITFAILED: Int = -2147216383
 
-public val SEC_E_INVALIDACCESSENTRY: HRESULT = 0x80040E71u.toInt()
+public val SEC_E_INVALIDACCESSENTRY: Hresult = 0x80040E71u.toInt()
 
-public val SEC_E_INVALIDACCESSENTRYLIST: HRESULT = 0x80040E6Fu.toInt()
+public val SEC_E_INVALIDACCESSENTRYLIST: Hresult = 0x80040E6Fu.toInt()
 
 public val SEC_E_INVALIDCONTEXT: Int = -2147216381
 
-public val SEC_E_INVALIDOBJECT: HRESULT = 0x80040E6Du.toInt()
+public val SEC_E_INVALIDOBJECT: Hresult = 0x80040E6Du.toInt()
 
-public val SEC_E_INVALIDOWNER: HRESULT = 0x80040E70u.toInt()
+public val SEC_E_INVALIDOWNER: Hresult = 0x80040E70u.toInt()
 
-public val SEC_E_NOMEMBERSHIPSUPPORT: HRESULT = 0x80040E6Cu.toInt()
+public val SEC_E_NOMEMBERSHIPSUPPORT: Hresult = 0x80040E6Cu.toInt()
 
-public val SEC_E_NOOWNER: HRESULT = 0x80040E6Eu.toInt()
+public val SEC_E_NOOWNER: Hresult = 0x80040E6Eu.toInt()
 
 public val SEC_E_NOTINITIALIZED: Int = -2147216382
 
-public val SEC_E_NOTRUSTEEID: HRESULT = 0x80040E6Bu.toInt()
+public val SEC_E_NOTRUSTEEID: Hresult = 0x80040E6Bu.toInt()
 
 public val SEC_E_PERMISSIONDENIED: Int = -2147217911
 
@@ -2174,13 +2174,13 @@ public val SQL_AF_SUM: Int = 16
 
 public val SQL_AGGREGATE_FUNCTIONS: UInt = 169u
 
-public val SQL_ALL_CATALOGS: PCSTR = s("%")
+public val SQL_ALL_CATALOGS: Pcstr = s("%")
 
 public val SQL_ALL_EXCEPT_LIKE: UInt = 2u
 
-public val SQL_ALL_SCHEMAS: PCSTR = s("%")
+public val SQL_ALL_SCHEMAS: Pcstr = s("%")
 
-public val SQL_ALL_TABLE_TYPES: PCSTR = s("%")
+public val SQL_ALL_TABLE_TYPES: Pcstr = s("%")
 
 public val SQL_ALL_TYPES: UInt = 0u
 

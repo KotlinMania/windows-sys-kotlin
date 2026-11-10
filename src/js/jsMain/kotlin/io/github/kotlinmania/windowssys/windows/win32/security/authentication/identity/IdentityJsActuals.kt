@@ -2,687 +2,702 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
 
 private val _windowsWin32SecurityAuthenticationIdentityNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AcceptSecurityContext(phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: ASC_REQ_FLAGS, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AcceptSecurityContext(phcredential.toString(), phcontext.toString(), pinput.toString(), fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun acceptSecurityContext(phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_acceptSecurityContext((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (pinput?.value ?: 0L).toString(), fcontextreq.toInt(), targetdatarep.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AcquireCredentialsHandleA(pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: SECPKG_CRED, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AcquireCredentialsHandleA(pszprincipal.toString(), pszpackage.toString(), fcredentialuse.toInt(), pvlogonid.toString(), pauthdata.toString(), pgetkeyfn.toLong().toString(), pvgetkeyargument.toString(), phcredential.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun acquireCredentialsHandleA(pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: SecpkgCred, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_acquireCredentialsHandleA((pszprincipal?.value ?: 0L).toString(), (pszpackage?.value ?: 0L).toString(), fcredentialuse.toInt(), (pvlogonid?.value ?: 0L).toString(), (pauthdata?.value ?: 0L).toString(), 0L.toString(), (pvgetkeyargument?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AcquireCredentialsHandleW(pszprincipal: PCWSTR, pszpackage: PCWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AcquireCredentialsHandleW(pszprincipal.toString(), pszpackage.toString(), fcredentialuse.toInt(), pvlogonid.toString(), pauthdata.toString(), pgetkeyfn.toLong().toString(), pvgetkeyargument.toString(), phcredential.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun acquireCredentialsHandleW(pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: SecpkgCred, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_acquireCredentialsHandleW((pszprincipal?.value ?: 0L).toString(), (pszpackage?.value ?: 0L).toString(), fcredentialuse.toInt(), (pvlogonid?.value ?: 0L).toString(), (pauthdata?.value ?: 0L).toString(), 0L.toString(), (pvgetkeyargument?.value ?: 0L).toString(), (phcredential?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddCredentialsA(hcredentials: Long, pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: UInt, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AddCredentialsA(hcredentials.toString(), pszprincipal.toString(), pszpackage.toString(), fcredentialuse.toInt(), pauthdata.toString(), pgetkeyfn.toLong().toString(), pvgetkeyargument.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun addCredentialsA(hcredentials: COpaquePointer?, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_addCredentialsA((hcredentials?.value ?: 0L).toString(), (pszprincipal?.value ?: 0L).toString(), (pszpackage?.value ?: 0L).toString(), fcredentialuse.toInt(), (pauthdata?.value ?: 0L).toString(), 0L.toString(), (pvgetkeyargument?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddCredentialsW(hcredentials: Long, pszprincipal: PCWSTR, pszpackage: PCWSTR, fcredentialuse: UInt, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AddCredentialsW(hcredentials.toString(), pszprincipal.toString(), pszpackage.toString(), fcredentialuse.toInt(), pauthdata.toString(), pgetkeyfn.toLong().toString(), pvgetkeyargument.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun addCredentialsW(hcredentials: COpaquePointer?, pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: UInt, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_addCredentialsW((hcredentials?.value ?: 0L).toString(), (pszprincipal?.value ?: 0L).toString(), (pszpackage?.value ?: 0L).toString(), fcredentialuse.toInt(), (pauthdata?.value ?: 0L).toString(), 0L.toString(), (pvgetkeyargument?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddSecurityPackageA(pszpackagename: PCSTR, poptions: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AddSecurityPackageA(pszpackagename.toString(), poptions.toString()) as Int) else 0
+public actual fun addSecurityPackageA(pszpackagename: Pcstr, poptions: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_addSecurityPackageA((pszpackagename?.value ?: 0L).toString(), (poptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddSecurityPackageW(pszpackagename: PCWSTR, poptions: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AddSecurityPackageW(pszpackagename.toString(), poptions.toString()) as Int) else 0
+public actual fun addSecurityPackageW(pszpackagename: Pcwstr, poptions: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_addSecurityPackageW((pszpackagename?.value ?: 0L).toString(), (poptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ApplyControlToken(phcontext: Long, pinput: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ApplyControlToken(phcontext.toString(), pinput.toString()) as Int) else 0
+public actual fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_applyControlToken((phcontext?.value ?: 0L).toString(), (pinput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditComputeEffectivePolicyBySid(psid: PSID, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditComputeEffectivePolicyBySid(psid.toString(), psubcategoryguids.toString(), dwpolicycount.toInt(), ppauditpolicy.toString()) as Boolean) else false
+public actual fun auditComputeEffectivePolicyBySid(psid: Psid, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditComputeEffectivePolicyBySid((psid?.value ?: 0L).toString(), (psubcategoryguids?.value ?: 0L).toString(), dwpolicycount.toInt(), (ppauditpolicy?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditComputeEffectivePolicyByToken(htokenhandle: HANDLE, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditComputeEffectivePolicyByToken(htokenhandle.toString(), psubcategoryguids.toString(), dwpolicycount.toInt(), ppauditpolicy.toString()) as Boolean) else false
+public actual fun auditComputeEffectivePolicyByToken(htokenhandle: Handle, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditComputeEffectivePolicyByToken((htokenhandle?.value ?: 0L).toString(), (psubcategoryguids?.value ?: 0L).toString(), dwpolicycount.toInt(), (ppauditpolicy?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditEnumerateCategories(ppauditcategoriesarray: Long, pdwcountreturned: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditEnumerateCategories(ppauditcategoriesarray.toString(), pdwcountreturned.toString()) as Boolean) else false
+public actual fun auditEnumerateCategories(ppauditcategoriesarray: COpaquePointer?, pdwcountreturned: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditEnumerateCategories((ppauditcategoriesarray?.value ?: 0L).toString(), (pdwcountreturned?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditEnumeratePerUserPolicy(ppauditsidarray: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditEnumeratePerUserPolicy(ppauditsidarray.toString()) as Boolean) else false
+public actual fun auditEnumeratePerUserPolicy(ppauditsidarray: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditEnumeratePerUserPolicy((ppauditsidarray?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditEnumerateSubCategories(pauditcategoryguid: Long, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: Long, pdwcountreturned: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditEnumerateSubCategories(pauditcategoryguid.toString(), bretrieveallsubcategories, ppauditsubcategoriesarray.toString(), pdwcountreturned.toString()) as Boolean) else false
+public actual fun auditEnumerateSubCategories(pauditcategoryguid: COpaquePointer?, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: COpaquePointer?, pdwcountreturned: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditEnumerateSubCategories((pauditcategoryguid?.value ?: 0L).toString(), bretrieveallsubcategories, (ppauditsubcategoriesarray?.value ?: 0L).toString(), (pdwcountreturned?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditFree(buffer: Long) {
+public actual fun auditFree(buffer: COpaquePointer?) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditFree(buffer.toString())
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditFree((buffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupCategoryGuidFromCategoryId(auditcategoryid, pauditcategoryguid.toString()) as Boolean) else false
+public actual fun auditLookupCategoryGuidFromCategoryId(auditcategoryid: PolicyAuditEventType, pauditcategoryguid: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupCategoryGuidFromCategoryId(auditcategoryid, (pauditcategoryguid?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: Long, pauditcategoryid: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid.toString(), pauditcategoryid.toString()) as Boolean) else false
+public actual fun auditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: COpaquePointer?, pauditcategoryid: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupCategoryIdFromCategoryGuid((pauditcategoryguid?.value ?: 0L).toString(), (pauditcategoryid?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditLookupCategoryNameA(pauditcategoryguid: Long, ppszcategoryname: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupCategoryNameA(pauditcategoryguid.toString(), ppszcategoryname.toString()) as Boolean) else false
+public actual fun auditLookupCategoryNameA(pauditcategoryguid: COpaquePointer?, ppszcategoryname: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupCategoryNameA((pauditcategoryguid?.value ?: 0L).toString(), (ppszcategoryname?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditLookupCategoryNameW(pauditcategoryguid: Long, ppszcategoryname: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupCategoryNameW(pauditcategoryguid.toString(), ppszcategoryname.toString()) as Boolean) else false
+public actual fun auditLookupCategoryNameW(pauditcategoryguid: COpaquePointer?, ppszcategoryname: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupCategoryNameW((pauditcategoryguid?.value ?: 0L).toString(), (ppszcategoryname?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditLookupSubCategoryNameA(pauditsubcategoryguid: Long, ppszsubcategoryname: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupSubCategoryNameA(pauditsubcategoryguid.toString(), ppszsubcategoryname.toString()) as Boolean) else false
+public actual fun auditLookupSubCategoryNameA(pauditsubcategoryguid: COpaquePointer?, ppszsubcategoryname: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupSubCategoryNameA((pauditsubcategoryguid?.value ?: 0L).toString(), (ppszsubcategoryname?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditLookupSubCategoryNameW(pauditsubcategoryguid: Long, ppszsubcategoryname: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditLookupSubCategoryNameW(pauditsubcategoryguid.toString(), ppszsubcategoryname.toString()) as Boolean) else false
+public actual fun auditLookupSubCategoryNameW(pauditsubcategoryguid: COpaquePointer?, ppszsubcategoryname: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditLookupSubCategoryNameW((pauditsubcategoryguid?.value ?: 0L).toString(), (ppszsubcategoryname?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditQueryGlobalSaclA(objecttypename: PCSTR, acl: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditQueryGlobalSaclA(objecttypename.toString(), acl.toString()) as Boolean) else false
+public actual fun auditQueryGlobalSaclA(objecttypename: Pcstr, acl: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditQueryGlobalSaclA((objecttypename?.value ?: 0L).toString(), (acl?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditQueryGlobalSaclW(objecttypename: PCWSTR, acl: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditQueryGlobalSaclW(objecttypename.toString(), acl.toString()) as Boolean) else false
+public actual fun auditQueryGlobalSaclW(objecttypename: Pcwstr, acl: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditQueryGlobalSaclW((objecttypename?.value ?: 0L).toString(), (acl?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditQueryPerUserPolicy(psid: PSID, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditQueryPerUserPolicy(psid.toString(), psubcategoryguids.toString(), dwpolicycount.toInt(), ppauditpolicy.toString()) as Boolean) else false
+public actual fun auditQueryPerUserPolicy(psid: Psid, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditQueryPerUserPolicy((psid?.value ?: 0L).toString(), (psubcategoryguids?.value ?: 0L).toString(), dwpolicycount.toInt(), (ppauditpolicy?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditQuerySecurity(securityinformation: OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditQuerySecurity(securityinformation.toInt(), ppsecuritydescriptor.toString()) as Boolean) else false
+public actual fun auditQuerySecurity(securityinformation: ObjectSecurityInformation, ppsecuritydescriptor: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditQuerySecurity(securityinformation.toInt(), (ppsecuritydescriptor?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditQuerySystemPolicy(psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditQuerySystemPolicy(psubcategoryguids.toString(), dwpolicycount.toInt(), ppauditpolicy.toString()) as Boolean) else false
+public actual fun auditQuerySystemPolicy(psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditQuerySystemPolicy((psubcategoryguids?.value ?: 0L).toString(), dwpolicycount.toInt(), (ppauditpolicy?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditSetGlobalSaclA(objecttypename: PCSTR, acl: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditSetGlobalSaclA(objecttypename.toString(), acl.toString()) as Boolean) else false
+public actual fun auditSetGlobalSaclA(objecttypename: Pcstr, acl: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditSetGlobalSaclA((objecttypename?.value ?: 0L).toString(), (acl?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditSetGlobalSaclW(objecttypename: PCWSTR, acl: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditSetGlobalSaclW(objecttypename.toString(), acl.toString()) as Boolean) else false
+public actual fun auditSetGlobalSaclW(objecttypename: Pcwstr, acl: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditSetGlobalSaclW((objecttypename?.value ?: 0L).toString(), (acl?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditSetPerUserPolicy(psid: PSID, pauditpolicy: Long, dwpolicycount: UInt): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditSetPerUserPolicy(psid.toString(), pauditpolicy.toString(), dwpolicycount.toInt()) as Boolean) else false
+public actual fun auditSetPerUserPolicy(psid: Psid, pauditpolicy: COpaquePointer?, dwpolicycount: UInt): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditSetPerUserPolicy((psid?.value ?: 0L).toString(), (pauditpolicy?.value ?: 0L).toString(), dwpolicycount.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditSetSecurity(securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditSetSecurity(securityinformation.toInt(), psecuritydescriptor.toString()) as Boolean) else false
+public actual fun auditSetSecurity(securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditSetSecurity(securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AuditSetSystemPolicy(pauditpolicy: Long, dwpolicycount: UInt): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_AuditSetSystemPolicy(pauditpolicy.toString(), dwpolicycount.toInt()) as Boolean) else false
+public actual fun auditSetSystemPolicy(pauditpolicy: COpaquePointer?, dwpolicycount: UInt): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_auditSetSystemPolicy((pauditpolicy?.value ?: 0L).toString(), dwpolicycount.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeAccountPasswordA(pszpackagename: Long, pszdomainname: Long, pszaccountname: Long, pszoldpassword: Long, psznewpassword: Long, bimpersonating: Boolean, dwreserved: UInt, poutput: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ChangeAccountPasswordA(pszpackagename.toString(), pszdomainname.toString(), pszaccountname.toString(), pszoldpassword.toString(), psznewpassword.toString(), bimpersonating, dwreserved.toInt(), poutput.toString()) as Int) else 0
+public actual fun changeAccountPasswordA(pszpackagename: COpaquePointer?, pszdomainname: COpaquePointer?, pszaccountname: COpaquePointer?, pszoldpassword: COpaquePointer?, psznewpassword: COpaquePointer?, bimpersonating: Boolean, dwreserved: UInt, poutput: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_changeAccountPasswordA((pszpackagename?.value ?: 0L).toString(), (pszdomainname?.value ?: 0L).toString(), (pszaccountname?.value ?: 0L).toString(), (pszoldpassword?.value ?: 0L).toString(), (psznewpassword?.value ?: 0L).toString(), bimpersonating, dwreserved.toInt(), (poutput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeAccountPasswordW(pszpackagename: Long, pszdomainname: Long, pszaccountname: Long, pszoldpassword: Long, psznewpassword: Long, bimpersonating: Boolean, dwreserved: UInt, poutput: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ChangeAccountPasswordW(pszpackagename.toString(), pszdomainname.toString(), pszaccountname.toString(), pszoldpassword.toString(), psznewpassword.toString(), bimpersonating, dwreserved.toInt(), poutput.toString()) as Int) else 0
+public actual fun changeAccountPasswordW(pszpackagename: COpaquePointer?, pszdomainname: COpaquePointer?, pszaccountname: COpaquePointer?, pszoldpassword: COpaquePointer?, psznewpassword: COpaquePointer?, bimpersonating: Boolean, dwreserved: UInt, poutput: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_changeAccountPasswordW((pszpackagename?.value ?: 0L).toString(), (pszdomainname?.value ?: 0L).toString(), (pszaccountname?.value ?: 0L).toString(), (pszoldpassword?.value ?: 0L).toString(), (psznewpassword?.value ?: 0L).toString(), bimpersonating, dwreserved.toInt(), (poutput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompleteAuthToken(phcontext: Long, ptoken: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_CompleteAuthToken(phcontext.toString(), ptoken.toString()) as Int) else 0
+public actual fun completeAuthToken(phcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_completeAuthToken((phcontext?.value ?: 0L).toString(), (ptoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredMarshalTargetInfo(intargetinfo: Long, buffer: Long, buffersize: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_CredMarshalTargetInfo(intargetinfo.toString(), buffer.toString(), buffersize.toString()) as Int) else 0
+public actual fun credMarshalTargetInfo(intargetinfo: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_credMarshalTargetInfo((intargetinfo?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CredUnmarshalTargetInfo(buffer: Long, buffersize: UInt, rettargetinfo: Long, retactualsize: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_CredUnmarshalTargetInfo(buffer.toString(), buffersize.toInt(), rettargetinfo.toString(), retactualsize.toString()) as Int) else 0
+public actual fun credUnmarshalTargetInfo(buffer: COpaquePointer?, buffersize: UInt, rettargetinfo: COpaquePointer?, retactualsize: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_credUnmarshalTargetInfo((buffer?.value ?: 0L).toString(), buffersize.toInt(), (rettargetinfo?.value ?: 0L).toString(), (retactualsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecryptMessage(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_DecryptMessage(phcontext.toString(), pmessage.toString(), messageseqno.toInt(), pfqop.toString()) as Int) else 0
+public actual fun decryptMessage(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_decryptMessage((phcontext?.value ?: 0L).toString(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt(), (pfqop?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteSecurityContext(phcontext: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_DeleteSecurityContext(phcontext.toString()) as Int) else 0
+public actual fun deleteSecurityContext(phcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_deleteSecurityContext((phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteSecurityPackageA(pszpackagename: PCSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_DeleteSecurityPackageA(pszpackagename.toString()) as Int) else 0
+public actual fun deleteSecurityPackageA(pszpackagename: Pcstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_deleteSecurityPackageA((pszpackagename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteSecurityPackageW(pszpackagename: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_DeleteSecurityPackageW(pszpackagename.toString()) as Int) else 0
+public actual fun deleteSecurityPackageW(pszpackagename: Pcwstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_deleteSecurityPackageW((pszpackagename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncryptMessage(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_EncryptMessage(phcontext.toString(), fqop.toInt(), pmessage.toString(), messageseqno.toInt()) as Int) else 0
+public actual fun encryptMessage(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_encryptMessage((phcontext?.value ?: 0L).toString(), fqop.toInt(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateSecurityPackagesA(pcpackages: Long, pppackageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_EnumerateSecurityPackagesA(pcpackages.toString(), pppackageinfo.toString()) as Int) else 0
+public actual fun enumerateSecurityPackagesA(pcpackages: COpaquePointer?, pppackageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_enumerateSecurityPackagesA((pcpackages?.value ?: 0L).toString(), (pppackageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumerateSecurityPackagesW(pcpackages: Long, pppackageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_EnumerateSecurityPackagesW(pcpackages.toString(), pppackageinfo.toString()) as Int) else 0
+public actual fun enumerateSecurityPackagesW(pcpackages: COpaquePointer?, pppackageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_enumerateSecurityPackagesW((pcpackages?.value ?: 0L).toString(), (pppackageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExportSecurityContext(phcontext: Long, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: Long, ptoken: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ExportSecurityContext(phcontext.toString(), fflags.toInt(), ppackedcontext.toString(), ptoken.toString()) as Int) else 0
+public actual fun exportSecurityContext(phcontext: COpaquePointer?, fflags: ExportSecurityContextFlags, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_exportSecurityContext((phcontext?.value ?: 0L).toString(), fflags.toInt(), (ppackedcontext?.value ?: 0L).toString(), (ptoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeContextBuffer(pvcontextbuffer: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_FreeContextBuffer(pvcontextbuffer.toString()) as Int) else 0
+public actual fun freeContextBuffer(pvcontextbuffer: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_freeContextBuffer((pvcontextbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeCredentialsHandle(phcredential: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_FreeCredentialsHandle(phcredential.toString()) as Int) else 0
+public actual fun freeCredentialsHandle(phcredential: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_freeCredentialsHandle((phcredential?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_GetComputerObjectNameA(nameformat, lpnamebuffer.toString(), nsize.toString()) as Boolean) else false
+public actual fun getComputerObjectNameA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_getComputerObjectNameA(nameformat, (lpnamebuffer?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PWSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_GetComputerObjectNameW(nameformat, lpnamebuffer.toString(), nsize.toString()) as Boolean) else false
+public actual fun getComputerObjectNameW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_getComputerObjectNameW(nameformat, (lpnamebuffer?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_GetUserNameExA(nameformat, lpnamebuffer.toString(), nsize.toString()) as Boolean) else false
+public actual fun getUserNameExA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_getUserNameExA(nameformat, (lpnamebuffer?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PWSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_GetUserNameExW(nameformat, lpnamebuffer.toString(), nsize.toString()) as Boolean) else false
+public actual fun getUserNameExW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_getUserNameExW(nameformat, (lpnamebuffer?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonateSecurityContext(phcontext: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ImpersonateSecurityContext(phcontext.toString()) as Int) else 0
+public actual fun impersonateSecurityContext(phcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_impersonateSecurityContext((phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportSecurityContextA(pszpackage: PCSTR, ppackedcontext: Long, token: Long, phcontext: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ImportSecurityContextA(pszpackage.toString(), ppackedcontext.toString(), token.toString(), phcontext.toString()) as Int) else 0
+public actual fun importSecurityContextA(pszpackage: Pcstr, ppackedcontext: COpaquePointer?, token: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_importSecurityContextA((pszpackage?.value ?: 0L).toString(), (ppackedcontext?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportSecurityContextW(pszpackage: PCWSTR, ppackedcontext: Long, token: Long, phcontext: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_ImportSecurityContextW(pszpackage.toString(), ppackedcontext.toString(), token.toString(), phcontext.toString()) as Int) else 0
+public actual fun importSecurityContextW(pszpackage: Pcwstr, ppackedcontext: COpaquePointer?, token: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_importSecurityContextW((pszpackage?.value ?: 0L).toString(), (ppackedcontext?.value ?: 0L).toString(), (token?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitSecurityInterfaceA(): Long =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_InitSecurityInterfaceA() as String).toLong() else 0L
+public actual fun initSecurityInterfaceA(): COpaquePointer? =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_initSecurityInterfaceA() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitSecurityInterfaceW(): Long =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_InitSecurityInterfaceW() as String).toLong() else 0L
+public actual fun initSecurityInterfaceW(): COpaquePointer? =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_initSecurityInterfaceW() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeSecurityContextA(phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_InitializeSecurityContextA(phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun initializeSecurityContextA(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_initializeSecurityContextA((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeSecurityContextW(phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_InitializeSecurityContextW(phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun initializeSecurityContextW(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_initializeSecurityContextW((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: UInt): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaAddAccountRights(policyhandle.toString(), accountsid.toString(), userrights.toString(), countofrights.toInt()) as Int) else 0
+public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(policyhandle.toString(), (accountsid?.value ?: 0L).toString(), (userrights?.value ?: 0L).toString(), countofrights.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaCallAuthenticationPackage(lsahandle: HANDLE, authenticationpackage: UInt, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaCallAuthenticationPackage(lsahandle.toString(), authenticationpackage.toInt(), protocolsubmitbuffer.toString(), submitbufferlength.toInt(), protocolreturnbuffer.toString(), returnbufferlength.toString(), protocolstatus.toString()) as Int) else 0
+public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaCallAuthenticationPackage((lsahandle?.value ?: 0L).toString(), authenticationpackage.toInt(), (protocolsubmitbuffer?.value ?: 0L).toString(), submitbufferlength.toInt(), (protocolreturnbuffer?.value ?: 0L).toString(), (returnbufferlength?.value ?: 0L).toString(), (protocolstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaClose(objecthandle: LSA_HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaClose(objecthandle.toString()) as Int) else 0
+public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaClose(objecthandle.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaConnectUntrusted(lsahandle: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaConnectUntrusted(lsahandle.toString()) as Int) else 0
+public actual fun lsaConnectUntrusted(lsahandle: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaConnectUntrusted((lsahandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaCreateTrustedDomainEx(policyhandle: LSA_HANDLE, trusteddomaininformation: Long, authenticationinformation: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaCreateTrustedDomainEx(policyhandle.toString(), trusteddomaininformation.toString(), authenticationinformation.toString(), desiredaccess.toInt(), trusteddomainhandle.toString()) as Int) else 0
+public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: COpaquePointer?, authenticationinformation: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(policyhandle.toString(), (trusteddomaininformation?.value ?: 0L).toString(), (authenticationinformation?.value ?: 0L).toString(), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaDeleteTrustedDomain(policyhandle: LSA_HANDLE, trusteddomainsid: PSID): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaDeleteTrustedDomain(policyhandle.toString(), trusteddomainsid.toString()) as Int) else 0
+public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomainsid: Psid): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(policyhandle.toString(), (trusteddomainsid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaDeregisterLogonProcess(lsahandle: HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaDeregisterLogonProcess(lsahandle.toString()) as Int) else 0
+public actual fun lsaDeregisterLogonProcess(lsahandle: Handle): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaDeregisterLogonProcess((lsahandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaEnumerateAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaEnumerateAccountRights(policyhandle.toString(), accountsid.toString(), userrights.toString(), countofrights.toString()) as Int) else 0
+public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(policyhandle.toString(), (accountsid?.value ?: 0L).toString(), (userrights?.value ?: 0L).toString(), (countofrights?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaEnumerateAccountsWithUserRight(policyhandle: LSA_HANDLE, userright: Long, buffer: Long, countreturned: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaEnumerateAccountsWithUserRight(policyhandle.toString(), userright.toString(), buffer.toString(), countreturned.toString()) as Int) else 0
+public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: COpaquePointer?, buffer: COpaquePointer?, countreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(policyhandle.toString(), (userright?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (countreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaEnumerateLogonSessions(logonsessioncount: Long, logonsessionlist: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaEnumerateLogonSessions(logonsessioncount.toString(), logonsessionlist.toString()) as Int) else 0
+public actual fun lsaEnumerateLogonSessions(logonsessioncount: COpaquePointer?, logonsessionlist: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaEnumerateLogonSessions((logonsessioncount?.value ?: 0L).toString(), (logonsessionlist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaEnumerateTrustedDomains(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaEnumerateTrustedDomains(policyhandle.toString(), enumerationcontext.toString(), buffer.toString(), preferedmaximumlength.toInt(), countreturned.toString()) as Int) else 0
+public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(policyhandle.toString(), (enumerationcontext?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaEnumerateTrustedDomainsEx(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaEnumerateTrustedDomainsEx(policyhandle.toString(), enumerationcontext.toString(), buffer.toString(), preferedmaximumlength.toInt(), countreturned.toString()) as Int) else 0
+public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(policyhandle.toString(), (enumerationcontext?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaFreeMemory(buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaFreeMemory(buffer.toString()) as Int) else 0
+public actual fun lsaFreeMemory(buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaFreeMemory((buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaFreeReturnBuffer(buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaFreeReturnBuffer(buffer.toString()) as Int) else 0
+public actual fun lsaFreeReturnBuffer(buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaFreeReturnBuffer((buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaGetAppliedCAPIDs(systemname: Long, capids: Long, capidcount: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaGetAppliedCAPIDs(systemname.toString(), capids.toString(), capidcount.toString()) as Int) else 0
+public actual fun lsaGetAppliedCAPIDs(systemname: COpaquePointer?, capids: COpaquePointer?, capidcount: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaGetAppliedCAPIDs((systemname?.value ?: 0L).toString(), (capids?.value ?: 0L).toString(), (capidcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaGetLogonSessionData(logonid: Long, pplogonsessiondata: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaGetLogonSessionData(logonid.toString(), pplogonsessiondata.toString()) as Int) else 0
+public actual fun lsaGetLogonSessionData(logonid: COpaquePointer?, pplogonsessiondata: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaGetLogonSessionData((logonid?.value ?: 0L).toString(), (pplogonsessiondata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLogonUser(lsahandle: HANDLE, originname: Long, logontype: SECURITY_LOGON_TYPE, authenticationpackage: UInt, authenticationinformation: Long, authenticationinformationlength: UInt, localgroups: Long, sourcecontext: Long, profilebuffer: Long, profilebufferlength: Long, logonid: Long, token: Long, quotas: Long, substatus: Long): NTSTATUS =
-    0
+public actual fun lsaLogonUser(lsahandle: Handle, originname: COpaquePointer?, logontype: SecurityLogonType, authenticationpackage: UInt, authenticationinformation: COpaquePointer?, authenticationinformationlength: UInt, localgroups: COpaquePointer?, sourcecontext: COpaquePointer?, profilebuffer: COpaquePointer?, profilebufferlength: COpaquePointer?, logonid: COpaquePointer?, token: COpaquePointer?, quotas: COpaquePointer?, substatus: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLookupAuthenticationPackage(lsahandle: HANDLE, packagename: Long, authenticationpackage: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaLookupAuthenticationPackage(lsahandle.toString(), packagename.toString(), authenticationpackage.toString()) as Int) else 0
+public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename: COpaquePointer?, authenticationpackage: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaLookupAuthenticationPackage((lsahandle?.value ?: 0L).toString(), (packagename?.value ?: 0L).toString(), (authenticationpackage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLookupNames(policyhandle: LSA_HANDLE, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaLookupNames(policyhandle.toString(), count.toInt(), names.toString(), referenceddomains.toString(), sids.toString()) as Int) else 0
+public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaLookupNames(policyhandle.toString(), count.toInt(), (names?.value ?: 0L).toString(), (referenceddomains?.value ?: 0L).toString(), (sids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLookupNames2(policyhandle: LSA_HANDLE, flags: UInt, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaLookupNames2(policyhandle.toString(), flags.toInt(), count.toInt(), names.toString(), referenceddomains.toString(), sids.toString()) as Int) else 0
+public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(policyhandle.toString(), flags.toInt(), count.toInt(), (names?.value ?: 0L).toString(), (referenceddomains?.value ?: 0L).toString(), (sids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLookupSids(policyhandle: LSA_HANDLE, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaLookupSids(policyhandle.toString(), count.toInt(), sids.toString(), referenceddomains.toString(), names.toString()) as Int) else 0
+public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaLookupSids(policyhandle.toString(), count.toInt(), (sids?.value ?: 0L).toString(), (referenceddomains?.value ?: 0L).toString(), (names?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaLookupSids2(policyhandle: LSA_HANDLE, lookupoptions: UInt, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaLookupSids2(policyhandle.toString(), lookupoptions.toInt(), count.toInt(), sids.toString(), referenceddomains.toString(), names.toString()) as Int) else 0
+public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(policyhandle.toString(), lookupoptions.toInt(), count.toInt(), (sids?.value ?: 0L).toString(), (referenceddomains?.value ?: 0L).toString(), (names?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaNtStatusToWinError(status: NTSTATUS): UInt =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaNtStatusToWinError(status) as Int).toUInt() else 0u
+public actual fun lsaNtStatusToWinError(status: Ntstatus): UInt =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaNtStatusToWinError(status) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaOpenPolicy(systemname: Long, objectattributes: Long, desiredaccess: UInt, policyhandle: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaOpenPolicy(systemname.toString(), objectattributes.toString(), desiredaccess.toInt(), policyhandle.toString()) as Int) else 0
+public actual fun lsaOpenPolicy(systemname: COpaquePointer?, objectattributes: COpaquePointer?, desiredaccess: UInt, policyhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaOpenPolicy((systemname?.value ?: 0L).toString(), (objectattributes?.value ?: 0L).toString(), desiredaccess.toInt(), (policyhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaOpenTrustedDomainByName(policyhandle.toString(), trusteddomainname.toString(), desiredaccess.toInt(), trusteddomainhandle.toString()) as Int) else 0
+public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryCAPs(capids: Long, capidcount: UInt, caps: Long, capcount: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryCAPs(capids.toString(), capidcount.toInt(), caps.toString(), capcount.toString()) as Int) else 0
+public actual fun lsaQueryCAPs(capids: COpaquePointer?, capidcount: UInt, caps: COpaquePointer?, capcount: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryCAPs((capids?.value ?: 0L).toString(), capidcount.toInt(), (caps?.value ?: 0L).toString(), (capcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryDomainInformationPolicy(policyhandle.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(policyhandle.toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryForestTrustInformation(policyhandle.toString(), trusteddomainname.toString(), foresttrustinfo.toString()) as Int) else 0
+public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), (foresttrustinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryForestTrustInformation2(policyhandle.toString(), trusteddomainname.toString(), highestrecordtype, foresttrustinfo.toString()) as Int) else 0
+public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), highestrecordtype, (foresttrustinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryInformationPolicy(policyhandle.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(policyhandle.toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryTrustedDomainInfo(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryTrustedDomainInfo(policyhandle.toString(), trusteddomainsid.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(policyhandle.toString(), (trusteddomainsid?.value ?: 0L).toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaQueryTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaQueryTrustedDomainInfoByName(policyhandle.toString(), trusteddomainname.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaRegisterLogonProcess(logonprocessname: Long, lsahandle: Long, securitymode: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaRegisterLogonProcess(logonprocessname.toString(), lsahandle.toString(), securitymode.toString()) as Int) else 0
+public actual fun lsaRegisterLogonProcess(logonprocessname: COpaquePointer?, lsahandle: COpaquePointer?, securitymode: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaRegisterLogonProcess((logonprocessname?.value ?: 0L).toString(), (lsahandle?.value ?: 0L).toString(), (securitymode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle.toString()) as Int) else 0
+public actual fun lsaRegisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaRegisterPolicyChangeNotification(informationclass, (notificationeventhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, allrights: Boolean, userrights: Long, countofrights: UInt): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaRemoveAccountRights(policyhandle.toString(), accountsid.toString(), allrights, userrights.toString(), countofrights.toInt()) as Int) else 0
+public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(policyhandle.toString(), (accountsid?.value ?: 0L).toString(), allrights, (userrights?.value ?: 0L).toString(), countofrights.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaRetrievePrivateData(policyhandle.toString(), keyname.toString(), privatedata.toString()) as Int) else 0
+public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(policyhandle.toString(), (keyname?.value ?: 0L).toString(), (privatedata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetCAPs(capdns: Long, capdncount: UInt, flags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetCAPs(capdns.toString(), capdncount.toInt(), flags.toInt()) as Int) else 0
+public actual fun lsaSetCAPs(capdns: COpaquePointer?, capdncount: UInt, flags: UInt): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetCAPs((capdns?.value ?: 0L).toString(), capdncount.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetDomainInformationPolicy(policyhandle.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(policyhandle.toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetForestTrustInformation(policyhandle.toString(), trusteddomainname.toString(), foresttrustinfo.toString(), checkonly, collisioninfo.toString()) as Int) else 0
+public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), (foresttrustinfo?.value ?: 0L).toString(), checkonly, (collisioninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetForestTrustInformation2(policyhandle.toString(), trusteddomainname.toString(), highestrecordtype, foresttrustinfo.toString(), checkonly, collisioninfo.toString()) as Int) else 0
+public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), highestrecordtype, (foresttrustinfo?.value ?: 0L).toString(), checkonly, (collisioninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetInformationPolicy(policyhandle.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(policyhandle.toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetTrustedDomainInfoByName(policyhandle.toString(), trusteddomainname.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(policyhandle.toString(), (trusteddomainname?.value ?: 0L).toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaSetTrustedDomainInformation(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaSetTrustedDomainInformation(policyhandle.toString(), trusteddomainsid.toString(), informationclass, buffer.toString()) as Int) else 0
+public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(policyhandle.toString(), (trusteddomainsid?.value ?: 0L).toString(), informationclass, (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaStorePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaStorePrivateData(policyhandle.toString(), keyname.toString(), privatedata.toString()) as Int) else 0
+public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(policyhandle.toString(), (keyname?.value ?: 0L).toString(), (privatedata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_LsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle.toString()) as Int) else 0
+public actual fun lsaUnregisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_lsaUnregisterPolicyChangeNotification(informationclass, (notificationeventhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MakeSignature(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_MakeSignature(phcontext.toString(), fqop.toInt(), pmessage.toString(), messageseqno.toInt()) as Int) else 0
+public actual fun makeSignature(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_makeSignature((phcontext?.value ?: 0L).toString(), fqop.toInt(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryContextAttributesA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryContextAttributesA(phcontext.toString(), ulattribute.toInt(), pbuffer.toString()) as Int) else 0
+public actual fun queryContextAttributesA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryContextAttributesA((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryContextAttributesExA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryContextAttributesExA(phcontext.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun queryContextAttributesExA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryContextAttributesExA((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryContextAttributesExW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryContextAttributesExW(phcontext.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun queryContextAttributesExW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryContextAttributesExW((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryContextAttributesW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryContextAttributesW(phcontext.toString(), ulattribute.toInt(), pbuffer.toString()) as Int) else 0
+public actual fun queryContextAttributesW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryContextAttributesW((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryCredentialsAttributesA(phcredential: Long, ulattribute: UInt, pbuffer: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryCredentialsAttributesA(phcredential.toString(), ulattribute.toInt(), pbuffer.toString()) as Int) else 0
+public actual fun queryCredentialsAttributesA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesA((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryCredentialsAttributesExA(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryCredentialsAttributesExA(phcredential.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun queryCredentialsAttributesExA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesExA((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryCredentialsAttributesExW(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryCredentialsAttributesExW(phcredential.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun queryCredentialsAttributesExW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesExW((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryCredentialsAttributesW(phcredential: Long, ulattribute: UInt, pbuffer: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QueryCredentialsAttributesW(phcredential.toString(), ulattribute.toInt(), pbuffer.toString()) as Int) else 0
+public actual fun queryCredentialsAttributesW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_queryCredentialsAttributesW((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QuerySecurityContextToken(phcontext: Long, token: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QuerySecurityContextToken(phcontext.toString(), token.toString()) as Int) else 0
+public actual fun querySecurityContextToken(phcontext: COpaquePointer?, token: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_querySecurityContextToken((phcontext?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QuerySecurityPackageInfoA(pszpackagename: PCSTR, pppackageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QuerySecurityPackageInfoA(pszpackagename.toString(), pppackageinfo.toString()) as Int) else 0
+public actual fun querySecurityPackageInfoA(pszpackagename: Pcstr, pppackageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_querySecurityPackageInfoA((pszpackagename?.value ?: 0L).toString(), (pppackageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QuerySecurityPackageInfoW(pszpackagename: PCWSTR, pppackageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_QuerySecurityPackageInfoW(pszpackagename.toString(), pppackageinfo.toString()) as Int) else 0
+public actual fun querySecurityPackageInfoW(pszpackagename: Pcwstr, pppackageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_querySecurityPackageInfoW((pszpackagename?.value ?: 0L).toString(), (pppackageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RevertSecurityContext(phcontext: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_RevertSecurityContext(phcontext.toString()) as Int) else 0
+public actual fun revertSecurityContext(phcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_revertSecurityContext((phcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlDecryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_RtlDecryptMemory(memory.toString(), memorysize.toInt(), optionflags.toInt()) as Int) else 0
+public actual fun rtlDecryptMemory(memory: COpaquePointer?, memorysize: UInt, optionflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_rtlDecryptMemory((memory?.value ?: 0L).toString(), memorysize.toInt(), optionflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEncryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_RtlEncryptMemory(memory.toString(), memorysize.toInt(), optionflags.toInt()) as Int) else 0
+public actual fun rtlEncryptMemory(memory: COpaquePointer?, memorysize: UInt, optionflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_rtlEncryptMemory((memory?.value ?: 0L).toString(), memorysize.toInt(), optionflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlGenRandom(randombuffer: Long, randombufferlength: UInt): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_RtlGenRandom(randombuffer.toString(), randombufferlength.toInt()) as Boolean) else false
+public actual fun rtlGenRandom(randombuffer: COpaquePointer?, randombufferlength: UInt): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_rtlGenRandom((randombuffer?.value ?: 0L).toString(), randombufferlength.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLAcquireGenuineTicket(ppticketblob: Long, pcbticketblob: Long, pwsztemplateid: PCWSTR, pwszserverurl: PCWSTR, pwszclienttoken: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLAcquireGenuineTicket(ppticketblob.toString(), pcbticketblob.toString(), pwsztemplateid.toString(), pwszserverurl.toString(), pwszclienttoken.toString()) as Int) else 0
+public actual fun sLAcquireGenuineTicket(ppticketblob: COpaquePointer?, pcbticketblob: COpaquePointer?, pwsztemplateid: Pcwstr, pwszserverurl: Pcwstr, pwszclienttoken: Pcwstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLAcquireGenuineTicket((ppticketblob?.value ?: 0L).toString(), (pcbticketblob?.value ?: 0L).toString(), (pwsztemplateid?.value ?: 0L).toString(), (pwszserverurl?.value ?: 0L).toString(), (pwszclienttoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLActivateProduct(hslc: Long, pproductskuid: Long, cbappspecificdata: UInt, pvappspecificdata: Long, pactivationinfo: Long, pwszproxyserver: PCWSTR, wproxyport: UShort): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLActivateProduct(hslc.toString(), pproductskuid.toString(), cbappspecificdata.toInt(), pvappspecificdata.toString(), pactivationinfo.toString(), pwszproxyserver.toString(), wproxyport.toInt()) as Int) else 0
+public actual fun sLActivateProduct(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, cbappspecificdata: UInt, pvappspecificdata: COpaquePointer?, pactivationinfo: COpaquePointer?, pwszproxyserver: Pcwstr, wproxyport: UShort): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLActivateProduct((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), cbappspecificdata.toInt(), (pvappspecificdata?.value ?: 0L).toString(), (pactivationinfo?.value ?: 0L).toString(), (pwszproxyserver?.value ?: 0L).toString(), wproxyport.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLClose(hslc: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLClose(hslc.toString()) as Int) else 0
+public actual fun sLClose(hslc: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLClose((hslc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLConsumeRight(hslc: Long, pappid: Long, pproductskuid: Long, pwszrightname: PCWSTR, pvreserved: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLConsumeRight(hslc.toString(), pappid.toString(), pproductskuid.toString(), pwszrightname.toString(), pvreserved.toString()) as Int) else 0
+public actual fun sLConsumeRight(hslc: COpaquePointer?, pappid: COpaquePointer?, pproductskuid: COpaquePointer?, pwszrightname: Pcwstr, pvreserved: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLConsumeRight((hslc?.value ?: 0L).toString(), (pappid?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pwszrightname?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLDepositOfflineConfirmationId(hslc: Long, pproductskuid: Long, pwszinstallationid: PCWSTR, pwszconfirmationid: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLDepositOfflineConfirmationId(hslc.toString(), pproductskuid.toString(), pwszinstallationid.toString(), pwszconfirmationid.toString()) as Int) else 0
+public actual fun sLDepositOfflineConfirmationId(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLDepositOfflineConfirmationId((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pwszinstallationid?.value ?: 0L).toString(), (pwszconfirmationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLDepositOfflineConfirmationIdEx(hslc: Long, pproductskuid: Long, pactivationinfo: Long, pwszinstallationid: PCWSTR, pwszconfirmationid: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLDepositOfflineConfirmationIdEx(hslc.toString(), pproductskuid.toString(), pactivationinfo.toString(), pwszinstallationid.toString(), pwszconfirmationid.toString()) as Int) else 0
+public actual fun sLDepositOfflineConfirmationIdEx(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pactivationinfo: COpaquePointer?, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLDepositOfflineConfirmationIdEx((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pactivationinfo?.value ?: 0L).toString(), (pwszinstallationid?.value ?: 0L).toString(), (pwszconfirmationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLFireEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLFireEvent(hslc.toString(), pwszeventid.toString(), papplicationid.toString()) as Int) else 0
+public actual fun sLFireEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLFireEvent((hslc?.value ?: 0L).toString(), (pwszeventid?.value ?: 0L).toString(), (papplicationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGenerateOfflineInstallationId(hslc: Long, pproductskuid: Long, ppwszinstallationid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGenerateOfflineInstallationId(hslc.toString(), pproductskuid.toString(), ppwszinstallationid.toString()) as Int) else 0
+public actual fun sLGenerateOfflineInstallationId(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, ppwszinstallationid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGenerateOfflineInstallationId((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (ppwszinstallationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGenerateOfflineInstallationIdEx(hslc: Long, pproductskuid: Long, pactivationinfo: Long, ppwszinstallationid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGenerateOfflineInstallationIdEx(hslc.toString(), pproductskuid.toString(), pactivationinfo.toString(), ppwszinstallationid.toString()) as Int) else 0
+public actual fun sLGenerateOfflineInstallationIdEx(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pactivationinfo: COpaquePointer?, ppwszinstallationid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGenerateOfflineInstallationIdEx((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pactivationinfo?.value ?: 0L).toString(), (ppwszinstallationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetApplicationInformation(hslc: Long, papplicationid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetApplicationInformation(hslc.toString(), papplicationid.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetApplicationInformation(hslc: COpaquePointer?, papplicationid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetApplicationInformation((hslc?.value ?: 0L).toString(), (papplicationid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetGenuineInformation(pqueryid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetGenuineInformation(pqueryid.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetGenuineInformation(pqueryid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetGenuineInformation((pqueryid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetInstalledProductKeyIds(hslc: Long, pproductskuid: Long, pnproductkeyids: Long, ppproductkeyids: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetInstalledProductKeyIds(hslc.toString(), pproductskuid.toString(), pnproductkeyids.toString(), ppproductkeyids.toString()) as Int) else 0
+public actual fun sLGetInstalledProductKeyIds(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pnproductkeyids: COpaquePointer?, ppproductkeyids: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetInstalledProductKeyIds((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pnproductkeyids?.value ?: 0L).toString(), (ppproductkeyids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetLicense(hslc: Long, plicensefileid: Long, pcblicensefile: Long, ppblicensefile: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetLicense(hslc.toString(), plicensefileid.toString(), pcblicensefile.toString(), ppblicensefile.toString()) as Int) else 0
+public actual fun sLGetLicense(hslc: COpaquePointer?, plicensefileid: COpaquePointer?, pcblicensefile: COpaquePointer?, ppblicensefile: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetLicense((hslc?.value ?: 0L).toString(), (plicensefileid?.value ?: 0L).toString(), (pcblicensefile?.value ?: 0L).toString(), (ppblicensefile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetLicenseFileId(hslc: Long, cblicenseblob: UInt, pblicenseblob: Long, plicensefileid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetLicenseFileId(hslc.toString(), cblicenseblob.toInt(), pblicenseblob.toString(), plicensefileid.toString()) as Int) else 0
+public actual fun sLGetLicenseFileId(hslc: COpaquePointer?, cblicenseblob: UInt, pblicenseblob: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetLicenseFileId((hslc?.value ?: 0L).toString(), cblicenseblob.toInt(), (pblicenseblob?.value ?: 0L).toString(), (plicensefileid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetLicenseInformation(hslc: Long, psllicenseid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetLicenseInformation(hslc.toString(), psllicenseid.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetLicenseInformation(hslc: COpaquePointer?, psllicenseid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetLicenseInformation((hslc?.value ?: 0L).toString(), (psllicenseid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetLicensingStatusInformation(hslc: Long, pappid: Long, pproductskuid: Long, pwszrightname: PCWSTR, pnstatuscount: Long, pplicensingstatus: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetLicensingStatusInformation(hslc.toString(), pappid.toString(), pproductskuid.toString(), pwszrightname.toString(), pnstatuscount.toString(), pplicensingstatus.toString()) as Int) else 0
+public actual fun sLGetLicensingStatusInformation(hslc: COpaquePointer?, pappid: COpaquePointer?, pproductskuid: COpaquePointer?, pwszrightname: Pcwstr, pnstatuscount: COpaquePointer?, pplicensingstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetLicensingStatusInformation((hslc?.value ?: 0L).toString(), (pappid?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pwszrightname?.value ?: 0L).toString(), (pnstatuscount?.value ?: 0L).toString(), (pplicensingstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetPKeyId(hslc: Long, pwszpkeyalgorithm: PCWSTR, pwszpkeystring: PCWSTR, cbpkeyspecificdata: UInt, pbpkeyspecificdata: Long, ppkeyid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetPKeyId(hslc.toString(), pwszpkeyalgorithm.toString(), pwszpkeystring.toString(), cbpkeyspecificdata.toInt(), pbpkeyspecificdata.toString(), ppkeyid.toString()) as Int) else 0
+public actual fun sLGetPKeyId(hslc: COpaquePointer?, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetPKeyId((hslc?.value ?: 0L).toString(), (pwszpkeyalgorithm?.value ?: 0L).toString(), (pwszpkeystring?.value ?: 0L).toString(), cbpkeyspecificdata.toInt(), (pbpkeyspecificdata?.value ?: 0L).toString(), (ppkeyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetPKeyInformation(hslc: Long, ppkeyid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetPKeyInformation(hslc.toString(), ppkeyid.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetPKeyInformation(hslc: COpaquePointer?, ppkeyid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetPKeyInformation((hslc?.value ?: 0L).toString(), (ppkeyid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetPolicyInformation(hslc: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetPolicyInformation(hslc.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetPolicyInformation(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetPolicyInformation((hslc?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetPolicyInformationDWORD(hslc: Long, pwszvaluename: PCWSTR, pdwvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetPolicyInformationDWORD(hslc.toString(), pwszvaluename.toString(), pdwvalue.toString()) as Int) else 0
+public actual fun sLGetPolicyInformationDWORD(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pdwvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetPolicyInformationDWORD((hslc?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pdwvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetProductSkuInformation(hslc: Long, pproductskuid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetProductSkuInformation(hslc.toString(), pproductskuid.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetProductSkuInformation(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetProductSkuInformation((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetReferralInformation(hslc: Long, ereferraltype: SLREFERRALTYPE, pskuorappid: Long, pwszvaluename: PCWSTR, ppwszvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetReferralInformation(hslc.toString(), ereferraltype, pskuorappid.toString(), pwszvaluename.toString(), ppwszvalue.toString()) as Int) else 0
+public actual fun sLGetReferralInformation(hslc: COpaquePointer?, ereferraltype: Slreferraltype, pskuorappid: COpaquePointer?, pwszvaluename: Pcwstr, ppwszvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetReferralInformation((hslc?.value ?: 0L).toString(), ereferraltype, (pskuorappid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (ppwszvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetSLIDList(hslc: Long, equeryidtype: SLIDTYPE, pqueryid: Long, ereturnidtype: SLIDTYPE, pnreturnids: Long, ppreturnids: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetSLIDList(hslc.toString(), equeryidtype, pqueryid.toString(), ereturnidtype, pnreturnids.toString(), ppreturnids.toString()) as Int) else 0
+public actual fun sLGetSLIDList(hslc: COpaquePointer?, equeryidtype: Slidtype, pqueryid: COpaquePointer?, ereturnidtype: Slidtype, pnreturnids: COpaquePointer?, ppreturnids: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetSLIDList((hslc?.value ?: 0L).toString(), equeryidtype, (pqueryid?.value ?: 0L).toString(), ereturnidtype, (pnreturnids?.value ?: 0L).toString(), (ppreturnids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetServerStatus(pwszserverurl: PCWSTR, pwszacquisitiontype: PCWSTR, pwszproxyserver: PCWSTR, wproxyport: UShort, phrstatus: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetServerStatus(pwszserverurl.toString(), pwszacquisitiontype.toString(), pwszproxyserver.toString(), wproxyport.toInt(), phrstatus.toString()) as Int) else 0
+public actual fun sLGetServerStatus(pwszserverurl: Pcwstr, pwszacquisitiontype: Pcwstr, pwszproxyserver: Pcwstr, wproxyport: UShort, phrstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetServerStatus((pwszserverurl?.value ?: 0L).toString(), (pwszacquisitiontype?.value ?: 0L).toString(), (pwszproxyserver?.value ?: 0L).toString(), wproxyport.toInt(), (phrstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetServiceInformation(hslc: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetServiceInformation(hslc.toString(), pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetServiceInformation(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetServiceInformation((hslc?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetWindowsInformation(pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetWindowsInformation(pwszvaluename.toString(), pedatatype.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun sLGetWindowsInformation(pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetWindowsInformation((pwszvaluename?.value ?: 0L).toString(), (pedatatype?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLGetWindowsInformationDWORD(pwszvaluename: PCWSTR, pdwvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLGetWindowsInformationDWORD(pwszvaluename.toString(), pdwvalue.toString()) as Int) else 0
+public actual fun sLGetWindowsInformationDWORD(pwszvaluename: Pcwstr, pdwvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLGetWindowsInformationDWORD((pwszvaluename?.value ?: 0L).toString(), (pdwvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLInstallLicense(hslc: Long, cblicenseblob: UInt, pblicenseblob: Long, plicensefileid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLInstallLicense(hslc.toString(), cblicenseblob.toInt(), pblicenseblob.toString(), plicensefileid.toString()) as Int) else 0
+public actual fun sLInstallLicense(hslc: COpaquePointer?, cblicenseblob: UInt, pblicenseblob: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLInstallLicense((hslc?.value ?: 0L).toString(), cblicenseblob.toInt(), (pblicenseblob?.value ?: 0L).toString(), (plicensefileid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLInstallProofOfPurchase(hslc: Long, pwszpkeyalgorithm: PCWSTR, pwszpkeystring: PCWSTR, cbpkeyspecificdata: UInt, pbpkeyspecificdata: Long, ppkeyid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLInstallProofOfPurchase(hslc.toString(), pwszpkeyalgorithm.toString(), pwszpkeystring.toString(), cbpkeyspecificdata.toInt(), pbpkeyspecificdata.toString(), ppkeyid.toString()) as Int) else 0
+public actual fun sLInstallProofOfPurchase(hslc: COpaquePointer?, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLInstallProofOfPurchase((hslc?.value ?: 0L).toString(), (pwszpkeyalgorithm?.value ?: 0L).toString(), (pwszpkeystring?.value ?: 0L).toString(), cbpkeyspecificdata.toInt(), (pbpkeyspecificdata?.value ?: 0L).toString(), (ppkeyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLIsGenuineLocal(pappid: Long, pgenuinestate: Long, puioptions: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLIsGenuineLocal(pappid.toString(), pgenuinestate.toString(), puioptions.toString()) as Int) else 0
+public actual fun sLIsGenuineLocal(pappid: COpaquePointer?, pgenuinestate: COpaquePointer?, puioptions: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLIsGenuineLocal((pappid?.value ?: 0L).toString(), (pgenuinestate?.value ?: 0L).toString(), (puioptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLOpen(phslc: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLOpen(phslc.toString()) as Int) else 0
+public actual fun sLOpen(phslc: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLOpen((phslc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLQueryLicenseValueFromApp(valuename: PCWSTR, valuetype: Long, databuffer: Long, datasize: UInt, resultdatasize: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLQueryLicenseValueFromApp(valuename.toString(), valuetype.toString(), databuffer.toString(), datasize.toInt(), resultdatasize.toString()) as Int) else 0
+public actual fun sLQueryLicenseValueFromApp(valuename: Pcwstr, valuetype: COpaquePointer?, databuffer: COpaquePointer?, datasize: UInt, resultdatasize: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLQueryLicenseValueFromApp((valuename?.value ?: 0L).toString(), (valuetype?.value ?: 0L).toString(), (databuffer?.value ?: 0L).toString(), datasize.toInt(), (resultdatasize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLRegisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLRegisterEvent(hslc.toString(), pwszeventid.toString(), papplicationid.toString(), hevent.toString()) as Int) else 0
+public actual fun sLRegisterEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?, hevent: Handle): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLRegisterEvent((hslc?.value ?: 0L).toString(), (pwszeventid?.value ?: 0L).toString(), (papplicationid?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLSetCurrentProductKey(hslc: Long, pproductskuid: Long, pproductkeyid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLSetCurrentProductKey(hslc.toString(), pproductskuid.toString(), pproductkeyid.toString()) as Int) else 0
+public actual fun sLSetCurrentProductKey(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pproductkeyid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLSetCurrentProductKey((hslc?.value ?: 0L).toString(), (pproductskuid?.value ?: 0L).toString(), (pproductkeyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLSetGenuineInformation(pqueryid: Long, pwszvaluename: PCWSTR, edatatype: SLDATATYPE, cbvalue: UInt, pbvalue: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLSetGenuineInformation(pqueryid.toString(), pwszvaluename.toString(), edatatype.toInt(), cbvalue.toInt(), pbvalue.toString()) as Int) else 0
+public actual fun sLSetGenuineInformation(pqueryid: COpaquePointer?, pwszvaluename: Pcwstr, edatatype: Sldatatype, cbvalue: UInt, pbvalue: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLSetGenuineInformation((pqueryid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), edatatype.toInt(), cbvalue.toInt(), (pbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLUninstallLicense(hslc: Long, plicensefileid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLUninstallLicense(hslc.toString(), plicensefileid.toString()) as Int) else 0
+public actual fun sLUninstallLicense(hslc: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLUninstallLicense((hslc?.value ?: 0L).toString(), (plicensefileid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLUninstallProofOfPurchase(hslc: Long, ppkeyid: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLUninstallProofOfPurchase(hslc.toString(), ppkeyid.toString()) as Int) else 0
+public actual fun sLUninstallProofOfPurchase(hslc: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLUninstallProofOfPurchase((hslc?.value ?: 0L).toString(), (ppkeyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SLUnregisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SLUnregisterEvent(hslc.toString(), pwszeventid.toString(), papplicationid.toString(), hevent.toString()) as Int) else 0
+public actual fun sLUnregisterEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?, hevent: Handle): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sLUnregisterEvent((hslc?.value ?: 0L).toString(), (pwszeventid?.value ?: 0L).toString(), (papplicationid?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslAcceptSecurityContext(phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: ASC_REQ_FLAGS, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslAcceptSecurityContext(phcredential.toString(), phcontext.toString(), pinput.toString(), fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun saslAcceptSecurityContext(phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslAcceptSecurityContext((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (pinput?.value ?: 0L).toString(), fcontextreq.toInt(), targetdatarep.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslEnumerateProfilesA(profilelist: Long, profilecount: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslEnumerateProfilesA(profilelist.toString(), profilecount.toString()) as Int) else 0
+public actual fun saslEnumerateProfilesA(profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslEnumerateProfilesA((profilelist?.value ?: 0L).toString(), (profilecount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslEnumerateProfilesW(profilelist: Long, profilecount: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslEnumerateProfilesW(profilelist.toString(), profilecount.toString()) as Int) else 0
+public actual fun saslEnumerateProfilesW(profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslEnumerateProfilesW((profilelist?.value ?: 0L).toString(), (profilecount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslGetContextOption(contexthandle: Long, option: UInt, value: Long, size: UInt, needed: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslGetContextOption(contexthandle.toString(), option.toInt(), value.toString(), size.toInt(), needed.toString()) as Int) else 0
+public actual fun saslGetContextOption(contexthandle: COpaquePointer?, option: UInt, value: COpaquePointer?, size: UInt, needed: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslGetContextOption((contexthandle?.value ?: 0L).toString(), option.toInt(), (value?.value ?: 0L).toString(), size.toInt(), (needed?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslGetProfilePackageA(profilename: PCSTR, packageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslGetProfilePackageA(profilename.toString(), packageinfo.toString()) as Int) else 0
+public actual fun saslGetProfilePackageA(profilename: Pcstr, packageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslGetProfilePackageA((profilename?.value ?: 0L).toString(), (packageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslGetProfilePackageW(profilename: PCWSTR, packageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslGetProfilePackageW(profilename.toString(), packageinfo.toString()) as Int) else 0
+public actual fun saslGetProfilePackageW(profilename: Pcwstr, packageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslGetProfilePackageW((profilename?.value ?: 0L).toString(), (packageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslIdentifyPackageA(pinput: Long, packageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslIdentifyPackageA(pinput.toString(), packageinfo.toString()) as Int) else 0
+public actual fun saslIdentifyPackageA(pinput: COpaquePointer?, packageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslIdentifyPackageA((pinput?.value ?: 0L).toString(), (packageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslIdentifyPackageW(pinput: Long, packageinfo: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslIdentifyPackageW(pinput.toString(), packageinfo.toString()) as Int) else 0
+public actual fun saslIdentifyPackageW(pinput: COpaquePointer?, packageinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslIdentifyPackageW((pinput?.value ?: 0L).toString(), (packageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslInitializeSecurityContextA(phcredential: Long, phcontext: Long, psztargetname: PCSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslInitializeSecurityContextA(phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun saslInitializeSecurityContextA(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslInitializeSecurityContextA((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslInitializeSecurityContextW(phcredential: Long, phcontext: Long, psztargetname: PCWSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslInitializeSecurityContextW(phcredential.toString(), phcontext.toString(), psztargetname.toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.toString(), reserved2.toInt(), phnewcontext.toString(), poutput.toString(), pfcontextattr.toString(), ptsexpiry.toString()) as Int) else 0
+public actual fun saslInitializeSecurityContextW(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcwstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslInitializeSecurityContextW((phcredential?.value ?: 0L).toString(), (phcontext?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L).toString(), reserved2.toInt(), (phnewcontext?.value ?: 0L).toString(), (poutput?.value ?: 0L).toString(), (pfcontextattr?.value ?: 0L).toString(), (ptsexpiry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaslSetContextOption(contexthandle: Long, option: UInt, value: Long, size: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SaslSetContextOption(contexthandle.toString(), option.toInt(), value.toString(), size.toInt()) as Int) else 0
+public actual fun saslSetContextOption(contexthandle: COpaquePointer?, option: UInt, value: COpaquePointer?, size: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_saslSetContextOption((contexthandle?.value ?: 0L).toString(), option.toInt(), (value?.value ?: 0L).toString(), size.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendSAS(asuser: BOOL) {
+public actual fun sendSAS(asuser: Bool) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SendSAS(asuser)
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sendSAS(asuser)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetContextAttributesA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SetContextAttributesA(phcontext.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun setContextAttributesA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_setContextAttributesA((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetContextAttributesW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SetContextAttributesW(phcontext.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun setContextAttributesW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_setContextAttributesW((phcontext?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCredentialsAttributesA(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SetCredentialsAttributesA(phcredential.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun setCredentialsAttributesA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_setCredentialsAttributesA((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCredentialsAttributesW(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SetCredentialsAttributesW(phcredential.toString(), ulattribute.toInt(), pbuffer.toString(), cbbuffer.toInt()) as Int) else 0
+public actual fun setCredentialsAttributesW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_setCredentialsAttributesW((phcredential?.value ?: 0L).toString(), ulattribute.toInt(), (pbuffer?.value ?: 0L).toString(), cbbuffer.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslCrackCertificate(pbcertificate: Long, cbcertificate: UInt, dwflags: UInt, ppcertificate: Long): BOOL =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslCrackCertificate(pbcertificate.toString(), cbcertificate.toInt(), dwflags.toInt(), ppcertificate.toString()) as Int) else 0
+public actual fun sslCrackCertificate(pbcertificate: COpaquePointer?, cbcertificate: UInt, dwflags: UInt, ppcertificate: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslCrackCertificate((pbcertificate?.value ?: 0L).toString(), cbcertificate.toInt(), dwflags.toInt(), (ppcertificate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslDeserializeCertificateStore(serializedcertificatestore: CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT =
-    0
+public actual fun sslDeserializeCertificateStore(serializedcertificatestore: CryptIntegerBlob, ppcertcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEmptyCacheA(psztargetname: PCSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslEmptyCacheA(psztargetname.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEmptyCacheA(psztargetname: Pcstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslEmptyCacheA((psztargetname?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEmptyCacheW(psztargetname: PCWSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslEmptyCacheW(psztargetname.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEmptyCacheW(psztargetname: Pcwstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslEmptyCacheW((psztargetname?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslFreeCertificate(pcertificate: Long) {
+public actual fun sslFreeCertificate(pcertificate: COpaquePointer?) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslFreeCertificate(pcertificate.toString())
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslFreeCertificate((pcertificate?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SslGenerateRandomBits(prandomdata: Long, crandomdata: Int) {
+public actual fun sslGenerateRandomBits(prandomdata: COpaquePointer?, crandomdata: Int) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslGenerateRandomBits(prandomdata.toString(), crandomdata)
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslGenerateRandomBits((prandomdata?.value ?: 0L).toString(), crandomdata)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SslGetExtensions(clienthello: Long, clienthellobytesize: UInt, genericextensions: Long, genericextensionscount: UByte, bytestoread: Long, flags: SchGetExtensionsOptions): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslGetExtensions(clienthello.toString(), clienthellobytesize.toInt(), genericextensions.toString(), genericextensionscount.toInt(), bytestoread.toString(), flags) as Int) else 0
+public actual fun sslGetExtensions(clienthello: COpaquePointer?, clienthellobytesize: UInt, genericextensions: COpaquePointer?, genericextensionscount: UByte, bytestoread: COpaquePointer?, flags: SchGetExtensionsOptions): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslGetExtensions((clienthello?.value ?: 0L).toString(), clienthellobytesize.toInt(), (genericextensions?.value ?: 0L).toString(), genericextensionscount.toInt(), (bytestoread?.value ?: 0L).toString(), flags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGetMaximumKeySize(reserved: UInt): UInt =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslGetMaximumKeySize(reserved.toInt()) as Int).toUInt() else 0u
+public actual fun sslGetMaximumKeySize(reserved: UInt): UInt =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslGetMaximumKeySize(reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGetServerIdentity(clienthello: Long, clienthellosize: UInt, serveridentity: Long, serveridentitysize: Long, flags: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SslGetServerIdentity(clienthello.toString(), clienthellosize.toInt(), serveridentity.toString(), serveridentitysize.toString(), flags.toInt()) as Int) else 0
+public actual fun sslGetServerIdentity(clienthello: COpaquePointer?, clienthellosize: UInt, serveridentity: COpaquePointer?, serveridentitysize: COpaquePointer?, flags: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sslGetServerIdentity((clienthello?.value ?: 0L).toString(), clienthellosize.toInt(), (serveridentity?.value ?: 0L).toString(), (serveridentitysize?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiCompareAuthIdentities(authidentity1: Long, authidentity2: Long, samesupplieduser: Long, samesuppliedidentity: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiCompareAuthIdentities(authidentity1.toString(), authidentity2.toString(), samesupplieduser.toString(), samesuppliedidentity.toString()) as Int) else 0
+public actual fun sspiCompareAuthIdentities(authidentity1: COpaquePointer?, authidentity2: COpaquePointer?, samesupplieduser: COpaquePointer?, samesuppliedidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiCompareAuthIdentities((authidentity1?.value ?: 0L).toString(), (authidentity2?.value ?: 0L).toString(), (samesupplieduser?.value ?: 0L).toString(), (samesuppliedidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiCopyAuthIdentity(authdata: Long, authdatacopy: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiCopyAuthIdentity(authdata.toString(), authdatacopy.toString()) as Int) else 0
+public actual fun sspiCopyAuthIdentity(authdata: COpaquePointer?, authdatacopy: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiCopyAuthIdentity((authdata?.value ?: 0L).toString(), (authdatacopy?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiDecryptAuthIdentity(encryptedauthdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiDecryptAuthIdentity(encryptedauthdata.toString()) as Int) else 0
+public actual fun sspiDecryptAuthIdentity(encryptedauthdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiDecryptAuthIdentity((encryptedauthdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiDecryptAuthIdentityEx(options.toInt(), encryptedauthdata.toString()) as Int) else 0
+public actual fun sspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiDecryptAuthIdentityEx(options.toInt(), (encryptedauthdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiEncodeAuthIdentityAsStrings(pauthidentity: Long, ppszusername: Long, ppszdomainname: Long, ppszpackedcredentialsstring: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiEncodeAuthIdentityAsStrings(pauthidentity.toString(), ppszusername.toString(), ppszdomainname.toString(), ppszpackedcredentialsstring.toString()) as Int) else 0
+public actual fun sspiEncodeAuthIdentityAsStrings(pauthidentity: COpaquePointer?, ppszusername: COpaquePointer?, ppszdomainname: COpaquePointer?, ppszpackedcredentialsstring: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiEncodeAuthIdentityAsStrings((pauthidentity?.value ?: 0L).toString(), (ppszusername?.value ?: 0L).toString(), (ppszdomainname?.value ?: 0L).toString(), (ppszpackedcredentialsstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiEncodeStringsAsAuthIdentity(pszusername: PCWSTR, pszdomainname: PCWSTR, pszpackedcredentialsstring: PCWSTR, ppauthidentity: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiEncodeStringsAsAuthIdentity(pszusername.toString(), pszdomainname.toString(), pszpackedcredentialsstring.toString(), ppauthidentity.toString()) as Int) else 0
+public actual fun sspiEncodeStringsAsAuthIdentity(pszusername: Pcwstr, pszdomainname: Pcwstr, pszpackedcredentialsstring: Pcwstr, ppauthidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiEncodeStringsAsAuthIdentity((pszusername?.value ?: 0L).toString(), (pszdomainname?.value ?: 0L).toString(), (pszpackedcredentialsstring?.value ?: 0L).toString(), (ppauthidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiEncryptAuthIdentity(authdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiEncryptAuthIdentity(authdata.toString()) as Int) else 0
+public actual fun sspiEncryptAuthIdentity(authdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiEncryptAuthIdentity((authdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiEncryptAuthIdentityEx(options: UInt, authdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiEncryptAuthIdentityEx(options.toInt(), authdata.toString()) as Int) else 0
+public actual fun sspiEncryptAuthIdentityEx(options: UInt, authdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiEncryptAuthIdentityEx(options.toInt(), (authdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiExcludePackage(authidentity: Long, pszpackagename: PCWSTR, ppnewauthidentity: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiExcludePackage(authidentity.toString(), pszpackagename.toString(), ppnewauthidentity.toString()) as Int) else 0
+public actual fun sspiExcludePackage(authidentity: COpaquePointer?, pszpackagename: Pcwstr, ppnewauthidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiExcludePackage((authidentity?.value ?: 0L).toString(), (pszpackagename?.value ?: 0L).toString(), (ppnewauthidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiFreeAuthIdentity(authdata: Long) {
+public actual fun sspiFreeAuthIdentity(authdata: COpaquePointer?) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiFreeAuthIdentity(authdata.toString())
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiFreeAuthIdentity((authdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SspiGetTargetHostName(psztargetname: PCWSTR, pszhostname: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiGetTargetHostName(psztargetname.toString(), pszhostname.toString()) as Int) else 0
+public actual fun sspiGetTargetHostName(psztargetname: Pcwstr, pszhostname: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiGetTargetHostName((psztargetname?.value ?: 0L).toString(), (pszhostname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiIsAuthIdentityEncrypted(encryptedauthdata: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiIsAuthIdentityEncrypted(encryptedauthdata.toString()) as Boolean) else false
+public actual fun sspiIsAuthIdentityEncrypted(encryptedauthdata: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiIsAuthIdentityEncrypted((encryptedauthdata?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiIsPromptingNeeded(errororntstatus.toInt()) as Boolean) else false
+public actual fun sspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiIsPromptingNeeded(errororntstatus.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiLocalFree(databuffer: Long) {
+public actual fun sspiLocalFree(databuffer: COpaquePointer?) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiLocalFree(databuffer.toString())
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiLocalFree((databuffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SspiMarshalAuthIdentity(authidentity: Long, authidentitylength: Long, authidentitybytearray: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiMarshalAuthIdentity(authidentity.toString(), authidentitylength.toString(), authidentitybytearray.toString()) as Int) else 0
+public actual fun sspiMarshalAuthIdentity(authidentity: COpaquePointer?, authidentitylength: COpaquePointer?, authidentitybytearray: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiMarshalAuthIdentity((authidentity?.value ?: 0L).toString(), (authidentitylength?.value ?: 0L).toString(), (authidentitybytearray?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiPrepareForCredRead(authidentity: Long, psztargetname: PCWSTR, pcredmancredentialtype: Long, ppszcredmantargetname: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiPrepareForCredRead(authidentity.toString(), psztargetname.toString(), pcredmancredentialtype.toString(), ppszcredmantargetname.toString()) as Int) else 0
+public actual fun sspiPrepareForCredRead(authidentity: COpaquePointer?, psztargetname: Pcwstr, pcredmancredentialtype: COpaquePointer?, ppszcredmantargetname: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiPrepareForCredRead((authidentity?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), (pcredmancredentialtype?.value ?: 0L).toString(), (ppszcredmantargetname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiPrepareForCredWrite(authidentity: Long, psztargetname: PCWSTR, pcredmancredentialtype: Long, ppszcredmantargetname: Long, ppszcredmanusername: Long, ppcredentialblob: Long, pcredentialblobsize: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiPrepareForCredWrite(authidentity.toString(), psztargetname.toString(), pcredmancredentialtype.toString(), ppszcredmantargetname.toString(), ppszcredmanusername.toString(), ppcredentialblob.toString(), pcredentialblobsize.toString()) as Int) else 0
+public actual fun sspiPrepareForCredWrite(authidentity: COpaquePointer?, psztargetname: Pcwstr, pcredmancredentialtype: COpaquePointer?, ppszcredmantargetname: COpaquePointer?, ppszcredmanusername: COpaquePointer?, ppcredentialblob: COpaquePointer?, pcredentialblobsize: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiPrepareForCredWrite((authidentity?.value ?: 0L).toString(), (psztargetname?.value ?: 0L).toString(), (pcredmancredentialtype?.value ?: 0L).toString(), (ppszcredmantargetname?.value ?: 0L).toString(), (ppszcredmanusername?.value ?: 0L).toString(), (ppcredentialblob?.value ?: 0L).toString(), (pcredentialblobsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiPromptForCredentialsA(psztargetname: PCSTR, puiinfo: Long, dwautherror: UInt, pszpackage: PCSTR, pinputauthidentity: Long, ppauthidentity: Long, pfsave: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiPromptForCredentialsA(psztargetname.toString(), puiinfo.toString(), dwautherror.toInt(), pszpackage.toString(), pinputauthidentity.toString(), ppauthidentity.toString(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun sspiPromptForCredentialsA(psztargetname: Pcstr, puiinfo: COpaquePointer?, dwautherror: UInt, pszpackage: Pcstr, pinputauthidentity: COpaquePointer?, ppauthidentity: COpaquePointer?, pfsave: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiPromptForCredentialsA((psztargetname?.value ?: 0L).toString(), (puiinfo?.value ?: 0L).toString(), dwautherror.toInt(), (pszpackage?.value ?: 0L).toString(), (pinputauthidentity?.value ?: 0L).toString(), (ppauthidentity?.value ?: 0L).toString(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiPromptForCredentialsW(psztargetname: PCWSTR, puiinfo: Long, dwautherror: UInt, pszpackage: PCWSTR, pinputauthidentity: Long, ppauthidentity: Long, pfsave: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiPromptForCredentialsW(psztargetname.toString(), puiinfo.toString(), dwautherror.toInt(), pszpackage.toString(), pinputauthidentity.toString(), ppauthidentity.toString(), pfsave.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun sspiPromptForCredentialsW(psztargetname: Pcwstr, puiinfo: COpaquePointer?, dwautherror: UInt, pszpackage: Pcwstr, pinputauthidentity: COpaquePointer?, ppauthidentity: COpaquePointer?, pfsave: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiPromptForCredentialsW((psztargetname?.value ?: 0L).toString(), (puiinfo?.value ?: 0L).toString(), dwautherror.toInt(), (pszpackage?.value ?: 0L).toString(), (pinputauthidentity?.value ?: 0L).toString(), (ppauthidentity?.value ?: 0L).toString(), (pfsave?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiSetChannelBindingFlags(pbindings: Long, flags: UInt): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiSetChannelBindingFlags(pbindings.toString(), flags.toInt()) as Int) else 0
+public actual fun sspiSetChannelBindingFlags(pbindings: COpaquePointer?, flags: UInt): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiSetChannelBindingFlags((pbindings?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: PCSTR, ppauthidentity: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiUnmarshalAuthIdentity(authidentitylength.toInt(), authidentitybytearray.toString(), ppauthidentity.toString()) as Int) else 0
+public actual fun sspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: Pcstr, ppauthidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiUnmarshalAuthIdentity(authidentitylength.toInt(), (authidentitybytearray?.value ?: 0L).toString(), (ppauthidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiValidateAuthIdentity(authdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiValidateAuthIdentity(authdata.toString()) as Int) else 0
+public actual fun sspiValidateAuthIdentity(authdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiValidateAuthIdentity((authdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SspiZeroAuthIdentity(authdata: Long) {
+public actual fun sspiZeroAuthIdentity(authdata: COpaquePointer?) {
     if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) {
-        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_SspiZeroAuthIdentity(authdata.toString())
+        _windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_sspiZeroAuthIdentity((authdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun TokenBindingDeleteAllBindings(): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingDeleteAllBindings() as Int) else 0
+public actual fun tokenBindingDeleteAllBindings(): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingDeleteAllBindings() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingDeleteBinding(targeturl: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingDeleteBinding(targeturl.toString()) as Int) else 0
+public actual fun tokenBindingDeleteBinding(targeturl: Pcwstr): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingDeleteBinding((targeturl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: PCWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: Long, tlsekmsize: UInt, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: Long, tokenbinding: Long, tokenbindingsize: Long, resultdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGenerateBinding(keytype, targeturl.toString(), bindingtype, tlsekm.toString(), tlsekmsize.toInt(), extensionformat, extensiondata.toString(), tokenbinding.toString(), tokenbindingsize.toString(), resultdata.toString()) as Int) else 0
+public actual fun tokenBindingGenerateBinding(keytype: TokenbindingKeyParametersType, targeturl: Pcwstr, bindingtype: TokenbindingType, tlsekm: COpaquePointer?, tlsekmsize: UInt, extensionformat: TokenbindingExtensionFormat, extensiondata: COpaquePointer?, tokenbinding: COpaquePointer?, tokenbindingsize: COpaquePointer?, resultdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateBinding(keytype, (targeturl?.value ?: 0L).toString(), bindingtype, (tlsekm?.value ?: 0L).toString(), tlsekmsize.toInt(), extensionformat, (extensiondata?.value ?: 0L).toString(), (tokenbinding?.value ?: 0L).toString(), (tokenbindingsize?.value ?: 0L).toString(), (resultdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: Long, publickeysize: UInt, resultdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGenerateID(keytype, publickey.toString(), publickeysize.toInt(), resultdata.toString()) as Int) else 0
+public actual fun tokenBindingGenerateID(keytype: TokenbindingKeyParametersType, publickey: COpaquePointer?, publickeysize: UInt, resultdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateID(keytype, (publickey?.value ?: 0L).toString(), publickeysize.toInt(), (resultdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGenerateIDForUri(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: PCWSTR, resultdata: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGenerateIDForUri(keytype, targeturi.toString(), resultdata.toString()) as Int) else 0
+public actual fun tokenBindingGenerateIDForUri(keytype: TokenbindingKeyParametersType, targeturi: Pcwstr, resultdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateIDForUri(keytype, (targeturi?.value ?: 0L).toString(), (resultdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGenerateMessage(tokenbindings: Long, tokenbindingssize: Long, tokenbindingscount: UInt, tokenbindingmessage: Long, tokenbindingmessagesize: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGenerateMessage(tokenbindings.toString(), tokenbindingssize.toString(), tokenbindingscount.toInt(), tokenbindingmessage.toString(), tokenbindingmessagesize.toString()) as Int) else 0
+public actual fun tokenBindingGenerateMessage(tokenbindings: COpaquePointer?, tokenbindingssize: COpaquePointer?, tokenbindingscount: UInt, tokenbindingmessage: COpaquePointer?, tokenbindingmessagesize: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGenerateMessage((tokenbindings?.value ?: 0L).toString(), (tokenbindingssize?.value ?: 0L).toString(), tokenbindingscount.toInt(), (tokenbindingmessage?.value ?: 0L).toString(), (tokenbindingmessagesize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGetHighestSupportedVersion(majorversion: Long, minorversion: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGetHighestSupportedVersion(majorversion.toString(), minorversion.toString()) as Int) else 0
+public actual fun tokenBindingGetHighestSupportedVersion(majorversion: COpaquePointer?, minorversion: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGetHighestSupportedVersion((majorversion?.value ?: 0L).toString(), (minorversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGetKeyTypesClient(keytypes: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGetKeyTypesClient(keytypes.toString()) as Int) else 0
+public actual fun tokenBindingGetKeyTypesClient(keytypes: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGetKeyTypesClient((keytypes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingGetKeyTypesServer(keytypes: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingGetKeyTypesServer(keytypes.toString()) as Int) else 0
+public actual fun tokenBindingGetKeyTypesServer(keytypes: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingGetKeyTypesServer((keytypes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TokenBindingVerifyMessage(tokenbindingmessage: Long, tokenbindingmessagesize: UInt, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: Long, tlsekmsize: UInt, resultlist: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TokenBindingVerifyMessage(tokenbindingmessage.toString(), tokenbindingmessagesize.toInt(), keytype, tlsekm.toString(), tlsekmsize.toInt(), resultlist.toString()) as Int) else 0
+public actual fun tokenBindingVerifyMessage(tokenbindingmessage: COpaquePointer?, tokenbindingmessagesize: UInt, keytype: TokenbindingKeyParametersType, tlsekm: COpaquePointer?, tlsekmsize: UInt, resultlist: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_tokenBindingVerifyMessage((tokenbindingmessage?.value ?: 0L).toString(), tokenbindingmessagesize.toInt(), keytype, (tlsekm?.value ?: 0L).toString(), tlsekmsize.toInt(), (resultlist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateNameA(lpaccountname: PCSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: PSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TranslateNameA(lpaccountname.toString(), accountnameformat, desirednameformat, lptranslatedname.toString(), nsize.toString()) as Boolean) else false
+public actual fun translateNameA(lpaccountname: Pcstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_translateNameA((lpaccountname?.value ?: 0L).toString(), accountnameformat, desirednameformat, (lptranslatedname?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateNameW(lpaccountname: PCWSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: PWSTR, nsize: Long): Boolean =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_TranslateNameW(lpaccountname.toString(), accountnameformat, desirednameformat, lptranslatedname.toString(), nsize.toString()) as Boolean) else false
+public actual fun translateNameW(lpaccountname: Pcwstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pwstr, nsize: COpaquePointer?): Boolean =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_translateNameW((lpaccountname?.value ?: 0L).toString(), accountnameformat, desirednameformat, (lptranslatedname?.value ?: 0L).toString(), (nsize?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifySignature(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_VerifySignature(phcontext.toString(), pmessage.toString(), messageseqno.toInt(), pfqop.toString()) as Int) else 0
+public actual fun verifySignature(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityAuthenticationIdentityNapiAddon != null) (_windowsWin32SecurityAuthenticationIdentityNapiAddon.windowssys_windows_win32_security_authentication_identity_verifySignature((phcontext?.value ?: 0L).toString(), (pmessage?.value ?: 0L).toString(), messageseqno.toInt(), (pfqop?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

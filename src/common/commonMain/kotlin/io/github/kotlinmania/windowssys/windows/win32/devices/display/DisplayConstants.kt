@@ -1,30 +1,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public val AR_DISABLED: AR_STATE = 1
+public val AR_DISABLED: ArState = 1
 
-public val AR_DOCKED: AR_STATE = 64
+public val AR_DOCKED: ArState = 64
 
-public val AR_ENABLED: AR_STATE = 0
+public val AR_ENABLED: ArState = 0
 
-public val AR_LAPTOP: AR_STATE = 128
+public val AR_LAPTOP: ArState = 128
 
-public val AR_MULTIMON: AR_STATE = 8
+public val AR_MULTIMON: ArState = 8
 
-public val AR_NOSENSOR: AR_STATE = 16
+public val AR_NOSENSOR: ArState = 16
 
-public val AR_NOT_SUPPORTED: AR_STATE = 32
+public val AR_NOT_SUPPORTED: ArState = 32
 
-public val AR_REMOTESESSION: AR_STATE = 4
+public val AR_REMOTESESSION: ArState = 4
 
-public val AR_SUPPRESSED: AR_STATE = 2
+public val AR_SUPPRESSED: ArState = 2
 
 public val BITMAP_ARRAY_BYTE: UInt = 3u
 
@@ -80,11 +80,11 @@ public val BMF_USERMEM: UInt = 8u
 
 public val BMF_WINDOW_BLT: UInt = 64u
 
-public val BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = 1
+public val BRIGHTNESS_INTERFACE_VERSION_1: BrightnessInterfaceVersion = 1
 
-public val BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = 2
+public val BRIGHTNESS_INTERFACE_VERSION_2: BrightnessInterfaceVersion = 2
 
-public val BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = 3
+public val BRIGHTNESS_INTERFACE_VERSION_3: BrightnessInterfaceVersion = 3
 
 public val BRIGHTNESS_MAX_LEVEL_COUNT: UInt = 103u
 
@@ -98,19 +98,19 @@ public val BR_HOST_ICM: UInt = 2u
 
 public val BR_ORIGCOLOR: UInt = 8u
 
-public val BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = 1
+public val BACKLIGHT_OPTIMIZATION_DESKTOP: BacklightOptimizationLevel = 1
 
-public val BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = 3
+public val BACKLIGHT_OPTIMIZATION_DIMMED: BacklightOptimizationLevel = 3
 
-public val BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = 0
+public val BACKLIGHT_OPTIMIZATION_DISABLE: BacklightOptimizationLevel = 0
 
-public val BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = 2
+public val BACKLIGHT_OPTIMIZATION_DYNAMIC: BacklightOptimizationLevel = 2
 
-public val BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = 4
+public val BACKLIGHT_OPTIMIZATION_EDR: BacklightOptimizationLevel = 4
 
-public val BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = 1
+public val BLACK_SCREEN_DIAGNOSTICS_DATA: BlackScreenDiagnosticsCalloutParam = 1
 
-public val BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = 2
+public val BLACK_SCREEN_DISPLAY_RECOVERY: BlackScreenDiagnosticsCalloutParam = 2
 
 public val CDBEX_CROSSADAPTER: UInt = 8u
 
@@ -142,35 +142,35 @@ public val CHAR_TYPE_SBCS: UInt = 0u
 
 public val CHAR_TYPE_TRAILING: UInt = 3u
 
-public val COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = 0
+public val COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: ColorspaceTransformDataType = 0
 
-public val COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = 1
+public val COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: ColorspaceTransformDataType = 1
 
-public val COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = 1
+public val COLORSPACE_TRANSFORM_TYPE_DEFAULT: ColorspaceTransformType = 1
 
-public val COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = 3
+public val COLORSPACE_TRANSFORM_TYPE_DXGI_1: ColorspaceTransformType = 3
 
-public val COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = 4
+public val COLORSPACE_TRANSFORM_TYPE_MATRIX_3X4: ColorspaceTransformType = 4
 
-public val COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = 5
+public val COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: ColorspaceTransformType = 5
 
-public val COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = 2
+public val COLORSPACE_TRANSFORM_TYPE_RGB256X3X16: ColorspaceTransformType = 2
 
-public val COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = 0
+public val COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: ColorspaceTransformType = 0
 
-public val COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 1
+public val COLORSPACE_TRANSFORM_VERSION_1: ColorspaceTransformTargetCapsVersion = 1
 
-public val COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0
+public val COLORSPACE_TRANSFORM_VERSION_DEFAULT: ColorspaceTransformTargetCapsVersion = 0
 
-public val COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0
+public val COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: ColorspaceTransformTargetCapsVersion = 0
 
 public val CT_RECTANGLES: Int = 0
 
-public val ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = 2
+public val COLOR_SPACE_TRANSFORM_STAGE_CONTROL_BYPASS: ColorspaceTransformStageControl = 2
 
-public val ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = 1
+public val COLOR_SPACE_TRANSFORM_STAGE_CONTROL_ENABLE: ColorspaceTransformStageControl = 1
 
-public val ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = 0
+public val COLOR_SPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE: ColorspaceTransformStageControl = 0
 
 public val DCR_DRIVER: UInt = 1u
 
@@ -178,11 +178,11 @@ public val DCR_HALFTONE: UInt = 2u
 
 public val DCR_SOLID: UInt = 0u
 
-public val DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = 0
+public val DCT_DEFAULT: DsiControlTransmissionMode = 0
 
-public val DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = 2
+public val DCT_FORCE_HIGH_PERFORMANCE: DsiControlTransmissionMode = 2
 
-public val DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = 1
+public val DCT_FORCE_LOW_POWER: DsiControlTransmissionMode = 1
 
 public val DC_COMPLEX: UInt = 3u
 
@@ -202,139 +202,139 @@ public val DDI_DRIVER_VERSION_SP3: UInt = 131075u
 
 public val DDI_ERROR: UInt = 4294967295u
 
-public val DD_FULLSCREEN_VIDEO_DEVICE_NAME: PCWSTR = w("\\Device\\FSVideo")
+public val DD_FULLSCREEN_VIDEO_DEVICE_NAME: Pcwstr = w("\\Device\\FSVideo")
 
 public val DEVHTADJF_ADDITIVE_DEVICE: UInt = 2u
 
 public val DEVHTADJF_COLOR_DEVICE: UInt = 1u
 
-public val DEVPKEY_Device_ActivityId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 4u)
+public val DEVPKEY_DEVICE_ACTIVITY_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 4u)
 
-public val DEVPKEY_Device_AdapterLuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 3u)
+public val DEVPKEY_DEVICE_ADAPTER_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 3u)
 
-public val DEVPKEY_Device_TerminalLuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 2u)
+public val DEVPKEY_DEVICE_TERMINAL_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 2u)
 
-public val DEVPKEY_IndirectDisplay: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 1u)
+public val DEVPKEY_INDIRECT_DISPLAY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 1u)
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4
+public val DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DisplayconfigDeviceInfoType = 4
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9
+public val DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DisplayconfigDeviceInfoType = 9
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12
+public val DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DisplayconfigDeviceInfoType = 12
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = 11
+public val DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DisplayconfigDeviceInfoType = 11
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 1
+public val DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DisplayconfigDeviceInfoType = 1
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 7
+public val DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DisplayconfigDeviceInfoType = 7
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 6
+public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DisplayconfigDeviceInfoType = 6
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 2
+public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DisplayconfigDeviceInfoType = 2
 
-public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3
+public val DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DisplayconfigDeviceInfoType = 3
 
-public val DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 10
+public val DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DisplayconfigDeviceInfoType = 10
 
-public val DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 13
+public val DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DisplayconfigDeviceInfoType = 13
 
-public val DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 8
+public val DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DisplayconfigDeviceInfoType = 8
 
-public val DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 5
+public val DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DisplayconfigDeviceInfoType = 5
 
-public val DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = 3
+public val DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DisplayconfigModeInfoType = 3
 
-public val DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = 1
+public val DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DisplayconfigModeInfoType = 1
 
-public val DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = 2
+public val DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DisplayconfigModeInfoType = 2
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 3
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DisplayconfigVideoOutputTechnology = 3
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 2
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DisplayconfigVideoOutputTechnology = 2
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 11
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DisplayconfigVideoOutputTechnology = 11
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 10
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DisplayconfigVideoOutputTechnology = 10
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 18
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DisplayconfigVideoOutputTechnology = 18
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 4
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DisplayconfigVideoOutputTechnology = 4
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 8
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DisplayconfigVideoOutputTechnology = 8
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 0
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DisplayconfigVideoOutputTechnology = 0
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 5
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DisplayconfigVideoOutputTechnology = 5
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 17
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DisplayconfigVideoOutputTechnology = 17
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 16
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DisplayconfigVideoOutputTechnology = 16
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -2147483648
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DisplayconfigVideoOutputTechnology = -2147483648.toInt()
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 6
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DisplayconfigVideoOutputTechnology = 6
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 15
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DisplayconfigVideoOutputTechnology = 15
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -1
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DisplayconfigVideoOutputTechnology = -1
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 9
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DisplayconfigVideoOutputTechnology = 9
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 14
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DisplayconfigVideoOutputTechnology = 14
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 1
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DisplayconfigVideoOutputTechnology = 1
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 13
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DisplayconfigVideoOutputTechnology = 13
 
-public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 12
+public val DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DisplayconfigVideoOutputTechnology = 12
 
-public val DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = 2
+public val DISPLAYCONFIG_PIXELFORMAT_16BPP: DisplayconfigPixelformat = 2
 
-public val DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = 3
+public val DISPLAYCONFIG_PIXELFORMAT_24BPP: DisplayconfigPixelformat = 3
 
-public val DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = 4
+public val DISPLAYCONFIG_PIXELFORMAT_32BPP: DisplayconfigPixelformat = 4
 
-public val DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = 1
+public val DISPLAYCONFIG_PIXELFORMAT_8BPP: DisplayconfigPixelformat = 1
 
-public val DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = 5
+public val DISPLAYCONFIG_PIXELFORMAT_NONGDI: DisplayconfigPixelformat = 5
 
-public val DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = 1
+public val DISPLAYCONFIG_ROTATION_IDENTITY: DisplayconfigRotation = 1
 
-public val DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = 3
+public val DISPLAYCONFIG_ROTATION_ROTATE180: DisplayconfigRotation = 3
 
-public val DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = 4
+public val DISPLAYCONFIG_ROTATION_ROTATE270: DisplayconfigRotation = 4
 
-public val DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = 2
+public val DISPLAYCONFIG_ROTATION_ROTATE90: DisplayconfigRotation = 2
 
-public val DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = 4
+public val DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DisplayconfigScaling = 4
 
-public val DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = 2
+public val DISPLAYCONFIG_SCALING_CENTERED: DisplayconfigScaling = 2
 
-public val DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = 5
+public val DISPLAYCONFIG_SCALING_CUSTOM: DisplayconfigScaling = 5
 
-public val DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = 1
+public val DISPLAYCONFIG_SCALING_IDENTITY: DisplayconfigScaling = 1
 
-public val DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = 128
+public val DISPLAYCONFIG_SCALING_PREFERRED: DisplayconfigScaling = 128
 
-public val DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = 3
+public val DISPLAYCONFIG_SCALING_STRETCHED: DisplayconfigScaling = 3
 
-public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = 2
+public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DisplayconfigScanlineOrdering = 2
 
-public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 3
+public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DisplayconfigScanlineOrdering = 3
 
-public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 2
+public val DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DisplayconfigScanlineOrdering = 2
 
-public val DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = 1
+public val DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DisplayconfigScanlineOrdering = 1
 
-public val DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0
+public val DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DisplayconfigScanlineOrdering = 0
 
-public val DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = 2
+public val DISPLAYCONFIG_TOPOLOGY_CLONE: DisplayconfigTopologyId = 2
 
-public val DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = 4
+public val DISPLAYCONFIG_TOPOLOGY_EXTEND: DisplayconfigTopologyId = 4
 
-public val DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 8
+public val DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DisplayconfigTopologyId = 8
 
-public val DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 1
+public val DISPLAYCONFIG_TOPOLOGY_INTERNAL: DisplayconfigTopologyId = 1
 
 public val DISPLAYPOLICY_AC: UInt = 1u
 
@@ -438,13 +438,13 @@ public val ENG_FNT_CACHE_READ_FAULT: UInt = 1u
 
 public val ENG_FNT_CACHE_WRITE_FAULT: UInt = 2u
 
-public val EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = 2
+public val ENG_NUMBER_OF_PROCESSORS: EngSystemAttribute = 2
 
-public val EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = 4
+public val ENG_OPTIMUM_AVAILABLE_SYSTEM_MEMORY: EngSystemAttribute = 4
 
-public val EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = 3
+public val ENG_OPTIMUM_AVAILABLE_USER_MEMORY: EngSystemAttribute = 3
 
-public val EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = 1
+public val ENG_PROCESSOR_FEATURE: EngSystemAttribute = 1
 
 public val FC_COMPLEX: UInt = 3u
 
@@ -646,7 +646,7 @@ public val GCAPS2_SYNCFLUSH: UInt = 64u
 
 public val GCAPS2_SYNCTIMER: UInt = 128u
 
-public val GCAPS2_xxxx: UInt = 2u
+public val GCAPS2_XXXX: UInt = 2u
 
 public val GCAPS_ALTERNATEFILL: UInt = 4u
 
@@ -720,15 +720,15 @@ public val GS_8BIT_HANDLES: UInt = 2u
 
 public val GS_UNICODE_HANDLES: UInt = 1u
 
-public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: GUID = GUID.from_u128(U128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL))
+public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: Guid = Guid.fromU128(U128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL))
 
-public val GUID_DEVINTERFACE_MONITOR: GUID = GUID.from_u128(U128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL))
+public val GUID_DEVINTERFACE_MONITOR: Guid = Guid.fromU128(U128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL))
 
-public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: GUID = GUID.from_u128(U128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL))
+public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: Guid = Guid.fromU128(U128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL))
 
-public val GUID_DISPLAY_DEVICE_ARRIVAL: GUID = GUID.from_u128(U128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL))
+public val GUID_DISPLAY_DEVICE_ARRIVAL: Guid = Guid.fromU128(U128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL))
 
-public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: GUID = GUID.from_u128(U128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL))
+public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: Guid = Guid.fromU128(U128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL))
 
 public val GX_GENERAL: Int = 3
 
@@ -848,37 +848,37 @@ public val HT_FORMAT_4BPP_IRGB: UInt = 3u
 
 public val HT_FORMAT_8BPP: UInt = 4u
 
-public val HT_PATSIZE_10x10: UInt = 8u
+public val HT_PATSIZE_10X10: UInt = 8u
 
-public val HT_PATSIZE_10x10_M: UInt = 9u
+public val HT_PATSIZE_10X10_M: UInt = 9u
 
-public val HT_PATSIZE_12x12: UInt = 10u
+public val HT_PATSIZE_12X12: UInt = 10u
 
-public val HT_PATSIZE_12x12_M: UInt = 11u
+public val HT_PATSIZE_12X12_M: UInt = 11u
 
-public val HT_PATSIZE_14x14: UInt = 12u
+public val HT_PATSIZE_14X14: UInt = 12u
 
-public val HT_PATSIZE_14x14_M: UInt = 13u
+public val HT_PATSIZE_14X14_M: UInt = 13u
 
-public val HT_PATSIZE_16x16: UInt = 14u
+public val HT_PATSIZE_16X16: UInt = 14u
 
-public val HT_PATSIZE_16x16_M: UInt = 15u
+public val HT_PATSIZE_16X16_M: UInt = 15u
 
-public val HT_PATSIZE_2x2: UInt = 0u
+public val HT_PATSIZE_2X2: UInt = 0u
 
-public val HT_PATSIZE_2x2_M: UInt = 1u
+public val HT_PATSIZE_2X2_M: UInt = 1u
 
-public val HT_PATSIZE_4x4: UInt = 2u
+public val HT_PATSIZE_4X4: UInt = 2u
 
-public val HT_PATSIZE_4x4_M: UInt = 3u
+public val HT_PATSIZE_4X4_M: UInt = 3u
 
-public val HT_PATSIZE_6x6: UInt = 4u
+public val HT_PATSIZE_6X6: UInt = 4u
 
-public val HT_PATSIZE_6x6_M: UInt = 5u
+public val HT_PATSIZE_6X6_M: UInt = 5u
 
-public val HT_PATSIZE_8x8: UInt = 6u
+public val HT_PATSIZE_8X8: UInt = 6u
 
-public val HT_PATSIZE_8x8_M: UInt = 7u
+public val HT_PATSIZE_8X8_M: UInt = 7u
 
 public val HT_PATSIZE_DEFAULT: UInt = 17u
 
@@ -902,203 +902,203 @@ public val IGRF_RGB_256BYTES: UInt = 0u
 
 public val IGRF_RGB_256WORDS: UInt = 1u
 
-public val INDEX_DrvAccumulateD3DDirtyRect: Int = 98
+public val INDEX_DRV_ACCUMULATE_D3D_DIRTY_RECT: Int = 98
 
-public val INDEX_DrvAlphaBlend: Int = 71
+public val INDEX_DRV_ALPHA_BLEND: Int = 71
 
-public val INDEX_DrvAssertMode: Int = 5
+public val INDEX_DRV_ASSERT_MODE: Int = 5
 
-public val INDEX_DrvAssociateSharedSurface: Int = 96
+public val INDEX_DRV_ASSOCIATE_SHARED_SURFACE: Int = 96
 
-public val INDEX_DrvBitBlt: Int = 18
+public val INDEX_DRV_BIT_BLT: Int = 18
 
-public val INDEX_DrvCompletePDEV: Int = 1
+public val INDEX_DRV_COMPLETE_PDEV: Int = 1
 
-public val INDEX_DrvCopyBits: Int = 19
+public val INDEX_DRV_COPY_BITS: Int = 19
 
-public val INDEX_DrvCreateDeviceBitmap: Int = 10
+public val INDEX_DRV_CREATE_DEVICE_BITMAP: Int = 10
 
-public val INDEX_DrvCreateDeviceBitmapEx: Int = 94
+public val INDEX_DRV_CREATE_DEVICE_BITMAP_EX: Int = 94
 
-public val INDEX_DrvDeleteDeviceBitmap: Int = 11
+public val INDEX_DRV_DELETE_DEVICE_BITMAP: Int = 11
 
-public val INDEX_DrvDeleteDeviceBitmapEx: Int = 95
+public val INDEX_DRV_DELETE_DEVICE_BITMAP_EX: Int = 95
 
-public val INDEX_DrvDeriveSurface: Int = 85
+public val INDEX_DRV_DERIVE_SURFACE: Int = 85
 
-public val INDEX_DrvDescribePixelFormat: Int = 55
+public val INDEX_DRV_DESCRIBE_PIXEL_FORMAT: Int = 55
 
-public val INDEX_DrvDestroyFont: Int = 43
+public val INDEX_DRV_DESTROY_FONT: Int = 43
 
-public val INDEX_DrvDisableDirectDraw: Int = 61
+public val INDEX_DRV_DISABLE_DIRECT_DRAW: Int = 61
 
-public val INDEX_DrvDisableDriver: Int = 8
+public val INDEX_DRV_DISABLE_DRIVER: Int = 8
 
-public val INDEX_DrvDisablePDEV: Int = 2
+public val INDEX_DRV_DISABLE_PDEV: Int = 2
 
-public val INDEX_DrvDisableSurface: Int = 4
+public val INDEX_DRV_DISABLE_SURFACE: Int = 4
 
-public val INDEX_DrvDitherColor: Int = 13
+public val INDEX_DRV_DITHER_COLOR: Int = 13
 
-public val INDEX_DrvDrawEscape: Int = 25
+public val INDEX_DRV_DRAW_ESCAPE: Int = 25
 
-public val INDEX_DrvEnableDirectDraw: Int = 60
+public val INDEX_DRV_ENABLE_DIRECT_DRAW: Int = 60
 
-public val INDEX_DrvEnablePDEV: Int = 0
+public val INDEX_DRV_ENABLE_PDEV: Int = 0
 
-public val INDEX_DrvEnableSurface: Int = 3
+public val INDEX_DRV_ENABLE_SURFACE: Int = 3
 
-public val INDEX_DrvEndDoc: Int = 34
+public val INDEX_DRV_END_DOC: Int = 34
 
-public val INDEX_DrvEndDxInterop: Int = 100
+public val INDEX_DRV_END_DX_INTEROP: Int = 100
 
-public val INDEX_DrvEscape: Int = 24
+public val INDEX_DRV_ESCAPE: Int = 24
 
-public val INDEX_DrvFillPath: Int = 15
+public val INDEX_DRV_FILL_PATH: Int = 15
 
-public val INDEX_DrvFontManagement: Int = 47
+public val INDEX_DRV_FONT_MANAGEMENT: Int = 47
 
-public val INDEX_DrvFree: Int = 42
+public val INDEX_DRV_FREE: Int = 42
 
-public val INDEX_DrvGetDirectDrawInfo: Int = 59
+public val INDEX_DRV_GET_DIRECT_DRAW_INFO: Int = 59
 
-public val INDEX_DrvGetGlyphMode: Int = 37
+public val INDEX_DRV_GET_GLYPH_MODE: Int = 37
 
-public val INDEX_DrvGetModes: Int = 41
+public val INDEX_DRV_GET_MODES: Int = 41
 
-public val INDEX_DrvGetSynthesizedFontFiles: Int = 73
+public val INDEX_DRV_GET_SYNTHESIZED_FONT_FILES: Int = 73
 
-public val INDEX_DrvGetTrueTypeFile: Int = 50
+public val INDEX_DRV_GET_TRUE_TYPE_FILE: Int = 50
 
-public val INDEX_DrvGradientFill: Int = 68
+public val INDEX_DRV_GRADIENT_FILL: Int = 68
 
-public val INDEX_DrvIcmCheckBitmapBits: Int = 66
+public val INDEX_DRV_ICM_CHECK_BITMAP_BITS: Int = 66
 
-public val INDEX_DrvIcmCreateColorTransform: Int = 64
+public val INDEX_DRV_ICM_CREATE_COLOR_TRANSFORM: Int = 64
 
-public val INDEX_DrvIcmDeleteColorTransform: Int = 65
+public val INDEX_DRV_ICM_DELETE_COLOR_TRANSFORM: Int = 65
 
-public val INDEX_DrvIcmSetDeviceGammaRamp: Int = 67
+public val INDEX_DRV_ICM_SET_DEVICE_GAMMA_RAMP: Int = 67
 
-public val INDEX_DrvLineTo: Int = 31
+public val INDEX_DRV_LINE_TO: Int = 31
 
-public val INDEX_DrvLoadFontFile: Int = 45
+public val INDEX_DRV_LOAD_FONT_FILE: Int = 45
 
-public val INDEX_DrvLockDisplayArea: Int = 101
+public val INDEX_DRV_LOCK_DISPLAY_AREA: Int = 101
 
-public val INDEX_DrvMovePanning: Int = 52
+public val INDEX_DRV_MOVE_PANNING: Int = 52
 
-public val INDEX_DrvMovePointer: Int = 30
+public val INDEX_DRV_MOVE_POINTER: Int = 30
 
-public val INDEX_DrvNextBand: Int = 58
+public val INDEX_DRV_NEXT_BAND: Int = 58
 
-public val INDEX_DrvNotify: Int = 87
+public val INDEX_DRV_NOTIFY: Int = 87
 
-public val INDEX_DrvOffset: Int = 6
+public val INDEX_DRV_OFFSET: Int = 6
 
-public val INDEX_DrvPaint: Int = 17
+public val INDEX_DRV_PAINT: Int = 17
 
-public val INDEX_DrvPlgBlt: Int = 70
+public val INDEX_DRV_PLG_BLT: Int = 70
 
-public val INDEX_DrvQueryAdvanceWidths: Int = 53
+public val INDEX_DRV_QUERY_ADVANCE_WIDTHS: Int = 53
 
-public val INDEX_DrvQueryDeviceSupport: Int = 76
+public val INDEX_DRV_QUERY_DEVICE_SUPPORT: Int = 76
 
-public val INDEX_DrvQueryFont: Int = 26
+public val INDEX_DRV_QUERY_FONT: Int = 26
 
-public val INDEX_DrvQueryFontCaps: Int = 44
+public val INDEX_DRV_QUERY_FONT_CAPS: Int = 44
 
-public val INDEX_DrvQueryFontData: Int = 28
+public val INDEX_DRV_QUERY_FONT_DATA: Int = 28
 
-public val INDEX_DrvQueryFontFile: Int = 51
+public val INDEX_DRV_QUERY_FONT_FILE: Int = 51
 
-public val INDEX_DrvQueryFontTree: Int = 27
+public val INDEX_DRV_QUERY_FONT_TREE: Int = 27
 
-public val INDEX_DrvQueryGlyphAttrs: Int = 86
+public val INDEX_DRV_QUERY_GLYPH_ATTRS: Int = 86
 
-public val INDEX_DrvQueryPerBandInfo: Int = 75
+public val INDEX_DRV_QUERY_PER_BAND_INFO: Int = 75
 
-public val INDEX_DrvQuerySpoolType: Int = 62
+public val INDEX_DRV_QUERY_SPOOL_TYPE: Int = 62
 
-public val INDEX_DrvQueryTrueTypeOutline: Int = 49
+public val INDEX_DRV_QUERY_TRUE_TYPE_OUTLINE: Int = 49
 
-public val INDEX_DrvQueryTrueTypeTable: Int = 48
+public val INDEX_DRV_QUERY_TRUE_TYPE_TABLE: Int = 48
 
-public val INDEX_DrvRealizeBrush: Int = 12
+public val INDEX_DRV_REALIZE_BRUSH: Int = 12
 
-public val INDEX_DrvRenderHint: Int = 93
+public val INDEX_DRV_RENDER_HINT: Int = 93
 
-public val INDEX_DrvReserved1: Int = 77
+public val INDEX_DRV_RESERVED1: Int = 77
 
-public val INDEX_DrvReserved10: Int = 91
+public val INDEX_DRV_RESERVED10: Int = 91
 
-public val INDEX_DrvReserved11: Int = 92
+public val INDEX_DRV_RESERVED11: Int = 92
 
-public val INDEX_DrvReserved2: Int = 78
+public val INDEX_DRV_RESERVED2: Int = 78
 
-public val INDEX_DrvReserved3: Int = 79
+public val INDEX_DRV_RESERVED3: Int = 79
 
-public val INDEX_DrvReserved4: Int = 80
+public val INDEX_DRV_RESERVED4: Int = 80
 
-public val INDEX_DrvReserved5: Int = 81
+public val INDEX_DRV_RESERVED5: Int = 81
 
-public val INDEX_DrvReserved6: Int = 82
+public val INDEX_DRV_RESERVED6: Int = 82
 
-public val INDEX_DrvReserved7: Int = 83
+public val INDEX_DRV_RESERVED7: Int = 83
 
-public val INDEX_DrvReserved8: Int = 84
+public val INDEX_DRV_RESERVED8: Int = 84
 
-public val INDEX_DrvReserved9: Int = 90
+public val INDEX_DRV_RESERVED9: Int = 90
 
-public val INDEX_DrvResetDevice: Int = 89
+public val INDEX_DRV_RESET_DEVICE: Int = 89
 
-public val INDEX_DrvResetPDEV: Int = 7
+public val INDEX_DRV_RESET_PDEV: Int = 7
 
-public val INDEX_DrvSaveScreenBits: Int = 40
+public val INDEX_DRV_SAVE_SCREEN_BITS: Int = 40
 
-public val INDEX_DrvSendPage: Int = 32
+public val INDEX_DRV_SEND_PAGE: Int = 32
 
-public val INDEX_DrvSetPalette: Int = 22
+public val INDEX_DRV_SET_PALETTE: Int = 22
 
-public val INDEX_DrvSetPixelFormat: Int = 54
+public val INDEX_DRV_SET_PIXEL_FORMAT: Int = 54
 
-public val INDEX_DrvSetPointerShape: Int = 29
+public val INDEX_DRV_SET_POINTER_SHAPE: Int = 29
 
-public val INDEX_DrvStartBanding: Int = 57
+public val INDEX_DRV_START_BANDING: Int = 57
 
-public val INDEX_DrvStartDoc: Int = 35
+public val INDEX_DRV_START_DOC: Int = 35
 
-public val INDEX_DrvStartDxInterop: Int = 99
+public val INDEX_DRV_START_DX_INTEROP: Int = 99
 
-public val INDEX_DrvStartPage: Int = 33
+public val INDEX_DRV_START_PAGE: Int = 33
 
-public val INDEX_DrvStretchBlt: Int = 20
+public val INDEX_DRV_STRETCH_BLT: Int = 20
 
-public val INDEX_DrvStretchBltROP: Int = 69
+public val INDEX_DRV_STRETCH_BLT_ROP: Int = 69
 
-public val INDEX_DrvStrokeAndFillPath: Int = 16
+public val INDEX_DRV_STROKE_AND_FILL_PATH: Int = 16
 
-public val INDEX_DrvStrokePath: Int = 14
+public val INDEX_DRV_STROKE_PATH: Int = 14
 
-public val INDEX_DrvSurfaceComplete: Int = 103
+public val INDEX_DRV_SURFACE_COMPLETE: Int = 103
 
-public val INDEX_DrvSwapBuffers: Int = 56
+public val INDEX_DRV_SWAP_BUFFERS: Int = 56
 
-public val INDEX_DrvSynchronize: Int = 38
+public val INDEX_DRV_SYNCHRONIZE: Int = 38
 
-public val INDEX_DrvSynchronizeRedirectionBitmaps: Int = 97
+public val INDEX_DRV_SYNCHRONIZE_REDIRECTION_BITMAPS: Int = 97
 
-public val INDEX_DrvSynchronizeSurface: Int = 88
+public val INDEX_DRV_SYNCHRONIZE_SURFACE: Int = 88
 
-public val INDEX_DrvSynthesizeFont: Int = 72
+public val INDEX_DRV_SYNTHESIZE_FONT: Int = 72
 
-public val INDEX_DrvTextOut: Int = 23
+public val INDEX_DRV_TEXT_OUT: Int = 23
 
-public val INDEX_DrvTransparentBlt: Int = 74
+public val INDEX_DRV_TRANSPARENT_BLT: Int = 74
 
-public val INDEX_DrvUnloadFontFile: Int = 46
+public val INDEX_DRV_UNLOAD_FONT_FILE: Int = 46
 
-public val INDEX_DrvUnlockDisplayArea: Int = 102
+public val INDEX_DRV_UNLOCK_DISPLAY_AREA: Int = 102
 
 public val INDEX_LAST: Int = 89
 
@@ -1270,11 +1270,11 @@ public val MAXCHARSETS: UInt = 16u
 
 public val MAX_PACKET_COUNT: UInt = 128u
 
-public val MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 1
+public val MC_APERTURE_GRILL_CATHODE_RAY_TUBE: McDisplayTechnologyType = 1
 
-public val MC_BLUE_DRIVE: MC_DRIVE_TYPE = 2
+public val MC_BLUE_DRIVE: McDriveType = 2
 
-public val MC_BLUE_GAIN: MC_GAIN_TYPE = 2
+public val MC_BLUE_GAIN: McGainType = 2
 
 public val MC_CAPS_BRIGHTNESS: UInt = 2u
 
@@ -1300,55 +1300,55 @@ public val MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: UInt = 2048u
 
 public val MC_CAPS_RESTORE_FACTORY_DEFAULTS: UInt = 1024u
 
-public val MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = 7
+public val MC_COLOR_TEMPERATURE_10000K: McColorTemperature = 7
 
-public val MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = 8
+public val MC_COLOR_TEMPERATURE_11500K: McColorTemperature = 8
 
-public val MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = 1
+public val MC_COLOR_TEMPERATURE_4000K: McColorTemperature = 1
 
-public val MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = 2
+public val MC_COLOR_TEMPERATURE_5000K: McColorTemperature = 2
 
-public val MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = 3
+public val MC_COLOR_TEMPERATURE_6500K: McColorTemperature = 3
 
-public val MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = 4
+public val MC_COLOR_TEMPERATURE_7500K: McColorTemperature = 4
 
-public val MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = 5
+public val MC_COLOR_TEMPERATURE_8200K: McColorTemperature = 5
 
-public val MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = 6
+public val MC_COLOR_TEMPERATURE_9300K: McColorTemperature = 6
 
-public val MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = 0
+public val MC_COLOR_TEMPERATURE_UNKNOWN: McColorTemperature = 0
 
-public val MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = 6
+public val MC_ELECTROLUMINESCENT: McDisplayTechnologyType = 6
 
-public val MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = 8
+public val MC_FIELD_EMISSION_DEVICE: McDisplayTechnologyType = 8
 
-public val MC_GREEN_DRIVE: MC_DRIVE_TYPE = 1
+public val MC_GREEN_DRIVE: McDriveType = 1
 
-public val MC_GREEN_GAIN: MC_GAIN_TYPE = 1
+public val MC_GREEN_GAIN: McGainType = 1
 
-public val MC_HEIGHT: MC_SIZE_TYPE = 1
+public val MC_HEIGHT: McSizeType = 1
 
-public val MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = 0
+public val MC_HORIZONTAL_POSITION: McPositionType = 0
 
-public val MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = 3
+public val MC_LIQUID_CRYSTAL_ON_SILICON: McDisplayTechnologyType = 3
 
-public val MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = 7
+public val MC_MICROELECTROMECHANICAL: McDisplayTechnologyType = 7
 
-public val MC_MOMENTARY: MC_VCP_CODE_TYPE = 0
+public val MC_MOMENTARY: McVcpCodeType = 0
 
-public val MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = 5
+public val MC_ORGANIC_LIGHT_EMITTING_DIODE: McDisplayTechnologyType = 5
 
-public val MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = 4
+public val MC_PLASMA: McDisplayTechnologyType = 4
 
-public val MC_RED_DRIVE: MC_DRIVE_TYPE = 0
+public val MC_RED_DRIVE: McDriveType = 0
 
-public val MC_RED_GAIN: MC_GAIN_TYPE = 0
+public val MC_RED_GAIN: McGainType = 0
 
 public val MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: UInt = 4096u
 
-public val MC_SET_PARAMETER: MC_VCP_CODE_TYPE = 1
+public val MC_SET_PARAMETER: McVcpCodeType = 1
 
-public val MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 0
+public val MC_SHADOW_MASK_CATHODE_RAY_TUBE: McDisplayTechnologyType = 0
 
 public val MC_SUPPORTED_COLOR_TEMPERATURE_10000K: UInt = 64u
 
@@ -1368,11 +1368,11 @@ public val MC_SUPPORTED_COLOR_TEMPERATURE_9300K: UInt = 32u
 
 public val MC_SUPPORTED_COLOR_TEMPERATURE_NONE: UInt = 0u
 
-public val MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2
+public val MC_THIN_FILM_TRANSISTOR: McDisplayTechnologyType = 2
 
-public val MC_VERTICAL_POSITION: MC_POSITION_TYPE = 1
+public val MC_VERTICAL_POSITION: McPositionType = 1
 
-public val MC_WIDTH: MC_SIZE_TYPE = 0
+public val MC_WIDTH: McSizeType = 0
 
 public val MS_CDDDEVICEBITMAP: UInt = 4u
 
@@ -1382,7 +1382,7 @@ public val MS_REUSEDDEVICEBITMAP: UInt = 8u
 
 public val MS_SHAREDACCESS: UInt = 2u
 
-public val NumVideoBankTypes: VIDEO_BANK_TYPE = 4
+public val NUM_VIDEO_BANK_TYPES: VideoBankType = 4
 
 public val OC_BANK_CLIP: UInt = 1u
 
@@ -1390,39 +1390,39 @@ public val OPENGL_CMD: UInt = 4352u
 
 public val OPENGL_GETINFO: UInt = 4353u
 
-public val ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = 1
+public val ORIENTATION_PREFERENCE_LANDSCAPE: OrientationPreference = 1
 
-public val ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = 4
+public val ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: OrientationPreference = 4
 
-public val ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0
+public val ORIENTATION_PREFERENCE_NONE: OrientationPreference = 0
 
-public val ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2
+public val ORIENTATION_PREFERENCE_PORTRAIT: OrientationPreference = 2
 
-public val ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8
+public val ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: OrientationPreference = 8
 
-public val OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = 4
+public val OUTPUT_COLOR_ENCODING_INTENSITY: OutputColorEncoding = 4
 
-public val OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = 0
+public val OUTPUT_COLOR_ENCODING_RGB: OutputColorEncoding = 0
 
-public val OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = 3
+public val OUTPUT_COLOR_ENCODING_YCBCR420: OutputColorEncoding = 3
 
-public val OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = 2
+public val OUTPUT_COLOR_ENCODING_YCBCR422: OutputColorEncoding = 2
 
-public val OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = 1
+public val OUTPUT_COLOR_ENCODING_YCBCR444: OutputColorEncoding = 1
 
-public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 12
+public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OutputWireColorSpaceType = 12
 
-public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = 33
+public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OutputWireColorSpaceType = 33
 
-public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = 32
+public val OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OutputWireColorSpaceType = 32
 
-public val OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 31
+public val OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OutputWireColorSpaceType = 31
 
-public val OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = 0
+public val OUTPUT_WIRE_COLOR_SPACE_G22_P709: OutputWireColorSpaceType = 0
 
-public val OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = 30
+public val OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OutputWireColorSpaceType = 30
 
-public val OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = 4
+public val OUTPUT_WIRE_COLOR_SPACE_RESERVED: OutputWireColorSpaceType = 4
 
 public val PAL_BGR: UInt = 8u
 
@@ -1496,21 +1496,21 @@ public val QC_4BIT: UInt = 4u
 
 public val QC_OUTLINES: UInt = 1u
 
-public val QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = 1
+public val QDA_ACCELERATION_LEVEL: EngDeviceAttribute = 1
 
-public val QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = 0
+public val QDA_RESERVED: EngDeviceAttribute = 0
 
-public val QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 1u
+public val QDC_ALL_PATHS: QueryDisplayConfigFlags = 1u
 
-public val QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = 4u
+public val QDC_DATABASE_CURRENT: QueryDisplayConfigFlags = 4u
 
-public val QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = 32u
+public val QDC_INCLUDE_HMD: QueryDisplayConfigFlags = 32u
 
-public val QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 2u
+public val QDC_ONLY_ACTIVE_PATHS: QueryDisplayConfigFlags = 2u
 
-public val QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 16u
+public val QDC_VIRTUAL_MODE_AWARE: QueryDisplayConfigFlags = 16u
 
-public val QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 64u
+public val QDC_VIRTUAL_REFRESH_RATE_AWARE: QueryDisplayConfigFlags = 64u
 
 public val QDS_CHECKJPEGFORMAT: UInt = 0u
 
@@ -1556,41 +1556,41 @@ public val QSA_SSE2: UInt = 65536u
 
 public val QSA_SSE3: UInt = 524288u
 
-public val RB_DITHERCOLOR: Int = -2147483648
+public val RB_DITHERCOLOR: Int = -2147483648.toInt()
 
-public val SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 1024u
+public val SDC_ALLOW_CHANGES: SetDisplayConfigFlags = 1024u
 
-public val SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 8192u
+public val SDC_ALLOW_PATH_ORDER_CHANGES: SetDisplayConfigFlags = 8192u
 
-public val SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = 128u
+public val SDC_APPLY: SetDisplayConfigFlags = 128u
 
-public val SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = 4096u
+public val SDC_FORCE_MODE_ENUMERATION: SetDisplayConfigFlags = 4096u
 
-public val SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = 256u
+public val SDC_NO_OPTIMIZATION: SetDisplayConfigFlags = 256u
 
-public val SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = 2048u
+public val SDC_PATH_PERSIST_IF_REQUIRED: SetDisplayConfigFlags = 2048u
 
-public val SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = 512u
+public val SDC_SAVE_TO_DATABASE: SetDisplayConfigFlags = 512u
 
-public val SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = 2u
+public val SDC_TOPOLOGY_CLONE: SetDisplayConfigFlags = 2u
 
-public val SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = 4u
+public val SDC_TOPOLOGY_EXTEND: SetDisplayConfigFlags = 4u
 
-public val SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = 8u
+public val SDC_TOPOLOGY_EXTERNAL: SetDisplayConfigFlags = 8u
 
-public val SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = 1u
+public val SDC_TOPOLOGY_INTERNAL: SetDisplayConfigFlags = 1u
 
-public val SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = 16u
+public val SDC_TOPOLOGY_SUPPLIED: SetDisplayConfigFlags = 16u
 
-public val SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = 15u
+public val SDC_USE_DATABASE_CURRENT: SetDisplayConfigFlags = 15u
 
-public val SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = 32u
+public val SDC_USE_SUPPLIED_DISPLAY_CONFIG: SetDisplayConfigFlags = 32u
 
-public val SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = 64u
+public val SDC_VALIDATE: SetDisplayConfigFlags = 64u
 
-public val SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 32768u
+public val SDC_VIRTUAL_MODE_AWARE: SetDisplayConfigFlags = 32768u
 
-public val SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 131072u
+public val SDC_VIRTUAL_REFRESH_RATE_AWARE: SetDisplayConfigFlags = 131072u
 
 public val SETCONFIGURATION_STATUS_ADDITIONAL: UInt = 1u
 
@@ -1684,7 +1684,7 @@ public val VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: UInt = 1u
 
 public val VIDEO_DEVICE_COLOR: UInt = 1u
 
-public val VIDEO_DEVICE_NAME: PCSTR = s("DISPLAY%d")
+public val VIDEO_DEVICE_NAME: Pcstr = s("DISPLAY%d")
 
 public val VIDEO_DUALVIEW_PRIMARY: UInt = 2147483648u
 
@@ -1756,53 +1756,53 @@ public val VIDEO_STATE_PACKED_CHAIN4_MODE: UInt = 4u
 
 public val VIDEO_STATE_UNEMULATED_VGA_STATE: UInt = 2u
 
-public val VideoBanked1R1W: VIDEO_BANK_TYPE = 2
+public val VIDEO_BANKED1R1W: VideoBankType = 2
 
-public val VideoBanked1RW: VIDEO_BANK_TYPE = 1
+public val VIDEO_BANKED1RW: VideoBankType = 1
 
-public val VideoBanked2RW: VIDEO_BANK_TYPE = 3
+public val VIDEO_BANKED2RW: VideoBankType = 3
 
-public val VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 16
+public val VIDEO_BLACK_SCREEN_DIAGNOSTICS: VideoWin32kCallbacksParamsType = 16
 
-public val VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 15
+public val VIDEO_DESKTOP_DUPLICATION_CHANGE: VideoWin32kCallbacksParamsType = 15
 
-public val VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 14
+public val VIDEO_DISABLE_MULTI_PLANE_OVERLAY: VideoWin32kCallbacksParamsType = 14
 
-public val VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 8
+public val VIDEO_DXGK_DISPLAY_SWITCH_CALLOUT: VideoWin32kCallbacksParamsType = 8
 
-public val VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 10
+public val VIDEO_DXGK_FIND_ADAPTER_TDR_CALLOUT: VideoWin32kCallbacksParamsType = 10
 
-public val VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 11
+public val VIDEO_DXGK_HARDWARE_PROTECTION_TEARDOWN: VideoWin32kCallbacksParamsType = 11
 
-public val VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 3
+public val VIDEO_ENUM_CHILD_PDO_NOTIFY_CALLOUT: VideoWin32kCallbacksParamsType = 3
 
-public val VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 4
+public val VIDEO_FIND_ADAPTER_CALLOUT: VideoWin32kCallbacksParamsType = 4
 
-public val VideoNotBanked: VIDEO_BANK_TYPE = 0
+public val VIDEO_NOT_BANKED: VideoBankType = 0
 
-public val VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 7
+public val VIDEO_PNP_NOTIFY_CALLOUT: VideoWin32kCallbacksParamsType = 7
 
-public val VideoPowerHibernate: VIDEO_POWER_STATE = 5
+public val VIDEO_POWER_HIBERNATE: VideoPowerState = 5
 
-public val VideoPowerMaximum: VIDEO_POWER_STATE = 7
+public val VIDEO_POWER_MAXIMUM: VideoPowerState = 7
 
-public val VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 1
+public val VIDEO_POWER_NOTIFY_CALLOUT: VideoWin32kCallbacksParamsType = 1
 
-public val VideoPowerOff: VIDEO_POWER_STATE = 4
+public val VIDEO_POWER_OFF: VideoPowerState = 4
 
-public val VideoPowerOn: VIDEO_POWER_STATE = 1
+public val VIDEO_POWER_ON: VideoPowerState = 1
 
-public val VideoPowerShutdown: VIDEO_POWER_STATE = 6
+public val VIDEO_POWER_SHUTDOWN: VideoPowerState = 6
 
-public val VideoPowerStandBy: VIDEO_POWER_STATE = 2
+public val VIDEO_POWER_STAND_BY: VideoPowerState = 2
 
-public val VideoPowerSuspend: VIDEO_POWER_STATE = 3
+public val VIDEO_POWER_SUSPEND: VideoPowerState = 3
 
-public val VideoPowerUnspecified: VIDEO_POWER_STATE = 0
+public val VIDEO_POWER_UNSPECIFIED: VideoPowerState = 0
 
-public val VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 12
+public val VIDEO_REPAINT_DESKTOP: VideoWin32kCallbacksParamsType = 12
 
-public val VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 13
+public val VIDEO_UPDATE_CURSOR: VideoWin32kCallbacksParamsType = 13
 
 public val WINDDI_MAXSETPALETTECOLORINDEX: UInt = 255u
 
@@ -1852,7 +1852,7 @@ public val WO_RGN_WINDOW: UInt = 32u
 
 public val WO_SPRITE_NOTIFY: UInt = 128u
 
-public val WVIDEO_DEVICE_NAME: PCWSTR = w("DISPLAY%d")
+public val WVIDEO_DEVICE_NAME: Pcwstr = w("DISPLAY%d")
 
 public val XF_INV_FXTOL: Int = 3
 

@@ -4,31 +4,31 @@ public val ALTNUMPAD_BIT: UInt = 67108864u
 
 public val ATTACH_PARENT_PROCESS: UInt = 4294967295u
 
-public val BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u
+public val BACKGROUND_BLUE: ConsoleCharacterAttributes = 16u.toUShort()
 
-public val BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u
+public val BACKGROUND_GREEN: ConsoleCharacterAttributes = 32u.toUShort()
 
-public val BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128u
+public val BACKGROUND_INTENSITY: ConsoleCharacterAttributes = 128u.toUShort()
 
-public val BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64u
+public val BACKGROUND_RED: ConsoleCharacterAttributes = 64u.toUShort()
 
 public val CAPSLOCK_ON: UInt = 128u
 
-public val COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u
+public val COMMON_LVB_GRID_HORIZONTAL: ConsoleCharacterAttributes = 1024u.toUShort()
 
-public val COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u
+public val COMMON_LVB_GRID_LVERTICAL: ConsoleCharacterAttributes = 2048u.toUShort()
 
-public val COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u
+public val COMMON_LVB_GRID_RVERTICAL: ConsoleCharacterAttributes = 4096u.toUShort()
 
-public val COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256u
+public val COMMON_LVB_LEADING_BYTE: ConsoleCharacterAttributes = 256u.toUShort()
 
-public val COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384u
+public val COMMON_LVB_REVERSE_VIDEO: ConsoleCharacterAttributes = 16384u.toUShort()
 
-public val COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768u
+public val COMMON_LVB_SBCSDBCS: ConsoleCharacterAttributes = 768u.toUShort()
 
-public val COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512u
+public val COMMON_LVB_TRAILING_BYTE: ConsoleCharacterAttributes = 512u.toUShort()
 
-public val COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768u
+public val COMMON_LVB_UNDERSCORE: ConsoleCharacterAttributes = 32768u.toUShort()
 
 public val CONSOLE_FULLSCREEN: UInt = 1u
 
@@ -60,59 +60,59 @@ public val CTRL_LOGOFF_EVENT: UInt = 5u
 
 public val CTRL_SHUTDOWN_EVENT: UInt = 6u
 
-public val ConsoleEndTask: CONSOLECONTROL = 7
+public val CONSOLE_END_TASK: Consolecontrol = 7
 
-public val ConsoleNotifyConsoleApplication: CONSOLECONTROL = 1
+public val CONSOLE_NOTIFY_CONSOLE_APPLICATION: Consolecontrol = 1
 
-public val ConsoleSetCaretInfo: CONSOLECONTROL = 3
+public val CONSOLE_SET_CARET_INFO: Consolecontrol = 3
 
-public val ConsoleSetForeground: CONSOLECONTROL = 5
+public val CONSOLE_SET_FOREGROUND: Consolecontrol = 5
 
-public val ConsoleSetWindowOwner: CONSOLECONTROL = 6
+public val CONSOLE_SET_WINDOW_OWNER: Consolecontrol = 6
 
-public val DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8u
+public val DISABLE_NEWLINE_AUTO_RETURN: ConsoleMode = 8u
 
 public val DOUBLE_CLICK: UInt = 2u
 
-public val ENABLE_AUTO_POSITION: CONSOLE_MODE = 256u
+public val ENABLE_AUTO_POSITION: ConsoleMode = 256u
 
-public val ENABLE_ECHO_INPUT: CONSOLE_MODE = 4u
+public val ENABLE_ECHO_INPUT: ConsoleMode = 4u
 
-public val ENABLE_EXTENDED_FLAGS: CONSOLE_MODE = 128u
+public val ENABLE_EXTENDED_FLAGS: ConsoleMode = 128u
 
-public val ENABLE_INSERT_MODE: CONSOLE_MODE = 32u
+public val ENABLE_INSERT_MODE: ConsoleMode = 32u
 
-public val ENABLE_LINE_INPUT: CONSOLE_MODE = 2u
+public val ENABLE_LINE_INPUT: ConsoleMode = 2u
 
-public val ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = 16u
+public val ENABLE_LVB_GRID_WORLDWIDE: ConsoleMode = 16u
 
-public val ENABLE_MOUSE_INPUT: CONSOLE_MODE = 16u
+public val ENABLE_MOUSE_INPUT: ConsoleMode = 16u
 
-public val ENABLE_PROCESSED_INPUT: CONSOLE_MODE = 1u
+public val ENABLE_PROCESSED_INPUT: ConsoleMode = 1u
 
-public val ENABLE_PROCESSED_OUTPUT: CONSOLE_MODE = 1u
+public val ENABLE_PROCESSED_OUTPUT: ConsoleMode = 1u
 
-public val ENABLE_QUICK_EDIT_MODE: CONSOLE_MODE = 64u
+public val ENABLE_QUICK_EDIT_MODE: ConsoleMode = 64u
 
-public val ENABLE_VIRTUAL_TERMINAL_INPUT: CONSOLE_MODE = 512u
+public val ENABLE_VIRTUAL_TERMINAL_INPUT: ConsoleMode = 512u
 
-public val ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4u
+public val ENABLE_VIRTUAL_TERMINAL_PROCESSING: ConsoleMode = 4u
 
-public val ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8u
+public val ENABLE_WINDOW_INPUT: ConsoleMode = 8u
 
-public val ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u
+public val ENABLE_WRAP_AT_EOL_OUTPUT: ConsoleMode = 2u
 
 public val ENHANCED_KEY: UInt = 256u
 
 public val FOCUS_EVENT: UInt = 16u
 
-public val FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 1u
+public val FOREGROUND_BLUE: ConsoleCharacterAttributes = 1u.toUShort()
 
-public val FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 2u
+public val FOREGROUND_GREEN: ConsoleCharacterAttributes = 2u.toUShort()
 
-public val FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 8u
+public val FOREGROUND_INTENSITY: ConsoleCharacterAttributes = 8u.toUShort()
 
-public val FOREGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 4u
+public val FOREGROUND_RED: ConsoleCharacterAttributes = 4u.toUShort()
 
 public val FROM_LEFT_1ST_BUTTON_PRESSED: UInt = 1u
 
@@ -164,20 +164,20 @@ public val RIGHT_ALT_PRESSED: UInt = 1u
 
 public val RIGHT_CTRL_PRESSED: UInt = 4u
 
-public val Reserved1: CONSOLECONTROL = 0
+public val RESERVED1: Consolecontrol = 0
 
-public val Reserved2: CONSOLECONTROL = 2
+public val RESERVED2: Consolecontrol = 2
 
-public val Reserved3: CONSOLECONTROL = 4
+public val RESERVED3: Consolecontrol = 4
 
 public val SCROLLLOCK_ON: UInt = 64u
 
 public val SHIFT_PRESSED: UInt = 16u
 
-public val STD_ERROR_HANDLE: STD_HANDLE = 4294967284u
+public val STD_ERROR_HANDLE: StdHandle = 4294967284u
 
-public val STD_INPUT_HANDLE: STD_HANDLE = 4294967286u
+public val STD_INPUT_HANDLE: StdHandle = 4294967286u
 
-public val STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u
+public val STD_OUTPUT_HANDLE: StdHandle = 4294967285u
 
 public val WINDOW_BUFFER_SIZE_EVENT: UInt = 4u

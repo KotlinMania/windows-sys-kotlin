@@ -2,27 +2,28 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(hcomdb.toCPointer<ByteVar>(), comnumber.toCPointer<ByteVar>())
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort(hcomdb?.value?.toCPointer<ByteVar>(), comnumber?.value?.toCPointer<ByteVar>())
 
-public actual fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(hcomdb.toCPointer<ByteVar>(), comnumber, forceclaim, forced.toCPointer<ByteVar>())
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBClaimPort(hcomdb?.value?.toCPointer<ByteVar>(), comnumber, forceclaim, forced?.value?.toCPointer<ByteVar>())
 
-public actual fun ComDBClose(hcomdb: HCOMDB): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBClose(hcomdb.toCPointer<ByteVar>())
+public actual fun comDBClose(hcomdb: Hcomdb): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBClose(hcomdb?.value?.toCPointer<ByteVar>())
 
-public actual fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(hcomdb.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize, reporttype, maxportsreported.toCPointer<ByteVar>())
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: COpaquePointer?, buffersize: UInt, reporttype: UInt, maxportsreported: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage(hcomdb?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize, reporttype, maxportsreported?.value?.toCPointer<ByteVar>())
 
-public actual fun ComDBOpen(phcomdb: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBOpen(phcomdb.toCPointer<ByteVar>())
+public actual fun comDBOpen(phcomdb: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBOpen(phcomdb?.value?.toCPointer<ByteVar>())
 
-public actual fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(hcomdb.toCPointer<ByteVar>(), comnumber)
+public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBReleasePort(hcomdb?.value?.toCPointer<ByteVar>(), comnumber)
 
-public actual fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(hcomdb.toCPointer<ByteVar>(), newsize)
+public actual fun comDBResizeDatabase(hcomdb: Hcomdb, newsize: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop.windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase(hcomdb?.value?.toCPointer<ByteVar>(), newsize)

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_gdi_AbortPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_abortPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AbortPath(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_AddFontMemResourceEx(void* pfileview, uint32_t cjsize, void* pvresrved, void* pnumfonts) {
+void* windowssys_windows_win32_graphics_gdi_addFontMemResourceEx(void* pfileview, uint32_t cjsize, void* pvresrved, void* pnumfonts) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ void* windowssys_windows_win32_graphics_gdi_AddFontMemResourceEx(void* pfileview
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceA(void* param0) {
+int32_t windowssys_windows_win32_graphics_gdi_addFontResourceA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceA(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceExA(void* name, uint32_t fl, void* res) {
+int32_t windowssys_windows_win32_graphics_gdi_addFontResourceExA(void* name, uint32_t fl, void* res) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceExA(void* name, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceExW(void* name, uint32_t fl, void* res) {
+int32_t windowssys_windows_win32_graphics_gdi_addFontResourceExW(void* name, uint32_t fl, void* res) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceExW(void* name, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceW(void* param0) {
+int32_t windowssys_windows_win32_graphics_gdi_addFontResourceW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AddFontResourceW(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AngleArc(void* hdc, int32_t x, int32_t y, uint32_t r, float startangle, float sweepangle) {
+int32_t windowssys_windows_win32_graphics_gdi_angleArc(void* hdc, int32_t x, int32_t y, uint32_t r, float startangle, float sweepangle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, float, float);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AngleArc(void* hdc, int32_t x, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_AnimatePalette(void* hpal, uint32_t istartindex, uint32_t centries, void* ppe) {
+int32_t windowssys_windows_win32_graphics_gdi_animatePalette(void* hpal, uint32_t istartindex, uint32_t centries, void* ppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -206,7 +206,7 @@ int32_t windowssys_windows_win32_graphics_gdi_AnimatePalette(void* hpal, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Arc(void* hdc, int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4) {
+int32_t windowssys_windows_win32_graphics_gdi_arc(void* hdc, int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Arc(void* hdc, int32_t x1, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ArcTo(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t xr1, int32_t yr1, int32_t xr2, int32_t yr2) {
+int32_t windowssys_windows_win32_graphics_gdi_arcTo(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t xr1, int32_t yr1, int32_t xr2, int32_t yr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -266,7 +266,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ArcTo(void* hdc, int32_t left, int
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_BeginPaint(void* hwnd, void* lppaint) {
+void* windowssys_windows_win32_graphics_gdi_beginPaint(void* hwnd, void* lppaint) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ void* windowssys_windows_win32_graphics_gdi_BeginPaint(void* hwnd, void* lppaint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_BeginPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_beginPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -311,7 +311,7 @@ int32_t windowssys_windows_win32_graphics_gdi_BeginPath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_BitBlt(void* hdc, int32_t x, int32_t y, int32_t cx, int32_t cy, void* hdcsrc, int32_t x1, int32_t y1, uint32_t rop) {
+int32_t windowssys_windows_win32_graphics_gdi_bitBlt(void* hdc, int32_t x, int32_t y, int32_t cx, int32_t cy, void* hdcsrc, int32_t x1, int32_t y1, uint32_t rop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +341,7 @@ int32_t windowssys_windows_win32_graphics_gdi_BitBlt(void* hdc, int32_t x, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CancelDC(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_cancelDC(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CancelDC(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsA(void* lpdevmode, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA(void* lpdevmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsA(void* lpdev
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExA(void* lpszdevicename, void* lpdevmode, void* hwnd, uint32_t dwflags, void* lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA(void* lpszdevicename, void* lpdevmode, void* hwnd, uint32_t dwflags, void* lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -412,7 +412,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExA(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExW(void* lpszdevicename, void* lpdevmode, void* hwnd, uint32_t dwflags, void* lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW(void* lpszdevicename, void* lpdevmode, void* hwnd, uint32_t dwflags, void* lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -438,7 +438,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExW(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsW(void* lpdevmode, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW(void* lpdevmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -461,7 +461,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsW(void* lpdev
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Chord(void* hdc, int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4) {
+int32_t windowssys_windows_win32_graphics_gdi_chord(void* hdc, int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -491,7 +491,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Chord(void* hdc, int32_t x1, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ClientToScreen(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_graphics_gdi_clientToScreen(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -514,7 +514,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ClientToScreen(void* hwnd, void* l
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CloseEnhMetaFile(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_closeEnhMetaFile(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -536,7 +536,7 @@ void* windowssys_windows_win32_graphics_gdi_CloseEnhMetaFile(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CloseFigure(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_closeFigure(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -558,7 +558,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CloseFigure(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CloseMetaFile(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_closeMetaFile(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ void* windowssys_windows_win32_graphics_gdi_CloseMetaFile(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CombineRgn(void* hrgndst, void* hrgnsrc1, void* hrgnsrc2, int32_t imode) {
+int32_t windowssys_windows_win32_graphics_gdi_combineRgn(void* hrgndst, void* hrgnsrc1, void* hrgnsrc2, int32_t imode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -605,7 +605,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CombineRgn(void* hrgndst, void* hr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CombineTransform(void* lpxfout, void* lpxf1, void* lpxf2) {
+int32_t windowssys_windows_win32_graphics_gdi_combineTransform(void* lpxfout, void* lpxf1, void* lpxf2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CombineTransform(void* lpxfout, vo
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileA(void* henh, void* lpfilename) {
+void* windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA(void* henh, void* lpfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ void* windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileA(void* henh, void* l
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileW(void* henh, void* lpfilename) {
+void* windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW(void* henh, void* lpfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -675,7 +675,7 @@ void* windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileW(void* henh, void* l
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CopyMetaFileA(void* param0, void* param1) {
+void* windowssys_windows_win32_graphics_gdi_copyMetaFileA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -698,7 +698,7 @@ void* windowssys_windows_win32_graphics_gdi_CopyMetaFileA(void* param0, void* pa
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CopyMetaFileW(void* param0, void* param1) {
+void* windowssys_windows_win32_graphics_gdi_copyMetaFileW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -721,7 +721,7 @@ void* windowssys_windows_win32_graphics_gdi_CopyMetaFileW(void* param0, void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CopyRect(void* lprcdst, void* lprcsrc) {
+int32_t windowssys_windows_win32_graphics_gdi_copyRect(void* lprcdst, void* lprcsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -744,7 +744,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CopyRect(void* lprcdst, void* lprc
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateBitmap(int32_t nwidth, int32_t nheight, uint32_t nplanes, uint32_t nbitcount, void* lpbits) {
+void* windowssys_windows_win32_graphics_gdi_createBitmap(int32_t nwidth, int32_t nheight, uint32_t nplanes, uint32_t nbitcount, void* lpbits) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -770,7 +770,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateBitmap(int32_t nwidth, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateBitmapIndirect(void* pbm) {
+void* windowssys_windows_win32_graphics_gdi_createBitmapIndirect(void* pbm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -792,7 +792,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateBitmapIndirect(void* pbm) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateBrushIndirect(void* plbrush) {
+void* windowssys_windows_win32_graphics_gdi_createBrushIndirect(void* plbrush) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -814,7 +814,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateBrushIndirect(void* plbrush) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateCompatibleBitmap(void* hdc, int32_t cx, int32_t cy) {
+void* windowssys_windows_win32_graphics_gdi_createCompatibleBitmap(void* hdc, int32_t cx, int32_t cy) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -838,7 +838,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateCompatibleBitmap(void* hdc, in
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateCompatibleDC(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_createCompatibleDC(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -860,7 +860,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateCompatibleDC(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDCA(void* pwszdriver, void* pwszdevice, void* pszport, void* pdm) {
+void* windowssys_windows_win32_graphics_gdi_createDCA(void* pwszdriver, void* pwszdevice, void* pszport, void* pdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDCA(void* pwszdriver, void* pw
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDCW(void* pwszdriver, void* pwszdevice, void* pszport, void* pdm) {
+void* windowssys_windows_win32_graphics_gdi_createDCW(void* pwszdriver, void* pwszdevice, void* pszport, void* pdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -910,7 +910,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDCW(void* pwszdriver, void* pw
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrush(void* h, uint32_t iusage) {
+void* windowssys_windows_win32_graphics_gdi_createDIBPatternBrush(void* h, uint32_t iusage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -933,7 +933,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrush(void* h, uint3
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrushPt(void* lppackeddib, uint32_t iusage) {
+void* windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt(void* lppackeddib, uint32_t iusage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -956,7 +956,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrushPt(void* lppack
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDIBSection(void* hdc, void* pbmi, uint32_t usage, void* ppvbits, void* hsection, uint32_t offset) {
+void* windowssys_windows_win32_graphics_gdi_createDIBSection(void* hdc, void* pbmi, uint32_t usage, void* ppvbits, void* hsection, uint32_t offset) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -983,7 +983,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDIBSection(void* hdc, void* pb
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDIBitmap(void* hdc, void* pbmih, uint32_t flinit, void* pjbits, void* pbmi, uint32_t iusage) {
+void* windowssys_windows_win32_graphics_gdi_createDIBitmap(void* hdc, void* pbmih, uint32_t flinit, void* pjbits, void* pbmi, uint32_t iusage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDIBitmap(void* hdc, void* pbmi
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateDiscardableBitmap(void* hdc, int32_t cx, int32_t cy) {
+void* windowssys_windows_win32_graphics_gdi_createDiscardableBitmap(void* hdc, int32_t cx, int32_t cy) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1034,7 +1034,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateDiscardableBitmap(void* hdc, i
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateEllipticRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+void* windowssys_windows_win32_graphics_gdi_createEllipticRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateEllipticRgn(int32_t x1, int32_
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateEllipticRgnIndirect(void* lprect) {
+void* windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect(void* lprect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1081,7 +1081,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateEllipticRgnIndirect(void* lpre
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileA(void* hdc, void* lpfilename, void* lprc, void* lpdesc) {
+void* windowssys_windows_win32_graphics_gdi_createEnhMetaFileA(void* hdc, void* lpfilename, void* lprc, void* lpdesc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1106,7 +1106,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileA(void* hdc, void* 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileW(void* hdc, void* lpfilename, void* lprc, void* lpdesc) {
+void* windowssys_windows_win32_graphics_gdi_createEnhMetaFileW(void* hdc, void* lpfilename, void* lprc, void* lpdesc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1131,7 +1131,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileW(void* hdc, void* 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontA(int32_t cheight, int32_t cwidth, int32_t cescapement, int32_t corientation, int32_t cweight, uint32_t bitalic, uint32_t bunderline, uint32_t bstrikeout, uint32_t icharset, uint32_t ioutprecision, uint32_t iclipprecision, uint32_t iquality, uint32_t ipitchandfamily, void* pszfacename) {
+void* windowssys_windows_win32_graphics_gdi_createFontA(int32_t cheight, int32_t cwidth, int32_t cescapement, int32_t corientation, int32_t cweight, uint32_t bitalic, uint32_t bunderline, uint32_t bstrikeout, uint32_t icharset, uint32_t ioutprecision, uint32_t iclipprecision, uint32_t iquality, uint32_t ipitchandfamily, void* pszfacename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1166,7 +1166,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontA(int32_t cheight, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectA(void* lplf) {
+void* windowssys_windows_win32_graphics_gdi_createFontIndirectA(void* lplf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1188,7 +1188,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectA(void* lplf) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectExA(void* param0) {
+void* windowssys_windows_win32_graphics_gdi_createFontIndirectExA(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1210,7 +1210,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectExA(void* param0) 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectExW(void* param0) {
+void* windowssys_windows_win32_graphics_gdi_createFontIndirectExW(void* param0) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1232,7 +1232,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectExW(void* param0) 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectW(void* lplf) {
+void* windowssys_windows_win32_graphics_gdi_createFontIndirectW(void* lplf) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1254,7 +1254,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontIndirectW(void* lplf) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_CreateFontPackage(void* puchsrcbuffer, uint32_t ulsrcbuffersize, void* ppuchfontpackagebuffer, void* pulfontpackagebuffersize, void* pulbyteswritten, uint16_t usflag, uint16_t usttcindex, uint16_t ussubsetformat, uint16_t ussubsetlanguage, int16_t ussubsetplatform, int16_t ussubsetencoding, void* pussubsetkeeplist, uint16_t ussubsetlistcount, void* lpfnallocate, void* lpfnreallocate, void* lpfnfree, void* lpvreserved) {
+uint32_t windowssys_windows_win32_graphics_gdi_createFontPackage(void* puchsrcbuffer, uint32_t ulsrcbuffersize, void* ppuchfontpackagebuffer, void* pulfontpackagebuffersize, void* pulbyteswritten, uint16_t usflag, uint16_t usttcindex, uint16_t ussubsetformat, uint16_t ussubsetlanguage, int16_t ussubsetplatform, int16_t ussubsetencoding, void* pussubsetkeeplist, uint16_t ussubsetlistcount, void* lpfnallocate, void* lpfnreallocate, void* lpfnfree, void* lpvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint16_t, uint16_t, uint16_t, uint16_t, int16_t, int16_t, void*, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1292,7 +1292,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_CreateFontPackage(void* puchsrcbu
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateFontW(int32_t cheight, int32_t cwidth, int32_t cescapement, int32_t corientation, int32_t cweight, uint32_t bitalic, uint32_t bunderline, uint32_t bstrikeout, uint32_t icharset, uint32_t ioutprecision, uint32_t iclipprecision, uint32_t iquality, uint32_t ipitchandfamily, void* pszfacename) {
+void* windowssys_windows_win32_graphics_gdi_createFontW(int32_t cheight, int32_t cwidth, int32_t cescapement, int32_t corientation, int32_t cweight, uint32_t bitalic, uint32_t bunderline, uint32_t bstrikeout, uint32_t icharset, uint32_t ioutprecision, uint32_t iclipprecision, uint32_t iquality, uint32_t ipitchandfamily, void* pszfacename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1327,7 +1327,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateFontW(int32_t cheight, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateHalftonePalette(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_createHalftonePalette(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1349,7 +1349,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateHalftonePalette(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateHatchBrush(int32_t ihatch, uint32_t color) {
+void* windowssys_windows_win32_graphics_gdi_createHatchBrush(int32_t ihatch, uint32_t color) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1372,7 +1372,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateHatchBrush(int32_t ihatch, uin
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateICA(void* pszdriver, void* pszdevice, void* pszport, void* pdm) {
+void* windowssys_windows_win32_graphics_gdi_createICA(void* pszdriver, void* pszdevice, void* pszport, void* pdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1397,7 +1397,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateICA(void* pszdriver, void* psz
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateICW(void* pszdriver, void* pszdevice, void* pszport, void* pdm) {
+void* windowssys_windows_win32_graphics_gdi_createICW(void* pszdriver, void* pszdevice, void* pszport, void* pdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateICW(void* pszdriver, void* psz
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateMetaFileA(void* pszfile) {
+void* windowssys_windows_win32_graphics_gdi_createMetaFileA(void* pszfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateMetaFileA(void* pszfile) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateMetaFileW(void* pszfile) {
+void* windowssys_windows_win32_graphics_gdi_createMetaFileW(void* pszfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1466,7 +1466,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateMetaFileW(void* pszfile) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePalette(void* plpal) {
+void* windowssys_windows_win32_graphics_gdi_createPalette(void* plpal) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1488,7 +1488,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePalette(void* plpal) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePatternBrush(void* hbm) {
+void* windowssys_windows_win32_graphics_gdi_createPatternBrush(void* hbm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1510,7 +1510,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePatternBrush(void* hbm) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePen(int32_t istyle, int32_t cwidth, uint32_t color) {
+void* windowssys_windows_win32_graphics_gdi_createPen(int32_t istyle, int32_t cwidth, uint32_t color) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1534,7 +1534,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePen(int32_t istyle, int32_t cw
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePenIndirect(void* plpen) {
+void* windowssys_windows_win32_graphics_gdi_createPenIndirect(void* plpen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1556,7 +1556,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePenIndirect(void* plpen) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePolyPolygonRgn(void* pptl, void* pc, int32_t cpoly, int32_t imode) {
+void* windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn(void* pptl, void* pc, int32_t cpoly, int32_t imode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1581,7 +1581,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePolyPolygonRgn(void* pptl, voi
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreatePolygonRgn(void* pptl, int32_t cpoint, int32_t imode) {
+void* windowssys_windows_win32_graphics_gdi_createPolygonRgn(void* pptl, int32_t cpoint, int32_t imode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1605,7 +1605,7 @@ void* windowssys_windows_win32_graphics_gdi_CreatePolygonRgn(void* pptl, int32_t
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+void* windowssys_windows_win32_graphics_gdi_createRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1630,7 +1630,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateRectRgn(int32_t x1, int32_t y1
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateRectRgnIndirect(void* lprect) {
+void* windowssys_windows_win32_graphics_gdi_createRectRgnIndirect(void* lprect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1652,7 +1652,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateRectRgnIndirect(void* lprect) 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateRoundRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t w, int32_t h) {
+void* windowssys_windows_win32_graphics_gdi_createRoundRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t w, int32_t h) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1679,7 +1679,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateRoundRectRgn(int32_t x1, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceA(uint32_t fdwhidden, void* lpszfont, void* lpszfile, void* lpszpath) {
+int32_t windowssys_windows_win32_graphics_gdi_createScalableFontResourceA(uint32_t fdwhidden, void* lpszfont, void* lpszfile, void* lpszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1704,7 +1704,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceA(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceW(uint32_t fdwhidden, void* lpszfont, void* lpszfile, void* lpszpath) {
+int32_t windowssys_windows_win32_graphics_gdi_createScalableFontResourceW(uint32_t fdwhidden, void* lpszfont, void* lpszfile, void* lpszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1729,7 +1729,7 @@ int32_t windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceW(uint32
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_CreateSolidBrush(uint32_t color) {
+void* windowssys_windows_win32_graphics_gdi_createSolidBrush(uint32_t color) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1751,7 +1751,7 @@ void* windowssys_windows_win32_graphics_gdi_CreateSolidBrush(uint32_t color) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DPtoLP(void* hdc, void* lppt, int32_t c) {
+int32_t windowssys_windows_win32_graphics_gdi_dPtoLP(void* hdc, void* lppt, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1775,7 +1775,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DPtoLP(void* hdc, void* lppt, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DeleteDC(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_deleteDC(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1797,7 +1797,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DeleteDC(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DeleteEnhMetaFile(void* hmf) {
+int32_t windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile(void* hmf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1819,7 +1819,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DeleteEnhMetaFile(void* hmf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DeleteMetaFile(void* hmf) {
+int32_t windowssys_windows_win32_graphics_gdi_deleteMetaFile(void* hmf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1841,7 +1841,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DeleteMetaFile(void* hmf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DeleteObject(void* ho) {
+int32_t windowssys_windows_win32_graphics_gdi_deleteObject(void* ho) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1863,7 +1863,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DeleteObject(void* ho) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawAnimatedRects(void* hwnd, int32_t idani, void* lprcfrom, void* lprcto) {
+int32_t windowssys_windows_win32_graphics_gdi_drawAnimatedRects(void* hwnd, int32_t idani, void* lprcfrom, void* lprcto) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1888,7 +1888,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawAnimatedRects(void* hwnd, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawCaption(void* hwnd, void* hdc, void* lprect, uint32_t flags) {
+int32_t windowssys_windows_win32_graphics_gdi_drawCaption(void* hwnd, void* hdc, void* lprect, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1913,7 +1913,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawCaption(void* hwnd, void* hdc,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawEdge(void* hdc, void* qrc, uint32_t edge, uint32_t grfflags) {
+int32_t windowssys_windows_win32_graphics_gdi_drawEdge(void* hdc, void* qrc, uint32_t edge, uint32_t grfflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1938,7 +1938,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawEdge(void* hdc, void* qrc, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawEscape(void* hdc, int32_t iescape, int32_t cjin, void* lpin) {
+int32_t windowssys_windows_win32_graphics_gdi_drawEscape(void* hdc, int32_t iescape, int32_t cjin, void* lpin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1963,7 +1963,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawEscape(void* hdc, int32_t iesc
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawFocusRect(void* hdc, void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_drawFocusRect(void* hdc, void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1986,7 +1986,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawFocusRect(void* hdc, void* lpr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawFrameControl(void* param0, void* param1, uint32_t param2, uint32_t param3) {
+int32_t windowssys_windows_win32_graphics_gdi_drawFrameControl(void* param0, void* param1, uint32_t param2, uint32_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2011,7 +2011,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawFrameControl(void* param0, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawStateA(void* hdc, void* hbrfore, void* qfncallback, int64_t ldata, uint64_t wdata, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
+int32_t windowssys_windows_win32_graphics_gdi_drawStateA(void* hdc, void* hbrfore, void* qfncallback, int64_t ldata, uint64_t wdata, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint64_t, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2042,7 +2042,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawStateA(void* hdc, void* hbrfor
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawStateW(void* hdc, void* hbrfore, void* qfncallback, int64_t ldata, uint64_t wdata, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
+int32_t windowssys_windows_win32_graphics_gdi_drawStateW(void* hdc, void* hbrfore, void* qfncallback, int64_t ldata, uint64_t wdata, int32_t x, int32_t y, int32_t cx, int32_t cy, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint64_t, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2073,7 +2073,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawStateW(void* hdc, void* hbrfor
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawTextA(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format) {
+int32_t windowssys_windows_win32_graphics_gdi_drawTextA(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawTextA(void* hdc, void* lpchtex
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawTextExA(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format, void* lpdtp) {
+int32_t windowssys_windows_win32_graphics_gdi_drawTextExA(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format, void* lpdtp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2126,7 +2126,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawTextExA(void* hdc, void* lpcht
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawTextExW(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format, void* lpdtp) {
+int32_t windowssys_windows_win32_graphics_gdi_drawTextExW(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format, void* lpdtp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2153,7 +2153,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawTextExW(void* hdc, void* lpcht
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_DrawTextW(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format) {
+int32_t windowssys_windows_win32_graphics_gdi_drawTextW(void* hdc, void* lpchtext, int32_t cchtext, void* lprc, uint32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2179,7 +2179,7 @@ int32_t windowssys_windows_win32_graphics_gdi_DrawTextW(void* hdc, void* lpchtex
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Ellipse(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
+int32_t windowssys_windows_win32_graphics_gdi_ellipse(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2205,7 +2205,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Ellipse(void* hdc, int32_t left, i
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EndPaint(void* hwnd, void* lppaint) {
+int32_t windowssys_windows_win32_graphics_gdi_endPaint(void* hwnd, void* lppaint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2228,7 +2228,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EndPaint(void* hwnd, void* lppaint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EndPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_endPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2250,7 +2250,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EndPath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesA(void* lpdevice, uint32_t idevnum, void* lpdisplaydevice, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA(void* lpdevice, uint32_t idevnum, void* lpdisplaydevice, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2275,7 +2275,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesA(void* lpdevice
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesW(void* lpdevice, uint32_t idevnum, void* lpdisplaydevice, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW(void* lpdevice, uint32_t idevnum, void* lpdisplaydevice, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2300,7 +2300,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesW(void* lpdevice
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayMonitors(void* hdc, void* lprcclip, void* lpfnenum, int64_t dwdata) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplayMonitors(void* hdc, void* lprcclip, void* lpfnenum, int64_t dwdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2325,7 +2325,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplayMonitors(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsA(void* lpszdevicename, uint32_t imodenum, void* lpdevmode) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA(void* lpszdevicename, uint32_t imodenum, void* lpdevmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2349,7 +2349,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsA(void* lpszdev
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExA(void* lpszdevicename, uint32_t imodenum, void* lpdevmode, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA(void* lpszdevicename, uint32_t imodenum, void* lpdevmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2374,7 +2374,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExA(void* lpszd
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExW(void* lpszdevicename, uint32_t imodenum, void* lpdevmode, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW(void* lpszdevicename, uint32_t imodenum, void* lpdevmode, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2399,7 +2399,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExW(void* lpszd
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsW(void* lpszdevicename, uint32_t imodenum, void* lpdevmode) {
+int32_t windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW(void* lpszdevicename, uint32_t imodenum, void* lpdevmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2423,7 +2423,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsW(void* lpszdev
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumEnhMetaFile(void* hdc, void* hmf, void* proc, void* param3, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_enumEnhMetaFile(void* hdc, void* hmf, void* proc, void* param3, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2449,7 +2449,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumEnhMetaFile(void* hdc, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontFamiliesA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2474,7 +2474,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesA(void* hdc, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2500,7 +2500,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExA(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2526,7 +2526,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExW(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontFamiliesW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2551,7 +2551,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontFamiliesW(void* hdc, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontsA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontsA(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2576,7 +2576,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontsA(void* hdc, void* lplogf
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumFontsW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_enumFontsW(void* hdc, void* lplogfont, void* lpproc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2601,7 +2601,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumFontsW(void* hdc, void* lplogf
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumMetaFile(void* hdc, void* hmf, void* proc, int64_t param3) {
+int32_t windowssys_windows_win32_graphics_gdi_enumMetaFile(void* hdc, void* hmf, void* proc, int64_t param3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2626,7 +2626,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumMetaFile(void* hdc, void* hmf,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EnumObjects(void* hdc, int32_t ntype, void* lpfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_graphics_gdi_enumObjects(void* hdc, int32_t ntype, void* lpfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2651,7 +2651,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EnumObjects(void* hdc, int32_t nty
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EqualRect(void* lprc1, void* lprc2) {
+int32_t windowssys_windows_win32_graphics_gdi_equalRect(void* lprc1, void* lprc2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2674,7 +2674,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EqualRect(void* lprc1, void* lprc2
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_EqualRgn(void* hrgn1, void* hrgn2) {
+int32_t windowssys_windows_win32_graphics_gdi_equalRgn(void* hrgn1, void* hrgn2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2697,7 +2697,7 @@ int32_t windowssys_windows_win32_graphics_gdi_EqualRgn(void* hrgn1, void* hrgn2)
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExcludeClipRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
+int32_t windowssys_windows_win32_graphics_gdi_excludeClipRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2723,7 +2723,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExcludeClipRect(void* hdc, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExcludeUpdateRgn(void* hdc, void* hwnd) {
+int32_t windowssys_windows_win32_graphics_gdi_excludeUpdateRgn(void* hdc, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExcludeUpdateRgn(void* hdc, void* 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_ExtCreatePen(uint32_t ipenstyle, uint32_t cwidth, void* plbrush, uint32_t cstyle, void* pstyle) {
+void* windowssys_windows_win32_graphics_gdi_extCreatePen(uint32_t ipenstyle, uint32_t cwidth, void* plbrush, uint32_t cstyle, void* pstyle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2772,7 +2772,7 @@ void* windowssys_windows_win32_graphics_gdi_ExtCreatePen(uint32_t ipenstyle, uin
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_ExtCreateRegion(void* lpx, uint32_t ncount, void* lpdata) {
+void* windowssys_windows_win32_graphics_gdi_extCreateRegion(void* lpx, uint32_t ncount, void* lpdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2796,7 +2796,7 @@ void* windowssys_windows_win32_graphics_gdi_ExtCreateRegion(void* lpx, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExtFloodFill(void* hdc, int32_t x, int32_t y, uint32_t color, uint32_t type) {
+int32_t windowssys_windows_win32_graphics_gdi_extFloodFill(void* hdc, int32_t x, int32_t y, uint32_t color, uint32_t type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2822,7 +2822,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExtFloodFill(void* hdc, int32_t x,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExtSelectClipRgn(void* hdc, void* hrgn, int32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_extSelectClipRgn(void* hdc, void* hrgn, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2846,7 +2846,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExtSelectClipRgn(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExtTextOutA(void* hdc, int32_t x, int32_t y, uint32_t options, void* lprect, void* lpstring, uint32_t c, void* lpdx) {
+int32_t windowssys_windows_win32_graphics_gdi_extTextOutA(void* hdc, int32_t x, int32_t y, uint32_t options, void* lprect, void* lpstring, uint32_t c, void* lpdx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2875,7 +2875,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExtTextOutA(void* hdc, int32_t x, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ExtTextOutW(void* hdc, int32_t x, int32_t y, uint32_t options, void* lprect, void* lpstring, uint32_t c, void* lpdx) {
+int32_t windowssys_windows_win32_graphics_gdi_extTextOutW(void* hdc, int32_t x, int32_t y, uint32_t options, void* lprect, void* lpstring, uint32_t c, void* lpdx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2904,7 +2904,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ExtTextOutW(void* hdc, int32_t x, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FillPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_fillPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2926,7 +2926,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FillPath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FillRect(void* hdc, void* lprc, void* hbr) {
+int32_t windowssys_windows_win32_graphics_gdi_fillRect(void* hdc, void* lprc, void* hbr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2950,7 +2950,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FillRect(void* hdc, void* lprc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FillRgn(void* hdc, void* hrgn, void* hbr) {
+int32_t windowssys_windows_win32_graphics_gdi_fillRgn(void* hdc, void* hrgn, void* hbr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2974,7 +2974,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FillRgn(void* hdc, void* hrgn, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FixBrushOrgEx(void* hdc, int32_t x, int32_t y, void* ptl) {
+int32_t windowssys_windows_win32_graphics_gdi_fixBrushOrgEx(void* hdc, int32_t x, int32_t y, void* ptl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2999,7 +2999,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FixBrushOrgEx(void* hdc, int32_t x
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FlattenPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_flattenPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3021,7 +3021,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FlattenPath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FloodFill(void* hdc, int32_t x, int32_t y, uint32_t color) {
+int32_t windowssys_windows_win32_graphics_gdi_floodFill(void* hdc, int32_t x, int32_t y, uint32_t color) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3046,7 +3046,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FloodFill(void* hdc, int32_t x, in
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FrameRect(void* hdc, void* lprc, void* hbr) {
+int32_t windowssys_windows_win32_graphics_gdi_frameRect(void* hdc, void* lprc, void* hbr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3070,7 +3070,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FrameRect(void* hdc, void* lprc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_FrameRgn(void* hdc, void* hrgn, void* hbr, int32_t w, int32_t h) {
+int32_t windowssys_windows_win32_graphics_gdi_frameRgn(void* hdc, void* hrgn, void* hbr, int32_t w, int32_t h) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3096,7 +3096,7 @@ int32_t windowssys_windows_win32_graphics_gdi_FrameRgn(void* hdc, void* hrgn, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GdiComment(void* hdc, uint32_t nsize, void* lpdata) {
+int32_t windowssys_windows_win32_graphics_gdi_gdiComment(void* hdc, uint32_t nsize, void* lpdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3120,7 +3120,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GdiComment(void* hdc, uint32_t nsi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GdiFlush(void) {
+int32_t windowssys_windows_win32_graphics_gdi_gdiFlush(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3141,7 +3141,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GdiFlush(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GdiGetBatchLimit(void) {
+uint32_t windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3162,7 +3162,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GdiGetBatchLimit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GdiGradientFill(void* hdc, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t ncount, uint32_t ulmode) {
+int32_t windowssys_windows_win32_graphics_gdi_gdiGradientFill(void* hdc, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t ncount, uint32_t ulmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3189,7 +3189,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GdiGradientFill(void* hdc, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GdiSetBatchLimit(uint32_t dw) {
+uint32_t windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit(uint32_t dw) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3211,7 +3211,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GdiSetBatchLimit(uint32_t dw) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GdiTransparentBlt(void* hdcdest, int32_t xorigindest, int32_t yorigindest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xoriginsrc, int32_t yoriginsrc, int32_t wsrc, int32_t hsrc, uint32_t crtransparent) {
+int32_t windowssys_windows_win32_graphics_gdi_gdiTransparentBlt(void* hdcdest, int32_t xorigindest, int32_t yorigindest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xoriginsrc, int32_t yoriginsrc, int32_t wsrc, int32_t hsrc, uint32_t crtransparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3243,7 +3243,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GdiTransparentBlt(void* hdcdest, i
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetArcDirection(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getArcDirection(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3265,7 +3265,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetArcDirection(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetAspectRatioFilterEx(void* hdc, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx(void* hdc, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3288,7 +3288,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetAspectRatioFilterEx(void* hdc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetBitmapBits(void* hbit, int32_t cb, void* lpvbits) {
+int32_t windowssys_windows_win32_graphics_gdi_getBitmapBits(void* hbit, int32_t cb, void* lpvbits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3312,7 +3312,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetBitmapBits(void* hbit, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetBitmapDimensionEx(void* hbit, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx(void* hbit, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3335,7 +3335,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetBitmapDimensionEx(void* hbit, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetBkColor(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getBkColor(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3357,7 +3357,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetBkColor(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetBkMode(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getBkMode(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3379,7 +3379,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetBkMode(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetBoundsRect(void* hdc, void* lprect, uint32_t flags) {
+uint32_t windowssys_windows_win32_graphics_gdi_getBoundsRect(void* hdc, void* lprect, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3403,7 +3403,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetBoundsRect(void* hdc, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetBrushOrgEx(void* hdc, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_getBrushOrgEx(void* hdc, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3426,7 +3426,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetBrushOrgEx(void* hdc, void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsA(void* hdc, uint32_t wfirst, uint32_t wlast, void* lpabc) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharABCWidthsA(void* hdc, uint32_t wfirst, uint32_t wlast, void* lpabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3451,7 +3451,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsA(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpabc) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3476,7 +3476,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatA(void* hdc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpabc) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3501,7 +3501,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatW(void* hdc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsI(void* hdc, uint32_t gifirst, uint32_t cgi, void* pgi, void* pabc) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharABCWidthsI(void* hdc, uint32_t gifirst, uint32_t cgi, void* pgi, void* pabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3527,7 +3527,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsI(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsW(void* hdc, uint32_t wfirst, uint32_t wlast, void* lpabc) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharABCWidthsW(void* hdc, uint32_t wfirst, uint32_t wlast, void* lpabc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3552,7 +3552,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharABCWidthsW(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidth32A(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidth32A(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3577,7 +3577,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidth32A(void* hdc, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidth32W(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidth32W(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3602,7 +3602,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidth32W(void* hdc, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidthA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3627,7 +3627,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthA(void* hdc, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthFloatA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidthFloatA(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3652,7 +3652,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthFloatA(void* hdc, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthFloatW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidthFloatW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3677,7 +3677,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthFloatW(void* hdc, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthI(void* hdc, uint32_t gifirst, uint32_t cgi, void* pgi, void* piwidths) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidthI(void* hdc, uint32_t gifirst, uint32_t cgi, void* pgi, void* piwidths) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3703,7 +3703,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthI(void* hdc, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
+int32_t windowssys_windows_win32_graphics_gdi_getCharWidthW(void* hdc, uint32_t ifirst, uint32_t ilast, void* lpbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3728,7 +3728,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCharWidthW(void* hdc, uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetCharacterPlacementA(void* hdc, void* lpstring, int32_t ncount, int32_t nmexextent, void* lpresults, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_graphics_gdi_getCharacterPlacementA(void* hdc, void* lpstring, int32_t ncount, int32_t nmexextent, void* lpresults, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3755,7 +3755,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetCharacterPlacementA(void* hdc,
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetCharacterPlacementW(void* hdc, void* lpstring, int32_t ncount, int32_t nmexextent, void* lpresults, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_graphics_gdi_getCharacterPlacementW(void* hdc, void* lpstring, int32_t ncount, int32_t nmexextent, void* lpresults, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3782,7 +3782,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetCharacterPlacementW(void* hdc,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetClipBox(void* hdc, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_getClipBox(void* hdc, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3805,7 +3805,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetClipBox(void* hdc, void* lprect
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetClipRgn(void* hdc, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_getClipRgn(void* hdc, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3828,7 +3828,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetClipRgn(void* hdc, void* hrgn) 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetColorAdjustment(void* hdc, void* lpca) {
+int32_t windowssys_windows_win32_graphics_gdi_getColorAdjustment(void* hdc, void* lpca) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3851,7 +3851,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetColorAdjustment(void* hdc, void
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetCurrentObject(void* hdc, uint32_t type) {
+void* windowssys_windows_win32_graphics_gdi_getCurrentObject(void* hdc, uint32_t type) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3874,7 +3874,7 @@ void* windowssys_windows_win32_graphics_gdi_GetCurrentObject(void* hdc, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetCurrentPositionEx(void* hdc, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_getCurrentPositionEx(void* hdc, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3897,7 +3897,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetCurrentPositionEx(void* hdc, vo
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetDC(void* hwnd) {
+void* windowssys_windows_win32_graphics_gdi_getDC(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3919,7 +3919,7 @@ void* windowssys_windows_win32_graphics_gdi_GetDC(void* hwnd) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetDCBrushColor(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getDCBrushColor(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3941,7 +3941,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetDCBrushColor(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetDCEx(void* hwnd, void* hrgnclip, uint32_t flags) {
+void* windowssys_windows_win32_graphics_gdi_getDCEx(void* hwnd, void* hrgnclip, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3965,7 +3965,7 @@ void* windowssys_windows_win32_graphics_gdi_GetDCEx(void* hwnd, void* hrgnclip, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetDCOrgEx(void* hdc, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_getDCOrgEx(void* hdc, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3988,7 +3988,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetDCOrgEx(void* hdc, void* lppt) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetDCPenColor(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getDCPenColor(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4010,7 +4010,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetDCPenColor(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetDIBColorTable(void* hdc, uint32_t istart, uint32_t centries, void* prgbq) {
+uint32_t windowssys_windows_win32_graphics_gdi_getDIBColorTable(void* hdc, uint32_t istart, uint32_t centries, void* prgbq) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4035,7 +4035,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetDIBColorTable(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetDIBits(void* hdc, void* hbm, uint32_t start, uint32_t clines, void* lpvbits, void* lpbmi, uint32_t usage) {
+int32_t windowssys_windows_win32_graphics_gdi_getDIBits(void* hdc, void* hbm, uint32_t start, uint32_t clines, void* lpvbits, void* lpbmi, uint32_t usage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4063,7 +4063,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetDIBits(void* hdc, void* hbm, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetDeviceCaps(void* hdc, int32_t arg_1_index) {
+int32_t windowssys_windows_win32_graphics_gdi_getDeviceCaps(void* hdc, int32_t arg_1_index) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4086,7 +4086,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetDeviceCaps(void* hdc, int32_t a
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetEnhMetaFileA(void* lpname) {
+void* windowssys_windows_win32_graphics_gdi_getEnhMetaFileA(void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4108,7 +4108,7 @@ void* windowssys_windows_win32_graphics_gdi_GetEnhMetaFileA(void* lpname) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileBits(void* hemf, uint32_t nsize, void* lpdata) {
+uint32_t windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits(void* hemf, uint32_t nsize, void* lpdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4132,7 +4132,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileBits(void* hemf, ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionA(void* hemf, uint32_t cchbuffer, void* lpdescription) {
+uint32_t windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA(void* hemf, uint32_t cchbuffer, void* lpdescription) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4156,7 +4156,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionW(void* hemf, uint32_t cchbuffer, void* lpdescription) {
+uint32_t windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW(void* hemf, uint32_t cchbuffer, void* lpdescription) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4180,7 +4180,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileHeader(void* hemf, uint32_t nsize, void* lpenhmetaheader) {
+uint32_t windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader(void* hemf, uint32_t nsize, void* lpenhmetaheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4204,7 +4204,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFileHeader(void* hemf, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFilePaletteEntries(void* hemf, uint32_t nnumentries, void* lppaletteentries) {
+uint32_t windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries(void* hemf, uint32_t nnumentries, void* lppaletteentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4228,7 +4228,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetEnhMetaFilePaletteEntries(void
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetEnhMetaFileW(void* lpname) {
+void* windowssys_windows_win32_graphics_gdi_getEnhMetaFileW(void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4250,7 +4250,7 @@ void* windowssys_windows_win32_graphics_gdi_GetEnhMetaFileW(void* lpname) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetFontData(void* hdc, uint32_t dwtable, uint32_t dwoffset, void* pvbuffer, uint32_t cjbuffer) {
+uint32_t windowssys_windows_win32_graphics_gdi_getFontData(void* hdc, uint32_t dwtable, uint32_t dwoffset, void* pvbuffer, uint32_t cjbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4276,7 +4276,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetFontData(void* hdc, uint32_t d
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetFontLanguageInfo(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getFontLanguageInfo(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4298,7 +4298,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetFontLanguageInfo(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetFontUnicodeRanges(void* hdc, void* lpgs) {
+uint32_t windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges(void* hdc, void* lpgs) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4321,7 +4321,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetFontUnicodeRanges(void* hdc, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphIndicesA(void* hdc, void* lpstr, int32_t c, void* pgi, uint32_t fl) {
+uint32_t windowssys_windows_win32_graphics_gdi_getGlyphIndicesA(void* hdc, void* lpstr, int32_t c, void* pgi, uint32_t fl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4347,7 +4347,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphIndicesA(void* hdc, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphIndicesW(void* hdc, void* lpstr, int32_t c, void* pgi, uint32_t fl) {
+uint32_t windowssys_windows_win32_graphics_gdi_getGlyphIndicesW(void* hdc, void* lpstr, int32_t c, void* pgi, uint32_t fl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4373,7 +4373,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphIndicesW(void* hdc, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphOutlineA(void* hdc, uint32_t uchar, uint32_t fuformat, void* lpgm, uint32_t cjbuffer, void* pvbuffer, void* lpmat2) {
+uint32_t windowssys_windows_win32_graphics_gdi_getGlyphOutlineA(void* hdc, uint32_t uchar, uint32_t fuformat, void* lpgm, uint32_t cjbuffer, void* pvbuffer, void* lpmat2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4401,7 +4401,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphOutlineA(void* hdc, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphOutlineW(void* hdc, uint32_t uchar, uint32_t fuformat, void* lpgm, uint32_t cjbuffer, void* pvbuffer, void* lpmat2) {
+uint32_t windowssys_windows_win32_graphics_gdi_getGlyphOutlineW(void* hdc, uint32_t uchar, uint32_t fuformat, void* lpgm, uint32_t cjbuffer, void* pvbuffer, void* lpmat2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4429,7 +4429,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetGlyphOutlineW(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetGraphicsMode(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getGraphicsMode(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4451,7 +4451,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetGraphicsMode(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetKerningPairsA(void* hdc, uint32_t npairs, void* lpkernpair) {
+uint32_t windowssys_windows_win32_graphics_gdi_getKerningPairsA(void* hdc, uint32_t npairs, void* lpkernpair) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4475,7 +4475,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetKerningPairsA(void* hdc, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetKerningPairsW(void* hdc, uint32_t npairs, void* lpkernpair) {
+uint32_t windowssys_windows_win32_graphics_gdi_getKerningPairsW(void* hdc, uint32_t npairs, void* lpkernpair) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4499,7 +4499,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetKerningPairsW(void* hdc, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetLayout(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getLayout(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4521,7 +4521,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetLayout(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetMapMode(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getMapMode(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4543,7 +4543,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetMapMode(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetMetaFileA(void* lpname) {
+void* windowssys_windows_win32_graphics_gdi_getMetaFileA(void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4565,7 +4565,7 @@ void* windowssys_windows_win32_graphics_gdi_GetMetaFileA(void* lpname) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetMetaFileBitsEx(void* hmf, uint32_t cbbuffer, void* lpdata) {
+uint32_t windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx(void* hmf, uint32_t cbbuffer, void* lpdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4589,7 +4589,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetMetaFileBitsEx(void* hmf, uint
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetMetaFileW(void* lpname) {
+void* windowssys_windows_win32_graphics_gdi_getMetaFileW(void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4611,7 +4611,7 @@ void* windowssys_windows_win32_graphics_gdi_GetMetaFileW(void* lpname) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetMetaRgn(void* hdc, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_getMetaRgn(void* hdc, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4634,7 +4634,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetMetaRgn(void* hdc, void* hrgn) 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetMiterLimit(void* hdc, void* plimit) {
+int32_t windowssys_windows_win32_graphics_gdi_getMiterLimit(void* hdc, void* plimit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4657,7 +4657,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetMiterLimit(void* hdc, void* pli
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetMonitorInfoA(void* hmonitor, void* lpmi) {
+int32_t windowssys_windows_win32_graphics_gdi_getMonitorInfoA(void* hmonitor, void* lpmi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4680,7 +4680,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetMonitorInfoA(void* hmonitor, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetMonitorInfoW(void* hmonitor, void* lpmi) {
+int32_t windowssys_windows_win32_graphics_gdi_getMonitorInfoW(void* hmonitor, void* lpmi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4703,7 +4703,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetMonitorInfoW(void* hmonitor, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetNearestColor(void* hdc, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_getNearestColor(void* hdc, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4726,7 +4726,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetNearestColor(void* hdc, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetNearestPaletteIndex(void* h, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex(void* h, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4749,7 +4749,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetNearestPaletteIndex(void* h, u
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetObjectA(void* h, int32_t c, void* pv) {
+int32_t windowssys_windows_win32_graphics_gdi_getObjectA(void* h, int32_t c, void* pv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4773,7 +4773,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetObjectA(void* h, int32_t c, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetObjectType(void* h) {
+uint32_t windowssys_windows_win32_graphics_gdi_getObjectType(void* h) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4795,7 +4795,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetObjectType(void* h) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetObjectW(void* h, int32_t c, void* pv) {
+int32_t windowssys_windows_win32_graphics_gdi_getObjectW(void* h, int32_t c, void* pv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4819,7 +4819,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetObjectW(void* h, int32_t c, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsA(void* hdc, uint32_t cjcopy, void* potm) {
+uint32_t windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA(void* hdc, uint32_t cjcopy, void* potm) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4843,7 +4843,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsA(void* hdc,
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsW(void* hdc, uint32_t cjcopy, void* potm) {
+uint32_t windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW(void* hdc, uint32_t cjcopy, void* potm) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4867,7 +4867,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsW(void* hdc,
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetPaletteEntries(void* hpal, uint32_t istart, uint32_t centries, void* ppalentries) {
+uint32_t windowssys_windows_win32_graphics_gdi_getPaletteEntries(void* hpal, uint32_t istart, uint32_t centries, void* ppalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4892,7 +4892,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetPaletteEntries(void* hpal, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetPath(void* hdc, void* apt, void* aj, int32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_getPath(void* hdc, void* apt, void* aj, int32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4917,7 +4917,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetPath(void* hdc, void* apt, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetPixel(void* hdc, int32_t x, int32_t y) {
+uint32_t windowssys_windows_win32_graphics_gdi_getPixel(void* hdc, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4941,7 +4941,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetPixel(void* hdc, int32_t x, in
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetPolyFillMode(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getPolyFillMode(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4963,7 +4963,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetPolyFillMode(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetROP2(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getROP2(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4985,7 +4985,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetROP2(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetRandomRgn(void* hdc, void* hrgn, int32_t i) {
+int32_t windowssys_windows_win32_graphics_gdi_getRandomRgn(void* hdc, void* hrgn, int32_t i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5009,7 +5009,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetRandomRgn(void* hdc, void* hrgn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetRasterizerCaps(void* lpraststat, uint32_t cjbytes) {
+int32_t windowssys_windows_win32_graphics_gdi_getRasterizerCaps(void* lpraststat, uint32_t cjbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5032,7 +5032,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetRasterizerCaps(void* lpraststat
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetRegionData(void* hrgn, uint32_t ncount, void* lprgndata) {
+uint32_t windowssys_windows_win32_graphics_gdi_getRegionData(void* hrgn, uint32_t ncount, void* lprgndata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5056,7 +5056,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetRegionData(void* hrgn, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetRgnBox(void* hrgn, void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_getRgnBox(void* hrgn, void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5079,7 +5079,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetRgnBox(void* hrgn, void* lprc) 
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetStockObject(int32_t i) {
+void* windowssys_windows_win32_graphics_gdi_getStockObject(int32_t i) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5101,7 +5101,7 @@ void* windowssys_windows_win32_graphics_gdi_GetStockObject(int32_t i) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetStretchBltMode(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getStretchBltMode(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5123,7 +5123,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetStretchBltMode(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetSysColor(int32_t nindex) {
+uint32_t windowssys_windows_win32_graphics_gdi_getSysColor(int32_t nindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5145,7 +5145,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetSysColor(int32_t nindex) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetSysColorBrush(int32_t nindex) {
+void* windowssys_windows_win32_graphics_gdi_getSysColorBrush(int32_t nindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5167,7 +5167,7 @@ void* windowssys_windows_win32_graphics_gdi_GetSysColorBrush(int32_t nindex) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetSystemPaletteEntries(void* hdc, uint32_t istart, uint32_t centries, void* ppalentries) {
+uint32_t windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries(void* hdc, uint32_t istart, uint32_t centries, void* ppalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5192,7 +5192,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetSystemPaletteEntries(void* hdc
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetSystemPaletteUse(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getSystemPaletteUse(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5214,7 +5214,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetSystemPaletteUse(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentA(void* hdc, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions) {
+uint32_t windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA(void* hdc, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5240,7 +5240,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentA(void* hdc, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentW(void* hdc, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions) {
+uint32_t windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW(void* hdc, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5266,7 +5266,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentW(void* hdc, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetTextAlign(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getTextAlign(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5288,7 +5288,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetTextAlign(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextCharacterExtra(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextCharacterExtra(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5310,7 +5310,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextCharacterExtra(void* hdc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetTextColor(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_getTextColor(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5332,7 +5332,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetTextColor(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointA(void* hdc, void* lpszstring, int32_t cchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentExPointA(void* hdc, void* lpszstring, int32_t cchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5360,7 +5360,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointA(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointI(void* hdc, void* lpwszstring, int32_t cwchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentExPointI(void* hdc, void* lpwszstring, int32_t cwchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5388,7 +5388,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointI(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointW(void* hdc, void* lpszstring, int32_t cchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentExPointW(void* hdc, void* lpszstring, int32_t cchstring, int32_t nmaxextent, void* lpnfit, void* lpndx, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5416,7 +5416,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentExPointW(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32A(void* hdc, void* lpstring, int32_t c, void* psizl) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A(void* hdc, void* lpstring, int32_t c, void* psizl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5441,7 +5441,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32A(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32W(void* hdc, void* lpstring, int32_t c, void* psizl) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W(void* hdc, void* lpstring, int32_t c, void* psizl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5466,7 +5466,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32W(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointA(void* hdc, void* lpstring, int32_t c, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentPointA(void* hdc, void* lpstring, int32_t c, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5491,7 +5491,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointA(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointI(void* hdc, void* pgiin, int32_t cgi, void* psize) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentPointI(void* hdc, void* pgiin, int32_t cgi, void* psize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5516,7 +5516,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointI(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointW(void* hdc, void* lpstring, int32_t c, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextExtentPointW(void* hdc, void* lpstring, int32_t c, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5541,7 +5541,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextExtentPointW(void* hdc, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextFaceA(void* hdc, int32_t c, void* lpname) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextFaceA(void* hdc, int32_t c, void* lpname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5565,7 +5565,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextFaceA(void* hdc, int32_t c,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextFaceW(void* hdc, int32_t c, void* lpname) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextFaceW(void* hdc, int32_t c, void* lpname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5589,7 +5589,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextFaceW(void* hdc, int32_t c,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextMetricsA(void* hdc, void* lptm) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextMetricsA(void* hdc, void* lptm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5612,7 +5612,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextMetricsA(void* hdc, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetTextMetricsW(void* hdc, void* lptm) {
+int32_t windowssys_windows_win32_graphics_gdi_getTextMetricsW(void* hdc, void* lptm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5635,7 +5635,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetTextMetricsW(void* hdc, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetUpdateRect(void* hwnd, void* lprect, int32_t berase) {
+int32_t windowssys_windows_win32_graphics_gdi_getUpdateRect(void* hwnd, void* lprect, int32_t berase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5659,7 +5659,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetUpdateRect(void* hwnd, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetUpdateRgn(void* hwnd, void* hrgn, int32_t berase) {
+int32_t windowssys_windows_win32_graphics_gdi_getUpdateRgn(void* hwnd, void* hrgn, int32_t berase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5683,7 +5683,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetUpdateRgn(void* hwnd, void* hrg
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetViewportExtEx(void* hdc, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getViewportExtEx(void* hdc, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5706,7 +5706,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetViewportExtEx(void* hdc, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetViewportOrgEx(void* hdc, void* lppoint) {
+int32_t windowssys_windows_win32_graphics_gdi_getViewportOrgEx(void* hdc, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5729,7 +5729,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetViewportOrgEx(void* hdc, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_GetWinMetaFileBits(void* hemf, uint32_t cbdata16, void* pdata16, int32_t imapmode, void* hdcref) {
+uint32_t windowssys_windows_win32_graphics_gdi_getWinMetaFileBits(void* hemf, uint32_t cbdata16, void* pdata16, int32_t imapmode, void* hdcref) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5755,7 +5755,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_GetWinMetaFileBits(void* hemf, ui
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_GetWindowDC(void* hwnd) {
+void* windowssys_windows_win32_graphics_gdi_getWindowDC(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5777,7 +5777,7 @@ void* windowssys_windows_win32_graphics_gdi_GetWindowDC(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetWindowExtEx(void* hdc, void* lpsize) {
+int32_t windowssys_windows_win32_graphics_gdi_getWindowExtEx(void* hdc, void* lpsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5800,7 +5800,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetWindowExtEx(void* hdc, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetWindowOrgEx(void* hdc, void* lppoint) {
+int32_t windowssys_windows_win32_graphics_gdi_getWindowOrgEx(void* hdc, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5823,7 +5823,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetWindowOrgEx(void* hdc, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetWindowRgn(void* hwnd, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_getWindowRgn(void* hwnd, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5846,7 +5846,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetWindowRgn(void* hwnd, void* hrg
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetWindowRgnBox(void* hwnd, void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_getWindowRgnBox(void* hwnd, void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5869,7 +5869,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetWindowRgnBox(void* hwnd, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GetWorldTransform(void* hdc, void* lpxf) {
+int32_t windowssys_windows_win32_graphics_gdi_getWorldTransform(void* hdc, void* lpxf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5892,7 +5892,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GetWorldTransform(void* hdc, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GradientFill(void* hdc, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t nmesh, uint32_t ulmode) {
+int32_t windowssys_windows_win32_graphics_gdi_gradientFill(void* hdc, void* pvertex, uint32_t nvertex, void* pmesh, uint32_t nmesh, uint32_t ulmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5919,7 +5919,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GradientFill(void* hdc, void* pver
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GrayStringA(void* hdc, void* hbrush, void* lpoutputfunc, int64_t lpdata, int32_t ncount, int32_t x, int32_t y, int32_t nwidth, int32_t nheight) {
+int32_t windowssys_windows_win32_graphics_gdi_grayStringA(void* hdc, void* hbrush, void* lpoutputfunc, int64_t lpdata, int32_t ncount, int32_t x, int32_t y, int32_t nwidth, int32_t nheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5949,7 +5949,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GrayStringA(void* hdc, void* hbrus
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_GrayStringW(void* hdc, void* hbrush, void* lpoutputfunc, int64_t lpdata, int32_t ncount, int32_t x, int32_t y, int32_t nwidth, int32_t nheight) {
+int32_t windowssys_windows_win32_graphics_gdi_grayStringW(void* hdc, void* hbrush, void* lpoutputfunc, int64_t lpdata, int32_t ncount, int32_t x, int32_t y, int32_t nwidth, int32_t nheight) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5979,7 +5979,7 @@ int32_t windowssys_windows_win32_graphics_gdi_GrayStringW(void* hdc, void* hbrus
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_InflateRect(void* lprc, int32_t dx, int32_t dy) {
+int32_t windowssys_windows_win32_graphics_gdi_inflateRect(void* lprc, int32_t dx, int32_t dy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6003,7 +6003,7 @@ int32_t windowssys_windows_win32_graphics_gdi_InflateRect(void* lprc, int32_t dx
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_IntersectClipRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
+int32_t windowssys_windows_win32_graphics_gdi_intersectClipRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6029,7 +6029,7 @@ int32_t windowssys_windows_win32_graphics_gdi_IntersectClipRect(void* hdc, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_IntersectRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
+int32_t windowssys_windows_win32_graphics_gdi_intersectRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6053,7 +6053,7 @@ int32_t windowssys_windows_win32_graphics_gdi_IntersectRect(void* lprcdst, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_InvalidateRect(void* hwnd, void* lprect, int32_t berase) {
+int32_t windowssys_windows_win32_graphics_gdi_invalidateRect(void* hwnd, void* lprect, int32_t berase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6077,7 +6077,7 @@ int32_t windowssys_windows_win32_graphics_gdi_InvalidateRect(void* hwnd, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_InvalidateRgn(void* hwnd, void* hrgn, int32_t berase) {
+int32_t windowssys_windows_win32_graphics_gdi_invalidateRgn(void* hwnd, void* hrgn, int32_t berase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6101,7 +6101,7 @@ int32_t windowssys_windows_win32_graphics_gdi_InvalidateRgn(void* hwnd, void* hr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_InvertRect(void* hdc, void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_invertRect(void* hdc, void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6124,7 +6124,7 @@ int32_t windowssys_windows_win32_graphics_gdi_InvertRect(void* hdc, void* lprc) 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_InvertRgn(void* hdc, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_invertRgn(void* hdc, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6147,7 +6147,7 @@ int32_t windowssys_windows_win32_graphics_gdi_InvertRgn(void* hdc, void* hrgn) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_IsRectEmpty(void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_isRectEmpty(void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6169,7 +6169,7 @@ int32_t windowssys_windows_win32_graphics_gdi_IsRectEmpty(void* lprc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_LPtoDP(void* hdc, void* lppt, int32_t c) {
+int32_t windowssys_windows_win32_graphics_gdi_lPtoDP(void* hdc, void* lppt, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6193,7 +6193,7 @@ int32_t windowssys_windows_win32_graphics_gdi_LPtoDP(void* hdc, void* lppt, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_LineDDA(int32_t xstart, int32_t ystart, int32_t xend, int32_t yend, void* lpproc, int64_t data) {
+int32_t windowssys_windows_win32_graphics_gdi_lineDDA(int32_t xstart, int32_t ystart, int32_t xend, int32_t yend, void* lpproc, int64_t data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, int32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6220,7 +6220,7 @@ int32_t windowssys_windows_win32_graphics_gdi_LineDDA(int32_t xstart, int32_t ys
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_LineTo(void* hdc, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_graphics_gdi_lineTo(void* hdc, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6244,7 +6244,7 @@ int32_t windowssys_windows_win32_graphics_gdi_LineTo(void* hdc, int32_t x, int32
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_LoadBitmapA(void* hinstance, void* lpbitmapname) {
+void* windowssys_windows_win32_graphics_gdi_loadBitmapA(void* hinstance, void* lpbitmapname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6267,7 +6267,7 @@ void* windowssys_windows_win32_graphics_gdi_LoadBitmapA(void* hinstance, void* l
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_LoadBitmapW(void* hinstance, void* lpbitmapname) {
+void* windowssys_windows_win32_graphics_gdi_loadBitmapW(void* hinstance, void* lpbitmapname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6290,7 +6290,7 @@ void* windowssys_windows_win32_graphics_gdi_LoadBitmapW(void* hinstance, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_LockWindowUpdate(void* hwndlock) {
+int32_t windowssys_windows_win32_graphics_gdi_lockWindowUpdate(void* hwndlock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6312,7 +6312,7 @@ int32_t windowssys_windows_win32_graphics_gdi_LockWindowUpdate(void* hwndlock) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_MapWindowPoints(void* hwndfrom, void* hwndto, void* lppoints, uint32_t cpoints) {
+int32_t windowssys_windows_win32_graphics_gdi_mapWindowPoints(void* hwndfrom, void* hwndto, void* lppoints, uint32_t cpoints) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6337,7 +6337,7 @@ int32_t windowssys_windows_win32_graphics_gdi_MapWindowPoints(void* hwndfrom, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_MaskBlt(void* hdcdest, int32_t xdest, int32_t ydest, int32_t width, int32_t height, void* hdcsrc, int32_t xsrc, int32_t ysrc, void* hbmmask, int32_t xmask, int32_t ymask, uint32_t rop) {
+int32_t windowssys_windows_win32_graphics_gdi_maskBlt(void* hdcdest, int32_t xdest, int32_t ydest, int32_t width, int32_t height, void* hdcsrc, int32_t xsrc, int32_t ysrc, void* hbmmask, int32_t xmask, int32_t ymask, uint32_t rop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6370,7 +6370,7 @@ int32_t windowssys_windows_win32_graphics_gdi_MaskBlt(void* hdcdest, int32_t xde
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_MergeFontPackage(void* puchmergefontbuffer, uint32_t ulmergefontbuffersize, void* puchfontpackagebuffer, uint32_t ulfontpackagebuffersize, void* ppuchdestbuffer, void* puldestbuffersize, void* pulbyteswritten, uint16_t usmode, void* lpfnallocate, void* lpfnreallocate, void* lpfnfree, void* lpvreserved) {
+uint32_t windowssys_windows_win32_graphics_gdi_mergeFontPackage(void* puchmergefontbuffer, uint32_t ulmergefontbuffersize, void* puchfontpackagebuffer, uint32_t ulfontpackagebuffersize, void* ppuchdestbuffer, void* puldestbuffersize, void* pulbyteswritten, uint16_t usmode, void* lpfnallocate, void* lpfnreallocate, void* lpfnfree, void* lpvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6403,7 +6403,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_MergeFontPackage(void* puchmergef
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ModifyWorldTransform(void* hdc, void* lpxf, uint32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_modifyWorldTransform(void* hdc, void* lpxf, uint32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6427,7 +6427,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ModifyWorldTransform(void* hdc, vo
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_MonitorFromRect(void* lprc, uint32_t dwflags) {
+void* windowssys_windows_win32_graphics_gdi_monitorFromRect(void* lprc, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6450,7 +6450,7 @@ void* windowssys_windows_win32_graphics_gdi_MonitorFromRect(void* lprc, uint32_t
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_MonitorFromWindow(void* hwnd, uint32_t dwflags) {
+void* windowssys_windows_win32_graphics_gdi_monitorFromWindow(void* hwnd, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6473,7 +6473,7 @@ void* windowssys_windows_win32_graphics_gdi_MonitorFromWindow(void* hwnd, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_MoveToEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_moveToEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6498,7 +6498,7 @@ int32_t windowssys_windows_win32_graphics_gdi_MoveToEx(void* hdc, int32_t x, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_OffsetClipRgn(void* hdc, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_graphics_gdi_offsetClipRgn(void* hdc, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6522,7 +6522,7 @@ int32_t windowssys_windows_win32_graphics_gdi_OffsetClipRgn(void* hdc, int32_t x
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_OffsetRect(void* lprc, int32_t dx, int32_t dy) {
+int32_t windowssys_windows_win32_graphics_gdi_offsetRect(void* lprc, int32_t dx, int32_t dy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6546,7 +6546,7 @@ int32_t windowssys_windows_win32_graphics_gdi_OffsetRect(void* lprc, int32_t dx,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_OffsetRgn(void* hrgn, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_graphics_gdi_offsetRgn(void* hrgn, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6570,7 +6570,7 @@ int32_t windowssys_windows_win32_graphics_gdi_OffsetRgn(void* hrgn, int32_t x, i
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_OffsetViewportOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6595,7 +6595,7 @@ int32_t windowssys_windows_win32_graphics_gdi_OffsetViewportOrgEx(void* hdc, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_OffsetWindowOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6620,7 +6620,7 @@ int32_t windowssys_windows_win32_graphics_gdi_OffsetWindowOrgEx(void* hdc, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PaintDesktop(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_paintDesktop(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6642,7 +6642,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PaintDesktop(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PaintRgn(void* hdc, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_paintRgn(void* hdc, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6665,7 +6665,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PaintRgn(void* hdc, void* hrgn) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PatBlt(void* hdc, int32_t x, int32_t y, int32_t w, int32_t h, uint32_t rop) {
+int32_t windowssys_windows_win32_graphics_gdi_patBlt(void* hdc, int32_t x, int32_t y, int32_t w, int32_t h, uint32_t rop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6692,7 +6692,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PatBlt(void* hdc, int32_t x, int32
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_PathToRegion(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_pathToRegion(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6714,7 +6714,7 @@ void* windowssys_windows_win32_graphics_gdi_PathToRegion(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Pie(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t xr1, int32_t yr1, int32_t xr2, int32_t yr2) {
+int32_t windowssys_windows_win32_graphics_gdi_pie(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t xr1, int32_t yr1, int32_t xr2, int32_t yr2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6744,7 +6744,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Pie(void* hdc, int32_t left, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PlayEnhMetaFile(void* hdc, void* hmf, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_playEnhMetaFile(void* hdc, void* hmf, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6768,7 +6768,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PlayEnhMetaFile(void* hdc, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PlayEnhMetaFileRecord(void* hdc, void* pht, void* pmr, uint32_t cht) {
+int32_t windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord(void* hdc, void* pht, void* pmr, uint32_t cht) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6793,7 +6793,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PlayEnhMetaFileRecord(void* hdc, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PlayMetaFile(void* hdc, void* hmf) {
+int32_t windowssys_windows_win32_graphics_gdi_playMetaFile(void* hdc, void* hmf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6816,7 +6816,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PlayMetaFile(void* hdc, void* hmf)
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PlayMetaFileRecord(void* hdc, void* lphandletable, void* lpmr, uint32_t noobjs) {
+int32_t windowssys_windows_win32_graphics_gdi_playMetaFileRecord(void* hdc, void* lphandletable, void* lpmr, uint32_t noobjs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6841,7 +6841,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PlayMetaFileRecord(void* hdc, void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PlgBlt(void* hdcdest, void* lppoint, void* hdcsrc, int32_t xsrc, int32_t ysrc, int32_t width, int32_t height, void* hbmmask, int32_t xmask, int32_t ymask) {
+int32_t windowssys_windows_win32_graphics_gdi_plgBlt(void* hdcdest, void* lppoint, void* hdcsrc, int32_t xsrc, int32_t ysrc, int32_t width, int32_t height, void* hbmmask, int32_t xmask, int32_t ymask) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6872,7 +6872,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PlgBlt(void* hdcdest, void* lppoin
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyBezier(void* hdc, void* apt, uint32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polyBezier(void* hdc, void* apt, uint32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6896,7 +6896,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyBezier(void* hdc, void* apt, u
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyBezierTo(void* hdc, void* apt, uint32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polyBezierTo(void* hdc, void* apt, uint32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6920,7 +6920,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyBezierTo(void* hdc, void* apt,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyDraw(void* hdc, void* apt, void* aj, int32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polyDraw(void* hdc, void* apt, void* aj, int32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6945,7 +6945,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyDraw(void* hdc, void* apt, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyPolygon(void* hdc, void* apt, void* asz, int32_t csz) {
+int32_t windowssys_windows_win32_graphics_gdi_polyPolygon(void* hdc, void* apt, void* asz, int32_t csz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6970,7 +6970,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyPolygon(void* hdc, void* apt, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyPolyline(void* hdc, void* apt, void* asz, uint32_t csz) {
+int32_t windowssys_windows_win32_graphics_gdi_polyPolyline(void* hdc, void* apt, void* asz, uint32_t csz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6995,7 +6995,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyPolyline(void* hdc, void* apt,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyTextOutA(void* hdc, void* ppt, int32_t nstrings) {
+int32_t windowssys_windows_win32_graphics_gdi_polyTextOutA(void* hdc, void* ppt, int32_t nstrings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7019,7 +7019,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyTextOutA(void* hdc, void* ppt,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolyTextOutW(void* hdc, void* ppt, int32_t nstrings) {
+int32_t windowssys_windows_win32_graphics_gdi_polyTextOutW(void* hdc, void* ppt, int32_t nstrings) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7043,7 +7043,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolyTextOutW(void* hdc, void* ppt,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Polygon(void* hdc, void* apt, int32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polygon(void* hdc, void* apt, int32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7067,7 +7067,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Polygon(void* hdc, void* apt, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Polyline(void* hdc, void* apt, int32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polyline(void* hdc, void* apt, int32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7091,7 +7091,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Polyline(void* hdc, void* apt, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PolylineTo(void* hdc, void* apt, uint32_t cpt) {
+int32_t windowssys_windows_win32_graphics_gdi_polylineTo(void* hdc, void* apt, uint32_t cpt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7115,7 +7115,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PolylineTo(void* hdc, void* apt, u
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PtInRegion(void* hrgn, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_graphics_gdi_ptInRegion(void* hrgn, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7139,7 +7139,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PtInRegion(void* hrgn, int32_t x, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_PtVisible(void* hdc, int32_t x, int32_t y) {
+int32_t windowssys_windows_win32_graphics_gdi_ptVisible(void* hdc, int32_t x, int32_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7163,7 +7163,7 @@ int32_t windowssys_windows_win32_graphics_gdi_PtVisible(void* hdc, int32_t x, in
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_RealizePalette(void* hdc) {
+uint32_t windowssys_windows_win32_graphics_gdi_realizePalette(void* hdc) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7185,7 +7185,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_RealizePalette(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RectInRegion(void* hrgn, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_rectInRegion(void* hrgn, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7208,7 +7208,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RectInRegion(void* hrgn, void* lpr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RectVisible(void* hdc, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_rectVisible(void* hdc, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7231,7 +7231,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RectVisible(void* hdc, void* lprec
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_Rectangle(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
+int32_t windowssys_windows_win32_graphics_gdi_rectangle(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7257,7 +7257,7 @@ int32_t windowssys_windows_win32_graphics_gdi_Rectangle(void* hdc, int32_t left,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RedrawWindow(void* hwnd, void* lprcupdate, void* hrgnupdate, uint32_t flags) {
+int32_t windowssys_windows_win32_graphics_gdi_redrawWindow(void* hwnd, void* lprcupdate, void* hrgnupdate, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7282,7 +7282,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RedrawWindow(void* hwnd, void* lpr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ReleaseDC(void* hwnd, void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_releaseDC(void* hwnd, void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7305,7 +7305,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ReleaseDC(void* hwnd, void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RemoveFontMemResourceEx(void* h) {
+int32_t windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx(void* h) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7327,7 +7327,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RemoveFontMemResourceEx(void* h) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceA(void* lpfilename) {
+int32_t windowssys_windows_win32_graphics_gdi_removeFontResourceA(void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7349,7 +7349,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceA(void* lpfilena
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceExA(void* name, uint32_t fl, void* pdv) {
+int32_t windowssys_windows_win32_graphics_gdi_removeFontResourceExA(void* name, uint32_t fl, void* pdv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7373,7 +7373,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceExA(void* name, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceExW(void* name, uint32_t fl, void* pdv) {
+int32_t windowssys_windows_win32_graphics_gdi_removeFontResourceExW(void* name, uint32_t fl, void* pdv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7397,7 +7397,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceExW(void* name, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceW(void* lpfilename) {
+int32_t windowssys_windows_win32_graphics_gdi_removeFontResourceW(void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7419,7 +7419,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RemoveFontResourceW(void* lpfilena
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_ResetDCA(void* hdc, void* lpdm) {
+void* windowssys_windows_win32_graphics_gdi_resetDCA(void* hdc, void* lpdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7442,7 +7442,7 @@ void* windowssys_windows_win32_graphics_gdi_ResetDCA(void* hdc, void* lpdm) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_ResetDCW(void* hdc, void* lpdm) {
+void* windowssys_windows_win32_graphics_gdi_resetDCW(void* hdc, void* lpdm) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7465,7 +7465,7 @@ void* windowssys_windows_win32_graphics_gdi_ResetDCW(void* hdc, void* lpdm) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ResizePalette(void* hpal, uint32_t n) {
+int32_t windowssys_windows_win32_graphics_gdi_resizePalette(void* hpal, uint32_t n) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7488,7 +7488,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ResizePalette(void* hpal, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RestoreDC(void* hdc, int32_t nsaveddc) {
+int32_t windowssys_windows_win32_graphics_gdi_restoreDC(void* hdc, int32_t nsaveddc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7511,7 +7511,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RestoreDC(void* hdc, int32_t nsave
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_RoundRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t width, int32_t height) {
+int32_t windowssys_windows_win32_graphics_gdi_roundRect(void* hdc, int32_t left, int32_t top, int32_t right, int32_t bottom, int32_t width, int32_t height) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7539,7 +7539,7 @@ int32_t windowssys_windows_win32_graphics_gdi_RoundRect(void* hdc, int32_t left,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SaveDC(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_saveDC(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7561,7 +7561,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SaveDC(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ScaleViewportExtEx(void* hdc, int32_t xn, int32_t dx, int32_t yn, int32_t yd, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_scaleViewportExtEx(void* hdc, int32_t xn, int32_t dx, int32_t yn, int32_t yd, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7588,7 +7588,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ScaleViewportExtEx(void* hdc, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ScaleWindowExtEx(void* hdc, int32_t xn, int32_t xd, int32_t yn, int32_t yd, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_scaleWindowExtEx(void* hdc, int32_t xn, int32_t xd, int32_t yn, int32_t yd, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7615,7 +7615,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ScaleWindowExtEx(void* hdc, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ScreenToClient(void* hwnd, void* lppoint) {
+int32_t windowssys_windows_win32_graphics_gdi_screenToClient(void* hwnd, void* lppoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7638,7 +7638,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ScreenToClient(void* hwnd, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SelectClipPath(void* hdc, int32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_selectClipPath(void* hdc, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7661,7 +7661,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SelectClipPath(void* hdc, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SelectClipRgn(void* hdc, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_selectClipRgn(void* hdc, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7684,7 +7684,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SelectClipRgn(void* hdc, void* hrg
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_SelectObject(void* hdc, void* h) {
+void* windowssys_windows_win32_graphics_gdi_selectObject(void* hdc, void* h) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7707,7 +7707,7 @@ void* windowssys_windows_win32_graphics_gdi_SelectObject(void* hdc, void* h) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_SelectPalette(void* hdc, void* hpal, int32_t bforcebkgd) {
+void* windowssys_windows_win32_graphics_gdi_selectPalette(void* hdc, void* hpal, int32_t bforcebkgd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7731,7 +7731,7 @@ void* windowssys_windows_win32_graphics_gdi_SelectPalette(void* hdc, void* hpal,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetArcDirection(void* hdc, int32_t dir) {
+int32_t windowssys_windows_win32_graphics_gdi_setArcDirection(void* hdc, int32_t dir) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7754,7 +7754,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetArcDirection(void* hdc, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetBitmapBits(void* hbm, uint32_t cb, void* pvbits) {
+int32_t windowssys_windows_win32_graphics_gdi_setBitmapBits(void* hbm, uint32_t cb, void* pvbits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7778,7 +7778,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetBitmapBits(void* hbm, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetBitmapDimensionEx(void* hbm, int32_t w, int32_t h, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx(void* hbm, int32_t w, int32_t h, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7803,7 +7803,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetBitmapDimensionEx(void* hbm, in
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetBkColor(void* hdc, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_setBkColor(void* hdc, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7826,7 +7826,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetBkColor(void* hdc, uint32_t co
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetBkMode(void* hdc, int32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_setBkMode(void* hdc, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7849,7 +7849,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetBkMode(void* hdc, int32_t mode)
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetBoundsRect(void* hdc, void* lprect, uint32_t flags) {
+uint32_t windowssys_windows_win32_graphics_gdi_setBoundsRect(void* hdc, void* lprect, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7873,7 +7873,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetBoundsRect(void* hdc, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetBrushOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_setBrushOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7898,7 +7898,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetBrushOrgEx(void* hdc, int32_t x
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetColorAdjustment(void* hdc, void* lpca) {
+int32_t windowssys_windows_win32_graphics_gdi_setColorAdjustment(void* hdc, void* lpca) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7921,7 +7921,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetColorAdjustment(void* hdc, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetDCBrushColor(void* hdc, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_setDCBrushColor(void* hdc, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7944,7 +7944,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetDCBrushColor(void* hdc, uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetDCPenColor(void* hdc, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_setDCPenColor(void* hdc, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7967,7 +7967,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetDCPenColor(void* hdc, uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetDIBColorTable(void* hdc, uint32_t istart, uint32_t centries, void* prgbq) {
+uint32_t windowssys_windows_win32_graphics_gdi_setDIBColorTable(void* hdc, uint32_t istart, uint32_t centries, void* prgbq) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7992,7 +7992,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetDIBColorTable(void* hdc, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetDIBits(void* hdc, void* hbm, uint32_t start, uint32_t clines, void* lpbits, void* lpbmi, uint32_t coloruse) {
+int32_t windowssys_windows_win32_graphics_gdi_setDIBits(void* hdc, void* hbm, uint32_t start, uint32_t clines, void* lpbits, void* lpbmi, uint32_t coloruse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8020,7 +8020,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetDIBits(void* hdc, void* hbm, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetDIBitsToDevice(void* hdc, int32_t xdest, int32_t ydest, uint32_t w, uint32_t h, int32_t xsrc, int32_t ysrc, uint32_t startscan, uint32_t clines, void* lpvbits, void* lpbmi, uint32_t coloruse) {
+int32_t windowssys_windows_win32_graphics_gdi_setDIBitsToDevice(void* hdc, int32_t xdest, int32_t ydest, uint32_t w, uint32_t h, int32_t xsrc, int32_t ysrc, uint32_t startscan, uint32_t clines, void* lpvbits, void* lpbmi, uint32_t coloruse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t, uint32_t, int32_t, int32_t, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8053,7 +8053,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetDIBitsToDevice(void* hdc, int32
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_SetEnhMetaFileBits(uint32_t nsize, void* pb) {
+void* windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits(uint32_t nsize, void* pb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8076,7 +8076,7 @@ void* windowssys_windows_win32_graphics_gdi_SetEnhMetaFileBits(uint32_t nsize, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetGraphicsMode(void* hdc, int32_t imode) {
+int32_t windowssys_windows_win32_graphics_gdi_setGraphicsMode(void* hdc, int32_t imode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8099,7 +8099,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetGraphicsMode(void* hdc, int32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetLayout(void* hdc, uint32_t l) {
+uint32_t windowssys_windows_win32_graphics_gdi_setLayout(void* hdc, uint32_t l) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8122,7 +8122,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetLayout(void* hdc, uint32_t l) 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetMapMode(void* hdc, int32_t imode) {
+int32_t windowssys_windows_win32_graphics_gdi_setMapMode(void* hdc, int32_t imode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8145,7 +8145,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetMapMode(void* hdc, int32_t imod
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetMapperFlags(void* hdc, uint32_t flags) {
+uint32_t windowssys_windows_win32_graphics_gdi_setMapperFlags(void* hdc, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8168,7 +8168,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetMapperFlags(void* hdc, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_SetMetaFileBitsEx(uint32_t cbbuffer, void* lpdata) {
+void* windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx(uint32_t cbbuffer, void* lpdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8191,7 +8191,7 @@ void* windowssys_windows_win32_graphics_gdi_SetMetaFileBitsEx(uint32_t cbbuffer,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetMetaRgn(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_setMetaRgn(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8213,7 +8213,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetMetaRgn(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetMiterLimit(void* hdc, float limit, void* old) {
+int32_t windowssys_windows_win32_graphics_gdi_setMiterLimit(void* hdc, float limit, void* old) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, float, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8237,7 +8237,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetMiterLimit(void* hdc, float lim
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetPaletteEntries(void* hpal, uint32_t istart, uint32_t centries, void* ppalentries) {
+uint32_t windowssys_windows_win32_graphics_gdi_setPaletteEntries(void* hpal, uint32_t istart, uint32_t centries, void* ppalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8262,7 +8262,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetPaletteEntries(void* hpal, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetPixel(void* hdc, int32_t x, int32_t y, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_setPixel(void* hdc, int32_t x, int32_t y, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8287,7 +8287,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetPixel(void* hdc, int32_t x, in
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetPixelV(void* hdc, int32_t x, int32_t y, uint32_t color) {
+int32_t windowssys_windows_win32_graphics_gdi_setPixelV(void* hdc, int32_t x, int32_t y, uint32_t color) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8312,7 +8312,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetPixelV(void* hdc, int32_t x, in
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetPolyFillMode(void* hdc, int32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_setPolyFillMode(void* hdc, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8335,7 +8335,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetPolyFillMode(void* hdc, int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetROP2(void* hdc, int32_t rop2) {
+int32_t windowssys_windows_win32_graphics_gdi_setROP2(void* hdc, int32_t rop2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8358,7 +8358,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetROP2(void* hdc, int32_t rop2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetRect(void* lprc, int32_t xleft, int32_t ytop, int32_t xright, int32_t ybottom) {
+int32_t windowssys_windows_win32_graphics_gdi_setRect(void* lprc, int32_t xleft, int32_t ytop, int32_t xright, int32_t ybottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8384,7 +8384,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetRect(void* lprc, int32_t xleft,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetRectEmpty(void* lprc) {
+int32_t windowssys_windows_win32_graphics_gdi_setRectEmpty(void* lprc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8406,7 +8406,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetRectEmpty(void* lprc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetRectRgn(void* hrgn, int32_t left, int32_t top, int32_t right, int32_t bottom) {
+int32_t windowssys_windows_win32_graphics_gdi_setRectRgn(void* hrgn, int32_t left, int32_t top, int32_t right, int32_t bottom) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8432,7 +8432,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetRectRgn(void* hrgn, int32_t lef
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetStretchBltMode(void* hdc, int32_t mode) {
+int32_t windowssys_windows_win32_graphics_gdi_setStretchBltMode(void* hdc, int32_t mode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8455,7 +8455,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetStretchBltMode(void* hdc, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetSysColors(int32_t celements, void* lpaelements, void* lpargbvalues) {
+int32_t windowssys_windows_win32_graphics_gdi_setSysColors(int32_t celements, void* lpaelements, void* lpargbvalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8479,7 +8479,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetSysColors(int32_t celements, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetSystemPaletteUse(void* hdc, uint32_t use) {
+uint32_t windowssys_windows_win32_graphics_gdi_setSystemPaletteUse(void* hdc, uint32_t use) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8502,7 +8502,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetSystemPaletteUse(void* hdc, ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetTextAlign(void* hdc, uint32_t align) {
+uint32_t windowssys_windows_win32_graphics_gdi_setTextAlign(void* hdc, uint32_t align) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8525,7 +8525,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetTextAlign(void* hdc, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetTextCharacterExtra(void* hdc, int32_t extra) {
+int32_t windowssys_windows_win32_graphics_gdi_setTextCharacterExtra(void* hdc, int32_t extra) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8548,7 +8548,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetTextCharacterExtra(void* hdc, i
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_gdi_SetTextColor(void* hdc, uint32_t color) {
+uint32_t windowssys_windows_win32_graphics_gdi_setTextColor(void* hdc, uint32_t color) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8571,7 +8571,7 @@ uint32_t windowssys_windows_win32_graphics_gdi_SetTextColor(void* hdc, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetTextJustification(void* hdc, int32_t extra, int32_t count) {
+int32_t windowssys_windows_win32_graphics_gdi_setTextJustification(void* hdc, int32_t extra, int32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8595,7 +8595,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetTextJustification(void* hdc, in
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetViewportExtEx(void* hdc, int32_t x, int32_t y, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_setViewportExtEx(void* hdc, int32_t x, int32_t y, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8620,7 +8620,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetViewportExtEx(void* hdc, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetViewportOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_setViewportOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8645,7 +8645,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetViewportOrgEx(void* hdc, int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetWindowExtEx(void* hdc, int32_t x, int32_t y, void* lpsz) {
+int32_t windowssys_windows_win32_graphics_gdi_setWindowExtEx(void* hdc, int32_t x, int32_t y, void* lpsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8670,7 +8670,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetWindowExtEx(void* hdc, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetWindowOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
+int32_t windowssys_windows_win32_graphics_gdi_setWindowOrgEx(void* hdc, int32_t x, int32_t y, void* lppt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8695,7 +8695,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetWindowOrgEx(void* hdc, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetWindowRgn(void* hwnd, void* hrgn, int32_t bredraw) {
+int32_t windowssys_windows_win32_graphics_gdi_setWindowRgn(void* hwnd, void* hrgn, int32_t bredraw) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8719,7 +8719,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetWindowRgn(void* hwnd, void* hrg
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SetWorldTransform(void* hdc, void* lpxf) {
+int32_t windowssys_windows_win32_graphics_gdi_setWorldTransform(void* hdc, void* lpxf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8742,7 +8742,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SetWorldTransform(void* hdc, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_StretchBlt(void* hdcdest, int32_t xdest, int32_t ydest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xsrc, int32_t ysrc, int32_t wsrc, int32_t hsrc, uint32_t rop) {
+int32_t windowssys_windows_win32_graphics_gdi_stretchBlt(void* hdcdest, int32_t xdest, int32_t ydest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xsrc, int32_t ysrc, int32_t wsrc, int32_t hsrc, uint32_t rop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8774,7 +8774,7 @@ int32_t windowssys_windows_win32_graphics_gdi_StretchBlt(void* hdcdest, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_StretchDIBits(void* hdc, int32_t xdest, int32_t ydest, int32_t destwidth, int32_t destheight, int32_t xsrc, int32_t ysrc, int32_t srcwidth, int32_t srcheight, void* lpbits, void* lpbmi, uint32_t iusage, uint32_t rop) {
+int32_t windowssys_windows_win32_graphics_gdi_stretchDIBits(void* hdc, int32_t xdest, int32_t ydest, int32_t destwidth, int32_t destheight, int32_t xsrc, int32_t ysrc, int32_t srcwidth, int32_t srcheight, void* lpbits, void* lpbmi, uint32_t iusage, uint32_t rop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8808,7 +8808,7 @@ int32_t windowssys_windows_win32_graphics_gdi_StretchDIBits(void* hdc, int32_t x
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_StrokeAndFillPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_strokeAndFillPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8830,7 +8830,7 @@ int32_t windowssys_windows_win32_graphics_gdi_StrokeAndFillPath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_StrokePath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_strokePath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8852,7 +8852,7 @@ int32_t windowssys_windows_win32_graphics_gdi_StrokePath(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_SubtractRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
+int32_t windowssys_windows_win32_graphics_gdi_subtractRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8876,7 +8876,7 @@ int32_t windowssys_windows_win32_graphics_gdi_SubtractRect(void* lprcdst, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTCharToUnicode(void* hdc, void* puccharcodes, uint32_t ulcharcodesize, void* pusshortcodes, uint32_t ulshortcodesize, uint32_t ulflags) {
+int32_t windowssys_windows_win32_graphics_gdi_tTCharToUnicode(void* hdc, void* puccharcodes, uint32_t ulcharcodesize, void* pusshortcodes, uint32_t ulshortcodesize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8903,7 +8903,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTCharToUnicode(void* hdc, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTDeleteEmbeddedFont(void* hfontreference, uint32_t ulflags, void* pulstatus) {
+int32_t windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont(void* hfontreference, uint32_t ulflags, void* pulstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8927,7 +8927,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTDeleteEmbeddedFont(void* hfontre
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFont(void* hdc, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* puscharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
+int32_t windowssys_windows_win32_graphics_gdi_tTEmbedFont(void* hdc, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* puscharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*, void*, uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8959,7 +8959,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFont(void* hdc, uint32_t ul
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFontEx(void* hdc, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* pulcharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
+int32_t windowssys_windows_win32_graphics_gdi_tTEmbedFontEx(void* hdc, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* pulcharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*, void*, uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8991,7 +8991,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFontEx(void* hdc, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFontFromFileA(void* hdc, void* szfontfilename, uint16_t usttcindex, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* puscharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
+int32_t windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA(void* hdc, void* szfontfilename, uint16_t usttcindex, uint32_t ulflags, uint32_t ulcharset, void* pulprivstatus, void* pulstatus, void* lpfnwritetostream, void* lpvwritestream, void* puscharcodeset, uint16_t uscharcodecount, uint16_t uslanguage, void* pttembedinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9025,7 +9025,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTEmbedFontFromFileA(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTEnableEmbeddingForFacename(void* lpszfacename, int32_t benable) {
+int32_t windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename(void* lpszfacename, int32_t benable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9048,7 +9048,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTEnableEmbeddingForFacename(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTGetEmbeddedFontInfo(uint32_t ulflags, void* pulprivstatus, uint32_t ulprivs, void* pulstatus, void* lpfnreadfromstream, void* lpvreadstream, void* pttloadinfo) {
+int32_t windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo(uint32_t ulflags, void* pulprivstatus, uint32_t ulprivs, void* pulstatus, void* lpfnreadfromstream, void* lpvreadstream, void* pttloadinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9076,7 +9076,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTGetEmbeddedFontInfo(uint32_t ulf
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTGetEmbeddingType(void* hdc, void* pulembedtype) {
+int32_t windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType(void* hdc, void* pulembedtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9099,7 +9099,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTGetEmbeddingType(void* hdc, void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTGetNewFontName(void* phfontreference, void* wzwinfamilyname, int32_t cchmaxwinname, void* szmacfamilyname, int32_t cchmaxmacname) {
+int32_t windowssys_windows_win32_graphics_gdi_tTGetNewFontName(void* phfontreference, void* wzwinfamilyname, int32_t cchmaxwinname, void* szmacfamilyname, int32_t cchmaxmacname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9125,7 +9125,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTGetNewFontName(void* phfontrefer
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabled(void* hdc, void* pbenabled) {
+int32_t windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled(void* hdc, void* pbenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9148,7 +9148,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabled(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabledForFacename(void* lpszfacename, void* pbenabled) {
+int32_t windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename(void* lpszfacename, void* pbenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9171,7 +9171,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabledForFacename(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTLoadEmbeddedFont(void* phfontreference, uint32_t ulflags, void* pulprivstatus, uint32_t ulprivs, void* pulstatus, void* lpfnreadfromstream, void* lpvreadstream, void* szwinfamilyname, void* szmacfamilyname, void* pttloadinfo) {
+int32_t windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont(void* phfontreference, uint32_t ulflags, void* pulprivstatus, uint32_t ulprivs, void* pulstatus, void* lpfnreadfromstream, void* lpvreadstream, void* szwinfamilyname, void* szmacfamilyname, void* pttloadinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9202,7 +9202,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTLoadEmbeddedFont(void* phfontref
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTRunValidationTests(void* hdc, void* ptestparam) {
+int32_t windowssys_windows_win32_graphics_gdi_tTRunValidationTests(void* hdc, void* ptestparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9225,7 +9225,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTRunValidationTests(void* hdc, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TTRunValidationTestsEx(void* hdc, void* ptestparam) {
+int32_t windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx(void* hdc, void* ptestparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9248,7 +9248,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TTRunValidationTestsEx(void* hdc, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TabbedTextOutA(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions, int32_t ntaborigin) {
+int32_t windowssys_windows_win32_graphics_gdi_tabbedTextOutA(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions, int32_t ntaborigin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9277,7 +9277,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TabbedTextOutA(void* hdc, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TabbedTextOutW(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions, int32_t ntaborigin) {
+int32_t windowssys_windows_win32_graphics_gdi_tabbedTextOutW(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t chcount, int32_t ntabpositions, void* lpntabstoppositions, int32_t ntaborigin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9306,7 +9306,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TabbedTextOutW(void* hdc, int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TextOutA(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t c) {
+int32_t windowssys_windows_win32_graphics_gdi_textOutA(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9332,7 +9332,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TextOutA(void* hdc, int32_t x, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TextOutW(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t c) {
+int32_t windowssys_windows_win32_graphics_gdi_textOutW(void* hdc, int32_t x, int32_t y, void* lpstring, int32_t c) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9358,7 +9358,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TextOutW(void* hdc, int32_t x, int
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_TransparentBlt(void* hdcdest, int32_t xorigindest, int32_t yorigindest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xoriginsrc, int32_t yoriginsrc, int32_t wsrc, int32_t hsrc, uint32_t crtransparent) {
+int32_t windowssys_windows_win32_graphics_gdi_transparentBlt(void* hdcdest, int32_t xorigindest, int32_t yorigindest, int32_t wdest, int32_t hdest, void* hdcsrc, int32_t xoriginsrc, int32_t yoriginsrc, int32_t wsrc, int32_t hsrc, uint32_t crtransparent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9390,7 +9390,7 @@ int32_t windowssys_windows_win32_graphics_gdi_TransparentBlt(void* hdcdest, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_UnionRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
+int32_t windowssys_windows_win32_graphics_gdi_unionRect(void* lprcdst, void* lprcsrc1, void* lprcsrc2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9414,7 +9414,7 @@ int32_t windowssys_windows_win32_graphics_gdi_UnionRect(void* lprcdst, void* lpr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_UnrealizeObject(void* h) {
+int32_t windowssys_windows_win32_graphics_gdi_unrealizeObject(void* h) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9436,7 +9436,7 @@ int32_t windowssys_windows_win32_graphics_gdi_UnrealizeObject(void* h) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_UpdateColors(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_updateColors(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9458,7 +9458,7 @@ int32_t windowssys_windows_win32_graphics_gdi_UpdateColors(void* hdc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_UpdateWindow(void* hwnd) {
+int32_t windowssys_windows_win32_graphics_gdi_updateWindow(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9480,7 +9480,7 @@ int32_t windowssys_windows_win32_graphics_gdi_UpdateWindow(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ValidateRect(void* hwnd, void* lprect) {
+int32_t windowssys_windows_win32_graphics_gdi_validateRect(void* hwnd, void* lprect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9503,7 +9503,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ValidateRect(void* hwnd, void* lpr
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_ValidateRgn(void* hwnd, void* hrgn) {
+int32_t windowssys_windows_win32_graphics_gdi_validateRgn(void* hwnd, void* hrgn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9526,7 +9526,7 @@ int32_t windowssys_windows_win32_graphics_gdi_ValidateRgn(void* hwnd, void* hrgn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_gdi_WidenPath(void* hdc) {
+int32_t windowssys_windows_win32_graphics_gdi_widenPath(void* hdc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9548,7 +9548,7 @@ int32_t windowssys_windows_win32_graphics_gdi_WidenPath(void* hdc) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_gdi_WindowFromDC(void* hdc) {
+void* windowssys_windows_win32_graphics_gdi_windowFromDC(void* hdc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

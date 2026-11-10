@@ -1,113 +1,112 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 
-public expect fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
+public expect fun activateKeyboardLayout(hkl: Hkl, flags: ActivateKeyboardLayoutFlags): Hkl
 
-public expect fun BlockInput(fblockit: BOOL): BOOL
+public expect fun blockInput(fblockit: Bool): Bool
 
-public expect fun DragDetect(hwnd: HWND, pt: POINT): BOOL
+public expect fun dragDetect(hwnd: Hwnd, pt: Point): Bool
 
-public expect fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL
+public expect fun enableWindow(hwnd: Hwnd, benable: Bool): Bool
 
-public expect fun GetActiveWindow(): HWND
+public expect fun getActiveWindow(): Hwnd
 
-public expect fun GetAsyncKeyState(vkey: Int): Short
+public expect fun getAsyncKeyState(vkey: Int): Short
 
-public expect fun GetCapture(): HWND
+public expect fun getCapture(): Hwnd
 
-public expect fun GetDoubleClickTime(): UInt
+public expect fun getDoubleClickTime(): UInt
 
-public expect fun GetFocus(): HWND
+public expect fun getFocus(): Hwnd
 
-public expect fun GetKBCodePage(): UInt
+public expect fun getKBCodePage(): UInt
 
-public expect fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int
+public expect fun getKeyNameTextA(lparam: Int, lpstring: Pstr, cchsize: Int): Int
 
-public expect fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int
+public expect fun getKeyNameTextW(lparam: Int, lpstring: Pwstr, cchsize: Int): Int
 
-public expect fun GetKeyState(nvirtkey: Int): Short
+public expect fun getKeyState(nvirtkey: Int): Short
 
-public expect fun GetKeyboardLayout(idthread: UInt): HKL
+public expect fun getKeyboardLayout(idthread: UInt): Hkl
 
-public expect fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int
+public expect fun getKeyboardLayoutList(nbuff: Int, lplist: COpaquePointer?): Int
 
-public expect fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL
+public expect fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool
 
-public expect fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL
+public expect fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool
 
-public expect fun GetKeyboardState(lpkeystate: Long): BOOL
+public expect fun getKeyboardState(lpkeystate: COpaquePointer?): Bool
 
-public expect fun GetKeyboardType(ntypeflag: Int): Int
+public expect fun getKeyboardType(ntypeflag: Int): Int
 
-public expect fun GetLastInputInfo(plii: Long): BOOL
+public expect fun getLastInputInfo(plii: COpaquePointer?): Bool
 
-public expect fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int
+public expect fun getMouseMovePointsEx(cbsize: UInt, lppt: COpaquePointer?, lpptbuf: COpaquePointer?, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int
 
-public expect fun IsWindowEnabled(hwnd: HWND): BOOL
+public expect fun isWindowEnabled(hwnd: Hwnd): Bool
 
-public expect fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
+public expect fun loadKeyboardLayoutA(pwszklid: Pcstr, flags: ActivateKeyboardLayoutFlags): Hkl
 
-public expect fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
+public expect fun loadKeyboardLayoutW(pwszklid: Pcwstr, flags: ActivateKeyboardLayoutFlags): Hkl
 
-public expect fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt
+public expect fun mapVirtualKeyA(ucode: UInt, umaptype: MapVirtualKeyType): UInt
 
-public expect fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt
+public expect fun mapVirtualKeyExA(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt
 
-public expect fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt
+public expect fun mapVirtualKeyExW(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt
 
-public expect fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt
+public expect fun mapVirtualKeyW(ucode: UInt, umaptype: MapVirtualKeyType): UInt
 
-public expect fun OemKeyScan(woemchar: UShort): UInt
+public expect fun oemKeyScan(woemchar: UShort): UInt
 
-public expect fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL
+public expect fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifiers, vk: UInt): Bool
 
-public expect fun ReleaseCapture(): BOOL
+public expect fun releaseCapture(): Bool
 
-public expect fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt
+public expect fun sendInput(cinputs: UInt, pinputs: COpaquePointer?, cbsize: Int): UInt
 
-public expect fun SetActiveWindow(hwnd: HWND): HWND
+public expect fun setActiveWindow(hwnd: Hwnd): Hwnd
 
-public expect fun SetCapture(hwnd: HWND): HWND
+public expect fun setCapture(hwnd: Hwnd): Hwnd
 
-public expect fun SetDoubleClickTime(param0: UInt): BOOL
+public expect fun setDoubleClickTime(param0: UInt): Bool
 
-public expect fun SetFocus(hwnd: HWND): HWND
+public expect fun setFocus(hwnd: Hwnd): Hwnd
 
-public expect fun SetKeyboardState(lpkeystate: Long): BOOL
+public expect fun setKeyboardState(lpkeystate: COpaquePointer?): Bool
 
-public expect fun SwapMouseButton(fswap: BOOL): BOOL
+public expect fun swapMouseButton(fswap: Bool): Bool
 
-public expect fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int
+public expect fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt): Int
 
-public expect fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int
+public expect fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt, dwhkl: Hkl): Int
 
-public expect fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int
+public expect fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int
 
-public expect fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int
+public expect fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int
 
-public expect fun TrackMouseEvent(lpeventtrack: Long): BOOL
+public expect fun trackMouseEvent(lpeventtrack: COpaquePointer?): Bool
 
-public expect fun UnloadKeyboardLayout(hkl: HKL): BOOL
+public expect fun unloadKeyboardLayout(hkl: Hkl): Bool
 
-public expect fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL
+public expect fun unregisterHotKey(hwnd: Hwnd, id: Int): Bool
 
-public expect fun VkKeyScanA(ch: Byte): Short
+public expect fun vkKeyScanA(ch: Byte): Short
 
-public expect fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short
+public expect fun vkKeyScanExA(ch: Byte, dwhkl: Hkl): Short
 
-public expect fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short
+public expect fun vkKeyScanExW(ch: UShort, dwhkl: Hkl): Short
 
-public expect fun VkKeyScanW(ch: UShort): Short
+public expect fun vkKeyScanW(ch: UShort): Short
 
-public expect fun _TrackMouseEvent(lpeventtrack: Long): BOOL
+public expect fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong)
 
-public expect fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong)
-
-public expect fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong)
+public expect fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong)

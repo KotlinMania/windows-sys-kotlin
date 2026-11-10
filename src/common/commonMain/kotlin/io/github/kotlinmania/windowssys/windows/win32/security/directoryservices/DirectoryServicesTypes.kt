@@ -1,31 +1,32 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.directoryservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public fun interface PFNDSCREATESECPAGEFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: UInt, param3: Long, param4: PFNREADOBJECTSECURITY, param5: PFNWRITEOBJECTSECURITY, param6: LPARAM): HRESULT
+public fun interface PfndscreatesecpageFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: COpaquePointer?, param4: Pfnreadobjectsecurity, param5: Pfnwriteobjectsecurity, param6: Lparam): Hresult
 }
 
-public typealias PFNDSCREATESECPAGE = PFNDSCREATESECPAGEFn?
+public typealias Pfndscreatesecpage = PfndscreatesecpageFn?
 
-public fun interface PFNDSEDITSECURITYFn {
-    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: PCWSTR, param3: UInt, param4: PCWSTR, param5: PFNREADOBJECTSECURITY, param6: PFNWRITEOBJECTSECURITY, param7: LPARAM): HRESULT
+public fun interface PfndseditsecurityFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcwstr, param2: Pcwstr, param3: UInt, param4: Pcwstr, param5: Pfnreadobjectsecurity, param6: Pfnwriteobjectsecurity, param7: Lparam): Hresult
 }
 
-public typealias PFNDSEDITSECURITY = PFNDSEDITSECURITYFn?
+public typealias Pfndseditsecurity = PfndseditsecurityFn?
 
-public fun interface PFNREADOBJECTSECURITYFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Long, param3: LPARAM): HRESULT
+public fun interface PfnreadobjectsecurityFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: Lparam): Hresult
 }
 
-public typealias PFNREADOBJECTSECURITY = PFNREADOBJECTSECURITYFn?
+public typealias Pfnreadobjectsecurity = PfnreadobjectsecurityFn?
 
-public fun interface PFNWRITEOBJECTSECURITYFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PSECURITY_DESCRIPTOR, param3: LPARAM): HRESULT
+public fun interface PfnwriteobjectsecurityFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: PsecurityDescriptor, param3: Lparam): Hresult
 }
 
-public typealias PFNWRITEOBJECTSECURITY = PFNWRITEOBJECTSECURITYFn?
+public typealias Pfnwriteobjectsecurity = PfnwriteobjectsecurityFn?

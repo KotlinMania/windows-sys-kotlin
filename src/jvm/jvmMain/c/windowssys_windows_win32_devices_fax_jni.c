@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1CanSendToFaxRecipient(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1canSendToFaxRecipient(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -35,7 +35,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxAbort(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxAbort(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint accessmask) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint accessmask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxClose(JNIEnv* km_env, jclass km_clazz, jlong faxhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxClose(JNIEnv* km_env, jclass km_clazz, jlong faxhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxCompleteJobParamsA(JNIEnv* km_env, jclass km_clazz, jlong jobparams, jlong coverpageinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxCompleteJobParamsA(JNIEnv* km_env, jclass km_clazz, jlong jobparams, jlong coverpageinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxCompleteJobParamsW(JNIEnv* km_env, jclass km_clazz, jlong jobparams, jlong coverpageinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxCompleteJobParamsW(JNIEnv* km_env, jclass km_clazz, jlong jobparams, jlong coverpageinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -129,7 +129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxConnectFaxServerA(JNIEnv* km_env, jclass km_clazz, jlong machinename, jlong faxhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxConnectFaxServerA(JNIEnv* km_env, jclass km_clazz, jlong machinename, jlong faxhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxConnectFaxServerW(JNIEnv* km_env, jclass km_clazz, jlong machinename, jlong faxhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxConnectFaxServerW(JNIEnv* km_env, jclass km_clazz, jlong machinename, jlong faxhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -167,7 +167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnableRoutingMethodA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jint enabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnableRoutingMethodA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jint enabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnableRoutingMethodW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jint enabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnableRoutingMethodW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jint enabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -207,7 +207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumGlobalRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo, jlong methodsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumGlobalRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo, jlong methodsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumGlobalRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo, jlong methodsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumGlobalRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo, jlong methodsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -247,7 +247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumJobsA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong jobentry, jlong jobsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumJobsA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong jobentry, jlong jobsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -267,7 +267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumJobsW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong jobentry, jlong jobsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumJobsW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong jobentry, jlong jobsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -287,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumPortsA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong portinfo, jlong portsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumPortsA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong portinfo, jlong portsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -307,7 +307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumPortsW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong portinfo, jlong portsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumPortsW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong portinfo, jlong portsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -327,7 +327,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumRoutingMethodsA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingmethod, jlong methodsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumRoutingMethodsA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingmethod, jlong methodsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxEnumRoutingMethodsW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingmethod, jlong methodsreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxEnumRoutingMethodsW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingmethod, jlong methodsreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -383,7 +383,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetConfigurationA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetConfigurationA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetConfigurationW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetConfigurationW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetDeviceStatusA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong devicestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetDeviceStatusA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong devicestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetDeviceStatusW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong devicestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetDeviceStatusW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong devicestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetJobA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong jobentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetJobA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong jobentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetJobW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong jobentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetJobW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong jobentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetLoggingCategoriesA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jlong numbercategories) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetLoggingCategoriesA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jlong numbercategories) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -519,7 +519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetLoggingCategoriesW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jlong numbercategories) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetLoggingCategoriesW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jlong numbercategories) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetPageData(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong buffer, jlong buffersize, jlong imagewidth, jlong imageheight) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetPageData(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jlong buffer, jlong buffersize, jlong imagewidth, jlong imageheight) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -562,7 +562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetPortA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetPortA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -581,7 +581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetPortW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetPortW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -600,7 +600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jlong routinginfobuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jlong routinginfobuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -621,7 +621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxGetRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jlong routinginfobuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxGetRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jlong routinginfobuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -642,7 +642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxInitializeEventQueue(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong completionport, jlong completionkey, jlong hwnd, jint messagestart) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxInitializeEventQueue(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong completionport, jlong completionkey, jlong hwnd, jint messagestart) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxOpenPort(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint deviceid, jint flags, jlong faxporthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxOpenPort(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint deviceid, jint flags, jlong faxporthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -685,7 +685,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxPrintCoverPageA(JNIEnv* km_env, jclass km_clazz, jlong faxcontextinfo, jlong coverpageinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxPrintCoverPageA(JNIEnv* km_env, jclass km_clazz, jlong faxcontextinfo, jlong coverpageinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -704,7 +704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxPrintCoverPageW(JNIEnv* km_env, jclass km_clazz, jlong faxcontextinfo, jlong coverpageinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxPrintCoverPageW(JNIEnv* km_env, jclass km_clazz, jlong faxcontextinfo, jlong coverpageinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -723,7 +723,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxRegisterRoutingExtensionW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong extensionname, jlong friendlyname, jlong imagename, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxRegisterRoutingExtensionW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong extensionname, jlong friendlyname, jlong imagename, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -746,7 +746,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxRegisterServiceProviderW(JNIEnv* km_env, jclass km_clazz, jlong deviceprovider, jlong friendlyname, jlong imagename, jlong tspname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxRegisterServiceProviderW(JNIEnv* km_env, jclass km_clazz, jlong deviceprovider, jlong friendlyname, jlong imagename, jlong tspname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -767,7 +767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSendDocumentA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong jobparams, jlong coverpageinfo, jlong faxjobid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSendDocumentA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong jobparams, jlong coverpageinfo, jlong faxjobid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -789,7 +789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSendDocumentForBroadcastA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong faxjobid, jlong faxrecipientcallback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSendDocumentForBroadcastA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong faxjobid, jlong faxrecipientcallback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -811,7 +811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSendDocumentForBroadcastW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong faxjobid, jlong faxrecipientcallback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSendDocumentForBroadcastW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong faxjobid, jlong faxrecipientcallback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -833,7 +833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSendDocumentW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong jobparams, jlong coverpageinfo, jlong faxjobid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSendDocumentW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong filename, jlong jobparams, jlong coverpageinfo, jlong faxjobid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -855,7 +855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetConfigurationA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetConfigurationA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -874,7 +874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetConfigurationW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetConfigurationW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong faxconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -893,7 +893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetGlobalRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetGlobalRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -912,7 +912,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetGlobalRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetGlobalRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong routinginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -931,7 +931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetJobA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jint command, jlong jobentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetJobA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jint command, jlong jobentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -952,7 +952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetJobW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jint command, jlong jobentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetJobW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jint jobid, jint command, jlong jobentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -973,7 +973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetLoggingCategoriesA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jint numbercategories) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetLoggingCategoriesA(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jint numbercategories) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -993,7 +993,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetLoggingCategoriesW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jint numbercategories) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetLoggingCategoriesW(JNIEnv* km_env, jclass km_clazz, jlong faxhandle, jlong categories, jint numbercategories) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1013,7 +1013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetPortA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetPortA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1032,7 +1032,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetPortW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetPortW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong portinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1051,7 +1051,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jint routinginfobuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetRoutingInfoA(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jint routinginfobuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1072,7 +1072,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxSetRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jint routinginfobuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxSetRoutingInfoW(JNIEnv* km_env, jclass km_clazz, jlong faxporthandle, jlong routingguid, jlong routinginfobuffer, jint routinginfobuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1093,7 +1093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxStartPrintJobA(JNIEnv* km_env, jclass km_clazz, jlong printername, jlong printinfo, jlong faxjobid, jlong faxcontextinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxStartPrintJobA(JNIEnv* km_env, jclass km_clazz, jlong printername, jlong printinfo, jlong faxjobid, jlong faxcontextinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1114,7 +1114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxStartPrintJobW(JNIEnv* km_env, jclass km_clazz, jlong printername, jlong printinfo, jlong faxjobid, jlong faxcontextinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxStartPrintJobW(JNIEnv* km_env, jclass km_clazz, jlong printername, jlong printinfo, jlong faxjobid, jlong faxcontextinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1135,7 +1135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1FaxUnregisterServiceProviderW(JNIEnv* km_env, jclass km_clazz, jlong deviceprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1faxUnregisterServiceProviderW(JNIEnv* km_env, jclass km_clazz, jlong deviceprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1153,7 +1153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1SendToFaxRecipient(JNIEnv* km_env, jclass km_clazz, jint sndmode, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1sendToFaxRecipient(JNIEnv* km_env, jclass km_clazz, jint sndmode, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1172,7 +1172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1StiCreateInstanceW(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint dwver, jlong ppsti, jlong punkouter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_fax_WindowsWin32DevicesFaxJniBridge_windowssys_1windows_1win32_1devices_1fax_1stiCreateInstanceW(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint dwver, jlong ppsti, jlong punkouter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

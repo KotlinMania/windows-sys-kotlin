@@ -1,13 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public expect fun VhfAsyncOperationComplete(vhfoperationhandle: Long, completionstatus: NTSTATUS): NTSTATUS
+public expect fun vhfAsyncOperationComplete(vhfoperationhandle: COpaquePointer?, completionstatus: Ntstatus): Ntstatus
 
-public expect fun VhfCreate(vhfconfig: Long, vhfhandle: Long): NTSTATUS
+public expect fun vhfCreate(vhfconfig: COpaquePointer?, vhfhandle: COpaquePointer?): Ntstatus
 
-public expect fun VhfDelete(vhfhandle: Long, wait: Boolean)
+public expect fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean)
 
-public expect fun VhfReadReportSubmit(vhfhandle: Long, hidtransferpacket: Long): NTSTATUS
+public expect fun vhfReadReportSubmit(vhfhandle: COpaquePointer?, hidtransferpacket: COpaquePointer?): Ntstatus
 
-public expect fun VhfStart(vhfhandle: Long): NTSTATUS
+public expect fun vhfStart(vhfhandle: COpaquePointer?): Ntstatus

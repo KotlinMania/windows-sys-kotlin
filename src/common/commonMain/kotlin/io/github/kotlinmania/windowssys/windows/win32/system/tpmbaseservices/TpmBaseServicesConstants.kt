@@ -1,24 +1,24 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-public val TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u
+public val TBS_COMMAND_LOCALITY_FOUR: TbsCommandLocality = 4u
 
-public val TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u
+public val TBS_COMMAND_LOCALITY_ONE: TbsCommandLocality = 1u
 
-public val TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u
+public val TBS_COMMAND_LOCALITY_THREE: TbsCommandLocality = 3u
 
-public val TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u
+public val TBS_COMMAND_LOCALITY_TWO: TbsCommandLocality = 2u
 
-public val TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u
+public val TBS_COMMAND_LOCALITY_ZERO: TbsCommandLocality = 0u
 
-public val TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u
+public val TBS_COMMAND_PRIORITY_HIGH: TbsCommandPriority = 300u
 
-public val TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u
+public val TBS_COMMAND_PRIORITY_LOW: TbsCommandPriority = 100u
 
-public val TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u
+public val TBS_COMMAND_PRIORITY_MAX: TbsCommandPriority = 2147483648u
 
-public val TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u
+public val TBS_COMMAND_PRIORITY_NORMAL: TbsCommandPriority = 200u
 
-public val TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u
+public val TBS_COMMAND_PRIORITY_SYSTEM: TbsCommandPriority = 400u
 
 public val TBS_CONTEXT_VERSION_ONE: UInt = 1u
 

@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -19,9 +19,9 @@ public val AAL5_SSCS_SSCOP_ASSURED: UInt = 1u
 
 public val AAL5_SSCS_SSCOP_NON_ASSURED: UInt = 2u
 
-public val AALTYPE_5: AAL_TYPE = 5
+public val AALTYPE_5: AalType = 5
 
-public val AALTYPE_USER: AAL_TYPE = 16
+public val AALTYPE_USER: AalType = 16
 
 public val ADDRINFOEX_VERSION_2: UInt = 2u
 
@@ -35,77 +35,77 @@ public val ADDRINFOEX_VERSION_6: UInt = 6u
 
 public val ADDR_ANY: UInt = 0u
 
-public val AF_12844: UShort = 25u
+public val AF_12844: UShort = 25u.toUShort()
 
-public val AF_APPLETALK: UShort = 16u
+public val AF_APPLETALK: UShort = 16u.toUShort()
 
-public val AF_ATM: UShort = 22u
+public val AF_ATM: UShort = 22u.toUShort()
 
-public val AF_BAN: UShort = 21u
+public val AF_BAN: UShort = 21u.toUShort()
 
-public val AF_CCITT: UShort = 10u
+public val AF_CCITT: UShort = 10u.toUShort()
 
-public val AF_CHAOS: UShort = 5u
+public val AF_CHAOS: UShort = 5u.toUShort()
 
-public val AF_CLUSTER: UShort = 24u
+public val AF_CLUSTER: UShort = 24u.toUShort()
 
-public val AF_DATAKIT: UShort = 9u
+public val AF_DATAKIT: UShort = 9u.toUShort()
 
-public val AF_DECnet: UShort = 12u
+public val AF_DE_CNET: UShort = 12u.toUShort()
 
-public val AF_DLI: UShort = 13u
+public val AF_DLI: UShort = 13u.toUShort()
 
-public val AF_ECMA: UShort = 8u
+public val AF_ECMA: UShort = 8u.toUShort()
 
-public val AF_FIREFOX: UShort = 19u
+public val AF_FIREFOX: UShort = 19u.toUShort()
 
-public val AF_HYLINK: UShort = 15u
+public val AF_HYLINK: UShort = 15u.toUShort()
 
-public val AF_HYPERV: UShort = 34u
+public val AF_HYPERV: UShort = 34u.toUShort()
 
-public val AF_ICLFXBM: UShort = 31u
+public val AF_ICLFXBM: UShort = 31u.toUShort()
 
-public val AF_IMPLINK: UShort = 3u
+public val AF_IMPLINK: UShort = 3u.toUShort()
 
-public val AF_INET: ADDRESS_FAMILY = 2u
+public val AF_INET: AddressFamily = 2u.toUShort()
 
-public val AF_INET6: ADDRESS_FAMILY = 23u
+public val AF_INET6: AddressFamily = 23u.toUShort()
 
-public val AF_IPX: UShort = 6u
+public val AF_IPX: UShort = 6u.toUShort()
 
-public val AF_IRDA: UShort = 26u
+public val AF_IRDA: UShort = 26u.toUShort()
 
-public val AF_ISO: UShort = 7u
+public val AF_ISO: UShort = 7u.toUShort()
 
-public val AF_LAT: UShort = 14u
+public val AF_LAT: UShort = 14u.toUShort()
 
-public val AF_LINK: UShort = 33u
+public val AF_LINK: UShort = 33u.toUShort()
 
-public val AF_MAX: UShort = 29u
+public val AF_MAX: UShort = 29u.toUShort()
 
-public val AF_NETBIOS: UShort = 17u
+public val AF_NETBIOS: UShort = 17u.toUShort()
 
-public val AF_NETDES: UShort = 28u
+public val AF_NETDES: UShort = 28u.toUShort()
 
-public val AF_NS: UShort = 6u
+public val AF_NS: UShort = 6u.toUShort()
 
-public val AF_OSI: UShort = 7u
+public val AF_OSI: UShort = 7u.toUShort()
 
-public val AF_PUP: UShort = 4u
+public val AF_PUP: UShort = 4u.toUShort()
 
-public val AF_SNA: UShort = 11u
+public val AF_SNA: UShort = 11u.toUShort()
 
-public val AF_TCNMESSAGE: UShort = 30u
+public val AF_TCNMESSAGE: UShort = 30u.toUShort()
 
-public val AF_TCNPROCESS: UShort = 29u
+public val AF_TCNPROCESS: UShort = 29u.toUShort()
 
-public val AF_UNIX: UShort = 1u
+public val AF_UNIX: UShort = 1u.toUShort()
 
-public val AF_UNKNOWN1: UShort = 20u
+public val AF_UNKNOWN1: UShort = 20u.toUShort()
 
-public val AF_UNSPEC: ADDRESS_FAMILY = 0u
+public val AF_UNSPEC: AddressFamily = 0u.toUShort()
 
-public val AF_VOICEVIEW: UShort = 18u
+public val AF_VOICEVIEW: UShort = 18u.toUShort()
 
 public val AI_ADDRCONFIG: UInt = 1024u
 
@@ -163,15 +163,15 @@ public val AI_SECURE_WITH_FALLBACK: UInt = 1048576u
 
 public val AI_V4MAPPED: UInt = 2048u
 
-public val ARP_HW_802: ARP_HARDWARE_TYPE = 6
+public val ARP_HW_802: ArpHardwareType = 6
 
-public val ARP_HW_ENET: ARP_HARDWARE_TYPE = 1
+public val ARP_HW_ENET: ArpHardwareType = 1
 
-public val ARP_REQUEST: ARP_OPCODE = 1
+public val ARP_REQUEST: ArpOpcode = 1
 
-public val ARP_RESPONSE: ARP_OPCODE = 2
+public val ARP_RESPONSE: ArpOpcode = 2
 
-public val ASSOCIATE_NAMERES_CONTEXT: GUID = GUID.from_u128(U128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL))
+public val ASSOCIATE_NAMERES_CONTEXT: Guid = Guid.fromU128(U128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL))
 
 public val ATMPROTO_AAL1: UInt = 1u
 
@@ -199,13 +199,13 @@ public val BCOB_C: UInt = 3u
 
 public val BCOB_X: UInt = 16u
 
-public val BHLI_HighLayerProfile: UInt = 2u
+public val BHLI_HIGH_LAYER_PROFILE: UInt = 2u
 
 public val BHLI_ISO: UInt = 0u
 
-public val BHLI_UserSpecific: UInt = 1u
+public val BHLI_USER_SPECIFIC: UInt = 1u
 
-public val BHLI_VendorSpecificAppId: UInt = 3u
+public val BHLI_VENDOR_SPECIFIC_APP_ID: UInt = 3u
 
 public val BIGENDIAN: UInt = 0u
 
@@ -413,23 +413,23 @@ public val CLIP_NOT: UInt = 0u
 
 public val CLIP_SUS: UInt = 32u
 
-public val COMP_EQUAL: WSAECOMPARATOR = 0
+public val COMP_EQUAL: Wsaecomparator = 0
 
-public val COMP_NOTLESS: WSAECOMPARATOR = 1
+public val COMP_NOTLESS: Wsaecomparator = 1
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 2
+public val CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: ControlChannelTriggerStatus = 2
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: CONTROL_CHANNEL_TRIGGER_STATUS = 0
+public val CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: ControlChannelTriggerStatus = 0
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 3
+public val CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: ControlChannelTriggerStatus = 3
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TRIGGER_STATUS = 6
+public val CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: ControlChannelTriggerStatus = 6
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 1
+public val CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: ControlChannelTriggerStatus = 1
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4
+public val CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: ControlChannelTriggerStatus = 4
 
-public val CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5
+public val CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: ControlChannelTriggerStatus = 5
 
 public val DE_REUSE_SOCKET: UInt = 2u
 
@@ -457,9 +457,9 @@ public val ETH_LENGTH_OF_VLAN_HEADER: UInt = 4u
 
 public val EXT_LEN_UNIT: UInt = 8u
 
-public val E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = 1
+public val E_WINDOW_ADVANCE_BY_TIME: EWindowAdvanceMethod = 1
 
-public val E_WINDOW_USE_AS_DATA_CACHE: eWINDOW_ADVANCE_METHOD = 2
+public val E_WINDOW_USE_AS_DATA_CACHE: EWindowAdvanceMethod = 2
 
 public val FD_ACCEPT: UInt = 8u
 
@@ -505,9 +505,9 @@ public val FIONREAD: Int = 1074030207
 
 public val FROM_PROTOCOL_INFO: Int = -1
 
-public val FallbackIndexMax: FALLBACK_INDEX = 1
+public val FALLBACK_INDEX_MAX: FallbackIndex = 1
 
-public val FallbackIndexTcpFastopen: FALLBACK_INDEX = 0
+public val FALLBACK_INDEX_TCP_FASTOPEN: FallbackIndex = 0
 
 public val GAI_STRERROR_BUFFER_SIZE: UInt = 1024u
 
@@ -529,37 +529,37 @@ public val IAS_MAX_OCTET_STRING: UInt = 1024u
 
 public val IAS_MAX_USER_STRING: UInt = 256u
 
-public val ICMP4_TIME_EXCEED_REASSEMBLY: ICMP4_TIME_EXCEED_CODE = 1
+public val ICMP4_TIME_EXCEED_REASSEMBLY: Icmp4TimeExceedCode = 1
 
-public val ICMP4_TIME_EXCEED_TRANSIT: ICMP4_TIME_EXCEED_CODE = 0
+public val ICMP4_TIME_EXCEED_TRANSIT: Icmp4TimeExceedCode = 0
 
-public val ICMP4_UNREACH_ADMIN: ICMP4_UNREACH_CODE = 13
+public val ICMP4_UNREACH_ADMIN: Icmp4UnreachCode = 13
 
-public val ICMP4_UNREACH_FRAG_NEEDED: ICMP4_UNREACH_CODE = 4
+public val ICMP4_UNREACH_FRAG_NEEDED: Icmp4UnreachCode = 4
 
-public val ICMP4_UNREACH_HOST: ICMP4_UNREACH_CODE = 1
+public val ICMP4_UNREACH_HOST: Icmp4UnreachCode = 1
 
-public val ICMP4_UNREACH_HOST_ADMIN: ICMP4_UNREACH_CODE = 10
+public val ICMP4_UNREACH_HOST_ADMIN: Icmp4UnreachCode = 10
 
-public val ICMP4_UNREACH_HOST_TOS: ICMP4_UNREACH_CODE = 12
+public val ICMP4_UNREACH_HOST_TOS: Icmp4UnreachCode = 12
 
-public val ICMP4_UNREACH_HOST_UNKNOWN: ICMP4_UNREACH_CODE = 7
+public val ICMP4_UNREACH_HOST_UNKNOWN: Icmp4UnreachCode = 7
 
-public val ICMP4_UNREACH_ISOLATED: ICMP4_UNREACH_CODE = 8
+public val ICMP4_UNREACH_ISOLATED: Icmp4UnreachCode = 8
 
-public val ICMP4_UNREACH_NET: ICMP4_UNREACH_CODE = 0
+public val ICMP4_UNREACH_NET: Icmp4UnreachCode = 0
 
-public val ICMP4_UNREACH_NET_ADMIN: ICMP4_UNREACH_CODE = 9
+public val ICMP4_UNREACH_NET_ADMIN: Icmp4UnreachCode = 9
 
-public val ICMP4_UNREACH_NET_TOS: ICMP4_UNREACH_CODE = 11
+public val ICMP4_UNREACH_NET_TOS: Icmp4UnreachCode = 11
 
-public val ICMP4_UNREACH_NET_UNKNOWN: ICMP4_UNREACH_CODE = 6
+public val ICMP4_UNREACH_NET_UNKNOWN: Icmp4UnreachCode = 6
 
-public val ICMP4_UNREACH_PORT: ICMP4_UNREACH_CODE = 3
+public val ICMP4_UNREACH_PORT: Icmp4UnreachCode = 3
 
-public val ICMP4_UNREACH_PROTOCOL: ICMP4_UNREACH_CODE = 2
+public val ICMP4_UNREACH_PROTOCOL: Icmp4UnreachCode = 2
 
-public val ICMP4_UNREACH_SOURCEROUTE_FAILED: ICMP4_UNREACH_CODE = 5
+public val ICMP4_UNREACH_SOURCEROUTE_FAILED: Icmp4UnreachCode = 5
 
 public val ICMP6_DST_UNREACH_ADDR: UInt = 3u
 
@@ -587,29 +587,29 @@ public val ICMPV4_INVALID_PREFERENCE_LEVEL: UInt = 2147483648u
 
 public val ICMPV6_ECHO_REQUEST_FLAG_REVERSE: UInt = 1u
 
-public val IE_AALParameters: Q2931_IE_TYPE = 0
+public val IE_AAL_PARAMETERS: Q2931IeType = 0
 
-public val IE_BHLI: Q2931_IE_TYPE = 3
+public val IE_BHLI: Q2931IeType = 3
 
-public val IE_BLLI: Q2931_IE_TYPE = 4
+public val IE_BLLI: Q2931IeType = 4
 
-public val IE_BroadbandBearerCapability: Q2931_IE_TYPE = 2
+public val IE_BROADBAND_BEARER_CAPABILITY: Q2931IeType = 2
 
-public val IE_CalledPartyNumber: Q2931_IE_TYPE = 5
+public val IE_CALLED_PARTY_NUMBER: Q2931IeType = 5
 
-public val IE_CalledPartySubaddress: Q2931_IE_TYPE = 6
+public val IE_CALLED_PARTY_SUBADDRESS: Q2931IeType = 6
 
-public val IE_CallingPartyNumber: Q2931_IE_TYPE = 7
+public val IE_CALLING_PARTY_NUMBER: Q2931IeType = 7
 
-public val IE_CallingPartySubaddress: Q2931_IE_TYPE = 8
+public val IE_CALLING_PARTY_SUBADDRESS: Q2931IeType = 8
 
-public val IE_Cause: Q2931_IE_TYPE = 9
+public val IE_CAUSE: Q2931IeType = 9
 
-public val IE_QOSClass: Q2931_IE_TYPE = 10
+public val IE_QOS_CLASS: Q2931IeType = 10
 
-public val IE_TrafficDescriptor: Q2931_IE_TYPE = 1
+public val IE_TRAFFIC_DESCRIPTOR: Q2931IeType = 1
 
-public val IE_TransitNetworkSelection: Q2931_IE_TYPE = 11
+public val IE_TRANSIT_NETWORK_SELECTION: Q2931IeType = 11
 
 public val IFF_BROADCAST: UInt = 2u
 
@@ -623,9 +623,9 @@ public val IFF_UP: UInt = 1u
 
 public val IGMP_LEAVE_GROUP_TYPE: UInt = 23u
 
-public val IGMP_MAX_RESP_CODE_TYPE_FLOAT: IGMP_MAX_RESP_CODE_TYPE = 1
+public val IGMP_MAX_RESP_CODE_TYPE_FLOAT: IgmpMaxRespCodeType = 1
 
-public val IGMP_MAX_RESP_CODE_TYPE_NORMAL: IGMP_MAX_RESP_CODE_TYPE = 0
+public val IGMP_MAX_RESP_CODE_TYPE_NORMAL: IgmpMaxRespCodeType = 0
 
 public val IGMP_QUERY_TYPE: UInt = 17u
 
@@ -685,7 +685,7 @@ public val INET6_ADDRSTRLEN: UInt = 65u
 
 public val INET_ADDRSTRLEN: UInt = 22u
 
-public val INVALID_SOCKET: SOCKET = (-1).toULong()
+public val INVALID_SOCKET: Socket = (-1).toULong()
 
 public val IN_CLASSA_HOST: UInt = 16777215u
 
@@ -741,19 +741,19 @@ public val IP6F_OFF_MASK: UInt = 63743u
 
 public val IP6F_RESERVED_MASK: UInt = 1536u
 
-public val IP6OPT_JUMBO: IPV6_OPTION_TYPE = 194
+public val IP6OPT_JUMBO: Ipv6OptionType = 194
 
 public val IP6OPT_MUTABLE: UInt = 32u
 
-public val IP6OPT_NSAP_ADDR: IPV6_OPTION_TYPE = 195
+public val IP6OPT_NSAP_ADDR: Ipv6OptionType = 195
 
-public val IP6OPT_PAD1: IPV6_OPTION_TYPE = 0
+public val IP6OPT_PAD1: Ipv6OptionType = 0
 
-public val IP6OPT_PADN: IPV6_OPTION_TYPE = 1
+public val IP6OPT_PADN: Ipv6OptionType = 1
 
-public val IP6OPT_ROUTER_ALERT: IPV6_OPTION_TYPE = 5
+public val IP6OPT_ROUTER_ALERT: Ipv6OptionType = 5
 
-public val IP6OPT_TUNNEL_LIMIT: IPV6_OPTION_TYPE = 4
+public val IP6OPT_TUNNEL_LIMIT: Ipv6OptionType = 4
 
 public val IP6OPT_TYPE_DISCARD: UInt = 64u
 
@@ -859,79 +859,79 @@ public val IPPORT_WHOIS: UInt = 43u
 
 public val IPPORT_WHOSERVER: UInt = 513u
 
-public val IPPROTO_AH: IPPROTO = 51
+public val IPPROTO_AH: Ipproto = 51
 
-public val IPPROTO_CBT: IPPROTO = 7
+public val IPPROTO_CBT: Ipproto = 7
 
-public val IPPROTO_DSTOPTS: IPPROTO = 60
+public val IPPROTO_DSTOPTS: Ipproto = 60
 
-public val IPPROTO_EGP: IPPROTO = 8
+public val IPPROTO_EGP: Ipproto = 8
 
-public val IPPROTO_ESP: IPPROTO = 50
+public val IPPROTO_ESP: Ipproto = 50
 
-public val IPPROTO_FRAGMENT: IPPROTO = 44
+public val IPPROTO_FRAGMENT: Ipproto = 44
 
-public val IPPROTO_GGP: IPPROTO = 3
+public val IPPROTO_GGP: Ipproto = 3
 
-public val IPPROTO_HOPOPTS: IPPROTO = 0
+public val IPPROTO_HOPOPTS: Ipproto = 0
 
-public val IPPROTO_ICLFXBM: IPPROTO = 78
+public val IPPROTO_ICLFXBM: Ipproto = 78
 
-public val IPPROTO_ICMP: IPPROTO = 1
+public val IPPROTO_ICMP: Ipproto = 1
 
-public val IPPROTO_ICMPV6: IPPROTO = 58
+public val IPPROTO_ICMPV6: Ipproto = 58
 
-public val IPPROTO_IDP: IPPROTO = 22
+public val IPPROTO_IDP: Ipproto = 22
 
-public val IPPROTO_IGMP: IPPROTO = 2
+public val IPPROTO_IGMP: Ipproto = 2
 
-public val IPPROTO_IGP: IPPROTO = 9
+public val IPPROTO_IGP: Ipproto = 9
 
-public val IPPROTO_IP: IPPROTO = 0
+public val IPPROTO_IP: Ipproto = 0
 
-public val IPPROTO_IPV4: IPPROTO = 4
+public val IPPROTO_IPV4: Ipproto = 4
 
-public val IPPROTO_IPV6: IPPROTO = 41
+public val IPPROTO_IPV6: Ipproto = 41
 
-public val IPPROTO_L2TP: IPPROTO = 115
+public val IPPROTO_L2TP: Ipproto = 115
 
-public val IPPROTO_MAX: IPPROTO = 256
+public val IPPROTO_MAX: Ipproto = 256
 
-public val IPPROTO_ND: IPPROTO = 77
+public val IPPROTO_ND: Ipproto = 77
 
-public val IPPROTO_NONE: IPPROTO = 59
+public val IPPROTO_NONE: Ipproto = 59
 
-public val IPPROTO_PGM: IPPROTO = 113
+public val IPPROTO_PGM: Ipproto = 113
 
-public val IPPROTO_PIM: IPPROTO = 103
+public val IPPROTO_PIM: Ipproto = 103
 
-public val IPPROTO_PUP: IPPROTO = 12
+public val IPPROTO_PUP: Ipproto = 12
 
-public val IPPROTO_RAW: IPPROTO = 255
+public val IPPROTO_RAW: Ipproto = 255
 
-public val IPPROTO_RDP: IPPROTO = 27
+public val IPPROTO_RDP: Ipproto = 27
 
-public val IPPROTO_RESERVED_IPSEC: IPPROTO = 258
+public val IPPROTO_RESERVED_IPSEC: Ipproto = 258
 
-public val IPPROTO_RESERVED_IPSECOFFLOAD: IPPROTO = 259
+public val IPPROTO_RESERVED_IPSECOFFLOAD: Ipproto = 259
 
-public val IPPROTO_RESERVED_MAX: IPPROTO = 261
+public val IPPROTO_RESERVED_MAX: Ipproto = 261
 
-public val IPPROTO_RESERVED_RAW: IPPROTO = 257
+public val IPPROTO_RESERVED_RAW: Ipproto = 257
 
-public val IPPROTO_RESERVED_WNV: IPPROTO = 260
+public val IPPROTO_RESERVED_WNV: Ipproto = 260
 
-public val IPPROTO_RM: IPPROTO = 113
+public val IPPROTO_RM: Ipproto = 113
 
-public val IPPROTO_ROUTING: IPPROTO = 43
+public val IPPROTO_ROUTING: Ipproto = 43
 
-public val IPPROTO_SCTP: IPPROTO = 132
+public val IPPROTO_SCTP: Ipproto = 132
 
-public val IPPROTO_ST: IPPROTO = 5
+public val IPPROTO_ST: Ipproto = 5
 
-public val IPPROTO_TCP: IPPROTO = 6
+public val IPPROTO_TCP: Ipproto = 6
 
-public val IPPROTO_UDP: IPPROTO = 17
+public val IPPROTO_UDP: Ipproto = 17
 
 public val IPV4_MAX_MINIMUM_MTU: UInt = 576u
 
@@ -1107,31 +1107,31 @@ public val IP_NRT_INTERFACE: Int = 74
 
 public val IP_OPTIONS: Int = 1
 
-public val IP_OPTION_TIMESTAMP_ADDRESS: IP_OPTION_TIMESTAMP_FLAGS = 1
+public val IP_OPTION_TIMESTAMP_ADDRESS: IpOptionTimestampFlags = 1
 
-public val IP_OPTION_TIMESTAMP_ONLY: IP_OPTION_TIMESTAMP_FLAGS = 0
+public val IP_OPTION_TIMESTAMP_ONLY: IpOptionTimestampFlags = 0
 
-public val IP_OPTION_TIMESTAMP_SPECIFIC_ADDRESS: IP_OPTION_TIMESTAMP_FLAGS = 3
+public val IP_OPTION_TIMESTAMP_SPECIFIC_ADDRESS: IpOptionTimestampFlags = 3
 
-public val IP_OPT_EOL: IPV4_OPTION_TYPE = 0
+public val IP_OPT_EOL: Ipv4OptionType = 0
 
-public val IP_OPT_LSRR: IPV4_OPTION_TYPE = 131
+public val IP_OPT_LSRR: Ipv4OptionType = 131
 
-public val IP_OPT_MULTIDEST: IPV4_OPTION_TYPE = 149
+public val IP_OPT_MULTIDEST: Ipv4OptionType = 149
 
-public val IP_OPT_NOP: IPV4_OPTION_TYPE = 1
+public val IP_OPT_NOP: Ipv4OptionType = 1
 
-public val IP_OPT_ROUTER_ALERT: IPV4_OPTION_TYPE = 148
+public val IP_OPT_ROUTER_ALERT: Ipv4OptionType = 148
 
-public val IP_OPT_RR: IPV4_OPTION_TYPE = 7
+public val IP_OPT_RR: Ipv4OptionType = 7
 
-public val IP_OPT_SECURITY: IPV4_OPTION_TYPE = 130
+public val IP_OPT_SECURITY: Ipv4OptionType = 130
 
-public val IP_OPT_SID: IPV4_OPTION_TYPE = 136
+public val IP_OPT_SID: Ipv4OptionType = 136
 
-public val IP_OPT_SSRR: IPV4_OPTION_TYPE = 137
+public val IP_OPT_SSRR: Ipv4OptionType = 137
 
-public val IP_OPT_TS: IPV4_OPTION_TYPE = 68
+public val IP_OPT_TS: Ipv4OptionType = 68
 
 public val IP_ORIGINAL_ARRIVAL_IF: Int = 47
 
@@ -1139,15 +1139,15 @@ public val IP_PKTINFO: Int = 19
 
 public val IP_PKTINFO_EX: Int = 51
 
-public val IP_PMTUDISC_DO: PMTUD_STATE = 1
+public val IP_PMTUDISC_DO: PmtudState = 1
 
-public val IP_PMTUDISC_DONT: PMTUD_STATE = 2
+public val IP_PMTUDISC_DONT: PmtudState = 2
 
-public val IP_PMTUDISC_MAX: PMTUD_STATE = 4
+public val IP_PMTUDISC_MAX: PmtudState = 4
 
-public val IP_PMTUDISC_NOT_SET: PMTUD_STATE = 0
+public val IP_PMTUDISC_NOT_SET: PmtudState = 0
 
-public val IP_PMTUDISC_PROBE: PMTUD_STATE = 3
+public val IP_PMTUDISC_PROBE: PmtudState = 3
 
 public val IP_PROTECTION_LEVEL: Int = 23
 
@@ -1253,41 +1253,41 @@ public val ISO_MAX_ADDR_LENGTH: UInt = 64u
 
 public val ISO_NON_HIERARCHICAL: UInt = 1u
 
-public val IpDadStateDeprecated: NL_DAD_STATE = 3
+public val IP_DAD_STATE_DEPRECATED: NlDadState = 3
 
-public val IpDadStateDuplicate: NL_DAD_STATE = 2
+public val IP_DAD_STATE_DUPLICATE: NlDadState = 2
 
-public val IpDadStateInvalid: NL_DAD_STATE = 0
+public val IP_DAD_STATE_INVALID: NlDadState = 0
 
-public val IpDadStatePreferred: NL_DAD_STATE = 4
+public val IP_DAD_STATE_PREFERRED: NlDadState = 4
 
-public val IpDadStateTentative: NL_DAD_STATE = 1
+public val IP_DAD_STATE_TENTATIVE: NlDadState = 1
 
-public val IpPrefixOriginDhcp: NL_PREFIX_ORIGIN = 3
+public val IP_PREFIX_ORIGIN_DHCP: NlPrefixOrigin = 3
 
-public val IpPrefixOriginManual: NL_PREFIX_ORIGIN = 1
+public val IP_PREFIX_ORIGIN_MANUAL: NlPrefixOrigin = 1
 
-public val IpPrefixOriginOther: NL_PREFIX_ORIGIN = 0
+public val IP_PREFIX_ORIGIN_OTHER: NlPrefixOrigin = 0
 
-public val IpPrefixOriginRouterAdvertisement: NL_PREFIX_ORIGIN = 4
+public val IP_PREFIX_ORIGIN_ROUTER_ADVERTISEMENT: NlPrefixOrigin = 4
 
-public val IpPrefixOriginUnchanged: NL_PREFIX_ORIGIN = 16
+public val IP_PREFIX_ORIGIN_UNCHANGED: NlPrefixOrigin = 16
 
-public val IpPrefixOriginWellKnown: NL_PREFIX_ORIGIN = 2
+public val IP_PREFIX_ORIGIN_WELL_KNOWN: NlPrefixOrigin = 2
 
-public val IpSuffixOriginDhcp: NL_SUFFIX_ORIGIN = 3
+public val IP_SUFFIX_ORIGIN_DHCP: NlSuffixOrigin = 3
 
-public val IpSuffixOriginLinkLayerAddress: NL_SUFFIX_ORIGIN = 4
+public val IP_SUFFIX_ORIGIN_LINK_LAYER_ADDRESS: NlSuffixOrigin = 4
 
-public val IpSuffixOriginManual: NL_SUFFIX_ORIGIN = 1
+public val IP_SUFFIX_ORIGIN_MANUAL: NlSuffixOrigin = 1
 
-public val IpSuffixOriginOther: NL_SUFFIX_ORIGIN = 0
+public val IP_SUFFIX_ORIGIN_OTHER: NlSuffixOrigin = 0
 
-public val IpSuffixOriginRandom: NL_SUFFIX_ORIGIN = 5
+public val IP_SUFFIX_ORIGIN_RANDOM: NlSuffixOrigin = 5
 
-public val IpSuffixOriginUnchanged: NL_SUFFIX_ORIGIN = 16
+public val IP_SUFFIX_ORIGIN_UNCHANGED: NlSuffixOrigin = 16
 
-public val IpSuffixOriginWellKnown: NL_SUFFIX_ORIGIN = 2
+public val IP_SUFFIX_ORIGIN_WELL_KNOWN: NlSuffixOrigin = 2
 
 public val JL_BOTH: UInt = 4u
 
@@ -1321,25 +1321,25 @@ public val LM_BAUD_576K: UInt = 576000u
 
 public val LM_BAUD_9600: UInt = 9600u
 
-public val LM_HB1_Computer: Int = 4
+public val LM_HB1_COMPUTER: Int = 4
 
-public val LM_HB1_Fax: Int = 32
+public val LM_HB1_FAX: Int = 32
 
-public val LM_HB1_LANAccess: Int = 64
+public val LM_HB1_LAN_ACCESS: Int = 64
 
-public val LM_HB1_Modem: Int = 16
+public val LM_HB1_MODEM: Int = 16
 
-public val LM_HB1_PDA_Palmtop: Int = 2
+public val LM_HB1_PDA_PALMTOP: Int = 2
 
-public val LM_HB1_PnP: Int = 1
+public val LM_HB1_PN_P: Int = 1
 
-public val LM_HB1_Printer: Int = 8
+public val LM_HB1_PRINTER: Int = 8
 
-public val LM_HB2_FileServer: Int = 2
+public val LM_HB2_FILE_SERVER: Int = 2
 
-public val LM_HB2_Telephony: Int = 1
+public val LM_HB2_TELEPHONY: Int = 1
 
-public val LM_HB_Extension: Int = 128
+public val LM_HB_EXTENSION: Int = 128
 
 public val LOG2_BITS_PER_BYTE: UInt = 3u
 
@@ -1427,35 +1427,35 @@ public val LUP_SECURE: UInt = 32768u
 
 public val LUP_SECURE_WITH_FALLBACK: UInt = 67108864u
 
-public val LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 0
+public val LINK_LOCAL_ALWAYS_OFF: NlLinkLocalAddressBehavior = 0
 
-public val LinkLocalAlwaysOn: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 2
+public val LINK_LOCAL_ALWAYS_ON: NlLinkLocalAddressBehavior = 2
 
-public val LinkLocalDelayed: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 1
+public val LINK_LOCAL_DELAYED: NlLinkLocalAddressBehavior = 1
 
-public val LinkLocalUnchanged: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = -1
+public val LINK_LOCAL_UNCHANGED: NlLinkLocalAddressBehavior = -1
 
-public val LmCharSetASCII: UInt = 0u
+public val LM_CHAR_SET_ASCII: UInt = 0u
 
-public val LmCharSetISO_8859_1: UInt = 1u
+public val LM_CHAR_SET_ISO_8859_1: UInt = 1u
 
-public val LmCharSetISO_8859_2: UInt = 2u
+public val LM_CHAR_SET_ISO_8859_2: UInt = 2u
 
-public val LmCharSetISO_8859_3: UInt = 3u
+public val LM_CHAR_SET_ISO_8859_3: UInt = 3u
 
-public val LmCharSetISO_8859_4: UInt = 4u
+public val LM_CHAR_SET_ISO_8859_4: UInt = 4u
 
-public val LmCharSetISO_8859_5: UInt = 5u
+public val LM_CHAR_SET_ISO_8859_5: UInt = 5u
 
-public val LmCharSetISO_8859_6: UInt = 6u
+public val LM_CHAR_SET_ISO_8859_6: UInt = 6u
 
-public val LmCharSetISO_8859_7: UInt = 7u
+public val LM_CHAR_SET_ISO_8859_7: UInt = 7u
 
-public val LmCharSetISO_8859_8: UInt = 8u
+public val LM_CHAR_SET_ISO_8859_8: UInt = 8u
 
-public val LmCharSetISO_8859_9: UInt = 9u
+public val LM_CHAR_SET_ISO_8859_9: UInt = 9u
 
-public val LmCharSetUNICODE: UInt = 255u
+public val LM_CHAR_SET_UNICODE: UInt = 255u
 
 public val MAXGETHOSTSTRUCT: UInt = 1024u
 
@@ -1473,9 +1473,9 @@ public val MAX_WINDOW_INCREMENT_PERCENTAGE: UInt = 25u
 
 public val MCAST_BLOCK_SOURCE: UInt = 43u
 
-public val MCAST_EXCLUDE: MULTICAST_MODE_TYPE = 1
+public val MCAST_EXCLUDE: MulticastModeType = 1
 
-public val MCAST_INCLUDE: MULTICAST_MODE_TYPE = 0
+public val MCAST_INCLUDE: MulticastModeType = 0
 
 public val MCAST_JOIN_GROUP: UInt = 41u
 
@@ -1487,63 +1487,63 @@ public val MCAST_LEAVE_SOURCE_GROUP: UInt = 46u
 
 public val MCAST_UNBLOCK_SOURCE: UInt = 44u
 
-public val MIB_IPPROTO_BBN: NL_ROUTE_PROTOCOL = 12
+public val MIB_IPPROTO_BBN: NlRouteProtocol = 12
 
-public val MIB_IPPROTO_BGP: NL_ROUTE_PROTOCOL = 14
+public val MIB_IPPROTO_BGP: NlRouteProtocol = 14
 
-public val MIB_IPPROTO_CISCO: NL_ROUTE_PROTOCOL = 11
+public val MIB_IPPROTO_CISCO: NlRouteProtocol = 11
 
-public val MIB_IPPROTO_DHCP: NL_ROUTE_PROTOCOL = 19
+public val MIB_IPPROTO_DHCP: NlRouteProtocol = 19
 
-public val MIB_IPPROTO_DVMRP: NL_ROUTE_PROTOCOL = 17
+public val MIB_IPPROTO_DVMRP: NlRouteProtocol = 17
 
-public val MIB_IPPROTO_EGP: NL_ROUTE_PROTOCOL = 5
+public val MIB_IPPROTO_EGP: NlRouteProtocol = 5
 
-public val MIB_IPPROTO_EIGRP: NL_ROUTE_PROTOCOL = 16
+public val MIB_IPPROTO_EIGRP: NlRouteProtocol = 16
 
-public val MIB_IPPROTO_ES_IS: NL_ROUTE_PROTOCOL = 10
+public val MIB_IPPROTO_ES_IS: NlRouteProtocol = 10
 
-public val MIB_IPPROTO_GGP: NL_ROUTE_PROTOCOL = 6
+public val MIB_IPPROTO_GGP: NlRouteProtocol = 6
 
-public val MIB_IPPROTO_HELLO: NL_ROUTE_PROTOCOL = 7
+public val MIB_IPPROTO_HELLO: NlRouteProtocol = 7
 
-public val MIB_IPPROTO_ICMP: NL_ROUTE_PROTOCOL = 4
+public val MIB_IPPROTO_ICMP: NlRouteProtocol = 4
 
-public val MIB_IPPROTO_IDPR: NL_ROUTE_PROTOCOL = 15
+public val MIB_IPPROTO_IDPR: NlRouteProtocol = 15
 
-public val MIB_IPPROTO_IS_IS: NL_ROUTE_PROTOCOL = 9
+public val MIB_IPPROTO_IS_IS: NlRouteProtocol = 9
 
-public val MIB_IPPROTO_LOCAL: NL_ROUTE_PROTOCOL = 2
+public val MIB_IPPROTO_LOCAL: NlRouteProtocol = 2
 
-public val MIB_IPPROTO_NETMGMT: NL_ROUTE_PROTOCOL = 3
+public val MIB_IPPROTO_NETMGMT: NlRouteProtocol = 3
 
-public val MIB_IPPROTO_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002
+public val MIB_IPPROTO_NT_AUTOSTATIC: NlRouteProtocol = 10002
 
-public val MIB_IPPROTO_NT_STATIC: NL_ROUTE_PROTOCOL = 10006
+public val MIB_IPPROTO_NT_STATIC: NlRouteProtocol = 10006
 
-public val MIB_IPPROTO_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007
+public val MIB_IPPROTO_NT_STATIC_NON_DOD: NlRouteProtocol = 10007
 
-public val MIB_IPPROTO_OSPF: NL_ROUTE_PROTOCOL = 13
+public val MIB_IPPROTO_OSPF: NlRouteProtocol = 13
 
-public val MIB_IPPROTO_OTHER: NL_ROUTE_PROTOCOL = 1
+public val MIB_IPPROTO_OTHER: NlRouteProtocol = 1
 
-public val MIB_IPPROTO_RIP: NL_ROUTE_PROTOCOL = 8
+public val MIB_IPPROTO_RIP: NlRouteProtocol = 8
 
-public val MIB_IPPROTO_RPL: NL_ROUTE_PROTOCOL = 18
+public val MIB_IPPROTO_RPL: NlRouteProtocol = 18
 
-public val MIT_GUID: NPI_MODULEID_TYPE = 1
+public val MIT_GUID: NpiModuleidType = 1
 
-public val MIT_IF_LUID: NPI_MODULEID_TYPE = 2
+public val MIT_IF_LUID: NpiModuleidType = 2
 
-public val MLD_MAX_RESP_CODE_TYPE_FLOAT: MLD_MAX_RESP_CODE_TYPE = 1
+public val MLD_MAX_RESP_CODE_TYPE_FLOAT: MldMaxRespCodeType = 1
 
-public val MLD_MAX_RESP_CODE_TYPE_NORMAL: MLD_MAX_RESP_CODE_TYPE = 0
+public val MLD_MAX_RESP_CODE_TYPE_NORMAL: MldMaxRespCodeType = 0
 
 public val MSG_BCAST: UInt = 1024u
 
 public val MSG_CTRUNC: UInt = 512u
 
-public val MSG_DONTROUTE: SEND_RECV_FLAGS = 4
+public val MSG_DONTROUTE: SendRecvFlags = 4
 
 public val MSG_ERRQUEUE: UInt = 4096u
 
@@ -1553,17 +1553,17 @@ public val MSG_MAXIOVLEN: UInt = 16u
 
 public val MSG_MCAST: UInt = 2048u
 
-public val MSG_OOB: SEND_RECV_FLAGS = 1
+public val MSG_OOB: SendRecvFlags = 1
 
 public val MSG_PARTIAL: UInt = 32768u
 
-public val MSG_PEEK: SEND_RECV_FLAGS = 2
+public val MSG_PEEK: SendRecvFlags = 2
 
-public val MSG_PUSH_IMMEDIATE: SEND_RECV_FLAGS = 32
+public val MSG_PUSH_IMMEDIATE: SendRecvFlags = 32
 
 public val MSG_TRUNC: UInt = 256u
 
-public val MSG_WAITALL: SEND_RECV_FLAGS = 8
+public val MSG_WAITALL: SendRecvFlags = 8
 
 public val ND_NA_FLAG_OVERRIDE: UInt = 536870912u
 
@@ -1571,17 +1571,17 @@ public val ND_NA_FLAG_ROUTER: UInt = 2147483648u
 
 public val ND_NA_FLAG_SOLICITED: UInt = 1073741824u
 
-public val ND_OPT_ADVERTISEMENT_INTERVAL: ND_OPTION_TYPE = 7
+public val ND_OPT_ADVERTISEMENT_INTERVAL: NdOptionType = 7
 
-public val ND_OPT_DNSSL: ND_OPTION_TYPE = 31
+public val ND_OPT_DNSSL: NdOptionType = 31
 
 public val ND_OPT_DNSSL_MIN_LEN: UInt = 16u
 
-public val ND_OPT_HOME_AGENT_INFORMATION: ND_OPTION_TYPE = 8
+public val ND_OPT_HOME_AGENT_INFORMATION: NdOptionType = 8
 
-public val ND_OPT_MTU: ND_OPTION_TYPE = 5
+public val ND_OPT_MTU: NdOptionType = 5
 
-public val ND_OPT_NBMA_SHORTCUT_LIMIT: ND_OPTION_TYPE = 6
+public val ND_OPT_NBMA_SHORTCUT_LIMIT: NdOptionType = 6
 
 public val ND_OPT_PI_FLAG_AUTO: UInt = 64u
 
@@ -1593,25 +1593,25 @@ public val ND_OPT_PI_FLAG_ROUTER_ADDR: UInt = 32u
 
 public val ND_OPT_PI_FLAG_SITE_PREFIX: UInt = 16u
 
-public val ND_OPT_PREFIX_INFORMATION: ND_OPTION_TYPE = 3
+public val ND_OPT_PREFIX_INFORMATION: NdOptionType = 3
 
-public val ND_OPT_RDNSS: ND_OPTION_TYPE = 25
+public val ND_OPT_RDNSS: NdOptionType = 25
 
 public val ND_OPT_RDNSS_MIN_LEN: UInt = 24u
 
-public val ND_OPT_REDIRECTED_HEADER: ND_OPTION_TYPE = 4
+public val ND_OPT_REDIRECTED_HEADER: NdOptionType = 4
 
 public val ND_OPT_RI_FLAG_PREFERENCE: UInt = 24u
 
-public val ND_OPT_ROUTE_INFO: ND_OPTION_TYPE = 24
+public val ND_OPT_ROUTE_INFO: NdOptionType = 24
 
-public val ND_OPT_SOURCE_ADDR_LIST: ND_OPTION_TYPE = 9
+public val ND_OPT_SOURCE_ADDR_LIST: NdOptionType = 9
 
-public val ND_OPT_SOURCE_LINKADDR: ND_OPTION_TYPE = 1
+public val ND_OPT_SOURCE_LINKADDR: NdOptionType = 1
 
-public val ND_OPT_TARGET_ADDR_LIST: ND_OPTION_TYPE = 10
+public val ND_OPT_TARGET_ADDR_LIST: NdOptionType = 10
 
-public val ND_OPT_TARGET_LINKADDR: ND_OPTION_TYPE = 2
+public val ND_OPT_TARGET_LINKADDR: NdOptionType = 2
 
 public val ND_RA_FLAG_HOME_AGENT: UInt = 32u
 
@@ -1645,37 +1645,37 @@ public val NI_NUMERICHOST: UInt = 2u
 
 public val NI_NUMERICSERV: UInt = 8u
 
-public val NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = 2
+public val NLA_802_1X_LOCATION: NlaBlobDataType = 2
 
 public val NLA_ALLUSERS_NETWORK: UInt = 1u
 
-public val NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = 3
+public val NLA_CONNECTIVITY: NlaBlobDataType = 3
 
 public val NLA_FRIENDLY_NAME: UInt = 2u
 
-public val NLA_ICS: NLA_BLOB_DATA_TYPE = 4
+public val NLA_ICS: NlaBlobDataType = 4
 
-public val NLA_INTERFACE: NLA_BLOB_DATA_TYPE = 1
+public val NLA_INTERFACE: NlaBlobDataType = 1
 
-public val NLA_INTERNET_NO: NLA_INTERNET = 1
+public val NLA_INTERNET_NO: NlaInternet = 1
 
-public val NLA_INTERNET_UNKNOWN: NLA_INTERNET = 0
+public val NLA_INTERNET_UNKNOWN: NlaInternet = 0
 
-public val NLA_INTERNET_YES: NLA_INTERNET = 2
+public val NLA_INTERNET_YES: NlaInternet = 2
 
-public val NLA_NAMESPACE_GUID: GUID = GUID.from_u128(U128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL))
+public val NLA_NAMESPACE_GUID: Guid = Guid.fromU128(U128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL))
 
-public val NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = 0
+public val NLA_NETWORK_AD_HOC: NlaConnectivityType = 0
 
-public val NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = 1
+public val NLA_NETWORK_MANAGED: NlaConnectivityType = 1
 
-public val NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = 3
+public val NLA_NETWORK_UNKNOWN: NlaConnectivityType = 3
 
-public val NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = 2
+public val NLA_NETWORK_UNMANAGED: NlaConnectivityType = 2
 
-public val NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = 0
+public val NLA_RAW_DATA: NlaBlobDataType = 0
 
-public val NLA_SERVICE_CLASS_GUID: GUID = GUID.from_u128(U128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL))
+public val NLA_SERVICE_CLASS_GUID: Guid = Guid.fromU128(U128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL))
 
 public val NSPROTO_IPX: UInt = 1000u
 
@@ -1683,15 +1683,15 @@ public val NSPROTO_SPX: UInt = 1256u
 
 public val NSPROTO_SPXII: UInt = 1257u
 
-public val NSP_NOTIFY_APC: WSACOMPLETIONTYPE = 4
+public val NSP_NOTIFY_APC: Wsacompletiontype = 4
 
-public val NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = 2
+public val NSP_NOTIFY_EVENT: Wsacompletiontype = 2
 
-public val NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = 1
+public val NSP_NOTIFY_HWND: Wsacompletiontype = 1
 
-public val NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0
+public val NSP_NOTIFY_IMMEDIATELY: Wsacompletiontype = 0
 
-public val NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3
+public val NSP_NOTIFY_PORT: Wsacompletiontype = 3
 
 public val NSTYPE_DYNAMIC: UInt = 2u
 
@@ -1751,111 +1751,111 @@ public val NS_WRQ: UInt = 50u
 
 public val NS_X500: UInt = 40u
 
-public val NetworkCategoryDomainAuthenticated: NL_NETWORK_CATEGORY = 2
+public val NETWORK_CATEGORY_DOMAIN_AUTHENTICATED: NlNetworkCategory = 2
 
-public val NetworkCategoryPrivate: NL_NETWORK_CATEGORY = 1
+public val NETWORK_CATEGORY_PRIVATE: NlNetworkCategory = 1
 
-public val NetworkCategoryPublic: NL_NETWORK_CATEGORY = 0
+public val NETWORK_CATEGORY_PUBLIC: NlNetworkCategory = 0
 
-public val NetworkCategoryUnchanged: NL_NETWORK_CATEGORY = -1
+public val NETWORK_CATEGORY_UNCHANGED: NlNetworkCategory = -1
 
-public val NetworkCategoryUnknown: NL_NETWORK_CATEGORY = -1
+public val NETWORK_CATEGORY_UNKNOWN: NlNetworkCategory = -1
 
-public val NetworkConnectivityCostHintFixed: NL_NETWORK_CONNECTIVITY_COST_HINT = 2
+public val NETWORK_CONNECTIVITY_COST_HINT_FIXED: NlNetworkConnectivityCostHint = 2
 
-public val NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = 0
+public val NETWORK_CONNECTIVITY_COST_HINT_UNKNOWN: NlNetworkConnectivityCostHint = 0
 
-public val NetworkConnectivityCostHintUnrestricted: NL_NETWORK_CONNECTIVITY_COST_HINT = 1
+public val NETWORK_CONNECTIVITY_COST_HINT_UNRESTRICTED: NlNetworkConnectivityCostHint = 1
 
-public val NetworkConnectivityCostHintVariable: NL_NETWORK_CONNECTIVITY_COST_HINT = 3
+public val NETWORK_CONNECTIVITY_COST_HINT_VARIABLE: NlNetworkConnectivityCostHint = 3
 
-public val NetworkConnectivityLevelHintConstrainedInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 4
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_CONSTRAINED_INTERNET_ACCESS: NlNetworkConnectivityLevelHint = 4
 
-public val NetworkConnectivityLevelHintHidden: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 5
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_HIDDEN: NlNetworkConnectivityLevelHint = 5
 
-public val NetworkConnectivityLevelHintInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 3
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_INTERNET_ACCESS: NlNetworkConnectivityLevelHint = 3
 
-public val NetworkConnectivityLevelHintLocalAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 2
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_LOCAL_ACCESS: NlNetworkConnectivityLevelHint = 2
 
-public val NetworkConnectivityLevelHintNone: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 1
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_NONE: NlNetworkConnectivityLevelHint = 1
 
-public val NetworkConnectivityLevelHintUnknown: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 0
+public val NETWORK_CONNECTIVITY_LEVEL_HINT_UNKNOWN: NlNetworkConnectivityLevelHint = 0
 
-public val NlatAnycast: NL_ADDRESS_TYPE = 2
+public val NLAT_ANYCAST: NlAddressType = 2
 
-public val NlatBroadcast: NL_ADDRESS_TYPE = 4
+public val NLAT_BROADCAST: NlAddressType = 4
 
-public val NlatInvalid: NL_ADDRESS_TYPE = 5
+public val NLAT_INVALID: NlAddressType = 5
 
-public val NlatMulticast: NL_ADDRESS_TYPE = 3
+public val NLAT_MULTICAST: NlAddressType = 3
 
-public val NlatUnicast: NL_ADDRESS_TYPE = 1
+public val NLAT_UNICAST: NlAddressType = 1
 
-public val NlatUnspecified: NL_ADDRESS_TYPE = 0
+public val NLAT_UNSPECIFIED: NlAddressType = 0
 
-public val NlbwDisabled: NL_BANDWIDTH_FLAG = 0
+public val NLBW_DISABLED: NlBandwidthFlag = 0
 
-public val NlbwEnabled: NL_BANDWIDTH_FLAG = 1
+public val NLBW_ENABLED: NlBandwidthFlag = 1
 
-public val NlbwUnchanged: NL_BANDWIDTH_FLAG = -1
+public val NLBW_UNCHANGED: NlBandwidthFlag = -1
 
-public val NldsDeprecated: NL_DAD_STATE = 3
+public val NLDS_DEPRECATED: NlDadState = 3
 
-public val NldsDuplicate: NL_DAD_STATE = 2
+public val NLDS_DUPLICATE: NlDadState = 2
 
-public val NldsInvalid: NL_DAD_STATE = 0
+public val NLDS_INVALID: NlDadState = 0
 
-public val NldsPreferred: NL_DAD_STATE = 4
+public val NLDS_PREFERRED: NlDadState = 4
 
-public val NldsTentative: NL_DAD_STATE = 1
+public val NLDS_TENTATIVE: NlDadState = 1
 
-public val NlincCategoryStateMax: NL_INTERFACE_NETWORK_CATEGORY_STATE = 4
+public val NLINC_CATEGORY_STATE_MAX: NlInterfaceNetworkCategoryState = 4
 
-public val NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = 0
+public val NLINC_CATEGORY_UNKNOWN: NlInterfaceNetworkCategoryState = 0
 
-public val NlincDomainAuthenticated: NL_INTERFACE_NETWORK_CATEGORY_STATE = 3
+public val NLINC_DOMAIN_AUTHENTICATED: NlInterfaceNetworkCategoryState = 3
 
-public val NlincPrivate: NL_INTERFACE_NETWORK_CATEGORY_STATE = 2
+public val NLINC_PRIVATE: NlInterfaceNetworkCategoryState = 2
 
-public val NlincPublic: NL_INTERFACE_NETWORK_CATEGORY_STATE = 1
+public val NLINC_PUBLIC: NlInterfaceNetworkCategoryState = 1
 
-public val NlnsDelay: NL_NEIGHBOR_STATE = 3
+public val NLNS_DELAY: NlNeighborState = 3
 
-public val NlnsIncomplete: NL_NEIGHBOR_STATE = 1
+public val NLNS_INCOMPLETE: NlNeighborState = 1
 
-public val NlnsMaximum: NL_NEIGHBOR_STATE = 7
+public val NLNS_MAXIMUM: NlNeighborState = 7
 
-public val NlnsPermanent: NL_NEIGHBOR_STATE = 6
+public val NLNS_PERMANENT: NlNeighborState = 6
 
-public val NlnsProbe: NL_NEIGHBOR_STATE = 2
+public val NLNS_PROBE: NlNeighborState = 2
 
-public val NlnsReachable: NL_NEIGHBOR_STATE = 5
+public val NLNS_REACHABLE: NlNeighborState = 5
 
-public val NlnsStale: NL_NEIGHBOR_STATE = 4
+public val NLNS_STALE: NlNeighborState = 4
 
-public val NlnsUnreachable: NL_NEIGHBOR_STATE = 0
+public val NLNS_UNREACHABLE: NlNeighborState = 0
 
-public val Nlro6to4: NL_ROUTE_ORIGIN = 4
+public val NLRO6TO4: NlRouteOrigin = 4
 
-public val NlroDHCP: NL_ROUTE_ORIGIN = 2
+public val NLRO_DHCP: NlRouteOrigin = 2
 
-public val NlroManual: NL_ROUTE_ORIGIN = 0
+public val NLRO_MANUAL: NlRouteOrigin = 0
 
-public val NlroRouterAdvertisement: NL_ROUTE_ORIGIN = 3
+public val NLRO_ROUTER_ADVERTISEMENT: NlRouteOrigin = 3
 
-public val NlroWellKnown: NL_ROUTE_ORIGIN = 1
+public val NLRO_WELL_KNOWN: NlRouteOrigin = 1
 
-public val NlsoDhcp: NL_SUFFIX_ORIGIN = 3
+public val NLSO_DHCP: NlSuffixOrigin = 3
 
-public val NlsoLinkLayerAddress: NL_SUFFIX_ORIGIN = 4
+public val NLSO_LINK_LAYER_ADDRESS: NlSuffixOrigin = 4
 
-public val NlsoManual: NL_SUFFIX_ORIGIN = 1
+public val NLSO_MANUAL: NlSuffixOrigin = 1
 
-public val NlsoOther: NL_SUFFIX_ORIGIN = 0
+public val NLSO_OTHER: NlSuffixOrigin = 0
 
-public val NlsoRandom: NL_SUFFIX_ORIGIN = 5
+public val NLSO_RANDOM: NlSuffixOrigin = 5
 
-public val NlsoWellKnown: NL_SUFFIX_ORIGIN = 2
+public val NLSO_WELL_KNOWN: NlSuffixOrigin = 2
 
 public val PFL_HIDDEN: UInt = 4u
 
@@ -1867,53 +1867,53 @@ public val PFL_NETWORKDIRECT_PROVIDER: UInt = 16u
 
 public val PFL_RECOMMENDED_PROTO_ENTRY: UInt = 2u
 
-public val PF_APPLETALK: UShort = 16u
+public val PF_APPLETALK: UShort = 16u.toUShort()
 
-public val PF_ATM: UShort = 22u
+public val PF_ATM: UShort = 22u.toUShort()
 
-public val PF_BAN: UShort = 21u
+public val PF_BAN: UShort = 21u.toUShort()
 
-public val PF_CCITT: UShort = 10u
+public val PF_CCITT: UShort = 10u.toUShort()
 
-public val PF_CHAOS: UShort = 5u
+public val PF_CHAOS: UShort = 5u.toUShort()
 
-public val PF_DATAKIT: UShort = 9u
+public val PF_DATAKIT: UShort = 9u.toUShort()
 
-public val PF_DECnet: UShort = 12u
+public val PF_DE_CNET: UShort = 12u.toUShort()
 
-public val PF_DLI: UShort = 13u
+public val PF_DLI: UShort = 13u.toUShort()
 
-public val PF_ECMA: UShort = 8u
+public val PF_ECMA: UShort = 8u.toUShort()
 
-public val PF_FIREFOX: UShort = 19u
+public val PF_FIREFOX: UShort = 19u.toUShort()
 
-public val PF_HYLINK: UShort = 15u
+public val PF_HYLINK: UShort = 15u.toUShort()
 
-public val PF_IMPLINK: UShort = 3u
+public val PF_IMPLINK: UShort = 3u.toUShort()
 
-public val PF_IPX: UShort = 6u
+public val PF_IPX: UShort = 6u.toUShort()
 
-public val PF_IRDA: UShort = 26u
+public val PF_IRDA: UShort = 26u.toUShort()
 
-public val PF_ISO: UShort = 7u
+public val PF_ISO: UShort = 7u.toUShort()
 
-public val PF_LAT: UShort = 14u
+public val PF_LAT: UShort = 14u.toUShort()
 
-public val PF_MAX: UShort = 29u
+public val PF_MAX: UShort = 29u.toUShort()
 
-public val PF_NS: UShort = 6u
+public val PF_NS: UShort = 6u.toUShort()
 
-public val PF_OSI: UShort = 7u
+public val PF_OSI: UShort = 7u.toUShort()
 
-public val PF_PUP: UShort = 4u
+public val PF_PUP: UShort = 4u.toUShort()
 
-public val PF_SNA: UShort = 11u
+public val PF_SNA: UShort = 11u.toUShort()
 
-public val PF_UNIX: UShort = 1u
+public val PF_UNIX: UShort = 1u.toUShort()
 
-public val PF_UNKNOWN1: UShort = 20u
+public val PF_UNKNOWN1: UShort = 20u.toUShort()
 
-public val PF_VOICEVIEW: UShort = 18u
+public val PF_VOICEVIEW: UShort = 18u.toUShort()
 
 public val PI_ALLOWED: UInt = 0u
 
@@ -1921,25 +1921,25 @@ public val PI_NUMBER_NOT_AVAILABLE: UInt = 128u
 
 public val PI_RESTRICTED: UInt = 64u
 
-public val POLLERR: WSAPOLL_EVENT_FLAGS = 1
+public val POLLERR: WsapollEventFlags = 1
 
-public val POLLHUP: WSAPOLL_EVENT_FLAGS = 2
+public val POLLHUP: WsapollEventFlags = 2
 
-public val POLLIN: WSAPOLL_EVENT_FLAGS = 768
+public val POLLIN: WsapollEventFlags = 768
 
-public val POLLNVAL: WSAPOLL_EVENT_FLAGS = 4
+public val POLLNVAL: WsapollEventFlags = 4
 
-public val POLLOUT: WSAPOLL_EVENT_FLAGS = 16
+public val POLLOUT: WsapollEventFlags = 16
 
-public val POLLPRI: WSAPOLL_EVENT_FLAGS = 1024
+public val POLLPRI: WsapollEventFlags = 1024
 
-public val POLLRDBAND: WSAPOLL_EVENT_FLAGS = 512
+public val POLLRDBAND: WsapollEventFlags = 512
 
-public val POLLRDNORM: WSAPOLL_EVENT_FLAGS = 256
+public val POLLRDNORM: WsapollEventFlags = 256
 
-public val POLLWRBAND: WSAPOLL_EVENT_FLAGS = 32
+public val POLLWRBAND: WsapollEventFlags = 32
 
-public val POLLWRNORM: WSAPOLL_EVENT_FLAGS = 16
+public val POLLWRNORM: WsapollEventFlags = 16
 
 public val PROP_ADDRESSES: UInt = 256u
 
@@ -1967,65 +1967,65 @@ public val PROTECTION_LEVEL_RESTRICTED: UInt = 30u
 
 public val PROTECTION_LEVEL_UNRESTRICTED: UInt = 10u
 
-public val PROTO_IP_BBN: NL_ROUTE_PROTOCOL = 12
+public val PROTO_IP_BBN: NlRouteProtocol = 12
 
-public val PROTO_IP_BGP: NL_ROUTE_PROTOCOL = 14
+public val PROTO_IP_BGP: NlRouteProtocol = 14
 
-public val PROTO_IP_CISCO: NL_ROUTE_PROTOCOL = 11
+public val PROTO_IP_CISCO: NlRouteProtocol = 11
 
-public val PROTO_IP_DHCP: NL_ROUTE_PROTOCOL = 19
+public val PROTO_IP_DHCP: NlRouteProtocol = 19
 
-public val PROTO_IP_DVMRP: NL_ROUTE_PROTOCOL = 17
+public val PROTO_IP_DVMRP: NlRouteProtocol = 17
 
-public val PROTO_IP_EGP: NL_ROUTE_PROTOCOL = 5
+public val PROTO_IP_EGP: NlRouteProtocol = 5
 
-public val PROTO_IP_EIGRP: NL_ROUTE_PROTOCOL = 16
+public val PROTO_IP_EIGRP: NlRouteProtocol = 16
 
-public val PROTO_IP_ES_IS: NL_ROUTE_PROTOCOL = 10
+public val PROTO_IP_ES_IS: NlRouteProtocol = 10
 
-public val PROTO_IP_GGP: NL_ROUTE_PROTOCOL = 6
+public val PROTO_IP_GGP: NlRouteProtocol = 6
 
-public val PROTO_IP_HELLO: NL_ROUTE_PROTOCOL = 7
+public val PROTO_IP_HELLO: NlRouteProtocol = 7
 
-public val PROTO_IP_ICMP: NL_ROUTE_PROTOCOL = 4
+public val PROTO_IP_ICMP: NlRouteProtocol = 4
 
-public val PROTO_IP_IDPR: NL_ROUTE_PROTOCOL = 15
+public val PROTO_IP_IDPR: NlRouteProtocol = 15
 
-public val PROTO_IP_IS_IS: NL_ROUTE_PROTOCOL = 9
+public val PROTO_IP_IS_IS: NlRouteProtocol = 9
 
-public val PROTO_IP_LOCAL: NL_ROUTE_PROTOCOL = 2
+public val PROTO_IP_LOCAL: NlRouteProtocol = 2
 
-public val PROTO_IP_NETMGMT: NL_ROUTE_PROTOCOL = 3
+public val PROTO_IP_NETMGMT: NlRouteProtocol = 3
 
-public val PROTO_IP_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002
+public val PROTO_IP_NT_AUTOSTATIC: NlRouteProtocol = 10002
 
-public val PROTO_IP_NT_STATIC: NL_ROUTE_PROTOCOL = 10006
+public val PROTO_IP_NT_STATIC: NlRouteProtocol = 10006
 
-public val PROTO_IP_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007
+public val PROTO_IP_NT_STATIC_NON_DOD: NlRouteProtocol = 10007
 
-public val PROTO_IP_OSPF: NL_ROUTE_PROTOCOL = 13
+public val PROTO_IP_OSPF: NlRouteProtocol = 13
 
-public val PROTO_IP_OTHER: NL_ROUTE_PROTOCOL = 1
+public val PROTO_IP_OTHER: NlRouteProtocol = 1
 
-public val PROTO_IP_RIP: NL_ROUTE_PROTOCOL = 8
+public val PROTO_IP_RIP: NlRouteProtocol = 8
 
-public val PROTO_IP_RPL: NL_ROUTE_PROTOCOL = 18
+public val PROTO_IP_RPL: NlRouteProtocol = 18
 
 public val PVD_CONFIG: Int = 12289
 
-public val ProviderInfoAudit: WSC_PROVIDER_INFO_TYPE = 1
+public val PROVIDER_INFO_AUDIT: WscProviderInfoType = 1
 
-public val ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = 0
+public val PROVIDER_INFO_LSP_CATEGORIES: WscProviderInfoType = 0
 
-public val ProviderLevel_None: NAPI_PROVIDER_LEVEL = 0
+public val PROVIDER_LEVEL_NONE: NapiProviderLevel = 0
 
-public val ProviderLevel_Primary: NAPI_PROVIDER_LEVEL = 2
+public val PROVIDER_LEVEL_PRIMARY: NapiProviderLevel = 2
 
-public val ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = 1
+public val PROVIDER_LEVEL_SECONDARY: NapiProviderLevel = 1
 
-public val ProviderType_Application: NAPI_PROVIDER_TYPE = 1
+public val PROVIDER_TYPE_APPLICATION: NapiProviderType = 1
 
-public val ProviderType_Service: NAPI_PROVIDER_TYPE = 2
+public val PROVIDER_TYPE_SERVICE: NapiProviderType = 2
 
 public val QOS_CLASS0: UInt = 0u
 
@@ -2037,31 +2037,31 @@ public val QOS_CLASS3: UInt = 3u
 
 public val QOS_CLASS4: UInt = 4u
 
-public val RCVALL_IPLEVEL: RCVALL_VALUE = 3
+public val RCVALL_IPLEVEL: RcvallValue = 3
 
-public val RCVALL_OFF: RCVALL_VALUE = 0
+public val RCVALL_OFF: RcvallValue = 0
 
-public val RCVALL_ON: RCVALL_VALUE = 1
+public val RCVALL_ON: RcvallValue = 1
 
-public val RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = 2
+public val RCVALL_SOCKETLEVELONLY: RcvallValue = 2
 
-public val REAL_TIME_NOTIFICATION_CAPABILITY: GUID = GUID.from_u128(U128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL))
+public val REAL_TIME_NOTIFICATION_CAPABILITY: Guid = Guid.fromU128(U128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL))
 
-public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: GUID = GUID.from_u128(U128(0x6843da03154a4616uL, 0xa50844371295f96buL))
+public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: Guid = Guid.fromU128(U128(0x6843da03154a4616uL, 0xa50844371295f96buL))
 
-public val RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = 1u
+public val RESOURCEDISPLAYTYPE_DOMAIN: ResourceDisplayType = 1u
 
-public val RESOURCEDISPLAYTYPE_FILE: RESOURCE_DISPLAY_TYPE = 4u
+public val RESOURCEDISPLAYTYPE_FILE: ResourceDisplayType = 4u
 
-public val RESOURCEDISPLAYTYPE_GENERIC: RESOURCE_DISPLAY_TYPE = 0u
+public val RESOURCEDISPLAYTYPE_GENERIC: ResourceDisplayType = 0u
 
-public val RESOURCEDISPLAYTYPE_GROUP: RESOURCE_DISPLAY_TYPE = 5u
+public val RESOURCEDISPLAYTYPE_GROUP: ResourceDisplayType = 5u
 
-public val RESOURCEDISPLAYTYPE_SERVER: RESOURCE_DISPLAY_TYPE = 2u
+public val RESOURCEDISPLAYTYPE_SERVER: ResourceDisplayType = 2u
 
-public val RESOURCEDISPLAYTYPE_SHARE: RESOURCE_DISPLAY_TYPE = 3u
+public val RESOURCEDISPLAYTYPE_SHARE: ResourceDisplayType = 3u
 
-public val RESOURCEDISPLAYTYPE_TREE: RESOURCE_DISPLAY_TYPE = 10u
+public val RESOURCEDISPLAYTYPE_TREE: ResourceDisplayType = 10u
 
 public val RESULT_IS_ADDED: UInt = 16u
 
@@ -2083,9 +2083,9 @@ public val RES_UNUSED_1: UInt = 1u
 
 public val RIO_CORRUPT_CQ: UInt = 4294967295u
 
-public val RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1
+public val RIO_EVENT_COMPLETION: RioNotificationCompletionType = 1
 
-public val RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 2
+public val RIO_IOCP_COMPLETION: RioNotificationCompletionType = 2
 
 public val RIO_MAX_CQ_SIZE: UInt = 134217728u
 
@@ -2127,57 +2127,57 @@ public val RM_SET_SEND_IF: Int = 1007
 
 public val RM_USE_FEC: Int = 1011
 
-public val RNRSERVICE_DELETE: WSAESETSERVICEOP = 2
+public val RNRSERVICE_DELETE: Wsaesetserviceop = 2
 
-public val RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1
+public val RNRSERVICE_DEREGISTER: Wsaesetserviceop = 1
 
-public val RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0
+public val RNRSERVICE_REGISTER: Wsaesetserviceop = 0
 
-public val RouteProtocolBbn: NL_ROUTE_PROTOCOL = 12
+public val ROUTE_PROTOCOL_BBN: NlRouteProtocol = 12
 
-public val RouteProtocolBgp: NL_ROUTE_PROTOCOL = 14
+public val ROUTE_PROTOCOL_BGP: NlRouteProtocol = 14
 
-public val RouteProtocolCisco: NL_ROUTE_PROTOCOL = 11
+public val ROUTE_PROTOCOL_CISCO: NlRouteProtocol = 11
 
-public val RouteProtocolDhcp: NL_ROUTE_PROTOCOL = 19
+public val ROUTE_PROTOCOL_DHCP: NlRouteProtocol = 19
 
-public val RouteProtocolDvmrp: NL_ROUTE_PROTOCOL = 17
+public val ROUTE_PROTOCOL_DVMRP: NlRouteProtocol = 17
 
-public val RouteProtocolEgp: NL_ROUTE_PROTOCOL = 5
+public val ROUTE_PROTOCOL_EGP: NlRouteProtocol = 5
 
-public val RouteProtocolEigrp: NL_ROUTE_PROTOCOL = 16
+public val ROUTE_PROTOCOL_EIGRP: NlRouteProtocol = 16
 
-public val RouteProtocolEsIs: NL_ROUTE_PROTOCOL = 10
+public val ROUTE_PROTOCOL_ES_IS: NlRouteProtocol = 10
 
-public val RouteProtocolGgp: NL_ROUTE_PROTOCOL = 6
+public val ROUTE_PROTOCOL_GGP: NlRouteProtocol = 6
 
-public val RouteProtocolHello: NL_ROUTE_PROTOCOL = 7
+public val ROUTE_PROTOCOL_HELLO: NlRouteProtocol = 7
 
-public val RouteProtocolIcmp: NL_ROUTE_PROTOCOL = 4
+public val ROUTE_PROTOCOL_ICMP: NlRouteProtocol = 4
 
-public val RouteProtocolIdpr: NL_ROUTE_PROTOCOL = 15
+public val ROUTE_PROTOCOL_IDPR: NlRouteProtocol = 15
 
-public val RouteProtocolIsIs: NL_ROUTE_PROTOCOL = 9
+public val ROUTE_PROTOCOL_IS_IS: NlRouteProtocol = 9
 
-public val RouteProtocolLocal: NL_ROUTE_PROTOCOL = 2
+public val ROUTE_PROTOCOL_LOCAL: NlRouteProtocol = 2
 
-public val RouteProtocolNetMgmt: NL_ROUTE_PROTOCOL = 3
+public val ROUTE_PROTOCOL_NET_MGMT: NlRouteProtocol = 3
 
-public val RouteProtocolOspf: NL_ROUTE_PROTOCOL = 13
+public val ROUTE_PROTOCOL_OSPF: NlRouteProtocol = 13
 
-public val RouteProtocolOther: NL_ROUTE_PROTOCOL = 1
+public val ROUTE_PROTOCOL_OTHER: NlRouteProtocol = 1
 
-public val RouteProtocolRip: NL_ROUTE_PROTOCOL = 8
+public val ROUTE_PROTOCOL_RIP: NlRouteProtocol = 8
 
-public val RouteProtocolRpl: NL_ROUTE_PROTOCOL = 18
+public val ROUTE_PROTOCOL_RPL: NlRouteProtocol = 18
 
-public val RouterDiscoveryDhcp: NL_ROUTER_DISCOVERY_BEHAVIOR = 2
+public val ROUTER_DISCOVERY_DHCP: NlRouterDiscoveryBehavior = 2
 
-public val RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 0
+public val ROUTER_DISCOVERY_DISABLED: NlRouterDiscoveryBehavior = 0
 
-public val RouterDiscoveryEnabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 1
+public val ROUTER_DISCOVERY_ENABLED: NlRouterDiscoveryBehavior = 1
 
-public val RouterDiscoveryUnchanged: NL_ROUTER_DISCOVERY_BEHAVIOR = -1
+public val ROUTER_DISCOVERY_UNCHANGED: NlRouterDiscoveryBehavior = -1
 
 public val SAP_FIELD_ABSENT: UInt = 4294967294u
 
@@ -2187,11 +2187,11 @@ public val SAP_FIELD_ANY_AESA_REST: UInt = 4294967291u
 
 public val SAP_FIELD_ANY_AESA_SEL: UInt = 4294967290u
 
-public val SD_BOTH: WINSOCK_SHUTDOWN_HOW = 2
+public val SD_BOTH: WinsockShutdownHow = 2
 
-public val SD_RECEIVE: WINSOCK_SHUTDOWN_HOW = 0
+public val SD_RECEIVE: WinsockShutdownHow = 0
 
-public val SD_SEND: WINSOCK_SHUTDOWN_HOW = 1
+public val SD_SEND: WinsockShutdownHow = 1
 
 public val SECURITY_PROTOCOL_NONE: UInt = 0u
 
@@ -2209,61 +2209,61 @@ public val SERVICE_ADDRESS_FLAG_RPC_DG: UInt = 2u
 
 public val SERVICE_ADDRESS_FLAG_RPC_NB: UInt = 4u
 
-public val SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = 4u
+public val SERVICE_ADD_TYPE: SetServiceOperation = 4u
 
-public val SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = 5u
+public val SERVICE_DELETE_TYPE: SetServiceOperation = 5u
 
-public val SERVICE_DEREGISTER: SET_SERVICE_OPERATION = 2u
+public val SERVICE_DEREGISTER: SetServiceOperation = 2u
 
 public val SERVICE_FLAG_DEFER: UInt = 1u
 
 public val SERVICE_FLAG_HARD: UInt = 2u
 
-public val SERVICE_FLUSH: SET_SERVICE_OPERATION = 3u
+public val SERVICE_FLUSH: SetServiceOperation = 3u
 
 public val SERVICE_LOCAL: UInt = 4u
 
 public val SERVICE_MULTIPLE: UInt = 1u
 
-public val SERVICE_REGISTER: SET_SERVICE_OPERATION = 1u
+public val SERVICE_REGISTER: SetServiceOperation = 1u
 
 public val SERVICE_RESOURCE: UInt = 1u
 
 public val SERVICE_SERVICE: UInt = 2u
 
-public val SERVICE_TYPE_VALUE_CONN: PCWSTR = w("ConnectionOriented")
+public val SERVICE_TYPE_VALUE_CONN: Pcwstr = w("ConnectionOriented")
 
-public val SERVICE_TYPE_VALUE_CONNA: PCSTR = s("ConnectionOriented")
+public val SERVICE_TYPE_VALUE_CONNA: Pcstr = s("ConnectionOriented")
 
-public val SERVICE_TYPE_VALUE_CONNW: PCWSTR = w("ConnectionOriented")
+public val SERVICE_TYPE_VALUE_CONNW: Pcwstr = w("ConnectionOriented")
 
-public val SERVICE_TYPE_VALUE_IPXPORTA: PCSTR = s("IpxSocket")
+public val SERVICE_TYPE_VALUE_IPXPORTA: Pcstr = s("IpxSocket")
 
-public val SERVICE_TYPE_VALUE_IPXPORTW: PCWSTR = w("IpxSocket")
+public val SERVICE_TYPE_VALUE_IPXPORTW: Pcwstr = w("IpxSocket")
 
-public val SERVICE_TYPE_VALUE_OBJECTID: PCWSTR = w("ObjectId")
+public val SERVICE_TYPE_VALUE_OBJECTID: Pcwstr = w("ObjectId")
 
-public val SERVICE_TYPE_VALUE_OBJECTIDA: PCSTR = s("ObjectId")
+public val SERVICE_TYPE_VALUE_OBJECTIDA: Pcstr = s("ObjectId")
 
-public val SERVICE_TYPE_VALUE_OBJECTIDW: PCWSTR = w("ObjectId")
+public val SERVICE_TYPE_VALUE_OBJECTIDW: Pcwstr = w("ObjectId")
 
-public val SERVICE_TYPE_VALUE_SAPID: PCWSTR = w("SapId")
+public val SERVICE_TYPE_VALUE_SAPID: Pcwstr = w("SapId")
 
-public val SERVICE_TYPE_VALUE_SAPIDA: PCSTR = s("SapId")
+public val SERVICE_TYPE_VALUE_SAPIDA: Pcstr = s("SapId")
 
-public val SERVICE_TYPE_VALUE_SAPIDW: PCWSTR = w("SapId")
+public val SERVICE_TYPE_VALUE_SAPIDW: Pcwstr = w("SapId")
 
-public val SERVICE_TYPE_VALUE_TCPPORT: PCWSTR = w("TcpPort")
+public val SERVICE_TYPE_VALUE_TCPPORT: Pcwstr = w("TcpPort")
 
-public val SERVICE_TYPE_VALUE_TCPPORTA: PCSTR = s("TcpPort")
+public val SERVICE_TYPE_VALUE_TCPPORTA: Pcstr = s("TcpPort")
 
-public val SERVICE_TYPE_VALUE_TCPPORTW: PCWSTR = w("TcpPort")
+public val SERVICE_TYPE_VALUE_TCPPORTW: Pcwstr = w("TcpPort")
 
-public val SERVICE_TYPE_VALUE_UDPPORT: PCWSTR = w("UdpPort")
+public val SERVICE_TYPE_VALUE_UDPPORT: Pcwstr = w("UdpPort")
 
-public val SERVICE_TYPE_VALUE_UDPPORTA: PCSTR = s("UdpPort")
+public val SERVICE_TYPE_VALUE_UDPPORTA: Pcstr = s("UdpPort")
 
-public val SERVICE_TYPE_VALUE_UDPPORTW: PCWSTR = w("UdpPort")
+public val SERVICE_TYPE_VALUE_UDPPORTW: Pcwstr = w("UdpPort")
 
 public val SET_SERVICE_PARTIAL_SUCCESS: UInt = 1u
 
@@ -2467,7 +2467,7 @@ public val SNAP_OUI: UInt = 0u
 
 public val SNAP_SSAP: UInt = 170u
 
-public val SOCKET_DEFAULT2_QM_POLICY: GUID = GUID.from_u128(U128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL))
+public val SOCKET_DEFAULT2_QM_POLICY: Guid = Guid.fromU128(U128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL))
 
 public val SOCKET_ERROR: Int = -1
 
@@ -2483,13 +2483,13 @@ public val SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: UInt = 1u
 
 public val SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: UInt = 2u
 
-public val SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = 0
+public val SOCKET_SECURITY_PROTOCOL_DEFAULT: SocketSecurityProtocol = 0
 
-public val SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3
+public val SOCKET_SECURITY_PROTOCOL_INVALID: SocketSecurityProtocol = 3
 
-public val SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1
+public val SOCKET_SECURITY_PROTOCOL_IPSEC: SocketSecurityProtocol = 1
 
-public val SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2
+public val SOCKET_SECURITY_PROTOCOL_IPSEC2: SocketSecurityProtocol = 2
 
 public val SOCKET_SETTINGS_ALLOW_INSECURE: UInt = 2u
 
@@ -2503,7 +2503,7 @@ public val SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: UInt = 8u
 
 public val SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: UInt = 1u
 
-public val SOCK_DGRAM: WINSOCK_SOCKET_TYPE = 2
+public val SOCK_DGRAM: WinsockSocketType = 2
 
 public val SOCK_NOTIFY_EVENT_ERR: UInt = 64u
 
@@ -2539,13 +2539,13 @@ public val SOCK_NOTIFY_TRIGGER_ONESHOT: UInt = 1u
 
 public val SOCK_NOTIFY_TRIGGER_PERSISTENT: UInt = 2u
 
-public val SOCK_RAW: WINSOCK_SOCKET_TYPE = 3
+public val SOCK_RAW: WinsockSocketType = 3
 
-public val SOCK_RDM: WINSOCK_SOCKET_TYPE = 4
+public val SOCK_RDM: WinsockSocketType = 4
 
-public val SOCK_SEQPACKET: WINSOCK_SOCKET_TYPE = 5
+public val SOCK_SEQPACKET: WinsockSocketType = 5
 
-public val SOCK_STREAM: WINSOCK_SOCKET_TYPE = 1
+public val SOCK_STREAM: WinsockSocketType = 1
 
 public val SOL_IP: UInt = 65531u
 
@@ -2661,55 +2661,55 @@ public val SO_UPDATE_CONNECT_CONTEXT: Int = 28688
 
 public val SO_USELOOPBACK: Int = 64
 
-public val SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = 1
+public val SYSTEM_CRITICAL_SOCKET: SocketUsageType = 1
 
-public val ScopeLevelAdmin: SCOPE_LEVEL = 4
+public val SCOPE_LEVEL_ADMIN: ScopeLevel = 4
 
-public val ScopeLevelCount: SCOPE_LEVEL = 16
+public val SCOPE_LEVEL_COUNT: ScopeLevel = 16
 
-public val ScopeLevelGlobal: SCOPE_LEVEL = 14
+public val SCOPE_LEVEL_GLOBAL: ScopeLevel = 14
 
-public val ScopeLevelInterface: SCOPE_LEVEL = 1
+public val SCOPE_LEVEL_INTERFACE: ScopeLevel = 1
 
-public val ScopeLevelLink: SCOPE_LEVEL = 2
+public val SCOPE_LEVEL_LINK: ScopeLevel = 2
 
-public val ScopeLevelOrganization: SCOPE_LEVEL = 8
+public val SCOPE_LEVEL_ORGANIZATION: ScopeLevel = 8
 
-public val ScopeLevelSite: SCOPE_LEVEL = 5
+public val SCOPE_LEVEL_SITE: ScopeLevel = 5
 
-public val ScopeLevelSubnet: SCOPE_LEVEL = 3
+public val SCOPE_LEVEL_SUBNET: ScopeLevel = 3
 
-public val SocketMaximumPriorityHintType: SOCKET_PRIORITY_HINT = 3
+public val SOCKET_MAXIMUM_PRIORITY_HINT_TYPE: SocketPriorityHint = 3
 
-public val SocketPriorityHintLow: SOCKET_PRIORITY_HINT = 1
+public val SOCKET_PRIORITY_HINT_LOW: SocketPriorityHint = 1
 
-public val SocketPriorityHintNormal: SOCKET_PRIORITY_HINT = 2
+public val SOCKET_PRIORITY_HINT_NORMAL: SocketPriorityHint = 2
 
-public val SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = 0
+public val SOCKET_PRIORITY_HINT_VERY_LOW: SocketPriorityHint = 0
 
-public val TCPSTATE_CLOSED: TCPSTATE = 0
+public val TCPSTATE_CLOSED: Tcpstate = 0
 
-public val TCPSTATE_CLOSE_WAIT: TCPSTATE = 7
+public val TCPSTATE_CLOSE_WAIT: Tcpstate = 7
 
-public val TCPSTATE_CLOSING: TCPSTATE = 8
+public val TCPSTATE_CLOSING: Tcpstate = 8
 
-public val TCPSTATE_ESTABLISHED: TCPSTATE = 4
+public val TCPSTATE_ESTABLISHED: Tcpstate = 4
 
-public val TCPSTATE_FIN_WAIT_1: TCPSTATE = 5
+public val TCPSTATE_FIN_WAIT_1: Tcpstate = 5
 
-public val TCPSTATE_FIN_WAIT_2: TCPSTATE = 6
+public val TCPSTATE_FIN_WAIT_2: Tcpstate = 6
 
-public val TCPSTATE_LAST_ACK: TCPSTATE = 9
+public val TCPSTATE_LAST_ACK: Tcpstate = 9
 
-public val TCPSTATE_LISTEN: TCPSTATE = 1
+public val TCPSTATE_LISTEN: Tcpstate = 1
 
-public val TCPSTATE_MAX: TCPSTATE = 11
+public val TCPSTATE_MAX: Tcpstate = 11
 
-public val TCPSTATE_SYN_RCVD: TCPSTATE = 3
+public val TCPSTATE_SYN_RCVD: Tcpstate = 3
 
-public val TCPSTATE_SYN_SENT: TCPSTATE = 2
+public val TCPSTATE_SYN_SENT: Tcpstate = 2
 
-public val TCPSTATE_TIME_WAIT: TCPSTATE = 10
+public val TCPSTATE_TIME_WAIT: Tcpstate = 10
 
 public val TCP_ATMARK: Int = 8
 
@@ -2727,27 +2727,27 @@ public val TCP_FASTOPEN: Int = 15
 
 public val TCP_ICMP_ERROR_INFO: Int = 19
 
-public val TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = 3
+public val TCP_ICW_LEVEL_AGGRESSIVE: TcpIcwLevel = 3
 
-public val TCP_ICW_LEVEL_COMPAT: TCP_ICW_LEVEL = 254
+public val TCP_ICW_LEVEL_COMPAT: TcpIcwLevel = 254
 
-public val TCP_ICW_LEVEL_DEFAULT: TCP_ICW_LEVEL = 0
+public val TCP_ICW_LEVEL_DEFAULT: TcpIcwLevel = 0
 
-public val TCP_ICW_LEVEL_EXPERIMENTAL: TCP_ICW_LEVEL = 4
+public val TCP_ICW_LEVEL_EXPERIMENTAL: TcpIcwLevel = 4
 
-public val TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1
+public val TCP_ICW_LEVEL_HIGH: TcpIcwLevel = 1
 
-public val TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255
+public val TCP_ICW_LEVEL_MAX: TcpIcwLevel = 255
 
-public val TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2
+public val TCP_ICW_LEVEL_VERY_HIGH: TcpIcwLevel = 2
 
 public val TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: UInt = 0u
 
 public val TCP_INITIAL_RTO_DEFAULT_RTT: UInt = 0u
 
-public val TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: UShort = 65534u
+public val TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: UShort = 65534u.toUShort()
 
-public val TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: UShort = 65535u
+public val TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: UShort = 65535u.toUShort()
 
 public val TCP_KEEPALIVE: Int = 3
 
@@ -2865,13 +2865,13 @@ public val TT_NOIND: UInt = 0u
 
 public val TT_VBR: UInt = 8u
 
-public val TUNNEL_SUB_TYPE_CP: TUNNEL_SUB_TYPE = 1
+public val TUNNEL_SUB_TYPE_CP: TunnelSubType = 1
 
-public val TUNNEL_SUB_TYPE_HA: TUNNEL_SUB_TYPE = 3
+public val TUNNEL_SUB_TYPE_HA: TunnelSubType = 3
 
-public val TUNNEL_SUB_TYPE_IPTLS: TUNNEL_SUB_TYPE = 2
+public val TUNNEL_SUB_TYPE_IPTLS: TunnelSubType = 2
 
-public val TUNNEL_SUB_TYPE_NONE: TUNNEL_SUB_TYPE = 0
+public val TUNNEL_SUB_TYPE_NONE: TunnelSubType = 0
 
 public val UDP_CHECKSUM_COVERAGE: Int = 20
 
@@ -2903,106 +2903,106 @@ public val WINDOWS_AF_IRDA: UInt = 26u
 
 public val WINDOWS_PF_IRDA: UInt = 26u
 
-public val WSABASEERR: WSA_ERROR = 10000
+public val WSABASEERR: WsaError = 10000
 
 public val WSADESCRIPTION_LEN: UInt = 256u
 
-public val WSAEACCES: WSA_ERROR = 10013
+public val WSAEACCES: WsaError = 10013
 
-public val WSAEADDRINUSE: WSA_ERROR = 10048
+public val WSAEADDRINUSE: WsaError = 10048
 
-public val WSAEADDRNOTAVAIL: WSA_ERROR = 10049
+public val WSAEADDRNOTAVAIL: WsaError = 10049
 
-public val WSAEAFNOSUPPORT: WSA_ERROR = 10047
+public val WSAEAFNOSUPPORT: WsaError = 10047
 
-public val WSAEALREADY: WSA_ERROR = 10037
+public val WSAEALREADY: WsaError = 10037
 
-public val WSAEBADF: WSA_ERROR = 10009
+public val WSAEBADF: WsaError = 10009
 
-public val WSAECANCELLED: WSA_ERROR = 10103
+public val WSAECANCELLED: WsaError = 10103
 
-public val WSAECONNABORTED: WSA_ERROR = 10053
+public val WSAECONNABORTED: WsaError = 10053
 
-public val WSAECONNREFUSED: WSA_ERROR = 10061
+public val WSAECONNREFUSED: WsaError = 10061
 
-public val WSAECONNRESET: WSA_ERROR = 10054
+public val WSAECONNRESET: WsaError = 10054
 
-public val WSAEDESTADDRREQ: WSA_ERROR = 10039
+public val WSAEDESTADDRREQ: WsaError = 10039
 
-public val WSAEDISCON: WSA_ERROR = 10101
+public val WSAEDISCON: WsaError = 10101
 
-public val WSAEDQUOT: WSA_ERROR = 10069
+public val WSAEDQUOT: WsaError = 10069
 
-public val WSAEFAULT: WSA_ERROR = 10014
+public val WSAEFAULT: WsaError = 10014
 
-public val WSAEHOSTDOWN: WSA_ERROR = 10064
+public val WSAEHOSTDOWN: WsaError = 10064
 
-public val WSAEHOSTUNREACH: WSA_ERROR = 10065
+public val WSAEHOSTUNREACH: WsaError = 10065
 
-public val WSAEINPROGRESS: WSA_ERROR = 10036
+public val WSAEINPROGRESS: WsaError = 10036
 
-public val WSAEINTR: WSA_ERROR = 10004
+public val WSAEINTR: WsaError = 10004
 
-public val WSAEINVAL: WSA_ERROR = 10022
+public val WSAEINVAL: WsaError = 10022
 
-public val WSAEINVALIDPROCTABLE: WSA_ERROR = 10104
+public val WSAEINVALIDPROCTABLE: WsaError = 10104
 
-public val WSAEINVALIDPROVIDER: WSA_ERROR = 10105
+public val WSAEINVALIDPROVIDER: WsaError = 10105
 
-public val WSAEISCONN: WSA_ERROR = 10056
+public val WSAEISCONN: WsaError = 10056
 
-public val WSAELOOP: WSA_ERROR = 10062
+public val WSAELOOP: WsaError = 10062
 
-public val WSAEMFILE: WSA_ERROR = 10024
+public val WSAEMFILE: WsaError = 10024
 
-public val WSAEMSGSIZE: WSA_ERROR = 10040
+public val WSAEMSGSIZE: WsaError = 10040
 
-public val WSAENAMETOOLONG: WSA_ERROR = 10063
+public val WSAENAMETOOLONG: WsaError = 10063
 
-public val WSAENETDOWN: WSA_ERROR = 10050
+public val WSAENETDOWN: WsaError = 10050
 
-public val WSAENETRESET: WSA_ERROR = 10052
+public val WSAENETRESET: WsaError = 10052
 
-public val WSAENETUNREACH: WSA_ERROR = 10051
+public val WSAENETUNREACH: WsaError = 10051
 
-public val WSAENOBUFS: WSA_ERROR = 10055
+public val WSAENOBUFS: WsaError = 10055
 
-public val WSAENOMORE: WSA_ERROR = 10102
+public val WSAENOMORE: WsaError = 10102
 
-public val WSAENOPROTOOPT: WSA_ERROR = 10042
+public val WSAENOPROTOOPT: WsaError = 10042
 
-public val WSAENOTCONN: WSA_ERROR = 10057
+public val WSAENOTCONN: WsaError = 10057
 
-public val WSAENOTEMPTY: WSA_ERROR = 10066
+public val WSAENOTEMPTY: WsaError = 10066
 
-public val WSAENOTSOCK: WSA_ERROR = 10038
+public val WSAENOTSOCK: WsaError = 10038
 
-public val WSAEOPNOTSUPP: WSA_ERROR = 10045
+public val WSAEOPNOTSUPP: WsaError = 10045
 
-public val WSAEPFNOSUPPORT: WSA_ERROR = 10046
+public val WSAEPFNOSUPPORT: WsaError = 10046
 
-public val WSAEPROCLIM: WSA_ERROR = 10067
+public val WSAEPROCLIM: WsaError = 10067
 
-public val WSAEPROTONOSUPPORT: WSA_ERROR = 10043
+public val WSAEPROTONOSUPPORT: WsaError = 10043
 
-public val WSAEPROTOTYPE: WSA_ERROR = 10041
+public val WSAEPROTOTYPE: WsaError = 10041
 
-public val WSAEPROVIDERFAILEDINIT: WSA_ERROR = 10106
+public val WSAEPROVIDERFAILEDINIT: WsaError = 10106
 
-public val WSAEREFUSED: WSA_ERROR = 10112
+public val WSAEREFUSED: WsaError = 10112
 
-public val WSAEREMOTE: WSA_ERROR = 10071
+public val WSAEREMOTE: WsaError = 10071
 
-public val WSAESHUTDOWN: WSA_ERROR = 10058
+public val WSAESHUTDOWN: WsaError = 10058
 
-public val WSAESOCKTNOSUPPORT: WSA_ERROR = 10044
+public val WSAESOCKTNOSUPPORT: WsaError = 10044
 
-public val WSAESTALE: WSA_ERROR = 10070
+public val WSAESTALE: WsaError = 10070
 
-public val WSAETIMEDOUT: WSA_ERROR = 10060
+public val WSAETIMEDOUT: WsaError = 10060
 
-public val WSAETOOMANYREFS: WSA_ERROR = 10059
+public val WSAETOOMANYREFS: WsaError = 10059
 
-public val WSAEUSERS: WSA_ERROR = 10068
+public val WSAEUSERS: WsaError = 10068
 
-public val WSAEWOULDBLOCK: WSA_ERROR = 10035
+public val WSAEWOULDBLOCK: WsaError = 10035

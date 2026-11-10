@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
 private object WindowsWin32StorageDistributedfilesystemJniBridge {
     init {
@@ -11,134 +12,134 @@ private object WindowsWin32StorageDistributedfilesystemJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsAdd(dfsentrypath: Long, servername: Long, sharename: Long, comment: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd(dfsentrypath: Long, servername: Long, sharename: Long, comment: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddFtRoot(servername: Long, rootshare: Long, ftdfsname: Long, comment: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot(servername: Long, rootshare: Long, ftdfsname: Long, comment: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddRootTarget(pdfspath: Long, ptargetpath: Long, majorversion: Int, pcomment: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget(pdfspath: Long, ptargetpath: Long, majorversion: Int, pcomment: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddStdRoot(servername: Long, rootshare: Long, comment: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot(servername: Long, rootshare: Long, comment: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsEnum(dfsname: Long, level: Int, prefmaxlen: Int, buffer: Long, entriesread: Long, resumehandle: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum(dfsname: Long, level: Int, prefmaxlen: Int, buffer: Long, entriesread: Long, resumehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetClientInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetFtContainerSecurity(domainname: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity(domainname: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSecurity(dfsentrypath: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity(dfsentrypath: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetStdContainerSecurity(machinename: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity(machinename: Long, securityinformation: Int, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSupportedNamespaceVersion(origin: Int, pname: Long, ppversioninfo: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion(origin: Int, pname: Long, ppversioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsMove(olddfsentrypath: Long, newdfsentrypath: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsMove(olddfsentrypath: Long, newdfsentrypath: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemove(dfsentrypath: Long, servername: Long, sharename: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove(dfsentrypath: Long, servername: Long, sharename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRoot(servername: Long, rootshare: Long, ftdfsname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot(servername: Long, rootshare: Long, ftdfsname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRootForced(domainname: Long, servername: Long, rootshare: Long, ftdfsname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced(domainname: Long, servername: Long, rootshare: Long, ftdfsname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveRootTarget(pdfspath: Long, ptargetpath: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget(pdfspath: Long, ptargetpath: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveStdRoot(servername: Long, rootshare: Long, flags: Int): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot(servername: Long, rootshare: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetClientInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetFtContainerSecurity(domainname: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity(domainname: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo(dfsentrypath: Long, servername: Long, sharename: Long, level: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetSecurity(dfsentrypath: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity(dfsentrypath: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetStdContainerSecurity(machinename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity(machinename: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 }
 
-public actual fun NetDfsAdd(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAdd(dfsentrypath, servername, sharename, comment, flags.toInt()).toUInt()
+public actual fun netDfsAdd(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L), (comment?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsAddFtRoot(servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddFtRoot(servername, rootshare, ftdfsname, comment, flags.toInt()).toUInt()
+public actual fun netDfsAddFtRoot(servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot((servername?.value ?: 0L), (rootshare?.value ?: 0L), (ftdfsname?.value ?: 0L), (comment?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsAddRootTarget(pdfspath: PCWSTR, ptargetpath: PCWSTR, majorversion: UInt, pcomment: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddRootTarget(pdfspath, ptargetpath, majorversion.toInt(), pcomment, flags.toInt()).toUInt()
+public actual fun netDfsAddRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, majorversion: UInt, pcomment: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget((pdfspath?.value ?: 0L), (ptargetpath?.value ?: 0L), majorversion.toInt(), (pcomment?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsAddStdRoot(servername: PCWSTR, rootshare: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddStdRoot(servername, rootshare, comment, flags.toInt()).toUInt()
+public actual fun netDfsAddStdRoot(servername: Pcwstr, rootshare: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot((servername?.value ?: 0L), (rootshare?.value ?: 0L), (comment?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsEnum(dfsname: PCWSTR, level: UInt, prefmaxlen: UInt, buffer: Long, entriesread: Long, resumehandle: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsEnum(dfsname, level.toInt(), prefmaxlen.toInt(), buffer, entriesread, resumehandle).toUInt()
+public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: COpaquePointer?, entriesread: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum((dfsname?.value ?: 0L), level.toInt(), prefmaxlen.toInt(), (buffer?.value ?: 0L), (entriesread?.value ?: 0L), (resumehandle?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetClientInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetClientInfo(dfsentrypath, servername, sharename, level.toInt(), buffer).toUInt()
+public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L), level.toInt(), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetFtContainerSecurity(domainname, securityinformation.toInt(), ppsecuritydescriptor, lpcbsecuritydescriptor).toUInt()
+public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity((domainname?.value ?: 0L), securityinformation.toInt(), (ppsecuritydescriptor?.value ?: 0L), (lpcbsecuritydescriptor?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetInfo(dfsentrypath, servername, sharename, level.toInt(), buffer).toUInt()
+public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L), level.toInt(), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSecurity(dfsentrypath, securityinformation.toInt(), ppsecuritydescriptor, lpcbsecuritydescriptor).toUInt()
+public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity((dfsentrypath?.value ?: 0L), securityinformation.toInt(), (ppsecuritydescriptor?.value ?: 0L), (lpcbsecuritydescriptor?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetStdContainerSecurity(machinename, securityinformation.toInt(), ppsecuritydescriptor, lpcbsecuritydescriptor).toUInt()
+public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity((machinename?.value ?: 0L), securityinformation.toInt(), (ppsecuritydescriptor?.value ?: 0L), (lpcbsecuritydescriptor?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: PCWSTR, ppversioninfo: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSupportedNamespaceVersion(origin, pname, ppversioninfo).toUInt()
+public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion(origin, (pname?.value ?: 0L), (ppversioninfo?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsMove(olddfsentrypath: PCWSTR, newdfsentrypath: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsMove(olddfsentrypath, newdfsentrypath, flags.toInt()).toUInt()
+public actual fun netDfsMove(olddfsentrypath: Pcwstr, newdfsentrypath: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsMove((olddfsentrypath?.value ?: 0L), (newdfsentrypath?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsRemove(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemove(dfsentrypath, servername, sharename).toUInt()
+public actual fun netDfsRemove(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsRemoveFtRoot(servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRoot(servername, rootshare, ftdfsname, flags.toInt()).toUInt()
+public actual fun netDfsRemoveFtRoot(servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot((servername?.value ?: 0L), (rootshare?.value ?: 0L), (ftdfsname?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsRemoveFtRootForced(domainname: PCWSTR, servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRootForced(domainname, servername, rootshare, ftdfsname, flags.toInt()).toUInt()
+public actual fun netDfsRemoveFtRootForced(domainname: Pcwstr, servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced((domainname?.value ?: 0L), (servername?.value ?: 0L), (rootshare?.value ?: 0L), (ftdfsname?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsRemoveRootTarget(pdfspath: PCWSTR, ptargetpath: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveRootTarget(pdfspath, ptargetpath, flags.toInt()).toUInt()
+public actual fun netDfsRemoveRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget((pdfspath?.value ?: 0L), (ptargetpath?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsRemoveStdRoot(servername: PCWSTR, rootshare: PCWSTR, flags: UInt): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveStdRoot(servername, rootshare, flags.toInt()).toUInt()
+public actual fun netDfsRemoveStdRoot(servername: Pcwstr, rootshare: Pcwstr, flags: UInt): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot((servername?.value ?: 0L), (rootshare?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun NetDfsSetClientInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetClientInfo(dfsentrypath, servername, sharename, level.toInt(), buffer).toUInt()
+public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L), level.toInt(), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsSetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetFtContainerSecurity(domainname, securityinformation.toInt(), psecuritydescriptor).toUInt()
+public actual fun netDfsSetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity((domainname?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsSetInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetInfo(dfsentrypath, servername, sharename, level.toInt(), buffer).toUInt()
+public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo((dfsentrypath?.value ?: 0L), (servername?.value ?: 0L), (sharename?.value ?: 0L), level.toInt(), (buffer?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsSetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetSecurity(dfsentrypath, securityinformation.toInt(), psecuritydescriptor).toUInt()
+public actual fun netDfsSetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity((dfsentrypath?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L)).toUInt()
 
-public actual fun NetDfsSetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetStdContainerSecurity(machinename, securityinformation.toInt(), psecuritydescriptor).toUInt()
+public actual fun netDfsSetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    WindowsWin32StorageDistributedfilesystemJniBridge.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity((machinename?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L)).toUInt()

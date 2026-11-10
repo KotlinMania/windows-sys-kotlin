@@ -1,70 +1,71 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HTHEME
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SYSTEM_METRICS_INDEX
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WINDOW_EX_STYLE
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WINDOW_STYLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowExStyle
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowStyle
 
-public expect fun AdjustWindowRectExForDpi(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE, dpi: UInt): BOOL
+public expect fun adjustWindowRectExForDpi(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool
 
-public expect fun AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, dpicontextb: DPI_AWARENESS_CONTEXT): BOOL
+public expect fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool
 
-public expect fun EnableNonClientDpiScaling(hwnd: HWND): BOOL
+public expect fun enableNonClientDpiScaling(hwnd: Hwnd): Bool
 
-public expect fun GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): DPI_AWARENESS
+public expect fun getAwarenessFromDpiAwarenessContext(value: DpiAwarenessContext): DpiAwareness
 
-public expect fun GetDialogControlDpiChangeBehavior(hwnd: HWND): DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS
+public expect fun getDialogControlDpiChangeBehavior(hwnd: Hwnd): DialogControlDpiChangeBehaviors
 
-public expect fun GetDialogDpiChangeBehavior(hdlg: HWND): DIALOG_DPI_CHANGE_BEHAVIORS
+public expect fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehaviors
 
-public expect fun GetDpiAwarenessContextForProcess(hprocess: HANDLE): DPI_AWARENESS_CONTEXT
+public expect fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext
 
-public expect fun GetDpiForMonitor(hmonitor: HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: Long, dpiy: Long): HRESULT
+public expect fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: COpaquePointer?, dpiy: COpaquePointer?): Hresult
 
-public expect fun GetDpiForSystem(): UInt
+public expect fun getDpiForSystem(): UInt
 
-public expect fun GetDpiForWindow(hwnd: HWND): UInt
+public expect fun getDpiForWindow(hwnd: Hwnd): UInt
 
-public expect fun GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): UInt
+public expect fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt
 
-public expect fun GetProcessDpiAwareness(hprocess: HANDLE, value: Long): HRESULT
+public expect fun getProcessDpiAwareness(hprocess: Handle, value: COpaquePointer?): Hresult
 
-public expect fun GetSystemDpiForProcess(hprocess: HANDLE): UInt
+public expect fun getSystemDpiForProcess(hprocess: Handle): UInt
 
-public expect fun GetSystemMetricsForDpi(nindex: SYSTEM_METRICS_INDEX, dpi: UInt): Int
+public expect fun getSystemMetricsForDpi(nindex: SystemMetricsIndex, dpi: UInt): Int
 
-public expect fun GetThreadDpiAwarenessContext(): DPI_AWARENESS_CONTEXT
+public expect fun getThreadDpiAwarenessContext(): DpiAwarenessContext
 
-public expect fun GetThreadDpiHostingBehavior(): DPI_HOSTING_BEHAVIOR
+public expect fun getThreadDpiHostingBehavior(): DpiHostingBehavior
 
-public expect fun GetWindowDpiAwarenessContext(hwnd: HWND): DPI_AWARENESS_CONTEXT
+public expect fun getWindowDpiAwarenessContext(hwnd: Hwnd): DpiAwarenessContext
 
-public expect fun GetWindowDpiHostingBehavior(hwnd: HWND): DPI_HOSTING_BEHAVIOR
+public expect fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior
 
-public expect fun IsValidDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): BOOL
+public expect fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool
 
-public expect fun LogicalToPhysicalPointForPerMonitorDPI(hwnd: HWND, lppoint: Long): BOOL
+public expect fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun OpenThemeDataForDpi(hwnd: HWND, pszclasslist: PCWSTR, dpi: UInt): HTHEME
+public expect fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme
 
-public expect fun PhysicalToLogicalPointForPerMonitorDPI(hwnd: HWND, lppoint: Long): BOOL
+public expect fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun SetDialogControlDpiChangeBehavior(hwnd: HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS): BOOL
+public expect fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool
 
-public expect fun SetDialogDpiChangeBehavior(hdlg: HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS): BOOL
+public expect fun setDialogDpiChangeBehavior(hdlg: Hwnd, mask: DialogDpiChangeBehaviors, values: DialogDpiChangeBehaviors): Bool
 
-public expect fun SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS): HRESULT
+public expect fun setProcessDpiAwareness(value: ProcessDpiAwareness): Hresult
 
-public expect fun SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): BOOL
+public expect fun setProcessDpiAwarenessContext(value: DpiAwarenessContext): Bool
 
-public expect fun SetThreadDpiAwarenessContext(dpicontext: DPI_AWARENESS_CONTEXT): DPI_AWARENESS_CONTEXT
+public expect fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext): DpiAwarenessContext
 
-public expect fun SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR): DPI_HOSTING_BEHAVIOR
+public expect fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior
 
-public expect fun SystemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: Long, fwinini: UInt, dpi: UInt): BOOL
+public expect fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: COpaquePointer?, fwinini: UInt, dpi: UInt): Bool

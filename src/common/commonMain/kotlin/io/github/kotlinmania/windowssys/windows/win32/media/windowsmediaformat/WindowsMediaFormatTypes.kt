@@ -1,63 +1,63 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-public typealias NETSOURCE_URLCREDPOLICY_SETTINGS = Int
+public typealias NetsourceUrlcredpolicySettings = Int
 
-public typealias WEBSTREAM_SAMPLE_TYPE = Int
+public typealias WebstreamSampleType = Int
 
-public typealias WMT_ATTR_DATATYPE = Int
+public typealias WmtAttrDatatype = Int
 
-public typealias WMT_ATTR_IMAGETYPE = Int
+public typealias WmtAttrImagetype = Int
 
-public typealias WMT_CODEC_INFO_TYPE = Int
+public typealias WmtCodecInfoType = Int
 
-public typealias WMT_CREDENTIAL_FLAGS = Int
+public typealias WmtCredentialFlags = Int
 
-public typealias WMT_DRMLA_TRUST = Int
+public typealias WmtDrmlaTrust = Int
 
-public typealias WMT_FILESINK_MODE = Int
+public typealias WmtFilesinkMode = Int
 
-public typealias WMT_IMAGE_TYPE = Int
+public typealias WmtImageType = Int
 
-public typealias WMT_INDEXER_TYPE = Int
+public typealias WmtIndexerType = Int
 
-public typealias WMT_INDEX_TYPE = Int
+public typealias WmtIndexType = Int
 
-public typealias WMT_MUSICSPEECH_CLASS_MODE = Int
+public typealias WmtMusicspeechClassMode = Int
 
-public typealias WMT_NET_PROTOCOL = Int
+public typealias WmtNetProtocol = Int
 
-public typealias WMT_OFFSET_FORMAT = Int
+public typealias WmtOffsetFormat = Int
 
-public typealias WMT_PLAY_MODE = Int
+public typealias WmtPlayMode = Int
 
-public typealias WMT_PROXY_SETTINGS = Int
+public typealias WmtProxySettings = Int
 
-public typealias WMT_RIGHTS = Int
+public typealias WmtRights = Int
 
-public typealias WMT_STATUS = Int
+public typealias WmtStatus = Int
 
-public typealias WMT_STORAGE_FORMAT = Int
+public typealias WmtStorageFormat = Int
 
-public typealias WMT_STREAM_SELECTION = Int
+public typealias WmtStreamSelection = Int
 
-public typealias WMT_TIMECODE_FRAMERATE = Int
+public typealias WmtTimecodeFramerate = Int
 
-public typealias WMT_TRANSPORT_TYPE = Int
+public typealias WmtTransportType = Int
 
-public typealias WMT_VERSION = Int
+public typealias WmtVersion = Int
 
-public typealias WMT_WATERMARK_ENTRY_TYPE = Int
+public typealias WmtWatermarkEntryType = Int
 
-public typealias WM_AETYPE = Int
+public typealias WmAetype = Int
 
-public typealias WM_DM_INTERLACED_TYPE = Int
+public typealias WmDmInterlacedType = Int
 
-public typealias WM_DM_IT_FIRST_FRAME_COHERENCY = Int
+public typealias WmDmItFirstFrameCoherency = Int
 
-public typealias WM_PLAYBACK_DRC_LEVEL = Int
+public typealias WmPlaybackDrcLevel = Int
 
-public typealias WM_SFEX_TYPE = Int
+public typealias WmSfexType = Int
 
-public typealias WM_SF_TYPE = Int
+public typealias WmSfType = Int
 
-public typealias _AM_ASFWRITERCONFIG_PARAM = Int
+public typealias AmAsfwriterconfigParam = Int

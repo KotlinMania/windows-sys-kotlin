@@ -1,23 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-public typealias JOBOBJECTINFOCLASS = Int
+public typealias Jobobjectinfoclass = Int
 
-public typealias JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = Int
+public typealias JobobjectIoAttributionControlFlags = Int
 
-public typealias JOBOBJECT_RATE_CONTROL_TOLERANCE = Int
+public typealias JobobjectRateControlTolerance = Int
 
-public typealias JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = Int
+public typealias JobobjectRateControlToleranceInterval = Int
 
-public typealias JOB_OBJECT_CPU_RATE_CONTROL = UInt
+public typealias JobObjectCpuRateControl = UInt
 
-public typealias JOB_OBJECT_IO_RATE_CONTROL_FLAGS = Int
+public typealias JobObjectIoRateControlFlags = Int
 
-public typealias JOB_OBJECT_LIMIT = UInt
+public typealias JobObjectLimit = UInt
 
-public typealias JOB_OBJECT_NET_RATE_CONTROL_FLAGS = Int
+public typealias JobObjectNetRateControlFlags = Int
 
-public typealias JOB_OBJECT_SECURITY = UInt
+public typealias JobObjectSecurity = UInt
 
-public typealias JOB_OBJECT_TERMINATE_AT_END_ACTION = UInt
+public typealias JobObjectTerminateAtEndAction = UInt
 
-public typealias JOB_OBJECT_UILIMIT = UInt
+public typealias JobObjectUilimit = UInt

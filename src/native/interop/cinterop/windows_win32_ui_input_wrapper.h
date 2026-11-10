@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-int64_t windowssys_windows_win32_ui_input_DefRawInputProc(void* parawinput, int32_t ninput, uint32_t cbsizeheader);
-int32_t windowssys_windows_win32_ui_input_GetCIMSSM(void* inputmessagesource);
-int32_t windowssys_windows_win32_ui_input_GetCurrentInputMessageSource(void* inputmessagesource);
-uint32_t windowssys_windows_win32_ui_input_GetRawInputBuffer(void* pdata, void* pcbsize, uint32_t cbsizeheader);
-uint32_t windowssys_windows_win32_ui_input_GetRawInputData(void* hrawinput, uint32_t uicommand, void* pdata, void* pcbsize, uint32_t cbsizeheader);
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoA(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize);
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceInfoW(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize);
-uint32_t windowssys_windows_win32_ui_input_GetRawInputDeviceList(void* prawinputdevicelist, void* puinumdevices, uint32_t cbsize);
-uint32_t windowssys_windows_win32_ui_input_GetRegisteredRawInputDevices(void* prawinputdevices, void* puinumdevices, uint32_t cbsize);
-int32_t windowssys_windows_win32_ui_input_RegisterRawInputDevices(void* prawinputdevices, uint32_t uinumdevices, uint32_t cbsize);
+int64_t windowssys_windows_win32_ui_input_defRawInputProc(void* parawinput, int32_t ninput, uint32_t cbsizeheader);
+int32_t windowssys_windows_win32_ui_input_getCIMSSM(void* inputmessagesource);
+int32_t windowssys_windows_win32_ui_input_getCurrentInputMessageSource(void* inputmessagesource);
+uint32_t windowssys_windows_win32_ui_input_getRawInputBuffer(void* pdata, void* pcbsize, uint32_t cbsizeheader);
+uint32_t windowssys_windows_win32_ui_input_getRawInputData(void* hrawinput, uint32_t uicommand, void* pdata, void* pcbsize, uint32_t cbsizeheader);
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceInfoA(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize);
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceInfoW(void* hdevice, uint32_t uicommand, void* pdata, void* pcbsize);
+uint32_t windowssys_windows_win32_ui_input_getRawInputDeviceList(void* prawinputdevicelist, void* puinumdevices, uint32_t cbsize);
+uint32_t windowssys_windows_win32_ui_input_getRegisteredRawInputDevices(void* prawinputdevices, void* puinumdevices, uint32_t cbsize);
+int32_t windowssys_windows_win32_ui_input_registerRawInputDevices(void* prawinputdevices, uint32_t uinumdevices, uint32_t cbsize);
 
 #ifdef __cplusplus
 }

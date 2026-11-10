@@ -1,24 +1,25 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class DAV_CALLBACK_AUTH_BLOB(
-    public var pBuffer: Long = 0L,
+public data class DavCallbackAuthBlob(
+    public var pBuffer: COpaquePointer? = null,
     public var ulSize: UInt = 0u,
     public var ulType: UInt = 0u,
 )
 
-public data class DAV_CALLBACK_AUTH_UNP(
-    public var pszUserName: PWSTR = 0L,
+public data class DavCallbackAuthUnp(
+    public var pszUserName: Pwstr = null,
     public var ulUserNameLength: UInt = 0u,
-    public var pszPassword: PWSTR = 0L,
+    public var pszPassword: Pwstr = null,
     public var ulPasswordLength: UInt = 0u,
 )
 
-public data class DAV_CALLBACK_CRED(
-    public var AuthBlob: DAV_CALLBACK_AUTH_BLOB = DAV_CALLBACK_AUTH_BLOB(),
-    public var UNPBlob: DAV_CALLBACK_AUTH_UNP = DAV_CALLBACK_AUTH_UNP(),
-    public var bAuthBlobValid: BOOL = 0,
-    public var bSave: BOOL = 0,
+public data class DavCallbackCred(
+    public var authBlob: DavCallbackAuthBlob = DavCallbackAuthBlob(),
+    public var uNPBlob: DavCallbackAuthUnp = DavCallbackAuthUnp(),
+    public var bAuthBlobValid: Bool = 0,
+    public var bSave: Bool = 0,
 )

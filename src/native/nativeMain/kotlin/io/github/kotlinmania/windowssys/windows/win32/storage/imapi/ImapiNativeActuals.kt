@@ -2,28 +2,29 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEBUFFER
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEMORE
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPFREEBUFFER
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatebuffer
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatemore
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpfreebuffer
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CloseIMsgSession(lpmsgsess: LPMSGSESS) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_CloseIMsgSession(lpmsgsess)
+public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess.toLong())
 }
 
-public actual fun GetAttribIMsgOnIStg(lpobject: Long, lpproptagarray: Long, lpppropattrarray: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_GetAttribIMsgOnIStg(lpobject.toCPointer<ByteVar>(), lpproptagarray.toCPointer<ByteVar>(), lpppropattrarray.toCPointer<ByteVar>())
+public actual fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg(lpobject?.value?.toCPointer<ByteVar>(), lpproptagarray?.value?.toCPointer<ByteVar>(), lpppropattrarray?.value?.toCPointer<ByteVar>())
 
-public actual fun MapStorageSCode(stgscode: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_MapStorageSCode(stgscode)
+public actual fun mapStorageSCode(stgscode: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_mapStorageSCode(stgscode)
 
-public actual fun OpenIMsgOnIStg(lpmsgsess: LPMSGSESS, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, lpmapisup: Long, lpstg: Long, lpfmsgcallrelease: Long, ulcallerdata: UInt, ulflags: UInt, lppmsg: Long): Int =
+public actual fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, lpmapisup: COpaquePointer?, lpstg: COpaquePointer?, lpfmsgcallrelease: COpaquePointer?, ulcallerdata: UInt, ulflags: UInt, lppmsg: COpaquePointer?): Int =
     0
 
-public actual fun OpenIMsgSession(lpmalloc: Long, ulflags: UInt, lppmsgsess: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_OpenIMsgSession(lpmalloc.toCPointer<ByteVar>(), ulflags, lppmsgsess.toCPointer<ByteVar>())
+public actual fun openIMsgSession(lpmalloc: COpaquePointer?, ulflags: UInt, lppmsgsess: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_openIMsgSession(lpmalloc?.value?.toCPointer<ByteVar>(), ulflags, lppmsgsess?.value?.toCPointer<ByteVar>())
 
-public actual fun SetAttribIMsgOnIStg(lpobject: Long, lpproptags: Long, lppropattrs: Long, lpppropproblems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_SetAttribIMsgOnIStg(lpobject.toCPointer<ByteVar>(), lpproptags.toCPointer<ByteVar>(), lppropattrs.toCPointer<ByteVar>(), lpppropproblems.toCPointer<ByteVar>())
+public actual fun setAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptags: COpaquePointer?, lppropattrs: COpaquePointer?, lpppropproblems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.imapi.cinterop.windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg(lpobject?.value?.toCPointer<ByteVar>(), lpproptags?.value?.toCPointer<ByteVar>(), lppropattrs?.value?.toCPointer<ByteVar>(), lpppropproblems?.value?.toCPointer<ByteVar>())

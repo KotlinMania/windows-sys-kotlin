@@ -1,55 +1,55 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
-public val StoragePowerupDeviceAttention: STORAGE_POWERUP_REASON_TYPE = 2
+public val STORAGE_POWERUP_DEVICE_ATTENTION: StoragePowerupReasonType = 2
 
-public val StoragePowerupIO: STORAGE_POWERUP_REASON_TYPE = 1
+public val STORAGE_POWERUP_IO: StoragePowerupReasonType = 1
 
-public val StoragePowerupUnknown: STORAGE_POWERUP_REASON_TYPE = 0
+public val STORAGE_POWERUP_UNKNOWN: StoragePowerupReasonType = 0
 
-public val StorageReserveIdHard: STORAGE_RESERVE_ID = 1
+public val STORAGE_RESERVE_ID_HARD: StorageReserveId = 1
 
-public val StorageReserveIdMax: STORAGE_RESERVE_ID = 4
+public val STORAGE_RESERVE_ID_MAX: StorageReserveId = 4
 
-public val StorageReserveIdNone: STORAGE_RESERVE_ID = 0
+public val STORAGE_RESERVE_ID_NONE: StorageReserveId = 0
 
-public val StorageReserveIdSoft: STORAGE_RESERVE_ID = 2
+public val STORAGE_RESERVE_ID_SOFT: StorageReserveId = 2
 
-public val StorageReserveIdUpdateScratch: STORAGE_RESERVE_ID = 3
+public val STORAGE_RESERVE_ID_UPDATE_SCRATCH: StorageReserveId = 3
 
-public val StorageRpmbFrameTypeMax: STORAGE_RPMB_FRAME_TYPE = 2
+public val STORAGE_RPMB_FRAME_TYPE_MAX: StorageRpmbFrameType = 2
 
-public val StorageRpmbFrameTypeStandard: STORAGE_RPMB_FRAME_TYPE = 1
+public val STORAGE_RPMB_FRAME_TYPE_STANDARD: StorageRpmbFrameType = 1
 
-public val StorageRpmbFrameTypeUnknown: STORAGE_RPMB_FRAME_TYPE = 0
+public val STORAGE_RPMB_FRAME_TYPE_UNKNOWN: StorageRpmbFrameType = 0
 
-public val StorageSanitizeMethodBlockErase: STORAGE_SANITIZE_METHOD = 1
+public val STORAGE_SANITIZE_METHOD_BLOCK_ERASE: StorageSanitizeMethod = 1
 
-public val StorageSanitizeMethodCryptoErase: STORAGE_SANITIZE_METHOD = 2
+public val STORAGE_SANITIZE_METHOD_CRYPTO_ERASE: StorageSanitizeMethod = 2
 
-public val StorageSanitizeMethodDefault: STORAGE_SANITIZE_METHOD = 0
+public val STORAGE_SANITIZE_METHOD_DEFAULT: StorageSanitizeMethod = 0
 
-public val StorageTierClassCapacity: STORAGE_TIER_CLASS = 1
+public val STORAGE_TIER_CLASS_CAPACITY: StorageTierClass = 1
 
-public val StorageTierClassMax: STORAGE_TIER_CLASS = 3
+public val STORAGE_TIER_CLASS_MAX: StorageTierClass = 3
 
-public val StorageTierClassPerformance: STORAGE_TIER_CLASS = 2
+public val STORAGE_TIER_CLASS_PERFORMANCE: StorageTierClass = 2
 
-public val StorageTierClassUnspecified: STORAGE_TIER_CLASS = 0
+public val STORAGE_TIER_CLASS_UNSPECIFIED: StorageTierClass = 0
 
-public val StorageTierMediaTypeDisk: STORAGE_TIER_MEDIA_TYPE = 1
+public val STORAGE_TIER_MEDIA_TYPE_DISK: StorageTierMediaType = 1
 
-public val StorageTierMediaTypeMax: STORAGE_TIER_MEDIA_TYPE = 5
+public val STORAGE_TIER_MEDIA_TYPE_MAX: StorageTierMediaType = 5
 
-public val StorageTierMediaTypeScm: STORAGE_TIER_MEDIA_TYPE = 4
+public val STORAGE_TIER_MEDIA_TYPE_SCM: StorageTierMediaType = 4
 
-public val StorageTierMediaTypeSsd: STORAGE_TIER_MEDIA_TYPE = 2
+public val STORAGE_TIER_MEDIA_TYPE_SSD: StorageTierMediaType = 2
 
-public val StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = 0
+public val STORAGE_TIER_MEDIA_TYPE_UNSPECIFIED: StorageTierMediaType = 0
 
 public val TAPE_RESET_STATISTICS: Int = 2
 
@@ -57,17 +57,17 @@ public val TAPE_RETURN_ENV_INFO: Int = 1
 
 public val TAPE_RETURN_STATISTICS: Int = 0
 
-public val TCCollectionApplicationRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = 2
+public val TC_COLLECTION_APPLICATION_REQUESTED: DevicedumpCollectionTypeideNotificationType = 2
 
-public val TCCollectionBugCheck: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = 1
+public val TC_COLLECTION_BUG_CHECK: DevicedumpCollectionTypeideNotificationType = 1
 
-public val TCCollectionDeviceRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = 3
+public val TC_COLLECTION_DEVICE_REQUESTED: DevicedumpCollectionTypeideNotificationType = 3
 
 public val TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: UInt = 16u
 
-public val TC_PUBLIC_DATA_TYPE_ATAGP: PCSTR = s("ATAGPLogPages")
+public val TC_PUBLIC_DATA_TYPE_ATAGP: Pcstr = s("ATAGPLogPages")
 
-public val TC_PUBLIC_DATA_TYPE_ATASMART: PCSTR = s("ATASMARTPages")
+public val TC_PUBLIC_DATA_TYPE_ATASMART: Pcstr = s("ATASMARTPages")
 
 public val TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: UInt = 2u
 
@@ -85,39 +85,39 @@ public val TXFS_LOGGING_MODE_FULL: UInt = 2u
 
 public val TXFS_LOGGING_MODE_SIMPLE: UInt = 1u
 
-public val TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = 32768u
+public val TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TxfsRmfLags = 32768u
 
-public val TXFS_RM_FLAG_ENFORCE_MINIMUM_SIZE: TXFS_RMF_LAGS = 4096u
+public val TXFS_RM_FLAG_ENFORCE_MINIMUM_SIZE: TxfsRmfLags = 4096u
 
-public val TXFS_RM_FLAG_GROW_LOG: TXFS_RMF_LAGS = 1024u
+public val TXFS_RM_FLAG_GROW_LOG: TxfsRmfLags = 1024u
 
-public val TXFS_RM_FLAG_LOGGING_MODE: TXFS_RMF_LAGS = 1u
+public val TXFS_RM_FLAG_LOGGING_MODE: TxfsRmfLags = 1u
 
-public val TXFS_RM_FLAG_LOG_AUTO_SHRINK_PERCENTAGE: TXFS_RMF_LAGS = 64u
+public val TXFS_RM_FLAG_LOG_AUTO_SHRINK_PERCENTAGE: TxfsRmfLags = 64u
 
-public val TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MAX: TXFS_RMF_LAGS = 4u
+public val TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MAX: TxfsRmfLags = 4u
 
-public val TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MIN: TXFS_RMF_LAGS = 8u
+public val TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MIN: TxfsRmfLags = 8u
 
-public val TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_NUM_CONTAINERS: TXFS_RMF_LAGS = 16u
+public val TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_NUM_CONTAINERS: TxfsRmfLags = 16u
 
-public val TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_PERCENT: TXFS_RMF_LAGS = 32u
+public val TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_PERCENT: TxfsRmfLags = 32u
 
-public val TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MAX: TXFS_RMF_LAGS = 128u
+public val TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MAX: TxfsRmfLags = 128u
 
-public val TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MIN: TXFS_RMF_LAGS = 256u
+public val TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MIN: TxfsRmfLags = 256u
 
-public val TXFS_RM_FLAG_PREFER_AVAILABILITY: TXFS_RMF_LAGS = 131072u
+public val TXFS_RM_FLAG_PREFER_AVAILABILITY: TxfsRmfLags = 131072u
 
-public val TXFS_RM_FLAG_PREFER_CONSISTENCY: TXFS_RMF_LAGS = 65536u
+public val TXFS_RM_FLAG_PREFER_CONSISTENCY: TxfsRmfLags = 65536u
 
-public val TXFS_RM_FLAG_PRESERVE_CHANGES: TXFS_RMF_LAGS = 8192u
+public val TXFS_RM_FLAG_PRESERVE_CHANGES: TxfsRmfLags = 8192u
 
-public val TXFS_RM_FLAG_RENAME_RM: TXFS_RMF_LAGS = 2u
+public val TXFS_RM_FLAG_RENAME_RM: TxfsRmfLags = 2u
 
-public val TXFS_RM_FLAG_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = 16384u
+public val TXFS_RM_FLAG_RESET_RM_AT_NEXT_START: TxfsRmfLags = 16384u
 
-public val TXFS_RM_FLAG_SHRINK_LOG: TXFS_RMF_LAGS = 2048u
+public val TXFS_RM_FLAG_SHRINK_LOG: TxfsRmfLags = 2048u
 
 public val TXFS_RM_STATE_ACTIVE: UInt = 2u
 
@@ -177,7 +177,7 @@ public val TXFS_TRANSACTION_STATE_NOTACTIVE: UInt = 3u
 
 public val TXFS_TRANSACTION_STATE_PREPARED: UInt = 2u
 
-public val Travan: STORAGE_MEDIA_TYPE = 34
+public val TRAVAN: StorageMediaType = 34
 
 public val UNDEFINE_ALTERNATE: UInt = 13u
 
@@ -189,9 +189,9 @@ public val UNRECOVERED_READS_VALID: UInt = 8u
 
 public val UNRECOVERED_WRITES_VALID: UInt = 2u
 
-public val USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = 1u
+public val USN_DELETE_FLAG_DELETE: UsnDeleteFlags = 1u
 
-public val USN_DELETE_FLAG_NOTIFY: USN_DELETE_FLAGS = 2u
+public val USN_DELETE_FLAG_NOTIFY: UsnDeleteFlags = 2u
 
 public val USN_DELETE_VALID_FLAGS: UInt = 3u
 
@@ -245,29 +245,29 @@ public val USN_REASON_STREAM_CHANGE: UInt = 2097152u
 
 public val USN_REASON_TRANSACTED_CHANGE: UInt = 4194304u
 
-public val USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = 2u
+public val USN_SOURCE_AUXILIARY_DATA: UsnSourceInfoId = 2u
 
-public val USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = 8u
+public val USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: UsnSourceInfoId = 8u
 
-public val USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = 1u
+public val USN_SOURCE_DATA_MANAGEMENT: UsnSourceInfoId = 1u
 
-public val USN_SOURCE_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = 4u
+public val USN_SOURCE_REPLICATION_MANAGEMENT: UsnSourceInfoId = 4u
 
-public val UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = 6
+public val UFS_DATA_TYPE_MAX: StorageProtocolUfsDataType = 6
 
-public val UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = 2
+public val UFS_DATA_TYPE_QUERY_ATTRIBUTE: StorageProtocolUfsDataType = 2
 
-public val UfsDataTypeQueryDescriptor: STORAGE_PROTOCOL_UFS_DATA_TYPE = 1
+public val UFS_DATA_TYPE_QUERY_DESCRIPTOR: StorageProtocolUfsDataType = 1
 
-public val UfsDataTypeQueryDmeAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = 4
+public val UFS_DATA_TYPE_QUERY_DME_ATTRIBUTE: StorageProtocolUfsDataType = 4
 
-public val UfsDataTypeQueryDmePeerAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = 5
+public val UFS_DATA_TYPE_QUERY_DME_PEER_ATTRIBUTE: StorageProtocolUfsDataType = 5
 
-public val UfsDataTypeQueryFlag: STORAGE_PROTOCOL_UFS_DATA_TYPE = 3
+public val UFS_DATA_TYPE_QUERY_FLAG: StorageProtocolUfsDataType = 3
 
-public val UfsDataTypeUnknown: STORAGE_PROTOCOL_UFS_DATA_TYPE = 0
+public val UFS_DATA_TYPE_UNKNOWN: StorageProtocolUfsDataType = 0
 
-public val Unknown: MEDIA_TYPE = 0
+public val UNKNOWN: MediaType = 0
 
 public val VALID_NTFT: UInt = 192u
 
@@ -279,21 +279,21 @@ public val VOLUME_SESSION_OPEN: UInt = 4u
 
 public val VOLUME_UPGRADE_SCHEDULED: UInt = 2u
 
-public val VXATape: STORAGE_MEDIA_TYPE = 94
+public val VXA_TAPE: StorageMediaType = 94
 
-public val VXATape_1: STORAGE_MEDIA_TYPE = 83
+public val VXA_TAPE_1: StorageMediaType = 83
 
-public val VXATape_2: STORAGE_MEDIA_TYPE = 84
+public val VXA_TAPE_2: StorageMediaType = 84
 
-public val VirtualStorageBehaviorCacheWriteBack: VIRTUAL_STORAGE_BEHAVIOR_CODE = 2
+public val VIRTUAL_STORAGE_BEHAVIOR_CACHE_WRITE_BACK: VirtualStorageBehaviorCode = 2
 
-public val VirtualStorageBehaviorCacheWriteThrough: VIRTUAL_STORAGE_BEHAVIOR_CODE = 1
+public val VIRTUAL_STORAGE_BEHAVIOR_CACHE_WRITE_THROUGH: VirtualStorageBehaviorCode = 1
 
-public val VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = 4
+public val VIRTUAL_STORAGE_BEHAVIOR_RESTART_IO_PROCESSING: VirtualStorageBehaviorCode = 4
 
-public val VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = 3
+public val VIRTUAL_STORAGE_BEHAVIOR_STOP_IO_PROCESSING: VirtualStorageBehaviorCode = 3
 
-public val VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = 0
+public val VIRTUAL_STORAGE_BEHAVIOR_UNDEFINED: VirtualStorageBehaviorCode = 0
 
 public val WIM_PROVIDER_CURRENT_VERSION: UInt = 1u
 
@@ -301,7 +301,7 @@ public val WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: UInt = 1u
 
 public val WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: UInt = 2u
 
-public val WMI_DISK_GEOMETRY_GUID: GUID = GUID.from_u128(U128(0x25007f5157c211d1uL, 0xa52800a0c9062910uL))
+public val WMI_DISK_GEOMETRY_GUID: Guid = Guid.fromU128(U128(0x25007f5157c211d1uL, 0xa52800a0c9062910uL))
 
 public val WOF_CURRENT_VERSION: UInt = 1u
 
@@ -309,70 +309,70 @@ public val WOF_PROVIDER_CLOUD: UInt = 3u
 
 public val WRITE_COMPRESSION_INFO_VALID: UInt = 16u
 
-public val WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = 0
+public val WRITE_CACHE_CHANGE_UNKNOWN: WriteCacheChange = 0
 
-public val WriteCacheChangeable: WRITE_CACHE_CHANGE = 2
+public val WRITE_CACHE_CHANGEABLE: WriteCacheChange = 2
 
-public val WriteCacheDisabled: WRITE_CACHE_ENABLE = 1
+public val WRITE_CACHE_DISABLED: WriteCacheEnable = 1
 
-public val WriteCacheEnableUnknown: WRITE_CACHE_ENABLE = 0
+public val WRITE_CACHE_ENABLE_UNKNOWN: WriteCacheEnable = 0
 
-public val WriteCacheEnabled: WRITE_CACHE_ENABLE = 2
+public val WRITE_CACHE_ENABLED: WriteCacheEnable = 2
 
-public val WriteCacheNotChangeable: WRITE_CACHE_CHANGE = 1
+public val WRITE_CACHE_NOT_CHANGEABLE: WriteCacheChange = 1
 
-public val WriteCacheTypeNone: WRITE_CACHE_TYPE = 1
+public val WRITE_CACHE_TYPE_NONE: WriteCacheType = 1
 
-public val WriteCacheTypeUnknown: WRITE_CACHE_TYPE = 0
+public val WRITE_CACHE_TYPE_UNKNOWN: WriteCacheType = 0
 
-public val WriteCacheTypeWriteBack: WRITE_CACHE_TYPE = 2
+public val WRITE_CACHE_TYPE_WRITE_BACK: WriteCacheType = 2
 
-public val WriteCacheTypeWriteThrough: WRITE_CACHE_TYPE = 3
+public val WRITE_CACHE_TYPE_WRITE_THROUGH: WriteCacheType = 3
 
-public val WriteThroughNotSupported: WRITE_THROUGH = 1
+public val WRITE_THROUGH_NOT_SUPPORTED: WriteThrough = 1
 
-public val WriteThroughSupported: WRITE_THROUGH = 2
+public val WRITE_THROUGH_SUPPORTED: WriteThrough = 2
 
-public val WriteThroughUnknown: WRITE_THROUGH = 0
+public val WRITE_THROUGH_UNKNOWN: WriteThrough = 0
 
-public val ZoneConditionClosed: STORAGE_ZONE_CONDITION = 4
+public val ZONE_CONDITION_CLOSED: StorageZoneCondition = 4
 
-public val ZoneConditionConventional: STORAGE_ZONE_CONDITION = 0
+public val ZONE_CONDITION_CONVENTIONAL: StorageZoneCondition = 0
 
-public val ZoneConditionEmpty: STORAGE_ZONE_CONDITION = 1
+public val ZONE_CONDITION_EMPTY: StorageZoneCondition = 1
 
-public val ZoneConditionExplicitlyOpened: STORAGE_ZONE_CONDITION = 3
+public val ZONE_CONDITION_EXPLICITLY_OPENED: StorageZoneCondition = 3
 
-public val ZoneConditionFull: STORAGE_ZONE_CONDITION = 14
+public val ZONE_CONDITION_FULL: StorageZoneCondition = 14
 
-public val ZoneConditionImplicitlyOpened: STORAGE_ZONE_CONDITION = 2
+public val ZONE_CONDITION_IMPLICITLY_OPENED: StorageZoneCondition = 2
 
-public val ZoneConditionOffline: STORAGE_ZONE_CONDITION = 15
+public val ZONE_CONDITION_OFFLINE: StorageZoneCondition = 15
 
-public val ZoneConditionReadOnly: STORAGE_ZONE_CONDITION = 13
+public val ZONE_CONDITION_READ_ONLY: StorageZoneCondition = 13
 
-public val ZoneTypeConventional: STORAGE_ZONE_TYPES = 1
+public val ZONE_TYPE_CONVENTIONAL: StorageZoneTypes = 1
 
-public val ZoneTypeMax: STORAGE_ZONE_TYPES = 4
+public val ZONE_TYPE_MAX: StorageZoneTypes = 4
 
-public val ZoneTypeSequentialWritePreferred: STORAGE_ZONE_TYPES = 3
+public val ZONE_TYPE_SEQUENTIAL_WRITE_PREFERRED: StorageZoneTypes = 3
 
-public val ZoneTypeSequentialWriteRequired: STORAGE_ZONE_TYPES = 2
+public val ZONE_TYPE_SEQUENTIAL_WRITE_REQUIRED: StorageZoneTypes = 2
 
-public val ZoneTypeUnknown: STORAGE_ZONE_TYPES = 0
+public val ZONE_TYPE_UNKNOWN: StorageZoneTypes = 0
 
-public val ZonedDeviceTypeDeviceManaged: STORAGE_ZONED_DEVICE_TYPES = 3
+public val ZONED_DEVICE_TYPE_DEVICE_MANAGED: StorageZonedDeviceTypes = 3
 
-public val ZonedDeviceTypeHostAware: STORAGE_ZONED_DEVICE_TYPES = 2
+public val ZONED_DEVICE_TYPE_HOST_AWARE: StorageZonedDeviceTypes = 2
 
-public val ZonedDeviceTypeHostManaged: STORAGE_ZONED_DEVICE_TYPES = 1
+public val ZONED_DEVICE_TYPE_HOST_MANAGED: StorageZonedDeviceTypes = 1
 
-public val ZonedDeviceTypeUnknown: STORAGE_ZONED_DEVICE_TYPES = 0
+public val ZONED_DEVICE_TYPE_UNKNOWN: StorageZonedDeviceTypes = 0
 
-public val ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES = 0
+public val ZONES_ATTRIBUTE_TYPE_AND_LENGTH_MAY_DIFFERENT: StorageZonesAttributes = 0
 
-public val ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES = 3
+public val ZONES_ATTRIBUTE_TYPE_MAY_DIFFERENT_LENGTH_SAME: StorageZonesAttributes = 3
 
-public val ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES = 2
+public val ZONES_ATTRIBUTE_TYPE_SAME_LAST_ZONE_LENGTH_DIFFERENT: StorageZonesAttributes = 2
 
-public val ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = 1
+public val ZONES_ATTRIBUTE_TYPE_SAME_LENGTH_SAME: StorageZonesAttributes = 1

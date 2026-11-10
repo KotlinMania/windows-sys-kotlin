@@ -1,78 +1,79 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 public data class MapiFileDesc(
     public var ulReserved: UInt = 0u,
     public var flFlags: UInt = 0u,
     public var nPosition: UInt = 0u,
-    public var lpszPathName: PSTR = 0L,
-    public var lpszFileName: PSTR = 0L,
-    public var lpFileType: Long = 0L,
+    public var lpszPathName: Pstr = null,
+    public var lpszFileName: Pstr = null,
+    public var lpFileType: COpaquePointer? = null,
 )
 
 public data class MapiFileDescW(
     public var ulReserved: UInt = 0u,
     public var flFlags: UInt = 0u,
     public var nPosition: UInt = 0u,
-    public var lpszPathName: PWSTR = 0L,
-    public var lpszFileName: PWSTR = 0L,
-    public var lpFileType: Long = 0L,
+    public var lpszPathName: Pwstr = null,
+    public var lpszFileName: Pwstr = null,
+    public var lpFileType: COpaquePointer? = null,
 )
 
 public data class MapiFileTagExt(
     public var ulReserved: UInt = 0u,
     public var cbTag: UInt = 0u,
-    public var lpTag: Long = 0L,
+    public var lpTag: COpaquePointer? = null,
     public var cbEncoding: UInt = 0u,
-    public var lpEncoding: Long = 0L,
+    public var lpEncoding: COpaquePointer? = null,
 )
 
 public data class MapiMessage(
     public var ulReserved: UInt = 0u,
-    public var lpszSubject: PSTR = 0L,
-    public var lpszNoteText: PSTR = 0L,
-    public var lpszMessageType: PSTR = 0L,
-    public var lpszDateReceived: PSTR = 0L,
-    public var lpszConversationID: PSTR = 0L,
+    public var lpszSubject: Pstr = null,
+    public var lpszNoteText: Pstr = null,
+    public var lpszMessageType: Pstr = null,
+    public var lpszDateReceived: Pstr = null,
+    public var lpszConversationID: Pstr = null,
     public var flFlags: UInt = 0u,
-    public var lpOriginator: Long = 0L,
+    public var lpOriginator: MapiRecipDesc? = null,
     public var nRecipCount: UInt = 0u,
-    public var lpRecips: Long = 0L,
+    public var lpRecips: MapiRecipDesc? = null,
     public var nFileCount: UInt = 0u,
-    public var lpFiles: Long = 0L,
+    public var lpFiles: MapiFileDesc? = null,
 )
 
 public data class MapiMessageW(
     public var ulReserved: UInt = 0u,
-    public var lpszSubject: PWSTR = 0L,
-    public var lpszNoteText: PWSTR = 0L,
-    public var lpszMessageType: PWSTR = 0L,
-    public var lpszDateReceived: PWSTR = 0L,
-    public var lpszConversationID: PWSTR = 0L,
+    public var lpszSubject: Pwstr = null,
+    public var lpszNoteText: Pwstr = null,
+    public var lpszMessageType: Pwstr = null,
+    public var lpszDateReceived: Pwstr = null,
+    public var lpszConversationID: Pwstr = null,
     public var flFlags: UInt = 0u,
-    public var lpOriginator: Long = 0L,
+    public var lpOriginator: MapiRecipDescW? = null,
     public var nRecipCount: UInt = 0u,
-    public var lpRecips: Long = 0L,
+    public var lpRecips: MapiRecipDescW? = null,
     public var nFileCount: UInt = 0u,
-    public var lpFiles: Long = 0L,
+    public var lpFiles: MapiFileDescW? = null,
 )
 
 public data class MapiRecipDesc(
     public var ulReserved: UInt = 0u,
     public var ulRecipClass: UInt = 0u,
-    public var lpszName: PSTR = 0L,
-    public var lpszAddress: PSTR = 0L,
+    public var lpszName: Pstr = null,
+    public var lpszAddress: Pstr = null,
     public var ulEIDSize: UInt = 0u,
-    public var lpEntryID: Long = 0L,
+    public var lpEntryID: COpaquePointer? = null,
 )
 
 public data class MapiRecipDescW(
     public var ulReserved: UInt = 0u,
     public var ulRecipClass: UInt = 0u,
-    public var lpszName: PWSTR = 0L,
-    public var lpszAddress: PWSTR = 0L,
+    public var lpszName: Pwstr = null,
+    public var lpszAddress: Pwstr = null,
     public var ulEIDSize: UInt = 0u,
-    public var lpEntryID: Long = 0L,
+    public var lpEntryID: COpaquePointer? = null,
 )

@@ -2,71 +2,71 @@ package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
 public val DCE_C_ERROR_STRING_LEN: UInt = 256u
 
-public val EEInfoGCCOM: UInt = 11u
+public val EE_INFO_GCCOM: UInt = 11u
 
-public val EEInfoGCFRS: UInt = 12u
+public val EE_INFO_GCFRS: UInt = 12u
 
-public val EEInfoNextRecordsMissing: UInt = 2u
+public val EE_INFO_NEXT_RECORDS_MISSING: UInt = 2u
 
-public val EEInfoPreviousRecordsMissing: UInt = 1u
+public val EE_INFO_PREVIOUS_RECORDS_MISSING: UInt = 1u
 
-public val EEInfoUseFileTime: UInt = 4u
+public val EE_INFO_USE_FILE_TIME: UInt = 4u
 
-public val EPT_S_CANT_CREATE: RPC_STATUS = 1899
+public val EPT_S_CANT_CREATE: RpcStatus = 1899
 
-public val EPT_S_CANT_PERFORM_OP: RPC_STATUS = 1752
+public val EPT_S_CANT_PERFORM_OP: RpcStatus = 1752
 
-public val EPT_S_INVALID_ENTRY: RPC_STATUS = 1751
+public val EPT_S_INVALID_ENTRY: RpcStatus = 1751
 
-public val EPT_S_NOT_REGISTERED: RPC_STATUS = 1753
+public val EPT_S_NOT_REGISTERED: RpcStatus = 1753
 
-public val FC_EXPR_CONST32: EXPR_TOKEN = 1
+public val FC_EXPR_CONST32: ExprToken = 1
 
-public val FC_EXPR_CONST64: EXPR_TOKEN = 2
+public val FC_EXPR_CONST64: ExprToken = 2
 
-public val FC_EXPR_END: EXPR_TOKEN = 6
+public val FC_EXPR_END: ExprToken = 6
 
-public val FC_EXPR_ILLEGAL: EXPR_TOKEN = 0
+public val FC_EXPR_ILLEGAL: ExprToken = 0
 
-public val FC_EXPR_NOOP: EXPR_TOKEN = 5
+public val FC_EXPR_NOOP: ExprToken = 5
 
-public val FC_EXPR_OPER: EXPR_TOKEN = 4
+public val FC_EXPR_OPER: ExprToken = 4
 
-public val FC_EXPR_START: EXPR_TOKEN = 0
+public val FC_EXPR_START: ExprToken = 0
 
-public val FC_EXPR_VAR: EXPR_TOKEN = 3
+public val FC_EXPR_VAR: ExprToken = 3
 
-public val IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = 1
+public val IDL_CS_IN_PLACE_CONVERT: IdlCsConvert = 1
 
-public val IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = 2
+public val IDL_CS_NEW_BUFFER_CONVERT: IdlCsConvert = 2
 
-public val IDL_CS_NO_CONVERT: IDL_CS_CONVERT = 0
+public val IDL_CS_NO_CONVERT: IdlCsConvert = 0
 
 public val INVALID_FRAGMENT_ID: UInt = 0u
 
-public val MES_DECODE: MIDL_ES_CODE = 1
+public val MES_DECODE: MidlEsCode = 1
 
-public val MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 2
+public val MES_DYNAMIC_BUFFER_HANDLE: MidlEsHandleStyle = 2
 
-public val MES_ENCODE: MIDL_ES_CODE = 0
+public val MES_ENCODE: MidlEsCode = 0
 
-public val MES_ENCODE_NDR64: MIDL_ES_CODE = 2
+public val MES_ENCODE_NDR64: MidlEsCode = 2
 
-public val MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 1
+public val MES_FIXED_BUFFER_HANDLE: MidlEsHandleStyle = 1
 
-public val MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = 0
+public val MES_INCREMENTAL_HANDLE: MidlEsHandleStyle = 0
 
 public val MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: Int = 1
 
-public val MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 0
+public val MARSHAL_DIRECTION_MARSHAL: LrpcSystemHandleMarshalDirection = 0
 
-public val MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 1
+public val MARSHAL_DIRECTION_UNMARSHAL: LrpcSystemHandleMarshalDirection = 1
 
-public val MaxNumberOfEEInfoParams: UInt = 4u
+public val MAX_NUMBER_OF_EE_INFO_PARAMS: UInt = 4u
 
-public val MidlInterceptionInfoVersionOne: Int = 1
+public val MIDL_INTERCEPTION_INFO_VERSION_ONE: Int = 1
 
-public val MidlWinrtTypeSerializationInfoVersionOne: Int = 1
+public val MIDL_WINRT_TYPE_SERIALIZATION_INFO_VERSION_ONE: Int = 1
 
 public val NDR64_FC_AUTO_HANDLE: UInt = 3u
 
@@ -86,21 +86,21 @@ public val NDR_DEFAULT_ALLOCATOR: UInt = 536870912u
 
 public val NT351_INTERFACE_SIZE: UInt = 64u
 
-public val PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3
+public val PROTOCOL_ADDRESS_CHANGE: RpcAddressChangeType = 3
 
-public val PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2
+public val PROTOCOL_LOADED: RpcAddressChangeType = 2
 
-public val PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = 1
+public val PROTOCOL_NOT_LOADED: RpcAddressChangeType = 1
 
-public val PROXY_CALCSIZE: PROXY_PHASE = 0
+public val PROXY_CALCSIZE: ProxyPhase = 0
 
-public val PROXY_GETBUFFER: PROXY_PHASE = 1
+public val PROXY_GETBUFFER: ProxyPhase = 1
 
-public val PROXY_MARSHAL: PROXY_PHASE = 2
+public val PROXY_MARSHAL: ProxyPhase = 2
 
-public val PROXY_SENDRECEIVE: PROXY_PHASE = 3
+public val PROXY_SENDRECEIVE: ProxyPhase = 3
 
-public val PROXY_UNMARSHAL: PROXY_PHASE = 4
+public val PROXY_UNMARSHAL: ProxyPhase = 4
 
 public val RPCFLG_ACCESSIBILITY_BIT1: UInt = 1048576u
 
@@ -132,21 +132,21 @@ public val RPCFLG_SENDER_WAITING_FOR_REPLY: UInt = 8388608u
 
 public val RPCFLG_WINRT_REMOTE_ASYNC: UInt = 32u
 
-public val RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = 2
+public val RPCHTTP_RS_ACCESS_1: RpcHttpRedirectorStage = 2
 
-public val RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4
+public val RPCHTTP_RS_ACCESS_2: RpcHttpRedirectorStage = 4
 
-public val RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5
+public val RPCHTTP_RS_INTERFACE: RpcHttpRedirectorStage = 5
 
-public val RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1
+public val RPCHTTP_RS_REDIRECT: RpcHttpRedirectorStage = 1
 
-public val RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3
+public val RPCHTTP_RS_SESSION: RpcHttpRedirectorStage = 3
 
-public val RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 2u
+public val RPC_BHO_DONTLINGER: RpcBindingHandleOptionsFlags = 2u
 
 public val RPC_BHO_EXCLUSIVE_AND_GUARANTEED: UInt = 4u
 
-public val RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 1u
+public val RPC_BHO_NONCAUSAL: RpcBindingHandleOptionsFlags = 1u
 
 public val RPC_BHT_OBJECT_UUID_VALID: UInt = 1u
 
@@ -194,9 +194,9 @@ public val RPC_C_AUTHN_GSS_NEGOTIATE: UInt = 9u
 
 public val RPC_C_AUTHN_GSS_SCHANNEL: UInt = 14u
 
-public val RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = 0u
+public val RPC_C_AUTHN_INFO_NONE: RpcCAuthnInfoType = 0u
 
-public val RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = 1u
+public val RPC_C_AUTHN_INFO_TYPE_HTTP: RpcCAuthnInfoType = 1u
 
 public val RPC_C_AUTHN_KERNEL: UInt = 20u
 
@@ -262,17 +262,17 @@ public val RPC_C_HTTP_AUTHN_SCHEME_NTLM: UInt = 2u
 
 public val RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: UInt = 4u
 
-public val RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = 2u
+public val RPC_C_HTTP_AUTHN_TARGET_PROXY: RpcCHttpAuthnTarget = 2u
 
-public val RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = 1u
+public val RPC_C_HTTP_AUTHN_TARGET_SERVER: RpcCHttpAuthnTarget = 1u
 
-public val RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = 16u
+public val RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RpcCHttpFlags = 16u
 
-public val RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = 8u
+public val RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RpcCHttpFlags = 8u
 
-public val RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = 2u
+public val RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RpcCHttpFlags = 2u
 
-public val RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = 1u
+public val RPC_C_HTTP_FLAG_USE_SSL: RpcCHttpFlags = 1u
 
 public val RPC_C_LISTEN_MAX_CALLS_DEFAULT: UInt = 1234u
 
@@ -314,9 +314,9 @@ public val RPC_C_NOTIFY_ON_SEND_COMPLETE: UInt = 1u
 
 public val RPC_C_NS_DEFAULT_EXP_AGE: Int = -1
 
-public val RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = 3u
+public val RPC_C_NS_SYNTAX_DCE: GroupNameSyntax = 3u
 
-public val RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = 0u
+public val RPC_C_NS_SYNTAX_DEFAULT: GroupNameSyntax = 0u
 
 public val RPC_C_OPT_ASYNC_BLOCK: UInt = 15u
 
@@ -384,23 +384,23 @@ public val RPC_C_PROFILE_MATCH_BY_MBR: UInt = 3u
 
 public val RPC_C_PROTSEQ_MAX_REQS_DEFAULT: UInt = 10u
 
-public val RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = 4u
+public val RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RpcCQosCapabilities = 4u
 
-public val RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = 0u
+public val RPC_C_QOS_CAPABILITIES_DEFAULT: RpcCQosCapabilities = 0u
 
-public val RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = 8u
+public val RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RpcCQosCapabilities = 8u
 
-public val RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = 16u
+public val RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RpcCQosCapabilities = 16u
 
-public val RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = 2u
+public val RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RpcCQosCapabilities = 2u
 
-public val RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = 1u
+public val RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RpcCQosCapabilities = 1u
 
-public val RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = 32u
+public val RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RpcCQosCapabilities = 32u
 
-public val RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = 1u
+public val RPC_C_QOS_IDENTITY_DYNAMIC: RpcCQosIdentity = 1u
 
-public val RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = 0u
+public val RPC_C_QOS_IDENTITY_STATIC: RpcCQosIdentity = 0u
 
 public val RPC_C_RPCHTTP_USE_LOAD_BALANCE: UInt = 8u
 
@@ -512,323 +512,323 @@ public val RPC_SYSTEM_HANDLE_FREE_RETRIEVED: UInt = 2u
 
 public val RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: UInt = 1u
 
-public val RPC_S_ACCESS_DENIED: RPC_STATUS = 5
+public val RPC_S_ACCESS_DENIED: RpcStatus = 5
 
-public val RPC_S_ADDRESS_ERROR: RPC_STATUS = 1768
+public val RPC_S_ADDRESS_ERROR: RpcStatus = 1768
 
-public val RPC_S_ALREADY_LISTENING: RPC_STATUS = 1713
+public val RPC_S_ALREADY_LISTENING: RpcStatus = 1713
 
-public val RPC_S_ALREADY_REGISTERED: RPC_STATUS = 1711
+public val RPC_S_ALREADY_REGISTERED: RpcStatus = 1711
 
-public val RPC_S_ASYNC_CALL_PENDING: RPC_STATUS = 997
+public val RPC_S_ASYNC_CALL_PENDING: RpcStatus = 997
 
-public val RPC_S_BINDING_HAS_NO_AUTH: RPC_STATUS = 1746
+public val RPC_S_BINDING_HAS_NO_AUTH: RpcStatus = 1746
 
-public val RPC_S_BINDING_INCOMPLETE: RPC_STATUS = 1819
+public val RPC_S_BINDING_INCOMPLETE: RpcStatus = 1819
 
-public val RPC_S_BUFFER_TOO_SMALL: RPC_STATUS = 122
+public val RPC_S_BUFFER_TOO_SMALL: RpcStatus = 122
 
-public val RPC_S_CALL_CANCELLED: RPC_STATUS = 1818
+public val RPC_S_CALL_CANCELLED: RpcStatus = 1818
 
-public val RPC_S_CALL_FAILED: RPC_STATUS = 1726
+public val RPC_S_CALL_FAILED: RpcStatus = 1726
 
-public val RPC_S_CALL_FAILED_DNE: RPC_STATUS = 1727
+public val RPC_S_CALL_FAILED_DNE: RpcStatus = 1727
 
-public val RPC_S_CALL_IN_PROGRESS: RPC_STATUS = 1791
+public val RPC_S_CALL_IN_PROGRESS: RpcStatus = 1791
 
-public val RPC_S_CANNOT_SUPPORT: RPC_STATUS = 1764
+public val RPC_S_CANNOT_SUPPORT: RpcStatus = 1764
 
-public val RPC_S_CANT_CREATE_ENDPOINT: RPC_STATUS = 1720
+public val RPC_S_CANT_CREATE_ENDPOINT: RpcStatus = 1720
 
-public val RPC_S_COMM_FAILURE: RPC_STATUS = 1820
+public val RPC_S_COMM_FAILURE: RpcStatus = 1820
 
-public val RPC_S_COOKIE_AUTH_FAILED: RPC_STATUS = 1833
+public val RPC_S_COOKIE_AUTH_FAILED: RpcStatus = 1833
 
-public val RPC_S_DO_NOT_DISTURB: RPC_STATUS = 1834
+public val RPC_S_DO_NOT_DISTURB: RpcStatus = 1834
 
-public val RPC_S_DUPLICATE_ENDPOINT: RPC_STATUS = 1740
+public val RPC_S_DUPLICATE_ENDPOINT: RpcStatus = 1740
 
-public val RPC_S_ENTRY_ALREADY_EXISTS: RPC_STATUS = 1760
+public val RPC_S_ENTRY_ALREADY_EXISTS: RpcStatus = 1760
 
-public val RPC_S_ENTRY_NOT_FOUND: RPC_STATUS = 1761
+public val RPC_S_ENTRY_NOT_FOUND: RpcStatus = 1761
 
-public val RPC_S_ENTRY_TYPE_MISMATCH: RPC_STATUS = 1922
+public val RPC_S_ENTRY_TYPE_MISMATCH: RpcStatus = 1922
 
-public val RPC_S_FP_DIV_ZERO: RPC_STATUS = 1769
+public val RPC_S_FP_DIV_ZERO: RpcStatus = 1769
 
-public val RPC_S_FP_OVERFLOW: RPC_STATUS = 1771
+public val RPC_S_FP_OVERFLOW: RpcStatus = 1771
 
-public val RPC_S_FP_UNDERFLOW: RPC_STATUS = 1770
+public val RPC_S_FP_UNDERFLOW: RpcStatus = 1770
 
-public val RPC_S_GROUP_MEMBER_NOT_FOUND: RPC_STATUS = 1898
+public val RPC_S_GROUP_MEMBER_NOT_FOUND: RpcStatus = 1898
 
-public val RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = 1928
+public val RPC_S_GRP_ELT_NOT_ADDED: RpcStatus = 1928
 
-public val RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = 1929
+public val RPC_S_GRP_ELT_NOT_REMOVED: RpcStatus = 1929
 
-public val RPC_S_INCOMPLETE_NAME: RPC_STATUS = 1755
+public val RPC_S_INCOMPLETE_NAME: RpcStatus = 1755
 
-public val RPC_S_INTERFACE_NOT_EXPORTED: RPC_STATUS = 1924
+public val RPC_S_INTERFACE_NOT_EXPORTED: RpcStatus = 1924
 
-public val RPC_S_INTERFACE_NOT_FOUND: RPC_STATUS = 1759
+public val RPC_S_INTERFACE_NOT_FOUND: RpcStatus = 1759
 
-public val RPC_S_INTERNAL_ERROR: RPC_STATUS = 1766
+public val RPC_S_INTERNAL_ERROR: RpcStatus = 1766
 
-public val RPC_S_INVALID_ARG: RPC_STATUS = 87
+public val RPC_S_INVALID_ARG: RpcStatus = 87
 
-public val RPC_S_INVALID_ASYNC_CALL: RPC_STATUS = 1915
+public val RPC_S_INVALID_ASYNC_CALL: RpcStatus = 1915
 
-public val RPC_S_INVALID_ASYNC_HANDLE: RPC_STATUS = 1914
+public val RPC_S_INVALID_ASYNC_HANDLE: RpcStatus = 1914
 
-public val RPC_S_INVALID_AUTH_IDENTITY: RPC_STATUS = 1749
+public val RPC_S_INVALID_AUTH_IDENTITY: RpcStatus = 1749
 
-public val RPC_S_INVALID_BINDING: RPC_STATUS = 1702
+public val RPC_S_INVALID_BINDING: RpcStatus = 1702
 
-public val RPC_S_INVALID_BOUND: RPC_STATUS = 1734
+public val RPC_S_INVALID_BOUND: RpcStatus = 1734
 
-public val RPC_S_INVALID_ENDPOINT_FORMAT: RPC_STATUS = 1706
+public val RPC_S_INVALID_ENDPOINT_FORMAT: RpcStatus = 1706
 
-public val RPC_S_INVALID_LEVEL: RPC_STATUS = 87
+public val RPC_S_INVALID_LEVEL: RpcStatus = 87
 
-public val RPC_S_INVALID_NAF_ID: RPC_STATUS = 1763
+public val RPC_S_INVALID_NAF_ID: RpcStatus = 1763
 
-public val RPC_S_INVALID_NAME_SYNTAX: RPC_STATUS = 1736
+public val RPC_S_INVALID_NAME_SYNTAX: RpcStatus = 1736
 
-public val RPC_S_INVALID_NETWORK_OPTIONS: RPC_STATUS = 1724
+public val RPC_S_INVALID_NETWORK_OPTIONS: RpcStatus = 1724
 
-public val RPC_S_INVALID_NET_ADDR: RPC_STATUS = 1707
+public val RPC_S_INVALID_NET_ADDR: RpcStatus = 1707
 
-public val RPC_S_INVALID_OBJECT: RPC_STATUS = 1900
+public val RPC_S_INVALID_OBJECT: RpcStatus = 1900
 
-public val RPC_S_INVALID_RPC_PROTSEQ: RPC_STATUS = 1704
+public val RPC_S_INVALID_RPC_PROTSEQ: RpcStatus = 1704
 
-public val RPC_S_INVALID_SECURITY_DESC: RPC_STATUS = 1338
+public val RPC_S_INVALID_SECURITY_DESC: RpcStatus = 1338
 
-public val RPC_S_INVALID_STRING_BINDING: RPC_STATUS = 1700
+public val RPC_S_INVALID_STRING_BINDING: RpcStatus = 1700
 
-public val RPC_S_INVALID_STRING_UUID: RPC_STATUS = 1705
+public val RPC_S_INVALID_STRING_UUID: RpcStatus = 1705
 
-public val RPC_S_INVALID_TAG: RPC_STATUS = 1733
+public val RPC_S_INVALID_TAG: RpcStatus = 1733
 
-public val RPC_S_INVALID_TIMEOUT: RPC_STATUS = 1709
+public val RPC_S_INVALID_TIMEOUT: RpcStatus = 1709
 
-public val RPC_S_INVALID_VERS_OPTION: RPC_STATUS = 1756
+public val RPC_S_INVALID_VERS_OPTION: RpcStatus = 1756
 
-public val RPC_S_MAX_CALLS_TOO_SMALL: RPC_STATUS = 1742
+public val RPC_S_MAX_CALLS_TOO_SMALL: RpcStatus = 1742
 
-public val RPC_S_NAME_SERVICE_UNAVAILABLE: RPC_STATUS = 1762
+public val RPC_S_NAME_SERVICE_UNAVAILABLE: RpcStatus = 1762
 
-public val RPC_S_NOTHING_TO_EXPORT: RPC_STATUS = 1754
+public val RPC_S_NOTHING_TO_EXPORT: RpcStatus = 1754
 
-public val RPC_S_NOT_ALL_OBJS_EXPORTED: RPC_STATUS = 1923
+public val RPC_S_NOT_ALL_OBJS_EXPORTED: RpcStatus = 1923
 
-public val RPC_S_NOT_ALL_OBJS_UNEXPORTED: RPC_STATUS = 1758
+public val RPC_S_NOT_ALL_OBJS_UNEXPORTED: RpcStatus = 1758
 
-public val RPC_S_NOT_CANCELLED: RPC_STATUS = 1826
+public val RPC_S_NOT_CANCELLED: RpcStatus = 1826
 
-public val RPC_S_NOT_ENOUGH_QUOTA: RPC_STATUS = 1816
+public val RPC_S_NOT_ENOUGH_QUOTA: RpcStatus = 1816
 
-public val RPC_S_NOT_LISTENING: RPC_STATUS = 1715
+public val RPC_S_NOT_LISTENING: RpcStatus = 1715
 
-public val RPC_S_NOT_RPC_ERROR: RPC_STATUS = 1823
+public val RPC_S_NOT_RPC_ERROR: RpcStatus = 1823
 
-public val RPC_S_NO_BINDINGS: RPC_STATUS = 1718
+public val RPC_S_NO_BINDINGS: RpcStatus = 1718
 
-public val RPC_S_NO_CALL_ACTIVE: RPC_STATUS = 1725
+public val RPC_S_NO_CALL_ACTIVE: RpcStatus = 1725
 
-public val RPC_S_NO_CONTEXT_AVAILABLE: RPC_STATUS = 1765
+public val RPC_S_NO_CONTEXT_AVAILABLE: RpcStatus = 1765
 
-public val RPC_S_NO_ENDPOINT_FOUND: RPC_STATUS = 1708
+public val RPC_S_NO_ENDPOINT_FOUND: RpcStatus = 1708
 
-public val RPC_S_NO_ENTRY_NAME: RPC_STATUS = 1735
+public val RPC_S_NO_ENTRY_NAME: RpcStatus = 1735
 
-public val RPC_S_NO_INTERFACES: RPC_STATUS = 1817
+public val RPC_S_NO_INTERFACES: RpcStatus = 1817
 
-public val RPC_S_NO_MORE_BINDINGS: RPC_STATUS = 1806
+public val RPC_S_NO_MORE_BINDINGS: RpcStatus = 1806
 
-public val RPC_S_NO_MORE_MEMBERS: RPC_STATUS = 1757
+public val RPC_S_NO_MORE_MEMBERS: RpcStatus = 1757
 
-public val RPC_S_NO_PRINC_NAME: RPC_STATUS = 1822
+public val RPC_S_NO_PRINC_NAME: RpcStatus = 1822
 
-public val RPC_S_NO_PROTSEQS: RPC_STATUS = 1719
+public val RPC_S_NO_PROTSEQS: RpcStatus = 1719
 
-public val RPC_S_NO_PROTSEQS_REGISTERED: RPC_STATUS = 1714
+public val RPC_S_NO_PROTSEQS_REGISTERED: RpcStatus = 1714
 
-public val RPC_S_OBJECT_NOT_FOUND: RPC_STATUS = 1710
+public val RPC_S_OBJECT_NOT_FOUND: RpcStatus = 1710
 
-public val RPC_S_OK: RPC_STATUS = 0
+public val RPC_S_OK: RpcStatus = 0
 
-public val RPC_S_OUT_OF_MEMORY: RPC_STATUS = 14
+public val RPC_S_OUT_OF_MEMORY: RpcStatus = 14
 
-public val RPC_S_OUT_OF_RESOURCES: RPC_STATUS = 1721
+public val RPC_S_OUT_OF_RESOURCES: RpcStatus = 1721
 
-public val RPC_S_OUT_OF_THREADS: RPC_STATUS = 164
+public val RPC_S_OUT_OF_THREADS: RpcStatus = 164
 
-public val RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = 1926
+public val RPC_S_PRF_ELT_NOT_ADDED: RpcStatus = 1926
 
-public val RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = 1927
+public val RPC_S_PRF_ELT_NOT_REMOVED: RpcStatus = 1927
 
-public val RPC_S_PROCNUM_OUT_OF_RANGE: RPC_STATUS = 1745
+public val RPC_S_PROCNUM_OUT_OF_RANGE: RpcStatus = 1745
 
-public val RPC_S_PROFILE_NOT_ADDED: RPC_STATUS = 1925
+public val RPC_S_PROFILE_NOT_ADDED: RpcStatus = 1925
 
-public val RPC_S_PROTOCOL_ERROR: RPC_STATUS = 1728
+public val RPC_S_PROTOCOL_ERROR: RpcStatus = 1728
 
-public val RPC_S_PROTSEQ_NOT_FOUND: RPC_STATUS = 1744
+public val RPC_S_PROTSEQ_NOT_FOUND: RpcStatus = 1744
 
-public val RPC_S_PROTSEQ_NOT_SUPPORTED: RPC_STATUS = 1703
+public val RPC_S_PROTSEQ_NOT_SUPPORTED: RpcStatus = 1703
 
-public val RPC_S_PROXY_ACCESS_DENIED: RPC_STATUS = 1729
+public val RPC_S_PROXY_ACCESS_DENIED: RpcStatus = 1729
 
-public val RPC_S_RUNTIME_UNINITIALIZED: RPC_STATUS = 1
+public val RPC_S_RUNTIME_UNINITIALIZED: RpcStatus = 1
 
-public val RPC_S_SEC_PKG_ERROR: RPC_STATUS = 1825
+public val RPC_S_SEC_PKG_ERROR: RpcStatus = 1825
 
-public val RPC_S_SEND_INCOMPLETE: RPC_STATUS = 1913
+public val RPC_S_SEND_INCOMPLETE: RpcStatus = 1913
 
-public val RPC_S_SERVER_OUT_OF_MEMORY: RPC_STATUS = 1130
+public val RPC_S_SERVER_OUT_OF_MEMORY: RpcStatus = 1130
 
-public val RPC_S_SERVER_TOO_BUSY: RPC_STATUS = 1723
+public val RPC_S_SERVER_TOO_BUSY: RpcStatus = 1723
 
-public val RPC_S_SERVER_UNAVAILABLE: RPC_STATUS = 1722
+public val RPC_S_SERVER_UNAVAILABLE: RpcStatus = 1722
 
-public val RPC_S_STRING_TOO_LONG: RPC_STATUS = 1743
+public val RPC_S_STRING_TOO_LONG: RpcStatus = 1743
 
-public val RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RPC_STATUS = 1835
+public val RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RpcStatus = 1835
 
-public val RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RPC_STATUS = 1836
+public val RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RpcStatus = 1836
 
-public val RPC_S_TIMEOUT: RPC_STATUS = 1460
+public val RPC_S_TIMEOUT: RpcStatus = 1460
 
-public val RPC_S_TYPE_ALREADY_REGISTERED: RPC_STATUS = 1712
+public val RPC_S_TYPE_ALREADY_REGISTERED: RpcStatus = 1712
 
-public val RPC_S_UNKNOWN_AUTHN_LEVEL: RPC_STATUS = 1748
+public val RPC_S_UNKNOWN_AUTHN_LEVEL: RpcStatus = 1748
 
-public val RPC_S_UNKNOWN_AUTHN_SERVICE: RPC_STATUS = 1747
+public val RPC_S_UNKNOWN_AUTHN_SERVICE: RpcStatus = 1747
 
-public val RPC_S_UNKNOWN_AUTHN_TYPE: RPC_STATUS = 1741
+public val RPC_S_UNKNOWN_AUTHN_TYPE: RpcStatus = 1741
 
-public val RPC_S_UNKNOWN_AUTHZ_SERVICE: RPC_STATUS = 1750
+public val RPC_S_UNKNOWN_AUTHZ_SERVICE: RpcStatus = 1750
 
-public val RPC_S_UNKNOWN_IF: RPC_STATUS = 1717
+public val RPC_S_UNKNOWN_IF: RpcStatus = 1717
 
-public val RPC_S_UNKNOWN_MGR_TYPE: RPC_STATUS = 1716
+public val RPC_S_UNKNOWN_MGR_TYPE: RpcStatus = 1716
 
-public val RPC_S_UNKNOWN_PRINCIPAL: RPC_STATUS = 1332
+public val RPC_S_UNKNOWN_PRINCIPAL: RpcStatus = 1332
 
-public val RPC_S_UNSUPPORTED_AUTHN_LEVEL: RPC_STATUS = 1821
+public val RPC_S_UNSUPPORTED_AUTHN_LEVEL: RpcStatus = 1821
 
-public val RPC_S_UNSUPPORTED_NAME_SYNTAX: RPC_STATUS = 1737
+public val RPC_S_UNSUPPORTED_NAME_SYNTAX: RpcStatus = 1737
 
-public val RPC_S_UNSUPPORTED_TRANS_SYN: RPC_STATUS = 1730
+public val RPC_S_UNSUPPORTED_TRANS_SYN: RpcStatus = 1730
 
-public val RPC_S_UNSUPPORTED_TYPE: RPC_STATUS = 1732
+public val RPC_S_UNSUPPORTED_TYPE: RpcStatus = 1732
 
-public val RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824
+public val RPC_S_UUID_LOCAL_ONLY: RpcStatus = 1824
 
-public val RPC_S_UUID_NO_ADDRESS: RPC_STATUS = 1739
+public val RPC_S_UUID_NO_ADDRESS: RpcStatus = 1739
 
-public val RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = 1701
+public val RPC_S_WRONG_KIND_OF_BINDING: RpcStatus = 1701
 
-public val RPC_S_ZERO_DIVIDE: RPC_STATUS = 1767
+public val RPC_S_ZERO_DIVIDE: RpcStatus = 1767
 
 public val RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: UInt = 2147483648u
 
 public val RPC_TYPE_STRICT_CONTEXT_HANDLE: UInt = 1073741824u
 
-public val RpcAttemptedLbsDecisions: RpcPerfCounters = 8
+public val RPC_ATTEMPTED_LBS_DECISIONS: RpcPerfCounters = 8
 
-public val RpcAttemptedLbsMessages: RpcPerfCounters = 10
+public val RPC_ATTEMPTED_LBS_MESSAGES: RpcPerfCounters = 10
 
-public val RpcBackEndConnectionAttempts: RpcPerfCounters = 2
+public val RPC_BACK_END_CONNECTION_ATTEMPTS: RpcPerfCounters = 2
 
-public val RpcBackEndConnectionFailed: RpcPerfCounters = 3
+public val RPC_BACK_END_CONNECTION_FAILED: RpcPerfCounters = 3
 
-public val RpcCallComplete: RPC_ASYNC_EVENT = 0
+public val RPC_CALL_COMPLETE: RpcAsyncEvent = 0
 
-public val RpcClientCancel: RPC_ASYNC_EVENT = 4
+public val RPC_CLIENT_CANCEL: RpcAsyncEvent = 4
 
-public val RpcClientDisconnect: RPC_ASYNC_EVENT = 3
+public val RPC_CLIENT_DISCONNECT: RpcAsyncEvent = 3
 
-public val RpcCurrentUniqueUser: RpcPerfCounters = 1
+public val RPC_CURRENT_UNIQUE_USER: RpcPerfCounters = 1
 
-public val RpcFailedLbsDecisions: RpcPerfCounters = 9
+public val RPC_FAILED_LBS_DECISIONS: RpcPerfCounters = 9
 
-public val RpcFailedLbsMessages: RpcPerfCounters = 11
+public val RPC_FAILED_LBS_MESSAGES: RpcPerfCounters = 11
 
-public val RpcIncomingBandwidth: RpcPerfCounters = 6
+public val RPC_INCOMING_BANDWIDTH: RpcPerfCounters = 6
 
-public val RpcIncomingConnections: RpcPerfCounters = 5
+public val RPC_INCOMING_CONNECTIONS: RpcPerfCounters = 5
 
-public val RpcLastCounter: RpcPerfCounters = 12
+public val RPC_LAST_COUNTER: RpcPerfCounters = 12
 
-public val RpcNotificationCallCancel: RPC_NOTIFICATIONS = 2
+public val RPC_NOTIFICATION_CALL_CANCEL: RpcNotifications = 2
 
-public val RpcNotificationCallNone: RPC_NOTIFICATIONS = 0
+public val RPC_NOTIFICATION_CALL_NONE: RpcNotifications = 0
 
-public val RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = 1
+public val RPC_NOTIFICATION_CLIENT_DISCONNECT: RpcNotifications = 1
 
-public val RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = 2
+public val RPC_NOTIFICATION_TYPE_APC: RpcNotificationTypes = 2
 
-public val RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = 5
+public val RPC_NOTIFICATION_TYPE_CALLBACK: RpcNotificationTypes = 5
 
-public val RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = 1
+public val RPC_NOTIFICATION_TYPE_EVENT: RpcNotificationTypes = 1
 
-public val RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = 4
+public val RPC_NOTIFICATION_TYPE_HWND: RpcNotificationTypes = 4
 
-public val RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = 3
+public val RPC_NOTIFICATION_TYPE_IOC: RpcNotificationTypes = 3
 
-public val RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = 0
+public val RPC_NOTIFICATION_TYPE_NONE: RpcNotificationTypes = 0
 
-public val RpcOutgoingBandwidth: RpcPerfCounters = 7
+public val RPC_OUTGOING_BANDWIDTH: RpcPerfCounters = 7
 
-public val RpcReceiveComplete: RPC_ASYNC_EVENT = 2
+public val RPC_RECEIVE_COMPLETE: RpcAsyncEvent = 2
 
-public val RpcRequestsPerSecond: RpcPerfCounters = 4
+public val RPC_REQUESTS_PER_SECOND: RpcPerfCounters = 4
 
-public val RpcSendComplete: RPC_ASYNC_EVENT = 1
+public val RPC_SEND_COMPLETE: RpcAsyncEvent = 1
 
-public val SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = 1u
+public val SEC_WINNT_AUTH_IDENTITY_ANSI: SecWinntAuthIdentity = 1u
 
-public val SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = 2u
+public val SEC_WINNT_AUTH_IDENTITY_UNICODE: SecWinntAuthIdentity = 2u
 
-public val STUB_CALL_SERVER: STUB_PHASE = 1
+public val STUB_CALL_SERVER: StubPhase = 1
 
-public val STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3
+public val STUB_CALL_SERVER_NO_HRESULT: StubPhase = 3
 
-public val STUB_MARSHAL: STUB_PHASE = 2
+public val STUB_MARSHAL: StubPhase = 2
 
-public val STUB_UNMARSHAL: STUB_PHASE = 0
+public val STUB_UNMARSHAL: StubPhase = 0
 
-public val SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9
+public val SYSTEM_HANDLE_COMPOSITION_OBJECT: SystemHandleT = 9
 
-public val SYSTEM_HANDLE_EVENT: system_handle_t = 2
+public val SYSTEM_HANDLE_EVENT: SystemHandleT = 2
 
-public val SYSTEM_HANDLE_FILE: system_handle_t = 0
+public val SYSTEM_HANDLE_FILE: SystemHandleT = 0
 
-public val SYSTEM_HANDLE_INVALID: system_handle_t = 255
+public val SYSTEM_HANDLE_INVALID: SystemHandleT = 255
 
-public val SYSTEM_HANDLE_JOB: system_handle_t = 11
+public val SYSTEM_HANDLE_JOB: SystemHandleT = 11
 
-public val SYSTEM_HANDLE_MAX: system_handle_t = 12
+public val SYSTEM_HANDLE_MAX: SystemHandleT = 12
 
-public val SYSTEM_HANDLE_MUTEX: system_handle_t = 3
+public val SYSTEM_HANDLE_MUTEX: SystemHandleT = 3
 
-public val SYSTEM_HANDLE_PIPE: system_handle_t = 12
+public val SYSTEM_HANDLE_PIPE: SystemHandleT = 12
 
-public val SYSTEM_HANDLE_PROCESS: system_handle_t = 4
+public val SYSTEM_HANDLE_PROCESS: SystemHandleT = 4
 
-public val SYSTEM_HANDLE_REG_KEY: system_handle_t = 7
+public val SYSTEM_HANDLE_REG_KEY: SystemHandleT = 7
 
-public val SYSTEM_HANDLE_SECTION: system_handle_t = 6
+public val SYSTEM_HANDLE_SECTION: SystemHandleT = 6
 
-public val SYSTEM_HANDLE_SEMAPHORE: system_handle_t = 1
+public val SYSTEM_HANDLE_SEMAPHORE: SystemHandleT = 1
 
-public val SYSTEM_HANDLE_SOCKET: system_handle_t = 10
+public val SYSTEM_HANDLE_SOCKET: SystemHandleT = 10
 
-public val SYSTEM_HANDLE_THREAD: system_handle_t = 8
+public val SYSTEM_HANDLE_THREAD: SystemHandleT = 8
 
-public val SYSTEM_HANDLE_TOKEN: system_handle_t = 5
+public val SYSTEM_HANDLE_TOKEN: SystemHandleT = 5
 
 public val TARGET_IS_NT100_OR_LATER: UInt = 1u
 
@@ -864,13 +864,13 @@ public val USER_CALL_IS_ASYNC: UInt = 256u
 
 public val USER_CALL_NEW_CORRELATION_DESC: UInt = 512u
 
-public val USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = 0
+public val USER_MARSHAL_CB_BUFFER_SIZE: UserMarshalCbType = 0
 
-public val USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = 3
+public val USER_MARSHAL_CB_FREE: UserMarshalCbType = 3
 
-public val USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = 1
+public val USER_MARSHAL_CB_MARSHALL: UserMarshalCbType = 1
 
-public val USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = 2
+public val USER_MARSHAL_CB_UNMARSHALL: UserMarshalCbType = 2
 
 public val USER_MARSHAL_FC_BYTE: UInt = 1u
 
@@ -896,46 +896,46 @@ public val USER_MARSHAL_FC_USMALL: UInt = 4u
 
 public val USER_MARSHAL_FC_WCHAR: UInt = 5u
 
-public val XLAT_CLIENT: XLAT_SIDE = 2
+public val XLAT_CLIENT: XlatSide = 2
 
-public val XLAT_SERVER: XLAT_SIDE = 1
+public val XLAT_SERVER: XlatSide = 1
 
-public val __RPCPROXY_H_VERSION__: UInt = 477u
+public val RPCPROXY_H_VERSION: UInt = 477u
 
-public val cbNDRContext: UInt = 20u
+public val CB_NDR_CONTEXT: UInt = 20u
 
-public val eeptAnsiString: ExtendedErrorParamTypes = 1
+public val EEPT_ANSI_STRING: ExtendedErrorParamTypes = 1
 
-public val eeptBinary: ExtendedErrorParamTypes = 7
+public val EEPT_BINARY: ExtendedErrorParamTypes = 7
 
-public val eeptLongVal: ExtendedErrorParamTypes = 3
+public val EEPT_LONG_VAL: ExtendedErrorParamTypes = 3
 
-public val eeptNone: ExtendedErrorParamTypes = 6
+public val EEPT_NONE: ExtendedErrorParamTypes = 6
 
-public val eeptPointerVal: ExtendedErrorParamTypes = 5
+public val EEPT_POINTER_VAL: ExtendedErrorParamTypes = 5
 
-public val eeptShortVal: ExtendedErrorParamTypes = 4
+public val EEPT_SHORT_VAL: ExtendedErrorParamTypes = 4
 
-public val eeptUnicodeString: ExtendedErrorParamTypes = 2
+public val EEPT_UNICODE_STRING: ExtendedErrorParamTypes = 2
 
-public val rcclClientUnknownLocality: RpcCallClientLocality = 3
+public val RCCL_CLIENT_UNKNOWN_LOCALITY: RpcCallClientLocality = 3
 
-public val rcclInvalid: RpcCallClientLocality = 0
+public val RCCL_INVALID: RpcCallClientLocality = 0
 
-public val rcclLocal: RpcCallClientLocality = 1
+public val RCCL_LOCAL: RpcCallClientLocality = 1
 
-public val rcclRemote: RpcCallClientLocality = 2
+public val RCCL_REMOTE: RpcCallClientLocality = 2
 
-public val rctGuaranteed: RpcCallType = 3
+public val RCT_GUARANTEED: RpcCallType = 3
 
-public val rctInvalid: RpcCallType = 0
+public val RCT_INVALID: RpcCallType = 0
 
-public val rctNormal: RpcCallType = 1
+public val RCT_NORMAL: RpcCallType = 1
 
-public val rctTraining: RpcCallType = 2
+public val RCT_TRAINING: RpcCallType = 2
 
-public val rlafIPv4: RpcLocalAddressFormat = 1
+public val RLAF_I_PV4: RpcLocalAddressFormat = 1
 
-public val rlafIPv6: RpcLocalAddressFormat = 2
+public val RLAF_I_PV6: RpcLocalAddressFormat = 2
 
-public val rlafInvalid: RpcLocalAddressFormat = 0
+public val RLAF_INVALID: RpcLocalAddressFormat = 0

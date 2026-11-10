@@ -1,30 +1,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
 public val UDAT_FULL: UDateFormatStyle = 0
 
 public val UDAT_FULL_RELATIVE: UDateFormatStyle = 128
 
-public val UDAT_GENERIC_TZ: PCSTR = s("vvvv")
+public val UDAT_GENERIC_TZ: Pcstr = s("vvvv")
 
-public val UDAT_HOUR: PCSTR = s("j")
+public val UDAT_HOUR: Pcstr = s("j")
 
 public val UDAT_HOUR0_FIELD: UDateFormatField = 16
 
 public val UDAT_HOUR1_FIELD: UDateFormatField = 15
 
-public val UDAT_HOUR24: PCSTR = s("H")
+public val UDAT_HOUR24: Pcstr = s("H")
 
-public val UDAT_HOUR24_MINUTE: PCSTR = s("Hm")
+public val UDAT_HOUR24_MINUTE: Pcstr = s("Hm")
 
-public val UDAT_HOUR24_MINUTE_SECOND: PCSTR = s("Hms")
+public val UDAT_HOUR24_MINUTE_SECOND: Pcstr = s("Hms")
 
-public val UDAT_HOUR_MINUTE: PCSTR = s("jm")
+public val UDAT_HOUR_MINUTE: Pcstr = s("jm")
 
-public val UDAT_HOUR_MINUTE_SECOND: PCSTR = s("jms")
+public val UDAT_HOUR_MINUTE_SECOND: Pcstr = s("jms")
 
 public val UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = 5
 
@@ -34,7 +34,7 @@ public val UDAT_JULIAN_DAY_FIELD: UDateFormatField = 21
 
 public val UDAT_LOCALIZED_CHARS: UDateFormatSymbolType = 6
 
-public val UDAT_LOCATION_TZ: PCSTR = s("VVVV")
+public val UDAT_LOCATION_TZ: Pcstr = s("VVVV")
 
 public val UDAT_LONG: UDateFormatStyle = 1
 
@@ -46,21 +46,21 @@ public val UDAT_MEDIUM_RELATIVE: UDateFormatStyle = 130
 
 public val UDAT_MILLISECONDS_IN_DAY_FIELD: UDateFormatField = 22
 
-public val UDAT_MINUTE: PCSTR = s("m")
+public val UDAT_MINUTE: Pcstr = s("m")
 
 public val UDAT_MINUTE_FIELD: UDateFormatField = 6
 
-public val UDAT_MINUTE_SECOND: PCSTR = s("ms")
+public val UDAT_MINUTE_SECOND: Pcstr = s("ms")
 
-public val UDAT_MONTH: PCSTR = s("MMMM")
+public val UDAT_MONTH: Pcstr = s("MMMM")
 
 public val UDAT_MONTHS: UDateFormatSymbolType = 1
 
-public val UDAT_MONTH_DAY: PCSTR = s("MMMMd")
+public val UDAT_MONTH_DAY: Pcstr = s("MMMMd")
 
 public val UDAT_MONTH_FIELD: UDateFormatField = 2
 
-public val UDAT_MONTH_WEEKDAY_DAY: PCSTR = s("MMMMEEEEd")
+public val UDAT_MONTH_WEEKDAY_DAY: Pcstr = s("MMMMEEEEd")
 
 public val UDAT_NARROW_MONTHS: UDateFormatSymbolType = 8
 
@@ -68,11 +68,11 @@ public val UDAT_NARROW_WEEKDAYS: UDateFormatSymbolType = 9
 
 public val UDAT_NONE: UDateFormatStyle = -1
 
-public val UDAT_NUM_MONTH: PCSTR = s("M")
+public val UDAT_NUM_MONTH: Pcstr = s("M")
 
-public val UDAT_NUM_MONTH_DAY: PCSTR = s("Md")
+public val UDAT_NUM_MONTH_DAY: Pcstr = s("Md")
 
-public val UDAT_NUM_MONTH_WEEKDAY_DAY: PCSTR = s("MEd")
+public val UDAT_NUM_MONTH_WEEKDAY_DAY: Pcstr = s("MEd")
 
 public val UDAT_PARSE_ALLOW_NUMERIC: UDateFormatBooleanAttribute = 1
 
@@ -84,7 +84,7 @@ public val UDAT_PARSE_PARTIAL_LITERAL_MATCH: UDateFormatBooleanAttribute = 2
 
 public val UDAT_PATTERN: UDateFormatStyle = -2
 
-public val UDAT_QUARTER: PCSTR = s("QQQQ")
+public val UDAT_QUARTER: Pcstr = s("QQQQ")
 
 public val UDAT_QUARTERS: UDateFormatSymbolType = 16
 
@@ -142,7 +142,7 @@ public val UDAT_REL_UNIT_WEEK: URelativeDateTimeUnit = 3
 
 public val UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = 0
 
-public val UDAT_SECOND: PCSTR = s("s")
+public val UDAT_SECOND: Pcstr = s("s")
 
 public val UDAT_SECOND_FIELD: UDateFormatField = 7
 
@@ -158,7 +158,7 @@ public val UDAT_SHORT_RELATIVE: UDateFormatStyle = 131
 
 public val UDAT_SHORT_WEEKDAYS: UDateFormatSymbolType = 4
 
-public val UDAT_SPECIFIC_TZ: PCSTR = s("zzzz")
+public val UDAT_SPECIFIC_TZ: Pcstr = s("zzzz")
 
 public val UDAT_STANDALONE_DAY_FIELD: UDateFormatField = 25
 
@@ -204,7 +204,7 @@ public val UDAT_TIMEZONE_RFC_FIELD: UDateFormatField = 23
 
 public val UDAT_TIMEZONE_SPECIAL_FIELD: UDateFormatField = 29
 
-public val UDAT_WEEKDAY: PCSTR = s("EEEE")
+public val UDAT_WEEKDAY: Pcstr = s("EEEE")
 
 public val UDAT_WEEKDAYS: UDateFormatSymbolType = 3
 
@@ -212,33 +212,33 @@ public val UDAT_WEEK_OF_MONTH_FIELD: UDateFormatField = 13
 
 public val UDAT_WEEK_OF_YEAR_FIELD: UDateFormatField = 12
 
-public val UDAT_YEAR: PCSTR = s("y")
+public val UDAT_YEAR: Pcstr = s("y")
 
-public val UDAT_YEAR_ABBR_MONTH: PCSTR = s("yMMM")
+public val UDAT_YEAR_ABBR_MONTH: Pcstr = s("yMMM")
 
-public val UDAT_YEAR_ABBR_MONTH_DAY: PCSTR = s("yMMMd")
+public val UDAT_YEAR_ABBR_MONTH_DAY: Pcstr = s("yMMMd")
 
-public val UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: PCSTR = s("yMMMEd")
+public val UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: Pcstr = s("yMMMEd")
 
-public val UDAT_YEAR_ABBR_QUARTER: PCSTR = s("yQQQ")
+public val UDAT_YEAR_ABBR_QUARTER: Pcstr = s("yQQQ")
 
 public val UDAT_YEAR_FIELD: UDateFormatField = 1
 
-public val UDAT_YEAR_MONTH: PCSTR = s("yMMMM")
+public val UDAT_YEAR_MONTH: Pcstr = s("yMMMM")
 
-public val UDAT_YEAR_MONTH_DAY: PCSTR = s("yMMMMd")
+public val UDAT_YEAR_MONTH_DAY: Pcstr = s("yMMMMd")
 
-public val UDAT_YEAR_MONTH_WEEKDAY_DAY: PCSTR = s("yMMMMEEEEd")
+public val UDAT_YEAR_MONTH_WEEKDAY_DAY: Pcstr = s("yMMMMEEEEd")
 
 public val UDAT_YEAR_NAME_FIELD: UDateFormatField = 30
 
-public val UDAT_YEAR_NUM_MONTH: PCSTR = s("yM")
+public val UDAT_YEAR_NUM_MONTH: Pcstr = s("yM")
 
-public val UDAT_YEAR_NUM_MONTH_DAY: PCSTR = s("yMd")
+public val UDAT_YEAR_NUM_MONTH_DAY: Pcstr = s("yMd")
 
-public val UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: PCSTR = s("yMEd")
+public val UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: Pcstr = s("yMEd")
 
-public val UDAT_YEAR_QUARTER: PCSTR = s("yQQQQ")
+public val UDAT_YEAR_QUARTER: Pcstr = s("yQQQQ")
 
 public val UDAT_YEAR_WOY_FIELD: UDateFormatField = 18
 
@@ -440,35 +440,35 @@ public val ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: ULocAvailableType = 1
 
 public val ULOC_AVAILABLE_WITH_LEGACY_ALIASES: ULocAvailableType = 2
 
-public val ULOC_CANADA: PCSTR = s("en_CA")
+public val ULOC_CANADA: Pcstr = s("en_CA")
 
-public val ULOC_CANADA_FRENCH: PCSTR = s("fr_CA")
+public val ULOC_CANADA_FRENCH: Pcstr = s("fr_CA")
 
-public val ULOC_CHINA: PCSTR = s("zh_CN")
+public val ULOC_CHINA: Pcstr = s("zh_CN")
 
-public val ULOC_CHINESE: PCSTR = s("zh")
+public val ULOC_CHINESE: Pcstr = s("zh")
 
 public val ULOC_COUNTRY_CAPACITY: UInt = 4u
 
-public val ULOC_ENGLISH: PCSTR = s("en")
+public val ULOC_ENGLISH: Pcstr = s("en")
 
-public val ULOC_FRANCE: PCSTR = s("fr_FR")
+public val ULOC_FRANCE: Pcstr = s("fr_FR")
 
-public val ULOC_FRENCH: PCSTR = s("fr")
+public val ULOC_FRENCH: Pcstr = s("fr")
 
 public val ULOC_FULLNAME_CAPACITY: UInt = 157u
 
-public val ULOC_GERMAN: PCSTR = s("de")
+public val ULOC_GERMAN: Pcstr = s("de")
 
-public val ULOC_GERMANY: PCSTR = s("de_DE")
+public val ULOC_GERMANY: Pcstr = s("de_DE")
 
-public val ULOC_ITALIAN: PCSTR = s("it")
+public val ULOC_ITALIAN: Pcstr = s("it")
 
-public val ULOC_ITALY: PCSTR = s("it_IT")
+public val ULOC_ITALY: Pcstr = s("it_IT")
 
-public val ULOC_JAPAN: PCSTR = s("ja_JP")
+public val ULOC_JAPAN: Pcstr = s("ja_JP")
 
-public val ULOC_JAPANESE: PCSTR = s("ja")
+public val ULOC_JAPANESE: Pcstr = s("ja")
 
 public val ULOC_KEYWORDS_CAPACITY: UInt = 96u
 
@@ -480,9 +480,9 @@ public val ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: UInt = 59u
 
 public val ULOC_KEYWORD_SEPARATOR_UNICODE: UInt = 64u
 
-public val ULOC_KOREA: PCSTR = s("ko_KR")
+public val ULOC_KOREA: Pcstr = s("ko_KR")
 
-public val ULOC_KOREAN: PCSTR = s("ko")
+public val ULOC_KOREAN: Pcstr = s("ko")
 
 public val ULOC_LANG_CAPACITY: UInt = 12u
 
@@ -496,19 +496,19 @@ public val ULOC_LAYOUT_TTB: ULayoutType = 2
 
 public val ULOC_LAYOUT_UNKNOWN: ULayoutType = 4
 
-public val ULOC_PRC: PCSTR = s("zh_CN")
+public val ULOC_PRC: Pcstr = s("zh_CN")
 
 public val ULOC_SCRIPT_CAPACITY: UInt = 6u
 
-public val ULOC_SIMPLIFIED_CHINESE: PCSTR = s("zh_CN")
+public val ULOC_SIMPLIFIED_CHINESE: Pcstr = s("zh_CN")
 
-public val ULOC_TAIWAN: PCSTR = s("zh_TW")
+public val ULOC_TAIWAN: Pcstr = s("zh_TW")
 
-public val ULOC_TRADITIONAL_CHINESE: PCSTR = s("zh_TW")
+public val ULOC_TRADITIONAL_CHINESE: Pcstr = s("zh_TW")
 
-public val ULOC_UK: PCSTR = s("en_GB")
+public val ULOC_UK: Pcstr = s("en_GB")
 
-public val ULOC_US: PCSTR = s("en_US")
+public val ULOC_US: Pcstr = s("en_US")
 
 public val ULOC_VALID_LOCALE: ULocDataLocaleType = 1
 
@@ -1468,7 +1468,7 @@ public val USPREP_RFC4518_LDAP: UStringPrepProfileType = 12
 
 public val USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = 13
 
-public val USP_E_SCRIPT_NOT_IN_FONT: HRESULT = 0x80040200u.toInt()
+public val USP_E_SCRIPT_NOT_IN_FONT: Hresult = 0x80040200u.toInt()
 
 public val USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = 0
 
@@ -1964,11 +1964,11 @@ public val U_HST_TRAILING_JAMO: UHangulSyllableType = 3
 
 public val U_HST_VOWEL_JAMO: UHangulSyllableType = 2
 
-public val U_ICUDATA_TYPE_LETTER: PCSTR = s("e")
+public val U_ICUDATA_TYPE_LETTER: Pcstr = s("e")
 
-public val U_ICU_DATA_KEY: PCSTR = s("DataVersion")
+public val U_ICU_DATA_KEY: Pcstr = s("DataVersion")
 
-public val U_ICU_VERSION_BUNDLE: PCSTR = s("icuver")
+public val U_ICU_VERSION_BUNDLE: Pcstr = s("icuver")
 
 public val U_IDNA_ACE_PREFIX_ERROR: UErrorCode = 66564
 
@@ -2454,7 +2454,7 @@ public val U_LEFT_TO_RIGHT_OVERRIDE: UCharDirection = 12
 
 public val U_LETTER_NUMBER: UCharCategory = 10
 
-public val U_LIB_SUFFIX_C_NAME_STRING: PCSTR = s("")
+public val U_LIB_SUFFIX_C_NAME_STRING: Pcstr = s("")
 
 public val U_LINE_SEPARATOR: UCharCategory = 13
 
@@ -2902,7 +2902,7 @@ public val U_UNEXPECTED_TOKEN: UErrorCode = 65792
 
 public val U_UNICODE_CHAR_NAME: UCharNameChoice = 0
 
-public val U_UNICODE_VERSION: PCSTR = s("8.0")
+public val U_UNICODE_VERSION: Pcstr = s("8.0")
 
 public val U_UNMATCHED_BRACES: UErrorCode = 65801
 

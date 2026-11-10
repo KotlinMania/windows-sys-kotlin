@@ -1,99 +1,101 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-public data class ENUM_PAGE_FILE_INFORMATION(
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public data class EnumPageFileInformation(
     public var cb: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var TotalSize: ULong = 0uL,
-    public var TotalInUse: ULong = 0uL,
-    public var PeakUsage: ULong = 0uL,
+    public var reserved: UInt = 0u,
+    public var totalSize: Int = 0,
+    public var totalInUse: Int = 0,
+    public var peakUsage: Int = 0,
 )
 
-public data class MODULEINFO(
-    public var lpBaseOfDll: Long = 0L,
-    public var SizeOfImage: UInt = 0u,
-    public var EntryPoint: Long = 0L,
+public data class Moduleinfo(
+    public var lpBaseOfDll: COpaquePointer? = null,
+    public var sizeOfImage: UInt = 0u,
+    public var entryPoint: COpaquePointer? = null,
 )
 
-public data class PERFORMANCE_INFORMATION(
+public data class PerformanceInformation(
     public var cb: UInt = 0u,
-    public var CommitTotal: ULong = 0uL,
-    public var CommitLimit: ULong = 0uL,
-    public var CommitPeak: ULong = 0uL,
-    public var PhysicalTotal: ULong = 0uL,
-    public var PhysicalAvailable: ULong = 0uL,
-    public var SystemCache: ULong = 0uL,
-    public var KernelTotal: ULong = 0uL,
-    public var KernelPaged: ULong = 0uL,
-    public var KernelNonpaged: ULong = 0uL,
-    public var PageSize: ULong = 0uL,
-    public var HandleCount: UInt = 0u,
-    public var ProcessCount: UInt = 0u,
-    public var ThreadCount: UInt = 0u,
+    public var commitTotal: Int = 0,
+    public var commitLimit: Int = 0,
+    public var commitPeak: Int = 0,
+    public var physicalTotal: Int = 0,
+    public var physicalAvailable: Int = 0,
+    public var systemCache: Int = 0,
+    public var kernelTotal: Int = 0,
+    public var kernelPaged: Int = 0,
+    public var kernelNonpaged: Int = 0,
+    public var pageSize: Int = 0,
+    public var handleCount: UInt = 0u,
+    public var processCount: UInt = 0u,
+    public var threadCount: UInt = 0u,
 )
 
-public data class PROCESS_MEMORY_COUNTERS(
+public data class ProcessMemoryCounters(
     public var cb: UInt = 0u,
-    public var PageFaultCount: UInt = 0u,
-    public var PeakWorkingSetSize: ULong = 0uL,
-    public var WorkingSetSize: ULong = 0uL,
-    public var QuotaPeakPagedPoolUsage: ULong = 0uL,
-    public var QuotaPagedPoolUsage: ULong = 0uL,
-    public var QuotaPeakNonPagedPoolUsage: ULong = 0uL,
-    public var QuotaNonPagedPoolUsage: ULong = 0uL,
-    public var PagefileUsage: ULong = 0uL,
-    public var PeakPagefileUsage: ULong = 0uL,
+    public var pageFaultCount: UInt = 0u,
+    public var peakWorkingSetSize: Int = 0,
+    public var workingSetSize: Int = 0,
+    public var quotaPeakPagedPoolUsage: Int = 0,
+    public var quotaPagedPoolUsage: Int = 0,
+    public var quotaPeakNonPagedPoolUsage: Int = 0,
+    public var quotaNonPagedPoolUsage: Int = 0,
+    public var pagefileUsage: Int = 0,
+    public var peakPagefileUsage: Int = 0,
 )
 
-public data class PROCESS_MEMORY_COUNTERS_EX(
+public data class ProcessMemoryCountersEx(
     public var cb: UInt = 0u,
-    public var PageFaultCount: UInt = 0u,
-    public var PeakWorkingSetSize: ULong = 0uL,
-    public var WorkingSetSize: ULong = 0uL,
-    public var QuotaPeakPagedPoolUsage: ULong = 0uL,
-    public var QuotaPagedPoolUsage: ULong = 0uL,
-    public var QuotaPeakNonPagedPoolUsage: ULong = 0uL,
-    public var QuotaNonPagedPoolUsage: ULong = 0uL,
-    public var PagefileUsage: ULong = 0uL,
-    public var PeakPagefileUsage: ULong = 0uL,
-    public var PrivateUsage: ULong = 0uL,
+    public var pageFaultCount: UInt = 0u,
+    public var peakWorkingSetSize: Int = 0,
+    public var workingSetSize: Int = 0,
+    public var quotaPeakPagedPoolUsage: Int = 0,
+    public var quotaPagedPoolUsage: Int = 0,
+    public var quotaPeakNonPagedPoolUsage: Int = 0,
+    public var quotaNonPagedPoolUsage: Int = 0,
+    public var pagefileUsage: Int = 0,
+    public var peakPagefileUsage: Int = 0,
+    public var privateUsage: Int = 0,
 )
 
-public data class PROCESS_MEMORY_COUNTERS_EX2(
+public data class ProcessMemoryCountersEx2(
     public var cb: UInt = 0u,
-    public var PageFaultCount: UInt = 0u,
-    public var PeakWorkingSetSize: ULong = 0uL,
-    public var WorkingSetSize: ULong = 0uL,
-    public var QuotaPeakPagedPoolUsage: ULong = 0uL,
-    public var QuotaPagedPoolUsage: ULong = 0uL,
-    public var QuotaPeakNonPagedPoolUsage: ULong = 0uL,
-    public var QuotaNonPagedPoolUsage: ULong = 0uL,
-    public var PagefileUsage: ULong = 0uL,
-    public var PeakPagefileUsage: ULong = 0uL,
-    public var PrivateUsage: ULong = 0uL,
-    public var PrivateWorkingSetSize: ULong = 0uL,
-    public var SharedCommitUsage: ULong = 0uL,
+    public var pageFaultCount: UInt = 0u,
+    public var peakWorkingSetSize: Int = 0,
+    public var workingSetSize: Int = 0,
+    public var quotaPeakPagedPoolUsage: Int = 0,
+    public var quotaPagedPoolUsage: Int = 0,
+    public var quotaPeakNonPagedPoolUsage: Int = 0,
+    public var quotaNonPagedPoolUsage: Int = 0,
+    public var pagefileUsage: Int = 0,
+    public var peakPagefileUsage: Int = 0,
+    public var privateUsage: Int = 0,
+    public var privateWorkingSetSize: Int = 0,
+    public var sharedCommitUsage: ULong = 0uL,
 )
 
-public data class PSAPI_WORKING_SET_BLOCK(public var Flags: ULong = 0uL, public var Anonymous: PSAPI_WORKING_SET_BLOCK_0 = PSAPI_WORKING_SET_BLOCK_0())
+public data class PsapiWorkingSetBlock(public var flags: Int = 0, public var anonymous: PsapiWorkingSetBlock0 = PsapiWorkingSetBlock0())
 
-public data class PSAPI_WORKING_SET_BLOCK_0(public var _bitfield: ULong = 0uL)
+public data class PsapiWorkingSetBlock0(public var bitfield: Int = 0)
 
-public data class PSAPI_WORKING_SET_EX_BLOCK(public var Flags: ULong = 0uL, public var Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0 = PSAPI_WORKING_SET_EX_BLOCK_0())
+public data class PsapiWorkingSetExBlock(public var flags: Int = 0, public var anonymous: PsapiWorkingSetExBlock0 = PsapiWorkingSetExBlock0())
 
-public data class PSAPI_WORKING_SET_EX_BLOCK_0(public var Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0 = PSAPI_WORKING_SET_EX_BLOCK_0_0(), public var Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1 = PSAPI_WORKING_SET_EX_BLOCK_0_1())
+public data class PsapiWorkingSetExBlock0(public var anonymous: PsapiWorkingSetExBlock00 = PsapiWorkingSetExBlock00(), public var invalid: PsapiWorkingSetExBlock01 = PsapiWorkingSetExBlock01())
 
-public data class PSAPI_WORKING_SET_EX_BLOCK_0_0(public var _bitfield: ULong = 0uL)
+public data class PsapiWorkingSetExBlock00(public var bitfield: Int = 0)
 
-public data class PSAPI_WORKING_SET_EX_BLOCK_0_1(public var _bitfield: ULong = 0uL)
+public data class PsapiWorkingSetExBlock01(public var bitfield: Int = 0)
 
-public data class PSAPI_WORKING_SET_EX_INFORMATION(public var VirtualAddress: Long = 0L, public var VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK = PSAPI_WORKING_SET_EX_BLOCK())
+public data class PsapiWorkingSetExInformation(public var virtualAddress: COpaquePointer? = null, public var virtualAttributes: PsapiWorkingSetExBlock = PsapiWorkingSetExBlock())
 
-public data class PSAPI_WORKING_SET_INFORMATION(public var NumberOfEntries: ULong = 0uL, public var WorkingSetInfo: List<PSAPI_WORKING_SET_BLOCK> = List(1) { PSAPI_WORKING_SET_BLOCK() })
+public data class PsapiWorkingSetInformation(public var numberOfEntries: Int = 0, public var workingSetInfo: List<PsapiWorkingSetBlock> = List(1) { PsapiWorkingSetBlock() })
 
-public data class PSAPI_WS_WATCH_INFORMATION(public var FaultingPc: Long = 0L, public var FaultingVa: Long = 0L)
+public data class PsapiWsWatchInformation(public var faultingPc: COpaquePointer? = null, public var faultingVa: COpaquePointer? = null)
 
-public data class PSAPI_WS_WATCH_INFORMATION_EX(
-    public var BasicInfo: PSAPI_WS_WATCH_INFORMATION = PSAPI_WS_WATCH_INFORMATION(),
-    public var FaultingThreadId: ULong = 0uL,
-    public var Flags: ULong = 0uL,
+public data class PsapiWsWatchInformationEx(
+    public var basicInfo: PsapiWsWatchInformation = PsapiWsWatchInformation(),
+    public var faultingThreadId: Int = 0,
+    public var flags: Int = 0,
 )

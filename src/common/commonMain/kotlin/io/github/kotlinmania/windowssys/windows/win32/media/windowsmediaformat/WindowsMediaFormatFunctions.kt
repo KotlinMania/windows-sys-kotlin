@@ -1,26 +1,27 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun WMCreateBackupRestorer(pcallback: Long, ppbackup: Long): HRESULT
+public expect fun wMCreateBackupRestorer(pcallback: COpaquePointer?, ppbackup: COpaquePointer?): Hresult
 
-public expect fun WMCreateEditor(ppeditor: Long): HRESULT
+public expect fun wMCreateEditor(ppeditor: COpaquePointer?): Hresult
 
-public expect fun WMCreateIndexer(ppindexer: Long): HRESULT
+public expect fun wMCreateIndexer(ppindexer: COpaquePointer?): Hresult
 
-public expect fun WMCreateProfileManager(ppprofilemanager: Long): HRESULT
+public expect fun wMCreateProfileManager(ppprofilemanager: COpaquePointer?): Hresult
 
-public expect fun WMCreateReader(punkcert: Long, dwrights: UInt, ppreader: Long): HRESULT
+public expect fun wMCreateReader(punkcert: COpaquePointer?, dwrights: UInt, ppreader: COpaquePointer?): Hresult
 
-public expect fun WMCreateSyncReader(punkcert: Long, dwrights: UInt, ppsyncreader: Long): HRESULT
+public expect fun wMCreateSyncReader(punkcert: COpaquePointer?, dwrights: UInt, ppsyncreader: COpaquePointer?): Hresult
 
-public expect fun WMCreateWriter(punkcert: Long, ppwriter: Long): HRESULT
+public expect fun wMCreateWriter(punkcert: COpaquePointer?, ppwriter: COpaquePointer?): Hresult
 
-public expect fun WMCreateWriterFileSink(ppsink: Long): HRESULT
+public expect fun wMCreateWriterFileSink(ppsink: COpaquePointer?): Hresult
 
-public expect fun WMCreateWriterNetworkSink(ppsink: Long): HRESULT
+public expect fun wMCreateWriterNetworkSink(ppsink: COpaquePointer?): Hresult
 
-public expect fun WMCreateWriterPushSink(ppsink: Long): HRESULT
+public expect fun wMCreateWriterPushSink(ppsink: COpaquePointer?): Hresult
 
-public expect fun WMIsContentProtected(pwszfilename: PCWSTR, pfisprotected: Long): HRESULT
+public expect fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: COpaquePointer?): Hresult

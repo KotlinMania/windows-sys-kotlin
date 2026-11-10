@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32NetworkingWindowswebservicesJniBridge {
     init {
@@ -14,1252 +15,1252 @@ private object WindowsWin32NetworkingWindowswebservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorGetAssertion(hwnd: Long, pwszrpid: Long, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion(hwnd: Long, pwszrpid: Long, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorMakeCredential(hwnd: Long, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential(hwnd: Long, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNCancelCurrentOperation(pcancellationid: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation(pcancellationid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNDeletePlatformCredential(cbcredentialid: Int, pbcredentialid: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential(cbcredentialid: Int, pbcredentialid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeAssertion(pwebauthnassertion: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion(pwebauthnassertion: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNFreePlatformCredentialList(pcredentialdetailslist: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList(pcredentialdetailslist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNGetApiVersionNumber(): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNGetCancellationId(pcancellationid: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId(pcancellationid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNGetErrorName(hr: Int): Long
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName(hr: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: Long, ppcredentialdetailslist: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList(pgetcredentialsoptions: Long, ppcredentialdetailslist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNGetW3CExceptionDOMError(hr: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError(hr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbandonCall(serviceproxy: Long, callid: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbandonCall(serviceproxy: Long, callid: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbandonMessage(channel: Long, message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage(channel: Long, message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbortChannel(channel: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbortChannel(channel: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbortListener(listener: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbortListener(listener: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbortServiceHost(servicehost: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost(servicehost: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAbortServiceProxy(serviceproxy: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy(serviceproxy: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAcceptChannel(listener: Long, channel: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel(listener: Long, channel: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAddCustomHeader(message: Long, headerdescription: Long, writeoption: Int, value: Long, valuesize: Int, headerattributes: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader(message: Long, headerdescription: Long, writeoption: Int, value: Long, valuesize: Int, headerattributes: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAddErrorString(error: Long, string: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAddErrorString(error: Long, string: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAddMappedHeader(message: Long, headername: Long, valuetype: Int, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader(message: Long, headername: Long, valuetype: Int, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAddressMessage(message: Long, address: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAddressMessage(message: Long, address: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAlloc(heap: Long, size: Long, ptr: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAlloc(heap: Long, size: Long, ptr: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsAsyncExecute(asyncstate: Long, operation: Long, callbackmodel: Int, callbackstate: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute(asyncstate: Long, operation: Long, callbackmodel: Int, callbackstate: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCall(serviceproxy: Long, operation: Long, arguments: Long, heap: Long, callproperties: Long, callpropertycount: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCall(serviceproxy: Long, operation: Long, arguments: Long, heap: Long, callproperties: Long, callpropertycount: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCheckMustUnderstandHeaders(message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders(message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCloseChannel(channel: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCloseChannel(channel: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCloseListener(listener: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCloseListener(listener: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCloseServiceHost(servicehost: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost(servicehost: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCloseServiceProxy(serviceproxy: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy(serviceproxy: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCombineUrl(baseurl: Long, referenceurl: Long, flags: Int, heap: Long, resulturl: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCombineUrl(baseurl: Long, referenceurl: Long, flags: Int, heap: Long, resulturl: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCopyError(source: Long, destination: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCopyError(source: Long, destination: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCopyNode(writer: Long, reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCopyNode(writer: Long, reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateChannel(channeltype: Int, channelbinding: Int, properties: Long, propertycount: Int, securitydescription: Long, channel: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(channeltype: Int, channelbinding: Int, properties: Long, propertycount: Int, securitydescription: Long, channel: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateChannelForListener(listener: Long, properties: Long, propertycount: Int, channel: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener(listener: Long, properties: Long, propertycount: Int, channel: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateError(properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateError(properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateFaultFromError(error: Long, faulterrorcode: Int, faultdisclosure: Int, heap: Long, fault: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError(error: Long, faulterrorcode: Int, faultdisclosure: Int, heap: Long, fault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateHeap(maxsize: Long, trimsize: Long, properties: Long, propertycount: Int, heap: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(maxsize: Long, trimsize: Long, properties: Long, propertycount: Int, heap: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateListener(channeltype: Int, channelbinding: Int, properties: Long, propertycount: Int, securitydescription: Long, listener: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateListener(channeltype: Int, channelbinding: Int, properties: Long, propertycount: Int, securitydescription: Long, listener: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateMessage(envelopeversion: Int, addressingversion: Int, properties: Long, propertycount: Int, message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(envelopeversion: Int, addressingversion: Int, properties: Long, propertycount: Int, message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateMessageForChannel(channel: Long, properties: Long, propertycount: Int, message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel(channel: Long, properties: Long, propertycount: Int, message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateMetadata(properties: Long, propertycount: Int, metadata: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata(properties: Long, propertycount: Int, metadata: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateReader(properties: Long, propertycount: Int, reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateReader(properties: Long, propertycount: Int, reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateServiceEndpointFromTemplate(channeltype: Int, properties: Long, propertycount: Int, addressurl: Long, contract: Long, authorizationcallback: Long, heap: Long, templatetype: Int, templatevalue: Long, templatesize: Int, templatedescription: Long, templatedescriptionsize: Int, serviceendpoint: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate(channeltype: Int, properties: Long, propertycount: Int, addressurl: Long, contract: Long, authorizationcallback: Long, heap: Long, templatetype: Int, templatevalue: Long, templatesize: Int, templatedescription: Long, templatedescriptionsize: Int, serviceendpoint: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateServiceHost(endpoints: Long, endpointcount: Short, serviceproperties: Long, servicepropertycount: Int, servicehost: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost(endpoints: Long, endpointcount: Short, serviceproperties: Long, servicepropertycount: Int, servicehost: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxy(channeltype: Int, channelbinding: Int, securitydescription: Long, properties: Long, propertycount: Int, channelproperties: Long, channelpropertycount: Int, serviceproxy: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy(channeltype: Int, channelbinding: Int, securitydescription: Long, properties: Long, propertycount: Int, channelproperties: Long, channelpropertycount: Int, serviceproxy: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxyFromTemplate(channeltype: Int, properties: Long, propertycount: Int, templatetype: Int, templatevalue: Long, templatesize: Int, templatedescription: Long, templatedescriptionsize: Int, serviceproxy: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate(channeltype: Int, properties: Long, propertycount: Int, templatetype: Int, templatevalue: Long, templatesize: Int, templatedescription: Long, templatedescriptionsize: Int, serviceproxy: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateWriter(properties: Long, propertycount: Int, writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateWriter(properties: Long, propertycount: Int, writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateXmlBuffer(heap: Long, properties: Long, propertycount: Int, buffer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer(heap: Long, properties: Long, propertycount: Int, buffer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsCreateXmlSecurityToken(tokenxml: Long, tokenkey: Long, properties: Long, propertycount: Int, token: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken(tokenxml: Long, tokenkey: Long, properties: Long, propertycount: Int, token: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsDateTimeToFileTime(datetime: Long, filetime: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime(datetime: Long, filetime: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsDecodeUrl(url: Long, flags: Int, heap: Long, outurl: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl(url: Long, flags: Int, heap: Long, outurl: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsEncodeUrl(url: Long, flags: Int, heap: Long, outurl: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl(url: Long, flags: Int, heap: Long, outurl: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsEndReaderCanonicalization(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsEndWriterCanonicalization(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFileTimeToDateTime(filetime: Long, datetime: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime(filetime: Long, datetime: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFillBody(message: Long, minsize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFillBody(message: Long, minsize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFillReader(reader: Long, minsize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFillReader(reader: Long, minsize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFindAttribute(reader: Long, localname: Long, ns: Long, required: Int, attributeindex: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFindAttribute(reader: Long, localname: Long, ns: Long, required: Int, attributeindex: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFlushBody(message: Long, minsize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFlushBody(message: Long, minsize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFlushWriter(writer: Long, minsize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFlushWriter(writer: Long, minsize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeChannel(channel: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeChannel(channel: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeError(error: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeError(error: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeHeap(heap: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeHeap(heap: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeListener(listener: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeListener(listener: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeMessage(message: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeMessage(message: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeMetadata(metadata: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata(metadata: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeReader(reader: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeReader(reader: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeSecurityToken(token: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken(token: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeServiceHost(servicehost: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost(servicehost: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeServiceProxy(serviceproxy: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy(serviceproxy: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsFreeWriter(writer: Long)
+    external fun windowssys_windows_win32_networking_windowswebservices_wsFreeWriter(writer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetChannelProperty(channel: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty(channel: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetCustomHeader(message: Long, customheaderdescription: Long, repeatingoption: Int, headerindex: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, headerattributes: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader(message: Long, customheaderdescription: Long, repeatingoption: Int, headerindex: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, headerattributes: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetDictionary(encoding: Int, dictionary: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(encoding: Int, dictionary: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetErrorProperty(error: Long, id: Int, buffer: Long, buffersize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty(error: Long, id: Int, buffer: Long, buffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetErrorString(error: Long, index: Int, string: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetErrorString(error: Long, index: Int, string: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorDetail(error: Long, faultdetaildescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail(error: Long, faultdetaildescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorProperty(error: Long, id: Int, buffer: Long, buffersize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty(error: Long, id: Int, buffer: Long, buffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetHeader(message: Long, headertype: Int, valuetype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetHeader(message: Long, headertype: Int, valuetype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetHeaderAttributes(message: Long, reader: Long, headerattributes: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes(message: Long, reader: Long, headerattributes: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetHeapProperty(heap: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty(heap: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetListenerProperty(listener: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty(listener: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetMappedHeader(message: Long, headername: Long, repeatingoption: Int, headerindex: Int, valuetype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader(message: Long, headername: Long, repeatingoption: Int, headerindex: Int, valuetype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetMessageProperty(message: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty(message: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetMetadataEndpoints(metadata: Long, endpoints: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints(metadata: Long, endpoints: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetMetadataProperty(metadata: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty(metadata: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetMissingMetadataDocumentAddress(metadata: Long, address: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress(metadata: Long, address: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetNamespaceFromPrefix(reader: Long, prefix: Long, required: Int, ns: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix(reader: Long, prefix: Long, required: Int, ns: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetOperationContextProperty(context: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty(context: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetPolicyAlternativeCount(policy: Long, count: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount(policy: Long, count: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetPolicyProperty(policy: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty(policy: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetPrefixFromNamespace(writer: Long, ns: Long, required: Int, prefix: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace(writer: Long, ns: Long, required: Int, prefix: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetReaderNode(xmlreader: Long, node: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode(xmlreader: Long, node: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetReaderPosition(reader: Long, nodeposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition(reader: Long, nodeposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetReaderProperty(reader: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty(reader: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetSecurityContextProperty(securitycontext: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty(securitycontext: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetSecurityTokenProperty(securitytoken: Long, id: Int, value: Long, valuesize: Int, heap: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty(securitytoken: Long, id: Int, value: Long, valuesize: Int, heap: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetServiceHostProperty(servicehost: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty(servicehost: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetServiceProxyProperty(serviceproxy: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty(serviceproxy: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetWriterPosition(writer: Long, nodeposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition(writer: Long, nodeposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetWriterProperty(writer: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty(writer: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsGetXmlAttribute(reader: Long, localname: Long, heap: Long, valuechars: Long, valuecharcount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute(reader: Long, localname: Long, heap: Long, valuechars: Long, valuecharcount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsInitializeMessage(message: Long, initialization: Int, sourcemessage: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage(message: Long, initialization: Int, sourcemessage: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsMarkHeaderAsUnderstood(message: Long, headerposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood(message: Long, headerposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsMatchPolicyAlternative(policy: Long, alternativeindex: Int, policyconstraints: Long, matchrequired: Int, heap: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative(policy: Long, alternativeindex: Int, policyconstraints: Long, matchrequired: Int, heap: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsMoveReader(reader: Long, moveto: Int, found: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsMoveReader(reader: Long, moveto: Int, found: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsMoveWriter(writer: Long, moveto: Int, found: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsMoveWriter(writer: Long, moveto: Int, found: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsOpenChannel(channel: Long, endpointaddress: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsOpenChannel(channel: Long, endpointaddress: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsOpenListener(listener: Long, url: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsOpenListener(listener: Long, url: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsOpenServiceHost(servicehost: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost(servicehost: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsOpenServiceProxy(serviceproxy: Long, address: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy(serviceproxy: Long, address: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsPullBytes(writer: Long, callback: Long, callbackstate: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsPullBytes(writer: Long, callback: Long, callbackstate: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsPushBytes(writer: Long, callback: Long, callbackstate: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsPushBytes(writer: Long, callback: Long, callbackstate: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadArray(reader: Long, localname: Long, ns: Long, valuetype: Int, array: Long, arraysize: Int, itemoffset: Int, itemcount: Int, actualitemcount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadArray(reader: Long, localname: Long, ns: Long, valuetype: Int, array: Long, arraysize: Int, itemoffset: Int, itemcount: Int, actualitemcount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadAttribute(reader: Long, attributedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadAttribute(reader: Long, attributedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadBody(message: Long, bodydescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadBody(message: Long, bodydescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadBytes(reader: Long, bytes: Long, maxbytecount: Int, actualbytecount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadBytes(reader: Long, bytes: Long, maxbytecount: Int, actualbytecount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadChars(reader: Long, chars: Long, maxcharcount: Int, actualcharcount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadChars(reader: Long, chars: Long, maxcharcount: Int, actualcharcount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadCharsUtf8(reader: Long, bytes: Long, maxbytecount: Int, actualbytecount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8(reader: Long, bytes: Long, maxbytecount: Int, actualbytecount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadElement(reader: Long, elementdescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadElement(reader: Long, elementdescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadEndAttribute(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadEndElement(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadEndElement(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadEndpointAddressExtension(reader: Long, endpointaddress: Long, extensiontype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension(reader: Long, endpointaddress: Long, extensiontype: Int, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeEnd(message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd(message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeStart(message: Long, reader: Long, donecallback: Long, donecallbackstate: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart(message: Long, reader: Long, donecallback: Long, donecallbackstate: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadMetadata(metadata: Long, reader: Long, url: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadMetadata(metadata: Long, reader: Long, url: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadNode(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadNode(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadQualifiedName(reader: Long, heap: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName(reader: Long, heap: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadStartAttribute(reader: Long, attributeindex: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute(reader: Long, attributeindex: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadStartElement(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadStartElement(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadToStartElement(reader: Long, localname: Long, ns: Long, found: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement(reader: Long, localname: Long, ns: Long, found: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadType(reader: Long, typemapping: Int, type: Int, typedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadType(reader: Long, typemapping: Int, type: Int, typedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadValue(reader: Long, valuetype: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadValue(reader: Long, valuetype: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadXmlBuffer(reader: Long, heap: Long, xmlbuffer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer(reader: Long, heap: Long, xmlbuffer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReadXmlBufferFromBytes(reader: Long, encoding: Long, properties: Long, propertycount: Int, bytes: Long, bytecount: Int, heap: Long, xmlbuffer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes(reader: Long, encoding: Long, properties: Long, propertycount: Int, bytes: Long, bytecount: Int, heap: Long, xmlbuffer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsReceiveMessage(channel: Long, message: Long, messagedescriptions: Long, messagedescriptioncount: Int, receiveoption: Int, readbodyoption: Int, heap: Long, value: Long, valuesize: Int, index: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(channel: Long, message: Long, messagedescriptions: Long, messagedescriptioncount: Int, receiveoption: Int, readbodyoption: Int, heap: Long, value: Long, valuesize: Int, index: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRegisterOperationForCancel(context: Long, cancelcallback: Long, freestatecallback: Long, userstate: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel(context: Long, cancelcallback: Long, freestatecallback: Long, userstate: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRemoveCustomHeader(message: Long, headername: Long, headerns: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader(message: Long, headername: Long, headerns: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRemoveHeader(message: Long, headertype: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader(message: Long, headertype: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRemoveMappedHeader(message: Long, headername: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader(message: Long, headername: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRemoveNode(nodeposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRemoveNode(nodeposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRequestReply(channel: Long, requestmessage: Long, requestmessagedescription: Long, writeoption: Int, requestbodyvalue: Long, requestbodyvaluesize: Int, replymessage: Long, replymessagedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRequestReply(channel: Long, requestmessage: Long, requestmessagedescription: Long, writeoption: Int, requestbodyvalue: Long, requestbodyvaluesize: Int, replymessage: Long, replymessagedescription: Long, readoption: Int, heap: Long, value: Long, valuesize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRequestSecurityToken(channel: Long, properties: Long, propertycount: Int, token: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken(channel: Long, properties: Long, propertycount: Int, token: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetChannel(channel: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetChannel(channel: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetError(error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetError(error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetHeap(heap: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetHeap(heap: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetListener(listener: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetListener(listener: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetMessage(message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetMessage(message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetMetadata(metadata: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetMetadata(metadata: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetServiceHost(servicehost: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost(servicehost: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsResetServiceProxy(serviceproxy: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy(serviceproxy: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsRevokeSecurityContext(securitycontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext(securitycontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSendFaultMessageForError(channel: Long, replymessage: Long, faulterror: Long, faulterrorcode: Int, faultdisclosure: Int, requestmessage: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError(channel: Long, replymessage: Long, faulterror: Long, faulterrorcode: Int, faultdisclosure: Int, requestmessage: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSendMessage(channel: Long, message: Long, messagedescription: Long, writeoption: Int, bodyvalue: Long, bodyvaluesize: Int, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSendMessage(channel: Long, message: Long, messagedescription: Long, writeoption: Int, bodyvalue: Long, bodyvaluesize: Int, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSendReplyMessage(channel: Long, replymessage: Long, replymessagedescription: Long, writeoption: Int, replybodyvalue: Long, replybodyvaluesize: Int, requestmessage: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage(channel: Long, replymessage: Long, replymessagedescription: Long, writeoption: Int, replybodyvalue: Long, replybodyvaluesize: Int, requestmessage: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetChannelProperty(channel: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty(channel: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetErrorProperty(error: Long, id: Int, value: Long, valuesize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty(error: Long, id: Int, value: Long, valuesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorDetail(error: Long, faultdetaildescription: Long, writeoption: Int, value: Long, valuesize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail(error: Long, faultdetaildescription: Long, writeoption: Int, value: Long, valuesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorProperty(error: Long, id: Int, value: Long, valuesize: Int): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty(error: Long, id: Int, value: Long, valuesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetHeader(message: Long, headertype: Int, valuetype: Int, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetHeader(message: Long, headertype: Int, valuetype: Int, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetInput(reader: Long, encoding: Long, input: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetInput(reader: Long, encoding: Long, input: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetInputToBuffer(reader: Long, buffer: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer(reader: Long, buffer: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetListenerProperty(listener: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty(listener: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetMessageProperty(message: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty(message: Long, id: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetOutput(writer: Long, encoding: Long, output: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetOutput(writer: Long, encoding: Long, output: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetOutputToBuffer(writer: Long, buffer: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer(writer: Long, buffer: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetReaderPosition(reader: Long, nodeposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition(reader: Long, nodeposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSetWriterPosition(writer: Long, nodeposition: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition(writer: Long, nodeposition: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsShutdownSessionChannel(channel: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel(channel: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsSkipNode(reader: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsSkipNode(reader: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsStartReaderCanonicalization(reader: Long, writecallback: Long, writecallbackstate: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization(reader: Long, writecallback: Long, writecallbackstate: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsStartWriterCanonicalization(writer: Long, writecallback: Long, writecallbackstate: Long, properties: Long, propertycount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization(writer: Long, writecallback: Long, writecallbackstate: Long, properties: Long, propertycount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsTrimXmlWhitespace(chars: Long, charcount: Int, trimmedchars: Long, trimmedcount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace(chars: Long, charcount: Int, trimmedchars: Long, trimmedcount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsVerifyXmlNCName(ncnamechars: Long, ncnamecharcount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName(ncnamechars: Long, ncnamecharcount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteArray(writer: Long, localname: Long, ns: Long, valuetype: Int, array: Long, arraysize: Int, itemoffset: Int, itemcount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteArray(writer: Long, localname: Long, ns: Long, valuetype: Int, array: Long, arraysize: Int, itemoffset: Int, itemcount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteAttribute(writer: Long, attributedescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute(writer: Long, attributedescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteBody(message: Long, bodydescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteBody(message: Long, bodydescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteBytes(writer: Long, bytes: Long, bytecount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteBytes(writer: Long, bytes: Long, bytecount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteChars(writer: Long, chars: Long, charcount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteChars(writer: Long, chars: Long, charcount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteCharsUtf8(writer: Long, bytes: Long, bytecount: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8(writer: Long, bytes: Long, bytecount: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteElement(writer: Long, elementdescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteElement(writer: Long, elementdescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEndAttribute(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEndCData(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEndElement(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEndStartElement(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeEnd(message: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd(message: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeStart(message: Long, writer: Long, donecallback: Long, donecallbackstate: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart(message: Long, writer: Long, donecallback: Long, donecallbackstate: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteNode(writer: Long, node: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteNode(writer: Long, node: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteQualifiedName(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteStartAttribute(writer: Long, prefix: Long, localname: Long, ns: Long, singlequote: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute(writer: Long, prefix: Long, localname: Long, ns: Long, singlequote: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteStartCData(writer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData(writer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteStartElement(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteText(writer: Long, text: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteText(writer: Long, text: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteType(writer: Long, typemapping: Int, type: Int, typedescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteType(writer: Long, typemapping: Int, type: Int, typedescription: Long, writeoption: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteValue(writer: Long, valuetype: Int, value: Long, valuesize: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteValue(writer: Long, valuetype: Int, value: Long, valuesize: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBuffer(writer: Long, xmlbuffer: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer(writer: Long, xmlbuffer: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBufferToBytes(writer: Long, xmlbuffer: Long, encoding: Long, properties: Long, propertycount: Int, heap: Long, bytes: Long, bytecount: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes(writer: Long, xmlbuffer: Long, encoding: Long, properties: Long, propertycount: Int, heap: Long, bytes: Long, bytecount: Long, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsWriteXmlnsAttribute(writer: Long, prefix: Long, ns: Long, singlequote: Int, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute(writer: Long, prefix: Long, ns: Long, singlequote: Int, error: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_windowswebservices_WsXmlStringEquals(string1: Long, string2: Long, error: Long): Int
+    external fun windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals(string1: Long, string2: Long, error: Long): Int
 }
 
-public actual fun WebAuthNAuthenticatorGetAssertion(hwnd: HWND, pwszrpid: PCWSTR, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorGetAssertion(hwnd, pwszrpid, pwebauthnclientdata, pwebauthngetassertionoptions, ppwebauthnassertion)
+public actual fun webAuthNAuthenticatorGetAssertion(hwnd: Hwnd, pwszrpid: Pcwstr, pwebauthnclientdata: COpaquePointer?, pwebauthngetassertionoptions: COpaquePointer?, ppwebauthnassertion: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion((hwnd?.value ?: 0L), (pwszrpid?.value ?: 0L), (pwebauthnclientdata?.value ?: 0L), (pwebauthngetassertionoptions?.value ?: 0L), (ppwebauthnassertion?.value ?: 0L))
 
-public actual fun WebAuthNAuthenticatorMakeCredential(hwnd: HWND, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions, ppwebauthncredentialattestation)
+public actual fun webAuthNAuthenticatorMakeCredential(hwnd: Hwnd, prpinformation: COpaquePointer?, puserinformation: COpaquePointer?, ppubkeycredparams: COpaquePointer?, pwebauthnclientdata: COpaquePointer?, pwebauthnmakecredentialoptions: COpaquePointer?, ppwebauthncredentialattestation: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential((hwnd?.value ?: 0L), (prpinformation?.value ?: 0L), (puserinformation?.value ?: 0L), (ppubkeycredparams?.value ?: 0L), (pwebauthnclientdata?.value ?: 0L), (pwebauthnmakecredentialoptions?.value ?: 0L), (ppwebauthncredentialattestation?.value ?: 0L))
 
-public actual fun WebAuthNCancelCurrentOperation(pcancellationid: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNCancelCurrentOperation(pcancellationid)
+public actual fun webAuthNCancelCurrentOperation(pcancellationid: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation((pcancellationid?.value ?: 0L))
 
-public actual fun WebAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNDeletePlatformCredential(cbcredentialid.toInt(), pbcredentialid)
+public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential(cbcredentialid.toInt(), (pbcredentialid?.value ?: 0L))
 
-public actual fun WebAuthNFreeAssertion(pwebauthnassertion: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeAssertion(pwebauthnassertion)
+public actual fun webAuthNFreeAssertion(pwebauthnassertion: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion((pwebauthnassertion?.value ?: 0L))
 }
 
-public actual fun WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation)
+public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation((pwebauthncredentialattestation?.value ?: 0L))
 }
 
-public actual fun WebAuthNFreePlatformCredentialList(pcredentialdetailslist: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreePlatformCredentialList(pcredentialdetailslist)
+public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList((pcredentialdetailslist?.value ?: 0L))
 }
 
-public actual fun WebAuthNGetApiVersionNumber(): UInt =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetApiVersionNumber().toUInt()
+public actual fun webAuthNGetApiVersionNumber(): UInt =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber().toUInt()
 
-public actual fun WebAuthNGetCancellationId(pcancellationid: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetCancellationId(pcancellationid)
+public actual fun webAuthNGetCancellationId(pcancellationid: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId((pcancellationid?.value ?: 0L))
 
-public actual fun WebAuthNGetErrorName(hr: HRESULT): PCWSTR =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetErrorName(hr)
+public actual fun webAuthNGetErrorName(hr: Hresult): Pcwstr =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName(hr).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: Long, ppcredentialdetailslist: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, ppcredentialdetailslist)
+public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: COpaquePointer?, ppcredentialdetailslist: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList((pgetcredentialsoptions?.value ?: 0L), (ppcredentialdetailslist?.value ?: 0L))
 
-public actual fun WebAuthNGetW3CExceptionDOMError(hr: HRESULT): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetW3CExceptionDOMError(hr)
+public actual fun webAuthNGetW3CExceptionDOMError(hr: Hresult): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError(hr)
 
-public actual fun WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable)
+public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable((pbisuserverifyingplatformauthenticatoravailable?.value ?: 0L))
 
-public actual fun WsAbandonCall(serviceproxy: Long, callid: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbandonCall(serviceproxy, callid.toInt(), error)
+public actual fun wsAbandonCall(serviceproxy: COpaquePointer?, callid: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbandonCall((serviceproxy?.value ?: 0L), callid.toInt(), (error?.value ?: 0L))
 
-public actual fun WsAbandonMessage(channel: Long, message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbandonMessage(channel, message, error)
+public actual fun wsAbandonMessage(channel: COpaquePointer?, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage((channel?.value ?: 0L), (message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAbortChannel(channel: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbortChannel(channel, error)
+public actual fun wsAbortChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbortChannel((channel?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAbortListener(listener: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbortListener(listener, error)
+public actual fun wsAbortListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbortListener((listener?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAbortServiceHost(servicehost: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceHost(servicehost, error)
+public actual fun wsAbortServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost((servicehost?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAbortServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceProxy(serviceproxy, error)
+public actual fun wsAbortServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy((serviceproxy?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAcceptChannel(listener: Long, channel: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAcceptChannel(listener, channel, asynccontext, error)
+public actual fun wsAcceptChannel(listener: COpaquePointer?, channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel((listener?.value ?: 0L), (channel?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAddCustomHeader(message: Long, headerdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, headerattributes: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAddCustomHeader(message, headerdescription, writeoption, value, valuesize.toInt(), headerattributes.toInt(), error)
+public actual fun wsAddCustomHeader(message: COpaquePointer?, headerdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, headerattributes: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader((message?.value ?: 0L), (headerdescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt(), headerattributes.toInt(), (error?.value ?: 0L))
 
-public actual fun WsAddErrorString(error: Long, string: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAddErrorString(error, string)
+public actual fun wsAddErrorString(error: COpaquePointer?, string: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAddErrorString((error?.value ?: 0L), (string?.value ?: 0L))
 
-public actual fun WsAddMappedHeader(message: Long, headername: Long, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAddMappedHeader(message, headername, valuetype, writeoption, value, valuesize.toInt(), error)
+public actual fun wsAddMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader((message?.value ?: 0L), (headername?.value ?: 0L), valuetype, writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsAddressMessage(message: Long, address: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAddressMessage(message, address, error)
+public actual fun wsAddressMessage(message: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAddressMessage((message?.value ?: 0L), (address?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAlloc(heap: Long, size: ULong, ptr: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAlloc(heap, size.toLong(), ptr, error)
+public actual fun wsAlloc(heap: COpaquePointer?, size: ULong, ptr: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAlloc((heap?.value ?: 0L), size.toLong(), (ptr?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsAsyncExecute(asyncstate: Long, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsAsyncExecute(asyncstate, operation.toLong(), callbackmodel, callbackstate, asynccontext, error)
+public actual fun wsAsyncExecute(asyncstate: COpaquePointer?, operation: WsAsyncFunction, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute((asyncstate?.value ?: 0L), 0L, callbackmodel, (callbackstate?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCall(serviceproxy: Long, operation: Long, arguments: Long, heap: Long, callproperties: Long, callpropertycount: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCall(serviceproxy, operation, arguments, heap, callproperties, callpropertycount.toInt(), asynccontext, error)
+public actual fun wsCall(serviceproxy: COpaquePointer?, operation: COpaquePointer?, arguments: COpaquePointer?, heap: COpaquePointer?, callproperties: COpaquePointer?, callpropertycount: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCall((serviceproxy?.value ?: 0L), (operation?.value ?: 0L), (arguments?.value ?: 0L), (heap?.value ?: 0L), (callproperties?.value ?: 0L), callpropertycount.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCheckMustUnderstandHeaders(message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCheckMustUnderstandHeaders(message, error)
+public actual fun wsCheckMustUnderstandHeaders(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders((message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCloseChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCloseChannel(channel, asynccontext, error)
+public actual fun wsCloseChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCloseChannel((channel?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCloseListener(listener: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCloseListener(listener, asynccontext, error)
+public actual fun wsCloseListener(listener: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCloseListener((listener?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCloseServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceHost(servicehost, asynccontext, error)
+public actual fun wsCloseServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost((servicehost?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCloseServiceProxy(serviceproxy: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceProxy(serviceproxy, asynccontext, error)
+public actual fun wsCloseServiceProxy(serviceproxy: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy((serviceproxy?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCombineUrl(baseurl: Long, referenceurl: Long, flags: UInt, heap: Long, resulturl: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCombineUrl(baseurl, referenceurl, flags.toInt(), heap, resulturl, error)
+public actual fun wsCombineUrl(baseurl: COpaquePointer?, referenceurl: COpaquePointer?, flags: UInt, heap: COpaquePointer?, resulturl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCombineUrl((baseurl?.value ?: 0L), (referenceurl?.value ?: 0L), flags.toInt(), (heap?.value ?: 0L), (resulturl?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCopyError(source: Long, destination: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCopyError(source, destination)
+public actual fun wsCopyError(source: COpaquePointer?, destination: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCopyError((source?.value ?: 0L), (destination?.value ?: 0L))
 
-public actual fun WsCopyNode(writer: Long, reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCopyNode(writer, reader, error)
+public actual fun wsCopyNode(writer: COpaquePointer?, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCopyNode((writer?.value ?: 0L), (reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, channel: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateChannel(channeltype, channelbinding, properties, propertycount.toInt(), securitydescription, channel, error)
+public actual fun wsCreateChannel(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(channeltype, channelbinding, (properties?.value ?: 0L), propertycount.toInt(), (securitydescription?.value ?: 0L), (channel?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateChannelForListener(listener: Long, properties: Long, propertycount: UInt, channel: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateChannelForListener(listener, properties, propertycount.toInt(), channel, error)
+public actual fun wsCreateChannelForListener(listener: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener((listener?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (channel?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateError(properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateError(properties, propertycount.toInt(), error)
+public actual fun wsCreateError(properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateError((properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsCreateFaultFromError(error: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: Long, fault: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, fault)
+public actual fun wsCreateFaultFromError(error: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, heap: COpaquePointer?, fault: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError((error?.value ?: 0L), faulterrorcode, faultdisclosure, (heap?.value ?: 0L), (fault?.value ?: 0L))
 
-public actual fun WsCreateHeap(maxsize: ULong, trimsize: ULong, properties: Long, propertycount: UInt, heap: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateHeap(maxsize.toLong(), trimsize.toLong(), properties, propertycount.toInt(), heap, error)
+public actual fun wsCreateHeap(maxsize: ULong, trimsize: ULong, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(maxsize.toLong(), trimsize.toLong(), (properties?.value ?: 0L), propertycount.toInt(), (heap?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, listener: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateListener(channeltype, channelbinding, properties, propertycount.toInt(), securitydescription, listener, error)
+public actual fun wsCreateListener(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateListener(channeltype, channelbinding, (properties?.value ?: 0L), propertycount.toInt(), (securitydescription?.value ?: 0L), (listener?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateMessage(envelopeversion, addressingversion, properties, propertycount.toInt(), message, error)
+public actual fun wsCreateMessage(envelopeversion: WsEnvelopeVersion, addressingversion: WsAddressingVersion, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(envelopeversion, addressingversion, (properties?.value ?: 0L), propertycount.toInt(), (message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateMessageForChannel(channel: Long, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateMessageForChannel(channel, properties, propertycount.toInt(), message, error)
+public actual fun wsCreateMessageForChannel(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel((channel?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateMetadata(properties: Long, propertycount: UInt, metadata: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateMetadata(properties, propertycount.toInt(), metadata, error)
+public actual fun wsCreateMetadata(properties: COpaquePointer?, propertycount: UInt, metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata((properties?.value ?: 0L), propertycount.toInt(), (metadata?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateReader(properties: Long, propertycount: UInt, reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateReader(properties, propertycount.toInt(), reader, error)
+public actual fun wsCreateReader(properties: COpaquePointer?, propertycount: UInt, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateReader((properties?.value ?: 0L), propertycount.toInt(), (reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, addressurl: Long, contract: Long, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: Long, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceendpoint: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceEndpointFromTemplate(channeltype, properties, propertycount.toInt(), addressurl, contract, authorizationcallback.toLong(), heap, templatetype, templatevalue, templatesize.toInt(), templatedescription, templatedescriptionsize.toInt(), serviceendpoint, error)
+public actual fun wsCreateServiceEndpointFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, addressurl: COpaquePointer?, contract: COpaquePointer?, authorizationcallback: WsServiceSecurityCallback, heap: COpaquePointer?, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceendpoint: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate(channeltype, (properties?.value ?: 0L), propertycount.toInt(), (addressurl?.value ?: 0L), (contract?.value ?: 0L), 0L, (heap?.value ?: 0L), templatetype, (templatevalue?.value ?: 0L), templatesize.toInt(), (templatedescription?.value ?: 0L), templatedescriptionsize.toInt(), (serviceendpoint?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateServiceHost(endpoints: Long, endpointcount: UShort, serviceproperties: Long, servicepropertycount: UInt, servicehost: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceHost(endpoints, endpointcount.toShort(), serviceproperties, servicepropertycount.toInt(), servicehost, error)
+public actual fun wsCreateServiceHost(endpoints: COpaquePointer?, endpointcount: UShort, serviceproperties: COpaquePointer?, servicepropertycount: UInt, servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost((endpoints?.value ?: 0L), endpointcount.toShort(), (serviceproperties?.value ?: 0L), servicepropertycount.toInt(), (servicehost?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Long, properties: Long, propertycount: UInt, channelproperties: Long, channelpropertycount: UInt, serviceproxy: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxy(channeltype, channelbinding, securitydescription, properties, propertycount.toInt(), channelproperties, channelpropertycount.toInt(), serviceproxy, error)
+public actual fun wsCreateServiceProxy(channeltype: WsChannelType, channelbinding: WsChannelBinding, securitydescription: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channelproperties: COpaquePointer?, channelpropertycount: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy(channeltype, channelbinding, (securitydescription?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (channelproperties?.value ?: 0L), channelpropertycount.toInt(), (serviceproxy?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceproxy: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxyFromTemplate(channeltype, properties, propertycount.toInt(), templatetype, templatevalue, templatesize.toInt(), templatedescription, templatedescriptionsize.toInt(), serviceproxy, error)
+public actual fun wsCreateServiceProxyFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate(channeltype, (properties?.value ?: 0L), propertycount.toInt(), templatetype, (templatevalue?.value ?: 0L), templatesize.toInt(), (templatedescription?.value ?: 0L), templatedescriptionsize.toInt(), (serviceproxy?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateWriter(properties: Long, propertycount: UInt, writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateWriter(properties, propertycount.toInt(), writer, error)
+public actual fun wsCreateWriter(properties: COpaquePointer?, propertycount: UInt, writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateWriter((properties?.value ?: 0L), propertycount.toInt(), (writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateXmlBuffer(heap: Long, properties: Long, propertycount: UInt, buffer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlBuffer(heap, properties, propertycount.toInt(), buffer, error)
+public actual fun wsCreateXmlBuffer(heap: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, buffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer((heap?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (buffer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsCreateXmlSecurityToken(tokenxml: Long, tokenkey: Long, properties: Long, propertycount: UInt, token: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlSecurityToken(tokenxml, tokenkey, properties, propertycount.toInt(), token, error)
+public actual fun wsCreateXmlSecurityToken(tokenxml: COpaquePointer?, tokenkey: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken((tokenxml?.value ?: 0L), (tokenkey?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (token?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsDateTimeToFileTime(datetime: Long, filetime: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsDateTimeToFileTime(datetime, filetime, error)
+public actual fun wsDateTimeToFileTime(datetime: COpaquePointer?, filetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime((datetime?.value ?: 0L), (filetime?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsDecodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsDecodeUrl(url, flags.toInt(), heap, outurl, error)
+public actual fun wsDecodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl((url?.value ?: 0L), flags.toInt(), (heap?.value ?: 0L), (outurl?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsEncodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsEncodeUrl(url, flags.toInt(), heap, outurl, error)
+public actual fun wsEncodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl((url?.value ?: 0L), flags.toInt(), (heap?.value ?: 0L), (outurl?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsEndReaderCanonicalization(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsEndReaderCanonicalization(reader, error)
+public actual fun wsEndReaderCanonicalization(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsEndWriterCanonicalization(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsEndWriterCanonicalization(writer, error)
+public actual fun wsEndWriterCanonicalization(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFileTimeToDateTime(filetime: Long, datetime: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFileTimeToDateTime(filetime, datetime, error)
+public actual fun wsFileTimeToDateTime(filetime: COpaquePointer?, datetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime((filetime?.value ?: 0L), (datetime?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFillBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFillBody(message, minsize.toInt(), asynccontext, error)
+public actual fun wsFillBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFillBody((message?.value ?: 0L), minsize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFillReader(reader: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFillReader(reader, minsize.toInt(), asynccontext, error)
+public actual fun wsFillReader(reader: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFillReader((reader?.value ?: 0L), minsize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFindAttribute(reader: Long, localname: Long, ns: Long, required: BOOL, attributeindex: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFindAttribute(reader, localname, ns, required, attributeindex, error)
+public actual fun wsFindAttribute(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, required: Bool, attributeindex: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFindAttribute((reader?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), required, (attributeindex?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFlushBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFlushBody(message, minsize.toInt(), asynccontext, error)
+public actual fun wsFlushBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFlushBody((message?.value ?: 0L), minsize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFlushWriter(writer: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFlushWriter(writer, minsize.toInt(), asynccontext, error)
+public actual fun wsFlushWriter(writer: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFlushWriter((writer?.value ?: 0L), minsize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsFreeChannel(channel: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeChannel(channel)
+public actual fun wsFreeChannel(channel: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeChannel((channel?.value ?: 0L))
 }
 
-public actual fun WsFreeError(error: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeError(error)
+public actual fun wsFreeError(error: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeError((error?.value ?: 0L))
 }
 
-public actual fun WsFreeHeap(heap: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeHeap(heap)
+public actual fun wsFreeHeap(heap: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeHeap((heap?.value ?: 0L))
 }
 
-public actual fun WsFreeListener(listener: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeListener(listener)
+public actual fun wsFreeListener(listener: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeListener((listener?.value ?: 0L))
 }
 
-public actual fun WsFreeMessage(message: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeMessage(message)
+public actual fun wsFreeMessage(message: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeMessage((message?.value ?: 0L))
 }
 
-public actual fun WsFreeMetadata(metadata: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeMetadata(metadata)
+public actual fun wsFreeMetadata(metadata: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata((metadata?.value ?: 0L))
 }
 
-public actual fun WsFreeReader(reader: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeReader(reader)
+public actual fun wsFreeReader(reader: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeReader((reader?.value ?: 0L))
 }
 
-public actual fun WsFreeSecurityToken(token: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeSecurityToken(token)
+public actual fun wsFreeSecurityToken(token: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken((token?.value ?: 0L))
 }
 
-public actual fun WsFreeServiceHost(servicehost: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceHost(servicehost)
+public actual fun wsFreeServiceHost(servicehost: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost((servicehost?.value ?: 0L))
 }
 
-public actual fun WsFreeServiceProxy(serviceproxy: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceProxy(serviceproxy)
+public actual fun wsFreeServiceProxy(serviceproxy: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy((serviceproxy?.value ?: 0L))
 }
 
-public actual fun WsFreeWriter(writer: Long) {
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsFreeWriter(writer)
+public actual fun wsFreeWriter(writer: COpaquePointer?) {
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsFreeWriter((writer?.value ?: 0L))
 }
 
-public actual fun WsGetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetChannelProperty(channel, id, value, valuesize.toInt(), error)
+public actual fun wsGetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty((channel?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetCustomHeader(message: Long, customheaderdescription: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, headerattributes: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetCustomHeader(message, customheaderdescription, repeatingoption, headerindex.toInt(), readoption, heap, value, valuesize.toInt(), headerattributes, error)
+public actual fun wsGetCustomHeader(message: COpaquePointer?, customheaderdescription: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader((message?.value ?: 0L), (customheaderdescription?.value ?: 0L), repeatingoption, headerindex.toInt(), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (headerattributes?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetDictionary(encoding: WS_ENCODING, dictionary: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetDictionary(encoding, dictionary, error)
+public actual fun wsGetDictionary(encoding: WsEncoding, dictionary: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(encoding, (dictionary?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetErrorProperty(error, id, buffer, buffersize.toInt())
+public actual fun wsGetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty((error?.value ?: 0L), id, (buffer?.value ?: 0L), buffersize.toInt())
 
-public actual fun WsGetErrorString(error: Long, index: UInt, string: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetErrorString(error, index.toInt(), string)
+public actual fun wsGetErrorString(error: COpaquePointer?, index: UInt, string: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetErrorString((error?.value ?: 0L), index.toInt(), (string?.value ?: 0L))
 
-public actual fun WsGetFaultErrorDetail(error: Long, faultdetaildescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorDetail(error, faultdetaildescription, readoption, heap, value, valuesize.toInt())
+public actual fun wsGetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail((error?.value ?: 0L), (faultdetaildescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt())
 
-public actual fun WsGetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorProperty(error, id, buffer, buffersize.toInt())
+public actual fun wsGetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty((error?.value ?: 0L), id, (buffer?.value ?: 0L), buffersize.toInt())
 
-public actual fun WsGetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetHeader(message, headertype, valuetype, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsGetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetHeader((message?.value ?: 0L), headertype, valuetype, readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetHeaderAttributes(message: Long, reader: Long, headerattributes: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetHeaderAttributes(message, reader, headerattributes, error)
+public actual fun wsGetHeaderAttributes(message: COpaquePointer?, reader: COpaquePointer?, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes((message?.value ?: 0L), (reader?.value ?: 0L), (headerattributes?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetHeapProperty(heap: Long, id: WS_HEAP_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetHeapProperty(heap, id, value, valuesize.toInt(), error)
+public actual fun wsGetHeapProperty(heap: COpaquePointer?, id: WsHeapPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty((heap?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetListenerProperty(listener, id, value, valuesize.toInt(), error)
+public actual fun wsGetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty((listener?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetMappedHeader(message: Long, headername: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetMappedHeader(message, headername, repeatingoption, headerindex.toInt(), valuetype, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsGetMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader((message?.value ?: 0L), (headername?.value ?: 0L), repeatingoption, headerindex.toInt(), valuetype, readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetMessageProperty(message, id, value, valuesize.toInt(), error)
+public actual fun wsGetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty((message?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetMetadataEndpoints(metadata: Long, endpoints: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataEndpoints(metadata, endpoints, error)
+public actual fun wsGetMetadataEndpoints(metadata: COpaquePointer?, endpoints: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints((metadata?.value ?: 0L), (endpoints?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetMetadataProperty(metadata: Long, id: WS_METADATA_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataProperty(metadata, id, value, valuesize.toInt(), error)
+public actual fun wsGetMetadataProperty(metadata: COpaquePointer?, id: WsMetadataPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty((metadata?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetMissingMetadataDocumentAddress(metadata: Long, address: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetMissingMetadataDocumentAddress(metadata, address, error)
+public actual fun wsGetMissingMetadataDocumentAddress(metadata: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress((metadata?.value ?: 0L), (address?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetNamespaceFromPrefix(reader: Long, prefix: Long, required: BOOL, ns: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetNamespaceFromPrefix(reader, prefix, required, ns, error)
+public actual fun wsGetNamespaceFromPrefix(reader: COpaquePointer?, prefix: COpaquePointer?, required: Bool, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix((reader?.value ?: 0L), (prefix?.value ?: 0L), required, (ns?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetOperationContextProperty(context: Long, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetOperationContextProperty(context, id, value, valuesize.toInt(), error)
+public actual fun wsGetOperationContextProperty(context: COpaquePointer?, id: WsOperationContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty((context?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetPolicyAlternativeCount(policy: Long, count: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyAlternativeCount(policy, count, error)
+public actual fun wsGetPolicyAlternativeCount(policy: COpaquePointer?, count: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount((policy?.value ?: 0L), (count?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetPolicyProperty(policy: Long, id: WS_POLICY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyProperty(policy, id, value, valuesize.toInt(), error)
+public actual fun wsGetPolicyProperty(policy: COpaquePointer?, id: WsPolicyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty((policy?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetPrefixFromNamespace(writer: Long, ns: Long, required: BOOL, prefix: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetPrefixFromNamespace(writer, ns, required, prefix, error)
+public actual fun wsGetPrefixFromNamespace(writer: COpaquePointer?, ns: COpaquePointer?, required: Bool, prefix: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace((writer?.value ?: 0L), (ns?.value ?: 0L), required, (prefix?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetReaderNode(xmlreader: Long, node: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetReaderNode(xmlreader, node, error)
+public actual fun wsGetReaderNode(xmlreader: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode((xmlreader?.value ?: 0L), (node?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetReaderPosition(reader, nodeposition, error)
+public actual fun wsGetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition((reader?.value ?: 0L), (nodeposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetReaderProperty(reader: Long, id: WS_XML_READER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetReaderProperty(reader, id, value, valuesize.toInt(), error)
+public actual fun wsGetReaderProperty(reader: COpaquePointer?, id: WsXmlReaderPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty((reader?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetSecurityContextProperty(securitycontext: Long, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityContextProperty(securitycontext, id, value, valuesize.toInt(), error)
+public actual fun wsGetSecurityContextProperty(securitycontext: COpaquePointer?, id: WsSecurityContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty((securitycontext?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetSecurityTokenProperty(securitytoken: Long, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: Long, valuesize: UInt, heap: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityTokenProperty(securitytoken, id, value, valuesize.toInt(), heap, error)
+public actual fun wsGetSecurityTokenProperty(securitytoken: COpaquePointer?, id: WsSecurityTokenPropertyId, value: COpaquePointer?, valuesize: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty((securitytoken?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (heap?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetServiceHostProperty(servicehost: Long, id: WS_SERVICE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetServiceHostProperty(servicehost, id, value, valuesize.toInt(), error)
+public actual fun wsGetServiceHostProperty(servicehost: COpaquePointer?, id: WsServicePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty((servicehost?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetServiceProxyProperty(serviceproxy: Long, id: WS_PROXY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetServiceProxyProperty(serviceproxy, id, value, valuesize.toInt(), error)
+public actual fun wsGetServiceProxyProperty(serviceproxy: COpaquePointer?, id: WsProxyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty((serviceproxy?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetWriterPosition(writer, nodeposition, error)
+public actual fun wsGetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition((writer?.value ?: 0L), (nodeposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsGetWriterProperty(writer: Long, id: WS_XML_WRITER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetWriterProperty(writer, id, value, valuesize.toInt(), error)
+public actual fun wsGetWriterProperty(writer: COpaquePointer?, id: WsXmlWriterPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty((writer?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsGetXmlAttribute(reader: Long, localname: Long, heap: Long, valuechars: Long, valuecharcount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsGetXmlAttribute(reader, localname, heap, valuechars, valuecharcount, error)
+public actual fun wsGetXmlAttribute(reader: COpaquePointer?, localname: COpaquePointer?, heap: COpaquePointer?, valuechars: COpaquePointer?, valuecharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute((reader?.value ?: 0L), (localname?.value ?: 0L), (heap?.value ?: 0L), (valuechars?.value ?: 0L), (valuecharcount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsInitializeMessage(message: Long, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsInitializeMessage(message, initialization, sourcemessage, error)
+public actual fun wsInitializeMessage(message: COpaquePointer?, initialization: WsMessageInitialization, sourcemessage: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage((message?.value ?: 0L), initialization, (sourcemessage?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsMarkHeaderAsUnderstood(message: Long, headerposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsMarkHeaderAsUnderstood(message, headerposition, error)
+public actual fun wsMarkHeaderAsUnderstood(message: COpaquePointer?, headerposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood((message?.value ?: 0L), (headerposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsMatchPolicyAlternative(policy: Long, alternativeindex: UInt, policyconstraints: Long, matchrequired: BOOL, heap: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsMatchPolicyAlternative(policy, alternativeindex.toInt(), policyconstraints, matchrequired, heap, error)
+public actual fun wsMatchPolicyAlternative(policy: COpaquePointer?, alternativeindex: UInt, policyconstraints: COpaquePointer?, matchrequired: Bool, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative((policy?.value ?: 0L), alternativeindex.toInt(), (policyconstraints?.value ?: 0L), matchrequired, (heap?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsMoveReader(reader: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsMoveReader(reader, moveto, found, error)
+public actual fun wsMoveReader(reader: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsMoveReader((reader?.value ?: 0L), moveto, (found?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsMoveWriter(writer: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsMoveWriter(writer, moveto, found, error)
+public actual fun wsMoveWriter(writer: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsMoveWriter((writer?.value ?: 0L), moveto, (found?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsOpenChannel(channel: Long, endpointaddress: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsOpenChannel(channel, endpointaddress, asynccontext, error)
+public actual fun wsOpenChannel(channel: COpaquePointer?, endpointaddress: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsOpenChannel((channel?.value ?: 0L), (endpointaddress?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsOpenListener(listener: Long, url: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsOpenListener(listener, url, asynccontext, error)
+public actual fun wsOpenListener(listener: COpaquePointer?, url: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsOpenListener((listener?.value ?: 0L), (url?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsOpenServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceHost(servicehost, asynccontext, error)
+public actual fun wsOpenServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost((servicehost?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsOpenServiceProxy(serviceproxy: Long, address: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceProxy(serviceproxy, address, asynccontext, error)
+public actual fun wsOpenServiceProxy(serviceproxy: COpaquePointer?, address: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy((serviceproxy?.value ?: 0L), (address?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsPullBytes(writer: Long, callback: WS_PULL_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsPullBytes(writer, callback.toLong(), callbackstate, error)
+public actual fun wsPullBytes(writer: COpaquePointer?, callback: WsPullBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsPullBytes((writer?.value ?: 0L), 0L, (callbackstate?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsPushBytes(writer: Long, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsPushBytes(writer, callback.toLong(), callbackstate, error)
+public actual fun wsPushBytes(writer: COpaquePointer?, callback: WsPushBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsPushBytes((writer?.value ?: 0L), 0L, (callbackstate?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadArray(reader: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadArray(reader, localname, ns, valuetype, array, arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), actualitemcount, error)
+public actual fun wsReadArray(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadArray((reader?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), valuetype, (array?.value ?: 0L), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), (actualitemcount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadAttribute(reader: Long, attributedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadAttribute(reader, attributedescription, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsReadAttribute(reader: COpaquePointer?, attributedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadAttribute((reader?.value ?: 0L), (attributedescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadBody(message: Long, bodydescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadBody(message, bodydescription, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsReadBody(message: COpaquePointer?, bodydescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadBody((message?.value ?: 0L), (bodydescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadBytes(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadBytes(reader, bytes, maxbytecount.toInt(), actualbytecount, error)
+public actual fun wsReadBytes(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadBytes((reader?.value ?: 0L), (bytes?.value ?: 0L), maxbytecount.toInt(), (actualbytecount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadChars(reader: Long, chars: PWSTR, maxcharcount: UInt, actualcharcount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadChars(reader, chars, maxcharcount.toInt(), actualcharcount, error)
+public actual fun wsReadChars(reader: COpaquePointer?, chars: Pwstr, maxcharcount: UInt, actualcharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadChars((reader?.value ?: 0L), (chars?.value ?: 0L), maxcharcount.toInt(), (actualcharcount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadCharsUtf8(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadCharsUtf8(reader, bytes, maxbytecount.toInt(), actualbytecount, error)
+public actual fun wsReadCharsUtf8(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8((reader?.value ?: 0L), (bytes?.value ?: 0L), maxbytecount.toInt(), (actualbytecount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadElement(reader: Long, elementdescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadElement(reader, elementdescription, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsReadElement(reader: COpaquePointer?, elementdescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadElement((reader?.value ?: 0L), (elementdescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadEndAttribute(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadEndAttribute(reader, error)
+public actual fun wsReadEndAttribute(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadEndElement(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadEndElement(reader, error)
+public actual fun wsReadEndElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadEndElement((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadEndpointAddressExtension(reader: Long, endpointaddress: Long, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadEndpointAddressExtension(reader, endpointaddress, extensiontype, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsReadEndpointAddressExtension(reader: COpaquePointer?, endpointaddress: COpaquePointer?, extensiontype: WsEndpointAddressExtensionType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension((reader?.value ?: 0L), (endpointaddress?.value ?: 0L), extensiontype, readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadEnvelopeEnd(message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeEnd(message, error)
+public actual fun wsReadEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd((message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadEnvelopeStart(message: Long, reader: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeStart(message, reader, donecallback.toLong(), donecallbackstate, error)
+public actual fun wsReadEnvelopeStart(message: COpaquePointer?, reader: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart((message?.value ?: 0L), (reader?.value ?: 0L), 0L, (donecallbackstate?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadMessageEnd(channel, message, asynccontext, error)
+public actual fun wsReadMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd((channel?.value ?: 0L), (message?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadMessageStart(channel, message, asynccontext, error)
+public actual fun wsReadMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart((channel?.value ?: 0L), (message?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadMetadata(metadata: Long, reader: Long, url: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadMetadata(metadata, reader, url, error)
+public actual fun wsReadMetadata(metadata: COpaquePointer?, reader: COpaquePointer?, url: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadMetadata((metadata?.value ?: 0L), (reader?.value ?: 0L), (url?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadNode(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadNode(reader, error)
+public actual fun wsReadNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadNode((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadQualifiedName(reader: Long, heap: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadQualifiedName(reader, heap, prefix, localname, ns, error)
+public actual fun wsReadQualifiedName(reader: COpaquePointer?, heap: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName((reader?.value ?: 0L), (heap?.value ?: 0L), (prefix?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadStartAttribute(reader: Long, attributeindex: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadStartAttribute(reader, attributeindex.toInt(), error)
+public actual fun wsReadStartAttribute(reader: COpaquePointer?, attributeindex: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute((reader?.value ?: 0L), attributeindex.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadStartElement(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadStartElement(reader, error)
+public actual fun wsReadStartElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadStartElement((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadToStartElement(reader: Long, localname: Long, ns: Long, found: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadToStartElement(reader, localname, ns, found, error)
+public actual fun wsReadToStartElement(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement((reader?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), (found?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadType(reader: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadType(reader, typemapping, type, typedescription, readoption, heap, value, valuesize.toInt(), error)
+public actual fun wsReadType(reader: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadType((reader?.value ?: 0L), typemapping, type, (typedescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadValue(reader: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadValue(reader, valuetype, value, valuesize.toInt(), error)
+public actual fun wsReadValue(reader: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadValue((reader?.value ?: 0L), valuetype, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsReadXmlBuffer(reader: Long, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBuffer(reader, heap, xmlbuffer, error)
+public actual fun wsReadXmlBuffer(reader: COpaquePointer?, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer((reader?.value ?: 0L), (heap?.value ?: 0L), (xmlbuffer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReadXmlBufferFromBytes(reader: Long, encoding: Long, properties: Long, propertycount: UInt, bytes: Long, bytecount: UInt, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBufferFromBytes(reader, encoding, properties, propertycount.toInt(), bytes, bytecount.toInt(), heap, xmlbuffer, error)
+public actual fun wsReadXmlBufferFromBytes(reader: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, bytes: COpaquePointer?, bytecount: UInt, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes((reader?.value ?: 0L), (encoding?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (bytes?.value ?: 0L), bytecount.toInt(), (heap?.value ?: 0L), (xmlbuffer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsReceiveMessage(channel: Long, message: Long, messagedescriptions: Long, messagedescriptioncount: UInt, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, index: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsReceiveMessage(channel, message, messagedescriptions, messagedescriptioncount.toInt(), receiveoption, readbodyoption, heap, value, valuesize.toInt(), index, asynccontext, error)
+public actual fun wsReceiveMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescriptions: COpaquePointer?, messagedescriptioncount: UInt, receiveoption: WsReceiveOption, readbodyoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, index: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage((channel?.value ?: 0L), (message?.value ?: 0L), (messagedescriptions?.value ?: 0L), messagedescriptioncount.toInt(), receiveoption, readbodyoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (index?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRegisterOperationForCancel(context: Long, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRegisterOperationForCancel(context, cancelcallback.toLong(), freestatecallback.toLong(), userstate, error)
+public actual fun wsRegisterOperationForCancel(context: COpaquePointer?, cancelcallback: WsOperationCancelCallback, freestatecallback: WsOperationFreeStateCallback, userstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel((context?.value ?: 0L), 0L, 0L, (userstate?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRemoveCustomHeader(message: Long, headername: Long, headerns: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRemoveCustomHeader(message, headername, headerns, error)
+public actual fun wsRemoveCustomHeader(message: COpaquePointer?, headername: COpaquePointer?, headerns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader((message?.value ?: 0L), (headername?.value ?: 0L), (headerns?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRemoveHeader(message: Long, headertype: WS_HEADER_TYPE, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRemoveHeader(message, headertype, error)
+public actual fun wsRemoveHeader(message: COpaquePointer?, headertype: WsHeaderType, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader((message?.value ?: 0L), headertype, (error?.value ?: 0L))
 
-public actual fun WsRemoveMappedHeader(message: Long, headername: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRemoveMappedHeader(message, headername, error)
+public actual fun wsRemoveMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader((message?.value ?: 0L), (headername?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRemoveNode(nodeposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRemoveNode(nodeposition, error)
+public actual fun wsRemoveNode(nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRemoveNode((nodeposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRequestReply(channel: Long, requestmessage: Long, requestmessagedescription: Long, writeoption: WS_WRITE_OPTION, requestbodyvalue: Long, requestbodyvaluesize: UInt, replymessage: Long, replymessagedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRequestReply(channel, requestmessage, requestmessagedescription, writeoption, requestbodyvalue, requestbodyvaluesize.toInt(), replymessage, replymessagedescription, readoption, heap, value, valuesize.toInt(), asynccontext, error)
+public actual fun wsRequestReply(channel: COpaquePointer?, requestmessage: COpaquePointer?, requestmessagedescription: COpaquePointer?, writeoption: WsWriteOption, requestbodyvalue: COpaquePointer?, requestbodyvaluesize: UInt, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRequestReply((channel?.value ?: 0L), (requestmessage?.value ?: 0L), (requestmessagedescription?.value ?: 0L), writeoption, (requestbodyvalue?.value ?: 0L), requestbodyvaluesize.toInt(), (replymessage?.value ?: 0L), (replymessagedescription?.value ?: 0L), readoption, (heap?.value ?: 0L), (value?.value ?: 0L), valuesize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRequestSecurityToken(channel: Long, properties: Long, propertycount: UInt, token: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRequestSecurityToken(channel, properties, propertycount.toInt(), token, asynccontext, error)
+public actual fun wsRequestSecurityToken(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken((channel?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (token?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetChannel(channel: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetChannel(channel, error)
+public actual fun wsResetChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetChannel((channel?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetError(error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetError(error)
+public actual fun wsResetError(error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetError((error?.value ?: 0L))
 
-public actual fun WsResetHeap(heap: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetHeap(heap, error)
+public actual fun wsResetHeap(heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetHeap((heap?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetListener(listener: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetListener(listener, error)
+public actual fun wsResetListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetListener((listener?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetMessage(message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetMessage(message, error)
+public actual fun wsResetMessage(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetMessage((message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetMetadata(metadata: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetMetadata(metadata, error)
+public actual fun wsResetMetadata(metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetMetadata((metadata?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetServiceHost(servicehost: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetServiceHost(servicehost, error)
+public actual fun wsResetServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost((servicehost?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsResetServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsResetServiceProxy(serviceproxy, error)
+public actual fun wsResetServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy((serviceproxy?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsRevokeSecurityContext(securitycontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsRevokeSecurityContext(securitycontext, error)
+public actual fun wsRevokeSecurityContext(securitycontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext((securitycontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSendFaultMessageForError(channel: Long, replymessage: Long, faulterror: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSendFaultMessageForError(channel, replymessage, faulterror, faulterrorcode, faultdisclosure, requestmessage, asynccontext, error)
+public actual fun wsSendFaultMessageForError(channel: COpaquePointer?, replymessage: COpaquePointer?, faulterror: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError((channel?.value ?: 0L), (replymessage?.value ?: 0L), (faulterror?.value ?: 0L), faulterrorcode, faultdisclosure, (requestmessage?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSendMessage(channel: Long, message: Long, messagedescription: Long, writeoption: WS_WRITE_OPTION, bodyvalue: Long, bodyvaluesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSendMessage(channel, message, messagedescription, writeoption, bodyvalue, bodyvaluesize.toInt(), asynccontext, error)
+public actual fun wsSendMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescription: COpaquePointer?, writeoption: WsWriteOption, bodyvalue: COpaquePointer?, bodyvaluesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSendMessage((channel?.value ?: 0L), (message?.value ?: 0L), (messagedescription?.value ?: 0L), writeoption, (bodyvalue?.value ?: 0L), bodyvaluesize.toInt(), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSendReplyMessage(channel: Long, replymessage: Long, replymessagedescription: Long, writeoption: WS_WRITE_OPTION, replybodyvalue: Long, replybodyvaluesize: UInt, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSendReplyMessage(channel, replymessage, replymessagedescription, writeoption, replybodyvalue, replybodyvaluesize.toInt(), requestmessage, asynccontext, error)
+public actual fun wsSendReplyMessage(channel: COpaquePointer?, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, writeoption: WsWriteOption, replybodyvalue: COpaquePointer?, replybodyvaluesize: UInt, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage((channel?.value ?: 0L), (replymessage?.value ?: 0L), (replymessagedescription?.value ?: 0L), writeoption, (replybodyvalue?.value ?: 0L), replybodyvaluesize.toInt(), (requestmessage?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetChannelProperty(channel, id, value, valuesize.toInt(), error)
+public actual fun wsSetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty((channel?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetErrorProperty(error, id, value, valuesize.toInt())
+public actual fun wsSetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty((error?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt())
 
-public actual fun WsSetFaultErrorDetail(error: Long, faultdetaildescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorDetail(error, faultdetaildescription, writeoption, value, valuesize.toInt())
+public actual fun wsSetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail((error?.value ?: 0L), (faultdetaildescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt())
 
-public actual fun WsSetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorProperty(error, id, value, valuesize.toInt())
+public actual fun wsSetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty((error?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt())
 
-public actual fun WsSetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetHeader(message, headertype, valuetype, writeoption, value, valuesize.toInt(), error)
+public actual fun wsSetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetHeader((message?.value ?: 0L), headertype, valuetype, writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetInput(reader: Long, encoding: Long, input: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetInput(reader, encoding, input, properties, propertycount.toInt(), error)
+public actual fun wsSetInput(reader: COpaquePointer?, encoding: COpaquePointer?, input: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetInput((reader?.value ?: 0L), (encoding?.value ?: 0L), (input?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetInputToBuffer(reader: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetInputToBuffer(reader, buffer, properties, propertycount.toInt(), error)
+public actual fun wsSetInputToBuffer(reader: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer((reader?.value ?: 0L), (buffer?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetListenerProperty(listener, id, value, valuesize.toInt(), error)
+public actual fun wsSetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty((listener?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetMessageProperty(message, id, value, valuesize.toInt(), error)
+public actual fun wsSetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty((message?.value ?: 0L), id, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetOutput(writer: Long, encoding: Long, output: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetOutput(writer, encoding, output, properties, propertycount.toInt(), error)
+public actual fun wsSetOutput(writer: COpaquePointer?, encoding: COpaquePointer?, output: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetOutput((writer?.value ?: 0L), (encoding?.value ?: 0L), (output?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetOutputToBuffer(writer: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetOutputToBuffer(writer, buffer, properties, propertycount.toInt(), error)
+public actual fun wsSetOutputToBuffer(writer: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer((writer?.value ?: 0L), (buffer?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsSetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetReaderPosition(reader, nodeposition, error)
+public actual fun wsSetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition((reader?.value ?: 0L), (nodeposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSetWriterPosition(writer, nodeposition, error)
+public actual fun wsSetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition((writer?.value ?: 0L), (nodeposition?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsShutdownSessionChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsShutdownSessionChannel(channel, asynccontext, error)
+public actual fun wsShutdownSessionChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel((channel?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsSkipNode(reader: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsSkipNode(reader, error)
+public actual fun wsSkipNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsSkipNode((reader?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsStartReaderCanonicalization(reader: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsStartReaderCanonicalization(reader, writecallback.toLong(), writecallbackstate, properties, propertycount.toInt(), error)
+public actual fun wsStartReaderCanonicalization(reader: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization((reader?.value ?: 0L), 0L, (writecallbackstate?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsStartWriterCanonicalization(writer: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsStartWriterCanonicalization(writer, writecallback.toLong(), writecallbackstate, properties, propertycount.toInt(), error)
+public actual fun wsStartWriterCanonicalization(writer: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization((writer?.value ?: 0L), 0L, (writecallbackstate?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsTrimXmlWhitespace(chars: PCWSTR, charcount: UInt, trimmedchars: Long, trimmedcount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsTrimXmlWhitespace(chars, charcount.toInt(), trimmedchars, trimmedcount, error)
+public actual fun wsTrimXmlWhitespace(chars: Pcwstr, charcount: UInt, trimmedchars: COpaquePointer?, trimmedcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace((chars?.value ?: 0L), charcount.toInt(), (trimmedchars?.value ?: 0L), (trimmedcount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsVerifyXmlNCName(ncnamechars: PCWSTR, ncnamecharcount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsVerifyXmlNCName(ncnamechars, ncnamecharcount.toInt(), error)
+public actual fun wsVerifyXmlNCName(ncnamechars: Pcwstr, ncnamecharcount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName((ncnamechars?.value ?: 0L), ncnamecharcount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteArray(writer: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteArray(writer, localname, ns, valuetype, array, arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), error)
+public actual fun wsWriteArray(writer: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteArray((writer?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), valuetype, (array?.value ?: 0L), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteAttribute(writer: Long, attributedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteAttribute(writer, attributedescription, writeoption, value, valuesize.toInt(), error)
+public actual fun wsWriteAttribute(writer: COpaquePointer?, attributedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute((writer?.value ?: 0L), (attributedescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteBody(message: Long, bodydescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteBody(message, bodydescription, writeoption, value, valuesize.toInt(), error)
+public actual fun wsWriteBody(message: COpaquePointer?, bodydescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteBody((message?.value ?: 0L), (bodydescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteBytes(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteBytes(writer, bytes, bytecount.toInt(), error)
+public actual fun wsWriteBytes(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteBytes((writer?.value ?: 0L), (bytes?.value ?: 0L), bytecount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteChars(writer: Long, chars: PCWSTR, charcount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteChars(writer, chars, charcount.toInt(), error)
+public actual fun wsWriteChars(writer: COpaquePointer?, chars: Pcwstr, charcount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteChars((writer?.value ?: 0L), (chars?.value ?: 0L), charcount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteCharsUtf8(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteCharsUtf8(writer, bytes, bytecount.toInt(), error)
+public actual fun wsWriteCharsUtf8(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8((writer?.value ?: 0L), (bytes?.value ?: 0L), bytecount.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteElement(writer: Long, elementdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteElement(writer, elementdescription, writeoption, value, valuesize.toInt(), error)
+public actual fun wsWriteElement(writer: COpaquePointer?, elementdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteElement((writer?.value ?: 0L), (elementdescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteEndAttribute(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEndAttribute(writer, error)
+public actual fun wsWriteEndAttribute(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteEndCData(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEndCData(writer, error)
+public actual fun wsWriteEndCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteEndElement(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEndElement(writer, error)
+public actual fun wsWriteEndElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteEndStartElement(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEndStartElement(writer, error)
+public actual fun wsWriteEndStartElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteEnvelopeEnd(message: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeEnd(message, error)
+public actual fun wsWriteEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd((message?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteEnvelopeStart(message: Long, writer: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeStart(message, writer, donecallback.toLong(), donecallbackstate, error)
+public actual fun wsWriteEnvelopeStart(message: COpaquePointer?, writer: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart((message?.value ?: 0L), (writer?.value ?: 0L), 0L, (donecallbackstate?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageEnd(channel, message, asynccontext, error)
+public actual fun wsWriteMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd((channel?.value ?: 0L), (message?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageStart(channel, message, asynccontext, error)
+public actual fun wsWriteMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart((channel?.value ?: 0L), (message?.value ?: 0L), (asynccontext?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteNode(writer: Long, node: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteNode(writer, node, error)
+public actual fun wsWriteNode(writer: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteNode((writer?.value ?: 0L), (node?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteQualifiedName(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteQualifiedName(writer, prefix, localname, ns, error)
+public actual fun wsWriteQualifiedName(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName((writer?.value ?: 0L), (prefix?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteStartAttribute(writer: Long, prefix: Long, localname: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteStartAttribute(writer, prefix, localname, ns, singlequote, error)
+public actual fun wsWriteStartAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute((writer?.value ?: 0L), (prefix?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), singlequote, (error?.value ?: 0L))
 
-public actual fun WsWriteStartCData(writer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteStartCData(writer, error)
+public actual fun wsWriteStartCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData((writer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteStartElement(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteStartElement(writer, prefix, localname, ns, error)
+public actual fun wsWriteStartElement(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement((writer?.value ?: 0L), (prefix?.value ?: 0L), (localname?.value ?: 0L), (ns?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteText(writer: Long, text: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteText(writer, text, error)
+public actual fun wsWriteText(writer: COpaquePointer?, text: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteText((writer?.value ?: 0L), (text?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteType(writer: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteType(writer, typemapping, type, typedescription, writeoption, value, valuesize.toInt(), error)
+public actual fun wsWriteType(writer: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteType((writer?.value ?: 0L), typemapping, type, (typedescription?.value ?: 0L), writeoption, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteValue(writer: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteValue(writer, valuetype, value, valuesize.toInt(), error)
+public actual fun wsWriteValue(writer: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteValue((writer?.value ?: 0L), valuetype, (value?.value ?: 0L), valuesize.toInt(), (error?.value ?: 0L))
 
-public actual fun WsWriteXmlBuffer(writer: Long, xmlbuffer: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBuffer(writer, xmlbuffer, error)
+public actual fun wsWriteXmlBuffer(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer((writer?.value ?: 0L), (xmlbuffer?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteXmlBufferToBytes(writer: Long, xmlbuffer: Long, encoding: Long, properties: Long, propertycount: UInt, heap: Long, bytes: Long, bytecount: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBufferToBytes(writer, xmlbuffer, encoding, properties, propertycount.toInt(), heap, bytes, bytecount, error)
+public actual fun wsWriteXmlBufferToBytes(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, bytes: COpaquePointer?, bytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes((writer?.value ?: 0L), (xmlbuffer?.value ?: 0L), (encoding?.value ?: 0L), (properties?.value ?: 0L), propertycount.toInt(), (heap?.value ?: 0L), (bytes?.value ?: 0L), (bytecount?.value ?: 0L), (error?.value ?: 0L))
 
-public actual fun WsWriteXmlnsAttribute(writer: Long, prefix: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlnsAttribute(writer, prefix, ns, singlequote, error)
+public actual fun wsWriteXmlnsAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute((writer?.value ?: 0L), (prefix?.value ?: 0L), (ns?.value ?: 0L), singlequote, (error?.value ?: 0L))
 
-public actual fun WsXmlStringEquals(string1: Long, string2: Long, error: Long): HRESULT =
-    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_WsXmlStringEquals(string1, string2, error)
+public actual fun wsXmlStringEquals(string1: COpaquePointer?, string2: COpaquePointer?, error: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWindowswebservicesJniBridge.windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals((string1?.value ?: 0L), (string2?.value ?: 0L), (error?.value ?: 0L))

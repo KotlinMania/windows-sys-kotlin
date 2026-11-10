@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.recovery
 
-public val RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = 1u
+public val RESTART_NO_CRASH: RegisterApplicationRestartFlags = 1u
 
-public val RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = 2u
+public val RESTART_NO_HANG: RegisterApplicationRestartFlags = 2u
 
-public val RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = 4u
+public val RESTART_NO_PATCH: RegisterApplicationRestartFlags = 4u
 
-public val RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = 8u
+public val RESTART_NO_REBOOT: RegisterApplicationRestartFlags = 8u

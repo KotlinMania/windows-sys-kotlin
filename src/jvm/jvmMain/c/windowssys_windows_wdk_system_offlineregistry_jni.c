@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORCloseHive(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRCloseHive(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORCloseKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRCloseKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORCreateHive(JNIEnv* km_env, jclass km_clazz, jlong horkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRCreateHive(JNIEnv* km_env, jclass km_clazz, jlong horkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORCreateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong lpsubkey, jlong lpclass, jint dwoptions, jlong psecuritydescriptor, jlong phkresult, jlong pdwdisposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRCreateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong lpsubkey, jlong lpclass, jint dwoptions, jlong psecuritydescriptor, jlong phkresult, jlong pdwdisposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORDeleteValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRDeleteValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -134,7 +134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1OREnumKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwindex, jlong lpname, jlong lpcname, jlong lpclass, jlong lpcclass, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oREnumKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwindex, jlong lpname, jlong lpcname, jlong lpclass, jlong lpcclass, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -158,7 +158,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1OREnumValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwindex, jlong lpvaluename, jlong lpcvaluename, jlong lptype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oREnumValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwindex, jlong lpvaluename, jlong lpcvaluename, jlong lptype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong handle, jint securityinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong handle, jint securityinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORGetValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey, jlong lpvalue, jlong pdwtype, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRGetValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey, jlong lpvalue, jlong pdwtype, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -226,7 +226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORGetVersion(JNIEnv* km_env, jclass km_clazz, jlong pdwmajorversion, jlong pdwminorversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRGetVersion(JNIEnv* km_env, jclass km_clazz, jlong pdwmajorversion, jlong pdwminorversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -245,7 +245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORGetVirtualFlags(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRGetVirtualFlags(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORMergeHives(JNIEnv* km_env, jclass km_clazz, jlong hivehandles, jint hivecount, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRMergeHives(JNIEnv* km_env, jclass km_clazz, jlong hivehandles, jint hivecount, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1OROpenHive(JNIEnv* km_env, jclass km_clazz, jlong filepath, jlong horkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oROpenHive(JNIEnv* km_env, jclass km_clazz, jlong filepath, jlong horkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1OROpenHiveByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong horkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oROpenHiveByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong horkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -322,7 +322,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1OROpenKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oROpenKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpsubkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORQueryInfoKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpclass, jlong lpcclass, jlong lpcsubkeys, jlong lpcmaxsubkeylen, jlong lpcmaxclasslen, jlong lpcvalues, jlong lpcmaxvaluenamelen, jlong lpcmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRQueryInfoKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpclass, jlong lpcclass, jlong lpcsubkeys, jlong lpcmaxsubkeylen, jlong lpcmaxclasslen, jlong lpcvalues, jlong lpcmaxvaluenamelen, jlong lpcmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORRenameKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpnewname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRRenameKey(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpnewname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORSaveHive(JNIEnv* km_env, jclass km_clazz, jlong horkey, jlong hivepath, jint osmajorversion, jint osminorversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRSaveHive(JNIEnv* km_env, jclass km_clazz, jlong horkey, jlong hivepath, jint osmajorversion, jint osminorversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -410,7 +410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong handle, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong handle, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -430,7 +430,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORSetValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRSetValue(JNIEnv* km_env, jclass km_clazz, jlong handle, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -452,7 +452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORSetVirtualFlags(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRSetVirtualFlags(JNIEnv* km_env, jclass km_clazz, jlong handle, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -488,7 +488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1ORStart(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_offlineregistry_WindowsWdkSystemOfflineregistryJniBridge_windowssys_1windows_1wdk_1system_1offlineregistry_1oRStart(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,807 +1,808 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public expect fun AbortPath(hdc: HDC): BOOL
+public expect fun abortPath(hdc: Hdc): Bool
 
-public expect fun AddFontMemResourceEx(pfileview: Long, cjsize: UInt, pvresrved: Long, pnumfonts: Long): HANDLE
+public expect fun addFontMemResourceEx(pfileview: COpaquePointer?, cjsize: UInt, pvresrved: COpaquePointer?, pnumfonts: COpaquePointer?): Handle
 
-public expect fun AddFontResourceA(param0: PCSTR): Int
+public expect fun addFontResourceA(param0: Pcstr): Int
 
-public expect fun AddFontResourceExA(name: PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int
+public expect fun addFontResourceExA(name: Pcstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int
 
-public expect fun AddFontResourceExW(name: PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int
+public expect fun addFontResourceExW(name: Pcwstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int
 
-public expect fun AddFontResourceW(param0: PCWSTR): Int
+public expect fun addFontResourceW(param0: Pcwstr): Int
 
-public expect fun AlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL
+public expect fun alphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool
 
-public expect fun AngleArc(hdc: HDC, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): BOOL
+public expect fun angleArc(hdc: Hdc, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): Bool
 
-public expect fun AnimatePalette(hpal: HPALETTE, istartindex: UInt, centries: UInt, ppe: Long): BOOL
+public expect fun animatePalette(hpal: Hpalette, istartindex: UInt, centries: UInt, ppe: COpaquePointer?): Bool
 
-public expect fun Arc(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL
+public expect fun arc(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool
 
-public expect fun ArcTo(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL
+public expect fun arcTo(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool
 
-public expect fun BeginPaint(hwnd: HWND, lppaint: Long): HDC
+public expect fun beginPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Hdc
 
-public expect fun BeginPath(hdc: HDC): BOOL
+public expect fun beginPath(hdc: Hdc): Bool
 
-public expect fun BitBlt(hdc: HDC, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: HDC, x1: Int, y1: Int, rop: ROP_CODE): BOOL
+public expect fun bitBlt(hdc: Hdc, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Hdc, x1: Int, y1: Int, rop: RopCode): Bool
 
-public expect fun CancelDC(hdc: HDC): BOOL
+public expect fun cancelDC(hdc: Hdc): Bool
 
-public expect fun ChangeDisplaySettingsA(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE
+public expect fun changeDisplaySettingsA(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange
 
-public expect fun ChangeDisplaySettingsExA(lpszdevicename: PCSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE
+public expect fun changeDisplaySettingsExA(lpszdevicename: Pcstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange
 
-public expect fun ChangeDisplaySettingsExW(lpszdevicename: PCWSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE
+public expect fun changeDisplaySettingsExW(lpszdevicename: Pcwstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange
 
-public expect fun ChangeDisplaySettingsW(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE
+public expect fun changeDisplaySettingsW(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange
 
-public expect fun Chord(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL
+public expect fun chord(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool
 
-public expect fun ClientToScreen(hwnd: HWND, lppoint: Long): BOOL
+public expect fun clientToScreen(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun CloseEnhMetaFile(hdc: HDC): HENHMETAFILE
+public expect fun closeEnhMetaFile(hdc: Hdc): Henhmetafile
 
-public expect fun CloseFigure(hdc: HDC): BOOL
+public expect fun closeFigure(hdc: Hdc): Bool
 
-public expect fun CloseMetaFile(hdc: HDC): HMETAFILE
+public expect fun closeMetaFile(hdc: Hdc): Hmetafile
 
-public expect fun CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE): GDI_REGION_TYPE
+public expect fun combineRgn(hrgndst: Hrgn, hrgnsrc1: Hrgn, hrgnsrc2: Hrgn, imode: RgnCombineMode): GdiRegionType
 
-public expect fun CombineTransform(lpxfout: Long, lpxf1: Long, lpxf2: Long): BOOL
+public expect fun combineTransform(lpxfout: COpaquePointer?, lpxf1: COpaquePointer?, lpxf2: COpaquePointer?): Bool
 
-public expect fun CopyEnhMetaFileA(henh: HENHMETAFILE, lpfilename: PCSTR): HENHMETAFILE
+public expect fun copyEnhMetaFileA(henh: Henhmetafile, lpfilename: Pcstr): Henhmetafile
 
-public expect fun CopyEnhMetaFileW(henh: HENHMETAFILE, lpfilename: PCWSTR): HENHMETAFILE
+public expect fun copyEnhMetaFileW(henh: Henhmetafile, lpfilename: Pcwstr): Henhmetafile
 
-public expect fun CopyMetaFileA(param0: HMETAFILE, param1: PCSTR): HMETAFILE
+public expect fun copyMetaFileA(param0: Hmetafile, param1: Pcstr): Hmetafile
 
-public expect fun CopyMetaFileW(param0: HMETAFILE, param1: PCWSTR): HMETAFILE
+public expect fun copyMetaFileW(param0: Hmetafile, param1: Pcwstr): Hmetafile
 
-public expect fun CopyRect(lprcdst: Long, lprcsrc: Long): BOOL
+public expect fun copyRect(lprcdst: COpaquePointer?, lprcsrc: COpaquePointer?): Bool
 
-public expect fun CreateBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: Long): HBITMAP
+public expect fun createBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: COpaquePointer?): Hbitmap
 
-public expect fun CreateBitmapIndirect(pbm: Long): HBITMAP
+public expect fun createBitmapIndirect(pbm: COpaquePointer?): Hbitmap
 
-public expect fun CreateBrushIndirect(plbrush: Long): HBRUSH
+public expect fun createBrushIndirect(plbrush: COpaquePointer?): Hbrush
 
-public expect fun CreateCompatibleBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP
+public expect fun createCompatibleBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap
 
-public expect fun CreateCompatibleDC(hdc: HDC): HDC
+public expect fun createCompatibleDC(hdc: Hdc): Hdc
 
-public expect fun CreateDCA(pwszdriver: PCSTR, pwszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC
+public expect fun createDCA(pwszdriver: Pcstr, pwszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc
 
-public expect fun CreateDCW(pwszdriver: PCWSTR, pwszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC
+public expect fun createDCW(pwszdriver: Pcwstr, pwszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc
 
-public expect fun CreateDIBPatternBrush(h: HGLOBAL, iusage: DIB_USAGE): HBRUSH
+public expect fun createDIBPatternBrush(h: Hglobal, iusage: DibUsage): Hbrush
 
-public expect fun CreateDIBPatternBrushPt(lppackeddib: Long, iusage: DIB_USAGE): HBRUSH
+public expect fun createDIBPatternBrushPt(lppackeddib: COpaquePointer?, iusage: DibUsage): Hbrush
 
-public expect fun CreateDIBSection(hdc: HDC, pbmi: Long, usage: DIB_USAGE, ppvbits: Long, hsection: HANDLE, offset: UInt): HBITMAP
+public expect fun createDIBSection(hdc: Hdc, pbmi: COpaquePointer?, usage: DibUsage, ppvbits: COpaquePointer?, hsection: Handle, offset: UInt): Hbitmap
 
-public expect fun CreateDIBitmap(hdc: HDC, pbmih: Long, flinit: UInt, pjbits: Long, pbmi: Long, iusage: DIB_USAGE): HBITMAP
+public expect fun createDIBitmap(hdc: Hdc, pbmih: COpaquePointer?, flinit: UInt, pjbits: COpaquePointer?, pbmi: COpaquePointer?, iusage: DibUsage): Hbitmap
 
-public expect fun CreateDiscardableBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP
+public expect fun createDiscardableBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap
 
-public expect fun CreateEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN
+public expect fun createEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn
 
-public expect fun CreateEllipticRgnIndirect(lprect: Long): HRGN
+public expect fun createEllipticRgnIndirect(lprect: COpaquePointer?): Hrgn
 
-public expect fun CreateEnhMetaFileA(hdc: HDC, lpfilename: PCSTR, lprc: Long, lpdesc: PCSTR): HDC
+public expect fun createEnhMetaFileA(hdc: Hdc, lpfilename: Pcstr, lprc: COpaquePointer?, lpdesc: Pcstr): Hdc
 
-public expect fun CreateEnhMetaFileW(hdc: HDC, lpfilename: PCWSTR, lprc: Long, lpdesc: PCWSTR): HDC
+public expect fun createEnhMetaFileW(hdc: Hdc, lpfilename: Pcwstr, lprc: COpaquePointer?, lpdesc: Pcwstr): Hdc
 
-public expect fun CreateFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCSTR): HFONT
+public expect fun createFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcstr): Hfont
 
-public expect fun CreateFontIndirectA(lplf: Long): HFONT
+public expect fun createFontIndirectA(lplf: COpaquePointer?): Hfont
 
-public expect fun CreateFontIndirectExA(param0: Long): HFONT
+public expect fun createFontIndirectExA(param0: COpaquePointer?): Hfont
 
-public expect fun CreateFontIndirectExW(param0: Long): HFONT
+public expect fun createFontIndirectExW(param0: COpaquePointer?): Hfont
 
-public expect fun CreateFontIndirectW(lplf: Long): HFONT
+public expect fun createFontIndirectW(lplf: COpaquePointer?): Hfont
 
-public expect fun CreateFontPackage(puchsrcbuffer: Long, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: Long, pulfontpackagebuffersize: Long, pulbyteswritten: Long, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: Long, ussubsetlistcount: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt
+public expect fun createFontPackage(puchsrcbuffer: COpaquePointer?, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: COpaquePointer?, pulfontpackagebuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CreateFontPackageSubsetPlatform, ussubsetencoding: CreateFontPackageSubsetEncoding, pussubsetkeeplist: COpaquePointer?, ussubsetlistcount: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt
 
-public expect fun CreateFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCWSTR): HFONT
+public expect fun createFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcwstr): Hfont
 
-public expect fun CreateHalftonePalette(hdc: HDC): HPALETTE
+public expect fun createHalftonePalette(hdc: Hdc): Hpalette
 
-public expect fun CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: COLORREF): HBRUSH
+public expect fun createHatchBrush(ihatch: HatchBrushStyle, color: Colorref): Hbrush
 
-public expect fun CreateICA(pszdriver: PCSTR, pszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC
+public expect fun createICA(pszdriver: Pcstr, pszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc
 
-public expect fun CreateICW(pszdriver: PCWSTR, pszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC
+public expect fun createICW(pszdriver: Pcwstr, pszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc
 
-public expect fun CreateMetaFileA(pszfile: PCSTR): HDC
+public expect fun createMetaFileA(pszfile: Pcstr): Hdc
 
-public expect fun CreateMetaFileW(pszfile: PCWSTR): HDC
+public expect fun createMetaFileW(pszfile: Pcwstr): Hdc
 
-public expect fun CreatePalette(plpal: Long): HPALETTE
+public expect fun createPalette(plpal: COpaquePointer?): Hpalette
 
-public expect fun CreatePatternBrush(hbm: HBITMAP): HBRUSH
+public expect fun createPatternBrush(hbm: Hbitmap): Hbrush
 
-public expect fun CreatePen(istyle: PEN_STYLE, cwidth: Int, color: COLORREF): HPEN
+public expect fun createPen(istyle: PenStyle, cwidth: Int, color: Colorref): Hpen
 
-public expect fun CreatePenIndirect(plpen: Long): HPEN
+public expect fun createPenIndirect(plpen: COpaquePointer?): Hpen
 
-public expect fun CreatePolyPolygonRgn(pptl: Long, pc: Long, cpoly: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN
+public expect fun createPolyPolygonRgn(pptl: COpaquePointer?, pc: COpaquePointer?, cpoly: Int, imode: CreatePolygonRgnMode): Hrgn
 
-public expect fun CreatePolygonRgn(pptl: Long, cpoint: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN
+public expect fun createPolygonRgn(pptl: COpaquePointer?, cpoint: Int, imode: CreatePolygonRgnMode): Hrgn
 
-public expect fun CreateRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN
+public expect fun createRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn
 
-public expect fun CreateRectRgnIndirect(lprect: Long): HRGN
+public expect fun createRectRgnIndirect(lprect: COpaquePointer?): Hrgn
 
-public expect fun CreateRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): HRGN
+public expect fun createRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Hrgn
 
-public expect fun CreateScalableFontResourceA(fdwhidden: UInt, lpszfont: PCSTR, lpszfile: PCSTR, lpszpath: PCSTR): BOOL
+public expect fun createScalableFontResourceA(fdwhidden: UInt, lpszfont: Pcstr, lpszfile: Pcstr, lpszpath: Pcstr): Bool
 
-public expect fun CreateScalableFontResourceW(fdwhidden: UInt, lpszfont: PCWSTR, lpszfile: PCWSTR, lpszpath: PCWSTR): BOOL
+public expect fun createScalableFontResourceW(fdwhidden: UInt, lpszfont: Pcwstr, lpszfile: Pcwstr, lpszpath: Pcwstr): Bool
 
-public expect fun CreateSolidBrush(color: COLORREF): HBRUSH
+public expect fun createSolidBrush(color: Colorref): Hbrush
 
-public expect fun DPtoLP(hdc: HDC, lppt: Long, c: Int): BOOL
+public expect fun dPtoLP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool
 
-public expect fun DeleteDC(hdc: HDC): BOOL
+public expect fun deleteDC(hdc: Hdc): Bool
 
-public expect fun DeleteEnhMetaFile(hmf: HENHMETAFILE): BOOL
+public expect fun deleteEnhMetaFile(hmf: Henhmetafile): Bool
 
-public expect fun DeleteMetaFile(hmf: HMETAFILE): BOOL
+public expect fun deleteMetaFile(hmf: Hmetafile): Bool
 
-public expect fun DeleteObject(ho: HGDIOBJ): BOOL
+public expect fun deleteObject(ho: Hgdiobj): Bool
 
-public expect fun DrawAnimatedRects(hwnd: HWND, idani: Int, lprcfrom: Long, lprcto: Long): BOOL
+public expect fun drawAnimatedRects(hwnd: Hwnd, idani: Int, lprcfrom: COpaquePointer?, lprcto: COpaquePointer?): Bool
 
-public expect fun DrawCaption(hwnd: HWND, hdc: HDC, lprect: Long, flags: DRAW_CAPTION_FLAGS): BOOL
+public expect fun drawCaption(hwnd: Hwnd, hdc: Hdc, lprect: COpaquePointer?, flags: DrawCaptionFlags): Bool
 
-public expect fun DrawEdge(hdc: HDC, qrc: Long, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS): BOOL
+public expect fun drawEdge(hdc: Hdc, qrc: COpaquePointer?, edge: DrawedgeFlags, grfflags: DrawEdgeFlags): Bool
 
-public expect fun DrawEscape(hdc: HDC, iescape: Int, cjin: Int, lpin: PCSTR): Int
+public expect fun drawEscape(hdc: Hdc, iescape: Int, cjin: Int, lpin: Pcstr): Int
 
-public expect fun DrawFocusRect(hdc: HDC, lprc: Long): BOOL
+public expect fun drawFocusRect(hdc: Hdc, lprc: COpaquePointer?): Bool
 
-public expect fun DrawFrameControl(param0: HDC, param1: Long, param2: DFC_TYPE, param3: DFCS_STATE): BOOL
+public expect fun drawFrameControl(param0: Hdc, param1: COpaquePointer?, param2: DfcType, param3: DfcsState): Bool
 
-public expect fun DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL
+public expect fun drawStateA(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool
 
-public expect fun DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL
+public expect fun drawStateW(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool
 
-public expect fun DrawTextA(hdc: HDC, lpchtext: PCSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int
+public expect fun drawTextA(hdc: Hdc, lpchtext: Pcstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int
 
-public expect fun DrawTextExA(hdc: HDC, lpchtext: PSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int
+public expect fun drawTextExA(hdc: Hdc, lpchtext: Pstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int
 
-public expect fun DrawTextExW(hdc: HDC, lpchtext: PWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int
+public expect fun drawTextExW(hdc: Hdc, lpchtext: Pwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int
 
-public expect fun DrawTextW(hdc: HDC, lpchtext: PCWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int
+public expect fun drawTextW(hdc: Hdc, lpchtext: Pcwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int
 
-public expect fun Ellipse(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL
+public expect fun ellipse(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool
 
-public expect fun EndPaint(hwnd: HWND, lppaint: Long): BOOL
+public expect fun endPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Bool
 
-public expect fun EndPath(hdc: HDC): BOOL
+public expect fun endPath(hdc: Hdc): Bool
 
-public expect fun EnumDisplayDevicesA(lpdevice: PCSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL
+public expect fun enumDisplayDevicesA(lpdevice: Pcstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool
 
-public expect fun EnumDisplayDevicesW(lpdevice: PCWSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL
+public expect fun enumDisplayDevicesW(lpdevice: Pcwstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool
 
-public expect fun EnumDisplayMonitors(hdc: HDC, lprcclip: Long, lpfnenum: MONITORENUMPROC, dwdata: LPARAM): BOOL
+public expect fun enumDisplayMonitors(hdc: Hdc, lprcclip: COpaquePointer?, lpfnenum: Monitorenumproc, dwdata: Lparam): Bool
 
-public expect fun EnumDisplaySettingsA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL
+public expect fun enumDisplaySettingsA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool
 
-public expect fun EnumDisplaySettingsExA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL
+public expect fun enumDisplaySettingsExA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool
 
-public expect fun EnumDisplaySettingsExW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL
+public expect fun enumDisplaySettingsExW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool
 
-public expect fun EnumDisplaySettingsW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL
+public expect fun enumDisplaySettingsW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool
 
-public expect fun EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: Long, lprect: Long): BOOL
+public expect fun enumEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, proc: Enhmfenumproc, param3: COpaquePointer?, lprect: COpaquePointer?): Bool
 
-public expect fun EnumFontFamiliesA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int
+public expect fun enumFontFamiliesA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int
 
-public expect fun EnumFontFamiliesExA(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCA, lparam: LPARAM, dwflags: UInt): Int
+public expect fun enumFontFamiliesExA(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumproca, lparam: Lparam, dwflags: UInt): Int
 
-public expect fun EnumFontFamiliesExW(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCW, lparam: LPARAM, dwflags: UInt): Int
+public expect fun enumFontFamiliesExW(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumprocw, lparam: Lparam, dwflags: UInt): Int
 
-public expect fun EnumFontFamiliesW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int
+public expect fun enumFontFamiliesW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int
 
-public expect fun EnumFontsA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int
+public expect fun enumFontsA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int
 
-public expect fun EnumFontsW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int
+public expect fun enumFontsW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int
 
-public expect fun EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: LPARAM): BOOL
+public expect fun enumMetaFile(hdc: Hdc, hmf: Hmetafile, proc: Mfenumproc, param3: Lparam): Bool
 
-public expect fun EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: LPARAM): Int
+public expect fun enumObjects(hdc: Hdc, ntype: ObjType, lpfunc: Gobjenumproc, lparam: Lparam): Int
 
-public expect fun EqualRect(lprc1: Long, lprc2: Long): BOOL
+public expect fun equalRect(lprc1: COpaquePointer?, lprc2: COpaquePointer?): Bool
 
-public expect fun EqualRgn(hrgn1: HRGN, hrgn2: HRGN): BOOL
+public expect fun equalRgn(hrgn1: Hrgn, hrgn2: Hrgn): Bool
 
-public expect fun ExcludeClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE
+public expect fun excludeClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType
 
-public expect fun ExcludeUpdateRgn(hdc: HDC, hwnd: HWND): Int
+public expect fun excludeUpdateRgn(hdc: Hdc, hwnd: Hwnd): Int
 
-public expect fun ExtCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: Long, cstyle: UInt, pstyle: Long): HPEN
+public expect fun extCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: COpaquePointer?, cstyle: UInt, pstyle: COpaquePointer?): Hpen
 
-public expect fun ExtCreateRegion(lpx: Long, ncount: UInt, lpdata: Long): HRGN
+public expect fun extCreateRegion(lpx: COpaquePointer?, ncount: UInt, lpdata: COpaquePointer?): Hrgn
 
-public expect fun ExtFloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF, type: EXT_FLOOD_FILL_TYPE): BOOL
+public expect fun extFloodFill(hdc: Hdc, x: Int, y: Int, color: Colorref, type: ExtFloodFillType): Bool
 
-public expect fun ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE): GDI_REGION_TYPE
+public expect fun extSelectClipRgn(hdc: Hdc, hrgn: Hrgn, mode: RgnCombineMode): GdiRegionType
 
-public expect fun ExtTextOutA(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCSTR, c: UInt, lpdx: Long): BOOL
+public expect fun extTextOutA(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcstr, c: UInt, lpdx: COpaquePointer?): Bool
 
-public expect fun ExtTextOutW(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCWSTR, c: UInt, lpdx: Long): BOOL
+public expect fun extTextOutW(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcwstr, c: UInt, lpdx: COpaquePointer?): Bool
 
-public expect fun FillPath(hdc: HDC): BOOL
+public expect fun fillPath(hdc: Hdc): Bool
 
-public expect fun FillRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int
+public expect fun fillRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int
 
-public expect fun FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH): BOOL
+public expect fun fillRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush): Bool
 
-public expect fun FixBrushOrgEx(hdc: HDC, x: Int, y: Int, ptl: Long): BOOL
+public expect fun fixBrushOrgEx(hdc: Hdc, x: Int, y: Int, ptl: COpaquePointer?): Bool
 
-public expect fun FlattenPath(hdc: HDC): BOOL
+public expect fun flattenPath(hdc: Hdc): Bool
 
-public expect fun FloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL
+public expect fun floodFill(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool
 
-public expect fun FrameRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int
+public expect fun frameRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int
 
-public expect fun FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: Int, h: Int): BOOL
+public expect fun frameRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush, w: Int, h: Int): Bool
 
-public expect fun GdiAlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL
+public expect fun gdiAlphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool
 
-public expect fun GdiComment(hdc: HDC, nsize: UInt, lpdata: Long): BOOL
+public expect fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: COpaquePointer?): Bool
 
-public expect fun GdiFlush(): BOOL
+public expect fun gdiFlush(): Bool
 
-public expect fun GdiGetBatchLimit(): UInt
+public expect fun gdiGetBatchLimit(): UInt
 
-public expect fun GdiGradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, ncount: UInt, ulmode: GRADIENT_FILL): BOOL
+public expect fun gdiGradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, ncount: UInt, ulmode: GradientFill): Bool
 
-public expect fun GdiSetBatchLimit(dw: UInt): UInt
+public expect fun gdiSetBatchLimit(dw: UInt): UInt
 
-public expect fun GdiTransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL
+public expect fun gdiTransparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool
 
-public expect fun GetArcDirection(hdc: HDC): Int
+public expect fun getArcDirection(hdc: Hdc): Int
 
-public expect fun GetAspectRatioFilterEx(hdc: HDC, lpsize: Long): BOOL
+public expect fun getAspectRatioFilterEx(hdc: Hdc, lpsize: COpaquePointer?): Bool
 
-public expect fun GetBitmapBits(hbit: HBITMAP, cb: Int, lpvbits: Long): Int
+public expect fun getBitmapBits(hbit: Hbitmap, cb: Int, lpvbits: COpaquePointer?): Int
 
-public expect fun GetBitmapDimensionEx(hbit: HBITMAP, lpsize: Long): BOOL
+public expect fun getBitmapDimensionEx(hbit: Hbitmap, lpsize: COpaquePointer?): Bool
 
-public expect fun GetBkColor(hdc: HDC): COLORREF
+public expect fun getBkColor(hdc: Hdc): Colorref
 
-public expect fun GetBkMode(hdc: HDC): Int
+public expect fun getBkMode(hdc: Hdc): Int
 
-public expect fun GetBoundsRect(hdc: HDC, lprect: Long, flags: UInt): UInt
+public expect fun getBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: UInt): UInt
 
-public expect fun GetBrushOrgEx(hdc: HDC, lppt: Long): BOOL
+public expect fun getBrushOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool
 
-public expect fun GetCharABCWidthsA(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL
+public expect fun getCharABCWidthsA(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool
 
-public expect fun GetCharABCWidthsFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL
+public expect fun getCharABCWidthsFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool
 
-public expect fun GetCharABCWidthsFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL
+public expect fun getCharABCWidthsFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool
 
-public expect fun GetCharABCWidthsI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, pabc: Long): BOOL
+public expect fun getCharABCWidthsI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, pabc: COpaquePointer?): Bool
 
-public expect fun GetCharABCWidthsW(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL
+public expect fun getCharABCWidthsW(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool
 
-public expect fun GetCharWidth32A(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidth32A(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharWidth32W(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidth32W(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharWidthA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidthA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharWidthFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidthFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharWidthFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidthFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharWidthI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, piwidths: Long): BOOL
+public expect fun getCharWidthI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, piwidths: COpaquePointer?): Bool
 
-public expect fun GetCharWidthW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL
+public expect fun getCharWidthW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool
 
-public expect fun GetCharacterPlacementA(hdc: HDC, lpstring: PCSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt
+public expect fun getCharacterPlacementA(hdc: Hdc, lpstring: Pcstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt
 
-public expect fun GetCharacterPlacementW(hdc: HDC, lpstring: PCWSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt
+public expect fun getCharacterPlacementW(hdc: Hdc, lpstring: Pcwstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt
 
-public expect fun GetClipBox(hdc: HDC, lprect: Long): GDI_REGION_TYPE
+public expect fun getClipBox(hdc: Hdc, lprect: COpaquePointer?): GdiRegionType
 
-public expect fun GetClipRgn(hdc: HDC, hrgn: HRGN): Int
+public expect fun getClipRgn(hdc: Hdc, hrgn: Hrgn): Int
 
-public expect fun GetColorAdjustment(hdc: HDC, lpca: Long): BOOL
+public expect fun getColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool
 
-public expect fun GetCurrentObject(hdc: HDC, type: UInt): HGDIOBJ
+public expect fun getCurrentObject(hdc: Hdc, type: UInt): Hgdiobj
 
-public expect fun GetCurrentPositionEx(hdc: HDC, lppt: Long): BOOL
+public expect fun getCurrentPositionEx(hdc: Hdc, lppt: COpaquePointer?): Bool
 
-public expect fun GetDC(hwnd: HWND): HDC
+public expect fun getDC(hwnd: Hwnd): Hdc
 
-public expect fun GetDCBrushColor(hdc: HDC): COLORREF
+public expect fun getDCBrushColor(hdc: Hdc): Colorref
 
-public expect fun GetDCEx(hwnd: HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS): HDC
+public expect fun getDCEx(hwnd: Hwnd, hrgnclip: Hrgn, flags: GetDcxFlags): Hdc
 
-public expect fun GetDCOrgEx(hdc: HDC, lppt: Long): BOOL
+public expect fun getDCOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool
 
-public expect fun GetDCPenColor(hdc: HDC): COLORREF
+public expect fun getDCPenColor(hdc: Hdc): Colorref
 
-public expect fun GetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt
+public expect fun getDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt
 
-public expect fun GetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, usage: DIB_USAGE): Int
+public expect fun getDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, usage: DibUsage): Int
 
-public expect fun GetDeviceCaps(hdc: HDC, index: Int): Int
+public expect fun getDeviceCaps(hdc: Hdc, index: Int): Int
 
-public expect fun GetEnhMetaFileA(lpname: PCSTR): HENHMETAFILE
+public expect fun getEnhMetaFileA(lpname: Pcstr): Henhmetafile
 
-public expect fun GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: UInt, lpdata: Long): UInt
+public expect fun getEnhMetaFileBits(hemf: Henhmetafile, nsize: UInt, lpdata: COpaquePointer?): UInt
 
-public expect fun GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PSTR): UInt
+public expect fun getEnhMetaFileDescriptionA(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pstr): UInt
 
-public expect fun GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PWSTR): UInt
+public expect fun getEnhMetaFileDescriptionW(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pwstr): UInt
 
-public expect fun GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: UInt, lpenhmetaheader: Long): UInt
+public expect fun getEnhMetaFileHeader(hemf: Henhmetafile, nsize: UInt, lpenhmetaheader: COpaquePointer?): UInt
 
-public expect fun GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nnumentries: UInt, lppaletteentries: Long): UInt
+public expect fun getEnhMetaFilePaletteEntries(hemf: Henhmetafile, nnumentries: UInt, lppaletteentries: COpaquePointer?): UInt
 
-public expect fun GetEnhMetaFileW(lpname: PCWSTR): HENHMETAFILE
+public expect fun getEnhMetaFileW(lpname: Pcwstr): Henhmetafile
 
-public expect fun GetFontData(hdc: HDC, dwtable: UInt, dwoffset: UInt, pvbuffer: Long, cjbuffer: UInt): UInt
+public expect fun getFontData(hdc: Hdc, dwtable: UInt, dwoffset: UInt, pvbuffer: COpaquePointer?, cjbuffer: UInt): UInt
 
-public expect fun GetFontLanguageInfo(hdc: HDC): UInt
+public expect fun getFontLanguageInfo(hdc: Hdc): UInt
 
-public expect fun GetFontUnicodeRanges(hdc: HDC, lpgs: Long): UInt
+public expect fun getFontUnicodeRanges(hdc: Hdc, lpgs: COpaquePointer?): UInt
 
-public expect fun GetGlyphIndicesA(hdc: HDC, lpstr: PCSTR, c: Int, pgi: Long, fl: UInt): UInt
+public expect fun getGlyphIndicesA(hdc: Hdc, lpstr: Pcstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt
 
-public expect fun GetGlyphIndicesW(hdc: HDC, lpstr: PCWSTR, c: Int, pgi: Long, fl: UInt): UInt
+public expect fun getGlyphIndicesW(hdc: Hdc, lpstr: Pcwstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt
 
-public expect fun GetGlyphOutlineA(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt
+public expect fun getGlyphOutlineA(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt
 
-public expect fun GetGlyphOutlineW(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt
+public expect fun getGlyphOutlineW(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt
 
-public expect fun GetGraphicsMode(hdc: HDC): Int
+public expect fun getGraphicsMode(hdc: Hdc): Int
 
-public expect fun GetKerningPairsA(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt
+public expect fun getKerningPairsA(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt
 
-public expect fun GetKerningPairsW(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt
+public expect fun getKerningPairsW(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt
 
-public expect fun GetLayout(hdc: HDC): UInt
+public expect fun getLayout(hdc: Hdc): UInt
 
-public expect fun GetMapMode(hdc: HDC): HDC_MAP_MODE
+public expect fun getMapMode(hdc: Hdc): HdcMapMode
 
-public expect fun GetMetaFileA(lpname: PCSTR): HMETAFILE
+public expect fun getMetaFileA(lpname: Pcstr): Hmetafile
 
-public expect fun GetMetaFileBitsEx(hmf: HMETAFILE, cbbuffer: UInt, lpdata: Long): UInt
+public expect fun getMetaFileBitsEx(hmf: Hmetafile, cbbuffer: UInt, lpdata: COpaquePointer?): UInt
 
-public expect fun GetMetaFileW(lpname: PCWSTR): HMETAFILE
+public expect fun getMetaFileW(lpname: Pcwstr): Hmetafile
 
-public expect fun GetMetaRgn(hdc: HDC, hrgn: HRGN): Int
+public expect fun getMetaRgn(hdc: Hdc, hrgn: Hrgn): Int
 
-public expect fun GetMiterLimit(hdc: HDC, plimit: Long): BOOL
+public expect fun getMiterLimit(hdc: Hdc, plimit: COpaquePointer?): Bool
 
-public expect fun GetMonitorInfoA(hmonitor: HMONITOR, lpmi: Long): BOOL
+public expect fun getMonitorInfoA(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool
 
-public expect fun GetMonitorInfoW(hmonitor: HMONITOR, lpmi: Long): BOOL
+public expect fun getMonitorInfoW(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool
 
-public expect fun GetNearestColor(hdc: HDC, color: COLORREF): COLORREF
+public expect fun getNearestColor(hdc: Hdc, color: Colorref): Colorref
 
-public expect fun GetNearestPaletteIndex(h: HPALETTE, color: COLORREF): UInt
+public expect fun getNearestPaletteIndex(h: Hpalette, color: Colorref): UInt
 
-public expect fun GetObjectA(h: HGDIOBJ, c: Int, pv: Long): Int
+public expect fun getObjectA(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int
 
-public expect fun GetObjectType(h: HGDIOBJ): UInt
+public expect fun getObjectType(h: Hgdiobj): UInt
 
-public expect fun GetObjectW(h: HGDIOBJ, c: Int, pv: Long): Int
+public expect fun getObjectW(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int
 
-public expect fun GetOutlineTextMetricsA(hdc: HDC, cjcopy: UInt, potm: Long): UInt
+public expect fun getOutlineTextMetricsA(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt
 
-public expect fun GetOutlineTextMetricsW(hdc: HDC, cjcopy: UInt, potm: Long): UInt
+public expect fun getOutlineTextMetricsW(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt
 
-public expect fun GetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt
+public expect fun getPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt
 
-public expect fun GetPath(hdc: HDC, apt: Long, aj: Long, cpt: Int): Int
+public expect fun getPath(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Int
 
-public expect fun GetPixel(hdc: HDC, x: Int, y: Int): COLORREF
+public expect fun getPixel(hdc: Hdc, x: Int, y: Int): Colorref
 
-public expect fun GetPolyFillMode(hdc: HDC): Int
+public expect fun getPolyFillMode(hdc: Hdc): Int
 
-public expect fun GetROP2(hdc: HDC): R2_MODE
+public expect fun getROP2(hdc: Hdc): R2Mode
 
-public expect fun GetRandomRgn(hdc: HDC, hrgn: HRGN, i: Int): Int
+public expect fun getRandomRgn(hdc: Hdc, hrgn: Hrgn, i: Int): Int
 
-public expect fun GetRasterizerCaps(lpraststat: Long, cjbytes: UInt): BOOL
+public expect fun getRasterizerCaps(lpraststat: COpaquePointer?, cjbytes: UInt): Bool
 
-public expect fun GetRegionData(hrgn: HRGN, ncount: UInt, lprgndata: Long): UInt
+public expect fun getRegionData(hrgn: Hrgn, ncount: UInt, lprgndata: COpaquePointer?): UInt
 
-public expect fun GetRgnBox(hrgn: HRGN, lprc: Long): GDI_REGION_TYPE
+public expect fun getRgnBox(hrgn: Hrgn, lprc: COpaquePointer?): GdiRegionType
 
-public expect fun GetStockObject(i: GET_STOCK_OBJECT_FLAGS): HGDIOBJ
+public expect fun getStockObject(i: GetStockObjectFlags): Hgdiobj
 
-public expect fun GetStretchBltMode(hdc: HDC): Int
+public expect fun getStretchBltMode(hdc: Hdc): Int
 
-public expect fun GetSysColor(nindex: SYS_COLOR_INDEX): UInt
+public expect fun getSysColor(nindex: SysColorIndex): UInt
 
-public expect fun GetSysColorBrush(nindex: SYS_COLOR_INDEX): HBRUSH
+public expect fun getSysColorBrush(nindex: SysColorIndex): Hbrush
 
-public expect fun GetSystemPaletteEntries(hdc: HDC, istart: UInt, centries: UInt, ppalentries: Long): UInt
+public expect fun getSystemPaletteEntries(hdc: Hdc, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt
 
-public expect fun GetSystemPaletteUse(hdc: HDC): UInt
+public expect fun getSystemPaletteUse(hdc: Hdc): UInt
 
-public expect fun GetTabbedTextExtentA(hdc: HDC, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt
+public expect fun getTabbedTextExtentA(hdc: Hdc, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt
 
-public expect fun GetTabbedTextExtentW(hdc: HDC, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt
+public expect fun getTabbedTextExtentW(hdc: Hdc, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt
 
-public expect fun GetTextAlign(hdc: HDC): TEXT_ALIGN_OPTIONS
+public expect fun getTextAlign(hdc: Hdc): TextAlignOptions
 
-public expect fun GetTextCharacterExtra(hdc: HDC): Int
+public expect fun getTextCharacterExtra(hdc: Hdc): Int
 
-public expect fun GetTextColor(hdc: HDC): COLORREF
+public expect fun getTextColor(hdc: Hdc): Colorref
 
-public expect fun GetTextExtentExPointA(hdc: HDC, lpszstring: PCSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL
+public expect fun getTextExtentExPointA(hdc: Hdc, lpszstring: Pcstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool
 
-public expect fun GetTextExtentExPointI(hdc: HDC, lpwszstring: Long, cwchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL
+public expect fun getTextExtentExPointI(hdc: Hdc, lpwszstring: COpaquePointer?, cwchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool
 
-public expect fun GetTextExtentExPointW(hdc: HDC, lpszstring: PCWSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL
+public expect fun getTextExtentExPointW(hdc: Hdc, lpszstring: Pcwstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool
 
-public expect fun GetTextExtentPoint32A(hdc: HDC, lpstring: PCSTR, c: Int, psizl: Long): BOOL
+public expect fun getTextExtentPoint32A(hdc: Hdc, lpstring: Pcstr, c: Int, psizl: COpaquePointer?): Bool
 
-public expect fun GetTextExtentPoint32W(hdc: HDC, lpstring: PCWSTR, c: Int, psizl: Long): BOOL
+public expect fun getTextExtentPoint32W(hdc: Hdc, lpstring: Pcwstr, c: Int, psizl: COpaquePointer?): Bool
 
-public expect fun GetTextExtentPointA(hdc: HDC, lpstring: PCSTR, c: Int, lpsz: Long): BOOL
+public expect fun getTextExtentPointA(hdc: Hdc, lpstring: Pcstr, c: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun GetTextExtentPointI(hdc: HDC, pgiin: Long, cgi: Int, psize: Long): BOOL
+public expect fun getTextExtentPointI(hdc: Hdc, pgiin: COpaquePointer?, cgi: Int, psize: COpaquePointer?): Bool
 
-public expect fun GetTextExtentPointW(hdc: HDC, lpstring: PCWSTR, c: Int, lpsz: Long): BOOL
+public expect fun getTextExtentPointW(hdc: Hdc, lpstring: Pcwstr, c: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun GetTextFaceA(hdc: HDC, c: Int, lpname: PSTR): Int
+public expect fun getTextFaceA(hdc: Hdc, c: Int, lpname: Pstr): Int
 
-public expect fun GetTextFaceW(hdc: HDC, c: Int, lpname: PWSTR): Int
+public expect fun getTextFaceW(hdc: Hdc, c: Int, lpname: Pwstr): Int
 
-public expect fun GetTextMetricsA(hdc: HDC, lptm: Long): BOOL
+public expect fun getTextMetricsA(hdc: Hdc, lptm: COpaquePointer?): Bool
 
-public expect fun GetTextMetricsW(hdc: HDC, lptm: Long): BOOL
+public expect fun getTextMetricsW(hdc: Hdc, lptm: COpaquePointer?): Bool
 
-public expect fun GetUpdateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL
+public expect fun getUpdateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool
 
-public expect fun GetUpdateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): GDI_REGION_TYPE
+public expect fun getUpdateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): GdiRegionType
 
-public expect fun GetViewportExtEx(hdc: HDC, lpsize: Long): BOOL
+public expect fun getViewportExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool
 
-public expect fun GetViewportOrgEx(hdc: HDC, lppoint: Long): BOOL
+public expect fun getViewportOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool
 
-public expect fun GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, hdcref: HDC): UInt
+public expect fun getWinMetaFileBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, hdcref: Hdc): UInt
 
-public expect fun GetWindowDC(hwnd: HWND): HDC
+public expect fun getWindowDC(hwnd: Hwnd): Hdc
 
-public expect fun GetWindowExtEx(hdc: HDC, lpsize: Long): BOOL
+public expect fun getWindowExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool
 
-public expect fun GetWindowOrgEx(hdc: HDC, lppoint: Long): BOOL
+public expect fun getWindowOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool
 
-public expect fun GetWindowRgn(hwnd: HWND, hrgn: HRGN): GDI_REGION_TYPE
+public expect fun getWindowRgn(hwnd: Hwnd, hrgn: Hrgn): GdiRegionType
 
-public expect fun GetWindowRgnBox(hwnd: HWND, lprc: Long): GDI_REGION_TYPE
+public expect fun getWindowRgnBox(hwnd: Hwnd, lprc: COpaquePointer?): GdiRegionType
 
-public expect fun GetWorldTransform(hdc: HDC, lpxf: Long): BOOL
+public expect fun getWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool
 
-public expect fun GradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, ulmode: GRADIENT_FILL): BOOL
+public expect fun gradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, ulmode: GradientFill): Bool
 
-public expect fun GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL
+public expect fun grayStringA(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool
 
-public expect fun GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL
+public expect fun grayStringW(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool
 
-public expect fun InflateRect(lprc: Long, dx: Int, dy: Int): BOOL
+public expect fun inflateRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool
 
-public expect fun IntersectClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE
+public expect fun intersectClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType
 
-public expect fun IntersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL
+public expect fun intersectRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool
 
-public expect fun InvalidateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL
+public expect fun invalidateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool
 
-public expect fun InvalidateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): BOOL
+public expect fun invalidateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): Bool
 
-public expect fun InvertRect(hdc: HDC, lprc: Long): BOOL
+public expect fun invertRect(hdc: Hdc, lprc: COpaquePointer?): Bool
 
-public expect fun InvertRgn(hdc: HDC, hrgn: HRGN): BOOL
+public expect fun invertRgn(hdc: Hdc, hrgn: Hrgn): Bool
 
-public expect fun IsRectEmpty(lprc: Long): BOOL
+public expect fun isRectEmpty(lprc: COpaquePointer?): Bool
 
-public expect fun LPtoDP(hdc: HDC, lppt: Long, c: Int): BOOL
+public expect fun lPtoDP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool
 
-public expect fun LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: LINEDDAPROC, data: LPARAM): BOOL
+public expect fun lineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Lineddaproc, data: Lparam): Bool
 
-public expect fun LineTo(hdc: HDC, x: Int, y: Int): BOOL
+public expect fun lineTo(hdc: Hdc, x: Int, y: Int): Bool
 
-public expect fun LoadBitmapA(hinstance: HINSTANCE, lpbitmapname: PCSTR): HBITMAP
+public expect fun loadBitmapA(hinstance: Hinstance, lpbitmapname: Pcstr): Hbitmap
 
-public expect fun LoadBitmapW(hinstance: HINSTANCE, lpbitmapname: PCWSTR): HBITMAP
+public expect fun loadBitmapW(hinstance: Hinstance, lpbitmapname: Pcwstr): Hbitmap
 
-public expect fun LockWindowUpdate(hwndlock: HWND): BOOL
+public expect fun lockWindowUpdate(hwndlock: Hwnd): Bool
 
-public expect fun MapWindowPoints(hwndfrom: HWND, hwndto: HWND, lppoints: Long, cpoints: UInt): Int
+public expect fun mapWindowPoints(hwndfrom: Hwnd, hwndto: Hwnd, lppoints: COpaquePointer?, cpoints: UInt): Int
 
-public expect fun MaskBlt(hdcdest: HDC, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int, rop: UInt): BOOL
+public expect fun maskBlt(hdcdest: Hdc, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int, rop: UInt): Bool
 
-public expect fun MergeFontPackage(puchmergefontbuffer: Long, ulmergefontbuffersize: UInt, puchfontpackagebuffer: Long, ulfontpackagebuffersize: UInt, ppuchdestbuffer: Long, puldestbuffersize: Long, pulbyteswritten: Long, usmode: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt
+public expect fun mergeFontPackage(puchmergefontbuffer: COpaquePointer?, ulmergefontbuffersize: UInt, puchfontpackagebuffer: COpaquePointer?, ulfontpackagebuffersize: UInt, ppuchdestbuffer: COpaquePointer?, puldestbuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usmode: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt
 
-public expect fun ModifyWorldTransform(hdc: HDC, lpxf: Long, mode: MODIFY_WORLD_TRANSFORM_MODE): BOOL
+public expect fun modifyWorldTransform(hdc: Hdc, lpxf: COpaquePointer?, mode: ModifyWorldTransformMode): Bool
 
-public expect fun MonitorFromPoint(pt: POINT, dwflags: MONITOR_FROM_FLAGS): HMONITOR
+public expect fun monitorFromPoint(pt: Point, dwflags: MonitorFromFlags): Hmonitor
 
-public expect fun MonitorFromRect(lprc: Long, dwflags: MONITOR_FROM_FLAGS): HMONITOR
+public expect fun monitorFromRect(lprc: COpaquePointer?, dwflags: MonitorFromFlags): Hmonitor
 
-public expect fun MonitorFromWindow(hwnd: HWND, dwflags: MONITOR_FROM_FLAGS): HMONITOR
+public expect fun monitorFromWindow(hwnd: Hwnd, dwflags: MonitorFromFlags): Hmonitor
 
-public expect fun MoveToEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun moveToEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun OffsetClipRgn(hdc: HDC, x: Int, y: Int): GDI_REGION_TYPE
+public expect fun offsetClipRgn(hdc: Hdc, x: Int, y: Int): GdiRegionType
 
-public expect fun OffsetRect(lprc: Long, dx: Int, dy: Int): BOOL
+public expect fun offsetRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool
 
-public expect fun OffsetRgn(hrgn: HRGN, x: Int, y: Int): GDI_REGION_TYPE
+public expect fun offsetRgn(hrgn: Hrgn, x: Int, y: Int): GdiRegionType
 
-public expect fun OffsetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun offsetViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun OffsetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun offsetWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun PaintDesktop(hdc: HDC): BOOL
+public expect fun paintDesktop(hdc: Hdc): Bool
 
-public expect fun PaintRgn(hdc: HDC, hrgn: HRGN): BOOL
+public expect fun paintRgn(hdc: Hdc, hrgn: Hrgn): Bool
 
-public expect fun PatBlt(hdc: HDC, x: Int, y: Int, w: Int, h: Int, rop: ROP_CODE): BOOL
+public expect fun patBlt(hdc: Hdc, x: Int, y: Int, w: Int, h: Int, rop: RopCode): Bool
 
-public expect fun PathToRegion(hdc: HDC): HRGN
+public expect fun pathToRegion(hdc: Hdc): Hrgn
 
-public expect fun Pie(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL
+public expect fun pie(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool
 
-public expect fun PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: Long): BOOL
+public expect fun playEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, lprect: COpaquePointer?): Bool
 
-public expect fun PlayEnhMetaFileRecord(hdc: HDC, pht: Long, pmr: Long, cht: UInt): BOOL
+public expect fun playEnhMetaFileRecord(hdc: Hdc, pht: COpaquePointer?, pmr: COpaquePointer?, cht: UInt): Bool
 
-public expect fun PlayMetaFile(hdc: HDC, hmf: HMETAFILE): BOOL
+public expect fun playMetaFile(hdc: Hdc, hmf: Hmetafile): Bool
 
-public expect fun PlayMetaFileRecord(hdc: HDC, lphandletable: Long, lpmr: Long, noobjs: UInt): BOOL
+public expect fun playMetaFileRecord(hdc: Hdc, lphandletable: COpaquePointer?, lpmr: COpaquePointer?, noobjs: UInt): Bool
 
-public expect fun PlgBlt(hdcdest: HDC, lppoint: Long, hdcsrc: HDC, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int): BOOL
+public expect fun plgBlt(hdcdest: Hdc, lppoint: COpaquePointer?, hdcsrc: Hdc, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int): Bool
 
-public expect fun PolyBezier(hdc: HDC, apt: Long, cpt: UInt): BOOL
+public expect fun polyBezier(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool
 
-public expect fun PolyBezierTo(hdc: HDC, apt: Long, cpt: UInt): BOOL
+public expect fun polyBezierTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool
 
-public expect fun PolyDraw(hdc: HDC, apt: Long, aj: Long, cpt: Int): BOOL
+public expect fun polyDraw(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Bool
 
-public expect fun PolyPolygon(hdc: HDC, apt: Long, asz: Long, csz: Int): BOOL
+public expect fun polyPolygon(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: Int): Bool
 
-public expect fun PolyPolyline(hdc: HDC, apt: Long, asz: Long, csz: UInt): BOOL
+public expect fun polyPolyline(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: UInt): Bool
 
-public expect fun PolyTextOutA(hdc: HDC, ppt: Long, nstrings: Int): BOOL
+public expect fun polyTextOutA(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool
 
-public expect fun PolyTextOutW(hdc: HDC, ppt: Long, nstrings: Int): BOOL
+public expect fun polyTextOutW(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool
 
-public expect fun Polygon(hdc: HDC, apt: Long, cpt: Int): BOOL
+public expect fun polygon(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool
 
-public expect fun Polyline(hdc: HDC, apt: Long, cpt: Int): BOOL
+public expect fun polyline(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool
 
-public expect fun PolylineTo(hdc: HDC, apt: Long, cpt: UInt): BOOL
+public expect fun polylineTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool
 
-public expect fun PtInRect(lprc: Long, pt: POINT): BOOL
+public expect fun ptInRect(lprc: COpaquePointer?, pt: Point): Bool
 
-public expect fun PtInRegion(hrgn: HRGN, x: Int, y: Int): BOOL
+public expect fun ptInRegion(hrgn: Hrgn, x: Int, y: Int): Bool
 
-public expect fun PtVisible(hdc: HDC, x: Int, y: Int): BOOL
+public expect fun ptVisible(hdc: Hdc, x: Int, y: Int): Bool
 
-public expect fun RealizePalette(hdc: HDC): UInt
+public expect fun realizePalette(hdc: Hdc): UInt
 
-public expect fun RectInRegion(hrgn: HRGN, lprect: Long): BOOL
+public expect fun rectInRegion(hrgn: Hrgn, lprect: COpaquePointer?): Bool
 
-public expect fun RectVisible(hdc: HDC, lprect: Long): BOOL
+public expect fun rectVisible(hdc: Hdc, lprect: COpaquePointer?): Bool
 
-public expect fun Rectangle(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL
+public expect fun rectangle(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool
 
-public expect fun RedrawWindow(hwnd: HWND, lprcupdate: Long, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS): BOOL
+public expect fun redrawWindow(hwnd: Hwnd, lprcupdate: COpaquePointer?, hrgnupdate: Hrgn, flags: RedrawWindowFlags): Bool
 
-public expect fun ReleaseDC(hwnd: HWND, hdc: HDC): Int
+public expect fun releaseDC(hwnd: Hwnd, hdc: Hdc): Int
 
-public expect fun RemoveFontMemResourceEx(h: HANDLE): BOOL
+public expect fun removeFontMemResourceEx(h: Handle): Bool
 
-public expect fun RemoveFontResourceA(lpfilename: PCSTR): BOOL
+public expect fun removeFontResourceA(lpfilename: Pcstr): Bool
 
-public expect fun RemoveFontResourceExA(name: PCSTR, fl: UInt, pdv: Long): BOOL
+public expect fun removeFontResourceExA(name: Pcstr, fl: UInt, pdv: COpaquePointer?): Bool
 
-public expect fun RemoveFontResourceExW(name: PCWSTR, fl: UInt, pdv: Long): BOOL
+public expect fun removeFontResourceExW(name: Pcwstr, fl: UInt, pdv: COpaquePointer?): Bool
 
-public expect fun RemoveFontResourceW(lpfilename: PCWSTR): BOOL
+public expect fun removeFontResourceW(lpfilename: Pcwstr): Bool
 
-public expect fun ResetDCA(hdc: HDC, lpdm: Long): HDC
+public expect fun resetDCA(hdc: Hdc, lpdm: COpaquePointer?): Hdc
 
-public expect fun ResetDCW(hdc: HDC, lpdm: Long): HDC
+public expect fun resetDCW(hdc: Hdc, lpdm: COpaquePointer?): Hdc
 
-public expect fun ResizePalette(hpal: HPALETTE, n: UInt): BOOL
+public expect fun resizePalette(hpal: Hpalette, n: UInt): Bool
 
-public expect fun RestoreDC(hdc: HDC, nsaveddc: Int): BOOL
+public expect fun restoreDC(hdc: Hdc, nsaveddc: Int): Bool
 
-public expect fun RoundRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): BOOL
+public expect fun roundRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): Bool
 
-public expect fun SaveDC(hdc: HDC): Int
+public expect fun saveDC(hdc: Hdc): Int
 
-public expect fun ScaleViewportExtEx(hdc: HDC, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: Long): BOOL
+public expect fun scaleViewportExtEx(hdc: Hdc, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun ScaleWindowExtEx(hdc: HDC, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: Long): BOOL
+public expect fun scaleWindowExtEx(hdc: Hdc, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun ScreenToClient(hwnd: HWND, lppoint: Long): BOOL
+public expect fun screenToClient(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE): BOOL
+public expect fun selectClipPath(hdc: Hdc, mode: RgnCombineMode): Bool
 
-public expect fun SelectClipRgn(hdc: HDC, hrgn: HRGN): GDI_REGION_TYPE
+public expect fun selectClipRgn(hdc: Hdc, hrgn: Hrgn): GdiRegionType
 
-public expect fun SelectObject(hdc: HDC, h: HGDIOBJ): HGDIOBJ
+public expect fun selectObject(hdc: Hdc, h: Hgdiobj): Hgdiobj
 
-public expect fun SelectPalette(hdc: HDC, hpal: HPALETTE, bforcebkgd: BOOL): HPALETTE
+public expect fun selectPalette(hdc: Hdc, hpal: Hpalette, bforcebkgd: Bool): Hpalette
 
-public expect fun SetArcDirection(hdc: HDC, dir: ARC_DIRECTION): Int
+public expect fun setArcDirection(hdc: Hdc, dir: ArcDirection): Int
 
-public expect fun SetBitmapBits(hbm: HBITMAP, cb: UInt, pvbits: Long): Int
+public expect fun setBitmapBits(hbm: Hbitmap, cb: UInt, pvbits: COpaquePointer?): Int
 
-public expect fun SetBitmapDimensionEx(hbm: HBITMAP, w: Int, h: Int, lpsz: Long): BOOL
+public expect fun setBitmapDimensionEx(hbm: Hbitmap, w: Int, h: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun SetBkColor(hdc: HDC, color: COLORREF): COLORREF
+public expect fun setBkColor(hdc: Hdc, color: Colorref): Colorref
 
-public expect fun SetBkMode(hdc: HDC, mode: Int): Int
+public expect fun setBkMode(hdc: Hdc, mode: Int): Int
 
-public expect fun SetBoundsRect(hdc: HDC, lprect: Long, flags: SET_BOUNDS_RECT_FLAGS): UInt
+public expect fun setBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: SetBoundsRectFlags): UInt
 
-public expect fun SetBrushOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun setBrushOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun SetColorAdjustment(hdc: HDC, lpca: Long): BOOL
+public expect fun setColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool
 
-public expect fun SetDCBrushColor(hdc: HDC, color: COLORREF): COLORREF
+public expect fun setDCBrushColor(hdc: Hdc, color: Colorref): Colorref
 
-public expect fun SetDCPenColor(hdc: HDC, color: COLORREF): COLORREF
+public expect fun setDCPenColor(hdc: Hdc, color: Colorref): Colorref
 
-public expect fun SetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt
+public expect fun setDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt
 
-public expect fun SetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int
+public expect fun setDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int
 
-public expect fun SetDIBitsToDevice(hdc: HDC, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int
+public expect fun setDIBitsToDevice(hdc: Hdc, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int
 
-public expect fun SetEnhMetaFileBits(nsize: UInt, pb: Long): HENHMETAFILE
+public expect fun setEnhMetaFileBits(nsize: UInt, pb: COpaquePointer?): Henhmetafile
 
-public expect fun SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE): Int
+public expect fun setGraphicsMode(hdc: Hdc, imode: GraphicsMode): Int
 
-public expect fun SetLayout(hdc: HDC, l: DC_LAYOUT): UInt
+public expect fun setLayout(hdc: Hdc, l: DcLayout): UInt
 
-public expect fun SetMapMode(hdc: HDC, imode: HDC_MAP_MODE): Int
+public expect fun setMapMode(hdc: Hdc, imode: HdcMapMode): Int
 
-public expect fun SetMapperFlags(hdc: HDC, flags: UInt): UInt
+public expect fun setMapperFlags(hdc: Hdc, flags: UInt): UInt
 
-public expect fun SetMetaFileBitsEx(cbbuffer: UInt, lpdata: Long): HMETAFILE
+public expect fun setMetaFileBitsEx(cbbuffer: UInt, lpdata: COpaquePointer?): Hmetafile
 
-public expect fun SetMetaRgn(hdc: HDC): GDI_REGION_TYPE
+public expect fun setMetaRgn(hdc: Hdc): GdiRegionType
 
-public expect fun SetMiterLimit(hdc: HDC, limit: Float, old: Long): BOOL
+public expect fun setMiterLimit(hdc: Hdc, limit: Float, old: COpaquePointer?): Bool
 
-public expect fun SetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt
+public expect fun setPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt
 
-public expect fun SetPixel(hdc: HDC, x: Int, y: Int, color: COLORREF): COLORREF
+public expect fun setPixel(hdc: Hdc, x: Int, y: Int, color: Colorref): Colorref
 
-public expect fun SetPixelV(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL
+public expect fun setPixelV(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool
 
-public expect fun SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE): Int
+public expect fun setPolyFillMode(hdc: Hdc, mode: CreatePolygonRgnMode): Int
 
-public expect fun SetROP2(hdc: HDC, rop2: R2_MODE): Int
+public expect fun setROP2(hdc: Hdc, rop2: R2Mode): Int
 
-public expect fun SetRect(lprc: Long, xleft: Int, ytop: Int, xright: Int, ybottom: Int): BOOL
+public expect fun setRect(lprc: COpaquePointer?, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Bool
 
-public expect fun SetRectEmpty(lprc: Long): BOOL
+public expect fun setRectEmpty(lprc: COpaquePointer?): Bool
 
-public expect fun SetRectRgn(hrgn: HRGN, left: Int, top: Int, right: Int, bottom: Int): BOOL
+public expect fun setRectRgn(hrgn: Hrgn, left: Int, top: Int, right: Int, bottom: Int): Bool
 
-public expect fun SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE): Int
+public expect fun setStretchBltMode(hdc: Hdc, mode: StretchBltMode): Int
 
-public expect fun SetSysColors(celements: Int, lpaelements: Long, lpargbvalues: Long): BOOL
+public expect fun setSysColors(celements: Int, lpaelements: COpaquePointer?, lpargbvalues: COpaquePointer?): Bool
 
-public expect fun SetSystemPaletteUse(hdc: HDC, use: SYSTEM_PALETTE_USE): UInt
+public expect fun setSystemPaletteUse(hdc: Hdc, use: SystemPaletteUse): UInt
 
-public expect fun SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS): UInt
+public expect fun setTextAlign(hdc: Hdc, align: TextAlignOptions): UInt
 
-public expect fun SetTextCharacterExtra(hdc: HDC, extra: Int): Int
+public expect fun setTextCharacterExtra(hdc: Hdc, extra: Int): Int
 
-public expect fun SetTextColor(hdc: HDC, color: COLORREF): COLORREF
+public expect fun setTextColor(hdc: Hdc, color: Colorref): Colorref
 
-public expect fun SetTextJustification(hdc: HDC, extra: Int, count: Int): BOOL
+public expect fun setTextJustification(hdc: Hdc, extra: Int, count: Int): Bool
 
-public expect fun SetViewportExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL
+public expect fun setViewportExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun SetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun setViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun SetWindowExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL
+public expect fun setWindowExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool
 
-public expect fun SetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL
+public expect fun setWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool
 
-public expect fun SetWindowRgn(hwnd: HWND, hrgn: HRGN, bredraw: BOOL): Int
+public expect fun setWindowRgn(hwnd: Hwnd, hrgn: Hrgn, bredraw: Bool): Int
 
-public expect fun SetWorldTransform(hdc: HDC, lpxf: Long): BOOL
+public expect fun setWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool
 
-public expect fun StretchBlt(hdcdest: HDC, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: ROP_CODE): BOOL
+public expect fun stretchBlt(hdcdest: Hdc, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: RopCode): Bool
 
-public expect fun StretchDIBits(hdc: HDC, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: Long, lpbmi: Long, iusage: DIB_USAGE, rop: ROP_CODE): Int
+public expect fun stretchDIBits(hdc: Hdc, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, iusage: DibUsage, rop: RopCode): Int
 
-public expect fun StrokeAndFillPath(hdc: HDC): BOOL
+public expect fun strokeAndFillPath(hdc: Hdc): Bool
 
-public expect fun StrokePath(hdc: HDC): BOOL
+public expect fun strokePath(hdc: Hdc): Bool
 
-public expect fun SubtractRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL
+public expect fun subtractRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool
 
-public expect fun TTCharToUnicode(hdc: HDC, puccharcodes: Long, ulcharcodesize: UInt, pusshortcodes: Long, ulshortcodesize: UInt, ulflags: UInt): Int
+public expect fun tTCharToUnicode(hdc: Hdc, puccharcodes: COpaquePointer?, ulcharcodesize: UInt, pusshortcodes: COpaquePointer?, ulshortcodesize: UInt, ulflags: UInt): Int
 
-public expect fun TTDeleteEmbeddedFont(hfontreference: HANDLE, ulflags: UInt, pulstatus: Long): Int
+public expect fun tTDeleteEmbeddedFont(hfontreference: Handle, ulflags: UInt, pulstatus: COpaquePointer?): Int
 
-public expect fun TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int
+public expect fun tTEmbedFont(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int
 
-public expect fun TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, pulcharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int
+public expect fun tTEmbedFontEx(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, pulcharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int
 
-public expect fun TTEmbedFontFromFileA(hdc: HDC, szfontfilename: PCSTR, usttcindex: UShort, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int
+public expect fun tTEmbedFontFromFileA(hdc: Hdc, szfontfilename: Pcstr, usttcindex: UShort, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int
 
-public expect fun TTEnableEmbeddingForFacename(lpszfacename: PCSTR, benable: BOOL): Int
+public expect fun tTEnableEmbeddingForFacename(lpszfacename: Pcstr, benable: Bool): Int
 
-public expect fun TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, pttloadinfo: Long): Int
+public expect fun tTGetEmbeddedFontInfo(ulflags: TtembedFlags, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, pttloadinfo: COpaquePointer?): Int
 
-public expect fun TTGetEmbeddingType(hdc: HDC, pulembedtype: Long): Int
+public expect fun tTGetEmbeddingType(hdc: Hdc, pulembedtype: COpaquePointer?): Int
 
-public expect fun TTGetNewFontName(phfontreference: Long, wzwinfamilyname: PWSTR, cchmaxwinname: Int, szmacfamilyname: PSTR, cchmaxmacname: Int): Int
+public expect fun tTGetNewFontName(phfontreference: COpaquePointer?, wzwinfamilyname: Pwstr, cchmaxwinname: Int, szmacfamilyname: Pstr, cchmaxmacname: Int): Int
 
-public expect fun TTIsEmbeddingEnabled(hdc: HDC, pbenabled: Long): Int
+public expect fun tTIsEmbeddingEnabled(hdc: Hdc, pbenabled: COpaquePointer?): Int
 
-public expect fun TTIsEmbeddingEnabledForFacename(lpszfacename: PCSTR, pbenabled: Long): Int
+public expect fun tTIsEmbeddingEnabledForFacename(lpszfacename: Pcstr, pbenabled: COpaquePointer?): Int
 
-public expect fun TTLoadEmbeddedFont(phfontreference: Long, ulflags: UInt, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, szwinfamilyname: PCWSTR, szmacfamilyname: PCSTR, pttloadinfo: Long): Int
+public expect fun tTLoadEmbeddedFont(phfontreference: COpaquePointer?, ulflags: UInt, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, szwinfamilyname: Pcwstr, szmacfamilyname: Pcstr, pttloadinfo: COpaquePointer?): Int
 
-public expect fun TTRunValidationTests(hdc: HDC, ptestparam: Long): Int
+public expect fun tTRunValidationTests(hdc: Hdc, ptestparam: COpaquePointer?): Int
 
-public expect fun TTRunValidationTestsEx(hdc: HDC, ptestparam: Long): Int
+public expect fun tTRunValidationTestsEx(hdc: Hdc, ptestparam: COpaquePointer?): Int
 
-public expect fun TabbedTextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
+public expect fun tabbedTextOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int
 
-public expect fun TabbedTextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int
+public expect fun tabbedTextOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int
 
-public expect fun TextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, c: Int): BOOL
+public expect fun textOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, c: Int): Bool
 
-public expect fun TextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, c: Int): BOOL
+public expect fun textOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, c: Int): Bool
 
-public expect fun TransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL
+public expect fun transparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool
 
-public expect fun UnionRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL
+public expect fun unionRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool
 
-public expect fun UnrealizeObject(h: HGDIOBJ): BOOL
+public expect fun unrealizeObject(h: Hgdiobj): Bool
 
-public expect fun UpdateColors(hdc: HDC): BOOL
+public expect fun updateColors(hdc: Hdc): Bool
 
-public expect fun UpdateWindow(hwnd: HWND): BOOL
+public expect fun updateWindow(hwnd: Hwnd): Bool
 
-public expect fun ValidateRect(hwnd: HWND, lprect: Long): BOOL
+public expect fun validateRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool
 
-public expect fun ValidateRgn(hwnd: HWND, hrgn: HRGN): BOOL
+public expect fun validateRgn(hwnd: Hwnd, hrgn: Hrgn): Bool
 
-public expect fun WidenPath(hdc: HDC): BOOL
+public expect fun widenPath(hdc: Hdc): Bool
 
-public expect fun WindowFromDC(hdc: HDC): HWND
+public expect fun windowFromDC(hdc: Hdc): Hwnd
 
-public expect fun wglSwapMultipleBuffers(param0: UInt, param1: Long): UInt
+public expect fun wglSwapMultipleBuffers(param0: UInt, param1: COpaquePointer?): UInt

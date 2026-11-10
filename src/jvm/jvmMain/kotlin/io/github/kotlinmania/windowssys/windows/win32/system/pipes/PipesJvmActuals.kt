@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.pipes
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
 
 private object WindowsWin32SystemPipesJniBridge {
     init {
@@ -16,134 +17,134 @@ private object WindowsWin32SystemPipesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_CallNamedPipeA(lpnamedpipename: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, ntimeout: Int): Int
+    external fun windowssys_windows_win32_system_pipes_callNamedPipeA(lpnamedpipename: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, ntimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_CallNamedPipeW(lpnamedpipename: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, ntimeout: Int): Int
+    external fun windowssys_windows_win32_system_pipes_callNamedPipeW(lpnamedpipename: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, ntimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_ConnectNamedPipe(hnamedpipe: Long, lpoverlapped: Long): Int
+    external fun windowssys_windows_win32_system_pipes_connectNamedPipe(hnamedpipe: Long, lpoverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_CreateNamedPipeA(lpname: Long, dwopenmode: Int, dwpipemode: Int, nmaxinstances: Int, noutbuffersize: Int, ninbuffersize: Int, ndefaulttimeout: Int, lpsecurityattributes: Long): Long
+    external fun windowssys_windows_win32_system_pipes_createNamedPipeA(lpname: Long, dwopenmode: Int, dwpipemode: Int, nmaxinstances: Int, noutbuffersize: Int, ninbuffersize: Int, ndefaulttimeout: Int, lpsecurityattributes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_CreateNamedPipeW(lpname: Long, dwopenmode: Int, dwpipemode: Int, nmaxinstances: Int, noutbuffersize: Int, ninbuffersize: Int, ndefaulttimeout: Int, lpsecurityattributes: Long): Long
+    external fun windowssys_windows_win32_system_pipes_createNamedPipeW(lpname: Long, dwopenmode: Int, dwpipemode: Int, nmaxinstances: Int, noutbuffersize: Int, ninbuffersize: Int, ndefaulttimeout: Int, lpsecurityattributes: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_CreatePipe(hreadpipe: Long, hwritepipe: Long, lppipeattributes: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_pipes_createPipe(hreadpipe: Long, hwritepipe: Long, lppipeattributes: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_DisconnectNamedPipe(hnamedpipe: Long): Int
+    external fun windowssys_windows_win32_system_pipes_disconnectNamedPipe(hnamedpipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameA(pipe: Long, clientcomputername: Long, clientcomputernamelength: Int): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA(pipe: Long, clientcomputername: Long, clientcomputernamelength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameW(pipe: Long, clientcomputername: Long, clientcomputernamelength: Int): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW(pipe: Long, clientcomputername: Long, clientcomputernamelength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeClientProcessId(pipe: Long, clientprocessid: Long): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId(pipe: Long, clientprocessid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeClientSessionId(pipe: Long, clientsessionid: Long): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId(pipe: Long, clientsessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateA(hnamedpipe: Long, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: Long, nmaxusernamesize: Int): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA(hnamedpipe: Long, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: Long, nmaxusernamesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateW(hnamedpipe: Long, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: Long, nmaxusernamesize: Int): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW(hnamedpipe: Long, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: Long, nmaxusernamesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeInfo(hnamedpipe: Long, lpflags: Long, lpoutbuffersize: Long, lpinbuffersize: Long, lpmaxinstances: Long): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeInfo(hnamedpipe: Long, lpflags: Long, lpoutbuffersize: Long, lpinbuffersize: Long, lpmaxinstances: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeServerProcessId(pipe: Long, serverprocessid: Long): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId(pipe: Long, serverprocessid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_GetNamedPipeServerSessionId(pipe: Long, serversessionid: Long): Int
+    external fun windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId(pipe: Long, serversessionid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_ImpersonateNamedPipeClient(hnamedpipe: Long): Int
+    external fun windowssys_windows_win32_system_pipes_impersonateNamedPipeClient(hnamedpipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_PeekNamedPipe(hnamedpipe: Long, lpbuffer: Long, nbuffersize: Int, lpbytesread: Long, lptotalbytesavail: Long, lpbytesleftthismessage: Long): Int
+    external fun windowssys_windows_win32_system_pipes_peekNamedPipe(hnamedpipe: Long, lpbuffer: Long, nbuffersize: Int, lpbytesread: Long, lptotalbytesavail: Long, lpbytesleftthismessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_SetNamedPipeHandleState(hnamedpipe: Long, lpmode: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long): Int
+    external fun windowssys_windows_win32_system_pipes_setNamedPipeHandleState(hnamedpipe: Long, lpmode: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_TransactNamedPipe(hnamedpipe: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, lpoverlapped: Long): Int
+    external fun windowssys_windows_win32_system_pipes_transactNamedPipe(hnamedpipe: Long, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesread: Long, lpoverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_WaitNamedPipeA(lpnamedpipename: Long, ntimeout: Int): Int
+    external fun windowssys_windows_win32_system_pipes_waitNamedPipeA(lpnamedpipename: Long, ntimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_pipes_WaitNamedPipeW(lpnamedpipename: Long, ntimeout: Int): Int
+    external fun windowssys_windows_win32_system_pipes_waitNamedPipeW(lpnamedpipename: Long, ntimeout: Int): Int
 }
 
-public actual fun CallNamedPipeA(lpnamedpipename: PCSTR, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, ntimeout: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_CallNamedPipeA(lpnamedpipename, lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesread, ntimeout.toInt())
+public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_callNamedPipeA((lpnamedpipename?.value ?: 0L), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L), ntimeout.toInt())
 
-public actual fun CallNamedPipeW(lpnamedpipename: PCWSTR, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, ntimeout: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_CallNamedPipeW(lpnamedpipename, lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesread, ntimeout.toInt())
+public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, ntimeout: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_callNamedPipeW((lpnamedpipename?.value ?: 0L), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L), ntimeout.toInt())
 
-public actual fun ConnectNamedPipe(hnamedpipe: HANDLE, lpoverlapped: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_ConnectNamedPipe(hnamedpipe, lpoverlapped)
+public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_connectNamedPipe((hnamedpipe?.value ?: 0L), (lpoverlapped?.value ?: 0L))
 
-public actual fun CreateNamedPipeA(lpname: PCSTR, dwopenmode: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_CreateNamedPipeA(lpname, dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes)
+public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_createNamedPipeA((lpname?.value ?: 0L), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), (lpsecurityattributes?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateNamedPipeW(lpname: PCWSTR, dwopenmode: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_CreateNamedPipeW(lpname, dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes)
+public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_createNamedPipeW((lpname?.value ?: 0L), dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), (lpsecurityattributes?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePipe(hreadpipe: Long, hwritepipe: Long, lppipeattributes: Long, nsize: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_CreatePipe(hreadpipe, hwritepipe, lppipeattributes, nsize.toInt())
+public actual fun createPipe(hreadpipe: COpaquePointer?, hwritepipe: COpaquePointer?, lppipeattributes: COpaquePointer?, nsize: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_createPipe((hreadpipe?.value ?: 0L), (hwritepipe?.value ?: 0L), (lppipeattributes?.value ?: 0L), nsize.toInt())
 
-public actual fun DisconnectNamedPipe(hnamedpipe: HANDLE): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_DisconnectNamedPipe(hnamedpipe)
+public actual fun disconnectNamedPipe(hnamedpipe: Handle): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_disconnectNamedPipe((hnamedpipe?.value ?: 0L))
 
-public actual fun GetNamedPipeClientComputerNameA(pipe: HANDLE, clientcomputername: PSTR, clientcomputernamelength: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameA(pipe, clientcomputername, clientcomputernamelength.toInt())
+public actual fun getNamedPipeClientComputerNameA(pipe: Handle, clientcomputername: Pstr, clientcomputernamelength: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA((pipe?.value ?: 0L), (clientcomputername?.value ?: 0L), clientcomputernamelength.toInt())
 
-public actual fun GetNamedPipeClientComputerNameW(pipe: HANDLE, clientcomputername: PWSTR, clientcomputernamelength: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeClientComputerNameW(pipe, clientcomputername, clientcomputernamelength.toInt())
+public actual fun getNamedPipeClientComputerNameW(pipe: Handle, clientcomputername: Pwstr, clientcomputernamelength: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW((pipe?.value ?: 0L), (clientcomputername?.value ?: 0L), clientcomputernamelength.toInt())
 
-public actual fun GetNamedPipeClientProcessId(pipe: HANDLE, clientprocessid: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeClientProcessId(pipe, clientprocessid)
+public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId((pipe?.value ?: 0L), (clientprocessid?.value ?: 0L))
 
-public actual fun GetNamedPipeClientSessionId(pipe: HANDLE, clientsessionid: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeClientSessionId(pipe, clientsessionid)
+public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId((pipe?.value ?: 0L), (clientsessionid?.value ?: 0L))
 
-public actual fun GetNamedPipeHandleStateA(hnamedpipe: HANDLE, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: PSTR, nmaxusernamesize: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateA(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize.toInt())
+public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA((hnamedpipe?.value ?: 0L), (lpstate?.value ?: 0L), (lpcurinstances?.value ?: 0L), (lpmaxcollectioncount?.value ?: 0L), (lpcollectdatatimeout?.value ?: 0L), (lpusername?.value ?: 0L), nmaxusernamesize.toInt())
 
-public actual fun GetNamedPipeHandleStateW(hnamedpipe: HANDLE, lpstate: Long, lpcurinstances: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long, lpusername: PWSTR, nmaxusernamesize: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeHandleStateW(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize.toInt())
+public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: COpaquePointer?, lpcurinstances: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW((hnamedpipe?.value ?: 0L), (lpstate?.value ?: 0L), (lpcurinstances?.value ?: 0L), (lpmaxcollectioncount?.value ?: 0L), (lpcollectdatatimeout?.value ?: 0L), (lpusername?.value ?: 0L), nmaxusernamesize.toInt())
 
-public actual fun GetNamedPipeInfo(hnamedpipe: HANDLE, lpflags: Long, lpoutbuffersize: Long, lpinbuffersize: Long, lpmaxinstances: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeInfo(hnamedpipe, lpflags, lpoutbuffersize, lpinbuffersize, lpmaxinstances)
+public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: COpaquePointer?, lpoutbuffersize: COpaquePointer?, lpinbuffersize: COpaquePointer?, lpmaxinstances: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeInfo((hnamedpipe?.value ?: 0L), (lpflags?.value ?: 0L), (lpoutbuffersize?.value ?: 0L), (lpinbuffersize?.value ?: 0L), (lpmaxinstances?.value ?: 0L))
 
-public actual fun GetNamedPipeServerProcessId(pipe: HANDLE, serverprocessid: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeServerProcessId(pipe, serverprocessid)
+public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId((pipe?.value ?: 0L), (serverprocessid?.value ?: 0L))
 
-public actual fun GetNamedPipeServerSessionId(pipe: HANDLE, serversessionid: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_GetNamedPipeServerSessionId(pipe, serversessionid)
+public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId((pipe?.value ?: 0L), (serversessionid?.value ?: 0L))
 
-public actual fun ImpersonateNamedPipeClient(hnamedpipe: HANDLE): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_ImpersonateNamedPipeClient(hnamedpipe)
+public actual fun impersonateNamedPipeClient(hnamedpipe: Handle): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_impersonateNamedPipeClient((hnamedpipe?.value ?: 0L))
 
-public actual fun PeekNamedPipe(hnamedpipe: HANDLE, lpbuffer: Long, nbuffersize: UInt, lpbytesread: Long, lptotalbytesavail: Long, lpbytesleftthismessage: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_PeekNamedPipe(hnamedpipe, lpbuffer, nbuffersize.toInt(), lpbytesread, lptotalbytesavail, lpbytesleftthismessage)
+public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: COpaquePointer?, nbuffersize: UInt, lpbytesread: COpaquePointer?, lptotalbytesavail: COpaquePointer?, lpbytesleftthismessage: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_peekNamedPipe((hnamedpipe?.value ?: 0L), (lpbuffer?.value ?: 0L), nbuffersize.toInt(), (lpbytesread?.value ?: 0L), (lptotalbytesavail?.value ?: 0L), (lpbytesleftthismessage?.value ?: 0L))
 
-public actual fun SetNamedPipeHandleState(hnamedpipe: HANDLE, lpmode: Long, lpmaxcollectioncount: Long, lpcollectdatatimeout: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_SetNamedPipeHandleState(hnamedpipe, lpmode, lpmaxcollectioncount, lpcollectdatatimeout)
+public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: COpaquePointer?, lpmaxcollectioncount: COpaquePointer?, lpcollectdatatimeout: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_setNamedPipeHandleState((hnamedpipe?.value ?: 0L), (lpmode?.value ?: 0L), (lpmaxcollectioncount?.value ?: 0L), (lpcollectdatatimeout?.value ?: 0L))
 
-public actual fun TransactNamedPipe(hnamedpipe: HANDLE, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesread: Long, lpoverlapped: Long): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_TransactNamedPipe(hnamedpipe, lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesread, lpoverlapped)
+public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesread: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_transactNamedPipe((hnamedpipe?.value ?: 0L), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesread?.value ?: 0L), (lpoverlapped?.value ?: 0L))
 
-public actual fun WaitNamedPipeA(lpnamedpipename: PCSTR, ntimeout: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_WaitNamedPipeA(lpnamedpipename, ntimeout.toInt())
+public actual fun waitNamedPipeA(lpnamedpipename: Pcstr, ntimeout: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_waitNamedPipeA((lpnamedpipename?.value ?: 0L), ntimeout.toInt())
 
-public actual fun WaitNamedPipeW(lpnamedpipename: PCWSTR, ntimeout: UInt): BOOL =
-    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_WaitNamedPipeW(lpnamedpipename, ntimeout.toInt())
+public actual fun waitNamedPipeW(lpnamedpipename: Pcwstr, ntimeout: UInt): Bool =
+    WindowsWin32SystemPipesJniBridge.windowssys_windows_win32_system_pipes_waitNamedPipeW((lpnamedpipename?.value ?: 0L), ntimeout.toInt())

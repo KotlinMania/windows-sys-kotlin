@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscreenGamma_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTAdjustFullscreenGamma_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCancelPresents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -123,7 +123,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfacePointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeSurfacePointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfaceP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMemoryReservation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeVideoMemoryReservation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusive
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPowerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMonitorPowerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -229,7 +229,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -247,7 +247,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckOcclusion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -265,7 +265,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedResourceAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckSharedResourceAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckVidPnExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExcl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCloseAdapter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureSharedResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTConfigureSharedResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureShare
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -373,7 +373,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -391,7 +391,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextVirtual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContextVirtual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDCFromMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -445,7 +445,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -463,7 +463,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -499,7 +499,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDupl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOutputDupl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOverlay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -553,7 +553,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreatePagingQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -571,7 +571,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtectedSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateProtectedSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtecte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -625,7 +625,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -643,7 +643,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -679,7 +679,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDCFromMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -733,7 +733,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -751,7 +751,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputDupl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOutputDupl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -787,7 +787,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOverlay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -805,7 +805,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyPagingQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -823,7 +823,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtectedSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyProtectedSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroySynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -895,7 +895,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTEscape_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -931,7 +931,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTEvict_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -949,7 +949,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTFlipOverlay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTransitions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTFlushHeapTransitions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -985,7 +985,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTrans
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTFreeGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetAllocationPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1021,7 +1021,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInProcessSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextInProcessSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1039,7 +1039,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1057,7 +1057,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVerticalBlankEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDWMVerticalBlankEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1075,7 +1075,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVertical
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDeviceState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1093,7 +1093,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayModeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDisplayModeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1111,7 +1111,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneOverlayCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultiPlaneOverlayCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisampleMethodList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultisampleMethodList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1147,7 +1147,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisample
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetOverlayState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1165,7 +1165,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostCompositionCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPostCompositionCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1183,7 +1183,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostComposi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHistory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentHistory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1201,7 +1201,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueueEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentQueueEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hadapter = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1221,7 +1221,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDeviceRemovalSupport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessDeviceRemovalSupport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1239,7 +1239,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDevi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSchedulingPriorityClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessSchedulingPriorityClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1259,7 +1259,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePresentPrivateDriverData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetResourcePresentPrivateDriverData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1277,7 +1277,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetRuntimeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetScanLine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrimaryHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedPrimaryHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1331,7 +1331,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrima
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResourceAdapterLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedResourceAdapterLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1349,7 +1349,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActiveVidPn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateActiveVidPn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1367,7 +1367,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1385,7 +1385,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCach
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1403,7 +1403,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTLock_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTLock2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1421,7 +1421,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTMakeResident_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTMapGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1457,7 +1457,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTMarkDeviceAsError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1475,7 +1475,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsEr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOfferAllocations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1493,7 +1493,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromDeviceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromDeviceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1511,7 +1511,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromGdiDisplayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromGdiDisplayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1529,7 +1529,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromHdc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromHdc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1547,7 +1547,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromLuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromLuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1565,7 +1565,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1583,7 +1583,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1601,7 +1601,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutexFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutexFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1619,7 +1619,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenNtHandleFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedSessionFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenProtectedSessionFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1655,7 +1655,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1691,7 +1691,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResourceFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1709,7 +1709,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1727,7 +1727,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1745,7 +1745,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectNtHandleFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectNtHandleFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1763,7 +1763,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1781,7 +1781,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchroniz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetFrameInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetFrameInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1799,7 +1799,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetMetaData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetMetaData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1817,7 +1817,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetPointerShapeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetPointerShapeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1835,7 +1835,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1853,7 +1853,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresentToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresentToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplReleaseFrame_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplReleaseFrame_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1889,7 +1889,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplRele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChildren_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPollDisplayChildren_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1907,7 +1907,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1925,7 +1925,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1943,7 +1943,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1961,7 +1961,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentRedirected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1997,7 +1997,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAdapterInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2015,7 +2015,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocationResidency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAllocationResidency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2033,7 +2033,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCalibration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryClockCalibration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2051,7 +2051,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryFSEBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2069,7 +2069,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOfferInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProcessOfferInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2087,7 +2087,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionInfoFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionInfoFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2105,7 +2105,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtected
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2123,7 +2123,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtected
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2141,7 +2141,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2159,7 +2159,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfoFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfoFromNtHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2177,7 +2177,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2195,7 +2195,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVidPnExclusiveOwnership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2213,7 +2213,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExcl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVideoMemoryInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2231,7 +2231,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2267,7 +2267,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterTrimNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2285,7 +2285,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterVailProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2303,7 +2303,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2321,7 +2321,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2339,7 +2339,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcessVidPnSourceOwners_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseProcessVidPnSourceOwners_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2357,7 +2357,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRender_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTRender_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2375,7 +2375,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTRender_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTReserveGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2393,7 +2393,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetAllocationPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2411,7 +2411,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInProcessSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextInProcessSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2429,7 +2429,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextSchedulingPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2447,7 +2447,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2465,7 +2465,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPrivateDriverFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayPrivateDriverFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2483,7 +2483,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetFSEBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2501,7 +2501,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetGammaRamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2519,7 +2519,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectionTeardownRecovery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetHwProtectionTeardownRecovery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2537,7 +2537,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColorSpaceTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetMonitorColorSpaceTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2555,7 +2555,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSchedulingPriorityClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetProcessSchedulingPriorityClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2575,7 +2575,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetQueuedLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2593,7 +2593,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePowerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetStablePowerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2611,7 +2611,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePower
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefreshCountWaitTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetSyncRefreshCountWaitTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2629,7 +2629,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefresh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceHwProtection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceHwProtection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2647,7 +2647,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2665,7 +2665,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2683,7 +2683,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2701,7 +2701,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSource
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTShareObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cobjects = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hobjects = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2727,7 +2727,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryLockNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryLockNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2745,7 +2745,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryUnLockNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryUnLockNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2763,7 +2763,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2781,7 +2781,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2799,7 +2799,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromCpu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromCpu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2817,7 +2817,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2835,7 +2835,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2853,7 +2853,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchron
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2871,7 +2871,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommandToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2889,7 +2889,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentBltToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentBltToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2907,7 +2907,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2925,7 +2925,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSyncObjectsToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitSignalSyncObjectsToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2943,7 +2943,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForSyncObjectsToHwQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitWaitForSyncObjectsToHwQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2961,7 +2961,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCommitment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTTrimProcessCommitment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2979,7 +2979,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2997,7 +2997,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3015,7 +3015,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrimNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUnregisterTrimNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3033,7 +3033,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocationProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateAllocationProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3051,7 +3051,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateGpuVirtualAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3069,7 +3069,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateOverlay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3087,7 +3087,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3105,7 +3105,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3123,7 +3123,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3141,7 +3141,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromCpu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromCpu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3159,7 +3159,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromGpu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromGpu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3177,7 +3177,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3195,7 +3195,7 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVertica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3214,181 +3214,181 @@ static Napi::Value windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVertica
 }
 
 static void register_windows_wdk_graphics_direct3d_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscreenGamma", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscreenGamma_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfacePointer", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfacePointer_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMemoryReservation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMemoryReservation_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusiveOwnership_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPowerState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPowerState_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport3_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedResourceAccess", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedResourceAccess_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExclusiveOwnership_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureSharedResource", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureSharedResource_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextVirtual", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextVirtual_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMemory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMemory_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContext_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDupl", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDupl_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtectedSession", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtectedSession_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromMemory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromMemory_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwContext_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMutex_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputDupl", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputDupl_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtectedSession", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtectedSession_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchronizationObject_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTransitions", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTransitions_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtualAddress_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInProcessSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInProcessSchedulingPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSchedulingPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVerticalBlankEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVerticalBlankEvent_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayModeList", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayModeList_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneOverlayCaps", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneOverlayCaps_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisampleMethodList", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisampleMethodList_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayState_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostCompositionCaps", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostCompositionCaps_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHistory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHistory_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueueEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueueEvent_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDeviceRemovalSupport", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDeviceRemovalSupport_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSchedulingPriorityClass", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSchedulingPriorityClass_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePresentPrivateDriverData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePresentPrivateDriverData_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrimaryHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrimaryHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResourceAdapterLuid", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResourceAdapterLuid_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActiveVidPn", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActiveVidPn_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCache", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCache_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTLock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTLock_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualAddress_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsError", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsError_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocations", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocations_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromDeviceName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromDeviceName_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromGdiDisplayName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromGdiDisplayName_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromHdc", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromHdc_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromLuid", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromLuid_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutexFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutexFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFromName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFromName_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedSessionFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedSessionFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectNtHandleFromName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectNtHandleFromName_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchronizationObject_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetFrameInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetFrameInfo_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetMetaData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetMetaData_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetPointerShapeData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetPointerShapeData_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresent_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresentToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresentToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplReleaseFrame", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplReleaseFrame_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChildren", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChildren_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay3_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirected", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirected_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterInfo_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocationResidency", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocationResidency_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCalibration", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCalibration_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOfferInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOfferInfo_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionInfoFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionInfoFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionStatus", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionStatus_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfo_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfoFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfoFromNtHandle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistics", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistics_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExclusiveOwnership_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemoryInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemoryInfo_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNotification_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailProcess", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailProcess_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcessVidPnSourceOwners", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcessVidPnSourceOwners_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTRender", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTRender_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirtualAddress_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInProcessSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInProcessSchedulingPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSchedulingPriority_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPrivateDriverFormat", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPrivateDriverFormat_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectionTeardownRecovery", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectionTeardownRecovery_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColorSpaceTransform", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColorSpaceTransform_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSchedulingPriorityClass", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSchedulingPriorityClass_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePowerState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePowerState_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefreshCountWaitTarget", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefreshCountWaitTarget_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceHwProtection", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceHwProtection_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner1", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner1_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryLockNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryLockNotification_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryUnLockNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryUnLockNotification_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromCpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromCpu_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentBltToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentBltToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSyncObjectsToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSyncObjectsToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForSyncObjectsToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForSyncObjectsToHwQueue_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCommitment", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCommitment_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrimNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrimNotification_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocationProperty", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocationProperty_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtualAddress_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject2_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromCpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromCpu_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromGpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromGpu_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent_napi));
-    exports.Set("windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTAdjustFullscreenGamma", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTAdjustFullscreenGamma_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCancelPresents", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCancelPresents_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeSurfacePointer", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeSurfacePointer_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeVideoMemoryReservation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeVideoMemoryReservation_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckExclusiveOwnership_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMonitorPowerState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMonitorPowerState_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport3_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckOcclusion", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckOcclusion_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckSharedResourceAccess", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckSharedResourceAccess_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckVidPnExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckVidPnExclusiveOwnership_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCloseAdapter", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCloseAdapter_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTConfigureSharedResource", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTConfigureSharedResource_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContext_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContextVirtual", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContextVirtual_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDCFromMemory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDCFromMemory_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDevice", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDevice_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwContext_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOutputDupl", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOutputDupl_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOverlay_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreatePagingQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreatePagingQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateProtectedSession", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateProtectedSession_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyContext_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDCFromMemory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDCFromMemory_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDevice", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDevice_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwContext", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwContext_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyKeyedMutex_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOutputDupl", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOutputDupl_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOverlay_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyPagingQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyPagingQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyProtectedSession", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyProtectedSession_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroySynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroySynchronizationObject_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters3_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTEscape", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTEscape_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTEvict", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTEvict_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTFlipOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTFlipOverlay_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTFlushHeapTransitions", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTFlushHeapTransitions_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTFreeGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTFreeGpuVirtualAddress_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetAllocationPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetAllocationPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextInProcessSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextInProcessSchedulingPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextSchedulingPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDWMVerticalBlankEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDWMVerticalBlankEvent_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDeviceState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDeviceState_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDisplayModeList", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDisplayModeList_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultiPlaneOverlayCaps", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultiPlaneOverlayCaps_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultisampleMethodList", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultisampleMethodList_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetOverlayState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetOverlayState_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPostCompositionCaps", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPostCompositionCaps_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentHistory", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentHistory_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentQueueEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentQueueEvent_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessDeviceRemovalSupport", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessDeviceRemovalSupport_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessSchedulingPriorityClass", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessSchedulingPriorityClass_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetResourcePresentPrivateDriverData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetResourcePresentPrivateDriverData_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetRuntimeData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetRuntimeData_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetScanLine", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetScanLine_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedPrimaryHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedPrimaryHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedResourceAdapterLuid", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedResourceAdapterLuid_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateActiveVidPn", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateActiveVidPn_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateCache", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateCache_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTLock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTLock_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTLock2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTLock2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTMakeResident", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTMakeResident_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTMapGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTMapGpuVirtualAddress_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTMarkDeviceAsError", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTMarkDeviceAsError_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOfferAllocations", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOfferAllocations_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromDeviceName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromDeviceName_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromGdiDisplayName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromGdiDisplayName_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromHdc", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromHdc_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromLuid", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromLuid_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutexFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutexFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenNtHandleFromName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenNtHandleFromName_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenProtectedSessionFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenProtectedSessionFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResourceFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResourceFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectNtHandleFromName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectNtHandleFromName_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSynchronizationObject_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetFrameInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetFrameInfo_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetMetaData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetMetaData_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetPointerShapeData", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetPointerShapeData_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresent_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresentToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresentToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplReleaseFrame", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplReleaseFrame_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPollDisplayChildren", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPollDisplayChildren_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPresent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPresent_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay3", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay3_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentRedirected", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentRedirected_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAdapterInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAdapterInfo_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAllocationResidency", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAllocationResidency_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryClockCalibration", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryClockCalibration_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryFSEBlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryFSEBlock_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProcessOfferInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProcessOfferInfo_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionInfoFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionInfoFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionStatus", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionStatus_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfo_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfoFromNtHandle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfoFromNtHandle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryStatistics", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryStatistics_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVidPnExclusiveOwnership", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVidPnExclusiveOwnership_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVideoMemoryInfo", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVideoMemoryInfo_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterTrimNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterTrimNotification_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterVailProcess", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterVailProcess_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseProcessVidPnSourceOwners", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseProcessVidPnSourceOwners_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTRender", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTRender_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTReserveGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTReserveGpuVirtualAddress_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetAllocationPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetAllocationPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextInProcessSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextInProcessSchedulingPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextSchedulingPriority", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextSchedulingPriority_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayMode", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayMode_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayPrivateDriverFormat", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayPrivateDriverFormat_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetFSEBlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetFSEBlock_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetGammaRamp", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetGammaRamp_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetHwProtectionTeardownRecovery", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetHwProtectionTeardownRecovery_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetMonitorColorSpaceTransform", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetMonitorColorSpaceTransform_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetProcessSchedulingPriorityClass", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetProcessSchedulingPriorityClass_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetQueuedLimit", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetQueuedLimit_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetStablePowerState", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetStablePowerState_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetSyncRefreshCountWaitTarget", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetSyncRefreshCountWaitTarget_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceHwProtection", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceHwProtection_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner1", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner1_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTShareObjects", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTShareObjects_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryLockNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryLockNotification_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryUnLockNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryUnLockNotification_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromCpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromCpu_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommand", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommand_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommandToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommandToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentBltToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentBltToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitSignalSyncObjectsToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitSignalSyncObjectsToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitWaitForSyncObjectsToHwQueue", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitWaitForSyncObjectsToHwQueue_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTTrimProcessCommitment", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTTrimProcessCommitment_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUnregisterTrimNotification", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUnregisterTrimNotification_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateAllocationProperty", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateAllocationProperty_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateGpuVirtualAddress", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateGpuVirtualAddress_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateOverlay", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateOverlay_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForIdle", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForIdle_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject2_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromCpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromCpu_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromGpu", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromGpu_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent_napi));
+    exports.Set("windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent2", Napi::Function::New(env, windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent2_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_graphics_direct3d_napi, nullptr };

@@ -1,80 +1,158 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.threading
 
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PTIMER_APC_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TIMER_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PtimerApcRoutine
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
 
-public actual fun NtCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWdkSystemThreadingNapiAddon(): Boolean
 
-public actual fun NtCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS =
-    0
+private val _windowsWdkSystemThreadingNapiAvailable: Boolean = _initWindowsWdkSystemThreadingNapiAddon()
 
-public actual fun NtOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntCancelTimer(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntCancelTimer(p0: String, p1: String): Int
 
-public actual fun NtOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntCreateTimer(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntCreateTimer(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun NtOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntOpenEvent(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntOpenEvent(p0: String, p1: Int, p2: String): Int
 
-public actual fun NtQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntOpenProcess(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntOpenProcess(p0: String, p1: Int, p2: String, p3: String): Int
 
-public actual fun NtQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntOpenTimer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntOpenTimer(p0: String, p1: Int, p2: String): Int
 
-public actual fun NtSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntQueryInformationProcess(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntQueryInformationProcess(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-public actual fun NtSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntQueryInformationThread(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntQueryInformationThread(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-public actual fun NtSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntSetInformationThread(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntSetInformationThread(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun NtTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntSetTimer(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntSetTimer(p0: String, p1: String, p2: String, p3: String, p4: Boolean, p5: Int, p6: String): Int
 
-public actual fun NtWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntSetTimerEx(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntSetTimerEx(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun ZwCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntTerminateProcess(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntTerminateProcess(p0: String, p1: Int): Int
 
-public actual fun ZwCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_ntWaitForSingleObject(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_ntWaitForSingleObject(p0: String, p1: Boolean, p2: String): Int
 
-public actual fun ZwOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwCancelTimer(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwCancelTimer(p0: String, p1: String): Int
 
-public actual fun ZwOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwCreateTimer(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwCreateTimer(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun ZwOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwOpenEvent(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwOpenEvent(p0: String, p1: Int, p2: String): Int
 
-public actual fun ZwQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwOpenProcess(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwOpenProcess(p0: String, p1: Int, p2: String, p3: String): Int
 
-public actual fun ZwQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwOpenTimer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwOpenTimer(p0: String, p1: Int, p2: String): Int
 
-public actual fun ZwSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwQueryInformationProcess(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwQueryInformationProcess(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-public actual fun ZwSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwQueryInformationThread(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwQueryInformationThread(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
 
-public actual fun ZwSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwSetInformationThread(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwSetInformationThread(p0: String, p1: Int, p2: String, p3: Int): Int
 
-public actual fun ZwTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwSetTimer(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwSetTimer(p0: String, p1: String, p2: String, p3: String, p4: Boolean, p5: Int, p6: String): Int
 
-public actual fun ZwWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwSetTimerEx(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwSetTimerEx(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwTerminateProcess(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwTerminateProcess(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_system_threading_zwWaitForSingleObject(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_system_threading_zwWaitForSingleObject(p0: String, p1: Boolean, p2: String): Int
+
+public actual fun ntCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntCancelTimer((timerhandle?.value ?: 0L).toString(), (currentstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntCreateTimer((timerhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), timertype) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntOpenEvent((eventhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntOpenProcess((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (clientid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntOpenTimer((timerhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntQueryInformationProcess((processhandle?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntQueryInformationThread((threadhandle?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntSetInformationThread((threadhandle?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntSetTimer((timerhandle?.value ?: 0L).toString(), (duetime?.value ?: 0L).toString(), 0L.toString(), (timercontext?.value ?: 0L).toString(), resumetimer, period, (previousstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntSetTimerEx((timerhandle?.value ?: 0L).toString(), timersetinformationclass, (timersetinformation?.value ?: 0L).toString(), timersetinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntTerminateProcess((processhandle?.value ?: 0L).toString(), exitstatus) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_ntWaitForSingleObject((handle?.value ?: 0L).toString(), alertable, (timeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwCancelTimer((timerhandle?.value ?: 0L).toString(), (currentstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwCreateTimer((timerhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), timertype) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwOpenEvent((eventhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwOpenProcess((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString(), (clientid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwOpenTimer((timerhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (objectattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwQueryInformationProcess((processhandle?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwQueryInformationThread((threadhandle?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwSetInformationThread((threadhandle?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwSetTimer((timerhandle?.value ?: 0L).toString(), (duetime?.value ?: 0L).toString(), 0L.toString(), (timercontext?.value ?: 0L).toString(), resumetimer, period, (previousstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwSetTimerEx((timerhandle?.value ?: 0L).toString(), timersetinformationclass, (timersetinformation?.value ?: 0L).toString(), timersetinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwTerminateProcess((processhandle?.value ?: 0L).toString(), exitstatus) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
+    if (_windowsWdkSystemThreadingNapiAvailable) _wasm_windowssys_windows_wdk_system_threading_zwWaitForSingleObject((handle?.value ?: 0L).toString(), alertable, (timeout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

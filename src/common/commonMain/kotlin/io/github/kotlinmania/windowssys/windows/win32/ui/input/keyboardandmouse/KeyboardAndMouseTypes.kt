@@ -1,21 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-public typealias ACTIVATE_KEYBOARD_LAYOUT_FLAGS = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = UInt
+public typealias ActivateKeyboardLayoutFlags = UInt
 
-public typealias HKL = Long
+public typealias GetMouseMovePointsExResolution = UInt
 
-public typealias HOT_KEY_MODIFIERS = UInt
+public typealias Hkl = COpaquePointer?
 
-public typealias INPUT_TYPE = UInt
+public typealias HotKeyModifiers = UInt
 
-public typealias KEYBD_EVENT_FLAGS = UInt
+public typealias InputType = UInt
 
-public typealias MAP_VIRTUAL_KEY_TYPE = UInt
+public typealias KeybdEventFlags = UInt
 
-public typealias MOUSE_EVENT_FLAGS = UInt
+public typealias MapVirtualKeyType = UInt
 
-public typealias TRACKMOUSEEVENT_FLAGS = UInt
+public typealias MouseEventFlags = UInt
 
-public typealias VIRTUAL_KEY = UShort
+public typealias TrackmouseeventFlags = UInt
+
+public typealias VirtualKey = UShort

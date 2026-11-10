@@ -1,94 +1,191 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun EapHostPeerBeginSession(dwflags: UInt, eaptype: EAP_METHOD_TYPE, pattributearray: Long, htokenimpersonateuser: HANDLE, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, dwmaxsendpacketsize: UInt, pconnectionid: Long, func: NotificationHandler, pcontextdata: Long, psessionid: Long, ppeaperror: Long): UInt =
-    0u
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32SecurityExtensibleauthenticationprotocolNapiAddon(): Boolean
 
-public actual fun EapHostPeerClearConnection(pconnectionid: Long, ppeaperror: Long): UInt =
-    0u
+private val _windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable: Boolean = _initWindowsWin32SecurityExtensibleauthenticationprotocolNapiAddon()
 
-public actual fun EapHostPeerEndSession(sessionhandle: UInt, ppeaperror: Long): UInt =
-    0u
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection(p0: String, p1: String): Int
 
-public actual fun EapHostPeerFreeEapError(peaperror: Long) {
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(p0: Int, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError(p0)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory(p0)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory(p0)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory(p0)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(p0: Int, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(p0: Int, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(p0: Int, p1: String, p2: String, p3: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize()")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize(): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(p0: Int, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize()")
+private external fun _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize()
+
+public actual fun eapHostPeerBeginSession(dwflags: UInt, eaptype: EapMethodType, pattributearray: COpaquePointer?, htokenimpersonateuser: Handle, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, dwmaxsendpacketsize: UInt, pconnectionid: COpaquePointer?, func: NotificationHandler, pcontextdata: COpaquePointer?, psessionid: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun eapHostPeerClearConnection(pconnectionid: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection((pconnectionid?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun eapHostPeerEndSession(sessionhandle: UInt, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(sessionhandle.toInt(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun eapHostPeerFreeEapError(peaperror: COpaquePointer?) {
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) {
+        _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError((peaperror?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EapHostPeerFreeErrorMemory(peaperror: Long) {
+public actual fun eapHostPeerFreeErrorMemory(peaperror: COpaquePointer?) {
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) {
+        _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory((peaperror?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EapHostPeerFreeMemory(pdata: Long) {
+public actual fun eapHostPeerFreeMemory(pdata: COpaquePointer?) {
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) {
+        _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory((pdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EapHostPeerFreeRuntimeMemory(pdata: Long) {
+public actual fun eapHostPeerFreeRuntimeMemory(pdata: COpaquePointer?) {
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) {
+        _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory((pdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EapHostPeerGetAuthStatus(sessionhandle: UInt, authparam: EapHostPeerAuthParams, pcbauthdata: Long, ppauthdata: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetAuthStatus(sessionhandle: UInt, authparam: EapHostPeerAuthParams, pcbauthdata: COpaquePointer?, ppauthdata: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(sessionhandle.toInt(), authparam, (pcbauthdata?.value ?: 0L).toString(), (ppauthdata?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: Long, phcredentialimpersonationtoken: Long, sessionhandle: UInt, ppeaperror: Long, fsavetocredman: Long): UInt =
-    0u
+public actual fun eapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: COpaquePointer?, phcredentialimpersonationtoken: COpaquePointer?, sessionhandle: UInt, ppeaperror: COpaquePointer?, fsavetocredman: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials((pconnectionidthatlastsavedcreds?.value ?: 0L).toString(), (phcredentialimpersonationtoken?.value ?: 0L).toString(), sessionhandle.toInt(), (ppeaperror?.value ?: 0L).toString(), (fsavetocredman?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetEncryptedPassword(dwsizeofpassword: UInt, szpassword: PCWSTR, ppszencpassword: Long): UInt =
-    0u
+public actual fun eapHostPeerGetEncryptedPassword(dwsizeofpassword: UInt, szpassword: Pcwstr, ppszencpassword: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(dwsizeofpassword.toInt(), (szpassword?.value ?: 0L).toString(), (ppszencpassword?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetIdentity(dwversion: UInt, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, htokenimpersonateuser: HANDLE, pfinvokeui: Long, pdwsizeofuserdataout: Long, ppuserdataout: Long, ppwszidentity: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    0u
+public actual fun eapHostPeerGetIdentity(dwversion: UInt, dwflags: UInt, eapmethodtype: EapMethodType, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, htokenimpersonateuser: Handle, pfinvokeui: COpaquePointer?, pdwsizeofuserdataout: COpaquePointer?, ppuserdataout: COpaquePointer?, ppwszidentity: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetMethodProperties(dwversion: UInt, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: HANDLE, dweapconndatasize: UInt, pbeapconndata: Long, dwuserdatasize: UInt, pbuserdata: Long, pmethodpropertyarray: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetMethodProperties(dwversion: UInt, dwflags: UInt, eapmethodtype: EapMethodType, huserimpersonationtoken: Handle, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, dwuserdatasize: UInt, pbuserdata: COpaquePointer?, pmethodpropertyarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetMethods(peapmethodinfoarray: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetMethods(peapmethodinfoarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods((peapmethodinfoarray?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetResponseAttributes(sessionhandle: UInt, pattribs: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetResponseAttributes(sessionhandle: UInt, pattribs: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(sessionhandle.toInt(), (pattribs?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetResult(sessionhandle: UInt, reason: EapHostPeerMethodResultReason, ppresult: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetResult(sessionhandle: UInt, reason: EapHostPeerMethodResultReason, ppresult: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(sessionhandle.toInt(), reason, (ppresult?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetSendPacket(sessionhandle: UInt, pcbsendpacket: Long, ppsendpacket: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetSendPacket(sessionhandle: UInt, pcbsendpacket: COpaquePointer?, ppsendpacket: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(sessionhandle.toInt(), (pcbsendpacket?.value ?: 0L).toString(), (ppsendpacket?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerGetUIContext(sessionhandle: UInt, pdwsizeofuicontextdata: Long, ppuicontextdata: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerGetUIContext(sessionhandle: UInt, pdwsizeofuicontextdata: COpaquePointer?, ppuicontextdata: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(sessionhandle.toInt(), (pdwsizeofuicontextdata?.value ?: 0L).toString(), (ppuicontextdata?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerInitialize(): UInt =
-    0u
+public actual fun eapHostPeerInitialize(): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerInvokeConfigUI(hwndparent: HWND, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconfigin: UInt, pconfigin: Long, pdwsizeofconfigout: Long, ppconfigout: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerInvokeConfigUI(hwndparent: Hwnd, dwflags: UInt, eapmethodtype: EapMethodType, dwsizeofconfigin: UInt, pconfigin: COpaquePointer?, pdwsizeofconfigout: COpaquePointer?, ppconfigout: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerInvokeIdentityUI(dwversion: UInt, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, hwndparent: HWND, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, pdwsizeofuserdataout: Long, ppuserdataout: Long, ppwszidentity: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    0u
+public actual fun eapHostPeerInvokeIdentityUI(dwversion: UInt, eapmethodtype: EapMethodType, dwflags: UInt, hwndparent: Hwnd, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, pdwsizeofuserdataout: COpaquePointer?, ppuserdataout: COpaquePointer?, ppwszidentity: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerInvokeInteractiveUI(hwndparent: HWND, dwsizeofuicontextdata: UInt, puicontextdata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerInvokeInteractiveUI(hwndparent: Hwnd, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, pdwsizeofdatafrominteractiveui: COpaquePointer?, ppdatafrominteractiveui: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI((hwndparent?.value ?: 0L).toString(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L).toString(), (pdwsizeofdatafrominteractiveui?.value ?: 0L).toString(), (ppdatafrominteractiveui?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerProcessReceivedPacket(sessionhandle: UInt, cbreceivepacket: UInt, preceivepacket: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerProcessReceivedPacket(sessionhandle: UInt, cbreceivepacket: UInt, preceivepacket: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(sessionhandle.toInt(), cbreceivepacket.toInt(), (preceivepacket?.value ?: 0L).toString(), (peapoutput?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: Long, peapconfiginputfieldarray: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerQueryCredentialInputFields(huserimpersonationtoken: Handle, eapmethodtype: EapMethodType, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, peapconfiginputfieldarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerQueryInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapinteractiveuidata: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    0u
+public actual fun eapHostPeerQueryInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapinteractiveuidata: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L).toString(), (peapinteractiveuidata?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString(), (ppvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapinteractiveuidata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    0u
+public actual fun eapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapinteractiveuidata: COpaquePointer?, pdwsizeofdatafrominteractiveui: COpaquePointer?, ppdatafrominteractiveui: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L).toString(), (peapinteractiveuidata?.value ?: 0L).toString(), (pdwsizeofdatafrominteractiveui?.value ?: 0L).toString(), (ppdatafrominteractiveui?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString(), (ppvreserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: Long, peapconfiginputfieldarray: Long, pdwuserblobsize: Long, ppbuserblob: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: Handle, eapmethodtype: EapMethodType, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, peapconfiginputfieldarray: COpaquePointer?, pdwuserblobsize: COpaquePointer?, ppbuserblob: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerSetResponseAttributes(sessionhandle: UInt, pattribs: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerSetResponseAttributes(sessionhandle: UInt, pattribs: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(sessionhandle.toInt(), (pattribs?.value ?: 0L).toString(), (peapoutput?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerSetUIContext(sessionhandle: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    0u
+public actual fun eapHostPeerSetUIContext(sessionhandle: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(sessionhandle.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L).toString(), (peapoutput?.value ?: 0L).toString(), (ppeaperror?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EapHostPeerUninitialize() {
+public actual fun eapHostPeerUninitialize() {
+    if (_windowsWin32SecurityExtensibleauthenticationprotocolNapiAvailable) {
+        _wasm_windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }

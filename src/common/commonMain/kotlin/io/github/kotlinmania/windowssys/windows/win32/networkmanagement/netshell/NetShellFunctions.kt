@@ -1,21 +1,22 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun MatchEnumTag(hmodule: HANDLE, pwcarg: PCWSTR, dwnumarg: UInt, penumtable: Long, pdwvalue: Long): UInt
+public expect fun matchEnumTag(hmodule: Handle, pwcarg: Pcwstr, dwnumarg: UInt, penumtable: COpaquePointer?, pdwvalue: COpaquePointer?): UInt
 
-public expect fun MatchToken(pwszusertoken: PCWSTR, pwszcmdtoken: PCWSTR): BOOL
+public expect fun matchToken(pwszusertoken: Pcwstr, pwszcmdtoken: Pcwstr): Bool
 
-public expect fun PreprocessCommand(hmodule: HANDLE, ppwcarguments: Long, dwcurrentindex: UInt, dwargcount: UInt, ptttags: Long, dwtagcount: UInt, dwminargs: UInt, dwmaxargs: UInt, pdwtagtype: Long): UInt
+public expect fun preprocessCommand(hmodule: Handle, ppwcarguments: COpaquePointer?, dwcurrentindex: UInt, dwargcount: UInt, ptttags: COpaquePointer?, dwtagcount: UInt, dwminargs: UInt, dwmaxargs: UInt, pdwtagtype: COpaquePointer?): UInt
 
-public expect fun PrintError(hmodule: HANDLE, dwerrid: UInt, vararg variadicArgs: Long): UInt
+public expect fun printError(hmodule: Handle, dwerrid: UInt, vararg variadicArgs: Long): UInt
 
-public expect fun PrintMessage(pwszformat: PCWSTR, vararg variadicArgs: Long): UInt
+public expect fun printMessage(pwszformat: Pcwstr, vararg variadicArgs: Long): UInt
 
-public expect fun PrintMessageFromModule(hmodule: HANDLE, dwmsgid: UInt, vararg variadicArgs: Long): UInt
+public expect fun printMessageFromModule(hmodule: Handle, dwmsgid: UInt, vararg variadicArgs: Long): UInt
 
-public expect fun RegisterContext(pchildcontext: Long): UInt
+public expect fun registerContext(pchildcontext: COpaquePointer?): UInt
 
-public expect fun RegisterHelper(pguidparentcontext: Long, pfnregistersubcontext: Long): UInt
+public expect fun registerHelper(pguidparentcontext: COpaquePointer?, pfnregistersubcontext: COpaquePointer?): UInt

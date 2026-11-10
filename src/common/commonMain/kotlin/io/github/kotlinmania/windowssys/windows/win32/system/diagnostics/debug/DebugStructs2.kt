@@ -1,269 +1,271 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-public data class WHEA_XPF_MC_BANK_DESCRIPTOR(
-    public var BankNumber: UByte = 0u,
-    public var ClearOnInitialization: Boolean = false,
-    public var StatusDataFormat: UByte = 0u,
-    public var Flags: XPF_MC_BANK_FLAGS = XPF_MC_BANK_FLAGS(),
-    public var ControlMsr: UInt = 0u,
-    public var StatusMsr: UInt = 0u,
-    public var AddressMsr: UInt = 0u,
-    public var MiscMsr: UInt = 0u,
-    public var ControlData: ULong = 0uL,
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public data class WheaXpfMcBankDescriptor(
+    public var bankNumber: UByte = 0u,
+    public var clearOnInitialization: Boolean = false,
+    public var statusDataFormat: UByte = 0u,
+    public var flags: XpfMcBankFlags = XpfMcBankFlags(),
+    public var controlMsr: UInt = 0u,
+    public var statusMsr: UInt = 0u,
+    public var addressMsr: UInt = 0u,
+    public var miscMsr: UInt = 0u,
+    public var controlData: ULong = 0uL,
 )
 
-public data class WHEA_XPF_NMI_DESCRIPTOR(public var Type: UShort = 0u, public var Enabled: Boolean = false)
+public data class WheaXpfNmiDescriptor(public var type: UShort = 0u, public var enabled: Boolean = false)
 
-public class WOW64_CONTEXT(
-    public var ContextFlags: WOW64_CONTEXT_FLAGS = 0u,
-    public var Dr0: UInt = 0u,
-    public var Dr1: UInt = 0u,
-    public var Dr2: UInt = 0u,
-    public var Dr3: UInt = 0u,
-    public var Dr6: UInt = 0u,
-    public var Dr7: UInt = 0u,
-    public var FloatSave: WOW64_FLOATING_SAVE_AREA = WOW64_FLOATING_SAVE_AREA(),
-    public var SegGs: UInt = 0u,
-    public var SegFs: UInt = 0u,
-    public var SegEs: UInt = 0u,
-    public var SegDs: UInt = 0u,
-    public var Edi: UInt = 0u,
-    public var Esi: UInt = 0u,
-    public var Ebx: UInt = 0u,
-    public var Edx: UInt = 0u,
-    public var Ecx: UInt = 0u,
-    public var Eax: UInt = 0u,
-    public var Ebp: UInt = 0u,
-    public var Eip: UInt = 0u,
-    public var SegCs: UInt = 0u,
-    public var EFlags: UInt = 0u,
-    public var Esp: UInt = 0u,
-    public var SegSs: UInt = 0u,
-    public var ExtendedRegisters: UByteArray = UByteArray(512),
+public class Wow64Context(
+    public var contextFlags: Wow64ContextFlags = 0u,
+    public var dr0: UInt = 0u,
+    public var dr1: UInt = 0u,
+    public var dr2: UInt = 0u,
+    public var dr3: UInt = 0u,
+    public var dr6: UInt = 0u,
+    public var dr7: UInt = 0u,
+    public var floatSave: Wow64FloatingSaveArea = Wow64FloatingSaveArea(),
+    public var segGs: UInt = 0u,
+    public var segFs: UInt = 0u,
+    public var segEs: UInt = 0u,
+    public var segDs: UInt = 0u,
+    public var edi: UInt = 0u,
+    public var esi: UInt = 0u,
+    public var ebx: UInt = 0u,
+    public var edx: UInt = 0u,
+    public var ecx: UInt = 0u,
+    public var eax: UInt = 0u,
+    public var ebp: UInt = 0u,
+    public var eip: UInt = 0u,
+    public var segCs: UInt = 0u,
+    public var eFlags: UInt = 0u,
+    public var esp: UInt = 0u,
+    public var segSs: UInt = 0u,
+    public var extendedRegisters: UByteArray = UByteArray(512),
 )
 
-public data class WOW64_DESCRIPTOR_TABLE_ENTRY(public var Selector: UInt = 0u, public var Descriptor: WOW64_LDT_ENTRY = WOW64_LDT_ENTRY())
+public data class Wow64DescriptorTableEntry(public var selector: UInt = 0u, public var descriptor: Wow64LdtEntry = Wow64LdtEntry())
 
-public data class WOW64_FLOATING_SAVE_AREA(
-    public var ControlWord: UInt = 0u,
-    public var StatusWord: UInt = 0u,
-    public var TagWord: UInt = 0u,
-    public var ErrorOffset: UInt = 0u,
-    public var ErrorSelector: UInt = 0u,
-    public var DataOffset: UInt = 0u,
-    public var DataSelector: UInt = 0u,
-    public var RegisterArea: UByteArray = UByteArray(80),
-    public var Cr0NpxState: UInt = 0u,
+public data class Wow64FloatingSaveArea(
+    public var controlWord: UInt = 0u,
+    public var statusWord: UInt = 0u,
+    public var tagWord: UInt = 0u,
+    public var errorOffset: UInt = 0u,
+    public var errorSelector: UInt = 0u,
+    public var dataOffset: UInt = 0u,
+    public var dataSelector: UInt = 0u,
+    public var registerArea: UByteArray = UByteArray(80),
+    public var cr0NpxState: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WOW64_FLOATING_SAVE_AREA) return false
-        if (this.ControlWord != other.ControlWord) return false
-        if (this.StatusWord != other.StatusWord) return false
-        if (this.TagWord != other.TagWord) return false
-        if (this.ErrorOffset != other.ErrorOffset) return false
-        if (this.ErrorSelector != other.ErrorSelector) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (this.DataSelector != other.DataSelector) return false
-        if (!this.RegisterArea.contentEquals(other.RegisterArea)) return false
-        if (this.Cr0NpxState != other.Cr0NpxState) return false
+        if (other !is Wow64FloatingSaveArea) return false
+        if (this.controlWord != other.controlWord) return false
+        if (this.statusWord != other.statusWord) return false
+        if (this.tagWord != other.tagWord) return false
+        if (this.errorOffset != other.errorOffset) return false
+        if (this.errorSelector != other.errorSelector) return false
+        if (this.dataOffset != other.dataOffset) return false
+        if (this.dataSelector != other.dataSelector) return false
+        if (!this.registerArea.contentEquals(other.registerArea)) return false
+        if (this.cr0NpxState != other.cr0NpxState) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ControlWord.hashCode()
-        result = 31 * result + this.StatusWord.hashCode()
-        result = 31 * result + this.TagWord.hashCode()
-        result = 31 * result + this.ErrorOffset.hashCode()
-        result = 31 * result + this.ErrorSelector.hashCode()
-        result = 31 * result + this.DataOffset.hashCode()
-        result = 31 * result + this.DataSelector.hashCode()
-        result = 31 * result + this.RegisterArea.contentHashCode()
-        result = 31 * result + this.Cr0NpxState.hashCode()
+        var result = this.controlWord.hashCode()
+        result = 31 * result + this.statusWord.hashCode()
+        result = 31 * result + this.tagWord.hashCode()
+        result = 31 * result + this.errorOffset.hashCode()
+        result = 31 * result + this.errorSelector.hashCode()
+        result = 31 * result + this.dataOffset.hashCode()
+        result = 31 * result + this.dataSelector.hashCode()
+        result = 31 * result + this.registerArea.contentHashCode()
+        result = 31 * result + this.cr0NpxState.hashCode()
         return result
     }
 }
 
-public data class WOW64_LDT_ENTRY(
-    public var LimitLow: UShort = 0u,
-    public var BaseLow: UShort = 0u,
-    public var HighWord: WOW64_LDT_ENTRY_0 = WOW64_LDT_ENTRY_0(),
+public data class Wow64LdtEntry(
+    public var limitLow: UShort = 0u,
+    public var baseLow: UShort = 0u,
+    public var highWord: Wow64LdtEntry0 = Wow64LdtEntry0(),
 )
 
-public data class WOW64_LDT_ENTRY_0(public var Bytes: WOW64_LDT_ENTRY_0_0 = WOW64_LDT_ENTRY_0_0(), public var Bits: WOW64_LDT_ENTRY_0_1 = WOW64_LDT_ENTRY_0_1())
+public data class Wow64LdtEntry0(public var bytes: Wow64LdtEntry00 = Wow64LdtEntry00(), public var bits: Wow64LdtEntry01 = Wow64LdtEntry01())
 
-public data class WOW64_LDT_ENTRY_0_1(public var _bitfield: UInt = 0u)
+public data class Wow64LdtEntry01(public var bitfield: UInt = 0u)
 
-public data class WOW64_LDT_ENTRY_0_0(
-    public var BaseMid: UByte = 0u,
-    public var Flags1: UByte = 0u,
-    public var Flags2: UByte = 0u,
-    public var BaseHi: UByte = 0u,
+public data class Wow64LdtEntry00(
+    public var baseMid: UByte = 0u,
+    public var flags1: UByte = 0u,
+    public var flags2: UByte = 0u,
+    public var baseHi: UByte = 0u,
 )
 
-public data class XPF_MCE_FLAGS(public var Anonymous: XPF_MCE_FLAGS_0 = XPF_MCE_FLAGS_0(), public var AsULONG: UInt = 0u)
+public data class XpfMceFlags(public var anonymous: XpfMceFlags0 = XpfMceFlags0(), public var asULONG: UInt = 0u)
 
-public data class XPF_MCE_FLAGS_0(public var _bitfield: UInt = 0u)
+public data class XpfMceFlags0(public var bitfield: UInt = 0u)
 
-public data class XPF_MC_BANK_FLAGS(public var Anonymous: XPF_MC_BANK_FLAGS_0 = XPF_MC_BANK_FLAGS_0(), public var AsUCHAR: UByte = 0u)
+public data class XpfMcBankFlags(public var anonymous: XpfMcBankFlags0 = XpfMcBankFlags0(), public var asUCHAR: UByte = 0u)
 
-public data class XPF_MC_BANK_FLAGS_0(public var _bitfield: UByte = 0u)
+public data class XpfMcBankFlags0(public var bitfield: UByte = 0u)
 
-public data class XSAVE_AREA(public var LegacyState: XSAVE_FORMAT = XSAVE_FORMAT(), public var Header: XSAVE_AREA_HEADER = XSAVE_AREA_HEADER())
+public data class XsaveArea(public var legacyState: XsaveFormat = XsaveFormat(), public var header: XsaveAreaHeader = XsaveAreaHeader())
 
-public data class XSAVE_AREA_HEADER(
-    public var Mask: ULong = 0uL,
-    public var CompactionMask: ULong = 0uL,
-    public var Reserved2: ULongArray = ULongArray(6),
+public data class XsaveAreaHeader(
+    public var mask: ULong = 0uL,
+    public var compactionMask: ULong = 0uL,
+    public var reserved2: ULongArray = ULongArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is XSAVE_AREA_HEADER) return false
-        if (this.Mask != other.Mask) return false
-        if (this.CompactionMask != other.CompactionMask) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is XsaveAreaHeader) return false
+        if (this.mask != other.mask) return false
+        if (this.compactionMask != other.compactionMask) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Mask.hashCode()
-        result = 31 * result + this.CompactionMask.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.mask.hashCode()
+        result = 31 * result + this.compactionMask.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class XSAVE_FORMAT(
-    public var ControlWord: UShort = 0u,
-    public var StatusWord: UShort = 0u,
-    public var TagWord: UByte = 0u,
-    public var Reserved1: UByte = 0u,
-    public var ErrorOpcode: UShort = 0u,
-    public var ErrorOffset: UInt = 0u,
-    public var ErrorSelector: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var DataOffset: UInt = 0u,
-    public var DataSelector: UShort = 0u,
-    public var Reserved3: UShort = 0u,
-    public var MxCsr: UInt = 0u,
-    public var MxCsr_Mask: UInt = 0u,
-    public var FloatRegisters: List<M128A> = List(8) { M128A() },
-    public var XmmRegisters: List<M128A> = List(16) { M128A() },
-    public var Reserved4: UByteArray = UByteArray(96),
+public data class XsaveFormat(
+    public var controlWord: UShort = 0u,
+    public var statusWord: UShort = 0u,
+    public var tagWord: UByte = 0u,
+    public var reserved1: UByte = 0u,
+    public var errorOpcode: UShort = 0u,
+    public var errorOffset: UInt = 0u,
+    public var errorSelector: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var dataOffset: UInt = 0u,
+    public var dataSelector: UShort = 0u,
+    public var reserved3: UShort = 0u,
+    public var mxCsr: UInt = 0u,
+    public var mxCsrMask: UInt = 0u,
+    public var floatRegisters: List<M128a> = List(8) { M128a() },
+    public var xmmRegisters: List<M128a> = List(16) { M128a() },
+    public var reserved4: UByteArray = UByteArray(96),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is XSAVE_FORMAT) return false
-        if (this.ControlWord != other.ControlWord) return false
-        if (this.StatusWord != other.StatusWord) return false
-        if (this.TagWord != other.TagWord) return false
-        if (this.Reserved1 != other.Reserved1) return false
-        if (this.ErrorOpcode != other.ErrorOpcode) return false
-        if (this.ErrorOffset != other.ErrorOffset) return false
-        if (this.ErrorSelector != other.ErrorSelector) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (this.DataSelector != other.DataSelector) return false
-        if (this.Reserved3 != other.Reserved3) return false
-        if (this.MxCsr != other.MxCsr) return false
-        if (this.MxCsr_Mask != other.MxCsr_Mask) return false
-        if (this.FloatRegisters != other.FloatRegisters) return false
-        if (this.XmmRegisters != other.XmmRegisters) return false
-        if (!this.Reserved4.contentEquals(other.Reserved4)) return false
+        if (other !is XsaveFormat) return false
+        if (this.controlWord != other.controlWord) return false
+        if (this.statusWord != other.statusWord) return false
+        if (this.tagWord != other.tagWord) return false
+        if (this.reserved1 != other.reserved1) return false
+        if (this.errorOpcode != other.errorOpcode) return false
+        if (this.errorOffset != other.errorOffset) return false
+        if (this.errorSelector != other.errorSelector) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (this.dataOffset != other.dataOffset) return false
+        if (this.dataSelector != other.dataSelector) return false
+        if (this.reserved3 != other.reserved3) return false
+        if (this.mxCsr != other.mxCsr) return false
+        if (this.mxCsrMask != other.mxCsrMask) return false
+        if (this.floatRegisters != other.floatRegisters) return false
+        if (this.xmmRegisters != other.xmmRegisters) return false
+        if (!this.reserved4.contentEquals(other.reserved4)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ControlWord.hashCode()
-        result = 31 * result + this.StatusWord.hashCode()
-        result = 31 * result + this.TagWord.hashCode()
-        result = 31 * result + this.Reserved1.hashCode()
-        result = 31 * result + this.ErrorOpcode.hashCode()
-        result = 31 * result + this.ErrorOffset.hashCode()
-        result = 31 * result + this.ErrorSelector.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.DataOffset.hashCode()
-        result = 31 * result + this.DataSelector.hashCode()
-        result = 31 * result + this.Reserved3.hashCode()
-        result = 31 * result + this.MxCsr.hashCode()
-        result = 31 * result + this.MxCsr_Mask.hashCode()
-        result = 31 * result + this.FloatRegisters.hashCode()
-        result = 31 * result + this.XmmRegisters.hashCode()
-        result = 31 * result + this.Reserved4.contentHashCode()
+        var result = this.controlWord.hashCode()
+        result = 31 * result + this.statusWord.hashCode()
+        result = 31 * result + this.tagWord.hashCode()
+        result = 31 * result + this.reserved1.hashCode()
+        result = 31 * result + this.errorOpcode.hashCode()
+        result = 31 * result + this.errorOffset.hashCode()
+        result = 31 * result + this.errorSelector.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.dataOffset.hashCode()
+        result = 31 * result + this.dataSelector.hashCode()
+        result = 31 * result + this.reserved3.hashCode()
+        result = 31 * result + this.mxCsr.hashCode()
+        result = 31 * result + this.mxCsrMask.hashCode()
+        result = 31 * result + this.floatRegisters.hashCode()
+        result = 31 * result + this.xmmRegisters.hashCode()
+        result = 31 * result + this.reserved4.contentHashCode()
         return result
     }
 }
 
-public data class XSTATE_CONFIGURATION(
-    public var EnabledFeatures: ULong = 0uL,
-    public var EnabledVolatileFeatures: ULong = 0uL,
-    public var Size: UInt = 0u,
-    public var Anonymous: XSTATE_CONFIGURATION_0 = XSTATE_CONFIGURATION_0(),
-    public var Features: List<XSTATE_FEATURE> = List(64) { XSTATE_FEATURE() },
-    public var EnabledSupervisorFeatures: ULong = 0uL,
-    public var AlignedFeatures: ULong = 0uL,
-    public var AllFeatureSize: UInt = 0u,
-    public var AllFeatures: UIntArray = UIntArray(64),
-    public var EnabledUserVisibleSupervisorFeatures: ULong = 0uL,
-    public var ExtendedFeatureDisableFeatures: ULong = 0uL,
-    public var AllNonLargeFeatureSize: UInt = 0u,
-    public var Spare: UInt = 0u,
+public data class XstateConfiguration(
+    public var enabledFeatures: ULong = 0uL,
+    public var enabledVolatileFeatures: ULong = 0uL,
+    public var size: UInt = 0u,
+    public var anonymous: XstateConfiguration0 = XstateConfiguration0(),
+    public var features: List<XstateFeature> = List(64) { XstateFeature() },
+    public var enabledSupervisorFeatures: ULong = 0uL,
+    public var alignedFeatures: ULong = 0uL,
+    public var allFeatureSize: UInt = 0u,
+    public var allFeatures: UIntArray = UIntArray(64),
+    public var enabledUserVisibleSupervisorFeatures: ULong = 0uL,
+    public var extendedFeatureDisableFeatures: ULong = 0uL,
+    public var allNonLargeFeatureSize: UInt = 0u,
+    public var spare: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is XSTATE_CONFIGURATION) return false
-        if (this.EnabledFeatures != other.EnabledFeatures) return false
-        if (this.EnabledVolatileFeatures != other.EnabledVolatileFeatures) return false
-        if (this.Size != other.Size) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (this.Features != other.Features) return false
-        if (this.EnabledSupervisorFeatures != other.EnabledSupervisorFeatures) return false
-        if (this.AlignedFeatures != other.AlignedFeatures) return false
-        if (this.AllFeatureSize != other.AllFeatureSize) return false
-        if (!this.AllFeatures.contentEquals(other.AllFeatures)) return false
-        if (this.EnabledUserVisibleSupervisorFeatures != other.EnabledUserVisibleSupervisorFeatures) return false
-        if (this.ExtendedFeatureDisableFeatures != other.ExtendedFeatureDisableFeatures) return false
-        if (this.AllNonLargeFeatureSize != other.AllNonLargeFeatureSize) return false
-        if (this.Spare != other.Spare) return false
+        if (other !is XstateConfiguration) return false
+        if (this.enabledFeatures != other.enabledFeatures) return false
+        if (this.enabledVolatileFeatures != other.enabledVolatileFeatures) return false
+        if (this.size != other.size) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.features != other.features) return false
+        if (this.enabledSupervisorFeatures != other.enabledSupervisorFeatures) return false
+        if (this.alignedFeatures != other.alignedFeatures) return false
+        if (this.allFeatureSize != other.allFeatureSize) return false
+        if (!this.allFeatures.contentEquals(other.allFeatures)) return false
+        if (this.enabledUserVisibleSupervisorFeatures != other.enabledUserVisibleSupervisorFeatures) return false
+        if (this.extendedFeatureDisableFeatures != other.extendedFeatureDisableFeatures) return false
+        if (this.allNonLargeFeatureSize != other.allNonLargeFeatureSize) return false
+        if (this.spare != other.spare) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.EnabledFeatures.hashCode()
-        result = 31 * result + this.EnabledVolatileFeatures.hashCode()
-        result = 31 * result + this.Size.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.Features.hashCode()
-        result = 31 * result + this.EnabledSupervisorFeatures.hashCode()
-        result = 31 * result + this.AlignedFeatures.hashCode()
-        result = 31 * result + this.AllFeatureSize.hashCode()
-        result = 31 * result + this.AllFeatures.contentHashCode()
-        result = 31 * result + this.EnabledUserVisibleSupervisorFeatures.hashCode()
-        result = 31 * result + this.ExtendedFeatureDisableFeatures.hashCode()
-        result = 31 * result + this.AllNonLargeFeatureSize.hashCode()
-        result = 31 * result + this.Spare.hashCode()
+        var result = this.enabledFeatures.hashCode()
+        result = 31 * result + this.enabledVolatileFeatures.hashCode()
+        result = 31 * result + this.size.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.features.hashCode()
+        result = 31 * result + this.enabledSupervisorFeatures.hashCode()
+        result = 31 * result + this.alignedFeatures.hashCode()
+        result = 31 * result + this.allFeatureSize.hashCode()
+        result = 31 * result + this.allFeatures.contentHashCode()
+        result = 31 * result + this.enabledUserVisibleSupervisorFeatures.hashCode()
+        result = 31 * result + this.extendedFeatureDisableFeatures.hashCode()
+        result = 31 * result + this.allNonLargeFeatureSize.hashCode()
+        result = 31 * result + this.spare.hashCode()
         return result
     }
 }
 
-public data class XSTATE_CONFIGURATION_0(public var ControlFlags: UInt = 0u, public var Anonymous: XSTATE_CONFIGURATION_0_0 = XSTATE_CONFIGURATION_0_0())
+public data class XstateConfiguration0(public var controlFlags: UInt = 0u, public var anonymous: XstateConfiguration00 = XstateConfiguration00())
 
-public data class XSTATE_CONFIGURATION_0_0(public var _bitfield: UInt = 0u)
+public data class XstateConfiguration00(public var bitfield: UInt = 0u)
 
-public data class XSTATE_CONFIG_FEATURE_MSC_INFO(
-    public var SizeOfInfo: UInt = 0u,
-    public var ContextSize: UInt = 0u,
-    public var EnabledFeatures: ULong = 0uL,
-    public var Features: List<XSTATE_FEATURE> = List(64) { XSTATE_FEATURE() },
+public data class XstateConfigFeatureMscInfo(
+    public var sizeOfInfo: UInt = 0u,
+    public var contextSize: UInt = 0u,
+    public var enabledFeatures: ULong = 0uL,
+    public var features: List<XstateFeature> = List(64) { XstateFeature() },
 )
 
-public data class XSTATE_CONTEXT(
-    public var Mask: ULong = 0uL,
-    public var Length: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Area: Long = 0L,
-    public var Buffer: Long = 0L,
+public data class XstateContext(
+    public var mask: ULong = 0uL,
+    public var length: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var area: XsaveArea? = null,
+    public var buffer: COpaquePointer? = null,
 )
 
-public data class XSTATE_FEATURE(public var Offset: UInt = 0u, public var Size: UInt = 0u)
+public data class XstateFeature(public var offset: UInt = 0u, public var size: UInt = 0u)

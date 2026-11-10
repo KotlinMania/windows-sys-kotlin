@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1GetTnefStreamCodepage(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jlong lpulcodepage, jlong lpulsubcodepage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1getTnefStreamCodepage(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jlong lpulcodepage, jlong lpulsubcodepage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1OpenTnefStream(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpptnef) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1openTnefStream(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpptnef) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -62,7 +62,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1OpenTnefStreamEx(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpadressbook, jlong lpptnef) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_tapi_WindowsWin32DevicesTapiJniBridge_windowssys_1windows_1win32_1devices_1tapi_1openTnefStreamEx(JNIEnv* km_env, jclass km_clazz, jlong lpvsupport, jlong lpstream, jlong lpszstreamname, jint ulflags, jlong lpmessage, jshort wkeyval, jlong lpadressbook, jlong lpptnef) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

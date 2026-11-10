@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1OfflineFilesEnable(JNIEnv* km_env, jclass km_clazz, jint benable, jlong pbrebootrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1offlineFilesEnable(JNIEnv* km_env, jclass km_clazz, jint benable, jlong pbrebootrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1OfflineFilesQueryStatus(JNIEnv* km_env, jclass km_clazz, jlong pbactive, jlong pbenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1offlineFilesQueryStatus(JNIEnv* km_env, jclass km_clazz, jlong pbactive, jlong pbenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1OfflineFilesQueryStatusEx(JNIEnv* km_env, jclass km_clazz, jlong pbactive, jlong pbenabled, jlong pbavailable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1offlineFilesQueryStatusEx(JNIEnv* km_env, jclass km_clazz, jlong pbactive, jlong pbenabled, jlong pbavailable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1OfflineFilesStart(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_offlinefiles_WindowsWin32StorageOfflinefilesJniBridge_windowssys_1windows_1win32_1storage_1offlinefiles_1offlineFilesStart(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

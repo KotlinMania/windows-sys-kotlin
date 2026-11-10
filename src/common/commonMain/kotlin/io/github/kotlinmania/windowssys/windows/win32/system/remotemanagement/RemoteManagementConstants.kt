@@ -1,8 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val ERROR_REDIRECT_LOCATION_INVALID: UInt = 2150859191u
@@ -1029,11 +1029,11 @@ public val ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: UInt = 2150859012u
 
 public val ERROR_WSMAN_WRONG_METADATA: UInt = 2150859233u
 
-public val WSMAN_CMDSHELL_OPTION_CODEPAGE: PCWSTR = w("WINRS_CODEPAGE")
+public val WSMAN_CMDSHELL_OPTION_CODEPAGE: Pcwstr = w("WINRS_CODEPAGE")
 
-public val WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: PCWSTR = w("WINRS_CONSOLEMODE_STDIN")
+public val WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: Pcwstr = w("WINRS_CONSOLEMODE_STDIN")
 
-public val WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: PCWSTR = w("WINRS_SKIP_CMD_SHELL")
+public val WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: Pcwstr = w("WINRS_SKIP_CMD_SHELL")
 
 public val WSMAN_DATA_NONE: WSManDataType = 0
 
@@ -1197,82 +1197,82 @@ public val WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: UInt = 1u
 
 public val WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: UInt = 0u
 
-public val WSMAN_SHELL_NS: PCWSTR = w("http://schemas.microsoft.com/wbem/wsman/1/windows/shell")
+public val WSMAN_SHELL_NS: Pcwstr = w("http://schemas.microsoft.com/wbem/wsman/1/windows/shell")
 
-public val WSMAN_SHELL_OPTION_NOPROFILE: PCWSTR = w("WINRS_NOPROFILE")
+public val WSMAN_SHELL_OPTION_NOPROFILE: Pcwstr = w("WINRS_NOPROFILE")
 
-public val WSMAN_STREAM_ID_STDERR: PCWSTR = w("stderr")
+public val WSMAN_STREAM_ID_STDERR: Pcwstr = w("stderr")
 
-public val WSMAN_STREAM_ID_STDIN: PCWSTR = w("stdin")
+public val WSMAN_STREAM_ID_STDIN: Pcwstr = w("stdin")
 
-public val WSMAN_STREAM_ID_STDOUT: PCWSTR = w("stdout")
+public val WSMAN_STREAM_ID_STDOUT: Pcwstr = w("stdout")
 
-public val WSMan: GUID = GUID.from_u128(U128(0xbced617bec03420buL, 0x8508977dc7a686bduL))
+public val WS_MAN: Guid = Guid.fromU128(U128(0xbced617bec03420buL, 0x8508977dc7a686bduL))
 
-public val WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = 67108864
+public val WS_MAN_FLAG_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionFlags = 67108864
 
-public val WSManFlagAssociatedInstance: WSManEnumFlags = 0
+public val WS_MAN_FLAG_ASSOCIATED_INSTANCE: WSManEnumFlags = 0
 
-public val WSManFlagAssociationInstance: WSManEnumFlags = 128
+public val WS_MAN_FLAG_ASSOCIATION_INSTANCE: WSManEnumFlags = 128
 
-public val WSManFlagCredUsernamePassword: WSManSessionFlags = 4096
+public val WS_MAN_FLAG_CRED_USERNAME_PASSWORD: WSManSessionFlags = 4096
 
-public val WSManFlagEnableSPNServerPort: WSManSessionFlags = 4194304
+public val WS_MAN_FLAG_ENABLE_SPN_SERVER_PORT: WSManSessionFlags = 4194304
 
-public val WSManFlagHierarchyDeep: WSManEnumFlags = 0
+public val WS_MAN_FLAG_HIERARCHY_DEEP: WSManEnumFlags = 0
 
-public val WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = 64
+public val WS_MAN_FLAG_HIERARCHY_DEEP_BASE_PROPS_ONLY: WSManEnumFlags = 64
 
-public val WSManFlagHierarchyShallow: WSManEnumFlags = 32
+public val WS_MAN_FLAG_HIERARCHY_SHALLOW: WSManEnumFlags = 32
 
-public val WSManFlagNoEncryption: WSManSessionFlags = 1048576
+public val WS_MAN_FLAG_NO_ENCRYPTION: WSManSessionFlags = 1048576
 
-public val WSManFlagNonXmlText: WSManEnumFlags = 1
+public val WS_MAN_FLAG_NON_XML_TEXT: WSManEnumFlags = 1
 
-public val WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = 2
+public val WS_MAN_FLAG_PROXY_AUTHENTICATION_USE_BASIC: WSManProxyAuthenticationFlags = 2
 
-public val WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = 4
+public val WS_MAN_FLAG_PROXY_AUTHENTICATION_USE_DIGEST: WSManProxyAuthenticationFlags = 4
 
-public val WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = 1
+public val WS_MAN_FLAG_PROXY_AUTHENTICATION_USE_NEGOTIATE: WSManProxyAuthenticationFlags = 1
 
-public val WSManFlagReturnEPR: WSManEnumFlags = 2
+public val WS_MAN_FLAG_RETURN_EPR: WSManEnumFlags = 2
 
-public val WSManFlagReturnObject: WSManEnumFlags = 0
+public val WS_MAN_FLAG_RETURN_OBJECT: WSManEnumFlags = 0
 
-public val WSManFlagReturnObjectAndEPR: WSManEnumFlags = 4
+public val WS_MAN_FLAG_RETURN_OBJECT_AND_EPR: WSManEnumFlags = 4
 
-public val WSManFlagSkipCACheck: WSManSessionFlags = 8192
+public val WS_MAN_FLAG_SKIP_CA_CHECK: WSManSessionFlags = 8192
 
-public val WSManFlagSkipCNCheck: WSManSessionFlags = 16384
+public val WS_MAN_FLAG_SKIP_CN_CHECK: WSManSessionFlags = 16384
 
-public val WSManFlagSkipRevocationCheck: WSManSessionFlags = 33554432
+public val WS_MAN_FLAG_SKIP_REVOCATION_CHECK: WSManSessionFlags = 33554432
 
-public val WSManFlagUTF16: WSManSessionFlags = 8388608
+public val WS_MAN_FLAG_UTF16: WSManSessionFlags = 8388608
 
-public val WSManFlagUTF8: WSManSessionFlags = 1
+public val WS_MAN_FLAG_UTF8: WSManSessionFlags = 1
 
-public val WSManFlagUseBasic: WSManSessionFlags = 262144
+public val WS_MAN_FLAG_USE_BASIC: WSManSessionFlags = 262144
 
-public val WSManFlagUseClientCertificate: WSManSessionFlags = 2097152
+public val WS_MAN_FLAG_USE_CLIENT_CERTIFICATE: WSManSessionFlags = 2097152
 
-public val WSManFlagUseCredSsp: WSManSessionFlags = 16777216
+public val WS_MAN_FLAG_USE_CRED_SSP: WSManSessionFlags = 16777216
 
-public val WSManFlagUseDigest: WSManSessionFlags = 65536
+public val WS_MAN_FLAG_USE_DIGEST: WSManSessionFlags = 65536
 
-public val WSManFlagUseKerberos: WSManSessionFlags = 524288
+public val WS_MAN_FLAG_USE_KERBEROS: WSManSessionFlags = 524288
 
-public val WSManFlagUseNegotiate: WSManSessionFlags = 131072
+public val WS_MAN_FLAG_USE_NEGOTIATE: WSManSessionFlags = 131072
 
-public val WSManFlagUseNoAuthentication: WSManSessionFlags = 32768
+public val WS_MAN_FLAG_USE_NO_AUTHENTICATION: WSManSessionFlags = 32768
 
-public val WSManFlagUseSsl: WSManSessionFlags = 134217728
+public val WS_MAN_FLAG_USE_SSL: WSManSessionFlags = 134217728
 
-public val WSManInternal: GUID = GUID.from_u128(U128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL))
+public val WS_MAN_INTERNAL: Guid = Guid.fromU128(U128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL))
 
-public val WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4
+public val WS_MAN_PROXY_AUTO_DETECT: WSManProxyAccessTypeFlags = 4
 
-public val WSManProxyIEConfig: WSManProxyAccessTypeFlags = 1
+public val WS_MAN_PROXY_IE_CONFIG: WSManProxyAccessTypeFlags = 1
 
-public val WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = 8
+public val WS_MAN_PROXY_NO_PROXY_SERVER: WSManProxyAccessTypeFlags = 8
 
-public val WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = 2
+public val WS_MAN_PROXY_WIN_HTTP_CONFIG: WSManProxyAccessTypeFlags = 2

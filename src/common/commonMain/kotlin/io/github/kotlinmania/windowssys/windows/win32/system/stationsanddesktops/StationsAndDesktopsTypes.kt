@@ -1,44 +1,45 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public typealias BROADCAST_SYSTEM_MESSAGE_FLAGS = UInt
+public typealias BroadcastSystemMessageFlags = UInt
 
-public typealias BROADCAST_SYSTEM_MESSAGE_INFO = UInt
+public typealias BroadcastSystemMessageInfo = UInt
 
-public fun interface DESKTOPENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
+public fun interface DesktopenumprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Lparam): Bool
 }
 
-public typealias DESKTOPENUMPROCA = DESKTOPENUMPROCAFn?
+public typealias Desktopenumproca = DesktopenumprocaFn?
 
-public fun interface DESKTOPENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
+public fun interface DesktopenumprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Bool
 }
 
-public typealias DESKTOPENUMPROCW = DESKTOPENUMPROCWFn?
+public typealias Desktopenumprocw = DesktopenumprocwFn?
 
-public typealias DESKTOP_ACCESS_FLAGS = UInt
+public typealias DesktopAccessFlags = UInt
 
-public typealias DESKTOP_CONTROL_FLAGS = UInt
+public typealias DesktopControlFlags = UInt
 
-public typealias HDESK = Long
+public typealias Hdesk = COpaquePointer?
 
-public typealias HWINSTA = Long
+public typealias Hwinsta = COpaquePointer?
 
-public typealias USER_OBJECT_INFORMATION_INDEX = Int
+public typealias UserObjectInformationIndex = Int
 
-public fun interface WINSTAENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
+public fun interface WinstaenumprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Lparam): Bool
 }
 
-public typealias WINSTAENUMPROCA = WINSTAENUMPROCAFn?
+public typealias Winstaenumproca = WinstaenumprocaFn?
 
-public fun interface WINSTAENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
+public fun interface WinstaenumprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Bool
 }
 
-public typealias WINSTAENUMPROCW = WINSTAENUMPROCWFn?
+public typealias Winstaenumprocw = WinstaenumprocwFn?

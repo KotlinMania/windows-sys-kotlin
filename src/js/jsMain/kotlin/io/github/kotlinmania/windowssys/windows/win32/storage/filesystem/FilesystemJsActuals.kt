@@ -2,1277 +2,1296 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.io.LPOVERLAPPED_COMPLETION_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.io.LpoverlappedCompletionRoutine
 
 private val _windowsWin32StorageFilesystemNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AddLogContainer(hlog: HANDLE, pcbcontainer: Long, pwszcontainerpath: PCWSTR, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AddLogContainer(hlog.toString(), pcbcontainer.toString(), pwszcontainerpath.toString(), preserved.toString()) as Int) else 0
+public actual fun addLogContainer(hlog: Handle, pcbcontainer: COpaquePointer?, pwszcontainerpath: Pcwstr, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_addLogContainer((hlog?.value ?: 0L).toString(), (pcbcontainer?.value ?: 0L).toString(), (pwszcontainerpath?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddLogContainerSet(hlog: HANDLE, ccontainer: UShort, pcbcontainer: Long, rgwszcontainerpath: Long, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AddLogContainerSet(hlog.toString(), ccontainer.toInt(), pcbcontainer.toString(), rgwszcontainerpath.toString(), preserved.toString()) as Int) else 0
+public actual fun addLogContainerSet(hlog: Handle, ccontainer: UShort, pcbcontainer: COpaquePointer?, rgwszcontainerpath: COpaquePointer?, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_addLogContainerSet((hlog?.value ?: 0L).toString(), ccontainer.toInt(), (pcbcontainer?.value ?: 0L).toString(), (rgwszcontainerpath?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddUsersToEncryptedFile(lpfilename: PCWSTR, pencryptioncertificates: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AddUsersToEncryptedFile(lpfilename.toString(), pencryptioncertificates.toString()) as Int).toUInt() else 0u
+public actual fun addUsersToEncryptedFile(lpfilename: Pcwstr, pencryptioncertificates: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_addUsersToEncryptedFile((lpfilename?.value ?: 0L).toString(), (pencryptioncertificates?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdvanceLogBase(pvmarshal: Long, plsnbase: Long, fflags: UInt, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AdvanceLogBase(pvmarshal.toString(), plsnbase.toString(), fflags.toInt(), poverlapped.toString()) as Int) else 0
+public actual fun advanceLogBase(pvmarshal: COpaquePointer?, plsnbase: COpaquePointer?, fflags: UInt, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_advanceLogBase((pvmarshal?.value ?: 0L).toString(), (plsnbase?.value ?: 0L).toString(), fflags.toInt(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AlignReservedLog(pvmarshal: Long, creservedrecords: UInt, rgcbreservation: Long, pcbalignreservation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AlignReservedLog(pvmarshal.toString(), creservedrecords.toInt(), rgcbreservation.toString(), pcbalignreservation.toString()) as Int) else 0
+public actual fun alignReservedLog(pvmarshal: COpaquePointer?, creservedrecords: UInt, rgcbreservation: COpaquePointer?, pcbalignreservation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_alignReservedLog((pvmarshal?.value ?: 0L).toString(), creservedrecords.toInt(), (rgcbreservation?.value ?: 0L).toString(), (pcbalignreservation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllocReservedLog(pvmarshal: Long, creservedrecords: UInt, pcbadjustment: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AllocReservedLog(pvmarshal.toString(), creservedrecords.toInt(), pcbadjustment.toString()) as Int) else 0
+public actual fun allocReservedLog(pvmarshal: COpaquePointer?, creservedrecords: UInt, pcbadjustment: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_allocReservedLog((pvmarshal?.value ?: 0L).toString(), creservedrecords.toInt(), (pcbadjustment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AreFileApisANSI(): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AreFileApisANSI() as Int) else 0
+public actual fun areFileApisANSI(): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_areFileApisANSI() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AreShortNamesEnabled(handle: HANDLE, enabled: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_AreShortNamesEnabled(handle.toString(), enabled.toString()) as Int) else 0
+public actual fun areShortNamesEnabled(handle: Handle, enabled: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_areShortNamesEnabled((handle?.value ?: 0L).toString(), (enabled?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BackupRead(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_BackupRead(hfile.toString(), lpbuffer.toString(), nnumberofbytestoread.toInt(), lpnumberofbytesread.toString(), babort, bprocesssecurity, lpcontext.toString()) as Int) else 0
+public actual fun backupRead(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, lpnumberofbytesread: COpaquePointer?, babort: Bool, bprocesssecurity: Bool, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_backupRead((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestoread.toInt(), (lpnumberofbytesread?.value ?: 0L).toString(), babort, bprocesssecurity, (lpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BackupSeek(hfile: HANDLE, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: Long, lpdwhighbyteseeked: Long, lpcontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_BackupSeek(hfile.toString(), dwlowbytestoseek.toInt(), dwhighbytestoseek.toInt(), lpdwlowbyteseeked.toString(), lpdwhighbyteseeked.toString(), lpcontext.toString()) as Int) else 0
+public actual fun backupSeek(hfile: Handle, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: COpaquePointer?, lpdwhighbyteseeked: COpaquePointer?, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_backupSeek((hfile?.value ?: 0L).toString(), dwlowbytestoseek.toInt(), dwhighbytestoseek.toInt(), (lpdwlowbyteseeked?.value ?: 0L).toString(), (lpdwhighbyteseeked?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BackupWrite(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_BackupWrite(hfile.toString(), lpbuffer.toString(), nnumberofbytestowrite.toInt(), lpnumberofbyteswritten.toString(), babort, bprocesssecurity, lpcontext.toString()) as Int) else 0
+public actual fun backupWrite(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: COpaquePointer?, babort: Bool, bprocesssecurity: Bool, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_backupWrite((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestowrite.toInt(), (lpnumberofbyteswritten?.value ?: 0L).toString(), babort, bprocesssecurity, (lpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingCancelRequest(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: ULong, userdata: ULong): HRESULT =
-    0
+public actual fun buildIoRingCancelRequest(ioring: Hioring, file: IoringHandleRef, optocancel: ULong, userdata: ULong): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingFlushFile(ioring: HIORING, fileref: IORING_HANDLE_REF, flushmode: FILE_FLUSH_MODE, userdata: ULong, sqeflags: IORING_SQE_FLAGS): HRESULT =
-    0
+public actual fun buildIoRingFlushFile(ioring: Hioring, fileref: IoringHandleRef, flushmode: FileFlushMode, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingReadFile(ioring: HIORING, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: UInt, fileoffset: ULong, userdata: ULong, sqeflags: IORING_SQE_FLAGS): HRESULT =
-    0
+public actual fun buildIoRingReadFile(ioring: Hioring, fileref: IoringHandleRef, dataref: IoringBufferRef, numberofbytestoread: UInt, fileoffset: ULong, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingRegisterBuffers(ioring: HIORING, count: UInt, buffers: Long, userdata: ULong): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterBuffers(ioring.toString(), count.toInt(), buffers.toString(), userdata.toString()) as Int) else 0
+public actual fun buildIoRingRegisterBuffers(ioring: Hioring, count: UInt, buffers: COpaquePointer?, userdata: ULong): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_buildIoRingRegisterBuffers((ioring?.value ?: 0L).toString(), count.toInt(), (buffers?.value ?: 0L).toString(), userdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingRegisterFileHandles(ioring: HIORING, count: UInt, handles: Long, userdata: ULong): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_BuildIoRingRegisterFileHandles(ioring.toString(), count.toInt(), handles.toString(), userdata.toString()) as Int) else 0
+public actual fun buildIoRingRegisterFileHandles(ioring: Hioring, count: UInt, handles: COpaquePointer?, userdata: ULong): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_buildIoRingRegisterFileHandles((ioring?.value ?: 0L).toString(), count.toInt(), (handles?.value ?: 0L).toString(), userdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BuildIoRingWriteFile(ioring: HIORING, fileref: IORING_HANDLE_REF, bufferref: IORING_BUFFER_REF, numberofbytestowrite: UInt, fileoffset: ULong, writeflags: FILE_WRITE_FLAGS, userdata: ULong, sqeflags: IORING_SQE_FLAGS): HRESULT =
-    0
+public actual fun buildIoRingWriteFile(ioring: Hioring, fileref: IoringHandleRef, bufferref: IoringBufferRef, numberofbytestowrite: UInt, fileoffset: ULong, writeflags: FileWriteFlags, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckNameLegalDOS8Dot3A(lpname: PCSTR, lpoemname: PSTR, oemnamesize: UInt, pbnamecontainsspaces: Long, pbnamelegal: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3A(lpname.toString(), lpoemname.toString(), oemnamesize.toInt(), pbnamecontainsspaces.toString(), pbnamelegal.toString()) as Int) else 0
+public actual fun checkNameLegalDOS8Dot3A(lpname: Pcstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: COpaquePointer?, pbnamelegal: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3A((lpname?.value ?: 0L).toString(), (lpoemname?.value ?: 0L).toString(), oemnamesize.toInt(), (pbnamecontainsspaces?.value ?: 0L).toString(), (pbnamelegal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckNameLegalDOS8Dot3W(lpname: PCWSTR, lpoemname: PSTR, oemnamesize: UInt, pbnamecontainsspaces: Long, pbnamelegal: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CheckNameLegalDOS8Dot3W(lpname.toString(), lpoemname.toString(), oemnamesize.toInt(), pbnamecontainsspaces.toString(), pbnamelegal.toString()) as Int) else 0
+public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: COpaquePointer?, pbnamelegal: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_checkNameLegalDOS8Dot3W((lpname?.value ?: 0L).toString(), (lpoemname?.value ?: 0L).toString(), oemnamesize.toInt(), (pbnamecontainsspaces?.value ?: 0L).toString(), (pbnamelegal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseAndResetLogFile(hlog: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CloseAndResetLogFile(hlog.toString()) as Int) else 0
+public actual fun closeAndResetLogFile(hlog: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_closeAndResetLogFile((hlog?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseEncryptedFileRaw(pvcontext: Long) {
+public actual fun closeEncryptedFileRaw(pvcontext: COpaquePointer?) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CloseEncryptedFileRaw(pvcontext.toString())
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_closeEncryptedFileRaw((pvcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseIoRing(ioring: HIORING): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CloseIoRing(ioring.toString()) as Int) else 0
+public actual fun closeIoRing(ioring: Hioring): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_closeIoRing((ioring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CommitComplete(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun commitComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_commitComplete((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CommitEnlistment(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun commitEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_commitEnlistment((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitTransaction(transactionhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CommitTransaction(transactionhandle.toString()) as Int) else 0
+public actual fun commitTransaction(transactionhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_commitTransaction((transactionhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitTransactionAsync(transactionhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CommitTransactionAsync(transactionhandle.toString()) as Int) else 0
+public actual fun commitTransactionAsync(transactionhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_commitTransactionAsync((transactionhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CompareFileTime(lpfiletime1: Long, lpfiletime2: Long): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CompareFileTime(lpfiletime1.toString(), lpfiletime2.toString()) as Int) else 0
+public actual fun compareFileTime(lpfiletime1: COpaquePointer?, lpfiletime2: COpaquePointer?): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_compareFileTime((lpfiletime1?.value ?: 0L).toString(), (lpfiletime2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFile2(pwszexistingfilename: PCWSTR, pwsznewfilename: PCWSTR, pextendedparameters: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFile2(pwszexistingfilename.toString(), pwsznewfilename.toString(), pextendedparameters.toString()) as Int) else 0
+public actual fun copyFile2(pwszexistingfilename: Pcwstr, pwsznewfilename: Pcwstr, pextendedparameters: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFile2((pwszexistingfilename?.value ?: 0L).toString(), (pwsznewfilename?.value ?: 0L).toString(), (pextendedparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, bfailifexists: BOOL): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileA(lpexistingfilename.toString(), lpnewfilename.toString(), bfailifexists) as Int) else 0
+public actual fun copyFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, bfailifexists: Bool): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), bfailifexists) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileExA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: COPYFILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileExA(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), pbcancel.toString(), dwcopyflags.toInt()) as Int) else 0
+public actual fun copyFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, pbcancel: COpaquePointer?, dwcopyflags: CopyfileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileExA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), (pbcancel?.value ?: 0L).toString(), dwcopyflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileExW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: COPYFILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileExW(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), pbcancel.toString(), dwcopyflags.toInt()) as Int) else 0
+public actual fun copyFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, pbcancel: COpaquePointer?, dwcopyflags: CopyfileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileExW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), (pbcancel?.value ?: 0L).toString(), dwcopyflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileFromAppW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, bfailifexists: BOOL): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileFromAppW(lpexistingfilename.toString(), lpnewfilename.toString(), bfailifexists) as Int) else 0
+public actual fun copyFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileFromAppW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), bfailifexists) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileTransactedA(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), pbcancel.toString(), dwcopyflags.toInt(), htransaction.toString()) as Int) else 0
+public actual fun copyFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, pbcancel: COpaquePointer?, dwcopyflags: UInt, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileTransactedA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), (pbcancel?.value ?: 0L).toString(), dwcopyflags.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileTransactedW(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), pbcancel.toString(), dwcopyflags.toInt(), htransaction.toString()) as Int) else 0
+public actual fun copyFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, pbcancel: COpaquePointer?, dwcopyflags: UInt, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileTransactedW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), (pbcancel?.value ?: 0L).toString(), dwcopyflags.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyFileW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, bfailifexists: BOOL): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyFileW(lpexistingfilename.toString(), lpnewfilename.toString(), bfailifexists) as Int) else 0
+public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyFileW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), bfailifexists) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyLZFile(hfsource: Int, hfdest: Int): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CopyLZFile(hfsource, hfdest) as Int) else 0
+public actual fun copyLZFile(hfsource: Int, hfdest: Int): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_copyLZFile(hfsource, hfdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryA(lppathname: PCSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryA(lppathname.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryA((lppathname?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryExA(lptemplatedirectory: PCSTR, lpnewdirectory: PCSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryExA(lptemplatedirectory.toString(), lpnewdirectory.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createDirectoryExA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryExA((lptemplatedirectory?.value ?: 0L).toString(), (lpnewdirectory?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryExW(lptemplatedirectory: PCWSTR, lpnewdirectory: PCWSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryExW(lptemplatedirectory.toString(), lpnewdirectory.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createDirectoryExW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryExW((lptemplatedirectory?.value ?: 0L).toString(), (lpnewdirectory?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryFromAppW(lppathname: PCWSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryFromAppW(lppathname.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createDirectoryFromAppW(lppathname: Pcwstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryFromAppW((lppathname?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryTransactedA(lptemplatedirectory: PCSTR, lpnewdirectory: PCSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedA(lptemplatedirectory.toString(), lpnewdirectory.toString(), lpsecurityattributes.toString(), htransaction.toString()) as Int) else 0
+public actual fun createDirectoryTransactedA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryTransactedA((lptemplatedirectory?.value ?: 0L).toString(), (lpnewdirectory?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryTransactedW(lptemplatedirectory: PCWSTR, lpnewdirectory: PCWSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryTransactedW(lptemplatedirectory.toString(), lpnewdirectory.toString(), lpsecurityattributes.toString(), htransaction.toString()) as Int) else 0
+public actual fun createDirectoryTransactedW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryTransactedW((lptemplatedirectory?.value ?: 0L).toString(), (lpnewdirectory?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDirectoryW(lppathname: PCWSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateDirectoryW(lppathname.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createDirectoryW(lppathname: Pcwstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createDirectoryW((lppathname?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEnlistment(lpenlistmentattributes: Long, resourcemanagerhandle: HANDLE, transactionhandle: HANDLE, notificationmask: UInt, createoptions: UInt, enlistmentkey: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateEnlistment(lpenlistmentattributes.toString(), resourcemanagerhandle.toString(), transactionhandle.toString(), notificationmask.toInt(), createoptions.toInt(), enlistmentkey.toString()) as String).toLong() else 0L
+public actual fun createEnlistment(lpenlistmentattributes: COpaquePointer?, resourcemanagerhandle: Handle, transactionhandle: Handle, notificationmask: UInt, createoptions: UInt, enlistmentkey: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createEnlistment((lpenlistmentattributes?.value ?: 0L).toString(), (resourcemanagerhandle?.value ?: 0L).toString(), (transactionhandle?.value ?: 0L).toString(), notificationmask.toInt(), createoptions.toInt(), (enlistmentkey?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFile2(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFile2(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), pcreateexparams.toString()) as String).toLong() else 0L
+public actual fun createFile2(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwcreationdisposition: FileCreationDisposition, pcreateexparams: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFile2((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), (pcreateexparams?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFile2FromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFile2FromAppW(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), pcreateexparams.toString()) as String).toLong() else 0L
+public actual fun createFile2FromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFile2FromAppW((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), (pcreateexparams?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFileA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFileA(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.toString()) as String).toLong() else 0L
+public actual fun createFileA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFileA((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), (htemplatefile?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFileFromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFileFromAppW(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.toString()) as String).toLong() else 0L
+public actual fun createFileFromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFileFromAppW((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), (htemplatefile?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFileTransactedA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE, htransaction: HANDLE, pusminiversion: Long, lpextendedparameter: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFileTransactedA(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.toString(), htransaction.toString(), pusminiversion.toString(), lpextendedparameter.toString()) as String).toLong() else 0L
+public actual fun createFileTransactedA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: COpaquePointer?, lpextendedparameter: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFileTransactedA((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), (htemplatefile?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString(), (pusminiversion?.value ?: 0L).toString(), (lpextendedparameter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFileTransactedW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE, htransaction: HANDLE, pusminiversion: Long, lpextendedparameter: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFileTransactedW(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.toString(), htransaction.toString(), pusminiversion.toString(), lpextendedparameter.toString()) as String).toLong() else 0L
+public actual fun createFileTransactedW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: COpaquePointer?, lpextendedparameter: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFileTransactedW((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), (htemplatefile?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString(), (pusminiversion?.value ?: 0L).toString(), (lpextendedparameter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFileW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateFileW(lpfilename.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.toString()) as String).toLong() else 0L
+public actual fun createFileW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createFileW((lpfilename?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), (htemplatefile?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateHardLinkA(lpfilename: PCSTR, lpexistingfilename: PCSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateHardLinkA(lpfilename.toString(), lpexistingfilename.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createHardLinkA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createHardLinkA((lpfilename?.value ?: 0L).toString(), (lpexistingfilename?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateHardLinkTransactedA(lpfilename: PCSTR, lpexistingfilename: PCSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedA(lpfilename.toString(), lpexistingfilename.toString(), lpsecurityattributes.toString(), htransaction.toString()) as Int) else 0
+public actual fun createHardLinkTransactedA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createHardLinkTransactedA((lpfilename?.value ?: 0L).toString(), (lpexistingfilename?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateHardLinkTransactedW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateHardLinkTransactedW(lpfilename.toString(), lpexistingfilename.toString(), lpsecurityattributes.toString(), htransaction.toString()) as Int) else 0
+public actual fun createHardLinkTransactedW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createHardLinkTransactedW((lpfilename?.value ?: 0L).toString(), (lpexistingfilename?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateHardLinkW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsecurityattributes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateHardLinkW(lpfilename.toString(), lpexistingfilename.toString(), lpsecurityattributes.toString()) as Int) else 0
+public actual fun createHardLinkW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createHardLinkW((lpfilename?.value ?: 0L).toString(), (lpexistingfilename?.value ?: 0L).toString(), (lpsecurityattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: UInt, completionqueuesize: UInt, h: Long): HRESULT =
-    0
+public actual fun createIoRing(ioringversion: IoringVersion, flags: IoringCreateFlags, submissionqueuesize: UInt, completionqueuesize: UInt, h: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateLogContainerScanContext(hlog: HANDLE, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateLogContainerScanContext(hlog.toString(), cfromcontainer.toInt(), ccontainers.toInt(), escanmode.toInt(), pcxscan.toString(), poverlapped.toString()) as Int) else 0
+public actual fun createLogContainerScanContext(hlog: Handle, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createLogContainerScanContext((hlog?.value ?: 0L).toString(), cfromcontainer.toInt(), ccontainers.toInt(), escanmode.toInt(), (pcxscan?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateLogFile(pszlogfilename: PCWSTR, fdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, psalogfile: Long, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateLogFile(pszlogfilename.toString(), fdesiredaccess.toInt(), dwsharemode.toInt(), psalogfile.toString(), fcreatedisposition.toInt(), fflagsandattributes.toInt()) as String).toLong() else 0L
+public actual fun createLogFile(pszlogfilename: Pcwstr, fdesiredaccess: UInt, dwsharemode: FileShareMode, psalogfile: COpaquePointer?, fcreatedisposition: FileCreationDisposition, fflagsandattributes: FileFlagsAndAttributes): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createLogFile((pszlogfilename?.value ?: 0L).toString(), fdesiredaccess.toInt(), dwsharemode.toInt(), (psalogfile?.value ?: 0L).toString(), fcreatedisposition.toInt(), fflagsandattributes.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateLogMarshallingArea(hlog: HANDLE, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: Long, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateLogMarshallingArea(hlog.toString(), pfnallocbuffer.toLong().toString(), pfnfreebuffer.toLong().toString(), pvblockalloccontext.toString(), cbmarshallingbuffer.toInt(), cmaxwritebuffers.toInt(), cmaxreadbuffers.toInt(), ppvmarshal.toString()) as Int) else 0
+public actual fun createLogMarshallingArea(hlog: Handle, pfnallocbuffer: ClfsBlockAllocation, pfnfreebuffer: ClfsBlockDeallocation, pvblockalloccontext: COpaquePointer?, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createLogMarshallingArea((hlog?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), (pvblockalloccontext?.value ?: 0L).toString(), cbmarshallingbuffer.toInt(), cmaxwritebuffers.toInt(), cmaxreadbuffers.toInt(), (ppvmarshal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateResourceManager(lpresourcemanagerattributes: Long, resourcemanagerid: Long, createoptions: UInt, tmhandle: HANDLE, description: PCWSTR): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateResourceManager(lpresourcemanagerattributes.toString(), resourcemanagerid.toString(), createoptions.toInt(), tmhandle.toString(), description.toString()) as String).toLong() else 0L
+public actual fun createResourceManager(lpresourcemanagerattributes: COpaquePointer?, resourcemanagerid: COpaquePointer?, createoptions: UInt, tmhandle: Handle, description: Pcwstr): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createResourceManager((lpresourcemanagerattributes?.value ?: 0L).toString(), (resourcemanagerid?.value ?: 0L).toString(), createoptions.toInt(), (tmhandle?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSymbolicLinkA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR, dwflags: SYMBOLIC_LINK_FLAGS): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkA(lpsymlinkfilename.toString(), lptargetfilename.toString(), dwflags.toInt()) as Boolean) else false
+public actual fun createSymbolicLinkA(lpsymlinkfilename: Pcstr, lptargetfilename: Pcstr, dwflags: SymbolicLinkFlags): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createSymbolicLinkA((lpsymlinkfilename?.value ?: 0L).toString(), (lptargetfilename?.value ?: 0L).toString(), dwflags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSymbolicLinkTransactedA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: HANDLE): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedA(lpsymlinkfilename.toString(), lptargetfilename.toString(), dwflags.toInt(), htransaction.toString()) as Boolean) else false
+public actual fun createSymbolicLinkTransactedA(lpsymlinkfilename: Pcstr, lptargetfilename: Pcstr, dwflags: SymbolicLinkFlags, htransaction: Handle): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedA((lpsymlinkfilename?.value ?: 0L).toString(), (lptargetfilename?.value ?: 0L).toString(), dwflags.toInt(), (htransaction?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSymbolicLinkTransactedW(lpsymlinkfilename: PCWSTR, lptargetfilename: PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: HANDLE): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkTransactedW(lpsymlinkfilename.toString(), lptargetfilename.toString(), dwflags.toInt(), htransaction.toString()) as Boolean) else false
+public actual fun createSymbolicLinkTransactedW(lpsymlinkfilename: Pcwstr, lptargetfilename: Pcwstr, dwflags: SymbolicLinkFlags, htransaction: Handle): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createSymbolicLinkTransactedW((lpsymlinkfilename?.value ?: 0L).toString(), (lptargetfilename?.value ?: 0L).toString(), dwflags.toInt(), (htransaction?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSymbolicLinkW(lpsymlinkfilename: PCWSTR, lptargetfilename: PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateSymbolicLinkW(lpsymlinkfilename.toString(), lptargetfilename.toString(), dwflags.toInt()) as Boolean) else false
+public actual fun createSymbolicLinkW(lpsymlinkfilename: Pcwstr, lptargetfilename: Pcwstr, dwflags: SymbolicLinkFlags): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createSymbolicLinkW((lpsymlinkfilename?.value ?: 0L).toString(), (lptargetfilename?.value ?: 0L).toString(), dwflags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTapePartition(hdevice: HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: UInt, dwsize: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateTapePartition(hdevice.toString(), dwpartitionmethod.toInt(), dwcount.toInt(), dwsize.toInt()) as Int).toUInt() else 0u
+public actual fun createTapePartition(hdevice: Handle, dwpartitionmethod: CreateTapePartitionMethod, dwcount: UInt, dwsize: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createTapePartition((hdevice?.value ?: 0L).toString(), dwpartitionmethod.toInt(), dwcount.toInt(), dwsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTransaction(lptransactionattributes: Long, uow: Long, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateTransaction(lptransactionattributes.toString(), uow.toString(), createoptions.toInt(), isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), description.toString()) as String).toLong() else 0L
+public actual fun createTransaction(lptransactionattributes: COpaquePointer?, uow: COpaquePointer?, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createTransaction((lptransactionattributes?.value ?: 0L).toString(), (uow?.value ?: 0L).toString(), createoptions.toInt(), isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), (description?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTransactionManager(lptransactionattributes: Long, logfilename: PCWSTR, createoptions: UInt, commitstrength: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_CreateTransactionManager(lptransactionattributes.toString(), logfilename.toString(), createoptions.toInt(), commitstrength.toInt()) as String).toLong() else 0L
+public actual fun createTransactionManager(lptransactionattributes: COpaquePointer?, logfilename: Pcwstr, createoptions: UInt, commitstrength: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_createTransactionManager((lptransactionattributes?.value ?: 0L).toString(), (logfilename?.value ?: 0L).toString(), createoptions.toInt(), commitstrength.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecryptFileA(lpfilename: PCSTR, dwreserved: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DecryptFileA(lpfilename.toString(), dwreserved.toInt()) as Int) else 0
+public actual fun decryptFileA(lpfilename: Pcstr, dwreserved: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_decryptFileA((lpfilename?.value ?: 0L).toString(), dwreserved.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DecryptFileW(lpfilename: PCWSTR, dwreserved: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DecryptFileW(lpfilename.toString(), dwreserved.toInt()) as Int) else 0
+public actual fun decryptFileW(lpfilename: Pcwstr, dwreserved: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_decryptFileW((lpfilename?.value ?: 0L).toString(), dwreserved.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefineDosDeviceA(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: PCSTR, lptargetpath: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DefineDosDeviceA(dwflags.toInt(), lpdevicename.toString(), lptargetpath.toString()) as Int) else 0
+public actual fun defineDosDeviceA(dwflags: DefineDosDeviceFlags, lpdevicename: Pcstr, lptargetpath: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_defineDosDeviceA(dwflags.toInt(), (lpdevicename?.value ?: 0L).toString(), (lptargetpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefineDosDeviceW(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: PCWSTR, lptargetpath: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DefineDosDeviceW(dwflags.toInt(), lpdevicename.toString(), lptargetpath.toString()) as Int) else 0
+public actual fun defineDosDeviceW(dwflags: DefineDosDeviceFlags, lpdevicename: Pcwstr, lptargetpath: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_defineDosDeviceW(dwflags.toInt(), (lpdevicename?.value ?: 0L).toString(), (lptargetpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFileA(lpfilename: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteFileA(lpfilename.toString()) as Int) else 0
+public actual fun deleteFileA(lpfilename: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteFileA((lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFileFromAppW(lpfilename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteFileFromAppW(lpfilename.toString()) as Int) else 0
+public actual fun deleteFileFromAppW(lpfilename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteFileFromAppW((lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFileTransactedA(lpfilename: PCSTR, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteFileTransactedA(lpfilename.toString(), htransaction.toString()) as Int) else 0
+public actual fun deleteFileTransactedA(lpfilename: Pcstr, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteFileTransactedA((lpfilename?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFileTransactedW(lpfilename: PCWSTR, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteFileTransactedW(lpfilename.toString(), htransaction.toString()) as Int) else 0
+public actual fun deleteFileTransactedW(lpfilename: Pcwstr, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteFileTransactedW((lpfilename?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFileW(lpfilename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteFileW(lpfilename.toString()) as Int) else 0
+public actual fun deleteFileW(lpfilename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteFileW((lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteLogByHandle(hlog: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteLogByHandle(hlog.toString()) as Int) else 0
+public actual fun deleteLogByHandle(hlog: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteLogByHandle((hlog?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteLogFile(pszlogfilename: PCWSTR, pvreserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteLogFile(pszlogfilename.toString(), pvreserved.toString()) as Int) else 0
+public actual fun deleteLogFile(pszlogfilename: Pcwstr, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteLogFile((pszlogfilename?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteLogMarshallingArea(pvmarshal: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteLogMarshallingArea(pvmarshal.toString()) as Int) else 0
+public actual fun deleteLogMarshallingArea(pvmarshal: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteLogMarshallingArea((pvmarshal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteVolumeMountPointA(lpszvolumemountpoint: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointA(lpszvolumemountpoint.toString()) as Int) else 0
+public actual fun deleteVolumeMountPointA(lpszvolumemountpoint: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointA((lpszvolumemountpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteVolumeMountPointW(lpszvolumemountpoint: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeleteVolumeMountPointW(lpszvolumemountpoint.toString()) as Int) else 0
+public actual fun deleteVolumeMountPointW(lpszvolumemountpoint: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deleteVolumeMountPointW((lpszvolumemountpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeregisterManageableLogClient(hlog: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DeregisterManageableLogClient(hlog.toString()) as Int) else 0
+public actual fun deregisterManageableLogClient(hlog: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_deregisterManageableLogClient((hlog?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DuplicateEncryptionInfoFile(srcfilename: PCWSTR, dstfilename: PCWSTR, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_DuplicateEncryptionInfoFile(srcfilename.toString(), dstfilename.toString(), dwcreationdistribution.toInt(), dwattributes.toInt(), lpsecurityattributes.toString()) as Int).toUInt() else 0u
+public actual fun duplicateEncryptionInfoFile(srcfilename: Pcwstr, dstfilename: Pcwstr, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_duplicateEncryptionInfoFile((srcfilename?.value ?: 0L).toString(), (dstfilename?.value ?: 0L).toString(), dwcreationdistribution.toInt(), dwattributes.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncryptFileA(lpfilename: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_EncryptFileA(lpfilename.toString()) as Int) else 0
+public actual fun encryptFileA(lpfilename: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_encryptFileA((lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncryptFileW(lpfilename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_EncryptFileW(lpfilename.toString()) as Int) else 0
+public actual fun encryptFileW(lpfilename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_encryptFileW((lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EncryptionDisable(dirpath: PCWSTR, disable: BOOL): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_EncryptionDisable(dirpath.toString(), disable) as Int) else 0
+public actual fun encryptionDisable(dirpath: Pcwstr, disable: Bool): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_encryptionDisable((dirpath?.value ?: 0L).toString(), disable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EraseTape(hdevice: HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: BOOL): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_EraseTape(hdevice.toString(), dwerasetype.toInt(), bimmediate) as Int).toUInt() else 0u
+public actual fun eraseTape(hdevice: Handle, dwerasetype: EraseTapeType, bimmediate: Bool): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_eraseTape((hdevice?.value ?: 0L).toString(), dwerasetype.toInt(), bimmediate) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FileEncryptionStatusA(lpfilename: PCSTR, lpstatus: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FileEncryptionStatusA(lpfilename.toString(), lpstatus.toString()) as Int) else 0
+public actual fun fileEncryptionStatusA(lpfilename: Pcstr, lpstatus: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_fileEncryptionStatusA((lpfilename?.value ?: 0L).toString(), (lpstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FileEncryptionStatusW(lpfilename: PCWSTR, lpstatus: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FileEncryptionStatusW(lpfilename.toString(), lpstatus.toString()) as Int) else 0
+public actual fun fileEncryptionStatusW(lpfilename: Pcwstr, lpstatus: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_fileEncryptionStatusW((lpfilename?.value ?: 0L).toString(), (lpstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FileTimeToLocalFileTime(lpfiletime: Long, lplocalfiletime: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FileTimeToLocalFileTime(lpfiletime.toString(), lplocalfiletime.toString()) as Int) else 0
+public actual fun fileTimeToLocalFileTime(lpfiletime: COpaquePointer?, lplocalfiletime: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_fileTimeToLocalFileTime((lpfiletime?.value ?: 0L).toString(), (lplocalfiletime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindClose(hfindfile: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindClose(hfindfile.toString()) as Int) else 0
+public actual fun findClose(hfindfile: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findClose((hfindfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindCloseChangeNotification(hchangehandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindCloseChangeNotification(hchangehandle.toString()) as Int) else 0
+public actual fun findCloseChangeNotification(hchangehandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findCloseChangeNotification((hchangehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstChangeNotificationA(lppathname: PCSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationA(lppathname.toString(), bwatchsubtree, dwnotifyfilter.toInt()) as String).toLong() else 0L
+public actual fun findFirstChangeNotificationA(lppathname: Pcstr, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationA((lppathname?.value ?: 0L).toString(), bwatchsubtree, dwnotifyfilter.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstChangeNotificationW(lppathname: PCWSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstChangeNotificationW(lppathname.toString(), bwatchsubtree, dwnotifyfilter.toInt()) as String).toLong() else 0L
+public actual fun findFirstChangeNotificationW(lppathname: Pcwstr, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstChangeNotificationW((lppathname?.value ?: 0L).toString(), bwatchsubtree, dwnotifyfilter.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileA(lpfilename: PCSTR, lpfindfiledata: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileA(lpfilename.toString(), lpfindfiledata.toString()) as String).toLong() else 0L
+public actual fun findFirstFileA(lpfilename: Pcstr, lpfindfiledata: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileA((lpfilename?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileExA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileExA(lpfilename.toString(), finfolevelid, lpfindfiledata.toString(), fsearchop, lpsearchfilter.toString(), dwadditionalflags.toInt()) as String).toLong() else 0L
+public actual fun findFirstFileExA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: COpaquePointer?, fsearchop: FindexSearchOps, lpsearchfilter: COpaquePointer?, dwadditionalflags: FindFirstExFlags): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileExA((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfindfiledata?.value ?: 0L).toString(), fsearchop, (lpsearchfilter?.value ?: 0L).toString(), dwadditionalflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileExFromAppW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileExFromAppW(lpfilename.toString(), finfolevelid, lpfindfiledata.toString(), fsearchop, lpsearchfilter.toString(), dwadditionalflags.toInt()) as String).toLong() else 0L
+public actual fun findFirstFileExFromAppW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: COpaquePointer?, fsearchop: FindexSearchOps, lpsearchfilter: COpaquePointer?, dwadditionalflags: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileExFromAppW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfindfiledata?.value ?: 0L).toString(), fsearchop, (lpsearchfilter?.value ?: 0L).toString(), dwadditionalflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileExW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileExW(lpfilename.toString(), finfolevelid, lpfindfiledata.toString(), fsearchop, lpsearchfilter.toString(), dwadditionalflags.toInt()) as String).toLong() else 0L
+public actual fun findFirstFileExW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: COpaquePointer?, fsearchop: FindexSearchOps, lpsearchfilter: COpaquePointer?, dwadditionalflags: FindFirstExFlags): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileExW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfindfiledata?.value ?: 0L).toString(), fsearchop, (lpsearchfilter?.value ?: 0L).toString(), dwadditionalflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileNameTransactedW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR, htransaction: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileNameTransactedW(lpfilename.toString(), dwflags.toInt(), stringlength.toString(), linkname.toString(), htransaction.toString()) as String).toLong() else 0L
+public actual fun findFirstFileNameTransactedW(lpfilename: Pcwstr, dwflags: UInt, stringlength: COpaquePointer?, linkname: Pwstr, htransaction: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileNameTransactedW((lpfilename?.value ?: 0L).toString(), dwflags.toInt(), (stringlength?.value ?: 0L).toString(), (linkname?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileNameW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileNameW(lpfilename.toString(), dwflags.toInt(), stringlength.toString(), linkname.toString()) as String).toLong() else 0L
+public actual fun findFirstFileNameW(lpfilename: Pcwstr, dwflags: UInt, stringlength: COpaquePointer?, linkname: Pwstr): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileNameW((lpfilename?.value ?: 0L).toString(), dwflags.toInt(), (stringlength?.value ?: 0L).toString(), (linkname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileTransactedA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedA(lpfilename.toString(), finfolevelid, lpfindfiledata.toString(), fsearchop, lpsearchfilter.toString(), dwadditionalflags.toInt(), htransaction.toString()) as String).toLong() else 0L
+public actual fun findFirstFileTransactedA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: COpaquePointer?, fsearchop: FindexSearchOps, lpsearchfilter: COpaquePointer?, dwadditionalflags: UInt, htransaction: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileTransactedA((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfindfiledata?.value ?: 0L).toString(), fsearchop, (lpsearchfilter?.value ?: 0L).toString(), dwadditionalflags.toInt(), (htransaction?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileTransactedW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileTransactedW(lpfilename.toString(), finfolevelid, lpfindfiledata.toString(), fsearchop, lpsearchfilter.toString(), dwadditionalflags.toInt(), htransaction.toString()) as String).toLong() else 0L
+public actual fun findFirstFileTransactedW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: COpaquePointer?, fsearchop: FindexSearchOps, lpsearchfilter: COpaquePointer?, dwadditionalflags: UInt, htransaction: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileTransactedW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfindfiledata?.value ?: 0L).toString(), fsearchop, (lpsearchfilter?.value ?: 0L).toString(), dwadditionalflags.toInt(), (htransaction?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFileW(lpfilename: PCWSTR, lpfindfiledata: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstFileW(lpfilename.toString(), lpfindfiledata.toString()) as String).toLong() else 0L
+public actual fun findFirstFileW(lpfilename: Pcwstr, lpfindfiledata: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstFileW((lpfilename?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstStreamTransactedW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt, htransaction: HANDLE): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstStreamTransactedW(lpfilename.toString(), infolevel, lpfindstreamdata.toString(), dwflags.toInt(), htransaction.toString()) as String).toLong() else 0L
+public actual fun findFirstStreamTransactedW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: COpaquePointer?, dwflags: UInt, htransaction: Handle): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstStreamTransactedW((lpfilename?.value ?: 0L).toString(), infolevel, (lpfindstreamdata?.value ?: 0L).toString(), dwflags.toInt(), (htransaction?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstStreamW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstStreamW(lpfilename.toString(), infolevel, lpfindstreamdata.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun findFirstStreamW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: COpaquePointer?, dwflags: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstStreamW((lpfilename?.value ?: 0L).toString(), infolevel, (lpfindstreamdata?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstVolumeA(lpszvolumename: PSTR, cchbufferlength: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstVolumeA(lpszvolumename.toString(), cchbufferlength.toInt()) as String).toLong() else 0L
+public actual fun findFirstVolumeA(lpszvolumename: Pstr, cchbufferlength: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstVolumeA((lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstVolumeMountPointA(lpszrootpathname: PCSTR, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointA(lpszrootpathname.toString(), lpszvolumemountpoint.toString(), cchbufferlength.toInt()) as String).toLong() else 0L
+public actual fun findFirstVolumeMountPointA(lpszrootpathname: Pcstr, lpszvolumemountpoint: Pstr, cchbufferlength: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointA((lpszrootpathname?.value ?: 0L).toString(), (lpszvolumemountpoint?.value ?: 0L).toString(), cchbufferlength.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstVolumeMountPointW(lpszrootpathname: PCWSTR, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstVolumeMountPointW(lpszrootpathname.toString(), lpszvolumemountpoint.toString(), cchbufferlength.toInt()) as String).toLong() else 0L
+public actual fun findFirstVolumeMountPointW(lpszrootpathname: Pcwstr, lpszvolumemountpoint: Pwstr, cchbufferlength: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstVolumeMountPointW((lpszrootpathname?.value ?: 0L).toString(), (lpszvolumemountpoint?.value ?: 0L).toString(), cchbufferlength.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstVolumeW(lpszvolumename: PWSTR, cchbufferlength: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindFirstVolumeW(lpszvolumename.toString(), cchbufferlength.toInt()) as String).toLong() else 0L
+public actual fun findFirstVolumeW(lpszvolumename: Pwstr, cchbufferlength: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findFirstVolumeW((lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextChangeNotification(hchangehandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextChangeNotification(hchangehandle.toString()) as Int) else 0
+public actual fun findNextChangeNotification(hchangehandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextChangeNotification((hchangehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextFileA(hfindfile: HANDLE, lpfindfiledata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextFileA(hfindfile.toString(), lpfindfiledata.toString()) as Int) else 0
+public actual fun findNextFileA(hfindfile: Handle, lpfindfiledata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextFileA((hfindfile?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextFileNameW(hfindstream: HANDLE, stringlength: Long, linkname: PWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextFileNameW(hfindstream.toString(), stringlength.toString(), linkname.toString()) as Int) else 0
+public actual fun findNextFileNameW(hfindstream: Handle, stringlength: COpaquePointer?, linkname: Pwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextFileNameW((hfindstream?.value ?: 0L).toString(), (stringlength?.value ?: 0L).toString(), (linkname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextFileW(hfindfile: HANDLE, lpfindfiledata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextFileW(hfindfile.toString(), lpfindfiledata.toString()) as Int) else 0
+public actual fun findNextFileW(hfindfile: Handle, lpfindfiledata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextFileW((hfindfile?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextStreamW(hfindstream: HANDLE, lpfindstreamdata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextStreamW(hfindstream.toString(), lpfindstreamdata.toString()) as Int) else 0
+public actual fun findNextStreamW(hfindstream: Handle, lpfindstreamdata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextStreamW((hfindstream?.value ?: 0L).toString(), (lpfindstreamdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextVolumeA(hfindvolume: HANDLE, lpszvolumename: PSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextVolumeA(hfindvolume.toString(), lpszvolumename.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun findNextVolumeA(hfindvolume: Handle, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextVolumeA((hfindvolume?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextVolumeMountPointA(hfindvolumemountpoint: HANDLE, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointA(hfindvolumemountpoint.toString(), lpszvolumemountpoint.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun findNextVolumeMountPointA(hfindvolumemountpoint: Handle, lpszvolumemountpoint: Pstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointA((hfindvolumemountpoint?.value ?: 0L).toString(), (lpszvolumemountpoint?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextVolumeMountPointW(hfindvolumemountpoint: HANDLE, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextVolumeMountPointW(hfindvolumemountpoint.toString(), lpszvolumemountpoint.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun findNextVolumeMountPointW(hfindvolumemountpoint: Handle, lpszvolumemountpoint: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextVolumeMountPointW((hfindvolumemountpoint?.value ?: 0L).toString(), (lpszvolumemountpoint?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextVolumeW(hfindvolume: HANDLE, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindNextVolumeW(hfindvolume.toString(), lpszvolumename.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun findNextVolumeW(hfindvolume: Handle, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findNextVolumeW((hfindvolume?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindVolumeClose(hfindvolume: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindVolumeClose(hfindvolume.toString()) as Int) else 0
+public actual fun findVolumeClose(hfindvolume: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findVolumeClose((hfindvolume?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindVolumeMountPointClose(hfindvolumemountpoint: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FindVolumeMountPointClose(hfindvolumemountpoint.toString()) as Int) else 0
+public actual fun findVolumeMountPointClose(hfindvolumemountpoint: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_findVolumeMountPointClose((hfindvolumemountpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushFileBuffers(hfile: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FlushFileBuffers(hfile.toString()) as Int) else 0
+public actual fun flushFileBuffers(hfile: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_flushFileBuffers((hfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushLogBuffers(pvmarshal: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FlushLogBuffers(pvmarshal.toString(), poverlapped.toString()) as Int) else 0
+public actual fun flushLogBuffers(pvmarshal: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_flushLogBuffers((pvmarshal?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushLogToLsn(pvmarshalcontext: Long, plsnflush: Long, plsnlastflushed: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FlushLogToLsn(pvmarshalcontext.toString(), plsnflush.toString(), plsnlastflushed.toString(), poverlapped.toString()) as Int) else 0
+public actual fun flushLogToLsn(pvmarshalcontext: COpaquePointer?, plsnflush: COpaquePointer?, plsnlastflushed: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_flushLogToLsn((pvmarshalcontext?.value ?: 0L).toString(), (plsnflush?.value ?: 0L).toString(), (plsnlastflushed?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeEncryptedFileMetadata(pbmetadata: Long) {
+public actual fun freeEncryptedFileMetadata(pbmetadata: COpaquePointer?) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FreeEncryptedFileMetadata(pbmetadata.toString())
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_freeEncryptedFileMetadata((pbmetadata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreeEncryptionCertificateHashList(pusers: Long) {
+public actual fun freeEncryptionCertificateHashList(pusers: COpaquePointer?) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FreeEncryptionCertificateHashList(pusers.toString())
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_freeEncryptionCertificateHashList((pusers?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreeReservedLog(pvmarshal: Long, creservedrecords: UInt, pcbadjustment: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_FreeReservedLog(pvmarshal.toString(), creservedrecords.toInt(), pcbadjustment.toString()) as Int) else 0
+public actual fun freeReservedLog(pvmarshal: COpaquePointer?, creservedrecords: UInt, pcbadjustment: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_freeReservedLog((pvmarshal?.value ?: 0L).toString(), creservedrecords.toInt(), (pcbadjustment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetBinaryTypeA(lpapplicationname: PCSTR, lpbinarytype: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetBinaryTypeA(lpapplicationname.toString(), lpbinarytype.toString()) as Int) else 0
+public actual fun getBinaryTypeA(lpapplicationname: Pcstr, lpbinarytype: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getBinaryTypeA((lpapplicationname?.value ?: 0L).toString(), (lpbinarytype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetBinaryTypeW(lpapplicationname: PCWSTR, lpbinarytype: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetBinaryTypeW(lpapplicationname.toString(), lpbinarytype.toString()) as Int) else 0
+public actual fun getBinaryTypeW(lpapplicationname: Pcwstr, lpbinarytype: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getBinaryTypeW((lpapplicationname?.value ?: 0L).toString(), (lpbinarytype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCompressedFileSizeA(lpfilename: PCSTR, lpfilesizehigh: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeA(lpfilename.toString(), lpfilesizehigh.toString()) as Int).toUInt() else 0u
+public actual fun getCompressedFileSizeA(lpfilename: Pcstr, lpfilesizehigh: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getCompressedFileSizeA((lpfilename?.value ?: 0L).toString(), (lpfilesizehigh?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCompressedFileSizeTransactedA(lpfilename: PCSTR, lpfilesizehigh: Long, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedA(lpfilename.toString(), lpfilesizehigh.toString(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getCompressedFileSizeTransactedA(lpfilename: Pcstr, lpfilesizehigh: COpaquePointer?, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedA((lpfilename?.value ?: 0L).toString(), (lpfilesizehigh?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCompressedFileSizeTransactedW(lpfilename: PCWSTR, lpfilesizehigh: Long, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeTransactedW(lpfilename.toString(), lpfilesizehigh.toString(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getCompressedFileSizeTransactedW(lpfilename: Pcwstr, lpfilesizehigh: COpaquePointer?, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getCompressedFileSizeTransactedW((lpfilename?.value ?: 0L).toString(), (lpfilesizehigh?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCompressedFileSizeW(lpfilename: PCWSTR, lpfilesizehigh: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetCompressedFileSizeW(lpfilename.toString(), lpfilesizehigh.toString()) as Int).toUInt() else 0u
+public actual fun getCompressedFileSizeW(lpfilename: Pcwstr, lpfilesizehigh: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getCompressedFileSizeW((lpfilename?.value ?: 0L).toString(), (lpfilesizehigh?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentClockTransactionManager(transactionmanagerhandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetCurrentClockTransactionManager(transactionmanagerhandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun getCurrentClockTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getCurrentClockTransactionManager((transactionmanagerhandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskFreeSpaceA(lprootpathname: PCSTR, lpsectorspercluster: Long, lpbytespersector: Long, lpnumberoffreeclusters: Long, lptotalnumberofclusters: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceA(lprootpathname.toString(), lpsectorspercluster.toString(), lpbytespersector.toString(), lpnumberoffreeclusters.toString(), lptotalnumberofclusters.toString()) as Int) else 0
+public actual fun getDiskFreeSpaceA(lprootpathname: Pcstr, lpsectorspercluster: COpaquePointer?, lpbytespersector: COpaquePointer?, lpnumberoffreeclusters: COpaquePointer?, lptotalnumberofclusters: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceA((lprootpathname?.value ?: 0L).toString(), (lpsectorspercluster?.value ?: 0L).toString(), (lpbytespersector?.value ?: 0L).toString(), (lpnumberoffreeclusters?.value ?: 0L).toString(), (lptotalnumberofclusters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskFreeSpaceExA(lpdirectoryname: PCSTR, lpfreebytesavailabletocaller: Long, lptotalnumberofbytes: Long, lptotalnumberoffreebytes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExA(lpdirectoryname.toString(), lpfreebytesavailabletocaller.toString(), lptotalnumberofbytes.toString(), lptotalnumberoffreebytes.toString()) as Int) else 0
+public actual fun getDiskFreeSpaceExA(lpdirectoryname: Pcstr, lpfreebytesavailabletocaller: COpaquePointer?, lptotalnumberofbytes: COpaquePointer?, lptotalnumberoffreebytes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExA((lpdirectoryname?.value ?: 0L).toString(), (lpfreebytesavailabletocaller?.value ?: 0L).toString(), (lptotalnumberofbytes?.value ?: 0L).toString(), (lptotalnumberoffreebytes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskFreeSpaceExW(lpdirectoryname: PCWSTR, lpfreebytesavailabletocaller: Long, lptotalnumberofbytes: Long, lptotalnumberoffreebytes: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceExW(lpdirectoryname.toString(), lpfreebytesavailabletocaller.toString(), lptotalnumberofbytes.toString(), lptotalnumberoffreebytes.toString()) as Int) else 0
+public actual fun getDiskFreeSpaceExW(lpdirectoryname: Pcwstr, lpfreebytesavailabletocaller: COpaquePointer?, lptotalnumberofbytes: COpaquePointer?, lptotalnumberoffreebytes: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceExW((lpdirectoryname?.value ?: 0L).toString(), (lpfreebytesavailabletocaller?.value ?: 0L).toString(), (lptotalnumberofbytes?.value ?: 0L).toString(), (lptotalnumberoffreebytes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskFreeSpaceW(lprootpathname: PCWSTR, lpsectorspercluster: Long, lpbytespersector: Long, lpnumberoffreeclusters: Long, lptotalnumberofclusters: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskFreeSpaceW(lprootpathname.toString(), lpsectorspercluster.toString(), lpbytespersector.toString(), lpnumberoffreeclusters.toString(), lptotalnumberofclusters.toString()) as Int) else 0
+public actual fun getDiskFreeSpaceW(lprootpathname: Pcwstr, lpsectorspercluster: COpaquePointer?, lpbytespersector: COpaquePointer?, lpnumberoffreeclusters: COpaquePointer?, lptotalnumberofclusters: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskFreeSpaceW((lprootpathname?.value ?: 0L).toString(), (lpsectorspercluster?.value ?: 0L).toString(), (lpbytespersector?.value ?: 0L).toString(), (lpnumberoffreeclusters?.value ?: 0L).toString(), (lptotalnumberofclusters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskSpaceInformationA(rootpath: PCSTR, diskspaceinfo: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationA(rootpath.toString(), diskspaceinfo.toString()) as Int) else 0
+public actual fun getDiskSpaceInformationA(rootpath: Pcstr, diskspaceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationA((rootpath?.value ?: 0L).toString(), (diskspaceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskSpaceInformationW(rootpath: PCWSTR, diskspaceinfo: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDiskSpaceInformationW(rootpath.toString(), diskspaceinfo.toString()) as Int) else 0
+public actual fun getDiskSpaceInformationW(rootpath: Pcwstr, diskspaceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDiskSpaceInformationW((rootpath?.value ?: 0L).toString(), (diskspaceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDriveTypeA(lprootpathname: PCSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDriveTypeA(lprootpathname.toString()) as Int).toUInt() else 0u
+public actual fun getDriveTypeA(lprootpathname: Pcstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDriveTypeA((lprootpathname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDriveTypeW(lprootpathname: PCWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetDriveTypeW(lprootpathname.toString()) as Int).toUInt() else 0u
+public actual fun getDriveTypeW(lprootpathname: Pcwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getDriveTypeW((lprootpathname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEncryptedFileMetadata(lpfilename: PCWSTR, pcbmetadata: Long, ppbmetadata: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetEncryptedFileMetadata(lpfilename.toString(), pcbmetadata.toString(), ppbmetadata.toString()) as Int).toUInt() else 0u
+public actual fun getEncryptedFileMetadata(lpfilename: Pcwstr, pcbmetadata: COpaquePointer?, ppbmetadata: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getEncryptedFileMetadata((lpfilename?.value ?: 0L).toString(), (pcbmetadata?.value ?: 0L).toString(), (ppbmetadata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnlistmentId(enlistmenthandle: HANDLE, enlistmentid: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetEnlistmentId(enlistmenthandle.toString(), enlistmentid.toString()) as Int) else 0
+public actual fun getEnlistmentId(enlistmenthandle: Handle, enlistmentid: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getEnlistmentId((enlistmenthandle?.value ?: 0L).toString(), (enlistmentid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetEnlistmentRecoveryInformation(enlistmenthandle: HANDLE, buffersize: UInt, buffer: Long, bufferused: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetEnlistmentRecoveryInformation(enlistmenthandle.toString(), buffersize.toInt(), buffer.toString(), bufferused.toString()) as Int) else 0
+public actual fun getEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: COpaquePointer?, bufferused: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getEnlistmentRecoveryInformation((enlistmenthandle?.value ?: 0L).toString(), buffersize.toInt(), (buffer?.value ?: 0L).toString(), (bufferused?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetExpandedNameA(lpszsource: PCSTR, lpszbuffer: PSTR): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetExpandedNameA(lpszsource.toString(), lpszbuffer.toString()) as Int) else 0
+public actual fun getExpandedNameA(lpszsource: Pcstr, lpszbuffer: Pstr): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getExpandedNameA((lpszsource?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetExpandedNameW(lpszsource: PCWSTR, lpszbuffer: PWSTR): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetExpandedNameW(lpszsource.toString(), lpszbuffer.toString()) as Int) else 0
+public actual fun getExpandedNameW(lpszsource: Pcwstr, lpszbuffer: Pwstr): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getExpandedNameW((lpszsource?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesA(lpfilename: PCSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesA(lpfilename.toString()) as Int).toUInt() else 0u
+public actual fun getFileAttributesA(lpfilename: Pcstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesA((lpfilename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesExA(lpfilename: PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesExA(lpfilename.toString(), finfolevelid, lpfileinformation.toString()) as Int) else 0
+public actual fun getFileAttributesExA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesExA((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesExFromAppW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesExFromAppW(lpfilename.toString(), finfolevelid, lpfileinformation.toString()) as Int) else 0
+public actual fun getFileAttributesExFromAppW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesExFromAppW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesExW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesExW(lpfilename.toString(), finfolevelid, lpfileinformation.toString()) as Int) else 0
+public actual fun getFileAttributesExW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesExW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesTransactedA(lpfilename: PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedA(lpfilename.toString(), finfolevelid, lpfileinformation.toString(), htransaction.toString()) as Int) else 0
+public actual fun getFileAttributesTransactedA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedA((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfileinformation?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesTransactedW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesTransactedW(lpfilename.toString(), finfolevelid, lpfileinformation.toString(), htransaction.toString()) as Int) else 0
+public actual fun getFileAttributesTransactedW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesTransactedW((lpfilename?.value ?: 0L).toString(), finfolevelid, (lpfileinformation?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileAttributesW(lpfilename: PCWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileAttributesW(lpfilename.toString()) as Int).toUInt() else 0u
+public actual fun getFileAttributesW(lpfilename: Pcwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileAttributesW((lpfilename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileBandwidthReservation(hfile: HANDLE, lpperiodmilliseconds: Long, lpbytesperperiod: Long, pdiscardable: Long, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileBandwidthReservation(hfile.toString(), lpperiodmilliseconds.toString(), lpbytesperperiod.toString(), pdiscardable.toString(), lptransfersize.toString(), lpnumoutstandingrequests.toString()) as Int) else 0
+public actual fun getFileBandwidthReservation(hfile: Handle, lpperiodmilliseconds: COpaquePointer?, lpbytesperperiod: COpaquePointer?, pdiscardable: COpaquePointer?, lptransfersize: COpaquePointer?, lpnumoutstandingrequests: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileBandwidthReservation((hfile?.value ?: 0L).toString(), (lpperiodmilliseconds?.value ?: 0L).toString(), (lpbytesperperiod?.value ?: 0L).toString(), (pdiscardable?.value ?: 0L).toString(), (lptransfersize?.value ?: 0L).toString(), (lpnumoutstandingrequests?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileInformationByHandle(hfile: HANDLE, lpfileinformation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileInformationByHandle(hfile.toString(), lpfileinformation.toString()) as Int) else 0
+public actual fun getFileInformationByHandle(hfile: Handle, lpfileinformation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileInformationByHandle((hfile?.value ?: 0L).toString(), (lpfileinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileInformationByHandleEx(hfile: HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileInformationByHandleEx(hfile.toString(), fileinformationclass, lpfileinformation.toString(), dwbuffersize.toInt()) as Int) else 0
+public actual fun getFileInformationByHandleEx(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: COpaquePointer?, dwbuffersize: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileInformationByHandleEx((hfile?.value ?: 0L).toString(), fileinformationclass, (lpfileinformation?.value ?: 0L).toString(), dwbuffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileSize(hfile: HANDLE, lpfilesizehigh: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileSize(hfile.toString(), lpfilesizehigh.toString()) as Int).toUInt() else 0u
+public actual fun getFileSize(hfile: Handle, lpfilesizehigh: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileSize((hfile?.value ?: 0L).toString(), (lpfilesizehigh?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileSizeEx(hfile: HANDLE, lpfilesize: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileSizeEx(hfile.toString(), lpfilesize.toString()) as Int) else 0
+public actual fun getFileSizeEx(hfile: Handle, lpfilesize: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileSizeEx((hfile?.value ?: 0L).toString(), (lpfilesize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileTime(hfile: HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileTime(hfile.toString(), lpcreationtime.toString(), lplastaccesstime.toString(), lplastwritetime.toString()) as Int) else 0
+public actual fun getFileTime(hfile: Handle, lpcreationtime: COpaquePointer?, lplastaccesstime: COpaquePointer?, lplastwritetime: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileTime((hfile?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lplastaccesstime?.value ?: 0L).toString(), (lplastwritetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileType(hfile: HANDLE): FILE_TYPE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileType(hfile.toString()) as Int).toUInt() else 0u
+public actual fun getFileType(hfile: Handle): FileType =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileType((hfile?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoA(lptstrfilename: PCSTR, dwhandle: UInt, dwlen: UInt, lpdata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoA(lptstrfilename.toString(), dwhandle.toInt(), dwlen.toInt(), lpdata.toString()) as Int) else 0
+public actual fun getFileVersionInfoA(lptstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoA((lptstrfilename?.value ?: 0L).toString(), dwhandle.toInt(), dwlen.toInt(), (lpdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: PCSTR, dwhandle: UInt, dwlen: UInt, lpdata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExA(dwflags.toInt(), lpwstrfilename.toString(), dwhandle.toInt(), dwlen.toInt(), lpdata.toString()) as Int) else 0
+public actual fun getFileVersionInfoExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoExA(dwflags.toInt(), (lpwstrfilename?.value ?: 0L).toString(), dwhandle.toInt(), dwlen.toInt(), (lpdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: PCWSTR, dwhandle: UInt, dwlen: UInt, lpdata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoExW(dwflags.toInt(), lpwstrfilename.toString(), dwhandle.toInt(), dwlen.toInt(), lpdata.toString()) as Int) else 0
+public actual fun getFileVersionInfoExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoExW(dwflags.toInt(), (lpwstrfilename?.value ?: 0L).toString(), dwhandle.toInt(), dwlen.toInt(), (lpdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoSizeA(lptstrfilename: PCSTR, lpdwhandle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeA(lptstrfilename.toString(), lpdwhandle.toString()) as Int).toUInt() else 0u
+public actual fun getFileVersionInfoSizeA(lptstrfilename: Pcstr, lpdwhandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeA((lptstrfilename?.value ?: 0L).toString(), (lpdwhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoSizeExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: PCSTR, lpdwhandle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExA(dwflags.toInt(), lpwstrfilename.toString(), lpdwhandle.toString()) as Int).toUInt() else 0u
+public actual fun getFileVersionInfoSizeExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, lpdwhandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExA(dwflags.toInt(), (lpwstrfilename?.value ?: 0L).toString(), (lpdwhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoSizeExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: PCWSTR, lpdwhandle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeExW(dwflags.toInt(), lpwstrfilename.toString(), lpdwhandle.toString()) as Int).toUInt() else 0u
+public actual fun getFileVersionInfoSizeExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, lpdwhandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeExW(dwflags.toInt(), (lpwstrfilename?.value ?: 0L).toString(), (lpdwhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoSizeW(lptstrfilename: PCWSTR, lpdwhandle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoSizeW(lptstrfilename.toString(), lpdwhandle.toString()) as Int).toUInt() else 0u
+public actual fun getFileVersionInfoSizeW(lptstrfilename: Pcwstr, lpdwhandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoSizeW((lptstrfilename?.value ?: 0L).toString(), (lpdwhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileVersionInfoW(lptstrfilename: PCWSTR, dwhandle: UInt, dwlen: UInt, lpdata: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFileVersionInfoW(lptstrfilename.toString(), dwhandle.toInt(), dwlen.toInt(), lpdata.toString()) as Int) else 0
+public actual fun getFileVersionInfoW(lptstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFileVersionInfoW((lptstrfilename?.value ?: 0L).toString(), dwhandle.toInt(), dwlen.toInt(), (lpdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFinalPathNameByHandleA(hfile: HANDLE, lpszfilepath: PSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleA(hfile.toString(), lpszfilepath.toString(), cchfilepath.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun getFinalPathNameByHandleA(hfile: Handle, lpszfilepath: Pstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleA((hfile?.value ?: 0L).toString(), (lpszfilepath?.value ?: 0L).toString(), cchfilepath.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFinalPathNameByHandleW(hfile: HANDLE, lpszfilepath: PWSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFinalPathNameByHandleW(hfile.toString(), lpszfilepath.toString(), cchfilepath.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun getFinalPathNameByHandleW(hfile: Handle, lpszfilepath: Pwstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFinalPathNameByHandleW((hfile?.value ?: 0L).toString(), (lpszfilepath?.value ?: 0L).toString(), cchfilepath.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFullPathNameA(lpfilename: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFullPathNameA(lpfilename.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString()) as Int).toUInt() else 0u
+public actual fun getFullPathNameA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFullPathNameA((lpfilename?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFullPathNameTransactedA(lpfilename: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedA(lpfilename.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getFullPathNameTransactedA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: COpaquePointer?, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedA((lpfilename?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFullPathNameTransactedW(lpfilename: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFullPathNameTransactedW(lpfilename.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getFullPathNameTransactedW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: COpaquePointer?, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFullPathNameTransactedW((lpfilename?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFullPathNameW(lpfilename: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetFullPathNameW(lpfilename.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString()) as Int).toUInt() else 0u
+public actual fun getFullPathNameW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getFullPathNameW((lpfilename?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetIoRingInfo(ioring: HIORING, info: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetIoRingInfo(ioring.toString(), info.toString()) as Int) else 0
+public actual fun getIoRingInfo(ioring: Hioring, info: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getIoRingInfo((ioring?.value ?: 0L).toString(), (info?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogContainerName(hlog: HANDLE, cidlogicalcontainer: UInt, pwstrcontainername: PCWSTR, clencontainername: UInt, pcactuallencontainername: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogContainerName(hlog.toString(), cidlogicalcontainer.toInt(), pwstrcontainername.toString(), clencontainername.toInt(), pcactuallencontainername.toString()) as Int) else 0
+public actual fun getLogContainerName(hlog: Handle, cidlogicalcontainer: UInt, pwstrcontainername: Pcwstr, clencontainername: UInt, pcactuallencontainername: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogContainerName((hlog?.value ?: 0L).toString(), cidlogicalcontainer.toInt(), (pwstrcontainername?.value ?: 0L).toString(), clencontainername.toInt(), (pcactuallencontainername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogFileInformation(hlog: HANDLE, pinfobuffer: Long, cbbuffer: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogFileInformation(hlog.toString(), pinfobuffer.toString(), cbbuffer.toString()) as Int) else 0
+public actual fun getLogFileInformation(hlog: Handle, pinfobuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogFileInformation((hlog?.value ?: 0L).toString(), (pinfobuffer?.value ?: 0L).toString(), (cbbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogIoStatistics(hlog: HANDLE, pvstatsbuffer: Long, cbstatsbuffer: UInt, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogIoStatistics(hlog.toString(), pvstatsbuffer.toString(), cbstatsbuffer.toInt(), estatsclass, pcbstatswritten.toString()) as Int) else 0
+public actual fun getLogIoStatistics(hlog: Handle, pvstatsbuffer: COpaquePointer?, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogIoStatistics((hlog?.value ?: 0L).toString(), (pvstatsbuffer?.value ?: 0L).toString(), cbstatsbuffer.toInt(), estatsclass, (pcbstatswritten?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogReservationInfo(pvmarshal: Long, pcbrecordnumber: Long, pcbuserreservation: Long, pcbcommitreservation: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogReservationInfo(pvmarshal.toString(), pcbrecordnumber.toString(), pcbuserreservation.toString(), pcbcommitreservation.toString()) as Int) else 0
+public actual fun getLogReservationInfo(pvmarshal: COpaquePointer?, pcbrecordnumber: COpaquePointer?, pcbuserreservation: COpaquePointer?, pcbcommitreservation: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogReservationInfo((pvmarshal?.value ?: 0L).toString(), (pcbrecordnumber?.value ?: 0L).toString(), (pcbuserreservation?.value ?: 0L).toString(), (pcbcommitreservation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogicalDriveStringsA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsA(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getLogicalDriveStringsA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsA(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogicalDriveStringsW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogicalDriveStringsW(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getLogicalDriveStringsW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogicalDriveStringsW(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogicalDrives(): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLogicalDrives() as Int).toUInt() else 0u
+public actual fun getLogicalDrives(): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLogicalDrives() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLongPathNameA(lpszshortpath: PCSTR, lpszlongpath: PSTR, cchbuffer: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLongPathNameA(lpszshortpath.toString(), lpszlongpath.toString(), cchbuffer.toInt()) as Int).toUInt() else 0u
+public actual fun getLongPathNameA(lpszshortpath: Pcstr, lpszlongpath: Pstr, cchbuffer: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLongPathNameA((lpszshortpath?.value ?: 0L).toString(), (lpszlongpath?.value ?: 0L).toString(), cchbuffer.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLongPathNameTransactedA(lpszshortpath: PCSTR, lpszlongpath: PSTR, cchbuffer: UInt, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedA(lpszshortpath.toString(), lpszlongpath.toString(), cchbuffer.toInt(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getLongPathNameTransactedA(lpszshortpath: Pcstr, lpszlongpath: Pstr, cchbuffer: UInt, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedA((lpszshortpath?.value ?: 0L).toString(), (lpszlongpath?.value ?: 0L).toString(), cchbuffer.toInt(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLongPathNameTransactedW(lpszshortpath: PCWSTR, lpszlongpath: PWSTR, cchbuffer: UInt, htransaction: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLongPathNameTransactedW(lpszshortpath.toString(), lpszlongpath.toString(), cchbuffer.toInt(), htransaction.toString()) as Int).toUInt() else 0u
+public actual fun getLongPathNameTransactedW(lpszshortpath: Pcwstr, lpszlongpath: Pwstr, cchbuffer: UInt, htransaction: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLongPathNameTransactedW((lpszshortpath?.value ?: 0L).toString(), (lpszlongpath?.value ?: 0L).toString(), cchbuffer.toInt(), (htransaction?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLongPathNameW(lpszshortpath: PCWSTR, lpszlongpath: PWSTR, cchbuffer: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetLongPathNameW(lpszshortpath.toString(), lpszlongpath.toString(), cchbuffer.toInt()) as Int).toUInt() else 0u
+public actual fun getLongPathNameW(lpszshortpath: Pcwstr, lpszlongpath: Pwstr, cchbuffer: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getLongPathNameW((lpszshortpath?.value ?: 0L).toString(), (lpszlongpath?.value ?: 0L).toString(), cchbuffer.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNextLogArchiveExtent(pvarchivecontext: Long, rgadextent: Long, cdescriptors: UInt, pcdescriptorsreturned: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetNextLogArchiveExtent(pvarchivecontext.toString(), rgadextent.toString(), cdescriptors.toInt(), pcdescriptorsreturned.toString()) as Int) else 0
+public actual fun getNextLogArchiveExtent(pvarchivecontext: COpaquePointer?, rgadextent: COpaquePointer?, cdescriptors: UInt, pcdescriptorsreturned: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getNextLogArchiveExtent((pvarchivecontext?.value ?: 0L).toString(), (rgadextent?.value ?: 0L).toString(), cdescriptors.toInt(), (pcdescriptorsreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNotificationResourceManager(resourcemanagerhandle: HANDLE, transactionnotification: Long, notificationlength: UInt, dwmilliseconds: UInt, returnlength: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetNotificationResourceManager(resourcemanagerhandle.toString(), transactionnotification.toString(), notificationlength.toInt(), dwmilliseconds.toInt(), returnlength.toString()) as Int) else 0
+public actual fun getNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: COpaquePointer?, notificationlength: UInt, dwmilliseconds: UInt, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getNotificationResourceManager((resourcemanagerhandle?.value ?: 0L).toString(), (transactionnotification?.value ?: 0L).toString(), notificationlength.toInt(), dwmilliseconds.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNotificationResourceManagerAsync(resourcemanagerhandle: HANDLE, transactionnotification: Long, transactionnotificationlength: UInt, returnlength: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetNotificationResourceManagerAsync(resourcemanagerhandle.toString(), transactionnotification.toString(), transactionnotificationlength.toInt(), returnlength.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun getNotificationResourceManagerAsync(resourcemanagerhandle: Handle, transactionnotification: COpaquePointer?, transactionnotificationlength: UInt, returnlength: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getNotificationResourceManagerAsync((resourcemanagerhandle?.value ?: 0L).toString(), (transactionnotification?.value ?: 0L).toString(), transactionnotificationlength.toInt(), (returnlength?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetShortPathNameA(lpszlongpath: PCSTR, lpszshortpath: PSTR, cchbuffer: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetShortPathNameA(lpszlongpath.toString(), lpszshortpath.toString(), cchbuffer.toInt()) as Int).toUInt() else 0u
+public actual fun getShortPathNameA(lpszlongpath: Pcstr, lpszshortpath: Pstr, cchbuffer: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getShortPathNameA((lpszlongpath?.value ?: 0L).toString(), (lpszshortpath?.value ?: 0L).toString(), cchbuffer.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetShortPathNameW(lpszlongpath: PCWSTR, lpszshortpath: PWSTR, cchbuffer: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetShortPathNameW(lpszlongpath.toString(), lpszshortpath.toString(), cchbuffer.toInt()) as Int).toUInt() else 0u
+public actual fun getShortPathNameW(lpszlongpath: Pcwstr, lpszshortpath: Pwstr, cchbuffer: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getShortPathNameW((lpszlongpath?.value ?: 0L).toString(), (lpszshortpath?.value ?: 0L).toString(), cchbuffer.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTapeParameters(hdevice: HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: Long, lptapeinformation: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTapeParameters(hdevice.toString(), dwoperation.toInt(), lpdwsize.toString(), lptapeinformation.toString()) as Int).toUInt() else 0u
+public actual fun getTapeParameters(hdevice: Handle, dwoperation: GetTapeDriveParametersOperation, lpdwsize: COpaquePointer?, lptapeinformation: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTapeParameters((hdevice?.value ?: 0L).toString(), dwoperation.toInt(), (lpdwsize?.value ?: 0L).toString(), (lptapeinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTapePosition(hdevice: HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: Long, lpdwoffsetlow: Long, lpdwoffsethigh: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTapePosition(hdevice.toString(), dwpositiontype.toInt(), lpdwpartition.toString(), lpdwoffsetlow.toString(), lpdwoffsethigh.toString()) as Int).toUInt() else 0u
+public actual fun getTapePosition(hdevice: Handle, dwpositiontype: TapePositionType, lpdwpartition: COpaquePointer?, lpdwoffsetlow: COpaquePointer?, lpdwoffsethigh: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTapePosition((hdevice?.value ?: 0L).toString(), dwpositiontype.toInt(), (lpdwpartition?.value ?: 0L).toString(), (lpdwoffsetlow?.value ?: 0L).toString(), (lpdwoffsethigh?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTapeStatus(hdevice: HANDLE): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTapeStatus(hdevice.toString()) as Int).toUInt() else 0u
+public actual fun getTapeStatus(hdevice: Handle): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTapeStatus((hdevice?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempFileNameA(lppathname: PCSTR, lpprefixstring: PCSTR, uunique: UInt, lptempfilename: PSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempFileNameA(lppathname.toString(), lpprefixstring.toString(), uunique.toInt(), lptempfilename.toString()) as Int).toUInt() else 0u
+public actual fun getTempFileNameA(lppathname: Pcstr, lpprefixstring: Pcstr, uunique: UInt, lptempfilename: Pstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempFileNameA((lppathname?.value ?: 0L).toString(), (lpprefixstring?.value ?: 0L).toString(), uunique.toInt(), (lptempfilename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempFileNameW(lppathname: PCWSTR, lpprefixstring: PCWSTR, uunique: UInt, lptempfilename: PWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempFileNameW(lppathname.toString(), lpprefixstring.toString(), uunique.toInt(), lptempfilename.toString()) as Int).toUInt() else 0u
+public actual fun getTempFileNameW(lppathname: Pcwstr, lpprefixstring: Pcwstr, uunique: UInt, lptempfilename: Pwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempFileNameW((lppathname?.value ?: 0L).toString(), (lpprefixstring?.value ?: 0L).toString(), uunique.toInt(), (lptempfilename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempPath2A(bufferlength: UInt, buffer: PSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempPath2A(bufferlength.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun getTempPath2A(bufferlength: UInt, buffer: Pstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempPath2A(bufferlength.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempPath2W(bufferlength: UInt, buffer: PWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempPath2W(bufferlength.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun getTempPath2W(bufferlength: UInt, buffer: Pwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempPath2W(bufferlength.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempPathA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempPathA(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getTempPathA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempPathA(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTempPathW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTempPathW(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getTempPathW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTempPathW(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTransactionId(transactionhandle: HANDLE, transactionid: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTransactionId(transactionhandle.toString(), transactionid.toString()) as Int) else 0
+public actual fun getTransactionId(transactionhandle: Handle, transactionid: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTransactionId((transactionhandle?.value ?: 0L).toString(), (transactionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTransactionInformation(transactionhandle: HANDLE, outcome: Long, isolationlevel: Long, isolationflags: Long, timeout: Long, bufferlength: UInt, description: PWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTransactionInformation(transactionhandle.toString(), outcome.toString(), isolationlevel.toString(), isolationflags.toString(), timeout.toString(), bufferlength.toInt(), description.toString()) as Int) else 0
+public actual fun getTransactionInformation(transactionhandle: Handle, outcome: COpaquePointer?, isolationlevel: COpaquePointer?, isolationflags: COpaquePointer?, timeout: COpaquePointer?, bufferlength: UInt, description: Pwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTransactionInformation((transactionhandle?.value ?: 0L).toString(), (outcome?.value ?: 0L).toString(), (isolationlevel?.value ?: 0L).toString(), (isolationflags?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), bufferlength.toInt(), (description?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTransactionManagerId(transactionmanagerhandle: HANDLE, transactionmanagerid: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetTransactionManagerId(transactionmanagerhandle.toString(), transactionmanagerid.toString()) as Int) else 0
+public actual fun getTransactionManagerId(transactionmanagerhandle: Handle, transactionmanagerid: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getTransactionManagerId((transactionmanagerhandle?.value ?: 0L).toString(), (transactionmanagerid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumeInformationA(lprootpathname: PCSTR, lpvolumenamebuffer: PSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PSTR, nfilesystemnamesize: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumeInformationA(lprootpathname.toString(), lpvolumenamebuffer.toString(), nvolumenamesize.toInt(), lpvolumeserialnumber.toString(), lpmaximumcomponentlength.toString(), lpfilesystemflags.toString(), lpfilesystemnamebuffer.toString(), nfilesystemnamesize.toInt()) as Int) else 0
+public actual fun getVolumeInformationA(lprootpathname: Pcstr, lpvolumenamebuffer: Pstr, nvolumenamesize: UInt, lpvolumeserialnumber: COpaquePointer?, lpmaximumcomponentlength: COpaquePointer?, lpfilesystemflags: COpaquePointer?, lpfilesystemnamebuffer: Pstr, nfilesystemnamesize: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumeInformationA((lprootpathname?.value ?: 0L).toString(), (lpvolumenamebuffer?.value ?: 0L).toString(), nvolumenamesize.toInt(), (lpvolumeserialnumber?.value ?: 0L).toString(), (lpmaximumcomponentlength?.value ?: 0L).toString(), (lpfilesystemflags?.value ?: 0L).toString(), (lpfilesystemnamebuffer?.value ?: 0L).toString(), nfilesystemnamesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumeInformationByHandleW(hfile: HANDLE, lpvolumenamebuffer: PWSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PWSTR, nfilesystemnamesize: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumeInformationByHandleW(hfile.toString(), lpvolumenamebuffer.toString(), nvolumenamesize.toInt(), lpvolumeserialnumber.toString(), lpmaximumcomponentlength.toString(), lpfilesystemflags.toString(), lpfilesystemnamebuffer.toString(), nfilesystemnamesize.toInt()) as Int) else 0
+public actual fun getVolumeInformationByHandleW(hfile: Handle, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: COpaquePointer?, lpmaximumcomponentlength: COpaquePointer?, lpfilesystemflags: COpaquePointer?, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumeInformationByHandleW((hfile?.value ?: 0L).toString(), (lpvolumenamebuffer?.value ?: 0L).toString(), nvolumenamesize.toInt(), (lpvolumeserialnumber?.value ?: 0L).toString(), (lpmaximumcomponentlength?.value ?: 0L).toString(), (lpfilesystemflags?.value ?: 0L).toString(), (lpfilesystemnamebuffer?.value ?: 0L).toString(), nfilesystemnamesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumeInformationW(lprootpathname: PCWSTR, lpvolumenamebuffer: PWSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PWSTR, nfilesystemnamesize: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumeInformationW(lprootpathname.toString(), lpvolumenamebuffer.toString(), nvolumenamesize.toInt(), lpvolumeserialnumber.toString(), lpmaximumcomponentlength.toString(), lpfilesystemflags.toString(), lpfilesystemnamebuffer.toString(), nfilesystemnamesize.toInt()) as Int) else 0
+public actual fun getVolumeInformationW(lprootpathname: Pcwstr, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: COpaquePointer?, lpmaximumcomponentlength: COpaquePointer?, lpfilesystemflags: COpaquePointer?, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumeInformationW((lprootpathname?.value ?: 0L).toString(), (lpvolumenamebuffer?.value ?: 0L).toString(), nvolumenamesize.toInt(), (lpvolumeserialnumber?.value ?: 0L).toString(), (lpmaximumcomponentlength?.value ?: 0L).toString(), (lpfilesystemflags?.value ?: 0L).toString(), (lpfilesystemnamebuffer?.value ?: 0L).toString(), nfilesystemnamesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint: PCSTR, lpszvolumename: PSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.toString(), lpszvolumename.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun getVolumeNameForVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointA((lpszvolumemountpoint?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint: PCWSTR, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.toString(), lpszvolumename.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun getVolumeNameForVolumeMountPointW(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumeNameForVolumeMountPointW((lpszvolumemountpoint?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumePathNameA(lpszfilename: PCSTR, lpszvolumepathname: PSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumePathNameA(lpszfilename.toString(), lpszvolumepathname.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun getVolumePathNameA(lpszfilename: Pcstr, lpszvolumepathname: Pstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumePathNameA((lpszfilename?.value ?: 0L).toString(), (lpszvolumepathname?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumePathNameW(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, cchbufferlength: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumePathNameW(lpszfilename.toString(), lpszvolumepathname.toString(), cchbufferlength.toInt()) as Int) else 0
+public actual fun getVolumePathNameW(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumePathNameW((lpszfilename?.value ?: 0L).toString(), (lpszvolumepathname?.value ?: 0L).toString(), cchbufferlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumePathNamesForVolumeNameA(lpszvolumename: PCSTR, lpszvolumepathnames: PSTR, cchbufferlength: UInt, lpcchreturnlength: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameA(lpszvolumename.toString(), lpszvolumepathnames.toString(), cchbufferlength.toInt(), lpcchreturnlength.toString()) as Int) else 0
+public actual fun getVolumePathNamesForVolumeNameA(lpszvolumename: Pcstr, lpszvolumepathnames: Pstr, cchbufferlength: UInt, lpcchreturnlength: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameA((lpszvolumename?.value ?: 0L).toString(), (lpszvolumepathnames?.value ?: 0L).toString(), cchbufferlength.toInt(), (lpcchreturnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVolumePathNamesForVolumeNameW(lpszvolumename: PCWSTR, lpszvolumepathnames: PWSTR, cchbufferlength: UInt, lpcchreturnlength: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_GetVolumePathNamesForVolumeNameW(lpszvolumename.toString(), lpszvolumepathnames.toString(), cchbufferlength.toInt(), lpcchreturnlength.toString()) as Int) else 0
+public actual fun getVolumePathNamesForVolumeNameW(lpszvolumename: Pcwstr, lpszvolumepathnames: Pwstr, cchbufferlength: UInt, lpcchreturnlength: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_getVolumePathNamesForVolumeNameW((lpszvolumename?.value ?: 0L).toString(), (lpszvolumepathnames?.value ?: 0L).toString(), cchbufferlength.toInt(), (lpcchreturnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HandleLogFull(hlog: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_HandleLogFull(hlog.toString()) as Int) else 0
+public actual fun handleLogFull(hlog: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_handleLogFull((hlog?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallLogPolicy(hlog: HANDLE, ppolicy: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_InstallLogPolicy(hlog.toString(), ppolicy.toString()) as Int) else 0
+public actual fun installLogPolicy(hlog: Handle, ppolicy: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_installLogPolicy((hlog?.value ?: 0L).toString(), (ppolicy?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsIoRingOpSupported(ioring: HIORING, op: IORING_OP_CODE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_IsIoRingOpSupported(ioring.toString(), op) as Int) else 0
+public actual fun isIoRingOpSupported(ioring: Hioring, op: IoringOpCode): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_isIoRingOpSupported((ioring?.value ?: 0L).toString(), op) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZClose(hfile: Int) {
+public actual fun lZClose(hfile: Int) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZClose(hfile)
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZClose(hfile)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun LZCopy(hfsource: Int, hfdest: Int): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZCopy(hfsource, hfdest) as Int) else 0
+public actual fun lZCopy(hfsource: Int, hfdest: Int): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZCopy(hfsource, hfdest) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZDone() {
+public actual fun lZDone() {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZDone()
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZDone()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun LZInit(hfsource: Int): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZInit(hfsource) as Int) else 0
+public actual fun lZInit(hfsource: Int): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZInit(hfsource) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZOpenFileA(lpfilename: PCSTR, lpreopenbuf: Long, wstyle: LZOPENFILE_STYLE): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZOpenFileA(lpfilename.toString(), lpreopenbuf.toString(), wstyle.toInt()) as Int) else 0
+public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: COpaquePointer?, wstyle: LzopenfileStyle): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZOpenFileA((lpfilename?.value ?: 0L).toString(), (lpreopenbuf?.value ?: 0L).toString(), wstyle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZOpenFileW(lpfilename: PCWSTR, lpreopenbuf: Long, wstyle: LZOPENFILE_STYLE): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZOpenFileW(lpfilename.toString(), lpreopenbuf.toString(), wstyle.toInt()) as Int) else 0
+public actual fun lZOpenFileW(lpfilename: Pcwstr, lpreopenbuf: COpaquePointer?, wstyle: LzopenfileStyle): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZOpenFileW((lpfilename?.value ?: 0L).toString(), (lpreopenbuf?.value ?: 0L).toString(), wstyle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZRead(hfile: Int, lpbuffer: PSTR, cbread: Int): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZRead(hfile, lpbuffer.toString(), cbread) as Int) else 0
+public actual fun lZRead(hfile: Int, lpbuffer: Pstr, cbread: Int): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZRead(hfile, (lpbuffer?.value ?: 0L).toString(), cbread) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZSeek(hfile: Int, loffset: Int, iorigin: Int): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZSeek(hfile, loffset, iorigin) as Int) else 0
+public actual fun lZSeek(hfile: Int, loffset: Int, iorigin: Int): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZSeek(hfile, loffset, iorigin) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LZStart(): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LZStart() as Int) else 0
+public actual fun lZStart(): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lZStart() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LocalFileTimeToFileTime(lplocalfiletime: Long, lpfiletime: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LocalFileTimeToFileTime(lplocalfiletime.toString(), lpfiletime.toString()) as Int) else 0
+public actual fun localFileTimeToFileTime(lplocalfiletime: COpaquePointer?, lpfiletime: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_localFileTimeToFileTime((lplocalfiletime?.value ?: 0L).toString(), (lpfiletime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LockFile(hfile: HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LockFile(hfile.toString(), dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt()) as Int) else 0
+public actual fun lockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lockFile((hfile?.value ?: 0L).toString(), dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LockFileEx(hfile: HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LockFileEx(hfile.toString(), dwflags.toInt(), dwreserved.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt(), lpoverlapped.toString()) as Int) else 0
+public actual fun lockFileEx(hfile: Handle, dwflags: LockFileFlags, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lockFileEx((hfile?.value ?: 0L).toString(), dwflags.toInt(), dwreserved.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogTailAdvanceFailure(hlog: HANDLE, dwreason: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LogTailAdvanceFailure(hlog.toString(), dwreason.toInt()) as Int) else 0
+public actual fun logTailAdvanceFailure(hlog: Handle, dwreason: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_logTailAdvanceFailure((hlog?.value ?: 0L).toString(), dwreason.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnBlockOffset(plsn: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnBlockOffset(plsn.toString()) as Int).toUInt() else 0u
+public actual fun lsnBlockOffset(plsn: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnBlockOffset((plsn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnContainer(plsn: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnContainer(plsn.toString()) as Int).toUInt() else 0u
+public actual fun lsnContainer(plsn: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnContainer((plsn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): CLS_LSN =
-    CLS_LSN()
+public actual fun lsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): ClsLsn =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnEqual(plsn1: Long, plsn2: Long): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnEqual(plsn1.toString(), plsn2.toString()) as Boolean) else false
+public actual fun lsnEqual(plsn1: COpaquePointer?, plsn2: COpaquePointer?): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnEqual((plsn1?.value ?: 0L).toString(), (plsn2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnGreater(plsn1: Long, plsn2: Long): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnGreater(plsn1.toString(), plsn2.toString()) as Boolean) else false
+public actual fun lsnGreater(plsn1: COpaquePointer?, plsn2: COpaquePointer?): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnGreater((plsn1?.value ?: 0L).toString(), (plsn2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnIncrement(plsn: Long): CLS_LSN =
-    CLS_LSN()
+public actual fun lsnIncrement(plsn: COpaquePointer?): ClsLsn =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnInvalid(plsn: Long): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnInvalid(plsn.toString()) as Boolean) else false
+public actual fun lsnInvalid(plsn: COpaquePointer?): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnInvalid((plsn?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnLess(plsn1: Long, plsn2: Long): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnLess(plsn1.toString(), plsn2.toString()) as Boolean) else false
+public actual fun lsnLess(plsn1: COpaquePointer?, plsn2: COpaquePointer?): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnLess((plsn1?.value ?: 0L).toString(), (plsn2?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnNull(plsn: Long): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnNull(plsn.toString()) as Boolean) else false
+public actual fun lsnNull(plsn: COpaquePointer?): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnNull((plsn?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LsnRecordSequence(plsn: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_LsnRecordSequence(plsn.toString()) as Int).toUInt() else 0u
+public actual fun lsnRecordSequence(plsn: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_lsnRecordSequence((plsn?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileA(lpexistingfilename.toString(), lpnewfilename.toString()) as Int) else 0
+public actual fun moveFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileExA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, dwflags: MOVE_FILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileExA(lpexistingfilename.toString(), lpnewfilename.toString(), dwflags.toInt()) as Int) else 0
+public actual fun moveFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, dwflags: MoveFileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileExA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileExW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, dwflags: MOVE_FILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileExW(lpexistingfilename.toString(), lpnewfilename.toString(), dwflags.toInt()) as Int) else 0
+public actual fun moveFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, dwflags: MoveFileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileExW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileFromAppW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileFromAppW(lpexistingfilename.toString(), lpnewfilename.toString()) as Int) else 0
+public actual fun moveFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileFromAppW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileTransactedA(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), dwflags.toInt(), htransaction.toString()) as Int) else 0
+public actual fun moveFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileTransactedA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), dwflags.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileTransactedW(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), dwflags.toInt(), htransaction.toString()) as Int) else 0
+public actual fun moveFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileTransactedW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), dwflags.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileW(lpexistingfilename.toString(), lpnewfilename.toString()) as Int) else 0
+public actual fun moveFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileWithProgressA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileWithProgressA(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), dwflags.toInt()) as Int) else 0
+public actual fun moveFileWithProgressA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, dwflags: MoveFileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileWithProgressA((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveFileWithProgressW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_MoveFileWithProgressW(lpexistingfilename.toString(), lpnewfilename.toString(), lpprogressroutine.toLong().toString(), lpdata.toString(), dwflags.toInt()) as Int) else 0
+public actual fun moveFileWithProgressW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: COpaquePointer?, dwflags: MoveFileFlags): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_moveFileWithProgressW((lpexistingfilename?.value ?: 0L).toString(), (lpnewfilename?.value ?: 0L).toString(), 0L.toString(), (lpdata?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetConnectionEnum(servername: PCWSTR, qualifier: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetConnectionEnum(servername.toString(), qualifier.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resume_handle.toString()) as Int).toUInt() else 0u
+public actual fun netConnectionEnum(servername: Pcwstr, qualifier: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netConnectionEnum((servername?.value ?: 0L).toString(), (qualifier?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumeHandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetFileClose(servername: PCWSTR, fileid: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetFileClose(servername.toString(), fileid.toInt()) as Int).toUInt() else 0u
+public actual fun netFileClose(servername: Pcwstr, fileid: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netFileClose((servername?.value ?: 0L).toString(), fileid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetFileEnum(servername: PCWSTR, basepath: PCWSTR, username: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetFileEnum(servername.toString(), basepath.toString(), username.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resume_handle.toString()) as Int).toUInt() else 0u
+public actual fun netFileEnum(servername: Pcwstr, basepath: Pcwstr, username: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netFileEnum((servername?.value ?: 0L).toString(), (basepath?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumeHandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetFileGetInfo(servername: PCWSTR, fileid: UInt, level: UInt, bufptr: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetFileGetInfo(servername.toString(), fileid.toInt(), level.toInt(), bufptr.toString()) as Int).toUInt() else 0u
+public actual fun netFileGetInfo(servername: Pcwstr, fileid: UInt, level: UInt, bufptr: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netFileGetInfo((servername?.value ?: 0L).toString(), fileid.toInt(), level.toInt(), (bufptr?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetServerAliasAdd(servername: PCWSTR, level: UInt, buf: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetServerAliasAdd(servername.toString(), level.toInt(), buf.toString()) as Int).toUInt() else 0u
+public actual fun netServerAliasAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netServerAliasAdd((servername?.value ?: 0L).toString(), level.toInt(), (buf?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetServerAliasDel(servername: PCWSTR, level: UInt, buf: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetServerAliasDel(servername.toString(), level.toInt(), buf.toString()) as Int).toUInt() else 0u
+public actual fun netServerAliasDel(servername: Pcwstr, level: UInt, buf: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netServerAliasDel((servername?.value ?: 0L).toString(), level.toInt(), (buf?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetServerAliasEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetServerAliasEnum(servername.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resumehandle.toString()) as Int).toUInt() else 0u
+public actual fun netServerAliasEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netServerAliasEnum((servername?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetSessionDel(servername: PCWSTR, uncclientname: PCWSTR, username: PCWSTR): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetSessionDel(servername.toString(), uncclientname.toString(), username.toString()) as Int).toUInt() else 0u
+public actual fun netSessionDel(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netSessionDel((servername?.value ?: 0L).toString(), (uncclientname?.value ?: 0L).toString(), (username?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetSessionEnum(servername: PCWSTR, uncclientname: PCWSTR, username: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetSessionEnum(servername.toString(), uncclientname.toString(), username.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resume_handle.toString()) as Int).toUInt() else 0u
+public actual fun netSessionEnum(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netSessionEnum((servername?.value ?: 0L).toString(), (uncclientname?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumeHandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetSessionGetInfo(servername: PCWSTR, uncclientname: PCWSTR, username: PCWSTR, level: UInt, bufptr: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetSessionGetInfo(servername.toString(), uncclientname.toString(), username.toString(), level.toInt(), bufptr.toString()) as Int).toUInt() else 0u
+public actual fun netSessionGetInfo(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netSessionGetInfo((servername?.value ?: 0L).toString(), (uncclientname?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareAdd(servername.toString(), level.toInt(), buf.toString(), parm_err.toString()) as Int).toUInt() else 0u
+public actual fun netShareAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareAdd((servername?.value ?: 0L).toString(), level.toInt(), (buf?.value ?: 0L).toString(), (parmErr?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareCheck(servername: PCWSTR, device: PCWSTR, type: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareCheck(servername.toString(), device.toString(), type.toString()) as Int).toUInt() else 0u
+public actual fun netShareCheck(servername: Pcwstr, device: Pcwstr, type: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareCheck((servername?.value ?: 0L).toString(), (device?.value ?: 0L).toString(), (type?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareDel(servername: PCWSTR, netname: PCWSTR, reserved: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareDel(servername.toString(), netname.toString(), reserved.toInt()) as Int).toUInt() else 0u
+public actual fun netShareDel(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareDel((servername?.value ?: 0L).toString(), (netname?.value ?: 0L).toString(), reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareDelEx(servername: PCWSTR, level: UInt, buf: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareDelEx(servername.toString(), level.toInt(), buf.toString()) as Int).toUInt() else 0u
+public actual fun netShareDelEx(servername: Pcwstr, level: UInt, buf: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareDelEx((servername?.value ?: 0L).toString(), level.toInt(), (buf?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareDelSticky(servername: PCWSTR, netname: PCWSTR, reserved: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareDelSticky(servername.toString(), netname.toString(), reserved.toInt()) as Int).toUInt() else 0u
+public actual fun netShareDelSticky(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareDelSticky((servername?.value ?: 0L).toString(), (netname?.value ?: 0L).toString(), reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareEnum(servername.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resume_handle.toString()) as Int).toUInt() else 0u
+public actual fun netShareEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareEnum((servername?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumeHandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareEnumSticky(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareEnumSticky(servername.toString(), level.toInt(), bufptr.toString(), prefmaxlen.toInt(), entriesread.toString(), totalentries.toString(), resume_handle.toString()) as Int).toUInt() else 0u
+public actual fun netShareEnumSticky(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareEnumSticky((servername?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString(), prefmaxlen.toInt(), (entriesread?.value ?: 0L).toString(), (totalentries?.value ?: 0L).toString(), (resumeHandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareGetInfo(servername: PCWSTR, netname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareGetInfo(servername.toString(), netname.toString(), level.toInt(), bufptr.toString()) as Int).toUInt() else 0u
+public actual fun netShareGetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareGetInfo((servername?.value ?: 0L).toString(), (netname?.value ?: 0L).toString(), level.toInt(), (bufptr?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetShareSetInfo(servername: PCWSTR, netname: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetShareSetInfo(servername.toString(), netname.toString(), level.toInt(), buf.toString(), parm_err.toString()) as Int).toUInt() else 0u
+public actual fun netShareSetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netShareSetInfo((servername?.value ?: 0L).toString(), (netname?.value ?: 0L).toString(), level.toInt(), (buf?.value ?: 0L).toString(), (parmErr?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NetStatisticsGet(servername: Long, service: Long, level: UInt, options: UInt, buffer: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_NetStatisticsGet(servername.toString(), service.toString(), level.toInt(), options.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun netStatisticsGet(servername: COpaquePointer?, service: COpaquePointer?, level: UInt, options: UInt, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_netStatisticsGet((servername?.value ?: 0L).toString(), (service?.value ?: 0L).toString(), level.toInt(), options.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenEncryptedFileRawA(lpfilename: PCSTR, ulflags: UInt, pvcontext: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawA(lpfilename.toString(), ulflags.toInt(), pvcontext.toString()) as Int).toUInt() else 0u
+public actual fun openEncryptedFileRawA(lpfilename: Pcstr, ulflags: UInt, pvcontext: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openEncryptedFileRawA((lpfilename?.value ?: 0L).toString(), ulflags.toInt(), (pvcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenEncryptedFileRawW(lpfilename: PCWSTR, ulflags: UInt, pvcontext: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenEncryptedFileRawW(lpfilename.toString(), ulflags.toInt(), pvcontext.toString()) as Int).toUInt() else 0u
+public actual fun openEncryptedFileRawW(lpfilename: Pcwstr, ulflags: UInt, pvcontext: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openEncryptedFileRawW((lpfilename?.value ?: 0L).toString(), ulflags.toInt(), (pvcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: HANDLE, enlistmentid: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenEnlistment(dwdesiredaccess.toInt(), resourcemanagerhandle.toString(), enlistmentid.toString()) as String).toLong() else 0L
+public actual fun openEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentid: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openEnlistment(dwdesiredaccess.toInt(), (resourcemanagerhandle?.value ?: 0L).toString(), (enlistmentid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenFile(lpfilename: PCSTR, lpreopenbuff: Long, ustyle: UInt): Int =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenFile(lpfilename.toString(), lpreopenbuff.toString(), ustyle.toInt()) as Int) else 0
+public actual fun openFile(lpfilename: Pcstr, lpreopenbuff: COpaquePointer?, ustyle: UInt): Int =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openFile((lpfilename?.value ?: 0L).toString(), (lpreopenbuff?.value ?: 0L).toString(), ustyle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenFileById(hvolumehint: HANDLE, lpfileid: Long, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenFileById(hvolumehint.toString(), lpfileid.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.toString(), dwflagsandattributes.toInt()) as String).toLong() else 0L
+public actual fun openFileById(hvolumehint: Handle, lpfileid: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: COpaquePointer?, dwflagsandattributes: FileFlagsAndAttributes): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openFileById((hvolumehint?.value ?: 0L).toString(), (lpfileid?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), (lpsecurityattributes?.value ?: 0L).toString(), dwflagsandattributes.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenResourceManager(dwdesiredaccess: UInt, tmhandle: HANDLE, resourcemanagerid: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenResourceManager(dwdesiredaccess.toInt(), tmhandle.toString(), resourcemanagerid.toString()) as String).toLong() else 0L
+public actual fun openResourceManager(dwdesiredaccess: UInt, tmhandle: Handle, resourcemanagerid: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openResourceManager(dwdesiredaccess.toInt(), (tmhandle?.value ?: 0L).toString(), (resourcemanagerid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTransaction(dwdesiredaccess: UInt, transactionid: Long): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenTransaction(dwdesiredaccess.toInt(), transactionid.toString()) as String).toLong() else 0L
+public actual fun openTransaction(dwdesiredaccess: UInt, transactionid: COpaquePointer?): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openTransaction(dwdesiredaccess.toInt(), (transactionid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTransactionManager(logfilename: PCWSTR, desiredaccess: UInt, openoptions: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenTransactionManager(logfilename.toString(), desiredaccess.toInt(), openoptions.toInt()) as String).toLong() else 0L
+public actual fun openTransactionManager(logfilename: Pcwstr, desiredaccess: UInt, openoptions: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openTransactionManager((logfilename?.value ?: 0L).toString(), desiredaccess.toInt(), openoptions.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenTransactionManagerById(transactionmanagerid: Long, desiredaccess: UInt, openoptions: UInt): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_OpenTransactionManagerById(transactionmanagerid.toString(), desiredaccess.toInt(), openoptions.toInt()) as String).toLong() else 0L
+public actual fun openTransactionManagerById(transactionmanagerid: COpaquePointer?, desiredaccess: UInt, openoptions: UInt): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_openTransactionManagerById((transactionmanagerid?.value ?: 0L).toString(), desiredaccess.toInt(), openoptions.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PopIoRingCompletion(ioring: HIORING, cqe: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PopIoRingCompletion(ioring.toString(), cqe.toString()) as Int) else 0
+public actual fun popIoRingCompletion(ioring: Hioring, cqe: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_popIoRingCompletion((ioring?.value ?: 0L).toString(), (cqe?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrePrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrePrepareComplete(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun prePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prePrepareComplete((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrePrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrePrepareEnlistment(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun prePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prePrepareEnlistment((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrepareComplete(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun prepareComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prepareComplete((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrepareEnlistment(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun prepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prepareEnlistment((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrepareLogArchive(hlog: HANDLE, pszbaselogfilename: PWSTR, clen: UInt, plsnlow: Long, plsnhigh: Long, pcactuallength: Long, poffbaselogfiledata: Long, pcbbaselogfilelength: Long, plsnbase: Long, plsnlast: Long, plsncurrentarchivetail: Long, ppvarchivecontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrepareLogArchive(hlog.toString(), pszbaselogfilename.toString(), clen.toInt(), plsnlow.toString(), plsnhigh.toString(), pcactuallength.toString(), poffbaselogfiledata.toString(), pcbbaselogfilelength.toString(), plsnbase.toString(), plsnlast.toString(), plsncurrentarchivetail.toString(), ppvarchivecontext.toString()) as Int) else 0
+public actual fun prepareLogArchive(hlog: Handle, pszbaselogfilename: Pwstr, clen: UInt, plsnlow: COpaquePointer?, plsnhigh: COpaquePointer?, pcactuallength: COpaquePointer?, poffbaselogfiledata: COpaquePointer?, pcbbaselogfilelength: COpaquePointer?, plsnbase: COpaquePointer?, plsnlast: COpaquePointer?, plsncurrentarchivetail: COpaquePointer?, ppvarchivecontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prepareLogArchive((hlog?.value ?: 0L).toString(), (pszbaselogfilename?.value ?: 0L).toString(), clen.toInt(), (plsnlow?.value ?: 0L).toString(), (plsnhigh?.value ?: 0L).toString(), (pcactuallength?.value ?: 0L).toString(), (poffbaselogfiledata?.value ?: 0L).toString(), (pcbbaselogfilelength?.value ?: 0L).toString(), (plsnbase?.value ?: 0L).toString(), (plsnlast?.value ?: 0L).toString(), (plsncurrentarchivetail?.value ?: 0L).toString(), (ppvarchivecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrepareTape(hdevice: HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: BOOL): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_PrepareTape(hdevice.toString(), dwoperation.toInt(), bimmediate) as Int).toUInt() else 0u
+public actual fun prepareTape(hdevice: Handle, dwoperation: PrepareTapeOperation, bimmediate: Bool): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_prepareTape((hdevice?.value ?: 0L).toString(), dwoperation.toInt(), bimmediate) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryDosDeviceA(lpdevicename: PCSTR, lptargetpath: PSTR, ucchmax: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryDosDeviceA(lpdevicename.toString(), lptargetpath.toString(), ucchmax.toInt()) as Int).toUInt() else 0u
+public actual fun queryDosDeviceA(lpdevicename: Pcstr, lptargetpath: Pstr, ucchmax: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryDosDeviceA((lpdevicename?.value ?: 0L).toString(), (lptargetpath?.value ?: 0L).toString(), ucchmax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryDosDeviceW(lpdevicename: PCWSTR, lptargetpath: PWSTR, ucchmax: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryDosDeviceW(lpdevicename.toString(), lptargetpath.toString(), ucchmax.toInt()) as Int).toUInt() else 0u
+public actual fun queryDosDeviceW(lpdevicename: Pcwstr, lptargetpath: Pwstr, ucchmax: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryDosDeviceW((lpdevicename?.value ?: 0L).toString(), (lptargetpath?.value ?: 0L).toString(), ucchmax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryIoRingCapabilities(capabilities: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryIoRingCapabilities(capabilities.toString()) as Int) else 0
+public actual fun queryIoRingCapabilities(capabilities: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryIoRingCapabilities((capabilities?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryLogPolicy(hlog: HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: Long, pcbpolicybuffer: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryLogPolicy(hlog.toString(), epolicytype, ppolicybuffer.toString(), pcbpolicybuffer.toString()) as Int) else 0
+public actual fun queryLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType, ppolicybuffer: COpaquePointer?, pcbpolicybuffer: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryLogPolicy((hlog?.value ?: 0L).toString(), epolicytype, (ppolicybuffer?.value ?: 0L).toString(), (pcbpolicybuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryRecoveryAgentsOnEncryptedFile(lpfilename: PCWSTR, precoveryagents: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryRecoveryAgentsOnEncryptedFile(lpfilename.toString(), precoveryagents.toString()) as Int).toUInt() else 0u
+public actual fun queryRecoveryAgentsOnEncryptedFile(lpfilename: Pcwstr, precoveryagents: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryRecoveryAgentsOnEncryptedFile((lpfilename?.value ?: 0L).toString(), (precoveryagents?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryUsersOnEncryptedFile(lpfilename: PCWSTR, pusers: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_QueryUsersOnEncryptedFile(lpfilename.toString(), pusers.toString()) as Int).toUInt() else 0u
+public actual fun queryUsersOnEncryptedFile(lpfilename: Pcwstr, pusers: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_queryUsersOnEncryptedFile((lpfilename?.value ?: 0L).toString(), (pusers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReOpenFile(horiginalfile: HANDLE, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReOpenFile(horiginalfile.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwflagsandattributes.toInt()) as String).toLong() else 0L
+public actual fun reOpenFile(horiginalfile: Handle, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwflagsandattributes: FileFlagsAndAttributes): Handle =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_reOpenFile((horiginalfile?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwflagsandattributes.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadDirectoryChangesExW(hdirectory: HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS): BOOL =
-    0
+public actual fun readDirectoryChangesExW(hdirectory: Handle, lpbuffer: COpaquePointer?, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpoverlappedCompletionRoutine, readdirectorynotifyinformationclass: ReadDirectoryNotifyInformationClass): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readDirectoryChangesExW((hdirectory?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nbufferlength.toInt(), bwatchsubtree, dwnotifyfilter.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), readdirectorynotifyinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadDirectoryChangesW(hdirectory: HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL =
-    0
+public actual fun readDirectoryChangesW(hdirectory: Handle, lpbuffer: COpaquePointer?, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readDirectoryChangesW((hdirectory?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nbufferlength.toInt(), bwatchsubtree, dwnotifyfilter.toInt(), (lpbytesreturned?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: Long, pvcontext: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadEncryptedFileRaw(pfexportcallback.toLong().toString(), pvcallbackcontext.toString(), pvcontext.toString()) as Int).toUInt() else 0u
+public actual fun readEncryptedFileRaw(pfexportcallback: PfeExportFunc, pvcallbackcontext: COpaquePointer?, pvcontext: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readEncryptedFileRaw(0L.toString(), (pvcallbackcontext?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadFile(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadFile(hfile.toString(), lpbuffer.toString(), nnumberofbytestoread.toInt(), lpnumberofbytesread.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun readFile(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, lpnumberofbytesread: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readFile((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestoread.toInt(), (lpnumberofbytesread?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadFileEx(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL =
-    0
+public actual fun readFileEx(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readFileEx((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestoread.toInt(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadFileScatter(hfile: HANDLE, asegmentarray: Long, nnumberofbytestoread: UInt, lpreserved: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadFileScatter(hfile.toString(), asegmentarray.toString(), nnumberofbytestoread.toInt(), lpreserved.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun readFileScatter(hfile: Handle, asegmentarray: COpaquePointer?, nnumberofbytestoread: UInt, lpreserved: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readFileScatter((hfile?.value ?: 0L).toString(), (asegmentarray?.value ?: 0L).toString(), nnumberofbytestoread.toInt(), (lpreserved?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadLogArchiveMetadata(pvarchivecontext: Long, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: Long, pcbbytesread: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadLogArchiveMetadata(pvarchivecontext.toString(), cboffset.toInt(), cbbytestoread.toInt(), pbreadbuffer.toString(), pcbbytesread.toString()) as Int) else 0
+public actual fun readLogArchiveMetadata(pvarchivecontext: COpaquePointer?, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: COpaquePointer?, pcbbytesread: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readLogArchiveMetadata((pvarchivecontext?.value ?: 0L).toString(), cboffset.toInt(), cbbytestoread.toInt(), (pbreadbuffer?.value ?: 0L).toString(), (pcbbytesread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadLogNotification(hlog: HANDLE, pnotification: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadLogNotification(hlog.toString(), pnotification.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun readLogNotification(hlog: Handle, pnotification: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readLogNotification((hlog?.value ?: 0L).toString(), (pnotification?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadLogRecord(pvmarshal: Long, plsnfirst: Long, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: Long, pcbreadbuffer: Long, perecordtype: Long, plsnundonext: Long, plsnprevious: Long, ppvreadcontext: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadLogRecord(pvmarshal.toString(), plsnfirst.toString(), econtextmode, ppvreadbuffer.toString(), pcbreadbuffer.toString(), perecordtype.toString(), plsnundonext.toString(), plsnprevious.toString(), ppvreadcontext.toString(), poverlapped.toString()) as Int) else 0
+public actual fun readLogRecord(pvmarshal: COpaquePointer?, plsnfirst: COpaquePointer?, econtextmode: ClfsContextMode, ppvreadbuffer: COpaquePointer?, pcbreadbuffer: COpaquePointer?, perecordtype: COpaquePointer?, plsnundonext: COpaquePointer?, plsnprevious: COpaquePointer?, ppvreadcontext: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readLogRecord((pvmarshal?.value ?: 0L).toString(), (plsnfirst?.value ?: 0L).toString(), econtextmode, (ppvreadbuffer?.value ?: 0L).toString(), (pcbreadbuffer?.value ?: 0L).toString(), (perecordtype?.value ?: 0L).toString(), (plsnundonext?.value ?: 0L).toString(), (plsnprevious?.value ?: 0L).toString(), (ppvreadcontext?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadLogRestartArea(pvmarshal: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsn: Long, ppvcontext: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadLogRestartArea(pvmarshal.toString(), ppvrestartbuffer.toString(), pcbrestartbuffer.toString(), plsn.toString(), ppvcontext.toString(), poverlapped.toString()) as Int) else 0
+public actual fun readLogRestartArea(pvmarshal: COpaquePointer?, ppvrestartbuffer: COpaquePointer?, pcbrestartbuffer: COpaquePointer?, plsn: COpaquePointer?, ppvcontext: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readLogRestartArea((pvmarshal?.value ?: 0L).toString(), (ppvrestartbuffer?.value ?: 0L).toString(), (pcbrestartbuffer?.value ?: 0L).toString(), (plsn?.value ?: 0L).toString(), (ppvcontext?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadNextLogRecord(pvreadcontext: Long, ppvbuffer: Long, pcbbuffer: Long, perecordtype: Long, plsnuser: Long, plsnundonext: Long, plsnprevious: Long, plsnrecord: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadNextLogRecord(pvreadcontext.toString(), ppvbuffer.toString(), pcbbuffer.toString(), perecordtype.toString(), plsnuser.toString(), plsnundonext.toString(), plsnprevious.toString(), plsnrecord.toString(), poverlapped.toString()) as Int) else 0
+public actual fun readNextLogRecord(pvreadcontext: COpaquePointer?, ppvbuffer: COpaquePointer?, pcbbuffer: COpaquePointer?, perecordtype: COpaquePointer?, plsnuser: COpaquePointer?, plsnundonext: COpaquePointer?, plsnprevious: COpaquePointer?, plsnrecord: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readNextLogRecord((pvreadcontext?.value ?: 0L).toString(), (ppvbuffer?.value ?: 0L).toString(), (pcbbuffer?.value ?: 0L).toString(), (perecordtype?.value ?: 0L).toString(), (plsnuser?.value ?: 0L).toString(), (plsnundonext?.value ?: 0L).toString(), (plsnprevious?.value ?: 0L).toString(), (plsnrecord?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadOnlyEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadOnlyEnlistment(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun readOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readOnlyEnlistment((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadPreviousLogRestartArea(pvreadcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsnrestart: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReadPreviousLogRestartArea(pvreadcontext.toString(), ppvrestartbuffer.toString(), pcbrestartbuffer.toString(), plsnrestart.toString(), poverlapped.toString()) as Int) else 0
+public actual fun readPreviousLogRestartArea(pvreadcontext: COpaquePointer?, ppvrestartbuffer: COpaquePointer?, pcbrestartbuffer: COpaquePointer?, plsnrestart: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_readPreviousLogRestartArea((pvreadcontext?.value ?: 0L).toString(), (ppvrestartbuffer?.value ?: 0L).toString(), (pcbrestartbuffer?.value ?: 0L).toString(), (plsnrestart?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RecoverEnlistment(enlistmenthandle: HANDLE, enlistmentkey: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RecoverEnlistment(enlistmenthandle.toString(), enlistmentkey.toString()) as Int) else 0
+public actual fun recoverEnlistment(enlistmenthandle: Handle, enlistmentkey: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_recoverEnlistment((enlistmenthandle?.value ?: 0L).toString(), (enlistmentkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RecoverResourceManager(resourcemanagerhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RecoverResourceManager(resourcemanagerhandle.toString()) as Int) else 0
+public actual fun recoverResourceManager(resourcemanagerhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_recoverResourceManager((resourcemanagerhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RecoverTransactionManager(transactionmanagerhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RecoverTransactionManager(transactionmanagerhandle.toString()) as Int) else 0
+public actual fun recoverTransactionManager(transactionmanagerhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_recoverTransactionManager((transactionmanagerhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterForLogWriteNotification(hlog: HANDLE, cbthreshold: UInt, fenable: BOOL): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RegisterForLogWriteNotification(hlog.toString(), cbthreshold.toInt(), fenable) as Int) else 0
+public actual fun registerForLogWriteNotification(hlog: Handle, cbthreshold: UInt, fenable: Bool): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_registerForLogWriteNotification((hlog?.value ?: 0L).toString(), cbthreshold.toInt(), fenable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterManageableLogClient(hlog: HANDLE, pcallbacks: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RegisterManageableLogClient(hlog.toString(), pcallbacks.toString()) as Int) else 0
+public actual fun registerManageableLogClient(hlog: Handle, pcallbacks: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_registerManageableLogClient((hlog?.value ?: 0L).toString(), (pcallbacks?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDirectoryA(lppathname: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveDirectoryA(lppathname.toString()) as Int) else 0
+public actual fun removeDirectoryA(lppathname: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeDirectoryA((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDirectoryFromAppW(lppathname: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveDirectoryFromAppW(lppathname.toString()) as Int) else 0
+public actual fun removeDirectoryFromAppW(lppathname: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeDirectoryFromAppW((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDirectoryTransactedA(lppathname: PCSTR, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedA(lppathname.toString(), htransaction.toString()) as Int) else 0
+public actual fun removeDirectoryTransactedA(lppathname: Pcstr, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedA((lppathname?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDirectoryTransactedW(lppathname: PCWSTR, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveDirectoryTransactedW(lppathname.toString(), htransaction.toString()) as Int) else 0
+public actual fun removeDirectoryTransactedW(lppathname: Pcwstr, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeDirectoryTransactedW((lppathname?.value ?: 0L).toString(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDirectoryW(lppathname: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveDirectoryW(lppathname.toString()) as Int) else 0
+public actual fun removeDirectoryW(lppathname: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeDirectoryW((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveLogContainer(hlog: HANDLE, pwszcontainerpath: PCWSTR, fforce: BOOL, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveLogContainer(hlog.toString(), pwszcontainerpath.toString(), fforce, preserved.toString()) as Int) else 0
+public actual fun removeLogContainer(hlog: Handle, pwszcontainerpath: Pcwstr, fforce: Bool, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeLogContainer((hlog?.value ?: 0L).toString(), (pwszcontainerpath?.value ?: 0L).toString(), fforce, (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveLogContainerSet(hlog: HANDLE, ccontainer: UShort, rgwszcontainerpath: Long, fforce: BOOL, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveLogContainerSet(hlog.toString(), ccontainer.toInt(), rgwszcontainerpath.toString(), fforce, preserved.toString()) as Int) else 0
+public actual fun removeLogContainerSet(hlog: Handle, ccontainer: UShort, rgwszcontainerpath: COpaquePointer?, fforce: Bool, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeLogContainerSet((hlog?.value ?: 0L).toString(), ccontainer.toInt(), (rgwszcontainerpath?.value ?: 0L).toString(), fforce, (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveLogPolicy(hlog: HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveLogPolicy(hlog.toString(), epolicytype) as Int) else 0
+public actual fun removeLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeLogPolicy((hlog?.value ?: 0L).toString(), epolicytype) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveUsersFromEncryptedFile(lpfilename: PCWSTR, phashes: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RemoveUsersFromEncryptedFile(lpfilename.toString(), phashes.toString()) as Int).toUInt() else 0u
+public actual fun removeUsersFromEncryptedFile(lpfilename: Pcwstr, phashes: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_removeUsersFromEncryptedFile((lpfilename?.value ?: 0L).toString(), (phashes?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RenameTransactionManager(logfilename: PCWSTR, existingtransactionmanagerguid: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RenameTransactionManager(logfilename.toString(), existingtransactionmanagerguid.toString()) as Int) else 0
+public actual fun renameTransactionManager(logfilename: Pcwstr, existingtransactionmanagerguid: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_renameTransactionManager((logfilename?.value ?: 0L).toString(), (existingtransactionmanagerguid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplaceFileA(lpreplacedfilename: PCSTR, lpreplacementfilename: PCSTR, lpbackupfilename: PCSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReplaceFileA(lpreplacedfilename.toString(), lpreplacementfilename.toString(), lpbackupfilename.toString(), dwreplaceflags.toInt(), lpexclude.toString(), lpreserved.toString()) as Int) else 0
+public actual fun replaceFileA(lpreplacedfilename: Pcstr, lpreplacementfilename: Pcstr, lpbackupfilename: Pcstr, dwreplaceflags: ReplaceFileFlags, lpexclude: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_replaceFileA((lpreplacedfilename?.value ?: 0L).toString(), (lpreplacementfilename?.value ?: 0L).toString(), (lpbackupfilename?.value ?: 0L).toString(), dwreplaceflags.toInt(), (lpexclude?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplaceFileFromAppW(lpreplacedfilename: PCWSTR, lpreplacementfilename: PCWSTR, lpbackupfilename: PCWSTR, dwreplaceflags: UInt, lpexclude: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReplaceFileFromAppW(lpreplacedfilename.toString(), lpreplacementfilename.toString(), lpbackupfilename.toString(), dwreplaceflags.toInt(), lpexclude.toString(), lpreserved.toString()) as Int) else 0
+public actual fun replaceFileFromAppW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: UInt, lpexclude: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_replaceFileFromAppW((lpreplacedfilename?.value ?: 0L).toString(), (lpreplacementfilename?.value ?: 0L).toString(), (lpbackupfilename?.value ?: 0L).toString(), dwreplaceflags.toInt(), (lpexclude?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplaceFileW(lpreplacedfilename: PCWSTR, lpreplacementfilename: PCWSTR, lpbackupfilename: PCWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReplaceFileW(lpreplacedfilename.toString(), lpreplacementfilename.toString(), lpbackupfilename.toString(), dwreplaceflags.toInt(), lpexclude.toString(), lpreserved.toString()) as Int) else 0
+public actual fun replaceFileW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: ReplaceFileFlags, lpexclude: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_replaceFileW((lpreplacedfilename?.value ?: 0L).toString(), (lpreplacementfilename?.value ?: 0L).toString(), (lpbackupfilename?.value ?: 0L).toString(), dwreplaceflags.toInt(), (lpexclude?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReserveAndAppendLog(pvmarshal: Long, rgwriteentries: Long, cwriteentries: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: CLFS_FLAG, plsn: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReserveAndAppendLog(pvmarshal.toString(), rgwriteentries.toString(), cwriteentries.toInt(), plsnundonext.toString(), plsnprevious.toString(), creserverecords.toInt(), rgcbreservation.toString(), fflags.toInt(), plsn.toString(), poverlapped.toString()) as Int) else 0
+public actual fun reserveAndAppendLog(pvmarshal: COpaquePointer?, rgwriteentries: COpaquePointer?, cwriteentries: UInt, plsnundonext: COpaquePointer?, plsnprevious: COpaquePointer?, creserverecords: UInt, rgcbreservation: COpaquePointer?, fflags: ClfsFlag, plsn: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_reserveAndAppendLog((pvmarshal?.value ?: 0L).toString(), (rgwriteentries?.value ?: 0L).toString(), cwriteentries.toInt(), (plsnundonext?.value ?: 0L).toString(), (plsnprevious?.value ?: 0L).toString(), creserverecords.toInt(), (rgcbreservation?.value ?: 0L).toString(), fflags.toInt(), (plsn?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReserveAndAppendLogAligned(pvmarshal: Long, rgwriteentries: Long, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: CLFS_FLAG, plsn: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ReserveAndAppendLogAligned(pvmarshal.toString(), rgwriteentries.toString(), cwriteentries.toInt(), cbentryalignment.toInt(), plsnundonext.toString(), plsnprevious.toString(), creserverecords.toInt(), rgcbreservation.toString(), fflags.toInt(), plsn.toString(), poverlapped.toString()) as Int) else 0
+public actual fun reserveAndAppendLogAligned(pvmarshal: COpaquePointer?, rgwriteentries: COpaquePointer?, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: COpaquePointer?, plsnprevious: COpaquePointer?, creserverecords: UInt, rgcbreservation: COpaquePointer?, fflags: ClfsFlag, plsn: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_reserveAndAppendLogAligned((pvmarshal?.value ?: 0L).toString(), (rgwriteentries?.value ?: 0L).toString(), cwriteentries.toInt(), cbentryalignment.toInt(), (plsnundonext?.value ?: 0L).toString(), (plsnprevious?.value ?: 0L).toString(), creserverecords.toInt(), (rgcbreservation?.value ?: 0L).toString(), fflags.toInt(), (plsn?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RollbackComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RollbackComplete(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun rollbackComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_rollbackComplete((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RollbackEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RollbackEnlistment(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun rollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_rollbackEnlistment((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RollbackTransaction(transactionhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RollbackTransaction(transactionhandle.toString()) as Int) else 0
+public actual fun rollbackTransaction(transactionhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_rollbackTransaction((transactionhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RollbackTransactionAsync(transactionhandle: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RollbackTransactionAsync(transactionhandle.toString()) as Int) else 0
+public actual fun rollbackTransactionAsync(transactionhandle: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_rollbackTransactionAsync((transactionhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RollforwardTransactionManager(transactionmanagerhandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_RollforwardTransactionManager(transactionmanagerhandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun rollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_rollforwardTransactionManager((transactionmanagerhandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScanLogContainers(pcxscan: Long, escanmode: UByte, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ScanLogContainers(pcxscan.toString(), escanmode.toInt(), preserved.toString()) as Int) else 0
+public actual fun scanLogContainers(pcxscan: COpaquePointer?, escanmode: UByte, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_scanLogContainers((pcxscan?.value ?: 0L).toString(), escanmode.toInt(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SearchPathA(lppath: PCSTR, lpfilename: PCSTR, lpextension: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SearchPathA(lppath.toString(), lpfilename.toString(), lpextension.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString()) as Int).toUInt() else 0u
+public actual fun searchPathA(lppath: Pcstr, lpfilename: Pcstr, lpextension: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_searchPathA((lppath?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), (lpextension?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SearchPathW(lppath: PCWSTR, lpfilename: PCWSTR, lpextension: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SearchPathW(lppath.toString(), lpfilename.toString(), lpextension.toString(), nbufferlength.toInt(), lpbuffer.toString(), lpfilepart.toString()) as Int).toUInt() else 0u
+public actual fun searchPathW(lppath: Pcwstr, lpfilename: Pcwstr, lpextension: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_searchPathW((lppath?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), (lpextension?.value ?: 0L).toString(), nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpfilepart?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEncryptedFileMetadata(lpfilename: PCWSTR, pboldmetadata: Long, pbnewmetadata: Long, pownerhash: Long, dwoperation: UInt, pcertificatesadded: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetEncryptedFileMetadata(lpfilename.toString(), pboldmetadata.toString(), pbnewmetadata.toString(), pownerhash.toString(), dwoperation.toInt(), pcertificatesadded.toString()) as Int).toUInt() else 0u
+public actual fun setEncryptedFileMetadata(lpfilename: Pcwstr, pboldmetadata: COpaquePointer?, pbnewmetadata: COpaquePointer?, pownerhash: COpaquePointer?, dwoperation: UInt, pcertificatesadded: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setEncryptedFileMetadata((lpfilename?.value ?: 0L).toString(), (pboldmetadata?.value ?: 0L).toString(), (pbnewmetadata?.value ?: 0L).toString(), (pownerhash?.value ?: 0L).toString(), dwoperation.toInt(), (pcertificatesadded?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEndOfFile(hfile: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetEndOfFile(hfile.toString()) as Int) else 0
+public actual fun setEndOfFile(hfile: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setEndOfFile((hfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEndOfLog(hlog: HANDLE, plsnend: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetEndOfLog(hlog.toString(), plsnend.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun setEndOfLog(hlog: Handle, plsnend: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setEndOfLog((hlog?.value ?: 0L).toString(), (plsnend?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEnlistmentRecoveryInformation(enlistmenthandle: HANDLE, buffersize: UInt, buffer: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetEnlistmentRecoveryInformation(enlistmenthandle.toString(), buffersize.toInt(), buffer.toString()) as Int) else 0
+public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setEnlistmentRecoveryInformation((enlistmenthandle?.value ?: 0L).toString(), buffersize.toInt(), (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileApisToANSI() {
+public actual fun setFileApisToANSI() {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileApisToANSI()
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileApisToANSI()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetFileApisToOEM() {
+public actual fun setFileApisToOEM() {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileApisToOEM()
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileApisToOEM()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetFileAttributesA(lpfilename: PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileAttributesA(lpfilename.toString(), dwfileattributes.toInt()) as Int) else 0
+public actual fun setFileAttributesA(lpfilename: Pcstr, dwfileattributes: FileFlagsAndAttributes): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileAttributesA((lpfilename?.value ?: 0L).toString(), dwfileattributes.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileAttributesFromAppW(lpfilename: PCWSTR, dwfileattributes: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileAttributesFromAppW(lpfilename.toString(), dwfileattributes.toInt()) as Int) else 0
+public actual fun setFileAttributesFromAppW(lpfilename: Pcwstr, dwfileattributes: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileAttributesFromAppW((lpfilename?.value ?: 0L).toString(), dwfileattributes.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileAttributesTransactedA(lpfilename: PCSTR, dwfileattributes: UInt, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedA(lpfilename.toString(), dwfileattributes.toInt(), htransaction.toString()) as Int) else 0
+public actual fun setFileAttributesTransactedA(lpfilename: Pcstr, dwfileattributes: UInt, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedA((lpfilename?.value ?: 0L).toString(), dwfileattributes.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileAttributesTransactedW(lpfilename: PCWSTR, dwfileattributes: UInt, htransaction: HANDLE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileAttributesTransactedW(lpfilename.toString(), dwfileattributes.toInt(), htransaction.toString()) as Int) else 0
+public actual fun setFileAttributesTransactedW(lpfilename: Pcwstr, dwfileattributes: UInt, htransaction: Handle): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileAttributesTransactedW((lpfilename?.value ?: 0L).toString(), dwfileattributes.toInt(), (htransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileAttributesW(lpfilename: PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileAttributesW(lpfilename.toString(), dwfileattributes.toInt()) as Int) else 0
+public actual fun setFileAttributesW(lpfilename: Pcwstr, dwfileattributes: FileFlagsAndAttributes): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileAttributesW((lpfilename?.value ?: 0L).toString(), dwfileattributes.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileBandwidthReservation(hfile: HANDLE, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: BOOL, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileBandwidthReservation(hfile.toString(), nperiodmilliseconds.toInt(), nbytesperperiod.toInt(), bdiscardable, lptransfersize.toString(), lpnumoutstandingrequests.toString()) as Int) else 0
+public actual fun setFileBandwidthReservation(hfile: Handle, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: Bool, lptransfersize: COpaquePointer?, lpnumoutstandingrequests: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileBandwidthReservation((hfile?.value ?: 0L).toString(), nperiodmilliseconds.toInt(), nbytesperperiod.toInt(), bdiscardable, (lptransfersize?.value ?: 0L).toString(), (lpnumoutstandingrequests?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileCompletionNotificationModes(filehandle: HANDLE, flags: UByte): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileCompletionNotificationModes(filehandle.toString(), flags.toInt()) as Int) else 0
+public actual fun setFileCompletionNotificationModes(filehandle: Handle, flags: UByte): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileCompletionNotificationModes((filehandle?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileInformationByHandle(hfile: HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileInformationByHandle(hfile.toString(), fileinformationclass, lpfileinformation.toString(), dwbuffersize.toInt()) as Int) else 0
+public actual fun setFileInformationByHandle(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: COpaquePointer?, dwbuffersize: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileInformationByHandle((hfile?.value ?: 0L).toString(), fileinformationclass, (lpfileinformation?.value ?: 0L).toString(), dwbuffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileIoOverlappedRange(filehandle: HANDLE, overlappedrangestart: Long, length: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileIoOverlappedRange(filehandle.toString(), overlappedrangestart.toString(), length.toInt()) as Int) else 0
+public actual fun setFileIoOverlappedRange(filehandle: Handle, overlappedrangestart: COpaquePointer?, length: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileIoOverlappedRange((filehandle?.value ?: 0L).toString(), (overlappedrangestart?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFilePointer(hfile: HANDLE, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFilePointer(hfile.toString(), ldistancetomove, lpdistancetomovehigh.toString(), dwmovemethod.toInt()) as Int).toUInt() else 0u
+public actual fun setFilePointer(hfile: Handle, ldistancetomove: Int, lpdistancetomovehigh: COpaquePointer?, dwmovemethod: SetFilePointerMoveMethod): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFilePointer((hfile?.value ?: 0L).toString(), ldistancetomove, (lpdistancetomovehigh?.value ?: 0L).toString(), dwmovemethod.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFilePointerEx(hfile: HANDLE, lidistancetomove: Long, lpnewfilepointer: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFilePointerEx(hfile.toString(), lidistancetomove.toString(), lpnewfilepointer.toString(), dwmovemethod.toInt()) as Int) else 0
+public actual fun setFilePointerEx(hfile: Handle, lidistancetomove: Long, lpnewfilepointer: COpaquePointer?, dwmovemethod: SetFilePointerMoveMethod): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFilePointerEx((hfile?.value ?: 0L).toString(), lidistancetomove.toString(), (lpnewfilepointer?.value ?: 0L).toString(), dwmovemethod.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileShortNameA(hfile: HANDLE, lpshortname: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileShortNameA(hfile.toString(), lpshortname.toString()) as Int) else 0
+public actual fun setFileShortNameA(hfile: Handle, lpshortname: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileShortNameA((hfile?.value ?: 0L).toString(), (lpshortname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileShortNameW(hfile: HANDLE, lpshortname: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileShortNameW(hfile.toString(), lpshortname.toString()) as Int) else 0
+public actual fun setFileShortNameW(hfile: Handle, lpshortname: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileShortNameW((hfile?.value ?: 0L).toString(), (lpshortname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileTime(hfile: HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileTime(hfile.toString(), lpcreationtime.toString(), lplastaccesstime.toString(), lplastwritetime.toString()) as Int) else 0
+public actual fun setFileTime(hfile: Handle, lpcreationtime: COpaquePointer?, lplastaccesstime: COpaquePointer?, lplastwritetime: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileTime((hfile?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lplastaccesstime?.value ?: 0L).toString(), (lplastwritetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileValidData(hfile: HANDLE, validdatalength: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetFileValidData(hfile.toString(), validdatalength.toString()) as Int) else 0
+public actual fun setFileValidData(hfile: Handle, validdatalength: Long): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setFileValidData((hfile?.value ?: 0L).toString(), validdatalength.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetIoRingCompletionEvent(ioring: HIORING, hevent: HANDLE): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetIoRingCompletionEvent(ioring.toString(), hevent.toString()) as Int) else 0
+public actual fun setIoRingCompletionEvent(ioring: Hioring, hevent: Handle): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setIoRingCompletionEvent((ioring?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLogArchiveMode(hlog: HANDLE, emode: CLFS_LOG_ARCHIVE_MODE): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetLogArchiveMode(hlog.toString(), emode) as Int) else 0
+public actual fun setLogArchiveMode(hlog: Handle, emode: ClfsLogArchiveMode): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setLogArchiveMode((hlog?.value ?: 0L).toString(), emode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLogArchiveTail(hlog: HANDLE, plsnarchivetail: Long, preserved: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetLogArchiveTail(hlog.toString(), plsnarchivetail.toString(), preserved.toString()) as Int) else 0
+public actual fun setLogArchiveTail(hlog: Handle, plsnarchivetail: COpaquePointer?, preserved: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setLogArchiveTail((hlog?.value ?: 0L).toString(), (plsnarchivetail?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLogFileSizeWithPolicy(hlog: HANDLE, pdesiredsize: Long, presultingsize: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetLogFileSizeWithPolicy(hlog.toString(), pdesiredsize.toString(), presultingsize.toString()) as Int) else 0
+public actual fun setLogFileSizeWithPolicy(hlog: Handle, pdesiredsize: COpaquePointer?, presultingsize: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setLogFileSizeWithPolicy((hlog?.value ?: 0L).toString(), (pdesiredsize?.value ?: 0L).toString(), (presultingsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetResourceManagerCompletionPort(resourcemanagerhandle: HANDLE, iocompletionporthandle: HANDLE, completionkey: ULong): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetResourceManagerCompletionPort(resourcemanagerhandle.toString(), iocompletionporthandle.toString(), completionkey.toString()) as Int) else 0
+public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle, iocompletionporthandle: Handle, completionkey: ULong): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setResourceManagerCompletionPort((resourcemanagerhandle?.value ?: 0L).toString(), (iocompletionporthandle?.value ?: 0L).toString(), completionkey.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSearchPathMode(flags: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetSearchPathMode(flags.toInt()) as Int) else 0
+public actual fun setSearchPathMode(flags: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setSearchPathMode(flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTapeParameters(hdevice: HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetTapeParameters(hdevice.toString(), dwoperation.toInt(), lptapeinformation.toString()) as Int).toUInt() else 0u
+public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setTapeParameters((hdevice?.value ?: 0L).toString(), dwoperation.toInt(), (lptapeinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTapePosition(hdevice: HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: BOOL): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetTapePosition(hdevice.toString(), dwpositionmethod.toInt(), dwpartition.toInt(), dwoffsetlow.toInt(), dwoffsethigh.toInt(), bimmediate) as Int).toUInt() else 0u
+public actual fun setTapePosition(hdevice: Handle, dwpositionmethod: TapePositionMethod, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: Bool): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setTapePosition((hdevice?.value ?: 0L).toString(), dwpositionmethod.toInt(), dwpartition.toInt(), dwoffsetlow.toInt(), dwoffsethigh.toInt(), bimmediate) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTransactionInformation(transactionhandle: HANDLE, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetTransactionInformation(transactionhandle.toString(), isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), description.toString()) as Int) else 0
+public actual fun setTransactionInformation(transactionhandle: Handle, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setTransactionInformation((transactionhandle?.value ?: 0L).toString(), isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), (description?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUserFileEncryptionKey(pencryptioncertificate: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKey(pencryptioncertificate.toString()) as Int).toUInt() else 0u
+public actual fun setUserFileEncryptionKey(pencryptioncertificate: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKey((pencryptioncertificate?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUserFileEncryptionKeyEx(pencryptioncertificate: Long, dwcapabilities: UInt, dwflags: UInt, pvreserved: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetUserFileEncryptionKeyEx(pencryptioncertificate.toString(), dwcapabilities.toInt(), dwflags.toInt(), pvreserved.toString()) as Int).toUInt() else 0u
+public actual fun setUserFileEncryptionKeyEx(pencryptioncertificate: COpaquePointer?, dwcapabilities: UInt, dwflags: UInt, pvreserved: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setUserFileEncryptionKeyEx((pencryptioncertificate?.value ?: 0L).toString(), dwcapabilities.toInt(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetVolumeLabelA(lprootpathname: PCSTR, lpvolumename: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetVolumeLabelA(lprootpathname.toString(), lpvolumename.toString()) as Int) else 0
+public actual fun setVolumeLabelA(lprootpathname: Pcstr, lpvolumename: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setVolumeLabelA((lprootpathname?.value ?: 0L).toString(), (lpvolumename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetVolumeLabelW(lprootpathname: PCWSTR, lpvolumename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetVolumeLabelW(lprootpathname.toString(), lpvolumename.toString()) as Int) else 0
+public actual fun setVolumeLabelW(lprootpathname: Pcwstr, lpvolumename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setVolumeLabelW((lprootpathname?.value ?: 0L).toString(), (lpvolumename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetVolumeMountPointA(lpszvolumemountpoint: PCSTR, lpszvolumename: PCSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetVolumeMountPointA(lpszvolumemountpoint.toString(), lpszvolumename.toString()) as Int) else 0
+public actual fun setVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumename: Pcstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setVolumeMountPointA((lpszvolumemountpoint?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetVolumeMountPointW(lpszvolumemountpoint: PCWSTR, lpszvolumename: PCWSTR): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SetVolumeMountPointW(lpszvolumemountpoint.toString(), lpszvolumename.toString()) as Int) else 0
+public actual fun setVolumeMountPointW(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pcwstr): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_setVolumeMountPointW((lpszvolumemountpoint?.value ?: 0L).toString(), (lpszvolumename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SinglePhaseReject(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SinglePhaseReject(enlistmenthandle.toString(), tmvirtualclock.toString()) as Int) else 0
+public actual fun singlePhaseReject(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_singlePhaseReject((enlistmenthandle?.value ?: 0L).toString(), (tmvirtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SubmitIoRing(ioring: HIORING, waitoperations: UInt, milliseconds: UInt, submittedentries: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_SubmitIoRing(ioring.toString(), waitoperations.toInt(), milliseconds.toInt(), submittedentries.toString()) as Int) else 0
+public actual fun submitIoRing(ioring: Hioring, waitoperations: UInt, milliseconds: UInt, submittedentries: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_submitIoRing((ioring?.value ?: 0L).toString(), waitoperations.toInt(), milliseconds.toInt(), (submittedentries?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TerminateLogArchive(pvarchivecontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TerminateLogArchive(pvarchivecontext.toString()) as Int) else 0
+public actual fun terminateLogArchive(pvarchivecontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_terminateLogArchive((pvarchivecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TerminateReadLog(pvcursorcontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TerminateReadLog(pvcursorcontext.toString()) as Int) else 0
+public actual fun terminateReadLog(pvcursorcontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_terminateReadLog((pvcursorcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TruncateLog(pvmarshal: Long, plsnend: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TruncateLog(pvmarshal.toString(), plsnend.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun truncateLog(pvmarshal: COpaquePointer?, plsnend: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_truncateLog((pvmarshal?.value ?: 0L).toString(), (plsnend?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfGetThreadMiniVersionForCreate(miniversion: Long) {
+public actual fun txfGetThreadMiniVersionForCreate(miniversion: COpaquePointer?) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfGetThreadMiniVersionForCreate(miniversion.toString())
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfGetThreadMiniVersionForCreate((miniversion?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun TxfLogCreateFileReadContext(logpath: PCWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: Long, txflogcontext: Long): BOOL =
-    0
+public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: COpaquePointer?, txflogcontext: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfLogCreateRangeReadContext(logpath: PCWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: Long, endingvirtualclock: Long, recordtypemask: UInt, txflogcontext: Long): BOOL =
-    0
+public actual fun txfLogCreateRangeReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, beginningvirtualclock: COpaquePointer?, endingvirtualclock: COpaquePointer?, recordtypemask: UInt, txflogcontext: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfLogDestroyReadContext(txflogcontext: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfLogDestroyReadContext(txflogcontext.toString()) as Int) else 0
+public actual fun txfLogDestroyReadContext(txflogcontext: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfLogDestroyReadContext((txflogcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfLogReadRecords(txflogcontext: Long, bufferlength: UInt, buffer: Long, bytesused: Long, recordcount: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfLogReadRecords(txflogcontext.toString(), bufferlength.toInt(), buffer.toString(), bytesused.toString(), recordcount.toString()) as Int) else 0
+public actual fun txfLogReadRecords(txflogcontext: COpaquePointer?, bufferlength: UInt, buffer: COpaquePointer?, bytesused: COpaquePointer?, recordcount: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfLogReadRecords((txflogcontext?.value ?: 0L).toString(), bufferlength.toInt(), (buffer?.value ?: 0L).toString(), (bytesused?.value ?: 0L).toString(), (recordcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfLogRecordGetFileName(recordbuffer: Long, recordbufferlengthinbytes: UInt, namebuffer: PWSTR, namebufferlengthinbytes: Long, txfid: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfLogRecordGetFileName(recordbuffer.toString(), recordbufferlengthinbytes.toInt(), namebuffer.toString(), namebufferlengthinbytes.toString(), txfid.toString()) as Int) else 0
+public actual fun txfLogRecordGetFileName(recordbuffer: COpaquePointer?, recordbufferlengthinbytes: UInt, namebuffer: Pwstr, namebufferlengthinbytes: COpaquePointer?, txfid: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfLogRecordGetFileName((recordbuffer?.value ?: 0L).toString(), recordbufferlengthinbytes.toInt(), (namebuffer?.value ?: 0L).toString(), (namebufferlengthinbytes?.value ?: 0L).toString(), (txfid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfLogRecordGetGenericType(recordbuffer: Long, recordbufferlengthinbytes: UInt, generictype: Long, virtualclock: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfLogRecordGetGenericType(recordbuffer.toString(), recordbufferlengthinbytes.toInt(), generictype.toString(), virtualclock.toString()) as Int) else 0
+public actual fun txfLogRecordGetGenericType(recordbuffer: COpaquePointer?, recordbufferlengthinbytes: UInt, generictype: COpaquePointer?, virtualclock: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfLogRecordGetGenericType((recordbuffer?.value ?: 0L).toString(), recordbufferlengthinbytes.toInt(), (generictype?.value ?: 0L).toString(), (virtualclock?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfReadMetadataInfo(filehandle: HANDLE, txffileid: Long, lastlsn: Long, transactionstate: Long, lockingtransaction: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfReadMetadataInfo(filehandle.toString(), txffileid.toString(), lastlsn.toString(), transactionstate.toString(), lockingtransaction.toString()) as Int) else 0
+public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: COpaquePointer?, lastlsn: COpaquePointer?, transactionstate: COpaquePointer?, lockingtransaction: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfReadMetadataInfo((filehandle?.value ?: 0L).toString(), (txffileid?.value ?: 0L).toString(), (lastlsn?.value ?: 0L).toString(), (transactionstate?.value ?: 0L).toString(), (lockingtransaction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TxfSetThreadMiniVersionForCreate(miniversion: UShort) {
+public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
     if (_windowsWin32StorageFilesystemNapiAddon != null) {
-        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_TxfSetThreadMiniVersionForCreate(miniversion.toInt())
+        _windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_txfSetThreadMiniVersionForCreate(miniversion.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun UnlockFile(hfile: HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_UnlockFile(hfile.toString(), dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt()) as Int) else 0
+public actual fun unlockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_unlockFile((hfile?.value ?: 0L).toString(), dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnlockFileEx(hfile: HANDLE, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_UnlockFileEx(hfile.toString(), dwreserved.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt(), lpoverlapped.toString()) as Int) else 0
+public actual fun unlockFileEx(hfile: Handle, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_unlockFileEx((hfile?.value ?: 0L).toString(), dwreserved.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ValidateLog(pszlogfilename: PCWSTR, psalogfile: Long, pinfobuffer: Long, pcbbuffer: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_ValidateLog(pszlogfilename.toString(), psalogfile.toString(), pinfobuffer.toString(), pcbbuffer.toString()) as Int) else 0
+public actual fun validateLog(pszlogfilename: Pcwstr, psalogfile: COpaquePointer?, pinfobuffer: COpaquePointer?, pcbbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_validateLog((pszlogfilename?.value ?: 0L).toString(), (psalogfile?.value ?: 0L).toString(), (pinfobuffer?.value ?: 0L).toString(), (pcbbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerFindFileA(uflags: VER_FIND_FILE_FLAGS, szfilename: PCSTR, szwindir: PCSTR, szappdir: PCSTR, szcurdir: PSTR, pucurdirlen: Long, szdestdir: PSTR, pudestdirlen: Long): VER_FIND_FILE_STATUS =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerFindFileA(uflags.toInt(), szfilename.toString(), szwindir.toString(), szappdir.toString(), szcurdir.toString(), pucurdirlen.toString(), szdestdir.toString(), pudestdirlen.toString()) as Int).toUInt() else 0u
+public actual fun verFindFileA(uflags: VerFindFileFlags, szfilename: Pcstr, szwindir: Pcstr, szappdir: Pcstr, szcurdir: Pstr, pucurdirlen: COpaquePointer?, szdestdir: Pstr, pudestdirlen: COpaquePointer?): VerFindFileStatus =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verFindFileA(uflags.toInt(), (szfilename?.value ?: 0L).toString(), (szwindir?.value ?: 0L).toString(), (szappdir?.value ?: 0L).toString(), (szcurdir?.value ?: 0L).toString(), (pucurdirlen?.value ?: 0L).toString(), (szdestdir?.value ?: 0L).toString(), (pudestdirlen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerFindFileW(uflags: VER_FIND_FILE_FLAGS, szfilename: PCWSTR, szwindir: PCWSTR, szappdir: PCWSTR, szcurdir: PWSTR, pucurdirlen: Long, szdestdir: PWSTR, pudestdirlen: Long): VER_FIND_FILE_STATUS =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerFindFileW(uflags.toInt(), szfilename.toString(), szwindir.toString(), szappdir.toString(), szcurdir.toString(), pucurdirlen.toString(), szdestdir.toString(), pudestdirlen.toString()) as Int).toUInt() else 0u
+public actual fun verFindFileW(uflags: VerFindFileFlags, szfilename: Pcwstr, szwindir: Pcwstr, szappdir: Pcwstr, szcurdir: Pwstr, pucurdirlen: COpaquePointer?, szdestdir: Pwstr, pudestdirlen: COpaquePointer?): VerFindFileStatus =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verFindFileW(uflags.toInt(), (szfilename?.value ?: 0L).toString(), (szwindir?.value ?: 0L).toString(), (szappdir?.value ?: 0L).toString(), (szcurdir?.value ?: 0L).toString(), (pucurdirlen?.value ?: 0L).toString(), (szdestdir?.value ?: 0L).toString(), (pudestdirlen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerInstallFileA(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: PCSTR, szdestfilename: PCSTR, szsrcdir: PCSTR, szdestdir: PCSTR, szcurdir: PCSTR, sztmpfile: PSTR, putmpfilelen: Long): VER_INSTALL_FILE_STATUS =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerInstallFileA(uflags.toInt(), szsrcfilename.toString(), szdestfilename.toString(), szsrcdir.toString(), szdestdir.toString(), szcurdir.toString(), sztmpfile.toString(), putmpfilelen.toString()) as Int).toUInt() else 0u
+public actual fun verInstallFileA(uflags: VerInstallFileFlags, szsrcfilename: Pcstr, szdestfilename: Pcstr, szsrcdir: Pcstr, szdestdir: Pcstr, szcurdir: Pcstr, sztmpfile: Pstr, putmpfilelen: COpaquePointer?): VerInstallFileStatus =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verInstallFileA(uflags.toInt(), (szsrcfilename?.value ?: 0L).toString(), (szdestfilename?.value ?: 0L).toString(), (szsrcdir?.value ?: 0L).toString(), (szdestdir?.value ?: 0L).toString(), (szcurdir?.value ?: 0L).toString(), (sztmpfile?.value ?: 0L).toString(), (putmpfilelen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerInstallFileW(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: PCWSTR, szdestfilename: PCWSTR, szsrcdir: PCWSTR, szdestdir: PCWSTR, szcurdir: PCWSTR, sztmpfile: PWSTR, putmpfilelen: Long): VER_INSTALL_FILE_STATUS =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerInstallFileW(uflags.toInt(), szsrcfilename.toString(), szdestfilename.toString(), szsrcdir.toString(), szdestdir.toString(), szcurdir.toString(), sztmpfile.toString(), putmpfilelen.toString()) as Int).toUInt() else 0u
+public actual fun verInstallFileW(uflags: VerInstallFileFlags, szsrcfilename: Pcwstr, szdestfilename: Pcwstr, szsrcdir: Pcwstr, szdestdir: Pcwstr, szcurdir: Pcwstr, sztmpfile: Pwstr, putmpfilelen: COpaquePointer?): VerInstallFileStatus =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verInstallFileW(uflags.toInt(), (szsrcfilename?.value ?: 0L).toString(), (szdestfilename?.value ?: 0L).toString(), (szsrcdir?.value ?: 0L).toString(), (szdestdir?.value ?: 0L).toString(), (szcurdir?.value ?: 0L).toString(), (sztmpfile?.value ?: 0L).toString(), (putmpfilelen?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerLanguageNameA(wlang: UInt, szlang: PSTR, cchlang: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerLanguageNameA(wlang.toInt(), szlang.toString(), cchlang.toInt()) as Int).toUInt() else 0u
+public actual fun verLanguageNameA(wlang: UInt, szlang: Pstr, cchlang: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verLanguageNameA(wlang.toInt(), (szlang?.value ?: 0L).toString(), cchlang.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerLanguageNameW(wlang: UInt, szlang: PWSTR, cchlang: UInt): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerLanguageNameW(wlang.toInt(), szlang.toString(), cchlang.toInt()) as Int).toUInt() else 0u
+public actual fun verLanguageNameW(wlang: UInt, szlang: Pwstr, cchlang: UInt): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verLanguageNameW(wlang.toInt(), (szlang?.value ?: 0L).toString(), cchlang.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerQueryValueA(pblock: Long, lpsubblock: PCSTR, lplpbuffer: Long, pulen: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerQueryValueA(pblock.toString(), lpsubblock.toString(), lplpbuffer.toString(), pulen.toString()) as Int) else 0
+public actual fun verQueryValueA(pblock: COpaquePointer?, lpsubblock: Pcstr, lplpbuffer: COpaquePointer?, pulen: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verQueryValueA((pblock?.value ?: 0L).toString(), (lpsubblock?.value ?: 0L).toString(), (lplpbuffer?.value ?: 0L).toString(), (pulen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerQueryValueW(pblock: Long, lpsubblock: PCWSTR, lplpbuffer: Long, pulen: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_VerQueryValueW(pblock.toString(), lpsubblock.toString(), lplpbuffer.toString(), pulen.toString()) as Int) else 0
+public actual fun verQueryValueW(pblock: COpaquePointer?, lpsubblock: Pcwstr, lplpbuffer: COpaquePointer?, pulen: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_verQueryValueW((pblock?.value ?: 0L).toString(), (lpsubblock?.value ?: 0L).toString(), (lplpbuffer?.value ?: 0L).toString(), (pulen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofEnumEntries(volumename: PCWSTR, provider: UInt, enumproc: WofEnumEntryProc, userdata: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofEnumEntries(volumename.toString(), provider.toInt(), enumproc.toLong().toString(), userdata.toString()) as Int) else 0
+public actual fun wofEnumEntries(volumename: Pcwstr, provider: UInt, enumproc: WofEnumEntryProc, userdata: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofEnumEntries((volumename?.value ?: 0L).toString(), provider.toInt(), 0L.toString(), (userdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofFileEnumFiles(volumename: PCWSTR, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofFileEnumFiles(volumename.toString(), algorithm.toInt(), enumproc.toLong().toString(), userdata.toString()) as Int) else 0
+public actual fun wofFileEnumFiles(volumename: Pcwstr, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofFileEnumFiles((volumename?.value ?: 0L).toString(), algorithm.toInt(), 0L.toString(), (userdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofGetDriverVersion(fileorvolumehandle: HANDLE, provider: UInt, wofversion: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofGetDriverVersion(fileorvolumehandle.toString(), provider.toInt(), wofversion.toString()) as Int) else 0
+public actual fun wofGetDriverVersion(fileorvolumehandle: Handle, provider: UInt, wofversion: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofGetDriverVersion((fileorvolumehandle?.value ?: 0L).toString(), provider.toInt(), (wofversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofIsExternalFile(filepath: PCWSTR, isexternalfile: Long, provider: Long, externalfileinfo: Long, bufferlength: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofIsExternalFile(filepath.toString(), isexternalfile.toString(), provider.toString(), externalfileinfo.toString(), bufferlength.toString()) as Int) else 0
+public actual fun wofIsExternalFile(filepath: Pcwstr, isexternalfile: COpaquePointer?, provider: COpaquePointer?, externalfileinfo: COpaquePointer?, bufferlength: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofIsExternalFile((filepath?.value ?: 0L).toString(), (isexternalfile?.value ?: 0L).toString(), (provider?.value ?: 0L).toString(), (externalfileinfo?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofSetFileDataLocation(filehandle: HANDLE, provider: UInt, externalfileinfo: Long, length: UInt): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofSetFileDataLocation(filehandle.toString(), provider.toInt(), externalfileinfo.toString(), length.toInt()) as Int) else 0
+public actual fun wofSetFileDataLocation(filehandle: Handle, provider: UInt, externalfileinfo: COpaquePointer?, length: UInt): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofSetFileDataLocation((filehandle?.value ?: 0L).toString(), provider.toInt(), (externalfileinfo?.value ?: 0L).toString(), length.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofShouldCompressBinaries(volume: PCWSTR, algorithm: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofShouldCompressBinaries(volume.toString(), algorithm.toString()) as Int) else 0
+public actual fun wofShouldCompressBinaries(volume: Pcwstr, algorithm: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofShouldCompressBinaries((volume?.value ?: 0L).toString(), (algorithm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofWimAddEntry(volumename: PCWSTR, wimpath: PCWSTR, wimtype: UInt, wimindex: UInt, datasourceid: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofWimAddEntry(volumename.toString(), wimpath.toString(), wimtype.toInt(), wimindex.toInt(), datasourceid.toString()) as Int) else 0
+public actual fun wofWimAddEntry(volumename: Pcwstr, wimpath: Pcwstr, wimtype: UInt, wimindex: UInt, datasourceid: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofWimAddEntry((volumename?.value ?: 0L).toString(), (wimpath?.value ?: 0L).toString(), wimtype.toInt(), wimindex.toInt(), (datasourceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofWimEnumFiles(volumename: PCWSTR, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofWimEnumFiles(volumename.toString(), datasourceid.toString(), enumproc.toLong().toString(), userdata.toString()) as Int) else 0
+public actual fun wofWimEnumFiles(volumename: Pcwstr, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofWimEnumFiles((volumename?.value ?: 0L).toString(), datasourceid.toString(), 0L.toString(), (userdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofWimRemoveEntry(volumename: PCWSTR, datasourceid: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofWimRemoveEntry(volumename.toString(), datasourceid.toString()) as Int) else 0
+public actual fun wofWimRemoveEntry(volumename: Pcwstr, datasourceid: Long): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofWimRemoveEntry((volumename?.value ?: 0L).toString(), datasourceid.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofWimSuspendEntry(volumename: PCWSTR, datasourceid: Long): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofWimSuspendEntry(volumename.toString(), datasourceid.toString()) as Int) else 0
+public actual fun wofWimSuspendEntry(volumename: Pcwstr, datasourceid: Long): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofWimSuspendEntry((volumename?.value ?: 0L).toString(), datasourceid.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WofWimUpdateEntry(volumename: PCWSTR, datasourceid: Long, newwimpath: PCWSTR): HRESULT =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WofWimUpdateEntry(volumename.toString(), datasourceid.toString(), newwimpath.toString()) as Int) else 0
+public actual fun wofWimUpdateEntry(volumename: Pcwstr, datasourceid: Long, newwimpath: Pcwstr): Hresult =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wofWimUpdateEntry((volumename?.value ?: 0L).toString(), datasourceid.toString(), (newwimpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64DisableWow64FsRedirection(oldvalue: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_Wow64DisableWow64FsRedirection(oldvalue.toString()) as Int) else 0
+public actual fun wow64DisableWow64FsRedirection(oldvalue: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wow64DisableWow64FsRedirection((oldvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64EnableWow64FsRedirection(wow64fsenableredirection: Boolean): Boolean =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_Wow64EnableWow64FsRedirection(wow64fsenableredirection) as Boolean) else false
+public actual fun wow64EnableWow64FsRedirection(wow64fsenableredirection: Boolean): Boolean =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wow64EnableWow64FsRedirection(wow64fsenableredirection) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Wow64RevertWow64FsRedirection(olvalue: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_Wow64RevertWow64FsRedirection(olvalue.toString()) as Int) else 0
+public actual fun wow64RevertWow64FsRedirection(olvalue: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_wow64RevertWow64FsRedirection((olvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: Long, pvcontext: Long): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WriteEncryptedFileRaw(pfimportcallback.toLong().toString(), pvcallbackcontext.toString(), pvcontext.toString()) as Int).toUInt() else 0u
+public actual fun writeEncryptedFileRaw(pfimportcallback: PfeImportFunc, pvcallbackcontext: COpaquePointer?, pvcontext: COpaquePointer?): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeEncryptedFileRaw(0L.toString(), (pvcallbackcontext?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteFile(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WriteFile(hfile.toString(), lpbuffer.toString(), nnumberofbytestowrite.toInt(), lpnumberofbyteswritten.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun writeFile(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeFile((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestowrite.toInt(), (lpnumberofbyteswritten?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteFileEx(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL =
-    0
+public actual fun writeFileEx(hfile: Handle, lpbuffer: COpaquePointer?, nnumberofbytestowrite: UInt, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeFileEx((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nnumberofbytestowrite.toInt(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteFileGather(hfile: HANDLE, asegmentarray: Long, nnumberofbytestowrite: UInt, lpreserved: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WriteFileGather(hfile.toString(), asegmentarray.toString(), nnumberofbytestowrite.toInt(), lpreserved.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun writeFileGather(hfile: Handle, asegmentarray: COpaquePointer?, nnumberofbytestowrite: UInt, lpreserved: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeFileGather((hfile?.value ?: 0L).toString(), (asegmentarray?.value ?: 0L).toString(), nnumberofbytestowrite.toInt(), (lpreserved?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteLogRestartArea(pvmarshal: Long, pvrestartbuffer: Long, cbrestartbuffer: UInt, plsnbase: Long, fflags: CLFS_FLAG, pcbwritten: Long, plsnnext: Long, poverlapped: Long): BOOL =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WriteLogRestartArea(pvmarshal.toString(), pvrestartbuffer.toString(), cbrestartbuffer.toInt(), plsnbase.toString(), fflags.toInt(), pcbwritten.toString(), plsnnext.toString(), poverlapped.toString()) as Int) else 0
+public actual fun writeLogRestartArea(pvmarshal: COpaquePointer?, pvrestartbuffer: COpaquePointer?, cbrestartbuffer: UInt, plsnbase: COpaquePointer?, fflags: ClfsFlag, pcbwritten: COpaquePointer?, plsnnext: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeLogRestartArea((pvmarshal?.value ?: 0L).toString(), (pvrestartbuffer?.value ?: 0L).toString(), cbrestartbuffer.toInt(), (plsnbase?.value ?: 0L).toString(), fflags.toInt(), (pcbwritten?.value ?: 0L).toString(), (plsnnext?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WriteTapemark(hdevice: HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: UInt, bimmediate: BOOL): UInt =
-    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_WriteTapemark(hdevice.toString(), dwtapemarktype.toInt(), dwtapemarkcount.toInt(), bimmediate) as Int).toUInt() else 0u
+public actual fun writeTapemark(hdevice: Handle, dwtapemarktype: TapemarkType, dwtapemarkcount: UInt, bimmediate: Bool): UInt =
+    if (_windowsWin32StorageFilesystemNapiAddon != null) (_windowsWin32StorageFilesystemNapiAddon.windowssys_windows_win32_storage_filesystem_writeTapemark((hdevice?.value ?: 0L).toString(), dwtapemarktype.toInt(), dwtapemarkcount.toInt(), bimmediate) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

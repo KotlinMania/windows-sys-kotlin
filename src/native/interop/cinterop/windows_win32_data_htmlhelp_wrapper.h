@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_data_htmlhelp_HtmlHelpA(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata);
-void* windowssys_windows_win32_data_htmlhelp_HtmlHelpW(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata);
+void* windowssys_windows_win32_data_htmlhelp_htmlHelpA(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata);
+void* windowssys_windows_win32_data_htmlhelp_htmlHelpW(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata);
 
 #ifdef __cplusplus
 }

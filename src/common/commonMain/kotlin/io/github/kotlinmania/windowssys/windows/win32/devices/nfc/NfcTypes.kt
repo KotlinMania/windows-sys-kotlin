@@ -1,33 +1,33 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
 
-public typealias NFC_DEVICE_TYPE = Int
+public typealias NfcDeviceType = Int
 
-public typealias NFC_LLCP_LINK_STATUS = Int
+public typealias NfcLlcpLinkStatus = Int
 
-public typealias NFC_LLCP_SOCKET_CONNECT_TYPE = Int
+public typealias NfcLlcpSocketConnectType = Int
 
-public typealias NFC_LLCP_SOCKET_ERROR = Int
+public typealias NfcLlcpSocketError = Int
 
-public typealias NFC_LLCP_SOCKET_TYPE = Int
+public typealias NfcLlcpSocketType = Int
 
-public typealias NFC_P2P_MODE = Int
+public typealias NfcP2pMode = Int
 
-public typealias NFC_RELEASE_TYPE = Int
+public typealias NfcReleaseType = Int
 
-public typealias NFC_RF_DISCOVERY_MODE = Int
+public typealias NfcRfDiscoveryMode = Int
 
-public typealias NFC_SE_EMULATION_MODE = Int
+public typealias NfcSeEmulationMode = Int
 
-public typealias NFC_SNEP_REQUEST_TYPE = Int
+public typealias NfcSnepRequestType = Int
 
-public typealias NFC_SNEP_SERVER_TYPE = Int
+public typealias NfcSnepServerType = Int
 
-public typealias SECURE_ELEMENT_CARD_EMULATION_MODE = Int
+public typealias SecureElementCardEmulationMode = Int
 
-public typealias SECURE_ELEMENT_EVENT_TYPE = Int
+public typealias SecureElementEventType = Int
 
-public typealias SECURE_ELEMENT_POWER_MODE = Int
+public typealias SecureElementPowerMode = Int
 
-public typealias SECURE_ELEMENT_ROUTING_TYPE = Int
+public typealias SecureElementRoutingType = Int
 
-public typealias SECURE_ELEMENT_TYPE = Int
+public typealias SecureElementType = Int

@@ -1,39 +1,40 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public typealias APPDOMAIN_SECURITY_FLAGS = Int
+public typealias AppdomainSecurityFlags = Int
 
 public typealias BucketParameterIndex = Int
 
 public fun interface CLRCreateInstanceFnPtrFn {
-    public operator fun invoke(clsid: Long, riid: Long, ppinterface: Long): HRESULT
+    public operator fun invoke(clsid: COpaquePointer?, riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult
 }
 
 public typealias CLRCreateInstanceFnPtr = CLRCreateInstanceFnPtrFn?
 
-public typealias CLR_DEBUGGING_PROCESS_FLAGS = Int
+public typealias ClrDebuggingProcessFlags = Int
 
-public typealias CLSID_RESOLUTION_FLAGS = Int
+public typealias ClsidResolutionFlags = Int
 
-public typealias COR_GC_STAT_TYPES = Int
+public typealias CorGcStatTypes = Int
 
-public typealias COR_GC_THREAD_STATS_TYPES = Int
+public typealias CorGcThreadStatsTypes = Int
 
 public fun interface CallbackThreadSetFnPtrFn {
-    public operator fun invoke(): HRESULT
+    public operator fun invoke(): Hresult
 }
 
 public typealias CallbackThreadSetFnPtr = CallbackThreadSetFnPtrFn?
 
 public fun interface CallbackThreadUnsetFnPtrFn {
-    public operator fun invoke(): HRESULT
+    public operator fun invoke(): Hresult
 }
 
 public typealias CallbackThreadUnsetFnPtr = CallbackThreadUnsetFnPtrFn?
 
 public fun interface CreateInterfaceFnPtrFn {
-    public operator fun invoke(clsid: Long, riid: Long, ppinterface: Long): HRESULT
+    public operator fun invoke(clsid: COpaquePointer?, riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult
 }
 
 public typealias CreateInterfaceFnPtr = CreateInterfaceFnPtrFn?
@@ -75,41 +76,41 @@ public typealias ESymbolReadingPolicy = Int
 public typealias ETaskType = Int
 
 public fun interface FExecuteInAppDomainCallbackFn {
-    public operator fun invoke(cookie: Long): HRESULT
+    public operator fun invoke(cookie: COpaquePointer?): Hresult
 }
 
 public typealias FExecuteInAppDomainCallback = FExecuteInAppDomainCallbackFn?
 
 public fun interface FLockClrVersionCallbackFn {
-    public operator fun invoke(): HRESULT
+    public operator fun invoke(): Hresult
 }
 
 public typealias FLockClrVersionCallback = FLockClrVersionCallbackFn?
 
-public typealias HOST_TYPE = Int
+public typealias HostType = Int
 
-public typealias MALLOC_TYPE = Int
+public typealias MallocType = Int
 
-public typealias METAHOST_CONFIG_FLAGS = Int
+public typealias MetahostConfigFlags = Int
 
-public typealias METAHOST_POLICY_FLAGS = Int
+public typealias MetahostPolicyFlags = Int
 
-public fun interface PTLS_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(__midl____midl_itf_mscoree_0000_00040005: Long)
+public fun interface PtlsCallbackFunctionFn {
+    public operator fun invoke(midlMidlItfMscoree000000040005: COpaquePointer?)
 }
 
-public typealias PTLS_CALLBACK_FUNCTION = PTLS_CALLBACK_FUNCTIONFn?
+public typealias PtlsCallbackFunction = PtlsCallbackFunctionFn?
 
-public typealias RUNTIME_INFO_FLAGS = Int
+public typealias RuntimeInfoFlags = Int
 
 public fun interface RuntimeLoadedCallbackFnPtrFn {
-    public operator fun invoke(pruntimeinfo: Long, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)
+    public operator fun invoke(pruntimeinfo: COpaquePointer?, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)
 }
 
 public typealias RuntimeLoadedCallbackFnPtr = RuntimeLoadedCallbackFnPtrFn?
 
-public typealias STARTUP_FLAGS = Int
+public typealias StartupFlags = Int
 
 public typealias StackOverflowType = Int
 
-public typealias WAIT_OPTION = Int
+public typealias WaitOption = Int

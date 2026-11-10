@@ -1,853 +1,854 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
 
-public expect fun AdjustWindowRect(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL): BOOL
+public expect fun adjustWindowRect(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool): Bool
 
-public expect fun AdjustWindowRectEx(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE): BOOL
+public expect fun adjustWindowRectEx(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool
 
-public expect fun AllowSetForegroundWindow(dwprocessid: UInt): BOOL
+public expect fun allowSetForegroundWindow(dwprocessid: UInt): Bool
 
-public expect fun AnimateWindow(hwnd: HWND, dwtime: UInt, dwflags: ANIMATE_WINDOW_FLAGS): BOOL
+public expect fun animateWindow(hwnd: Hwnd, dwtime: UInt, dwflags: AnimateWindowFlags): Bool
 
-public expect fun AnyPopup(): BOOL
+public expect fun anyPopup(): Bool
 
-public expect fun AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+public expect fun appendMenuA(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool
 
-public expect fun AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+public expect fun appendMenuW(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool
 
-public expect fun ArrangeIconicWindows(hwnd: HWND): UInt
+public expect fun arrangeIconicWindows(hwnd: Hwnd): UInt
 
-public expect fun BeginDeferWindowPos(nnumwindows: Int): HDWP
+public expect fun beginDeferWindowPos(nnumwindows: Int): Hdwp
 
-public expect fun BringWindowToTop(hwnd: HWND): BOOL
+public expect fun bringWindowToTop(hwnd: Hwnd): Bool
 
-public expect fun CalculatePopupWindowPosition(anchorpoint: Long, windowsize: Long, flags: UInt, excluderect: Long, popupwindowposition: Long): BOOL
+public expect fun calculatePopupWindowPosition(anchorpoint: COpaquePointer?, windowsize: COpaquePointer?, flags: UInt, excluderect: COpaquePointer?, popupwindowposition: COpaquePointer?): Bool
 
-public expect fun CallMsgFilterA(lpmsg: Long, ncode: Int): BOOL
+public expect fun callMsgFilterA(lpmsg: COpaquePointer?, ncode: Int): Bool
 
-public expect fun CallMsgFilterW(lpmsg: Long, ncode: Int): BOOL
+public expect fun callMsgFilterW(lpmsg: COpaquePointer?, ncode: Int): Bool
 
-public expect fun CallNextHookEx(hhk: HHOOK, ncode: Int, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun callWindowProcA(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun CancelShutdown(): BOOL
+public expect fun cancelShutdown(): Bool
 
-public expect fun CascadeWindows(hwndparent: HWND, whow: CASCADE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort
+public expect fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort
 
-public expect fun ChangeMenuA(hmenu: HMENU, cmd: UInt, lpsznewitem: PCSTR, cmdinsert: UInt, flags: UInt): BOOL
+public expect fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool
 
-public expect fun ChangeMenuW(hmenu: HMENU, cmd: UInt, lpsznewitem: PCWSTR, cmdinsert: UInt, flags: UInt): BOOL
+public expect fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdinsert: UInt, flags: UInt): Bool
 
-public expect fun ChangeWindowMessageFilter(message: UInt, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS): BOOL
+public expect fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool
 
-public expect fun ChangeWindowMessageFilterEx(hwnd: HWND, message: UInt, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: Long): BOOL
+public expect fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: COpaquePointer?): Bool
 
-public expect fun CharLowerA(lpsz: PSTR): PSTR
+public expect fun charLowerA(lpsz: Pstr): Pstr
 
-public expect fun CharLowerBuffA(lpsz: PSTR, cchlength: UInt): UInt
+public expect fun charLowerBuffA(lpsz: Pstr, cchlength: UInt): UInt
 
-public expect fun CharLowerBuffW(lpsz: PWSTR, cchlength: UInt): UInt
+public expect fun charLowerBuffW(lpsz: Pwstr, cchlength: UInt): UInt
 
-public expect fun CharLowerW(lpsz: PWSTR): PWSTR
+public expect fun charLowerW(lpsz: Pwstr): Pwstr
 
-public expect fun CharNextA(lpsz: PCSTR): PSTR
+public expect fun charNextA(lpsz: Pcstr): Pstr
 
-public expect fun CharNextExA(codepage: UShort, lpcurrentchar: PCSTR, dwflags: UInt): PSTR
+public expect fun charNextExA(codepage: UShort, lpcurrentchar: Pcstr, dwflags: UInt): Pstr
 
-public expect fun CharNextW(lpsz: PCWSTR): PWSTR
+public expect fun charNextW(lpsz: Pcwstr): Pwstr
 
-public expect fun CharPrevA(lpszstart: PCSTR, lpszcurrent: PCSTR): PSTR
+public expect fun charPrevA(lpszstart: Pcstr, lpszcurrent: Pcstr): Pstr
 
-public expect fun CharPrevExA(codepage: UShort, lpstart: PCSTR, lpcurrentchar: PCSTR, dwflags: UInt): PSTR
+public expect fun charPrevExA(codepage: UShort, lpstart: Pcstr, lpcurrentchar: Pcstr, dwflags: UInt): Pstr
 
-public expect fun CharPrevW(lpszstart: PCWSTR, lpszcurrent: PCWSTR): PWSTR
+public expect fun charPrevW(lpszstart: Pcwstr, lpszcurrent: Pcwstr): Pwstr
 
-public expect fun CharToOemA(psrc: PCSTR, pdst: PSTR): BOOL
+public expect fun charToOemA(psrc: Pcstr, pdst: Pstr): Bool
 
-public expect fun CharToOemBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+public expect fun charToOemBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool
 
-public expect fun CharToOemBuffW(lpszsrc: PCWSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+public expect fun charToOemBuffW(lpszsrc: Pcwstr, lpszdst: Pstr, cchdstlength: UInt): Bool
 
-public expect fun CharToOemW(psrc: PCWSTR, pdst: PSTR): BOOL
+public expect fun charToOemW(psrc: Pcwstr, pdst: Pstr): Bool
 
-public expect fun CharUpperA(lpsz: PSTR): PSTR
+public expect fun charUpperA(lpsz: Pstr): Pstr
 
-public expect fun CharUpperBuffA(lpsz: PSTR, cchlength: UInt): UInt
+public expect fun charUpperBuffA(lpsz: Pstr, cchlength: UInt): UInt
 
-public expect fun CharUpperBuffW(lpsz: PWSTR, cchlength: UInt): UInt
+public expect fun charUpperBuffW(lpsz: Pwstr, cchlength: UInt): UInt
 
-public expect fun CharUpperW(lpsz: PWSTR): PWSTR
+public expect fun charUpperW(lpsz: Pwstr): Pwstr
 
-public expect fun CheckMenuItem(hmenu: HMENU, uidcheckitem: UInt, ucheck: UInt): UInt
+public expect fun checkMenuItem(hmenu: Hmenu, uidcheckitem: UInt, ucheck: UInt): UInt
 
-public expect fun CheckMenuRadioItem(hmenu: HMENU, first: UInt, last: UInt, check: UInt, flags: UInt): BOOL
+public expect fun checkMenuRadioItem(hmenu: Hmenu, first: UInt, last: UInt, check: UInt, flags: UInt): Bool
 
-public expect fun ChildWindowFromPoint(hwndparent: HWND, point: POINT): HWND
+public expect fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd
 
-public expect fun ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: CWP_FLAGS): HWND
+public expect fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd
 
-public expect fun ClipCursor(lprect: Long): BOOL
+public expect fun clipCursor(lprect: COpaquePointer?): Bool
 
-public expect fun CloseWindow(hwnd: HWND): BOOL
+public expect fun closeWindow(hwnd: Hwnd): Bool
 
-public expect fun CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int
+public expect fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int
 
-public expect fun CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int
+public expect fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int
 
-public expect fun CopyIcon(hicon: HICON): HICON
+public expect fun copyIcon(hicon: Hicon): Hicon
 
-public expect fun CopyImage(h: HANDLE, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, flags: IMAGE_FLAGS): HANDLE
+public expect fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle
 
-public expect fun CreateAcceleratorTableA(paccel: Long, caccel: Int): HACCEL
+public expect fun createAcceleratorTableA(paccel: COpaquePointer?, caccel: Int): Haccel
 
-public expect fun CreateAcceleratorTableW(paccel: Long, caccel: Int): HACCEL
+public expect fun createAcceleratorTableW(paccel: COpaquePointer?, caccel: Int): Haccel
 
-public expect fun CreateCaret(hwnd: HWND, hbitmap: HBITMAP, nwidth: Int, nheight: Int): BOOL
+public expect fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool
 
-public expect fun CreateCursor(hinst: HINSTANCE, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: Long, pvxorplane: Long): HCURSOR
+public expect fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: COpaquePointer?, pvxorplane: COpaquePointer?): Hcursor
 
-public expect fun CreateDialogIndirectParamA(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+public expect fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd
 
-public expect fun CreateDialogIndirectParamW(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+public expect fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd
 
-public expect fun CreateDialogParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+public expect fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd
 
-public expect fun CreateDialogParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+public expect fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd
 
-public expect fun CreateIcon(hinstance: HINSTANCE, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: Long, lpbxorbits: Long): HICON
+public expect fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: COpaquePointer?, lpbxorbits: COpaquePointer?): Hicon
 
-public expect fun CreateIconFromResource(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt): HICON
+public expect fun createIconFromResource(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon
 
-public expect fun CreateIconFromResourceEx(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): HICON
+public expect fun createIconFromResourceEx(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon
 
-public expect fun CreateIconIndirect(piconinfo: Long): HICON
+public expect fun createIconIndirect(piconinfo: COpaquePointer?): Hicon
 
-public expect fun CreateMDIWindowA(lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND
+public expect fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd
 
-public expect fun CreateMDIWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND
+public expect fun createMDIWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd
 
-public expect fun CreateMenu(): HMENU
+public expect fun createMenu(): Hmenu
 
-public expect fun CreatePopupMenu(): HMENU
+public expect fun createPopupMenu(): Hmenu
 
-public expect fun CreateResourceIndexer(projectroot: PCWSTR, extensiondllpath: PCWSTR, ppresourceindexer: Long): HRESULT
+public expect fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: COpaquePointer?): Hresult
 
-public expect fun CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND
+public expect fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd
 
-public expect fun CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND
+public expect fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd
 
-public expect fun DefDlgProcA(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefDlgProcW(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defDlgProcW(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefFrameProcA(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defFrameProcA(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefFrameProcW(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defFrameProcW(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefMDIChildProcA(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defMDIChildProcA(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefMDIChildProcW(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defMDIChildProcW(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefWindowProcA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defWindowProcA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DefWindowProcW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun defWindowProcW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun DeferWindowPos(hwinposinfo: HDWP, hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): HDWP
+public expect fun deferWindowPos(hwinposinfo: Hdwp, hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Hdwp
 
-public expect fun DeleteMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL
+public expect fun deleteMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool
 
-public expect fun DeregisterShellHookWindow(hwnd: HWND): BOOL
+public expect fun deregisterShellHookWindow(hwnd: Hwnd): Bool
 
-public expect fun DestroyAcceleratorTable(haccel: HACCEL): BOOL
+public expect fun destroyAcceleratorTable(haccel: Haccel): Bool
 
-public expect fun DestroyCaret(): BOOL
+public expect fun destroyCaret(): Bool
 
-public expect fun DestroyCursor(hcursor: HCURSOR): BOOL
+public expect fun destroyCursor(hcursor: Hcursor): Bool
 
-public expect fun DestroyIcon(hicon: HICON): BOOL
+public expect fun destroyIcon(hicon: Hicon): Bool
 
-public expect fun DestroyIndexedResults(resourceuri: PCWSTR, qualifiercount: UInt, qualifiers: Long)
+public expect fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: COpaquePointer?)
 
-public expect fun DestroyMenu(hmenu: HMENU): BOOL
+public expect fun destroyMenu(hmenu: Hmenu): Bool
 
-public expect fun DestroyResourceIndexer(resourceindexer: Long)
+public expect fun destroyResourceIndexer(resourceindexer: COpaquePointer?)
 
-public expect fun DestroyWindow(hwnd: HWND): BOOL
+public expect fun destroyWindow(hwnd: Hwnd): Bool
 
-public expect fun DialogBoxIndirectParamA(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+public expect fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long
 
-public expect fun DialogBoxIndirectParamW(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+public expect fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long
 
-public expect fun DialogBoxParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+public expect fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long
 
-public expect fun DialogBoxParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+public expect fun dialogBoxParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long
 
-public expect fun DisableProcessWindowsGhosting()
+public expect fun disableProcessWindowsGhosting()
 
-public expect fun DispatchMessageA(lpmsg: Long): LRESULT
+public expect fun dispatchMessageA(lpmsg: COpaquePointer?): Lresult
 
-public expect fun DispatchMessageW(lpmsg: Long): LRESULT
+public expect fun dispatchMessageW(lpmsg: COpaquePointer?): Lresult
 
-public expect fun DragObject(hwndparent: HWND, hwndfrom: HWND, fmt: UInt, data: ULong, hcur: HCURSOR): UInt
+public expect fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt
 
-public expect fun DrawIcon(hdc: HDC, x: Int, y: Int, hicon: HICON): BOOL
+public expect fun drawIcon(hdc: Hdc, x: Int, y: Int, hicon: Hicon): Bool
 
-public expect fun DrawIconEx(hdc: HDC, xleft: Int, ytop: Int, hicon: HICON, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: HBRUSH, diflags: DI_FLAGS): BOOL
+public expect fun drawIconEx(hdc: Hdc, xleft: Int, ytop: Int, hicon: Hicon, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: Hbrush, diflags: DiFlags): Bool
 
-public expect fun DrawMenuBar(hwnd: HWND): BOOL
+public expect fun drawMenuBar(hwnd: Hwnd): Bool
 
-public expect fun EnableMenuItem(hmenu: HMENU, uidenableitem: UInt, uenable: MENU_ITEM_FLAGS): BOOL
+public expect fun enableMenuItem(hmenu: Hmenu, uidenableitem: UInt, uenable: MenuItemFlags): Bool
 
-public expect fun EndDeferWindowPos(hwinposinfo: HDWP): BOOL
+public expect fun endDeferWindowPos(hwinposinfo: Hdwp): Bool
 
-public expect fun EndDialog(hdlg: HWND, nresult: Long): BOOL
+public expect fun endDialog(hdlg: Hwnd, nresult: Long): Bool
 
-public expect fun EndMenu(): BOOL
+public expect fun endMenu(): Bool
 
-public expect fun EnumChildWindows(hwndparent: HWND, lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL
+public expect fun enumChildWindows(hwndparent: Hwnd, lpenumfunc: Wndenumproc, lparam: Lparam): Bool
 
-public expect fun EnumPropsA(hwnd: HWND, lpenumfunc: PROPENUMPROCA): Int
+public expect fun enumPropsA(hwnd: Hwnd, lpenumfunc: Propenumproca): Int
 
-public expect fun EnumPropsExA(hwnd: HWND, lpenumfunc: PROPENUMPROCEXA, lparam: LPARAM): Int
+public expect fun enumPropsExA(hwnd: Hwnd, lpenumfunc: Propenumprocexa, lparam: Lparam): Int
 
-public expect fun EnumPropsExW(hwnd: HWND, lpenumfunc: PROPENUMPROCEXW, lparam: LPARAM): Int
+public expect fun enumPropsExW(hwnd: Hwnd, lpenumfunc: Propenumprocexw, lparam: Lparam): Int
 
-public expect fun EnumPropsW(hwnd: HWND, lpenumfunc: PROPENUMPROCW): Int
+public expect fun enumPropsW(hwnd: Hwnd, lpenumfunc: Propenumprocw): Int
 
-public expect fun EnumThreadWindows(dwthreadid: UInt, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL
+public expect fun enumThreadWindows(dwthreadid: UInt, lpfn: Wndenumproc, lparam: Lparam): Bool
 
-public expect fun EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL
+public expect fun enumWindows(lpenumfunc: Wndenumproc, lparam: Lparam): Bool
 
-public expect fun FindWindowA(lpclassname: PCSTR, lpwindowname: PCSTR): HWND
+public expect fun findWindowA(lpclassname: Pcstr, lpwindowname: Pcstr): Hwnd
 
-public expect fun FindWindowExA(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCSTR, lpszwindow: PCSTR): HWND
+public expect fun findWindowExA(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcstr, lpszwindow: Pcstr): Hwnd
 
-public expect fun FindWindowExW(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCWSTR, lpszwindow: PCWSTR): HWND
+public expect fun findWindowExW(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcwstr, lpszwindow: Pcwstr): Hwnd
 
-public expect fun FindWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR): HWND
+public expect fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd
 
-public expect fun FlashWindow(hwnd: HWND, binvert: BOOL): BOOL
+public expect fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool
 
-public expect fun FlashWindowEx(pfwi: Long): BOOL
+public expect fun flashWindowEx(pfwi: COpaquePointer?): Bool
 
-public expect fun GetAltTabInfoA(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PSTR, cchitemtext: UInt): BOOL
+public expect fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pstr, cchitemtext: UInt): Bool
 
-public expect fun GetAltTabInfoW(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PWSTR, cchitemtext: UInt): BOOL
+public expect fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pwstr, cchitemtext: UInt): Bool
 
-public expect fun GetAncestor(hwnd: HWND, gaflags: GET_ANCESTOR_FLAGS): HWND
+public expect fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd
 
-public expect fun GetCaretBlinkTime(): UInt
+public expect fun getCaretBlinkTime(): UInt
 
-public expect fun GetCaretPos(lppoint: Long): BOOL
+public expect fun getCaretPos(lppoint: COpaquePointer?): Bool
 
-public expect fun GetClassInfoA(hinstance: HINSTANCE, lpclassname: PCSTR, lpwndclass: Long): BOOL
+public expect fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: COpaquePointer?): Bool
 
-public expect fun GetClassInfoExA(hinstance: HINSTANCE, lpszclass: PCSTR, lpwcx: Long): BOOL
+public expect fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: COpaquePointer?): Bool
 
-public expect fun GetClassInfoExW(hinstance: HINSTANCE, lpszclass: PCWSTR, lpwcx: Long): BOOL
+public expect fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: COpaquePointer?): Bool
 
-public expect fun GetClassInfoW(hinstance: HINSTANCE, lpclassname: PCWSTR, lpwndclass: Long): BOOL
+public expect fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: COpaquePointer?): Bool
 
-public expect fun GetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt
+public expect fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt
 
-public expect fun GetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong
+public expect fun getClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex): ULong
 
-public expect fun GetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong
+public expect fun getClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex): ULong
 
-public expect fun GetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt
+public expect fun getClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex): UInt
 
-public expect fun GetClassNameA(hwnd: HWND, lpclassname: PSTR, nmaxcount: Int): Int
+public expect fun getClassNameA(hwnd: Hwnd, lpclassname: Pstr, nmaxcount: Int): Int
 
-public expect fun GetClassNameW(hwnd: HWND, lpclassname: PWSTR, nmaxcount: Int): Int
+public expect fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int): Int
 
-public expect fun GetClassWord(hwnd: HWND, nindex: Int): UShort
+public expect fun getClassWord(hwnd: Hwnd, nindex: Int): UShort
 
-public expect fun GetClientRect(hwnd: HWND, lprect: Long): BOOL
+public expect fun getClientRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool
 
-public expect fun GetClipCursor(lprect: Long): BOOL
+public expect fun getClipCursor(lprect: COpaquePointer?): Bool
 
-public expect fun GetCursor(): HCURSOR
+public expect fun getCursor(): Hcursor
 
-public expect fun GetCursorInfo(pci: Long): BOOL
+public expect fun getCursorInfo(pci: COpaquePointer?): Bool
 
-public expect fun GetCursorPos(lppoint: Long): BOOL
+public expect fun getCursorPos(lppoint: COpaquePointer?): Bool
 
-public expect fun GetDesktopWindow(): HWND
+public expect fun getDesktopWindow(): Hwnd
 
-public expect fun GetDialogBaseUnits(): Int
+public expect fun getDialogBaseUnits(): Int
 
-public expect fun GetDlgCtrlID(hwnd: HWND): Int
+public expect fun getDlgCtrlID(hwnd: Hwnd): Int
 
-public expect fun GetDlgItem(hdlg: HWND, niddlgitem: Int): HWND
+public expect fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd
 
-public expect fun GetDlgItemInt(hdlg: HWND, niddlgitem: Int, lptranslated: Long, bsigned: BOOL): UInt
+public expect fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: COpaquePointer?, bsigned: Bool): UInt
 
-public expect fun GetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PSTR, cchmax: Int): UInt
+public expect fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt
 
-public expect fun GetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PWSTR, cchmax: Int): UInt
+public expect fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, cchmax: Int): UInt
 
-public expect fun GetForegroundWindow(): HWND
+public expect fun getForegroundWindow(): Hwnd
 
-public expect fun GetGUIThreadInfo(idthread: UInt, pgui: Long): BOOL
+public expect fun getGUIThreadInfo(idthread: UInt, pgui: COpaquePointer?): Bool
 
-public expect fun GetIconInfo(hicon: HICON, piconinfo: Long): BOOL
+public expect fun getIconInfo(hicon: Hicon, piconinfo: COpaquePointer?): Bool
 
-public expect fun GetIconInfoExA(hicon: HICON, piconinfo: Long): BOOL
+public expect fun getIconInfoExA(hicon: Hicon, piconinfo: COpaquePointer?): Bool
 
-public expect fun GetIconInfoExW(hicon: HICON, piconinfo: Long): BOOL
+public expect fun getIconInfoExW(hicon: Hicon, piconinfo: COpaquePointer?): Bool
 
-public expect fun GetInputState(): BOOL
+public expect fun getInputState(): Bool
 
-public expect fun GetLastActivePopup(hwnd: HWND): HWND
+public expect fun getLastActivePopup(hwnd: Hwnd): Hwnd
 
-public expect fun GetLayeredWindowAttributes(hwnd: HWND, pcrkey: Long, pbalpha: Long, pdwflags: Long): BOOL
+public expect fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: COpaquePointer?, pbalpha: COpaquePointer?, pdwflags: COpaquePointer?): Bool
 
-public expect fun GetMenu(hwnd: HWND): HMENU
+public expect fun getMenu(hwnd: Hwnd): Hmenu
 
-public expect fun GetMenuBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, iditem: Int, pmbi: Long): BOOL
+public expect fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: COpaquePointer?): Bool
 
-public expect fun GetMenuCheckMarkDimensions(): Int
+public expect fun getMenuCheckMarkDimensions(): Int
 
-public expect fun GetMenuDefaultItem(hmenu: HMENU, fbypos: UInt, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS): UInt
+public expect fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt
 
-public expect fun GetMenuInfo(param0: HMENU, param1: Long): BOOL
+public expect fun getMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool
 
-public expect fun GetMenuItemCount(hmenu: HMENU): Int
+public expect fun getMenuItemCount(hmenu: Hmenu): Int
 
-public expect fun GetMenuItemID(hmenu: HMENU, npos: Int): UInt
+public expect fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt
 
-public expect fun GetMenuItemInfoA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL
+public expect fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool
 
-public expect fun GetMenuItemInfoW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL
+public expect fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool
 
-public expect fun GetMenuItemRect(hwnd: HWND, hmenu: HMENU, uitem: UInt, lprcitem: Long): BOOL
+public expect fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: COpaquePointer?): Bool
 
-public expect fun GetMenuState(hmenu: HMENU, uid: UInt, uflags: MENU_ITEM_FLAGS): UInt
+public expect fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt
 
-public expect fun GetMenuStringA(hmenu: HMENU, uiditem: UInt, lpstring: PSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int
+public expect fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cchmax: Int, flags: MenuItemFlags): Int
 
-public expect fun GetMenuStringW(hmenu: HMENU, uiditem: UInt, lpstring: PWSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int
+public expect fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int
 
-public expect fun GetMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL
+public expect fun getMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool
 
-public expect fun GetMessageExtraInfo(): LPARAM
+public expect fun getMessageExtraInfo(): Lparam
 
-public expect fun GetMessagePos(): UInt
+public expect fun getMessagePos(): UInt
 
-public expect fun GetMessageTime(): Int
+public expect fun getMessageTime(): Int
 
-public expect fun GetMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL
+public expect fun getMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool
 
-public expect fun GetNextDlgGroupItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND
+public expect fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd
 
-public expect fun GetNextDlgTabItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND
+public expect fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd
 
-public expect fun GetParent(hwnd: HWND): HWND
+public expect fun getParent(hwnd: Hwnd): Hwnd
 
-public expect fun GetPhysicalCursorPos(lppoint: Long): BOOL
+public expect fun getPhysicalCursorPos(lppoint: COpaquePointer?): Bool
 
-public expect fun GetProcessDefaultLayout(pdwdefaultlayout: Long): BOOL
+public expect fun getProcessDefaultLayout(pdwdefaultlayout: COpaquePointer?): Bool
 
-public expect fun GetPropA(hwnd: HWND, lpstring: PCSTR): HANDLE
+public expect fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle
 
-public expect fun GetPropW(hwnd: HWND, lpstring: PCWSTR): HANDLE
+public expect fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle
 
-public expect fun GetQueueStatus(flags: QUEUE_STATUS_FLAGS): UInt
+public expect fun getQueueStatus(flags: QueueStatusFlags): UInt
 
-public expect fun GetScrollBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, psbi: Long): BOOL
+public expect fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: COpaquePointer?): Bool
 
-public expect fun GetScrollInfo(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: Long): BOOL
+public expect fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: COpaquePointer?): Bool
 
-public expect fun GetScrollPos(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS): Int
+public expect fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int
 
-public expect fun GetScrollRange(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: Long, lpmaxpos: Long): BOOL
+public expect fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: COpaquePointer?, lpmaxpos: COpaquePointer?): Bool
 
-public expect fun GetShellWindow(): HWND
+public expect fun getShellWindow(): Hwnd
 
-public expect fun GetSubMenu(hmenu: HMENU, npos: Int): HMENU
+public expect fun getSubMenu(hmenu: Hmenu, npos: Int): Hmenu
 
-public expect fun GetSystemMenu(hwnd: HWND, brevert: BOOL): HMENU
+public expect fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu
 
-public expect fun GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX): Int
+public expect fun getSystemMetrics(nindex: SystemMetricsIndex): Int
 
-public expect fun GetTitleBarInfo(hwnd: HWND, pti: Long): BOOL
+public expect fun getTitleBarInfo(hwnd: Hwnd, pti: COpaquePointer?): Bool
 
-public expect fun GetTopWindow(hwnd: HWND): HWND
+public expect fun getTopWindow(hwnd: Hwnd): Hwnd
 
-public expect fun GetWindow(hwnd: HWND, ucmd: GET_WINDOW_CMD): HWND
+public expect fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd
 
-public expect fun GetWindowDisplayAffinity(hwnd: HWND, pdwaffinity: Long): BOOL
+public expect fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: COpaquePointer?): Bool
 
-public expect fun GetWindowInfo(hwnd: HWND, pwi: Long): BOOL
+public expect fun getWindowInfo(hwnd: Hwnd, pwi: COpaquePointer?): Bool
 
-public expect fun GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int
+public expect fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int
 
-public expect fun GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long
+public expect fun getWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long
 
-public expect fun GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long
+public expect fun getWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long
 
-public expect fun GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int
+public expect fun getWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int
 
-public expect fun GetWindowModuleFileNameA(hwnd: HWND, pszfilename: PSTR, cchfilenamemax: UInt): UInt
+public expect fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfilenamemax: UInt): UInt
 
-public expect fun GetWindowModuleFileNameW(hwnd: HWND, pszfilename: PWSTR, cchfilenamemax: UInt): UInt
+public expect fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt
 
-public expect fun GetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL
+public expect fun getWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool
 
-public expect fun GetWindowRect(hwnd: HWND, lprect: Long): BOOL
+public expect fun getWindowRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool
 
-public expect fun GetWindowTextA(hwnd: HWND, lpstring: PSTR, nmaxcount: Int): Int
+public expect fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int
 
-public expect fun GetWindowTextLengthA(hwnd: HWND): Int
+public expect fun getWindowTextLengthA(hwnd: Hwnd): Int
 
-public expect fun GetWindowTextLengthW(hwnd: HWND): Int
+public expect fun getWindowTextLengthW(hwnd: Hwnd): Int
 
-public expect fun GetWindowTextW(hwnd: HWND, lpstring: PWSTR, nmaxcount: Int): Int
+public expect fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int
 
-public expect fun GetWindowThreadProcessId(hwnd: HWND, lpdwprocessid: Long): UInt
+public expect fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: COpaquePointer?): UInt
 
-public expect fun GetWindowWord(hwnd: HWND, nindex: Int): UShort
+public expect fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort
 
-public expect fun HideCaret(hwnd: HWND): BOOL
+public expect fun hideCaret(hwnd: Hwnd): Bool
 
-public expect fun HiliteMenuItem(hwnd: HWND, hmenu: HMENU, uidhiliteitem: UInt, uhilite: UInt): BOOL
+public expect fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, uhilite: UInt): Bool
 
-public expect fun InSendMessage(): BOOL
+public expect fun inSendMessage(): Bool
 
-public expect fun InSendMessageEx(lpreserved: Long): UInt
+public expect fun inSendMessageEx(lpreserved: COpaquePointer?): UInt
 
-public expect fun IndexFilePath(resourceindexer: Long, filepath: PCWSTR, ppresourceuri: Long, pqualifiercount: Long, ppqualifiers: Long): HRESULT
+public expect fun indexFilePath(resourceindexer: COpaquePointer?, filepath: Pcwstr, ppresourceuri: COpaquePointer?, pqualifiercount: COpaquePointer?, ppqualifiers: COpaquePointer?): Hresult
 
-public expect fun InheritWindowMonitor(hwnd: HWND, hwndinherit: HWND): BOOL
+public expect fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool
 
-public expect fun InsertMenuA(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+public expect fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool
 
-public expect fun InsertMenuItemA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL
+public expect fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool
 
-public expect fun InsertMenuItemW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL
+public expect fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool
 
-public expect fun InsertMenuW(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+public expect fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool
 
-public expect fun InternalGetWindowText(hwnd: HWND, pstring: PWSTR, cchmaxcount: Int): Int
+public expect fun internalGetWindowText(hwnd: Hwnd, pstring: Pwstr, cchmaxcount: Int): Int
 
-public expect fun IsCharAlphaA(ch: Byte): BOOL
+public expect fun isCharAlphaA(ch: Byte): Bool
 
-public expect fun IsCharAlphaNumericA(ch: Byte): BOOL
+public expect fun isCharAlphaNumericA(ch: Byte): Bool
 
-public expect fun IsCharAlphaNumericW(ch: UShort): BOOL
+public expect fun isCharAlphaNumericW(ch: UShort): Bool
 
-public expect fun IsCharAlphaW(ch: UShort): BOOL
+public expect fun isCharAlphaW(ch: UShort): Bool
 
-public expect fun IsCharLowerA(ch: Byte): BOOL
+public expect fun isCharLowerA(ch: Byte): Bool
 
-public expect fun IsCharUpperA(ch: Byte): BOOL
+public expect fun isCharUpperA(ch: Byte): Bool
 
-public expect fun IsCharUpperW(ch: UShort): BOOL
+public expect fun isCharUpperW(ch: UShort): Bool
 
-public expect fun IsChild(hwndparent: HWND, hwnd: HWND): BOOL
+public expect fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool
 
-public expect fun IsDialogMessageA(hdlg: HWND, lpmsg: Long): BOOL
+public expect fun isDialogMessageA(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool
 
-public expect fun IsDialogMessageW(hdlg: HWND, lpmsg: Long): BOOL
+public expect fun isDialogMessageW(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool
 
-public expect fun IsGUIThread(bconvert: BOOL): BOOL
+public expect fun isGUIThread(bconvert: Bool): Bool
 
-public expect fun IsHungAppWindow(hwnd: HWND): BOOL
+public expect fun isHungAppWindow(hwnd: Hwnd): Bool
 
-public expect fun IsIconic(hwnd: HWND): BOOL
+public expect fun isIconic(hwnd: Hwnd): Bool
 
-public expect fun IsMenu(hmenu: HMENU): BOOL
+public expect fun isMenu(hmenu: Hmenu): Bool
 
-public expect fun IsProcessDPIAware(): BOOL
+public expect fun isProcessDPIAware(): Bool
 
-public expect fun IsWindow(hwnd: HWND): BOOL
+public expect fun isWindow(hwnd: Hwnd): Bool
 
-public expect fun IsWindowArranged(hwnd: HWND): BOOL
+public expect fun isWindowArranged(hwnd: Hwnd): Bool
 
-public expect fun IsWindowUnicode(hwnd: HWND): BOOL
+public expect fun isWindowUnicode(hwnd: Hwnd): Bool
 
-public expect fun IsWindowVisible(hwnd: HWND): BOOL
+public expect fun isWindowVisible(hwnd: Hwnd): Bool
 
-public expect fun IsWow64Message(): BOOL
+public expect fun isWow64Message(): Bool
 
-public expect fun IsZoomed(hwnd: HWND): BOOL
+public expect fun isZoomed(hwnd: Hwnd): Bool
 
-public expect fun KillTimer(hwnd: HWND, uidevent: ULong): BOOL
+public expect fun killTimer(hwnd: Hwnd, uidevent: ULong): Bool
 
-public expect fun LoadAcceleratorsA(hinstance: HINSTANCE, lptablename: PCSTR): HACCEL
+public expect fun loadAcceleratorsA(hinstance: Hinstance, lptablename: Pcstr): Haccel
 
-public expect fun LoadAcceleratorsW(hinstance: HINSTANCE, lptablename: PCWSTR): HACCEL
+public expect fun loadAcceleratorsW(hinstance: Hinstance, lptablename: Pcwstr): Haccel
 
-public expect fun LoadCursorA(hinstance: HINSTANCE, lpcursorname: PCSTR): HCURSOR
+public expect fun loadCursorA(hinstance: Hinstance, lpcursorname: Pcstr): Hcursor
 
-public expect fun LoadCursorFromFileA(lpfilename: PCSTR): HCURSOR
+public expect fun loadCursorFromFileA(lpfilename: Pcstr): Hcursor
 
-public expect fun LoadCursorFromFileW(lpfilename: PCWSTR): HCURSOR
+public expect fun loadCursorFromFileW(lpfilename: Pcwstr): Hcursor
 
-public expect fun LoadCursorW(hinstance: HINSTANCE, lpcursorname: PCWSTR): HCURSOR
+public expect fun loadCursorW(hinstance: Hinstance, lpcursorname: Pcwstr): Hcursor
 
-public expect fun LoadIconA(hinstance: HINSTANCE, lpiconname: PCSTR): HICON
+public expect fun loadIconA(hinstance: Hinstance, lpiconname: Pcstr): Hicon
 
-public expect fun LoadIconW(hinstance: HINSTANCE, lpiconname: PCWSTR): HICON
+public expect fun loadIconW(hinstance: Hinstance, lpiconname: Pcwstr): Hicon
 
-public expect fun LoadImageA(hinst: HINSTANCE, name: PCSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE
+public expect fun loadImageA(hinst: Hinstance, name: Pcstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle
 
-public expect fun LoadImageW(hinst: HINSTANCE, name: PCWSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE
+public expect fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle
 
-public expect fun LoadMenuA(hinstance: HINSTANCE, lpmenuname: PCSTR): HMENU
+public expect fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu
 
-public expect fun LoadMenuIndirectA(lpmenutemplate: Long): HMENU
+public expect fun loadMenuIndirectA(lpmenutemplate: COpaquePointer?): Hmenu
 
-public expect fun LoadMenuIndirectW(lpmenutemplate: Long): HMENU
+public expect fun loadMenuIndirectW(lpmenutemplate: COpaquePointer?): Hmenu
 
-public expect fun LoadMenuW(hinstance: HINSTANCE, lpmenuname: PCWSTR): HMENU
+public expect fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu
 
-public expect fun LoadStringA(hinstance: HINSTANCE, uid: UInt, lpbuffer: PSTR, cchbuffermax: Int): Int
+public expect fun loadStringA(hinstance: Hinstance, uid: UInt, lpbuffer: Pstr, cchbuffermax: Int): Int
 
-public expect fun LoadStringW(hinstance: HINSTANCE, uid: UInt, lpbuffer: PWSTR, cchbuffermax: Int): Int
+public expect fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, cchbuffermax: Int): Int
 
-public expect fun LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE): BOOL
+public expect fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool
 
-public expect fun LogicalToPhysicalPoint(hwnd: HWND, lppoint: Long): BOOL
+public expect fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun LookupIconIdFromDirectory(presbits: Long, ficon: BOOL): Int
+public expect fun lookupIconIdFromDirectory(presbits: COpaquePointer?, ficon: Bool): Int
 
-public expect fun LookupIconIdFromDirectoryEx(presbits: Long, ficon: BOOL, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): Int
+public expect fun lookupIconIdFromDirectoryEx(presbits: COpaquePointer?, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int
 
-public expect fun MapDialogRect(hdlg: HWND, lprect: Long): BOOL
+public expect fun mapDialogRect(hdlg: Hwnd, lprect: COpaquePointer?): Bool
 
-public expect fun MenuItemFromPoint(hwnd: HWND, hmenu: HMENU, ptscreen: POINT): Int
+public expect fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int
 
-public expect fun MessageBoxA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT
+public expect fun messageBoxA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle): MessageboxResult
 
-public expect fun MessageBoxExA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT
+public expect fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult
 
-public expect fun MessageBoxExW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT
+public expect fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult
 
-public expect fun MessageBoxIndirectA(lpmbp: Long): MESSAGEBOX_RESULT
+public expect fun messageBoxIndirectA(lpmbp: COpaquePointer?): MessageboxResult
 
-public expect fun MessageBoxIndirectW(lpmbp: Long): MESSAGEBOX_RESULT
+public expect fun messageBoxIndirectW(lpmbp: COpaquePointer?): MessageboxResult
 
-public expect fun MessageBoxW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT
+public expect fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult
 
-public expect fun ModifyMenuA(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+public expect fun modifyMenuA(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool
 
-public expect fun ModifyMenuW(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+public expect fun modifyMenuW(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool
 
-public expect fun MoveWindow(hwnd: HWND, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: BOOL): BOOL
+public expect fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: Bool): Bool
 
-public expect fun MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmlfile: PCWSTR): HRESULT
+public expect fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult
 
-public expect fun MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmldata: Long, outputxmlsize: Long): HRESULT
+public expect fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: PCWSTR): HRESULT
+public expect fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult
 
-public expect fun MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: Long, outputprisize: Long): HRESULT
+public expect fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: COpaquePointer?, outputprisize: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: PCWSTR): HRESULT
+public expect fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult
 
-public expect fun MrmCreateResourceIndexer(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceIndexerFromPreviousPriData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, pridata: Long, prisize: UInt, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: COpaquePointer?, prisize: UInt, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceIndexerFromPreviousPriFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, prifile: PCWSTR, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemaxmldata: Long, schemaxmlsize: UInt, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: COpaquePointer?, schemaxmlsize: UInt, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemafile: PCWSTR, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmCreateResourceIndexerWithFlags(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, flags: MrmIndexerFlags, indexer: Long): HRESULT
+public expect fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: COpaquePointer?): Hresult
 
-public expect fun MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): HRESULT
+public expect fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult
 
-public expect fun MrmDumpPriDataInMemory(inputpridata: Long, inputprisize: UInt, schemapridata: Long, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT
+public expect fun mrmDumpPriDataInMemory(inputpridata: COpaquePointer?, inputprisize: UInt, schemapridata: COpaquePointer?, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult
 
-public expect fun MrmDumpPriFile(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmlfile: PCWSTR): HRESULT
+public expect fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult
 
-public expect fun MrmDumpPriFileInMemory(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT
+public expect fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult
 
-public expect fun MrmFreeMemory(data: Long): HRESULT
+public expect fun mrmFreeMemory(data: COpaquePointer?): Hresult
 
-public expect fun MrmGetPriFileContentChecksum(prifile: PCWSTR, checksum: Long): HRESULT
+public expect fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: COpaquePointer?): Hresult
 
-public expect fun MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, embeddeddata: Long, embeddeddatasize: UInt, qualifiers: PCWSTR): HRESULT
+public expect fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: COpaquePointer?, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult
 
-public expect fun MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, filepath: PCWSTR, qualifiers: PCWSTR): HRESULT
+public expect fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult
 
-public expect fun MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: PCWSTR): HRESULT
+public expect fun mrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: Pcwstr): Hresult
 
-public expect fun MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: PCWSTR): HRESULT
+public expect fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: Pcwstr): Hresult
 
-public expect fun MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, resourcestring: PCWSTR, qualifiers: PCWSTR): HRESULT
+public expect fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult
 
-public expect fun MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: Long, nummsgs: Long): HRESULT
+public expect fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: COpaquePointer?, nummsgs: COpaquePointer?): Hresult
 
-public expect fun MsgWaitForMultipleObjects(ncount: UInt, phandles: Long, fwaitall: BOOL, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS): WAIT_EVENT
+public expect fun msgWaitForMultipleObjects(ncount: UInt, phandles: COpaquePointer?, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent
 
-public expect fun MsgWaitForMultipleObjectsEx(ncount: UInt, phandles: Long, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS): WAIT_EVENT
+public expect fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: COpaquePointer?, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent
 
-public expect fun OemToCharA(psrc: PCSTR, pdst: PSTR): BOOL
+public expect fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool
 
-public expect fun OemToCharBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+public expect fun oemToCharBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool
 
-public expect fun OemToCharBuffW(lpszsrc: PCSTR, lpszdst: PWSTR, cchdstlength: UInt): BOOL
+public expect fun oemToCharBuffW(lpszsrc: Pcstr, lpszdst: Pwstr, cchdstlength: UInt): Bool
 
-public expect fun OemToCharW(psrc: PCSTR, pdst: PWSTR): BOOL
+public expect fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool
 
-public expect fun OpenIcon(hwnd: HWND): BOOL
+public expect fun openIcon(hwnd: Hwnd): Bool
 
-public expect fun PeekMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL
+public expect fun peekMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool
 
-public expect fun PeekMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL
+public expect fun peekMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool
 
-public expect fun PhysicalToLogicalPoint(hwnd: HWND, lppoint: Long): BOOL
+public expect fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool
 
-public expect fun PostMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun PostMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun postMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun PostQuitMessage(nexitcode: Int)
+public expect fun postQuitMessage(nexitcode: Int)
 
-public expect fun PostThreadMessageA(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun PostThreadMessageW(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun PrivateExtractIconsA(szfilename: PCSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt
+public expect fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt
 
-public expect fun PrivateExtractIconsW(szfilename: PCWSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt
+public expect fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt
 
-public expect fun RealChildWindowFromPoint(hwndparent: HWND, ptparentclientcoords: POINT): HWND
+public expect fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd
 
-public expect fun RealGetWindowClassA(hwnd: HWND, ptszclassname: PSTR, cchclassnamemax: UInt): UInt
+public expect fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassnamemax: UInt): UInt
 
-public expect fun RealGetWindowClassW(hwnd: HWND, ptszclassname: PWSTR, cchclassnamemax: UInt): UInt
+public expect fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt
 
-public expect fun RegisterClassA(lpwndclass: Long): UShort
+public expect fun registerClassA(lpwndclass: COpaquePointer?): UShort
 
-public expect fun RegisterClassExA(param0: Long): UShort
+public expect fun registerClassExA(param0: COpaquePointer?): UShort
 
-public expect fun RegisterClassExW(param0: Long): UShort
+public expect fun registerClassExW(param0: COpaquePointer?): UShort
 
-public expect fun RegisterClassW(lpwndclass: Long): UShort
+public expect fun registerClassW(lpwndclass: COpaquePointer?): UShort
 
-public expect fun RegisterDeviceNotificationA(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY
+public expect fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify
 
-public expect fun RegisterDeviceNotificationW(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY
+public expect fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify
 
-public expect fun RegisterForTooltipDismissNotification(hwnd: HWND, tdflags: TOOLTIP_DISMISS_FLAGS): BOOL
+public expect fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool
 
-public expect fun RegisterShellHookWindow(hwnd: HWND): BOOL
+public expect fun registerShellHookWindow(hwnd: Hwnd): Bool
 
-public expect fun RegisterWindowMessageA(lpstring: PCSTR): UInt
+public expect fun registerWindowMessageA(lpstring: Pcstr): UInt
 
-public expect fun RegisterWindowMessageW(lpstring: PCWSTR): UInt
+public expect fun registerWindowMessageW(lpstring: Pcwstr): UInt
 
-public expect fun RemoveMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL
+public expect fun removeMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool
 
-public expect fun RemovePropA(hwnd: HWND, lpstring: PCSTR): HANDLE
+public expect fun removePropA(hwnd: Hwnd, lpstring: Pcstr): Handle
 
-public expect fun RemovePropW(hwnd: HWND, lpstring: PCWSTR): HANDLE
+public expect fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle
 
-public expect fun ReplyMessage(lresult: LRESULT): BOOL
+public expect fun replyMessage(lresult: Lresult): Bool
 
-public expect fun ScrollDC(hdc: HDC, dx: Int, dy: Int, lprcscroll: Long, lprcclip: Long, hrgnupdate: HRGN, lprcupdate: Long): BOOL
+public expect fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: COpaquePointer?, lprcclip: COpaquePointer?, hrgnupdate: Hrgn, lprcupdate: COpaquePointer?): Bool
 
-public expect fun ScrollWindow(hwnd: HWND, xamount: Int, yamount: Int, lprect: Long, lpcliprect: Long): BOOL
+public expect fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: COpaquePointer?, lpcliprect: COpaquePointer?): Bool
 
-public expect fun ScrollWindowEx(hwnd: HWND, dx: Int, dy: Int, prcscroll: Long, prcclip: Long, hrgnupdate: HRGN, prcupdate: Long, flags: SCROLL_WINDOW_FLAGS): Int
+public expect fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: COpaquePointer?, prcclip: COpaquePointer?, hrgnupdate: Hrgn, prcupdate: COpaquePointer?, flags: ScrollWindowFlags): Int
 
-public expect fun SendDlgItemMessageA(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun SendDlgItemMessageW(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun sendDlgItemMessageW(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun SendMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun sendMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun SendMessageCallbackA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL
+public expect fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool
 
-public expect fun SendMessageCallbackW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL
+public expect fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool
 
-public expect fun SendMessageTimeoutA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT
+public expect fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult
 
-public expect fun SendMessageTimeoutW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT
+public expect fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult
 
-public expect fun SendMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+public expect fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult
 
-public expect fun SendNotifyMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun SendNotifyMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+public expect fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool
 
-public expect fun SetAdditionalForegroundBoostProcesses(toplevelwindow: HWND, processhandlecount: UInt, processhandlearray: Long): BOOL
+public expect fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: COpaquePointer?): Bool
 
-public expect fun SetCaretBlinkTime(umseconds: UInt): BOOL
+public expect fun setCaretBlinkTime(umseconds: UInt): Bool
 
-public expect fun SetCaretPos(x: Int, y: Int): BOOL
+public expect fun setCaretPos(x: Int, y: Int): Bool
 
-public expect fun SetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt
+public expect fun setClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt
 
-public expect fun SetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong
+public expect fun setClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong
 
-public expect fun SetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong
+public expect fun setClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong
 
-public expect fun SetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt
+public expect fun setClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt
 
-public expect fun SetClassWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort
+public expect fun setClassWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort
 
-public expect fun SetCoalescableTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC, utolerancedelay: UInt): ULong
+public expect fun setCoalescableTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc, utolerancedelay: UInt): ULong
 
-public expect fun SetCursor(hcursor: HCURSOR): HCURSOR
+public expect fun setCursor(hcursor: Hcursor): Hcursor
 
-public expect fun SetCursorPos(x: Int, y: Int): BOOL
+public expect fun setCursorPos(x: Int, y: Int): Bool
 
-public expect fun SetDebugErrorLevel(dwlevel: UInt)
+public expect fun setDebugErrorLevel(dwlevel: UInt)
 
-public expect fun SetDlgItemInt(hdlg: HWND, niddlgitem: Int, uvalue: UInt, bsigned: BOOL): BOOL
+public expect fun setDlgItemInt(hdlg: Hwnd, niddlgitem: Int, uvalue: UInt, bsigned: Bool): Bool
 
-public expect fun SetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PCSTR): BOOL
+public expect fun setDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcstr): Bool
 
-public expect fun SetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PCWSTR): BOOL
+public expect fun setDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcwstr): Bool
 
-public expect fun SetForegroundWindow(hwnd: HWND): BOOL
+public expect fun setForegroundWindow(hwnd: Hwnd): Bool
 
-public expect fun SetLayeredWindowAttributes(hwnd: HWND, crkey: COLORREF, balpha: UByte, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS): BOOL
+public expect fun setLayeredWindowAttributes(hwnd: Hwnd, crkey: Colorref, balpha: UByte, dwflags: LayeredWindowAttributesFlags): Bool
 
-public expect fun SetMenu(hwnd: HWND, hmenu: HMENU): BOOL
+public expect fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool
 
-public expect fun SetMenuDefaultItem(hmenu: HMENU, uitem: UInt, fbypos: UInt): BOOL
+public expect fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool
 
-public expect fun SetMenuInfo(param0: HMENU, param1: Long): BOOL
+public expect fun setMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool
 
-public expect fun SetMenuItemBitmaps(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: HBITMAP, hbitmapchecked: HBITMAP): BOOL
+public expect fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool
 
-public expect fun SetMenuItemInfoA(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL
+public expect fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool
 
-public expect fun SetMenuItemInfoW(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL
+public expect fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool
 
-public expect fun SetMessageExtraInfo(lparam: LPARAM): LPARAM
+public expect fun setMessageExtraInfo(lparam: Lparam): Lparam
 
-public expect fun SetMessageQueue(cmessagesmax: Int): BOOL
+public expect fun setMessageQueue(cmessagesmax: Int): Bool
 
-public expect fun SetParent(hwndchild: HWND, hwndnewparent: HWND): HWND
+public expect fun setParent(hwndchild: Hwnd, hwndnewparent: Hwnd): Hwnd
 
-public expect fun SetPhysicalCursorPos(x: Int, y: Int): BOOL
+public expect fun setPhysicalCursorPos(x: Int, y: Int): Bool
 
-public expect fun SetProcessDPIAware(): BOOL
+public expect fun setProcessDPIAware(): Bool
 
-public expect fun SetProcessDefaultLayout(dwdefaultlayout: UInt): BOOL
+public expect fun setProcessDefaultLayout(dwdefaultlayout: UInt): Bool
 
-public expect fun SetPropA(hwnd: HWND, lpstring: PCSTR, hdata: HANDLE): BOOL
+public expect fun setPropA(hwnd: Hwnd, lpstring: Pcstr, hdata: Handle): Bool
 
-public expect fun SetPropW(hwnd: HWND, lpstring: PCWSTR, hdata: HANDLE): BOOL
+public expect fun setPropW(hwnd: Hwnd, lpstring: Pcwstr, hdata: Handle): Bool
 
-public expect fun SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID): BOOL
+public expect fun setSystemCursor(hcur: Hcursor, id: SystemCursorId): Bool
 
-public expect fun SetTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC): ULong
+public expect fun setTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc): ULong
 
-public expect fun SetWindowDisplayAffinity(hwnd: HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY): BOOL
+public expect fun setWindowDisplayAffinity(hwnd: Hwnd, dwaffinity: WindowDisplayAffinity): Bool
 
-public expect fun SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int
+public expect fun setWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int
 
-public expect fun SetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long
+public expect fun setWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long
 
-public expect fun SetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long
+public expect fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long
 
-public expect fun SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int
+public expect fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int
 
-public expect fun SetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL
+public expect fun setWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool
 
-public expect fun SetWindowPos(hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): BOOL
+public expect fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool
 
-public expect fun SetWindowTextA(hwnd: HWND, lpstring: PCSTR): BOOL
+public expect fun setWindowTextA(hwnd: Hwnd, lpstring: Pcstr): Bool
 
-public expect fun SetWindowTextW(hwnd: HWND, lpstring: PCWSTR): BOOL
+public expect fun setWindowTextW(hwnd: Hwnd, lpstring: Pcwstr): Bool
 
-public expect fun SetWindowWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort
+public expect fun setWindowWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort
 
-public expect fun SetWindowsHookA(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK
+public expect fun setWindowsHookA(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook
 
-public expect fun SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK
+public expect fun setWindowsHookExA(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook
 
-public expect fun SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK
+public expect fun setWindowsHookExW(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook
 
-public expect fun SetWindowsHookW(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK
+public expect fun setWindowsHookW(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook
 
-public expect fun ShowCaret(hwnd: HWND): BOOL
+public expect fun showCaret(hwnd: Hwnd): Bool
 
-public expect fun ShowCursor(bshow: BOOL): Int
+public expect fun showCursor(bshow: Bool): Int
 
-public expect fun ShowOwnedPopups(hwnd: HWND, fshow: BOOL): BOOL
+public expect fun showOwnedPopups(hwnd: Hwnd, fshow: Bool): Bool
 
-public expect fun ShowWindow(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL
+public expect fun showWindow(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool
 
-public expect fun ShowWindowAsync(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL
+public expect fun showWindowAsync(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool
 
-public expect fun SoundSentry(): BOOL
+public expect fun soundSentry(): Bool
 
-public expect fun SwitchToThisWindow(hwnd: HWND, funknown: BOOL)
+public expect fun switchToThisWindow(hwnd: Hwnd, funknown: Bool)
 
-public expect fun SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL
+public expect fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool
 
-public expect fun SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL
+public expect fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool
 
-public expect fun TileWindows(hwndparent: HWND, whow: TILE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort
+public expect fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort
 
-public expect fun TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: Int, y: Int, nreserved: Int, hwnd: HWND, prcrect: Long): BOOL
+public expect fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: COpaquePointer?): Bool
 
-public expect fun TrackPopupMenuEx(hmenu: HMENU, uflags: UInt, x: Int, y: Int, hwnd: HWND, lptpm: Long): BOOL
+public expect fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: COpaquePointer?): Bool
 
-public expect fun TranslateAcceleratorA(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int
+public expect fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int
 
-public expect fun TranslateAcceleratorW(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int
+public expect fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int
 
-public expect fun TranslateMDISysAccel(hwndclient: HWND, lpmsg: Long): BOOL
+public expect fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: COpaquePointer?): Bool
 
-public expect fun TranslateMessage(lpmsg: Long): BOOL
+public expect fun translateMessage(lpmsg: COpaquePointer?): Bool
 
-public expect fun UnhookWindowsHook(ncode: Int, pfnfilterproc: HOOKPROC): BOOL
+public expect fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool
 
-public expect fun UnhookWindowsHookEx(hhk: HHOOK): BOOL
+public expect fun unhookWindowsHookEx(hhk: Hhook): Bool
 
-public expect fun UnregisterClassA(lpclassname: PCSTR, hinstance: HINSTANCE): BOOL
+public expect fun unregisterClassA(lpclassname: Pcstr, hinstance: Hinstance): Bool
 
-public expect fun UnregisterClassW(lpclassname: PCWSTR, hinstance: HINSTANCE): BOOL
+public expect fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): Bool
 
-public expect fun UnregisterDeviceNotification(handle: HDEVNOTIFY): BOOL
+public expect fun unregisterDeviceNotification(handle: Hdevnotify): Bool
 
-public expect fun UpdateLayeredWindow(hwnd: HWND, hdcdst: HDC, pptdst: Long, psize: Long, hdcsrc: HDC, pptsrc: Long, crkey: COLORREF, pblend: Long, dwflags: UPDATE_LAYERED_WINDOW_FLAGS): BOOL
+public expect fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: COpaquePointer?, psize: COpaquePointer?, hdcsrc: Hdc, pptsrc: COpaquePointer?, crkey: Colorref, pblend: COpaquePointer?, dwflags: UpdateLayeredWindowFlags): Bool
 
-public expect fun UpdateLayeredWindowIndirect(hwnd: HWND, pulwinfo: Long): BOOL
+public expect fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: COpaquePointer?): Bool
 
-public expect fun WaitMessage(): BOOL
+public expect fun waitMessage(): Bool
 
-public expect fun WindowFromPhysicalPoint(point: POINT): HWND
+public expect fun windowFromPhysicalPoint(point: Point): Hwnd
 
-public expect fun WindowFromPoint(point: POINT): HWND
+public expect fun windowFromPoint(point: Point): Hwnd
 
-public expect fun wsprintfA(param0: PSTR, param1: PCSTR, vararg variadicArgs: Long): Int
+public expect fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Long): Int
 
-public expect fun wsprintfW(param0: PWSTR, param1: PCWSTR, vararg variadicArgs: Long): Int
+public expect fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int
 
-public expect fun wvsprintfA(param0: PSTR, param1: PCSTR, arglist: Long): Int
+public expect fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: COpaquePointer?): Int
 
-public expect fun wvsprintfW(param0: PWSTR, param1: PCWSTR, arglist: Long): Int
+public expect fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: COpaquePointer?): Int

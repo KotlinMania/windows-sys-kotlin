@@ -9,38 +9,38 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_devices_webservicesondevices_WSDAllocateLinkedMemory(void* pparent, uint64_t cbsize);
-void windowssys_windows_win32_devices_webservicesondevices_WSDAttachLinkedMemory(void* pparent, void* pchild);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHost(void* pszlocalid, void* pcontext, void* ppdevicehost);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHost2(void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdevicehost);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHostAdvanced(void* pszlocalid, void* pcontext, void* pphostaddresses, uint32_t dwhostaddresscount, void* ppdevicehost);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxy(void* pszdeviceid, void* pszlocalid, void* pcontext, void* ppdeviceproxy);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxy2(void* pszdeviceid, void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdeviceproxy);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxyAdvanced(void* pszdeviceid, void* pdeviceaddress, void* pszlocalid, void* pcontext, void* ppdeviceproxy);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryProvider(void* pcontext, void* ppprovider);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryProvider2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppprovider);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryPublisher(void* pcontext, void* pppublisher);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryPublisher2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* pppublisher);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpAddress(void* ppaddress);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpMessageParameters(void* pptxparams);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateOutboundAttachment(void* ppattachment);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpAddress(void* ppaddress);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpMessageParameters(void* pptxparams);
-void windowssys_windows_win32_devices_webservicesondevices_WSDDetachLinkedMemory(void* pvoid);
-void windowssys_windows_win32_devices_webservicesondevices_WSDFreeLinkedMemory(void* pvoid);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFault(void* pszcode, void* pszsubcode, void* pszreason, void* pszdetail, void* pcontext, void* ppfault);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFaultEx(void* pcode, void* psubcode, void* preasons, void* pszdetail, void* ppfault);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cboutbuffer);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDSetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cbinbuffer);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriDecode(void* source, uint32_t cchsource, void* destout, void* cchdestout);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriEncode(void* source, uint32_t cchsource, void* destout, void* cchdestout);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddChild(void* pparent, void* pchild);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddSibling(void* pfirst, void* psecond);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLBuildAnyForSingleElement(void* pelementname, void* psztext, void* ppany);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCleanupElement(void* pany);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCreateContext(void* ppcontext);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLGetNameFromBuiltinNamespace(void* psznamespace, void* pszname, void* ppname);
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLGetValueFromAny(void* psznamespace, void* pszname, void* pany, void* ppszvalue);
+void* windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory(void* pparent, uint64_t cbsize);
+void windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory(void* pparent, void* pchild);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost(void* pszlocalid, void* pcontext, void* ppdevicehost);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2(void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdevicehost);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced(void* pszlocalid, void* pcontext, void* pphostaddresses, uint32_t dwhostaddresscount, void* ppdevicehost);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy(void* pszdeviceid, void* pszlocalid, void* pcontext, void* ppdeviceproxy);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2(void* pszdeviceid, void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdeviceproxy);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced(void* pszdeviceid, void* pdeviceaddress, void* pszlocalid, void* pcontext, void* ppdeviceproxy);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider(void* pcontext, void* ppprovider);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppprovider);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher(void* pcontext, void* pppublisher);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* pppublisher);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress(void* ppaddress);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters(void* pptxparams);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment(void* ppattachment);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress(void* ppaddress);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters(void* pptxparams);
+void windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory(void* pvoid);
+void windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory(void* pvoid);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault(void* pszcode, void* pszsubcode, void* pszreason, void* pszdetail, void* pcontext, void* ppfault);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx(void* pcode, void* psubcode, void* preasons, void* pszdetail, void* ppfault);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cboutbuffer);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cbinbuffer);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode(void* source, uint32_t cchsource, void* destout, void* cchdestout);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode(void* source, uint32_t cchsource, void* destout, void* cchdestout);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild(void* pparent, void* pchild);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling(void* pfirst, void* psecond);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement(void* pelementname, void* psztext, void* ppany);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement(void* pany);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext(void* ppcontext);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace(void* psznamespace, void* pszname, void* ppname);
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny(void* psznamespace, void* pszname, void* pany, void* ppszvalue);
 
 #ifdef __cplusplus
 }

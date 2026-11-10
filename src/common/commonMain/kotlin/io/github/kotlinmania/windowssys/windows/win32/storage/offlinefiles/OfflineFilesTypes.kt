@@ -1,29 +1,29 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-public typealias OFFLINEFILES_CACHING_MODE = Int
+public typealias OfflinefilesCachingMode = Int
 
-public typealias OFFLINEFILES_COMPARE = Int
+public typealias OfflinefilesCompare = Int
 
-public typealias OFFLINEFILES_CONNECT_STATE = Int
+public typealias OfflinefilesConnectState = Int
 
-public typealias OFFLINEFILES_EVENTS = Int
+public typealias OfflinefilesEvents = Int
 
-public typealias OFFLINEFILES_ITEM_COPY = Int
+public typealias OfflinefilesItemCopy = Int
 
-public typealias OFFLINEFILES_ITEM_TIME = Int
+public typealias OfflinefilesItemTime = Int
 
-public typealias OFFLINEFILES_ITEM_TYPE = Int
+public typealias OfflinefilesItemType = Int
 
-public typealias OFFLINEFILES_OFFLINE_REASON = Int
+public typealias OfflinefilesOfflineReason = Int
 
-public typealias OFFLINEFILES_OP_RESPONSE = Int
+public typealias OfflinefilesOpResponse = Int
 
-public typealias OFFLINEFILES_PATHFILTER_MATCH = Int
+public typealias OfflinefilesPathfilterMatch = Int
 
-public typealias OFFLINEFILES_SETTING_VALUE_TYPE = Int
+public typealias OfflinefilesSettingValueType = Int
 
-public typealias OFFLINEFILES_SYNC_CONFLICT_RESOLVE = Int
+public typealias OfflinefilesSyncConflictResolve = Int
 
-public typealias OFFLINEFILES_SYNC_OPERATION = Int
+public typealias OfflinefilesSyncOperation = Int
 
-public typealias OFFLINEFILES_SYNC_STATE = Int
+public typealias OfflinefilesSyncState = Int

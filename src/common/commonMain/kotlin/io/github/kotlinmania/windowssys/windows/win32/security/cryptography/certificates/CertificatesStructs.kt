@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class CAINFO(
+public data class Cainfo(
     public var cbSize: UInt = 0u,
-    public var CAType: ENUM_CATYPES = 0,
+    public var cAType: EnumCatypes = 0,
     public var cCASignatureCerts: UInt = 0u,
     public var cCAExchangeCerts: UInt = 0u,
     public var cExitModules: UInt = 0u,
@@ -15,14 +16,14 @@ public data class CAINFO(
     public var fAdvancedServer: UInt = 0u,
 )
 
-public data class CERTTRANSBLOB(public var cb: UInt = 0u, public var pb: Long = 0L)
+public data class Certtransblob(public var cb: UInt = 0u, public var pb: COpaquePointer? = null)
 
-public data class CERTVIEWRESTRICTION(
-    public var ColumnIndex: UInt = 0u,
-    public var SeekOperator: Int = 0,
-    public var SortOrder: Int = 0,
-    public var pbValue: Long = 0L,
+public data class Certviewrestriction(
+    public var columnIndex: UInt = 0u,
+    public var seekOperator: Int = 0,
+    public var sortOrder: Int = 0,
+    public var pbValue: COpaquePointer? = null,
     public var cbValue: UInt = 0u,
 )
 
-public data class CSEDB_RSTMAPW(public var pwszDatabaseName: PWSTR = 0L, public var pwszNewDatabaseName: PWSTR = 0L)
+public data class CsedbRstmapw(public var pwszDatabaseName: Pwstr = null, public var pwszNewDatabaseName: Pwstr = null)

@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun RtlExtendCorrelationVector(correlationvector: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector(correlationvector.toCPointer<ByteVar>())
+public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlIncrementCorrelationVector(correlationvector: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector(correlationvector.toCPointer<ByteVar>())
+public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector(correlationvector.toCPointer<ByteVar>(), version, guid.toCPointer<ByteVar>())
+public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector(correlationvector?.value?.toCPointer<ByteVar>(), version, guid?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlValidateCorrelationVector(vector: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector(vector.toCPointer<ByteVar>())
+public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.cinterop.windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector(vector?.value?.toCPointer<ByteVar>())

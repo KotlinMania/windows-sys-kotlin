@@ -1,185 +1,186 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ACTIVATEFLAGS = Int
+public typealias Activateflags = Int
 
-public typealias ACTIVEOBJECT_FLAGS = UInt
+public typealias ActiveobjectFlags = UInt
 
-public typealias BINDSPEED = Int
+public typealias Bindspeed = Int
 
-public typealias BUSY_DIALOG_FLAGS = UInt
+public typealias BusyDialogFlags = UInt
 
-public typealias CHANGEKIND = Int
+public typealias Changekind = Int
 
-public typealias CHANGE_ICON_FLAGS = UInt
+public typealias ChangeIconFlags = UInt
 
-public typealias CHANGE_SOURCE_FLAGS = UInt
+public typealias ChangeSourceFlags = UInt
 
-public typealias CLIPBOARD_FORMAT = UShort
+public typealias ClipboardFormat = UShort
 
-public typealias CTRLINFO = Int
+public typealias Ctrlinfo = Int
 
-public typealias DISCARDCACHE = Int
+public typealias Discardcache = Int
 
-public typealias DOCMISC = Int
+public typealias Docmisc = Int
 
-public typealias DROPEFFECT = UInt
+public typealias Dropeffect = UInt
 
-public typealias DVASPECTINFOFLAG = Int
+public typealias Dvaspectinfoflag = Int
 
-public typealias DVEXTENTMODE = Int
+public typealias Dvextentmode = Int
 
-public typealias EDIT_LINKS_FLAGS = UInt
+public typealias EditLinksFlags = UInt
 
-public typealias EMBDHLP_FLAGS = UInt
+public typealias EmbdhlpFlags = UInt
 
-public typealias ENUM_CONTROLS_WHICH_FLAGS = UInt
+public typealias EnumControlsWhichFlags = UInt
 
-public typealias FDEX_PROP_FLAGS = UInt
+public typealias FdexPropFlags = UInt
 
-public typealias GUIDKIND = Int
+public typealias Guidkind = Int
 
-public typealias HITRESULT = Int
+public typealias Hitresult = Int
 
-public typealias IGNOREMIME = Int
+public typealias Ignoremime = Int
 
-public typealias INSERT_OBJECT_FLAGS = UInt
+public typealias InsertObjectFlags = UInt
 
-public typealias KEYMODIFIERS = UInt
+public typealias Keymodifiers = UInt
 
-public typealias LIBFLAGS = Int
+public typealias Libflags = Int
 
-public typealias LOAD_PICTURE_FLAGS = UInt
+public typealias LoadPictureFlags = UInt
 
-public fun interface LPFNOLEUIHOOKFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): UInt
+public fun interface LpfnoleuihookFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): UInt
 }
 
-public typealias LPFNOLEUIHOOK = LPFNOLEUIHOOKFn?
+public typealias Lpfnoleuihook = LpfnoleuihookFn?
 
-public typealias MEDIAPLAYBACK_STATE = Int
+public typealias MediaplaybackState = Int
 
-public typealias MULTICLASSINFO_FLAGS = UInt
+public typealias MulticlassinfoFlags = UInt
 
-public typealias NUMPARSE_FLAGS = UInt
+public typealias NumparseFlags = UInt
 
-public typealias OBJECT_PROPERTIES_FLAGS = UInt
+public typealias ObjectPropertiesFlags = UInt
 
-public typealias OLECLOSE = Int
+public typealias Oleclose = Int
 
-public typealias OLECMDEXECOPT = Int
+public typealias Olecmdexecopt = Int
 
-public typealias OLECMDF = Int
+public typealias Olecmdf = Int
 
-public typealias OLECMDID = Int
+public typealias Olecmdid = Int
 
-public typealias OLECMDID_BROWSERSTATEFLAG = Int
+public typealias OlecmdidBrowserstateflag = Int
 
-public typealias OLECMDID_OPTICAL_ZOOMFLAG = Int
+public typealias OlecmdidOpticalZoomflag = Int
 
-public typealias OLECMDID_PAGEACTIONFLAG = Int
+public typealias OlecmdidPageactionflag = Int
 
-public typealias OLECMDID_REFRESHFLAG = Int
+public typealias OlecmdidRefreshflag = Int
 
-public typealias OLECMDID_VIEWPORT_MODE_FLAG = Int
+public typealias OlecmdidViewportModeFlag = Int
 
-public typealias OLECMDID_WINDOWSTATE_FLAG = Int
+public typealias OlecmdidWindowstateFlag = Int
 
-public typealias OLECMDTEXTF = Int
+public typealias Olecmdtextf = Int
 
-public typealias OLECONTF = Int
+public typealias Olecontf = Int
 
-public typealias OLECREATE = UInt
+public typealias Olecreate = UInt
 
-public typealias OLEDCFLAGS = Int
+public typealias Oledcflags = Int
 
-public typealias OLEGETMONIKER = Int
+public typealias Olegetmoniker = Int
 
-public typealias OLEIVERB = Int
+public typealias Oleiverb = Int
 
-public typealias OLELINKBIND = Int
+public typealias Olelinkbind = Int
 
-public typealias OLEMISC = Int
+public typealias Olemisc = Int
 
-public typealias OLERENDER = Int
+public typealias Olerender = Int
 
-public fun interface OLESTREAMQUERYCONVERTOLELINKCALLBACKFn {
-    public operator fun invoke(pclsid: Long, szclass: PCWSTR, sztopicname: PCWSTR, szitemname: PCWSTR, szuncname: PCWSTR, linkupdatingoption: UInt, pvcontext: Long): HRESULT
+public fun interface OlestreamqueryconvertolelinkcallbackFn {
+    public operator fun invoke(pclsid: COpaquePointer?, szclass: Pcwstr, sztopicname: Pcwstr, szitemname: Pcwstr, szuncname: Pcwstr, linkupdatingoption: UInt, pvcontext: COpaquePointer?): Hresult
 }
 
-public typealias OLESTREAMQUERYCONVERTOLELINKCALLBACK = OLESTREAMQUERYCONVERTOLELINKCALLBACKFn?
+public typealias Olestreamqueryconvertolelinkcallback = OlestreamqueryconvertolelinkcallbackFn?
 
-public typealias OLEUIPASTEFLAG = Int
+public typealias Oleuipasteflag = Int
 
-public typealias OLEUPDATE = Int
+public typealias Oleupdate = Int
 
-public typealias OLEVERBATTRIB = Int
+public typealias Oleverbattrib = Int
 
-public typealias OLEWHICHMK = Int
+public typealias Olewhichmk = Int
 
-public typealias OLE_HANDLE = UInt
+public typealias OleHandle = UInt
 
-public typealias OLE_TRISTATE = Int
+public typealias OleTristate = Int
 
-public typealias PAGEACTION_UI = Int
+public typealias PageactionUi = Int
 
-public typealias PARAMFLAGS = UShort
+public typealias Paramflags = UShort
 
-public typealias PASTE_SPECIAL_FLAGS = UInt
+public typealias PasteSpecialFlags = UInt
 
-public typealias PICTUREATTRIBUTES = Int
+public typealias Pictureattributes = Int
 
-public typealias PICTYPE = Short
+public typealias Pictype = Short
 
-public typealias POINTERINACTIVE = Int
+public typealias Pointerinactive = Int
 
-public typealias PRINTFLAG = Int
+public typealias Printflag = Int
 
-public typealias PROPBAG2_TYPE = Int
+public typealias Propbag2Type = Int
 
-public typealias PROPPAGESTATUS = Int
+public typealias Proppagestatus = Int
 
-public typealias QACONTAINERFLAGS = Int
+public typealias Qacontainerflags = Int
 
-public typealias READYSTATE = Int
+public typealias Readystate = Int
 
-public typealias REGKIND = Int
+public typealias Regkind = Int
 
-public typealias SF_TYPE = Int
+public typealias SfType = Int
 
-public typealias TYPEFLAGS = Int
+public typealias Typeflags = Int
 
-public typealias UASFLAGS = Int
+public typealias Uasflags = Int
 
-public typealias UI_CONVERT_FLAGS = UInt
+public typealias UiConvertFlags = UInt
 
-public typealias UPDFCACHE_FLAGS = UInt
+public typealias UpdfcacheFlags = UInt
 
-public typealias USERCLASSTYPE = Int
+public typealias Userclasstype = Int
 
-public typealias VARCMP = UInt
+public typealias Varcmp = UInt
 
-public typealias VARFORMAT_FIRST_DAY = Int
+public typealias VarformatFirstDay = Int
 
-public typealias VARFORMAT_FIRST_WEEK = Int
+public typealias VarformatFirstWeek = Int
 
-public typealias VARFORMAT_GROUP = Int
+public typealias VarformatGroup = Int
 
-public typealias VARFORMAT_LEADING_DIGIT = Int
+public typealias VarformatLeadingDigit = Int
 
-public typealias VARFORMAT_NAMED_FORMAT = Int
+public typealias VarformatNamedFormat = Int
 
-public typealias VARFORMAT_PARENTHESES = Int
+public typealias VarformatParentheses = Int
 
-public typealias VIEWSTATUS = Int
+public typealias Viewstatus = Int
 
-public typealias VIEW_OBJECT_PROPERTIES_FLAGS = UInt
+public typealias ViewObjectPropertiesFlags = UInt
 
-public typealias WPCSETTING = Int
+public typealias Wpcsetting = Int
 
-public typealias XFORMCOORDS = Int
+public typealias Xformcoords = Int

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmAddFilter(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong strmodulename, jlong pprocess, jlong strserviceshortname, jint filteraction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmAddFilter(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong strmodulename, jlong pprocess, jlong strserviceshortname, jint filteraction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmCancelCurrentTask(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmCancelCurrentTask(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmEndSession(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmEndSession(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmGetFilterList(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong pbfilterbuf, jint cbfilterbuf, jlong cbfilterbufneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmGetFilterList(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong pbfilterbuf, jint cbfilterbuf, jlong cbfilterbufneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmGetList(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong pnprocinfoneeded, jlong pnprocinfo, jlong rgaffectedapps, jlong lpdwrebootreasons) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmGetList(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong pnprocinfoneeded, jlong pnprocinfo, jlong rgaffectedapps, jlong lpdwrebootreasons) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmJoinSession(JNIEnv* km_env, jclass km_clazz, jlong psessionhandle, jlong strsessionkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmJoinSession(JNIEnv* km_env, jclass km_clazz, jlong psessionhandle, jlong strsessionkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -138,7 +138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmRegisterResources(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint nfiles, jlong rgsfilenames, jint napplications, jlong rgapplications, jint nservices, jlong rgsservicenames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmRegisterResources(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint nfiles, jlong rgsfilenames, jint napplications, jlong rgapplications, jint nservices, jlong rgsservicenames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -162,7 +162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmRemoveFilter(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong strmodulename, jlong pprocess, jlong strserviceshortname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmRemoveFilter(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jlong strmodulename, jlong pprocess, jlong strserviceshortname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmRestart(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint dwrestartflags, jlong fnstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmRestart(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint dwrestartflags, jlong fnstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmShutdown(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint lactionflags, jlong fnstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmShutdown(JNIEnv* km_env, jclass km_clazz, jint dwsessionhandle, jint lactionflags, jlong fnstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1RmStartSession(JNIEnv* km_env, jclass km_clazz, jlong psessionhandle, jint dwsessionflags, jlong strsessionkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_restartmanager_WindowsWin32SystemRestartmanagerJniBridge_windowssys_1windows_1win32_1system_1restartmanager_1rmStartSession(JNIEnv* km_env, jclass km_clazz, jlong psessionhandle, jint dwsessionflags, jlong strsessionkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeAsyncRecvDone(void* hclientrequest, uint32_t action) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone(void* hclientrequest, uint32_t action) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeAsyncRecvDone(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOption(void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen, uint8_t boption, uint8_t boptionlen, void* pvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption(void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen, uint8_t boption, uint8_t boptionlen, void* pvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint8_t, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOption(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOptionRaw(void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen, uint16_t ubufferlen, void* pbuffer) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw(void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen, uint16_t ubufferlen, void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpAppendOptionR
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpGetOptionValue(void* ppacket, uint32_t upacketlen, uint32_t uinstance, uint8_t boption, void* pboptionlen, void* ppoptionvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue(void* ppacket, uint32_t upacketlen, uint32_t uinstance, uint8_t boption, void* pboptionlen, void* ppoptionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -118,7 +118,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpGetOptionValu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpGetVendorOptionValue(void* ppacket, uint32_t upacketlen, uint8_t boption, uint32_t uinstance, void* pboptionlen, void* ppoptionvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue(void* ppacket, uint32_t upacketlen, uint8_t boption, uint32_t uinstance, void* pboptionlen, void* ppoptionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpGetVendorOpti
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpInitialize(void* precvpacket, uint32_t urecvpacketlen, void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize(void* precvpacket, uint32_t urecvpacketlen, void* preplypacket, uint32_t umaxreplypacketlen, void* pureplypacketlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpInitialize(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpIsValid(void* ppacket, uint32_t upacketlen, int32_t brequestpacket, void* pbpxeoptionpresent) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid(void* ppacket, uint32_t upacketlen, int32_t brequestpacket, void* pbpxeoptionpresent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpIsValid(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOption(void* preply, uint32_t cbreply, void* pcbreplyused, uint16_t woptiontype, uint16_t cboption, void* poption) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption(void* preply, uint32_t cbreply, void* pcbreplyused, uint16_t woptiontype, uint16_t cboption, void* poption) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOptio
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOptionRaw(void* preply, uint32_t cbreply, void* pcbreplyused, uint16_t cbbuffer, void* pbuffer) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw(void* preply, uint32_t cbreply, void* pcbreplyused, uint16_t cbbuffer, void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6AppendOptio
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6CreateRelayRepl(void* prelaymessages, uint32_t nrelaymessages, void* pinnerpacket, uint32_t cbinnerpacket, void* preplybuffer, uint32_t cbreplybuffer, void* pcbreplybuffer) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl(void* prelaymessages, uint32_t nrelaymessages, void* pinnerpacket, uint32_t cbinnerpacket, void* preplybuffer, uint32_t cbreplybuffer, void* pcbreplybuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -277,7 +277,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6CreateRelay
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetOptionValue(void* ppacket, uint32_t upacketlen, uint32_t uinstance, uint16_t woption, void* pwoptionlen, void* ppoptionvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue(void* ppacket, uint32_t upacketlen, uint32_t uinstance, uint16_t woption, void* pwoptionlen, void* ppoptionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -304,7 +304,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetOptionVa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetVendorOptionValue(void* ppacket, uint32_t upacketlen, uint32_t dwenterprisenumber, uint16_t woption, uint32_t uinstance, void* pwoptionlen, void* ppoptionvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue(void* ppacket, uint32_t upacketlen, uint32_t dwenterprisenumber, uint16_t woption, uint32_t uinstance, void* pwoptionlen, void* ppoptionvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint16_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6GetVendorOp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6Initialize(void* prequest, uint32_t cbrequest, void* preply, uint32_t cbreply, void* pcbreplyused) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize(void* prequest, uint32_t cbrequest, void* preply, uint32_t cbreply, void* pcbreplyused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -358,7 +358,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6Initialize(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6IsValid(void* ppacket, uint32_t upacketlen, int32_t brequestpacket, void* pbpxeoptionpresent) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid(void* ppacket, uint32_t upacketlen, int32_t brequestpacket, void* pbpxeoptionpresent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -383,7 +383,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6IsValid(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6ParseRelayForw(void* prelayforwpacket, uint32_t urelayforwpacketlen, void* prelaymessages, uint32_t nrelaymessages, void* pnrelaymessages, void* ppinnerpacket, void* pcbinnerpacket) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw(void* prelayforwpacket, uint32_t urelayforwpacketlen, void* prelaymessages, uint32_t nrelaymessages, void* pnrelaymessages, void* ppinnerpacket, void* pcbinnerpacket) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -411,7 +411,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeDhcpv6ParseRelayF
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeGetServerInfo(uint32_t uinfotype, void* pbuffer, uint32_t ubufferlen) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo(uint32_t uinfotype, void* pbuffer, uint32_t ubufferlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeGetServerInfo(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeGetServerInfoEx(uint32_t uinfotype, void* pbuffer, uint32_t ubufferlen, void* pubufferused) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx(uint32_t uinfotype, void* pbuffer, uint32_t ubufferlen, void* pubufferused) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -460,7 +460,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeGetServerInfoEx(u
 #endif
 }
 
-void* windowssys_windows_win32_system_deploymentservices_PxePacketAllocate(void* hprovider, void* hclientrequest, uint32_t usize) {
+void* windowssys_windows_win32_system_deploymentservices_pxePacketAllocate(void* hprovider, void* hclientrequest, uint32_t usize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -484,7 +484,7 @@ void* windowssys_windows_win32_system_deploymentservices_PxePacketAllocate(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxePacketFree(void* hprovider, void* hclientrequest, void* ppacket) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxePacketFree(void* hprovider, void* hclientrequest, void* ppacket) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,7 +508,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxePacketFree(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumClose(void* henum) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose(void* henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -530,7 +530,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumClose
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumFirst(void* phenum) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst(void* phenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumFirst
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumNext(void* henum, void* ppprovider) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext(void* henum, void* ppprovider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -575,7 +575,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderEnumNext(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderFreeInfo(void* pprovider) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo(void* pprovider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderFreeInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderQueryIndex(void* pszprovidername, void* puindex) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex(void* pszprovidername, void* puindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -620,7 +620,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderQueryInde
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderRegister(void* pszprovidername, void* pszmodulepath, uint32_t arg_2_index, int32_t biscritical, void* phproviderkey) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderRegister(void* pszprovidername, void* pszmodulepath, uint32_t arg_2_index, int32_t biscritical, void* phproviderkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -646,7 +646,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderRegister(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderSetAttribute(void* hprovider, uint32_t attribute, void* pparameterbuffer, uint32_t uparamlen) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute(void* hprovider, uint32_t attribute, void* pparameterbuffer, uint32_t uparamlen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -671,7 +671,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderSetAttrib
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderUnRegister(void* pszprovidername) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister(void* pszprovidername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -693,7 +693,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeProviderUnRegiste
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeRegisterCallback(void* hprovider, uint32_t callbacktype, void* pcallbackfunction, void* pcontext) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback(void* hprovider, uint32_t callbacktype, void* pcallbackfunction, void* pcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeRegisterCallback(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeSendReply(void* hclientrequest, void* ppacket, uint32_t upacketlen, void* paddress) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeSendReply(void* hclientrequest, void* ppacket, uint32_t upacketlen, void* paddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,42 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeSendReply(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_PxeTraceV(void* hprovider, uint32_t severity, void* pszformat, void* params) {
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeTrace(void* hprovider, uint32_t severity, void* pszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef uint32_t (*km_fn_t)(void*, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PxeTrace");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(hprovider, severity, pszformat);
+            case 1: return km_fn_ptr(hprovider, severity, pszformat, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(hprovider, severity, pszformat, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(hprovider, severity, pszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(hprovider, severity, pszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return 0;
+#else
+    (void)hprovider;
+    (void)severity;
+    (void)pszformat;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return 0;
+#endif
+}
+
+uint32_t windowssys_windows_win32_system_deploymentservices_pxeTraceV(void* hprovider, uint32_t severity, void* pszformat, void* params) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +803,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_PxeTraceV(void* hpro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpAddOption(void* hhandle, uint32_t uoption, uint32_t uvaluelen, void* pvalue) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpAddOption(void* hhandle, uint32_t uoption, uint32_t uvaluelen, void* pvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -793,7 +828,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpAddOption(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpCloseHandle(void* hhandle) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle(void* hhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -815,7 +850,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpCloseHandle(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpGetOptionBuffer(void* hhandle, uint32_t ubufferlen, void* pbuffer, void* pubytes) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer(void* hhandle, uint32_t ubufferlen, void* pbuffer, void* pubytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -840,7 +875,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpGetOptionBuffer
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpInitialize(uint8_t bpackettype, void* phhandle) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpInitialize(uint8_t bpackettype, void* phhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -863,7 +898,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpInitialize(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpParseInitialize(void* ppacket, uint32_t upacketlen, void* pbpackettype, void* phhandle) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize(void* ppacket, uint32_t upacketlen, void* pbpackettype, void* phhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +923,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpParseInitialize
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpParseInitializev6(void* ppacket, uint32_t upacketlen, void* pbpackettype, void* phhandle) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6(void* ppacket, uint32_t upacketlen, void* pbpackettype, void* phhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -913,7 +948,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpParseInitialize
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpQueryOption(void* hhandle, uint32_t uoption, uint32_t uvaluelen, void* pvalue, void* pubytes) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption(void* hhandle, uint32_t uoption, uint32_t uvaluelen, void* pvalue, void* pubytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -939,7 +974,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsBpQueryOption(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliAuthorizeSession(void* hsession, void* pcred) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession(void* hsession, void* pcred) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +997,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliAuthorizeSessio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliCancelTransfer(void* htransfer) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer(void* htransfer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -984,7 +1019,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliCancelTransfer(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliClose(void* handle) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliClose(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1006,7 +1041,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliClose(void* han
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliCreateSession(void* pwszserver, void* pcred, void* phsession) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession(void* pwszserver, void* pcred, void* phsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1030,7 +1065,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliCreateSession(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFindFirstImage(void* hsession, void* phfindhandle) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage(void* hsession, void* phfindhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1088,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFindFirstImage(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFindNextImage(void* handle) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1075,7 +1110,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFindNextImage(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFreeStringArray(void* ppwszarray, uint32_t ulcount) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray(void* ppwszarray, uint32_t ulcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1098,7 +1133,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliFreeStringArray
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetDriverQueryXml(void* pwszwindirpath, void* ppwszdriverquery) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml(void* pwszwindirpath, void* ppwszdriverquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1121,7 +1156,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetDriverQueryX
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetEnumerationFlags(void* handle, void* pdwflags) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags(void* handle, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1144,7 +1179,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetEnumerationF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageArchitecture(void* hifh, void* pdwvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture(void* hifh, void* pdwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1167,7 +1202,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageArchite
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageDescription(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1190,7 +1225,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageDescrip
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageFiles(void* hifh, void* pppwszfiles, void* pdwcount) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles(void* hifh, void* pppwszfiles, void* pdwcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1214,7 +1249,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageFiles(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageGroup(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1237,7 +1272,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageGroup(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHalName(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1260,7 +1295,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHalName
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromFindHandle(void* findhandle, void* phimagehandle) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle(void* findhandle, void* phimagehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1283,7 +1318,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleFromTransferHandle(void* htransfer, void* phimagehandle) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle(void* htransfer, void* phimagehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1341,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageHandleF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageIndex(void* hifh, void* pdwvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex(void* hifh, void* pdwvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1364,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageIndex(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguage(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1352,7 +1387,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguag
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguages(void* hifh, void* pppszvalues, void* pdwnumvalues) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages(void* hifh, void* pppszvalues, void* pdwnumvalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1376,7 +1411,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLanguag
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLastModifiedTime(void* hifh, void* ppsystimevalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime(void* hifh, void* ppsystimevalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1434,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageLastMod
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageName(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1457,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageName(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageNamespace(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1445,7 +1480,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageNamespa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageParameter(void* hifh, int32_t paramtype, void* presponse, uint32_t uresponselen) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter(void* hifh, int32_t paramtype, void* presponse, uint32_t uresponselen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1470,7 +1505,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageParamet
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImagePath(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1493,7 +1528,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImagePath(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageSize(void* hifh, void* pullvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize(void* hifh, void* pullvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1516,7 +1551,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageSize(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageType(void* hifh, void* pimagetype) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType(void* hifh, void* pimagetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1539,7 +1574,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageType(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageVersion(void* hifh, void* ppwszvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion(void* hifh, void* ppwszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1562,7 +1597,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetImageVersion
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetTransferSize(void* hifh, void* pullvalue) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize(void* hifh, void* pullvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1585,7 +1620,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliGetTransferSize
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliInitializeLog(void* hsession, uint32_t ulclientarchitecture, void* pwszclientid, void* pwszclientaddress) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog(void* hsession, uint32_t ulclientarchitecture, void* pwszclientid, void* pwszclientaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1610,7 +1645,42 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliInitializeLog(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackages(void* himage, void* ppwszservername, void* pppwszdriverpackages, void* pulcount) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliLog(void* hsession, uint32_t ulloglevel, uint32_t ulmessagecode, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, uint32_t, uint32_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WdsCliLog");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(hsession, ulloglevel, ulmessagecode);
+            case 1: return km_fn_ptr(hsession, ulloglevel, ulmessagecode, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(hsession, ulloglevel, ulmessagecode, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(hsession, ulloglevel, ulmessagecode, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(hsession, ulloglevel, ulmessagecode, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)hsession;
+    (void)ulloglevel;
+    (void)ulmessagecode;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages(void* himage, void* ppwszservername, void* pppwszdriverpackages, void* pulcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1635,7 +1705,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPackagesEx(void* hsession, void* pwszmachineinfo, void* ppwszservername, void* pppwszdriverpackages, void* pulcount) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx(void* hsession, void* pwszmachineinfo, void* ppwszservername, void* pppwszdriverpackages, void* pulcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1661,7 +1731,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliObtainDriverPac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliRegisterTrace(void* pfn) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace(void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1683,7 +1753,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliRegisterTrace(v
 #endif
 }
 
-void windowssys_windows_win32_system_deploymentservices_WdsCliSetTransferBufferSize(uint32_t ulsizeinbytes) {
+void windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize(uint32_t ulsizeinbytes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1704,7 +1774,7 @@ void windowssys_windows_win32_system_deploymentservices_WdsCliSetTransferBufferS
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliTransferFile(void* pwszserver, void* pwsznamespace, void* pwszremotefilepath, void* pwszlocalfilepath, uint32_t dwflags, uint32_t dwreserved, void* pfnwdsclicallback, void* pvuserdata, void* phtransfer) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile(void* pwszserver, void* pwsznamespace, void* pwszremotefilepath, void* pwszlocalfilepath, uint32_t dwflags, uint32_t dwreserved, void* pfnwdsclicallback, void* pvuserdata, void* phtransfer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1734,7 +1804,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliTransferFile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliTransferImage(void* himage, void* pwszlocalpath, uint32_t dwflags, uint32_t dwreserved, void* pfnwdsclicallback, void* pvuserdata, void* phtransfer) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage(void* himage, void* pwszlocalpath, uint32_t dwflags, uint32_t dwreserved, void* pfnwdsclicallback, void* pvuserdata, void* phtransfer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1762,7 +1832,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliTransferImage(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsCliWaitForTransfer(void* htransfer) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer(void* htransfer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1784,7 +1854,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsCliWaitForTransfer
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientAddRefBuffer(void* pvbuffer) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer(void* pvbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1806,7 +1876,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientAd
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSession(void* hsessionkey) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession(void* hsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1828,7 +1898,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCancelSessionEx(void* hsessionkey, uint32_t dwerrorcode) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx(void* hsessionkey, uint32_t dwerrorcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1851,7 +1921,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCloseSession(void* hsessionkey) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession(void* hsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1943,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCl
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCompleteReceive(void* hsessionkey, uint32_t ulsize, void* pulloffset) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive(void* hsessionkey, uint32_t ulsize, void* pulloffset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1897,7 +1967,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitialize(void) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1988,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientInitializeSession(void* psessionrequest, void* pcallerdata, void* hsessionkey) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession(void* psessionrequest, void* pcallerdata, void* hsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1942,7 +2012,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientQueryStatus(void* hsessionkey, void* pustatus, void* puerrorcode) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus(void* hsessionkey, void* pustatus, void* puerrorcode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +2036,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientQu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientRegisterCallback(void* hsessionkey, int32_t callbackid, void* pfncallback) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback(void* hsessionkey, int32_t callbackid, void* pfncallback) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1990,7 +2060,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientRe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientReleaseBuffer(void* pvbuffer) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer(void* pvbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2012,7 +2082,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientRe
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientShutdown(void) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2033,7 +2103,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientSh
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientStartSession(void* hsessionkey) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession(void* hsessionkey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2055,7 +2125,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientSt
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientWaitForCompletion(void* hsessionkey, uint32_t utimeout) {
+uint32_t windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion(void* hsessionkey, uint32_t utimeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2078,7 +2148,7 @@ uint32_t windowssys_windows_win32_system_deploymentservices_WdsTransportClientWa
 #endif
 }
 
-void* windowssys_windows_win32_system_deploymentservices_WdsTransportServerAllocateBuffer(void* hprovider, uint32_t ulbuffersize) {
+void* windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer(void* hprovider, uint32_t ulbuffersize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2101,7 +2171,7 @@ void* windowssys_windows_win32_system_deploymentservices_WdsTransportServerAlloc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerCompleteRead(void* hprovider, uint32_t ulbytesread, void* pvuserdata, int32_t hreadresult) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead(void* hprovider, uint32_t ulbytesread, void* pvuserdata, int32_t hreadresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2126,7 +2196,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerCom
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerFreeBuffer(void* hprovider, void* pvbuffer) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer(void* hprovider, void* pvbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2149,7 +2219,7 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerFre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerRegisterCallback(void* hprovider, int32_t callbackid, void* pfncallback) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback(void* hprovider, int32_t callbackid, void* pfncallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2173,7 +2243,42 @@ int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerReg
 #endif
 }
 
-int32_t windowssys_windows_win32_system_deploymentservices_WdsTransportServerTraceV(void* hprovider, uint32_t severity, void* pwszformat, void* params) {
+int32_t windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace(void* hprovider, uint32_t severity, void* pwszformat, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WdsTransportServerTrace");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(hprovider, severity, pwszformat);
+            case 1: return km_fn_ptr(hprovider, severity, pwszformat, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(hprovider, severity, pwszformat, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(hprovider, severity, pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(hprovider, severity, pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)hprovider;
+    (void)severity;
+    (void)pwszformat;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV(void* hprovider, uint32_t severity, void* pwszformat, void* params) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

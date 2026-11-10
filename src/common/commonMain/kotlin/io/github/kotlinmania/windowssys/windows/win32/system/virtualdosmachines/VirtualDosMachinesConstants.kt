@@ -150,9 +150,9 @@ public val VDMADDR_PM32: UInt = 16u
 
 public val VDMADDR_V86: UInt = 2u
 
-public val VDMCONTEXT_i386: UInt = 65536u
+public val VDMCONTEXT_I386: UInt = 65536u
 
-public val VDMCONTEXT_i486: UInt = 65536u
+public val VDMCONTEXT_I486: UInt = 65536u
 
 public val VDMDBG_BREAK_DEBUGGER: UInt = 16u
 

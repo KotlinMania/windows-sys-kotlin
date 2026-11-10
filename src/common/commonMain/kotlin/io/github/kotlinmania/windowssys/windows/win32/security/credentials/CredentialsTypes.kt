@@ -1,59 +1,60 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias CREDSPP_SUBMIT_TYPE = Int
+public typealias CredsppSubmitType = Int
 
-public typealias CREDUIWIN_FLAGS = UInt
+public typealias CreduiwinFlags = UInt
 
-public typealias CREDUI_FLAGS = UInt
+public typealias CreduiFlags = UInt
 
-public typealias CRED_ENUMERATE_FLAGS = UInt
+public typealias CredEnumerateFlags = UInt
 
-public typealias CRED_FLAGS = UInt
+public typealias CredFlags = UInt
 
-public typealias CRED_MARSHAL_TYPE = Int
+public typealias CredMarshalType = Int
 
-public typealias CRED_PACK_FLAGS = UInt
+public typealias CredPackFlags = UInt
 
-public typealias CRED_PERSIST = UInt
+public typealias CredPersist = UInt
 
-public typealias CRED_PROTECTION_TYPE = Int
+public typealias CredProtectionType = Int
 
-public typealias CRED_TYPE = UInt
+public typealias CredType = UInt
 
 public typealias KeyCredentialManagerOperationErrorStates = Int
 
 public typealias KeyCredentialManagerOperationType = Int
 
-public fun interface LPOCNCHKPROCFn {
-    public operator fun invoke(param0: ULong, param1: ULong, param2: Long): BOOL
+public fun interface LpocnchkprocFn {
+    public operator fun invoke(param0: ULong, param1: ULong, param2: COpaquePointer?): Bool
 }
 
-public typealias LPOCNCHKPROC = LPOCNCHKPROCFn?
+public typealias Lpocnchkproc = LpocnchkprocFn?
 
-public fun interface LPOCNCONNPROCAFn {
-    public operator fun invoke(param0: ULong, param1: PCSTR, param2: PCSTR, param3: Long): ULong
+public fun interface LpocnconnprocaFn {
+    public operator fun invoke(param0: ULong, param1: Pcstr, param2: Pcstr, param3: COpaquePointer?): ULong
 }
 
-public typealias LPOCNCONNPROCA = LPOCNCONNPROCAFn?
+public typealias Lpocnconnproca = LpocnconnprocaFn?
 
-public fun interface LPOCNCONNPROCWFn {
-    public operator fun invoke(param0: ULong, param1: PCWSTR, param2: PCWSTR, param3: Long): ULong
+public fun interface LpocnconnprocwFn {
+    public operator fun invoke(param0: ULong, param1: Pcwstr, param2: Pcwstr, param3: COpaquePointer?): ULong
 }
 
-public typealias LPOCNCONNPROCW = LPOCNCONNPROCWFn?
+public typealias Lpocnconnprocw = LpocnconnprocwFn?
 
-public fun interface LPOCNDSCPROCFn {
-    public operator fun invoke(param0: ULong, param1: ULong, param2: Long)
+public fun interface LpocndscprocFn {
+    public operator fun invoke(param0: ULong, param1: ULong, param2: COpaquePointer?)
 }
 
-public typealias LPOCNDSCPROC = LPOCNDSCPROCFn?
+public typealias Lpocndscproc = LpocndscprocFn?
 
-public typealias READER_SEL_REQUEST_MATCH_TYPE = Int
+public typealias ReaderSelRequestMatchType = Int
 
-public typealias SCARD_SCOPE = UInt
+public typealias ScardScope = UInt
 
-public typealias SCARD_STATE = UInt
+public typealias ScardState = UInt

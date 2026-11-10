@@ -1,147 +1,148 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.cabinets
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
 
-public typealias FCIERROR = Int
+public typealias Fcierror = Int
 
-public typealias FDICREATE_CPU_TYPE = Int
+public typealias FdicreateCpuType = Int
 
-public typealias FDIDECRYPTTYPE = Int
+public typealias Fdidecrypttype = Int
 
-public typealias FDIERROR = Int
+public typealias Fdierror = Int
 
-public typealias FDINOTIFICATIONTYPE = Int
+public typealias Fdinotificationtype = Int
 
-public fun interface PFNALLOCFn {
-    public operator fun invoke(cb: UInt): Long
+public fun interface PfnallocFn {
+    public operator fun invoke(cb: UInt): COpaquePointer?
 }
 
-public typealias PFNALLOC = PFNALLOCFn?
+public typealias Pfnalloc = PfnallocFn?
 
-public fun interface PFNCLOSEFn {
+public fun interface PfncloseFn {
     public operator fun invoke(hf: Long): Int
 }
 
-public typealias PFNCLOSE = PFNCLOSEFn?
+public typealias Pfnclose = PfncloseFn?
 
-public fun interface PFNFCIALLOCFn {
-    public operator fun invoke(cb: UInt): Long
+public fun interface PfnfciallocFn {
+    public operator fun invoke(cb: UInt): COpaquePointer?
 }
 
-public typealias PFNFCIALLOC = PFNFCIALLOCFn?
+public typealias Pfnfcialloc = PfnfciallocFn?
 
-public fun interface PFNFCICLOSEFn {
-    public operator fun invoke(hf: Long, err: Long, pv: Long): Int
+public fun interface PfnfcicloseFn {
+    public operator fun invoke(hf: Long, err: COpaquePointer?, pv: COpaquePointer?): Int
 }
 
-public typealias PFNFCICLOSE = PFNFCICLOSEFn?
+public typealias Pfnfciclose = PfnfcicloseFn?
 
-public fun interface PFNFCIDELETEFn {
-    public operator fun invoke(pszfile: PCSTR, err: Long, pv: Long): Int
+public fun interface PfnfcideleteFn {
+    public operator fun invoke(pszfile: Pcstr, err: COpaquePointer?, pv: COpaquePointer?): Int
 }
 
-public typealias PFNFCIDELETE = PFNFCIDELETEFn?
+public typealias Pfnfcidelete = PfnfcideleteFn?
 
-public fun interface PFNFCIFILEPLACEDFn {
-    public operator fun invoke(pccab: Long, pszfile: PCSTR, cbfile: Int, fcontinuation: BOOL, pv: Long): Int
+public fun interface PfnfcifileplacedFn {
+    public operator fun invoke(pccab: COpaquePointer?, pszfile: Pcstr, cbfile: Int, fcontinuation: Bool, pv: COpaquePointer?): Int
 }
 
-public typealias PFNFCIFILEPLACED = PFNFCIFILEPLACEDFn?
+public typealias Pfnfcifileplaced = PfnfcifileplacedFn?
 
-public fun interface PFNFCIFREEFn {
-    public operator fun invoke(memory: Long)
+public fun interface PfnfcifreeFn {
+    public operator fun invoke(memory: COpaquePointer?)
 }
 
-public typealias PFNFCIFREE = PFNFCIFREEFn?
+public typealias Pfnfcifree = PfnfcifreeFn?
 
-public fun interface PFNFCIGETNEXTCABINETFn {
-    public operator fun invoke(pccab: Long, cbprevcab: UInt, pv: Long): BOOL
+public fun interface PfnfcigetnextcabinetFn {
+    public operator fun invoke(pccab: COpaquePointer?, cbprevcab: UInt, pv: COpaquePointer?): Bool
 }
 
-public typealias PFNFCIGETNEXTCABINET = PFNFCIGETNEXTCABINETFn?
+public typealias Pfnfcigetnextcabinet = PfnfcigetnextcabinetFn?
 
-public fun interface PFNFCIGETOPENINFOFn {
-    public operator fun invoke(pszname: PCSTR, pdate: Long, ptime: Long, pattribs: Long, err: Long, pv: Long): Long
+public fun interface PfnfcigetopeninfoFn {
+    public operator fun invoke(pszname: Pcstr, pdate: COpaquePointer?, ptime: COpaquePointer?, pattribs: COpaquePointer?, err: COpaquePointer?, pv: COpaquePointer?): Long
 }
 
-public typealias PFNFCIGETOPENINFO = PFNFCIGETOPENINFOFn?
+public typealias Pfnfcigetopeninfo = PfnfcigetopeninfoFn?
 
-public fun interface PFNFCIGETTEMPFILEFn {
-    public operator fun invoke(psztempname: PSTR, cbtempname: Int, pv: Long): BOOL
+public fun interface PfnfcigettempfileFn {
+    public operator fun invoke(psztempname: Pstr, cbtempname: Int, pv: COpaquePointer?): Bool
 }
 
-public typealias PFNFCIGETTEMPFILE = PFNFCIGETTEMPFILEFn?
+public typealias Pfnfcigettempfile = PfnfcigettempfileFn?
 
-public fun interface PFNFCIOPENFn {
-    public operator fun invoke(pszfile: PCSTR, oflag: Int, pmode: Int, err: Long, pv: Long): Long
+public fun interface PfnfciopenFn {
+    public operator fun invoke(pszfile: Pcstr, oflag: Int, pmode: Int, err: COpaquePointer?, pv: COpaquePointer?): Long
 }
 
-public typealias PFNFCIOPEN = PFNFCIOPENFn?
+public typealias Pfnfciopen = PfnfciopenFn?
 
-public fun interface PFNFCIREADFn {
-    public operator fun invoke(hf: Long, memory: Long, cb: UInt, err: Long, pv: Long): UInt
+public fun interface PfnfcireadFn {
+    public operator fun invoke(hf: Long, memory: COpaquePointer?, cb: UInt, err: COpaquePointer?, pv: COpaquePointer?): UInt
 }
 
-public typealias PFNFCIREAD = PFNFCIREADFn?
+public typealias Pfnfciread = PfnfcireadFn?
 
-public fun interface PFNFCISEEKFn {
-    public operator fun invoke(hf: Long, dist: Int, seektype: Int, err: Long, pv: Long): Int
+public fun interface PfnfciseekFn {
+    public operator fun invoke(hf: Long, dist: Int, seektype: Int, err: COpaquePointer?, pv: COpaquePointer?): Int
 }
 
-public typealias PFNFCISEEK = PFNFCISEEKFn?
+public typealias Pfnfciseek = PfnfciseekFn?
 
-public fun interface PFNFCISTATUSFn {
-    public operator fun invoke(typestatus: UInt, cb1: UInt, cb2: UInt, pv: Long): Int
+public fun interface PfnfcistatusFn {
+    public operator fun invoke(typestatus: UInt, cb1: UInt, cb2: UInt, pv: COpaquePointer?): Int
 }
 
-public typealias PFNFCISTATUS = PFNFCISTATUSFn?
+public typealias Pfnfcistatus = PfnfcistatusFn?
 
-public fun interface PFNFCIWRITEFn {
-    public operator fun invoke(hf: Long, memory: Long, cb: UInt, err: Long, pv: Long): UInt
+public fun interface PfnfciwriteFn {
+    public operator fun invoke(hf: Long, memory: COpaquePointer?, cb: UInt, err: COpaquePointer?, pv: COpaquePointer?): UInt
 }
 
-public typealias PFNFCIWRITE = PFNFCIWRITEFn?
+public typealias Pfnfciwrite = PfnfciwriteFn?
 
-public fun interface PFNFDIDECRYPTFn {
-    public operator fun invoke(pfdid: Long): Int
+public fun interface PfnfdidecryptFn {
+    public operator fun invoke(pfdid: COpaquePointer?): Int
 }
 
-public typealias PFNFDIDECRYPT = PFNFDIDECRYPTFn?
+public typealias Pfnfdidecrypt = PfnfdidecryptFn?
 
-public fun interface PFNFDINOTIFYFn {
-    public operator fun invoke(fdint: FDINOTIFICATIONTYPE, pfdin: Long): Long
+public fun interface PfnfdinotifyFn {
+    public operator fun invoke(fdint: Fdinotificationtype, pfdin: COpaquePointer?): Long
 }
 
-public typealias PFNFDINOTIFY = PFNFDINOTIFYFn?
+public typealias Pfnfdinotify = PfnfdinotifyFn?
 
-public fun interface PFNFREEFn {
-    public operator fun invoke(pv: Long)
+public fun interface PfnfreeFn {
+    public operator fun invoke(pv: COpaquePointer?)
 }
 
-public typealias PFNFREE = PFNFREEFn?
+public typealias Pfnfree = PfnfreeFn?
 
-public fun interface PFNOPENFn {
-    public operator fun invoke(pszfile: PCSTR, oflag: Int, pmode: Int): Long
+public fun interface PfnopenFn {
+    public operator fun invoke(pszfile: Pcstr, oflag: Int, pmode: Int): Long
 }
 
-public typealias PFNOPEN = PFNOPENFn?
+public typealias Pfnopen = PfnopenFn?
 
-public fun interface PFNREADFn {
-    public operator fun invoke(hf: Long, pv: Long, cb: UInt): UInt
+public fun interface PfnreadFn {
+    public operator fun invoke(hf: Long, pv: COpaquePointer?, cb: UInt): UInt
 }
 
-public typealias PFNREAD = PFNREADFn?
+public typealias Pfnread = PfnreadFn?
 
-public fun interface PFNSEEKFn {
+public fun interface PfnseekFn {
     public operator fun invoke(hf: Long, dist: Int, seektype: Int): Int
 }
 
-public typealias PFNSEEK = PFNSEEKFn?
+public typealias Pfnseek = PfnseekFn?
 
-public fun interface PFNWRITEFn {
-    public operator fun invoke(hf: Long, pv: Long, cb: UInt): UInt
+public fun interface PfnwriteFn {
+    public operator fun invoke(hf: Long, pv: COpaquePointer?, cb: UInt): UInt
 }
 
-public typealias PFNWRITE = PFNWRITEFn?
+public typealias Pfnwrite = PfnwriteFn?

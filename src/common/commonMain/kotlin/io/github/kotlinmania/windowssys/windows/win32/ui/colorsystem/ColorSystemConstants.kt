@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val ATTRIB_MATTE: UInt = 2u
 
@@ -9,89 +9,89 @@ public val ATTRIB_TRANSPARENCY: UInt = 1u
 
 public val BEST_MODE: UInt = 3u
 
-public val BM_10b_G3CH: BMFORMAT = 1028
+public val BM_10B_G3CH: Bmformat = 1028
 
-public val BM_10b_Lab: BMFORMAT = 1027
+public val BM_10B_LAB: Bmformat = 1027
 
-public val BM_10b_RGB: BMFORMAT = 9
+public val BM_10B_RGB: Bmformat = 9
 
-public val BM_10b_XYZ: BMFORMAT = 1025
+public val BM_10B_XYZ: Bmformat = 1025
 
-public val BM_10b_Yxy: BMFORMAT = 1026
+public val BM_10B_YXY: Bmformat = 1026
 
-public val BM_16b_G3CH: BMFORMAT = 1284
+public val BM_16B_G3CH: Bmformat = 1284
 
-public val BM_16b_GRAY: BMFORMAT = 1285
+public val BM_16B_GRAY: Bmformat = 1285
 
-public val BM_16b_Lab: BMFORMAT = 1283
+public val BM_16B_LAB: Bmformat = 1283
 
-public val BM_16b_RGB: BMFORMAT = 10
+public val BM_16B_RGB: Bmformat = 10
 
-public val BM_16b_XYZ: BMFORMAT = 1281
+public val BM_16B_XYZ: Bmformat = 1281
 
-public val BM_16b_Yxy: BMFORMAT = 1282
+public val BM_16B_YXY: Bmformat = 1282
 
-public val BM_32b_scARGB: BMFORMAT = 1538
+public val BM_32B_SC_ARGB: Bmformat = 1538
 
-public val BM_32b_scRGB: BMFORMAT = 1537
+public val BM_32B_SC_RGB: Bmformat = 1537
 
-public val BM_565RGB: BMFORMAT = 1
+public val BM_565RGB: Bmformat = 1
 
-public val BM_5CHANNEL: BMFORMAT = 517
+public val BM_5CHANNEL: Bmformat = 517
 
-public val BM_6CHANNEL: BMFORMAT = 518
+public val BM_6CHANNEL: Bmformat = 518
 
-public val BM_7CHANNEL: BMFORMAT = 519
+public val BM_7CHANNEL: Bmformat = 519
 
-public val BM_8CHANNEL: BMFORMAT = 520
+public val BM_8CHANNEL: Bmformat = 520
 
-public val BM_BGRTRIPLETS: BMFORMAT = 4
+public val BM_BGRTRIPLETS: Bmformat = 4
 
-public val BM_CMYKQUADS: BMFORMAT = 32
+public val BM_CMYKQUADS: Bmformat = 32
 
-public val BM_G3CHTRIPLETS: BMFORMAT = 516
+public val BM_G3CHTRIPLETS: Bmformat = 516
 
-public val BM_GRAY: BMFORMAT = 521
+public val BM_GRAY: Bmformat = 521
 
-public val BM_KYMCQUADS: BMFORMAT = 773
+public val BM_KYMCQUADS: Bmformat = 773
 
-public val BM_LabTRIPLETS: BMFORMAT = 515
+public val BM_LAB_TRIPLETS: Bmformat = 515
 
-public val BM_NAMED_INDEX: BMFORMAT = 1029
+public val BM_NAMED_INDEX: Bmformat = 1029
 
-public val BM_R10G10B10A2: BMFORMAT = 1793
+public val BM_R10G10B10A2: Bmformat = 1793
 
-public val BM_R10G10B10A2_XR: BMFORMAT = 1794
+public val BM_R10G10B10A2_XR: Bmformat = 1794
 
-public val BM_R16G16B16A16_FLOAT: BMFORMAT = 1795
+public val BM_R16G16B16A16_FLOAT: Bmformat = 1795
 
-public val BM_RGBTRIPLETS: BMFORMAT = 2
+public val BM_RGBTRIPLETS: Bmformat = 2
 
-public val BM_S2DOT13FIXED_scARGB: BMFORMAT = 1540
+public val BM_S2DOT13FIXED_SC_ARGB: Bmformat = 1540
 
-public val BM_S2DOT13FIXED_scRGB: BMFORMAT = 1539
+public val BM_S2DOT13FIXED_SC_RGB: Bmformat = 1539
 
-public val BM_XYZTRIPLETS: BMFORMAT = 513
+public val BM_XYZTRIPLETS: Bmformat = 513
 
-public val BM_YxyTRIPLETS: BMFORMAT = 514
+public val BM_YXY_TRIPLETS: Bmformat = 514
 
-public val BM_x555G3CH: BMFORMAT = 260
+public val BM_X555G3CH: Bmformat = 260
 
-public val BM_x555Lab: BMFORMAT = 259
+public val BM_X555LAB: Bmformat = 259
 
-public val BM_x555RGB: BMFORMAT = 0
+public val BM_X555RGB: Bmformat = 0
 
-public val BM_x555XYZ: BMFORMAT = 257
+public val BM_X555XYZ: Bmformat = 257
 
-public val BM_x555Yxy: BMFORMAT = 258
+public val BM_X555YXY: Bmformat = 258
 
-public val BM_xBGRQUADS: BMFORMAT = 16
+public val BM_X_BGRQUADS: Bmformat = 16
 
-public val BM_xG3CHQUADS: BMFORMAT = 772
+public val BM_X_G3CHQUADS: Bmformat = 772
 
-public val BM_xRGBQUADS: BMFORMAT = 8
+public val BM_X_RGBQUADS: Bmformat = 8
 
-public val CATID_WcsPlugin: GUID = GUID.from_u128(U128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL))
+public val CATID_WCS_PLUGIN: Guid = Guid.fromU128(U128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL))
 
 public val CMM_DESCRIPTION: UInt = 5u
 
@@ -121,7 +121,7 @@ public val CMS_ENABLEPROOFING: UInt = 2u
 
 public val CMS_FORWARD: UInt = 0u
 
-public val CMS_MONITOROVERFLOW: Int = -2147483648
+public val CMS_MONITOROVERFLOW: Int = -2147483648.toInt()
 
 public val CMS_PRINTEROVERFLOW: Int = 1073741824
 
@@ -143,71 +143,71 @@ public val CMS_USEDESCRIPTION: UInt = 512u
 
 public val CMS_USEHOOK: UInt = 128u
 
-public val COLOR_10b_R10G10B10A2: COLORDATATYPE = 5
+public val COLOR_10B_R10G10B10A2: Colordatatype = 5
 
-public val COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = 6
+public val COLOR_10B_R10G10B10A2_XR: Colordatatype = 6
 
-public val COLOR_3_CHANNEL: COLORTYPE = 6
+public val COLOR_3_CHANNEL: Colortype = 6
 
-public val COLOR_5_CHANNEL: COLORTYPE = 8
+public val COLOR_5_CHANNEL: Colortype = 8
 
-public val COLOR_6_CHANNEL: COLORTYPE = 9
+public val COLOR_6_CHANNEL: Colortype = 9
 
-public val COLOR_7_CHANNEL: COLORTYPE = 10
+public val COLOR_7_CHANNEL: Colortype = 10
 
-public val COLOR_8_CHANNEL: COLORTYPE = 11
+public val COLOR_8_CHANNEL: Colortype = 11
 
-public val COLOR_BYTE: COLORDATATYPE = 1
+public val COLOR_BYTE: Colordatatype = 1
 
-public val COLOR_CMYK: COLORTYPE = 7
+public val COLOR_CMYK: Colortype = 7
 
-public val COLOR_FLOAT: COLORDATATYPE = 3
+public val COLOR_FLOAT: Colordatatype = 3
 
-public val COLOR_FLOAT16: COLORDATATYPE = 7
+public val COLOR_FLOAT16: Colordatatype = 7
 
-public val COLOR_GRAY: COLORTYPE = 1
+public val COLOR_GRAY: Colortype = 1
 
-public val COLOR_Lab: COLORTYPE = 5
+public val COLOR_LAB: Colortype = 5
 
 public val COLOR_MATCH_VERSION: UInt = 512u
 
-public val COLOR_NAMED: COLORTYPE = 12
+public val COLOR_NAMED: Colortype = 12
 
-public val COLOR_RGB: COLORTYPE = 2
+public val COLOR_RGB: Colortype = 2
 
-public val COLOR_S2DOT13FIXED: COLORDATATYPE = 4
+public val COLOR_S2DOT13FIXED: Colordatatype = 4
 
-public val COLOR_WORD: COLORDATATYPE = 2
+public val COLOR_WORD: Colordatatype = 2
 
-public val COLOR_XYZ: COLORTYPE = 3
+public val COLOR_XYZ: Colortype = 3
 
-public val COLOR_Yxy: COLORTYPE = 4
+public val COLOR_YXY: Colortype = 4
 
-public val CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = 3
+public val CPST_ABSOLUTE_COLORIMETRIC: Colorprofilesubtype = 3
 
-public val CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = 6
+public val CPST_CUSTOM_WORKING_SPACE: Colorprofilesubtype = 6
 
-public val CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 8
+public val CPST_EXTENDED_DISPLAY_COLOR_MODE: Colorprofilesubtype = 8
 
-public val CPST_NONE: COLORPROFILESUBTYPE = 4
+public val CPST_NONE: Colorprofilesubtype = 4
 
-public val CPST_PERCEPTUAL: COLORPROFILESUBTYPE = 0
+public val CPST_PERCEPTUAL: Colorprofilesubtype = 0
 
-public val CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = 1
+public val CPST_RELATIVE_COLORIMETRIC: Colorprofilesubtype = 1
 
-public val CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = 5
+public val CPST_RGB_WORKING_SPACE: Colorprofilesubtype = 5
 
-public val CPST_SATURATION: COLORPROFILESUBTYPE = 2
+public val CPST_SATURATION: Colorprofilesubtype = 2
 
-public val CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 7
+public val CPST_STANDARD_DISPLAY_COLOR_MODE: Colorprofilesubtype = 7
 
-public val CPT_CAMP: COLORPROFILETYPE = 2
+public val CPT_CAMP: Colorprofiletype = 2
 
-public val CPT_DMP: COLORPROFILETYPE = 1
+public val CPT_DMP: Colorprofiletype = 1
 
-public val CPT_GMMP: COLORPROFILETYPE = 3
+public val CPT_GMMP: Colorprofiletype = 3
 
-public val CPT_ICC: COLORPROFILETYPE = 0
+public val CPT_ICC: Colorprofiletype = 0
 
 public val CSA_A: UInt = 1u
 
@@ -221,15 +221,15 @@ public val CSA_DEFG: UInt = 4u
 
 public val CSA_GRAY: UInt = 5u
 
-public val CSA_Lab: UInt = 8u
+public val CSA_LAB: UInt = 8u
 
 public val CSA_RGB: UInt = 6u
 
-public val CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = 3u
+public val CS_DELETE_TRANSFORM: ColorMatchToTargetAction = 3u
 
-public val CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = 2u
+public val CS_DISABLE: ColorMatchToTargetAction = 2u
 
-public val CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1u
+public val CS_ENABLE: ColorMatchToTargetAction = 1u
 
 public val DONT_USE_EMBEDDED_WCS_PROFILES: Int = 1
 
@@ -283,27 +283,27 @@ public val FLAG_EMBEDDEDPROFILE: UInt = 1u
 
 public val FLAG_ENABLE_CHROMATIC_ADAPTATION: UInt = 33554432u
 
-public val ICM_ADDPROFILE: ICM_COMMAND = 1u
+public val ICM_ADDPROFILE: IcmCommand = 1u
 
-public val ICM_DELETEPROFILE: ICM_COMMAND = 2u
+public val ICM_DELETEPROFILE: IcmCommand = 2u
 
-public val ICM_DONE_OUTSIDEDC: ICM_MODE = 4
+public val ICM_DONE_OUTSIDEDC: IcmMode = 4
 
-public val ICM_OFF: ICM_MODE = 1
+public val ICM_OFF: IcmMode = 1
 
-public val ICM_ON: ICM_MODE = 2
+public val ICM_ON: IcmMode = 2
 
-public val ICM_QUERY: ICM_MODE = 3
+public val ICM_QUERY: IcmMode = 3
 
-public val ICM_QUERYMATCH: ICM_COMMAND = 7u
+public val ICM_QUERYMATCH: IcmCommand = 7u
 
-public val ICM_QUERYPROFILE: ICM_COMMAND = 3u
+public val ICM_QUERYPROFILE: IcmCommand = 3u
 
-public val ICM_REGISTERICMATCHER: ICM_COMMAND = 5u
+public val ICM_REGISTERICMATCHER: IcmCommand = 5u
 
-public val ICM_SETDEFAULTPROFILE: ICM_COMMAND = 4u
+public val ICM_SETDEFAULTPROFILE: IcmCommand = 4u
 
-public val ICM_UNREGISTERICMATCHER: ICM_COMMAND = 6u
+public val ICM_UNREGISTERICMATCHER: IcmCommand = 6u
 
 public val INDEX_DONT_CARE: UInt = 0u
 
@@ -315,15 +315,15 @@ public val INTENT_RELATIVE_COLORIMETRIC: UInt = 1u
 
 public val INTENT_SATURATION: UInt = 2u
 
-public val LCS_CALIBRATED_RGB: LCSCSTYPE = 0
+public val LCS_CALIBRATED_RGB: Lcscstype = 0
 
-public val LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = 1466527264
+public val LCS_WINDOWS_COLOR_SPACE: Lcscstype = 1466527264
 
-public val LCS_sRGB: LCSCSTYPE = 1934772034
+public val LCS_S_RGB: Lcscstype = 1934772034
 
 public val MAX_COLOR_CHANNELS: UInt = 8u
 
-public val MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2
+public val MICROSOFT_HARDWARE_COLOR_V2: WcsDeviceCapabilitiesType = 2
 
 public val NORMAL_MODE: UInt = 2u
 
@@ -345,7 +345,7 @@ public val SEQUENTIAL_TRANSFORM: UInt = 2155872256u
 
 public val USE_RELATIVE_COLORIMETRIC: UInt = 131072u
 
-public val VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = 1
+public val VIDEO_CARD_GAMMA_TABLE: WcsDeviceCapabilitiesType = 1
 
 public val WCS_ALWAYS: UInt = 2097152u
 
@@ -353,6 +353,6 @@ public val WCS_DEFAULT: Int = 0
 
 public val WCS_ICCONLY: Int = 65536
 
-public val WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1
+public val WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WcsProfileManagementScope = 1
 
-public val WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0
+public val WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WcsProfileManagementScope = 0

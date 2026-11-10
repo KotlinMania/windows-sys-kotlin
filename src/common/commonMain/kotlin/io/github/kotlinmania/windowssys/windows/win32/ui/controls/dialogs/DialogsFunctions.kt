@@ -1,51 +1,52 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun ChooseColorA(param0: Long): BOOL
+public expect fun chooseColorA(param0: COpaquePointer?): Bool
 
-public expect fun ChooseColorW(param0: Long): BOOL
+public expect fun chooseColorW(param0: COpaquePointer?): Bool
 
-public expect fun ChooseFontA(param0: Long): BOOL
+public expect fun chooseFontA(param0: COpaquePointer?): Bool
 
-public expect fun ChooseFontW(param0: Long): BOOL
+public expect fun chooseFontW(param0: COpaquePointer?): Bool
 
-public expect fun CommDlgExtendedError(): COMMON_DLG_ERRORS
+public expect fun commDlgExtendedError(): CommonDlgErrors
 
-public expect fun FindTextA(param0: Long): HWND
+public expect fun findTextA(param0: COpaquePointer?): Hwnd
 
-public expect fun FindTextW(param0: Long): HWND
+public expect fun findTextW(param0: COpaquePointer?): Hwnd
 
-public expect fun GetFileTitleA(param0: PCSTR, buf: PSTR, cchsize: UShort): Short
+public expect fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short
 
-public expect fun GetFileTitleW(param0: PCWSTR, buf: PWSTR, cchsize: UShort): Short
+public expect fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short
 
-public expect fun GetOpenFileNameA(param0: Long): BOOL
+public expect fun getOpenFileNameA(param0: COpaquePointer?): Bool
 
-public expect fun GetOpenFileNameW(param0: Long): BOOL
+public expect fun getOpenFileNameW(param0: COpaquePointer?): Bool
 
-public expect fun GetSaveFileNameA(param0: Long): BOOL
+public expect fun getSaveFileNameA(param0: COpaquePointer?): Bool
 
-public expect fun GetSaveFileNameW(param0: Long): BOOL
+public expect fun getSaveFileNameW(param0: COpaquePointer?): Bool
 
-public expect fun PageSetupDlgA(param0: Long): BOOL
+public expect fun pageSetupDlgA(param0: COpaquePointer?): Bool
 
-public expect fun PageSetupDlgW(param0: Long): BOOL
+public expect fun pageSetupDlgW(param0: COpaquePointer?): Bool
 
-public expect fun PrintDlgA(ppd: Long): BOOL
+public expect fun printDlgA(ppd: COpaquePointer?): Bool
 
-public expect fun PrintDlgExA(ppd: Long): HRESULT
+public expect fun printDlgExA(ppd: COpaquePointer?): Hresult
 
-public expect fun PrintDlgExW(ppd: Long): HRESULT
+public expect fun printDlgExW(ppd: COpaquePointer?): Hresult
 
-public expect fun PrintDlgW(ppd: Long): BOOL
+public expect fun printDlgW(ppd: COpaquePointer?): Bool
 
-public expect fun ReplaceTextA(param0: Long): HWND
+public expect fun replaceTextA(param0: COpaquePointer?): Hwnd
 
-public expect fun ReplaceTextW(param0: Long): HWND
+public expect fun replaceTextW(param0: COpaquePointer?): Hwnd

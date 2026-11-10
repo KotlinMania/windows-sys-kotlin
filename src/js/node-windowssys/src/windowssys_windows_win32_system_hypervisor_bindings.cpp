@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ApplyPendingSavedStateFileReplayLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmrsfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ApplyPendingSavedS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_CallStackUnwind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_callStackUnwind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -123,7 +123,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_CallStackUnwind_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_FindSavedStateSymbolFieldInType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_FindSavedStateSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ForceActiveVirtualTrustLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ForceActiveVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ForceArchitecture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_forceArchitecture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ForceArchitecture_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ForceNestedHostMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_forceNestedHostMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ForceNestedHostMod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ForcePagingMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_forcePagingMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ForcePagingMode_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetActiveVirtualTrustLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetActiveVirtualTr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetArchitecture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getArchitecture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetArchitecture_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetEnabledVirtualTrustLevels_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetEnabledVirtualT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestEnabledVirtualTrustLevels_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualtrustlevels = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestEnabledVir
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestOsInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestOsInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t virtualtrustlevel = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -349,7 +349,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestOsInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMemoryChunks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memorychunkpagesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -373,7 +373,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMemorySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* guestrawsavedmemorysize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -393,7 +393,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetMemoryBlockCacheLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memoryblockcachelimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -413,7 +413,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetMemoryBlockCach
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetNestedVirtualizationMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetNestedVirtualiz
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetPagingMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getPagingMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetPagingMode_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetRegisterValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getRegisterValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetRegisterValue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolFieldInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -505,7 +505,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolProviderHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolTypeSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetSavedStateSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GetVpCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_getVpCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vpcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GetVpCount_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GuestPhysicalAddressToRawSavedMemoryOffset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t physicaladdress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GuestPhysicalAddre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_GuestVirtualAddressToPhysicalAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -615,7 +615,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_GuestVirtualAddres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicehosthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t devicetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateDeviceIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemoryAperture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t guestphysicaladdress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -671,7 +671,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateSectionBackedMmioRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t barindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -701,7 +701,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvCreateSectionBa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t msiaddress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMemoryAperture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mappedaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -743,7 +743,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDestroySectionBackedMmioRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t barindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -765,7 +765,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvDestroySectionB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicehosthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -785,7 +785,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvInitializeDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHostEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -807,7 +807,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvInitializeDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t guestphysicaladdress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -831,7 +831,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t barindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicehosthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorbell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t barindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t guestphysicaladdress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -927,7 +927,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_InKernelSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_inKernelSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -949,7 +949,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_InKernelSpace_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_IsActiveVirtualTrustLevelEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -971,7 +971,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_IsActiveVirtualTru
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_IsNestedVirtualizationEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_IsNestedVirtualiza
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmrsfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1011,7 +1011,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* binfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vsvfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbols_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1059,7 +1059,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbolsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* imagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1087,7 +1087,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateSymbolProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* usersymbols = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1109,7 +1109,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LoadSavedStateSymb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_LocateSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_locateSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* snapshotname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1135,7 +1135,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_LocateSavedStateFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t physicaladdress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1161,7 +1161,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t rawsavedmemoryoffset = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ReadSavedStateGlobalVariable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1213,7 +1213,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ReadSavedStateGlob
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ReleaseSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1231,7 +1231,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ReleaseSavedStateF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ReleaseSavedStateSymbolProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1249,7 +1249,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ReleaseSavedStateS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ResolveSavedStateGlobalVariableAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ResolveSavedStateG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_ScanMemoryForDosImages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t vpid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1307,7 +1307,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_ScanMemoryForDosIm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_SetMemoryBlockCacheLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t memoryblockcachelimit = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_SetMemoryBlockCach
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_SetSavedStateSymbolProviderDebugInfoCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmsavedstatedumphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1347,7 +1347,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_SetSavedStateSymbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAcceptPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* migrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* partition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1367,7 +1367,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAcceptPartition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* gparanges = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1395,7 +1395,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAllocateVpciResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* providerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1421,7 +1421,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvAllocateVpciRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCancelPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCancelPartition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1461,7 +1461,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtua
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCompletePartitionMigration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1479,7 +1479,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCompletePartiti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateNotificationPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1503,7 +1503,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateNotificat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreatePartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreatePartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* partition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreatePartition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateTrigger_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateTrigger_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1545,7 +1545,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateTrigger_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1567,7 +1567,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVirtualPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1591,7 +1591,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVirtualPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1617,7 +1617,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteNotificationPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* porthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteNotificat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeletePartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeletePartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1655,7 +1655,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeletePartition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* triggerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1675,7 +1675,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1695,7 +1695,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1715,7 +1715,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateEmulator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* emulator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1735,7 +1735,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroyEmulator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* emulator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1753,7 +1753,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEmulation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* emulator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1779,7 +1779,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmioEmulation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* emulator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1805,7 +1805,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetCapability_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetCapability_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t capabilitycode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* capabilitybuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1829,7 +1829,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetCapability_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetInterruptTargetVpSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t destination = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1857,7 +1857,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetInterruptTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetPartitionCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t counterset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1883,7 +1883,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetPartitionCou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetPartitionProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertycode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1909,7 +1909,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetPartitionPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1937,7 +1937,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCpuidOutput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1963,7 +1963,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1989,7 +1989,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2015,7 +2015,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorRegisters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2041,7 +2041,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2069,7 +2069,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorXsaveState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2095,7 +2095,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceInterruptTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2125,7 +2125,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2177,7 +2177,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvGetVpciDevicePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapGpaRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapGpaRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sourceaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2203,7 +2203,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapGpaRange_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2231,7 +2231,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2261,7 +2261,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMmioRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2285,7 +2285,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvPostVirtualProcessorSynicMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2311,7 +2311,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvPostVirtualProc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDirtyBitmap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t guestaddress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2337,7 +2337,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2361,7 +2361,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRegisterPartitionDoorbellEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* matchdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2383,7 +2383,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRegisterPartiti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRequestInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* interrupt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2405,7 +2405,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRequestInterrup
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRequestVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2429,7 +2429,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRequestVpciDevi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvResetPartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvResetPartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2447,7 +2447,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvResetPartition_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvResumePartitionTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2465,7 +2465,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvResumePartition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2491,7 +2491,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRunVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2515,7 +2515,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvRunVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetNotificationPortProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* porthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2539,7 +2539,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetNotification
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetPartitionProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertycode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2563,7 +2563,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetPartitionPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2587,7 +2587,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2611,7 +2611,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorRegisters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2637,7 +2637,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorXsaveState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2687,7 +2687,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVirtualProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePowerState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2709,7 +2709,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetupPartition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetupPartition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2727,7 +2727,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSetupPartition_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvStartPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* migrationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2747,7 +2747,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvStartPartitionM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSuspendPartitionTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2765,7 +2765,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvSuspendPartitio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvTranslateGva_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvTranslateGva_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t vpindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2793,7 +2793,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvTranslateGva_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t guestaddress = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2815,7 +2815,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2837,7 +2837,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceMmioRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2857,7 +2857,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnregisterPartitionDoorbellEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* matchdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2877,7 +2877,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUnregisterParti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* parameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2899,7 +2899,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hypervisor_WHvWriteVpciDeviceRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t partition = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint64_t logicaldeviceid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2924,129 +2924,129 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_WHvWriteVpciDevice
 }
 
 static void register_windows_win32_system_hypervisor_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFix", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFix_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ApplyPendingSavedStateFileReplayLog", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ApplyPendingSavedStateFileReplayLog_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_CallStackUnwind", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_CallStackUnwind_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_FindSavedStateSymbolFieldInType", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_FindSavedStateSymbolFieldInType_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ForceActiveVirtualTrustLevel", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ForceActiveVirtualTrustLevel_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ForceArchitecture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ForceArchitecture_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ForceNestedHostMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ForceNestedHostMode_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ForcePagingMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ForcePagingMode_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetActiveVirtualTrustLevel", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetActiveVirtualTrustLevel_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetArchitecture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetArchitecture_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetEnabledVirtualTrustLevels", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetEnabledVirtualTrustLevels_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetGuestEnabledVirtualTrustLevels", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetGuestEnabledVirtualTrustLevels_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetGuestOsInfo", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetGuestOsInfo_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMemoryChunks", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMemoryChunks_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMemorySize", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMemorySize_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetMemoryBlockCacheLimit", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetMemoryBlockCacheLimit_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetNestedVirtualizationMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetNestedVirtualizationMode_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetPagingMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetPagingMode_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetRegisterValue", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetRegisterValue_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolFieldInfo", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolFieldInfo_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolProviderHandle", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolProviderHandle_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolTypeSize", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolTypeSize_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GetVpCount", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GetVpCount_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GuestPhysicalAddressToRawSavedMemoryOffset", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GuestPhysicalAddressToRawSavedMemoryOffset_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_GuestVirtualAddressToPhysicalAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_GuestVirtualAddressToPhysicalAddress_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvCreateDeviceInstance", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvCreateDeviceInstance_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemoryAperture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemoryAperture_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvCreateSectionBackedMmioRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvCreateSectionBackedMmioRange_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMemoryAperture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMemoryAperture_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvDestroySectionBackedMmioRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvDestroySectionBackedMmioRange_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHost", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHost_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHostEx", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHostEx_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbell", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbell_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceHost", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceHost_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorbell", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorbell_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemory_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_InKernelSpace", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_InKernelSpace_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_IsActiveVirtualTrustLevelEnabled", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_IsActiveVirtualTrustLevelEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_IsNestedVirtualizationEnabled", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_IsNestedVirtualizationEnabled_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LoadSavedStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LoadSavedStateFile_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LoadSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LoadSavedStateFiles_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbols", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbols_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbolsEx", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbolsEx_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LoadSavedStateSymbolProvider", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LoadSavedStateSymbolProvider_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_LocateSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_LocateSavedStateFiles_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalAddress_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedMemory_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ReadSavedStateGlobalVariable", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ReadSavedStateGlobalVariable_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ReleaseSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ReleaseSavedStateFiles_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ReleaseSavedStateSymbolProvider", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ReleaseSavedStateSymbolProvider_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ResolveSavedStateGlobalVariableAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ResolveSavedStateGlobalVariableAddress_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_ScanMemoryForDosImages", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_ScanMemoryForDosImages_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_SetMemoryBlockCacheLimit", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_SetMemoryBlockCacheLimit_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_SetSavedStateSymbolProviderDebugInfoCallback", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_SetSavedStateSymbolProviderDebugInfoCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvAcceptPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvAcceptPartitionMigration_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvAllocateVpciResource", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvAllocateVpciResource_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCancelPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCancelPartitionMigration_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtualProcessor_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCompletePartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCompletePartitionMigration_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreateNotificationPort", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreateNotificationPort_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreatePartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreatePartition_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreateTrigger", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreateTrigger_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor2_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevice", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevice_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvDeleteNotificationPort", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvDeleteNotificationPort_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvDeletePartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvDeletePartition_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualProcessor_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevice", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevice_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateEmulator", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateEmulator_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroyEmulator", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroyEmulator_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEmulation", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEmulation_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmioEmulation", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmioEmulation_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetCapability", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetCapability_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetInterruptTargetVpSet", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetInterruptTargetVpSet_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetPartitionCounters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetPartitionCounters_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetPartitionProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetPartitionProperty_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCounters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCounters_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCpuidOutput", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCpuidOutput_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState2_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorRegisters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorRegisters_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorXsaveState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorXsaveState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceInterruptTarget", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceInterruptTarget_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNotification", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNotification_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceProperty_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvMapGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvMapGpaRange_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMmioRanges", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMmioRanges_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvPostVirtualProcessorSynicMessage", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvPostVirtualProcessorSynicMessage_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDirtyBitmap", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDirtyBitmap_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceRegister", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceRegister_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvRegisterPartitionDoorbellEvent", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvRegisterPartitionDoorbellEvent_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvRequestInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvRequestInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvRequestVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvRequestVpciDeviceInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvResetPartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvResetPartition_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvResumePartitionTime", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvResumePartitionTime_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDeviceInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvRunVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvRunVirtualProcessor_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetNotificationPortProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetNotificationPortProperty_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetPartitionProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetPartitionProperty_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState2_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorRegisters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorRegisters_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorXsaveState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorXsaveState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePowerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePowerState_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSetupPartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSetupPartition_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvStartPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvStartPartitionMigration_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvSuspendPartitionTime", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvSuspendPartitionTime_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvTranslateGva", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvTranslateGva_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceInterrupt_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceMmioRanges", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceMmioRanges_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvUnregisterPartitionDoorbellEvent", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvUnregisterPartitionDoorbellEvent_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerParameters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerParameters_napi));
-    exports.Set("windowssys_windows_win32_system_hypervisor_WHvWriteVpciDeviceRegister", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_WHvWriteVpciDeviceRegister_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_callStackUnwind", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_callStackUnwind_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_forceArchitecture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_forceArchitecture_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_forceNestedHostMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_forceNestedHostMode_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_forcePagingMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_forcePagingMode_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getArchitecture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getArchitecture_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getGuestOsInfo", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getGuestOsInfo_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getPagingMode", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getPagingMode_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getRegisterValue", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getRegisterValue_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_getVpCount", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_getVpCount_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_inKernelSpace", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_inKernelSpace_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_loadSavedStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_loadSavedStateFile_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_loadSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_loadSavedStateFiles_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_locateSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_locateSavedStateFiles_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreatePartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreatePartition_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreateTrigger", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreateTrigger_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvDeletePartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvDeletePartition_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetCapability", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetCapability_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvMapGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvMapGpaRange_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvResetPartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvResetPartition_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSetupPartition", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSetupPartition_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvTranslateGva", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvTranslateGva_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters_napi));
+    exports.Set("windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister", Napi::Function::New(env, windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_hypervisor_napi, nullptr };

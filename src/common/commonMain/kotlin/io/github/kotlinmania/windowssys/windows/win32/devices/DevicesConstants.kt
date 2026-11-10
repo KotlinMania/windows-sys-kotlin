@@ -1,11 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val BUS1394_LOCAL_HOST_INSTANCE_KEY: PCWSTR = w("LOCAL HOST EUI64")
+public val BUS1394_LOCAL_HOST_INSTANCE_KEY: Pcwstr = w("LOCAL HOST EUI64")
 
-public val BUS1394_VIRTUAL_DEVICE_LIST_KEY: PCWSTR = w("Virtual Device List")
+public val BUS1394_VIRTUAL_DEVICE_LIST_KEY: Pcwstr = w("Virtual Device List")
 
 public val IEEE1394API_ACCESS_EXCLUSIVE: UInt = 64u
 

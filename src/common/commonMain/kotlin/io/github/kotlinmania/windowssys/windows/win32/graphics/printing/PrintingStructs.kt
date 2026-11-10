@@ -1,36 +1,39 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.devices.display.FD_KERNINGPAIR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.PANOSE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.display.FdKerningpair
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Panose
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class ADDJOB_INFO_1A(public var Path: PSTR = 0L, public var JobId: UInt = 0u)
+public data class AddjobInfo1a(public var path: Pstr = null, public var jobId: UInt = 0u)
 
-public data class ADDJOB_INFO_1W(public var Path: PWSTR = 0L, public var JobId: UInt = 0u)
+public data class AddjobInfo1w(public var path: Pwstr = null, public var jobId: UInt = 0u)
 
-public data class ATTRIBUTE_INFO_1(
+public data class AttributeInfo1(
     public var dwJobNumberOfPagesPerSide: UInt = 0u,
     public var dwDrvNumberOfPagesPerSide: UInt = 0u,
     public var dwNupBorderFlags: UInt = 0u,
@@ -40,7 +43,7 @@ public data class ATTRIBUTE_INFO_1(
     public var dwDrvNumberOfCopies: UInt = 0u,
 )
 
-public data class ATTRIBUTE_INFO_2(
+public data class AttributeInfo2(
     public var dwJobNumberOfPagesPerSide: UInt = 0u,
     public var dwDrvNumberOfPagesPerSide: UInt = 0u,
     public var dwNupBorderFlags: UInt = 0u,
@@ -51,7 +54,7 @@ public data class ATTRIBUTE_INFO_2(
     public var dwColorOptimization: UInt = 0u,
 )
 
-public data class ATTRIBUTE_INFO_3(
+public data class AttributeInfo3(
     public var dwJobNumberOfPagesPerSide: UInt = 0u,
     public var dwDrvNumberOfPagesPerSide: UInt = 0u,
     public var dwNupBorderFlags: UInt = 0u,
@@ -64,7 +67,7 @@ public data class ATTRIBUTE_INFO_3(
     public var dmYResolution: Short = 0,
 )
 
-public data class ATTRIBUTE_INFO_4(
+public data class AttributeInfo4(
     public var dwJobNumberOfPagesPerSide: UInt = 0u,
     public var dwDrvNumberOfPagesPerSide: UInt = 0u,
     public var dwNupBorderFlags: UInt = 0u,
@@ -82,192 +85,192 @@ public data class ATTRIBUTE_INFO_4(
     public var dwScalingPercentY: UInt = 0u,
 )
 
-public data class BIDI_DATA(public var dwBidiType: UInt = 0u, public var u: BIDI_DATA_0 = BIDI_DATA_0())
+public data class BidiData(public var dwBidiType: UInt = 0u, public var u: BidiData0 = BidiData0())
 
-public data class BIDI_DATA_0(
-    public var bData: BOOL = 0,
+public data class BidiData0(
+    public var bData: Bool = 0,
     public var iData: Int = 0,
-    public var sData: PWSTR = 0L,
+    public var sData: Pwstr = null,
     public var fData: Float = 0.0f,
-    public var biData: BINARY_CONTAINER = BINARY_CONTAINER(),
+    public var biData: BinaryContainer = BinaryContainer(),
 )
 
-public data class BIDI_REQUEST_CONTAINER(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var aData: List<BIDI_REQUEST_DATA> = List(1) { BIDI_REQUEST_DATA() },
+public data class BidiRequestContainer(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var count: UInt = 0u,
+    public var aData: List<BidiRequestData> = List(1) { BidiRequestData() },
 )
 
-public data class BIDI_REQUEST_DATA(
+public data class BidiRequestData(
     public var dwReqNumber: UInt = 0u,
-    public var pSchema: PWSTR = 0L,
-    public var data: BIDI_DATA = BIDI_DATA(),
+    public var pSchema: Pwstr = null,
+    public var data: BidiData = BidiData(),
 )
 
-public data class BIDI_RESPONSE_CONTAINER(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var aData: List<BIDI_RESPONSE_DATA> = List(1) { BIDI_RESPONSE_DATA() },
+public data class BidiResponseContainer(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var count: UInt = 0u,
+    public var aData: List<BidiResponseData> = List(1) { BidiResponseData() },
 )
 
-public data class BIDI_RESPONSE_DATA(
+public data class BidiResponseData(
     public var dwResult: UInt = 0u,
     public var dwReqNumber: UInt = 0u,
-    public var pSchema: PWSTR = 0L,
-    public var data: BIDI_DATA = BIDI_DATA(),
+    public var pSchema: Pwstr = null,
+    public var data: BidiData = BidiData(),
 )
 
-public data class BINARY_CONTAINER(public var cbBuf: UInt = 0u, public var pData: Long = 0L)
+public data class BinaryContainer(public var cbBuf: UInt = 0u, public var pData: COpaquePointer? = null)
 
 public data class BranchOfficeJobData(
     public var eEventType: EBranchOfficeJobEventType = 0,
-    public var JobId: UInt = 0u,
-    public var JobInfo: BranchOfficeJobData_0 = BranchOfficeJobData_0(),
+    public var jobId: UInt = 0u,
+    public var jobInfo: BranchOfficeJobData0 = BranchOfficeJobData0(),
 )
 
-public data class BranchOfficeJobData_0(
-    public var LogJobPrinted: BranchOfficeJobDataPrinted = BranchOfficeJobDataPrinted(),
-    public var LogJobRendered: BranchOfficeJobDataRendered = BranchOfficeJobDataRendered(),
-    public var LogJobError: BranchOfficeJobDataError = BranchOfficeJobDataError(),
-    public var LogPipelineFailed: BranchOfficeJobDataPipelineFailed = BranchOfficeJobDataPipelineFailed(),
-    public var LogOfflineFileFull: BranchOfficeLogOfflineFileFull = BranchOfficeLogOfflineFileFull(),
+public data class BranchOfficeJobData0(
+    public var logJobPrinted: BranchOfficeJobDataPrinted = BranchOfficeJobDataPrinted(),
+    public var logJobRendered: BranchOfficeJobDataRendered = BranchOfficeJobDataRendered(),
+    public var logJobError: BranchOfficeJobDataError = BranchOfficeJobDataError(),
+    public var logPipelineFailed: BranchOfficeJobDataPipelineFailed = BranchOfficeJobDataPipelineFailed(),
+    public var logOfflineFileFull: BranchOfficeLogOfflineFileFull = BranchOfficeLogOfflineFileFull(),
 )
 
-public data class BranchOfficeJobDataContainer(public var cJobDataEntries: UInt = 0u, public var JobData: List<BranchOfficeJobData> = List(1) { BranchOfficeJobData() })
+public data class BranchOfficeJobDataContainer(public var cJobDataEntries: UInt = 0u, public var jobData: List<BranchOfficeJobData> = List(1) { BranchOfficeJobData() })
 
 public data class BranchOfficeJobDataError(
-    public var LastError: UInt = 0u,
-    public var pDocumentName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var pDataType: PWSTR = 0L,
-    public var TotalSize: Long = 0L,
-    public var PrintedSize: Long = 0L,
-    public var TotalPages: UInt = 0u,
-    public var PrintedPages: UInt = 0u,
-    public var pMachineName: PWSTR = 0L,
-    public var pJobError: PWSTR = 0L,
-    public var pErrorDescription: PWSTR = 0L,
+    public var lastError: UInt = 0u,
+    public var pDocumentName: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pPrinterName: Pwstr = null,
+    public var pDataType: Pwstr = null,
+    public var totalSize: Long = 0L,
+    public var printedSize: Long = 0L,
+    public var totalPages: UInt = 0u,
+    public var printedPages: UInt = 0u,
+    public var pMachineName: Pwstr = null,
+    public var pJobError: Pwstr = null,
+    public var pErrorDescription: Pwstr = null,
 )
 
 public data class BranchOfficeJobDataPipelineFailed(
-    public var pDocumentName: PWSTR = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var pExtraErrorInfo: PWSTR = 0L,
+    public var pDocumentName: Pwstr = null,
+    public var pPrinterName: Pwstr = null,
+    public var pExtraErrorInfo: Pwstr = null,
 )
 
 public data class BranchOfficeJobDataPrinted(
-    public var Status: UInt = 0u,
-    public var pDocumentName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pMachineName: PWSTR = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var pPortName: PWSTR = 0L,
-    public var Size: Long = 0L,
-    public var TotalPages: UInt = 0u,
+    public var status: UInt = 0u,
+    public var pDocumentName: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pMachineName: Pwstr = null,
+    public var pPrinterName: Pwstr = null,
+    public var pPortName: Pwstr = null,
+    public var size: Long = 0L,
+    public var totalPages: UInt = 0u,
 )
 
 public data class BranchOfficeJobDataRendered(
-    public var Size: Long = 0L,
-    public var ICMMethod: UInt = 0u,
-    public var Color: Short = 0,
-    public var PrintQuality: Short = 0,
-    public var YResolution: Short = 0,
-    public var Copies: Short = 0,
-    public var TTOption: Short = 0,
+    public var size: Long = 0L,
+    public var iCMMethod: UInt = 0u,
+    public var color: Short = 0,
+    public var printQuality: Short = 0,
+    public var yResolution: Short = 0,
+    public var copies: Short = 0,
+    public var tTOption: Short = 0,
 )
 
-public data class BranchOfficeLogOfflineFileFull(public var pMachineName: PWSTR = 0L)
+public data class BranchOfficeLogOfflineFileFull(public var pMachineName: Pwstr = null)
 
-public data class COMPROPSHEETUI(
+public data class Compropsheetui(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var hInstCaller: HINSTANCE = 0L,
-    public var pCallerName: Long = 0L,
-    public var UserData: ULong = 0uL,
-    public var pHelpFile: Long = 0L,
-    public var pfnCallBack: _CPSUICALLBACK = null,
-    public var pOptItem: Long = 0L,
-    public var pDlgPage: Long = 0L,
+    public var flags: UShort = 0u,
+    public var hInstCaller: Hinstance = null,
+    public var pCallerName: COpaquePointer? = null,
+    public var userData: Int = 0,
+    public var pHelpFile: COpaquePointer? = null,
+    public var pfnCallBack: Cpsuicallback = null,
+    public var pOptItem: Optitem? = null,
+    public var pDlgPage: Dlgpage? = null,
     public var cOptItem: UShort = 0u,
     public var cDlgPage: UShort = 0u,
-    public var IconID: ULong = 0uL,
-    public var pOptItemName: Long = 0L,
-    public var CallerVersion: UShort = 0u,
-    public var OptItemVersion: UShort = 0u,
-    public var dwReserved: ULongArray = ULongArray(4),
+    public var iconID: Int = 0,
+    public var pOptItemName: COpaquePointer? = null,
+    public var callerVersion: UShort = 0u,
+    public var optItemVersion: UShort = 0u,
+    public var dwReserved: IntArray = IntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is COMPROPSHEETUI) return false
+        if (other !is Compropsheetui) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
+        if (this.flags != other.flags) return false
         if (this.hInstCaller != other.hInstCaller) return false
         if (this.pCallerName != other.pCallerName) return false
-        if (this.UserData != other.UserData) return false
+        if (this.userData != other.userData) return false
         if (this.pHelpFile != other.pHelpFile) return false
         if (this.pfnCallBack != other.pfnCallBack) return false
         if (this.pOptItem != other.pOptItem) return false
         if (this.pDlgPage != other.pDlgPage) return false
         if (this.cOptItem != other.cOptItem) return false
         if (this.cDlgPage != other.cDlgPage) return false
-        if (this.IconID != other.IconID) return false
+        if (this.iconID != other.iconID) return false
         if (this.pOptItemName != other.pOptItemName) return false
-        if (this.CallerVersion != other.CallerVersion) return false
-        if (this.OptItemVersion != other.OptItemVersion) return false
+        if (this.callerVersion != other.callerVersion) return false
+        if (this.optItemVersion != other.optItemVersion) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.flags.hashCode()
         result = 31 * result + this.hInstCaller.hashCode()
         result = 31 * result + this.pCallerName.hashCode()
-        result = 31 * result + this.UserData.hashCode()
+        result = 31 * result + this.userData.hashCode()
         result = 31 * result + this.pHelpFile.hashCode()
         result = 31 * result + this.pfnCallBack.hashCode()
         result = 31 * result + this.pOptItem.hashCode()
         result = 31 * result + this.pDlgPage.hashCode()
         result = 31 * result + this.cOptItem.hashCode()
         result = 31 * result + this.cDlgPage.hashCode()
-        result = 31 * result + this.IconID.hashCode()
+        result = 31 * result + this.iconID.hashCode()
         result = 31 * result + this.pOptItemName.hashCode()
-        result = 31 * result + this.CallerVersion.hashCode()
-        result = 31 * result + this.OptItemVersion.hashCode()
+        result = 31 * result + this.callerVersion.hashCode()
+        result = 31 * result + this.optItemVersion.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class CONFIG_INFO_DATA_1(public var Reserved: UByteArray = UByteArray(128), public var dwVersion: UInt = 0u) {
+public data class ConfigInfoData1(public var reserved: UByteArray = UByteArray(128), public var dwVersion: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONFIG_INFO_DATA_1) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is ConfigInfoData1) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         if (this.dwVersion != other.dwVersion) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.contentHashCode()
+        var result = this.reserved.contentHashCode()
         result = 31 * result + this.dwVersion.hashCode()
         return result
     }
 }
 
-public data class CORE_PRINTER_DRIVERA(
-    public var CoreDriverGUID: GUID = GUID(),
-    public var ftDriverDate: FILETIME = FILETIME(),
+public data class CorePrinterDrivera(
+    public var coreDriverGUID: Guid = Guid(),
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
     public var szPackageID: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CORE_PRINTER_DRIVERA) return false
-        if (this.CoreDriverGUID != other.CoreDriverGUID) return false
+        if (other !is CorePrinterDrivera) return false
+        if (this.coreDriverGUID != other.coreDriverGUID) return false
         if (this.ftDriverDate != other.ftDriverDate) return false
         if (this.dwlDriverVersion != other.dwlDriverVersion) return false
         if (!this.szPackageID.contentEquals(other.szPackageID)) return false
@@ -275,7 +278,7 @@ public data class CORE_PRINTER_DRIVERA(
     }
 
     override fun hashCode(): Int {
-        var result = this.CoreDriverGUID.hashCode()
+        var result = this.coreDriverGUID.hashCode()
         result = 31 * result + this.ftDriverDate.hashCode()
         result = 31 * result + this.dwlDriverVersion.hashCode()
         result = 31 * result + this.szPackageID.contentHashCode()
@@ -283,16 +286,16 @@ public data class CORE_PRINTER_DRIVERA(
     }
 }
 
-public data class CORE_PRINTER_DRIVERW(
-    public var CoreDriverGUID: GUID = GUID(),
-    public var ftDriverDate: FILETIME = FILETIME(),
+public data class CorePrinterDriverw(
+    public var coreDriverGUID: Guid = Guid(),
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
     public var szPackageID: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CORE_PRINTER_DRIVERW) return false
-        if (this.CoreDriverGUID != other.CoreDriverGUID) return false
+        if (other !is CorePrinterDriverw) return false
+        if (this.coreDriverGUID != other.coreDriverGUID) return false
         if (this.ftDriverDate != other.ftDriverDate) return false
         if (this.dwlDriverVersion != other.dwlDriverVersion) return false
         if (!this.szPackageID.contentEquals(other.szPackageID)) return false
@@ -300,7 +303,7 @@ public data class CORE_PRINTER_DRIVERW(
     }
 
     override fun hashCode(): Int {
-        var result = this.CoreDriverGUID.hashCode()
+        var result = this.coreDriverGUID.hashCode()
         result = 31 * result + this.ftDriverDate.hashCode()
         result = 31 * result + this.dwlDriverVersion.hashCode()
         result = 31 * result + this.szPackageID.contentHashCode()
@@ -308,34 +311,34 @@ public data class CORE_PRINTER_DRIVERW(
     }
 }
 
-public data class CPSUICBPARAM(
+public data class Cpsuicbparam(
     public var cbSize: UShort = 0u,
-    public var Reason: UShort = 0u,
-    public var hDlg: HWND = 0L,
-    public var pOptItem: Long = 0L,
+    public var reason: UShort = 0u,
+    public var hDlg: Hwnd = null,
+    public var pOptItem: Optitem? = null,
     public var cOptItem: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var pCurItem: Long = 0L,
-    public var Anonymous: CPSUICBPARAM_0 = CPSUICBPARAM_0(),
-    public var UserData: ULong = 0uL,
-    public var Result: ULong = 0uL,
+    public var flags: UShort = 0u,
+    public var pCurItem: Optitem? = null,
+    public var anonymous: Cpsuicbparam0 = Cpsuicbparam0(),
+    public var userData: Int = 0,
+    public var result: Int = 0,
 )
 
-public data class CPSUICBPARAM_0(public var OldSel: Int = 0, public var pOldSel: Long = 0L)
+public data class Cpsuicbparam0(public var oldSel: Int = 0, public var pOldSel: COpaquePointer? = null)
 
-public data class CPSUIDATABLOCK(public var cbData: UInt = 0u, public var pbData: Long = 0L)
+public data class Cpsuidatablock(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
 
-public data class CUSTOMSIZEPARAM(
+public data class Customsizeparam(
     public var dwOrder: Int = 0,
     public var lMinVal: Int = 0,
     public var lMaxVal: Int = 0,
 )
 
-public data class DATATYPES_INFO_1A(public var pName: PSTR = 0L)
+public data class DatatypesInfo1a(public var pName: Pstr = null)
 
-public data class DATATYPES_INFO_1W(public var pName: PWSTR = 0L)
+public data class DatatypesInfo1w(public var pName: Pwstr = null)
 
-public data class DATA_HEADER(
+public data class DataHeader(
     public var dwSignature: UInt = 0u,
     public var wSize: UShort = 0u,
     public var wDataID: UShort = 0u,
@@ -343,17 +346,17 @@ public data class DATA_HEADER(
     public var dwReserved: UInt = 0u,
 )
 
-public data class DELETE_PORT_DATA_1(
+public data class DeletePortData1(
     public var psztPortName: UShortArray = UShortArray(64),
-    public var Reserved: UByteArray = UByteArray(98),
+    public var reserved: UByteArray = UByteArray(98),
     public var dwVersion: UInt = 0u,
     public var dwReserved: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DELETE_PORT_DATA_1) return false
+        if (other !is DeletePortData1) return false
         if (!this.psztPortName.contentEquals(other.psztPortName)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwReserved != other.dwReserved) return false
         return true
@@ -361,55 +364,55 @@ public data class DELETE_PORT_DATA_1(
 
     override fun hashCode(): Int {
         var result = this.psztPortName.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         result = 31 * result + this.dwVersion.hashCode()
         result = 31 * result + this.dwReserved.hashCode()
         return result
     }
 }
 
-public data class DEVICEPROPERTYHEADER(
+public data class Devicepropertyheader(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var hPrinter: HANDLE = 0L,
-    public var pszPrinterName: Long = 0L,
+    public var flags: UShort = 0u,
+    public var hPrinter: Handle = null,
+    public var pszPrinterName: COpaquePointer? = null,
 )
 
-public data class DEVQUERYPRINT_INFO(
+public data class DevqueryprintInfo(
     public var cbSize: UShort = 0u,
-    public var Level: UShort = 0u,
-    public var hPrinter: HANDLE = 0L,
-    public var pDevMode: Long = 0L,
-    public var pszErrorStr: PWSTR = 0L,
+    public var level: UShort = 0u,
+    public var hPrinter: Handle = null,
+    public var pDevMode: Devmodea? = null,
+    public var pszErrorStr: Pwstr = null,
     public var cchErrorStr: UInt = 0u,
     public var cchNeeded: UInt = 0u,
 )
 
-public data class DLGPAGE(
+public data class Dlgpage(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var DlgProc: DLGPROC = null,
-    public var pTabName: Long = 0L,
-    public var IconID: ULong = 0uL,
-    public var Anonymous: DLGPAGE_0 = DLGPAGE_0(),
+    public var flags: UShort = 0u,
+    public var dlgProc: Dlgproc = null,
+    public var pTabName: COpaquePointer? = null,
+    public var iconID: Int = 0,
+    public var anonymous: Dlgpage0 = Dlgpage0(),
 )
 
-public data class DLGPAGE_0(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: HANDLE = 0L)
+public data class Dlgpage0(public var dlgTemplateID: UShort = 0u, public var hDlgTemplate: Handle = null)
 
-public data class DOCEVENT_CREATEDCPRE(
-    public var pszDriver: PWSTR = 0L,
-    public var pszDevice: PWSTR = 0L,
-    public var pdm: Long = 0L,
-    public var bIC: BOOL = 0,
+public data class DoceventCreatedcpre(
+    public var pszDriver: Pwstr = null,
+    public var pszDevice: Pwstr = null,
+    public var pdm: Devmodew? = null,
+    public var bIC: Bool = 0,
 )
 
-public data class DOCEVENT_ESCAPE(
+public data class DoceventEscape(
     public var iEscape: Int = 0,
     public var cjInput: Int = 0,
-    public var pvInData: Long = 0L,
+    public var pvInData: COpaquePointer? = null,
 )
 
-public data class DOCEVENT_FILTER(
+public data class DoceventFilter(
     public var cbSize: UInt = 0u,
     public var cElementsAllocated: UInt = 0u,
     public var cElementsNeeded: UInt = 0u,
@@ -418,7 +421,7 @@ public data class DOCEVENT_FILTER(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DOCEVENT_FILTER) return false
+        if (other !is DoceventFilter) return false
         if (this.cbSize != other.cbSize) return false
         if (this.cElementsAllocated != other.cElementsAllocated) return false
         if (this.cElementsNeeded != other.cElementsNeeded) return false
@@ -437,300 +440,300 @@ public data class DOCEVENT_FILTER(
     }
 }
 
-public data class DOCUMENTPROPERTYHEADER(
+public data class Documentpropertyheader(
     public var cbSize: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var hPrinter: HANDLE = 0L,
-    public var pszPrinterName: Long = 0L,
-    public var pdmIn: Long = 0L,
-    public var pdmOut: Long = 0L,
+    public var reserved: UShort = 0u,
+    public var hPrinter: Handle = null,
+    public var pszPrinterName: COpaquePointer? = null,
+    public var pdmIn: Devmodea? = null,
+    public var pdmOut: Devmodea? = null,
     public var cbOut: UInt = 0u,
     public var fMode: UInt = 0u,
 )
 
-public data class DOC_INFO_1A(
-    public var pDocName: PSTR = 0L,
-    public var pOutputFile: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
+public data class DocInfo1a(
+    public var pDocName: Pstr = null,
+    public var pOutputFile: Pstr = null,
+    public var pDatatype: Pstr = null,
 )
 
-public data class DOC_INFO_1W(
-    public var pDocName: PWSTR = 0L,
-    public var pOutputFile: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
+public data class DocInfo1w(
+    public var pDocName: Pwstr = null,
+    public var pOutputFile: Pwstr = null,
+    public var pDatatype: Pwstr = null,
 )
 
-public data class DOC_INFO_2A(
-    public var pDocName: PSTR = 0L,
-    public var pOutputFile: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
+public data class DocInfo2a(
+    public var pDocName: Pstr = null,
+    public var pOutputFile: Pstr = null,
+    public var pDatatype: Pstr = null,
     public var dwMode: UInt = 0u,
-    public var JobId: UInt = 0u,
+    public var jobId: UInt = 0u,
 )
 
-public data class DOC_INFO_2W(
-    public var pDocName: PWSTR = 0L,
-    public var pOutputFile: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
+public data class DocInfo2w(
+    public var pDocName: Pwstr = null,
+    public var pOutputFile: Pwstr = null,
+    public var pDatatype: Pwstr = null,
     public var dwMode: UInt = 0u,
-    public var JobId: UInt = 0u,
+    public var jobId: UInt = 0u,
 )
 
-public data class DOC_INFO_3A(
-    public var pDocName: PSTR = 0L,
-    public var pOutputFile: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
+public data class DocInfo3a(
+    public var pDocName: Pstr = null,
+    public var pOutputFile: Pstr = null,
+    public var pDatatype: Pstr = null,
     public var dwFlags: UInt = 0u,
 )
 
-public data class DOC_INFO_3W(
-    public var pDocName: PWSTR = 0L,
-    public var pOutputFile: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
+public data class DocInfo3w(
+    public var pDocName: Pwstr = null,
+    public var pOutputFile: Pwstr = null,
+    public var pDatatype: Pwstr = null,
     public var dwFlags: UInt = 0u,
 )
 
-public data class DOC_INFO_INTERNAL(
-    public var pDocName: Long = 0L,
-    public var pOutputFile: Long = 0L,
-    public var pDatatype: Long = 0L,
-    public var bLowILJob: BOOL = 0,
-    public var hTokenLowIL: HANDLE = 0L,
+public data class DocInfoInternal(
+    public var pDocName: COpaquePointer? = null,
+    public var pOutputFile: COpaquePointer? = null,
+    public var pDatatype: COpaquePointer? = null,
+    public var bLowILJob: Bool = 0,
+    public var hTokenLowIL: Handle = null,
 )
 
-public data class DRIVER_INFO_1A(public var pName: PSTR = 0L)
+public data class DriverInfo1a(public var pName: Pstr = null)
 
-public data class DRIVER_INFO_1W(public var pName: PWSTR = 0L)
+public data class DriverInfo1w(public var pName: Pwstr = null)
 
-public data class DRIVER_INFO_2A(
+public data class DriverInfo2a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
 )
 
-public data class DRIVER_INFO_2W(
+public data class DriverInfo2w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
 )
 
-public data class DRIVER_INFO_3A(
+public data class DriverInfo3a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
-    public var pHelpFile: PSTR = 0L,
-    public var pDependentFiles: PSTR = 0L,
-    public var pMonitorName: PSTR = 0L,
-    public var pDefaultDataType: PSTR = 0L,
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
+    public var pHelpFile: Pstr = null,
+    public var pDependentFiles: Pstr = null,
+    public var pMonitorName: Pstr = null,
+    public var pDefaultDataType: Pstr = null,
 )
 
-public data class DRIVER_INFO_3W(
+public data class DriverInfo3w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
-    public var pHelpFile: PWSTR = 0L,
-    public var pDependentFiles: PWSTR = 0L,
-    public var pMonitorName: PWSTR = 0L,
-    public var pDefaultDataType: PWSTR = 0L,
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
+    public var pHelpFile: Pwstr = null,
+    public var pDependentFiles: Pwstr = null,
+    public var pMonitorName: Pwstr = null,
+    public var pDefaultDataType: Pwstr = null,
 )
 
-public data class DRIVER_INFO_4A(
+public data class DriverInfo4a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
-    public var pHelpFile: PSTR = 0L,
-    public var pDependentFiles: PSTR = 0L,
-    public var pMonitorName: PSTR = 0L,
-    public var pDefaultDataType: PSTR = 0L,
-    public var pszzPreviousNames: PSTR = 0L,
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
+    public var pHelpFile: Pstr = null,
+    public var pDependentFiles: Pstr = null,
+    public var pMonitorName: Pstr = null,
+    public var pDefaultDataType: Pstr = null,
+    public var pszzPreviousNames: Pstr = null,
 )
 
-public data class DRIVER_INFO_4W(
+public data class DriverInfo4w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
-    public var pHelpFile: PWSTR = 0L,
-    public var pDependentFiles: PWSTR = 0L,
-    public var pMonitorName: PWSTR = 0L,
-    public var pDefaultDataType: PWSTR = 0L,
-    public var pszzPreviousNames: PWSTR = 0L,
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
+    public var pHelpFile: Pwstr = null,
+    public var pDependentFiles: Pwstr = null,
+    public var pMonitorName: Pwstr = null,
+    public var pDefaultDataType: Pwstr = null,
+    public var pszzPreviousNames: Pwstr = null,
 )
 
-public data class DRIVER_INFO_5A(
+public data class DriverInfo5a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
     public var dwDriverAttributes: UInt = 0u,
     public var dwConfigVersion: UInt = 0u,
     public var dwDriverVersion: UInt = 0u,
 )
 
-public data class DRIVER_INFO_5W(
+public data class DriverInfo5w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
     public var dwDriverAttributes: UInt = 0u,
     public var dwConfigVersion: UInt = 0u,
     public var dwDriverVersion: UInt = 0u,
 )
 
-public class DRIVER_INFO_6A(
+public class DriverInfo6a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
-    public var pHelpFile: PSTR = 0L,
-    public var pDependentFiles: PSTR = 0L,
-    public var pMonitorName: PSTR = 0L,
-    public var pDefaultDataType: PSTR = 0L,
-    public var pszzPreviousNames: PSTR = 0L,
-    public var ftDriverDate: FILETIME = FILETIME(),
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
+    public var pHelpFile: Pstr = null,
+    public var pDependentFiles: Pstr = null,
+    public var pMonitorName: Pstr = null,
+    public var pDefaultDataType: Pstr = null,
+    public var pszzPreviousNames: Pstr = null,
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
-    public var pszMfgName: PSTR = 0L,
-    public var pszOEMUrl: PSTR = 0L,
-    public var pszHardwareID: PSTR = 0L,
-    public var pszProvider: PSTR = 0L,
+    public var pszMfgName: Pstr = null,
+    public var pszOEMUrl: Pstr = null,
+    public var pszHardwareID: Pstr = null,
+    public var pszProvider: Pstr = null,
 )
 
-public class DRIVER_INFO_6W(
+public class DriverInfo6w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
-    public var pHelpFile: PWSTR = 0L,
-    public var pDependentFiles: PWSTR = 0L,
-    public var pMonitorName: PWSTR = 0L,
-    public var pDefaultDataType: PWSTR = 0L,
-    public var pszzPreviousNames: PWSTR = 0L,
-    public var ftDriverDate: FILETIME = FILETIME(),
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
+    public var pHelpFile: Pwstr = null,
+    public var pDependentFiles: Pwstr = null,
+    public var pMonitorName: Pwstr = null,
+    public var pDefaultDataType: Pwstr = null,
+    public var pszzPreviousNames: Pwstr = null,
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
-    public var pszMfgName: PWSTR = 0L,
-    public var pszOEMUrl: PWSTR = 0L,
-    public var pszHardwareID: PWSTR = 0L,
-    public var pszProvider: PWSTR = 0L,
+    public var pszMfgName: Pwstr = null,
+    public var pszOEMUrl: Pwstr = null,
+    public var pszHardwareID: Pwstr = null,
+    public var pszProvider: Pwstr = null,
 )
 
-public class DRIVER_INFO_8A(
+public class DriverInfo8a(
     public var cVersion: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDriverPath: PSTR = 0L,
-    public var pDataFile: PSTR = 0L,
-    public var pConfigFile: PSTR = 0L,
-    public var pHelpFile: PSTR = 0L,
-    public var pDependentFiles: PSTR = 0L,
-    public var pMonitorName: PSTR = 0L,
-    public var pDefaultDataType: PSTR = 0L,
-    public var pszzPreviousNames: PSTR = 0L,
-    public var ftDriverDate: FILETIME = FILETIME(),
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDriverPath: Pstr = null,
+    public var pDataFile: Pstr = null,
+    public var pConfigFile: Pstr = null,
+    public var pHelpFile: Pstr = null,
+    public var pDependentFiles: Pstr = null,
+    public var pMonitorName: Pstr = null,
+    public var pDefaultDataType: Pstr = null,
+    public var pszzPreviousNames: Pstr = null,
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
-    public var pszMfgName: PSTR = 0L,
-    public var pszOEMUrl: PSTR = 0L,
-    public var pszHardwareID: PSTR = 0L,
-    public var pszProvider: PSTR = 0L,
-    public var pszPrintProcessor: PSTR = 0L,
-    public var pszVendorSetup: PSTR = 0L,
-    public var pszzColorProfiles: PSTR = 0L,
-    public var pszInfPath: PSTR = 0L,
+    public var pszMfgName: Pstr = null,
+    public var pszOEMUrl: Pstr = null,
+    public var pszHardwareID: Pstr = null,
+    public var pszProvider: Pstr = null,
+    public var pszPrintProcessor: Pstr = null,
+    public var pszVendorSetup: Pstr = null,
+    public var pszzColorProfiles: Pstr = null,
+    public var pszInfPath: Pstr = null,
     public var dwPrinterDriverAttributes: UInt = 0u,
-    public var pszzCoreDriverDependencies: PSTR = 0L,
-    public var ftMinInboxDriverVerDate: FILETIME = FILETIME(),
+    public var pszzCoreDriverDependencies: Pstr = null,
+    public var ftMinInboxDriverVerDate: Filetime = Filetime(),
     public var dwlMinInboxDriverVerVersion: ULong = 0uL,
 )
 
-public class DRIVER_INFO_8W(
+public class DriverInfo8w(
     public var cVersion: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDriverPath: PWSTR = 0L,
-    public var pDataFile: PWSTR = 0L,
-    public var pConfigFile: PWSTR = 0L,
-    public var pHelpFile: PWSTR = 0L,
-    public var pDependentFiles: PWSTR = 0L,
-    public var pMonitorName: PWSTR = 0L,
-    public var pDefaultDataType: PWSTR = 0L,
-    public var pszzPreviousNames: PWSTR = 0L,
-    public var ftDriverDate: FILETIME = FILETIME(),
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDriverPath: Pwstr = null,
+    public var pDataFile: Pwstr = null,
+    public var pConfigFile: Pwstr = null,
+    public var pHelpFile: Pwstr = null,
+    public var pDependentFiles: Pwstr = null,
+    public var pMonitorName: Pwstr = null,
+    public var pDefaultDataType: Pwstr = null,
+    public var pszzPreviousNames: Pwstr = null,
+    public var ftDriverDate: Filetime = Filetime(),
     public var dwlDriverVersion: ULong = 0uL,
-    public var pszMfgName: PWSTR = 0L,
-    public var pszOEMUrl: PWSTR = 0L,
-    public var pszHardwareID: PWSTR = 0L,
-    public var pszProvider: PWSTR = 0L,
-    public var pszPrintProcessor: PWSTR = 0L,
-    public var pszVendorSetup: PWSTR = 0L,
-    public var pszzColorProfiles: PWSTR = 0L,
-    public var pszInfPath: PWSTR = 0L,
+    public var pszMfgName: Pwstr = null,
+    public var pszOEMUrl: Pwstr = null,
+    public var pszHardwareID: Pwstr = null,
+    public var pszProvider: Pwstr = null,
+    public var pszPrintProcessor: Pwstr = null,
+    public var pszVendorSetup: Pwstr = null,
+    public var pszzColorProfiles: Pwstr = null,
+    public var pszInfPath: Pwstr = null,
     public var dwPrinterDriverAttributes: UInt = 0u,
-    public var pszzCoreDriverDependencies: PWSTR = 0L,
-    public var ftMinInboxDriverVerDate: FILETIME = FILETIME(),
+    public var pszzCoreDriverDependencies: Pwstr = null,
+    public var ftMinInboxDriverVerDate: Filetime = Filetime(),
     public var dwlMinInboxDriverVerVersion: ULong = 0uL,
 )
 
-public data class DRIVER_UPGRADE_INFO_1(public var pPrinterName: Long = 0L, public var pOldDriverDirectory: Long = 0L)
+public data class DriverUpgradeInfo1(public var pPrinterName: COpaquePointer? = null, public var pOldDriverDirectory: COpaquePointer? = null)
 
-public data class DRIVER_UPGRADE_INFO_2(
-    public var pPrinterName: Long = 0L,
-    public var pOldDriverDirectory: Long = 0L,
+public data class DriverUpgradeInfo2(
+    public var pPrinterName: COpaquePointer? = null,
+    public var pOldDriverDirectory: COpaquePointer? = null,
     public var cVersion: UInt = 0u,
-    public var pName: Long = 0L,
-    public var pEnvironment: Long = 0L,
-    public var pDriverPath: Long = 0L,
-    public var pDataFile: Long = 0L,
-    public var pConfigFile: Long = 0L,
-    public var pHelpFile: Long = 0L,
-    public var pDependentFiles: Long = 0L,
-    public var pMonitorName: Long = 0L,
-    public var pDefaultDataType: Long = 0L,
-    public var pszzPreviousNames: Long = 0L,
+    public var pName: COpaquePointer? = null,
+    public var pEnvironment: COpaquePointer? = null,
+    public var pDriverPath: COpaquePointer? = null,
+    public var pDataFile: COpaquePointer? = null,
+    public var pConfigFile: COpaquePointer? = null,
+    public var pHelpFile: COpaquePointer? = null,
+    public var pDependentFiles: COpaquePointer? = null,
+    public var pMonitorName: COpaquePointer? = null,
+    public var pDefaultDataType: COpaquePointer? = null,
+    public var pszzPreviousNames: COpaquePointer? = null,
 )
 
-public data class EXTCHKBOX(
+public data class Extchkbox(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var pTitle: Long = 0L,
-    public var pSeparator: Long = 0L,
-    public var pCheckedName: Long = 0L,
-    public var IconID: ULong = 0uL,
+    public var flags: UShort = 0u,
+    public var pTitle: COpaquePointer? = null,
+    public var pSeparator: COpaquePointer? = null,
+    public var pCheckedName: COpaquePointer? = null,
+    public var iconID: Int = 0,
     public var wReserved: UShortArray = UShortArray(4),
-    public var dwReserved: ULongArray = ULongArray(2),
+    public var dwReserved: IntArray = IntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTCHKBOX) return false
+        if (other !is Extchkbox) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
+        if (this.flags != other.flags) return false
         if (this.pTitle != other.pTitle) return false
         if (this.pSeparator != other.pSeparator) return false
         if (this.pCheckedName != other.pCheckedName) return false
-        if (this.IconID != other.IconID) return false
+        if (this.iconID != other.iconID) return false
         if (!this.wReserved.contentEquals(other.wReserved)) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
@@ -738,56 +741,56 @@ public data class EXTCHKBOX(
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.flags.hashCode()
         result = 31 * result + this.pTitle.hashCode()
         result = 31 * result + this.pSeparator.hashCode()
         result = 31 * result + this.pCheckedName.hashCode()
-        result = 31 * result + this.IconID.hashCode()
+        result = 31 * result + this.iconID.hashCode()
         result = 31 * result + this.wReserved.contentHashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class EXTPUSH(
+public data class Extpush(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var pTitle: Long = 0L,
-    public var Anonymous1: EXTPUSH_0 = EXTPUSH_0(),
-    public var IconID: ULong = 0uL,
-    public var Anonymous2: EXTPUSH_1 = EXTPUSH_1(),
-    public var dwReserved: ULongArray = ULongArray(3),
+    public var flags: UShort = 0u,
+    public var pTitle: COpaquePointer? = null,
+    public var anonymous1: Extpush0 = Extpush0(),
+    public var iconID: Int = 0,
+    public var anonymous2: Extpush1 = Extpush1(),
+    public var dwReserved: IntArray = IntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTPUSH) return false
+        if (other !is Extpush) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
+        if (this.flags != other.flags) return false
         if (this.pTitle != other.pTitle) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.IconID != other.IconID) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.iconID != other.iconID) return false
+        if (this.anonymous2 != other.anonymous2) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.flags.hashCode()
         result = 31 * result + this.pTitle.hashCode()
-        result = 31 * result + this.Anonymous1.hashCode()
-        result = 31 * result + this.IconID.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
+        result = 31 * result + this.anonymous1.hashCode()
+        result = 31 * result + this.iconID.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class EXTPUSH_0(public var DlgProc: DLGPROC = null, public var pfnCallBack: FARPROC = null)
+public data class Extpush0(public var dlgProc: Dlgproc = null, public var pfnCallBack: Farproc = null)
 
-public data class EXTPUSH_1(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: HANDLE = 0L)
+public data class Extpush1(public var dlgTemplateID: UShort = 0u, public var hDlgTemplate: Handle = null)
 
-public class EXTTEXTMETRIC(
+public class Exttextmetric(
     public var emSize: Short = 0,
     public var emPointSize: Short = 0,
     public var emOrientation: Short = 0,
@@ -816,342 +819,342 @@ public class EXTTEXTMETRIC(
     public var emKernTracks: UShort = 0u,
 )
 
-public data class FORM_INFO_1A(
-    public var Flags: UInt = 0u,
-    public var pName: PSTR = 0L,
-    public var Size: SIZE = SIZE(),
-    public var ImageableArea: RECTL = RECTL(),
+public data class FormInfo1a(
+    public var flags: UInt = 0u,
+    public var pName: Pstr = null,
+    public var size: Size = Size(),
+    public var imageableArea: Rectl = Rectl(),
 )
 
-public data class FORM_INFO_1W(
-    public var Flags: UInt = 0u,
-    public var pName: PWSTR = 0L,
-    public var Size: SIZE = SIZE(),
-    public var ImageableArea: RECTL = RECTL(),
+public data class FormInfo1w(
+    public var flags: UInt = 0u,
+    public var pName: Pwstr = null,
+    public var size: Size = Size(),
+    public var imageableArea: Rectl = Rectl(),
 )
 
-public data class FORM_INFO_2A(
-    public var Flags: UInt = 0u,
-    public var pName: PCSTR = 0L,
-    public var Size: SIZE = SIZE(),
-    public var ImageableArea: RECTL = RECTL(),
-    public var pKeyword: PCSTR = 0L,
-    public var StringType: UInt = 0u,
-    public var pMuiDll: PCSTR = 0L,
+public data class FormInfo2a(
+    public var flags: UInt = 0u,
+    public var pName: Pcstr = null,
+    public var size: Size = Size(),
+    public var imageableArea: Rectl = Rectl(),
+    public var pKeyword: Pcstr = null,
+    public var stringType: UInt = 0u,
+    public var pMuiDll: Pcstr = null,
     public var dwResourceId: UInt = 0u,
-    public var pDisplayName: PCSTR = 0L,
+    public var pDisplayName: Pcstr = null,
     public var wLangId: UShort = 0u,
 )
 
-public data class FORM_INFO_2W(
-    public var Flags: UInt = 0u,
-    public var pName: PCWSTR = 0L,
-    public var Size: SIZE = SIZE(),
-    public var ImageableArea: RECTL = RECTL(),
-    public var pKeyword: PCSTR = 0L,
-    public var StringType: UInt = 0u,
-    public var pMuiDll: PCWSTR = 0L,
+public data class FormInfo2w(
+    public var flags: UInt = 0u,
+    public var pName: Pcwstr = null,
+    public var size: Size = Size(),
+    public var imageableArea: Rectl = Rectl(),
+    public var pKeyword: Pcstr = null,
+    public var stringType: UInt = 0u,
+    public var pMuiDll: Pcwstr = null,
     public var dwResourceId: UInt = 0u,
-    public var pDisplayName: PCWSTR = 0L,
+    public var pDisplayName: Pcwstr = null,
     public var wLangId: UShort = 0u,
 )
 
-public data class GLYPHRUN(public var wcLow: UShort = 0u, public var wGlyphCount: UShort = 0u)
+public data class Glyphrun(public var wcLow: UShort = 0u, public var wGlyphCount: UShort = 0u)
 
-public data class INSERTPSUIPAGE_INFO(
+public data class InsertpsuipageInfo(
     public var cbSize: UShort = 0u,
-    public var Type: UByte = 0u,
-    public var Mode: UByte = 0u,
-    public var dwData1: ULong = 0uL,
-    public var dwData2: ULong = 0uL,
-    public var dwData3: ULong = 0uL,
+    public var type: UByte = 0u,
+    public var mode: UByte = 0u,
+    public var dwData1: Int = 0,
+    public var dwData2: Int = 0,
+    public var dwData3: Int = 0,
 )
 
-public data class INVOC(public var dwCount: UInt = 0u, public var loOffset: UInt = 0u)
+public data class Invoc(public var dwCount: UInt = 0u, public var loOffset: UInt = 0u)
 
 public data class ImgErrorInfo(
-    public var description: BSTR = 0L,
-    public var guid: GUID = GUID(),
+    public var description: Bstr = null,
+    public var guid: Guid = Guid(),
     public var helpContext: UInt = 0u,
-    public var helpFile: BSTR = 0L,
-    public var source: BSTR = 0L,
-    public var devDescription: BSTR = 0L,
-    public var errorID: GUID = GUID(),
+    public var helpFile: Bstr = null,
+    public var source: Bstr = null,
+    public var devDescription: Bstr = null,
+    public var errorID: Guid = Guid(),
     public var cUserParameters: UInt = 0u,
-    public var aUserParameters: Long = 0L,
-    public var userFallback: BSTR = 0L,
+    public var aUserParameters: Bstr? = null,
+    public var userFallback: Bstr = null,
     public var exceptionID: UInt = 0u,
 )
 
-public data class JOB_INFO_1A(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PSTR = 0L,
-    public var pMachineName: PSTR = 0L,
-    public var pUserName: PSTR = 0L,
-    public var pDocument: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
-    public var pStatus: PSTR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
+public data class JobInfo1a(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pstr = null,
+    public var pMachineName: Pstr = null,
+    public var pUserName: Pstr = null,
+    public var pDocument: Pstr = null,
+    public var pDatatype: Pstr = null,
+    public var pStatus: Pstr = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
 )
 
-public data class JOB_INFO_1W(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PWSTR = 0L,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pDocument: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
-    public var pStatus: PWSTR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
+public data class JobInfo1w(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pwstr = null,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pDocument: Pwstr = null,
+    public var pDatatype: Pwstr = null,
+    public var pStatus: Pwstr = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
 )
 
-public class JOB_INFO_2A(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PSTR = 0L,
-    public var pMachineName: PSTR = 0L,
-    public var pUserName: PSTR = 0L,
-    public var pDocument: PSTR = 0L,
-    public var pNotifyName: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
-    public var pPrintProcessor: PSTR = 0L,
-    public var pParameters: PSTR = 0L,
-    public var pDriverName: PSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pStatus: PSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
-    public var Time: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
+public class JobInfo2a(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pstr = null,
+    public var pMachineName: Pstr = null,
+    public var pUserName: Pstr = null,
+    public var pDocument: Pstr = null,
+    public var pNotifyName: Pstr = null,
+    public var pDatatype: Pstr = null,
+    public var pPrintProcessor: Pstr = null,
+    public var pParameters: Pstr = null,
+    public var pDriverName: Pstr = null,
+    public var pDevMode: Devmodea? = null,
+    public var pStatus: Pstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var size: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
+    public var time: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
 )
 
-public class JOB_INFO_2W(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PWSTR = 0L,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pDocument: PWSTR = 0L,
-    public var pNotifyName: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
-    public var pPrintProcessor: PWSTR = 0L,
-    public var pParameters: PWSTR = 0L,
-    public var pDriverName: PWSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pStatus: PWSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
-    public var Time: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
+public class JobInfo2w(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pwstr = null,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pDocument: Pwstr = null,
+    public var pNotifyName: Pwstr = null,
+    public var pDatatype: Pwstr = null,
+    public var pPrintProcessor: Pwstr = null,
+    public var pParameters: Pwstr = null,
+    public var pDriverName: Pwstr = null,
+    public var pDevMode: Devmodew? = null,
+    public var pStatus: Pwstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var size: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
+    public var time: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
 )
 
-public data class JOB_INFO_3(
-    public var JobId: UInt = 0u,
-    public var NextJobId: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class JobInfo3(
+    public var jobId: UInt = 0u,
+    public var nextJobId: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public class JOB_INFO_4A(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PSTR = 0L,
-    public var pMachineName: PSTR = 0L,
-    public var pUserName: PSTR = 0L,
-    public var pDocument: PSTR = 0L,
-    public var pNotifyName: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
-    public var pPrintProcessor: PSTR = 0L,
-    public var pParameters: PSTR = 0L,
-    public var pDriverName: PSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pStatus: PSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
-    public var Time: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
-    public var SizeHigh: Int = 0,
+public class JobInfo4a(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pstr = null,
+    public var pMachineName: Pstr = null,
+    public var pUserName: Pstr = null,
+    public var pDocument: Pstr = null,
+    public var pNotifyName: Pstr = null,
+    public var pDatatype: Pstr = null,
+    public var pPrintProcessor: Pstr = null,
+    public var pParameters: Pstr = null,
+    public var pDriverName: Pstr = null,
+    public var pDevMode: Devmodea? = null,
+    public var pStatus: Pstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var size: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
+    public var time: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
+    public var sizeHigh: Int = 0,
 )
 
-public class JOB_INFO_4W(
-    public var JobId: UInt = 0u,
-    public var pPrinterName: PWSTR = 0L,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pDocument: PWSTR = 0L,
-    public var pNotifyName: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
-    public var pPrintProcessor: PWSTR = 0L,
-    public var pParameters: PWSTR = 0L,
-    public var pDriverName: PWSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pStatus: PWSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Status: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var Position: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var TotalPages: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
-    public var Time: UInt = 0u,
-    public var PagesPrinted: UInt = 0u,
-    public var SizeHigh: Int = 0,
+public class JobInfo4w(
+    public var jobId: UInt = 0u,
+    public var pPrinterName: Pwstr = null,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pDocument: Pwstr = null,
+    public var pNotifyName: Pwstr = null,
+    public var pDatatype: Pwstr = null,
+    public var pPrintProcessor: Pwstr = null,
+    public var pParameters: Pwstr = null,
+    public var pDriverName: Pwstr = null,
+    public var pDevMode: Devmodew? = null,
+    public var pStatus: Pwstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var status: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var position: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var totalPages: UInt = 0u,
+    public var size: UInt = 0u,
+    public var submitted: Systemtime = Systemtime(),
+    public var time: UInt = 0u,
+    public var pagesPrinted: UInt = 0u,
+    public var sizeHigh: Int = 0,
 )
 
-public data class KERNDATA(
+public data class Kerndata(
     public var dwSize: UInt = 0u,
     public var dwKernPairNum: UInt = 0u,
-    public var KernPair: List<FD_KERNINGPAIR> = List(1) { FD_KERNINGPAIR() },
+    public var kernPair: List<FdKerningpair> = List(1) { FdKerningpair() },
 )
 
-public data class MAPTABLE(
+public data class Maptable(
     public var dwSize: UInt = 0u,
     public var dwGlyphNum: UInt = 0u,
-    public var Trans: List<TRANSDATA> = List(1) { TRANSDATA() },
+    public var trans: List<Transdata> = List(1) { Transdata() },
 )
 
-public data class MESSAGEBOX_PARAMS(
+public data class MessageboxParams(
     public var cbSize: UInt = 0u,
-    public var pTitle: PWSTR = 0L,
-    public var pMessage: PWSTR = 0L,
-    public var Style: UInt = 0u,
+    public var pTitle: Pwstr = null,
+    public var pMessage: Pwstr = null,
+    public var style: UInt = 0u,
     public var dwTimeout: UInt = 0u,
-    public var bWait: BOOL = 0,
+    public var bWait: Bool = 0,
 )
 
-public class MONITOR(
-    public var pfnEnumPorts: PFN_PRINTING_ENUMPORTS = null,
-    public var pfnOpenPort: PFN_PRINTING_OPENPORT = null,
-    public var pfnOpenPortEx: PFN_PRINTING_OPENPORTEX = null,
-    public var pfnStartDocPort: PFN_PRINTING_STARTDOCPORT = null,
-    public var pfnWritePort: PFN_PRINTING_WRITEPORT = null,
-    public var pfnReadPort: PFN_PRINTING_READPORT = null,
-    public var pfnEndDocPort: PFN_PRINTING_ENDDOCPORT = null,
-    public var pfnClosePort: PFN_PRINTING_CLOSEPORT = null,
-    public var pfnAddPort: PFN_PRINTING_ADDPORT = null,
-    public var pfnAddPortEx: PFN_PRINTING_ADDPORTEX = null,
-    public var pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT = null,
-    public var pfnDeletePort: PFN_PRINTING_DELETEPORT = null,
-    public var pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT = null,
-    public var pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS = null,
-    public var pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT = null,
-    public var pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT = null,
-    public var pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT = null,
+public class Monitor(
+    public var pfnEnumPorts: PfnPrintingEnumports = null,
+    public var pfnOpenPort: PfnPrintingOpenport = null,
+    public var pfnOpenPortEx: PfnPrintingOpenportex = null,
+    public var pfnStartDocPort: PfnPrintingStartdocport = null,
+    public var pfnWritePort: PfnPrintingWriteport = null,
+    public var pfnReadPort: PfnPrintingReadport = null,
+    public var pfnEndDocPort: PfnPrintingEnddocport = null,
+    public var pfnClosePort: PfnPrintingCloseport = null,
+    public var pfnAddPort: PfnPrintingAddport = null,
+    public var pfnAddPortEx: PfnPrintingAddportex = null,
+    public var pfnConfigurePort: PfnPrintingConfigureport = null,
+    public var pfnDeletePort: PfnPrintingDeleteport = null,
+    public var pfnGetPrinterDataFromPort: PfnPrintingGetprinterdatafromport = null,
+    public var pfnSetPortTimeOuts: PfnPrintingSetporttimeouts = null,
+    public var pfnXcvOpenPort: PfnPrintingXcvopenport = null,
+    public var pfnXcvDataPort: PfnPrintingXcvdataport = null,
+    public var pfnXcvClosePort: PfnPrintingXcvcloseport = null,
 )
 
-public class MONITOR2(
+public class Monitor2(
     public var cbSize: UInt = 0u,
-    public var pfnEnumPorts: PFN_PRINTING_ENUMPORTS2 = null,
-    public var pfnOpenPort: PFN_PRINTING_OPENPORT2 = null,
-    public var pfnOpenPortEx: PFN_PRINTING_OPENPORTEX2 = null,
-    public var pfnStartDocPort: PFN_PRINTING_STARTDOCPORT2 = null,
-    public var pfnWritePort: PFN_PRINTING_WRITEPORT2 = null,
-    public var pfnReadPort: PFN_PRINTING_READPORT2 = null,
-    public var pfnEndDocPort: PFN_PRINTING_ENDDOCPORT2 = null,
-    public var pfnClosePort: PFN_PRINTING_CLOSEPORT2 = null,
-    public var pfnAddPort: PFN_PRINTING_ADDPORT2 = null,
-    public var pfnAddPortEx: PFN_PRINTING_ADDPORTEX2 = null,
-    public var pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT2 = null,
-    public var pfnDeletePort: PFN_PRINTING_DELETEPORT2 = null,
-    public var pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT2 = null,
-    public var pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS2 = null,
-    public var pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT2 = null,
-    public var pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT2 = null,
-    public var pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT2 = null,
-    public var pfnShutdown: PFN_PRINTING_SHUTDOWN2 = null,
-    public var pfnSendRecvBidiDataFromPort: PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2 = null,
-    public var pfnNotifyUsedPorts: PFN_PRINTING_NOTIFYUSEDPORTS2 = null,
-    public var pfnNotifyUnusedPorts: PFN_PRINTING_NOTIFYUNUSEDPORTS2 = null,
-    public var pfnPowerEvent: PFN_PRINTING_POWEREVENT2 = null,
+    public var pfnEnumPorts: PfnPrintingEnumports2 = null,
+    public var pfnOpenPort: PfnPrintingOpenport2 = null,
+    public var pfnOpenPortEx: PfnPrintingOpenportex2 = null,
+    public var pfnStartDocPort: PfnPrintingStartdocport2 = null,
+    public var pfnWritePort: PfnPrintingWriteport2 = null,
+    public var pfnReadPort: PfnPrintingReadport2 = null,
+    public var pfnEndDocPort: PfnPrintingEnddocport2 = null,
+    public var pfnClosePort: PfnPrintingCloseport2 = null,
+    public var pfnAddPort: PfnPrintingAddport2 = null,
+    public var pfnAddPortEx: PfnPrintingAddportex2 = null,
+    public var pfnConfigurePort: PfnPrintingConfigureport2 = null,
+    public var pfnDeletePort: PfnPrintingDeleteport2 = null,
+    public var pfnGetPrinterDataFromPort: PfnPrintingGetprinterdatafromport2 = null,
+    public var pfnSetPortTimeOuts: PfnPrintingSetporttimeouts2 = null,
+    public var pfnXcvOpenPort: PfnPrintingXcvopenport2 = null,
+    public var pfnXcvDataPort: PfnPrintingXcvdataport2 = null,
+    public var pfnXcvClosePort: PfnPrintingXcvcloseport2 = null,
+    public var pfnShutdown: PfnPrintingShutdown2 = null,
+    public var pfnSendRecvBidiDataFromPort: PfnPrintingSendrecvbididatafromport2 = null,
+    public var pfnNotifyUsedPorts: PfnPrintingNotifyusedports2 = null,
+    public var pfnNotifyUnusedPorts: PfnPrintingNotifyunusedports2 = null,
+    public var pfnPowerEvent: PfnPrintingPowerevent2 = null,
 )
 
-public data class MONITOREX(public var dwMonitorSize: UInt = 0u, public var Monitor: MONITOR = MONITOR())
+public data class Monitorex(public var dwMonitorSize: UInt = 0u, public var monitor: Monitor = Monitor())
 
-public data class MONITORINIT(
+public data class Monitorinit(
     public var cbSize: UInt = 0u,
-    public var hSpooler: HANDLE = 0L,
-    public var hckRegistryRoot: HKEY = 0L,
-    public var pMonitorReg: Long = 0L,
-    public var bLocal: BOOL = 0,
-    public var pszServerName: PCWSTR = 0L,
+    public var hSpooler: Handle = null,
+    public var hckRegistryRoot: Hkey = null,
+    public var pMonitorReg: Monitorreg? = null,
+    public var bLocal: Bool = 0,
+    public var pszServerName: Pcwstr = null,
 )
 
-public data class MONITORREG(
+public data class Monitorreg(
     public var cbSize: UInt = 0u,
-    public var fpCreateKey: Long = 0L,
-    public var fpOpenKey: Long = 0L,
-    public var fpCloseKey: Long = 0L,
-    public var fpDeleteKey: Long = 0L,
-    public var fpEnumKey: Long = 0L,
-    public var fpQueryInfoKey: Long = 0L,
-    public var fpSetValue: Long = 0L,
-    public var fpDeleteValue: Long = 0L,
-    public var fpEnumValue: Long = 0L,
-    public var fpQueryValue: Long = 0L,
+    public var fpCreateKey: Int = 0,
+    public var fpOpenKey: Int = 0,
+    public var fpCloseKey: Int = 0,
+    public var fpDeleteKey: Int = 0,
+    public var fpEnumKey: Int = 0,
+    public var fpQueryInfoKey: Int = 0,
+    public var fpSetValue: Int = 0,
+    public var fpDeleteValue: Int = 0,
+    public var fpEnumValue: Int = 0,
+    public var fpQueryValue: Int = 0,
 )
 
-public data class MONITORUI(
+public data class Monitorui(
     public var dwMonitorUISize: UInt = 0u,
-    public var pfnAddPortUI: Long = 0L,
-    public var pfnConfigurePortUI: Long = 0L,
-    public var pfnDeletePortUI: Long = 0L,
+    public var pfnAddPortUI: Int = 0,
+    public var pfnConfigurePortUI: Int = 0,
+    public var pfnDeletePortUI: Int = 0,
 )
 
-public data class MONITOR_INFO_1A(public var pName: PSTR = 0L)
+public data class MonitorInfo1a(public var pName: Pstr = null)
 
-public data class MONITOR_INFO_1W(public var pName: PWSTR = 0L)
+public data class MonitorInfo1w(public var pName: Pwstr = null)
 
-public data class MONITOR_INFO_2A(
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDLLName: PSTR = 0L,
+public data class MonitorInfo2a(
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDLLName: Pstr = null,
 )
 
-public data class MONITOR_INFO_2W(
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDLLName: PWSTR = 0L,
+public data class MonitorInfo2w(
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDLLName: Pwstr = null,
 )
 
-public data class MXDC_ESCAPE_HEADER_T(
+public data class MxdcEscapeHeaderT(
     public var cbInput: UInt = 0u,
     public var cbOutput: UInt = 0u,
     public var opCode: UInt = 0u,
 )
 
-public data class MXDC_GET_FILENAME_DATA_T(public var cbOutput: UInt = 0u, public var wszData: UShortArray = UShortArray(1)) {
+public data class MxdcGetFilenameDataT(public var cbOutput: UInt = 0u, public var wszData: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MXDC_GET_FILENAME_DATA_T) return false
+        if (other !is MxdcGetFilenameDataT) return false
         if (this.cbOutput != other.cbOutput) return false
         if (!this.wszData.contentEquals(other.wszData)) return false
         return true
@@ -1164,10 +1167,10 @@ public data class MXDC_GET_FILENAME_DATA_T(public var cbOutput: UInt = 0u, publi
     }
 }
 
-public data class MXDC_PRINTTICKET_DATA_T(public var dwDataSize: UInt = 0u, public var bData: UByteArray = UByteArray(1)) {
+public data class MxdcPrintticketDataT(public var dwDataSize: UInt = 0u, public var bData: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MXDC_PRINTTICKET_DATA_T) return false
+        if (other !is MxdcPrintticketDataT) return false
         if (this.dwDataSize != other.dwDataSize) return false
         if (!this.bData.contentEquals(other.bData)) return false
         return true
@@ -1180,12 +1183,12 @@ public data class MXDC_PRINTTICKET_DATA_T(public var dwDataSize: UInt = 0u, publ
     }
 }
 
-public data class MXDC_PRINTTICKET_ESCAPE_T(public var mxdcEscape: MXDC_ESCAPE_HEADER_T = MXDC_ESCAPE_HEADER_T(), public var printTicketData: MXDC_PRINTTICKET_DATA_T = MXDC_PRINTTICKET_DATA_T())
+public data class MxdcPrintticketEscapeT(public var mxdcEscape: MxdcEscapeHeaderT = MxdcEscapeHeaderT(), public var printTicketData: MxdcPrintticketDataT = MxdcPrintticketDataT())
 
-public data class MXDC_S0PAGE_DATA_T(public var dwSize: UInt = 0u, public var bData: UByteArray = UByteArray(1)) {
+public data class MxdcS0pageDataT(public var dwSize: UInt = 0u, public var bData: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MXDC_S0PAGE_DATA_T) return false
+        if (other !is MxdcS0pageDataT) return false
         if (this.dwSize != other.dwSize) return false
         if (!this.bData.contentEquals(other.bData)) return false
         return true
@@ -1198,11 +1201,11 @@ public data class MXDC_S0PAGE_DATA_T(public var dwSize: UInt = 0u, public var bD
     }
 }
 
-public data class MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T(public var mxdcEscape: MXDC_ESCAPE_HEADER_T = MXDC_ESCAPE_HEADER_T(), public var xpsS0PageData: MXDC_S0PAGE_DATA_T = MXDC_S0PAGE_DATA_T())
+public data class MxdcS0pagePassthroughEscapeT(public var mxdcEscape: MxdcEscapeHeaderT = MxdcEscapeHeaderT(), public var xpsS0PageData: MxdcS0pageDataT = MxdcS0pageDataT())
 
-public data class MXDC_S0PAGE_RESOURCE_ESCAPE_T(public var mxdcEscape: MXDC_ESCAPE_HEADER_T = MXDC_ESCAPE_HEADER_T(), public var xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T = MXDC_XPS_S0PAGE_RESOURCE_T())
+public data class MxdcS0pageResourceEscapeT(public var mxdcEscape: MxdcEscapeHeaderT = MxdcEscapeHeaderT(), public var xpsS0PageResourcePassthrough: MxdcXpsS0pageResourceT = MxdcXpsS0pageResourceT())
 
-public data class MXDC_XPS_S0PAGE_RESOURCE_T(
+public data class MxdcXpsS0pageResourceT(
     public var dwSize: UInt = 0u,
     public var dwResourceType: UInt = 0u,
     public var szUri: UByteArray = UByteArray(260),
@@ -1211,7 +1214,7 @@ public data class MXDC_XPS_S0PAGE_RESOURCE_T(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MXDC_XPS_S0PAGE_RESOURCE_T) return false
+        if (other !is MxdcXpsS0pageResourceT) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwResourceType != other.dwResourceType) return false
         if (!this.szUri.contentEquals(other.szUri)) return false
@@ -1230,88 +1233,88 @@ public data class MXDC_XPS_S0PAGE_RESOURCE_T(
     }
 }
 
-public data class NOTIFICATION_CONFIG_1(
+public data class NotificationConfig1(
     public var cbSize: UInt = 0u,
     public var fdwFlags: UInt = 0u,
-    public var pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK = null,
-    public var pContext: Long = 0L,
+    public var pfnNotifyCallback: RouterNotifyCallback = null,
+    public var pContext: COpaquePointer? = null,
 )
 
-public data class OEMCUIPPARAM(
+public data class Oemcuipparam(
     public var cbSize: UInt = 0u,
-    public var poemuiobj: Long = 0L,
-    public var hPrinter: HANDLE = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var hModule: HANDLE = 0L,
-    public var hOEMHeap: HANDLE = 0L,
-    public var pPublicDM: Long = 0L,
-    public var pOEMDM: Long = 0L,
+    public var poemuiobj: Oemuiobj? = null,
+    public var hPrinter: Handle = null,
+    public var pPrinterName: Pwstr = null,
+    public var hModule: Handle = null,
+    public var hOEMHeap: Handle = null,
+    public var pPublicDM: Devmodea? = null,
+    public var pOEMDM: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
-    public var pDrvOptItems: Long = 0L,
+    public var pDrvOptItems: Optitem? = null,
     public var cDrvOptItems: UInt = 0u,
-    public var pOEMOptItems: Long = 0L,
+    public var pOEMOptItems: Optitem? = null,
     public var cOEMOptItems: UInt = 0u,
-    public var pOEMUserData: Long = 0L,
-    public var OEMCUIPCallback: OEMCUIPCALLBACK = null,
+    public var pOEMUserData: COpaquePointer? = null,
+    public var oEMCUIPCallback: Oemcuipcallback = null,
 )
 
-public data class OEMDMPARAM(
+public data class Oemdmparam(
     public var cbSize: UInt = 0u,
-    public var pdriverobj: Long = 0L,
-    public var hPrinter: HANDLE = 0L,
-    public var hModule: HANDLE = 0L,
-    public var pPublicDMIn: Long = 0L,
-    public var pPublicDMOut: Long = 0L,
-    public var pOEMDMIn: Long = 0L,
-    public var pOEMDMOut: Long = 0L,
+    public var pdriverobj: COpaquePointer? = null,
+    public var hPrinter: Handle = null,
+    public var hModule: Handle = null,
+    public var pPublicDMIn: Devmodea? = null,
+    public var pPublicDMOut: Devmodea? = null,
+    public var pOEMDMIn: COpaquePointer? = null,
+    public var pOEMDMOut: COpaquePointer? = null,
     public var cbBufSize: UInt = 0u,
 )
 
-public data class OEMFONTINSTPARAM(
+public data class Oemfontinstparam(
     public var cbSize: UInt = 0u,
-    public var hPrinter: HANDLE = 0L,
-    public var hModule: HANDLE = 0L,
-    public var hHeap: HANDLE = 0L,
+    public var hPrinter: Handle = null,
+    public var hModule: Handle = null,
+    public var hHeap: Handle = null,
     public var dwFlags: UInt = 0u,
-    public var pFontInstallerName: PWSTR = 0L,
+    public var pFontInstallerName: Pwstr = null,
 )
 
-public data class OEMUIOBJ(public var cbSize: UInt = 0u, public var pOemUIProcs: Long = 0L)
+public data class Oemuiobj(public var cbSize: UInt = 0u, public var pOemUIProcs: Oemuiprocs? = null)
 
-public data class OEMUIPROCS(public var DrvGetDriverSetting: PFN_DrvGetDriverSetting = null, public var DrvUpdateUISetting: PFN_DrvUpdateUISetting = null)
+public data class Oemuiprocs(public var drvGetDriverSetting: PfnDrvGetDriverSetting = null, public var drvUpdateUISetting: PfnDrvUpdateUisetting = null)
 
-public data class OEMUIPSPARAM(
+public data class Oemuipsparam(
     public var cbSize: UInt = 0u,
-    public var poemuiobj: Long = 0L,
-    public var hPrinter: HANDLE = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var hModule: HANDLE = 0L,
-    public var hOEMHeap: HANDLE = 0L,
-    public var pPublicDM: Long = 0L,
-    public var pOEMDM: Long = 0L,
-    public var pOEMUserData: Long = 0L,
+    public var poemuiobj: Oemuiobj? = null,
+    public var hPrinter: Handle = null,
+    public var pPrinterName: Pwstr = null,
+    public var hModule: Handle = null,
+    public var hOEMHeap: Handle = null,
+    public var pPublicDM: Devmodea? = null,
+    public var pOEMDM: COpaquePointer? = null,
+    public var pOEMUserData: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
-    public var pOemEntry: Long = 0L,
+    public var pOemEntry: COpaquePointer? = null,
 )
 
-public data class OEM_DMEXTRAHEADER(
+public data class OemDmextraheader(
     public var dwSize: UInt = 0u,
     public var dwSignature: UInt = 0u,
     public var dwVersion: UInt = 0u,
 )
 
-public data class OIEXT(
+public data class Oiext(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var hInstCaller: HINSTANCE = 0L,
-    public var pHelpFile: Long = 0L,
-    public var dwReserved: ULongArray = ULongArray(4),
+    public var flags: UShort = 0u,
+    public var hInstCaller: Hinstance = null,
+    public var pHelpFile: COpaquePointer? = null,
+    public var dwReserved: IntArray = IntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OIEXT) return false
+        if (other !is Oiext) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
+        if (this.flags != other.flags) return false
         if (this.hInstCaller != other.hInstCaller) return false
         if (this.pHelpFile != other.pHelpFile) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
@@ -1320,7 +1323,7 @@ public data class OIEXT(
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.flags.hashCode()
         result = 31 * result + this.hInstCaller.hashCode()
         result = 31 * result + this.pHelpFile.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
@@ -1328,69 +1331,69 @@ public data class OIEXT(
     }
 }
 
-public data class OPTCOMBO(
+public data class Optcombo(
     public var cbSize: UShort = 0u,
-    public var Flags: UByte = 0u,
+    public var flags: UByte = 0u,
     public var cListItem: UShort = 0u,
-    public var pListItem: Long = 0L,
-    public var Sel: Int = 0,
+    public var pListItem: Optparam? = null,
+    public var sel: Int = 0,
     public var dwReserved: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OPTCOMBO) return false
+        if (other !is Optcombo) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
+        if (this.flags != other.flags) return false
         if (this.cListItem != other.cListItem) return false
         if (this.pListItem != other.pListItem) return false
-        if (this.Sel != other.Sel) return false
+        if (this.sel != other.sel) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.flags.hashCode()
         result = 31 * result + this.cListItem.hashCode()
         result = 31 * result + this.pListItem.hashCode()
-        result = 31 * result + this.Sel.hashCode()
+        result = 31 * result + this.sel.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class OPTITEM(
+public data class Optitem(
     public var cbSize: UShort = 0u,
-    public var Level: UByte = 0u,
-    public var DlgPageIdx: UByte = 0u,
-    public var Flags: UInt = 0u,
-    public var UserData: ULong = 0uL,
-    public var pName: Long = 0L,
-    public var Anonymous1: OPTITEM_0 = OPTITEM_0(),
-    public var Anonymous2: OPTITEM_1 = OPTITEM_1(),
-    public var pOptType: Long = 0L,
-    public var HelpIndex: UInt = 0u,
-    public var DMPubID: UByte = 0u,
-    public var UserItemID: UByte = 0u,
+    public var level: UByte = 0u,
+    public var dlgPageIdx: UByte = 0u,
+    public var flags: UInt = 0u,
+    public var userData: Int = 0,
+    public var pName: COpaquePointer? = null,
+    public var anonymous1: Optitem0 = Optitem0(),
+    public var anonymous2: Optitem1 = Optitem1(),
+    public var pOptType: Opttype? = null,
+    public var helpIndex: UInt = 0u,
+    public var dMPubID: UByte = 0u,
+    public var userItemID: UByte = 0u,
     public var wReserved: UShort = 0u,
-    public var pOIExt: Long = 0L,
-    public var dwReserved: ULongArray = ULongArray(3),
+    public var pOIExt: Oiext? = null,
+    public var dwReserved: IntArray = IntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OPTITEM) return false
+        if (other !is Optitem) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Level != other.Level) return false
-        if (this.DlgPageIdx != other.DlgPageIdx) return false
-        if (this.Flags != other.Flags) return false
-        if (this.UserData != other.UserData) return false
+        if (this.level != other.level) return false
+        if (this.dlgPageIdx != other.dlgPageIdx) return false
+        if (this.flags != other.flags) return false
+        if (this.userData != other.userData) return false
         if (this.pName != other.pName) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.anonymous2 != other.anonymous2) return false
         if (this.pOptType != other.pOptType) return false
-        if (this.HelpIndex != other.HelpIndex) return false
-        if (this.DMPubID != other.DMPubID) return false
-        if (this.UserItemID != other.UserItemID) return false
+        if (this.helpIndex != other.helpIndex) return false
+        if (this.dMPubID != other.dMPubID) return false
+        if (this.userItemID != other.userItemID) return false
         if (this.wReserved != other.wReserved) return false
         if (this.pOIExt != other.pOIExt) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
@@ -1399,17 +1402,17 @@ public data class OPTITEM(
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Level.hashCode()
-        result = 31 * result + this.DlgPageIdx.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.UserData.hashCode()
+        result = 31 * result + this.level.hashCode()
+        result = 31 * result + this.dlgPageIdx.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.userData.hashCode()
         result = 31 * result + this.pName.hashCode()
-        result = 31 * result + this.Anonymous1.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
+        result = 31 * result + this.anonymous1.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
         result = 31 * result + this.pOptType.hashCode()
-        result = 31 * result + this.HelpIndex.hashCode()
-        result = 31 * result + this.DMPubID.hashCode()
-        result = 31 * result + this.UserItemID.hashCode()
+        result = 31 * result + this.helpIndex.hashCode()
+        result = 31 * result + this.dMPubID.hashCode()
+        result = 31 * result + this.userItemID.hashCode()
         result = 31 * result + this.wReserved.hashCode()
         result = 31 * result + this.pOIExt.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
@@ -1417,27 +1420,27 @@ public data class OPTITEM(
     }
 }
 
-public data class OPTITEM_0(public var Sel: Int = 0, public var pSel: Long = 0L)
+public data class Optitem0(public var sel: Int = 0, public var pSel: COpaquePointer? = null)
 
-public data class OPTITEM_1(public var pExtChkBox: Long = 0L, public var pExtPush: Long = 0L)
+public data class Optitem1(public var pExtChkBox: Extchkbox? = null, public var pExtPush: Extpush? = null)
 
-public data class OPTPARAM(
+public data class Optparam(
     public var cbSize: UShort = 0u,
-    public var Flags: UByte = 0u,
-    public var Style: UByte = 0u,
-    public var pData: Long = 0L,
-    public var IconID: ULong = 0uL,
-    public var lParam: LPARAM = 0L,
-    public var dwReserved: ULongArray = ULongArray(2),
+    public var flags: UByte = 0u,
+    public var style: UByte = 0u,
+    public var pData: COpaquePointer? = null,
+    public var iconID: Int = 0,
+    public var lParam: Lparam = 0L,
+    public var dwReserved: IntArray = IntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OPTPARAM) return false
+        if (other !is Optparam) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Style != other.Style) return false
+        if (this.flags != other.flags) return false
+        if (this.style != other.style) return false
         if (this.pData != other.pData) return false
-        if (this.IconID != other.IconID) return false
+        if (this.iconID != other.iconID) return false
         if (this.lParam != other.lParam) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
@@ -1445,37 +1448,37 @@ public data class OPTPARAM(
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Style.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.style.hashCode()
         result = 31 * result + this.pData.hashCode()
-        result = 31 * result + this.IconID.hashCode()
+        result = 31 * result + this.iconID.hashCode()
         result = 31 * result + this.lParam.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class OPTTYPE(
+public data class Opttype(
     public var cbSize: UShort = 0u,
-    public var Type: UByte = 0u,
-    public var Flags: UByte = 0u,
-    public var Count: UShort = 0u,
-    public var BegCtrlID: UShort = 0u,
-    public var pOptParam: Long = 0L,
-    public var Style: UShort = 0u,
+    public var type: UByte = 0u,
+    public var flags: UByte = 0u,
+    public var count: UShort = 0u,
+    public var begCtrlID: UShort = 0u,
+    public var pOptParam: Optparam? = null,
+    public var style: UShort = 0u,
     public var wReserved: UShortArray = UShortArray(3),
-    public var dwReserved: ULongArray = ULongArray(3),
+    public var dwReserved: IntArray = IntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OPTTYPE) return false
+        if (other !is Opttype) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Type != other.Type) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Count != other.Count) return false
-        if (this.BegCtrlID != other.BegCtrlID) return false
+        if (this.type != other.type) return false
+        if (this.flags != other.flags) return false
+        if (this.count != other.count) return false
+        if (this.begCtrlID != other.begCtrlID) return false
         if (this.pOptParam != other.pOptParam) return false
-        if (this.Style != other.Style) return false
+        if (this.style != other.style) return false
         if (!this.wReserved.contentEquals(other.wReserved)) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
@@ -1483,19 +1486,19 @@ public data class OPTTYPE(
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Count.hashCode()
-        result = 31 * result + this.BegCtrlID.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.count.hashCode()
+        result = 31 * result + this.begCtrlID.hashCode()
         result = 31 * result + this.pOptParam.hashCode()
-        result = 31 * result + this.Style.hashCode()
+        result = 31 * result + this.style.hashCode()
         result = 31 * result + this.wReserved.contentHashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class PORT_DATA_1(
+public data class PortData1(
     public var sztPortName: UShortArray = UShortArray(64),
     public var dwVersion: UInt = 0u,
     public var dwProtocol: UInt = 0u,
@@ -1506,14 +1509,14 @@ public data class PORT_DATA_1(
     public var dwDoubleSpool: UInt = 0u,
     public var sztQueue: UShortArray = UShortArray(33),
     public var sztIPAddress: UShortArray = UShortArray(16),
-    public var Reserved: UByteArray = UByteArray(540),
+    public var reserved: UByteArray = UByteArray(540),
     public var dwPortNumber: UInt = 0u,
     public var dwSNMPEnabled: UInt = 0u,
     public var dwSNMPDevIndex: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PORT_DATA_1) return false
+        if (other !is PortData1) return false
         if (!this.sztPortName.contentEquals(other.sztPortName)) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwProtocol != other.dwProtocol) return false
@@ -1524,7 +1527,7 @@ public data class PORT_DATA_1(
         if (this.dwDoubleSpool != other.dwDoubleSpool) return false
         if (!this.sztQueue.contentEquals(other.sztQueue)) return false
         if (!this.sztIPAddress.contentEquals(other.sztIPAddress)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         if (this.dwPortNumber != other.dwPortNumber) return false
         if (this.dwSNMPEnabled != other.dwSNMPEnabled) return false
         if (this.dwSNMPDevIndex != other.dwSNMPDevIndex) return false
@@ -1542,7 +1545,7 @@ public data class PORT_DATA_1(
         result = 31 * result + this.dwDoubleSpool.hashCode()
         result = 31 * result + this.sztQueue.contentHashCode()
         result = 31 * result + this.sztIPAddress.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         result = 31 * result + this.dwPortNumber.hashCode()
         result = 31 * result + this.dwSNMPEnabled.hashCode()
         result = 31 * result + this.dwSNMPDevIndex.hashCode()
@@ -1550,7 +1553,7 @@ public data class PORT_DATA_1(
     }
 }
 
-public data class PORT_DATA_2(
+public data class PortData2(
     public var sztPortName: UShortArray = UShortArray(64),
     public var dwVersion: UInt = 0u,
     public var dwProtocol: UInt = 0u,
@@ -1560,7 +1563,7 @@ public data class PORT_DATA_2(
     public var sztSNMPCommunity: UShortArray = UShortArray(33),
     public var dwDoubleSpool: UInt = 0u,
     public var sztQueue: UShortArray = UShortArray(33),
-    public var Reserved: UByteArray = UByteArray(514),
+    public var reserved: UByteArray = UByteArray(514),
     public var dwPortNumber: UInt = 0u,
     public var dwSNMPEnabled: UInt = 0u,
     public var dwSNMPDevIndex: UInt = 0u,
@@ -1568,7 +1571,7 @@ public data class PORT_DATA_2(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PORT_DATA_2) return false
+        if (other !is PortData2) return false
         if (!this.sztPortName.contentEquals(other.sztPortName)) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwProtocol != other.dwProtocol) return false
@@ -1578,7 +1581,7 @@ public data class PORT_DATA_2(
         if (!this.sztSNMPCommunity.contentEquals(other.sztSNMPCommunity)) return false
         if (this.dwDoubleSpool != other.dwDoubleSpool) return false
         if (!this.sztQueue.contentEquals(other.sztQueue)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         if (this.dwPortNumber != other.dwPortNumber) return false
         if (this.dwSNMPEnabled != other.dwSNMPEnabled) return false
         if (this.dwSNMPDevIndex != other.dwSNMPDevIndex) return false
@@ -1596,7 +1599,7 @@ public data class PORT_DATA_2(
         result = 31 * result + this.sztSNMPCommunity.contentHashCode()
         result = 31 * result + this.dwDoubleSpool.hashCode()
         result = 31 * result + this.sztQueue.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         result = 31 * result + this.dwPortNumber.hashCode()
         result = 31 * result + this.dwSNMPEnabled.hashCode()
         result = 31 * result + this.dwSNMPDevIndex.hashCode()
@@ -1605,250 +1608,250 @@ public data class PORT_DATA_2(
     }
 }
 
-public data class PORT_DATA_LIST_1(
+public data class PortDataList1(
     public var dwVersion: UInt = 0u,
     public var cPortData: UInt = 0u,
-    public var pPortData: List<PORT_DATA_2> = List(1) { PORT_DATA_2() },
+    public var pPortData: List<PortData2> = List(1) { PortData2() },
 )
 
-public data class PORT_INFO_1A(public var pName: PSTR = 0L)
+public data class PortInfo1a(public var pName: Pstr = null)
 
-public data class PORT_INFO_1W(public var pName: PWSTR = 0L)
+public data class PortInfo1w(public var pName: Pwstr = null)
 
-public data class PORT_INFO_2A(
-    public var pPortName: PSTR = 0L,
-    public var pMonitorName: PSTR = 0L,
-    public var pDescription: PSTR = 0L,
+public data class PortInfo2a(
+    public var pPortName: Pstr = null,
+    public var pMonitorName: Pstr = null,
+    public var pDescription: Pstr = null,
     public var fPortType: UInt = 0u,
-    public var Reserved: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class PORT_INFO_2W(
-    public var pPortName: PWSTR = 0L,
-    public var pMonitorName: PWSTR = 0L,
-    public var pDescription: PWSTR = 0L,
+public data class PortInfo2w(
+    public var pPortName: Pwstr = null,
+    public var pMonitorName: Pwstr = null,
+    public var pDescription: Pwstr = null,
     public var fPortType: UInt = 0u,
-    public var Reserved: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class PORT_INFO_3A(
+public data class PortInfo3a(
     public var dwStatus: UInt = 0u,
-    public var pszStatus: PSTR = 0L,
+    public var pszStatus: Pstr = null,
     public var dwSeverity: UInt = 0u,
 )
 
-public data class PORT_INFO_3W(
+public data class PortInfo3w(
     public var dwStatus: UInt = 0u,
-    public var pszStatus: PWSTR = 0L,
+    public var pszStatus: Pwstr = null,
     public var dwSeverity: UInt = 0u,
 )
 
-public data class PRINTER_CONNECTION_INFO_1A(public var dwFlags: UInt = 0u, public var pszDriverName: PSTR = 0L)
+public data class PrinterConnectionInfo1a(public var dwFlags: UInt = 0u, public var pszDriverName: Pstr = null)
 
-public data class PRINTER_CONNECTION_INFO_1W(public var dwFlags: UInt = 0u, public var pszDriverName: PWSTR = 0L)
+public data class PrinterConnectionInfo1w(public var dwFlags: UInt = 0u, public var pszDriverName: Pwstr = null)
 
-public data class PRINTER_DEFAULTSA(
-    public var pDatatype: PSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var DesiredAccess: PRINTER_ACCESS_RIGHTS = 0u,
+public data class PrinterDefaultsa(
+    public var pDatatype: Pstr = null,
+    public var pDevMode: Devmodea? = null,
+    public var desiredAccess: PrinterAccessRights = 0u,
 )
 
-public data class PRINTER_DEFAULTSW(
-    public var pDatatype: PWSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var DesiredAccess: PRINTER_ACCESS_RIGHTS = 0u,
+public data class PrinterDefaultsw(
+    public var pDatatype: Pwstr = null,
+    public var pDevMode: Devmodew? = null,
+    public var desiredAccess: PrinterAccessRights = 0u,
 )
 
-public data class PRINTER_ENUM_VALUESA(
-    public var pValueName: PSTR = 0L,
+public data class PrinterEnumValuesa(
+    public var pValueName: Pstr = null,
     public var cbValueName: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
 )
 
-public data class PRINTER_ENUM_VALUESW(
-    public var pValueName: PWSTR = 0L,
+public data class PrinterEnumValuesw(
+    public var pValueName: Pwstr = null,
     public var cbValueName: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
 )
 
-public data class PRINTER_EVENT_ATTRIBUTES_INFO(
+public data class PrinterEventAttributesInfo(
     public var cbSize: UInt = 0u,
     public var dwOldAttributes: UInt = 0u,
     public var dwNewAttributes: UInt = 0u,
 )
 
-public data class PRINTER_HANDLE(public var Value: Long = 0L)
+public data class PrinterHandle(public var value: COpaquePointer? = null)
 
-public data class PRINTER_INFO_1A(
-    public var Flags: UInt = 0u,
-    public var pDescription: PSTR = 0L,
-    public var pName: PSTR = 0L,
-    public var pComment: PSTR = 0L,
+public data class PrinterInfo1a(
+    public var flags: UInt = 0u,
+    public var pDescription: Pstr = null,
+    public var pName: Pstr = null,
+    public var pComment: Pstr = null,
 )
 
-public data class PRINTER_INFO_1W(
-    public var Flags: UInt = 0u,
-    public var pDescription: PWSTR = 0L,
-    public var pName: PWSTR = 0L,
-    public var pComment: PWSTR = 0L,
+public data class PrinterInfo1w(
+    public var flags: UInt = 0u,
+    public var pDescription: Pwstr = null,
+    public var pName: Pwstr = null,
+    public var pComment: Pwstr = null,
 )
 
-public class PRINTER_INFO_2A(
-    public var pServerName: PSTR = 0L,
-    public var pPrinterName: PSTR = 0L,
-    public var pShareName: PSTR = 0L,
-    public var pPortName: PSTR = 0L,
-    public var pDriverName: PSTR = 0L,
-    public var pComment: PSTR = 0L,
-    public var pLocation: PSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pSepFile: PSTR = 0L,
-    public var pPrintProcessor: PSTR = 0L,
-    public var pDatatype: PSTR = 0L,
-    public var pParameters: PSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Attributes: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var DefaultPriority: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var Status: UInt = 0u,
+public class PrinterInfo2a(
+    public var pServerName: Pstr = null,
+    public var pPrinterName: Pstr = null,
+    public var pShareName: Pstr = null,
+    public var pPortName: Pstr = null,
+    public var pDriverName: Pstr = null,
+    public var pComment: Pstr = null,
+    public var pLocation: Pstr = null,
+    public var pDevMode: Devmodea? = null,
+    public var pSepFile: Pstr = null,
+    public var pPrintProcessor: Pstr = null,
+    public var pDatatype: Pstr = null,
+    public var pParameters: Pstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var attributes: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var defaultPriority: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var status: UInt = 0u,
     public var cJobs: UInt = 0u,
-    public var AveragePPM: UInt = 0u,
+    public var averagePPM: UInt = 0u,
 )
 
-public class PRINTER_INFO_2W(
-    public var pServerName: PWSTR = 0L,
-    public var pPrinterName: PWSTR = 0L,
-    public var pShareName: PWSTR = 0L,
-    public var pPortName: PWSTR = 0L,
-    public var pDriverName: PWSTR = 0L,
-    public var pComment: PWSTR = 0L,
-    public var pLocation: PWSTR = 0L,
-    public var pDevMode: Long = 0L,
-    public var pSepFile: PWSTR = 0L,
-    public var pPrintProcessor: PWSTR = 0L,
-    public var pDatatype: PWSTR = 0L,
-    public var pParameters: PWSTR = 0L,
-    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
-    public var Attributes: UInt = 0u,
-    public var Priority: UInt = 0u,
-    public var DefaultPriority: UInt = 0u,
-    public var StartTime: UInt = 0u,
-    public var UntilTime: UInt = 0u,
-    public var Status: UInt = 0u,
+public class PrinterInfo2w(
+    public var pServerName: Pwstr = null,
+    public var pPrinterName: Pwstr = null,
+    public var pShareName: Pwstr = null,
+    public var pPortName: Pwstr = null,
+    public var pDriverName: Pwstr = null,
+    public var pComment: Pwstr = null,
+    public var pLocation: Pwstr = null,
+    public var pDevMode: Devmodew? = null,
+    public var pSepFile: Pwstr = null,
+    public var pPrintProcessor: Pwstr = null,
+    public var pDatatype: Pwstr = null,
+    public var pParameters: Pwstr = null,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+    public var attributes: UInt = 0u,
+    public var priority: UInt = 0u,
+    public var defaultPriority: UInt = 0u,
+    public var startTime: UInt = 0u,
+    public var untilTime: UInt = 0u,
+    public var status: UInt = 0u,
     public var cJobs: UInt = 0u,
-    public var AveragePPM: UInt = 0u,
+    public var averagePPM: UInt = 0u,
 )
 
-public data class PRINTER_INFO_3(public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L)
+public data class PrinterInfo3(public var pSecurityDescriptor: PsecurityDescriptor = null)
 
-public data class PRINTER_INFO_4A(
-    public var pPrinterName: PSTR = 0L,
-    public var pServerName: PSTR = 0L,
-    public var Attributes: UInt = 0u,
+public data class PrinterInfo4a(
+    public var pPrinterName: Pstr = null,
+    public var pServerName: Pstr = null,
+    public var attributes: UInt = 0u,
 )
 
-public data class PRINTER_INFO_4W(
-    public var pPrinterName: PWSTR = 0L,
-    public var pServerName: PWSTR = 0L,
-    public var Attributes: UInt = 0u,
+public data class PrinterInfo4w(
+    public var pPrinterName: Pwstr = null,
+    public var pServerName: Pwstr = null,
+    public var attributes: UInt = 0u,
 )
 
-public data class PRINTER_INFO_5A(
-    public var pPrinterName: PSTR = 0L,
-    public var pPortName: PSTR = 0L,
-    public var Attributes: UInt = 0u,
-    public var DeviceNotSelectedTimeout: UInt = 0u,
-    public var TransmissionRetryTimeout: UInt = 0u,
+public data class PrinterInfo5a(
+    public var pPrinterName: Pstr = null,
+    public var pPortName: Pstr = null,
+    public var attributes: UInt = 0u,
+    public var deviceNotSelectedTimeout: UInt = 0u,
+    public var transmissionRetryTimeout: UInt = 0u,
 )
 
-public data class PRINTER_INFO_5W(
-    public var pPrinterName: PWSTR = 0L,
-    public var pPortName: PWSTR = 0L,
-    public var Attributes: UInt = 0u,
-    public var DeviceNotSelectedTimeout: UInt = 0u,
-    public var TransmissionRetryTimeout: UInt = 0u,
+public data class PrinterInfo5w(
+    public var pPrinterName: Pwstr = null,
+    public var pPortName: Pwstr = null,
+    public var attributes: UInt = 0u,
+    public var deviceNotSelectedTimeout: UInt = 0u,
+    public var transmissionRetryTimeout: UInt = 0u,
 )
 
-public data class PRINTER_INFO_6(public var dwStatus: UInt = 0u)
+public data class PrinterInfo6(public var dwStatus: UInt = 0u)
 
-public data class PRINTER_INFO_7A(public var pszObjectGUID: PSTR = 0L, public var dwAction: UInt = 0u)
+public data class PrinterInfo7a(public var pszObjectGUID: Pstr = null, public var dwAction: UInt = 0u)
 
-public data class PRINTER_INFO_7W(public var pszObjectGUID: PWSTR = 0L, public var dwAction: UInt = 0u)
+public data class PrinterInfo7w(public var pszObjectGUID: Pwstr = null, public var dwAction: UInt = 0u)
 
-public data class PRINTER_INFO_8A(public var pDevMode: Long = 0L)
+public data class PrinterInfo8a(public var pDevMode: Devmodea? = null)
 
-public data class PRINTER_INFO_8W(public var pDevMode: Long = 0L)
+public data class PrinterInfo8w(public var pDevMode: Devmodew? = null)
 
-public data class PRINTER_INFO_9A(public var pDevMode: Long = 0L)
+public data class PrinterInfo9a(public var pDevMode: Devmodea? = null)
 
-public data class PRINTER_INFO_9W(public var pDevMode: Long = 0L)
+public data class PrinterInfo9w(public var pDevMode: Devmodew? = null)
 
-public data class PRINTER_NOTIFY_INFO(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var aData: List<PRINTER_NOTIFY_INFO_DATA> = List(1) { PRINTER_NOTIFY_INFO_DATA() },
+public data class PrinterNotifyInfo(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var count: UInt = 0u,
+    public var aData: List<PrinterNotifyInfoData> = List(1) { PrinterNotifyInfoData() },
 )
 
-public data class PRINTER_NOTIFY_INFO_DATA(
-    public var Type: UShort = 0u,
-    public var Field: UShort = 0u,
-    public var Reserved: UInt = 0u,
-    public var Id: UInt = 0u,
-    public var NotifyData: PRINTER_NOTIFY_INFO_DATA_0 = PRINTER_NOTIFY_INFO_DATA_0(),
+public data class PrinterNotifyInfoData(
+    public var type: UShort = 0u,
+    public var field: UShort = 0u,
+    public var reserved: UInt = 0u,
+    public var id: UInt = 0u,
+    public var notifyData: PrinterNotifyInfoData0 = PrinterNotifyInfoData0(),
 )
 
-public data class PRINTER_NOTIFY_INFO_DATA_0(public var adwData: UIntArray = UIntArray(2), public var Data: PRINTER_NOTIFY_INFO_DATA_0_0 = PRINTER_NOTIFY_INFO_DATA_0_0()) {
+public data class PrinterNotifyInfoData0(public var adwData: UIntArray = UIntArray(2), public var data: PrinterNotifyInfoData00 = PrinterNotifyInfoData00()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PRINTER_NOTIFY_INFO_DATA_0) return false
+        if (other !is PrinterNotifyInfoData0) return false
         if (!this.adwData.contentEquals(other.adwData)) return false
-        if (this.Data != other.Data) return false
+        if (this.data != other.data) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.adwData.contentHashCode()
-        result = 31 * result + this.Data.hashCode()
+        result = 31 * result + this.data.hashCode()
         return result
     }
 }
 
-public data class PRINTER_NOTIFY_INFO_DATA_0_0(public var cbBuf: UInt = 0u, public var pBuf: Long = 0L)
+public data class PrinterNotifyInfoData00(public var cbBuf: UInt = 0u, public var pBuf: COpaquePointer? = null)
 
-public data class PRINTER_NOTIFY_INIT(
-    public var Size: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var PollTime: UInt = 0u,
+public data class PrinterNotifyInit(
+    public var size: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var pollTime: UInt = 0u,
 )
 
-public data class PRINTER_NOTIFY_OPTIONS(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var pTypes: Long = 0L,
+public data class PrinterNotifyOptions(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var count: UInt = 0u,
+    public var pTypes: PrinterNotifyOptionsType? = null,
 )
 
-public data class PRINTER_NOTIFY_OPTIONS_TYPE(
-    public var Type: UShort = 0u,
-    public var Reserved0: UShort = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var pFields: Long = 0L,
+public data class PrinterNotifyOptionsType(
+    public var type: UShort = 0u,
+    public var reserved0: UShort = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var count: UInt = 0u,
+    public var pFields: UShort? = null,
 )
 
-public data class PRINTER_OPTIONSA(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class PrinterOptionsa(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
 
-public data class PRINTER_OPTIONSW(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class PrinterOptionsw(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
 
-public class PRINTIFI32(
+public class Printifi32(
     public var cjThis: UInt = 0u,
     public var cjIfiExtra: UInt = 0u,
     public var dpwszFamilyName: Int = 0,
@@ -1900,34 +1903,34 @@ public class PRINTIFI32(
     public var wcLastChar: UShort = 0u,
     public var wcDefaultChar: UShort = 0u,
     public var wcBreakChar: UShort = 0u,
-    public var ptlBaseline: POINTL = POINTL(),
-    public var ptlAspect: POINTL = POINTL(),
-    public var ptlCaret: POINTL = POINTL(),
-    public var rclFontBox: RECTL = RECTL(),
+    public var ptlBaseline: Pointl = Pointl(),
+    public var ptlAspect: Pointl = Pointl(),
+    public var ptlCaret: Pointl = Pointl(),
+    public var rclFontBox: Rectl = Rectl(),
     public var achVendId: UByteArray = UByteArray(4),
     public var cKerningPairs: UInt = 0u,
     public var ulPanoseCulture: UInt = 0u,
-    public var panose: PANOSE = PANOSE(),
+    public var panose: Panose = Panose(),
 )
 
-public data class PRINTPROCESSOROPENDATA(
-    public var pDevMode: Long = 0L,
-    public var pDatatype: PWSTR = 0L,
-    public var pParameters: PWSTR = 0L,
-    public var pDocumentName: PWSTR = 0L,
-    public var JobId: UInt = 0u,
-    public var pOutputFile: PWSTR = 0L,
-    public var pPrinterName: PWSTR = 0L,
+public data class Printprocessoropendata(
+    public var pDevMode: Devmodea? = null,
+    public var pDatatype: Pwstr = null,
+    public var pParameters: Pwstr = null,
+    public var pDocumentName: Pwstr = null,
+    public var jobId: UInt = 0u,
+    public var pOutputFile: Pwstr = null,
+    public var pPrinterName: Pwstr = null,
 )
 
-public data class PRINTPROCESSOR_CAPS_1(
+public data class PrintprocessorCaps1(
     public var dwLevel: UInt = 0u,
     public var dwNupOptions: UInt = 0u,
     public var dwPageOrderFlags: UInt = 0u,
     public var dwNumberOfCopies: UInt = 0u,
 )
 
-public data class PRINTPROCESSOR_CAPS_2(
+public data class PrintprocessorCaps2(
     public var dwLevel: UInt = 0u,
     public var dwNupOptions: UInt = 0u,
     public var dwPageOrderFlags: UInt = 0u,
@@ -1939,283 +1942,283 @@ public data class PRINTPROCESSOR_CAPS_2(
     public var dwScalingCaps: UInt = 0u,
 )
 
-public data class PRINTPROCESSOR_INFO_1A(public var pName: PSTR = 0L)
+public data class PrintprocessorInfo1a(public var pName: Pstr = null)
 
-public data class PRINTPROCESSOR_INFO_1W(public var pName: PWSTR = 0L)
+public data class PrintprocessorInfo1w(public var pName: Pwstr = null)
 
-public class PRINTPROVIDOR {
-    public var fpOpenPrinter: Long = 0L
+public class Printprovidor {
+    public var fpOpenPrinter: Int = 0
 
-    public var fpSetJob: Long = 0L
+    public var fpSetJob: Int = 0
 
-    public var fpGetJob: Long = 0L
+    public var fpGetJob: Int = 0
 
-    public var fpEnumJobs: Long = 0L
+    public var fpEnumJobs: Int = 0
 
-    public var fpAddPrinter: Long = 0L
+    public var fpAddPrinter: Int = 0
 
-    public var fpDeletePrinter: Long = 0L
+    public var fpDeletePrinter: Int = 0
 
-    public var fpSetPrinter: Long = 0L
+    public var fpSetPrinter: Int = 0
 
-    public var fpGetPrinter: Long = 0L
+    public var fpGetPrinter: Int = 0
 
-    public var fpEnumPrinters: Long = 0L
+    public var fpEnumPrinters: Int = 0
 
-    public var fpAddPrinterDriver: Long = 0L
+    public var fpAddPrinterDriver: Int = 0
 
-    public var fpEnumPrinterDrivers: Long = 0L
+    public var fpEnumPrinterDrivers: Int = 0
 
-    public var fpGetPrinterDriver: Long = 0L
+    public var fpGetPrinterDriver: Int = 0
 
-    public var fpGetPrinterDriverDirectory: Long = 0L
+    public var fpGetPrinterDriverDirectory: Int = 0
 
-    public var fpDeletePrinterDriver: Long = 0L
+    public var fpDeletePrinterDriver: Int = 0
 
-    public var fpAddPrintProcessor: Long = 0L
+    public var fpAddPrintProcessor: Int = 0
 
-    public var fpEnumPrintProcessors: Long = 0L
+    public var fpEnumPrintProcessors: Int = 0
 
-    public var fpGetPrintProcessorDirectory: Long = 0L
+    public var fpGetPrintProcessorDirectory: Int = 0
 
-    public var fpDeletePrintProcessor: Long = 0L
+    public var fpDeletePrintProcessor: Int = 0
 
-    public var fpEnumPrintProcessorDatatypes: Long = 0L
+    public var fpEnumPrintProcessorDatatypes: Int = 0
 
-    public var fpStartDocPrinter: Long = 0L
+    public var fpStartDocPrinter: Int = 0
 
-    public var fpStartPagePrinter: Long = 0L
+    public var fpStartPagePrinter: Int = 0
 
-    public var fpWritePrinter: Long = 0L
+    public var fpWritePrinter: Int = 0
 
-    public var fpEndPagePrinter: Long = 0L
+    public var fpEndPagePrinter: Int = 0
 
-    public var fpAbortPrinter: Long = 0L
+    public var fpAbortPrinter: Int = 0
 
-    public var fpReadPrinter: Long = 0L
+    public var fpReadPrinter: Int = 0
 
-    public var fpEndDocPrinter: Long = 0L
+    public var fpEndDocPrinter: Int = 0
 
-    public var fpAddJob: Long = 0L
+    public var fpAddJob: Int = 0
 
-    public var fpScheduleJob: Long = 0L
+    public var fpScheduleJob: Int = 0
 
-    public var fpGetPrinterData: Long = 0L
+    public var fpGetPrinterData: Int = 0
 
-    public var fpSetPrinterData: Long = 0L
+    public var fpSetPrinterData: Int = 0
 
-    public var fpWaitForPrinterChange: Long = 0L
+    public var fpWaitForPrinterChange: Int = 0
 
-    public var fpClosePrinter: Long = 0L
+    public var fpClosePrinter: Int = 0
 
-    public var fpAddForm: Long = 0L
+    public var fpAddForm: Int = 0
 
-    public var fpDeleteForm: Long = 0L
+    public var fpDeleteForm: Int = 0
 
-    public var fpGetForm: Long = 0L
+    public var fpGetForm: Int = 0
 
-    public var fpSetForm: Long = 0L
+    public var fpSetForm: Int = 0
 
-    public var fpEnumForms: Long = 0L
+    public var fpEnumForms: Int = 0
 
-    public var fpEnumMonitors: Long = 0L
+    public var fpEnumMonitors: Int = 0
 
-    public var fpEnumPorts: Long = 0L
+    public var fpEnumPorts: Int = 0
 
-    public var fpAddPort: Long = 0L
+    public var fpAddPort: Int = 0
 
-    public var fpConfigurePort: Long = 0L
+    public var fpConfigurePort: Int = 0
 
-    public var fpDeletePort: Long = 0L
+    public var fpDeletePort: Int = 0
 
-    public var fpCreatePrinterIC: Long = 0L
+    public var fpCreatePrinterIC: Int = 0
 
-    public var fpPlayGdiScriptOnPrinterIC: Long = 0L
+    public var fpPlayGdiScriptOnPrinterIC: Int = 0
 
-    public var fpDeletePrinterIC: Long = 0L
+    public var fpDeletePrinterIC: Int = 0
 
-    public var fpAddPrinterConnection: Long = 0L
+    public var fpAddPrinterConnection: Int = 0
 
-    public var fpDeletePrinterConnection: Long = 0L
+    public var fpDeletePrinterConnection: Int = 0
 
-    public var fpPrinterMessageBox: Long = 0L
+    public var fpPrinterMessageBox: Int = 0
 
-    public var fpAddMonitor: Long = 0L
+    public var fpAddMonitor: Int = 0
 
-    public var fpDeleteMonitor: Long = 0L
+    public var fpDeleteMonitor: Int = 0
 
-    public var fpResetPrinter: Long = 0L
+    public var fpResetPrinter: Int = 0
 
-    public var fpGetPrinterDriverEx: Long = 0L
+    public var fpGetPrinterDriverEx: Int = 0
 
-    public var fpFindFirstPrinterChangeNotification: Long = 0L
+    public var fpFindFirstPrinterChangeNotification: Int = 0
 
-    public var fpFindClosePrinterChangeNotification: Long = 0L
+    public var fpFindClosePrinterChangeNotification: Int = 0
 
-    public var fpAddPortEx: Long = 0L
+    public var fpAddPortEx: Int = 0
 
-    public var fpShutDown: Long = 0L
+    public var fpShutDown: Int = 0
 
-    public var fpRefreshPrinterChangeNotification: Long = 0L
+    public var fpRefreshPrinterChangeNotification: Int = 0
 
-    public var fpOpenPrinterEx: Long = 0L
+    public var fpOpenPrinterEx: Int = 0
 
-    public var fpAddPrinterEx: Long = 0L
+    public var fpAddPrinterEx: Int = 0
 
-    public var fpSetPort: Long = 0L
+    public var fpSetPort: Int = 0
 
-    public var fpEnumPrinterData: Long = 0L
+    public var fpEnumPrinterData: Int = 0
 
-    public var fpDeletePrinterData: Long = 0L
+    public var fpDeletePrinterData: Int = 0
 
-    public var fpClusterSplOpen: Long = 0L
+    public var fpClusterSplOpen: Int = 0
 
-    public var fpClusterSplClose: Long = 0L
+    public var fpClusterSplClose: Int = 0
 
-    public var fpClusterSplIsAlive: Long = 0L
+    public var fpClusterSplIsAlive: Int = 0
 
-    public var fpSetPrinterDataEx: Long = 0L
+    public var fpSetPrinterDataEx: Int = 0
 
-    public var fpGetPrinterDataEx: Long = 0L
+    public var fpGetPrinterDataEx: Int = 0
 
-    public var fpEnumPrinterDataEx: Long = 0L
+    public var fpEnumPrinterDataEx: Int = 0
 
-    public var fpEnumPrinterKey: Long = 0L
+    public var fpEnumPrinterKey: Int = 0
 
-    public var fpDeletePrinterDataEx: Long = 0L
+    public var fpDeletePrinterDataEx: Int = 0
 
-    public var fpDeletePrinterKey: Long = 0L
+    public var fpDeletePrinterKey: Int = 0
 
-    public var fpSeekPrinter: Long = 0L
+    public var fpSeekPrinter: Int = 0
 
-    public var fpDeletePrinterDriverEx: Long = 0L
+    public var fpDeletePrinterDriverEx: Int = 0
 
-    public var fpAddPerMachineConnection: Long = 0L
+    public var fpAddPerMachineConnection: Int = 0
 
-    public var fpDeletePerMachineConnection: Long = 0L
+    public var fpDeletePerMachineConnection: Int = 0
 
-    public var fpEnumPerMachineConnections: Long = 0L
+    public var fpEnumPerMachineConnections: Int = 0
 
-    public var fpXcvData: Long = 0L
+    public var fpXcvData: Int = 0
 
-    public var fpAddPrinterDriverEx: Long = 0L
+    public var fpAddPrinterDriverEx: Int = 0
 
-    public var fpSplReadPrinter: Long = 0L
+    public var fpSplReadPrinter: Int = 0
 
-    public var fpDriverUnloadComplete: Long = 0L
+    public var fpDriverUnloadComplete: Int = 0
 
-    public var fpGetSpoolFileInfo: Long = 0L
+    public var fpGetSpoolFileInfo: Int = 0
 
-    public var fpCommitSpoolData: Long = 0L
+    public var fpCommitSpoolData: Int = 0
 
-    public var fpCloseSpoolFileHandle: Long = 0L
+    public var fpCloseSpoolFileHandle: Int = 0
 
-    public var fpFlushPrinter: Long = 0L
+    public var fpFlushPrinter: Int = 0
 
-    public var fpSendRecvBidiData: Long = 0L
+    public var fpSendRecvBidiData: Int = 0
 
-    public var fpAddPrinterConnection2: Long = 0L
+    public var fpAddPrinterConnection2: Int = 0
 
-    public var fpGetPrintClassObject: Long = 0L
+    public var fpGetPrintClassObject: Int = 0
 
-    public var fpReportJobProcessingProgress: Long = 0L
+    public var fpReportJobProcessingProgress: Int = 0
 
-    public var fpEnumAndLogProvidorObjects: Long = 0L
+    public var fpEnumAndLogProvidorObjects: Int = 0
 
-    public var fpInternalGetPrinterDriver: Long = 0L
+    public var fpInternalGetPrinterDriver: Int = 0
 
-    public var fpFindCompatibleDriver: Long = 0L
+    public var fpFindCompatibleDriver: Int = 0
 
-    public var fpInstallPrinterDriverPackageFromConnection: Long = 0L
+    public var fpInstallPrinterDriverPackageFromConnection: Int = 0
 
-    public var fpGetJobNamedPropertyValue: Long = 0L
+    public var fpGetJobNamedPropertyValue: Int = 0
 
-    public var fpSetJobNamedProperty: Long = 0L
+    public var fpSetJobNamedProperty: Int = 0
 
-    public var fpDeleteJobNamedProperty: Long = 0L
+    public var fpDeleteJobNamedProperty: Int = 0
 
-    public var fpEnumJobNamedProperties: Long = 0L
+    public var fpEnumJobNamedProperties: Int = 0
 
-    public var fpPowerEvent: Long = 0L
+    public var fpPowerEvent: Int = 0
 
-    public var fpGetUserPropertyBag: Long = 0L
+    public var fpGetUserPropertyBag: Int = 0
 
-    public var fpCanShutdown: Long = 0L
+    public var fpCanShutdown: Int = 0
 
-    public var fpLogJobInfoForBranchOffice: Long = 0L
+    public var fpLogJobInfoForBranchOffice: Int = 0
 
-    public var fpRegeneratePrintDeviceCapabilities: Long = 0L
+    public var fpRegeneratePrintDeviceCapabilities: Int = 0
 
-    public var fpPrintSupportOperation: Long = 0L
+    public var fpPrintSupportOperation: Int = 0
 
-    public var fpIppCreateJobOnPrinter: Long = 0L
+    public var fpIppCreateJobOnPrinter: Int = 0
 
-    public var fpIppGetJobAttributes: Long = 0L
+    public var fpIppGetJobAttributes: Int = 0
 
-    public var fpIppSetJobAttributes: Long = 0L
+    public var fpIppSetJobAttributes: Int = 0
 
-    public var fpIppGetPrinterAttributes: Long = 0L
+    public var fpIppGetPrinterAttributes: Int = 0
 
-    public var fpIppSetPrinterAttributes: Long = 0L
+    public var fpIppSetPrinterAttributes: Int = 0
 
-    public var fpIppCreateJobOnPrinterWithAttributes: Long = 0L
+    public var fpIppCreateJobOnPrinterWithAttributes: Int = 0
 }
 
-public data class PRINT_EXECUTION_DATA(public var context: PRINT_EXECUTION_CONTEXT = 0, public var clientAppPID: UInt = 0u)
+public data class PrintExecutionData(public var context: PrintExecutionContext = 0, public var clientAppPID: UInt = 0u)
 
-public data class PRINT_FEATURE_OPTION(public var pszFeature: PCSTR = 0L, public var pszOption: PCSTR = 0L)
+public data class PrintFeatureOption(public var pszFeature: Pcstr = null, public var pszOption: Pcstr = null)
 
-public data class PROPSHEETUI_GETICON_INFO(
+public data class PropsheetuiGeticonInfo(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
+    public var flags: UShort = 0u,
     public var cxIcon: UShort = 0u,
     public var cyIcon: UShort = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
 )
 
-public data class PROPSHEETUI_INFO(
+public data class PropsheetuiInfo(
     public var cbSize: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Reason: UShort = 0u,
-    public var hComPropSheet: HANDLE = 0L,
-    public var pfnComPropSheet: PFNCOMPROPSHEET = null,
-    public var lParamInit: LPARAM = 0L,
-    public var UserData: ULong = 0uL,
-    public var Result: ULong = 0uL,
+    public var version: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var reason: UShort = 0u,
+    public var hComPropSheet: Handle = null,
+    public var pfnComPropSheet: Pfncompropsheet = null,
+    public var lParamInit: Lparam = 0L,
+    public var userData: Int = 0,
+    public var result: Int = 0,
 )
 
-public data class PROPSHEETUI_INFO_HEADER(
+public data class PropsheetuiInfoHeader(
     public var cbSize: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var pTitle: Long = 0L,
-    public var hWndParent: HWND = 0L,
-    public var hInst: HINSTANCE = 0L,
-    public var Anonymous: PROPSHEETUI_INFO_HEADER_0 = PROPSHEETUI_INFO_HEADER_0(),
+    public var flags: UShort = 0u,
+    public var pTitle: COpaquePointer? = null,
+    public var hWndParent: Hwnd = null,
+    public var hInst: Hinstance = null,
+    public var anonymous: PropsheetuiInfoHeader0 = PropsheetuiInfoHeader0(),
 )
 
-public data class PROPSHEETUI_INFO_HEADER_0(public var hIcon: HICON = 0L, public var IconID: ULong = 0uL)
+public data class PropsheetuiInfoHeader0(public var hIcon: Hicon = null, public var iconID: Int = 0)
 
-public data class PROVIDOR_INFO_1A(
-    public var pName: PSTR = 0L,
-    public var pEnvironment: PSTR = 0L,
-    public var pDLLName: PSTR = 0L,
+public data class ProvidorInfo1a(
+    public var pName: Pstr = null,
+    public var pEnvironment: Pstr = null,
+    public var pDLLName: Pstr = null,
 )
 
-public data class PROVIDOR_INFO_1W(
-    public var pName: PWSTR = 0L,
-    public var pEnvironment: PWSTR = 0L,
-    public var pDLLName: PWSTR = 0L,
+public data class ProvidorInfo1w(
+    public var pName: Pwstr = null,
+    public var pEnvironment: Pwstr = null,
+    public var pDLLName: Pwstr = null,
 )
 
-public data class PROVIDOR_INFO_2A(public var pOrder: PSTR = 0L)
+public data class ProvidorInfo2a(public var pOrder: Pstr = null)
 
-public data class PROVIDOR_INFO_2W(public var pOrder: PWSTR = 0L)
+public data class ProvidorInfo2w(public var pOrder: Pwstr = null)
 
-public data class PSCRIPT5_PRIVATE_DEVMODE(public var wReserved: UShortArray = UShortArray(57), public var wSize: UShort = 0u) {
+public data class Pscript5PrivateDevmode(public var wReserved: UShortArray = UShortArray(57), public var wSize: UShort = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PSCRIPT5_PRIVATE_DEVMODE) return false
+        if (other !is Pscript5PrivateDevmode) return false
         if (!this.wReserved.contentEquals(other.wReserved)) return false
         if (this.wSize != other.wSize) return false
         return true
@@ -2228,46 +2231,46 @@ public data class PSCRIPT5_PRIVATE_DEVMODE(public var wReserved: UShortArray = U
     }
 }
 
-public data class PSPINFO(
+public data class Pspinfo(
     public var cbSize: UShort = 0u,
     public var wReserved: UShort = 0u,
-    public var hComPropSheet: HANDLE = 0L,
-    public var hCPSUIPage: HANDLE = 0L,
-    public var pfnComPropSheet: PFNCOMPROPSHEET = null,
+    public var hComPropSheet: Handle = null,
+    public var hCPSUIPage: Handle = null,
+    public var pfnComPropSheet: Pfncompropsheet = null,
 )
 
-public data class PUBLISHERINFO(
+public data class Publisherinfo(
     public var dwMode: UInt = 0u,
     public var wMinoutlinePPEM: UShort = 0u,
     public var wMaxbitmapPPEM: UShort = 0u,
 )
 
-public data class PrintNamedProperty(public var propertyName: PWSTR = 0L, public var propertyValue: PrintPropertyValue = PrintPropertyValue())
+public data class PrintNamedProperty(public var propertyName: Pwstr = null, public var propertyValue: PrintPropertyValue = PrintPropertyValue())
 
-public data class PrintPropertiesCollection(public var numberOfProperties: UInt = 0u, public var propertiesCollection: Long = 0L)
+public data class PrintPropertiesCollection(public var numberOfProperties: UInt = 0u, public var propertiesCollection: PrintNamedProperty? = null)
 
-public data class PrintPropertyValue(public var ePropertyType: EPrintPropertyType = 0, public var value: PrintPropertyValue_0 = PrintPropertyValue_0())
+public data class PrintPropertyValue(public var ePropertyType: EPrintPropertyType = 0, public var value: PrintPropertyValue0 = PrintPropertyValue0())
 
-public data class PrintPropertyValue_0(
+public data class PrintPropertyValue0(
     public var propertyByte: UByte = 0u,
-    public var propertyString: PWSTR = 0L,
+    public var propertyString: Pwstr = null,
     public var propertyInt32: Int = 0,
     public var propertyInt64: Long = 0L,
-    public var propertyBlob: PrintPropertyValue_0_0 = PrintPropertyValue_0_0(),
+    public var propertyBlob: PrintPropertyValue00 = PrintPropertyValue00(),
 )
 
-public data class PrintPropertyValue_0_0(public var cbBuf: UInt = 0u, public var pBuf: Long = 0L)
+public data class PrintPropertyValue00(public var cbBuf: UInt = 0u, public var pBuf: COpaquePointer? = null)
 
-public data class SETRESULT_INFO(
+public data class SetresultInfo(
     public var cbSize: UShort = 0u,
     public var wReserved: UShort = 0u,
-    public var hSetResult: HANDLE = 0L,
-    public var Result: LRESULT = 0L,
+    public var hSetResult: Handle = null,
+    public var result: Lresult = 0L,
 )
 
-public data class SHOWUIPARAMS(public var UIType: UI_TYPE = 0, public var MessageBoxParams: MESSAGEBOX_PARAMS = MESSAGEBOX_PARAMS())
+public data class Showuiparams(public var uIType: UiType = 0, public var messageBoxParams: MessageboxParams = MessageboxParams())
 
-public data class SIMULATE_CAPS_1(
+public data class SimulateCaps1(
     public var dwLevel: UInt = 0u,
     public var dwPageOrderFlags: UInt = 0u,
     public var dwNumberOfCopies: UInt = 0u,
@@ -2275,26 +2278,26 @@ public data class SIMULATE_CAPS_1(
     public var dwNupOptions: UInt = 0u,
 )
 
-public data class SPLCLIENT_INFO_1(
+public data class SplclientInfo1(
     public var dwSize: UInt = 0u,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
     public var dwBuildNum: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
     public var wProcessorArchitecture: UShort = 0u,
 )
 
-public data class SPLCLIENT_INFO_2_W2K(public var hSplPrinter: ULong = 0uL)
+public data class SplclientInfo2W2k(public var hSplPrinter: Int = 0)
 
-public data class SPLCLIENT_INFO_2_WINXP(public var hSplPrinter: ULong = 0uL)
+public data class SplclientInfo2Winxp(public var hSplPrinter: ULong = 0uL)
 
-public data class SPLCLIENT_INFO_3_VISTA(
+public data class SplclientInfo3Vista(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
     public var dwBuildNum: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -2302,12 +2305,12 @@ public data class SPLCLIENT_INFO_3_VISTA(
     public var hSplPrinter: ULong = 0uL,
 )
 
-public data class SPLCLIENT_INFO_INTERNAL(
+public data class SplclientInfoInternal(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var pMachineName: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
+    public var pMachineName: Pwstr = null,
+    public var pUserName: Pwstr = null,
     public var dwBuildNum: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -2317,20 +2320,20 @@ public data class SPLCLIENT_INFO_INTERNAL(
     public var dwSessionId: UInt = 0u,
 )
 
-public data class TRANSDATA(
+public data class Transdata(
     public var ubCodePageID: UByte = 0u,
     public var ubType: UByte = 0u,
-    public var uCode: TRANSDATA_0 = TRANSDATA_0(),
+    public var uCode: Transdata0 = Transdata0(),
 )
 
-public data class TRANSDATA_0(
+public data class Transdata0(
     public var sCode: Short = 0,
     public var ubCode: UByte = 0u,
     public var ubPairs: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TRANSDATA_0) return false
+        if (other !is Transdata0) return false
         if (this.sCode != other.sCode) return false
         if (this.ubCode != other.ubCode) return false
         if (!this.ubPairs.contentEquals(other.ubPairs)) return false
@@ -2345,7 +2348,7 @@ public data class TRANSDATA_0(
     }
 }
 
-public data class UFF_FILEHEADER(
+public data class UffFileheader(
     public var dwSignature: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwSize: UInt = 0u,
@@ -2358,7 +2361,7 @@ public data class UFF_FILEHEADER(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UFF_FILEHEADER) return false
+        if (other !is UffFileheader) return false
         if (this.dwSignature != other.dwSignature) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwSize != other.dwSize) return false
@@ -2385,7 +2388,7 @@ public data class UFF_FILEHEADER(
     }
 }
 
-public data class UFF_FONTDIRECTORY(
+public data class UffFontdirectory(
     public var dwSignature: UInt = 0u,
     public var wSize: UShort = 0u,
     public var wFontID: UShort = 0u,
@@ -2399,7 +2402,7 @@ public data class UFF_FONTDIRECTORY(
     public var offVarData: UInt = 0u,
 )
 
-public data class UNIDRVINFO(
+public data class Unidrvinfo(
     public var dwSize: UInt = 0u,
     public var flGenFlags: UInt = 0u,
     public var wType: UShort = 0u,
@@ -2410,13 +2413,13 @@ public data class UNIDRVINFO(
     public var sYMoved: Short = 0,
     public var wPrivateData: UShort = 0u,
     public var sShift: Short = 0,
-    public var SelectFont: INVOC = INVOC(),
-    public var UnSelectFont: INVOC = INVOC(),
+    public var selectFont: Invoc = Invoc(),
+    public var unSelectFont: Invoc = Invoc(),
     public var wReserved: UShortArray = UShortArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UNIDRVINFO) return false
+        if (other !is Unidrvinfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.flGenFlags != other.flGenFlags) return false
         if (this.wType != other.wType) return false
@@ -2427,8 +2430,8 @@ public data class UNIDRVINFO(
         if (this.sYMoved != other.sYMoved) return false
         if (this.wPrivateData != other.wPrivateData) return false
         if (this.sShift != other.sShift) return false
-        if (this.SelectFont != other.SelectFont) return false
-        if (this.UnSelectFont != other.UnSelectFont) return false
+        if (this.selectFont != other.selectFont) return false
+        if (this.unSelectFont != other.unSelectFont) return false
         if (!this.wReserved.contentEquals(other.wReserved)) return false
         return true
     }
@@ -2444,17 +2447,17 @@ public data class UNIDRVINFO(
         result = 31 * result + this.sYMoved.hashCode()
         result = 31 * result + this.wPrivateData.hashCode()
         result = 31 * result + this.sShift.hashCode()
-        result = 31 * result + this.SelectFont.hashCode()
-        result = 31 * result + this.UnSelectFont.hashCode()
+        result = 31 * result + this.selectFont.hashCode()
+        result = 31 * result + this.unSelectFont.hashCode()
         result = 31 * result + this.wReserved.contentHashCode()
         return result
     }
 }
 
-public data class UNIDRV_PRIVATE_DEVMODE(public var wReserved: UShortArray = UShortArray(4), public var wSize: UShort = 0u) {
+public data class UnidrvPrivateDevmode(public var wReserved: UShortArray = UShortArray(4), public var wSize: UShort = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UNIDRV_PRIVATE_DEVMODE) return false
+        if (other !is UnidrvPrivateDevmode) return false
         if (!this.wReserved.contentEquals(other.wReserved)) return false
         if (this.wSize != other.wSize) return false
         return true
@@ -2467,7 +2470,7 @@ public data class UNIDRV_PRIVATE_DEVMODE(public var wReserved: UShortArray = USh
     }
 }
 
-public data class UNIFM_HDR(
+public data class UnifmHdr(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var ulDefaultCodepage: UInt = 0u,
@@ -2481,7 +2484,7 @@ public data class UNIFM_HDR(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UNIFM_HDR) return false
+        if (other !is UnifmHdr) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.ulDefaultCodepage != other.ulDefaultCodepage) return false
@@ -2510,13 +2513,13 @@ public data class UNIFM_HDR(
     }
 }
 
-public data class UNI_CODEPAGEINFO(
+public data class UniCodepageinfo(
     public var dwCodePage: UInt = 0u,
-    public var SelectSymbolSet: INVOC = INVOC(),
-    public var UnSelectSymbolSet: INVOC = INVOC(),
+    public var selectSymbolSet: Invoc = Invoc(),
+    public var unSelectSymbolSet: Invoc = Invoc(),
 )
 
-public data class UNI_GLYPHSETDATA(
+public data class UniGlyphsetdata(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
@@ -2531,7 +2534,7 @@ public data class UNI_GLYPHSETDATA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UNI_GLYPHSETDATA) return false
+        if (other !is UniGlyphsetdata) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwFlags != other.dwFlags) return false
@@ -2562,15 +2565,15 @@ public data class UNI_GLYPHSETDATA(
     }
 }
 
-public data class USERDATA(
+public data class Userdata(
     public var dwSize: UInt = 0u,
-    public var dwItemID: ULong = 0uL,
-    public var pKeyWordName: PSTR = 0L,
+    public var dwItemID: Int = 0,
+    public var pKeyWordName: Pstr = null,
     public var dwReserved: UIntArray = UIntArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USERDATA) return false
+        if (other !is Userdata) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwItemID != other.dwItemID) return false
         if (this.pKeyWordName != other.pKeyWordName) return false
@@ -2587,16 +2590,16 @@ public data class USERDATA(
     }
 }
 
-public data class WIDTHRUN(
+public data class Widthrun(
     public var wStartGlyph: UShort = 0u,
     public var wGlyphCount: UShort = 0u,
     public var loCharWidthOffset: UInt = 0u,
 )
 
-public data class WIDTHTABLE(
+public data class Widthtable(
     public var dwSize: UInt = 0u,
     public var dwRunNum: UInt = 0u,
-    public var WidthRun: List<WIDTHRUN> = List(1) { WIDTHRUN() },
+    public var widthRun: List<Widthrun> = List(1) { Widthrun() },
 )
 
-public data class _SPLCLIENT_INFO_2_V3(public var hSplPrinter: ULong = 0uL)
+public data class SplclientInfo2V3(public var hSplPrinter: ULong = 0uL)

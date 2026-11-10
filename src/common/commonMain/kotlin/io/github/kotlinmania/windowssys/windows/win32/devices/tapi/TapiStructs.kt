@@ -1,16 +1,17 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 
-public data class ADDRALIAS(
+public data class Addralias(
     public var rgchName: ByteArray = ByteArray(41),
     public var rgchEName: ByteArray = ByteArray(11),
     public var rgchSrvr: ByteArray = ByteArray(12),
@@ -19,7 +20,7 @@ public data class ADDRALIAS(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ADDRALIAS) return false
+        if (other !is Addralias) return false
         if (!this.rgchName.contentEquals(other.rgchName)) return false
         if (!this.rgchEName.contentEquals(other.rgchEName)) return false
         if (!this.rgchSrvr.contentEquals(other.rgchSrvr)) return false
@@ -38,7 +39,7 @@ public data class ADDRALIAS(
     }
 }
 
-public data class DTR(
+public data class Dtr(
     public var wYear: UShort = 0u,
     public var wMonth: UShort = 0u,
     public var wDay: UShort = 0u,
@@ -48,7 +49,7 @@ public data class DTR(
     public var wDayOfWeek: UShort = 0u,
 )
 
-public class LINEADDRESSCAPS(
+public class Lineaddresscaps(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -108,7 +109,7 @@ public class LINEADDRESSCAPS(
     public var dwAvailableMediaModes: UInt = 0u,
 )
 
-public data class LINEADDRESSSTATUS(
+public data class Lineaddressstatus(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -127,13 +128,13 @@ public data class LINEADDRESSSTATUS(
     public var dwDevSpecificOffset: UInt = 0u,
 )
 
-public data class LINEAGENTACTIVITYENTRY(
+public data class Lineagentactivityentry(
     public var dwID: UInt = 0u,
     public var dwNameSize: UInt = 0u,
     public var dwNameOffset: UInt = 0u,
 )
 
-public data class LINEAGENTACTIVITYLIST(
+public data class Lineagentactivitylist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -142,7 +143,7 @@ public data class LINEAGENTACTIVITYLIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEAGENTCAPS(
+public data class Lineagentcaps(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -157,10 +158,10 @@ public data class LINEAGENTCAPS(
     public var dwNumAgentExtensionIDs: UInt = 0u,
     public var dwAgentExtensionIDListSize: UInt = 0u,
     public var dwAgentExtensionIDListOffset: UInt = 0u,
-    public var ProxyGUID: GUID = GUID(),
+    public var proxyGUID: Guid = Guid(),
 )
 
-public data class LINEAGENTENTRY(
+public data class Lineagententry(
     public var hAgent: UInt = 0u,
     public var dwNameSize: UInt = 0u,
     public var dwNameOffset: UInt = 0u,
@@ -170,20 +171,20 @@ public data class LINEAGENTENTRY(
     public var dwPINOffset: UInt = 0u,
 )
 
-public data class LINEAGENTGROUPENTRY(
-    public var GroupID: LINEAGENTGROUPENTRY_0 = LINEAGENTGROUPENTRY_0(),
+public data class Lineagentgroupentry(
+    public var groupID: Lineagentgroupentry0 = Lineagentgroupentry0(),
     public var dwNameSize: UInt = 0u,
     public var dwNameOffset: UInt = 0u,
 )
 
-public data class LINEAGENTGROUPENTRY_0(
+public data class Lineagentgroupentry0(
     public var dwGroupID1: UInt = 0u,
     public var dwGroupID2: UInt = 0u,
     public var dwGroupID3: UInt = 0u,
     public var dwGroupID4: UInt = 0u,
 )
 
-public data class LINEAGENTGROUPLIST(
+public data class Lineagentgrouplist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -192,7 +193,7 @@ public data class LINEAGENTGROUPLIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEAGENTINFO(
+public data class Lineagentinfo(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -208,7 +209,7 @@ public data class LINEAGENTINFO(
     public var dwTotalACDWrapUpTime: UInt = 0u,
 )
 
-public data class LINEAGENTLIST(
+public data class Lineagentlist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -217,14 +218,14 @@ public data class LINEAGENTLIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEAGENTSESSIONENTRY(
+public data class Lineagentsessionentry(
     public var hAgentSession: UInt = 0u,
     public var hAgent: UInt = 0u,
-    public var GroupID: GUID = GUID(),
+    public var groupID: Guid = Guid(),
     public var dwWorkingAddressID: UInt = 0u,
 )
 
-public class LINEAGENTSESSIONINFO(
+public class Lineagentsessioninfo(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -244,7 +245,7 @@ public class LINEAGENTSESSIONINFO(
     public var dwAverageTimeToAnswer: UInt = 0u,
 )
 
-public data class LINEAGENTSESSIONLIST(
+public data class Lineagentsessionlist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -253,7 +254,7 @@ public data class LINEAGENTSESSIONLIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEAGENTSTATUS(
+public data class Lineagentstatus(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -270,7 +271,7 @@ public data class LINEAGENTSTATUS(
     public var dwValidNextStates: UInt = 0u,
 )
 
-public data class LINEAPPINFO(
+public data class Lineappinfo(
     public var dwMachineNameSize: UInt = 0u,
     public var dwMachineNameOffset: UInt = 0u,
     public var dwUserNameSize: UInt = 0u,
@@ -283,7 +284,7 @@ public data class LINEAPPINFO(
     public var dwAddressID: UInt = 0u,
 )
 
-public class LINECALLINFO {
+public class Linecallinfo {
     public var dwTotalSize: UInt = 0u
 
     public var dwNeededSize: UInt = 0u
@@ -316,7 +317,7 @@ public class LINECALLINFO {
 
     public var dwMonitorMediaModes: UInt = 0u
 
-    public var DialParams: LINEDIALPARAMS = LINEDIALPARAMS()
+    public var dialParams: Linedialparams = Linedialparams()
 
     public var dwOrigin: UInt = 0u
 
@@ -441,7 +442,7 @@ public class LINECALLINFO {
     public var dwReceivingFlowspecOffset: UInt = 0u
 }
 
-public data class LINECALLLIST(
+public data class Linecalllist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -450,7 +451,7 @@ public data class LINECALLLIST(
     public var dwCallsOffset: UInt = 0u,
 )
 
-public class LINECALLPARAMS(
+public class Linecallparams(
     public var dwTotalSize: UInt = 0u,
     public var dwBearerMode: UInt = 0u,
     public var dwMinRate: UInt = 0u,
@@ -459,7 +460,7 @@ public class LINECALLPARAMS(
     public var dwCallParamFlags: UInt = 0u,
     public var dwAddressMode: UInt = 0u,
     public var dwAddressID: UInt = 0u,
-    public var DialParams: LINEDIALPARAMS = LINEDIALPARAMS(),
+    public var dialParams: Linedialparams = Linedialparams(),
     public var dwOrigAddressSize: UInt = 0u,
     public var dwOrigAddressOffset: UInt = 0u,
     public var dwDisplayableAddressSize: UInt = 0u,
@@ -494,7 +495,7 @@ public class LINECALLPARAMS(
     public var dwCallingPartyIDOffset: UInt = 0u,
 )
 
-public data class LINECALLSTATUS(
+public data class Linecallstatus(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -505,16 +506,16 @@ public data class LINECALLSTATUS(
     public var dwDevSpecificSize: UInt = 0u,
     public var dwDevSpecificOffset: UInt = 0u,
     public var dwCallFeatures2: UInt = 0u,
-    public var tStateEntryTime: SYSTEMTIME = SYSTEMTIME(),
+    public var tStateEntryTime: Systemtime = Systemtime(),
 )
 
-public data class LINECALLTREATMENTENTRY(
+public data class Linecalltreatmententry(
     public var dwCallTreatmentID: UInt = 0u,
     public var dwCallTreatmentNameSize: UInt = 0u,
     public var dwCallTreatmentNameOffset: UInt = 0u,
 )
 
-public data class LINECARDENTRY(
+public data class Linecardentry(
     public var dwPermanentCardID: UInt = 0u,
     public var dwCardNameSize: UInt = 0u,
     public var dwCardNameOffset: UInt = 0u,
@@ -528,7 +529,7 @@ public data class LINECARDENTRY(
     public var dwOptions: UInt = 0u,
 )
 
-public data class LINECOUNTRYENTRY(
+public data class Linecountryentry(
     public var dwCountryID: UInt = 0u,
     public var dwCountryCode: UInt = 0u,
     public var dwNextCountryID: UInt = 0u,
@@ -542,7 +543,7 @@ public data class LINECOUNTRYENTRY(
     public var dwInternationalRuleOffset: UInt = 0u,
 )
 
-public data class LINECOUNTRYLIST(
+public data class Linecountrylist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -551,7 +552,7 @@ public data class LINECOUNTRYLIST(
     public var dwCountryListOffset: UInt = 0u,
 )
 
-public class LINEDEVCAPS(
+public class Linedevcaps(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -591,9 +592,9 @@ public class LINEDEVCAPS(
     public var dwUUIDropSize: UInt = 0u,
     public var dwUUISendUserUserInfoSize: UInt = 0u,
     public var dwUUICallInfoSize: UInt = 0u,
-    public var MinDialParams: LINEDIALPARAMS = LINEDIALPARAMS(),
-    public var MaxDialParams: LINEDIALPARAMS = LINEDIALPARAMS(),
-    public var DefaultDialParams: LINEDIALPARAMS = LINEDIALPARAMS(),
+    public var minDialParams: Linedialparams = Linedialparams(),
+    public var maxDialParams: Linedialparams = Linedialparams(),
+    public var defaultDialParams: Linedialparams = Linedialparams(),
     public var dwNumTerminals: UInt = 0u,
     public var dwTerminalCapsSize: UInt = 0u,
     public var dwTerminalCapsOffset: UInt = 0u,
@@ -606,10 +607,10 @@ public class LINEDEVCAPS(
     public var dwSettableDevStatus: UInt = 0u,
     public var dwDeviceClassesSize: UInt = 0u,
     public var dwDeviceClassesOffset: UInt = 0u,
-    public var PermanentLineGuid: GUID = GUID(),
+    public var permanentLineGuid: Guid = Guid(),
 )
 
-public class LINEDEVSTATUS(
+public class Linedevstatus(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -634,21 +635,21 @@ public class LINEDEVSTATUS(
     public var dwAppInfoOffset: UInt = 0u,
 )
 
-public data class LINEDIALPARAMS(
+public data class Linedialparams(
     public var dwDialPause: UInt = 0u,
     public var dwDialSpeed: UInt = 0u,
     public var dwDigitDuration: UInt = 0u,
     public var dwWaitForDialtone: UInt = 0u,
 )
 
-public data class LINEEXTENSIONID(
+public data class Lineextensionid(
     public var dwExtensionID0: UInt = 0u,
     public var dwExtensionID1: UInt = 0u,
     public var dwExtensionID2: UInt = 0u,
     public var dwExtensionID3: UInt = 0u,
 )
 
-public data class LINEFORWARD(
+public data class Lineforward(
     public var dwForwardMode: UInt = 0u,
     public var dwCallerAddressSize: UInt = 0u,
     public var dwCallerAddressOffset: UInt = 0u,
@@ -657,31 +658,31 @@ public data class LINEFORWARD(
     public var dwDestAddressOffset: UInt = 0u,
 )
 
-public data class LINEFORWARDLIST(
+public data class Lineforwardlist(
     public var dwTotalSize: UInt = 0u,
     public var dwNumEntries: UInt = 0u,
-    public var ForwardList: List<LINEFORWARD> = List(1) { LINEFORWARD() },
+    public var forwardList: List<Lineforward> = List(1) { Lineforward() },
 )
 
-public data class LINEGENERATETONE(
+public data class Linegeneratetone(
     public var dwFrequency: UInt = 0u,
     public var dwCadenceOn: UInt = 0u,
     public var dwCadenceOff: UInt = 0u,
     public var dwVolume: UInt = 0u,
 )
 
-public data class LINEINITIALIZEEXPARAMS(
+public data class Lineinitializeexparams(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
     public var dwOptions: UInt = 0u,
-    public var Handles: LINEINITIALIZEEXPARAMS_0 = LINEINITIALIZEEXPARAMS_0(),
+    public var handles: Lineinitializeexparams0 = Lineinitializeexparams0(),
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class LINEINITIALIZEEXPARAMS_0(public var hEvent: HANDLE = 0L, public var hCompletionPort: HANDLE = 0L)
+public data class Lineinitializeexparams0(public var hEvent: Handle = null, public var hCompletionPort: Handle = null)
 
-public class LINELOCATIONENTRY(
+public class Linelocationentry(
     public var dwPermanentLocationID: UInt = 0u,
     public var dwLocationNameSize: UInt = 0u,
     public var dwLocationNameOffset: UInt = 0u,
@@ -701,21 +702,21 @@ public class LINELOCATIONENTRY(
     public var dwCancelCallWaitingOffset: UInt = 0u,
 )
 
-public data class LINEMEDIACONTROLCALLSTATE(public var dwCallStates: UInt = 0u, public var dwMediaControl: UInt = 0u)
+public data class Linemediacontrolcallstate(public var dwCallStates: UInt = 0u, public var dwMediaControl: UInt = 0u)
 
-public data class LINEMEDIACONTROLDIGIT(
+public data class Linemediacontroldigit(
     public var dwDigit: UInt = 0u,
     public var dwDigitModes: UInt = 0u,
     public var dwMediaControl: UInt = 0u,
 )
 
-public data class LINEMEDIACONTROLMEDIA(
+public data class Linemediacontrolmedia(
     public var dwMediaModes: UInt = 0u,
     public var dwDuration: UInt = 0u,
     public var dwMediaControl: UInt = 0u,
 )
 
-public data class LINEMEDIACONTROLTONE(
+public data class Linemediacontroltone(
     public var dwAppSpecific: UInt = 0u,
     public var dwDuration: UInt = 0u,
     public var dwFrequency1: UInt = 0u,
@@ -724,16 +725,16 @@ public data class LINEMEDIACONTROLTONE(
     public var dwMediaControl: UInt = 0u,
 )
 
-public data class LINEMESSAGE(
+public data class Linemessage(
     public var hDevice: UInt = 0u,
     public var dwMessageID: UInt = 0u,
-    public var dwCallbackInstance: ULong = 0uL,
-    public var dwParam1: ULong = 0uL,
-    public var dwParam2: ULong = 0uL,
-    public var dwParam3: ULong = 0uL,
+    public var dwCallbackInstance: Int = 0,
+    public var dwParam1: Int = 0,
+    public var dwParam2: Int = 0,
+    public var dwParam3: Int = 0,
 )
 
-public data class LINEMONITORTONE(
+public data class Linemonitortone(
     public var dwAppSpecific: UInt = 0u,
     public var dwDuration: UInt = 0u,
     public var dwFrequency1: UInt = 0u,
@@ -741,13 +742,13 @@ public data class LINEMONITORTONE(
     public var dwFrequency3: UInt = 0u,
 )
 
-public data class LINEPROVIDERENTRY(
+public data class Lineproviderentry(
     public var dwPermanentProviderID: UInt = 0u,
     public var dwProviderFilenameSize: UInt = 0u,
     public var dwProviderFilenameOffset: UInt = 0u,
 )
 
-public data class LINEPROVIDERLIST(
+public data class Lineproviderlist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -756,7 +757,7 @@ public data class LINEPROVIDERLIST(
     public var dwProviderListOffset: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST(
+public data class Lineproxyrequest(
     public var dwSize: UInt = 0u,
     public var dwClientMachineNameSize: UInt = 0u,
     public var dwClientMachineNameOffset: UInt = 0u,
@@ -764,45 +765,45 @@ public data class LINEPROXYREQUEST(
     public var dwClientUserNameOffset: UInt = 0u,
     public var dwClientAppAPIVersion: UInt = 0u,
     public var dwRequestType: UInt = 0u,
-    public var Anonymous: LINEPROXYREQUEST_0 = LINEPROXYREQUEST_0(),
+    public var anonymous: Lineproxyrequest0 = Lineproxyrequest0(),
 )
 
-public class LINEPROXYREQUEST_0(
-    public var SetAgentGroup: LINEPROXYREQUEST_0_0 = LINEPROXYREQUEST_0_0(),
-    public var SetAgentState: LINEPROXYREQUEST_0_1 = LINEPROXYREQUEST_0_1(),
-    public var SetAgentActivity: LINEPROXYREQUEST_0_2 = LINEPROXYREQUEST_0_2(),
-    public var GetAgentCaps: LINEPROXYREQUEST_0_3 = LINEPROXYREQUEST_0_3(),
-    public var GetAgentStatus: LINEPROXYREQUEST_0_4 = LINEPROXYREQUEST_0_4(),
-    public var AgentSpecific: LINEPROXYREQUEST_0_5 = LINEPROXYREQUEST_0_5(),
-    public var GetAgentActivityList: LINEPROXYREQUEST_0_6 = LINEPROXYREQUEST_0_6(),
-    public var GetAgentGroupList: LINEPROXYREQUEST_0_7 = LINEPROXYREQUEST_0_7(),
-    public var CreateAgent: LINEPROXYREQUEST_0_8 = LINEPROXYREQUEST_0_8(),
-    public var SetAgentStateEx: LINEPROXYREQUEST_0_9 = LINEPROXYREQUEST_0_9(),
-    public var SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_10 = LINEPROXYREQUEST_0_10(),
-    public var GetAgentInfo: LINEPROXYREQUEST_0_11 = LINEPROXYREQUEST_0_11(),
-    public var CreateAgentSession: LINEPROXYREQUEST_0_12 = LINEPROXYREQUEST_0_12(),
-    public var GetAgentSessionList: LINEPROXYREQUEST_0_13 = LINEPROXYREQUEST_0_13(),
-    public var GetAgentSessionInfo: LINEPROXYREQUEST_0_14 = LINEPROXYREQUEST_0_14(),
-    public var SetAgentSessionState: LINEPROXYREQUEST_0_15 = LINEPROXYREQUEST_0_15(),
-    public var GetQueueList: LINEPROXYREQUEST_0_16 = LINEPROXYREQUEST_0_16(),
-    public var SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_17 = LINEPROXYREQUEST_0_17(),
-    public var GetQueueInfo: LINEPROXYREQUEST_0_18 = LINEPROXYREQUEST_0_18(),
-    public var GetGroupList: LINEPROXYREQUEST_0_19 = LINEPROXYREQUEST_0_19(),
+public class Lineproxyrequest0(
+    public var setAgentGroup: Lineproxyrequest00 = Lineproxyrequest00(),
+    public var setAgentState: Lineproxyrequest01 = Lineproxyrequest01(),
+    public var setAgentActivity: Lineproxyrequest02 = Lineproxyrequest02(),
+    public var getAgentCaps: Lineproxyrequest03 = Lineproxyrequest03(),
+    public var getAgentStatus: Lineproxyrequest04 = Lineproxyrequest04(),
+    public var agentSpecific: Lineproxyrequest05 = Lineproxyrequest05(),
+    public var getAgentActivityList: Lineproxyrequest06 = Lineproxyrequest06(),
+    public var getAgentGroupList: Lineproxyrequest07 = Lineproxyrequest07(),
+    public var createAgent: Lineproxyrequest08 = Lineproxyrequest08(),
+    public var setAgentStateEx: Lineproxyrequest09 = Lineproxyrequest09(),
+    public var setAgentMeasurementPeriod: Lineproxyrequest010 = Lineproxyrequest010(),
+    public var getAgentInfo: Lineproxyrequest011 = Lineproxyrequest011(),
+    public var createAgentSession: Lineproxyrequest012 = Lineproxyrequest012(),
+    public var getAgentSessionList: Lineproxyrequest013 = Lineproxyrequest013(),
+    public var getAgentSessionInfo: Lineproxyrequest014 = Lineproxyrequest014(),
+    public var setAgentSessionState: Lineproxyrequest015 = Lineproxyrequest015(),
+    public var getQueueList: Lineproxyrequest016 = Lineproxyrequest016(),
+    public var setQueueMeasurementPeriod: Lineproxyrequest017 = Lineproxyrequest017(),
+    public var getQueueInfo: Lineproxyrequest018 = Lineproxyrequest018(),
+    public var getGroupList: Lineproxyrequest019 = Lineproxyrequest019(),
 )
 
-public data class LINEPROXYREQUEST_0_5(
+public data class Lineproxyrequest05(
     public var dwAddressID: UInt = 0u,
     public var dwAgentExtensionIDIndex: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var Params: UByteArray = UByteArray(1),
+    public var params: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LINEPROXYREQUEST_0_5) return false
+        if (other !is Lineproxyrequest05) return false
         if (this.dwAddressID != other.dwAddressID) return false
         if (this.dwAgentExtensionIDIndex != other.dwAgentExtensionIDIndex) return false
         if (this.dwSize != other.dwSize) return false
-        if (!this.Params.contentEquals(other.Params)) return false
+        if (!this.params.contentEquals(other.params)) return false
         return true
     }
 
@@ -810,21 +811,21 @@ public data class LINEPROXYREQUEST_0_5(
         var result = this.dwAddressID.hashCode()
         result = 31 * result + this.dwAgentExtensionIDIndex.hashCode()
         result = 31 * result + this.dwSize.hashCode()
-        result = 31 * result + this.Params.contentHashCode()
+        result = 31 * result + this.params.contentHashCode()
         return result
     }
 }
 
-public data class LINEPROXYREQUEST_0_12(
+public data class Lineproxyrequest012(
     public var hAgentSession: UInt = 0u,
     public var dwAgentPINSize: UInt = 0u,
     public var dwAgentPINOffset: UInt = 0u,
     public var hAgent: UInt = 0u,
-    public var GroupID: GUID = GUID(),
+    public var groupID: Guid = Guid(),
     public var dwWorkingAddressID: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST_0_8(
+public data class Lineproxyrequest08(
     public var hAgent: UInt = 0u,
     public var dwAgentIDSize: UInt = 0u,
     public var dwAgentIDOffset: UInt = 0u,
@@ -832,53 +833,53 @@ public data class LINEPROXYREQUEST_0_8(
     public var dwAgentPINOffset: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST_0_6(public var dwAddressID: UInt = 0u, public var ActivityList: LINEAGENTACTIVITYLIST = LINEAGENTACTIVITYLIST())
+public data class Lineproxyrequest06(public var dwAddressID: UInt = 0u, public var activityList: Lineagentactivitylist = Lineagentactivitylist())
 
-public data class LINEPROXYREQUEST_0_3(public var dwAddressID: UInt = 0u, public var AgentCaps: LINEAGENTCAPS = LINEAGENTCAPS())
+public data class Lineproxyrequest03(public var dwAddressID: UInt = 0u, public var agentCaps: Lineagentcaps = Lineagentcaps())
 
-public data class LINEPROXYREQUEST_0_7(public var dwAddressID: UInt = 0u, public var GroupList: LINEAGENTGROUPLIST = LINEAGENTGROUPLIST())
+public data class Lineproxyrequest07(public var dwAddressID: UInt = 0u, public var groupList: Lineagentgrouplist = Lineagentgrouplist())
 
-public data class LINEPROXYREQUEST_0_11(public var hAgent: UInt = 0u, public var AgentInfo: LINEAGENTINFO = LINEAGENTINFO())
+public data class Lineproxyrequest011(public var hAgent: UInt = 0u, public var agentInfo: Lineagentinfo = Lineagentinfo())
 
-public data class LINEPROXYREQUEST_0_14(public var hAgentSession: UInt = 0u, public var SessionInfo: LINEAGENTSESSIONINFO = LINEAGENTSESSIONINFO())
+public data class Lineproxyrequest014(public var hAgentSession: UInt = 0u, public var sessionInfo: Lineagentsessioninfo = Lineagentsessioninfo())
 
-public data class LINEPROXYREQUEST_0_13(public var hAgent: UInt = 0u, public var SessionList: LINEAGENTSESSIONLIST = LINEAGENTSESSIONLIST())
+public data class Lineproxyrequest013(public var hAgent: UInt = 0u, public var sessionList: Lineagentsessionlist = Lineagentsessionlist())
 
-public data class LINEPROXYREQUEST_0_4(public var dwAddressID: UInt = 0u, public var AgentStatus: LINEAGENTSTATUS = LINEAGENTSTATUS())
+public data class Lineproxyrequest04(public var dwAddressID: UInt = 0u, public var agentStatus: Lineagentstatus = Lineagentstatus())
 
-public data class LINEPROXYREQUEST_0_19(public var GroupList: LINEAGENTGROUPLIST = LINEAGENTGROUPLIST())
+public data class Lineproxyrequest019(public var groupList: Lineagentgrouplist = Lineagentgrouplist())
 
-public data class LINEPROXYREQUEST_0_18(public var dwQueueID: UInt = 0u, public var QueueInfo: LINEQUEUEINFO = LINEQUEUEINFO())
+public data class Lineproxyrequest018(public var dwQueueID: UInt = 0u, public var queueInfo: Linequeueinfo = Linequeueinfo())
 
-public data class LINEPROXYREQUEST_0_16(public var GroupID: GUID = GUID(), public var QueueList: LINEQUEUELIST = LINEQUEUELIST())
+public data class Lineproxyrequest016(public var groupID: Guid = Guid(), public var queueList: Linequeuelist = Linequeuelist())
 
-public data class LINEPROXYREQUEST_0_2(public var dwAddressID: UInt = 0u, public var dwActivityID: UInt = 0u)
+public data class Lineproxyrequest02(public var dwAddressID: UInt = 0u, public var dwActivityID: UInt = 0u)
 
-public data class LINEPROXYREQUEST_0_0(public var dwAddressID: UInt = 0u, public var GroupList: LINEAGENTGROUPLIST = LINEAGENTGROUPLIST())
+public data class Lineproxyrequest00(public var dwAddressID: UInt = 0u, public var groupList: Lineagentgrouplist = Lineagentgrouplist())
 
-public data class LINEPROXYREQUEST_0_10(public var hAgent: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
+public data class Lineproxyrequest010(public var hAgent: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
 
-public data class LINEPROXYREQUEST_0_15(
+public data class Lineproxyrequest015(
     public var hAgentSession: UInt = 0u,
     public var dwAgentSessionState: UInt = 0u,
     public var dwNextAgentSessionState: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST_0_9(
+public data class Lineproxyrequest09(
     public var hAgent: UInt = 0u,
     public var dwAgentState: UInt = 0u,
     public var dwNextAgentState: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST_0_1(
+public data class Lineproxyrequest01(
     public var dwAddressID: UInt = 0u,
     public var dwAgentState: UInt = 0u,
     public var dwNextAgentState: UInt = 0u,
 )
 
-public data class LINEPROXYREQUEST_0_17(public var dwQueueID: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
+public data class Lineproxyrequest017(public var dwQueueID: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
 
-public data class LINEPROXYREQUESTLIST(
+public data class Lineproxyrequestlist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -887,13 +888,13 @@ public data class LINEPROXYREQUESTLIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEQUEUEENTRY(
+public data class Linequeueentry(
     public var dwQueueID: UInt = 0u,
     public var dwNameSize: UInt = 0u,
     public var dwNameOffset: UInt = 0u,
 )
 
-public data class LINEQUEUEINFO(
+public data class Linequeueinfo(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -909,7 +910,7 @@ public data class LINEQUEUEINFO(
     public var dwFinalDisposition: UInt = 0u,
 )
 
-public data class LINEQUEUELIST(
+public data class Linequeuelist(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -918,7 +919,7 @@ public data class LINEQUEUELIST(
     public var dwListOffset: UInt = 0u,
 )
 
-public data class LINEREQMAKECALL(
+public data class Linereqmakecall(
     public var szDestAddress: ByteArray = ByteArray(80),
     public var szAppName: ByteArray = ByteArray(40),
     public var szCalledParty: ByteArray = ByteArray(40),
@@ -926,7 +927,7 @@ public data class LINEREQMAKECALL(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LINEREQMAKECALL) return false
+        if (other !is Linereqmakecall) return false
         if (!this.szDestAddress.contentEquals(other.szDestAddress)) return false
         if (!this.szAppName.contentEquals(other.szAppName)) return false
         if (!this.szCalledParty.contentEquals(other.szCalledParty)) return false
@@ -943,7 +944,7 @@ public data class LINEREQMAKECALL(
     }
 }
 
-public data class LINEREQMAKECALLW(
+public data class Linereqmakecallw(
     public var szDestAddress: UShortArray = UShortArray(80),
     public var szAppName: UShortArray = UShortArray(40),
     public var szCalledParty: UShortArray = UShortArray(40),
@@ -951,7 +952,7 @@ public data class LINEREQMAKECALLW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LINEREQMAKECALLW) return false
+        if (other !is Linereqmakecallw) return false
         if (!this.szDestAddress.contentEquals(other.szDestAddress)) return false
         if (!this.szAppName.contentEquals(other.szAppName)) return false
         if (!this.szCalledParty.contentEquals(other.szCalledParty)) return false
@@ -968,9 +969,9 @@ public data class LINEREQMAKECALLW(
     }
 }
 
-public data class LINEREQMEDIACALL(
-    public var hWnd: HWND = 0L,
-    public var wRequestID: WPARAM = 0uL,
+public data class Linereqmediacall(
+    public var hWnd: Hwnd = null,
+    public var wRequestID: Wparam = 0uL,
     public var szDeviceClass: ByteArray = ByteArray(40),
     public var ucDeviceID: UByteArray = UByteArray(40),
     public var dwSize: UInt = 0u,
@@ -982,7 +983,7 @@ public data class LINEREQMEDIACALL(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LINEREQMEDIACALL) return false
+        if (other !is Linereqmediacall) return false
         if (this.hWnd != other.hWnd) return false
         if (this.wRequestID != other.wRequestID) return false
         if (!this.szDeviceClass.contentEquals(other.szDeviceClass)) return false
@@ -1011,9 +1012,9 @@ public data class LINEREQMEDIACALL(
     }
 }
 
-public data class LINEREQMEDIACALLW(
-    public var hWnd: HWND = 0L,
-    public var wRequestID: WPARAM = 0uL,
+public data class Linereqmediacallw(
+    public var hWnd: Hwnd = null,
+    public var wRequestID: Wparam = 0uL,
     public var szDeviceClass: UShortArray = UShortArray(40),
     public var ucDeviceID: UByteArray = UByteArray(40),
     public var dwSize: UInt = 0u,
@@ -1025,7 +1026,7 @@ public data class LINEREQMEDIACALLW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LINEREQMEDIACALLW) return false
+        if (other !is Linereqmediacallw) return false
         if (this.hWnd != other.hWnd) return false
         if (this.wRequestID != other.wRequestID) return false
         if (!this.szDeviceClass.contentEquals(other.szDeviceClass)) return false
@@ -1054,13 +1055,13 @@ public data class LINEREQMEDIACALLW(
     }
 }
 
-public data class LINETERMCAPS(
+public data class Linetermcaps(
     public var dwTermDev: UInt = 0u,
     public var dwTermModes: UInt = 0u,
     public var dwTermSharing: UInt = 0u,
 )
 
-public data class LINETRANSLATECAPS(
+public data class Linetranslatecaps(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -1074,7 +1075,7 @@ public data class LINETRANSLATECAPS(
     public var dwCurrentPreferredCardID: UInt = 0u,
 )
 
-public data class LINETRANSLATEOUTPUT(
+public data class Linetranslateoutput(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -1087,52 +1088,52 @@ public data class LINETRANSLATEOUTPUT(
     public var dwTranslateResults: UInt = 0u,
 )
 
-public data class MSP_EVENT_INFO(
+public data class MspEventInfo(
     public var dwSize: UInt = 0u,
-    public var Event: MSP_EVENT = 0,
-    public var hCall: Long = 0L,
-    public var Anonymous: MSP_EVENT_INFO_0 = MSP_EVENT_INFO_0(),
+    public var event: MspEvent = 0,
+    public var hCall: Int? = null,
+    public var anonymous: MspEventInfo0 = MspEventInfo0(),
 )
 
-public data class MSP_EVENT_INFO_0(
-    public var MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0 = MSP_EVENT_INFO_0_0(),
-    public var MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_1 = MSP_EVENT_INFO_0_1(),
-    public var MSP_TSP_DATA: MSP_EVENT_INFO_0_2 = MSP_EVENT_INFO_0_2(),
-    public var MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_3 = MSP_EVENT_INFO_0_3(),
-    public var MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_4 = MSP_EVENT_INFO_0_4(),
-    public var MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5 = MSP_EVENT_INFO_0_5(),
-    public var MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_6 = MSP_EVENT_INFO_0_6(),
-    public var MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7 = MSP_EVENT_INFO_0_7(),
+public data class MspEventInfo0(
+    public var mspAddressEventInfo: MspEventInfo00 = MspEventInfo00(),
+    public var mspCallEventInfo: MspEventInfo01 = MspEventInfo01(),
+    public var mspTspData: MspEventInfo02 = MspEventInfo02(),
+    public var mspPrivateEventInfo: MspEventInfo03 = MspEventInfo03(),
+    public var mspFileTerminalEventInfo: MspEventInfo04 = MspEventInfo04(),
+    public var mspAsrTerminalEventInfo: MspEventInfo05 = MspEventInfo05(),
+    public var mspTtsTerminalEventInfo: MspEventInfo06 = MspEventInfo06(),
+    public var mspToneTerminalEventInfo: MspEventInfo07 = MspEventInfo07(),
 )
 
-public data class MSP_EVENT_INFO_0_0(public var Type: MSP_ADDRESS_EVENT = 0, public var pTerminal: Long = 0L)
+public data class MspEventInfo00(public var type: MspAddressEvent = 0, public var pTerminal: COpaquePointer? = null)
 
-public data class MSP_EVENT_INFO_0_5(public var pASRTerminal: Long = 0L, public var hrErrorCode: HRESULT = 0)
+public data class MspEventInfo05(public var pASRTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
 
-public data class MSP_EVENT_INFO_0_1(
-    public var Type: MSP_CALL_EVENT = 0,
-    public var Cause: MSP_CALL_EVENT_CAUSE = 0,
-    public var pStream: Long = 0L,
-    public var pTerminal: Long = 0L,
-    public var hrError: HRESULT = 0,
+public data class MspEventInfo01(
+    public var type: MspCallEvent = 0,
+    public var cause: MspCallEventCause = 0,
+    public var pStream: COpaquePointer? = null,
+    public var pTerminal: COpaquePointer? = null,
+    public var hrError: Hresult = 0,
 )
 
-public data class MSP_EVENT_INFO_0_4(
-    public var pParentFileTerminal: Long = 0L,
-    public var pFileTrack: Long = 0L,
-    public var TerminalMediaState: TERMINAL_MEDIA_STATE = 0,
-    public var ftecEventCause: FT_STATE_EVENT_CAUSE = 0,
-    public var hrErrorCode: HRESULT = 0,
+public data class MspEventInfo04(
+    public var pParentFileTerminal: COpaquePointer? = null,
+    public var pFileTrack: COpaquePointer? = null,
+    public var terminalMediaState: TerminalMediaState = 0,
+    public var ftecEventCause: FtStateEventCause = 0,
+    public var hrErrorCode: Hresult = 0,
 )
 
-public data class MSP_EVENT_INFO_0_3(public var pEvent: Long = 0L, public var lEventCode: Int = 0)
+public data class MspEventInfo03(public var pEvent: COpaquePointer? = null, public var lEventCode: Int = 0)
 
-public data class MSP_EVENT_INFO_0_7(public var pToneTerminal: Long = 0L, public var hrErrorCode: HRESULT = 0)
+public data class MspEventInfo07(public var pToneTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
 
-public data class MSP_EVENT_INFO_0_2(public var dwBufferSize: UInt = 0u, public var pBuffer: UByteArray = UByteArray(1)) {
+public data class MspEventInfo02(public var dwBufferSize: UInt = 0u, public var pBuffer: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MSP_EVENT_INFO_0_2) return false
+        if (other !is MspEventInfo02) return false
         if (this.dwBufferSize != other.dwBufferSize) return false
         if (!this.pBuffer.contentEquals(other.pBuffer)) return false
         return true
@@ -1145,18 +1146,18 @@ public data class MSP_EVENT_INFO_0_2(public var dwBufferSize: UInt = 0u, public 
     }
 }
 
-public data class MSP_EVENT_INFO_0_6(public var pTTSTerminal: Long = 0L, public var hrErrorCode: HRESULT = 0)
+public data class MspEventInfo06(public var pTTSTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
 
-public data class NSID(
+public data class Nsid(
     public var dwSize: UInt = 0u,
     public var uchType: UByteArray = UByteArray(16),
     public var xtype: UInt = 0u,
     public var lTime: Int = 0,
-    public var address: NSID_0 = NSID_0(),
+    public var address: Nsid0 = Nsid0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NSID) return false
+        if (other !is Nsid) return false
         if (this.dwSize != other.dwSize) return false
         if (!this.uchType.contentEquals(other.uchType)) return false
         if (this.xtype != other.xtype) return false
@@ -1175,10 +1176,10 @@ public data class NSID(
     }
 }
 
-public data class NSID_0(public var alias: ADDRALIAS = ADDRALIAS(), public var rgchInterNet: ByteArray = ByteArray(1)) {
+public data class Nsid0(public var alias: Addralias = Addralias(), public var rgchInterNet: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NSID_0) return false
+        if (other !is Nsid0) return false
         if (this.alias != other.alias) return false
         if (!this.rgchInterNet.contentEquals(other.rgchInterNet)) return false
         return true
@@ -1191,7 +1192,7 @@ public data class NSID_0(public var alias: ADDRALIAS = ADDRALIAS(), public var r
     }
 }
 
-public data class PHONEBUTTONINFO(
+public data class Phonebuttoninfo(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -1204,7 +1205,7 @@ public data class PHONEBUTTONINFO(
     public var dwButtonState: UInt = 0u,
 )
 
-public class PHONECAPS(
+public class Phonecaps(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -1250,37 +1251,37 @@ public class PHONECAPS(
     public var dwMonitoredHandsetHookSwitchModes: UInt = 0u,
     public var dwMonitoredSpeakerHookSwitchModes: UInt = 0u,
     public var dwMonitoredHeadsetHookSwitchModes: UInt = 0u,
-    public var PermanentPhoneGuid: GUID = GUID(),
+    public var permanentPhoneGuid: Guid = Guid(),
 )
 
-public data class PHONEEXTENSIONID(
+public data class Phoneextensionid(
     public var dwExtensionID0: UInt = 0u,
     public var dwExtensionID1: UInt = 0u,
     public var dwExtensionID2: UInt = 0u,
     public var dwExtensionID3: UInt = 0u,
 )
 
-public data class PHONEINITIALIZEEXPARAMS(
+public data class Phoneinitializeexparams(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
     public var dwOptions: UInt = 0u,
-    public var Handles: PHONEINITIALIZEEXPARAMS_0 = PHONEINITIALIZEEXPARAMS_0(),
+    public var handles: Phoneinitializeexparams0 = Phoneinitializeexparams0(),
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class PHONEINITIALIZEEXPARAMS_0(public var hEvent: HANDLE = 0L, public var hCompletionPort: HANDLE = 0L)
+public data class Phoneinitializeexparams0(public var hEvent: Handle = null, public var hCompletionPort: Handle = null)
 
-public data class PHONEMESSAGE(
+public data class Phonemessage(
     public var hDevice: UInt = 0u,
     public var dwMessageID: UInt = 0u,
-    public var dwCallbackInstance: ULong = 0uL,
-    public var dwParam1: ULong = 0uL,
-    public var dwParam2: ULong = 0uL,
-    public var dwParam3: ULong = 0uL,
+    public var dwCallbackInstance: Int = 0,
+    public var dwParam1: Int = 0,
+    public var dwParam2: Int = 0,
+    public var dwParam3: Int = 0,
 )
 
-public class PHONESTATUS(
+public class Phonestatus(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,
@@ -1309,7 +1310,7 @@ public class PHONESTATUS(
     public var dwPhoneFeatures: UInt = 0u,
 )
 
-public data class RENDDATA(
+public data class Renddata(
     public var atyp: UShort = 0u,
     public var ulPosition: UInt = 0u,
     public var dxWidth: UShort = 0u,
@@ -1326,14 +1327,14 @@ public data class STnefProblem(
 
 public data class STnefProblemArray(public var cProblem: UInt = 0u, public var aProblem: List<STnefProblem> = List(1) { STnefProblem() })
 
-public data class TAPI_CUSTOMTONE(
+public data class TapiCustomtone(
     public var dwFrequency: UInt = 0u,
     public var dwCadenceOn: UInt = 0u,
     public var dwCadenceOff: UInt = 0u,
     public var dwVolume: UInt = 0u,
 )
 
-public data class TAPI_DETECTTONE(
+public data class TapiDetecttone(
     public var dwAppSpecific: UInt = 0u,
     public var dwDuration: UInt = 0u,
     public var dwFrequency1: UInt = 0u,
@@ -1341,23 +1342,23 @@ public data class TAPI_DETECTTONE(
     public var dwFrequency3: UInt = 0u,
 )
 
-public data class TRP(
+public data class Trp(
     public var trpid: UShort = 0u,
     public var cbgrtrp: UShort = 0u,
     public var cch: UShort = 0u,
     public var cbRgb: UShort = 0u,
 )
 
-public data class TUISPICREATEDIALOGINSTANCEPARAMS(
+public data class Tuispicreatedialoginstanceparams(
     public var dwRequestID: UInt = 0u,
-    public var hdDlgInst: HDRVDIALOGINSTANCE = 0L,
+    public var hdDlgInst: Hdrvdialoginstance = null,
     public var htDlgInst: UInt = 0u,
-    public var lpszUIDLLName: PCWSTR = 0L,
-    public var lpParams: Long = 0L,
+    public var lpszUIDLLName: Pcwstr = null,
+    public var lpParams: COpaquePointer? = null,
     public var dwSize: UInt = 0u,
 )
 
-public data class VARSTRING(
+public data class Varstring(
     public var dwTotalSize: UInt = 0u,
     public var dwNeededSize: UInt = 0u,
     public var dwUsedSize: UInt = 0u,

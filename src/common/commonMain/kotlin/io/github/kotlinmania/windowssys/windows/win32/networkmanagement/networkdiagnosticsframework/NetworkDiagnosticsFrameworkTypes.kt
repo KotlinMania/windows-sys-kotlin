@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.networkdiagnosticsframework
 
-public typealias ATTRIBUTE_TYPE = Int
+public typealias AttributeType = Int
 
-public typealias DIAGNOSIS_STATUS = Int
+public typealias DiagnosisStatus = Int
 
-public typealias PROBLEM_TYPE = Int
+public typealias ProblemType = Int
 
-public typealias REPAIR_RISK = Int
+public typealias RepairRisk = Int
 
-public typealias REPAIR_SCOPE = Int
+public typealias RepairScope = Int
 
-public typealias REPAIR_STATUS = Int
+public typealias RepairStatus = Int
 
-public typealias UI_INFO_TYPE = Int
+public typealias UiInfoType = Int

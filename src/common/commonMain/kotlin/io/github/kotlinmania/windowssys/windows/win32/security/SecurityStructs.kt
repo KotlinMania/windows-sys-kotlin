@@ -1,131 +1,132 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 
-public data class ACCESS_ALLOWED_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class AccessAllowedAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_ALLOWED_CALLBACK_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class AccessAllowedCallbackAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_ALLOWED_CALLBACK_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class AccessAllowedCallbackObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_ALLOWED_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class AccessAllowedObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_DENIED_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class AccessDeniedAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_DENIED_CALLBACK_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class AccessDeniedCallbackAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_DENIED_CALLBACK_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class AccessDeniedCallbackObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_DENIED_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class AccessDeniedObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class ACCESS_REASONS(public var Data: UIntArray = UIntArray(32)) {
+public data class AccessReasons(public var data: UIntArray = UIntArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACCESS_REASONS) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is AccessReasons) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Data.contentHashCode()
+        return this.data.contentHashCode()
     }
 }
 
-public data class ACE_HEADER(
-    public var AceType: UByte = 0u,
-    public var AceFlags: UByte = 0u,
-    public var AceSize: UShort = 0u,
+public data class AceHeader(
+    public var aceType: UByte = 0u,
+    public var aceFlags: UByte = 0u,
+    public var aceSize: UShort = 0u,
 )
 
-public data class ACL(
-    public var AclRevision: UByte = 0u,
-    public var Sbz1: UByte = 0u,
-    public var AclSize: UShort = 0u,
-    public var AceCount: UShort = 0u,
-    public var Sbz2: UShort = 0u,
+public data class Acl(
+    public var aclRevision: UByte = 0u,
+    public var sbz1: UByte = 0u,
+    public var aclSize: UShort = 0u,
+    public var aceCount: UShort = 0u,
+    public var sbz2: UShort = 0u,
 )
 
-public data class ACL_REVISION_INFORMATION(public var AclRevision: UInt = 0u)
+public data class AclRevisionInformation(public var aclRevision: UInt = 0u)
 
-public data class ACL_SIZE_INFORMATION(
-    public var AceCount: UInt = 0u,
-    public var AclBytesInUse: UInt = 0u,
-    public var AclBytesFree: UInt = 0u,
+public data class AclSizeInformation(
+    public var aceCount: UInt = 0u,
+    public var aclBytesInUse: UInt = 0u,
+    public var aclBytesFree: UInt = 0u,
 )
 
-public data class CLAIM_SECURITY_ATTRIBUTES_INFORMATION(
-    public var Version: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var AttributeCount: UInt = 0u,
-    public var Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 = CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0(),
+public data class ClaimSecurityAttributesInformation(
+    public var version: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var attributeCount: UInt = 0u,
+    public var attribute: ClaimSecurityAttributesInformation0 = ClaimSecurityAttributesInformation0(),
 )
 
-public data class CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0(public var pAttributeV1: Long = 0L)
+public data class ClaimSecurityAttributesInformation0(public var pAttributeV1: ClaimSecurityAttributeV1? = null)
 
-public data class CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE(public var Version: ULong = 0uL, public var Name: PWSTR = 0L)
+public data class ClaimSecurityAttributeFqbnValue(public var version: ULong = 0uL, public var name: Pwstr = null)
 
-public data class CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE(public var pValue: Long = 0L, public var ValueLength: UInt = 0u)
+public data class ClaimSecurityAttributeOctetStringValue(public var pValue: COpaquePointer? = null, public var valueLength: UInt = 0u)
 
-public data class CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1(
-    public var Name: UInt = 0u,
-    public var ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 0u,
-    public var Reserved: UShort = 0u,
-    public var Flags: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 0u,
-    public var ValueCount: UInt = 0u,
-    public var Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 = CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0(),
+public data class ClaimSecurityAttributeRelativeV1(
+    public var name: UInt = 0u,
+    public var valueType: ClaimSecurityAttributeValueType = 0u,
+    public var reserved: UShort = 0u,
+    public var flags: ClaimSecurityAttributeFlags = 0u,
+    public var valueCount: UInt = 0u,
+    public var values: ClaimSecurityAttributeRelativeV10 = ClaimSecurityAttributeRelativeV10(),
 )
 
-public data class CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0(
+public data class ClaimSecurityAttributeRelativeV10(
     public var pInt64: UIntArray = UIntArray(1),
     public var pUint64: UIntArray = UIntArray(1),
     public var ppString: UIntArray = UIntArray(1),
@@ -134,7 +135,7 @@ public data class CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0) return false
+        if (other !is ClaimSecurityAttributeRelativeV10) return false
         if (!this.pInt64.contentEquals(other.pInt64)) return false
         if (!this.pUint64.contentEquals(other.pUint64)) return false
         if (!this.ppString.contentEquals(other.ppString)) return false
@@ -153,400 +154,400 @@ public data class CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0(
     }
 }
 
-public data class CLAIM_SECURITY_ATTRIBUTE_V1(
-    public var Name: PWSTR = 0L,
-    public var ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 0u,
-    public var Reserved: UShort = 0u,
-    public var Flags: UInt = 0u,
-    public var ValueCount: UInt = 0u,
-    public var Values: CLAIM_SECURITY_ATTRIBUTE_V1_0 = CLAIM_SECURITY_ATTRIBUTE_V1_0(),
+public data class ClaimSecurityAttributeV1(
+    public var name: Pwstr = null,
+    public var valueType: ClaimSecurityAttributeValueType = 0u,
+    public var reserved: UShort = 0u,
+    public var flags: UInt = 0u,
+    public var valueCount: UInt = 0u,
+    public var values: ClaimSecurityAttributeV10 = ClaimSecurityAttributeV10(),
 )
 
-public data class CLAIM_SECURITY_ATTRIBUTE_V1_0(
-    public var pInt64: Long = 0L,
-    public var pUint64: Long = 0L,
-    public var ppString: Long = 0L,
-    public var pFqbn: Long = 0L,
-    public var pOctetString: Long = 0L,
+public data class ClaimSecurityAttributeV10(
+    public var pInt64: Long? = null,
+    public var pUint64: ULong? = null,
+    public var ppString: Pwstr? = null,
+    public var pFqbn: ClaimSecurityAttributeFqbnValue? = null,
+    public var pOctetString: ClaimSecurityAttributeOctetStringValue? = null,
 )
 
-public data class GENERIC_MAPPING(
-    public var GenericRead: UInt = 0u,
-    public var GenericWrite: UInt = 0u,
-    public var GenericExecute: UInt = 0u,
-    public var GenericAll: UInt = 0u,
+public data class GenericMapping(
+    public var genericRead: UInt = 0u,
+    public var genericWrite: UInt = 0u,
+    public var genericExecute: UInt = 0u,
+    public var genericAll: UInt = 0u,
 )
 
-public data class LLFILETIME(public var Anonymous: LLFILETIME_0 = LLFILETIME_0())
+public data class Llfiletime(public var anonymous: Llfiletime0 = Llfiletime0())
 
-public data class LLFILETIME_0(public var ll: Long = 0L, public var ft: FILETIME = FILETIME())
+public data class Llfiletime0(public var ll: Long = 0L, public var ft: Filetime = Filetime())
 
-public data class LUID_AND_ATTRIBUTES(public var Luid: LUID = LUID(), public var Attributes: TOKEN_PRIVILEGES_ATTRIBUTES = 0u)
+public data class LuidAndAttributes(public var luid: Luid = Luid(), public var attributes: TokenPrivilegesAttributes = 0u)
 
-public data class OBJECT_TYPE_LIST(
-    public var Level: UShort = 0u,
-    public var Sbz: UShort = 0u,
-    public var ObjectType: Long = 0L,
+public data class ObjectTypeList(
+    public var level: UShort = 0u,
+    public var sbz: UShort = 0u,
+    public var objectType: Guid? = null,
 )
 
-public data class PRIVILEGE_SET(
-    public var PrivilegeCount: UInt = 0u,
-    public var Control: UInt = 0u,
-    public var Privilege: List<LUID_AND_ATTRIBUTES> = List(1) { LUID_AND_ATTRIBUTES() },
+public data class PrivilegeSet(
+    public var privilegeCount: UInt = 0u,
+    public var control: UInt = 0u,
+    public var privilege: List<LuidAndAttributes> = List(1) { LuidAndAttributes() },
 )
 
-public data class QUOTA_LIMITS(
-    public var PagedPoolLimit: ULong = 0uL,
-    public var NonPagedPoolLimit: ULong = 0uL,
-    public var MinimumWorkingSetSize: ULong = 0uL,
-    public var MaximumWorkingSetSize: ULong = 0uL,
-    public var PagefileLimit: ULong = 0uL,
-    public var TimeLimit: Long = 0L,
+public data class QuotaLimits(
+    public var pagedPoolLimit: Int = 0,
+    public var nonPagedPoolLimit: Int = 0,
+    public var minimumWorkingSetSize: Int = 0,
+    public var maximumWorkingSetSize: Int = 0,
+    public var pagefileLimit: Int = 0,
+    public var timeLimit: Long = 0L,
 )
 
-public data class SECURITY_ATTRIBUTES(
+public data class SecurityAttributes(
     public var nLength: UInt = 0u,
-    public var lpSecurityDescriptor: Long = 0L,
-    public var bInheritHandle: BOOL = 0,
+    public var lpSecurityDescriptor: COpaquePointer? = null,
+    public var bInheritHandle: Bool = 0,
 )
 
-public data class SECURITY_CAPABILITIES(
-    public var AppContainerSid: PSID = 0L,
-    public var Capabilities: Long = 0L,
-    public var CapabilityCount: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class SecurityCapabilities(
+    public var appContainerSid: Psid = null,
+    public var capabilities: SidAndAttributes? = null,
+    public var capabilityCount: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class SECURITY_DESCRIPTOR(
-    public var Revision: UByte = 0u,
-    public var Sbz1: UByte = 0u,
-    public var Control: SECURITY_DESCRIPTOR_CONTROL = 0u,
-    public var Owner: PSID = 0L,
-    public var Group: PSID = 0L,
-    public var Sacl: Long = 0L,
-    public var Dacl: Long = 0L,
+public data class SecurityDescriptor(
+    public var revision: UByte = 0u,
+    public var sbz1: UByte = 0u,
+    public var control: SecurityDescriptorControl = 0u,
+    public var owner: Psid = null,
+    public var group: Psid = null,
+    public var sacl: Acl? = null,
+    public var dacl: Acl? = null,
 )
 
-public data class SECURITY_DESCRIPTOR_RELATIVE(
-    public var Revision: UByte = 0u,
-    public var Sbz1: UByte = 0u,
-    public var Control: SECURITY_DESCRIPTOR_CONTROL = 0u,
-    public var Owner: UInt = 0u,
-    public var Group: UInt = 0u,
-    public var Sacl: UInt = 0u,
-    public var Dacl: UInt = 0u,
+public data class SecurityDescriptorRelative(
+    public var revision: UByte = 0u,
+    public var sbz1: UByte = 0u,
+    public var control: SecurityDescriptorControl = 0u,
+    public var owner: UInt = 0u,
+    public var group: UInt = 0u,
+    public var sacl: UInt = 0u,
+    public var dacl: UInt = 0u,
 )
 
-public data class SECURITY_QUALITY_OF_SERVICE(
-    public var Length: UInt = 0u,
-    public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
-    public var ContextTrackingMode: UByte = 0u,
-    public var EffectiveOnly: Boolean = false,
+public data class SecurityQualityOfService(
+    public var length: UInt = 0u,
+    public var impersonationLevel: SecurityImpersonationLevel = 0,
+    public var contextTrackingMode: UByte = 0u,
+    public var effectiveOnly: Boolean = false,
 )
 
-public data class SE_ACCESS_REPLY(
-    public var Size: UInt = 0u,
-    public var ResultListCount: UInt = 0u,
-    public var GrantedAccess: Long = 0L,
-    public var AccessStatus: Long = 0L,
-    public var AccessReason: Long = 0L,
-    public var Privileges: Long = 0L,
+public data class SeAccessReply(
+    public var size: UInt = 0u,
+    public var resultListCount: UInt = 0u,
+    public var grantedAccess: UInt? = null,
+    public var accessStatus: UInt? = null,
+    public var accessReason: AccessReasons? = null,
+    public var privileges: COpaquePointer? = null,
 )
 
-public data class SE_ACCESS_REQUEST(
-    public var Size: UInt = 0u,
-    public var SeSecurityDescriptor: Long = 0L,
-    public var DesiredAccess: UInt = 0u,
-    public var PreviouslyGrantedAccess: UInt = 0u,
-    public var PrincipalSelfSid: PSID = 0L,
-    public var GenericMapping: Long = 0L,
-    public var ObjectTypeListCount: UInt = 0u,
-    public var ObjectTypeList: Long = 0L,
+public data class SeAccessRequest(
+    public var size: UInt = 0u,
+    public var seSecurityDescriptor: SeSecurityDescriptor? = null,
+    public var desiredAccess: UInt = 0u,
+    public var previouslyGrantedAccess: UInt = 0u,
+    public var principalSelfSid: Psid = null,
+    public var genericMapping: GenericMapping? = null,
+    public var objectTypeListCount: UInt = 0u,
+    public var objectTypeList: ObjectTypeList? = null,
 )
 
-public data class SE_IMPERSONATION_STATE(
-    public var Token: Long = 0L,
-    public var CopyOnOpen: Boolean = false,
-    public var EffectiveOnly: Boolean = false,
-    public var Level: SECURITY_IMPERSONATION_LEVEL = 0,
+public data class SeImpersonationState(
+    public var token: COpaquePointer? = null,
+    public var copyOnOpen: Boolean = false,
+    public var effectiveOnly: Boolean = false,
+    public var level: SecurityImpersonationLevel = 0,
 )
 
-public data class SE_SECURITY_DESCRIPTOR(
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
+public data class SeSecurityDescriptor(
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var securityDescriptor: PsecurityDescriptor = null,
 )
 
-public data class SE_SID(public var Sid: SID = SID(), public var Buffer: UByteArray = UByteArray(68)) {
+public data class SeSid(public var sid: Sid = Sid(), public var buffer: UByteArray = UByteArray(68)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SE_SID) return false
-        if (this.Sid != other.Sid) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is SeSid) return false
+        if (this.sid != other.sid) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Sid.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.sid.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class SID(
-    public var Revision: UByte = 0u,
-    public var SubAuthorityCount: UByte = 0u,
-    public var IdentifierAuthority: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY(),
-    public var SubAuthority: UIntArray = UIntArray(1),
+public data class Sid(
+    public var revision: UByte = 0u,
+    public var subAuthorityCount: UByte = 0u,
+    public var identifierAuthority: SidIdentifierAuthority = SidIdentifierAuthority(),
+    public var subAuthority: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SID) return false
-        if (this.Revision != other.Revision) return false
-        if (this.SubAuthorityCount != other.SubAuthorityCount) return false
-        if (this.IdentifierAuthority != other.IdentifierAuthority) return false
-        if (!this.SubAuthority.contentEquals(other.SubAuthority)) return false
+        if (other !is Sid) return false
+        if (this.revision != other.revision) return false
+        if (this.subAuthorityCount != other.subAuthorityCount) return false
+        if (this.identifierAuthority != other.identifierAuthority) return false
+        if (!this.subAuthority.contentEquals(other.subAuthority)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Revision.hashCode()
-        result = 31 * result + this.SubAuthorityCount.hashCode()
-        result = 31 * result + this.IdentifierAuthority.hashCode()
-        result = 31 * result + this.SubAuthority.contentHashCode()
+        var result = this.revision.hashCode()
+        result = 31 * result + this.subAuthorityCount.hashCode()
+        result = 31 * result + this.identifierAuthority.hashCode()
+        result = 31 * result + this.subAuthority.contentHashCode()
         return result
     }
 }
 
-public data class SID_AND_ATTRIBUTES(public var Sid: PSID = 0L, public var Attributes: UInt = 0u)
+public data class SidAndAttributes(public var sid: Psid = null, public var attributes: UInt = 0u)
 
-public data class SID_AND_ATTRIBUTES_HASH(
-    public var SidCount: UInt = 0u,
-    public var SidAttr: Long = 0L,
-    public var Hash: ULongArray = ULongArray(32),
+public data class SidAndAttributesHash(
+    public var sidCount: UInt = 0u,
+    public var sidAttr: SidAndAttributes? = null,
+    public var hash: IntArray = IntArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SID_AND_ATTRIBUTES_HASH) return false
-        if (this.SidCount != other.SidCount) return false
-        if (this.SidAttr != other.SidAttr) return false
-        if (!this.Hash.contentEquals(other.Hash)) return false
+        if (other !is SidAndAttributesHash) return false
+        if (this.sidCount != other.sidCount) return false
+        if (this.sidAttr != other.sidAttr) return false
+        if (!this.hash.contentEquals(other.hash)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SidCount.hashCode()
-        result = 31 * result + this.SidAttr.hashCode()
-        result = 31 * result + this.Hash.contentHashCode()
+        var result = this.sidCount.hashCode()
+        result = 31 * result + this.sidAttr.hashCode()
+        result = 31 * result + this.hash.contentHashCode()
         return result
     }
 }
 
-public data class SID_IDENTIFIER_AUTHORITY(public var Value: UByteArray = UByteArray(6)) {
+public data class SidIdentifierAuthority(public var value: UByteArray = UByteArray(6)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SID_IDENTIFIER_AUTHORITY) return false
-        if (!this.Value.contentEquals(other.Value)) return false
+        if (other !is SidIdentifierAuthority) return false
+        if (!this.value.contentEquals(other.value)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Value.contentHashCode()
+        return this.value.contentHashCode()
     }
 }
 
-public data class SYSTEM_ACCESS_FILTER_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemAccessFilterAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_ALARM_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemAlarmAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_ALARM_CALLBACK_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemAlarmCallbackAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_ALARM_CALLBACK_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class SystemAlarmCallbackObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_ALARM_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class SystemAlarmObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_AUDIT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemAuditAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_AUDIT_CALLBACK_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemAuditCallbackAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_AUDIT_CALLBACK_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class SystemAuditCallbackObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_AUDIT_OBJECT_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 0u,
-    public var ObjectType: GUID = GUID(),
-    public var InheritedObjectType: GUID = GUID(),
-    public var SidStart: UInt = 0u,
+public data class SystemAuditObjectAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var flags: SystemAuditObjectAceFlags = 0u,
+    public var objectType: Guid = Guid(),
+    public var inheritedObjectType: Guid = Guid(),
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_MANDATORY_LABEL_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemMandatoryLabelAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_PROCESS_TRUST_LABEL_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemProcessTrustLabelAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_RESOURCE_ATTRIBUTE_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemResourceAttributeAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class SYSTEM_SCOPED_POLICY_ID_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemScopedPolicyIdAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
-public data class TOKEN_ACCESS_INFORMATION(
-    public var SidHash: Long = 0L,
-    public var RestrictedSidHash: Long = 0L,
-    public var Privileges: Long = 0L,
-    public var AuthenticationId: LUID = LUID(),
-    public var TokenType: TOKEN_TYPE = 0,
-    public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
-    public var MandatoryPolicy: TOKEN_MANDATORY_POLICY = TOKEN_MANDATORY_POLICY(),
-    public var Flags: UInt = 0u,
-    public var AppContainerNumber: UInt = 0u,
-    public var PackageSid: PSID = 0L,
-    public var CapabilitiesHash: Long = 0L,
-    public var TrustLevelSid: PSID = 0L,
-    public var SecurityAttributes: Long = 0L,
+public data class TokenAccessInformation(
+    public var sidHash: SidAndAttributesHash? = null,
+    public var restrictedSidHash: SidAndAttributesHash? = null,
+    public var privileges: TokenPrivileges? = null,
+    public var authenticationId: Luid = Luid(),
+    public var tokenType: TokenType = 0,
+    public var impersonationLevel: SecurityImpersonationLevel = 0,
+    public var mandatoryPolicy: TokenMandatoryPolicy = TokenMandatoryPolicy(),
+    public var flags: UInt = 0u,
+    public var appContainerNumber: UInt = 0u,
+    public var packageSid: Psid = null,
+    public var capabilitiesHash: SidAndAttributesHash? = null,
+    public var trustLevelSid: Psid = null,
+    public var securityAttributes: COpaquePointer? = null,
 )
 
-public data class TOKEN_APPCONTAINER_INFORMATION(public var TokenAppContainer: PSID = 0L)
+public data class TokenAppcontainerInformation(public var tokenAppContainer: Psid = null)
 
-public data class TOKEN_AUDIT_POLICY(public var PerUserPolicy: UByteArray = UByteArray(30)) {
+public data class TokenAuditPolicy(public var perUserPolicy: UByteArray = UByteArray(30)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TOKEN_AUDIT_POLICY) return false
-        if (!this.PerUserPolicy.contentEquals(other.PerUserPolicy)) return false
+        if (other !is TokenAuditPolicy) return false
+        if (!this.perUserPolicy.contentEquals(other.perUserPolicy)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.PerUserPolicy.contentHashCode()
+        return this.perUserPolicy.contentHashCode()
     }
 }
 
-public data class TOKEN_CONTROL(
-    public var TokenId: LUID = LUID(),
-    public var AuthenticationId: LUID = LUID(),
-    public var ModifiedId: LUID = LUID(),
-    public var TokenSource: TOKEN_SOURCE = TOKEN_SOURCE(),
+public data class TokenControl(
+    public var tokenId: Luid = Luid(),
+    public var authenticationId: Luid = Luid(),
+    public var modifiedId: Luid = Luid(),
+    public var tokenSource: TokenSource = TokenSource(),
 )
 
-public data class TOKEN_DEFAULT_DACL(public var DefaultDacl: Long = 0L)
+public data class TokenDefaultDacl(public var defaultDacl: Acl? = null)
 
-public data class TOKEN_DEVICE_CLAIMS(public var DeviceClaims: Long = 0L)
+public data class TokenDeviceClaims(public var deviceClaims: COpaquePointer? = null)
 
-public data class TOKEN_ELEVATION(public var TokenIsElevated: UInt = 0u)
+public data class TokenElevation(public var tokenIsElevated: UInt = 0u)
 
-public data class TOKEN_GROUPS(public var GroupCount: UInt = 0u, public var Groups: List<SID_AND_ATTRIBUTES> = List(1) { SID_AND_ATTRIBUTES() })
+public data class TokenGroups(public var groupCount: UInt = 0u, public var groups: List<SidAndAttributes> = List(1) { SidAndAttributes() })
 
-public data class TOKEN_GROUPS_AND_PRIVILEGES(
-    public var SidCount: UInt = 0u,
-    public var SidLength: UInt = 0u,
-    public var Sids: Long = 0L,
-    public var RestrictedSidCount: UInt = 0u,
-    public var RestrictedSidLength: UInt = 0u,
-    public var RestrictedSids: Long = 0L,
-    public var PrivilegeCount: UInt = 0u,
-    public var PrivilegeLength: UInt = 0u,
-    public var Privileges: Long = 0L,
-    public var AuthenticationId: LUID = LUID(),
+public data class TokenGroupsAndPrivileges(
+    public var sidCount: UInt = 0u,
+    public var sidLength: UInt = 0u,
+    public var sids: SidAndAttributes? = null,
+    public var restrictedSidCount: UInt = 0u,
+    public var restrictedSidLength: UInt = 0u,
+    public var restrictedSids: SidAndAttributes? = null,
+    public var privilegeCount: UInt = 0u,
+    public var privilegeLength: UInt = 0u,
+    public var privileges: LuidAndAttributes? = null,
+    public var authenticationId: Luid = Luid(),
 )
 
-public data class TOKEN_LINKED_TOKEN(public var LinkedToken: HANDLE = 0L)
+public data class TokenLinkedToken(public var linkedToken: Handle = null)
 
-public data class TOKEN_MANDATORY_LABEL(public var Label: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())
+public data class TokenMandatoryLabel(public var label: SidAndAttributes = SidAndAttributes())
 
-public data class TOKEN_MANDATORY_POLICY(public var Policy: TOKEN_MANDATORY_POLICY_ID = 0u)
+public data class TokenMandatoryPolicy(public var policy: TokenMandatoryPolicyId = 0u)
 
-public data class TOKEN_ORIGIN(public var OriginatingLogonSession: LUID = LUID())
+public data class TokenOrigin(public var originatingLogonSession: Luid = Luid())
 
-public data class TOKEN_OWNER(public var Owner: PSID = 0L)
+public data class TokenOwner(public var owner: Psid = null)
 
-public data class TOKEN_PRIMARY_GROUP(public var PrimaryGroup: PSID = 0L)
+public data class TokenPrimaryGroup(public var primaryGroup: Psid = null)
 
-public data class TOKEN_PRIVILEGES(public var PrivilegeCount: UInt = 0u, public var Privileges: List<LUID_AND_ATTRIBUTES> = List(1) { LUID_AND_ATTRIBUTES() })
+public data class TokenPrivileges(public var privilegeCount: UInt = 0u, public var privileges: List<LuidAndAttributes> = List(1) { LuidAndAttributes() })
 
-public data class TOKEN_SOURCE(public var SourceName: ByteArray = ByteArray(8), public var SourceIdentifier: LUID = LUID()) {
+public data class TokenSource(public var sourceName: ByteArray = ByteArray(8), public var sourceIdentifier: Luid = Luid()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TOKEN_SOURCE) return false
-        if (!this.SourceName.contentEquals(other.SourceName)) return false
-        if (this.SourceIdentifier != other.SourceIdentifier) return false
+        if (other !is TokenSource) return false
+        if (!this.sourceName.contentEquals(other.sourceName)) return false
+        if (this.sourceIdentifier != other.sourceIdentifier) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SourceName.contentHashCode()
-        result = 31 * result + this.SourceIdentifier.hashCode()
+        var result = this.sourceName.contentHashCode()
+        result = 31 * result + this.sourceIdentifier.hashCode()
         return result
     }
 }
 
-public data class TOKEN_STATISTICS(
-    public var TokenId: LUID = LUID(),
-    public var AuthenticationId: LUID = LUID(),
-    public var ExpirationTime: Long = 0L,
-    public var TokenType: TOKEN_TYPE = 0,
-    public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
-    public var DynamicCharged: UInt = 0u,
-    public var DynamicAvailable: UInt = 0u,
-    public var GroupCount: UInt = 0u,
-    public var PrivilegeCount: UInt = 0u,
-    public var ModifiedId: LUID = LUID(),
+public data class TokenStatistics(
+    public var tokenId: Luid = Luid(),
+    public var authenticationId: Luid = Luid(),
+    public var expirationTime: Long = 0L,
+    public var tokenType: TokenType = 0,
+    public var impersonationLevel: SecurityImpersonationLevel = 0,
+    public var dynamicCharged: UInt = 0u,
+    public var dynamicAvailable: UInt = 0u,
+    public var groupCount: UInt = 0u,
+    public var privilegeCount: UInt = 0u,
+    public var modifiedId: Luid = Luid(),
 )
 
-public data class TOKEN_USER(public var User: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())
+public data class TokenUser(public var user: SidAndAttributes = SidAndAttributes())
 
-public data class TOKEN_USER_CLAIMS(public var UserClaims: Long = 0L)
+public data class TokenUserClaims(public var userClaims: COpaquePointer? = null)

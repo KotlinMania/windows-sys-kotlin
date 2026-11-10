@@ -1,317 +1,327 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ui
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_KEY_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CrlContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAttributes
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptKeyFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptKeyProvInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CtlContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
+import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.CryptProviderData
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Propsheetpagea
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Propsheetpagew
 
-public data class CERT_FILTER_DATA(
+public data class CertFilterData(
     public var dwSize: UInt = 0u,
     public var cExtensionChecks: UInt = 0u,
-    public var arrayExtensionChecks: Long = 0L,
+    public var arrayExtensionChecks: CertFilterExtensionMatch? = null,
     public var dwCheckingFlags: UInt = 0u,
 )
 
-public data class CERT_FILTER_EXTENSION_MATCH(
-    public var szExtensionOID: PCSTR = 0L,
+public data class CertFilterExtensionMatch(
+    public var szExtensionOID: Pcstr = null,
     public var dwTestOperation: UInt = 0u,
-    public var pbTestData: Long = 0L,
+    public var pbTestData: COpaquePointer? = null,
     public var cbTestData: UInt = 0u,
 )
 
-public data class CERT_SELECTUI_INPUT(
-    public var hStore: HCERTSTORE = 0L,
-    public var prgpChain: Long = 0L,
+public data class CertSelectuiInput(
+    public var hStore: Hcertstore = null,
+    public var prgpChain: COpaquePointer? = null,
     public var cChain: UInt = 0u,
 )
 
-public class CERT_SELECT_STRUCT_A(
+public class CertSelectStructA(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pTemplateName: PCSTR = 0L,
-    public var dwFlags: CERT_SELECT_STRUCT_FLAGS = 0u,
-    public var szTitle: PCSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var pTemplateName: Pcstr = null,
+    public var dwFlags: CertSelectStructFlags = 0u,
+    public var szTitle: Pcstr = null,
     public var cCertStore: UInt = 0u,
-    public var arrayCertStore: Long = 0L,
-    public var szPurposeOid: PCSTR = 0L,
+    public var arrayCertStore: Hcertstore? = null,
+    public var szPurposeOid: Pcstr = null,
     public var cCertContext: UInt = 0u,
-    public var arrayCertContext: Long = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: PFNCMHOOKPROC = null,
-    public var pfnFilter: PFNCMFILTERPROC = null,
-    public var szHelpFileName: PCSTR = 0L,
+    public var arrayCertContext: COpaquePointer? = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Pfncmhookproc = null,
+    public var pfnFilter: Pfncmfilterproc = null,
+    public var szHelpFileName: Pcstr = null,
     public var dwHelpId: UInt = 0u,
-    public var hprov: ULong = 0uL,
+    public var hprov: Int = 0,
 )
 
-public class CERT_SELECT_STRUCT_W(
+public class CertSelectStructW(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pTemplateName: PCWSTR = 0L,
-    public var dwFlags: CERT_SELECT_STRUCT_FLAGS = 0u,
-    public var szTitle: PCWSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var pTemplateName: Pcwstr = null,
+    public var dwFlags: CertSelectStructFlags = 0u,
+    public var szTitle: Pcwstr = null,
     public var cCertStore: UInt = 0u,
-    public var arrayCertStore: Long = 0L,
-    public var szPurposeOid: PCSTR = 0L,
+    public var arrayCertStore: Hcertstore? = null,
+    public var szPurposeOid: Pcstr = null,
     public var cCertContext: UInt = 0u,
-    public var arrayCertContext: Long = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: PFNCMHOOKPROC = null,
-    public var pfnFilter: PFNCMFILTERPROC = null,
-    public var szHelpFileName: PCWSTR = 0L,
+    public var arrayCertContext: COpaquePointer? = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Pfncmhookproc = null,
+    public var pfnFilter: Pfncmfilterproc = null,
+    public var szHelpFileName: Pcwstr = null,
     public var dwHelpId: UInt = 0u,
-    public var hprov: ULong = 0uL,
+    public var hprov: Int = 0,
 )
 
-public class CERT_VERIFY_CERTIFICATE_TRUST(
+public class CertVerifyCertificateTrust(
     public var cbSize: UInt = 0u,
-    public var pccert: Long = 0L,
+    public var pccert: CertContext? = null,
     public var dwFlags: UInt = 0u,
     public var dwIgnoreErr: UInt = 0u,
-    public var pdwErrors: Long = 0L,
-    public var pszUsageOid: PSTR = 0L,
-    public var hprov: ULong = 0uL,
+    public var pdwErrors: UInt? = null,
+    public var pszUsageOid: Pstr = null,
+    public var hprov: Int = 0,
     public var cRootStores: UInt = 0u,
-    public var rghstoreRoots: Long = 0L,
+    public var rghstoreRoots: Hcertstore? = null,
     public var cStores: UInt = 0u,
-    public var rghstoreCAs: Long = 0L,
+    public var rghstoreCAs: Hcertstore? = null,
     public var cTrustStores: UInt = 0u,
-    public var rghstoreTrust: Long = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnTrustHelper: PFNTRUSTHELPER = null,
-    public var pcChain: Long = 0L,
-    public var prgChain: Long = 0L,
-    public var prgdwErrors: Long = 0L,
-    public var prgpbTrustInfo: Long = 0L,
+    public var rghstoreTrust: Hcertstore? = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnTrustHelper: Pfntrusthelper = null,
+    public var pcChain: UInt? = null,
+    public var prgChain: COpaquePointer? = null,
+    public var prgdwErrors: COpaquePointer? = null,
+    public var prgpbTrustInfo: COpaquePointer? = null,
 )
 
-public class CERT_VIEWPROPERTIES_STRUCT_A(
+public class CertViewpropertiesStructA(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 0u,
-    public var szTitle: PCSTR = 0L,
-    public var pCertContext: Long = 0L,
-    public var arrayPurposes: Long = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var dwFlags: CertViewpropertiesStructFlags = 0u,
+    public var szTitle: Pcstr = null,
+    public var pCertContext: CertContext? = null,
+    public var arrayPurposes: Pstr? = null,
     public var cArrayPurposes: UInt = 0u,
     public var cRootStores: UInt = 0u,
-    public var rghstoreRoots: Long = 0L,
+    public var rghstoreRoots: Hcertstore? = null,
     public var cStores: UInt = 0u,
-    public var rghstoreCAs: Long = 0L,
+    public var rghstoreCAs: Hcertstore? = null,
     public var cTrustStores: UInt = 0u,
-    public var rghstoreTrust: Long = 0L,
-    public var hprov: ULong = 0uL,
-    public var lCustData: LPARAM = 0L,
+    public var rghstoreTrust: Hcertstore? = null,
+    public var hprov: Int = 0,
+    public var lCustData: Lparam = 0L,
     public var dwPad: UInt = 0u,
-    public var szHelpFileName: PCSTR = 0L,
+    public var szHelpFileName: Pcstr = null,
     public var dwHelpId: UInt = 0u,
     public var nStartPage: UInt = 0u,
     public var cArrayPropSheetPages: UInt = 0u,
-    public var arrayPropSheetPages: Long = 0L,
+    public var arrayPropSheetPages: Propsheetpagea? = null,
 )
 
-public class CERT_VIEWPROPERTIES_STRUCT_W(
+public class CertViewpropertiesStructW(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 0u,
-    public var szTitle: PCWSTR = 0L,
-    public var pCertContext: Long = 0L,
-    public var arrayPurposes: Long = 0L,
+    public var hwndParent: Hwnd = null,
+    public var hInstance: Hinstance = null,
+    public var dwFlags: CertViewpropertiesStructFlags = 0u,
+    public var szTitle: Pcwstr = null,
+    public var pCertContext: CertContext? = null,
+    public var arrayPurposes: Pstr? = null,
     public var cArrayPurposes: UInt = 0u,
     public var cRootStores: UInt = 0u,
-    public var rghstoreRoots: Long = 0L,
+    public var rghstoreRoots: Hcertstore? = null,
     public var cStores: UInt = 0u,
-    public var rghstoreCAs: Long = 0L,
+    public var rghstoreCAs: Hcertstore? = null,
     public var cTrustStores: UInt = 0u,
-    public var rghstoreTrust: Long = 0L,
-    public var hprov: ULong = 0uL,
-    public var lCustData: LPARAM = 0L,
+    public var rghstoreTrust: Hcertstore? = null,
+    public var hprov: Int = 0,
+    public var lCustData: Lparam = 0L,
     public var dwPad: UInt = 0u,
-    public var szHelpFileName: PCWSTR = 0L,
+    public var szHelpFileName: Pcwstr = null,
     public var dwHelpId: UInt = 0u,
     public var nStartPage: UInt = 0u,
     public var cArrayPropSheetPages: UInt = 0u,
-    public var arrayPropSheetPages: Long = 0L,
+    public var arrayPropSheetPages: Propsheetpagea? = null,
 )
 
-public data class CRYPTUI_CERT_MGR_STRUCT(
+public data class CryptuiCertMgrStruct(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
+    public var hwndParent: Hwnd = null,
     public var dwFlags: UInt = 0u,
-    public var pwszTitle: PCWSTR = 0L,
-    public var pszInitUsageOID: PCSTR = 0L,
+    public var pwszTitle: Pcwstr = null,
+    public var pszInitUsageOID: Pcstr = null,
 )
 
-public data class CRYPTUI_INITDIALOG_STRUCT(public var lParam: LPARAM = 0L, public var pCertContext: Long = 0L)
+public data class CryptuiInitdialogStruct(public var lParam: Lparam = 0L, public var pCertContext: CertContext? = null)
 
-public class CRYPTUI_VIEWCERTIFICATE_STRUCTA(
+public class CryptuiViewcertificateStructa(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS = 0u,
-    public var szTitle: PCSTR = 0L,
-    public var pCertContext: Long = 0L,
-    public var rgszPurposes: Long = 0L,
+    public var hwndParent: Hwnd = null,
+    public var dwFlags: CryptuiViewcertificateFlags = 0u,
+    public var szTitle: Pcstr = null,
+    public var pCertContext: CertContext? = null,
+    public var rgszPurposes: Pcstr? = null,
     public var cPurposes: UInt = 0u,
-    public var Anonymous: CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 = CRYPTUI_VIEWCERTIFICATE_STRUCTA_0(),
-    public var fpCryptProviderDataTrustedUsage: BOOL = 0,
+    public var anonymous: CryptuiViewcertificateStructa0 = CryptuiViewcertificateStructa0(),
+    public var fpCryptProviderDataTrustedUsage: Bool = 0,
     public var idxSigner: UInt = 0u,
     public var idxCert: UInt = 0u,
-    public var fCounterSigner: BOOL = 0,
+    public var fCounterSigner: Bool = 0,
     public var idxCounterSigner: UInt = 0u,
     public var cStores: UInt = 0u,
-    public var rghStores: Long = 0L,
+    public var rghStores: Hcertstore? = null,
     public var cPropSheetPages: UInt = 0u,
-    public var rgPropSheetPages: Long = 0L,
+    public var rgPropSheetPages: Propsheetpagea? = null,
     public var nStartPage: UInt = 0u,
 )
 
-public data class CRYPTUI_VIEWCERTIFICATE_STRUCTA_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: HANDLE = 0L)
+public data class CryptuiViewcertificateStructa0(public var pCryptProviderData: CryptProviderData? = null, public var hWVTStateData: Handle = null)
 
-public class CRYPTUI_VIEWCERTIFICATE_STRUCTW(
+public class CryptuiViewcertificateStructw(
     public var dwSize: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS = 0u,
-    public var szTitle: PCWSTR = 0L,
-    public var pCertContext: Long = 0L,
-    public var rgszPurposes: Long = 0L,
+    public var hwndParent: Hwnd = null,
+    public var dwFlags: CryptuiViewcertificateFlags = 0u,
+    public var szTitle: Pcwstr = null,
+    public var pCertContext: CertContext? = null,
+    public var rgszPurposes: Pcstr? = null,
     public var cPurposes: UInt = 0u,
-    public var Anonymous: CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 = CRYPTUI_VIEWCERTIFICATE_STRUCTW_0(),
-    public var fpCryptProviderDataTrustedUsage: BOOL = 0,
+    public var anonymous: CryptuiViewcertificateStructw0 = CryptuiViewcertificateStructw0(),
+    public var fpCryptProviderDataTrustedUsage: Bool = 0,
     public var idxSigner: UInt = 0u,
     public var idxCert: UInt = 0u,
-    public var fCounterSigner: BOOL = 0,
+    public var fCounterSigner: Bool = 0,
     public var idxCounterSigner: UInt = 0u,
     public var cStores: UInt = 0u,
-    public var rghStores: Long = 0L,
+    public var rghStores: Hcertstore? = null,
     public var cPropSheetPages: UInt = 0u,
-    public var rgPropSheetPages: Long = 0L,
+    public var rgPropSheetPages: Propsheetpagew? = null,
     public var nStartPage: UInt = 0u,
 )
 
-public data class CRYPTUI_VIEWCERTIFICATE_STRUCTW_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: HANDLE = 0L)
+public data class CryptuiViewcertificateStructw0(public var pCryptProviderData: CryptProviderData? = null, public var hWVTStateData: Handle = null)
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO(
+public data class CryptuiWizDigitalSignBlobInfo(
     public var dwSize: UInt = 0u,
-    public var pGuidSubject: Long = 0L,
+    public var pGuidSubject: Guid? = null,
     public var cbBlob: UInt = 0u,
-    public var pbBlob: Long = 0L,
-    public var pwszDisplayName: PCWSTR = 0L,
+    public var pbBlob: COpaquePointer? = null,
+    public var pwszDisplayName: Pcwstr = null,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO(
+public data class CryptuiWizDigitalSignCertPvkInfo(
     public var dwSize: UInt = 0u,
-    public var pwszSigningCertFileName: PWSTR = 0L,
-    public var dwPvkChoice: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = 0u,
-    public var Anonymous: CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 = CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0(),
+    public var pwszSigningCertFileName: Pwstr = null,
+    public var dwPvkChoice: CryptuiWizDigitalSignPvkOption = 0u,
+    public var anonymous: CryptuiWizDigitalSignCertPvkInfo0 = CryptuiWizDigitalSignCertPvkInfo0(),
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0(public var pPvkFileInfo: Long = 0L, public var pPvkProvInfo: Long = 0L)
+public data class CryptuiWizDigitalSignCertPvkInfo0(public var pPvkFileInfo: CryptuiWizDigitalSignPvkFileInfo? = null, public var pPvkProvInfo: CryptKeyProvInfo? = null)
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT(
+public data class CryptuiWizDigitalSignContext(
     public var dwSize: UInt = 0u,
     public var cbBlob: UInt = 0u,
-    public var pbBlob: Long = 0L,
+    public var pbBlob: COpaquePointer? = null,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO(
+public data class CryptuiWizDigitalSignExtendedInfo(
     public var dwSize: UInt = 0u,
-    public var dwAttrFlags: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = 0u,
-    public var pwszDescription: PCWSTR = 0L,
-    public var pwszMoreInfoLocation: PCWSTR = 0L,
-    public var pszHashAlg: PCSTR = 0L,
-    public var pwszSigningCertDisplayString: PCWSTR = 0L,
-    public var hAdditionalCertStore: HCERTSTORE = 0L,
-    public var psAuthenticated: Long = 0L,
-    public var psUnauthenticated: Long = 0L,
+    public var dwAttrFlags: CryptuiWizDigitalSignSigType = 0u,
+    public var pwszDescription: Pcwstr = null,
+    public var pwszMoreInfoLocation: Pcwstr = null,
+    public var pszHashAlg: Pcstr = null,
+    public var pwszSigningCertDisplayString: Pcwstr = null,
+    public var hAdditionalCertStore: Hcertstore = null,
+    public var psAuthenticated: CryptAttributes? = null,
+    public var psUnauthenticated: CryptAttributes? = null,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_INFO(
+public data class CryptuiWizDigitalSignInfo(
     public var dwSize: UInt = 0u,
-    public var dwSubjectChoice: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 0u,
-    public var Anonymous1: CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 = CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0(),
-    public var dwSigningCertChoice: CRYPTUI_WIZ_DIGITAL_SIGN = 0u,
-    public var Anonymous2: CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 = CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1(),
-    public var pwszTimestampURL: PCWSTR = 0L,
-    public var dwAdditionalCertChoice: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 0u,
-    public var pSignExtInfo: Long = 0L,
+    public var dwSubjectChoice: CryptuiWizDigitalSignSubject = 0u,
+    public var anonymous1: CryptuiWizDigitalSignInfo0 = CryptuiWizDigitalSignInfo0(),
+    public var dwSigningCertChoice: CryptuiWizDigitalSign = 0u,
+    public var anonymous2: CryptuiWizDigitalSignInfo1 = CryptuiWizDigitalSignInfo1(),
+    public var pwszTimestampURL: Pcwstr = null,
+    public var dwAdditionalCertChoice: CryptuiWizDigitalAdditionalCertChoice = 0u,
+    public var pSignExtInfo: CryptuiWizDigitalSignExtendedInfo? = null,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0(public var pwszFileName: PCWSTR = 0L, public var pSignBlobInfo: Long = 0L)
+public data class CryptuiWizDigitalSignInfo0(public var pwszFileName: Pcwstr = null, public var pSignBlobInfo: CryptuiWizDigitalSignBlobInfo? = null)
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1(
-    public var pSigningCertContext: Long = 0L,
-    public var pSigningCertStore: Long = 0L,
-    public var pSigningCertPvkInfo: Long = 0L,
+public data class CryptuiWizDigitalSignInfo1(
+    public var pSigningCertContext: CertContext? = null,
+    public var pSigningCertStore: CryptuiWizDigitalSignStoreInfo? = null,
+    public var pSigningCertPvkInfo: CryptuiWizDigitalSignCertPvkInfo? = null,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO(
+public data class CryptuiWizDigitalSignPvkFileInfo(
     public var dwSize: UInt = 0u,
-    public var pwszPvkFileName: PWSTR = 0L,
-    public var pwszProvName: PWSTR = 0L,
+    public var pwszPvkFileName: Pwstr = null,
+    public var pwszProvName: Pwstr = null,
     public var dwProvType: UInt = 0u,
 )
 
-public data class CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO(
+public data class CryptuiWizDigitalSignStoreInfo(
     public var dwSize: UInt = 0u,
     public var cCertStore: UInt = 0u,
-    public var rghCertStore: Long = 0L,
-    public var pFilterCallback: PFNCFILTERPROC = null,
-    public var pvCallbackData: Long = 0L,
+    public var rghCertStore: Hcertstore? = null,
+    public var pFilterCallback: Pfncfilterproc = null,
+    public var pvCallbackData: COpaquePointer? = null,
 )
 
-public data class CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO(
+public data class CryptuiWizExportCertcontextInfo(
     public var dwSize: UInt = 0u,
-    public var dwExportFormat: CRYPTUI_WIZ_EXPORT_FORMAT = 0u,
-    public var fExportChain: BOOL = 0,
-    public var fExportPrivateKeys: BOOL = 0,
-    public var pwszPassword: PCWSTR = 0L,
-    public var fStrongEncryption: BOOL = 0,
+    public var dwExportFormat: CryptuiWizExportFormat = 0u,
+    public var fExportChain: Bool = 0,
+    public var fExportPrivateKeys: Bool = 0,
+    public var pwszPassword: Pcwstr = null,
+    public var fStrongEncryption: Bool = 0,
 )
 
-public data class CRYPTUI_WIZ_EXPORT_INFO(
+public data class CryptuiWizExportInfo(
     public var dwSize: UInt = 0u,
-    public var pwszExportFileName: PCWSTR = 0L,
-    public var dwSubjectChoice: CRYPTUI_WIZ_EXPORT_SUBJECT = 0u,
-    public var Anonymous: CRYPTUI_WIZ_EXPORT_INFO_0 = CRYPTUI_WIZ_EXPORT_INFO_0(),
+    public var pwszExportFileName: Pcwstr = null,
+    public var dwSubjectChoice: CryptuiWizExportSubject = 0u,
+    public var anonymous: CryptuiWizExportInfo0 = CryptuiWizExportInfo0(),
     public var cStores: UInt = 0u,
-    public var rghStores: Long = 0L,
+    public var rghStores: Hcertstore? = null,
 )
 
-public data class CRYPTUI_WIZ_EXPORT_INFO_0(
-    public var pCertContext: Long = 0L,
-    public var pCTLContext: Long = 0L,
-    public var pCRLContext: Long = 0L,
-    public var hCertStore: HCERTSTORE = 0L,
+public data class CryptuiWizExportInfo0(
+    public var pCertContext: CertContext? = null,
+    public var pCTLContext: CtlContext? = null,
+    public var pCRLContext: CrlContext? = null,
+    public var hCertStore: Hcertstore = null,
 )
 
-public data class CRYPTUI_WIZ_IMPORT_SRC_INFO(
+public data class CryptuiWizImportSrcInfo(
     public var dwSize: UInt = 0u,
-    public var dwSubjectChoice: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 0u,
-    public var Anonymous: CRYPTUI_WIZ_IMPORT_SRC_INFO_0 = CRYPTUI_WIZ_IMPORT_SRC_INFO_0(),
-    public var dwFlags: CRYPT_KEY_FLAGS = 0u,
-    public var pwszPassword: PCWSTR = 0L,
+    public var dwSubjectChoice: CryptuiWizImportSubjectOption = 0u,
+    public var anonymous: CryptuiWizImportSrcInfo0 = CryptuiWizImportSrcInfo0(),
+    public var dwFlags: CryptKeyFlags = 0u,
+    public var pwszPassword: Pcwstr = null,
 )
 
-public data class CRYPTUI_WIZ_IMPORT_SRC_INFO_0(
-    public var pwszFileName: PCWSTR = 0L,
-    public var pCertContext: Long = 0L,
-    public var pCTLContext: Long = 0L,
-    public var pCRLContext: Long = 0L,
-    public var hCertStore: HCERTSTORE = 0L,
+public data class CryptuiWizImportSrcInfo0(
+    public var pwszFileName: Pcwstr = null,
+    public var pCertContext: CertContext? = null,
+    public var pCTLContext: CtlContext? = null,
+    public var pCRLContext: CrlContext? = null,
+    public var hCertStore: Hcertstore = null,
 )
 
-public data class CTL_MODIFY_REQUEST(
-    public var pccert: Long = 0L,
-    public var dwOperation: CTL_MODIFY_REQUEST_OPERATION = 0u,
+public data class CtlModifyRequest(
+    public var pccert: CertContext? = null,
+    public var dwOperation: CtlModifyRequestOperation = 0u,
     public var dwError: UInt = 0u,
 )

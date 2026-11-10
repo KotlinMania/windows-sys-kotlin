@@ -1,200 +1,201 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public fun interface APPLICATION_RECOVERY_CALLBACKFn {
-    public operator fun invoke(pvparameter: Long): UInt
+public fun interface ApplicationRecoveryCallbackFn {
+    public operator fun invoke(pvparameter: COpaquePointer?): UInt
 }
 
-public typealias APPLICATION_RECOVERY_CALLBACK = APPLICATION_RECOVERY_CALLBACKFn?
+public typealias ApplicationRecoveryCallback = ApplicationRecoveryCallbackFn?
 
-public typealias DECISION_LOCATION = Int
+public typealias DecisionLocation = Int
 
-public fun interface ENUM_CALLBACKFn {
-    public operator fun invoke(lpsurfaceinfo: Long, lpcontext: Long)
+public fun interface EnumCallbackFn {
+    public operator fun invoke(lpsurfaceinfo: COpaquePointer?, lpcontext: COpaquePointer?)
 }
 
-public typealias ENUM_CALLBACK = ENUM_CALLBACKFn?
+public typealias EnumCallback = EnumCallbackFn?
 
-public typealias FEATURE_CHANGE_TIME = Int
+public typealias FeatureChangeTime = Int
 
-public typealias FEATURE_ENABLED_STATE = Int
+public typealias FeatureEnabledState = Int
 
-public typealias FEATURE_STATE_CHANGE_SUBSCRIPTION = Long
+public typealias FeatureStateChangeSubscription = COpaquePointer?
 
-public typealias HWINWATCH = Long
+public typealias Hwinwatch = COpaquePointer?
 
-public fun interface PDELAYLOAD_FAILURE_DLL_CALLBACKFn {
-    public operator fun invoke(notificationreason: UInt, delayloadinfo: Long): Long
+public fun interface PdelayloadFailureDllCallbackFn {
+    public operator fun invoke(notificationreason: UInt, delayloadinfo: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PDELAYLOAD_FAILURE_DLL_CALLBACK = PDELAYLOAD_FAILURE_DLL_CALLBACKFn?
+public typealias PdelayloadFailureDllCallback = PdelayloadFailureDllCallbackFn?
 
-public fun interface PFEATURE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface PfeatureStateChangeCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PFEATURE_STATE_CHANGE_CALLBACK = PFEATURE_STATE_CHANGE_CALLBACKFn?
+public typealias PfeatureStateChangeCallback = PfeatureStateChangeCallbackFn?
 
-public fun interface PFIBER_CALLOUT_ROUTINEFn {
-    public operator fun invoke(lpparameter: Long): Long
+public fun interface PfiberCalloutRoutineFn {
+    public operator fun invoke(lpparameter: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PFIBER_CALLOUT_ROUTINE = PFIBER_CALLOUT_ROUTINEFn?
+public typealias PfiberCalloutRoutine = PfiberCalloutRoutineFn?
 
-public fun interface PQUERYACTCTXW_FUNCFn {
-    public operator fun invoke(dwflags: UInt, hactctx: HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL
+public fun interface PqueryactctxwFuncFn {
+    public operator fun invoke(dwflags: UInt, hactctx: Handle, pvsubinstance: COpaquePointer?, ulinfoclass: UInt, pvbuffer: COpaquePointer?, cbbuffer: ULong, pcbwrittenorrequired: COpaquePointer?): Bool
 }
 
-public typealias PQUERYACTCTXW_FUNC = PQUERYACTCTXW_FUNCFn?
+public typealias PqueryactctxwFunc = PqueryactctxwFuncFn?
 
-public fun interface PWINSTATIONQUERYINFORMATIONWFn {
-    public operator fun invoke(param0: HANDLE, param1: UInt, param2: WINSTATIONINFOCLASS, param3: Long, param4: UInt, param5: Long): Boolean
+public fun interface PwinstationqueryinformationwFn {
+    public operator fun invoke(param0: Handle, param1: UInt, param2: Winstationinfoclass, param3: COpaquePointer?, param4: UInt, param5: COpaquePointer?): Boolean
 }
 
-public typealias PWINSTATIONQUERYINFORMATIONW = PWINSTATIONQUERYINFORMATIONWFn?
+public typealias Pwinstationqueryinformationw = PwinstationqueryinformationwFn?
 
-public fun interface PWLDP_CANEXECUTEBUFFER_APIFn {
-    public operator fun invoke(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: Long, buffersize: UInt, auditinfo: PCWSTR, result: Long): HRESULT
+public fun interface PwldpCanexecutebufferApiFn {
+    public operator fun invoke(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, buffer: COpaquePointer?, buffersize: UInt, auditinfo: Pcwstr, result: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_CANEXECUTEBUFFER_API = PWLDP_CANEXECUTEBUFFER_APIFn?
+public typealias PwldpCanexecutebufferApi = PwldpCanexecutebufferApiFn?
 
-public fun interface PWLDP_CANEXECUTEFILE_APIFn {
-    public operator fun invoke(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: HANDLE, auditinfo: PCWSTR, result: Long): HRESULT
+public fun interface PwldpCanexecutefileApiFn {
+    public operator fun invoke(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_CANEXECUTEFILE_API = PWLDP_CANEXECUTEFILE_APIFn?
+public typealias PwldpCanexecutefileApi = PwldpCanexecutefileApiFn?
 
-public fun interface PWLDP_CANEXECUTESTREAM_APIFn {
-    public operator fun invoke(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: Long, auditinfo: PCWSTR, result: Long): HRESULT
+public fun interface PwldpCanexecutestreamApiFn {
+    public operator fun invoke(host: COpaquePointer?, options: WldpExecutionEvaluationOptions, stream: COpaquePointer?, auditinfo: Pcwstr, result: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_CANEXECUTESTREAM_API = PWLDP_CANEXECUTESTREAM_APIFn?
+public typealias PwldpCanexecutestreamApi = PwldpCanexecutestreamApiFn?
 
-public fun interface PWLDP_ISAPPAPPROVEDBYPOLICY_APIFn {
-    public operator fun invoke(packagefamilyname: PCWSTR, packageversion: ULong): HRESULT
+public fun interface PwldpIsappapprovedbypolicyApiFn {
+    public operator fun invoke(packagefamilyname: Pcwstr, packageversion: ULong): Hresult
 }
 
-public typealias PWLDP_ISAPPAPPROVEDBYPOLICY_API = PWLDP_ISAPPAPPROVEDBYPOLICY_APIFn?
+public typealias PwldpIsappapprovedbypolicyApi = PwldpIsappapprovedbypolicyApiFn?
 
-public fun interface PWLDP_ISDYNAMICCODEPOLICYENABLED_APIFn {
-    public operator fun invoke(pbenabled: Long): HRESULT
+public fun interface PwldpIsdynamiccodepolicyenabledApiFn {
+    public operator fun invoke(pbenabled: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_ISDYNAMICCODEPOLICYENABLED_API = PWLDP_ISDYNAMICCODEPOLICYENABLED_APIFn?
+public typealias PwldpIsdynamiccodepolicyenabledApi = PwldpIsdynamiccodepolicyenabledApiFn?
 
-public fun interface PWLDP_ISPRODUCTIONCONFIGURATION_APIFn {
-    public operator fun invoke(isproductionconfiguration: Long): HRESULT
+public fun interface PwldpIsproductionconfigurationApiFn {
+    public operator fun invoke(isproductionconfiguration: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_ISPRODUCTIONCONFIGURATION_API = PWLDP_ISPRODUCTIONCONFIGURATION_APIFn?
+public typealias PwldpIsproductionconfigurationApi = PwldpIsproductionconfigurationApiFn?
 
-public fun interface PWLDP_ISWCOSPRODUCTIONCONFIGURATION_APIFn {
-    public operator fun invoke(isproductionconfiguration: Long): HRESULT
+public fun interface PwldpIswcosproductionconfigurationApiFn {
+    public operator fun invoke(isproductionconfiguration: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = PWLDP_ISWCOSPRODUCTIONCONFIGURATION_APIFn?
+public typealias PwldpIswcosproductionconfigurationApi = PwldpIswcosproductionconfigurationApiFn?
 
-public fun interface PWLDP_QUERYDEVICESECURITYINFORMATION_APIFn {
-    public operator fun invoke(information: Long, informationlength: UInt, returnlength: Long): HRESULT
+public fun interface PwldpQuerydevicesecurityinformationApiFn {
+    public operator fun invoke(information: COpaquePointer?, informationlength: UInt, returnlength: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_QUERYDEVICESECURITYINFORMATION_API = PWLDP_QUERYDEVICESECURITYINFORMATION_APIFn?
+public typealias PwldpQuerydevicesecurityinformationApi = PwldpQuerydevicesecurityinformationApiFn?
 
-public fun interface PWLDP_QUERYDYNAMICODETRUST_APIFn {
-    public operator fun invoke(filehandle: HANDLE, baseimage: Long, imagesize: UInt): HRESULT
+public fun interface PwldpQuerydynamicodetrustApiFn {
+    public operator fun invoke(filehandle: Handle, baseimage: COpaquePointer?, imagesize: UInt): Hresult
 }
 
-public typealias PWLDP_QUERYDYNAMICODETRUST_API = PWLDP_QUERYDYNAMICODETRUST_APIFn?
+public typealias PwldpQuerydynamicodetrustApi = PwldpQuerydynamicodetrustApiFn?
 
-public fun interface PWLDP_QUERYPOLICYSETTINGENABLED2_APIFn {
-    public operator fun invoke(setting: PCWSTR, enabled: Long): HRESULT
+public fun interface PwldpQuerypolicysettingenabled2ApiFn {
+    public operator fun invoke(setting: Pcwstr, enabled: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_QUERYPOLICYSETTINGENABLED2_API = PWLDP_QUERYPOLICYSETTINGENABLED2_APIFn?
+public typealias PwldpQuerypolicysettingenabled2Api = PwldpQuerypolicysettingenabled2ApiFn?
 
-public fun interface PWLDP_QUERYPOLICYSETTINGENABLED_APIFn {
-    public operator fun invoke(setting: WLDP_POLICY_SETTING, enabled: Long): HRESULT
+public fun interface PwldpQuerypolicysettingenabledApiFn {
+    public operator fun invoke(setting: WldpPolicySetting, enabled: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_QUERYPOLICYSETTINGENABLED_API = PWLDP_QUERYPOLICYSETTINGENABLED_APIFn?
+public typealias PwldpQuerypolicysettingenabledApi = PwldpQuerypolicysettingenabledApiFn?
 
-public fun interface PWLDP_QUERYWINDOWSLOCKDOWNMODE_APIFn {
-    public operator fun invoke(lockdownmode: Long): HRESULT
+public fun interface PwldpQuerywindowslockdownmodeApiFn {
+    public operator fun invoke(lockdownmode: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = PWLDP_QUERYWINDOWSLOCKDOWNMODE_APIFn?
+public typealias PwldpQuerywindowslockdownmodeApi = PwldpQuerywindowslockdownmodeApiFn?
 
-public fun interface PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_APIFn {
-    public operator fun invoke(lockdownrestriction: Long): HRESULT
+public fun interface PwldpQuerywindowslockdownrestrictionApiFn {
+    public operator fun invoke(lockdownrestriction: COpaquePointer?): Hresult
 }
 
-public typealias PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_APIFn?
+public typealias PwldpQuerywindowslockdownrestrictionApi = PwldpQuerywindowslockdownrestrictionApiFn?
 
-public fun interface PWLDP_RESETPRODUCTIONCONFIGURATION_APIFn {
-    public operator fun invoke(): HRESULT
+public fun interface PwldpResetproductionconfigurationApiFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias PWLDP_RESETPRODUCTIONCONFIGURATION_API = PWLDP_RESETPRODUCTIONCONFIGURATION_APIFn?
+public typealias PwldpResetproductionconfigurationApi = PwldpResetproductionconfigurationApiFn?
 
-public fun interface PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_APIFn {
-    public operator fun invoke(): HRESULT
+public fun interface PwldpResetwcosproductionconfigurationApiFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_APIFn?
+public typealias PwldpResetwcosproductionconfigurationApi = PwldpResetwcosproductionconfigurationApiFn?
 
-public fun interface PWLDP_SETDYNAMICCODETRUST_APIFn {
-    public operator fun invoke(hfilehandle: HANDLE): HRESULT
+public fun interface PwldpSetdynamiccodetrustApiFn {
+    public operator fun invoke(hfilehandle: Handle): Hresult
 }
 
-public typealias PWLDP_SETDYNAMICCODETRUST_API = PWLDP_SETDYNAMICCODETRUST_APIFn?
+public typealias PwldpSetdynamiccodetrustApi = PwldpSetdynamiccodetrustApiFn?
 
-public fun interface PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_APIFn {
-    public operator fun invoke(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION): HRESULT
+public fun interface PwldpSetwindowslockdownrestrictionApiFn {
+    public operator fun invoke(lockdownrestriction: WldpWindowsLockdownRestriction): Hresult
 }
 
-public typealias PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_APIFn?
+public typealias PwldpSetwindowslockdownrestrictionApi = PwldpSetwindowslockdownrestrictionApiFn?
 
-public fun interface REGINSTALLAFn {
-    public operator fun invoke(hm: HMODULE, pszsection: PCSTR, psttable: Long): HRESULT
+public fun interface ReginstallaFn {
+    public operator fun invoke(hm: Hmodule, pszsection: Pcstr, psttable: COpaquePointer?): Hresult
 }
 
-public typealias REGINSTALLA = REGINSTALLAFn?
+public typealias Reginstalla = ReginstallaFn?
 
-public typealias TDIENTITY_ENTITY_TYPE = UInt
+public typealias TdientityEntityType = UInt
 
-public typealias TDI_TL_IO_CONTROL_TYPE = Int
+public typealias TdiTlIoControlType = Int
 
-public typealias VALUENAME = Int
+public typealias Valuename = Int
 
-public typealias WINSTATIONINFOCLASS = Int
+public typealias Winstationinfoclass = Int
 
-public fun interface WINWATCHNOTIFYPROCFn {
-    public operator fun invoke(hww: HWINWATCH, hwnd: HWND, code: UInt, lparam: LPARAM)
+public fun interface WinwatchnotifyprocFn {
+    public operator fun invoke(hww: Hwinwatch, hwnd: Hwnd, code: UInt, lparam: Lparam)
 }
 
-public typealias WINWATCHNOTIFYPROC = WINWATCHNOTIFYPROCFn?
+public typealias Winwatchnotifyproc = WinwatchnotifyprocFn?
 
-public typealias WLDP_EXECUTION_EVALUATION_OPTIONS = Int
+public typealias WldpExecutionEvaluationOptions = Int
 
-public typealias WLDP_EXECUTION_POLICY = Int
+public typealias WldpExecutionPolicy = Int
 
-public typealias WLDP_HOST = Int
+public typealias WldpHost = Int
 
-public typealias WLDP_HOST_ID = Int
+public typealias WldpHostId = Int
 
-public typealias WLDP_KEY = Int
+public typealias WldpKey = Int
 
-public typealias WLDP_POLICY_SETTING = Int
+public typealias WldpPolicySetting = Int
 
-public typealias WLDP_WINDOWS_LOCKDOWN_MODE = Int
+public typealias WldpWindowsLockdownMode = Int
 
-public typealias WLDP_WINDOWS_LOCKDOWN_RESTRICTION = Int
+public typealias WldpWindowsLockdownRestriction = Int

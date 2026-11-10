@@ -2,644 +2,657 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
 
 private val _windowsWin32NetworkingWinsockNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AcceptEx(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: Long, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: Long, lpoverlapped: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_AcceptEx(slistensocket.toString(), sacceptsocket.toString(), lpoutputbuffer.toString(), dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), lpdwbytesreceived.toString(), lpoverlapped.toString()) as Int) else 0
+public actual fun acceptEx(slistensocket: Socket, sacceptsocket: Socket, lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_acceptEx(slistensocket.toString(), sacceptsocket.toString(), (lpoutputbuffer?.value ?: 0L).toString(), dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), (lpdwbytesreceived?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumProtocolsA(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_EnumProtocolsA(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun enumProtocolsA(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_enumProtocolsA((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumProtocolsW(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_EnumProtocolsW(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun enumProtocolsW(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_enumProtocolsW((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeAddrInfoEx(paddrinfoex: Long) {
+public actual fun freeAddrInfoEx(paddrinfoex: COpaquePointer?) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_FreeAddrInfoEx(paddrinfoex.toString())
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_freeAddrInfoEx((paddrinfoex?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreeAddrInfoExW(paddrinfoex: Long) {
+public actual fun freeAddrInfoExW(paddrinfoex: COpaquePointer?) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_FreeAddrInfoExW(paddrinfoex.toString())
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_freeAddrInfoExW((paddrinfoex?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreeAddrInfoW(paddrinfo: Long) {
+public actual fun freeAddrInfoW(paddrinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_FreeAddrInfoW(paddrinfo.toString())
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_freeAddrInfoW((paddrinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetAcceptExSockaddrs(lpoutputbuffer: Long, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: Long, localsockaddrlength: Long, remotesockaddr: Long, remotesockaddrlength: Long) {
+public actual fun getAcceptExSockaddrs(lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: COpaquePointer?, localsockaddrlength: COpaquePointer?, remotesockaddr: COpaquePointer?, remotesockaddrlength: COpaquePointer?) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAcceptExSockaddrs(lpoutputbuffer.toString(), dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), localsockaddr.toString(), localsockaddrlength.toString(), remotesockaddr.toString(), remotesockaddrlength.toString())
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs((lpoutputbuffer?.value ?: 0L).toString(), dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), (localsockaddr?.value ?: 0L).toString(), (localsockaddrlength?.value ?: 0L).toString(), (remotesockaddr?.value ?: 0L).toString(), (remotesockaddrlength?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetAddrInfoExA(pname: PCSTR, pservicename: PCSTR, dwnamespace: UInt, lpnspid: Long, hints: Long, ppresult: Long, timeout: Long, lpoverlapped: Long, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddrInfoExA(pname.toString(), pservicename.toString(), dwnamespace.toInt(), lpnspid.toString(), hints.toString(), ppresult.toString(), timeout.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString(), lpnamehandle.toString()) as Int) else 0
+public actual fun getAddrInfoExA(pname: Pcstr, pservicename: Pcstr, dwnamespace: UInt, lpnspid: COpaquePointer?, hints: COpaquePointer?, ppresult: COpaquePointer?, timeout: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddrInfoExA((pname?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), dwnamespace.toInt(), (lpnspid?.value ?: 0L).toString(), (hints?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (lpnamehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddrInfoExCancel(lphandle: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddrInfoExCancel(lphandle.toString()) as Int) else 0
+public actual fun getAddrInfoExCancel(lphandle: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddrInfoExCancel((lphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddrInfoExOverlappedResult(lpoverlapped: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddrInfoExOverlappedResult(lpoverlapped.toString()) as Int) else 0
+public actual fun getAddrInfoExOverlappedResult(lpoverlapped: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResult((lpoverlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddrInfoExW(pname: PCWSTR, pservicename: PCWSTR, dwnamespace: UInt, lpnspid: Long, hints: Long, ppresult: Long, timeout: Long, lpoverlapped: Long, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddrInfoExW(pname.toString(), pservicename.toString(), dwnamespace.toInt(), lpnspid.toString(), hints.toString(), ppresult.toString(), timeout.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString(), lphandle.toString()) as Int) else 0
+public actual fun getAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, dwnamespace: UInt, lpnspid: COpaquePointer?, hints: COpaquePointer?, ppresult: COpaquePointer?, timeout: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LplookupserviceCompletionRoutine, lphandle: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddrInfoExW((pname?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), dwnamespace.toInt(), (lpnspid?.value ?: 0L).toString(), (hints?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (lphandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddrInfoW(pnodename: PCWSTR, pservicename: PCWSTR, phints: Long, ppresult: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddrInfoW(pnodename.toString(), pservicename.toString(), phints.toString(), ppresult.toString()) as Int) else 0
+public actual fun getAddrInfoW(pnodename: Pcwstr, pservicename: Pcwstr, phints: COpaquePointer?, ppresult: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddrInfoW((pnodename?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), (phints?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddressByNameA(dwnamespace: UInt, lpservicetype: Long, lpservicename: PCSTR, lpiprotocols: Long, dwresolution: UInt, lpserviceasyncinfo: Long, lpcsaddrbuffer: Long, lpdwbufferlength: Long, lpaliasbuffer: PSTR, lpdwaliasbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddressByNameA(dwnamespace.toInt(), lpservicetype.toString(), lpservicename.toString(), lpiprotocols.toString(), dwresolution.toInt(), lpserviceasyncinfo.toString(), lpcsaddrbuffer.toString(), lpdwbufferlength.toString(), lpaliasbuffer.toString(), lpdwaliasbufferlength.toString()) as Int) else 0
+public actual fun getAddressByNameA(dwnamespace: UInt, lpservicetype: COpaquePointer?, lpservicename: Pcstr, lpiprotocols: COpaquePointer?, dwresolution: UInt, lpserviceasyncinfo: COpaquePointer?, lpcsaddrbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpaliasbuffer: Pstr, lpdwaliasbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddressByNameA(dwnamespace.toInt(), (lpservicetype?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), (lpiprotocols?.value ?: 0L).toString(), dwresolution.toInt(), (lpserviceasyncinfo?.value ?: 0L).toString(), (lpcsaddrbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lpaliasbuffer?.value ?: 0L).toString(), (lpdwaliasbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAddressByNameW(dwnamespace: UInt, lpservicetype: Long, lpservicename: PCWSTR, lpiprotocols: Long, dwresolution: UInt, lpserviceasyncinfo: Long, lpcsaddrbuffer: Long, lpdwbufferlength: Long, lpaliasbuffer: PWSTR, lpdwaliasbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetAddressByNameW(dwnamespace.toInt(), lpservicetype.toString(), lpservicename.toString(), lpiprotocols.toString(), dwresolution.toInt(), lpserviceasyncinfo.toString(), lpcsaddrbuffer.toString(), lpdwbufferlength.toString(), lpaliasbuffer.toString(), lpdwaliasbufferlength.toString()) as Int) else 0
+public actual fun getAddressByNameW(dwnamespace: UInt, lpservicetype: COpaquePointer?, lpservicename: Pcwstr, lpiprotocols: COpaquePointer?, dwresolution: UInt, lpserviceasyncinfo: COpaquePointer?, lpcsaddrbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpaliasbuffer: Pwstr, lpdwaliasbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getAddressByNameW(dwnamespace.toInt(), (lpservicetype?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), (lpiprotocols?.value ?: 0L).toString(), dwresolution.toInt(), (lpserviceasyncinfo?.value ?: 0L).toString(), (lpcsaddrbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lpaliasbuffer?.value ?: 0L).toString(), (lpdwaliasbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetHostNameW(name: PWSTR, namelen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetHostNameW(name.toString(), namelen) as Int) else 0
+public actual fun getHostNameW(name: Pwstr, namelen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getHostNameW((name?.value ?: 0L).toString(), namelen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNameByTypeA(lpservicetype: Long, lpservicename: PSTR, dwnamelength: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetNameByTypeA(lpservicetype.toString(), lpservicename.toString(), dwnamelength.toInt()) as Int) else 0
+public actual fun getNameByTypeA(lpservicetype: COpaquePointer?, lpservicename: Pstr, dwnamelength: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getNameByTypeA((lpservicetype?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), dwnamelength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNameByTypeW(lpservicetype: Long, lpservicename: PWSTR, dwnamelength: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetNameByTypeW(lpservicetype.toString(), lpservicename.toString(), dwnamelength.toInt()) as Int) else 0
+public actual fun getNameByTypeW(lpservicetype: COpaquePointer?, lpservicename: Pwstr, dwnamelength: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getNameByTypeW((lpservicetype?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), dwnamelength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNameInfoW(psockaddr: Long, sockaddrlength: socklen_t, pnodebuffer: PWSTR, nodebuffersize: UInt, pservicebuffer: PWSTR, servicebuffersize: UInt, flags: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetNameInfoW(psockaddr.toString(), sockaddrlength, pnodebuffer.toString(), nodebuffersize.toInt(), pservicebuffer.toString(), servicebuffersize.toInt(), flags) as Int) else 0
+public actual fun getNameInfoW(psockaddr: COpaquePointer?, sockaddrlength: SocklenT, pnodebuffer: Pwstr, nodebuffersize: UInt, pservicebuffer: Pwstr, servicebuffersize: UInt, flags: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getNameInfoW((psockaddr?.value ?: 0L).toString(), sockaddrlength, (pnodebuffer?.value ?: 0L).toString(), nodebuffersize.toInt(), (pservicebuffer?.value ?: 0L).toString(), servicebuffersize.toInt(), flags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetServiceA(dwnamespace: UInt, lpguid: Long, lpservicename: PCSTR, dwproperties: UInt, lpbuffer: Long, lpdwbuffersize: Long, lpserviceasyncinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetServiceA(dwnamespace.toInt(), lpguid.toString(), lpservicename.toString(), dwproperties.toInt(), lpbuffer.toString(), lpdwbuffersize.toString(), lpserviceasyncinfo.toString()) as Int) else 0
+public actual fun getServiceA(dwnamespace: UInt, lpguid: COpaquePointer?, lpservicename: Pcstr, dwproperties: UInt, lpbuffer: COpaquePointer?, lpdwbuffersize: COpaquePointer?, lpserviceasyncinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getServiceA(dwnamespace.toInt(), (lpguid?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), dwproperties.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString(), (lpserviceasyncinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetServiceW(dwnamespace: UInt, lpguid: Long, lpservicename: PCWSTR, dwproperties: UInt, lpbuffer: Long, lpdwbuffersize: Long, lpserviceasyncinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetServiceW(dwnamespace.toInt(), lpguid.toString(), lpservicename.toString(), dwproperties.toInt(), lpbuffer.toString(), lpdwbuffersize.toString(), lpserviceasyncinfo.toString()) as Int) else 0
+public actual fun getServiceW(dwnamespace: UInt, lpguid: COpaquePointer?, lpservicename: Pcwstr, dwproperties: UInt, lpbuffer: COpaquePointer?, lpdwbuffersize: COpaquePointer?, lpserviceasyncinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getServiceW(dwnamespace.toInt(), (lpguid?.value ?: 0L).toString(), (lpservicename?.value ?: 0L).toString(), dwproperties.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString(), (lpserviceasyncinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTypeByNameA(lpservicename: PCSTR, lpservicetype: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetTypeByNameA(lpservicename.toString(), lpservicetype.toString()) as Int) else 0
+public actual fun getTypeByNameA(lpservicename: Pcstr, lpservicetype: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getTypeByNameA((lpservicename?.value ?: 0L).toString(), (lpservicetype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTypeByNameW(lpservicename: PCWSTR, lpservicetype: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_GetTypeByNameW(lpservicename.toString(), lpservicetype.toString()) as Int) else 0
+public actual fun getTypeByNameW(lpservicename: Pcwstr, lpservicetype: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getTypeByNameW((lpservicename?.value ?: 0L).toString(), (lpservicetype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InetNtopW(family: Int, paddr: Long, pstringbuf: PWSTR, stringbufsize: ULong): PCWSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_InetNtopW(family, paddr.toString(), pstringbuf.toString(), stringbufsize.toString()) as String).toLong() else 0L
+public actual fun inetNtopW(family: Int, paddr: COpaquePointer?, pstringbuf: Pwstr, stringbufsize: ULong): Pcwstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inetNtopW(family, (paddr?.value ?: 0L).toString(), (pstringbuf?.value ?: 0L).toString(), stringbufsize.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InetPtonW(family: Int, pszaddrstring: PCWSTR, paddrbuf: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_InetPtonW(family, pszaddrstring.toString(), paddrbuf.toString()) as Int) else 0
+public actual fun inetPtonW(family: Int, pszaddrstring: Pcwstr, paddrbuf: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inetPtonW(family, (pszaddrstring?.value ?: 0L).toString(), (paddrbuf?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessSocketNotifications(completionport: HANDLE, registrationcount: UInt, registrationinfos: Long, timeoutms: UInt, completioncount: UInt, completionportentries: Long, receivedentrycount: Long): UInt =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ProcessSocketNotifications(completionport.toString(), registrationcount.toInt(), registrationinfos.toString(), timeoutms.toInt(), completioncount.toInt(), completionportentries.toString(), receivedentrycount.toString()) as Int).toUInt() else 0u
+public actual fun processSocketNotifications(completionport: Handle, registrationcount: UInt, registrationinfos: COpaquePointer?, timeoutms: UInt, completioncount: UInt, completionportentries: COpaquePointer?, receivedentrycount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_processSocketNotifications((completionport?.value ?: 0L).toString(), registrationcount.toInt(), (registrationinfos?.value ?: 0L).toString(), timeoutms.toInt(), completioncount.toInt(), (completionportentries?.value ?: 0L).toString(), (receivedentrycount?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEthernetAddressToStringA(addr: Long, s: PSTR): PSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringA(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlEthernetAddressToStringA(addr: COpaquePointer?, s: Pstr): Pstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEthernetAddressToStringW(addr: Long, s: PWSTR): PWSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlEthernetAddressToStringW(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlEthernetAddressToStringW(addr: COpaquePointer?, s: Pwstr): Pwstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEthernetStringToAddressA(s: PCSTR, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressA(s.toString(), terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlEthernetStringToAddressA(s: Pcstr, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA((s?.value ?: 0L).toString(), (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlEthernetStringToAddressW(s: PCWSTR, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlEthernetStringToAddressW(s.toString(), terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlEthernetStringToAddressW(s: Pcwstr, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW((s?.value ?: 0L).toString(), (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4AddressToStringA(addr: Long, s: PSTR): PSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringA(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlIpv4AddressToStringA(addr: COpaquePointer?, s: Pstr): Pstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4AddressToStringExA(address: Long, port: UShort, addressstring: PSTR, addressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExA(address.toString(), port.toInt(), addressstring.toString(), addressstringlength.toString()) as Int) else 0
+public actual fun rtlIpv4AddressToStringExA(address: COpaquePointer?, port: UShort, addressstring: Pstr, addressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA((address?.value ?: 0L).toString(), port.toInt(), (addressstring?.value ?: 0L).toString(), (addressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4AddressToStringExW(address: Long, port: UShort, addressstring: PWSTR, addressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringExW(address.toString(), port.toInt(), addressstring.toString(), addressstringlength.toString()) as Int) else 0
+public actual fun rtlIpv4AddressToStringExW(address: COpaquePointer?, port: UShort, addressstring: Pwstr, addressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW((address?.value ?: 0L).toString(), port.toInt(), (addressstring?.value ?: 0L).toString(), (addressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4AddressToStringW(addr: Long, s: PWSTR): PWSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4AddressToStringW(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlIpv4AddressToStringW(addr: COpaquePointer?, s: Pwstr): Pwstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4StringToAddressA(s: PCSTR, strict: Boolean, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressA(s.toString(), strict, terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlIpv4StringToAddressA(s: Pcstr, strict: Boolean, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA((s?.value ?: 0L).toString(), strict, (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4StringToAddressExA(addressstring: PCSTR, strict: Boolean, address: Long, port: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExA(addressstring.toString(), strict, address.toString(), port.toString()) as Int) else 0
+public actual fun rtlIpv4StringToAddressExA(addressstring: Pcstr, strict: Boolean, address: COpaquePointer?, port: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA((addressstring?.value ?: 0L).toString(), strict, (address?.value ?: 0L).toString(), (port?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4StringToAddressExW(addressstring: PCWSTR, strict: Boolean, address: Long, port: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressExW(addressstring.toString(), strict, address.toString(), port.toString()) as Int) else 0
+public actual fun rtlIpv4StringToAddressExW(addressstring: Pcwstr, strict: Boolean, address: COpaquePointer?, port: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW((addressstring?.value ?: 0L).toString(), strict, (address?.value ?: 0L).toString(), (port?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv4StringToAddressW(s: PCWSTR, strict: Boolean, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv4StringToAddressW(s.toString(), strict, terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlIpv4StringToAddressW(s: Pcwstr, strict: Boolean, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW((s?.value ?: 0L).toString(), strict, (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6AddressToStringA(addr: Long, s: PSTR): PSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringA(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlIpv6AddressToStringA(addr: COpaquePointer?, s: Pstr): Pstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6AddressToStringExA(address: Long, scopeid: UInt, port: UShort, addressstring: PSTR, addressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExA(address.toString(), scopeid.toInt(), port.toInt(), addressstring.toString(), addressstringlength.toString()) as Int) else 0
+public actual fun rtlIpv6AddressToStringExA(address: COpaquePointer?, scopeid: UInt, port: UShort, addressstring: Pstr, addressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA((address?.value ?: 0L).toString(), scopeid.toInt(), port.toInt(), (addressstring?.value ?: 0L).toString(), (addressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6AddressToStringExW(address: Long, scopeid: UInt, port: UShort, addressstring: PWSTR, addressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringExW(address.toString(), scopeid.toInt(), port.toInt(), addressstring.toString(), addressstringlength.toString()) as Int) else 0
+public actual fun rtlIpv6AddressToStringExW(address: COpaquePointer?, scopeid: UInt, port: UShort, addressstring: Pwstr, addressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW((address?.value ?: 0L).toString(), scopeid.toInt(), port.toInt(), (addressstring?.value ?: 0L).toString(), (addressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6AddressToStringW(addr: Long, s: PWSTR): PWSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6AddressToStringW(addr.toString(), s.toString()) as String).toLong() else 0L
+public actual fun rtlIpv6AddressToStringW(addr: COpaquePointer?, s: Pwstr): Pwstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW((addr?.value ?: 0L).toString(), (s?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6StringToAddressA(s: PCSTR, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressA(s.toString(), terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlIpv6StringToAddressA(s: Pcstr, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA((s?.value ?: 0L).toString(), (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6StringToAddressExA(addressstring: PCSTR, address: Long, scopeid: Long, port: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExA(addressstring.toString(), address.toString(), scopeid.toString(), port.toString()) as Int) else 0
+public actual fun rtlIpv6StringToAddressExA(addressstring: Pcstr, address: COpaquePointer?, scopeid: COpaquePointer?, port: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA((addressstring?.value ?: 0L).toString(), (address?.value ?: 0L).toString(), (scopeid?.value ?: 0L).toString(), (port?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6StringToAddressExW(addressstring: PCWSTR, address: Long, scopeid: Long, port: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressExW(addressstring.toString(), address.toString(), scopeid.toString(), port.toString()) as Int) else 0
+public actual fun rtlIpv6StringToAddressExW(addressstring: Pcwstr, address: COpaquePointer?, scopeid: COpaquePointer?, port: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW((addressstring?.value ?: 0L).toString(), (address?.value ?: 0L).toString(), (scopeid?.value ?: 0L).toString(), (port?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlIpv6StringToAddressW(s: PCWSTR, terminator: Long, addr: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_RtlIpv6StringToAddressW(s.toString(), terminator.toString(), addr.toString()) as Int) else 0
+public actual fun rtlIpv6StringToAddressW(s: Pcwstr, terminator: COpaquePointer?, addr: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW((s?.value ?: 0L).toString(), (terminator?.value ?: 0L).toString(), (addr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAddrInfoExA(pname: PCSTR, pservicename: PCSTR, paddresses: Long, dwaddresscount: UInt, lpblob: Long, dwflags: UInt, dwnamespace: UInt, lpnspid: Long, timeout: Long, lpoverlapped: Long, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_SetAddrInfoExA(pname.toString(), pservicename.toString(), paddresses.toString(), dwaddresscount.toInt(), lpblob.toString(), dwflags.toInt(), dwnamespace.toInt(), lpnspid.toString(), timeout.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString(), lpnamehandle.toString()) as Int) else 0
+public actual fun setAddrInfoExA(pname: Pcstr, pservicename: Pcstr, paddresses: COpaquePointer?, dwaddresscount: UInt, lpblob: COpaquePointer?, dwflags: UInt, dwnamespace: UInt, lpnspid: COpaquePointer?, timeout: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setAddrInfoExA((pname?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), (paddresses?.value ?: 0L).toString(), dwaddresscount.toInt(), (lpblob?.value ?: 0L).toString(), dwflags.toInt(), dwnamespace.toInt(), (lpnspid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (lpnamehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAddrInfoExW(pname: PCWSTR, pservicename: PCWSTR, paddresses: Long, dwaddresscount: UInt, lpblob: Long, dwflags: UInt, dwnamespace: UInt, lpnspid: Long, timeout: Long, lpoverlapped: Long, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_SetAddrInfoExW(pname.toString(), pservicename.toString(), paddresses.toString(), dwaddresscount.toInt(), lpblob.toString(), dwflags.toInt(), dwnamespace.toInt(), lpnspid.toString(), timeout.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString(), lpnamehandle.toString()) as Int) else 0
+public actual fun setAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, paddresses: COpaquePointer?, dwaddresscount: UInt, lpblob: COpaquePointer?, dwflags: UInt, dwnamespace: UInt, lpnspid: COpaquePointer?, timeout: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setAddrInfoExW((pname?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), (paddresses?.value ?: 0L).toString(), dwaddresscount.toInt(), (lpblob?.value ?: 0L).toString(), dwflags.toInt(), dwnamespace.toInt(), (lpnspid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (lpnamehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetServiceA(dwnamespace: UInt, dwoperation: SET_SERVICE_OPERATION, dwflags: UInt, lpserviceinfo: Long, lpserviceasyncinfo: Long, lpdwstatusflags: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_SetServiceA(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), lpserviceinfo.toString(), lpserviceasyncinfo.toString(), lpdwstatusflags.toString()) as Int) else 0
+public actual fun setServiceA(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: COpaquePointer?, lpserviceasyncinfo: COpaquePointer?, lpdwstatusflags: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setServiceA(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), (lpserviceinfo?.value ?: 0L).toString(), (lpserviceasyncinfo?.value ?: 0L).toString(), (lpdwstatusflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetServiceW(dwnamespace: UInt, dwoperation: SET_SERVICE_OPERATION, dwflags: UInt, lpserviceinfo: Long, lpserviceasyncinfo: Long, lpdwstatusflags: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_SetServiceW(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), lpserviceinfo.toString(), lpserviceasyncinfo.toString(), lpdwstatusflags.toString()) as Int) else 0
+public actual fun setServiceW(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: COpaquePointer?, lpserviceasyncinfo: COpaquePointer?, lpdwstatusflags: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setServiceW(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), (lpserviceinfo?.value ?: 0L).toString(), (lpserviceasyncinfo?.value ?: 0L).toString(), (lpdwstatusflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSocketMediaStreamingMode(value: BOOL): HRESULT =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_SetSocketMediaStreamingMode(value) as Int) else 0
+public actual fun setSocketMediaStreamingMode(value: Bool): Hresult =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode(value) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TransmitFile(hsocket: SOCKET, hfile: HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_TransmitFile(hsocket.toString(), hfile.toString(), nnumberofbytestowrite.toInt(), nnumberofbytespersend.toInt(), lpoverlapped.toString(), lptransmitbuffers.toString(), dwreserved.toInt()) as Int) else 0
+public actual fun transmitFile(hsocket: Socket, hfile: Handle, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: COpaquePointer?, lptransmitbuffers: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_transmitFile(hsocket.toString(), (hfile?.value ?: 0L).toString(), nnumberofbytestowrite.toInt(), nnumberofbytespersend.toInt(), (lpoverlapped?.value ?: 0L).toString(), (lptransmitbuffers?.value ?: 0L).toString(), dwreserved.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WPUCompleteOverlappedRequest(s: SOCKET, lpoverlapped: Long, dwerror: UInt, cbtransferred: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WPUCompleteOverlappedRequest(s.toString(), lpoverlapped.toString(), dwerror.toInt(), cbtransferred.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wPUCompleteOverlappedRequest(s: Socket, lpoverlapped: COpaquePointer?, dwerror: UInt, cbtransferred: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest(s.toString(), (lpoverlapped?.value ?: 0L).toString(), dwerror.toInt(), cbtransferred.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAccept(s: SOCKET, addr: Long, addrlen: Long, lpfncondition: LPCONDITIONPROC, dwcallbackdata: ULong): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAccept(s.toString(), addr.toString(), addrlen.toString(), lpfncondition.toLong().toString(), dwcallbackdata.toString()) as String).toULong() else 0uL
+public actual fun wSAAccept(s: Socket, addr: COpaquePointer?, addrlen: COpaquePointer?, lpfncondition: Lpconditionproc, dwcallbackdata: ULong): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAccept(s.toString(), (addr?.value ?: 0L).toString(), (addrlen?.value ?: 0L).toString(), 0L.toString(), dwcallbackdata.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAddressToStringA(lpsaaddress: Long, dwaddresslength: UInt, lpprotocolinfo: Long, lpszaddressstring: PSTR, lpdwaddressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAddressToStringA(lpsaaddress.toString(), dwaddresslength.toInt(), lpprotocolinfo.toString(), lpszaddressstring.toString(), lpdwaddressstringlength.toString()) as Int) else 0
+public actual fun wSAAddressToStringA(lpsaaddress: COpaquePointer?, dwaddresslength: UInt, lpprotocolinfo: COpaquePointer?, lpszaddressstring: Pstr, lpdwaddressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAddressToStringA((lpsaaddress?.value ?: 0L).toString(), dwaddresslength.toInt(), (lpprotocolinfo?.value ?: 0L).toString(), (lpszaddressstring?.value ?: 0L).toString(), (lpdwaddressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAddressToStringW(lpsaaddress: Long, dwaddresslength: UInt, lpprotocolinfo: Long, lpszaddressstring: PWSTR, lpdwaddressstringlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAddressToStringW(lpsaaddress.toString(), dwaddresslength.toInt(), lpprotocolinfo.toString(), lpszaddressstring.toString(), lpdwaddressstringlength.toString()) as Int) else 0
+public actual fun wSAAddressToStringW(lpsaaddress: COpaquePointer?, dwaddresslength: UInt, lpprotocolinfo: COpaquePointer?, lpszaddressstring: Pwstr, lpdwaddressstringlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAddressToStringW((lpsaaddress?.value ?: 0L).toString(), dwaddresslength.toInt(), (lpprotocolinfo?.value ?: 0L).toString(), (lpszaddressstring?.value ?: 0L).toString(), (lpdwaddressstringlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAdvertiseProvider(puuidproviderid: Long, pnspv2routine: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAdvertiseProvider(puuidproviderid.toString(), pnspv2routine.toString()) as Int) else 0
+public actual fun wSAAdvertiseProvider(puuidproviderid: COpaquePointer?, pnspv2routine: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider((puuidproviderid?.value ?: 0L).toString(), (pnspv2routine?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetHostByAddr(hwnd: HWND, wmsg: UInt, addr: PCSTR, len: Int, type: Int, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByAddr(hwnd.toString(), wmsg.toInt(), addr.toString(), len, type, buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetHostByAddr(hwnd: Hwnd, wmsg: UInt, addr: Pcstr, len: Int, type: Int, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr((hwnd?.value ?: 0L).toString(), wmsg.toInt(), (addr?.value ?: 0L).toString(), len, type, (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetHostByName(hwnd: HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetHostByName(hwnd.toString(), wmsg.toInt(), name.toString(), buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetHostByName(hwnd: Hwnd, wmsg: UInt, name: Pcstr, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName((hwnd?.value ?: 0L).toString(), wmsg.toInt(), (name?.value ?: 0L).toString(), (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetProtoByName(hwnd: HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByName(hwnd.toString(), wmsg.toInt(), name.toString(), buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetProtoByName(hwnd: Hwnd, wmsg: UInt, name: Pcstr, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName((hwnd?.value ?: 0L).toString(), wmsg.toInt(), (name?.value ?: 0L).toString(), (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetProtoByNumber(hwnd: HWND, wmsg: UInt, number: Int, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetProtoByNumber(hwnd.toString(), wmsg.toInt(), number, buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetProtoByNumber(hwnd: Hwnd, wmsg: UInt, number: Int, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber((hwnd?.value ?: 0L).toString(), wmsg.toInt(), number, (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetServByName(hwnd: HWND, wmsg: UInt, name: PCSTR, proto: PCSTR, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetServByName(hwnd.toString(), wmsg.toInt(), name.toString(), proto.toString(), buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetServByName(hwnd: Hwnd, wmsg: UInt, name: Pcstr, proto: Pcstr, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName((hwnd?.value ?: 0L).toString(), wmsg.toInt(), (name?.value ?: 0L).toString(), (proto?.value ?: 0L).toString(), (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncGetServByPort(hwnd: HWND, wmsg: UInt, port: Int, proto: PCSTR, buf: PSTR, buflen: Int): HANDLE =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncGetServByPort(hwnd.toString(), wmsg.toInt(), port, proto.toString(), buf.toString(), buflen) as String).toLong() else 0L
+public actual fun wSAAsyncGetServByPort(hwnd: Hwnd, wmsg: UInt, port: Int, proto: Pcstr, buf: Pstr, buflen: Int): Handle =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort((hwnd?.value ?: 0L).toString(), wmsg.toInt(), port, (proto?.value ?: 0L).toString(), (buf?.value ?: 0L).toString(), buflen) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAAsyncSelect(s: SOCKET, hwnd: HWND, wmsg: UInt, levent: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAAsyncSelect(s.toString(), hwnd.toString(), wmsg.toInt(), levent) as Int) else 0
+public actual fun wSAAsyncSelect(s: Socket, hwnd: Hwnd, wmsg: UInt, levent: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAAsyncSelect(s.toString(), (hwnd?.value ?: 0L).toString(), wmsg.toInt(), levent) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSACancelAsyncRequest(hasynctaskhandle: HANDLE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSACancelAsyncRequest(hasynctaskhandle.toString()) as Int) else 0
+public actual fun wSACancelAsyncRequest(hasynctaskhandle: Handle): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest((hasynctaskhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSACancelBlockingCall(): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSACancelBlockingCall() as Int) else 0
+public actual fun wSACancelBlockingCall(): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSACancelBlockingCall() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSACleanup(): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSACleanup() as Int) else 0
+public actual fun wSACleanup(): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSACleanup() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSACloseEvent(hevent: WSAEVENT): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSACloseEvent(hevent.toString()) as Int) else 0
+public actual fun wSACloseEvent(hevent: Wsaevent): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSACloseEvent(hevent.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAConnect(s: SOCKET, name: Long, namelen: Int, lpcallerdata: Long, lpcalleedata: Long, lpsqos: Long, lpgqos: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAConnect(s.toString(), name.toString(), namelen, lpcallerdata.toString(), lpcalleedata.toString(), lpsqos.toString(), lpgqos.toString()) as Int) else 0
+public actual fun wSAConnect(s: Socket, name: COpaquePointer?, namelen: Int, lpcallerdata: COpaquePointer?, lpcalleedata: COpaquePointer?, lpsqos: COpaquePointer?, lpgqos: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAConnect(s.toString(), (name?.value ?: 0L).toString(), namelen, (lpcallerdata?.value ?: 0L).toString(), (lpcalleedata?.value ?: 0L).toString(), (lpsqos?.value ?: 0L).toString(), (lpgqos?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAConnectByList(s: SOCKET, socketaddress: Long, localaddresslength: Long, localaddress: Long, remoteaddresslength: Long, remoteaddress: Long, timeout: Long, reserved: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAConnectByList(s.toString(), socketaddress.toString(), localaddresslength.toString(), localaddress.toString(), remoteaddresslength.toString(), remoteaddress.toString(), timeout.toString(), reserved.toString()) as Int) else 0
+public actual fun wSAConnectByList(s: Socket, socketaddress: COpaquePointer?, localaddresslength: COpaquePointer?, localaddress: COpaquePointer?, remoteaddresslength: COpaquePointer?, remoteaddress: COpaquePointer?, timeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAConnectByList(s.toString(), (socketaddress?.value ?: 0L).toString(), (localaddresslength?.value ?: 0L).toString(), (localaddress?.value ?: 0L).toString(), (remoteaddresslength?.value ?: 0L).toString(), (remoteaddress?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAConnectByNameA(s: SOCKET, nodename: PCSTR, servicename: PCSTR, localaddresslength: Long, localaddress: Long, remoteaddresslength: Long, remoteaddress: Long, timeout: Long, reserved: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAConnectByNameA(s.toString(), nodename.toString(), servicename.toString(), localaddresslength.toString(), localaddress.toString(), remoteaddresslength.toString(), remoteaddress.toString(), timeout.toString(), reserved.toString()) as Int) else 0
+public actual fun wSAConnectByNameA(s: Socket, nodename: Pcstr, servicename: Pcstr, localaddresslength: COpaquePointer?, localaddress: COpaquePointer?, remoteaddresslength: COpaquePointer?, remoteaddress: COpaquePointer?, timeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAConnectByNameA(s.toString(), (nodename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (localaddresslength?.value ?: 0L).toString(), (localaddress?.value ?: 0L).toString(), (remoteaddresslength?.value ?: 0L).toString(), (remoteaddress?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAConnectByNameW(s: SOCKET, nodename: PCWSTR, servicename: PCWSTR, localaddresslength: Long, localaddress: Long, remoteaddresslength: Long, remoteaddress: Long, timeout: Long, reserved: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAConnectByNameW(s.toString(), nodename.toString(), servicename.toString(), localaddresslength.toString(), localaddress.toString(), remoteaddresslength.toString(), remoteaddress.toString(), timeout.toString(), reserved.toString()) as Int) else 0
+public actual fun wSAConnectByNameW(s: Socket, nodename: Pcwstr, servicename: Pcwstr, localaddresslength: COpaquePointer?, localaddress: COpaquePointer?, remoteaddresslength: COpaquePointer?, remoteaddress: COpaquePointer?, timeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAConnectByNameW(s.toString(), (nodename?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (localaddresslength?.value ?: 0L).toString(), (localaddress?.value ?: 0L).toString(), (remoteaddresslength?.value ?: 0L).toString(), (remoteaddress?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSACreateEvent(): WSAEVENT =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSACreateEvent() as String).toLong() else 0L
+public actual fun wSACreateEvent(): Wsaevent =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSACreateEvent() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSADeleteSocketPeerTargetName(socket: SOCKET, peeraddr: Long, peeraddrlen: UInt, overlapped: Long, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSADeleteSocketPeerTargetName(socket.toString(), peeraddr.toString(), peeraddrlen.toInt(), overlapped.toString(), completionroutine.toLong().toString()) as Int) else 0
+public actual fun wSADeleteSocketPeerTargetName(socket: Socket, peeraddr: COpaquePointer?, peeraddrlen: UInt, overlapped: COpaquePointer?, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetName(socket.toString(), (peeraddr?.value ?: 0L).toString(), peeraddrlen.toInt(), (overlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSADuplicateSocketA(s: SOCKET, dwprocessid: UInt, lpprotocolinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSADuplicateSocketA(s.toString(), dwprocessid.toInt(), lpprotocolinfo.toString()) as Int) else 0
+public actual fun wSADuplicateSocketA(s: Socket, dwprocessid: UInt, lpprotocolinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSADuplicateSocketA(s.toString(), dwprocessid.toInt(), (lpprotocolinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSADuplicateSocketW(s: SOCKET, dwprocessid: UInt, lpprotocolinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSADuplicateSocketW(s.toString(), dwprocessid.toInt(), lpprotocolinfo.toString()) as Int) else 0
+public actual fun wSADuplicateSocketW(s: Socket, dwprocessid: UInt, lpprotocolinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSADuplicateSocketW(s.toString(), dwprocessid.toInt(), (lpprotocolinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumNameSpaceProvidersA(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersA(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSAEnumNameSpaceProvidersA(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumNameSpaceProvidersExA(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExA(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSAEnumNameSpaceProvidersExA(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumNameSpaceProvidersExW(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersExW(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSAEnumNameSpaceProvidersExW(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumNameSpaceProvidersW(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumNameSpaceProvidersW(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSAEnumNameSpaceProvidersW(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumNetworkEvents(s: SOCKET, heventobject: WSAEVENT, lpnetworkevents: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumNetworkEvents(s.toString(), heventobject.toString(), lpnetworkevents.toString()) as Int) else 0
+public actual fun wSAEnumNetworkEvents(s: Socket, heventobject: Wsaevent, lpnetworkevents: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents(s.toString(), heventobject.toString(), (lpnetworkevents?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumProtocolsA(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumProtocolsA(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun wSAEnumProtocolsA(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEnumProtocolsW(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEnumProtocolsW(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun wSAEnumProtocolsW(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAEventSelect(s: SOCKET, heventobject: WSAEVENT, lnetworkevents: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAEventSelect(s.toString(), heventobject.toString(), lnetworkevents) as Int) else 0
+public actual fun wSAEventSelect(s: Socket, heventobject: Wsaevent, lnetworkevents: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAEventSelect(s.toString(), heventobject.toString(), lnetworkevents) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetLastError(): WSA_ERROR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetLastError() as Int) else 0
+public actual fun wSAGetLastError(): WsaError =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetLastError() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetOverlappedResult(s: SOCKET, lpoverlapped: Long, lpcbtransfer: Long, fwait: BOOL, lpdwflags: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetOverlappedResult(s.toString(), lpoverlapped.toString(), lpcbtransfer.toString(), fwait, lpdwflags.toString()) as Int) else 0
+public actual fun wSAGetOverlappedResult(s: Socket, lpoverlapped: COpaquePointer?, lpcbtransfer: COpaquePointer?, fwait: Bool, lpdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult(s.toString(), (lpoverlapped?.value ?: 0L).toString(), (lpcbtransfer?.value ?: 0L).toString(), fwait, (lpdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetQOSByName(s: SOCKET, lpqosname: Long, lpqos: Long): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetQOSByName(s.toString(), lpqosname.toString(), lpqos.toString()) as Int) else 0
+public actual fun wSAGetQOSByName(s: Socket, lpqosname: COpaquePointer?, lpqos: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetQOSByName(s.toString(), (lpqosname?.value ?: 0L).toString(), (lpqos?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetServiceClassInfoA(lpproviderid: Long, lpserviceclassid: Long, lpdwbufsize: Long, lpserviceclassinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoA(lpproviderid.toString(), lpserviceclassid.toString(), lpdwbufsize.toString(), lpserviceclassinfo.toString()) as Int) else 0
+public actual fun wSAGetServiceClassInfoA(lpproviderid: COpaquePointer?, lpserviceclassid: COpaquePointer?, lpdwbufsize: COpaquePointer?, lpserviceclassinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA((lpproviderid?.value ?: 0L).toString(), (lpserviceclassid?.value ?: 0L).toString(), (lpdwbufsize?.value ?: 0L).toString(), (lpserviceclassinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetServiceClassInfoW(lpproviderid: Long, lpserviceclassid: Long, lpdwbufsize: Long, lpserviceclassinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetServiceClassInfoW(lpproviderid.toString(), lpserviceclassid.toString(), lpdwbufsize.toString(), lpserviceclassinfo.toString()) as Int) else 0
+public actual fun wSAGetServiceClassInfoW(lpproviderid: COpaquePointer?, lpserviceclassid: COpaquePointer?, lpdwbufsize: COpaquePointer?, lpserviceclassinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW((lpproviderid?.value ?: 0L).toString(), (lpserviceclassid?.value ?: 0L).toString(), (lpdwbufsize?.value ?: 0L).toString(), (lpserviceclassinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetServiceClassNameByClassIdA(lpserviceclassid: Long, lpszserviceclassname: PSTR, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdA(lpserviceclassid.toString(), lpszserviceclassname.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun wSAGetServiceClassNameByClassIdA(lpserviceclassid: COpaquePointer?, lpszserviceclassname: Pstr, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdA((lpserviceclassid?.value ?: 0L).toString(), (lpszserviceclassname?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAGetServiceClassNameByClassIdW(lpserviceclassid: Long, lpszserviceclassname: PWSTR, lpdwbufferlength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAGetServiceClassNameByClassIdW(lpserviceclassid.toString(), lpszserviceclassname.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun wSAGetServiceClassNameByClassIdW(lpserviceclassid: COpaquePointer?, lpszserviceclassname: Pwstr, lpdwbufferlength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdW((lpserviceclassid?.value ?: 0L).toString(), (lpszserviceclassname?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAHtonl(s: SOCKET, hostlong: UInt, lpnetlong: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAHtonl(s.toString(), hostlong.toInt(), lpnetlong.toString()) as Int) else 0
+public actual fun wSAHtonl(s: Socket, hostlong: UInt, lpnetlong: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAHtonl(s.toString(), hostlong.toInt(), (lpnetlong?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAHtons(s: SOCKET, hostshort: UShort, lpnetshort: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAHtons(s.toString(), hostshort.toInt(), lpnetshort.toString()) as Int) else 0
+public actual fun wSAHtons(s: Socket, hostshort: UShort, lpnetshort: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAHtons(s.toString(), hostshort.toInt(), (lpnetshort?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAImpersonateSocketPeer(socket: SOCKET, peeraddr: Long, peeraddrlen: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAImpersonateSocketPeer(socket.toString(), peeraddr.toString(), peeraddrlen.toInt()) as Int) else 0
+public actual fun wSAImpersonateSocketPeer(socket: Socket, peeraddr: COpaquePointer?, peeraddrlen: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer(socket.toString(), (peeraddr?.value ?: 0L).toString(), peeraddrlen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAInstallServiceClassA(lpserviceclassinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAInstallServiceClassA(lpserviceclassinfo.toString()) as Int) else 0
+public actual fun wSAInstallServiceClassA(lpserviceclassinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA((lpserviceclassinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAInstallServiceClassW(lpserviceclassinfo: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAInstallServiceClassW(lpserviceclassinfo.toString()) as Int) else 0
+public actual fun wSAInstallServiceClassW(lpserviceclassinfo: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW((lpserviceclassinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAIoctl(s: SOCKET, dwiocontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAIoctl(s.toString(), dwiocontrolcode.toInt(), lpvinbuffer.toString(), cbinbuffer.toInt(), lpvoutbuffer.toString(), cboutbuffer.toInt(), lpcbbytesreturned.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSAIoctl(s: Socket, dwiocontrolcode: UInt, lpvinbuffer: COpaquePointer?, cbinbuffer: UInt, lpvoutbuffer: COpaquePointer?, cboutbuffer: UInt, lpcbbytesreturned: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAIoctl(s.toString(), dwiocontrolcode.toInt(), (lpvinbuffer?.value ?: 0L).toString(), cbinbuffer.toInt(), (lpvoutbuffer?.value ?: 0L).toString(), cboutbuffer.toInt(), (lpcbbytesreturned?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAIsBlocking(): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAIsBlocking() as Int) else 0
+public actual fun wSAIsBlocking(): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAIsBlocking() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAJoinLeaf(s: SOCKET, name: Long, namelen: Int, lpcallerdata: Long, lpcalleedata: Long, lpsqos: Long, lpgqos: Long, dwflags: UInt): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAJoinLeaf(s.toString(), name.toString(), namelen, lpcallerdata.toString(), lpcalleedata.toString(), lpsqos.toString(), lpgqos.toString(), dwflags.toInt()) as String).toULong() else 0uL
+public actual fun wSAJoinLeaf(s: Socket, name: COpaquePointer?, namelen: Int, lpcallerdata: COpaquePointer?, lpcalleedata: COpaquePointer?, lpsqos: COpaquePointer?, lpgqos: COpaquePointer?, dwflags: UInt): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAJoinLeaf(s.toString(), (name?.value ?: 0L).toString(), namelen, (lpcallerdata?.value ?: 0L).toString(), (lpcalleedata?.value ?: 0L).toString(), (lpsqos?.value ?: 0L).toString(), (lpgqos?.value ?: 0L).toString(), dwflags.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSALookupServiceBeginA(lpqsrestrictions: Long, dwcontrolflags: UInt, lphlookup: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSALookupServiceBeginA(lpqsrestrictions.toString(), dwcontrolflags.toInt(), lphlookup.toString()) as Int) else 0
+public actual fun wSALookupServiceBeginA(lpqsrestrictions: COpaquePointer?, dwcontrolflags: UInt, lphlookup: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA((lpqsrestrictions?.value ?: 0L).toString(), dwcontrolflags.toInt(), (lphlookup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSALookupServiceBeginW(lpqsrestrictions: Long, dwcontrolflags: UInt, lphlookup: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSALookupServiceBeginW(lpqsrestrictions.toString(), dwcontrolflags.toInt(), lphlookup.toString()) as Int) else 0
+public actual fun wSALookupServiceBeginW(lpqsrestrictions: COpaquePointer?, dwcontrolflags: UInt, lphlookup: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW((lpqsrestrictions?.value ?: 0L).toString(), dwcontrolflags.toInt(), (lphlookup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSALookupServiceEnd(hlookup: HANDLE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSALookupServiceEnd(hlookup.toString()) as Int) else 0
+public actual fun wSALookupServiceEnd(hlookup: Handle): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSALookupServiceEnd((hlookup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSALookupServiceNextA(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSALookupServiceNextA(hlookup.toString(), dwcontrolflags.toInt(), lpdwbufferlength.toString(), lpqsresults.toString()) as Int) else 0
+public actual fun wSALookupServiceNextA(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: COpaquePointer?, lpqsresults: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSALookupServiceNextA((hlookup?.value ?: 0L).toString(), dwcontrolflags.toInt(), (lpdwbufferlength?.value ?: 0L).toString(), (lpqsresults?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSALookupServiceNextW(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSALookupServiceNextW(hlookup.toString(), dwcontrolflags.toInt(), lpdwbufferlength.toString(), lpqsresults.toString()) as Int) else 0
+public actual fun wSALookupServiceNextW(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: COpaquePointer?, lpqsresults: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSALookupServiceNextW((hlookup?.value ?: 0L).toString(), dwcontrolflags.toInt(), (lpdwbufferlength?.value ?: 0L).toString(), (lpqsresults?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSANSPIoctl(hlookup: HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSANSPIoctl(hlookup.toString(), dwcontrolcode.toInt(), lpvinbuffer.toString(), cbinbuffer.toInt(), lpvoutbuffer.toString(), cboutbuffer.toInt(), lpcbbytesreturned.toString(), lpcompletion.toString()) as Int) else 0
+public actual fun wSANSPIoctl(hlookup: Handle, dwcontrolcode: UInt, lpvinbuffer: COpaquePointer?, cbinbuffer: UInt, lpvoutbuffer: COpaquePointer?, cboutbuffer: UInt, lpcbbytesreturned: COpaquePointer?, lpcompletion: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSANSPIoctl((hlookup?.value ?: 0L).toString(), dwcontrolcode.toInt(), (lpvinbuffer?.value ?: 0L).toString(), cbinbuffer.toInt(), (lpvoutbuffer?.value ?: 0L).toString(), cboutbuffer.toInt(), (lpcbbytesreturned?.value ?: 0L).toString(), (lpcompletion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSANtohl(s: SOCKET, netlong: UInt, lphostlong: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSANtohl(s.toString(), netlong.toInt(), lphostlong.toString()) as Int) else 0
+public actual fun wSANtohl(s: Socket, netlong: UInt, lphostlong: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSANtohl(s.toString(), netlong.toInt(), (lphostlong?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSANtohs(s: SOCKET, netshort: UShort, lphostshort: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSANtohs(s.toString(), netshort.toInt(), lphostshort.toString()) as Int) else 0
+public actual fun wSANtohs(s: Socket, netshort: UShort, lphostshort: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSANtohs(s.toString(), netshort.toInt(), (lphostshort?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAPoll(fdarray: Long, fds: UInt, timeout: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAPoll(fdarray.toString(), fds.toInt(), timeout) as Int) else 0
+public actual fun wSAPoll(fdarray: COpaquePointer?, fds: UInt, timeout: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAPoll((fdarray?.value ?: 0L).toString(), fds.toInt(), timeout) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAProviderCompleteAsyncCall(hasynccall: HANDLE, iretcode: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAProviderCompleteAsyncCall(hasynccall.toString(), iretcode) as Int) else 0
+public actual fun wSAProviderCompleteAsyncCall(hasynccall: Handle, iretcode: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall((hasynccall?.value ?: 0L).toString(), iretcode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAProviderConfigChange(lpnotificationhandle: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAProviderConfigChange(lpnotificationhandle.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSAProviderConfigChange(lpnotificationhandle: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAProviderConfigChange((lpnotificationhandle?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAQuerySocketSecurity(socket: SOCKET, securityquerytemplate: Long, securityquerytemplatelen: UInt, securityqueryinfo: Long, securityqueryinfolen: Long, overlapped: Long, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAQuerySocketSecurity(socket.toString(), securityquerytemplate.toString(), securityquerytemplatelen.toInt(), securityqueryinfo.toString(), securityqueryinfolen.toString(), overlapped.toString(), completionroutine.toLong().toString()) as Int) else 0
+public actual fun wSAQuerySocketSecurity(socket: Socket, securityquerytemplate: COpaquePointer?, securityquerytemplatelen: UInt, securityqueryinfo: COpaquePointer?, securityqueryinfolen: COpaquePointer?, overlapped: COpaquePointer?, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity(socket.toString(), (securityquerytemplate?.value ?: 0L).toString(), securityquerytemplatelen.toInt(), (securityqueryinfo?.value ?: 0L).toString(), (securityqueryinfolen?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARecv(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytesrecvd: Long, lpflags: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARecv(s.toString(), lpbuffers.toString(), dwbuffercount.toInt(), lpnumberofbytesrecvd.toString(), lpflags.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSARecv(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytesrecvd: COpaquePointer?, lpflags: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARecv(s.toString(), (lpbuffers?.value ?: 0L).toString(), dwbuffercount.toInt(), (lpnumberofbytesrecvd?.value ?: 0L).toString(), (lpflags?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARecvDisconnect(s.toString(), lpinbounddisconnectdata.toString()) as Int) else 0
+public actual fun wSARecvDisconnect(s: Socket, lpinbounddisconnectdata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARecvDisconnect(s.toString(), (lpinbounddisconnectdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARecvEx(s: SOCKET, buf: PSTR, len: Int, flags: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARecvEx(s.toString(), buf.toString(), len, flags.toString()) as Int) else 0
+public actual fun wSARecvEx(s: Socket, buf: Pstr, len: Int, flags: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARecvEx(s.toString(), (buf?.value ?: 0L).toString(), len, (flags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARecvFrom(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytesrecvd: Long, lpflags: Long, lpfrom: Long, lpfromlen: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARecvFrom(s.toString(), lpbuffers.toString(), dwbuffercount.toInt(), lpnumberofbytesrecvd.toString(), lpflags.toString(), lpfrom.toString(), lpfromlen.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSARecvFrom(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytesrecvd: COpaquePointer?, lpflags: COpaquePointer?, lpfrom: COpaquePointer?, lpfromlen: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARecvFrom(s.toString(), (lpbuffers?.value ?: 0L).toString(), dwbuffercount.toInt(), (lpnumberofbytesrecvd?.value ?: 0L).toString(), (lpflags?.value ?: 0L).toString(), (lpfrom?.value ?: 0L).toString(), (lpfromlen?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARemoveServiceClass(lpserviceclassid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARemoveServiceClass(lpserviceclassid.toString()) as Int) else 0
+public actual fun wSARemoveServiceClass(lpserviceclassid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARemoveServiceClass((lpserviceclassid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAResetEvent(hevent: WSAEVENT): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAResetEvent(hevent.toString()) as Int) else 0
+public actual fun wSAResetEvent(hevent: Wsaevent): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAResetEvent(hevent.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSARevertImpersonation(): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSARevertImpersonation() as Int) else 0
+public actual fun wSARevertImpersonation(): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSARevertImpersonation() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASend(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytessent: Long, dwflags: UInt, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASend(s.toString(), lpbuffers.toString(), dwbuffercount.toInt(), lpnumberofbytessent.toString(), dwflags.toInt(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSASend(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytessent: COpaquePointer?, dwflags: UInt, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASend(s.toString(), (lpbuffers?.value ?: 0L).toString(), dwbuffercount.toInt(), (lpnumberofbytessent?.value ?: 0L).toString(), dwflags.toInt(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASendDisconnect(s: SOCKET, lpoutbounddisconnectdata: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASendDisconnect(s.toString(), lpoutbounddisconnectdata.toString()) as Int) else 0
+public actual fun wSASendDisconnect(s: Socket, lpoutbounddisconnectdata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASendDisconnect(s.toString(), (lpoutbounddisconnectdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASendMsg(handle: SOCKET, lpmsg: Long, dwflags: UInt, lpnumberofbytessent: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASendMsg(handle.toString(), lpmsg.toString(), dwflags.toInt(), lpnumberofbytessent.toString(), lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSASendMsg(handle: Socket, lpmsg: COpaquePointer?, dwflags: UInt, lpnumberofbytessent: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASendMsg(handle.toString(), (lpmsg?.value ?: 0L).toString(), dwflags.toInt(), (lpnumberofbytessent?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASendTo(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberofbytessent: Long, dwflags: UInt, lpto: Long, itolen: Int, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASendTo(s.toString(), lpbuffers.toString(), dwbuffercount.toInt(), lpnumberofbytessent.toString(), dwflags.toInt(), lpto.toString(), itolen, lpoverlapped.toString(), lpcompletionroutine.toLong().toString()) as Int) else 0
+public actual fun wSASendTo(s: Socket, lpbuffers: COpaquePointer?, dwbuffercount: UInt, lpnumberofbytessent: COpaquePointer?, dwflags: UInt, lpto: COpaquePointer?, itolen: Int, lpoverlapped: COpaquePointer?, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASendTo(s.toString(), (lpbuffers?.value ?: 0L).toString(), dwbuffercount.toInt(), (lpnumberofbytessent?.value ?: 0L).toString(), dwflags.toInt(), (lpto?.value ?: 0L).toString(), itolen, (lpoverlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetBlockingHook(lpblockfunc: FARPROC): FARPROC =
-    null
+public actual fun wSASetBlockingHook(lpblockfunc: Farproc): Farproc =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetEvent(hevent: WSAEVENT): BOOL =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetEvent(hevent.toString()) as Int) else 0
+public actual fun wSASetEvent(hevent: Wsaevent): Bool =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetEvent(hevent.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetLastError(ierror: Int) {
+public actual fun wSASetLastError(ierror: Int) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetLastError(ierror)
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetLastError(ierror)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WSASetServiceA(lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetServiceA(lpqsreginfo.toString(), essoperation, dwcontrolflags.toInt()) as Int) else 0
+public actual fun wSASetServiceA(lpqsreginfo: COpaquePointer?, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetServiceA((lpqsreginfo?.value ?: 0L).toString(), essoperation, dwcontrolflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetServiceW(lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetServiceW(lpqsreginfo.toString(), essoperation, dwcontrolflags.toInt()) as Int) else 0
+public actual fun wSASetServiceW(lpqsreginfo: COpaquePointer?, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetServiceW((lpqsreginfo?.value ?: 0L).toString(), essoperation, dwcontrolflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetSocketPeerTargetName(socket: SOCKET, peertargetname: Long, peertargetnamelen: UInt, overlapped: Long, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetSocketPeerTargetName(socket.toString(), peertargetname.toString(), peertargetnamelen.toInt(), overlapped.toString(), completionroutine.toLong().toString()) as Int) else 0
+public actual fun wSASetSocketPeerTargetName(socket: Socket, peertargetname: COpaquePointer?, peertargetnamelen: UInt, overlapped: COpaquePointer?, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName(socket.toString(), (peertargetname?.value ?: 0L).toString(), peertargetnamelen.toInt(), (overlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASetSocketSecurity(socket: SOCKET, securitysettings: Long, securitysettingslen: UInt, overlapped: Long, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASetSocketSecurity(socket.toString(), securitysettings.toString(), securitysettingslen.toInt(), overlapped.toString(), completionroutine.toLong().toString()) as Int) else 0
+public actual fun wSASetSocketSecurity(socket: Socket, securitysettings: COpaquePointer?, securitysettingslen: UInt, overlapped: COpaquePointer?, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASetSocketSecurity(socket.toString(), (securitysettings?.value ?: 0L).toString(), securitysettingslen.toInt(), (overlapped?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASocketA(af: Int, type: Int, protocol: Int, lpprotocolinfo: Long, g: UInt, dwflags: UInt): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASocketA(af, type, protocol, lpprotocolinfo.toString(), g.toInt(), dwflags.toInt()) as String).toULong() else 0uL
+public actual fun wSASocketA(af: Int, type: Int, protocol: Int, lpprotocolinfo: COpaquePointer?, g: UInt, dwflags: UInt): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASocketA(af, type, protocol, (lpprotocolinfo?.value ?: 0L).toString(), g.toInt(), dwflags.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSASocketW(af: Int, type: Int, protocol: Int, lpprotocolinfo: Long, g: UInt, dwflags: UInt): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSASocketW(af, type, protocol, lpprotocolinfo.toString(), g.toInt(), dwflags.toInt()) as String).toULong() else 0uL
+public actual fun wSASocketW(af: Int, type: Int, protocol: Int, lpprotocolinfo: COpaquePointer?, g: UInt, dwflags: UInt): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSASocketW(af, type, protocol, (lpprotocolinfo?.value ?: 0L).toString(), g.toInt(), dwflags.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAStartup(wversionrequested: UShort, lpwsadata: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAStartup(wversionrequested.toInt(), lpwsadata.toString()) as Int) else 0
+public actual fun wSAStartup(wversionrequested: UShort, lpwsadata: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAStartup(wversionrequested.toInt(), (lpwsadata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAStringToAddressA(addressstring: PCSTR, addressfamily: Int, lpprotocolinfo: Long, lpaddress: Long, lpaddresslength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAStringToAddressA(addressstring.toString(), addressfamily, lpprotocolinfo.toString(), lpaddress.toString(), lpaddresslength.toString()) as Int) else 0
+public actual fun wSAStringToAddressA(addressstring: Pcstr, addressfamily: Int, lpprotocolinfo: COpaquePointer?, lpaddress: COpaquePointer?, lpaddresslength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAStringToAddressA((addressstring?.value ?: 0L).toString(), addressfamily, (lpprotocolinfo?.value ?: 0L).toString(), (lpaddress?.value ?: 0L).toString(), (lpaddresslength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAStringToAddressW(addressstring: PCWSTR, addressfamily: Int, lpprotocolinfo: Long, lpaddress: Long, lpaddresslength: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAStringToAddressW(addressstring.toString(), addressfamily, lpprotocolinfo.toString(), lpaddress.toString(), lpaddresslength.toString()) as Int) else 0
+public actual fun wSAStringToAddressW(addressstring: Pcwstr, addressfamily: Int, lpprotocolinfo: COpaquePointer?, lpaddress: COpaquePointer?, lpaddresslength: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAStringToAddressW((addressstring?.value ?: 0L).toString(), addressfamily, (lpprotocolinfo?.value ?: 0L).toString(), (lpaddress?.value ?: 0L).toString(), (lpaddresslength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAUnadvertiseProvider(puuidproviderid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAUnadvertiseProvider(puuidproviderid.toString()) as Int) else 0
+public actual fun wSAUnadvertiseProvider(puuidproviderid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider((puuidproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAUnhookBlockingHook(): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAUnhookBlockingHook() as Int) else 0
+public actual fun wSAUnhookBlockingHook(): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSAWaitForMultipleEvents(cevents: UInt, lphevents: Long, fwaitall: BOOL, dwtimeout: UInt, falertable: BOOL): WAIT_EVENT =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSAWaitForMultipleEvents(cevents.toInt(), lphevents.toString(), fwaitall, dwtimeout.toInt(), falertable) as Int).toUInt() else 0u
+public actual fun wSAWaitForMultipleEvents(cevents: UInt, lphevents: COpaquePointer?, fwaitall: Bool, dwtimeout: UInt, falertable: Bool): WaitEvent =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents(cevents.toInt(), (lphevents?.value ?: 0L).toString(), fwaitall, dwtimeout.toInt(), falertable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCDeinstallProvider(lpproviderid: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCDeinstallProvider(lpproviderid.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCDeinstallProvider(lpproviderid: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCDeinstallProvider((lpproviderid?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCDeinstallProvider32(lpproviderid: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCDeinstallProvider32(lpproviderid.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCDeinstallProvider32(lpproviderid: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32((lpproviderid?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnableNSProvider(lpproviderid: Long, fenable: BOOL): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnableNSProvider(lpproviderid.toString(), fenable) as Int) else 0
+public actual fun wSCEnableNSProvider(lpproviderid: COpaquePointer?, fenable: Bool): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnableNSProvider((lpproviderid?.value ?: 0L).toString(), fenable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnableNSProvider32(lpproviderid: Long, fenable: BOOL): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnableNSProvider32(lpproviderid.toString(), fenable) as Int) else 0
+public actual fun wSCEnableNSProvider32(lpproviderid: COpaquePointer?, fenable: Bool): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32((lpproviderid?.value ?: 0L).toString(), fenable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnumNameSpaceProviders32(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProviders32(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSCEnumNameSpaceProviders32(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: Long, lpnspbuffer: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnumNameSpaceProvidersEx32(lpdwbufferlength.toString(), lpnspbuffer.toString()) as Int) else 0
+public actual fun wSCEnumNameSpaceProvidersEx32(lpdwbufferlength: COpaquePointer?, lpnspbuffer: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx32((lpdwbufferlength?.value ?: 0L).toString(), (lpnspbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnumProtocols(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnumProtocols(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCEnumProtocols(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnumProtocols((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCEnumProtocols32(lpiprotocols: Long, lpprotocolbuffer: Long, lpdwbufferlength: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCEnumProtocols32(lpiprotocols.toString(), lpprotocolbuffer.toString(), lpdwbufferlength.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCEnumProtocols32(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCEnumProtocols32((lpiprotocols?.value ?: 0L).toString(), (lpprotocolbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCGetApplicationCategory(path: PCWSTR, pathlength: UInt, extra: PCWSTR, extralength: UInt, ppermittedlspcategories: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCGetApplicationCategory(path.toString(), pathlength.toInt(), extra.toString(), extralength.toInt(), ppermittedlspcategories.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCGetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, ppermittedlspcategories: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory((path?.value ?: 0L).toString(), pathlength.toInt(), (extra?.value ?: 0L).toString(), extralength.toInt(), (ppermittedlspcategories?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCGetProviderInfo(lpproviderid: Long, infotype: WSC_PROVIDER_INFO_TYPE, info: Long, infosize: Long, flags: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCGetProviderInfo(lpproviderid.toString(), infotype, info.toString(), infosize.toString(), flags.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCGetProviderInfo(lpproviderid: COpaquePointer?, infotype: WscProviderInfoType, info: COpaquePointer?, infosize: COpaquePointer?, flags: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCGetProviderInfo((lpproviderid?.value ?: 0L).toString(), infotype, (info?.value ?: 0L).toString(), (infosize?.value ?: 0L).toString(), flags.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCGetProviderInfo32(lpproviderid: Long, infotype: WSC_PROVIDER_INFO_TYPE, info: Long, infosize: Long, flags: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCGetProviderInfo32(lpproviderid.toString(), infotype, info.toString(), infosize.toString(), flags.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCGetProviderInfo32(lpproviderid: COpaquePointer?, infotype: WscProviderInfoType, info: COpaquePointer?, infosize: COpaquePointer?, flags: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32((lpproviderid?.value ?: 0L).toString(), infotype, (info?.value ?: 0L).toString(), (infosize?.value ?: 0L).toString(), flags.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCGetProviderPath(lpproviderid: Long, lpszproviderdllpath: PWSTR, lpproviderdllpathlen: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCGetProviderPath(lpproviderid.toString(), lpszproviderdllpath.toString(), lpproviderdllpathlen.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCGetProviderPath(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCGetProviderPath((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpproviderdllpathlen?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCGetProviderPath32(lpproviderid: Long, lpszproviderdllpath: PWSTR, lpproviderdllpathlen: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCGetProviderPath32(lpproviderid.toString(), lpszproviderdllpath.toString(), lpproviderdllpathlen.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCGetProviderPath32(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCGetProviderPath32((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpproviderdllpathlen?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallNameSpace(lpszidentifier: PCWSTR, lpszpathname: PCWSTR, dwnamespace: UInt, dwversion: UInt, lpproviderid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallNameSpace(lpszidentifier.toString(), lpszpathname.toString(), dwnamespace.toInt(), dwversion.toInt(), lpproviderid.toString()) as Int) else 0
+public actual fun wSCInstallNameSpace(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCInstallNameSpace((lpszidentifier?.value ?: 0L).toString(), (lpszpathname?.value ?: 0L).toString(), dwnamespace.toInt(), dwversion.toInt(), (lpproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallNameSpace32(lpszidentifier: PCWSTR, lpszpathname: PCWSTR, dwnamespace: UInt, dwversion: UInt, lpproviderid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallNameSpace32(lpszidentifier.toString(), lpszpathname.toString(), dwnamespace.toInt(), dwversion.toInt(), lpproviderid.toString()) as Int) else 0
+public actual fun wSCInstallNameSpace32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32((lpszidentifier?.value ?: 0L).toString(), (lpszpathname?.value ?: 0L).toString(), dwnamespace.toInt(), dwversion.toInt(), (lpproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallNameSpaceEx(lpszidentifier: PCWSTR, lpszpathname: PCWSTR, dwnamespace: UInt, dwversion: UInt, lpproviderid: Long, lpproviderspecific: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx(lpszidentifier.toString(), lpszpathname.toString(), dwnamespace.toInt(), dwversion.toInt(), lpproviderid.toString(), lpproviderspecific.toString()) as Int) else 0
+public actual fun wSCInstallNameSpaceEx(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: COpaquePointer?, lpproviderspecific: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx((lpszidentifier?.value ?: 0L).toString(), (lpszpathname?.value ?: 0L).toString(), dwnamespace.toInt(), dwversion.toInt(), (lpproviderid?.value ?: 0L).toString(), (lpproviderspecific?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallNameSpaceEx32(lpszidentifier: PCWSTR, lpszpathname: PCWSTR, dwnamespace: UInt, dwversion: UInt, lpproviderid: Long, lpproviderspecific: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallNameSpaceEx32(lpszidentifier.toString(), lpszpathname.toString(), dwnamespace.toInt(), dwversion.toInt(), lpproviderid.toString(), lpproviderspecific.toString()) as Int) else 0
+public actual fun wSCInstallNameSpaceEx32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: COpaquePointer?, lpproviderspecific: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32((lpszidentifier?.value ?: 0L).toString(), (lpszpathname?.value ?: 0L).toString(), dwnamespace.toInt(), dwversion.toInt(), (lpproviderid?.value ?: 0L).toString(), (lpproviderspecific?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallProvider(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallProvider(lpproviderid.toString(), lpszproviderdllpath.toString(), lpprotocolinfolist.toString(), dwnumberofentries.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCInstallProvider(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCInstallProvider((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpprotocolinfolist?.value ?: 0L).toString(), dwnumberofentries.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallProvider64_32(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallProvider64_32(lpproviderid.toString(), lpszproviderdllpath.toString(), lpprotocolinfolist.toString(), dwnumberofentries.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wscinstallProvider6432(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wscinstallProvider6432((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpprotocolinfolist?.value ?: 0L).toString(), dwnumberofentries.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCInstallProviderAndChains64_32(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpszproviderdllpath32: PCWSTR, lpszlspname: PCWSTR, dwserviceflags: UInt, lpprotocolinfolist: Long, dwnumberofentries: UInt, lpdwcatalogentryid: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCInstallProviderAndChains64_32(lpproviderid.toString(), lpszproviderdllpath.toString(), lpszproviderdllpath32.toString(), lpszlspname.toString(), dwserviceflags.toInt(), lpprotocolinfolist.toString(), dwnumberofentries.toInt(), lpdwcatalogentryid.toString(), lperrno.toString()) as Int) else 0
+public actual fun wscinstallProviderAndChains6432(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpszproviderdllpath32: Pcwstr, lpszlspname: Pcwstr, dwserviceflags: UInt, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lpdwcatalogentryid: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6432((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpszproviderdllpath32?.value ?: 0L).toString(), (lpszlspname?.value ?: 0L).toString(), dwserviceflags.toInt(), (lpprotocolinfolist?.value ?: 0L).toString(), dwnumberofentries.toInt(), (lpdwcatalogentryid?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCSetApplicationCategory(path: PCWSTR, pathlength: UInt, extra: PCWSTR, extralength: UInt, permittedlspcategories: UInt, pprevpermlspcat: Long, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCSetApplicationCategory(path.toString(), pathlength.toInt(), extra.toString(), extralength.toInt(), permittedlspcategories.toInt(), pprevpermlspcat.toString(), lperrno.toString()) as Int) else 0
+public actual fun wSCSetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, permittedlspcategories: UInt, pprevpermlspcat: COpaquePointer?, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory((path?.value ?: 0L).toString(), pathlength.toInt(), (extra?.value ?: 0L).toString(), extralength.toInt(), permittedlspcategories.toInt(), (pprevpermlspcat?.value ?: 0L).toString(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCSetProviderInfo(lpproviderid: Long, infotype: WSC_PROVIDER_INFO_TYPE, info: Long, infosize: ULong, flags: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCSetProviderInfo(lpproviderid.toString(), infotype, info.toString(), infosize.toString(), flags.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCSetProviderInfo(lpproviderid: COpaquePointer?, infotype: WscProviderInfoType, info: COpaquePointer?, infosize: ULong, flags: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCSetProviderInfo((lpproviderid?.value ?: 0L).toString(), infotype, (info?.value ?: 0L).toString(), infosize.toString(), flags.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCSetProviderInfo32(lpproviderid: Long, infotype: WSC_PROVIDER_INFO_TYPE, info: Long, infosize: ULong, flags: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCSetProviderInfo32(lpproviderid.toString(), infotype, info.toString(), infosize.toString(), flags.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCSetProviderInfo32(lpproviderid: COpaquePointer?, infotype: WscProviderInfoType, info: COpaquePointer?, infosize: ULong, flags: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32((lpproviderid?.value ?: 0L).toString(), infotype, (info?.value ?: 0L).toString(), infosize.toString(), flags.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCUnInstallNameSpace(lpproviderid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace(lpproviderid.toString()) as Int) else 0
+public actual fun wSCUnInstallNameSpace(lpproviderid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace((lpproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCUnInstallNameSpace32(lpproviderid: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCUnInstallNameSpace32(lpproviderid.toString()) as Int) else 0
+public actual fun wSCUnInstallNameSpace32(lpproviderid: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32((lpproviderid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCUpdateProvider(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCUpdateProvider(lpproviderid.toString(), lpszproviderdllpath.toString(), lpprotocolinfolist.toString(), dwnumberofentries.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCUpdateProvider(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCUpdateProvider((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpprotocolinfolist?.value ?: 0L).toString(), dwnumberofentries.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCUpdateProvider32(lpproviderid: Long, lpszproviderdllpath: PCWSTR, lpprotocolinfolist: Long, dwnumberofentries: UInt, lperrno: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCUpdateProvider32(lpproviderid.toString(), lpszproviderdllpath.toString(), lpprotocolinfolist.toString(), dwnumberofentries.toInt(), lperrno.toString()) as Int) else 0
+public actual fun wSCUpdateProvider32(lpproviderid: COpaquePointer?, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: COpaquePointer?, dwnumberofentries: UInt, lperrno: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCUpdateProvider32((lpproviderid?.value ?: 0L).toString(), (lpszproviderdllpath?.value ?: 0L).toString(), (lpprotocolinfolist?.value ?: 0L).toString(), dwnumberofentries.toInt(), (lperrno?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCWriteNameSpaceOrder(lpproviderid: Long, dwnumberofentries: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder(lpproviderid.toString(), dwnumberofentries.toInt()) as Int) else 0
+public actual fun wSCWriteNameSpaceOrder(lpproviderid: COpaquePointer?, dwnumberofentries: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder((lpproviderid?.value ?: 0L).toString(), dwnumberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCWriteNameSpaceOrder32(lpproviderid: Long, dwnumberofentries: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCWriteNameSpaceOrder32(lpproviderid.toString(), dwnumberofentries.toInt()) as Int) else 0
+public actual fun wSCWriteNameSpaceOrder32(lpproviderid: COpaquePointer?, dwnumberofentries: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32((lpproviderid?.value ?: 0L).toString(), dwnumberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCWriteProviderOrder(lpwdcatalogentryid: Long, dwnumberofentries: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder(lpwdcatalogentryid.toString(), dwnumberofentries.toInt()) as Int) else 0
+public actual fun wSCWriteProviderOrder(lpwdcatalogentryid: COpaquePointer?, dwnumberofentries: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder((lpwdcatalogentryid?.value ?: 0L).toString(), dwnumberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WSCWriteProviderOrder32(lpwdcatalogentryid: Long, dwnumberofentries: UInt): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_WSCWriteProviderOrder32(lpwdcatalogentryid.toString(), dwnumberofentries.toInt()) as Int) else 0
+public actual fun wSCWriteProviderOrder32(lpwdcatalogentryid: COpaquePointer?, dwnumberofentries: UInt): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32((lpwdcatalogentryid?.value ?: 0L).toString(), dwnumberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun __WSAFDIsSet(fd: SOCKET, param1: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock___WSAFDIsSet(fd.toString(), param1.toString()) as Int) else 0
+public actual fun wsafdisSet(fd: Socket, param1: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_wsafdisSet(fd.toString(), (param1?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun accept(s: SOCKET, addr: Long, addrlen: Long): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_accept(s.toString(), addr.toString(), addrlen.toString()) as String).toULong() else 0uL
+public actual fun accept(s: Socket, addr: COpaquePointer?, addrlen: COpaquePointer?): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_accept(s.toString(), (addr?.value ?: 0L).toString(), (addrlen?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bind(s: SOCKET, name: Long, namelen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_bind(s.toString(), name.toString(), namelen) as Int) else 0
+public actual fun bind(s: Socket, name: COpaquePointer?, namelen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_bind(s.toString(), (name?.value ?: 0L).toString(), namelen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun closesocket(s: SOCKET): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_closesocket(s.toString()) as Int) else 0
+public actual fun closesocket(s: Socket): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_closesocket(s.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun connect(s: SOCKET, name: Long, namelen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_connect(s.toString(), name.toString(), namelen) as Int) else 0
+public actual fun connect(s: Socket, name: COpaquePointer?, namelen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_connect(s.toString(), (name?.value ?: 0L).toString(), namelen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun freeaddrinfo(paddrinfo: Long) {
+public actual fun freeaddrinfo(paddrinfo: COpaquePointer?) {
     if (_windowsWin32NetworkingWinsockNapiAddon != null) {
-        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_freeaddrinfo(paddrinfo.toString())
+        _windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_freeaddrinfo((paddrinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getaddrinfo(pnodename: PCSTR, pservicename: PCSTR, phints: Long, ppresult: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getaddrinfo(pnodename.toString(), pservicename.toString(), phints.toString(), ppresult.toString()) as Int) else 0
+public actual fun getaddrinfo(pnodename: Pcstr, pservicename: Pcstr, phints: COpaquePointer?, ppresult: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getaddrinfo((pnodename?.value ?: 0L).toString(), (pservicename?.value ?: 0L).toString(), (phints?.value ?: 0L).toString(), (ppresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gethostbyaddr(addr: PCSTR, len: Int, type: Int): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostbyaddr(addr.toString(), len, type) as String).toLong() else 0L
+public actual fun gethostbyaddr(addr: Pcstr, len: Int, type: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostbyaddr((addr?.value ?: 0L).toString(), len, type) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gethostbyname(name: PCSTR): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostbyname(name.toString()) as String).toLong() else 0L
+public actual fun gethostbyname(name: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostbyname((name?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gethostname(name: PSTR, namelen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostname(name.toString(), namelen) as Int) else 0
+public actual fun gethostname(name: Pstr, namelen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_gethostname((name?.value ?: 0L).toString(), namelen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getnameinfo(psockaddr: Long, sockaddrlength: socklen_t, pnodebuffer: PSTR, nodebuffersize: UInt, pservicebuffer: PSTR, servicebuffersize: UInt, flags: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getnameinfo(psockaddr.toString(), sockaddrlength, pnodebuffer.toString(), nodebuffersize.toInt(), pservicebuffer.toString(), servicebuffersize.toInt(), flags) as Int) else 0
+public actual fun getnameinfo(psockaddr: COpaquePointer?, sockaddrlength: SocklenT, pnodebuffer: Pstr, nodebuffersize: UInt, pservicebuffer: Pstr, servicebuffersize: UInt, flags: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getnameinfo((psockaddr?.value ?: 0L).toString(), sockaddrlength, (pnodebuffer?.value ?: 0L).toString(), nodebuffersize.toInt(), (pservicebuffer?.value ?: 0L).toString(), servicebuffersize.toInt(), flags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getpeername(s: SOCKET, name: Long, namelen: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getpeername(s.toString(), name.toString(), namelen.toString()) as Int) else 0
+public actual fun getpeername(s: Socket, name: COpaquePointer?, namelen: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getpeername(s.toString(), (name?.value ?: 0L).toString(), (namelen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getprotobyname(name: PCSTR): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getprotobyname(name.toString()) as String).toLong() else 0L
+public actual fun getprotobyname(name: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getprotobyname((name?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getprotobynumber(number: Int): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getprotobynumber(number) as String).toLong() else 0L
+public actual fun getprotobynumber(number: Int): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getprotobynumber(number) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getservbyname(name: PCSTR, proto: PCSTR): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getservbyname(name.toString(), proto.toString()) as String).toLong() else 0L
+public actual fun getservbyname(name: Pcstr, proto: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getservbyname((name?.value ?: 0L).toString(), (proto?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getservbyport(port: Int, proto: PCSTR): Long =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getservbyport(port, proto.toString()) as String).toLong() else 0L
+public actual fun getservbyport(port: Int, proto: Pcstr): COpaquePointer? =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getservbyport(port, (proto?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getsockname(s: SOCKET, name: Long, namelen: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getsockname(s.toString(), name.toString(), namelen.toString()) as Int) else 0
+public actual fun getsockname(s: Socket, name: COpaquePointer?, namelen: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getsockname(s.toString(), (name?.value ?: 0L).toString(), (namelen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getsockopt(s: SOCKET, level: Int, optname: Int, optval: PSTR, optlen: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getsockopt(s.toString(), level, optname, optval.toString(), optlen.toString()) as Int) else 0
+public actual fun getsockopt(s: Socket, level: Int, optname: Int, optval: Pstr, optlen: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_getsockopt(s.toString(), level, optname, (optval?.value ?: 0L).toString(), (optlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun htonl(hostlong: UInt): UInt =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_htonl(hostlong.toInt()) as Int).toUInt() else 0u
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_htonl(hostlong.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun htons(hostshort: UShort): UShort =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_htons(hostshort.toInt()) as Int).toUShort() else 0u
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_htons(hostshort.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun inet_addr(cp: PCSTR): UInt =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inet_addr(cp.toString()) as Int).toUInt() else 0u
+public actual fun inetAddr(cp: Pcstr): UInt =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inetAddr((cp?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun inet_ntoa(input: IN_ADDR): PSTR =
-    0L
+public actual fun inetNtoa(input: InAddr): Pstr =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun inet_ntop(family: Int, paddr: Long, pstringbuf: PSTR, stringbufsize: ULong): PCSTR =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inet_ntop(family, paddr.toString(), pstringbuf.toString(), stringbufsize.toString()) as String).toLong() else 0L
+public actual fun inetNtop(family: Int, paddr: COpaquePointer?, pstringbuf: Pstr, stringbufsize: ULong): Pcstr =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inetNtop(family, (paddr?.value ?: 0L).toString(), (pstringbuf?.value ?: 0L).toString(), stringbufsize.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun inet_pton(family: Int, pszaddrstring: PCSTR, paddrbuf: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inet_pton(family, pszaddrstring.toString(), paddrbuf.toString()) as Int) else 0
+public actual fun inetPton(family: Int, pszaddrstring: Pcstr, paddrbuf: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_inetPton(family, (pszaddrstring?.value ?: 0L).toString(), (paddrbuf?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioctlsocket(s: SOCKET, cmd: Int, argp: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ioctlsocket(s.toString(), cmd, argp.toString()) as Int) else 0
+public actual fun ioctlsocket(s: Socket, cmd: Int, argp: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ioctlsocket(s.toString(), cmd, (argp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun listen(s: SOCKET, backlog: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_listen(s.toString(), backlog) as Int) else 0
+public actual fun listen(s: Socket, backlog: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_listen(s.toString(), backlog) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntohl(netlong: UInt): UInt =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ntohl(netlong.toInt()) as Int).toUInt() else 0u
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ntohl(netlong.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntohs(netshort: UShort): UShort =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ntohs(netshort.toInt()) as Int).toUShort() else 0u
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_ntohs(netshort.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun recv(s: SOCKET, buf: PSTR, len: Int, flags: SEND_RECV_FLAGS): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_recv(s.toString(), buf.toString(), len, flags) as Int) else 0
+public actual fun recv(s: Socket, buf: Pstr, len: Int, flags: SendRecvFlags): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_recv(s.toString(), (buf?.value ?: 0L).toString(), len, flags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun recvfrom(s: SOCKET, buf: PSTR, len: Int, flags: Int, from: Long, fromlen: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_recvfrom(s.toString(), buf.toString(), len, flags, from.toString(), fromlen.toString()) as Int) else 0
+public actual fun recvfrom(s: Socket, buf: Pstr, len: Int, flags: Int, from: COpaquePointer?, fromlen: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_recvfrom(s.toString(), (buf?.value ?: 0L).toString(), len, flags, (from?.value ?: 0L).toString(), (fromlen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun select(nfds: Int, readfds: Long, writefds: Long, exceptfds: Long, timeout: Long): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_select(nfds, readfds.toString(), writefds.toString(), exceptfds.toString(), timeout.toString()) as Int) else 0
+public actual fun select(nfds: Int, readfds: COpaquePointer?, writefds: COpaquePointer?, exceptfds: COpaquePointer?, timeout: COpaquePointer?): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_select(nfds, (readfds?.value ?: 0L).toString(), (writefds?.value ?: 0L).toString(), (exceptfds?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun send(s: SOCKET, buf: PCSTR, len: Int, flags: SEND_RECV_FLAGS): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_send(s.toString(), buf.toString(), len, flags) as Int) else 0
+public actual fun send(s: Socket, buf: Pcstr, len: Int, flags: SendRecvFlags): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_send(s.toString(), (buf?.value ?: 0L).toString(), len, flags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendto(s: SOCKET, buf: PCSTR, len: Int, flags: Int, to: Long, tolen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_sendto(s.toString(), buf.toString(), len, flags, to.toString(), tolen) as Int) else 0
+public actual fun sendto(s: Socket, buf: Pcstr, len: Int, flags: Int, to: COpaquePointer?, tolen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_sendto(s.toString(), (buf?.value ?: 0L).toString(), len, flags, (to?.value ?: 0L).toString(), tolen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setsockopt(s: SOCKET, level: Int, optname: Int, optval: PCSTR, optlen: Int): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setsockopt(s.toString(), level, optname, optval.toString(), optlen) as Int) else 0
+public actual fun setsockopt(s: Socket, level: Int, optname: Int, optval: Pcstr, optlen: Int): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_setsockopt(s.toString(), level, optname, (optval?.value ?: 0L).toString(), optlen) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shutdown(s: SOCKET, how: WINSOCK_SHUTDOWN_HOW): Int =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_shutdown(s.toString(), how) as Int) else 0
+public actual fun shutdown(s: Socket, how: WinsockShutdownHow): Int =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_shutdown(s.toString(), how) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun socket(af: Int, type: WINSOCK_SOCKET_TYPE, protocol: Int): SOCKET =
-    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_socket(af, type, protocol) as String).toULong() else 0uL
+public actual fun socket(af: Int, type: WinsockSocketType, protocol: Int): Socket =
+    if (_windowsWin32NetworkingWinsockNapiAddon != null) (_windowsWin32NetworkingWinsockNapiAddon.windowssys_windows_win32_networking_winsock_socket(af, type, protocol) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")

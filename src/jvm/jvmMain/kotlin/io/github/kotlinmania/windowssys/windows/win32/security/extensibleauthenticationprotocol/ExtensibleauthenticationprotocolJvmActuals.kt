@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge {
     init {
@@ -12,160 +13,160 @@ private object WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerClearConnection(pconnectionid: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection(pconnectionid: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerEndSession(sessionhandle: Int, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(sessionhandle: Int, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeEapError(peaperror: Long)
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError(peaperror: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeErrorMemory(peaperror: Long)
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory(peaperror: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeMemory(pdata: Long)
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory(pdata: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeRuntimeMemory(pdata: Long)
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory(pdata: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetAuthStatus(sessionhandle: Int, authparam: Int, pcbauthdata: Long, ppauthdata: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(sessionhandle: Int, authparam: Int, pcbauthdata: Long, ppauthdata: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: Long, phcredentialimpersonationtoken: Long, sessionhandle: Int, ppeaperror: Long, fsavetocredman: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: Long, phcredentialimpersonationtoken: Long, sessionhandle: Int, ppeaperror: Long, fsavetocredman: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetEncryptedPassword(dwsizeofpassword: Int, szpassword: Long, ppszencpassword: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(dwsizeofpassword: Int, szpassword: Long, ppszencpassword: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetMethods(peapmethodinfoarray: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods(peapmethodinfoarray: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResponseAttributes(sessionhandle: Int, pattribs: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(sessionhandle: Int, pattribs: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResult(sessionhandle: Int, reason: Int, ppresult: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(sessionhandle: Int, reason: Int, ppresult: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetSendPacket(sessionhandle: Int, pcbsendpacket: Long, ppsendpacket: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(sessionhandle: Int, pcbsendpacket: Long, ppsendpacket: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetUIContext(sessionhandle: Int, pdwsizeofuicontextdata: Long, ppuicontextdata: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(sessionhandle: Int, pdwsizeofuicontextdata: Long, ppuicontextdata: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInitialize(): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInvokeInteractiveUI(hwndparent: Long, dwsizeofuicontextdata: Int, puicontextdata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI(hwndparent: Long, dwsizeofuicontextdata: Int, puicontextdata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerProcessReceivedPacket(sessionhandle: Int, cbreceivepacket: Int, preceivepacket: Long, peapoutput: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(sessionhandle: Int, cbreceivepacket: Int, preceivepacket: Long, peapoutput: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryInteractiveUIInputFields(dwversion: Int, dwflags: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapinteractiveuidata: Long, ppeaperror: Long, ppvreserved: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(dwversion: Int, dwflags: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapinteractiveuidata: Long, ppeaperror: Long, ppvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: Int, dwflags: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapinteractiveuidata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long, ppvreserved: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: Int, dwflags: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapinteractiveuidata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long, ppvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetResponseAttributes(sessionhandle: Int, pattribs: Long, peapoutput: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(sessionhandle: Int, pattribs: Long, peapoutput: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetUIContext(sessionhandle: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapoutput: Long, ppeaperror: Long): Int
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(sessionhandle: Int, dwsizeofuicontextdata: Int, puicontextdata: Long, peapoutput: Long, ppeaperror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerUninitialize()
+    external fun windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize()
 }
 
-public actual fun EapHostPeerBeginSession(dwflags: UInt, eaptype: EAP_METHOD_TYPE, pattributearray: Long, htokenimpersonateuser: HANDLE, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, dwmaxsendpacketsize: UInt, pconnectionid: Long, func: NotificationHandler, pcontextdata: Long, psessionid: Long, ppeaperror: Long): UInt =
+public actual fun eapHostPeerBeginSession(dwflags: UInt, eaptype: EapMethodType, pattributearray: COpaquePointer?, htokenimpersonateuser: Handle, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, dwmaxsendpacketsize: UInt, pconnectionid: COpaquePointer?, func: NotificationHandler, pcontextdata: COpaquePointer?, psessionid: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerClearConnection(pconnectionid: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerClearConnection(pconnectionid, ppeaperror).toUInt()
+public actual fun eapHostPeerClearConnection(pconnectionid: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection((pconnectionid?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerEndSession(sessionhandle: UInt, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerEndSession(sessionhandle.toInt(), ppeaperror).toUInt()
+public actual fun eapHostPeerEndSession(sessionhandle: UInt, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(sessionhandle.toInt(), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerFreeEapError(peaperror: Long) {
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeEapError(peaperror)
+public actual fun eapHostPeerFreeEapError(peaperror: COpaquePointer?) {
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError((peaperror?.value ?: 0L))
 }
 
-public actual fun EapHostPeerFreeErrorMemory(peaperror: Long) {
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeErrorMemory(peaperror)
+public actual fun eapHostPeerFreeErrorMemory(peaperror: COpaquePointer?) {
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory((peaperror?.value ?: 0L))
 }
 
-public actual fun EapHostPeerFreeMemory(pdata: Long) {
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeMemory(pdata)
+public actual fun eapHostPeerFreeMemory(pdata: COpaquePointer?) {
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory((pdata?.value ?: 0L))
 }
 
-public actual fun EapHostPeerFreeRuntimeMemory(pdata: Long) {
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeRuntimeMemory(pdata)
+public actual fun eapHostPeerFreeRuntimeMemory(pdata: COpaquePointer?) {
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory((pdata?.value ?: 0L))
 }
 
-public actual fun EapHostPeerGetAuthStatus(sessionhandle: UInt, authparam: EapHostPeerAuthParams, pcbauthdata: Long, ppauthdata: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetAuthStatus(sessionhandle.toInt(), authparam, pcbauthdata, ppauthdata, ppeaperror).toUInt()
+public actual fun eapHostPeerGetAuthStatus(sessionhandle: UInt, authparam: EapHostPeerAuthParams, pcbauthdata: COpaquePointer?, ppauthdata: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(sessionhandle.toInt(), authparam, (pcbauthdata?.value ?: 0L), (ppauthdata?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: Long, phcredentialimpersonationtoken: Long, sessionhandle: UInt, ppeaperror: Long, fsavetocredman: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds, phcredentialimpersonationtoken, sessionhandle.toInt(), ppeaperror, fsavetocredman).toUInt()
+public actual fun eapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: COpaquePointer?, phcredentialimpersonationtoken: COpaquePointer?, sessionhandle: UInt, ppeaperror: COpaquePointer?, fsavetocredman: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials((pconnectionidthatlastsavedcreds?.value ?: 0L), (phcredentialimpersonationtoken?.value ?: 0L), sessionhandle.toInt(), (ppeaperror?.value ?: 0L), (fsavetocredman?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetEncryptedPassword(dwsizeofpassword: UInt, szpassword: PCWSTR, ppszencpassword: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetEncryptedPassword(dwsizeofpassword.toInt(), szpassword, ppszencpassword).toUInt()
+public actual fun eapHostPeerGetEncryptedPassword(dwsizeofpassword: UInt, szpassword: Pcwstr, ppszencpassword: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(dwsizeofpassword.toInt(), (szpassword?.value ?: 0L), (ppszencpassword?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetIdentity(dwversion: UInt, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, htokenimpersonateuser: HANDLE, pfinvokeui: Long, pdwsizeofuserdataout: Long, ppuserdataout: Long, ppwszidentity: Long, ppeaperror: Long, ppvreserved: Long): UInt =
+public actual fun eapHostPeerGetIdentity(dwversion: UInt, dwflags: UInt, eapmethodtype: EapMethodType, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, htokenimpersonateuser: Handle, pfinvokeui: COpaquePointer?, pdwsizeofuserdataout: COpaquePointer?, ppuserdataout: COpaquePointer?, ppwszidentity: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerGetMethodProperties(dwversion: UInt, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: HANDLE, dweapconndatasize: UInt, pbeapconndata: Long, dwuserdatasize: UInt, pbuserdata: Long, pmethodpropertyarray: Long, ppeaperror: Long): UInt =
+public actual fun eapHostPeerGetMethodProperties(dwversion: UInt, dwflags: UInt, eapmethodtype: EapMethodType, huserimpersonationtoken: Handle, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, dwuserdatasize: UInt, pbuserdata: COpaquePointer?, pmethodpropertyarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerGetMethods(peapmethodinfoarray: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetMethods(peapmethodinfoarray, ppeaperror).toUInt()
+public actual fun eapHostPeerGetMethods(peapmethodinfoarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods((peapmethodinfoarray?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetResponseAttributes(sessionhandle: UInt, pattribs: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResponseAttributes(sessionhandle.toInt(), pattribs, ppeaperror).toUInt()
+public actual fun eapHostPeerGetResponseAttributes(sessionhandle: UInt, pattribs: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(sessionhandle.toInt(), (pattribs?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetResult(sessionhandle: UInt, reason: EapHostPeerMethodResultReason, ppresult: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResult(sessionhandle.toInt(), reason, ppresult, ppeaperror).toUInt()
+public actual fun eapHostPeerGetResult(sessionhandle: UInt, reason: EapHostPeerMethodResultReason, ppresult: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(sessionhandle.toInt(), reason, (ppresult?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetSendPacket(sessionhandle: UInt, pcbsendpacket: Long, ppsendpacket: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetSendPacket(sessionhandle.toInt(), pcbsendpacket, ppsendpacket, ppeaperror).toUInt()
+public actual fun eapHostPeerGetSendPacket(sessionhandle: UInt, pcbsendpacket: COpaquePointer?, ppsendpacket: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(sessionhandle.toInt(), (pcbsendpacket?.value ?: 0L), (ppsendpacket?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerGetUIContext(sessionhandle: UInt, pdwsizeofuicontextdata: Long, ppuicontextdata: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetUIContext(sessionhandle.toInt(), pdwsizeofuicontextdata, ppuicontextdata, ppeaperror).toUInt()
+public actual fun eapHostPeerGetUIContext(sessionhandle: UInt, pdwsizeofuicontextdata: COpaquePointer?, ppuicontextdata: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(sessionhandle.toInt(), (pdwsizeofuicontextdata?.value ?: 0L), (ppuicontextdata?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerInitialize(): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInitialize().toUInt()
+public actual fun eapHostPeerInitialize(): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize().toUInt()
 
-public actual fun EapHostPeerInvokeConfigUI(hwndparent: HWND, dwflags: UInt, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconfigin: UInt, pconfigin: Long, pdwsizeofconfigout: Long, ppconfigout: Long, ppeaperror: Long): UInt =
+public actual fun eapHostPeerInvokeConfigUI(hwndparent: Hwnd, dwflags: UInt, eapmethodtype: EapMethodType, dwsizeofconfigin: UInt, pconfigin: COpaquePointer?, pdwsizeofconfigout: COpaquePointer?, ppconfigout: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerInvokeIdentityUI(dwversion: UInt, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, hwndparent: HWND, dwsizeofconnectiondata: UInt, pconnectiondata: Long, dwsizeofuserdata: UInt, puserdata: Long, pdwsizeofuserdataout: Long, ppuserdataout: Long, ppwszidentity: Long, ppeaperror: Long, ppvreserved: Long): UInt =
+public actual fun eapHostPeerInvokeIdentityUI(dwversion: UInt, eapmethodtype: EapMethodType, dwflags: UInt, hwndparent: Hwnd, dwsizeofconnectiondata: UInt, pconnectiondata: COpaquePointer?, dwsizeofuserdata: UInt, puserdata: COpaquePointer?, pdwsizeofuserdataout: COpaquePointer?, ppuserdataout: COpaquePointer?, ppwszidentity: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerInvokeInteractiveUI(hwndparent: HWND, dwsizeofuicontextdata: UInt, puicontextdata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInvokeInteractiveUI(hwndparent, dwsizeofuicontextdata.toInt(), puicontextdata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror).toUInt()
+public actual fun eapHostPeerInvokeInteractiveUI(hwndparent: Hwnd, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, pdwsizeofdatafrominteractiveui: COpaquePointer?, ppdatafrominteractiveui: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI((hwndparent?.value ?: 0L), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L), (pdwsizeofdatafrominteractiveui?.value ?: 0L), (ppdatafrominteractiveui?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerProcessReceivedPacket(sessionhandle: UInt, cbreceivepacket: UInt, preceivepacket: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerProcessReceivedPacket(sessionhandle.toInt(), cbreceivepacket.toInt(), preceivepacket, peapoutput, ppeaperror).toUInt()
+public actual fun eapHostPeerProcessReceivedPacket(sessionhandle: UInt, cbreceivepacket: UInt, preceivepacket: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(sessionhandle.toInt(), cbreceivepacket.toInt(), (preceivepacket?.value ?: 0L), (peapoutput?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: Long, peapconfiginputfieldarray: Long, ppeaperror: Long): UInt =
+public actual fun eapHostPeerQueryCredentialInputFields(huserimpersonationtoken: Handle, eapmethodtype: EapMethodType, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, peapconfiginputfieldarray: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerQueryInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapinteractiveuidata: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), puicontextdata, peapinteractiveuidata, ppeaperror, ppvreserved).toUInt()
+public actual fun eapHostPeerQueryInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapinteractiveuidata: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L), (peapinteractiveuidata?.value ?: 0L), (ppeaperror?.value ?: 0L), (ppvreserved?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapinteractiveuidata: Long, pdwsizeofdatafrominteractiveui: Long, ppdatafrominteractiveui: Long, ppeaperror: Long, ppvreserved: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), puicontextdata, peapinteractiveuidata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror, ppvreserved).toUInt()
+public actual fun eapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: UInt, dwflags: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapinteractiveuidata: COpaquePointer?, pdwsizeofdatafrominteractiveui: COpaquePointer?, ppdatafrominteractiveui: COpaquePointer?, ppeaperror: COpaquePointer?, ppvreserved: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion.toInt(), dwflags.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L), (peapinteractiveuidata?.value ?: 0L), (pdwsizeofdatafrominteractiveui?.value ?: 0L), (ppdatafrominteractiveui?.value ?: 0L), (ppeaperror?.value ?: 0L), (ppvreserved?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: Long, peapconfiginputfieldarray: Long, pdwuserblobsize: Long, ppbuserblob: Long, ppeaperror: Long): UInt =
+public actual fun eapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: Handle, eapmethodtype: EapMethodType, dwflags: UInt, dweapconndatasize: UInt, pbeapconndata: COpaquePointer?, peapconfiginputfieldarray: COpaquePointer?, pdwuserblobsize: COpaquePointer?, ppbuserblob: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     0u
 
-public actual fun EapHostPeerSetResponseAttributes(sessionhandle: UInt, pattribs: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetResponseAttributes(sessionhandle.toInt(), pattribs, peapoutput, ppeaperror).toUInt()
+public actual fun eapHostPeerSetResponseAttributes(sessionhandle: UInt, pattribs: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(sessionhandle.toInt(), (pattribs?.value ?: 0L), (peapoutput?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerSetUIContext(sessionhandle: UInt, dwsizeofuicontextdata: UInt, puicontextdata: Long, peapoutput: Long, ppeaperror: Long): UInt =
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetUIContext(sessionhandle.toInt(), dwsizeofuicontextdata.toInt(), puicontextdata, peapoutput, ppeaperror).toUInt()
+public actual fun eapHostPeerSetUIContext(sessionhandle: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(sessionhandle.toInt(), dwsizeofuicontextdata.toInt(), (puicontextdata?.value ?: 0L), (peapoutput?.value ?: 0L), (ppeaperror?.value ?: 0L)).toUInt()
 
-public actual fun EapHostPeerUninitialize() {
-    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerUninitialize()
+public actual fun eapHostPeerUninitialize() {
+    WindowsWin32SecurityExtensibleauthenticationprotocolJniBridge.windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize()
 }

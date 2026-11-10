@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1CallNtPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1callNtPowerInformation(JNIEnv* km_env, jclass km_clazz, jint informationlevel, jlong inputbuffer, jint inputbufferlength, jlong outputbuffer, jint outputbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1CanUserWritePwrScheme(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1canUserWritePwrScheme(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1DeletePwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1deletePwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1DevicePowerClose(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1devicePowerClose(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -92,7 +92,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1DevicePowerEnumDevices(JNIEnv* km_env, jclass km_clazz, jint queryindex, jint queryinterpretationflags, jint queryflags, jlong preturnbuffer, jlong pbuffersize) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1devicePowerEnumDevices(JNIEnv* km_env, jclass km_clazz, jint queryindex, jint queryinterpretationflags, jint queryflags, jlong preturnbuffer, jlong pbuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +114,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1DevicePowerOpen(JNIEnv* km_env, jclass km_clazz, jint debugmask) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1devicePowerOpen(JNIEnv* km_env, jclass km_clazz, jint debugmask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -132,7 +132,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1DevicePowerSetDeviceState(JNIEnv* km_env, jclass km_clazz, jlong devicedescription, jint setflags, jlong setdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1devicePowerSetDeviceState(JNIEnv* km_env, jclass km_clazz, jlong devicedescription, jint setflags, jlong setdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1EnumPwrSchemes(JNIEnv* km_env, jclass km_clazz, jlong lpfn, jlong lparam) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1enumPwrSchemes(JNIEnv* km_env, jclass km_clazz, jlong lpfn, jlong lparam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetActivePwrScheme(JNIEnv* km_env, jclass km_clazz, jlong puiid) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getActivePwrScheme(JNIEnv* km_env, jclass km_clazz, jlong puiid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -189,7 +189,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetCurrentPowerPolicies(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getCurrentPowerPolicies(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetDevicePowerState(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong pfon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getDevicePowerState(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jlong pfon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetPwrCapabilities(JNIEnv* km_env, jclass km_clazz, jlong lpspc) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getPwrCapabilities(JNIEnv* km_env, jclass km_clazz, jlong lpspc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -245,7 +245,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetPwrDiskSpindownRange(JNIEnv* km_env, jclass km_clazz, jlong puimax, jlong puimin) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getPwrDiskSpindownRange(JNIEnv* km_env, jclass km_clazz, jlong puimax, jlong puimin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -264,7 +264,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1GetSystemPowerStatus(JNIEnv* km_env, jclass km_clazz, jlong lpsystempowerstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1getSystemPowerStatus(JNIEnv* km_env, jclass km_clazz, jlong lpsystempowerstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -282,7 +282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1IsAdminOverrideActive(JNIEnv* km_env, jclass km_clazz, jlong papp) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1isAdminOverrideActive(JNIEnv* km_env, jclass km_clazz, jlong papp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -300,7 +300,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1IsPwrHibernateAllowed(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1isPwrHibernateAllowed(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1IsPwrShutdownAllowed(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1isPwrShutdownAllowed(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1IsPwrSuspendAllowed(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1isPwrSuspendAllowed(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -351,7 +351,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1IsSystemResumeAutomatic(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1isSystemResumeAutomatic(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -368,7 +368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerCanRestoreIndividualDefaultPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong schemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerCanRestoreIndividualDefaultPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong schemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -386,7 +386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerClearRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint requesttype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerClearRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint requesttype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -405,7 +405,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerCreatePossibleSetting(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerCreatePossibleSetting(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -426,7 +426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerCreateRequest(JNIEnv* km_env, jclass km_clazz, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerCreateRequest(JNIEnv* km_env, jclass km_clazz, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -444,7 +444,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerCreateSetting(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerCreateSetting(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -464,7 +464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerDeleteScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerDeleteScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -483,7 +483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerDeterminePlatformRole(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerDeterminePlatformRole(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -500,7 +500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerDeterminePlatformRoleEx(JNIEnv* km_env, jclass km_clazz, jint version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerDeterminePlatformRoleEx(JNIEnv* km_env, jclass km_clazz, jint version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -518,7 +518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerDuplicateScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong sourceschemeguid, jlong destinationschemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerDuplicateScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong sourceschemeguid, jlong destinationschemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -538,7 +538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerEnumerate(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jint accessflags, jint arg_4_index, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerEnumerate(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jint accessflags, jint arg_4_index, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -562,7 +562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerGetActiveScheme(JNIEnv* km_env, jclass km_clazz, jlong userrootpowerkey, jlong activepolicyguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerGetActiveScheme(JNIEnv* km_env, jclass km_clazz, jlong userrootpowerkey, jlong activepolicyguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -581,7 +581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerImportPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong importfilenamepath, jlong destinationschemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerImportPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong importfilenamepath, jlong destinationschemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -601,7 +601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerIsSettingRangeDefined(JNIEnv* km_env, jclass km_clazz, jlong subkeyguid, jlong settingguid) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerIsSettingRangeDefined(JNIEnv* km_env, jclass km_clazz, jlong subkeyguid, jlong settingguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -620,7 +620,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerOpenSystemPowerKey(JNIEnv* km_env, jclass km_clazz, jlong phsystempowerkey, jint access, jint openexisting) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerOpenSystemPowerKey(JNIEnv* km_env, jclass km_clazz, jlong phsystempowerkey, jint access, jint openexisting) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -640,7 +640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerOpenUserPowerKey(JNIEnv* km_env, jclass km_clazz, jlong phuserpowerkey, jint access, jint openexisting) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerOpenUserPowerKey(JNIEnv* km_env, jclass km_clazz, jlong phuserpowerkey, jint access, jint openexisting) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -660,7 +660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadACDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong acdefaultindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadACDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong acdefaultindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -682,7 +682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadACValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadACValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -706,7 +706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadACValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong acvalueindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadACValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong acvalueindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -728,7 +728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadDCDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong dcdefaultindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadDCDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong dcdefaultindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -750,7 +750,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadDCValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadDCValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -774,7 +774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadDCValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong dcvalueindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadDCValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong dcvalueindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -796,7 +796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -819,7 +819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -842,7 +842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadIconResourceSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadIconResourceSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadPossibleDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadPossibleDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -888,7 +888,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadPossibleFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadPossibleFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -911,7 +911,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadPossibleValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jint possiblesettingindex, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadPossibleValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong type, jint possiblesettingindex, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadSettingAttributes(JNIEnv* km_env, jclass km_clazz, jlong subgroupguid, jlong powersettingguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadSettingAttributes(JNIEnv* km_env, jclass km_clazz, jlong subgroupguid, jlong powersettingguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -954,7 +954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadValueIncrement(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valueincrement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadValueIncrement(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valueincrement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -975,7 +975,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadValueMax(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valuemaximum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadValueMax(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valuemaximum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -996,7 +996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadValueMin(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valueminimum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadValueMin(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong valueminimum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1017,7 +1017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReadValueUnitsSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReadValueUnitsSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1039,7 +1039,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerRegisterForEffectivePowerModeNotifications(JNIEnv* km_env, jclass km_clazz, jint version, jlong callback, jlong context, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerRegisterForEffectivePowerModeNotifications(JNIEnv* km_env, jclass km_clazz, jint version, jlong callback, jlong context, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1060,7 +1060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerRegisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jint flags, jlong recipient, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerRegisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jint flags, jlong recipient, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1080,7 +1080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerRemovePowerSetting(JNIEnv* km_env, jclass km_clazz, jlong powersettingsubkeyguid, jlong powersettingguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerRemovePowerSetting(JNIEnv* km_env, jclass km_clazz, jlong powersettingsubkeyguid, jlong powersettingguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1099,7 +1099,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReplaceDefaultPowerSchemes(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReplaceDefaultPowerSchemes(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1116,7 +1116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerReportThermalEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerReportThermalEvent(JNIEnv* km_env, jclass km_clazz, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerRestoreDefaultPowerSchemes(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerRestoreDefaultPowerSchemes(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1151,7 +1151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerRestoreIndividualDefaultPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong schemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerRestoreIndividualDefaultPowerScheme(JNIEnv* km_env, jclass km_clazz, jlong schemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1169,7 +1169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSetActiveScheme(JNIEnv* km_env, jclass km_clazz, jlong userrootpowerkey, jlong schemeguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSetActiveScheme(JNIEnv* km_env, jclass km_clazz, jlong userrootpowerkey, jlong schemeguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1188,7 +1188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSetRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint requesttype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSetRequest(JNIEnv* km_env, jclass km_clazz, jlong powerrequest, jint requesttype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1207,7 +1207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSettingAccessCheck(JNIEnv* km_env, jclass km_clazz, jint accessflags, jlong powerguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSettingAccessCheck(JNIEnv* km_env, jclass km_clazz, jint accessflags, jlong powerguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSettingAccessCheckEx(JNIEnv* km_env, jclass km_clazz, jint accessflags, jlong powerguid, jint accesstype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSettingAccessCheckEx(JNIEnv* km_env, jclass km_clazz, jint accessflags, jlong powerguid, jint accesstype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1246,7 +1246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSettingRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong settingguid, jint flags, jlong recipient, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSettingRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong settingguid, jint flags, jlong recipient, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1267,7 +1267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerSettingUnregisterNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerSettingUnregisterNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1285,7 +1285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerUnregisterFromEffectivePowerModeNotifications(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerUnregisterFromEffectivePowerModeNotifications(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1303,7 +1303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerUnregisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerUnregisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1321,7 +1321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteACDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint defaultacindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteACDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint defaultacindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1343,7 +1343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteACValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint acvalueindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteACValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint acvalueindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1365,7 +1365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteDCDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint defaultdcindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteDCDefaultIndex(JNIEnv* km_env, jclass km_clazz, jlong rootsystempowerkey, jlong schemepersonalityguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint defaultdcindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1387,7 +1387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteDCValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint dcvalueindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteDCValueIndex(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint dcvalueindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1409,7 +1409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1432,7 +1432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteIconResourceSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteIconResourceSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong schemeguid, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1478,7 +1478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWritePossibleDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWritePossibleDescription(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1501,7 +1501,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWritePossibleFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWritePossibleFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint possiblesettingindex, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1524,7 +1524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWritePossibleValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint type, jint possiblesettingindex, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWritePossibleValue(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint type, jint possiblesettingindex, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1548,7 +1548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteSettingAttributes(JNIEnv* km_env, jclass km_clazz, jlong subgroupguid, jlong powersettingguid, jint attributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteSettingAttributes(JNIEnv* km_env, jclass km_clazz, jlong subgroupguid, jlong powersettingguid, jint attributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1568,7 +1568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteValueIncrement(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valueincrement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteValueIncrement(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valueincrement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1589,7 +1589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteValueMax(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valuemaximum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteValueMax(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valuemaximum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1610,7 +1610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteValueMin(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valueminimum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteValueMin(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jint valueminimum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1631,7 +1631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1PowerWriteValueUnitsSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1powerWriteValueUnitsSpecifier(JNIEnv* km_env, jclass km_clazz, jlong rootpowerkey, jlong subgroupofpowersettingsguid, jlong powersettingguid, jlong buffer, jint buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1653,7 +1653,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1ReadGlobalPwrPolicy(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1readGlobalPwrPolicy(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1671,7 +1671,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1ReadProcessorPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pmachineprocessorpowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1readProcessorPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pmachineprocessorpowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1690,7 +1690,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1ReadPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong ppowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1readPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong ppowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1709,46 +1709,46 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1RegisterPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong powersettingguid, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong powersettingguid, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterPowerSettingNotification");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hrecipient, (void*)(uintptr_t)powersettingguid, (uint32_t)flags) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hrecipient, (void*)(uintptr_t)powersettingguid, (uint32_t)flags) : -1;
 #else
     (void)hrecipient;
     (void)powersettingguid;
     (void)flags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1RegisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterSuspendResumeNotification");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hrecipient, (uint32_t)flags) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hrecipient, (uint32_t)flags) : -1;
 #else
     (void)hrecipient;
     (void)flags;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1RequestWakeupLatency(JNIEnv* km_env, jclass km_clazz, jint latency) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1requestWakeupLatency(JNIEnv* km_env, jclass km_clazz, jint latency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1766,7 +1766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1SetActivePwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1setActivePwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1786,7 +1786,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1SetSuspendState(JNIEnv* km_env, jclass km_clazz, jboolean bhibernate, jboolean bforce, jboolean bwakeupeventsdisabled) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1setSuspendState(JNIEnv* km_env, jclass km_clazz, jboolean bhibernate, jboolean bforce, jboolean bwakeupeventsdisabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1806,7 +1806,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1SetSystemPowerState(JNIEnv* km_env, jclass km_clazz, jint fsuspend, jint fforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1setSystemPowerState(JNIEnv* km_env, jclass km_clazz, jint fsuspend, jint fforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1825,7 +1825,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1SetThreadExecutionState(JNIEnv* km_env, jclass km_clazz, jint esflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1setThreadExecutionState(JNIEnv* km_env, jclass km_clazz, jint esflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1843,7 +1843,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1UnregisterPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1unregisterPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1861,7 +1861,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1UnregisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1unregisterSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1879,7 +1879,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1ValidatePowerPolicies(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1validatePowerPolicies(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy, jlong ppowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1898,7 +1898,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1WriteGlobalPwrPolicy(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1writeGlobalPwrPolicy(JNIEnv* km_env, jclass km_clazz, jlong pglobalpowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1916,7 +1916,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1WriteProcessorPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pmachineprocessorpowerpolicy) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1writeProcessorPwrScheme(JNIEnv* km_env, jclass km_clazz, jint uiid, jlong pmachineprocessorpowerpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1935,7 +1935,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1WritePwrScheme(JNIEnv* km_env, jclass km_clazz, jlong puiid, jlong lpszschemename, jlong lpszdescription, jlong lpscheme) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1writePwrScheme(JNIEnv* km_env, jclass km_clazz, jlong puiid, jlong lpszschemename, jlong lpszdescription, jlong lpscheme) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_activateAudioInterfaceAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* deviceinterfacepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_media_audio_ActivateAudioInterfaceAs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CoRegisterMessageFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_coRegisterMessageFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmessagefilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplpmessagefilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -97,7 +97,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CoRegisterMessageFilter_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t role = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -179,7 +179,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateCaptureAudioStateM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* audiostatemonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* deviceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t category = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t role = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_media_audio_CreateRenderAudioStateMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_PlaySoundA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_playSoundA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_media_audio_PlaySoundA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_audio_PlaySoundW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_audio_playSoundW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsound = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3444,18 +3444,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutWrite_napi(const 
 }
 
 static void register_windows_win32_media_audio_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync", Napi::Function::New(env, windowssys_windows_win32_media_audio_ActivateAudioInterfaceAsync_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CoRegisterMessageFilter", Napi::Function::New(env, windowssys_windows_win32_media_audio_CoRegisterMessageFilter_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitor_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategory_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceId_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateCaptureAudioStateMonitorForCategoryAndDeviceRole_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitor_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategory_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceId_napi));
-    exports.Set("windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_CreateRenderAudioStateMonitorForCategoryAndDeviceRole_napi));
-    exports.Set("windowssys_windows_win32_media_audio_PlaySoundA", Napi::Function::New(env, windowssys_windows_win32_media_audio_PlaySoundA_napi));
-    exports.Set("windowssys_windows_win32_media_audio_PlaySoundW", Napi::Function::New(env, windowssys_windows_win32_media_audio_PlaySoundW_napi));
+    exports.Set("windowssys_windows_win32_media_audio_activateAudioInterfaceAsync", Napi::Function::New(env, windowssys_windows_win32_media_audio_activateAudioInterfaceAsync_napi));
+    exports.Set("windowssys_windows_win32_media_audio_coRegisterMessageFilter", Napi::Function::New(env, windowssys_windows_win32_media_audio_coRegisterMessageFilter_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitor", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitor_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId_napi));
+    exports.Set("windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole", Napi::Function::New(env, windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole_napi));
+    exports.Set("windowssys_windows_win32_media_audio_playSoundA", Napi::Function::New(env, windowssys_windows_win32_media_audio_playSoundA_napi));
+    exports.Set("windowssys_windows_win32_media_audio_playSoundW", Napi::Function::New(env, windowssys_windows_win32_media_audio_playSoundW_napi));
     exports.Set("windowssys_windows_win32_media_audio_acmDriverAddA", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverAddA_napi));
     exports.Set("windowssys_windows_win32_media_audio_acmDriverAddW", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverAddW_napi));
     exports.Set("windowssys_windows_win32_media_audio_acmDriverClose", Napi::Function::New(env, windowssys_windows_win32_media_audio_acmDriverClose_napi));

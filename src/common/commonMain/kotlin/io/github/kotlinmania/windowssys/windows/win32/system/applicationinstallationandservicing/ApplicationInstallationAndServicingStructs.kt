@@ -1,58 +1,59 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
-import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ActctxSectionKeyedDataAssemblyMetadata
 
-public data class ACTCTXA(
+public data class Actctxa(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var lpSource: PCSTR = 0L,
+    public var lpSource: Pcstr = null,
     public var wProcessorArchitecture: UShort = 0u,
     public var wLangId: UShort = 0u,
-    public var lpAssemblyDirectory: PCSTR = 0L,
-    public var lpResourceName: PCSTR = 0L,
-    public var lpApplicationName: PCSTR = 0L,
-    public var hModule: HMODULE = 0L,
+    public var lpAssemblyDirectory: Pcstr = null,
+    public var lpResourceName: Pcstr = null,
+    public var lpApplicationName: Pcstr = null,
+    public var hModule: Hmodule = null,
 )
 
-public data class ACTCTXW(
+public data class Actctxw(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var lpSource: PCWSTR = 0L,
+    public var lpSource: Pcwstr = null,
     public var wProcessorArchitecture: UShort = 0u,
     public var wLangId: UShort = 0u,
-    public var lpAssemblyDirectory: PCWSTR = 0L,
-    public var lpResourceName: PCWSTR = 0L,
-    public var lpApplicationName: PCWSTR = 0L,
-    public var hModule: HMODULE = 0L,
+    public var lpAssemblyDirectory: Pcwstr = null,
+    public var lpResourceName: Pcwstr = null,
+    public var lpApplicationName: Pcwstr = null,
+    public var hModule: Hmodule = null,
 )
 
-public data class ACTCTX_SECTION_KEYED_DATA(
+public data class ActctxSectionKeyedData(
     public var cbSize: UInt = 0u,
     public var ulDataFormatVersion: UInt = 0u,
-    public var lpData: Long = 0L,
+    public var lpData: COpaquePointer? = null,
     public var ulLength: UInt = 0u,
-    public var lpSectionGlobalData: Long = 0L,
+    public var lpSectionGlobalData: COpaquePointer? = null,
     public var ulSectionGlobalDataLength: UInt = 0u,
-    public var lpSectionBase: Long = 0L,
+    public var lpSectionBase: COpaquePointer? = null,
     public var ulSectionTotalLength: UInt = 0u,
-    public var hActCtx: HANDLE = 0L,
+    public var hActCtx: Handle = null,
     public var ulAssemblyRosterIndex: UInt = 0u,
     public var ulFlags: UInt = 0u,
-    public var AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(),
+    public var assemblyMetadata: ActctxSectionKeyedDataAssemblyMetadata = ActctxSectionKeyedDataAssemblyMetadata(),
 )
 
-public class ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION(
+public class ActivationContextAssemblyDetailedInformation(
     public var ulFlags: UInt = 0u,
     public var ulEncodedAssemblyIdentityLength: UInt = 0u,
     public var ulManifestPathType: UInt = 0u,
@@ -67,16 +68,16 @@ public class ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION(
     public var ulPolicyVersionMajor: UInt = 0u,
     public var ulPolicyVersionMinor: UInt = 0u,
     public var ulAssemblyDirectoryNameLength: UInt = 0u,
-    public var lpAssemblyEncodedAssemblyIdentity: PCWSTR = 0L,
-    public var lpAssemblyManifestPath: PCWSTR = 0L,
-    public var lpAssemblyPolicyPath: PCWSTR = 0L,
-    public var lpAssemblyDirectoryName: PCWSTR = 0L,
+    public var lpAssemblyEncodedAssemblyIdentity: Pcwstr = null,
+    public var lpAssemblyManifestPath: Pcwstr = null,
+    public var lpAssemblyPolicyPath: Pcwstr = null,
+    public var lpAssemblyDirectoryName: Pcwstr = null,
     public var ulFileCount: UInt = 0u,
 )
 
-public data class ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION(public var ElementCount: UInt = 0u, public var Elements: List<COMPATIBILITY_CONTEXT_ELEMENT> = List(1) { COMPATIBILITY_CONTEXT_ELEMENT() })
+public data class ActivationContextCompatibilityInformation(public var elementCount: UInt = 0u, public var elements: List<CompatibilityContextElement> = List(1) { CompatibilityContextElement() })
 
-public data class ACTIVATION_CONTEXT_DETAILED_INFORMATION(
+public data class ActivationContextDetailedInformation(
     public var dwFlags: UInt = 0u,
     public var ulFormatVersion: UInt = 0u,
     public var ulAssemblyCount: UInt = 0u,
@@ -86,89 +87,89 @@ public data class ACTIVATION_CONTEXT_DETAILED_INFORMATION(
     public var ulRootConfigurationPathChars: UInt = 0u,
     public var ulAppDirPathType: UInt = 0u,
     public var ulAppDirPathChars: UInt = 0u,
-    public var lpRootManifestPath: PCWSTR = 0L,
-    public var lpRootConfigurationPath: PCWSTR = 0L,
-    public var lpAppDirPath: PCWSTR = 0L,
+    public var lpRootManifestPath: Pcwstr = null,
+    public var lpRootConfigurationPath: Pcwstr = null,
+    public var lpAppDirPath: Pcwstr = null,
 )
 
-public data class ACTIVATION_CONTEXT_QUERY_INDEX(public var ulAssemblyIndex: UInt = 0u, public var ulFileIndexInAssembly: UInt = 0u)
+public data class ActivationContextQueryIndex(public var ulAssemblyIndex: UInt = 0u, public var ulFileIndexInAssembly: UInt = 0u)
 
-public data class ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION(
+public data class ActivationContextRunLevelInformation(
     public var ulFlags: UInt = 0u,
-    public var RunLevel: ACTCTX_REQUESTED_RUN_LEVEL = 0,
-    public var UiAccess: UInt = 0u,
+    public var runLevel: ActctxRequestedRunLevel = 0,
+    public var uiAccess: UInt = 0u,
 )
 
-public data class ASSEMBLY_FILE_DETAILED_INFORMATION(
+public data class AssemblyFileDetailedInformation(
     public var ulFlags: UInt = 0u,
     public var ulFilenameLength: UInt = 0u,
     public var ulPathLength: UInt = 0u,
-    public var lpFileName: PCWSTR = 0L,
-    public var lpFilePath: PCWSTR = 0L,
+    public var lpFileName: Pcwstr = null,
+    public var lpFilePath: Pcwstr = null,
 )
 
-public data class ASSEMBLY_INFO(
+public data class AssemblyInfo(
     public var cbAssemblyInfo: UInt = 0u,
     public var dwAssemblyFlags: UInt = 0u,
     public var uliAssemblySizeInKB: ULong = 0uL,
-    public var pszCurrentAssemblyPathBuf: PWSTR = 0L,
+    public var pszCurrentAssemblyPathBuf: Pwstr = null,
     public var cchBuf: UInt = 0u,
 )
 
-public data class COMPATIBILITY_CONTEXT_ELEMENT(
-    public var Id: GUID = GUID(),
-    public var Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 0,
-    public var MaxVersionTested: ULong = 0uL,
+public data class CompatibilityContextElement(
+    public var id: Guid = Guid(),
+    public var type: ActctxCompatibilityElementType = 0,
+    public var maxVersionTested: ULong = 0uL,
 )
 
-public data class DELTA_HASH(public var HashSize: UInt = 0u, public var HashValue: UByteArray = UByteArray(32)) {
+public data class DeltaHash(public var hashSize: UInt = 0u, public var hashValue: UByteArray = UByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DELTA_HASH) return false
-        if (this.HashSize != other.HashSize) return false
-        if (!this.HashValue.contentEquals(other.HashValue)) return false
+        if (other !is DeltaHash) return false
+        if (this.hashSize != other.hashSize) return false
+        if (!this.hashValue.contentEquals(other.hashValue)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HashSize.hashCode()
-        result = 31 * result + this.HashValue.contentHashCode()
+        var result = this.hashSize.hashCode()
+        result = 31 * result + this.hashValue.contentHashCode()
         return result
     }
 }
 
-public data class DELTA_HEADER_INFO(
-    public var FileTypeSet: Long = 0L,
-    public var FileType: Long = 0L,
-    public var Flags: Long = 0L,
-    public var TargetSize: ULong = 0uL,
-    public var TargetFileTime: FILETIME = FILETIME(),
-    public var TargetHashAlgId: ALG_ID = 0u,
-    public var TargetHash: DELTA_HASH = DELTA_HASH(),
+public data class DeltaHeaderInfo(
+    public var fileTypeSet: Long = 0L,
+    public var fileType: Long = 0L,
+    public var flags: Long = 0L,
+    public var targetSize: Int = 0,
+    public var targetFileTime: Filetime = Filetime(),
+    public var targetHashAlgId: AlgId = 0u,
+    public var targetHash: DeltaHash = DeltaHash(),
 )
 
-public data class DELTA_INPUT(
-    public var Anonymous: DELTA_INPUT_0 = DELTA_INPUT_0(),
-    public var uSize: ULong = 0uL,
-    public var Editable: BOOL = 0,
+public data class DeltaInput(
+    public var anonymous: DeltaInput0 = DeltaInput0(),
+    public var uSize: Int = 0,
+    public var editable: Bool = 0,
 )
 
-public data class DELTA_INPUT_0(public var lpcStart: Long = 0L, public var lpStart: Long = 0L)
+public data class DeltaInput0(public var lpcStart: COpaquePointer? = null, public var lpStart: COpaquePointer? = null)
 
-public data class DELTA_OUTPUT(public var lpStart: Long = 0L, public var uSize: ULong = 0uL)
+public data class DeltaOutput(public var lpStart: COpaquePointer? = null, public var uSize: Int = 0)
 
-public data class FUSION_INSTALL_REFERENCE(
+public data class FusionInstallReference(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var guidScheme: GUID = GUID(),
-    public var szIdentifier: PCWSTR = 0L,
-    public var szNonCannonicalData: PCWSTR = 0L,
+    public var guidScheme: Guid = Guid(),
+    public var szIdentifier: Pcwstr = null,
+    public var szNonCannonicalData: Pcwstr = null,
 )
 
-public data class MSIFILEHASHINFO(public var dwFileHashInfoSize: UInt = 0u, public var dwData: UIntArray = UIntArray(4)) {
+public data class Msifilehashinfo(public var dwFileHashInfoSize: UInt = 0u, public var dwData: UIntArray = UIntArray(4)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MSIFILEHASHINFO) return false
+        if (other !is Msifilehashinfo) return false
         if (this.dwFileHashInfoSize != other.dwFileHashInfoSize) return false
         if (!this.dwData.contentEquals(other.dwData)) return false
         return true
@@ -181,233 +182,233 @@ public data class MSIFILEHASHINFO(public var dwFileHashInfoSize: UInt = 0u, publ
     }
 }
 
-public data class MSIPATCHSEQUENCEINFOA(
-    public var szPatchData: PCSTR = 0L,
-    public var ePatchDataType: MSIPATCHDATATYPE = 0,
+public data class Msipatchsequenceinfoa(
+    public var szPatchData: Pcstr = null,
+    public var ePatchDataType: Msipatchdatatype = 0,
     public var dwOrder: UInt = 0u,
     public var uStatus: UInt = 0u,
 )
 
-public data class MSIPATCHSEQUENCEINFOW(
-    public var szPatchData: PCWSTR = 0L,
-    public var ePatchDataType: MSIPATCHDATATYPE = 0,
+public data class Msipatchsequenceinfow(
+    public var szPatchData: Pcwstr = null,
+    public var ePatchDataType: Msipatchdatatype = 0,
     public var dwOrder: UInt = 0u,
     public var uStatus: UInt = 0u,
 )
 
-public data class PATCH_IGNORE_RANGE(public var OffsetInOldFile: UInt = 0u, public var LengthInBytes: UInt = 0u)
+public data class PatchIgnoreRange(public var offsetInOldFile: UInt = 0u, public var lengthInBytes: UInt = 0u)
 
-public data class PATCH_INTERLEAVE_MAP(public var CountRanges: UInt = 0u, public var Range: List<PATCH_INTERLEAVE_MAP_0> = List(1) { PATCH_INTERLEAVE_MAP_0() })
+public data class PatchInterleaveMap(public var countRanges: UInt = 0u, public var range: List<PatchInterleaveMap0> = List(1) { PatchInterleaveMap0() })
 
-public data class PATCH_INTERLEAVE_MAP_0(
-    public var OldOffset: UInt = 0u,
-    public var OldLength: UInt = 0u,
-    public var NewLength: UInt = 0u,
+public data class PatchInterleaveMap0(
+    public var oldOffset: UInt = 0u,
+    public var oldLength: UInt = 0u,
+    public var newLength: UInt = 0u,
 )
 
-public data class PATCH_OLD_FILE_INFO(
-    public var SizeOfThisStruct: UInt = 0u,
-    public var Anonymous: PATCH_OLD_FILE_INFO_0 = PATCH_OLD_FILE_INFO_0(),
-    public var IgnoreRangeCount: UInt = 0u,
-    public var IgnoreRangeArray: Long = 0L,
-    public var RetainRangeCount: UInt = 0u,
-    public var RetainRangeArray: Long = 0L,
+public data class PatchOldFileInfo(
+    public var sizeOfThisStruct: UInt = 0u,
+    public var anonymous: PatchOldFileInfo0 = PatchOldFileInfo0(),
+    public var ignoreRangeCount: UInt = 0u,
+    public var ignoreRangeArray: PatchIgnoreRange? = null,
+    public var retainRangeCount: UInt = 0u,
+    public var retainRangeArray: PatchRetainRange? = null,
 )
 
-public data class PATCH_OLD_FILE_INFO_0(
-    public var OldFileNameA: PCSTR = 0L,
-    public var OldFileNameW: PCWSTR = 0L,
-    public var OldFileHandle: HANDLE = 0L,
+public data class PatchOldFileInfo0(
+    public var oldFileNameA: Pcstr = null,
+    public var oldFileNameW: Pcwstr = null,
+    public var oldFileHandle: Handle = null,
 )
 
-public data class PATCH_OLD_FILE_INFO_A(
-    public var SizeOfThisStruct: UInt = 0u,
-    public var OldFileName: PCSTR = 0L,
-    public var IgnoreRangeCount: UInt = 0u,
-    public var IgnoreRangeArray: Long = 0L,
-    public var RetainRangeCount: UInt = 0u,
-    public var RetainRangeArray: Long = 0L,
+public data class PatchOldFileInfoA(
+    public var sizeOfThisStruct: UInt = 0u,
+    public var oldFileName: Pcstr = null,
+    public var ignoreRangeCount: UInt = 0u,
+    public var ignoreRangeArray: PatchIgnoreRange? = null,
+    public var retainRangeCount: UInt = 0u,
+    public var retainRangeArray: PatchRetainRange? = null,
 )
 
-public data class PATCH_OLD_FILE_INFO_H(
-    public var SizeOfThisStruct: UInt = 0u,
-    public var OldFileHandle: HANDLE = 0L,
-    public var IgnoreRangeCount: UInt = 0u,
-    public var IgnoreRangeArray: Long = 0L,
-    public var RetainRangeCount: UInt = 0u,
-    public var RetainRangeArray: Long = 0L,
+public data class PatchOldFileInfoH(
+    public var sizeOfThisStruct: UInt = 0u,
+    public var oldFileHandle: Handle = null,
+    public var ignoreRangeCount: UInt = 0u,
+    public var ignoreRangeArray: PatchIgnoreRange? = null,
+    public var retainRangeCount: UInt = 0u,
+    public var retainRangeArray: PatchRetainRange? = null,
 )
 
-public data class PATCH_OLD_FILE_INFO_W(
-    public var SizeOfThisStruct: UInt = 0u,
-    public var OldFileName: PCWSTR = 0L,
-    public var IgnoreRangeCount: UInt = 0u,
-    public var IgnoreRangeArray: Long = 0L,
-    public var RetainRangeCount: UInt = 0u,
-    public var RetainRangeArray: Long = 0L,
+public data class PatchOldFileInfoW(
+    public var sizeOfThisStruct: UInt = 0u,
+    public var oldFileName: Pcwstr = null,
+    public var ignoreRangeCount: UInt = 0u,
+    public var ignoreRangeArray: PatchIgnoreRange? = null,
+    public var retainRangeCount: UInt = 0u,
+    public var retainRangeArray: PatchRetainRange? = null,
 )
 
-public data class PATCH_OPTION_DATA(
-    public var SizeOfThisStruct: UInt = 0u,
-    public var SymbolOptionFlags: UInt = 0u,
-    public var NewFileSymbolPath: PCSTR = 0L,
-    public var OldFileSymbolPathArray: Long = 0L,
-    public var ExtendedOptionFlags: UInt = 0u,
-    public var SymLoadCallback: PPATCH_SYMLOAD_CALLBACK = null,
-    public var SymLoadContext: Long = 0L,
-    public var InterleaveMapArray: Long = 0L,
-    public var MaxLzxWindowSize: UInt = 0u,
+public data class PatchOptionData(
+    public var sizeOfThisStruct: UInt = 0u,
+    public var symbolOptionFlags: UInt = 0u,
+    public var newFileSymbolPath: Pcstr = null,
+    public var oldFileSymbolPathArray: Pcstr? = null,
+    public var extendedOptionFlags: UInt = 0u,
+    public var symLoadCallback: PpatchSymloadCallback = null,
+    public var symLoadContext: COpaquePointer? = null,
+    public var interleaveMapArray: COpaquePointer? = null,
+    public var maxLzxWindowSize: UInt = 0u,
 )
 
-public data class PATCH_RETAIN_RANGE(
-    public var OffsetInOldFile: UInt = 0u,
-    public var LengthInBytes: UInt = 0u,
-    public var OffsetInNewFile: UInt = 0u,
+public data class PatchRetainRange(
+    public var offsetInOldFile: UInt = 0u,
+    public var lengthInBytes: UInt = 0u,
+    public var offsetInNewFile: UInt = 0u,
 )
 
-public data class PMSIHANDLE(public var m_h: MSIHANDLE = 0u)
+public data class Pmsihandle(public var mH: Msihandle = 0u)
 
-public data class PM_APPTASKTYPE(public var ProductID: GUID = GUID(), public var TaskType: PM_TASK_TYPE = 0)
+public data class PmApptasktype(public var productID: Guid = Guid(), public var taskType: PmTaskType = 0)
 
-public data class PM_BSATASKID(public var ProductID: GUID = GUID(), public var TaskID: BSTR = 0L)
+public data class PmBsataskid(public var productID: Guid = Guid(), public var taskID: Bstr = null)
 
-public data class PM_BWTASKID(public var ProductID: GUID = GUID(), public var TaskID: BSTR = 0L)
+public data class PmBwtaskid(public var productID: Guid = Guid(), public var taskID: Bstr = null)
 
-public data class PM_ENUM_FILTER(public var FilterType: Int = 0, public var FilterParameter: PM_ENUM_FILTER_0 = PM_ENUM_FILTER_0())
+public data class PmEnumFilter(public var filterType: Int = 0, public var filterParameter: PmEnumFilter0 = PmEnumFilter0())
 
-public class PM_ENUM_FILTER_0(
-    public var Dummy: Int = 0,
-    public var Genre: PM_APP_GENRE = 0,
-    public var AppHubType: PM_APPLICATION_HUBTYPE = 0,
-    public var HubType: PM_TILE_HUBTYPE = 0,
-    public var Tasktype: PM_TASK_TYPE = 0,
-    public var TaskProductID: GUID = GUID(),
-    public var TileProductID: GUID = GUID(),
-    public var AppTaskType: PM_APPTASKTYPE = PM_APPTASKTYPE(),
-    public var Consumer: PM_EXTENSIONCONSUMER = PM_EXTENSIONCONSUMER(),
-    public var BSATask: PM_BSATASKID = PM_BSATASKID(),
-    public var BSAProductID: GUID = GUID(),
-    public var BWTask: PM_BWTASKID = PM_BWTASKID(),
-    public var ProtocolName: BSTR = 0L,
-    public var FileType: BSTR = 0L,
-    public var ContentType: BSTR = 0L,
-    public var AppSupportedFileExtPID: GUID = GUID(),
-    public var ShareTargetFileType: BSTR = 0L,
+public class PmEnumFilter0(
+    public var dummy: Int = 0,
+    public var genre: PmAppGenre = 0,
+    public var appHubType: PmApplicationHubtype = 0,
+    public var hubType: PmTileHubtype = 0,
+    public var tasktype: PmTaskType = 0,
+    public var taskProductID: Guid = Guid(),
+    public var tileProductID: Guid = Guid(),
+    public var appTaskType: PmApptasktype = PmApptasktype(),
+    public var consumer: PmExtensionconsumer = PmExtensionconsumer(),
+    public var bSATask: PmBsataskid = PmBsataskid(),
+    public var bSAProductID: Guid = Guid(),
+    public var bWTask: PmBwtaskid = PmBwtaskid(),
+    public var protocolName: Bstr = null,
+    public var fileType: Bstr = null,
+    public var contentType: Bstr = null,
+    public var appSupportedFileExtPID: Guid = Guid(),
+    public var shareTargetFileType: Bstr = null,
 )
 
-public data class PM_EXTENSIONCONSUMER(public var ConsumerPID: GUID = GUID(), public var ExtensionID: BSTR = 0L)
+public data class PmExtensionconsumer(public var consumerPID: Guid = Guid(), public var extensionID: Bstr = null)
 
-public data class PM_INSTALLINFO(
-    public var ProductID: GUID = GUID(),
-    public var PackagePath: BSTR = 0L,
-    public var InstanceID: GUID = GUID(),
-    public var pbLicense: Long = 0L,
+public data class PmInstallinfo(
+    public var productID: Guid = Guid(),
+    public var packagePath: Bstr = null,
+    public var instanceID: Guid = Guid(),
+    public var pbLicense: COpaquePointer? = null,
     public var cbLicense: UInt = 0u,
-    public var IsUninstallDisabled: BOOL = 0,
-    public var DeploymentOptions: UInt = 0u,
-    public var OfferID: GUID = GUID(),
-    public var MarketplaceAppVersion: BSTR = 0L,
+    public var isUninstallDisabled: Bool = 0,
+    public var deploymentOptions: UInt = 0u,
+    public var offerID: Guid = Guid(),
+    public var marketplaceAppVersion: Bstr = null,
 )
 
-public data class PM_INVOCATIONINFO(public var URIBaseOrAUMID: BSTR = 0L, public var URIFragmentOrArgs: BSTR = 0L)
+public data class PmInvocationinfo(public var uRIBaseOrAUMID: Bstr = null, public var uRIFragmentOrArgs: Bstr = null)
 
-public data class PM_STARTAPPBLOB(
+public data class PmStartappblob(
     public var cbSize: UInt = 0u,
-    public var ProductID: GUID = GUID(),
-    public var AppTitle: BSTR = 0L,
-    public var IconPath: BSTR = 0L,
-    public var IsUninstallable: BOOL = 0,
-    public var AppInstallType: PM_APPLICATION_INSTALL_TYPE = 0,
-    public var InstanceID: GUID = GUID(),
-    public var State: PM_APPLICATION_STATE = 0,
-    public var IsModern: BOOL = 0,
-    public var IsModernLightUp: BOOL = 0,
-    public var LightUpSupportMask: UShort = 0u,
+    public var productID: Guid = Guid(),
+    public var appTitle: Bstr = null,
+    public var iconPath: Bstr = null,
+    public var isUninstallable: Bool = 0,
+    public var appInstallType: PmApplicationInstallType = 0,
+    public var instanceID: Guid = Guid(),
+    public var state: PmApplicationState = 0,
+    public var isModern: Bool = 0,
+    public var isModernLightUp: Bool = 0,
+    public var lightUpSupportMask: UShort = 0u,
 )
 
-public data class PM_STARTTILEBLOB(
+public data class PmStarttileblob(
     public var cbSize: UInt = 0u,
-    public var ProductID: GUID = GUID(),
-    public var TileID: BSTR = 0L,
-    public var TemplateType: TILE_TEMPLATE_TYPE = 0,
-    public var HubPosition: UIntArray = UIntArray(32),
-    public var HubVisibilityBitmask: UInt = 0u,
-    public var IsDefault: BOOL = 0,
-    public var TileType: PM_STARTTILE_TYPE = 0,
-    public var pbPropBlob: Long = 0L,
+    public var productID: Guid = Guid(),
+    public var tileID: Bstr = null,
+    public var templateType: TileTemplateType = 0,
+    public var hubPosition: UIntArray = UIntArray(32),
+    public var hubVisibilityBitmask: UInt = 0u,
+    public var isDefault: Bool = 0,
+    public var tileType: PmStarttileType = 0,
+    public var pbPropBlob: COpaquePointer? = null,
     public var cbPropBlob: UInt = 0u,
-    public var IsRestoring: BOOL = 0,
-    public var IsModern: BOOL = 0,
-    public var InvocationInfo: PM_INVOCATIONINFO = PM_INVOCATIONINFO(),
+    public var isRestoring: Bool = 0,
+    public var isModern: Bool = 0,
+    public var invocationInfo: PmInvocationinfo = PmInvocationinfo(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PM_STARTTILEBLOB) return false
+        if (other !is PmStarttileblob) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.ProductID != other.ProductID) return false
-        if (this.TileID != other.TileID) return false
-        if (this.TemplateType != other.TemplateType) return false
-        if (!this.HubPosition.contentEquals(other.HubPosition)) return false
-        if (this.HubVisibilityBitmask != other.HubVisibilityBitmask) return false
-        if (this.IsDefault != other.IsDefault) return false
-        if (this.TileType != other.TileType) return false
+        if (this.productID != other.productID) return false
+        if (this.tileID != other.tileID) return false
+        if (this.templateType != other.templateType) return false
+        if (!this.hubPosition.contentEquals(other.hubPosition)) return false
+        if (this.hubVisibilityBitmask != other.hubVisibilityBitmask) return false
+        if (this.isDefault != other.isDefault) return false
+        if (this.tileType != other.tileType) return false
         if (this.pbPropBlob != other.pbPropBlob) return false
         if (this.cbPropBlob != other.cbPropBlob) return false
-        if (this.IsRestoring != other.IsRestoring) return false
-        if (this.IsModern != other.IsModern) return false
-        if (this.InvocationInfo != other.InvocationInfo) return false
+        if (this.isRestoring != other.isRestoring) return false
+        if (this.isModern != other.isModern) return false
+        if (this.invocationInfo != other.invocationInfo) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.ProductID.hashCode()
-        result = 31 * result + this.TileID.hashCode()
-        result = 31 * result + this.TemplateType.hashCode()
-        result = 31 * result + this.HubPosition.contentHashCode()
-        result = 31 * result + this.HubVisibilityBitmask.hashCode()
-        result = 31 * result + this.IsDefault.hashCode()
-        result = 31 * result + this.TileType.hashCode()
+        result = 31 * result + this.productID.hashCode()
+        result = 31 * result + this.tileID.hashCode()
+        result = 31 * result + this.templateType.hashCode()
+        result = 31 * result + this.hubPosition.contentHashCode()
+        result = 31 * result + this.hubVisibilityBitmask.hashCode()
+        result = 31 * result + this.isDefault.hashCode()
+        result = 31 * result + this.tileType.hashCode()
         result = 31 * result + this.pbPropBlob.hashCode()
         result = 31 * result + this.cbPropBlob.hashCode()
-        result = 31 * result + this.IsRestoring.hashCode()
-        result = 31 * result + this.IsModern.hashCode()
-        result = 31 * result + this.InvocationInfo.hashCode()
+        result = 31 * result + this.isRestoring.hashCode()
+        result = 31 * result + this.isModern.hashCode()
+        result = 31 * result + this.invocationInfo.hashCode()
         return result
     }
 }
 
-public data class PM_UPDATEINFO(
-    public var ProductID: GUID = GUID(),
-    public var PackagePath: BSTR = 0L,
-    public var InstanceID: GUID = GUID(),
-    public var pbLicense: Long = 0L,
+public data class PmUpdateinfo(
+    public var productID: Guid = Guid(),
+    public var packagePath: Bstr = null,
+    public var instanceID: Guid = Guid(),
+    public var pbLicense: COpaquePointer? = null,
     public var cbLicense: UInt = 0u,
-    public var MarketplaceAppVersion: BSTR = 0L,
-    public var DeploymentOptions: UInt = 0u,
+    public var marketplaceAppVersion: Bstr = null,
+    public var deploymentOptions: UInt = 0u,
 )
 
-public data class PM_UPDATEINFO_LEGACY(
-    public var ProductID: GUID = GUID(),
-    public var PackagePath: BSTR = 0L,
-    public var InstanceID: GUID = GUID(),
-    public var pbLicense: Long = 0L,
+public data class PmUpdateinfoLegacy(
+    public var productID: Guid = Guid(),
+    public var packagePath: Bstr = null,
+    public var instanceID: Guid = Guid(),
+    public var pbLicense: COpaquePointer? = null,
     public var cbLicense: UInt = 0u,
-    public var MarketplaceAppVersion: BSTR = 0L,
+    public var marketplaceAppVersion: Bstr = null,
 )
 
-public data class PROTECTED_FILE_DATA(public var FileName: UShortArray = UShortArray(260), public var FileNumber: UInt = 0u) {
+public data class ProtectedFileData(public var fileName: UShortArray = UShortArray(260), public var fileNumber: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROTECTED_FILE_DATA) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
-        if (this.FileNumber != other.FileNumber) return false
+        if (other !is ProtectedFileData) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
+        if (this.fileNumber != other.fileNumber) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.FileName.contentHashCode()
-        result = 31 * result + this.FileNumber.hashCode()
+        var result = this.fileName.contentHashCode()
+        result = 31 * result + this.fileNumber.hashCode()
         return result
     }
 }

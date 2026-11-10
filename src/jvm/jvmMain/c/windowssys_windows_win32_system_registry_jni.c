@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1GetRegistryValueWithFallbackW(JNIEnv* km_env, jclass km_clazz, jlong hkeyprimary, jlong pwszprimarysubkey, jlong hkeyfallback, jlong pwszfallbacksubkey, jlong pwszvalue, jint dwflags, jlong pdwtype, jlong pvdata, jint cbdatain, jlong pcbdataout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1getRegistryValueWithFallbackW(JNIEnv* km_env, jclass km_clazz, jlong hkeyprimary, jlong pwszprimarysubkey, jlong hkeyfallback, jlong pwszfallbacksubkey, jlong pwszvalue, jint dwflags, jlong pdwtype, jlong pvdata, jint cbdatain, jlong pcbdataout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCloseKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCloseKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -63,7 +63,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegConnectRegistryA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regConnectRegistryA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -83,7 +83,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegConnectRegistryExA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jint flags, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regConnectRegistryExA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jint flags, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -104,7 +104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegConnectRegistryExW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jint flags, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regConnectRegistryExW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jint flags, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegConnectRegistryW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regConnectRegistryW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong hkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCopyTreeA(JNIEnv* km_env, jclass km_clazz, jlong hkeysrc, jlong lpsubkey, jlong hkeydest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCopyTreeA(JNIEnv* km_env, jclass km_clazz, jlong hkeysrc, jlong lpsubkey, jlong hkeydest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -165,7 +165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCopyTreeW(JNIEnv* km_env, jclass km_clazz, jlong hkeysrc, jlong lpsubkey, jlong hkeydest) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCopyTreeW(JNIEnv* km_env, jclass km_clazz, jlong hkeysrc, jlong lpsubkey, jlong hkeydest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -185,7 +185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -231,7 +231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong htransaction, jlong pextendedparemeter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong htransaction, jlong pextendedparemeter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -285,7 +285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong htransaction, jlong pextendedparemeter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint reserved, jlong lpclass, jint dwoptions, jint samdesired, jlong lpsecurityattributes, jlong phkresult, jlong lpdwdisposition, jlong htransaction, jlong pextendedparemeter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -313,7 +313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegCreateKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regCreateKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -333,7 +333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -352,7 +352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -373,7 +373,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -394,7 +394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved, jlong htransaction, jlong pextendedparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved, jlong htransaction, jlong pextendedparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -417,7 +417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved, jlong htransaction, jlong pextendedparameter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint samdesired, jint reserved, jlong htransaction, jlong pextendedparameter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -480,7 +480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteTreeA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteTreeA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -518,7 +518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteTreeW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteTreeW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -537,7 +537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -556,7 +556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDeleteValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDeleteValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDisablePredefinedCache(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDisablePredefinedCache(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -592,7 +592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDisablePredefinedCacheEx(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDisablePredefinedCacheEx(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -609,7 +609,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegDisableReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regDisableReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnableReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnableReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -645,7 +645,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jint cchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jint cchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -666,7 +666,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jlong lpcchname, jlong lpreserved, jlong lpclass, jlong lpcchclass, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jlong lpcchname, jlong lpreserved, jlong lpclass, jlong lpcchclass, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -691,7 +691,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jlong lpcchname, jlong lpreserved, jlong lpclass, jlong lpcchclass, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jlong lpcchname, jlong lpreserved, jlong lpclass, jlong lpcchclass, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -716,7 +716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jint cchname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpname, jint cchname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -737,7 +737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpvaluename, jlong lpcchvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpvaluename, jlong lpcchvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -762,7 +762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegEnumValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpvaluename, jlong lpcchvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regEnumValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwindex, jlong lpvaluename, jlong lpcchvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -787,7 +787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegFlushKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regFlushKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -805,7 +805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regGetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -826,7 +826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegGetValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvalue, jint dwflags, jlong pdwtype, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regGetValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvalue, jint dwflags, jlong pdwtype, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -850,7 +850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegGetValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvalue, jint dwflags, jlong pdwtype, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regGetValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvalue, jint dwflags, jlong pdwtype, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -874,7 +874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadAppKeyA(JNIEnv* km_env, jclass km_clazz, jlong lpfile, jlong phkresult, jint samdesired, jint dwoptions, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadAppKeyA(JNIEnv* km_env, jclass km_clazz, jlong lpfile, jlong phkresult, jint samdesired, jint dwoptions, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -896,7 +896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadAppKeyW(JNIEnv* km_env, jclass km_clazz, jlong lpfile, jlong phkresult, jint samdesired, jint dwoptions, jint reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadAppKeyW(JNIEnv* km_env, jclass km_clazz, jlong lpfile, jlong phkresult, jint samdesired, jint dwoptions, jint reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -918,7 +918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -938,7 +938,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -958,7 +958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadMUIStringA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszvalue, jlong pszoutbuf, jint cboutbuf, jlong pcbdata, jint flags, jlong pszdirectory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadMUIStringA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszvalue, jlong pszoutbuf, jint cboutbuf, jlong pcbdata, jint flags, jlong pszdirectory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -982,7 +982,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegLoadMUIStringW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszvalue, jlong pszoutbuf, jint cboutbuf, jlong pcbdata, jint flags, jlong pszdirectory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regLoadMUIStringW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszvalue, jlong pszoutbuf, jint cboutbuf, jlong pcbdata, jint flags, jlong pszdirectory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1006,7 +1006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegNotifyChangeKeyValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint bwatchsubtree, jint dwnotifyfilter, jlong hevent, jint fasynchronous) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regNotifyChangeKeyValue(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint bwatchsubtree, jint dwnotifyfilter, jlong hevent, jint fasynchronous) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1028,7 +1028,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenCurrentUser(JNIEnv* km_env, jclass km_clazz, jint samdesired, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenCurrentUser(JNIEnv* km_env, jclass km_clazz, jint samdesired, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1047,7 +1047,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1067,7 +1067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1089,7 +1089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1111,7 +1111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult, jlong htransaction, jlong pextendedparemeter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyTransactedA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult, jlong htransaction, jlong pextendedparemeter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1135,7 +1135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult, jlong htransaction, jlong pextendedparemeter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyTransactedW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint uloptions, jint samdesired, jlong phkresult, jlong htransaction, jlong pextendedparemeter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1159,7 +1159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1179,7 +1179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOpenUserClassesRoot(JNIEnv* km_env, jclass km_clazz, jlong htoken, jint dwoptions, jint samdesired, jlong phkresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOpenUserClassesRoot(JNIEnv* km_env, jclass km_clazz, jlong htoken, jint dwoptions, jint samdesired, jlong phkresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1200,7 +1200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegOverridePredefKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hnewhkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regOverridePredefKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hnewhkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1219,7 +1219,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryInfoKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpclass, jlong lpcchclass, jlong lpreserved, jlong lpcsubkeys, jlong lpcbmaxsubkeylen, jlong lpcbmaxclasslen, jlong lpcvalues, jlong lpcbmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryInfoKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpclass, jlong lpcchclass, jlong lpreserved, jlong lpcsubkeys, jlong lpcbmaxsubkeylen, jlong lpcbmaxclasslen, jlong lpcvalues, jlong lpcbmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1248,7 +1248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryInfoKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpclass, jlong lpcchclass, jlong lpreserved, jlong lpcsubkeys, jlong lpcbmaxsubkeylen, jlong lpcbmaxclasslen, jlong lpcvalues, jlong lpcbmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryInfoKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpclass, jlong lpcchclass, jlong lpreserved, jlong lpcsubkeys, jlong lpcbmaxsubkeylen, jlong lpcbmaxclasslen, jlong lpcvalues, jlong lpcbmaxvaluenamelen, jlong lpcbmaxvaluelen, jlong lpcbsecuritydescriptor, jlong lpftlastwritetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1277,7 +1277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryMultipleValuesA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong val_list, jint num_vals, jlong lpvaluebuf, jlong ldwtotsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryMultipleValuesA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong val_list, jint num_vals, jlong lpvaluebuf, jlong ldwtotsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1299,7 +1299,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryMultipleValuesW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong val_list, jint num_vals, jlong lpvaluebuf, jlong ldwtotsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryMultipleValuesW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong val_list, jint num_vals, jlong lpvaluebuf, jlong ldwtotsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1321,7 +1321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase, jlong bisreflectiondisabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryReflectionKey(JNIEnv* km_env, jclass km_clazz, jlong hbase, jlong bisreflectiondisabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1340,7 +1340,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryValueExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryValueExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1384,7 +1384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryValueExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryValueExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jlong lpreserved, jlong lptype, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1407,7 +1407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegQueryValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpdata, jlong lpcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regQueryValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpdata, jlong lpcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1428,7 +1428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegRenameKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkeyname, jlong lpnewkeyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regRenameKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkeyname, jlong lpnewkeyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1448,7 +1448,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegReplaceKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpnewfile, jlong lpoldfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regReplaceKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpnewfile, jlong lpoldfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1469,7 +1469,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegReplaceKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpnewfile, jlong lpoldfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regReplaceKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpnewfile, jlong lpoldfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1490,7 +1490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegRestoreKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regRestoreKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1510,7 +1510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegRestoreKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regRestoreKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1530,7 +1530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSaveKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSaveKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1550,7 +1550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSaveKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSaveKeyExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1571,7 +1571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSaveKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSaveKeyExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1592,7 +1592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSaveKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSaveKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpfile, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1612,7 +1612,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetKeySecurity(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1632,7 +1632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetKeyValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetKeyValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1655,7 +1655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetKeyValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetKeyValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jlong lpvaluename, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1678,7 +1678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetValueA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1700,7 +1700,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetValueExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetValueExA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1723,7 +1723,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetValueExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetValueExW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpvaluename, jint reserved, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1746,7 +1746,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegSetValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwtype, jlong lpdata, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regSetValueW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey, jint dwtype, jlong lpdata, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1768,7 +1768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegUnLoadKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regUnLoadKeyA(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1787,7 +1787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1RegUnLoadKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_registry_WindowsWin32SystemRegistryJniBridge_windowssys_1windows_1win32_1system_1registry_1regUnLoadKeyW(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong lpsubkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

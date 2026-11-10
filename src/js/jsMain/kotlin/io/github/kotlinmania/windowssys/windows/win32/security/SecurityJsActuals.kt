@@ -2,421 +2,428 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private val _windowsWin32SecurityNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheck(psecuritydescriptor.toString(), clienttoken.toString(), desiredaccess.toInt(), genericmapping.toString(), privilegeset.toString(), privilegesetlength.toString(), grantedaccess.toString(), accessstatus.toString()) as Int) else 0
+public actual fun accessCheck(psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheck((psecuritydescriptor?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (genericmapping?.value ?: 0L).toString(), (privilegeset?.value ?: 0L).toString(), (privilegesetlength?.value ?: 0L).toString(), (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckAndAuditAlarmA(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), desiredaccess.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckAndAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), desiredaccess.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckAndAuditAlarmW(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), desiredaccess.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckAndAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), desiredaccess.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByType(psecuritydescriptor.toString(), principalselfsid.toString(), clienttoken.toString(), desiredaccess.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), privilegeset.toString(), privilegesetlength.toString(), grantedaccess.toString(), accessstatus.toString()) as Int) else 0
+public actual fun accessCheckByType(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByType((psecuritydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), (privilegeset?.value ?: 0L).toString(), (privilegesetlength?.value ?: 0L).toString(), (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmA(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmW(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatus.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatus?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccesslist: Long, accessstatuslist: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeResultList(psecuritydescriptor.toString(), principalselfsid.toString(), clienttoken.toString(), desiredaccess.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), privilegeset.toString(), privilegesetlength.toString(), grantedaccesslist.toString(), accessstatuslist.toString()) as Int) else 0
+public actual fun accessCheckByTypeResultList(psecuritydescriptor: PsecurityDescriptor, principalselfsid: Psid, clienttoken: Handle, desiredaccess: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeResultList((psecuritydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), (privilegeset?.value ?: 0L).toString(), (privilegesetlength?.value ?: 0L).toString(), (grantedaccesslist?.value ?: 0L).toString(), (accessstatuslist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmA(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatuslist.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeResultListAndAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatuslist?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: PCSTR, handleid: Long, clienttoken: HANDLE, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname.toString(), handleid.toString(), clienttoken.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccess.toString(), accessstatuslist.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: Pcstr, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: Pcstr, objectname: Pcstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccess: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccess?.value ?: 0L).toString(), (accessstatuslist?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: PCWSTR, handleid: Long, clienttoken: HANDLE, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname.toString(), handleid.toString(), clienttoken.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccesslist.toString(), accessstatuslist.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: Pcwstr, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccesslist?.value ?: 0L).toString(), (accessstatuslist?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmW(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), securitydescriptor.toString(), principalselfsid.toString(), desiredaccess.toInt(), audittype, flags.toInt(), objecttypelist.toString(), objecttypelistlength.toInt(), genericmapping.toString(), objectcreation, grantedaccesslist.toString(), accessstatuslist.toString(), pfgenerateonclose.toString()) as Int) else 0
+public actual fun accessCheckByTypeResultListAndAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Bool, grantedaccesslist: COpaquePointer?, accessstatuslist: COpaquePointer?, pfgenerateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString(), (principalselfsid?.value ?: 0L).toString(), desiredaccess.toInt(), audittype, flags.toInt(), (objecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (genericmapping?.value ?: 0L).toString(), objectcreation, (grantedaccesslist?.value ?: 0L).toString(), (accessstatuslist?.value ?: 0L).toString(), (pfgenerateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessAllowedAce(pacl: Long, dwacerevision: ACE_REVISION, accessmask: UInt, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessAllowedAce(pacl.toString(), dwacerevision.toInt(), accessmask.toInt(), psid.toString()) as Int) else 0
+public actual fun addAccessAllowedAce(pacl: COpaquePointer?, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessAllowedAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessAllowedAceEx(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessAllowedAceEx(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.toString()) as Int) else 0
+public actual fun addAccessAllowedAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessAllowedAceEx((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessAllowedObjectAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessAllowedObjectAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.toString(), inheritedobjecttypeguid.toString(), psid.toString()) as Int) else 0
+public actual fun addAccessAllowedObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessAllowedObjectAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L).toString(), (inheritedobjecttypeguid?.value ?: 0L).toString(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessDeniedAce(pacl: Long, dwacerevision: ACE_REVISION, accessmask: UInt, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessDeniedAce(pacl.toString(), dwacerevision.toInt(), accessmask.toInt(), psid.toString()) as Int) else 0
+public actual fun addAccessDeniedAce(pacl: COpaquePointer?, dwacerevision: AceRevision, accessmask: UInt, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessDeniedAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessDeniedAceEx(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessDeniedAceEx(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.toString()) as Int) else 0
+public actual fun addAccessDeniedAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessDeniedAceEx((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAccessDeniedObjectAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAccessDeniedObjectAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.toString(), inheritedobjecttypeguid.toString(), psid.toString()) as Int) else 0
+public actual fun addAccessDeniedObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAccessDeniedObjectAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L).toString(), (inheritedobjecttypeguid?.value ?: 0L).toString(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAce(pacl: Long, dwacerevision: ACE_REVISION, dwstartingaceindex: UInt, pacelist: Long, nacelistlength: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAce(pacl.toString(), dwacerevision.toInt(), dwstartingaceindex.toInt(), pacelist.toString(), nacelistlength.toInt()) as Int) else 0
+public actual fun addAce(pacl: COpaquePointer?, dwacerevision: AceRevision, dwstartingaceindex: UInt, pacelist: COpaquePointer?, nacelistlength: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), dwstartingaceindex.toInt(), (pacelist?.value ?: 0L).toString(), nacelistlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAuditAccessAce(pacl: Long, dwacerevision: ACE_REVISION, dwaccessmask: UInt, psid: PSID, bauditsuccess: BOOL, bauditfailure: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAuditAccessAce(pacl.toString(), dwacerevision.toInt(), dwaccessmask.toInt(), psid.toString(), bauditsuccess, bauditfailure) as Int) else 0
+public actual fun addAuditAccessAce(pacl: COpaquePointer?, dwacerevision: AceRevision, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAuditAccessAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), dwaccessmask.toInt(), (psid?.value ?: 0L).toString(), bauditsuccess, bauditfailure) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAuditAccessAceEx(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, dwaccessmask: UInt, psid: PSID, bauditsuccess: BOOL, bauditfailure: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAuditAccessAceEx(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), dwaccessmask.toInt(), psid.toString(), bauditsuccess, bauditfailure) as Int) else 0
+public actual fun addAuditAccessAceEx(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, dwaccessmask: UInt, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAuditAccessAceEx((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), dwaccessmask.toInt(), (psid?.value ?: 0L).toString(), bauditsuccess, bauditfailure) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddAuditAccessObjectAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, objecttypeguid: Long, inheritedobjecttypeguid: Long, psid: PSID, bauditsuccess: BOOL, bauditfailure: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddAuditAccessObjectAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), objecttypeguid.toString(), inheritedobjecttypeguid.toString(), psid.toString(), bauditsuccess, bauditfailure) as Int) else 0
+public actual fun addAuditAccessObjectAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, objecttypeguid: COpaquePointer?, inheritedobjecttypeguid: COpaquePointer?, psid: Psid, bauditsuccess: Bool, bauditfailure: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addAuditAccessObjectAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (objecttypeguid?.value ?: 0L).toString(), (inheritedobjecttypeguid?.value ?: 0L).toString(), (psid?.value ?: 0L).toString(), bauditsuccess, bauditfailure) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddConditionalAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, acetype: UByte, accessmask: UInt, psid: PSID, conditionstr: PCWSTR, returnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddConditionalAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), acetype.toInt(), accessmask.toInt(), psid.toString(), conditionstr.toString(), returnlength.toString()) as Int) else 0
+public actual fun addConditionalAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, acetype: UByte, accessmask: UInt, psid: Psid, conditionstr: Pcwstr, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addConditionalAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), acetype.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString(), (conditionstr?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddMandatoryAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: UInt, plabelsid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddMandatoryAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), mandatorypolicy.toInt(), plabelsid.toString()) as Int) else 0
+public actual fun addMandatoryAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, mandatorypolicy: UInt, plabelsid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addMandatoryAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), mandatorypolicy.toInt(), (plabelsid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddResourceAttributeAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, psid: PSID, pattributeinfo: Long, preturnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddResourceAttributeAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.toString(), pattributeinfo.toString(), preturnlength.toString()) as Int) else 0
+public actual fun addResourceAttributeAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid, pattributeinfo: COpaquePointer?, preturnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addResourceAttributeAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString(), (pattributeinfo?.value ?: 0L).toString(), (preturnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddScopedPolicyIDAce(pacl: Long, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, accessmask: UInt, psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AddScopedPolicyIDAce(pacl.toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), psid.toString()) as Int) else 0
+public actual fun addScopedPolicyIDAce(pacl: COpaquePointer?, dwacerevision: AceRevision, aceflags: AceFlags, accessmask: UInt, psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_addScopedPolicyIDAce((pacl?.value ?: 0L).toString(), dwacerevision.toInt(), aceflags.toInt(), accessmask.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdjustTokenGroups(tokenhandle: HANDLE, resettodefault: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AdjustTokenGroups(tokenhandle.toString(), resettodefault, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun adjustTokenGroups(tokenhandle: Handle, resettodefault: Bool, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_adjustTokenGroups((tokenhandle?.value ?: 0L).toString(), resettodefault, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdjustTokenPrivileges(tokenhandle: HANDLE, disableallprivileges: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AdjustTokenPrivileges(tokenhandle.toString(), disableallprivileges, newstate.toString(), bufferlength.toInt(), previousstate.toString(), returnlength.toString()) as Int) else 0
+public actual fun adjustTokenPrivileges(tokenhandle: Handle, disableallprivileges: Bool, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_adjustTokenPrivileges((tokenhandle?.value ?: 0L).toString(), disableallprivileges, (newstate?.value ?: 0L).toString(), bufferlength.toInt(), (previousstate?.value ?: 0L).toString(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllocateAndInitializeSid(pidentifierauthority: Long, nsubauthoritycount: UByte, nsubauthority0: UInt, nsubauthority1: UInt, nsubauthority2: UInt, nsubauthority3: UInt, nsubauthority4: UInt, nsubauthority5: UInt, nsubauthority6: UInt, nsubauthority7: UInt, psid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AllocateAndInitializeSid(pidentifierauthority.toString(), nsubauthoritycount.toInt(), nsubauthority0.toInt(), nsubauthority1.toInt(), nsubauthority2.toInt(), nsubauthority3.toInt(), nsubauthority4.toInt(), nsubauthority5.toInt(), nsubauthority6.toInt(), nsubauthority7.toInt(), psid.toString()) as Int) else 0
+public actual fun allocateAndInitializeSid(pidentifierauthority: COpaquePointer?, nsubauthoritycount: UByte, nsubauthority0: UInt, nsubauthority1: UInt, nsubauthority2: UInt, nsubauthority3: UInt, nsubauthority4: UInt, nsubauthority5: UInt, nsubauthority6: UInt, nsubauthority7: UInt, psid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_allocateAndInitializeSid((pidentifierauthority?.value ?: 0L).toString(), nsubauthoritycount.toInt(), nsubauthority0.toInt(), nsubauthority1.toInt(), nsubauthority2.toInt(), nsubauthority3.toInt(), nsubauthority4.toInt(), nsubauthority5.toInt(), nsubauthority6.toInt(), nsubauthority7.toInt(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllocateLocallyUniqueId(luid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AllocateLocallyUniqueId(luid.toString()) as Int) else 0
+public actual fun allocateLocallyUniqueId(luid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_allocateLocallyUniqueId((luid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AreAllAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AreAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()) as Int) else 0
+public actual fun areAllAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_areAllAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AreAnyAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_AreAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()) as Int) else 0
+public actual fun areAnyAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_areAnyAccessesGranted(grantedaccess.toInt(), desiredaccess.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckTokenCapability(tokenhandle: HANDLE, capabilitysidtocheck: PSID, hascapability: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CheckTokenCapability(tokenhandle.toString(), capabilitysidtocheck.toString(), hascapability.toString()) as Int) else 0
+public actual fun checkTokenCapability(tokenhandle: Handle, capabilitysidtocheck: Psid, hascapability: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_checkTokenCapability((tokenhandle?.value ?: 0L).toString(), (capabilitysidtocheck?.value ?: 0L).toString(), (hascapability?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckTokenMembership(tokenhandle: HANDLE, sidtocheck: PSID, ismember: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CheckTokenMembership(tokenhandle.toString(), sidtocheck.toString(), ismember.toString()) as Int) else 0
+public actual fun checkTokenMembership(tokenhandle: Handle, sidtocheck: Psid, ismember: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_checkTokenMembership((tokenhandle?.value ?: 0L).toString(), (sidtocheck?.value ?: 0L).toString(), (ismember?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckTokenMembershipEx(tokenhandle: HANDLE, sidtocheck: PSID, flags: UInt, ismember: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CheckTokenMembershipEx(tokenhandle.toString(), sidtocheck.toString(), flags.toInt(), ismember.toString()) as Int) else 0
+public actual fun checkTokenMembershipEx(tokenhandle: Handle, sidtocheck: Psid, flags: UInt, ismember: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_checkTokenMembershipEx((tokenhandle?.value ?: 0L).toString(), (sidtocheck?.value ?: 0L).toString(), flags.toInt(), (ismember?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, currentsecuritydescriptor: PSECURITY_DESCRIPTOR, newsecuritydescriptor: Long, objecttype: Long, isdirectoryobject: Boolean, genericmapping: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor.toString(), currentsecuritydescriptor.toString(), newsecuritydescriptor.toString(), objecttype.toString(), isdirectoryobject, genericmapping.toString()) as Int) else 0
+public actual fun convertToAutoInheritPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, currentsecuritydescriptor: PsecurityDescriptor, newsecuritydescriptor: COpaquePointer?, objecttype: COpaquePointer?, isdirectoryobject: Boolean, genericmapping: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_convertToAutoInheritPrivateObjectSecurity((parentdescriptor?.value ?: 0L).toString(), (currentsecuritydescriptor?.value ?: 0L).toString(), (newsecuritydescriptor?.value ?: 0L).toString(), (objecttype?.value ?: 0L).toString(), isdirectoryobject, (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopySid(ndestinationsidlength: UInt, pdestinationsid: PSID, psourcesid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CopySid(ndestinationsidlength.toInt(), pdestinationsid.toString(), psourcesid.toString()) as Int) else 0
+public actual fun copySid(ndestinationsidlength: UInt, pdestinationsid: Psid, psourcesid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_copySid(ndestinationsidlength.toInt(), (pdestinationsid?.value ?: 0L).toString(), (psourcesid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, isdirectoryobject: BOOL, token: HANDLE, genericmapping: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CreatePrivateObjectSecurity(parentdescriptor.toString(), creatordescriptor.toString(), newdescriptor.toString(), isdirectoryobject, token.toString(), genericmapping.toString()) as Int) else 0
+public actual fun createPrivateObjectSecurity(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, isdirectoryobject: Bool, token: Handle, genericmapping: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_createPrivateObjectSecurity((parentdescriptor?.value ?: 0L).toString(), (creatordescriptor?.value ?: 0L).toString(), (newdescriptor?.value ?: 0L).toString(), isdirectoryobject, (token?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrivateObjectSecurityEx(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttype: Long, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: HANDLE, genericmapping: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CreatePrivateObjectSecurityEx(parentdescriptor.toString(), creatordescriptor.toString(), newdescriptor.toString(), objecttype.toString(), iscontainerobject, autoinheritflags.toInt(), token.toString(), genericmapping.toString()) as Int) else 0
+public actual fun createPrivateObjectSecurityEx(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, objecttype: COpaquePointer?, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_createPrivateObjectSecurityEx((parentdescriptor?.value ?: 0L).toString(), (creatordescriptor?.value ?: 0L).toString(), (newdescriptor?.value ?: 0L).toString(), (objecttype?.value ?: 0L).toString(), iscontainerobject, autoinheritflags.toInt(), (token?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttypes: Long, guidcount: UInt, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: HANDLE, genericmapping: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.toString(), creatordescriptor.toString(), newdescriptor.toString(), objecttypes.toString(), guidcount.toInt(), iscontainerobject, autoinheritflags.toInt(), token.toString(), genericmapping.toString()) as Int) else 0
+public actual fun createPrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PsecurityDescriptor, creatordescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, objecttypes: COpaquePointer?, guidcount: UInt, iscontainerobject: Bool, autoinheritflags: SecurityAutoInheritFlags, token: Handle, genericmapping: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_createPrivateObjectSecurityWithMultipleInheritance((parentdescriptor?.value ?: 0L).toString(), (creatordescriptor?.value ?: 0L).toString(), (newdescriptor?.value ?: 0L).toString(), (objecttypes?.value ?: 0L).toString(), guidcount.toInt(), iscontainerobject, autoinheritflags.toInt(), (token?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateRestrictedToken(existingtokenhandle: HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: UInt, sidstodisable: Long, deleteprivilegecount: UInt, privilegestodelete: Long, restrictedsidcount: UInt, sidstorestrict: Long, newtokenhandle: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CreateRestrictedToken(existingtokenhandle.toString(), flags.toInt(), disablesidcount.toInt(), sidstodisable.toString(), deleteprivilegecount.toInt(), privilegestodelete.toString(), restrictedsidcount.toInt(), sidstorestrict.toString(), newtokenhandle.toString()) as Int) else 0
+public actual fun createRestrictedToken(existingtokenhandle: Handle, flags: CreateRestrictedTokenFlags, disablesidcount: UInt, sidstodisable: COpaquePointer?, deleteprivilegecount: UInt, privilegestodelete: COpaquePointer?, restrictedsidcount: UInt, sidstorestrict: COpaquePointer?, newtokenhandle: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_createRestrictedToken((existingtokenhandle?.value ?: 0L).toString(), flags.toInt(), disablesidcount.toInt(), (sidstodisable?.value ?: 0L).toString(), deleteprivilegecount.toInt(), (privilegestodelete?.value ?: 0L).toString(), restrictedsidcount.toInt(), (sidstorestrict?.value ?: 0L).toString(), (newtokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWellKnownSid(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: PSID, psid: PSID, cbsid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_CreateWellKnownSid(wellknownsidtype, domainsid.toString(), psid.toString(), cbsid.toString()) as Int) else 0
+public actual fun createWellKnownSid(wellknownsidtype: WellKnownSidType, domainsid: Psid, psid: Psid, cbsid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_createWellKnownSid(wellknownsidtype, (domainsid?.value ?: 0L).toString(), (psid?.value ?: 0L).toString(), (cbsid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteAce(pacl: Long, dwaceindex: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_DeleteAce(pacl.toString(), dwaceindex.toInt()) as Int) else 0
+public actual fun deleteAce(pacl: COpaquePointer?, dwaceindex: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_deleteAce((pacl?.value ?: 0L).toString(), dwaceindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeriveCapabilitySidsFromName(capname: PCWSTR, capabilitygroupsids: Long, capabilitygroupsidcount: Long, capabilitysids: Long, capabilitysidcount: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_DeriveCapabilitySidsFromName(capname.toString(), capabilitygroupsids.toString(), capabilitygroupsidcount.toString(), capabilitysids.toString(), capabilitysidcount.toString()) as Int) else 0
+public actual fun deriveCapabilitySidsFromName(capname: Pcwstr, capabilitygroupsids: COpaquePointer?, capabilitygroupsidcount: COpaquePointer?, capabilitysids: COpaquePointer?, capabilitysidcount: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_deriveCapabilitySidsFromName((capname?.value ?: 0L).toString(), (capabilitygroupsids?.value ?: 0L).toString(), (capabilitygroupsidcount?.value ?: 0L).toString(), (capabilitysids?.value ?: 0L).toString(), (capabilitysidcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyPrivateObjectSecurity(objectdescriptor: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_DestroyPrivateObjectSecurity(objectdescriptor.toString()) as Int) else 0
+public actual fun destroyPrivateObjectSecurity(objectdescriptor: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_destroyPrivateObjectSecurity((objectdescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DuplicateToken(existingtokenhandle: HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_DuplicateToken(existingtokenhandle.toString(), impersonationlevel, duplicatetokenhandle.toString()) as Int) else 0
+public actual fun duplicateToken(existingtokenhandle: Handle, impersonationlevel: SecurityImpersonationLevel, duplicatetokenhandle: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_duplicateToken((existingtokenhandle?.value ?: 0L).toString(), impersonationlevel, (duplicatetokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DuplicateTokenEx(hexistingtoken: HANDLE, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: Long, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_DuplicateTokenEx(hexistingtoken.toString(), dwdesiredaccess.toInt(), lptokenattributes.toString(), impersonationlevel, tokentype, phnewtoken.toString()) as Int) else 0
+public actual fun duplicateTokenEx(hexistingtoken: Handle, dwdesiredaccess: TokenAccessMask, lptokenattributes: COpaquePointer?, impersonationlevel: SecurityImpersonationLevel, tokentype: TokenType, phnewtoken: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_duplicateTokenEx((hexistingtoken?.value ?: 0L).toString(), dwdesiredaccess.toInt(), (lptokenattributes?.value ?: 0L).toString(), impersonationlevel, tokentype, (phnewtoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EqualDomainSid(psid1: PSID, psid2: PSID, pfequal: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_EqualDomainSid(psid1.toString(), psid2.toString(), pfequal.toString()) as Int) else 0
+public actual fun equalDomainSid(psid1: Psid, psid2: Psid, pfequal: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_equalDomainSid((psid1?.value ?: 0L).toString(), (psid2?.value ?: 0L).toString(), (pfequal?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EqualPrefixSid(psid1: PSID, psid2: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_EqualPrefixSid(psid1.toString(), psid2.toString()) as Int) else 0
+public actual fun equalPrefixSid(psid1: Psid, psid2: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_equalPrefixSid((psid1?.value ?: 0L).toString(), (psid2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EqualSid(psid1: PSID, psid2: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_EqualSid(psid1.toString(), psid2.toString()) as Int) else 0
+public actual fun equalSid(psid1: Psid, psid2: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_equalSid((psid1?.value ?: 0L).toString(), (psid2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstFreeAce(pacl: Long, pace: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_FindFirstFreeAce(pacl.toString(), pace.toString()) as Int) else 0
+public actual fun findFirstFreeAce(pacl: COpaquePointer?, pace: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_findFirstFreeAce((pacl?.value ?: 0L).toString(), (pace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeSid(psid: PSID): Long =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_FreeSid(psid.toString()) as String).toLong() else 0L
+public actual fun freeSid(psid: Psid): COpaquePointer? =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_freeSid((psid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAce(pacl: Long, dwaceindex: UInt, pace: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetAce(pacl.toString(), dwaceindex.toInt(), pace.toString()) as Int) else 0
+public actual fun getAce(pacl: COpaquePointer?, dwaceindex: UInt, pace: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getAce((pacl?.value ?: 0L).toString(), dwaceindex.toInt(), (pace?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: UInt, dwaclinformationclass: ACL_INFORMATION_CLASS): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetAclInformation(pacl.toString(), paclinformation.toString(), naclinformationlength.toInt(), dwaclinformationclass) as Int) else 0
+public actual fun getAclInformation(pacl: COpaquePointer?, paclinformation: COpaquePointer?, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getAclInformation((pacl?.value ?: 0L).toString(), (paclinformation?.value ?: 0L).toString(), naclinformationlength.toInt(), dwaclinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAppContainerAce(acl: Long, startingaceindex: UInt, appcontainerace: Long, appcontaineraceindex: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetAppContainerAce(acl.toString(), startingaceindex.toInt(), appcontainerace.toString(), appcontaineraceindex.toString()) as Int) else 0
+public actual fun getAppContainerAce(acl: COpaquePointer?, startingaceindex: UInt, appcontainerace: COpaquePointer?, appcontaineraceindex: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getAppContainerAce((acl?.value ?: 0L).toString(), startingaceindex.toInt(), (appcontainerace?.value ?: 0L).toString(), (appcontaineraceindex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCachedSigningLevel(file: HANDLE, flags: Long, signinglevel: Long, thumbprint: Long, thumbprintsize: Long, thumbprintalgorithm: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetCachedSigningLevel(file.toString(), flags.toString(), signinglevel.toString(), thumbprint.toString(), thumbprintsize.toString(), thumbprintalgorithm.toString()) as Int) else 0
+public actual fun getCachedSigningLevel(file: Handle, flags: COpaquePointer?, signinglevel: COpaquePointer?, thumbprint: COpaquePointer?, thumbprintsize: COpaquePointer?, thumbprintalgorithm: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getCachedSigningLevel((file?.value ?: 0L).toString(), (flags?.value ?: 0L).toString(), (signinglevel?.value ?: 0L).toString(), (thumbprint?.value ?: 0L).toString(), (thumbprintsize?.value ?: 0L).toString(), (thumbprintalgorithm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileSecurityA(lpfilename: PCSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetFileSecurityA(lpfilename.toString(), requestedinformation.toInt(), psecuritydescriptor.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun getFileSecurityA(lpfilename: Pcstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getFileSecurityA((lpfilename?.value ?: 0L).toString(), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFileSecurityW(lpfilename: PCWSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetFileSecurityW(lpfilename.toString(), requestedinformation.toInt(), psecuritydescriptor.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun getFileSecurityW(lpfilename: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getFileSecurityW((lpfilename?.value ?: 0L).toString(), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetKernelObjectSecurity(handle: HANDLE, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetKernelObjectSecurity(handle.toString(), requestedinformation.toInt(), psecuritydescriptor.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun getKernelObjectSecurity(handle: Handle, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getKernelObjectSecurity((handle?.value ?: 0L).toString(), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLengthSid(psid: PSID): UInt =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetLengthSid(psid.toString()) as Int).toUInt() else 0u
+public actual fun getLengthSid(psid: Psid): UInt =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getLengthSid((psid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrivateObjectSecurity(objectdescriptor: PSECURITY_DESCRIPTOR, securityinformation: OBJECT_SECURITY_INFORMATION, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: UInt, returnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetPrivateObjectSecurity(objectdescriptor.toString(), securityinformation.toInt(), resultantdescriptor.toString(), descriptorlength.toInt(), returnlength.toString()) as Int) else 0
+public actual fun getPrivateObjectSecurity(objectdescriptor: PsecurityDescriptor, securityinformation: ObjectSecurityInformation, resultantdescriptor: PsecurityDescriptor, descriptorlength: UInt, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getPrivateObjectSecurity((objectdescriptor?.value ?: 0L).toString(), securityinformation.toInt(), (resultantdescriptor?.value ?: 0L).toString(), descriptorlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, pcontrol: Long, lpdwrevision: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorControl(psecuritydescriptor.toString(), pcontrol.toString(), lpdwrevision.toString()) as Int) else 0
+public actual fun getSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, pcontrol: COpaquePointer?, lpdwrevision: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorControl((psecuritydescriptor?.value ?: 0L).toString(), (pcontrol?.value ?: 0L).toString(), (lpdwrevision?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbdaclpresent: Long, pdacl: Long, lpbdacldefaulted: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorDacl(psecuritydescriptor.toString(), lpbdaclpresent.toString(), pdacl.toString(), lpbdacldefaulted.toString()) as Int) else 0
+public actual fun getSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, lpbdaclpresent: COpaquePointer?, pdacl: COpaquePointer?, lpbdacldefaulted: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorDacl((psecuritydescriptor?.value ?: 0L).toString(), (lpbdaclpresent?.value ?: 0L).toString(), (pdacl?.value ?: 0L).toString(), (lpbdacldefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: Long, lpbgroupdefaulted: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorGroup(psecuritydescriptor.toString(), pgroup.toString(), lpbgroupdefaulted.toString()) as Int) else 0
+public actual fun getSecurityDescriptorGroup(psecuritydescriptor: PsecurityDescriptor, pgroup: COpaquePointer?, lpbgroupdefaulted: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorGroup((psecuritydescriptor?.value ?: 0L).toString(), (pgroup?.value ?: 0L).toString(), (lpbgroupdefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorLength(psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorLength(psecuritydescriptor.toString()) as Int).toUInt() else 0u
+public actual fun getSecurityDescriptorLength(psecuritydescriptor: PsecurityDescriptor): UInt =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorLength((psecuritydescriptor?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: Long, lpbownerdefaulted: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorOwner(psecuritydescriptor.toString(), powner.toString(), lpbownerdefaulted.toString()) as Int) else 0
+public actual fun getSecurityDescriptorOwner(psecuritydescriptor: PsecurityDescriptor, powner: COpaquePointer?, lpbownerdefaulted: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorOwner((psecuritydescriptor?.value ?: 0L).toString(), (powner?.value ?: 0L).toString(), (lpbownerdefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: Long): UInt =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorRMControl(securitydescriptor.toString(), rmcontrol.toString()) as Int).toUInt() else 0u
+public actual fun getSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorRMControl((securitydescriptor?.value ?: 0L).toString(), (rmcontrol?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbsaclpresent: Long, psacl: Long, lpbsacldefaulted: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSecurityDescriptorSacl(psecuritydescriptor.toString(), lpbsaclpresent.toString(), psacl.toString(), lpbsacldefaulted.toString()) as Int) else 0
+public actual fun getSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, lpbsaclpresent: COpaquePointer?, psacl: COpaquePointer?, lpbsacldefaulted: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSecurityDescriptorSacl((psecuritydescriptor?.value ?: 0L).toString(), (lpbsaclpresent?.value ?: 0L).toString(), (psacl?.value ?: 0L).toString(), (lpbsacldefaulted?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSidIdentifierAuthority(psid: PSID): Long =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSidIdentifierAuthority(psid.toString()) as String).toLong() else 0L
+public actual fun getSidIdentifierAuthority(psid: Psid): COpaquePointer? =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSidIdentifierAuthority((psid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSidLengthRequired(nsubauthoritycount: UByte): UInt =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSidLengthRequired(nsubauthoritycount.toInt()) as Int).toUInt() else 0u
+public actual fun getSidLengthRequired(nsubauthoritycount: UByte): UInt =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSidLengthRequired(nsubauthoritycount.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSidSubAuthority(psid: PSID, nsubauthority: UInt): Long =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSidSubAuthority(psid.toString(), nsubauthority.toInt()) as String).toLong() else 0L
+public actual fun getSidSubAuthority(psid: Psid, nsubauthority: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSidSubAuthority((psid?.value ?: 0L).toString(), nsubauthority.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSidSubAuthorityCount(psid: PSID): Long =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetSidSubAuthorityCount(psid.toString()) as String).toLong() else 0L
+public actual fun getSidSubAuthorityCount(psid: Psid): COpaquePointer? =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getSidSubAuthorityCount((psid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTokenInformation(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetTokenInformation(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt(), returnlength.toString()) as Int) else 0
+public actual fun getTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getTokenInformation((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUserObjectSecurity(hobj: HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetUserObjectSecurity(hobj.toString(), psirequested.toString(), psid.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun getUserObjectSecurity(hobj: Handle, psirequested: COpaquePointer?, psid: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getUserObjectSecurity((hobj?.value ?: 0L).toString(), (psirequested?.value ?: 0L).toString(), (psid?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowsAccountDomainSid(psid: PSID, pdomainsid: PSID, cbdomainsid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_GetWindowsAccountDomainSid(psid.toString(), pdomainsid.toString(), cbdomainsid.toString()) as Int) else 0
+public actual fun getWindowsAccountDomainSid(psid: Psid, pdomainsid: Psid, cbdomainsid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_getWindowsAccountDomainSid((psid?.value ?: 0L).toString(), (pdomainsid?.value ?: 0L).toString(), (cbdomainsid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonateAnonymousToken(threadhandle: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ImpersonateAnonymousToken(threadhandle.toString()) as Int) else 0
+public actual fun impersonateAnonymousToken(threadhandle: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_impersonateAnonymousToken((threadhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonateLoggedOnUser(htoken: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ImpersonateLoggedOnUser(htoken.toString()) as Int) else 0
+public actual fun impersonateLoggedOnUser(htoken: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_impersonateLoggedOnUser((htoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ImpersonateSelf(impersonationlevel) as Int) else 0
+public actual fun impersonateSelf(impersonationlevel: SecurityImpersonationLevel): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_impersonateSelf(impersonationlevel) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeAcl(pacl: Long, nacllength: UInt, dwaclrevision: ACE_REVISION): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_InitializeAcl(pacl.toString(), nacllength.toInt(), dwaclrevision.toInt()) as Int) else 0
+public actual fun initializeAcl(pacl: COpaquePointer?, nacllength: UInt, dwaclrevision: AceRevision): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_initializeAcl((pacl?.value ?: 0L).toString(), nacllength.toInt(), dwaclrevision.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, dwrevision: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_InitializeSecurityDescriptor(psecuritydescriptor.toString(), dwrevision.toInt()) as Int) else 0
+public actual fun initializeSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, dwrevision: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_initializeSecurityDescriptor((psecuritydescriptor?.value ?: 0L).toString(), dwrevision.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeSid(sid: PSID, pidentifierauthority: Long, nsubauthoritycount: UByte): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_InitializeSid(sid.toString(), pidentifierauthority.toString(), nsubauthoritycount.toInt()) as Int) else 0
+public actual fun initializeSid(sid: Psid, pidentifierauthority: COpaquePointer?, nsubauthoritycount: UByte): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_initializeSid((sid?.value ?: 0L).toString(), (pidentifierauthority?.value ?: 0L).toString(), nsubauthoritycount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsTokenRestricted(tokenhandle: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_IsTokenRestricted(tokenhandle.toString()) as Int) else 0
+public actual fun isTokenRestricted(tokenhandle: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_isTokenRestricted((tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidAcl(pacl: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_IsValidAcl(pacl.toString()) as Int) else 0
+public actual fun isValidAcl(pacl: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_isValidAcl((pacl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_IsValidSecurityDescriptor(psecuritydescriptor.toString()) as Int) else 0
+public actual fun isValidSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_isValidSecurityDescriptor((psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidSid(psid: PSID): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_IsValidSid(psid.toString()) as Int) else 0
+public actual fun isValidSid(psid: Psid): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_isValidSid((psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWellKnownSid(psid: PSID, wellknownsidtype: WELL_KNOWN_SID_TYPE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_IsWellKnownSid(psid.toString(), wellknownsidtype) as Int) else 0
+public actual fun isWellKnownSid(psid: Psid, wellknownsidtype: WellKnownSidType): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_isWellKnownSid((psid?.value ?: 0L).toString(), wellknownsidtype) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogonUserA(lpszusername: PCSTR, lpszdomain: PCSTR, lpszpassword: PCSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LogonUserA(lpszusername.toString(), lpszdomain.toString(), lpszpassword.toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.toString()) as Int) else 0
+public actual fun logonUserA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_logonUserA((lpszusername?.value ?: 0L).toString(), (lpszdomain?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogonUserExA(lpszusername: PCSTR, lpszdomain: PCSTR, lpszpassword: PCSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LogonUserExA(lpszusername.toString(), lpszdomain.toString(), lpszpassword.toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.toString(), pplogonsid.toString(), ppprofilebuffer.toString(), pdwprofilelength.toString(), pquotalimits.toString()) as Int) else 0
+public actual fun logonUserExA(lpszusername: Pcstr, lpszdomain: Pcstr, lpszpassword: Pcstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?, pplogonsid: COpaquePointer?, ppprofilebuffer: COpaquePointer?, pdwprofilelength: COpaquePointer?, pquotalimits: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_logonUserExA((lpszusername?.value ?: 0L).toString(), (lpszdomain?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L).toString(), (pplogonsid?.value ?: 0L).toString(), (ppprofilebuffer?.value ?: 0L).toString(), (pdwprofilelength?.value ?: 0L).toString(), (pquotalimits?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogonUserExW(lpszusername: PCWSTR, lpszdomain: PCWSTR, lpszpassword: PCWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Long, pplogonsid: Long, ppprofilebuffer: Long, pdwprofilelength: Long, pquotalimits: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LogonUserExW(lpszusername.toString(), lpszdomain.toString(), lpszpassword.toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.toString(), pplogonsid.toString(), ppprofilebuffer.toString(), pdwprofilelength.toString(), pquotalimits.toString()) as Int) else 0
+public actual fun logonUserExW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?, pplogonsid: COpaquePointer?, ppprofilebuffer: COpaquePointer?, pdwprofilelength: COpaquePointer?, pquotalimits: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_logonUserExW((lpszusername?.value ?: 0L).toString(), (lpszdomain?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L).toString(), (pplogonsid?.value ?: 0L).toString(), (ppprofilebuffer?.value ?: 0L).toString(), (pdwprofilelength?.value ?: 0L).toString(), (pquotalimits?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogonUserW(lpszusername: PCWSTR, lpszdomain: PCWSTR, lpszpassword: PCWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LogonUserW(lpszusername.toString(), lpszdomain.toString(), lpszpassword.toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), phtoken.toString()) as Int) else 0
+public actual fun logonUserW(lpszusername: Pcwstr, lpszdomain: Pcwstr, lpszpassword: Pcwstr, dwlogontype: Logon32Logon, dwlogonprovider: Logon32Provider, phtoken: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_logonUserW((lpszusername?.value ?: 0L).toString(), (lpszdomain?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwlogontype.toInt(), dwlogonprovider.toInt(), (phtoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupAccountNameA(lpsystemname: PCSTR, lpaccountname: PCSTR, sid: PSID, cbsid: Long, referenceddomainname: PSTR, cchreferenceddomainname: Long, peuse: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupAccountNameA(lpsystemname.toString(), lpaccountname.toString(), sid.toString(), cbsid.toString(), referenceddomainname.toString(), cchreferenceddomainname.toString(), peuse.toString()) as Int) else 0
+public actual fun lookupAccountNameA(lpsystemname: Pcstr, lpaccountname: Pcstr, sid: Psid, cbsid: COpaquePointer?, referenceddomainname: Pstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupAccountNameA((lpsystemname?.value ?: 0L).toString(), (lpaccountname?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), (cbsid?.value ?: 0L).toString(), (referenceddomainname?.value ?: 0L).toString(), (cchreferenceddomainname?.value ?: 0L).toString(), (peuse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupAccountNameW(lpsystemname: PCWSTR, lpaccountname: PCWSTR, sid: PSID, cbsid: Long, referenceddomainname: PWSTR, cchreferenceddomainname: Long, peuse: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupAccountNameW(lpsystemname.toString(), lpaccountname.toString(), sid.toString(), cbsid.toString(), referenceddomainname.toString(), cchreferenceddomainname.toString(), peuse.toString()) as Int) else 0
+public actual fun lookupAccountNameW(lpsystemname: Pcwstr, lpaccountname: Pcwstr, sid: Psid, cbsid: COpaquePointer?, referenceddomainname: Pwstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupAccountNameW((lpsystemname?.value ?: 0L).toString(), (lpaccountname?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), (cbsid?.value ?: 0L).toString(), (referenceddomainname?.value ?: 0L).toString(), (cchreferenceddomainname?.value ?: 0L).toString(), (peuse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupAccountSidA(lpsystemname: PCSTR, sid: PSID, name: PSTR, cchname: Long, referenceddomainname: PSTR, cchreferenceddomainname: Long, peuse: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupAccountSidA(lpsystemname.toString(), sid.toString(), name.toString(), cchname.toString(), referenceddomainname.toString(), cchreferenceddomainname.toString(), peuse.toString()) as Int) else 0
+public actual fun lookupAccountSidA(lpsystemname: Pcstr, sid: Psid, name: Pstr, cchname: COpaquePointer?, referenceddomainname: Pstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupAccountSidA((lpsystemname?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (cchname?.value ?: 0L).toString(), (referenceddomainname?.value ?: 0L).toString(), (cchreferenceddomainname?.value ?: 0L).toString(), (peuse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupAccountSidW(lpsystemname: PCWSTR, sid: PSID, name: PWSTR, cchname: Long, referenceddomainname: PWSTR, cchreferenceddomainname: Long, peuse: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupAccountSidW(lpsystemname.toString(), sid.toString(), name.toString(), cchname.toString(), referenceddomainname.toString(), cchreferenceddomainname.toString(), peuse.toString()) as Int) else 0
+public actual fun lookupAccountSidW(lpsystemname: Pcwstr, sid: Psid, name: Pwstr, cchname: COpaquePointer?, referenceddomainname: Pwstr, cchreferenceddomainname: COpaquePointer?, peuse: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupAccountSidW((lpsystemname?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (cchname?.value ?: 0L).toString(), (referenceddomainname?.value ?: 0L).toString(), (cchreferenceddomainname?.value ?: 0L).toString(), (peuse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeDisplayNameA(lpsystemname: PCSTR, lpname: PCSTR, lpdisplayname: PSTR, cchdisplayname: Long, lplanguageid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeDisplayNameA(lpsystemname.toString(), lpname.toString(), lpdisplayname.toString(), cchdisplayname.toString(), lplanguageid.toString()) as Int) else 0
+public actual fun lookupPrivilegeDisplayNameA(lpsystemname: Pcstr, lpname: Pcstr, lpdisplayname: Pstr, cchdisplayname: COpaquePointer?, lplanguageid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeDisplayNameA((lpsystemname?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lpdisplayname?.value ?: 0L).toString(), (cchdisplayname?.value ?: 0L).toString(), (lplanguageid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeDisplayNameW(lpsystemname: PCWSTR, lpname: PCWSTR, lpdisplayname: PWSTR, cchdisplayname: Long, lplanguageid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeDisplayNameW(lpsystemname.toString(), lpname.toString(), lpdisplayname.toString(), cchdisplayname.toString(), lplanguageid.toString()) as Int) else 0
+public actual fun lookupPrivilegeDisplayNameW(lpsystemname: Pcwstr, lpname: Pcwstr, lpdisplayname: Pwstr, cchdisplayname: COpaquePointer?, lplanguageid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeDisplayNameW((lpsystemname?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lpdisplayname?.value ?: 0L).toString(), (cchdisplayname?.value ?: 0L).toString(), (lplanguageid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeNameA(lpsystemname: PCSTR, lpluid: Long, lpname: PSTR, cchname: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeNameA(lpsystemname.toString(), lpluid.toString(), lpname.toString(), cchname.toString()) as Int) else 0
+public actual fun lookupPrivilegeNameA(lpsystemname: Pcstr, lpluid: COpaquePointer?, lpname: Pstr, cchname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeNameA((lpsystemname?.value ?: 0L).toString(), (lpluid?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (cchname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeNameW(lpsystemname: PCWSTR, lpluid: Long, lpname: PWSTR, cchname: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeNameW(lpsystemname.toString(), lpluid.toString(), lpname.toString(), cchname.toString()) as Int) else 0
+public actual fun lookupPrivilegeNameW(lpsystemname: Pcwstr, lpluid: COpaquePointer?, lpname: Pwstr, cchname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeNameW((lpsystemname?.value ?: 0L).toString(), (lpluid?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (cchname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeValueA(lpsystemname: PCSTR, lpname: PCSTR, lpluid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeValueA(lpsystemname.toString(), lpname.toString(), lpluid.toString()) as Int) else 0
+public actual fun lookupPrivilegeValueA(lpsystemname: Pcstr, lpname: Pcstr, lpluid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeValueA((lpsystemname?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lpluid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupPrivilegeValueW(lpsystemname: PCWSTR, lpname: PCWSTR, lpluid: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_LookupPrivilegeValueW(lpsystemname.toString(), lpname.toString(), lpluid.toString()) as Int) else 0
+public actual fun lookupPrivilegeValueW(lpsystemname: Pcwstr, lpname: Pcwstr, lpluid: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_lookupPrivilegeValueW((lpsystemname?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lpluid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MakeAbsoluteSD(pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: Long, pdacl: Long, lpdwdaclsize: Long, psacl: Long, lpdwsaclsize: Long, powner: PSID, lpdwownersize: Long, pprimarygroup: PSID, lpdwprimarygroupsize: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_MakeAbsoluteSD(pselfrelativesecuritydescriptor.toString(), pabsolutesecuritydescriptor.toString(), lpdwabsolutesecuritydescriptorsize.toString(), pdacl.toString(), lpdwdaclsize.toString(), psacl.toString(), lpdwsaclsize.toString(), powner.toString(), lpdwownersize.toString(), pprimarygroup.toString(), lpdwprimarygroupsize.toString()) as Int) else 0
+public actual fun makeAbsoluteSD(pselfrelativesecuritydescriptor: PsecurityDescriptor, pabsolutesecuritydescriptor: PsecurityDescriptor, lpdwabsolutesecuritydescriptorsize: COpaquePointer?, pdacl: COpaquePointer?, lpdwdaclsize: COpaquePointer?, psacl: COpaquePointer?, lpdwsaclsize: COpaquePointer?, powner: Psid, lpdwownersize: COpaquePointer?, pprimarygroup: Psid, lpdwprimarygroupsize: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_makeAbsoluteSD((pselfrelativesecuritydescriptor?.value ?: 0L).toString(), (pabsolutesecuritydescriptor?.value ?: 0L).toString(), (lpdwabsolutesecuritydescriptorsize?.value ?: 0L).toString(), (pdacl?.value ?: 0L).toString(), (lpdwdaclsize?.value ?: 0L).toString(), (psacl?.value ?: 0L).toString(), (lpdwsaclsize?.value ?: 0L).toString(), (powner?.value ?: 0L).toString(), (lpdwownersize?.value ?: 0L).toString(), (pprimarygroup?.value ?: 0L).toString(), (lpdwprimarygroupsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MakeSelfRelativeSD(pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_MakeSelfRelativeSD(pabsolutesecuritydescriptor.toString(), pselfrelativesecuritydescriptor.toString(), lpdwbufferlength.toString()) as Int) else 0
+public actual fun makeSelfRelativeSD(pabsolutesecuritydescriptor: PsecurityDescriptor, pselfrelativesecuritydescriptor: PsecurityDescriptor, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_makeSelfRelativeSD((pabsolutesecuritydescriptor?.value ?: 0L).toString(), (pselfrelativesecuritydescriptor?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MapGenericMask(accessmask: Long, genericmapping: Long) {
+public actual fun mapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?) {
     if (_windowsWin32SecurityNapiAddon != null) {
-        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_MapGenericMask(accessmask.toString(), genericmapping.toString())
+        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_mapGenericMask((accessmask?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ObjectCloseAuditAlarmA(subsystemname: PCSTR, handleid: Long, generateonclose: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectCloseAuditAlarmA(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun objectCloseAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectCloseAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectCloseAuditAlarmW(subsystemname: PCWSTR, handleid: Long, generateonclose: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectCloseAuditAlarmW(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun objectCloseAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectCloseAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectDeleteAuditAlarmA(subsystemname: PCSTR, handleid: Long, generateonclose: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectDeleteAuditAlarmA(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun objectDeleteAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectDeleteAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectDeleteAuditAlarmW(subsystemname: PCWSTR, handleid: Long, generateonclose: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectDeleteAuditAlarmW(subsystemname.toString(), handleid.toString(), generateonclose) as Int) else 0
+public actual fun objectDeleteAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectDeleteAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), generateonclose) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectOpenAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectOpenAuditAlarmA(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), psecuritydescriptor.toString(), clienttoken.toString(), desiredaccess.toInt(), grantedaccess.toInt(), privileges.toString(), objectcreation, accessgranted, generateonclose.toString()) as Int) else 0
+public actual fun objectOpenAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, objecttypename: Pcstr, objectname: Pcstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Bool, accessgranted: Bool, generateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectOpenAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (psecuritydescriptor?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L).toString(), objectcreation, accessgranted, (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectOpenAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectOpenAuditAlarmW(subsystemname.toString(), handleid.toString(), objecttypename.toString(), objectname.toString(), psecuritydescriptor.toString(), clienttoken.toString(), desiredaccess.toInt(), grantedaccess.toInt(), privileges.toString(), objectcreation, accessgranted, generateonclose.toString()) as Int) else 0
+public actual fun objectOpenAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, objecttypename: Pcwstr, objectname: Pcwstr, psecuritydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Bool, accessgranted: Bool, generateonclose: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectOpenAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (objecttypename?.value ?: 0L).toString(), (objectname?.value ?: 0L).toString(), (psecuritydescriptor?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), grantedaccess.toInt(), (privileges?.value ?: 0L).toString(), objectcreation, accessgranted, (generateonclose?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectPrivilegeAuditAlarmA(subsystemname: PCSTR, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmA(subsystemname.toString(), handleid.toString(), clienttoken.toString(), desiredaccess.toInt(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun objectPrivilegeAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectPrivilegeAuditAlarmA((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ObjectPrivilegeAuditAlarmW(subsystemname: PCWSTR, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmW(subsystemname.toString(), handleid.toString(), clienttoken.toString(), desiredaccess.toInt(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun objectPrivilegeAuditAlarmW(subsystemname: Pcwstr, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_objectPrivilegeAuditAlarmW((subsystemname?.value ?: 0L).toString(), (handleid?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), desiredaccess.toInt(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, pfresult: Long): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_PrivilegeCheck(clienttoken.toString(), requiredprivileges.toString(), pfresult.toString()) as Int) else 0
+public actual fun privilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, pfresult: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_privilegeCheck((clienttoken?.value ?: 0L).toString(), (requiredprivileges?.value ?: 0L).toString(), (pfresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivilegedServiceAuditAlarmA(subsystemname: PCSTR, servicename: PCSTR, clienttoken: HANDLE, privileges: Long, accessgranted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_PrivilegedServiceAuditAlarmA(subsystemname.toString(), servicename.toString(), clienttoken.toString(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun privilegedServiceAuditAlarmA(subsystemname: Pcstr, servicename: Pcstr, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_privilegedServiceAuditAlarmA((subsystemname?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivilegedServiceAuditAlarmW(subsystemname: PCWSTR, servicename: PCWSTR, clienttoken: HANDLE, privileges: Long, accessgranted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_PrivilegedServiceAuditAlarmW(subsystemname.toString(), servicename.toString(), clienttoken.toString(), privileges.toString(), accessgranted) as Int) else 0
+public actual fun privilegedServiceAuditAlarmW(subsystemname: Pcwstr, servicename: Pcwstr, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_privilegedServiceAuditAlarmW((subsystemname?.value ?: 0L).toString(), (servicename?.value ?: 0L).toString(), (clienttoken?.value ?: 0L).toString(), (privileges?.value ?: 0L).toString(), accessgranted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QuerySecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION, desiredaccess: Long) {
+public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
     if (_windowsWin32SecurityNapiAddon != null) {
-        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_QuerySecurityAccessMask(securityinformation.toInt(), desiredaccess.toString())
+        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_querySecurityAccessMask(securityinformation.toInt(), (desiredaccess?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RevertToSelf(): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_RevertToSelf() as Int) else 0
+public actual fun revertToSelf(): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_revertToSelf() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlConvertSidToUnicodeString(unicodestring: Long, sid: PSID, allocatedestinationstring: Boolean): NTSTATUS =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_RtlConvertSidToUnicodeString(unicodestring.toString(), sid.toString(), allocatedestinationstring) as Int) else 0
+public actual fun rtlConvertSidToUnicodeString(unicodestring: COpaquePointer?, sid: Psid, allocatedestinationstring: Boolean): Ntstatus =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_rtlConvertSidToUnicodeString((unicodestring?.value ?: 0L).toString(), (sid?.value ?: 0L).toString(), allocatedestinationstring) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RtlNormalizeSecurityDescriptor(securitydescriptor: Long, securitydescriptorlength: UInt, newsecuritydescriptor: Long, newsecuritydescriptorlength: Long, checkonly: Boolean): Boolean =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_RtlNormalizeSecurityDescriptor(securitydescriptor.toString(), securitydescriptorlength.toInt(), newsecuritydescriptor.toString(), newsecuritydescriptorlength.toString(), checkonly) as Boolean) else false
+public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: COpaquePointer?, securitydescriptorlength: UInt, newsecuritydescriptor: COpaquePointer?, newsecuritydescriptorlength: COpaquePointer?, checkonly: Boolean): Boolean =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_rtlNormalizeSecurityDescriptor((securitydescriptor?.value ?: 0L).toString(), securitydescriptorlength.toInt(), (newsecuritydescriptor?.value ?: 0L).toString(), (newsecuritydescriptorlength?.value ?: 0L).toString(), checkonly) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAclInformation(pacl: Long, paclinformation: Long, naclinformationlength: UInt, dwaclinformationclass: ACL_INFORMATION_CLASS): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetAclInformation(pacl.toString(), paclinformation.toString(), naclinformationlength.toInt(), dwaclinformationclass) as Int) else 0
+public actual fun setAclInformation(pacl: COpaquePointer?, paclinformation: COpaquePointer?, naclinformationlength: UInt, dwaclinformationclass: AclInformationClass): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setAclInformation((pacl?.value ?: 0L).toString(), (paclinformation?.value ?: 0L).toString(), naclinformationlength.toInt(), dwaclinformationclass) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCachedSigningLevel(sourcefiles: Long, sourcefilecount: UInt, flags: UInt, targetfile: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetCachedSigningLevel(sourcefiles.toString(), sourcefilecount.toInt(), flags.toInt(), targetfile.toString()) as Int) else 0
+public actual fun setCachedSigningLevel(sourcefiles: COpaquePointer?, sourcefilecount: UInt, flags: UInt, targetfile: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setCachedSigningLevel((sourcefiles?.value ?: 0L).toString(), sourcefilecount.toInt(), flags.toInt(), (targetfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileSecurityA(lpfilename: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetFileSecurityA(lpfilename.toString(), securityinformation.toInt(), psecuritydescriptor.toString()) as Int) else 0
+public actual fun setFileSecurityA(lpfilename: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setFileSecurityA((lpfilename?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFileSecurityW(lpfilename: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetFileSecurityW(lpfilename.toString(), securityinformation.toInt(), psecuritydescriptor.toString()) as Int) else 0
+public actual fun setFileSecurityW(lpfilename: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setFileSecurityW((lpfilename?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetKernelObjectSecurity(handle: HANDLE, securityinformation: OBJECT_SECURITY_INFORMATION, securitydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetKernelObjectSecurity(handle.toString(), securityinformation.toInt(), securitydescriptor.toString()) as Int) else 0
+public actual fun setKernelObjectSecurity(handle: Handle, securityinformation: ObjectSecurityInformation, securitydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setKernelObjectSecurity((handle?.value ?: 0L).toString(), securityinformation.toInt(), (securitydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrivateObjectSecurity(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, genericmapping: Long, token: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetPrivateObjectSecurity(securityinformation.toInt(), modificationdescriptor.toString(), objectssecuritydescriptor.toString(), genericmapping.toString(), token.toString()) as Int) else 0
+public actual fun setPrivateObjectSecurity(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, genericmapping: COpaquePointer?, token: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setPrivateObjectSecurity(securityinformation.toInt(), (modificationdescriptor?.value ?: 0L).toString(), (objectssecuritydescriptor?.value ?: 0L).toString(), (genericmapping?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrivateObjectSecurityEx(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: Long, token: HANDLE): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetPrivateObjectSecurityEx(securityinformation.toInt(), modificationdescriptor.toString(), objectssecuritydescriptor.toString(), autoinheritflags.toInt(), genericmapping.toString(), token.toString()) as Int) else 0
+public actual fun setPrivateObjectSecurityEx(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: SecurityAutoInheritFlags, genericmapping: COpaquePointer?, token: Handle): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setPrivateObjectSecurityEx(securityinformation.toInt(), (modificationdescriptor?.value ?: 0L).toString(), (objectssecuritydescriptor?.value ?: 0L).toString(), autoinheritflags.toInt(), (genericmapping?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION, desiredaccess: Long) {
+public actual fun setSecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
     if (_windowsWin32SecurityNapiAddon != null) {
-        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityAccessMask(securityinformation.toInt(), desiredaccess.toString())
+        _windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityAccessMask(securityinformation.toInt(), (desiredaccess?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, controlbitsofinterest: SECURITY_DESCRIPTOR_CONTROL, controlbitstoset: SECURITY_DESCRIPTOR_CONTROL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorControl(psecuritydescriptor.toString(), controlbitsofinterest.toInt(), controlbitstoset.toInt()) as Int) else 0
+public actual fun setSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, controlbitsofinterest: SecurityDescriptorControl, controlbitstoset: SecurityDescriptorControl): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorControl((psecuritydescriptor?.value ?: 0L).toString(), controlbitsofinterest.toInt(), controlbitstoset.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: BOOL, pdacl: Long, bdacldefaulted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorDacl(psecuritydescriptor.toString(), bdaclpresent, pdacl.toString(), bdacldefaulted) as Int) else 0
+public actual fun setSecurityDescriptorDacl(psecuritydescriptor: PsecurityDescriptor, bdaclpresent: Bool, pdacl: COpaquePointer?, bdacldefaulted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorDacl((psecuritydescriptor?.value ?: 0L).toString(), bdaclpresent, (pdacl?.value ?: 0L).toString(), bdacldefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: PSID, bgroupdefaulted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorGroup(psecuritydescriptor.toString(), pgroup.toString(), bgroupdefaulted) as Int) else 0
+public actual fun setSecurityDescriptorGroup(psecuritydescriptor: PsecurityDescriptor, pgroup: Psid, bgroupdefaulted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorGroup((psecuritydescriptor?.value ?: 0L).toString(), (pgroup?.value ?: 0L).toString(), bgroupdefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: PSID, bownerdefaulted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorOwner(psecuritydescriptor.toString(), powner.toString(), bownerdefaulted) as Int) else 0
+public actual fun setSecurityDescriptorOwner(psecuritydescriptor: PsecurityDescriptor, powner: Psid, bownerdefaulted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorOwner((psecuritydescriptor?.value ?: 0L).toString(), (powner?.value ?: 0L).toString(), bownerdefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: Long): UInt =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorRMControl(securitydescriptor.toString(), rmcontrol.toString()) as Int).toUInt() else 0u
+public actual fun setSecurityDescriptorRMControl(securitydescriptor: PsecurityDescriptor, rmcontrol: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorRMControl((securitydescriptor?.value ?: 0L).toString(), (rmcontrol?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: BOOL, psacl: Long, bsacldefaulted: BOOL): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetSecurityDescriptorSacl(psecuritydescriptor.toString(), bsaclpresent, psacl.toString(), bsacldefaulted) as Int) else 0
+public actual fun setSecurityDescriptorSacl(psecuritydescriptor: PsecurityDescriptor, bsaclpresent: Bool, psacl: COpaquePointer?, bsacldefaulted: Bool): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setSecurityDescriptorSacl((psecuritydescriptor?.value ?: 0L).toString(), bsaclpresent, (psacl?.value ?: 0L).toString(), bsacldefaulted) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTokenInformation(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetTokenInformation(tokenhandle.toString(), tokeninformationclass, tokeninformation.toString(), tokeninformationlength.toInt()) as Int) else 0
+public actual fun setTokenInformation(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setTokenInformation((tokenhandle?.value ?: 0L).toString(), tokeninformationclass, (tokeninformation?.value ?: 0L).toString(), tokeninformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUserObjectSecurity(hobj: HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_SetUserObjectSecurity(hobj.toString(), psirequested.toString(), psid.toString()) as Int) else 0
+public actual fun setUserObjectSecurity(hobj: Handle, psirequested: COpaquePointer?, psid: PsecurityDescriptor): Bool =
+    if (_windowsWin32SecurityNapiAddon != null) (_windowsWin32SecurityNapiAddon.windowssys_windows_win32_security_setUserObjectSecurity((hobj?.value ?: 0L).toString(), (psirequested?.value ?: 0L).toString(), (psid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

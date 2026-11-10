@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_AddDllDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_addDllDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* newdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_AddDllDirectory
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_beginUpdateResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bdeleteexistingresources = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_BeginUpdateReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_beginUpdateResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bdeleteexistingresources = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_BeginUpdateReso
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlibmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_DisableThreadLi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EndUpdateResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_endUpdateResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hupdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdiscard = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EndUpdateResour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EndUpdateResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_endUpdateResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hupdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fdiscard = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EndUpdateResour
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -279,7 +279,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceLan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNamesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceNamesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceNamesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -331,7 +331,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceNamesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNamesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceNamesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTypesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceTypesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -405,7 +405,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceTypesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceTypesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTypesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_enumResourceTypesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -479,7 +479,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_EnumResourceTyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_findResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_findResourceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -525,7 +525,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceExA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_findResourceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceExW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_findResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -571,7 +571,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FindResourceW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlibmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwexitcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FreeLibraryAndE
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_FreeResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_freeResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -608,7 +608,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_FreeResource_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetDllDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getDllDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -628,7 +628,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetDllDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetDllDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getDllDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -648,7 +648,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetDllDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -670,7 +670,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -692,7 +692,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleFileNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleHandleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandle
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandleExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleHandleExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -732,7 +732,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandleExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleHandleExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_getModuleHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -772,7 +772,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_GetModuleHandle
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadLibraryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplibfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -790,7 +790,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadLibraryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplibfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -812,7 +812,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryExA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadLibraryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplibfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -834,7 +834,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryExW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadLibraryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplibfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -852,7 +852,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadLibraryW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpparameterblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadModule_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadPackagedLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwlibfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -892,7 +892,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadPackagedLib
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LoadResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_loadResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hresinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -912,7 +912,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LoadResource_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_LockResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_lockResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -930,7 +930,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_LockResource_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hparentmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdllname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_QueryOptionalDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_RemoveDllDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_removeDllDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -972,7 +972,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_RemoveDllDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t directoryflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -990,7 +990,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_SetDefaultDllDi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_SetDllDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_setDllDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1008,7 +1008,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_SetDllDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_SetDllDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_setDllDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1026,7 +1026,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_SetDllDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_SizeofResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_sizeofResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hresinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1046,7 +1046,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_SizeofResource_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_UpdateResourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_updateResourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hupdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1074,7 +1074,7 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_UpdateResourceA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_libraryloader_UpdateResourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_libraryloader_updateResourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hupdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1103,54 +1103,54 @@ static Napi::Value windowssys_windows_win32_system_libraryloader_UpdateResourceW
 }
 
 static void register_windows_win32_system_libraryloader_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_libraryloader_AddDllDirectory", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_AddDllDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EndUpdateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EndUpdateResourceA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EndUpdateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EndUpdateResourceW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceNamesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceNamesA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceNamesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceNamesW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceTypesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceTypesA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_EnumResourceTypesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_EnumResourceTypesW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FindResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FindResourceA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FindResourceExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FindResourceExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FindResourceExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FindResourceExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FindResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FindResourceW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_FreeResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_FreeResource_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetDllDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetDllDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetDllDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetDllDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleFileNameA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleFileNameW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleHandleA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleHandleA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleHandleExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleHandleExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleHandleExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleHandleExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_GetModuleHandleW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_GetModuleHandleW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadLibraryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadLibraryA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadLibraryExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadLibraryExA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadLibraryExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadLibraryExW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadLibraryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadLibraryW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadModule", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadModule_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LoadResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LoadResource_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_LockResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_LockResource_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_RemoveDllDirectory", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_RemoveDllDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_SetDllDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_SetDllDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_SetDllDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_SetDllDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_SizeofResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_SizeofResource_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_UpdateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_UpdateResourceA_napi));
-    exports.Set("windowssys_windows_win32_system_libraryloader_UpdateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_UpdateResourceW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_addDllDirectory", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_addDllDirectory_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_beginUpdateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_beginUpdateResourceA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_beginUpdateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_beginUpdateResourceW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_endUpdateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_endUpdateResourceA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_endUpdateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_endUpdateResourceW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceNamesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceNamesA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceNamesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceNamesExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceNamesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceNamesExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceNamesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceNamesW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceTypesA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceTypesA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceTypesExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceTypesExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceTypesExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceTypesExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_enumResourceTypesW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_enumResourceTypesW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_findResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_findResourceA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_findResourceExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_findResourceExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_findResourceExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_findResourceExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_findResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_findResourceW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_freeResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_freeResource_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getDllDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getDllDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getDllDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getDllDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleFileNameA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleFileNameA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleFileNameW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleFileNameW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleHandleA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleHandleA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleHandleExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleHandleExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleHandleExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleHandleExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_getModuleHandleW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_getModuleHandleW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadLibraryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadLibraryA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadLibraryExA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadLibraryExA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadLibraryExW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadLibraryExW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadLibraryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadLibraryW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadModule", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadModule_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadPackagedLibrary", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadPackagedLibrary_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_loadResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_loadResource_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_lockResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_lockResource_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_removeDllDirectory", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_removeDllDirectory_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_setDllDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_setDllDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_setDllDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_setDllDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_sizeofResource", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_sizeofResource_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_updateResourceA", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_updateResourceA_napi));
+    exports.Set("windowssys_windows_win32_system_libraryloader_updateResourceW", Napi::Function::New(env, windowssys_windows_win32_system_libraryloader_updateResourceW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_libraryloader_napi, nullptr };

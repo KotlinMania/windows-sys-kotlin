@@ -1,137 +1,137 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-public val DPF_ERROR: DRAWPROGRESSFLAGS = 4
+public val DPF_ERROR: Drawprogressflags = 4
 
-public val DPF_MARQUEE: DRAWPROGRESSFLAGS = 1
+public val DPF_MARQUEE: Drawprogressflags = 1
 
-public val DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = 2
+public val DPF_MARQUEE_COMPLETE: Drawprogressflags = 2
 
-public val DPF_NONE: DRAWPROGRESSFLAGS = 0
+public val DPF_NONE: Drawprogressflags = 0
 
-public val DPF_STOPPED: DRAWPROGRESSFLAGS = 16
+public val DPF_STOPPED: Drawprogressflags = 16
 
-public val DPF_WARNING: DRAWPROGRESSFLAGS = 8
+public val DPF_WARNING: Drawprogressflags = 8
 
-public val PSTF_LOCAL: PSTIME_FLAGS = 1
+public val PSTF_LOCAL: PstimeFlags = 1
 
-public val PSTF_UTC: PSTIME_FLAGS = 0
+public val PSTF_UTC: PstimeFlags = 0
 
-public val VARIANT_ALPHABOOL: VAR_CHANGE_FLAGS = 2u
+public val VARIANT_ALPHABOOL: VarChangeFlags = 2u.toUShort()
 
-public val VARIANT_CALENDAR_GREGORIAN: VAR_CHANGE_FLAGS = 64u
+public val VARIANT_CALENDAR_GREGORIAN: VarChangeFlags = 64u.toUShort()
 
-public val VARIANT_CALENDAR_HIJRI: VAR_CHANGE_FLAGS = 8u
+public val VARIANT_CALENDAR_HIJRI: VarChangeFlags = 8u.toUShort()
 
-public val VARIANT_CALENDAR_THAI: VAR_CHANGE_FLAGS = 32u
+public val VARIANT_CALENDAR_THAI: VarChangeFlags = 32u.toUShort()
 
-public val VARIANT_LOCALBOOL: VAR_CHANGE_FLAGS = 16u
+public val VARIANT_LOCALBOOL: VarChangeFlags = 16u.toUShort()
 
-public val VARIANT_NOUSEROVERRIDE: VAR_CHANGE_FLAGS = 4u
+public val VARIANT_NOUSEROVERRIDE: VarChangeFlags = 4u.toUShort()
 
-public val VARIANT_NOVALUEPROP: VAR_CHANGE_FLAGS = 1u
+public val VARIANT_NOVALUEPROP: VarChangeFlags = 1u.toUShort()
 
-public val VARIANT_USE_NLS: VAR_CHANGE_FLAGS = 128u
+public val VARIANT_USE_NLS: VarChangeFlags = 128u.toUShort()
 
-public val VT_ARRAY: VARENUM = 8192u
+public val VT_ARRAY: Varenum = 8192u.toUShort()
 
-public val VT_BLOB: VARENUM = 65u
+public val VT_BLOB: Varenum = 65u.toUShort()
 
-public val VT_BLOB_OBJECT: VARENUM = 70u
+public val VT_BLOB_OBJECT: Varenum = 70u.toUShort()
 
-public val VT_BOOL: VARENUM = 11u
+public val VT_BOOL: Varenum = 11u.toUShort()
 
-public val VT_BSTR: VARENUM = 8u
+public val VT_BSTR: Varenum = 8u.toUShort()
 
-public val VT_BSTR_BLOB: VARENUM = 4095u
+public val VT_BSTR_BLOB: Varenum = 4095u.toUShort()
 
-public val VT_BYREF: VARENUM = 16384u
+public val VT_BYREF: Varenum = 16384u.toUShort()
 
-public val VT_CARRAY: VARENUM = 28u
+public val VT_CARRAY: Varenum = 28u.toUShort()
 
-public val VT_CF: VARENUM = 71u
+public val VT_CF: Varenum = 71u.toUShort()
 
-public val VT_CLSID: VARENUM = 72u
+public val VT_CLSID: Varenum = 72u.toUShort()
 
-public val VT_CY: VARENUM = 6u
+public val VT_CY: Varenum = 6u.toUShort()
 
-public val VT_DATE: VARENUM = 7u
+public val VT_DATE: Varenum = 7u.toUShort()
 
-public val VT_DECIMAL: VARENUM = 14u
+public val VT_DECIMAL: Varenum = 14u.toUShort()
 
-public val VT_DISPATCH: VARENUM = 9u
+public val VT_DISPATCH: Varenum = 9u.toUShort()
 
-public val VT_EMPTY: VARENUM = 0u
+public val VT_EMPTY: Varenum = 0u.toUShort()
 
-public val VT_ERROR: VARENUM = 10u
+public val VT_ERROR: Varenum = 10u.toUShort()
 
-public val VT_FILETIME: VARENUM = 64u
+public val VT_FILETIME: Varenum = 64u.toUShort()
 
-public val VT_HRESULT: VARENUM = 25u
+public val VT_HRESULT: Varenum = 25u.toUShort()
 
-public val VT_I1: VARENUM = 16u
+public val VT_I1: Varenum = 16u.toUShort()
 
-public val VT_I2: VARENUM = 2u
+public val VT_I2: Varenum = 2u.toUShort()
 
-public val VT_I4: VARENUM = 3u
+public val VT_I4: Varenum = 3u.toUShort()
 
-public val VT_I8: VARENUM = 20u
+public val VT_I8: Varenum = 20u.toUShort()
 
-public val VT_ILLEGAL: VARENUM = 65535u
+public val VT_ILLEGAL: Varenum = 65535u.toUShort()
 
-public val VT_ILLEGALMASKED: VARENUM = 4095u
+public val VT_ILLEGALMASKED: Varenum = 4095u.toUShort()
 
-public val VT_INT: VARENUM = 22u
+public val VT_INT: Varenum = 22u.toUShort()
 
-public val VT_INT_PTR: VARENUM = 37u
+public val VT_INT_PTR: Varenum = 37u.toUShort()
 
-public val VT_LPSTR: VARENUM = 30u
+public val VT_LPSTR: Varenum = 30u.toUShort()
 
-public val VT_LPWSTR: VARENUM = 31u
+public val VT_LPWSTR: Varenum = 31u.toUShort()
 
-public val VT_NULL: VARENUM = 1u
+public val VT_NULL: Varenum = 1u.toUShort()
 
-public val VT_PTR: VARENUM = 26u
+public val VT_PTR: Varenum = 26u.toUShort()
 
-public val VT_R4: VARENUM = 4u
+public val VT_R4: Varenum = 4u.toUShort()
 
-public val VT_R8: VARENUM = 5u
+public val VT_R8: Varenum = 5u.toUShort()
 
-public val VT_RECORD: VARENUM = 36u
+public val VT_RECORD: Varenum = 36u.toUShort()
 
-public val VT_RESERVED: VARENUM = 32768u
+public val VT_RESERVED: Varenum = 32768u.toUShort()
 
-public val VT_SAFEARRAY: VARENUM = 27u
+public val VT_SAFEARRAY: Varenum = 27u.toUShort()
 
-public val VT_STORAGE: VARENUM = 67u
+public val VT_STORAGE: Varenum = 67u.toUShort()
 
-public val VT_STORED_OBJECT: VARENUM = 69u
+public val VT_STORED_OBJECT: Varenum = 69u.toUShort()
 
-public val VT_STREAM: VARENUM = 66u
+public val VT_STREAM: Varenum = 66u.toUShort()
 
-public val VT_STREAMED_OBJECT: VARENUM = 68u
+public val VT_STREAMED_OBJECT: Varenum = 68u.toUShort()
 
-public val VT_TYPEMASK: VARENUM = 4095u
+public val VT_TYPEMASK: Varenum = 4095u.toUShort()
 
-public val VT_UI1: VARENUM = 17u
+public val VT_UI1: Varenum = 17u.toUShort()
 
-public val VT_UI2: VARENUM = 18u
+public val VT_UI2: Varenum = 18u.toUShort()
 
-public val VT_UI4: VARENUM = 19u
+public val VT_UI4: Varenum = 19u.toUShort()
 
-public val VT_UI8: VARENUM = 21u
+public val VT_UI8: Varenum = 21u.toUShort()
 
-public val VT_UINT: VARENUM = 23u
+public val VT_UINT: Varenum = 23u.toUShort()
 
-public val VT_UINT_PTR: VARENUM = 38u
+public val VT_UINT_PTR: Varenum = 38u.toUShort()
 
-public val VT_UNKNOWN: VARENUM = 13u
+public val VT_UNKNOWN: Varenum = 13u.toUShort()
 
-public val VT_USERDEFINED: VARENUM = 29u
+public val VT_USERDEFINED: Varenum = 29u.toUShort()
 
-public val VT_VARIANT: VARENUM = 12u
+public val VT_VARIANT: Varenum = 12u.toUShort()
 
-public val VT_VECTOR: VARENUM = 4096u
+public val VT_VECTOR: Varenum = 4096u.toUShort()
 
-public val VT_VERSIONED_STREAM: VARENUM = 73u
+public val VT_VERSIONED_STREAM: Varenum = 73u.toUShort()
 
-public val VT_VOID: VARENUM = 24u
+public val VT_VOID: Varenum = 24u.toUShort()

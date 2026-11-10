@@ -2,31 +2,34 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEBUFFER
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPALLOCATEMORE
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.LPFREEBUFFER
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatebuffer
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatemore
+import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpfreebuffer
 
 private val _windowsWin32StorageImapiNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CloseIMsgSession(lpmsgsess: LPMSGSESS) {
+public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess) {
     if (_windowsWin32StorageImapiNapiAddon != null) {
-        _windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_CloseIMsgSession(lpmsgsess.toString())
+        _windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetAttribIMsgOnIStg(lpobject: Long, lpproptagarray: Long, lpppropattrarray: Long): HRESULT =
-    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_GetAttribIMsgOnIStg(lpobject.toString(), lpproptagarray.toString(), lpppropattrarray.toString()) as Int) else 0
+public actual fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg((lpobject?.value ?: 0L).toString(), (lpproptagarray?.value ?: 0L).toString(), (lpppropattrarray?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MapStorageSCode(stgscode: Int): Int =
-    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_MapStorageSCode(stgscode) as Int) else 0
+public actual fun mapStorageSCode(stgscode: Int): Int =
+    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_mapStorageSCode(stgscode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenIMsgOnIStg(lpmsgsess: LPMSGSESS, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, lpmapisup: Long, lpstg: Long, lpfmsgcallrelease: Long, ulcallerdata: UInt, ulflags: UInt, lppmsg: Long): Int =
-    0
+public actual fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, lpmapisup: COpaquePointer?, lpstg: COpaquePointer?, lpfmsgcallrelease: COpaquePointer?, ulcallerdata: UInt, ulflags: UInt, lppmsg: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenIMsgSession(lpmalloc: Long, ulflags: UInt, lppmsgsess: Long): Int =
-    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_OpenIMsgSession(lpmalloc.toString(), ulflags.toInt(), lppmsgsess.toString()) as Int) else 0
+public actual fun openIMsgSession(lpmalloc: COpaquePointer?, ulflags: UInt, lppmsgsess: COpaquePointer?): Int =
+    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_openIMsgSession((lpmalloc?.value ?: 0L).toString(), ulflags.toInt(), (lppmsgsess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAttribIMsgOnIStg(lpobject: Long, lpproptags: Long, lppropattrs: Long, lpppropproblems: Long): HRESULT =
-    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_SetAttribIMsgOnIStg(lpobject.toString(), lpproptags.toString(), lppropattrs.toString(), lpppropproblems.toString()) as Int) else 0
+public actual fun setAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptags: COpaquePointer?, lppropattrs: COpaquePointer?, lpppropproblems: COpaquePointer?): Hresult =
+    if (_windowsWin32StorageImapiNapiAddon != null) (_windowsWin32StorageImapiNapiAddon.windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg((lpobject?.value ?: 0L).toString(), (lpproptags?.value ?: 0L).toString(), (lppropattrs?.value ?: 0L).toString(), (lpppropproblems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

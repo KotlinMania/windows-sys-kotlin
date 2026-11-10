@@ -1,59 +1,60 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public typealias AUTHENTICATION_REQUIREMENTS = Int
+public typealias AuthenticationRequirements = Int
 
-public typealias BLUETOOTH_AUTHENTICATION_METHOD = Int
+public typealias BluetoothAuthenticationMethod = Int
 
-public typealias BLUETOOTH_AUTHENTICATION_REQUIREMENTS = Int
+public typealias BluetoothAuthenticationRequirements = Int
 
-public typealias BLUETOOTH_IO_CAPABILITY = Int
+public typealias BluetoothIoCapability = Int
 
-public typealias BTH_LE_GATT_DESCRIPTOR_TYPE = Int
+public typealias BthLeGattDescriptorType = Int
 
-public typealias BTH_LE_GATT_EVENT_TYPE = Int
+public typealias BthLeGattEventType = Int
 
-public typealias HANDLE_SDP_TYPE = ULong
+public typealias HandleSdpType = ULong
 
-public typealias HBLUETOOTH_DEVICE_FIND = Long
+public typealias HbluetoothDeviceFind = COpaquePointer?
 
-public typealias HBLUETOOTH_RADIO_FIND = Long
+public typealias HbluetoothRadioFind = COpaquePointer?
 
-public typealias IO_CAPABILITY = Int
+public typealias IoCapability = Int
 
 public typealias NodeContainerType = Int
 
-public fun interface PFNBLUETOOTH_GATT_EVENT_CALLBACKFn {
-    public operator fun invoke(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: Long, context: Long)
+public fun interface PfnbluetoothGattEventCallbackFn {
+    public operator fun invoke(eventtype: BthLeGattEventType, eventoutparameter: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias PFNBLUETOOTH_GATT_EVENT_CALLBACK = PFNBLUETOOTH_GATT_EVENT_CALLBACKFn?
+public typealias PfnbluetoothGattEventCallback = PfnbluetoothGattEventCallbackFn?
 
-public fun interface PFN_AUTHENTICATION_CALLBACKFn {
-    public operator fun invoke(pvparam: Long, pdevice: Long): BOOL
+public fun interface PfnAuthenticationCallbackFn {
+    public operator fun invoke(pvparam: COpaquePointer?, pdevice: COpaquePointer?): Bool
 }
 
-public typealias PFN_AUTHENTICATION_CALLBACK = PFN_AUTHENTICATION_CALLBACKFn?
+public typealias PfnAuthenticationCallback = PfnAuthenticationCallbackFn?
 
-public fun interface PFN_AUTHENTICATION_CALLBACK_EXFn {
-    public operator fun invoke(pvparam: Long, pauthcallbackparams: Long): BOOL
+public fun interface PfnAuthenticationCallbackExFn {
+    public operator fun invoke(pvparam: COpaquePointer?, pauthcallbackparams: COpaquePointer?): Bool
 }
 
-public typealias PFN_AUTHENTICATION_CALLBACK_EX = PFN_AUTHENTICATION_CALLBACK_EXFn?
+public typealias PfnAuthenticationCallbackEx = PfnAuthenticationCallbackExFn?
 
-public fun interface PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACKFn {
-    public operator fun invoke(uattribid: UInt, pvaluestream: Long, cbstreamsize: UInt, pvparam: Long): BOOL
+public fun interface PfnBluetoothEnumAttributesCallbackFn {
+    public operator fun invoke(uattribid: UInt, pvaluestream: COpaquePointer?, cbstreamsize: UInt, pvparam: COpaquePointer?): Bool
 }
 
-public typealias PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACKFn?
+public typealias PfnBluetoothEnumAttributesCallback = PfnBluetoothEnumAttributesCallbackFn?
 
-public fun interface PFN_DEVICE_CALLBACKFn {
-    public operator fun invoke(pvparam: Long, pdevice: Long): BOOL
+public fun interface PfnDeviceCallbackFn {
+    public operator fun invoke(pvparam: COpaquePointer?, pdevice: COpaquePointer?): Bool
 }
 
-public typealias PFN_DEVICE_CALLBACK = PFN_DEVICE_CALLBACKFn?
+public typealias PfnDeviceCallback = PfnDeviceCallbackFn?
 
-public typealias SDP_SPECIFICTYPE = Int
+public typealias SdpSpecifictype = Int
 
-public typealias SDP_TYPE = Int
+public typealias SdpType = Int

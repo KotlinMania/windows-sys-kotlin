@@ -2,325 +2,326 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HLOCAL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hlocal
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_AddSecureMemoryCacheCallback(pfncallback.toLong().toCPointer<ByteVar>())
+public actual fun addSecureMemoryCacheCallback(pfncallback: PsecureMemoryCacheCallback): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_addSecureMemoryCacheCallback(0L.toCPointer<ByteVar>())
 
-public actual fun AllocateUserPhysicalPages(hprocess: HANDLE, numberofpages: Long, pagearray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_AllocateUserPhysicalPages(hprocess.toCPointer<ByteVar>(), numberofpages.toCPointer<ByteVar>(), pagearray.toCPointer<ByteVar>())
+public actual fun allocateUserPhysicalPages(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_allocateUserPhysicalPages(hprocess?.value?.toCPointer<ByteVar>(), numberofpages?.value?.toCPointer<ByteVar>(), pagearray?.value?.toCPointer<ByteVar>())
 
-public actual fun AllocateUserPhysicalPages2(objecthandle: HANDLE, numberofpages: Long, pagearray: Long, extendedparameters: Long, extendedparametercount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_AllocateUserPhysicalPages2(objecthandle.toCPointer<ByteVar>(), numberofpages.toCPointer<ByteVar>(), pagearray.toCPointer<ByteVar>(), extendedparameters.toCPointer<ByteVar>(), extendedparametercount)
+public actual fun allocateUserPhysicalPages2(objecthandle: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_allocateUserPhysicalPages2(objecthandle?.value?.toCPointer<ByteVar>(), numberofpages?.value?.toCPointer<ByteVar>(), pagearray?.value?.toCPointer<ByteVar>(), extendedparameters?.value?.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun AllocateUserPhysicalPagesNuma(hprocess: HANDLE, numberofpages: Long, pagearray: Long, nndpreferred: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_AllocateUserPhysicalPagesNuma(hprocess.toCPointer<ByteVar>(), numberofpages.toCPointer<ByteVar>(), pagearray.toCPointer<ByteVar>(), nndpreferred)
+public actual fun allocateUserPhysicalPagesNuma(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?, nndpreferred: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_allocateUserPhysicalPagesNuma(hprocess?.value?.toCPointer<ByteVar>(), numberofpages?.value?.toCPointer<ByteVar>(), pagearray?.value?.toCPointer<ByteVar>(), nndpreferred)
 
-public actual fun CreateFileMapping2(file: HANDLE, securityattributes: Long, desiredaccess: UInt, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: UInt, maximumsize: ULong, name: PCWSTR, extendedparameters: Long, parametercount: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMapping2(file.toCPointer<ByteVar>(), securityattributes.toCPointer<ByteVar>(), desiredaccess, pageprotection, allocationattributes, maximumsize, name.toCPointer<ByteVar>(), extendedparameters.toCPointer<ByteVar>(), parametercount)?.toLong() ?: 0L
+public actual fun createFileMapping2(file: Handle, securityattributes: COpaquePointer?, desiredaccess: UInt, pageprotection: PageProtectionFlags, allocationattributes: UInt, maximumsize: ULong, name: Pcwstr, extendedparameters: COpaquePointer?, parametercount: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMapping2(file?.value?.toCPointer<ByteVar>(), securityattributes?.value?.toCPointer<ByteVar>(), desiredaccess, pageprotection, allocationattributes, maximumsize, name?.value?.toCPointer<ByteVar>(), extendedparameters?.value?.toCPointer<ByteVar>(), parametercount)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFileMappingA(hfile: HANDLE, lpfilemappingattributes: Long, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMappingA(hfile.toCPointer<ByteVar>(), lpfilemappingattributes.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFileMappingA(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMappingA(hfile?.value?.toCPointer<ByteVar>(), lpfilemappingattributes?.value?.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFileMappingFromApp(hfile: HANDLE, securityattributes: Long, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: ULong, name: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMappingFromApp(hfile.toCPointer<ByteVar>(), securityattributes.toCPointer<ByteVar>(), pageprotection, maximumsize, name.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFileMappingFromApp(hfile: Handle, securityattributes: COpaquePointer?, pageprotection: PageProtectionFlags, maximumsize: ULong, name: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMappingFromApp(hfile?.value?.toCPointer<ByteVar>(), securityattributes?.value?.toCPointer<ByteVar>(), pageprotection, maximumsize, name?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFileMappingNumaA(hfile: HANDLE, lpfilemappingattributes: Long, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: PCSTR, nndpreferred: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMappingNumaA(hfile.toCPointer<ByteVar>(), lpfilemappingattributes.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.toCPointer<ByteVar>(), nndpreferred)?.toLong() ?: 0L
+public actual fun createFileMappingNumaA(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcstr, nndpreferred: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMappingNumaA(hfile?.value?.toCPointer<ByteVar>(), lpfilemappingattributes?.value?.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname?.value?.toCPointer<ByteVar>(), nndpreferred)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFileMappingNumaW(hfile: HANDLE, lpfilemappingattributes: Long, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: PCWSTR, nndpreferred: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMappingNumaW(hfile.toCPointer<ByteVar>(), lpfilemappingattributes.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.toCPointer<ByteVar>(), nndpreferred)?.toLong() ?: 0L
+public actual fun createFileMappingNumaW(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr, nndpreferred: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMappingNumaW(hfile?.value?.toCPointer<ByteVar>(), lpfilemappingattributes?.value?.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname?.value?.toCPointer<ByteVar>(), nndpreferred)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFileMappingW(hfile: HANDLE, lpfilemappingattributes: Long, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateFileMappingW(hfile.toCPointer<ByteVar>(), lpfilemappingattributes.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFileMappingW(hfile: Handle, lpfilemappingattributes: COpaquePointer?, flprotect: PageProtectionFlags, dwmaximumsizehigh: UInt, dwmaximumsizelow: UInt, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createFileMappingW(hfile?.value?.toCPointer<ByteVar>(), lpfilemappingattributes?.value?.toCPointer<ByteVar>(), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_CreateMemoryResourceNotification(notificationtype)?.toLong() ?: 0L
+public actual fun createMemoryResourceNotification(notificationtype: MemoryResourceNotificationType): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_createMemoryResourceNotification(notificationtype)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DiscardVirtualMemory(virtualaddress: Long, size: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_DiscardVirtualMemory(virtualaddress.toCPointer<ByteVar>(), size)
+public actual fun discardVirtualMemory(virtualaddress: COpaquePointer?, size: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_discardVirtualMemory(virtualaddress?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun FlushViewOfFile(lpbaseaddress: Long, dwnumberofbytestoflush: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_FlushViewOfFile(lpbaseaddress.toCPointer<ByteVar>(), dwnumberofbytestoflush)
+public actual fun flushViewOfFile(lpbaseaddress: COpaquePointer?, dwnumberofbytestoflush: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_flushViewOfFile(lpbaseaddress?.value?.toCPointer<ByteVar>(), dwnumberofbytestoflush)
 
-public actual fun FreeUserPhysicalPages(hprocess: HANDLE, numberofpages: Long, pagearray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_FreeUserPhysicalPages(hprocess.toCPointer<ByteVar>(), numberofpages.toCPointer<ByteVar>(), pagearray.toCPointer<ByteVar>())
+public actual fun freeUserPhysicalPages(hprocess: Handle, numberofpages: COpaquePointer?, pagearray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_freeUserPhysicalPages(hprocess?.value?.toCPointer<ByteVar>(), numberofpages?.value?.toCPointer<ByteVar>(), pagearray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLargePageMinimum(): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetLargePageMinimum()
+public actual fun getLargePageMinimum(): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getLargePageMinimum()
 
-public actual fun GetMemoryErrorHandlingCapabilities(capabilities: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetMemoryErrorHandlingCapabilities(capabilities.toCPointer<ByteVar>())
+public actual fun getMemoryErrorHandlingCapabilities(capabilities: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getMemoryErrorHandlingCapabilities(capabilities?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessHeap(): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetProcessHeap()?.toLong() ?: 0L
+public actual fun getProcessHeap(): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getProcessHeap()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetProcessHeaps(numberofheaps: UInt, processheaps: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetProcessHeaps(numberofheaps, processheaps.toCPointer<ByteVar>())
+public actual fun getProcessHeaps(numberofheaps: UInt, processheaps: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getProcessHeaps(numberofheaps, processheaps?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProcessWorkingSetSizeEx(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long, flags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetProcessWorkingSetSizeEx(hprocess.toCPointer<ByteVar>(), lpminimumworkingsetsize.toCPointer<ByteVar>(), lpmaximumworkingsetsize.toCPointer<ByteVar>(), flags.toCPointer<ByteVar>())
+public actual fun getProcessWorkingSetSizeEx(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?, flags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getProcessWorkingSetSizeEx(hprocess?.value?.toCPointer<ByteVar>(), lpminimumworkingsetsize?.value?.toCPointer<ByteVar>(), lpmaximumworkingsetsize?.value?.toCPointer<ByteVar>(), flags?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSystemFileCacheSize(lpminimumfilecachesize: Long, lpmaximumfilecachesize: Long, lpflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetSystemFileCacheSize(lpminimumfilecachesize.toCPointer<ByteVar>(), lpmaximumfilecachesize.toCPointer<ByteVar>(), lpflags.toCPointer<ByteVar>())
+public actual fun getSystemFileCacheSize(lpminimumfilecachesize: COpaquePointer?, lpmaximumfilecachesize: COpaquePointer?, lpflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getSystemFileCacheSize(lpminimumfilecachesize?.value?.toCPointer<ByteVar>(), lpmaximumfilecachesize?.value?.toCPointer<ByteVar>(), lpflags?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWriteWatch(dwflags: UInt, lpbaseaddress: Long, dwregionsize: ULong, lpaddresses: Long, lpdwcount: Long, lpdwgranularity: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GetWriteWatch(dwflags, lpbaseaddress.toCPointer<ByteVar>(), dwregionsize, lpaddresses.toCPointer<ByteVar>(), lpdwcount.toCPointer<ByteVar>(), lpdwgranularity.toCPointer<ByteVar>())
+public actual fun getWriteWatch(dwflags: UInt, lpbaseaddress: COpaquePointer?, dwregionsize: ULong, lpaddresses: COpaquePointer?, lpdwcount: COpaquePointer?, lpdwgranularity: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_getWriteWatch(dwflags, lpbaseaddress?.value?.toCPointer<ByteVar>(), dwregionsize, lpaddresses?.value?.toCPointer<ByteVar>(), lpdwcount?.value?.toCPointer<ByteVar>(), lpdwgranularity?.value?.toCPointer<ByteVar>())
 
-public actual fun GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: ULong): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalAlloc(uflags, dwbytes)?.toLong() ?: 0L
+public actual fun globalAlloc(uflags: GlobalAllocFlags, dwbytes: ULong): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalAlloc(uflags, dwbytes)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GlobalFlags(hmem: HGLOBAL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalFlags(hmem.toCPointer<ByteVar>())
+public actual fun globalFlags(hmem: Hglobal): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalFlags(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun GlobalHandle(pmem: Long): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalHandle(pmem.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun globalHandle(pmem: COpaquePointer?): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalHandle(pmem?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GlobalLock(hmem: HGLOBAL): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalLock(hmem.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun globalLock(hmem: Hglobal): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalLock(hmem?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GlobalReAlloc(hmem: HGLOBAL, dwbytes: ULong, uflags: UInt): HGLOBAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalReAlloc(hmem.toCPointer<ByteVar>(), dwbytes, uflags)?.toLong() ?: 0L
+public actual fun globalReAlloc(hmem: Hglobal, dwbytes: ULong, uflags: UInt): Hglobal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalReAlloc(hmem?.value?.toCPointer<ByteVar>(), dwbytes, uflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GlobalSize(hmem: HGLOBAL): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalSize(hmem.toCPointer<ByteVar>())
+public actual fun globalSize(hmem: Hglobal): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalSize(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun GlobalUnlock(hmem: HGLOBAL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_GlobalUnlock(hmem.toCPointer<ByteVar>())
+public actual fun globalUnlock(hmem: Hglobal): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_globalUnlock(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapAlloc(hheap: HANDLE, dwflags: HEAP_FLAGS, dwbytes: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapAlloc(hheap.toCPointer<ByteVar>(), dwflags, dwbytes)?.toLong() ?: 0L
+public actual fun heapAlloc(hheap: Handle, dwflags: HeapFlags, dwbytes: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapAlloc(hheap?.value?.toCPointer<ByteVar>(), dwflags, dwbytes)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HeapCompact(hheap: HANDLE, dwflags: HEAP_FLAGS): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapCompact(hheap.toCPointer<ByteVar>(), dwflags)
+public actual fun heapCompact(hheap: Handle, dwflags: HeapFlags): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapCompact(hheap?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: ULong, dwmaximumsize: ULong): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapCreate(floptions, dwinitialsize, dwmaximumsize)?.toLong() ?: 0L
+public actual fun heapCreate(floptions: HeapFlags, dwinitialsize: ULong, dwmaximumsize: ULong): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapCreate(floptions, dwinitialsize, dwmaximumsize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HeapDestroy(hheap: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapDestroy(hheap.toCPointer<ByteVar>())
+public actual fun heapDestroy(hheap: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapDestroy(hheap?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapFree(hheap: HANDLE, dwflags: HEAP_FLAGS, lpmem: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapFree(hheap.toCPointer<ByteVar>(), dwflags, lpmem.toCPointer<ByteVar>())
+public actual fun heapFree(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapFree(hheap?.value?.toCPointer<ByteVar>(), dwflags, lpmem?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapLock(hheap: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapLock(hheap.toCPointer<ByteVar>())
+public actual fun heapLock(hheap: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapLock(hheap?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapQueryInformation(heaphandle: HANDLE, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: Long, heapinformationlength: ULong, returnlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapQueryInformation(heaphandle.toCPointer<ByteVar>(), heapinformationclass, heapinformation.toCPointer<ByteVar>(), heapinformationlength, returnlength.toCPointer<ByteVar>())
+public actual fun heapQueryInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: COpaquePointer?, heapinformationlength: ULong, returnlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapQueryInformation(heaphandle?.value?.toCPointer<ByteVar>(), heapinformationclass, heapinformation?.value?.toCPointer<ByteVar>(), heapinformationlength, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapReAlloc(hheap: HANDLE, dwflags: HEAP_FLAGS, lpmem: Long, dwbytes: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapReAlloc(hheap.toCPointer<ByteVar>(), dwflags, lpmem.toCPointer<ByteVar>(), dwbytes)?.toLong() ?: 0L
+public actual fun heapReAlloc(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?, dwbytes: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapReAlloc(hheap?.value?.toCPointer<ByteVar>(), dwflags, lpmem?.value?.toCPointer<ByteVar>(), dwbytes)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HeapSetInformation(heaphandle: HANDLE, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: Long, heapinformationlength: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapSetInformation(heaphandle.toCPointer<ByteVar>(), heapinformationclass, heapinformation.toCPointer<ByteVar>(), heapinformationlength)
+public actual fun heapSetInformation(heaphandle: Handle, heapinformationclass: HeapInformationClass, heapinformation: COpaquePointer?, heapinformationlength: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapSetInformation(heaphandle?.value?.toCPointer<ByteVar>(), heapinformationclass, heapinformation?.value?.toCPointer<ByteVar>(), heapinformationlength)
 
-public actual fun HeapSize(hheap: HANDLE, dwflags: HEAP_FLAGS, lpmem: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapSize(hheap.toCPointer<ByteVar>(), dwflags, lpmem.toCPointer<ByteVar>())
+public actual fun heapSize(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapSize(hheap?.value?.toCPointer<ByteVar>(), dwflags, lpmem?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapSummary(hheap: HANDLE, dwflags: UInt, lpsummary: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapSummary(hheap.toCPointer<ByteVar>(), dwflags, lpsummary.toCPointer<ByteVar>())
+public actual fun heapSummary(hheap: Handle, dwflags: UInt, lpsummary: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapSummary(hheap?.value?.toCPointer<ByteVar>(), dwflags, lpsummary?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapUnlock(hheap: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapUnlock(hheap.toCPointer<ByteVar>())
+public actual fun heapUnlock(hheap: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapUnlock(hheap?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapValidate(hheap: HANDLE, dwflags: HEAP_FLAGS, lpmem: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapValidate(hheap.toCPointer<ByteVar>(), dwflags, lpmem.toCPointer<ByteVar>())
+public actual fun heapValidate(hheap: Handle, dwflags: HeapFlags, lpmem: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapValidate(hheap?.value?.toCPointer<ByteVar>(), dwflags, lpmem?.value?.toCPointer<ByteVar>())
 
-public actual fun HeapWalk(hheap: HANDLE, lpentry: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_HeapWalk(hheap.toCPointer<ByteVar>(), lpentry.toCPointer<ByteVar>())
+public actual fun heapWalk(hheap: Handle, lpentry: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_heapWalk(hheap?.value?.toCPointer<ByteVar>(), lpentry?.value?.toCPointer<ByteVar>())
 
-public actual fun IsBadCodePtr(lpfn: FARPROC): BOOL =
+public actual fun isBadCodePtr(lpfn: Farproc): Bool =
     0
 
-public actual fun IsBadReadPtr(lp: Long, ucb: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_IsBadReadPtr(lp.toCPointer<ByteVar>(), ucb)
+public actual fun isBadReadPtr(lp: COpaquePointer?, ucb: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_isBadReadPtr(lp?.value?.toCPointer<ByteVar>(), ucb)
 
-public actual fun IsBadStringPtrA(lpsz: PCSTR, ucchmax: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_IsBadStringPtrA(lpsz.toCPointer<ByteVar>(), ucchmax)
+public actual fun isBadStringPtrA(lpsz: Pcstr, ucchmax: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_isBadStringPtrA(lpsz?.value?.toCPointer<ByteVar>(), ucchmax)
 
-public actual fun IsBadStringPtrW(lpsz: PCWSTR, ucchmax: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_IsBadStringPtrW(lpsz.toCPointer<ByteVar>(), ucchmax)
+public actual fun isBadStringPtrW(lpsz: Pcwstr, ucchmax: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_isBadStringPtrW(lpsz?.value?.toCPointer<ByteVar>(), ucchmax)
 
-public actual fun IsBadWritePtr(lp: Long, ucb: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_IsBadWritePtr(lp.toCPointer<ByteVar>(), ucb)
+public actual fun isBadWritePtr(lp: COpaquePointer?, ucb: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_isBadWritePtr(lp?.value?.toCPointer<ByteVar>(), ucb)
 
-public actual fun LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: ULong): HLOCAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalAlloc(uflags, ubytes)?.toLong() ?: 0L
+public actual fun localAlloc(uflags: LocalAllocFlags, ubytes: ULong): Hlocal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localAlloc(uflags, ubytes)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LocalFlags(hmem: HLOCAL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalFlags(hmem.toCPointer<ByteVar>())
+public actual fun localFlags(hmem: Hlocal): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localFlags(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun LocalHandle(pmem: Long): HLOCAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalHandle(pmem.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun localHandle(pmem: COpaquePointer?): Hlocal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localHandle(pmem?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LocalLock(hmem: HLOCAL): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalLock(hmem.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun localLock(hmem: Hlocal): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localLock(hmem?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LocalReAlloc(hmem: HLOCAL, ubytes: ULong, uflags: UInt): HLOCAL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalReAlloc(hmem.toCPointer<ByteVar>(), ubytes, uflags)?.toLong() ?: 0L
+public actual fun localReAlloc(hmem: Hlocal, ubytes: ULong, uflags: UInt): Hlocal =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localReAlloc(hmem?.value?.toCPointer<ByteVar>(), ubytes, uflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LocalSize(hmem: HLOCAL): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalSize(hmem.toCPointer<ByteVar>())
+public actual fun localSize(hmem: Hlocal): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localSize(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun LocalUnlock(hmem: HLOCAL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_LocalUnlock(hmem.toCPointer<ByteVar>())
+public actual fun localUnlock(hmem: Hlocal): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_localUnlock(hmem?.value?.toCPointer<ByteVar>())
 
-public actual fun MapUserPhysicalPages(virtualaddress: Long, numberofpages: ULong, pagearray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_MapUserPhysicalPages(virtualaddress.toCPointer<ByteVar>(), numberofpages, pagearray.toCPointer<ByteVar>())
+public actual fun mapUserPhysicalPages(virtualaddress: COpaquePointer?, numberofpages: ULong, pagearray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_mapUserPhysicalPages(virtualaddress?.value?.toCPointer<ByteVar>(), numberofpages, pagearray?.value?.toCPointer<ByteVar>())
 
-public actual fun MapUserPhysicalPagesScatter(virtualaddresses: Long, numberofpages: ULong, pagearray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_MapUserPhysicalPagesScatter(virtualaddresses.toCPointer<ByteVar>(), numberofpages, pagearray.toCPointer<ByteVar>())
+public actual fun mapUserPhysicalPagesScatter(virtualaddresses: COpaquePointer?, numberofpages: ULong, pagearray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_mapUserPhysicalPagesScatter(virtualaddresses?.value?.toCPointer<ByteVar>(), numberofpages, pagearray?.value?.toCPointer<ByteVar>())
 
-public actual fun MapViewOfFile(hfilemappingobject: HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFile(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFile3(filemapping: HANDLE, process: HANDLE, baseaddress: Long, offset: ULong, viewsize: ULong, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: UInt, extendedparameters: Long, parametercount: UInt): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFile3(filemapping: Handle, process: Handle, baseaddress: COpaquePointer?, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFile3FromApp(filemapping: HANDLE, process: HANDLE, baseaddress: Long, offset: ULong, viewsize: ULong, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: UInt, extendedparameters: Long, parametercount: UInt): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFile3FromApp(filemapping: Handle, process: Handle, baseaddress: COpaquePointer?, offset: ULong, viewsize: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFileEx(hfilemappingobject: HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: Long): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFileEx(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: COpaquePointer?): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFileExNuma(hfilemappingobject: HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: Long, nndpreferred: UInt): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFileExNuma(hfilemappingobject: Handle, dwdesiredaccess: FileMap, dwfileoffsethigh: UInt, dwfileoffsetlow: UInt, dwnumberofbytestomap: ULong, lpbaseaddress: COpaquePointer?, nndpreferred: UInt): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFileFromApp(hfilemappingobject: HANDLE, desiredaccess: FILE_MAP, fileoffset: ULong, numberofbytestomap: ULong): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFileFromApp(hfilemappingobject: Handle, desiredaccess: FileMap, fileoffset: ULong, numberofbytestomap: ULong): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun MapViewOfFileNuma2(filemappinghandle: HANDLE, processhandle: HANDLE, offset: ULong, baseaddress: Long, viewsize: ULong, allocationtype: UInt, pageprotection: UInt, preferrednode: UInt): MEMORY_MAPPED_VIEW_ADDRESS =
-    MEMORY_MAPPED_VIEW_ADDRESS()
+public actual fun mapViewOfFileNuma2(filemappinghandle: Handle, processhandle: Handle, offset: ULong, baseaddress: COpaquePointer?, viewsize: ULong, allocationtype: UInt, pageprotection: UInt, preferrednode: UInt): MemoryMappedViewAddress =
+    MemoryMappedViewAddress()
 
-public actual fun OfferVirtualMemory(virtualaddress: Long, size: ULong, priority: OFFER_PRIORITY): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_OfferVirtualMemory(virtualaddress.toCPointer<ByteVar>(), size, priority)
+public actual fun offerVirtualMemory(virtualaddress: COpaquePointer?, size: ULong, priority: OfferPriority): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_offerVirtualMemory(virtualaddress?.value?.toCPointer<ByteVar>(), size, priority)
 
-public actual fun OpenDedicatedMemoryPartition(partition: HANDLE, dedicatedmemorytypeid: ULong, desiredaccess: UInt, inherithandle: BOOL): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_OpenDedicatedMemoryPartition(partition.toCPointer<ByteVar>(), dedicatedmemorytypeid, desiredaccess, inherithandle)?.toLong() ?: 0L
+public actual fun openDedicatedMemoryPartition(partition: Handle, dedicatedmemorytypeid: ULong, desiredaccess: UInt, inherithandle: Bool): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_openDedicatedMemoryPartition(partition?.value?.toCPointer<ByteVar>(), dedicatedmemorytypeid, desiredaccess, inherithandle)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenFileMappingA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_OpenFileMappingA(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openFileMappingA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_openFileMappingA(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenFileMappingFromApp(desiredaccess: UInt, inherithandle: BOOL, name: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_OpenFileMappingFromApp(desiredaccess, inherithandle, name.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openFileMappingFromApp(desiredaccess: UInt, inherithandle: Bool, name: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_openFileMappingFromApp(desiredaccess, inherithandle, name?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenFileMappingW(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_OpenFileMappingW(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openFileMappingW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_openFileMappingW(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PrefetchVirtualMemory(hprocess: HANDLE, numberofentries: ULong, virtualaddresses: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_PrefetchVirtualMemory(hprocess.toCPointer<ByteVar>(), numberofentries, virtualaddresses.toCPointer<ByteVar>(), flags)
+public actual fun prefetchVirtualMemory(hprocess: Handle, numberofentries: ULong, virtualaddresses: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_prefetchVirtualMemory(hprocess?.value?.toCPointer<ByteVar>(), numberofentries, virtualaddresses?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun QueryMemoryResourceNotification(resourcenotificationhandle: HANDLE, resourcestate: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_QueryMemoryResourceNotification(resourcenotificationhandle.toCPointer<ByteVar>(), resourcestate.toCPointer<ByteVar>())
+public actual fun queryMemoryResourceNotification(resourcenotificationhandle: Handle, resourcestate: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_queryMemoryResourceNotification(resourcenotificationhandle?.value?.toCPointer<ByteVar>(), resourcestate?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryPartitionInformation(partition: HANDLE, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: Long, partitioninformationlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_QueryPartitionInformation(partition.toCPointer<ByteVar>(), partitioninformationclass, partitioninformation.toCPointer<ByteVar>(), partitioninformationlength)
+public actual fun queryPartitionInformation(partition: Handle, partitioninformationclass: Win32MemoryPartitionInformationClass, partitioninformation: COpaquePointer?, partitioninformationlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_queryPartitionInformation(partition?.value?.toCPointer<ByteVar>(), partitioninformationclass, partitioninformation?.value?.toCPointer<ByteVar>(), partitioninformationlength)
 
-public actual fun QueryVirtualMemoryInformation(process: HANDLE, virtualaddress: Long, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: Long, memoryinformationsize: ULong, returnsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_QueryVirtualMemoryInformation(process.toCPointer<ByteVar>(), virtualaddress.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation.toCPointer<ByteVar>(), memoryinformationsize, returnsize.toCPointer<ByteVar>())
+public actual fun queryVirtualMemoryInformation(process: Handle, virtualaddress: COpaquePointer?, memoryinformationclass: Win32MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationsize: ULong, returnsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_queryVirtualMemoryInformation(process?.value?.toCPointer<ByteVar>(), virtualaddress?.value?.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation?.value?.toCPointer<ByteVar>(), memoryinformationsize, returnsize?.value?.toCPointer<ByteVar>())
 
-public actual fun ReclaimVirtualMemory(virtualaddress: Long, size: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_ReclaimVirtualMemory(virtualaddress.toCPointer<ByteVar>(), size)
+public actual fun reclaimVirtualMemory(virtualaddress: COpaquePointer?, size: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_reclaimVirtualMemory(virtualaddress?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTINE): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RegisterBadMemoryNotification(callback.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun registerBadMemoryNotification(callback: PbadMemoryCallbackRoutine): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_registerBadMemoryNotification(0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RemoveSecureMemoryCacheCallback(pfncallback.toLong().toCPointer<ByteVar>())
+public actual fun removeSecureMemoryCacheCallback(pfncallback: PsecureMemoryCacheCallback): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_removeSecureMemoryCacheCallback(0L.toCPointer<ByteVar>())
 
-public actual fun ResetWriteWatch(lpbaseaddress: Long, dwregionsize: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_ResetWriteWatch(lpbaseaddress.toCPointer<ByteVar>(), dwregionsize)
+public actual fun resetWriteWatch(lpbaseaddress: COpaquePointer?, dwregionsize: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_resetWriteWatch(lpbaseaddress?.value?.toCPointer<ByteVar>(), dwregionsize)
 
-public actual fun RtlCompareMemory(source1: Long, source2: Long, length: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RtlCompareMemory(source1.toCPointer<ByteVar>(), source2.toCPointer<ByteVar>(), length)
+public actual fun rtlCompareMemory(source1: COpaquePointer?, source2: COpaquePointer?, length: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_rtlCompareMemory(source1?.value?.toCPointer<ByteVar>(), source2?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun RtlCrc32(buffer: Long, size: ULong, initialcrc: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RtlCrc32(buffer.toCPointer<ByteVar>(), size, initialcrc)
+public actual fun rtlCrc32(buffer: COpaquePointer?, size: ULong, initialcrc: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_rtlCrc32(buffer?.value?.toCPointer<ByteVar>(), size, initialcrc)
 
-public actual fun RtlCrc64(buffer: Long, size: ULong, initialcrc: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RtlCrc64(buffer.toCPointer<ByteVar>(), size, initialcrc)
+public actual fun rtlCrc64(buffer: COpaquePointer?, size: ULong, initialcrc: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_rtlCrc64(buffer?.value?.toCPointer<ByteVar>(), size, initialcrc)
 
-public actual fun RtlIsZeroMemory(buffer: Long, length: ULong): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_RtlIsZeroMemory(buffer.toCPointer<ByteVar>(), length)
+public actual fun rtlIsZeroMemory(buffer: COpaquePointer?, length: ULong): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_rtlIsZeroMemory(buffer?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun SetProcessValidCallTargets(hprocess: HANDLE, virtualaddress: Long, regionsize: ULong, numberofoffsets: UInt, offsetinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_SetProcessValidCallTargets(hprocess.toCPointer<ByteVar>(), virtualaddress.toCPointer<ByteVar>(), regionsize, numberofoffsets, offsetinformation.toCPointer<ByteVar>())
+public actual fun setProcessValidCallTargets(hprocess: Handle, virtualaddress: COpaquePointer?, regionsize: ULong, numberofoffsets: UInt, offsetinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_setProcessValidCallTargets(hprocess?.value?.toCPointer<ByteVar>(), virtualaddress?.value?.toCPointer<ByteVar>(), regionsize, numberofoffsets, offsetinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun SetProcessValidCallTargetsForMappedView(process: HANDLE, virtualaddress: Long, regionsize: ULong, numberofoffsets: UInt, offsetinformation: Long, section: HANDLE, expectedfileoffset: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_SetProcessValidCallTargetsForMappedView(process.toCPointer<ByteVar>(), virtualaddress.toCPointer<ByteVar>(), regionsize, numberofoffsets, offsetinformation.toCPointer<ByteVar>(), section.toCPointer<ByteVar>(), expectedfileoffset)
+public actual fun setProcessValidCallTargetsForMappedView(process: Handle, virtualaddress: COpaquePointer?, regionsize: ULong, numberofoffsets: UInt, offsetinformation: COpaquePointer?, section: Handle, expectedfileoffset: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_setProcessValidCallTargetsForMappedView(process?.value?.toCPointer<ByteVar>(), virtualaddress?.value?.toCPointer<ByteVar>(), regionsize, numberofoffsets, offsetinformation?.value?.toCPointer<ByteVar>(), section?.value?.toCPointer<ByteVar>(), expectedfileoffset)
 
-public actual fun SetProcessWorkingSetSizeEx(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong, flags: SETPROCESSWORKINGSETSIZEEX_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_SetProcessWorkingSetSizeEx(hprocess.toCPointer<ByteVar>(), dwminimumworkingsetsize, dwmaximumworkingsetsize, flags)
+public actual fun setProcessWorkingSetSizeEx(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong, flags: SetprocessworkingsetsizeexFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_setProcessWorkingSetSizeEx(hprocess?.value?.toCPointer<ByteVar>(), dwminimumworkingsetsize, dwmaximumworkingsetsize, flags)
 
-public actual fun SetSystemFileCacheSize(minimumfilecachesize: ULong, maximumfilecachesize: ULong, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_SetSystemFileCacheSize(minimumfilecachesize, maximumfilecachesize, flags)
+public actual fun setSystemFileCacheSize(minimumfilecachesize: ULong, maximumfilecachesize: ULong, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_setSystemFileCacheSize(minimumfilecachesize, maximumfilecachesize, flags)
 
-public actual fun UnmapViewOfFile(lpbaseaddress: MEMORY_MAPPED_VIEW_ADDRESS): BOOL =
+public actual fun unmapViewOfFile(lpbaseaddress: MemoryMappedViewAddress): Bool =
     0
 
-public actual fun UnmapViewOfFile2(process: HANDLE, baseaddress: MEMORY_MAPPED_VIEW_ADDRESS, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS): BOOL =
+public actual fun unmapViewOfFile2(process: Handle, baseaddress: MemoryMappedViewAddress, unmapflags: UnmapViewOfFileFlags): Bool =
     0
 
-public actual fun UnmapViewOfFileEx(baseaddress: MEMORY_MAPPED_VIEW_ADDRESS, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS): BOOL =
+public actual fun unmapViewOfFileEx(baseaddress: MemoryMappedViewAddress, unmapflags: UnmapViewOfFileFlags): Bool =
     0
 
-public actual fun UnregisterBadMemoryNotification(registrationhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_UnregisterBadMemoryNotification(registrationhandle.toCPointer<ByteVar>())
+public actual fun unregisterBadMemoryNotification(registrationhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_unregisterBadMemoryNotification(registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun VirtualAlloc(lpaddress: Long, dwsize: ULong, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAlloc(lpaddress.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect)?.toLong() ?: 0L
+public actual fun virtualAlloc(lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAlloc(lpaddress?.value?.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualAlloc2(process: HANDLE, baseaddress: Long, size: ULong, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: UInt, extendedparameters: Long, parametercount: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAlloc2(process.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), size, allocationtype, pageprotection, extendedparameters.toCPointer<ByteVar>(), parametercount)?.toLong() ?: 0L
+public actual fun virtualAlloc2(process: Handle, baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAlloc2(process?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), size, allocationtype, pageprotection, extendedparameters?.value?.toCPointer<ByteVar>(), parametercount)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualAlloc2FromApp(process: HANDLE, baseaddress: Long, size: ULong, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: UInt, extendedparameters: Long, parametercount: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAlloc2FromApp(process.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), size, allocationtype, pageprotection, extendedparameters.toCPointer<ByteVar>(), parametercount)?.toLong() ?: 0L
+public actual fun virtualAlloc2FromApp(process: Handle, baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, pageprotection: UInt, extendedparameters: COpaquePointer?, parametercount: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAlloc2FromApp(process?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), size, allocationtype, pageprotection, extendedparameters?.value?.toCPointer<ByteVar>(), parametercount)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualAllocEx(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAllocEx(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect)?.toLong() ?: 0L
+public actual fun virtualAllocEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: PageProtectionFlags): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAllocEx(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualAllocExNuma(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: UInt, nndpreferred: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAllocExNuma(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect, nndpreferred)?.toLong() ?: 0L
+public actual fun virtualAllocExNuma(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flallocationtype: VirtualAllocationType, flprotect: UInt, nndpreferred: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAllocExNuma(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, flallocationtype, flprotect, nndpreferred)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualAllocFromApp(baseaddress: Long, size: ULong, allocationtype: VIRTUAL_ALLOCATION_TYPE, protection: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualAllocFromApp(baseaddress.toCPointer<ByteVar>(), size, allocationtype, protection)?.toLong() ?: 0L
+public actual fun virtualAllocFromApp(baseaddress: COpaquePointer?, size: ULong, allocationtype: VirtualAllocationType, protection: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualAllocFromApp(baseaddress?.value?.toCPointer<ByteVar>(), size, allocationtype, protection)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VirtualFree(lpaddress: Long, dwsize: ULong, dwfreetype: VIRTUAL_FREE_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualFree(lpaddress.toCPointer<ByteVar>(), dwsize, dwfreetype)
+public actual fun virtualFree(lpaddress: COpaquePointer?, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualFree(lpaddress?.value?.toCPointer<ByteVar>(), dwsize, dwfreetype)
 
-public actual fun VirtualFreeEx(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwfreetype: VIRTUAL_FREE_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualFreeEx(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), dwsize, dwfreetype)
+public actual fun virtualFreeEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwfreetype: VirtualFreeType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualFreeEx(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, dwfreetype)
 
-public actual fun VirtualLock(lpaddress: Long, dwsize: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualLock(lpaddress.toCPointer<ByteVar>(), dwsize)
+public actual fun virtualLock(lpaddress: COpaquePointer?, dwsize: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualLock(lpaddress?.value?.toCPointer<ByteVar>(), dwsize)
 
-public actual fun VirtualProtect(lpaddress: Long, dwsize: ULong, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualProtect(lpaddress.toCPointer<ByteVar>(), dwsize, flnewprotect, lpfloldprotect.toCPointer<ByteVar>())
+public actual fun virtualProtect(lpaddress: COpaquePointer?, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualProtect(lpaddress?.value?.toCPointer<ByteVar>(), dwsize, flnewprotect, lpfloldprotect?.value?.toCPointer<ByteVar>())
 
-public actual fun VirtualProtectEx(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualProtectEx(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), dwsize, flnewprotect, lpfloldprotect.toCPointer<ByteVar>())
+public actual fun virtualProtectEx(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, flnewprotect: PageProtectionFlags, lpfloldprotect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualProtectEx(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, flnewprotect, lpfloldprotect?.value?.toCPointer<ByteVar>())
 
-public actual fun VirtualProtectFromApp(address: Long, size: ULong, newprotection: UInt, oldprotection: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualProtectFromApp(address.toCPointer<ByteVar>(), size, newprotection, oldprotection.toCPointer<ByteVar>())
+public actual fun virtualProtectFromApp(address: COpaquePointer?, size: ULong, newprotection: UInt, oldprotection: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualProtectFromApp(address?.value?.toCPointer<ByteVar>(), size, newprotection, oldprotection?.value?.toCPointer<ByteVar>())
 
-public actual fun VirtualQuery(lpaddress: Long, lpbuffer: Long, dwlength: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualQuery(lpaddress.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwlength)
+public actual fun virtualQuery(lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, dwlength: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualQuery(lpaddress?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwlength)
 
-public actual fun VirtualQueryEx(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, dwlength: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualQueryEx(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwlength)
+public actual fun virtualQueryEx(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, dwlength: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualQueryEx(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwlength)
 
-public actual fun VirtualUnlock(lpaddress: Long, dwsize: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualUnlock(lpaddress.toCPointer<ByteVar>(), dwsize)
+public actual fun virtualUnlock(lpaddress: COpaquePointer?, dwsize: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualUnlock(lpaddress?.value?.toCPointer<ByteVar>(), dwsize)
 
-public actual fun VirtualUnlockEx(process: HANDLE, address: Long, size: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_VirtualUnlockEx(process.toCPointer<ByteVar>(), address.toCPointer<ByteVar>(), size)
+public actual fun virtualUnlockEx(process: Handle, address: COpaquePointer?, size: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.cinterop.windowssys_windows_win32_system_memory_virtualUnlockEx(process?.value?.toCPointer<ByteVar>(), address?.value?.toCPointer<ByteVar>(), size)

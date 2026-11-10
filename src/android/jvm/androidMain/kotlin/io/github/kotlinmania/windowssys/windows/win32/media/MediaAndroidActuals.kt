@@ -2,6 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media
 
+import io.github.kotlinmania.windowssys.COpaquePointer
+
 private object WindowsWin32MediaJniBridge {
     init {
         System.loadLibrary("windowssys_jni")
@@ -35,11 +37,11 @@ public actual fun timeBeginPeriod(uperiod: UInt): UInt =
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
     WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeEndPeriod(uperiod.toInt()).toUInt()
 
-public actual fun timeGetDevCaps(ptc: Long, cbtc: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetDevCaps(ptc, cbtc.toInt()).toUInt()
+public actual fun timeGetDevCaps(ptc: COpaquePointer?, cbtc: UInt): UInt =
+    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetDevCaps((ptc?.value ?: 0L), cbtc.toInt()).toUInt()
 
-public actual fun timeGetSystemTime(pmmt: Long, cbmmt: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetSystemTime(pmmt, cbmmt.toInt()).toUInt()
+public actual fun timeGetSystemTime(pmmt: COpaquePointer?, cbmmt: UInt): UInt =
+    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetSystemTime((pmmt?.value ?: 0L), cbmmt.toInt()).toUInt()
 
 public actual fun timeGetTime(): UInt =
     WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeGetTime().toUInt()
@@ -47,5 +49,5 @@ public actual fun timeGetTime(): UInt =
 public actual fun timeKillEvent(utimerid: UInt): UInt =
     WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeKillEvent(utimerid.toInt()).toUInt()
 
-public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: LPTIMECALLBACK, dwuser: ULong, fuevent: UInt): UInt =
-    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeSetEvent(udelay.toInt(), uresolution.toInt(), fptc.toLong(), dwuser.toLong(), fuevent.toInt()).toUInt()
+public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: Lptimecallback, dwuser: ULong, fuevent: UInt): UInt =
+    WindowsWin32MediaJniBridge.windowssys_windows_win32_media_timeSetEvent(udelay.toInt(), uresolution.toInt(), 0L, dwuser.toLong(), fuevent.toInt()).toUInt()

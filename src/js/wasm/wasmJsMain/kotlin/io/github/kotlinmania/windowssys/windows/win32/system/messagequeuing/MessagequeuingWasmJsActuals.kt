@@ -1,112 +1,230 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public actual fun MQADsPathToFormatName(lpwcsadspath: PCWSTR, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32SystemMessagequeuingNapiAddon(): Boolean
 
-public actual fun MQBeginTransaction(pptransaction: Long): HRESULT =
-    0
+private val _windowsWin32SystemMessagequeuingNapiAvailable: Boolean = _initWindowsWin32SystemMessagequeuingNapiAddon()
 
-public actual fun MQCloseCursor(hcursor: HANDLE): HRESULT =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName(p0: String, p1: String, p2: String): Int
 
-public actual fun MQCloseQueue(hqueue: Long): HRESULT =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQBeginTransaction(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQBeginTransaction(p0: String): Int
 
-public actual fun MQCreateCursor(hqueue: Long, phcursor: Long): HRESULT =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQCloseCursor(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQCloseCursor(p0: String): Int
 
-public actual fun MQCreateQueue(psecuritydescriptor: PSECURITY_DESCRIPTOR, pqueueprops: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQCloseQueue(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQCloseQueue(p0: String): Int
 
-public actual fun MQDeleteQueue(lpwcsformatname: PCWSTR): HRESULT =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQCreateCursor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQCreateCursor(p0: String, p1: String): Int
 
-public actual fun MQFreeMemory(pvmemory: Long) {
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQCreateQueue(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQCreateQueue(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQDeleteQueue(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQDeleteQueue(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQFreeMemory(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQFreeMemory(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQLocateBegin(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateBegin(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQLocateEnd(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateEnd(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQLocateNext(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateNext(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQMgmtAction(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQMgmtAction(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQMoveMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQMoveMessage(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQOpenQueue(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQOpenQueue(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQPurgeQueue(p0)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQPurgeQueue(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQReceiveMessage(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQReceiveMessage(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQSendMessage(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQSendMessage(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity(p0: String, p1: Int, p2: String): Int
+
+public actual fun mQADsPathToFormatName(lpwcsadspath: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName((lpwcsadspath?.value ?: 0L).toString(), (lpwcsformatname?.value ?: 0L).toString(), (lpdwformatnamelength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQBeginTransaction(pptransaction: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQBeginTransaction((pptransaction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQCloseCursor(hcursor: Handle): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQCloseCursor((hcursor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQCloseQueue(hqueue: Long): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQCloseQueue(hqueue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQCreateCursor(hqueue: Long, phcursor: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQCreateCursor(hqueue.toString(), (phcursor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQCreateQueue(psecuritydescriptor: PsecurityDescriptor, pqueueprops: COpaquePointer?, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQCreateQueue((psecuritydescriptor?.value ?: 0L).toString(), (pqueueprops?.value ?: 0L).toString(), (lpwcsformatname?.value ?: 0L).toString(), (lpdwformatnamelength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQDeleteQueue(lpwcsformatname: Pcwstr): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQDeleteQueue((lpwcsformatname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun mQFreeMemory(pvmemory: COpaquePointer?) {
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_messagequeuing_mQFreeMemory((pvmemory?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun MQFreeSecurityContext(hsecuritycontext: HANDLE) {
+public actual fun mQFreeSecurityContext(hsecuritycontext: Handle) {
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) {
+        _wasm_windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext((hsecuritycontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun MQGetMachineProperties(lpwcsmachinename: PCWSTR, pguidmachineid: Long, pqmprops: Long): HRESULT =
-    0
+public actual fun mQGetMachineProperties(lpwcsmachinename: Pcwstr, pguidmachineid: COpaquePointer?, pqmprops: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties((lpwcsmachinename?.value ?: 0L).toString(), (pguidmachineid?.value ?: 0L).toString(), (pqmprops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetOverlappedResult(lpoverlapped: Long): HRESULT =
-    0
+public actual fun mQGetOverlappedResult(lpoverlapped: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult((lpoverlapped?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetPrivateComputerInformation(lpwcscomputername: PCWSTR, pprivateprops: Long): HRESULT =
-    0
+public actual fun mQGetPrivateComputerInformation(lpwcscomputername: Pcwstr, pprivateprops: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation((lpwcscomputername?.value ?: 0L).toString(), (pprivateprops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRESULT =
-    0
+public actual fun mQGetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties((lpwcsformatname?.value ?: 0L).toString(), (pqueueprops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetQueueSecurity(lpwcsformatname: PCWSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): HRESULT =
-    0
+public actual fun mQGetQueueSecurity(lpwcsformatname: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity((lpwcsformatname?.value ?: 0L).toString(), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetSecurityContext(lpcertbuffer: Long, dwcertbufferlength: UInt, phsecuritycontext: Long): HRESULT =
-    0
+public actual fun mQGetSecurityContext(lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt, phsecuritycontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext((lpcertbuffer?.value ?: 0L).toString(), dwcertbufferlength.toInt(), (phsecuritycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQGetSecurityContextEx(lpcertbuffer: Long, dwcertbufferlength: UInt, phsecuritycontext: Long): HRESULT =
-    0
+public actual fun mQGetSecurityContextEx(lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt, phsecuritycontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx((lpcertbuffer?.value ?: 0L).toString(), dwcertbufferlength.toInt(), (phsecuritycontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQHandleToFormatName(hqueue: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    0
+public actual fun mQHandleToFormatName(hqueue: Long, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName(hqueue.toString(), (lpwcsformatname?.value ?: 0L).toString(), (lpdwformatnamelength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQInstanceToFormatName(pguid: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    0
+public actual fun mQInstanceToFormatName(pguid: COpaquePointer?, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName((pguid?.value ?: 0L).toString(), (lpwcsformatname?.value ?: 0L).toString(), (lpdwformatnamelength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQLocateBegin(lpwcscontext: PCWSTR, prestriction: Long, pcolumns: Long, psort: Long, phenum: Long): HRESULT =
-    0
+public actual fun mQLocateBegin(lpwcscontext: Pcwstr, prestriction: COpaquePointer?, pcolumns: COpaquePointer?, psort: COpaquePointer?, phenum: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateBegin((lpwcscontext?.value ?: 0L).toString(), (prestriction?.value ?: 0L).toString(), (pcolumns?.value ?: 0L).toString(), (psort?.value ?: 0L).toString(), (phenum?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQLocateEnd(henum: HANDLE): HRESULT =
-    0
+public actual fun mQLocateEnd(henum: Handle): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateEnd((henum?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQLocateNext(henum: HANDLE, pcprops: Long, apropvar: Long): HRESULT =
-    0
+public actual fun mQLocateNext(henum: Handle, pcprops: COpaquePointer?, apropvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQLocateNext((henum?.value ?: 0L).toString(), (pcprops?.value ?: 0L).toString(), (apropvar?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQMarkMessageRejected(hqueue: HANDLE, ulllookupid: ULong): HRESULT =
-    0
+public actual fun mQMarkMessageRejected(hqueue: Handle, ulllookupid: ULong): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected((hqueue?.value ?: 0L).toString(), ulllookupid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQMgmtAction(pcomputername: PCWSTR, pobjectname: PCWSTR, paction: PCWSTR): HRESULT =
-    0
+public actual fun mQMgmtAction(pcomputername: Pcwstr, pobjectname: Pcwstr, paction: Pcwstr): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQMgmtAction((pcomputername?.value ?: 0L).toString(), (pobjectname?.value ?: 0L).toString(), (paction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQMgmtGetInfo(pcomputername: PCWSTR, pobjectname: PCWSTR, pmgmtprops: Long): HRESULT =
-    0
+public actual fun mQMgmtGetInfo(pcomputername: Pcwstr, pobjectname: Pcwstr, pmgmtprops: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo((pcomputername?.value ?: 0L).toString(), (pobjectname?.value ?: 0L).toString(), (pmgmtprops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: Long): HRESULT =
-    0
+public actual fun mQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQMoveMessage(hsourcequeue.toString(), hdestinationqueue.toString(), ulllookupid.toString(), (ptransaction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQOpenQueue(lpwcsformatname: PCWSTR, dwaccess: UInt, dwsharemode: UInt, phqueue: Long): HRESULT =
-    0
+public actual fun mQOpenQueue(lpwcsformatname: Pcwstr, dwaccess: UInt, dwsharemode: UInt, phqueue: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQOpenQueue((lpwcsformatname?.value ?: 0L).toString(), dwaccess.toInt(), dwsharemode.toInt(), (phqueue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQPathNameToFormatName(lpwcspathname: PCWSTR, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    0
+public actual fun mQPathNameToFormatName(lpwcspathname: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName((lpwcspathname?.value ?: 0L).toString(), (lpwcsformatname?.value ?: 0L).toString(), (lpdwformatnamelength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQPurgeQueue(hqueue: Long): HRESULT =
-    0
+public actual fun mQPurgeQueue(hqueue: Long): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQPurgeQueue(hqueue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: HANDLE, ptransaction: Long): HRESULT =
-    0
+public actual fun mQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: COpaquePointer?, lpoverlapped: COpaquePointer?, fnreceivecallback: Pmqreceivecallback, hcursor: Handle, ptransaction: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQReceiveMessage(hsource.toString(), dwtimeout.toInt(), dwaction.toInt(), (pmessageprops?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (hcursor?.value ?: 0L).toString(), (ptransaction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: Long): HRESULT =
-    0
+public actual fun mQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: COpaquePointer?, lpoverlapped: COpaquePointer?, fnreceivecallback: Pmqreceivecallback, ptransaction: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId(hsource.toString(), ulllookupid.toString(), dwlookupaction.toInt(), (pmessageprops?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), 0L.toString(), (ptransaction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQRegisterCertificate(dwflags: UInt, lpcertbuffer: Long, dwcertbufferlength: UInt): HRESULT =
-    0
+public actual fun mQRegisterCertificate(dwflags: UInt, lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate(dwflags.toInt(), (lpcertbuffer?.value ?: 0L).toString(), dwcertbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQSendMessage(hdestinationqueue: Long, pmessageprops: Long, ptransaction: Long): HRESULT =
-    0
+public actual fun mQSendMessage(hdestinationqueue: Long, pmessageprops: COpaquePointer?, ptransaction: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQSendMessage(hdestinationqueue.toString(), (pmessageprops?.value ?: 0L).toString(), (ptransaction?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQSetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRESULT =
-    0
+public actual fun mQSetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties((lpwcsformatname?.value ?: 0L).toString(), (pqueueprops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MQSetQueueSecurity(lpwcsformatname: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): HRESULT =
-    0
+public actual fun mQSetQueueSecurity(lpwcsformatname: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Hresult =
+    if (_windowsWin32SystemMessagequeuingNapiAvailable) _wasm_windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity((lpwcsformatname?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

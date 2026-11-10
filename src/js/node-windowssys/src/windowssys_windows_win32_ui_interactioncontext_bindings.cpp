@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_AddPointerInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entriescount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_BufferPointerP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_createInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_CreateInteract
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_DestroyInterac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t threshold = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetCrossSlideP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetHoldParamet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inertiaparameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetInertiaPara
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t configurationcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetInteraction
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetMouseWheelP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t contextproperty = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetPropertyInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pointerinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetStateIntera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetTapParamete
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_GetTranslation
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -345,7 +345,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessBuffere
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessInertia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entriescount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -387,7 +387,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_ProcessPointer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outputcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_RegisterOutput
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* outputcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_RegisterOutput
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t pointerid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_RemovePointerI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_resetInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -469,7 +469,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_ResetInteracti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t parametercount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -491,7 +491,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetCrossSlideP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetHoldParamet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inertiaparameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetInertiaPara
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t configurationcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -557,7 +557,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetInteraction
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -579,7 +579,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetMouseWheelP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     float x = km_info.Length() > 1 ? km_info[1].ToNumber().FloatValue() : 0.0f;
@@ -603,7 +603,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetPivotIntera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t contextproperty = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -625,7 +625,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetPropertyInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetTapParamete
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t parameter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -669,7 +669,7 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_SetTranslation
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_interactioncontext_StopInteractionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_interactioncontext_stopInteractionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interactioncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -688,36 +688,36 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_StopInteractio
 }
 
 static void register_windows_win32_ui_interactioncontext_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext_napi));
-    exports.Set("windowssys_windows_win32_ui_interactioncontext_StopInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_StopInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_createInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_createInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_resetInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_resetInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext_napi));
+    exports.Set("windowssys_windows_win32_ui_interactioncontext_stopInteractionContext", Napi::Function::New(env, windowssys_windows_win32_ui_interactioncontext_stopInteractionContext_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_interactioncontext_napi, nullptr };

@@ -2,2148 +2,2149 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
-import io.github.kotlinmania.windowssys.windows.win32.system.ole.DROPEFFECT
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HIMAGELIST
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.LPFNSVADDPROPSHEETPAGE
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DEVICE_SCALE_FACTOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SHOW_WINDOW_CMD
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.Dropeffect
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DeviceScaleFactor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.ShowWindowCmd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AssocCreate(clsid: GUID, riid: Long, ppv: Long): HRESULT =
+public actual fun assocCreate(clsid: Guid, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     0
 
-public actual fun AssocCreateForClasses(rgclasses: Long, cclasses: UInt, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocCreateForClasses(rgclasses.toCPointer<ByteVar>(), cclasses, riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun assocCreateForClasses(rgclasses: COpaquePointer?, cclasses: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocCreateForClasses(rgclasses?.value?.toCPointer<ByteVar>(), cclasses, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocGetDetailsOfPropKey(psf: Long, pidl: Long, pkey: Long, pv: Long, pffoundpropkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey(psf.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), pffoundpropkey.toCPointer<ByteVar>())
+public actual fun assocGetDetailsOfPropKey(psf: COpaquePointer?, pidl: COpaquePointer?, pkey: COpaquePointer?, pv: COpaquePointer?, pffoundpropkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey(psf?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), pffoundpropkey?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocGetPerceivedType(pszext: PCWSTR, ptype: Long, pflag: Long, ppsztype: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocGetPerceivedType(pszext.toCPointer<ByteVar>(), ptype.toCPointer<ByteVar>(), pflag.toCPointer<ByteVar>(), ppsztype.toCPointer<ByteVar>())
+public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: COpaquePointer?, pflag: COpaquePointer?, ppsztype: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocGetPerceivedType(pszext?.value?.toCPointer<ByteVar>(), ptype?.value?.toCPointer<ByteVar>(), pflag?.value?.toCPointer<ByteVar>(), ppsztype?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocIsDangerous(pszassoc: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocIsDangerous(pszassoc.toCPointer<ByteVar>())
+public actual fun assocIsDangerous(pszassoc: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocIsDangerous(pszassoc?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryKeyA(flags: ASSOCF, key: ASSOCKEY, pszassoc: PCSTR, pszextra: PCSTR, phkeyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryKeyA(flags, key, pszassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), phkeyout.toCPointer<ByteVar>())
+public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryKeyA(flags, key, pszassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), phkeyout?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryKeyW(flags: ASSOCF, key: ASSOCKEY, pszassoc: PCWSTR, pszextra: PCWSTR, phkeyout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryKeyW(flags, key, pszassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), phkeyout.toCPointer<ByteVar>())
+public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryKeyW(flags, key, pszassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), phkeyout?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryStringA(flags: ASSOCF, str: ASSOCSTR, pszassoc: PCSTR, pszextra: PCSTR, pszout: PSTR, pcchout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryStringA(flags, str, pszassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>())
+public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryStringA(flags, str, pszassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryStringByKeyA(flags: ASSOCF, str: ASSOCSTR, hkassoc: HKEY, pszextra: PCSTR, pszout: PSTR, pcchout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA(flags, str, hkassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>())
+public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryStringByKeyA(flags, str, hkassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryStringByKeyW(flags: ASSOCF, str: ASSOCSTR, hkassoc: HKEY, pszextra: PCWSTR, pszout: PWSTR, pcchout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW(flags, str, hkassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>())
+public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryStringByKeyW(flags, str, hkassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>())
 
-public actual fun AssocQueryStringW(flags: ASSOCF, str: ASSOCSTR, pszassoc: PCWSTR, pszextra: PCWSTR, pszout: PWSTR, pcchout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_AssocQueryStringW(flags, str, pszassoc.toCPointer<ByteVar>(), pszextra.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>())
+public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_assocQueryStringW(flags, str, pszassoc?.value?.toCPointer<ByteVar>(), pszextra?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>())
 
-public actual fun CDefFolderMenu_Create2(pidlfolder: Long, hwnd: HWND, cidl: UInt, apidl: Long, psf: Long, pfn: LPFNDFMCALLBACK, nkeys: UInt, ahkeys: Long, ppcm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2(pidlfolder.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), cidl, apidl.toCPointer<ByteVar>(), psf.toCPointer<ByteVar>(), pfn.toLong().toCPointer<ByteVar>(), nkeys, ahkeys.toCPointer<ByteVar>(), ppcm.toCPointer<ByteVar>())
+public actual fun cdefFolderMenuCreate2(pidlfolder: COpaquePointer?, hwnd: Hwnd, cidl: UInt, apidl: COpaquePointer?, psf: COpaquePointer?, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: COpaquePointer?, ppcm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2(pidlfolder?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), cidl, apidl?.value?.toCPointer<ByteVar>(), psf?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nkeys, ahkeys?.value?.toCPointer<ByteVar>(), ppcm?.value?.toCPointer<ByteVar>())
 
-public actual fun CIDLData_CreateFromIDArray(pidlfolder: Long, cidl: UInt, apidl: Long, ppdtobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray(pidlfolder.toCPointer<ByteVar>(), cidl, apidl.toCPointer<ByteVar>(), ppdtobj.toCPointer<ByteVar>())
+public actual fun cidldataCreateFromIdarray(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, ppdtobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray(pidlfolder?.value?.toCPointer<ByteVar>(), cidl, apidl?.value?.toCPointer<ByteVar>(), ppdtobj?.value?.toCPointer<ByteVar>())
 
-public actual fun ChrCmpIA(w1: UShort, w2: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ChrCmpIA(w1, w2)
+public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_chrCmpIA(w1, w2)
 
-public actual fun ChrCmpIW(w1: UShort, w2: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ChrCmpIW(w1, w2)
+public actual fun chrCmpIW(w1: UShort, w2: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_chrCmpIW(w1, w2)
 
-public actual fun ColorAdjustLuma(clrrgb: COLORREF, n: Int, fscale: BOOL): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ColorAdjustLuma(clrrgb, n, fscale)
+public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_colorAdjustLuma(clrrgb, n, fscale)
 
-public actual fun ColorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ColorHLSToRGB(whue, wluminance, wsaturation)
+public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_colorHLSToRGB(whue, wluminance, wsaturation)
 
-public actual fun ColorRGBToHLS(clrrgb: COLORREF, pwhue: Long, pwluminance: Long, pwsaturation: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ColorRGBToHLS(clrrgb, pwhue.toCPointer<ByteVar>(), pwluminance.toCPointer<ByteVar>(), pwsaturation.toCPointer<ByteVar>())
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: COpaquePointer?, pwluminance: COpaquePointer?, pwsaturation: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_colorRGBToHLS(clrrgb, pwhue?.value?.toCPointer<ByteVar>(), pwluminance?.value?.toCPointer<ByteVar>(), pwsaturation?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CommandLineToArgvW(lpcmdline: PCWSTR, pnumargs: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_CommandLineToArgvW(lpcmdline.toCPointer<ByteVar>(), pnumargs.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_commandLineToArgvW(lpcmdline?.value?.toCPointer<ByteVar>(), pnumargs?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ConnectToConnectionPoint(punk: Long, riidevent: Long, fconnect: BOOL, punktarget: Long, pdwcookie: Long, ppcpout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ConnectToConnectionPoint(punk.toCPointer<ByteVar>(), riidevent.toCPointer<ByteVar>(), fconnect, punktarget.toCPointer<ByteVar>(), pdwcookie.toCPointer<ByteVar>(), ppcpout.toCPointer<ByteVar>())
+public actual fun connectToConnectionPoint(punk: COpaquePointer?, riidevent: COpaquePointer?, fconnect: Bool, punktarget: COpaquePointer?, pdwcookie: COpaquePointer?, ppcpout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_connectToConnectionPoint(punk?.value?.toCPointer<ByteVar>(), riidevent?.value?.toCPointer<ByteVar>(), fconnect, punktarget?.value?.toCPointer<ByteVar>(), pdwcookie?.value?.toCPointer<ByteVar>(), ppcpout?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProfile(pszusersid: PCWSTR, pszusername: PCWSTR, pszprofilepath: PWSTR, cchprofilepath: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_CreateProfile(pszusersid.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pszprofilepath.toCPointer<ByteVar>(), cchprofilepath)
+public actual fun createProfile(pszusersid: Pcwstr, pszusername: Pcwstr, pszprofilepath: Pwstr, cchprofilepath: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_createProfile(pszusersid?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pszprofilepath?.value?.toCPointer<ByteVar>(), cchprofilepath)
 
-public actual fun DAD_AutoScroll(hwnd: HWND, pad: Long, pptnow: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DAD_AutoScroll(hwnd.toCPointer<ByteVar>(), pad.toCPointer<ByteVar>(), pptnow.toCPointer<ByteVar>())
+public actual fun dadAutoScroll(hwnd: Hwnd, pad: COpaquePointer?, pptnow: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dadAutoScroll(hwnd?.value?.toCPointer<ByteVar>(), pad?.value?.toCPointer<ByteVar>(), pptnow?.value?.toCPointer<ByteVar>())
 
-public actual fun DAD_DragEnterEx(hwndtarget: HWND, ptstart: POINT): BOOL =
+public actual fun dadDragEnterEx(hwndtarget: Hwnd, ptstart: Point): Bool =
     0
 
-public actual fun DAD_DragEnterEx2(hwndtarget: HWND, ptstart: POINT, pdtobject: Long): BOOL =
+public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: COpaquePointer?): Bool =
     0
 
-public actual fun DAD_DragLeave(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DAD_DragLeave()
+public actual fun dadDragLeave(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dadDragLeave()
 
-public actual fun DAD_DragMove(pt: POINT): BOOL =
+public actual fun dadDragMove(pt: Point): Bool =
     0
 
-public actual fun DAD_SetDragImage(him: HIMAGELIST, pptoffset: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DAD_SetDragImage(him, pptoffset.toCPointer<ByteVar>())
+public actual fun dadSetDragImage(him: Himagelist, pptoffset: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dadSetDragImage(him, pptoffset?.value?.toCPointer<ByteVar>())
 
-public actual fun DAD_ShowDragImage(fshow: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DAD_ShowDragImage(fshow)
+public actual fun dadShowDragImage(fshow: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dadShowDragImage(fshow)
 
-public actual fun DefSubclassProc(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DefSubclassProc(hwnd.toCPointer<ByteVar>(), umsg, wparam, lparam)
+public actual fun defSubclassProc(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_defSubclassProc(hwnd?.value?.toCPointer<ByteVar>(), umsg, wparam, lparam)
 
-public actual fun DeleteProfileA(lpsidstring: PCSTR, lpprofilepath: PCSTR, lpcomputername: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DeleteProfileA(lpsidstring.toCPointer<ByteVar>(), lpprofilepath.toCPointer<ByteVar>(), lpcomputername.toCPointer<ByteVar>())
+public actual fun deleteProfileA(lpsidstring: Pcstr, lpprofilepath: Pcstr, lpcomputername: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_deleteProfileA(lpsidstring?.value?.toCPointer<ByteVar>(), lpprofilepath?.value?.toCPointer<ByteVar>(), lpcomputername?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteProfileW(lpsidstring: PCWSTR, lpprofilepath: PCWSTR, lpcomputername: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DeleteProfileW(lpsidstring.toCPointer<ByteVar>(), lpprofilepath.toCPointer<ByteVar>(), lpcomputername.toCPointer<ByteVar>())
+public actual fun deleteProfileW(lpsidstring: Pcwstr, lpprofilepath: Pcwstr, lpcomputername: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_deleteProfileW(lpsidstring?.value?.toCPointer<ByteVar>(), lpprofilepath?.value?.toCPointer<ByteVar>(), lpcomputername?.value?.toCPointer<ByteVar>())
 
-public actual fun DoEnvironmentSubstA(pszsrc: PSTR, cchsrc: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DoEnvironmentSubstA(pszsrc.toCPointer<ByteVar>(), cchsrc)
+public actual fun doEnvironmentSubstA(pszsrc: Pstr, cchsrc: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_doEnvironmentSubstA(pszsrc?.value?.toCPointer<ByteVar>(), cchsrc)
 
-public actual fun DoEnvironmentSubstW(pszsrc: PWSTR, cchsrc: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DoEnvironmentSubstW(pszsrc.toCPointer<ByteVar>(), cchsrc)
+public actual fun doEnvironmentSubstW(pszsrc: Pwstr, cchsrc: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_doEnvironmentSubstW(pszsrc?.value?.toCPointer<ByteVar>(), cchsrc)
 
-public actual fun DragAcceptFiles(hwnd: HWND, faccept: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DragAcceptFiles(hwnd.toCPointer<ByteVar>(), faccept)
+public actual fun dragAcceptFiles(hwnd: Hwnd, faccept: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dragAcceptFiles(hwnd?.value?.toCPointer<ByteVar>(), faccept)
 }
 
-public actual fun DragFinish(hdrop: HDROP) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DragFinish(hdrop.toCPointer<ByteVar>())
+public actual fun dragFinish(hdrop: Hdrop) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dragFinish(hdrop?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DragQueryFileA(hdrop: HDROP, ifile: UInt, lpszfile: PSTR, cch: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DragQueryFileA(hdrop.toCPointer<ByteVar>(), ifile, lpszfile.toCPointer<ByteVar>(), cch)
+public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dragQueryFileA(hdrop?.value?.toCPointer<ByteVar>(), ifile, lpszfile?.value?.toCPointer<ByteVar>(), cch)
 
-public actual fun DragQueryFileW(hdrop: HDROP, ifile: UInt, lpszfile: PWSTR, cch: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DragQueryFileW(hdrop.toCPointer<ByteVar>(), ifile, lpszfile.toCPointer<ByteVar>(), cch)
+public actual fun dragQueryFileW(hdrop: Hdrop, ifile: UInt, lpszfile: Pwstr, cch: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dragQueryFileW(hdrop?.value?.toCPointer<ByteVar>(), ifile, lpszfile?.value?.toCPointer<ByteVar>(), cch)
 
-public actual fun DragQueryPoint(hdrop: HDROP, ppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DragQueryPoint(hdrop.toCPointer<ByteVar>(), ppt.toCPointer<ByteVar>())
+public actual fun dragQueryPoint(hdrop: Hdrop, ppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_dragQueryPoint(hdrop?.value?.toCPointer<ByteVar>(), ppt?.value?.toCPointer<ByteVar>())
 
-public actual fun DriveType(idrive: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DriveType(idrive)
+public actual fun driveType(idrive: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_driveType(idrive)
 
-public actual fun DuplicateIcon(hinst: HINSTANCE, hicon: HICON): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_DuplicateIcon(hinst.toCPointer<ByteVar>(), hicon.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_duplicateIcon(hinst?.value?.toCPointer<ByteVar>(), hicon?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractAssociatedIconA(hinst: HINSTANCE, psziconpath: PSTR, piicon: Long): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractAssociatedIconA(hinst.toCPointer<ByteVar>(), psziconpath.toCPointer<ByteVar>(), piicon.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: COpaquePointer?): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractAssociatedIconA(hinst?.value?.toCPointer<ByteVar>(), psziconpath?.value?.toCPointer<ByteVar>(), piicon?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractAssociatedIconExA(hinst: HINSTANCE, psziconpath: PSTR, piiconindex: Long, piiconid: Long): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA(hinst.toCPointer<ByteVar>(), psziconpath.toCPointer<ByteVar>(), piiconindex.toCPointer<ByteVar>(), piiconid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: COpaquePointer?, piiconid: COpaquePointer?): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractAssociatedIconExA(hinst?.value?.toCPointer<ByteVar>(), psziconpath?.value?.toCPointer<ByteVar>(), piiconindex?.value?.toCPointer<ByteVar>(), piiconid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractAssociatedIconExW(hinst: HINSTANCE, psziconpath: PWSTR, piiconindex: Long, piiconid: Long): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW(hinst.toCPointer<ByteVar>(), psziconpath.toCPointer<ByteVar>(), piiconindex.toCPointer<ByteVar>(), piiconid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: COpaquePointer?, piiconid: COpaquePointer?): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractAssociatedIconExW(hinst?.value?.toCPointer<ByteVar>(), psziconpath?.value?.toCPointer<ByteVar>(), piiconindex?.value?.toCPointer<ByteVar>(), piiconid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractAssociatedIconW(hinst: HINSTANCE, psziconpath: PWSTR, piicon: Long): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractAssociatedIconW(hinst.toCPointer<ByteVar>(), psziconpath.toCPointer<ByteVar>(), piicon.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: COpaquePointer?): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractAssociatedIconW(hinst?.value?.toCPointer<ByteVar>(), psziconpath?.value?.toCPointer<ByteVar>(), piicon?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractIconA(hinst: HINSTANCE, pszexefilename: PCSTR, niconindex: UInt): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractIconA(hinst.toCPointer<ByteVar>(), pszexefilename.toCPointer<ByteVar>(), niconindex)?.toLong() ?: 0L
+public actual fun extractIconA(hinst: Hinstance, pszexefilename: Pcstr, niconindex: UInt): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractIconA(hinst?.value?.toCPointer<ByteVar>(), pszexefilename?.value?.toCPointer<ByteVar>(), niconindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtractIconExA(lpszfile: PCSTR, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractIconExA(lpszfile.toCPointer<ByteVar>(), niconindex, phiconlarge.toCPointer<ByteVar>(), phiconsmall.toCPointer<ByteVar>(), nicons)
+public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, nicons: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractIconExA(lpszfile?.value?.toCPointer<ByteVar>(), niconindex, phiconlarge?.value?.toCPointer<ByteVar>(), phiconsmall?.value?.toCPointer<ByteVar>(), nicons)
 
-public actual fun ExtractIconExW(lpszfile: PCWSTR, niconindex: Int, phiconlarge: Long, phiconsmall: Long, nicons: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractIconExW(lpszfile.toCPointer<ByteVar>(), niconindex, phiconlarge.toCPointer<ByteVar>(), phiconsmall.toCPointer<ByteVar>(), nicons)
+public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, nicons: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractIconExW(lpszfile?.value?.toCPointer<ByteVar>(), niconindex, phiconlarge?.value?.toCPointer<ByteVar>(), phiconsmall?.value?.toCPointer<ByteVar>(), nicons)
 
-public actual fun ExtractIconW(hinst: HINSTANCE, pszexefilename: PCWSTR, niconindex: UInt): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ExtractIconW(hinst.toCPointer<ByteVar>(), pszexefilename.toCPointer<ByteVar>(), niconindex)?.toLong() ?: 0L
+public actual fun extractIconW(hinst: Hinstance, pszexefilename: Pcwstr, niconindex: UInt): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_extractIconW(hinst?.value?.toCPointer<ByteVar>(), pszexefilename?.value?.toCPointer<ByteVar>(), niconindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindExecutableA(lpfile: PCSTR, lpdirectory: PCSTR, lpresult: PSTR): HINSTANCE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_FindExecutableA(lpfile.toCPointer<ByteVar>(), lpdirectory.toCPointer<ByteVar>(), lpresult.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findExecutableA(lpfile: Pcstr, lpdirectory: Pcstr, lpresult: Pstr): Hinstance =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_findExecutableA(lpfile?.value?.toCPointer<ByteVar>(), lpdirectory?.value?.toCPointer<ByteVar>(), lpresult?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FindExecutableW(lpfile: PCWSTR, lpdirectory: PCWSTR, lpresult: PWSTR): HINSTANCE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_FindExecutableW(lpfile.toCPointer<ByteVar>(), lpdirectory.toCPointer<ByteVar>(), lpresult.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun findExecutableW(lpfile: Pcwstr, lpdirectory: Pcwstr, lpresult: Pwstr): Hinstance =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_findExecutableW(lpfile?.value?.toCPointer<ByteVar>(), lpdirectory?.value?.toCPointer<ByteVar>(), lpresult?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetAcceptLanguagesA(pszlanguages: PSTR, pcchlanguages: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetAcceptLanguagesA(pszlanguages.toCPointer<ByteVar>(), pcchlanguages.toCPointer<ByteVar>())
+public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getAcceptLanguagesA(pszlanguages?.value?.toCPointer<ByteVar>(), pcchlanguages?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAcceptLanguagesW(pszlanguages: PWSTR, pcchlanguages: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetAcceptLanguagesW(pszlanguages.toCPointer<ByteVar>(), pcchlanguages.toCPointer<ByteVar>())
+public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getAcceptLanguagesW(pszlanguages?.value?.toCPointer<ByteVar>(), pcchlanguages?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAllUsersProfileDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAllUsersProfileDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentProcessExplicitAppUserModelID(appid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID(appid.toCPointer<ByteVar>())
+public actual fun getCurrentProcessExplicitAppUserModelID(appid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID(appid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDefaultUserProfileDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDefaultUserProfileDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent(param0)
+public actual fun getDpiForShellUIComponent(param0: ShellUiComponent): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getDpiForShellUIComponent(param0)
 
-public actual fun GetFileNameFromBrowse(hwnd: HWND, pszfilepath: PWSTR, cchfilepath: UInt, pszworkingdir: PCWSTR, pszdefext: PCWSTR, pszfilters: PCWSTR, psztitle: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetFileNameFromBrowse(hwnd.toCPointer<ByteVar>(), pszfilepath.toCPointer<ByteVar>(), cchfilepath, pszworkingdir.toCPointer<ByteVar>(), pszdefext.toCPointer<ByteVar>(), pszfilters.toCPointer<ByteVar>(), psztitle.toCPointer<ByteVar>())
+public actual fun getFileNameFromBrowse(hwnd: Hwnd, pszfilepath: Pwstr, cchfilepath: UInt, pszworkingdir: Pcwstr, pszdefext: Pcwstr, pszfilters: Pcwstr, psztitle: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getFileNameFromBrowse(hwnd?.value?.toCPointer<ByteVar>(), pszfilepath?.value?.toCPointer<ByteVar>(), cchfilepath, pszworkingdir?.value?.toCPointer<ByteVar>(), pszdefext?.value?.toCPointer<ByteVar>(), pszfilters?.value?.toCPointer<ByteVar>(), psztitle?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMenuContextHelpId(param0: HMENU): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetMenuContextHelpId(param0.toCPointer<ByteVar>())
+public actual fun getMenuContextHelpId(param0: Hmenu): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getMenuContextHelpId(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMenuPosFromID(hmenu: HMENU, id: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetMenuPosFromID(hmenu.toCPointer<ByteVar>(), id)
+public actual fun getMenuPosFromID(hmenu: Hmenu, id: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getMenuPosFromID(hmenu?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun GetProfileType(dwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetProfileType(dwflags.toCPointer<ByteVar>())
+public actual fun getProfileType(dwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getProfileType(dwflags?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProfilesDirectoryA(lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetProfilesDirectoryA(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getProfilesDirectoryA(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetProfilesDirectoryW(lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetProfilesDirectoryW(lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getProfilesDirectoryW(lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetScaleFactorForDevice(devicetype: DISPLAY_DEVICE_TYPE): DEVICE_SCALE_FACTOR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetScaleFactorForDevice(devicetype)
+public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getScaleFactorForDevice(devicetype)
 
-public actual fun GetScaleFactorForMonitor(hmon: HMONITOR, pscale: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor(hmon.toCPointer<ByteVar>(), pscale.toCPointer<ByteVar>())
+public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getScaleFactorForMonitor(hmon?.value?.toCPointer<ByteVar>(), pscale?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUserProfileDirectoryA(htoken: HANDLE, lpprofiledir: PSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA(htoken.toCPointer<ByteVar>(), lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getUserProfileDirectoryA(htoken?.value?.toCPointer<ByteVar>(), lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUserProfileDirectoryW(htoken: HANDLE, lpprofiledir: PWSTR, lpcchsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW(htoken.toCPointer<ByteVar>(), lpprofiledir.toCPointer<ByteVar>(), lpcchsize.toCPointer<ByteVar>())
+public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getUserProfileDirectoryW(htoken?.value?.toCPointer<ByteVar>(), lpprofiledir?.value?.toCPointer<ByteVar>(), lpcchsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowContextHelpId(param0: HWND): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetWindowContextHelpId(param0.toCPointer<ByteVar>())
+public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getWindowContextHelpId(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, pdwrefdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_GetWindowSubclass(hwnd.toCPointer<ByteVar>(), pfnsubclass.toLong().toCPointer<ByteVar>(), uidsubclass, pdwrefdata.toCPointer<ByteVar>())
+public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_getWindowSubclass(hwnd?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass, pdwrefdata?.value?.toCPointer<ByteVar>())
 
-public actual fun HMONITOR_UserFree(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserFree(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun hmonitorUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HMONITOR_UserFree64(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserFree64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun hmonitorUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HMONITOR_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hmonitorUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HMONITOR_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hmonitorUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HMONITOR_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserSize(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun hmonitorUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun HMONITOR_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserSize64(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun hmonitorUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun HMONITOR_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hmonitorUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HMONITOR_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun hmonitorUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun HashData(pbdata: Long, cbdata: UInt, pbhash: Long, cbhash: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HashData(pbdata.toCPointer<ByteVar>(), cbdata, pbhash.toCPointer<ByteVar>(), cbhash)
+public actual fun hashData(pbdata: COpaquePointer?, cbdata: UInt, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hashData(pbdata?.value?.toCPointer<ByteVar>(), cbdata, pbhash?.value?.toCPointer<ByteVar>(), cbhash)
 
-public actual fun HlinkClone(pihl: Long, riid: Long, pihlsiteforclone: Long, dwsitedata: UInt, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkClone(pihl.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), pihlsiteforclone.toCPointer<ByteVar>(), dwsitedata, ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkClone(pihl: COpaquePointer?, riid: COpaquePointer?, pihlsiteforclone: COpaquePointer?, dwsitedata: UInt, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkClone(pihl?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), pihlsiteforclone?.value?.toCPointer<ByteVar>(), dwsitedata, ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateBrowseContext(piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext(piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkCreateBrowseContext(piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext(piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateExtensionServices(pwzadditionalheaders: PCWSTR, phwnd: HWND, pszusername: PCWSTR, pszpassword: PCWSTR, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices(pwzadditionalheaders.toCPointer<ByteVar>(), phwnd.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pszpassword.toCPointer<ByteVar>(), piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices(pwzadditionalheaders?.value?.toCPointer<ByteVar>(), phwnd?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pszpassword?.value?.toCPointer<ByteVar>(), piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateFromData(pidataobj: Long, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateFromData(pidataobj.toCPointer<ByteVar>(), pihlsite.toCPointer<ByteVar>(), dwsitedata, piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkCreateFromData(pidataobj: COpaquePointer?, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateFromData(pidataobj?.value?.toCPointer<ByteVar>(), pihlsite?.value?.toCPointer<ByteVar>(), dwsitedata, piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateFromMoniker(pimktrgt: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker(pimktrgt.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>(), pihlsite.toCPointer<ByteVar>(), dwsitedata, piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkCreateFromMoniker(pimktrgt: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker(pimktrgt?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>(), pihlsite?.value?.toCPointer<ByteVar>(), dwsitedata, piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateFromString(pwztarget: PCWSTR, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateFromString(pwztarget.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>(), pihlsite.toCPointer<ByteVar>(), dwsitedata, piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateFromString(pwztarget?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>(), pihlsite?.value?.toCPointer<ByteVar>(), dwsitedata, piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkCreateShortcut(grfhlshortcutf: UInt, pihl: Long, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateShortcut(grfhlshortcutf, pihl.toCPointer<ByteVar>(), pwzdir.toCPointer<ByteVar>(), pwzfilename.toCPointer<ByteVar>(), ppwzshortcutfile.toCPointer<ByteVar>(), dwreserved)
+public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: COpaquePointer?, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateShortcut(grfhlshortcutf, pihl?.value?.toCPointer<ByteVar>(), pwzdir?.value?.toCPointer<ByteVar>(), pwzfilename?.value?.toCPointer<ByteVar>(), ppwzshortcutfile?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun HlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: Long, pwzlocation: PCWSTR, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker(grfhlshortcutf, pimktarget.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzdir.toCPointer<ByteVar>(), pwzfilename.toCPointer<ByteVar>(), ppwzshortcutfile.toCPointer<ByteVar>(), dwreserved)
+public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: COpaquePointer?, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker(grfhlshortcutf, pimktarget?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzdir?.value?.toCPointer<ByteVar>(), pwzfilename?.value?.toCPointer<ByteVar>(), ppwzshortcutfile?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun HlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: PCWSTR, pwzlocation: PCWSTR, pwzdir: PCWSTR, pwzfilename: PCWSTR, ppwzshortcutfile: Long, dwreserved: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString(grfhlshortcutf, pwztarget.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzdir.toCPointer<ByteVar>(), pwzfilename.toCPointer<ByteVar>(), ppwzshortcutfile.toCPointer<ByteVar>(), dwreserved)
+public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: COpaquePointer?, dwreserved: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString(grfhlshortcutf, pwztarget?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzdir?.value?.toCPointer<ByteVar>(), pwzfilename?.value?.toCPointer<ByteVar>(), ppwzshortcutfile?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun HlinkGetSpecialReference(ureference: UInt, ppwzreference: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkGetSpecialReference(ureference, ppwzreference.toCPointer<ByteVar>())
+public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkGetSpecialReference(ureference, ppwzreference?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkGetValueFromParams(pwzparams: PCWSTR, pwzname: PCWSTR, ppwzvalue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkGetValueFromParams(pwzparams.toCPointer<ByteVar>(), pwzname.toCPointer<ByteVar>(), ppwzvalue.toCPointer<ByteVar>())
+public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkGetValueFromParams(pwzparams?.value?.toCPointer<ByteVar>(), pwzname?.value?.toCPointer<ByteVar>(), ppwzvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkIsShortcut(pwzfilename: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkIsShortcut(pwzfilename.toCPointer<ByteVar>())
+public actual fun hlinkIsShortcut(pwzfilename: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkIsShortcut(pwzfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkNavigate(pihl: Long, pihlframe: Long, grfhlnf: UInt, pbc: Long, pibsc: Long, pihlbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkNavigate(pihl.toCPointer<ByteVar>(), pihlframe.toCPointer<ByteVar>(), grfhlnf, pbc.toCPointer<ByteVar>(), pibsc.toCPointer<ByteVar>(), pihlbc.toCPointer<ByteVar>())
+public actual fun hlinkNavigate(pihl: COpaquePointer?, pihlframe: COpaquePointer?, grfhlnf: UInt, pbc: COpaquePointer?, pibsc: COpaquePointer?, pihlbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkNavigate(pihl?.value?.toCPointer<ByteVar>(), pihlframe?.value?.toCPointer<ByteVar>(), grfhlnf, pbc?.value?.toCPointer<ByteVar>(), pibsc?.value?.toCPointer<ByteVar>(), pihlbc?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkNavigateToStringReference(pwztarget: PCWSTR, pwzlocation: PCWSTR, pihlsite: Long, dwsitedata: UInt, pihlframe: Long, grfhlnf: UInt, pibc: Long, pibsc: Long, pihlbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference(pwztarget.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pihlsite.toCPointer<ByteVar>(), dwsitedata, pihlframe.toCPointer<ByteVar>(), grfhlnf, pibc.toCPointer<ByteVar>(), pibsc.toCPointer<ByteVar>(), pihlbc.toCPointer<ByteVar>())
+public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, pihlframe: COpaquePointer?, grfhlnf: UInt, pibc: COpaquePointer?, pibsc: COpaquePointer?, pihlbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference(pwztarget?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pihlsite?.value?.toCPointer<ByteVar>(), dwsitedata, pihlframe?.value?.toCPointer<ByteVar>(), grfhlnf, pibc?.value?.toCPointer<ByteVar>(), pibsc?.value?.toCPointer<ByteVar>(), pihlbc?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkOnNavigate(pihlframe: Long, pihlbc: Long, grfhlnf: UInt, pimktarget: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR, puhlid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkOnNavigate(pihlframe.toCPointer<ByteVar>(), pihlbc.toCPointer<ByteVar>(), grfhlnf, pimktarget.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>(), puhlid.toCPointer<ByteVar>())
+public actual fun hlinkOnNavigate(pihlframe: COpaquePointer?, pihlbc: COpaquePointer?, grfhlnf: UInt, pimktarget: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkOnNavigate(pihlframe?.value?.toCPointer<ByteVar>(), pihlbc?.value?.toCPointer<ByteVar>(), grfhlnf, pimktarget?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>(), puhlid?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkOnRenameDocument(dwreserved: UInt, pihlbc: Long, pimkold: Long, pimknew: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkOnRenameDocument(dwreserved, pihlbc.toCPointer<ByteVar>(), pimkold.toCPointer<ByteVar>(), pimknew.toCPointer<ByteVar>())
+public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: COpaquePointer?, pimkold: COpaquePointer?, pimknew: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkOnRenameDocument(dwreserved, pihlbc?.value?.toCPointer<ByteVar>(), pimkold?.value?.toCPointer<ByteVar>(), pimknew?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkParseDisplayName(pibc: Long, pwzdisplayname: PCWSTR, fnoforceabs: BOOL, pccheaten: Long, ppimk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkParseDisplayName(pibc.toCPointer<ByteVar>(), pwzdisplayname.toCPointer<ByteVar>(), fnoforceabs, pccheaten.toCPointer<ByteVar>(), ppimk.toCPointer<ByteVar>())
+public actual fun hlinkParseDisplayName(pibc: COpaquePointer?, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: COpaquePointer?, ppimk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkParseDisplayName(pibc?.value?.toCPointer<ByteVar>(), pwzdisplayname?.value?.toCPointer<ByteVar>(), fnoforceabs, pccheaten?.value?.toCPointer<ByteVar>(), ppimk?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkPreprocessMoniker(pibc: Long, pimkin: Long, ppimkout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker(pibc.toCPointer<ByteVar>(), pimkin.toCPointer<ByteVar>(), ppimkout.toCPointer<ByteVar>())
+public actual fun hlinkPreprocessMoniker(pibc: COpaquePointer?, pimkin: COpaquePointer?, ppimkout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker(pibc?.value?.toCPointer<ByteVar>(), pimkin?.value?.toCPointer<ByteVar>(), ppimkout?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkQueryCreateFromData(pidataobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData(pidataobj.toCPointer<ByteVar>())
+public actual fun hlinkQueryCreateFromData(pidataobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData(pidataobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkResolveMonikerForData(pimkreference: Long, reserved: UInt, pibc: Long, cfmtetc: UInt, rgfmtetc: Long, pibsc: Long, pimkbase: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData(pimkreference.toCPointer<ByteVar>(), reserved, pibc.toCPointer<ByteVar>(), cfmtetc, rgfmtetc.toCPointer<ByteVar>(), pibsc.toCPointer<ByteVar>(), pimkbase.toCPointer<ByteVar>())
+public actual fun hlinkResolveMonikerForData(pimkreference: COpaquePointer?, reserved: UInt, pibc: COpaquePointer?, cfmtetc: UInt, rgfmtetc: COpaquePointer?, pibsc: COpaquePointer?, pimkbase: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData(pimkreference?.value?.toCPointer<ByteVar>(), reserved, pibc?.value?.toCPointer<ByteVar>(), cfmtetc, rgfmtetc?.value?.toCPointer<ByteVar>(), pibsc?.value?.toCPointer<ByteVar>(), pimkbase?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkResolveShortcut(pwzshortcutfilename: PCWSTR, pihlsite: Long, dwsitedata: UInt, piunkouter: Long, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkResolveShortcut(pwzshortcutfilename.toCPointer<ByteVar>(), pihlsite.toCPointer<ByteVar>(), dwsitedata, piunkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: COpaquePointer?, dwsitedata: UInt, piunkouter: COpaquePointer?, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkResolveShortcut(pwzshortcutfilename?.value?.toCPointer<ByteVar>(), pihlsite?.value?.toCPointer<ByteVar>(), dwsitedata, piunkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkResolveShortcutToMoniker(pwzshortcutfilename: PCWSTR, ppimktarget: Long, ppwzlocation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker(pwzshortcutfilename.toCPointer<ByteVar>(), ppimktarget.toCPointer<ByteVar>(), ppwzlocation.toCPointer<ByteVar>())
+public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: COpaquePointer?, ppwzlocation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker(pwzshortcutfilename?.value?.toCPointer<ByteVar>(), ppimktarget?.value?.toCPointer<ByteVar>(), ppwzlocation?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkResolveShortcutToString(pwzshortcutfilename: PCWSTR, ppwztarget: Long, ppwzlocation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString(pwzshortcutfilename.toCPointer<ByteVar>(), ppwztarget.toCPointer<ByteVar>(), ppwzlocation.toCPointer<ByteVar>())
+public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: COpaquePointer?, ppwzlocation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString(pwzshortcutfilename?.value?.toCPointer<ByteVar>(), ppwztarget?.value?.toCPointer<ByteVar>(), ppwzlocation?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkResolveStringForData(pwzreference: PCWSTR, reserved: UInt, pibc: Long, cfmtetc: UInt, rgfmtetc: Long, pibsc: Long, pimkbase: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkResolveStringForData(pwzreference.toCPointer<ByteVar>(), reserved, pibc.toCPointer<ByteVar>(), cfmtetc, rgfmtetc.toCPointer<ByteVar>(), pibsc.toCPointer<ByteVar>(), pimkbase.toCPointer<ByteVar>())
+public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: COpaquePointer?, cfmtetc: UInt, rgfmtetc: COpaquePointer?, pibsc: COpaquePointer?, pimkbase: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkResolveStringForData(pwzreference?.value?.toCPointer<ByteVar>(), reserved, pibc?.value?.toCPointer<ByteVar>(), cfmtetc, rgfmtetc?.value?.toCPointer<ByteVar>(), pibsc?.value?.toCPointer<ByteVar>(), pimkbase?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkSetSpecialReference(ureference: UInt, pwzreference: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkSetSpecialReference(ureference, pwzreference.toCPointer<ByteVar>())
+public actual fun hlinkSetSpecialReference(ureference: UInt, pwzreference: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkSetSpecialReference(ureference, pwzreference?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkTranslateURL(pwzurl: PCWSTR, grfflags: UInt, ppwztranslatedurl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkTranslateURL(pwzurl.toCPointer<ByteVar>(), grfflags, ppwztranslatedurl.toCPointer<ByteVar>())
+public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkTranslateURL(pwzurl?.value?.toCPointer<ByteVar>(), grfflags, ppwztranslatedurl?.value?.toCPointer<ByteVar>())
 
-public actual fun HlinkUpdateStackItem(pihlframe: Long, pihlbc: Long, uhlid: UInt, pimktrgt: Long, pwzlocation: PCWSTR, pwzfriendlyname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_HlinkUpdateStackItem(pihlframe.toCPointer<ByteVar>(), pihlbc.toCPointer<ByteVar>(), uhlid, pimktrgt.toCPointer<ByteVar>(), pwzlocation.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>())
+public actual fun hlinkUpdateStackItem(pihlframe: COpaquePointer?, pihlbc: COpaquePointer?, uhlid: UInt, pimktrgt: COpaquePointer?, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_hlinkUpdateStackItem(pihlframe?.value?.toCPointer<ByteVar>(), pihlbc?.value?.toCPointer<ByteVar>(), uhlid, pimktrgt?.value?.toCPointer<ByteVar>(), pwzlocation?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>())
 
-public actual fun ILAppendID(pidl: Long, pmkid: Long, fappend: BOOL): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILAppendID(pidl.toCPointer<ByteVar>(), pmkid.toCPointer<ByteVar>(), fappend)?.toLong() ?: 0L
+public actual fun iLAppendID(pidl: COpaquePointer?, pmkid: COpaquePointer?, fappend: Bool): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLAppendID(pidl?.value?.toCPointer<ByteVar>(), pmkid?.value?.toCPointer<ByteVar>(), fappend)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILClone(pidl: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILClone(pidl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLClone(pidl: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLClone(pidl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILCloneFirst(pidl: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILCloneFirst(pidl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLCloneFirst(pidl: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLCloneFirst(pidl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILCombine(pidl1: Long, pidl2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILCombine(pidl1.toCPointer<ByteVar>(), pidl2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLCombine(pidl1: COpaquePointer?, pidl2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLCombine(pidl1?.value?.toCPointer<ByteVar>(), pidl2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILCreateFromPathA(pszpath: PCSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILCreateFromPathA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLCreateFromPathA(pszpath: Pcstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLCreateFromPathA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILCreateFromPathW(pszpath: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILCreateFromPathW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLCreateFromPathW(pszpath: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLCreateFromPathW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILFindChild(pidlparent: Long, pidlchild: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILFindChild(pidlparent.toCPointer<ByteVar>(), pidlchild.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLFindChild(pidlparent: COpaquePointer?, pidlchild: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLFindChild(pidlparent?.value?.toCPointer<ByteVar>(), pidlchild?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILFindLastID(pidl: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILFindLastID(pidl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLFindLastID(pidl: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLFindLastID(pidl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILFree(pidl: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILFree(pidl.toCPointer<ByteVar>())
+public actual fun iLFree(pidl: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLFree(pidl?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ILGetNext(pidl: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILGetNext(pidl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iLGetNext(pidl: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLGetNext(pidl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ILGetSize(pidl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILGetSize(pidl.toCPointer<ByteVar>())
+public actual fun iLGetSize(pidl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLGetSize(pidl?.value?.toCPointer<ByteVar>())
 
-public actual fun ILIsEqual(pidl1: Long, pidl2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILIsEqual(pidl1.toCPointer<ByteVar>(), pidl2.toCPointer<ByteVar>())
+public actual fun iLIsEqual(pidl1: COpaquePointer?, pidl2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLIsEqual(pidl1?.value?.toCPointer<ByteVar>(), pidl2?.value?.toCPointer<ByteVar>())
 
-public actual fun ILIsParent(pidl1: Long, pidl2: Long, fimmediate: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILIsParent(pidl1.toCPointer<ByteVar>(), pidl2.toCPointer<ByteVar>(), fimmediate)
+public actual fun iLIsParent(pidl1: COpaquePointer?, pidl2: COpaquePointer?, fimmediate: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLIsParent(pidl1?.value?.toCPointer<ByteVar>(), pidl2?.value?.toCPointer<ByteVar>(), fimmediate)
 
-public actual fun ILLoadFromStreamEx(pstm: Long, pidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILLoadFromStreamEx(pstm.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>())
+public actual fun iLLoadFromStreamEx(pstm: COpaquePointer?, pidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLLoadFromStreamEx(pstm?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>())
 
-public actual fun ILRemoveLastID(pidl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILRemoveLastID(pidl.toCPointer<ByteVar>())
+public actual fun iLRemoveLastID(pidl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLRemoveLastID(pidl?.value?.toCPointer<ByteVar>())
 
-public actual fun ILSaveToStream(pstm: Long, pidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ILSaveToStream(pstm.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>())
+public actual fun iLSaveToStream(pstm: COpaquePointer?, pidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iLSaveToStream(pstm?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_Copy(pstmfrom: Long, pstmto: Long, cb: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_Copy(pstmfrom.toCPointer<ByteVar>(), pstmto.toCPointer<ByteVar>(), cb)
+public actual fun istreamCopy(pstmfrom: COpaquePointer?, pstmto: COpaquePointer?, cb: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamCopy(pstmfrom?.value?.toCPointer<ByteVar>(), pstmto?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun IStream_Read(pstm: Long, pv: Long, cb: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_Read(pstm.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun istreamRead(pstm: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamRead(pstm?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun IStream_ReadPidl(pstm: Long, ppidlout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_ReadPidl(pstm.toCPointer<ByteVar>(), ppidlout.toCPointer<ByteVar>())
+public actual fun istreamReadPidl(pstm: COpaquePointer?, ppidlout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamReadPidl(pstm?.value?.toCPointer<ByteVar>(), ppidlout?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_ReadStr(pstm: Long, ppsz: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_ReadStr(pstm.toCPointer<ByteVar>(), ppsz.toCPointer<ByteVar>())
+public actual fun istreamReadStr(pstm: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamReadStr(pstm?.value?.toCPointer<ByteVar>(), ppsz?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_Reset(pstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_Reset(pstm.toCPointer<ByteVar>())
+public actual fun istreamReset(pstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamReset(pstm?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_Size(pstm: Long, pui: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_Size(pstm.toCPointer<ByteVar>(), pui.toCPointer<ByteVar>())
+public actual fun istreamSize(pstm: COpaquePointer?, pui: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamSize(pstm?.value?.toCPointer<ByteVar>(), pui?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_Write(pstm: Long, pv: Long, cb: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_Write(pstm.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun istreamWrite(pstm: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamWrite(pstm?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun IStream_WritePidl(pstm: Long, pidlwrite: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_WritePidl(pstm.toCPointer<ByteVar>(), pidlwrite.toCPointer<ByteVar>())
+public actual fun istreamWritePidl(pstm: COpaquePointer?, pidlwrite: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamWritePidl(pstm?.value?.toCPointer<ByteVar>(), pidlwrite?.value?.toCPointer<ByteVar>())
 
-public actual fun IStream_WriteStr(pstm: Long, psz: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IStream_WriteStr(pstm.toCPointer<ByteVar>(), psz.toCPointer<ByteVar>())
+public actual fun istreamWriteStr(pstm: COpaquePointer?, psz: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_istreamWriteStr(pstm?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>())
 
-public actual fun IUnknown_AtomicRelease(ppunk: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease(ppunk.toCPointer<ByteVar>())
+public actual fun iunknownAtomicRelease(ppunk: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownAtomicRelease(ppunk?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IUnknown_GetSite(punk: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_GetSite(punk.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun iunknownGetSite(punk: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownGetSite(punk?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun IUnknown_GetWindow(punk: Long, phwnd: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_GetWindow(punk.toCPointer<ByteVar>(), phwnd.toCPointer<ByteVar>())
+public actual fun iunknownGetWindow(punk: COpaquePointer?, phwnd: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownGetWindow(punk?.value?.toCPointer<ByteVar>(), phwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun IUnknown_QueryService(punk: Long, guidservice: Long, riid: Long, ppvout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_QueryService(punk.toCPointer<ByteVar>(), guidservice.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvout.toCPointer<ByteVar>())
+public actual fun iunknownQueryService(punk: COpaquePointer?, guidservice: COpaquePointer?, riid: COpaquePointer?, ppvout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownQueryService(punk?.value?.toCPointer<ByteVar>(), guidservice?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvout?.value?.toCPointer<ByteVar>())
 
-public actual fun IUnknown_Set(ppunk: Long, punk: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_Set(ppunk.toCPointer<ByteVar>(), punk.toCPointer<ByteVar>())
+public actual fun iunknownSet(ppunk: COpaquePointer?, punk: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownSet(ppunk?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IUnknown_SetSite(punk: Long, punksite: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IUnknown_SetSite(punk.toCPointer<ByteVar>(), punksite.toCPointer<ByteVar>())
+public actual fun iunknownSetSite(punk: COpaquePointer?, punksite: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_iunknownSetSite(punk?.value?.toCPointer<ByteVar>(), punksite?.value?.toCPointer<ByteVar>())
 
-public actual fun ImportPrivacySettings(pszfilename: PCWSTR, pfparseprivacypreferences: Long, pfparsepersiterules: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ImportPrivacySettings(pszfilename.toCPointer<ByteVar>(), pfparseprivacypreferences.toCPointer<ByteVar>(), pfparsepersiterules.toCPointer<ByteVar>())
+public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: COpaquePointer?, pfparsepersiterules: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_importPrivacySettings(pszfilename?.value?.toCPointer<ByteVar>(), pfparseprivacypreferences?.value?.toCPointer<ByteVar>(), pfparsepersiterules?.value?.toCPointer<ByteVar>())
 
-public actual fun InitNetworkAddressControl(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_InitNetworkAddressControl()
+public actual fun initNetworkAddressControl(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_initNetworkAddressControl()
 
-public actual fun InitPropVariantFromStrRet(pstrret: Long, pidl: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet(pstrret.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun initPropVariantFromStrRet(pstrret: COpaquePointer?, pidl: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_initPropVariantFromStrRet(pstrret?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromStrRet(pstrret: Long, pidl: Long, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_InitVariantFromStrRet(pstrret.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromStrRet(pstrret: COpaquePointer?, pidl: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_initVariantFromStrRet(pstrret?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun IntlStrEqWorkerA(fcasesens: BOOL, lpstring1: PCSTR, lpstring2: PCSTR, nchar: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IntlStrEqWorkerA(fcasesens, lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>(), nchar)
+public actual fun intlStrEqWorkerA(fcasesens: Bool, lpstring1: Pcstr, lpstring2: Pcstr, nchar: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_intlStrEqWorkerA(fcasesens, lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun IntlStrEqWorkerW(fcasesens: BOOL, lpstring1: PCWSTR, lpstring2: PCWSTR, nchar: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IntlStrEqWorkerW(fcasesens, lpstring1.toCPointer<ByteVar>(), lpstring2.toCPointer<ByteVar>(), nchar)
+public actual fun intlStrEqWorkerW(fcasesens: Bool, lpstring1: Pcwstr, lpstring2: Pcwstr, nchar: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_intlStrEqWorkerW(fcasesens, lpstring1?.value?.toCPointer<ByteVar>(), lpstring2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun IsCharSpaceA(wch: Byte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsCharSpaceA(wch)
+public actual fun isCharSpaceA(wch: Byte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isCharSpaceA(wch)
 
-public actual fun IsCharSpaceW(wch: UShort): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsCharSpaceW(wch)
+public actual fun isCharSpaceW(wch: UShort): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isCharSpaceW(wch)
 
-public actual fun IsInternetESCEnabled(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsInternetESCEnabled()
+public actual fun isInternetESCEnabled(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isInternetESCEnabled()
 
-public actual fun IsLFNDriveA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsLFNDriveA(pszpath.toCPointer<ByteVar>())
+public actual fun isLFNDriveA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isLFNDriveA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun IsLFNDriveW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsLFNDriveW(pszpath.toCPointer<ByteVar>())
+public actual fun isLFNDriveW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isLFNDriveW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun IsNetDrive(idrive: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsNetDrive(idrive)
+public actual fun isNetDrive(idrive: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isNetDrive(idrive)
 
-public actual fun IsOS(dwos: OS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsOS(dwos)
+public actual fun isOS(dwos: OS): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isOS(dwos)
 
-public actual fun IsUserAnAdmin(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_IsUserAnAdmin()
+public actual fun isUserAnAdmin(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_isUserAnAdmin()
 
-public actual fun LoadUserProfileA(htoken: HANDLE, lpprofileinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_LoadUserProfileA(htoken.toCPointer<ByteVar>(), lpprofileinfo.toCPointer<ByteVar>())
+public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_loadUserProfileA(htoken?.value?.toCPointer<ByteVar>(), lpprofileinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadUserProfileW(htoken: HANDLE, lpprofileinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_LoadUserProfileW(htoken.toCPointer<ByteVar>(), lpprofileinfo.toCPointer<ByteVar>())
+public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_loadUserProfileW(htoken?.value?.toCPointer<ByteVar>(), lpprofileinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun OleSaveToStreamEx(piunk: Long, pistm: Long, fcleardirty: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_OleSaveToStreamEx(piunk.toCPointer<ByteVar>(), pistm.toCPointer<ByteVar>(), fcleardirty)
+public actual fun oleSaveToStreamEx(piunk: COpaquePointer?, pistm: COpaquePointer?, fcleardirty: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_oleSaveToStreamEx(piunk?.value?.toCPointer<ByteVar>(), pistm?.value?.toCPointer<ByteVar>(), fcleardirty)
 
-public actual fun OpenRegStream(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_OpenRegStream(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L
+public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_openRegStream(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), grfmode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ParseURLA(pcszurl: PCSTR, ppu: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ParseURLA(pcszurl.toCPointer<ByteVar>(), ppu.toCPointer<ByteVar>())
+public actual fun parseURLA(pcszurl: Pcstr, ppu: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_parseURLA(pcszurl?.value?.toCPointer<ByteVar>(), ppu?.value?.toCPointer<ByteVar>())
 
-public actual fun ParseURLW(pcszurl: PCWSTR, ppu: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ParseURLW(pcszurl.toCPointer<ByteVar>(), ppu.toCPointer<ByteVar>())
+public actual fun parseURLW(pcszurl: Pcwstr, ppu: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_parseURLW(pcszurl?.value?.toCPointer<ByteVar>(), ppu?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAddBackslashA(pszpath: PSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAddBackslashA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathAddBackslashA(pszpath: Pstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAddBackslashA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathAddBackslashW(pszpath: PWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAddBackslashW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathAddBackslashW(pszpath: Pwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAddBackslashW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathAddExtensionA(pszpath: PSTR, pszext: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAddExtensionA(pszpath.toCPointer<ByteVar>(), pszext.toCPointer<ByteVar>())
+public actual fun pathAddExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAddExtensionA(pszpath?.value?.toCPointer<ByteVar>(), pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAddExtensionW(pszpath: PWSTR, pszext: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAddExtensionW(pszpath.toCPointer<ByteVar>(), pszext.toCPointer<ByteVar>())
+public actual fun pathAddExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAddExtensionW(pszpath?.value?.toCPointer<ByteVar>(), pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAllocCanonicalize(pszpathin: PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAllocCanonicalize(pszpathin.toCPointer<ByteVar>(), dwflags, ppszpathout.toCPointer<ByteVar>())
+public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAllocCanonicalize(pszpathin?.value?.toCPointer<ByteVar>(), dwflags, ppszpathout?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAllocCombine(pszpathin: PCWSTR, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAllocCombine(pszpathin.toCPointer<ByteVar>(), pszmore.toCPointer<ByteVar>(), dwflags, ppszpathout.toCPointer<ByteVar>())
+public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAllocCombine(pszpathin?.value?.toCPointer<ByteVar>(), pszmore?.value?.toCPointer<ByteVar>(), dwflags, ppszpathout?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAppendA(pszpath: PSTR, pszmore: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAppendA(pszpath.toCPointer<ByteVar>(), pszmore.toCPointer<ByteVar>())
+public actual fun pathAppendA(pszpath: Pstr, pszmore: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAppendA(pszpath?.value?.toCPointer<ByteVar>(), pszmore?.value?.toCPointer<ByteVar>())
 
-public actual fun PathAppendW(pszpath: PWSTR, pszmore: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathAppendW(pszpath.toCPointer<ByteVar>(), pszmore.toCPointer<ByteVar>())
+public actual fun pathAppendW(pszpath: Pwstr, pszmore: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathAppendW(pszpath?.value?.toCPointer<ByteVar>(), pszmore?.value?.toCPointer<ByteVar>())
 
-public actual fun PathBuildRootA(pszroot: PSTR, idrive: Int): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathBuildRootA(pszroot.toCPointer<ByteVar>(), idrive)?.toLong() ?: 0L
+public actual fun pathBuildRootA(pszroot: Pstr, idrive: Int): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathBuildRootA(pszroot?.value?.toCPointer<ByteVar>(), idrive)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathBuildRootW(pszroot: PWSTR, idrive: Int): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathBuildRootW(pszroot.toCPointer<ByteVar>(), idrive)?.toLong() ?: 0L
+public actual fun pathBuildRootW(pszroot: Pwstr, idrive: Int): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathBuildRootW(pszroot?.value?.toCPointer<ByteVar>(), idrive)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathCanonicalizeA(pszbuf: PSTR, pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCanonicalizeA(pszbuf.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun pathCanonicalizeA(pszbuf: Pstr, pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCanonicalizeA(pszbuf?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCanonicalizeW(pszbuf: PWSTR, pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCanonicalizeW(pszbuf.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun pathCanonicalizeW(pszbuf: Pwstr, pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCanonicalizeW(pszbuf?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchAddBackslash(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchAddBackslash(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchAddBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchAddBackslash(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCchAddBackslashEx(pszpath: PWSTR, cchpath: ULong, ppszend: Long, pcchremaining: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchAddBackslashEx(pszpath.toCPointer<ByteVar>(), cchpath, ppszend.toCPointer<ByteVar>(), pcchremaining.toCPointer<ByteVar>())
+public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: COpaquePointer?, pcchremaining: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchAddBackslashEx(pszpath?.value?.toCPointer<ByteVar>(), cchpath, ppszend?.value?.toCPointer<ByteVar>(), pcchremaining?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchAddExtension(pszpath: PWSTR, cchpath: ULong, pszext: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchAddExtension(pszpath.toCPointer<ByteVar>(), cchpath, pszext.toCPointer<ByteVar>())
+public actual fun pathCchAddExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchAddExtension(pszpath?.value?.toCPointer<ByteVar>(), cchpath, pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchAppend(pszpath: PWSTR, cchpath: ULong, pszmore: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchAppend(pszpath.toCPointer<ByteVar>(), cchpath, pszmore.toCPointer<ByteVar>())
+public actual fun pathCchAppend(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchAppend(pszpath?.value?.toCPointer<ByteVar>(), cchpath, pszmore?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchAppendEx(pszpath: PWSTR, cchpath: ULong, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchAppendEx(pszpath.toCPointer<ByteVar>(), cchpath, pszmore.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCchAppendEx(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchAppendEx(pszpath?.value?.toCPointer<ByteVar>(), cchpath, pszmore?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathCchCanonicalize(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchCanonicalize(pszpathout.toCPointer<ByteVar>(), cchpathout, pszpathin.toCPointer<ByteVar>())
+public actual fun pathCchCanonicalize(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchCanonicalize(pszpathout?.value?.toCPointer<ByteVar>(), cchpathout, pszpathin?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchCanonicalizeEx(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx(pszpathout.toCPointer<ByteVar>(), cchpathout, pszpathin.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCchCanonicalizeEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, dwflags: PathcchOptions): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx(pszpathout?.value?.toCPointer<ByteVar>(), cchpathout, pszpathin?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathCchCombine(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, pszmore: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchCombine(pszpathout.toCPointer<ByteVar>(), cchpathout, pszpathin.toCPointer<ByteVar>(), pszmore.toCPointer<ByteVar>())
+public actual fun pathCchCombine(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchCombine(pszpathout?.value?.toCPointer<ByteVar>(), cchpathout, pszpathin?.value?.toCPointer<ByteVar>(), pszmore?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchCombineEx(pszpathout: PWSTR, cchpathout: ULong, pszpathin: PCWSTR, pszmore: PCWSTR, dwflags: PATHCCH_OPTIONS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchCombineEx(pszpathout.toCPointer<ByteVar>(), cchpathout, pszpathin.toCPointer<ByteVar>(), pszmore.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCchCombineEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchCombineEx(pszpathout?.value?.toCPointer<ByteVar>(), cchpathout, pszpathin?.value?.toCPointer<ByteVar>(), pszmore?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathCchFindExtension(pszpath: PCWSTR, cchpath: ULong, ppszext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchFindExtension(pszpath.toCPointer<ByteVar>(), cchpath, ppszext.toCPointer<ByteVar>())
+public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchFindExtension(pszpath?.value?.toCPointer<ByteVar>(), cchpath, ppszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchIsRoot(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchIsRoot(pszpath.toCPointer<ByteVar>())
+public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchIsRoot(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchRemoveBackslash(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchRemoveBackslash(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchRemoveBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchRemoveBackslash(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCchRemoveBackslashEx(pszpath: PWSTR, cchpath: ULong, ppszend: Long, pcchremaining: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx(pszpath.toCPointer<ByteVar>(), cchpath, ppszend.toCPointer<ByteVar>(), pcchremaining.toCPointer<ByteVar>())
+public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: COpaquePointer?, pcchremaining: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx(pszpath?.value?.toCPointer<ByteVar>(), cchpath, ppszend?.value?.toCPointer<ByteVar>(), pcchremaining?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchRemoveExtension(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchRemoveExtension(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchRemoveExtension(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchRemoveExtension(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCchRemoveFileSpec(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchRemoveFileSpec(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCchRenameExtension(pszpath: PWSTR, cchpath: ULong, pszext: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchRenameExtension(pszpath.toCPointer<ByteVar>(), cchpath, pszext.toCPointer<ByteVar>())
+public actual fun pathCchRenameExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchRenameExtension(pszpath?.value?.toCPointer<ByteVar>(), cchpath, pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchSkipRoot(pszpath: PCWSTR, ppszrootend: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchSkipRoot(pszpath.toCPointer<ByteVar>(), ppszrootend.toCPointer<ByteVar>())
+public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchSkipRoot(pszpath?.value?.toCPointer<ByteVar>(), ppszrootend?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCchStripPrefix(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchStripPrefix(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchStripPrefix(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchStripPrefix(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCchStripToRoot(pszpath: PWSTR, cchpath: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCchStripToRoot(pszpath.toCPointer<ByteVar>(), cchpath)
+public actual fun pathCchStripToRoot(pszpath: Pwstr, cchpath: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCchStripToRoot(pszpath?.value?.toCPointer<ByteVar>(), cchpath)
 
-public actual fun PathCleanupSpec(pszdir: PCWSTR, pszspec: PWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCleanupSpec(pszdir.toCPointer<ByteVar>(), pszspec.toCPointer<ByteVar>())
+public actual fun pathCleanupSpec(pszdir: Pcwstr, pszspec: Pwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCleanupSpec(pszdir?.value?.toCPointer<ByteVar>(), pszspec?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCombineA(pszdest: PSTR, pszdir: PCSTR, pszfile: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCombineA(pszdest.toCPointer<ByteVar>(), pszdir.toCPointer<ByteVar>(), pszfile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathCombineA(pszdest: Pstr, pszdir: Pcstr, pszfile: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCombineA(pszdest?.value?.toCPointer<ByteVar>(), pszdir?.value?.toCPointer<ByteVar>(), pszfile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathCombineW(pszdest: PWSTR, pszdir: PCWSTR, pszfile: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCombineW(pszdest.toCPointer<ByteVar>(), pszdir.toCPointer<ByteVar>(), pszfile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathCombineW(pszdest: Pwstr, pszdir: Pcwstr, pszfile: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCombineW(pszdest?.value?.toCPointer<ByteVar>(), pszdir?.value?.toCPointer<ByteVar>(), pszfile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathCommonPrefixA(pszfile1: PCSTR, pszfile2: PCSTR, achpath: PSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCommonPrefixA(pszfile1.toCPointer<ByteVar>(), pszfile2.toCPointer<ByteVar>(), achpath.toCPointer<ByteVar>())
+public actual fun pathCommonPrefixA(pszfile1: Pcstr, pszfile2: Pcstr, achpath: Pstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCommonPrefixA(pszfile1?.value?.toCPointer<ByteVar>(), pszfile2?.value?.toCPointer<ByteVar>(), achpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCommonPrefixW(pszfile1: PCWSTR, pszfile2: PCWSTR, achpath: PWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCommonPrefixW(pszfile1.toCPointer<ByteVar>(), pszfile2.toCPointer<ByteVar>(), achpath.toCPointer<ByteVar>())
+public actual fun pathCommonPrefixW(pszfile1: Pcwstr, pszfile2: Pcwstr, achpath: Pwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCommonPrefixW(pszfile1?.value?.toCPointer<ByteVar>(), pszfile2?.value?.toCPointer<ByteVar>(), achpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathCompactPathA(hdc: HDC, pszpath: PSTR, dx: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCompactPathA(hdc.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dx)
+public actual fun pathCompactPathA(hdc: Hdc, pszpath: Pstr, dx: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCompactPathA(hdc?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dx)
 
-public actual fun PathCompactPathExA(pszout: PSTR, pszsrc: PCSTR, cchmax: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCompactPathExA(pszout.toCPointer<ByteVar>(), pszsrc.toCPointer<ByteVar>(), cchmax, dwflags)
+public actual fun pathCompactPathExA(pszout: Pstr, pszsrc: Pcstr, cchmax: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCompactPathExA(pszout?.value?.toCPointer<ByteVar>(), pszsrc?.value?.toCPointer<ByteVar>(), cchmax, dwflags)
 
-public actual fun PathCompactPathExW(pszout: PWSTR, pszsrc: PCWSTR, cchmax: UInt, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCompactPathExW(pszout.toCPointer<ByteVar>(), pszsrc.toCPointer<ByteVar>(), cchmax, dwflags)
+public actual fun pathCompactPathExW(pszout: Pwstr, pszsrc: Pcwstr, cchmax: UInt, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCompactPathExW(pszout?.value?.toCPointer<ByteVar>(), pszsrc?.value?.toCPointer<ByteVar>(), cchmax, dwflags)
 
-public actual fun PathCompactPathW(hdc: HDC, pszpath: PWSTR, dx: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCompactPathW(hdc.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dx)
+public actual fun pathCompactPathW(hdc: Hdc, pszpath: Pwstr, dx: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCompactPathW(hdc?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dx)
 
-public actual fun PathCreateFromUrlA(pszurl: PCSTR, pszpath: PSTR, pcchpath: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCreateFromUrlA(pszurl.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), pcchpath.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCreateFromUrlA(pszurl?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), pcchpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathCreateFromUrlAlloc(pszin: PCWSTR, ppszout: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc(pszin.toCPointer<ByteVar>(), ppszout.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc(pszin?.value?.toCPointer<ByteVar>(), ppszout?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathCreateFromUrlW(pszurl: PCWSTR, pszpath: PWSTR, pcchpath: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathCreateFromUrlW(pszurl.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), pcchpath.toCPointer<ByteVar>(), dwflags)
+public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathCreateFromUrlW(pszurl?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), pcchpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathFileExistsA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFileExistsA(pszpath.toCPointer<ByteVar>())
+public actual fun pathFileExistsA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFileExistsA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathFileExistsW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFileExistsW(pszpath.toCPointer<ByteVar>())
+public actual fun pathFileExistsW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFileExistsW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathFindExtensionA(pszpath: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindExtensionA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindExtensionA(pszpath: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindExtensionA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindExtensionW(pszpath: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindExtensionW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindExtensionW(pszpath: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindExtensionW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindFileNameA(pszpath: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindFileNameA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindFileNameA(pszpath: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindFileNameA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindFileNameW(pszpath: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindFileNameW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindFileNameW(pszpath: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindFileNameW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindNextComponentA(pszpath: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindNextComponentA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindNextComponentA(pszpath: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindNextComponentA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindNextComponentW(pszpath: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindNextComponentW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathFindNextComponentW(pszpath: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindNextComponentW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindOnPathA(pszpath: PSTR, ppszotherdirs: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindOnPathA(pszpath.toCPointer<ByteVar>(), ppszotherdirs.toCPointer<ByteVar>())
+public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindOnPathA(pszpath?.value?.toCPointer<ByteVar>(), ppszotherdirs?.value?.toCPointer<ByteVar>())
 
-public actual fun PathFindOnPathW(pszpath: PWSTR, ppszotherdirs: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindOnPathW(pszpath.toCPointer<ByteVar>(), ppszotherdirs.toCPointer<ByteVar>())
+public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindOnPathW(pszpath?.value?.toCPointer<ByteVar>(), ppszotherdirs?.value?.toCPointer<ByteVar>())
 
-public actual fun PathFindSuffixArrayA(pszpath: PCSTR, apszsuffix: Long, iarraysize: Int): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindSuffixArrayA(pszpath.toCPointer<ByteVar>(), apszsuffix.toCPointer<ByteVar>(), iarraysize)?.toLong() ?: 0L
+public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: COpaquePointer?, iarraysize: Int): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindSuffixArrayA(pszpath?.value?.toCPointer<ByteVar>(), apszsuffix?.value?.toCPointer<ByteVar>(), iarraysize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathFindSuffixArrayW(pszpath: PCWSTR, apszsuffix: Long, iarraysize: Int): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathFindSuffixArrayW(pszpath.toCPointer<ByteVar>(), apszsuffix.toCPointer<ByteVar>(), iarraysize)?.toLong() ?: 0L
+public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: COpaquePointer?, iarraysize: Int): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathFindSuffixArrayW(pszpath?.value?.toCPointer<ByteVar>(), apszsuffix?.value?.toCPointer<ByteVar>(), iarraysize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathGetArgsA(pszpath: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetArgsA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathGetArgsA(pszpath: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetArgsA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathGetArgsW(pszpath: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetArgsW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathGetArgsW(pszpath: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetArgsW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathGetCharTypeA(ch: UByte): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetCharTypeA(ch)
+public actual fun pathGetCharTypeA(ch: UByte): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetCharTypeA(ch)
 
-public actual fun PathGetCharTypeW(ch: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetCharTypeW(ch)
+public actual fun pathGetCharTypeW(ch: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetCharTypeW(ch)
 
-public actual fun PathGetDriveNumberA(pszpath: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetDriveNumberA(pszpath.toCPointer<ByteVar>())
+public actual fun pathGetDriveNumberA(pszpath: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetDriveNumberA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathGetDriveNumberW(pszpath: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetDriveNumberW(pszpath.toCPointer<ByteVar>())
+public actual fun pathGetDriveNumberW(pszpath: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetDriveNumberW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathGetShortPath(pszlongpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathGetShortPath(pszlongpath.toCPointer<ByteVar>())
+public actual fun pathGetShortPath(pszlongpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathGetShortPath(pszlongpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathIsContentTypeA(pszpath: PCSTR, pszcontenttype: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsContentTypeA(pszpath.toCPointer<ByteVar>(), pszcontenttype.toCPointer<ByteVar>())
+public actual fun pathIsContentTypeA(pszpath: Pcstr, pszcontenttype: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsContentTypeA(pszpath?.value?.toCPointer<ByteVar>(), pszcontenttype?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsContentTypeW(pszpath: PCWSTR, pszcontenttype: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsContentTypeW(pszpath.toCPointer<ByteVar>(), pszcontenttype.toCPointer<ByteVar>())
+public actual fun pathIsContentTypeW(pszpath: Pcwstr, pszcontenttype: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsContentTypeW(pszpath?.value?.toCPointer<ByteVar>(), pszcontenttype?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsDirectoryA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsDirectoryA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsDirectoryA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsDirectoryA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsDirectoryEmptyA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsDirectoryEmptyA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsDirectoryEmptyW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsDirectoryEmptyW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsDirectoryW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsDirectoryW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsDirectoryW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsDirectoryW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsExe(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsExe(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsExe(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsExe(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsFileSpecA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsFileSpecA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsFileSpecA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsFileSpecA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsFileSpecW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsFileSpecW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsFileSpecW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsFileSpecW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsLFNFileSpecA(pszname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA(pszname.toCPointer<ByteVar>())
+public actual fun pathIsLFNFileSpecA(pszname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA(pszname?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsLFNFileSpecW(pszname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW(pszname.toCPointer<ByteVar>())
+public actual fun pathIsLFNFileSpecW(pszname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW(pszname?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsNetworkPathA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsNetworkPathA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsNetworkPathA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsNetworkPathA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsNetworkPathW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsNetworkPathW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsNetworkPathW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsNetworkPathW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsPrefixA(pszprefix: PCSTR, pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsPrefixA(pszprefix.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun pathIsPrefixA(pszprefix: Pcstr, pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsPrefixA(pszprefix?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsPrefixW(pszprefix: PCWSTR, pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsPrefixW(pszprefix.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun pathIsPrefixW(pszprefix: Pcwstr, pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsPrefixW(pszprefix?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsRelativeA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsRelativeA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsRelativeA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsRelativeA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsRelativeW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsRelativeW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsRelativeW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsRelativeW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsRootA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsRootA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsRootA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsRootA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsRootW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsRootW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsRootW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsRootW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsSameRootA(pszpath1: PCSTR, pszpath2: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSameRootA(pszpath1.toCPointer<ByteVar>(), pszpath2.toCPointer<ByteVar>())
+public actual fun pathIsSameRootA(pszpath1: Pcstr, pszpath2: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSameRootA(pszpath1?.value?.toCPointer<ByteVar>(), pszpath2?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsSameRootW(pszpath1: PCWSTR, pszpath2: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSameRootW(pszpath1.toCPointer<ByteVar>(), pszpath2.toCPointer<ByteVar>())
+public actual fun pathIsSameRootW(pszpath1: Pcwstr, pszpath2: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSameRootW(pszpath1?.value?.toCPointer<ByteVar>(), pszpath2?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsSlowA(pszfile: PCSTR, dwattr: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSlowA(pszfile.toCPointer<ByteVar>(), dwattr)
+public actual fun pathIsSlowA(pszfile: Pcstr, dwattr: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSlowA(pszfile?.value?.toCPointer<ByteVar>(), dwattr)
 
-public actual fun PathIsSlowW(pszfile: PCWSTR, dwattr: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSlowW(pszfile.toCPointer<ByteVar>(), dwattr)
+public actual fun pathIsSlowW(pszfile: Pcwstr, dwattr: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSlowW(pszfile?.value?.toCPointer<ByteVar>(), dwattr)
 
-public actual fun PathIsSystemFolderA(pszpath: PCSTR, dwattrb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSystemFolderA(pszpath.toCPointer<ByteVar>(), dwattrb)
+public actual fun pathIsSystemFolderA(pszpath: Pcstr, dwattrb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSystemFolderA(pszpath?.value?.toCPointer<ByteVar>(), dwattrb)
 
-public actual fun PathIsSystemFolderW(pszpath: PCWSTR, dwattrb: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsSystemFolderW(pszpath.toCPointer<ByteVar>(), dwattrb)
+public actual fun pathIsSystemFolderW(pszpath: Pcwstr, dwattrb: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsSystemFolderW(pszpath?.value?.toCPointer<ByteVar>(), dwattrb)
 
-public actual fun PathIsUNCA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCEx(pszpath: PCWSTR, ppszserver: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCEx(pszpath.toCPointer<ByteVar>(), ppszserver.toCPointer<ByteVar>())
+public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCEx(pszpath?.value?.toCPointer<ByteVar>(), ppszserver?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCServerA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCServerA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCServerA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCServerA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCServerShareA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCServerShareA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCServerShareA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCServerShareA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCServerShareW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCServerShareW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCServerShareW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCServerShareW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCServerW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCServerW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCServerW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCServerW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsUNCW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsUNCW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsUNCW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsUNCW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsURLA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsURLA(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsURLA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsURLA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathIsURLW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathIsURLW(pszpath.toCPointer<ByteVar>())
+public actual fun pathIsURLW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathIsURLW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMakePrettyA(pszpath: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMakePrettyA(pszpath.toCPointer<ByteVar>())
+public actual fun pathMakePrettyA(pszpath: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMakePrettyA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMakePrettyW(pszpath: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMakePrettyW(pszpath.toCPointer<ByteVar>())
+public actual fun pathMakePrettyW(pszpath: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMakePrettyW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMakeSystemFolderA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMakeSystemFolderA(pszpath.toCPointer<ByteVar>())
+public actual fun pathMakeSystemFolderA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMakeSystemFolderA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMakeSystemFolderW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMakeSystemFolderW(pszpath.toCPointer<ByteVar>())
+public actual fun pathMakeSystemFolderW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMakeSystemFolderW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMakeUniqueName(pszuniquename: PWSTR, cchmax: UInt, psztemplate: PCWSTR, pszlongplate: PCWSTR, pszdir: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMakeUniqueName(pszuniquename.toCPointer<ByteVar>(), cchmax, psztemplate.toCPointer<ByteVar>(), pszlongplate.toCPointer<ByteVar>(), pszdir.toCPointer<ByteVar>())
+public actual fun pathMakeUniqueName(pszuniquename: Pwstr, cchmax: UInt, psztemplate: Pcwstr, pszlongplate: Pcwstr, pszdir: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMakeUniqueName(pszuniquename?.value?.toCPointer<ByteVar>(), cchmax, psztemplate?.value?.toCPointer<ByteVar>(), pszlongplate?.value?.toCPointer<ByteVar>(), pszdir?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMatchSpecA(pszfile: PCSTR, pszspec: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMatchSpecA(pszfile.toCPointer<ByteVar>(), pszspec.toCPointer<ByteVar>())
+public actual fun pathMatchSpecA(pszfile: Pcstr, pszspec: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMatchSpecA(pszfile?.value?.toCPointer<ByteVar>(), pszspec?.value?.toCPointer<ByteVar>())
 
-public actual fun PathMatchSpecExA(pszfile: PCSTR, pszspec: PCSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMatchSpecExA(pszfile.toCPointer<ByteVar>(), pszspec.toCPointer<ByteVar>(), dwflags)
+public actual fun pathMatchSpecExA(pszfile: Pcstr, pszspec: Pcstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMatchSpecExA(pszfile?.value?.toCPointer<ByteVar>(), pszspec?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathMatchSpecExW(pszfile: PCWSTR, pszspec: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMatchSpecExW(pszfile.toCPointer<ByteVar>(), pszspec.toCPointer<ByteVar>(), dwflags)
+public actual fun pathMatchSpecExW(pszfile: Pcwstr, pszspec: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMatchSpecExW(pszfile?.value?.toCPointer<ByteVar>(), pszspec?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun PathMatchSpecW(pszfile: PCWSTR, pszspec: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathMatchSpecW(pszfile.toCPointer<ByteVar>(), pszspec.toCPointer<ByteVar>())
+public actual fun pathMatchSpecW(pszfile: Pcwstr, pszspec: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathMatchSpecW(pszfile?.value?.toCPointer<ByteVar>(), pszspec?.value?.toCPointer<ByteVar>())
 
-public actual fun PathParseIconLocationA(psziconfile: PSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathParseIconLocationA(psziconfile.toCPointer<ByteVar>())
+public actual fun pathParseIconLocationA(psziconfile: Pstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathParseIconLocationA(psziconfile?.value?.toCPointer<ByteVar>())
 
-public actual fun PathParseIconLocationW(psziconfile: PWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathParseIconLocationW(psziconfile.toCPointer<ByteVar>())
+public actual fun pathParseIconLocationW(psziconfile: Pwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathParseIconLocationW(psziconfile?.value?.toCPointer<ByteVar>())
 
-public actual fun PathQualify(psz: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathQualify(psz.toCPointer<ByteVar>())
+public actual fun pathQualify(psz: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathQualify(psz?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathQuoteSpacesA(lpsz: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathQuoteSpacesA(lpsz.toCPointer<ByteVar>())
+public actual fun pathQuoteSpacesA(lpsz: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathQuoteSpacesA(lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun PathQuoteSpacesW(lpsz: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathQuoteSpacesW(lpsz.toCPointer<ByteVar>())
+public actual fun pathQuoteSpacesW(lpsz: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathQuoteSpacesW(lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun PathRelativePathToA(pszpath: PSTR, pszfrom: PCSTR, dwattrfrom: UInt, pszto: PCSTR, dwattrto: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRelativePathToA(pszpath.toCPointer<ByteVar>(), pszfrom.toCPointer<ByteVar>(), dwattrfrom, pszto.toCPointer<ByteVar>(), dwattrto)
+public actual fun pathRelativePathToA(pszpath: Pstr, pszfrom: Pcstr, dwattrfrom: UInt, pszto: Pcstr, dwattrto: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRelativePathToA(pszpath?.value?.toCPointer<ByteVar>(), pszfrom?.value?.toCPointer<ByteVar>(), dwattrfrom, pszto?.value?.toCPointer<ByteVar>(), dwattrto)
 
-public actual fun PathRelativePathToW(pszpath: PWSTR, pszfrom: PCWSTR, dwattrfrom: UInt, pszto: PCWSTR, dwattrto: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRelativePathToW(pszpath.toCPointer<ByteVar>(), pszfrom.toCPointer<ByteVar>(), dwattrfrom, pszto.toCPointer<ByteVar>(), dwattrto)
+public actual fun pathRelativePathToW(pszpath: Pwstr, pszfrom: Pcwstr, dwattrfrom: UInt, pszto: Pcwstr, dwattrto: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRelativePathToW(pszpath?.value?.toCPointer<ByteVar>(), pszfrom?.value?.toCPointer<ByteVar>(), dwattrfrom, pszto?.value?.toCPointer<ByteVar>(), dwattrto)
 
-public actual fun PathRemoveArgsA(pszpath: PSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveArgsA(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveArgsA(pszpath: Pstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveArgsA(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveArgsW(pszpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveArgsW(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveArgsW(pszpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveArgsW(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveBackslashA(pszpath: PSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveBackslashA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathRemoveBackslashA(pszpath: Pstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveBackslashA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathRemoveBackslashW(pszpath: PWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveBackslashW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathRemoveBackslashW(pszpath: Pwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveBackslashW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathRemoveBlanksA(pszpath: PSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveBlanksA(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveBlanksA(pszpath: Pstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveBlanksA(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveBlanksW(pszpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveBlanksW(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveBlanksW(pszpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveBlanksW(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveExtensionA(pszpath: PSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveExtensionA(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveExtensionA(pszpath: Pstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveExtensionA(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveExtensionW(pszpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveExtensionW(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveExtensionW(pszpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveExtensionW(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathRemoveFileSpecA(pszpath: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveFileSpecA(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveFileSpecA(pszpath: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveFileSpecA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathRemoveFileSpecW(pszpath: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRemoveFileSpecW(pszpath.toCPointer<ByteVar>())
+public actual fun pathRemoveFileSpecW(pszpath: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRemoveFileSpecW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathRenameExtensionA(pszpath: PSTR, pszext: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRenameExtensionA(pszpath.toCPointer<ByteVar>(), pszext.toCPointer<ByteVar>())
+public actual fun pathRenameExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRenameExtensionA(pszpath?.value?.toCPointer<ByteVar>(), pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathRenameExtensionW(pszpath: PWSTR, pszext: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathRenameExtensionW(pszpath.toCPointer<ByteVar>(), pszext.toCPointer<ByteVar>())
+public actual fun pathRenameExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathRenameExtensionW(pszpath?.value?.toCPointer<ByteVar>(), pszext?.value?.toCPointer<ByteVar>())
 
-public actual fun PathResolve(pszpath: PWSTR, dirs: Long, fflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathResolve(pszpath.toCPointer<ByteVar>(), dirs.toCPointer<ByteVar>(), fflags)
+public actual fun pathResolve(pszpath: Pwstr, dirs: COpaquePointer?, fflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathResolve(pszpath?.value?.toCPointer<ByteVar>(), dirs?.value?.toCPointer<ByteVar>(), fflags)
 
-public actual fun PathSearchAndQualifyA(pszpath: PCSTR, pszbuf: PSTR, cchbuf: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSearchAndQualifyA(pszpath.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSearchAndQualifyA(pszpath?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun PathSearchAndQualifyW(pszpath: PCWSTR, pszbuf: PWSTR, cchbuf: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSearchAndQualifyW(pszpath.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun pathSearchAndQualifyW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSearchAndQualifyW(pszpath?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun PathSetDlgItemPathA(hdlg: HWND, id: Int, pszpath: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSetDlgItemPathA(hdlg.toCPointer<ByteVar>(), id, pszpath.toCPointer<ByteVar>())
+public actual fun pathSetDlgItemPathA(hdlg: Hwnd, id: Int, pszpath: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSetDlgItemPathA(hdlg?.value?.toCPointer<ByteVar>(), id, pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathSetDlgItemPathW(hdlg: HWND, id: Int, pszpath: PCWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSetDlgItemPathW(hdlg.toCPointer<ByteVar>(), id, pszpath.toCPointer<ByteVar>())
+public actual fun pathSetDlgItemPathW(hdlg: Hwnd, id: Int, pszpath: Pcwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSetDlgItemPathW(hdlg?.value?.toCPointer<ByteVar>(), id, pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathSkipRootA(pszpath: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSkipRootA(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathSkipRootA(pszpath: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSkipRootA(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathSkipRootW(pszpath: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathSkipRootW(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathSkipRootW(pszpath: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathSkipRootW(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PathStripPathA(pszpath: PSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathStripPathA(pszpath.toCPointer<ByteVar>())
+public actual fun pathStripPathA(pszpath: Pstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathStripPathA(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathStripPathW(pszpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathStripPathW(pszpath.toCPointer<ByteVar>())
+public actual fun pathStripPathW(pszpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathStripPathW(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathStripToRootA(pszpath: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathStripToRootA(pszpath.toCPointer<ByteVar>())
+public actual fun pathStripToRootA(pszpath: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathStripToRootA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathStripToRootW(pszpath: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathStripToRootW(pszpath.toCPointer<ByteVar>())
+public actual fun pathStripToRootW(pszpath: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathStripToRootW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathUnExpandEnvStringsA(pszpath: PCSTR, pszbuf: PSTR, cchbuf: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA(pszpath.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun pathUnExpandEnvStringsA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA(pszpath?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun PathUnExpandEnvStringsW(pszpath: PCWSTR, pszbuf: PWSTR, cchbuf: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW(pszpath.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun pathUnExpandEnvStringsW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW(pszpath?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun PathUndecorateA(pszpath: PSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUndecorateA(pszpath.toCPointer<ByteVar>())
+public actual fun pathUndecorateA(pszpath: Pstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUndecorateA(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathUndecorateW(pszpath: PWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUndecorateW(pszpath.toCPointer<ByteVar>())
+public actual fun pathUndecorateW(pszpath: Pwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUndecorateW(pszpath?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PathUnmakeSystemFolderA(pszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA(pszpath.toCPointer<ByteVar>())
+public actual fun pathUnmakeSystemFolderA(pszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathUnmakeSystemFolderW(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW(pszpath.toCPointer<ByteVar>())
+public actual fun pathUnmakeSystemFolderW(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun PathUnquoteSpacesA(lpsz: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnquoteSpacesA(lpsz.toCPointer<ByteVar>())
+public actual fun pathUnquoteSpacesA(lpsz: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnquoteSpacesA(lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun PathUnquoteSpacesW(lpsz: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathUnquoteSpacesW(lpsz.toCPointer<ByteVar>())
+public actual fun pathUnquoteSpacesW(lpsz: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathUnquoteSpacesW(lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun PathYetAnotherMakeUniqueName(pszuniquename: PWSTR, pszpath: PCWSTR, pszshort: PCWSTR, pszfilespec: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName(pszuniquename.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), pszshort.toCPointer<ByteVar>(), pszfilespec.toCPointer<ByteVar>())
+public actual fun pathYetAnotherMakeUniqueName(pszuniquename: Pwstr, pszpath: Pcwstr, pszshort: Pcwstr, pszfilespec: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName(pszuniquename?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), pszshort?.value?.toCPointer<ByteVar>(), pszfilespec?.value?.toCPointer<ByteVar>())
 
-public actual fun PickIconDlg(hwnd: HWND, psziconpath: PWSTR, cchiconpath: UInt, piiconindex: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PickIconDlg(hwnd.toCPointer<ByteVar>(), psziconpath.toCPointer<ByteVar>(), cchiconpath, piiconindex.toCPointer<ByteVar>())
+public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_pickIconDlg(hwnd?.value?.toCPointer<ByteVar>(), psziconpath?.value?.toCPointer<ByteVar>(), cchiconpath, piiconindex?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToStrRet(propvar: Long, pstrret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_PropVariantToStrRet(propvar.toCPointer<ByteVar>(), pstrret.toCPointer<ByteVar>())
+public actual fun propVariantToStrRet(propvar: COpaquePointer?, pstrret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_propVariantToStrRet(propvar?.value?.toCPointer<ByteVar>(), pstrret?.value?.toCPointer<ByteVar>())
 
-public actual fun QISearch(that: Long, pqit: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_QISearch(that.toCPointer<ByteVar>(), pqit.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun qISearch(that: COpaquePointer?, pqit: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_qISearch(that?.value?.toCPointer<ByteVar>(), pqit?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadCabinetState(pcs: Long, clength: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ReadCabinetState(pcs.toCPointer<ByteVar>(), clength)
+public actual fun readCabinetState(pcs: COpaquePointer?, clength: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_readCabinetState(pcs?.value?.toCPointer<ByteVar>(), clength)
 
-public actual fun RealDriveType(idrive: Int, foktohitnet: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RealDriveType(idrive, foktohitnet)
+public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_realDriveType(idrive, foktohitnet)
 
-public actual fun RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: Long, registration: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification(routine.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), registration.toCPointer<ByteVar>())
+public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: COpaquePointer?, registration: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), registration?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: Long, registration: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification(routine.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), registration.toCPointer<ByteVar>())
+public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: COpaquePointer?, registration: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_registerAppStateChangeNotification(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), registration?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterScaleChangeEvent(hevent: HANDLE, pdwcookie: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent(hevent.toCPointer<ByteVar>(), pdwcookie.toCPointer<ByteVar>())
+public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_registerScaleChangeEvent(hevent?.value?.toCPointer<ByteVar>(), pdwcookie?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: HWND, umsgnotify: UInt, pdwcookie: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications(displaydevice, hwndnotify.toCPointer<ByteVar>(), umsgnotify, pdwcookie.toCPointer<ByteVar>())
+public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_registerScaleChangeNotifications(displaydevice, hwndnotify?.value?.toCPointer<ByteVar>(), umsgnotify, pdwcookie?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RemoveWindowSubclass(hwnd.toCPointer<ByteVar>(), pfnsubclass.toLong().toCPointer<ByteVar>(), uidsubclass)
+public actual fun removeWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_removeWindowSubclass(hwnd?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass)
 
-public actual fun RestartDialog(hwnd: HWND, pszprompt: PCWSTR, dwreturn: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RestartDialog(hwnd.toCPointer<ByteVar>(), pszprompt.toCPointer<ByteVar>(), dwreturn)
+public actual fun restartDialog(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_restartDialog(hwnd?.value?.toCPointer<ByteVar>(), pszprompt?.value?.toCPointer<ByteVar>(), dwreturn)
 
-public actual fun RestartDialogEx(hwnd: HWND, pszprompt: PCWSTR, dwreturn: UInt, dwreasoncode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RestartDialogEx(hwnd.toCPointer<ByteVar>(), pszprompt.toCPointer<ByteVar>(), dwreturn, dwreasoncode)
+public actual fun restartDialogEx(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt, dwreasoncode: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_restartDialogEx(hwnd?.value?.toCPointer<ByteVar>(), pszprompt?.value?.toCPointer<ByteVar>(), dwreturn, dwreasoncode)
 
-public actual fun RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications(displaydevice, dwcookie)
+public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceType, dwcookie: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications(displaydevice, dwcookie)
 
-public actual fun SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM): UInt =
+public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun SHAddToRecentDocs(uflags: UInt, pv: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAddToRecentDocs(uflags, pv.toCPointer<ByteVar>())
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAddToRecentDocs(uflags, pv?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHAlloc(cb: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAlloc(cb)?.toLong() ?: 0L
+public actual fun sHAlloc(cb: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAlloc(cb)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHAllocShared(pvdata: Long, dwsize: UInt, dwprocessid: UInt): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAllocShared(pvdata.toCPointer<ByteVar>(), dwsize, dwprocessid)?.toLong() ?: 0L
+public actual fun sHAllocShared(pvdata: COpaquePointer?, dwsize: UInt, dwprocessid: UInt): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAllocShared(pvdata?.value?.toCPointer<ByteVar>(), dwsize, dwprocessid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHAnsiToAnsi(pszsrc: PCSTR, pszdst: PSTR, cchbuf: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAnsiToAnsi(pszsrc.toCPointer<ByteVar>(), pszdst.toCPointer<ByteVar>(), cchbuf)
+public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAnsiToAnsi(pszsrc?.value?.toCPointer<ByteVar>(), pszdst?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun SHAnsiToUnicode(pszsrc: PCSTR, pwszdst: PWSTR, cwchbuf: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAnsiToUnicode(pszsrc.toCPointer<ByteVar>(), pwszdst.toCPointer<ByteVar>(), cwchbuf)
+public actual fun sHAnsiToUnicode(pszsrc: Pcstr, pwszdst: Pwstr, cwchbuf: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAnsiToUnicode(pszsrc?.value?.toCPointer<ByteVar>(), pwszdst?.value?.toCPointer<ByteVar>(), cwchbuf)
 
-public actual fun SHAppBarMessage(dwmessage: UInt, pdata: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAppBarMessage(dwmessage, pdata.toCPointer<ByteVar>())
+public actual fun sHAppBarMessage(dwmessage: UInt, pdata: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAppBarMessage(dwmessage, pdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHAssocEnumHandlers(pszextra: PCWSTR, affilter: ASSOC_FILTER, ppenumhandler: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAssocEnumHandlers(pszextra.toCPointer<ByteVar>(), affilter, ppenumhandler.toCPointer<ByteVar>())
+public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAssocEnumHandlers(pszextra?.value?.toCPointer<ByteVar>(), affilter, ppenumhandler?.value?.toCPointer<ByteVar>())
 
-public actual fun SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: Long, enumhandlers: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication(protocol.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), enumhandlers.toCPointer<ByteVar>())
+public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: COpaquePointer?, enumhandlers: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication(protocol?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), enumhandlers?.value?.toCPointer<ByteVar>())
 
-public actual fun SHAutoComplete(hwndedit: HWND, dwflags: SHELL_AUTOCOMPLETE_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHAutoComplete(hwndedit.toCPointer<ByteVar>(), dwflags)
+public actual fun sHAutoComplete(hwndedit: Hwnd, dwflags: ShellAutocompleteFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHAutoComplete(hwndedit?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHBindToFolderIDListParent(psfroot: Long, pidl: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent(psfroot.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>(), ppidllast.toCPointer<ByteVar>())
+public actual fun sHBindToFolderIDListParent(psfroot: COpaquePointer?, pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent(psfroot?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>(), ppidllast?.value?.toCPointer<ByteVar>())
 
-public actual fun SHBindToFolderIDListParentEx(psfroot: Long, pidl: Long, ppbc: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx(psfroot.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), ppbc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>(), ppidllast.toCPointer<ByteVar>())
+public actual fun sHBindToFolderIDListParentEx(psfroot: COpaquePointer?, pidl: COpaquePointer?, ppbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx(psfroot?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), ppbc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>(), ppidllast?.value?.toCPointer<ByteVar>())
 
-public actual fun SHBindToObject(psf: Long, pidl: Long, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBindToObject(psf.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pbc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHBindToObject(psf: COpaquePointer?, pidl: COpaquePointer?, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBindToObject(psf?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pbc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHBindToParent(pidl: Long, riid: Long, ppv: Long, ppidllast: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBindToParent(pidl.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>(), ppidllast.toCPointer<ByteVar>())
+public actual fun sHBindToParent(pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?, ppidllast: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBindToParent(pidl?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>(), ppidllast?.value?.toCPointer<ByteVar>())
 
-public actual fun SHBrowseForFolderA(lpbi: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBrowseForFolderA(lpbi.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sHBrowseForFolderA(lpbi: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBrowseForFolderA(lpbi?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHBrowseForFolderW(lpbi: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHBrowseForFolderW(lpbi.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sHBrowseForFolderW(lpbi: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHBrowseForFolderW(lpbi?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHCLSIDFromString(psz: PCWSTR, pclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCLSIDFromString(psz.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>())
+public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCLSIDFromString(psz?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun SHChangeNotification_Lock(hchange: HANDLE, dwprocid: UInt, pppidl: Long, plevent: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotification_Lock(hchange.toCPointer<ByteVar>(), dwprocid, pppidl.toCPointer<ByteVar>(), plevent.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: COpaquePointer?, plevent: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shchangeNotificationLock(hchange?.value?.toCPointer<ByteVar>(), dwprocid, pppidl?.value?.toCPointer<ByteVar>(), plevent?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHChangeNotification_Unlock(hlock: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock(hlock.toCPointer<ByteVar>())
+public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shchangeNotificationUnlock(hlock?.value?.toCPointer<ByteVar>())
 
-public actual fun SHChangeNotify(weventid: Int, uflags: SHCNF_FLAGS, dwitem1: Long, dwitem2: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotify(weventid, uflags, dwitem1.toCPointer<ByteVar>(), dwitem2.toCPointer<ByteVar>())
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: COpaquePointer?, dwitem2: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHChangeNotify(weventid, uflags, dwitem1?.value?.toCPointer<ByteVar>(), dwitem2?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHChangeNotifyDeregister(ulid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister(ulid)
+public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister(ulid)
 
-public actual fun SHChangeNotifyRegister(hwnd: HWND, fsources: SHCNRF_SOURCE, fevents: Int, wmsg: UInt, centries: Int, pshcne: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotifyRegister(hwnd.toCPointer<ByteVar>(), fsources, fevents, wmsg, centries, pshcne.toCPointer<ByteVar>())
+public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHChangeNotifyRegister(hwnd?.value?.toCPointer<ByteVar>(), fsources, fevents, wmsg, centries, pshcne?.value?.toCPointer<ByteVar>())
 
-public actual fun SHChangeNotifyRegisterThread(status: SCNRT_STATUS) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread(status)
+public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread(status)
 }
 
-public actual fun SHCloneSpecialIDList(hwnd: HWND, csidl: Int, fcreate: BOOL): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCloneSpecialIDList(hwnd.toCPointer<ByteVar>(), csidl, fcreate)?.toLong() ?: 0L
+public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCloneSpecialIDList(hwnd?.value?.toCPointer<ByteVar>(), csidl, fcreate)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHCoCreateInstance(pszclsid: PCWSTR, pclsid: Long, punkouter: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCoCreateInstance(pszclsid.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: COpaquePointer?, punkouter: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCoCreateInstance(pszclsid?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCopyKeyA(hkeysrc: HKEY, pszsrcsubkey: PCSTR, hkeydest: HKEY, freserved: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCopyKeyA(hkeysrc.toCPointer<ByteVar>(), pszsrcsubkey.toCPointer<ByteVar>(), hkeydest.toCPointer<ByteVar>(), freserved)
+public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCopyKeyA(hkeysrc?.value?.toCPointer<ByteVar>(), pszsrcsubkey?.value?.toCPointer<ByteVar>(), hkeydest?.value?.toCPointer<ByteVar>(), freserved)
 
-public actual fun SHCopyKeyW(hkeysrc: HKEY, pszsrcsubkey: PCWSTR, hkeydest: HKEY, freserved: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCopyKeyW(hkeysrc.toCPointer<ByteVar>(), pszsrcsubkey.toCPointer<ByteVar>(), hkeydest.toCPointer<ByteVar>(), freserved)
+public actual fun sHCopyKeyW(hkeysrc: Hkey, pszsrcsubkey: Pcwstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCopyKeyW(hkeysrc?.value?.toCPointer<ByteVar>(), pszsrcsubkey?.value?.toCPointer<ByteVar>(), hkeydest?.value?.toCPointer<ByteVar>(), freserved)
 
-public actual fun SHCreateAssociationRegistration(riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration(riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateAssociationRegistration(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration(riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDataObject(pidlfolder: Long, cidl: UInt, apidl: Long, pdtinner: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDataObject(pidlfolder.toCPointer<ByteVar>(), cidl, apidl.toCPointer<ByteVar>(), pdtinner.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateDataObject(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, pdtinner: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDataObject(pidlfolder?.value?.toCPointer<ByteVar>(), cidl, apidl?.value?.toCPointer<ByteVar>(), pdtinner?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDefaultContextMenu(pdcm: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu(pdcm.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateDefaultContextMenu(pdcm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu(pdcm?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDefaultExtractIcon(riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon(riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateDefaultExtractIcon(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon(riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDefaultPropertiesOp(psi: Long, ppfileop: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp(psi.toCPointer<ByteVar>(), ppfileop.toCPointer<ByteVar>())
+public actual fun sHCreateDefaultPropertiesOp(psi: COpaquePointer?, ppfileop: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp(psi?.value?.toCPointer<ByteVar>(), ppfileop?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDirectory(hwnd: HWND, pszpath: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDirectory(hwnd.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHCreateDirectory(hwnd: Hwnd, pszpath: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDirectory(hwnd?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDirectoryExA(hwnd: HWND, pszpath: PCSTR, psa: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDirectoryExA(hwnd.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>())
+public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDirectoryExA(hwnd?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateDirectoryExW(hwnd: HWND, pszpath: PCWSTR, psa: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateDirectoryExW(hwnd.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), psa.toCPointer<ByteVar>())
+public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateDirectoryExW(hwnd?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), psa?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateFileExtractIconW(pszfile: PCWSTR, dwfileattributes: UInt, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW(pszfile.toCPointer<ByteVar>(), dwfileattributes, riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW(pszfile?.value?.toCPointer<ByteVar>(), dwfileattributes, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateItemFromIDList(pidl: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateItemFromIDList(pidl.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateItemFromIDList(pidl: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateItemFromIDList(pidl?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateItemFromParsingName(pszpath: PCWSTR, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName(pszpath.toCPointer<ByteVar>(), pbc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName(pszpath?.value?.toCPointer<ByteVar>(), pbc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateItemFromRelativeName(psiparent: Long, pszname: PCWSTR, pbc: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName(psiparent.toCPointer<ByteVar>(), pszname.toCPointer<ByteVar>(), pbc.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateItemFromRelativeName(psiparent: COpaquePointer?, pszname: Pcwstr, pbc: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName(psiparent?.value?.toCPointer<ByteVar>(), pszname?.value?.toCPointer<ByteVar>(), pbc?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateItemInKnownFolder(kfid: Long, dwkfflags: UInt, pszitem: PCWSTR, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder(kfid.toCPointer<ByteVar>(), dwkfflags, pszitem.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateItemInKnownFolder(kfid: COpaquePointer?, dwkfflags: UInt, pszitem: Pcwstr, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder(kfid?.value?.toCPointer<ByteVar>(), dwkfflags, pszitem?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateItemWithParent(pidlparent: Long, psfparent: Long, pidl: Long, riid: Long, ppvitem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateItemWithParent(pidlparent.toCPointer<ByteVar>(), psfparent.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppvitem.toCPointer<ByteVar>())
+public actual fun sHCreateItemWithParent(pidlparent: COpaquePointer?, psfparent: COpaquePointer?, pidl: COpaquePointer?, riid: COpaquePointer?, ppvitem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateItemWithParent(pidlparent?.value?.toCPointer<ByteVar>(), psfparent?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppvitem?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateMemStream(pinit: Long, cbinit: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateMemStream(pinit.toCPointer<ByteVar>(), cbinit)?.toLong() ?: 0L
+public actual fun sHCreateMemStream(pinit: COpaquePointer?, cbinit: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateMemStream(pinit?.value?.toCPointer<ByteVar>(), cbinit)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHCreateProcessAsUserW(pscpi: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW(pscpi.toCPointer<ByteVar>())
+public actual fun sHCreateProcessAsUserW(pscpi: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW(pscpi?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreatePropSheetExtArray(hkey: HKEY, pszsubkey: PCWSTR, max_iface: UInt): HPSXA =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), max_iface)?.toLong() ?: 0L
+public actual fun sHCreatePropSheetExtArray(hkey: Hkey, pszsubkey: Pcwstr, maxIface: UInt): Hpsxa =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), maxIface)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHCreateQueryCancelAutoPlayMoniker(ppmoniker: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker(ppmoniker.toCPointer<ByteVar>())
+public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker(ppmoniker?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellFolderView(pcsfv: Long, ppsv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellFolderView(pcsfv.toCPointer<ByteVar>(), ppsv.toCPointer<ByteVar>())
+public actual fun sHCreateShellFolderView(pcsfv: COpaquePointer?, ppsv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellFolderView(pcsfv?.value?.toCPointer<ByteVar>(), ppsv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellFolderViewEx(pcsfv: Long, ppsv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx(pcsfv.toCPointer<ByteVar>(), ppsv.toCPointer<ByteVar>())
+public actual fun sHCreateShellFolderViewEx(pcsfv: COpaquePointer?, ppsv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx(pcsfv?.value?.toCPointer<ByteVar>(), ppsv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellItem(pidlparent: Long, psfparent: Long, pidl: Long, ppsi: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellItem(pidlparent.toCPointer<ByteVar>(), psfparent.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), ppsi.toCPointer<ByteVar>())
+public actual fun sHCreateShellItem(pidlparent: COpaquePointer?, psfparent: COpaquePointer?, pidl: COpaquePointer?, ppsi: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellItem(pidlparent?.value?.toCPointer<ByteVar>(), psfparent?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), ppsi?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellItemArray(pidlparent: Long, psf: Long, cidl: UInt, ppidl: Long, ppsiitemarray: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellItemArray(pidlparent.toCPointer<ByteVar>(), psf.toCPointer<ByteVar>(), cidl, ppidl.toCPointer<ByteVar>(), ppsiitemarray.toCPointer<ByteVar>())
+public actual fun sHCreateShellItemArray(pidlparent: COpaquePointer?, psf: COpaquePointer?, cidl: UInt, ppidl: COpaquePointer?, ppsiitemarray: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellItemArray(pidlparent?.value?.toCPointer<ByteVar>(), psf?.value?.toCPointer<ByteVar>(), cidl, ppidl?.value?.toCPointer<ByteVar>(), ppsiitemarray?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellItemArrayFromDataObject(pdo: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject(pdo.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateShellItemArrayFromDataObject(pdo: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject(pdo?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: Long, ppsiitemarray: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists(cidl, rgpidl.toCPointer<ByteVar>(), ppsiitemarray.toCPointer<ByteVar>())
+public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: COpaquePointer?, ppsiitemarray: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists(cidl, rgpidl?.value?.toCPointer<ByteVar>(), ppsiitemarray?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellItemArrayFromShellItem(psi: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem(psi.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHCreateShellItemArrayFromShellItem(psi: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem(psi?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateShellPalette(hdc: HDC): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateShellPalette(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sHCreateShellPalette(hdc: Hdc): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateShellPalette(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHCreateStdEnumFmtEtc(cfmt: UInt, afmt: Long, ppenumformatetc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc(cfmt, afmt.toCPointer<ByteVar>(), ppenumformatetc.toCPointer<ByteVar>())
+public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: COpaquePointer?, ppenumformatetc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc(cfmt, afmt?.value?.toCPointer<ByteVar>(), ppenumformatetc?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateStreamOnFileA(pszfile: PCSTR, grfmode: UInt, ppstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA(pszfile.toCPointer<ByteVar>(), grfmode, ppstm.toCPointer<ByteVar>())
+public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA(pszfile?.value?.toCPointer<ByteVar>(), grfmode, ppstm?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateStreamOnFileEx(pszfile: PCWSTR, grfmode: UInt, dwattributes: UInt, fcreate: BOOL, pstmtemplate: Long, ppstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx(pszfile.toCPointer<ByteVar>(), grfmode, dwattributes, fcreate, pstmtemplate.toCPointer<ByteVar>(), ppstm.toCPointer<ByteVar>())
+public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: COpaquePointer?, ppstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx(pszfile?.value?.toCPointer<ByteVar>(), grfmode, dwattributes, fcreate, pstmtemplate?.value?.toCPointer<ByteVar>(), ppstm?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateStreamOnFileW(pszfile: PCWSTR, grfmode: UInt, ppstm: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW(pszfile.toCPointer<ByteVar>(), grfmode, ppstm.toCPointer<ByteVar>())
+public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW(pszfile?.value?.toCPointer<ByteVar>(), grfmode, ppstm?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateThread(pfnthreadproc: LPTHREAD_START_ROUTINE, pdata: Long, flags: UInt, pfncallback: LPTHREAD_START_ROUTINE): BOOL =
-    0
+public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: COpaquePointer?, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateThread(0L.toCPointer<ByteVar>(), pdata?.value?.toCPointer<ByteVar>(), flags, 0L.toCPointer<ByteVar>())
 
-public actual fun SHCreateThreadRef(pcref: Long, ppunk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHCreateThreadRef(pcref.toCPointer<ByteVar>(), ppunk.toCPointer<ByteVar>())
+public actual fun sHCreateThreadRef(pcref: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateThreadRef(pcref?.value?.toCPointer<ByteVar>(), ppunk?.value?.toCPointer<ByteVar>())
 
-public actual fun SHCreateThreadWithHandle(pfnthreadproc: LPTHREAD_START_ROUTINE, pdata: Long, flags: UInt, pfncallback: LPTHREAD_START_ROUTINE, phandle: Long): BOOL =
-    0
+public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: COpaquePointer?, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle(0L.toCPointer<ByteVar>(), pdata?.value?.toCPointer<ByteVar>(), flags, 0L.toCPointer<ByteVar>(), phandle?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDefExtractIconA(psziconfile: PCSTR, iindex: Int, uflags: UInt, phiconlarge: Long, phiconsmall: Long, niconsize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDefExtractIconA(psziconfile.toCPointer<ByteVar>(), iindex, uflags, phiconlarge.toCPointer<ByteVar>(), phiconsmall.toCPointer<ByteVar>(), niconsize)
+public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, niconsize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDefExtractIconA(psziconfile?.value?.toCPointer<ByteVar>(), iindex, uflags, phiconlarge?.value?.toCPointer<ByteVar>(), phiconsmall?.value?.toCPointer<ByteVar>(), niconsize)
 
-public actual fun SHDefExtractIconW(psziconfile: PCWSTR, iindex: Int, uflags: UInt, phiconlarge: Long, phiconsmall: Long, niconsize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDefExtractIconW(psziconfile.toCPointer<ByteVar>(), iindex, uflags, phiconlarge.toCPointer<ByteVar>(), phiconsmall.toCPointer<ByteVar>(), niconsize)
+public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: COpaquePointer?, phiconsmall: COpaquePointer?, niconsize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDefExtractIconW(psziconfile?.value?.toCPointer<ByteVar>(), iindex, uflags, phiconlarge?.value?.toCPointer<ByteVar>(), phiconsmall?.value?.toCPointer<ByteVar>(), niconsize)
 
-public actual fun SHDeleteEmptyKeyA(hkey: HKEY, pszsubkey: PCSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>())
+public actual fun sHDeleteEmptyKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDeleteEmptyKeyW(hkey: HKEY, pszsubkey: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>())
+public actual fun sHDeleteEmptyKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDeleteKeyA(hkey: HKEY, pszsubkey: PCSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteKeyA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>())
+public actual fun sHDeleteKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteKeyA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDeleteKeyW(hkey: HKEY, pszsubkey: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteKeyW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>())
+public actual fun sHDeleteKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteKeyW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDeleteValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteValueA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>())
+public actual fun sHDeleteValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteValueA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDeleteValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDeleteValueW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>())
+public actual fun sHDeleteValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDeleteValueW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun SHDestroyPropSheetExtArray(hpsxa: HPSXA) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray(hpsxa.toCPointer<ByteVar>())
+public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray(hpsxa?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHDoDragDrop(hwnd: HWND, pdata: Long, pdsrc: Long, dweffect: DROPEFFECT, pdweffect: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHDoDragDrop(hwnd.toCPointer<ByteVar>(), pdata.toCPointer<ByteVar>(), pdsrc.toCPointer<ByteVar>(), dweffect, pdweffect.toCPointer<ByteVar>())
+public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: COpaquePointer?, pdsrc: COpaquePointer?, dweffect: Dropeffect, pdweffect: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHDoDragDrop(hwnd?.value?.toCPointer<ByteVar>(), pdata?.value?.toCPointer<ByteVar>(), pdsrc?.value?.toCPointer<ByteVar>(), dweffect, pdweffect?.value?.toCPointer<ByteVar>())
 
-public actual fun SHEmptyRecycleBinA(hwnd: HWND, pszrootpath: PCSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA(hwnd.toCPointer<ByteVar>(), pszrootpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA(hwnd?.value?.toCPointer<ByteVar>(), pszrootpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHEmptyRecycleBinW(hwnd: HWND, pszrootpath: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW(hwnd.toCPointer<ByteVar>(), pszrootpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHEmptyRecycleBinW(hwnd: Hwnd, pszrootpath: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW(hwnd?.value?.toCPointer<ByteVar>(), pszrootpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHEnumKeyExA(hkey: HKEY, dwindex: UInt, pszname: PSTR, pcchname: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEnumKeyExA(hkey.toCPointer<ByteVar>(), dwindex, pszname.toCPointer<ByteVar>(), pcchname.toCPointer<ByteVar>())
+public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEnumKeyExA(hkey?.value?.toCPointer<ByteVar>(), dwindex, pszname?.value?.toCPointer<ByteVar>(), pcchname?.value?.toCPointer<ByteVar>())
 
-public actual fun SHEnumKeyExW(hkey: HKEY, dwindex: UInt, pszname: PWSTR, pcchname: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEnumKeyExW(hkey.toCPointer<ByteVar>(), dwindex, pszname.toCPointer<ByteVar>(), pcchname.toCPointer<ByteVar>())
+public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEnumKeyExW(hkey?.value?.toCPointer<ByteVar>(), dwindex, pszname?.value?.toCPointer<ByteVar>(), pcchname?.value?.toCPointer<ByteVar>())
 
-public actual fun SHEnumValueA(hkey: HKEY, dwindex: UInt, pszvaluename: PSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEnumValueA(hkey.toCPointer<ByteVar>(), dwindex, pszvaluename.toCPointer<ByteVar>(), pcchvaluename.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEnumValueA(hkey?.value?.toCPointer<ByteVar>(), dwindex, pszvaluename?.value?.toCPointer<ByteVar>(), pcchvaluename?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHEnumValueW(hkey: HKEY, dwindex: UInt, pszvaluename: PWSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEnumValueW(hkey.toCPointer<ByteVar>(), dwindex, pszvaluename.toCPointer<ByteVar>(), pcchvaluename.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEnumValueW(hkey?.value?.toCPointer<ByteVar>(), dwindex, pszvaluename?.value?.toCPointer<ByteVar>(), pcchvaluename?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHEnumerateUnreadMailAccountsW(hkeyuser: HKEY, dwindex: UInt, pszmailaddress: PWSTR, cchmailaddress: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW(hkeyuser.toCPointer<ByteVar>(), dwindex, pszmailaddress.toCPointer<ByteVar>(), cchmailaddress)
+public actual fun sHEnumerateUnreadMailAccountsW(hkeyuser: Hkey, dwindex: UInt, pszmailaddress: Pwstr, cchmailaddress: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW(hkeyuser?.value?.toCPointer<ByteVar>(), dwindex, pszmailaddress?.value?.toCPointer<ByteVar>(), cchmailaddress)
 
-public actual fun SHEvaluateSystemCommandTemplate(pszcmdtemplate: PCWSTR, ppszapplication: Long, ppszcommandline: Long, ppszparameters: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate(pszcmdtemplate.toCPointer<ByteVar>(), ppszapplication.toCPointer<ByteVar>(), ppszcommandline.toCPointer<ByteVar>(), ppszparameters.toCPointer<ByteVar>())
+public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: COpaquePointer?, ppszcommandline: COpaquePointer?, ppszparameters: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate(pszcmdtemplate?.value?.toCPointer<ByteVar>(), ppszapplication?.value?.toCPointer<ByteVar>(), ppszcommandline?.value?.toCPointer<ByteVar>(), ppszparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun SHFileOperationA(lpfileop: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFileOperationA(lpfileop.toCPointer<ByteVar>())
+public actual fun sHFileOperationA(lpfileop: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFileOperationA(lpfileop?.value?.toCPointer<ByteVar>())
 
-public actual fun SHFileOperationW(lpfileop: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFileOperationW(lpfileop.toCPointer<ByteVar>())
+public actual fun sHFileOperationW(lpfileop: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFileOperationW(lpfileop?.value?.toCPointer<ByteVar>())
 
-public actual fun SHFindFiles(pidlfolder: Long, pidlsavefile: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFindFiles(pidlfolder.toCPointer<ByteVar>(), pidlsavefile.toCPointer<ByteVar>())
+public actual fun sHFindFiles(pidlfolder: COpaquePointer?, pidlsavefile: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFindFiles(pidlfolder?.value?.toCPointer<ByteVar>(), pidlsavefile?.value?.toCPointer<ByteVar>())
 
-public actual fun SHFind_InitMenuPopup(hmenu: HMENU, hwndowner: HWND, idcmdfirst: UInt, idcmdlast: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup(hmenu.toCPointer<ByteVar>(), hwndowner.toCPointer<ByteVar>(), idcmdfirst, idcmdlast)?.toLong() ?: 0L
+public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shfindInitMenuPopup(hmenu?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), idcmdfirst, idcmdlast)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHFlushSFCache() {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFlushSFCache()
+public actual fun sHFlushSFCache() {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFlushSFCache()
 }
 
-public actual fun SHFormatDateTimeA(pft: Long, pdwflags: Long, pszbuf: PSTR, cchbuf: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFormatDateTimeA(pft.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun sHFormatDateTimeA(pft: COpaquePointer?, pdwflags: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFormatDateTimeA(pft?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun SHFormatDateTimeW(pft: Long, pdwflags: Long, pszbuf: PWSTR, cchbuf: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFormatDateTimeW(pft.toCPointer<ByteVar>(), pdwflags.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun sHFormatDateTimeW(pft: COpaquePointer?, pdwflags: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFormatDateTimeW(pft?.value?.toCPointer<ByteVar>(), pdwflags?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun SHFormatDrive(hwnd: HWND, drive: UInt, fmtid: SHFMT_ID, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFormatDrive(hwnd.toCPointer<ByteVar>(), drive, fmtid, options)
+public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFormatDrive(hwnd?.value?.toCPointer<ByteVar>(), drive, fmtid, options)
 
-public actual fun SHFree(pv: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFree(pv.toCPointer<ByteVar>())
+public actual fun sHFree(pv: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFree(pv?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHFreeNameMappings(hnamemappings: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFreeNameMappings(hnamemappings.toCPointer<ByteVar>())
+public actual fun sHFreeNameMappings(hnamemappings: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFreeNameMappings(hnamemappings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHFreeShared(hdata: HANDLE, dwprocessid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHFreeShared(hdata.toCPointer<ByteVar>(), dwprocessid)
+public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHFreeShared(hdata?.value?.toCPointer<ByteVar>(), dwprocessid)
 
-public actual fun SHGetAttributesFromDataObject(pdo: Long, dwattributemask: UInt, pdwattributes: Long, pcitems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject(pdo.toCPointer<ByteVar>(), dwattributemask, pdwattributes.toCPointer<ByteVar>(), pcitems.toCPointer<ByteVar>())
+public actual fun sHGetAttributesFromDataObject(pdo: COpaquePointer?, dwattributemask: UInt, pdwattributes: COpaquePointer?, pcitems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject(pdo?.value?.toCPointer<ByteVar>(), dwattributemask, pdwattributes?.value?.toCPointer<ByteVar>(), pcitems?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetDataFromIDListA(psf: Long, pidl: Long, nformat: SHGDFIL_FORMAT, pv: Long, cb: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDataFromIDListA(psf.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), nformat, pv.toCPointer<ByteVar>(), cb)
+public actual fun sHGetDataFromIDListA(psf: COpaquePointer?, pidl: COpaquePointer?, nformat: ShgdfilFormat, pv: COpaquePointer?, cb: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDataFromIDListA(psf?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), nformat, pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun SHGetDataFromIDListW(psf: Long, pidl: Long, nformat: SHGDFIL_FORMAT, pv: Long, cb: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDataFromIDListW(psf.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), nformat, pv.toCPointer<ByteVar>(), cb)
+public actual fun sHGetDataFromIDListW(psf: COpaquePointer?, pidl: COpaquePointer?, nformat: ShgdfilFormat, pv: COpaquePointer?, cb: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDataFromIDListW(psf?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), nformat, pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun SHGetDesktopFolder(ppshf: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDesktopFolder(ppshf.toCPointer<ByteVar>())
+public actual fun sHGetDesktopFolder(ppshf: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDesktopFolder(ppshf?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetDiskFreeSpaceExA(pszdirectoryname: PCSTR, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA(pszdirectoryname.toCPointer<ByteVar>(), pulfreebytesavailabletocaller.toCPointer<ByteVar>(), pultotalnumberofbytes.toCPointer<ByteVar>(), pultotalnumberoffreebytes.toCPointer<ByteVar>())
+public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: COpaquePointer?, pultotalnumberofbytes: COpaquePointer?, pultotalnumberoffreebytes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA(pszdirectoryname?.value?.toCPointer<ByteVar>(), pulfreebytesavailabletocaller?.value?.toCPointer<ByteVar>(), pultotalnumberofbytes?.value?.toCPointer<ByteVar>(), pultotalnumberoffreebytes?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetDiskFreeSpaceExW(pszdirectoryname: PCWSTR, pulfreebytesavailabletocaller: Long, pultotalnumberofbytes: Long, pultotalnumberoffreebytes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW(pszdirectoryname.toCPointer<ByteVar>(), pulfreebytesavailabletocaller.toCPointer<ByteVar>(), pultotalnumberofbytes.toCPointer<ByteVar>(), pultotalnumberoffreebytes.toCPointer<ByteVar>())
+public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: COpaquePointer?, pultotalnumberofbytes: COpaquePointer?, pultotalnumberoffreebytes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW(pszdirectoryname?.value?.toCPointer<ByteVar>(), pulfreebytesavailabletocaller?.value?.toCPointer<ByteVar>(), pultotalnumberofbytes?.value?.toCPointer<ByteVar>(), pultotalnumberoffreebytes?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetDriveMedia(pszdrive: PCWSTR, pdwmediacontent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetDriveMedia(pszdrive.toCPointer<ByteVar>(), pdwmediacontent.toCPointer<ByteVar>())
+public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetDriveMedia(pszdrive?.value?.toCPointer<ByteVar>(), pdwmediacontent?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetFileInfoA(pszpath: PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES, psfi: Long, cbfileinfo: UInt, uflags: SHGFI_FLAGS): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFileInfoA(pszpath.toCPointer<ByteVar>(), dwfileattributes, psfi.toCPointer<ByteVar>(), cbfileinfo, uflags)
+public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: COpaquePointer?, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFileInfoA(pszpath?.value?.toCPointer<ByteVar>(), dwfileattributes, psfi?.value?.toCPointer<ByteVar>(), cbfileinfo, uflags)
 
-public actual fun SHGetFileInfoW(pszpath: PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES, psfi: Long, cbfileinfo: UInt, uflags: SHGFI_FLAGS): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFileInfoW(pszpath.toCPointer<ByteVar>(), dwfileattributes, psfi.toCPointer<ByteVar>(), cbfileinfo, uflags)
+public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: COpaquePointer?, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFileInfoW(pszpath?.value?.toCPointer<ByteVar>(), dwfileattributes, psfi?.value?.toCPointer<ByteVar>(), cbfileinfo, uflags)
 
-public actual fun SHGetFolderLocation(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, ppidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFolderLocation(hwnd.toCPointer<ByteVar>(), csidl, htoken.toCPointer<ByteVar>(), dwflags, ppidl.toCPointer<ByteVar>())
+public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFolderLocation(hwnd?.value?.toCPointer<ByteVar>(), csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, ppidl?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetFolderPathA(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFolderPathA(hwnd.toCPointer<ByteVar>(), csidl, htoken.toCPointer<ByteVar>(), dwflags, pszpath.toCPointer<ByteVar>())
+public actual fun sHGetFolderPathA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFolderPathA(hwnd?.value?.toCPointer<ByteVar>(), csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetFolderPathAndSubDirA(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszsubdir: PCSTR, pszpath: PSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA(hwnd.toCPointer<ByteVar>(), csidl, htoken.toCPointer<ByteVar>(), dwflags, pszsubdir.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHGetFolderPathAndSubDirA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcstr, pszpath: Pstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA(hwnd?.value?.toCPointer<ByteVar>(), csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszsubdir?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetFolderPathAndSubDirW(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszsubdir: PCWSTR, pszpath: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW(hwnd.toCPointer<ByteVar>(), csidl, htoken.toCPointer<ByteVar>(), dwflags, pszsubdir.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHGetFolderPathAndSubDirW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcwstr, pszpath: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW(hwnd?.value?.toCPointer<ByteVar>(), csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszsubdir?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetFolderPathW(hwnd: HWND, csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetFolderPathW(hwnd.toCPointer<ByteVar>(), csidl, htoken.toCPointer<ByteVar>(), dwflags, pszpath.toCPointer<ByteVar>())
+public actual fun sHGetFolderPathW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetFolderPathW(hwnd?.value?.toCPointer<ByteVar>(), csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetIDListFromObject(punk: Long, ppidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetIDListFromObject(punk.toCPointer<ByteVar>(), ppidl.toCPointer<ByteVar>())
+public actual fun sHGetIDListFromObject(punk: COpaquePointer?, ppidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetIDListFromObject(punk?.value?.toCPointer<ByteVar>(), ppidl?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetIconOverlayIndexA(psziconpath: PCSTR, iiconindex: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA(psziconpath.toCPointer<ByteVar>(), iiconindex)
+public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA(psziconpath?.value?.toCPointer<ByteVar>(), iiconindex)
 
-public actual fun SHGetIconOverlayIndexW(psziconpath: PCWSTR, iiconindex: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW(psziconpath.toCPointer<ByteVar>(), iiconindex)
+public actual fun sHGetIconOverlayIndexW(psziconpath: Pcwstr, iiconindex: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW(psziconpath?.value?.toCPointer<ByteVar>(), iiconindex)
 
-public actual fun SHGetImageList(iimagelist: Int, riid: Long, ppvobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetImageList(iimagelist, riid.toCPointer<ByteVar>(), ppvobj.toCPointer<ByteVar>())
+public actual fun sHGetImageList(iimagelist: Int, riid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetImageList(iimagelist, riid?.value?.toCPointer<ByteVar>(), ppvobj?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetInstanceExplorer(ppunk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetInstanceExplorer(ppunk.toCPointer<ByteVar>())
+public actual fun sHGetInstanceExplorer(ppunk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetInstanceExplorer(ppunk?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetInverseCMAP(pbmap: Long, cbmap: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetInverseCMAP(pbmap.toCPointer<ByteVar>(), cbmap)
+public actual fun sHGetInverseCMAP(pbmap: COpaquePointer?, cbmap: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetInverseCMAP(pbmap?.value?.toCPointer<ByteVar>(), cbmap)
 
-public actual fun SHGetItemFromDataObject(pdtobj: Long, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetItemFromDataObject(pdtobj.toCPointer<ByteVar>(), dwflags, riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHGetItemFromDataObject(pdtobj: COpaquePointer?, dwflags: DataobjGetItemFlags, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetItemFromDataObject(pdtobj?.value?.toCPointer<ByteVar>(), dwflags, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetItemFromObject(punk: Long, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetItemFromObject(punk.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHGetItemFromObject(punk: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetItemFromObject(punk?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetKnownFolderIDList(rfid: Long, dwflags: UInt, htoken: HANDLE, ppidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList(rfid.toCPointer<ByteVar>(), dwflags, htoken.toCPointer<ByteVar>(), ppidl.toCPointer<ByteVar>())
+public actual fun sHGetKnownFolderIDList(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, ppidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList(rfid?.value?.toCPointer<ByteVar>(), dwflags, htoken?.value?.toCPointer<ByteVar>(), ppidl?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetKnownFolderItem(rfid: Long, flags: KNOWN_FOLDER_FLAG, htoken: HANDLE, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetKnownFolderItem(rfid.toCPointer<ByteVar>(), flags, htoken.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHGetKnownFolderItem(rfid: COpaquePointer?, flags: KnownFolderFlag, htoken: Handle, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetKnownFolderItem(rfid?.value?.toCPointer<ByteVar>(), flags, htoken?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: HANDLE, ppszpath: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetKnownFolderPath(rfid.toCPointer<ByteVar>(), dwflags, htoken.toCPointer<ByteVar>(), ppszpath.toCPointer<ByteVar>())
+public actual fun sHGetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, ppszpath: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetKnownFolderPath(rfid?.value?.toCPointer<ByteVar>(), dwflags, htoken?.value?.toCPointer<ByteVar>(), ppszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetLocalizedName(pszpath: PCWSTR, pszresmodule: PWSTR, cch: UInt, pidsres: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetLocalizedName(pszpath.toCPointer<ByteVar>(), pszresmodule.toCPointer<ByteVar>(), cch, pidsres.toCPointer<ByteVar>())
+public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetLocalizedName(pszpath?.value?.toCPointer<ByteVar>(), pszresmodule?.value?.toCPointer<ByteVar>(), cch, pidsres?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetMalloc(ppmalloc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetMalloc(ppmalloc.toCPointer<ByteVar>())
+public actual fun sHGetMalloc(ppmalloc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetMalloc(ppmalloc?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetNameFromIDList(pidl: Long, sigdnname: SIGDN, ppszname: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetNameFromIDList(pidl.toCPointer<ByteVar>(), sigdnname, ppszname.toCPointer<ByteVar>())
+public actual fun sHGetNameFromIDList(pidl: COpaquePointer?, sigdnname: Sigdn, ppszname: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetNameFromIDList(pidl?.value?.toCPointer<ByteVar>(), sigdnname, ppszname?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetNewLinkInfoA(pszlinkto: PCSTR, pszdir: PCSTR, pszname: PSTR, pfmustcopy: Long, uflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA(pszlinkto.toCPointer<ByteVar>(), pszdir.toCPointer<ByteVar>(), pszname.toCPointer<ByteVar>(), pfmustcopy.toCPointer<ByteVar>(), uflags)
+public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: COpaquePointer?, uflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA(pszlinkto?.value?.toCPointer<ByteVar>(), pszdir?.value?.toCPointer<ByteVar>(), pszname?.value?.toCPointer<ByteVar>(), pfmustcopy?.value?.toCPointer<ByteVar>(), uflags)
 
-public actual fun SHGetNewLinkInfoW(pszlinkto: PCWSTR, pszdir: PCWSTR, pszname: PWSTR, pfmustcopy: Long, uflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW(pszlinkto.toCPointer<ByteVar>(), pszdir.toCPointer<ByteVar>(), pszname.toCPointer<ByteVar>(), pfmustcopy.toCPointer<ByteVar>(), uflags)
+public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: COpaquePointer?, uflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW(pszlinkto?.value?.toCPointer<ByteVar>(), pszdir?.value?.toCPointer<ByteVar>(), pszname?.value?.toCPointer<ByteVar>(), pfmustcopy?.value?.toCPointer<ByteVar>(), uflags)
 
-public actual fun SHGetPathFromIDListA(pidl: Long, pszpath: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetPathFromIDListA(pidl.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHGetPathFromIDListA(pidl: COpaquePointer?, pszpath: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetPathFromIDListA(pidl?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetPathFromIDListEx(pidl: Long, pszpath: PWSTR, cchpath: UInt, uopts: GPFIDL_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx(pidl.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), cchpath, uopts)
+public actual fun sHGetPathFromIDListEx(pidl: COpaquePointer?, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx(pidl?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), cchpath, uopts)
 
-public actual fun SHGetPathFromIDListW(pidl: Long, pszpath: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetPathFromIDListW(pidl.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHGetPathFromIDListW(pidl: COpaquePointer?, pszpath: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetPathFromIDListW(pidl?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetRealIDL(psf: Long, pidlsimple: Long, ppidlreal: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetRealIDL(psf.toCPointer<ByteVar>(), pidlsimple.toCPointer<ByteVar>(), ppidlreal.toCPointer<ByteVar>())
+public actual fun sHGetRealIDL(psf: COpaquePointer?, pidlsimple: COpaquePointer?, ppidlreal: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetRealIDL(psf?.value?.toCPointer<ByteVar>(), pidlsimple?.value?.toCPointer<ByteVar>(), ppidlreal?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetSetFolderCustomSettings(pfcs: Long, pszpath: PCWSTR, dwreadwrite: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings(pfcs.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dwreadwrite)
+public actual fun sHGetSetFolderCustomSettings(pfcs: COpaquePointer?, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings(pfcs?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dwreadwrite)
 
-public actual fun SHGetSetSettings(lpss: Long, dwmask: SSF_MASK, bset: BOOL) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSetSettings(lpss.toCPointer<ByteVar>(), dwmask, bset)
+public actual fun sHGetSetSettings(lpss: COpaquePointer?, dwmask: SsfMask, bset: Bool) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSetSettings(lpss?.value?.toCPointer<ByteVar>(), dwmask, bset)
 }
 
-public actual fun SHGetSettings(psfs: Long, dwmask: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSettings(psfs.toCPointer<ByteVar>(), dwmask)
+public actual fun sHGetSettings(psfs: COpaquePointer?, dwmask: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSettings(psfs?.value?.toCPointer<ByteVar>(), dwmask)
 }
 
-public actual fun SHGetSpecialFolderLocation(hwnd: HWND, csidl: Int, ppidl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation(hwnd.toCPointer<ByteVar>(), csidl, ppidl.toCPointer<ByteVar>())
+public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation(hwnd?.value?.toCPointer<ByteVar>(), csidl, ppidl?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetSpecialFolderPathA(hwnd: HWND, pszpath: PSTR, csidl: Int, fcreate: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA(hwnd.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), csidl, fcreate)
+public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int, fcreate: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA(hwnd?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), csidl, fcreate)
 
-public actual fun SHGetSpecialFolderPathW(hwnd: HWND, pszpath: PWSTR, csidl: Int, fcreate: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW(hwnd.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), csidl, fcreate)
+public actual fun sHGetSpecialFolderPathW(hwnd: Hwnd, pszpath: Pwstr, csidl: Int, fcreate: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW(hwnd?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), csidl, fcreate)
 
-public actual fun SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetStockIconInfo(siid, uflags, psii.toCPointer<ByteVar>())
+public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetStockIconInfo(siid, uflags, psii?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetTemporaryPropertyForItem(psi: Long, propkey: Long, ppropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem(psi.toCPointer<ByteVar>(), propkey.toCPointer<ByteVar>(), ppropvar.toCPointer<ByteVar>())
+public actual fun sHGetTemporaryPropertyForItem(psi: COpaquePointer?, propkey: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem(psi?.value?.toCPointer<ByteVar>(), propkey?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetThreadRef(ppunk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetThreadRef(ppunk.toCPointer<ByteVar>())
+public actual fun sHGetThreadRef(ppunk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetThreadRef(ppunk?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetUnreadMailCountW(hkeyuser: HKEY, pszmailaddress: PCWSTR, pdwcount: Long, pfiletime: Long, pszshellexecutecommand: PWSTR, cchshellexecutecommand: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW(hkeyuser.toCPointer<ByteVar>(), pszmailaddress.toCPointer<ByteVar>(), pdwcount.toCPointer<ByteVar>(), pfiletime.toCPointer<ByteVar>(), pszshellexecutecommand.toCPointer<ByteVar>(), cchshellexecutecommand)
+public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: COpaquePointer?, pfiletime: COpaquePointer?, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW(hkeyuser?.value?.toCPointer<ByteVar>(), pszmailaddress?.value?.toCPointer<ByteVar>(), pdwcount?.value?.toCPointer<ByteVar>(), pfiletime?.value?.toCPointer<ByteVar>(), pszshellexecutecommand?.value?.toCPointer<ByteVar>(), cchshellexecutecommand)
 
-public actual fun SHGetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetValueA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetValueA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetValueW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetValueW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGetViewStatePropertyBag(pidl: Long, pszbagname: PCWSTR, dwflags: UInt, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag(pidl.toCPointer<ByteVar>(), pszbagname.toCPointer<ByteVar>(), dwflags, riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun sHGetViewStatePropertyBag(pidl: COpaquePointer?, pszbagname: Pcwstr, dwflags: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag(pidl?.value?.toCPointer<ByteVar>(), pszbagname?.value?.toCPointer<ByteVar>(), dwflags, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun SHGlobalCounterDecrement(id: SHGLOBALCOUNTER): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement(id)
+public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement(id)
 
-public actual fun SHGlobalCounterGetValue(id: SHGLOBALCOUNTER): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue(id)
+public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue(id)
 
-public actual fun SHGlobalCounterIncrement(id: SHGLOBALCOUNTER): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement(id)
+public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement(id)
 
-public actual fun SHHandleUpdateImage(pidlextra: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHHandleUpdateImage(pidlextra.toCPointer<ByteVar>())
+public actual fun sHHandleUpdateImage(pidlextra: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHHandleUpdateImage(pidlextra?.value?.toCPointer<ByteVar>())
 
-public actual fun SHILCreateFromPath(pszpath: PCWSTR, ppidl: Long, rgfinout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHILCreateFromPath(pszpath.toCPointer<ByteVar>(), ppidl.toCPointer<ByteVar>(), rgfinout.toCPointer<ByteVar>())
+public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: COpaquePointer?, rgfinout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHILCreateFromPath(pszpath?.value?.toCPointer<ByteVar>(), ppidl?.value?.toCPointer<ByteVar>(), rgfinout?.value?.toCPointer<ByteVar>())
 
-public actual fun SHInvokePrinterCommandA(hwnd: HWND, uaction: UInt, lpbuf1: PCSTR, lpbuf2: PCSTR, fmodal: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA(hwnd.toCPointer<ByteVar>(), uaction, lpbuf1.toCPointer<ByteVar>(), lpbuf2.toCPointer<ByteVar>(), fmodal)
+public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcstr, lpbuf2: Pcstr, fmodal: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA(hwnd?.value?.toCPointer<ByteVar>(), uaction, lpbuf1?.value?.toCPointer<ByteVar>(), lpbuf2?.value?.toCPointer<ByteVar>(), fmodal)
 
-public actual fun SHInvokePrinterCommandW(hwnd: HWND, uaction: UInt, lpbuf1: PCWSTR, lpbuf2: PCWSTR, fmodal: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW(hwnd.toCPointer<ByteVar>(), uaction, lpbuf1.toCPointer<ByteVar>(), lpbuf2.toCPointer<ByteVar>(), fmodal)
+public actual fun sHInvokePrinterCommandW(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcwstr, lpbuf2: Pcwstr, fmodal: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW(hwnd?.value?.toCPointer<ByteVar>(), uaction, lpbuf1?.value?.toCPointer<ByteVar>(), lpbuf2?.value?.toCPointer<ByteVar>(), fmodal)
 
-public actual fun SHIsFileAvailableOffline(pwszpath: PCWSTR, pdwstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline(pwszpath.toCPointer<ByteVar>(), pdwstatus.toCPointer<ByteVar>())
+public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline(pwszpath?.value?.toCPointer<ByteVar>(), pdwstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun SHIsLowMemoryMachine(dwtype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine(dwtype)
+public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine(dwtype)
 
-public actual fun SHLimitInputEdit(hwndedit: HWND, psf: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHLimitInputEdit(hwndedit.toCPointer<ByteVar>(), psf.toCPointer<ByteVar>())
+public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHLimitInputEdit(hwndedit?.value?.toCPointer<ByteVar>(), psf?.value?.toCPointer<ByteVar>())
 
-public actual fun SHLoadInProc(rclsid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHLoadInProc(rclsid.toCPointer<ByteVar>())
+public actual fun sHLoadInProc(rclsid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHLoadInProc(rclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun SHLoadIndirectString(pszsource: PCWSTR, pszoutbuf: PWSTR, cchoutbuf: UInt, ppvreserved: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHLoadIndirectString(pszsource.toCPointer<ByteVar>(), pszoutbuf.toCPointer<ByteVar>(), cchoutbuf, ppvreserved.toCPointer<ByteVar>())
+public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHLoadIndirectString(pszsource?.value?.toCPointer<ByteVar>(), pszoutbuf?.value?.toCPointer<ByteVar>(), cchoutbuf, ppvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SHLoadNonloadedIconOverlayIdentifiers(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers()
+public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers()
 
-public actual fun SHLockShared(hdata: HANDLE, dwprocessid: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHLockShared(hdata.toCPointer<ByteVar>(), dwprocessid)?.toLong() ?: 0L
+public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHLockShared(hdata?.value?.toCPointer<ByteVar>(), dwprocessid)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHMapPIDLToSystemImageListIndex(pshf: Long, pidl: Long, piindexsel: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex(pshf.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), piindexsel.toCPointer<ByteVar>())
+public actual fun sHMapPIDLToSystemImageListIndex(pshf: COpaquePointer?, pidl: COpaquePointer?, piindexsel: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex(pshf?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), piindexsel?.value?.toCPointer<ByteVar>())
 
-public actual fun SHMessageBoxCheckA(hwnd: HWND, psztext: PCSTR, pszcaption: PCSTR, utype: UInt, idefault: Int, pszregval: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHMessageBoxCheckA(hwnd.toCPointer<ByteVar>(), psztext.toCPointer<ByteVar>(), pszcaption.toCPointer<ByteVar>(), utype, idefault, pszregval.toCPointer<ByteVar>())
+public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcstr, utype: UInt, idefault: Int, pszregval: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHMessageBoxCheckA(hwnd?.value?.toCPointer<ByteVar>(), psztext?.value?.toCPointer<ByteVar>(), pszcaption?.value?.toCPointer<ByteVar>(), utype, idefault, pszregval?.value?.toCPointer<ByteVar>())
 
-public actual fun SHMessageBoxCheckW(hwnd: HWND, psztext: PCWSTR, pszcaption: PCWSTR, utype: UInt, idefault: Int, pszregval: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHMessageBoxCheckW(hwnd.toCPointer<ByteVar>(), psztext.toCPointer<ByteVar>(), pszcaption.toCPointer<ByteVar>(), utype, idefault, pszregval.toCPointer<ByteVar>())
+public actual fun sHMessageBoxCheckW(hwnd: Hwnd, psztext: Pcwstr, pszcaption: Pcwstr, utype: UInt, idefault: Int, pszregval: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHMessageBoxCheckW(hwnd?.value?.toCPointer<ByteVar>(), psztext?.value?.toCPointer<ByteVar>(), pszcaption?.value?.toCPointer<ByteVar>(), utype, idefault, pszregval?.value?.toCPointer<ByteVar>())
 
-public actual fun SHMultiFileProperties(pdtobj: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHMultiFileProperties(pdtobj.toCPointer<ByteVar>(), dwflags)
+public actual fun sHMultiFileProperties(pdtobj: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHMultiFileProperties(pdtobj?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHObjectProperties(hwnd: HWND, shopobjecttype: UInt, pszobjectname: PCWSTR, pszpropertypage: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHObjectProperties(hwnd.toCPointer<ByteVar>(), shopobjecttype, pszobjectname.toCPointer<ByteVar>(), pszpropertypage.toCPointer<ByteVar>())
+public actual fun sHObjectProperties(hwnd: Hwnd, shopobjecttype: UInt, pszobjectname: Pcwstr, pszpropertypage: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHObjectProperties(hwnd?.value?.toCPointer<ByteVar>(), shopobjecttype, pszobjectname?.value?.toCPointer<ByteVar>(), pszpropertypage?.value?.toCPointer<ByteVar>())
 
-public actual fun SHOpenFolderAndSelectItems(pidlfolder: Long, cidl: UInt, apidl: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems(pidlfolder.toCPointer<ByteVar>(), cidl, apidl.toCPointer<ByteVar>(), dwflags)
+public actual fun sHOpenFolderAndSelectItems(pidlfolder: COpaquePointer?, cidl: UInt, apidl: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems(pidlfolder?.value?.toCPointer<ByteVar>(), cidl, apidl?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHOpenPropSheetW(pszcaption: PCWSTR, ahkeys: Long, ckeys: UInt, pclsiddefault: Long, pdtobj: Long, psb: Long, pstartpage: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenPropSheetW(pszcaption.toCPointer<ByteVar>(), ahkeys.toCPointer<ByteVar>(), ckeys, pclsiddefault.toCPointer<ByteVar>(), pdtobj.toCPointer<ByteVar>(), psb.toCPointer<ByteVar>(), pstartpage.toCPointer<ByteVar>())
+public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: COpaquePointer?, ckeys: UInt, pclsiddefault: COpaquePointer?, pdtobj: COpaquePointer?, psb: COpaquePointer?, pstartpage: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenPropSheetW(pszcaption?.value?.toCPointer<ByteVar>(), ahkeys?.value?.toCPointer<ByteVar>(), ckeys, pclsiddefault?.value?.toCPointer<ByteVar>(), pdtobj?.value?.toCPointer<ByteVar>(), psb?.value?.toCPointer<ByteVar>(), pstartpage?.value?.toCPointer<ByteVar>())
 
-public actual fun SHOpenRegStream2A(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, grfmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenRegStream2A(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L
+public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenRegStream2A(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), grfmode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHOpenRegStream2W(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenRegStream2W(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L
+public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenRegStream2W(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), grfmode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHOpenRegStreamA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, grfmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenRegStreamA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L
+public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenRegStreamA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), grfmode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHOpenRegStreamW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, grfmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenRegStreamW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L
+public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenRegStreamW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), grfmode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHOpenWithDialog(hwndparent: HWND, poainfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHOpenWithDialog(hwndparent.toCPointer<ByteVar>(), poainfo.toCPointer<ByteVar>())
+public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHOpenWithDialog(hwndparent?.value?.toCPointer<ByteVar>(), poainfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SHParseDisplayName(pszname: PCWSTR, pbc: Long, ppidl: Long, sfgaoin: UInt, psfgaoout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHParseDisplayName(pszname.toCPointer<ByteVar>(), pbc.toCPointer<ByteVar>(), ppidl.toCPointer<ByteVar>(), sfgaoin, psfgaoout.toCPointer<ByteVar>())
+public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: COpaquePointer?, ppidl: COpaquePointer?, sfgaoin: UInt, psfgaoout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHParseDisplayName(pszname?.value?.toCPointer<ByteVar>(), pbc?.value?.toCPointer<ByteVar>(), ppidl?.value?.toCPointer<ByteVar>(), sfgaoin, psfgaoout?.value?.toCPointer<ByteVar>())
 
-public actual fun SHPathPrepareForWriteA(hwnd: HWND, punkenablemodless: Long, pszpath: PCSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA(hwnd.toCPointer<ByteVar>(), punkenablemodless.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: COpaquePointer?, pszpath: Pcstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA(hwnd?.value?.toCPointer<ByteVar>(), punkenablemodless?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHPathPrepareForWriteW(hwnd: HWND, punkenablemodless: Long, pszpath: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW(hwnd.toCPointer<ByteVar>(), punkenablemodless.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: COpaquePointer?, pszpath: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW(hwnd?.value?.toCPointer<ByteVar>(), punkenablemodless?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHQueryInfoKeyA(hkey: HKEY, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryInfoKeyA(hkey.toCPointer<ByteVar>(), pcsubkeys.toCPointer<ByteVar>(), pcchmaxsubkeylen.toCPointer<ByteVar>(), pcvalues.toCPointer<ByteVar>(), pcchmaxvaluenamelen.toCPointer<ByteVar>())
+public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryInfoKeyA(hkey?.value?.toCPointer<ByteVar>(), pcsubkeys?.value?.toCPointer<ByteVar>(), pcchmaxsubkeylen?.value?.toCPointer<ByteVar>(), pcvalues?.value?.toCPointer<ByteVar>(), pcchmaxvaluenamelen?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryInfoKeyW(hkey: HKEY, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryInfoKeyW(hkey.toCPointer<ByteVar>(), pcsubkeys.toCPointer<ByteVar>(), pcchmaxsubkeylen.toCPointer<ByteVar>(), pcvalues.toCPointer<ByteVar>(), pcchmaxvaluenamelen.toCPointer<ByteVar>())
+public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryInfoKeyW(hkey?.value?.toCPointer<ByteVar>(), pcsubkeys?.value?.toCPointer<ByteVar>(), pcchmaxsubkeylen?.value?.toCPointer<ByteVar>(), pcvalues?.value?.toCPointer<ByteVar>(), pcchmaxvaluenamelen?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryRecycleBinA(pszrootpath: PCSTR, pshqueryrbinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryRecycleBinA(pszrootpath.toCPointer<ByteVar>(), pshqueryrbinfo.toCPointer<ByteVar>())
+public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryRecycleBinA(pszrootpath?.value?.toCPointer<ByteVar>(), pshqueryrbinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryRecycleBinW(pszrootpath: PCWSTR, pshqueryrbinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryRecycleBinW(pszrootpath.toCPointer<ByteVar>(), pshqueryrbinfo.toCPointer<ByteVar>())
+public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryRecycleBinW(pszrootpath?.value?.toCPointer<ByteVar>(), pshqueryrbinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryUserNotificationState(pquns: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryUserNotificationState(pquns.toCPointer<ByteVar>())
+public actual fun sHQueryUserNotificationState(pquns: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryUserNotificationState(pquns?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryValueExA(hkey: HKEY, pszvalue: PCSTR, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryValueExA(hkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwreserved.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryValueExA(hkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwreserved?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHQueryValueExW(hkey: HKEY, pszvalue: PCWSTR, pdwreserved: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHQueryValueExW(hkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwreserved.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHQueryValueExW(hkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwreserved?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHRegCloseUSKey(huskey: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegCloseUSKey(huskey)
+public actual fun sHRegCloseUSKey(huskey: Long): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegCloseUSKey(huskey)
 
-public actual fun SHRegCreateUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA(pszpath.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA(pszpath?.value?.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegCreateUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW(pwzpath.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW(pwzpath?.value?.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: PCSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA(huskey, pszsubkey.toCPointer<ByteVar>(), delregflags)
+public actual fun sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA(huskey, pszsubkey?.value?.toCPointer<ByteVar>(), delregflags)
 
-public actual fun SHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: PCWSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW(huskey, pwzsubkey.toCPointer<ByteVar>(), delregflags)
+public actual fun sHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW(huskey, pwzsubkey?.value?.toCPointer<ByteVar>(), delregflags)
 
-public actual fun SHRegDeleteUSValueA(huskey: Long, pszvalue: PCSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA(huskey, pszvalue.toCPointer<ByteVar>(), delregflags)
+public actual fun sHRegDeleteUSValueA(huskey: Long, pszvalue: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA(huskey, pszvalue?.value?.toCPointer<ByteVar>(), delregflags)
 
-public actual fun SHRegDeleteUSValueW(huskey: Long, pwzvalue: PCWSTR, delregflags: SHREGDEL_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW(huskey, pwzvalue.toCPointer<ByteVar>(), delregflags)
+public actual fun sHRegDeleteUSValueW(huskey: Long, pwzvalue: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW(huskey, pwzvalue?.value?.toCPointer<ByteVar>(), delregflags)
 
-public actual fun SHRegDuplicateHKey(hkey: HKEY): HKEY =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegDuplicateHKey(hkey.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sHRegDuplicateHKey(hkey: Hkey): Hkey =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegDuplicateHKey(hkey?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: PSTR, pcchname: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA(huskey, dwindex, pszname.toCPointer<ByteVar>(), pcchname.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA(huskey, dwindex, pszname?.value?.toCPointer<ByteVar>(), pcchname?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: PWSTR, pcchname: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW(huskey, dwindex, pwzname.toCPointer<ByteVar>(), pcchname.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW(huskey, dwindex, pwzname?.value?.toCPointer<ByteVar>(), pcchname?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: PSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegEnumUSValueA(huskey, dwindex, pszvaluename.toCPointer<ByteVar>(), pcchvaluename.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegEnumUSValueA(huskey, dwindex, pszvaluename?.value?.toCPointer<ByteVar>(), pcchvaluename?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: PWSTR, pcchvaluename: Long, pdwtype: Long, pvdata: Long, pcbdata: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegEnumUSValueW(huskey, dwindex, pszvaluename.toCPointer<ByteVar>(), pcchvaluename.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: COpaquePointer?, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegEnumUSValueW(huskey, dwindex, pszvaluename?.value?.toCPointer<ByteVar>(), pcchvaluename?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegGetBoolUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, fignorehkcu: BOOL, fdefault: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA(pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), fignorehkcu, fdefault)
+public actual fun sHRegGetBoolUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA(pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), fignorehkcu, fdefault)
 
-public actual fun SHRegGetBoolUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, fignorehkcu: BOOL, fdefault: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW(pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), fignorehkcu, fdefault)
+public actual fun sHRegGetBoolUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW(pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), fignorehkcu, fdefault)
 
-public actual fun SHRegGetIntW(hk: HKEY, pwzkey: PCWSTR, idefault: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetIntW(hk.toCPointer<ByteVar>(), pwzkey.toCPointer<ByteVar>(), idefault)
+public actual fun sHRegGetIntW(hk: Hkey, pwzkey: Pcwstr, idefault: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetIntW(hk?.value?.toCPointer<ByteVar>(), pwzkey?.value?.toCPointer<ByteVar>(), idefault)
 
-public actual fun SHRegGetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pszpath: PSTR, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetPathA(hkey.toCPointer<ByteVar>(), pcszsubkey.toCPointer<ByteVar>(), pcszvalue.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pszpath: Pstr, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetPathA(hkey?.value?.toCPointer<ByteVar>(), pcszsubkey?.value?.toCPointer<ByteVar>(), pcszvalue?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegGetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pszpath: PWSTR, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetPathW(hkey.toCPointer<ByteVar>(), pcszsubkey.toCPointer<ByteVar>(), pcszvalue.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetPathW(hkey?.value?.toCPointer<ByteVar>(), pcszsubkey?.value?.toCPointer<ByteVar>(), pcszvalue?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegGetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetUSValueA(pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.toCPointer<ByteVar>(), dwdefaultdatasize)
+public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetUSValueA(pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata?.value?.toCPointer<ByteVar>(), dwdefaultdatasize)
 
-public actual fun SHRegGetUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetUSValueW(pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.toCPointer<ByteVar>(), dwdefaultdatasize)
+public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetUSValueW(pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata?.value?.toCPointer<ByteVar>(), dwdefaultdatasize)
 
-public actual fun SHRegGetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetValueA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), srrfflags, pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetValueA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), srrfflags, pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHRegGetValueFromHKCUHKLM(pwszkey: PCWSTR, pwszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM(pwszkey.toCPointer<ByteVar>(), pwszvalue.toCPointer<ByteVar>(), srrfflags, pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM(pwszkey?.value?.toCPointer<ByteVar>(), pwszvalue?.value?.toCPointer<ByteVar>(), srrfflags, pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHRegGetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegGetValueW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), srrfflags, pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>())
+public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegGetValueW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), srrfflags, pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHRegOpenUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA(pszpath.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.toCPointer<ByteVar>(), fignorehkcu)
+public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA(pszpath?.value?.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey?.value?.toCPointer<ByteVar>(), fignorehkcu)
 
-public actual fun SHRegOpenUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW(pwzpath.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.toCPointer<ByteVar>(), fignorehkcu)
+public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: COpaquePointer?, fignorehkcu: Bool): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW(pwzpath?.value?.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey?.value?.toCPointer<ByteVar>(), fignorehkcu)
 
-public actual fun SHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA(huskey, pcsubkeys.toCPointer<ByteVar>(), pcchmaxsubkeylen.toCPointer<ByteVar>(), pcvalues.toCPointer<ByteVar>(), pcchmaxvaluenamelen.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA(huskey, pcsubkeys?.value?.toCPointer<ByteVar>(), pcchmaxsubkeylen?.value?.toCPointer<ByteVar>(), pcvalues?.value?.toCPointer<ByteVar>(), pcchmaxvaluenamelen?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW(huskey, pcsubkeys.toCPointer<ByteVar>(), pcchmaxsubkeylen.toCPointer<ByteVar>(), pcvalues.toCPointer<ByteVar>(), pcchmaxvaluenamelen.toCPointer<ByteVar>(), enumregflags)
+public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: COpaquePointer?, pcchmaxsubkeylen: COpaquePointer?, pcvalues: COpaquePointer?, pcchmaxvaluenamelen: COpaquePointer?, enumregflags: ShregenumFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW(huskey, pcsubkeys?.value?.toCPointer<ByteVar>(), pcchmaxsubkeylen?.value?.toCPointer<ByteVar>(), pcvalues?.value?.toCPointer<ByteVar>(), pcchmaxvaluenamelen?.value?.toCPointer<ByteVar>(), enumregflags)
 
-public actual fun SHRegQueryUSValueA(huskey: Long, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegQueryUSValueA(huskey, pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.toCPointer<ByteVar>(), dwdefaultdatasize)
+public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegQueryUSValueA(huskey, pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata?.value?.toCPointer<ByteVar>(), dwdefaultdatasize)
 
-public actual fun SHRegQueryUSValueW(huskey: Long, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegQueryUSValueW(huskey, pszvalue.toCPointer<ByteVar>(), pdwtype.toCPointer<ByteVar>(), pvdata.toCPointer<ByteVar>(), pcbdata.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.toCPointer<ByteVar>(), dwdefaultdatasize)
+public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?, fignorehkcu: Bool, pvdefaultdata: COpaquePointer?, dwdefaultdatasize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegQueryUSValueW(huskey, pszvalue?.value?.toCPointer<ByteVar>(), pdwtype?.value?.toCPointer<ByteVar>(), pvdata?.value?.toCPointer<ByteVar>(), pcbdata?.value?.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata?.value?.toCPointer<ByteVar>(), dwdefaultdatasize)
 
-public actual fun SHRegSetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pcszpath: PCSTR, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegSetPathA(hkey.toCPointer<ByteVar>(), pcszsubkey.toCPointer<ByteVar>(), pcszvalue.toCPointer<ByteVar>(), pcszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegSetPathA(hkey?.value?.toCPointer<ByteVar>(), pcszsubkey?.value?.toCPointer<ByteVar>(), pcszvalue?.value?.toCPointer<ByteVar>(), pcszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegSetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pcszpath: PCWSTR, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegSetPathW(hkey.toCPointer<ByteVar>(), pcszsubkey.toCPointer<ByteVar>(), pcszvalue.toCPointer<ByteVar>(), pcszpath.toCPointer<ByteVar>(), dwflags)
+public actual fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegSetPathW(hkey?.value?.toCPointer<ByteVar>(), pcszsubkey?.value?.toCPointer<ByteVar>(), pcszvalue?.value?.toCPointer<ByteVar>(), pcszpath?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SHRegSetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegSetUSValueA(pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata, dwflags)
+public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegSetUSValueA(pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata, dwflags)
 
-public actual fun SHRegSetUSValueW(pwzsubkey: PCWSTR, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegSetUSValueW(pwzsubkey.toCPointer<ByteVar>(), pwzvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata, dwflags)
+public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegSetUSValueW(pwzsubkey?.value?.toCPointer<ByteVar>(), pwzvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata, dwflags)
 
-public actual fun SHRegWriteUSValueA(huskey: Long, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegWriteUSValueA(huskey, pszvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata, dwflags)
+public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegWriteUSValueA(huskey, pszvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata, dwflags)
 
-public actual fun SHRegWriteUSValueW(huskey: Long, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRegWriteUSValueW(huskey, pwzvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata, dwflags)
+public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt, dwflags: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRegWriteUSValueW(huskey, pwzvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata, dwflags)
 
-public actual fun SHReleaseThreadRef(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHReleaseThreadRef()
+public actual fun sHReleaseThreadRef(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHReleaseThreadRef()
 
-public actual fun SHRemoveLocalizedName(pszpath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRemoveLocalizedName(pszpath.toCPointer<ByteVar>())
+public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRemoveLocalizedName(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: UInt, lpfnreplacewith: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM): UInt =
+public actual fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun SHResolveLibrary(psilibrary: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHResolveLibrary(psilibrary.toCPointer<ByteVar>())
+public actual fun sHResolveLibrary(psilibrary: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHResolveLibrary(psilibrary?.value?.toCPointer<ByteVar>())
 
-public actual fun SHRestricted(rest: RESTRICTIONS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHRestricted(rest)
+public actual fun sHRestricted(rest: Restrictions): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHRestricted(rest)
 
-public actual fun SHSendMessageBroadcastA(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA(umsg, wparam, lparam)
+public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA(umsg, wparam, lparam)
 
-public actual fun SHSendMessageBroadcastW(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW(umsg, wparam, lparam)
+public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW(umsg, wparam, lparam)
 
-public actual fun SHSetDefaultProperties(hwnd: HWND, psi: Long, dwfileopflags: UInt, pfops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetDefaultProperties(hwnd.toCPointer<ByteVar>(), psi.toCPointer<ByteVar>(), dwfileopflags, pfops.toCPointer<ByteVar>())
+public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: COpaquePointer?, dwfileopflags: UInt, pfops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetDefaultProperties(hwnd?.value?.toCPointer<ByteVar>(), psi?.value?.toCPointer<ByteVar>(), dwfileopflags, pfops?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetFolderPathA(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetFolderPathA(csidl, htoken.toCPointer<ByteVar>(), dwflags, pszpath.toCPointer<ByteVar>())
+public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetFolderPathA(csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetFolderPathW(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetFolderPathW(csidl, htoken.toCPointer<ByteVar>(), dwflags, pszpath.toCPointer<ByteVar>())
+public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetFolderPathW(csidl, htoken?.value?.toCPointer<ByteVar>(), dwflags, pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetInstanceExplorer(punk: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetInstanceExplorer(punk.toCPointer<ByteVar>())
+public actual fun sHSetInstanceExplorer(punk: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetInstanceExplorer(punk?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SHSetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: HANDLE, pszpath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetKnownFolderPath(rfid.toCPointer<ByteVar>(), dwflags, htoken.toCPointer<ByteVar>(), pszpath.toCPointer<ByteVar>())
+public actual fun sHSetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetKnownFolderPath(rfid?.value?.toCPointer<ByteVar>(), dwflags, htoken?.value?.toCPointer<ByteVar>(), pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetLocalizedName(pszpath: PCWSTR, pszresmodule: PCWSTR, idsres: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetLocalizedName(pszpath.toCPointer<ByteVar>(), pszresmodule.toCPointer<ByteVar>(), idsres)
+public actual fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetLocalizedName(pszpath?.value?.toCPointer<ByteVar>(), pszresmodule?.value?.toCPointer<ByteVar>(), idsres)
 
-public actual fun SHSetTemporaryPropertyForItem(psi: Long, propkey: Long, propvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem(psi.toCPointer<ByteVar>(), propkey.toCPointer<ByteVar>(), propvar.toCPointer<ByteVar>())
+public actual fun sHSetTemporaryPropertyForItem(psi: COpaquePointer?, propkey: COpaquePointer?, propvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem(psi?.value?.toCPointer<ByteVar>(), propkey?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetThreadRef(punk: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetThreadRef(punk.toCPointer<ByteVar>())
+public actual fun sHSetThreadRef(punk: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetThreadRef(punk?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetUnreadMailCountW(pszmailaddress: PCWSTR, dwcount: UInt, pszshellexecutecommand: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW(pszmailaddress.toCPointer<ByteVar>(), dwcount, pszshellexecutecommand.toCPointer<ByteVar>())
+public actual fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW(pszmailaddress?.value?.toCPointer<ByteVar>(), dwcount, pszshellexecutecommand?.value?.toCPointer<ByteVar>())
 
-public actual fun SHSetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetValueA(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata)
+public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetValueA(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun SHSetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSetValueW(hkey.toCPointer<ByteVar>(), pszsubkey.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), dwtype, pvdata.toCPointer<ByteVar>(), cbdata)
+public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: COpaquePointer?, cbdata: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSetValueW(hkey?.value?.toCPointer<ByteVar>(), pszsubkey?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), dwtype, pvdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun SHShellFolderView_Message(hwndmain: HWND, umsg: UInt, lparam: LPARAM): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHShellFolderView_Message(hwndmain.toCPointer<ByteVar>(), umsg, lparam)
+public actual fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shshellFolderViewMessage(hwndmain?.value?.toCPointer<ByteVar>(), umsg, lparam)
 
-public actual fun SHShowManageLibraryUI(psilibrary: Long, hwndowner: HWND, psztitle: PCWSTR, pszinstruction: PCWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHShowManageLibraryUI(psilibrary.toCPointer<ByteVar>(), hwndowner.toCPointer<ByteVar>(), psztitle.toCPointer<ByteVar>(), pszinstruction.toCPointer<ByteVar>(), lmdoptions)
+public actual fun sHShowManageLibraryUI(psilibrary: COpaquePointer?, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHShowManageLibraryUI(psilibrary?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), psztitle?.value?.toCPointer<ByteVar>(), pszinstruction?.value?.toCPointer<ByteVar>(), lmdoptions)
 
-public actual fun SHSimpleIDListFromPath(pszpath: PCWSTR): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath(pszpath.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath(pszpath?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SHSkipJunction(pbc: Long, pclsid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHSkipJunction(pbc.toCPointer<ByteVar>(), pclsid.toCPointer<ByteVar>())
+public actual fun sHSkipJunction(pbc: COpaquePointer?, pclsid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHSkipJunction(pbc?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
 
-public actual fun SHStartNetConnectionDialogW(hwnd: HWND, pszremotename: PCWSTR, dwtype: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW(hwnd.toCPointer<ByteVar>(), pszremotename.toCPointer<ByteVar>(), dwtype)
+public actual fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW(hwnd?.value?.toCPointer<ByteVar>(), pszremotename?.value?.toCPointer<ByteVar>(), dwtype)
 
-public actual fun SHStrDupA(psz: PCSTR, ppwsz: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHStrDupA(psz.toCPointer<ByteVar>(), ppwsz.toCPointer<ByteVar>())
+public actual fun sHStrDupA(psz: Pcstr, ppwsz: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHStrDupA(psz?.value?.toCPointer<ByteVar>(), ppwsz?.value?.toCPointer<ByteVar>())
 
-public actual fun SHStrDupW(psz: PCWSTR, ppwsz: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHStrDupW(psz.toCPointer<ByteVar>(), ppwsz.toCPointer<ByteVar>())
+public actual fun sHStrDupW(psz: Pcwstr, ppwsz: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHStrDupW(psz?.value?.toCPointer<ByteVar>(), ppwsz?.value?.toCPointer<ByteVar>())
 
-public actual fun SHStripMneumonicA(pszmenu: PSTR): Byte =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHStripMneumonicA(pszmenu.toCPointer<ByteVar>())
+public actual fun sHStripMneumonicA(pszmenu: Pstr): Byte =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHStripMneumonicA(pszmenu?.value?.toCPointer<ByteVar>())
 
-public actual fun SHStripMneumonicW(pszmenu: PWSTR): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHStripMneumonicW(pszmenu.toCPointer<ByteVar>())
+public actual fun sHStripMneumonicW(pszmenu: Pwstr): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHStripMneumonicW(pszmenu?.value?.toCPointer<ByteVar>())
 
-public actual fun SHTestTokenMembership(htoken: HANDLE, ulrid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHTestTokenMembership(htoken.toCPointer<ByteVar>(), ulrid)
+public actual fun sHTestTokenMembership(htoken: Handle, ulrid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHTestTokenMembership(htoken?.value?.toCPointer<ByteVar>(), ulrid)
 
-public actual fun SHUnicodeToAnsi(pwszsrc: PCWSTR, pszdst: PSTR, cchbuf: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHUnicodeToAnsi(pwszsrc.toCPointer<ByteVar>(), pszdst.toCPointer<ByteVar>(), cchbuf)
+public actual fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHUnicodeToAnsi(pwszsrc?.value?.toCPointer<ByteVar>(), pszdst?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun SHUnicodeToUnicode(pwzsrc: PCWSTR, pwzdst: PWSTR, cwchbuf: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHUnicodeToUnicode(pwzsrc.toCPointer<ByteVar>(), pwzdst.toCPointer<ByteVar>(), cwchbuf)
+public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHUnicodeToUnicode(pwzsrc?.value?.toCPointer<ByteVar>(), pwzdst?.value?.toCPointer<ByteVar>(), cwchbuf)
 
-public actual fun SHUnlockShared(pvdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHUnlockShared(pvdata.toCPointer<ByteVar>())
+public actual fun sHUnlockShared(pvdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHUnlockShared(pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SHUpdateImageA(pszhashitem: PCSTR, iindex: Int, uflags: UInt, iimageindex: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHUpdateImageA(pszhashitem.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
+public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHUpdateImageA(pszhashitem?.value?.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
 }
 
-public actual fun SHUpdateImageW(pszhashitem: PCWSTR, iindex: Int, uflags: UInt, iimageindex: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHUpdateImageW(pszhashitem.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
+public actual fun sHUpdateImageW(pszhashitem: Pcwstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHUpdateImageW(pszhashitem?.value?.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
 }
 
-public actual fun SHValidateUNC(hwndowner: HWND, pszfile: PWSTR, fconnect: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SHValidateUNC(hwndowner.toCPointer<ByteVar>(), pszfile.toCPointer<ByteVar>(), fconnect)
+public actual fun sHValidateUNC(hwndowner: Hwnd, pszfile: Pwstr, fconnect: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_sHValidateUNC(hwndowner?.value?.toCPointer<ByteVar>(), pszfile?.value?.toCPointer<ByteVar>(), fconnect)
 
-public actual fun SetCurrentProcessExplicitAppUserModelID(appid: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID(appid.toCPointer<ByteVar>())
+public actual fun setCurrentProcessExplicitAppUserModelID(appid: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID(appid?.value?.toCPointer<ByteVar>())
 
-public actual fun SetMenuContextHelpId(param0: HMENU, param1: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SetMenuContextHelpId(param0.toCPointer<ByteVar>(), param1)
+public actual fun setMenuContextHelpId(param0: Hmenu, param1: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_setMenuContextHelpId(param0?.value?.toCPointer<ByteVar>(), param1)
 
-public actual fun SetWindowContextHelpId(param0: HWND, param1: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SetWindowContextHelpId(param0.toCPointer<ByteVar>(), param1)
+public actual fun setWindowContextHelpId(param0: Hwnd, param1: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_setWindowContextHelpId(param0?.value?.toCPointer<ByteVar>(), param1)
 
-public actual fun SetWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, dwrefdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SetWindowSubclass(hwnd.toCPointer<ByteVar>(), pfnsubclass.toLong().toCPointer<ByteVar>(), uidsubclass, dwrefdata)
+public actual fun setWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, dwrefdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_setWindowSubclass(hwnd?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass, dwrefdata)
 
-public actual fun ShellAboutA(hwnd: HWND, szapp: PCSTR, szotherstuff: PCSTR, hicon: HICON): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellAboutA(hwnd.toCPointer<ByteVar>(), szapp.toCPointer<ByteVar>(), szotherstuff.toCPointer<ByteVar>(), hicon.toCPointer<ByteVar>())
+public actual fun shellAboutA(hwnd: Hwnd, szapp: Pcstr, szotherstuff: Pcstr, hicon: Hicon): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellAboutA(hwnd?.value?.toCPointer<ByteVar>(), szapp?.value?.toCPointer<ByteVar>(), szotherstuff?.value?.toCPointer<ByteVar>(), hicon?.value?.toCPointer<ByteVar>())
 
-public actual fun ShellAboutW(hwnd: HWND, szapp: PCWSTR, szotherstuff: PCWSTR, hicon: HICON): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellAboutW(hwnd.toCPointer<ByteVar>(), szapp.toCPointer<ByteVar>(), szotherstuff.toCPointer<ByteVar>(), hicon.toCPointer<ByteVar>())
+public actual fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, hicon: Hicon): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellAboutW(hwnd?.value?.toCPointer<ByteVar>(), szapp?.value?.toCPointer<ByteVar>(), szotherstuff?.value?.toCPointer<ByteVar>(), hicon?.value?.toCPointer<ByteVar>())
 
-public actual fun ShellExecuteA(hwnd: HWND, lpoperation: PCSTR, lpfile: PCSTR, lpparameters: PCSTR, lpdirectory: PCSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellExecuteA(hwnd.toCPointer<ByteVar>(), lpoperation.toCPointer<ByteVar>(), lpfile.toCPointer<ByteVar>(), lpparameters.toCPointer<ByteVar>(), lpdirectory.toCPointer<ByteVar>(), nshowcmd)?.toLong() ?: 0L
+public actual fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellExecuteA(hwnd?.value?.toCPointer<ByteVar>(), lpoperation?.value?.toCPointer<ByteVar>(), lpfile?.value?.toCPointer<ByteVar>(), lpparameters?.value?.toCPointer<ByteVar>(), lpdirectory?.value?.toCPointer<ByteVar>(), nshowcmd)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ShellExecuteExA(pexecinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellExecuteExA(pexecinfo.toCPointer<ByteVar>())
+public actual fun shellExecuteExA(pexecinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellExecuteExA(pexecinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ShellExecuteExW(pexecinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellExecuteExW(pexecinfo.toCPointer<ByteVar>())
+public actual fun shellExecuteExW(pexecinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellExecuteExW(pexecinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun ShellExecuteW(hwnd: HWND, lpoperation: PCWSTR, lpfile: PCWSTR, lpparameters: PCWSTR, lpdirectory: PCWSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_ShellExecuteW(hwnd.toCPointer<ByteVar>(), lpoperation.toCPointer<ByteVar>(), lpfile.toCPointer<ByteVar>(), lpparameters.toCPointer<ByteVar>(), lpdirectory.toCPointer<ByteVar>(), nshowcmd)?.toLong() ?: 0L
+public actual fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellExecuteW(hwnd?.value?.toCPointer<ByteVar>(), lpoperation?.value?.toCPointer<ByteVar>(), lpfile?.value?.toCPointer<ByteVar>(), lpparameters?.value?.toCPointer<ByteVar>(), lpdirectory?.value?.toCPointer<ByteVar>(), nshowcmd)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ShellMessageBoxA(happinst: HINSTANCE, hwnd: HWND, lpctext: PCSTR, lpctitle: PCSTR, fustyle: MESSAGEBOX_STYLE): Int =
-    0
+public actual fun shellMessageBoxA(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcstr, lpctitle: Pcstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellMessageBoxA(happinst?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), lpctext?.value?.toCPointer<ByteVar>(), lpctitle?.value?.toCPointer<ByteVar>(), fustyle, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun ShellMessageBoxW(happinst: HINSTANCE, hwnd: HWND, lpctext: PCWSTR, lpctitle: PCWSTR, fustyle: MESSAGEBOX_STYLE): Int =
-    0
+public actual fun shellMessageBoxW(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcwstr, lpctitle: Pcwstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellMessageBoxW(happinst?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), lpctext?.value?.toCPointer<ByteVar>(), lpctitle?.value?.toCPointer<ByteVar>(), fustyle, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun Shell_GetCachedImageIndex(pwsziconpath: PCWSTR, iiconindex: Int, uiconflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex(pwsziconpath.toCPointer<ByteVar>(), iiconindex, uiconflags)
+public actual fun shellGetCachedImageIndex(pwsziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellGetCachedImageIndex(pwsziconpath?.value?.toCPointer<ByteVar>(), iiconindex, uiconflags)
 
-public actual fun Shell_GetCachedImageIndexA(psziconpath: PCSTR, iiconindex: Int, uiconflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA(psziconpath.toCPointer<ByteVar>(), iiconindex, uiconflags)
+public actual fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int, uiconflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA(psziconpath?.value?.toCPointer<ByteVar>(), iiconindex, uiconflags)
 
-public actual fun Shell_GetCachedImageIndexW(psziconpath: PCWSTR, iiconindex: Int, uiconflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW(psziconpath.toCPointer<ByteVar>(), iiconindex, uiconflags)
+public actual fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW(psziconpath?.value?.toCPointer<ByteVar>(), iiconindex, uiconflags)
 
-public actual fun Shell_GetImageLists(phiml: Long, phimlsmall: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_GetImageLists(phiml.toCPointer<ByteVar>(), phimlsmall.toCPointer<ByteVar>())
+public actual fun shellGetImageLists(phiml: COpaquePointer?, phimlsmall: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellGetImageLists(phiml?.value?.toCPointer<ByteVar>(), phimlsmall?.value?.toCPointer<ByteVar>())
 
-public actual fun Shell_MergeMenus(hmdst: HMENU, hmsrc: HMENU, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MM_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_MergeMenus(hmdst.toCPointer<ByteVar>(), hmsrc.toCPointer<ByteVar>(), uinsert, uidadjust, uidadjustmax, uflags)
+public actual fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellMergeMenus(hmdst?.value?.toCPointer<ByteVar>(), hmsrc?.value?.toCPointer<ByteVar>(), uinsert, uidadjust, uidadjustmax, uflags)
 
-public actual fun Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_NotifyIconA(dwmessage, lpdata.toCPointer<ByteVar>())
+public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellNotifyIconA(dwmessage, lpdata?.value?.toCPointer<ByteVar>())
 
-public actual fun Shell_NotifyIconGetRect(identifier: Long, iconlocation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect(identifier.toCPointer<ByteVar>(), iconlocation.toCPointer<ByteVar>())
+public actual fun shellNotifyIconGetRect(identifier: COpaquePointer?, iconlocation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellNotifyIconGetRect(identifier?.value?.toCPointer<ByteVar>(), iconlocation?.value?.toCPointer<ByteVar>())
 
-public actual fun Shell_NotifyIconW(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Shell_NotifyIconW(dwmessage, lpdata.toCPointer<ByteVar>())
+public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_shellNotifyIconW(dwmessage, lpdata?.value?.toCPointer<ByteVar>())
 
-public actual fun SignalFileOpen(pidl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SignalFileOpen(pidl.toCPointer<ByteVar>())
+public actual fun signalFileOpen(pidl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_signalFileOpen(pidl?.value?.toCPointer<ByteVar>())
 
-public actual fun SoftwareUpdateMessageBox(hwnd: HWND, pszdistunit: PCWSTR, dwflags: UInt, psdi: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox(hwnd.toCPointer<ByteVar>(), pszdistunit.toCPointer<ByteVar>(), dwflags, psdi.toCPointer<ByteVar>())
+public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_softwareUpdateMessageBox(hwnd?.value?.toCPointer<ByteVar>(), pszdistunit?.value?.toCPointer<ByteVar>(), dwflags, psdi?.value?.toCPointer<ByteVar>())
 
-public actual fun StgMakeUniqueName(pstgparent: Long, pszfilespec: PCWSTR, grfmode: UInt, riid: Long, ppv: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StgMakeUniqueName(pstgparent.toCPointer<ByteVar>(), pszfilespec.toCPointer<ByteVar>(), grfmode, riid.toCPointer<ByteVar>(), ppv.toCPointer<ByteVar>())
+public actual fun stgMakeUniqueName(pstgparent: COpaquePointer?, pszfilespec: Pcwstr, grfmode: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_stgMakeUniqueName(pstgparent?.value?.toCPointer<ByteVar>(), pszfilespec?.value?.toCPointer<ByteVar>(), grfmode, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCSpnA(pszstr: PCSTR, pszset: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCSpnA(pszstr.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCSpnA(pszstr?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCSpnIA(pszstr: PCSTR, pszset: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCSpnIA(pszstr.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strCSpnIA(pszstr: Pcstr, pszset: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCSpnIA(pszstr?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCSpnIW(pszstr: PCWSTR, pszset: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCSpnIW(pszstr.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strCSpnIW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCSpnIW(pszstr?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCSpnW(pszstr: PCWSTR, pszset: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCSpnW(pszstr.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strCSpnW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCSpnW(pszstr?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCatBuffA(pszdest: PSTR, pszsrc: PCSTR, cchdestbuffsize: Int): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCatBuffA(pszdest.toCPointer<ByteVar>(), pszsrc.toCPointer<ByteVar>(), cchdestbuffsize)?.toLong() ?: 0L
+public actual fun strCatBuffA(pszdest: Pstr, pszsrc: Pcstr, cchdestbuffsize: Int): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCatBuffA(pszdest?.value?.toCPointer<ByteVar>(), pszsrc?.value?.toCPointer<ByteVar>(), cchdestbuffsize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrCatBuffW(pszdest: PWSTR, pszsrc: PCWSTR, cchdestbuffsize: Int): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCatBuffW(pszdest.toCPointer<ByteVar>(), pszsrc.toCPointer<ByteVar>(), cchdestbuffsize)?.toLong() ?: 0L
+public actual fun strCatBuffW(pszdest: Pwstr, pszsrc: Pcwstr, cchdestbuffsize: Int): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCatBuffW(pszdest?.value?.toCPointer<ByteVar>(), pszsrc?.value?.toCPointer<ByteVar>(), cchdestbuffsize)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrCatChainW(pszdst: PWSTR, cchdst: UInt, ichat: UInt, pszsrc: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCatChainW(pszdst.toCPointer<ByteVar>(), cchdst, ichat, pszsrc.toCPointer<ByteVar>())
+public actual fun strCatChainW(pszdst: Pwstr, cchdst: UInt, ichat: UInt, pszsrc: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCatChainW(pszdst?.value?.toCPointer<ByteVar>(), cchdst, ichat, pszsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCatW(psz1: PWSTR, psz2: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCatW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strCatW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCatW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrA(pszstart: PCSTR, wmatch: UShort): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrA(pszstart.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strChrA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrA(pszstart?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrIA(pszstart: PCSTR, wmatch: UShort): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrIA(pszstart.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strChrIA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrIA(pszstart?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrIW(pszstart: PCWSTR, wmatch: UShort): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrIW(pszstart.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strChrIW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrIW(pszstart?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrNIW(pszstart: PCWSTR, wmatch: UShort, cchmax: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrNIW(pszstart.toCPointer<ByteVar>(), wmatch, cchmax)?.toLong() ?: 0L
+public actual fun strChrNIW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrNIW(pszstart?.value?.toCPointer<ByteVar>(), wmatch, cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrNW(pszstart: PCWSTR, wmatch: UShort, cchmax: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrNW(pszstart.toCPointer<ByteVar>(), wmatch, cchmax)?.toLong() ?: 0L
+public actual fun strChrNW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrNW(pszstart?.value?.toCPointer<ByteVar>(), wmatch, cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrChrW(pszstart: PCWSTR, wmatch: UShort): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrChrW(pszstart.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strChrW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strChrW(pszstart?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrCmpCA(pszstr1: PCSTR, pszstr2: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpCA(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>())
+public actual fun strCmpCA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpCA(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpCW(pszstr1: PCWSTR, pszstr2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpCW(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>())
+public actual fun strCmpCW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpCW(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpICA(pszstr1: PCSTR, pszstr2: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpICA(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>())
+public actual fun strCmpICA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpICA(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpICW(pszstr1: PCWSTR, pszstr2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpICW(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>())
+public actual fun strCmpICW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpICW(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpIW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpIW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>())
+public actual fun strCmpIW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpIW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpLogicalW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpLogicalW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>())
+public actual fun strCmpLogicalW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpLogicalW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCmpNA(psz1: PCSTR, psz2: PCSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNA(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNA(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNCA(pszstr1: PCSTR, pszstr2: PCSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNCA(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNCA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNCA(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNCW(pszstr1: PCWSTR, pszstr2: PCWSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNCW(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNCW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNCW(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNIA(psz1: PCSTR, psz2: PCSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNIA(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNIA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNIA(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNICA(pszstr1: PCSTR, pszstr2: PCSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNICA(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNICA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNICA(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNICW(pszstr1: PCWSTR, pszstr2: PCWSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNICW(pszstr1.toCPointer<ByteVar>(), pszstr2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNICW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNICW(pszstr1?.value?.toCPointer<ByteVar>(), pszstr2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNIW(psz1: PCWSTR, psz2: PCWSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNIW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNIW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNIW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpNW(psz1: PCWSTR, psz2: PCWSTR, nchar: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpNW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), nchar)
+public actual fun strCmpNW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpNW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrCmpW(psz1: PCWSTR, psz2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCmpW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>())
+public actual fun strCmpW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCmpW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>())
 
-public actual fun StrCpyNW(pszdst: PWSTR, pszsrc: PCWSTR, cchmax: Int): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCpyNW(pszdst.toCPointer<ByteVar>(), pszsrc.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L
+public actual fun strCpyNW(pszdst: Pwstr, pszsrc: Pcwstr, cchmax: Int): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCpyNW(pszdst?.value?.toCPointer<ByteVar>(), pszsrc?.value?.toCPointer<ByteVar>(), cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrCpyW(psz1: PWSTR, psz2: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrCpyW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strCpyW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strCpyW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrDupA(pszsrch: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrDupA(pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strDupA(pszsrch: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strDupA(pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrDupW(pszsrch: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrDupW(pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strDupW(pszsrch: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strDupW(pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFormatByteSize64A(qdw: Long, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatByteSize64A(qdw, pszbuf.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L
+public actual fun strFormatByteSize64A(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatByteSize64A(qdw, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFormatByteSizeA(dw: UInt, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatByteSizeA(dw, pszbuf.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L
+public actual fun strFormatByteSizeA(dw: UInt, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatByteSizeA(dw, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFormatByteSizeEx(ull: ULong, flags: SFBS_FLAGS, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatByteSizeEx(ull, flags, pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun strFormatByteSizeEx(ull: ULong, flags: SfbsFlags, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatByteSizeEx(ull, flags, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun StrFormatByteSizeW(qdw: Long, pszbuf: PWSTR, cchbuf: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatByteSizeW(qdw, pszbuf.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L
+public actual fun strFormatByteSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatByteSizeW(qdw, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFormatKBSizeA(qdw: Long, pszbuf: PSTR, cchbuf: UInt): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatKBSizeA(qdw, pszbuf.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L
+public actual fun strFormatKBSizeA(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatKBSizeA(qdw, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFormatKBSizeW(qdw: Long, pszbuf: PWSTR, cchbuf: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFormatKBSizeW(qdw, pszbuf.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L
+public actual fun strFormatKBSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFormatKBSizeW(qdw, pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrFromTimeIntervalA(pszout: PSTR, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFromTimeIntervalA(pszout.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
+public actual fun strFromTimeIntervalA(pszout: Pstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFromTimeIntervalA(pszout?.value?.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
 
-public actual fun StrFromTimeIntervalW(pszout: PWSTR, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrFromTimeIntervalW(pszout.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
+public actual fun strFromTimeIntervalW(pszout: Pwstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strFromTimeIntervalW(pszout?.value?.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
 
-public actual fun StrIsIntlEqualA(fcasesens: BOOL, pszstring1: PCSTR, pszstring2: PCSTR, nchar: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrIsIntlEqualA(fcasesens, pszstring1.toCPointer<ByteVar>(), pszstring2.toCPointer<ByteVar>(), nchar)
+public actual fun strIsIntlEqualA(fcasesens: Bool, pszstring1: Pcstr, pszstring2: Pcstr, nchar: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strIsIntlEqualA(fcasesens, pszstring1?.value?.toCPointer<ByteVar>(), pszstring2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrIsIntlEqualW(fcasesens: BOOL, pszstring1: PCWSTR, pszstring2: PCWSTR, nchar: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrIsIntlEqualW(fcasesens, pszstring1.toCPointer<ByteVar>(), pszstring2.toCPointer<ByteVar>(), nchar)
+public actual fun strIsIntlEqualW(fcasesens: Bool, pszstring1: Pcwstr, pszstring2: Pcwstr, nchar: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strIsIntlEqualW(fcasesens, pszstring1?.value?.toCPointer<ByteVar>(), pszstring2?.value?.toCPointer<ByteVar>(), nchar)
 
-public actual fun StrNCatA(psz1: PSTR, psz2: PCSTR, cchmax: Int): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrNCatA(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L
+public actual fun strNCatA(psz1: Pstr, psz2: Pcstr, cchmax: Int): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strNCatA(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrNCatW(psz1: PWSTR, psz2: PCWSTR, cchmax: Int): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrNCatW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L
+public actual fun strNCatW(psz1: Pwstr, psz2: Pcwstr, cchmax: Int): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strNCatW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrPBrkA(psz: PCSTR, pszset: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrPBrkA(psz.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strPBrkA(psz: Pcstr, pszset: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strPBrkA(psz?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrPBrkW(psz: PCWSTR, pszset: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrPBrkW(psz.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strPBrkW(psz: Pcwstr, pszset: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strPBrkW(psz?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRChrA(pszstart: PCSTR, pszend: PCSTR, wmatch: UShort): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRChrA(pszstart.toCPointer<ByteVar>(), pszend.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strRChrA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRChrA(pszstart?.value?.toCPointer<ByteVar>(), pszend?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRChrIA(pszstart: PCSTR, pszend: PCSTR, wmatch: UShort): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRChrIA(pszstart.toCPointer<ByteVar>(), pszend.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strRChrIA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRChrIA(pszstart?.value?.toCPointer<ByteVar>(), pszend?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRChrIW(pszstart: PCWSTR, pszend: PCWSTR, wmatch: UShort): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRChrIW(pszstart.toCPointer<ByteVar>(), pszend.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strRChrIW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRChrIW(pszstart?.value?.toCPointer<ByteVar>(), pszend?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRChrW(pszstart: PCWSTR, pszend: PCWSTR, wmatch: UShort): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRChrW(pszstart.toCPointer<ByteVar>(), pszend.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L
+public actual fun strRChrW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRChrW(pszstart?.value?.toCPointer<ByteVar>(), pszend?.value?.toCPointer<ByteVar>(), wmatch)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRStrIA(pszsource: PCSTR, pszlast: PCSTR, pszsrch: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRStrIA(pszsource.toCPointer<ByteVar>(), pszlast.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRStrIA(pszsource?.value?.toCPointer<ByteVar>(), pszlast?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRStrIW(pszsource: PCWSTR, pszlast: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRStrIW(pszsource.toCPointer<ByteVar>(), pszlast.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRStrIW(pszsource?.value?.toCPointer<ByteVar>(), pszlast?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrRetToBSTR(pstr: Long, pidl: Long, pbstr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRetToBSTR(pstr.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pbstr.toCPointer<ByteVar>())
+public actual fun strRetToBSTR(pstr: COpaquePointer?, pidl: COpaquePointer?, pbstr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRetToBSTR(pstr?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pbstr?.value?.toCPointer<ByteVar>())
 
-public actual fun StrRetToBufA(pstr: Long, pidl: Long, pszbuf: PSTR, cchbuf: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRetToBufA(pstr.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun strRetToBufA(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRetToBufA(pstr?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun StrRetToBufW(pstr: Long, pidl: Long, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRetToBufW(pstr.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun strRetToBufW(pstr: COpaquePointer?, pidl: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRetToBufW(pstr?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun StrRetToStrA(pstr: Long, pidl: Long, ppsz: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRetToStrA(pstr.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), ppsz.toCPointer<ByteVar>())
+public actual fun strRetToStrA(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRetToStrA(pstr?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), ppsz?.value?.toCPointer<ByteVar>())
 
-public actual fun StrRetToStrW(pstr: Long, pidl: Long, ppsz: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrRetToStrW(pstr.toCPointer<ByteVar>(), pidl.toCPointer<ByteVar>(), ppsz.toCPointer<ByteVar>())
+public actual fun strRetToStrW(pstr: COpaquePointer?, pidl: COpaquePointer?, ppsz: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strRetToStrW(pstr?.value?.toCPointer<ByteVar>(), pidl?.value?.toCPointer<ByteVar>(), ppsz?.value?.toCPointer<ByteVar>())
 
-public actual fun StrSpnA(psz: PCSTR, pszset: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrSpnA(psz.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strSpnA(psz: Pcstr, pszset: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strSpnA(psz?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrSpnW(psz: PCWSTR, pszset: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrSpnW(psz.toCPointer<ByteVar>(), pszset.toCPointer<ByteVar>())
+public actual fun strSpnW(psz: Pcwstr, pszset: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strSpnW(psz?.value?.toCPointer<ByteVar>(), pszset?.value?.toCPointer<ByteVar>())
 
-public actual fun StrStrA(pszfirst: PCSTR, pszsrch: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrA(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strStrA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrA(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrStrIA(pszfirst: PCSTR, pszsrch: PCSTR): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrIA(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strStrIA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrIA(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrStrIW(pszfirst: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrIW(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strStrIW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrIW(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrStrNIW(pszfirst: PCWSTR, pszsrch: PCWSTR, cchmax: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrNIW(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L
+public actual fun strStrNIW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrNIW(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>(), cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrStrNW(pszfirst: PCWSTR, pszsrch: PCWSTR, cchmax: UInt): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrNW(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L
+public actual fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrNW(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>(), cchmax)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrStrW(pszfirst: PCWSTR, pszsrch: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrStrW(pszfirst.toCPointer<ByteVar>(), pszsrch.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strStrW(pszfirst?.value?.toCPointer<ByteVar>(), pszsrch?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun StrToInt64ExA(pszstring: PCSTR, dwflags: Int, pllret: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToInt64ExA(pszstring.toCPointer<ByteVar>(), dwflags, pllret.toCPointer<ByteVar>())
+public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToInt64ExA(pszstring?.value?.toCPointer<ByteVar>(), dwflags, pllret?.value?.toCPointer<ByteVar>())
 
-public actual fun StrToInt64ExW(pszstring: PCWSTR, dwflags: Int, pllret: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToInt64ExW(pszstring.toCPointer<ByteVar>(), dwflags, pllret.toCPointer<ByteVar>())
+public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToInt64ExW(pszstring?.value?.toCPointer<ByteVar>(), dwflags, pllret?.value?.toCPointer<ByteVar>())
 
-public actual fun StrToIntA(pszsrc: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToIntA(pszsrc.toCPointer<ByteVar>())
+public actual fun strToIntA(pszsrc: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToIntA(pszsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun StrToIntExA(pszstring: PCSTR, dwflags: Int, piret: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToIntExA(pszstring.toCPointer<ByteVar>(), dwflags, piret.toCPointer<ByteVar>())
+public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToIntExA(pszstring?.value?.toCPointer<ByteVar>(), dwflags, piret?.value?.toCPointer<ByteVar>())
 
-public actual fun StrToIntExW(pszstring: PCWSTR, dwflags: Int, piret: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToIntExW(pszstring.toCPointer<ByteVar>(), dwflags, piret.toCPointer<ByteVar>())
+public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToIntExW(pszstring?.value?.toCPointer<ByteVar>(), dwflags, piret?.value?.toCPointer<ByteVar>())
 
-public actual fun StrToIntW(pszsrc: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrToIntW(pszsrc.toCPointer<ByteVar>())
+public actual fun strToIntW(pszsrc: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strToIntW(pszsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun StrTrimA(psz: PSTR, psztrimchars: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrTrimA(psz.toCPointer<ByteVar>(), psztrimchars.toCPointer<ByteVar>())
+public actual fun strTrimA(psz: Pstr, psztrimchars: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strTrimA(psz?.value?.toCPointer<ByteVar>(), psztrimchars?.value?.toCPointer<ByteVar>())
 
-public actual fun StrTrimW(psz: PWSTR, psztrimchars: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_StrTrimW(psz.toCPointer<ByteVar>(), psztrimchars.toCPointer<ByteVar>())
+public actual fun strTrimW(psz: Pwstr, psztrimchars: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_strTrimW(psz?.value?.toCPointer<ByteVar>(), psztrimchars?.value?.toCPointer<ByteVar>())
 
-public actual fun UnloadUserProfile(htoken: HANDLE, hprofile: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UnloadUserProfile(htoken.toCPointer<ByteVar>(), hprofile.toCPointer<ByteVar>())
+public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_unloadUserProfile(htoken?.value?.toCPointer<ByteVar>(), hprofile?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterAppConstrainedChangeNotification(registration: PAPPCONSTRAIN_REGISTRATION) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification(registration)
+public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration.toLong())
 }
 
-public actual fun UnregisterAppStateChangeNotification(registration: PAPPSTATE_REGISTRATION) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification(registration)
+public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration.toLong())
 }
 
-public actual fun UnregisterScaleChangeEvent(dwcookie: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent(dwcookie)
+public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent(dwcookie)
 
-public actual fun UrlApplySchemeA(pszin: PCSTR, pszout: PSTR, pcchout: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlApplySchemeA(pszin.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>(), dwflags)
+public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlApplySchemeA(pszin?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlApplySchemeW(pszin: PCWSTR, pszout: PWSTR, pcchout: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlApplySchemeW(pszin.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>(), dwflags)
+public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlApplySchemeW(pszin?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCanonicalizeA(pszurl: PCSTR, pszcanonicalized: PSTR, pcchcanonicalized: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCanonicalizeA(pszurl.toCPointer<ByteVar>(), pszcanonicalized.toCPointer<ByteVar>(), pcchcanonicalized.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCanonicalizeA(pszurl?.value?.toCPointer<ByteVar>(), pszcanonicalized?.value?.toCPointer<ByteVar>(), pcchcanonicalized?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCanonicalizeW(pszurl: PCWSTR, pszcanonicalized: PWSTR, pcchcanonicalized: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCanonicalizeW(pszurl.toCPointer<ByteVar>(), pszcanonicalized.toCPointer<ByteVar>(), pcchcanonicalized.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCanonicalizeW(pszurl?.value?.toCPointer<ByteVar>(), pszcanonicalized?.value?.toCPointer<ByteVar>(), pcchcanonicalized?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCombineA(pszbase: PCSTR, pszrelative: PCSTR, pszcombined: PSTR, pcchcombined: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCombineA(pszbase.toCPointer<ByteVar>(), pszrelative.toCPointer<ByteVar>(), pszcombined.toCPointer<ByteVar>(), pcchcombined.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCombineA(pszbase?.value?.toCPointer<ByteVar>(), pszrelative?.value?.toCPointer<ByteVar>(), pszcombined?.value?.toCPointer<ByteVar>(), pcchcombined?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCombineW(pszbase: PCWSTR, pszrelative: PCWSTR, pszcombined: PWSTR, pcchcombined: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCombineW(pszbase.toCPointer<ByteVar>(), pszrelative.toCPointer<ByteVar>(), pszcombined.toCPointer<ByteVar>(), pcchcombined.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCombineW(pszbase?.value?.toCPointer<ByteVar>(), pszrelative?.value?.toCPointer<ByteVar>(), pszcombined?.value?.toCPointer<ByteVar>(), pcchcombined?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCompareA(psz1: PCSTR, psz2: PCSTR, fignoreslash: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCompareA(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), fignoreslash)
+public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCompareA(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), fignoreslash)
 
-public actual fun UrlCompareW(psz1: PCWSTR, psz2: PCWSTR, fignoreslash: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCompareW(psz1.toCPointer<ByteVar>(), psz2.toCPointer<ByteVar>(), fignoreslash)
+public actual fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCompareW(psz1?.value?.toCPointer<ByteVar>(), psz2?.value?.toCPointer<ByteVar>(), fignoreslash)
 
-public actual fun UrlCreateFromPathA(pszpath: PCSTR, pszurl: PSTR, pcchurl: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCreateFromPathA(pszpath.toCPointer<ByteVar>(), pszurl.toCPointer<ByteVar>(), pcchurl.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCreateFromPathA(pszpath?.value?.toCPointer<ByteVar>(), pszurl?.value?.toCPointer<ByteVar>(), pcchurl?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlCreateFromPathW(pszpath: PCWSTR, pszurl: PWSTR, pcchurl: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlCreateFromPathW(pszpath.toCPointer<ByteVar>(), pszurl.toCPointer<ByteVar>(), pcchurl.toCPointer<ByteVar>(), dwflags)
+public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlCreateFromPathW(pszpath?.value?.toCPointer<ByteVar>(), pszurl?.value?.toCPointer<ByteVar>(), pcchurl?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlEscapeA(pszurl: PCSTR, pszescaped: PSTR, pcchescaped: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlEscapeA(pszurl.toCPointer<ByteVar>(), pszescaped.toCPointer<ByteVar>(), pcchescaped.toCPointer<ByteVar>(), dwflags)
+public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlEscapeA(pszurl?.value?.toCPointer<ByteVar>(), pszescaped?.value?.toCPointer<ByteVar>(), pcchescaped?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlEscapeW(pszurl: PCWSTR, pszescaped: PWSTR, pcchescaped: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlEscapeW(pszurl.toCPointer<ByteVar>(), pszescaped.toCPointer<ByteVar>(), pcchescaped.toCPointer<ByteVar>(), dwflags)
+public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlEscapeW(pszurl?.value?.toCPointer<ByteVar>(), pszescaped?.value?.toCPointer<ByteVar>(), pcchescaped?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlFixupW(pcszurl: PCWSTR, psztranslatedurl: PWSTR, cchmax: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlFixupW(pcszurl.toCPointer<ByteVar>(), psztranslatedurl.toCPointer<ByteVar>(), cchmax)
+public actual fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlFixupW(pcszurl?.value?.toCPointer<ByteVar>(), psztranslatedurl?.value?.toCPointer<ByteVar>(), cchmax)
 
-public actual fun UrlGetLocationA(pszurl: PCSTR): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlGetLocationA(pszurl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun urlGetLocationA(pszurl: Pcstr): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlGetLocationA(pszurl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun UrlGetLocationW(pszurl: PCWSTR): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlGetLocationW(pszurl.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun urlGetLocationW(pszurl: Pcwstr): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlGetLocationW(pszurl?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun UrlGetPartA(pszin: PCSTR, pszout: PSTR, pcchout: Long, dwpart: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlGetPartA(pszin.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>(), dwpart, dwflags)
+public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlGetPartA(pszin?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>(), dwpart, dwflags)
 
-public actual fun UrlGetPartW(pszin: PCWSTR, pszout: PWSTR, pcchout: Long, dwpart: UInt, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlGetPartW(pszin.toCPointer<ByteVar>(), pszout.toCPointer<ByteVar>(), pcchout.toCPointer<ByteVar>(), dwpart, dwflags)
+public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: COpaquePointer?, dwpart: UInt, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlGetPartW(pszin?.value?.toCPointer<ByteVar>(), pszout?.value?.toCPointer<ByteVar>(), pcchout?.value?.toCPointer<ByteVar>(), dwpart, dwflags)
 
-public actual fun UrlHashA(pszurl: PCSTR, pbhash: Long, cbhash: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlHashA(pszurl.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), cbhash)
+public actual fun urlHashA(pszurl: Pcstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlHashA(pszurl?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), cbhash)
 
-public actual fun UrlHashW(pszurl: PCWSTR, pbhash: Long, cbhash: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlHashW(pszurl.toCPointer<ByteVar>(), pbhash.toCPointer<ByteVar>(), cbhash)
+public actual fun urlHashW(pszurl: Pcwstr, pbhash: COpaquePointer?, cbhash: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlHashW(pszurl?.value?.toCPointer<ByteVar>(), pbhash?.value?.toCPointer<ByteVar>(), cbhash)
 
-public actual fun UrlIsA(pszurl: PCSTR, urlis: URLIS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsA(pszurl.toCPointer<ByteVar>(), urlis)
+public actual fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsA(pszurl?.value?.toCPointer<ByteVar>(), urlis)
 
-public actual fun UrlIsNoHistoryA(pszurl: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsNoHistoryA(pszurl.toCPointer<ByteVar>())
+public actual fun urlIsNoHistoryA(pszurl: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsNoHistoryA(pszurl?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlIsNoHistoryW(pszurl: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsNoHistoryW(pszurl.toCPointer<ByteVar>())
+public actual fun urlIsNoHistoryW(pszurl: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsNoHistoryW(pszurl?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlIsOpaqueA(pszurl: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsOpaqueA(pszurl.toCPointer<ByteVar>())
+public actual fun urlIsOpaqueA(pszurl: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsOpaqueA(pszurl?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlIsOpaqueW(pszurl: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsOpaqueW(pszurl.toCPointer<ByteVar>())
+public actual fun urlIsOpaqueW(pszurl: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsOpaqueW(pszurl?.value?.toCPointer<ByteVar>())
 
-public actual fun UrlIsW(pszurl: PCWSTR, urlis: URLIS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlIsW(pszurl.toCPointer<ByteVar>(), urlis)
+public actual fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlIsW(pszurl?.value?.toCPointer<ByteVar>(), urlis)
 
-public actual fun UrlUnescapeA(pszurl: PSTR, pszunescaped: PSTR, pcchunescaped: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlUnescapeA(pszurl.toCPointer<ByteVar>(), pszunescaped.toCPointer<ByteVar>(), pcchunescaped.toCPointer<ByteVar>(), dwflags)
+public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlUnescapeA(pszurl?.value?.toCPointer<ByteVar>(), pszunescaped?.value?.toCPointer<ByteVar>(), pcchunescaped?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun UrlUnescapeW(pszurl: PWSTR, pszunescaped: PWSTR, pcchunescaped: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_UrlUnescapeW(pszurl.toCPointer<ByteVar>(), pszunescaped.toCPointer<ByteVar>(), pcchunescaped.toCPointer<ByteVar>(), dwflags)
+public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_urlUnescapeW(pszurl?.value?.toCPointer<ByteVar>(), pszunescaped?.value?.toCPointer<ByteVar>(), pcchunescaped?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun VariantToStrRet(varin: Long, pstrret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_VariantToStrRet(varin.toCPointer<ByteVar>(), pstrret.toCPointer<ByteVar>())
+public actual fun variantToStrRet(varin: COpaquePointer?, pstrret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_variantToStrRet(varin?.value?.toCPointer<ByteVar>(), pstrret?.value?.toCPointer<ByteVar>())
 
-public actual fun WhichPlatform(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_WhichPlatform()
+public actual fun whichPlatform(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_whichPlatform()
 
-public actual fun Win32DeleteFile(pszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_Win32DeleteFile(pszpath.toCPointer<ByteVar>())
+public actual fun win32DeleteFile(pszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_win32DeleteFile(pszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHelpA(hwndmain: HWND, lpszhelp: PCSTR, ucommand: UInt, dwdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_WinHelpA(hwndmain.toCPointer<ByteVar>(), lpszhelp.toCPointer<ByteVar>(), ucommand, dwdata)
+public actual fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_winHelpA(hwndmain?.value?.toCPointer<ByteVar>(), lpszhelp?.value?.toCPointer<ByteVar>(), ucommand, dwdata)
 
-public actual fun WinHelpW(hwndmain: HWND, lpszhelp: PCWSTR, ucommand: UInt, dwdata: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_WinHelpW(hwndmain.toCPointer<ByteVar>(), lpszhelp.toCPointer<ByteVar>(), ucommand, dwdata)
+public actual fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_winHelpW(hwndmain?.value?.toCPointer<ByteVar>(), lpszhelp?.value?.toCPointer<ByteVar>(), ucommand, dwdata)
 
-public actual fun WriteCabinetState(pcs: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_WriteCabinetState(pcs.toCPointer<ByteVar>())
+public actual fun writeCabinetState(pcs: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_writeCabinetState(pcs?.value?.toCPointer<ByteVar>())
 
-public actual fun wnsprintfA(pszdest: PSTR, cchdest: Int, pszfmt: PCSTR): Int =
-    0
+public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wnsprintfA(pszdest?.value?.toCPointer<ByteVar>(), cchdest, pszfmt?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wnsprintfW(pszdest: PWSTR, cchdest: Int, pszfmt: PCWSTR): Int =
-    0
+public actual fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wnsprintfW(pszdest?.value?.toCPointer<ByteVar>(), cchdest, pszfmt?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wvnsprintfA(pszdest: PSTR, cchdest: Int, pszfmt: PCSTR, arglist: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wvnsprintfA(pszdest.toCPointer<ByteVar>(), cchdest, pszfmt.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wvnsprintfA(pszdest?.value?.toCPointer<ByteVar>(), cchdest, pszfmt?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())
 
-public actual fun wvnsprintfW(pszdest: PWSTR, cchdest: Int, pszfmt: PCWSTR, arglist: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wvnsprintfW(pszdest.toCPointer<ByteVar>(), cchdest, pszfmt.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssys_windows_win32_ui_shell_wvnsprintfW(pszdest?.value?.toCPointer<ByteVar>(), cchdest, pszfmt?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())

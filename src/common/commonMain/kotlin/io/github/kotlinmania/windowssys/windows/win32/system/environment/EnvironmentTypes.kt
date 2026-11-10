@@ -1,81 +1,83 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-public typealias ENCLAVE_SEALING_IDENTITY_POLICY = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGESFn {
-    public operator fun invoke(enclaveaddress: Long, numberofbytes: ULong, sourceaddress: Long, pageprotection: UInt): Int
+public typealias EnclaveSealingIdentityPolicy = Int
+
+public fun interface VbsBasicEnclaveBasicCallCommitPagesFn {
+    public operator fun invoke(enclaveaddress: COpaquePointer?, numberofbytes: ULong, sourceaddress: COpaquePointer?, pageprotection: UInt): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGESFn?
+public typealias VbsBasicEnclaveBasicCallCommitPages = VbsBasicEnclaveBasicCallCommitPagesFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREADFn {
-    public operator fun invoke(threaddescriptor: Long): Int
+public fun interface VbsBasicEnclaveBasicCallCreateThreadFn {
+    public operator fun invoke(threaddescriptor: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREADFn?
+public typealias VbsBasicEnclaveBasicCallCreateThread = VbsBasicEnclaveBasicCallCreateThreadFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGESFn {
-    public operator fun invoke(enclaveaddress: Long, numberofbytes: ULong): Int
+public fun interface VbsBasicEnclaveBasicCallDecommitPagesFn {
+    public operator fun invoke(enclaveaddress: COpaquePointer?, numberofbytes: ULong): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGESFn?
+public typealias VbsBasicEnclaveBasicCallDecommitPages = VbsBasicEnclaveBasicCallDecommitPagesFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEYFn {
-    public operator fun invoke(keyrequest: Long, requestedkeysize: UInt, returnedkey: Long): Int
+public fun interface VbsBasicEnclaveBasicCallGenerateKeyFn {
+    public operator fun invoke(keyrequest: COpaquePointer?, requestedkeysize: UInt, returnedkey: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEYFn?
+public typealias VbsBasicEnclaveBasicCallGenerateKey = VbsBasicEnclaveBasicCallGenerateKeyFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATAFn {
-    public operator fun invoke(buffer: Long, numberofbytes: UInt, generation: Long): Int
+public fun interface VbsBasicEnclaveBasicCallGenerateRandomDataFn {
+    public operator fun invoke(buffer: COpaquePointer?, numberofbytes: UInt, generation: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATAFn?
+public typealias VbsBasicEnclaveBasicCallGenerateRandomData = VbsBasicEnclaveBasicCallGenerateRandomDataFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORTFn {
-    public operator fun invoke(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): Int
+public fun interface VbsBasicEnclaveBasicCallGenerateReportFn {
+    public operator fun invoke(enclavedata: COpaquePointer?, report: COpaquePointer?, buffersize: UInt, outputsize: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORTFn?
+public typealias VbsBasicEnclaveBasicCallGenerateReport = VbsBasicEnclaveBasicCallGenerateReportFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATIONFn {
-    public operator fun invoke(enclaveinfo: Long): Int
+public fun interface VbsBasicEnclaveBasicCallGetEnclaveInformationFn {
+    public operator fun invoke(enclaveinfo: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATIONFn?
+public typealias VbsBasicEnclaveBasicCallGetEnclaveInformation = VbsBasicEnclaveBasicCallGetEnclaveInformationFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREADFn {
-    public operator fun invoke(threaddescriptor: Long): Int
+public fun interface VbsBasicEnclaveBasicCallInterruptThreadFn {
+    public operator fun invoke(threaddescriptor: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREADFn?
+public typealias VbsBasicEnclaveBasicCallInterruptThread = VbsBasicEnclaveBasicCallInterruptThreadFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGESFn {
-    public operator fun invoke(enclaveaddress: Long, numberofytes: ULong, pageprotection: UInt): Int
+public fun interface VbsBasicEnclaveBasicCallProtectPagesFn {
+    public operator fun invoke(enclaveaddress: COpaquePointer?, numberofytes: ULong, pageprotection: UInt): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGESFn?
+public typealias VbsBasicEnclaveBasicCallProtectPages = VbsBasicEnclaveBasicCallProtectPagesFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVEFn {
+public fun interface VbsBasicEnclaveBasicCallReturnFromEnclaveFn {
     public operator fun invoke(returnvalue: ULong)
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVEFn?
+public typealias VbsBasicEnclaveBasicCallReturnFromEnclave = VbsBasicEnclaveBasicCallReturnFromEnclaveFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTIONFn {
-    public operator fun invoke(exceptionrecord: Long): Int
+public fun interface VbsBasicEnclaveBasicCallReturnFromExceptionFn {
+    public operator fun invoke(exceptionrecord: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTIONFn?
+public typealias VbsBasicEnclaveBasicCallReturnFromException = VbsBasicEnclaveBasicCallReturnFromExceptionFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREADFn {
-    public operator fun invoke(threaddescriptor: Long): Int
+public fun interface VbsBasicEnclaveBasicCallTerminateThreadFn {
+    public operator fun invoke(threaddescriptor: COpaquePointer?): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREADFn?
+public typealias VbsBasicEnclaveBasicCallTerminateThread = VbsBasicEnclaveBasicCallTerminateThreadFn?
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORTFn {
-    public operator fun invoke(report: Long, reportsize: UInt): Int
+public fun interface VbsBasicEnclaveBasicCallVerifyReportFn {
+    public operator fun invoke(report: COpaquePointer?, reportsize: UInt): Int
 }
 
-public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORTFn?
+public typealias VbsBasicEnclaveBasicCallVerifyReport = VbsBasicEnclaveBasicCallVerifyReportFn?

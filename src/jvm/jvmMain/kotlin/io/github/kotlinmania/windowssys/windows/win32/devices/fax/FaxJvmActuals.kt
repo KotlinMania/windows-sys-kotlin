@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32DevicesFaxJniBridge {
     init {
@@ -16,357 +17,357 @@ private object WindowsWin32DevicesFaxJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_CanSendToFaxRecipient(): Int
+    external fun windowssys_windows_win32_devices_fax_canSendToFaxRecipient(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxAbort(faxhandle: Long, jobid: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxAbort(faxhandle: Long, jobid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxAccessCheck(faxhandle: Long, accessmask: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxAccessCheck(faxhandle: Long, accessmask: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxClose(faxhandle: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxClose(faxhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxCompleteJobParamsA(jobparams: Long, coverpageinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxCompleteJobParamsA(jobparams: Long, coverpageinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxCompleteJobParamsW(jobparams: Long, coverpageinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxCompleteJobParamsW(jobparams: Long, coverpageinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxConnectFaxServerA(machinename: Long, faxhandle: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxConnectFaxServerA(machinename: Long, faxhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxConnectFaxServerW(machinename: Long, faxhandle: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxConnectFaxServerW(machinename: Long, faxhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodA(faxporthandle: Long, routingguid: Long, enabled: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA(faxporthandle: Long, routingguid: Long, enabled: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodW(faxporthandle: Long, routingguid: Long, enabled: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW(faxporthandle: Long, routingguid: Long, enabled: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoA(faxhandle: Long, routinginfo: Long, methodsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA(faxhandle: Long, routinginfo: Long, methodsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoW(faxhandle: Long, routinginfo: Long, methodsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW(faxhandle: Long, routinginfo: Long, methodsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumJobsA(faxhandle: Long, jobentry: Long, jobsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumJobsA(faxhandle: Long, jobentry: Long, jobsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumJobsW(faxhandle: Long, jobentry: Long, jobsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumJobsW(faxhandle: Long, jobentry: Long, jobsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumPortsA(faxhandle: Long, portinfo: Long, portsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumPortsA(faxhandle: Long, portinfo: Long, portsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumPortsW(faxhandle: Long, portinfo: Long, portsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumPortsW(faxhandle: Long, portinfo: Long, portsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsA(faxporthandle: Long, routingmethod: Long, methodsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA(faxporthandle: Long, routingmethod: Long, methodsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsW(faxporthandle: Long, routingmethod: Long, methodsreturned: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW(faxporthandle: Long, routingmethod: Long, methodsreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxFreeBuffer(buffer: Long)
+    external fun windowssys_windows_win32_devices_fax_faxFreeBuffer(buffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetConfigurationA(faxhandle: Long, faxconfig: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetConfigurationA(faxhandle: Long, faxconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetConfigurationW(faxhandle: Long, faxconfig: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetConfigurationW(faxhandle: Long, faxconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetDeviceStatusA(faxporthandle: Long, devicestatus: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetDeviceStatusA(faxporthandle: Long, devicestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetDeviceStatusW(faxporthandle: Long, devicestatus: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetDeviceStatusW(faxporthandle: Long, devicestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetJobA(faxhandle: Long, jobid: Int, jobentry: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetJobA(faxhandle: Long, jobid: Int, jobentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetJobW(faxhandle: Long, jobid: Int, jobentry: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetJobW(faxhandle: Long, jobid: Int, jobentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesA(faxhandle: Long, categories: Long, numbercategories: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA(faxhandle: Long, categories: Long, numbercategories: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesW(faxhandle: Long, categories: Long, numbercategories: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW(faxhandle: Long, categories: Long, numbercategories: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetPageData(faxhandle: Long, jobid: Int, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetPageData(faxhandle: Long, jobid: Int, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetPortA(faxporthandle: Long, portinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetPortA(faxporthandle: Long, portinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetPortW(faxporthandle: Long, portinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetPortW(faxporthandle: Long, portinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetRoutingInfoA(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetRoutingInfoA(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxGetRoutingInfoW(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxGetRoutingInfoW(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxInitializeEventQueue(faxhandle: Long, completionport: Long, completionkey: Long, hwnd: Long, messagestart: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxInitializeEventQueue(faxhandle: Long, completionport: Long, completionkey: Long, hwnd: Long, messagestart: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxOpenPort(faxhandle: Long, deviceid: Int, flags: Int, faxporthandle: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxOpenPort(faxhandle: Long, deviceid: Int, flags: Int, faxporthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxPrintCoverPageA(faxcontextinfo: Long, coverpageinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxPrintCoverPageA(faxcontextinfo: Long, coverpageinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxPrintCoverPageW(faxcontextinfo: Long, coverpageinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxPrintCoverPageW(faxcontextinfo: Long, coverpageinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxRegisterRoutingExtensionW(faxhandle: Long, extensionname: Long, friendlyname: Long, imagename: Long, callback: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW(faxhandle: Long, extensionname: Long, friendlyname: Long, imagename: Long, callback: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxRegisterServiceProviderW(deviceprovider: Long, friendlyname: Long, imagename: Long, tspname: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW(deviceprovider: Long, friendlyname: Long, imagename: Long, tspname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSendDocumentA(faxhandle: Long, filename: Long, jobparams: Long, coverpageinfo: Long, faxjobid: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSendDocumentA(faxhandle: Long, filename: Long, jobparams: Long, coverpageinfo: Long, faxjobid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastA(faxhandle: Long, filename: Long, faxjobid: Long, faxrecipientcallback: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA(faxhandle: Long, filename: Long, faxjobid: Long, faxrecipientcallback: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastW(faxhandle: Long, filename: Long, faxjobid: Long, faxrecipientcallback: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW(faxhandle: Long, filename: Long, faxjobid: Long, faxrecipientcallback: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSendDocumentW(faxhandle: Long, filename: Long, jobparams: Long, coverpageinfo: Long, faxjobid: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSendDocumentW(faxhandle: Long, filename: Long, jobparams: Long, coverpageinfo: Long, faxjobid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetConfigurationA(faxhandle: Long, faxconfig: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetConfigurationA(faxhandle: Long, faxconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetConfigurationW(faxhandle: Long, faxconfig: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetConfigurationW(faxhandle: Long, faxconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoA(faxhandle: Long, routinginfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA(faxhandle: Long, routinginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoW(faxhandle: Long, routinginfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW(faxhandle: Long, routinginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetJobA(faxhandle: Long, jobid: Int, command: Int, jobentry: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetJobA(faxhandle: Long, jobid: Int, command: Int, jobentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetJobW(faxhandle: Long, jobid: Int, command: Int, jobentry: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetJobW(faxhandle: Long, jobid: Int, command: Int, jobentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesA(faxhandle: Long, categories: Long, numbercategories: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA(faxhandle: Long, categories: Long, numbercategories: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesW(faxhandle: Long, categories: Long, numbercategories: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW(faxhandle: Long, categories: Long, numbercategories: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetPortA(faxporthandle: Long, portinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetPortA(faxporthandle: Long, portinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetPortW(faxporthandle: Long, portinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetPortW(faxporthandle: Long, portinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetRoutingInfoA(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetRoutingInfoA(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxSetRoutingInfoW(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Int): Int
+    external fun windowssys_windows_win32_devices_fax_faxSetRoutingInfoW(faxporthandle: Long, routingguid: Long, routinginfobuffer: Long, routinginfobuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxStartPrintJobA(printername: Long, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxStartPrintJobA(printername: Long, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxStartPrintJobW(printername: Long, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxStartPrintJobW(printername: Long, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_FaxUnregisterServiceProviderW(deviceprovider: Long): Int
+    external fun windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW(deviceprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_SendToFaxRecipient(sndmode: Int, lpfilename: Long): Int
+    external fun windowssys_windows_win32_devices_fax_sendToFaxRecipient(sndmode: Int, lpfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_fax_StiCreateInstanceW(hinst: Long, dwver: Int, ppsti: Long, punkouter: Long): Int
+    external fun windowssys_windows_win32_devices_fax_stiCreateInstanceW(hinst: Long, dwver: Int, ppsti: Long, punkouter: Long): Int
 }
 
-public actual fun CanSendToFaxRecipient(): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_CanSendToFaxRecipient()
+public actual fun canSendToFaxRecipient(): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_canSendToFaxRecipient()
 
-public actual fun FaxAbort(faxhandle: HANDLE, jobid: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxAbort(faxhandle, jobid.toInt())
+public actual fun faxAbort(faxhandle: Handle, jobid: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxAbort((faxhandle?.value ?: 0L), jobid.toInt())
 
-public actual fun FaxAccessCheck(faxhandle: HANDLE, accessmask: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxAccessCheck(faxhandle, accessmask.toInt())
+public actual fun faxAccessCheck(faxhandle: Handle, accessmask: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxAccessCheck((faxhandle?.value ?: 0L), accessmask.toInt())
 
-public actual fun FaxClose(faxhandle: HANDLE): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxClose(faxhandle)
+public actual fun faxClose(faxhandle: Handle): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxClose((faxhandle?.value ?: 0L))
 
-public actual fun FaxCompleteJobParamsA(jobparams: Long, coverpageinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxCompleteJobParamsA(jobparams, coverpageinfo)
+public actual fun faxCompleteJobParamsA(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxCompleteJobParamsA((jobparams?.value ?: 0L), (coverpageinfo?.value ?: 0L))
 
-public actual fun FaxCompleteJobParamsW(jobparams: Long, coverpageinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxCompleteJobParamsW(jobparams, coverpageinfo)
+public actual fun faxCompleteJobParamsW(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxCompleteJobParamsW((jobparams?.value ?: 0L), (coverpageinfo?.value ?: 0L))
 
-public actual fun FaxConnectFaxServerA(machinename: PCSTR, faxhandle: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxConnectFaxServerA(machinename, faxhandle)
+public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxConnectFaxServerA((machinename?.value ?: 0L), (faxhandle?.value ?: 0L))
 
-public actual fun FaxConnectFaxServerW(machinename: PCWSTR, faxhandle: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxConnectFaxServerW(machinename, faxhandle)
+public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxConnectFaxServerW((machinename?.value ?: 0L), (faxhandle?.value ?: 0L))
 
-public actual fun FaxEnableRoutingMethodA(faxporthandle: HANDLE, routingguid: PCSTR, enabled: BOOL): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodA(faxporthandle, routingguid, enabled)
+public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), enabled)
 
-public actual fun FaxEnableRoutingMethodW(faxporthandle: HANDLE, routingguid: PCWSTR, enabled: BOOL): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnableRoutingMethodW(faxporthandle, routingguid, enabled)
+public actual fun faxEnableRoutingMethodW(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), enabled)
 
-public actual fun FaxEnumGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoA(faxhandle, routinginfo, methodsreturned)
+public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoA((faxhandle?.value ?: 0L), (routinginfo?.value ?: 0L), (methodsreturned?.value ?: 0L))
 
-public actual fun FaxEnumGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumGlobalRoutingInfoW(faxhandle, routinginfo, methodsreturned)
+public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfoW((faxhandle?.value ?: 0L), (routinginfo?.value ?: 0L), (methodsreturned?.value ?: 0L))
 
-public actual fun FaxEnumJobsA(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumJobsA(faxhandle, jobentry, jobsreturned)
+public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumJobsA((faxhandle?.value ?: 0L), (jobentry?.value ?: 0L), (jobsreturned?.value ?: 0L))
 
-public actual fun FaxEnumJobsW(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumJobsW(faxhandle, jobentry, jobsreturned)
+public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumJobsW((faxhandle?.value ?: 0L), (jobentry?.value ?: 0L), (jobsreturned?.value ?: 0L))
 
-public actual fun FaxEnumPortsA(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumPortsA(faxhandle, portinfo, portsreturned)
+public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumPortsA((faxhandle?.value ?: 0L), (portinfo?.value ?: 0L), (portsreturned?.value ?: 0L))
 
-public actual fun FaxEnumPortsW(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumPortsW(faxhandle, portinfo, portsreturned)
+public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumPortsW((faxhandle?.value ?: 0L), (portinfo?.value ?: 0L), (portsreturned?.value ?: 0L))
 
-public actual fun FaxEnumRoutingMethodsA(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsA(faxporthandle, routingmethod, methodsreturned)
+public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA((faxporthandle?.value ?: 0L), (routingmethod?.value ?: 0L), (methodsreturned?.value ?: 0L))
 
-public actual fun FaxEnumRoutingMethodsW(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxEnumRoutingMethodsW(faxporthandle, routingmethod, methodsreturned)
+public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW((faxporthandle?.value ?: 0L), (routingmethod?.value ?: 0L), (methodsreturned?.value ?: 0L))
 
-public actual fun FaxFreeBuffer(buffer: Long) {
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxFreeBuffer(buffer)
+public actual fun faxFreeBuffer(buffer: COpaquePointer?) {
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxFreeBuffer((buffer?.value ?: 0L))
 }
 
-public actual fun FaxGetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetConfigurationA(faxhandle, faxconfig)
+public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetConfigurationA((faxhandle?.value ?: 0L), (faxconfig?.value ?: 0L))
 
-public actual fun FaxGetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetConfigurationW(faxhandle, faxconfig)
+public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetConfigurationW((faxhandle?.value ?: 0L), (faxconfig?.value ?: 0L))
 
-public actual fun FaxGetDeviceStatusA(faxporthandle: HANDLE, devicestatus: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetDeviceStatusA(faxporthandle, devicestatus)
+public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetDeviceStatusA((faxporthandle?.value ?: 0L), (devicestatus?.value ?: 0L))
 
-public actual fun FaxGetDeviceStatusW(faxporthandle: HANDLE, devicestatus: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetDeviceStatusW(faxporthandle, devicestatus)
+public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetDeviceStatusW((faxporthandle?.value ?: 0L), (devicestatus?.value ?: 0L))
 
-public actual fun FaxGetJobA(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetJobA(faxhandle, jobid.toInt(), jobentry)
+public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetJobA((faxhandle?.value ?: 0L), jobid.toInt(), (jobentry?.value ?: 0L))
 
-public actual fun FaxGetJobW(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetJobW(faxhandle, jobid.toInt(), jobentry)
+public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetJobW((faxhandle?.value ?: 0L), jobid.toInt(), (jobentry?.value ?: 0L))
 
-public actual fun FaxGetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesA(faxhandle, categories, numbercategories)
+public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA((faxhandle?.value ?: 0L), (categories?.value ?: 0L), (numbercategories?.value ?: 0L))
 
-public actual fun FaxGetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetLoggingCategoriesW(faxhandle, categories, numbercategories)
+public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW((faxhandle?.value ?: 0L), (categories?.value ?: 0L), (numbercategories?.value ?: 0L))
 
-public actual fun FaxGetPageData(faxhandle: HANDLE, jobid: UInt, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetPageData(faxhandle, jobid.toInt(), buffer, buffersize, imagewidth, imageheight)
+public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?, imagewidth: COpaquePointer?, imageheight: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetPageData((faxhandle?.value ?: 0L), jobid.toInt(), (buffer?.value ?: 0L), (buffersize?.value ?: 0L), (imagewidth?.value ?: 0L), (imageheight?.value ?: 0L))
 
-public actual fun FaxGetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetPortA(faxporthandle, portinfo)
+public actual fun faxGetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetPortA((faxporthandle?.value ?: 0L), (portinfo?.value ?: 0L))
 
-public actual fun FaxGetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetPortW(faxporthandle, portinfo)
+public actual fun faxGetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetPortW((faxporthandle?.value ?: 0L), (portinfo?.value ?: 0L))
 
-public actual fun FaxGetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetRoutingInfoA(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize)
+public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetRoutingInfoA((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), (routinginfobuffer?.value ?: 0L), (routinginfobuffersize?.value ?: 0L))
 
-public actual fun FaxGetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxGetRoutingInfoW(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize)
+public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxGetRoutingInfoW((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), (routinginfobuffer?.value ?: 0L), (routinginfobuffersize?.value ?: 0L))
 
-public actual fun FaxInitializeEventQueue(faxhandle: HANDLE, completionport: HANDLE, completionkey: ULong, hwnd: HWND, messagestart: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxInitializeEventQueue(faxhandle, completionport, completionkey.toLong(), hwnd, messagestart.toInt())
+public actual fun faxInitializeEventQueue(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxInitializeEventQueue((faxhandle?.value ?: 0L), (completionport?.value ?: 0L), completionkey.toLong(), (hwnd?.value ?: 0L), messagestart.toInt())
 
-public actual fun FaxOpenPort(faxhandle: HANDLE, deviceid: UInt, flags: UInt, faxporthandle: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxOpenPort(faxhandle, deviceid.toInt(), flags.toInt(), faxporthandle)
+public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxOpenPort((faxhandle?.value ?: 0L), deviceid.toInt(), flags.toInt(), (faxporthandle?.value ?: 0L))
 
-public actual fun FaxPrintCoverPageA(faxcontextinfo: Long, coverpageinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxPrintCoverPageA(faxcontextinfo, coverpageinfo)
+public actual fun faxPrintCoverPageA(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxPrintCoverPageA((faxcontextinfo?.value ?: 0L), (coverpageinfo?.value ?: 0L))
 
-public actual fun FaxPrintCoverPageW(faxcontextinfo: Long, coverpageinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxPrintCoverPageW(faxcontextinfo, coverpageinfo)
+public actual fun faxPrintCoverPageW(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxPrintCoverPageW((faxcontextinfo?.value ?: 0L), (coverpageinfo?.value ?: 0L))
 
-public actual fun FaxRegisterRoutingExtensionW(faxhandle: HANDLE, extensionname: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxRegisterRoutingExtensionW(faxhandle, extensionname, friendlyname, imagename, callback.toLong(), context)
+public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxRegisterRoutingExtensionW((faxhandle?.value ?: 0L), (extensionname?.value ?: 0L), (friendlyname?.value ?: 0L), (imagename?.value ?: 0L), 0L, (context?.value ?: 0L))
 
-public actual fun FaxRegisterServiceProviderW(deviceprovider: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, tspname: PCWSTR): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxRegisterServiceProviderW(deviceprovider, friendlyname, imagename, tspname)
+public actual fun faxRegisterServiceProviderW(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxRegisterServiceProviderW((deviceprovider?.value ?: 0L), (friendlyname?.value ?: 0L), (imagename?.value ?: 0L), (tspname?.value ?: 0L))
 
-public actual fun FaxSendDocumentA(faxhandle: HANDLE, filename: PCSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSendDocumentA(faxhandle, filename, jobparams, coverpageinfo, faxjobid)
+public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSendDocumentA((faxhandle?.value ?: 0L), (filename?.value ?: 0L), (jobparams?.value ?: 0L), (coverpageinfo?.value ?: 0L), (faxjobid?.value ?: 0L))
 
-public actual fun FaxSendDocumentForBroadcastA(faxhandle: HANDLE, filename: PCSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastA(faxhandle, filename, faxjobid, faxrecipientcallback.toLong(), context)
+public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbacka, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastA((faxhandle?.value ?: 0L), (filename?.value ?: 0L), (faxjobid?.value ?: 0L), 0L, (context?.value ?: 0L))
 
-public actual fun FaxSendDocumentForBroadcastW(faxhandle: HANDLE, filename: PCWSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSendDocumentForBroadcastW(faxhandle, filename, faxjobid, faxrecipientcallback.toLong(), context)
+public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbackw, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSendDocumentForBroadcastW((faxhandle?.value ?: 0L), (filename?.value ?: 0L), (faxjobid?.value ?: 0L), 0L, (context?.value ?: 0L))
 
-public actual fun FaxSendDocumentW(faxhandle: HANDLE, filename: PCWSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSendDocumentW(faxhandle, filename, jobparams, coverpageinfo, faxjobid)
+public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSendDocumentW((faxhandle?.value ?: 0L), (filename?.value ?: 0L), (jobparams?.value ?: 0L), (coverpageinfo?.value ?: 0L), (faxjobid?.value ?: 0L))
 
-public actual fun FaxSetConfigurationA(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetConfigurationA(faxhandle, faxconfig)
+public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetConfigurationA((faxhandle?.value ?: 0L), (faxconfig?.value ?: 0L))
 
-public actual fun FaxSetConfigurationW(faxhandle: HANDLE, faxconfig: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetConfigurationW(faxhandle, faxconfig)
+public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetConfigurationW((faxhandle?.value ?: 0L), (faxconfig?.value ?: 0L))
 
-public actual fun FaxSetGlobalRoutingInfoA(faxhandle: HANDLE, routinginfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoA(faxhandle, routinginfo)
+public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA((faxhandle?.value ?: 0L), (routinginfo?.value ?: 0L))
 
-public actual fun FaxSetGlobalRoutingInfoW(faxhandle: HANDLE, routinginfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetGlobalRoutingInfoW(faxhandle, routinginfo)
+public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW((faxhandle?.value ?: 0L), (routinginfo?.value ?: 0L))
 
-public actual fun FaxSetJobA(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetJobA(faxhandle, jobid.toInt(), command.toInt(), jobentry)
+public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetJobA((faxhandle?.value ?: 0L), jobid.toInt(), command.toInt(), (jobentry?.value ?: 0L))
 
-public actual fun FaxSetJobW(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetJobW(faxhandle, jobid.toInt(), command.toInt(), jobentry)
+public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetJobW((faxhandle?.value ?: 0L), jobid.toInt(), command.toInt(), (jobentry?.value ?: 0L))
 
-public actual fun FaxSetLoggingCategoriesA(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesA(faxhandle, categories, numbercategories.toInt())
+public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA((faxhandle?.value ?: 0L), (categories?.value ?: 0L), numbercategories.toInt())
 
-public actual fun FaxSetLoggingCategoriesW(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetLoggingCategoriesW(faxhandle, categories, numbercategories.toInt())
+public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW((faxhandle?.value ?: 0L), (categories?.value ?: 0L), numbercategories.toInt())
 
-public actual fun FaxSetPortA(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetPortA(faxporthandle, portinfo)
+public actual fun faxSetPortA(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetPortA((faxporthandle?.value ?: 0L), (portinfo?.value ?: 0L))
 
-public actual fun FaxSetPortW(faxporthandle: HANDLE, portinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetPortW(faxporthandle, portinfo)
+public actual fun faxSetPortW(faxporthandle: Handle, portinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetPortW((faxporthandle?.value ?: 0L), (portinfo?.value ?: 0L))
 
-public actual fun FaxSetRoutingInfoA(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetRoutingInfoA(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize.toInt())
+public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetRoutingInfoA((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), (routinginfobuffer?.value ?: 0L), routinginfobuffersize.toInt())
 
-public actual fun FaxSetRoutingInfoW(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxSetRoutingInfoW(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize.toInt())
+public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxSetRoutingInfoW((faxporthandle?.value ?: 0L), (routingguid?.value ?: 0L), (routinginfobuffer?.value ?: 0L), routinginfobuffersize.toInt())
 
-public actual fun FaxStartPrintJobA(printername: PCSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxStartPrintJobA(printername, printinfo, faxjobid, faxcontextinfo)
+public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxStartPrintJobA((printername?.value ?: 0L), (printinfo?.value ?: 0L), (faxjobid?.value ?: 0L), (faxcontextinfo?.value ?: 0L))
 
-public actual fun FaxStartPrintJobW(printername: PCWSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxStartPrintJobW(printername, printinfo, faxjobid, faxcontextinfo)
+public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxStartPrintJobW((printername?.value ?: 0L), (printinfo?.value ?: 0L), (faxjobid?.value ?: 0L), (faxcontextinfo?.value ?: 0L))
 
-public actual fun FaxUnregisterServiceProviderW(deviceprovider: PCWSTR): BOOL =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_FaxUnregisterServiceProviderW(deviceprovider)
+public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_faxUnregisterServiceProviderW((deviceprovider?.value ?: 0L))
 
-public actual fun SendToFaxRecipient(sndmode: SendToMode, lpfilename: PCWSTR): UInt =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_SendToFaxRecipient(sndmode, lpfilename).toUInt()
+public actual fun sendToFaxRecipient(sndmode: SendToMode, lpfilename: Pcwstr): UInt =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_sendToFaxRecipient(sndmode, (lpfilename?.value ?: 0L)).toUInt()
 
-public actual fun StiCreateInstanceW(hinst: HINSTANCE, dwver: UInt, ppsti: Long, punkouter: Long): HRESULT =
-    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_StiCreateInstanceW(hinst, dwver.toInt(), ppsti, punkouter)
+public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: COpaquePointer?, punkouter: COpaquePointer?): Hresult =
+    WindowsWin32DevicesFaxJniBridge.windowssys_windows_win32_devices_fax_stiCreateInstanceW((hinst?.value ?: 0L), dwver.toInt(), (ppsti?.value ?: 0L), (punkouter?.value ?: 0L))

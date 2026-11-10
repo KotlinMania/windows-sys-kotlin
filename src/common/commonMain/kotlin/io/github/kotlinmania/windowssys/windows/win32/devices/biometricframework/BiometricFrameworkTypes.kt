@@ -1,809 +1,810 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public fun interface PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FNFn {
-    public operator fun invoke(pipeline: Long, typeinfobufferaddress: Long, typeinfobuffersize: ULong): HRESULT
+public fun interface PibioEngineAcceptPrivateSensorTypeInfoFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, typeinfobufferaddress: COpaquePointer?, typeinfobuffersize: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FNFn?
+public typealias PibioEngineAcceptPrivateSensorTypeInfoFn = PibioEngineAcceptPrivateSensorTypeInfoFnFn?
 
-public fun interface PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FNFn {
-    public operator fun invoke(pipeline: Long, samplebuffer: Long, samplesize: ULong, purpose: UByte, rejectdetail: Long): HRESULT
+public fun interface PibioEngineAcceptSampleDataFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, samplebuffer: COpaquePointer?, samplesize: ULong, purpose: UByte, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN = PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FNFn?
+public typealias PibioEngineAcceptSampleDataFn = PibioEngineAcceptSampleDataFnFn?
 
-public fun interface PIBIO_ENGINE_ACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineActivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_ACTIVATE_FN = PIBIO_ENGINE_ACTIVATE_FNFn?
+public typealias PibioEngineActivateFn = PibioEngineActivateFnFn?
 
-public fun interface PIBIO_ENGINE_ATTACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineAttachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_ATTACH_FN = PIBIO_ENGINE_ATTACH_FNFn?
+public typealias PibioEngineAttachFn = PibioEngineAttachFnFn?
 
-public fun interface PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: Long, duplicate: Long): HRESULT
+public fun interface PibioEngineCheckForDuplicateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: COpaquePointer?, duplicate: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN = PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FNFn?
+public typealias PibioEngineCheckForDuplicateFn = PibioEngineCheckForDuplicateFnFn?
 
-public fun interface PIBIO_ENGINE_CLEAR_CONTEXT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineClearContextFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CLEAR_CONTEXT_FN = PIBIO_ENGINE_CLEAR_CONTEXT_FNFn?
+public typealias PibioEngineClearContextFn = PibioEngineClearContextFnFn?
 
-public fun interface PIBIO_ENGINE_COMMIT_ENROLLMENT_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: UByte, payloadblob: Long, payloadblobsize: ULong): HRESULT
+public fun interface PibioEngineCommitEnrollmentFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: UByte, payloadblob: COpaquePointer?, payloadblobsize: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_COMMIT_ENROLLMENT_FN = PIBIO_ENGINE_COMMIT_ENROLLMENT_FNFn?
+public typealias PibioEngineCommitEnrollmentFn = PibioEngineCommitEnrollmentFnFn?
 
-public fun interface PIBIO_ENGINE_CONTROL_UNIT_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioEngineControlUnitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CONTROL_UNIT_FN = PIBIO_ENGINE_CONTROL_UNIT_FNFn?
+public typealias PibioEngineControlUnitFn = PibioEngineControlUnitFnFn?
 
-public fun interface PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioEngineControlUnitPrivilegedFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN = PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FNFn?
+public typealias PibioEngineControlUnitPrivilegedFn = PibioEngineControlUnitPrivilegedFnFn?
 
-public fun interface PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FNFn {
-    public operator fun invoke(pipeline: Long, nonce: Long, noncesize: Long): HRESULT
+public fun interface PibioEngineCreateEnrollmentAuthenticatedFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, nonce: COpaquePointer?, noncesize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN = PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FNFn?
+public typealias PibioEngineCreateEnrollmentAuthenticatedFn = PibioEngineCreateEnrollmentAuthenticatedFnFn?
 
-public fun interface PIBIO_ENGINE_CREATE_ENROLLMENT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineCreateEnrollmentFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CREATE_ENROLLMENT_FN = PIBIO_ENGINE_CREATE_ENROLLMENT_FNFn?
+public typealias PibioEngineCreateEnrollmentFn = PibioEngineCreateEnrollmentFnFn?
 
-public fun interface PIBIO_ENGINE_CREATE_KEY_FNFn {
-    public operator fun invoke(pipeline: Long, key: Long, keysize: ULong, keyidentifier: Long, keyidentifiersize: ULong, resultsize: Long): HRESULT
+public fun interface PibioEngineCreateKeyFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, key: COpaquePointer?, keysize: ULong, keyidentifier: COpaquePointer?, keyidentifiersize: ULong, resultsize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_CREATE_KEY_FN = PIBIO_ENGINE_CREATE_KEY_FNFn?
+public typealias PibioEngineCreateKeyFn = PibioEngineCreateKeyFnFn?
 
-public fun interface PIBIO_ENGINE_DEACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineDeactivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_DEACTIVATE_FN = PIBIO_ENGINE_DEACTIVATE_FNFn?
+public typealias PibioEngineDeactivateFn = PibioEngineDeactivateFnFn?
 
-public fun interface PIBIO_ENGINE_DETACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineDetachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_DETACH_FN = PIBIO_ENGINE_DETACH_FNFn?
+public typealias PibioEngineDetachFn = PibioEngineDetachFnFn?
 
-public fun interface PIBIO_ENGINE_DISCARD_ENROLLMENT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineDiscardEnrollmentFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_DISCARD_ENROLLMENT_FN = PIBIO_ENGINE_DISCARD_ENROLLMENT_FNFn?
+public typealias PibioEngineDiscardEnrollmentFn = PibioEngineDiscardEnrollmentFnFn?
 
-public fun interface PIBIO_ENGINE_EXPORT_ENGINE_DATA_FNFn {
-    public operator fun invoke(pipeline: Long, flags: UByte, samplebuffer: Long, samplesize: Long): HRESULT
+public fun interface PibioEngineExportEngineDataFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, flags: UByte, samplebuffer: COpaquePointer?, samplesize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN = PIBIO_ENGINE_EXPORT_ENGINE_DATA_FNFn?
+public typealias PibioEngineExportEngineDataFn = PibioEngineExportEngineDataFnFn?
 
-public fun interface PIBIO_ENGINE_GET_ENROLLMENT_HASH_FNFn {
-    public operator fun invoke(pipeline: Long, hashvalue: Long, hashsize: Long): HRESULT
+public fun interface PibioEngineGetEnrollmentHashFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, hashvalue: COpaquePointer?, hashsize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN = PIBIO_ENGINE_GET_ENROLLMENT_HASH_FNFn?
+public typealias PibioEngineGetEnrollmentHashFn = PibioEngineGetEnrollmentHashFnFn?
 
-public fun interface PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, rejectdetail: Long): HRESULT
+public fun interface PibioEngineGetEnrollmentStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN = PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FNFn?
+public typealias PibioEngineGetEnrollmentStatusFn = PibioEngineGetEnrollmentStatusFnFn?
 
-public fun interface PIBIO_ENGINE_IDENTIFY_ALL_FNFn {
-    public operator fun invoke(pipeline: Long, presencecount: Long, presencearray: Long): HRESULT
+public fun interface PibioEngineIdentifyAllFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, presencecount: COpaquePointer?, presencearray: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_IDENTIFY_ALL_FN = PIBIO_ENGINE_IDENTIFY_ALL_FNFn?
+public typealias PibioEngineIdentifyAllFn = PibioEngineIdentifyAllFnFn?
 
-public fun interface PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FNFn {
-    public operator fun invoke(pipeline: Long, nonce: Long, noncesize: ULong, identity: Long, subfactor: Long, rejectdetail: Long, authentication: Long, authenticationsize: Long): HRESULT
+public fun interface PibioEngineIdentifyFeatureSetAuthenticatedFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, nonce: COpaquePointer?, noncesize: ULong, identity: COpaquePointer?, subfactor: COpaquePointer?, rejectdetail: COpaquePointer?, authentication: COpaquePointer?, authenticationsize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN = PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FNFn?
+public typealias PibioEngineIdentifyFeatureSetAuthenticatedFn = PibioEngineIdentifyFeatureSetAuthenticatedFnFn?
 
-public fun interface PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: Long, payloadblob: Long, payloadblobsize: Long, hashvalue: Long, hashsize: Long, rejectdetail: Long): HRESULT
+public fun interface PibioEngineIdentifyFeatureSetFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: COpaquePointer?, payloadblob: COpaquePointer?, payloadblobsize: COpaquePointer?, hashvalue: COpaquePointer?, hashsize: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN = PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FNFn?
+public typealias PibioEngineIdentifyFeatureSetFn = PibioEngineIdentifyFeatureSetFnFn?
 
-public fun interface PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FNFn {
-    public operator fun invoke(pipeline: Long, nonce: Long, noncesize: ULong, keyidentifier: Long, keyidentifiersize: ULong, identity: Long, subfactor: Long, rejectdetail: Long, authorization: Long, authorizationsize: Long): HRESULT
+public fun interface PibioEngineIdentifyFeatureSetSecureFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, nonce: COpaquePointer?, noncesize: ULong, keyidentifier: COpaquePointer?, keyidentifiersize: ULong, identity: COpaquePointer?, subfactor: COpaquePointer?, rejectdetail: COpaquePointer?, authorization: COpaquePointer?, authorizationsize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN = PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FNFn?
+public typealias PibioEngineIdentifyFeatureSetSecureFn = PibioEngineIdentifyFeatureSetSecureFnFn?
 
-public fun interface PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FNFn {
-    public operator fun invoke(pipeline: Long, powereventtype: UInt): HRESULT
+public fun interface PibioEngineNotifyPowerChangeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, powereventtype: UInt): Hresult
 }
 
-public typealias PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN = PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FNFn?
+public typealias PibioEngineNotifyPowerChangeFn = PibioEngineNotifyPowerChangeFnFn?
 
-public fun interface PIBIO_ENGINE_PIPELINE_CLEANUP_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEnginePipelineCleanupFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_PIPELINE_CLEANUP_FN = PIBIO_ENGINE_PIPELINE_CLEANUP_FNFn?
+public typealias PibioEnginePipelineCleanupFn = PibioEnginePipelineCleanupFnFn?
 
-public fun interface PIBIO_ENGINE_PIPELINE_INIT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEnginePipelineInitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_PIPELINE_INIT_FN = PIBIO_ENGINE_PIPELINE_INIT_FNFn?
+public typealias PibioEnginePipelineInitFn = PibioEnginePipelineInitFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FNFn {
-    public operator fun invoke(pipeline: Long, discardandrepeatcapture: Long, calibrationbuffer: Long, calibrationbuffersize: Long, maxbuffersize: ULong): HRESULT
+public fun interface PibioEngineQueryCalibrationDataFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, discardandrepeatcapture: COpaquePointer?, calibrationbuffer: COpaquePointer?, calibrationbuffersize: COpaquePointer?, maxbuffersize: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN = PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FNFn?
+public typealias PibioEngineQueryCalibrationDataFn = PibioEngineQueryCalibrationDataFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, enrollmentstatus: Long, enrollmentstatussize: ULong): HRESULT
+public fun interface PibioEngineQueryExtendedEnrollmentStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, enrollmentstatus: COpaquePointer?, enrollmentstatussize: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN = PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FNFn?
+public typealias PibioEngineQueryExtendedEnrollmentStatusFn = PibioEngineQueryExtendedEnrollmentStatusFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_EXTENDED_INFO_FNFn {
-    public operator fun invoke(pipeline: Long, engineinfo: Long, engineinfosize: ULong): HRESULT
+public fun interface PibioEngineQueryExtendedInfoFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, engineinfo: COpaquePointer?, engineinfosize: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN = PIBIO_ENGINE_QUERY_EXTENDED_INFO_FNFn?
+public typealias PibioEngineQueryExtendedInfoFn = PibioEngineQueryExtendedInfoFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FNFn {
-    public operator fun invoke(pipeline: Long, algorithmcount: Long, algorithmbuffersize: Long, algorithmbuffer: Long): HRESULT
+public fun interface PibioEngineQueryHashAlgorithmsFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, algorithmcount: COpaquePointer?, algorithmbuffersize: COpaquePointer?, algorithmbuffer: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN = PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FNFn?
+public typealias PibioEngineQueryHashAlgorithmsFn = PibioEngineQueryHashAlgorithmsFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FNFn {
-    public operator fun invoke(pipeline: Long, indexelementcount: Long): HRESULT
+public fun interface PibioEngineQueryIndexVectorSizeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, indexelementcount: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN = PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FNFn?
+public typealias PibioEngineQueryIndexVectorSizeFn = PibioEngineQueryIndexVectorSizeFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FNFn {
-    public operator fun invoke(pipeline: Long, standardformat: Long, vendorformat: Long): HRESULT
+public fun interface PibioEngineQueryPreferredFormatFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, standardformat: COpaquePointer?, vendorformat: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN = PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FNFn?
+public typealias PibioEngineQueryPreferredFormatFn = PibioEngineQueryPreferredFormatFnFn?
 
-public fun interface PIBIO_ENGINE_QUERY_SAMPLE_HINT_FNFn {
-    public operator fun invoke(pipeline: Long, samplehint: Long): HRESULT
+public fun interface PibioEngineQuerySampleHintFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, samplehint: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN = PIBIO_ENGINE_QUERY_SAMPLE_HINT_FNFn?
+public typealias PibioEngineQuerySampleHintFn = PibioEngineQuerySampleHintFnFn?
 
-public fun interface PIBIO_ENGINE_REFRESH_CACHE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioEngineRefreshCacheFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_REFRESH_CACHE_FN = PIBIO_ENGINE_REFRESH_CACHE_FNFn?
+public typealias PibioEngineRefreshCacheFn = PibioEngineRefreshCacheFnFn?
 
-public fun interface PIBIO_ENGINE_RESERVED_1_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long): HRESULT
+public fun interface PibioEngineReserved1FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_RESERVED_1_FN = PIBIO_ENGINE_RESERVED_1_FNFn?
+public typealias PibioEngineReserved1Fn = PibioEngineReserved1FnFn?
 
-public fun interface PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FNFn {
-    public operator fun invoke(pipeline: Long, formatarray: Long, formatcount: ULong, selectedformat: Long, maxbuffersize: Long): HRESULT
+public fun interface PibioEngineSelectCalibrationFormatFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, formatarray: COpaquePointer?, formatcount: ULong, selectedformat: COpaquePointer?, maxbuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN = PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FNFn?
+public typealias PibioEngineSelectCalibrationFormatFn = PibioEngineSelectCalibrationFormatFnFn?
 
-public fun interface PIBIO_ENGINE_SET_ACCOUNT_POLICY_FNFn {
-    public operator fun invoke(pipeline: Long, policyitemarray: Long, policyitemcount: ULong): HRESULT
+public fun interface PibioEngineSetAccountPolicyFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, policyitemarray: COpaquePointer?, policyitemcount: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN = PIBIO_ENGINE_SET_ACCOUNT_POLICY_FNFn?
+public typealias PibioEngineSetAccountPolicyFn = PibioEngineSetAccountPolicyFnFn?
 
-public fun interface PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FNFn {
-    public operator fun invoke(pipeline: Long, parameters: Long): HRESULT
+public fun interface PibioEngineSetEnrollmentParametersFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, parameters: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN = PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FNFn?
+public typealias PibioEngineSetEnrollmentParametersFn = PibioEngineSetEnrollmentParametersFnFn?
 
-public fun interface PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FNFn {
-    public operator fun invoke(pipeline: Long, selectorvalue: ULong): HRESULT
+public fun interface PibioEngineSetEnrollmentSelectorFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, selectorvalue: ULong): Hresult
 }
 
-public typealias PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN = PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FNFn?
+public typealias PibioEngineSetEnrollmentSelectorFn = PibioEngineSetEnrollmentSelectorFnFn?
 
-public fun interface PIBIO_ENGINE_SET_HASH_ALGORITHM_FNFn {
-    public operator fun invoke(pipeline: Long, algorithmbuffersize: ULong, algorithmbuffer: Long): HRESULT
+public fun interface PibioEngineSetHashAlgorithmFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, algorithmbuffersize: ULong, algorithmbuffer: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_SET_HASH_ALGORITHM_FN = PIBIO_ENGINE_SET_HASH_ALGORITHM_FNFn?
+public typealias PibioEngineSetHashAlgorithmFn = PibioEngineSetHashAlgorithmFnFn?
 
-public fun interface PIBIO_ENGINE_UPDATE_ENROLLMENT_FNFn {
-    public operator fun invoke(pipeline: Long, rejectdetail: Long): HRESULT
+public fun interface PibioEngineUpdateEnrollmentFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_UPDATE_ENROLLMENT_FN = PIBIO_ENGINE_UPDATE_ENROLLMENT_FNFn?
+public typealias PibioEngineUpdateEnrollmentFn = PibioEngineUpdateEnrollmentFnFn?
 
-public fun interface PIBIO_ENGINE_VERIFY_FEATURE_SET_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: UByte, match: Long, payloadblob: Long, payloadblobsize: Long, hashvalue: Long, hashsize: Long, rejectdetail: Long): HRESULT
+public fun interface PibioEngineVerifyFeatureSetFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: UByte, match: COpaquePointer?, payloadblob: COpaquePointer?, payloadblobsize: COpaquePointer?, hashvalue: COpaquePointer?, hashsize: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = PIBIO_ENGINE_VERIFY_FEATURE_SET_FNFn?
+public typealias PibioEngineVerifyFeatureSetFn = PibioEngineVerifyFeatureSetFnFn?
 
-public fun interface PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FNFn {
-    public operator fun invoke(pipeline: Long, allocationsize: ULong, address: Long): HRESULT
+public fun interface PibioFrameworkAllocateMemoryFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, allocationsize: ULong, address: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FNFn?
+public typealias PibioFrameworkAllocateMemoryFn = PibioFrameworkAllocateMemoryFnFn?
 
-public fun interface PIBIO_FRAMEWORK_FREE_MEMORY_FNFn {
-    public operator fun invoke(pipeline: Long, address: Long): HRESULT
+public fun interface PibioFrameworkFreeMemoryFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, address: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_FREE_MEMORY_FN = PIBIO_FRAMEWORK_FREE_MEMORY_FNFn?
+public typealias PibioFrameworkFreeMemoryFn = PibioFrameworkFreeMemoryFnFn?
 
-public fun interface PIBIO_FRAMEWORK_GET_PROPERTY_FNFn {
-    public operator fun invoke(pipeline: Long, propertytype: UInt, propertyid: UInt, identity: Long, subfactor: UByte, propertybuffer: Long, propertybuffersize: Long): HRESULT
+public fun interface PibioFrameworkGetPropertyFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, propertytype: UInt, propertyid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_GET_PROPERTY_FN = PIBIO_FRAMEWORK_GET_PROPERTY_FNFn?
+public typealias PibioFrameworkGetPropertyFn = PibioFrameworkGetPropertyFnFn?
 
-public fun interface PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FNFn {
-    public operator fun invoke(pipeline: Long, securebufferidentifier: GUID, securebufferaddress: Long, securebuffersize: Long): HRESULT
+public fun interface PibioFrameworkLockAndValidateSecureBufferFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, securebufferidentifier: Guid, securebufferaddress: COpaquePointer?, securebuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN = PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FNFn?
+public typealias PibioFrameworkLockAndValidateSecureBufferFn = PibioFrameworkLockAndValidateSecureBufferFnFn?
 
-public fun interface PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FNFn {
-    public operator fun invoke(pipeline: Long, securebufferidentifier: GUID): HRESULT
+public fun interface PibioFrameworkReleaseSecureBufferFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, securebufferidentifier: Guid): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN = PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FNFn?
+public typealias PibioFrameworkReleaseSecureBufferFn = PibioFrameworkReleaseSecureBufferFnFn?
 
-public fun interface PIBIO_FRAMEWORK_SET_UNIT_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, extendedstatus: Long, extendedstatussize: ULong): HRESULT
+public fun interface PibioFrameworkSetUnitStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, extendedstatus: COpaquePointer?, extendedstatussize: ULong): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN = PIBIO_FRAMEWORK_SET_UNIT_STATUS_FNFn?
+public typealias PibioFrameworkSetUnitStatusFn = PibioFrameworkSetUnitStatusFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheClearFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN = PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FNFn?
+public typealias PibioFrameworkVsmCacheClearFn = PibioFrameworkVsmCacheClearFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FNFn {
-    public operator fun invoke(pipeline: Long, requiredcapacity: Long, maxbuffersize: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheExportBeginFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, requiredcapacity: COpaquePointer?, maxbuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN = PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FNFn?
+public typealias PibioFrameworkVsmCacheExportBeginFn = PibioFrameworkVsmCacheExportBeginFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheExportEndFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN = PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FNFn?
+public typealias PibioFrameworkVsmCacheExportEndFn = PibioFrameworkVsmCacheExportEndFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FNFn {
-    public operator fun invoke(pipeline: Long, bufferaddress: Long, buffersize: ULong, returneddatasize: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheExportNextFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, bufferaddress: COpaquePointer?, buffersize: ULong, returneddatasize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN = PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FNFn?
+public typealias PibioFrameworkVsmCacheExportNextFn = PibioFrameworkVsmCacheExportNextFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FNFn {
-    public operator fun invoke(pipeline: Long, requiredcapacity: ULong, maxbuffersize: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheImportBeginFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, requiredcapacity: ULong, maxbuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN = PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FNFn?
+public typealias PibioFrameworkVsmCacheImportBeginFn = PibioFrameworkVsmCacheImportBeginFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioFrameworkVsmCacheImportEndFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN = PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FNFn?
+public typealias PibioFrameworkVsmCacheImportEndFn = PibioFrameworkVsmCacheImportEndFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FNFn {
-    public operator fun invoke(pipeline: Long, bufferaddress: Long, buffersize: ULong): HRESULT
+public fun interface PibioFrameworkVsmCacheImportNextFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, bufferaddress: COpaquePointer?, buffersize: ULong): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN = PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FNFn?
+public typealias PibioFrameworkVsmCacheImportNextFn = PibioFrameworkVsmCacheImportNextFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FNFn {
-    public operator fun invoke(pipeline: Long, authentication: Long, authenticationsize: ULong, iv: Long, ivsize: ULong, encrypteddata: Long, encrypteddatasize: ULong): HRESULT
+public fun interface PibioFrameworkVsmDecryptSampleFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, authentication: COpaquePointer?, authenticationsize: ULong, iv: COpaquePointer?, ivsize: ULong, encrypteddata: COpaquePointer?, encrypteddatasize: ULong): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN = PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FNFn?
+public typealias PibioFrameworkVsmDecryptSampleFn = PibioFrameworkVsmDecryptSampleFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, secureidentitycount: Long, secureidentities: Long): HRESULT
+public fun interface PibioFrameworkVsmQueryAuthorizedEnrollmentsFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, secureidentitycount: COpaquePointer?, secureidentities: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN = PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FNFn?
+public typealias PibioFrameworkVsmQueryAuthorizedEnrollmentsFn = PibioFrameworkVsmQueryAuthorizedEnrollmentsFnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FNFn {
-    public operator fun invoke(pipeline: Long, reserved1: ULong, reserved2: Long): HRESULT
+public fun interface PibioFrameworkVsmStorageReserved1FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, reserved1: ULong, reserved2: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN = PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FNFn?
+public typealias PibioFrameworkVsmStorageReserved1Fn = PibioFrameworkVsmStorageReserved1FnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FNFn {
-    public operator fun invoke(pipeline: Long, reserved1: Long, reserved2: ULong): HRESULT
+public fun interface PibioFrameworkVsmStorageReserved2FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, reserved1: COpaquePointer?, reserved2: ULong): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN = PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FNFn?
+public typealias PibioFrameworkVsmStorageReserved2Fn = PibioFrameworkVsmStorageReserved2FnFn?
 
-public fun interface PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioFrameworkVsmStorageReserved3FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN = PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FNFn?
+public typealias PibioFrameworkVsmStorageReserved3Fn = PibioFrameworkVsmStorageReserved3FnFn?
 
-public fun interface PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FNFn {
-    public operator fun invoke(pipeline: Long, calibrationbuffer: Long, calibrationbuffersize: ULong): HRESULT
+public fun interface PibioSensorAcceptCalibrationDataFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, calibrationbuffer: COpaquePointer?, calibrationbuffersize: ULong): Hresult
 }
 
-public typealias PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN = PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FNFn?
+public typealias PibioSensorAcceptCalibrationDataFn = PibioSensorAcceptCalibrationDataFnFn?
 
-public fun interface PIBIO_SENSOR_ACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorActivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_ACTIVATE_FN = PIBIO_SENSOR_ACTIVATE_FNFn?
+public typealias PibioSensorActivateFn = PibioSensorActivateFnFn?
 
-public fun interface PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FNFn {
-    public operator fun invoke(pipeline: Long, rawbufferaddress: Long, rawbuffersize: ULong, resultbufferaddress: Long, resultbuffersize: Long): HRESULT
+public fun interface PibioSensorAsyncImportRawBufferFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, rawbufferaddress: COpaquePointer?, rawbuffersize: ULong, resultbufferaddress: COpaquePointer?, resultbuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN = PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FNFn?
+public typealias PibioSensorAsyncImportRawBufferFn = PibioSensorAsyncImportRawBufferFnFn?
 
-public fun interface PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FNFn {
-    public operator fun invoke(pipeline: Long, securebufferidentifier: GUID, metadatabufferaddress: Long, metadatabuffersize: ULong, resultbufferaddress: Long, resultbuffersize: Long): HRESULT
+public fun interface PibioSensorAsyncImportSecureBufferFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, securebufferidentifier: Guid, metadatabufferaddress: COpaquePointer?, metadatabuffersize: ULong, resultbufferaddress: COpaquePointer?, resultbuffersize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN = PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FNFn?
+public typealias PibioSensorAsyncImportSecureBufferFn = PibioSensorAsyncImportSecureBufferFnFn?
 
-public fun interface PIBIO_SENSOR_ATTACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorAttachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_ATTACH_FN = PIBIO_SENSOR_ATTACH_FNFn?
+public typealias PibioSensorAttachFn = PibioSensorAttachFnFn?
 
-public fun interface PIBIO_SENSOR_CANCEL_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorCancelFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_CANCEL_FN = PIBIO_SENSOR_CANCEL_FNFn?
+public typealias PibioSensorCancelFn = PibioSensorCancelFnFn?
 
-public fun interface PIBIO_SENSOR_CLEAR_CONTEXT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorClearContextFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_CLEAR_CONTEXT_FN = PIBIO_SENSOR_CLEAR_CONTEXT_FNFn?
+public typealias PibioSensorClearContextFn = PibioSensorClearContextFnFn?
 
-public fun interface PIBIO_SENSOR_CONNECT_SECURE_FNFn {
-    public operator fun invoke(pipeline: Long, connectionparams: Long, connectiondata: Long): HRESULT
+public fun interface PibioSensorConnectSecureFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, connectionparams: COpaquePointer?, connectiondata: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_CONNECT_SECURE_FN = PIBIO_SENSOR_CONNECT_SECURE_FNFn?
+public typealias PibioSensorConnectSecureFn = PibioSensorConnectSecureFnFn?
 
-public fun interface PIBIO_SENSOR_CONTROL_UNIT_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioSensorControlUnitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_CONTROL_UNIT_FN = PIBIO_SENSOR_CONTROL_UNIT_FNFn?
+public typealias PibioSensorControlUnitFn = PibioSensorControlUnitFnFn?
 
-public fun interface PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioSensorControlUnitPrivilegedFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN = PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FNFn?
+public typealias PibioSensorControlUnitPrivilegedFn = PibioSensorControlUnitPrivilegedFnFn?
 
-public fun interface PIBIO_SENSOR_DEACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorDeactivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_DEACTIVATE_FN = PIBIO_SENSOR_DEACTIVATE_FNFn?
+public typealias PibioSensorDeactivateFn = PibioSensorDeactivateFnFn?
 
-public fun interface PIBIO_SENSOR_DETACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorDetachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_DETACH_FN = PIBIO_SENSOR_DETACH_FNFn?
+public typealias PibioSensorDetachFn = PibioSensorDetachFnFn?
 
-public fun interface PIBIO_SENSOR_EXPORT_SENSOR_DATA_FNFn {
-    public operator fun invoke(pipeline: Long, samplebuffer: Long, samplesize: Long): HRESULT
+public fun interface PibioSensorExportSensorDataFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, samplebuffer: COpaquePointer?, samplesize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN = PIBIO_SENSOR_EXPORT_SENSOR_DATA_FNFn?
+public typealias PibioSensorExportSensorDataFn = PibioSensorExportSensorDataFnFn?
 
-public fun interface PIBIO_SENSOR_FINISH_CAPTURE_FNFn {
-    public operator fun invoke(pipeline: Long, rejectdetail: Long): HRESULT
+public fun interface PibioSensorFinishCaptureFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_FINISH_CAPTURE_FN = PIBIO_SENSOR_FINISH_CAPTURE_FNFn?
+public typealias PibioSensorFinishCaptureFn = PibioSensorFinishCaptureFnFn?
 
-public fun interface PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FNFn {
-    public operator fun invoke(pipeline: Long, reason: Long): HRESULT
+public fun interface PibioSensorFinishNotifyWakeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, reason: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN = PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FNFn?
+public typealias PibioSensorFinishNotifyWakeFn = PibioSensorFinishNotifyWakeFnFn?
 
-public fun interface PIBIO_SENSOR_GET_INDICATOR_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, indicatorstatus: Long): HRESULT
+public fun interface PibioSensorGetIndicatorStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, indicatorstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_GET_INDICATOR_STATUS_FN = PIBIO_SENSOR_GET_INDICATOR_STATUS_FNFn?
+public typealias PibioSensorGetIndicatorStatusFn = PibioSensorGetIndicatorStatusFnFn?
 
-public fun interface PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FNFn {
-    public operator fun invoke(pipeline: Long, powereventtype: UInt): HRESULT
+public fun interface PibioSensorNotifyPowerChangeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, powereventtype: UInt): Hresult
 }
 
-public typealias PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN = PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FNFn?
+public typealias PibioSensorNotifyPowerChangeFn = PibioSensorNotifyPowerChangeFnFn?
 
-public fun interface PIBIO_SENSOR_PIPELINE_CLEANUP_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorPipelineCleanupFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_PIPELINE_CLEANUP_FN = PIBIO_SENSOR_PIPELINE_CLEANUP_FNFn?
+public typealias PibioSensorPipelineCleanupFn = PibioSensorPipelineCleanupFnFn?
 
-public fun interface PIBIO_SENSOR_PIPELINE_INIT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorPipelineInitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_PIPELINE_INIT_FN = PIBIO_SENSOR_PIPELINE_INIT_FNFn?
+public typealias PibioSensorPipelineInitFn = PibioSensorPipelineInitFnFn?
 
-public fun interface PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FNFn {
-    public operator fun invoke(pipeline: Long, purpose: UByte, flags: UByte, rejectdetail: Long): HRESULT
+public fun interface PibioSensorPushDataToEngineFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, purpose: UByte, flags: UByte, rejectdetail: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN = PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FNFn?
+public typealias PibioSensorPushDataToEngineFn = PibioSensorPushDataToEngineFnFn?
 
-public fun interface PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FNFn {
-    public operator fun invoke(pipeline: Long, formatarray: Long, formatarraysize: ULong, formatcount: Long): HRESULT
+public fun interface PibioSensorQueryCalibrationFormatsFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, formatarray: COpaquePointer?, formatarraysize: ULong, formatcount: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN = PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FNFn?
+public typealias PibioSensorQueryCalibrationFormatsFn = PibioSensorQueryCalibrationFormatsFnFn?
 
-public fun interface PIBIO_SENSOR_QUERY_EXTENDED_INFO_FNFn {
-    public operator fun invoke(pipeline: Long, sensorinfo: Long, sensorinfosize: ULong): HRESULT
+public fun interface PibioSensorQueryExtendedInfoFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, sensorinfo: COpaquePointer?, sensorinfosize: ULong): Hresult
 }
 
-public typealias PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN = PIBIO_SENSOR_QUERY_EXTENDED_INFO_FNFn?
+public typealias PibioSensorQueryExtendedInfoFn = PibioSensorQueryExtendedInfoFnFn?
 
-public fun interface PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FNFn {
-    public operator fun invoke(pipeline: Long, typeinfobufferaddress: Long, typeinfobuffersize: ULong, typeinfodatasize: Long): HRESULT
+public fun interface PibioSensorQueryPrivateSensorTypeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, typeinfobufferaddress: COpaquePointer?, typeinfobuffersize: ULong, typeinfodatasize: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN = PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FNFn?
+public typealias PibioSensorQueryPrivateSensorTypeFn = PibioSensorQueryPrivateSensorTypeFnFn?
 
-public fun interface PIBIO_SENSOR_QUERY_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, status: Long): HRESULT
+public fun interface PibioSensorQueryStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, status: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_QUERY_STATUS_FN = PIBIO_SENSOR_QUERY_STATUS_FNFn?
+public typealias PibioSensorQueryStatusFn = PibioSensorQueryStatusFnFn?
 
-public fun interface PIBIO_SENSOR_RESET_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioSensorResetFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_RESET_FN = PIBIO_SENSOR_RESET_FNFn?
+public typealias PibioSensorResetFn = PibioSensorResetFnFn?
 
-public fun interface PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FNFn {
-    public operator fun invoke(pipeline: Long, format: Long): HRESULT
+public fun interface PibioSensorSetCalibrationFormatFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, format: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN = PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FNFn?
+public typealias PibioSensorSetCalibrationFormatFn = PibioSensorSetCalibrationFormatFnFn?
 
-public fun interface PIBIO_SENSOR_SET_INDICATOR_STATUS_FNFn {
-    public operator fun invoke(pipeline: Long, indicatorstatus: UInt): HRESULT
+public fun interface PibioSensorSetIndicatorStatusFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, indicatorstatus: UInt): Hresult
 }
 
-public typealias PIBIO_SENSOR_SET_INDICATOR_STATUS_FN = PIBIO_SENSOR_SET_INDICATOR_STATUS_FNFn?
+public typealias PibioSensorSetIndicatorStatusFn = PibioSensorSetIndicatorStatusFnFn?
 
-public fun interface PIBIO_SENSOR_SET_MODE_FNFn {
-    public operator fun invoke(pipeline: Long, mode: UInt): HRESULT
+public fun interface PibioSensorSetModeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, mode: UInt): Hresult
 }
 
-public typealias PIBIO_SENSOR_SET_MODE_FN = PIBIO_SENSOR_SET_MODE_FNFn?
+public typealias PibioSensorSetModeFn = PibioSensorSetModeFnFn?
 
-public fun interface PIBIO_SENSOR_START_CAPTURE_EX_FNFn {
-    public operator fun invoke(pipeline: Long, purpose: UByte, nonce: Long, noncesize: ULong, flags: UByte, overlapped: Long): HRESULT
+public fun interface PibioSensorStartCaptureExFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, purpose: UByte, nonce: COpaquePointer?, noncesize: ULong, flags: UByte, overlapped: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_START_CAPTURE_EX_FN = PIBIO_SENSOR_START_CAPTURE_EX_FNFn?
+public typealias PibioSensorStartCaptureExFn = PibioSensorStartCaptureExFnFn?
 
-public fun interface PIBIO_SENSOR_START_CAPTURE_FNFn {
-    public operator fun invoke(pipeline: Long, purpose: UByte, overlapped: Long): HRESULT
+public fun interface PibioSensorStartCaptureFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, purpose: UByte, overlapped: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_START_CAPTURE_FN = PIBIO_SENSOR_START_CAPTURE_FNFn?
+public typealias PibioSensorStartCaptureFn = PibioSensorStartCaptureFnFn?
 
-public fun interface PIBIO_SENSOR_START_NOTIFY_WAKE_FNFn {
-    public operator fun invoke(pipeline: Long, overlapped: Long): HRESULT
+public fun interface PibioSensorStartNotifyWakeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, overlapped: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_SENSOR_START_NOTIFY_WAKE_FN = PIBIO_SENSOR_START_NOTIFY_WAKE_FNFn?
+public typealias PibioSensorStartNotifyWakeFn = PibioSensorStartNotifyWakeFnFn?
 
-public fun interface PIBIO_STORAGE_ACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageActivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_ACTIVATE_FN = PIBIO_STORAGE_ACTIVATE_FNFn?
+public typealias PibioStorageActivateFn = PibioStorageActivateFnFn?
 
-public fun interface PIBIO_STORAGE_ADD_RECORD_FNFn {
-    public operator fun invoke(pipeline: Long, recordcontents: Long): HRESULT
+public fun interface PibioStorageAddRecordFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, recordcontents: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_ADD_RECORD_FN = PIBIO_STORAGE_ADD_RECORD_FNFn?
+public typealias PibioStorageAddRecordFn = PibioStorageAddRecordFnFn?
 
-public fun interface PIBIO_STORAGE_ATTACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageAttachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_ATTACH_FN = PIBIO_STORAGE_ATTACH_FNFn?
+public typealias PibioStorageAttachFn = PibioStorageAttachFnFn?
 
-public fun interface PIBIO_STORAGE_CLEAR_CONTEXT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageClearContextFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_CLEAR_CONTEXT_FN = PIBIO_STORAGE_CLEAR_CONTEXT_FNFn?
+public typealias PibioStorageClearContextFn = PibioStorageClearContextFnFn?
 
-public fun interface PIBIO_STORAGE_CLOSE_DATABASE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageCloseDatabaseFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_CLOSE_DATABASE_FN = PIBIO_STORAGE_CLOSE_DATABASE_FNFn?
+public typealias PibioStorageCloseDatabaseFn = PibioStorageCloseDatabaseFnFn?
 
-public fun interface PIBIO_STORAGE_CONTROL_UNIT_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioStorageControlUnitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_CONTROL_UNIT_FN = PIBIO_STORAGE_CONTROL_UNIT_FNFn?
+public typealias PibioStorageControlUnitFn = PibioStorageControlUnitFnFn?
 
-public fun interface PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FNFn {
-    public operator fun invoke(pipeline: Long, controlcode: UInt, sendbuffer: Long, sendbuffersize: ULong, receivebuffer: Long, receivebuffersize: ULong, receivedatasize: Long, operationstatus: Long): HRESULT
+public fun interface PibioStorageControlUnitPrivilegedFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, controlcode: UInt, sendbuffer: COpaquePointer?, sendbuffersize: ULong, receivebuffer: COpaquePointer?, receivebuffersize: ULong, receivedatasize: COpaquePointer?, operationstatus: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN = PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FNFn?
+public typealias PibioStorageControlUnitPrivilegedFn = PibioStorageControlUnitPrivilegedFnFn?
 
-public fun interface PIBIO_STORAGE_CREATE_DATABASE_FNFn {
-    public operator fun invoke(pipeline: Long, databaseid: Long, factor: UInt, format: Long, filepath: PCWSTR, connectstring: PCWSTR, indexelementcount: ULong, initialsize: ULong): HRESULT
+public fun interface PibioStorageCreateDatabaseFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, databaseid: COpaquePointer?, factor: UInt, format: COpaquePointer?, filepath: Pcwstr, connectstring: Pcwstr, indexelementcount: ULong, initialsize: ULong): Hresult
 }
 
-public typealias PIBIO_STORAGE_CREATE_DATABASE_FN = PIBIO_STORAGE_CREATE_DATABASE_FNFn?
+public typealias PibioStorageCreateDatabaseFn = PibioStorageCreateDatabaseFnFn?
 
-public fun interface PIBIO_STORAGE_DEACTIVATE_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageDeactivateFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_DEACTIVATE_FN = PIBIO_STORAGE_DEACTIVATE_FNFn?
+public typealias PibioStorageDeactivateFn = PibioStorageDeactivateFnFn?
 
-public fun interface PIBIO_STORAGE_DELETE_RECORD_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: UByte): HRESULT
+public fun interface PibioStorageDeleteRecordFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: UByte): Hresult
 }
 
-public typealias PIBIO_STORAGE_DELETE_RECORD_FN = PIBIO_STORAGE_DELETE_RECORD_FNFn?
+public typealias PibioStorageDeleteRecordFn = PibioStorageDeleteRecordFnFn?
 
-public fun interface PIBIO_STORAGE_DETACH_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageDetachFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_DETACH_FN = PIBIO_STORAGE_DETACH_FNFn?
+public typealias PibioStorageDetachFn = PibioStorageDetachFnFn?
 
-public fun interface PIBIO_STORAGE_ERASE_DATABASE_FNFn {
-    public operator fun invoke(pipeline: Long, databaseid: Long, filepath: PCWSTR, connectstring: PCWSTR): HRESULT
+public fun interface PibioStorageEraseDatabaseFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, databaseid: COpaquePointer?, filepath: Pcwstr, connectstring: Pcwstr): Hresult
 }
 
-public typealias PIBIO_STORAGE_ERASE_DATABASE_FN = PIBIO_STORAGE_ERASE_DATABASE_FNFn?
+public typealias PibioStorageEraseDatabaseFn = PibioStorageEraseDatabaseFnFn?
 
-public fun interface PIBIO_STORAGE_FIRST_RECORD_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageFirstRecordFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_FIRST_RECORD_FN = PIBIO_STORAGE_FIRST_RECORD_FNFn?
+public typealias PibioStorageFirstRecordFn = PibioStorageFirstRecordFnFn?
 
-public fun interface PIBIO_STORAGE_GET_CURRENT_RECORD_FNFn {
-    public operator fun invoke(pipeline: Long, recordcontents: Long): HRESULT
+public fun interface PibioStorageGetCurrentRecordFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, recordcontents: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_GET_CURRENT_RECORD_FN = PIBIO_STORAGE_GET_CURRENT_RECORD_FNFn?
+public typealias PibioStorageGetCurrentRecordFn = PibioStorageGetCurrentRecordFnFn?
 
-public fun interface PIBIO_STORAGE_GET_DATABASE_SIZE_FNFn {
-    public operator fun invoke(pipeline: Long, availablerecordcount: Long, totalrecordcount: Long): HRESULT
+public fun interface PibioStorageGetDatabaseSizeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, availablerecordcount: COpaquePointer?, totalrecordcount: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_GET_DATABASE_SIZE_FN = PIBIO_STORAGE_GET_DATABASE_SIZE_FNFn?
+public typealias PibioStorageGetDatabaseSizeFn = PibioStorageGetDatabaseSizeFnFn?
 
-public fun interface PIBIO_STORAGE_GET_DATA_FORMAT_FNFn {
-    public operator fun invoke(pipeline: Long, format: Long, version: Long): HRESULT
+public fun interface PibioStorageGetDataFormatFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, format: COpaquePointer?, version: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_GET_DATA_FORMAT_FN = PIBIO_STORAGE_GET_DATA_FORMAT_FNFn?
+public typealias PibioStorageGetDataFormatFn = PibioStorageGetDataFormatFnFn?
 
-public fun interface PIBIO_STORAGE_GET_RECORD_COUNT_FNFn {
-    public operator fun invoke(pipeline: Long, recordcount: Long): HRESULT
+public fun interface PibioStorageGetRecordCountFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, recordcount: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_GET_RECORD_COUNT_FN = PIBIO_STORAGE_GET_RECORD_COUNT_FNFn?
+public typealias PibioStorageGetRecordCountFn = PibioStorageGetRecordCountFnFn?
 
-public fun interface PIBIO_STORAGE_NEXT_RECORD_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStorageNextRecordFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_NEXT_RECORD_FN = PIBIO_STORAGE_NEXT_RECORD_FNFn?
+public typealias PibioStorageNextRecordFn = PibioStorageNextRecordFnFn?
 
-public fun interface PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FNFn {
-    public operator fun invoke(pipeline: Long, recordsadded: Boolean): HRESULT
+public fun interface PibioStorageNotifyDatabaseChangeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, recordsadded: Boolean): Hresult
 }
 
-public typealias PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN = PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FNFn?
+public typealias PibioStorageNotifyDatabaseChangeFn = PibioStorageNotifyDatabaseChangeFnFn?
 
-public fun interface PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FNFn {
-    public operator fun invoke(pipeline: Long, powereventtype: UInt): HRESULT
+public fun interface PibioStorageNotifyPowerChangeFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, powereventtype: UInt): Hresult
 }
 
-public typealias PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN = PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FNFn?
+public typealias PibioStorageNotifyPowerChangeFn = PibioStorageNotifyPowerChangeFnFn?
 
-public fun interface PIBIO_STORAGE_OPEN_DATABASE_FNFn {
-    public operator fun invoke(pipeline: Long, databaseid: Long, filepath: PCWSTR, connectstring: PCWSTR): HRESULT
+public fun interface PibioStorageOpenDatabaseFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, databaseid: COpaquePointer?, filepath: Pcwstr, connectstring: Pcwstr): Hresult
 }
 
-public typealias PIBIO_STORAGE_OPEN_DATABASE_FN = PIBIO_STORAGE_OPEN_DATABASE_FNFn?
+public typealias PibioStorageOpenDatabaseFn = PibioStorageOpenDatabaseFnFn?
 
-public fun interface PIBIO_STORAGE_PIPELINE_CLEANUP_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStoragePipelineCleanupFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_PIPELINE_CLEANUP_FN = PIBIO_STORAGE_PIPELINE_CLEANUP_FNFn?
+public typealias PibioStoragePipelineCleanupFn = PibioStoragePipelineCleanupFnFn?
 
-public fun interface PIBIO_STORAGE_PIPELINE_INIT_FNFn {
-    public operator fun invoke(pipeline: Long): HRESULT
+public fun interface PibioStoragePipelineInitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_PIPELINE_INIT_FN = PIBIO_STORAGE_PIPELINE_INIT_FNFn?
+public typealias PibioStoragePipelineInitFn = PibioStoragePipelineInitFnFn?
 
-public fun interface PIBIO_STORAGE_QUERY_BY_CONTENT_FNFn {
-    public operator fun invoke(pipeline: Long, subfactor: UByte, indexvector: Long, indexelementcount: ULong): HRESULT
+public fun interface PibioStorageQueryByContentFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, subfactor: UByte, indexvector: COpaquePointer?, indexelementcount: ULong): Hresult
 }
 
-public typealias PIBIO_STORAGE_QUERY_BY_CONTENT_FN = PIBIO_STORAGE_QUERY_BY_CONTENT_FNFn?
+public typealias PibioStorageQueryByContentFn = PibioStorageQueryByContentFnFn?
 
-public fun interface PIBIO_STORAGE_QUERY_BY_SUBJECT_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: UByte): HRESULT
+public fun interface PibioStorageQueryBySubjectFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: UByte): Hresult
 }
 
-public typealias PIBIO_STORAGE_QUERY_BY_SUBJECT_FN = PIBIO_STORAGE_QUERY_BY_SUBJECT_FNFn?
+public typealias PibioStorageQueryBySubjectFn = PibioStorageQueryBySubjectFnFn?
 
-public fun interface PIBIO_STORAGE_QUERY_EXTENDED_INFO_FNFn {
-    public operator fun invoke(pipeline: Long, storageinfo: Long, storageinfosize: ULong): HRESULT
+public fun interface PibioStorageQueryExtendedInfoFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, storageinfo: COpaquePointer?, storageinfosize: ULong): Hresult
 }
 
-public typealias PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN = PIBIO_STORAGE_QUERY_EXTENDED_INFO_FNFn?
+public typealias PibioStorageQueryExtendedInfoFn = PibioStorageQueryExtendedInfoFnFn?
 
-public fun interface PIBIO_STORAGE_RESERVED_1_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, reserved1: Long, reserved2: Long): HRESULT
+public fun interface PibioStorageReserved1FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_RESERVED_1_FN = PIBIO_STORAGE_RESERVED_1_FNFn?
+public typealias PibioStorageReserved1Fn = PibioStorageReserved1FnFn?
 
-public fun interface PIBIO_STORAGE_RESERVED_2_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long): HRESULT
+public fun interface PibioStorageReserved2FnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_RESERVED_2_FN = PIBIO_STORAGE_RESERVED_2_FNFn?
+public typealias PibioStorageReserved2Fn = PibioStorageReserved2FnFn?
 
-public fun interface PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FNFn {
-    public operator fun invoke(pipeline: Long, identity: Long, subfactor: UByte, recordcontents: Long): HRESULT
+public fun interface PibioStorageUpdateRecordBeginFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, identity: COpaquePointer?, subfactor: UByte, recordcontents: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN = PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FNFn?
+public typealias PibioStorageUpdateRecordBeginFn = PibioStorageUpdateRecordBeginFnFn?
 
-public fun interface PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FNFn {
-    public operator fun invoke(pipeline: Long, recordcontents: Long): HRESULT
+public fun interface PibioStorageUpdateRecordCommitFnFn {
+    public operator fun invoke(pipeline: COpaquePointer?, recordcontents: COpaquePointer?): Hresult
 }
 
-public typealias PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN = PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FNFn?
+public typealias PibioStorageUpdateRecordCommitFn = PibioStorageUpdateRecordCommitFnFn?
 
-public fun interface PWINBIO_ASYNC_COMPLETION_CALLBACKFn {
-    public operator fun invoke(asyncresult: Long)
+public fun interface PwinbioAsyncCompletionCallbackFn {
+    public operator fun invoke(asyncresult: COpaquePointer?)
 }
 
-public typealias PWINBIO_ASYNC_COMPLETION_CALLBACK = PWINBIO_ASYNC_COMPLETION_CALLBACKFn?
+public typealias PwinbioAsyncCompletionCallback = PwinbioAsyncCompletionCallbackFn?
 
-public fun interface PWINBIO_CAPTURE_CALLBACKFn {
-    public operator fun invoke(capturecallbackcontext: Long, operationstatus: HRESULT, unitid: UInt, sample: Long, samplesize: ULong, rejectdetail: UInt)
+public fun interface PwinbioCaptureCallbackFn {
+    public operator fun invoke(capturecallbackcontext: COpaquePointer?, operationstatus: Hresult, unitid: UInt, sample: COpaquePointer?, samplesize: ULong, rejectdetail: UInt)
 }
 
-public typealias PWINBIO_CAPTURE_CALLBACK = PWINBIO_CAPTURE_CALLBACKFn?
+public typealias PwinbioCaptureCallback = PwinbioCaptureCallbackFn?
 
-public fun interface PWINBIO_ENROLL_CAPTURE_CALLBACKFn {
-    public operator fun invoke(enrollcallbackcontext: Long, operationstatus: HRESULT, rejectdetail: UInt)
+public fun interface PwinbioEnrollCaptureCallbackFn {
+    public operator fun invoke(enrollcallbackcontext: COpaquePointer?, operationstatus: Hresult, rejectdetail: UInt)
 }
 
-public typealias PWINBIO_ENROLL_CAPTURE_CALLBACK = PWINBIO_ENROLL_CAPTURE_CALLBACKFn?
+public typealias PwinbioEnrollCaptureCallback = PwinbioEnrollCaptureCallbackFn?
 
-public fun interface PWINBIO_EVENT_CALLBACKFn {
-    public operator fun invoke(eventcallbackcontext: Long, operationstatus: HRESULT, event: Long)
+public fun interface PwinbioEventCallbackFn {
+    public operator fun invoke(eventcallbackcontext: COpaquePointer?, operationstatus: Hresult, event: COpaquePointer?)
 }
 
-public typealias PWINBIO_EVENT_CALLBACK = PWINBIO_EVENT_CALLBACKFn?
+public typealias PwinbioEventCallback = PwinbioEventCallbackFn?
 
-public fun interface PWINBIO_IDENTIFY_CALLBACKFn {
-    public operator fun invoke(identifycallbackcontext: Long, operationstatus: HRESULT, unitid: UInt, identity: Long, subfactor: UByte, rejectdetail: UInt)
+public fun interface PwinbioIdentifyCallbackFn {
+    public operator fun invoke(identifycallbackcontext: COpaquePointer?, operationstatus: Hresult, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, rejectdetail: UInt)
 }
 
-public typealias PWINBIO_IDENTIFY_CALLBACK = PWINBIO_IDENTIFY_CALLBACKFn?
+public typealias PwinbioIdentifyCallback = PwinbioIdentifyCallbackFn?
 
-public fun interface PWINBIO_LOCATE_SENSOR_CALLBACKFn {
-    public operator fun invoke(locatecallbackcontext: Long, operationstatus: HRESULT, unitid: UInt)
+public fun interface PwinbioLocateSensorCallbackFn {
+    public operator fun invoke(locatecallbackcontext: COpaquePointer?, operationstatus: Hresult, unitid: UInt)
 }
 
-public typealias PWINBIO_LOCATE_SENSOR_CALLBACK = PWINBIO_LOCATE_SENSOR_CALLBACKFn?
+public typealias PwinbioLocateSensorCallback = PwinbioLocateSensorCallbackFn?
 
-public fun interface PWINBIO_QUERY_ENGINE_INTERFACE_FNFn {
-    public operator fun invoke(engineinterface: Long): HRESULT
+public fun interface PwinbioQueryEngineInterfaceFnFn {
+    public operator fun invoke(engineinterface: COpaquePointer?): Hresult
 }
 
-public typealias PWINBIO_QUERY_ENGINE_INTERFACE_FN = PWINBIO_QUERY_ENGINE_INTERFACE_FNFn?
+public typealias PwinbioQueryEngineInterfaceFn = PwinbioQueryEngineInterfaceFnFn?
 
-public fun interface PWINBIO_QUERY_SENSOR_INTERFACE_FNFn {
-    public operator fun invoke(sensorinterface: Long): HRESULT
+public fun interface PwinbioQuerySensorInterfaceFnFn {
+    public operator fun invoke(sensorinterface: COpaquePointer?): Hresult
 }
 
-public typealias PWINBIO_QUERY_SENSOR_INTERFACE_FN = PWINBIO_QUERY_SENSOR_INTERFACE_FNFn?
+public typealias PwinbioQuerySensorInterfaceFn = PwinbioQuerySensorInterfaceFnFn?
 
-public fun interface PWINBIO_QUERY_STORAGE_INTERFACE_FNFn {
-    public operator fun invoke(storageinterface: Long): HRESULT
+public fun interface PwinbioQueryStorageInterfaceFnFn {
+    public operator fun invoke(storageinterface: COpaquePointer?): Hresult
 }
 
-public typealias PWINBIO_QUERY_STORAGE_INTERFACE_FN = PWINBIO_QUERY_STORAGE_INTERFACE_FNFn?
+public typealias PwinbioQueryStorageInterfaceFn = PwinbioQueryStorageInterfaceFnFn?
 
-public fun interface PWINBIO_VERIFY_CALLBACKFn {
-    public operator fun invoke(verifycallbackcontext: Long, operationstatus: HRESULT, unitid: UInt, match: Boolean, rejectdetail: UInt)
+public fun interface PwinbioVerifyCallbackFn {
+    public operator fun invoke(verifycallbackcontext: COpaquePointer?, operationstatus: Hresult, unitid: UInt, match: Boolean, rejectdetail: UInt)
 }
 
-public typealias PWINBIO_VERIFY_CALLBACK = PWINBIO_VERIFY_CALLBACKFn?
+public typealias PwinbioVerifyCallback = PwinbioVerifyCallbackFn?
 
-public typealias WINBIO_ANTI_SPOOF_POLICY_ACTION = Int
+public typealias WinbioAntiSpoofPolicyAction = Int
 
-public typealias WINBIO_ASYNC_NOTIFICATION_METHOD = Int
+public typealias WinbioAsyncNotificationMethod = Int
 
-public typealias WINBIO_COMPONENT = UInt
+public typealias WinbioComponent = UInt
 
-public typealias WINBIO_CREDENTIAL_FORMAT = Int
+public typealias WinbioCredentialFormat = Int
 
-public typealias WINBIO_CREDENTIAL_STATE = Int
+public typealias WinbioCredentialState = Int
 
-public typealias WINBIO_CREDENTIAL_TYPE = Int
+public typealias WinbioCredentialType = Int
 
-public typealias WINBIO_POLICY_SOURCE = Int
+public typealias WinbioPolicySource = Int
 
-public typealias WINBIO_POOL = UInt
+public typealias WinbioPool = UInt
 
-public typealias WINBIO_SETTING_SOURCE = UInt
+public typealias WinbioSettingSource = UInt
 
-public typealias WINIBIO_ENGINE_CONTEXT = Long
+public typealias WinibioEngineContext = Long
 
-public typealias WINIBIO_SENSOR_CONTEXT = Long
+public typealias WinibioSensorContext = Long
 
-public typealias WINIBIO_STORAGE_CONTEXT = Long
+public typealias WinibioStorageContext = Long

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_devices_webservicesondevices_WSDAllocateLinkedMemory(void* pparent, uint64_t cbsize) {
+void* windowssys_windows_win32_devices_webservicesondevices_wSDAllocateLinkedMemory(void* pparent, uint64_t cbsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_devices_webservicesondevices_WSDAllocateLinkedMem
 #endif
 }
 
-void windowssys_windows_win32_devices_webservicesondevices_WSDAttachLinkedMemory(void* pparent, void* pchild) {
+void windowssys_windows_win32_devices_webservicesondevices_wSDAttachLinkedMemory(void* pparent, void* pchild) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ void windowssys_windows_win32_devices_webservicesondevices_WSDAttachLinkedMemory
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHost(void* pszlocalid, void* pcontext, void* ppdevicehost) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost(void* pszlocalid, void* pcontext, void* ppdevicehost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHost2(void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdevicehost) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHost2(void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdevicehost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHostAdvanced(void* pszlocalid, void* pcontext, void* pphostaddresses, uint32_t dwhostaddresscount, void* ppdevicehost) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceHostAdvanced(void* pszlocalid, void* pcontext, void* pphostaddresses, uint32_t dwhostaddresscount, void* ppdevicehost) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceHos
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxy(void* pszdeviceid, void* pszlocalid, void* pcontext, void* ppdeviceproxy) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy(void* pszdeviceid, void* pszlocalid, void* pcontext, void* ppdeviceproxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDevicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxy2(void* pszdeviceid, void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdeviceproxy) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxy2(void* pszdeviceid, void* pszlocalid, void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppdeviceproxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -188,7 +188,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDevicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDeviceProxyAdvanced(void* pszdeviceid, void* pdeviceaddress, void* pszlocalid, void* pcontext, void* ppdeviceproxy) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDeviceProxyAdvanced(void* pszdeviceid, void* pdeviceaddress, void* pszlocalid, void* pcontext, void* ppdeviceproxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDevicePro
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryProvider(void* pcontext, void* ppprovider) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider(void* pcontext, void* ppprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -237,7 +237,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscovery
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryProvider2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppprovider) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryProvider2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* ppprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -262,7 +262,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscovery
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryPublisher(void* pcontext, void* pppublisher) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher(void* pcontext, void* pppublisher) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -285,7 +285,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscovery
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscoveryPublisher2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* pppublisher) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateDiscoveryPublisher2(void* pcontext, void* pconfigparams, uint32_t dwconfigparamcount, void* pppublisher) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -310,7 +310,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateDiscovery
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpAddress(void* ppaddress) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpAddress(void* ppaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -332,7 +332,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpAddre
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpMessageParameters(void* pptxparams) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateHttpMessageParameters(void* pptxparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateHttpMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateOutboundAttachment(void* ppattachment) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateOutboundAttachment(void* ppattachment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -376,7 +376,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateOutboundA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpAddress(void* ppaddress) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpAddress(void* ppaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpAddres
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpMessageParameters(void* pptxparams) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDCreateUdpMessageParameters(void* pptxparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -420,7 +420,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDCreateUdpMessag
 #endif
 }
 
-void windowssys_windows_win32_devices_webservicesondevices_WSDDetachLinkedMemory(void* pvoid) {
+void windowssys_windows_win32_devices_webservicesondevices_wSDDetachLinkedMemory(void* pvoid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -441,7 +441,7 @@ void windowssys_windows_win32_devices_webservicesondevices_WSDDetachLinkedMemory
 #endif
 }
 
-void windowssys_windows_win32_devices_webservicesondevices_WSDFreeLinkedMemory(void* pvoid) {
+void windowssys_windows_win32_devices_webservicesondevices_wSDFreeLinkedMemory(void* pvoid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -462,7 +462,7 @@ void windowssys_windows_win32_devices_webservicesondevices_WSDFreeLinkedMemory(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFault(void* pszcode, void* pszsubcode, void* pszreason, void* pszdetail, void* pcontext, void* ppfault) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFault(void* pszcode, void* pszsubcode, void* pszreason, void* pszdetail, void* pcontext, void* ppfault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -489,7 +489,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFault(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFaultEx(void* pcode, void* psubcode, void* preasons, void* pszdetail, void* ppfault) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGenerateFaultEx(void* pcode, void* psubcode, void* preasons, void* pszdetail, void* ppfault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGenerateFaultEx
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cboutbuffer) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDGetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cboutbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDGetConfiguratio
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDSetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cbinbuffer) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDSetConfigurationOption(uint32_t dwoption, void* pvoid, uint32_t cbinbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDSetConfiguratio
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriDecode(void* source, uint32_t cchsource, void* destout, void* cchdestout) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDUriDecode(void* source, uint32_t cchsource, void* destout, void* cchdestout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriDecode(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriEncode(void* source, uint32_t cchsource, void* destout, void* cchdestout) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDUriEncode(void* source, uint32_t cchsource, void* destout, void* cchdestout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -613,7 +613,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDUriEncode(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddChild(void* pparent, void* pchild) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddChild(void* pparent, void* pchild) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -636,7 +636,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddChild(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddSibling(void* pfirst, void* psecond) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLAddSibling(void* pfirst, void* psecond) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -659,7 +659,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLAddSibling(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLBuildAnyForSingleElement(void* pelementname, void* psztext, void* ppany) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLBuildAnyForSingleElement(void* pelementname, void* psztext, void* ppany) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -683,7 +683,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLBuildAnyForS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCleanupElement(void* pany) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLCleanupElement(void* pany) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -705,7 +705,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCleanupEleme
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCreateContext(void* ppcontext) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLCreateContext(void* ppcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -727,7 +727,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLCreateContex
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLGetNameFromBuiltinNamespace(void* psznamespace, void* pszname, void* ppname) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetNameFromBuiltinNamespace(void* psznamespace, void* pszname, void* ppname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -751,7 +751,7 @@ int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLGetNameFromB
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_webservicesondevices_WSDXMLGetValueFromAny(void* psznamespace, void* pszname, void* pany, void* ppszvalue) {
+int32_t windowssys_windows_win32_devices_webservicesondevices_wSDXMLGetValueFromAny(void* psznamespace, void* pszname, void* pany, void* ppszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

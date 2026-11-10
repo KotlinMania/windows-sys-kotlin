@@ -2,38 +2,39 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DefRawInputProc(parawinput: Long, ninput: Int, cbsizeheader: UInt): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_DefRawInputProc(parawinput.toCPointer<ByteVar>(), ninput, cbsizeheader)
+public actual fun defRawInputProc(parawinput: COpaquePointer?, ninput: Int, cbsizeheader: UInt): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_defRawInputProc(parawinput?.value?.toCPointer<ByteVar>(), ninput, cbsizeheader)
 
-public actual fun GetCIMSSM(inputmessagesource: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetCIMSSM(inputmessagesource.toCPointer<ByteVar>())
+public actual fun getCIMSSM(inputmessagesource: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getCIMSSM(inputmessagesource?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentInputMessageSource(inputmessagesource: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetCurrentInputMessageSource(inputmessagesource.toCPointer<ByteVar>())
+public actual fun getCurrentInputMessageSource(inputmessagesource: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getCurrentInputMessageSource(inputmessagesource?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRawInputBuffer(pdata: Long, pcbsize: Long, cbsizeheader: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRawInputBuffer(pdata.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>(), cbsizeheader)
+public actual fun getRawInputBuffer(pdata: COpaquePointer?, pcbsize: COpaquePointer?, cbsizeheader: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRawInputBuffer(pdata?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>(), cbsizeheader)
 
-public actual fun GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: Long, pcbsize: Long, cbsizeheader: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRawInputData(hrawinput.toCPointer<ByteVar>(), uicommand, pdata.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>(), cbsizeheader)
+public actual fun getRawInputData(hrawinput: Hrawinput, uicommand: RawInputDataCommandFlags, pdata: COpaquePointer?, pcbsize: COpaquePointer?, cbsizeheader: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRawInputData(hrawinput?.value?.toCPointer<ByteVar>(), uicommand, pdata?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>(), cbsizeheader)
 
-public actual fun GetRawInputDeviceInfoA(hdevice: HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Long, pcbsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRawInputDeviceInfoA(hdevice.toCPointer<ByteVar>(), uicommand, pdata.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun getRawInputDeviceInfoA(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: COpaquePointer?, pcbsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRawInputDeviceInfoA(hdevice?.value?.toCPointer<ByteVar>(), uicommand, pdata?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRawInputDeviceInfoW(hdevice: HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Long, pcbsize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRawInputDeviceInfoW(hdevice.toCPointer<ByteVar>(), uicommand, pdata.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun getRawInputDeviceInfoW(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: COpaquePointer?, pcbsize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRawInputDeviceInfoW(hdevice?.value?.toCPointer<ByteVar>(), uicommand, pdata?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRawInputDeviceList(prawinputdevicelist: Long, puinumdevices: Long, cbsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRawInputDeviceList(prawinputdevicelist.toCPointer<ByteVar>(), puinumdevices.toCPointer<ByteVar>(), cbsize)
+public actual fun getRawInputDeviceList(prawinputdevicelist: COpaquePointer?, puinumdevices: COpaquePointer?, cbsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRawInputDeviceList(prawinputdevicelist?.value?.toCPointer<ByteVar>(), puinumdevices?.value?.toCPointer<ByteVar>(), cbsize)
 
-public actual fun GetRegisteredRawInputDevices(prawinputdevices: Long, puinumdevices: Long, cbsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_GetRegisteredRawInputDevices(prawinputdevices.toCPointer<ByteVar>(), puinumdevices.toCPointer<ByteVar>(), cbsize)
+public actual fun getRegisteredRawInputDevices(prawinputdevices: COpaquePointer?, puinumdevices: COpaquePointer?, cbsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_getRegisteredRawInputDevices(prawinputdevices?.value?.toCPointer<ByteVar>(), puinumdevices?.value?.toCPointer<ByteVar>(), cbsize)
 
-public actual fun RegisterRawInputDevices(prawinputdevices: Long, uinumdevices: UInt, cbsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_RegisterRawInputDevices(prawinputdevices.toCPointer<ByteVar>(), uinumdevices, cbsize)
+public actual fun registerRawInputDevices(prawinputdevices: COpaquePointer?, uinumdevices: UInt, cbsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.cinterop.windowssys_windows_win32_ui_input_registerRawInputDevices(prawinputdevices?.value?.toCPointer<ByteVar>(), uinumdevices, cbsize)

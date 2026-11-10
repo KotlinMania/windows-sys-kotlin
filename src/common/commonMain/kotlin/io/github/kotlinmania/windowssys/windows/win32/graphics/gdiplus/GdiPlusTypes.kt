@@ -1,7 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
 
 public typealias Bitmap = Long
 
@@ -44,7 +45,7 @@ public typealias DashStyle = Int
 public typealias DebugEventLevel = Int
 
 public fun interface DebugEventProcFn {
-    public operator fun invoke(level: DebugEventLevel, message: PCSTR)
+    public operator fun invoke(level: DebugEventLevel, message: Pcstr)
 }
 
 public typealias DebugEventProc = DebugEventProcFn?
@@ -52,7 +53,7 @@ public typealias DebugEventProc = DebugEventProcFn?
 public typealias DitherType = Int
 
 public fun interface DrawImageAbortFn {
-    public operator fun invoke(): BOOL
+    public operator fun invoke(): Bool
 }
 
 public typealias DrawImageAbort = DrawImageAbortFn?
@@ -70,7 +71,7 @@ public typealias EncoderParameterValueType = Int
 public typealias EncoderValue = Int
 
 public fun interface EnumerateMetafileProcFn {
-    public operator fun invoke(param0: EmfPlusRecordType, param1: UInt, param2: UInt, param3: Long, param4: Long): BOOL
+    public operator fun invoke(param0: EmfPlusRecordType, param1: UInt, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?): Bool
 }
 
 public typealias EnumerateMetafileProc = EnumerateMetafileProcFn?
@@ -92,7 +93,7 @@ public typealias GdiplusStartupParams = Int
 public typealias GenericFontFamily = Int
 
 public fun interface GetThumbnailImageAbortFn {
-    public operator fun invoke(): BOOL
+    public operator fun invoke(): Bool
 }
 
 public typealias GetThumbnailImageAbort = GetThumbnailImageAbortFn?
@@ -108,7 +109,7 @@ public typealias HotkeyPrefix = Int
 public typealias Image = Long
 
 public fun interface ImageAbortFn {
-    public operator fun invoke(param0: Long): BOOL
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
 public typealias ImageAbort = ImageAbortFn?
@@ -144,7 +145,7 @@ public typealias MetafileFrameUnit = Int
 public typealias MetafileType = Int
 
 public fun interface NotificationHookProcFn {
-    public operator fun invoke(token: Long): Status
+    public operator fun invoke(token: COpaquePointer?): Status
 }
 
 public typealias NotificationHookProc = NotificationHookProcFn?

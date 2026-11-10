@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32DataRightsmanagementJniBridge {
     init {
@@ -14,506 +15,506 @@ private object WindowsWin32DataRightsmanagementJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAcquireAdvisories(hlicensestorage: Int, wszlicense: Long, wszurl: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(hlicensestorage: Int, wszlicense: Long, wszurl: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAcquireIssuanceLicenseTemplate(hclient: Int, uflags: Int, pvreserved: Long, ctemplates: Int, pwsztemplateids: Long, wszurl: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(hclient: Int, uflags: Int, pvreserved: Long, ctemplates: Int, pwsztemplateids: Long, wszurl: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAcquireLicense(hsession: Int, uflags: Int, wszgroupidentitycredential: Long, wszrequestedrights: Long, wszcustomdata: Long, wszurl: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(hsession: Int, uflags: Int, wszgroupidentitycredential: Long, wszrequestedrights: Long, wszcustomdata: Long, wszurl: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMActivate(hclient: Int, uflags: Int, ulangid: Int, pactservinfo: Long, pvcontext: Long, hparentwnd: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMActivate(hclient: Int, uflags: Int, ulangid: Int, pactservinfo: Long, pvcontext: Long, hparentwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAddLicense(hlicensestorage: Int, uflags: Int, wszlicense: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(hlicensestorage: Int, uflags: Int, wszlicense: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAddRightWithUser(hissuancelicense: Int, hright: Int, huser: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(hissuancelicense: Int, hright: Int, huser: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMAttest(henablingprincipal: Int, wszdata: Long, etype: Int, pcattestedblob: Long, wszattestedblob: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMAttest(henablingprincipal: Int, wszdata: Long, etype: Int, pcattestedblob: Long, wszattestedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCheckSecurity(henv: Int, clevel: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(henv: Int, clevel: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMClearAllRights(hissuancelicense: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(hissuancelicense: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCloseEnvironmentHandle(henv: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(henv: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCloseHandle(handle: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(handle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMClosePubHandle(hpub: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(hpub: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCloseQueryHandle(hquery: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(hquery: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCloseSession(hsession: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(hsession: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMConstructCertificateChain(ccertificates: Int, rgwszcertificates: Long, pcchain: Long, wszchain: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(ccertificates: Int, rgwszcertificates: Long, pcchain: Long, wszchain: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateBoundLicense(henv: Int, pparams: Long, wszlicensechain: Long, phboundlicense: Long, pherrorlog: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(henv: Int, pparams: Long, wszlicensechain: Long, phboundlicense: Long, pherrorlog: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateClientSession(pfncallback: Long, ucallbackversion: Int, wszgroupidprovidertype: Long, wszgroupid: Long, phclient: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(pfncallback: Long, ucallbackversion: Int, wszgroupidprovidertype: Long, wszgroupid: Long, phclient: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsDecryptor(hboundlicense: Int, wszright: Long, hauxlib: Int, wszauxplug: Long, phdecryptor: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(hboundlicense: Int, wszright: Long, hauxlib: Int, wszauxplug: Long, phdecryptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsEncryptor(hboundlicense: Int, wszright: Long, hauxlib: Int, wszauxplug: Long, phencryptor: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(hboundlicense: Int, wszright: Long, hauxlib: Int, wszauxplug: Long, phencryptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingPrincipal(henv: Int, hlibrary: Int, wszobject: Long, pidprincipal: Long, wszcredentials: Long, phenablingprincipal: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(henv: Int, hlibrary: Int, wszobject: Long, pidprincipal: Long, wszcredentials: Long, phenablingprincipal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateIssuanceLicense(psttimefrom: Long, psttimeuntil: Long, wszreferralinfoname: Long, wszreferralinfourl: Long, howner: Int, wszissuancelicense: Long, hboundlicense: Int, phissuancelicense: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(psttimefrom: Long, psttimeuntil: Long, wszreferralinfoname: Long, wszreferralinfourl: Long, howner: Int, wszissuancelicense: Long, hboundlicense: Int, phissuancelicense: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateLicenseStorageSession(henv: Int, hdefaultlibrary: Int, hclient: Int, uflags: Int, wszissuancelicense: Long, phlicensestorage: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(henv: Int, hdefaultlibrary: Int, hclient: Int, uflags: Int, wszissuancelicense: Long, phlicensestorage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateRight(wszrightname: Long, pstfrom: Long, pstuntil: Long, cextendedinfo: Int, pwszextendedinfoname: Long, pwszextendedinfovalue: Long, phright: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(wszrightname: Long, pstfrom: Long, pstuntil: Long, cextendedinfo: Int, pwszextendedinfoname: Long, pwszextendedinfovalue: Long, phright: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMCreateUser(wszusername: Long, wszuserid: Long, wszuseridtype: Long, phuser: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(wszusername: Long, wszuserid: Long, wszuseridtype: Long, phuser: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDecode(wszalgid: Long, wszencodedstring: Long, pudecodeddatalen: Long, pbdecodeddata: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDecode(wszalgid: Long, wszencodedstring: Long, pudecodeddatalen: Long, pbdecodeddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDeconstructCertificateChain(wszchain: Long, iwhich: Int, pccert: Long, wszcert: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain(wszchain: Long, iwhich: Int, pccert: Long, wszcert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDecrypt(hcryptoprovider: Int, iposition: Int, cnuminbytes: Int, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(hcryptoprovider: Int, iposition: Int, cnuminbytes: Int, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDeleteLicense(hsession: Int, wszlicenseid: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(hsession: Int, wszlicenseid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDuplicateEnvironmentHandle(htocopy: Int, phcopy: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(htocopy: Int, phcopy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDuplicateHandle(htocopy: Int, phcopy: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(htocopy: Int, phcopy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDuplicatePubHandle(hpubin: Int, phpubout: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(hpubin: Int, phpubout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMDuplicateSession(hsessionin: Int, phsessionout: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(hsessionin: Int, phsessionout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMEncode(wszalgid: Long, udatalen: Int, pbdecodeddata: Long, puencodedstringlen: Long, wszencodedstring: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMEncode(wszalgid: Long, udatalen: Int, pbdecodeddata: Long, puencodedstringlen: Long, wszencodedstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMEncrypt(hcryptoprovider: Int, iposition: Int, cnuminbytes: Int, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(hcryptoprovider: Int, iposition: Int, cnuminbytes: Int, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMEnumerateLicense(hsession: Int, uflags: Int, uindex: Int, pfsharedflag: Long, pucertificatedatalen: Long, wszcertificatedata: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(hsession: Int, uflags: Int, uindex: Int, pfsharedflag: Long, pucertificatedatalen: Long, wszcertificatedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetApplicationSpecificData(hissuancelicense: Int, uindex: Int, punamelength: Long, wszname: Long, puvaluelength: Long, wszvalue: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(hissuancelicense: Int, uindex: Int, punamelength: Long, wszname: Long, puvaluelength: Long, wszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttribute(hqueryroot: Int, wszattribute: Long, iwhich: Int, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(hqueryroot: Int, wszattribute: Long, iwhich: Int, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttributeCount(hqueryroot: Int, wszattribute: Long, pcattributes: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(hqueryroot: Int, wszattribute: Long, pcattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObject(hqueryroot: Int, wszsubobjecttype: Long, iwhich: Int, phsubobject: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(hqueryroot: Int, wszsubobjecttype: Long, iwhich: Int, phsubobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObjectCount(hqueryroot: Int, wszsubobjecttype: Long, pcsubobjects: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(hqueryroot: Int, wszsubobjecttype: Long, pcsubobjects: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetCertificateChainCount(wszchain: Long, pccertcount: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount(wszchain: Long, pccertcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetClientVersion(pdrmclientversioninfo: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(pdrmclientversioninfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetEnvironmentInfo(handle: Int, wszattribute: Long, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(handle: Int, wszattribute: Long, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetInfo(handle: Int, wszattribute: Long, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(handle: Int, wszattribute: Long, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetIntervalTime(hissuancelicense: Int, pcdays: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(hissuancelicense: Int, pcdays: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseInfo(hissuancelicense: Int, psttimefrom: Long, psttimeuntil: Long, uflags: Int, pudistributionpointnamelength: Long, wszdistributionpointname: Long, pudistributionpointurllength: Long, wszdistributionpointurl: Long, phowner: Long, pfofficial: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(hissuancelicense: Int, psttimefrom: Long, psttimeuntil: Long, uflags: Int, pudistributionpointnamelength: Long, wszdistributionpointname: Long, pudistributionpointurllength: Long, wszdistributionpointurl: Long, phowner: Long, pfofficial: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseTemplate(hissuancelicense: Int, puissuancelicensetemplatelength: Long, wszissuancelicensetemplate: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(hissuancelicense: Int, puissuancelicensetemplatelength: Long, wszissuancelicensetemplate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetMetaData(hissuancelicense: Int, pucontentidlength: Long, wszcontentid: Long, pucontentidtypelength: Long, wszcontentidtype: Long, puskuidlength: Long, wszskuid: Long, puskuidtypelength: Long, wszskuidtype: Long, pucontenttypelength: Long, wszcontenttype: Long, pucontentnamelength: Long, wszcontentname: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(hissuancelicense: Int, pucontentidlength: Long, wszcontentid: Long, pucontentidtypelength: Long, wszcontentidtype: Long, puskuidlength: Long, wszskuid: Long, puskuidtypelength: Long, wszskuidtype: Long, pucontenttypelength: Long, wszcontenttype: Long, pucontentnamelength: Long, wszcontentname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetNameAndDescription(hissuancelicense: Int, uindex: Int, pulcid: Long, punamelength: Long, wszname: Long, pudescriptionlength: Long, wszdescription: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(hissuancelicense: Int, uindex: Int, pulcid: Long, punamelength: Long, wszname: Long, pudescriptionlength: Long, wszdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetOwnerLicense(hissuancelicense: Int, puownerlicenselength: Long, wszownerlicense: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(hissuancelicense: Int, puownerlicenselength: Long, wszownerlicense: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetProcAddress(hlibrary: Int, wszprocname: Long, ppfnprocaddress: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(hlibrary: Int, wszprocname: Long, ppfnprocaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetRevocationPoint(hissuancelicense: Int, puidlength: Long, wszid: Long, puidtypelength: Long, wszidtype: Long, puurllength: Long, wszrl: Long, pstfrequency: Long, punamelength: Long, wszname: Long, pupublickeylength: Long, wszpublickey: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(hissuancelicense: Int, puidlength: Long, wszid: Long, puidtypelength: Long, wszidtype: Long, puurllength: Long, wszrl: Long, pstfrequency: Long, punamelength: Long, wszname: Long, pupublickeylength: Long, wszpublickey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetRightExtendedInfo(hright: Int, uindex: Int, puextendedinfonamelength: Long, wszextendedinfoname: Long, puextendedinfovaluelength: Long, wszextendedinfovalue: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(hright: Int, uindex: Int, puextendedinfonamelength: Long, wszextendedinfoname: Long, puextendedinfovaluelength: Long, wszextendedinfovalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetRightInfo(hright: Int, purightnamelength: Long, wszrightname: Long, pstfrom: Long, pstuntil: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(hright: Int, purightnamelength: Long, wszrightname: Long, pstfrom: Long, pstuntil: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetSecurityProvider(uflags: Int, putypelen: Long, wsztype: Long, pupathlen: Long, wszpath: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(uflags: Int, putypelen: Long, wsztype: Long, pupathlen: Long, wszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetServiceLocation(hclient: Int, uservicetype: Int, uservicelocation: Int, wszissuancelicense: Long, puserviceurllength: Long, wszserviceurl: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(hclient: Int, uservicetype: Int, uservicelocation: Int, wszissuancelicense: Long, puserviceurllength: Long, wszserviceurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicense(henv: Int, hissuancelicense: Int, uflags: Int, pbsymkey: Long, cbsymkey: Int, wszsymkeytype: Long, wszclientlicensorcertificate: Long, pfncallback: Long, wszurl: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(henv: Int, hissuancelicense: Int, uflags: Int, pbsymkey: Long, cbsymkey: Int, wszsymkeytype: Long, wszclientlicensorcertificate: Long, pfncallback: Long, wszurl: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicenseEx(henv: Int, hissuancelicense: Int, uflags: Int, pbsymkey: Long, cbsymkey: Int, wszsymkeytype: Long, pvreserved: Long, henablingprincipal: Int, hboundlicenseclc: Int, pfncallback: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(henv: Int, hissuancelicense: Int, uflags: Int, pbsymkey: Long, cbsymkey: Int, wszsymkeytype: Long, pvreserved: Long, henablingprincipal: Int, hboundlicenseclc: Int, pfncallback: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetTime(henv: Int, etimeridtype: Int, potimeobject: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetTime(henv: Int, etimeridtype: Int, potimeobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttribute(hqueryroot: Int, wszattributetype: Long, iwhich: Int, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(hqueryroot: Int, wszattributetype: Long, iwhich: Int, peencoding: Long, pcbuffer: Long, pbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttributeCount(hqueryroot: Int, wszattributetype: Long, pcattributes: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(hqueryroot: Int, wszattributetype: Long, pcattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObject(hqueryroot: Int, wszsubobjecttype: Long, iindex: Int, phsubquery: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(hqueryroot: Int, wszsubobjecttype: Long, iindex: Int, phsubquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObjectCount(hqueryroot: Int, wszsubobjecttype: Long, pcsubobjects: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(hqueryroot: Int, wszsubobjecttype: Long, pcsubobjects: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUsagePolicy(hissuancelicense: Int, uindex: Int, peusagepolicytype: Long, pfexclusion: Long, punamelength: Long, wszname: Long, puminversionlength: Long, wszminversion: Long, pumaxversionlength: Long, wszmaxversion: Long, pupublickeylength: Long, wszpublickey: Long, pudigestalgorithmlength: Long, wszdigestalgorithm: Long, pcbdigest: Long, pbdigest: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(hissuancelicense: Int, uindex: Int, peusagepolicytype: Long, pfexclusion: Long, punamelength: Long, wszname: Long, puminversionlength: Long, wszminversion: Long, pumaxversionlength: Long, wszmaxversion: Long, pupublickeylength: Long, wszpublickey: Long, pudigestalgorithmlength: Long, wszdigestalgorithm: Long, pcbdigest: Long, pbdigest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUserInfo(huser: Int, puusernamelength: Long, wszusername: Long, puuseridlength: Long, wszuserid: Long, puuseridtypelength: Long, wszuseridtype: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(huser: Int, puusernamelength: Long, wszusername: Long, puuseridlength: Long, wszuserid: Long, puuseridtypelength: Long, wszuseridtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUserRights(hissuancelicense: Int, huser: Int, uindex: Int, phright: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(hissuancelicense: Int, huser: Int, uindex: Int, phright: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMGetUsers(hissuancelicense: Int, uindex: Int, phuser: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(hissuancelicense: Int, uindex: Int, phuser: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMInitEnvironment(esecurityprovidertype: Int, especification: Int, wszsecurityprovider: Long, wszmanifestcredentials: Long, wszmachinecredentials: Long, phenv: Long, phdefaultlibrary: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(esecurityprovidertype: Int, especification: Int, wszsecurityprovider: Long, wszmanifestcredentials: Long, wszmachinecredentials: Long, phenv: Long, phdefaultlibrary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMIsActivated(hclient: Int, uflags: Int, pactservinfo: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(hclient: Int, uflags: Int, pactservinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMIsWindowProtected(hwnd: Long, pfprotected: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(hwnd: Long, pfprotected: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMLoadLibrary(henv: Int, especification: Int, wszlibraryprovider: Long, wszcredentials: Long, phlibrary: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(henv: Int, especification: Int, wszlibraryprovider: Long, wszcredentials: Long, phlibrary: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMParseUnboundLicense(wszcertificate: Long, phqueryroot: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(wszcertificate: Long, phqueryroot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMRegisterContent(fregister: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(fregister: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMRegisterProtectedWindow(henv: Int, hwnd: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(henv: Int, hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMRegisterRevocationList(henv: Int, wszrevocationlist: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(henv: Int, wszrevocationlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMRepair(): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMRepair(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetApplicationSpecificData(hissuancelicense: Int, fdelete: Int, wszname: Long, wszvalue: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(hissuancelicense: Int, fdelete: Int, wszname: Long, wszvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetGlobalOptions(eglobaloptions: Int, pvdata: Long, dwlen: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(eglobaloptions: Int, pvdata: Long, dwlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetIntervalTime(hissuancelicense: Int, cdays: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(hissuancelicense: Int, cdays: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetMetaData(hissuancelicense: Int, wszcontentid: Long, wszcontentidtype: Long, wszskuid: Long, wszskuidtype: Long, wszcontenttype: Long, wszcontentname: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(hissuancelicense: Int, wszcontentid: Long, wszcontentidtype: Long, wszskuid: Long, wszskuidtype: Long, wszcontenttype: Long, wszcontentname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetNameAndDescription(hissuancelicense: Int, fdelete: Int, lcid: Int, wszname: Long, wszdescription: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(hissuancelicense: Int, fdelete: Int, lcid: Int, wszname: Long, wszdescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetRevocationPoint(hissuancelicense: Int, fdelete: Int, wszid: Long, wszidtype: Long, wszurl: Long, pstfrequency: Long, wszname: Long, wszpublickey: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(hissuancelicense: Int, fdelete: Int, wszid: Long, wszidtype: Long, wszurl: Long, pstfrequency: Long, wszname: Long, wszpublickey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMSetUsagePolicy(hissuancelicense: Int, eusagepolicytype: Int, fdelete: Int, fexclusion: Int, wszname: Long, wszminversion: Long, wszmaxversion: Long, wszpublickey: Long, wszdigestalgorithm: Long, pbdigest: Long, cbdigest: Int): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(hissuancelicense: Int, eusagepolicytype: Int, fdelete: Int, fexclusion: Int, wszname: Long, wszminversion: Long, wszmaxversion: Long, wszpublickey: Long, wszdigestalgorithm: Long, pbdigest: Long, cbdigest: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_rightsmanagement_DRMVerify(wszdata: Long, pcattesteddata: Long, wszattesteddata: Long, petype: Long, pcprincipal: Long, wszprincipal: Long, pcmanifest: Long, wszmanifest: Long): Int
+    external fun windowssys_windows_win32_data_rightsmanagement_dRMVerify(wszdata: Long, pcattesteddata: Long, wszattesteddata: Long, petype: Long, pcprincipal: Long, wszprincipal: Long, pcmanifest: Long, wszmanifest: Long): Int
 }
 
-public actual fun DRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: PCWSTR, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAcquireAdvisories(hlicensestorage.toInt(), wszlicense, wszurl, pvcontext)
+public actual fun dRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(hlicensestorage.toInt(), (wszlicense?.value ?: 0L), (wszurl?.value ?: 0L), (pvcontext?.value ?: 0L))
 
-public actual fun DRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: Long, ctemplates: UInt, pwsztemplateids: Long, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAcquireIssuanceLicenseTemplate(hclient.toInt(), uflags.toInt(), pvreserved, ctemplates.toInt(), pwsztemplateids, wszurl, pvcontext)
+public actual fun dRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: COpaquePointer?, ctemplates: UInt, pwsztemplateids: COpaquePointer?, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(hclient.toInt(), uflags.toInt(), (pvreserved?.value ?: 0L), ctemplates.toInt(), (pwsztemplateids?.value ?: 0L), (wszurl?.value ?: 0L), (pvcontext?.value ?: 0L))
 
-public actual fun DRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: PCWSTR, wszrequestedrights: PCWSTR, wszcustomdata: PCWSTR, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAcquireLicense(hsession.toInt(), uflags.toInt(), wszgroupidentitycredential, wszrequestedrights, wszcustomdata, wszurl, pvcontext)
+public actual fun dRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: Pcwstr, wszrequestedrights: Pcwstr, wszcustomdata: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(hsession.toInt(), uflags.toInt(), (wszgroupidentitycredential?.value ?: 0L), (wszrequestedrights?.value ?: 0L), (wszcustomdata?.value ?: 0L), (wszurl?.value ?: 0L), (pvcontext?.value ?: 0L))
 
-public actual fun DRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: Long, pvcontext: Long, hparentwnd: HWND): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMActivate(hclient.toInt(), uflags.toInt(), ulangid.toInt(), pactservinfo, pvcontext, hparentwnd)
+public actual fun dRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: COpaquePointer?, pvcontext: COpaquePointer?, hparentwnd: Hwnd): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMActivate(hclient.toInt(), uflags.toInt(), ulangid.toInt(), (pactservinfo?.value ?: 0L), (pvcontext?.value ?: 0L), (hparentwnd?.value ?: 0L))
 
-public actual fun DRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAddLicense(hlicensestorage.toInt(), uflags.toInt(), wszlicense)
+public actual fun dRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(hlicensestorage.toInt(), uflags.toInt(), (wszlicense?.value ?: 0L))
 
-public actual fun DRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt())
+public actual fun dRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt())
 
-public actual fun DRMAttest(henablingprincipal: UInt, wszdata: PCWSTR, etype: DRMATTESTTYPE, pcattestedblob: Long, wszattestedblob: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMAttest(henablingprincipal.toInt(), wszdata, etype, pcattestedblob, wszattestedblob)
+public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Drmattesttype, pcattestedblob: COpaquePointer?, wszattestedblob: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMAttest(henablingprincipal.toInt(), (wszdata?.value ?: 0L), etype, (pcattestedblob?.value ?: 0L), (wszattestedblob?.value ?: 0L))
 
-public actual fun DRMCheckSecurity(henv: UInt, clevel: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCheckSecurity(henv.toInt(), clevel.toInt())
+public actual fun dRMCheckSecurity(henv: UInt, clevel: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(henv.toInt(), clevel.toInt())
 
-public actual fun DRMClearAllRights(hissuancelicense: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMClearAllRights(hissuancelicense.toInt())
+public actual fun dRMClearAllRights(hissuancelicense: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(hissuancelicense.toInt())
 
-public actual fun DRMCloseEnvironmentHandle(henv: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCloseEnvironmentHandle(henv.toInt())
+public actual fun dRMCloseEnvironmentHandle(henv: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(henv.toInt())
 
-public actual fun DRMCloseHandle(handle: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCloseHandle(handle.toInt())
+public actual fun dRMCloseHandle(handle: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(handle.toInt())
 
-public actual fun DRMClosePubHandle(hpub: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMClosePubHandle(hpub.toInt())
+public actual fun dRMClosePubHandle(hpub: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(hpub.toInt())
 
-public actual fun DRMCloseQueryHandle(hquery: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCloseQueryHandle(hquery.toInt())
+public actual fun dRMCloseQueryHandle(hquery: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(hquery.toInt())
 
-public actual fun DRMCloseSession(hsession: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCloseSession(hsession.toInt())
+public actual fun dRMCloseSession(hsession: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(hsession.toInt())
 
-public actual fun DRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: Long, pcchain: Long, wszchain: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMConstructCertificateChain(ccertificates.toInt(), rgwszcertificates, pcchain, wszchain)
+public actual fun dRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: COpaquePointer?, pcchain: COpaquePointer?, wszchain: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(ccertificates.toInt(), (rgwszcertificates?.value ?: 0L), (pcchain?.value ?: 0L), (wszchain?.value ?: 0L))
 
-public actual fun DRMCreateBoundLicense(henv: UInt, pparams: Long, wszlicensechain: PCWSTR, phboundlicense: Long, pherrorlog: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateBoundLicense(henv.toInt(), pparams, wszlicensechain, phboundlicense, pherrorlog)
+public actual fun dRMCreateBoundLicense(henv: UInt, pparams: COpaquePointer?, wszlicensechain: Pcwstr, phboundlicense: COpaquePointer?, pherrorlog: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(henv.toInt(), (pparams?.value ?: 0L), (wszlicensechain?.value ?: 0L), (phboundlicense?.value ?: 0L), (pherrorlog?.value ?: 0L))
 
-public actual fun DRMCreateClientSession(pfncallback: DRMCALLBACK, ucallbackversion: UInt, wszgroupidprovidertype: PCWSTR, wszgroupid: PCWSTR, phclient: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateClientSession(pfncallback.toLong(), ucallbackversion.toInt(), wszgroupidprovidertype, wszgroupid, phclient)
+public actual fun dRMCreateClientSession(pfncallback: Drmcallback, ucallbackversion: UInt, wszgroupidprovidertype: Pcwstr, wszgroupid: Pcwstr, phclient: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(0L, ucallbackversion.toInt(), (wszgroupidprovidertype?.value ?: 0L), (wszgroupid?.value ?: 0L), (phclient?.value ?: 0L))
 
-public actual fun DRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: PCWSTR, hauxlib: UInt, wszauxplug: PCWSTR, phdecryptor: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsDecryptor(hboundlicense.toInt(), wszright, hauxlib.toInt(), wszauxplug, phdecryptor)
+public actual fun dRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phdecryptor: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(hboundlicense.toInt(), (wszright?.value ?: 0L), hauxlib.toInt(), (wszauxplug?.value ?: 0L), (phdecryptor?.value ?: 0L))
 
-public actual fun DRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: PCWSTR, hauxlib: UInt, wszauxplug: PCWSTR, phencryptor: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsEncryptor(hboundlicense.toInt(), wszright, hauxlib.toInt(), wszauxplug, phencryptor)
+public actual fun dRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phencryptor: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(hboundlicense.toInt(), (wszright?.value ?: 0L), hauxlib.toInt(), (wszauxplug?.value ?: 0L), (phencryptor?.value ?: 0L))
 
-public actual fun DRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: PCWSTR, pidprincipal: Long, wszcredentials: PCWSTR, phenablingprincipal: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingPrincipal(henv.toInt(), hlibrary.toInt(), wszobject, pidprincipal, wszcredentials, phenablingprincipal)
+public actual fun dRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: Pcwstr, pidprincipal: COpaquePointer?, wszcredentials: Pcwstr, phenablingprincipal: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(henv.toInt(), hlibrary.toInt(), (wszobject?.value ?: 0L), (pidprincipal?.value ?: 0L), (wszcredentials?.value ?: 0L), (phenablingprincipal?.value ?: 0L))
 
-public actual fun DRMCreateIssuanceLicense(psttimefrom: Long, psttimeuntil: Long, wszreferralinfoname: PCWSTR, wszreferralinfourl: PCWSTR, howner: UInt, wszissuancelicense: PCWSTR, hboundlicense: UInt, phissuancelicense: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateIssuanceLicense(psttimefrom, psttimeuntil, wszreferralinfoname, wszreferralinfourl, howner.toInt(), wszissuancelicense, hboundlicense.toInt(), phissuancelicense)
+public actual fun dRMCreateIssuanceLicense(psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, wszreferralinfoname: Pcwstr, wszreferralinfourl: Pcwstr, howner: UInt, wszissuancelicense: Pcwstr, hboundlicense: UInt, phissuancelicense: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense((psttimefrom?.value ?: 0L), (psttimeuntil?.value ?: 0L), (wszreferralinfoname?.value ?: 0L), (wszreferralinfourl?.value ?: 0L), howner.toInt(), (wszissuancelicense?.value ?: 0L), hboundlicense.toInt(), (phissuancelicense?.value ?: 0L))
 
-public actual fun DRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: PCWSTR, phlicensestorage: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateLicenseStorageSession(henv.toInt(), hdefaultlibrary.toInt(), hclient.toInt(), uflags.toInt(), wszissuancelicense, phlicensestorage)
+public actual fun dRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: Pcwstr, phlicensestorage: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(henv.toInt(), hdefaultlibrary.toInt(), hclient.toInt(), uflags.toInt(), (wszissuancelicense?.value ?: 0L), (phlicensestorage?.value ?: 0L))
 
-public actual fun DRMCreateRight(wszrightname: PCWSTR, pstfrom: Long, pstuntil: Long, cextendedinfo: UInt, pwszextendedinfoname: Long, pwszextendedinfovalue: Long, phright: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateRight(wszrightname, pstfrom, pstuntil, cextendedinfo.toInt(), pwszextendedinfoname, pwszextendedinfovalue, phright)
+public actual fun dRMCreateRight(wszrightname: Pcwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?, cextendedinfo: UInt, pwszextendedinfoname: COpaquePointer?, pwszextendedinfovalue: COpaquePointer?, phright: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateRight((wszrightname?.value ?: 0L), (pstfrom?.value ?: 0L), (pstuntil?.value ?: 0L), cextendedinfo.toInt(), (pwszextendedinfoname?.value ?: 0L), (pwszextendedinfovalue?.value ?: 0L), (phright?.value ?: 0L))
 
-public actual fun DRMCreateUser(wszusername: PCWSTR, wszuserid: PCWSTR, wszuseridtype: PCWSTR, phuser: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMCreateUser(wszusername, wszuserid, wszuseridtype, phuser)
+public actual fun dRMCreateUser(wszusername: Pcwstr, wszuserid: Pcwstr, wszuseridtype: Pcwstr, phuser: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMCreateUser((wszusername?.value ?: 0L), (wszuserid?.value ?: 0L), (wszuseridtype?.value ?: 0L), (phuser?.value ?: 0L))
 
-public actual fun DRMDecode(wszalgid: PCWSTR, wszencodedstring: PCWSTR, pudecodeddatalen: Long, pbdecodeddata: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDecode(wszalgid, wszencodedstring, pudecodeddatalen, pbdecodeddata)
+public actual fun dRMDecode(wszalgid: Pcwstr, wszencodedstring: Pcwstr, pudecodeddatalen: COpaquePointer?, pbdecodeddata: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDecode((wszalgid?.value ?: 0L), (wszencodedstring?.value ?: 0L), (pudecodeddatalen?.value ?: 0L), (pbdecodeddata?.value ?: 0L))
 
-public actual fun DRMDeconstructCertificateChain(wszchain: PCWSTR, iwhich: UInt, pccert: Long, wszcert: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDeconstructCertificateChain(wszchain, iwhich.toInt(), pccert, wszcert)
+public actual fun dRMDeconstructCertificateChain(wszchain: Pcwstr, iwhich: UInt, pccert: COpaquePointer?, wszcert: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain((wszchain?.value ?: 0L), iwhich.toInt(), (pccert?.value ?: 0L), (wszcert?.value ?: 0L))
 
-public actual fun DRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDecrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), pbindata, pcnumoutbytes, pboutdata)
+public actual fun dRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), (pbindata?.value ?: 0L), (pcnumoutbytes?.value ?: 0L), (pboutdata?.value ?: 0L))
 
-public actual fun DRMDeleteLicense(hsession: UInt, wszlicenseid: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDeleteLicense(hsession.toInt(), wszlicenseid)
+public actual fun dRMDeleteLicense(hsession: UInt, wszlicenseid: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(hsession.toInt(), (wszlicenseid?.value ?: 0L))
 
-public actual fun DRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateEnvironmentHandle(htocopy.toInt(), phcopy)
+public actual fun dRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(htocopy.toInt(), (phcopy?.value ?: 0L))
 
-public actual fun DRMDuplicateHandle(htocopy: UInt, phcopy: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateHandle(htocopy.toInt(), phcopy)
+public actual fun dRMDuplicateHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(htocopy.toInt(), (phcopy?.value ?: 0L))
 
-public actual fun DRMDuplicatePubHandle(hpubin: UInt, phpubout: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDuplicatePubHandle(hpubin.toInt(), phpubout)
+public actual fun dRMDuplicatePubHandle(hpubin: UInt, phpubout: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(hpubin.toInt(), (phpubout?.value ?: 0L))
 
-public actual fun DRMDuplicateSession(hsessionin: UInt, phsessionout: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateSession(hsessionin.toInt(), phsessionout)
+public actual fun dRMDuplicateSession(hsessionin: UInt, phsessionout: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(hsessionin.toInt(), (phsessionout?.value ?: 0L))
 
-public actual fun DRMEncode(wszalgid: PCWSTR, udatalen: UInt, pbdecodeddata: Long, puencodedstringlen: Long, wszencodedstring: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMEncode(wszalgid, udatalen.toInt(), pbdecodeddata, puencodedstringlen, wszencodedstring)
+public actual fun dRMEncode(wszalgid: Pcwstr, udatalen: UInt, pbdecodeddata: COpaquePointer?, puencodedstringlen: COpaquePointer?, wszencodedstring: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMEncode((wszalgid?.value ?: 0L), udatalen.toInt(), (pbdecodeddata?.value ?: 0L), (puencodedstringlen?.value ?: 0L), (wszencodedstring?.value ?: 0L))
 
-public actual fun DRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMEncrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), pbindata, pcnumoutbytes, pboutdata)
+public actual fun dRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), (pbindata?.value ?: 0L), (pcnumoutbytes?.value ?: 0L), (pboutdata?.value ?: 0L))
 
-public actual fun DRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: Long, pucertificatedatalen: Long, wszcertificatedata: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMEnumerateLicense(hsession.toInt(), uflags.toInt(), uindex.toInt(), pfsharedflag, pucertificatedatalen, wszcertificatedata)
+public actual fun dRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: COpaquePointer?, pucertificatedatalen: COpaquePointer?, wszcertificatedata: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(hsession.toInt(), uflags.toInt(), uindex.toInt(), (pfsharedflag?.value ?: 0L), (pucertificatedatalen?.value ?: 0L), (wszcertificatedata?.value ?: 0L))
 
-public actual fun DRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: Long, wszname: PWSTR, puvaluelength: Long, wszvalue: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetApplicationSpecificData(hissuancelicense.toInt(), uindex.toInt(), punamelength, wszname, puvaluelength, wszvalue)
+public actual fun dRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: COpaquePointer?, wszname: Pwstr, puvaluelength: COpaquePointer?, wszvalue: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(hissuancelicense.toInt(), uindex.toInt(), (punamelength?.value ?: 0L), (wszname?.value ?: 0L), (puvaluelength?.value ?: 0L), (wszvalue?.value ?: 0L))
 
-public actual fun DRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: PCWSTR, iwhich: UInt, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttribute(hqueryroot.toInt(), wszattribute, iwhich.toInt(), peencoding, pcbuffer, pbbuffer)
+public actual fun dRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(hqueryroot.toInt(), (wszattribute?.value ?: 0L), iwhich.toInt(), (peencoding?.value ?: 0L), (pcbuffer?.value ?: 0L), (pbbuffer?.value ?: 0L))
 
-public actual fun DRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: PCWSTR, pcattributes: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttributeCount(hqueryroot.toInt(), wszattribute, pcattributes)
+public actual fun dRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: Pcwstr, pcattributes: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(hqueryroot.toInt(), (wszattribute?.value ?: 0L), (pcattributes?.value ?: 0L))
 
-public actual fun DRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: PCWSTR, iwhich: UInt, phsubobject: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObject(hqueryroot.toInt(), wszsubobjecttype, iwhich.toInt(), phsubobject)
+public actual fun dRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iwhich: UInt, phsubobject: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L), iwhich.toInt(), (phsubobject?.value ?: 0L))
 
-public actual fun DRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: PCWSTR, pcsubobjects: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObjectCount(hqueryroot.toInt(), wszsubobjecttype, pcsubobjects)
+public actual fun dRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L), (pcsubobjects?.value ?: 0L))
 
-public actual fun DRMGetCertificateChainCount(wszchain: PCWSTR, pccertcount: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetCertificateChainCount(wszchain, pccertcount)
+public actual fun dRMGetCertificateChainCount(wszchain: Pcwstr, pccertcount: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount((wszchain?.value ?: 0L), (pccertcount?.value ?: 0L))
 
-public actual fun DRMGetClientVersion(pdrmclientversioninfo: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetClientVersion(pdrmclientversioninfo)
+public actual fun dRMGetClientVersion(pdrmclientversioninfo: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion((pdrmclientversioninfo?.value ?: 0L))
 
-public actual fun DRMGetEnvironmentInfo(handle: UInt, wszattribute: PCWSTR, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetEnvironmentInfo(handle.toInt(), wszattribute, peencoding, pcbuffer, pbbuffer)
+public actual fun dRMGetEnvironmentInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(handle.toInt(), (wszattribute?.value ?: 0L), (peencoding?.value ?: 0L), (pcbuffer?.value ?: 0L), (pbbuffer?.value ?: 0L))
 
-public actual fun DRMGetInfo(handle: UInt, wszattribute: PCWSTR, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetInfo(handle.toInt(), wszattribute, peencoding, pcbuffer, pbbuffer)
+public actual fun dRMGetInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(handle.toInt(), (wszattribute?.value ?: 0L), (peencoding?.value ?: 0L), (pcbuffer?.value ?: 0L), (pbbuffer?.value ?: 0L))
 
-public actual fun DRMGetIntervalTime(hissuancelicense: UInt, pcdays: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetIntervalTime(hissuancelicense.toInt(), pcdays)
+public actual fun dRMGetIntervalTime(hissuancelicense: UInt, pcdays: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(hissuancelicense.toInt(), (pcdays?.value ?: 0L))
 
-public actual fun DRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: Long, psttimeuntil: Long, uflags: UInt, pudistributionpointnamelength: Long, wszdistributionpointname: PWSTR, pudistributionpointurllength: Long, wszdistributionpointurl: PWSTR, phowner: Long, pfofficial: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseInfo(hissuancelicense.toInt(), psttimefrom, psttimeuntil, uflags.toInt(), pudistributionpointnamelength, wszdistributionpointname, pudistributionpointurllength, wszdistributionpointurl, phowner, pfofficial)
+public actual fun dRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, uflags: UInt, pudistributionpointnamelength: COpaquePointer?, wszdistributionpointname: Pwstr, pudistributionpointurllength: COpaquePointer?, wszdistributionpointurl: Pwstr, phowner: COpaquePointer?, pfofficial: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(hissuancelicense.toInt(), (psttimefrom?.value ?: 0L), (psttimeuntil?.value ?: 0L), uflags.toInt(), (pudistributionpointnamelength?.value ?: 0L), (wszdistributionpointname?.value ?: 0L), (pudistributionpointurllength?.value ?: 0L), (wszdistributionpointurl?.value ?: 0L), (phowner?.value ?: 0L), (pfofficial?.value ?: 0L))
 
-public actual fun DRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: Long, wszissuancelicensetemplate: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseTemplate(hissuancelicense.toInt(), puissuancelicensetemplatelength, wszissuancelicensetemplate)
+public actual fun dRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: COpaquePointer?, wszissuancelicensetemplate: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(hissuancelicense.toInt(), (puissuancelicensetemplatelength?.value ?: 0L), (wszissuancelicensetemplate?.value ?: 0L))
 
-public actual fun DRMGetMetaData(hissuancelicense: UInt, pucontentidlength: Long, wszcontentid: PWSTR, pucontentidtypelength: Long, wszcontentidtype: PWSTR, puskuidlength: Long, wszskuid: PWSTR, puskuidtypelength: Long, wszskuidtype: PWSTR, pucontenttypelength: Long, wszcontenttype: PWSTR, pucontentnamelength: Long, wszcontentname: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetMetaData(hissuancelicense.toInt(), pucontentidlength, wszcontentid, pucontentidtypelength, wszcontentidtype, puskuidlength, wszskuid, puskuidtypelength, wszskuidtype, pucontenttypelength, wszcontenttype, pucontentnamelength, wszcontentname)
+public actual fun dRMGetMetaData(hissuancelicense: UInt, pucontentidlength: COpaquePointer?, wszcontentid: Pwstr, pucontentidtypelength: COpaquePointer?, wszcontentidtype: Pwstr, puskuidlength: COpaquePointer?, wszskuid: Pwstr, puskuidtypelength: COpaquePointer?, wszskuidtype: Pwstr, pucontenttypelength: COpaquePointer?, wszcontenttype: Pwstr, pucontentnamelength: COpaquePointer?, wszcontentname: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(hissuancelicense.toInt(), (pucontentidlength?.value ?: 0L), (wszcontentid?.value ?: 0L), (pucontentidtypelength?.value ?: 0L), (wszcontentidtype?.value ?: 0L), (puskuidlength?.value ?: 0L), (wszskuid?.value ?: 0L), (puskuidtypelength?.value ?: 0L), (wszskuidtype?.value ?: 0L), (pucontenttypelength?.value ?: 0L), (wszcontenttype?.value ?: 0L), (pucontentnamelength?.value ?: 0L), (wszcontentname?.value ?: 0L))
 
-public actual fun DRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: Long, punamelength: Long, wszname: PWSTR, pudescriptionlength: Long, wszdescription: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetNameAndDescription(hissuancelicense.toInt(), uindex.toInt(), pulcid, punamelength, wszname, pudescriptionlength, wszdescription)
+public actual fun dRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pudescriptionlength: COpaquePointer?, wszdescription: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(hissuancelicense.toInt(), uindex.toInt(), (pulcid?.value ?: 0L), (punamelength?.value ?: 0L), (wszname?.value ?: 0L), (pudescriptionlength?.value ?: 0L), (wszdescription?.value ?: 0L))
 
-public actual fun DRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: Long, wszownerlicense: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetOwnerLicense(hissuancelicense.toInt(), puownerlicenselength, wszownerlicense)
+public actual fun dRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: COpaquePointer?, wszownerlicense: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(hissuancelicense.toInt(), (puownerlicenselength?.value ?: 0L), (wszownerlicense?.value ?: 0L))
 
-public actual fun DRMGetProcAddress(hlibrary: UInt, wszprocname: PCWSTR, ppfnprocaddress: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetProcAddress(hlibrary.toInt(), wszprocname, ppfnprocaddress)
+public actual fun dRMGetProcAddress(hlibrary: UInt, wszprocname: Pcwstr, ppfnprocaddress: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(hlibrary.toInt(), (wszprocname?.value ?: 0L), (ppfnprocaddress?.value ?: 0L))
 
-public actual fun DRMGetRevocationPoint(hissuancelicense: UInt, puidlength: Long, wszid: PWSTR, puidtypelength: Long, wszidtype: PWSTR, puurllength: Long, wszrl: PWSTR, pstfrequency: Long, punamelength: Long, wszname: PWSTR, pupublickeylength: Long, wszpublickey: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetRevocationPoint(hissuancelicense.toInt(), puidlength, wszid, puidtypelength, wszidtype, puurllength, wszrl, pstfrequency, punamelength, wszname, pupublickeylength, wszpublickey)
+public actual fun dRMGetRevocationPoint(hissuancelicense: UInt, puidlength: COpaquePointer?, wszid: Pwstr, puidtypelength: COpaquePointer?, wszidtype: Pwstr, puurllength: COpaquePointer?, wszrl: Pwstr, pstfrequency: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(hissuancelicense.toInt(), (puidlength?.value ?: 0L), (wszid?.value ?: 0L), (puidtypelength?.value ?: 0L), (wszidtype?.value ?: 0L), (puurllength?.value ?: 0L), (wszrl?.value ?: 0L), (pstfrequency?.value ?: 0L), (punamelength?.value ?: 0L), (wszname?.value ?: 0L), (pupublickeylength?.value ?: 0L), (wszpublickey?.value ?: 0L))
 
-public actual fun DRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: Long, wszextendedinfoname: PWSTR, puextendedinfovaluelength: Long, wszextendedinfovalue: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetRightExtendedInfo(hright.toInt(), uindex.toInt(), puextendedinfonamelength, wszextendedinfoname, puextendedinfovaluelength, wszextendedinfovalue)
+public actual fun dRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: COpaquePointer?, wszextendedinfoname: Pwstr, puextendedinfovaluelength: COpaquePointer?, wszextendedinfovalue: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(hright.toInt(), uindex.toInt(), (puextendedinfonamelength?.value ?: 0L), (wszextendedinfoname?.value ?: 0L), (puextendedinfovaluelength?.value ?: 0L), (wszextendedinfovalue?.value ?: 0L))
 
-public actual fun DRMGetRightInfo(hright: UInt, purightnamelength: Long, wszrightname: PWSTR, pstfrom: Long, pstuntil: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetRightInfo(hright.toInt(), purightnamelength, wszrightname, pstfrom, pstuntil)
+public actual fun dRMGetRightInfo(hright: UInt, purightnamelength: COpaquePointer?, wszrightname: Pwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(hright.toInt(), (purightnamelength?.value ?: 0L), (wszrightname?.value ?: 0L), (pstfrom?.value ?: 0L), (pstuntil?.value ?: 0L))
 
-public actual fun DRMGetSecurityProvider(uflags: UInt, putypelen: Long, wsztype: PWSTR, pupathlen: Long, wszpath: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetSecurityProvider(uflags.toInt(), putypelen, wsztype, pupathlen, wszpath)
+public actual fun dRMGetSecurityProvider(uflags: UInt, putypelen: COpaquePointer?, wsztype: Pwstr, pupathlen: COpaquePointer?, wszpath: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(uflags.toInt(), (putypelen?.value ?: 0L), (wsztype?.value ?: 0L), (pupathlen?.value ?: 0L), (wszpath?.value ?: 0L))
 
-public actual fun DRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: PCWSTR, puserviceurllength: Long, wszserviceurl: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetServiceLocation(hclient.toInt(), uservicetype.toInt(), uservicelocation.toInt(), wszissuancelicense, puserviceurllength, wszserviceurl)
+public actual fun dRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: Pcwstr, puserviceurllength: COpaquePointer?, wszserviceurl: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(hclient.toInt(), uservicetype.toInt(), uservicelocation.toInt(), (wszissuancelicense?.value ?: 0L), (puserviceurllength?.value ?: 0L), (wszserviceurl?.value ?: 0L))
 
-public actual fun DRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: Long, cbsymkey: UInt, wszsymkeytype: PCWSTR, wszclientlicensorcertificate: PCWSTR, pfncallback: DRMCALLBACK, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicense(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), pbsymkey, cbsymkey.toInt(), wszsymkeytype, wszclientlicensorcertificate, pfncallback.toLong(), wszurl, pvcontext)
+public actual fun dRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, wszclientlicensorcertificate: Pcwstr, pfncallback: Drmcallback, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), (pbsymkey?.value ?: 0L), cbsymkey.toInt(), (wszsymkeytype?.value ?: 0L), (wszclientlicensorcertificate?.value ?: 0L), 0L, (wszurl?.value ?: 0L), (pvcontext?.value ?: 0L))
 
-public actual fun DRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: Long, cbsymkey: UInt, wszsymkeytype: PCWSTR, pvreserved: Long, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: DRMCALLBACK, pvcontext: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicenseEx(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), pbsymkey, cbsymkey.toInt(), wszsymkeytype, pvreserved, henablingprincipal.toInt(), hboundlicenseclc.toInt(), pfncallback.toLong(), pvcontext)
+public actual fun dRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, pvreserved: COpaquePointer?, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: Drmcallback, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), (pbsymkey?.value ?: 0L), cbsymkey.toInt(), (wszsymkeytype?.value ?: 0L), (pvreserved?.value ?: 0L), henablingprincipal.toInt(), hboundlicenseclc.toInt(), 0L, (pvcontext?.value ?: 0L))
 
-public actual fun DRMGetTime(henv: UInt, etimeridtype: DRMTIMETYPE, potimeobject: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetTime(henv.toInt(), etimeridtype, potimeobject)
+public actual fun dRMGetTime(henv: UInt, etimeridtype: Drmtimetype, potimeobject: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetTime(henv.toInt(), etimeridtype, (potimeobject?.value ?: 0L))
 
-public actual fun DRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: PCWSTR, iwhich: UInt, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttribute(hqueryroot.toInt(), wszattributetype, iwhich.toInt(), peencoding, pcbuffer, pbbuffer)
+public actual fun dRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(hqueryroot.toInt(), (wszattributetype?.value ?: 0L), iwhich.toInt(), (peencoding?.value ?: 0L), (pcbuffer?.value ?: 0L), (pbbuffer?.value ?: 0L))
 
-public actual fun DRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: PCWSTR, pcattributes: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttributeCount(hqueryroot.toInt(), wszattributetype, pcattributes)
+public actual fun dRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: Pcwstr, pcattributes: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(hqueryroot.toInt(), (wszattributetype?.value ?: 0L), (pcattributes?.value ?: 0L))
 
-public actual fun DRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: PCWSTR, iindex: UInt, phsubquery: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObject(hqueryroot.toInt(), wszsubobjecttype, iindex.toInt(), phsubquery)
+public actual fun dRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iindex: UInt, phsubquery: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L), iindex.toInt(), (phsubquery?.value ?: 0L))
 
-public actual fun DRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: PCWSTR, pcsubobjects: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObjectCount(hqueryroot.toInt(), wszsubobjecttype, pcsubobjects)
+public actual fun dRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L), (pcsubobjects?.value ?: 0L))
 
-public actual fun DRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: Long, pfexclusion: Long, punamelength: Long, wszname: PWSTR, puminversionlength: Long, wszminversion: PWSTR, pumaxversionlength: Long, wszmaxversion: PWSTR, pupublickeylength: Long, wszpublickey: PWSTR, pudigestalgorithmlength: Long, wszdigestalgorithm: PWSTR, pcbdigest: Long, pbdigest: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUsagePolicy(hissuancelicense.toInt(), uindex.toInt(), peusagepolicytype, pfexclusion, punamelength, wszname, puminversionlength, wszminversion, pumaxversionlength, wszmaxversion, pupublickeylength, wszpublickey, pudigestalgorithmlength, wszdigestalgorithm, pcbdigest, pbdigest)
+public actual fun dRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: COpaquePointer?, pfexclusion: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, puminversionlength: COpaquePointer?, wszminversion: Pwstr, pumaxversionlength: COpaquePointer?, wszmaxversion: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr, pudigestalgorithmlength: COpaquePointer?, wszdigestalgorithm: Pwstr, pcbdigest: COpaquePointer?, pbdigest: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(hissuancelicense.toInt(), uindex.toInt(), (peusagepolicytype?.value ?: 0L), (pfexclusion?.value ?: 0L), (punamelength?.value ?: 0L), (wszname?.value ?: 0L), (puminversionlength?.value ?: 0L), (wszminversion?.value ?: 0L), (pumaxversionlength?.value ?: 0L), (wszmaxversion?.value ?: 0L), (pupublickeylength?.value ?: 0L), (wszpublickey?.value ?: 0L), (pudigestalgorithmlength?.value ?: 0L), (wszdigestalgorithm?.value ?: 0L), (pcbdigest?.value ?: 0L), (pbdigest?.value ?: 0L))
 
-public actual fun DRMGetUserInfo(huser: UInt, puusernamelength: Long, wszusername: PWSTR, puuseridlength: Long, wszuserid: PWSTR, puuseridtypelength: Long, wszuseridtype: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUserInfo(huser.toInt(), puusernamelength, wszusername, puuseridlength, wszuserid, puuseridtypelength, wszuseridtype)
+public actual fun dRMGetUserInfo(huser: UInt, puusernamelength: COpaquePointer?, wszusername: Pwstr, puuseridlength: COpaquePointer?, wszuserid: Pwstr, puuseridtypelength: COpaquePointer?, wszuseridtype: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(huser.toInt(), (puusernamelength?.value ?: 0L), (wszusername?.value ?: 0L), (puuseridlength?.value ?: 0L), (wszuserid?.value ?: 0L), (puuseridtypelength?.value ?: 0L), (wszuseridtype?.value ?: 0L))
 
-public actual fun DRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUserRights(hissuancelicense.toInt(), huser.toInt(), uindex.toInt(), phright)
+public actual fun dRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(hissuancelicense.toInt(), huser.toInt(), uindex.toInt(), (phright?.value ?: 0L))
 
-public actual fun DRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMGetUsers(hissuancelicense.toInt(), uindex.toInt(), phuser)
+public actual fun dRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(hissuancelicense.toInt(), uindex.toInt(), (phuser?.value ?: 0L))
 
-public actual fun DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: PCWSTR, wszmanifestcredentials: PCWSTR, wszmachinecredentials: PCWSTR, phenv: Long, phdefaultlibrary: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMInitEnvironment(esecurityprovidertype, especification, wszsecurityprovider, wszmanifestcredentials, wszmachinecredentials, phenv, phdefaultlibrary)
+public actual fun dRMInitEnvironment(esecurityprovidertype: Drmsecurityprovidertype, especification: Drmspectype, wszsecurityprovider: Pcwstr, wszmanifestcredentials: Pcwstr, wszmachinecredentials: Pcwstr, phenv: COpaquePointer?, phdefaultlibrary: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(esecurityprovidertype, especification, (wszsecurityprovider?.value ?: 0L), (wszmanifestcredentials?.value ?: 0L), (wszmachinecredentials?.value ?: 0L), (phenv?.value ?: 0L), (phdefaultlibrary?.value ?: 0L))
 
-public actual fun DRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMIsActivated(hclient.toInt(), uflags.toInt(), pactservinfo)
+public actual fun dRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(hclient.toInt(), uflags.toInt(), (pactservinfo?.value ?: 0L))
 
-public actual fun DRMIsWindowProtected(hwnd: HWND, pfprotected: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMIsWindowProtected(hwnd, pfprotected)
+public actual fun dRMIsWindowProtected(hwnd: Hwnd, pfprotected: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected((hwnd?.value ?: 0L), (pfprotected?.value ?: 0L))
 
-public actual fun DRMLoadLibrary(henv: UInt, especification: DRMSPECTYPE, wszlibraryprovider: PCWSTR, wszcredentials: PCWSTR, phlibrary: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMLoadLibrary(henv.toInt(), especification, wszlibraryprovider, wszcredentials, phlibrary)
+public actual fun dRMLoadLibrary(henv: UInt, especification: Drmspectype, wszlibraryprovider: Pcwstr, wszcredentials: Pcwstr, phlibrary: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(henv.toInt(), especification, (wszlibraryprovider?.value ?: 0L), (wszcredentials?.value ?: 0L), (phlibrary?.value ?: 0L))
 
-public actual fun DRMParseUnboundLicense(wszcertificate: PCWSTR, phqueryroot: Long): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMParseUnboundLicense(wszcertificate, phqueryroot)
+public actual fun dRMParseUnboundLicense(wszcertificate: Pcwstr, phqueryroot: COpaquePointer?): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense((wszcertificate?.value ?: 0L), (phqueryroot?.value ?: 0L))
 
-public actual fun DRMRegisterContent(fregister: BOOL): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMRegisterContent(fregister)
+public actual fun dRMRegisterContent(fregister: Bool): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(fregister)
 
-public actual fun DRMRegisterProtectedWindow(henv: UInt, hwnd: HWND): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMRegisterProtectedWindow(henv.toInt(), hwnd)
+public actual fun dRMRegisterProtectedWindow(henv: UInt, hwnd: Hwnd): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(henv.toInt(), (hwnd?.value ?: 0L))
 
-public actual fun DRMRegisterRevocationList(henv: UInt, wszrevocationlist: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMRegisterRevocationList(henv.toInt(), wszrevocationlist)
+public actual fun dRMRegisterRevocationList(henv: UInt, wszrevocationlist: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(henv.toInt(), (wszrevocationlist?.value ?: 0L))
 
-public actual fun DRMRepair(): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMRepair()
+public actual fun dRMRepair(): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMRepair()
 
-public actual fun DRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: BOOL, wszname: PCWSTR, wszvalue: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetApplicationSpecificData(hissuancelicense.toInt(), fdelete, wszname, wszvalue)
+public actual fun dRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: Bool, wszname: Pcwstr, wszvalue: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(hissuancelicense.toInt(), fdelete, (wszname?.value ?: 0L), (wszvalue?.value ?: 0L))
 
-public actual fun DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: Long, dwlen: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetGlobalOptions(eglobaloptions, pvdata, dwlen.toInt())
+public actual fun dRMSetGlobalOptions(eglobaloptions: Drmglobaloptions, pvdata: COpaquePointer?, dwlen: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(eglobaloptions, (pvdata?.value ?: 0L), dwlen.toInt())
 
-public actual fun DRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt())
+public actual fun dRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt())
 
-public actual fun DRMSetMetaData(hissuancelicense: UInt, wszcontentid: PCWSTR, wszcontentidtype: PCWSTR, wszskuid: PCWSTR, wszskuidtype: PCWSTR, wszcontenttype: PCWSTR, wszcontentname: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetMetaData(hissuancelicense.toInt(), wszcontentid, wszcontentidtype, wszskuid, wszskuidtype, wszcontenttype, wszcontentname)
+public actual fun dRMSetMetaData(hissuancelicense: UInt, wszcontentid: Pcwstr, wszcontentidtype: Pcwstr, wszskuid: Pcwstr, wszskuidtype: Pcwstr, wszcontenttype: Pcwstr, wszcontentname: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(hissuancelicense.toInt(), (wszcontentid?.value ?: 0L), (wszcontentidtype?.value ?: 0L), (wszskuid?.value ?: 0L), (wszskuidtype?.value ?: 0L), (wszcontenttype?.value ?: 0L), (wszcontentname?.value ?: 0L))
 
-public actual fun DRMSetNameAndDescription(hissuancelicense: UInt, fdelete: BOOL, lcid: UInt, wszname: PCWSTR, wszdescription: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetNameAndDescription(hissuancelicense.toInt(), fdelete, lcid.toInt(), wszname, wszdescription)
+public actual fun dRMSetNameAndDescription(hissuancelicense: UInt, fdelete: Bool, lcid: UInt, wszname: Pcwstr, wszdescription: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(hissuancelicense.toInt(), fdelete, lcid.toInt(), (wszname?.value ?: 0L), (wszdescription?.value ?: 0L))
 
-public actual fun DRMSetRevocationPoint(hissuancelicense: UInt, fdelete: BOOL, wszid: PCWSTR, wszidtype: PCWSTR, wszurl: PCWSTR, pstfrequency: Long, wszname: PCWSTR, wszpublickey: PCWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetRevocationPoint(hissuancelicense.toInt(), fdelete, wszid, wszidtype, wszurl, pstfrequency, wszname, wszpublickey)
+public actual fun dRMSetRevocationPoint(hissuancelicense: UInt, fdelete: Bool, wszid: Pcwstr, wszidtype: Pcwstr, wszurl: Pcwstr, pstfrequency: COpaquePointer?, wszname: Pcwstr, wszpublickey: Pcwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(hissuancelicense.toInt(), fdelete, (wszid?.value ?: 0L), (wszidtype?.value ?: 0L), (wszurl?.value ?: 0L), (pstfrequency?.value ?: 0L), (wszname?.value ?: 0L), (wszpublickey?.value ?: 0L))
 
-public actual fun DRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: BOOL, fexclusion: BOOL, wszname: PCWSTR, wszminversion: PCWSTR, wszmaxversion: PCWSTR, wszpublickey: PCWSTR, wszdigestalgorithm: PCWSTR, pbdigest: Long, cbdigest: UInt): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMSetUsagePolicy(hissuancelicense.toInt(), eusagepolicytype, fdelete, fexclusion, wszname, wszminversion, wszmaxversion, wszpublickey, wszdigestalgorithm, pbdigest, cbdigest.toInt())
+public actual fun dRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DrmUsagepolicyType, fdelete: Bool, fexclusion: Bool, wszname: Pcwstr, wszminversion: Pcwstr, wszmaxversion: Pcwstr, wszpublickey: Pcwstr, wszdigestalgorithm: Pcwstr, pbdigest: COpaquePointer?, cbdigest: UInt): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(hissuancelicense.toInt(), eusagepolicytype, fdelete, fexclusion, (wszname?.value ?: 0L), (wszminversion?.value ?: 0L), (wszmaxversion?.value ?: 0L), (wszpublickey?.value ?: 0L), (wszdigestalgorithm?.value ?: 0L), (pbdigest?.value ?: 0L), cbdigest.toInt())
 
-public actual fun DRMVerify(wszdata: PCWSTR, pcattesteddata: Long, wszattesteddata: PWSTR, petype: Long, pcprincipal: Long, wszprincipal: PWSTR, pcmanifest: Long, wszmanifest: PWSTR): HRESULT =
-    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_DRMVerify(wszdata, pcattesteddata, wszattesteddata, petype, pcprincipal, wszprincipal, pcmanifest, wszmanifest)
+public actual fun dRMVerify(wszdata: Pcwstr, pcattesteddata: COpaquePointer?, wszattesteddata: Pwstr, petype: COpaquePointer?, pcprincipal: COpaquePointer?, wszprincipal: Pwstr, pcmanifest: COpaquePointer?, wszmanifest: Pwstr): Hresult =
+    WindowsWin32DataRightsmanagementJniBridge.windowssys_windows_win32_data_rightsmanagement_dRMVerify((wszdata?.value ?: 0L), (pcattesteddata?.value ?: 0L), (wszattesteddata?.value ?: 0L), (petype?.value ?: 0L), (pcprincipal?.value ?: 0L), (wszprincipal?.value ?: 0L), (pcmanifest?.value ?: 0L), (wszmanifest?.value ?: 0L))

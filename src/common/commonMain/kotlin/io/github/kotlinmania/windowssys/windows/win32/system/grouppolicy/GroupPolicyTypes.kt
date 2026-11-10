@@ -1,11 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
-public typealias APPSTATE = Int
+public typealias Appstate = Int
 
 public typealias GPMBackupType = Int
 
@@ -29,42 +30,42 @@ public typealias GPMSearchProperty = Int
 
 public typealias GPMStarterGPOType = Int
 
-public typealias GPO_LINK = Int
+public typealias GpoLink = Int
 
-public typealias GPO_OPEN_FLAGS = UInt
+public typealias GpoOpenFlags = UInt
 
-public typealias GPO_OPTIONS = UInt
+public typealias GpoOptions = UInt
 
-public typealias GPO_SECTION = UInt
+public typealias GpoSection = UInt
 
-public typealias GROUP_POLICY_HINT_TYPE = Int
+public typealias GroupPolicyHintType = Int
 
-public typealias GROUP_POLICY_OBJECT_TYPE = Int
+public typealias GroupPolicyObjectType = Int
 
-public typealias INSTALLSPECTYPE = Int
+public typealias Installspectype = Int
 
-public fun interface PFNGENERATEGROUPPOLICYFn {
-    public operator fun invoke(dwflags: UInt, pbabort: Long, pwszsite: PCWSTR, pcomputertarget: Long, pusertarget: Long): UInt
+public fun interface PfngenerategrouppolicyFn {
+    public operator fun invoke(dwflags: UInt, pbabort: COpaquePointer?, pwszsite: Pcwstr, pcomputertarget: COpaquePointer?, pusertarget: COpaquePointer?): UInt
 }
 
-public typealias PFNGENERATEGROUPPOLICY = PFNGENERATEGROUPPOLICYFn?
+public typealias Pfngenerategrouppolicy = PfngenerategrouppolicyFn?
 
-public fun interface PFNPROCESSGROUPPOLICYFn {
-    public operator fun invoke(dwflags: UInt, htoken: HANDLE, hkeyroot: HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK): UInt
+public fun interface PfnprocessgrouppolicyFn {
+    public operator fun invoke(dwflags: UInt, htoken: Handle, hkeyroot: Hkey, pdeletedgpolist: COpaquePointer?, pchangedgpolist: COpaquePointer?, phandle: ULong, pbabort: COpaquePointer?, pstatuscallback: Pfnstatusmessagecallback): UInt
 }
 
-public typealias PFNPROCESSGROUPPOLICY = PFNPROCESSGROUPPOLICYFn?
+public typealias Pfnprocessgrouppolicy = PfnprocessgrouppolicyFn?
 
-public fun interface PFNPROCESSGROUPPOLICYEXFn {
-    public operator fun invoke(dwflags: UInt, htoken: HANDLE, hkeyroot: HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: Long, prsopstatus: Long): UInt
+public fun interface PfnprocessgrouppolicyexFn {
+    public operator fun invoke(dwflags: UInt, htoken: Handle, hkeyroot: Hkey, pdeletedgpolist: COpaquePointer?, pchangedgpolist: COpaquePointer?, phandle: ULong, pbabort: COpaquePointer?, pstatuscallback: Pfnstatusmessagecallback, pwbemservices: COpaquePointer?, prsopstatus: COpaquePointer?): UInt
 }
 
-public typealias PFNPROCESSGROUPPOLICYEX = PFNPROCESSGROUPPOLICYEXFn?
+public typealias Pfnprocessgrouppolicyex = PfnprocessgrouppolicyexFn?
 
-public fun interface PFNSTATUSMESSAGECALLBACKFn {
-    public operator fun invoke(bverbose: BOOL, lpmessage: PCWSTR): UInt
+public fun interface PfnstatusmessagecallbackFn {
+    public operator fun invoke(bverbose: Bool, lpmessage: Pcwstr): UInt
 }
 
-public typealias PFNSTATUSMESSAGECALLBACK = PFNSTATUSMESSAGECALLBACKFn?
+public typealias Pfnstatusmessagecallback = PfnstatusmessagecallbackFn?
 
-public typealias SETTINGSTATUS = Int
+public typealias Settingstatus = Int

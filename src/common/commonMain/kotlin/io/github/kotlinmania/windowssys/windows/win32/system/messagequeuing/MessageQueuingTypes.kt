@@ -1,76 +1,77 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public typealias FOREIGN_STATUS = Int
+public typealias ForeignStatus = Int
 
-public typealias MQACCESS = Int
+public typealias Mqaccess = Int
 
-public typealias MQAUTHENTICATE = Int
+public typealias Mqauthenticate = Int
 
-public typealias MQCALG = Int
+public typealias Mqcalg = Int
 
-public typealias MQCERT_REGISTER = Int
+public typealias MqcertRegister = Int
 
 public typealias MQConnectionState = Int
 
-public typealias MQDEFAULT = Int
+public typealias Mqdefault = Int
 
-public typealias MQERROR = Int
+public typealias Mqerror = Int
 
-public typealias MQJOURNAL = Int
+public typealias Mqjournal = Int
 
-public typealias MQMAX = Int
+public typealias Mqmax = Int
 
-public typealias MQMSGACKNOWLEDGEMENT = Int
+public typealias Mqmsgacknowledgement = Int
 
-public typealias MQMSGAUTHENTICATION = Int
+public typealias Mqmsgauthentication = Int
 
-public typealias MQMSGAUTHLEVEL = Int
+public typealias Mqmsgauthlevel = Int
 
-public typealias MQMSGCLASS = Int
+public typealias Mqmsgclass = Int
 
-public typealias MQMSGCURSOR = Int
+public typealias Mqmsgcursor = Int
 
-public typealias MQMSGDELIVERY = Int
+public typealias Mqmsgdelivery = Int
 
-public typealias MQMSGIDSIZE = Int
+public typealias Mqmsgidsize = Int
 
-public typealias MQMSGJOURNAL = Int
+public typealias Mqmsgjournal = Int
 
-public typealias MQMSGMAX = Int
+public typealias Mqmsgmax = Int
 
-public typealias MQMSGPRIVLEVEL = Int
+public typealias Mqmsgprivlevel = Int
 
-public typealias MQMSGSENDERIDTYPE = Int
+public typealias Mqmsgsenderidtype = Int
 
-public typealias MQMSGTRACE = Int
+public typealias Mqmsgtrace = Int
 
-public typealias MQPRIORITY = Int
+public typealias Mqpriority = Int
 
-public typealias MQPRIVLEVEL = Int
+public typealias Mqprivlevel = Int
 
-public typealias MQQUEUEACCESSMASK = UInt
+public typealias Mqqueueaccessmask = UInt
 
-public typealias MQSHARE = Int
+public typealias Mqshare = Int
 
-public typealias MQTRANSACTION = Int
+public typealias Mqtransaction = Int
 
-public typealias MQTRANSACTIONAL = Int
+public typealias Mqtransactional = Int
 
-public typealias MQWARNING = Int
+public typealias Mqwarning = Int
 
-public fun interface PMQRECEIVECALLBACKFn {
-    public operator fun invoke(hrstatus: HRESULT, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, hcursor: HANDLE)
+public fun interface PmqreceivecallbackFn {
+    public operator fun invoke(hrstatus: Hresult, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: COpaquePointer?, lpoverlapped: COpaquePointer?, hcursor: Handle)
 }
 
-public typealias PMQRECEIVECALLBACK = PMQRECEIVECALLBACKFn?
+public typealias Pmqreceivecallback = PmqreceivecallbackFn?
 
-public typealias QUEUE_STATE = Int
+public typealias QueueState = Int
 
-public typealias QUEUE_TYPE = Int
+public typealias QueueType = Int
 
-public typealias RELOPS = Int
+public typealias Relops = Int
 
-public typealias XACT_STATUS = Int
+public typealias XactStatus = Int

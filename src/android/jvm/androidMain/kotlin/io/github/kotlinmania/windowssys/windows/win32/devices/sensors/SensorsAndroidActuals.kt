@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private object WindowsWin32DevicesSensorsJniBridge {
     init {
@@ -12,240 +13,240 @@ private object WindowsWin32DevicesSensorsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListCopyAndMarshall(target: Long, source: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall(target: Long, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: Int, sourcebuffer: Long, targetcollection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: Int, sourcebuffer: Long, targetcollection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListGetFillableCount(buffersizebytes: Int): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount(buffersizebytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSize(collection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize(collection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSizeWithoutSerialization(collection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization(collection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListGetSerializedSize(collection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize(collection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListMarshall(target: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListMarshall(target: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: Int, targetbuffer: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: Int, targetbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_CollectionsListUpdateMarshalledPointer(collection: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer(collection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_EvaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean
+    external fun windowssys_windows_win32_devices_sensors_evaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_GetPerformanceTime(timems: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_getPerformanceTime(timems: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_InitPropVariantFromCLSIDArray(members: Long, size: Int, ppropvar: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray(members: Long, size: Int, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_InitPropVariantFromFloat(fltval: Float, ppropvar: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_initPropVariantFromFloat(fltval: Float, ppropvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_IsCollectionListSame(lista: Long, listb: Long): Boolean
+    external fun windowssys_windows_win32_devices_sensors_isCollectionListSame(lista: Long, listb: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_IsGUIDPresentInList(guidarray: Long, arraylength: Int, guidelem: Long): Boolean
+    external fun windowssys_windows_win32_devices_sensors_isGUIDPresentInList(guidarray: Long, arraylength: Int, guidelem: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_IsKeyPresentInCollectionList(plist: Long, pkey: Long): Boolean
+    external fun windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList(plist: Long, pkey: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_IsKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean
+    external fun windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: Int, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropertiesListCopy(target: Long, source: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_propertiesListCopy(target: Long, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_PropertiesListGetFillableCount(buffersizebytes: Int): Int
+    external fun windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount(buffersizebytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_SensorCollectionGetAt(index: Int, psensorslist: Long, pkey: Long, pvalue: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_sensorCollectionGetAt(index: Int, psensorslist: Long, pkey: Long, pvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_SerializationBufferAllocate(sizeinbytes: Int, pbuffer: Long): Int
+    external fun windowssys_windows_win32_devices_sensors_serializationBufferAllocate(sizeinbytes: Int, pbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_sensors_SerializationBufferFree(buffer: Long)
+    external fun windowssys_windows_win32_devices_sensors_serializationBufferFree(buffer: Long)
 }
 
-public actual fun CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListAllocateBufferAndSerialize(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer)
+public actual fun collectionsListAllocateBufferAndSerialize(sourcecollection: COpaquePointer?, ptargetbuffersizeinbytes: COpaquePointer?, ptargetbuffer: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize((sourcecollection?.value ?: 0L), (ptargetbuffersizeinbytes?.value ?: 0L), (ptargetbuffer?.value ?: 0L))
 
-public actual fun CollectionsListCopyAndMarshall(target: Long, source: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListCopyAndMarshall(target, source)
+public actual fun collectionsListCopyAndMarshall(target: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall((target?.value ?: 0L), (source?.value ?: 0L))
 
-public actual fun CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: Long, targetcollection: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes.toInt(), sourcebuffer, targetcollection)
+public actual fun collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: COpaquePointer?, targetcollection: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes.toInt(), (sourcebuffer?.value ?: 0L), (targetcollection?.value ?: 0L))
 
-public actual fun CollectionsListGetFillableCount(buffersizebytes: UInt): UInt =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListGetFillableCount(buffersizebytes.toInt()).toUInt()
+public actual fun collectionsListGetFillableCount(buffersizebytes: UInt): UInt =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount(buffersizebytes.toInt()).toUInt()
 
-public actual fun CollectionsListGetMarshalledSize(collection: Long): UInt =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSize(collection).toUInt()
+public actual fun collectionsListGetMarshalledSize(collection: COpaquePointer?): UInt =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize((collection?.value ?: 0L)).toUInt()
 
-public actual fun CollectionsListGetMarshalledSizeWithoutSerialization(collection: Long): UInt =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListGetMarshalledSizeWithoutSerialization(collection).toUInt()
+public actual fun collectionsListGetMarshalledSizeWithoutSerialization(collection: COpaquePointer?): UInt =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization((collection?.value ?: 0L)).toUInt()
 
-public actual fun CollectionsListGetSerializedSize(collection: Long): UInt =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListGetSerializedSize(collection).toUInt()
+public actual fun collectionsListGetSerializedSize(collection: COpaquePointer?): UInt =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize((collection?.value ?: 0L)).toUInt()
 
-public actual fun CollectionsListMarshall(target: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListMarshall(target)
+public actual fun collectionsListMarshall(target: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListMarshall((target?.value ?: 0L))
 
-public actual fun CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: UInt, targetbuffer: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListSerializeToBuffer(sourcecollection, targetbuffersizeinbytes.toInt(), targetbuffer)
+public actual fun collectionsListSerializeToBuffer(sourcecollection: COpaquePointer?, targetbuffersizeinbytes: UInt, targetbuffer: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer((sourcecollection?.value ?: 0L), targetbuffersizeinbytes.toInt(), (targetbuffer?.value ?: 0L))
 
-public actual fun CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListSortSubscribedActivitiesByConfidence(thresholds, pcollection)
+public actual fun collectionsListSortSubscribedActivitiesByConfidence(thresholds: COpaquePointer?, pcollection: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence((thresholds?.value ?: 0L), (pcollection?.value ?: 0L))
 
-public actual fun CollectionsListUpdateMarshalledPointer(collection: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_CollectionsListUpdateMarshalledPointer(collection)
+public actual fun collectionsListUpdateMarshalledPointer(collection: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer((collection?.value ?: 0L))
 
-public actual fun EvaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_EvaluateActivityThresholds(newsample, oldsample, thresholds)
+public actual fun evaluateActivityThresholds(newsample: COpaquePointer?, oldsample: COpaquePointer?, thresholds: COpaquePointer?): Boolean =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_evaluateActivityThresholds((newsample?.value ?: 0L), (oldsample?.value ?: 0L), (thresholds?.value ?: 0L))
 
-public actual fun GetPerformanceTime(timems: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_GetPerformanceTime(timems)
+public actual fun getPerformanceTime(timems: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_getPerformanceTime((timems?.value ?: 0L))
 
-public actual fun InitPropVariantFromCLSIDArray(members: Long, size: UInt, ppropvar: Long): HRESULT =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_InitPropVariantFromCLSIDArray(members, size.toInt(), ppropvar)
+public actual fun initPropVariantFromCLSIDArray(members: COpaquePointer?, size: UInt, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray((members?.value ?: 0L), size.toInt(), (ppropvar?.value ?: 0L))
 
-public actual fun InitPropVariantFromFloat(fltval: Float, ppropvar: Long): HRESULT =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_InitPropVariantFromFloat(fltval, ppropvar)
+public actual fun initPropVariantFromFloat(fltval: Float, ppropvar: COpaquePointer?): Hresult =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_initPropVariantFromFloat(fltval, (ppropvar?.value ?: 0L))
 
-public actual fun IsCollectionListSame(lista: Long, listb: Long): Boolean =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_IsCollectionListSame(lista, listb)
+public actual fun isCollectionListSame(lista: COpaquePointer?, listb: COpaquePointer?): Boolean =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_isCollectionListSame((lista?.value ?: 0L), (listb?.value ?: 0L))
 
-public actual fun IsGUIDPresentInList(guidarray: Long, arraylength: UInt, guidelem: Long): Boolean =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_IsGUIDPresentInList(guidarray, arraylength.toInt(), guidelem)
+public actual fun isGUIDPresentInList(guidarray: COpaquePointer?, arraylength: UInt, guidelem: COpaquePointer?): Boolean =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_isGUIDPresentInList((guidarray?.value ?: 0L), arraylength.toInt(), (guidelem?.value ?: 0L))
 
-public actual fun IsKeyPresentInCollectionList(plist: Long, pkey: Long): Boolean =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_IsKeyPresentInCollectionList(plist, pkey)
+public actual fun isKeyPresentInCollectionList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList((plist?.value ?: 0L), (pkey?.value ?: 0L))
 
-public actual fun IsKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_IsKeyPresentInPropertyList(plist, pkey)
+public actual fun isKeyPresentInPropertyList(plist: COpaquePointer?, pkey: COpaquePointer?): Boolean =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList((plist?.value ?: 0L), (pkey?.value ?: 0L))
 
-public actual fun IsSensorSubscribed(subscriptionlist: Long, currenttype: GUID): Boolean =
+public actual fun isSensorSubscribed(subscriptionlist: COpaquePointer?, currenttype: Guid): Boolean =
     false
 
-public actual fun PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetBool(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetBool(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetDouble(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetDouble(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFileTime(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetFileTime(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetFloat(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetFloat(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetGuid(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetGuid(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt32(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetInt32(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetInt64(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetInt64(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthInt64(plist, pkey, occurrence.toInt(), pretvalue)
+public actual fun propKeyFindKeyGetNthInt64(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64((plist?.value ?: 0L), (pkey?.value ?: 0L), occurrence.toInt(), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUlong(plist, pkey, occurrence.toInt(), pretvalue)
+public actual fun propKeyFindKeyGetNthUlong(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong((plist?.value ?: 0L), (pkey?.value ?: 0L), occurrence.toInt(), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetNthUshort(plist, pkey, occurrence.toInt(), pretvalue)
+public actual fun propKeyFindKeyGetNthUshort(plist: COpaquePointer?, pkey: COpaquePointer?, occurrence: UInt, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort((plist?.value ?: 0L), (pkey?.value ?: 0L), occurrence.toInt(), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetPropVariant(plist, pkey, typecheck, pvalue)
+public actual fun propKeyFindKeyGetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant((plist?.value ?: 0L), (pkey?.value ?: 0L), typecheck, (pvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUlong(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetUlong(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeyGetUshort(plist, pkey, pretvalue)
+public actual fun propKeyFindKeyGetUshort(plist: COpaquePointer?, pkey: COpaquePointer?, pretvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort((plist?.value ?: 0L), (pkey?.value ?: 0L), (pretvalue?.value ?: 0L))
 
-public actual fun PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropKeyFindKeySetPropVariant(plist, pkey, typecheck, pvalue)
+public actual fun propKeyFindKeySetPropVariant(plist: COpaquePointer?, pkey: COpaquePointer?, typecheck: Boolean, pvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant((plist?.value ?: 0L), (pkey?.value ?: 0L), typecheck, (pvalue?.value ?: 0L))
 
-public actual fun PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropVariantGetInformation(propvariantvalue, propvariantoffset, propvariantsize, propvariantpointer, remappedtype)
+public actual fun propVariantGetInformation(propvariantvalue: COpaquePointer?, propvariantoffset: COpaquePointer?, propvariantsize: COpaquePointer?, propvariantpointer: COpaquePointer?, remappedtype: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propVariantGetInformation((propvariantvalue?.value ?: 0L), (propvariantoffset?.value ?: 0L), (propvariantsize?.value ?: 0L), (propvariantpointer?.value ?: 0L), (remappedtype?.value ?: 0L))
 
-public actual fun PropertiesListCopy(target: Long, source: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropertiesListCopy(target, source)
+public actual fun propertiesListCopy(target: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propertiesListCopy((target?.value ?: 0L), (source?.value ?: 0L))
 
-public actual fun PropertiesListGetFillableCount(buffersizebytes: UInt): UInt =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_PropertiesListGetFillableCount(buffersizebytes.toInt()).toUInt()
+public actual fun propertiesListGetFillableCount(buffersizebytes: UInt): UInt =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount(buffersizebytes.toInt()).toUInt()
 
-public actual fun SensorCollectionGetAt(index: UInt, psensorslist: Long, pkey: Long, pvalue: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_SensorCollectionGetAt(index.toInt(), psensorslist, pkey, pvalue)
+public actual fun sensorCollectionGetAt(index: UInt, psensorslist: COpaquePointer?, pkey: COpaquePointer?, pvalue: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_sensorCollectionGetAt(index.toInt(), (psensorslist?.value ?: 0L), (pkey?.value ?: 0L), (pvalue?.value ?: 0L))
 
-public actual fun SerializationBufferAllocate(sizeinbytes: UInt, pbuffer: Long): NTSTATUS =
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_SerializationBufferAllocate(sizeinbytes.toInt(), pbuffer)
+public actual fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_serializationBufferAllocate(sizeinbytes.toInt(), (pbuffer?.value ?: 0L))
 
-public actual fun SerializationBufferFree(buffer: Long) {
-    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_SerializationBufferFree(buffer)
+public actual fun serializationBufferFree(buffer: COpaquePointer?) {
+    WindowsWin32DevicesSensorsJniBridge.windowssys_windows_win32_devices_sensors_serializationBufferFree((buffer?.value ?: 0L))
 }

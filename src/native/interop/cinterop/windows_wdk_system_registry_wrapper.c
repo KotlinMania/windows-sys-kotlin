@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction(void* transactionhandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction(void* transactionhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtCreateKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* disposition) {
+int32_t windowssys_windows_wdk_system_registry_ntCreateKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* disposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_wdk_system_registry_NtCreateKey(void* keyhandle, uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtCreateKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* transactionhandle, void* disposition) {
+int32_t windowssys_windows_wdk_system_registry_ntCreateKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* transactionhandle, void* disposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -95,7 +95,7 @@ int32_t windowssys_windows_wdk_system_registry_NtCreateKeyTransacted(void* keyha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, uint32_t createoptions) {
+int32_t windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, uint32_t createoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -120,7 +120,7 @@ int32_t windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtDeleteKey(void* keyhandle) {
+int32_t windowssys_windows_wdk_system_registry_ntDeleteKey(void* keyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ int32_t windowssys_windows_wdk_system_registry_NtDeleteKey(void* keyhandle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtDeleteValueKey(void* keyhandle, void* valuename) {
+int32_t windowssys_windows_wdk_system_registry_ntDeleteValueKey(void* keyhandle, void* valuename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_wdk_system_registry_NtDeleteValueKey(void* keyhandle,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtEnumerateKey(void* keyhandle, uint32_t arg_1_index, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_ntEnumerateKey(void* keyhandle, uint32_t arg_1_index, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -192,7 +192,7 @@ int32_t windowssys_windows_wdk_system_registry_NtEnumerateKey(void* keyhandle, u
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtEnumerateValueKey(void* keyhandle, uint32_t arg_1_index, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_ntEnumerateValueKey(void* keyhandle, uint32_t arg_1_index, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ int32_t windowssys_windows_wdk_system_registry_NtEnumerateValueKey(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtFlushKey(void* keyhandle) {
+int32_t windowssys_windows_wdk_system_registry_ntFlushKey(void* keyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,40 @@ int32_t windowssys_windows_wdk_system_registry_NtFlushKey(void* keyhandle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtOpenKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys(void* masterkeyhandle, uint32_t count, void* subordinateobjects, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t completionfilter, bool watchtree, void* buffer, uint32_t buffersize, bool asynchronous) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtNotifyChangeMultipleKeys");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)masterkeyhandle;
+    (void)count;
+    (void)subordinateobjects;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_system_registry_ntOpenKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +298,7 @@ int32_t windowssys_windows_wdk_system_registry_NtOpenKey(void* keyhandle, uint32
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtOpenKeyEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions) {
+int32_t windowssys_windows_wdk_system_registry_ntOpenKeyEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -290,7 +323,7 @@ int32_t windowssys_windows_wdk_system_registry_NtOpenKeyEx(void* keyhandle, uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtOpenKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, void* transactionhandle) {
+int32_t windowssys_windows_wdk_system_registry_ntOpenKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, void* transactionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +348,7 @@ int32_t windowssys_windows_wdk_system_registry_NtOpenKeyTransacted(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions, void* transactionhandle) {
+int32_t windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions, void* transactionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +374,7 @@ int32_t windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx(void* keyha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +398,7 @@ int32_t windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtQueryKey(void* keyhandle, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_ntQueryKey(void* keyhandle, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +424,7 @@ int32_t windowssys_windows_wdk_system_registry_NtQueryKey(void* keyhandle, int32
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey(void* keyhandle, void* valueentries, uint32_t entrycount, void* valuebuffer, void* bufferlength, void* requiredbufferlength) {
+int32_t windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey(void* keyhandle, void* valueentries, uint32_t entrycount, void* valuebuffer, void* bufferlength, void* requiredbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -418,7 +451,7 @@ int32_t windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey(void* key
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtQueryValueKey(void* keyhandle, void* valuename, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_ntQueryValueKey(void* keyhandle, void* valuename, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +478,7 @@ int32_t windowssys_windows_wdk_system_registry_NtQueryValueKey(void* keyhandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtRenameKey(void* keyhandle, void* newname) {
+int32_t windowssys_windows_wdk_system_registry_ntRenameKey(void* keyhandle, void* newname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -468,7 +501,7 @@ int32_t windowssys_windows_wdk_system_registry_NtRenameKey(void* keyhandle, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtRestoreKey(void* keyhandle, void* filehandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_ntRestoreKey(void* keyhandle, void* filehandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -492,7 +525,7 @@ int32_t windowssys_windows_wdk_system_registry_NtRestoreKey(void* keyhandle, voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction(void* transactionhandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction(void* transactionhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +548,7 @@ int32_t windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtSaveKey(void* keyhandle, void* filehandle) {
+int32_t windowssys_windows_wdk_system_registry_ntSaveKey(void* keyhandle, void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +571,7 @@ int32_t windowssys_windows_wdk_system_registry_NtSaveKey(void* keyhandle, void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtSaveKeyEx(void* keyhandle, void* filehandle, uint32_t format) {
+int32_t windowssys_windows_wdk_system_registry_ntSaveKeyEx(void* keyhandle, void* filehandle, uint32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -562,7 +595,7 @@ int32_t windowssys_windows_wdk_system_registry_NtSaveKeyEx(void* keyhandle, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtSetInformationKey(void* keyhandle, int32_t keysetinformationclass, void* keysetinformation, uint32_t keysetinformationlength) {
+int32_t windowssys_windows_wdk_system_registry_ntSetInformationKey(void* keyhandle, int32_t keysetinformationclass, void* keysetinformation, uint32_t keysetinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -587,7 +620,7 @@ int32_t windowssys_windows_wdk_system_registry_NtSetInformationKey(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_NtSetValueKey(void* keyhandle, void* valuename, uint32_t titleindex, uint32_t type, void* data, uint32_t datasize) {
+int32_t windowssys_windows_wdk_system_registry_ntSetValueKey(void* keyhandle, void* valuename, uint32_t titleindex, uint32_t type, void* data, uint32_t datasize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -614,7 +647,7 @@ int32_t windowssys_windows_wdk_system_registry_NtSetValueKey(void* keyhandle, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction(void* transactionhandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction(void* transactionhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -637,7 +670,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwCreateKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* disposition) {
+int32_t windowssys_windows_wdk_system_registry_zwCreateKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* disposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +698,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwCreateKey(void* keyhandle, uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* transactionhandle, void* disposition) {
+int32_t windowssys_windows_wdk_system_registry_zwCreateKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t titleindex, void* arg_4_class, uint32_t createoptions, void* transactionhandle, void* disposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +727,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted(void* keyha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, uint32_t createoptions) {
+int32_t windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes, uint32_t createoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -719,7 +752,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwDeleteKey(void* keyhandle) {
+int32_t windowssys_windows_wdk_system_registry_zwDeleteKey(void* keyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -741,7 +774,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwDeleteKey(void* keyhandle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwDeleteValueKey(void* keyhandle, void* valuename) {
+int32_t windowssys_windows_wdk_system_registry_zwDeleteValueKey(void* keyhandle, void* valuename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -764,7 +797,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwDeleteValueKey(void* keyhandle,
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwEnumerateKey(void* keyhandle, uint32_t arg_1_index, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_zwEnumerateKey(void* keyhandle, uint32_t arg_1_index, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -791,7 +824,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwEnumerateKey(void* keyhandle, u
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwEnumerateValueKey(void* keyhandle, uint32_t arg_1_index, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_zwEnumerateValueKey(void* keyhandle, uint32_t arg_1_index, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -818,7 +851,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwEnumerateValueKey(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwFlushKey(void* keyhandle) {
+int32_t windowssys_windows_wdk_system_registry_zwFlushKey(void* keyhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -840,7 +873,40 @@ int32_t windowssys_windows_wdk_system_registry_ZwFlushKey(void* keyhandle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwOpenKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys(void* masterkeyhandle, uint32_t count, void* subordinateobjects, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t completionfilter, bool watchtree, void* buffer, uint32_t buffersize, bool asynchronous) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwNotifyChangeMultipleKeys");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)masterkeyhandle;
+    (void)count;
+    (void)subordinateobjects;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_system_registry_zwOpenKey(void* keyhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -864,7 +930,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwOpenKey(void* keyhandle, uint32
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions) {
+int32_t windowssys_windows_wdk_system_registry_zwOpenKeyEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -889,7 +955,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyEx(void* keyhandle, uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, void* transactionhandle) {
+int32_t windowssys_windows_wdk_system_registry_zwOpenKeyTransacted(void* keyhandle, uint32_t desiredaccess, void* objectattributes, void* transactionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +980,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions, void* transactionhandle) {
+int32_t windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx(void* keyhandle, uint32_t desiredaccess, void* objectattributes, uint32_t openoptions, void* transactionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +1006,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx(void* keyha
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction(void* transactionhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -964,7 +1030,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwQueryKey(void* keyhandle, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_zwQueryKey(void* keyhandle, int32_t keyinformationclass, void* keyinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -990,7 +1056,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwQueryKey(void* keyhandle, int32
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey(void* keyhandle, void* valueentries, uint32_t entrycount, void* valuebuffer, void* bufferlength, void* requiredbufferlength) {
+int32_t windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey(void* keyhandle, void* valueentries, uint32_t entrycount, void* valuebuffer, void* bufferlength, void* requiredbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1017,7 +1083,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey(void* key
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwQueryValueKey(void* keyhandle, void* valuename, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
+int32_t windowssys_windows_wdk_system_registry_zwQueryValueKey(void* keyhandle, void* valuename, int32_t keyvalueinformationclass, void* keyvalueinformation, uint32_t length, void* resultlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1044,7 +1110,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwQueryValueKey(void* keyhandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwRenameKey(void* keyhandle, void* newname) {
+int32_t windowssys_windows_wdk_system_registry_zwRenameKey(void* keyhandle, void* newname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1067,7 +1133,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwRenameKey(void* keyhandle, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwRestoreKey(void* keyhandle, void* filehandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_zwRestoreKey(void* keyhandle, void* filehandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1157,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwRestoreKey(void* keyhandle, voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction(void* transactionhandle, uint32_t flags) {
+int32_t windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction(void* transactionhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1180,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwSaveKey(void* keyhandle, void* filehandle) {
+int32_t windowssys_windows_wdk_system_registry_zwSaveKey(void* keyhandle, void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1203,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwSaveKey(void* keyhandle, void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwSaveKeyEx(void* keyhandle, void* filehandle, uint32_t format) {
+int32_t windowssys_windows_wdk_system_registry_zwSaveKeyEx(void* keyhandle, void* filehandle, uint32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1161,7 +1227,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwSaveKeyEx(void* keyhandle, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwSetInformationKey(void* keyhandle, int32_t keysetinformationclass, void* keysetinformation, uint32_t keysetinformationlength) {
+int32_t windowssys_windows_wdk_system_registry_zwSetInformationKey(void* keyhandle, int32_t keysetinformationclass, void* keysetinformation, uint32_t keysetinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1186,7 +1252,7 @@ int32_t windowssys_windows_wdk_system_registry_ZwSetInformationKey(void* keyhand
 #endif
 }
 
-int32_t windowssys_windows_wdk_system_registry_ZwSetValueKey(void* keyhandle, void* valuename, uint32_t titleindex, uint32_t type, void* data, uint32_t datasize) {
+int32_t windowssys_windows_wdk_system_registry_zwSetValueKey(void* keyhandle, void* valuename, uint32_t titleindex, uint32_t type, void* data, uint32_t datasize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_com_marshal_BSTR_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_bstrUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void windowssys_windows_win32_system_com_marshal_BSTR_UserFree(void* param0, voi
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_BSTR_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_bstrUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ void windowssys_windows_win32_system_com_marshal_BSTR_UserFree64(void* param0, v
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_BSTR_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_bstrUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ void* windowssys_windows_win32_system_com_marshal_BSTR_UserMarshal(void* param0,
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_BSTR_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_bstrUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ void* windowssys_windows_win32_system_com_marshal_BSTR_UserMarshal64(void* param
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_BSTR_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_bstrUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_BSTR_UserSize(void* param0,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_BSTR_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_bstrUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_BSTR_UserSize64(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_BSTR_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ void* windowssys_windows_win32_system_com_marshal_BSTR_UserUnmarshal(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_BSTR_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ void* windowssys_windows_win32_system_com_marshal_BSTR_UserUnmarshal64(void* par
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_clipformatUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ void windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserFree(void* param
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_clipformatUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ void windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserFree64(void* par
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_clipformatUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserMarshal(void* p
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserMarshal64(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_clipformatUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -319,7 +319,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserSize(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_clipformatUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -343,7 +343,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserSize64(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -367,7 +367,7 @@ void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserUnmarshal(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ void* windowssys_windows_win32_system_com_marshal_CLIPFORMAT_UserUnmarshal64(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoGetMarshalSizeMax(void* pulsize, void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags) {
+int32_t windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax(void* pulsize, void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -418,7 +418,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoGetMarshalSizeMax(void* pu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoGetStandardMarshal(void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags, void* ppmarshal) {
+int32_t windowssys_windows_win32_system_com_marshal_coGetStandardMarshal(void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags, void* ppmarshal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoGetStandardMarshal(void* r
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoGetStdMarshalEx(void* punkouter, uint32_t smexflags, void* ppunkinner) {
+int32_t windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx(void* punkouter, uint32_t smexflags, void* ppunkinner) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoGetStdMarshalEx(void* punk
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoMarshalHresult(void* pstm, int32_t hresult) {
+int32_t windowssys_windows_win32_system_com_marshal_coMarshalHresult(void* pstm, int32_t hresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -492,7 +492,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoMarshalHresult(void* pstm,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoMarshalInterThreadInterfaceInStream(void* riid, void* punk, void* ppstm) {
+int32_t windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream(void* riid, void* punk, void* ppstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -516,7 +516,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoMarshalInterThreadInterfac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoMarshalInterface(void* pstm, void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags) {
+int32_t windowssys_windows_win32_system_com_marshal_coMarshalInterface(void* pstm, void* riid, void* punk, uint32_t dwdestcontext, void* pvdestcontext, uint32_t mshlflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -543,7 +543,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoMarshalInterface(void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoReleaseMarshalData(void* pstm) {
+int32_t windowssys_windows_win32_system_com_marshal_coReleaseMarshalData(void* pstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -565,7 +565,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoReleaseMarshalData(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoUnmarshalHresult(void* pstm, void* phresult) {
+int32_t windowssys_windows_win32_system_com_marshal_coUnmarshalHresult(void* pstm, void* phresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoUnmarshalHresult(void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_marshal_CoUnmarshalInterface(void* pstm, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_system_com_marshal_coUnmarshalInterface(void* pstm, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -612,7 +612,7 @@ int32_t windowssys_windows_win32_system_com_marshal_CoUnmarshalInterface(void* p
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HACCEL_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_haccelUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -634,7 +634,7 @@ void windowssys_windows_win32_system_com_marshal_HACCEL_UserFree(void* param0, v
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HACCEL_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_haccelUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -656,7 +656,7 @@ void windowssys_windows_win32_system_com_marshal_HACCEL_UserFree64(void* param0,
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HACCEL_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_haccelUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -680,7 +680,7 @@ void* windowssys_windows_win32_system_com_marshal_HACCEL_UserMarshal(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HACCEL_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_haccelUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -704,7 +704,7 @@ void* windowssys_windows_win32_system_com_marshal_HACCEL_UserMarshal64(void* par
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HACCEL_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_haccelUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -728,7 +728,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HACCEL_UserSize(void* param
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HACCEL_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_haccelUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -752,7 +752,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HACCEL_UserSize64(void* par
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HACCEL_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -776,7 +776,7 @@ void* windowssys_windows_win32_system_com_marshal_HACCEL_UserUnmarshal(void* par
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HACCEL_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -800,7 +800,7 @@ void* windowssys_windows_win32_system_com_marshal_HACCEL_UserUnmarshal64(void* p
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HBITMAP_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hbitmapUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ void windowssys_windows_win32_system_com_marshal_HBITMAP_UserFree(void* param0, 
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HBITMAP_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hbitmapUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -844,7 +844,7 @@ void windowssys_windows_win32_system_com_marshal_HBITMAP_UserFree64(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -868,7 +868,7 @@ void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserMarshal(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserMarshal64(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HBITMAP_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hbitmapUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HBITMAP_UserSize(void* para
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HBITMAP_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hbitmapUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HBITMAP_UserSize64(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -964,7 +964,7 @@ void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserUnmarshal(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -988,7 +988,7 @@ void* windowssys_windows_win32_system_com_marshal_HBITMAP_UserUnmarshal64(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HDC_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hdcUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ void windowssys_windows_win32_system_com_marshal_HDC_UserFree(void* param0, void
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HDC_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hdcUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ void windowssys_windows_win32_system_com_marshal_HDC_UserFree64(void* param0, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HDC_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hdcUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ void* windowssys_windows_win32_system_com_marshal_HDC_UserMarshal(void* param0, 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HDC_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hdcUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1080,7 +1080,7 @@ void* windowssys_windows_win32_system_com_marshal_HDC_UserMarshal64(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HDC_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hdcUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1104,7 +1104,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HDC_UserSize(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HDC_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hdcUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1128,7 +1128,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HDC_UserSize64(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HDC_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1152,7 +1152,7 @@ void* windowssys_windows_win32_system_com_marshal_HDC_UserUnmarshal(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HDC_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1176,7 +1176,7 @@ void* windowssys_windows_win32_system_com_marshal_HDC_UserUnmarshal64(void* para
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HGLOBAL_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hglobalUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1198,7 +1198,7 @@ void windowssys_windows_win32_system_com_marshal_HGLOBAL_UserFree(void* param0, 
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HGLOBAL_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hglobalUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1220,7 +1220,7 @@ void windowssys_windows_win32_system_com_marshal_HGLOBAL_UserFree64(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hglobalUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1244,7 +1244,7 @@ void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserMarshal(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1268,7 +1268,7 @@ void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserMarshal64(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HGLOBAL_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hglobalUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1292,7 +1292,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HGLOBAL_UserSize(void* para
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HGLOBAL_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hglobalUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HGLOBAL_UserSize64(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserUnmarshal(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1364,7 +1364,7 @@ void* windowssys_windows_win32_system_com_marshal_HGLOBAL_UserUnmarshal64(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HICON_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hiconUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ void windowssys_windows_win32_system_com_marshal_HICON_UserFree(void* param0, vo
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HICON_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hiconUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1408,7 +1408,7 @@ void windowssys_windows_win32_system_com_marshal_HICON_UserFree64(void* param0, 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HICON_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hiconUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1432,7 +1432,7 @@ void* windowssys_windows_win32_system_com_marshal_HICON_UserMarshal(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HICON_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hiconUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1456,7 +1456,7 @@ void* windowssys_windows_win32_system_com_marshal_HICON_UserMarshal64(void* para
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HICON_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hiconUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1480,7 +1480,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HICON_UserSize(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HICON_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hiconUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1504,7 +1504,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HICON_UserSize64(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HICON_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1528,7 +1528,7 @@ void* windowssys_windows_win32_system_com_marshal_HICON_UserUnmarshal(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HICON_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1552,7 +1552,7 @@ void* windowssys_windows_win32_system_com_marshal_HICON_UserUnmarshal64(void* pa
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HMENU_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hmenuUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1574,7 +1574,7 @@ void windowssys_windows_win32_system_com_marshal_HMENU_UserFree(void* param0, vo
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HMENU_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hmenuUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1596,7 +1596,7 @@ void windowssys_windows_win32_system_com_marshal_HMENU_UserFree64(void* param0, 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HMENU_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hmenuUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1620,7 +1620,7 @@ void* windowssys_windows_win32_system_com_marshal_HMENU_UserMarshal(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HMENU_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ void* windowssys_windows_win32_system_com_marshal_HMENU_UserMarshal64(void* para
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HMENU_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hmenuUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1668,7 +1668,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HMENU_UserSize(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HMENU_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hmenuUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HMENU_UserSize64(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HMENU_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1716,7 +1716,7 @@ void* windowssys_windows_win32_system_com_marshal_HMENU_UserUnmarshal(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HMENU_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1740,7 +1740,7 @@ void* windowssys_windows_win32_system_com_marshal_HMENU_UserUnmarshal64(void* pa
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HPALETTE_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hpaletteUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1762,7 +1762,7 @@ void windowssys_windows_win32_system_com_marshal_HPALETTE_UserFree(void* param0,
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HPALETTE_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hpaletteUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1784,7 +1784,7 @@ void windowssys_windows_win32_system_com_marshal_HPALETTE_UserFree64(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1808,7 +1808,7 @@ void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserMarshal(void* par
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1832,7 +1832,7 @@ void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserMarshal64(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HPALETTE_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hpaletteUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1856,7 +1856,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HPALETTE_UserSize(void* par
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HPALETTE_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hpaletteUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1880,7 +1880,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HPALETTE_UserSize64(void* p
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1904,7 +1904,7 @@ void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserUnmarshal(void* p
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1928,7 +1928,7 @@ void* windowssys_windows_win32_system_com_marshal_HPALETTE_UserUnmarshal64(void*
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HWND_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hwndUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1950,7 +1950,7 @@ void windowssys_windows_win32_system_com_marshal_HWND_UserFree(void* param0, voi
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_HWND_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_hwndUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1972,7 +1972,7 @@ void windowssys_windows_win32_system_com_marshal_HWND_UserFree64(void* param0, v
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HWND_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hwndUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1996,7 +1996,7 @@ void* windowssys_windows_win32_system_com_marshal_HWND_UserMarshal(void* param0,
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HWND_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hwndUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2020,7 +2020,7 @@ void* windowssys_windows_win32_system_com_marshal_HWND_UserMarshal64(void* param
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HWND_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hwndUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HWND_UserSize(void* param0,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_HWND_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_hwndUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2068,7 +2068,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_HWND_UserSize64(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HWND_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2092,7 +2092,7 @@ void* windowssys_windows_win32_system_com_marshal_HWND_UserUnmarshal(void* param
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_HWND_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2116,7 +2116,7 @@ void* windowssys_windows_win32_system_com_marshal_HWND_UserUnmarshal64(void* par
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2138,7 +2138,7 @@ void windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserFree(void* para
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2160,7 +2160,7 @@ void windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserFree64(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2184,7 +2184,7 @@ void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserMarshal(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserMarshal64(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2232,7 +2232,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserSize(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2256,7 +2256,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserSize64(void
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2280,7 +2280,7 @@ void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserUnmarshal(void
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2304,7 +2304,7 @@ void* windowssys_windows_win32_system_com_marshal_LPSAFEARRAY_UserUnmarshal64(vo
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_SNB_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_snbUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2326,7 +2326,7 @@ void windowssys_windows_win32_system_com_marshal_SNB_UserFree(void* param0, void
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_SNB_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_snbUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2348,7 +2348,7 @@ void windowssys_windows_win32_system_com_marshal_SNB_UserFree64(void* param0, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_SNB_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_snbUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2372,7 +2372,7 @@ void* windowssys_windows_win32_system_com_marshal_SNB_UserMarshal(void* param0, 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_SNB_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_snbUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2396,7 +2396,7 @@ void* windowssys_windows_win32_system_com_marshal_SNB_UserMarshal64(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_SNB_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_snbUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2420,7 +2420,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_SNB_UserSize(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_SNB_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_snbUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2444,7 +2444,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_SNB_UserSize64(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_SNB_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_snbUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2468,7 +2468,7 @@ void* windowssys_windows_win32_system_com_marshal_SNB_UserUnmarshal(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_SNB_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2492,7 +2492,7 @@ void* windowssys_windows_win32_system_com_marshal_SNB_UserUnmarshal64(void* para
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_stgmediumUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2514,7 +2514,7 @@ void windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserFree(void* param0
 #endif
 }
 
-void windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_com_marshal_stgmediumUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2536,7 +2536,7 @@ void windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserFree64(void* para
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2560,7 +2560,7 @@ void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserMarshal(void* pa
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2584,7 +2584,7 @@ void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserMarshal64(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_stgmediumUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2608,7 +2608,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserSize(void* pa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_com_marshal_stgmediumUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2632,7 +2632,7 @@ uint32_t windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserSize64(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2656,7 +2656,7 @@ void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserUnmarshal(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_com_marshal_STGMEDIUM_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

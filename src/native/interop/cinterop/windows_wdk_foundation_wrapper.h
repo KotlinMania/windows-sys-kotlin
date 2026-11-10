@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_wdk_foundation_NtClose(void* handle);
-int32_t windowssys_windows_wdk_foundation_NtQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength);
+int32_t windowssys_windows_wdk_foundation_ntClose(void* handle);
+int32_t windowssys_windows_wdk_foundation_ntQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength);
 
 #ifdef __cplusplus
 }

@@ -1,195 +1,195 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val APPLICATION_USER_MODEL_ID_MAX_LENGTH: UInt = 130u
 
 public val APPLICATION_USER_MODEL_ID_MIN_LENGTH: UInt = 20u
 
-public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 1
+public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: AppxBundleFootprintFileType = 1
 
-public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 0
+public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: AppxBundleFootprintFileType = 0
 
-public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 2
+public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: AppxBundleFootprintFileType = 2
 
-public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 0
+public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: AppxBundleFootprintFileType = 0
 
-public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 2
+public val APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: AppxBundleFootprintFileType = 2
 
-public val APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 0
+public val APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: AppxBundlePayloadPackageType = 0
 
-public val APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 1
+public val APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: AppxBundlePayloadPackageType = 1
 
-public val APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = 1024
+public val APPX_CAPABILITY_APPOINTMENTS: AppxCapabilities = 1024
 
-public val APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = 7
+public val APPX_CAPABILITY_CLASS_ALL: AppxCapabilityClassType = 7
 
-public val APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = 8
+public val APPX_CAPABILITY_CLASS_CUSTOM: AppxCapabilityClassType = 8
 
-public val APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = 0
+public val APPX_CAPABILITY_CLASS_DEFAULT: AppxCapabilityClassType = 0
 
-public val APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = 1
+public val APPX_CAPABILITY_CLASS_GENERAL: AppxCapabilityClassType = 1
 
-public val APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = 2
+public val APPX_CAPABILITY_CLASS_RESTRICTED: AppxCapabilityClassType = 2
 
-public val APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = 4
+public val APPX_CAPABILITY_CLASS_WINDOWS: AppxCapabilityClassType = 4
 
-public val APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = 2048
+public val APPX_CAPABILITY_CONTACTS: AppxCapabilities = 2048
 
-public val APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = 8
+public val APPX_CAPABILITY_DOCUMENTS_LIBRARY: AppxCapabilities = 8
 
-public val APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = 128
+public val APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: AppxCapabilities = 128
 
-public val APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = 1
+public val APPX_CAPABILITY_INTERNET_CLIENT: AppxCapabilities = 1
 
-public val APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = 2
+public val APPX_CAPABILITY_INTERNET_CLIENT_SERVER: AppxCapabilities = 2
 
-public val APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = 64
+public val APPX_CAPABILITY_MUSIC_LIBRARY: AppxCapabilities = 64
 
-public val APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = 16
+public val APPX_CAPABILITY_PICTURES_LIBRARY: AppxCapabilities = 16
 
-public val APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = 4
+public val APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: AppxCapabilities = 4
 
-public val APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = 512
+public val APPX_CAPABILITY_REMOVABLE_STORAGE: AppxCapabilities = 512
 
-public val APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = 256
+public val APPX_CAPABILITY_SHARED_USER_CERTIFICATES: AppxCapabilities = 256
 
-public val APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = 32
+public val APPX_CAPABILITY_VIDEOS_LIBRARY: AppxCapabilities = 32
 
-public val APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = 3
+public val APPX_COMPRESSION_OPTION_FAST: AppxCompressionOption = 3
 
-public val APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = 2
+public val APPX_COMPRESSION_OPTION_MAXIMUM: AppxCompressionOption = 2
 
-public val APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0
+public val APPX_COMPRESSION_OPTION_NONE: AppxCompressionOption = 0
 
-public val APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1
+public val APPX_COMPRESSION_OPTION_NORMAL: AppxCompressionOption = 1
 
-public val APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4
+public val APPX_COMPRESSION_OPTION_SUPERFAST: AppxCompressionOption = 4
 
-public val APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1
+public val APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: AppxEncryptedPackageOptions = 1
 
-public val APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0
+public val APPX_ENCRYPTED_PACKAGE_OPTION_NONE: AppxEncryptedPackageOptions = 0
 
-public val APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2
+public val APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: AppxEncryptedPackageOptions = 2
 
-public val APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1
+public val APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: AppxFootprintFileType = 1
 
-public val APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = 3
+public val APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: AppxFootprintFileType = 3
 
-public val APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
+public val APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: AppxFootprintFileType = 4
 
-public val APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0
+public val APPX_FOOTPRINT_FILE_TYPE_MANIFEST: AppxFootprintFileType = 0
 
-public val APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2
+public val APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: AppxFootprintFileType = 2
 
-public val APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = 5
+public val APPX_PACKAGE_ARCHITECTURE2_ARM: AppxPackageArchitecture2 = 5
 
-public val APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = 12
+public val APPX_PACKAGE_ARCHITECTURE2_ARM64: AppxPackageArchitecture2 = 12
 
-public val APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = 11
+public val APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: AppxPackageArchitecture2 = 11
 
-public val APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = 65535
+public val APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: AppxPackageArchitecture2 = 65535
 
-public val APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = 9
+public val APPX_PACKAGE_ARCHITECTURE2_X64: AppxPackageArchitecture2 = 9
 
-public val APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = 0
+public val APPX_PACKAGE_ARCHITECTURE2_X86: AppxPackageArchitecture2 = 0
 
-public val APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = 14
+public val APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: AppxPackageArchitecture2 = 14
 
-public val APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = 5
+public val APPX_PACKAGE_ARCHITECTURE_ARM: AppxPackageArchitecture = 5
 
-public val APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = 12
+public val APPX_PACKAGE_ARCHITECTURE_ARM64: AppxPackageArchitecture = 12
 
-public val APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = 11
+public val APPX_PACKAGE_ARCHITECTURE_NEUTRAL: AppxPackageArchitecture = 11
 
-public val APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = 9
+public val APPX_PACKAGE_ARCHITECTURE_X64: AppxPackageArchitecture = 9
 
-public val APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = 0
+public val APPX_PACKAGE_ARCHITECTURE_X86: AppxPackageArchitecture = 0
 
-public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 2
+public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: AppxPackageEditorUpdatePackageManifestOptions = 2
 
-public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 0
+public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: AppxPackageEditorUpdatePackageManifestOptions = 0
 
-public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 1
+public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: AppxPackageEditorUpdatePackageManifestOptions = 1
 
-public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0
+public val APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: AppxPackageEditorUpdatePackageOption = 0
 
-public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 1
+public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: AppxPackagingContextChangeType = 1
 
-public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 2
+public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: AppxPackagingContextChangeType = 2
 
-public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 3
+public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: AppxPackagingContextChangeType = 3
 
-public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 0
+public val APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: AppxPackagingContextChangeType = 0
 
-public val AddPackageDependencyOptions_None: AddPackageDependencyOptions = 0
+public val ADD_PACKAGE_DEPENDENCY_OPTIONS_NONE: AddPackageDependencyOptions = 0
 
-public val AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = 1
+public val ADD_PACKAGE_DEPENDENCY_OPTIONS_PREPEND_IF_RANK_COLLISION: AddPackageDependencyOptions = 1
 
-public val AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = 1
+public val APP_POLICY_CLR_COMPAT_CLASSIC_DESKTOP: AppPolicyClrCompat = 1
 
-public val AppPolicyClrCompat_Other: AppPolicyClrCompat = 0
+public val APP_POLICY_CLR_COMPAT_OTHER: AppPolicyClrCompat = 0
 
-public val AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = 3
+public val APP_POLICY_CLR_COMPAT_PACKAGED_DESKTOP: AppPolicyClrCompat = 3
 
-public val AppPolicyClrCompat_Universal: AppPolicyClrCompat = 2
+public val APP_POLICY_CLR_COMPAT_UNIVERSAL: AppPolicyClrCompat = 2
 
-public val AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = 0
+public val APP_POLICY_CREATE_FILE_ACCESS_FULL: AppPolicyCreateFileAccess = 0
 
-public val AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = 1
+public val APP_POLICY_CREATE_FILE_ACCESS_LIMITED: AppPolicyCreateFileAccess = 1
 
-public val AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = 1
+public val APP_POLICY_LIFECYCLE_MANAGEMENT_MANAGED: AppPolicyLifecycleManagement = 1
 
-public val AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = 0
+public val APP_POLICY_LIFECYCLE_MANAGEMENT_UNMANAGED: AppPolicyLifecycleManagement = 0
 
-public val AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = 0
+public val APP_POLICY_MEDIA_FOUNDATION_CODEC_LOADING_ALL: AppPolicyMediaFoundationCodecLoading = 0
 
-public val AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = 1
+public val APP_POLICY_MEDIA_FOUNDATION_CODEC_LOADING_INBOX_ONLY: AppPolicyMediaFoundationCodecLoading = 1
 
-public val AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = 0
+public val APP_POLICY_PROCESS_TERMINATION_METHOD_EXIT_PROCESS: AppPolicyProcessTerminationMethod = 0
 
-public val AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = 1
+public val APP_POLICY_PROCESS_TERMINATION_METHOD_TERMINATE_PROCESS: AppPolicyProcessTerminationMethod = 1
 
-public val AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = 0
+public val APP_POLICY_SHOW_DEVELOPER_DIAGNOSTIC_NONE: AppPolicyShowDeveloperDiagnostic = 0
 
-public val AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = 1
+public val APP_POLICY_SHOW_DEVELOPER_DIAGNOSTIC_SHOW_UI: AppPolicyShowDeveloperDiagnostic = 1
 
-public val AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = 1
+public val APP_POLICY_THREAD_INITIALIZATION_TYPE_INITIALIZE_WIN_RT: AppPolicyThreadInitializationType = 1
 
-public val AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = 0
+public val APP_POLICY_THREAD_INITIALIZATION_TYPE_NONE: AppPolicyThreadInitializationType = 0
 
-public val AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = 2
+public val APP_POLICY_WINDOWING_MODEL_CLASSIC_DESKTOP: AppPolicyWindowingModel = 2
 
-public val AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = 3
+public val APP_POLICY_WINDOWING_MODEL_CLASSIC_PHONE: AppPolicyWindowingModel = 3
 
-public val AppPolicyWindowingModel_None: AppPolicyWindowingModel = 0
+public val APP_POLICY_WINDOWING_MODEL_NONE: AppPolicyWindowingModel = 0
 
-public val AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = 1
+public val APP_POLICY_WINDOWING_MODEL_UNIVERSAL: AppPolicyWindowingModel = 1
 
-public val AppxBundleFactory: GUID = GUID.from_u128(U128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL))
+public val APPX_BUNDLE_FACTORY: Guid = Guid.fromU128(U128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL))
 
-public val AppxEncryptionFactory: GUID = GUID.from_u128(U128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL))
+public val APPX_ENCRYPTION_FACTORY: Guid = Guid.fromU128(U128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL))
 
-public val AppxFactory: GUID = GUID.from_u128(U128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL))
+public val APPX_FACTORY: Guid = Guid.fromU128(U128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL))
 
-public val AppxPackageEditor: GUID = GUID.from_u128(U128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL))
+public val APPX_PACKAGE_EDITOR: Guid = Guid.fromU128(U128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL))
 
-public val AppxPackagingDiagnosticEventSinkManager: GUID = GUID.from_u128(U128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL))
+public val APPX_PACKAGING_DIAGNOSTIC_EVENT_SINK_MANAGER: Guid = Guid.fromU128(U128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL))
 
-public val CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = 1
+public val CREATE_PACKAGE_DEPENDENCY_OPTIONS_DO_NOT_VERIFY_DEPENDENCY_RESOLUTION: CreatePackageDependencyOptions = 1
 
-public val CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0
+public val CREATE_PACKAGE_DEPENDENCY_OPTIONS_NONE: CreatePackageDependencyOptions = 0
 
-public val CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2
+public val CREATE_PACKAGE_DEPENDENCY_OPTIONS_SCOPE_IS_SYSTEM: CreatePackageDependencyOptions = 2
 
-public val DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = 2
+public val DX_FEATURE_LEVEL_10: DxFeatureLevel = 2
 
-public val DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = 3
+public val DX_FEATURE_LEVEL_11: DxFeatureLevel = 3
 
-public val DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = 1
+public val DX_FEATURE_LEVEL_9: DxFeatureLevel = 1
 
-public val DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = 0
+public val DX_FEATURE_LEVEL_UNSPECIFIED: DxFeatureLevel = 0
 
 public val PACKAGE_APPLICATIONS_MAX_COUNT: UInt = 100u
 
@@ -287,50 +287,50 @@ public val PACKAGE_VERSION_MAX_LENGTH: UInt = 23u
 
 public val PACKAGE_VERSION_MIN_LENGTH: UInt = 7u
 
-public val PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = 1
+public val PACKAGE_DEPENDENCY_LIFETIME_KIND_FILE_PATH: PackageDependencyLifetimeKind = 1
 
-public val PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = 0
+public val PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: PackageDependencyLifetimeKind = 0
 
-public val PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = 2
+public val PACKAGE_DEPENDENCY_LIFETIME_KIND_REGISTRY_KEY: PackageDependencyLifetimeKind = 2
 
-public val PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = 8
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_ARM: PackageDependencyProcessorArchitectures = 8
 
-public val PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = 16
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_ARM64: PackageDependencyProcessorArchitectures = 16
 
-public val PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = 1
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_NEUTRAL: PackageDependencyProcessorArchitectures = 1
 
-public val PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = 0
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_NONE: PackageDependencyProcessorArchitectures = 0
 
-public val PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = 4
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_X64: PackageDependencyProcessorArchitectures = 4
 
-public val PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = 2
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_X86: PackageDependencyProcessorArchitectures = 2
 
-public val PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = 32
+public val PACKAGE_DEPENDENCY_PROCESSOR_ARCHITECTURES_X86A64: PackageDependencyProcessorArchitectures = 32
 
-public val PackageInfo3Type_PackageInfoGeneration: PackageInfo3Type = 16
+public val PACKAGE_INFO3TYPE_PACKAGE_INFO_GENERATION: PackageInfo3Type = 16
 
-public val PackageOrigin_DeveloperSigned: PackageOrigin = 5
+public val PACKAGE_ORIGIN_DEVELOPER_SIGNED: PackageOrigin = 5
 
-public val PackageOrigin_DeveloperUnsigned: PackageOrigin = 4
+public val PACKAGE_ORIGIN_DEVELOPER_UNSIGNED: PackageOrigin = 4
 
-public val PackageOrigin_Inbox: PackageOrigin = 2
+public val PACKAGE_ORIGIN_INBOX: PackageOrigin = 2
 
-public val PackageOrigin_LineOfBusiness: PackageOrigin = 6
+public val PACKAGE_ORIGIN_LINE_OF_BUSINESS: PackageOrigin = 6
 
-public val PackageOrigin_Store: PackageOrigin = 3
+public val PACKAGE_ORIGIN_STORE: PackageOrigin = 3
 
-public val PackageOrigin_Unknown: PackageOrigin = 0
+public val PACKAGE_ORIGIN_UNKNOWN: PackageOrigin = 0
 
-public val PackageOrigin_Unsigned: PackageOrigin = 1
+public val PACKAGE_ORIGIN_UNSIGNED: PackageOrigin = 1
 
-public val PackagePathType_Effective: PackagePathType = 2
+public val PACKAGE_PATH_TYPE_EFFECTIVE: PackagePathType = 2
 
-public val PackagePathType_EffectiveExternal: PackagePathType = 5
+public val PACKAGE_PATH_TYPE_EFFECTIVE_EXTERNAL: PackagePathType = 5
 
-public val PackagePathType_Install: PackagePathType = 0
+public val PACKAGE_PATH_TYPE_INSTALL: PackagePathType = 0
 
-public val PackagePathType_MachineExternal: PackagePathType = 3
+public val PACKAGE_PATH_TYPE_MACHINE_EXTERNAL: PackagePathType = 3
 
-public val PackagePathType_Mutable: PackagePathType = 1
+public val PACKAGE_PATH_TYPE_MUTABLE: PackagePathType = 1
 
-public val PackagePathType_UserExternal: PackagePathType = 4
+public val PACKAGE_PATH_TYPE_USER_EXTERNAL: PackagePathType = 4

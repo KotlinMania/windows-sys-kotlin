@@ -1,17 +1,18 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int
+public expect fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: COpaquePointer?): Int
 
-public expect fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int
+public expect fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: COpaquePointer?): Int
 
-public expect fun ComDBClose(hcomdb: HCOMDB): Int
+public expect fun comDBClose(hcomdb: Hcomdb): Int
 
-public expect fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int
+public expect fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: COpaquePointer?, buffersize: UInt, reporttype: UInt, maxportsreported: COpaquePointer?): Int
 
-public expect fun ComDBOpen(phcomdb: Long): Int
+public expect fun comDBOpen(phcomdb: COpaquePointer?): Int
 
-public expect fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int
+public expect fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int
 
-public expect fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int
+public expect fun comDBResizeDatabase(hcomdb: Hcomdb, newsize: UInt): Int

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator(void* connectionhandle, void* allocatorframing, void* allocatorhandle) {
+uint32_t windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator(void* connectionhandle, void* allocatorframing, void* allocatorhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2(void* connectionhandle, void* allocatorframing, void* allocatorhandle) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksCreateAllocator2(void* connectionhandle, void* allocatorframing, void* allocatorhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateAllocator2(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateClock(void* connectionhandle, void* clockcreate, void* clockhandle) {
+uint32_t windowssys_windows_win32_media_kernelstreaming_ksCreateClock(void* connectionhandle, void* clockcreate, void* clockhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateClock(void* conn
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateClock2(void* connectionhandle, void* clockcreate, void* clockhandle) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksCreateClock2(void* connectionhandle, void* clockcreate, void* clockhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateClock2(void* conn
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreatePin(void* filterhandle, void* arg_1_connect, uint32_t desiredaccess, void* connectionhandle) {
+uint32_t windowssys_windows_win32_media_kernelstreaming_ksCreatePin(void* filterhandle, void* arg_1_connect, uint32_t desiredaccess, void* connectionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreatePin(void* filter
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsCreatePin2(void* filterhandle, void* arg_1_connect, uint32_t desiredaccess, void* connectionhandle) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksCreatePin2(void* filterhandle, void* arg_1_connect, uint32_t desiredaccess, void* connectionhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsCreatePin2(void* filter
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode(void* parenthandle, void* nodecreate, uint32_t desiredaccess, void* nodehandle) {
+uint32_t windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode(void* parenthandle, void* nodecreate, uint32_t desiredaccess, void* nodehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ uint32_t windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2(void* parenthandle, void* nodecreate, uint32_t desiredaccess, void* nodehandle) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksCreateTopologyNode2(void* parenthandle, void* nodecreate, uint32_t desiredaccess, void* nodehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -211,7 +211,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsCreateTopologyNode2(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount(void* filterhandle, uint32_t pinfactoryid, void* mediatypecount) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksGetMediaTypeCount(void* filterhandle, uint32_t pinfactoryid, void* mediatypecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -235,7 +235,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsGetMediaTypeCount(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryItems(void* filterhandle, uint32_t pinfactoryid, uint32_t propertyid, void* items) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksGetMultiplePinFactoryItems(void* filterhandle, uint32_t pinfactoryid, uint32_t propertyid, void* items) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -260,7 +260,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsGetMultiplePinFactoryIt
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice(void* category, uint32_t access, void* devicehandle) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultDevice(void* category, uint32_t access, void* devicehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -284,7 +284,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsOpenDefaultDevice(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttributes(void* datarange, void* attributes) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksResolveRequiredAttributes(void* datarange, void* attributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -307,7 +307,7 @@ int32_t windowssys_windows_win32_media_kernelstreaming_KsResolveRequiredAttribut
 #endif
 }
 
-int32_t windowssys_windows_win32_media_kernelstreaming_KsSynchronousDeviceControl(void* handle, uint32_t iocontrol, void* inbuffer, uint32_t inlength, void* outbuffer, uint32_t outlength, void* bytesreturned) {
+int32_t windowssys_windows_win32_media_kernelstreaming_ksSynchronousDeviceControl(void* handle, uint32_t iocontrol, void* inbuffer, uint32_t inlength, void* outbuffer, uint32_t outlength, void* bytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

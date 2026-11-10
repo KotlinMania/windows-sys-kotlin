@@ -1,202 +1,206 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_Bindings
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_CipherInfo
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_ConnectionInfo
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextBindings
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextCipherInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextConnectionInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
-public data class APP_CACHE_DOWNLOAD_ENTRY(public var pwszUrl: PWSTR = 0L, public var dwEntryType: UInt = 0u)
+public data class AppCacheDownloadEntry(public var pwszUrl: Pwstr = null, public var dwEntryType: UInt = 0u)
 
-public data class APP_CACHE_DOWNLOAD_LIST(public var dwEntryCount: UInt = 0u, public var pEntries: Long = 0L)
+public data class AppCacheDownloadList(public var dwEntryCount: UInt = 0u, public var pEntries: AppCacheDownloadEntry? = null)
 
-public data class APP_CACHE_GROUP_INFO(
-    public var pwszManifestUrl: PWSTR = 0L,
-    public var ftLastAccessTime: FILETIME = FILETIME(),
+public data class AppCacheGroupInfo(
+    public var pwszManifestUrl: Pwstr = null,
+    public var ftLastAccessTime: Filetime = Filetime(),
     public var ullSize: ULong = 0uL,
 )
 
-public data class APP_CACHE_GROUP_LIST(public var dwAppCacheGroupCount: UInt = 0u, public var pAppCacheGroups: Long = 0L)
+public data class AppCacheGroupList(public var dwAppCacheGroupCount: UInt = 0u, public var pAppCacheGroups: AppCacheGroupInfo? = null)
 
-public data class AUTO_PROXY_SCRIPT_BUFFER(
+public data class AutoProxyScriptBuffer(
     public var dwStructSize: UInt = 0u,
-    public var lpszScriptBuffer: PSTR = 0L,
+    public var lpszScriptBuffer: Pstr = null,
     public var dwScriptBufferSize: UInt = 0u,
 )
 
-public data class AutoProxyHelperFunctions(public var lpVtbl: Long = 0L)
+public data class AutoProxyHelperFunctions(public var lpVtbl: AutoProxyHelperVtbl? = null)
 
 public data class AutoProxyHelperVtbl(
-    public var IsResolvable: Long = 0L,
-    public var GetIPAddress: Long = 0L,
-    public var ResolveHostName: Long = 0L,
-    public var IsInNet: Long = 0L,
-    public var IsResolvableEx: Long = 0L,
-    public var GetIPAddressEx: Long = 0L,
-    public var ResolveHostNameEx: Long = 0L,
-    public var IsInNetEx: Long = 0L,
-    public var SortIpList: Long = 0L,
+    public var isResolvable: Int = 0,
+    public var getIPAddress: Int = 0,
+    public var resolveHostName: Int = 0,
+    public var isInNet: Int = 0,
+    public var isResolvableEx: Int = 0,
+    public var getIPAddressEx: Int = 0,
+    public var resolveHostNameEx: Int = 0,
+    public var isInNetEx: Int = 0,
+    public var sortIpList: Int = 0,
 )
 
-public data class COOKIE_DLG_INFO(
-    public var pszServer: PWSTR = 0L,
-    public var pic: Long = 0L,
+public data class CookieDlgInfo(
+    public var pszServer: Pwstr = null,
+    public var pic: InternetCookie? = null,
     public var dwStopWarning: UInt = 0u,
     public var cx: Int = 0,
     public var cy: Int = 0,
-    public var pszHeader: PWSTR = 0L,
+    public var pszHeader: Pwstr = null,
     public var dwOperation: UInt = 0u,
 )
 
-public data class CookieDecision(public var dwCookieState: UInt = 0u, public var fAllowSession: BOOL = 0)
+public data class CookieDecision(public var dwCookieState: UInt = 0u, public var fAllowSession: Bool = 0)
 
-public data class GOPHER_ABSTRACT_ATTRIBUTE_TYPE(public var ShortAbstract: Long = 0L, public var AbstractFile: Long = 0L)
+public data class GopherAbstractAttributeType(public var shortAbstract: COpaquePointer? = null, public var abstractFile: COpaquePointer? = null)
 
-public data class GOPHER_ADMIN_ATTRIBUTE_TYPE(public var Comment: Long = 0L, public var EmailAddress: Long = 0L)
+public data class GopherAdminAttributeType(public var comment: COpaquePointer? = null, public var emailAddress: COpaquePointer? = null)
 
-public data class GOPHER_ASK_ATTRIBUTE_TYPE(public var QuestionType: Long = 0L, public var QuestionText: Long = 0L)
+public data class GopherAskAttributeType(public var questionType: COpaquePointer? = null, public var questionText: COpaquePointer? = null)
 
-public data class GOPHER_ATTRIBUTE_TYPE(
-    public var CategoryId: UInt = 0u,
-    public var AttributeId: UInt = 0u,
-    public var AttributeType: GOPHER_ATTRIBUTE_TYPE_0 = GOPHER_ATTRIBUTE_TYPE_0(),
+public data class GopherAttributeType(
+    public var categoryId: UInt = 0u,
+    public var attributeId: UInt = 0u,
+    public var attributeType: GopherAttributeType0 = GopherAttributeType0(),
 )
 
-public class GOPHER_ATTRIBUTE_TYPE_0(
-    public var Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE = GOPHER_ADMIN_ATTRIBUTE_TYPE(),
-    public var ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE = GOPHER_MOD_DATE_ATTRIBUTE_TYPE(),
-    public var Ttl: GOPHER_TTL_ATTRIBUTE_TYPE = GOPHER_TTL_ATTRIBUTE_TYPE(),
-    public var Score: GOPHER_SCORE_ATTRIBUTE_TYPE = GOPHER_SCORE_ATTRIBUTE_TYPE(),
-    public var ScoreRange: GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE = GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE(),
-    public var Site: GOPHER_SITE_ATTRIBUTE_TYPE = GOPHER_SITE_ATTRIBUTE_TYPE(),
-    public var Organization: GOPHER_ORGANIZATION_ATTRIBUTE_TYPE = GOPHER_ORGANIZATION_ATTRIBUTE_TYPE(),
-    public var Location: GOPHER_LOCATION_ATTRIBUTE_TYPE = GOPHER_LOCATION_ATTRIBUTE_TYPE(),
-    public var GeographicalLocation: GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE = GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(),
-    public var TimeZone: GOPHER_TIMEZONE_ATTRIBUTE_TYPE = GOPHER_TIMEZONE_ATTRIBUTE_TYPE(),
-    public var Provider: GOPHER_PROVIDER_ATTRIBUTE_TYPE = GOPHER_PROVIDER_ATTRIBUTE_TYPE(),
-    public var Version: GOPHER_VERSION_ATTRIBUTE_TYPE = GOPHER_VERSION_ATTRIBUTE_TYPE(),
-    public var Abstract: GOPHER_ABSTRACT_ATTRIBUTE_TYPE = GOPHER_ABSTRACT_ATTRIBUTE_TYPE(),
-    public var View: GOPHER_VIEW_ATTRIBUTE_TYPE = GOPHER_VIEW_ATTRIBUTE_TYPE(),
-    public var Veronica: GOPHER_VERONICA_ATTRIBUTE_TYPE = GOPHER_VERONICA_ATTRIBUTE_TYPE(),
-    public var Ask: GOPHER_ASK_ATTRIBUTE_TYPE = GOPHER_ASK_ATTRIBUTE_TYPE(),
-    public var Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE = GOPHER_UNKNOWN_ATTRIBUTE_TYPE(),
+public class GopherAttributeType0(
+    public var admin: GopherAdminAttributeType = GopherAdminAttributeType(),
+    public var modDate: GopherModDateAttributeType = GopherModDateAttributeType(),
+    public var ttl: GopherTtlAttributeType = GopherTtlAttributeType(),
+    public var score: GopherScoreAttributeType = GopherScoreAttributeType(),
+    public var scoreRange: GopherScoreRangeAttributeType = GopherScoreRangeAttributeType(),
+    public var site: GopherSiteAttributeType = GopherSiteAttributeType(),
+    public var organization: GopherOrganizationAttributeType = GopherOrganizationAttributeType(),
+    public var location: GopherLocationAttributeType = GopherLocationAttributeType(),
+    public var geographicalLocation: GopherGeographicalLocationAttributeType = GopherGeographicalLocationAttributeType(),
+    public var timeZone: GopherTimezoneAttributeType = GopherTimezoneAttributeType(),
+    public var provider: GopherProviderAttributeType = GopherProviderAttributeType(),
+    public var version: GopherVersionAttributeType = GopherVersionAttributeType(),
+    public var abstract: GopherAbstractAttributeType = GopherAbstractAttributeType(),
+    public var view: GopherViewAttributeType = GopherViewAttributeType(),
+    public var veronica: GopherVeronicaAttributeType = GopherVeronicaAttributeType(),
+    public var ask: GopherAskAttributeType = GopherAskAttributeType(),
+    public var unknown: GopherUnknownAttributeType = GopherUnknownAttributeType(),
 )
 
-public data class GOPHER_FIND_DATAA(
-    public var DisplayString: ByteArray = ByteArray(129),
-    public var GopherType: GOPHER_TYPE = 0u,
-    public var SizeLow: UInt = 0u,
-    public var SizeHigh: UInt = 0u,
-    public var LastModificationTime: FILETIME = FILETIME(),
-    public var Locator: ByteArray = ByteArray(654),
+public data class GopherFindDataa(
+    public var displayString: ByteArray = ByteArray(129),
+    public var gopherType: GopherType = 0u,
+    public var sizeLow: UInt = 0u,
+    public var sizeHigh: UInt = 0u,
+    public var lastModificationTime: Filetime = Filetime(),
+    public var locator: ByteArray = ByteArray(654),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GOPHER_FIND_DATAA) return false
-        if (!this.DisplayString.contentEquals(other.DisplayString)) return false
-        if (this.GopherType != other.GopherType) return false
-        if (this.SizeLow != other.SizeLow) return false
-        if (this.SizeHigh != other.SizeHigh) return false
-        if (this.LastModificationTime != other.LastModificationTime) return false
-        if (!this.Locator.contentEquals(other.Locator)) return false
+        if (other !is GopherFindDataa) return false
+        if (!this.displayString.contentEquals(other.displayString)) return false
+        if (this.gopherType != other.gopherType) return false
+        if (this.sizeLow != other.sizeLow) return false
+        if (this.sizeHigh != other.sizeHigh) return false
+        if (this.lastModificationTime != other.lastModificationTime) return false
+        if (!this.locator.contentEquals(other.locator)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DisplayString.contentHashCode()
-        result = 31 * result + this.GopherType.hashCode()
-        result = 31 * result + this.SizeLow.hashCode()
-        result = 31 * result + this.SizeHigh.hashCode()
-        result = 31 * result + this.LastModificationTime.hashCode()
-        result = 31 * result + this.Locator.contentHashCode()
+        var result = this.displayString.contentHashCode()
+        result = 31 * result + this.gopherType.hashCode()
+        result = 31 * result + this.sizeLow.hashCode()
+        result = 31 * result + this.sizeHigh.hashCode()
+        result = 31 * result + this.lastModificationTime.hashCode()
+        result = 31 * result + this.locator.contentHashCode()
         return result
     }
 }
 
-public data class GOPHER_FIND_DATAW(
-    public var DisplayString: UShortArray = UShortArray(129),
-    public var GopherType: GOPHER_TYPE = 0u,
-    public var SizeLow: UInt = 0u,
-    public var SizeHigh: UInt = 0u,
-    public var LastModificationTime: FILETIME = FILETIME(),
-    public var Locator: UShortArray = UShortArray(654),
+public data class GopherFindDataw(
+    public var displayString: UShortArray = UShortArray(129),
+    public var gopherType: GopherType = 0u,
+    public var sizeLow: UInt = 0u,
+    public var sizeHigh: UInt = 0u,
+    public var lastModificationTime: Filetime = Filetime(),
+    public var locator: UShortArray = UShortArray(654),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GOPHER_FIND_DATAW) return false
-        if (!this.DisplayString.contentEquals(other.DisplayString)) return false
-        if (this.GopherType != other.GopherType) return false
-        if (this.SizeLow != other.SizeLow) return false
-        if (this.SizeHigh != other.SizeHigh) return false
-        if (this.LastModificationTime != other.LastModificationTime) return false
-        if (!this.Locator.contentEquals(other.Locator)) return false
+        if (other !is GopherFindDataw) return false
+        if (!this.displayString.contentEquals(other.displayString)) return false
+        if (this.gopherType != other.gopherType) return false
+        if (this.sizeLow != other.sizeLow) return false
+        if (this.sizeHigh != other.sizeHigh) return false
+        if (this.lastModificationTime != other.lastModificationTime) return false
+        if (!this.locator.contentEquals(other.locator)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DisplayString.contentHashCode()
-        result = 31 * result + this.GopherType.hashCode()
-        result = 31 * result + this.SizeLow.hashCode()
-        result = 31 * result + this.SizeHigh.hashCode()
-        result = 31 * result + this.LastModificationTime.hashCode()
-        result = 31 * result + this.Locator.contentHashCode()
+        var result = this.displayString.contentHashCode()
+        result = 31 * result + this.gopherType.hashCode()
+        result = 31 * result + this.sizeLow.hashCode()
+        result = 31 * result + this.sizeHigh.hashCode()
+        result = 31 * result + this.lastModificationTime.hashCode()
+        result = 31 * result + this.locator.contentHashCode()
         return result
     }
 }
 
-public data class GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(
-    public var DegreesNorth: Int = 0,
-    public var MinutesNorth: Int = 0,
-    public var SecondsNorth: Int = 0,
-    public var DegreesEast: Int = 0,
-    public var MinutesEast: Int = 0,
-    public var SecondsEast: Int = 0,
+public data class GopherGeographicalLocationAttributeType(
+    public var degreesNorth: Int = 0,
+    public var minutesNorth: Int = 0,
+    public var secondsNorth: Int = 0,
+    public var degreesEast: Int = 0,
+    public var minutesEast: Int = 0,
+    public var secondsEast: Int = 0,
 )
 
-public data class GOPHER_LOCATION_ATTRIBUTE_TYPE(public var Location: Long = 0L)
+public data class GopherLocationAttributeType(public var location: COpaquePointer? = null)
 
-public data class GOPHER_MOD_DATE_ATTRIBUTE_TYPE(public var DateAndTime: FILETIME = FILETIME())
+public data class GopherModDateAttributeType(public var dateAndTime: Filetime = Filetime())
 
-public data class GOPHER_ORGANIZATION_ATTRIBUTE_TYPE(public var Organization: Long = 0L)
+public data class GopherOrganizationAttributeType(public var organization: COpaquePointer? = null)
 
-public data class GOPHER_PROVIDER_ATTRIBUTE_TYPE(public var Provider: Long = 0L)
+public data class GopherProviderAttributeType(public var provider: COpaquePointer? = null)
 
-public data class GOPHER_SCORE_ATTRIBUTE_TYPE(public var Score: Int = 0)
+public data class GopherScoreAttributeType(public var score: Int = 0)
 
-public data class GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE(public var LowerBound: Int = 0, public var UpperBound: Int = 0)
+public data class GopherScoreRangeAttributeType(public var lowerBound: Int = 0, public var upperBound: Int = 0)
 
-public data class GOPHER_SITE_ATTRIBUTE_TYPE(public var Site: Long = 0L)
+public data class GopherSiteAttributeType(public var site: COpaquePointer? = null)
 
-public data class GOPHER_TIMEZONE_ATTRIBUTE_TYPE(public var Zone: Int = 0)
+public data class GopherTimezoneAttributeType(public var zone: Int = 0)
 
-public data class GOPHER_TTL_ATTRIBUTE_TYPE(public var Ttl: UInt = 0u)
+public data class GopherTtlAttributeType(public var ttl: UInt = 0u)
 
-public data class GOPHER_UNKNOWN_ATTRIBUTE_TYPE(public var Text: Long = 0L)
+public data class GopherUnknownAttributeType(public var text: COpaquePointer? = null)
 
-public data class GOPHER_VERONICA_ATTRIBUTE_TYPE(public var TreeWalk: BOOL = 0)
+public data class GopherVeronicaAttributeType(public var treeWalk: Bool = 0)
 
-public data class GOPHER_VERSION_ATTRIBUTE_TYPE(public var Version: Long = 0L)
+public data class GopherVersionAttributeType(public var version: COpaquePointer? = null)
 
-public data class GOPHER_VIEW_ATTRIBUTE_TYPE(
-    public var ContentType: Long = 0L,
-    public var Language: Long = 0L,
-    public var Size: UInt = 0u,
+public data class GopherViewAttributeType(
+    public var contentType: COpaquePointer? = null,
+    public var language: COpaquePointer? = null,
+    public var size: UInt = 0u,
 )
 
-public data class HTTP_PUSH_NOTIFICATION_STATUS(public var ChannelStatusValid: BOOL = 0, public var ChannelStatus: UInt = 0u)
+public data class HttpPushNotificationStatus(public var channelStatusValid: Bool = 0, public var channelStatus: UInt = 0u)
 
-public data class HTTP_PUSH_TRANSPORT_SETTING(public var TransportSettingId: GUID = GUID(), public var BrokerEventId: GUID = GUID())
+public data class HttpPushTransportSetting(public var transportSettingId: Guid = Guid(), public var brokerEventId: Guid = Guid())
 
-public data class HTTP_REQUEST_TIMES(public var cTimes: UInt = 0u, public var rgTimes: ULongArray = ULongArray(32)) {
+public data class HttpRequestTimes(public var cTimes: UInt = 0u, public var rgTimes: ULongArray = ULongArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HTTP_REQUEST_TIMES) return false
+        if (other !is HttpRequestTimes) return false
         if (this.cTimes != other.cTimes) return false
         if (!this.rgTimes.contentEquals(other.rgTimes)) return false
         return true
@@ -209,201 +213,201 @@ public data class HTTP_REQUEST_TIMES(public var cTimes: UInt = 0u, public var rg
     }
 }
 
-public data class HTTP_WEB_SOCKET_ASYNC_RESULT(
-    public var AsyncResult: INTERNET_ASYNC_RESULT = INTERNET_ASYNC_RESULT(),
-    public var Operation: HTTP_WEB_SOCKET_OPERATION = 0,
-    public var BufferType: HTTP_WEB_SOCKET_BUFFER_TYPE = 0,
+public data class HttpWebSocketAsyncResult(
+    public var asyncResult: InternetAsyncResult = InternetAsyncResult(),
+    public var operation: HttpWebSocketOperation = 0,
+    public var bufferType: HttpWebSocketBufferType = 0,
     public var dwBytesTransferred: UInt = 0u,
 )
 
-public data class INTERNET_ASYNC_RESULT(public var dwResult: ULong = 0uL, public var dwError: UInt = 0u)
+public data class InternetAsyncResult(public var dwResult: Int = 0, public var dwError: UInt = 0u)
 
-public data class INTERNET_AUTH_NOTIFY_DATA(
+public data class InternetAuthNotifyData(
     public var cbStruct: UInt = 0u,
     public var dwOptions: UInt = 0u,
-    public var pfnNotify: PFN_AUTH_NOTIFY = null,
-    public var dwContext: ULong = 0uL,
+    public var pfnNotify: PfnAuthNotify = null,
+    public var dwContext: Int = 0,
 )
 
-public data class INTERNET_BUFFERSA(
+public data class InternetBuffersa(
     public var dwStructSize: UInt = 0u,
-    public var Next: Long = 0L,
-    public var lpcszHeader: PCSTR = 0L,
+    public var next: InternetBuffersa? = null,
+    public var lpcszHeader: Pcstr = null,
     public var dwHeadersLength: UInt = 0u,
     public var dwHeadersTotal: UInt = 0u,
-    public var lpvBuffer: Long = 0L,
+    public var lpvBuffer: COpaquePointer? = null,
     public var dwBufferLength: UInt = 0u,
     public var dwBufferTotal: UInt = 0u,
     public var dwOffsetLow: UInt = 0u,
     public var dwOffsetHigh: UInt = 0u,
 )
 
-public data class INTERNET_BUFFERSW(
+public data class InternetBuffersw(
     public var dwStructSize: UInt = 0u,
-    public var Next: Long = 0L,
-    public var lpcszHeader: PCWSTR = 0L,
+    public var next: InternetBuffersw? = null,
+    public var lpcszHeader: Pcwstr = null,
     public var dwHeadersLength: UInt = 0u,
     public var dwHeadersTotal: UInt = 0u,
-    public var lpvBuffer: Long = 0L,
+    public var lpvBuffer: COpaquePointer? = null,
     public var dwBufferLength: UInt = 0u,
     public var dwBufferTotal: UInt = 0u,
     public var dwOffsetLow: UInt = 0u,
     public var dwOffsetHigh: UInt = 0u,
 )
 
-public data class INTERNET_CACHE_CONFIG_INFOA(
+public data class InternetCacheConfigInfoa(
     public var dwStructSize: UInt = 0u,
     public var dwContainer: UInt = 0u,
     public var dwQuota: UInt = 0u,
     public var dwReserved4: UInt = 0u,
-    public var fPerUser: BOOL = 0,
+    public var fPerUser: Bool = 0,
     public var dwSyncMode: UInt = 0u,
     public var dwNumCachePaths: UInt = 0u,
-    public var Anonymous: INTERNET_CACHE_CONFIG_INFOA_0 = INTERNET_CACHE_CONFIG_INFOA_0(),
+    public var anonymous: InternetCacheConfigInfoa0 = InternetCacheConfigInfoa0(),
     public var dwNormalUsage: UInt = 0u,
     public var dwExemptUsage: UInt = 0u,
 )
 
-public data class INTERNET_CACHE_CONFIG_INFOA_0(public var Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0 = INTERNET_CACHE_CONFIG_INFOA_0_0(), public var CachePaths: List<INTERNET_CACHE_CONFIG_PATH_ENTRYA> = List(1) { INTERNET_CACHE_CONFIG_PATH_ENTRYA() })
+public data class InternetCacheConfigInfoa0(public var anonymous: InternetCacheConfigInfoa00 = InternetCacheConfigInfoa00(), public var cachePaths: List<InternetCacheConfigPathEntrya> = List(1) { InternetCacheConfigPathEntrya() })
 
-public data class INTERNET_CACHE_CONFIG_INFOA_0_0(public var CachePath: ByteArray = ByteArray(260), public var dwCacheSize: UInt = 0u) {
+public data class InternetCacheConfigInfoa00(public var cachePath: ByteArray = ByteArray(260), public var dwCacheSize: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_CONFIG_INFOA_0_0) return false
-        if (!this.CachePath.contentEquals(other.CachePath)) return false
+        if (other !is InternetCacheConfigInfoa00) return false
+        if (!this.cachePath.contentEquals(other.cachePath)) return false
         if (this.dwCacheSize != other.dwCacheSize) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CachePath.contentHashCode()
+        var result = this.cachePath.contentHashCode()
         result = 31 * result + this.dwCacheSize.hashCode()
         return result
     }
 }
 
-public data class INTERNET_CACHE_CONFIG_INFOW(
+public data class InternetCacheConfigInfow(
     public var dwStructSize: UInt = 0u,
     public var dwContainer: UInt = 0u,
     public var dwQuota: UInt = 0u,
     public var dwReserved4: UInt = 0u,
-    public var fPerUser: BOOL = 0,
+    public var fPerUser: Bool = 0,
     public var dwSyncMode: UInt = 0u,
     public var dwNumCachePaths: UInt = 0u,
-    public var Anonymous: INTERNET_CACHE_CONFIG_INFOW_0 = INTERNET_CACHE_CONFIG_INFOW_0(),
+    public var anonymous: InternetCacheConfigInfow0 = InternetCacheConfigInfow0(),
     public var dwNormalUsage: UInt = 0u,
     public var dwExemptUsage: UInt = 0u,
 )
 
-public data class INTERNET_CACHE_CONFIG_INFOW_0(public var Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0 = INTERNET_CACHE_CONFIG_INFOW_0_0(), public var CachePaths: List<INTERNET_CACHE_CONFIG_PATH_ENTRYW> = List(1) { INTERNET_CACHE_CONFIG_PATH_ENTRYW() })
+public data class InternetCacheConfigInfow0(public var anonymous: InternetCacheConfigInfow00 = InternetCacheConfigInfow00(), public var cachePaths: List<InternetCacheConfigPathEntryw> = List(1) { InternetCacheConfigPathEntryw() })
 
-public data class INTERNET_CACHE_CONFIG_INFOW_0_0(public var CachePath: UShortArray = UShortArray(260), public var dwCacheSize: UInt = 0u) {
+public data class InternetCacheConfigInfow00(public var cachePath: UShortArray = UShortArray(260), public var dwCacheSize: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_CONFIG_INFOW_0_0) return false
-        if (!this.CachePath.contentEquals(other.CachePath)) return false
+        if (other !is InternetCacheConfigInfow00) return false
+        if (!this.cachePath.contentEquals(other.cachePath)) return false
         if (this.dwCacheSize != other.dwCacheSize) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CachePath.contentHashCode()
+        var result = this.cachePath.contentHashCode()
         result = 31 * result + this.dwCacheSize.hashCode()
         return result
     }
 }
 
-public data class INTERNET_CACHE_CONFIG_PATH_ENTRYA(public var CachePath: ByteArray = ByteArray(260), public var dwCacheSize: UInt = 0u) {
+public data class InternetCacheConfigPathEntrya(public var cachePath: ByteArray = ByteArray(260), public var dwCacheSize: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_CONFIG_PATH_ENTRYA) return false
-        if (!this.CachePath.contentEquals(other.CachePath)) return false
+        if (other !is InternetCacheConfigPathEntrya) return false
+        if (!this.cachePath.contentEquals(other.cachePath)) return false
         if (this.dwCacheSize != other.dwCacheSize) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CachePath.contentHashCode()
+        var result = this.cachePath.contentHashCode()
         result = 31 * result + this.dwCacheSize.hashCode()
         return result
     }
 }
 
-public data class INTERNET_CACHE_CONFIG_PATH_ENTRYW(public var CachePath: UShortArray = UShortArray(260), public var dwCacheSize: UInt = 0u) {
+public data class InternetCacheConfigPathEntryw(public var cachePath: UShortArray = UShortArray(260), public var dwCacheSize: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_CONFIG_PATH_ENTRYW) return false
-        if (!this.CachePath.contentEquals(other.CachePath)) return false
+        if (other !is InternetCacheConfigPathEntryw) return false
+        if (!this.cachePath.contentEquals(other.cachePath)) return false
         if (this.dwCacheSize != other.dwCacheSize) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CachePath.contentHashCode()
+        var result = this.cachePath.contentHashCode()
         result = 31 * result + this.dwCacheSize.hashCode()
         return result
     }
 }
 
-public data class INTERNET_CACHE_CONTAINER_INFOA(
+public data class InternetCacheContainerInfoa(
     public var dwCacheVersion: UInt = 0u,
-    public var lpszName: PSTR = 0L,
-    public var lpszCachePrefix: PSTR = 0L,
-    public var lpszVolumeLabel: PSTR = 0L,
-    public var lpszVolumeTitle: PSTR = 0L,
+    public var lpszName: Pstr = null,
+    public var lpszCachePrefix: Pstr = null,
+    public var lpszVolumeLabel: Pstr = null,
+    public var lpszVolumeTitle: Pstr = null,
 )
 
-public data class INTERNET_CACHE_CONTAINER_INFOW(
+public data class InternetCacheContainerInfow(
     public var dwCacheVersion: UInt = 0u,
-    public var lpszName: PWSTR = 0L,
-    public var lpszCachePrefix: PWSTR = 0L,
-    public var lpszVolumeLabel: PWSTR = 0L,
-    public var lpszVolumeTitle: PWSTR = 0L,
+    public var lpszName: Pwstr = null,
+    public var lpszCachePrefix: Pwstr = null,
+    public var lpszVolumeLabel: Pwstr = null,
+    public var lpszVolumeTitle: Pwstr = null,
 )
 
-public data class INTERNET_CACHE_ENTRY_INFOA(
+public data class InternetCacheEntryInfoa(
     public var dwStructSize: UInt = 0u,
-    public var lpszSourceUrlName: PSTR = 0L,
-    public var lpszLocalFileName: PSTR = 0L,
-    public var CacheEntryType: UInt = 0u,
+    public var lpszSourceUrlName: Pstr = null,
+    public var lpszLocalFileName: Pstr = null,
+    public var cacheEntryType: UInt = 0u,
     public var dwUseCount: UInt = 0u,
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var LastModifiedTime: FILETIME = FILETIME(),
-    public var ExpireTime: FILETIME = FILETIME(),
-    public var LastAccessTime: FILETIME = FILETIME(),
-    public var LastSyncTime: FILETIME = FILETIME(),
-    public var lpHeaderInfo: PSTR = 0L,
+    public var lastModifiedTime: Filetime = Filetime(),
+    public var expireTime: Filetime = Filetime(),
+    public var lastAccessTime: Filetime = Filetime(),
+    public var lastSyncTime: Filetime = Filetime(),
+    public var lpHeaderInfo: Pstr = null,
     public var dwHeaderInfoSize: UInt = 0u,
-    public var lpszFileExtension: PSTR = 0L,
-    public var Anonymous: INTERNET_CACHE_ENTRY_INFOA_0 = INTERNET_CACHE_ENTRY_INFOA_0(),
+    public var lpszFileExtension: Pstr = null,
+    public var anonymous: InternetCacheEntryInfoa0 = InternetCacheEntryInfoa0(),
 )
 
-public data class INTERNET_CACHE_ENTRY_INFOA_0(public var dwReserved: UInt = 0u, public var dwExemptDelta: UInt = 0u)
+public data class InternetCacheEntryInfoa0(public var dwReserved: UInt = 0u, public var dwExemptDelta: UInt = 0u)
 
-public data class INTERNET_CACHE_ENTRY_INFOW(
+public data class InternetCacheEntryInfow(
     public var dwStructSize: UInt = 0u,
-    public var lpszSourceUrlName: PWSTR = 0L,
-    public var lpszLocalFileName: PWSTR = 0L,
-    public var CacheEntryType: UInt = 0u,
+    public var lpszSourceUrlName: Pwstr = null,
+    public var lpszLocalFileName: Pwstr = null,
+    public var cacheEntryType: UInt = 0u,
     public var dwUseCount: UInt = 0u,
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var LastModifiedTime: FILETIME = FILETIME(),
-    public var ExpireTime: FILETIME = FILETIME(),
-    public var LastAccessTime: FILETIME = FILETIME(),
-    public var LastSyncTime: FILETIME = FILETIME(),
-    public var lpHeaderInfo: PWSTR = 0L,
+    public var lastModifiedTime: Filetime = Filetime(),
+    public var expireTime: Filetime = Filetime(),
+    public var lastAccessTime: Filetime = Filetime(),
+    public var lastSyncTime: Filetime = Filetime(),
+    public var lpHeaderInfo: Pwstr = null,
     public var dwHeaderInfoSize: UInt = 0u,
-    public var lpszFileExtension: PWSTR = 0L,
-    public var Anonymous: INTERNET_CACHE_ENTRY_INFOW_0 = INTERNET_CACHE_ENTRY_INFOW_0(),
+    public var lpszFileExtension: Pwstr = null,
+    public var anonymous: InternetCacheEntryInfow0 = InternetCacheEntryInfow0(),
 )
 
-public data class INTERNET_CACHE_ENTRY_INFOW_0(public var dwReserved: UInt = 0u, public var dwExemptDelta: UInt = 0u)
+public data class InternetCacheEntryInfow0(public var dwReserved: UInt = 0u, public var dwExemptDelta: UInt = 0u)
 
-public data class INTERNET_CACHE_GROUP_INFOA(
+public data class InternetCacheGroupInfoa(
     public var dwGroupSize: UInt = 0u,
     public var dwGroupFlags: UInt = 0u,
     public var dwGroupType: UInt = 0u,
@@ -414,7 +418,7 @@ public data class INTERNET_CACHE_GROUP_INFOA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_GROUP_INFOA) return false
+        if (other !is InternetCacheGroupInfoa) return false
         if (this.dwGroupSize != other.dwGroupSize) return false
         if (this.dwGroupFlags != other.dwGroupFlags) return false
         if (this.dwGroupType != other.dwGroupType) return false
@@ -437,7 +441,7 @@ public data class INTERNET_CACHE_GROUP_INFOA(
     }
 }
 
-public data class INTERNET_CACHE_GROUP_INFOW(
+public data class InternetCacheGroupInfow(
     public var dwGroupSize: UInt = 0u,
     public var dwGroupFlags: UInt = 0u,
     public var dwGroupType: UInt = 0u,
@@ -448,7 +452,7 @@ public data class INTERNET_CACHE_GROUP_INFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is INTERNET_CACHE_GROUP_INFOW) return false
+        if (other !is InternetCacheGroupInfow) return false
         if (this.dwGroupSize != other.dwGroupSize) return false
         if (this.dwGroupFlags != other.dwGroupFlags) return false
         if (this.dwGroupType != other.dwGroupType) return false
@@ -471,137 +475,137 @@ public data class INTERNET_CACHE_GROUP_INFOW(
     }
 }
 
-public data class INTERNET_CACHE_TIMESTAMPS(public var ftExpires: FILETIME = FILETIME(), public var ftLastModified: FILETIME = FILETIME())
+public data class InternetCacheTimestamps(public var ftExpires: Filetime = Filetime(), public var ftLastModified: Filetime = Filetime())
 
-public data class INTERNET_CALLBACK_COOKIE(
-    public var pcwszName: PCWSTR = 0L,
-    public var pcwszValue: PCWSTR = 0L,
-    public var pcwszDomain: PCWSTR = 0L,
-    public var pcwszPath: PCWSTR = 0L,
-    public var ftExpires: FILETIME = FILETIME(),
+public data class InternetCallbackCookie(
+    public var pcwszName: Pcwstr = null,
+    public var pcwszValue: Pcwstr = null,
+    public var pcwszDomain: Pcwstr = null,
+    public var pcwszPath: Pcwstr = null,
+    public var ftExpires: Filetime = Filetime(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class INTERNET_CERTIFICATE_INFO(
-    public var ftExpiry: FILETIME = FILETIME(),
-    public var ftStart: FILETIME = FILETIME(),
-    public var lpszSubjectInfo: Long = 0L,
-    public var lpszIssuerInfo: Long = 0L,
-    public var lpszProtocolName: Long = 0L,
-    public var lpszSignatureAlgName: Long = 0L,
-    public var lpszEncryptionAlgName: Long = 0L,
+public data class InternetCertificateInfo(
+    public var ftExpiry: Filetime = Filetime(),
+    public var ftStart: Filetime = Filetime(),
+    public var lpszSubjectInfo: COpaquePointer? = null,
+    public var lpszIssuerInfo: COpaquePointer? = null,
+    public var lpszProtocolName: COpaquePointer? = null,
+    public var lpszSignatureAlgName: COpaquePointer? = null,
+    public var lpszEncryptionAlgName: COpaquePointer? = null,
     public var dwKeySize: UInt = 0u,
 )
 
-public data class INTERNET_CONNECTED_INFO(public var dwConnectedState: INTERNET_STATE = 0u, public var dwFlags: UInt = 0u)
+public data class InternetConnectedInfo(public var dwConnectedState: InternetState = 0u, public var dwFlags: UInt = 0u)
 
-public data class INTERNET_COOKIE(
+public data class InternetCookie(
     public var cbSize: UInt = 0u,
-    public var pszName: PSTR = 0L,
-    public var pszData: PSTR = 0L,
-    public var pszDomain: PSTR = 0L,
-    public var pszPath: PSTR = 0L,
-    public var pftExpires: Long = 0L,
+    public var pszName: Pstr = null,
+    public var pszData: Pstr = null,
+    public var pszDomain: Pstr = null,
+    public var pszPath: Pstr = null,
+    public var pftExpires: Filetime? = null,
     public var dwFlags: UInt = 0u,
-    public var pszUrl: PSTR = 0L,
-    public var pszP3PPolicy: PSTR = 0L,
+    public var pszUrl: Pstr = null,
+    public var pszP3PPolicy: Pstr = null,
 )
 
-public data class INTERNET_COOKIE2(
-    public var pwszName: PWSTR = 0L,
-    public var pwszValue: PWSTR = 0L,
-    public var pwszDomain: PWSTR = 0L,
-    public var pwszPath: PWSTR = 0L,
+public data class InternetCookie2(
+    public var pwszName: Pwstr = null,
+    public var pwszValue: Pwstr = null,
+    public var pwszDomain: Pwstr = null,
+    public var pwszPath: Pwstr = null,
     public var dwFlags: UInt = 0u,
-    public var ftExpires: FILETIME = FILETIME(),
-    public var fExpiresSet: BOOL = 0,
+    public var ftExpires: Filetime = Filetime(),
+    public var fExpiresSet: Bool = 0,
 )
 
-public data class INTERNET_CREDENTIALS(
-    public var lpcwszHostName: PCWSTR = 0L,
+public data class InternetCredentials(
+    public var lpcwszHostName: Pcwstr = null,
     public var dwPort: UInt = 0u,
     public var dwScheme: UInt = 0u,
-    public var lpcwszUrl: PCWSTR = 0L,
-    public var lpcwszRealm: PCWSTR = 0L,
-    public var fAuthIdentity: BOOL = 0,
-    public var Anonymous: INTERNET_CREDENTIALS_0 = INTERNET_CREDENTIALS_0(),
+    public var lpcwszUrl: Pcwstr = null,
+    public var lpcwszRealm: Pcwstr = null,
+    public var fAuthIdentity: Bool = 0,
+    public var anonymous: InternetCredentials0 = InternetCredentials0(),
 )
 
-public data class INTERNET_CREDENTIALS_0(public var Anonymous: INTERNET_CREDENTIALS_0_0 = INTERNET_CREDENTIALS_0_0(), public var pAuthIdentityOpaque: Long = 0L)
+public data class InternetCredentials0(public var anonymous: InternetCredentials00 = InternetCredentials00(), public var pAuthIdentityOpaque: COpaquePointer? = null)
 
-public data class INTERNET_CREDENTIALS_0_0(public var lpcwszUserName: PCWSTR = 0L, public var lpcwszPassword: PCWSTR = 0L)
+public data class InternetCredentials00(public var lpcwszUserName: Pcwstr = null, public var lpcwszPassword: Pcwstr = null)
 
-public data class INTERNET_DIAGNOSTIC_SOCKET_INFO(
-    public var Socket: ULong = 0uL,
-    public var SourcePort: UInt = 0u,
-    public var DestPort: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class InternetDiagnosticSocketInfo(
+    public var socket: Int = 0,
+    public var sourcePort: UInt = 0u,
+    public var destPort: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class INTERNET_DOWNLOAD_MODE_HANDLE(public var pcwszFileName: PCWSTR = 0L, public var phFile: Long = 0L)
+public data class InternetDownloadModeHandle(public var pcwszFileName: Pcwstr = null, public var phFile: Handle? = null)
 
-public data class INTERNET_END_BROWSER_SESSION_DATA(public var lpBuffer: Long = 0L, public var dwBufferLength: UInt = 0u)
+public data class InternetEndBrowserSessionData(public var lpBuffer: COpaquePointer? = null, public var dwBufferLength: UInt = 0u)
 
-public data class INTERNET_PER_CONN_OPTIONA(public var dwOption: INTERNET_PER_CONN = 0u, public var Value: INTERNET_PER_CONN_OPTIONA_0 = INTERNET_PER_CONN_OPTIONA_0())
+public data class InternetPerConnOptiona(public var dwOption: InternetPerConn = 0u, public var value: InternetPerConnOptiona0 = InternetPerConnOptiona0())
 
-public data class INTERNET_PER_CONN_OPTIONA_0(
+public data class InternetPerConnOptiona0(
     public var dwValue: UInt = 0u,
-    public var pszValue: PSTR = 0L,
-    public var ftValue: FILETIME = FILETIME(),
+    public var pszValue: Pstr = null,
+    public var ftValue: Filetime = Filetime(),
 )
 
-public data class INTERNET_PER_CONN_OPTIONW(public var dwOption: INTERNET_PER_CONN = 0u, public var Value: INTERNET_PER_CONN_OPTIONW_0 = INTERNET_PER_CONN_OPTIONW_0())
+public data class InternetPerConnOptionw(public var dwOption: InternetPerConn = 0u, public var value: InternetPerConnOptionw0 = InternetPerConnOptionw0())
 
-public data class INTERNET_PER_CONN_OPTIONW_0(
+public data class InternetPerConnOptionw0(
     public var dwValue: UInt = 0u,
-    public var pszValue: PWSTR = 0L,
-    public var ftValue: FILETIME = FILETIME(),
+    public var pszValue: Pwstr = null,
+    public var ftValue: Filetime = Filetime(),
 )
 
-public data class INTERNET_PER_CONN_OPTION_LISTA(
+public data class InternetPerConnOptionLista(
     public var dwSize: UInt = 0u,
-    public var pszConnection: PSTR = 0L,
+    public var pszConnection: Pstr = null,
     public var dwOptionCount: UInt = 0u,
     public var dwOptionError: UInt = 0u,
-    public var pOptions: Long = 0L,
+    public var pOptions: InternetPerConnOptiona? = null,
 )
 
-public data class INTERNET_PER_CONN_OPTION_LISTW(
+public data class InternetPerConnOptionListw(
     public var dwSize: UInt = 0u,
-    public var pszConnection: PWSTR = 0L,
+    public var pszConnection: Pwstr = null,
     public var dwOptionCount: UInt = 0u,
     public var dwOptionError: UInt = 0u,
-    public var pOptions: Long = 0L,
+    public var pOptions: InternetPerConnOptionw? = null,
 )
 
-public data class INTERNET_PREFETCH_STATUS(public var dwStatus: UInt = 0u, public var dwSize: UInt = 0u)
+public data class InternetPrefetchStatus(public var dwStatus: UInt = 0u, public var dwSize: UInt = 0u)
 
-public data class INTERNET_PROXY_INFO(
-    public var dwAccessType: INTERNET_ACCESS_TYPE = 0u,
-    public var lpszProxy: Long = 0L,
-    public var lpszProxyBypass: Long = 0L,
+public data class InternetProxyInfo(
+    public var dwAccessType: InternetAccessType = 0u,
+    public var lpszProxy: COpaquePointer? = null,
+    public var lpszProxyBypass: COpaquePointer? = null,
 )
 
-public data class INTERNET_SECURITY_CONNECTION_INFO(
+public data class InternetSecurityConnectionInfo(
     public var dwSize: UInt = 0u,
-    public var fSecure: BOOL = 0,
-    public var connectionInfo: SecPkgContext_ConnectionInfo = SecPkgContext_ConnectionInfo(),
-    public var cipherInfo: SecPkgContext_CipherInfo = SecPkgContext_CipherInfo(),
+    public var fSecure: Bool = 0,
+    public var connectionInfo: SecPkgContextConnectionInfo = SecPkgContextConnectionInfo(),
+    public var cipherInfo: SecPkgContextCipherInfo = SecPkgContextCipherInfo(),
 )
 
-public data class INTERNET_SECURITY_INFO(
+public data class InternetSecurityInfo(
     public var dwSize: UInt = 0u,
-    public var pCertificate: Long = 0L,
-    public var pcCertChain: Long = 0L,
-    public var connectionInfo: SecPkgContext_ConnectionInfo = SecPkgContext_ConnectionInfo(),
-    public var cipherInfo: SecPkgContext_CipherInfo = SecPkgContext_CipherInfo(),
-    public var pcUnverifiedCertChain: Long = 0L,
-    public var channelBindingToken: SecPkgContext_Bindings = SecPkgContext_Bindings(),
+    public var pCertificate: CertContext? = null,
+    public var pcCertChain: CertChainContext? = null,
+    public var connectionInfo: SecPkgContextConnectionInfo = SecPkgContextConnectionInfo(),
+    public var cipherInfo: SecPkgContextCipherInfo = SecPkgContextCipherInfo(),
+    public var pcUnverifiedCertChain: CertChainContext? = null,
+    public var channelBindingToken: SecPkgContextBindings = SecPkgContextBindings(),
 )
 
-public data class INTERNET_SERVER_CONNECTION_STATE(
-    public var lpcwszHostName: PCWSTR = 0L,
-    public var fProxy: BOOL = 0,
+public data class InternetServerConnectionState(
+    public var lpcwszHostName: Pcwstr = null,
+    public var fProxy: Bool = 0,
     public var dwCounter: UInt = 0u,
     public var dwConnectionLimit: UInt = 0u,
     public var dwAvailableCreates: UInt = 0u,
@@ -610,7 +614,7 @@ public data class INTERNET_SERVER_CONNECTION_STATE(
     public var dwWaiters: UInt = 0u,
 )
 
-public data class INTERNET_VERSION_INFO(public var dwMajorVersion: UInt = 0u, public var dwMinorVersion: UInt = 0u)
+public data class InternetVersionInfo(public var dwMajorVersion: UInt = 0u, public var dwMinorVersion: UInt = 0u)
 
 public data class IncomingCookieState(
     public var cSession: Int = 0,
@@ -619,89 +623,89 @@ public data class IncomingCookieState(
     public var cLeashed: Int = 0,
     public var cDowngraded: Int = 0,
     public var cBlocked: Int = 0,
-    public var pszLocation: PCSTR = 0L,
+    public var pszLocation: Pcstr = null,
 )
 
 public data class InternetCookieHistory(
-    public var fAccepted: BOOL = 0,
-    public var fLeashed: BOOL = 0,
-    public var fDowngraded: BOOL = 0,
-    public var fRejected: BOOL = 0,
+    public var fAccepted: Bool = 0,
+    public var fLeashed: Bool = 0,
+    public var fDowngraded: Bool = 0,
+    public var fRejected: Bool = 0,
 )
 
 public data class OutgoingCookieState(
     public var cSent: Int = 0,
     public var cSuppressed: Int = 0,
-    public var pszLocation: PCSTR = 0L,
+    public var pszLocation: Pcstr = null,
 )
 
 public data class ProofOfPossessionCookieInfo(
-    public var name: PWSTR = 0L,
-    public var data: PWSTR = 0L,
+    public var name: Pwstr = null,
+    public var data: Pwstr = null,
     public var flags: UInt = 0u,
-    public var p3pHeader: PWSTR = 0L,
+    public var p3pHeader: Pwstr = null,
 )
 
-public data class URLCACHE_ENTRY_INFO(
-    public var pwszSourceUrlName: PWSTR = 0L,
-    public var pwszLocalFileName: PWSTR = 0L,
+public data class UrlcacheEntryInfo(
+    public var pwszSourceUrlName: Pwstr = null,
+    public var pwszLocalFileName: Pwstr = null,
     public var dwCacheEntryType: UInt = 0u,
     public var dwUseCount: UInt = 0u,
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var ftLastModifiedTime: FILETIME = FILETIME(),
-    public var ftExpireTime: FILETIME = FILETIME(),
-    public var ftLastAccessTime: FILETIME = FILETIME(),
-    public var ftLastSyncTime: FILETIME = FILETIME(),
-    public var pbHeaderInfo: Long = 0L,
+    public var ftLastModifiedTime: Filetime = Filetime(),
+    public var ftExpireTime: Filetime = Filetime(),
+    public var ftLastAccessTime: Filetime = Filetime(),
+    public var ftLastSyncTime: Filetime = Filetime(),
+    public var pbHeaderInfo: COpaquePointer? = null,
     public var cbHeaderInfoSize: UInt = 0u,
-    public var pbExtraData: Long = 0L,
+    public var pbExtraData: COpaquePointer? = null,
     public var cbExtraDataSize: UInt = 0u,
 )
 
-public data class URL_COMPONENTSA(
+public data class UrlComponentsa(
     public var dwStructSize: UInt = 0u,
-    public var lpszScheme: PSTR = 0L,
+    public var lpszScheme: Pstr = null,
     public var dwSchemeLength: UInt = 0u,
-    public var nScheme: INTERNET_SCHEME = 0,
-    public var lpszHostName: PSTR = 0L,
+    public var nScheme: InternetScheme = 0,
+    public var lpszHostName: Pstr = null,
     public var dwHostNameLength: UInt = 0u,
     public var nPort: UShort = 0u,
-    public var lpszUserName: PSTR = 0L,
+    public var lpszUserName: Pstr = null,
     public var dwUserNameLength: UInt = 0u,
-    public var lpszPassword: PSTR = 0L,
+    public var lpszPassword: Pstr = null,
     public var dwPasswordLength: UInt = 0u,
-    public var lpszUrlPath: PSTR = 0L,
+    public var lpszUrlPath: Pstr = null,
     public var dwUrlPathLength: UInt = 0u,
-    public var lpszExtraInfo: PSTR = 0L,
+    public var lpszExtraInfo: Pstr = null,
     public var dwExtraInfoLength: UInt = 0u,
 )
 
-public data class URL_COMPONENTSW(
+public data class UrlComponentsw(
     public var dwStructSize: UInt = 0u,
-    public var lpszScheme: PWSTR = 0L,
+    public var lpszScheme: Pwstr = null,
     public var dwSchemeLength: UInt = 0u,
-    public var nScheme: INTERNET_SCHEME = 0,
-    public var lpszHostName: PWSTR = 0L,
+    public var nScheme: InternetScheme = 0,
+    public var lpszHostName: Pwstr = null,
     public var dwHostNameLength: UInt = 0u,
     public var nPort: UShort = 0u,
-    public var lpszUserName: PWSTR = 0L,
+    public var lpszUserName: Pwstr = null,
     public var dwUserNameLength: UInt = 0u,
-    public var lpszPassword: PWSTR = 0L,
+    public var lpszPassword: Pwstr = null,
     public var dwPasswordLength: UInt = 0u,
-    public var lpszUrlPath: PWSTR = 0L,
+    public var lpszUrlPath: Pwstr = null,
     public var dwUrlPathLength: UInt = 0u,
-    public var lpszExtraInfo: PWSTR = 0L,
+    public var lpszExtraInfo: Pwstr = null,
     public var dwExtraInfoLength: UInt = 0u,
 )
 
-public data class WININET_PROXY_INFO(
-    public var fProxy: BOOL = 0,
-    public var fBypass: BOOL = 0,
-    public var ProxyScheme: INTERNET_SCHEME = 0,
-    public var pwszProxy: PWSTR = 0L,
-    public var ProxyPort: UShort = 0u,
+public data class WininetProxyInfo(
+    public var fProxy: Bool = 0,
+    public var fBypass: Bool = 0,
+    public var proxyScheme: InternetScheme = 0,
+    public var pwszProxy: Pwstr = null,
+    public var proxyPort: UShort = 0u,
 )
 
-public data class WININET_PROXY_INFO_LIST(public var dwProxyInfoCount: UInt = 0u, public var pProxyInfo: Long = 0L)
+public data class WininetProxyInfoList(public var dwProxyInfoCount: UInt = 0u, public var pProxyInfo: WininetProxyInfo? = null)

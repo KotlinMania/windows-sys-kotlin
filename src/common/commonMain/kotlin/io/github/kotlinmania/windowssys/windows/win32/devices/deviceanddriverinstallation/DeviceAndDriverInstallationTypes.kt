@@ -1,133 +1,134 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public typealias CM_CDFLAGS = UInt
+public typealias CmCdflags = UInt
 
-public typealias CM_CDMASK = UInt
+public typealias CmCdmask = UInt
 
-public typealias CM_DEVCAP = UInt
+public typealias CmDevcap = UInt
 
-public typealias CM_DEVNODE_STATUS_FLAGS = UInt
+public typealias CmDevnodeStatusFlags = UInt
 
-public typealias CM_ENUMERATE_FLAGS = UInt
+public typealias CmEnumerateFlags = UInt
 
-public typealias CM_GET_DEVICE_INTERFACE_LIST_FLAGS = UInt
+public typealias CmGetDeviceInterfaceListFlags = UInt
 
-public typealias CM_INSTALL_STATE = UInt
+public typealias CmInstallState = UInt
 
-public typealias CM_LOCATE_DEVNODE_FLAGS = UInt
+public typealias CmLocateDevnodeFlags = UInt
 
-public typealias CM_LOG_CONF = UInt
+public typealias CmLogConf = UInt
 
-public typealias CM_NOTIFY_ACTION = Int
+public typealias CmNotifyAction = Int
 
-public typealias CM_NOTIFY_FILTER_TYPE = Int
+public typealias CmNotifyFilterType = Int
 
-public typealias CM_PROB = UInt
+public typealias CmProb = UInt
 
-public typealias CM_REENUMERATE_FLAGS = UInt
+public typealias CmReenumerateFlags = UInt
 
-public typealias CM_REMOVAL_POLICY = UInt
+public typealias CmRemovalPolicy = UInt
 
-public typealias CM_RESTYPE = UInt
+public typealias CmRestype = UInt
 
-public typealias CONFIGRET = UInt
+public typealias Configret = UInt
 
-public typealias DD_FLAGS = UInt
+public typealias DdFlags = UInt
 
-public typealias DIINSTALLDEVICE_FLAGS = UInt
+public typealias DiinstalldeviceFlags = UInt
 
-public typealias DIINSTALLDRIVER_FLAGS = UInt
+public typealias DiinstalldriverFlags = UInt
 
-public typealias DIROLLBACKDRIVER_FLAGS = UInt
+public typealias DirollbackdriverFlags = UInt
 
-public typealias DIUNINSTALLDRIVER_FLAGS = UInt
+public typealias DiuninstalldriverFlags = UInt
 
-public typealias DI_FUNCTION = UInt
+public typealias DiFunction = UInt
 
-public typealias FILE_COMPRESSION_TYPE = UInt
+public typealias FileCompressionType = UInt
 
-public typealias HCMNOTIFICATION = Long
+public typealias Hcmnotification = COpaquePointer?
 
-public typealias HDEVINFO = Long
+public typealias Hdevinfo = Long
 
-public typealias INF_STYLE = UInt
+public typealias InfStyle = UInt
 
-public typealias IOD_DESFLAGS = UInt
+public typealias IodDesflags = UInt
 
-public typealias IRQD_FLAGS = UInt
+public typealias IrqdFlags = UInt
 
-public typealias MD_FLAGS = UInt
+public typealias MdFlags = UInt
 
-public typealias OEM_SOURCE_MEDIA_TYPE = UInt
+public typealias OemSourceMediaType = UInt
 
-public typealias PCD_FLAGS = UInt
+public typealias PcdFlags = UInt
 
-public fun interface PCM_NOTIFY_CALLBACKFn {
-    public operator fun invoke(hnotify: HCMNOTIFICATION, context: Long, action: CM_NOTIFY_ACTION, eventdata: Long, eventdatasize: UInt): UInt
+public fun interface PcmNotifyCallbackFn {
+    public operator fun invoke(hnotify: Hcmnotification, context: COpaquePointer?, action: CmNotifyAction, eventdata: COpaquePointer?, eventdatasize: UInt): UInt
 }
 
-public typealias PCM_NOTIFY_CALLBACK = PCM_NOTIFY_CALLBACKFn?
+public typealias PcmNotifyCallback = PcmNotifyCallbackFn?
 
-public fun interface PDETECT_PROGRESS_NOTIFYFn {
-    public operator fun invoke(progressnotifyparam: Long, detectcomplete: UInt): BOOL
+public fun interface PdetectProgressNotifyFn {
+    public operator fun invoke(progressnotifyparam: COpaquePointer?, detectcomplete: UInt): Bool
 }
 
-public typealias PDETECT_PROGRESS_NOTIFY = PDETECT_PROGRESS_NOTIFYFn?
+public typealias PdetectProgressNotify = PdetectProgressNotifyFn?
 
-public typealias PMF_FLAGS = UInt
+public typealias PmfFlags = UInt
 
-public typealias PNP_VETO_TYPE = Int
+public typealias PnpVetoType = Int
 
-public fun interface PSP_DETSIG_CMPPROCFn {
-    public operator fun invoke(deviceinfoset: HDEVINFO, newdevicedata: Long, existingdevicedata: Long, comparecontext: Long): UInt
+public fun interface PspDetsigCmpprocFn {
+    public operator fun invoke(deviceinfoset: Hdevinfo, newdevicedata: COpaquePointer?, existingdevicedata: COpaquePointer?, comparecontext: COpaquePointer?): UInt
 }
 
-public typealias PSP_DETSIG_CMPPROC = PSP_DETSIG_CMPPROCFn?
+public typealias PspDetsigCmpproc = PspDetsigCmpprocFn?
 
-public fun interface PSP_FILE_CALLBACK_AFn {
-    public operator fun invoke(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt
+public fun interface PspFileCallbackAFn {
+    public operator fun invoke(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt
 }
 
-public typealias PSP_FILE_CALLBACK_A = PSP_FILE_CALLBACK_AFn?
+public typealias PspFileCallbackA = PspFileCallbackAFn?
 
-public fun interface PSP_FILE_CALLBACK_WFn {
-    public operator fun invoke(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt
+public fun interface PspFileCallbackWFn {
+    public operator fun invoke(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt
 }
 
-public typealias PSP_FILE_CALLBACK_W = PSP_FILE_CALLBACK_WFn?
+public typealias PspFileCallbackW = PspFileCallbackWFn?
 
-public typealias SETUPSCANFILEQUEUE_FLAGS = UInt
+public typealias SetupscanfilequeueFlags = UInt
 
-public typealias SETUP_DI_DEVICE_CONFIGURATION_FLAGS = UInt
+public typealias SetupDiDeviceConfigurationFlags = UInt
 
-public typealias SETUP_DI_DEVICE_CREATION_FLAGS = UInt
+public typealias SetupDiDeviceCreationFlags = UInt
 
-public typealias SETUP_DI_DEVICE_INSTALL_FLAGS = UInt
+public typealias SetupDiDeviceInstallFlags = UInt
 
-public typealias SETUP_DI_DEVICE_INSTALL_FLAGS_EX = UInt
+public typealias SetupDiDeviceInstallFlagsEx = UInt
 
-public typealias SETUP_DI_DRIVER_INSTALL_FLAGS = UInt
+public typealias SetupDiDriverInstallFlags = UInt
 
-public typealias SETUP_DI_DRIVER_TYPE = UInt
+public typealias SetupDiDriverType = UInt
 
-public typealias SETUP_DI_GET_CLASS_DEVS_FLAGS = UInt
+public typealias SetupDiGetClassDevsFlags = UInt
 
-public typealias SETUP_DI_PROPERTY_CHANGE_SCOPE = UInt
+public typealias SetupDiPropertyChangeScope = UInt
 
-public typealias SETUP_DI_REGISTRY_PROPERTY = UInt
+public typealias SetupDiRegistryProperty = UInt
 
-public typealias SETUP_DI_REMOVE_DEVICE_SCOPE = UInt
+public typealias SetupDiRemoveDeviceScope = UInt
 
-public typealias SETUP_DI_STATE_CHANGE = UInt
+public typealias SetupDiStateChange = UInt
 
-public typealias SETUP_FILE_OPERATION = UInt
+public typealias SetupFileOperation = UInt
 
-public typealias SPSVCINST_FLAGS = UInt
+public typealias SpsvcinstFlags = UInt
 
-public typealias SP_COPY_STYLE = UInt
+public typealias SpCopyStyle = UInt
 
 public typealias SetupFileLogInfo = Int
 
-public typealias UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UInt
+public typealias UpdatedriverforplugandplaydevicesFlags = UInt

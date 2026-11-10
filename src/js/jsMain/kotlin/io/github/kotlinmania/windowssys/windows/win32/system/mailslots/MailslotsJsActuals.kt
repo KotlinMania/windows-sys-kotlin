@@ -2,22 +2,23 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mailslots
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32SystemMailslotsNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CreateMailslotA(lpname: PCSTR, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_CreateMailslotA(lpname.toString(), nmaxmessagesize.toInt(), lreadtimeout.toInt(), lpsecurityattributes.toString()) as String).toLong() else 0L
+public actual fun createMailslotA(lpname: Pcstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_createMailslotA((lpname?.value ?: 0L).toString(), nmaxmessagesize.toInt(), lreadtimeout.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMailslotW(lpname: PCWSTR, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: Long): HANDLE =
-    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_CreateMailslotW(lpname.toString(), nmaxmessagesize.toInt(), lreadtimeout.toInt(), lpsecurityattributes.toString()) as String).toLong() else 0L
+public actual fun createMailslotW(lpname: Pcwstr, nmaxmessagesize: UInt, lreadtimeout: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_createMailslotW((lpname?.value ?: 0L).toString(), nmaxmessagesize.toInt(), lreadtimeout.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMailslotInfo(hmailslot: HANDLE, lpmaxmessagesize: Long, lpnextsize: Long, lpmessagecount: Long, lpreadtimeout: Long): BOOL =
-    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_GetMailslotInfo(hmailslot.toString(), lpmaxmessagesize.toString(), lpnextsize.toString(), lpmessagecount.toString(), lpreadtimeout.toString()) as Int) else 0
+public actual fun getMailslotInfo(hmailslot: Handle, lpmaxmessagesize: COpaquePointer?, lpnextsize: COpaquePointer?, lpmessagecount: COpaquePointer?, lpreadtimeout: COpaquePointer?): Bool =
+    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_getMailslotInfo((hmailslot?.value ?: 0L).toString(), (lpmaxmessagesize?.value ?: 0L).toString(), (lpnextsize?.value ?: 0L).toString(), (lpmessagecount?.value ?: 0L).toString(), (lpreadtimeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMailslotInfo(hmailslot: HANDLE, lreadtimeout: UInt): BOOL =
-    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_SetMailslotInfo(hmailslot.toString(), lreadtimeout.toInt()) as Int) else 0
+public actual fun setMailslotInfo(hmailslot: Handle, lreadtimeout: UInt): Bool =
+    if (_windowsWin32SystemMailslotsNapiAddon != null) (_windowsWin32SystemMailslotsNapiAddon.windowssys_windows_win32_system_mailslots_setMailslotInfo((hmailslot?.value ?: 0L).toString(), lreadtimeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

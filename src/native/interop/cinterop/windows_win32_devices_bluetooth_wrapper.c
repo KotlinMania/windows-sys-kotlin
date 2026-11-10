@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateDevice(void* hwndparent, void* hradio, void* pbtbi, void* pszpasskey, uint32_t ulpasskeylength) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDevice(void* hwndparent, void* hradio, void* pbtbi, void* pszpasskey, uint32_t ulpasskeylength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateDevice(
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateDeviceEx(void* hwndparentin, void* hradioin, void* pbtdiinout, void* pbtoobdata, int32_t authenticationrequirement) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateDeviceEx(void* hwndparentin, void* hradioin, void* pbtdiinout, void* pbtoobdata, int32_t authenticationrequirement) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateDeviceE
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateMultipleDevices(void* hwndparent, void* hradio, uint32_t cdevices, void* rgbtdi) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothAuthenticateMultipleDevices(void* hwndparent, void* hradio, uint32_t cdevices, void* rgbtdi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,7 +92,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothAuthenticateMultipl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothDisplayDeviceProperties(void* hwndparent, void* pbtdi) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDeviceProperties(void* hwndparent, void* pbtdi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothDisplayDevicePropert
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnableDiscovery(void* hradio, int32_t fenabled) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothEnableDiscovery(void* hradio, int32_t fenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -138,7 +138,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnableDiscovery(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnableIncomingConnections(void* hradio, int32_t fenabled) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothEnableIncomingConnections(void* hradio, int32_t fenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnableIncomingConnec
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnumerateInstalledServices(void* hradio, void* pbtdi, void* pcserviceinout, void* pguidservices) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothEnumerateInstalledServices(void* hradio, void* pbtdi, void* pcserviceinout, void* pguidservices) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothEnumerateInstalledS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindDeviceClose(void* hfind) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothFindDeviceClose(void* hfind) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -208,7 +208,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindDeviceClose(void
 #endif
 }
 
-void* windowssys_windows_win32_devices_bluetooth_BluetoothFindFirstDevice(void* pbtsp, void* pbtdi) {
+void* windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstDevice(void* pbtsp, void* pbtdi) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ void* windowssys_windows_win32_devices_bluetooth_BluetoothFindFirstDevice(void* 
 #endif
 }
 
-void* windowssys_windows_win32_devices_bluetooth_BluetoothFindFirstRadio(void* pbtfrp, void* phradio) {
+void* windowssys_windows_win32_devices_bluetooth_bluetoothFindFirstRadio(void* pbtfrp, void* phradio) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ void* windowssys_windows_win32_devices_bluetooth_BluetoothFindFirstRadio(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindNextDevice(void* hfind, void* pbtdi) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothFindNextDevice(void* hfind, void* pbtdi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -277,7 +277,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindNextDevice(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindNextRadio(void* hfind, void* phradio) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothFindNextRadio(void* hfind, void* phradio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -300,7 +300,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindNextRadio(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindRadioClose(void* hfind) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothFindRadioClose(void* hfind) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothFindRadioClose(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTAbortReliableWrite(void* hdevice, uint64_t reliablewritecontext, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbortReliableWrite(void* hdevice, uint64_t reliablewritecontext, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -346,7 +346,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTAbortReliableWri
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTBeginReliableWrite(void* hdevice, void* reliablewritecontext, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTBeginReliableWrite(void* hdevice, void* reliablewritecontext, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -370,7 +370,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTBeginReliableWri
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTEndReliableWrite(void* hdevice, uint64_t reliablewritecontext, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndReliableWrite(void* hdevice, uint64_t reliablewritecontext, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -394,7 +394,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTEndReliableWrite
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetCharacteristicValue(void* hdevice, void* characteristic, uint32_t characteristicvaluedatasize, void* characteristicvalue, void* characteristicvaluesizerequired, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristicValue(void* hdevice, void* characteristic, uint32_t characteristicvaluedatasize, void* characteristicvalue, void* characteristicvaluesizerequired, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetCharacteristi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetCharacteristics(void* hdevice, void* service, uint16_t characteristicsbuffercount, void* characteristicsbuffer, void* characteristicsbufferactual, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCharacteristics(void* hdevice, void* service, uint16_t characteristicsbuffercount, void* characteristicsbuffer, void* characteristicsbufferactual, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -448,7 +448,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetCharacteristi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetDescriptorValue(void* hdevice, void* descriptor, uint32_t descriptorvaluedatasize, void* descriptorvalue, void* descriptorvaluesizerequired, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptorValue(void* hdevice, void* descriptor, uint32_t descriptorvaluedatasize, void* descriptorvalue, void* descriptorvaluesizerequired, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetDescriptorVal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetDescriptors(void* hdevice, void* characteristic, uint16_t descriptorsbuffercount, void* descriptorsbuffer, void* descriptorsbufferactual, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDescriptors(void* hdevice, void* characteristic, uint16_t descriptorsbuffercount, void* descriptorsbuffer, void* descriptorsbufferactual, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -502,7 +502,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetDescriptors(v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetIncludedServices(void* hdevice, void* parentservice, uint16_t includedservicesbuffercount, void* includedservicesbuffer, void* includedservicesbufferactual, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIncludedServices(void* hdevice, void* parentservice, uint16_t includedservicesbuffercount, void* includedservicesbuffer, void* includedservicesbufferactual, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -529,7 +529,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetIncludedServi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetServices(void* hdevice, uint16_t servicesbuffercount, void* servicesbuffer, void* servicesbufferactual, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetServices(void* hdevice, uint16_t servicesbuffercount, void* servicesbuffer, void* servicesbufferactual, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -555,7 +555,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTGetServices(void
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTRegisterEvent(void* hservice, int32_t eventtype, void* eventparameterin, void* callback, void* callbackcontext, void* peventhandle, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegisterEvent(void* hservice, int32_t eventtype, void* eventparameterin, void* callback, void* callbackcontext, void* peventhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -583,7 +583,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTRegisterEvent(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTSetCharacteristicValue(void* hdevice, void* characteristic, void* characteristicvalue, uint64_t reliablewritecontext, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCharacteristicValue(void* hdevice, void* characteristic, void* characteristicvalue, uint64_t reliablewritecontext, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -609,7 +609,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTSetCharacteristi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTSetDescriptorValue(void* hdevice, void* descriptor, void* descriptorvalue, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDescriptorValue(void* hdevice, void* descriptor, void* descriptorvalue, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -634,7 +634,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTSetDescriptorVal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTUnregisterEvent(int64_t eventhandle, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnregisterEvent(int64_t eventhandle, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -657,7 +657,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothGATTUnregisterEvent(
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothGetDeviceInfo(void* hradio, void* pbtdi) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothGetDeviceInfo(void* hradio, void* pbtdi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -680,7 +680,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothGetDeviceInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothGetRadioInfo(void* hradio, void* pradioinfo) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioInfo(void* hradio, void* pradioinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -703,7 +703,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothGetRadioInfo(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsConnectable(void* hradio) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothIsConnectable(void* hradio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -725,7 +725,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsConnectable(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsDiscoverable(void* hradio) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscoverable(void* hradio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -747,7 +747,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsDiscoverable(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsVersionAvailable(uint8_t majorversion, uint8_t minorversion) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothIsVersionAvailable(uint8_t majorversion, uint8_t minorversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint8_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -770,7 +770,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothIsVersionAvailable(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRegisterForAuthentication(void* pbtdi, void* phreghandle, void* pfncallback, void* pvparam) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthentication(void* pbtdi, void* phreghandle, void* pfncallback, void* pvparam) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -795,7 +795,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRegisterForAuthenti
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRegisterForAuthenticationEx(void* pbtdiin, void* phreghandleout, void* pfncallbackin, void* pvparam) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothRegisterForAuthenticationEx(void* pbtdiin, void* phreghandleout, void* pfncallbackin, void* pvparam) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -820,7 +820,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRegisterForAuthenti
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRemoveDevice(void* paddress) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDevice(void* paddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothRemoveDevice(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpEnumAttributes(void* psdpstream, uint32_t cbstreamsize, void* pfncallback, void* pvparam) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAttributes(void* psdpstream, uint32_t cbstreamsize, void* pfncallback, void* pvparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -867,7 +867,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpEnumAttributes(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetAttributeValue(void* precordstream, uint32_t cbrecordlength, uint16_t usattributeid, void* pattributedata) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAttributeValue(void* precordstream, uint32_t cbrecordlength, uint16_t usattributeid, void* pattributedata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetAttributeValu
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetContainerElementData(void* pcontainerstream, uint32_t cbcontainerlength, void* pelement, void* pdata) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetContainerElementData(void* pcontainerstream, uint32_t cbcontainerlength, void* pelement, void* pdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetContainerElem
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetElementData(void* psdpstream, uint32_t cbsdpstreamlength, void* pdata) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetElementData(void* psdpstream, uint32_t cbsdpstreamlength, void* pdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetElementData(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetString(void* precordstream, uint32_t cbrecordlength, void* pstringdata, uint16_t usstringoffset, void* pszstring, void* pcchstringlength) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetString(void* precordstream, uint32_t cbrecordlength, void* pstringdata, uint16_t usstringoffset, void* pszstring, void* pcchstringlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -968,7 +968,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSdpGetString(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSelectDevices(void* pbtsdp) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevices(void* pbtsdp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -990,7 +990,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSelectDevices(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSelectDevicesFree(void* pbtsdp) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothSelectDevicesFree(void* pbtsdp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1012,7 +1012,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothSelectDevicesFree(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSendAuthenticationResponse(void* hradio, void* pbtdi, void* pszpasskey) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponse(void* hradio, void* pbtdi, void* pszpasskey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSendAuthenticationR
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSendAuthenticationResponseEx(void* hradioin, void* pauthresponse) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthenticationResponseEx(void* hradioin, void* pauthresponse) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSendAuthenticationR
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSetLocalServiceInfo(void* hradioin, void* pclassguid, uint32_t ulinstance, void* pserviceinfoin) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalServiceInfo(void* hradioin, void* pclassguid, uint32_t ulinstance, void* pserviceinfoin) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1084,7 +1084,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSetLocalServiceInfo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSetServiceState(void* hradio, void* pbtdi, void* pguidservice, uint32_t dwserviceflags) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothSetServiceState(void* hradio, void* pbtdi, void* pguidservice, uint32_t dwserviceflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1109,7 +1109,7 @@ uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothSetServiceState(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_bluetooth_BluetoothUnregisterAuthentication(int64_t hreghandle) {
+int32_t windowssys_windows_win32_devices_bluetooth_bluetoothUnregisterAuthentication(int64_t hreghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1131,7 +1131,7 @@ int32_t windowssys_windows_win32_devices_bluetooth_BluetoothUnregisterAuthentica
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_bluetooth_BluetoothUpdateDeviceRecord(void* pbtdi) {
+uint32_t windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDeviceRecord(void* pbtdi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

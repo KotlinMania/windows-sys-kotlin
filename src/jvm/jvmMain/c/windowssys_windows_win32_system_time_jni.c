@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1EnumDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong lptimezoneinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1enumDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong lptimezoneinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1FileTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lpfiletime, jlong lpsystemtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1fileTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lpfiletime, jlong lpsystemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1GetDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong ptimezoneinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1getDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong ptimezoneinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1GetDynamicTimeZoneInformationEffectiveYears(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong firstyear, jlong lastyear) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1getDynamicTimeZoneInformationEffectiveYears(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong firstyear, jlong lastyear) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1GetTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1getTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -112,7 +112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1GetTimeZoneInformationForYear(JNIEnv* km_env, jclass km_clazz, jshort wyear, jlong pdtzi, jlong ptzi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1getTimeZoneInformationForYear(JNIEnv* km_env, jclass km_clazz, jshort wyear, jlong pdtzi, jlong ptzi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1LocalFileTimeToLocalSystemTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localfiletime, jlong localsystemtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1localFileTimeToLocalSystemTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localfiletime, jlong localsystemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1LocalSystemTimeToLocalFileTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localsystemtime, jlong localfiletime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1localSystemTimeToLocalFileTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localsystemtime, jlong localfiletime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1SetDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1setDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -190,7 +190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1SetTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1setTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1SystemTimeToFileTime(JNIEnv* km_env, jclass km_clazz, jlong lpsystemtime, jlong lpfiletime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1systemTimeToFileTime(JNIEnv* km_env, jclass km_clazz, jlong lpsystemtime, jlong lpfiletime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1SystemTimeToTzSpecificLocalTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1systemTimeToTzSpecificLocalTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -247,7 +247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1SystemTimeToTzSpecificLocalTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1systemTimeToTzSpecificLocalTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -267,7 +267,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1TzSpecificLocalTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1tzSpecificLocalTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -287,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1TzSpecificLocalTimeToSystemTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssys_1windows_1win32_1system_1time_1tzSpecificLocalTimeToSystemTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

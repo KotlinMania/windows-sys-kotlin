@@ -9,10 +9,10 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_DisableThreadProfiling(void* performancedatahandle);
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_EnableThreadProfiling(void* threadhandle, uint32_t flags, uint64_t hardwarecounters, void* performancedatahandle);
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_QueryThreadProfiling(void* threadhandle, void* enabled);
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_ReadThreadProfilingData(void* performancedatahandle, uint32_t flags, void* performancedata);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_disableThreadProfiling(void* performancedatahandle);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_enableThreadProfiling(void* threadhandle, uint32_t flags, uint64_t hardwarecounters, void* performancedatahandle);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_queryThreadProfiling(void* threadhandle, void* enabled);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_readThreadProfilingData(void* performancedatahandle, uint32_t flags, void* performancedata);
 
 #ifdef __cplusplus
 }

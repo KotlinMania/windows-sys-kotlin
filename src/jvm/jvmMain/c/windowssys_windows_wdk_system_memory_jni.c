@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1NtMapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jlong processhandle, jlong baseaddress, jlong zerobits, jlong commitsize, jlong sectionoffset, jlong viewsize, jint inheritdisposition, jint allocationtype, jint win32protect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ntMapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jlong processhandle, jlong baseaddress, jlong zerobits, jlong commitsize, jlong sectionoffset, jlong viewsize, jint inheritdisposition, jint allocationtype, jint win32protect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1NtOpenSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ntOpenSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -65,7 +65,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1NtUnmapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong baseaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ntUnmapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong baseaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ZwMapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jlong processhandle, jlong baseaddress, jlong zerobits, jlong commitsize, jlong sectionoffset, jlong viewsize, jint inheritdisposition, jint allocationtype, jint win32protect) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1zwMapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jlong processhandle, jlong baseaddress, jlong zerobits, jlong commitsize, jlong sectionoffset, jlong viewsize, jint inheritdisposition, jint allocationtype, jint win32protect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -111,7 +111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ZwOpenSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1zwOpenSection(JNIEnv* km_env, jclass km_clazz, jlong sectionhandle, jint desiredaccess, jlong objectattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1ZwUnmapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong baseaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_memory_WindowsWdkSystemMemoryJniBridge_windowssys_1windows_1wdk_1system_1memory_1zwUnmapViewOfSection(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong baseaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

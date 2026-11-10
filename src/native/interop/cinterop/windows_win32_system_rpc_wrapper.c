@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_rpc_DceErrorInqTextA(int32_t rpcstatus, void* errortext) {
+int32_t windowssys_windows_win32_system_rpc_dceErrorInqTextA(int32_t rpcstatus, void* errortext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_system_rpc_DceErrorInqTextA(int32_t rpcstatus, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_DceErrorInqTextW(int32_t rpcstatus, void* errortext) {
+int32_t windowssys_windows_win32_system_rpc_dceErrorInqTextW(int32_t rpcstatus, void* errortext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_rpc_DceErrorInqTextW(int32_t rpcstatus, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_IUnknown_AddRef_Proxy(void* arg_0_this) {
+uint32_t windowssys_windows_win32_system_rpc_iunknownAddRefProxy(void* arg_0_this) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ uint32_t windowssys_windows_win32_system_rpc_IUnknown_AddRef_Proxy(void* arg_0_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_IUnknown_QueryInterface_Proxy(void* arg_0_this, void* riid, void* ppvobject) {
+int32_t windowssys_windows_win32_system_rpc_iunknownQueryInterfaceProxy(void* arg_0_this, void* riid, void* ppvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_system_rpc_IUnknown_QueryInterface_Proxy(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_IUnknown_Release_Proxy(void* arg_0_this) {
+uint32_t windowssys_windows_win32_system_rpc_iunknownReleaseProxy(void* arg_0_this) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ uint32_t windowssys_windows_win32_system_rpc_IUnknown_Release_Proxy(void* arg_0_
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_I_RpcAllocate(uint32_t size) {
+void* windowssys_windows_win32_system_rpc_iRpcAllocate(uint32_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ void* windowssys_windows_win32_system_rpc_I_RpcAllocate(uint32_t size) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcAsyncAbortCall(void* pasync, uint32_t exceptioncode) {
+int32_t windowssys_windows_win32_system_rpc_iRpcAsyncAbortCall(void* pasync, uint32_t exceptioncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -174,7 +174,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcAsyncAbortCall(void* pasync, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcAsyncSetHandle(void* message, void* pasync) {
+int32_t windowssys_windows_win32_system_rpc_iRpcAsyncSetHandle(void* message, void* pasync) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcAsyncSetHandle(void* message, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingCopy(void* sourcebinding, void* destinationbinding) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingCopy(void* sourcebinding, void* destinationbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingCopy(void* sourcebinding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingCreateNP(void* servername, void* servicename, void* networkoptions, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingCreateNp(void* servername, void* servicename, void* networkoptions, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingCreateNP(void* servernam
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingHandleToAsyncHandle(void* binding, void* asynchandle) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingHandleToAsyncHandle(void* binding, void* asynchandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingHandleToAsyncHandle(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqClientTokenAttributes(void* binding, void* tokenid, void* authenticationid, void* modifiedid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqClientTokenAttributes(void* binding, void* tokenid, void* authenticationid, void* modifiedid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqClientTokenAttributes
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqDynamicEndpointA(void* binding, void* dynamicendpoint) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointA(void* binding, void* dynamicendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqDynamicEndpointA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqDynamicEndpointW(void* binding, void* dynamicendpoint) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndpointW(void* binding, void* dynamicendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqDynamicEndpointW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqLocalClientPID(void* binding, void* pid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqLocalClientPid(void* binding, void* pid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqLocalClientPID(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqMarshalledTargetInfo(void* binding, void* marshalledtargetinfosize, void* marshalledtargetinfo) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqMarshalledTargetInfo(void* binding, void* marshalledtargetinfosize, void* marshalledtargetinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqMarshalledTargetInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqSecurityContext(void* binding, void* securitycontexthandle) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContext(void* binding, void* securitycontexthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqSecurityContext(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqSecurityContextKeyInfo(void* binding, void* keyinfo) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityContextKeyInfo(void* binding, void* keyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqSecurityContextKeyInf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqTransportType(void* binding, void* type) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqTransportType(void* binding, void* type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -455,7 +455,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqTransportType(void* b
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqWireIdForSnego(void* binding, void* wireid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingInqWireIdForSnego(void* binding, void* wireid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -478,7 +478,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingInqWireIdForSnego(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingIsClientLocal(void* bindinghandle, void* clientlocalflag) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingIsClientLocal(void* bindinghandle, void* clientlocalflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -501,7 +501,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingIsClientLocal(void* bind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingIsServerLocal(void* binding, void* serverlocalflag) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingIsServerLocal(void* binding, void* serverlocalflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingIsServerLocal(void* bind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingSetPrivateOption(void* hbinding, uint32_t option, uint64_t optionvalue) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingSetPrivateOption(void* hbinding, uint32_t option, uint64_t optionvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -548,7 +548,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingSetPrivateOption(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcBindingToStaticStringBindingW(void* binding, void* stringbinding) {
+int32_t windowssys_windows_win32_system_rpc_iRpcBindingToStaticStringBindingW(void* binding, void* stringbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -571,7 +571,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcBindingToStaticStringBindingW(v
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcClearMutex(void* mutex) {
+void windowssys_windows_win32_system_rpc_iRpcClearMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -592,7 +592,7 @@ void windowssys_windows_win32_system_rpc_I_RpcClearMutex(void* mutex) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcDeleteMutex(void* mutex) {
+void windowssys_windows_win32_system_rpc_iRpcDeleteMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -613,7 +613,7 @@ void windowssys_windows_win32_system_rpc_I_RpcDeleteMutex(void* mutex) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcExceptionFilter(uint32_t exceptioncode) {
+int32_t windowssys_windows_win32_system_rpc_iRpcExceptionFilter(uint32_t exceptioncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcExceptionFilter(uint32_t except
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcFree(void* object) {
+void windowssys_windows_win32_system_rpc_iRpcFree(void* object) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -656,7 +656,7 @@ void windowssys_windows_win32_system_rpc_I_RpcFree(void* object) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcFreeBuffer(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcFreeBuffer(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -678,7 +678,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcFreeBuffer(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcFreePipeBuffer(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcFreePipeBuffer(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcFreePipeBuffer(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcGetBuffer(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcGetBuffer(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcGetBuffer(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcGetBufferWithObject(void* message, void* objectuuid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcGetBufferWithObject(void* message, void* objectuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -745,7 +745,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcGetBufferWithObject(void* messa
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_I_RpcGetCurrentCallHandle(void) {
+void* windowssys_windows_win32_system_rpc_iRpcGetCurrentCallHandle(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -766,7 +766,7 @@ void* windowssys_windows_win32_system_rpc_I_RpcGetCurrentCallHandle(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcGetDefaultSD(void* ppsecuritydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_iRpcGetDefaultSd(void* ppsecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -788,7 +788,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcGetDefaultSD(void* ppsecurityde
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcGetExtendedError(void) {
+int32_t windowssys_windows_win32_system_rpc_iRpcGetExtendedError(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcGetExtendedError(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcIfInqTransferSyntaxes(void* rpcifhandle, void* transfersyntaxes, uint32_t transfersyntaxsize, void* transfersyntaxcount) {
+int32_t windowssys_windows_win32_system_rpc_iRpcIfInqTransferSyntaxes(void* rpcifhandle, void* transfersyntaxes, uint32_t transfersyntaxsize, void* transfersyntaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -834,7 +834,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcIfInqTransferSyntaxes(void* rpc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcMapWin32Status(int32_t status) {
+int32_t windowssys_windows_win32_system_rpc_iRpcMapWin32Status(int32_t status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -856,7 +856,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcMapWin32Status(int32_t status) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcMgmtEnableDedicatedThreadPool(void) {
+int32_t windowssys_windows_win32_system_rpc_iRpcMgmtEnableDedicatedThreadPool(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -877,7 +877,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcMgmtEnableDedicatedThreadPool(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNegotiateTransferSyntax(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNegotiateTransferSyntax(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNegotiateTransferSyntax(void* m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsBindingSetEntryNameA(void* binding, uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameA(void* binding, uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -923,7 +923,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsBindingSetEntryNameA(void* bi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsBindingSetEntryNameW(void* binding, uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryNameW(void* binding, uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -947,7 +947,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsBindingSetEntryNameW(void* bi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsGetBuffer(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsGetBuffer(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +969,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsGetBuffer(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsInterfaceExported(uint32_t entrynamesyntax, void* entryname, void* rpcinterfaceinformation) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsInterfaceExported(uint32_t entrynamesyntax, void* entryname, void* rpcinterfaceinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsInterfaceExported(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsInterfaceUnexported(uint32_t entrynamesyntax, void* entryname, void* rpcinterfaceinformation) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsInterfaceUnexported(uint32_t entrynamesyntax, void* entryname, void* rpcinterfaceinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1017,7 +1017,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsInterfaceUnexported(uint32_t 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcNsRaiseException(void* message, int32_t status) {
+void windowssys_windows_win32_system_rpc_iRpcNsRaiseException(void* message, int32_t status) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1039,7 +1039,7 @@ void windowssys_windows_win32_system_rpc_I_RpcNsRaiseException(void* message, in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcNsSendReceive(void* message, void* handle) {
+int32_t windowssys_windows_win32_system_rpc_iRpcNsSendReceive(void* message, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1062,7 +1062,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcNsSendReceive(void* message, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcOpenClientProcess(void* binding, uint32_t desiredaccess, void* clientprocess) {
+int32_t windowssys_windows_win32_system_rpc_iRpcOpenClientProcess(void* binding, uint32_t desiredaccess, void* clientprocess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1086,7 +1086,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcOpenClientProcess(void* binding
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcPauseExecution(uint32_t milliseconds) {
+void windowssys_windows_win32_system_rpc_iRpcPauseExecution(uint32_t milliseconds) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1107,7 +1107,7 @@ void windowssys_windows_win32_system_rpc_I_RpcPauseExecution(uint32_t millisecon
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcReBindBuffer(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcReBindBuffer(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1129,7 +1129,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcReBindBuffer(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcReallocPipeBuffer(void* message, uint32_t newsize) {
+int32_t windowssys_windows_win32_system_rpc_iRpcReallocPipeBuffer(void* message, uint32_t newsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1152,7 +1152,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcReallocPipeBuffer(void* message
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcReceive(void* message, uint32_t size) {
+int32_t windowssys_windows_win32_system_rpc_iRpcReceive(void* message, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1175,7 +1175,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcReceive(void* message, uint32_t
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcRecordCalloutFailure(int32_t rpcstatus, void* calloutstate, void* dllname) {
+void windowssys_windows_win32_system_rpc_iRpcRecordCalloutFailure(int32_t rpcstatus, void* calloutstate, void* dllname) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1198,7 +1198,7 @@ void windowssys_windows_win32_system_rpc_I_RpcRecordCalloutFailure(int32_t rpcst
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcRequestMutex(void* mutex) {
+void windowssys_windows_win32_system_rpc_iRpcRequestMutex(void* mutex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1219,7 +1219,7 @@ void windowssys_windows_win32_system_rpc_I_RpcRequestMutex(void* mutex) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcSend(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcSend(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1241,7 +1241,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcSend(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcSendReceive(void* message) {
+int32_t windowssys_windows_win32_system_rpc_iRpcSendReceive(void* message) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1263,7 +1263,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcSendReceive(void* message) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerCheckClientRestriction(void* context) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerCheckClientRestriction(void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1285,7 +1285,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerCheckClientRestriction(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerDisableExceptionFilter(void) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerDisableExceptionFilter(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1306,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerDisableExceptionFilter(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerGetAssociationID(void* binding, void* associationid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerGetAssociationId(void* binding, void* associationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerGetAssociationID(void* bi
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_I_RpcServerInqAddressChangeFn(void) {
+void* windowssys_windows_win32_system_rpc_iRpcServerInqAddressChangeFn(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ void* windowssys_windows_win32_system_rpc_I_RpcServerInqAddressChangeFn(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqLocalConnAddress(void* binding, void* buffer, void* buffersize, void* addressformat) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerInqLocalConnAddress(void* binding, void* buffer, void* buffersize, void* addressformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1375,7 +1375,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqLocalConnAddress(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqRemoteConnAddress(void* binding, void* buffer, void* buffersize, void* addressformat) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerInqRemoteConnAddress(void* binding, void* buffer, void* buffersize, void* addressformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1400,7 +1400,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqRemoteConnAddress(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqTransportType(void* type) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerInqTransportType(void* type) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerInqTransportType(void* ty
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerRegisterForwardFunction(void* pforwardfunction) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerRegisterForwardFunction(void* pforwardfunction) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1444,7 +1444,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerRegisterForwardFunction(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerSetAddressChangeFn(void* paddresschangefn) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerSetAddressChangeFn(void* paddresschangefn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1466,7 +1466,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerSetAddressChangeFn(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerStartService(void* protseq, void* endpoint, void* ifspec) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerStartService(void* protseq, void* endpoint, void* ifspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1490,7 +1490,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerStartService(void* protse
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerSubscribeForDisconnectNotification(void* binding, void* hevent) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification(void* binding, void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerSubscribeForDisconnectNot
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerSubscribeForDisconnectNotification2(void* binding, void* hevent, void* subscriptionid) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDisconnectNotification2(void* binding, void* hevent, void* subscriptionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1537,7 +1537,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerSubscribeForDisconnectNot
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseq2A(void* networkaddress, void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2A(void* networkaddress, void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1563,7 +1563,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseq2A(void* networ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseq2W(void* networkaddress, void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2W(void* networkaddress, void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1589,7 +1589,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseq2W(void* networ
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseqEp2A(void* networkaddress, void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A(void* networkaddress, void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1616,7 +1616,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseqEp2A(void* netw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseqEp2W(void* networkaddress, void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W(void* networkaddress, void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1643,7 +1643,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcServerUseProtseqEp2W(void* netw
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcSessionStrictContextHandle(void) {
+void windowssys_windows_win32_system_rpc_iRpcSessionStrictContextHandle(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1663,7 +1663,7 @@ void windowssys_windows_win32_system_rpc_I_RpcSessionStrictContextHandle(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_I_RpcSsDontSerializeContext(void) {
+void windowssys_windows_win32_system_rpc_iRpcSsDontSerializeContext(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1683,7 +1683,7 @@ void windowssys_windows_win32_system_rpc_I_RpcSsDontSerializeContext(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcSystemHandleTypeSpecificWork(void* handle, uint8_t actualtype, uint8_t idltype, int32_t marshaldirection) {
+int32_t windowssys_windows_win32_system_rpc_iRpcSystemHandleTypeSpecificWork(void* handle, uint8_t actualtype, uint8_t idltype, int32_t marshaldirection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint8_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1708,7 +1708,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcSystemHandleTypeSpecificWork(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_RpcTurnOnEEInfoPropagation(void) {
+int32_t windowssys_windows_win32_system_rpc_iRpcTurnOnEeinfoPropagation(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1729,7 +1729,7 @@ int32_t windowssys_windows_win32_system_rpc_I_RpcTurnOnEEInfoPropagation(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_I_UuidCreate(void* uuid) {
+int32_t windowssys_windows_win32_system_rpc_iUuidCreate(void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1751,7 +1751,7 @@ int32_t windowssys_windows_win32_system_rpc_I_UuidCreate(void* uuid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesBufferHandleReset(void* handle, uint32_t handlestyle, int32_t operation, void* pbuffer, uint32_t buffersize, void* pencodedsize) {
+int32_t windowssys_windows_win32_system_rpc_mesBufferHandleReset(void* handle, uint32_t handlestyle, int32_t operation, void* pbuffer, uint32_t buffersize, void* pencodedsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1778,7 +1778,7 @@ int32_t windowssys_windows_win32_system_rpc_MesBufferHandleReset(void* handle, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesDecodeBufferHandleCreate(void* buffer, uint32_t buffersize, void* phandle) {
+int32_t windowssys_windows_win32_system_rpc_mesDecodeBufferHandleCreate(void* buffer, uint32_t buffersize, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1802,7 +1802,7 @@ int32_t windowssys_windows_win32_system_rpc_MesDecodeBufferHandleCreate(void* bu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesDecodeIncrementalHandleCreate(void* userstate, void* readfn, void* phandle) {
+int32_t windowssys_windows_win32_system_rpc_mesDecodeIncrementalHandleCreate(void* userstate, void* readfn, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ int32_t windowssys_windows_win32_system_rpc_MesDecodeIncrementalHandleCreate(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesEncodeDynBufferHandleCreate(void* pbuffer, void* pencodedsize, void* phandle) {
+int32_t windowssys_windows_win32_system_rpc_mesEncodeDynBufferHandleCreate(void* pbuffer, void* pencodedsize, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1850,7 +1850,7 @@ int32_t windowssys_windows_win32_system_rpc_MesEncodeDynBufferHandleCreate(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesEncodeFixedBufferHandleCreate(void* pbuffer, uint32_t buffersize, void* pencodedsize, void* phandle) {
+int32_t windowssys_windows_win32_system_rpc_mesEncodeFixedBufferHandleCreate(void* pbuffer, uint32_t buffersize, void* pencodedsize, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1875,7 +1875,7 @@ int32_t windowssys_windows_win32_system_rpc_MesEncodeFixedBufferHandleCreate(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesEncodeIncrementalHandleCreate(void* userstate, void* allocfn, void* writefn, void* phandle) {
+int32_t windowssys_windows_win32_system_rpc_mesEncodeIncrementalHandleCreate(void* userstate, void* allocfn, void* writefn, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1900,7 +1900,7 @@ int32_t windowssys_windows_win32_system_rpc_MesEncodeIncrementalHandleCreate(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesHandleFree(void* handle) {
+int32_t windowssys_windows_win32_system_rpc_mesHandleFree(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1922,7 +1922,7 @@ int32_t windowssys_windows_win32_system_rpc_MesHandleFree(void* handle) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesIncrementalHandleReset(void* handle, void* userstate, void* allocfn, void* writefn, void* readfn, int32_t operation) {
+int32_t windowssys_windows_win32_system_rpc_mesIncrementalHandleReset(void* handle, void* userstate, void* allocfn, void* writefn, void* readfn, int32_t operation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1949,7 +1949,7 @@ int32_t windowssys_windows_win32_system_rpc_MesIncrementalHandleReset(void* hand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_MesInqProcEncodingId(void* handle, void* pinterfaceid, void* pprocnum) {
+int32_t windowssys_windows_win32_system_rpc_mesInqProcEncodingId(void* handle, void* pinterfaceid, void* pprocnum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1973,7 +1973,7 @@ int32_t windowssys_windows_win32_system_rpc_MesInqProcEncodingId(void* handle, v
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NDRCContextBinding(int64_t ccontext) {
+void* windowssys_windows_win32_system_rpc_nDRCContextBinding(int64_t ccontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1995,7 +1995,7 @@ void* windowssys_windows_win32_system_rpc_NDRCContextBinding(int64_t ccontext) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NDRCContextMarshall(int64_t ccontext, void* pbuff) {
+void windowssys_windows_win32_system_rpc_nDRCContextMarshall(int64_t ccontext, void* pbuff) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2017,7 +2017,7 @@ void windowssys_windows_win32_system_rpc_NDRCContextMarshall(int64_t ccontext, v
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NDRCContextUnmarshall(void* pccontext, void* hbinding, void* pbuff, uint32_t datarepresentation) {
+void windowssys_windows_win32_system_rpc_nDRCContextUnmarshall(void* pccontext, void* hbinding, void* pbuff, uint32_t datarepresentation) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2041,7 +2041,7 @@ void windowssys_windows_win32_system_rpc_NDRCContextUnmarshall(void* pccontext, 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NDRSContextMarshall(void* ccontext, void* pbuff, void* userrundownin) {
+void windowssys_windows_win32_system_rpc_nDRSContextMarshall(void* ccontext, void* pbuff, void* userrundownin) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2064,7 +2064,7 @@ void windowssys_windows_win32_system_rpc_NDRSContextMarshall(void* ccontext, voi
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NDRSContextMarshall2(void* bindinghandle, void* ccontext, void* pbuff, void* userrundownin, void* ctxguard, uint32_t flags) {
+void windowssys_windows_win32_system_rpc_nDRSContextMarshall2(void* bindinghandle, void* ccontext, void* pbuff, void* userrundownin, void* ctxguard, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2090,7 +2090,7 @@ void windowssys_windows_win32_system_rpc_NDRSContextMarshall2(void* bindinghandl
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NDRSContextMarshallEx(void* bindinghandle, void* ccontext, void* pbuff, void* userrundownin) {
+void windowssys_windows_win32_system_rpc_nDRSContextMarshallEx(void* bindinghandle, void* ccontext, void* pbuff, void* userrundownin) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2114,7 +2114,7 @@ void windowssys_windows_win32_system_rpc_NDRSContextMarshallEx(void* bindinghand
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshall(void* pbuff, uint32_t datarepresentation) {
+void* windowssys_windows_win32_system_rpc_nDRSContextUnmarshall(void* pbuff, uint32_t datarepresentation) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2137,7 +2137,7 @@ void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshall(void* pbuff, uin
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshall2(void* bindinghandle, void* pbuff, uint32_t datarepresentation, void* ctxguard, uint32_t flags) {
+void* windowssys_windows_win32_system_rpc_nDRSContextUnmarshall2(void* bindinghandle, void* pbuff, uint32_t datarepresentation, void* ctxguard, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2163,7 +2163,7 @@ void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshall2(void* bindingha
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshallEx(void* bindinghandle, void* pbuff, uint32_t datarepresentation) {
+void* windowssys_windows_win32_system_rpc_nDRSContextUnmarshallEx(void* bindinghandle, void* pbuff, uint32_t datarepresentation) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2187,7 +2187,7 @@ void* windowssys_windows_win32_system_rpc_NDRSContextUnmarshallEx(void* bindingh
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_Ndr64AsyncServerCall64(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndr64AsyncServerCall64(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ void windowssys_windows_win32_system_rpc_Ndr64AsyncServerCall64(void* prpcmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_Ndr64AsyncServerCallAll(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndr64AsyncServerCallAll(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ void windowssys_windows_win32_system_rpc_Ndr64AsyncServerCallAll(void* prpcmsg) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_Ndr64DcomAsyncStubCall(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
+int32_t windowssys_windows_win32_system_rpc_ndr64DcomAsyncStubCall(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2254,7 +2254,7 @@ int32_t windowssys_windows_win32_system_rpc_Ndr64DcomAsyncStubCall(void* pthis, 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrAllocate(void* pstubmsg, uint64_t len) {
+void* windowssys_windows_win32_system_rpc_ndrAllocate(void* pstubmsg, uint64_t len) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2277,7 +2277,7 @@ void* windowssys_windows_win32_system_rpc_NdrAllocate(void* pstubmsg, uint64_t l
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrAsyncServerCall(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndrAsyncServerCall(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2298,7 +2298,7 @@ void windowssys_windows_win32_system_rpc_NdrAsyncServerCall(void* prpcmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrByteCountPointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrByteCountPointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2321,7 +2321,7 @@ void windowssys_windows_win32_system_rpc_NdrByteCountPointerBufferSize(void* pst
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrByteCountPointerFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrByteCountPointerFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2344,7 +2344,7 @@ void windowssys_windows_win32_system_rpc_NdrByteCountPointerFree(void* pstubmsg,
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrByteCountPointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrByteCountPointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2368,7 +2368,7 @@ void* windowssys_windows_win32_system_rpc_NdrByteCountPointerMarshall(void* pstu
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrByteCountPointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrByteCountPointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ void* windowssys_windows_win32_system_rpc_NdrByteCountPointerUnmarshall(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrClearOutParameters(void* pstubmsg, void* pformat, void* argaddr) {
+void windowssys_windows_win32_system_rpc_ndrClearOutParameters(void* pstubmsg, void* pformat, void* argaddr) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2416,7 +2416,7 @@ void windowssys_windows_win32_system_rpc_NdrClearOutParameters(void* pstubmsg, v
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrClientContextMarshall(void* pstubmsg, int64_t contexthandle, int32_t fcheck) {
+void windowssys_windows_win32_system_rpc_ndrClientContextMarshall(void* pstubmsg, int64_t contexthandle, int32_t fcheck) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2439,7 +2439,7 @@ void windowssys_windows_win32_system_rpc_NdrClientContextMarshall(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrClientContextUnmarshall(void* pstubmsg, void* pcontexthandle, void* bindhandle) {
+void windowssys_windows_win32_system_rpc_ndrClientContextUnmarshall(void* pstubmsg, void* pcontexthandle, void* bindhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2462,7 +2462,7 @@ void windowssys_windows_win32_system_rpc_NdrClientContextUnmarshall(void* pstubm
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrClientInitialize(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t procnum) {
+void windowssys_windows_win32_system_rpc_ndrClientInitialize(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t procnum) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2486,7 +2486,7 @@ void windowssys_windows_win32_system_rpc_NdrClientInitialize(void* prpcmsg, void
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrClientInitializeNew(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t procnum) {
+void windowssys_windows_win32_system_rpc_ndrClientInitializeNew(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t procnum) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2510,7 +2510,7 @@ void windowssys_windows_win32_system_rpc_NdrClientInitializeNew(void* prpcmsg, v
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrComplexArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrComplexArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2533,7 +2533,7 @@ void windowssys_windows_win32_system_rpc_NdrComplexArrayBufferSize(void* pstubms
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrComplexArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrComplexArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2556,7 +2556,7 @@ void windowssys_windows_win32_system_rpc_NdrComplexArrayFree(void* pstubmsg, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrComplexArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrComplexArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2580,7 +2580,7 @@ void* windowssys_windows_win32_system_rpc_NdrComplexArrayMarshall(void* pstubmsg
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrComplexArrayMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrComplexArrayMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2603,7 +2603,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrComplexArrayMemorySize(void* pst
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrComplexArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrComplexArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2628,7 +2628,7 @@ void* windowssys_windows_win32_system_rpc_NdrComplexArrayUnmarshall(void* pstubm
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrComplexStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrComplexStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2651,7 +2651,7 @@ void windowssys_windows_win32_system_rpc_NdrComplexStructBufferSize(void* pstubm
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrComplexStructFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrComplexStructFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2674,7 +2674,7 @@ void windowssys_windows_win32_system_rpc_NdrComplexStructFree(void* pstubmsg, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrComplexStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrComplexStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2698,7 +2698,7 @@ void* windowssys_windows_win32_system_rpc_NdrComplexStructMarshall(void* pstubms
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrComplexStructMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrComplexStructMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2721,7 +2721,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrComplexStructMemorySize(void* ps
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrComplexStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrComplexStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ void* windowssys_windows_win32_system_rpc_NdrComplexStructUnmarshall(void* pstub
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2769,7 +2769,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantArrayBufferSize(void* pstu
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2792,7 +2792,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantArrayFree(void* pstubmsg, 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrConformantArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2816,7 +2816,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantArrayMarshall(void* pstub
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrConformantArrayMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrConformantArrayMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2839,7 +2839,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrConformantArrayMemorySize(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrConformantArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2864,7 +2864,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantArrayUnmarshall(void* pst
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantStringBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantStringBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2887,7 +2887,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantStringBufferSize(void* pst
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantStringMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrConformantStringMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2911,7 +2911,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantStringMarshall(void* pstu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrConformantStringMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrConformantStringMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2934,7 +2934,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrConformantStringMemorySize(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantStringUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrConformantStringUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2959,7 +2959,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantStringUnmarshall(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2982,7 +2982,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantStructBufferSize(void* pst
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantStructFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantStructFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3005,7 +3005,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantStructFree(void* pstubmsg,
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrConformantStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3029,7 +3029,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantStructMarshall(void* pstu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrConformantStructMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrConformantStructMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3052,7 +3052,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrConformantStructMemorySize(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrConformantStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3077,7 +3077,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantStructUnmarshall(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3100,7 +3100,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayBufferSize(voi
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3123,7 +3123,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayFree(void* pst
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3147,7 +3147,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayMarshall(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3170,7 +3170,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayMemorySize
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrConformantVaryingArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3195,7 +3195,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantVaryingArrayUnmarshall(vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantVaryingStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantVaryingStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3218,7 +3218,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantVaryingStructBufferSize(vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConformantVaryingStructFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConformantVaryingStructFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3241,7 +3241,7 @@ void windowssys_windows_win32_system_rpc_NdrConformantVaryingStructFree(void* ps
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantVaryingStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3265,7 +3265,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantVaryingStructMarshall(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrConformantVaryingStructMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrConformantVaryingStructMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3288,7 +3288,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrConformantVaryingStructMemorySiz
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrConformantVaryingStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrConformantVaryingStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3313,7 +3313,7 @@ void* windowssys_windows_win32_system_rpc_NdrConformantVaryingStructUnmarshall(v
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrContextHandleInitialize(void* pstubmsg, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrContextHandleInitialize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3336,7 +3336,7 @@ void* windowssys_windows_win32_system_rpc_NdrContextHandleInitialize(void* pstub
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrContextHandleSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrContextHandleSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3359,7 +3359,7 @@ void windowssys_windows_win32_system_rpc_NdrContextHandleSize(void* pstubmsg, vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConvert(void* pstubmsg, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrConvert(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3381,7 +3381,7 @@ void windowssys_windows_win32_system_rpc_NdrConvert(void* pstubmsg, void* pforma
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrConvert2(void* pstubmsg, void* pformat, int32_t numberparams) {
+void windowssys_windows_win32_system_rpc_ndrConvert2(void* pstubmsg, void* pformat, int32_t numberparams) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3404,7 +3404,7 @@ void windowssys_windows_win32_system_rpc_NdrConvert2(void* pstubmsg, void* pform
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrCorrelationFree(void* pstubmsg) {
+void windowssys_windows_win32_system_rpc_ndrCorrelationFree(void* pstubmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3425,7 +3425,7 @@ void windowssys_windows_win32_system_rpc_NdrCorrelationFree(void* pstubmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrCorrelationInitialize(void* pstubmsg, void* pmemory, uint32_t cachesize, uint32_t flags) {
+void windowssys_windows_win32_system_rpc_ndrCorrelationInitialize(void* pstubmsg, void* pmemory, uint32_t cachesize, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3449,7 +3449,7 @@ void windowssys_windows_win32_system_rpc_NdrCorrelationInitialize(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrCorrelationPass(void* pstubmsg) {
+void windowssys_windows_win32_system_rpc_ndrCorrelationPass(void* pstubmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3470,7 +3470,7 @@ void windowssys_windows_win32_system_rpc_NdrCorrelationPass(void* pstubmsg) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrCreateServerInterfaceFromStub(void* pstub, void* pserverif) {
+int32_t windowssys_windows_win32_system_rpc_ndrCreateServerInterfaceFromStub(void* pstub, void* pserverif) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3493,7 +3493,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrCreateServerInterfaceFromStub(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrDcomAsyncStubCall(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
+int32_t windowssys_windows_win32_system_rpc_ndrDcomAsyncStubCall(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3518,7 +3518,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrDcomAsyncStubCall(void* pthis, vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3541,7 +3541,7 @@ void windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionBufferSize(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3564,7 +3564,7 @@ void windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionFree(void* pstubmsg
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3588,7 +3588,7 @@ void* windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionMarshall(void* pst
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3611,7 +3611,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionMemorySize(void
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3636,7 +3636,7 @@ void* windowssys_windows_win32_system_rpc_NdrEncapsulatedUnionUnmarshall(void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrFixedArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrFixedArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3659,7 +3659,7 @@ void windowssys_windows_win32_system_rpc_NdrFixedArrayBufferSize(void* pstubmsg,
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrFixedArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrFixedArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3682,7 +3682,7 @@ void windowssys_windows_win32_system_rpc_NdrFixedArrayFree(void* pstubmsg, void*
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrFixedArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrFixedArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3706,7 +3706,7 @@ void* windowssys_windows_win32_system_rpc_NdrFixedArrayMarshall(void* pstubmsg, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrFixedArrayMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrFixedArrayMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3729,7 +3729,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrFixedArrayMemorySize(void* pstub
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrFixedArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrFixedArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3754,7 +3754,7 @@ void* windowssys_windows_win32_system_rpc_NdrFixedArrayUnmarshall(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrFreeBuffer(void* pstubmsg) {
+void windowssys_windows_win32_system_rpc_ndrFreeBuffer(void* pstubmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3775,7 +3775,7 @@ void windowssys_windows_win32_system_rpc_NdrFreeBuffer(void* pstubmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrFullPointerXlatFree(void* pxlattables) {
+void windowssys_windows_win32_system_rpc_ndrFullPointerXlatFree(void* pxlattables) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3796,7 +3796,7 @@ void windowssys_windows_win32_system_rpc_NdrFullPointerXlatFree(void* pxlattable
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrFullPointerXlatInit(uint32_t numberofpointers, int32_t xlatside) {
+void* windowssys_windows_win32_system_rpc_ndrFullPointerXlatInit(uint32_t numberofpointers, int32_t xlatside) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3819,7 +3819,7 @@ void* windowssys_windows_win32_system_rpc_NdrFullPointerXlatInit(uint32_t number
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrGetBuffer(void* pstubmsg, uint32_t bufferlength, void* handle) {
+void* windowssys_windows_win32_system_rpc_ndrGetBuffer(void* pstubmsg, uint32_t bufferlength, void* handle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3843,7 +3843,7 @@ void* windowssys_windows_win32_system_rpc_NdrGetBuffer(void* pstubmsg, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrGetDcomProtocolVersion(void* pstubmsg, void* pversion) {
+int32_t windowssys_windows_win32_system_rpc_ndrGetDcomProtocolVersion(void* pstubmsg, void* pversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3866,7 +3866,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrGetDcomProtocolVersion(void* pstu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrGetUserMarshalInfo(void* pflags, uint32_t informationlevel, void* pmarshalinfo) {
+int32_t windowssys_windows_win32_system_rpc_ndrGetUserMarshalInfo(void* pflags, uint32_t informationlevel, void* pmarshalinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3890,7 +3890,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrGetUserMarshalInfo(void* pflags, 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrInterfacePointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrInterfacePointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3913,7 +3913,7 @@ void windowssys_windows_win32_system_rpc_NdrInterfacePointerBufferSize(void* pst
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrInterfacePointerFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrInterfacePointerFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3936,7 +3936,7 @@ void windowssys_windows_win32_system_rpc_NdrInterfacePointerFree(void* pstubmsg,
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrInterfacePointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrInterfacePointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3960,7 +3960,7 @@ void* windowssys_windows_win32_system_rpc_NdrInterfacePointerMarshall(void* pstu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrInterfacePointerMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrInterfacePointerMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3983,7 +3983,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrInterfacePointerMemorySize(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrInterfacePointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrInterfacePointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4008,7 +4008,7 @@ void* windowssys_windows_win32_system_rpc_NdrInterfacePointerUnmarshall(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrMapCommAndFaultStatus(void* pstubmsg, void* pcommstatus, void* pfaultstatus, int32_t status) {
+int32_t windowssys_windows_win32_system_rpc_ndrMapCommAndFaultStatus(void* pstubmsg, void* pcommstatus, void* pfaultstatus, int32_t status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4033,7 +4033,41 @@ int32_t windowssys_windows_win32_system_rpc_NdrMapCommAndFaultStatus(void* pstub
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_rpc_NdrMesSimpleTypeAlignSize(void* param0) {
+void windowssys_windows_win32_system_rpc_ndrMesProcEncodeDecode(void* handle, void* pstubdesc, void* pformatstring, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef void (*km_fn_t)(void*, void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NdrMesProcEncodeDecode");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_fn_ptr(handle, pstubdesc, pformatstring); break;
+            case 1: km_fn_ptr(handle, pstubdesc, pformatstring, (intptr_t)km_va0); break;
+            case 2: km_fn_ptr(handle, pstubdesc, pformatstring, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_fn_ptr(handle, pstubdesc, pformatstring, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_fn_ptr(handle, pstubdesc, pformatstring, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+        return;
+    }
+    errno = ENOSYS;
+#else
+    (void)handle;
+    (void)pstubdesc;
+    (void)pformatstring;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+#endif
+}
+
+uint64_t windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize(void* param0) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4055,7 +4089,7 @@ uint64_t windowssys_windows_win32_system_rpc_NdrMesSimpleTypeAlignSize(void* par
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_rpc_NdrMesSimpleTypeAlignSizeAll(void* handle, void* pproxyinfo) {
+uint64_t windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSizeAll(void* handle, void* pproxyinfo) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4078,7 +4112,7 @@ uint64_t windowssys_windows_win32_system_rpc_NdrMesSimpleTypeAlignSizeAll(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeDecode(void* handle, void* pobject, int16_t size) {
+void windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecode(void* handle, void* pobject, int16_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4101,7 +4135,7 @@ void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeDecode(void* handle, vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeDecodeAll(void* handle, void* pproxyinfo, void* pobject, int16_t size) {
+void windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecodeAll(void* handle, void* pproxyinfo, void* pobject, int16_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4125,7 +4159,7 @@ void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeDecodeAll(void* handle,
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeEncode(void* handle, void* pstubdesc, void* pobject, int16_t size) {
+void windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncode(void* handle, void* pstubdesc, void* pobject, int16_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4149,7 +4183,7 @@ void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeEncode(void* handle, vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeEncodeAll(void* handle, void* pproxyinfo, void* pobject, int16_t size) {
+void windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncodeAll(void* handle, void* pproxyinfo, void* pobject, int16_t size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4173,7 +4207,7 @@ void windowssys_windows_win32_system_rpc_NdrMesSimpleTypeEncodeAll(void* handle,
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
+uint64_t windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4198,7 +4232,7 @@ uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize(void* handle, v
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
+uint64_t windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4224,7 +4258,7 @@ uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize2(void* handle, 
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
+uint64_t windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4251,7 +4285,7 @@ uint64_t windowssys_windows_win32_system_rpc_NdrMesTypeAlignSize3(void* handle, 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeDecode(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeDecode(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4275,7 +4309,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeDecode(void* handle, void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeDecode2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeDecode2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4300,7 +4334,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeDecode2(void* handle, void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeDecode3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeDecode3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4326,7 +4360,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeDecode3(void* handle, void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeEncode(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeEncode(void* handle, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4350,7 +4384,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeEncode(void* handle, void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeEncode2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeEncode2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4375,7 +4409,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeEncode2(void* handle, void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeEncode3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeEncode3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4401,7 +4435,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeEncode3(void* handle, void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeFree2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeFree2(void* handle, void* ppicklinginfo, void* pstubdesc, void* pformatstring, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4460,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeFree2(void* handle, void* ppi
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrMesTypeFree3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
+void windowssys_windows_win32_system_rpc_ndrMesTypeFree3(void* handle, void* ppicklinginfo, void* pproxyinfo, void* arrtypeoffset, uint32_t ntypeindex, void* pobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4452,7 +4486,7 @@ void windowssys_windows_win32_system_rpc_NdrMesTypeFree3(void* handle, void* ppi
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrNonConformantStringBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrNonConformantStringBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4475,7 +4509,7 @@ void windowssys_windows_win32_system_rpc_NdrNonConformantStringBufferSize(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNonConformantStringMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrNonConformantStringMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4499,7 +4533,7 @@ void* windowssys_windows_win32_system_rpc_NdrNonConformantStringMarshall(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrNonConformantStringMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrNonConformantStringMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4522,7 +4556,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrNonConformantStringMemorySize(vo
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNonConformantStringUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrNonConformantStringUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4547,7 +4581,7 @@ void* windowssys_windows_win32_system_rpc_NdrNonConformantStringUnmarshall(void*
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4570,7 +4604,7 @@ void windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionBufferSize(void*
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4593,7 +4627,7 @@ void windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionFree(void* pstub
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4617,7 +4651,7 @@ void* windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionMarshall(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4640,7 +4674,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionMemorySize(v
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4665,7 +4699,7 @@ void* windowssys_windows_win32_system_rpc_NdrNonEncapsulatedUnionUnmarshall(void
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNsGetBuffer(void* pstubmsg, uint32_t bufferlength, void* handle) {
+void* windowssys_windows_win32_system_rpc_ndrNsGetBuffer(void* pstubmsg, uint32_t bufferlength, void* handle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4689,7 +4723,7 @@ void* windowssys_windows_win32_system_rpc_NdrNsGetBuffer(void* pstubmsg, uint32_
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrNsSendReceive(void* pstubmsg, void* pbufferend, void* pautohandle) {
+void* windowssys_windows_win32_system_rpc_ndrNsSendReceive(void* pstubmsg, void* pbufferend, void* pautohandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4713,7 +4747,7 @@ void* windowssys_windows_win32_system_rpc_NdrNsSendReceive(void* pstubmsg, void*
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrOleAllocate(uint64_t size) {
+void* windowssys_windows_win32_system_rpc_ndrOleAllocate(uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4735,7 +4769,7 @@ void* windowssys_windows_win32_system_rpc_NdrOleAllocate(uint64_t size) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrOleFree(void* nodetofree) {
+void windowssys_windows_win32_system_rpc_ndrOleFree(void* nodetofree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4756,7 +4790,7 @@ void windowssys_windows_win32_system_rpc_NdrOleFree(void* nodetofree) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPartialIgnoreClientBufferSize(void* pstubmsg, void* pmemory) {
+void windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientBufferSize(void* pstubmsg, void* pmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4778,7 +4812,7 @@ void windowssys_windows_win32_system_rpc_NdrPartialIgnoreClientBufferSize(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPartialIgnoreClientMarshall(void* pstubmsg, void* pmemory) {
+void windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientMarshall(void* pstubmsg, void* pmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4800,7 +4834,7 @@ void windowssys_windows_win32_system_rpc_NdrPartialIgnoreClientMarshall(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPartialIgnoreServerInitialize(void* pstubmsg, void* ppmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerInitialize(void* pstubmsg, void* ppmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4823,7 +4857,7 @@ void windowssys_windows_win32_system_rpc_NdrPartialIgnoreServerInitialize(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPartialIgnoreServerUnmarshall(void* pstubmsg, void* ppmemory) {
+void windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerUnmarshall(void* pstubmsg, void* ppmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4845,7 +4879,7 @@ void windowssys_windows_win32_system_rpc_NdrPartialIgnoreServerUnmarshall(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrPointerBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4868,7 +4902,7 @@ void windowssys_windows_win32_system_rpc_NdrPointerBufferSize(void* pstubmsg, vo
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrPointerFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrPointerFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4891,7 +4925,7 @@ void windowssys_windows_win32_system_rpc_NdrPointerFree(void* pstubmsg, void* pm
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrPointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrPointerMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4915,7 +4949,7 @@ void* windowssys_windows_win32_system_rpc_NdrPointerMarshall(void* pstubmsg, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrPointerMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrPointerMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4938,7 +4972,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrPointerMemorySize(void* pstubmsg
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrPointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrPointerUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4963,7 +4997,7 @@ void* windowssys_windows_win32_system_rpc_NdrPointerUnmarshall(void* pstubmsg, v
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrRangeUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrRangeUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4988,7 +5022,7 @@ void* windowssys_windows_win32_system_rpc_NdrRangeUnmarshall(void* pstubmsg, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrRpcSmClientAllocate(uint64_t size) {
+void* windowssys_windows_win32_system_rpc_ndrRpcSmClientAllocate(uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5010,7 +5044,7 @@ void* windowssys_windows_win32_system_rpc_NdrRpcSmClientAllocate(uint64_t size) 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrRpcSmClientFree(void* nodetofree) {
+void windowssys_windows_win32_system_rpc_ndrRpcSmClientFree(void* nodetofree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5031,7 +5065,7 @@ void windowssys_windows_win32_system_rpc_NdrRpcSmClientFree(void* nodetofree) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrRpcSmSetClientToOsf(void* pmessage) {
+void windowssys_windows_win32_system_rpc_ndrRpcSmSetClientToOsf(void* pmessage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5052,7 +5086,7 @@ void windowssys_windows_win32_system_rpc_NdrRpcSmSetClientToOsf(void* pmessage) 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrRpcSsDefaultAllocate(uint64_t size) {
+void* windowssys_windows_win32_system_rpc_ndrRpcSsDefaultAllocate(uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5074,7 +5108,7 @@ void* windowssys_windows_win32_system_rpc_NdrRpcSsDefaultAllocate(uint64_t size)
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrRpcSsDefaultFree(void* nodetofree) {
+void windowssys_windows_win32_system_rpc_ndrRpcSsDefaultFree(void* nodetofree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5095,7 +5129,7 @@ void windowssys_windows_win32_system_rpc_NdrRpcSsDefaultFree(void* nodetofree) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrRpcSsDisableAllocate(void* pmessage) {
+void windowssys_windows_win32_system_rpc_ndrRpcSsDisableAllocate(void* pmessage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5116,7 +5150,7 @@ void windowssys_windows_win32_system_rpc_NdrRpcSsDisableAllocate(void* pmessage)
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrRpcSsEnableAllocate(void* pmessage) {
+void windowssys_windows_win32_system_rpc_ndrRpcSsEnableAllocate(void* pmessage) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5137,7 +5171,7 @@ void windowssys_windows_win32_system_rpc_NdrRpcSsEnableAllocate(void* pmessage) 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrSendReceive(void* pstubmsg, void* pbufferend) {
+void* windowssys_windows_win32_system_rpc_ndrSendReceive(void* pstubmsg, void* pbufferend) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5160,7 +5194,7 @@ void* windowssys_windows_win32_system_rpc_NdrSendReceive(void* pstubmsg, void* p
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerCall2(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndrServerCall2(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5181,7 +5215,7 @@ void windowssys_windows_win32_system_rpc_NdrServerCall2(void* prpcmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerCallAll(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndrServerCallAll(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5202,7 +5236,7 @@ void windowssys_windows_win32_system_rpc_NdrServerCallAll(void* prpcmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerCallNdr64(void* prpcmsg) {
+void windowssys_windows_win32_system_rpc_ndrServerCallNdr64(void* prpcmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5223,7 +5257,7 @@ void windowssys_windows_win32_system_rpc_NdrServerCallNdr64(void* prpcmsg) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerContextMarshall(void* pstubmsg, void* contexthandle, void* rundownroutine) {
+void windowssys_windows_win32_system_rpc_ndrServerContextMarshall(void* pstubmsg, void* contexthandle, void* rundownroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5246,7 +5280,7 @@ void windowssys_windows_win32_system_rpc_NdrServerContextMarshall(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerContextNewMarshall(void* pstubmsg, void* contexthandle, void* rundownroutine, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrServerContextNewMarshall(void* pstubmsg, void* contexthandle, void* rundownroutine, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5270,7 +5304,7 @@ void windowssys_windows_win32_system_rpc_NdrServerContextNewMarshall(void* pstub
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrServerContextNewUnmarshall(void* pstubmsg, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrServerContextNewUnmarshall(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5293,7 +5327,7 @@ void* windowssys_windows_win32_system_rpc_NdrServerContextNewUnmarshall(void* ps
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrServerContextUnmarshall(void* pstubmsg) {
+void* windowssys_windows_win32_system_rpc_ndrServerContextUnmarshall(void* pstubmsg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5315,7 +5349,7 @@ void* windowssys_windows_win32_system_rpc_NdrServerContextUnmarshall(void* pstub
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrServerInitialize(void* prpcmsg, void* pstubmsg, void* pstubdescriptor) {
+void* windowssys_windows_win32_system_rpc_ndrServerInitialize(void* prpcmsg, void* pstubmsg, void* pstubdescriptor) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5339,7 +5373,7 @@ void* windowssys_windows_win32_system_rpc_NdrServerInitialize(void* prpcmsg, voi
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerInitializeMarshall(void* prpcmsg, void* pstubmsg) {
+void windowssys_windows_win32_system_rpc_ndrServerInitializeMarshall(void* prpcmsg, void* pstubmsg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5361,7 +5395,7 @@ void windowssys_windows_win32_system_rpc_NdrServerInitializeMarshall(void* prpcm
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrServerInitializeNew(void* prpcmsg, void* pstubmsg, void* pstubdescriptor) {
+void* windowssys_windows_win32_system_rpc_ndrServerInitializeNew(void* prpcmsg, void* pstubmsg, void* pstubdescriptor) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5385,7 +5419,7 @@ void* windowssys_windows_win32_system_rpc_NdrServerInitializeNew(void* prpcmsg, 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrServerInitializePartial(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t requestedbuffersize) {
+void windowssys_windows_win32_system_rpc_ndrServerInitializePartial(void* prpcmsg, void* pstubmsg, void* pstubdescriptor, uint32_t requestedbuffersize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5409,7 +5443,7 @@ void windowssys_windows_win32_system_rpc_NdrServerInitializePartial(void* prpcms
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrServerInitializeUnmarshall(void* pstubmsg, void* pstubdescriptor, void* prpcmsg) {
+void* windowssys_windows_win32_system_rpc_ndrServerInitializeUnmarshall(void* pstubmsg, void* pstubdescriptor, void* prpcmsg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5433,7 +5467,7 @@ void* windowssys_windows_win32_system_rpc_NdrServerInitializeUnmarshall(void* ps
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrSimpleStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrSimpleStructBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5456,7 +5490,7 @@ void windowssys_windows_win32_system_rpc_NdrSimpleStructBufferSize(void* pstubms
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrSimpleStructFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrSimpleStructFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5479,7 +5513,7 @@ void windowssys_windows_win32_system_rpc_NdrSimpleStructFree(void* pstubmsg, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrSimpleStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrSimpleStructMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5503,7 +5537,7 @@ void* windowssys_windows_win32_system_rpc_NdrSimpleStructMarshall(void* pstubmsg
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrSimpleStructMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrSimpleStructMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5526,7 +5560,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrSimpleStructMemorySize(void* pst
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrSimpleStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrSimpleStructUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5551,7 +5585,7 @@ void* windowssys_windows_win32_system_rpc_NdrSimpleStructUnmarshall(void* pstubm
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrSimpleTypeMarshall(void* pstubmsg, void* pmemory, uint8_t formatchar) {
+void windowssys_windows_win32_system_rpc_ndrSimpleTypeMarshall(void* pstubmsg, void* pmemory, uint8_t formatchar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5574,7 +5608,7 @@ void windowssys_windows_win32_system_rpc_NdrSimpleTypeMarshall(void* pstubmsg, v
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrSimpleTypeUnmarshall(void* pstubmsg, void* pmemory, uint8_t formatchar) {
+void windowssys_windows_win32_system_rpc_ndrSimpleTypeUnmarshall(void* pstubmsg, void* pmemory, uint8_t formatchar) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5597,7 +5631,7 @@ void windowssys_windows_win32_system_rpc_NdrSimpleTypeUnmarshall(void* pstubmsg,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrStubCall2(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
+int32_t windowssys_windows_win32_system_rpc_ndrStubCall2(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5622,7 +5656,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrStubCall2(void* pthis, void* pcha
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_NdrStubCall3(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
+int32_t windowssys_windows_win32_system_rpc_ndrStubCall3(void* pthis, void* pchannel, void* prpcmsg, void* pdwstubphase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5647,7 +5681,7 @@ int32_t windowssys_windows_win32_system_rpc_NdrStubCall3(void* pthis, void* pcha
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrUserMarshalBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrUserMarshalBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5670,7 +5704,7 @@ void windowssys_windows_win32_system_rpc_NdrUserMarshalBufferSize(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrUserMarshalFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrUserMarshalFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5693,7 +5727,7 @@ void windowssys_windows_win32_system_rpc_NdrUserMarshalFree(void* pstubmsg, void
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrUserMarshalMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrUserMarshalMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5717,7 +5751,7 @@ void* windowssys_windows_win32_system_rpc_NdrUserMarshalMarshall(void* pstubmsg,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrUserMarshalMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrUserMarshalMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5740,7 +5774,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrUserMarshalMemorySize(void* pstu
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrUserMarshalSimpleTypeConvert(void* pflags, void* pbuffer, uint8_t formatchar) {
+void* windowssys_windows_win32_system_rpc_ndrUserMarshalSimpleTypeConvert(void* pflags, void* pbuffer, uint8_t formatchar) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5764,7 +5798,7 @@ void* windowssys_windows_win32_system_rpc_NdrUserMarshalSimpleTypeConvert(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrUserMarshalUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrUserMarshalUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5789,7 +5823,7 @@ void* windowssys_windows_win32_system_rpc_NdrUserMarshalUnmarshall(void* pstubms
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrVaryingArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrVaryingArrayBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5812,7 +5846,7 @@ void windowssys_windows_win32_system_rpc_NdrVaryingArrayBufferSize(void* pstubms
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrVaryingArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrVaryingArrayFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5835,7 +5869,7 @@ void windowssys_windows_win32_system_rpc_NdrVaryingArrayFree(void* pstubmsg, voi
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrVaryingArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrVaryingArrayMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5859,7 +5893,7 @@ void* windowssys_windows_win32_system_rpc_NdrVaryingArrayMarshall(void* pstubmsg
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrVaryingArrayMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrVaryingArrayMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5882,7 +5916,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrVaryingArrayMemorySize(void* pst
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrVaryingArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrVaryingArrayUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5907,7 +5941,7 @@ void* windowssys_windows_win32_system_rpc_NdrVaryingArrayUnmarshall(void* pstubm
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrXmitOrRepAsBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrXmitOrRepAsBufferSize(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5930,7 +5964,7 @@ void windowssys_windows_win32_system_rpc_NdrXmitOrRepAsBufferSize(void* pstubmsg
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_NdrXmitOrRepAsFree(void* pstubmsg, void* pmemory, void* pformat) {
+void windowssys_windows_win32_system_rpc_ndrXmitOrRepAsFree(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5953,7 +5987,7 @@ void windowssys_windows_win32_system_rpc_NdrXmitOrRepAsFree(void* pstubmsg, void
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrXmitOrRepAsMarshall(void* pstubmsg, void* pmemory, void* pformat) {
+void* windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMarshall(void* pstubmsg, void* pmemory, void* pformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5977,7 +6011,7 @@ void* windowssys_windows_win32_system_rpc_NdrXmitOrRepAsMarshall(void* pstubmsg,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_rpc_NdrXmitOrRepAsMemorySize(void* pstubmsg, void* pformat) {
+uint32_t windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMemorySize(void* pstubmsg, void* pformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6000,7 +6034,7 @@ uint32_t windowssys_windows_win32_system_rpc_NdrXmitOrRepAsMemorySize(void* pstu
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_NdrXmitOrRepAsUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
+void* windowssys_windows_win32_system_rpc_ndrXmitOrRepAsUnmarshall(void* pstubmsg, void* ppmemory, void* pformat, uint8_t fmustalloc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6025,7 +6059,7 @@ void* windowssys_windows_win32_system_rpc_NdrXmitOrRepAsUnmarshall(void* pstubms
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncAbortCall(void* pasync, uint32_t exceptioncode) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncAbortCall(void* pasync, uint32_t exceptioncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6048,7 +6082,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncAbortCall(void* pasync, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncCancelCall(void* pasync, int32_t fabort) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncCancelCall(void* pasync, int32_t fabort) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6071,7 +6105,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncCancelCall(void* pasync, int
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncCompleteCall(void* pasync, void* reply) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncCompleteCall(void* pasync, void* reply) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6094,7 +6128,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncCompleteCall(void* pasync, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncGetCallStatus(void* pasync) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncGetCallStatus(void* pasync) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6116,7 +6150,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncGetCallStatus(void* pasync) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncInitializeHandle(void* pasync, uint32_t size) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncInitializeHandle(void* pasync, uint32_t size) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6139,7 +6173,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncInitializeHandle(void* pasyn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcAsyncRegisterInfo(void* pasync) {
+int32_t windowssys_windows_win32_system_rpc_rpcAsyncRegisterInfo(void* pasync) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6161,7 +6195,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcAsyncRegisterInfo(void* pasync) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingBind(void* pasync, void* binding, void* ifspec) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingBind(void* pasync, void* binding, void* ifspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6185,7 +6219,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingBind(void* pasync, void* b
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingCopy(void* sourcebinding, void* destinationbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingCopy(void* sourcebinding, void* destinationbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6208,7 +6242,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingCopy(void* sourcebinding, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingCreateA(void* arg_0_template, void* security, void* options, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingCreateA(void* arg_0_template, void* security, void* options, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6233,7 +6267,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingCreateA(void* arg_0_templa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingCreateW(void* arg_0_template, void* security, void* options, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingCreateW(void* arg_0_template, void* security, void* options, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6258,7 +6292,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingCreateW(void* arg_0_templa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingFree(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingFree(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6280,7 +6314,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingFree(void* binding) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingFromStringBindingA(void* stringbinding, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingA(void* stringbinding, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6303,7 +6337,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingFromStringBindingA(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingFromStringBindingW(void* stringbinding, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingFromStringBindingW(void* stringbinding, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6326,7 +6360,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingFromStringBindingW(void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientA(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6353,7 +6387,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientA(void* clien
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientExA(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc, uint32_t flags) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExA(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6381,7 +6415,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientExA(void* cli
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientExW(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc, uint32_t flags) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientExW(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6409,7 +6443,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientExW(void* cli
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientW(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW(void* clientbinding, void* privs, void* serverprincname, void* authnlevel, void* authnsvc, void* authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6436,7 +6470,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthClientW(void* clien
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoA(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6463,7 +6497,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoA(void* binding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoExA(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc, uint32_t rpcqosversion, void* securityqos) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc, uint32_t rpcqosversion, void* securityqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6492,7 +6526,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoExA(void* bindi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoExW(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc, uint32_t rpcqosversion, void* securityqos) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc, uint32_t rpcqosversion, void* securityqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6521,7 +6555,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoExW(void* bindi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoW(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW(void* binding, void* serverprincname, void* authnlevel, void* authnsvc, void* authidentity, void* authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6548,7 +6582,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqAuthInfoW(void* binding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqMaxCalls(void* binding, void* maxcalls) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqMaxCalls(void* binding, void* maxcalls) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6571,7 +6605,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqMaxCalls(void* binding,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqObject(void* binding, void* objectuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqObject(void* binding, void* objectuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6594,7 +6628,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqObject(void* binding, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingInqOption(void* hbinding, uint32_t option, void* poptionvalue) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingInqOption(void* hbinding, uint32_t option, void* poptionvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6618,7 +6652,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingInqOption(void* hbinding, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingReset(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingReset(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6640,7 +6674,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingReset(void* binding) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingServerFromClient(void* clientbinding, void* serverbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingServerFromClient(void* clientbinding, void* serverbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6663,7 +6697,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingServerFromClient(void* cli
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoA(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6690,7 +6724,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoA(void* binding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoExA(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc, void* securityqos) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc, void* securityqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6718,7 +6752,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoExA(void* bindi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoExW(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc, void* securityqos) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc, void* securityqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6746,7 +6780,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoExW(void* bindi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoW(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW(void* binding, void* serverprincname, uint32_t authnlevel, uint32_t authnsvc, void* authidentity, uint32_t authzsvc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6773,7 +6807,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetAuthInfoW(void* binding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetObject(void* binding, void* objectuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetObject(void* binding, void* objectuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6796,7 +6830,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetObject(void* binding, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingSetOption(void* hbinding, uint32_t option, uint64_t optionvalue) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingSetOption(void* hbinding, uint32_t option, uint64_t optionvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6820,7 +6854,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingSetOption(void* hbinding, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingToStringBindingA(void* binding, void* stringbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingToStringBindingA(void* binding, void* stringbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6843,7 +6877,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingToStringBindingA(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingToStringBindingW(void* binding, void* stringbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingToStringBindingW(void* binding, void* stringbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6866,7 +6900,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingToStringBindingW(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingUnbind(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingUnbind(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6888,7 +6922,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingUnbind(void* binding) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcBindingVectorFree(void* bindingvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcBindingVectorFree(void* bindingvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6910,7 +6944,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcBindingVectorFree(void* bindingve
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcCancelThread(void* thread) {
+int32_t windowssys_windows_win32_system_rpc_rpcCancelThread(void* thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6932,7 +6966,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcCancelThread(void* thread) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcCancelThreadEx(void* thread, int32_t timeout) {
+int32_t windowssys_windows_win32_system_rpc_rpcCancelThreadEx(void* thread, int32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6955,7 +6989,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcCancelThreadEx(void* thread, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcCertGeneratePrincipalNameA(void* context, uint32_t flags, void* pbuffer) {
+int32_t windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameA(void* context, uint32_t flags, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6979,7 +7013,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcCertGeneratePrincipalNameA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcCertGeneratePrincipalNameW(void* context, uint32_t flags, void* pbuffer) {
+int32_t windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalNameW(void* context, uint32_t flags, void* pbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7003,7 +7037,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcCertGeneratePrincipalNameW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterA(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpRegisterA(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7028,7 +7062,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterA(void* ifspec, void* b
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterNoReplaceA(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceA(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7053,7 +7087,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterNoReplaceA(void* ifspec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterNoReplaceW(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceW(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7078,7 +7112,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterNoReplaceW(void* ifspec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterW(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpRegisterW(void* ifspec, void* bindingvector, void* uuidvector, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7103,7 +7137,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpRegisterW(void* ifspec, void* b
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpResolveBinding(void* binding, void* ifspec) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpResolveBinding(void* binding, void* ifspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7126,7 +7160,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpResolveBinding(void* binding, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcEpUnregister(void* ifspec, void* bindingvector, void* uuidvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcEpUnregister(void* ifspec, void* bindingvector, void* uuidvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7150,7 +7184,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcEpUnregister(void* ifspec, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorAddRecord(void* errorinfo) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorAddRecord(void* errorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7172,7 +7206,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorAddRecord(void* errorinfo) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcErrorClearInformation(void) {
+void windowssys_windows_win32_system_rpc_rpcErrorClearInformation(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7192,7 +7226,7 @@ void windowssys_windows_win32_system_rpc_RpcErrorClearInformation(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorEndEnumeration(void* enumhandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorEndEnumeration(void* enumhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7214,7 +7248,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorEndEnumeration(void* enumhan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorGetNextRecord(void* enumhandle, int32_t copystrings, void* errorinfo) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorGetNextRecord(void* enumhandle, int32_t copystrings, void* errorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7238,7 +7272,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorGetNextRecord(void* enumhand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorGetNumberOfRecords(void* enumhandle, void* records) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorGetNumberOfRecords(void* enumhandle, void* records) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7261,7 +7295,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorGetNumberOfRecords(void* enu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorLoadErrorInfo(void* errorblob, uint64_t blobsize, void* enumhandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorLoadErrorInfo(void* errorblob, uint64_t blobsize, void* enumhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7285,7 +7319,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorLoadErrorInfo(void* errorblo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorResetEnumeration(void* enumhandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorResetEnumeration(void* enumhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7307,7 +7341,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorResetEnumeration(void* enumh
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorSaveErrorInfo(void* enumhandle, void* errorblob, void* blobsize) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorSaveErrorInfo(void* enumhandle, void* errorblob, void* blobsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7331,7 +7365,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorSaveErrorInfo(void* enumhand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcErrorStartEnumeration(void* enumhandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcErrorStartEnumeration(void* enumhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7353,7 +7387,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcErrorStartEnumeration(void* enumh
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcExceptionFilter(uint32_t exceptioncode) {
+int32_t windowssys_windows_win32_system_rpc_rpcExceptionFilter(uint32_t exceptioncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7375,7 +7409,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcExceptionFilter(uint32_t exceptio
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcFreeAuthorizationContext(void* pauthzclientcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcFreeAuthorizationContext(void* pauthzclientcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7397,7 +7431,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcFreeAuthorizationContext(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcIfIdVectorFree(void* ifidvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcIfIdVectorFree(void* ifidvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7419,7 +7453,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcIfIdVectorFree(void* ifidvector) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcIfInqId(void* rpcifhandle, void* rpcifid) {
+int32_t windowssys_windows_win32_system_rpc_rpcIfInqId(void* rpcifhandle, void* rpcifid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7442,7 +7476,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcIfInqId(void* rpcifhandle, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClient(void* bindinghandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcImpersonateClient(void* bindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7464,7 +7498,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClient(void* bindingha
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClient2(void* bindinghandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcImpersonateClient2(void* bindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7486,7 +7520,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClient2(void* bindingh
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClientContainer(void* bindinghandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcImpersonateClientContainer(void* bindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7508,7 +7542,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcImpersonateClientContainer(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEnableIdleCleanup(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEnableIdleCleanup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7529,7 +7563,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEnableIdleCleanup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqBegin(void* epbinding, uint32_t inquirytype, void* ifid, uint32_t versoption, void* objectuuid, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin(void* epbinding, uint32_t inquirytype, void* ifid, uint32_t versoption, void* objectuuid, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7556,7 +7590,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqBegin(void* epbinding
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqDone(void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqDone(void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7578,7 +7612,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqDone(void* inquirycon
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqNextA(void* inquirycontext, void* ifid, void* binding, void* objectuuid, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextA(void* inquirycontext, void* ifid, void* binding, void* objectuuid, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7604,7 +7638,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqNextA(void* inquiryco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqNextW(void* inquirycontext, void* ifid, void* binding, void* objectuuid, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextW(void* inquirycontext, void* ifid, void* binding, void* objectuuid, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7630,7 +7664,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpEltInqNextW(void* inquiryco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpUnregister(void* epbinding, void* ifid, void* binding, void* objectuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtEpUnregister(void* epbinding, void* ifid, void* binding, void* objectuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7655,7 +7689,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtEpUnregister(void* epbinding,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqComTimeout(void* binding, void* timeout) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqComTimeout(void* binding, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7678,7 +7712,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqComTimeout(void* binding, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqDefaultProtectLevel(uint32_t authnsvc, void* authnlevel) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqDefaultProtectLevel(uint32_t authnsvc, void* authnlevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7701,7 +7735,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqDefaultProtectLevel(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqIfIds(void* binding, void* ifidvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqIfIds(void* binding, void* ifidvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7724,7 +7758,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqIfIds(void* binding, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqServerPrincNameA(void* binding, uint32_t authnsvc, void* serverprincname) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameA(void* binding, uint32_t authnsvc, void* serverprincname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7748,7 +7782,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqServerPrincNameA(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqServerPrincNameW(void* binding, uint32_t authnsvc, void* serverprincname) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincNameW(void* binding, uint32_t authnsvc, void* serverprincname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7772,7 +7806,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqServerPrincNameW(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqStats(void* binding, void* statistics) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtInqStats(void* binding, void* statistics) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7795,7 +7829,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtInqStats(void* binding, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtIsServerListening(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtIsServerListening(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7817,7 +7851,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtIsServerListening(void* bindi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetAuthorizationFn(void* authorizationfn) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtSetAuthorizationFn(void* authorizationfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7839,7 +7873,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetAuthorizationFn(void* auth
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetCancelTimeout(int32_t timeout) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtSetCancelTimeout(int32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7861,7 +7895,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetCancelTimeout(int32_t time
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetComTimeout(void* binding, uint32_t timeout) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtSetComTimeout(void* binding, uint32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7884,7 +7918,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetComTimeout(void* binding, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetServerStackSize(uint32_t threadstacksize) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtSetServerStackSize(uint32_t threadstacksize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7906,7 +7940,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtSetServerStackSize(uint32_t t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtStatsVectorFree(void* statsvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtStatsVectorFree(void* statsvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7928,7 +7962,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtStatsVectorFree(void* statsve
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtStopServerListening(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtStopServerListening(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7950,7 +7984,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtStopServerListening(void* bin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcMgmtWaitServerListen(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcMgmtWaitServerListen(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7971,7 +8005,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcMgmtWaitServerListen(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNetworkInqProtseqsA(void* protseqvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsA(void* protseqvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7993,7 +8027,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNetworkInqProtseqsA(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNetworkInqProtseqsW(void* protseqvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsW(void* protseqvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8015,7 +8049,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNetworkInqProtseqsW(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNetworkIsProtseqValidA(void* protseq) {
+int32_t windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidA(void* protseq) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8037,7 +8071,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNetworkIsProtseqValidA(void* prot
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNetworkIsProtseqValidW(void* protseq) {
+int32_t windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidW(void* protseq) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8059,7 +8093,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNetworkIsProtseqValidW(void* prot
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* bindingvec, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingExportA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* bindingvec, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8085,7 +8119,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportA(uint32_t entryna
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportPnPA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8110,7 +8144,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportPnPA(uint32_t entr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportPnPW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8135,7 +8169,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportPnPW(uint32_t entr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* bindingvec, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingExportW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* bindingvec, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8161,7 +8195,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingExportW(uint32_t entryna
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportBeginA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, void* importcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, void* importcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8187,7 +8221,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportBeginA(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportBeginW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, void* importcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, void* importcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8213,7 +8247,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportBeginW(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportDone(void* importcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingImportDone(void* importcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8235,7 +8269,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportDone(void* importc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportNext(void* importcontext, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingImportNext(void* importcontext, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8258,7 +8292,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingImportNext(void* importc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingInqEntryNameA(void* binding, uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameA(void* binding, uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8282,7 +8316,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingInqEntryNameA(void* bind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingInqEntryNameW(void* binding, uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameW(void* binding, uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8306,7 +8340,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingInqEntryNameW(void* bind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupBeginA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, uint32_t bindingmaxcount, void* lookupcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, uint32_t bindingmaxcount, void* lookupcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8333,7 +8367,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupBeginA(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupBeginW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, uint32_t bindingmaxcount, void* lookupcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objuuid, uint32_t bindingmaxcount, void* lookupcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8360,7 +8394,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupBeginW(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupDone(void* lookupcontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingLookupDone(void* lookupcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8382,7 +8416,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupDone(void* lookupc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupNext(void* lookupcontext, void* bindingvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingLookupNext(void* lookupcontext, void* bindingvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8405,7 +8439,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingLookupNext(void* lookupc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingSelect(void* bindingvec, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingSelect(void* bindingvec, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8428,7 +8462,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingSelect(void* bindingvec,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingUnexportA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8453,7 +8487,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportA(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportPnPA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPA(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8478,7 +8512,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportPnPA(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportPnPW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8503,7 +8537,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportPnPW(uint32_t en
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsBindingUnexportW(uint32_t entrynamesyntax, void* entryname, void* ifspec, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8528,7 +8562,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsBindingUnexportW(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryExpandNameA(uint32_t entrynamesyntax, void* entryname, void* expandedname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameA(uint32_t entrynamesyntax, void* entryname, void* expandedname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8552,7 +8586,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryExpandNameA(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryExpandNameW(uint32_t entrynamesyntax, void* entryname, void* expandedname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameW(uint32_t entrynamesyntax, void* entryname, void* expandedname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8576,7 +8610,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryExpandNameW(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqBeginA(uint32_t entrynamesyntax, void* entryname, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginA(uint32_t entrynamesyntax, void* entryname, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8600,7 +8634,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqBeginA(uint32_t e
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqBeginW(uint32_t entrynamesyntax, void* entryname, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginW(uint32_t entrynamesyntax, void* entryname, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8624,7 +8658,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqBeginW(uint32_t e
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqDone(void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqDone(void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8646,7 +8680,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqDone(void* inquir
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqNext(void* inquirycontext, void* objuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqNext(void* inquirycontext, void* objuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8669,7 +8703,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsEntryObjectInqNext(void* inquir
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupDeleteA(uint32_t groupnamesyntax, void* groupname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupDeleteA(uint32_t groupnamesyntax, void* groupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8692,7 +8726,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupDeleteA(uint32_t groupname
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupDeleteW(uint32_t groupnamesyntax, void* groupname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupDeleteW(uint32_t groupnamesyntax, void* groupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8715,7 +8749,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupDeleteW(uint32_t groupname
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrAddA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8740,7 +8774,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrAddA(uint32_t groupname
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrAddW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8765,7 +8799,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrAddW(uint32_t groupname
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqBeginA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8790,7 +8824,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqBeginA(uint32_t grou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqBeginW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8815,7 +8849,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqBeginW(uint32_t grou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqDone(void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqDone(void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8837,7 +8871,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqDone(void* inquiryco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqNextA(void* inquirycontext, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextA(void* inquirycontext, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8860,7 +8894,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqNextA(void* inquiryc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqNextW(void* inquirycontext, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextW(void* inquirycontext, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8883,7 +8917,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrInqNextW(void* inquiryc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrRemoveA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveA(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8908,7 +8942,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrRemoveA(uint32_t groupn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrRemoveW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveW(uint32_t groupnamesyntax, void* groupname, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8933,7 +8967,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsGroupMbrRemoveW(uint32_t groupn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtBindingUnexportA(uint32_t entrynamesyntax, void* entryname, void* ifid, uint32_t versoption, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportA(uint32_t entrynamesyntax, void* entryname, void* ifid, uint32_t versoption, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8959,7 +8993,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtBindingUnexportA(uint32_t e
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtBindingUnexportW(uint32_t entrynamesyntax, void* entryname, void* ifid, uint32_t versoption, void* objectuuidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportW(uint32_t entrynamesyntax, void* entryname, void* ifid, uint32_t versoption, void* objectuuidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8985,7 +9019,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtBindingUnexportW(uint32_t e
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryCreateA(uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateA(uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9008,7 +9042,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryCreateA(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryCreateW(uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateW(uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9031,7 +9065,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryCreateW(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryDeleteA(uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteA(uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9054,7 +9088,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryDeleteA(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryDeleteW(uint32_t entrynamesyntax, void* entryname) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteW(uint32_t entrynamesyntax, void* entryname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9077,7 +9111,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryDeleteW(uint32_t entry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryInqIfIdsA(uint32_t entrynamesyntax, void* entryname, void* ifidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsA(uint32_t entrynamesyntax, void* entryname, void* ifidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9101,7 +9135,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryInqIfIdsA(uint32_t ent
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryInqIfIdsW(uint32_t entrynamesyntax, void* entryname, void* ifidvec) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsW(uint32_t entrynamesyntax, void* entryname, void* ifidvec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9125,7 +9159,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtEntryInqIfIdsW(uint32_t ent
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtHandleSetExpAge(void* nshandle, uint32_t expirationage) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtHandleSetExpAge(void* nshandle, uint32_t expirationage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9148,7 +9182,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtHandleSetExpAge(void* nshan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtInqExpAge(void* expirationage) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtInqExpAge(void* expirationage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9170,7 +9204,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtInqExpAge(void* expirationa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtSetExpAge(uint32_t expirationage) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsMgmtSetExpAge(uint32_t expirationage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9192,7 +9226,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsMgmtSetExpAge(uint32_t expirati
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileDeleteA(uint32_t profilenamesyntax, void* profilename) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileDeleteA(uint32_t profilenamesyntax, void* profilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9215,7 +9249,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileDeleteA(uint32_t profile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileDeleteW(uint32_t profilenamesyntax, void* profilename) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileDeleteW(uint32_t profilenamesyntax, void* profilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9238,7 +9272,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileDeleteW(uint32_t profile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltAddA(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername, uint32_t priority, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername, uint32_t priority, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9266,7 +9300,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltAddA(uint32_t profile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltAddW(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername, uint32_t priority, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername, uint32_t priority, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9294,7 +9328,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltAddW(uint32_t profile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqBeginA(uint32_t profilenamesyntax, void* profilename, uint32_t inquirytype, void* ifid, uint32_t versoption, uint32_t membernamesyntax, void* membername, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA(uint32_t profilenamesyntax, void* profilename, uint32_t inquirytype, void* ifid, uint32_t versoption, uint32_t membernamesyntax, void* membername, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9323,7 +9357,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqBeginA(uint32_t pr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqBeginW(uint32_t profilenamesyntax, void* profilename, uint32_t inquirytype, void* ifid, uint32_t versoption, uint32_t membernamesyntax, void* membername, void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW(uint32_t profilenamesyntax, void* profilename, uint32_t inquirytype, void* ifid, uint32_t versoption, uint32_t membernamesyntax, void* membername, void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9352,7 +9386,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqBeginW(uint32_t pr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqDone(void* inquirycontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltInqDone(void* inquirycontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9374,7 +9408,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqDone(void* inquiry
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqNextA(void* inquirycontext, void* ifid, void* membername, void* priority, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextA(void* inquirycontext, void* ifid, void* membername, void* priority, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9400,7 +9434,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqNextA(void* inquir
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqNextW(void* inquirycontext, void* ifid, void* membername, void* priority, void* annotation) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextW(void* inquirycontext, void* ifid, void* membername, void* priority, void* annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9426,7 +9460,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltInqNextW(void* inquir
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltRemoveA(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveA(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9452,7 +9486,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltRemoveA(uint32_t prof
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltRemoveW(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername) {
+int32_t windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveW(uint32_t profilenamesyntax, void* profilename, void* ifid, uint32_t membernamesyntax, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9478,7 +9512,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcNsProfileEltRemoveW(uint32_t prof
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcObjectInqType(void* objuuid, void* typeuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcObjectInqType(void* objuuid, void* typeuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9501,7 +9535,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcObjectInqType(void* objuuid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcObjectSetInqFn(void* inquiryfn) {
+int32_t windowssys_windows_win32_system_rpc_rpcObjectSetInqFn(void* inquiryfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9523,7 +9557,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcObjectSetInqFn(void* inquiryfn) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcObjectSetType(void* objuuid, void* typeuuid) {
+int32_t windowssys_windows_win32_system_rpc_rpcObjectSetType(void* objuuid, void* typeuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9546,7 +9580,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcObjectSetType(void* objuuid, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcProtseqVectorFreeA(void* protseqvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeA(void* protseqvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9568,7 +9602,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcProtseqVectorFreeA(void* protseqv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcProtseqVectorFreeW(void* protseqvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeW(void* protseqvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9590,7 +9624,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcProtseqVectorFreeW(void* protseqv
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcRaiseException(int32_t exception) {
+void windowssys_windows_win32_system_rpc_rpcRaiseException(int32_t exception) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9611,7 +9645,7 @@ void windowssys_windows_win32_system_rpc_RpcRaiseException(int32_t exception) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcRevertContainerImpersonation(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcRevertContainerImpersonation(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9632,7 +9666,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcRevertContainerImpersonation(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcRevertToSelf(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcRevertToSelf(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9653,7 +9687,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcRevertToSelf(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcRevertToSelfEx(void* bindinghandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcRevertToSelfEx(void* bindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9675,7 +9709,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcRevertToSelfEx(void* bindinghandl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerCompleteSecurityCallback(void* bindinghandle, int32_t status) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerCompleteSecurityCallback(void* bindinghandle, int32_t status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9698,7 +9732,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerCompleteSecurityCallback(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindingHandle(void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqBindingHandle(void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9720,7 +9754,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindingHandle(void* bind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindings(void* bindingvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqBindings(void* bindingvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9742,7 +9776,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindings(void* bindingve
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindingsEx(void* securitydescriptor, void* bindingvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqBindingsEx(void* securitydescriptor, void* bindingvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9765,7 +9799,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqBindingsEx(void* securit
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqCallAttributesA(void* clientbinding, void* rpccallattributes) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesA(void* clientbinding, void* rpccallattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9788,7 +9822,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqCallAttributesA(void* cl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqCallAttributesW(void* clientbinding, void* rpccallattributes) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqCallAttributesW(void* clientbinding, void* rpccallattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9811,7 +9845,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqCallAttributesW(void* cl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqDefaultPrincNameA(uint32_t authnsvc, void* princname) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameA(uint32_t authnsvc, void* princname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9834,7 +9868,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqDefaultPrincNameA(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqDefaultPrincNameW(uint32_t authnsvc, void* princname) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincNameW(uint32_t authnsvc, void* princname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9857,7 +9891,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqDefaultPrincNameW(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInqIf(void* ifspec, void* mgrtypeuuid, void* mgrepv) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInqIf(void* ifspec, void* mgrtypeuuid, void* mgrepv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9881,7 +9915,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInqIf(void* ifspec, void* m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupActivate(void* ifgroup) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupActivate(void* ifgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9903,7 +9937,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupActivate(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupClose(void* ifgroup) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupClose(void* ifgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9925,7 +9959,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupClose(void* i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupCreateA(void* interfaces, uint32_t numifs, void* endpoints, uint32_t numendpoints, uint32_t idleperiod, void* idlecallbackfn, void* idlecallbackcontext, void* ifgroup) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateA(void* interfaces, uint32_t numifs, void* endpoints, uint32_t numendpoints, uint32_t idleperiod, void* idlecallbackfn, void* idlecallbackcontext, void* ifgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9954,7 +9988,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupCreateA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupCreateW(void* interfaces, uint32_t numifs, void* endpoints, uint32_t numendpoints, uint32_t idleperiod, void* idlecallbackfn, void* idlecallbackcontext, void* ifgroup) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCreateW(void* interfaces, uint32_t numifs, void* endpoints, uint32_t numendpoints, uint32_t idleperiod, void* idlecallbackfn, void* idlecallbackcontext, void* ifgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9983,7 +10017,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupCreateW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupDeactivate(void* ifgroup, uint32_t forcedeactivation) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupDeactivate(void* ifgroup, uint32_t forcedeactivation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10006,7 +10040,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupDeactivate(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupInqBindings(void* ifgroup, void* bindingvector) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupInqBindings(void* ifgroup, void* bindingvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10029,7 +10063,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerInterfaceGroupInqBindings(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerListen(uint32_t minimumcallthreads, uint32_t maxcalls, uint32_t dontwait) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerListen(uint32_t minimumcallthreads, uint32_t maxcalls, uint32_t dontwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10053,7 +10087,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerListen(uint32_t minimumcall
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterAuthInfoA(void* serverprincname, uint32_t authnsvc, void* getkeyfn, void* arg) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoA(void* serverprincname, uint32_t authnsvc, void* getkeyfn, void* arg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10078,7 +10112,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterAuthInfoA(void* ser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterAuthInfoW(void* serverprincname, uint32_t authnsvc, void* getkeyfn, void* arg) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfoW(void* serverprincname, uint32_t authnsvc, void* getkeyfn, void* arg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10103,7 +10137,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterAuthInfoW(void* ser
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf(void* ifspec, void* mgrtypeuuid, void* mgrepv) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterIf(void* ifspec, void* mgrtypeuuid, void* mgrepv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10127,7 +10161,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf(void* ifspec, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf2(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, uint32_t maxrpcsize, void* ifcallbackfn) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterIf2(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, uint32_t maxrpcsize, void* ifcallbackfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10155,7 +10189,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf2(void* ifspec, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf3(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, uint32_t maxrpcsize, void* ifcallback, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterIf3(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, uint32_t maxrpcsize, void* ifcallback, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10184,7 +10218,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIf3(void* ifspec, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIfEx(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, void* ifcallback) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx(void* ifspec, void* mgrtypeuuid, void* mgrepv, uint32_t flags, uint32_t maxcalls, void* ifcallback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10211,7 +10245,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerRegisterIfEx(void* ifspec, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerSubscribeForNotification(void* binding, int32_t notification, int32_t notificationtype, void* notificationinfo) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerSubscribeForNotification(void* binding, int32_t notification, int32_t notificationtype, void* notificationinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10236,7 +10270,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerSubscribeForNotification(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerTestCancel(void* bindinghandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerTestCancel(void* bindinghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10258,7 +10292,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerTestCancel(void* bindinghan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUnregisterIf(void* ifspec, void* mgrtypeuuid, uint32_t waitforcallstocomplete) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUnregisterIf(void* ifspec, void* mgrtypeuuid, uint32_t waitforcallstocomplete) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10282,7 +10316,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUnregisterIf(void* ifspec, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUnregisterIfEx(void* ifspec, void* mgrtypeuuid, int32_t rundowncontexthandles) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUnregisterIfEx(void* ifspec, void* mgrtypeuuid, int32_t rundowncontexthandles) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10306,7 +10340,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUnregisterIfEx(void* ifspec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUnsubscribeForNotification(void* binding, int32_t notification, void* notificationsqueued) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUnsubscribeForNotification(void* binding, int32_t notification, void* notificationsqueued) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10330,7 +10364,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUnsubscribeForNotification(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqs(uint32_t maxcalls, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqs(uint32_t maxcalls, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10353,7 +10387,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqs(uint32_t max
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsEx(uint32_t maxcalls, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsEx(uint32_t maxcalls, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10377,7 +10411,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsEx(uint32_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsIf(uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf(uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10401,7 +10435,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsIf(uint32_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsIfEx(uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIfEx(uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10426,7 +10460,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseAllProtseqsIfEx(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqA(void* protseq, uint32_t maxcalls, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqA(void* protseq, uint32_t maxcalls, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10450,7 +10484,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqA(void* protseq, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpA(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpA(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10475,7 +10509,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpA(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpExA(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExA(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10501,7 +10535,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpExA(void* prots
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpExW(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExW(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10527,7 +10561,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpExW(void* prots
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpW(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpW(void* protseq, uint32_t maxcalls, void* endpoint, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10552,7 +10586,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqEpW(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqExA(void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqExA(void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10577,7 +10611,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqExA(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqExW(void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqExW(void* protseq, uint32_t maxcalls, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10602,7 +10636,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqExW(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfA(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfA(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10627,7 +10661,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfA(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfExA(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExA(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10653,7 +10687,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfExA(void* prots
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfExW(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExW(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor, void* policy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10679,7 +10713,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfExW(void* prots
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfW(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfW(void* protseq, uint32_t maxcalls, void* ifspec, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10704,7 +10738,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqIfW(void* protseq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqW(void* protseq, uint32_t maxcalls, void* securitydescriptor) {
+int32_t windowssys_windows_win32_system_rpc_rpcServerUseProtseqW(void* protseq, uint32_t maxcalls, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10728,7 +10762,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcServerUseProtseqW(void* protseq, 
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcServerYield(void) {
+void windowssys_windows_win32_system_rpc_rpcServerYield(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10748,7 +10782,7 @@ void windowssys_windows_win32_system_rpc_RpcServerYield(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_RpcSmAllocate(uint64_t size, void* pstatus) {
+void* windowssys_windows_win32_system_rpc_rpcSmAllocate(uint64_t size, void* pstatus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10771,7 +10805,7 @@ void* windowssys_windows_win32_system_rpc_RpcSmAllocate(uint64_t size, void* pst
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmClientFree(void* pnodetofree) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmClientFree(void* pnodetofree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10793,7 +10827,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmClientFree(void* pnodetofree) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmDestroyClientContext(void* contexthandle) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmDestroyClientContext(void* contexthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10815,7 +10849,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmDestroyClientContext(void* cont
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmDisableAllocate(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmDisableAllocate(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10836,7 +10870,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmDisableAllocate(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmEnableAllocate(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmEnableAllocate(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10857,7 +10891,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmEnableAllocate(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmFree(void* nodetofree) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmFree(void* nodetofree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10879,7 +10913,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmFree(void* nodetofree) {
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_RpcSmGetThreadHandle(void* pstatus) {
+void* windowssys_windows_win32_system_rpc_rpcSmGetThreadHandle(void* pstatus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10901,7 +10935,7 @@ void* windowssys_windows_win32_system_rpc_RpcSmGetThreadHandle(void* pstatus) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmSetClientAllocFree(void* clientalloc, void* clientfree) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmSetClientAllocFree(void* clientalloc, void* clientfree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10924,7 +10958,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmSetClientAllocFree(void* client
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmSetThreadHandle(void* id) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmSetThreadHandle(void* id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10946,7 +10980,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmSetThreadHandle(void* id) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSmSwapClientAllocFree(void* clientalloc, void* clientfree, void* oldclientalloc, void* oldclientfree) {
+int32_t windowssys_windows_win32_system_rpc_rpcSmSwapClientAllocFree(void* clientalloc, void* clientfree, void* oldclientalloc, void* oldclientfree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10971,7 +11005,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSmSwapClientAllocFree(void* clien
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_RpcSsAllocate(uint64_t size) {
+void* windowssys_windows_win32_system_rpc_rpcSsAllocate(uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10993,7 +11027,7 @@ void* windowssys_windows_win32_system_rpc_RpcSsAllocate(uint64_t size) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSsContextLockExclusive(void* serverbindinghandle, void* usercontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcSsContextLockExclusive(void* serverbindinghandle, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11016,7 +11050,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSsContextLockExclusive(void* serv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSsContextLockShared(void* serverbindinghandle, void* usercontext) {
+int32_t windowssys_windows_win32_system_rpc_rpcSsContextLockShared(void* serverbindinghandle, void* usercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11039,7 +11073,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSsContextLockShared(void* serverb
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsDestroyClientContext(void* contexthandle) {
+void windowssys_windows_win32_system_rpc_rpcSsDestroyClientContext(void* contexthandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11060,7 +11094,7 @@ void windowssys_windows_win32_system_rpc_RpcSsDestroyClientContext(void* context
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsDisableAllocate(void) {
+void windowssys_windows_win32_system_rpc_rpcSsDisableAllocate(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11080,7 +11114,7 @@ void windowssys_windows_win32_system_rpc_RpcSsDisableAllocate(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsDontSerializeContext(void) {
+void windowssys_windows_win32_system_rpc_rpcSsDontSerializeContext(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11100,7 +11134,7 @@ void windowssys_windows_win32_system_rpc_RpcSsDontSerializeContext(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsEnableAllocate(void) {
+void windowssys_windows_win32_system_rpc_rpcSsEnableAllocate(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11120,7 +11154,7 @@ void windowssys_windows_win32_system_rpc_RpcSsEnableAllocate(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsFree(void* nodetofree) {
+void windowssys_windows_win32_system_rpc_rpcSsFree(void* nodetofree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11141,7 +11175,7 @@ void windowssys_windows_win32_system_rpc_RpcSsFree(void* nodetofree) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcSsGetContextBinding(void* contexthandle, void* binding) {
+int32_t windowssys_windows_win32_system_rpc_rpcSsGetContextBinding(void* contexthandle, void* binding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11164,7 +11198,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcSsGetContextBinding(void* context
 #endif
 }
 
-void* windowssys_windows_win32_system_rpc_RpcSsGetThreadHandle(void) {
+void* windowssys_windows_win32_system_rpc_rpcSsGetThreadHandle(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11185,7 +11219,7 @@ void* windowssys_windows_win32_system_rpc_RpcSsGetThreadHandle(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsSetClientAllocFree(void* clientalloc, void* clientfree) {
+void windowssys_windows_win32_system_rpc_rpcSsSetClientAllocFree(void* clientalloc, void* clientfree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11207,7 +11241,7 @@ void windowssys_windows_win32_system_rpc_RpcSsSetClientAllocFree(void* clientall
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsSetThreadHandle(void* id) {
+void windowssys_windows_win32_system_rpc_rpcSsSetThreadHandle(void* id) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11228,7 +11262,7 @@ void windowssys_windows_win32_system_rpc_RpcSsSetThreadHandle(void* id) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcSsSwapClientAllocFree(void* clientalloc, void* clientfree, void* oldclientalloc, void* oldclientfree) {
+void windowssys_windows_win32_system_rpc_rpcSsSwapClientAllocFree(void* clientalloc, void* clientfree, void* oldclientalloc, void* oldclientfree) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11252,7 +11286,7 @@ void windowssys_windows_win32_system_rpc_RpcSsSwapClientAllocFree(void* cliental
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringBindingComposeA(void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* options, void* stringbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringBindingComposeA(void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* options, void* stringbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11279,7 +11313,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringBindingComposeA(void* objuu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringBindingComposeW(void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* options, void* stringbinding) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringBindingComposeW(void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* options, void* stringbinding) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11306,7 +11340,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringBindingComposeW(void* objuu
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringBindingParseA(void* stringbinding, void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* networkoptions) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringBindingParseA(void* stringbinding, void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* networkoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11333,7 +11367,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringBindingParseA(void* stringb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringBindingParseW(void* stringbinding, void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* networkoptions) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringBindingParseW(void* stringbinding, void* objuuid, void* protseq, void* networkaddr, void* endpoint, void* networkoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11360,7 +11394,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringBindingParseW(void* stringb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringFreeA(void* string) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringFreeA(void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11382,7 +11416,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringFreeA(void* string) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcStringFreeW(void* string) {
+int32_t windowssys_windows_win32_system_rpc_rpcStringFreeW(void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11404,7 +11438,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcStringFreeW(void* string) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_RpcTestCancel(void) {
+int32_t windowssys_windows_win32_system_rpc_rpcTestCancel(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11425,7 +11459,7 @@ int32_t windowssys_windows_win32_system_rpc_RpcTestCancel(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_rpc_RpcUserFree(void* asynchandle, void* pbuffer) {
+void windowssys_windows_win32_system_rpc_rpcUserFree(void* asynchandle, void* pbuffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11447,7 +11481,7 @@ void windowssys_windows_win32_system_rpc_RpcUserFree(void* asynchandle, void* pb
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidCompare(void* uuid1, void* uuid2, void* status) {
+int32_t windowssys_windows_win32_system_rpc_uuidCompare(void* uuid1, void* uuid2, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11471,7 +11505,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidCompare(void* uuid1, void* uuid2
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidCreate(void* uuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidCreate(void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11493,7 +11527,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidCreate(void* uuid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidCreateNil(void* niluuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidCreateNil(void* niluuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11515,7 +11549,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidCreateNil(void* niluuid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidCreateSequential(void* uuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidCreateSequential(void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11537,7 +11571,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidCreateSequential(void* uuid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidEqual(void* uuid1, void* uuid2, void* status) {
+int32_t windowssys_windows_win32_system_rpc_uuidEqual(void* uuid1, void* uuid2, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11561,7 +11595,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidEqual(void* uuid1, void* uuid2, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidFromStringA(void* stringuuid, void* uuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidFromStringA(void* stringuuid, void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11584,7 +11618,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidFromStringA(void* stringuuid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidFromStringW(void* stringuuid, void* uuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidFromStringW(void* stringuuid, void* uuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11607,7 +11641,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidFromStringW(void* stringuuid, vo
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_rpc_UuidHash(void* uuid, void* status) {
+uint16_t windowssys_windows_win32_system_rpc_uuidHash(void* uuid, void* status) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11630,7 +11664,7 @@ uint16_t windowssys_windows_win32_system_rpc_UuidHash(void* uuid, void* status) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidIsNil(void* uuid, void* status) {
+int32_t windowssys_windows_win32_system_rpc_uuidIsNil(void* uuid, void* status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11653,7 +11687,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidIsNil(void* uuid, void* status) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidToStringA(void* uuid, void* stringuuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidToStringA(void* uuid, void* stringuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11676,7 +11710,7 @@ int32_t windowssys_windows_win32_system_rpc_UuidToStringA(void* uuid, void* stri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_rpc_UuidToStringW(void* uuid, void* stringuuid) {
+int32_t windowssys_windows_win32_system_rpc_uuidToStringW(void* uuid, void* stringuuid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

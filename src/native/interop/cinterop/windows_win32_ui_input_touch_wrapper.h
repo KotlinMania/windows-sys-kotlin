@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_ui_input_touch_CloseGestureInfoHandle(void* hgestureinfo);
-int32_t windowssys_windows_win32_ui_input_touch_CloseTouchInputHandle(void* htouchinput);
-int32_t windowssys_windows_win32_ui_input_touch_GetGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t dwflags, void* pcids, void* pgestureconfig, uint32_t cbsize);
-int32_t windowssys_windows_win32_ui_input_touch_GetGestureExtraArgs(void* hgestureinfo, uint32_t cbextraargs, void* pextraargs);
-int32_t windowssys_windows_win32_ui_input_touch_GetGestureInfo(void* hgestureinfo, void* pgestureinfo);
-int32_t windowssys_windows_win32_ui_input_touch_GetTouchInputInfo(void* htouchinput, uint32_t cinputs, void* pinputs, int32_t cbsize);
-int32_t windowssys_windows_win32_ui_input_touch_IsTouchWindow(void* hwnd, void* pulflags);
-int32_t windowssys_windows_win32_ui_input_touch_RegisterTouchWindow(void* hwnd, uint32_t ulflags);
-int32_t windowssys_windows_win32_ui_input_touch_SetGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t cids, void* pgestureconfig, uint32_t cbsize);
-int32_t windowssys_windows_win32_ui_input_touch_UnregisterTouchWindow(void* hwnd);
+int32_t windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle(void* hgestureinfo);
+int32_t windowssys_windows_win32_ui_input_touch_closeTouchInputHandle(void* htouchinput);
+int32_t windowssys_windows_win32_ui_input_touch_getGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t dwflags, void* pcids, void* pgestureconfig, uint32_t cbsize);
+int32_t windowssys_windows_win32_ui_input_touch_getGestureExtraArgs(void* hgestureinfo, uint32_t cbextraargs, void* pextraargs);
+int32_t windowssys_windows_win32_ui_input_touch_getGestureInfo(void* hgestureinfo, void* pgestureinfo);
+int32_t windowssys_windows_win32_ui_input_touch_getTouchInputInfo(void* htouchinput, uint32_t cinputs, void* pinputs, int32_t cbsize);
+int32_t windowssys_windows_win32_ui_input_touch_isTouchWindow(void* hwnd, void* pulflags);
+int32_t windowssys_windows_win32_ui_input_touch_registerTouchWindow(void* hwnd, uint32_t ulflags);
+int32_t windowssys_windows_win32_ui_input_touch_setGestureConfig(void* hwnd, uint32_t dwreserved, uint32_t cids, void* pgestureconfig, uint32_t cbsize);
+int32_t windowssys_windows_win32_ui_input_touch_unregisterTouchWindow(void* hwnd);
 
 #ifdef __cplusplus
 }

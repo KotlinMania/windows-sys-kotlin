@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 
 private object WindowsWin32UiInputKeyboardandmouseJniBridge {
     init {
@@ -16,313 +17,307 @@ private object WindowsWin32UiInputKeyboardandmouseJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(hkl: Long, flags: Int): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout(hkl: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(fblockit: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_blockInput(fblockit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(hwnd: Long, benable: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow(hwnd: Long, benable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow(): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(vkey: Int): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState(vkey: Int): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture(): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getCapture(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime(): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus(): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getFocus(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage(): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(lparam: Int, lpstring: Long, cchsize: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA(lparam: Int, lpstring: Long, cchsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(lparam: Int, lpstring: Long, cchsize: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW(lparam: Int, lpstring: Long, cchsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(nvirtkey: Int): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState(nvirtkey: Int): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(idthread: Int): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout(idthread: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList(nbuff: Int, lplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA(pwszklid: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA(pwszklid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW(pwszklid: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW(pwszklid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(lpkeystate: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState(lpkeystate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(ntypeflag: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType(ntypeflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(plii: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo(plii: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(cbsize: Int, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx(cbsize: Int, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(hwnd: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(pwszklid: Long, flags: Int): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA(pwszklid: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(pwszklid: Long, flags: Int): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW(pwszklid: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(ucode: Int, umaptype: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA(ucode: Int, umaptype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(ucode: Int, umaptype: Int, dwhkl: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA(ucode: Int, umaptype: Int, dwhkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(ucode: Int, umaptype: Int, dwhkl: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW(ucode: Int, umaptype: Int, dwhkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(ucode: Int, umaptype: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW(ucode: Int, umaptype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(woemchar: Short): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan(woemchar: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(hwnd: Long, id: Int, fsmodifiers: Int, vk: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey(hwnd: Long, id: Int, fsmodifiers: Int, vk: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture(): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(cinputs: Int, pinputs: Long, cbsize: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_sendInput(cinputs: Int, pinputs: Long, cbsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(hwnd: Long): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(hwnd: Long): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_setCapture(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(param0: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime(param0: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(hwnd: Long): Long
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_setFocus(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(lpkeystate: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState(lpkeystate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(fswap: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton(fswap: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uvirtkey: Int, uscancode: Int, lpkeystate: Long, lpchar: Long, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_toAscii(uvirtkey: Int, uscancode: Int, lpkeystate: Long, lpchar: Long, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uvirtkey: Int, uscancode: Int, lpkeystate: Long, lpchar: Long, uflags: Int, dwhkl: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx(uvirtkey: Int, uscancode: Int, lpkeystate: Long, lpchar: Long, uflags: Int, dwhkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(wvirtkey: Int, wscancode: Int, lpkeystate: Long, pwszbuff: Long, cchbuff: Int, wflags: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode(wvirtkey: Int, wscancode: Int, lpkeystate: Long, pwszbuff: Long, cchbuff: Int, wflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(wvirtkey: Int, wscancode: Int, lpkeystate: Long, pwszbuff: Long, cchbuff: Int, wflags: Int, dwhkl: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx(wvirtkey: Int, wscancode: Int, lpkeystate: Long, pwszbuff: Long, cchbuff: Int, wflags: Int, dwhkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(lpeventtrack: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent(lpeventtrack: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(hkl: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout(hkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(hwnd: Long, id: Int): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey(hwnd: Long, id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(ch: Byte): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA(ch: Byte): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(ch: Byte, dwhkl: Long): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA(ch: Byte, dwhkl: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(ch: Short, dwhkl: Long): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW(ch: Short, dwhkl: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(ch: Short): Short
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW(ch: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent(lpeventtrack: Long): Int
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent(bvk: Byte, bscan: Byte, dwflags: Int, dwextrainfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(bvk: Byte, bscan: Byte, dwflags: Int, dwextrainfo: Long)
-
-    @JvmStatic
-    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event(dwflags: Int, dx: Int, dy: Int, dwdata: Int, dwextrainfo: Long)
+    external fun windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent(dwflags: Int, dx: Int, dy: Int, dwdata: Int, dwextrainfo: Long)
 }
 
-public actual fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(hkl, flags.toInt())
+public actual fun activateKeyboardLayout(hkl: Hkl, flags: ActivateKeyboardLayoutFlags): Hkl =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout((hkl?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun BlockInput(fblockit: BOOL): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(fblockit)
+public actual fun blockInput(fblockit: Bool): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_blockInput(fblockit)
 
-public actual fun DragDetect(hwnd: HWND, pt: POINT): BOOL =
+public actual fun dragDetect(hwnd: Hwnd, pt: Point): Bool =
     0
 
-public actual fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(hwnd, benable)
+public actual fun enableWindow(hwnd: Hwnd, benable: Bool): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow((hwnd?.value ?: 0L), benable)
 
-public actual fun GetActiveWindow(): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow()
+public actual fun getActiveWindow(): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetAsyncKeyState(vkey: Int): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(vkey)
+public actual fun getAsyncKeyState(vkey: Int): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState(vkey)
 
-public actual fun GetCapture(): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture()
+public actual fun getCapture(): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getCapture().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetDoubleClickTime(): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime().toUInt()
+public actual fun getDoubleClickTime(): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime().toUInt()
 
-public actual fun GetFocus(): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus()
+public actual fun getFocus(): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getFocus().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetKBCodePage(): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage().toUInt()
+public actual fun getKBCodePage(): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage().toUInt()
 
-public actual fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(lparam, lpstring, cchsize)
+public actual fun getKeyNameTextA(lparam: Int, lpstring: Pstr, cchsize: Int): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA(lparam, (lpstring?.value ?: 0L), cchsize)
 
-public actual fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(lparam, lpstring, cchsize)
+public actual fun getKeyNameTextW(lparam: Int, lpstring: Pwstr, cchsize: Int): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW(lparam, (lpstring?.value ?: 0L), cchsize)
 
-public actual fun GetKeyState(nvirtkey: Int): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(nvirtkey)
+public actual fun getKeyState(nvirtkey: Int): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState(nvirtkey)
 
-public actual fun GetKeyboardLayout(idthread: UInt): HKL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(idthread.toInt())
+public actual fun getKeyboardLayout(idthread: UInt): Hkl =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout(idthread.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList(nbuff, lplist)
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: COpaquePointer?): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList(nbuff, (lplist?.value ?: 0L))
 
-public actual fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA(pwszklid)
+public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA((pwszklid?.value ?: 0L))
 
-public actual fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW(pwszklid)
+public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW((pwszklid?.value ?: 0L))
 
-public actual fun GetKeyboardState(lpkeystate: Long): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(lpkeystate)
+public actual fun getKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState((lpkeystate?.value ?: 0L))
 
-public actual fun GetKeyboardType(ntypeflag: Int): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(ntypeflag)
+public actual fun getKeyboardType(ntypeflag: Int): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType(ntypeflag)
 
-public actual fun GetLastInputInfo(plii: Long): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(plii)
+public actual fun getLastInputInfo(plii: COpaquePointer?): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo((plii?.value ?: 0L))
 
-public actual fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(cbsize.toInt(), lppt, lpptbuf, nbufpoints, resolution.toInt())
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: COpaquePointer?, lpptbuf: COpaquePointer?, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx(cbsize.toInt(), (lppt?.value ?: 0L), (lpptbuf?.value ?: 0L), nbufpoints, resolution.toInt())
 
-public actual fun IsWindowEnabled(hwnd: HWND): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(hwnd)
+public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled((hwnd?.value ?: 0L))
 
-public actual fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(pwszklid, flags.toInt())
+public actual fun loadKeyboardLayoutA(pwszklid: Pcstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA((pwszklid?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(pwszklid, flags.toInt())
+public actual fun loadKeyboardLayoutW(pwszklid: Pcwstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW((pwszklid?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(ucode.toInt(), umaptype.toInt()).toUInt()
+public actual fun mapVirtualKeyA(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA(ucode.toInt(), umaptype.toInt()).toUInt()
 
-public actual fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(ucode.toInt(), umaptype.toInt(), dwhkl).toUInt()
+public actual fun mapVirtualKeyExA(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA(ucode.toInt(), umaptype.toInt(), (dwhkl?.value ?: 0L)).toUInt()
 
-public actual fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(ucode.toInt(), umaptype.toInt(), dwhkl).toUInt()
+public actual fun mapVirtualKeyExW(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW(ucode.toInt(), umaptype.toInt(), (dwhkl?.value ?: 0L)).toUInt()
 
-public actual fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(ucode.toInt(), umaptype.toInt()).toUInt()
+public actual fun mapVirtualKeyW(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW(ucode.toInt(), umaptype.toInt()).toUInt()
 
-public actual fun OemKeyScan(woemchar: UShort): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(woemchar.toShort()).toUInt()
+public actual fun oemKeyScan(woemchar: UShort): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan(woemchar.toShort()).toUInt()
 
-public actual fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(hwnd, id, fsmodifiers.toInt(), vk.toInt())
+public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifiers, vk: UInt): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey((hwnd?.value ?: 0L), id, fsmodifiers.toInt(), vk.toInt())
 
-public actual fun ReleaseCapture(): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture()
+public actual fun releaseCapture(): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture()
 
-public actual fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(cinputs.toInt(), pinputs, cbsize).toUInt()
+public actual fun sendInput(cinputs: UInt, pinputs: COpaquePointer?, cbsize: Int): UInt =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_sendInput(cinputs.toInt(), (pinputs?.value ?: 0L), cbsize).toUInt()
 
-public actual fun SetActiveWindow(hwnd: HWND): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(hwnd)
+public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetCapture(hwnd: HWND): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(hwnd)
+public actual fun setCapture(hwnd: Hwnd): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_setCapture((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetDoubleClickTime(param0: UInt): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(param0.toInt())
+public actual fun setDoubleClickTime(param0: UInt): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime(param0.toInt())
 
-public actual fun SetFocus(hwnd: HWND): HWND =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(hwnd)
+public actual fun setFocus(hwnd: Hwnd): Hwnd =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_setFocus((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetKeyboardState(lpkeystate: Long): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(lpkeystate)
+public actual fun setKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState((lpkeystate?.value ?: 0L))
 
-public actual fun SwapMouseButton(fswap: BOOL): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(fswap)
+public actual fun swapMouseButton(fswap: Bool): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton(fswap)
 
-public actual fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uvirtkey.toInt(), uscancode.toInt(), lpkeystate, lpchar, uflags.toInt())
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_toAscii(uvirtkey.toInt(), uscancode.toInt(), (lpkeystate?.value ?: 0L), (lpchar?.value ?: 0L), uflags.toInt())
 
-public actual fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uvirtkey.toInt(), uscancode.toInt(), lpkeystate, lpchar, uflags.toInt(), dwhkl)
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt, dwhkl: Hkl): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx(uvirtkey.toInt(), uscancode.toInt(), (lpkeystate?.value ?: 0L), (lpchar?.value ?: 0L), uflags.toInt(), (dwhkl?.value ?: 0L))
 
-public actual fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(wvirtkey.toInt(), wscancode.toInt(), lpkeystate, pwszbuff, cchbuff, wflags.toInt())
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode(wvirtkey.toInt(), wscancode.toInt(), (lpkeystate?.value ?: 0L), (pwszbuff?.value ?: 0L), cchbuff, wflags.toInt())
 
-public actual fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(wvirtkey.toInt(), wscancode.toInt(), lpkeystate, pwszbuff, cchbuff, wflags.toInt(), dwhkl)
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx(wvirtkey.toInt(), wscancode.toInt(), (lpkeystate?.value ?: 0L), (pwszbuff?.value ?: 0L), cchbuff, wflags.toInt(), (dwhkl?.value ?: 0L))
 
-public actual fun TrackMouseEvent(lpeventtrack: Long): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(lpeventtrack)
+public actual fun trackMouseEvent(lpeventtrack: COpaquePointer?): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent((lpeventtrack?.value ?: 0L))
 
-public actual fun UnloadKeyboardLayout(hkl: HKL): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(hkl)
+public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout((hkl?.value ?: 0L))
 
-public actual fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(hwnd, id)
+public actual fun unregisterHotKey(hwnd: Hwnd, id: Int): Bool =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey((hwnd?.value ?: 0L), id)
 
-public actual fun VkKeyScanA(ch: Byte): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(ch)
+public actual fun vkKeyScanA(ch: Byte): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA(ch)
 
-public actual fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(ch, dwhkl)
+public actual fun vkKeyScanExA(ch: Byte, dwhkl: Hkl): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA(ch, (dwhkl?.value ?: 0L))
 
-public actual fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(ch.toShort(), dwhkl)
+public actual fun vkKeyScanExW(ch: UShort, dwhkl: Hkl): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW(ch.toShort(), (dwhkl?.value ?: 0L))
 
-public actual fun VkKeyScanW(ch: UShort): Short =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(ch.toShort())
+public actual fun vkKeyScanW(ch: UShort): Short =
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW(ch.toShort())
 
-public actual fun _TrackMouseEvent(lpeventtrack: Long): BOOL =
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent(lpeventtrack)
-
-public actual fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong) {
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(bvk.toByte(), bscan.toByte(), dwflags.toInt(), dwextrainfo.toLong())
+public actual fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong) {
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent(bvk.toByte(), bscan.toByte(), dwflags.toInt(), dwextrainfo.toLong())
 }
 
-public actual fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
-    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event(dwflags.toInt(), dx, dy, dwdata, dwextrainfo.toLong())
+public actual fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
+    WindowsWin32UiInputKeyboardandmouseJniBridge.windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent(dwflags.toInt(), dx, dy, dwdata, dwextrainfo.toLong())
 }

@@ -2,19 +2,20 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.PAPCFUNC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_ACCESS_MASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Papcfunc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessMask
 
 private object WindowsWin32SystemThreadingJniBridge {
     init {
@@ -22,2053 +23,2053 @@ private object WindowsWin32SystemThreadingJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(srwlock: Long)
+    external fun windowssys_windows_win32_system_threading_acquireSRWLockExclusive(srwlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AcquireSRWLockShared(srwlock: Long)
+    external fun windowssys_windows_win32_system_threading_acquireSRWLockShared(srwlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: Long): Int
+    external fun windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: Long): Int
+    external fun windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AttachThreadInput(idattach: Int, idattachto: Int, fattach: Int): Int
+    external fun windowssys_windows_win32_system_threading_attachThreadInput(idattach: Int, idattachto: Int, fattach: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(avrthandle: Long, systemresponsivenessvalue: Long): Int
+    external fun windowssys_windows_win32_system_threading_avQuerySystemResponsiveness(avrthandle: Long, systemresponsivenessvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics(avrthandle: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics(avrthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(context: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup(context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: Int): Int
+    external fun windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(context: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup(context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(context: Long): Int
+    external fun windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup(context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA(firsttask: Long, secondtask: Long, taskindex: Long): Long
+    external fun windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA(firsttask: Long, secondtask: Long, taskindex: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW(firsttask: Long, secondtask: Long, taskindex: Long): Long
+    external fun windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW(firsttask: Long, secondtask: Long, taskindex: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(taskname: Long, taskindex: Long): Long
+    external fun windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA(taskname: Long, taskindex: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(taskname: Long, taskindex: Long): Long
+    external fun windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW(taskname: Long, taskindex: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_AvSetMmThreadPriority(avrthandle: Long, priority: Int): Int
+    external fun windowssys_windows_win32_system_threading_avSetMmThreadPriority(avrthandle: Long, priority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CallbackMayRunLong(pci: Long): Int
+    external fun windowssys_windows_win32_system_threading_callbackMayRunLong(pci: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CancelThreadpoolIo(pio: Long)
+    external fun windowssys_windows_win32_system_threading_cancelThreadpoolIo(pio: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CancelTimerQueueTimer(timerqueue: Long, timer: Long): Int
+    external fun windowssys_windows_win32_system_threading_cancelTimerQueueTimer(timerqueue: Long, timer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CancelWaitableTimer(htimer: Long): Int
+    external fun windowssys_windows_win32_system_threading_cancelWaitableTimer(htimer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(timerqueue: Long, timer: Long, duetime: Int, period: Int): Int
+    external fun windowssys_windows_win32_system_threading_changeTimerQueueTimer(timerqueue: Long, timer: Long, duetime: Int, period: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ClosePrivateNamespace(handle: Long, flags: Int): Boolean
+    external fun windowssys_windows_win32_system_threading_closePrivateNamespace(handle: Long, flags: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpool(ptpp: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpool(ptpp: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(ptpcg: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers(ptpcg: Long, fcancelpendingcallbacks: Int, pvcleanupcontext: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg: Long, fcancelpendingcallbacks: Int, pvcleanupcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolIo(pio: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolIo(pio: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolTimer(pti: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolTimer(pti: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolWait(pwa: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolWait(pwa: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CloseThreadpoolWork(pwk: Long)
+    external fun windowssys_windows_win32_system_threading_closeThreadpoolWork(pwk: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ConvertFiberToThread(): Int
+    external fun windowssys_windows_win32_system_threading_convertFiberToThread(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ConvertThreadToFiber(lpparameter: Long): Long
+    external fun windowssys_windows_win32_system_threading_convertThreadToFiber(lpparameter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(lpparameter: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_system_threading_convertThreadToFiberEx(lpparameter: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(name: Long, flags: Int): Long
+    external fun windowssys_windows_win32_system_threading_createBoundaryDescriptorA(name: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(name: Long, flags: Int): Long
+    external fun windowssys_windows_win32_system_threading_createBoundaryDescriptorW(name: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateEventA(lpeventattributes: Long, bmanualreset: Int, binitialstate: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createEventA(lpeventattributes: Long, bmanualreset: Int, binitialstate: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateEventExA(lpeventattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createEventExA(lpeventattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateEventExW(lpeventattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createEventExW(lpeventattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateEventW(lpeventattributes: Long, bmanualreset: Int, binitialstate: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createEventW(lpeventattributes: Long, bmanualreset: Int, binitialstate: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateFiber(dwstacksize: Long, lpstartaddress: Long, lpparameter: Long): Long
+    external fun windowssys_windows_win32_system_threading_createFiber(dwstacksize: Long, lpstartaddress: Long, lpparameter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateFiberEx(dwstackcommitsize: Long, dwstackreservesize: Long, dwflags: Int, lpstartaddress: Long, lpparameter: Long): Long
+    external fun windowssys_windows_win32_system_threading_createFiberEx(dwstackcommitsize: Long, dwstackreservesize: Long, dwflags: Int, lpstartaddress: Long, lpparameter: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateMutexA(lpmutexattributes: Long, binitialowner: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createMutexA(lpmutexattributes: Long, binitialowner: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateMutexExA(lpmutexattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createMutexExA(lpmutexattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateMutexExW(lpmutexattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createMutexExW(lpmutexattributes: Long, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateMutexW(lpmutexattributes: Long, binitialowner: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createMutexW(lpmutexattributes: Long, binitialowner: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: Long): Long
+    external fun windowssys_windows_win32_system_threading_createPrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: Long): Long
+    external fun windowssys_windows_win32_system_threading_createPrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessA(lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessA(lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessAsUserA(htoken: Long, lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessAsUserA(htoken: Long, lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessAsUserW(htoken: Long, lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessAsUserW(htoken: Long, lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessW(lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessW(lpapplicationname: Long, lpcommandline: Long, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: Int, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessWithLogonW(lpusername: Long, lpdomain: Long, lppassword: Long, dwlogonflags: Int, lpapplicationname: Long, lpcommandline: Long, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessWithLogonW(lpusername: Long, lpdomain: Long, lppassword: Long, dwlogonflags: Int, lpapplicationname: Long, lpcommandline: Long, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateProcessWithTokenW(htoken: Long, dwlogonflags: Int, lpapplicationname: Long, lpcommandline: Long, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
+    external fun windowssys_windows_win32_system_threading_createProcessWithTokenW(htoken: Long, dwlogonflags: Int, lpapplicationname: Long, lpcommandline: Long, dwcreationflags: Int, lpenvironment: Long, lpcurrentdirectory: Long, lpstartupinfo: Long, lpprocessinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateRemoteThread(hprocess: Long, lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpthreadid: Long): Long
+    external fun windowssys_windows_win32_system_threading_createRemoteThread(hprocess: Long, lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpthreadid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateRemoteThreadEx(hprocess: Long, lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpattributelist: Long, lpthreadid: Long): Long
+    external fun windowssys_windows_win32_system_threading_createRemoteThreadEx(hprocess: Long, lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpattributelist: Long, lpthreadid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_createSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThread(lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpthreadid: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThread(lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpthreadid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpool(reserved: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpool(reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup(): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpoolIo(fl: Long, pfnio: Long, pv: Long, pcbe: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpoolIo(fl: Long, pfnio: Long, pv: Long, pcbe: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpoolTimer(pfnti: Long, pv: Long, pcbe: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpoolTimer(pfnti: Long, pv: Long, pcbe: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpoolWait(pfnwa: Long, pv: Long, pcbe: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpoolWait(pfnwa: Long, pv: Long, pcbe: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateThreadpoolWork(pfnwk: Long, pv: Long, pcbe: Long): Long
+    external fun windowssys_windows_win32_system_threading_createThreadpoolWork(pfnwk: Long, pv: Long, pcbe: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateTimerQueue(): Long
+    external fun windowssys_windows_win32_system_threading_createTimerQueue(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateTimerQueueTimer(phnewtimer: Long, timerqueue: Long, callback: Long, parameter: Long, duetime: Int, period: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_threading_createTimerQueueTimer(phnewtimer: Long, timerqueue: Long, callback: Long, parameter: Long, duetime: Int, period: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateUmsCompletionList(umscompletionlist: Long): Int
+    external fun windowssys_windows_win32_system_threading_createUmsCompletionList(umscompletionlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateUmsThreadContext(lpumsthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_createUmsThreadContext(lpumsthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: Int, lptimername: Long): Long
+    external fun windowssys_windows_win32_system_threading_createWaitableTimerA(lptimerattributes: Long, bmanualreset: Int, lptimername: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateWaitableTimerExA(lptimerattributes: Long, lptimername: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createWaitableTimerExA(lptimerattributes: Long, lptimername: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateWaitableTimerExW(lptimerattributes: Long, lptimername: Long, dwflags: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_threading_createWaitableTimerExW(lptimerattributes: Long, lptimername: Long, dwflags: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: Int, lptimername: Long): Long
+    external fun windowssys_windows_win32_system_threading_createWaitableTimerW(lptimerattributes: Long, bmanualreset: Int, lptimername: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(boundarydescriptor: Long)
+    external fun windowssys_windows_win32_system_threading_deleteBoundaryDescriptor(boundarydescriptor: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteCriticalSection(lpcriticalsection: Long)
+    external fun windowssys_windows_win32_system_threading_deleteCriticalSection(lpcriticalsection: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteFiber(lpfiber: Long)
+    external fun windowssys_windows_win32_system_threading_deleteFiber(lpfiber: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(lpattributelist: Long)
+    external fun windowssys_windows_win32_system_threading_deleteProcThreadAttributeList(lpattributelist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(lpbarrier: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteSynchronizationBarrier(lpbarrier: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteTimerQueue(timerqueue: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteTimerQueue(timerqueue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteTimerQueueEx(timerqueue: Long, completionevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteTimerQueueEx(timerqueue: Long, completionevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(timerqueue: Long, timer: Long, completionevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteTimerQueueTimer(timerqueue: Long, timer: Long, completionevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteUmsCompletionList(umscompletionlist: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteUmsCompletionList(umscompletionlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DeleteUmsThreadContext(umsthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_deleteUmsThreadContext(umsthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: Int, umsthreadlist: Long): Int
+    external fun windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: Int, umsthreadlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback(pci: Long)
+    external fun windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(pci: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_EnterCriticalSection(lpcriticalsection: Long)
+    external fun windowssys_windows_win32_system_threading_enterCriticalSection(lpcriticalsection: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(lpbarrier: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_enterSynchronizationBarrier(lpbarrier: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(schedulerstartupinfo: Long): Int
+    external fun windowssys_windows_win32_system_threading_enterUmsSchedulingMode(schedulerstartupinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ExecuteUmsThread(umsthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_executeUmsThread(umsthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ExitProcess(uexitcode: Int)
+    external fun windowssys_windows_win32_system_threading_exitProcess(uexitcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ExitThread(dwexitcode: Int)
+    external fun windowssys_windows_win32_system_threading_exitThread(dwexitcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FlsAlloc(lpcallback: Long): Int
+    external fun windowssys_windows_win32_system_threading_flsAlloc(lpcallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FlsFree(dwflsindex: Int): Int
+    external fun windowssys_windows_win32_system_threading_flsFree(dwflsindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FlsGetValue(dwflsindex: Int): Long
+    external fun windowssys_windows_win32_system_threading_flsGetValue(dwflsindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FlsSetValue(dwflsindex: Int, lpflsdata: Long): Int
+    external fun windowssys_windows_win32_system_threading_flsSetValue(dwflsindex: Int, lpflsdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FlushProcessWriteBuffers()
+    external fun windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(pci: Long, mod: Long)
+    external fun windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(pci: Long, mod: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetActiveProcessorCount(groupnumber: Short): Int
+    external fun windowssys_windows_win32_system_threading_getActiveProcessorCount(groupnumber: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount(): Short
+    external fun windowssys_windows_win32_system_threading_getActiveProcessorGroupCount(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentProcess(): Long
+    external fun windowssys_windows_win32_system_threading_getCurrentProcess(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentProcessId(): Int
+    external fun windowssys_windows_win32_system_threading_getCurrentProcessId(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentProcessorNumber(): Int
+    external fun windowssys_windows_win32_system_threading_getCurrentProcessorNumber(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(procnumber: Long)
+    external fun windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx(procnumber: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentThread(): Long
+    external fun windowssys_windows_win32_system_threading_getCurrentThread(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentThreadId(): Int
+    external fun windowssys_windows_win32_system_threading_getCurrentThreadId(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(lowlimit: Long, highlimit: Long)
+    external fun windowssys_windows_win32_system_threading_getCurrentThreadStackLimits(lowlimit: Long, highlimit: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetCurrentUmsThread(): Long
+    external fun windowssys_windows_win32_system_threading_getCurrentUmsThread(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetExitCodeProcess(hprocess: Long, lpexitcode: Long): Int
+    external fun windowssys_windows_win32_system_threading_getExitCodeProcess(hprocess: Long, lpexitcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetExitCodeThread(hthread: Long, lpexitcode: Long): Int
+    external fun windowssys_windows_win32_system_threading_getExitCodeThread(hthread: Long, lpexitcode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetGuiResources(hprocess: Long, uiflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_getGuiResources(hprocess: Long, uiflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetMachineTypeAttributes(machine: Short, machinetypeattributes: Long): Int
+    external fun windowssys_windows_win32_system_threading_getMachineTypeAttributes(machine: Short, machinetypeattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetMaximumProcessorCount(groupnumber: Short): Int
+    external fun windowssys_windows_win32_system_threading_getMaximumProcessorCount(groupnumber: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount(): Short
+    external fun windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNextUmsListItem(umscontext: Long): Long
+    external fun windowssys_windows_win32_system_threading_getNextUmsListItem(umscontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(node: Byte, availablebytes: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(node: Byte, availablebytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(node: Short, availablebytes: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(node: Short, availablebytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(highestnodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaHighestNodeNumber(highestnodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(hfile: Long, nodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle(hfile: Long, nodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(node: Byte, processormask: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(node: Byte, processormask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(nodenumber: Short, processormasks: Long, processormaskcount: Short, requiredmaskcount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(nodenumber: Short, processormasks: Long, processormaskcount: Short, requiredmaskcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(node: Short, processormask: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(node: Short, processormask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaProcessorNode(processor: Byte, nodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaProcessorNode(processor: Byte, nodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(processor: Long, nodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaProcessorNodeEx(processor: Long, nodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaProximityNode(proximityid: Int, nodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaProximityNode(proximityid: Int, nodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(proximityid: Int, nodenumber: Long): Int
+    external fun windowssys_windows_win32_system_threading_getNumaProximityNodeEx(proximityid: Int, nodenumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetPriorityClass(hprocess: Long): Int
+    external fun windowssys_windows_win32_system_threading_getPriorityClass(hprocess: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessAffinityMask(hprocess: Long, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessAffinityMask(hprocess: Long, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessDEPPolicy(hprocess: Long, lpflags: Long, lppermanent: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessDEPPolicy(hprocess: Long, lpflags: Long, lppermanent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(process: Long, cpusetmasks: Long, cpusetmaskcount: Short, requiredmaskcount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks(process: Long, cpusetmasks: Long, cpusetmaskcount: Short, requiredmaskcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(process: Long, cpusetids: Long, cpusetidcount: Int, requiredidcount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessDefaultCpuSets(process: Long, cpusetids: Long, cpusetidcount: Int, requiredidcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessGroupAffinity(hprocess: Long, groupcount: Long, grouparray: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessGroupAffinity(hprocess: Long, groupcount: Long, grouparray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessHandleCount(hprocess: Long, pdwhandlecount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessHandleCount(hprocess: Long, pdwhandlecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(hwnd: Long): Long
+    external fun windowssys_windows_win32_system_threading_getProcessHandleFromHwnd(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessId(process: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessId(process: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessIdOfThread(thread: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessIdOfThread(thread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessInformation(hprocess: Long, processinformationclass: Int, processinformation: Long, processinformationsize: Int): Int
+    external fun windowssys_windows_win32_system_threading_getProcessInformation(hprocess: Long, processinformationclass: Int, processinformation: Long, processinformationsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessIoCounters(hprocess: Long, lpiocounters: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessIoCounters(hprocess: Long, lpiocounters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(hprocess: Long, mitigationpolicy: Int, lpbuffer: Long, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessMitigationPolicy(hprocess: Long, mitigationpolicy: Int, lpbuffer: Long, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessPriorityBoost(hprocess: Long, pdisablepriorityboost: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessPriorityBoost(hprocess: Long, pdisablepriorityboost: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessTimes(hprocess: Long, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessTimes(hprocess: Long, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessVersion(processid: Int): Int
+    external fun windowssys_windows_win32_system_threading_getProcessVersion(processid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(hprocess: Long, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_getProcessWorkingSetSize(hprocess: Long, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetStartupInfoA(lpstartupinfo: Long)
+    external fun windowssys_windows_win32_system_threading_getStartupInfoA(lpstartupinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetStartupInfoW(lpstartupinfo: Long)
+    external fun windowssys_windows_win32_system_threading_getStartupInfoW(lpstartupinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): Int
+    external fun windowssys_windows_win32_system_threading_getSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadDescription(hthread: Long, ppszthreaddescription: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadDescription(hthread: Long, ppszthreaddescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadGroupAffinity(hthread: Long, groupaffinity: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadGroupAffinity(hthread: Long, groupaffinity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(hthread: Long, lpioispending: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadIOPendingFlag(hthread: Long, lpioispending: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadId(thread: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadId(thread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(hthread: Long, lpidealprocessor: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadIdealProcessorEx(hthread: Long, lpidealprocessor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadInformation(hthread: Long, threadinformationclass: Int, threadinformation: Long, threadinformationsize: Int): Int
+    external fun windowssys_windows_win32_system_threading_getThreadInformation(hthread: Long, threadinformationclass: Int, threadinformation: Long, threadinformationsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadPriority(hthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadPriority(hthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadPriorityBoost(hthread: Long, pdisablepriorityboost: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadPriorityBoost(hthread: Long, pdisablepriorityboost: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(thread: Long, cpusetmasks: Long, cpusetmaskcount: Short, requiredmaskcount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks(thread: Long, cpusetmasks: Long, cpusetmaskcount: Short, requiredmaskcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(thread: Long, cpusetids: Long, cpusetidcount: Int, requiredidcount: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadSelectedCpuSets(thread: Long, cpusetids: Long, cpusetidcount: Int, requiredidcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetThreadTimes(hthread: Long, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): Int
+    external fun windowssys_windows_win32_system_threading_getThreadTimes(hthread: Long, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_getUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(threadhandle: Long, systemthreadinfo: Long): Int
+    external fun windowssys_windows_win32_system_threading_getUmsSystemThreadInformation(threadhandle: Long, systemthreadinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitOnceBeginInitialize(lpinitonce: Long, dwflags: Int, fpending: Long, lpcontext: Long): Int
+    external fun windowssys_windows_win32_system_threading_initOnceBeginInitialize(lpinitonce: Long, dwflags: Int, fpending: Long, lpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitOnceComplete(lpinitonce: Long, dwflags: Int, lpcontext: Long): Int
+    external fun windowssys_windows_win32_system_threading_initOnceComplete(lpinitonce: Long, dwflags: Int, lpcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitOnceExecuteOnce(initonce: Long, initfn: Long, parameter: Long, context: Long): Int
+    external fun windowssys_windows_win32_system_threading_initOnceExecuteOnce(initonce: Long, initfn: Long, parameter: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitOnceInitialize(initonce: Long)
+    external fun windowssys_windows_win32_system_threading_initOnceInitialize(initonce: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeConditionVariable(conditionvariable: Long)
+    external fun windowssys_windows_win32_system_threading_initializeConditionVariable(conditionvariable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeCriticalSection(lpcriticalsection: Long)
+    external fun windowssys_windows_win32_system_threading_initializeCriticalSection(lpcriticalsection: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: Int): Int
+    external fun windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_threading_initializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList(lpattributelist: Long, dwattributecount: Int, dwflags: Int, lpsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_initializeProcThreadAttributeList(lpattributelist: Long, dwattributecount: Int, dwflags: Int, lpsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeSListHead(listhead: Long)
+    external fun windowssys_windows_win32_system_threading_initializeSListHead(listhead: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeSRWLock(srwlock: Long)
+    external fun windowssys_windows_win32_system_threading_initializeSRWLock(srwlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): Int
+    external fun windowssys_windows_win32_system_threading_initializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InterlockedFlushSList(listhead: Long): Long
+    external fun windowssys_windows_win32_system_threading_interlockedFlushSList(listhead: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InterlockedPopEntrySList(listhead: Long): Long
+    external fun windowssys_windows_win32_system_threading_interlockedPopEntrySList(listhead: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InterlockedPushEntrySList(listhead: Long, listentry: Long): Long
+    external fun windowssys_windows_win32_system_threading_interlockedPushEntrySList(listhead: Long, listentry: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: Int): Long
+    external fun windowssys_windows_win32_system_threading_interlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsImmersiveProcess(hprocess: Long): Int
+    external fun windowssys_windows_win32_system_threading_isImmersiveProcess(hprocess: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsProcessCritical(hprocess: Long, critical: Long): Int
+    external fun windowssys_windows_win32_system_threading_isProcessCritical(hprocess: Long, critical: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(processorfeature: Int): Int
+    external fun windowssys_windows_win32_system_threading_isProcessorFeaturePresent(processorfeature: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsThreadAFiber(): Int
+    external fun windowssys_windows_win32_system_threading_isThreadAFiber(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(pti: Long): Int
+    external fun windowssys_windows_win32_system_threading_isThreadpoolTimerSet(pti: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsWow64Process(hprocess: Long, wow64process: Long): Int
+    external fun windowssys_windows_win32_system_threading_isWow64Process(hprocess: Long, wow64process: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_IsWow64Process2(hprocess: Long, pprocessmachine: Long, pnativemachine: Long): Int
+    external fun windowssys_windows_win32_system_threading_isWow64Process2(hprocess: Long, pprocessmachine: Long, pnativemachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_LeaveCriticalSection(lpcriticalsection: Long)
+    external fun windowssys_windows_win32_system_threading_leaveCriticalSection(lpcriticalsection: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns(pci: Long, pcs: Long)
+    external fun windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(pci: Long, pcs: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenEventA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_openEventA(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenEventW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_openEventW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenMutexW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_openMutexW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: Long): Long
+    external fun windowssys_windows_win32_system_threading_openPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: Long): Long
+    external fun windowssys_windows_win32_system_threading_openPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenProcess(dwdesiredaccess: Int, binherithandle: Int, dwprocessid: Int): Long
+    external fun windowssys_windows_win32_system_threading_openProcess(dwdesiredaccess: Int, binherithandle: Int, dwprocessid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
+    external fun windowssys_windows_win32_system_threading_openProcessToken(processhandle: Long, desiredaccess: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenSemaphoreW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
+    external fun windowssys_windows_win32_system_threading_openSemaphoreW(dwdesiredaccess: Int, binherithandle: Int, lpname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenThread(dwdesiredaccess: Int, binherithandle: Int, dwthreadid: Int): Long
+    external fun windowssys_windows_win32_system_threading_openThread(dwdesiredaccess: Int, binherithandle: Int, dwthreadid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Int, tokenhandle: Long): Int
+    external fun windowssys_windows_win32_system_threading_openThreadToken(threadhandle: Long, desiredaccess: Int, openasself: Int, tokenhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenWaitableTimerA(dwdesiredaccess: Int, binherithandle: Int, lptimername: Long): Long
+    external fun windowssys_windows_win32_system_threading_openWaitableTimerA(dwdesiredaccess: Int, binherithandle: Int, lptimername: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_OpenWaitableTimerW(dwdesiredaccess: Int, binherithandle: Int, lptimername: Long): Long
+    external fun windowssys_windows_win32_system_threading_openWaitableTimerW(dwdesiredaccess: Int, binherithandle: Int, lptimername: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_PulseEvent(hevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_pulseEvent(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryDepthSList(listhead: Long): Short
+    external fun windowssys_windows_win32_system_threading_queryDepthSList(listhead: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(hprocess: Long, dwflags: Int, lpexename: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryFullProcessImageNameA(hprocess: Long, dwflags: Int, lpexename: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(hprocess: Long, dwflags: Int, lpexename: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryFullProcessImageNameW(hprocess: Long, dwflags: Int, lpexename: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode(hprocess: Long, lpdwflags: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode(hprocess: Long, lpdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryProtectedPolicy(policyguid: Long, policyvalue: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryProtectedPolicy(policyguid: Long, policyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation(ptpp: Long, ptpsi: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp: Long, ptpsi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: Int, umsthreadinformation: Long, umsthreadinformationlength: Int, returnlength: Long): Int
+    external fun windowssys_windows_win32_system_threading_queryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: Int, umsthreadinformation: Long, umsthreadinformationlength: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_QueueUserWorkItem(function: Long, context: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_threading_queueUserWorkItem(function: Long, context: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: Long, callback: Long, context: Long, dwmilliseconds: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_registerWaitForSingleObject(phnewwaitobject: Long, hobject: Long, callback: Long, context: Long, dwmilliseconds: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseMutex(hmutex: Long): Int
+    external fun windowssys_windows_win32_system_threading_releaseMutex(hmutex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(pci: Long, mut: Long)
+    external fun windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(pci: Long, mut: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(srwlock: Long)
+    external fun windowssys_windows_win32_system_threading_releaseSRWLockExclusive(srwlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseSRWLockShared(srwlock: Long)
+    external fun windowssys_windows_win32_system_threading_releaseSRWLockShared(srwlock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseSemaphore(hsemaphore: Long, lreleasecount: Int, lppreviouscount: Long): Int
+    external fun windowssys_windows_win32_system_threading_releaseSemaphore(hsemaphore: Long, lreleasecount: Int, lppreviouscount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns(pci: Long, sem: Long, crel: Int)
+    external fun windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(pci: Long, sem: Long, crel: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ResetEvent(hevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_resetEvent(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_ResumeThread(hthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_resumeThread(hthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(callback: Long, context: Long, key: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(callback: Long, context: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(workqueueidin: Int, workqueueidout: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(workqueueidin: Int, workqueueidout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(workqueuetype: Int, workqueueid: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(workqueuetype: Int, workqueueid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: Int, usageclass: Long, dwtaskid: Int, lpriority: Int, donecallback: Long, donestate: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: Int, usageclass: Long, dwtaskid: Int, lpriority: Int, donecallback: Long, donestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: Int, donecallback: Long, donestate: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: Int, donecallback: Long, donestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqCancelDeadline(prequest: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqCancelDeadline(prequest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqCancelWorkItem(key: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqCancelWorkItem(key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(workqueueid: Int, usageclass: Long, usageclasslength: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(workqueueid: Int, usageclass: Long, usageclasslength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(workqueueid: Int, priority: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(workqueueid: Int, priority: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(workqueueid: Int, taskid: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(workqueueid: Int, taskid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqInvokeCallback(result: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqInvokeCallback(result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(workqueueid: Int, hfile: Long, out: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(workqueueid: Int, hfile: Long, out: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqLockPlatform(): Int
+    external fun windowssys_windows_win32_system_threading_rtwqLockPlatform(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(usageclass: Long, basepriority: Int, taskid: Long, id: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue(usageclass: Long, basepriority: Int, taskid: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqLockWorkQueue(workqueueid: Int): Int
+    external fun windowssys_windows_win32_system_threading_rtwqLockWorkQueue(workqueueid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(hevent: Long, lpriority: Int, result: Long, key: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem(hevent: Long, lpriority: Int, result: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqPutWorkItem(dwqueue: Int, lpriority: Int, result: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqPutWorkItem(dwqueue: Int, lpriority: Int, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(platformevents: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents(platformevents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(usageclass: Long, taskid: Long, lpriority: Int): Int
+    external fun windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS(usageclass: Long, taskid: Long, lpriority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(dwkey: Int): Int
+    external fun windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(dwkey: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqSetDeadline(workqueueid: Int, deadlineinhns: Long, prequest: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqSetDeadline(workqueueid: Int, deadlineinhns: Long, prequest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqSetDeadline2(workqueueid: Int, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqSetDeadline2(workqueueid: Int, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqSetLongRunning(workqueueid: Int, enable: Int): Int
+    external fun windowssys_windows_win32_system_threading_rtwqSetLongRunning(workqueueid: Int, enable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqShutdown(): Int
+    external fun windowssys_windows_win32_system_threading_rtwqShutdown(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqStartup(): Int
+    external fun windowssys_windows_win32_system_threading_rtwqStartup(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(workqueueid: Int, hfile: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(workqueueid: Int, hfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqUnlockPlatform(): Int
+    external fun windowssys_windows_win32_system_threading_rtwqUnlockPlatform(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(workqueueid: Int): Int
+    external fun windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(workqueueid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(platformevents: Long): Int
+    external fun windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents(platformevents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS(): Int
+    external fun windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: Int): Int
+    external fun windowssys_windows_win32_system_threading_setCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetEvent(hevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_setEvent(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(pci: Long, evt: Long)
+    external fun windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(pci: Long, evt: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetPriorityClass(hprocess: Long, dwpriorityclass: Int): Int
+    external fun windowssys_windows_win32_system_threading_setPriorityClass(hprocess: Long, dwpriorityclass: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessAffinityMask(hprocess: Long, dwprocessaffinitymask: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProcessAffinityMask(hprocess: Long, dwprocessaffinitymask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(hprocess: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode(hprocess: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessDEPPolicy(dwflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessDEPPolicy(dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(process: Long, cpusetmasks: Long, cpusetmaskcount: Short): Int
+    external fun windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks(process: Long, cpusetmasks: Long, cpusetmaskcount: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(process: Long, cpusetids: Long, cpusetidcount: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessDefaultCpuSets(process: Long, cpusetids: Long, cpusetidcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets(process: Long, numberoftargets: Short, targets: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets(process: Long, numberoftargets: Short, targets: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges(process: Long, numberofranges: Short, ranges: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges(process: Long, numberofranges: Short, ranges: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessInformation(hprocess: Long, processinformationclass: Int, processinformation: Long, processinformationsize: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessInformation(hprocess: Long, processinformationclass: Int, processinformation: Long, processinformationsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(mitigationpolicy: Int, lpbuffer: Long, dwlength: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProcessMitigationPolicy(mitigationpolicy: Int, lpbuffer: Long, dwlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessPriorityBoost(hprocess: Long, bdisablepriorityboost: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessPriorityBoost(hprocess: Long, bdisablepriorityboost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessRestrictionExemption(fenableexemption: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessRestrictionExemption(fenableexemption: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessShutdownParameters(dwlevel: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_system_threading_setProcessShutdownParameters(dwlevel: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(hprocess: Long, dwminimumworkingsetsize: Long, dwmaximumworkingsetsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProcessWorkingSetSize(hprocess: Long, dwminimumworkingsetsize: Long, dwmaximumworkingsetsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetProtectedPolicy(policyguid: Long, policyvalue: Long, oldpolicyvalue: Long): Int
+    external fun windowssys_windows_win32_system_threading_setProtectedPolicy(policyguid: Long, policyvalue: Long, oldpolicyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadAffinityMask(hthread: Long, dwthreadaffinitymask: Long): Long
+    external fun windowssys_windows_win32_system_threading_setThreadAffinityMask(hthread: Long, dwthreadaffinitymask: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadDescription(hthread: Long, lpthreaddescription: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadDescription(hthread: Long, lpthreaddescription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadGroupAffinity(hthread: Long, groupaffinity: Long, previousgroupaffinity: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadGroupAffinity(hthread: Long, groupaffinity: Long, previousgroupaffinity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadIdealProcessor(hthread: Long, dwidealprocessor: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadIdealProcessor(hthread: Long, dwidealprocessor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(hthread: Long, lpidealprocessor: Long, lppreviousidealprocessor: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadIdealProcessorEx(hthread: Long, lpidealprocessor: Long, lppreviousidealprocessor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadInformation(hthread: Long, threadinformationclass: Int, threadinformation: Long, threadinformationsize: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadInformation(hthread: Long, threadinformationclass: Int, threadinformation: Long, threadinformationsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadPriority(hthread: Long, npriority: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadPriority(hthread: Long, npriority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadPriorityBoost(hthread: Long, bdisablepriorityboost: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadPriorityBoost(hthread: Long, bdisablepriorityboost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(thread: Long, cpusetmasks: Long, cpusetmaskcount: Short): Int
+    external fun windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks(thread: Long, cpusetmasks: Long, cpusetmaskcount: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(thread: Long, cpusetids: Long, cpusetidcount: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadSelectedCpuSets(thread: Long, cpusetids: Long, cpusetidcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadStackGuarantee(stacksizeinbytes: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadStackGuarantee(stacksizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadToken(thread: Long, token: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadToken(thread: Long, token: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(ptpp: Long, ptpsi: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp: Long, ptpsi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(ptpp: Long, cthrdmost: Int)
+    external fun windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp: Long, cthrdmost: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(ptpp: Long, cthrdmic: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp: Long, cthrdmic: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolTimer(pti: Long, pftduetime: Long, msperiod: Int, mswindowlength: Int)
+    external fun windowssys_windows_win32_system_threading_setThreadpoolTimer(pti: Long, pftduetime: Long, msperiod: Int, mswindowlength: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(pti: Long, pftduetime: Long, msperiod: Int, mswindowlength: Int): Int
+    external fun windowssys_windows_win32_system_threading_setThreadpoolTimerEx(pti: Long, pftduetime: Long, msperiod: Int, mswindowlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolWait(pwa: Long, h: Long, pfttimeout: Long)
+    external fun windowssys_windows_win32_system_threading_setThreadpoolWait(pwa: Long, h: Long, pfttimeout: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(pwa: Long, h: Long, pfttimeout: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_system_threading_setThreadpoolWaitEx(pwa: Long, h: Long, pfttimeout: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetTimerQueueTimer(timerqueue: Long, callback: Long, parameter: Long, duetime: Int, period: Int, preferio: Int): Long
+    external fun windowssys_windows_win32_system_threading_setTimerQueueTimer(timerqueue: Long, callback: Long, parameter: Long, duetime: Int, period: Int, preferio: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: Int, umsthreadinformation: Long, umsthreadinformationlength: Int): Int
+    external fun windowssys_windows_win32_system_threading_setUmsThreadInformation(umsthread: Long, umsthreadinfoclass: Int, umsthreadinformation: Long, umsthreadinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetWaitableTimer(htimer: Long, lpduetime: Long, lperiod: Int, pfncompletionroutine: Long, lpargtocompletionroutine: Long, fresume: Int): Int
+    external fun windowssys_windows_win32_system_threading_setWaitableTimer(htimer: Long, lpduetime: Long, lperiod: Int, pfncompletionroutine: Long, lpargtocompletionroutine: Long, fresume: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SetWaitableTimerEx(htimer: Long, lpduetime: Long, lperiod: Int, pfncompletionroutine: Long, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: Int): Int
+    external fun windowssys_windows_win32_system_threading_setWaitableTimerEx(htimer: Long, lpduetime: Long, lperiod: Int, pfncompletionroutine: Long, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SignalObjectAndWait(hobjecttosignal: Long, hobjecttowaiton: Long, dwmilliseconds: Int, balertable: Int): Int
+    external fun windowssys_windows_win32_system_threading_signalObjectAndWait(hobjecttosignal: Long, hobjecttowaiton: Long, dwmilliseconds: Int, balertable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_Sleep(dwmilliseconds: Int)
+    external fun windowssys_windows_win32_system_threading_sleep(dwmilliseconds: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_system_threading_sleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_threading_sleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SleepEx(dwmilliseconds: Int, balertable: Int): Int
+    external fun windowssys_windows_win32_system_threading_sleepEx(dwmilliseconds: Int, balertable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_StartThreadpoolIo(pio: Long)
+    external fun windowssys_windows_win32_system_threading_startThreadpoolIo(pio: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SubmitThreadpoolWork(pwk: Long)
+    external fun windowssys_windows_win32_system_threading_submitThreadpoolWork(pwk: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SuspendThread(hthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_suspendThread(hthread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SwitchToFiber(lpfiber: Long)
+    external fun windowssys_windows_win32_system_threading_switchToFiber(lpfiber: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_SwitchToThread(): Int
+    external fun windowssys_windows_win32_system_threading_switchToThread(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TerminateProcess(hprocess: Long, uexitcode: Int): Int
+    external fun windowssys_windows_win32_system_threading_terminateProcess(hprocess: Long, uexitcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TerminateThread(hthread: Long, dwexitcode: Int): Int
+    external fun windowssys_windows_win32_system_threading_terminateThread(hthread: Long, dwexitcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TlsAlloc(): Int
+    external fun windowssys_windows_win32_system_threading_tlsAlloc(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TlsFree(dwtlsindex: Int): Int
+    external fun windowssys_windows_win32_system_threading_tlsFree(dwtlsindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TlsGetValue(dwtlsindex: Int): Long
+    external fun windowssys_windows_win32_system_threading_tlsGetValue(dwtlsindex: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TlsSetValue(dwtlsindex: Int, lptlsvalue: Long): Int
+    external fun windowssys_windows_win32_system_threading_tlsSetValue(dwtlsindex: Int, lptlsvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(srwlock: Long): Boolean
+    external fun windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive(srwlock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(srwlock: Long): Boolean
+    external fun windowssys_windows_win32_system_threading_tryAcquireSRWLockShared(srwlock: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TryEnterCriticalSection(lpcriticalsection: Long): Int
+    external fun windowssys_windows_win32_system_threading_tryEnterCriticalSection(lpcriticalsection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(pfns: Long, pv: Long, pcbe: Long): Int
+    external fun windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(pfns: Long, pv: Long, pcbe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_UmsThreadYield(schedulerparam: Long): Int
+    external fun windowssys_windows_win32_system_threading_umsThreadYield(schedulerparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_UnregisterWait(waithandle: Long): Int
+    external fun windowssys_windows_win32_system_threading_unregisterWait(waithandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_UnregisterWaitEx(waithandle: Long, completionevent: Long): Int
+    external fun windowssys_windows_win32_system_threading_unregisterWaitEx(waithandle: Long, completionevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(lpattributelist: Long, dwflags: Int, attribute: Long, lpvalue: Long, cbsize: Long, lppreviousvalue: Long, lpreturnsize: Long): Int
+    external fun windowssys_windows_win32_system_threading_updateProcThreadAttribute(lpattributelist: Long, dwflags: Int, attribute: Long, lpvalue: Long, cbsize: Long, lppreviousvalue: Long, lpreturnsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForInputIdle(hprocess: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitForInputIdle(hprocess: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForMultipleObjects(ncount: Int, lphandles: Long, bwaitall: Int, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitForMultipleObjects(ncount: Int, lphandles: Long, bwaitall: Int, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(ncount: Int, lphandles: Long, bwaitall: Int, dwmilliseconds: Int, balertable: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(ncount: Int, lphandles: Long, bwaitall: Int, dwmilliseconds: Int, balertable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForSingleObject(hhandle: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitForSingleObject(hhandle: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForSingleObjectEx(hhandle: Long, dwmilliseconds: Int, balertable: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitForSingleObjectEx(hhandle: Long, dwmilliseconds: Int, balertable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(pio: Long, fcancelpendingcallbacks: Int)
+    external fun windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(pio: Long, fcancelpendingcallbacks: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(pti: Long, fcancelpendingcallbacks: Int)
+    external fun windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(pti: Long, fcancelpendingcallbacks: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(pwa: Long, fcancelpendingcallbacks: Int)
+    external fun windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(pwa: Long, fcancelpendingcallbacks: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(pwk: Long, fcancelpendingcallbacks: Int)
+    external fun windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(pwk: Long, fcancelpendingcallbacks: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WaitOnAddress(address: Long, compareaddress: Long, addresssize: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_system_threading_waitOnAddress(address: Long, compareaddress: Long, addresssize: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WakeAllConditionVariable(conditionvariable: Long)
+    external fun windowssys_windows_win32_system_threading_wakeAllConditionVariable(conditionvariable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WakeByAddressAll(address: Long)
+    external fun windowssys_windows_win32_system_threading_wakeByAddressAll(address: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WakeByAddressSingle(address: Long)
+    external fun windowssys_windows_win32_system_threading_wakeByAddressSingle(address: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WakeConditionVariable(conditionvariable: Long)
+    external fun windowssys_windows_win32_system_threading_wakeConditionVariable(conditionvariable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_WinExec(lpcmdline: Long, ucmdshow: Int): Int
+    external fun windowssys_windows_win32_system_threading_winExec(lpcmdline: Long, ucmdshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine(machine: Short): Short
+    external fun windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(machine: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_Wow64SuspendThread(hthread: Long): Int
+    external fun windowssys_windows_win32_system_threading_wow64SuspendThread(hthread: Long): Int
 }
 
-public actual fun AcquireSRWLockExclusive(srwlock: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(srwlock)
+public actual fun acquireSRWLockExclusive(srwlock: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_acquireSRWLockExclusive((srwlock?.value ?: 0L))
 }
 
-public actual fun AcquireSRWLockShared(srwlock: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AcquireSRWLockShared(srwlock)
+public actual fun acquireSRWLockShared(srwlock: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_acquireSRWLockShared((srwlock?.value ?: 0L))
 }
 
-public actual fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: PSID): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor, integritylabel)
+public actual fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, integritylabel: Psid): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor((boundarydescriptor?.value ?: 0L), (integritylabel?.value ?: 0L))
 
-public actual fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: PSID): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(boundarydescriptor, requiredsid)
+public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, requiredsid: Psid): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor((boundarydescriptor?.value ?: 0L), (requiredsid?.value ?: 0L))
 
-public actual fun AttachThreadInput(idattach: UInt, idattachto: UInt, fattach: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AttachThreadInput(idattach.toInt(), idattachto.toInt(), fattach)
+public actual fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_attachThreadInput(idattach.toInt(), idattachto.toInt(), fattach)
 
-public actual fun AvQuerySystemResponsiveness(avrthandle: HANDLE, systemresponsivenessvalue: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(avrthandle, systemresponsivenessvalue)
+public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avQuerySystemResponsiveness((avrthandle?.value ?: 0L), (systemresponsivenessvalue?.value ?: 0L))
 
-public actual fun AvRevertMmThreadCharacteristics(avrthandle: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics(avrthandle)
+public actual fun avRevertMmThreadCharacteristics(avrthandle: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics((avrthandle?.value ?: 0L))
 
-public actual fun AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(context, period, threadorderingguid, timeout)
+public actual fun avRtCreateThreadOrderingGroup(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup((context?.value ?: 0L), (period?.value ?: 0L), (threadorderingguid?.value ?: 0L), (timeout?.value ?: 0L))
 
-public actual fun AvRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCSTR): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA(context, period, threadorderingguid, timeout, taskname)
+public actual fun avRtCreateThreadOrderingGroupExA(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcstr): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA((context?.value ?: 0L), (period?.value ?: 0L), (threadorderingguid?.value ?: 0L), (timeout?.value ?: 0L), (taskname?.value ?: 0L))
 
-public actual fun AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCWSTR): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW(context, period, threadorderingguid, timeout, taskname)
+public actual fun avRtCreateThreadOrderingGroupExW(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcwstr): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW((context?.value ?: 0L), (period?.value ?: 0L), (threadorderingguid?.value ?: 0L), (timeout?.value ?: 0L), (taskname?.value ?: 0L))
 
-public actual fun AvRtDeleteThreadOrderingGroup(context: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(context)
+public actual fun avRtDeleteThreadOrderingGroup(context: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup((context?.value ?: 0L))
 
-public actual fun AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(context, threadorderingguid, before)
+public actual fun avRtJoinThreadOrderingGroup(context: COpaquePointer?, threadorderingguid: COpaquePointer?, before: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup((context?.value ?: 0L), (threadorderingguid?.value ?: 0L), before)
 
-public actual fun AvRtLeaveThreadOrderingGroup(context: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(context)
+public actual fun avRtLeaveThreadOrderingGroup(context: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup((context?.value ?: 0L))
 
-public actual fun AvRtWaitOnThreadOrderingGroup(context: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(context)
+public actual fun avRtWaitOnThreadOrderingGroup(context: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup((context?.value ?: 0L))
 
-public actual fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA(firsttask, secondtask, taskindex)
+public actual fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA((firsttask?.value ?: 0L), (secondtask?.value ?: 0L), (taskindex?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW(firsttask, secondtask, taskindex)
+public actual fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW((firsttask?.value ?: 0L), (secondtask?.value ?: 0L), (taskindex?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(taskname, taskindex)
+public actual fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA((taskname?.value ?: 0L), (taskindex?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(taskname, taskindex)
+public actual fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW((taskname?.value ?: 0L), (taskindex?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AvSetMmThreadPriority(avrthandle: HANDLE, priority: AVRT_PRIORITY): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_AvSetMmThreadPriority(avrthandle, priority)
+public actual fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriority): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_avSetMmThreadPriority((avrthandle?.value ?: 0L), priority)
 
-public actual fun CallbackMayRunLong(pci: PTP_CALLBACK_INSTANCE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CallbackMayRunLong(pci)
+public actual fun callbackMayRunLong(pci: PtpCallbackInstance): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_callbackMayRunLong(pci)
 
-public actual fun CancelThreadpoolIo(pio: PTP_IO) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CancelThreadpoolIo(pio)
+public actual fun cancelThreadpoolIo(pio: PtpIo) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_cancelThreadpoolIo(pio)
 }
 
-public actual fun CancelTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CancelTimerQueueTimer(timerqueue, timer)
+public actual fun cancelTimerQueueTimer(timerqueue: Handle, timer: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_cancelTimerQueueTimer((timerqueue?.value ?: 0L), (timer?.value ?: 0L))
 
-public actual fun CancelWaitableTimer(htimer: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CancelWaitableTimer(htimer)
+public actual fun cancelWaitableTimer(htimer: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_cancelWaitableTimer((htimer?.value ?: 0L))
 
-public actual fun ChangeTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, duetime: UInt, period: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(timerqueue, timer, duetime.toInt(), period.toInt())
+public actual fun changeTimerQueueTimer(timerqueue: Handle, timer: Handle, duetime: UInt, period: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_changeTimerQueueTimer((timerqueue?.value ?: 0L), (timer?.value ?: 0L), duetime.toInt(), period.toInt())
 
-public actual fun ClosePrivateNamespace(handle: HANDLE, flags: UInt): Boolean =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ClosePrivateNamespace(handle, flags.toInt())
+public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closePrivateNamespace((handle?.value ?: 0L), flags.toInt())
 
-public actual fun CloseThreadpool(ptpp: PTP_POOL) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpool(ptpp)
+public actual fun closeThreadpool(ptpp: PtpPool) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toLong())
 }
 
-public actual fun CloseThreadpoolCleanupGroup(ptpcg: PTP_CLEANUP_GROUP) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(ptpcg)
+public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toLong())
 }
 
-public actual fun CloseThreadpoolCleanupGroupMembers(ptpcg: PTP_CLEANUP_GROUP, fcancelpendingcallbacks: BOOL, pvcleanupcontext: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks, pvcleanupcontext)
+public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toLong(), fcancelpendingcallbacks, (pvcleanupcontext?.value ?: 0L))
 }
 
-public actual fun CloseThreadpoolIo(pio: PTP_IO) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolIo(pio)
+public actual fun closeThreadpoolIo(pio: PtpIo) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolIo(pio)
 }
 
-public actual fun CloseThreadpoolTimer(pti: PTP_TIMER) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolTimer(pti)
+public actual fun closeThreadpoolTimer(pti: PtpTimer) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolTimer(pti)
 }
 
-public actual fun CloseThreadpoolWait(pwa: PTP_WAIT) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolWait(pwa)
+public actual fun closeThreadpoolWait(pwa: PtpWait) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolWait(pwa)
 }
 
-public actual fun CloseThreadpoolWork(pwk: PTP_WORK) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CloseThreadpoolWork(pwk)
+public actual fun closeThreadpoolWork(pwk: PtpWork) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolWork(pwk)
 }
 
-public actual fun ConvertFiberToThread(): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ConvertFiberToThread()
+public actual fun convertFiberToThread(): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_convertFiberToThread()
 
-public actual fun ConvertThreadToFiber(lpparameter: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ConvertThreadToFiber(lpparameter)
+public actual fun convertThreadToFiber(lpparameter: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_convertThreadToFiber((lpparameter?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ConvertThreadToFiberEx(lpparameter: Long, dwflags: UInt): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(lpparameter, dwflags.toInt())
+public actual fun convertThreadToFiberEx(lpparameter: COpaquePointer?, dwflags: UInt): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_convertThreadToFiberEx((lpparameter?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(name, flags.toInt())
+public actual fun createBoundaryDescriptorA(name: Pcstr, flags: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createBoundaryDescriptorA((name?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(name, flags.toInt())
+public actual fun createBoundaryDescriptorW(name: Pcwstr, flags: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createBoundaryDescriptorW((name?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateEventA(lpeventattributes, bmanualreset, binitialstate, lpname)
+public actual fun createEventA(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createEventA((lpeventattributes?.value ?: 0L), bmanualreset, binitialstate, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateEventExA(lpeventattributes, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createEventExA(lpeventattributes: COpaquePointer?, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createEventExA((lpeventattributes?.value ?: 0L), (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateEventExW(lpeventattributes, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createEventExW(lpeventattributes: COpaquePointer?, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createEventExW((lpeventattributes?.value ?: 0L), (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateEventW(lpeventattributes, bmanualreset, binitialstate, lpname)
+public actual fun createEventW(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createEventW((lpeventattributes?.value ?: 0L), bmanualreset, binitialstate, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFiber(dwstacksize: ULong, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateFiber(dwstacksize.toLong(), lpstartaddress.toLong(), lpparameter)
+public actual fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createFiber(dwstacksize.toLong(), 0L, (lpparameter?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateFiberEx(dwstackcommitsize.toLong(), dwstackreservesize.toLong(), dwflags.toInt(), lpstartaddress.toLong(), lpparameter)
+public actual fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createFiberEx(dwstackcommitsize.toLong(), dwstackreservesize.toLong(), dwflags.toInt(), 0L, (lpparameter?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateMutexA(lpmutexattributes, binitialowner, lpname)
+public actual fun createMutexA(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createMutexA((lpmutexattributes?.value ?: 0L), binitialowner, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateMutexExA(lpmutexattributes, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createMutexExA(lpmutexattributes: COpaquePointer?, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createMutexExA((lpmutexattributes?.value ?: 0L), (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateMutexExW(lpmutexattributes, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createMutexExW(lpmutexattributes: COpaquePointer?, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createMutexExW((lpmutexattributes?.value ?: 0L), (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateMutexW(lpmutexattributes, binitialowner, lpname)
+public actual fun createMutexW(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createMutexW((lpmutexattributes?.value ?: 0L), binitialowner, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix)
+public actual fun createPrivateNamespaceA(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createPrivateNamespaceA((lpprivatenamespaceattributes?.value ?: 0L), (lpboundarydescriptor?.value ?: 0L), (lpaliasprefix?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix)
+public actual fun createPrivateNamespaceW(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createPrivateNamespaceW((lpprivatenamespaceattributes?.value ?: 0L), (lpboundarydescriptor?.value ?: 0L), (lpaliasprefix?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateProcessA(lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessA(lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessA((lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), (lpprocessattributes?.value ?: 0L), (lpthreadattributes?.value ?: 0L), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateProcessAsUserA(htoken: HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessAsUserA(htoken, lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessAsUserA((htoken?.value ?: 0L), (lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), (lpprocessattributes?.value ?: 0L), (lpthreadattributes?.value ?: 0L), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateProcessAsUserW(htoken: HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessAsUserW(htoken, lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessAsUserW((htoken?.value ?: 0L), (lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), (lpprocessattributes?.value ?: 0L), (lpthreadattributes?.value ?: 0L), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateProcessW(lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessW(lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessW((lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), (lpprocessattributes?.value ?: 0L), (lpthreadattributes?.value ?: 0L), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateProcessWithLogonW(lpusername: PCWSTR, lpdomain: PCWSTR, lppassword: PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessWithLogonW(lpusername, lpdomain, lppassword, dwlogonflags.toInt(), lpapplicationname, lpcommandline, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessWithLogonW((lpusername?.value ?: 0L), (lpdomain?.value ?: 0L), (lppassword?.value ?: 0L), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateProcessWithTokenW(htoken: HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateProcessWithTokenW(htoken, dwlogonflags.toInt(), lpapplicationname, lpcommandline, dwcreationflags.toInt(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)
+public actual fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createProcessWithTokenW((htoken?.value ?: 0L), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L), (lpcommandline?.value ?: 0L), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L), (lpcurrentdirectory?.value ?: 0L), (lpstartupinfo?.value ?: 0L), (lpprocessinformation?.value ?: 0L))
 
-public actual fun CreateRemoteThread(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateRemoteThread(hprocess, lpthreadattributes, dwstacksize.toLong(), lpstartaddress.toLong(), lpparameter, dwcreationflags.toInt(), lpthreadid)
+public actual fun createRemoteThread(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpthreadid: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createRemoteThread((hprocess?.value ?: 0L), (lpthreadattributes?.value ?: 0L), dwstacksize.toLong(), 0L, (lpparameter?.value ?: 0L), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateRemoteThreadEx(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateRemoteThreadEx(hprocess, lpthreadattributes, dwstacksize.toLong(), lpstartaddress.toLong(), lpparameter, dwcreationflags.toInt(), lpattributelist, lpthreadid)
+public actual fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createRemoteThreadEx((hprocess?.value ?: 0L), (lpthreadattributes?.value ?: 0L), dwstacksize.toLong(), 0L, (lpparameter?.value ?: 0L), dwcreationflags.toInt(), (lpattributelist?.value ?: 0L), (lpthreadid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateSemaphoreA(lpsemaphoreattributes, linitialcount, lmaximumcount, lpname)
+public actual fun createSemaphoreA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createSemaphoreA((lpsemaphoreattributes?.value ?: 0L), linitialcount, lmaximumcount, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateSemaphoreExA(lpsemaphoreattributes, linitialcount, lmaximumcount, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createSemaphoreExA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createSemaphoreExA((lpsemaphoreattributes?.value ?: 0L), linitialcount, lmaximumcount, (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateSemaphoreExW(lpsemaphoreattributes, linitialcount, lmaximumcount, lpname, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createSemaphoreExW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createSemaphoreExW((lpsemaphoreattributes?.value ?: 0L), linitialcount, lmaximumcount, (lpname?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateSemaphoreW(lpsemaphoreattributes, linitialcount, lmaximumcount, lpname)
+public actual fun createSemaphoreW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createSemaphoreW((lpsemaphoreattributes?.value ?: 0L), linitialcount, lmaximumcount, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThread(lpthreadattributes, dwstacksize.toLong(), lpstartaddress.toLong(), lpparameter, dwcreationflags.toInt(), lpthreadid)
+public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: ThreadCreationFlags, lpthreadid: COpaquePointer?): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThread((lpthreadattributes?.value ?: 0L), dwstacksize.toLong(), 0L, (lpparameter?.value ?: 0L), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateThreadpool(reserved: Long): PTP_POOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpool(reserved)
+public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L))
 
-public actual fun CreateThreadpoolCleanupGroup(): PTP_CLEANUP_GROUP =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup()
+public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup()
 
-public actual fun CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpoolIo(fl, pfnio.toLong(), pv, pcbe)
+public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpoolIo((fl?.value ?: 0L), 0L, (pv?.value ?: 0L), (pcbe?.value ?: 0L))
 
-public actual fun CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Long, pcbe: Long): PTP_TIMER =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpoolTimer(pfnti.toLong(), pv, pcbe)
+public actual fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpTimer =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpoolTimer(0L, (pv?.value ?: 0L), (pcbe?.value ?: 0L))
 
-public actual fun CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: Long, pcbe: Long): PTP_WAIT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpoolWait(pfnwa.toLong(), pv, pcbe)
+public actual fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWait =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpoolWait(0L, (pv?.value ?: 0L), (pcbe?.value ?: 0L))
 
-public actual fun CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Long, pcbe: Long): PTP_WORK =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateThreadpoolWork(pfnwk.toLong(), pv, pcbe)
+public actual fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWork =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createThreadpoolWork(0L, (pv?.value ?: 0L), (pcbe?.value ?: 0L))
 
-public actual fun CreateTimerQueue(): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateTimerQueue()
+public actual fun createTimerQueue(): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createTimerQueue().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateTimerQueueTimer(phnewtimer, timerqueue, callback.toLong(), parameter, duetime.toInt(), period.toInt(), flags.toInt())
+public actual fun createTimerQueueTimer(phnewtimer: COpaquePointer?, timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createTimerQueueTimer((phnewtimer?.value ?: 0L), (timerqueue?.value ?: 0L), 0L, (parameter?.value ?: 0L), duetime.toInt(), period.toInt(), flags.toInt())
 
-public actual fun CreateUmsCompletionList(umscompletionlist: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateUmsCompletionList(umscompletionlist)
+public actual fun createUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createUmsCompletionList((umscompletionlist?.value ?: 0L))
 
-public actual fun CreateUmsThreadContext(lpumsthread: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateUmsThreadContext(lpumsthread)
+public actual fun createUmsThreadContext(lpumsthread: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createUmsThreadContext((lpumsthread?.value ?: 0L))
 
-public actual fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateWaitableTimerA(lptimerattributes, bmanualreset, lptimername)
+public actual fun createWaitableTimerA(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createWaitableTimerA((lptimerattributes?.value ?: 0L), bmanualreset, (lptimername?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateWaitableTimerExA(lptimerattributes, lptimername, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createWaitableTimerExA(lptimerattributes: COpaquePointer?, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createWaitableTimerExA((lptimerattributes?.value ?: 0L), (lptimername?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateWaitableTimerExW(lptimerattributes, lptimername, dwflags.toInt(), dwdesiredaccess.toInt())
+public actual fun createWaitableTimerExW(lptimerattributes: COpaquePointer?, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createWaitableTimerExW((lptimerattributes?.value ?: 0L), (lptimername?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_CreateWaitableTimerW(lptimerattributes, bmanualreset, lptimername)
+public actual fun createWaitableTimerW(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_createWaitableTimerW((lptimerattributes?.value ?: 0L), bmanualreset, (lptimername?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DeleteBoundaryDescriptor(boundarydescriptor: HANDLE) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(boundarydescriptor)
+public actual fun deleteBoundaryDescriptor(boundarydescriptor: Handle) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteBoundaryDescriptor((boundarydescriptor?.value ?: 0L))
 }
 
-public actual fun DeleteCriticalSection(lpcriticalsection: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteCriticalSection(lpcriticalsection)
+public actual fun deleteCriticalSection(lpcriticalsection: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteCriticalSection((lpcriticalsection?.value ?: 0L))
 }
 
-public actual fun DeleteFiber(lpfiber: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteFiber(lpfiber)
+public actual fun deleteFiber(lpfiber: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteFiber((lpfiber?.value ?: 0L))
 }
 
-public actual fun DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(lpattributelist)
+public actual fun deleteProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteProcThreadAttributeList((lpattributelist?.value ?: 0L))
 }
 
-public actual fun DeleteSynchronizationBarrier(lpbarrier: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(lpbarrier)
+public actual fun deleteSynchronizationBarrier(lpbarrier: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteSynchronizationBarrier((lpbarrier?.value ?: 0L))
 
-public actual fun DeleteTimerQueue(timerqueue: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteTimerQueue(timerqueue)
+public actual fun deleteTimerQueue(timerqueue: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteTimerQueue((timerqueue?.value ?: 0L))
 
-public actual fun DeleteTimerQueueEx(timerqueue: HANDLE, completionevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteTimerQueueEx(timerqueue, completionevent)
+public actual fun deleteTimerQueueEx(timerqueue: Handle, completionevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteTimerQueueEx((timerqueue?.value ?: 0L), (completionevent?.value ?: 0L))
 
-public actual fun DeleteTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, completionevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(timerqueue, timer, completionevent)
+public actual fun deleteTimerQueueTimer(timerqueue: Handle, timer: Handle, completionevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteTimerQueueTimer((timerqueue?.value ?: 0L), (timer?.value ?: 0L), (completionevent?.value ?: 0L))
 
-public actual fun DeleteUmsCompletionList(umscompletionlist: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteUmsCompletionList(umscompletionlist)
+public actual fun deleteUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteUmsCompletionList((umscompletionlist?.value ?: 0L))
 
-public actual fun DeleteUmsThreadContext(umsthread: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DeleteUmsThreadContext(umsthread)
+public actual fun deleteUmsThreadContext(umsthread: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_deleteUmsThreadContext((umsthread?.value ?: 0L))
 
-public actual fun DequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: UInt, umsthreadlist: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(umscompletionlist, waittimeout.toInt(), umsthreadlist)
+public actual fun dequeueUmsCompletionListItems(umscompletionlist: COpaquePointer?, waittimeout: UInt, umsthreadlist: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems((umscompletionlist?.value ?: 0L), waittimeout.toInt(), (umsthreadlist?.value ?: 0L))
 
-public actual fun DisassociateCurrentThreadFromCallback(pci: PTP_CALLBACK_INSTANCE) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback(pci)
+public actual fun disassociateCurrentThreadFromCallback(pci: PtpCallbackInstance) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(pci)
 }
 
-public actual fun EnterCriticalSection(lpcriticalsection: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_EnterCriticalSection(lpcriticalsection)
+public actual fun enterCriticalSection(lpcriticalsection: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_enterCriticalSection((lpcriticalsection?.value ?: 0L))
 }
 
-public actual fun EnterSynchronizationBarrier(lpbarrier: Long, dwflags: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(lpbarrier, dwflags.toInt())
+public actual fun enterSynchronizationBarrier(lpbarrier: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_enterSynchronizationBarrier((lpbarrier?.value ?: 0L), dwflags.toInt())
 
-public actual fun EnterUmsSchedulingMode(schedulerstartupinfo: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(schedulerstartupinfo)
+public actual fun enterUmsSchedulingMode(schedulerstartupinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_enterUmsSchedulingMode((schedulerstartupinfo?.value ?: 0L))
 
-public actual fun ExecuteUmsThread(umsthread: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ExecuteUmsThread(umsthread)
+public actual fun executeUmsThread(umsthread: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_executeUmsThread((umsthread?.value ?: 0L))
 
-public actual fun ExitProcess(uexitcode: UInt): Nothing {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ExitProcess(uexitcode.toInt())
-    error("Unreachable noreturn C function ExitProcess")
+public actual fun exitProcess(uexitcode: UInt): Nothing {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_exitProcess(uexitcode.toInt())
+    error("Unreachable noreturn C function exitProcess")
 }
 
-public actual fun ExitThread(dwexitcode: UInt): Nothing {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ExitThread(dwexitcode.toInt())
-    error("Unreachable noreturn C function ExitThread")
+public actual fun exitThread(dwexitcode: UInt): Nothing {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_exitThread(dwexitcode.toInt())
+    error("Unreachable noreturn C function exitThread")
 }
 
-public actual fun FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FlsAlloc(lpcallback.toLong()).toUInt()
+public actual fun flsAlloc(lpcallback: PflsCallbackFunction): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_flsAlloc(0L).toUInt()
 
-public actual fun FlsFree(dwflsindex: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FlsFree(dwflsindex.toInt())
+public actual fun flsFree(dwflsindex: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_flsFree(dwflsindex.toInt())
 
-public actual fun FlsGetValue(dwflsindex: UInt): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FlsGetValue(dwflsindex.toInt())
+public actual fun flsGetValue(dwflsindex: UInt): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_flsGetValue(dwflsindex.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FlsSetValue(dwflsindex: UInt, lpflsdata: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FlsSetValue(dwflsindex.toInt(), lpflsdata)
+public actual fun flsSetValue(dwflsindex: UInt, lpflsdata: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_flsSetValue(dwflsindex.toInt(), (lpflsdata?.value ?: 0L))
 
-public actual fun FlushProcessWriteBuffers() {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FlushProcessWriteBuffers()
+public actual fun flushProcessWriteBuffers() {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
 }
 
-public actual fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: HMODULE) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(pci, mod)
+public actual fun freeLibraryWhenCallbackReturns(pci: PtpCallbackInstance, mod: Hmodule) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(pci, (mod?.value ?: 0L))
 }
 
-public actual fun GetActiveProcessorCount(groupnumber: UShort): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetActiveProcessorCount(groupnumber.toShort()).toUInt()
+public actual fun getActiveProcessorCount(groupnumber: UShort): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getActiveProcessorCount(groupnumber.toShort()).toUInt()
 
-public actual fun GetActiveProcessorGroupCount(): UShort =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount().toUShort()
+public actual fun getActiveProcessorGroupCount(): UShort =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getActiveProcessorGroupCount().toUShort()
 
-public actual fun GetCurrentProcess(): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentProcess()
+public actual fun getCurrentProcess(): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentProcess().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetCurrentProcessId(): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentProcessId().toUInt()
+public actual fun getCurrentProcessId(): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentProcessId().toUInt()
 
-public actual fun GetCurrentProcessorNumber(): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentProcessorNumber().toUInt()
+public actual fun getCurrentProcessorNumber(): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentProcessorNumber().toUInt()
 
-public actual fun GetCurrentProcessorNumberEx(procnumber: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(procnumber)
+public actual fun getCurrentProcessorNumberEx(procnumber: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx((procnumber?.value ?: 0L))
 }
 
-public actual fun GetCurrentThread(): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentThread()
+public actual fun getCurrentThread(): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentThread().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetCurrentThreadId(): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentThreadId().toUInt()
+public actual fun getCurrentThreadId(): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentThreadId().toUInt()
 
-public actual fun GetCurrentThreadStackLimits(lowlimit: Long, highlimit: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(lowlimit, highlimit)
+public actual fun getCurrentThreadStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentThreadStackLimits((lowlimit?.value ?: 0L), (highlimit?.value ?: 0L))
 }
 
-public actual fun GetCurrentUmsThread(): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetCurrentUmsThread()
+public actual fun getCurrentUmsThread(): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getCurrentUmsThread().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetExitCodeProcess(hprocess: HANDLE, lpexitcode: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetExitCodeProcess(hprocess, lpexitcode)
+public actual fun getExitCodeProcess(hprocess: Handle, lpexitcode: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getExitCodeProcess((hprocess?.value ?: 0L), (lpexitcode?.value ?: 0L))
 
-public actual fun GetExitCodeThread(hthread: HANDLE, lpexitcode: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetExitCodeThread(hthread, lpexitcode)
+public actual fun getExitCodeThread(hthread: Handle, lpexitcode: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getExitCodeThread((hthread?.value ?: 0L), (lpexitcode?.value ?: 0L))
 
-public actual fun GetGuiResources(hprocess: HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetGuiResources(hprocess, uiflags.toInt()).toUInt()
+public actual fun getGuiResources(hprocess: Handle, uiflags: GetGuiResourcesFlags): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getGuiResources((hprocess?.value ?: 0L), uiflags.toInt()).toUInt()
 
-public actual fun GetMachineTypeAttributes(machine: UShort, machinetypeattributes: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetMachineTypeAttributes(machine.toShort(), machinetypeattributes)
+public actual fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getMachineTypeAttributes(machine.toShort(), (machinetypeattributes?.value ?: 0L))
 
-public actual fun GetMaximumProcessorCount(groupnumber: UShort): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetMaximumProcessorCount(groupnumber.toShort()).toUInt()
+public actual fun getMaximumProcessorCount(groupnumber: UShort): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getMaximumProcessorCount(groupnumber.toShort()).toUInt()
 
-public actual fun GetMaximumProcessorGroupCount(): UShort =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount().toUShort()
+public actual fun getMaximumProcessorGroupCount(): UShort =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount().toUShort()
 
-public actual fun GetNextUmsListItem(umscontext: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNextUmsListItem(umscontext)
+public actual fun getNextUmsListItem(umscontext: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNextUmsListItem((umscontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetNumaAvailableMemoryNode(node: UByte, availablebytes: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(node.toByte(), availablebytes)
+public actual fun getNumaAvailableMemoryNode(node: UByte, availablebytes: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(node.toByte(), (availablebytes?.value ?: 0L))
 
-public actual fun GetNumaAvailableMemoryNodeEx(node: UShort, availablebytes: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(node.toShort(), availablebytes)
+public actual fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(node.toShort(), (availablebytes?.value ?: 0L))
 
-public actual fun GetNumaHighestNodeNumber(highestnodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(highestnodenumber)
+public actual fun getNumaHighestNodeNumber(highestnodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaHighestNodeNumber((highestnodenumber?.value ?: 0L))
 
-public actual fun GetNumaNodeNumberFromHandle(hfile: HANDLE, nodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(hfile, nodenumber)
+public actual fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle((hfile?.value ?: 0L), (nodenumber?.value ?: 0L))
 
-public actual fun GetNumaNodeProcessorMask(node: UByte, processormask: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(node.toByte(), processormask)
+public actual fun getNumaNodeProcessorMask(node: UByte, processormask: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(node.toByte(), (processormask?.value ?: 0L))
 
-public actual fun GetNumaNodeProcessorMask2(nodenumber: UShort, processormasks: Long, processormaskcount: UShort, requiredmaskcount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(nodenumber.toShort(), processormasks, processormaskcount.toShort(), requiredmaskcount)
+public actual fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: COpaquePointer?, processormaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(nodenumber.toShort(), (processormasks?.value ?: 0L), processormaskcount.toShort(), (requiredmaskcount?.value ?: 0L))
 
-public actual fun GetNumaNodeProcessorMaskEx(node: UShort, processormask: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(node.toShort(), processormask)
+public actual fun getNumaNodeProcessorMaskEx(node: UShort, processormask: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(node.toShort(), (processormask?.value ?: 0L))
 
-public actual fun GetNumaProcessorNode(processor: UByte, nodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaProcessorNode(processor.toByte(), nodenumber)
+public actual fun getNumaProcessorNode(processor: UByte, nodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaProcessorNode(processor.toByte(), (nodenumber?.value ?: 0L))
 
-public actual fun GetNumaProcessorNodeEx(processor: Long, nodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(processor, nodenumber)
+public actual fun getNumaProcessorNodeEx(processor: COpaquePointer?, nodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaProcessorNodeEx((processor?.value ?: 0L), (nodenumber?.value ?: 0L))
 
-public actual fun GetNumaProximityNode(proximityid: UInt, nodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaProximityNode(proximityid.toInt(), nodenumber)
+public actual fun getNumaProximityNode(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaProximityNode(proximityid.toInt(), (nodenumber?.value ?: 0L))
 
-public actual fun GetNumaProximityNodeEx(proximityid: UInt, nodenumber: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(proximityid.toInt(), nodenumber)
+public actual fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getNumaProximityNodeEx(proximityid.toInt(), (nodenumber?.value ?: 0L))
 
-public actual fun GetPriorityClass(hprocess: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetPriorityClass(hprocess).toUInt()
+public actual fun getPriorityClass(hprocess: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getPriorityClass((hprocess?.value ?: 0L)).toUInt()
 
-public actual fun GetProcessAffinityMask(hprocess: HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessAffinityMask(hprocess, lpprocessaffinitymask, lpsystemaffinitymask)
+public actual fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: COpaquePointer?, lpsystemaffinitymask: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessAffinityMask((hprocess?.value ?: 0L), (lpprocessaffinitymask?.value ?: 0L), (lpsystemaffinitymask?.value ?: 0L))
 
-public actual fun GetProcessDEPPolicy(hprocess: HANDLE, lpflags: Long, lppermanent: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessDEPPolicy(hprocess, lpflags, lppermanent)
+public actual fun getProcessDEPPolicy(hprocess: Handle, lpflags: COpaquePointer?, lppermanent: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessDEPPolicy((hprocess?.value ?: 0L), (lpflags?.value ?: 0L), (lppermanent?.value ?: 0L))
 
-public actual fun GetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(process, cpusetmasks, cpusetmaskcount.toShort(), requiredmaskcount)
+public actual fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks((process?.value ?: 0L), (cpusetmasks?.value ?: 0L), cpusetmaskcount.toShort(), (requiredmaskcount?.value ?: 0L))
 
-public actual fun GetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(process, cpusetids, cpusetidcount.toInt(), requiredidcount)
+public actual fun getProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessDefaultCpuSets((process?.value ?: 0L), (cpusetids?.value ?: 0L), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L))
 
-public actual fun GetProcessGroupAffinity(hprocess: HANDLE, groupcount: Long, grouparray: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessGroupAffinity(hprocess, groupcount, grouparray)
+public actual fun getProcessGroupAffinity(hprocess: Handle, groupcount: COpaquePointer?, grouparray: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessGroupAffinity((hprocess?.value ?: 0L), (groupcount?.value ?: 0L), (grouparray?.value ?: 0L))
 
-public actual fun GetProcessHandleCount(hprocess: HANDLE, pdwhandlecount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessHandleCount(hprocess, pdwhandlecount)
+public actual fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessHandleCount((hprocess?.value ?: 0L), (pdwhandlecount?.value ?: 0L))
 
-public actual fun GetProcessHandleFromHwnd(hwnd: HWND): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(hwnd)
+public actual fun getProcessHandleFromHwnd(hwnd: Hwnd): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessHandleFromHwnd((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetProcessId(process: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessId(process).toUInt()
+public actual fun getProcessId(process: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessId((process?.value ?: 0L)).toUInt()
 
-public actual fun GetProcessIdOfThread(thread: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessIdOfThread(thread).toUInt()
+public actual fun getProcessIdOfThread(thread: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessIdOfThread((thread?.value ?: 0L)).toUInt()
 
-public actual fun GetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessInformation(hprocess, processinformationclass, processinformation, processinformationsize.toInt())
+public actual fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessInformation((hprocess?.value ?: 0L), processinformationclass, (processinformation?.value ?: 0L), processinformationsize.toInt())
 
-public actual fun GetProcessIoCounters(hprocess: HANDLE, lpiocounters: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessIoCounters(hprocess, lpiocounters)
+public actual fun getProcessIoCounters(hprocess: Handle, lpiocounters: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessIoCounters((hprocess?.value ?: 0L), (lpiocounters?.value ?: 0L))
 
-public actual fun GetProcessMitigationPolicy(hprocess: HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(hprocess, mitigationpolicy, lpbuffer, dwlength.toLong())
+public actual fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessMitigationPolicy((hprocess?.value ?: 0L), mitigationpolicy, (lpbuffer?.value ?: 0L), dwlength.toLong())
 
-public actual fun GetProcessPriorityBoost(hprocess: HANDLE, pdisablepriorityboost: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessPriorityBoost(hprocess, pdisablepriorityboost)
+public actual fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessPriorityBoost((hprocess?.value ?: 0L), (pdisablepriorityboost?.value ?: 0L))
 
-public actual fun GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessShutdownParameters(lpdwlevel, lpdwflags)
+public actual fun getProcessShutdownParameters(lpdwlevel: COpaquePointer?, lpdwflags: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessShutdownParameters((lpdwlevel?.value ?: 0L), (lpdwflags?.value ?: 0L))
 
-public actual fun GetProcessTimes(hprocess: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessTimes(hprocess, lpcreationtime, lpexittime, lpkerneltime, lpusertime)
+public actual fun getProcessTimes(hprocess: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessTimes((hprocess?.value ?: 0L), (lpcreationtime?.value ?: 0L), (lpexittime?.value ?: 0L), (lpkerneltime?.value ?: 0L), (lpusertime?.value ?: 0L))
 
-public actual fun GetProcessVersion(processid: UInt): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessVersion(processid.toInt()).toUInt()
+public actual fun getProcessVersion(processid: UInt): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessVersion(processid.toInt()).toUInt()
 
-public actual fun GetProcessWorkingSetSize(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(hprocess, lpminimumworkingsetsize, lpmaximumworkingsetsize)
+public actual fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getProcessWorkingSetSize((hprocess?.value ?: 0L), (lpminimumworkingsetsize?.value ?: 0L), (lpmaximumworkingsetsize?.value ?: 0L))
 
-public actual fun GetStartupInfoA(lpstartupinfo: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetStartupInfoA(lpstartupinfo)
+public actual fun getStartupInfoA(lpstartupinfo: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getStartupInfoA((lpstartupinfo?.value ?: 0L))
 }
 
-public actual fun GetStartupInfoW(lpstartupinfo: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetStartupInfoW(lpstartupinfo)
+public actual fun getStartupInfoW(lpstartupinfo: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getStartupInfoW((lpstartupinfo?.value ?: 0L))
 }
 
-public actual fun GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetSystemTimes(lpidletime, lpkerneltime, lpusertime)
+public actual fun getSystemTimes(lpidletime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getSystemTimes((lpidletime?.value ?: 0L), (lpkerneltime?.value ?: 0L), (lpusertime?.value ?: 0L))
 
-public actual fun GetThreadDescription(hthread: HANDLE, ppszthreaddescription: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadDescription(hthread, ppszthreaddescription)
+public actual fun getThreadDescription(hthread: Handle, ppszthreaddescription: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadDescription((hthread?.value ?: 0L), (ppszthreaddescription?.value ?: 0L))
 
-public actual fun GetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadGroupAffinity(hthread, groupaffinity)
+public actual fun getThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadGroupAffinity((hthread?.value ?: 0L), (groupaffinity?.value ?: 0L))
 
-public actual fun GetThreadIOPendingFlag(hthread: HANDLE, lpioispending: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(hthread, lpioispending)
+public actual fun getThreadIOPendingFlag(hthread: Handle, lpioispending: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadIOPendingFlag((hthread?.value ?: 0L), (lpioispending?.value ?: 0L))
 
-public actual fun GetThreadId(thread: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadId(thread).toUInt()
+public actual fun getThreadId(thread: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadId((thread?.value ?: 0L)).toUInt()
 
-public actual fun GetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(hthread, lpidealprocessor)
+public actual fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadIdealProcessorEx((hthread?.value ?: 0L), (lpidealprocessor?.value ?: 0L))
 
-public actual fun GetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadInformation(hthread, threadinformationclass, threadinformation, threadinformationsize.toInt())
+public actual fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadInformation((hthread?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationsize.toInt())
 
-public actual fun GetThreadPriority(hthread: HANDLE): Int =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadPriority(hthread)
+public actual fun getThreadPriority(hthread: Handle): Int =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadPriority((hthread?.value ?: 0L))
 
-public actual fun GetThreadPriorityBoost(hthread: HANDLE, pdisablepriorityboost: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadPriorityBoost(hthread, pdisablepriorityboost)
+public actual fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadPriorityBoost((hthread?.value ?: 0L), (pdisablepriorityboost?.value ?: 0L))
 
-public actual fun GetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(thread, cpusetmasks, cpusetmaskcount.toShort(), requiredmaskcount)
+public actual fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks((thread?.value ?: 0L), (cpusetmasks?.value ?: 0L), cpusetmaskcount.toShort(), (requiredmaskcount?.value ?: 0L))
 
-public actual fun GetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(thread, cpusetids, cpusetidcount.toInt(), requiredidcount)
+public actual fun getThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadSelectedCpuSets((thread?.value ?: 0L), (cpusetids?.value ?: 0L), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L))
 
-public actual fun GetThreadTimes(hthread: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetThreadTimes(hthread, lpcreationtime, lpexittime, lpkerneltime, lpusertime)
+public actual fun getThreadTimes(hthread: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getThreadTimes((hthread?.value ?: 0L), (lpcreationtime?.value ?: 0L), (lpexittime?.value ?: 0L), (lpkerneltime?.value ?: 0L), (lpusertime?.value ?: 0L))
 
-public actual fun GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(umscompletionlist, umscompletionevent)
+public actual fun getUmsCompletionListEvent(umscompletionlist: COpaquePointer?, umscompletionevent: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getUmsCompletionListEvent((umscompletionlist?.value ?: 0L), (umscompletionevent?.value ?: 0L))
 
-public actual fun GetUmsSystemThreadInformation(threadhandle: HANDLE, systemthreadinfo: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(threadhandle, systemthreadinfo)
+public actual fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_getUmsSystemThreadInformation((threadhandle?.value ?: 0L), (systemthreadinfo?.value ?: 0L))
 
-public actual fun InitOnceBeginInitialize(lpinitonce: Long, dwflags: UInt, fpending: Long, lpcontext: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitOnceBeginInitialize(lpinitonce, dwflags.toInt(), fpending, lpcontext)
+public actual fun initOnceBeginInitialize(lpinitonce: COpaquePointer?, dwflags: UInt, fpending: COpaquePointer?, lpcontext: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initOnceBeginInitialize((lpinitonce?.value ?: 0L), dwflags.toInt(), (fpending?.value ?: 0L), (lpcontext?.value ?: 0L))
 
-public actual fun InitOnceComplete(lpinitonce: Long, dwflags: UInt, lpcontext: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitOnceComplete(lpinitonce, dwflags.toInt(), lpcontext)
+public actual fun initOnceComplete(lpinitonce: COpaquePointer?, dwflags: UInt, lpcontext: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initOnceComplete((lpinitonce?.value ?: 0L), dwflags.toInt(), (lpcontext?.value ?: 0L))
 
-public actual fun InitOnceExecuteOnce(initonce: Long, initfn: PINIT_ONCE_FN, parameter: Long, context: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitOnceExecuteOnce(initonce, initfn.toLong(), parameter, context)
+public actual fun initOnceExecuteOnce(initonce: COpaquePointer?, initfn: PinitOnceFn, parameter: COpaquePointer?, context: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initOnceExecuteOnce((initonce?.value ?: 0L), 0L, (parameter?.value ?: 0L), (context?.value ?: 0L))
 
-public actual fun InitOnceInitialize(initonce: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitOnceInitialize(initonce)
+public actual fun initOnceInitialize(initonce: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initOnceInitialize((initonce?.value ?: 0L))
 }
 
-public actual fun InitializeConditionVariable(conditionvariable: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeConditionVariable(conditionvariable)
+public actual fun initializeConditionVariable(conditionvariable: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeConditionVariable((conditionvariable?.value ?: 0L))
 }
 
-public actual fun InitializeCriticalSection(lpcriticalsection: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeCriticalSection(lpcriticalsection)
+public actual fun initializeCriticalSection(lpcriticalsection: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeCriticalSection((lpcriticalsection?.value ?: 0L))
 }
 
-public actual fun InitializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount(lpcriticalsection, dwspincount.toInt())
+public actual fun initializeCriticalSectionAndSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount((lpcriticalsection?.value ?: 0L), dwspincount.toInt())
 
-public actual fun InitializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: UInt, flags: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(lpcriticalsection, dwspincount.toInt(), flags.toInt())
+public actual fun initializeCriticalSectionEx(lpcriticalsection: COpaquePointer?, dwspincount: UInt, flags: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeCriticalSectionEx((lpcriticalsection?.value ?: 0L), dwspincount.toInt(), flags.toInt())
 
-public actual fun InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: UInt, dwflags: UInt, lpsize: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList(lpattributelist, dwattributecount.toInt(), dwflags.toInt(), lpsize)
+public actual fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeProcThreadAttributeList((lpattributelist?.value ?: 0L), dwattributecount.toInt(), dwflags.toInt(), (lpsize?.value ?: 0L))
 
-public actual fun InitializeSListHead(listhead: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeSListHead(listhead)
+public actual fun initializeSListHead(listhead: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeSListHead((listhead?.value ?: 0L))
 }
 
-public actual fun InitializeSRWLock(srwlock: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeSRWLock(srwlock)
+public actual fun initializeSRWLock(srwlock: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeSRWLock((srwlock?.value ?: 0L))
 }
 
-public actual fun InitializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier(lpbarrier, ltotalthreads, lspincount)
+public actual fun initializeSynchronizationBarrier(lpbarrier: COpaquePointer?, ltotalthreads: Int, lspincount: Int): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_initializeSynchronizationBarrier((lpbarrier?.value ?: 0L), ltotalthreads, lspincount)
 
-public actual fun InterlockedFlushSList(listhead: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InterlockedFlushSList(listhead)
+public actual fun interlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_interlockedFlushSList((listhead?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InterlockedPopEntrySList(listhead: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InterlockedPopEntrySList(listhead)
+public actual fun interlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_interlockedPopEntrySList((listhead?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InterlockedPushEntrySList(listhead: Long, listentry: Long): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InterlockedPushEntrySList(listhead, listentry)
+public actual fun interlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_interlockedPushEntrySList((listhead?.value ?: 0L), (listentry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_InterlockedPushListSListEx(listhead, list, listend, count.toInt())
+public actual fun interlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_interlockedPushListSListEx((listhead?.value ?: 0L), (list?.value ?: 0L), (listend?.value ?: 0L), count.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun IsImmersiveProcess(hprocess: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsImmersiveProcess(hprocess)
+public actual fun isImmersiveProcess(hprocess: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isImmersiveProcess((hprocess?.value ?: 0L))
 
-public actual fun IsProcessCritical(hprocess: HANDLE, critical: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsProcessCritical(hprocess, critical)
+public actual fun isProcessCritical(hprocess: Handle, critical: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isProcessCritical((hprocess?.value ?: 0L), (critical?.value ?: 0L))
 
-public actual fun IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(processorfeature.toInt())
+public actual fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isProcessorFeaturePresent(processorfeature.toInt())
 
-public actual fun IsThreadAFiber(): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsThreadAFiber()
+public actual fun isThreadAFiber(): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isThreadAFiber()
 
-public actual fun IsThreadpoolTimerSet(pti: PTP_TIMER): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(pti)
+public actual fun isThreadpoolTimerSet(pti: PtpTimer): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isThreadpoolTimerSet(pti)
 
-public actual fun IsWow64Process(hprocess: HANDLE, wow64process: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsWow64Process(hprocess, wow64process)
+public actual fun isWow64Process(hprocess: Handle, wow64process: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isWow64Process((hprocess?.value ?: 0L), (wow64process?.value ?: 0L))
 
-public actual fun IsWow64Process2(hprocess: HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_IsWow64Process2(hprocess, pprocessmachine, pnativemachine)
+public actual fun isWow64Process2(hprocess: Handle, pprocessmachine: COpaquePointer?, pnativemachine: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_isWow64Process2((hprocess?.value ?: 0L), (pprocessmachine?.value ?: 0L), (pnativemachine?.value ?: 0L))
 
-public actual fun LeaveCriticalSection(lpcriticalsection: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_LeaveCriticalSection(lpcriticalsection)
+public actual fun leaveCriticalSection(lpcriticalsection: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_leaveCriticalSection((lpcriticalsection?.value ?: 0L))
 }
 
-public actual fun LeaveCriticalSectionWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, pcs: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns(pci, pcs)
+public actual fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(pci, (pcs?.value ?: 0L))
 }
 
-public actual fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenEventA(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openEventA(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openEventA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenEventW(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openEventW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openEventW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenMutexW(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openMutexW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openMutexW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(lpboundarydescriptor, lpaliasprefix)
+public actual fun openPrivateNamespaceA(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openPrivateNamespaceA((lpboundarydescriptor?.value ?: 0L), (lpaliasprefix?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix)
+public actual fun openPrivateNamespaceW(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openPrivateNamespaceW((lpboundarydescriptor?.value ?: 0L), (lpaliasprefix?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt())
+public actual fun openProcess(dwdesiredaccess: ProcessAccessRights, binherithandle: Bool, dwprocessid: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenProcessToken(processhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenProcessToken(processhandle, desiredaccess.toInt(), tokenhandle)
+public actual fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openProcessToken((processhandle?.value ?: 0L), desiredaccess.toInt(), (tokenhandle?.value ?: 0L))
 
-public actual fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenSemaphoreW(dwdesiredaccess.toInt(), binherithandle, lpname)
+public actual fun openSemaphoreW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openSemaphoreW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt())
+public actual fun openThread(dwdesiredaccess: ThreadAccessRights, binherithandle: Bool, dwthreadid: UInt): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenThreadToken(threadhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenThreadToken(threadhandle, desiredaccess.toInt(), openasself, tokenhandle)
+public actual fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openThreadToken((threadhandle?.value ?: 0L), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L))
 
-public actual fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, lptimername)
+public actual fun openWaitableTimerA(dwdesiredaccess: UInt, binherithandle: Bool, lptimername: Pcstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_OpenWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, lptimername)
+public actual fun openWaitableTimerW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lptimername: Pcwstr): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_openWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PulseEvent(hevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_PulseEvent(hevent)
+public actual fun pulseEvent(hevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_pulseEvent((hevent?.value ?: 0L))
 
-public actual fun QueryDepthSList(listhead: Long): UShort =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryDepthSList(listhead).toUShort()
+public actual fun queryDepthSList(listhead: COpaquePointer?): UShort =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryDepthSList((listhead?.value ?: 0L)).toUShort()
 
-public actual fun QueryFullProcessImageNameA(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(hprocess, dwflags.toInt(), lpexename, lpdwsize)
+public actual fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryFullProcessImageNameA((hprocess?.value ?: 0L), dwflags.toInt(), (lpexename?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun QueryFullProcessImageNameW(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(hprocess, dwflags.toInt(), lpexename, lpdwsize)
+public actual fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryFullProcessImageNameW((hprocess?.value ?: 0L), dwflags.toInt(), (lpexename?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun QueryProcessAffinityUpdateMode(hprocess: HANDLE, lpdwflags: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode(hprocess, lpdwflags)
+public actual fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode((hprocess?.value ?: 0L), (lpdwflags?.value ?: 0L))
 
-public actual fun QueryProtectedPolicy(policyguid: Long, policyvalue: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryProtectedPolicy(policyguid, policyvalue)
+public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryProtectedPolicy((policyguid?.value ?: 0L), (policyvalue?.value ?: 0L))
 
-public actual fun QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation(ptpp, ptpsi)
+public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toLong(), (ptpsi?.value ?: 0L))
 
-public actual fun QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt, returnlength: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueryUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength.toInt(), returnlength)
+public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryUmsThreadInformation((umsthread?.value ?: 0L), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L), umsthreadinformationlength.toInt(), (returnlength?.value ?: 0L))
 
-public actual fun QueueUserAPC(pfnapc: PAPCFUNC, hthread: HANDLE, dwdata: ULong): UInt =
+public actual fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong): UInt =
     0u
 
-public actual fun QueueUserAPC2(apcroutine: PAPCFUNC, thread: HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL =
+public actual fun queueUserAPC2(apcroutine: Papcfunc, thread: Handle, data: ULong, flags: QueueUserApcFlags): Bool =
     0
 
-public actual fun QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Long, flags: WORKER_THREAD_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_QueueUserWorkItem(function.toLong(), context, flags.toInt())
+public actual fun queueUserWorkItem(function: LpthreadStartRoutine, context: COpaquePointer?, flags: WorkerThreadFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queueUserWorkItem(0L, (context?.value ?: 0L), flags.toInt())
 
-public actual fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(phnewwaitobject, hobject, callback.toLong(), context, dwmilliseconds.toInt(), dwflags.toInt())
+public actual fun registerWaitForSingleObject(phnewwaitobject: COpaquePointer?, hobject: Handle, callback: Waitortimercallback, context: COpaquePointer?, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_registerWaitForSingleObject((phnewwaitobject?.value ?: 0L), (hobject?.value ?: 0L), 0L, (context?.value ?: 0L), dwmilliseconds.toInt(), dwflags.toInt())
 
-public actual fun ReleaseMutex(hmutex: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseMutex(hmutex)
+public actual fun releaseMutex(hmutex: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseMutex((hmutex?.value ?: 0L))
 
-public actual fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: HANDLE) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(pci, mut)
+public actual fun releaseMutexWhenCallbackReturns(pci: PtpCallbackInstance, mut: Handle) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(pci, (mut?.value ?: 0L))
 }
 
-public actual fun ReleaseSRWLockExclusive(srwlock: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(srwlock)
+public actual fun releaseSRWLockExclusive(srwlock: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseSRWLockExclusive((srwlock?.value ?: 0L))
 }
 
-public actual fun ReleaseSRWLockShared(srwlock: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseSRWLockShared(srwlock)
+public actual fun releaseSRWLockShared(srwlock: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseSRWLockShared((srwlock?.value ?: 0L))
 }
 
-public actual fun ReleaseSemaphore(hsemaphore: HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseSemaphore(hsemaphore, lreleasecount, lppreviouscount)
+public actual fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseSemaphore((hsemaphore?.value ?: 0L), lreleasecount, (lppreviouscount?.value ?: 0L))
 
-public actual fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: UInt) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns(pci, sem, crel.toInt())
+public actual fun releaseSemaphoreWhenCallbackReturns(pci: PtpCallbackInstance, sem: Handle, crel: UInt) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(pci, (sem?.value ?: 0L), crel.toInt())
 }
 
-public actual fun ResetEvent(hevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ResetEvent(hevent)
+public actual fun resetEvent(hevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_resetEvent((hevent?.value ?: 0L))
 
-public actual fun ResumeThread(hthread: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_ResumeThread(hthread).toUInt()
+public actual fun resumeThread(hthread: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_resumeThread((hthread?.value ?: 0L)).toUInt()
 
-public actual fun RtwqAddPeriodicCallback(callback: RTWQPERIODICCALLBACK, context: Long, key: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(callback.toLong(), context, key)
+public actual fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: COpaquePointer?, key: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(0L, (context?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun RtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(workqueueidin.toInt(), workqueueidout)
+public actual fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(workqueueidin.toInt(), (workqueueidout?.value ?: 0L))
 
-public actual fun RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE, workqueueid: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(workqueuetype, workqueueid)
+public actual fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(workqueuetype, (workqueueid?.value ?: 0L))
 
-public actual fun RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: PCWSTR, dwtaskid: UInt, lpriority: Int, donecallback: Long, donestate: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), usageclass, dwtaskid.toInt(), lpriority, donecallback, donestate)
+public actual fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), (usageclass?.value ?: 0L), dwtaskid.toInt(), lpriority, (donecallback?.value ?: 0L), (donestate?.value ?: 0L))
 
-public actual fun RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: Long, donestate: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), donecallback, donestate)
+public actual fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), (donecallback?.value ?: 0L), (donestate?.value ?: 0L))
 
-public actual fun RtwqCancelDeadline(prequest: HANDLE): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqCancelDeadline(prequest)
+public actual fun rtwqCancelDeadline(prequest: Handle): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqCancelDeadline((prequest?.value ?: 0L))
 
-public actual fun RtwqCancelWorkItem(key: ULong): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqCancelWorkItem(key.toLong())
+public actual fun rtwqCancelWorkItem(key: ULong): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqCancelWorkItem(key.toLong())
 
-public actual fun RtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(appobject, callback, appstate, asyncresult)
+public actual fun rtwqCreateAsyncResult(appobject: COpaquePointer?, callback: COpaquePointer?, appstate: COpaquePointer?, asyncresult: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqCreateAsyncResult((appobject?.value ?: 0L), (callback?.value ?: 0L), (appstate?.value ?: 0L), (asyncresult?.value ?: 0L))
 
-public actual fun RtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS(result, taskid)
+public actual fun rtwqEndRegisterWorkQueueWithMMCSS(result: COpaquePointer?, taskid: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS((result?.value ?: 0L), (taskid?.value ?: 0L))
 
-public actual fun RtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: PWSTR, usageclasslength: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), usageclass, usageclasslength)
+public actual fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), (usageclass?.value ?: 0L), (usageclasslength?.value ?: 0L))
 
-public actual fun RtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), priority)
+public actual fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), (priority?.value ?: 0L))
 
-public actual fun RtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), taskid)
+public actual fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), (taskid?.value ?: 0L))
 
-public actual fun RtwqInvokeCallback(result: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqInvokeCallback(result)
+public actual fun rtwqInvokeCallback(result: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqInvokeCallback((result?.value ?: 0L))
 
-public actual fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: HANDLE, out: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(workqueueid.toInt(), hfile, out)
+public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L), (out?.value ?: 0L))
 
-public actual fun RtwqLockPlatform(): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqLockPlatform()
+public actual fun rtwqLockPlatform(): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqLockPlatform()
 
-public actual fun RtwqLockSharedWorkQueue(usageclass: PCWSTR, basepriority: Int, taskid: Long, id: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(usageclass, basepriority, taskid, id)
+public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: COpaquePointer?, id: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue((usageclass?.value ?: 0L), basepriority, (taskid?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun RtwqLockWorkQueue(workqueueid: UInt): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqLockWorkQueue(workqueueid.toInt())
+public actual fun rtwqLockWorkQueue(workqueueid: UInt): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqLockWorkQueue(workqueueid.toInt())
 
-public actual fun RtwqPutWaitingWorkItem(hevent: HANDLE, lpriority: Int, result: Long, key: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(hevent, lpriority, result, key)
+public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: COpaquePointer?, key: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem((hevent?.value ?: 0L), lpriority, (result?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun RtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqPutWorkItem(dwqueue.toInt(), lpriority, result)
+public actual fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqPutWorkItem(dwqueue.toInt(), lpriority, (result?.value ?: 0L))
 
-public actual fun RtwqRegisterPlatformEvents(platformevents: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(platformevents)
+public actual fun rtwqRegisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents((platformevents?.value ?: 0L))
 
-public actual fun RtwqRegisterPlatformWithMMCSS(usageclass: PCWSTR, taskid: Long, lpriority: Int): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(usageclass, taskid, lpriority)
+public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: COpaquePointer?, lpriority: Int): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS((usageclass?.value ?: 0L), (taskid?.value ?: 0L), lpriority)
 
-public actual fun RtwqRemovePeriodicCallback(dwkey: UInt): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(dwkey.toInt())
+public actual fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(dwkey.toInt())
 
-public actual fun RtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(result, timeout, key)
+public actual fun rtwqScheduleWorkItem(result: COpaquePointer?, timeout: Long, key: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqScheduleWorkItem((result?.value ?: 0L), timeout, (key?.value ?: 0L))
 
-public actual fun RtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqSetDeadline(workqueueid.toInt(), deadlineinhns, prequest)
+public actual fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqSetDeadline(workqueueid.toInt(), deadlineinhns, (prequest?.value ?: 0L))
 
-public actual fun RtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqSetDeadline2(workqueueid.toInt(), deadlineinhns, predeadlineinhns, prequest)
+public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqSetDeadline2(workqueueid.toInt(), deadlineinhns, predeadlineinhns, (prequest?.value ?: 0L))
 
-public actual fun RtwqSetLongRunning(workqueueid: UInt, enable: BOOL): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqSetLongRunning(workqueueid.toInt(), enable)
+public actual fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqSetLongRunning(workqueueid.toInt(), enable)
 
-public actual fun RtwqShutdown(): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqShutdown()
+public actual fun rtwqShutdown(): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqShutdown()
 
-public actual fun RtwqStartup(): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqStartup()
+public actual fun rtwqStartup(): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqStartup()
 
-public actual fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: HANDLE): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(workqueueid.toInt(), hfile)
+public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L))
 
-public actual fun RtwqUnlockPlatform(): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqUnlockPlatform()
+public actual fun rtwqUnlockPlatform(): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqUnlockPlatform()
 
-public actual fun RtwqUnlockWorkQueue(workqueueid: UInt): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(workqueueid.toInt())
+public actual fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(workqueueid.toInt())
 
-public actual fun RtwqUnregisterPlatformEvents(platformevents: Long): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(platformevents)
+public actual fun rtwqUnregisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents((platformevents?.value ?: 0L))
 
-public actual fun RtwqUnregisterPlatformFromMMCSS(): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS()
+public actual fun rtwqUnregisterPlatformFromMMCSS(): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS()
 
-public actual fun SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: UInt): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(lpcriticalsection, dwspincount.toInt()).toUInt()
+public actual fun setCriticalSectionSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setCriticalSectionSpinCount((lpcriticalsection?.value ?: 0L), dwspincount.toInt()).toUInt()
 
-public actual fun SetEvent(hevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetEvent(hevent)
+public actual fun setEvent(hevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setEvent((hevent?.value ?: 0L))
 
-public actual fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: HANDLE) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(pci, evt)
+public actual fun setEventWhenCallbackReturns(pci: PtpCallbackInstance, evt: Handle) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(pci, (evt?.value ?: 0L))
 }
 
-public actual fun SetPriorityClass(hprocess: HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetPriorityClass(hprocess, dwpriorityclass.toInt())
+public actual fun setPriorityClass(hprocess: Handle, dwpriorityclass: ProcessCreationFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setPriorityClass((hprocess?.value ?: 0L), dwpriorityclass.toInt())
 
-public actual fun SetProcessAffinityMask(hprocess: HANDLE, dwprocessaffinitymask: ULong): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessAffinityMask(hprocess, dwprocessaffinitymask.toLong())
+public actual fun setProcessAffinityMask(hprocess: Handle, dwprocessaffinitymask: ULong): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessAffinityMask((hprocess?.value ?: 0L), dwprocessaffinitymask.toLong())
 
-public actual fun SetProcessAffinityUpdateMode(hprocess: HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(hprocess, dwflags.toInt())
+public actual fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: ProcessAffinityAutoUpdateFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode((hprocess?.value ?: 0L), dwflags.toInt())
 
-public actual fun SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessDEPPolicy(dwflags.toInt())
+public actual fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessDEPPolicy(dwflags.toInt())
 
-public actual fun SetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(process, cpusetmasks, cpusetmaskcount.toShort())
+public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks((process?.value ?: 0L), (cpusetmasks?.value ?: 0L), cpusetmaskcount.toShort())
 
-public actual fun SetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(process, cpusetids, cpusetidcount.toInt())
+public actual fun setProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessDefaultCpuSets((process?.value ?: 0L), (cpusetids?.value ?: 0L), cpusetidcount.toInt())
 
-public actual fun SetProcessDynamicEHContinuationTargets(process: HANDLE, numberoftargets: UShort, targets: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets(process, numberoftargets.toShort(), targets)
+public actual fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets((process?.value ?: 0L), numberoftargets.toShort(), (targets?.value ?: 0L))
 
-public actual fun SetProcessDynamicEnforcedCetCompatibleRanges(process: HANDLE, numberofranges: UShort, ranges: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges(process, numberofranges.toShort(), ranges)
+public actual fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges((process?.value ?: 0L), numberofranges.toShort(), (ranges?.value ?: 0L))
 
-public actual fun SetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessInformation(hprocess, processinformationclass, processinformation, processinformationsize.toInt())
+public actual fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessInformation((hprocess?.value ?: 0L), processinformationclass, (processinformation?.value ?: 0L), processinformationsize.toInt())
 
-public actual fun SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(mitigationpolicy, lpbuffer, dwlength.toLong())
+public actual fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessMitigationPolicy(mitigationpolicy, (lpbuffer?.value ?: 0L), dwlength.toLong())
 
-public actual fun SetProcessPriorityBoost(hprocess: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessPriorityBoost(hprocess, bdisablepriorityboost)
+public actual fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboost: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessPriorityBoost((hprocess?.value ?: 0L), bdisablepriorityboost)
 
-public actual fun SetProcessRestrictionExemption(fenableexemption: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessRestrictionExemption(fenableexemption)
+public actual fun setProcessRestrictionExemption(fenableexemption: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessRestrictionExemption(fenableexemption)
 
-public actual fun SetProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt())
+public actual fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt())
 
-public actual fun SetProcessWorkingSetSize(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(hprocess, dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong())
+public actual fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProcessWorkingSetSize((hprocess?.value ?: 0L), dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong())
 
-public actual fun SetProtectedPolicy(policyguid: Long, policyvalue: ULong, oldpolicyvalue: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetProtectedPolicy(policyguid, policyvalue.toLong(), oldpolicyvalue)
+public actual fun setProtectedPolicy(policyguid: COpaquePointer?, policyvalue: ULong, oldpolicyvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setProtectedPolicy((policyguid?.value ?: 0L), policyvalue.toLong(), (oldpolicyvalue?.value ?: 0L))
 
-public actual fun SetThreadAffinityMask(hthread: HANDLE, dwthreadaffinitymask: ULong): ULong =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadAffinityMask(hthread, dwthreadaffinitymask.toLong()).toULong()
+public actual fun setThreadAffinityMask(hthread: Handle, dwthreadaffinitymask: ULong): ULong =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadAffinityMask((hthread?.value ?: 0L), dwthreadaffinitymask.toLong()).toULong()
 
-public actual fun SetThreadDescription(hthread: HANDLE, lpthreaddescription: PCWSTR): HRESULT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadDescription(hthread, lpthreaddescription)
+public actual fun setThreadDescription(hthread: Handle, lpthreaddescription: Pcwstr): Hresult =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadDescription((hthread?.value ?: 0L), (lpthreaddescription?.value ?: 0L))
 
-public actual fun SetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadGroupAffinity(hthread, groupaffinity, previousgroupaffinity)
+public actual fun setThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?, previousgroupaffinity: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadGroupAffinity((hthread?.value ?: 0L), (groupaffinity?.value ?: 0L), (previousgroupaffinity?.value ?: 0L))
 
-public actual fun SetThreadIdealProcessor(hthread: HANDLE, dwidealprocessor: UInt): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadIdealProcessor(hthread, dwidealprocessor.toInt()).toUInt()
+public actual fun setThreadIdealProcessor(hthread: Handle, dwidealprocessor: UInt): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadIdealProcessor((hthread?.value ?: 0L), dwidealprocessor.toInt()).toUInt()
 
-public actual fun SetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(hthread, lpidealprocessor, lppreviousidealprocessor)
+public actual fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?, lppreviousidealprocessor: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadIdealProcessorEx((hthread?.value ?: 0L), (lpidealprocessor?.value ?: 0L), (lppreviousidealprocessor?.value ?: 0L))
 
-public actual fun SetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadInformation(hthread, threadinformationclass, threadinformation, threadinformationsize.toInt())
+public actual fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadInformation((hthread?.value ?: 0L), threadinformationclass, (threadinformation?.value ?: 0L), threadinformationsize.toInt())
 
-public actual fun SetThreadPriority(hthread: HANDLE, npriority: THREAD_PRIORITY): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadPriority(hthread, npriority)
+public actual fun setThreadPriority(hthread: Handle, npriority: ThreadPriority): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadPriority((hthread?.value ?: 0L), npriority)
 
-public actual fun SetThreadPriorityBoost(hthread: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadPriorityBoost(hthread, bdisablepriorityboost)
+public actual fun setThreadPriorityBoost(hthread: Handle, bdisablepriorityboost: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadPriorityBoost((hthread?.value ?: 0L), bdisablepriorityboost)
 
-public actual fun SetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(thread, cpusetmasks, cpusetmaskcount.toShort())
+public actual fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks((thread?.value ?: 0L), (cpusetmasks?.value ?: 0L), cpusetmaskcount.toShort())
 
-public actual fun SetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(thread, cpusetids, cpusetidcount.toInt())
+public actual fun setThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadSelectedCpuSets((thread?.value ?: 0L), (cpusetids?.value ?: 0L), cpusetidcount.toInt())
 
-public actual fun SetThreadStackGuarantee(stacksizeinbytes: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadStackGuarantee(stacksizeinbytes)
+public actual fun setThreadStackGuarantee(stacksizeinbytes: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadStackGuarantee((stacksizeinbytes?.value ?: 0L))
 
-public actual fun SetThreadToken(thread: Long, token: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadToken(thread, token)
+public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadToken((thread?.value ?: 0L), (token?.value ?: 0L))
 
-public actual fun SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(ptpp, ptpsi)
+public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toLong(), (ptpsi?.value ?: 0L))
 
-public actual fun SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: UInt) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(ptpp, cthrdmost.toInt())
+public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toLong(), cthrdmost.toInt())
 }
 
-public actual fun SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(ptpp, cthrdmic.toInt())
+public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toLong(), cthrdmic.toInt())
 
-public actual fun SetThreadpoolTimer(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolTimer(pti, pftduetime, msperiod.toInt(), mswindowlength.toInt())
+public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolTimer(pti, (pftduetime?.value ?: 0L), msperiod.toInt(), mswindowlength.toInt())
 }
 
-public actual fun SetThreadpoolTimerEx(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(pti, pftduetime, msperiod.toInt(), mswindowlength.toInt())
+public actual fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolTimerEx(pti, (pftduetime?.value ?: 0L), msperiod.toInt(), mswindowlength.toInt())
 
-public actual fun SetThreadpoolWait(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolWait(pwa, h, pfttimeout)
+public actual fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolWait(pwa, (h?.value ?: 0L), (pfttimeout?.value ?: 0L))
 }
 
-public actual fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long, reserved: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(pwa, h, pfttimeout, reserved)
+public actual fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolWaitEx(pwa, (h?.value ?: 0L), (pfttimeout?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetTimerQueueTimer(timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): HANDLE =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetTimerQueueTimer(timerqueue, callback.toLong(), parameter, duetime.toInt(), period.toInt(), preferio)
+public actual fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, preferio: Bool): Handle =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setTimerQueueTimer((timerqueue?.value ?: 0L), 0L, (parameter?.value ?: 0L), duetime.toInt(), period.toInt(), preferio).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength.toInt())
+public actual fun setUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setUmsThreadInformation((umsthread?.value ?: 0L), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L), umsthreadinformationlength.toInt())
 
-public actual fun SetWaitableTimer(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetWaitableTimer(htimer, lpduetime, lperiod, pfncompletionroutine.toLong(), lpargtocompletionroutine, fresume)
+public actual fun setWaitableTimer(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, fresume: Bool): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setWaitableTimer((htimer?.value ?: 0L), (lpduetime?.value ?: 0L), lperiod, 0L, (lpargtocompletionroutine?.value ?: 0L), fresume)
 
-public actual fun SetWaitableTimerEx(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SetWaitableTimerEx(htimer, lpduetime, lperiod, pfncompletionroutine.toLong(), lpargtocompletionroutine, wakecontext, tolerabledelay.toInt())
+public actual fun setWaitableTimerEx(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, wakecontext: COpaquePointer?, tolerabledelay: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setWaitableTimerEx((htimer?.value ?: 0L), (lpduetime?.value ?: 0L), lperiod, 0L, (lpargtocompletionroutine?.value ?: 0L), (wakecontext?.value ?: 0L), tolerabledelay.toInt())
 
-public actual fun SignalObjectAndWait(hobjecttosignal: HANDLE, hobjecttowaiton: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SignalObjectAndWait(hobjecttosignal, hobjecttowaiton, dwmilliseconds.toInt(), balertable).toUInt()
+public actual fun signalObjectAndWait(hobjecttosignal: Handle, hobjecttowaiton: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_signalObjectAndWait((hobjecttosignal?.value ?: 0L), (hobjecttowaiton?.value ?: 0L), dwmilliseconds.toInt(), balertable).toUInt()
 
-public actual fun Sleep(dwmilliseconds: UInt) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_Sleep(dwmilliseconds.toInt())
+public actual fun sleep(dwmilliseconds: UInt) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_sleep(dwmilliseconds.toInt())
 }
 
-public actual fun SleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SleepConditionVariableCS(conditionvariable, criticalsection, dwmilliseconds.toInt())
+public actual fun sleepConditionVariableCS(conditionvariable: COpaquePointer?, criticalsection: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_sleepConditionVariableCS((conditionvariable?.value ?: 0L), (criticalsection?.value ?: 0L), dwmilliseconds.toInt())
 
-public actual fun SleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: UInt, flags: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SleepConditionVariableSRW(conditionvariable, srwlock, dwmilliseconds.toInt(), flags.toInt())
+public actual fun sleepConditionVariableSRW(conditionvariable: COpaquePointer?, srwlock: COpaquePointer?, dwmilliseconds: UInt, flags: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_sleepConditionVariableSRW((conditionvariable?.value ?: 0L), (srwlock?.value ?: 0L), dwmilliseconds.toInt(), flags.toInt())
 
-public actual fun SleepEx(dwmilliseconds: UInt, balertable: BOOL): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SleepEx(dwmilliseconds.toInt(), balertable).toUInt()
+public actual fun sleepEx(dwmilliseconds: UInt, balertable: Bool): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_sleepEx(dwmilliseconds.toInt(), balertable).toUInt()
 
-public actual fun StartThreadpoolIo(pio: PTP_IO) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_StartThreadpoolIo(pio)
+public actual fun startThreadpoolIo(pio: PtpIo) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_startThreadpoolIo(pio)
 }
 
-public actual fun SubmitThreadpoolWork(pwk: PTP_WORK) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SubmitThreadpoolWork(pwk)
+public actual fun submitThreadpoolWork(pwk: PtpWork) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_submitThreadpoolWork(pwk)
 }
 
-public actual fun SuspendThread(hthread: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SuspendThread(hthread).toUInt()
+public actual fun suspendThread(hthread: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_suspendThread((hthread?.value ?: 0L)).toUInt()
 
-public actual fun SwitchToFiber(lpfiber: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SwitchToFiber(lpfiber)
+public actual fun switchToFiber(lpfiber: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_switchToFiber((lpfiber?.value ?: 0L))
 }
 
-public actual fun SwitchToThread(): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_SwitchToThread()
+public actual fun switchToThread(): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_switchToThread()
 
-public actual fun TerminateProcess(hprocess: HANDLE, uexitcode: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TerminateProcess(hprocess, uexitcode.toInt())
+public actual fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_terminateProcess((hprocess?.value ?: 0L), uexitcode.toInt())
 
-public actual fun TerminateThread(hthread: HANDLE, dwexitcode: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TerminateThread(hthread, dwexitcode.toInt())
+public actual fun terminateThread(hthread: Handle, dwexitcode: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_terminateThread((hthread?.value ?: 0L), dwexitcode.toInt())
 
-public actual fun TlsAlloc(): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TlsAlloc().toUInt()
+public actual fun tlsAlloc(): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tlsAlloc().toUInt()
 
-public actual fun TlsFree(dwtlsindex: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TlsFree(dwtlsindex.toInt())
+public actual fun tlsFree(dwtlsindex: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tlsFree(dwtlsindex.toInt())
 
-public actual fun TlsGetValue(dwtlsindex: UInt): Long =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TlsGetValue(dwtlsindex.toInt())
+public actual fun tlsGetValue(dwtlsindex: UInt): COpaquePointer? =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tlsGetValue(dwtlsindex.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun TlsSetValue(dwtlsindex: UInt, lptlsvalue: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TlsSetValue(dwtlsindex.toInt(), lptlsvalue)
+public actual fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tlsSetValue(dwtlsindex.toInt(), (lptlsvalue?.value ?: 0L))
 
-public actual fun TryAcquireSRWLockExclusive(srwlock: Long): Boolean =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(srwlock)
+public actual fun tryAcquireSRWLockExclusive(srwlock: COpaquePointer?): Boolean =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive((srwlock?.value ?: 0L))
 
-public actual fun TryAcquireSRWLockShared(srwlock: Long): Boolean =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(srwlock)
+public actual fun tryAcquireSRWLockShared(srwlock: COpaquePointer?): Boolean =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tryAcquireSRWLockShared((srwlock?.value ?: 0L))
 
-public actual fun TryEnterCriticalSection(lpcriticalsection: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TryEnterCriticalSection(lpcriticalsection)
+public actual fun tryEnterCriticalSection(lpcriticalsection: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_tryEnterCriticalSection((lpcriticalsection?.value ?: 0L))
 
-public actual fun TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: Long, pcbe: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(pfns.toLong(), pv, pcbe)
+public actual fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(0L, (pv?.value ?: 0L), (pcbe?.value ?: 0L))
 
-public actual fun UmsThreadYield(schedulerparam: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_UmsThreadYield(schedulerparam)
+public actual fun umsThreadYield(schedulerparam: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_umsThreadYield((schedulerparam?.value ?: 0L))
 
-public actual fun UnregisterWait(waithandle: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_UnregisterWait(waithandle)
+public actual fun unregisterWait(waithandle: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_unregisterWait((waithandle?.value ?: 0L))
 
-public actual fun UnregisterWaitEx(waithandle: HANDLE, completionevent: HANDLE): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_UnregisterWaitEx(waithandle, completionevent)
+public actual fun unregisterWaitEx(waithandle: Handle, completionevent: Handle): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_unregisterWaitEx((waithandle?.value ?: 0L), (completionevent?.value ?: 0L))
 
-public actual fun UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: UInt, attribute: ULong, lpvalue: Long, cbsize: ULong, lppreviousvalue: Long, lpreturnsize: Long): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(lpattributelist, dwflags.toInt(), attribute.toLong(), lpvalue, cbsize.toLong(), lppreviousvalue, lpreturnsize)
+public actual fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: COpaquePointer?, cbsize: ULong, lppreviousvalue: COpaquePointer?, lpreturnsize: COpaquePointer?): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_updateProcThreadAttribute((lpattributelist?.value ?: 0L), dwflags.toInt(), attribute.toLong(), (lpvalue?.value ?: 0L), cbsize.toLong(), (lppreviousvalue?.value ?: 0L), (lpreturnsize?.value ?: 0L))
 
-public actual fun WaitForInputIdle(hprocess: HANDLE, dwmilliseconds: UInt): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForInputIdle(hprocess, dwmilliseconds.toInt()).toUInt()
+public actual fun waitForInputIdle(hprocess: Handle, dwmilliseconds: UInt): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForInputIdle((hprocess?.value ?: 0L), dwmilliseconds.toInt()).toUInt()
 
-public actual fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): WAIT_EVENT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForMultipleObjects(ncount.toInt(), lphandles, bwaitall, dwmilliseconds.toInt()).toUInt()
+public actual fun waitForMultipleObjects(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForMultipleObjects(ncount.toInt(), (lphandles?.value ?: 0L), bwaitall, dwmilliseconds.toInt()).toUInt()
 
-public actual fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(ncount.toInt(), lphandles, bwaitall, dwmilliseconds.toInt(), balertable).toUInt()
+public actual fun waitForMultipleObjectsEx(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(ncount.toInt(), (lphandles?.value ?: 0L), bwaitall, dwmilliseconds.toInt(), balertable).toUInt()
 
-public actual fun WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: UInt): WAIT_EVENT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForSingleObject(hhandle, dwmilliseconds.toInt()).toUInt()
+public actual fun waitForSingleObject(hhandle: Handle, dwmilliseconds: UInt): WaitEvent =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForSingleObject((hhandle?.value ?: 0L), dwmilliseconds.toInt()).toUInt()
 
-public actual fun WaitForSingleObjectEx(hhandle: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForSingleObjectEx(hhandle, dwmilliseconds.toInt(), balertable).toUInt()
+public actual fun waitForSingleObjectEx(hhandle: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForSingleObjectEx((hhandle?.value ?: 0L), dwmilliseconds.toInt(), balertable).toUInt()
 
-public actual fun WaitForThreadpoolIoCallbacks(pio: PTP_IO, fcancelpendingcallbacks: BOOL) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(pio, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolIoCallbacks(pio: PtpIo, fcancelpendingcallbacks: Bool) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(pio, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolTimerCallbacks(pti: PTP_TIMER, fcancelpendingcallbacks: BOOL) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(pti, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolTimerCallbacks(pti: PtpTimer, fcancelpendingcallbacks: Bool) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(pti, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolWaitCallbacks(pwa: PTP_WAIT, fcancelpendingcallbacks: BOOL) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(pwa, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolWaitCallbacks(pwa: PtpWait, fcancelpendingcallbacks: Bool) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(pwa, fcancelpendingcallbacks)
 }
 
-public actual fun WaitForThreadpoolWorkCallbacks(pwk: PTP_WORK, fcancelpendingcallbacks: BOOL) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(pwk, fcancelpendingcallbacks)
+public actual fun waitForThreadpoolWorkCallbacks(pwk: PtpWork, fcancelpendingcallbacks: Bool) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(pwk, fcancelpendingcallbacks)
 }
 
-public actual fun WaitOnAddress(address: Long, compareaddress: Long, addresssize: ULong, dwmilliseconds: UInt): BOOL =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WaitOnAddress(address, compareaddress, addresssize.toLong(), dwmilliseconds.toInt())
+public actual fun waitOnAddress(address: COpaquePointer?, compareaddress: COpaquePointer?, addresssize: ULong, dwmilliseconds: UInt): Bool =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_waitOnAddress((address?.value ?: 0L), (compareaddress?.value ?: 0L), addresssize.toLong(), dwmilliseconds.toInt())
 
-public actual fun WakeAllConditionVariable(conditionvariable: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WakeAllConditionVariable(conditionvariable)
+public actual fun wakeAllConditionVariable(conditionvariable: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wakeAllConditionVariable((conditionvariable?.value ?: 0L))
 }
 
-public actual fun WakeByAddressAll(address: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WakeByAddressAll(address)
+public actual fun wakeByAddressAll(address: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wakeByAddressAll((address?.value ?: 0L))
 }
 
-public actual fun WakeByAddressSingle(address: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WakeByAddressSingle(address)
+public actual fun wakeByAddressSingle(address: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wakeByAddressSingle((address?.value ?: 0L))
 }
 
-public actual fun WakeConditionVariable(conditionvariable: Long) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WakeConditionVariable(conditionvariable)
+public actual fun wakeConditionVariable(conditionvariable: COpaquePointer?) {
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wakeConditionVariable((conditionvariable?.value ?: 0L))
 }
 
-public actual fun WinExec(lpcmdline: PCSTR, ucmdshow: UInt): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_WinExec(lpcmdline, ucmdshow.toInt()).toUInt()
+public actual fun winExec(lpcmdline: Pcstr, ucmdshow: UInt): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_winExec((lpcmdline?.value ?: 0L), ucmdshow.toInt()).toUInt()
 
-public actual fun Wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine(machine.toShort()).toUShort()
+public actual fun wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(machine.toShort()).toUShort()
 
-public actual fun Wow64SuspendThread(hthread: HANDLE): UInt =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_Wow64SuspendThread(hthread).toUInt()
+public actual fun wow64SuspendThread(hthread: Handle): UInt =
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_wow64SuspendThread((hthread?.value ?: 0L)).toUInt()

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceClose(JNIEnv* km_env, jclass km_clazz, jlong hswdevice) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceClose(JNIEnv* km_env, jclass km_clazz, jlong hswdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceCreate(JNIEnv* km_env, jclass km_clazz, jlong pszenumeratorname, jlong pszparentdeviceinstance, jlong pcreateinfo, jint cpropertycount, jlong pproperties, jlong pcallback, jlong pcontext, jlong phswdevice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceCreate(JNIEnv* km_env, jclass km_clazz, jlong pszenumeratorname, jlong pszparentdeviceinstance, jlong pcreateinfo, jint cpropertycount, jlong pproperties, jlong pcallback, jlong pcontext, jlong phswdevice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -59,7 +59,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceGetLifetime(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong plifetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceGetLifetime(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong plifetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceInterfacePropertySet(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pszdeviceinterfaceid, jint cpropertycount, jlong pproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceInterfacePropertySet(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pszdeviceinterfaceid, jint cpropertycount, jlong pproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceInterfaceRegister(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pinterfaceclassguid, jlong pszreferencestring, jint cpropertycount, jlong pproperties, jint fenabled, jlong ppszdeviceinterfaceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceInterfaceRegister(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pinterfaceclassguid, jlong pszreferencestring, jint cpropertycount, jlong pproperties, jint fenabled, jlong ppszdeviceinterfaceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceInterfaceSetState(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pszdeviceinterfaceid, jint fenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceInterfaceSetState(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jlong pszdeviceinterfaceid, jint fenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDevicePropertySet(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jint cpropertycount, jlong pproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDevicePropertySet(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jint cpropertycount, jlong pproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -163,7 +163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwDeviceSetLifetime(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jint lifetime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swDeviceSetLifetime(JNIEnv* km_env, jclass km_clazz, jlong hswdevice, jint lifetime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1SwMemFree(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_enumeration_pnp_WindowsWin32DevicesEnumerationPnpJniBridge_windowssys_1windows_1win32_1devices_1enumeration_1pnp_1swMemFree(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

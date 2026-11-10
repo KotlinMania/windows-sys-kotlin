@@ -2,213 +2,218 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 private val _windowsWin32StoragePackagingAppxNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ActivatePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, cookie: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_ActivatePackageVirtualizationContext(context.toString(), cookie.toString()) as Int) else 0
+public actual fun activatePackageVirtualizationContext(context: PackageVirtualizationContextHandle, cookie: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_activatePackageVirtualizationContext((context?.value ?: 0L).toString(), (cookie?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPackageDependency(packagedependencyid: PCWSTR, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: Long, packagefullname: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AddPackageDependency(packagedependencyid.toString(), rank, options, packagedependencycontext.toString(), packagefullname.toString()) as Int) else 0
+public actual fun addPackageDependency(packagedependencyid: Pcwstr, rank: Int, options: AddPackageDependencyOptions, packagedependencycontext: COpaquePointer?, packagefullname: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_addPackageDependency((packagedependencyid?.value ?: 0L).toString(), rank, options, (packagedependencycontext?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetClrCompat(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetClrCompat(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetClrCompat(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetClrCompat((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetCreateFileAccess(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetCreateFileAccess(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetCreateFileAccess(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetCreateFileAccess((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetLifecycleManagement(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetLifecycleManagement(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetLifecycleManagement(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetLifecycleManagement((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetMediaFoundationCodecLoading(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetMediaFoundationCodecLoading(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetMediaFoundationCodecLoading(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetMediaFoundationCodecLoading((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetProcessTerminationMethod(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetProcessTerminationMethod(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetProcessTerminationMethod(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetProcessTerminationMethod((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetShowDeveloperDiagnostic(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetShowDeveloperDiagnostic(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetShowDeveloperDiagnostic(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetShowDeveloperDiagnostic((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetThreadInitializationType(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetThreadInitializationType(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetThreadInitializationType(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetThreadInitializationType((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppPolicyGetWindowingModel(processtoken: HANDLE, policy: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_AppPolicyGetWindowingModel(processtoken.toString(), policy.toString()) as Int).toUInt() else 0u
+public actual fun appPolicyGetWindowingModel(processtoken: Handle, policy: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_appPolicyGetWindowingModel((processtoken?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckIsMSIXPackage(packagefullname: PCWSTR, ismsixpackage: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_CheckIsMSIXPackage(packagefullname.toString(), ismsixpackage.toString()) as Int) else 0
+public actual fun checkIsMSIXPackage(packagefullname: Pcwstr, ismsixpackage: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPackage((packagefullname?.value ?: 0L).toString(), (ismsixpackage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClosePackageInfo(packageinforeference: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_ClosePackageInfo(packageinforeference.toString()) as Int).toUInt() else 0u
+public actual fun closePackageInfo(packageinforeference: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_closePackageInfo((packageinforeference?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePackageVirtualizationContext(packagefamilyname: PCWSTR, context: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_CreatePackageVirtualizationContext(packagefamilyname.toString(), context.toString()) as Int) else 0
+public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_createPackageVirtualizationContext((packagefamilyname?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeactivatePackageVirtualizationContext(cookie: ULong) {
+public actual fun deactivatePackageVirtualizationContext(cookie: ULong) {
     if (_windowsWin32StoragePackagingAppxNapiAddon != null) {
-        _windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_DeactivatePackageVirtualizationContext(cookie.toString())
+        _windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_deactivatePackageVirtualizationContext(cookie.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DeletePackageDependency(packagedependencyid: PCWSTR): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_DeletePackageDependency(packagedependencyid.toString()) as Int) else 0
+public actual fun deletePackageDependency(packagedependencyid: Pcwstr): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_deletePackageDependency((packagedependencyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DuplicatePackageVirtualizationContext(sourcecontext: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, destcontext: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_DuplicatePackageVirtualizationContext(sourcecontext.toString(), destcontext.toString()) as Int) else 0
+public actual fun duplicatePackageVirtualizationContext(sourcecontext: PackageVirtualizationContextHandle, destcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_duplicatePackageVirtualizationContext((sourcecontext?.value ?: 0L).toString(), (destcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindPackagesByPackageFamily(packagefamilyname: PCWSTR, packagefilters: UInt, count: Long, packagefullnames: Long, bufferlength: Long, buffer: PWSTR, packageproperties: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_FindPackagesByPackageFamily(packagefamilyname.toString(), packagefilters.toInt(), count.toString(), packagefullnames.toString(), bufferlength.toString(), buffer.toString(), packageproperties.toString()) as Int).toUInt() else 0u
+public actual fun findPackagesByPackageFamily(packagefamilyname: Pcwstr, packagefilters: UInt, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr, packageproperties: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_findPackagesByPackageFamily((packagefamilyname?.value ?: 0L).toString(), packagefilters.toInt(), (count?.value ?: 0L).toString(), (packagefullnames?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (packageproperties?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FormatApplicationUserModelId(packagefamilyname: PCWSTR, packagerelativeapplicationid: PCWSTR, applicationusermodelidlength: Long, applicationusermodelid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_FormatApplicationUserModelId(packagefamilyname.toString(), packagerelativeapplicationid.toString(), applicationusermodelidlength.toString(), applicationusermodelid.toString()) as Int).toUInt() else 0u
+public actual fun formatApplicationUserModelId(packagefamilyname: Pcwstr, packagerelativeapplicationid: Pcwstr, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_formatApplicationUserModelId((packagefamilyname?.value ?: 0L).toString(), (packagerelativeapplicationid?.value ?: 0L).toString(), (applicationusermodelidlength?.value ?: 0L).toString(), (applicationusermodelid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetApplicationUserModelId(hprocess: HANDLE, applicationusermodelidlength: Long, applicationusermodelid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetApplicationUserModelId(hprocess.toString(), applicationusermodelidlength.toString(), applicationusermodelid.toString()) as Int).toUInt() else 0u
+public actual fun getApplicationUserModelId(hprocess: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelId((hprocess?.value ?: 0L).toString(), (applicationusermodelidlength?.value ?: 0L).toString(), (applicationusermodelid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetApplicationUserModelIdFromToken(token: HANDLE, applicationusermodelidlength: Long, applicationusermodelid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetApplicationUserModelIdFromToken(token.toString(), applicationusermodelidlength.toString(), applicationusermodelid.toString()) as Int).toUInt() else 0u
+public actual fun getApplicationUserModelIdFromToken(token: Handle, applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getApplicationUserModelIdFromToken((token?.value ?: 0L).toString(), (applicationusermodelidlength?.value ?: 0L).toString(), (applicationusermodelid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentApplicationUserModelId(applicationusermodelidlength: Long, applicationusermodelid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentApplicationUserModelId(applicationusermodelidlength.toString(), applicationusermodelid.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentApplicationUserModelId(applicationusermodelidlength: COpaquePointer?, applicationusermodelid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentApplicationUserModelId((applicationusermodelidlength?.value ?: 0L).toString(), (applicationusermodelid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageFamilyName(packagefamilynamelength: Long, packagefamilyname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageFamilyName(packagefamilynamelength.toString(), packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackageFamilyName(packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFamilyName((packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageFullName(packagefullnamelength: Long, packagefullname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageFullName(packagefullnamelength.toString(), packagefullname.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackageFullName(packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageFullName((packagefullnamelength?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageId(bufferlength: Long, buffer: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageId(bufferlength.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackageId(bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageId((bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageInfo(flags: UInt, bufferlength: Long, buffer: Long, count: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo(flags.toInt(), bufferlength.toString(), buffer.toString(), count.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackageInfo(flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo(flags.toInt(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: Long, buffer: Long, count: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo2(flags.toInt(), packagepathtype, bufferlength.toString(), buffer.toString(), count.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackageInfo2(flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo2(flags.toInt(), packagepathtype, (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: Long, buffer: Long, count: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo3(flags.toInt(), packageinfotype, bufferlength.toString(), buffer.toString(), count.toString()) as Int) else 0
+public actual fun getCurrentPackageInfo3(flags: UInt, packageinfotype: PackageInfo3Type, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageInfo3(flags.toInt(), packageinfotype, (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackagePath(pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackagePath(pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackagePath(pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath((pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackagePath2(packagepathtype, pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackagePath2(packagepathtype, (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCurrentPackageVirtualizationContext(): PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageVirtualizationContext() as String).toLong() else 0L
+public actual fun getCurrentPackageVirtualizationContext(): PackageVirtualizationContextHandle =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getCurrentPackageVirtualizationContext() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetIdForPackageDependencyContext(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT, packagedependencyid: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetIdForPackageDependencyContext(packagedependencycontext.toString(), packagedependencyid.toString()) as Int) else 0
+public actual fun getIdForPackageDependencyContext(packagedependencycontext: PackagedependencyContext, packagedependencyid: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getIdForPackageDependencyContext((packagedependencycontext?.value ?: 0L).toString(), (packagedependencyid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageApplicationIds(packageinforeference: Long, bufferlength: Long, buffer: Long, count: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageApplicationIds(packageinforeference.toString(), bufferlength.toString(), buffer.toString(), count.toString()) as Int).toUInt() else 0u
+public actual fun getPackageApplicationIds(packageinforeference: COpaquePointer?, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageApplicationIds((packageinforeference?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageFamilyName(hprocess: HANDLE, packagefamilynamelength: Long, packagefamilyname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageFamilyName(hprocess.toString(), packagefamilynamelength.toString(), packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun getPackageFamilyName(hprocess: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyName((hprocess?.value ?: 0L).toString(), (packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageFamilyNameFromToken(token: HANDLE, packagefamilynamelength: Long, packagefamilyname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageFamilyNameFromToken(token.toString(), packagefamilynamelength.toString(), packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun getPackageFamilyNameFromToken(token: Handle, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageFamilyNameFromToken((token?.value ?: 0L).toString(), (packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageFullName(hprocess: HANDLE, packagefullnamelength: Long, packagefullname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageFullName(hprocess.toString(), packagefullnamelength.toString(), packagefullname.toString()) as Int).toUInt() else 0u
+public actual fun getPackageFullName(hprocess: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageFullName((hprocess?.value ?: 0L).toString(), (packagefullnamelength?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageFullNameFromToken(token: HANDLE, packagefullnamelength: Long, packagefullname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageFullNameFromToken(token.toString(), packagefullnamelength.toString(), packagefullname.toString()) as Int).toUInt() else 0u
+public actual fun getPackageFullNameFromToken(token: Handle, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageFullNameFromToken((token?.value ?: 0L).toString(), (packagefullnamelength?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageGraphRevisionId(): UInt =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageGraphRevisionId() as Int).toUInt() else 0u
+public actual fun getPackageGraphRevisionId(): UInt =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageGraphRevisionId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageId(hprocess: HANDLE, bufferlength: Long, buffer: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageId(hprocess.toString(), bufferlength.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun getPackageId(hprocess: Handle, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageId((hprocess?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageInfo(packageinforeference: Long, flags: UInt, bufferlength: Long, buffer: Long, count: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageInfo(packageinforeference.toString(), flags.toInt(), bufferlength.toString(), buffer.toString(), count.toString()) as Int).toUInt() else 0u
+public actual fun getPackageInfo(packageinforeference: COpaquePointer?, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageInfo((packageinforeference?.value ?: 0L).toString(), flags.toInt(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackageInfo2(packageinforeference: Long, flags: UInt, packagepathtype: PackagePathType, bufferlength: Long, buffer: Long, count: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackageInfo2(packageinforeference.toString(), flags.toInt(), packagepathtype, bufferlength.toString(), buffer.toString(), count.toString()) as Int).toUInt() else 0u
+public actual fun getPackageInfo2(packageinforeference: COpaquePointer?, flags: UInt, packagepathtype: PackagePathType, bufferlength: COpaquePointer?, buffer: COpaquePointer?, count: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackageInfo2((packageinforeference?.value ?: 0L).toString(), flags.toInt(), packagepathtype, (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackagePath(packageid: Long, reserved: UInt, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackagePath(packageid.toString(), reserved.toInt(), pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getPackagePath(packageid: COpaquePointer?, reserved: UInt, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackagePath((packageid?.value ?: 0L).toString(), reserved.toInt(), (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackagePathByFullName(packagefullname: PCWSTR, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackagePathByFullName(packagefullname.toString(), pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName((packagefullname?.value ?: 0L).toString(), (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackagePathByFullName2(packagefullname: PCWSTR, packagepathtype: PackagePathType, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackagePathByFullName2(packagefullname.toString(), packagepathtype, pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackagePathByFullName2((packagefullname?.value ?: 0L).toString(), packagepathtype, (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPackagesByPackageFamily(packagefamilyname: PCWSTR, count: Long, packagefullnames: Long, bufferlength: Long, buffer: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetPackagesByPackageFamily(packagefamilyname.toString(), count.toString(), packagefullnames.toString(), bufferlength.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun getPackagesByPackageFamily(packagefamilyname: Pcwstr, count: COpaquePointer?, packagefullnames: COpaquePointer?, bufferlength: COpaquePointer?, buffer: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getPackagesByPackageFamily((packagefamilyname?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (packagefullnames?.value ?: 0L).toString(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessesInVirtualizationContext(packagefamilyname: PCWSTR, count: Long, processes: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetProcessesInVirtualizationContext(packagefamilyname.toString(), count.toString(), processes.toString()) as Int) else 0
+public actual fun getProcessesInVirtualizationContext(packagefamilyname: Pcwstr, count: COpaquePointer?, processes: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getProcessesInVirtualizationContext((packagefamilyname?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (processes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetResolvedPackageFullNameForPackageDependency(packagedependencyid: PCWSTR, packagefullname: Long): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetResolvedPackageFullNameForPackageDependency(packagedependencyid.toString(), packagefullname.toString()) as Int) else 0
+public actual fun getResolvedPackageFullNameForPackageDependency(packagedependencyid: Pcwstr, packagefullname: COpaquePointer?): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getResolvedPackageFullNameForPackageDependency((packagedependencyid?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStagedPackageOrigin(packagefullname: PCWSTR, origin: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetStagedPackageOrigin(packagefullname.toString(), origin.toString()) as Int).toUInt() else 0u
+public actual fun getStagedPackageOrigin(packagefullname: Pcwstr, origin: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getStagedPackageOrigin((packagefullname?.value ?: 0L).toString(), (origin?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStagedPackagePathByFullName(packagefullname: PCWSTR, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetStagedPackagePathByFullName(packagefullname.toString(), pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getStagedPackagePathByFullName(packagefullname: Pcwstr, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName((packagefullname?.value ?: 0L).toString(), (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStagedPackagePathByFullName2(packagefullname: PCWSTR, packagepathtype: PackagePathType, pathlength: Long, path: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_GetStagedPackagePathByFullName2(packagefullname.toString(), packagepathtype, pathlength.toString(), path.toString()) as Int).toUInt() else 0u
+public actual fun getStagedPackagePathByFullName2(packagefullname: Pcwstr, packagepathtype: PackagePathType, pathlength: COpaquePointer?, path: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_getStagedPackagePathByFullName2((packagefullname?.value ?: 0L).toString(), packagepathtype, (pathlength?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPackageInfoByFullName(packagefullname: PCWSTR, reserved: UInt, packageinforeference: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_OpenPackageInfoByFullName(packagefullname.toString(), reserved.toInt(), packageinforeference.toString()) as Int).toUInt() else 0u
+public actual fun openPackageInfoByFullName(packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullName((packagefullname?.value ?: 0L).toString(), reserved.toInt(), (packageinforeference?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPackageInfoByFullNameForUser(usersid: PSID, packagefullname: PCWSTR, reserved: UInt, packageinforeference: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_OpenPackageInfoByFullNameForUser(usersid.toString(), packagefullname.toString(), reserved.toInt(), packageinforeference.toString()) as Int).toUInt() else 0u
+public actual fun openPackageInfoByFullNameForUser(usersid: Psid, packagefullname: Pcwstr, reserved: UInt, packageinforeference: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_openPackageInfoByFullNameForUser((usersid?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString(), reserved.toInt(), (packageinforeference?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PackageFamilyNameFromFullName(packagefullname: PCWSTR, packagefamilynamelength: Long, packagefamilyname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_PackageFamilyNameFromFullName(packagefullname.toString(), packagefamilynamelength.toString(), packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun packageFamilyNameFromFullName(packagefullname: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromFullName((packagefullname?.value ?: 0L).toString(), (packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PackageFamilyNameFromId(packageid: Long, packagefamilynamelength: Long, packagefamilyname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_PackageFamilyNameFromId(packageid.toString(), packagefamilynamelength.toString(), packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun packageFamilyNameFromId(packageid: COpaquePointer?, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_packageFamilyNameFromId((packageid?.value ?: 0L).toString(), (packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PackageFullNameFromId(packageid: Long, packagefullnamelength: Long, packagefullname: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_PackageFullNameFromId(packageid.toString(), packagefullnamelength.toString(), packagefullname.toString()) as Int).toUInt() else 0u
+public actual fun packageFullNameFromId(packageid: COpaquePointer?, packagefullnamelength: COpaquePointer?, packagefullname: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_packageFullNameFromId((packageid?.value ?: 0L).toString(), (packagefullnamelength?.value ?: 0L).toString(), (packagefullname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PackageIdFromFullName(packagefullname: PCWSTR, flags: UInt, bufferlength: Long, buffer: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_PackageIdFromFullName(packagefullname.toString(), flags.toInt(), bufferlength.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun packageIdFromFullName(packagefullname: Pcwstr, flags: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_packageIdFromFullName((packagefullname?.value ?: 0L).toString(), flags.toInt(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PackageNameAndPublisherIdFromFamilyName(packagefamilyname: PCWSTR, packagenamelength: Long, packagename: PWSTR, packagepublisheridlength: Long, packagepublisherid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_PackageNameAndPublisherIdFromFamilyName(packagefamilyname.toString(), packagenamelength.toString(), packagename.toString(), packagepublisheridlength.toString(), packagepublisherid.toString()) as Int).toUInt() else 0u
+public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcwstr, packagenamelength: COpaquePointer?, packagename: Pwstr, packagepublisheridlength: COpaquePointer?, packagepublisherid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_packageNameAndPublisherIdFromFamilyName((packagefamilyname?.value ?: 0L).toString(), (packagenamelength?.value ?: 0L).toString(), (packagename?.value ?: 0L).toString(), (packagepublisheridlength?.value ?: 0L).toString(), (packagepublisherid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ParseApplicationUserModelId(applicationusermodelid: PCWSTR, packagefamilynamelength: Long, packagefamilyname: PWSTR, packagerelativeapplicationidlength: Long, packagerelativeapplicationid: PWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_ParseApplicationUserModelId(applicationusermodelid.toString(), packagefamilynamelength.toString(), packagefamilyname.toString(), packagerelativeapplicationidlength.toString(), packagerelativeapplicationid.toString()) as Int).toUInt() else 0u
+public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr, packagerelativeapplicationidlength: COpaquePointer?, packagerelativeapplicationid: Pwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_parseApplicationUserModelId((applicationusermodelid?.value ?: 0L).toString(), (packagefamilynamelength?.value ?: 0L).toString(), (packagefamilyname?.value ?: 0L).toString(), (packagerelativeapplicationidlength?.value ?: 0L).toString(), (packagerelativeapplicationid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReleasePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) {
+public actual fun releasePackageVirtualizationContext(context: PackageVirtualizationContextHandle) {
     if (_windowsWin32StoragePackagingAppxNapiAddon != null) {
-        _windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_ReleasePackageVirtualizationContext(context.toString())
+        _windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_releasePackageVirtualizationContext((context?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RemovePackageDependency(packagedependencycontext: PACKAGEDEPENDENCY_CONTEXT): HRESULT =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_RemovePackageDependency(packagedependencycontext.toString()) as Int) else 0
+public actual fun removePackageDependency(packagedependencycontext: PackagedependencyContext): Hresult =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_removePackageDependency((packagedependencycontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TryCreatePackageDependency(user: PSID, packagefamilyname: PCWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: PCWSTR, options: CreatePackageDependencyOptions, packagedependencyid: Long): HRESULT =
-    0
+public actual fun tryCreatePackageDependency(user: Psid, packagefamilyname: Pcwstr, minversion: PackageVersion, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Pcwstr, options: CreatePackageDependencyOptions, packagedependencyid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyApplicationUserModelId(applicationusermodelid: PCWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_VerifyApplicationUserModelId(applicationusermodelid.toString()) as Int).toUInt() else 0u
+public actual fun verifyApplicationUserModelId(applicationusermodelid: Pcwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_verifyApplicationUserModelId((applicationusermodelid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyPackageFamilyName(packagefamilyname: PCWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_VerifyPackageFamilyName(packagefamilyname.toString()) as Int).toUInt() else 0u
+public actual fun verifyPackageFamilyName(packagefamilyname: Pcwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_verifyPackageFamilyName((packagefamilyname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyPackageFullName(packagefullname: PCWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_VerifyPackageFullName(packagefullname.toString()) as Int).toUInt() else 0u
+public actual fun verifyPackageFullName(packagefullname: Pcwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_verifyPackageFullName((packagefullname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyPackageId(packageid: Long): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_VerifyPackageId(packageid.toString()) as Int).toUInt() else 0u
+public actual fun verifyPackageId(packageid: COpaquePointer?): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_verifyPackageId((packageid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyPackageRelativeApplicationId(packagerelativeapplicationid: PCWSTR): WIN32_ERROR =
-    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_VerifyPackageRelativeApplicationId(packagerelativeapplicationid.toString()) as Int).toUInt() else 0u
+public actual fun verifyPackageRelativeApplicationId(packagerelativeapplicationid: Pcwstr): Win32Error =
+    if (_windowsWin32StoragePackagingAppxNapiAddon != null) (_windowsWin32StoragePackagingAppxNapiAddon.windowssys_windows_win32_storage_packaging_appx_verifyPackageRelativeApplicationId((packagerelativeapplicationid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

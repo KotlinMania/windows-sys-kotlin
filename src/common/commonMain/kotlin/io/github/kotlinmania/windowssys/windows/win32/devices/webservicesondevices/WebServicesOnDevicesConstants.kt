@@ -1,109 +1,109 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.webservicesondevices
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val DirectedDiscovery: DeviceDiscoveryMechanism = 1
+public val DIRECTED_DISCOVERY: DeviceDiscoveryMechanism = 1
 
-public val MulticastDiscovery: DeviceDiscoveryMechanism = 0
+public val MULTICAST_DISCOVERY: DeviceDiscoveryMechanism = 0
 
 public val ONE_WAY: WSDUdpMessageType = 0
 
-public val OpAnyElement: WSDXML_OP = 6
+public val OP_ANY_ELEMENT: WsdxmlOp = 6
 
-public val OpAnyElements: WSDXML_OP = 7
+public val OP_ANY_ELEMENTS: WsdxmlOp = 7
 
-public val OpAnyNumber: WSDXML_OP = 17
+public val OP_ANY_NUMBER: WsdxmlOp = 17
 
-public val OpAnyText: WSDXML_OP = 8
+public val OP_ANY_TEXT: WsdxmlOp = 8
 
-public val OpAnything: WSDXML_OP = 16
+public val OP_ANYTHING: WsdxmlOp = 16
 
-public val OpAttribute_: WSDXML_OP = 9
+public val OP_ATTRIBUTE: WsdxmlOp = 9
 
-public val OpBeginAll: WSDXML_OP = 14
+public val OP_BEGIN_ALL: WsdxmlOp = 14
 
-public val OpBeginAnyElement: WSDXML_OP = 3
+public val OP_BEGIN_ANY_ELEMENT: WsdxmlOp = 3
 
-public val OpBeginChoice: WSDXML_OP = 10
+public val OP_BEGIN_CHOICE: WsdxmlOp = 10
 
-public val OpBeginElement_: WSDXML_OP = 2
+public val OP_BEGIN_ELEMENT: WsdxmlOp = 2
 
-public val OpBeginSequence: WSDXML_OP = 12
+public val OP_BEGIN_SEQUENCE: WsdxmlOp = 12
 
-public val OpElement_: WSDXML_OP = 5
+public val OP_ELEMENT: WsdxmlOp = 5
 
-public val OpEndAll: WSDXML_OP = 15
+public val OP_END_ALL: WsdxmlOp = 15
 
-public val OpEndChoice: WSDXML_OP = 11
+public val OP_END_CHOICE: WsdxmlOp = 11
 
-public val OpEndElement: WSDXML_OP = 4
+public val OP_END_ELEMENT: WsdxmlOp = 4
 
-public val OpEndOfTable: WSDXML_OP = 1
+public val OP_END_OF_TABLE: WsdxmlOp = 1
 
-public val OpEndSequence: WSDXML_OP = 13
+public val OP_END_SEQUENCE: WsdxmlOp = 13
 
-public val OpFormatBool_: WSDXML_OP = 20
+public val OP_FORMAT_BOOL: WsdxmlOp = 20
 
-public val OpFormatDateTime_: WSDXML_OP = 40
+public val OP_FORMAT_DATE_TIME: WsdxmlOp = 40
 
-public val OpFormatDom_: WSDXML_OP = 30
+public val OP_FORMAT_DOM: WsdxmlOp = 30
 
-public val OpFormatDouble_: WSDXML_OP = 42
+public val OP_FORMAT_DOUBLE: WsdxmlOp = 42
 
-public val OpFormatDuration_: WSDXML_OP = 39
+public val OP_FORMAT_DURATION: WsdxmlOp = 39
 
-public val OpFormatDynamicType_: WSDXML_OP = 37
+public val OP_FORMAT_DYNAMIC_TYPE: WsdxmlOp = 37
 
-public val OpFormatFloat_: WSDXML_OP = 41
+public val OP_FORMAT_FLOAT: WsdxmlOp = 41
 
-public val OpFormatInt16_: WSDXML_OP = 22
+public val OP_FORMAT_INT16: WsdxmlOp = 22
 
-public val OpFormatInt32_: WSDXML_OP = 23
+public val OP_FORMAT_INT32: WsdxmlOp = 23
 
-public val OpFormatInt64_: WSDXML_OP = 24
+public val OP_FORMAT_INT64: WsdxmlOp = 24
 
-public val OpFormatInt8_: WSDXML_OP = 21
+public val OP_FORMAT_INT8: WsdxmlOp = 21
 
-public val OpFormatListInsertTail_: WSDXML_OP = 35
+public val OP_FORMAT_LIST_INSERT_TAIL: WsdxmlOp = 35
 
-public val OpFormatLookupType_: WSDXML_OP = 38
+public val OP_FORMAT_LOOKUP_TYPE: WsdxmlOp = 38
 
-public val OpFormatMax: WSDXML_OP = 46
+public val OP_FORMAT_MAX: WsdxmlOp = 46
 
-public val OpFormatName_: WSDXML_OP = 34
+public val OP_FORMAT_NAME: WsdxmlOp = 34
 
-public val OpFormatStruct_: WSDXML_OP = 31
+public val OP_FORMAT_STRUCT: WsdxmlOp = 31
 
-public val OpFormatType_: WSDXML_OP = 36
+public val OP_FORMAT_TYPE: WsdxmlOp = 36
 
-public val OpFormatUInt16_: WSDXML_OP = 26
+public val OP_FORMAT_U_INT16: WsdxmlOp = 26
 
-public val OpFormatUInt32_: WSDXML_OP = 27
+public val OP_FORMAT_U_INT32: WsdxmlOp = 27
 
-public val OpFormatUInt64_: WSDXML_OP = 28
+public val OP_FORMAT_U_INT64: WsdxmlOp = 28
 
-public val OpFormatUInt8_: WSDXML_OP = 25
+public val OP_FORMAT_U_INT8: WsdxmlOp = 25
 
-public val OpFormatUnicodeString_: WSDXML_OP = 29
+public val OP_FORMAT_UNICODE_STRING: WsdxmlOp = 29
 
-public val OpFormatUri_: WSDXML_OP = 32
+public val OP_FORMAT_URI: WsdxmlOp = 32
 
-public val OpFormatUuidUri_: WSDXML_OP = 33
+public val OP_FORMAT_UUID_URI: WsdxmlOp = 33
 
-public val OpFormatXMLDeclaration_: WSDXML_OP = 45
+public val OP_FORMAT_XML_DECLARATION: WsdxmlOp = 45
 
-public val OpNone: WSDXML_OP = 0
+public val OP_NONE: WsdxmlOp = 0
 
-public val OpOneOrMore: WSDXML_OP = 18
+public val OP_ONE_OR_MORE: WsdxmlOp = 18
 
-public val OpOptional: WSDXML_OP = 19
+public val OP_OPTIONAL: WsdxmlOp = 19
 
-public val OpProcess_: WSDXML_OP = 43
+public val OP_PROCESS: WsdxmlOp = 43
 
-public val OpQualifiedAttribute_: WSDXML_OP = 44
+public val OP_QUALIFIED_ATTRIBUTE: WsdxmlOp = 44
 
-public val SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2
+public val SECURE_DIRECTED_DISCOVERY: DeviceDiscoveryMechanism = 2
 
 public val TWO_WAY: WSDUdpMessageType = 1
 
@@ -141,48 +141,48 @@ public val WSDET_RESPONSE_TIMEOUT: WSDEventType = 4
 
 public val WSDET_TRANSMISSION_FAILURE: WSDEventType = 3
 
-public val WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10
+public val WSD_CONFIG_DEVICE_ADDRESSES: WsdConfigParamType = 10
 
-public val WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9
+public val WSD_CONFIG_HOSTING_ADDRESSES: WsdConfigParamType = 9
 
-public val WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1
+public val WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WsdConfigParamType = 1
 
-public val WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2
+public val WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WsdConfigParamType = 2
 
-public val WSD_DEFAULT_EVENTING_ADDRESS: PCWSTR = w("http://*:5357/")
+public val WSD_DEFAULT_EVENTING_ADDRESS: Pcwstr = w("http://*:5357/")
 
-public val WSD_DEFAULT_HOSTING_ADDRESS: PCWSTR = w("http://*:5357/")
+public val WSD_DEFAULT_HOSTING_ADDRESS: Pcwstr = w("http://*:5357/")
 
-public val WSD_DEFAULT_SECURE_HOSTING_ADDRESS: PCWSTR = w("https://*:5358/")
+public val WSD_DEFAULT_SECURE_HOSTING_ADDRESS: Pcwstr = w("https://*:5358/")
 
-public val WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255
+public val WSD_PT_ALL: WsdProtocolType = 255
 
-public val WSD_PT_HTTP: WSD_PROTOCOL_TYPE = 2
+public val WSD_PT_HTTP: WsdProtocolType = 2
 
-public val WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = 4
+public val WSD_PT_HTTPS: WsdProtocolType = 4
 
-public val WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0
+public val WSD_PT_NONE: WsdProtocolType = 0
 
-public val WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1
+public val WSD_PT_UDP: WsdProtocolType = 1
 
-public val WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7
+public val WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WsdConfigParamType = 7
 
-public val WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8
+public val WSD_SECURITY_COMPACTSIG_VALIDATION: WsdConfigParamType = 8
 
 public val WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: UInt = 1u
 
 public val WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: UInt = 2u
 
-public val WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12
+public val WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WsdConfigParamType = 12
 
-public val WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11
+public val WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WsdConfigParamType = 11
 
-public val WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3
+public val WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WsdConfigParamType = 3
 
-public val WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5
+public val WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WsdConfigParamType = 5
 
-public val WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6
+public val WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WsdConfigParamType = 6
 
-public val WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4
+public val WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WsdConfigParamType = 4
 
-public val WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13
+public val WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WsdConfigParamType = 13

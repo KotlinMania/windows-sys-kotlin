@@ -1,196 +1,197 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public fun interface CACHE_ACCESS_CHECKFn {
-    public operator fun invoke(psecuritydescriptor: PSECURITY_DESCRIPTOR, hclienttoken: HANDLE, dwdesiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL
+public fun interface CacheAccessCheckFn {
+    public operator fun invoke(psecuritydescriptor: PsecurityDescriptor, hclienttoken: Handle, dwdesiredaccess: UInt, genericmapping: COpaquePointer?, privilegeset: COpaquePointer?, privilegesetlength: COpaquePointer?, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Bool
 }
 
-public typealias CACHE_ACCESS_CHECK = CACHE_ACCESS_CHECKFn?
+public typealias CacheAccessCheck = CacheAccessCheckFn?
 
-public fun interface CACHE_DESTROY_CALLBACKFn {
-    public operator fun invoke(cb: UInt, lpb: Long)
+public fun interface CacheDestroyCallbackFn {
+    public operator fun invoke(cb: UInt, lpb: COpaquePointer?)
 }
 
-public typealias CACHE_DESTROY_CALLBACK = CACHE_DESTROY_CALLBACKFn?
+public typealias CacheDestroyCallback = CacheDestroyCallbackFn?
 
-public fun interface CACHE_KEY_COMPAREFn {
-    public operator fun invoke(cbkey1: UInt, lpbkey1: Long, cbkey2: UInt, lpbkey2: Long): Int
+public fun interface CacheKeyCompareFn {
+    public operator fun invoke(cbkey1: UInt, lpbkey1: COpaquePointer?, cbkey2: UInt, lpbkey2: COpaquePointer?): Int
 }
 
-public typealias CACHE_KEY_COMPARE = CACHE_KEY_COMPAREFn?
+public typealias CacheKeyCompare = CacheKeyCompareFn?
 
-public fun interface CACHE_KEY_HASHFn {
-    public operator fun invoke(lpbkey: Long, cbkey: UInt): UInt
+public fun interface CacheKeyHashFn {
+    public operator fun invoke(lpbkey: COpaquePointer?, cbkey: UInt): UInt
 }
 
-public typealias CACHE_KEY_HASH = CACHE_KEY_HASHFn?
+public typealias CacheKeyHash = CacheKeyHashFn?
 
-public fun interface CACHE_READ_CALLBACKFn {
-    public operator fun invoke(cb: UInt, lpb: Long, lpvcontext: Long): BOOL
+public fun interface CacheReadCallbackFn {
+    public operator fun invoke(cb: UInt, lpb: COpaquePointer?, lpvcontext: COpaquePointer?): Bool
 }
 
-public typealias CACHE_READ_CALLBACK = CACHE_READ_CALLBACKFn?
+public typealias CacheReadCallback = CacheReadCallbackFn?
 
-public fun interface CLAIMMEDIALABELFn {
-    public operator fun invoke(pbuffer: Long, nbuffersize: UInt, plabelinfo: Long): UInt
+public fun interface ClaimmedialabelFn {
+    public operator fun invoke(pbuffer: COpaquePointer?, nbuffersize: UInt, plabelinfo: COpaquePointer?): UInt
 }
 
-public typealias CLAIMMEDIALABEL = CLAIMMEDIALABELFn?
+public typealias Claimmedialabel = ClaimmedialabelFn?
 
-public fun interface CLAIMMEDIALABELEXFn {
-    public operator fun invoke(pbuffer: Long, nbuffersize: UInt, plabelinfo: Long, labelguid: Long): UInt
+public fun interface ClaimmedialabelexFn {
+    public operator fun invoke(pbuffer: COpaquePointer?, nbuffersize: UInt, plabelinfo: COpaquePointer?, labelguid: COpaquePointer?): UInt
 }
 
-public typealias CLAIMMEDIALABELEX = CLAIMMEDIALABELEXFn?
+public typealias Claimmedialabelex = ClaimmedialabelexFn?
 
-public fun interface CLFS_BLOCK_ALLOCATIONFn {
-    public operator fun invoke(cbbufferlength: UInt, pvusercontext: Long): Long
+public fun interface ClfsBlockAllocationFn {
+    public operator fun invoke(cbbufferlength: UInt, pvusercontext: COpaquePointer?): COpaquePointer?
 }
 
-public typealias CLFS_BLOCK_ALLOCATION = CLFS_BLOCK_ALLOCATIONFn?
+public typealias ClfsBlockAllocation = ClfsBlockAllocationFn?
 
-public fun interface CLFS_BLOCK_DEALLOCATIONFn {
-    public operator fun invoke(pvbuffer: Long, pvusercontext: Long)
+public fun interface ClfsBlockDeallocationFn {
+    public operator fun invoke(pvbuffer: COpaquePointer?, pvusercontext: COpaquePointer?)
 }
 
-public typealias CLFS_BLOCK_DEALLOCATION = CLFS_BLOCK_DEALLOCATIONFn?
+public typealias ClfsBlockDeallocation = ClfsBlockDeallocationFn?
 
-public typealias CLFS_CONTEXT_MODE = Int
+public typealias ClfsContextMode = Int
 
-public typealias CLFS_FLAG = UInt
+public typealias ClfsFlag = UInt
 
-public typealias CLFS_IOSTATS_CLASS = Int
+public typealias ClfsIostatsClass = Int
 
-public typealias CLFS_LOG_ARCHIVE_MODE = Int
+public typealias ClfsLogArchiveMode = Int
 
-public typealias CLFS_MGMT_NOTIFICATION_TYPE = Int
+public typealias ClfsMgmtNotificationType = Int
 
-public typealias CLFS_MGMT_POLICY_TYPE = Int
+public typealias ClfsMgmtPolicyType = Int
 
-public typealias CLS_CONTEXT_MODE = Int
+public typealias ClsContextMode = Int
 
-public typealias CLS_IOSTATS_CLASS = Int
+public typealias ClsIostatsClass = Int
 
-public typealias CLS_LOG_INFORMATION_CLASS = Int
+public typealias ClsLogInformationClass = Int
 
-public typealias COMPRESSION_FORMAT = UShort
+public typealias CompressionFormat = UShort
 
-public typealias COPYFILE2_COPY_PHASE = Int
+public typealias Copyfile2CopyPhase = Int
 
-public typealias COPYFILE2_MESSAGE_ACTION = Int
+public typealias Copyfile2MessageAction = Int
 
-public typealias COPYFILE2_MESSAGE_TYPE = Int
+public typealias Copyfile2MessageType = Int
 
-public typealias COPYFILE2_V2_FLAGS = UInt
+public typealias Copyfile2V2Flags = UInt
 
-public typealias COPYFILE_FLAGS = UInt
+public typealias CopyfileFlags = UInt
 
-public typealias COPYPROGRESSROUTINE_PROGRESS = UInt
+public typealias CopyprogressroutineProgress = UInt
 
-public typealias CREATE_TAPE_PARTITION_METHOD = UInt
+public typealias CreateTapePartitionMethod = UInt
 
-public typealias DEFINE_DOS_DEVICE_FLAGS = UInt
+public typealias DefineDosDeviceFlags = UInt
 
-public typealias DISKQUOTA_USERNAME_RESOLVE = UInt
+public typealias DiskquotaUsernameResolve = UInt
 
-public typealias ERASE_TAPE_TYPE = UInt
+public typealias EraseTapeType = UInt
 
-public fun interface FCACHE_CREATE_CALLBACKFn {
-    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long): HANDLE
+public fun interface FcacheCreateCallbackFn {
+    public operator fun invoke(lpstrname: Pcstr, lpvdata: COpaquePointer?, cbfilesize: COpaquePointer?, cbfilesizehigh: COpaquePointer?): Handle
 }
 
-public typealias FCACHE_CREATE_CALLBACK = FCACHE_CREATE_CALLBACKFn?
+public typealias FcacheCreateCallback = FcacheCreateCallbackFn?
 
-public fun interface FCACHE_RICHCREATE_CALLBACKFn {
-    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long, pfdidwescanit: Long, pfisstuffed: Long, pfstoredwithdots: Long, pfstoredwithterminatingdot: Long): HANDLE
+public fun interface FcacheRichcreateCallbackFn {
+    public operator fun invoke(lpstrname: Pcstr, lpvdata: COpaquePointer?, cbfilesize: COpaquePointer?, cbfilesizehigh: COpaquePointer?, pfdidwescanit: COpaquePointer?, pfisstuffed: COpaquePointer?, pfstoredwithdots: COpaquePointer?, pfstoredwithterminatingdot: COpaquePointer?): Handle
 }
 
-public typealias FCACHE_RICHCREATE_CALLBACK = FCACHE_RICHCREATE_CALLBACKFn?
+public typealias FcacheRichcreateCallback = FcacheRichcreateCallbackFn?
 
-public typealias FILE_ACCESS_RIGHTS = UInt
+public typealias FileAccessRights = UInt
 
-public typealias FILE_ACTION = UInt
+public typealias FileAction = UInt
 
-public typealias FILE_CREATION_DISPOSITION = UInt
+public typealias FileCreationDisposition = UInt
 
-public typealias FILE_DEVICE_TYPE = UInt
+public typealias FileDeviceType = UInt
 
-public typealias FILE_DISPOSITION_INFO_EX_FLAGS = UInt
+public typealias FileDispositionInfoExFlags = UInt
 
-public typealias FILE_FLAGS_AND_ATTRIBUTES = UInt
+public typealias FileFlagsAndAttributes = UInt
 
-public typealias FILE_FLUSH_MODE = Int
+public typealias FileFlushMode = Int
 
-public typealias FILE_ID_TYPE = Int
+public typealias FileIdType = Int
 
-public typealias FILE_INFO_BY_HANDLE_CLASS = Int
+public typealias FileInfoByHandleClass = Int
 
-public typealias FILE_INFO_FLAGS_PERMISSIONS = UInt
+public typealias FileInfoFlagsPermissions = UInt
 
-public typealias FILE_NOTIFY_CHANGE = UInt
+public typealias FileNotifyChange = UInt
 
-public typealias FILE_SHARE_MODE = UInt
+public typealias FileShareMode = UInt
 
-public typealias FILE_TYPE = UInt
+public typealias FileType = UInt
 
-public typealias FILE_WRITE_FLAGS = Int
+public typealias FileWriteFlags = Int
 
-public typealias FINDEX_INFO_LEVELS = Int
+public typealias FindexInfoLevels = Int
 
-public typealias FINDEX_SEARCH_OPS = Int
+public typealias FindexSearchOps = Int
 
-public typealias FIND_FIRST_EX_FLAGS = UInt
+public typealias FindFirstExFlags = UInt
 
-public typealias GETFINALPATHNAMEBYHANDLE_FLAGS = UInt
+public typealias GetfinalpathnamebyhandleFlags = UInt
 
-public typealias GET_FILEEX_INFO_LEVELS = Int
+public typealias GetFileexInfoLevels = Int
 
-public typealias GET_FILE_VERSION_INFO_FLAGS = UInt
+public typealias GetFileVersionInfoFlags = UInt
 
-public typealias GET_TAPE_DRIVE_PARAMETERS_OPERATION = UInt
+public typealias GetTapeDriveParametersOperation = UInt
 
-public typealias HIORING = Long
+public typealias Hioring = COpaquePointer?
 
-public typealias IORING_CREATE_ADVISORY_FLAGS = Int
+public typealias IoringCreateAdvisoryFlags = Int
 
-public typealias IORING_CREATE_REQUIRED_FLAGS = Int
+public typealias IoringCreateRequiredFlags = Int
 
-public typealias IORING_FEATURE_FLAGS = Int
+public typealias IoringFeatureFlags = Int
 
-public typealias IORING_OP_CODE = Int
+public typealias IoringOpCode = Int
 
-public typealias IORING_REF_KIND = Int
+public typealias IoringRefKind = Int
 
-public typealias IORING_SQE_FLAGS = Int
+public typealias IoringSqeFlags = Int
 
-public typealias IORING_VERSION = Int
+public typealias IoringVersion = Int
 
-public typealias LOCK_FILE_FLAGS = UInt
+public typealias LockFileFlags = UInt
 
-public fun interface LPPROGRESS_ROUTINEFn {
-    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: HANDLE, hdestinationfile: HANDLE, lpdata: Long): COPYPROGRESSROUTINE_PROGRESS
+public fun interface LpprogressRoutineFn {
+    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LpprogressRoutineCallbackReason, hsourcefile: Handle, hdestinationfile: Handle, lpdata: COpaquePointer?): CopyprogressroutineProgress
 }
 
-public typealias LPPROGRESS_ROUTINE = LPPROGRESS_ROUTINEFn?
+public typealias LpprogressRoutine = LpprogressRoutineFn?
 
-public typealias LPPROGRESS_ROUTINE_CALLBACK_REASON = UInt
+public typealias LpprogressRoutineCallbackReason = UInt
 
-public typealias LZOPENFILE_STYLE = UShort
+public typealias LzopenfileStyle = UShort
 
-public fun interface MAXMEDIALABELFn {
-    public operator fun invoke(pmaxsize: Long): UInt
+public fun interface MaxmedialabelFn {
+    public operator fun invoke(pmaxsize: COpaquePointer?): UInt
 }
 
-public typealias MAXMEDIALABEL = MAXMEDIALABELFn?
+public typealias Maxmedialabel = MaxmedialabelFn?
 
-public typealias MOVE_FILE_FLAGS = UInt
+public typealias MoveFileFlags = UInt
 
-public typealias NTMS_OMID_TYPE = UInt
+public typealias NtmsOmidType = UInt
 
 public typealias NtmsAccessMask = Int
 
@@ -274,118 +275,118 @@ public typealias NtmsUIOperations = Int
 
 public typealias NtmsUITypes = Int
 
-public fun interface PCLFS_COMPLETION_ROUTINEFn {
-    public operator fun invoke(pvoverlapped: Long, ulreserved: UInt)
+public fun interface PclfsCompletionRoutineFn {
+    public operator fun invoke(pvoverlapped: COpaquePointer?, ulreserved: UInt)
 }
 
-public typealias PCLFS_COMPLETION_ROUTINE = PCLFS_COMPLETION_ROUTINEFn?
+public typealias PclfsCompletionRoutine = PclfsCompletionRoutineFn?
 
-public fun interface PCOPYFILE2_PROGRESS_ROUTINEFn {
-    public operator fun invoke(pmessage: Long, pvcallbackcontext: Long): COPYFILE2_MESSAGE_ACTION
+public fun interface Pcopyfile2ProgressRoutineFn {
+    public operator fun invoke(pmessage: COpaquePointer?, pvcallbackcontext: COpaquePointer?): Copyfile2MessageAction
 }
 
-public typealias PCOPYFILE2_PROGRESS_ROUTINE = PCOPYFILE2_PROGRESS_ROUTINEFn?
+public typealias Pcopyfile2ProgressRoutine = Pcopyfile2ProgressRoutineFn?
 
-public fun interface PFE_EXPORT_FUNCFn {
-    public operator fun invoke(pbdata: Long, pvcallbackcontext: Long, ullength: UInt): UInt
+public fun interface PfeExportFuncFn {
+    public operator fun invoke(pbdata: COpaquePointer?, pvcallbackcontext: COpaquePointer?, ullength: UInt): UInt
 }
 
-public typealias PFE_EXPORT_FUNC = PFE_EXPORT_FUNCFn?
+public typealias PfeExportFunc = PfeExportFuncFn?
 
-public fun interface PFE_IMPORT_FUNCFn {
-    public operator fun invoke(pbdata: Long, pvcallbackcontext: Long, ullength: Long): UInt
+public fun interface PfeImportFuncFn {
+    public operator fun invoke(pbdata: COpaquePointer?, pvcallbackcontext: COpaquePointer?, ullength: COpaquePointer?): UInt
 }
 
-public typealias PFE_IMPORT_FUNC = PFE_IMPORT_FUNCFn?
+public typealias PfeImportFunc = PfeImportFuncFn?
 
-public fun interface PFN_IO_COMPLETIONFn {
-    public operator fun invoke(pcontext: Long, lpo: Long, cb: UInt, dwcompletionstatus: UInt)
+public fun interface PfnIoCompletionFn {
+    public operator fun invoke(pcontext: COpaquePointer?, lpo: COpaquePointer?, cb: UInt, dwcompletionstatus: UInt)
 }
 
-public typealias PFN_IO_COMPLETION = PFN_IO_COMPLETIONFn?
+public typealias PfnIoCompletion = PfnIoCompletionFn?
 
-public fun interface PLOG_FULL_HANDLER_CALLBACKFn {
-    public operator fun invoke(hlogfile: HANDLE, dwerror: UInt, flogispinned: BOOL, pvclientcontext: Long)
+public fun interface PlogFullHandlerCallbackFn {
+    public operator fun invoke(hlogfile: Handle, dwerror: UInt, flogispinned: Bool, pvclientcontext: COpaquePointer?)
 }
 
-public typealias PLOG_FULL_HANDLER_CALLBACK = PLOG_FULL_HANDLER_CALLBACKFn?
+public typealias PlogFullHandlerCallback = PlogFullHandlerCallbackFn?
 
-public fun interface PLOG_TAIL_ADVANCE_CALLBACKFn {
-    public operator fun invoke(hlogfile: HANDLE, lsntarget: CLS_LSN, pvclientcontext: Long)
+public fun interface PlogTailAdvanceCallbackFn {
+    public operator fun invoke(hlogfile: Handle, lsntarget: ClsLsn, pvclientcontext: COpaquePointer?)
 }
 
-public typealias PLOG_TAIL_ADVANCE_CALLBACK = PLOG_TAIL_ADVANCE_CALLBACKFn?
+public typealias PlogTailAdvanceCallback = PlogTailAdvanceCallbackFn?
 
-public fun interface PLOG_UNPINNED_CALLBACKFn {
-    public operator fun invoke(hlogfile: HANDLE, pvclientcontext: Long)
+public fun interface PlogUnpinnedCallbackFn {
+    public operator fun invoke(hlogfile: Handle, pvclientcontext: COpaquePointer?)
 }
 
-public typealias PLOG_UNPINNED_CALLBACK = PLOG_UNPINNED_CALLBACKFn?
+public typealias PlogUnpinnedCallback = PlogUnpinnedCallbackFn?
 
-public typealias PREPARE_TAPE_OPERATION = UInt
+public typealias PrepareTapeOperation = UInt
 
-public typealias PRIORITY_HINT = Int
+public typealias PriorityHint = Int
 
-public typealias READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = Int
+public typealias ReadDirectoryNotifyInformationClass = Int
 
-public typealias REPLACE_FILE_FLAGS = UInt
+public typealias ReplaceFileFlags = UInt
 
-public typealias SERVER_CERTIFICATE_TYPE = Int
+public typealias ServerCertificateType = Int
 
-public typealias SESSION_INFO_USER_FLAGS = UInt
+public typealias SessionInfoUserFlags = UInt
 
-public typealias SET_FILE_POINTER_MOVE_METHOD = UInt
+public typealias SetFilePointerMoveMethod = UInt
 
-public typealias SHARE_INFO_PERMISSIONS = UInt
+public typealias ShareInfoPermissions = UInt
 
-public typealias SHARE_TYPE = UInt
+public typealias ShareType = UInt
 
-public typealias STORAGE_BUS_TYPE = Int
+public typealias StorageBusType = Int
 
-public typealias STREAM_INFO_LEVELS = Int
+public typealias StreamInfoLevels = Int
 
-public typealias SYMBOLIC_LINK_FLAGS = UInt
+public typealias SymbolicLinkFlags = UInt
 
-public typealias TAPEMARK_TYPE = UInt
+public typealias TapemarkType = UInt
 
-public typealias TAPE_INFORMATION_TYPE = UInt
+public typealias TapeInformationType = UInt
 
-public typealias TAPE_POSITION_METHOD = UInt
+public typealias TapePositionMethod = UInt
 
-public typealias TAPE_POSITION_TYPE = UInt
+public typealias TapePositionType = UInt
 
-public typealias TRANSACTION_OUTCOME = Int
+public typealias TransactionOutcome = Int
 
-public typealias TXFS_MINIVERSION = UInt
+public typealias TxfsMiniversion = UInt
 
-public typealias TXF_LOG_RECORD_TYPE = UShort
+public typealias TxfLogRecordType = UShort
 
-public typealias VER_FIND_FILE_FLAGS = UInt
+public typealias VerFindFileFlags = UInt
 
-public typealias VER_FIND_FILE_STATUS = UInt
+public typealias VerFindFileStatus = UInt
 
-public typealias VER_INSTALL_FILE_FLAGS = UInt
+public typealias VerInstallFileFlags = UInt
 
-public typealias VER_INSTALL_FILE_STATUS = UInt
+public typealias VerInstallFileStatus = UInt
 
-public typealias VS_FIXEDFILEINFO_FILE_FLAGS = UInt
+public typealias VsFixedfileinfoFileFlags = UInt
 
-public typealias VS_FIXEDFILEINFO_FILE_OS = UInt
+public typealias VsFixedfileinfoFileOs = UInt
 
-public typealias VS_FIXEDFILEINFO_FILE_SUBTYPE = Int
+public typealias VsFixedfileinfoFileSubtype = Int
 
-public typealias VS_FIXEDFILEINFO_FILE_TYPE = Int
+public typealias VsFixedfileinfoFileType = Int
 
-public typealias WIN_STREAM_ID = UInt
+public typealias WinStreamId = UInt
 
 public fun interface WofEnumEntryProcFn {
-    public operator fun invoke(entryinfo: Long, userdata: Long): BOOL
+    public operator fun invoke(entryinfo: COpaquePointer?, userdata: COpaquePointer?): Bool
 }
 
 public typealias WofEnumEntryProc = WofEnumEntryProcFn?
 
 public fun interface WofEnumFilesProcFn {
-    public operator fun invoke(filepath: PCWSTR, externalfileinfo: Long, userdata: Long): BOOL
+    public operator fun invoke(filepath: Pcwstr, externalfileinfo: COpaquePointer?, userdata: COpaquePointer?): Bool
 }
 
 public typealias WofEnumFilesProc = WofEnumFilesProcFn?

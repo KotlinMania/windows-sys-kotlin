@@ -2,15 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun SRRemoveRestorePoint(dwrpnum: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_SRRemoveRestorePoint(dwrpnum)
+public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_sRRemoveRestorePoint(dwrpnum)
 
-public actual fun SRSetRestorePointA(prestoreptspec: Long, psmgrstatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_SRSetRestorePointA(prestoreptspec.toCPointer<ByteVar>(), psmgrstatus.toCPointer<ByteVar>())
+public actual fun sRSetRestorePointA(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_sRSetRestorePointA(prestoreptspec?.value?.toCPointer<ByteVar>(), psmgrstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun SRSetRestorePointW(prestoreptspec: Long, psmgrstatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_SRSetRestorePointW(prestoreptspec.toCPointer<ByteVar>(), psmgrstatus.toCPointer<ByteVar>())
+public actual fun sRSetRestorePointW(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.restore.cinterop.windowssys_windows_win32_system_restore_sRSetRestorePointW(prestoreptspec?.value?.toCPointer<ByteVar>(), psmgrstatus?.value?.toCPointer<ByteVar>())

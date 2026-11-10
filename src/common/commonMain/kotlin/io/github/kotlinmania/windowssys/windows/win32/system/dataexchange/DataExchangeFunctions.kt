@@ -1,166 +1,167 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 
-public expect fun AddAtomA(lpstring: PCSTR): UShort
+public expect fun addAtomA(lpstring: Pcstr): UShort
 
-public expect fun AddAtomW(lpstring: PCWSTR): UShort
+public expect fun addAtomW(lpstring: Pcwstr): UShort
 
-public expect fun AddClipboardFormatListener(hwnd: HWND): BOOL
+public expect fun addClipboardFormatListener(hwnd: Hwnd): Bool
 
-public expect fun ChangeClipboardChain(hwndremove: HWND, hwndnewnext: HWND): BOOL
+public expect fun changeClipboardChain(hwndremove: Hwnd, hwndnewnext: Hwnd): Bool
 
-public expect fun CloseClipboard(): BOOL
+public expect fun closeClipboard(): Bool
 
-public expect fun CountClipboardFormats(): Int
+public expect fun countClipboardFormats(): Int
 
-public expect fun DdeAbandonTransaction(idinst: UInt, hconv: HCONV, idtransaction: UInt): BOOL
+public expect fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool
 
-public expect fun DdeAccessData(hdata: HDDEDATA, pcbdatasize: Long): Long
+public expect fun ddeAccessData(hdata: Hddedata, pcbdatasize: COpaquePointer?): COpaquePointer?
 
-public expect fun DdeAddData(hdata: HDDEDATA, psrc: Long, cb: UInt, cboff: UInt): HDDEDATA
+public expect fun ddeAddData(hdata: Hddedata, psrc: COpaquePointer?, cb: UInt, cboff: UInt): Hddedata
 
-public expect fun DdeClientTransaction(pdata: Long, cbdata: UInt, hconv: HCONV, hszitem: HSZ, wfmt: UInt, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: UInt, pdwresult: Long): HDDEDATA
+public expect fun ddeClientTransaction(pdata: COpaquePointer?, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: COpaquePointer?): Hddedata
 
-public expect fun DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ): Int
+public expect fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int
 
-public expect fun DdeConnect(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, pcc: Long): HCONV
+public expect fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: COpaquePointer?): Hconv
 
-public expect fun DdeConnectList(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Long): HCONVLIST
+public expect fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: COpaquePointer?): Hconvlist
 
-public expect fun DdeCreateDataHandle(idinst: UInt, psrc: Long, cb: UInt, cboff: UInt, hszitem: HSZ, wfmt: UInt, afcmd: UInt): HDDEDATA
+public expect fun ddeCreateDataHandle(idinst: UInt, psrc: COpaquePointer?, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata
 
-public expect fun DdeCreateStringHandleA(idinst: UInt, psz: PCSTR, icodepage: Int): HSZ
+public expect fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz
 
-public expect fun DdeCreateStringHandleW(idinst: UInt, psz: PCWSTR, icodepage: Int): HSZ
+public expect fun ddeCreateStringHandleW(idinst: UInt, psz: Pcwstr, icodepage: Int): Hsz
 
-public expect fun DdeDisconnect(hconv: HCONV): BOOL
+public expect fun ddeDisconnect(hconv: Hconv): Bool
 
-public expect fun DdeDisconnectList(hconvlist: HCONVLIST): BOOL
+public expect fun ddeDisconnectList(hconvlist: Hconvlist): Bool
 
-public expect fun DdeEnableCallback(idinst: UInt, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD): BOOL
+public expect fun ddeEnableCallback(idinst: UInt, hconv: Hconv, wcmd: DdeEnableCallbackCmd): Bool
 
-public expect fun DdeFreeDataHandle(hdata: HDDEDATA): BOOL
+public expect fun ddeFreeDataHandle(hdata: Hddedata): Bool
 
-public expect fun DdeFreeStringHandle(idinst: UInt, hsz: HSZ): BOOL
+public expect fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool
 
-public expect fun DdeGetData(hdata: HDDEDATA, pdst: Long, cbmax: UInt, cboff: UInt): UInt
+public expect fun ddeGetData(hdata: Hddedata, pdst: COpaquePointer?, cbmax: UInt, cboff: UInt): UInt
 
-public expect fun DdeGetLastError(idinst: UInt): UInt
+public expect fun ddeGetLastError(idinst: UInt): UInt
 
-public expect fun DdeImpersonateClient(hconv: HCONV): BOOL
+public expect fun ddeImpersonateClient(hconv: Hconv): Bool
 
-public expect fun DdeInitializeA(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt
+public expect fun ddeInitializeA(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
 
-public expect fun DdeInitializeW(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt
+public expect fun ddeInitializeW(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt
 
-public expect fun DdeKeepStringHandle(idinst: UInt, hsz: HSZ): BOOL
+public expect fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool
 
-public expect fun DdeNameService(idinst: UInt, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD): HDDEDATA
+public expect fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeNameServiceCmd): Hddedata
 
-public expect fun DdePostAdvise(idinst: UInt, hsztopic: HSZ, hszitem: HSZ): BOOL
+public expect fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool
 
-public expect fun DdeQueryConvInfo(hconv: HCONV, idtransaction: UInt, pconvinfo: Long): UInt
+public expect fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: COpaquePointer?): UInt
 
-public expect fun DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV): HCONV
+public expect fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv
 
-public expect fun DdeQueryStringA(idinst: UInt, hsz: HSZ, psz: PSTR, cchmax: UInt, icodepage: Int): UInt
+public expect fun ddeQueryStringA(idinst: UInt, hsz: Hsz, psz: Pstr, cchmax: UInt, icodepage: Int): UInt
 
-public expect fun DdeQueryStringW(idinst: UInt, hsz: HSZ, psz: PWSTR, cchmax: UInt, icodepage: Int): UInt
+public expect fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UInt, icodepage: Int): UInt
 
-public expect fun DdeReconnect(hconv: HCONV): HCONV
+public expect fun ddeReconnect(hconv: Hconv): Hconv
 
-public expect fun DdeSetQualityOfService(hwndclient: HWND, pqosnew: Long, pqosprev: Long): BOOL
+public expect fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: COpaquePointer?, pqosprev: COpaquePointer?): Bool
 
-public expect fun DdeSetUserHandle(hconv: HCONV, id: UInt, huser: ULong): BOOL
+public expect fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool
 
-public expect fun DdeUnaccessData(hdata: HDDEDATA): BOOL
+public expect fun ddeUnaccessData(hdata: Hddedata): Bool
 
-public expect fun DdeUninitialize(idinst: UInt): BOOL
+public expect fun ddeUninitialize(idinst: UInt): Bool
 
-public expect fun DeleteAtom(natom: UShort): UShort
+public expect fun deleteAtom(natom: UShort): UShort
 
-public expect fun EmptyClipboard(): BOOL
+public expect fun emptyClipboard(): Bool
 
-public expect fun EnumClipboardFormats(format: UInt): UInt
+public expect fun enumClipboardFormats(format: UInt): UInt
 
-public expect fun FindAtomA(lpstring: PCSTR): UShort
+public expect fun findAtomA(lpstring: Pcstr): UShort
 
-public expect fun FindAtomW(lpstring: PCWSTR): UShort
+public expect fun findAtomW(lpstring: Pcwstr): UShort
 
-public expect fun FreeDDElParam(msg: UInt, lparam: LPARAM): BOOL
+public expect fun freeDDElParam(msg: UInt, lparam: Lparam): Bool
 
-public expect fun GetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt
+public expect fun getAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt
 
-public expect fun GetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt
+public expect fun getAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt
 
-public expect fun GetClipboardData(uformat: UInt): HANDLE
+public expect fun getClipboardData(uformat: UInt): Handle
 
-public expect fun GetClipboardFormatNameA(format: UInt, lpszformatname: PSTR, cchmaxcount: Int): Int
+public expect fun getClipboardFormatNameA(format: UInt, lpszformatname: Pstr, cchmaxcount: Int): Int
 
-public expect fun GetClipboardFormatNameW(format: UInt, lpszformatname: PWSTR, cchmaxcount: Int): Int
+public expect fun getClipboardFormatNameW(format: UInt, lpszformatname: Pwstr, cchmaxcount: Int): Int
 
-public expect fun GetClipboardOwner(): HWND
+public expect fun getClipboardOwner(): Hwnd
 
-public expect fun GetClipboardSequenceNumber(): UInt
+public expect fun getClipboardSequenceNumber(): UInt
 
-public expect fun GetClipboardViewer(): HWND
+public expect fun getClipboardViewer(): Hwnd
 
-public expect fun GetOpenClipboardWindow(): HWND
+public expect fun getOpenClipboardWindow(): Hwnd
 
-public expect fun GetPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int
+public expect fun getPriorityClipboardFormat(paformatprioritylist: COpaquePointer?, cformats: Int): Int
 
-public expect fun GetUpdatedClipboardFormats(lpuiformats: Long, cformats: UInt, pcformatsout: Long): BOOL
+public expect fun getUpdatedClipboardFormats(lpuiformats: COpaquePointer?, cformats: UInt, pcformatsout: COpaquePointer?): Bool
 
-public expect fun GlobalAddAtomA(lpstring: PCSTR): UShort
+public expect fun globalAddAtomA(lpstring: Pcstr): UShort
 
-public expect fun GlobalAddAtomExA(lpstring: PCSTR, flags: UInt): UShort
+public expect fun globalAddAtomExA(lpstring: Pcstr, flags: UInt): UShort
 
-public expect fun GlobalAddAtomExW(lpstring: PCWSTR, flags: UInt): UShort
+public expect fun globalAddAtomExW(lpstring: Pcwstr, flags: UInt): UShort
 
-public expect fun GlobalAddAtomW(lpstring: PCWSTR): UShort
+public expect fun globalAddAtomW(lpstring: Pcwstr): UShort
 
-public expect fun GlobalDeleteAtom(natom: UShort): UShort
+public expect fun globalDeleteAtom(natom: UShort): UShort
 
-public expect fun GlobalFindAtomA(lpstring: PCSTR): UShort
+public expect fun globalFindAtomA(lpstring: Pcstr): UShort
 
-public expect fun GlobalFindAtomW(lpstring: PCWSTR): UShort
+public expect fun globalFindAtomW(lpstring: Pcwstr): UShort
 
-public expect fun GlobalGetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt
+public expect fun globalGetAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt
 
-public expect fun GlobalGetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt
+public expect fun globalGetAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt
 
-public expect fun ImpersonateDdeClientWindow(hwndclient: HWND, hwndserver: HWND): BOOL
+public expect fun impersonateDdeClientWindow(hwndclient: Hwnd, hwndserver: Hwnd): Bool
 
-public expect fun InitAtomTable(nsize: UInt): BOOL
+public expect fun initAtomTable(nsize: UInt): Bool
 
-public expect fun IsClipboardFormatAvailable(format: UInt): BOOL
+public expect fun isClipboardFormatAvailable(format: UInt): Bool
 
-public expect fun OpenClipboard(hwndnewowner: HWND): BOOL
+public expect fun openClipboard(hwndnewowner: Hwnd): Bool
 
-public expect fun PackDDElParam(msg: UInt, uilo: ULong, uihi: ULong): LPARAM
+public expect fun packDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Lparam
 
-public expect fun RegisterClipboardFormatA(lpszformat: PCSTR): UInt
+public expect fun registerClipboardFormatA(lpszformat: Pcstr): UInt
 
-public expect fun RegisterClipboardFormatW(lpszformat: PCWSTR): UInt
+public expect fun registerClipboardFormatW(lpszformat: Pcwstr): UInt
 
-public expect fun RemoveClipboardFormatListener(hwnd: HWND): BOOL
+public expect fun removeClipboardFormatListener(hwnd: Hwnd): Bool
 
-public expect fun ReuseDDElParam(lparam: LPARAM, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): LPARAM
+public expect fun reuseDDElParam(lparam: Lparam, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Lparam
 
-public expect fun SetClipboardData(uformat: UInt, hmem: HANDLE): HANDLE
+public expect fun setClipboardData(uformat: UInt, hmem: Handle): Handle
 
-public expect fun SetClipboardViewer(hwndnewviewer: HWND): HWND
+public expect fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd
 
-public expect fun SetWinMetaFileBits(nsize: UInt, lpmeta16data: Long, hdcref: HDC, lpmfp: Long): HENHMETAFILE
+public expect fun setWinMetaFileBits(nsize: UInt, lpmeta16data: COpaquePointer?, hdcref: Hdc, lpmfp: COpaquePointer?): Henhmetafile
 
-public expect fun UnpackDDElParam(msg: UInt, lparam: LPARAM, puilo: Long, puihi: Long): BOOL
+public expect fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: COpaquePointer?, puihi: COpaquePointer?): Bool

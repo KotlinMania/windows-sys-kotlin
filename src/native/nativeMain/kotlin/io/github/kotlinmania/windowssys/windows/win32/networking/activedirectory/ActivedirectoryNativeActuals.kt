@@ -2,506 +2,507 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ADsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator(padscontainer.toCPointer<ByteVar>(), ppenumvariant.toCPointer<ByteVar>())
+public actual fun aDsBuildEnumerator(padscontainer: COpaquePointer?, ppenumvariant: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator(padscontainer?.value?.toCPointer<ByteVar>(), ppenumvariant?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsBuildVarArrayInt(lpdwobjecttypes: Long, dwobjecttypes: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt(lpdwobjecttypes.toCPointer<ByteVar>(), dwobjecttypes, pvar.toCPointer<ByteVar>())
+public actual fun aDsBuildVarArrayInt(lpdwobjecttypes: COpaquePointer?, dwobjecttypes: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt(lpdwobjecttypes?.value?.toCPointer<ByteVar>(), dwobjecttypes, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsBuildVarArrayStr(lpppathnames: Long, dwpathnames: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr(lpppathnames.toCPointer<ByteVar>(), dwpathnames, pvar.toCPointer<ByteVar>())
+public actual fun aDsBuildVarArrayStr(lpppathnames: COpaquePointer?, dwpathnames: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr(lpppathnames?.value?.toCPointer<ByteVar>(), dwpathnames, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsDecodeBinaryData(szsrcdata: PCWSTR, ppbdestdata: Long, pdwdestlen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData(szsrcdata.toCPointer<ByteVar>(), ppbdestdata.toCPointer<ByteVar>(), pdwdestlen.toCPointer<ByteVar>())
+public actual fun aDsDecodeBinaryData(szsrcdata: Pcwstr, ppbdestdata: COpaquePointer?, pdwdestlen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData(szsrcdata?.value?.toCPointer<ByteVar>(), ppbdestdata?.value?.toCPointer<ByteVar>(), pdwdestlen?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsEncodeBinaryData(pbsrcdata: Long, dwsrclen: UInt, ppszdestdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData(pbsrcdata.toCPointer<ByteVar>(), dwsrclen, ppszdestdata.toCPointer<ByteVar>())
+public actual fun aDsEncodeBinaryData(pbsrcdata: COpaquePointer?, dwsrclen: UInt, ppszdestdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData(pbsrcdata?.value?.toCPointer<ByteVar>(), dwsrclen, ppszdestdata?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsEnumerateNext(penumvariant: Long, celements: UInt, pvar: Long, pcelementsfetched: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext(penumvariant.toCPointer<ByteVar>(), celements, pvar.toCPointer<ByteVar>(), pcelementsfetched.toCPointer<ByteVar>())
+public actual fun aDsEnumerateNext(penumvariant: COpaquePointer?, celements: UInt, pvar: COpaquePointer?, pcelementsfetched: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext(penumvariant?.value?.toCPointer<ByteVar>(), celements, pvar?.value?.toCPointer<ByteVar>(), pcelementsfetched?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsFreeEnumerator(penumvariant: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator(penumvariant.toCPointer<ByteVar>())
+public actual fun aDsFreeEnumerator(penumvariant: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator(penumvariant?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsGetLastError(lperror: Long, lperrorbuf: PWSTR, dwerrorbuflen: UInt, lpnamebuf: PWSTR, dwnamebuflen: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsGetLastError(lperror.toCPointer<ByteVar>(), lperrorbuf.toCPointer<ByteVar>(), dwerrorbuflen, lpnamebuf.toCPointer<ByteVar>(), dwnamebuflen)
+public actual fun aDsGetLastError(lperror: COpaquePointer?, lperrorbuf: Pwstr, dwerrorbuflen: UInt, lpnamebuf: Pwstr, dwnamebuflen: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsGetLastError(lperror?.value?.toCPointer<ByteVar>(), lperrorbuf?.value?.toCPointer<ByteVar>(), dwerrorbuflen, lpnamebuf?.value?.toCPointer<ByteVar>(), dwnamebuflen)
 
-public actual fun ADsGetObject(lpszpathname: PCWSTR, riid: Long, ppobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsGetObject(lpszpathname.toCPointer<ByteVar>(), riid.toCPointer<ByteVar>(), ppobject.toCPointer<ByteVar>())
+public actual fun aDsGetObject(lpszpathname: Pcwstr, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsGetObject(lpszpathname?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppobject?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsOpenObject(lpszpathname: PCWSTR, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: Long, ppobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsOpenObject(lpszpathname.toCPointer<ByteVar>(), lpszusername.toCPointer<ByteVar>(), lpszpassword.toCPointer<ByteVar>(), dwreserved, riid.toCPointer<ByteVar>(), ppobject.toCPointer<ByteVar>())
+public actual fun aDsOpenObject(lpszpathname: Pcwstr, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwreserved: AdsAuthenticationEnum, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsOpenObject(lpszpathname?.value?.toCPointer<ByteVar>(), lpszusername?.value?.toCPointer<ByteVar>(), lpszpassword?.value?.toCPointer<ByteVar>(), dwreserved, riid?.value?.toCPointer<ByteVar>(), ppobject?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropCheckIfWritable(pwzattr: PCWSTR, pwritableattrs: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable(pwzattr.toCPointer<ByteVar>(), pwritableattrs.toCPointer<ByteVar>())
+public actual fun aDsPropCheckIfWritable(pwzattr: Pcwstr, pwritableattrs: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable(pwzattr?.value?.toCPointer<ByteVar>(), pwritableattrs?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: PCWSTR, phnotifyobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj(pappthddataobj.toCPointer<ByteVar>(), pwzadsobjname.toCPointer<ByteVar>(), phnotifyobj.toCPointer<ByteVar>())
+public actual fun aDsPropCreateNotifyObj(pappthddataobj: COpaquePointer?, pwzadsobjname: Pcwstr, phnotifyobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj(pappthddataobj?.value?.toCPointer<ByteVar>(), pwzadsobjname?.value?.toCPointer<ByteVar>(), phnotifyobj?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropGetInitInfo(hnotifyobj: HWND, pinitparams: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo(hnotifyobj.toCPointer<ByteVar>(), pinitparams.toCPointer<ByteVar>())
+public actual fun aDsPropGetInitInfo(hnotifyobj: Hwnd, pinitparams: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo(hnotifyobj?.value?.toCPointer<ByteVar>(), pinitparams?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropSendErrorMessage(hnotifyobj: HWND, perror: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage(hnotifyobj.toCPointer<ByteVar>(), perror.toCPointer<ByteVar>())
+public actual fun aDsPropSendErrorMessage(hnotifyobj: Hwnd, perror: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage(hnotifyobj?.value?.toCPointer<ByteVar>(), perror?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropSetHwnd(hnotifyobj: HWND, hpage: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd(hnotifyobj.toCPointer<ByteVar>(), hpage.toCPointer<ByteVar>())
+public actual fun aDsPropSetHwnd(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd(hnotifyobj?.value?.toCPointer<ByteVar>(), hpage?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropSetHwndWithTitle(hnotifyobj: HWND, hpage: HWND, ptztitle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle(hnotifyobj.toCPointer<ByteVar>(), hpage.toCPointer<ByteVar>(), ptztitle.toCPointer<ByteVar>())
+public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle(hnotifyobj?.value?.toCPointer<ByteVar>(), hpage?.value?.toCPointer<ByteVar>(), ptztitle?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsPropShowErrorDialog(hnotifyobj: HWND, hpage: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog(hnotifyobj.toCPointer<ByteVar>(), hpage.toCPointer<ByteVar>())
+public actual fun aDsPropShowErrorDialog(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog(hnotifyobj?.value?.toCPointer<ByteVar>(), hpage?.value?.toCPointer<ByteVar>())
 
-public actual fun ADsSetLastError(dwerr: UInt, pszerror: PCWSTR, pszprovider: PCWSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ADsSetLastError(dwerr, pszerror.toCPointer<ByteVar>(), pszprovider.toCPointer<ByteVar>())
+public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pcwstr) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_aDsSetLastError(dwerr, pszerror?.value?.toCPointer<ByteVar>(), pszprovider?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun AdsFreeAdsValues(padsvalues: Long, dwnumvalues: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues(padsvalues.toCPointer<ByteVar>(), dwnumvalues)
+public actual fun adsFreeAdsValues(padsvalues: COpaquePointer?, dwnumvalues: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues(padsvalues?.value?.toCPointer<ByteVar>(), dwnumvalues)
 }
 
-public actual fun AdsTypeToPropVariant(padsvalues: Long, dwnumvalues: UInt, pvariant: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant(padsvalues.toCPointer<ByteVar>(), dwnumvalues, pvariant.toCPointer<ByteVar>())
+public actual fun adsTypeToPropVariant(padsvalues: COpaquePointer?, dwnumvalues: UInt, pvariant: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant(padsvalues?.value?.toCPointer<ByteVar>(), dwnumvalues, pvariant?.value?.toCPointer<ByteVar>())
 
-public actual fun AllocADsMem(cb: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_AllocADsMem(cb)?.toLong() ?: 0L
+public actual fun allocADsMem(cb: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_allocADsMem(cb)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AllocADsStr(pstr: PCWSTR): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_AllocADsStr(pstr.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun allocADsStr(pstr: Pcwstr): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_allocADsStr(pstr?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BinarySDToSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, pvarsec: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor(psecuritydescriptor.toCPointer<ByteVar>(), pvarsec.toCPointer<ByteVar>(), pszservername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), password.toCPointer<ByteVar>(), dwflags)
+public actual fun binarySDToSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, pvarsec: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor(psecuritydescriptor?.value?.toCPointer<ByteVar>(), pvarsec?.value?.toCPointer<ByteVar>(), pszservername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), password?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun DsAddSidHistoryA(hds: HANDLE, flags: UInt, srcdomain: PCSTR, srcprincipal: PCSTR, srcdomaincontroller: PCSTR, srcdomaincreds: Long, dstdomain: PCSTR, dstprincipal: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA(hds.toCPointer<ByteVar>(), flags, srcdomain.toCPointer<ByteVar>(), srcprincipal.toCPointer<ByteVar>(), srcdomaincontroller.toCPointer<ByteVar>(), srcdomaincreds.toCPointer<ByteVar>(), dstdomain.toCPointer<ByteVar>(), dstprincipal.toCPointer<ByteVar>())
+public actual fun dsAddSidHistoryA(hds: Handle, flags: UInt, srcdomain: Pcstr, srcprincipal: Pcstr, srcdomaincontroller: Pcstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcstr, dstprincipal: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA(hds?.value?.toCPointer<ByteVar>(), flags, srcdomain?.value?.toCPointer<ByteVar>(), srcprincipal?.value?.toCPointer<ByteVar>(), srcdomaincontroller?.value?.toCPointer<ByteVar>(), srcdomaincreds?.value?.toCPointer<ByteVar>(), dstdomain?.value?.toCPointer<ByteVar>(), dstprincipal?.value?.toCPointer<ByteVar>())
 
-public actual fun DsAddSidHistoryW(hds: HANDLE, flags: UInt, srcdomain: PCWSTR, srcprincipal: PCWSTR, srcdomaincontroller: PCWSTR, srcdomaincreds: Long, dstdomain: PCWSTR, dstprincipal: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW(hds.toCPointer<ByteVar>(), flags, srcdomain.toCPointer<ByteVar>(), srcprincipal.toCPointer<ByteVar>(), srcdomaincontroller.toCPointer<ByteVar>(), srcdomaincreds.toCPointer<ByteVar>(), dstdomain.toCPointer<ByteVar>(), dstprincipal.toCPointer<ByteVar>())
+public actual fun dsAddSidHistoryW(hds: Handle, flags: UInt, srcdomain: Pcwstr, srcprincipal: Pcwstr, srcdomaincontroller: Pcwstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcwstr, dstprincipal: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW(hds?.value?.toCPointer<ByteVar>(), flags, srcdomain?.value?.toCPointer<ByteVar>(), srcprincipal?.value?.toCPointer<ByteVar>(), srcdomaincontroller?.value?.toCPointer<ByteVar>(), srcdomaincreds?.value?.toCPointer<ByteVar>(), dstdomain?.value?.toCPointer<ByteVar>(), dstprincipal?.value?.toCPointer<ByteVar>())
 
-public actual fun DsAddressToSiteNamesA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA(computername.toCPointer<ByteVar>(), entrycount, socketaddresses.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>())
+public actual fun dsAddressToSiteNamesA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA(computername?.value?.toCPointer<ByteVar>(), entrycount, socketaddresses?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsAddressToSiteNamesExA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA(computername.toCPointer<ByteVar>(), entrycount, socketaddresses.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>(), subnetnames.toCPointer<ByteVar>())
+public actual fun dsAddressToSiteNamesExA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA(computername?.value?.toCPointer<ByteVar>(), entrycount, socketaddresses?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>(), subnetnames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsAddressToSiteNamesExW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW(computername.toCPointer<ByteVar>(), entrycount, socketaddresses.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>(), subnetnames.toCPointer<ByteVar>())
+public actual fun dsAddressToSiteNamesExW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW(computername?.value?.toCPointer<ByteVar>(), entrycount, socketaddresses?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>(), subnetnames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsAddressToSiteNamesW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW(computername.toCPointer<ByteVar>(), entrycount, socketaddresses.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>())
+public actual fun dsAddressToSiteNamesW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW(computername?.value?.toCPointer<ByteVar>(), entrycount, socketaddresses?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindA(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindA(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindByInstanceA(servername: PCSTR, annotation: PCSTR, instanceguid: Long, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA(servername.toCPointer<ByteVar>(), annotation.toCPointer<ByteVar>(), instanceguid.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), bindflags, phds.toCPointer<ByteVar>())
+public actual fun dsBindByInstanceA(servername: Pcstr, annotation: Pcstr, instanceguid: COpaquePointer?, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA(servername?.value?.toCPointer<ByteVar>(), annotation?.value?.toCPointer<ByteVar>(), instanceguid?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), bindflags, phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindByInstanceW(servername: PCWSTR, annotation: PCWSTR, instanceguid: Long, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW(servername.toCPointer<ByteVar>(), annotation.toCPointer<ByteVar>(), instanceguid.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), bindflags, phds.toCPointer<ByteVar>())
+public actual fun dsBindByInstanceW(servername: Pcwstr, annotation: Pcwstr, instanceguid: COpaquePointer?, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW(servername?.value?.toCPointer<ByteVar>(), annotation?.value?.toCPointer<ByteVar>(), instanceguid?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), bindflags, phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindToISTGA(sitename: PCSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindToISTGA(sitename.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindToISTGA(sitename: Pcstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindToISTGA(sitename?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindToISTGW(sitename: PCWSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindToISTGW(sitename.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindToISTGW(sitename: Pcwstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindToISTGW(sitename?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindW(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindW(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithCredA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithCredA(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindWithCredA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithCredA(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithCredW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithCredW(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindWithCredW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithCredW(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithSpnA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindWithSpnA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithSpnExA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), bindflags, phds.toCPointer<ByteVar>())
+public actual fun dsBindWithSpnExA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), bindflags, phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithSpnExW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), bindflags, phds.toCPointer<ByteVar>())
+public actual fun dsBindWithSpnExW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), bindflags, phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindWithSpnW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW(domaincontrollername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), authidentity.toCPointer<ByteVar>(), serviceprincipalname.toCPointer<ByteVar>(), phds.toCPointer<ByteVar>())
+public actual fun dsBindWithSpnW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW(domaincontrollername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), authidentity?.value?.toCPointer<ByteVar>(), serviceprincipalname?.value?.toCPointer<ByteVar>(), phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBindingSetTimeout(hds: HANDLE, ctimeoutsecs: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout(hds.toCPointer<ByteVar>(), ctimeoutsecs)
+public actual fun dsBindingSetTimeout(hds: Handle, ctimeoutsecs: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout(hds?.value?.toCPointer<ByteVar>(), ctimeoutsecs)
 
-public actual fun DsBrowseForContainerA(pinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA(pinfo.toCPointer<ByteVar>())
+public actual fun dsBrowseForContainerA(pinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA(pinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsBrowseForContainerW(pinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW(pinfo.toCPointer<ByteVar>())
+public actual fun dsBrowseForContainerW(pinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW(pinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsClientMakeSpnForTargetServerA(serviceclass: PCSTR, servicename: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcspnlength.toCPointer<ByteVar>(), pszspn.toCPointer<ByteVar>())
+public actual fun dsClientMakeSpnForTargetServerA(serviceclass: Pcstr, servicename: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcspnlength?.value?.toCPointer<ByteVar>(), pszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsClientMakeSpnForTargetServerW(serviceclass: PCWSTR, servicename: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcspnlength.toCPointer<ByteVar>(), pszspn.toCPointer<ByteVar>())
+public actual fun dsClientMakeSpnForTargetServerW(serviceclass: Pcwstr, servicename: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcspnlength?.value?.toCPointer<ByteVar>(), pszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackNamesA(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackNamesA(hds.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames.toCPointer<ByteVar>(), ppresult.toCPointer<ByteVar>())
+public actual fun dsCrackNamesA(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackNamesA(hds?.value?.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames?.value?.toCPointer<ByteVar>(), ppresult?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackNamesW(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackNamesW(hds.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames.toCPointer<ByteVar>(), ppresult.toCPointer<ByteVar>())
+public actual fun dsCrackNamesW(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackNamesW(hds?.value?.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames?.value?.toCPointer<ByteVar>(), ppresult?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpn2A(pszspn: PCSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A(pszspn.toCPointer<ByteVar>(), cspn, pcserviceclass.toCPointer<ByteVar>(), serviceclass.toCPointer<ByteVar>(), pcservicename.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pinstanceport.toCPointer<ByteVar>())
+public actual fun dsCrackSpn2A(pszspn: Pcstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A(pszspn?.value?.toCPointer<ByteVar>(), cspn, pcserviceclass?.value?.toCPointer<ByteVar>(), serviceclass?.value?.toCPointer<ByteVar>(), pcservicename?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pinstanceport?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpn2W(pszspn: PCWSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W(pszspn.toCPointer<ByteVar>(), cspn, pcserviceclass.toCPointer<ByteVar>(), serviceclass.toCPointer<ByteVar>(), pcservicename.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pinstanceport.toCPointer<ByteVar>())
+public actual fun dsCrackSpn2W(pszspn: Pcwstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W(pszspn?.value?.toCPointer<ByteVar>(), cspn, pcserviceclass?.value?.toCPointer<ByteVar>(), serviceclass?.value?.toCPointer<ByteVar>(), pcservicename?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pinstanceport?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpn3W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pportnumber: Long, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W(pszspn.toCPointer<ByteVar>(), cspn, pchostname.toCPointer<ByteVar>(), hostname.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pportnumber.toCPointer<ByteVar>(), pcdomainname.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), pcrealmname.toCPointer<ByteVar>(), realmname.toCPointer<ByteVar>())
+public actual fun dsCrackSpn3W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pportnumber: COpaquePointer?, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W(pszspn?.value?.toCPointer<ByteVar>(), cspn, pchostname?.value?.toCPointer<ByteVar>(), hostname?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pportnumber?.value?.toCPointer<ByteVar>(), pcdomainname?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), pcrealmname?.value?.toCPointer<ByteVar>(), realmname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpn4W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pcportname: Long, portname: PWSTR, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W(pszspn.toCPointer<ByteVar>(), cspn, pchostname.toCPointer<ByteVar>(), hostname.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pcportname.toCPointer<ByteVar>(), portname.toCPointer<ByteVar>(), pcdomainname.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), pcrealmname.toCPointer<ByteVar>(), realmname.toCPointer<ByteVar>())
+public actual fun dsCrackSpn4W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pcportname: COpaquePointer?, portname: Pwstr, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W(pszspn?.value?.toCPointer<ByteVar>(), cspn, pchostname?.value?.toCPointer<ByteVar>(), hostname?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pcportname?.value?.toCPointer<ByteVar>(), portname?.value?.toCPointer<ByteVar>(), pcdomainname?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), pcrealmname?.value?.toCPointer<ByteVar>(), realmname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpnA(pszspn: PCSTR, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpnA(pszspn.toCPointer<ByteVar>(), pcserviceclass.toCPointer<ByteVar>(), serviceclass.toCPointer<ByteVar>(), pcservicename.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pinstanceport.toCPointer<ByteVar>())
+public actual fun dsCrackSpnA(pszspn: Pcstr, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpnA(pszspn?.value?.toCPointer<ByteVar>(), pcserviceclass?.value?.toCPointer<ByteVar>(), serviceclass?.value?.toCPointer<ByteVar>(), pcservicename?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pinstanceport?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackSpnW(pszspn: PCWSTR, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackSpnW(pszspn.toCPointer<ByteVar>(), pcserviceclass.toCPointer<ByteVar>(), serviceclass.toCPointer<ByteVar>(), pcservicename.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), pcinstancename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), pinstanceport.toCPointer<ByteVar>())
+public actual fun dsCrackSpnW(pszspn: Pcwstr, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackSpnW(pszspn?.value?.toCPointer<ByteVar>(), pcserviceclass?.value?.toCPointer<ByteVar>(), serviceclass?.value?.toCPointer<ByteVar>(), pcservicename?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), pcinstancename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), pinstanceport?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackUnquotedMangledRdnA(pszrdn: PCSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA(pszrdn.toCPointer<ByteVar>(), cchrdn, pguid.toCPointer<ByteVar>(), pedsmanglefor.toCPointer<ByteVar>())
+public actual fun dsCrackUnquotedMangledRdnA(pszrdn: Pcstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA(pszrdn?.value?.toCPointer<ByteVar>(), cchrdn, pguid?.value?.toCPointer<ByteVar>(), pedsmanglefor?.value?.toCPointer<ByteVar>())
 
-public actual fun DsCrackUnquotedMangledRdnW(pszrdn: PCWSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW(pszrdn.toCPointer<ByteVar>(), cchrdn, pguid.toCPointer<ByteVar>(), pedsmanglefor.toCPointer<ByteVar>())
+public actual fun dsCrackUnquotedMangledRdnW(pszrdn: Pcwstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW(pszrdn?.value?.toCPointer<ByteVar>(), cchrdn, pguid?.value?.toCPointer<ByteVar>(), pedsmanglefor?.value?.toCPointer<ByteVar>())
 
-public actual fun DsDeregisterDnsHostRecordsA(servername: PCSTR, dnsdomainname: PCSTR, domainguid: Long, dsaguid: Long, dnshostname: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA(servername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), dsaguid.toCPointer<ByteVar>(), dnshostname.toCPointer<ByteVar>())
+public actual fun dsDeregisterDnsHostRecordsA(servername: Pcstr, dnsdomainname: Pcstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA(servername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), dsaguid?.value?.toCPointer<ByteVar>(), dnshostname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsDeregisterDnsHostRecordsW(servername: PCWSTR, dnsdomainname: PCWSTR, domainguid: Long, dsaguid: Long, dnshostname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW(servername.toCPointer<ByteVar>(), dnsdomainname.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), dsaguid.toCPointer<ByteVar>(), dnshostname.toCPointer<ByteVar>())
+public actual fun dsDeregisterDnsHostRecordsW(servername: Pcwstr, dnsdomainname: Pcwstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW(servername?.value?.toCPointer<ByteVar>(), dnsdomainname?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), dsaguid?.value?.toCPointer<ByteVar>(), dnshostname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsEnumerateDomainTrustsA(servername: PCSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA(servername.toCPointer<ByteVar>(), flags, domains.toCPointer<ByteVar>(), domaincount.toCPointer<ByteVar>())
+public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA(servername?.value?.toCPointer<ByteVar>(), flags, domains?.value?.toCPointer<ByteVar>(), domaincount?.value?.toCPointer<ByteVar>())
 
-public actual fun DsEnumerateDomainTrustsW(servername: PCWSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW(servername.toCPointer<ByteVar>(), flags, domains.toCPointer<ByteVar>(), domaincount.toCPointer<ByteVar>())
+public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW(servername?.value?.toCPointer<ByteVar>(), flags, domains?.value?.toCPointer<ByteVar>(), domaincount?.value?.toCPointer<ByteVar>())
 
-public actual fun DsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA(infolevel, cinfo, pinfo.toCPointer<ByteVar>())
+public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA(infolevel, cinfo, pinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW(infolevel, cinfo, pinfo.toCPointer<ByteVar>())
+public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW(infolevel, cinfo, pinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeNameResultA(presult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA(presult.toCPointer<ByteVar>())
+public actual fun dsFreeNameResultA(presult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA(presult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeNameResultW(presult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW(presult.toCPointer<ByteVar>())
+public actual fun dsFreeNameResultW(presult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW(presult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreePasswordCredentials(authidentity: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials(authidentity.toCPointer<ByteVar>())
+public actual fun dsFreePasswordCredentials(authidentity: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials(authidentity?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeSchemaGuidMapA(pguidmap: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA(pguidmap.toCPointer<ByteVar>())
+public actual fun dsFreeSchemaGuidMapA(pguidmap: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA(pguidmap?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeSchemaGuidMapW(pguidmap: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW(pguidmap.toCPointer<ByteVar>())
+public actual fun dsFreeSchemaGuidMapW(pguidmap: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW(pguidmap?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeSpnArrayA(cspn: UInt, rpszspn: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA(cspn, rpszspn.toCPointer<ByteVar>())
+public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(cspn, rpszspn?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsFreeSpnArrayW(cspn: UInt, rpszspn: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW(cspn, rpszspn.toCPointer<ByteVar>())
+public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(cspn, rpszspn?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsGetDcCloseW(getdccontexthandle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW(getdccontexthandle.toCPointer<ByteVar>())
+public actual fun dsGetDcCloseW(getdccontexthandle: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW(getdccontexthandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsGetDcNameA(computername: PCSTR, domainname: PCSTR, domainguid: Long, sitename: PCSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcNameA(computername.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), sitename.toCPointer<ByteVar>(), flags, domaincontrollerinfo.toCPointer<ByteVar>())
+public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: COpaquePointer?, sitename: Pcstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcNameA(computername?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), sitename?.value?.toCPointer<ByteVar>(), flags, domaincontrollerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcNameW(computername: PCWSTR, domainname: PCWSTR, domainguid: Long, sitename: PCWSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcNameW(computername.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), sitename.toCPointer<ByteVar>(), flags, domaincontrollerinfo.toCPointer<ByteVar>())
+public actual fun dsGetDcNameW(computername: Pcwstr, domainname: Pcwstr, domainguid: COpaquePointer?, sitename: Pcwstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcNameW(computername?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), sitename?.value?.toCPointer<ByteVar>(), flags, domaincontrollerinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcNextA(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcNextA(getdccontexthandle.toCPointer<ByteVar>(), sockaddresscount.toCPointer<ByteVar>(), sockaddresses.toCPointer<ByteVar>(), dnshostname.toCPointer<ByteVar>())
+public actual fun dsGetDcNextA(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcNextA(getdccontexthandle?.value?.toCPointer<ByteVar>(), sockaddresscount?.value?.toCPointer<ByteVar>(), sockaddresses?.value?.toCPointer<ByteVar>(), dnshostname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcNextW(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcNextW(getdccontexthandle.toCPointer<ByteVar>(), sockaddresscount.toCPointer<ByteVar>(), sockaddresses.toCPointer<ByteVar>(), dnshostname.toCPointer<ByteVar>())
+public actual fun dsGetDcNextW(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcNextW(getdccontexthandle?.value?.toCPointer<ByteVar>(), sockaddresscount?.value?.toCPointer<ByteVar>(), sockaddresses?.value?.toCPointer<ByteVar>(), dnshostname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcOpenA(dnsname: PCSTR, optionflags: UInt, sitename: PCSTR, domainguid: Long, dnsforestname: PCSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA(dnsname.toCPointer<ByteVar>(), optionflags, sitename.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), dnsforestname.toCPointer<ByteVar>(), dcflags, retgetdccontext.toCPointer<ByteVar>())
+public actual fun dsGetDcOpenA(dnsname: Pcstr, optionflags: UInt, sitename: Pcstr, domainguid: COpaquePointer?, dnsforestname: Pcstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA(dnsname?.value?.toCPointer<ByteVar>(), optionflags, sitename?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), dnsforestname?.value?.toCPointer<ByteVar>(), dcflags, retgetdccontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcOpenW(dnsname: PCWSTR, optionflags: UInt, sitename: PCWSTR, domainguid: Long, dnsforestname: PCWSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW(dnsname.toCPointer<ByteVar>(), optionflags, sitename.toCPointer<ByteVar>(), domainguid.toCPointer<ByteVar>(), dnsforestname.toCPointer<ByteVar>(), dcflags, retgetdccontext.toCPointer<ByteVar>())
+public actual fun dsGetDcOpenW(dnsname: Pcwstr, optionflags: UInt, sitename: Pcwstr, domainguid: COpaquePointer?, dnsforestname: Pcwstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW(dnsname?.value?.toCPointer<ByteVar>(), optionflags, sitename?.value?.toCPointer<ByteVar>(), domainguid?.value?.toCPointer<ByteVar>(), dnsforestname?.value?.toCPointer<ByteVar>(), dcflags, retgetdccontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcSiteCoverageA(servername: PCSTR, entrycount: Long, sitenames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA(servername.toCPointer<ByteVar>(), entrycount.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>())
+public actual fun dsGetDcSiteCoverageA(servername: Pcstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA(servername?.value?.toCPointer<ByteVar>(), entrycount?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDcSiteCoverageW(servername: PCWSTR, entrycount: Long, sitenames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW(servername.toCPointer<ByteVar>(), entrycount.toCPointer<ByteVar>(), sitenames.toCPointer<ByteVar>())
+public actual fun dsGetDcSiteCoverageW(servername: Pcwstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW(servername?.value?.toCPointer<ByteVar>(), entrycount?.value?.toCPointer<ByteVar>(), sitenames?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDomainControllerInfoA(hds: HANDLE, domainname: PCSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA(hds.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), infolevel, pcout.toCPointer<ByteVar>(), ppinfo.toCPointer<ByteVar>())
+public actual fun dsGetDomainControllerInfoA(hds: Handle, domainname: Pcstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA(hds?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), infolevel, pcout?.value?.toCPointer<ByteVar>(), ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetDomainControllerInfoW(hds: HANDLE, domainname: PCWSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW(hds.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), infolevel, pcout.toCPointer<ByteVar>(), ppinfo.toCPointer<ByteVar>())
+public actual fun dsGetDomainControllerInfoW(hds: Handle, domainname: Pcwstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW(hds?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), infolevel, pcout?.value?.toCPointer<ByteVar>(), ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetForestTrustInformationW(servername: PCWSTR, trusteddomainname: PCWSTR, flags: UInt, foresttrustinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW(servername.toCPointer<ByteVar>(), trusteddomainname.toCPointer<ByteVar>(), flags, foresttrustinfo.toCPointer<ByteVar>())
+public actual fun dsGetForestTrustInformationW(servername: Pcwstr, trusteddomainname: Pcwstr, flags: UInt, foresttrustinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW(servername?.value?.toCPointer<ByteVar>(), trusteddomainname?.value?.toCPointer<ByteVar>(), flags, foresttrustinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetFriendlyClassName(pszobjectclass: PCWSTR, pszbuffer: PWSTR, cchbuffer: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName(pszobjectclass.toCPointer<ByteVar>(), pszbuffer.toCPointer<ByteVar>(), cchbuffer)
+public actual fun dsGetFriendlyClassName(pszobjectclass: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName(pszobjectclass?.value?.toCPointer<ByteVar>(), pszbuffer?.value?.toCPointer<ByteVar>(), cchbuffer)
 
-public actual fun DsGetIcon(dwflags: UInt, pszobjectclass: PCWSTR, cximage: Int, cyimage: Int): HICON =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetIcon(dwflags, pszobjectclass.toCPointer<ByteVar>(), cximage, cyimage)?.toLong() ?: 0L
+public actual fun dsGetIcon(dwflags: UInt, pszobjectclass: Pcwstr, cximage: Int, cyimage: Int): Hicon =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetIcon(dwflags, pszobjectclass?.value?.toCPointer<ByteVar>(), cximage, cyimage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetRdnW(ppdn.toCPointer<ByteVar>(), pcdn.toCPointer<ByteVar>(), ppkey.toCPointer<ByteVar>(), pckey.toCPointer<ByteVar>(), ppval.toCPointer<ByteVar>(), pcval.toCPointer<ByteVar>())
+public actual fun dsGetRdnW(ppdn: COpaquePointer?, pcdn: COpaquePointer?, ppkey: COpaquePointer?, pckey: COpaquePointer?, ppval: COpaquePointer?, pcval: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetRdnW(ppdn?.value?.toCPointer<ByteVar>(), pcdn?.value?.toCPointer<ByteVar>(), ppkey?.value?.toCPointer<ByteVar>(), pckey?.value?.toCPointer<ByteVar>(), ppval?.value?.toCPointer<ByteVar>(), pcval?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetSiteNameA(computername: PCSTR, sitename: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA(computername.toCPointer<ByteVar>(), sitename.toCPointer<ByteVar>())
+public actual fun dsGetSiteNameA(computername: Pcstr, sitename: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA(computername?.value?.toCPointer<ByteVar>(), sitename?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetSiteNameW(computername: PCWSTR, sitename: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW(computername.toCPointer<ByteVar>(), sitename.toCPointer<ByteVar>())
+public actual fun dsGetSiteNameW(computername: Pcwstr, sitename: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW(computername?.value?.toCPointer<ByteVar>(), sitename?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCSTR, servicename: PCSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetSpnA(servicetype, serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames.toCPointer<ByteVar>(), pinstanceports.toCPointer<ByteVar>(), pcspn.toCPointer<ByteVar>(), prpszspn.toCPointer<ByteVar>())
+public actual fun dsGetSpnA(servicetype: DsSpnNameType, serviceclass: Pcstr, servicename: Pcstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetSpnA(servicetype, serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames?.value?.toCPointer<ByteVar>(), pinstanceports?.value?.toCPointer<ByteVar>(), pcspn?.value?.toCPointer<ByteVar>(), prpszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCWSTR, servicename: PCWSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsGetSpnW(servicetype, serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames.toCPointer<ByteVar>(), pinstanceports.toCPointer<ByteVar>(), pcspn.toCPointer<ByteVar>(), prpszspn.toCPointer<ByteVar>())
+public actual fun dsGetSpnW(servicetype: DsSpnNameType, serviceclass: Pcwstr, servicename: Pcwstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsGetSpnW(servicetype, serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames?.value?.toCPointer<ByteVar>(), pinstanceports?.value?.toCPointer<ByteVar>(), pcspn?.value?.toCPointer<ByteVar>(), prpszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsInheritSecurityIdentityA(hds: HANDLE, flags: UInt, srcprincipal: PCSTR, dstprincipal: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA(hds.toCPointer<ByteVar>(), flags, srcprincipal.toCPointer<ByteVar>(), dstprincipal.toCPointer<ByteVar>())
+public actual fun dsInheritSecurityIdentityA(hds: Handle, flags: UInt, srcprincipal: Pcstr, dstprincipal: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA(hds?.value?.toCPointer<ByteVar>(), flags, srcprincipal?.value?.toCPointer<ByteVar>(), dstprincipal?.value?.toCPointer<ByteVar>())
 
-public actual fun DsInheritSecurityIdentityW(hds: HANDLE, flags: UInt, srcprincipal: PCWSTR, dstprincipal: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW(hds.toCPointer<ByteVar>(), flags, srcprincipal.toCPointer<ByteVar>(), dstprincipal.toCPointer<ByteVar>())
+public actual fun dsInheritSecurityIdentityW(hds: Handle, flags: UInt, srcprincipal: Pcwstr, dstprincipal: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW(hds?.value?.toCPointer<ByteVar>(), flags, srcprincipal?.value?.toCPointer<ByteVar>(), dstprincipal?.value?.toCPointer<ByteVar>())
 
-public actual fun DsIsMangledDnA(pszdn: PCSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA(pszdn.toCPointer<ByteVar>(), edsmanglefor)
+public actual fun dsIsMangledDnA(pszdn: Pcstr, edsmanglefor: DsMangleFor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA(pszdn?.value?.toCPointer<ByteVar>(), edsmanglefor)
 
-public actual fun DsIsMangledDnW(pszdn: PCWSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW(pszdn.toCPointer<ByteVar>(), edsmanglefor)
+public actual fun dsIsMangledDnW(pszdn: Pcwstr, edsmanglefor: DsMangleFor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW(pszdn?.value?.toCPointer<ByteVar>(), edsmanglefor)
 
-public actual fun DsIsMangledRdnValueA(pszrdn: PCSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA(pszrdn.toCPointer<ByteVar>(), crdn, edsmanglefordesired)
+public actual fun dsIsMangledRdnValueA(pszrdn: Pcstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA(pszrdn?.value?.toCPointer<ByteVar>(), crdn, edsmanglefordesired)
 
-public actual fun DsIsMangledRdnValueW(pszrdn: PCWSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW(pszrdn.toCPointer<ByteVar>(), crdn, edsmanglefordesired)
+public actual fun dsIsMangledRdnValueW(pszrdn: Pcwstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW(pszrdn?.value?.toCPointer<ByteVar>(), crdn, edsmanglefordesired)
 
-public actual fun DsListDomainsInSiteA(hds: HANDLE, site: PCSTR, ppdomains: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA(hds.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppdomains.toCPointer<ByteVar>())
+public actual fun dsListDomainsInSiteA(hds: Handle, site: Pcstr, ppdomains: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA(hds?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppdomains?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListDomainsInSiteW(hds: HANDLE, site: PCWSTR, ppdomains: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW(hds.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppdomains.toCPointer<ByteVar>())
+public actual fun dsListDomainsInSiteW(hds: Handle, site: Pcwstr, ppdomains: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW(hds?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppdomains?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListInfoForServerA(hds: HANDLE, server: PCSTR, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA(hds.toCPointer<ByteVar>(), server.toCPointer<ByteVar>(), ppinfo.toCPointer<ByteVar>())
+public actual fun dsListInfoForServerA(hds: Handle, server: Pcstr, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA(hds?.value?.toCPointer<ByteVar>(), server?.value?.toCPointer<ByteVar>(), ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListInfoForServerW(hds: HANDLE, server: PCWSTR, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW(hds.toCPointer<ByteVar>(), server.toCPointer<ByteVar>(), ppinfo.toCPointer<ByteVar>())
+public actual fun dsListInfoForServerW(hds: Handle, server: Pcwstr, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW(hds?.value?.toCPointer<ByteVar>(), server?.value?.toCPointer<ByteVar>(), ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListRolesA(hds: HANDLE, pproles: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListRolesA(hds.toCPointer<ByteVar>(), pproles.toCPointer<ByteVar>())
+public actual fun dsListRolesA(hds: Handle, pproles: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListRolesA(hds?.value?.toCPointer<ByteVar>(), pproles?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListRolesW(hds: HANDLE, pproles: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListRolesW(hds.toCPointer<ByteVar>(), pproles.toCPointer<ByteVar>())
+public actual fun dsListRolesW(hds: Handle, pproles: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListRolesW(hds?.value?.toCPointer<ByteVar>(), pproles?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListServersForDomainInSiteA(hds: HANDLE, domain: PCSTR, site: PCSTR, ppservers: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA(hds.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppservers.toCPointer<ByteVar>())
+public actual fun dsListServersForDomainInSiteA(hds: Handle, domain: Pcstr, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA(hds?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppservers?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListServersForDomainInSiteW(hds: HANDLE, domain: PCWSTR, site: PCWSTR, ppservers: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW(hds.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppservers.toCPointer<ByteVar>())
+public actual fun dsListServersForDomainInSiteW(hds: Handle, domain: Pcwstr, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW(hds?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppservers?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListServersInSiteA(hds: HANDLE, site: PCSTR, ppservers: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA(hds.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppservers.toCPointer<ByteVar>())
+public actual fun dsListServersInSiteA(hds: Handle, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA(hds?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppservers?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListServersInSiteW(hds: HANDLE, site: PCWSTR, ppservers: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW(hds.toCPointer<ByteVar>(), site.toCPointer<ByteVar>(), ppservers.toCPointer<ByteVar>())
+public actual fun dsListServersInSiteW(hds: Handle, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW(hds?.value?.toCPointer<ByteVar>(), site?.value?.toCPointer<ByteVar>(), ppservers?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListSitesA(hds: HANDLE, ppsites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListSitesA(hds.toCPointer<ByteVar>(), ppsites.toCPointer<ByteVar>())
+public actual fun dsListSitesA(hds: Handle, ppsites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListSitesA(hds?.value?.toCPointer<ByteVar>(), ppsites?.value?.toCPointer<ByteVar>())
 
-public actual fun DsListSitesW(hds: HANDLE, ppsites: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsListSitesW(hds.toCPointer<ByteVar>(), ppsites.toCPointer<ByteVar>())
+public actual fun dsListSitesW(hds: Handle, ppsites: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsListSitesW(hds?.value?.toCPointer<ByteVar>(), ppsites?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMakePasswordCredentialsA(user: PCSTR, domain: PCSTR, password: PCSTR, pauthidentity: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA(user.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), password.toCPointer<ByteVar>(), pauthidentity.toCPointer<ByteVar>())
+public actual fun dsMakePasswordCredentialsA(user: Pcstr, domain: Pcstr, password: Pcstr, pauthidentity: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA(user?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), password?.value?.toCPointer<ByteVar>(), pauthidentity?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMakePasswordCredentialsW(user: PCWSTR, domain: PCWSTR, password: PCWSTR, pauthidentity: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW(user.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), password.toCPointer<ByteVar>(), pauthidentity.toCPointer<ByteVar>())
+public actual fun dsMakePasswordCredentialsW(user: Pcwstr, domain: Pcwstr, password: Pcwstr, pauthidentity: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW(user?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), password?.value?.toCPointer<ByteVar>(), pauthidentity?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMakeSpnA(serviceclass: PCSTR, servicename: PCSTR, instancename: PCSTR, instanceport: UShort, referrer: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMakeSpnA(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), instanceport, referrer.toCPointer<ByteVar>(), pcspnlength.toCPointer<ByteVar>(), pszspn.toCPointer<ByteVar>())
+public actual fun dsMakeSpnA(serviceclass: Pcstr, servicename: Pcstr, instancename: Pcstr, instanceport: UShort, referrer: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMakeSpnA(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), instanceport, referrer?.value?.toCPointer<ByteVar>(), pcspnlength?.value?.toCPointer<ByteVar>(), pszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMakeSpnW(serviceclass: PCWSTR, servicename: PCWSTR, instancename: PCWSTR, instanceport: UShort, referrer: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMakeSpnW(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), instanceport, referrer.toCPointer<ByteVar>(), pcspnlength.toCPointer<ByteVar>(), pszspn.toCPointer<ByteVar>())
+public actual fun dsMakeSpnW(serviceclass: Pcwstr, servicename: Pcwstr, instancename: Pcwstr, instanceport: UShort, referrer: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMakeSpnW(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), instanceport, referrer?.value?.toCPointer<ByteVar>(), pcspnlength?.value?.toCPointer<ByteVar>(), pszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMapSchemaGuidsA(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA(hds.toCPointer<ByteVar>(), cguids, rguids.toCPointer<ByteVar>(), ppguidmap.toCPointer<ByteVar>())
+public actual fun dsMapSchemaGuidsA(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA(hds?.value?.toCPointer<ByteVar>(), cguids, rguids?.value?.toCPointer<ByteVar>(), ppguidmap?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMapSchemaGuidsW(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW(hds.toCPointer<ByteVar>(), cguids, rguids.toCPointer<ByteVar>(), ppguidmap.toCPointer<ByteVar>())
+public actual fun dsMapSchemaGuidsW(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW(hds?.value?.toCPointer<ByteVar>(), cguids, rguids?.value?.toCPointer<ByteVar>(), ppguidmap?.value?.toCPointer<ByteVar>())
 
-public actual fun DsMergeForestTrustInformationW(domainname: PCWSTR, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW(domainname.toCPointer<ByteVar>(), newforesttrustinfo.toCPointer<ByteVar>(), oldforesttrustinfo.toCPointer<ByteVar>(), mergedforesttrustinfo.toCPointer<ByteVar>())
+public actual fun dsMergeForestTrustInformationW(domainname: Pcwstr, newforesttrustinfo: COpaquePointer?, oldforesttrustinfo: COpaquePointer?, mergedforesttrustinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW(domainname?.value?.toCPointer<ByteVar>(), newforesttrustinfo?.value?.toCPointer<ByteVar>(), oldforesttrustinfo?.value?.toCPointer<ByteVar>(), mergedforesttrustinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsQuerySitesByCostA(hds: HANDLE, pszfromsite: PCSTR, rgsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA(hds.toCPointer<ByteVar>(), pszfromsite.toCPointer<ByteVar>(), rgsztosites.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo.toCPointer<ByteVar>())
+public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA(hds?.value?.toCPointer<ByteVar>(), pszfromsite?.value?.toCPointer<ByteVar>(), rgsztosites?.value?.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsQuerySitesByCostW(hds: HANDLE, pwszfromsite: PCWSTR, rgwsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW(hds.toCPointer<ByteVar>(), pwszfromsite.toCPointer<ByteVar>(), rgwsztosites.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo.toCPointer<ByteVar>())
+public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW(hds?.value?.toCPointer<ByteVar>(), pwszfromsite?.value?.toCPointer<ByteVar>(), rgwsztosites?.value?.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsQuerySitesFree(rgsiteinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree(rgsiteinfo.toCPointer<ByteVar>())
+public actual fun dsQuerySitesFree(rgsiteinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree(rgsiteinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA(cunquotedrdnvaluelength, psunquotedrdnvalue.toCPointer<ByteVar>(), pcquotedrdnvaluelength.toCPointer<ByteVar>(), psquotedrdnvalue.toCPointer<ByteVar>())
+public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(cunquotedrdnvaluelength, psunquotedrdnvalue?.value?.toCPointer<ByteVar>(), pcquotedrdnvaluelength?.value?.toCPointer<ByteVar>(), psquotedrdnvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCWSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW(cunquotedrdnvaluelength, psunquotedrdnvalue.toCPointer<ByteVar>(), pcquotedrdnvaluelength.toCPointer<ByteVar>(), psquotedrdnvalue.toCPointer<ByteVar>())
+public actual fun dsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcwstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(cunquotedrdnvaluelength, psunquotedrdnvalue?.value?.toCPointer<ByteVar>(), pcquotedrdnvaluelength?.value?.toCPointer<ByteVar>(), psquotedrdnvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DsRemoveDsDomainA(hds: HANDLE, domaindn: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA(hds.toCPointer<ByteVar>(), domaindn.toCPointer<ByteVar>())
+public actual fun dsRemoveDsDomainA(hds: Handle, domaindn: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA(hds?.value?.toCPointer<ByteVar>(), domaindn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsRemoveDsDomainW(hds: HANDLE, domaindn: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW(hds.toCPointer<ByteVar>(), domaindn.toCPointer<ByteVar>())
+public actual fun dsRemoveDsDomainW(hds: Handle, domaindn: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW(hds?.value?.toCPointer<ByteVar>(), domaindn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsRemoveDsServerA(hds: HANDLE, serverdn: PCSTR, domaindn: PCSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA(hds.toCPointer<ByteVar>(), serverdn.toCPointer<ByteVar>(), domaindn.toCPointer<ByteVar>(), flastdcindomain.toCPointer<ByteVar>(), fcommit)
+public actual fun dsRemoveDsServerA(hds: Handle, serverdn: Pcstr, domaindn: Pcstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA(hds?.value?.toCPointer<ByteVar>(), serverdn?.value?.toCPointer<ByteVar>(), domaindn?.value?.toCPointer<ByteVar>(), flastdcindomain?.value?.toCPointer<ByteVar>(), fcommit)
 
-public actual fun DsRemoveDsServerW(hds: HANDLE, serverdn: PCWSTR, domaindn: PCWSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW(hds.toCPointer<ByteVar>(), serverdn.toCPointer<ByteVar>(), domaindn.toCPointer<ByteVar>(), flastdcindomain.toCPointer<ByteVar>(), fcommit)
+public actual fun dsRemoveDsServerW(hds: Handle, serverdn: Pcwstr, domaindn: Pcwstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW(hds?.value?.toCPointer<ByteVar>(), serverdn?.value?.toCPointer<ByteVar>(), domaindn?.value?.toCPointer<ByteVar>(), flastdcindomain?.value?.toCPointer<ByteVar>(), fcommit)
 
-public actual fun DsReplicaAddA(hds: HANDLE, namecontext: PCSTR, sourcedsadn: PCSTR, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaAddA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), sourcedsadn.toCPointer<ByteVar>(), transportdn.toCPointer<ByteVar>(), sourcedsaaddress.toCPointer<ByteVar>(), pschedule.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaAddA(hds: Handle, namecontext: Pcstr, sourcedsadn: Pcstr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaAddA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), sourcedsadn?.value?.toCPointer<ByteVar>(), transportdn?.value?.toCPointer<ByteVar>(), sourcedsaaddress?.value?.toCPointer<ByteVar>(), pschedule?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaAddW(hds: HANDLE, namecontext: PCWSTR, sourcedsadn: PCWSTR, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaAddW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), sourcedsadn.toCPointer<ByteVar>(), transportdn.toCPointer<ByteVar>(), sourcedsaaddress.toCPointer<ByteVar>(), pschedule.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaAddW(hds: Handle, namecontext: Pcwstr, sourcedsadn: Pcwstr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaAddW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), sourcedsadn?.value?.toCPointer<ByteVar>(), transportdn?.value?.toCPointer<ByteVar>(), sourcedsaaddress?.value?.toCPointer<ByteVar>(), pschedule?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaConsistencyCheck(hds: HANDLE, taskid: DS_KCC_TASKID, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck(hds.toCPointer<ByteVar>(), taskid, dwflags)
+public actual fun dsReplicaConsistencyCheck(hds: Handle, taskid: DsKccTaskid, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck(hds?.value?.toCPointer<ByteVar>(), taskid, dwflags)
 
-public actual fun DsReplicaDelA(hds: HANDLE, namecontext: PCSTR, dsasrc: PCSTR, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaDelA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), dsasrc.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaDelA(hds: Handle, namecontext: Pcstr, dsasrc: Pcstr, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaDelA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), dsasrc?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaDelW(hds: HANDLE, namecontext: PCWSTR, dsasrc: PCWSTR, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaDelW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), dsasrc.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaDelW(hds: Handle, namecontext: Pcwstr, dsasrc: Pcwstr, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaDelW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), dsasrc?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo(infotype, pinfo.toCPointer<ByteVar>())
+public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(infotype, pinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsReplicaGetInfo2W(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, pszattributename: PCWSTR, pszvalue: PCWSTR, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W(hds.toCPointer<ByteVar>(), infotype, pszobject.toCPointer<ByteVar>(), puuidforsourcedsaobjguid.toCPointer<ByteVar>(), pszattributename.toCPointer<ByteVar>(), pszvalue.toCPointer<ByteVar>(), dwflags, dwenumerationcontext, ppinfo.toCPointer<ByteVar>())
+public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W(hds?.value?.toCPointer<ByteVar>(), infotype, pszobject?.value?.toCPointer<ByteVar>(), puuidforsourcedsaobjguid?.value?.toCPointer<ByteVar>(), pszattributename?.value?.toCPointer<ByteVar>(), pszvalue?.value?.toCPointer<ByteVar>(), dwflags, dwenumerationcontext, ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsReplicaGetInfoW(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, ppinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW(hds.toCPointer<ByteVar>(), infotype, pszobject.toCPointer<ByteVar>(), puuidforsourcedsaobjguid.toCPointer<ByteVar>(), ppinfo.toCPointer<ByteVar>())
+public actual fun dsReplicaGetInfoW(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW(hds?.value?.toCPointer<ByteVar>(), infotype, pszobject?.value?.toCPointer<ByteVar>(), puuidforsourcedsaobjguid?.value?.toCPointer<ByteVar>(), ppinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DsReplicaModifyA(hds: HANDLE, namecontext: PCSTR, puuidsourcedsa: Long, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuidsourcedsa.toCPointer<ByteVar>(), transportdn.toCPointer<ByteVar>(), sourcedsaaddress.toCPointer<ByteVar>(), pschedule.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
+public actual fun dsReplicaModifyA(hds: Handle, namecontext: Pcstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuidsourcedsa?.value?.toCPointer<ByteVar>(), transportdn?.value?.toCPointer<ByteVar>(), sourcedsaaddress?.value?.toCPointer<ByteVar>(), pschedule?.value?.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
 
-public actual fun DsReplicaModifyW(hds: HANDLE, namecontext: PCWSTR, puuidsourcedsa: Long, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuidsourcedsa.toCPointer<ByteVar>(), transportdn.toCPointer<ByteVar>(), sourcedsaaddress.toCPointer<ByteVar>(), pschedule.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
+public actual fun dsReplicaModifyW(hds: Handle, namecontext: Pcwstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuidsourcedsa?.value?.toCPointer<ByteVar>(), transportdn?.value?.toCPointer<ByteVar>(), sourcedsaaddress?.value?.toCPointer<ByteVar>(), pschedule?.value?.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
 
-public actual fun DsReplicaSyncA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuiddsasrc.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaSyncA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuiddsasrc?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaSyncAllA(hds: HANDLE, psznamecontext: PCSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA(hds.toCPointer<ByteVar>(), psznamecontext.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata.toCPointer<ByteVar>(), perrors.toCPointer<ByteVar>())
+public actual fun dsReplicaSyncAllA(hds: Handle, psznamecontext: Pcstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA(hds?.value?.toCPointer<ByteVar>(), psznamecontext?.value?.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata?.value?.toCPointer<ByteVar>(), perrors?.value?.toCPointer<ByteVar>())
 
-public actual fun DsReplicaSyncAllW(hds: HANDLE, psznamecontext: PCWSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW(hds.toCPointer<ByteVar>(), psznamecontext.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata.toCPointer<ByteVar>(), perrors.toCPointer<ByteVar>())
+public actual fun dsReplicaSyncAllW(hds: Handle, psznamecontext: Pcwstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW(hds?.value?.toCPointer<ByteVar>(), psznamecontext?.value?.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata?.value?.toCPointer<ByteVar>(), perrors?.value?.toCPointer<ByteVar>())
 
-public actual fun DsReplicaSyncW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuiddsasrc.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaSyncW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuiddsasrc?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaUpdateRefsA(hds: HANDLE, namecontext: PCSTR, dsadest: PCSTR, puuiddsadest: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), dsadest.toCPointer<ByteVar>(), puuiddsadest.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaUpdateRefsA(hds: Handle, namecontext: Pcstr, dsadest: Pcstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), dsadest?.value?.toCPointer<ByteVar>(), puuiddsadest?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaUpdateRefsW(hds: HANDLE, namecontext: PCWSTR, dsadest: PCWSTR, puuiddsadest: Long, options: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), dsadest.toCPointer<ByteVar>(), puuiddsadest.toCPointer<ByteVar>(), options)
+public actual fun dsReplicaUpdateRefsW(hds: Handle, namecontext: Pcwstr, dsadest: Pcwstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), dsadest?.value?.toCPointer<ByteVar>(), puuiddsadest?.value?.toCPointer<ByteVar>(), options)
 
-public actual fun DsReplicaVerifyObjectsA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuiddsasrc.toCPointer<ByteVar>(), uloptions)
+public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuiddsasrc?.value?.toCPointer<ByteVar>(), uloptions)
 
-public actual fun DsReplicaVerifyObjectsW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW(hds.toCPointer<ByteVar>(), namecontext.toCPointer<ByteVar>(), puuiddsasrc.toCPointer<ByteVar>(), uloptions)
+public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW(hds?.value?.toCPointer<ByteVar>(), namecontext?.value?.toCPointer<ByteVar>(), puuiddsasrc?.value?.toCPointer<ByteVar>(), uloptions)
 
-public actual fun DsRoleFreeMemory(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory(buffer.toCPointer<ByteVar>())
+public actual fun dsRoleFreeMemory(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory(buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DsRoleGetPrimaryDomainInformation(lpserver: PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation(lpserver.toCPointer<ByteVar>(), infolevel, buffer.toCPointer<ByteVar>())
+public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation(lpserver?.value?.toCPointer<ByteVar>(), infolevel, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: PCSTR, userobjectdn: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA(operation, serviceclass.toCPointer<ByteVar>(), userobjectdn.toCPointer<ByteVar>())
+public actual fun dsServerRegisterSpnA(operation: DsSpnWriteOp, serviceclass: Pcstr, userobjectdn: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA(operation, serviceclass?.value?.toCPointer<ByteVar>(), userobjectdn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: PCWSTR, userobjectdn: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW(operation, serviceclass.toCPointer<ByteVar>(), userobjectdn.toCPointer<ByteVar>())
+public actual fun dsServerRegisterSpnW(operation: DsSpnWriteOp, serviceclass: Pcwstr, userobjectdn: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW(operation, serviceclass?.value?.toCPointer<ByteVar>(), userobjectdn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsUnBindA(phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsUnBindA(phds.toCPointer<ByteVar>())
+public actual fun dsUnBindA(phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsUnBindA(phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsUnBindW(phds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsUnBindW(phds.toCPointer<ByteVar>())
+public actual fun dsUnBindW(phds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsUnBindW(phds?.value?.toCPointer<ByteVar>())
 
-public actual fun DsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA(cquotedrdnvaluelength, psquotedrdnvalue.toCPointer<ByteVar>(), pcunquotedrdnvaluelength.toCPointer<ByteVar>(), psunquotedrdnvalue.toCPointer<ByteVar>())
+public actual fun dsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(cquotedrdnvaluelength, psquotedrdnvalue?.value?.toCPointer<ByteVar>(), pcunquotedrdnvaluelength?.value?.toCPointer<ByteVar>(), psunquotedrdnvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCWSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW(cquotedrdnvaluelength, psquotedrdnvalue.toCPointer<ByteVar>(), pcunquotedrdnvaluelength.toCPointer<ByteVar>(), psunquotedrdnvalue.toCPointer<ByteVar>())
+public actual fun dsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcwstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(cquotedrdnvaluelength, psquotedrdnvalue?.value?.toCPointer<ByteVar>(), pcunquotedrdnvaluelength?.value?.toCPointer<ByteVar>(), psunquotedrdnvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DsValidateSubnetNameA(subnetname: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA(subnetname.toCPointer<ByteVar>())
+public actual fun dsValidateSubnetNameA(subnetname: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA(subnetname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsValidateSubnetNameW(subnetname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW(subnetname.toCPointer<ByteVar>())
+public actual fun dsValidateSubnetNameW(subnetname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW(subnetname?.value?.toCPointer<ByteVar>())
 
-public actual fun DsWriteAccountSpnA(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCSTR, cspn: UInt, rpszspn: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA(hds.toCPointer<ByteVar>(), operation, pszaccount.toCPointer<ByteVar>(), cspn, rpszspn.toCPointer<ByteVar>())
+public actual fun dsWriteAccountSpnA(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA(hds?.value?.toCPointer<ByteVar>(), operation, pszaccount?.value?.toCPointer<ByteVar>(), cspn, rpszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun DsWriteAccountSpnW(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCWSTR, cspn: UInt, rpszspn: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW(hds.toCPointer<ByteVar>(), operation, pszaccount.toCPointer<ByteVar>(), cspn, rpszspn.toCPointer<ByteVar>())
+public actual fun dsWriteAccountSpnW(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcwstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW(hds?.value?.toCPointer<ByteVar>(), operation, pszaccount?.value?.toCPointer<ByteVar>(), cspn, rpszspn?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeADsMem(pmem: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_FreeADsMem(pmem.toCPointer<ByteVar>())
+public actual fun freeADsMem(pmem: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_freeADsMem(pmem?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeADsStr(pstr: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_FreeADsStr(pstr.toCPointer<ByteVar>())
+public actual fun freeADsStr(pstr: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_freeADsStr(pstr?.value?.toCPointer<ByteVar>())
 
-public actual fun PropVariantToAdsType(pvariant: Long, dwnumvariant: UInt, ppadsvalues: Long, pdwnumvalues: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType(pvariant.toCPointer<ByteVar>(), dwnumvariant, ppadsvalues.toCPointer<ByteVar>(), pdwnumvalues.toCPointer<ByteVar>())
+public actual fun propVariantToAdsType(pvariant: COpaquePointer?, dwnumvariant: UInt, ppadsvalues: COpaquePointer?, pdwnumvalues: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_propVariantToAdsType(pvariant?.value?.toCPointer<ByteVar>(), dwnumvariant, ppadsvalues?.value?.toCPointer<ByteVar>(), pdwnumvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun ReallocADsMem(poldmem: Long, cbold: UInt, cbnew: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ReallocADsMem(poldmem.toCPointer<ByteVar>(), cbold, cbnew)?.toLong() ?: 0L
+public actual fun reallocADsMem(poldmem: COpaquePointer?, cbold: UInt, cbnew: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_reallocADsMem(poldmem?.value?.toCPointer<ByteVar>(), cbold, cbnew)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ReallocADsStr(ppstr: Long, pstr: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_ReallocADsStr(ppstr.toCPointer<ByteVar>(), pstr.toCPointer<ByteVar>())
+public actual fun reallocADsStr(ppstr: COpaquePointer?, pstr: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssys_windows_win32_networking_activedirectory_reallocADsStr(ppstr?.value?.toCPointer<ByteVar>(), pstr?.value?.toCPointer<ByteVar>())
 
-public actual fun SecurityDescriptorToBinarySD(vvarsecdes: VARIANT, ppsecuritydescriptor: Long, pdwsdlength: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: COpaquePointer?, pdwsdlength: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     0

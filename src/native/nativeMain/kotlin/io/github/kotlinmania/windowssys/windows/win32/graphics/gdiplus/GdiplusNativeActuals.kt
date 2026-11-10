@@ -2,1907 +2,1908 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun GdipAddPathArc(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathArc(path.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipAddPathArc(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathArc(path?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipAddPathArcI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathArcI(path.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipAddPathArcI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathArcI(path?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipAddPathBezier(path: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathBezier(path.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun gdipAddPathBezier(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezier(path?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun GdipAddPathBezierI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathBezierI(path.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun gdipAddPathBezierI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezierI(path?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun GdipAddPathBeziers(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathBeziers(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathBeziers(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziers(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathBeziersI(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathBeziersI(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathBeziersI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziersI(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathClosedCurve(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathClosedCurve(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathClosedCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathClosedCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathClosedCurve2(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipAddPathClosedCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipAddPathClosedCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathClosedCurve2I(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipAddPathClosedCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2I(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipAddPathClosedCurveI(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathClosedCurveI(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathClosedCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurveI(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathCurve(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurve(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurve2(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipAddPathCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipAddPathCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurve2I(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipAddPathCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2I(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipAddPathCurve3(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurve3(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
+public actual fun gdipAddPathCurve3(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun GdipAddPathCurve3I(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurve3I(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
+public actual fun gdipAddPathCurve3I(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3I(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun GdipAddPathCurveI(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathCurveI(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurveI(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathEllipse(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathEllipse(path.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipAddPathEllipse(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipse(path?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipAddPathEllipseI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathEllipseI(path.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipAddPathEllipseI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipseI(path?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipAddPathLine(path: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathLine(path.toCPointer<ByteVar>(), x1, y1, x2, y2)
+public actual fun gdipAddPathLine(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine(path?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun GdipAddPathLine2(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathLine2(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathLine2(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathLine2I(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathLine2I(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathLine2I(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2I(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathLineI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathLineI(path.toCPointer<ByteVar>(), x1, y1, x2, y2)
+public actual fun gdipAddPathLineI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLineI(path?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun GdipAddPathPath(path: Long, addingpath: Long, connect: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathPath(path.toCPointer<ByteVar>(), addingpath.toCPointer<ByteVar>(), connect)
+public actual fun gdipAddPathPath(path: COpaquePointer?, addingpath: COpaquePointer?, connect: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPath(path?.value?.toCPointer<ByteVar>(), addingpath?.value?.toCPointer<ByteVar>(), connect)
 
-public actual fun GdipAddPathPie(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathPie(path.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipAddPathPie(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPie(path?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipAddPathPieI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathPieI(path.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipAddPathPieI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPieI(path?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipAddPathPolygon(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathPolygon(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathPolygon(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygon(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathPolygonI(path: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathPolygonI(path.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathPolygonI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygonI(path?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathRectangle(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathRectangle(path.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipAddPathRectangle(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangle(path?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipAddPathRectangleI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathRectangleI(path.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipAddPathRectangleI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangleI(path?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipAddPathRectangles(path: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathRectangles(path.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathRectangles(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangles(path?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathRectanglesI(path: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathRectanglesI(path.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipAddPathRectanglesI(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectanglesI(path?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipAddPathString(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathString(path.toCPointer<ByteVar>(), string.toCPointer<ByteVar>(), length, family.toCPointer<ByteVar>(), style, emsize, layoutrect.toCPointer<ByteVar>(), format.toCPointer<ByteVar>())
+public actual fun gdipAddPathString(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathString(path?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>(), length, family?.value?.toCPointer<ByteVar>(), style, emsize, layoutrect?.value?.toCPointer<ByteVar>(), format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipAddPathStringI(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAddPathStringI(path.toCPointer<ByteVar>(), string.toCPointer<ByteVar>(), length, family.toCPointer<ByteVar>(), style, emsize, layoutrect.toCPointer<ByteVar>(), format.toCPointer<ByteVar>())
+public actual fun gdipAddPathStringI(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAddPathStringI(path?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>(), length, family?.value?.toCPointer<ByteVar>(), style, emsize, layoutrect?.value?.toCPointer<ByteVar>(), format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipAlloc(size: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipAlloc(size)?.toLong() ?: 0L
+public actual fun gdipAlloc(size: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipAlloc(size)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GdipBeginContainer(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBeginContainer(graphics.toCPointer<ByteVar>(), dstrect.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), unit, state.toCPointer<ByteVar>())
+public actual fun gdipBeginContainer(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer(graphics?.value?.toCPointer<ByteVar>(), dstrect?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), unit, state?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBeginContainer2(graphics: Long, state: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBeginContainer2(graphics.toCPointer<ByteVar>(), state.toCPointer<ByteVar>())
+public actual fun gdipBeginContainer2(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer2(graphics?.value?.toCPointer<ByteVar>(), state?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBeginContainerI(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBeginContainerI(graphics.toCPointer<ByteVar>(), dstrect.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), unit, state.toCPointer<ByteVar>())
+public actual fun gdipBeginContainerI(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainerI(graphics?.value?.toCPointer<ByteVar>(), dstrect?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), unit, state?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapApplyEffect(bitmap: Long, effect: Long, roi: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapApplyEffect(bitmap.toCPointer<ByteVar>(), effect.toCPointer<ByteVar>(), roi.toCPointer<ByteVar>(), useauxdata, auxdata.toCPointer<ByteVar>(), auxdatasize.toCPointer<ByteVar>())
+public actual fun gdipBitmapApplyEffect(bitmap: COpaquePointer?, effect: COpaquePointer?, roi: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapApplyEffect(bitmap?.value?.toCPointer<ByteVar>(), effect?.value?.toCPointer<ByteVar>(), roi?.value?.toCPointer<ByteVar>(), useauxdata, auxdata?.value?.toCPointer<ByteVar>(), auxdatasize?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapConvertFormat(pinputbitmap: Long, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: Long, alphathresholdpercent: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapConvertFormat(pinputbitmap.toCPointer<ByteVar>(), format, dithertype, palettetype, palette.toCPointer<ByteVar>(), alphathresholdpercent)
+public actual fun gdipBitmapConvertFormat(pinputbitmap: COpaquePointer?, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: COpaquePointer?, alphathresholdpercent: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapConvertFormat(pinputbitmap?.value?.toCPointer<ByteVar>(), format, dithertype, palettetype, palette?.value?.toCPointer<ByteVar>(), alphathresholdpercent)
 
-public actual fun GdipBitmapCreateApplyEffect(inputbitmaps: Long, numinputs: Int, effect: Long, roi: Long, outputrect: Long, outputbitmap: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapCreateApplyEffect(inputbitmaps.toCPointer<ByteVar>(), numinputs, effect.toCPointer<ByteVar>(), roi.toCPointer<ByteVar>(), outputrect.toCPointer<ByteVar>(), outputbitmap.toCPointer<ByteVar>(), useauxdata, auxdata.toCPointer<ByteVar>(), auxdatasize.toCPointer<ByteVar>())
+public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: COpaquePointer?, numinputs: Int, effect: COpaquePointer?, roi: COpaquePointer?, outputrect: COpaquePointer?, outputbitmap: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapCreateApplyEffect(inputbitmaps?.value?.toCPointer<ByteVar>(), numinputs, effect?.value?.toCPointer<ByteVar>(), roi?.value?.toCPointer<ByteVar>(), outputrect?.value?.toCPointer<ByteVar>(), outputbitmap?.value?.toCPointer<ByteVar>(), useauxdata, auxdata?.value?.toCPointer<ByteVar>(), auxdatasize?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapGetHistogram(bitmap: Long, format: HistogramFormat, numberofentries: UInt, channel0: Long, channel1: Long, channel2: Long, channel3: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapGetHistogram(bitmap.toCPointer<ByteVar>(), format, numberofentries, channel0.toCPointer<ByteVar>(), channel1.toCPointer<ByteVar>(), channel2.toCPointer<ByteVar>(), channel3.toCPointer<ByteVar>())
+public actual fun gdipBitmapGetHistogram(bitmap: COpaquePointer?, format: HistogramFormat, numberofentries: UInt, channel0: COpaquePointer?, channel1: COpaquePointer?, channel2: COpaquePointer?, channel3: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogram(bitmap?.value?.toCPointer<ByteVar>(), format, numberofentries, channel0?.value?.toCPointer<ByteVar>(), channel1?.value?.toCPointer<ByteVar>(), channel2?.value?.toCPointer<ByteVar>(), channel3?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapGetHistogramSize(format, numberofentries.toCPointer<ByteVar>())
+public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogramSize(format, numberofentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapGetPixel(bitmap: Long, x: Int, y: Int, color: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapGetPixel(bitmap.toCPointer<ByteVar>(), x, y, color.toCPointer<ByteVar>())
+public actual fun gdipBitmapGetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetPixel(bitmap?.value?.toCPointer<ByteVar>(), x, y, color?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapLockBits(bitmap: Long, rect: Long, flags: UInt, format: Int, lockedbitmapdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapLockBits(bitmap.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>(), flags, format, lockedbitmapdata.toCPointer<ByteVar>())
+public actual fun gdipBitmapLockBits(bitmap: COpaquePointer?, rect: COpaquePointer?, flags: UInt, format: Int, lockedbitmapdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapLockBits(bitmap?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>(), flags, format, lockedbitmapdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipBitmapSetPixel(bitmap: Long, x: Int, y: Int, color: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapSetPixel(bitmap.toCPointer<ByteVar>(), x, y, color)
+public actual fun gdipBitmapSetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetPixel(bitmap?.value?.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun GdipBitmapSetResolution(bitmap: Long, xdpi: Float, ydpi: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapSetResolution(bitmap.toCPointer<ByteVar>(), xdpi, ydpi)
+public actual fun gdipBitmapSetResolution(bitmap: COpaquePointer?, xdpi: Float, ydpi: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetResolution(bitmap?.value?.toCPointer<ByteVar>(), xdpi, ydpi)
 
-public actual fun GdipBitmapUnlockBits(bitmap: Long, lockedbitmapdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipBitmapUnlockBits(bitmap.toCPointer<ByteVar>(), lockedbitmapdata.toCPointer<ByteVar>())
+public actual fun gdipBitmapUnlockBits(bitmap: COpaquePointer?, lockedbitmapdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipBitmapUnlockBits(bitmap?.value?.toCPointer<ByteVar>(), lockedbitmapdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipClearPathMarkers(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipClearPathMarkers(path.toCPointer<ByteVar>())
+public actual fun gdipClearPathMarkers(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipClearPathMarkers(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneBitmapArea(x, y, width, height, format, srcbitmap.toCPointer<ByteVar>(), dstbitmap.toCPointer<ByteVar>())
+public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapArea(x, y, width, height, format, srcbitmap?.value?.toCPointer<ByteVar>(), dstbitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneBitmapAreaI(x, y, width, height, format, srcbitmap.toCPointer<ByteVar>(), dstbitmap.toCPointer<ByteVar>())
+public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapAreaI(x, y, width, height, format, srcbitmap?.value?.toCPointer<ByteVar>(), dstbitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneBrush(brush: Long, clonebrush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneBrush(brush.toCPointer<ByteVar>(), clonebrush.toCPointer<ByteVar>())
+public actual fun gdipCloneBrush(brush: COpaquePointer?, clonebrush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneBrush(brush?.value?.toCPointer<ByteVar>(), clonebrush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneCustomLineCap(customcap: Long, clonedcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneCustomLineCap(customcap.toCPointer<ByteVar>(), clonedcap.toCPointer<ByteVar>())
+public actual fun gdipCloneCustomLineCap(customcap: COpaquePointer?, clonedcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneCustomLineCap(customcap?.value?.toCPointer<ByteVar>(), clonedcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneFont(font: Long, clonefont: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneFont(font.toCPointer<ByteVar>(), clonefont.toCPointer<ByteVar>())
+public actual fun gdipCloneFont(font: COpaquePointer?, clonefont: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneFont(font?.value?.toCPointer<ByteVar>(), clonefont?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneFontFamily(fontfamily: Long, clonedfontfamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneFontFamily(fontfamily.toCPointer<ByteVar>(), clonedfontfamily.toCPointer<ByteVar>())
+public actual fun gdipCloneFontFamily(fontfamily: COpaquePointer?, clonedfontfamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneFontFamily(fontfamily?.value?.toCPointer<ByteVar>(), clonedfontfamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneImage(image: Long, cloneimage: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneImage(image.toCPointer<ByteVar>(), cloneimage.toCPointer<ByteVar>())
+public actual fun gdipCloneImage(image: COpaquePointer?, cloneimage: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneImage(image?.value?.toCPointer<ByteVar>(), cloneimage?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneImageAttributes(imageattr: Long, cloneimageattr: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneImageAttributes(imageattr.toCPointer<ByteVar>(), cloneimageattr.toCPointer<ByteVar>())
+public actual fun gdipCloneImageAttributes(imageattr: COpaquePointer?, cloneimageattr: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneImageAttributes(imageattr?.value?.toCPointer<ByteVar>(), cloneimageattr?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneMatrix(matrix: Long, clonematrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneMatrix(matrix.toCPointer<ByteVar>(), clonematrix.toCPointer<ByteVar>())
+public actual fun gdipCloneMatrix(matrix: COpaquePointer?, clonematrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneMatrix(matrix?.value?.toCPointer<ByteVar>(), clonematrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipClonePath(path: Long, clonepath: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipClonePath(path.toCPointer<ByteVar>(), clonepath.toCPointer<ByteVar>())
+public actual fun gdipClonePath(path: COpaquePointer?, clonepath: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipClonePath(path?.value?.toCPointer<ByteVar>(), clonepath?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipClonePen(pen: Long, clonepen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipClonePen(pen.toCPointer<ByteVar>(), clonepen.toCPointer<ByteVar>())
+public actual fun gdipClonePen(pen: COpaquePointer?, clonepen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipClonePen(pen?.value?.toCPointer<ByteVar>(), clonepen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneRegion(region: Long, cloneregion: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneRegion(region.toCPointer<ByteVar>(), cloneregion.toCPointer<ByteVar>())
+public actual fun gdipCloneRegion(region: COpaquePointer?, cloneregion: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneRegion(region?.value?.toCPointer<ByteVar>(), cloneregion?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCloneStringFormat(format: Long, newformat: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCloneStringFormat(format.toCPointer<ByteVar>(), newformat.toCPointer<ByteVar>())
+public actual fun gdipCloneStringFormat(format: COpaquePointer?, newformat: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCloneStringFormat(format?.value?.toCPointer<ByteVar>(), newformat?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipClosePathFigure(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipClosePathFigure(path.toCPointer<ByteVar>())
+public actual fun gdipClosePathFigure(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigure(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipClosePathFigures(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipClosePathFigures(path.toCPointer<ByteVar>())
+public actual fun gdipClosePathFigures(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigures(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCombineRegionPath(region: Long, path: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCombineRegionPath(region.toCPointer<ByteVar>(), path.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipCombineRegionPath(region: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionPath(region?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipCombineRegionRect(region: Long, rect: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCombineRegionRect(region.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipCombineRegionRect(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRect(region?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipCombineRegionRectI(region: Long, rect: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCombineRegionRectI(region.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipCombineRegionRectI(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRectI(region?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipCombineRegionRegion(region: Long, region2: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCombineRegionRegion(region.toCPointer<ByteVar>(), region2.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipCombineRegionRegion(region: COpaquePointer?, region2: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRegion(region?.value?.toCPointer<ByteVar>(), region2?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipComment(graphics: Long, sizedata: UInt, data: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipComment(graphics.toCPointer<ByteVar>(), sizedata, data.toCPointer<ByteVar>())
+public actual fun gdipComment(graphics: COpaquePointer?, sizedata: UInt, data: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipComment(graphics?.value?.toCPointer<ByteVar>(), sizedata, data?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipConvertToEmfPlus(refgraphics: Long, metafile: Long, conversionfailureflag: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipConvertToEmfPlus(refgraphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), conversionfailureflag.toCPointer<ByteVar>(), emftype, description.toCPointer<ByteVar>(), out_metafile.toCPointer<ByteVar>())
+public actual fun gdipConvertToEmfPlus(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlus(refgraphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), conversionfailureflag?.value?.toCPointer<ByteVar>(), emftype, description?.value?.toCPointer<ByteVar>(), outMetafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipConvertToEmfPlusToFile(refgraphics: Long, metafile: Long, conversionfailureflag: Long, filename: PCWSTR, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipConvertToEmfPlusToFile(refgraphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), conversionfailureflag.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), emftype, description.toCPointer<ByteVar>(), out_metafile.toCPointer<ByteVar>())
+public actual fun gdipConvertToEmfPlusToFile(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToFile(refgraphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), conversionfailureflag?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), emftype, description?.value?.toCPointer<ByteVar>(), outMetafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipConvertToEmfPlusToStream(refgraphics: Long, metafile: Long, conversionfailureflag: Long, stream: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipConvertToEmfPlusToStream(refgraphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), conversionfailureflag.toCPointer<ByteVar>(), stream.toCPointer<ByteVar>(), emftype, description.toCPointer<ByteVar>(), out_metafile.toCPointer<ByteVar>())
+public actual fun gdipConvertToEmfPlusToStream(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, stream: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToStream(refgraphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), conversionfailureflag?.value?.toCPointer<ByteVar>(), stream?.value?.toCPointer<ByteVar>(), emftype, description?.value?.toCPointer<ByteVar>(), outMetafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: BOOL, cap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateAdjustableArrowCap(height, width, isfilled, cap.toCPointer<ByteVar>())
+public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateAdjustableArrowCap(height, width, isfilled, cap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromFile(filename: PCWSTR, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromFile(filename.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFile(filename?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromFileICM(filename: PCWSTR, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromFileICM(filename.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFileICM(filename?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromGdiDib(gdibitmapinfo: Long, gdibitmapdata: Long, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromGdiDib(gdibitmapinfo.toCPointer<ByteVar>(), gdibitmapdata.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: COpaquePointer?, gdibitmapdata: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGdiDib(gdibitmapinfo?.value?.toCPointer<ByteVar>(), gdibitmapdata?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromGraphics(width: Int, height: Int, target: Long, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromGraphics(width, height, target.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGraphics(width, height, target?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromHBITMAP(hbm: HBITMAP, hpal: HPALETTE, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromHBITMAP(hbm.toCPointer<ByteVar>(), hpal.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHBITMAP(hbm?.value?.toCPointer<ByteVar>(), hpal?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromHICON(hicon: HICON, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromHICON(hicon.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHICON(hicon?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromResource(hinstance: HINSTANCE, lpbitmapname: PCWSTR, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromResource(hinstance.toCPointer<ByteVar>(), lpbitmapname.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromResource(hinstance?.value?.toCPointer<ByteVar>(), lpbitmapname?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: Long, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromScan0(width, height, stride, format, scan0.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromScan0(width, height, stride, format, scan0?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromStream(stream: Long, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromStream(stream.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromStream(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStream(stream?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateBitmapFromStreamICM(stream: Long, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateBitmapFromStreamICM(stream.toCPointer<ByteVar>(), bitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateBitmapFromStreamICM(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStreamICM(stream?.value?.toCPointer<ByteVar>(), bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateCachedBitmap(bitmap: Long, graphics: Long, cachedbitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateCachedBitmap(bitmap.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), cachedbitmap.toCPointer<ByteVar>())
+public actual fun gdipCreateCachedBitmap(bitmap: COpaquePointer?, graphics: COpaquePointer?, cachedbitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateCachedBitmap(bitmap?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), cachedbitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateCustomLineCap(fillpath: Long, strokepath: Long, basecap: LineCap, baseinset: Float, customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateCustomLineCap(fillpath.toCPointer<ByteVar>(), strokepath.toCPointer<ByteVar>(), basecap, baseinset, customcap.toCPointer<ByteVar>())
+public actual fun gdipCreateCustomLineCap(fillpath: COpaquePointer?, strokepath: COpaquePointer?, basecap: LineCap, baseinset: Float, customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateCustomLineCap(fillpath?.value?.toCPointer<ByteVar>(), strokepath?.value?.toCPointer<ByteVar>(), basecap, baseinset, customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateEffect(guid: GUID, effect: Long): Status =
+public actual fun gdipCreateEffect(guid: Guid, effect: COpaquePointer?): Status =
     0
 
-public actual fun GdipCreateFont(fontfamily: Long, emsize: Float, style: Int, unit: Unit, font: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFont(fontfamily.toCPointer<ByteVar>(), emsize, style, unit, font.toCPointer<ByteVar>())
+public actual fun gdipCreateFont(fontfamily: COpaquePointer?, emsize: Float, style: Int, unit: Unit, font: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFont(fontfamily?.value?.toCPointer<ByteVar>(), emsize, style, unit, font?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFontFamilyFromName(name: PCWSTR, fontcollection: Long, fontfamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFontFamilyFromName(name.toCPointer<ByteVar>(), fontcollection.toCPointer<ByteVar>(), fontfamily.toCPointer<ByteVar>())
+public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: COpaquePointer?, fontfamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFamilyFromName(name?.value?.toCPointer<ByteVar>(), fontcollection?.value?.toCPointer<ByteVar>(), fontfamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFontFromDC(hdc: HDC, font: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFontFromDC(hdc.toCPointer<ByteVar>(), font.toCPointer<ByteVar>())
+public actual fun gdipCreateFontFromDC(hdc: Hdc, font: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromDC(hdc?.value?.toCPointer<ByteVar>(), font?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFontFromLogfontA(hdc: HDC, logfont: Long, font: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFontFromLogfontA(hdc.toCPointer<ByteVar>(), logfont.toCPointer<ByteVar>(), font.toCPointer<ByteVar>())
+public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontA(hdc?.value?.toCPointer<ByteVar>(), logfont?.value?.toCPointer<ByteVar>(), font?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFontFromLogfontW(hdc: HDC, logfont: Long, font: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFontFromLogfontW(hdc.toCPointer<ByteVar>(), logfont.toCPointer<ByteVar>(), font.toCPointer<ByteVar>())
+public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontW(hdc?.value?.toCPointer<ByteVar>(), logfont?.value?.toCPointer<ByteVar>(), font?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFromHDC(hdc: HDC, graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFromHDC(hdc.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>())
+public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC(hdc?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFromHDC2(hdc: HDC, hdevice: HANDLE, graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFromHDC2(hdc.toCPointer<ByteVar>(), hdevice.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>())
+public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC2(hdc?.value?.toCPointer<ByteVar>(), hdevice?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFromHWND(hwnd: HWND, graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFromHWND(hwnd.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>())
+public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWND(hwnd?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateFromHWNDICM(hwnd: HWND, graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateFromHWNDICM(hwnd.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>())
+public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWNDICM(hwnd?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateHBITMAPFromBitmap(bitmap: Long, hbmreturn: Long, background: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateHBITMAPFromBitmap(bitmap.toCPointer<ByteVar>(), hbmreturn.toCPointer<ByteVar>(), background)
+public actual fun gdipCreateHBITMAPFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?, background: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateHBITMAPFromBitmap(bitmap?.value?.toCPointer<ByteVar>(), hbmreturn?.value?.toCPointer<ByteVar>(), background)
 
-public actual fun GdipCreateHICONFromBitmap(bitmap: Long, hbmreturn: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateHICONFromBitmap(bitmap.toCPointer<ByteVar>(), hbmreturn.toCPointer<ByteVar>())
+public actual fun gdipCreateHICONFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateHICONFromBitmap(bitmap?.value?.toCPointer<ByteVar>(), hbmreturn?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateHalftonePalette(): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateHalftonePalette()?.toLong() ?: 0L
+public actual fun gdipCreateHalftonePalette(): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateHalftonePalette()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateHatchBrush(hatchstyle, forecol, backcol, brush.toCPointer<ByteVar>())
+public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateHatchBrush(hatchstyle, forecol, backcol, brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateImageAttributes(imageattr: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateImageAttributes(imageattr.toCPointer<ByteVar>())
+public actual fun gdipCreateImageAttributes(imageattr: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateImageAttributes(imageattr?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrush(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrush(point1.toCPointer<ByteVar>(), point2.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrush(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrush(point1?.value?.toCPointer<ByteVar>(), point2?.value?.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrushFromRect(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrushFromRect(rect.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrushFromRect(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRect(rect?.value?.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrushFromRectI(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrushFromRectI(rect.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrushFromRectI(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectI(rect?.value?.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrushFromRectWithAngle(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrushFromRectWithAngle(rect.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrushFromRectWithAngle(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngle(rect?.value?.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrushFromRectWithAngleI(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrushFromRectWithAngleI(rect.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngleI(rect?.value?.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateLineBrushI(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateLineBrushI(point1.toCPointer<ByteVar>(), point2.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient.toCPointer<ByteVar>())
+public actual fun gdipCreateLineBrushI(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushI(point1?.value?.toCPointer<ByteVar>(), point2?.value?.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMatrix(matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMatrix(matrix.toCPointer<ByteVar>())
+public actual fun gdipCreateMatrix(matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix(matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMatrix2(m11, m12, m21, m22, dx, dy, matrix.toCPointer<ByteVar>())
+public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix2(m11, m12, m21, m22, dx, dy, matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMatrix3(rect: Long, dstplg: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMatrix3(rect.toCPointer<ByteVar>(), dstplg.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipCreateMatrix3(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3(rect?.value?.toCPointer<ByteVar>(), dstplg?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMatrix3I(rect: Long, dstplg: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMatrix3I(rect.toCPointer<ByteVar>(), dstplg.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipCreateMatrix3I(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3I(rect?.value?.toCPointer<ByteVar>(), dstplg?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMetafileFromEmf(hemf: HENHMETAFILE, deleteemf: BOOL, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMetafileFromEmf(hemf.toCPointer<ByteVar>(), deleteemf, metafile.toCPointer<ByteVar>())
+public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromEmf(hemf?.value?.toCPointer<ByteVar>(), deleteemf, metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMetafileFromFile(file: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMetafileFromFile(file.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromFile(file?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMetafileFromStream(stream: Long, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMetafileFromStream(stream.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipCreateMetafileFromStream(stream: COpaquePointer?, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromStream(stream?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMetafileFromWmf(hwmf: HMETAFILE, deletewmf: BOOL, wmfplaceablefileheader: Long, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMetafileFromWmf(hwmf.toCPointer<ByteVar>(), deletewmf, wmfplaceablefileheader.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmf(hwmf?.value?.toCPointer<ByteVar>(), deletewmf, wmfplaceablefileheader?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateMetafileFromWmfFile(file: PCWSTR, wmfplaceablefileheader: Long, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateMetafileFromWmfFile(file.toCPointer<ByteVar>(), wmfplaceablefileheader.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmfFile(file?.value?.toCPointer<ByteVar>(), wmfplaceablefileheader?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePath(brushmode: FillMode, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePath(brushmode, path.toCPointer<ByteVar>())
+public actual fun gdipCreatePath(brushmode: FillMode, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath(brushmode, path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePath2(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePath2(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2, param3, path.toCPointer<ByteVar>())
+public actual fun gdipCreatePath2(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3, path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePath2I(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePath2I(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2, param3, path.toCPointer<ByteVar>())
+public actual fun gdipCreatePath2I(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2I(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3, path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePathGradient(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePathGradient(points.toCPointer<ByteVar>(), count, wrapmode, polygradient.toCPointer<ByteVar>())
+public actual fun gdipCreatePathGradient(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradient(points?.value?.toCPointer<ByteVar>(), count, wrapmode, polygradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePathGradientFromPath(path: Long, polygradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePathGradientFromPath(path.toCPointer<ByteVar>(), polygradient.toCPointer<ByteVar>())
+public actual fun gdipCreatePathGradientFromPath(path: COpaquePointer?, polygradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientFromPath(path?.value?.toCPointer<ByteVar>(), polygradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePathGradientI(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePathGradientI(points.toCPointer<ByteVar>(), count, wrapmode, polygradient.toCPointer<ByteVar>())
+public actual fun gdipCreatePathGradientI(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientI(points?.value?.toCPointer<ByteVar>(), count, wrapmode, polygradient?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePathIter(iterator: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePathIter(iterator.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipCreatePathIter(iterator: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathIter(iterator?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePen1(color, width, unit, pen.toCPointer<ByteVar>())
+public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePen1(color, width, unit, pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreatePen2(brush: Long, width: Float, unit: Unit, pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreatePen2(brush.toCPointer<ByteVar>(), width, unit, pen.toCPointer<ByteVar>())
+public actual fun gdipCreatePen2(brush: COpaquePointer?, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreatePen2(brush?.value?.toCPointer<ByteVar>(), width, unit, pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegion(region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegion(region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegion(region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegion(region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegionHrgn(hrgn: HRGN, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegionHrgn(hrgn.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionHrgn(hrgn?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegionPath(path: Long, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegionPath(path.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegionPath(path: COpaquePointer?, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionPath(path?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegionRect(rect: Long, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegionRect(rect.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegionRect(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRect(rect?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegionRectI(rect: Long, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegionRectI(rect.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegionRectI(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRectI(rect?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateRegionRgnData(regiondata: Long, size: Int, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateRegionRgnData(regiondata.toCPointer<ByteVar>(), size, region.toCPointer<ByteVar>())
+public actual fun gdipCreateRegionRgnData(regiondata: COpaquePointer?, size: Int, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRgnData(regiondata?.value?.toCPointer<ByteVar>(), size, region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateSolidFill(color: UInt, brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateSolidFill(color, brush.toCPointer<ByteVar>())
+public actual fun gdipCreateSolidFill(color: UInt, brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateSolidFill(color, brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateStreamOnFile(filename: PCWSTR, access: UInt, stream: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateStreamOnFile(filename.toCPointer<ByteVar>(), access, stream.toCPointer<ByteVar>())
+public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateStreamOnFile(filename?.value?.toCPointer<ByteVar>(), access, stream?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateStringFormat(formatattributes: Int, language: UShort, format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateStringFormat(formatattributes, language, format.toCPointer<ByteVar>())
+public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateStringFormat(formatattributes, language, format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateTexture(image: Long, wrapmode: WrapMode, texture: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateTexture(image.toCPointer<ByteVar>(), wrapmode, texture.toCPointer<ByteVar>())
+public actual fun gdipCreateTexture(image: COpaquePointer?, wrapmode: WrapMode, texture: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture(image?.value?.toCPointer<ByteVar>(), wrapmode, texture?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateTexture2(image: Long, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateTexture2(image.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture.toCPointer<ByteVar>())
+public actual fun gdipCreateTexture2(image: COpaquePointer?, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2(image?.value?.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateTexture2I(image: Long, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateTexture2I(image.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture.toCPointer<ByteVar>())
+public actual fun gdipCreateTexture2I(image: COpaquePointer?, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2I(image?.value?.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateTextureIA(image: Long, imageattributes: Long, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateTextureIA(image.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>(), x, y, width, height, texture.toCPointer<ByteVar>())
+public actual fun gdipCreateTextureIA(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIA(image?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>(), x, y, width, height, texture?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipCreateTextureIAI(image: Long, imageattributes: Long, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipCreateTextureIAI(image.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>(), x, y, width, height, texture.toCPointer<ByteVar>())
+public actual fun gdipCreateTextureIAI(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIAI(image?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>(), x, y, width, height, texture?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteBrush(brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteBrush(brush.toCPointer<ByteVar>())
+public actual fun gdipDeleteBrush(brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteBrush(brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteCachedBitmap(cachedbitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteCachedBitmap(cachedbitmap.toCPointer<ByteVar>())
+public actual fun gdipDeleteCachedBitmap(cachedbitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteCachedBitmap(cachedbitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteCustomLineCap(customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteCustomLineCap(customcap.toCPointer<ByteVar>())
+public actual fun gdipDeleteCustomLineCap(customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteCustomLineCap(customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteEffect(effect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteEffect(effect.toCPointer<ByteVar>())
+public actual fun gdipDeleteEffect(effect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteEffect(effect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteFont(font: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteFont(font.toCPointer<ByteVar>())
+public actual fun gdipDeleteFont(font: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteFont(font?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteFontFamily(fontfamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteFontFamily(fontfamily.toCPointer<ByteVar>())
+public actual fun gdipDeleteFontFamily(fontfamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteFontFamily(fontfamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteGraphics(graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteGraphics(graphics.toCPointer<ByteVar>())
+public actual fun gdipDeleteGraphics(graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteGraphics(graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteMatrix(matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteMatrix(matrix.toCPointer<ByteVar>())
+public actual fun gdipDeleteMatrix(matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteMatrix(matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeletePath(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeletePath(path.toCPointer<ByteVar>())
+public actual fun gdipDeletePath(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeletePath(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeletePathIter(iterator: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeletePathIter(iterator.toCPointer<ByteVar>())
+public actual fun gdipDeletePathIter(iterator: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeletePathIter(iterator?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeletePen(pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeletePen(pen.toCPointer<ByteVar>())
+public actual fun gdipDeletePen(pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeletePen(pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeletePrivateFontCollection(fontcollection: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeletePrivateFontCollection(fontcollection.toCPointer<ByteVar>())
+public actual fun gdipDeletePrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeletePrivateFontCollection(fontcollection?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteRegion(region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteRegion(region.toCPointer<ByteVar>())
+public actual fun gdipDeleteRegion(region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteRegion(region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDeleteStringFormat(format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDeleteStringFormat(format.toCPointer<ByteVar>())
+public actual fun gdipDeleteStringFormat(format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDeleteStringFormat(format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDisposeImage(image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDisposeImage(image.toCPointer<ByteVar>())
+public actual fun gdipDisposeImage(image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDisposeImage(image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDisposeImageAttributes(imageattr: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDisposeImageAttributes(imageattr.toCPointer<ByteVar>())
+public actual fun gdipDisposeImageAttributes(imageattr: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDisposeImageAttributes(imageattr?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawArc(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawArc(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipDrawArc(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawArc(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipDrawArcI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawArcI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipDrawArcI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawArcI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipDrawBezier(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawBezier(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun gdipDrawBezier(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawBezier(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun GdipDrawBezierI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawBezierI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun gdipDrawBezierI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawBezierI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun GdipDrawBeziers(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawBeziers(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawBeziers(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziers(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawBeziersI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawBeziersI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawBeziersI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziersI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawCachedBitmap(graphics: Long, cachedbitmap: Long, x: Int, y: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCachedBitmap(graphics.toCPointer<ByteVar>(), cachedbitmap.toCPointer<ByteVar>(), x, y)
+public actual fun gdipDrawCachedBitmap(graphics: COpaquePointer?, cachedbitmap: COpaquePointer?, x: Int, y: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCachedBitmap(graphics?.value?.toCPointer<ByteVar>(), cachedbitmap?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun GdipDrawClosedCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawClosedCurve(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawClosedCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawClosedCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawClosedCurve2(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipDrawClosedCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipDrawClosedCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawClosedCurve2I(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipDrawClosedCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2I(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipDrawClosedCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawClosedCurveI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawClosedCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurveI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurve(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurve2(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipDrawCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipDrawCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurve2I(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension)
+public actual fun gdipDrawCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2I(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension)
 
-public actual fun GdipDrawCurve3(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurve3(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
+public actual fun gdipDrawCurve3(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun GdipDrawCurve3I(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurve3I(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
+public actual fun gdipDrawCurve3I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3I(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun GdipDrawCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawCurveI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurveI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawDriverString(graphics: Long, text: Long, length: Int, font: Long, brush: Long, positions: Long, flags: Int, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawDriverString(graphics.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), length, font.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), flags, matrix.toCPointer<ByteVar>())
+public actual fun gdipDrawDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, brush: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawDriverString(graphics?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), length, font?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), flags, matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawEllipse(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawEllipse(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawEllipse(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipse(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawEllipseI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawEllipseI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawEllipseI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipseI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawImage(graphics: Long, image: Long, x: Float, y: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImage(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y)
+public actual fun gdipDrawImage(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImage(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun GdipDrawImageFX(graphics: Long, image: Long, source: Long, xform: Long, effect: Long, imageattributes: Long, srcunit: Unit): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageFX(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), xform.toCPointer<ByteVar>(), effect.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>(), srcunit)
+public actual fun gdipDrawImageFX(graphics: COpaquePointer?, image: COpaquePointer?, source: COpaquePointer?, xform: COpaquePointer?, effect: COpaquePointer?, imageattributes: COpaquePointer?, srcunit: Unit): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageFX(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), xform?.value?.toCPointer<ByteVar>(), effect?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>(), srcunit)
 
-public actual fun GdipDrawImageI(graphics: Long, image: Long, x: Int, y: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y)
+public actual fun gdipDrawImageI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun GdipDrawImagePointRect(graphics: Long, image: Long, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePointRect(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
+public actual fun gdipDrawImagePointRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRect(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 
-public actual fun GdipDrawImagePointRectI(graphics: Long, image: Long, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePointRectI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
+public actual fun gdipDrawImagePointRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRectI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 
-public actual fun GdipDrawImagePoints(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePoints(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), dstpoints.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawImagePoints(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePoints(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), dstpoints?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawImagePointsI(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePointsI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), dstpoints.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawImagePointsI(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), dstpoints?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawImagePointsRect(graphics: Long, image: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePointsRect(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>())
+public actual fun gdipDrawImagePointsRect(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRect(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawImagePointsRectI(graphics: Long, image: Long, points: Long, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImagePointsRectI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>())
+public actual fun gdipDrawImagePointsRectI(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRectI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawImageRect(graphics: Long, image: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageRect(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawImageRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRect(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawImageRectI(graphics: Long, image: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageRectI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawImageRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawImageRectRect(graphics: Long, image: Long, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageRectRect(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>())
+public actual fun gdipDrawImageRectRect(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRect(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawImageRectRectI(graphics: Long, image: Long, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawImageRectRectI(graphics.toCPointer<ByteVar>(), image.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>())
+public actual fun gdipDrawImageRectRectI(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRectI(graphics?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawLine(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawLine(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x1, y1, x2, y2)
+public actual fun gdipDrawLine(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawLine(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun GdipDrawLineI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawLineI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x1, y1, x2, y2)
+public actual fun gdipDrawLineI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawLineI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun GdipDrawLines(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawLines(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawLines(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawLines(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawLinesI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawLinesI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawLinesI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawLinesI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawPath(graphics: Long, pen: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawPath(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipDrawPath(graphics: COpaquePointer?, pen: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawPath(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipDrawPie(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawPie(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipDrawPie(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawPie(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipDrawPieI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawPieI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipDrawPieI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawPieI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipDrawPolygon(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawPolygon(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawPolygon(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygon(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawPolygonI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawPolygonI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawPolygonI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygonI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawRectangle(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawRectangle(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawRectangle(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangle(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawRectangleI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawRectangleI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipDrawRectangleI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangleI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipDrawRectangles(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawRectangles(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawRectangles(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangles(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawRectanglesI(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawRectanglesI(graphics.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipDrawRectanglesI(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectanglesI(graphics?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipDrawString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipDrawString(graphics.toCPointer<ByteVar>(), string.toCPointer<ByteVar>(), length, font.toCPointer<ByteVar>(), layoutrect.toCPointer<ByteVar>(), stringformat.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>())
+public actual fun gdipDrawString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipDrawString(graphics?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>(), length, font?.value?.toCPointer<ByteVar>(), layoutrect?.value?.toCPointer<ByteVar>(), stringformat?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEmfToWmfBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, eflags: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEmfToWmfBits(hemf.toCPointer<ByteVar>(), cbdata16, pdata16.toCPointer<ByteVar>(), imapmode, eflags)
+public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, eflags: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEmfToWmfBits(hemf?.value?.toCPointer<ByteVar>(), cbdata16, pdata16?.value?.toCPointer<ByteVar>(), imapmode, eflags)
 
-public actual fun GdipEndContainer(graphics: Long, state: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEndContainer(graphics.toCPointer<ByteVar>(), state)
+public actual fun gdipEndContainer(graphics: COpaquePointer?, state: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEndContainer(graphics?.value?.toCPointer<ByteVar>(), state)
 
-public actual fun GdipEnumerateMetafileDestPoint(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestPoint(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoint.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoint(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoint?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileDestPointI(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestPointI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoint.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoint?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestPoints(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoints.toCPointer<ByteVar>(), count, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoints(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoints?.value?.toCPointer<ByteVar>(), count, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestPointsI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoints.toCPointer<ByteVar>(), count, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointsI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoints?.value?.toCPointer<ByteVar>(), count, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileDestRect(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestRect(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destrect.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRect(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destrect?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileDestRectI(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileDestRectI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destrect.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRectI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destrect?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoint(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestPoint(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoint.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoint(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoint?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointI(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestPointI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoint.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoint?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestPoints(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoints.toCPointer<ByteVar>(), count, srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoints(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoints?.value?.toCPointer<ByteVar>(), count, srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestPointsI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destpoints.toCPointer<ByteVar>(), count, srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointsI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destpoints?.value?.toCPointer<ByteVar>(), count, srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestRect(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestRect(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destrect.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRect(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destrect?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipEnumerateMetafileSrcRectDestRectI(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipEnumerateMetafileSrcRectDestRectI(graphics.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>(), destrect.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), srcunit, callback, callbackdata.toCPointer<ByteVar>(), imageattributes.toCPointer<ByteVar>())
+public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRectI(graphics?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>(), destrect?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), srcunit, callback, callbackdata?.value?.toCPointer<ByteVar>(), imageattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipFillClosedCurve(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillClosedCurve(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipFillClosedCurve(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillClosedCurve2(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillClosedCurve2(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension, fillmode)
+public actual fun gdipFillClosedCurve2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension, fillmode)
 
-public actual fun GdipFillClosedCurve2I(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillClosedCurve2I(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, tension, fillmode)
+public actual fun gdipFillClosedCurve2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2I(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, tension, fillmode)
 
-public actual fun GdipFillClosedCurveI(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillClosedCurveI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipFillClosedCurveI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurveI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillEllipse(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillEllipse(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipFillEllipse(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillEllipse(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipFillEllipseI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillEllipseI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipFillEllipseI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillEllipseI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipFillPath(graphics: Long, brush: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPath(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipFillPath(graphics: COpaquePointer?, brush: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPath(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipFillPie(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPie(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipFillPie(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPie(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipFillPieI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPieI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
+public actual fun gdipFillPieI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPieI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun GdipFillPolygon(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPolygon(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, fillmode)
+public actual fun gdipFillPolygon(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, fillmode)
 
-public actual fun GdipFillPolygon2(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPolygon2(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipFillPolygon2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillPolygon2I(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPolygon2I(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipFillPolygon2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2I(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillPolygonI(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillPolygonI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, fillmode)
+public actual fun gdipFillPolygonI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygonI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, fillmode)
 
-public actual fun GdipFillRectangle(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillRectangle(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipFillRectangle(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangle(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipFillRectangleI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillRectangleI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), x, y, width, height)
+public actual fun gdipFillRectangleI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangleI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun GdipFillRectangles(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillRectangles(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipFillRectangles(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangles(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillRectanglesI(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillRectanglesI(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count)
+public actual fun gdipFillRectanglesI(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillRectanglesI(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipFillRegion(graphics: Long, brush: Long, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFillRegion(graphics.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipFillRegion(graphics: COpaquePointer?, brush: COpaquePointer?, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFillRegion(graphics?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipFindFirstImageItem(image: Long, item: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFindFirstImageItem(image.toCPointer<ByteVar>(), item.toCPointer<ByteVar>())
+public actual fun gdipFindFirstImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFindFirstImageItem(image?.value?.toCPointer<ByteVar>(), item?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipFindNextImageItem(image: Long, item: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFindNextImageItem(image.toCPointer<ByteVar>(), item.toCPointer<ByteVar>())
+public actual fun gdipFindNextImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFindNextImageItem(image?.value?.toCPointer<ByteVar>(), item?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipFlattenPath(path: Long, matrix: Long, flatness: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFlattenPath(path.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), flatness)
+public actual fun gdipFlattenPath(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFlattenPath(path?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), flatness)
 
-public actual fun GdipFlush(graphics: Long, intention: FlushIntention): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFlush(graphics.toCPointer<ByteVar>(), intention)
+public actual fun gdipFlush(graphics: COpaquePointer?, intention: FlushIntention): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFlush(graphics?.value?.toCPointer<ByteVar>(), intention)
 
-public actual fun GdipFree(ptr: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipFree(ptr.toCPointer<ByteVar>())
+public actual fun gdipFree(ptr: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipFree(ptr?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GdipGetAdjustableArrowCapFillState(cap: Long, fillstate: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetAdjustableArrowCapFillState(cap.toCPointer<ByteVar>(), fillstate.toCPointer<ByteVar>())
+public actual fun gdipGetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapFillState(cap?.value?.toCPointer<ByteVar>(), fillstate?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetAdjustableArrowCapHeight(cap: Long, height: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetAdjustableArrowCapHeight(cap.toCPointer<ByteVar>(), height.toCPointer<ByteVar>())
+public actual fun gdipGetAdjustableArrowCapHeight(cap: COpaquePointer?, height: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapHeight(cap?.value?.toCPointer<ByteVar>(), height?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetAdjustableArrowCapMiddleInset(cap.toCPointer<ByteVar>(), middleinset.toCPointer<ByteVar>())
+public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapMiddleInset(cap?.value?.toCPointer<ByteVar>(), middleinset?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetAdjustableArrowCapWidth(cap: Long, width: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetAdjustableArrowCapWidth(cap.toCPointer<ByteVar>(), width.toCPointer<ByteVar>())
+public actual fun gdipGetAdjustableArrowCapWidth(cap: COpaquePointer?, width: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapWidth(cap?.value?.toCPointer<ByteVar>(), width?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetAllPropertyItems(image: Long, totalbuffersize: UInt, numproperties: UInt, allitems: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetAllPropertyItems(image.toCPointer<ByteVar>(), totalbuffersize, numproperties, allitems.toCPointer<ByteVar>())
+public actual fun gdipGetAllPropertyItems(image: COpaquePointer?, totalbuffersize: UInt, numproperties: UInt, allitems: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetAllPropertyItems(image?.value?.toCPointer<ByteVar>(), totalbuffersize, numproperties, allitems?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetBrushType(brush: Long, type: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetBrushType(brush.toCPointer<ByteVar>(), type.toCPointer<ByteVar>())
+public actual fun gdipGetBrushType(brush: COpaquePointer?, type: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetBrushType(brush?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCellAscent(family: Long, style: Int, cellascent: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCellAscent(family.toCPointer<ByteVar>(), style, cellascent.toCPointer<ByteVar>())
+public actual fun gdipGetCellAscent(family: COpaquePointer?, style: Int, cellascent: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCellAscent(family?.value?.toCPointer<ByteVar>(), style, cellascent?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCellDescent(family: Long, style: Int, celldescent: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCellDescent(family.toCPointer<ByteVar>(), style, celldescent.toCPointer<ByteVar>())
+public actual fun gdipGetCellDescent(family: COpaquePointer?, style: Int, celldescent: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCellDescent(family?.value?.toCPointer<ByteVar>(), style, celldescent?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetClip(graphics: Long, region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetClip(graphics.toCPointer<ByteVar>(), region.toCPointer<ByteVar>())
+public actual fun gdipGetClip(graphics: COpaquePointer?, region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetClip(graphics?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetClipBounds(graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetClipBounds(graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetClipBounds(graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetClipBoundsI(graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetClipBoundsI(graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetClipBoundsI(graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCompositingMode(graphics: Long, compositingmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCompositingMode(graphics.toCPointer<ByteVar>(), compositingmode.toCPointer<ByteVar>())
+public actual fun gdipGetCompositingMode(graphics: COpaquePointer?, compositingmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingMode(graphics?.value?.toCPointer<ByteVar>(), compositingmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCompositingQuality(graphics: Long, compositingquality: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCompositingQuality(graphics.toCPointer<ByteVar>(), compositingquality.toCPointer<ByteVar>())
+public actual fun gdipGetCompositingQuality(graphics: COpaquePointer?, compositingquality: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingQuality(graphics?.value?.toCPointer<ByteVar>(), compositingquality?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapBaseCap(customcap: Long, basecap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapBaseCap(customcap.toCPointer<ByteVar>(), basecap.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseCap(customcap?.value?.toCPointer<ByteVar>(), basecap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapBaseInset(customcap: Long, inset: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapBaseInset(customcap.toCPointer<ByteVar>(), inset.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseInset(customcap?.value?.toCPointer<ByteVar>(), inset?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapStrokeCaps(customcap: Long, startcap: Long, endcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapStrokeCaps(customcap.toCPointer<ByteVar>(), startcap.toCPointer<ByteVar>(), endcap.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: COpaquePointer?, endcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeCaps(customcap?.value?.toCPointer<ByteVar>(), startcap?.value?.toCPointer<ByteVar>(), endcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapStrokeJoin(customcap: Long, linejoin: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapStrokeJoin(customcap.toCPointer<ByteVar>(), linejoin.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeJoin(customcap?.value?.toCPointer<ByteVar>(), linejoin?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapType(customcap: Long, captype: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapType(customcap.toCPointer<ByteVar>(), captype.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapType(customcap: COpaquePointer?, captype: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapType(customcap?.value?.toCPointer<ByteVar>(), captype?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetCustomLineCapWidthScale(customcap: Long, widthscale: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetCustomLineCapWidthScale(customcap.toCPointer<ByteVar>(), widthscale.toCPointer<ByteVar>())
+public actual fun gdipGetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapWidthScale(customcap?.value?.toCPointer<ByteVar>(), widthscale?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetDC(graphics: Long, hdc: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetDC(graphics.toCPointer<ByteVar>(), hdc.toCPointer<ByteVar>())
+public actual fun gdipGetDC(graphics: COpaquePointer?, hdc: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetDC(graphics?.value?.toCPointer<ByteVar>(), hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetDpiX(graphics: Long, dpi: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetDpiX(graphics.toCPointer<ByteVar>(), dpi.toCPointer<ByteVar>())
+public actual fun gdipGetDpiX(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetDpiX(graphics?.value?.toCPointer<ByteVar>(), dpi?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetDpiY(graphics: Long, dpi: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetDpiY(graphics.toCPointer<ByteVar>(), dpi.toCPointer<ByteVar>())
+public actual fun gdipGetDpiY(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetDpiY(graphics?.value?.toCPointer<ByteVar>(), dpi?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetEffectParameterSize(effect: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetEffectParameterSize(effect.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetEffectParameterSize(effect: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameterSize(effect?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetEffectParameters(effect: Long, size: Long, params: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetEffectParameters(effect.toCPointer<ByteVar>(), size.toCPointer<ByteVar>(), params.toCPointer<ByteVar>())
+public actual fun gdipGetEffectParameters(effect: COpaquePointer?, size: COpaquePointer?, params: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameters(effect?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>(), params?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetEmHeight(family: Long, style: Int, emheight: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetEmHeight(family.toCPointer<ByteVar>(), style, emheight.toCPointer<ByteVar>())
+public actual fun gdipGetEmHeight(family: COpaquePointer?, style: Int, emheight: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetEmHeight(family?.value?.toCPointer<ByteVar>(), style, emheight?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetEncoderParameterList(image: Long, clsidencoder: Long, size: UInt, buffer: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetEncoderParameterList(image.toCPointer<ByteVar>(), clsidencoder.toCPointer<ByteVar>(), size, buffer.toCPointer<ByteVar>())
+public actual fun gdipGetEncoderParameterList(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: UInt, buffer: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterList(image?.value?.toCPointer<ByteVar>(), clsidencoder?.value?.toCPointer<ByteVar>(), size, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetEncoderParameterListSize(image: Long, clsidencoder: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetEncoderParameterListSize(image.toCPointer<ByteVar>(), clsidencoder.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetEncoderParameterListSize(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterListSize(image?.value?.toCPointer<ByteVar>(), clsidencoder?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFamily(font: Long, family: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFamily(font.toCPointer<ByteVar>(), family.toCPointer<ByteVar>())
+public actual fun gdipGetFamily(font: COpaquePointer?, family: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFamily(font?.value?.toCPointer<ByteVar>(), family?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFamilyName(family: Long, name: PWSTR, language: UShort): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFamilyName(family.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), language)
+public actual fun gdipGetFamilyName(family: COpaquePointer?, name: Pwstr, language: UShort): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFamilyName(family?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), language)
 
-public actual fun GdipGetFontCollectionFamilyCount(fontcollection: Long, numfound: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontCollectionFamilyCount(fontcollection.toCPointer<ByteVar>(), numfound.toCPointer<ByteVar>())
+public actual fun gdipGetFontCollectionFamilyCount(fontcollection: COpaquePointer?, numfound: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyCount(fontcollection?.value?.toCPointer<ByteVar>(), numfound?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontCollectionFamilyList(fontcollection: Long, numsought: Int, gpfamilies: Long, numfound: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontCollectionFamilyList(fontcollection.toCPointer<ByteVar>(), numsought, gpfamilies.toCPointer<ByteVar>(), numfound.toCPointer<ByteVar>())
+public actual fun gdipGetFontCollectionFamilyList(fontcollection: COpaquePointer?, numsought: Int, gpfamilies: COpaquePointer?, numfound: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyList(fontcollection?.value?.toCPointer<ByteVar>(), numsought, gpfamilies?.value?.toCPointer<ByteVar>(), numfound?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontHeight(font: Long, graphics: Long, height: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontHeight(font.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), height.toCPointer<ByteVar>())
+public actual fun gdipGetFontHeight(font: COpaquePointer?, graphics: COpaquePointer?, height: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeight(font?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), height?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontHeightGivenDPI(font: Long, dpi: Float, height: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontHeightGivenDPI(font.toCPointer<ByteVar>(), dpi, height.toCPointer<ByteVar>())
+public actual fun gdipGetFontHeightGivenDPI(font: COpaquePointer?, dpi: Float, height: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeightGivenDPI(font?.value?.toCPointer<ByteVar>(), dpi, height?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontSize(font: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontSize(font.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetFontSize(font: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontSize(font?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontStyle(font: Long, style: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontStyle(font.toCPointer<ByteVar>(), style.toCPointer<ByteVar>())
+public actual fun gdipGetFontStyle(font: COpaquePointer?, style: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontStyle(font?.value?.toCPointer<ByteVar>(), style?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetFontUnit(font: Long, unit: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetFontUnit(font.toCPointer<ByteVar>(), unit.toCPointer<ByteVar>())
+public actual fun gdipGetFontUnit(font: COpaquePointer?, unit: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetFontUnit(font?.value?.toCPointer<ByteVar>(), unit?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetGenericFontFamilyMonospace(nativefamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetGenericFontFamilyMonospace(nativefamily.toCPointer<ByteVar>())
+public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilyMonospace(nativefamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetGenericFontFamilySansSerif(nativefamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetGenericFontFamilySansSerif(nativefamily.toCPointer<ByteVar>())
+public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySansSerif(nativefamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetGenericFontFamilySerif(nativefamily: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetGenericFontFamilySerif(nativefamily.toCPointer<ByteVar>())
+public actual fun gdipGetGenericFontFamilySerif(nativefamily: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySerif(nativefamily?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetHatchBackgroundColor(brush: Long, backcol: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetHatchBackgroundColor(brush.toCPointer<ByteVar>(), backcol.toCPointer<ByteVar>())
+public actual fun gdipGetHatchBackgroundColor(brush: COpaquePointer?, backcol: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchBackgroundColor(brush?.value?.toCPointer<ByteVar>(), backcol?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetHatchForegroundColor(brush: Long, forecol: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetHatchForegroundColor(brush.toCPointer<ByteVar>(), forecol.toCPointer<ByteVar>())
+public actual fun gdipGetHatchForegroundColor(brush: COpaquePointer?, forecol: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchForegroundColor(brush?.value?.toCPointer<ByteVar>(), forecol?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetHatchStyle(brush: Long, hatchstyle: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetHatchStyle(brush.toCPointer<ByteVar>(), hatchstyle.toCPointer<ByteVar>())
+public actual fun gdipGetHatchStyle(brush: COpaquePointer?, hatchstyle: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchStyle(brush?.value?.toCPointer<ByteVar>(), hatchstyle?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetHemfFromMetafile(metafile: Long, hemf: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetHemfFromMetafile(metafile.toCPointer<ByteVar>(), hemf.toCPointer<ByteVar>())
+public actual fun gdipGetHemfFromMetafile(metafile: COpaquePointer?, hemf: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetHemfFromMetafile(metafile?.value?.toCPointer<ByteVar>(), hemf?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageAttributesAdjustedPalette(imageattr: Long, colorpalette: Long, coloradjusttype: ColorAdjustType): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageAttributesAdjustedPalette(imageattr.toCPointer<ByteVar>(), colorpalette.toCPointer<ByteVar>(), coloradjusttype)
+public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: COpaquePointer?, colorpalette: COpaquePointer?, coloradjusttype: ColorAdjustType): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageAttributesAdjustedPalette(imageattr?.value?.toCPointer<ByteVar>(), colorpalette?.value?.toCPointer<ByteVar>(), coloradjusttype)
 
-public actual fun GdipGetImageBounds(image: Long, srcrect: Long, srcunit: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageBounds(image.toCPointer<ByteVar>(), srcrect.toCPointer<ByteVar>(), srcunit.toCPointer<ByteVar>())
+public actual fun gdipGetImageBounds(image: COpaquePointer?, srcrect: COpaquePointer?, srcunit: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageBounds(image?.value?.toCPointer<ByteVar>(), srcrect?.value?.toCPointer<ByteVar>(), srcunit?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageDecoders(numdecoders, size, decoders.toCPointer<ByteVar>())
+public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecoders(numdecoders, size, decoders?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageDecodersSize(numdecoders: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageDecodersSize(numdecoders.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetImageDecodersSize(numdecoders: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecodersSize(numdecoders?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageDimension(image: Long, width: Long, height: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageDimension(image.toCPointer<ByteVar>(), width.toCPointer<ByteVar>(), height.toCPointer<ByteVar>())
+public actual fun gdipGetImageDimension(image: COpaquePointer?, width: COpaquePointer?, height: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDimension(image?.value?.toCPointer<ByteVar>(), width?.value?.toCPointer<ByteVar>(), height?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageEncoders(numencoders, size, encoders.toCPointer<ByteVar>())
+public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncoders(numencoders, size, encoders?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageEncodersSize(numencoders: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageEncodersSize(numencoders.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetImageEncodersSize(numencoders: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncodersSize(numencoders?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageFlags(image: Long, flags: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageFlags(image.toCPointer<ByteVar>(), flags.toCPointer<ByteVar>())
+public actual fun gdipGetImageFlags(image: COpaquePointer?, flags: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageFlags(image?.value?.toCPointer<ByteVar>(), flags?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageGraphicsContext(image: Long, graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageGraphicsContext(image.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>())
+public actual fun gdipGetImageGraphicsContext(image: COpaquePointer?, graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageGraphicsContext(image?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageHeight(image: Long, height: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageHeight(image.toCPointer<ByteVar>(), height.toCPointer<ByteVar>())
+public actual fun gdipGetImageHeight(image: COpaquePointer?, height: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageHeight(image?.value?.toCPointer<ByteVar>(), height?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageHorizontalResolution(image: Long, resolution: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageHorizontalResolution(image.toCPointer<ByteVar>(), resolution.toCPointer<ByteVar>())
+public actual fun gdipGetImageHorizontalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageHorizontalResolution(image?.value?.toCPointer<ByteVar>(), resolution?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageItemData(image: Long, item: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageItemData(image.toCPointer<ByteVar>(), item.toCPointer<ByteVar>())
+public actual fun gdipGetImageItemData(image: COpaquePointer?, item: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageItemData(image?.value?.toCPointer<ByteVar>(), item?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImagePalette(image: Long, palette: Long, size: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImagePalette(image.toCPointer<ByteVar>(), palette.toCPointer<ByteVar>(), size)
+public actual fun gdipGetImagePalette(image: COpaquePointer?, palette: COpaquePointer?, size: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePalette(image?.value?.toCPointer<ByteVar>(), palette?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun GdipGetImagePaletteSize(image: Long, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImagePaletteSize(image.toCPointer<ByteVar>(), size.toCPointer<ByteVar>())
+public actual fun gdipGetImagePaletteSize(image: COpaquePointer?, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePaletteSize(image?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImagePixelFormat(image: Long, format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImagePixelFormat(image.toCPointer<ByteVar>(), format.toCPointer<ByteVar>())
+public actual fun gdipGetImagePixelFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePixelFormat(image?.value?.toCPointer<ByteVar>(), format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageRawFormat(image: Long, format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageRawFormat(image.toCPointer<ByteVar>(), format.toCPointer<ByteVar>())
+public actual fun gdipGetImageRawFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageRawFormat(image?.value?.toCPointer<ByteVar>(), format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageThumbnail(image: Long, thumbwidth: UInt, thumbheight: UInt, thumbimage: Long, callback: Long, callbackdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageThumbnail(image.toCPointer<ByteVar>(), thumbwidth, thumbheight, thumbimage.toCPointer<ByteVar>(), callback, callbackdata.toCPointer<ByteVar>())
+public actual fun gdipGetImageThumbnail(image: COpaquePointer?, thumbwidth: UInt, thumbheight: UInt, thumbimage: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageThumbnail(image?.value?.toCPointer<ByteVar>(), thumbwidth, thumbheight, thumbimage?.value?.toCPointer<ByteVar>(), callback, callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageType(image: Long, type: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageType(image.toCPointer<ByteVar>(), type.toCPointer<ByteVar>())
+public actual fun gdipGetImageType(image: COpaquePointer?, type: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageType(image?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageVerticalResolution(image: Long, resolution: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageVerticalResolution(image.toCPointer<ByteVar>(), resolution.toCPointer<ByteVar>())
+public actual fun gdipGetImageVerticalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageVerticalResolution(image?.value?.toCPointer<ByteVar>(), resolution?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetImageWidth(image: Long, width: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetImageWidth(image.toCPointer<ByteVar>(), width.toCPointer<ByteVar>())
+public actual fun gdipGetImageWidth(image: COpaquePointer?, width: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetImageWidth(image?.value?.toCPointer<ByteVar>(), width?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetInterpolationMode(graphics: Long, interpolationmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetInterpolationMode(graphics.toCPointer<ByteVar>(), interpolationmode.toCPointer<ByteVar>())
+public actual fun gdipGetInterpolationMode(graphics: COpaquePointer?, interpolationmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetInterpolationMode(graphics?.value?.toCPointer<ByteVar>(), interpolationmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipGetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetLineBlendCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineBlendCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetLineBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlendCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineColors(brush: Long, colors: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineColors(brush.toCPointer<ByteVar>(), colors.toCPointer<ByteVar>())
+public actual fun gdipGetLineColors(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineColors(brush?.value?.toCPointer<ByteVar>(), colors?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineGammaCorrection(brush.toCPointer<ByteVar>(), usegammacorrection.toCPointer<ByteVar>())
+public actual fun gdipGetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineGammaCorrection(brush?.value?.toCPointer<ByteVar>(), usegammacorrection?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLinePresetBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipGetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetLinePresetBlendCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLinePresetBlendCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetLinePresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlendCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineRect(brush: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineRect(brush.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetLineRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineRect(brush?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineRectI(brush: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineRectI(brush.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetLineRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineRectI(brush?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineSpacing(family: Long, style: Int, linespacing: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineSpacing(family.toCPointer<ByteVar>(), style, linespacing.toCPointer<ByteVar>())
+public actual fun gdipGetLineSpacing(family: COpaquePointer?, style: Int, linespacing: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineSpacing(family?.value?.toCPointer<ByteVar>(), style, linespacing?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLineWrapMode(brush: Long, wrapmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLineWrapMode(brush.toCPointer<ByteVar>(), wrapmode.toCPointer<ByteVar>())
+public actual fun gdipGetLineWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLineWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLogFontA(font: Long, graphics: Long, logfonta: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLogFontA(font.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), logfonta.toCPointer<ByteVar>())
+public actual fun gdipGetLogFontA(font: COpaquePointer?, graphics: COpaquePointer?, logfonta: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontA(font?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), logfonta?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetLogFontW(font: Long, graphics: Long, logfontw: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetLogFontW(font.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), logfontw.toCPointer<ByteVar>())
+public actual fun gdipGetLogFontW(font: COpaquePointer?, graphics: COpaquePointer?, logfontw: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontW(font?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), logfontw?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMatrixElements(matrix: Long, matrixout: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMatrixElements(matrix.toCPointer<ByteVar>(), matrixout.toCPointer<ByteVar>())
+public actual fun gdipGetMatrixElements(matrix: COpaquePointer?, matrixout: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMatrixElements(matrix?.value?.toCPointer<ByteVar>(), matrixout?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileDownLevelRasterizationLimit(metafile.toCPointer<ByteVar>(), metafilerasterizationlimitdpi.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileDownLevelRasterizationLimit(metafile?.value?.toCPointer<ByteVar>(), metafilerasterizationlimitdpi?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileHeaderFromEmf(hemf: HENHMETAFILE, header: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileHeaderFromEmf(hemf.toCPointer<ByteVar>(), header.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromEmf(hemf?.value?.toCPointer<ByteVar>(), header?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileHeaderFromFile(filename: PCWSTR, header: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileHeaderFromFile(filename.toCPointer<ByteVar>(), header.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromFile(filename?.value?.toCPointer<ByteVar>(), header?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileHeaderFromMetafile(metafile: Long, header: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileHeaderFromMetafile(metafile.toCPointer<ByteVar>(), header.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileHeaderFromMetafile(metafile: COpaquePointer?, header: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromMetafile(metafile?.value?.toCPointer<ByteVar>(), header?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileHeaderFromStream(stream: Long, header: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileHeaderFromStream(stream.toCPointer<ByteVar>(), header.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileHeaderFromStream(stream: COpaquePointer?, header: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromStream(stream?.value?.toCPointer<ByteVar>(), header?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetMetafileHeaderFromWmf(hwmf: HMETAFILE, wmfplaceablefileheader: Long, header: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetMetafileHeaderFromWmf(hwmf.toCPointer<ByteVar>(), wmfplaceablefileheader.toCPointer<ByteVar>(), header.toCPointer<ByteVar>())
+public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: COpaquePointer?, header: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromWmf(hwmf?.value?.toCPointer<ByteVar>(), wmfplaceablefileheader?.value?.toCPointer<ByteVar>(), header?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetNearestColor(graphics: Long, argb: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetNearestColor(graphics.toCPointer<ByteVar>(), argb.toCPointer<ByteVar>())
+public actual fun gdipGetNearestColor(graphics: COpaquePointer?, argb: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetNearestColor(graphics?.value?.toCPointer<ByteVar>(), argb?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPageScale(graphics: Long, scale: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPageScale(graphics.toCPointer<ByteVar>(), scale.toCPointer<ByteVar>())
+public actual fun gdipGetPageScale(graphics: COpaquePointer?, scale: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPageScale(graphics?.value?.toCPointer<ByteVar>(), scale?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPageUnit(graphics: Long, unit: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPageUnit(graphics.toCPointer<ByteVar>(), unit.toCPointer<ByteVar>())
+public actual fun gdipGetPageUnit(graphics: COpaquePointer?, unit: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPageUnit(graphics?.value?.toCPointer<ByteVar>(), unit?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathData(path: Long, pathdata: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathData(path.toCPointer<ByteVar>(), pathdata.toCPointer<ByteVar>())
+public actual fun gdipGetPathData(path: COpaquePointer?, pathdata: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathData(path?.value?.toCPointer<ByteVar>(), pathdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathFillMode(path: Long, fillmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathFillMode(path.toCPointer<ByteVar>(), fillmode.toCPointer<ByteVar>())
+public actual fun gdipGetPathFillMode(path: COpaquePointer?, fillmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathFillMode(path?.value?.toCPointer<ByteVar>(), fillmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPathGradientBlendCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientBlendCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlendCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientCenterColor(brush: Long, colors: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientCenterColor(brush.toCPointer<ByteVar>(), colors.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientCenterColor(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterColor(brush?.value?.toCPointer<ByteVar>(), colors?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientCenterPoint(brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPoint(brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientCenterPointI(brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPointI(brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientFocusScales(brush: Long, xscale: Long, yscale: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientFocusScales(brush.toCPointer<ByteVar>(), xscale.toCPointer<ByteVar>(), yscale.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientFocusScales(brush: COpaquePointer?, xscale: COpaquePointer?, yscale: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientFocusScales(brush?.value?.toCPointer<ByteVar>(), xscale?.value?.toCPointer<ByteVar>(), yscale?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientGammaCorrection(brush.toCPointer<ByteVar>(), usegammacorrection.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientGammaCorrection(brush?.value?.toCPointer<ByteVar>(), usegammacorrection?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientPath(brush: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientPath(brush.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPath(brush?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientPointCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientPointCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientPointCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPointCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientPresetBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPathGradientPresetBlendCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientPresetBlendCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientPresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlendCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientRect(brush: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientRect(brush.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRect(brush?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientRectI(brush: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientRectI(brush.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRectI(brush?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientSurroundColorCount(brush: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientSurroundColorCount(brush.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientSurroundColorCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorCount(brush?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientSurroundColorsWithCount(brush.toCPointer<ByteVar>(), color.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorsWithCount(brush?.value?.toCPointer<ByteVar>(), color?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathGradientWrapMode(brush: Long, wrapmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathGradientWrapMode(brush.toCPointer<ByteVar>(), wrapmode.toCPointer<ByteVar>())
+public actual fun gdipGetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathLastPoint(path: Long, lastpoint: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathLastPoint(path.toCPointer<ByteVar>(), lastpoint.toCPointer<ByteVar>())
+public actual fun gdipGetPathLastPoint(path: COpaquePointer?, lastpoint: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathLastPoint(path?.value?.toCPointer<ByteVar>(), lastpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathPoints(param0: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathPoints(param0.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPathPoints(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathPoints(param0?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPathPointsI(param0: Long, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathPointsI(param0.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPathPointsI(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathPointsI(param0?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPathTypes(path: Long, types: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathTypes(path.toCPointer<ByteVar>(), types.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPathTypes(path: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathTypes(path?.value?.toCPointer<ByteVar>(), types?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPathWorldBounds(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathWorldBounds(path.toCPointer<ByteVar>(), bounds.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>())
+public actual fun gdipGetPathWorldBounds(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBounds(path?.value?.toCPointer<ByteVar>(), bounds?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPathWorldBoundsI(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPathWorldBoundsI(path.toCPointer<ByteVar>(), bounds.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>())
+public actual fun gdipGetPathWorldBoundsI(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBoundsI(path?.value?.toCPointer<ByteVar>(), bounds?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenBrushFill(pen: Long, brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenBrushFill(pen.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>())
+public actual fun gdipGetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenBrushFill(pen?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenColor(pen: Long, argb: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenColor(pen.toCPointer<ByteVar>(), argb.toCPointer<ByteVar>())
+public actual fun gdipGetPenColor(pen: COpaquePointer?, argb: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenColor(pen?.value?.toCPointer<ByteVar>(), argb?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenCompoundArray(pen.toCPointer<ByteVar>(), dash.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundArray(pen?.value?.toCPointer<ByteVar>(), dash?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPenCompoundCount(pen: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenCompoundCount(pen.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPenCompoundCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundCount(pen?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenCustomEndCap(pen.toCPointer<ByteVar>(), customcap.toCPointer<ByteVar>())
+public actual fun gdipGetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomEndCap(pen?.value?.toCPointer<ByteVar>(), customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenCustomStartCap(pen.toCPointer<ByteVar>(), customcap.toCPointer<ByteVar>())
+public actual fun gdipGetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomStartCap(pen?.value?.toCPointer<ByteVar>(), customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenDashArray(pen.toCPointer<ByteVar>(), dash.toCPointer<ByteVar>(), count)
+public actual fun gdipGetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashArray(pen?.value?.toCPointer<ByteVar>(), dash?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipGetPenDashCap197819(pen: Long, dashcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenDashCap197819(pen.toCPointer<ByteVar>(), dashcap.toCPointer<ByteVar>())
+public actual fun gdipGetPenDashCap197819(pen: COpaquePointer?, dashcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCap197819(pen?.value?.toCPointer<ByteVar>(), dashcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenDashCount(pen: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenDashCount(pen.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPenDashCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCount(pen?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenDashOffset(pen: Long, offset: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenDashOffset(pen.toCPointer<ByteVar>(), offset.toCPointer<ByteVar>())
+public actual fun gdipGetPenDashOffset(pen: COpaquePointer?, offset: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashOffset(pen?.value?.toCPointer<ByteVar>(), offset?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenDashStyle(pen: Long, dashstyle: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenDashStyle(pen.toCPointer<ByteVar>(), dashstyle.toCPointer<ByteVar>())
+public actual fun gdipGetPenDashStyle(pen: COpaquePointer?, dashstyle: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashStyle(pen?.value?.toCPointer<ByteVar>(), dashstyle?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenEndCap(pen: Long, endcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenEndCap(pen.toCPointer<ByteVar>(), endcap.toCPointer<ByteVar>())
+public actual fun gdipGetPenEndCap(pen: COpaquePointer?, endcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenEndCap(pen?.value?.toCPointer<ByteVar>(), endcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenFillType(pen: Long, type: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenFillType(pen.toCPointer<ByteVar>(), type.toCPointer<ByteVar>())
+public actual fun gdipGetPenFillType(pen: COpaquePointer?, type: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenFillType(pen?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenLineJoin(pen: Long, linejoin: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenLineJoin(pen.toCPointer<ByteVar>(), linejoin.toCPointer<ByteVar>())
+public actual fun gdipGetPenLineJoin(pen: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenLineJoin(pen?.value?.toCPointer<ByteVar>(), linejoin?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenMiterLimit(pen: Long, miterlimit: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenMiterLimit(pen.toCPointer<ByteVar>(), miterlimit.toCPointer<ByteVar>())
+public actual fun gdipGetPenMiterLimit(pen: COpaquePointer?, miterlimit: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenMiterLimit(pen?.value?.toCPointer<ByteVar>(), miterlimit?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenMode(pen: Long, penmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenMode(pen.toCPointer<ByteVar>(), penmode.toCPointer<ByteVar>())
+public actual fun gdipGetPenMode(pen: COpaquePointer?, penmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenMode(pen?.value?.toCPointer<ByteVar>(), penmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenStartCap(pen: Long, startcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenStartCap(pen.toCPointer<ByteVar>(), startcap.toCPointer<ByteVar>())
+public actual fun gdipGetPenStartCap(pen: COpaquePointer?, startcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenStartCap(pen?.value?.toCPointer<ByteVar>(), startcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenTransform(pen: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenTransform(pen.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenTransform(pen?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenUnit(pen: Long, unit: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenUnit(pen.toCPointer<ByteVar>(), unit.toCPointer<ByteVar>())
+public actual fun gdipGetPenUnit(pen: COpaquePointer?, unit: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenUnit(pen?.value?.toCPointer<ByteVar>(), unit?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPenWidth(pen: Long, width: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPenWidth(pen.toCPointer<ByteVar>(), width.toCPointer<ByteVar>())
+public actual fun gdipGetPenWidth(pen: COpaquePointer?, width: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPenWidth(pen?.value?.toCPointer<ByteVar>(), width?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPixelOffsetMode(graphics: Long, pixeloffsetmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPixelOffsetMode(graphics.toCPointer<ByteVar>(), pixeloffsetmode.toCPointer<ByteVar>())
+public actual fun gdipGetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPixelOffsetMode(graphics?.value?.toCPointer<ByteVar>(), pixeloffsetmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPointCount(path: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPointCount(path.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetPointCount(path: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPointCount(path?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPropertyCount(image: Long, numofproperty: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPropertyCount(image.toCPointer<ByteVar>(), numofproperty.toCPointer<ByteVar>())
+public actual fun gdipGetPropertyCount(image: COpaquePointer?, numofproperty: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyCount(image?.value?.toCPointer<ByteVar>(), numofproperty?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPropertyIdList(image: Long, numofproperty: UInt, list: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPropertyIdList(image.toCPointer<ByteVar>(), numofproperty, list.toCPointer<ByteVar>())
+public actual fun gdipGetPropertyIdList(image: COpaquePointer?, numofproperty: UInt, list: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyIdList(image?.value?.toCPointer<ByteVar>(), numofproperty, list?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPropertyItem(image: Long, propid: UInt, propsize: UInt, buffer: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPropertyItem(image.toCPointer<ByteVar>(), propid, propsize, buffer.toCPointer<ByteVar>())
+public actual fun gdipGetPropertyItem(image: COpaquePointer?, propid: UInt, propsize: UInt, buffer: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItem(image?.value?.toCPointer<ByteVar>(), propid, propsize, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPropertyItemSize(image: Long, propid: UInt, size: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPropertyItemSize(image.toCPointer<ByteVar>(), propid, size.toCPointer<ByteVar>())
+public actual fun gdipGetPropertyItemSize(image: COpaquePointer?, propid: UInt, size: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItemSize(image?.value?.toCPointer<ByteVar>(), propid, size?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetPropertySize(image: Long, totalbuffersize: Long, numproperties: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetPropertySize(image.toCPointer<ByteVar>(), totalbuffersize.toCPointer<ByteVar>(), numproperties.toCPointer<ByteVar>())
+public actual fun gdipGetPropertySize(image: COpaquePointer?, totalbuffersize: COpaquePointer?, numproperties: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertySize(image?.value?.toCPointer<ByteVar>(), totalbuffersize?.value?.toCPointer<ByteVar>(), numproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionBounds(region: Long, graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionBounds(region.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetRegionBounds(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBounds(region?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionBoundsI(region: Long, graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionBoundsI(region.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetRegionBoundsI(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBoundsI(region?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionData(region: Long, buffer: Long, buffersize: UInt, sizefilled: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionData(region.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize, sizefilled.toCPointer<ByteVar>())
+public actual fun gdipGetRegionData(region: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, sizefilled: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionData(region?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize, sizefilled?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionDataSize(region: Long, buffersize: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionDataSize(region.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun gdipGetRegionDataSize(region: COpaquePointer?, buffersize: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionDataSize(region?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionHRgn(region: Long, graphics: Long, hrgn: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionHRgn(region.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun gdipGetRegionHRgn(region: COpaquePointer?, graphics: COpaquePointer?, hrgn: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionHRgn(region?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionScans(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionScans(region.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetRegionScans(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScans(region?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionScansCount(region: Long, count: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionScansCount(region.toCPointer<ByteVar>(), count.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetRegionScansCount(region: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansCount(region?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRegionScansI(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRegionScansI(region.toCPointer<ByteVar>(), rects.toCPointer<ByteVar>(), count.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetRegionScansI(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansI(region?.value?.toCPointer<ByteVar>(), rects?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetRenderingOrigin(graphics: Long, x: Long, y: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetRenderingOrigin(graphics.toCPointer<ByteVar>(), x.toCPointer<ByteVar>(), y.toCPointer<ByteVar>())
+public actual fun gdipGetRenderingOrigin(graphics: COpaquePointer?, x: COpaquePointer?, y: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetRenderingOrigin(graphics?.value?.toCPointer<ByteVar>(), x?.value?.toCPointer<ByteVar>(), y?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetSmoothingMode(graphics: Long, smoothingmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetSmoothingMode(graphics.toCPointer<ByteVar>(), smoothingmode.toCPointer<ByteVar>())
+public actual fun gdipGetSmoothingMode(graphics: COpaquePointer?, smoothingmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetSmoothingMode(graphics?.value?.toCPointer<ByteVar>(), smoothingmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetSolidFillColor(brush: Long, color: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetSolidFillColor(brush.toCPointer<ByteVar>(), color.toCPointer<ByteVar>())
+public actual fun gdipGetSolidFillColor(brush: COpaquePointer?, color: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetSolidFillColor(brush?.value?.toCPointer<ByteVar>(), color?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatAlign(format: Long, align: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatAlign(format.toCPointer<ByteVar>(), align.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatAlign(format?.value?.toCPointer<ByteVar>(), align?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatDigitSubstitution(format: Long, language: Long, substitute: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatDigitSubstitution(format.toCPointer<ByteVar>(), language.toCPointer<ByteVar>(), substitute.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatDigitSubstitution(format: COpaquePointer?, language: COpaquePointer?, substitute: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatDigitSubstitution(format?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>(), substitute?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatFlags(format: Long, flags: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatFlags(format.toCPointer<ByteVar>(), flags.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatFlags(format: COpaquePointer?, flags: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatFlags(format?.value?.toCPointer<ByteVar>(), flags?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatHotkeyPrefix(format.toCPointer<ByteVar>(), hotkeyprefix.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatHotkeyPrefix(format?.value?.toCPointer<ByteVar>(), hotkeyprefix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatLineAlign(format: Long, align: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatLineAlign(format.toCPointer<ByteVar>(), align.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatLineAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatLineAlign(format?.value?.toCPointer<ByteVar>(), align?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatMeasurableCharacterRangeCount(format: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatMeasurableCharacterRangeCount(format.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatMeasurableCharacterRangeCount(format?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatTabStopCount(format: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatTabStopCount(format.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatTabStopCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStopCount(format?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatTabStops(format: Long, count: Int, firsttaboffset: Long, tabstops: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatTabStops(format.toCPointer<ByteVar>(), count, firsttaboffset.toCPointer<ByteVar>(), tabstops.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatTabStops(format: COpaquePointer?, count: Int, firsttaboffset: COpaquePointer?, tabstops: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStops(format?.value?.toCPointer<ByteVar>(), count, firsttaboffset?.value?.toCPointer<ByteVar>(), tabstops?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetStringFormatTrimming(format: Long, trimming: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetStringFormatTrimming(format.toCPointer<ByteVar>(), trimming.toCPointer<ByteVar>())
+public actual fun gdipGetStringFormatTrimming(format: COpaquePointer?, trimming: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTrimming(format?.value?.toCPointer<ByteVar>(), trimming?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetTextContrast(graphics: Long, contrast: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetTextContrast(graphics.toCPointer<ByteVar>(), contrast.toCPointer<ByteVar>())
+public actual fun gdipGetTextContrast(graphics: COpaquePointer?, contrast: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetTextContrast(graphics?.value?.toCPointer<ByteVar>(), contrast?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetTextRenderingHint(graphics: Long, mode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetTextRenderingHint(graphics.toCPointer<ByteVar>(), mode.toCPointer<ByteVar>())
+public actual fun gdipGetTextRenderingHint(graphics: COpaquePointer?, mode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetTextRenderingHint(graphics?.value?.toCPointer<ByteVar>(), mode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetTextureImage(brush: Long, image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetTextureImage(brush.toCPointer<ByteVar>(), image.toCPointer<ByteVar>())
+public actual fun gdipGetTextureImage(brush: COpaquePointer?, image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureImage(brush?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetTextureTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetTextureTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetTextureWrapMode(brush: Long, wrapmode: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetTextureWrapMode(brush.toCPointer<ByteVar>(), wrapmode.toCPointer<ByteVar>())
+public actual fun gdipGetTextureWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetVisibleClipBounds(graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetVisibleClipBounds(graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetVisibleClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBounds(graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetVisibleClipBoundsI(graphics: Long, rect: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetVisibleClipBoundsI(graphics.toCPointer<ByteVar>(), rect.toCPointer<ByteVar>())
+public actual fun gdipGetVisibleClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBoundsI(graphics?.value?.toCPointer<ByteVar>(), rect?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGetWorldTransform(graphics: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGetWorldTransform(graphics.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipGetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGetWorldTransform(graphics?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipGraphicsClear(graphics: Long, color: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGraphicsClear(graphics.toCPointer<ByteVar>(), color)
+public actual fun gdipGraphicsClear(graphics: COpaquePointer?, color: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGraphicsClear(graphics?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun GdipGraphicsSetAbort(pgraphics: Long, piabort: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipGraphicsSetAbort(pgraphics.toCPointer<ByteVar>(), piabort.toCPointer<ByteVar>())
+public actual fun gdipGraphicsSetAbort(pgraphics: COpaquePointer?, piabort: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipGraphicsSetAbort(pgraphics?.value?.toCPointer<ByteVar>(), piabort?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipImageForceValidation(image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageForceValidation(image.toCPointer<ByteVar>())
+public actual fun gdipImageForceValidation(image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageForceValidation(image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipImageGetFrameCount(image: Long, dimensionid: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageGetFrameCount(image.toCPointer<ByteVar>(), dimensionid.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipImageGetFrameCount(image: COpaquePointer?, dimensionid: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameCount(image?.value?.toCPointer<ByteVar>(), dimensionid?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipImageGetFrameDimensionsCount(image: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageGetFrameDimensionsCount(image.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipImageGetFrameDimensionsCount(image: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsCount(image?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipImageGetFrameDimensionsList(image: Long, dimensionids: Long, count: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageGetFrameDimensionsList(image.toCPointer<ByteVar>(), dimensionids.toCPointer<ByteVar>(), count)
+public actual fun gdipImageGetFrameDimensionsList(image: COpaquePointer?, dimensionids: COpaquePointer?, count: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsList(image?.value?.toCPointer<ByteVar>(), dimensionids?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipImageRotateFlip(image: Long, rftype: RotateFlipType): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageRotateFlip(image.toCPointer<ByteVar>(), rftype)
+public actual fun gdipImageRotateFlip(image: COpaquePointer?, rftype: RotateFlipType): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageRotateFlip(image?.value?.toCPointer<ByteVar>(), rftype)
 
-public actual fun GdipImageSelectActiveFrame(image: Long, dimensionid: Long, frameindex: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageSelectActiveFrame(image.toCPointer<ByteVar>(), dimensionid.toCPointer<ByteVar>(), frameindex)
+public actual fun gdipImageSelectActiveFrame(image: COpaquePointer?, dimensionid: COpaquePointer?, frameindex: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageSelectActiveFrame(image?.value?.toCPointer<ByteVar>(), dimensionid?.value?.toCPointer<ByteVar>(), frameindex)
 
-public actual fun GdipImageSetAbort(pimage: Long, piabort: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipImageSetAbort(pimage.toCPointer<ByteVar>(), piabort.toCPointer<ByteVar>())
+public actual fun gdipImageSetAbort(pimage: COpaquePointer?, piabort: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipImageSetAbort(pimage?.value?.toCPointer<ByteVar>(), piabort?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipInitializePalette(palette: Long, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: BOOL, bitmap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipInitializePalette(palette.toCPointer<ByteVar>(), palettetype, optimalcolors, usetransparentcolor, bitmap.toCPointer<ByteVar>())
+public actual fun gdipInitializePalette(palette: COpaquePointer?, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipInitializePalette(palette?.value?.toCPointer<ByteVar>(), palettetype, optimalcolors, usetransparentcolor, bitmap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipInvertMatrix(matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipInvertMatrix(matrix.toCPointer<ByteVar>())
+public actual fun gdipInvertMatrix(matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipInvertMatrix(matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsClipEmpty(graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsClipEmpty(graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsClipEmpty(graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsEmptyRegion(region: Long, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsEmptyRegion(region.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsEmptyRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsEmptyRegion(region?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsEqualRegion(region: Long, region2: Long, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsEqualRegion(region.toCPointer<ByteVar>(), region2.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsEqualRegion(region: COpaquePointer?, region2: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsEqualRegion(region?.value?.toCPointer<ByteVar>(), region2?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsInfiniteRegion(region: Long, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsInfiniteRegion(region.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsInfiniteRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsInfiniteRegion(region?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsMatrixEqual(matrix: Long, matrix2: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsMatrixEqual(matrix.toCPointer<ByteVar>(), matrix2.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsMatrixEqual(matrix: COpaquePointer?, matrix2: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixEqual(matrix?.value?.toCPointer<ByteVar>(), matrix2?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsMatrixIdentity(matrix: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsMatrixIdentity(matrix.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsMatrixIdentity(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixIdentity(matrix?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsMatrixInvertible(matrix: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsMatrixInvertible(matrix.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsMatrixInvertible(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixInvertible(matrix?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsOutlineVisiblePathPoint(path: Long, x: Float, y: Float, pen: Long, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsOutlineVisiblePathPoint(path.toCPointer<ByteVar>(), x, y, pen.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsOutlineVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPoint(path?.value?.toCPointer<ByteVar>(), x, y, pen?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsOutlineVisiblePathPointI(path: Long, x: Int, y: Int, pen: Long, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsOutlineVisiblePathPointI(path.toCPointer<ByteVar>(), x, y, pen.toCPointer<ByteVar>(), graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsOutlineVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPointI(path?.value?.toCPointer<ByteVar>(), x, y, pen?.value?.toCPointer<ByteVar>(), graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsStyleAvailable(family: Long, style: Int, isstyleavailable: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsStyleAvailable(family.toCPointer<ByteVar>(), style, isstyleavailable.toCPointer<ByteVar>())
+public actual fun gdipIsStyleAvailable(family: COpaquePointer?, style: Int, isstyleavailable: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsStyleAvailable(family?.value?.toCPointer<ByteVar>(), style, isstyleavailable?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleClipEmpty(graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleClipEmpty(graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleClipEmpty(graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisiblePathPoint(path: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisiblePathPoint(path.toCPointer<ByteVar>(), x, y, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPoint(path?.value?.toCPointer<ByteVar>(), x, y, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisiblePathPointI(path: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisiblePathPointI(path.toCPointer<ByteVar>(), x, y, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPointI(path?.value?.toCPointer<ByteVar>(), x, y, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisiblePoint(graphics: Long, x: Float, y: Float, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisiblePoint(graphics.toCPointer<ByteVar>(), x, y, result.toCPointer<ByteVar>())
+public actual fun gdipIsVisiblePoint(graphics: COpaquePointer?, x: Float, y: Float, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePoint(graphics?.value?.toCPointer<ByteVar>(), x, y, result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisiblePointI(graphics: Long, x: Int, y: Int, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisiblePointI(graphics.toCPointer<ByteVar>(), x, y, result.toCPointer<ByteVar>())
+public actual fun gdipIsVisiblePointI(graphics: COpaquePointer?, x: Int, y: Int, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePointI(graphics?.value?.toCPointer<ByteVar>(), x, y, result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRect(graphics.toCPointer<ByteVar>(), x, y, width, height, result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRect(graphics?.value?.toCPointer<ByteVar>(), x, y, width, height, result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRectI(graphics.toCPointer<ByteVar>(), x, y, width, height, result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRectI(graphics?.value?.toCPointer<ByteVar>(), x, y, width, height, result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRegionPoint(region: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRegionPoint(region.toCPointer<ByteVar>(), x, y, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRegionPoint(region: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPoint(region?.value?.toCPointer<ByteVar>(), x, y, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRegionPointI(region: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRegionPointI(region.toCPointer<ByteVar>(), x, y, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRegionPointI(region: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPointI(region?.value?.toCPointer<ByteVar>(), x, y, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRegionRect(region: Long, x: Float, y: Float, width: Float, height: Float, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRegionRect(region.toCPointer<ByteVar>(), x, y, width, height, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRegionRect(region: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRect(region?.value?.toCPointer<ByteVar>(), x, y, width, height, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipIsVisibleRegionRectI(region: Long, x: Int, y: Int, width: Int, height: Int, graphics: Long, result: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipIsVisibleRegionRectI(region.toCPointer<ByteVar>(), x, y, width, height, graphics.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun gdipIsVisibleRegionRectI(region: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRectI(region?.value?.toCPointer<ByteVar>(), x, y, width, height, graphics?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipLoadImageFromFile(filename: PCWSTR, image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipLoadImageFromFile(filename.toCPointer<ByteVar>(), image.toCPointer<ByteVar>())
+public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFile(filename?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipLoadImageFromFileICM(filename: PCWSTR, image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipLoadImageFromFileICM(filename.toCPointer<ByteVar>(), image.toCPointer<ByteVar>())
+public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFileICM(filename?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipLoadImageFromStream(stream: Long, image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipLoadImageFromStream(stream.toCPointer<ByteVar>(), image.toCPointer<ByteVar>())
+public actual fun gdipLoadImageFromStream(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStream(stream?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipLoadImageFromStreamICM(stream: Long, image: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipLoadImageFromStreamICM(stream.toCPointer<ByteVar>(), image.toCPointer<ByteVar>())
+public actual fun gdipLoadImageFromStreamICM(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStreamICM(stream?.value?.toCPointer<ByteVar>(), image?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipMeasureCharacterRanges(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, regioncount: Int, regions: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMeasureCharacterRanges(graphics.toCPointer<ByteVar>(), string.toCPointer<ByteVar>(), length, font.toCPointer<ByteVar>(), layoutrect.toCPointer<ByteVar>(), stringformat.toCPointer<ByteVar>(), regioncount, regions.toCPointer<ByteVar>())
+public actual fun gdipMeasureCharacterRanges(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, regioncount: Int, regions: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMeasureCharacterRanges(graphics?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>(), length, font?.value?.toCPointer<ByteVar>(), layoutrect?.value?.toCPointer<ByteVar>(), stringformat?.value?.toCPointer<ByteVar>(), regioncount, regions?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipMeasureDriverString(graphics: Long, text: Long, length: Int, font: Long, positions: Long, flags: Int, matrix: Long, boundingbox: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMeasureDriverString(graphics.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), length, font.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), flags, matrix.toCPointer<ByteVar>(), boundingbox.toCPointer<ByteVar>())
+public actual fun gdipMeasureDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?, boundingbox: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMeasureDriverString(graphics?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), length, font?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), flags, matrix?.value?.toCPointer<ByteVar>(), boundingbox?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipMeasureString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, boundingbox: Long, codepointsfitted: Long, linesfilled: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMeasureString(graphics.toCPointer<ByteVar>(), string.toCPointer<ByteVar>(), length, font.toCPointer<ByteVar>(), layoutrect.toCPointer<ByteVar>(), stringformat.toCPointer<ByteVar>(), boundingbox.toCPointer<ByteVar>(), codepointsfitted.toCPointer<ByteVar>(), linesfilled.toCPointer<ByteVar>())
+public actual fun gdipMeasureString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, boundingbox: COpaquePointer?, codepointsfitted: COpaquePointer?, linesfilled: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMeasureString(graphics?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>(), length, font?.value?.toCPointer<ByteVar>(), layoutrect?.value?.toCPointer<ByteVar>(), stringformat?.value?.toCPointer<ByteVar>(), boundingbox?.value?.toCPointer<ByteVar>(), codepointsfitted?.value?.toCPointer<ByteVar>(), linesfilled?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipMultiplyLineTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyLineTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyLineTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipMultiplyMatrix(matrix: Long, matrix2: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyMatrix(matrix.toCPointer<ByteVar>(), matrix2.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyMatrix(matrix: COpaquePointer?, matrix2: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyMatrix(matrix?.value?.toCPointer<ByteVar>(), matrix2?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipMultiplyPathGradientTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyPathGradientTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPathGradientTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipMultiplyPenTransform(pen: Long, matrix: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyPenTransform(pen.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPenTransform(pen?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipMultiplyTextureTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyTextureTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyTextureTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipMultiplyWorldTransform(graphics: Long, matrix: Long, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipMultiplyWorldTransform(graphics.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), order)
+public actual fun gdipMultiplyWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyWorldTransform(graphics?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), order)
 
-public actual fun GdipNewInstalledFontCollection(fontcollection: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipNewInstalledFontCollection(fontcollection.toCPointer<ByteVar>())
+public actual fun gdipNewInstalledFontCollection(fontcollection: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipNewInstalledFontCollection(fontcollection?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipNewPrivateFontCollection(fontcollection: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipNewPrivateFontCollection(fontcollection.toCPointer<ByteVar>())
+public actual fun gdipNewPrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipNewPrivateFontCollection(fontcollection?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterCopyData(iterator: Long, resultcount: Long, points: Long, types: Long, startindex: Int, endindex: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterCopyData(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), types.toCPointer<ByteVar>(), startindex, endindex)
+public actual fun gdipPathIterCopyData(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, startindex: Int, endindex: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterCopyData(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), types?.value?.toCPointer<ByteVar>(), startindex, endindex)
 
-public actual fun GdipPathIterEnumerate(iterator: Long, resultcount: Long, points: Long, types: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterEnumerate(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), types.toCPointer<ByteVar>(), count)
+public actual fun gdipPathIterEnumerate(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterEnumerate(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), types?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipPathIterGetCount(iterator: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterGetCount(iterator.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipPathIterGetCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetCount(iterator?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterGetSubpathCount(iterator: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterGetSubpathCount(iterator.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipPathIterGetSubpathCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetSubpathCount(iterator?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterHasCurve(iterator: Long, hascurve: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterHasCurve(iterator.toCPointer<ByteVar>(), hascurve.toCPointer<ByteVar>())
+public actual fun gdipPathIterHasCurve(iterator: COpaquePointer?, hascurve: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterHasCurve(iterator?.value?.toCPointer<ByteVar>(), hascurve?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterIsValid(iterator: Long, valid: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterIsValid(iterator.toCPointer<ByteVar>(), valid.toCPointer<ByteVar>())
+public actual fun gdipPathIterIsValid(iterator: COpaquePointer?, valid: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterIsValid(iterator?.value?.toCPointer<ByteVar>(), valid?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterNextMarker(iterator: Long, resultcount: Long, startindex: Long, endindex: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterNextMarker(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), startindex.toCPointer<ByteVar>(), endindex.toCPointer<ByteVar>())
+public actual fun gdipPathIterNextMarker(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarker(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), startindex?.value?.toCPointer<ByteVar>(), endindex?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterNextMarkerPath(iterator: Long, resultcount: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterNextMarkerPath(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipPathIterNextMarkerPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarkerPath(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterNextPathType(iterator: Long, resultcount: Long, pathtype: Long, startindex: Long, endindex: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterNextPathType(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), pathtype.toCPointer<ByteVar>(), startindex.toCPointer<ByteVar>(), endindex.toCPointer<ByteVar>())
+public actual fun gdipPathIterNextPathType(iterator: COpaquePointer?, resultcount: COpaquePointer?, pathtype: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextPathType(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), pathtype?.value?.toCPointer<ByteVar>(), startindex?.value?.toCPointer<ByteVar>(), endindex?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterNextSubpath(iterator: Long, resultcount: Long, startindex: Long, endindex: Long, isclosed: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterNextSubpath(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), startindex.toCPointer<ByteVar>(), endindex.toCPointer<ByteVar>(), isclosed.toCPointer<ByteVar>())
+public actual fun gdipPathIterNextSubpath(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpath(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), startindex?.value?.toCPointer<ByteVar>(), endindex?.value?.toCPointer<ByteVar>(), isclosed?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterNextSubpathPath(iterator: Long, resultcount: Long, path: Long, isclosed: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterNextSubpathPath(iterator.toCPointer<ByteVar>(), resultcount.toCPointer<ByteVar>(), path.toCPointer<ByteVar>(), isclosed.toCPointer<ByteVar>())
+public actual fun gdipPathIterNextSubpathPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpathPath(iterator?.value?.toCPointer<ByteVar>(), resultcount?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>(), isclosed?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPathIterRewind(iterator: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPathIterRewind(iterator.toCPointer<ByteVar>())
+public actual fun gdipPathIterRewind(iterator: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPathIterRewind(iterator?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPlayMetafileRecord(metafile: Long, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPlayMetafileRecord(metafile.toCPointer<ByteVar>(), recordtype, flags, datasize, data.toCPointer<ByteVar>())
+public actual fun gdipPlayMetafileRecord(metafile: COpaquePointer?, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPlayMetafileRecord(metafile?.value?.toCPointer<ByteVar>(), recordtype, flags, datasize, data?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPrivateAddFontFile(fontcollection: Long, filename: PCWSTR): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPrivateAddFontFile(fontcollection.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>())
+public actual fun gdipPrivateAddFontFile(fontcollection: COpaquePointer?, filename: Pcwstr): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddFontFile(fontcollection?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipPrivateAddMemoryFont(fontcollection: Long, memory: Long, length: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipPrivateAddMemoryFont(fontcollection.toCPointer<ByteVar>(), memory.toCPointer<ByteVar>(), length)
+public actual fun gdipPrivateAddMemoryFont(fontcollection: COpaquePointer?, memory: COpaquePointer?, length: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddMemoryFont(fontcollection?.value?.toCPointer<ByteVar>(), memory?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun GdipRecordMetafile(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafile(referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafile(referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRecordMetafileFileName(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafileFileName(filename.toCPointer<ByteVar>(), referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileName(filename?.value?.toCPointer<ByteVar>(), referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRecordMetafileFileNameI(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafileFileNameI(filename.toCPointer<ByteVar>(), referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileNameI(filename?.value?.toCPointer<ByteVar>(), referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRecordMetafileI(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafileI(referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileI(referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRecordMetafileStream(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafileStream(stream.toCPointer<ByteVar>(), referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafileStream(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStream(stream?.value?.toCPointer<ByteVar>(), referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRecordMetafileStreamI(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRecordMetafileStreamI(stream.toCPointer<ByteVar>(), referencehdc.toCPointer<ByteVar>(), type, framerect.toCPointer<ByteVar>(), frameunit, description.toCPointer<ByteVar>(), metafile.toCPointer<ByteVar>())
+public actual fun gdipRecordMetafileStreamI(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStreamI(stream?.value?.toCPointer<ByteVar>(), referencehdc?.value?.toCPointer<ByteVar>(), type, framerect?.value?.toCPointer<ByteVar>(), frameunit, description?.value?.toCPointer<ByteVar>(), metafile?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipReleaseDC(graphics: Long, hdc: HDC): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipReleaseDC(graphics.toCPointer<ByteVar>(), hdc.toCPointer<ByteVar>())
+public actual fun gdipReleaseDC(graphics: COpaquePointer?, hdc: Hdc): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipReleaseDC(graphics?.value?.toCPointer<ByteVar>(), hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRemovePropertyItem(image: Long, propid: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRemovePropertyItem(image.toCPointer<ByteVar>(), propid)
+public actual fun gdipRemovePropertyItem(image: COpaquePointer?, propid: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRemovePropertyItem(image?.value?.toCPointer<ByteVar>(), propid)
 
-public actual fun GdipResetClip(graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetClip(graphics.toCPointer<ByteVar>())
+public actual fun gdipResetClip(graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetClip(graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetImageAttributes(imageattr: Long, type: ColorAdjustType): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetImageAttributes(imageattr.toCPointer<ByteVar>(), type)
+public actual fun gdipResetImageAttributes(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetImageAttributes(imageattr?.value?.toCPointer<ByteVar>(), type)
 
-public actual fun GdipResetLineTransform(brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetLineTransform(brush.toCPointer<ByteVar>())
+public actual fun gdipResetLineTransform(brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetLineTransform(brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetPageTransform(graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetPageTransform(graphics.toCPointer<ByteVar>())
+public actual fun gdipResetPageTransform(graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetPageTransform(graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetPath(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetPath(path.toCPointer<ByteVar>())
+public actual fun gdipResetPath(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetPath(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetPathGradientTransform(brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetPathGradientTransform(brush.toCPointer<ByteVar>())
+public actual fun gdipResetPathGradientTransform(brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetPathGradientTransform(brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetPenTransform(pen: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetPenTransform(pen.toCPointer<ByteVar>())
+public actual fun gdipResetPenTransform(pen: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetPenTransform(pen?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetTextureTransform(brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetTextureTransform(brush.toCPointer<ByteVar>())
+public actual fun gdipResetTextureTransform(brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetTextureTransform(brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipResetWorldTransform(graphics: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipResetWorldTransform(graphics.toCPointer<ByteVar>())
+public actual fun gdipResetWorldTransform(graphics: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipResetWorldTransform(graphics?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRestoreGraphics(graphics: Long, state: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRestoreGraphics(graphics.toCPointer<ByteVar>(), state)
+public actual fun gdipRestoreGraphics(graphics: COpaquePointer?, state: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRestoreGraphics(graphics?.value?.toCPointer<ByteVar>(), state)
 
-public actual fun GdipReversePath(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipReversePath(path.toCPointer<ByteVar>())
+public actual fun gdipReversePath(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipReversePath(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipRotateLineTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotateLineTransform(brush.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotateLineTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotateLineTransform(brush?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipRotateMatrix(matrix: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotateMatrix(matrix.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotateMatrix(matrix: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotateMatrix(matrix?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipRotatePathGradientTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotatePathGradientTransform(brush.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotatePathGradientTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotatePathGradientTransform(brush?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipRotatePenTransform(pen: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotatePenTransform(pen.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotatePenTransform(pen: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotatePenTransform(pen?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipRotateTextureTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotateTextureTransform(brush.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotateTextureTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotateTextureTransform(brush?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipRotateWorldTransform(graphics: Long, angle: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipRotateWorldTransform(graphics.toCPointer<ByteVar>(), angle, order)
+public actual fun gdipRotateWorldTransform(graphics: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipRotateWorldTransform(graphics?.value?.toCPointer<ByteVar>(), angle, order)
 
-public actual fun GdipSaveAdd(image: Long, encoderparams: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSaveAdd(image.toCPointer<ByteVar>(), encoderparams.toCPointer<ByteVar>())
+public actual fun gdipSaveAdd(image: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSaveAdd(image?.value?.toCPointer<ByteVar>(), encoderparams?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSaveAddImage(image: Long, newimage: Long, encoderparams: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSaveAddImage(image.toCPointer<ByteVar>(), newimage.toCPointer<ByteVar>(), encoderparams.toCPointer<ByteVar>())
+public actual fun gdipSaveAddImage(image: COpaquePointer?, newimage: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSaveAddImage(image?.value?.toCPointer<ByteVar>(), newimage?.value?.toCPointer<ByteVar>(), encoderparams?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSaveGraphics(graphics: Long, state: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSaveGraphics(graphics.toCPointer<ByteVar>(), state.toCPointer<ByteVar>())
+public actual fun gdipSaveGraphics(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSaveGraphics(graphics?.value?.toCPointer<ByteVar>(), state?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSaveImageToFile(image: Long, filename: PCWSTR, clsidencoder: Long, encoderparams: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSaveImageToFile(image.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), clsidencoder.toCPointer<ByteVar>(), encoderparams.toCPointer<ByteVar>())
+public actual fun gdipSaveImageToFile(image: COpaquePointer?, filename: Pcwstr, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToFile(image?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), clsidencoder?.value?.toCPointer<ByteVar>(), encoderparams?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSaveImageToStream(image: Long, stream: Long, clsidencoder: Long, encoderparams: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSaveImageToStream(image.toCPointer<ByteVar>(), stream.toCPointer<ByteVar>(), clsidencoder.toCPointer<ByteVar>(), encoderparams.toCPointer<ByteVar>())
+public actual fun gdipSaveImageToStream(image: COpaquePointer?, stream: COpaquePointer?, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToStream(image?.value?.toCPointer<ByteVar>(), stream?.value?.toCPointer<ByteVar>(), clsidencoder?.value?.toCPointer<ByteVar>(), encoderparams?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipScaleLineTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScaleLineTransform(brush.toCPointer<ByteVar>(), sx, sy, order)
+public actual fun gdipScaleLineTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScaleLineTransform(brush?.value?.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun GdipScaleMatrix(matrix: Long, scalex: Float, scaley: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScaleMatrix(matrix.toCPointer<ByteVar>(), scalex, scaley, order)
+public actual fun gdipScaleMatrix(matrix: COpaquePointer?, scalex: Float, scaley: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScaleMatrix(matrix?.value?.toCPointer<ByteVar>(), scalex, scaley, order)
 
-public actual fun GdipScalePathGradientTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScalePathGradientTransform(brush.toCPointer<ByteVar>(), sx, sy, order)
+public actual fun gdipScalePathGradientTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScalePathGradientTransform(brush?.value?.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun GdipScalePenTransform(pen: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScalePenTransform(pen.toCPointer<ByteVar>(), sx, sy, order)
+public actual fun gdipScalePenTransform(pen: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScalePenTransform(pen?.value?.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun GdipScaleTextureTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScaleTextureTransform(brush.toCPointer<ByteVar>(), sx, sy, order)
+public actual fun gdipScaleTextureTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScaleTextureTransform(brush?.value?.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun GdipScaleWorldTransform(graphics: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipScaleWorldTransform(graphics.toCPointer<ByteVar>(), sx, sy, order)
+public actual fun gdipScaleWorldTransform(graphics: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipScaleWorldTransform(graphics?.value?.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun GdipSetAdjustableArrowCapFillState(cap: Long, fillstate: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetAdjustableArrowCapFillState(cap.toCPointer<ByteVar>(), fillstate)
+public actual fun gdipSetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapFillState(cap?.value?.toCPointer<ByteVar>(), fillstate)
 
-public actual fun GdipSetAdjustableArrowCapHeight(cap: Long, height: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetAdjustableArrowCapHeight(cap.toCPointer<ByteVar>(), height)
+public actual fun gdipSetAdjustableArrowCapHeight(cap: COpaquePointer?, height: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapHeight(cap?.value?.toCPointer<ByteVar>(), height)
 
-public actual fun GdipSetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetAdjustableArrowCapMiddleInset(cap.toCPointer<ByteVar>(), middleinset)
+public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapMiddleInset(cap?.value?.toCPointer<ByteVar>(), middleinset)
 
-public actual fun GdipSetAdjustableArrowCapWidth(cap: Long, width: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetAdjustableArrowCapWidth(cap.toCPointer<ByteVar>(), width)
+public actual fun gdipSetAdjustableArrowCapWidth(cap: COpaquePointer?, width: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapWidth(cap?.value?.toCPointer<ByteVar>(), width)
 
-public actual fun GdipSetClipGraphics(graphics: Long, srcgraphics: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipGraphics(graphics.toCPointer<ByteVar>(), srcgraphics.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipSetClipGraphics(graphics: COpaquePointer?, srcgraphics: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipGraphics(graphics?.value?.toCPointer<ByteVar>(), srcgraphics?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipSetClipHrgn(graphics: Long, hrgn: HRGN, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipHrgn(graphics.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipSetClipHrgn(graphics: COpaquePointer?, hrgn: Hrgn, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipHrgn(graphics?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipSetClipPath(graphics: Long, path: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipPath(graphics.toCPointer<ByteVar>(), path.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipSetClipPath(graphics: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipPath(graphics?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipSetClipRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipRect(graphics.toCPointer<ByteVar>(), x, y, width, height, combinemode)
+public actual fun gdipSetClipRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRect(graphics?.value?.toCPointer<ByteVar>(), x, y, width, height, combinemode)
 
-public actual fun GdipSetClipRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipRectI(graphics.toCPointer<ByteVar>(), x, y, width, height, combinemode)
+public actual fun gdipSetClipRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRectI(graphics?.value?.toCPointer<ByteVar>(), x, y, width, height, combinemode)
 
-public actual fun GdipSetClipRegion(graphics: Long, region: Long, combinemode: CombineMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetClipRegion(graphics.toCPointer<ByteVar>(), region.toCPointer<ByteVar>(), combinemode)
+public actual fun gdipSetClipRegion(graphics: COpaquePointer?, region: COpaquePointer?, combinemode: CombineMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRegion(graphics?.value?.toCPointer<ByteVar>(), region?.value?.toCPointer<ByteVar>(), combinemode)
 
-public actual fun GdipSetCompositingMode(graphics: Long, compositingmode: CompositingMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCompositingMode(graphics.toCPointer<ByteVar>(), compositingmode)
+public actual fun gdipSetCompositingMode(graphics: COpaquePointer?, compositingmode: CompositingMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingMode(graphics?.value?.toCPointer<ByteVar>(), compositingmode)
 
-public actual fun GdipSetCompositingQuality(graphics: Long, compositingquality: CompositingQuality): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCompositingQuality(graphics.toCPointer<ByteVar>(), compositingquality)
+public actual fun gdipSetCompositingQuality(graphics: COpaquePointer?, compositingquality: CompositingQuality): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingQuality(graphics?.value?.toCPointer<ByteVar>(), compositingquality)
 
-public actual fun GdipSetCustomLineCapBaseCap(customcap: Long, basecap: LineCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCustomLineCapBaseCap(customcap.toCPointer<ByteVar>(), basecap)
+public actual fun gdipSetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: LineCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseCap(customcap?.value?.toCPointer<ByteVar>(), basecap)
 
-public actual fun GdipSetCustomLineCapBaseInset(customcap: Long, inset: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCustomLineCapBaseInset(customcap.toCPointer<ByteVar>(), inset)
+public actual fun gdipSetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseInset(customcap?.value?.toCPointer<ByteVar>(), inset)
 
-public actual fun GdipSetCustomLineCapStrokeCaps(customcap: Long, startcap: LineCap, endcap: LineCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCustomLineCapStrokeCaps(customcap.toCPointer<ByteVar>(), startcap, endcap)
+public actual fun gdipSetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: LineCap, endcap: LineCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeCaps(customcap?.value?.toCPointer<ByteVar>(), startcap, endcap)
 
-public actual fun GdipSetCustomLineCapStrokeJoin(customcap: Long, linejoin: LineJoin): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCustomLineCapStrokeJoin(customcap.toCPointer<ByteVar>(), linejoin)
+public actual fun gdipSetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: LineJoin): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeJoin(customcap?.value?.toCPointer<ByteVar>(), linejoin)
 
-public actual fun GdipSetCustomLineCapWidthScale(customcap: Long, widthscale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetCustomLineCapWidthScale(customcap.toCPointer<ByteVar>(), widthscale)
+public actual fun gdipSetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapWidthScale(customcap?.value?.toCPointer<ByteVar>(), widthscale)
 
-public actual fun GdipSetEffectParameters(effect: Long, params: Long, size: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetEffectParameters(effect.toCPointer<ByteVar>(), params.toCPointer<ByteVar>(), size)
+public actual fun gdipSetEffectParameters(effect: COpaquePointer?, params: COpaquePointer?, size: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetEffectParameters(effect?.value?.toCPointer<ByteVar>(), params?.value?.toCPointer<ByteVar>(), size)
 
-public actual fun GdipSetEmpty(region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetEmpty(region.toCPointer<ByteVar>())
+public actual fun gdipSetEmpty(region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetEmpty(region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetImageAttributesCachedBackground(imageattr: Long, enableflag: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesCachedBackground(imageattr.toCPointer<ByteVar>(), enableflag)
+public actual fun gdipSetImageAttributesCachedBackground(imageattr: COpaquePointer?, enableflag: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesCachedBackground(imageattr?.value?.toCPointer<ByteVar>(), enableflag)
 
-public actual fun GdipSetImageAttributesColorKeys(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorlow: UInt, colorhigh: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesColorKeys(imageattr.toCPointer<ByteVar>(), type, enableflag, colorlow, colorhigh)
+public actual fun gdipSetImageAttributesColorKeys(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorKeys(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, colorlow, colorhigh)
 
-public actual fun GdipSetImageAttributesColorMatrix(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colormatrix: Long, graymatrix: Long, flags: ColorMatrixFlags): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesColorMatrix(imageattr.toCPointer<ByteVar>(), type, enableflag, colormatrix.toCPointer<ByteVar>(), graymatrix.toCPointer<ByteVar>(), flags)
+public actual fun gdipSetImageAttributesColorMatrix(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colormatrix: COpaquePointer?, graymatrix: COpaquePointer?, flags: ColorMatrixFlags): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorMatrix(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, colormatrix?.value?.toCPointer<ByteVar>(), graymatrix?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun GdipSetImageAttributesGamma(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, gamma: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesGamma(imageattr.toCPointer<ByteVar>(), type, enableflag, gamma)
+public actual fun gdipSetImageAttributesGamma(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesGamma(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, gamma)
 
-public actual fun GdipSetImageAttributesNoOp(imageattr: Long, type: ColorAdjustType, enableflag: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesNoOp(imageattr.toCPointer<ByteVar>(), type, enableflag)
+public actual fun gdipSetImageAttributesNoOp(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesNoOp(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag)
 
-public actual fun GdipSetImageAttributesOutputChannel(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, channelflags: ColorChannelFlags): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesOutputChannel(imageattr.toCPointer<ByteVar>(), type, enableflag, channelflags)
+public actual fun gdipSetImageAttributesOutputChannel(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannel(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, channelflags)
 
-public actual fun GdipSetImageAttributesOutputChannelColorProfile(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorprofilefilename: PCWSTR): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesOutputChannelColorProfile(imageattr.toCPointer<ByteVar>(), type, enableflag, colorprofilefilename.toCPointer<ByteVar>())
+public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannelColorProfile(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, colorprofilefilename?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetImageAttributesRemapTable(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, mapsize: UInt, map: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesRemapTable(imageattr.toCPointer<ByteVar>(), type, enableflag, mapsize, map.toCPointer<ByteVar>())
+public actual fun gdipSetImageAttributesRemapTable(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesRemapTable(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, mapsize, map?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetImageAttributesThreshold(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, threshold: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesThreshold(imageattr.toCPointer<ByteVar>(), type, enableflag, threshold)
+public actual fun gdipSetImageAttributesThreshold(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesThreshold(imageattr?.value?.toCPointer<ByteVar>(), type, enableflag, threshold)
 
-public actual fun GdipSetImageAttributesToIdentity(imageattr: Long, type: ColorAdjustType): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesToIdentity(imageattr.toCPointer<ByteVar>(), type)
+public actual fun gdipSetImageAttributesToIdentity(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesToIdentity(imageattr?.value?.toCPointer<ByteVar>(), type)
 
-public actual fun GdipSetImageAttributesWrapMode(imageattr: Long, wrap: WrapMode, argb: UInt, clamp: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImageAttributesWrapMode(imageattr.toCPointer<ByteVar>(), wrap, argb, clamp)
+public actual fun gdipSetImageAttributesWrapMode(imageattr: COpaquePointer?, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesWrapMode(imageattr?.value?.toCPointer<ByteVar>(), wrap, argb, clamp)
 
-public actual fun GdipSetImagePalette(image: Long, palette: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetImagePalette(image.toCPointer<ByteVar>(), palette.toCPointer<ByteVar>())
+public actual fun gdipSetImagePalette(image: COpaquePointer?, palette: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetImagePalette(image?.value?.toCPointer<ByteVar>(), palette?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetInfinite(region: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetInfinite(region.toCPointer<ByteVar>())
+public actual fun gdipSetInfinite(region: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetInfinite(region?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetInterpolationMode(graphics: Long, interpolationmode: InterpolationMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetInterpolationMode(graphics.toCPointer<ByteVar>(), interpolationmode)
+public actual fun gdipSetInterpolationMode(graphics: COpaquePointer?, interpolationmode: InterpolationMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetInterpolationMode(graphics?.value?.toCPointer<ByteVar>(), interpolationmode)
 
-public actual fun GdipSetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipSetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetLineColors(brush: Long, color1: UInt, color2: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineColors(brush.toCPointer<ByteVar>(), color1, color2)
+public actual fun gdipSetLineColors(brush: COpaquePointer?, color1: UInt, color2: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineColors(brush?.value?.toCPointer<ByteVar>(), color1, color2)
 
-public actual fun GdipSetLineGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineGammaCorrection(brush.toCPointer<ByteVar>(), usegammacorrection)
+public actual fun gdipSetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineGammaCorrection(brush?.value?.toCPointer<ByteVar>(), usegammacorrection)
 
-public actual fun GdipSetLineLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineLinearBlend(brush.toCPointer<ByteVar>(), focus, scale)
+public actual fun gdipSetLineLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineLinearBlend(brush?.value?.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun GdipSetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLinePresetBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipSetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLinePresetBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetLineSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineSigmaBlend(brush.toCPointer<ByteVar>(), focus, scale)
+public actual fun gdipSetLineSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineSigmaBlend(brush?.value?.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun GdipSetLineTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipSetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetLineWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetLineWrapMode(brush.toCPointer<ByteVar>(), wrapmode)
+public actual fun gdipSetLineWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetLineWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun GdipSetMatrixElements(matrix: Long, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetMatrixElements(matrix.toCPointer<ByteVar>(), m11, m12, m21, m22, dx, dy)
+public actual fun gdipSetMatrixElements(matrix: COpaquePointer?, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetMatrixElements(matrix?.value?.toCPointer<ByteVar>(), m11, m12, m21, m22, dx, dy)
 
-public actual fun GdipSetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetMetafileDownLevelRasterizationLimit(metafile.toCPointer<ByteVar>(), metafilerasterizationlimitdpi)
+public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetMetafileDownLevelRasterizationLimit(metafile?.value?.toCPointer<ByteVar>(), metafilerasterizationlimitdpi)
 
-public actual fun GdipSetPageScale(graphics: Long, scale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPageScale(graphics.toCPointer<ByteVar>(), scale)
+public actual fun gdipSetPageScale(graphics: COpaquePointer?, scale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPageScale(graphics?.value?.toCPointer<ByteVar>(), scale)
 
-public actual fun GdipSetPageUnit(graphics: Long, unit: Unit): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPageUnit(graphics.toCPointer<ByteVar>(), unit)
+public actual fun gdipSetPageUnit(graphics: COpaquePointer?, unit: Unit): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPageUnit(graphics?.value?.toCPointer<ByteVar>(), unit)
 
-public actual fun GdipSetPathFillMode(path: Long, fillmode: FillMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathFillMode(path.toCPointer<ByteVar>(), fillmode)
+public actual fun gdipSetPathFillMode(path: COpaquePointer?, fillmode: FillMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathFillMode(path?.value?.toCPointer<ByteVar>(), fillmode)
 
-public actual fun GdipSetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipSetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetPathGradientCenterColor(brush: Long, colors: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientCenterColor(brush.toCPointer<ByteVar>(), colors)
+public actual fun gdipSetPathGradientCenterColor(brush: COpaquePointer?, colors: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterColor(brush?.value?.toCPointer<ByteVar>(), colors)
 
-public actual fun GdipSetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientCenterPoint(brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>())
+public actual fun gdipSetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPoint(brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientCenterPointI(brush.toCPointer<ByteVar>(), points.toCPointer<ByteVar>())
+public actual fun gdipSetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPointI(brush?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPathGradientFocusScales(brush: Long, xscale: Float, yscale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientFocusScales(brush.toCPointer<ByteVar>(), xscale, yscale)
+public actual fun gdipSetPathGradientFocusScales(brush: COpaquePointer?, xscale: Float, yscale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientFocusScales(brush?.value?.toCPointer<ByteVar>(), xscale, yscale)
 
-public actual fun GdipSetPathGradientGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientGammaCorrection(brush.toCPointer<ByteVar>(), usegammacorrection)
+public actual fun gdipSetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientGammaCorrection(brush?.value?.toCPointer<ByteVar>(), usegammacorrection)
 
-public actual fun GdipSetPathGradientLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientLinearBlend(brush.toCPointer<ByteVar>(), focus, scale)
+public actual fun gdipSetPathGradientLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientLinearBlend(brush?.value?.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun GdipSetPathGradientPath(brush: Long, path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientPath(brush.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun gdipSetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPath(brush?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientPresetBlend(brush.toCPointer<ByteVar>(), blend.toCPointer<ByteVar>(), positions.toCPointer<ByteVar>(), count)
+public actual fun gdipSetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPresetBlend(brush?.value?.toCPointer<ByteVar>(), blend?.value?.toCPointer<ByteVar>(), positions?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetPathGradientSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientSigmaBlend(brush.toCPointer<ByteVar>(), focus, scale)
+public actual fun gdipSetPathGradientSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSigmaBlend(brush?.value?.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun GdipSetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientSurroundColorsWithCount(brush.toCPointer<ByteVar>(), color.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSurroundColorsWithCount(brush?.value?.toCPointer<ByteVar>(), color?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPathGradientTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipSetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPathGradientWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathGradientWrapMode(brush.toCPointer<ByteVar>(), wrapmode)
+public actual fun gdipSetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun GdipSetPathMarker(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPathMarker(path.toCPointer<ByteVar>())
+public actual fun gdipSetPathMarker(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPathMarker(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPenBrushFill(pen: Long, brush: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenBrushFill(pen.toCPointer<ByteVar>(), brush.toCPointer<ByteVar>())
+public actual fun gdipSetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenBrushFill(pen?.value?.toCPointer<ByteVar>(), brush?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPenColor(pen: Long, argb: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenColor(pen.toCPointer<ByteVar>(), argb)
+public actual fun gdipSetPenColor(pen: COpaquePointer?, argb: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenColor(pen?.value?.toCPointer<ByteVar>(), argb)
 
-public actual fun GdipSetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenCompoundArray(pen.toCPointer<ByteVar>(), dash.toCPointer<ByteVar>(), count)
+public actual fun gdipSetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCompoundArray(pen?.value?.toCPointer<ByteVar>(), dash?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenCustomEndCap(pen.toCPointer<ByteVar>(), customcap.toCPointer<ByteVar>())
+public actual fun gdipSetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomEndCap(pen?.value?.toCPointer<ByteVar>(), customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenCustomStartCap(pen.toCPointer<ByteVar>(), customcap.toCPointer<ByteVar>())
+public actual fun gdipSetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomStartCap(pen?.value?.toCPointer<ByteVar>(), customcap?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenDashArray(pen.toCPointer<ByteVar>(), dash.toCPointer<ByteVar>(), count)
+public actual fun gdipSetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashArray(pen?.value?.toCPointer<ByteVar>(), dash?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipSetPenDashCap197819(pen: Long, dashcap: DashCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenDashCap197819(pen.toCPointer<ByteVar>(), dashcap)
+public actual fun gdipSetPenDashCap197819(pen: COpaquePointer?, dashcap: DashCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashCap197819(pen?.value?.toCPointer<ByteVar>(), dashcap)
 
-public actual fun GdipSetPenDashOffset(pen: Long, offset: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenDashOffset(pen.toCPointer<ByteVar>(), offset)
+public actual fun gdipSetPenDashOffset(pen: COpaquePointer?, offset: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashOffset(pen?.value?.toCPointer<ByteVar>(), offset)
 
-public actual fun GdipSetPenDashStyle(pen: Long, dashstyle: DashStyle): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenDashStyle(pen.toCPointer<ByteVar>(), dashstyle)
+public actual fun gdipSetPenDashStyle(pen: COpaquePointer?, dashstyle: DashStyle): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashStyle(pen?.value?.toCPointer<ByteVar>(), dashstyle)
 
-public actual fun GdipSetPenEndCap(pen: Long, endcap: LineCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenEndCap(pen.toCPointer<ByteVar>(), endcap)
+public actual fun gdipSetPenEndCap(pen: COpaquePointer?, endcap: LineCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenEndCap(pen?.value?.toCPointer<ByteVar>(), endcap)
 
-public actual fun GdipSetPenLineCap197819(pen: Long, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenLineCap197819(pen.toCPointer<ByteVar>(), startcap, endcap, dashcap)
+public actual fun gdipSetPenLineCap197819(pen: COpaquePointer?, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineCap197819(pen?.value?.toCPointer<ByteVar>(), startcap, endcap, dashcap)
 
-public actual fun GdipSetPenLineJoin(pen: Long, linejoin: LineJoin): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenLineJoin(pen.toCPointer<ByteVar>(), linejoin)
+public actual fun gdipSetPenLineJoin(pen: COpaquePointer?, linejoin: LineJoin): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineJoin(pen?.value?.toCPointer<ByteVar>(), linejoin)
 
-public actual fun GdipSetPenMiterLimit(pen: Long, miterlimit: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenMiterLimit(pen.toCPointer<ByteVar>(), miterlimit)
+public actual fun gdipSetPenMiterLimit(pen: COpaquePointer?, miterlimit: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenMiterLimit(pen?.value?.toCPointer<ByteVar>(), miterlimit)
 
-public actual fun GdipSetPenMode(pen: Long, penmode: PenAlignment): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenMode(pen.toCPointer<ByteVar>(), penmode)
+public actual fun gdipSetPenMode(pen: COpaquePointer?, penmode: PenAlignment): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenMode(pen?.value?.toCPointer<ByteVar>(), penmode)
 
-public actual fun GdipSetPenStartCap(pen: Long, startcap: LineCap): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenStartCap(pen.toCPointer<ByteVar>(), startcap)
+public actual fun gdipSetPenStartCap(pen: COpaquePointer?, startcap: LineCap): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenStartCap(pen?.value?.toCPointer<ByteVar>(), startcap)
 
-public actual fun GdipSetPenTransform(pen: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenTransform(pen.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipSetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenTransform(pen?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetPenUnit(pen: Long, unit: Unit): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenUnit(pen.toCPointer<ByteVar>(), unit)
+public actual fun gdipSetPenUnit(pen: COpaquePointer?, unit: Unit): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenUnit(pen?.value?.toCPointer<ByteVar>(), unit)
 
-public actual fun GdipSetPenWidth(pen: Long, width: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPenWidth(pen.toCPointer<ByteVar>(), width)
+public actual fun gdipSetPenWidth(pen: COpaquePointer?, width: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPenWidth(pen?.value?.toCPointer<ByteVar>(), width)
 
-public actual fun GdipSetPixelOffsetMode(graphics: Long, pixeloffsetmode: PixelOffsetMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPixelOffsetMode(graphics.toCPointer<ByteVar>(), pixeloffsetmode)
+public actual fun gdipSetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: PixelOffsetMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPixelOffsetMode(graphics?.value?.toCPointer<ByteVar>(), pixeloffsetmode)
 
-public actual fun GdipSetPropertyItem(image: Long, item: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetPropertyItem(image.toCPointer<ByteVar>(), item.toCPointer<ByteVar>())
+public actual fun gdipSetPropertyItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetPropertyItem(image?.value?.toCPointer<ByteVar>(), item?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetRenderingOrigin(graphics: Long, x: Int, y: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetRenderingOrigin(graphics.toCPointer<ByteVar>(), x, y)
+public actual fun gdipSetRenderingOrigin(graphics: COpaquePointer?, x: Int, y: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetRenderingOrigin(graphics?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun GdipSetSmoothingMode(graphics: Long, smoothingmode: SmoothingMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetSmoothingMode(graphics.toCPointer<ByteVar>(), smoothingmode)
+public actual fun gdipSetSmoothingMode(graphics: COpaquePointer?, smoothingmode: SmoothingMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetSmoothingMode(graphics?.value?.toCPointer<ByteVar>(), smoothingmode)
 
-public actual fun GdipSetSolidFillColor(brush: Long, color: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetSolidFillColor(brush.toCPointer<ByteVar>(), color)
+public actual fun gdipSetSolidFillColor(brush: COpaquePointer?, color: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetSolidFillColor(brush?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun GdipSetStringFormatAlign(format: Long, align: StringAlignment): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatAlign(format.toCPointer<ByteVar>(), align)
+public actual fun gdipSetStringFormatAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatAlign(format?.value?.toCPointer<ByteVar>(), align)
 
-public actual fun GdipSetStringFormatDigitSubstitution(format: Long, language: UShort, substitute: StringDigitSubstitute): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatDigitSubstitution(format.toCPointer<ByteVar>(), language, substitute)
+public actual fun gdipSetStringFormatDigitSubstitution(format: COpaquePointer?, language: UShort, substitute: StringDigitSubstitute): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatDigitSubstitution(format?.value?.toCPointer<ByteVar>(), language, substitute)
 
-public actual fun GdipSetStringFormatFlags(format: Long, flags: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatFlags(format.toCPointer<ByteVar>(), flags)
+public actual fun gdipSetStringFormatFlags(format: COpaquePointer?, flags: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatFlags(format?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun GdipSetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatHotkeyPrefix(format.toCPointer<ByteVar>(), hotkeyprefix)
+public actual fun gdipSetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatHotkeyPrefix(format?.value?.toCPointer<ByteVar>(), hotkeyprefix)
 
-public actual fun GdipSetStringFormatLineAlign(format: Long, align: StringAlignment): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatLineAlign(format.toCPointer<ByteVar>(), align)
+public actual fun gdipSetStringFormatLineAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatLineAlign(format?.value?.toCPointer<ByteVar>(), align)
 
-public actual fun GdipSetStringFormatMeasurableCharacterRanges(format: Long, rangecount: Int, ranges: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatMeasurableCharacterRanges(format.toCPointer<ByteVar>(), rangecount, ranges.toCPointer<ByteVar>())
+public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: COpaquePointer?, rangecount: Int, ranges: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatMeasurableCharacterRanges(format?.value?.toCPointer<ByteVar>(), rangecount, ranges?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetStringFormatTabStops(format: Long, firsttaboffset: Float, count: Int, tabstops: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatTabStops(format.toCPointer<ByteVar>(), firsttaboffset, count, tabstops.toCPointer<ByteVar>())
+public actual fun gdipSetStringFormatTabStops(format: COpaquePointer?, firsttaboffset: Float, count: Int, tabstops: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTabStops(format?.value?.toCPointer<ByteVar>(), firsttaboffset, count, tabstops?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetStringFormatTrimming(format: Long, trimming: StringTrimming): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetStringFormatTrimming(format.toCPointer<ByteVar>(), trimming)
+public actual fun gdipSetStringFormatTrimming(format: COpaquePointer?, trimming: StringTrimming): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTrimming(format?.value?.toCPointer<ByteVar>(), trimming)
 
-public actual fun GdipSetTextContrast(graphics: Long, contrast: UInt): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetTextContrast(graphics.toCPointer<ByteVar>(), contrast)
+public actual fun gdipSetTextContrast(graphics: COpaquePointer?, contrast: UInt): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetTextContrast(graphics?.value?.toCPointer<ByteVar>(), contrast)
 
-public actual fun GdipSetTextRenderingHint(graphics: Long, mode: TextRenderingHint): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetTextRenderingHint(graphics.toCPointer<ByteVar>(), mode)
+public actual fun gdipSetTextRenderingHint(graphics: COpaquePointer?, mode: TextRenderingHint): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetTextRenderingHint(graphics?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun GdipSetTextureTransform(brush: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetTextureTransform(brush.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipSetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetTextureTransform(brush?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipSetTextureWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetTextureWrapMode(brush.toCPointer<ByteVar>(), wrapmode)
+public actual fun gdipSetTextureWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetTextureWrapMode(brush?.value?.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun GdipSetWorldTransform(graphics: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipSetWorldTransform(graphics.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipSetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipSetWorldTransform(graphics?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipShearMatrix(matrix: Long, shearx: Float, sheary: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipShearMatrix(matrix.toCPointer<ByteVar>(), shearx, sheary, order)
+public actual fun gdipShearMatrix(matrix: COpaquePointer?, shearx: Float, sheary: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipShearMatrix(matrix?.value?.toCPointer<ByteVar>(), shearx, sheary, order)
 
-public actual fun GdipStartPathFigure(path: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipStartPathFigure(path.toCPointer<ByteVar>())
+public actual fun gdipStartPathFigure(path: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipStartPathFigure(path?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipStringFormatGetGenericDefault(format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipStringFormatGetGenericDefault(format.toCPointer<ByteVar>())
+public actual fun gdipStringFormatGetGenericDefault(format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericDefault(format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipStringFormatGetGenericTypographic(format: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipStringFormatGetGenericTypographic(format.toCPointer<ByteVar>())
+public actual fun gdipStringFormatGetGenericTypographic(format: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericTypographic(format?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipTestControl(control: GpTestControlEnum, param1: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTestControl(control, param1.toCPointer<ByteVar>())
+public actual fun gdipTestControl(control: GpTestControlEnum, param1: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTestControl(control, param1?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformMatrixPoints(matrix.toCPointer<ByteVar>(), pts.toCPointer<ByteVar>(), count)
+public actual fun gdipTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPoints(matrix?.value?.toCPointer<ByteVar>(), pts?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformMatrixPointsI(matrix.toCPointer<ByteVar>(), pts.toCPointer<ByteVar>(), count)
+public actual fun gdipTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPointsI(matrix?.value?.toCPointer<ByteVar>(), pts?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipTransformPath(path: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformPath(path.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipTransformPath(path: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformPath(path?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipTransformPoints(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformPoints(graphics.toCPointer<ByteVar>(), destspace, srcspace, points.toCPointer<ByteVar>(), count)
+public actual fun gdipTransformPoints(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformPoints(graphics?.value?.toCPointer<ByteVar>(), destspace, srcspace, points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipTransformPointsI(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformPointsI(graphics.toCPointer<ByteVar>(), destspace, srcspace, points.toCPointer<ByteVar>(), count)
+public actual fun gdipTransformPointsI(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformPointsI(graphics?.value?.toCPointer<ByteVar>(), destspace, srcspace, points?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipTransformRegion(region: Long, matrix: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTransformRegion(region.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>())
+public actual fun gdipTransformRegion(region: COpaquePointer?, matrix: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTransformRegion(region?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>())
 
-public actual fun GdipTranslateClip(graphics: Long, dx: Float, dy: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateClip(graphics.toCPointer<ByteVar>(), dx, dy)
+public actual fun gdipTranslateClip(graphics: COpaquePointer?, dx: Float, dy: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateClip(graphics?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun GdipTranslateClipI(graphics: Long, dx: Int, dy: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateClipI(graphics.toCPointer<ByteVar>(), dx, dy)
+public actual fun gdipTranslateClipI(graphics: COpaquePointer?, dx: Int, dy: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateClipI(graphics?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun GdipTranslateLineTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateLineTransform(brush.toCPointer<ByteVar>(), dx, dy, order)
+public actual fun gdipTranslateLineTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateLineTransform(brush?.value?.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun GdipTranslateMatrix(matrix: Long, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateMatrix(matrix.toCPointer<ByteVar>(), offsetx, offsety, order)
+public actual fun gdipTranslateMatrix(matrix: COpaquePointer?, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateMatrix(matrix?.value?.toCPointer<ByteVar>(), offsetx, offsety, order)
 
-public actual fun GdipTranslatePathGradientTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslatePathGradientTransform(brush.toCPointer<ByteVar>(), dx, dy, order)
+public actual fun gdipTranslatePathGradientTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslatePathGradientTransform(brush?.value?.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun GdipTranslatePenTransform(pen: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslatePenTransform(pen.toCPointer<ByteVar>(), dx, dy, order)
+public actual fun gdipTranslatePenTransform(pen: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslatePenTransform(pen?.value?.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun GdipTranslateRegion(region: Long, dx: Float, dy: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateRegion(region.toCPointer<ByteVar>(), dx, dy)
+public actual fun gdipTranslateRegion(region: COpaquePointer?, dx: Float, dy: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegion(region?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun GdipTranslateRegionI(region: Long, dx: Int, dy: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateRegionI(region.toCPointer<ByteVar>(), dx, dy)
+public actual fun gdipTranslateRegionI(region: COpaquePointer?, dx: Int, dy: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegionI(region?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun GdipTranslateTextureTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateTextureTransform(brush.toCPointer<ByteVar>(), dx, dy, order)
+public actual fun gdipTranslateTextureTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateTextureTransform(brush?.value?.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun GdipTranslateWorldTransform(graphics: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipTranslateWorldTransform(graphics.toCPointer<ByteVar>(), dx, dy, order)
+public actual fun gdipTranslateWorldTransform(graphics: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipTranslateWorldTransform(graphics?.value?.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun GdipVectorTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipVectorTransformMatrixPoints(matrix.toCPointer<ByteVar>(), pts.toCPointer<ByteVar>(), count)
+public actual fun gdipVectorTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPoints(matrix?.value?.toCPointer<ByteVar>(), pts?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipVectorTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipVectorTransformMatrixPointsI(matrix.toCPointer<ByteVar>(), pts.toCPointer<ByteVar>(), count)
+public actual fun gdipVectorTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPointsI(matrix?.value?.toCPointer<ByteVar>(), pts?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun GdipWarpPath(path: Long, matrix: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipWarpPath(path.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), points.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, warpmode, flatness)
+public actual fun gdipWarpPath(path: COpaquePointer?, matrix: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipWarpPath(path?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), points?.value?.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, warpmode, flatness)
 
-public actual fun GdipWidenPath(nativepath: Long, pen: Long, matrix: Long, flatness: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipWidenPath(nativepath.toCPointer<ByteVar>(), pen.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), flatness)
+public actual fun gdipWidenPath(nativepath: COpaquePointer?, pen: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipWidenPath(nativepath?.value?.toCPointer<ByteVar>(), pen?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), flatness)
 
-public actual fun GdipWindingModeOutline(path: Long, matrix: Long, flatness: Float): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdipWindingModeOutline(path.toCPointer<ByteVar>(), matrix.toCPointer<ByteVar>(), flatness)
+public actual fun gdipWindingModeOutline(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdipWindingModeOutline(path?.value?.toCPointer<ByteVar>(), matrix?.value?.toCPointer<ByteVar>(), flatness)
 
-public actual fun GdiplusNotificationHook(token: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdiplusNotificationHook(token.toCPointer<ByteVar>())
+public actual fun gdiplusNotificationHook(token: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationHook(token?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiplusNotificationUnhook(token: ULong) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdiplusNotificationUnhook(token)
+public actual fun gdiplusNotificationUnhook(token: ULong) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationUnhook(token)
 }
 
-public actual fun GdiplusShutdown(token: ULong) {
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdiplusShutdown(token)
+public actual fun gdiplusShutdown(token: ULong) {
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdiplusShutdown(token)
 }
 
-public actual fun GdiplusStartup(token: Long, input: Long, output: Long): Status =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_GdiplusStartup(token.toCPointer<ByteVar>(), input.toCPointer<ByteVar>(), output.toCPointer<ByteVar>())
+public actual fun gdiplusStartup(token: COpaquePointer?, input: COpaquePointer?, output: COpaquePointer?): Status =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssys_windows_win32_graphics_gdiplus_gdiplusStartup(token?.value?.toCPointer<ByteVar>(), input?.value?.toCPointer<ByteVar>(), output?.value?.toCPointer<ByteVar>())

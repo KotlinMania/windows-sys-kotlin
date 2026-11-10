@@ -1,90 +1,91 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun AddERExcludedApplicationA(szapplication: PCSTR): BOOL
+public expect fun addERExcludedApplicationA(szapplication: Pcstr): Bool
 
-public expect fun AddERExcludedApplicationW(wszapplication: PCWSTR): BOOL
+public expect fun addERExcludedApplicationW(wszapplication: Pcwstr): Bool
 
-public expect fun ReportFault(pep: Long, dwopt: UInt): EFaultRepRetVal
+public expect fun reportFault(pep: COpaquePointer?, dwopt: UInt): EFaultRepRetVal
 
-public expect fun WerAddExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT
+public expect fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult
 
-public expect fun WerFreeString(pwszstr: PCWSTR)
+public expect fun werFreeString(pwszstr: Pcwstr)
 
-public expect fun WerGetFlags(hprocess: HANDLE, pdwflags: Long): HRESULT
+public expect fun werGetFlags(hprocess: Handle, pdwflags: COpaquePointer?): Hresult
 
-public expect fun WerRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): HRESULT
+public expect fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult
 
-public expect fun WerRegisterAppLocalDump(localappdatarelativepath: PCWSTR): HRESULT
+public expect fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hresult
 
-public expect fun WerRegisterCustomMetadata(key: PCWSTR, value: PCWSTR): HRESULT
+public expect fun werRegisterCustomMetadata(key: Pcwstr, value: Pcwstr): Hresult
 
-public expect fun WerRegisterExcludedMemoryBlock(address: Long, size: UInt): HRESULT
+public expect fun werRegisterExcludedMemoryBlock(address: COpaquePointer?, size: UInt): Hresult
 
-public expect fun WerRegisterFile(pwzfile: PCWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE): HRESULT
+public expect fun werRegisterFile(pwzfile: Pcwstr, regfiletype: WerRegisterFileType, dwflags: WerFile): Hresult
 
-public expect fun WerRegisterMemoryBlock(pvaddress: Long, dwsize: UInt): HRESULT
+public expect fun werRegisterMemoryBlock(pvaddress: COpaquePointer?, dwsize: UInt): Hresult
 
-public expect fun WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT
+public expect fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult
 
-public expect fun WerRemoveExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT
+public expect fun werRemoveExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult
 
-public expect fun WerReportAddDump(hreporthandle: HREPORT, hprocess: HANDLE, hthread: HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: Long, pdumpcustomoptions: Long, dwflags: UInt): HRESULT
+public expect fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: COpaquePointer?, pdumpcustomoptions: COpaquePointer?, dwflags: UInt): Hresult
 
-public expect fun WerReportAddFile(hreporthandle: HREPORT, pwzpath: PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE): HRESULT
+public expect fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repfiletype: WerFileType, dwfileflags: WerFile): Hresult
 
-public expect fun WerReportCloseHandle(hreporthandle: HREPORT): HRESULT
+public expect fun werReportCloseHandle(hreporthandle: Hreport): Hresult
 
-public expect fun WerReportCreate(pwzeventtype: PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: Long, phreporthandle: Long): HRESULT
+public expect fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: COpaquePointer?, phreporthandle: COpaquePointer?): Hresult
 
-public expect fun WerReportHang(hwndhungapp: HWND, pwzhungapplicationname: PCWSTR): HRESULT
+public expect fun werReportHang(hwndhungapp: Hwnd, pwzhungapplicationname: Pcwstr): Hresult
 
-public expect fun WerReportSetParameter(hreporthandle: HREPORT, dwparamid: UInt, pwzname: PCWSTR, pwzvalue: PCWSTR): HRESULT
+public expect fun werReportSetParameter(hreporthandle: Hreport, dwparamid: UInt, pwzname: Pcwstr, pwzvalue: Pcwstr): Hresult
 
-public expect fun WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: PCWSTR): HRESULT
+public expect fun werReportSetUIOption(hreporthandle: Hreport, repuitypeid: WerReportUi, pwzvalue: Pcwstr): Hresult
 
-public expect fun WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: Long): HRESULT
+public expect fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: COpaquePointer?): Hresult
 
-public expect fun WerSetFlags(dwflags: WER_FAULT_REPORTING): HRESULT
+public expect fun werSetFlags(dwflags: WerFaultReporting): Hresult
 
-public expect fun WerStoreClose(hreportstore: HREPORTSTORE)
+public expect fun werStoreClose(hreportstore: Hreportstore)
 
-public expect fun WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT
+public expect fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult
 
-public expect fun WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT
+public expect fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult
 
-public expect fun WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: Long): HRESULT
+public expect fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: COpaquePointer?): Hresult
 
-public expect fun WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: Long): HRESULT
+public expect fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: COpaquePointer?): Hresult
 
-public expect fun WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: Long): HRESULT
+public expect fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: COpaquePointer?): Hresult
 
-public expect fun WerStorePurge(): HRESULT
+public expect fun werStorePurge(): Hresult
 
-public expect fun WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
+public expect fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult
 
-public expect fun WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
+public expect fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult
 
-public expect fun WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
+public expect fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: COpaquePointer?): Hresult
 
-public expect fun WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, dwflags: UInt, psubmitresult: Long): HRESULT
+public expect fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: COpaquePointer?): Hresult
 
-public expect fun WerUnregisterAdditionalProcess(processid: UInt): HRESULT
+public expect fun werUnregisterAdditionalProcess(processid: UInt): Hresult
 
-public expect fun WerUnregisterAppLocalDump(): HRESULT
+public expect fun werUnregisterAppLocalDump(): Hresult
 
-public expect fun WerUnregisterCustomMetadata(key: PCWSTR): HRESULT
+public expect fun werUnregisterCustomMetadata(key: Pcwstr): Hresult
 
-public expect fun WerUnregisterExcludedMemoryBlock(address: Long): HRESULT
+public expect fun werUnregisterExcludedMemoryBlock(address: COpaquePointer?): Hresult
 
-public expect fun WerUnregisterFile(pwzfilepath: PCWSTR): HRESULT
+public expect fun werUnregisterFile(pwzfilepath: Pcwstr): Hresult
 
-public expect fun WerUnregisterMemoryBlock(pvaddress: Long): HRESULT
+public expect fun werUnregisterMemoryBlock(pvaddress: COpaquePointer?): Hresult
 
-public expect fun WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT
+public expect fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: COpaquePointer?): Hresult

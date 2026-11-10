@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.com.APTTYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
 private object WindowsWin32SystemComponentservicesJniBridge {
     init {
@@ -11,57 +12,57 @@ private object WindowsWin32SystemComponentservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_coCreateActivity(piunknown: Long, riid: Long, ppobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_CoEnterServiceDomain(pconfigobject: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_coEnterServiceDomain(pconfigobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_CoGetDefaultContext(apttype: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_coGetDefaultContext(apttype: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_CoLeaveServiceDomain(punkstatus: Long)
+    external fun windowssys_windows_win32_system_componentservices_coLeaveServiceDomain(punkstatus: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_GetDispenserManager(param0: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_getDispenserManager(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_GetManagedExtensions(dwexts: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_getManagedExtensions(dwexts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_MTSCreateActivity(riid: Long, ppobj: Long): Int
+    external fun windowssys_windows_win32_system_componentservices_mTSCreateActivity(riid: Long, ppobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_RecycleSurrogate(lreasoncode: Int): Int
+    external fun windowssys_windows_win32_system_componentservices_recycleSurrogate(lreasoncode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_componentservices_SafeRef(rid: Long, punk: Long): Long
+    external fun windowssys_windows_win32_system_componentservices_safeRef(rid: Long, punk: Long): Long
 }
 
-public actual fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_CoCreateActivity(piunknown, riid, ppobj)
+public actual fun coCreateActivity(piunknown: COpaquePointer?, riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_coCreateActivity((piunknown?.value ?: 0L), (riid?.value ?: 0L), (ppobj?.value ?: 0L))
 
-public actual fun CoEnterServiceDomain(pconfigobject: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_CoEnterServiceDomain(pconfigobject)
+public actual fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_coEnterServiceDomain((pconfigobject?.value ?: 0L))
 
-public actual fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_CoGetDefaultContext(apttype, riid, ppv)
+public actual fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_coGetDefaultContext(apttype, (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CoLeaveServiceDomain(punkstatus: Long) {
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_CoLeaveServiceDomain(punkstatus)
+public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?) {
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_coLeaveServiceDomain((punkstatus?.value ?: 0L))
 }
 
-public actual fun GetDispenserManager(param0: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_GetDispenserManager(param0)
+public actual fun getDispenserManager(param0: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_getDispenserManager((param0?.value ?: 0L))
 
-public actual fun GetManagedExtensions(dwexts: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_GetManagedExtensions(dwexts)
+public actual fun getManagedExtensions(dwexts: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_getManagedExtensions((dwexts?.value ?: 0L))
 
-public actual fun MTSCreateActivity(riid: Long, ppobj: Long): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_MTSCreateActivity(riid, ppobj)
+public actual fun mTSCreateActivity(riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_mTSCreateActivity((riid?.value ?: 0L), (ppobj?.value ?: 0L))
 
-public actual fun RecycleSurrogate(lreasoncode: Int): HRESULT =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_RecycleSurrogate(lreasoncode)
+public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_recycleSurrogate(lreasoncode)
 
-public actual fun SafeRef(rid: Long, punk: Long): Long =
-    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_SafeRef(rid, punk)
+public actual fun safeRef(rid: COpaquePointer?, punk: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemComponentservicesJniBridge.windowssys_windows_win32_system_componentservices_safeRef((rid?.value ?: 0L), (punk?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }

@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -51,19 +51,19 @@ public val AUTO_PROXY_FLAG_MIGRATED: UInt = 8u
 
 public val AUTO_PROXY_FLAG_USER_SET: UInt = 1u
 
-public val AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = 2
+public val APP_CACHE_FINALIZE_STATE_COMPLETE: AppCacheFinalizeState = 2
 
-public val AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = 0
+public val APP_CACHE_FINALIZE_STATE_INCOMPLETE: AppCacheFinalizeState = 0
 
-public val AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = 1
+public val APP_CACHE_FINALIZE_STATE_MANIFEST_CHANGE: AppCacheFinalizeState = 1
 
-public val AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = 0
+public val APP_CACHE_STATE_NO_UPDATE_NEEDED: AppCacheState = 0
 
-public val AppCacheStateUpdateNeeded: APP_CACHE_STATE = 1
+public val APP_CACHE_STATE_UPDATE_NEEDED: AppCacheState = 1
 
-public val AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = 3
+public val APP_CACHE_STATE_UPDATE_NEEDED_MASTER_ONLY: AppCacheState = 3
 
-public val AppCacheStateUpdateNeededNew: APP_CACHE_STATE = 2
+public val APP_CACHE_STATE_UPDATE_NEEDED_NEW: AppCacheState = 2
 
 public val CACHEGROUP_ATTRIBUTE_BASIC: UInt = 1u
 
@@ -99,29 +99,29 @@ public val CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: UInt = 131072u
 
 public val CACHE_CONFIG_APPCONTAINER_TOTAL_CONTENT_QUOTA_FC: UInt = 262144u
 
-public val CACHE_CONFIG_CONTENT_PATHS_FC: CACHE_CONFIG = 256u
+public val CACHE_CONFIG_CONTENT_PATHS_FC: CacheConfig = 256u
 
 public val CACHE_CONFIG_CONTENT_QUOTA_FC: UInt = 32768u
 
-public val CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = 8192u
+public val CACHE_CONFIG_CONTENT_USAGE_FC: CacheConfig = 8192u
 
-public val CACHE_CONFIG_COOKIES_PATHS_FC: CACHE_CONFIG = 512u
+public val CACHE_CONFIG_COOKIES_PATHS_FC: CacheConfig = 512u
 
-public val CACHE_CONFIG_DISK_CACHE_PATHS_FC: CACHE_CONFIG = 64u
+public val CACHE_CONFIG_DISK_CACHE_PATHS_FC: CacheConfig = 64u
 
-public val CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = 32u
+public val CACHE_CONFIG_FORCE_CLEANUP_FC: CacheConfig = 32u
 
-public val CACHE_CONFIG_HISTORY_PATHS_FC: CACHE_CONFIG = 1024u
+public val CACHE_CONFIG_HISTORY_PATHS_FC: CacheConfig = 1024u
 
-public val CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = 2048u
+public val CACHE_CONFIG_QUOTA_FC: CacheConfig = 2048u
 
-public val CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = 16384u
+public val CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CacheConfig = 16384u
 
-public val CACHE_CONFIG_SYNC_MODE_FC: CACHE_CONFIG = 128u
+public val CACHE_CONFIG_SYNC_MODE_FC: CacheConfig = 128u
 
 public val CACHE_CONFIG_TOTAL_CONTENT_QUOTA_FC: UInt = 65536u
 
-public val CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = 4096u
+public val CACHE_CONFIG_USER_MODE_FC: CacheConfig = 4096u
 
 public val CACHE_ENTRY_ACCTIME_FC: UInt = 256u
 
@@ -279,33 +279,33 @@ public val COOKIE_STATE_UB: UInt = 5u
 
 public val COOKIE_STATE_UNKNOWN: InternetCookieState = 0
 
-public val ConnectionEstablishmentEnd: REQUEST_TIMES = 3
+public val CONNECTION_ESTABLISHMENT_END: RequestTimes = 3
 
-public val ConnectionEstablishmentStart: REQUEST_TIMES = 2
+public val CONNECTION_ESTABLISHMENT_START: RequestTimes = 2
 
-public val DIALENG_OperationComplete: UInt = 65536u
+public val DIALENG_OPERATION_COMPLETE: UInt = 65536u
 
-public val DIALENG_RedialAttempt: UInt = 65537u
+public val DIALENG_REDIAL_ATTEMPT: UInt = 65537u
 
-public val DIALENG_RedialWait: UInt = 65538u
+public val DIALENG_REDIAL_WAIT: UInt = 65538u
 
-public val DIALPROP_DOMAIN: PCWSTR = w("Domain")
+public val DIALPROP_DOMAIN: Pcwstr = w("Domain")
 
-public val DIALPROP_LASTERROR: PCWSTR = w("LastError")
+public val DIALPROP_LASTERROR: Pcwstr = w("LastError")
 
-public val DIALPROP_PASSWORD: PCWSTR = w("Password")
+public val DIALPROP_PASSWORD: Pcwstr = w("Password")
 
-public val DIALPROP_PHONENUMBER: PCWSTR = w("PhoneNumber")
+public val DIALPROP_PHONENUMBER: Pcwstr = w("PhoneNumber")
 
-public val DIALPROP_REDIALCOUNT: PCWSTR = w("RedialCount")
+public val DIALPROP_REDIALCOUNT: Pcwstr = w("RedialCount")
 
-public val DIALPROP_REDIALINTERVAL: PCWSTR = w("RedialInterval")
+public val DIALPROP_REDIALINTERVAL: Pcwstr = w("RedialInterval")
 
-public val DIALPROP_RESOLVEDPHONE: PCWSTR = w("ResolvedPhone")
+public val DIALPROP_RESOLVEDPHONE: Pcwstr = w("ResolvedPhone")
 
-public val DIALPROP_SAVEPASSWORD: PCWSTR = w("SavePassword")
+public val DIALPROP_SAVEPASSWORD: Pcwstr = w("SavePassword")
 
-public val DIALPROP_USERNAME: PCWSTR = w("UserName")
+public val DIALPROP_USERNAME: Pcwstr = w("UserName")
 
 public val DLG_FLAGS_INSECURE_FALLBACK: UInt = 4194304u
 
@@ -575,29 +575,29 @@ public val FLAGS_ERROR_UI_SHOW_IDN_HOSTNAME: UInt = 32u
 
 public val FLAG_ICC_FORCE_CONNECTION: UInt = 1u
 
-public val FORTCMD_CHG_PERSONALITY: FORTCMD = 3
+public val FORTCMD_CHG_PERSONALITY: Fortcmd = 3
 
-public val FORTCMD_LOGOFF: FORTCMD = 2
+public val FORTCMD_LOGOFF: Fortcmd = 2
 
-public val FORTCMD_LOGON: FORTCMD = 1
+public val FORTCMD_LOGON: Fortcmd = 1
 
-public val FORTSTAT_INSTALLED: FORTSTAT = 1
+public val FORTSTAT_INSTALLED: Fortstat = 1
 
-public val FORTSTAT_LOGGEDON: FORTSTAT = 2
+public val FORTSTAT_LOGGEDON: Fortstat = 2
 
-public val FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = 1u
+public val FTP_TRANSFER_TYPE_ASCII: FtpFlags = 1u
 
-public val FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = 2u
+public val FTP_TRANSFER_TYPE_BINARY: FtpFlags = 2u
 
-public val FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = 0u
+public val FTP_TRANSFER_TYPE_UNKNOWN: FtpFlags = 0u
 
-public val GOPHER_ABSTRACT_ATTRIBUTE: PCWSTR = w("Abstract")
+public val GOPHER_ABSTRACT_ATTRIBUTE: Pcwstr = w("Abstract")
 
-public val GOPHER_ABSTRACT_CATEGORY: PCWSTR = w("+ABSTRACT")
+public val GOPHER_ABSTRACT_CATEGORY: Pcwstr = w("+ABSTRACT")
 
-public val GOPHER_ADMIN_ATTRIBUTE: PCWSTR = w("Admin")
+public val GOPHER_ADMIN_ATTRIBUTE: Pcwstr = w("Admin")
 
-public val GOPHER_ADMIN_CATEGORY: PCWSTR = w("+ADMIN")
+public val GOPHER_ADMIN_CATEGORY: Pcwstr = w("+ADMIN")
 
 public val GOPHER_ATTRIBUTE_ID_ABSTRACT: UInt = 2882325526u
 
@@ -651,85 +651,85 @@ public val GOPHER_CATEGORY_ID_VERONICA: UInt = 2882325510u
 
 public val GOPHER_CATEGORY_ID_VIEWS: UInt = 2882325508u
 
-public val GOPHER_GEOG_ATTRIBUTE: PCWSTR = w("Geog")
+public val GOPHER_GEOG_ATTRIBUTE: Pcwstr = w("Geog")
 
-public val GOPHER_INFO_CATEGORY: PCWSTR = w("+INFO")
+public val GOPHER_INFO_CATEGORY: Pcwstr = w("+INFO")
 
-public val GOPHER_LOCATION_ATTRIBUTE: PCWSTR = w("Loc")
+public val GOPHER_LOCATION_ATTRIBUTE: Pcwstr = w("Loc")
 
-public val GOPHER_MOD_DATE_ATTRIBUTE: PCWSTR = w("Mod-Date")
+public val GOPHER_MOD_DATE_ATTRIBUTE: Pcwstr = w("Mod-Date")
 
-public val GOPHER_ORG_ATTRIBUTE: PCWSTR = w("Org")
+public val GOPHER_ORG_ATTRIBUTE: Pcwstr = w("Org")
 
-public val GOPHER_PROVIDER_ATTRIBUTE: PCWSTR = w("Provider")
+public val GOPHER_PROVIDER_ATTRIBUTE: Pcwstr = w("Provider")
 
-public val GOPHER_RANGE_ATTRIBUTE: PCWSTR = w("Score-range")
+public val GOPHER_RANGE_ATTRIBUTE: Pcwstr = w("Score-range")
 
-public val GOPHER_SCORE_ATTRIBUTE: PCWSTR = w("Score")
+public val GOPHER_SCORE_ATTRIBUTE: Pcwstr = w("Score")
 
-public val GOPHER_SITE_ATTRIBUTE: PCWSTR = w("Site")
+public val GOPHER_SITE_ATTRIBUTE: Pcwstr = w("Site")
 
-public val GOPHER_TIMEZONE_ATTRIBUTE: PCWSTR = w("TZ")
+public val GOPHER_TIMEZONE_ATTRIBUTE: Pcwstr = w("TZ")
 
-public val GOPHER_TREEWALK_ATTRIBUTE: PCWSTR = w("treewalk")
+public val GOPHER_TREEWALK_ATTRIBUTE: Pcwstr = w("treewalk")
 
-public val GOPHER_TTL_ATTRIBUTE: PCWSTR = w("TTL")
+public val GOPHER_TTL_ATTRIBUTE: Pcwstr = w("TTL")
 
-public val GOPHER_TYPE_ASK: GOPHER_TYPE = 1073741824u
+public val GOPHER_TYPE_ASK: GopherType = 1073741824u
 
-public val GOPHER_TYPE_BINARY: GOPHER_TYPE = 512u
+public val GOPHER_TYPE_BINARY: GopherType = 512u
 
-public val GOPHER_TYPE_BITMAP: GOPHER_TYPE = 16384u
+public val GOPHER_TYPE_BITMAP: GopherType = 16384u
 
-public val GOPHER_TYPE_CALENDAR: GOPHER_TYPE = 524288u
+public val GOPHER_TYPE_CALENDAR: GopherType = 524288u
 
-public val GOPHER_TYPE_CSO: GOPHER_TYPE = 4u
+public val GOPHER_TYPE_CSO: GopherType = 4u
 
-public val GOPHER_TYPE_DIRECTORY: GOPHER_TYPE = 2u
+public val GOPHER_TYPE_DIRECTORY: GopherType = 2u
 
-public val GOPHER_TYPE_DOS_ARCHIVE: GOPHER_TYPE = 32u
+public val GOPHER_TYPE_DOS_ARCHIVE: GopherType = 32u
 
-public val GOPHER_TYPE_ERROR: GOPHER_TYPE = 8u
+public val GOPHER_TYPE_ERROR: GopherType = 8u
 
-public val GOPHER_TYPE_GIF: GOPHER_TYPE = 4096u
+public val GOPHER_TYPE_GIF: GopherType = 4096u
 
-public val GOPHER_TYPE_GOPHER_PLUS: GOPHER_TYPE = 2147483648u
+public val GOPHER_TYPE_GOPHER_PLUS: GopherType = 2147483648u
 
-public val GOPHER_TYPE_HTML: GOPHER_TYPE = 131072u
+public val GOPHER_TYPE_HTML: GopherType = 131072u
 
-public val GOPHER_TYPE_IMAGE: GOPHER_TYPE = 8192u
+public val GOPHER_TYPE_IMAGE: GopherType = 8192u
 
-public val GOPHER_TYPE_INDEX_SERVER: GOPHER_TYPE = 128u
+public val GOPHER_TYPE_INDEX_SERVER: GopherType = 128u
 
-public val GOPHER_TYPE_INLINE: GOPHER_TYPE = 1048576u
+public val GOPHER_TYPE_INLINE: GopherType = 1048576u
 
-public val GOPHER_TYPE_MAC_BINHEX: GOPHER_TYPE = 16u
+public val GOPHER_TYPE_MAC_BINHEX: GopherType = 16u
 
-public val GOPHER_TYPE_MOVIE: GOPHER_TYPE = 32768u
+public val GOPHER_TYPE_MOVIE: GopherType = 32768u
 
-public val GOPHER_TYPE_PDF: GOPHER_TYPE = 262144u
+public val GOPHER_TYPE_PDF: GopherType = 262144u
 
-public val GOPHER_TYPE_REDUNDANT: GOPHER_TYPE = 1024u
+public val GOPHER_TYPE_REDUNDANT: GopherType = 1024u
 
-public val GOPHER_TYPE_SOUND: GOPHER_TYPE = 65536u
+public val GOPHER_TYPE_SOUND: GopherType = 65536u
 
-public val GOPHER_TYPE_TELNET: GOPHER_TYPE = 256u
+public val GOPHER_TYPE_TELNET: GopherType = 256u
 
-public val GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = 1u
+public val GOPHER_TYPE_TEXT_FILE: GopherType = 1u
 
-public val GOPHER_TYPE_TN3270: GOPHER_TYPE = 2048u
+public val GOPHER_TYPE_TN3270: GopherType = 2048u
 
-public val GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = 64u
+public val GOPHER_TYPE_UNIX_UUENCODED: GopherType = 64u
 
-public val GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = 536870912u
+public val GOPHER_TYPE_UNKNOWN: GopherType = 536870912u
 
-public val GOPHER_VERONICA_CATEGORY: PCWSTR = w("+VERONICA")
+public val GOPHER_VERONICA_CATEGORY: Pcwstr = w("+VERONICA")
 
-public val GOPHER_VERSION_ATTRIBUTE: PCWSTR = w("Version")
+public val GOPHER_VERSION_ATTRIBUTE: Pcwstr = w("Version")
 
-public val GOPHER_VIEWS_CATEGORY: PCWSTR = w("+VIEWS")
+public val GOPHER_VIEWS_CATEGORY: Pcwstr = w("+VIEWS")
 
-public val GOPHER_VIEW_ATTRIBUTE: PCWSTR = w("View")
+public val GOPHER_VIEW_ATTRIBUTE: Pcwstr = w("View")
 
 public val GROUPNAME_MAX_LENGTH: UInt = 120u
 
@@ -751,19 +751,19 @@ public val HTTP_1_1_CACHE_ENTRY: UInt = 64u
 
 public val HTTP_ADDREQ_FLAGS_MASK: UInt = 4294901760u
 
-public val HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = 536870912u
+public val HTTP_ADDREQ_FLAG_ADD: HttpAddreqFlag = 536870912u
 
-public val HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = 268435456u
+public val HTTP_ADDREQ_FLAG_ADD_IF_NEW: HttpAddreqFlag = 268435456u
 
 public val HTTP_ADDREQ_FLAG_ALLOW_EMPTY_VALUES: UInt = 67108864u
 
-public val HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = 1073741824u
+public val HTTP_ADDREQ_FLAG_COALESCE: HttpAddreqFlag = 1073741824u
 
-public val HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = 1073741824u
+public val HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HttpAddreqFlag = 1073741824u
 
-public val HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = 16777216u
+public val HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HttpAddreqFlag = 16777216u
 
-public val HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = 2147483648u
+public val HTTP_ADDREQ_FLAG_REPLACE: HttpAddreqFlag = 2147483648u
 
 public val HTTP_ADDREQ_FLAG_RESPONSE_HEADERS: UInt = 33554432u
 
@@ -999,65 +999,65 @@ public val HTTP_QUERY_X_XSS_PROTECTION: UInt = 86u
 
 public val HTTP_STATUS_MISDIRECTED_REQUEST: UInt = 421u
 
-public val HTTP_VERSIONA: PCSTR = s("HTTP/1.0")
+public val HTTP_VERSIONA: Pcstr = s("HTTP/1.0")
 
-public val HTTP_VERSIONW: PCWSTR = w("HTTP/1.0")
+public val HTTP_VERSIONW: Pcwstr = w("HTTP/1.0")
 
-public val HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1006
+public val HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HttpWebSocketCloseStatus = 1006
 
-public val HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 1
+public val HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HttpWebSocketBufferType = 1
 
-public val HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 0
+public val HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HttpWebSocketBufferType = 0
 
-public val HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = 2
+public val HTTP_WEB_SOCKET_CLOSE_OPERATION: HttpWebSocketOperation = 2
 
-public val HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 4
+public val HTTP_WEB_SOCKET_CLOSE_TYPE: HttpWebSocketBufferType = 4
 
-public val HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1005
+public val HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HttpWebSocketCloseStatus = 1005
 
-public val HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1001
+public val HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HttpWebSocketCloseStatus = 1001
 
-public val HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1003
+public val HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HttpWebSocketCloseStatus = 1003
 
-public val HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1007
+public val HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HttpWebSocketCloseStatus = 1007
 
 public val HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: UInt = 123u
 
-public val HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1009
+public val HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HttpWebSocketCloseStatus = 1009
 
 public val HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: UInt = 10000u
 
-public val HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 5
+public val HTTP_WEB_SOCKET_PING_TYPE: HttpWebSocketBufferType = 5
 
-public val HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1008
+public val HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HttpWebSocketCloseStatus = 1008
 
-public val HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1002
+public val HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HttpWebSocketCloseStatus = 1002
 
-public val HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = 1
+public val HTTP_WEB_SOCKET_RECEIVE_OPERATION: HttpWebSocketOperation = 1
 
-public val HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1015
+public val HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HttpWebSocketCloseStatus = 1015
 
-public val HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = 0
+public val HTTP_WEB_SOCKET_SEND_OPERATION: HttpWebSocketOperation = 0
 
-public val HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1011
+public val HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HttpWebSocketCloseStatus = 1011
 
-public val HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = 3
+public val HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HttpWebSocketOperation = 3
 
-public val HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1000
+public val HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HttpWebSocketCloseStatus = 1000
 
-public val HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1010
+public val HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HttpWebSocketCloseStatus = 1010
 
-public val HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 3
+public val HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HttpWebSocketBufferType = 3
 
-public val HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 2
+public val HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HttpWebSocketBufferType = 2
 
-public val HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = 0
+public val HTTP_PUSH_WAIT_ENABLE_COMPLETE: HttpPushWaitType = 0
 
-public val HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = 1
+public val HTTP_PUSH_WAIT_RECEIVE_COMPLETE: HttpPushWaitType = 1
 
-public val HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = 2
+public val HTTP_PUSH_WAIT_SEND_COMPLETE: HttpPushWaitType = 2
 
-public val HttpRequestTimeMax: REQUEST_TIMES = 32
+public val HTTP_REQUEST_TIME_MAX: RequestTimes = 32
 
 public val ICU_USERNAME: UInt = 1073741824u
 
@@ -1095,13 +1095,13 @@ public val INTERNET_AUTH_SCHEME_PASSPORT: UInt = 5u
 
 public val INTERNET_AUTH_SCHEME_UNKNOWN: UInt = 6u
 
-public val INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = 4u
+public val INTERNET_AUTODIAL_FAILIFSECURITYCHECK: InternetAutodial = 4u
 
-public val INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = 1u
+public val INTERNET_AUTODIAL_FORCE_ONLINE: InternetAutodial = 1u
 
-public val INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = 2u
+public val INTERNET_AUTODIAL_FORCE_UNATTENDED: InternetAutodial = 2u
 
-public val INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = 8u
+public val INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: InternetAutodial = 8u
 
 public val INTERNET_AUTOPROXY_INIT_DEFAULT: UInt = 1u
 
@@ -1141,17 +1141,17 @@ public val INTERNET_CACHE_GROUP_ADD: UInt = 0u
 
 public val INTERNET_CACHE_GROUP_REMOVE: UInt = 1u
 
-public val INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = 64u
+public val INTERNET_CONNECTION_CONFIGURED: InternetConnection = 64u
 
-public val INTERNET_CONNECTION_LAN: INTERNET_CONNECTION = 2u
+public val INTERNET_CONNECTION_LAN: InternetConnection = 2u
 
-public val INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = 1u
+public val INTERNET_CONNECTION_MODEM: InternetConnection = 1u
 
-public val INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = 8u
+public val INTERNET_CONNECTION_MODEM_BUSY: InternetConnection = 8u
 
-public val INTERNET_CONNECTION_OFFLINE: INTERNET_CONNECTION = 32u
+public val INTERNET_CONNECTION_OFFLINE: InternetConnection = 32u
 
-public val INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = 4u
+public val INTERNET_CONNECTION_PROXY: InternetConnection = 4u
 
 public val INTERNET_COOKIE_ALL_COOKIES: UInt = 536870912u
 
@@ -1169,7 +1169,7 @@ public val INTERNET_COOKIE_HOST_ONLY: UInt = 16384u
 
 public val INTERNET_COOKIE_HOST_ONLY_APPLIED: UInt = 524288u
 
-public val INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = 8192u
+public val INTERNET_COOKIE_HTTPONLY: InternetCookieFlags = 8192u
 
 public val INTERNET_COOKIE_IE6: UInt = 1024u
 
@@ -1199,7 +1199,7 @@ public val INTERNET_COOKIE_SAME_SITE_LEVEL_CROSS_SITE: UInt = 4194304u
 
 public val INTERNET_COOKIE_SAME_SITE_STRICT: UInt = 1048576u
 
-public val INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = 16u
+public val INTERNET_COOKIE_THIRD_PARTY: InternetCookieFlags = 16u
 
 public val INTERNET_CUSTOMDIAL_CAN_HANGUP: UInt = 4u
 
@@ -1215,11 +1215,11 @@ public val INTERNET_CUSTOMDIAL_UNATTENDED: UInt = 1u
 
 public val INTERNET_CUSTOMDIAL_WILL_SUPPLY_STATE: UInt = 2u
 
-public val INTERNET_DEFAULT_FTP_PORT: UShort = 21u
+public val INTERNET_DEFAULT_FTP_PORT: UShort = 21u.toUShort()
 
-public val INTERNET_DEFAULT_GOPHER_PORT: UShort = 70u
+public val INTERNET_DEFAULT_GOPHER_PORT: UShort = 70u.toUShort()
 
-public val INTERNET_DEFAULT_SOCKS_PORT: UShort = 1080u
+public val INTERNET_DEFAULT_SOCKS_PORT: UShort = 1080u.toUShort()
 
 public val INTERNET_DIALSTATE_DISCONNECTED: UInt = 1u
 
@@ -1307,15 +1307,15 @@ public val INTERNET_FLAG_READ_PREFETCH: UInt = 1048576u
 
 public val INTERNET_FLAG_RELOAD: UInt = 2147483648u
 
-public val INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = 131072u
+public val INTERNET_FLAG_RESTRICTED_ZONE: InternetCookieFlags = 131072u
 
 public val INTERNET_FLAG_RESYNCHRONIZE: UInt = 2048u
 
 public val INTERNET_FLAG_SECURE: UInt = 8388608u
 
-public val INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = 1u
+public val INTERNET_FLAG_TRANSFER_ASCII: FtpFlags = 1u
 
-public val INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = 2u
+public val INTERNET_FLAG_TRANSFER_BINARY: FtpFlags = 2u
 
 public val INTERNET_GLOBAL_CALLBACK_DETECTING_PROXY: UInt = 2u
 
@@ -1387,13 +1387,13 @@ public val INTERNET_MAX_USER_NAME_LENGTH: UInt = 128u
 
 public val INTERNET_NO_CALLBACK: UInt = 0u
 
-public val INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = 1u
+public val INTERNET_OPEN_TYPE_DIRECT: InternetAccessType = 1u
 
-public val INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = 0u
+public val INTERNET_OPEN_TYPE_PRECONFIG: InternetAccessType = 0u
 
 public val INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY: UInt = 4u
 
-public val INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = 3u
+public val INTERNET_OPEN_TYPE_PROXY: InternetAccessType = 3u
 
 public val INTERNET_OPTION_ACTIVATE_WORKER_THREADS: UInt = 92u
 
@@ -1779,25 +1779,25 @@ public val INTERNET_OPTION_WRITE_BUFFER_SIZE: UInt = 13u
 
 public val INTERNET_OPTION_WWA_MODE: UInt = 125u
 
-public val INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = 8u
+public val INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: InternetPerConn = 8u
 
-public val INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = 9u
+public val INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: InternetPerConn = 9u
 
-public val INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = 7u
+public val INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: InternetPerConn = 7u
 
-public val INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = 6u
+public val INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: InternetPerConn = 6u
 
-public val INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = 4u
+public val INTERNET_PER_CONN_AUTOCONFIG_URL: InternetPerConn = 4u
 
-public val INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: INTERNET_PER_CONN = 5u
+public val INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: InternetPerConn = 5u
 
-public val INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = 1u
+public val INTERNET_PER_CONN_FLAGS: InternetPerConn = 1u
 
 public val INTERNET_PER_CONN_FLAGS_UI: UInt = 10u
 
-public val INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = 3u
+public val INTERNET_PER_CONN_PROXY_BYPASS: InternetPerConn = 3u
 
-public val INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = 2u
+public val INTERNET_PER_CONN_PROXY_SERVER: InternetPerConn = 2u
 
 public val INTERNET_PREFETCH_ABORTED: UInt = 2u
 
@@ -1807,7 +1807,7 @@ public val INTERNET_PREFETCH_PROGRESS: UInt = 0u
 
 public val INTERNET_PRIORITY_FOREGROUND: UInt = 1000u
 
-public val INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = 16u
+public val INTERNET_RAS_INSTALLED: InternetConnection = 16u
 
 public val INTERNET_REQFLAG_ASYNC: UInt = 2u
 
@@ -1829,37 +1829,37 @@ public val INTERNET_RFC1123_BUFSIZE: UInt = 30u
 
 public val INTERNET_RFC1123_FORMAT: UInt = 0u
 
-public val INTERNET_SCHEME_DEFAULT: INTERNET_SCHEME = 0
+public val INTERNET_SCHEME_DEFAULT: InternetScheme = 0
 
-public val INTERNET_SCHEME_FILE: INTERNET_SCHEME = 5
+public val INTERNET_SCHEME_FILE: InternetScheme = 5
 
-public val INTERNET_SCHEME_FIRST: INTERNET_SCHEME = 1
+public val INTERNET_SCHEME_FIRST: InternetScheme = 1
 
-public val INTERNET_SCHEME_FTP: INTERNET_SCHEME = 1
+public val INTERNET_SCHEME_FTP: InternetScheme = 1
 
-public val INTERNET_SCHEME_GOPHER: INTERNET_SCHEME = 2
+public val INTERNET_SCHEME_GOPHER: InternetScheme = 2
 
-public val INTERNET_SCHEME_HTTP: INTERNET_SCHEME = 3
+public val INTERNET_SCHEME_HTTP: InternetScheme = 3
 
-public val INTERNET_SCHEME_HTTPS: INTERNET_SCHEME = 4
+public val INTERNET_SCHEME_HTTPS: InternetScheme = 4
 
-public val INTERNET_SCHEME_JAVASCRIPT: INTERNET_SCHEME = 9
+public val INTERNET_SCHEME_JAVASCRIPT: InternetScheme = 9
 
-public val INTERNET_SCHEME_LAST: INTERNET_SCHEME = 11
+public val INTERNET_SCHEME_LAST: InternetScheme = 11
 
-public val INTERNET_SCHEME_MAILTO: INTERNET_SCHEME = 7
+public val INTERNET_SCHEME_MAILTO: InternetScheme = 7
 
-public val INTERNET_SCHEME_NEWS: INTERNET_SCHEME = 6
+public val INTERNET_SCHEME_NEWS: InternetScheme = 6
 
-public val INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = -2
+public val INTERNET_SCHEME_PARTIAL: InternetScheme = -2
 
-public val INTERNET_SCHEME_RES: INTERNET_SCHEME = 11
+public val INTERNET_SCHEME_RES: InternetScheme = 11
 
-public val INTERNET_SCHEME_SOCKS: INTERNET_SCHEME = 8
+public val INTERNET_SCHEME_SOCKS: InternetScheme = 8
 
-public val INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = -1
+public val INTERNET_SCHEME_UNKNOWN: InternetScheme = -1
 
-public val INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = 10
+public val INTERNET_SCHEME_VBSCRIPT: InternetScheme = 10
 
 public val INTERNET_SERVICE_FTP: UInt = 1u
 
@@ -1869,15 +1869,15 @@ public val INTERNET_SERVICE_HTTP: UInt = 3u
 
 public val INTERNET_SERVICE_URL: UInt = 0u
 
-public val INTERNET_STATE_BUSY: INTERNET_STATE = 512u
+public val INTERNET_STATE_BUSY: InternetState = 512u
 
-public val INTERNET_STATE_CONNECTED: INTERNET_STATE = 1u
+public val INTERNET_STATE_CONNECTED: InternetState = 1u
 
-public val INTERNET_STATE_DISCONNECTED: INTERNET_STATE = 2u
+public val INTERNET_STATE_DISCONNECTED: InternetState = 2u
 
-public val INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = 16u
+public val INTERNET_STATE_DISCONNECTED_BY_USER: InternetState = 16u
 
-public val INTERNET_STATE_IDLE: INTERNET_STATE = 256u
+public val INTERNET_STATE_IDLE: InternetState = 256u
 
 public val INTERNET_STATUS_CLOSING_CONNECTION: UInt = 50u
 
@@ -2003,9 +2003,9 @@ public val ISO_GLOBAL: UInt = 1u
 
 public val ISO_REGISTRY: UInt = 2u
 
-public val LOCAL_NAMESPACE_PREFIX: PCSTR = s("Local\\")
+public val LOCAL_NAMESPACE_PREFIX: Pcstr = s("Local\\")
 
-public val LOCAL_NAMESPACE_PREFIX_W: PCWSTR = w("Local\\")
+public val LOCAL_NAMESPACE_PREFIX_W: Pcwstr = w("Local\\")
 
 public val MAX_CACHE_ENTRY_INFO_SIZE: UInt = 4096u
 
@@ -2023,25 +2023,25 @@ public val MIN_GOPHER_ATTRIBUTE_LENGTH: UInt = 256u
 
 public val MUST_REVALIDATE_CACHE_ENTRY: UInt = 256u
 
-public val MaxPrivacySettings: UInt = 16384u
+public val MAX_PRIVACY_SETTINGS: UInt = 16384u
 
 public val NORMAL_CACHE_ENTRY: UInt = 1u
 
-public val NameResolutionEnd: REQUEST_TIMES = 1
+public val NAME_RESOLUTION_END: RequestTimes = 1
 
-public val NameResolutionStart: REQUEST_TIMES = 0
+public val NAME_RESOLUTION_START: RequestTimes = 0
 
 public val OTHER_USER_CACHE_ENTRY: UInt = 8388608u
 
 public val PENDING_DELETE_CACHE_ENTRY: UInt = 4194304u
 
-public val POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = 0
+public val POLICY_EXTENSION_TYPE_NONE: HttpPolicyExtensionType = 0
 
-public val POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = 1
+public val POLICY_EXTENSION_TYPE_WINHTTP: HttpPolicyExtensionType = 1
 
-public val POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = 2
+public val POLICY_EXTENSION_TYPE_WININET: HttpPolicyExtensionType = 2
 
-public val POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = 1
+public val POLICY_EXTENSION_VERSION1: HttpPolicyExtensionVersion = 1
 
 public val POST_CHECK_CACHE_ENTRY: UInt = 536870912u
 
@@ -2073,9 +2073,9 @@ public val PRIVACY_TYPE_FIRST_PARTY: UInt = 0u
 
 public val PRIVACY_TYPE_THIRD_PARTY: UInt = 1u
 
-public val PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = 1u
+public val PROXY_AUTO_DETECT_TYPE_DHCP: ProxyAutoDetectType = 1u
 
-public val PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = 2u
+public val PROXY_AUTO_DETECT_TYPE_DNS_A: ProxyAutoDetectType = 2u
 
 public val PROXY_TYPE_AUTO_DETECT: UInt = 8u
 
@@ -2085,13 +2085,13 @@ public val PROXY_TYPE_DIRECT: UInt = 1u
 
 public val PROXY_TYPE_PROXY: UInt = 2u
 
-public val ProofOfPossessionCookieInfoManager: GUID = GUID.from_u128(U128(0xa9927f85a3044390uL, 0x8b23a75f1c668600uL))
+public val PROOF_OF_POSSESSION_COOKIE_INFO_MANAGER: Guid = Guid.fromU128(U128(0xa9927f85a3044390uL, 0x8b23a75f1c668600uL))
 
 public val REDIRECT_CACHE_ENTRY: UInt = 2048u
 
-public val REGSTR_DIAL_AUTOCONNECT: PCSTR = s("AutoConnect")
+public val REGSTR_DIAL_AUTOCONNECT: Pcstr = s("AutoConnect")
 
-public val REGSTR_LEASH_LEGACY_COOKIES: PCSTR = s("LeashLegacyCookies")
+public val REGSTR_LEASH_LEGACY_COOKIES: Pcstr = s("LeashLegacyCookies")
 
 public val SECURITY_FLAG_128BIT: UInt = 536870912u
 
@@ -2135,9 +2135,9 @@ public val STATIC_CACHE_ENTRY: UInt = 128u
 
 public val STICKY_CACHE_ENTRY: UInt = 4u
 
-public val TLSHandshakeEnd: REQUEST_TIMES = 5
+public val TLS_HANDSHAKE_END: RequestTimes = 5
 
-public val TLSHandshakeStart: REQUEST_TIMES = 4
+public val TLS_HANDSHAKE_START: RequestTimes = 4
 
 public val TRACK_OFFLINE_CACHE_ENTRY: UInt = 16u
 
@@ -2145,15 +2145,15 @@ public val TRACK_ONLINE_CACHE_ENTRY: UInt = 32u
 
 public val URLHISTORY_CACHE_ENTRY: UInt = 2097152u
 
-public val UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = 2
+public val URL_CACHE_LIMIT_TYPE_APP_CONTAINER: UrlCacheLimitType = 2
 
-public val UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = 3
+public val URL_CACHE_LIMIT_TYPE_APP_CONTAINER_TOTAL: UrlCacheLimitType = 3
 
-public val UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = 0
+public val URL_CACHE_LIMIT_TYPE_IE: UrlCacheLimitType = 0
 
-public val UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = 1
+public val URL_CACHE_LIMIT_TYPE_IE_TOTAL: UrlCacheLimitType = 1
 
-public val UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = 4
+public val URL_CACHE_LIMIT_TYPE_NUM: UrlCacheLimitType = 4
 
 public val WININET_API_FLAG_ASYNC: UInt = 1u
 
@@ -2161,20 +2161,20 @@ public val WININET_API_FLAG_SYNC: UInt = 4u
 
 public val WININET_API_FLAG_USE_CONTEXT: UInt = 8u
 
-public val WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = 3
+public val WININET_SYNC_MODE_ALWAYS: WininetSyncMode = 3
 
-public val WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = 4
+public val WININET_SYNC_MODE_AUTOMATIC: WininetSyncMode = 4
 
-public val WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = 4
+public val WININET_SYNC_MODE_DEFAULT: WininetSyncMode = 4
 
-public val WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = 0
+public val WININET_SYNC_MODE_NEVER: WininetSyncMode = 0
 
-public val WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = 2
+public val WININET_SYNC_MODE_ONCE_PER_SESSION: WininetSyncMode = 2
 
-public val WININET_SYNC_MODE_ON_EXPIRY: WININET_SYNC_MODE = 1
+public val WININET_SYNC_MODE_ON_EXPIRY: WininetSyncMode = 1
 
-public val WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = 1
+public val WPAD_CACHE_DELETE_ALL: WpadCacheDelete = 1
 
-public val WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = 0
+public val WPAD_CACHE_DELETE_CURRENT: WpadCacheDelete = 0
 
 public val XDR_CACHE_ENTRY: UInt = 262144u

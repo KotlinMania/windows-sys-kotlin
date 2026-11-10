@@ -6,24 +6,24 @@ public val NMPWAIT_USE_DEFAULT_WAIT: UInt = 0u
 
 public val NMPWAIT_WAIT_FOREVER: UInt = 4294967295u
 
-public val PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 0u
+public val PIPE_ACCEPT_REMOTE_CLIENTS: NamedPipeMode = 0u
 
-public val PIPE_CLIENT_END: NAMED_PIPE_MODE = 0u
+public val PIPE_CLIENT_END: NamedPipeMode = 0u
 
-public val PIPE_NOWAIT: NAMED_PIPE_MODE = 1u
+public val PIPE_NOWAIT: NamedPipeMode = 1u
 
-public val PIPE_READMODE_BYTE: NAMED_PIPE_MODE = 0u
+public val PIPE_READMODE_BYTE: NamedPipeMode = 0u
 
-public val PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = 2u
+public val PIPE_READMODE_MESSAGE: NamedPipeMode = 2u
 
-public val PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 8u
+public val PIPE_REJECT_REMOTE_CLIENTS: NamedPipeMode = 8u
 
-public val PIPE_SERVER_END: NAMED_PIPE_MODE = 1u
+public val PIPE_SERVER_END: NamedPipeMode = 1u
 
-public val PIPE_TYPE_BYTE: NAMED_PIPE_MODE = 0u
+public val PIPE_TYPE_BYTE: NamedPipeMode = 0u
 
-public val PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = 4u
+public val PIPE_TYPE_MESSAGE: NamedPipeMode = 4u
 
 public val PIPE_UNLIMITED_INSTANCES: UInt = 255u
 
-public val PIPE_WAIT: NAMED_PIPE_MODE = 0u
+public val PIPE_WAIT: NamedPipeMode = 0u

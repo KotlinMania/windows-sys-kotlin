@@ -1,62 +1,62 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.virtualdosmachines
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.FLOATING_SAVE_AREA
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.FloatingSaveArea
 
-public data class GLOBALENTRY(
+public data class Globalentry(
     public var dwSize: UInt = 0u,
     public var dwAddress: UInt = 0u,
     public var dwBlockSize: UInt = 0u,
-    public var hBlock: HANDLE = 0L,
+    public var hBlock: Handle = null,
     public var wcLock: UShort = 0u,
     public var wcPageLock: UShort = 0u,
     public var wFlags: UShort = 0u,
-    public var wHeapPresent: BOOL = 0,
-    public var hOwner: HANDLE = 0L,
+    public var wHeapPresent: Bool = 0,
+    public var hOwner: Handle = null,
     public var wType: UShort = 0u,
     public var wData: UShort = 0u,
     public var dwNext: UInt = 0u,
     public var dwNextAlt: UInt = 0u,
 )
 
-public data class IMAGE_NOTE(
-    public var Module: ByteArray = ByteArray(10),
-    public var FileName: ByteArray = ByteArray(256),
+public data class ImageNote(
+    public var module: ByteArray = ByteArray(10),
+    public var fileName: ByteArray = ByteArray(256),
     public var hModule: UShort = 0u,
     public var hTask: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_NOTE) return false
-        if (!this.Module.contentEquals(other.Module)) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is ImageNote) return false
+        if (!this.module.contentEquals(other.module)) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         if (this.hModule != other.hModule) return false
         if (this.hTask != other.hTask) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Module.contentHashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.module.contentHashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         result = 31 * result + this.hModule.hashCode()
         result = 31 * result + this.hTask.hashCode()
         return result
     }
 }
 
-public data class MODULEENTRY(
+public data class Moduleentry(
     public var dwSize: UInt = 0u,
     public var szModule: ByteArray = ByteArray(10),
-    public var hModule: HANDLE = 0L,
+    public var hModule: Handle = null,
     public var wcUsage: UShort = 0u,
     public var szExePath: ByteArray = ByteArray(256),
     public var wNext: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MODULEENTRY) return false
+        if (other !is Moduleentry) return false
         if (this.dwSize != other.dwSize) return false
         if (!this.szModule.contentEquals(other.szModule)) return false
         if (this.hModule != other.hModule) return false
@@ -77,145 +77,145 @@ public data class MODULEENTRY(
     }
 }
 
-public data class SEGMENT_NOTE(
-    public var Selector1: UShort = 0u,
-    public var Selector2: UShort = 0u,
-    public var Segment: UShort = 0u,
-    public var Module: ByteArray = ByteArray(10),
-    public var FileName: ByteArray = ByteArray(256),
-    public var Type: UShort = 0u,
-    public var Length: UInt = 0u,
+public data class SegmentNote(
+    public var selector1: UShort = 0u,
+    public var selector2: UShort = 0u,
+    public var segment: UShort = 0u,
+    public var module: ByteArray = ByteArray(10),
+    public var fileName: ByteArray = ByteArray(256),
+    public var type: UShort = 0u,
+    public var length: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SEGMENT_NOTE) return false
-        if (this.Selector1 != other.Selector1) return false
-        if (this.Selector2 != other.Selector2) return false
-        if (this.Segment != other.Segment) return false
-        if (!this.Module.contentEquals(other.Module)) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
-        if (this.Type != other.Type) return false
-        if (this.Length != other.Length) return false
+        if (other !is SegmentNote) return false
+        if (this.selector1 != other.selector1) return false
+        if (this.selector2 != other.selector2) return false
+        if (this.segment != other.segment) return false
+        if (!this.module.contentEquals(other.module)) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
+        if (this.type != other.type) return false
+        if (this.length != other.length) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Selector1.hashCode()
-        result = 31 * result + this.Selector2.hashCode()
-        result = 31 * result + this.Segment.hashCode()
-        result = 31 * result + this.Module.contentHashCode()
-        result = 31 * result + this.FileName.contentHashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.Length.hashCode()
+        var result = this.selector1.hashCode()
+        result = 31 * result + this.selector2.hashCode()
+        result = 31 * result + this.segment.hashCode()
+        result = 31 * result + this.module.contentHashCode()
+        result = 31 * result + this.fileName.contentHashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.length.hashCode()
         return result
     }
 }
 
-public data class TEMP_BP_NOTE(
-    public var Seg: UShort = 0u,
-    public var Offset: UInt = 0u,
-    public var bPM: BOOL = 0,
+public data class TempBpNote(
+    public var seg: UShort = 0u,
+    public var offset: UInt = 0u,
+    public var bPM: Bool = 0,
 )
 
-public class VDMCONTEXT(
-    public var ContextFlags: UInt = 0u,
-    public var Dr0: UInt = 0u,
-    public var Dr1: UInt = 0u,
-    public var Dr2: UInt = 0u,
-    public var Dr3: UInt = 0u,
-    public var Dr6: UInt = 0u,
-    public var Dr7: UInt = 0u,
-    public var FloatSave: FLOATING_SAVE_AREA = FLOATING_SAVE_AREA(),
-    public var SegGs: UInt = 0u,
-    public var SegFs: UInt = 0u,
-    public var SegEs: UInt = 0u,
-    public var SegDs: UInt = 0u,
-    public var Edi: UInt = 0u,
-    public var Esi: UInt = 0u,
-    public var Ebx: UInt = 0u,
-    public var Edx: UInt = 0u,
-    public var Ecx: UInt = 0u,
-    public var Eax: UInt = 0u,
-    public var Ebp: UInt = 0u,
-    public var Eip: UInt = 0u,
-    public var SegCs: UInt = 0u,
-    public var EFlags: UInt = 0u,
-    public var Esp: UInt = 0u,
-    public var SegSs: UInt = 0u,
-    public var ExtendedRegisters: UByteArray = UByteArray(512),
+public class Vdmcontext(
+    public var contextFlags: UInt = 0u,
+    public var dr0: UInt = 0u,
+    public var dr1: UInt = 0u,
+    public var dr2: UInt = 0u,
+    public var dr3: UInt = 0u,
+    public var dr6: UInt = 0u,
+    public var dr7: UInt = 0u,
+    public var floatSave: FloatingSaveArea = FloatingSaveArea(),
+    public var segGs: UInt = 0u,
+    public var segFs: UInt = 0u,
+    public var segEs: UInt = 0u,
+    public var segDs: UInt = 0u,
+    public var edi: UInt = 0u,
+    public var esi: UInt = 0u,
+    public var ebx: UInt = 0u,
+    public var edx: UInt = 0u,
+    public var ecx: UInt = 0u,
+    public var eax: UInt = 0u,
+    public var ebp: UInt = 0u,
+    public var eip: UInt = 0u,
+    public var segCs: UInt = 0u,
+    public var eFlags: UInt = 0u,
+    public var esp: UInt = 0u,
+    public var segSs: UInt = 0u,
+    public var extendedRegisters: UByteArray = UByteArray(512),
 )
 
-public class VDMCONTEXT_WITHOUT_XSAVE(
-    public var ContextFlags: UInt = 0u,
-    public var Dr0: UInt = 0u,
-    public var Dr1: UInt = 0u,
-    public var Dr2: UInt = 0u,
-    public var Dr3: UInt = 0u,
-    public var Dr6: UInt = 0u,
-    public var Dr7: UInt = 0u,
-    public var FloatSave: FLOATING_SAVE_AREA = FLOATING_SAVE_AREA(),
-    public var SegGs: UInt = 0u,
-    public var SegFs: UInt = 0u,
-    public var SegEs: UInt = 0u,
-    public var SegDs: UInt = 0u,
-    public var Edi: UInt = 0u,
-    public var Esi: UInt = 0u,
-    public var Ebx: UInt = 0u,
-    public var Edx: UInt = 0u,
-    public var Ecx: UInt = 0u,
-    public var Eax: UInt = 0u,
-    public var Ebp: UInt = 0u,
-    public var Eip: UInt = 0u,
-    public var SegCs: UInt = 0u,
-    public var EFlags: UInt = 0u,
-    public var Esp: UInt = 0u,
-    public var SegSs: UInt = 0u,
+public class VdmcontextWithoutXsave(
+    public var contextFlags: UInt = 0u,
+    public var dr0: UInt = 0u,
+    public var dr1: UInt = 0u,
+    public var dr2: UInt = 0u,
+    public var dr3: UInt = 0u,
+    public var dr6: UInt = 0u,
+    public var dr7: UInt = 0u,
+    public var floatSave: FloatingSaveArea = FloatingSaveArea(),
+    public var segGs: UInt = 0u,
+    public var segFs: UInt = 0u,
+    public var segEs: UInt = 0u,
+    public var segDs: UInt = 0u,
+    public var edi: UInt = 0u,
+    public var esi: UInt = 0u,
+    public var ebx: UInt = 0u,
+    public var edx: UInt = 0u,
+    public var ecx: UInt = 0u,
+    public var eax: UInt = 0u,
+    public var ebp: UInt = 0u,
+    public var eip: UInt = 0u,
+    public var segCs: UInt = 0u,
+    public var eFlags: UInt = 0u,
+    public var esp: UInt = 0u,
+    public var segSs: UInt = 0u,
 )
 
-public data class VDMLDT_ENTRY(
-    public var LimitLow: UShort = 0u,
-    public var BaseLow: UShort = 0u,
-    public var HighWord: VDMLDT_ENTRY_0 = VDMLDT_ENTRY_0(),
+public data class VdmldtEntry(
+    public var limitLow: UShort = 0u,
+    public var baseLow: UShort = 0u,
+    public var highWord: VdmldtEntry0 = VdmldtEntry0(),
 )
 
-public data class VDMLDT_ENTRY_0(public var Bytes: VDMLDT_ENTRY_0_0 = VDMLDT_ENTRY_0_0(), public var Bits: VDMLDT_ENTRY_0_1 = VDMLDT_ENTRY_0_1())
+public data class VdmldtEntry0(public var bytes: VdmldtEntry00 = VdmldtEntry00(), public var bits: VdmldtEntry01 = VdmldtEntry01())
 
-public data class VDMLDT_ENTRY_0_1(public var _bitfield: UInt = 0u)
+public data class VdmldtEntry01(public var bitfield: UInt = 0u)
 
-public data class VDMLDT_ENTRY_0_0(
-    public var BaseMid: UByte = 0u,
-    public var Flags1: UByte = 0u,
-    public var Flags2: UByte = 0u,
-    public var BaseHi: UByte = 0u,
+public data class VdmldtEntry00(
+    public var baseMid: UByte = 0u,
+    public var flags1: UByte = 0u,
+    public var flags2: UByte = 0u,
+    public var baseHi: UByte = 0u,
 )
 
-public data class VDM_SEGINFO(
-    public var Selector: UShort = 0u,
-    public var SegNumber: UShort = 0u,
-    public var Length: UInt = 0u,
-    public var Type: UShort = 0u,
-    public var ModuleName: ByteArray = ByteArray(9),
-    public var FileName: ByteArray = ByteArray(255),
+public data class VdmSeginfo(
+    public var selector: UShort = 0u,
+    public var segNumber: UShort = 0u,
+    public var length: UInt = 0u,
+    public var type: UShort = 0u,
+    public var moduleName: ByteArray = ByteArray(9),
+    public var fileName: ByteArray = ByteArray(255),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is VDM_SEGINFO) return false
-        if (this.Selector != other.Selector) return false
-        if (this.SegNumber != other.SegNumber) return false
-        if (this.Length != other.Length) return false
-        if (this.Type != other.Type) return false
-        if (!this.ModuleName.contentEquals(other.ModuleName)) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is VdmSeginfo) return false
+        if (this.selector != other.selector) return false
+        if (this.segNumber != other.segNumber) return false
+        if (this.length != other.length) return false
+        if (this.type != other.type) return false
+        if (!this.moduleName.contentEquals(other.moduleName)) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Selector.hashCode()
-        result = 31 * result + this.SegNumber.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.ModuleName.contentHashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.selector.hashCode()
+        result = 31 * result + this.segNumber.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.moduleName.contentHashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }

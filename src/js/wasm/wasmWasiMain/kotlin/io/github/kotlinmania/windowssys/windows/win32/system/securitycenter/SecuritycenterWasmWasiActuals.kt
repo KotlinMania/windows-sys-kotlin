@@ -2,24 +2,25 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 
-public actual fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT =
-    0
+public actual fun wscGetAntiMalwareUri(ppszuri: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WscGetSecurityProviderHealth(providers: UInt, phealth: Long): HRESULT =
-    0
+public actual fun wscGetSecurityProviderHealth(providers: UInt, phealth: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WscQueryAntiMalwareUri(): HRESULT =
-    0
+public actual fun wscQueryAntiMalwareUri(): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT =
-    0
+public actual fun wscRegisterForChanges(reserved: COpaquePointer?, phcallbackregistration: COpaquePointer?, lpcallbackaddress: LpthreadStartRoutine, pcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WscRegisterForUserNotifications(): HRESULT =
-    0
+public actual fun wscRegisterForUserNotifications(): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT =
-    0
+public actual fun wscUnRegisterChanges(hregistrationhandle: Handle): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

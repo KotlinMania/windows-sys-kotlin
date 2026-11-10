@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile
 
-public expect fun RtlDrainNonVolatileFlush(nvtoken: Long): UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public expect fun RtlFillNonVolatileMemory(nvtoken: Long, nvdestination: Long, size: ULong, value: UByte, flags: UInt): UInt
+public expect fun rtlDrainNonVolatileFlush(nvtoken: COpaquePointer?): UInt
 
-public expect fun RtlFlushNonVolatileMemory(nvtoken: Long, nvbuffer: Long, size: ULong, flags: UInt): UInt
+public expect fun rtlFillNonVolatileMemory(nvtoken: COpaquePointer?, nvdestination: COpaquePointer?, size: ULong, value: UByte, flags: UInt): UInt
 
-public expect fun RtlFlushNonVolatileMemoryRanges(nvtoken: Long, nvranges: Long, numranges: ULong, flags: UInt): UInt
+public expect fun rtlFlushNonVolatileMemory(nvtoken: COpaquePointer?, nvbuffer: COpaquePointer?, size: ULong, flags: UInt): UInt
 
-public expect fun RtlFreeNonVolatileToken(nvtoken: Long): UInt
+public expect fun rtlFlushNonVolatileMemoryRanges(nvtoken: COpaquePointer?, nvranges: COpaquePointer?, numranges: ULong, flags: UInt): UInt
 
-public expect fun RtlGetNonVolatileToken(nvbuffer: Long, size: ULong, nvtoken: Long): UInt
+public expect fun rtlFreeNonVolatileToken(nvtoken: COpaquePointer?): UInt
 
-public expect fun RtlWriteNonVolatileMemory(nvtoken: Long, nvdestination: Long, source: Long, size: ULong, flags: UInt): UInt
+public expect fun rtlGetNonVolatileToken(nvbuffer: COpaquePointer?, size: ULong, nvtoken: COpaquePointer?): UInt
+
+public expect fun rtlWriteNonVolatileMemory(nvtoken: COpaquePointer?, nvdestination: COpaquePointer?, source: COpaquePointer?, size: ULong, flags: UInt): UInt

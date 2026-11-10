@@ -2,67 +2,68 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer(namespacevirtualizationcontext.toCPointer<ByteVar>(), size)?.toLong() ?: 0L
+public actual fun prjAllocateAlignedBuffer(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, size: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), size)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache(namespacevirtualizationcontext.toCPointer<ByteVar>(), totalentrynumber.toCPointer<ByteVar>())
+public actual fun prjClearNegativePathCache(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, totalentrynumber: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), totalentrynumber?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: Int, completionresult: HRESULT, extendedparameters: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand(namespacevirtualizationcontext.toCPointer<ByteVar>(), commandid, completionresult, extendedparameters.toCPointer<ByteVar>())
+public actual fun prjCompleteCommand(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, commandid: Int, completionresult: Hresult, extendedparameters: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), commandid, completionresult, extendedparameters?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile(namespacevirtualizationcontext.toCPointer<ByteVar>(), destinationfilename.toCPointer<ByteVar>(), updateflags, failurereason.toCPointer<ByteVar>())
+public actual fun prjDeleteFile(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), destinationfilename?.value?.toCPointer<ByteVar>(), updateflags, failurereason?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjDoesNameContainWildCards(filename: PCWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards(filename.toCPointer<ByteVar>())
+public actual fun prjDoesNameContainWildCards(filename: Pcwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards(filename?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjFileNameCompare(filename1: PCWSTR, filename2: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare(filename1.toCPointer<ByteVar>(), filename2.toCPointer<ByteVar>())
+public actual fun prjFileNameCompare(filename1: Pcwstr, filename2: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare(filename1?.value?.toCPointer<ByteVar>(), filename2?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjFileNameMatch(filenametocheck: PCWSTR, pattern: PCWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch(filenametocheck.toCPointer<ByteVar>(), pattern.toCPointer<ByteVar>())
+public actual fun prjFileNameMatch(filenametocheck: Pcwstr, pattern: Pcwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch(filenametocheck?.value?.toCPointer<ByteVar>(), pattern?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjFillDirEntryBuffer(filename: PCWSTR, filebasicinfo: Long, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer(filename.toCPointer<ByteVar>(), filebasicinfo.toCPointer<ByteVar>(), direntrybufferhandle.toCPointer<ByteVar>())
+public actual fun prjFillDirEntryBuffer(filename: Pcwstr, filebasicinfo: COpaquePointer?, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer(filename?.value?.toCPointer<ByteVar>(), filebasicinfo?.value?.toCPointer<ByteVar>(), direntrybufferhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: PCWSTR, filebasicinfo: Long, extendedinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2(direntrybufferhandle.toCPointer<ByteVar>(), filename.toCPointer<ByteVar>(), filebasicinfo.toCPointer<ByteVar>(), extendedinfo.toCPointer<ByteVar>())
+public actual fun prjFillDirEntryBuffer2(direntrybufferhandle: PrjDirEntryBufferHandle, filename: Pcwstr, filebasicinfo: COpaquePointer?, extendedinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2(direntrybufferhandle?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), filebasicinfo?.value?.toCPointer<ByteVar>(), extendedinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjFreeAlignedBuffer(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer(buffer.toCPointer<ByteVar>())
+public actual fun prjFreeAlignedBuffer(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer(buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PrjGetOnDiskFileState(destinationfilename: PCWSTR, filestate: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState(destinationfilename.toCPointer<ByteVar>(), filestate.toCPointer<ByteVar>())
+public actual fun prjGetOnDiskFileState(destinationfilename: Pcwstr, filestate: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState(destinationfilename?.value?.toCPointer<ByteVar>(), filestate?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.toCPointer<ByteVar>(), virtualizationinstanceinfo.toCPointer<ByteVar>())
+public actual fun prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, virtualizationinstanceinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), virtualizationinstanceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjMarkDirectoryAsPlaceholder(rootpathname: PCWSTR, targetpathname: PCWSTR, versioninfo: Long, virtualizationinstanceid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder(rootpathname.toCPointer<ByteVar>(), targetpathname.toCPointer<ByteVar>(), versioninfo.toCPointer<ByteVar>(), virtualizationinstanceid.toCPointer<ByteVar>())
+public actual fun prjMarkDirectoryAsPlaceholder(rootpathname: Pcwstr, targetpathname: Pcwstr, versioninfo: COpaquePointer?, virtualizationinstanceid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder(rootpathname?.value?.toCPointer<ByteVar>(), targetpathname?.value?.toCPointer<ByteVar>(), versioninfo?.value?.toCPointer<ByteVar>(), virtualizationinstanceid?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjStartVirtualizing(virtualizationrootpath: PCWSTR, callbacks: Long, instancecontext: Long, options: Long, namespacevirtualizationcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing(virtualizationrootpath.toCPointer<ByteVar>(), callbacks.toCPointer<ByteVar>(), instancecontext.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), namespacevirtualizationcontext.toCPointer<ByteVar>())
+public actual fun prjStartVirtualizing(virtualizationrootpath: Pcwstr, callbacks: COpaquePointer?, instancecontext: COpaquePointer?, options: COpaquePointer?, namespacevirtualizationcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing(virtualizationrootpath?.value?.toCPointer<ByteVar>(), callbacks?.value?.toCPointer<ByteVar>(), instancecontext?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), namespacevirtualizationcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing(namespacevirtualizationcontext.toCPointer<ByteVar>())
+public actual fun prjStopVirtualizing(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded(namespacevirtualizationcontext.toCPointer<ByteVar>(), destinationfilename.toCPointer<ByteVar>(), placeholderinfo.toCPointer<ByteVar>(), placeholderinfosize, updateflags, failurereason.toCPointer<ByteVar>())
+public actual fun prjUpdateFileIfNeeded(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), destinationfilename?.value?.toCPointer<ByteVar>(), placeholderinfo?.value?.toCPointer<ByteVar>(), placeholderinfosize, updateflags, failurereason?.value?.toCPointer<ByteVar>())
 
-public actual fun PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: Long, buffer: Long, byteoffset: ULong, length: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData(namespacevirtualizationcontext.toCPointer<ByteVar>(), datastreamid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), byteoffset, length)
+public actual fun prjWriteFileData(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, datastreamid: COpaquePointer?, buffer: COpaquePointer?, byteoffset: ULong, length: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), datastreamid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), byteoffset, length)
 
-public actual fun PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo(namespacevirtualizationcontext.toCPointer<ByteVar>(), destinationfilename.toCPointer<ByteVar>(), placeholderinfo.toCPointer<ByteVar>(), placeholderinfosize)
+public actual fun prjWritePlaceholderInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), destinationfilename?.value?.toCPointer<ByteVar>(), placeholderinfo?.value?.toCPointer<ByteVar>(), placeholderinfosize)
 
-public actual fun PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, extendedinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2(namespacevirtualizationcontext.toCPointer<ByteVar>(), destinationfilename.toCPointer<ByteVar>(), placeholderinfo.toCPointer<ByteVar>(), placeholderinfosize, extendedinfo.toCPointer<ByteVar>())
+public actual fun prjWritePlaceholderInfo2(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, extendedinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem.cinterop.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2(namespacevirtualizationcontext?.value?.toCPointer<ByteVar>(), destinationfilename?.value?.toCPointer<ByteVar>(), placeholderinfo?.value?.toCPointer<ByteVar>(), placeholderinfosize, extendedinfo?.value?.toCPointer<ByteVar>())

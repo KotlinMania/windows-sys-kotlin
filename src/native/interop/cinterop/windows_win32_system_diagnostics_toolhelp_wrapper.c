@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_system_diagnostics_toolhelp_CreateToolhelp32Snapshot(uint32_t dwflags, uint32_t th32processid) {
+void* windowssys_windows_win32_system_diagnostics_toolhelp_createToolhelp32Snapshot(uint32_t dwflags, uint32_t th32processid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_system_diagnostics_toolhelp_CreateToolhelp32Snaps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32First(void* lphe, uint32_t th32processid, uint64_t th32heapid) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32First(void* lphe, uint32_t th32processid, uint64_t th32heapid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32First(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32ListFirst(void* hsnapshot, void* lphl) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListFirst(void* hsnapshot, void* lphl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32ListFirst(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32ListNext(void* hsnapshot, void* lphl) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32ListNext(void* hsnapshot, void* lphl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32ListNext(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32Next(void* lphe) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_heap32Next(void* lphe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Heap32Next(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32First(void* hsnapshot, void* lpme) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32First(void* hsnapshot, void* lpme) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -153,7 +153,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32First(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32FirstW(void* hsnapshot, void* lpme) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32FirstW(void* hsnapshot, void* lpme) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32FirstW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32Next(void* hsnapshot, void* lpme) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32Next(void* hsnapshot, void* lpme) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32Next(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32NextW(void* hsnapshot, void* lpme) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_module32NextW(void* hsnapshot, void* lpme) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Module32NextW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32First(void* hsnapshot, void* lppe) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32First(void* hsnapshot, void* lppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32First(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32FirstW(void* hsnapshot, void* lppe) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32FirstW(void* hsnapshot, void* lppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32FirstW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32Next(void* hsnapshot, void* lppe) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32Next(void* hsnapshot, void* lppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32Next(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32NextW(void* hsnapshot, void* lppe) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_process32NextW(void* hsnapshot, void* lppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Process32NextW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Thread32First(void* hsnapshot, void* lpte) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_thread32First(void* hsnapshot, void* lpte) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Thread32First(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Thread32Next(void* hsnapshot, void* lpte) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_thread32Next(void* hsnapshot, void* lpte) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Thread32Next(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_diagnostics_toolhelp_Toolhelp32ReadProcessMemory(uint32_t th32processid, void* lpbaseaddress, void* lpbuffer, uint64_t cbread, void* lpnumberofbytesread) {
+int32_t windowssys_windows_win32_system_diagnostics_toolhelp_toolhelp32ReadProcessMemory(uint32_t th32processid, void* lpbaseaddress, void* lpbuffer, uint64_t cbread, void* lpnumberofbytesread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,112 +1,114 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-public data class CACHE_DESCRIPTOR(
-    public var Level: UByte = 0u,
-    public var Associativity: UByte = 0u,
-    public var LineSize: UShort = 0u,
-    public var Size: UInt = 0u,
-    public var Type: PROCESSOR_CACHE_TYPE = 0,
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public data class CacheDescriptor(
+    public var level: UByte = 0u,
+    public var associativity: UByte = 0u,
+    public var lineSize: UShort = 0u,
+    public var size: UInt = 0u,
+    public var type: ProcessorCacheType = 0,
 )
 
-public data class CACHE_RELATIONSHIP(
-    public var Level: UByte = 0u,
-    public var Associativity: UByte = 0u,
-    public var LineSize: UShort = 0u,
-    public var CacheSize: UInt = 0u,
-    public var Type: PROCESSOR_CACHE_TYPE = 0,
-    public var Reserved: UByteArray = UByteArray(18),
-    public var GroupCount: UShort = 0u,
-    public var Anonymous: CACHE_RELATIONSHIP_0 = CACHE_RELATIONSHIP_0(),
+public data class CacheRelationship(
+    public var level: UByte = 0u,
+    public var associativity: UByte = 0u,
+    public var lineSize: UShort = 0u,
+    public var cacheSize: UInt = 0u,
+    public var type: ProcessorCacheType = 0,
+    public var reserved: UByteArray = UByteArray(18),
+    public var groupCount: UShort = 0u,
+    public var anonymous: CacheRelationship0 = CacheRelationship0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CACHE_RELATIONSHIP) return false
-        if (this.Level != other.Level) return false
-        if (this.Associativity != other.Associativity) return false
-        if (this.LineSize != other.LineSize) return false
-        if (this.CacheSize != other.CacheSize) return false
-        if (this.Type != other.Type) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.GroupCount != other.GroupCount) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is CacheRelationship) return false
+        if (this.level != other.level) return false
+        if (this.associativity != other.associativity) return false
+        if (this.lineSize != other.lineSize) return false
+        if (this.cacheSize != other.cacheSize) return false
+        if (this.type != other.type) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.groupCount != other.groupCount) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Level.hashCode()
-        result = 31 * result + this.Associativity.hashCode()
-        result = 31 * result + this.LineSize.hashCode()
-        result = 31 * result + this.CacheSize.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.GroupCount.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.level.hashCode()
+        result = 31 * result + this.associativity.hashCode()
+        result = 31 * result + this.lineSize.hashCode()
+        result = 31 * result + this.cacheSize.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.groupCount.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class CACHE_RELATIONSHIP_0(public var GroupMask: GROUP_AFFINITY = GROUP_AFFINITY(), public var GroupMasks: List<GROUP_AFFINITY> = List(1) { GROUP_AFFINITY() })
+public data class CacheRelationship0(public var groupMask: GroupAffinity = GroupAffinity(), public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() })
 
-public data class GROUP_AFFINITY(
-    public var Mask: ULong = 0uL,
-    public var Group: UShort = 0u,
-    public var Reserved: UShortArray = UShortArray(3),
+public data class GroupAffinity(
+    public var mask: Int = 0,
+    public var group: UShort = 0u,
+    public var reserved: UShortArray = UShortArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GROUP_AFFINITY) return false
-        if (this.Mask != other.Mask) return false
-        if (this.Group != other.Group) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is GroupAffinity) return false
+        if (this.mask != other.mask) return false
+        if (this.group != other.group) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Mask.hashCode()
-        result = 31 * result + this.Group.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.mask.hashCode()
+        result = 31 * result + this.group.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class GROUP_RELATIONSHIP(
-    public var MaximumGroupCount: UShort = 0u,
-    public var ActiveGroupCount: UShort = 0u,
-    public var Reserved: UByteArray = UByteArray(20),
-    public var GroupInfo: List<PROCESSOR_GROUP_INFO> = List(1) { PROCESSOR_GROUP_INFO() },
+public data class GroupRelationship(
+    public var maximumGroupCount: UShort = 0u,
+    public var activeGroupCount: UShort = 0u,
+    public var reserved: UByteArray = UByteArray(20),
+    public var groupInfo: List<ProcessorGroupInfo> = List(1) { ProcessorGroupInfo() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GROUP_RELATIONSHIP) return false
-        if (this.MaximumGroupCount != other.MaximumGroupCount) return false
-        if (this.ActiveGroupCount != other.ActiveGroupCount) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.GroupInfo != other.GroupInfo) return false
+        if (other !is GroupRelationship) return false
+        if (this.maximumGroupCount != other.maximumGroupCount) return false
+        if (this.activeGroupCount != other.activeGroupCount) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.groupInfo != other.groupInfo) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaximumGroupCount.hashCode()
-        result = 31 * result + this.ActiveGroupCount.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.GroupInfo.hashCode()
+        var result = this.maximumGroupCount.hashCode()
+        result = 31 * result + this.activeGroupCount.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.groupInfo.hashCode()
         return result
     }
 }
 
-public data class MEMORYSTATUS(
+public data class Memorystatus(
     public var dwLength: UInt = 0u,
     public var dwMemoryLoad: UInt = 0u,
-    public var dwTotalPhys: ULong = 0uL,
-    public var dwAvailPhys: ULong = 0uL,
-    public var dwTotalPageFile: ULong = 0uL,
-    public var dwAvailPageFile: ULong = 0uL,
-    public var dwTotalVirtual: ULong = 0uL,
-    public var dwAvailVirtual: ULong = 0uL,
+    public var dwTotalPhys: Int = 0,
+    public var dwAvailPhys: Int = 0,
+    public var dwTotalPageFile: Int = 0,
+    public var dwAvailPageFile: Int = 0,
+    public var dwTotalVirtual: Int = 0,
+    public var dwAvailVirtual: Int = 0,
 )
 
-public data class MEMORYSTATUSEX(
+public data class Memorystatusex(
     public var dwLength: UInt = 0u,
     public var dwMemoryLoad: UInt = 0u,
     public var ullTotalPhys: ULong = 0uL,
@@ -118,34 +120,34 @@ public data class MEMORYSTATUSEX(
     public var ullAvailExtendedVirtual: ULong = 0uL,
 )
 
-public data class NUMA_NODE_RELATIONSHIP(
-    public var NodeNumber: UInt = 0u,
-    public var Reserved: UByteArray = UByteArray(18),
-    public var GroupCount: UShort = 0u,
-    public var Anonymous: NUMA_NODE_RELATIONSHIP_0 = NUMA_NODE_RELATIONSHIP_0(),
+public data class NumaNodeRelationship(
+    public var nodeNumber: UInt = 0u,
+    public var reserved: UByteArray = UByteArray(18),
+    public var groupCount: UShort = 0u,
+    public var anonymous: NumaNodeRelationship0 = NumaNodeRelationship0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NUMA_NODE_RELATIONSHIP) return false
-        if (this.NodeNumber != other.NodeNumber) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.GroupCount != other.GroupCount) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is NumaNodeRelationship) return false
+        if (this.nodeNumber != other.nodeNumber) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.groupCount != other.groupCount) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NodeNumber.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.GroupCount.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.nodeNumber.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.groupCount.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class NUMA_NODE_RELATIONSHIP_0(public var GroupMask: GROUP_AFFINITY = GROUP_AFFINITY(), public var GroupMasks: List<GROUP_AFFINITY> = List(1) { GROUP_AFFINITY() })
+public data class NumaNodeRelationship0(public var groupMask: GroupAffinity = GroupAffinity(), public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() })
 
-public data class OSVERSIONINFOA(
+public data class Osversioninfoa(
     public var dwOSVersionInfoSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -155,7 +157,7 @@ public data class OSVERSIONINFOA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OSVERSIONINFOA) return false
+        if (other !is Osversioninfoa) return false
         if (this.dwOSVersionInfoSize != other.dwOSVersionInfoSize) return false
         if (this.dwMajorVersion != other.dwMajorVersion) return false
         if (this.dwMinorVersion != other.dwMinorVersion) return false
@@ -176,7 +178,7 @@ public data class OSVERSIONINFOA(
     }
 }
 
-public data class OSVERSIONINFOEXA(
+public data class Osversioninfoexa(
     public var dwOSVersionInfoSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -191,7 +193,7 @@ public data class OSVERSIONINFOEXA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OSVERSIONINFOEXA) return false
+        if (other !is Osversioninfoexa) return false
         if (this.dwOSVersionInfoSize != other.dwOSVersionInfoSize) return false
         if (this.dwMajorVersion != other.dwMajorVersion) return false
         if (this.dwMinorVersion != other.dwMinorVersion) return false
@@ -222,7 +224,7 @@ public data class OSVERSIONINFOEXA(
     }
 }
 
-public data class OSVERSIONINFOEXW(
+public data class Osversioninfoexw(
     public var dwOSVersionInfoSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -237,7 +239,7 @@ public data class OSVERSIONINFOEXW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OSVERSIONINFOEXW) return false
+        if (other !is Osversioninfoexw) return false
         if (this.dwOSVersionInfoSize != other.dwOSVersionInfoSize) return false
         if (this.dwMajorVersion != other.dwMajorVersion) return false
         if (this.dwMinorVersion != other.dwMinorVersion) return false
@@ -268,7 +270,7 @@ public data class OSVERSIONINFOEXW(
     }
 }
 
-public data class OSVERSIONINFOW(
+public data class Osversioninfow(
     public var dwOSVersionInfoSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -278,7 +280,7 @@ public data class OSVERSIONINFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OSVERSIONINFOW) return false
+        if (other !is Osversioninfow) return false
         if (this.dwOSVersionInfoSize != other.dwOSVersionInfoSize) return false
         if (this.dwMajorVersion != other.dwMajorVersion) return false
         if (this.dwMinorVersion != other.dwMinorVersion) return false
@@ -299,92 +301,92 @@ public data class OSVERSIONINFOW(
     }
 }
 
-public data class PROCESSOR_GROUP_INFO(
-    public var MaximumProcessorCount: UByte = 0u,
-    public var ActiveProcessorCount: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(38),
-    public var ActiveProcessorMask: ULong = 0uL,
+public data class ProcessorGroupInfo(
+    public var maximumProcessorCount: UByte = 0u,
+    public var activeProcessorCount: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(38),
+    public var activeProcessorMask: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSOR_GROUP_INFO) return false
-        if (this.MaximumProcessorCount != other.MaximumProcessorCount) return false
-        if (this.ActiveProcessorCount != other.ActiveProcessorCount) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.ActiveProcessorMask != other.ActiveProcessorMask) return false
+        if (other !is ProcessorGroupInfo) return false
+        if (this.maximumProcessorCount != other.maximumProcessorCount) return false
+        if (this.activeProcessorCount != other.activeProcessorCount) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.activeProcessorMask != other.activeProcessorMask) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaximumProcessorCount.hashCode()
-        result = 31 * result + this.ActiveProcessorCount.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.ActiveProcessorMask.hashCode()
+        var result = this.maximumProcessorCount.hashCode()
+        result = 31 * result + this.activeProcessorCount.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.activeProcessorMask.hashCode()
         return result
     }
 }
 
-public data class PROCESSOR_RELATIONSHIP(
-    public var Flags: UByte = 0u,
-    public var EfficiencyClass: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(20),
-    public var GroupCount: UShort = 0u,
-    public var GroupMask: List<GROUP_AFFINITY> = List(1) { GROUP_AFFINITY() },
+public data class ProcessorRelationship(
+    public var flags: UByte = 0u,
+    public var efficiencyClass: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(20),
+    public var groupCount: UShort = 0u,
+    public var groupMask: List<GroupAffinity> = List(1) { GroupAffinity() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSOR_RELATIONSHIP) return false
-        if (this.Flags != other.Flags) return false
-        if (this.EfficiencyClass != other.EfficiencyClass) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.GroupCount != other.GroupCount) return false
-        if (this.GroupMask != other.GroupMask) return false
+        if (other !is ProcessorRelationship) return false
+        if (this.flags != other.flags) return false
+        if (this.efficiencyClass != other.efficiencyClass) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.groupCount != other.groupCount) return false
+        if (this.groupMask != other.groupMask) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Flags.hashCode()
-        result = 31 * result + this.EfficiencyClass.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.GroupCount.hashCode()
-        result = 31 * result + this.GroupMask.hashCode()
+        var result = this.flags.hashCode()
+        result = 31 * result + this.efficiencyClass.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.groupCount.hashCode()
+        result = 31 * result + this.groupMask.hashCode()
         return result
     }
 }
 
-public data class SYSTEM_CPU_SET_INFORMATION(
-    public var Size: UInt = 0u,
-    public var Type: CPU_SET_INFORMATION_TYPE = 0,
-    public var Anonymous: SYSTEM_CPU_SET_INFORMATION_0 = SYSTEM_CPU_SET_INFORMATION_0(),
+public data class SystemCpuSetInformation(
+    public var size: UInt = 0u,
+    public var type: CpuSetInformationType = 0,
+    public var anonymous: SystemCpuSetInformation0 = SystemCpuSetInformation0(),
 )
 
-public data class SYSTEM_CPU_SET_INFORMATION_0(public var CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0 = SYSTEM_CPU_SET_INFORMATION_0_0())
+public data class SystemCpuSetInformation0(public var cpuSet: SystemCpuSetInformation00 = SystemCpuSetInformation00())
 
-public data class SYSTEM_CPU_SET_INFORMATION_0_0(
-    public var Id: UInt = 0u,
-    public var Group: UShort = 0u,
-    public var LogicalProcessorIndex: UByte = 0u,
-    public var CoreIndex: UByte = 0u,
-    public var LastLevelCacheIndex: UByte = 0u,
-    public var NumaNodeIndex: UByte = 0u,
-    public var EfficiencyClass: UByte = 0u,
-    public var Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0 = SYSTEM_CPU_SET_INFORMATION_0_0_0(),
-    public var Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1 = SYSTEM_CPU_SET_INFORMATION_0_0_1(),
-    public var AllocationTag: ULong = 0uL,
+public data class SystemCpuSetInformation00(
+    public var id: UInt = 0u,
+    public var group: UShort = 0u,
+    public var logicalProcessorIndex: UByte = 0u,
+    public var coreIndex: UByte = 0u,
+    public var lastLevelCacheIndex: UByte = 0u,
+    public var numaNodeIndex: UByte = 0u,
+    public var efficiencyClass: UByte = 0u,
+    public var anonymous1: SystemCpuSetInformation000 = SystemCpuSetInformation000(),
+    public var anonymous2: SystemCpuSetInformation001 = SystemCpuSetInformation001(),
+    public var allocationTag: ULong = 0uL,
 )
 
-public data class SYSTEM_CPU_SET_INFORMATION_0_0_0(public var AllFlags: UByte = 0u, public var Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0 = SYSTEM_CPU_SET_INFORMATION_0_0_0_0())
+public data class SystemCpuSetInformation000(public var allFlags: UByte = 0u, public var anonymous: SystemCpuSetInformation0000 = SystemCpuSetInformation0000())
 
-public data class SYSTEM_CPU_SET_INFORMATION_0_0_0_0(public var _bitfield: UByte = 0u)
+public data class SystemCpuSetInformation0000(public var bitfield: UByte = 0u)
 
-public data class SYSTEM_CPU_SET_INFORMATION_0_0_1(public var Reserved: UInt = 0u, public var SchedulingClass: UByte = 0u)
+public data class SystemCpuSetInformation001(public var reserved: UInt = 0u, public var schedulingClass: UByte = 0u)
 
-public data class SYSTEM_INFO(
-    public var Anonymous: SYSTEM_INFO_0 = SYSTEM_INFO_0(),
+public data class SystemInfo(
+    public var anonymous: SystemInfo0 = SystemInfo0(),
     public var dwPageSize: UInt = 0u,
-    public var lpMinimumApplicationAddress: Long = 0L,
-    public var lpMaximumApplicationAddress: Long = 0L,
-    public var dwActiveProcessorMask: ULong = 0uL,
+    public var lpMinimumApplicationAddress: COpaquePointer? = null,
+    public var lpMaximumApplicationAddress: COpaquePointer? = null,
+    public var dwActiveProcessorMask: Int = 0,
     public var dwNumberOfProcessors: UInt = 0u,
     public var dwProcessorType: UInt = 0u,
     public var dwAllocationGranularity: UInt = 0u,
@@ -392,60 +394,60 @@ public data class SYSTEM_INFO(
     public var wProcessorRevision: UShort = 0u,
 )
 
-public data class SYSTEM_INFO_0(public var dwOemId: UInt = 0u, public var Anonymous: SYSTEM_INFO_0_0 = SYSTEM_INFO_0_0())
+public data class SystemInfo0(public var dwOemId: UInt = 0u, public var anonymous: SystemInfo00 = SystemInfo00())
 
-public data class SYSTEM_INFO_0_0(public var wProcessorArchitecture: PROCESSOR_ARCHITECTURE = 0u, public var wReserved: UShort = 0u)
+public data class SystemInfo00(public var wProcessorArchitecture: ProcessorArchitecture = 0u, public var wReserved: UShort = 0u)
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION(
-    public var ProcessorMask: ULong = 0uL,
-    public var Relationship: LOGICAL_PROCESSOR_RELATIONSHIP = 0,
-    public var Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 = SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0(),
+public data class SystemLogicalProcessorInformation(
+    public var processorMask: Int = 0,
+    public var relationship: LogicalProcessorRelationship = 0,
+    public var anonymous: SystemLogicalProcessorInformation0 = SystemLogicalProcessorInformation0(),
 )
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0(
-    public var ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 = SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0(),
-    public var NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 = SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1(),
-    public var Cache: CACHE_DESCRIPTOR = CACHE_DESCRIPTOR(),
-    public var Reserved: ULongArray = ULongArray(2),
+public data class SystemLogicalProcessorInformation0(
+    public var processorCore: SystemLogicalProcessorInformation00 = SystemLogicalProcessorInformation00(),
+    public var numaNode: SystemLogicalProcessorInformation01 = SystemLogicalProcessorInformation01(),
+    public var cache: CacheDescriptor = CacheDescriptor(),
+    public var reserved: ULongArray = ULongArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0) return false
-        if (this.ProcessorCore != other.ProcessorCore) return false
-        if (this.NumaNode != other.NumaNode) return false
-        if (this.Cache != other.Cache) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is SystemLogicalProcessorInformation0) return false
+        if (this.processorCore != other.processorCore) return false
+        if (this.numaNode != other.numaNode) return false
+        if (this.cache != other.cache) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ProcessorCore.hashCode()
-        result = 31 * result + this.NumaNode.hashCode()
-        result = 31 * result + this.Cache.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.processorCore.hashCode()
+        result = 31 * result + this.numaNode.hashCode()
+        result = 31 * result + this.cache.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1(public var NodeNumber: UInt = 0u)
+public data class SystemLogicalProcessorInformation01(public var nodeNumber: UInt = 0u)
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0(public var Flags: UByte = 0u)
+public data class SystemLogicalProcessorInformation00(public var flags: UByte = 0u)
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(
-    public var Relationship: LOGICAL_PROCESSOR_RELATIONSHIP = 0,
-    public var Size: UInt = 0u,
-    public var Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 = SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0(),
+public data class SystemLogicalProcessorInformationEx(
+    public var relationship: LogicalProcessorRelationship = 0,
+    public var size: UInt = 0u,
+    public var anonymous: SystemLogicalProcessorInformationEx0 = SystemLogicalProcessorInformationEx0(),
 )
 
-public data class SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0(
-    public var Processor: PROCESSOR_RELATIONSHIP = PROCESSOR_RELATIONSHIP(),
-    public var NumaNode: NUMA_NODE_RELATIONSHIP = NUMA_NODE_RELATIONSHIP(),
-    public var Cache: CACHE_RELATIONSHIP = CACHE_RELATIONSHIP(),
-    public var Group: GROUP_RELATIONSHIP = GROUP_RELATIONSHIP(),
+public data class SystemLogicalProcessorInformationEx0(
+    public var processor: ProcessorRelationship = ProcessorRelationship(),
+    public var numaNode: NumaNodeRelationship = NumaNodeRelationship(),
+    public var cache: CacheRelationship = CacheRelationship(),
+    public var group: GroupRelationship = GroupRelationship(),
 )
 
-public data class SYSTEM_POOL_ZEROING_INFORMATION(public var PoolZeroingSupportPresent: Boolean = false)
+public data class SystemPoolZeroingInformation(public var poolZeroingSupportPresent: Boolean = false)
 
-public data class SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION(public var CycleTime: ULong = 0uL)
+public data class SystemProcessorCycleTimeInformation(public var cycleTime: ULong = 0uL)
 
-public data class SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION(public var _bitfield: UInt = 0u)
+public data class SystemSupportedProcessorArchitecturesInformation(public var bitfield: UInt = 0u)

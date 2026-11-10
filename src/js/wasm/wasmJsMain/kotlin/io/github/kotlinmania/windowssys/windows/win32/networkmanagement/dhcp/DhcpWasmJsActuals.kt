@@ -1,637 +1,1291 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public actual fun DhcpAddFilterV4(serveripaddress: PCWSTR, addfilterinfo: Long, forceflag: BOOL): UInt =
-    0u
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32NetworkmanagementDhcpNapiAddon(): Boolean
 
-public actual fun DhcpAddSecurityGroup(pserver: PCWSTR): UInt =
-    0u
+private val _windowsWin32NetworkmanagementDhcpNapiAvailable: Boolean = _initWindowsWin32NetworkmanagementDhcpNapiAddon()
 
-public actual fun DhcpAddServer(flags: UInt, idinfo: Long, newserver: Long, callbackfn: Long, callbackdata: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4(p0: String, p1: String, p2: Int): Int
 
-public actual fun DhcpAddSubnetElement(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup(p0: String): Int
 
-public actual fun DhcpAddSubnetElementV4(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-public actual fun DhcpAddSubnetElementV5(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement(p0: String, p1: Int, p2: String): Int
 
-public actual fun DhcpAddSubnetElementV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4(p0: String, p1: Int, p2: String): Int
 
-public actual fun DhcpAuditLogGetParams(serveripaddress: PCWSTR, flags: UInt, auditlogdir: Long, diskcheckinterval: Long, maxlogfilessize: Long, minspaceondisk: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5(p0: String, p1: Int, p2: String): Int
 
-public actual fun DhcpAuditLogSetParams(serveripaddress: PCWSTR, flags: UInt, auditlogdir: PCWSTR, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun DhcpCApiCleanup() {
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup()")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup()
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup()")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup()
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit()")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit(): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4(p0: String, p1: String, p2: Int, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String, p9: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String, p9: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: Int, p7: String, p8: Int, p9: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: Int, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: Int, p7: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty(p0: String, p1: Int, p2: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations()")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory(p0: String)
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams(p0: Int, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement(p0: String, p1: Int, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup()")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup()
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize(p0)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix(p0: String, p1: String, p2: String, p3: String): Int
+
+public actual fun dhcpAddFilterV4(serveripaddress: Pcwstr, addfilterinfo: COpaquePointer?, forceflag: Bool): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4((serveripaddress?.value ?: 0L).toString(), (addfilterinfo?.value ?: 0L).toString(), forceflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddSecurityGroup(pserver: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup((pserver?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddServer(flags: UInt, idinfo: COpaquePointer?, newserver: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer(flags.toInt(), (idinfo?.value ?: 0L).toString(), (newserver?.value ?: 0L).toString(), (callbackfn?.value ?: 0L).toString(), (callbackdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (addelementinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (addelementinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (addelementinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAddSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, addelementinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAuditLogGetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: COpaquePointer?, diskcheckinterval: COpaquePointer?, maxlogfilessize: COpaquePointer?, minspaceondisk: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (auditlogdir?.value ?: 0L).toString(), (diskcheckinterval?.value ?: 0L).toString(), (maxlogfilessize?.value ?: 0L).toString(), (minspaceondisk?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpAuditLogSetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: Pcwstr, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (auditlogdir?.value ?: 0L).toString(), diskcheckinterval.toInt(), maxlogfilessize.toInt(), minspaceondisk.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dhcpCApiCleanup() {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpCApiInitialize(version: Long): UInt =
-    0u
+public actual fun dhcpCApiInitialize(version: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize((version?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateClientInfoV4(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateClientInfoV4(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateClientInfoVQ(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateClientInfoVQ(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateOption(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpCreateOption(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateOptionV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpCreateOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateOptionV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpCreateOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateSubnet(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateSubnetV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpCreateSubnetVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpCreateSubnetVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeRegisterParamChange(flags: UInt, reserved: Long, event: Long): UInt =
-    0u
+public actual fun dhcpDeRegisterParamChange(flags: UInt, reserved: COpaquePointer?, event: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange(flags.toInt(), (reserved?.value ?: 0L).toString(), (event?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classname: PCWSTR): UInt =
-    0u
+public actual fun dhcpDeleteClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classname: PCWSTR): UInt =
-    0u
+public actual fun dhcpDeleteClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpDeleteClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteClientInfoV6(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpDeleteClientInfoV6(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteFilterV4(serveripaddress: PCWSTR, deletefilterinfo: Long): UInt =
-    0u
+public actual fun dhcpDeleteFilterV4(serveripaddress: Pcwstr, deletefilterinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4((serveripaddress?.value ?: 0L).toString(), (deletefilterinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteServer(flags: UInt, idinfo: Long, newserver: Long, callbackfn: Long, callbackdata: Long): UInt =
-    0u
+public actual fun dhcpDeleteServer(flags: UInt, idinfo: COpaquePointer?, newserver: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer(flags.toInt(), (idinfo?.value ?: 0L).toString(), (newserver?.value ?: 0L).toString(), (callbackfn?.value ?: 0L).toString(), (callbackdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteSubnet(serveripaddress: PCWSTR, subnetaddress: UInt, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpDeleteSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, forceflag: DhcpForceFlag): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), forceflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteSubnetV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpDeleteSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, forceflag: DhcpForceFlag): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDeleteSuperScopeV4(serveripaddress: PCWSTR, superscopename: PCWSTR): UInt =
-    0u
+public actual fun dhcpDeleteSuperScopeV4(serveripaddress: Pcwstr, superscopename: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4((serveripaddress?.value ?: 0L).toString(), (superscopename?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpDsCleanup() {
+public actual fun dhcpDsCleanup() {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpDsInit(): UInt =
-    0u
+public actual fun dhcpDsInit(): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumClasses(serveripaddress: PCWSTR, reservedmustbezero: UInt, resumehandle: Long, preferredmaximum: UInt, classinfoarray: Long, nread: Long, ntotal: Long): UInt =
-    0u
+public actual fun dhcpEnumClasses(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, classinfoarray: COpaquePointer?, nread: COpaquePointer?, ntotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (classinfoarray?.value ?: 0L).toString(), (nread?.value ?: 0L).toString(), (ntotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumClassesV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, resumehandle: Long, preferredmaximum: UInt, classinfoarray: Long, nread: Long, ntotal: Long): UInt =
-    0u
+public actual fun dhcpEnumClassesV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, classinfoarray: COpaquePointer?, nread: COpaquePointer?, ntotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (classinfoarray?.value ?: 0L).toString(), (nread?.value ?: 0L).toString(), (ntotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumFilterV4(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumFilterV4(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, listtype: DhcpFilterListType, enumfilterinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), listtype, (enumfilterinfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptionValues(serveripaddress: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptionValues(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues((serveripaddress?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (optionvalues?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptionValuesV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (optionvalues?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptionValuesV6(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (optionvalues?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptions(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptions(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (options?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptionsV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptionsV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (options?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumOptionsV6(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumOptionsV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (options?.value ?: 0L).toString(), (optionsread?.value ?: 0L).toString(), (optionstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumServers(flags: UInt, idinfo: Long, servers: Long, callbackfn: Long, callbackdata: Long): UInt =
-    0u
+public actual fun dhcpEnumServers(flags: UInt, idinfo: COpaquePointer?, servers: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers(flags.toInt(), (idinfo?.value ?: 0L).toString(), (servers?.value ?: 0L).toString(), (callbackfn?.value ?: 0L).toString(), (callbackdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClients(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClientsV4(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClientsV4(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClientsV5(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClientsV5(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClientsV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClientsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetClientsVQ(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetClientsVQ(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetElements(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetElements(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), enumelementtype, (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enumelementinfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetElementsV4(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetElementsV4(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), enumelementtype, (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enumelementinfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetElementsV5(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetElementsV5(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), enumelementtype, (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enumelementinfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetElementsV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetElementsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, enumelementtype: DhcpSubnetElementTypeV6, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnets(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnets(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enuminfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpEnumSubnetsV6(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpEnumSubnetsV6(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enuminfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetAllOptionValues(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    0u
+public actual fun dhcpGetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (scopeinfo?.value ?: 0L).toString(), (values?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetAllOptionValuesV6(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    0u
+public actual fun dhcpGetAllOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (scopeinfo?.value ?: 0L).toString(), (values?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetAllOptions(serveripaddress: PCWSTR, flags: UInt, optionstruct: Long): UInt =
-    0u
+public actual fun dhcpGetAllOptions(serveripaddress: Pcwstr, flags: UInt, optionstruct: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (optionstruct?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetAllOptionsV6(serveripaddress: PCWSTR, flags: UInt, optionstruct: Long): UInt =
-    0u
+public actual fun dhcpGetAllOptionsV6(serveripaddress: Pcwstr, flags: UInt, optionstruct: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (optionstruct?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClassInfo(serveripaddress: PCWSTR, reservedmustbezero: UInt, partialclassinfo: Long, filledclassinfo: Long): UInt =
-    0u
+public actual fun dhcpGetClassInfo(serveripaddress: Pcwstr, reservedmustbezero: UInt, partialclassinfo: COpaquePointer?, filledclassinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (partialclassinfo?.value ?: 0L).toString(), (filledclassinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpGetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClientInfoV4(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpGetClientInfoV4(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClientInfoV6(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpGetClientInfoV6(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClientInfoVQ(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpGetClientInfoVQ(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetClientOptions(serveripaddress: PCWSTR, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: Long): UInt =
-    0u
+public actual fun dhcpGetClientOptions(serveripaddress: Pcwstr, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions((serveripaddress?.value ?: 0L).toString(), clientipaddress.toInt(), clientsubnetmask.toInt(), (clientoptions?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetFilterV4(serveripaddress: PCWSTR, globalfilterinfo: Long): UInt =
-    0u
+public actual fun dhcpGetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4((serveripaddress?.value ?: 0L).toString(), (globalfilterinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetMibInfo(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    0u
+public actual fun dhcpGetMibInfo(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo((serveripaddress?.value ?: 0L).toString(), (mibinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetMibInfoV5(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    0u
+public actual fun dhcpGetMibInfoV5(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5((serveripaddress?.value ?: 0L).toString(), (mibinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetMibInfoV6(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    0u
+public actual fun dhcpGetMibInfoV6(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6((serveripaddress?.value ?: 0L).toString(), (mibinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionInfo(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpGetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionInfoV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpGetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionInfoV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpGetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpGetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpGetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpGetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetOriginalSubnetMask(sadaptername: PCWSTR, dwsubnetmask: Long): UInt =
-    0u
+public actual fun dhcpGetOriginalSubnetMask(sadaptername: Pcwstr, dwsubnetmask: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask((sadaptername?.value ?: 0L).toString(), (dwsubnetmask?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetServerBindingInfo(serveripaddress: PCWSTR, flags: UInt, bindelementsinfo: Long): UInt =
-    0u
+public actual fun dhcpGetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (bindelementsinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetServerBindingInfoV6(serveripaddress: PCWSTR, flags: UInt, bindelementsinfo: Long): UInt =
-    0u
+public actual fun dhcpGetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (bindelementsinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetServerSpecificStrings(serveripaddress: PCWSTR, serverspecificstrings: Long): UInt =
-    0u
+public actual fun dhcpGetServerSpecificStrings(serveripaddress: Pcwstr, serverspecificstrings: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings((serveripaddress?.value ?: 0L).toString(), (serverspecificstrings?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetSubnetDelayOffer(serveripaddress: PCWSTR, subnetaddress: UInt, timedelayinmilliseconds: Long): UInt =
-    0u
+public actual fun dhcpGetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (timedelayinmilliseconds?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetSubnetInfo(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpGetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetSubnetInfoV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpGetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetSubnetInfoVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpGetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetSuperScopeInfoV4(serveripaddress: PCWSTR, superscopetable: Long): UInt =
-    0u
+public actual fun dhcpGetSuperScopeInfoV4(serveripaddress: Pcwstr, superscopetable: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4((serveripaddress?.value ?: 0L).toString(), (superscopetable?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetThreadOptions(pflags: Long, reserved: Long): UInt =
-    0u
+public actual fun dhcpGetThreadOptions(pflags: COpaquePointer?, reserved: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions((pflags?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpGetVersion(serveripaddress: PCWSTR, majorversion: Long, minorversion: Long): UInt =
-    0u
+public actual fun dhcpGetVersion(serveripaddress: Pcwstr, majorversion: COpaquePointer?, minorversion: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion((serveripaddress?.value ?: 0L).toString(), (majorversion?.value ?: 0L).toString(), (minorversion?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprAddV4PolicyCondition(policy: Long, parentexpr: UInt, type: DHCP_POL_ATTR_TYPE, optionid: UInt, suboptionid: UInt, vendorname: PCWSTR, operator: DHCP_POL_COMPARATOR, value: Long, valuelength: UInt, conditionindex: Long): UInt =
-    0u
+public actual fun dhcpHlprAddV4PolicyCondition(policy: COpaquePointer?, parentexpr: UInt, type: DhcpPolAttrType, optionid: UInt, suboptionid: UInt, vendorname: Pcwstr, operator: DhcpPolComparator, value: COpaquePointer?, valuelength: UInt, conditionindex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition((policy?.value ?: 0L).toString(), parentexpr.toInt(), type, optionid.toInt(), suboptionid.toInt(), (vendorname?.value ?: 0L).toString(), operator, (value?.value ?: 0L).toString(), valuelength.toInt(), (conditionindex?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprAddV4PolicyExpr(policy: Long, parentexpr: UInt, operator: DHCP_POL_LOGIC_OPER, exprindex: Long): UInt =
-    0u
+public actual fun dhcpHlprAddV4PolicyExpr(policy: COpaquePointer?, parentexpr: UInt, operator: DhcpPolLogicOper, exprindex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr((policy?.value ?: 0L).toString(), parentexpr.toInt(), operator, (exprindex?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprAddV4PolicyRange(policy: Long, range: Long): UInt =
-    0u
+public actual fun dhcpHlprAddV4PolicyRange(policy: COpaquePointer?, range: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange((policy?.value ?: 0L).toString(), (range?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprCreateV4Policy(policyname: PCWSTR, fglobalpolicy: BOOL, subnet: UInt, processingorder: UInt, rootoperator: DHCP_POL_LOGIC_OPER, description: PCWSTR, enabled: BOOL, policy: Long): UInt =
-    0u
+public actual fun dhcpHlprCreateV4Policy(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy((policyname?.value ?: 0L).toString(), fglobalpolicy, subnet.toInt(), processingorder.toInt(), rootoperator, (description?.value ?: 0L).toString(), enabled, (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprCreateV4PolicyEx(policyname: PCWSTR, fglobalpolicy: BOOL, subnet: UInt, processingorder: UInt, rootoperator: DHCP_POL_LOGIC_OPER, description: PCWSTR, enabled: BOOL, policy: Long): UInt =
-    0u
+public actual fun dhcpHlprCreateV4PolicyEx(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx((policyname?.value ?: 0L).toString(), fglobalpolicy, subnet.toInt(), processingorder.toInt(), rootoperator, (description?.value ?: 0L).toString(), enabled, (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprFindV4DhcpProperty(propertyarray: Long, id: DHCP_PROPERTY_ID, type: DHCP_PROPERTY_TYPE): Long =
-    0L
+public actual fun dhcpHlprFindV4DhcpProperty(propertyarray: COpaquePointer?, id: DhcpPropertyId, type: DhcpPropertyType): COpaquePointer? =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty((propertyarray?.value ?: 0L).toString(), id, type).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprFreeV4DhcpProperty(property: Long) {
+public actual fun dhcpHlprFreeV4DhcpProperty(property: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty((property?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprFreeV4DhcpPropertyArray(propertyarray: Long) {
+public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray((propertyarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprFreeV4Policy(policy: Long) {
+public actual fun dhcpHlprFreeV4Policy(policy: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy((policy?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprFreeV4PolicyArray(policyarray: Long) {
+public actual fun dhcpHlprFreeV4PolicyArray(policyarray: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray((policyarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprFreeV4PolicyEx(policyex: Long) {
+public actual fun dhcpHlprFreeV4PolicyEx(policyex: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx((policyex?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprFreeV4PolicyExArray(policyexarray: Long) {
+public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray((policyexarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpHlprIsV4PolicySingleUC(policy: Long): BOOL =
-    0
+public actual fun dhcpHlprIsV4PolicySingleUC(policy: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC((policy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprIsV4PolicyValid(ppolicy: Long): UInt =
-    0u
+public actual fun dhcpHlprIsV4PolicyValid(ppolicy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid((ppolicy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprIsV4PolicyWellFormed(ppolicy: Long): BOOL =
-    0
+public actual fun dhcpHlprIsV4PolicyWellFormed(ppolicy: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed((ppolicy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprModifyV4PolicyExpr(policy: Long, operator: DHCP_POL_LOGIC_OPER): UInt =
-    0u
+public actual fun dhcpHlprModifyV4PolicyExpr(policy: COpaquePointer?, operator: DhcpPolLogicOper): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr((policy?.value ?: 0L).toString(), operator).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpHlprResetV4PolicyExpr(policy: Long): UInt =
-    0u
+public actual fun dhcpHlprResetV4PolicyExpr(policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr((policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpModifyClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    0u
+public actual fun dhcpModifyClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpModifyClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    0u
+public actual fun dhcpModifyClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6((serveripaddress?.value ?: 0L).toString(), reservedmustbezero.toInt(), (classinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRegisterParamChange(flags: UInt, reserved: Long, adaptername: PCWSTR, classid: Long, params: DHCPCAPI_PARAMS_ARRAY, handle: Long): UInt =
-    0u
+public actual fun dhcpRegisterParamChange(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, params: DhcpcapiParamsArray, handle: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveDNSRegistrations(): UInt =
-    0u
+public actual fun dhcpRemoveDNSRegistrations(): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOption(serveripaddress: PCWSTR, optionid: UInt): UInt =
-    0u
+public actual fun dhcpRemoveOption(serveripaddress: Pcwstr, optionid: UInt): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption((serveripaddress?.value ?: 0L).toString(), optionid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOptionV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR): UInt =
-    0u
+public actual fun dhcpRemoveOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOptionV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR): UInt =
-    0u
+public actual fun dhcpRemoveOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long): UInt =
-    0u
+public actual fun dhcpRemoveOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (scopeinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    0u
+public actual fun dhcpRemoveOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    0u
+public actual fun dhcpRemoveOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveSubnetElement(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpRemoveSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (removeelementinfo?.value ?: 0L).toString(), forceflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveSubnetElementV4(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpRemoveSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (removeelementinfo?.value ?: 0L).toString(), forceflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveSubnetElementV5(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpRemoveSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (removeelementinfo?.value ?: 0L).toString(), forceflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRemoveSubnetElementV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    0u
+public actual fun dhcpRemoveSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRequestParams(flags: UInt, reserved: Long, adaptername: PCWSTR, classid: Long, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: Long, psize: Long, requestidstr: PCWSTR): UInt =
-    0u
+public actual fun dhcpRequestParams(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, sendparams: DhcpcapiParamsArray, recdparams: DhcpcapiParamsArray, buffer: COpaquePointer?, psize: COpaquePointer?, requestidstr: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpRpcFreeMemory(bufferpointer: Long) {
+public actual fun dhcpRpcFreeMemory(bufferpointer: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory((bufferpointer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpScanDatabase(serveripaddress: PCWSTR, subnetaddress: UInt, fixflag: UInt, scanlist: Long): UInt =
-    0u
+public actual fun dhcpScanDatabase(serveripaddress: Pcwstr, subnetaddress: UInt, fixflag: UInt, scanlist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), fixflag.toInt(), (scanlist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerAuditlogParamsFree(configinfo: Long) {
+public actual fun dhcpServerAuditlogParamsFree(configinfo: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree((configinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun DhcpServerBackupDatabase(serveripaddress: PCWSTR, path: PCWSTR): UInt =
-    0u
+public actual fun dhcpServerBackupDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase((serveripaddress?.value ?: 0L).toString(), (path?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerGetConfig(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerGetConfig(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig((serveripaddress?.value ?: 0L).toString(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerGetConfigV4(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerGetConfigV4(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4((serveripaddress?.value ?: 0L).toString(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerGetConfigV6(serveripaddress: PCWSTR, scopeinfo: Long, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerGetConfigV6(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6((serveripaddress?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerGetConfigVQ(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerGetConfigVQ(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ((serveripaddress?.value ?: 0L).toString(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerQueryAttribute(serveripaddr: PCWSTR, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: Long): UInt =
-    0u
+public actual fun dhcpServerQueryAttribute(serveripaddr: Pcwstr, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute((serveripaddr?.value ?: 0L).toString(), dwreserved.toInt(), dhcpattribid.toInt(), (pdhcpattrib?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerQueryAttributes(serveripaddr: PCWSTR, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: Long, pdhcpattribarr: Long): UInt =
-    0u
+public actual fun dhcpServerQueryAttributes(serveripaddr: Pcwstr, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: COpaquePointer?, pdhcpattribarr: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes((serveripaddr?.value ?: 0L).toString(), dwreserved.toInt(), dwattribcount.toInt(), (pdhcpattribs?.value ?: 0L).toString(), (pdhcpattribarr?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerQueryDnsRegCredentials(serveripaddress: PCWSTR, unamesize: UInt, uname: PWSTR, domainsize: UInt, domain: PWSTR): UInt =
-    0u
+public actual fun dhcpServerQueryDnsRegCredentials(serveripaddress: Pcwstr, unamesize: UInt, uname: Pwstr, domainsize: UInt, domain: Pwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials((serveripaddress?.value ?: 0L).toString(), unamesize.toInt(), (uname?.value ?: 0L).toString(), domainsize.toInt(), (domain?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerRedoAuthorization(serveripaddr: PCWSTR, dwreserved: UInt): UInt =
-    0u
+public actual fun dhcpServerRedoAuthorization(serveripaddr: Pcwstr, dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization((serveripaddr?.value ?: 0L).toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerRestoreDatabase(serveripaddress: PCWSTR, path: PCWSTR): UInt =
-    0u
+public actual fun dhcpServerRestoreDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase((serveripaddress?.value ?: 0L).toString(), (path?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetConfig(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerSetConfig(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig((serveripaddress?.value ?: 0L).toString(), fieldstoset.toInt(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetConfigV4(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerSetConfigV4(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4((serveripaddress?.value ?: 0L).toString(), fieldstoset.toInt(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetConfigV6(serveripaddress: PCWSTR, scopeinfo: Long, fieldstoset: UInt, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerSetConfigV6(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6((serveripaddress?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), fieldstoset.toInt(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetConfigVQ(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    0u
+public actual fun dhcpServerSetConfigVQ(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ((serveripaddress?.value ?: 0L).toString(), fieldstoset.toInt(), (configinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetDnsRegCredentials(serveripaddress: PCWSTR, uname: PCWSTR, domain: PCWSTR, passwd: PCWSTR): UInt =
-    0u
+public actual fun dhcpServerSetDnsRegCredentials(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials((serveripaddress?.value ?: 0L).toString(), (uname?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpServerSetDnsRegCredentialsV5(serveripaddress: PCWSTR, uname: PCWSTR, domain: PCWSTR, passwd: PCWSTR): UInt =
-    0u
+public actual fun dhcpServerSetDnsRegCredentialsV5(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5((serveripaddress?.value ?: 0L).toString(), (uname?.value ?: 0L).toString(), (domain?.value ?: 0L).toString(), (passwd?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpSetClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetClientInfoV4(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpSetClientInfoV4(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetClientInfoV6(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpSetClientInfoV6(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetClientInfoVQ(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpSetClientInfoVQ(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetFilterV4(serveripaddress: PCWSTR, globalfilterinfo: Long): UInt =
-    0u
+public actual fun dhcpSetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4((serveripaddress?.value ?: 0L).toString(), (globalfilterinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionInfo(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpSetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionInfoV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpSetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionInfoV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    0u
+public actual fun dhcpSetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (optioninfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpSetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue((serveripaddress?.value ?: 0L).toString(), optionid.toInt(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpSetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpSetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionValues(serveripaddress: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    0u
+public actual fun dhcpSetOptionValues(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues((serveripaddress?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalues?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetOptionValuesV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    0u
+public actual fun dhcpSetOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (classname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalues?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetServerBindingInfo(serveripaddress: PCWSTR, flags: UInt, bindelementinfo: Long): UInt =
-    0u
+public actual fun dhcpSetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (bindelementinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetServerBindingInfoV6(serveripaddress: PCWSTR, flags: UInt, bindelementinfo: Long): UInt =
-    0u
+public actual fun dhcpSetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (bindelementinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetSubnetDelayOffer(serveripaddress: PCWSTR, subnetaddress: UInt, timedelayinmilliseconds: UShort): UInt =
-    0u
+public actual fun dhcpSetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: UShort): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), timedelayinmilliseconds.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetSubnetInfo(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpSetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetSubnetInfoV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpSetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetSubnetInfoVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    0u
+public actual fun dhcpSetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (subnetinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetSuperScopeV4(serveripaddress: PCWSTR, subnetaddress: UInt, superscopename: PCWSTR, changeexisting: BOOL): UInt =
-    0u
+public actual fun dhcpSetSuperScopeV4(serveripaddress: Pcwstr, subnetaddress: UInt, superscopename: Pcwstr, changeexisting: Bool): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (superscopename?.value ?: 0L).toString(), changeexisting).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpSetThreadOptions(flags: UInt, reserved: Long): UInt =
-    0u
+public actual fun dhcpSetThreadOptions(flags: UInt, reserved: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions(flags.toInt(), (reserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpUndoRequestParams(flags: UInt, reserved: Long, adaptername: PCWSTR, requestidstr: PCWSTR): UInt =
-    0u
+public actual fun dhcpUndoRequestParams(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, requestidstr: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams(flags.toInt(), (reserved?.value ?: 0L).toString(), (adaptername?.value ?: 0L).toString(), (requestidstr?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4AddPolicyRange(serveripaddress: PCWSTR, subnetaddress: UInt, policyname: PCWSTR, range: Long): UInt =
-    0u
+public actual fun dhcpV4AddPolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (range?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4CreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV4CreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4CreateClientInfoEx(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV4CreateClientInfoEx(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4CreatePolicy(serveripaddress: PCWSTR, ppolicy: Long): UInt =
-    0u
+public actual fun dhcpV4CreatePolicy(serveripaddress: Pcwstr, ppolicy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy((serveripaddress?.value ?: 0L).toString(), (ppolicy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4CreatePolicyEx(serveripaddress: PCWSTR, policyex: Long): UInt =
-    0u
+public actual fun dhcpV4CreatePolicyEx(serveripaddress: Pcwstr, policyex: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx((serveripaddress?.value ?: 0L).toString(), (policyex?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4DeletePolicy(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR): UInt =
-    0u
+public actual fun dhcpV4DeletePolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy((serveripaddress?.value ?: 0L).toString(), fglobalpolicy, subnetaddress.toInt(), (policyname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4EnumPolicies(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, fglobalpolicy: BOOL, subnetaddress: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpV4EnumPolicies(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, fglobalpolicy: Bool, subnetaddress: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), fglobalpolicy, subnetaddress.toInt(), (enuminfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4EnumPoliciesEx(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, globalpolicy: BOOL, subnetaddress: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpV4EnumPoliciesEx(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, globalpolicy: Bool, subnetaddress: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), globalpolicy, subnetaddress.toInt(), (enuminfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4EnumSubnetClients(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpV4EnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4EnumSubnetClientsEx(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    0u
+public actual fun dhcpV4EnumSubnetClientsEx(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (clientinfo?.value ?: 0L).toString(), (clientsread?.value ?: 0L).toString(), (clientstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4EnumSubnetReservations(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    0u
+public actual fun dhcpV4EnumSubnetReservations(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (enumelementinfo?.value ?: 0L).toString(), (elementsread?.value ?: 0L).toString(), (elementstotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverAddScopeToRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverAddScopeToRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship((serveripaddress?.value ?: 0L).toString(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverCreateRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverCreateRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship((serveripaddress?.value ?: 0L).toString(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverDeleteRelationship(serveripaddress: PCWSTR, prelationshipname: PCWSTR): UInt =
-    0u
+public actual fun dhcpV4FailoverDeleteRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship((serveripaddress?.value ?: 0L).toString(), (prelationshipname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship((serveripaddress?.value ?: 0L).toString(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverEnumRelationship(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, prelationship: Long, relationshipread: Long, relationshiptotal: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverEnumRelationship(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, prelationship: COpaquePointer?, relationshipread: COpaquePointer?, relationshiptotal: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship((serveripaddress?.value ?: 0L).toString(), (resumehandle?.value ?: 0L).toString(), preferredmaximum.toInt(), (prelationship?.value ?: 0L).toString(), (relationshipread?.value ?: 0L).toString(), (relationshiptotal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetAddressStatus(serveripaddress: PCWSTR, subnetaddress: UInt, pstatus: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetAddressStatus(serveripaddress: Pcwstr, subnetaddress: UInt, pstatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (pstatus?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetRelationship(serveripaddress: PCWSTR, prelationshipname: PCWSTR, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship((serveripaddress?.value ?: 0L).toString(), (prelationshipname?.value ?: 0L).toString(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetScopeRelationship(serveripaddress: PCWSTR, scopeid: UInt, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetScopeRelationship(serveripaddress: Pcwstr, scopeid: UInt, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship((serveripaddress?.value ?: 0L).toString(), scopeid.toInt(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetScopeStatistics(serveripaddress: PCWSTR, scopeid: UInt, pstats: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetScopeStatistics(serveripaddress: Pcwstr, scopeid: UInt, pstats: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics((serveripaddress?.value ?: 0L).toString(), scopeid.toInt(), (pstats?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverGetSystemTime(serveripaddress: PCWSTR, ptime: Long, pmaxalloweddeltatime: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverGetSystemTime(serveripaddress: Pcwstr, ptime: COpaquePointer?, pmaxalloweddeltatime: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime((serveripaddress?.value ?: 0L).toString(), (ptime?.value ?: 0L).toString(), (pmaxalloweddeltatime?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverSetRelationship(serveripaddress: PCWSTR, flags: UInt, prelationship: Long): UInt =
-    0u
+public actual fun dhcpV4FailoverSetRelationship(serveripaddress: Pcwstr, flags: UInt, prelationship: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (prelationship?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4FailoverTriggerAddrAllocation(serveripaddress: PCWSTR, pfailrelname: PCWSTR): UInt =
-    0u
+public actual fun dhcpV4FailoverTriggerAddrAllocation(serveripaddress: Pcwstr, pfailrelname: Pcwstr): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation((serveripaddress?.value ?: 0L).toString(), (pfailrelname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetAllOptionValues(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    0u
+public actual fun dhcpV4GetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (scopeinfo?.value ?: 0L).toString(), (values?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV4GetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetClientInfoEx(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV4GetClientInfoEx(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx((serveripaddress?.value ?: 0L).toString(), (searchinfo?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetFreeIPAddress(serveripaddress: PCWSTR, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: Long): UInt =
-    0u
+public actual fun dhcpV4GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress((serveripaddress?.value ?: 0L).toString(), scopeid.toInt(), startip.toInt(), endip.toInt(), numfreeaddrreq.toInt(), (ipaddrlist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpV4GetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (policyname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetPolicy(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    0u
+public actual fun dhcpV4GetPolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy((serveripaddress?.value ?: 0L).toString(), fglobalpolicy, subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4GetPolicyEx(serveripaddress: PCWSTR, globalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    0u
+public actual fun dhcpV4GetPolicyEx(serveripaddress: Pcwstr, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx((serveripaddress?.value ?: 0L).toString(), globalpolicy, subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4QueryPolicyEnforcement(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, enabled: Long): UInt =
-    0u
+public actual fun dhcpV4QueryPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enabled: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement((serveripaddress?.value ?: 0L).toString(), fglobalpolicy, subnetaddress.toInt(), (enabled?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4RemoveOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    0u
+public actual fun dhcpV4RemoveOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (policyname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4RemovePolicyRange(serveripaddress: PCWSTR, subnetaddress: UInt, policyname: PCWSTR, range: Long): UInt =
-    0u
+public actual fun dhcpV4RemovePolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange((serveripaddress?.value ?: 0L).toString(), subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (range?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4SetOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    0u
+public actual fun dhcpV4SetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue((serveripaddress?.value ?: 0L).toString(), flags.toInt(), optionid.toInt(), (policyname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalue?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4SetOptionValues(serveripaddress: PCWSTR, flags: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    0u
+public actual fun dhcpV4SetOptionValues(serveripaddress: Pcwstr, flags: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues((serveripaddress?.value ?: 0L).toString(), flags.toInt(), (policyname?.value ?: 0L).toString(), (vendorname?.value ?: 0L).toString(), (scopeinfo?.value ?: 0L).toString(), (optionvalues?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4SetPolicy(serveripaddress: PCWSTR, fieldsmodified: UInt, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    0u
+public actual fun dhcpV4SetPolicy(serveripaddress: Pcwstr, fieldsmodified: UInt, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy((serveripaddress?.value ?: 0L).toString(), fieldsmodified.toInt(), fglobalpolicy, subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4SetPolicyEnforcement(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, enable: BOOL): UInt =
-    0u
+public actual fun dhcpV4SetPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enable: Bool): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement((serveripaddress?.value ?: 0L).toString(), fglobalpolicy, subnetaddress.toInt(), enable).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV4SetPolicyEx(serveripaddress: PCWSTR, fieldsmodified: UInt, globalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    0u
+public actual fun dhcpV4SetPolicyEx(serveripaddress: Pcwstr, fieldsmodified: UInt, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx((serveripaddress?.value ?: 0L).toString(), fieldsmodified.toInt(), globalpolicy, subnetaddress.toInt(), (policyname?.value ?: 0L).toString(), (policy?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV6CreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    0u
+public actual fun dhcpV6CreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo((serveripaddress?.value ?: 0L).toString(), (clientinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV6GetFreeIPAddress(serveripaddress: PCWSTR, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: UInt, ipaddrlist: Long): UInt =
-    0u
+public actual fun dhcpV6GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: DhcpIpv6Address, startip: DhcpIpv6Address, endip: DhcpIpv6Address, numfreeaddrreq: UInt, ipaddrlist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV6GetStatelessStatistics(serveripaddress: PCWSTR, statelessstats: Long): UInt =
-    0u
+public actual fun dhcpV6GetStatelessStatistics(serveripaddress: Pcwstr, statelessstats: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics((serveripaddress?.value ?: 0L).toString(), (statelessstats?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV6GetStatelessStoreParams(serveripaddress: PCWSTR, fserverlevel: BOOL, subnetaddress: DHCP_IPV6_ADDRESS, params: Long): UInt =
-    0u
+public actual fun dhcpV6GetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, params: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DhcpV6SetStatelessStoreParams(serveripaddress: PCWSTR, fserverlevel: BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: UInt, params: Long): UInt =
-    0u
+public actual fun dhcpV6SetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, fieldmodified: UInt, params: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Dhcpv6CApiCleanup() {
+public actual fun dhcpv6CApiCleanup() {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun Dhcpv6CApiInitialize(version: Long) {
+public actual fun dhcpv6CApiInitialize(version: COpaquePointer?) {
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) {
+        _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize((version?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun Dhcpv6ReleasePrefix(adaptername: PCWSTR, classid: Long, leaseinfo: Long): UInt =
-    0u
+public actual fun dhcpv6ReleasePrefix(adaptername: Pcwstr, classid: COpaquePointer?, leaseinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix((adaptername?.value ?: 0L).toString(), (classid?.value ?: 0L).toString(), (leaseinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Dhcpv6RenewPrefix(adaptername: PCWSTR, pclassid: Long, prefixleaseinfo: Long, pdwtimetowait: Long, bvalidateprefix: UInt): UInt =
-    0u
+public actual fun dhcpv6RenewPrefix(adaptername: Pcwstr, pclassid: COpaquePointer?, prefixleaseinfo: COpaquePointer?, pdwtimetowait: COpaquePointer?, bvalidateprefix: UInt): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix((adaptername?.value ?: 0L).toString(), (pclassid?.value ?: 0L).toString(), (prefixleaseinfo?.value ?: 0L).toString(), (pdwtimetowait?.value ?: 0L).toString(), bvalidateprefix.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Dhcpv6RequestParams(forcenewinform: BOOL, reserved: Long, adaptername: PCWSTR, classid: Long, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: Long, psize: Long): UInt =
-    0u
+public actual fun dhcpv6RequestParams(forcenewinform: Bool, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, recdparams: Dhcpv6capiParamsArray, buffer: COpaquePointer?, psize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Dhcpv6RequestPrefix(adaptername: PCWSTR, pclassid: Long, prefixleaseinfo: Long, pdwtimetowait: Long): UInt =
-    0u
+public actual fun dhcpv6RequestPrefix(adaptername: Pcwstr, pclassid: COpaquePointer?, prefixleaseinfo: COpaquePointer?, pdwtimetowait: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementDhcpNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix((adaptername?.value ?: 0L).toString(), (pclassid?.value ?: 0L).toString(), (prefixleaseinfo?.value ?: 0L).toString(), (pdwtimetowait?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

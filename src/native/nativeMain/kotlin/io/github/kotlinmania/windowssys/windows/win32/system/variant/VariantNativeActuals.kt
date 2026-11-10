@@ -2,273 +2,274 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ClearVariantArray(pvars: Long, cvars: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_ClearVariantArray(pvars.toCPointer<ByteVar>(), cvars)
+public actual fun clearVariantArray(pvars: COpaquePointer?, cvars: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_clearVariantArray(pvars?.value?.toCPointer<ByteVar>(), cvars)
 }
 
-public actual fun DosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_DosDateTimeToVariantTime(wdosdate, wdostime, pvtime.toCPointer<ByteVar>())
+public actual fun dosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_dosDateTimeToVariantTime(wdosdate, wdostime, pvtime?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromBooleanArray(prgf: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromBooleanArray(prgf.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromBooleanArray(prgf: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromBooleanArray(prgf?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromBuffer(pv: Long, cb: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromBuffer(pv.toCPointer<ByteVar>(), cb, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromBuffer(pv: COpaquePointer?, cb: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromBuffer(pv?.value?.toCPointer<ByteVar>(), cb, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromDoubleArray(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromDoubleArray(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromDoubleArray(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromDoubleArray(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromFileTime(pft: Long, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromFileTime(pft.toCPointer<ByteVar>(), pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromFileTime(pft: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromFileTime(pft?.value?.toCPointer<ByteVar>(), pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromFileTimeArray(prgft: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromFileTimeArray(prgft.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromFileTimeArray(prgft: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromFileTimeArray(prgft?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromGUIDAsString(guid: Long, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromGUIDAsString(guid.toCPointer<ByteVar>(), pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromGUIDAsString(guid: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromGUIDAsString(guid?.value?.toCPointer<ByteVar>(), pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromInt16Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromInt16Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromInt16Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromInt32Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromInt32Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromInt32Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromInt64Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromInt64Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromInt64Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromResource(hinst: HINSTANCE, id: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromResource(hinst.toCPointer<ByteVar>(), id, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromResource(hinst: Hinstance, id: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromResource(hinst?.value?.toCPointer<ByteVar>(), id, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromStringArray(prgsz: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromStringArray(prgsz.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromStringArray(prgsz: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromStringArray(prgsz?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromUInt16Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromUInt16Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromUInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromUInt16Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromUInt32Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromUInt32Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromUInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromUInt32Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromUInt64Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromUInt64Array(prgn.toCPointer<ByteVar>(), celems, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromUInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromUInt64Array(prgn?.value?.toCPointer<ByteVar>(), celems, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun InitVariantFromVariantArrayElem(varin: Long, ielem: UInt, pvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_InitVariantFromVariantArrayElem(varin.toCPointer<ByteVar>(), ielem, pvar.toCPointer<ByteVar>())
+public actual fun initVariantFromVariantArrayElem(varin: COpaquePointer?, ielem: UInt, pvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem(varin?.value?.toCPointer<ByteVar>(), ielem, pvar?.value?.toCPointer<ByteVar>())
 
-public actual fun SystemTimeToVariantTime(lpsystemtime: Long, pvtime: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_SystemTimeToVariantTime(lpsystemtime.toCPointer<ByteVar>(), pvtime.toCPointer<ByteVar>())
+public actual fun systemTimeToVariantTime(lpsystemtime: COpaquePointer?, pvtime: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_systemTimeToVariantTime(lpsystemtime?.value?.toCPointer<ByteVar>(), pvtime?.value?.toCPointer<ByteVar>())
 
-public actual fun VARIANT_UserFree(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserFree(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun variantUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun VARIANT_UserFree64(param0: Long, param1: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserFree64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())
+public actual fun variantUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun VARIANT_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserMarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun variantUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VARIANT_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserMarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun variantUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VARIANT_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserSize(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun variantUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun VARIANT_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserSize64(param0.toCPointer<ByteVar>(), param1, param2.toCPointer<ByteVar>())
+public actual fun variantUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
 
-public actual fun VARIANT_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun variantUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VARIANT_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal64(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun variantUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VariantChangeType(pvargdest: Long, pvarsrc: Long, wflags: VAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantChangeType(pvargdest.toCPointer<ByteVar>(), pvarsrc.toCPointer<ByteVar>(), wflags, vt)
+public actual fun variantChangeType(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantChangeType(pvargdest?.value?.toCPointer<ByteVar>(), pvarsrc?.value?.toCPointer<ByteVar>(), wflags, vt)
 
-public actual fun VariantChangeTypeEx(pvargdest: Long, pvarsrc: Long, lcid: UInt, wflags: VAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantChangeTypeEx(pvargdest.toCPointer<ByteVar>(), pvarsrc.toCPointer<ByteVar>(), lcid, wflags, vt)
+public actual fun variantChangeTypeEx(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, lcid: UInt, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantChangeTypeEx(pvargdest?.value?.toCPointer<ByteVar>(), pvarsrc?.value?.toCPointer<ByteVar>(), lcid, wflags, vt)
 
-public actual fun VariantClear(pvarg: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantClear(pvarg.toCPointer<ByteVar>())
+public actual fun variantClear(pvarg: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantClear(pvarg?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantCompare(var1: Long, var2: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantCompare(var1.toCPointer<ByteVar>(), var2.toCPointer<ByteVar>())
+public actual fun variantCompare(var1: COpaquePointer?, var2: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantCompare(var1?.value?.toCPointer<ByteVar>(), var2?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantCopy(pvargdest: Long, pvargsrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantCopy(pvargdest.toCPointer<ByteVar>(), pvargsrc.toCPointer<ByteVar>())
+public actual fun variantCopy(pvargdest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantCopy(pvargdest?.value?.toCPointer<ByteVar>(), pvargsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantCopyInd(pvardest: Long, pvargsrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantCopyInd(pvardest.toCPointer<ByteVar>(), pvargsrc.toCPointer<ByteVar>())
+public actual fun variantCopyInd(pvardest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantCopyInd(pvardest?.value?.toCPointer<ByteVar>(), pvargsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetBooleanElem(variable: Long, ielem: UInt, pfval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetBooleanElem(variable.toCPointer<ByteVar>(), ielem, pfval.toCPointer<ByteVar>())
+public actual fun variantGetBooleanElem(variable: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetBooleanElem(variable?.value?.toCPointer<ByteVar>(), ielem, pfval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetDoubleElem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetDoubleElem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetDoubleElem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetDoubleElem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetElementCount(varin: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetElementCount(varin.toCPointer<ByteVar>())
+public actual fun variantGetElementCount(varin: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetElementCount(varin?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetInt16Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetInt16Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetInt16Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetInt32Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetInt32Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetInt32Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetInt64Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetInt64Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetInt64Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetStringElem(variable: Long, ielem: UInt, ppszval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetStringElem(variable.toCPointer<ByteVar>(), ielem, ppszval.toCPointer<ByteVar>())
+public actual fun variantGetStringElem(variable: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetStringElem(variable?.value?.toCPointer<ByteVar>(), ielem, ppszval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetUInt16Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetUInt16Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetUInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetUInt16Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetUInt32Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetUInt32Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetUInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetUInt32Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantGetUInt64Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantGetUInt64Elem(variable.toCPointer<ByteVar>(), ielem, pnval.toCPointer<ByteVar>())
+public actual fun variantGetUInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantGetUInt64Elem(variable?.value?.toCPointer<ByteVar>(), ielem, pnval?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantInit(pvarg: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantInit(pvarg.toCPointer<ByteVar>())
+public actual fun variantInit(pvarg: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantInit(pvarg?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun VariantTimeToDosDateTime(vtime: Double, pwdosdate: Long, pwdostime: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantTimeToDosDateTime(vtime, pwdosdate.toCPointer<ByteVar>(), pwdostime.toCPointer<ByteVar>())
+public actual fun variantTimeToDosDateTime(vtime: Double, pwdosdate: COpaquePointer?, pwdostime: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantTimeToDosDateTime(vtime, pwdosdate?.value?.toCPointer<ByteVar>(), pwdostime?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantTimeToSystemTime(vtime: Double, lpsystemtime: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantTimeToSystemTime(vtime, lpsystemtime.toCPointer<ByteVar>())
+public actual fun variantTimeToSystemTime(vtime: Double, lpsystemtime: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantTimeToSystemTime(vtime, lpsystemtime?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToBoolean(varin: Long, pfret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToBoolean(varin.toCPointer<ByteVar>(), pfret.toCPointer<ByteVar>())
+public actual fun variantToBoolean(varin: COpaquePointer?, pfret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToBoolean(varin?.value?.toCPointer<ByteVar>(), pfret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToBooleanArray(variable: Long, prgf: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToBooleanArray(variable.toCPointer<ByteVar>(), prgf.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToBooleanArray(variable: COpaquePointer?, prgf: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToBooleanArray(variable?.value?.toCPointer<ByteVar>(), prgf?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToBooleanArrayAlloc(variable: Long, pprgf: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToBooleanArrayAlloc(variable.toCPointer<ByteVar>(), pprgf.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToBooleanArrayAlloc(variable: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgf?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToBooleanWithDefault(varin: Long, fdefault: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToBooleanWithDefault(varin.toCPointer<ByteVar>(), fdefault)
+public actual fun variantToBooleanWithDefault(varin: COpaquePointer?, fdefault: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToBooleanWithDefault(varin?.value?.toCPointer<ByteVar>(), fdefault)
 
-public actual fun VariantToBuffer(varin: Long, pv: Long, cb: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToBuffer(varin.toCPointer<ByteVar>(), pv.toCPointer<ByteVar>(), cb)
+public actual fun variantToBuffer(varin: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToBuffer(varin?.value?.toCPointer<ByteVar>(), pv?.value?.toCPointer<ByteVar>(), cb)
 
-public actual fun VariantToDosDateTime(varin: Long, pwdate: Long, pwtime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToDosDateTime(varin.toCPointer<ByteVar>(), pwdate.toCPointer<ByteVar>(), pwtime.toCPointer<ByteVar>())
+public actual fun variantToDosDateTime(varin: COpaquePointer?, pwdate: COpaquePointer?, pwtime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToDosDateTime(varin?.value?.toCPointer<ByteVar>(), pwdate?.value?.toCPointer<ByteVar>(), pwtime?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToDouble(varin: Long, pdblret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToDouble(varin.toCPointer<ByteVar>(), pdblret.toCPointer<ByteVar>())
+public actual fun variantToDouble(varin: COpaquePointer?, pdblret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToDouble(varin?.value?.toCPointer<ByteVar>(), pdblret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToDoubleArray(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToDoubleArray(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToDoubleArray(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToDoubleArray(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToDoubleArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToDoubleArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToDoubleArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToDoubleWithDefault(varin: Long, dbldefault: Double): Double =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToDoubleWithDefault(varin.toCPointer<ByteVar>(), dbldefault)
+public actual fun variantToDoubleWithDefault(varin: COpaquePointer?, dbldefault: Double): Double =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToDoubleWithDefault(varin?.value?.toCPointer<ByteVar>(), dbldefault)
 
-public actual fun VariantToFileTime(varin: Long, stfout: PSTIME_FLAGS, pftout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToFileTime(varin.toCPointer<ByteVar>(), stfout, pftout.toCPointer<ByteVar>())
+public actual fun variantToFileTime(varin: COpaquePointer?, stfout: PstimeFlags, pftout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToFileTime(varin?.value?.toCPointer<ByteVar>(), stfout, pftout?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToGUID(varin: Long, pguid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToGUID(varin.toCPointer<ByteVar>(), pguid.toCPointer<ByteVar>())
+public actual fun variantToGUID(varin: COpaquePointer?, pguid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToGUID(varin?.value?.toCPointer<ByteVar>(), pguid?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt16(varin: Long, piret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt16(varin.toCPointer<ByteVar>(), piret.toCPointer<ByteVar>())
+public actual fun variantToInt16(varin: COpaquePointer?, piret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt16(varin?.value?.toCPointer<ByteVar>(), piret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt16Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt16Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt16Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt16ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt16WithDefault(varin: Long, idefault: Short): Short =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt16WithDefault(varin.toCPointer<ByteVar>(), idefault)
+public actual fun variantToInt16WithDefault(varin: COpaquePointer?, idefault: Short): Short =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt16WithDefault(varin?.value?.toCPointer<ByteVar>(), idefault)
 
-public actual fun VariantToInt32(varin: Long, plret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt32(varin.toCPointer<ByteVar>(), plret.toCPointer<ByteVar>())
+public actual fun variantToInt32(varin: COpaquePointer?, plret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt32(varin?.value?.toCPointer<ByteVar>(), plret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt32Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt32Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt32Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt32ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt32WithDefault(varin: Long, ldefault: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt32WithDefault(varin.toCPointer<ByteVar>(), ldefault)
+public actual fun variantToInt32WithDefault(varin: COpaquePointer?, ldefault: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt32WithDefault(varin?.value?.toCPointer<ByteVar>(), ldefault)
 
-public actual fun VariantToInt64(varin: Long, pllret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt64(varin.toCPointer<ByteVar>(), pllret.toCPointer<ByteVar>())
+public actual fun variantToInt64(varin: COpaquePointer?, pllret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt64(varin?.value?.toCPointer<ByteVar>(), pllret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt64Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt64Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt64Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt64ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToInt64WithDefault(varin: Long, lldefault: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToInt64WithDefault(varin.toCPointer<ByteVar>(), lldefault)
+public actual fun variantToInt64WithDefault(varin: COpaquePointer?, lldefault: Long): Long =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToInt64WithDefault(varin?.value?.toCPointer<ByteVar>(), lldefault)
 
-public actual fun VariantToString(varin: Long, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToString(varin.toCPointer<ByteVar>(), pszbuf.toCPointer<ByteVar>(), cchbuf)
+public actual fun variantToString(varin: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToString(varin?.value?.toCPointer<ByteVar>(), pszbuf?.value?.toCPointer<ByteVar>(), cchbuf)
 
-public actual fun VariantToStringAlloc(varin: Long, ppszbuf: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToStringAlloc(varin.toCPointer<ByteVar>(), ppszbuf.toCPointer<ByteVar>())
+public actual fun variantToStringAlloc(varin: COpaquePointer?, ppszbuf: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToStringAlloc(varin?.value?.toCPointer<ByteVar>(), ppszbuf?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToStringArray(variable: Long, prgsz: Long, crgsz: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToStringArray(variable.toCPointer<ByteVar>(), prgsz.toCPointer<ByteVar>(), crgsz, pcelem.toCPointer<ByteVar>())
+public actual fun variantToStringArray(variable: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToStringArray(variable?.value?.toCPointer<ByteVar>(), prgsz?.value?.toCPointer<ByteVar>(), crgsz, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToStringArrayAlloc(variable: Long, pprgsz: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToStringArrayAlloc(variable.toCPointer<ByteVar>(), pprgsz.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToStringArrayAlloc(variable: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToStringArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgsz?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToStringWithDefault(varin: Long, pszdefault: PCWSTR): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToStringWithDefault(varin.toCPointer<ByteVar>(), pszdefault.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun variantToStringWithDefault(varin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToStringWithDefault(varin?.value?.toCPointer<ByteVar>(), pszdefault?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun VariantToUInt16(varin: Long, puiret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt16(varin.toCPointer<ByteVar>(), puiret.toCPointer<ByteVar>())
+public actual fun variantToUInt16(varin: COpaquePointer?, puiret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt16(varin?.value?.toCPointer<ByteVar>(), puiret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt16Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt16Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt16Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt16ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt16WithDefault(varin: Long, uidefault: UShort): UShort =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt16WithDefault(varin.toCPointer<ByteVar>(), uidefault)
+public actual fun variantToUInt16WithDefault(varin: COpaquePointer?, uidefault: UShort): UShort =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt16WithDefault(varin?.value?.toCPointer<ByteVar>(), uidefault)
 
-public actual fun VariantToUInt32(varin: Long, pulret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt32(varin.toCPointer<ByteVar>(), pulret.toCPointer<ByteVar>())
+public actual fun variantToUInt32(varin: COpaquePointer?, pulret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt32(varin?.value?.toCPointer<ByteVar>(), pulret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt32Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt32Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt32Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt32ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt32WithDefault(varin: Long, uldefault: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt32WithDefault(varin.toCPointer<ByteVar>(), uldefault)
+public actual fun variantToUInt32WithDefault(varin: COpaquePointer?, uldefault: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt32WithDefault(varin?.value?.toCPointer<ByteVar>(), uldefault)
 
-public actual fun VariantToUInt64(varin: Long, pullret: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt64(varin.toCPointer<ByteVar>(), pullret.toCPointer<ByteVar>())
+public actual fun variantToUInt64(varin: COpaquePointer?, pullret: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt64(varin?.value?.toCPointer<ByteVar>(), pullret?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt64Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt64Array(variable.toCPointer<ByteVar>(), prgn.toCPointer<ByteVar>(), crgn, pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt64Array(variable?.value?.toCPointer<ByteVar>(), prgn?.value?.toCPointer<ByteVar>(), crgn, pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt64ArrayAlloc(variable.toCPointer<ByteVar>(), pprgn.toCPointer<ByteVar>(), pcelem.toCPointer<ByteVar>())
+public actual fun variantToUInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc(variable?.value?.toCPointer<ByteVar>(), pprgn?.value?.toCPointer<ByteVar>(), pcelem?.value?.toCPointer<ByteVar>())
 
-public actual fun VariantToUInt64WithDefault(varin: Long, ulldefault: ULong): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_VariantToUInt64WithDefault(varin.toCPointer<ByteVar>(), ulldefault)
+public actual fun variantToUInt64WithDefault(varin: COpaquePointer?, ulldefault: ULong): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.variant.cinterop.windowssys_windows_win32_system_variant_variantToUInt64WithDefault(varin?.value?.toCPointer<ByteVar>(), ulldefault)

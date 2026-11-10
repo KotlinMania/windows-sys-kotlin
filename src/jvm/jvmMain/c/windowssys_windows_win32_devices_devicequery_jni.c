@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCloseObjectQuery(JNIEnv* km_env, jclass km_clazz, jlong hdevquery) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCloseObjectQuery(JNIEnv* km_env, jclass km_clazz, jlong hdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQuery(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQuery(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQueryEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQueryEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -88,7 +88,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQueryFromId(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQueryFromId(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQueryFromIdEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQueryFromIdEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -144,7 +144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQueryFromIds(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszzobjectids, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQueryFromIds(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszzobjectids, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevCreateObjectQueryFromIdsEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszzobjectids, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devCreateObjectQueryFromIdsEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszzobjectids, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcallback, jlong pcontext, jlong phdevquery) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevFindProperty(JNIEnv* km_env, jclass km_clazz, jlong pkey, jint store, jlong pszlocalename, jint cproperties, jlong pproperties) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devFindProperty(JNIEnv* km_env, jclass km_clazz, jlong pkey, jint store, jlong pszlocalename, jint cproperties, jlong pproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -222,7 +222,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevFreeObjectProperties(JNIEnv* km_env, jclass km_clazz, jint cpropertycount, jlong pproperties) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devFreeObjectProperties(JNIEnv* km_env, jclass km_clazz, jint cpropertycount, jlong pproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -239,7 +239,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevFreeObjects(JNIEnv* km_env, jclass km_clazz, jint cobjectcount, jlong pobjects) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devFreeObjects(JNIEnv* km_env, jclass km_clazz, jint cobjectcount, jlong pobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -256,7 +256,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevGetObjectProperties(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jlong pcpropertycount, jlong ppproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devGetObjectProperties(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jlong pcpropertycount, jlong ppproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -280,7 +280,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevGetObjectPropertiesEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cextendedparametercount, jlong pextendedparameters, jlong pcpropertycount, jlong ppproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devGetObjectPropertiesEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jlong pszobjectid, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cextendedparametercount, jlong pextendedparameters, jlong pcpropertycount, jlong ppproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -306,7 +306,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevGetObjects(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcobjectcount, jlong ppobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devGetObjects(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jlong pcobjectcount, jlong ppobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1DevGetObjectsEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcobjectcount, jlong ppobjects) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_devicequery_WindowsWin32DevicesDevicequeryJniBridge_windowssys_1windows_1win32_1devices_1devicequery_1devGetObjectsEx(JNIEnv* km_env, jclass km_clazz, jint objecttype, jint queryflags, jint crequestedproperties, jlong prequestedproperties, jint cfilterexpressioncount, jlong pfilter, jint cextendedparametercount, jlong pextendedparameters, jlong pcobjectcount, jlong ppobjects) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

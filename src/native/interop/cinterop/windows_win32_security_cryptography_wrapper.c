@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptAddContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, uint32_t dwposition) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptAddContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, uint32_t dwposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptAddContextFunction(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptAddContextFunctionProvider(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider, uint32_t dwposition) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptAddContextFunctionProvider(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider, uint32_t dwposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -68,7 +68,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptAddContextFunctionP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptCloseAlgorithmProvider(void* halgorithm, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptCloseAlgorithmProvider(void* halgorithm, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptCloseAlgorithmProvi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptConfigureContext(uint32_t dwtable, void* pszcontext, void* pconfig) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptConfigureContext(uint32_t dwtable, void* pszcontext, void* pconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptConfigureContext(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptConfigureContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pconfig) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptConfigureContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -141,7 +141,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptConfigureContextFun
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptCreateContext(uint32_t dwtable, void* pszcontext, void* pconfig) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptCreateContext(uint32_t dwtable, void* pszcontext, void* pconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptCreateContext(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptCreateHash(void* halgorithm, void* phhash, void* pbhashobject, uint32_t cbhashobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptCreateHash(void* halgorithm, void* phhash, void* pbhashobject, uint32_t cbhashobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptCreateHash(void* ha
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptCreateMultiHash(void* halgorithm, void* phhash, uint32_t nhashes, void* pbhashobject, uint32_t cbhashobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptCreateMultiHash(void* halgorithm, void* phhash, uint32_t nhashes, void* pbhashobject, uint32_t cbhashobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptCreateMultiHash(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDecrypt(void* hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pbiv, uint32_t cbiv, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDecrypt(void* hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pbiv, uint32_t cbiv, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -253,7 +253,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDecrypt(void* hkey,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDeleteContext(uint32_t dwtable, void* pszcontext) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDeleteContext(uint32_t dwtable, void* pszcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -276,7 +276,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDeleteContext(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKey(void* hsharedsecret, void* pwszkdf, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDeriveKey(void* hsharedsecret, void* pwszkdf, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -304,7 +304,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKey(void* hsh
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKeyCapi(void* hhash, void* htargetalg, void* pbderivedkey, uint32_t cbderivedkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDeriveKeyCapi(void* hhash, void* htargetalg, void* pbderivedkey, uint32_t cbderivedkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKeyCapi(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKeyPBKDF2(void* hprf, void* pbpassword, uint32_t cbpassword, void* pbsalt, uint32_t cbsalt, uint64_t citerations, void* pbderivedkey, uint32_t cbderivedkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDeriveKeyPBKDF2(void* hprf, void* pbpassword, uint32_t cbpassword, void* pbsalt, uint32_t cbsalt, uint64_t citerations, void* pbderivedkey, uint32_t cbderivedkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDeriveKeyPBKDF2(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDestroyHash(void* hhash) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDestroyHash(void* hhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -382,7 +382,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDestroyHash(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDestroyKey(void* hkey) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDestroyKey(void* hkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -404,7 +404,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDestroyKey(void* hk
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDestroySecret(void* hsecret) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDestroySecret(void* hsecret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -426,7 +426,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDestroySecret(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDuplicateHash(void* hhash, void* phnewhash, void* pbhashobject, uint32_t cbhashobject, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDuplicateHash(void* hhash, void* phnewhash, void* pbhashobject, uint32_t cbhashobject, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -452,7 +452,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDuplicateHash(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptDuplicateKey(void* hkey, void* phnewkey, void* pbkeyobject, uint32_t cbkeyobject, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptDuplicateKey(void* hkey, void* phnewkey, void* pbkeyobject, uint32_t cbkeyobject, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -478,7 +478,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptDuplicateKey(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEncrypt(void* hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pbiv, uint32_t cbiv, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEncrypt(void* hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pbiv, uint32_t cbiv, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -509,7 +509,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEncrypt(void* hkey,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumAlgorithms(uint32_t dwalgoperations, void* palgcount, void* ppalglist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumAlgorithms(uint32_t dwalgoperations, void* palgcount, void* ppalglist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumAlgorithms(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctionProviders(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctionProviders(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContextFunction
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctions(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctions(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -587,7 +587,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContextFunction
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContexts(uint32_t dwtable, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumContexts(uint32_t dwtable, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumContexts(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumProviders(void* pszalgid, void* pimplcount, void* ppimpllist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumProviders(void* pszalgid, void* pimplcount, void* ppimpllist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -636,7 +636,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumProviders(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptEnumRegisteredProviders(void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptEnumRegisteredProviders(void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -659,7 +659,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptEnumRegisteredProvi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptExportKey(void* hkey, void* hexportkey, void* pszblobtype, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptExportKey(void* hkey, void* hexportkey, void* pszblobtype, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -687,7 +687,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptExportKey(void* hke
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptFinalizeKeyPair(void* hkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptFinalizeKeyPair(void* hkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -710,7 +710,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptFinalizeKeyPair(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptFinishHash(void* hhash, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptFinishHash(void* hhash, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -735,7 +735,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptFinishHash(void* hh
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_BCryptFreeBuffer(void* pvbuffer) {
+void windowssys_windows_win32_security_cryptography_bCryptFreeBuffer(void* pvbuffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ void windowssys_windows_win32_security_cryptography_BCryptFreeBuffer(void* pvbuf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptGenRandom(void* halgorithm, void* pbbuffer, uint32_t cbbuffer, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptGenRandom(void* halgorithm, void* pbbuffer, uint32_t cbbuffer, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptGenRandom(void* hal
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptGenerateKeyPair(void* halgorithm, void* phkey, uint32_t dwlength, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptGenerateKeyPair(void* halgorithm, void* phkey, uint32_t dwlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -806,7 +806,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptGenerateKeyPair(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptGenerateSymmetricKey(void* halgorithm, void* phkey, void* pbkeyobject, uint32_t cbkeyobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptGenerateSymmetricKey(void* halgorithm, void* phkey, void* pbkeyobject, uint32_t cbkeyobject, void* pbsecret, uint32_t cbsecret, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -834,7 +834,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptGenerateSymmetricKe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptGetFipsAlgorithmMode(void* pfenabled) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptGetFipsAlgorithmMode(void* pfenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -856,7 +856,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptGetFipsAlgorithmMod
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptGetProperty(void* hobject, void* pszproperty, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptGetProperty(void* hobject, void* pszproperty, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -883,7 +883,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptGetProperty(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptHash(void* halgorithm, void* pbsecret, uint32_t cbsecret, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptHash(void* halgorithm, void* pbsecret, uint32_t cbsecret, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -911,7 +911,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptHash(void* halgorit
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptHashData(void* hhash, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptHashData(void* hhash, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -936,7 +936,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptHashData(void* hhas
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptImportKey(void* halgorithm, void* himportkey, void* pszblobtype, void* phkey, void* pbkeyobject, uint32_t cbkeyobject, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptImportKey(void* halgorithm, void* himportkey, void* pszblobtype, void* phkey, void* pbkeyobject, uint32_t cbkeyobject, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptImportKey(void* hal
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptImportKeyPair(void* halgorithm, void* himportkey, void* pszblobtype, void* phkey, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptImportKeyPair(void* halgorithm, void* himportkey, void* pszblobtype, void* phkey, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -994,7 +994,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptImportKeyPair(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptKeyDerivation(void* hkey, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptKeyDerivation(void* hkey, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1021,7 +1021,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptKeyDerivation(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptOpenAlgorithmProvider(void* phalgorithm, void* pszalgid, void* pszimplementation, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptOpenAlgorithmProvider(void* phalgorithm, void* pszalgid, void* pszimplementation, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1046,7 +1046,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptOpenAlgorithmProvid
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptProcessMultiOperations(void* hobject, int32_t operationtype, void* poperations, uint32_t cboperations, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptProcessMultiOperations(void* hobject, int32_t operationtype, void* poperations, uint32_t cboperations, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1072,7 +1072,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptProcessMultiOperati
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextConfiguration(uint32_t dwtable, void* pszcontext, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptQueryContextConfiguration(uint32_t dwtable, void* pszcontext, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1097,7 +1097,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextConfigu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionConfiguration(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionConfiguration(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1124,7 +1124,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctio
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionProperty(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszproperty, void* pcbvalue, void* ppbvalue) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionProperty(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszproperty, void* pcbvalue, void* ppbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1152,7 +1152,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctio
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptQueryProviderRegistration(void* pszprovider, uint32_t dwmode, uint32_t dwinterface, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptQueryProviderRegistration(void* pszprovider, uint32_t dwmode, uint32_t dwinterface, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1178,7 +1178,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptQueryProviderRegist
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptRegisterConfigChangeNotify(void* phevent) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptRegisterConfigChangeNotify(void* phevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1200,7 +1200,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptRegisterConfigChang
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptRegisterProvider(void* pszprovider, uint32_t dwflags, void* preg) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptRegisterProvider(void* pszprovider, uint32_t dwflags, void* preg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1224,7 +1224,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptRegisterProvider(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunction(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1249,7 +1249,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptRemoveContextFuncti
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunctionProvider(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunctionProvider(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptRemoveContextFuncti
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptResolveProviders(void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider, uint32_t dwmode, uint32_t dwflags, void* pcbbuffer, void* ppbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptResolveProviders(void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszprovider, uint32_t dwmode, uint32_t dwflags, void* pcbbuffer, void* ppbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1304,7 +1304,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptResolveProviders(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptSecretAgreement(void* hprivkey, void* hpubkey, void* phagreedsecret, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptSecretAgreement(void* hprivkey, void* hpubkey, void* phagreedsecret, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptSecretAgreement(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptSetContextFunctionProperty(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszproperty, uint32_t cbvalue, void* pbvalue) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptSetContextFunctionProperty(uint32_t dwtable, void* pszcontext, uint32_t dwinterface, void* pszfunction, void* pszproperty, uint32_t cbvalue, void* pbvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1357,7 +1357,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptSetContextFunctionP
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptSetProperty(void* hobject, void* pszproperty, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptSetProperty(void* hobject, void* pszproperty, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1383,7 +1383,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptSetProperty(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptSignHash(void* hkey, void* ppaddinginfo, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptSignHash(void* hkey, void* ppaddinginfo, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1412,7 +1412,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptSignHash(void* hkey
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptUnregisterConfigChangeNotify(void* hevent) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptUnregisterConfigChangeNotify(void* hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1434,7 +1434,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptUnregisterConfigCha
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptUnregisterProvider(void* pszprovider) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptUnregisterProvider(void* pszprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1456,7 +1456,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptUnregisterProvider(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_BCryptVerifySignature(void* hkey, void* ppaddinginfo, void* pbhash, uint32_t cbhash, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_bCryptVerifySignature(void* hkey, void* ppaddinginfo, void* pbhash, uint32_t cbhash, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1484,7 +1484,7 @@ int32_t windowssys_windows_win32_security_cryptography_BCryptVerifySignature(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCRLContextToStore(void* hcertstore, void* pcrlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCRLContextToStore(void* hcertstore, void* pcrlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1509,7 +1509,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCRLContextToStore(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCRLLinkToStore(void* hcertstore, void* pcrlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCRLLinkToStore(void* hcertstore, void* pcrlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1534,7 +1534,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCRLLinkToStore(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCTLContextToStore(void* hcertstore, void* pctlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCTLContextToStore(void* hcertstore, void* pctlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1559,7 +1559,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCTLContextToStore(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCTLLinkToStore(void* hcertstore, void* pctlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCTLLinkToStore(void* hcertstore, void* pctlcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1584,7 +1584,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCTLLinkToStore(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCertificateContextToStore(void* hcertstore, void* pcertcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCertificateContextToStore(void* hcertstore, void* pcertcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1609,7 +1609,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCertificateContext
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddCertificateLinkToStore(void* hcertstore, void* pcertcontext, uint32_t dwadddisposition, void* ppstorecontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddCertificateLinkToStore(void* hcertstore, void* pcertcontext, uint32_t dwadddisposition, void* ppstorecontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1634,7 +1634,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddCertificateLinkToS
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCRLToStore(void* hcertstore, uint32_t dwcertencodingtype, void* pbcrlencoded, uint32_t cbcrlencoded, uint32_t dwadddisposition, void* ppcrlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEncodedCRLToStore(void* hcertstore, uint32_t dwcertencodingtype, void* pbcrlencoded, uint32_t cbcrlencoded, uint32_t dwadddisposition, void* ppcrlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1661,7 +1661,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCRLToStore(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCTLToStore(void* hcertstore, uint32_t dwmsgandcertencodingtype, void* pbctlencoded, uint32_t cbctlencoded, uint32_t dwadddisposition, void* ppctlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEncodedCTLToStore(void* hcertstore, uint32_t dwmsgandcertencodingtype, void* pbctlencoded, uint32_t cbctlencoded, uint32_t dwadddisposition, void* ppctlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1688,7 +1688,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCTLToStore(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToStore(void* hcertstore, uint32_t dwcertencodingtype, void* pbcertencoded, uint32_t cbcertencoded, uint32_t dwadddisposition, void* ppcertcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToStore(void* hcertstore, uint32_t dwcertencodingtype, void* pbcertencoded, uint32_t cbcertencoded, uint32_t dwadddisposition, void* ppcertcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1715,7 +1715,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificate
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreA(void* szcertstorename, void* pbcertencoded, uint32_t cbcertencoded) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreA(void* szcertstorename, void* pbcertencoded, uint32_t cbcertencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1739,7 +1739,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificate
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreW(void* szcertstorename, void* pbcertencoded, uint32_t cbcertencoded) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreW(void* szcertstorename, void* pbcertencoded, uint32_t cbcertencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1763,7 +1763,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEncodedCertificate
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddEnhancedKeyUsageIdentifier(void* pcertcontext, void* pszusageidentifier) {
+int32_t windowssys_windows_win32_security_cryptography_certAddEnhancedKeyUsageIdentifier(void* pcertcontext, void* pszusageidentifier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1786,7 +1786,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddEnhancedKeyUsageId
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponse(void* hserverocspresponse) {
+void windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponse(void* hserverocspresponse) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1807,7 +1807,7 @@ void windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponse
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponseContext(void* pserverocspresponsecontext) {
+void windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponseContext(void* pserverocspresponsecontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1828,7 +1828,7 @@ void windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddSerializedElementToStore(void* hcertstore, void* pbelement, uint32_t cbelement, uint32_t dwadddisposition, uint32_t dwflags, uint32_t dwcontexttypeflags, void* pdwcontexttype, void* ppvcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certAddSerializedElementToStore(void* hcertstore, void* pbelement, uint32_t cbelement, uint32_t dwadddisposition, uint32_t dwflags, uint32_t dwcontexttypeflags, void* pdwcontexttype, void* ppvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1857,7 +1857,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddSerializedElementT
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertAddStoreToCollection(void* hcollectionstore, void* hsiblingstore, uint32_t dwupdateflags, uint32_t dwpriority) {
+int32_t windowssys_windows_win32_security_cryptography_certAddStoreToCollection(void* hcollectionstore, void* hsiblingstore, uint32_t dwupdateflags, uint32_t dwpriority) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1882,7 +1882,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertAddStoreToCollection(
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertAlgIdToOID(uint32_t dwalgid) {
+void* windowssys_windows_win32_security_cryptography_certAlgIdToOID(uint32_t dwalgid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1904,7 +1904,7 @@ void* windowssys_windows_win32_security_cryptography_CertAlgIdToOID(uint32_t dwa
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertCloseServerOcspResponse(void* hserverocspresponse, uint32_t dwflags) {
+void windowssys_windows_win32_security_cryptography_certCloseServerOcspResponse(void* hserverocspresponse, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1926,7 +1926,7 @@ void windowssys_windows_win32_security_cryptography_CertCloseServerOcspResponse(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCloseStore(void* hcertstore, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_certCloseStore(void* hcertstore, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1949,7 +1949,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCloseStore(void* hcer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCompareCertificate(uint32_t dwcertencodingtype, void* pcertid1, void* pcertid2) {
+int32_t windowssys_windows_win32_security_cryptography_certCompareCertificate(uint32_t dwcertencodingtype, void* pcertid1, void* pcertid2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1973,7 +1973,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCompareCertificate(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCompareCertificateName(uint32_t dwcertencodingtype, void* pcertname1, void* pcertname2) {
+int32_t windowssys_windows_win32_security_cryptography_certCompareCertificateName(uint32_t dwcertencodingtype, void* pcertname1, void* pcertname2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1997,7 +1997,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCompareCertificateNam
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCompareIntegerBlob(void* pint1, void* pint2) {
+int32_t windowssys_windows_win32_security_cryptography_certCompareIntegerBlob(void* pint1, void* pint2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2020,7 +2020,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCompareIntegerBlob(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertComparePublicKeyInfo(uint32_t dwcertencodingtype, void* ppublickey1, void* ppublickey2) {
+int32_t windowssys_windows_win32_security_cryptography_certComparePublicKeyInfo(uint32_t dwcertencodingtype, void* ppublickey1, void* ppublickey2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertComparePublicKeyInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertControlStore(void* hcertstore, uint32_t dwflags, uint32_t dwctrltype, void* pvctrlpara) {
+int32_t windowssys_windows_win32_security_cryptography_certControlStore(void* hcertstore, uint32_t dwflags, uint32_t dwctrltype, void* pvctrlpara) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2069,7 +2069,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertControlStore(void* hc
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertCreateCRLContext(uint32_t dwcertencodingtype, void* pbcrlencoded, uint32_t cbcrlencoded) {
+void* windowssys_windows_win32_security_cryptography_certCreateCRLContext(uint32_t dwcertencodingtype, void* pbcrlencoded, uint32_t cbcrlencoded) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2093,7 +2093,7 @@ void* windowssys_windows_win32_security_cryptography_CertCreateCRLContext(uint32
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertCreateCTLContext(uint32_t dwmsgandcertencodingtype, void* pbctlencoded, uint32_t cbctlencoded) {
+void* windowssys_windows_win32_security_cryptography_certCreateCTLContext(uint32_t dwmsgandcertencodingtype, void* pbctlencoded, uint32_t cbctlencoded) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ void* windowssys_windows_win32_security_cryptography_CertCreateCTLContext(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCreateCTLEntryFromCertificateContextProperties(void* pcertcontext, uint32_t coptattr, void* rgoptattr, uint32_t dwflags, void* pvreserved, void* pctlentry, void* pcbctlentry) {
+int32_t windowssys_windows_win32_security_cryptography_certCreateCTLEntryFromCertificateContextProperties(void* pcertcontext, uint32_t coptattr, void* rgoptattr, uint32_t dwflags, void* pvreserved, void* pctlentry, void* pcbctlentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2145,7 +2145,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCreateCTLEntryFromCer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertCreateCertificateChainEngine(void* pconfig, void* phchainengine) {
+int32_t windowssys_windows_win32_security_cryptography_certCreateCertificateChainEngine(void* pconfig, void* phchainengine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2168,7 +2168,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertCreateCertificateChai
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertCreateCertificateContext(uint32_t dwcertencodingtype, void* pbcertencoded, uint32_t cbcertencoded) {
+void* windowssys_windows_win32_security_cryptography_certCreateCertificateContext(uint32_t dwcertencodingtype, void* pbcertencoded, uint32_t cbcertencoded) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2192,7 +2192,7 @@ void* windowssys_windows_win32_security_cryptography_CertCreateCertificateContex
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertCreateContext(uint32_t dwcontexttype, uint32_t dwencodingtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pcreatepara) {
+void* windowssys_windows_win32_security_cryptography_certCreateContext(uint32_t dwcontexttype, uint32_t dwencodingtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pcreatepara) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2219,7 +2219,7 @@ void* windowssys_windows_win32_security_cryptography_CertCreateContext(uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertCreateSelfSignCertificate(uint64_t hcryptprovorncryptkey, void* psubjectissuerblob, uint32_t dwflags, void* pkeyprovinfo, void* psignaturealgorithm, void* pstarttime, void* pendtime, void* pextensions) {
+void* windowssys_windows_win32_security_cryptography_certCreateSelfSignCertificate(uint64_t hcryptprovorncryptkey, void* psubjectissuerblob, uint32_t dwflags, void* pkeyprovinfo, void* psignaturealgorithm, void* pstarttime, void* pendtime, void* pextensions) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2248,7 +2248,7 @@ void* windowssys_windows_win32_security_cryptography_CertCreateSelfSignCertifica
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertDeleteCRLFromStore(void* pcrlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certDeleteCRLFromStore(void* pcrlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2270,7 +2270,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertDeleteCRLFromStore(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertDeleteCTLFromStore(void* pctlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certDeleteCTLFromStore(void* pctlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2292,7 +2292,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertDeleteCTLFromStore(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertDeleteCertificateFromStore(void* pcertcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certDeleteCertificateFromStore(void* pcertcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2314,7 +2314,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertDeleteCertificateFrom
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertDuplicateCRLContext(void* pcrlcontext) {
+void* windowssys_windows_win32_security_cryptography_certDuplicateCRLContext(void* pcrlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2336,7 +2336,7 @@ void* windowssys_windows_win32_security_cryptography_CertDuplicateCRLContext(voi
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertDuplicateCTLContext(void* pctlcontext) {
+void* windowssys_windows_win32_security_cryptography_certDuplicateCTLContext(void* pctlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2358,7 +2358,7 @@ void* windowssys_windows_win32_security_cryptography_CertDuplicateCTLContext(voi
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertDuplicateCertificateChain(void* pchaincontext) {
+void* windowssys_windows_win32_security_cryptography_certDuplicateCertificateChain(void* pchaincontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2380,7 +2380,7 @@ void* windowssys_windows_win32_security_cryptography_CertDuplicateCertificateCha
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertDuplicateCertificateContext(void* pcertcontext) {
+void* windowssys_windows_win32_security_cryptography_certDuplicateCertificateContext(void* pcertcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2402,7 +2402,7 @@ void* windowssys_windows_win32_security_cryptography_CertDuplicateCertificateCon
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertDuplicateStore(void* hcertstore) {
+void* windowssys_windows_win32_security_cryptography_certDuplicateStore(void* hcertstore) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2424,7 +2424,7 @@ void* windowssys_windows_win32_security_cryptography_CertDuplicateStore(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertEnumCRLContextProperties(void* pcrlcontext, uint32_t dwpropid) {
+uint32_t windowssys_windows_win32_security_cryptography_certEnumCRLContextProperties(void* pcrlcontext, uint32_t dwpropid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2447,7 +2447,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertEnumCRLContextProper
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertEnumCRLsInStore(void* hcertstore, void* pprevcrlcontext) {
+void* windowssys_windows_win32_security_cryptography_certEnumCRLsInStore(void* hcertstore, void* pprevcrlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2470,7 +2470,7 @@ void* windowssys_windows_win32_security_cryptography_CertEnumCRLsInStore(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertEnumCTLContextProperties(void* pctlcontext, uint32_t dwpropid) {
+uint32_t windowssys_windows_win32_security_cryptography_certEnumCTLContextProperties(void* pctlcontext, uint32_t dwpropid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2493,7 +2493,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertEnumCTLContextProper
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertEnumCTLsInStore(void* hcertstore, void* pprevctlcontext) {
+void* windowssys_windows_win32_security_cryptography_certEnumCTLsInStore(void* hcertstore, void* pprevctlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2516,7 +2516,7 @@ void* windowssys_windows_win32_security_cryptography_CertEnumCTLsInStore(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertEnumCertificateContextProperties(void* pcertcontext, uint32_t dwpropid) {
+uint32_t windowssys_windows_win32_security_cryptography_certEnumCertificateContextProperties(void* pcertcontext, uint32_t dwpropid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2539,7 +2539,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertEnumCertificateConte
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertEnumCertificatesInStore(void* hcertstore, void* pprevcertcontext) {
+void* windowssys_windows_win32_security_cryptography_certEnumCertificatesInStore(void* hcertstore, void* pprevcertcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2562,7 +2562,7 @@ void* windowssys_windows_win32_security_cryptography_CertEnumCertificatesInStore
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertEnumPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pvarg, void* pfnenum) {
+int32_t windowssys_windows_win32_security_cryptography_certEnumPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pvarg, void* pfnenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2587,7 +2587,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertEnumPhysicalStore(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertEnumSubjectInSortedCTL(void* pctlcontext, void* ppvnextsubject, void* psubjectidentifier, void* pencodedattributes) {
+int32_t windowssys_windows_win32_security_cryptography_certEnumSubjectInSortedCTL(void* pctlcontext, void* ppvnextsubject, void* psubjectidentifier, void* pencodedattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2612,7 +2612,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertEnumSubjectInSortedCT
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertEnumSystemStore(uint32_t dwflags, void* pvsystemstorelocationpara, void* pvarg, void* pfnenum) {
+int32_t windowssys_windows_win32_security_cryptography_certEnumSystemStore(uint32_t dwflags, void* pvsystemstorelocationpara, void* pvarg, void* pfnenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2637,7 +2637,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertEnumSystemStore(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertEnumSystemStoreLocation(uint32_t dwflags, void* pvarg, void* pfnenum) {
+int32_t windowssys_windows_win32_security_cryptography_certEnumSystemStoreLocation(uint32_t dwflags, void* pvarg, void* pfnenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2661,7 +2661,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertEnumSystemStoreLocati
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindAttribute(void* pszobjid, uint32_t cattr, void* rgattr) {
+void* windowssys_windows_win32_security_cryptography_certFindAttribute(void* pszobjid, uint32_t cattr, void* rgattr) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2685,7 +2685,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindAttribute(void* psz
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindCRLInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevcrlcontext) {
+void* windowssys_windows_win32_security_cryptography_certFindCRLInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevcrlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2712,7 +2712,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindCRLInStore(void* hc
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindCTLInStore(void* hcertstore, uint32_t dwmsgandcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevctlcontext) {
+void* windowssys_windows_win32_security_cryptography_certFindCTLInStore(void* hcertstore, uint32_t dwmsgandcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevctlcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2739,7 +2739,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindCTLInStore(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertFindCertificateInCRL(void* pcert, void* pcrlcontext, uint32_t dwflags, void* pvreserved, void* ppcrlentry) {
+int32_t windowssys_windows_win32_security_cryptography_certFindCertificateInCRL(void* pcert, void* pcrlcontext, uint32_t dwflags, void* pvreserved, void* ppcrlentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2765,7 +2765,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertFindCertificateInCRL(
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindCertificateInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevcertcontext) {
+void* windowssys_windows_win32_security_cryptography_certFindCertificateInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevcertcontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2792,7 +2792,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindCertificateInStore(
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindChainInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevchaincontext) {
+void* windowssys_windows_win32_security_cryptography_certFindChainInStore(void* hcertstore, uint32_t dwcertencodingtype, uint32_t dwfindflags, uint32_t dwfindtype, void* pvfindpara, void* pprevchaincontext) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2819,7 +2819,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindChainInStore(void* 
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindExtension(void* pszobjid, uint32_t cextensions, void* rgextensions) {
+void* windowssys_windows_win32_security_cryptography_certFindExtension(void* pszobjid, uint32_t cextensions, void* rgextensions) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2843,7 +2843,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindExtension(void* psz
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindRDNAttr(void* pszobjid, void* pname) {
+void* windowssys_windows_win32_security_cryptography_certFindRDNAttr(void* pszobjid, void* pname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2866,7 +2866,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindRDNAttr(void* pszob
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertFindSubjectInCTL(uint32_t dwencodingtype, uint32_t dwsubjecttype, void* pvsubject, void* pctlcontext, uint32_t dwflags) {
+void* windowssys_windows_win32_security_cryptography_certFindSubjectInCTL(uint32_t dwencodingtype, uint32_t dwsubjecttype, void* pvsubject, void* pctlcontext, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2892,7 +2892,7 @@ void* windowssys_windows_win32_security_cryptography_CertFindSubjectInCTL(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertFindSubjectInSortedCTL(void* psubjectidentifier, void* pctlcontext, uint32_t dwflags, void* pvreserved, void* pencodedattributes) {
+int32_t windowssys_windows_win32_security_cryptography_certFindSubjectInSortedCTL(void* psubjectidentifier, void* pctlcontext, uint32_t dwflags, void* pvreserved, void* pencodedattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2918,7 +2918,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertFindSubjectInSortedCT
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertFreeCRLContext(void* pcrlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certFreeCRLContext(void* pcrlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2940,7 +2940,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertFreeCRLContext(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertFreeCTLContext(void* pctlcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certFreeCTLContext(void* pctlcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2962,7 +2962,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertFreeCTLContext(void* 
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertFreeCertificateChain(void* pchaincontext) {
+void windowssys_windows_win32_security_cryptography_certFreeCertificateChain(void* pchaincontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2983,7 +2983,7 @@ void windowssys_windows_win32_security_cryptography_CertFreeCertificateChain(voi
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertFreeCertificateChainEngine(void* hchainengine) {
+void windowssys_windows_win32_security_cryptography_certFreeCertificateChainEngine(void* hchainengine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3004,7 +3004,7 @@ void windowssys_windows_win32_security_cryptography_CertFreeCertificateChainEngi
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertFreeCertificateChainList(void* prgpselection) {
+void windowssys_windows_win32_security_cryptography_certFreeCertificateChainList(void* prgpselection) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3025,7 +3025,7 @@ void windowssys_windows_win32_security_cryptography_CertFreeCertificateChainList
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertFreeCertificateContext(void* pcertcontext) {
+int32_t windowssys_windows_win32_security_cryptography_certFreeCertificateContext(void* pcertcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3047,7 +3047,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertFreeCertificateContex
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertFreeServerOcspResponseContext(void* pserverocspresponsecontext) {
+void windowssys_windows_win32_security_cryptography_certFreeServerOcspResponseContext(void* pserverocspresponsecontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3068,7 +3068,7 @@ void windowssys_windows_win32_security_cryptography_CertFreeServerOcspResponseCo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetCRLContextProperty(void* pcrlcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_certGetCRLContextProperty(void* pcrlcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3093,7 +3093,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetCRLContextProperty
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertGetCRLFromStore(void* hcertstore, void* pissuercontext, void* pprevcrlcontext, void* pdwflags) {
+void* windowssys_windows_win32_security_cryptography_certGetCRLFromStore(void* hcertstore, void* pissuercontext, void* pprevcrlcontext, void* pdwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3118,7 +3118,7 @@ void* windowssys_windows_win32_security_cryptography_CertGetCRLFromStore(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetCTLContextProperty(void* pctlcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_certGetCTLContextProperty(void* pctlcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3143,7 +3143,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetCTLContextProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetCertificateChain(void* hchainengine, void* pcertcontext, void* ptime, void* hadditionalstore, void* pchainpara, uint32_t dwflags, void* pvreserved, void* ppchaincontext) {
+int32_t windowssys_windows_win32_security_cryptography_certGetCertificateChain(void* hchainengine, void* pcertcontext, void* ptime, void* hadditionalstore, void* pchainpara, uint32_t dwflags, void* pvreserved, void* ppchaincontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3172,7 +3172,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetCertificateChain(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetCertificateContextProperty(void* pcertcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_certGetCertificateContextProperty(void* pcertcontext, uint32_t dwpropid, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3197,7 +3197,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetCertificateContext
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetEnhancedKeyUsage(void* pcertcontext, uint32_t dwflags, void* pusage, void* pcbusage) {
+int32_t windowssys_windows_win32_security_cryptography_certGetEnhancedKeyUsage(void* pcertcontext, uint32_t dwflags, void* pusage, void* pcbusage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3222,7 +3222,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetEnhancedKeyUsage(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetIntendedKeyUsage(uint32_t dwcertencodingtype, void* pcertinfo, void* pbkeyusage, uint32_t cbkeyusage) {
+int32_t windowssys_windows_win32_security_cryptography_certGetIntendedKeyUsage(uint32_t dwcertencodingtype, void* pcertinfo, void* pbkeyusage, uint32_t cbkeyusage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3247,7 +3247,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetIntendedKeyUsage(u
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertGetIssuerCertificateFromStore(void* hcertstore, void* psubjectcontext, void* pprevissuercontext, void* pdwflags) {
+void* windowssys_windows_win32_security_cryptography_certGetIssuerCertificateFromStore(void* hcertstore, void* psubjectcontext, void* pprevissuercontext, void* pdwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3272,7 +3272,7 @@ void* windowssys_windows_win32_security_cryptography_CertGetIssuerCertificateFro
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertGetNameStringA(void* pcertcontext, uint32_t dwtype, uint32_t dwflags, void* pvtypepara, void* psznamestring, uint32_t cchnamestring) {
+uint32_t windowssys_windows_win32_security_cryptography_certGetNameStringA(void* pcertcontext, uint32_t dwtype, uint32_t dwflags, void* pvtypepara, void* psznamestring, uint32_t cchnamestring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3299,7 +3299,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertGetNameStringA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertGetNameStringW(void* pcertcontext, uint32_t dwtype, uint32_t dwflags, void* pvtypepara, void* psznamestring, uint32_t cchnamestring) {
+uint32_t windowssys_windows_win32_security_cryptography_certGetNameStringW(void* pcertcontext, uint32_t dwtype, uint32_t dwflags, void* pvtypepara, void* psznamestring, uint32_t cchnamestring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3326,7 +3326,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertGetNameStringW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertGetPublicKeyLength(uint32_t dwcertencodingtype, void* ppublickey) {
+uint32_t windowssys_windows_win32_security_cryptography_certGetPublicKeyLength(uint32_t dwcertencodingtype, void* ppublickey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3349,7 +3349,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertGetPublicKeyLength(u
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertGetServerOcspResponseContext(void* hserverocspresponse, uint32_t dwflags, void* pvreserved) {
+void* windowssys_windows_win32_security_cryptography_certGetServerOcspResponseContext(void* hserverocspresponse, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3373,7 +3373,7 @@ void* windowssys_windows_win32_security_cryptography_CertGetServerOcspResponseCo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetStoreProperty(void* hcertstore, uint32_t dwpropid, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_certGetStoreProperty(void* hcertstore, uint32_t dwpropid, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3398,7 +3398,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetStoreProperty(void
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertGetSubjectCertificateFromStore(void* hcertstore, uint32_t dwcertencodingtype, void* pcertid) {
+void* windowssys_windows_win32_security_cryptography_certGetSubjectCertificateFromStore(void* hcertstore, uint32_t dwcertencodingtype, void* pcertid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3422,7 +3422,7 @@ void* windowssys_windows_win32_security_cryptography_CertGetSubjectCertificateFr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertGetValidUsages(uint32_t ccerts, void* rghcerts, void* cnumoids, void* rghoids, void* pcboids) {
+int32_t windowssys_windows_win32_security_cryptography_certGetValidUsages(uint32_t ccerts, void* rghcerts, void* cnumoids, void* rghoids, void* pcboids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3448,7 +3448,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertGetValidUsages(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertIsRDNAttrsInCertificateName(uint32_t dwcertencodingtype, uint32_t dwflags, void* pcertname, void* prdn) {
+int32_t windowssys_windows_win32_security_cryptography_certIsRDNAttrsInCertificateName(uint32_t dwcertencodingtype, uint32_t dwflags, void* pcertname, void* prdn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3473,7 +3473,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertIsRDNAttrsInCertifica
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertIsStrongHashToSign(void* pstrongsignpara, void* pwszcnghashalgid, void* psigningcert) {
+int32_t windowssys_windows_win32_security_cryptography_certIsStrongHashToSign(void* pstrongsignpara, void* pwszcnghashalgid, void* psigningcert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3497,7 +3497,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertIsStrongHashToSign(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertIsValidCRLForCertificate(void* pcert, void* pcrl, uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_certIsValidCRLForCertificate(void* pcert, void* pcrl, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3522,7 +3522,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertIsValidCRLForCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertIsWeakHash(uint32_t dwhashusetype, void* pwszcnghashalgid, uint32_t dwchainflags, void* psignerchaincontext, void* ptimestamp, void* pwszfilename) {
+int32_t windowssys_windows_win32_security_cryptography_certIsWeakHash(uint32_t dwhashusetype, void* pwszcnghashalgid, uint32_t dwchainflags, void* psignerchaincontext, void* ptimestamp, void* pwszfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3549,7 +3549,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertIsWeakHash(uint32_t d
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertNameToStrA(uint32_t dwcertencodingtype, void* pname, uint32_t dwstrtype, void* psz, uint32_t csz) {
+uint32_t windowssys_windows_win32_security_cryptography_certNameToStrA(uint32_t dwcertencodingtype, void* pname, uint32_t dwstrtype, void* psz, uint32_t csz) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3575,7 +3575,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertNameToStrA(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertNameToStrW(uint32_t dwcertencodingtype, void* pname, uint32_t dwstrtype, void* psz, uint32_t csz) {
+uint32_t windowssys_windows_win32_security_cryptography_certNameToStrW(uint32_t dwcertencodingtype, void* pname, uint32_t dwstrtype, void* psz, uint32_t csz) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3601,7 +3601,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertNameToStrW(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertOIDToAlgId(void* pszobjid) {
+uint32_t windowssys_windows_win32_security_cryptography_certOIDToAlgId(void* pszobjid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3623,7 +3623,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertOIDToAlgId(void* psz
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertOpenServerOcspResponse(void* pchaincontext, uint32_t dwflags, void* popenpara) {
+void* windowssys_windows_win32_security_cryptography_certOpenServerOcspResponse(void* pchaincontext, uint32_t dwflags, void* popenpara) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3647,7 +3647,7 @@ void* windowssys_windows_win32_security_cryptography_CertOpenServerOcspResponse(
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertOpenStore(void* lpszstoreprovider, uint32_t dwencodingtype, uint64_t hcryptprov, uint32_t dwflags, void* pvpara) {
+void* windowssys_windows_win32_security_cryptography_certOpenStore(void* lpszstoreprovider, uint32_t dwencodingtype, uint64_t hcryptprov, uint32_t dwflags, void* pvpara) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3673,7 +3673,7 @@ void* windowssys_windows_win32_security_cryptography_CertOpenStore(void* lpszsto
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertOpenSystemStoreA(uint64_t hprov, void* szsubsystemprotocol) {
+void* windowssys_windows_win32_security_cryptography_certOpenSystemStoreA(uint64_t hprov, void* szsubsystemprotocol) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3696,7 +3696,7 @@ void* windowssys_windows_win32_security_cryptography_CertOpenSystemStoreA(uint64
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CertOpenSystemStoreW(uint64_t hprov, void* szsubsystemprotocol) {
+void* windowssys_windows_win32_security_cryptography_certOpenSystemStoreW(uint64_t hprov, void* szsubsystemprotocol) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3719,7 +3719,7 @@ void* windowssys_windows_win32_security_cryptography_CertOpenSystemStoreW(uint64
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertRDNValueToStrA(uint32_t dwvaluetype, void* pvalue, void* psz, uint32_t csz) {
+uint32_t windowssys_windows_win32_security_cryptography_certRDNValueToStrA(uint32_t dwvaluetype, void* pvalue, void* psz, uint32_t csz) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3744,7 +3744,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertRDNValueToStrA(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CertRDNValueToStrW(uint32_t dwvaluetype, void* pvalue, void* psz, uint32_t csz) {
+uint32_t windowssys_windows_win32_security_cryptography_certRDNValueToStrW(uint32_t dwvaluetype, void* pvalue, void* psz, uint32_t csz) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3769,7 +3769,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CertRDNValueToStrW(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertRegisterPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pwszstorename, void* pstoreinfo, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_certRegisterPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pwszstorename, void* pstoreinfo, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3795,7 +3795,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertRegisterPhysicalStore
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertRegisterSystemStore(void* pvsystemstore, uint32_t dwflags, void* pstoreinfo, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_certRegisterSystemStore(void* pvsystemstore, uint32_t dwflags, void* pstoreinfo, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3820,7 +3820,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertRegisterSystemStore(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertRemoveEnhancedKeyUsageIdentifier(void* pcertcontext, void* pszusageidentifier) {
+int32_t windowssys_windows_win32_security_cryptography_certRemoveEnhancedKeyUsageIdentifier(void* pcertcontext, void* pszusageidentifier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3843,7 +3843,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertRemoveEnhancedKeyUsag
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CertRemoveStoreFromCollection(void* hcollectionstore, void* hsiblingstore) {
+void windowssys_windows_win32_security_cryptography_certRemoveStoreFromCollection(void* hcollectionstore, void* hsiblingstore) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3865,7 +3865,7 @@ void windowssys_windows_win32_security_cryptography_CertRemoveStoreFromCollectio
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertResyncCertificateChainEngine(void* hchainengine) {
+int32_t windowssys_windows_win32_security_cryptography_certResyncCertificateChainEngine(void* hchainengine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3887,7 +3887,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertResyncCertificateChai
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertRetrieveLogoOrBiometricInfo(void* pcertcontext, void* lpszlogoorbiometrictype, uint32_t dwretrievalflags, uint32_t dwtimeout, uint32_t dwflags, void* pvreserved, void* ppbdata, void* pcbdata, void* ppwszmimetype) {
+int32_t windowssys_windows_win32_security_cryptography_certRetrieveLogoOrBiometricInfo(void* pcertcontext, void* lpszlogoorbiometrictype, uint32_t dwretrievalflags, uint32_t dwtimeout, uint32_t dwflags, void* pvreserved, void* ppbdata, void* pcbdata, void* ppwszmimetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3917,7 +3917,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertRetrieveLogoOrBiometr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSaveStore(void* hcertstore, uint32_t dwencodingtype, uint32_t dwsaveas, uint32_t dwsaveto, void* pvsavetopara, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_certSaveStore(void* hcertstore, uint32_t dwencodingtype, uint32_t dwsaveas, uint32_t dwsaveto, void* pvsavetopara, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3944,7 +3944,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSaveStore(void* hcert
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSelectCertificateChains(void* pselectioncontext, uint32_t dwflags, void* pchainparameters, uint32_t ccriteria, void* rgpcriteria, void* hstore, void* pcselection, void* pprgpselection) {
+int32_t windowssys_windows_win32_security_cryptography_certSelectCertificateChains(void* pselectioncontext, uint32_t dwflags, void* pchainparameters, uint32_t ccriteria, void* rgpcriteria, void* hstore, void* pcselection, void* pprgpselection) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3973,7 +3973,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSelectCertificateChai
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSerializeCRLStoreElement(void* pcrlcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
+int32_t windowssys_windows_win32_security_cryptography_certSerializeCRLStoreElement(void* pcrlcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3998,7 +3998,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSerializeCRLStoreElem
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSerializeCTLStoreElement(void* pctlcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
+int32_t windowssys_windows_win32_security_cryptography_certSerializeCTLStoreElement(void* pctlcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4023,7 +4023,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSerializeCTLStoreElem
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSerializeCertificateStoreElement(void* pcertcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
+int32_t windowssys_windows_win32_security_cryptography_certSerializeCertificateStoreElement(void* pcertcontext, uint32_t dwflags, void* pbelement, void* pcbelement) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4048,7 +4048,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSerializeCertificateS
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetCRLContextProperty(void* pcrlcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
+int32_t windowssys_windows_win32_security_cryptography_certSetCRLContextProperty(void* pcrlcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4073,7 +4073,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetCRLContextProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetCTLContextProperty(void* pctlcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
+int32_t windowssys_windows_win32_security_cryptography_certSetCTLContextProperty(void* pctlcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4098,7 +4098,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetCTLContextProperty
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetCertificateContextPropertiesFromCTLEntry(void* pcertcontext, void* pctlentry, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_certSetCertificateContextPropertiesFromCTLEntry(void* pcertcontext, void* pctlentry, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4122,7 +4122,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetCertificateContext
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetCertificateContextProperty(void* pcertcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
+int32_t windowssys_windows_win32_security_cryptography_certSetCertificateContextProperty(void* pcertcontext, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4147,7 +4147,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetCertificateContext
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetEnhancedKeyUsage(void* pcertcontext, void* pusage) {
+int32_t windowssys_windows_win32_security_cryptography_certSetEnhancedKeyUsage(void* pcertcontext, void* pusage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4170,7 +4170,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetEnhancedKeyUsage(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertSetStoreProperty(void* hcertstore, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
+int32_t windowssys_windows_win32_security_cryptography_certSetStoreProperty(void* hcertstore, uint32_t dwpropid, uint32_t dwflags, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4195,7 +4195,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertSetStoreProperty(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertStrToNameA(uint32_t dwcertencodingtype, void* pszx500, uint32_t dwstrtype, void* pvreserved, void* pbencoded, void* pcbencoded, void* ppszerror) {
+int32_t windowssys_windows_win32_security_cryptography_certStrToNameA(uint32_t dwcertencodingtype, void* pszx500, uint32_t dwstrtype, void* pvreserved, void* pbencoded, void* pcbencoded, void* ppszerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4223,7 +4223,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertStrToNameA(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertStrToNameW(uint32_t dwcertencodingtype, void* pszx500, uint32_t dwstrtype, void* pvreserved, void* pbencoded, void* pcbencoded, void* ppszerror) {
+int32_t windowssys_windows_win32_security_cryptography_certStrToNameW(uint32_t dwcertencodingtype, void* pszx500, uint32_t dwstrtype, void* pvreserved, void* pbencoded, void* pcbencoded, void* ppszerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4251,7 +4251,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertStrToNameW(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertUnregisterPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pwszstorename) {
+int32_t windowssys_windows_win32_security_cryptography_certUnregisterPhysicalStore(void* pvsystemstore, uint32_t dwflags, void* pwszstorename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4275,7 +4275,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertUnregisterPhysicalSto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertUnregisterSystemStore(void* pvsystemstore, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_certUnregisterSystemStore(void* pvsystemstore, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4298,7 +4298,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertUnregisterSystemStore
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyCRLRevocation(uint32_t dwcertencodingtype, void* pcertid, uint32_t ccrlinfo, void* rgpcrlinfo) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyCRLRevocation(uint32_t dwcertencodingtype, void* pcertid, uint32_t ccrlinfo, void* rgpcrlinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4323,7 +4323,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyCRLRevocation(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyCRLTimeValidity(void* ptimetoverify, void* pcrlinfo) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyCRLTimeValidity(void* ptimetoverify, void* pcrlinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4346,7 +4346,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyCRLTimeValidity
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyCTLUsage(uint32_t dwencodingtype, uint32_t dwsubjecttype, void* pvsubject, void* psubjectusage, uint32_t dwflags, void* pverifyusagepara, void* pverifyusagestatus) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyCTLUsage(uint32_t dwencodingtype, uint32_t dwsubjecttype, void* pvsubject, void* psubjectusage, uint32_t dwflags, void* pverifyusagepara, void* pverifyusagestatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4374,7 +4374,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyCTLUsage(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyCertificateChainPolicy(void* pszpolicyoid, void* pchaincontext, void* ppolicypara, void* ppolicystatus) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyCertificateChainPolicy(void* pszpolicyoid, void* pchaincontext, void* ppolicypara, void* ppolicystatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4399,7 +4399,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyCertificateChai
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyRevocation(uint32_t dwencodingtype, uint32_t dwrevtype, uint32_t ccontext, void* rgpvcontext, uint32_t dwflags, void* prevpara, void* prevstatus) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyRevocation(uint32_t dwencodingtype, uint32_t dwrevtype, uint32_t ccontext, void* rgpvcontext, uint32_t dwflags, void* prevpara, void* prevstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4427,7 +4427,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyRevocation(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifySubjectCertificateContext(void* psubject, void* pissuer, void* pdwflags) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifySubjectCertificateContext(void* psubject, void* pissuer, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4451,7 +4451,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifySubjectCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyTimeValidity(void* ptimetoverify, void* pcertinfo) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyTimeValidity(void* ptimetoverify, void* pcertinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4474,7 +4474,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyTimeValidity(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CertVerifyValidityNesting(void* psubjectinfo, void* pissuerinfo) {
+int32_t windowssys_windows_win32_security_cryptography_certVerifyValidityNesting(void* psubjectinfo, void* pissuerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4497,7 +4497,7 @@ int32_t windowssys_windows_win32_security_cryptography_CertVerifyValidityNesting
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CloseCryptoHandle(void* hcrypto) {
+int32_t windowssys_windows_win32_security_cryptography_closeCryptoHandle(void* hcrypto) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4519,7 +4519,7 @@ int32_t windowssys_windows_win32_security_cryptography_CloseCryptoHandle(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptAcquireCertificatePrivateKey(void* pcert, uint32_t dwflags, void* pvparameters, void* phcryptprovorncryptkey, void* pdwkeyspec, void* pfcallerfreeprovorncryptkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptAcquireCertificatePrivateKey(void* pcert, uint32_t dwflags, void* pvparameters, void* phcryptprovorncryptkey, void* pdwkeyspec, void* pfcallerfreeprovorncryptkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4546,7 +4546,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptAcquireCertificatePr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptAcquireContextA(void* phprov, void* szcontainer, void* szprovider, uint32_t dwprovtype, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptAcquireContextA(void* phprov, void* szcontainer, void* szprovider, uint32_t dwprovtype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4572,7 +4572,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptAcquireContextA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptAcquireContextW(void* phprov, void* szcontainer, void* szprovider, uint32_t dwprovtype, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptAcquireContextW(void* phprov, void* szcontainer, void* szprovider, uint32_t dwprovtype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4598,7 +4598,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptAcquireContextW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptBinaryToStringA(void* pbbinary, uint32_t cbbinary, uint32_t dwflags, void* pszstring, void* pcchstring) {
+int32_t windowssys_windows_win32_security_cryptography_cryptBinaryToStringA(void* pbbinary, uint32_t cbbinary, uint32_t dwflags, void* pszstring, void* pcchstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4624,7 +4624,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptBinaryToStringA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptBinaryToStringW(void* pbbinary, uint32_t cbbinary, uint32_t dwflags, void* pszstring, void* pcchstring) {
+int32_t windowssys_windows_win32_security_cryptography_cryptBinaryToStringW(void* pbbinary, uint32_t cbbinary, uint32_t dwflags, void* pszstring, void* pcchstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4650,7 +4650,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptBinaryToStringW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptCloseAsyncHandle(int64_t hasync) {
+int32_t windowssys_windows_win32_security_cryptography_cryptCloseAsyncHandle(int64_t hasync) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4672,7 +4672,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptCloseAsyncHandle(int
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptContextAddRef(uint64_t hprov, void* pdwreserved, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptContextAddRef(uint64_t hprov, void* pdwreserved, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4696,7 +4696,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptContextAddRef(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptCreateAsyncHandle(uint32_t dwflags, void* phasync) {
+int32_t windowssys_windows_win32_security_cryptography_cryptCreateAsyncHandle(uint32_t dwflags, void* phasync) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4719,7 +4719,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptCreateAsyncHandle(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptCreateHash(uint64_t hprov, uint32_t algid, uint64_t hkey, uint32_t dwflags, void* phhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptCreateHash(uint64_t hprov, uint32_t algid, uint64_t hkey, uint32_t dwflags, void* phhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4745,7 +4745,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptCreateHash(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptCreateKeyIdentifierFromCSP(uint32_t dwcertencodingtype, void* pszpubkeyoid, void* ppubkeystruc, uint32_t cbpubkeystruc, uint32_t dwflags, void* pvreserved, void* pbhash, void* pcbhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptCreateKeyIdentifierFromCSP(uint32_t dwcertencodingtype, void* pszpubkeyoid, void* ppubkeystruc, uint32_t cbpubkeystruc, uint32_t dwflags, void* pvreserved, void* pbhash, void* pcbhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4774,7 +4774,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptCreateKeyIdentifierF
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecodeMessage(uint32_t dwmsgtypeflags, void* pdecryptpara, void* pverifypara, uint32_t dwsignerindex, void* pbencodedblob, uint32_t cbencodedblob, uint32_t dwprevinnercontenttype, void* pdwmsgtype, void* pdwinnercontenttype, void* pbdecoded, void* pcbdecoded, void* ppxchgcert, void* ppsignercert) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecodeMessage(uint32_t dwmsgtypeflags, void* pdecryptpara, void* pverifypara, uint32_t dwsignerindex, void* pbencodedblob, uint32_t cbencodedblob, uint32_t dwprevinnercontenttype, void* pdwmsgtype, void* pdwinnercontenttype, void* pbdecoded, void* pcbdecoded, void* ppxchgcert, void* ppsignercert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4808,7 +4808,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecodeMessage(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecodeObject(uint32_t dwcertencodingtype, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pvstructinfo, void* pcbstructinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecodeObject(uint32_t dwcertencodingtype, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pvstructinfo, void* pcbstructinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4836,7 +4836,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecodeObject(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecodeObjectEx(uint32_t dwcertencodingtype, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pdecodepara, void* pvstructinfo, void* pcbstructinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecodeObjectEx(uint32_t dwcertencodingtype, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, uint32_t dwflags, void* pdecodepara, void* pvstructinfo, void* pcbstructinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4865,7 +4865,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecodeObjectEx(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecrypt(uint64_t hkey, uint64_t hhash, int32_t final, uint32_t dwflags, void* pbdata, void* pdwdatalen) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecrypt(uint64_t hkey, uint64_t hhash, int32_t final, uint32_t dwflags, void* pbdata, void* pdwdatalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4892,7 +4892,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecrypt(uint64_t hke
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecryptAndVerifyMessageSignature(void* pdecryptpara, void* pverifypara, uint32_t dwsignerindex, void* pbencryptedblob, uint32_t cbencryptedblob, void* pbdecrypted, void* pcbdecrypted, void* ppxchgcert, void* ppsignercert) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecryptAndVerifyMessageSignature(void* pdecryptpara, void* pverifypara, uint32_t dwsignerindex, void* pbencryptedblob, uint32_t cbencryptedblob, void* pbdecrypted, void* pcbdecrypted, void* ppxchgcert, void* ppsignercert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4922,7 +4922,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecryptAndVerifyMess
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDecryptMessage(void* pdecryptpara, void* pbencryptedblob, uint32_t cbencryptedblob, void* pbdecrypted, void* pcbdecrypted, void* ppxchgcert) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDecryptMessage(void* pdecryptpara, void* pbencryptedblob, uint32_t cbencryptedblob, void* pbdecrypted, void* pcbdecrypted, void* ppxchgcert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4949,7 +4949,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDecryptMessage(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDeriveKey(uint64_t hprov, uint32_t algid, uint64_t hbasedata, uint32_t dwflags, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDeriveKey(uint64_t hprov, uint32_t algid, uint64_t hbasedata, uint32_t dwflags, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4975,7 +4975,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDeriveKey(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDestroyHash(uint64_t hhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDestroyHash(uint64_t hhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4997,7 +4997,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDestroyHash(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDestroyKey(uint64_t hkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDestroyKey(uint64_t hkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5019,7 +5019,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDestroyKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDuplicateHash(uint64_t hhash, void* pdwreserved, uint32_t dwflags, void* phhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDuplicateHash(uint64_t hhash, void* pdwreserved, uint32_t dwflags, void* phhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5044,7 +5044,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDuplicateHash(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptDuplicateKey(uint64_t hkey, void* pdwreserved, uint32_t dwflags, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptDuplicateKey(uint64_t hkey, void* pdwreserved, uint32_t dwflags, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5069,7 +5069,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptDuplicateKey(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEncodeObject(uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, void* pbencoded, void* pcbencoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEncodeObject(uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, void* pbencoded, void* pcbencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5095,7 +5095,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEncodeObject(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEncodeObjectEx(uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, uint32_t dwflags, void* pencodepara, void* pvencoded, void* pcbencoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEncodeObjectEx(uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, uint32_t dwflags, void* pencodepara, void* pvencoded, void* pcbencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5123,7 +5123,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEncodeObjectEx(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEncrypt(uint64_t hkey, uint64_t hhash, int32_t final, uint32_t dwflags, void* pbdata, void* pdwdatalen, uint32_t dwbuflen) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEncrypt(uint64_t hkey, uint64_t hhash, int32_t final, uint32_t dwflags, void* pbdata, void* pdwdatalen, uint32_t dwbuflen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, int32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5151,7 +5151,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEncrypt(uint64_t hke
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEncryptMessage(void* pencryptpara, uint32_t crecipientcert, void* rgprecipientcert, void* pbtobeencrypted, uint32_t cbtobeencrypted, void* pbencryptedblob, void* pcbencryptedblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEncryptMessage(void* pencryptpara, uint32_t crecipientcert, void* rgprecipientcert, void* pbtobeencrypted, uint32_t cbtobeencrypted, void* pbencryptedblob, void* pcbencryptedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5179,7 +5179,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEncryptMessage(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumKeyIdentifierProperties(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvarg, void* pfnenum) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumKeyIdentifierProperties(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvarg, void* pfnenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5207,7 +5207,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumKeyIdentifierPro
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, uint32_t dwflags, void* pvarg, void* pfnenumoidfunc) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, uint32_t dwflags, void* pvarg, void* pfnenumoidfunc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5234,7 +5234,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumOIDFunction(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumOIDInfo(uint32_t dwgroupid, uint32_t dwflags, void* pvarg, void* pfnenumoidinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumOIDInfo(uint32_t dwgroupid, uint32_t dwflags, void* pvarg, void* pfnenumoidinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5259,7 +5259,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumOIDInfo(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesA(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* sztypename, void* pcbtypename) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesA(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* sztypename, void* pcbtypename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5286,7 +5286,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesA(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesW(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* sztypename, void* pcbtypename) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesW(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* sztypename, void* pcbtypename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5313,7 +5313,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesW(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumProvidersA(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* szprovname, void* pcbprovname) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumProvidersA(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* szprovname, void* pcbprovname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5340,7 +5340,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumProvidersA(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptEnumProvidersW(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* szprovname, void* pcbprovname) {
+int32_t windowssys_windows_win32_security_cryptography_cryptEnumProvidersW(uint32_t dwindex, void* pdwreserved, uint32_t dwflags, void* pdwprovtype, void* szprovname, void* pcbprovname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5367,7 +5367,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptEnumProvidersW(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptExportKey(uint64_t hkey, uint64_t hexpkey, uint32_t dwblobtype, uint32_t dwflags, void* pbdata, void* pdwdatalen) {
+int32_t windowssys_windows_win32_security_cryptography_cryptExportKey(uint64_t hkey, uint64_t hexpkey, uint32_t dwblobtype, uint32_t dwflags, void* pbdata, void* pdwdatalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5394,7 +5394,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptExportKey(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptExportPKCS8(uint64_t hcryptprov, uint32_t dwkeyspec, void* pszprivatekeyobjid, uint32_t dwflags, void* pvauxinfo, void* pbprivatekeyblob, void* pcbprivatekeyblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptExportPKCS8(uint64_t hcryptprov, uint32_t dwkeyspec, void* pszprivatekeyobjid, uint32_t dwflags, void* pvauxinfo, void* pbprivatekeyblob, void* pcbprivatekeyblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5422,7 +5422,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptExportPKCS8(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfo(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pinfo, void* pcbinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfo(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pinfo, void* pcbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5448,7 +5448,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoEx(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pszpublickeyobjid, uint32_t dwflags, void* pvauxinfo, void* pinfo, void* pcbinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoEx(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pszpublickeyobjid, uint32_t dwflags, void* pvauxinfo, void* pinfo, void* pcbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5477,7 +5477,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoE
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoFromBCryptKeyHandle(void* hbcryptkey, uint32_t dwcertencodingtype, void* pszpublickeyobjid, uint32_t dwflags, void* pvauxinfo, void* pinfo, void* pcbinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoFromBCryptKeyHandle(void* hbcryptkey, uint32_t dwcertencodingtype, void* pszpublickeyobjid, uint32_t dwflags, void* pvauxinfo, void* pinfo, void* pcbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5505,7 +5505,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoF
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptFindCertificateKeyProvInfo(void* pcert, uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_cryptFindCertificateKeyProvInfo(void* pcert, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5529,7 +5529,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptFindCertificateKeyPr
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptFindLocalizedName(void* pwszcryptname) {
+void* windowssys_windows_win32_security_cryptography_cryptFindLocalizedName(void* pwszcryptname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5551,7 +5551,7 @@ void* windowssys_windows_win32_security_cryptography_CryptFindLocalizedName(void
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptFindOIDInfo(uint32_t dwkeytype, void* pvkey, uint32_t dwgroupid) {
+void* windowssys_windows_win32_security_cryptography_cryptFindOIDInfo(uint32_t dwkeytype, void* pvkey, uint32_t dwgroupid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5575,7 +5575,7 @@ void* windowssys_windows_win32_security_cryptography_CryptFindOIDInfo(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptFormatObject(uint32_t dwcertencodingtype, uint32_t dwformattype, uint32_t dwformatstrtype, void* pformatstruct, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, void* pbformat, void* pcbformat) {
+int32_t windowssys_windows_win32_security_cryptography_cryptFormatObject(uint32_t dwcertencodingtype, uint32_t dwformattype, uint32_t dwformatstrtype, void* pformatstruct, void* lpszstructtype, void* pbencoded, uint32_t cbencoded, void* pbformat, void* pcbformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5605,7 +5605,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptFormatObject(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptFreeOIDFunctionAddress(void* hfuncaddr, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptFreeOIDFunctionAddress(void* hfuncaddr, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5628,7 +5628,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptFreeOIDFunctionAddre
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGenKey(uint64_t hprov, uint32_t algid, uint32_t dwflags, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGenKey(uint64_t hprov, uint32_t algid, uint32_t dwflags, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5653,7 +5653,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGenKey(uint64_t hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGenRandom(uint64_t hprov, uint32_t dwlen, void* pbbuffer) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGenRandom(uint64_t hprov, uint32_t dwlen, void* pbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5677,7 +5677,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGenRandom(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetAsyncParam(int64_t hasync, void* pszparamoid, void* ppvparam, void* ppfnfree) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetAsyncParam(int64_t hasync, void* pszparamoid, void* ppvparam, void* ppfnfree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5702,7 +5702,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetAsyncParam(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDDllList(void* hfuncset, uint32_t dwencodingtype, void* pwszdlllist, void* pcchdlllist) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDDllList(void* hfuncset, uint32_t dwencodingtype, void* pwszdlllist, void* pcchdlllist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5727,7 +5727,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDDllList
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDFunctionAddress(void* hfuncset, uint32_t dwencodingtype, void* pwszdll, uint32_t dwflags, void* ppvfuncaddr, void* phfuncaddr) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDFunctionAddress(void* hfuncset, uint32_t dwencodingtype, void* pwszdll, uint32_t dwflags, void* ppvfuncaddr, void* phfuncaddr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5754,7 +5754,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDFunctio
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderA(uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags, void* pszprovname, void* pcbprovname) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderA(uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags, void* pszprovname, void* pcbprovname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5780,7 +5780,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderA(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderW(uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags, void* pszprovname, void* pcbprovname) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderW(uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags, void* pszprovname, void* pcbprovname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5806,7 +5806,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderW(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetHashParam(uint64_t hhash, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetHashParam(uint64_t hhash, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5832,7 +5832,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetHashParam(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetKeyIdentifierProperty(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetKeyIdentifierProperty(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5860,7 +5860,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetKeyIdentifierProp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetKeyParam(uint64_t hkey, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetKeyParam(uint64_t hkey, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5886,7 +5886,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetKeyParam(uint64_t
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptGetMessageCertificates(uint32_t dwmsgandcertencodingtype, uint64_t hcryptprov, uint32_t dwflags, void* pbsignedblob, uint32_t cbsignedblob) {
+void* windowssys_windows_win32_security_cryptography_cryptGetMessageCertificates(uint32_t dwmsgandcertencodingtype, uint64_t hcryptprov, uint32_t dwflags, void* pbsignedblob, uint32_t cbsignedblob) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5912,7 +5912,7 @@ void* windowssys_windows_win32_security_cryptography_CryptGetMessageCertificates
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetMessageSignerCount(uint32_t dwmsgencodingtype, void* pbsignedblob, uint32_t cbsignedblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetMessageSignerCount(uint32_t dwmsgencodingtype, void* pbsignedblob, uint32_t cbsignedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5936,7 +5936,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetMessageSignerCoun
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionAddress(void* hfuncset, uint32_t dwencodingtype, void* pszoid, uint32_t dwflags, void* ppvfuncaddr, void* phfuncaddr) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionAddress(void* hfuncset, uint32_t dwencodingtype, void* pszoid, uint32_t dwflags, void* ppvfuncaddr, void* phfuncaddr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5963,7 +5963,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionAddres
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionValue(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszvaluename, void* pdwvaluetype, void* pbvaluedata, void* pcbvaluedata) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionValue(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszvaluename, void* pdwvaluetype, void* pbvaluedata, void* pcbvaluedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5991,7 +5991,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionValue(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetObjectUrl(void* pszurloid, void* pvpara, uint32_t dwflags, void* purlarray, void* pcburlarray, void* purlinfo, void* pcburlinfo, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetObjectUrl(void* pszurloid, void* pvpara, uint32_t dwflags, void* purlarray, void* pcburlarray, void* purlinfo, void* pcburlinfo, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6020,7 +6020,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetObjectUrl(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetProvParam(uint64_t hprov, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetProvParam(uint64_t hprov, uint32_t dwparam, void* pbdata, void* pdwdatalen, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6046,7 +6046,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetProvParam(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptGetUserKey(uint64_t hprov, uint32_t dwkeyspec, void* phuserkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptGetUserKey(uint64_t hprov, uint32_t dwkeyspec, void* phuserkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6070,7 +6070,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptGetUserKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashCertificate(uint64_t hcryptprov, uint32_t algid, uint32_t dwflags, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashCertificate(uint64_t hcryptprov, uint32_t algid, uint32_t dwflags, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6098,7 +6098,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashCertificate(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashCertificate2(void* pwszcnghashalgid, uint32_t dwflags, void* pvreserved, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashCertificate2(void* pwszcnghashalgid, uint32_t dwflags, void* pvreserved, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6126,7 +6126,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashCertificate2(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashData(uint64_t hhash, void* pbdata, uint32_t dwdatalen, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashData(uint64_t hhash, void* pbdata, uint32_t dwdatalen, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6151,7 +6151,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashData(uint64_t hh
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashMessage(void* phashpara, int32_t fdetachedhash, uint32_t ctobehashed, void* rgpbtobehashed, void* rgcbtobehashed, void* pbhashedblob, void* pcbhashedblob, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashMessage(void* phashpara, int32_t fdetachedhash, uint32_t ctobehashed, void* rgpbtobehashed, void* rgcbtobehashed, void* pbhashedblob, void* pcbhashedblob, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6181,7 +6181,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashMessage(void* ph
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashPublicKeyInfo(uint64_t hcryptprov, uint32_t algid, uint32_t dwflags, uint32_t dwcertencodingtype, void* pinfo, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashPublicKeyInfo(uint64_t hcryptprov, uint32_t algid, uint32_t dwflags, uint32_t dwcertencodingtype, void* pinfo, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6209,7 +6209,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashPublicKeyInfo(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashSessionKey(uint64_t hhash, uint64_t hkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashSessionKey(uint64_t hhash, uint64_t hkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6233,7 +6233,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashSessionKey(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptHashToBeSigned(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptHashToBeSigned(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pbencoded, uint32_t cbencoded, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6260,7 +6260,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptHashToBeSigned(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptImportKey(uint64_t hprov, void* pbdata, uint32_t dwdatalen, uint64_t hpubkey, uint32_t dwflags, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptImportKey(uint64_t hprov, void* pbdata, uint32_t dwdatalen, uint64_t hpubkey, uint32_t dwflags, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6287,7 +6287,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptImportKey(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfo(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pinfo, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfo(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pinfo, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6312,7 +6312,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pinfo, uint32_t aikeyalg, uint32_t dwflags, void* pvauxinfo, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pinfo, uint32_t aikeyalg, uint32_t dwflags, void* pvauxinfo, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6340,7 +6340,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoE
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx2(uint32_t dwcertencodingtype, void* pinfo, uint32_t dwflags, void* pvauxinfo, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx2(uint32_t dwcertencodingtype, void* pinfo, uint32_t dwflags, void* pvauxinfo, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6366,7 +6366,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoE
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptInitOIDFunctionSet(void* pszfuncname, uint32_t dwflags) {
+void* windowssys_windows_win32_security_cryptography_cryptInitOIDFunctionSet(void* pszfuncname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6389,7 +6389,7 @@ void* windowssys_windows_win32_security_cryptography_CryptInitOIDFunctionSet(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptInstallCancelRetrieval(void* pfncancel, void* pvarg, uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_cryptInstallCancelRetrieval(void* pfncancel, void* pvarg, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6414,7 +6414,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptInstallCancelRetriev
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptInstallDefaultContext(uint64_t hcryptprov, uint32_t dwdefaulttype, void* pvdefaultpara, uint32_t dwflags, void* pvreserved, void* phdefaultcontext) {
+int32_t windowssys_windows_win32_security_cryptography_cryptInstallDefaultContext(uint64_t hcryptprov, uint32_t dwdefaulttype, void* pvdefaultpara, uint32_t dwflags, void* pvreserved, void* phdefaultcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6441,7 +6441,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptInstallDefaultContex
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptInstallOIDFunctionAddress(void* hmodule, uint32_t dwencodingtype, void* pszfuncname, uint32_t cfuncentry, void* rgfuncentry, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptInstallOIDFunctionAddress(void* hmodule, uint32_t dwencodingtype, void* pszfuncname, uint32_t cfuncentry, void* rgfuncentry, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6468,7 +6468,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptInstallOIDFunctionAd
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptMemAlloc(uint32_t cbsize) {
+void* windowssys_windows_win32_security_cryptography_cryptMemAlloc(uint32_t cbsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6490,7 +6490,7 @@ void* windowssys_windows_win32_security_cryptography_CryptMemAlloc(uint32_t cbsi
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_CryptMemFree(void* pv) {
+void windowssys_windows_win32_security_cryptography_cryptMemFree(void* pv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6511,7 +6511,7 @@ void windowssys_windows_win32_security_cryptography_CryptMemFree(void* pv) {
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptMemRealloc(void* pv, uint32_t cbsize) {
+void* windowssys_windows_win32_security_cryptography_cryptMemRealloc(void* pv, uint32_t cbsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6534,7 +6534,7 @@ void* windowssys_windows_win32_security_cryptography_CryptMemRealloc(void* pv, u
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_cryptography_CryptMsgCalculateEncodedLength(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, void* pvmsgencodeinfo, void* pszinnercontentobjid, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_security_cryptography_cryptMsgCalculateEncodedLength(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, void* pvmsgencodeinfo, void* pszinnercontentobjid, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6561,7 +6561,7 @@ uint32_t windowssys_windows_win32_security_cryptography_CryptMsgCalculateEncoded
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgClose(void* hcryptmsg) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgClose(void* hcryptmsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6583,7 +6583,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgClose(void* hcryp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgControl(void* hcryptmsg, uint32_t dwflags, uint32_t dwctrltype, void* pvctrlpara) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgControl(void* hcryptmsg, uint32_t dwflags, uint32_t dwctrltype, void* pvctrlpara) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6608,7 +6608,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgControl(void* hcr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgCountersign(void* hcryptmsg, uint32_t dwindex, uint32_t ccountersigners, void* rgcountersigners) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgCountersign(void* hcryptmsg, uint32_t dwindex, uint32_t ccountersigners, void* rgcountersigners) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6633,7 +6633,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgCountersign(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgCountersignEncoded(uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, uint32_t ccountersigners, void* rgcountersigners, void* pbcountersignature, void* pcbcountersignature) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgCountersignEncoded(uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, uint32_t ccountersigners, void* rgcountersigners, void* pbcountersignature, void* pcbcountersignature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6661,7 +6661,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgCountersignEncode
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptMsgDuplicate(void* hcryptmsg) {
+void* windowssys_windows_win32_security_cryptography_cryptMsgDuplicate(void* hcryptmsg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6683,7 +6683,7 @@ void* windowssys_windows_win32_security_cryptography_CryptMsgDuplicate(void* hcr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgEncodeAndSignCTL(uint32_t dwmsgencodingtype, void* pctlinfo, void* psigninfo, uint32_t dwflags, void* pbencoded, void* pcbencoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgEncodeAndSignCTL(uint32_t dwmsgencodingtype, void* pctlinfo, void* psigninfo, uint32_t dwflags, void* pbencoded, void* pcbencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6710,7 +6710,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgEncodeAndSignCTL(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgGetAndVerifySigner(void* hcryptmsg, uint32_t csignerstore, void* rghsignerstore, uint32_t dwflags, void* ppsigner, void* pdwsignerindex) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgGetAndVerifySigner(void* hcryptmsg, uint32_t csignerstore, void* rghsignerstore, uint32_t dwflags, void* ppsigner, void* pdwsignerindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6737,7 +6737,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgGetAndVerifySigne
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgGetParam(void* hcryptmsg, uint32_t dwparamtype, uint32_t dwindex, void* pvdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgGetParam(void* hcryptmsg, uint32_t dwparamtype, uint32_t dwindex, void* pvdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6763,7 +6763,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgGetParam(void* hc
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptMsgOpenToDecode(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, uint64_t hcryptprov, void* precipientinfo, void* pstreaminfo) {
+void* windowssys_windows_win32_security_cryptography_cryptMsgOpenToDecode(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, uint64_t hcryptprov, void* precipientinfo, void* pstreaminfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6790,7 +6790,7 @@ void* windowssys_windows_win32_security_cryptography_CryptMsgOpenToDecode(uint32
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptMsgOpenToEncode(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, void* pvmsgencodeinfo, void* pszinnercontentobjid, void* pstreaminfo) {
+void* windowssys_windows_win32_security_cryptography_cryptMsgOpenToEncode(uint32_t dwmsgencodingtype, uint32_t dwflags, uint32_t dwmsgtype, void* pvmsgencodeinfo, void* pszinnercontentobjid, void* pstreaminfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6817,7 +6817,7 @@ void* windowssys_windows_win32_security_cryptography_CryptMsgOpenToEncode(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgSignCTL(uint32_t dwmsgencodingtype, void* pbctlcontent, uint32_t cbctlcontent, void* psigninfo, uint32_t dwflags, void* pbencoded, void* pcbencoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgSignCTL(uint32_t dwmsgencodingtype, void* pbctlcontent, uint32_t cbctlcontent, void* psigninfo, uint32_t dwflags, void* pbencoded, void* pcbencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6845,7 +6845,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgSignCTL(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgUpdate(void* hcryptmsg, void* pbdata, uint32_t cbdata, int32_t ffinal) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgUpdate(void* hcryptmsg, void* pbdata, uint32_t cbdata, int32_t ffinal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6870,7 +6870,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgUpdate(void* hcry
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncoded(uint64_t hcryptprov, uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, void* pbsignerinfocountersignature, uint32_t cbsignerinfocountersignature, void* pcicountersigner) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncoded(uint64_t hcryptprov, uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, void* pbsignerinfocountersignature, uint32_t cbsignerinfocountersignature, void* pcicountersigner) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6898,7 +6898,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersign
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncodedEx(uint64_t hcryptprov, uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, void* pbsignerinfocountersignature, uint32_t cbsignerinfocountersignature, uint32_t dwsignertype, void* pvsigner, uint32_t dwflags, void* pvextra) {
+int32_t windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncodedEx(uint64_t hcryptprov, uint32_t dwencodingtype, void* pbsignerinfo, uint32_t cbsignerinfo, void* pbsignerinfocountersignature, uint32_t cbsignerinfocountersignature, uint32_t dwsignertype, void* pvsigner, uint32_t dwflags, void* pvextra) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6929,7 +6929,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersign
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptProtectData(void* pdatain, void* szdatadescr, void* poptionalentropy, void* pvreserved, void* ppromptstruct, uint32_t dwflags, void* pdataout) {
+int32_t windowssys_windows_win32_security_cryptography_cryptProtectData(void* pdatain, void* szdatadescr, void* poptionalentropy, void* pvreserved, void* ppromptstruct, uint32_t dwflags, void* pdataout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6957,7 +6957,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptProtectData(void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptProtectMemory(void* pdatain, uint32_t cbdatain, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptProtectMemory(void* pdatain, uint32_t cbdatain, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6981,7 +6981,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptProtectMemory(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptQueryObject(uint32_t dwobjecttype, void* pvobject, uint32_t dwexpectedcontenttypeflags, uint32_t dwexpectedformattypeflags, uint32_t dwflags, void* pdwmsgandcertencodingtype, void* pdwcontenttype, void* pdwformattype, void* phcertstore, void* phmsg, void* ppvcontext) {
+int32_t windowssys_windows_win32_security_cryptography_cryptQueryObject(uint32_t dwobjecttype, void* pvobject, uint32_t dwexpectedcontenttypeflags, uint32_t dwexpectedformattypeflags, uint32_t dwflags, void* pdwmsgandcertencodingtype, void* pdwcontenttype, void* pdwformattype, void* phcertstore, void* phmsg, void* ppvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7013,7 +7013,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptQueryObject(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRegisterDefaultOIDFunction(uint32_t dwencodingtype, void* pszfuncname, uint32_t dwindex, void* pwszdll) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRegisterDefaultOIDFunction(uint32_t dwencodingtype, void* pszfuncname, uint32_t dwindex, void* pwszdll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7038,7 +7038,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRegisterDefaultOIDFu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRegisterOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszdll, void* pszoverridefuncname) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRegisterOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszdll, void* pszoverridefuncname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7064,7 +7064,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRegisterOIDFunction(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRegisterOIDInfo(void* pinfo, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRegisterOIDInfo(void* pinfo, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7087,7 +7087,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRegisterOIDInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptReleaseContext(uint64_t hprov, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptReleaseContext(uint64_t hprov, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7110,7 +7110,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptReleaseContext(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlA(void* pszurl, void* pszobjectoid, uint32_t dwretrievalflags, uint32_t dwtimeout, void* ppvobject, int64_t hasyncretrieve, void* pcredentials, void* pvverify, void* pauxinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlA(void* pszurl, void* pszobjectoid, uint32_t dwretrievalflags, uint32_t dwtimeout, void* ppvobject, int64_t hasyncretrieve, void* pcredentials, void* pvverify, void* pauxinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7140,7 +7140,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlW(void* pszurl, void* pszobjectoid, uint32_t dwretrievalflags, uint32_t dwtimeout, void* ppvobject, int64_t hasyncretrieve, void* pcredentials, void* pvverify, void* pauxinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlW(void* pszurl, void* pszobjectoid, uint32_t dwretrievalflags, uint32_t dwtimeout, void* ppvobject, int64_t hasyncretrieve, void* pcredentials, void* pvverify, void* pauxinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7170,7 +7170,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlW
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveTimeStamp(void* wszurl, uint32_t dwretrievalflags, uint32_t dwtimeout, void* pszhashid, void* ppara, void* pbdata, uint32_t cbdata, void* pptscontext, void* pptssigner, void* phstore) {
+int32_t windowssys_windows_win32_security_cryptography_cryptRetrieveTimeStamp(void* wszurl, uint32_t dwretrievalflags, uint32_t dwtimeout, void* pszhashid, void* ppara, void* pbdata, uint32_t cbdata, void* pptscontext, void* pptssigner, void* phstore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7201,7 +7201,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptRetrieveTimeStamp(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetAsyncParam(int64_t hasync, void* pszparamoid, void* pvparam, void* pfnfree) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetAsyncParam(int64_t hasync, void* pszparamoid, void* pvparam, void* pfnfree) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7226,7 +7226,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetAsyncParam(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetHashParam(uint64_t hhash, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetHashParam(uint64_t hhash, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7251,7 +7251,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetHashParam(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetKeyIdentifierProperty(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvdata) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetKeyIdentifierProperty(void* pkeyidentifier, uint32_t dwpropid, uint32_t dwflags, void* pwszcomputername, void* pvreserved, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7278,7 +7278,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetKeyIdentifierProp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetKeyParam(uint64_t hkey, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetKeyParam(uint64_t hkey, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7303,7 +7303,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetKeyParam(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetOIDFunctionValue(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszvaluename, uint32_t dwvaluetype, void* pbvaluedata, uint32_t cbvaluedata) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetOIDFunctionValue(uint32_t dwencodingtype, void* pszfuncname, void* pszoid, void* pwszvaluename, uint32_t dwvaluetype, void* pbvaluedata, uint32_t cbvaluedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7331,7 +7331,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetOIDFunctionValue(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetProvParam(uint64_t hprov, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetProvParam(uint64_t hprov, uint32_t dwparam, void* pbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7356,7 +7356,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetProvParam(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderA(void* pszprovname, uint32_t dwprovtype) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetProviderA(void* pszprovname, uint32_t dwprovtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7379,7 +7379,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderA(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderExA(void* pszprovname, uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetProviderExA(void* pszprovname, uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7404,7 +7404,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderExA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderExW(void* pszprovname, uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetProviderExW(void* pszprovname, uint32_t dwprovtype, void* pdwreserved, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7429,7 +7429,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderExW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderW(void* pszprovname, uint32_t dwprovtype) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSetProviderW(void* pszprovname, uint32_t dwprovtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7452,7 +7452,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSetProviderW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignAndEncodeCertificate(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, void* psignaturealgorithm, void* pvhashauxinfo, void* pbencoded, void* pcbencoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignAndEncodeCertificate(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* lpszstructtype, void* pvstructinfo, void* psignaturealgorithm, void* pvhashauxinfo, void* pbencoded, void* pcbencoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7482,7 +7482,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignAndEncodeCertifi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignAndEncryptMessage(void* psignpara, void* pencryptpara, uint32_t crecipientcert, void* rgprecipientcert, void* pbtobesignedandencrypted, uint32_t cbtobesignedandencrypted, void* pbsignedandencryptedblob, void* pcbsignedandencryptedblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignAndEncryptMessage(void* psignpara, void* pencryptpara, uint32_t crecipientcert, void* rgprecipientcert, void* pbtobesignedandencrypted, uint32_t cbtobesignedandencrypted, void* pbsignedandencryptedblob, void* pcbsignedandencryptedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7511,7 +7511,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignAndEncryptMessag
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignCertificate(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pbencodedtobesigned, uint32_t cbencodedtobesigned, void* psignaturealgorithm, void* pvhashauxinfo, void* pbsignature, void* pcbsignature) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignCertificate(uint64_t hcryptprovorncryptkey, uint32_t dwkeyspec, uint32_t dwcertencodingtype, void* pbencodedtobesigned, uint32_t cbencodedtobesigned, void* psignaturealgorithm, void* pvhashauxinfo, void* pbsignature, void* pcbsignature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7541,7 +7541,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignCertificate(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignHashA(uint64_t hhash, uint32_t dwkeyspec, void* szdescription, uint32_t dwflags, void* pbsignature, void* pdwsiglen) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignHashA(uint64_t hhash, uint32_t dwkeyspec, void* szdescription, uint32_t dwflags, void* pbsignature, void* pdwsiglen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7568,7 +7568,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignHashA(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignHashW(uint64_t hhash, uint32_t dwkeyspec, void* szdescription, uint32_t dwflags, void* pbsignature, void* pdwsiglen) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignHashW(uint64_t hhash, uint32_t dwkeyspec, void* szdescription, uint32_t dwflags, void* pbsignature, void* pdwsiglen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7595,7 +7595,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignHashW(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignMessage(void* psignpara, int32_t fdetachedsignature, uint32_t ctobesigned, void* rgpbtobesigned, void* rgcbtobesigned, void* pbsignedblob, void* pcbsignedblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignMessage(void* psignpara, int32_t fdetachedsignature, uint32_t ctobesigned, void* rgpbtobesigned, void* rgcbtobesigned, void* pbsignedblob, void* pcbsignedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7623,7 +7623,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignMessage(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptSignMessageWithKey(void* psignpara, void* pbtobesigned, uint32_t cbtobesigned, void* pbsignedblob, void* pcbsignedblob) {
+int32_t windowssys_windows_win32_security_cryptography_cryptSignMessageWithKey(void* psignpara, void* pbtobesigned, uint32_t cbtobesigned, void* pbsignedblob, void* pcbsignedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7649,7 +7649,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptSignMessageWithKey(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptStringToBinaryA(void* pszstring, uint32_t cchstring, uint32_t dwflags, void* pbbinary, void* pcbbinary, void* pdwskip, void* pdwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptStringToBinaryA(void* pszstring, uint32_t cchstring, uint32_t dwflags, void* pbbinary, void* pcbbinary, void* pdwskip, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7677,7 +7677,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptStringToBinaryA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptStringToBinaryW(void* pszstring, uint32_t cchstring, uint32_t dwflags, void* pbbinary, void* pcbbinary, void* pdwskip, void* pdwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptStringToBinaryW(void* pszstring, uint32_t cchstring, uint32_t dwflags, void* pbbinary, void* pcbbinary, void* pdwskip, void* pdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7705,7 +7705,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptStringToBinaryW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUninstallCancelRetrieval(uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUninstallCancelRetrieval(uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7728,7 +7728,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUninstallCancelRetri
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUninstallDefaultContext(void* hdefaultcontext, uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUninstallDefaultContext(void* hdefaultcontext, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7752,7 +7752,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUninstallDefaultCont
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUnprotectData(void* pdatain, void* ppszdatadescr, void* poptionalentropy, void* pvreserved, void* ppromptstruct, uint32_t dwflags, void* pdataout) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUnprotectData(void* pdatain, void* ppszdatadescr, void* poptionalentropy, void* pvreserved, void* ppromptstruct, uint32_t dwflags, void* pdataout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7780,7 +7780,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUnprotectData(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUnprotectMemory(void* pdatain, uint32_t cbdatain, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUnprotectMemory(void* pdatain, uint32_t cbdatain, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7804,7 +7804,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUnprotectMemory(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterDefaultOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pwszdll) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUnregisterDefaultOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pwszdll) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7828,7 +7828,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterDefaultOID
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUnregisterOIDFunction(uint32_t dwencodingtype, void* pszfuncname, void* pszoid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7852,7 +7852,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterOIDFunctio
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterOIDInfo(void* pinfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUnregisterOIDInfo(void* pinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7874,7 +7874,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUnregisterOIDInfo(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptUpdateProtectedState(void* poldsid, void* pwszoldpassword, uint32_t dwflags, void* pdwsuccesscount, void* pdwfailurecount) {
+int32_t windowssys_windows_win32_security_cryptography_cryptUpdateProtectedState(void* poldsid, void* pwszoldpassword, uint32_t dwflags, void* pdwsuccesscount, void* pdwfailurecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7900,7 +7900,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptUpdateProtectedState
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignature(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pbencoded, uint32_t cbencoded, void* ppublickey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignature(uint64_t hcryptprov, uint32_t dwcertencodingtype, void* pbencoded, uint32_t cbencoded, void* ppublickey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7926,7 +7926,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSig
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignatureEx(uint64_t hcryptprov, uint32_t dwcertencodingtype, uint32_t dwsubjecttype, void* pvsubject, uint32_t dwissuertype, void* pvissuer, uint32_t dwflags, void* pvextra) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignatureEx(uint64_t hcryptprov, uint32_t dwcertencodingtype, uint32_t dwsubjecttype, void* pvsubject, uint32_t dwissuertype, void* pvissuer, uint32_t dwflags, void* pvextra) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7955,7 +7955,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSig
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageHash(void* phashpara, void* pbdetachedhashblob, uint32_t cbdetachedhashblob, uint32_t ctobehashed, void* rgpbtobehashed, void* rgcbtobehashed, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageHash(void* phashpara, void* pbdetachedhashblob, uint32_t cbdetachedhashblob, uint32_t ctobehashed, void* rgpbtobehashed, void* rgcbtobehashed, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7984,7 +7984,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessag
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageSignature(void* pverifypara, uint32_t dwsignerindex, void* pbdetachedsignblob, uint32_t cbdetachedsignblob, uint32_t ctobesigned, void* rgpbtobesigned, void* rgcbtobesigned, void* ppsignercert) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageSignature(void* pverifypara, uint32_t dwsignerindex, void* pbdetachedsignblob, uint32_t cbdetachedsignblob, uint32_t ctobesigned, void* rgpbtobesigned, void* rgcbtobesigned, void* ppsignercert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8013,7 +8013,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessag
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageHash(void* phashpara, void* pbhashedblob, uint32_t cbhashedblob, void* pbtobehashed, void* pcbtobehashed, void* pbcomputedhash, void* pcbcomputedhash) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyMessageHash(void* phashpara, void* pbhashedblob, uint32_t cbhashedblob, void* pbtobehashed, void* pcbtobehashed, void* pbcomputedhash, void* pcbcomputedhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8041,7 +8041,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageHash(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignature(void* pverifypara, uint32_t dwsignerindex, void* pbsignedblob, uint32_t cbsignedblob, void* pbdecoded, void* pcbdecoded, void* ppsignercert) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignature(void* pverifypara, uint32_t dwsignerindex, void* pbsignedblob, uint32_t cbsignedblob, void* pbdecoded, void* pcbdecoded, void* ppsignercert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8069,7 +8069,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignatu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignatureWithKey(void* pverifypara, void* ppublickeyinfo, void* pbsignedblob, uint32_t cbsignedblob, void* pbdecoded, void* pcbdecoded) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignatureWithKey(void* pverifypara, void* ppublickeyinfo, void* pbsignedblob, uint32_t cbsignedblob, void* pbdecoded, void* pcbdecoded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8096,7 +8096,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignatu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifySignatureA(uint64_t hhash, void* pbsignature, uint32_t dwsiglen, uint64_t hpubkey, void* szdescription, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifySignatureA(uint64_t hhash, void* pbsignature, uint32_t dwsiglen, uint64_t hpubkey, void* szdescription, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8123,7 +8123,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifySignatureA(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifySignatureW(uint64_t hhash, void* pbsignature, uint32_t dwsiglen, uint64_t hpubkey, void* szdescription, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifySignatureW(uint64_t hhash, void* pbsignature, uint32_t dwsiglen, uint64_t hpubkey, void* szdescription, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8150,7 +8150,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifySignatureW(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptVerifyTimeStampSignature(void* pbtscontentinfo, uint32_t cbtscontentinfo, void* pbdata, uint32_t cbdata, void* hadditionalstore, void* pptscontext, void* pptssigner, void* phstore) {
+int32_t windowssys_windows_win32_security_cryptography_cryptVerifyTimeStampSignature(void* pbtscontentinfo, uint32_t cbtscontentinfo, void* pbdata, uint32_t cbdata, void* hadditionalstore, void* pptscontext, void* pptssigner, void* phstore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8179,7 +8179,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptVerifyTimeStampSigna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlAddObject(void* hsignatureorobject, uint32_t dwflags, void* rgproperty, uint32_t cproperty, void* pencoded, void* ppobject) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlAddObject(void* hsignatureorobject, uint32_t dwflags, void* rgproperty, uint32_t cproperty, void* pencoded, void* ppobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8206,7 +8206,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlAddObject(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlClose(void* hcryptxml) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlClose(void* hcryptxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8228,7 +8228,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlClose(void* hcryp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlCreateReference(void* hcryptxml, uint32_t dwflags, void* wszid, void* wszuri, void* wsztype, void* pdigestmethod, uint32_t ctransform, void* rgtransform, void* phreference) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlCreateReference(void* hcryptxml, uint32_t dwflags, void* wszid, void* wszuri, void* wsztype, void* pdigestmethod, uint32_t ctransform, void* rgtransform, void* phreference) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8258,7 +8258,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlCreateReference(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlDigestReference(void* hreference, uint32_t dwflags, void* pdataproviderin) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlDigestReference(void* hreference, uint32_t dwflags, void* pdataproviderin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8282,7 +8282,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlDigestReference(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlEncode(void* hcryptxml, int32_t dwcharset, void* rgproperty, uint32_t cproperty, void* pvcallbackstate, void* pfnwrite) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlEncode(void* hcryptxml, int32_t dwcharset, void* rgproperty, uint32_t cproperty, void* pvcallbackstate, void* pfnwrite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8309,7 +8309,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlEncode(void* hcry
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlEnumAlgorithmInfo(uint32_t dwgroupid, uint32_t dwflags, void* pvarg, void* pfnenumalginfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlEnumAlgorithmInfo(uint32_t dwgroupid, uint32_t dwflags, void* pvarg, void* pfnenumalginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8334,7 +8334,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlEnumAlgorithmInfo
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_CryptXmlFindAlgorithmInfo(uint32_t dwfindbytype, void* pvfindby, uint32_t dwgroupid, uint32_t dwflags) {
+void* windowssys_windows_win32_security_cryptography_cryptXmlFindAlgorithmInfo(uint32_t dwfindbytype, void* pvfindby, uint32_t dwgroupid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8359,7 +8359,7 @@ void* windowssys_windows_win32_security_cryptography_CryptXmlFindAlgorithmInfo(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetAlgorithmInfo(void* pxmlalgorithm, uint32_t dwflags, void* ppalginfo) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetAlgorithmInfo(void* pxmlalgorithm, uint32_t dwflags, void* ppalginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8383,7 +8383,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetAlgorithmInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetDocContext(void* hcryptxml, void* ppstruct) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetDocContext(void* hcryptxml, void* ppstruct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8406,7 +8406,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetDocContext(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetReference(void* hcryptxml, void* ppstruct) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetReference(void* hcryptxml, void* ppstruct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8429,7 +8429,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetReference(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetSignature(void* hcryptxml, void* ppstruct) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetSignature(void* hcryptxml, void* ppstruct) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8452,7 +8452,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetSignature(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetStatus(void* hcryptxml, void* pstatus) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetStatus(void* hcryptxml, void* pstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8475,7 +8475,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetStatus(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetTransforms(void* ppconfig) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlGetTransforms(void* ppconfig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8497,7 +8497,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlGetTransforms(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlImportPublicKey(uint32_t dwflags, void* pkeyvalue, void* phkey) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlImportPublicKey(uint32_t dwflags, void* pkeyvalue, void* phkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8521,7 +8521,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlImportPublicKey(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlOpenToDecode(void* pconfig, uint32_t dwflags, void* rgproperty, uint32_t cproperty, void* pencoded, void* phcryptxml) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlOpenToDecode(void* pconfig, uint32_t dwflags, void* rgproperty, uint32_t cproperty, void* pencoded, void* phcryptxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8548,7 +8548,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlOpenToDecode(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlOpenToEncode(void* pconfig, uint32_t dwflags, void* wszid, void* rgproperty, uint32_t cproperty, void* pencoded, void* phsignature) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlOpenToEncode(void* pconfig, uint32_t dwflags, void* wszid, void* rgproperty, uint32_t cproperty, void* pencoded, void* phsignature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8576,7 +8576,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlOpenToEncode(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlSetHMACSecret(void* hsignature, void* pbsecret, uint32_t cbsecret) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlSetHMACSecret(void* hsignature, void* pbsecret, uint32_t cbsecret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8600,7 +8600,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlSetHMACSecret(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlSign(void* hsignature, uint64_t hkey, uint32_t dwkeyspec, uint32_t dwflags, int32_t dwkeyinfospec, void* pvkeyinfospec, void* psignaturemethod, void* pcanonicalization) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlSign(void* hsignature, uint64_t hkey, uint32_t dwkeyspec, uint32_t dwflags, int32_t dwkeyinfospec, void* pvkeyinfospec, void* psignaturemethod, void* pcanonicalization) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8629,7 +8629,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlSign(void* hsigna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_CryptXmlVerifySignature(void* hsignature, void* hkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_cryptXmlVerifySignature(void* hsignature, void* hkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8653,7 +8653,7 @@ int32_t windowssys_windows_win32_security_cryptography_CryptXmlVerifySignature(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_Decrypt(void* hcrypto, int32_t foaep, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
+int32_t windowssys_windows_win32_security_cryptography_decrypt(void* hcrypto, int32_t foaep, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8680,7 +8680,7 @@ int32_t windowssys_windows_win32_security_cryptography_Decrypt(void* hcrypto, in
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_Encrypt(void* hcrypto, int32_t foaep, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
+int32_t windowssys_windows_win32_security_cryptography_encrypt(void* hcrypto, int32_t foaep, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8707,7 +8707,7 @@ int32_t windowssys_windows_win32_security_cryptography_Encrypt(void* hcrypto, in
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_FindCertsByIssuer(void* pcertchains, void* pcbcertchains, void* pccertchains, void* pbencodedissuername, uint32_t cbencodedissuername, void* pwszpurpose, uint32_t dwkeyspec) {
+int32_t windowssys_windows_win32_security_cryptography_findCertsByIssuer(void* pcertchains, void* pcbcertchains, void* pccertchains, void* pbencodedissuername, uint32_t cbencodedissuername, void* pwszpurpose, uint32_t dwkeyspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8735,7 +8735,7 @@ int32_t windowssys_windows_win32_security_cryptography_FindCertsByIssuer(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_FreeToken(void* pallocmemory) {
+int32_t windowssys_windows_win32_security_cryptography_freeToken(void* pallocmemory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8757,7 +8757,7 @@ int32_t windowssys_windows_win32_security_cryptography_FreeToken(void* pallocmem
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GenerateDerivedKey(void* hcrypto, uint32_t cblabel, void* plabel, uint32_t cbnonce, void* pnonce, uint32_t derivedkeylength, uint32_t offset, void* algid, void* pcbkey, void* ppkey) {
+int32_t windowssys_windows_win32_security_cryptography_generateDerivedKey(void* hcrypto, uint32_t cblabel, void* plabel, uint32_t cbnonce, void* pnonce, uint32_t derivedkeylength, uint32_t offset, void* algid, void* pcbkey, void* ppkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8788,7 +8788,7 @@ int32_t windowssys_windows_win32_security_cryptography_GenerateDerivedKey(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetAsymmetricEncryptionInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getAsymmetricEncryptionInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8813,7 +8813,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetAsymmetricEncryptionIn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetBrowserToken(uint32_t dwparamtype, void* pparam, void* pcbtoken, void* pptoken) {
+int32_t windowssys_windows_win32_security_cryptography_getBrowserToken(uint32_t dwparamtype, void* pparam, void* pcbtoken, void* pptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8838,7 +8838,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetBrowserToken(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetCipherInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getCipherInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8863,7 +8863,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetCipherInterface(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetHashInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getHashInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8888,7 +8888,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetHashInterface(void* ps
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetKeyDerivationInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getKeyDerivationInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8913,7 +8913,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetKeyDerivationInterface
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetKeyStorageInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getKeyStorageInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8937,7 +8937,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetKeyStorageInterface(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetKeyedHash(void* hsymmetriccrypto, void* pphhash) {
+int32_t windowssys_windows_win32_security_cryptography_getKeyedHash(void* hsymmetriccrypto, void* pphhash) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8960,7 +8960,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetKeyedHash(void* hsymme
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetRngInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getRngInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8984,7 +8984,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetRngInterface(void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetSChannelInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getSChannelInterface(void* pszprovidername, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9008,7 +9008,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetSChannelInterface(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetSecretAgreementInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getSecretAgreementInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9033,7 +9033,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetSecretAgreementInterfa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetSignatureInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_getSignatureInterface(void* pszprovidername, void* pszalgid, void* ppfunctiontable, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9058,7 +9058,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetSignatureInterface(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_GetToken(uint32_t cpolicychain, void* ppolicychain, void* securitytoken, void* phprooftokencrypto) {
+int32_t windowssys_windows_win32_security_cryptography_getToken(uint32_t cpolicychain, void* ppolicychain, void* securitytoken, void* phprooftokencrypto) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9083,7 +9083,7 @@ int32_t windowssys_windows_win32_security_cryptography_GetToken(uint32_t cpolicy
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_HashCore(void* hcrypto, uint32_t cbindata, void* pindata) {
+int32_t windowssys_windows_win32_security_cryptography_hashCore(void* hcrypto, uint32_t cbindata, void* pindata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9107,7 +9107,7 @@ int32_t windowssys_windows_win32_security_cryptography_HashCore(void* hcrypto, u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_HashFinal(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
+int32_t windowssys_windows_win32_security_cryptography_hashFinal(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9133,7 +9133,7 @@ int32_t windowssys_windows_win32_security_cryptography_HashFinal(void* hcrypto, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ImportInformationCard(void* filename) {
+int32_t windowssys_windows_win32_security_cryptography_importInformationCard(void* filename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9155,7 +9155,7 @@ int32_t windowssys_windows_win32_security_cryptography_ImportInformationCard(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ManageCardSpace(void) {
+int32_t windowssys_windows_win32_security_cryptography_manageCardSpace(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9176,7 +9176,7 @@ int32_t windowssys_windows_win32_security_cryptography_ManageCardSpace(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptCloseProtectionDescriptor(void* hdescriptor) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptCloseProtectionDescriptor(void* hdescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9198,7 +9198,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptCloseProtectionDesc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptCreateClaim(uint64_t hsubjectkey, uint64_t hauthoritykey, uint32_t dwclaimtype, void* pparameterlist, void* pbclaimblob, uint32_t cbclaimblob, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptCreateClaim(uint64_t hsubjectkey, uint64_t hauthoritykey, uint32_t dwclaimtype, void* pparameterlist, void* pbclaimblob, uint32_t cbclaimblob, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9227,7 +9227,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptCreateClaim(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptCreatePersistedKey(uint64_t hprovider, void* phkey, void* pszalgid, void* pszkeyname, uint32_t dwlegacykeyspec, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptCreatePersistedKey(uint64_t hprovider, void* phkey, void* pszalgid, void* pszkeyname, uint32_t dwlegacykeyspec, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9254,7 +9254,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptCreatePersistedKey(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptCreateProtectionDescriptor(void* pwszdescriptorstring, uint32_t dwflags, void* phdescriptor) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptCreateProtectionDescriptor(void* pwszdescriptorstring, uint32_t dwflags, void* phdescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9278,7 +9278,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptCreateProtectionDes
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptDecrypt(uint64_t hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptDecrypt(uint64_t hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9307,7 +9307,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptDecrypt(uint64_t hk
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptDeleteKey(uint64_t hkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptDeleteKey(uint64_t hkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9330,7 +9330,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptDeleteKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptDeriveKey(uint64_t hsharedsecret, void* pwszkdf, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptDeriveKey(uint64_t hsharedsecret, void* pwszkdf, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9358,7 +9358,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptDeriveKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptEncrypt(uint64_t hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptEncrypt(uint64_t hkey, void* pbinput, uint32_t cbinput, void* ppaddinginfo, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9387,7 +9387,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptEncrypt(uint64_t hk
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptEnumAlgorithms(uint64_t hprovider, uint32_t dwalgoperations, void* pdwalgcount, void* ppalglist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptEnumAlgorithms(uint64_t hprovider, uint32_t dwalgoperations, void* pdwalgcount, void* ppalglist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9413,7 +9413,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptEnumAlgorithms(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptEnumKeys(uint64_t hprovider, void* pszscope, void* ppkeyname, void* ppenumstate, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptEnumKeys(uint64_t hprovider, void* pszscope, void* ppkeyname, void* ppenumstate, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9439,7 +9439,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptEnumKeys(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptEnumStorageProviders(void* pdwprovidercount, void* ppproviderlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptEnumStorageProviders(void* pdwprovidercount, void* ppproviderlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9463,7 +9463,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptEnumStorageProvider
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptExportKey(uint64_t hkey, uint64_t hexportkey, void* pszblobtype, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptExportKey(uint64_t hkey, uint64_t hexportkey, void* pszblobtype, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9492,7 +9492,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptExportKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptFinalizeKey(uint64_t hkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptFinalizeKey(uint64_t hkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9515,7 +9515,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptFinalizeKey(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptFreeBuffer(void* pvinput) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptFreeBuffer(void* pvinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9537,7 +9537,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptFreeBuffer(void* pv
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptFreeObject(uint64_t hobject) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptFreeObject(uint64_t hobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9559,7 +9559,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptFreeObject(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptGetProperty(uint64_t hobject, void* pszproperty, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptGetProperty(uint64_t hobject, void* pszproperty, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9586,7 +9586,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptGetProperty(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptGetProtectionDescriptorInfo(void* hdescriptor, void* pmempara, uint32_t dwinfotype, void* ppvinfo) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptGetProtectionDescriptorInfo(void* hdescriptor, void* pmempara, uint32_t dwinfotype, void* ppvinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9611,7 +9611,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptGetProtectionDescri
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptImportKey(uint64_t hprovider, uint64_t himportkey, void* pszblobtype, void* pparameterlist, void* phkey, void* pbdata, uint32_t cbdata, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptImportKey(uint64_t hprovider, uint64_t himportkey, void* pszblobtype, void* pparameterlist, void* phkey, void* pbdata, uint32_t cbdata, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9640,7 +9640,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptImportKey(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptIsAlgSupported(uint64_t hprovider, void* pszalgid, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptIsAlgSupported(uint64_t hprovider, void* pszalgid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9664,7 +9664,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptIsAlgSupported(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptIsKeyHandle(uint64_t hkey) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptIsKeyHandle(uint64_t hkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9686,7 +9686,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptIsKeyHandle(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptKeyDerivation(uint64_t hkey, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptKeyDerivation(uint64_t hkey, void* pparameterlist, void* pbderivedkey, uint32_t cbderivedkey, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9713,7 +9713,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptKeyDerivation(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptNotifyChangeKey(uint64_t hprovider, void* phevent, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptNotifyChangeKey(uint64_t hprovider, void* phevent, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9737,7 +9737,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptNotifyChangeKey(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptOpenKey(uint64_t hprovider, void* phkey, void* pszkeyname, uint32_t dwlegacykeyspec, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptOpenKey(uint64_t hprovider, void* phkey, void* pszkeyname, uint32_t dwlegacykeyspec, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9763,7 +9763,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptOpenKey(uint64_t hp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptOpenStorageProvider(void* phprovider, void* pszprovidername, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptOpenStorageProvider(void* phprovider, void* pszprovidername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9787,7 +9787,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptOpenStorageProvider
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptProtectSecret(void* hdescriptor, uint32_t dwflags, void* pbdata, uint32_t cbdata, void* pmempara, void* hwnd, void* ppbprotectedblob, void* pcbprotectedblob) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptProtectSecret(void* hdescriptor, uint32_t dwflags, void* pbdata, uint32_t cbdata, void* pmempara, void* hwnd, void* ppbprotectedblob, void* pcbprotectedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9816,7 +9816,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptProtectSecret(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptQueryProtectionDescriptorName(void* pwszname, void* pwszdescriptorstring, void* pcdescriptorstring, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptQueryProtectionDescriptorName(void* pwszname, void* pwszdescriptorstring, void* pcdescriptorstring, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9841,7 +9841,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptQueryProtectionDesc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptRegisterProtectionDescriptorName(void* pwszname, void* pwszdescriptorstring, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptRegisterProtectionDescriptorName(void* pwszname, void* pwszdescriptorstring, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9865,7 +9865,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptRegisterProtectionD
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptSecretAgreement(uint64_t hprivkey, uint64_t hpubkey, void* phagreedsecret, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptSecretAgreement(uint64_t hprivkey, uint64_t hpubkey, void* phagreedsecret, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9890,7 +9890,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptSecretAgreement(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptSetProperty(uint64_t hobject, void* pszproperty, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptSetProperty(uint64_t hobject, void* pszproperty, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9916,7 +9916,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptSetProperty(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptSignHash(uint64_t hkey, void* ppaddinginfo, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptSignHash(uint64_t hkey, void* ppaddinginfo, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9945,7 +9945,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptSignHash(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptStreamClose(void* hstream) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptStreamClose(void* hstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9967,7 +9967,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptStreamClose(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToProtect(void* hdescriptor, uint32_t dwflags, void* hwnd, void* pstreaminfo, void* phstream) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptStreamOpenToProtect(void* hdescriptor, uint32_t dwflags, void* hwnd, void* pstreaminfo, void* phstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9993,7 +9993,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToProtect
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotect(void* pstreaminfo, uint32_t dwflags, void* hwnd, void* phstream) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotect(void* pstreaminfo, uint32_t dwflags, void* hwnd, void* phstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10018,7 +10018,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprote
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotectEx(void* pstreaminfo, uint32_t dwflags, void* hwnd, void* phstream) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotectEx(void* pstreaminfo, uint32_t dwflags, void* hwnd, void* phstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10043,7 +10043,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprote
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptStreamUpdate(void* hstream, void* pbdata, uint64_t cbdata, int32_t ffinal) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptStreamUpdate(void* hstream, void* pbdata, uint64_t cbdata, int32_t ffinal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10068,7 +10068,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptStreamUpdate(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptTranslateHandle(void* phprovider, void* phkey, uint64_t hlegacyprov, uint64_t hlegacykey, uint32_t dwlegacykeyspec, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptTranslateHandle(void* phprovider, void* phkey, uint64_t hlegacyprov, uint64_t hlegacykey, uint32_t dwlegacykeyspec, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10095,7 +10095,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptTranslateHandle(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptUnprotectSecret(void* phdescriptor, uint32_t dwflags, void* pbprotectedblob, uint32_t cbprotectedblob, void* pmempara, void* hwnd, void* ppbdata, void* pcbdata) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptUnprotectSecret(void* phdescriptor, uint32_t dwflags, void* pbprotectedblob, uint32_t cbprotectedblob, void* pmempara, void* hwnd, void* ppbdata, void* pcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10124,7 +10124,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptUnprotectSecret(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptVerifyClaim(uint64_t hsubjectkey, uint64_t hauthoritykey, uint32_t dwclaimtype, void* pparameterlist, void* pbclaimblob, uint32_t cbclaimblob, void* poutput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptVerifyClaim(uint64_t hsubjectkey, uint64_t hauthoritykey, uint32_t dwclaimtype, void* pparameterlist, void* pbclaimblob, uint32_t cbclaimblob, void* poutput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10153,7 +10153,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptVerifyClaim(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_NCryptVerifySignature(uint64_t hkey, void* ppaddinginfo, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_nCryptVerifySignature(uint64_t hkey, void* ppaddinginfo, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10181,7 +10181,7 @@ int32_t windowssys_windows_win32_security_cryptography_NCryptVerifySignature(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_PFXExportCertStore(void* hstore, void* ppfx, void* szpassword, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_pFXExportCertStore(void* hstore, void* ppfx, void* szpassword, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10206,7 +10206,7 @@ int32_t windowssys_windows_win32_security_cryptography_PFXExportCertStore(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_PFXExportCertStoreEx(void* hstore, void* ppfx, void* szpassword, void* pvpara, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_pFXExportCertStoreEx(void* hstore, void* ppfx, void* szpassword, void* pvpara, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10232,7 +10232,7 @@ int32_t windowssys_windows_win32_security_cryptography_PFXExportCertStoreEx(void
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_PFXImportCertStore(void* ppfx, void* szpassword, uint32_t dwflags) {
+void* windowssys_windows_win32_security_cryptography_pFXImportCertStore(void* ppfx, void* szpassword, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10256,7 +10256,7 @@ void* windowssys_windows_win32_security_cryptography_PFXImportCertStore(void* pp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_PFXIsPFXBlob(void* ppfx) {
+int32_t windowssys_windows_win32_security_cryptography_pFXIsPFXBlob(void* ppfx) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10278,7 +10278,7 @@ int32_t windowssys_windows_win32_security_cryptography_PFXIsPFXBlob(void* ppfx) 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_PFXVerifyPassword(void* ppfx, void* szpassword, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_pFXVerifyPassword(void* ppfx, void* szpassword, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10302,7 +10302,7 @@ int32_t windowssys_windows_win32_security_cryptography_PFXVerifyPassword(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ProcessPrng(void* pbdata, uint64_t cbdata) {
+int32_t windowssys_windows_win32_security_cryptography_processPrng(void* pbdata, uint64_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10325,7 +10325,7 @@ int32_t windowssys_windows_win32_security_cryptography_ProcessPrng(void* pbdata,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignError(void) {
+int32_t windowssys_windows_win32_security_cryptography_signError(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -10346,7 +10346,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignError(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignHash(void* hcrypto, uint32_t cbhash, void* phash, void* hashalgoid, void* pcbsig, void* ppsig) {
+int32_t windowssys_windows_win32_security_cryptography_signHash(void* hcrypto, uint32_t cbhash, void* phash, void* hashalgoid, void* pcbsig, void* ppsig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10373,7 +10373,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignHash(void* hcrypto, u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerFreeSignerContext(void* psignercontext) {
+int32_t windowssys_windows_win32_security_cryptography_signerFreeSignerContext(void* psignercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10395,7 +10395,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerFreeSignerContext(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerSign(void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata) {
+int32_t windowssys_windows_win32_security_cryptography_signerSign(void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10423,7 +10423,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerSign(void* psubject
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerSignEx(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext) {
+int32_t windowssys_windows_win32_security_cryptography_signerSignEx(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10453,7 +10453,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerSignEx(uint32_t dwf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerSignEx2(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, uint32_t dwtimestampflags, void* psztimestampalgorithmoid, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* preserved) {
+int32_t windowssys_windows_win32_security_cryptography_signerSignEx2(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, uint32_t dwtimestampflags, void* psztimestampalgorithmoid, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10487,7 +10487,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerSignEx2(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerSignEx3(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, uint32_t dwtimestampflags, void* psztimestampalgorithmoid, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* pdigestsigninfo, void* preserved) {
+int32_t windowssys_windows_win32_security_cryptography_signerSignEx3(uint32_t dwflags, void* psubjectinfo, void* psignercert, void* psignatureinfo, void* pproviderinfo, uint32_t dwtimestampflags, void* psztimestampalgorithmoid, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* pdigestsigninfo, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10522,7 +10522,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerSignEx3(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerTimeStamp(void* psubjectinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata) {
+int32_t windowssys_windows_win32_security_cryptography_signerTimeStamp(void* psubjectinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10547,7 +10547,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerTimeStamp(void* psu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx(uint32_t dwflags, void* psubjectinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext) {
+int32_t windowssys_windows_win32_security_cryptography_signerTimeStampEx(uint32_t dwflags, void* psubjectinfo, void* pwszhttptimestamp, void* psrequest, void* psipdata, void* ppsignercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10574,7 +10574,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx2(uint32_t dwflags, void* psubjectinfo, void* pwszhttptimestamp, uint32_t dwalgid, void* psrequest, void* psipdata, void* ppsignercontext) {
+int32_t windowssys_windows_win32_security_cryptography_signerTimeStampEx2(uint32_t dwflags, void* psubjectinfo, void* pwszhttptimestamp, uint32_t dwalgid, void* psrequest, void* psipdata, void* ppsignercontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10602,7 +10602,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx2(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx3(uint32_t dwflags, uint32_t dwindex, void* psubjectinfo, void* pwszhttptimestamp, void* pszalgorithmoid, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* preserved) {
+int32_t windowssys_windows_win32_security_cryptography_signerTimeStampEx3(uint32_t dwflags, uint32_t dwindex, void* psubjectinfo, void* pwszhttptimestamp, void* pszalgorithmoid, void* psrequest, void* psipdata, void* ppsignercontext, void* pcryptopolicy, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10633,7 +10633,7 @@ int32_t windowssys_windows_win32_security_cryptography_SignerTimeStampEx3(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslChangeNotify(void* hevent, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslChangeNotify(void* hevent, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10656,7 +10656,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslChangeNotify(void* hev
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslComputeClientAuthHash(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhandshakehash, void* pszalgid, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslComputeClientAuthHash(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhandshakehash, void* pszalgid, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10685,7 +10685,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslComputeClientAuthHash(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslComputeEapKeyBlock(uint64_t hsslprovider, uint64_t hmasterkey, void* pbrandoms, uint32_t cbrandoms, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslComputeEapKeyBlock(uint64_t hsslprovider, uint64_t hmasterkey, void* pbrandoms, uint32_t cbrandoms, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10714,7 +10714,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslComputeEapKeyBlock(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslComputeFinishedHash(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhandshakehash, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslComputeFinishedHash(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhandshakehash, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10741,7 +10741,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslComputeFinishedHash(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslComputeSessionHash(uint64_t hsslprovider, uint64_t hhandshakehash, uint32_t dwprotocol, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslComputeSessionHash(uint64_t hsslprovider, uint64_t hhandshakehash, uint32_t dwprotocol, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10769,7 +10769,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslComputeSessionHash(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslCreateClientAuthHash(uint64_t hsslprovider, void* phhandshakehash, uint32_t dwprotocol, uint32_t dwciphersuite, void* pszhashalgid, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslCreateClientAuthHash(uint64_t hsslprovider, void* phhandshakehash, uint32_t dwprotocol, uint32_t dwciphersuite, void* pszhashalgid, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10796,7 +10796,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslCreateClientAuthHash(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslCreateEphemeralKey(uint64_t hsslprovider, void* phephemeralkey, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, uint32_t dwkeybitlen, void* pbparams, uint32_t cbparams, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslCreateEphemeralKey(uint64_t hsslprovider, void* phephemeralkey, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, uint32_t dwkeybitlen, void* pbparams, uint32_t cbparams, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10826,7 +10826,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslCreateEphemeralKey(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslCreateHandshakeHash(uint64_t hsslprovider, void* phhandshakehash, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslCreateHandshakeHash(uint64_t hsslprovider, void* phhandshakehash, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10852,7 +10852,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslCreateHandshakeHash(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslDecrementProviderReferenceCount(uint64_t hsslprovider) {
+int32_t windowssys_windows_win32_security_cryptography_sslDecrementProviderReferenceCount(uint64_t hsslprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10874,7 +10874,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslDecrementProviderRefer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslDecryptPacket(uint64_t hsslprovider, uint64_t hkey, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint64_t sequencenumber, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslDecryptPacket(uint64_t hsslprovider, uint64_t hkey, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint64_t sequencenumber, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10904,7 +10904,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslDecryptPacket(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslDuplicateTranscriptHash(uint64_t hsslprovider, uint64_t htranscripthash, void* phtranscripthash, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslDuplicateTranscriptHash(uint64_t hsslprovider, uint64_t htranscripthash, void* phtranscripthash, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10929,7 +10929,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslDuplicateTranscriptHas
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslEncryptPacket(uint64_t hsslprovider, uint64_t hkey, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint64_t sequencenumber, uint32_t dwcontenttype, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslEncryptPacket(uint64_t hsslprovider, uint64_t hkey, void* pbinput, uint32_t cbinput, void* pboutput, uint32_t cboutput, void* pcbresult, uint64_t sequencenumber, uint32_t dwcontenttype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, void*, uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10960,7 +10960,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslEncryptPacket(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslEnumCipherSuites(uint64_t hsslprovider, uint64_t hprivatekey, void* ppciphersuite, void* ppenumstate, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslEnumCipherSuites(uint64_t hsslprovider, uint64_t hprivatekey, void* ppciphersuite, void* ppenumstate, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10986,7 +10986,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslEnumCipherSuites(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslEnumCipherSuitesEx(uint64_t hsslprovider, uint64_t hprivatekey, void* ppciphersuite, void* ppenumstate, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslEnumCipherSuitesEx(uint64_t hsslprovider, uint64_t hprivatekey, void* ppciphersuite, void* ppenumstate, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11012,7 +11012,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslEnumCipherSuitesEx(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslEnumEccCurves(uint64_t hsslprovider, void* pecccurvecount, void* ppecccurve, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslEnumEccCurves(uint64_t hsslprovider, void* pecccurvecount, void* ppecccurve, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11037,7 +11037,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslEnumEccCurves(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslEnumProtocolProviders(void* pdwprovidercount, void* ppproviderlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslEnumProtocolProviders(void* pdwprovidercount, void* ppproviderlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11061,7 +11061,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslEnumProtocolProviders(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandBinderKey(uint64_t hsslprovider, uint64_t hearlykey, void* phbinderkey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandBinderKey(uint64_t hsslprovider, uint64_t hearlykey, void* phbinderkey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11087,7 +11087,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandBinderKey(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandExporterMasterKey(uint64_t hsslprovider, uint64_t hbasekey, uint64_t hhashvalue, void* phexportermasterkey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandExporterMasterKey(uint64_t hsslprovider, uint64_t hbasekey, uint64_t hhashvalue, void* phexportermasterkey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11114,7 +11114,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandExporterMasterKe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandPreSharedKey(uint64_t hsslprovider, uint64_t hresumptionmasterkey, void* pbticketnonce, uint32_t cbticketnonce, void* phpresharedkey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandPreSharedKey(uint64_t hsslprovider, uint64_t hresumptionmasterkey, void* pbticketnonce, uint32_t cbticketnonce, void* phpresharedkey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11142,7 +11142,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandPreSharedKey(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandResumptionMasterKey(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhashvalue, void* phresumptionmasterkey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandResumptionMasterKey(uint64_t hsslprovider, uint64_t hmasterkey, uint64_t hhashvalue, void* phresumptionmasterkey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11169,7 +11169,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandResumptionMaster
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandTrafficKeys(uint64_t hsslprovider, uint64_t hbasekey, uint64_t hhashvalue, void* phclienttraffickey, void* phservertraffickey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandTrafficKeys(uint64_t hsslprovider, uint64_t hbasekey, uint64_t hhashvalue, void* phclienttraffickey, void* phservertraffickey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11197,7 +11197,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandTrafficKeys(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExpandWriteKey(uint64_t hsslprovider, uint64_t hbasetraffickey, void* phwritekey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExpandWriteKey(uint64_t hsslprovider, uint64_t hbasetraffickey, void* phwritekey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11223,7 +11223,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExpandWriteKey(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExportKey(uint64_t hsslprovider, uint64_t hkey, void* pszblobtype, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExportKey(uint64_t hsslprovider, uint64_t hkey, void* pszblobtype, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11251,7 +11251,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExportKey(uint64_t hss
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExportKeyingMaterial(uint64_t hsslprovider, uint64_t hmasterkey, void* slabel, void* pbrandoms, uint32_t cbrandoms, void* pbcontextvalue, uint16_t cbcontextvalue, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExportKeyingMaterial(uint64_t hsslprovider, uint64_t hmasterkey, void* slabel, void* pbrandoms, uint32_t cbrandoms, void* pbcontextvalue, uint16_t cbcontextvalue, void* pboutput, uint32_t cboutput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, void*, uint16_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11282,7 +11282,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExportKeyingMaterial(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExtractEarlyKey(uint64_t hsslprovider, uint64_t hpresharedkey, void* phearlykey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExtractEarlyKey(uint64_t hsslprovider, uint64_t hpresharedkey, void* phearlykey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11310,7 +11310,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExtractEarlyKey(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExtractHandshakeKey(uint64_t hsslprovider, uint64_t hprivatekey, uint64_t hpublickey, uint64_t hearlykey, void* phhandshakekey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExtractHandshakeKey(uint64_t hsslprovider, uint64_t hprivatekey, uint64_t hpublickey, uint64_t hearlykey, void* phhandshakekey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11338,7 +11338,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExtractHandshakeKey(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslExtractMasterKey(uint64_t hsslprovider, uint64_t hhandshakekey, void* phmasterkey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslExtractMasterKey(uint64_t hsslprovider, uint64_t hhandshakekey, void* phmasterkey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11364,7 +11364,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslExtractMasterKey(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslFreeBuffer(void* pvinput) {
+int32_t windowssys_windows_win32_security_cryptography_sslFreeBuffer(void* pvinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11386,7 +11386,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslFreeBuffer(void* pvinp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslFreeObject(uint64_t hobject, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslFreeObject(uint64_t hobject, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11409,7 +11409,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslFreeObject(uint64_t ho
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGenerateMasterKey(uint64_t hsslprovider, uint64_t hprivatekey, uint64_t hpublickey, void* phmasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGenerateMasterKey(uint64_t hsslprovider, uint64_t hprivatekey, uint64_t hpublickey, void* phmasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, void*, uint32_t, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11441,7 +11441,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGenerateMasterKey(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGeneratePreMasterKey(uint64_t hsslprovider, uint64_t hpublickey, void* phpremasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGeneratePreMasterKey(uint64_t hsslprovider, uint64_t hpublickey, void* phpremasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pboutput, uint32_t cboutput, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11472,7 +11472,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGeneratePreMasterKey(u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGenerateSessionKeys(uint64_t hsslprovider, uint64_t hmasterkey, void* phreadkey, void* phwritekey, void* pparameterlist, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGenerateSessionKeys(uint64_t hsslprovider, uint64_t hmasterkey, void* phreadkey, void* phwritekey, void* pparameterlist, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11499,7 +11499,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGenerateSessionKeys(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGetCipherSuitePRFHashAlgorithm(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* szprfhash, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGetCipherSuitePRFHashAlgorithm(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* szprfhash, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11526,7 +11526,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGetCipherSuitePRFHashA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGetKeyProperty(uint64_t hkey, void* pszproperty, void* ppboutput, void* pcboutput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGetKeyProperty(uint64_t hkey, void* pszproperty, void* ppboutput, void* pcboutput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11552,7 +11552,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGetKeyProperty(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslGetProviderProperty(uint64_t hsslprovider, void* pszproperty, void* ppboutput, void* pcboutput, void* ppenumstate, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslGetProviderProperty(uint64_t hsslprovider, void* pszproperty, void* ppboutput, void* pcboutput, void* ppenumstate, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11579,7 +11579,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslGetProviderProperty(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslHashHandshake(uint64_t hsslprovider, uint64_t hhandshakehash, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslHashHandshake(uint64_t hsslprovider, uint64_t hhandshakehash, void* pbinput, uint32_t cbinput, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11605,7 +11605,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslHashHandshake(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslImportKey(uint64_t hsslprovider, void* phkey, void* pszblobtype, void* pbkeyblob, uint32_t cbkeyblob, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslImportKey(uint64_t hsslprovider, void* phkey, void* pszblobtype, void* pbkeyblob, uint32_t cbkeyblob, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11632,7 +11632,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslImportKey(uint64_t hss
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslImportMasterKey(uint64_t hsslprovider, uint64_t hprivatekey, void* phmasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pbencryptedkey, uint32_t cbencryptedkey, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslImportMasterKey(uint64_t hsslprovider, uint64_t hprivatekey, void* phmasterkey, uint32_t dwprotocol, uint32_t dwciphersuite, void* pparameterlist, void* pbencryptedkey, uint32_t cbencryptedkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11662,7 +11662,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslImportMasterKey(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslIncrementProviderReferenceCount(uint64_t hsslprovider) {
+int32_t windowssys_windows_win32_security_cryptography_sslIncrementProviderReferenceCount(uint64_t hsslprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11684,7 +11684,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslIncrementProviderRefer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslLookupCipherLengths(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* pcipherlengths, uint32_t cbcipherlengths, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslLookupCipherLengths(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* pcipherlengths, uint32_t cbcipherlengths, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11712,7 +11712,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslLookupCipherLengths(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslLookupCipherSuiteInfo(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* pciphersuite, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslLookupCipherSuiteInfo(uint64_t hsslprovider, uint32_t dwprotocol, uint32_t dwciphersuite, uint32_t dwkeytype, void* pciphersuite, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11739,7 +11739,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslLookupCipherSuiteInfo(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslOpenPrivateKey(uint64_t hsslprovider, void* phprivatekey, void* pcertcontext, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslOpenPrivateKey(uint64_t hsslprovider, void* phprivatekey, void* pcertcontext, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11764,7 +11764,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslOpenPrivateKey(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslOpenProvider(void* phsslprovider, void* pszprovidername, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslOpenProvider(void* phsslprovider, void* pszprovidername, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11788,7 +11788,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslOpenProvider(void* phs
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslSignHash(uint64_t hsslprovider, uint64_t hprivatekey, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, void* pcbresult, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslSignHash(uint64_t hsslprovider, uint64_t hprivatekey, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, void* pcbresult, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11817,7 +11817,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslSignHash(uint64_t hssl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SslVerifySignature(uint64_t hsslprovider, uint64_t hpublickey, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
+int32_t windowssys_windows_win32_security_cryptography_sslVerifySignature(uint64_t hsslprovider, uint64_t hpublickey, void* pbhashvalue, uint32_t cbhashvalue, void* pbsignature, uint32_t cbsignature, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11845,7 +11845,7 @@ int32_t windowssys_windows_win32_security_cryptography_SslVerifySignature(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_SystemPrng(void* pbrandomdata, uint64_t cbrandomdata) {
+int32_t windowssys_windows_win32_security_cryptography_systemPrng(void* pbrandomdata, uint64_t cbrandomdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11868,7 +11868,7 @@ int32_t windowssys_windows_win32_security_cryptography_SystemPrng(void* pbrandom
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_TransformBlock(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
+int32_t windowssys_windows_win32_security_cryptography_transformBlock(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11894,7 +11894,7 @@ int32_t windowssys_windows_win32_security_cryptography_TransformBlock(void* hcry
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_TransformFinalBlock(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
+int32_t windowssys_windows_win32_security_cryptography_transformFinalBlock(void* hcrypto, uint32_t cbindata, void* pindata, void* pcboutdata, void* ppoutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11920,7 +11920,7 @@ int32_t windowssys_windows_win32_security_cryptography_TransformFinalBlock(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_VerifyHash(void* hcrypto, uint32_t cbhash, void* phash, void* hashalgoid, uint32_t cbsig, void* psig, void* pfverified) {
+int32_t windowssys_windows_win32_security_cryptography_verifyHash(void* hcrypto, uint32_t cbhash, void* phash, void* hashalgoid, uint32_t cbsig, void* psig, void* pfverified) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

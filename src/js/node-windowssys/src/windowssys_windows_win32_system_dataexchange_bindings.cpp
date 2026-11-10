@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_AddAtomA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_addAtomA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_AddAtomA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_AddAtomW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_addAtomW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_AddAtomW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_addClipboardFormatListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_AddClipboardForm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_ChangeClipboardChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_changeClipboardChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndremove = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndnewnext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ChangeClipboardC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_CloseClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_closeClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_CloseClipboard_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_CountClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_countClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_CountClipboardFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -179,7 +179,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAbandonTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAccessData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAccessData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbdatasize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAccessData_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAddData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAddData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeAddData_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeClientTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeClientTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -255,7 +255,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeClientTransac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hsz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -275,7 +275,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCmpStringHand
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hszservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeConnect_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeConnectList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeConnectList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hszservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -325,7 +325,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeConnectList_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateDataHan
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateStringH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -399,7 +399,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeCreateStringH
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -417,7 +417,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeDisconnect_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeDisconnectList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeDisconnectList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconvlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeDisconnectLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeEnableCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeEnableCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeEnableCallbac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeFreeDataHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -495,7 +495,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeFreeStringHan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeGetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeGetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -519,7 +519,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeGetData_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeGetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeGetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeGetLastError_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -555,7 +555,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeImpersonateCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeInitializeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeInitializeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -579,7 +579,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeInitializeA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeInitializeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeInitializeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -603,7 +603,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeInitializeW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -623,7 +623,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeKeepStringHan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeNameService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeNameService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeNameService_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdePostAdvise_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddePostAdvise_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsztopic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -669,7 +669,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdePostAdvise_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idtransaction = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -691,7 +691,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryNextServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryNextServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconvlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hconvprev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -711,7 +711,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryNextServ
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -737,7 +737,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryStringA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -763,7 +763,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeQueryStringW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeReconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeReconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeReconnect_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndclient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqosnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -803,7 +803,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeSetQualityOfS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeSetUserHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeSetUserHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hconv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeSetUserHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeUnaccessData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeUnaccessData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -843,7 +843,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeUnaccessData_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DdeUninitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_ddeUninitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idinst = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -861,7 +861,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DdeUninitialize_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_DeleteAtom_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_deleteAtom_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -879,7 +879,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_DeleteAtom_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_EmptyClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_emptyClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -895,7 +895,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_EmptyClipboard_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_EnumClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_enumClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t format = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_EnumClipboardFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_FindAtomA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_findAtomA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -931,7 +931,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_FindAtomA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_FindAtomW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_findAtomW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -949,7 +949,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_FindAtomW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_FreeDDElParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_freeDDElParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -969,7 +969,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_FreeDDElParam_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetAtomNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getAtomNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetAtomNameA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetAtomNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getAtomNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1013,7 +1013,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetAtomNameW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uformat = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1031,7 +1031,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardData
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t format = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1053,7 +1053,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardForm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t format = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszformatname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1075,7 +1075,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardForm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardOwner_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardOwner_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardOwne
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1107,7 +1107,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardSequ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardViewer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardViewer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1123,7 +1123,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetClipboardView
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1139,7 +1139,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetOpenClipboard
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paformatprioritylist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cformats = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1159,7 +1159,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetPriorityClipb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpuiformats = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cformats = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GetUpdatedClipbo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1199,7 +1199,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1219,7 +1219,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1239,7 +1239,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1257,7 +1257,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalAddAtomW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalDeleteAtom_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalFindAtomA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalFindAtomA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1293,7 +1293,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalFindAtomA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalFindAtomW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalFindAtomW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1311,7 +1311,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalFindAtomW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalGetAtomNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1333,7 +1333,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalGetAtomNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_globalGetAtomNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t natom = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1355,7 +1355,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_GlobalGetAtomNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndclient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1375,7 +1375,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ImpersonateDdeCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_InitAtomTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_initAtomTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1393,7 +1393,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_InitAtomTable_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t format = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_IsClipboardForma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_OpenClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_openClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndnewowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1429,7 +1429,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_OpenClipboard_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_PackDDElParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_packDDElParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t uilo = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_PackDDElParam_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_registerClipboardFormatA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1469,7 +1469,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_RegisterClipboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_registerClipboardFormatW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1487,7 +1487,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_RegisterClipboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1505,7 +1505,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_RemoveClipboardF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_ReuseDDElParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_reuseDDElParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lparam = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t msgin = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1531,7 +1531,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ReuseDDElParam_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_SetClipboardData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_setClipboardData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uformat = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1551,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_SetClipboardData
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_SetClipboardViewer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_setClipboardViewer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndnewviewer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1569,7 +1569,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_SetClipboardView
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_setWinMetaFileBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nsize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpmeta16data = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1593,7 +1593,7 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_SetWinMetaFileBi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_dataexchange_UnpackDDElParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_dataexchange_unpackDDElParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1618,83 +1618,83 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_UnpackDDElParam_
 }
 
 static void register_windows_win32_system_dataexchange_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_dataexchange_AddAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_AddAtomA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_AddAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_AddAtomW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_ChangeClipboardChain", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ChangeClipboardChain_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_CloseClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_CloseClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_CountClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_CountClipboardFormats_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeAccessData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeAccessData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeAddData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeAddData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeClientTransaction", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeClientTransaction_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeConnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeConnect_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeConnectList", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeConnectList_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeDisconnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeDisconnect_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeDisconnectList", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeDisconnectList_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeEnableCallback", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeEnableCallback_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeGetData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeGetData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeGetLastError", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeGetLastError_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeImpersonateClient", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeImpersonateClient_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeInitializeA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeInitializeA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeInitializeW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeInitializeW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeNameService", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeNameService_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdePostAdvise", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdePostAdvise_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeQueryNextServer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeQueryNextServer_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeQueryStringA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeQueryStringA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeQueryStringW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeQueryStringW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeReconnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeReconnect_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeSetUserHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeSetUserHandle_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeUnaccessData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeUnaccessData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DdeUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DdeUninitialize_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_DeleteAtom", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_DeleteAtom_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_EmptyClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_EmptyClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_EnumClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_EnumClipboardFormats_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_FindAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_FindAtomA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_FindAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_FindAtomW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_FreeDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_FreeDDElParam_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetAtomNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetAtomNameA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetAtomNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetAtomNameW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardOwner", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardOwner_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetClipboardViewer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetClipboardViewer_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalAddAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalAddAtomA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalAddAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalAddAtomW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalFindAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalFindAtomA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalFindAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalFindAtomW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_InitAtomTable", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_InitAtomTable_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_OpenClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_OpenClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_PackDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_PackDDElParam_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_ReuseDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ReuseDDElParam_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_SetClipboardData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_SetClipboardData_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_SetClipboardViewer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_SetClipboardViewer_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits_napi));
-    exports.Set("windowssys_windows_win32_system_dataexchange_UnpackDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_UnpackDDElParam_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_addAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_addAtomA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_addAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_addAtomW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_addClipboardFormatListener", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_addClipboardFormatListener_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_changeClipboardChain", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_changeClipboardChain_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_closeClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_closeClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_countClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_countClipboardFormats_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeAccessData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeAccessData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeAddData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeAddData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeClientTransaction", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeClientTransaction_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeConnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeConnect_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeConnectList", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeConnectList_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeDisconnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeDisconnect_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeDisconnectList", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeDisconnectList_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeEnableCallback", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeEnableCallback_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeGetData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeGetData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeGetLastError", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeGetLastError_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeImpersonateClient", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeImpersonateClient_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeInitializeA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeInitializeA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeInitializeW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeInitializeW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeNameService", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeNameService_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddePostAdvise", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddePostAdvise_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeQueryNextServer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeQueryNextServer_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeQueryStringA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeQueryStringA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeQueryStringW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeQueryStringW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeReconnect", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeReconnect_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeSetUserHandle", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeSetUserHandle_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeUnaccessData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeUnaccessData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_ddeUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_ddeUninitialize_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_deleteAtom", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_deleteAtom_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_emptyClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_emptyClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_enumClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_enumClipboardFormats_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_findAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_findAtomA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_findAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_findAtomW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_freeDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_freeDDElParam_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getAtomNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getAtomNameA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getAtomNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getAtomNameW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardOwner", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardOwner_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getClipboardViewer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getClipboardViewer_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalAddAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalAddAtomA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalAddAtomExA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalAddAtomExA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalAddAtomExW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalAddAtomExW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalAddAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalAddAtomW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalDeleteAtom", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalDeleteAtom_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalFindAtomA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalFindAtomA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalFindAtomW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalFindAtomW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalGetAtomNameA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalGetAtomNameA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_globalGetAtomNameW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_globalGetAtomNameW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_initAtomTable", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_initAtomTable_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_openClipboard", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_openClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_packDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_packDDElParam_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_registerClipboardFormatA", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_registerClipboardFormatA_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_registerClipboardFormatW", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_registerClipboardFormatW_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_reuseDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_reuseDDElParam_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_setClipboardData", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_setClipboardData_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_setClipboardViewer", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_setClipboardViewer_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_setWinMetaFileBits", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_setWinMetaFileBits_napi));
+    exports.Set("windowssys_windows_win32_system_dataexchange_unpackDDElParam", Napi::Function::New(env, windowssys_windows_win32_system_dataexchange_unpackDDElParam_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_dataexchange_napi, nullptr };

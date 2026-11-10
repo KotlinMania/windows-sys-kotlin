@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAcquireFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -67,7 +67,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAcq
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumBiometricUnits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiometricUnits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t frameworkhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumDatabases_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatabases_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t frameworkhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumServiceProviders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServiceProviders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t frameworkhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -127,7 +127,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncMonitorFrameworkChanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFrameworkChanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t frameworkhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t changetypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenFramework_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFramework_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t notificationmethod = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* targetwindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t pooltype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCaptureSample_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCaptureSample_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t purpose = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCaptureSampleWithCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleWithCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t purpose = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCloseFramework_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCloseFramework_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t frameworkhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -329,7 +329,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioControlUnit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioControlUnit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioControlUnitPrivileged_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioControlUnitPrivileged_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioCon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioDeleteTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -425,7 +425,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioDel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollBegin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t subfactor = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollCapture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rejectdetail = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollCaptureWithCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureWithCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* enrollcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -489,7 +489,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollCommit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* identity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +511,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollDiscard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -529,7 +529,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnrollSelect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t selectorvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnumBiometricUnits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricUnits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* unitschemaarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -571,7 +571,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnumDatabases_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* storageschemaarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnumEnrollments_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollments_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -619,7 +619,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnumServiceProviders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnumServiceProviders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* bspschemaarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -641,7 +641,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioFre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGetDomainLogonSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,7 +678,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGet
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGetEnabledSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGet
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGetEnrolledFactors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFactors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* accountowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* enrolledfactors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGetLogonSetting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGet
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t propertytype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -768,7 +768,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioIdentify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioIdentify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* unitid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -794,7 +794,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioIde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioIdentifyWithCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* identifycallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -816,7 +816,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioIde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioImproveBegin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioImproveBegin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -836,7 +836,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioImp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioImproveEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioImproveEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -854,7 +854,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioImp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLocateSensor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLocateSensor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* unitid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -874,7 +874,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLocateSensorWithCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWithCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* locatecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLockUnit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLockUnit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -916,7 +916,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLoc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLogonIdentifiedUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifiedUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -934,7 +934,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioMonitorPresence_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioMonitorPresence_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -954,7 +954,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioMon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioOpenSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioOpenSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t factor = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t pooltype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioOpe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRegisterEventMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRegisterEventMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t eventmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1008,7 +1008,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioReg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioReleaseFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1024,7 +1024,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1040,7 +1040,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllDomainCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomainCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1056,7 +1056,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioRem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioSetCredential_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioSetCredential_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t type = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* credential = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1080,7 +1080,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioSetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioSetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t propertytype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1112,7 +1112,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioSet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioUnlockUnit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t unitid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1132,7 +1132,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioUnl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioUnregisterEventMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioUnregisterEventMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1150,7 +1150,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioUnr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioVerify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioVerify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* identity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1178,7 +1178,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioVer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioVerifyWithCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* identity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1204,7 +1204,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioVer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1223,58 +1223,58 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_WinBioWai
 }
 
 static void register_windows_win32_devices_biometricframework_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAcquireFocus", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAcquireFocus_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumBiometricUnits", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumBiometricUnits_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumDatabases", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumDatabases_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumServiceProviders", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumServiceProviders_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncMonitorFrameworkChanges", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncMonitorFrameworkChanges_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenFramework", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenFramework_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenSession_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioCancel", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioCancel_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioCaptureSample", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioCaptureSample_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioCaptureSampleWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioCaptureSampleWithCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioCloseFramework", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioCloseFramework_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioCloseSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioCloseSession_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioControlUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioControlUnit_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioControlUnitPrivileged", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioControlUnitPrivileged_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioDeleteTemplate", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioDeleteTemplate_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollBegin", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollBegin_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollCapture", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollCapture_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollCaptureWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollCaptureWithCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollCommit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollCommit_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollDiscard", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollDiscard_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnrollSelect", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnrollSelect_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnumBiometricUnits", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnumBiometricUnits_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnumDatabases", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnumDatabases_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnumEnrollments", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnumEnrollments_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioEnumServiceProviders", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioEnumServiceProviders_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioFree", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioFree_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioGetDomainLogonSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioGetDomainLogonSetting_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioGetEnabledSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioGetEnabledSetting_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioGetEnrolledFactors", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioGetEnrolledFactors_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioGetLogonSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioGetLogonSetting_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioGetProperty", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioGetProperty_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioIdentify", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioIdentify_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioIdentifyWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioIdentifyWithCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioImproveBegin", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioImproveBegin_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioImproveEnd", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioImproveEnd_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioLocateSensor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioLocateSensor_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioLocateSensorWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioLocateSensorWithCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioLockUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioLockUnit_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioLogonIdentifiedUser", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioLogonIdentifiedUser_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioMonitorPresence", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioMonitorPresence_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioOpenSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioOpenSession_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioRegisterEventMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioRegisterEventMonitor_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioReleaseFocus", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioReleaseFocus_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllCredentials", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllCredentials_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllDomainCredentials", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllDomainCredentials_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioSetCredential", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioSetCredential_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioSetProperty", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioSetProperty_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioUnlockUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioUnlockUnit_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioUnregisterEventMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioUnregisterEventMonitor_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioVerify", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioVerify_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioVerifyWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioVerifyWithCallback_napi));
-    exports.Set("windowssys_windows_win32_devices_biometricframework_WinBioWait", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_WinBioWait_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAcquireFocus_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiometricUnits", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumBiometricUnits_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatabases", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumDatabases_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServiceProviders", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncEnumServiceProviders_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFrameworkChanges", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncMonitorFrameworkChanges_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFramework", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenFramework_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioAsyncOpenSession_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioCancel", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioCancel_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioCaptureSample", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioCaptureSample_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioCaptureSampleWithCallback_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioCloseFramework", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioCloseFramework_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioCloseSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioCloseSession_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioControlUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioControlUnit_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioControlUnitPrivileged", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioControlUnitPrivileged_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioDeleteTemplate_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollBegin_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollCapture_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollCaptureWithCallback_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollCommit_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollDiscard_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnrollSelect_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricUnits", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnumBiometricUnits_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnumDatabases_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollments", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnumEnrollments_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioEnumServiceProviders", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioEnumServiceProviders_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioFree", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioFree_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioGetDomainLogonSetting_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioGetEnabledSetting_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFactors", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioGetEnrolledFactors_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioGetLogonSetting_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioGetProperty", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioGetProperty_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioIdentify", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioIdentify_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioIdentifyWithCallback_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioImproveBegin", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioImproveBegin_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioImproveEnd", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioImproveEnd_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioLocateSensor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioLocateSensor_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioLocateSensorWithCallback_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioLockUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioLockUnit_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifiedUser", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioLogonIdentifiedUser_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioMonitorPresence", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioMonitorPresence_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioOpenSession", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioOpenSession_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioRegisterEventMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioRegisterEventMonitor_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioReleaseFocus_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCredentials", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioRemoveAllCredentials_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomainCredentials", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioRemoveAllDomainCredentials_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioSetCredential", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioSetCredential_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioSetProperty", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioSetProperty_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioUnlockUnit_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioUnregisterEventMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioUnregisterEventMonitor_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioVerify", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioVerify_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCallback", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioVerifyWithCallback_napi));
+    exports.Set("windowssys_windows_win32_devices_biometricframework_winBioWait", Napi::Function::New(env, windowssys_windows_win32_devices_biometricframework_winBioWait_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_biometricframework_napi, nullptr };

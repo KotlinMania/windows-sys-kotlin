@@ -2,53 +2,54 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventcollector
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun EcClose(obj: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcClose(obj)
+public actual fun ecClose(obj: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecClose(obj)
 
-public actual fun EcDeleteSubscription(subscriptionname: PCWSTR, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcDeleteSubscription(subscriptionname.toCPointer<ByteVar>(), flags)
+public actual fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecDeleteSubscription(subscriptionname?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EcEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: PWSTR, subscriptionnamebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer.toCPointer<ByteVar>(), subscriptionnamebufferused.toCPointer<ByteVar>())
+public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer?.value?.toCPointer<ByteVar>(), subscriptionnamebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EcGetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EcGetObjectArraySize(objectarray: Long, objectarraysize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize(objectarray, objectarraysize.toCPointer<ByteVar>())
+public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(objectarray, objectarraysize?.value?.toCPointer<ByteVar>())
 
-public actual fun EcGetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer.toCPointer<ByteVar>(), propertyvaluebufferused.toCPointer<ByteVar>())
+public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer?.value?.toCPointer<ByteVar>(), propertyvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EcGetSubscriptionRunTimeStatus(subscriptionname: PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: PCWSTR, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: Long, statusvaluebufferused: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus(subscriptionname.toCPointer<ByteVar>(), statusinfoid, eventsourcename.toCPointer<ByteVar>(), flags, statusvaluebuffersize, statusvaluebuffer.toCPointer<ByteVar>(), statusvaluebufferused.toCPointer<ByteVar>())
+public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: COpaquePointer?, statusvaluebufferused: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus(subscriptionname?.value?.toCPointer<ByteVar>(), statusinfoid, eventsourcename?.value?.toCPointer<ByteVar>(), flags, statusvaluebuffersize, statusvaluebuffer?.value?.toCPointer<ByteVar>(), statusvaluebufferused?.value?.toCPointer<ByteVar>())
 
-public actual fun EcInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement(objectarray, arrayindex)
+public actual fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement(objectarray, arrayindex)
 
-public actual fun EcOpenSubscription(subscriptionname: PCWSTR, accessmask: UInt, flags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcOpenSubscription(subscriptionname.toCPointer<ByteVar>(), accessmask, flags)
+public actual fun ecOpenSubscription(subscriptionname: Pcwstr, accessmask: UInt, flags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecOpenSubscription(subscriptionname?.value?.toCPointer<ByteVar>(), accessmask, flags)
 
-public actual fun EcOpenSubscriptionEnum(flags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum(flags)
+public actual fun ecOpenSubscriptionEnum(flags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(flags)
 
-public actual fun EcRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement(objectarray, arrayindex)
+public actual fun ecRemoveObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement(objectarray, arrayindex)
 
-public actual fun EcRetrySubscription(subscriptionname: PCWSTR, eventsourcename: PCWSTR, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcRetrySubscription(subscriptionname.toCPointer<ByteVar>(), eventsourcename.toCPointer<ByteVar>(), flags)
+public actual fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename: Pcwstr, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecRetrySubscription(subscriptionname?.value?.toCPointer<ByteVar>(), eventsourcename?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun EcSaveSubscription(subscription: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcSaveSubscription(subscription, flags)
+public actual fun ecSaveSubscription(subscription: Long, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecSaveSubscription(subscription, flags)
 
-public actual fun EcSetObjectArrayProperty(objectarray: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: UInt, flags: UInt, propertyvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvalue.toCPointer<ByteVar>())
+public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun EcSetSubscriptionProperty(subscription: Long, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: UInt, propertyvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty(subscription, propertyid, flags, propertyvalue.toCPointer<ByteVar>())
+public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop.windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty(subscription, propertyid, flags, propertyvalue?.value?.toCPointer<ByteVar>())

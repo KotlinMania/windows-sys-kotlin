@@ -1,238 +1,251 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ALGORITHM_IDENTIFIER
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_BIT_BLOB
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTCHAINENGINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainElement
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainPara
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertStrongSignPara
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertUsageMatch
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CmsgSignerInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAlgorithmIdentifier
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAttributeTypeValue
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptBitBlob
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CtlContext
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertchainengine
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipDispatchInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipIndirectData
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipSubjectinfo
 
-public data class CAT_MEMBERINFO(public var pwszSubjGuid: PWSTR = 0L, public var dwCertVersion: UInt = 0u)
+public data class CatMemberinfo(public var pwszSubjGuid: Pwstr = null, public var dwCertVersion: UInt = 0u)
 
-public data class CAT_MEMBERINFO2(public var SubjectGuid: GUID = GUID(), public var dwCertVersion: UInt = 0u)
+public data class CatMemberinfo2(public var subjectGuid: Guid = Guid(), public var dwCertVersion: UInt = 0u)
 
-public data class CAT_NAMEVALUE(
-    public var pwszTag: PWSTR = 0L,
+public data class CatNamevalue(
+    public var pwszTag: Pwstr = null,
     public var fdwFlags: UInt = 0u,
-    public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var value: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CONFIG_CI_PROV_INFO(
+public data class ConfigCiProvInfo(
     public var cbSize: UInt = 0u,
     public var dwPolicies: UInt = 0u,
-    public var pPolicies: Long = 0L,
-    public var result: CONFIG_CI_PROV_INFO_RESULT = CONFIG_CI_PROV_INFO_RESULT(),
+    public var pPolicies: CryptIntegerBlob? = null,
+    public var result: ConfigCiProvInfoResult = ConfigCiProvInfoResult(),
     public var dwScenario: UInt = 0u,
-    public var result2: Long = 0L,
+    public var result2: ConfigCiProvInfoResult2? = null,
 )
 
-public data class CONFIG_CI_PROV_INFO_RESULT(
-    public var hr: HRESULT = 0,
+public data class ConfigCiProvInfoResult(
+    public var hr: Hresult = 0,
     public var dwResult: UInt = 0u,
     public var dwPolicyIndex: UInt = 0u,
     public var fIsExplicitDeny: Boolean = false,
 )
 
-public data class CONFIG_CI_PROV_INFO_RESULT2(
+public data class ConfigCiProvInfoResult2(
     public var cbSize: UInt = 0u,
-    public var hr: HRESULT = 0,
+    public var hr: Hresult = 0,
     public var dwResult: UInt = 0u,
     public var dwPolicyIndex: UInt = 0u,
     public var fIsExplicitDeny: Boolean = false,
     public var cbCalculatedFileHash: UInt = 0u,
-    public var pbCalculatedFileHash: Long = 0L,
+    public var pbCalculatedFileHash: COpaquePointer? = null,
 )
 
-public data class CRYPT_PROVIDER_CERT(
+public data class CryptProviderCert(
     public var cbStruct: UInt = 0u,
-    public var pCert: Long = 0L,
-    public var fCommercial: BOOL = 0,
-    public var fTrustedRoot: BOOL = 0,
-    public var fSelfSigned: BOOL = 0,
-    public var fTestCert: BOOL = 0,
+    public var pCert: CertContext? = null,
+    public var fCommercial: Bool = 0,
+    public var fTrustedRoot: Bool = 0,
+    public var fSelfSigned: Bool = 0,
+    public var fTestCert: Bool = 0,
     public var dwRevokedReason: UInt = 0u,
     public var dwConfidence: UInt = 0u,
     public var dwError: UInt = 0u,
-    public var pTrustListContext: Long = 0L,
-    public var fTrustListSignerCert: BOOL = 0,
-    public var pCtlContext: Long = 0L,
+    public var pTrustListContext: CtlContext? = null,
+    public var fTrustListSignerCert: Bool = 0,
+    public var pCtlContext: CtlContext? = null,
     public var dwCtlError: UInt = 0u,
-    public var fIsCyclic: BOOL = 0,
-    public var pChainElement: Long = 0L,
+    public var fIsCyclic: Bool = 0,
+    public var pChainElement: CertChainElement? = null,
 )
 
-public class CRYPT_PROVIDER_DATA(
+public class CryptProviderData(
     public var cbStruct: UInt = 0u,
-    public var pWintrustData: Long = 0L,
-    public var fOpenedFile: BOOL = 0,
-    public var hWndParent: HWND = 0L,
-    public var pgActionID: Long = 0L,
-    public var hProv: ULong = 0uL,
+    public var pWintrustData: WintrustData? = null,
+    public var fOpenedFile: Bool = 0,
+    public var hWndParent: Hwnd = null,
+    public var pgActionID: Guid? = null,
+    public var hProv: Int = 0,
     public var dwError: UInt = 0u,
     public var dwRegSecuritySettings: UInt = 0u,
     public var dwRegPolicySettings: UInt = 0u,
-    public var psPfns: Long = 0L,
+    public var psPfns: CryptProviderFunctions? = null,
     public var cdwTrustStepErrors: UInt = 0u,
-    public var padwTrustStepErrors: Long = 0L,
+    public var padwTrustStepErrors: UInt? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Long = 0L,
+    public var pahStores: Hcertstore? = null,
     public var dwEncoding: UInt = 0u,
-    public var hMsg: Long = 0L,
+    public var hMsg: COpaquePointer? = null,
     public var csSigners: UInt = 0u,
-    public var pasSigners: Long = 0L,
+    public var pasSigners: CryptProviderSgnr? = null,
     public var csProvPrivData: UInt = 0u,
-    public var pasProvPrivData: Long = 0L,
+    public var pasProvPrivData: CryptProviderPrivdata? = null,
     public var dwSubjectChoice: UInt = 0u,
-    public var Anonymous: CRYPT_PROVIDER_DATA_0 = CRYPT_PROVIDER_DATA_0(),
-    public var pszUsageOID: PSTR = 0L,
-    public var fRecallWithState: BOOL = 0,
-    public var sftSystemTime: FILETIME = FILETIME(),
-    public var pszCTLSignerUsageOID: PSTR = 0L,
+    public var anonymous: CryptProviderData0 = CryptProviderData0(),
+    public var pszUsageOID: Pstr = null,
+    public var fRecallWithState: Bool = 0,
+    public var sftSystemTime: Filetime = Filetime(),
+    public var pszCTLSignerUsageOID: Pstr = null,
     public var dwProvFlags: UInt = 0u,
     public var dwFinalError: UInt = 0u,
-    public var pRequestUsage: Long = 0L,
+    public var pRequestUsage: CertUsageMatch? = null,
     public var dwTrustPubSettings: UInt = 0u,
     public var dwUIStateFlags: UInt = 0u,
-    public var pSigState: Long = 0L,
-    public var pSigSettings: Long = 0L,
+    public var pSigState: CryptProviderSigstate? = null,
+    public var pSigSettings: WintrustSignatureSettings? = null,
 )
 
-public data class CRYPT_PROVIDER_DATA_0(public var pPDSip: Long = 0L)
+public data class CryptProviderData0(public var pPDSip: ProvdataSip? = null)
 
-public data class CRYPT_PROVIDER_DEFUSAGE(
+public data class CryptProviderDefusage(
     public var cbStruct: UInt = 0u,
-    public var gActionID: GUID = GUID(),
-    public var pDefPolicyCallbackData: Long = 0L,
-    public var pDefSIPClientData: Long = 0L,
+    public var gActionID: Guid = Guid(),
+    public var pDefPolicyCallbackData: COpaquePointer? = null,
+    public var pDefSIPClientData: COpaquePointer? = null,
 )
 
-public data class CRYPT_PROVIDER_FUNCTIONS(
+public data class CryptProviderFunctions(
     public var cbStruct: UInt = 0u,
-    public var pfnAlloc: PFN_CPD_MEM_ALLOC = null,
-    public var pfnFree: PFN_CPD_MEM_FREE = null,
-    public var pfnAddStore2Chain: PFN_CPD_ADD_STORE = null,
-    public var pfnAddSgnr2Chain: PFN_CPD_ADD_SGNR = null,
-    public var pfnAddCert2Chain: PFN_CPD_ADD_CERT = null,
-    public var pfnAddPrivData2Chain: PFN_CPD_ADD_PRIVDATA = null,
-    public var pfnInitialize: PFN_PROVIDER_INIT_CALL = null,
-    public var pfnObjectTrust: PFN_PROVIDER_OBJTRUST_CALL = null,
-    public var pfnSignatureTrust: PFN_PROVIDER_SIGTRUST_CALL = null,
-    public var pfnCertificateTrust: PFN_PROVIDER_CERTTRUST_CALL = null,
-    public var pfnFinalPolicy: PFN_PROVIDER_FINALPOLICY_CALL = null,
-    public var pfnCertCheckPolicy: PFN_PROVIDER_CERTCHKPOLICY_CALL = null,
-    public var pfnTestFinalPolicy: PFN_PROVIDER_TESTFINALPOLICY_CALL = null,
-    public var psUIpfns: Long = 0L,
-    public var pfnCleanupPolicy: PFN_PROVIDER_CLEANUP_CALL = null,
+    public var pfnAlloc: PfnCpdMemAlloc = null,
+    public var pfnFree: PfnCpdMemFree = null,
+    public var pfnAddStore2Chain: PfnCpdAddStore = null,
+    public var pfnAddSgnr2Chain: PfnCpdAddSgnr = null,
+    public var pfnAddCert2Chain: PfnCpdAddCert = null,
+    public var pfnAddPrivData2Chain: PfnCpdAddPrivdata = null,
+    public var pfnInitialize: PfnProviderInitCall = null,
+    public var pfnObjectTrust: PfnProviderObjtrustCall = null,
+    public var pfnSignatureTrust: PfnProviderSigtrustCall = null,
+    public var pfnCertificateTrust: PfnProviderCerttrustCall = null,
+    public var pfnFinalPolicy: PfnProviderFinalpolicyCall = null,
+    public var pfnCertCheckPolicy: PfnProviderCertchkpolicyCall = null,
+    public var pfnTestFinalPolicy: PfnProviderTestfinalpolicyCall = null,
+    public var psUIpfns: CryptProvuiFuncs? = null,
+    public var pfnCleanupPolicy: PfnProviderCleanupCall = null,
 )
 
-public data class CRYPT_PROVIDER_PRIVDATA(
+public data class CryptProviderPrivdata(
     public var cbStruct: UInt = 0u,
-    public var gProviderID: GUID = GUID(),
+    public var gProviderID: Guid = Guid(),
     public var cbProvData: UInt = 0u,
-    public var pvProvData: Long = 0L,
+    public var pvProvData: COpaquePointer? = null,
 )
 
-public data class CRYPT_PROVIDER_REGDEFUSAGE(
+public data class CryptProviderRegdefusage(
     public var cbStruct: UInt = 0u,
-    public var pgActionID: Long = 0L,
-    public var pwszDllName: PWSTR = 0L,
-    public var pwszLoadCallbackDataFunctionName: PSTR = 0L,
-    public var pwszFreeCallbackDataFunctionName: PSTR = 0L,
+    public var pgActionID: Guid? = null,
+    public var pwszDllName: Pwstr = null,
+    public var pwszLoadCallbackDataFunctionName: Pstr = null,
+    public var pwszFreeCallbackDataFunctionName: Pstr = null,
 )
 
-public data class CRYPT_PROVIDER_SGNR(
+public data class CryptProviderSgnr(
     public var cbStruct: UInt = 0u,
-    public var sftVerifyAsOf: FILETIME = FILETIME(),
+    public var sftVerifyAsOf: Filetime = Filetime(),
     public var csCertChain: UInt = 0u,
-    public var pasCertChain: Long = 0L,
+    public var pasCertChain: CryptProviderCert? = null,
     public var dwSignerType: UInt = 0u,
-    public var psSigner: Long = 0L,
+    public var psSigner: CmsgSignerInfo? = null,
     public var dwError: UInt = 0u,
     public var csCounterSigners: UInt = 0u,
-    public var pasCounterSigners: Long = 0L,
-    public var pChainContext: Long = 0L,
+    public var pasCounterSigners: CryptProviderSgnr? = null,
+    public var pChainContext: CertChainContext? = null,
 )
 
-public data class CRYPT_PROVIDER_SIGSTATE(
+public data class CryptProviderSigstate(
     public var cbStruct: UInt = 0u,
-    public var rhSecondarySigs: Long = 0L,
-    public var hPrimarySig: Long = 0L,
-    public var fFirstAttemptMade: BOOL = 0,
-    public var fNoMoreSigs: BOOL = 0,
+    public var rhSecondarySigs: COpaquePointer? = null,
+    public var hPrimarySig: COpaquePointer? = null,
+    public var fFirstAttemptMade: Bool = 0,
+    public var fNoMoreSigs: Bool = 0,
     public var cSecondarySigs: UInt = 0u,
     public var dwCurrentIndex: UInt = 0u,
-    public var fSupportMultiSig: BOOL = 0,
+    public var fSupportMultiSig: Bool = 0,
     public var dwCryptoPolicySupport: UInt = 0u,
     public var iAttemptCount: UInt = 0u,
-    public var fCheckedSealing: BOOL = 0,
-    public var pSealingSignature: Long = 0L,
+    public var fCheckedSealing: Bool = 0,
+    public var pSealingSignature: SealingSignatureAttribute? = null,
 )
 
-public data class CRYPT_PROVUI_DATA(
+public data class CryptProvuiData(
     public var cbStruct: UInt = 0u,
     public var dwFinalError: UInt = 0u,
-    public var pYesButtonText: PWSTR = 0L,
-    public var pNoButtonText: PWSTR = 0L,
-    public var pMoreInfoButtonText: PWSTR = 0L,
-    public var pAdvancedLinkText: PWSTR = 0L,
-    public var pCopyActionText: PWSTR = 0L,
-    public var pCopyActionTextNoTS: PWSTR = 0L,
-    public var pCopyActionTextNotSigned: PWSTR = 0L,
+    public var pYesButtonText: Pwstr = null,
+    public var pNoButtonText: Pwstr = null,
+    public var pMoreInfoButtonText: Pwstr = null,
+    public var pAdvancedLinkText: Pwstr = null,
+    public var pCopyActionText: Pwstr = null,
+    public var pCopyActionTextNoTS: Pwstr = null,
+    public var pCopyActionTextNotSigned: Pwstr = null,
 )
 
-public data class CRYPT_PROVUI_FUNCS(
+public data class CryptProvuiFuncs(
     public var cbStruct: UInt = 0u,
-    public var psUIData: Long = 0L,
-    public var pfnOnMoreInfoClick: PFN_PROVUI_CALL = null,
-    public var pfnOnMoreInfoClickDefault: PFN_PROVUI_CALL = null,
-    public var pfnOnAdvancedClick: PFN_PROVUI_CALL = null,
-    public var pfnOnAdvancedClickDefault: PFN_PROVUI_CALL = null,
+    public var psUIData: CryptProvuiData? = null,
+    public var pfnOnMoreInfoClick: PfnProvuiCall = null,
+    public var pfnOnMoreInfoClickDefault: PfnProvuiCall = null,
+    public var pfnOnAdvancedClick: PfnProvuiCall = null,
+    public var pfnOnAdvancedClickDefault: PfnProvuiCall = null,
 )
 
-public data class CRYPT_REGISTER_ACTIONID(
+public data class CryptRegisterActionid(
     public var cbStruct: UInt = 0u,
-    public var sInitProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sObjectProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sSignatureProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sCertificateProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sCertificatePolicyProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sFinalPolicyProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sTestPolicyProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
-    public var sCleanupProvider: CRYPT_TRUST_REG_ENTRY = CRYPT_TRUST_REG_ENTRY(),
+    public var sInitProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sObjectProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sSignatureProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sCertificateProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sCertificatePolicyProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sFinalPolicyProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sTestPolicyProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
+    public var sCleanupProvider: CryptTrustRegEntry = CryptTrustRegEntry(),
 )
 
-public data class CRYPT_TRUST_REG_ENTRY(
+public data class CryptTrustRegEntry(
     public var cbStruct: UInt = 0u,
-    public var pwszDLLName: PWSTR = 0L,
-    public var pwszFunctionName: PWSTR = 0L,
+    public var pwszDLLName: Pwstr = null,
+    public var pwszFunctionName: Pwstr = null,
 )
 
-public data class DRIVER_VER_INFO(
+public data class DriverVerInfo(
     public var cbStruct: UInt = 0u,
-    public var dwReserved1: ULong = 0uL,
-    public var dwReserved2: ULong = 0uL,
+    public var dwReserved1: Int = 0,
+    public var dwReserved2: Int = 0,
     public var dwPlatform: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var wszVersion: UShortArray = UShortArray(260),
     public var wszSignedBy: UShortArray = UShortArray(260),
-    public var pcSignerCertContext: Long = 0L,
-    public var sOSVersionLow: DRIVER_VER_MAJORMINOR = DRIVER_VER_MAJORMINOR(),
-    public var sOSVersionHigh: DRIVER_VER_MAJORMINOR = DRIVER_VER_MAJORMINOR(),
+    public var pcSignerCertContext: CertContext? = null,
+    public var sOSVersionLow: DriverVerMajorminor = DriverVerMajorminor(),
+    public var sOSVersionHigh: DriverVerMajorminor = DriverVerMajorminor(),
     public var dwBuildNumberLow: UInt = 0u,
     public var dwBuildNumberHigh: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DRIVER_VER_INFO) return false
+        if (other !is DriverVerInfo) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwReserved1 != other.dwReserved1) return false
         if (this.dwReserved2 != other.dwReserved2) return false
@@ -265,78 +278,78 @@ public data class DRIVER_VER_INFO(
     }
 }
 
-public data class DRIVER_VER_MAJORMINOR(public var dwMajor: UInt = 0u, public var dwMinor: UInt = 0u)
+public data class DriverVerMajorminor(public var dwMajor: UInt = 0u, public var dwMinor: UInt = 0u)
 
-public data class INTENT_TO_SEAL_ATTRIBUTE(public var version: UInt = 0u, public var seal: Boolean = false)
+public data class IntentToSealAttribute(public var version: UInt = 0u, public var seal: Boolean = false)
 
-public data class PROVDATA_SIP(
+public data class ProvdataSip(
     public var cbStruct: UInt = 0u,
-    public var gSubject: GUID = GUID(),
-    public var pSip: Long = 0L,
-    public var pCATSip: Long = 0L,
-    public var psSipSubjectInfo: Long = 0L,
-    public var psSipCATSubjectInfo: Long = 0L,
-    public var psIndirectData: Long = 0L,
+    public var gSubject: Guid = Guid(),
+    public var pSip: SipDispatchInfo? = null,
+    public var pCATSip: SipDispatchInfo? = null,
+    public var psSipSubjectInfo: SipSubjectinfo? = null,
+    public var psSipCATSubjectInfo: SipSubjectinfo? = null,
+    public var psIndirectData: SipIndirectData? = null,
 )
 
-public data class SEALING_SIGNATURE_ATTRIBUTE(
+public data class SealingSignatureAttribute(
     public var version: UInt = 0u,
     public var signerIndex: UInt = 0u,
-    public var signatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var encryptedDigest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var signatureAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedDigest: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SEALING_TIMESTAMP_ATTRIBUTE(
+public data class SealingTimestampAttribute(
     public var version: UInt = 0u,
     public var signerIndex: UInt = 0u,
-    public var sealTimeStampToken: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var sealTimeStampToken: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SPC_FINANCIAL_CRITERIA(public var fFinancialInfoAvailable: BOOL = 0, public var fMeetsCriteria: BOOL = 0)
+public data class SpcFinancialCriteria(public var fFinancialInfoAvailable: Bool = 0, public var fMeetsCriteria: Bool = 0)
 
-public data class SPC_IMAGE(
-    public var pImageLink: Long = 0L,
-    public var Bitmap: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Metafile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var EnhancedMetafile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var GifFile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class SpcImage(
+    public var pImageLink: SpcLink? = null,
+    public var bitmap: CryptIntegerBlob = CryptIntegerBlob(),
+    public var metafile: CryptIntegerBlob = CryptIntegerBlob(),
+    public var enhancedMetafile: CryptIntegerBlob = CryptIntegerBlob(),
+    public var gifFile: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SPC_INDIRECT_DATA_CONTENT(
-    public var Data: CRYPT_ATTRIBUTE_TYPE_VALUE = CRYPT_ATTRIBUTE_TYPE_VALUE(),
-    public var DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Digest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class SpcIndirectDataContent(
+    public var data: CryptAttributeTypeValue = CryptAttributeTypeValue(),
+    public var digestAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var digest: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SPC_LINK(public var dwLinkChoice: UInt = 0u, public var Anonymous: SPC_LINK_0 = SPC_LINK_0())
+public data class SpcLink(public var dwLinkChoice: UInt = 0u, public var anonymous: SpcLink0 = SpcLink0())
 
-public data class SPC_LINK_0(
-    public var pwszUrl: PWSTR = 0L,
-    public var Moniker: SPC_SERIALIZED_OBJECT = SPC_SERIALIZED_OBJECT(),
-    public var pwszFile: PWSTR = 0L,
+public data class SpcLink0(
+    public var pwszUrl: Pwstr = null,
+    public var moniker: SpcSerializedObject = SpcSerializedObject(),
+    public var pwszFile: Pwstr = null,
 )
 
-public data class SPC_PE_IMAGE_DATA(public var Flags: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(), public var pFile: Long = 0L)
+public data class SpcPeImageData(public var flags: CryptBitBlob = CryptBitBlob(), public var pFile: SpcLink? = null)
 
-public data class SPC_SERIALIZED_OBJECT(public var ClassId: UByteArray = UByteArray(16), public var SerializedData: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB()) {
+public data class SpcSerializedObject(public var classId: UByteArray = UByteArray(16), public var serializedData: CryptIntegerBlob = CryptIntegerBlob()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SPC_SERIALIZED_OBJECT) return false
-        if (!this.ClassId.contentEquals(other.ClassId)) return false
-        if (this.SerializedData != other.SerializedData) return false
+        if (other !is SpcSerializedObject) return false
+        if (!this.classId.contentEquals(other.classId)) return false
+        if (this.serializedData != other.serializedData) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassId.contentHashCode()
-        result = 31 * result + this.SerializedData.hashCode()
+        var result = this.classId.contentHashCode()
+        result = 31 * result + this.serializedData.hashCode()
         return result
     }
 }
 
-public data class SPC_SIGINFO(
+public data class SpcSiginfo(
     public var dwSipVersion: UInt = 0u,
-    public var gSIPGuid: GUID = GUID(),
+    public var gSIPGuid: Guid = Guid(),
     public var dwReserved1: UInt = 0u,
     public var dwReserved2: UInt = 0u,
     public var dwReserved3: UInt = 0u,
@@ -344,103 +357,103 @@ public data class SPC_SIGINFO(
     public var dwReserved5: UInt = 0u,
 )
 
-public data class SPC_SP_AGENCY_INFO(
-    public var pPolicyInformation: Long = 0L,
-    public var pwszPolicyDisplayText: PWSTR = 0L,
-    public var pLogoImage: Long = 0L,
-    public var pLogoLink: Long = 0L,
+public data class SpcSpAgencyInfo(
+    public var pPolicyInformation: SpcLink? = null,
+    public var pwszPolicyDisplayText: Pwstr = null,
+    public var pLogoImage: SpcImage? = null,
+    public var pLogoLink: SpcLink? = null,
 )
 
-public data class SPC_SP_OPUS_INFO(
-    public var pwszProgramName: PCWSTR = 0L,
-    public var pMoreInfo: Long = 0L,
-    public var pPublisherInfo: Long = 0L,
+public data class SpcSpOpusInfo(
+    public var pwszProgramName: Pcwstr = null,
+    public var pMoreInfo: SpcLink? = null,
+    public var pPublisherInfo: SpcLink? = null,
 )
 
-public data class SPC_STATEMENT_TYPE(public var cKeyPurposeId: UInt = 0u, public var rgpszKeyPurposeId: Long = 0L)
+public data class SpcStatementType(public var cKeyPurposeId: UInt = 0u, public var rgpszKeyPurposeId: Pstr? = null)
 
-public data class WINTRUST_BLOB_INFO(
+public data class WintrustBlobInfo(
     public var cbStruct: UInt = 0u,
-    public var gSubject: GUID = GUID(),
-    public var pcwszDisplayName: PCWSTR = 0L,
+    public var gSubject: Guid = Guid(),
+    public var pcwszDisplayName: Pcwstr = null,
     public var cbMemObject: UInt = 0u,
-    public var pbMemObject: Long = 0L,
+    public var pbMemObject: COpaquePointer? = null,
     public var cbMemSignedMsg: UInt = 0u,
-    public var pbMemSignedMsg: Long = 0L,
+    public var pbMemSignedMsg: COpaquePointer? = null,
 )
 
-public data class WINTRUST_CATALOG_INFO(
+public data class WintrustCatalogInfo(
     public var cbStruct: UInt = 0u,
     public var dwCatalogVersion: UInt = 0u,
-    public var pcwszCatalogFilePath: PCWSTR = 0L,
-    public var pcwszMemberTag: PCWSTR = 0L,
-    public var pcwszMemberFilePath: PCWSTR = 0L,
-    public var hMemberFile: HANDLE = 0L,
-    public var pbCalculatedFileHash: Long = 0L,
+    public var pcwszCatalogFilePath: Pcwstr = null,
+    public var pcwszMemberTag: Pcwstr = null,
+    public var pcwszMemberFilePath: Pcwstr = null,
+    public var hMemberFile: Handle = null,
+    public var pbCalculatedFileHash: COpaquePointer? = null,
     public var cbCalculatedFileHash: UInt = 0u,
-    public var pcCatalogContext: Long = 0L,
-    public var hCatAdmin: Long = 0L,
+    public var pcCatalogContext: CtlContext? = null,
+    public var hCatAdmin: Int = 0,
 )
 
-public data class WINTRUST_CERT_INFO(
+public data class WintrustCertInfo(
     public var cbStruct: UInt = 0u,
-    public var pcwszDisplayName: PCWSTR = 0L,
-    public var psCertContext: Long = 0L,
+    public var pcwszDisplayName: Pcwstr = null,
+    public var psCertContext: CertContext? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Long = 0L,
+    public var pahStores: Hcertstore? = null,
     public var dwFlags: UInt = 0u,
-    public var psftVerifyAsOf: Long = 0L,
+    public var psftVerifyAsOf: Filetime? = null,
 )
 
-public data class WINTRUST_DATA(
+public data class WintrustData(
     public var cbStruct: UInt = 0u,
-    public var pPolicyCallbackData: Long = 0L,
-    public var pSIPClientData: Long = 0L,
-    public var dwUIChoice: WINTRUST_DATA_UICHOICE = 0u,
-    public var fdwRevocationChecks: WINTRUST_DATA_REVOCATION_CHECKS = 0u,
-    public var dwUnionChoice: WINTRUST_DATA_UNION_CHOICE = 0u,
-    public var Anonymous: WINTRUST_DATA_0 = WINTRUST_DATA_0(),
-    public var dwStateAction: WINTRUST_DATA_STATE_ACTION = 0u,
-    public var hWVTStateData: HANDLE = 0L,
-    public var pwszURLReference: PWSTR = 0L,
-    public var dwProvFlags: WINTRUST_DATA_PROVIDER_FLAGS = 0u,
-    public var dwUIContext: WINTRUST_DATA_UICONTEXT = 0u,
-    public var pSignatureSettings: Long = 0L,
+    public var pPolicyCallbackData: COpaquePointer? = null,
+    public var pSIPClientData: COpaquePointer? = null,
+    public var dwUIChoice: WintrustDataUichoice = 0u,
+    public var fdwRevocationChecks: WintrustDataRevocationChecks = 0u,
+    public var dwUnionChoice: WintrustDataUnionChoice = 0u,
+    public var anonymous: WintrustData0 = WintrustData0(),
+    public var dwStateAction: WintrustDataStateAction = 0u,
+    public var hWVTStateData: Handle = null,
+    public var pwszURLReference: Pwstr = null,
+    public var dwProvFlags: WintrustDataProviderFlags = 0u,
+    public var dwUIContext: WintrustDataUicontext = 0u,
+    public var pSignatureSettings: WintrustSignatureSettings? = null,
 )
 
-public data class WINTRUST_DATA_0(
-    public var pFile: Long = 0L,
-    public var pCatalog: Long = 0L,
-    public var pBlob: Long = 0L,
-    public var pSgnr: Long = 0L,
-    public var pCert: Long = 0L,
+public data class WintrustData0(
+    public var pFile: WintrustFileInfo? = null,
+    public var pCatalog: WintrustCatalogInfo? = null,
+    public var pBlob: WintrustBlobInfo? = null,
+    public var pSgnr: WintrustSgnrInfo? = null,
+    public var pCert: WintrustCertInfo? = null,
 )
 
-public data class WINTRUST_FILE_INFO(
+public data class WintrustFileInfo(
     public var cbStruct: UInt = 0u,
-    public var pcwszFilePath: PCWSTR = 0L,
-    public var hFile: HANDLE = 0L,
-    public var pgKnownSubject: Long = 0L,
+    public var pcwszFilePath: Pcwstr = null,
+    public var hFile: Handle = null,
+    public var pgKnownSubject: Guid? = null,
 )
 
-public data class WINTRUST_SGNR_INFO(
+public data class WintrustSgnrInfo(
     public var cbStruct: UInt = 0u,
-    public var pcwszDisplayName: PCWSTR = 0L,
-    public var psSignerInfo: Long = 0L,
+    public var pcwszDisplayName: Pcwstr = null,
+    public var psSignerInfo: CmsgSignerInfo? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Long = 0L,
+    public var pahStores: Hcertstore? = null,
 )
 
-public data class WINTRUST_SIGNATURE_SETTINGS(
+public data class WintrustSignatureSettings(
     public var cbStruct: UInt = 0u,
     public var dwIndex: UInt = 0u,
-    public var dwFlags: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 0u,
+    public var dwFlags: WintrustSignatureSettingsFlags = 0u,
     public var cSecondarySigs: UInt = 0u,
     public var dwVerifiedSigIndex: UInt = 0u,
-    public var pCryptoPolicy: Long = 0L,
+    public var pCryptoPolicy: CertStrongSignPara? = null,
 )
 
-public data class WIN_CERTIFICATE(
+public data class WinCertificate(
     public var dwLength: UInt = 0u,
     public var wRevision: UShort = 0u,
     public var wCertificateType: UShort = 0u,
@@ -448,7 +461,7 @@ public data class WIN_CERTIFICATE(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WIN_CERTIFICATE) return false
+        if (other !is WinCertificate) return false
         if (this.dwLength != other.dwLength) return false
         if (this.wRevision != other.wRevision) return false
         if (this.wCertificateType != other.wCertificateType) return false
@@ -465,52 +478,52 @@ public data class WIN_CERTIFICATE(
     }
 }
 
-public data class WIN_SPUB_TRUSTED_PUBLISHER_DATA(public var hClientToken: HANDLE = 0L, public var lpCertificate: Long = 0L)
+public data class WinSpubTrustedPublisherData(public var hClientToken: Handle = null, public var lpCertificate: WinCertificate? = null)
 
-public data class WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT(
-    public var hClientToken: HANDLE = 0L,
-    public var SubjectType: Long = 0L,
-    public var Subject: Long = 0L,
+public data class WinTrustActdataContextWithSubject(
+    public var hClientToken: Handle = null,
+    public var subjectType: Guid? = null,
+    public var subject: COpaquePointer? = null,
 )
 
-public data class WIN_TRUST_ACTDATA_SUBJECT_ONLY(public var SubjectType: Long = 0L, public var Subject: Long = 0L)
+public data class WinTrustActdataSubjectOnly(public var subjectType: Guid? = null, public var subject: COpaquePointer? = null)
 
-public data class WIN_TRUST_SUBJECT_FILE(public var hFile: HANDLE = 0L, public var lpPath: PCWSTR = 0L)
+public data class WinTrustSubjectFile(public var hFile: Handle = null, public var lpPath: Pcwstr = null)
 
-public data class WIN_TRUST_SUBJECT_FILE_AND_DISPLAY(
-    public var hFile: HANDLE = 0L,
-    public var lpPath: PCWSTR = 0L,
-    public var lpDisplayName: PCWSTR = 0L,
+public data class WinTrustSubjectFileAndDisplay(
+    public var hFile: Handle = null,
+    public var lpPath: Pcwstr = null,
+    public var lpDisplayName: Pcwstr = null,
 )
 
-public data class WTD_GENERIC_CHAIN_POLICY_CREATE_INFO(
-    public var Anonymous: WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 = WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0(),
-    public var hChainEngine: HCERTCHAINENGINE = 0L,
-    public var pChainPara: Long = 0L,
+public data class WtdGenericChainPolicyCreateInfo(
+    public var anonymous: WtdGenericChainPolicyCreateInfo0 = WtdGenericChainPolicyCreateInfo0(),
+    public var hChainEngine: Hcertchainengine = null,
+    public var pChainPara: CertChainPara? = null,
     public var dwFlags: UInt = 0u,
-    public var pvReserved: Long = 0L,
+    public var pvReserved: COpaquePointer? = null,
 )
 
-public data class WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicyCreateInfo0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
 
-public data class WTD_GENERIC_CHAIN_POLICY_DATA(
-    public var Anonymous: WTD_GENERIC_CHAIN_POLICY_DATA_0 = WTD_GENERIC_CHAIN_POLICY_DATA_0(),
-    public var pSignerChainInfo: Long = 0L,
-    public var pCounterSignerChainInfo: Long = 0L,
-    public var pfnPolicyCallback: PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = null,
-    public var pvPolicyArg: Long = 0L,
+public data class WtdGenericChainPolicyData(
+    public var anonymous: WtdGenericChainPolicyData0 = WtdGenericChainPolicyData0(),
+    public var pSignerChainInfo: WtdGenericChainPolicyCreateInfo? = null,
+    public var pCounterSignerChainInfo: WtdGenericChainPolicyCreateInfo? = null,
+    public var pfnPolicyCallback: PfnWtdGenericChainPolicyCallback = null,
+    public var pvPolicyArg: COpaquePointer? = null,
 )
 
-public data class WTD_GENERIC_CHAIN_POLICY_DATA_0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicyData0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
 
-public data class WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO(
-    public var Anonymous: WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 = WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0(),
-    public var pChainContext: Long = 0L,
+public data class WtdGenericChainPolicySignerInfo(
+    public var anonymous: WtdGenericChainPolicySignerInfo0 = WtdGenericChainPolicySignerInfo0(),
+    public var pChainContext: CertChainContext? = null,
     public var dwSignerType: UInt = 0u,
-    public var pMsgSignerInfo: Long = 0L,
+    public var pMsgSignerInfo: CmsgSignerInfo? = null,
     public var dwError: UInt = 0u,
     public var cCounterSigner: UInt = 0u,
-    public var rgpCounterSigner: Long = 0L,
+    public var rgpCounterSigner: COpaquePointer? = null,
 )
 
-public data class WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicySignerInfo0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)

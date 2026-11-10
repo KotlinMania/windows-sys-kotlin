@@ -1,1006 +1,1007 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun AllJoynAcceptBusConnection(serverbushandle: HANDLE, abortevent: HANDLE): UInt
+public expect fun allJoynAcceptBusConnection(serverbushandle: Handle, abortevent: Handle): UInt
 
-public expect fun AllJoynCloseBusHandle(bushandle: HANDLE): BOOL
+public expect fun allJoynCloseBusHandle(bushandle: Handle): Bool
 
-public expect fun AllJoynConnectToBus(connectionspec: PCWSTR): HANDLE
+public expect fun allJoynConnectToBus(connectionspec: Pcwstr): Handle
 
-public expect fun AllJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: Long): HANDLE
+public expect fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: COpaquePointer?): Handle
 
-public expect fun AllJoynEnumEvents(connectedbushandle: HANDLE, eventtoreset: HANDLE, eventtypes: Long): BOOL
+public expect fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: COpaquePointer?): Bool
 
-public expect fun AllJoynEventSelect(connectedbushandle: HANDLE, eventhandle: HANDLE, eventtypes: UInt): BOOL
+public expect fun allJoynEventSelect(connectedbushandle: Handle, eventhandle: Handle, eventtypes: UInt): Bool
 
-public expect fun AllJoynReceiveFromBus(connectedbushandle: HANDLE, buffer: Long, bytestoread: UInt, bytestransferred: Long, reserved: Long): BOOL
+public expect fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestoread: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun AllJoynSendToBus(connectedbushandle: HANDLE, buffer: Long, bytestowrite: UInt, bytestransferred: Long, reserved: Long): BOOL
+public expect fun allJoynSendToBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestowrite: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun QCC_StatusText(status: QStatus): PCSTR
+public expect fun qccStatusText(status: QStatus): Pcstr
 
-public expect fun alljoyn_aboutdata_create(defaultlanguage: PCSTR): alljoyn_aboutdata
+public expect fun alljoynAboutdataCreate(defaultlanguage: Pcstr): AlljoynAboutdata
 
-public expect fun alljoyn_aboutdata_create_empty(): alljoyn_aboutdata
+public expect fun alljoynAboutdataCreateEmpty(): AlljoynAboutdata
 
-public expect fun alljoyn_aboutdata_create_full(arg: alljoyn_msgarg, language: PCSTR): alljoyn_aboutdata
+public expect fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr): AlljoynAboutdata
 
-public expect fun alljoyn_aboutdata_createfrommsgarg(data: alljoyn_aboutdata, arg: alljoyn_msgarg, language: PCSTR): QStatus
+public expect fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: AlljoynMsgarg, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_createfromxml(data: alljoyn_aboutdata, aboutdataxml: PCSTR): QStatus
+public expect fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_destroy(data: alljoyn_aboutdata)
+public expect fun alljoynAboutdataDestroy(data: AlljoynAboutdata)
 
-public expect fun alljoyn_aboutdata_getaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getajsoftwareversion(data: alljoyn_aboutdata, ajsoftwareversion: Long): QStatus
+public expect fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getannouncedaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg): QStatus
+public expect fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_aboutdata_getappid(data: alljoyn_aboutdata, appid: Long, num: Long): QStatus
+public expect fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getappname(data: alljoyn_aboutdata, appname: Long, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: COpaquePointer?, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: Long): QStatus
+public expect fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: Long): QStatus
+public expect fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getdescription(data: alljoyn_aboutdata, description: Long, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: COpaquePointer?, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getdeviceid(data: alljoyn_aboutdata, deviceid: Long): QStatus
+public expect fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getdevicename(data: alljoyn_aboutdata, devicename: Long, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: COpaquePointer?, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getfield(data: alljoyn_aboutdata, name: PCSTR, value: Long, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: COpaquePointer?, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: Long, num_fields: ULong): ULong
+public expect fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: COpaquePointer?, numFields: ULong): ULong
 
-public expect fun alljoyn_aboutdata_getfieldsignature(data: alljoyn_aboutdata, fieldname: PCSTR): PCSTR
+public expect fun alljoynAboutdataGetfieldsignature(data: AlljoynAboutdata, fieldname: Pcstr): Pcstr
 
-public expect fun alljoyn_aboutdata_gethardwareversion(data: alljoyn_aboutdata, hardwareversion: Long): QStatus
+public expect fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getmanufacturer(data: alljoyn_aboutdata, manufacturer: Long, language: PCSTR): QStatus
+public expect fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: COpaquePointer?, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_getmodelnumber(data: alljoyn_aboutdata, modelnumber: Long): QStatus
+public expect fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getsoftwareversion(data: alljoyn_aboutdata, softwareversion: Long): QStatus
+public expect fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: Long, num: ULong): ULong
+public expect fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: COpaquePointer?, num: ULong): ULong
 
-public expect fun alljoyn_aboutdata_getsupporturl(data: alljoyn_aboutdata, supporturl: Long): QStatus
+public expect fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutdata_isfieldannounced(data: alljoyn_aboutdata, fieldname: PCSTR): UByte
+public expect fun alljoynAboutdataIsfieldannounced(data: AlljoynAboutdata, fieldname: Pcstr): UByte
 
-public expect fun alljoyn_aboutdata_isfieldlocalized(data: alljoyn_aboutdata, fieldname: PCSTR): UByte
+public expect fun alljoynAboutdataIsfieldlocalized(data: AlljoynAboutdata, fieldname: Pcstr): UByte
 
-public expect fun alljoyn_aboutdata_isfieldrequired(data: alljoyn_aboutdata, fieldname: PCSTR): UByte
+public expect fun alljoynAboutdataIsfieldrequired(data: AlljoynAboutdata, fieldname: Pcstr): UByte
 
-public expect fun alljoyn_aboutdata_isvalid(data: alljoyn_aboutdata, language: PCSTR): UByte
+public expect fun alljoynAboutdataIsvalid(data: AlljoynAboutdata, language: Pcstr): UByte
 
-public expect fun alljoyn_aboutdata_setappid(data: alljoyn_aboutdata, appid: Long, num: ULong): QStatus
+public expect fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: ULong): QStatus
 
-public expect fun alljoyn_aboutdata_setappid_fromstring(data: alljoyn_aboutdata, appid: PCSTR): QStatus
+public expect fun alljoynAboutdataSetappidFromstring(data: AlljoynAboutdata, appid: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setappname(data: alljoyn_aboutdata, appname: PCSTR, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetappname(data: AlljoynAboutdata, appname: Pcstr, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: PCSTR): QStatus
+public expect fun alljoynAboutdataSetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: PCSTR): QStatus
+public expect fun alljoynAboutdataSetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setdescription(data: alljoyn_aboutdata, description: PCSTR, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetdescription(data: AlljoynAboutdata, description: Pcstr, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setdeviceid(data: alljoyn_aboutdata, deviceid: PCSTR): QStatus
+public expect fun alljoynAboutdataSetdeviceid(data: AlljoynAboutdata, deviceid: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setdevicename(data: alljoyn_aboutdata, devicename: PCSTR, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetdevicename(data: AlljoynAboutdata, devicename: Pcstr, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setfield(data: alljoyn_aboutdata, name: PCSTR, value: alljoyn_msgarg, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetfield(data: AlljoynAboutdata, name: Pcstr, value: AlljoynMsgarg, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_sethardwareversion(data: alljoyn_aboutdata, hardwareversion: PCSTR): QStatus
+public expect fun alljoynAboutdataSethardwareversion(data: AlljoynAboutdata, hardwareversion: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setmanufacturer(data: alljoyn_aboutdata, manufacturer: PCSTR, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetmanufacturer(data: AlljoynAboutdata, manufacturer: Pcstr, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setmodelnumber(data: alljoyn_aboutdata, modelnumber: PCSTR): QStatus
+public expect fun alljoynAboutdataSetmodelnumber(data: AlljoynAboutdata, modelnumber: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setsoftwareversion(data: alljoyn_aboutdata, softwareversion: PCSTR): QStatus
+public expect fun alljoynAboutdataSetsoftwareversion(data: AlljoynAboutdata, softwareversion: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setsupportedlanguage(data: alljoyn_aboutdata, language: PCSTR): QStatus
+public expect fun alljoynAboutdataSetsupportedlanguage(data: AlljoynAboutdata, language: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdata_setsupporturl(data: alljoyn_aboutdata, supporturl: PCSTR): QStatus
+public expect fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supporturl: Pcstr): QStatus
 
-public expect fun alljoyn_aboutdatalistener_create(callbacks: Long, context: Long): alljoyn_aboutdatalistener
+public expect fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener
 
-public expect fun alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener)
+public expect fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener)
 
-public expect fun alljoyn_abouticon_clear(icon: alljoyn_abouticon)
+public expect fun alljoynAbouticonClear(icon: AlljoynAbouticon)
 
-public expect fun alljoyn_abouticon_create(): alljoyn_abouticon
+public expect fun alljoynAbouticonCreate(): AlljoynAbouticon
 
-public expect fun alljoyn_abouticon_destroy(icon: alljoyn_abouticon)
+public expect fun alljoynAbouticonDestroy(icon: AlljoynAbouticon)
 
-public expect fun alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: Long, size: Long)
+public expect fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?)
 
-public expect fun alljoyn_abouticon_geturl(icon: alljoyn_abouticon, type: Long, url: Long)
+public expect fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?)
 
-public expect fun alljoyn_abouticon_setcontent(icon: alljoyn_abouticon, type: PCSTR, data: Long, csize: ULong, ownsdata: UByte): QStatus
+public expect fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus
 
-public expect fun alljoyn_abouticon_setcontent_frommsgarg(icon: alljoyn_abouticon, arg: alljoyn_msgarg): QStatus
+public expect fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_abouticon_seturl(icon: alljoyn_abouticon, type: PCSTR, url: PCSTR): QStatus
+public expect fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus
 
-public expect fun alljoyn_abouticonobj_create(bus: alljoyn_busattachment, icon: alljoyn_abouticon): alljoyn_abouticonobj
+public expect fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj
 
-public expect fun alljoyn_abouticonobj_destroy(icon: alljoyn_abouticonobj)
+public expect fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj)
 
-public expect fun alljoyn_abouticonproxy_create(bus: alljoyn_busattachment, busname: PCSTR, sessionid: UInt): alljoyn_abouticonproxy
+public expect fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy
 
-public expect fun alljoyn_abouticonproxy_destroy(proxy: alljoyn_abouticonproxy)
+public expect fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy)
 
-public expect fun alljoyn_abouticonproxy_geticon(proxy: alljoyn_abouticonproxy, icon: alljoyn_abouticon): QStatus
+public expect fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus
 
-public expect fun alljoyn_abouticonproxy_getversion(proxy: alljoyn_abouticonproxy, version: Long): QStatus
+public expect fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: COpaquePointer?): QStatus
 
-public expect fun alljoyn_aboutlistener_create(callback: Long, context: Long): alljoyn_aboutlistener
+public expect fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener
 
-public expect fun alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener)
+public expect fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener)
 
-public expect fun alljoyn_aboutobj_announce(obj: alljoyn_aboutobj, sessionport: UShort, aboutdata: alljoyn_aboutdata): QStatus
+public expect fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus
 
-public expect fun alljoyn_aboutobj_announce_using_datalistener(obj: alljoyn_aboutobj, sessionport: UShort, aboutlistener: alljoyn_aboutdatalistener): QStatus
+public expect fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus
 
-public expect fun alljoyn_aboutobj_create(bus: alljoyn_busattachment, isannounced: alljoyn_about_announceflag): alljoyn_aboutobj
+public expect fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj
 
-public expect fun alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj)
+public expect fun alljoynAboutobjDestroy(obj: AlljoynAboutobj)
 
-public expect fun alljoyn_aboutobj_unannounce(obj: alljoyn_aboutobj): QStatus
+public expect fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus
 
-public expect fun alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription)
+public expect fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription)
 
-public expect fun alljoyn_aboutobjectdescription_create(): alljoyn_aboutobjectdescription
+public expect fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription
 
-public expect fun alljoyn_aboutobjectdescription_create_full(arg: alljoyn_msgarg): alljoyn_aboutobjectdescription
+public expect fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): AlljoynAboutobjectdescription
 
-public expect fun alljoyn_aboutobjectdescription_createfrommsgarg(description: alljoyn_aboutobjectdescription, arg: alljoyn_msgarg): QStatus
+public expect fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription)
+public expect fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription)
 
-public expect fun alljoyn_aboutobjectdescription_getinterfacepaths(description: alljoyn_aboutobjectdescription, interfacename: PCSTR, paths: Long, numpaths: ULong): ULong
+public expect fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong
 
-public expect fun alljoyn_aboutobjectdescription_getinterfaces(description: alljoyn_aboutobjectdescription, path: PCSTR, interfaces: Long, numinterfaces: ULong): ULong
+public expect fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: COpaquePointer?, numinterfaces: ULong): ULong
 
-public expect fun alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_aboutobjectdescription, msgarg: alljoyn_msgarg): QStatus
+public expect fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: Long, numpaths: ULong): ULong
+public expect fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: COpaquePointer?, numpaths: ULong): ULong
 
-public expect fun alljoyn_aboutobjectdescription_hasinterface(description: alljoyn_aboutobjectdescription, interfacename: PCSTR): UByte
+public expect fun alljoynAboutobjectdescriptionHasinterface(description: AlljoynAboutobjectdescription, interfacename: Pcstr): UByte
 
-public expect fun alljoyn_aboutobjectdescription_hasinterfaceatpath(description: alljoyn_aboutobjectdescription, path: PCSTR, interfacename: PCSTR): UByte
+public expect fun alljoynAboutobjectdescriptionHasinterfaceatpath(description: AlljoynAboutobjectdescription, path: Pcstr, interfacename: Pcstr): UByte
 
-public expect fun alljoyn_aboutobjectdescription_haspath(description: alljoyn_aboutobjectdescription, path: PCSTR): UByte
+public expect fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAboutobjectdescription, path: Pcstr): UByte
 
-public expect fun alljoyn_aboutproxy_create(bus: alljoyn_busattachment, busname: PCSTR, sessionid: UInt): alljoyn_aboutproxy
+public expect fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy
 
-public expect fun alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy)
+public expect fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy)
 
-public expect fun alljoyn_aboutproxy_getaboutdata(proxy: alljoyn_aboutproxy, language: PCSTR, data: alljoyn_msgarg): QStatus
+public expect fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_aboutproxy_getobjectdescription(proxy: alljoyn_aboutproxy, objectdesc: alljoyn_msgarg): QStatus
+public expect fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_aboutproxy_getversion(proxy: alljoyn_aboutproxy, version: Long): QStatus
+public expect fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: COpaquePointer?): QStatus
 
-public expect fun alljoyn_applicationstatelistener_create(callbacks: Long, context: Long): alljoyn_applicationstatelistener
+public expect fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener
 
-public expect fun alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener)
+public expect fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener)
 
-public expect fun alljoyn_authlistener_create(callbacks: Long, context: Long): alljoyn_authlistener
+public expect fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener
 
-public expect fun alljoyn_authlistener_destroy(listener: alljoyn_authlistener)
+public expect fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener)
 
-public expect fun alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_authlistener, authcontext: Long, accept: Int, credentials: alljoyn_credentials): QStatus
+public expect fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int, credentials: AlljoynCredentials): QStatus
 
-public expect fun alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: Long, sharedsecretsize: ULong): QStatus
+public expect fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: COpaquePointer?, sharedsecretsize: ULong): QStatus
 
-public expect fun alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: Long, accept: Int): QStatus
+public expect fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int): QStatus
 
-public expect fun alljoyn_authlistenerasync_create(callbacks: Long, context: Long): alljoyn_authlistener
+public expect fun alljoynAuthlistenerasyncCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener
 
-public expect fun alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener)
+public expect fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener)
 
-public expect fun alljoyn_autopinger_adddestination(autopinger: alljoyn_autopinger, group: PCSTR, destination: PCSTR): QStatus
+public expect fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus
 
-public expect fun alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: PCSTR, listener: alljoyn_pinglistener, pinginterval: UInt)
+public expect fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt)
 
-public expect fun alljoyn_autopinger_create(bus: alljoyn_busattachment): alljoyn_autopinger
+public expect fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger
 
-public expect fun alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger)
+public expect fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger)
 
-public expect fun alljoyn_autopinger_pause(autopinger: alljoyn_autopinger)
+public expect fun alljoynAutopingerPause(autopinger: AlljoynAutopinger)
 
-public expect fun alljoyn_autopinger_removedestination(autopinger: alljoyn_autopinger, group: PCSTR, destination: PCSTR, removeall: Int): QStatus
+public expect fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus
 
-public expect fun alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: PCSTR)
+public expect fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr)
 
-public expect fun alljoyn_autopinger_resume(autopinger: alljoyn_autopinger)
+public expect fun alljoynAutopingerResume(autopinger: AlljoynAutopinger)
 
-public expect fun alljoyn_autopinger_setpinginterval(autopinger: alljoyn_autopinger, group: PCSTR, pinginterval: UInt): QStatus
+public expect fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus
 
-public expect fun alljoyn_busattachment_addlogonentry(bus: alljoyn_busattachment, authmechanism: PCSTR, username: PCSTR, password: PCSTR): QStatus
+public expect fun alljoynBusattachmentAddlogonentry(bus: AlljoynBusattachment, authmechanism: Pcstr, username: Pcstr, password: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_addmatch(bus: alljoyn_busattachment, rule: PCSTR): QStatus
+public expect fun alljoynBusattachmentAddmatch(bus: AlljoynBusattachment, rule: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_advertisename(bus: alljoyn_busattachment, name: PCSTR, transports: UShort): QStatus
+public expect fun alljoynBusattachmentAdvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus
 
-public expect fun alljoyn_busattachment_bindsessionport(bus: alljoyn_busattachment, sessionport: Long, opts: alljoyn_sessionopts, listener: alljoyn_sessionportlistener): QStatus
+public expect fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: COpaquePointer?, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus
 
-public expect fun alljoyn_busattachment_canceladvertisename(bus: alljoyn_busattachment, name: PCSTR, transports: UShort): QStatus
+public expect fun alljoynBusattachmentCanceladvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus
 
-public expect fun alljoyn_busattachment_cancelfindadvertisedname(bus: alljoyn_busattachment, nameprefix: PCSTR): QStatus
+public expect fun alljoynBusattachmentCancelfindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_cancelfindadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: PCSTR, transports: UShort): QStatus
+public expect fun alljoynBusattachmentCancelfindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus
 
-public expect fun alljoyn_busattachment_cancelwhoimplements_interface(bus: alljoyn_busattachment, implementsinterface: PCSTR): QStatus
+public expect fun alljoynBusattachmentCancelwhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: Long, numberinterfaces: ULong): QStatus
+public expect fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus
 
-public expect fun alljoyn_busattachment_clearkeys(bus: alljoyn_busattachment, guid: PCSTR): QStatus
+public expect fun alljoynBusattachmentClearkeys(bus: AlljoynBusattachment, guid: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment)
+public expect fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment)
 
-public expect fun alljoyn_busattachment_connect(bus: alljoyn_busattachment, connectspec: PCSTR): QStatus
+public expect fun alljoynBusattachmentConnect(bus: AlljoynBusattachment, connectspec: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_create(applicationname: PCSTR, allowremotemessages: Int): alljoyn_busattachment
+public expect fun alljoynBusattachmentCreate(applicationname: Pcstr, allowremotemessages: Int): AlljoynBusattachment
 
-public expect fun alljoyn_busattachment_create_concurrency(applicationname: PCSTR, allowremotemessages: Int, concurrency: UInt): alljoyn_busattachment
+public expect fun alljoynBusattachmentCreateConcurrency(applicationname: Pcstr, allowremotemessages: Int, concurrency: UInt): AlljoynBusattachment
 
-public expect fun alljoyn_busattachment_createinterface(bus: alljoyn_busattachment, name: PCSTR, iface: Long): QStatus
+public expect fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_createinterface_secure(bus: alljoyn_busattachment, name: PCSTR, iface: Long, secpolicy: alljoyn_interfacedescription_securitypolicy): QStatus
+public expect fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus
 
-public expect fun alljoyn_busattachment_createinterfacesfromxml(bus: alljoyn_busattachment, xml: PCSTR): QStatus
+public expect fun alljoynBusattachmentCreateinterfacesfromxml(bus: AlljoynBusattachment, xml: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_deletedefaultkeystore(applicationname: PCSTR): QStatus
+public expect fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_deleteinterface(bus: alljoyn_busattachment, iface: alljoyn_interfacedescription): QStatus
+public expect fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus
 
-public expect fun alljoyn_busattachment_destroy(bus: alljoyn_busattachment)
+public expect fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment)
 
-public expect fun alljoyn_busattachment_disconnect(bus: alljoyn_busattachment, unused: PCSTR): QStatus
+public expect fun alljoynBusattachmentDisconnect(bus: AlljoynBusattachment, unused: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment)
+public expect fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment)
 
-public expect fun alljoyn_busattachment_enablepeersecurity(bus: alljoyn_busattachment, authmechanisms: PCSTR, listener: alljoyn_authlistener, keystorefilename: PCSTR, isshared: Int): QStatus
+public expect fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachment, authmechanisms: Pcstr, listener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int): QStatus
 
-public expect fun alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus: alljoyn_busattachment, authmechanisms: PCSTR, authlistener: alljoyn_authlistener, keystorefilename: PCSTR, isshared: Int, permissionconfigurationlistener: alljoyn_permissionconfigurationlistener): QStatus
+public expect fun alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus: AlljoynBusattachment, authmechanisms: Pcstr, authlistener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int, permissionconfigurationlistener: AlljoynPermissionconfigurationlistener): QStatus
 
-public expect fun alljoyn_busattachment_findadvertisedname(bus: alljoyn_busattachment, nameprefix: PCSTR): QStatus
+public expect fun alljoynBusattachmentFindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_findadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: PCSTR, transports: UShort): QStatus
+public expect fun alljoynBusattachmentFindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus
 
-public expect fun alljoyn_busattachment_getalljoyndebugobj(bus: alljoyn_busattachment): alljoyn_proxybusobject
+public expect fun alljoynBusattachmentGetalljoyndebugobj(bus: AlljoynBusattachment): AlljoynProxybusobject
 
-public expect fun alljoyn_busattachment_getalljoynproxyobj(bus: alljoyn_busattachment): alljoyn_proxybusobject
+public expect fun alljoynBusattachmentGetalljoynproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject
 
-public expect fun alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment): UInt
+public expect fun alljoynBusattachmentGetconcurrency(bus: AlljoynBusattachment): UInt
 
-public expect fun alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment): PCSTR
+public expect fun alljoynBusattachmentGetconnectspec(bus: AlljoynBusattachment): Pcstr
 
-public expect fun alljoyn_busattachment_getdbusproxyobj(bus: alljoyn_busattachment): alljoyn_proxybusobject
+public expect fun alljoynBusattachmentGetdbusproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject
 
-public expect fun alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment): PCSTR
+public expect fun alljoynBusattachmentGetglobalguidstring(bus: AlljoynBusattachment): Pcstr
 
-public expect fun alljoyn_busattachment_getinterface(bus: alljoyn_busattachment, name: PCSTR): alljoyn_interfacedescription
+public expect fun alljoynBusattachmentGetinterface(bus: AlljoynBusattachment, name: Pcstr): AlljoynInterfacedescription
 
-public expect fun alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: Long, numifaces: ULong): ULong
+public expect fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: COpaquePointer?, numifaces: ULong): ULong
 
-public expect fun alljoyn_busattachment_getkeyexpiration(bus: alljoyn_busattachment, guid: PCSTR, timeout: Long): QStatus
+public expect fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_getpeerguid(bus: alljoyn_busattachment, name: PCSTR, guid: PCSTR, guidsz: Long): QStatus
+public expect fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_getpermissionconfigurator(bus: alljoyn_busattachment): alljoyn_permissionconfigurator
+public expect fun alljoynBusattachmentGetpermissionconfigurator(bus: AlljoynBusattachment): AlljoynPermissionconfigurator
 
-public expect fun alljoyn_busattachment_gettimestamp(): UInt
+public expect fun alljoynBusattachmentGettimestamp(): UInt
 
-public expect fun alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment): PCSTR
+public expect fun alljoynBusattachmentGetuniquename(bus: AlljoynBusattachment): Pcstr
 
-public expect fun alljoyn_busattachment_isconnected(bus: alljoyn_busattachment): Int
+public expect fun alljoynBusattachmentIsconnected(bus: AlljoynBusattachment): Int
 
-public expect fun alljoyn_busattachment_ispeersecurityenabled(bus: alljoyn_busattachment): Int
+public expect fun alljoynBusattachmentIspeersecurityenabled(bus: AlljoynBusattachment): Int
 
-public expect fun alljoyn_busattachment_isstarted(bus: alljoyn_busattachment): Int
+public expect fun alljoynBusattachmentIsstarted(bus: AlljoynBusattachment): Int
 
-public expect fun alljoyn_busattachment_isstopping(bus: alljoyn_busattachment): Int
+public expect fun alljoynBusattachmentIsstopping(bus: AlljoynBusattachment): Int
 
-public expect fun alljoyn_busattachment_join(bus: alljoyn_busattachment): QStatus
+public expect fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus
 
-public expect fun alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: PCSTR, sessionport: UShort, listener: alljoyn_sessionlistener, sessionid: Long, opts: alljoyn_sessionopts): QStatus
+public expect fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: COpaquePointer?, opts: AlljoynSessionopts): QStatus
 
-public expect fun alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: PCSTR, sessionport: UShort, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: alljoyn_busattachment_joinsessioncb_ptr, context: Long): QStatus
+public expect fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: UInt): QStatus
+public expect fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus
 
-public expect fun alljoyn_busattachment_namehasowner(bus: alljoyn_busattachment, name: PCSTR, hasowner: Long): QStatus
+public expect fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_ping(bus: alljoyn_busattachment, name: PCSTR, timeout: UInt): QStatus
+public expect fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcstr, timeout: UInt): QStatus
 
-public expect fun alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener)
+public expect fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener)
 
-public expect fun alljoyn_busattachment_registerapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener): QStatus
+public expect fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus
 
-public expect fun alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener)
+public expect fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener)
 
-public expect fun alljoyn_busattachment_registerbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject): QStatus
+public expect fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus
 
-public expect fun alljoyn_busattachment_registerbusobject_secure(bus: alljoyn_busattachment, obj: alljoyn_busobject): QStatus
+public expect fun alljoynBusattachmentRegisterbusobjectSecure(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus
 
-public expect fun alljoyn_busattachment_registerkeystorelistener(bus: alljoyn_busattachment, listener: alljoyn_keystorelistener): QStatus
+public expect fun alljoynBusattachmentRegisterkeystorelistener(bus: AlljoynBusattachment, listener: AlljoynKeystorelistener): QStatus
 
-public expect fun alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: PCSTR): QStatus
+public expect fun alljoynBusattachmentRegistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: PCSTR): QStatus
+public expect fun alljoynBusattachmentRegistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_releasename(bus: alljoyn_busattachment, name: PCSTR): QStatus
+public expect fun alljoynBusattachmentReleasename(bus: AlljoynBusattachment, name: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment): QStatus
+public expect fun alljoynBusattachmentReloadkeystore(bus: AlljoynBusattachment): QStatus
 
-public expect fun alljoyn_busattachment_removematch(bus: alljoyn_busattachment, rule: PCSTR): QStatus
+public expect fun alljoynBusattachmentRemovematch(bus: AlljoynBusattachment, rule: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_removesessionmember(bus: alljoyn_busattachment, sessionid: UInt, membername: PCSTR): QStatus
+public expect fun alljoynBusattachmentRemovesessionmember(bus: AlljoynBusattachment, sessionid: UInt, membername: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_requestname(bus: alljoyn_busattachment, requestedname: PCSTR, flags: UInt): QStatus
+public expect fun alljoynBusattachmentRequestname(bus: AlljoynBusattachment, requestedname: Pcstr, flags: UInt): QStatus
 
-public expect fun alljoyn_busattachment_secureconnection(bus: alljoyn_busattachment, name: PCSTR, forceauth: Int): QStatus
+public expect fun alljoynBusattachmentSecureconnection(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus
 
-public expect fun alljoyn_busattachment_secureconnectionasync(bus: alljoyn_busattachment, name: PCSTR, forceauth: Int): QStatus
+public expect fun alljoynBusattachmentSecureconnectionasync(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus
 
-public expect fun alljoyn_busattachment_setdaemondebug(bus: alljoyn_busattachment, module: PCSTR, level: UInt): QStatus
+public expect fun alljoynBusattachmentSetdaemondebug(bus: AlljoynBusattachment, module: Pcstr, level: UInt): QStatus
 
-public expect fun alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: PCSTR, timeout: UInt): QStatus
+public expect fun alljoynBusattachmentSetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: UInt): QStatus
 
-public expect fun alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: UInt, linktimeout: Long): QStatus
+public expect fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: UInt, linktimeout: UInt, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: Long): QStatus
+public expect fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: UInt, listener: alljoyn_sessionlistener): QStatus
+public expect fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus
 
-public expect fun alljoyn_busattachment_start(bus: alljoyn_busattachment): QStatus
+public expect fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus
 
-public expect fun alljoyn_busattachment_stop(bus: alljoyn_busattachment): QStatus
+public expect fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus
 
-public expect fun alljoyn_busattachment_unbindsessionport(bus: alljoyn_busattachment, sessionport: UShort): QStatus
+public expect fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus
 
-public expect fun alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener)
+public expect fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener)
 
-public expect fun alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment)
+public expect fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment)
 
-public expect fun alljoyn_busattachment_unregisterallhandlers(bus: alljoyn_busattachment): QStatus
+public expect fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus
 
-public expect fun alljoyn_busattachment_unregisterapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener): QStatus
+public expect fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus
 
-public expect fun alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener)
+public expect fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener)
 
-public expect fun alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject)
+public expect fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject)
 
-public expect fun alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: PCSTR): QStatus
+public expect fun alljoynBusattachmentUnregistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: PCSTR): QStatus
+public expect fun alljoynBusattachmentUnregistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_whoimplements_interface(bus: alljoyn_busattachment, implementsinterface: PCSTR): QStatus
+public expect fun alljoynBusattachmentWhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus
 
-public expect fun alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: Long, numberinterfaces: ULong): QStatus
+public expect fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus
 
-public expect fun alljoyn_buslistener_create(callbacks: Long, context: Long): alljoyn_buslistener
+public expect fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynBuslistener
 
-public expect fun alljoyn_buslistener_destroy(listener: alljoyn_buslistener)
+public expect fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener)
 
-public expect fun alljoyn_busobject_addinterface(bus: alljoyn_busobject, iface: alljoyn_interfacedescription): QStatus
+public expect fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus
 
-public expect fun alljoyn_busobject_addinterface_announced(bus: alljoyn_busobject, iface: alljoyn_interfacedescription): QStatus
+public expect fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus
 
-public expect fun alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: Long): QStatus
+public expect fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: Long, numentries: ULong): QStatus
+public expect fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: COpaquePointer?, numentries: ULong): QStatus
 
-public expect fun alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message): QStatus
+public expect fun alljoynBusobjectCancelsessionlessmessage(bus: AlljoynBusobject, msg: AlljoynMessage): QStatus
 
-public expect fun alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_busobject, serialnumber: UInt): QStatus
+public expect fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBusobject, serialnumber: UInt): QStatus
 
-public expect fun alljoyn_busobject_create(path: PCSTR, isplaceholder: Int, callbacks_in: Long, context_in: Long): alljoyn_busobject
+public expect fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: COpaquePointer?, contextIn: COpaquePointer?): AlljoynBusobject
 
-public expect fun alljoyn_busobject_destroy(bus: alljoyn_busobject)
+public expect fun alljoynBusobjectDestroy(bus: AlljoynBusobject)
 
-public expect fun alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: PCSTR, propnames: Long, numprops: ULong, id: UInt)
+public expect fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt)
 
-public expect fun alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: PCSTR, propname: PCSTR, value: alljoyn_msgarg, id: UInt)
+public expect fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt)
 
-public expect fun alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: Long, numinterfaces: ULong): ULong
+public expect fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: COpaquePointer?, numinterfaces: ULong): ULong
 
-public expect fun alljoyn_busobject_getbusattachment(bus: alljoyn_busobject): alljoyn_busattachment
+public expect fun alljoynBusobjectGetbusattachment(bus: AlljoynBusobject): AlljoynBusattachment
 
-public expect fun alljoyn_busobject_getname(bus: alljoyn_busobject, buffer: PCSTR, buffersz: ULong): ULong
+public expect fun alljoynBusobjectGetname(bus: AlljoynBusobject, buffer: Pcstr, buffersz: ULong): ULong
 
-public expect fun alljoyn_busobject_getpath(bus: alljoyn_busobject): PCSTR
+public expect fun alljoynBusobjectGetpath(bus: AlljoynBusobject): Pcstr
 
-public expect fun alljoyn_busobject_issecure(bus: alljoyn_busobject): Int
+public expect fun alljoynBusobjectIssecure(bus: AlljoynBusobject): Int
 
-public expect fun alljoyn_busobject_methodreply_args(bus: alljoyn_busobject, msg: alljoyn_message, args: alljoyn_msgarg, numargs: ULong): QStatus
+public expect fun alljoynBusobjectMethodreplyArgs(bus: AlljoynBusobject, msg: AlljoynMessage, args: AlljoynMsgarg, numargs: ULong): QStatus
 
-public expect fun alljoyn_busobject_methodreply_err(bus: alljoyn_busobject, msg: alljoyn_message, error: PCSTR, errormessage: PCSTR): QStatus
+public expect fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: AlljoynMessage, error: Pcstr, errormessage: Pcstr): QStatus
 
-public expect fun alljoyn_busobject_methodreply_status(bus: alljoyn_busobject, msg: alljoyn_message, status: QStatus): QStatus
+public expect fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: AlljoynMessage, status: QStatus): QStatus
 
-public expect fun alljoyn_busobject_setannounceflag(bus: alljoyn_busobject, iface: alljoyn_interfacedescription, isannounced: alljoyn_about_announceflag): QStatus
+public expect fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus
 
-public expect fun alljoyn_busobject_signal(bus: alljoyn_busobject, destination: PCSTR, sessionid: UInt, signal: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: alljoyn_message): QStatus
+public expect fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus
 
-public expect fun alljoyn_credentials_clear(cred: alljoyn_credentials)
+public expect fun alljoynCredentialsClear(cred: AlljoynCredentials)
 
-public expect fun alljoyn_credentials_create(): alljoyn_credentials
+public expect fun alljoynCredentialsCreate(): AlljoynCredentials
 
-public expect fun alljoyn_credentials_destroy(cred: alljoyn_credentials)
+public expect fun alljoynCredentialsDestroy(cred: AlljoynCredentials)
 
-public expect fun alljoyn_credentials_getcertchain(cred: alljoyn_credentials): PCSTR
+public expect fun alljoynCredentialsGetcertchain(cred: AlljoynCredentials): Pcstr
 
-public expect fun alljoyn_credentials_getexpiration(cred: alljoyn_credentials): UInt
+public expect fun alljoynCredentialsGetexpiration(cred: AlljoynCredentials): UInt
 
-public expect fun alljoyn_credentials_getlogonentry(cred: alljoyn_credentials): PCSTR
+public expect fun alljoynCredentialsGetlogonentry(cred: AlljoynCredentials): Pcstr
 
-public expect fun alljoyn_credentials_getpassword(cred: alljoyn_credentials): PCSTR
+public expect fun alljoynCredentialsGetpassword(cred: AlljoynCredentials): Pcstr
 
-public expect fun alljoyn_credentials_getprivateKey(cred: alljoyn_credentials): PCSTR
+public expect fun alljoynCredentialsGetprivateKey(cred: AlljoynCredentials): Pcstr
 
-public expect fun alljoyn_credentials_getusername(cred: alljoyn_credentials): PCSTR
+public expect fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr
 
-public expect fun alljoyn_credentials_isset(cred: alljoyn_credentials, creds: UShort): Int
+public expect fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int
 
-public expect fun alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: PCSTR)
+public expect fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr)
 
-public expect fun alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: UInt)
+public expect fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt)
 
-public expect fun alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: PCSTR)
+public expect fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr)
 
-public expect fun alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: PCSTR)
+public expect fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr)
 
-public expect fun alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: PCSTR)
+public expect fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr)
 
-public expect fun alljoyn_credentials_setusername(cred: alljoyn_credentials, username: PCSTR)
+public expect fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr)
 
-public expect fun alljoyn_getbuildinfo(): PCSTR
+public expect fun alljoynGetbuildinfo(): Pcstr
 
-public expect fun alljoyn_getnumericversion(): UInt
+public expect fun alljoynGetnumericversion(): UInt
 
-public expect fun alljoyn_getversion(): PCSTR
+public expect fun alljoynGetversion(): Pcstr
 
-public expect fun alljoyn_init(): QStatus
+public expect fun alljoynInit(): QStatus
 
-public expect fun alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription)
+public expect fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription)
 
-public expect fun alljoyn_interfacedescription_addannotation(iface: alljoyn_interfacedescription, name: PCSTR, value: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_addargannotation(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, name: PCSTR, value: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_addmember(iface: alljoyn_interfacedescription, type: alljoyn_messagetype, name: PCSTR, inputsig: PCSTR, outsig: PCSTR, argnames: PCSTR, annotation: UByte): QStatus
+public expect fun alljoynInterfacedescriptionAddmember(iface: AlljoynInterfacedescription, type: AlljoynMessagetype, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte): QStatus
 
-public expect fun alljoyn_interfacedescription_addmemberannotation(iface: alljoyn_interfacedescription, member: PCSTR, name: PCSTR, value: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_addmethod(iface: alljoyn_interfacedescription, name: PCSTR, inputsig: PCSTR, outsig: PCSTR, argnames: PCSTR, annotation: UByte, accessperms: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddmethod(iface: AlljoynInterfacedescription, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_addproperty(iface: alljoyn_interfacedescription, name: PCSTR, signature: PCSTR, access: UByte): QStatus
+public expect fun alljoynInterfacedescriptionAddproperty(iface: AlljoynInterfacedescription, name: Pcstr, signature: Pcstr, access: UByte): QStatus
 
-public expect fun alljoyn_interfacedescription_addpropertyannotation(iface: alljoyn_interfacedescription, property: PCSTR, name: PCSTR, value: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_addsignal(iface: alljoyn_interfacedescription, name: PCSTR, sig: PCSTR, argnames: PCSTR, annotation: UByte, accessperms: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacedescription, name: Pcstr, sig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_eql(one: alljoyn_interfacedescription, other: alljoyn_interfacedescription): Int
+public expect fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int
 
-public expect fun alljoyn_interfacedescription_getannotation(iface: alljoyn_interfacedescription, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long)
+public expect fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?)
 
-public expect fun alljoyn_interfacedescription_getannotationscount(iface: alljoyn_interfacedescription): ULong
+public expect fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong
 
-public expect fun alljoyn_interfacedescription_getargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, arg: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong
+public expect fun alljoynInterfacedescriptionGetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong
 
-public expect fun alljoyn_interfacedescription_getdescriptionforlanguage(iface: alljoyn_interfacedescription, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong
+public expect fun alljoynInterfacedescriptionGetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong
 
-public expect fun alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: Long, size: ULong): ULong
+public expect fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: COpaquePointer?, size: ULong): ULong
 
-public expect fun alljoyn_interfacedescription_getdescriptionlanguages2(iface: alljoyn_interfacedescription, languages: PCSTR, languagessize: ULong): ULong
+public expect fun alljoynInterfacedescriptionGetdescriptionlanguages2(iface: AlljoynInterfacedescription, languages: Pcstr, languagessize: ULong): ULong
 
-public expect fun alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription): alljoyn_interfacedescription_translation_callback_ptr
+public expect fun alljoynInterfacedescriptionGetdescriptiontranslationcallback(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionTranslationCallbackPtr
 
-public expect fun alljoyn_interfacedescription_getmember(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int
+public expect fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getmemberannotation(iface: alljoyn_interfacedescription, member: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getmemberargannotation(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong
+public expect fun alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong
 
-public expect fun alljoyn_interfacedescription_getmembers(iface: alljoyn_interfacedescription, members: Long, nummembers: ULong): ULong
+public expect fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: COpaquePointer?, nummembers: ULong): ULong
 
-public expect fun alljoyn_interfacedescription_getmethod(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int
+public expect fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription): PCSTR
+public expect fun alljoynInterfacedescriptionGetname(iface: AlljoynInterfacedescription): Pcstr
 
-public expect fun alljoyn_interfacedescription_getproperties(iface: alljoyn_interfacedescription, props: Long, numprops: ULong): ULong
+public expect fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: COpaquePointer?, numprops: ULong): ULong
 
-public expect fun alljoyn_interfacedescription_getproperty(iface: alljoyn_interfacedescription, name: PCSTR, property: Long): Int
+public expect fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getpropertyannotation(iface: alljoyn_interfacedescription, property: PCSTR, name: PCSTR, value: PCSTR, str_size: Long): Int
+public expect fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, property: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong
+public expect fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, property: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong
 
-public expect fun alljoyn_interfacedescription_getsecuritypolicy(iface: alljoyn_interfacedescription): alljoyn_interfacedescription_securitypolicy
+public expect fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy
 
-public expect fun alljoyn_interfacedescription_getsignal(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int
+public expect fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_hasdescription(iface: alljoyn_interfacedescription): Int
+public expect fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int
 
-public expect fun alljoyn_interfacedescription_hasmember(iface: alljoyn_interfacedescription, name: PCSTR, insig: PCSTR, outsig: PCSTR): Int
+public expect fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int
 
-public expect fun alljoyn_interfacedescription_hasproperties(iface: alljoyn_interfacedescription): Int
+public expect fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int
 
-public expect fun alljoyn_interfacedescription_hasproperty(iface: alljoyn_interfacedescription, name: PCSTR): Int
+public expect fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int
 
-public expect fun alljoyn_interfacedescription_introspect(iface: alljoyn_interfacedescription, str: PCSTR, buf: ULong, indent: ULong): ULong
+public expect fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfacedescription, str: Pcstr, buf: ULong, indent: ULong): ULong
 
-public expect fun alljoyn_interfacedescription_issecure(iface: alljoyn_interfacedescription): Int
+public expect fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int
 
-public expect fun alljoyn_interfacedescription_member_eql(one: alljoyn_interfacedescription_member, other: alljoyn_interfacedescription_member): Int
+public expect fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int
 
-public expect fun alljoyn_interfacedescription_member_getannotation(member: alljoyn_interfacedescription_member, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long)
+public expect fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?)
 
-public expect fun alljoyn_interfacedescription_member_getannotationscount(member: alljoyn_interfacedescription_member): ULong
+public expect fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong
 
-public expect fun alljoyn_interfacedescription_member_getargannotation(member: alljoyn_interfacedescription_member, argname: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: PCSTR, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long)
+public expect fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?)
 
-public expect fun alljoyn_interfacedescription_member_getargannotationscount(member: alljoyn_interfacedescription_member, argname: PCSTR): ULong
+public expect fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong
 
-public expect fun alljoyn_interfacedescription_property_eql(one: alljoyn_interfacedescription_property, other: alljoyn_interfacedescription_property): Int
+public expect fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacedescriptionProperty, other: AlljoynInterfacedescriptionProperty): Int
 
-public expect fun alljoyn_interfacedescription_property_getannotation(property: alljoyn_interfacedescription_property, name: PCSTR, value: PCSTR, value_size: Long): Int
+public expect fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int
 
-public expect fun alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long)
+public expect fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?)
 
-public expect fun alljoyn_interfacedescription_property_getannotationscount(property: alljoyn_interfacedescription_property): ULong
+public expect fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong
 
-public expect fun alljoyn_interfacedescription_setargdescription(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, description: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, description: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, arg: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: PCSTR)
+public expect fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr)
 
-public expect fun alljoyn_interfacedescription_setdescriptionforlanguage(iface: alljoyn_interfacedescription, description: PCSTR, languagetag: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: PCSTR)
+public expect fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr)
 
-public expect fun alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: alljoyn_interfacedescription_translation_callback_ptr)
+public expect fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr)
 
-public expect fun alljoyn_interfacedescription_setmemberdescription(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setpropertydescription(iface: alljoyn_interfacedescription, name: PCSTR, description: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetpropertydescription(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr): QStatus
 
-public expect fun alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, name: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus
+public expect fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus
 
-public expect fun alljoyn_keystorelistener_create(callbacks: Long, context: Long): alljoyn_keystorelistener
+public expect fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener
 
-public expect fun alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener)
+public expect fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener)
 
-public expect fun alljoyn_keystorelistener_getkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, sink: PCSTR, sink_sz: Long): QStatus
+public expect fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: COpaquePointer?): QStatus
 
-public expect fun alljoyn_keystorelistener_putkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, source: PCSTR, password: PCSTR): QStatus
+public expect fun alljoynKeystorelistenerPutkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, source: Pcstr, password: Pcstr): QStatus
 
-public expect fun alljoyn_keystorelistener_with_synchronization_create(callbacks: Long, context: Long): alljoyn_keystorelistener
+public expect fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener
 
-public expect fun alljoyn_message_create(bus: alljoyn_busattachment): alljoyn_message
+public expect fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessage
 
-public expect fun alljoyn_message_description(msg: alljoyn_message, str: PCSTR, buf: ULong): ULong
+public expect fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong
 
-public expect fun alljoyn_message_destroy(msg: alljoyn_message)
+public expect fun alljoynMessageDestroy(msg: AlljoynMessage)
 
-public expect fun alljoyn_message_eql(one: alljoyn_message, other: alljoyn_message): Int
+public expect fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int
 
-public expect fun alljoyn_message_getarg(msg: alljoyn_message, argn: ULong): alljoyn_msgarg
+public expect fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg
 
-public expect fun alljoyn_message_getargs(msg: alljoyn_message, numargs: Long, args: Long)
+public expect fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?)
 
-public expect fun alljoyn_message_getauthmechanism(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetauthmechanism(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getcallserial(msg: alljoyn_message): UInt
+public expect fun alljoynMessageGetcallserial(msg: AlljoynMessage): UInt
 
-public expect fun alljoyn_message_getcompressiontoken(msg: alljoyn_message): UInt
+public expect fun alljoynMessageGetcompressiontoken(msg: AlljoynMessage): UInt
 
-public expect fun alljoyn_message_getdestination(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetdestination(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_geterrorname(msg: alljoyn_message, errormessage: PCSTR, errormessage_size: Long): PCSTR
+public expect fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: COpaquePointer?): Pcstr
 
-public expect fun alljoyn_message_getflags(msg: alljoyn_message): UByte
+public expect fun alljoynMessageGetflags(msg: AlljoynMessage): UByte
 
-public expect fun alljoyn_message_getinterface(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetinterface(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getmembername(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetmembername(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getobjectpath(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetobjectpath(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getreceiveendpointname(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetreceiveendpointname(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getreplyserial(msg: alljoyn_message): UInt
+public expect fun alljoynMessageGetreplyserial(msg: AlljoynMessage): UInt
 
-public expect fun alljoyn_message_getsender(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetsender(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_getsessionid(msg: alljoyn_message): UInt
+public expect fun alljoynMessageGetsessionid(msg: AlljoynMessage): UInt
 
-public expect fun alljoyn_message_getsignature(msg: alljoyn_message): PCSTR
+public expect fun alljoynMessageGetsignature(msg: AlljoynMessage): Pcstr
 
-public expect fun alljoyn_message_gettimestamp(msg: alljoyn_message): UInt
+public expect fun alljoynMessageGettimestamp(msg: AlljoynMessage): UInt
 
-public expect fun alljoyn_message_gettype(msg: alljoyn_message): alljoyn_messagetype
+public expect fun alljoynMessageGettype(msg: AlljoynMessage): AlljoynMessagetype
 
-public expect fun alljoyn_message_isbroadcastsignal(msg: alljoyn_message): Int
+public expect fun alljoynMessageIsbroadcastsignal(msg: AlljoynMessage): Int
 
-public expect fun alljoyn_message_isencrypted(msg: alljoyn_message): Int
+public expect fun alljoynMessageIsencrypted(msg: AlljoynMessage): Int
 
-public expect fun alljoyn_message_isexpired(msg: alljoyn_message, tillexpirems: Long): Int
+public expect fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: COpaquePointer?): Int
 
-public expect fun alljoyn_message_isglobalbroadcast(msg: alljoyn_message): Int
+public expect fun alljoynMessageIsglobalbroadcast(msg: AlljoynMessage): Int
 
-public expect fun alljoyn_message_issessionless(msg: alljoyn_message): Int
+public expect fun alljoynMessageIssessionless(msg: AlljoynMessage): Int
 
-public expect fun alljoyn_message_isunreliable(msg: alljoyn_message): Int
+public expect fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int
 
-public expect fun alljoyn_message_parseargs(msg: alljoyn_message, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_message_setendianess(endian: Byte)
+public expect fun alljoynMessageSetendianess(endian: Byte)
 
-public expect fun alljoyn_message_tostring(msg: alljoyn_message, str: PCSTR, buf: ULong): ULong
+public expect fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong
 
-public expect fun alljoyn_msgarg_array_create(size: ULong): alljoyn_msgarg
+public expect fun alljoynMsgargArrayCreate(size: ULong): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: ULong): alljoyn_msgarg
+public expect fun alljoynMsgargArrayElement(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_array_get(args: alljoyn_msgarg, numargs: ULong, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargArrayGet(args: AlljoynMsgarg, numargs: ULong, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_array_set(args: alljoyn_msgarg, numargs: Long, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_array_set_offset(args: alljoyn_msgarg, argoffset: ULong, numargs: Long, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_array_signature(values: alljoyn_msgarg, numvalues: ULong, str: PCSTR, buf: ULong): ULong
+public expect fun alljoynMsgargArraySignature(values: AlljoynMsgarg, numvalues: ULong, str: Pcstr, buf: ULong): ULong
 
-public expect fun alljoyn_msgarg_array_tostring(args: alljoyn_msgarg, numargs: ULong, str: PCSTR, buf: ULong, indent: ULong): ULong
+public expect fun alljoynMsgargArrayTostring(args: AlljoynMsgarg, numargs: ULong, str: Pcstr, buf: ULong, indent: ULong): ULong
 
-public expect fun alljoyn_msgarg_clear(arg: alljoyn_msgarg)
+public expect fun alljoynMsgargClear(arg: AlljoynMsgarg)
 
-public expect fun alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg)
+public expect fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg)
 
-public expect fun alljoyn_msgarg_copy(source: alljoyn_msgarg): alljoyn_msgarg
+public expect fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_create(): alljoyn_msgarg
+public expect fun alljoynMsgargCreate(): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_create_and_set(signature: PCSTR, vararg variadicArgs: Long): alljoyn_msgarg
+public expect fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_destroy(arg: alljoyn_msgarg)
+public expect fun alljoynMsgargDestroy(arg: AlljoynMsgarg)
 
-public expect fun alljoyn_msgarg_equal(lhv: alljoyn_msgarg, rhv: alljoyn_msgarg): Int
+public expect fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int
 
-public expect fun alljoyn_msgarg_get(arg: alljoyn_msgarg, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: ULong, element: Long)
+public expect fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?)
 
-public expect fun alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: ULong): PCSTR
+public expect fun alljoynMsgargGetArrayElementsignature(arg: AlljoynMsgarg, index: ULong): Pcstr
 
-public expect fun alljoyn_msgarg_get_array_numberofelements(arg: alljoyn_msgarg): ULong
+public expect fun alljoynMsgargGetArrayNumberofelements(arg: AlljoynMsgarg): ULong
 
-public expect fun alljoyn_msgarg_get_bool(arg: alljoyn_msgarg, b: Long): QStatus
+public expect fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_bool_array(arg: alljoyn_msgarg, length: Long, ab: Long): QStatus
+public expect fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: COpaquePointer?, ab: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_double(arg: alljoyn_msgarg, d: Long): QStatus
+public expect fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_double_array(arg: alljoyn_msgarg, length: Long, ad: Long): QStatus
+public expect fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: COpaquePointer?, ad: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int16(arg: alljoyn_msgarg, n: Long): QStatus
+public expect fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int16_array(arg: alljoyn_msgarg, length: Long, an: Long): QStatus
+public expect fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: COpaquePointer?, an: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int32(arg: alljoyn_msgarg, i: Long): QStatus
+public expect fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int32_array(arg: alljoyn_msgarg, length: Long, ai: Long): QStatus
+public expect fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: COpaquePointer?, ai: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int64(arg: alljoyn_msgarg, x: Long): QStatus
+public expect fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_int64_array(arg: alljoyn_msgarg, length: Long, ax: Long): QStatus
+public expect fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: COpaquePointer?, ax: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_objectpath(arg: alljoyn_msgarg, o: Long): QStatus
+public expect fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_signature(arg: alljoyn_msgarg, g: Long): QStatus
+public expect fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_string(arg: alljoyn_msgarg, s: Long): QStatus
+public expect fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint16(arg: alljoyn_msgarg, q: Long): QStatus
+public expect fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint16_array(arg: alljoyn_msgarg, length: Long, aq: Long): QStatus
+public expect fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: COpaquePointer?, aq: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint32(arg: alljoyn_msgarg, u: Long): QStatus
+public expect fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint32_array(arg: alljoyn_msgarg, length: Long, au: Long): QStatus
+public expect fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: COpaquePointer?, au: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint64(arg: alljoyn_msgarg, t: Long): QStatus
+public expect fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint64_array(arg: alljoyn_msgarg, length: Long, at: Long): QStatus
+public expect fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: COpaquePointer?, at: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint8(arg: alljoyn_msgarg, y: Long): QStatus
+public expect fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_uint8_array(arg: alljoyn_msgarg, length: Long, ay: Long): QStatus
+public expect fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: COpaquePointer?, ay: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_get_variant(arg: alljoyn_msgarg, v: alljoyn_msgarg): QStatus
+public expect fun alljoynMsgargGetVariant(arg: AlljoynMsgarg, v: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_msgarg_get_variant_array(arg: alljoyn_msgarg, signature: PCSTR, length: Long, av: Long): QStatus
+public expect fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: COpaquePointer?, av: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_getdictelement(arg: alljoyn_msgarg, elemsig: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargGetdictelement(arg: AlljoynMsgarg, elemsig: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_getkey(arg: alljoyn_msgarg): alljoyn_msgarg
+public expect fun alljoynMsgargGetkey(arg: AlljoynMsgarg): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: ULong): alljoyn_msgarg
+public expect fun alljoynMsgargGetmember(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_getnummembers(arg: alljoyn_msgarg): ULong
+public expect fun alljoynMsgargGetnummembers(arg: AlljoynMsgarg): ULong
 
-public expect fun alljoyn_msgarg_gettype(arg: alljoyn_msgarg): alljoyn_typeid
+public expect fun alljoynMsgargGettype(arg: AlljoynMsgarg): AlljoynTypeid
 
-public expect fun alljoyn_msgarg_getvalue(arg: alljoyn_msgarg): alljoyn_msgarg
+public expect fun alljoynMsgargGetvalue(arg: AlljoynMsgarg): AlljoynMsgarg
 
-public expect fun alljoyn_msgarg_hassignature(arg: alljoyn_msgarg, signature: PCSTR): Int
+public expect fun alljoynMsgargHassignature(arg: AlljoynMsgarg, signature: Pcstr): Int
 
-public expect fun alljoyn_msgarg_set(arg: alljoyn_msgarg, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargSet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_set_and_stabilize(arg: alljoyn_msgarg, signature: PCSTR, vararg variadicArgs: Long): QStatus
+public expect fun alljoynMsgargSetAndStabilize(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus
 
-public expect fun alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: Int): QStatus
+public expect fun alljoynMsgargSetBool(arg: AlljoynMsgarg, b: Int): QStatus
 
-public expect fun alljoyn_msgarg_set_bool_array(arg: alljoyn_msgarg, length: ULong, ab: Long): QStatus
+public expect fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: Double): QStatus
+public expect fun alljoynMsgargSetDouble(arg: AlljoynMsgarg, d: Double): QStatus
 
-public expect fun alljoyn_msgarg_set_double_array(arg: alljoyn_msgarg, length: ULong, ad: Long): QStatus
+public expect fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: Short): QStatus
+public expect fun alljoynMsgargSetInt16(arg: AlljoynMsgarg, n: Short): QStatus
 
-public expect fun alljoyn_msgarg_set_int16_array(arg: alljoyn_msgarg, length: ULong, an: Long): QStatus
+public expect fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: Int): QStatus
+public expect fun alljoynMsgargSetInt32(arg: AlljoynMsgarg, i: Int): QStatus
 
-public expect fun alljoyn_msgarg_set_int32_array(arg: alljoyn_msgarg, length: ULong, ai: Long): QStatus
+public expect fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: Long): QStatus
+public expect fun alljoynMsgargSetInt64(arg: AlljoynMsgarg, x: Long): QStatus
 
-public expect fun alljoyn_msgarg_set_int64_array(arg: alljoyn_msgarg, length: ULong, ax: Long): QStatus
+public expect fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_objectpath(arg: alljoyn_msgarg, o: PCSTR): QStatus
+public expect fun alljoynMsgargSetObjectpath(arg: AlljoynMsgarg, o: Pcstr): QStatus
 
-public expect fun alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: ULong, ao: Long): QStatus
+public expect fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_signature(arg: alljoyn_msgarg, g: PCSTR): QStatus
+public expect fun alljoynMsgargSetSignature(arg: AlljoynMsgarg, g: Pcstr): QStatus
 
-public expect fun alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: ULong, ag: Long): QStatus
+public expect fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_string(arg: alljoyn_msgarg, s: PCSTR): QStatus
+public expect fun alljoynMsgargSetString(arg: AlljoynMsgarg, s: Pcstr): QStatus
 
-public expect fun alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: ULong, asTarget: Long): QStatus
+public expect fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: UShort): QStatus
+public expect fun alljoynMsgargSetUint16(arg: AlljoynMsgarg, q: UShort): QStatus
 
-public expect fun alljoyn_msgarg_set_uint16_array(arg: alljoyn_msgarg, length: ULong, aq: Long): QStatus
+public expect fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: UInt): QStatus
+public expect fun alljoynMsgargSetUint32(arg: AlljoynMsgarg, u: UInt): QStatus
 
-public expect fun alljoyn_msgarg_set_uint32_array(arg: alljoyn_msgarg, length: ULong, au: Long): QStatus
+public expect fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: ULong): QStatus
+public expect fun alljoynMsgargSetUint64(arg: AlljoynMsgarg, t: ULong): QStatus
 
-public expect fun alljoyn_msgarg_set_uint64_array(arg: alljoyn_msgarg, length: ULong, at: Long): QStatus
+public expect fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: UByte): QStatus
+public expect fun alljoynMsgargSetUint8(arg: AlljoynMsgarg, y: UByte): QStatus
 
-public expect fun alljoyn_msgarg_set_uint8_array(arg: alljoyn_msgarg, length: ULong, ay: Long): QStatus
+public expect fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: COpaquePointer?): QStatus
 
-public expect fun alljoyn_msgarg_setdictentry(arg: alljoyn_msgarg, key: alljoyn_msgarg, value: alljoyn_msgarg): QStatus
+public expect fun alljoynMsgargSetdictentry(arg: AlljoynMsgarg, key: AlljoynMsgarg, value: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_msgarg_setstruct(arg: alljoyn_msgarg, struct_members: alljoyn_msgarg, num_members: ULong): QStatus
+public expect fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: AlljoynMsgarg, numMembers: ULong): QStatus
 
-public expect fun alljoyn_msgarg_signature(arg: alljoyn_msgarg, str: PCSTR, buf: ULong): ULong
+public expect fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong
 
-public expect fun alljoyn_msgarg_stabilize(arg: alljoyn_msgarg)
+public expect fun alljoynMsgargStabilize(arg: AlljoynMsgarg)
 
-public expect fun alljoyn_msgarg_tostring(arg: alljoyn_msgarg, str: PCSTR, buf: ULong, indent: ULong): ULong
+public expect fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULong, indent: ULong): ULong
 
-public expect fun alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: Long, nummandatoryinterfaces: ULong): alljoyn_observer
+public expect fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: COpaquePointer?, nummandatoryinterfaces: ULong): AlljoynObserver
 
-public expect fun alljoyn_observer_destroy(observer: alljoyn_observer)
+public expect fun alljoynObserverDestroy(observer: AlljoynObserver)
 
-public expect fun alljoyn_observer_get(observer: alljoyn_observer, uniquebusname: PCSTR, objectpath: PCSTR): alljoyn_proxybusobject_ref
+public expect fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef
 
-public expect fun alljoyn_observer_getfirst(observer: alljoyn_observer): alljoyn_proxybusobject_ref
+public expect fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef
 
-public expect fun alljoyn_observer_getnext(observer: alljoyn_observer, proxyref: alljoyn_proxybusobject_ref): alljoyn_proxybusobject_ref
+public expect fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef
 
-public expect fun alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: Int)
+public expect fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int)
 
-public expect fun alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer)
+public expect fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver)
 
-public expect fun alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener)
+public expect fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener)
 
-public expect fun alljoyn_observerlistener_create(callback: Long, context: Long): alljoyn_observerlistener
+public expect fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener
 
-public expect fun alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener)
+public expect fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener)
 
-public expect fun alljoyn_passwordmanager_setcredentials(authmechanism: PCSTR, password: PCSTR): QStatus
+public expect fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus
 
-public expect fun alljoyn_permissionconfigurationlistener_create(callbacks: Long, context: Long): alljoyn_permissionconfigurationlistener
+public expect fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynPermissionconfigurationlistener
 
-public expect fun alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener)
+public expect fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener)
 
-public expect fun alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: Long)
+public expect fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: Long)
+public expect fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: Long)
+public expect fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: Long, identitycertificatechain: Long, groupid: Long, groupsize: ULong, groupauthority: Long, manifestsxmls: Long, manifestscount: ULong): QStatus
+public expect fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus
 
-public expect fun alljoyn_permissionconfigurator_endmanagement(configurator: alljoyn_permissionconfigurator): QStatus
+public expect fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getapplicationstate(configurator: alljoyn_permissionconfigurator, state: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getdefaultclaimcapabilities(): UShort
+public expect fun alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): UShort
 
-public expect fun alljoyn_permissionconfigurator_getdefaultpolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getidentitycertificateid(configurator: alljoyn_permissionconfigurator, certificateid: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getmanifests(configurator: alljoyn_permissionconfigurator, manifestarray: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getmanifesttemplate(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getmembershipsummaries(configurator: alljoyn_permissionconfigurator, certificateids: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getpolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_getpublickey(configurator: alljoyn_permissionconfigurator, publickey: Long): QStatus
+public expect fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_installmanifests(configurator: alljoyn_permissionconfigurator, manifestsxmls: Long, manifestscount: ULong, append: Int): QStatus
+public expect fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: COpaquePointer?, manifestscount: ULong, append: Int): QStatus
 
-public expect fun alljoyn_permissionconfigurator_installmembership(configurator: alljoyn_permissionconfigurator, membershipcertificatechain: Long): QStatus
+public expect fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: Long)
+public expect fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: Long)
+public expect fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_policy_destroy(policyxml: Long)
+public expect fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_publickey_destroy(publickey: Long)
+public expect fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?)
 
-public expect fun alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: Long, seriallen: ULong, issuerpublickey: Long, issueraki: Long, issuerakilen: ULong): QStatus
+public expect fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus
 
-public expect fun alljoyn_permissionconfigurator_reset(configurator: alljoyn_permissionconfigurator): QStatus
+public expect fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus
 
-public expect fun alljoyn_permissionconfigurator_resetpolicy(configurator: alljoyn_permissionconfigurator): QStatus
+public expect fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus
 
-public expect fun alljoyn_permissionconfigurator_setapplicationstate(configurator: alljoyn_permissionconfigurator, state: alljoyn_applicationstate): QStatus
+public expect fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus
 
-public expect fun alljoyn_permissionconfigurator_setclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: UShort): QStatus
+public expect fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus
 
-public expect fun alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: UShort): QStatus
+public expect fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus
 
-public expect fun alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: Long): QStatus
+public expect fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_permissionconfigurator_startmanagement(configurator: alljoyn_permissionconfigurator): QStatus
+public expect fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus
 
-public expect fun alljoyn_permissionconfigurator_updateidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: Long, manifestsxmls: Long, manifestscount: ULong): QStatus
+public expect fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus
 
-public expect fun alljoyn_permissionconfigurator_updatepolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus
+public expect fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus
 
-public expect fun alljoyn_pinglistener_create(callback: Long, context: Long): alljoyn_pinglistener
+public expect fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener
 
-public expect fun alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener)
+public expect fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener)
 
-public expect fun alljoyn_proxybusobject_addchild(proxyobj: alljoyn_proxybusobject, child: alljoyn_proxybusobject): QStatus
+public expect fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus
 
-public expect fun alljoyn_proxybusobject_addinterface(proxyobj: alljoyn_proxybusobject, iface: alljoyn_interfacedescription): QStatus
+public expect fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus
 
-public expect fun alljoyn_proxybusobject_addinterface_by_name(proxyobj: alljoyn_proxybusobject, name: PCSTR): QStatus
+public expect fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus
 
-public expect fun alljoyn_proxybusobject_copy(source: alljoyn_proxybusobject): alljoyn_proxybusobject
+public expect fun alljoynProxybusobjectCopy(source: AlljoynProxybusobject): AlljoynProxybusobject
 
-public expect fun alljoyn_proxybusobject_create(bus: alljoyn_busattachment, service: PCSTR, path: PCSTR, sessionid: UInt): alljoyn_proxybusobject
+public expect fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject
 
-public expect fun alljoyn_proxybusobject_create_secure(bus: alljoyn_busattachment, service: PCSTR, path: PCSTR, sessionid: UInt): alljoyn_proxybusobject
+public expect fun alljoynProxybusobjectCreateSecure(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject
 
-public expect fun alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject)
+public expect fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject)
 
-public expect fun alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject)
+public expect fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject)
 
-public expect fun alljoyn_proxybusobject_getallproperties(proxyobj: alljoyn_proxybusobject, iface: PCSTR, values: alljoyn_msgarg): QStatus
+public expect fun alljoynProxybusobjectGetallproperties(proxyobj: AlljoynProxybusobject, iface: Pcstr, values: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: UInt, context: Long): QStatus
+public expect fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_proxybusobject_getchild(proxyobj: alljoyn_proxybusobject, path: PCSTR): alljoyn_proxybusobject
+public expect fun alljoynProxybusobjectGetchild(proxyobj: AlljoynProxybusobject, path: Pcstr): AlljoynProxybusobject
 
-public expect fun alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: Long, numchildren: ULong): ULong
+public expect fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: COpaquePointer?, numchildren: ULong): ULong
 
-public expect fun alljoyn_proxybusobject_getinterface(proxyobj: alljoyn_proxybusobject, iface: PCSTR): alljoyn_interfacedescription
+public expect fun alljoynProxybusobjectGetinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): AlljoynInterfacedescription
 
-public expect fun alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: Long, numifaces: ULong): ULong
+public expect fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: COpaquePointer?, numifaces: ULong): ULong
 
-public expect fun alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject): PCSTR
+public expect fun alljoynProxybusobjectGetpath(proxyobj: AlljoynProxybusobject): Pcstr
 
-public expect fun alljoyn_proxybusobject_getproperty(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg): QStatus
+public expect fun alljoynProxybusobjectGetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: UInt, context: Long): QStatus
+public expect fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject): PCSTR
+public expect fun alljoynProxybusobjectGetservicename(proxyobj: AlljoynProxybusobject): Pcstr
 
-public expect fun alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject): UInt
+public expect fun alljoynProxybusobjectGetsessionid(proxyobj: AlljoynProxybusobject): UInt
 
-public expect fun alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject): PCSTR
+public expect fun alljoynProxybusobjectGetuniquename(proxyobj: AlljoynProxybusobject): Pcstr
 
-public expect fun alljoyn_proxybusobject_implementsinterface(proxyobj: alljoyn_proxybusobject, iface: PCSTR): Int
+public expect fun alljoynProxybusobjectImplementsinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): Int
 
-public expect fun alljoyn_proxybusobject_introspectremoteobject(proxyobj: alljoyn_proxybusobject): QStatus
+public expect fun alljoynProxybusobjectIntrospectremoteobject(proxyobj: AlljoynProxybusobject): QStatus
 
-public expect fun alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: Long): QStatus
+public expect fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject): Int
+public expect fun alljoynProxybusobjectIssecure(proxyobj: AlljoynProxybusobject): Int
 
-public expect fun alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject): Int
+public expect fun alljoynProxybusobjectIsvalid(proxyobj: AlljoynProxybusobject): Int
 
-public expect fun alljoyn_proxybusobject_methodcall(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, args: alljoyn_msgarg, numargs: ULong, replymsg: alljoyn_message, timeout: UInt, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcall(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_methodcall_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, replymsg: alljoyn_message, timeout: UInt, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcallMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_methodcall_member_noreply(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcallMemberNoreply(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, args: alljoyn_msgarg, numargs: ULong, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcallNoreply(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: ULong, context: Long, timeout: UInt, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: ULong, context: Long, timeout: UInt, flags: UByte): QStatus
+public expect fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus
 
-public expect fun alljoyn_proxybusobject_parsexml(proxyobj: alljoyn_proxybusobject, xml: PCSTR, identifier: PCSTR): QStatus
+public expect fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject, xml: Pcstr, identifier: Pcstr): QStatus
 
-public expect fun alljoyn_proxybusobject_ref_create(proxy: alljoyn_proxybusobject): alljoyn_proxybusobject_ref
+public expect fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef
 
-public expect fun alljoyn_proxybusobject_ref_decref(ref: alljoyn_proxybusobject_ref)
+public expect fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef)
 
-public expect fun alljoyn_proxybusobject_ref_get(ref: alljoyn_proxybusobject_ref): alljoyn_proxybusobject
+public expect fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject
 
-public expect fun alljoyn_proxybusobject_ref_incref(ref: alljoyn_proxybusobject_ref)
+public expect fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef)
 
-public expect fun alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: PCSTR, properties: Long, numproperties: ULong, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: Long): QStatus
+public expect fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: COpaquePointer?, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_proxybusobject_removechild(proxyobj: alljoyn_proxybusobject, path: PCSTR): QStatus
+public expect fun alljoynProxybusobjectRemovechild(proxyobj: AlljoynProxybusobject, path: Pcstr): QStatus
 
-public expect fun alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: Int): QStatus
+public expect fun alljoynProxybusobjectSecureconnection(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus
 
-public expect fun alljoyn_proxybusobject_secureconnectionasync(proxyobj: alljoyn_proxybusobject, forceauth: Int): QStatus
+public expect fun alljoynProxybusobjectSecureconnectionasync(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus
 
-public expect fun alljoyn_proxybusobject_setproperty(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg): QStatus
+public expect fun alljoynProxybusobjectSetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus
 
-public expect fun alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: UInt, context: Long): QStatus
+public expect fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus
 
-public expect fun alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: PCSTR, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr): QStatus
+public expect fun alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerPropertieschangedPtr): QStatus
 
-public expect fun alljoyn_routerinit(): QStatus
+public expect fun alljoynRouterinit(): QStatus

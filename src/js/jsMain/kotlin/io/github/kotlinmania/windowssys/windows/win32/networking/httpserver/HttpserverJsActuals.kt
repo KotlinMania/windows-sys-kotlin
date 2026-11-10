@@ -2,139 +2,140 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32NetworkingHttpserverNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun HttpAddFragmentToCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, datachunk: Long, cachepolicy: Long, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpAddFragmentToCache(requestqueuehandle.toString(), urlprefix.toString(), datachunk.toString(), cachepolicy.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpAddFragmentToCache(requestqueuehandle: Handle, urlprefix: Pcwstr, datachunk: COpaquePointer?, cachepolicy: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpAddFragmentToCache((requestqueuehandle?.value ?: 0L).toString(), (urlprefix?.value ?: 0L).toString(), (datachunk?.value ?: 0L).toString(), (cachepolicy?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpAddUrl(requestqueuehandle: HANDLE, fullyqualifiedurl: PCWSTR, reserved: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpAddUrl(requestqueuehandle.toString(), fullyqualifiedurl.toString(), reserved.toString()) as Int).toUInt() else 0u
+public actual fun httpAddUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr, reserved: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpAddUrl((requestqueuehandle?.value ?: 0L).toString(), (fullyqualifiedurl?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpAddUrlToUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: PCWSTR, urlcontext: ULong, reserved: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpAddUrlToUrlGroup(urlgroupid.toString(), pfullyqualifiedurl.toString(), urlcontext.toString(), reserved.toInt()) as Int).toUInt() else 0u
+public actual fun httpAddUrlToUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, urlcontext: ULong, reserved: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpAddUrlToUrlGroup(urlgroupid.toString(), (pfullyqualifiedurl?.value ?: 0L).toString(), urlcontext.toString(), reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCancelHttpRequest(requestqueuehandle: HANDLE, requestid: ULong, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCancelHttpRequest(requestqueuehandle.toString(), requestid.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpCancelHttpRequest(requestqueuehandle: Handle, requestid: ULong, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCancelHttpRequest((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCloseRequestQueue(requestqueuehandle: HANDLE): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCloseRequestQueue(requestqueuehandle.toString()) as Int).toUInt() else 0u
+public actual fun httpCloseRequestQueue(requestqueuehandle: Handle): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCloseRequestQueue((requestqueuehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCloseServerSession(serversessionid: ULong): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCloseServerSession(serversessionid.toString()) as Int).toUInt() else 0u
+public actual fun httpCloseServerSession(serversessionid: ULong): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCloseServerSession(serversessionid.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCloseUrlGroup(urlgroupid: ULong): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCloseUrlGroup(urlgroupid.toString()) as Int).toUInt() else 0u
+public actual fun httpCloseUrlGroup(urlgroupid: ULong): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCloseUrlGroup(urlgroupid.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCreateHttpHandle(requestqueuehandle: Long, reserved: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCreateHttpHandle(requestqueuehandle.toString(), reserved.toInt()) as Int).toUInt() else 0u
+public actual fun httpCreateHttpHandle(requestqueuehandle: COpaquePointer?, reserved: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCreateHttpHandle((requestqueuehandle?.value ?: 0L).toString(), reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: PCWSTR, securityattributes: Long, flags: UInt, requestqueuehandle: Long): UInt =
-    0u
+public actual fun httpCreateRequestQueue(version: HttpapiVersion, name: Pcwstr, securityattributes: COpaquePointer?, flags: UInt, requestqueuehandle: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: Long, reserved: UInt): UInt =
-    0u
+public actual fun httpCreateServerSession(version: HttpapiVersion, serversessionid: COpaquePointer?, reserved: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCreateUrlGroup(serversessionid: ULong, purlgroupid: Long, reserved: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpCreateUrlGroup(serversessionid.toString(), purlgroupid.toString(), reserved.toInt()) as Int).toUInt() else 0u
+public actual fun httpCreateUrlGroup(serversessionid: ULong, purlgroupid: COpaquePointer?, reserved: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpCreateUrlGroup(serversessionid.toString(), (purlgroupid?.value ?: 0L).toString(), reserved.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpDeclarePush(requestqueuehandle: HANDLE, requestid: ULong, verb: HTTP_VERB, path: PCWSTR, query: PCSTR, headers: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpDeclarePush(requestqueuehandle.toString(), requestid.toString(), verb, path.toString(), query.toString(), headers.toString()) as Int).toUInt() else 0u
+public actual fun httpDeclarePush(requestqueuehandle: Handle, requestid: ULong, verb: HttpVerb, path: Pcwstr, query: Pcstr, headers: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpDeclarePush((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), verb, (path?.value ?: 0L).toString(), (query?.value ?: 0L).toString(), (headers?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpDelegateRequestEx(requestqueuehandle: HANDLE, delegatequeuehandle: HANDLE, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpDelegateRequestEx(requestqueuehandle.toString(), delegatequeuehandle.toString(), requestid.toString(), delegateurlgroupid.toString(), propertyinfosetsize.toInt(), propertyinfoset.toString()) as Int).toUInt() else 0u
+public actual fun httpDelegateRequestEx(requestqueuehandle: Handle, delegatequeuehandle: Handle, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpDelegateRequestEx((requestqueuehandle?.value ?: 0L).toString(), (delegatequeuehandle?.value ?: 0L).toString(), requestid.toString(), delegateurlgroupid.toString(), propertyinfosetsize.toInt(), (propertyinfoset?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpDeleteServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: Long, configinformationlength: UInt, poverlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpDeleteServiceConfiguration(servicehandle.toString(), configid, pconfiginformation.toString(), configinformationlength.toInt(), poverlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpDeleteServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: COpaquePointer?, configinformationlength: UInt, poverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpDeleteServiceConfiguration((servicehandle?.value ?: 0L).toString(), configid, (pconfiginformation?.value ?: 0L).toString(), configinformationlength.toInt(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpFindUrlGroupId(fullyqualifiedurl: PCWSTR, requestqueuehandle: HANDLE, urlgroupid: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpFindUrlGroupId(fullyqualifiedurl.toString(), requestqueuehandle.toString(), urlgroupid.toString()) as Int).toUInt() else 0u
+public actual fun httpFindUrlGroupId(fullyqualifiedurl: Pcwstr, requestqueuehandle: Handle, urlgroupid: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpFindUrlGroupId((fullyqualifiedurl?.value ?: 0L).toString(), (requestqueuehandle?.value ?: 0L).toString(), (urlgroupid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpFlushResponseCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, flags: UInt, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpFlushResponseCache(requestqueuehandle.toString(), urlprefix.toString(), flags.toInt(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpFlushResponseCache(requestqueuehandle: Handle, urlprefix: Pcwstr, flags: UInt, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpFlushResponseCache((requestqueuehandle?.value ?: 0L).toString(), (urlprefix?.value ?: 0L).toString(), flags.toInt(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpGetExtension(version: HTTPAPI_VERSION, extension: UInt, buffer: Long, buffersize: UInt): UInt =
-    0u
+public actual fun httpGetExtension(version: HttpapiVersion, extension: UInt, buffer: COpaquePointer?, buffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: Long): UInt =
-    0u
+public actual fun httpInitialize(version: HttpapiVersion, flags: HttpInitialize, preserved: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID): BOOL =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpIsFeatureSupported(featureid) as Int) else 0
+public actual fun httpIsFeatureSupported(featureid: HttpFeatureId): Bool =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpIsFeatureSupported(featureid) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpPrepareUrl(reserved: Long, flags: UInt, url: PCWSTR, preparedurl: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpPrepareUrl(reserved.toString(), flags.toInt(), url.toString(), preparedurl.toString()) as Int).toUInt() else 0u
+public actual fun httpPrepareUrl(reserved: COpaquePointer?, flags: UInt, url: Pcwstr, preparedurl: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpPrepareUrl((reserved?.value ?: 0L).toString(), flags.toInt(), (url?.value ?: 0L).toString(), (preparedurl?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryRequestQueueProperty(requestqueuehandle: HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, reserved1: UInt, returnlength: Long, reserved2: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpQueryRequestQueueProperty(requestqueuehandle.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt(), reserved1.toInt(), returnlength.toString(), reserved2.toString()) as Int).toUInt() else 0u
+public actual fun httpQueryRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, reserved1: UInt, returnlength: COpaquePointer?, reserved2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpQueryRequestQueueProperty((requestqueuehandle?.value ?: 0L).toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt(), reserved1.toInt(), (returnlength?.value ?: 0L).toString(), (reserved2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryServerSessionProperty(serversessionid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, returnlength: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpQueryServerSessionProperty(serversessionid.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt(), returnlength.toString()) as Int).toUInt() else 0u
+public actual fun httpQueryServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, returnlength: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpQueryServerSessionProperty(serversessionid.toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: Long, inputlength: UInt, poutput: Long, outputlength: UInt, preturnlength: Long, poverlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpQueryServiceConfiguration(servicehandle.toString(), configid, pinput.toString(), inputlength.toInt(), poutput.toString(), outputlength.toInt(), preturnlength.toString(), poverlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpQueryServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pinput: COpaquePointer?, inputlength: UInt, poutput: COpaquePointer?, outputlength: UInt, preturnlength: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpQueryServiceConfiguration((servicehandle?.value ?: 0L).toString(), configid, (pinput?.value ?: 0L).toString(), inputlength.toInt(), (poutput?.value ?: 0L).toString(), outputlength.toInt(), (preturnlength?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryUrlGroupProperty(urlgroupid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, returnlength: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpQueryUrlGroupProperty(urlgroupid.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt(), returnlength.toString()) as Int).toUInt() else 0u
+public actual fun httpQueryUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, returnlength: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpQueryUrlGroupProperty(urlgroupid.toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpReadFragmentFromCache(requestqueuehandle: HANDLE, urlprefix: PCWSTR, byterange: Long, buffer: Long, bufferlength: UInt, bytesread: Long, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpReadFragmentFromCache(requestqueuehandle.toString(), urlprefix.toString(), byterange.toString(), buffer.toString(), bufferlength.toInt(), bytesread.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpReadFragmentFromCache(requestqueuehandle: Handle, urlprefix: Pcwstr, byterange: COpaquePointer?, buffer: COpaquePointer?, bufferlength: UInt, bytesread: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpReadFragmentFromCache((requestqueuehandle?.value ?: 0L).toString(), (urlprefix?.value ?: 0L).toString(), (byterange?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bufferlength.toInt(), (bytesread?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpReceiveClientCertificate(requestqueuehandle: HANDLE, connectionid: ULong, flags: UInt, sslclientcertinfo: Long, sslclientcertinfosize: UInt, bytesreceived: Long, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpReceiveClientCertificate(requestqueuehandle.toString(), connectionid.toString(), flags.toInt(), sslclientcertinfo.toString(), sslclientcertinfosize.toInt(), bytesreceived.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpReceiveClientCertificate(requestqueuehandle: Handle, connectionid: ULong, flags: UInt, sslclientcertinfo: COpaquePointer?, sslclientcertinfosize: UInt, bytesreceived: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpReceiveClientCertificate((requestqueuehandle?.value ?: 0L).toString(), connectionid.toString(), flags.toInt(), (sslclientcertinfo?.value ?: 0L).toString(), sslclientcertinfosize.toInt(), (bytesreceived?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpReceiveHttpRequest(requestqueuehandle: HANDLE, requestid: ULong, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: Long, requestbufferlength: UInt, bytesreturned: Long, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpReceiveHttpRequest(requestqueuehandle.toString(), requestid.toString(), flags.toInt(), requestbuffer.toString(), requestbufferlength.toInt(), bytesreturned.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpReceiveHttpRequest(requestqueuehandle: Handle, requestid: ULong, flags: HttpReceiveHttpRequestFlags, requestbuffer: COpaquePointer?, requestbufferlength: UInt, bytesreturned: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpReceiveHttpRequest((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), flags.toInt(), (requestbuffer?.value ?: 0L).toString(), requestbufferlength.toInt(), (bytesreturned?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpReceiveRequestEntityBody(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, entitybuffer: Long, entitybufferlength: UInt, bytesreturned: Long, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpReceiveRequestEntityBody(requestqueuehandle.toString(), requestid.toString(), flags.toInt(), entitybuffer.toString(), entitybufferlength.toInt(), bytesreturned.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpReceiveRequestEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitybuffer: COpaquePointer?, entitybufferlength: UInt, bytesreturned: COpaquePointer?, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpReceiveRequestEntityBody((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), flags.toInt(), (entitybuffer?.value ?: 0L).toString(), entitybufferlength.toInt(), (bytesreturned?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpRemoveUrl(requestqueuehandle: HANDLE, fullyqualifiedurl: PCWSTR): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpRemoveUrl(requestqueuehandle.toString(), fullyqualifiedurl.toString()) as Int).toUInt() else 0u
+public actual fun httpRemoveUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpRemoveUrl((requestqueuehandle?.value ?: 0L).toString(), (fullyqualifiedurl?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpRemoveUrlFromUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: PCWSTR, flags: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpRemoveUrlFromUrlGroup(urlgroupid.toString(), pfullyqualifiedurl.toString(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun httpRemoveUrlFromUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, flags: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpRemoveUrlFromUrlGroup(urlgroupid.toString(), (pfullyqualifiedurl?.value ?: 0L).toString(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendHttpResponse(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, httpresponse: Long, cachepolicy: Long, bytessent: Long, reserved1: Long, reserved2: UInt, overlapped: Long, logdata: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSendHttpResponse(requestqueuehandle.toString(), requestid.toString(), flags.toInt(), httpresponse.toString(), cachepolicy.toString(), bytessent.toString(), reserved1.toString(), reserved2.toInt(), overlapped.toString(), logdata.toString()) as Int).toUInt() else 0u
+public actual fun httpSendHttpResponse(requestqueuehandle: Handle, requestid: ULong, flags: UInt, httpresponse: COpaquePointer?, cachepolicy: COpaquePointer?, bytessent: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, overlapped: COpaquePointer?, logdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSendHttpResponse((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), flags.toInt(), (httpresponse?.value ?: 0L).toString(), (cachepolicy?.value ?: 0L).toString(), (bytessent?.value ?: 0L).toString(), (reserved1?.value ?: 0L).toString(), reserved2.toInt(), (overlapped?.value ?: 0L).toString(), (logdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendResponseEntityBody(requestqueuehandle: HANDLE, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: Long, bytessent: Long, reserved1: Long, reserved2: UInt, overlapped: Long, logdata: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSendResponseEntityBody(requestqueuehandle.toString(), requestid.toString(), flags.toInt(), entitychunkcount.toInt(), entitychunks.toString(), bytessent.toString(), reserved1.toString(), reserved2.toInt(), overlapped.toString(), logdata.toString()) as Int).toUInt() else 0u
+public actual fun httpSendResponseEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: COpaquePointer?, bytessent: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, overlapped: COpaquePointer?, logdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSendResponseEntityBody((requestqueuehandle?.value ?: 0L).toString(), requestid.toString(), flags.toInt(), entitychunkcount.toInt(), (entitychunks?.value ?: 0L).toString(), (bytessent?.value ?: 0L).toString(), (reserved1?.value ?: 0L).toString(), reserved2.toInt(), (overlapped?.value ?: 0L).toString(), (logdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSetRequestProperty(requestqueuehandle: HANDLE, id: ULong, propertyid: HTTP_REQUEST_PROPERTY, input: Long, inputpropertysize: UInt, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSetRequestProperty(requestqueuehandle.toString(), id.toString(), propertyid, input.toString(), inputpropertysize.toInt(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpSetRequestProperty(requestqueuehandle: Handle, id: ULong, propertyid: HttpRequestProperty, input: COpaquePointer?, inputpropertysize: UInt, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSetRequestProperty((requestqueuehandle?.value ?: 0L).toString(), id.toString(), propertyid, (input?.value ?: 0L).toString(), inputpropertysize.toInt(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSetRequestQueueProperty(requestqueuehandle: HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt, reserved1: UInt, reserved2: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSetRequestQueueProperty(requestqueuehandle.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt(), reserved1.toInt(), reserved2.toString()) as Int).toUInt() else 0u
+public actual fun httpSetRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt, reserved1: UInt, reserved2: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSetRequestQueueProperty((requestqueuehandle?.value ?: 0L).toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt(), reserved1.toInt(), (reserved2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSetServerSessionProperty(serversessionid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSetServerSessionProperty(serversessionid.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt()) as Int).toUInt() else 0u
+public actual fun httpSetServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSetServerSessionProperty(serversessionid.toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSetServiceConfiguration(servicehandle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: Long, configinformationlength: UInt, poverlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSetServiceConfiguration(servicehandle.toString(), configid, pconfiginformation.toString(), configinformationlength.toInt(), poverlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpSetServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: COpaquePointer?, configinformationlength: UInt, poverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSetServiceConfiguration((servicehandle?.value ?: 0L).toString(), configid, (pconfiginformation?.value ?: 0L).toString(), configinformationlength.toInt(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSetUrlGroupProperty(urlgroupid: ULong, property: HTTP_SERVER_PROPERTY, propertyinformation: Long, propertyinformationlength: UInt): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpSetUrlGroupProperty(urlgroupid.toString(), property, propertyinformation.toString(), propertyinformationlength.toInt()) as Int).toUInt() else 0u
+public actual fun httpSetUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: COpaquePointer?, propertyinformationlength: UInt): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpSetUrlGroupProperty(urlgroupid.toString(), property, (propertyinformation?.value ?: 0L).toString(), propertyinformationlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpShutdownRequestQueue(requestqueuehandle: HANDLE): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpShutdownRequestQueue(requestqueuehandle.toString()) as Int).toUInt() else 0u
+public actual fun httpShutdownRequestQueue(requestqueuehandle: Handle): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpShutdownRequestQueue((requestqueuehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpTerminate(flags: HTTP_INITIALIZE, preserved: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpTerminate(flags.toInt(), preserved.toString()) as Int).toUInt() else 0u
+public actual fun httpTerminate(flags: HttpInitialize, preserved: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpTerminate(flags.toInt(), (preserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpUpdateServiceConfiguration(handle: HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: Long, configinfolength: UInt, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpUpdateServiceConfiguration(handle.toString(), configid, configinfo.toString(), configinfolength.toInt(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpUpdateServiceConfiguration(handle: Handle, configid: HttpServiceConfigId, configinfo: COpaquePointer?, configinfolength: UInt, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpUpdateServiceConfiguration((handle?.value ?: 0L).toString(), configid, (configinfo?.value ?: 0L).toString(), configinfolength.toInt(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWaitForDemandStart(requestqueuehandle: HANDLE, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpWaitForDemandStart(requestqueuehandle.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpWaitForDemandStart(requestqueuehandle: Handle, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpWaitForDemandStart((requestqueuehandle?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWaitForDisconnect(requestqueuehandle: HANDLE, connectionid: ULong, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnect(requestqueuehandle.toString(), connectionid.toString(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpWaitForDisconnect(requestqueuehandle: Handle, connectionid: ULong, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpWaitForDisconnect((requestqueuehandle?.value ?: 0L).toString(), connectionid.toString(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWaitForDisconnectEx(requestqueuehandle: HANDLE, connectionid: ULong, reserved: UInt, overlapped: Long): UInt =
-    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_HttpWaitForDisconnectEx(requestqueuehandle.toString(), connectionid.toString(), reserved.toInt(), overlapped.toString()) as Int).toUInt() else 0u
+public actual fun httpWaitForDisconnectEx(requestqueuehandle: Handle, connectionid: ULong, reserved: UInt, overlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingHttpserverNapiAddon != null) (_windowsWin32NetworkingHttpserverNapiAddon.windowssys_windows_win32_networking_httpserver_httpWaitForDisconnectEx((requestqueuehandle?.value ?: 0L).toString(), connectionid.toString(), reserved.toInt(), (overlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val ALT_BREAKS_FULL: ALT_BREAKS = 2
+public val ALT_BREAKS_FULL: AltBreaks = 2
 
-public val ALT_BREAKS_SAME: ALT_BREAKS = 0
+public val ALT_BREAKS_SAME: AltBreaks = 0
 
-public val ALT_BREAKS_UNIQUE: ALT_BREAKS = 1
+public val ALT_BREAKS_UNIQUE: AltBreaks = 1
 
 public val ASYNC_RECO_ADDSTROKE_FAILED: UInt = 4u
 
@@ -31,9 +31,9 @@ public val ASYNC_RECO_SETTEXTCONTEXT_FAILED: UInt = 256u
 
 public val ASYNC_RECO_SETWORDLIST_FAILED: UInt = 512u
 
-public val AsyncStylusQueue: StylusQueue = 3
+public val ASYNC_STYLUS_QUEUE: StylusQueue = 3
 
-public val AsyncStylusQueueImmediate: StylusQueue = 2
+public val ASYNC_STYLUS_QUEUE_IMMEDIATE: StylusQueue = 2
 
 public val BEST_COMPLETE: UInt = 2u
 
@@ -43,865 +43,865 @@ public val CAC_PREFIX: UInt = 1u
 
 public val CAC_RANDOM: UInt = 2u
 
-public val CFL_INTERMEDIATE: CONFIDENCE_LEVEL = 1
+public val CFL_INTERMEDIATE: ConfidenceLevel = 1
 
-public val CFL_POOR: CONFIDENCE_LEVEL = 2
+public val CFL_POOR: ConfidenceLevel = 2
 
-public val CFL_STRONG: CONFIDENCE_LEVEL = 0
+public val CFL_STRONG: ConfidenceLevel = 0
 
-public val Closed: VisualState = 4
+public val CLOSED: VisualState = 4
 
-public val CorrectionMode_NotVisible: CorrectionMode = 0
+public val CORRECTION_MODE_NOT_VISIBLE: CorrectionMode = 0
 
-public val CorrectionMode_PostInsertionCollapsed: CorrectionMode = 2
+public val CORRECTION_MODE_POST_INSERTION_COLLAPSED: CorrectionMode = 2
 
-public val CorrectionMode_PostInsertionExpanded: CorrectionMode = 3
+public val CORRECTION_MODE_POST_INSERTION_EXPANDED: CorrectionMode = 3
 
-public val CorrectionMode_PreInsertion: CorrectionMode = 1
+public val CORRECTION_MODE_PRE_INSERTION: CorrectionMode = 1
 
-public val CorrectionPosition_Auto: CorrectionPosition = 0
+public val CORRECTION_POSITION_AUTO: CorrectionPosition = 0
 
-public val CorrectionPosition_Bottom: CorrectionPosition = 1
+public val CORRECTION_POSITION_BOTTOM: CorrectionPosition = 1
 
-public val CorrectionPosition_Top: CorrectionPosition = 2
+public val CORRECTION_POSITION_TOP: CorrectionPosition = 2
 
-public val DISPID_DAAntiAliased: DISPID_InkDrawingAttributes = 6
+public val DISPID_DA_ANTI_ALIASED: DispidInkDrawingAttributes = 6
 
-public val DISPID_DAClone: DISPID_InkDrawingAttributes = 10
+public val DISPID_DA_CLONE: DispidInkDrawingAttributes = 10
 
-public val DISPID_DAColor: DISPID_InkDrawingAttributes = 2
+public val DISPID_DA_COLOR: DispidInkDrawingAttributes = 2
 
-public val DISPID_DAExtendedProperties: DISPID_InkDrawingAttributes = 11
+public val DISPID_DA_EXTENDED_PROPERTIES: DispidInkDrawingAttributes = 11
 
-public val DISPID_DAFitToCurve: DISPID_InkDrawingAttributes = 4
+public val DISPID_DA_FIT_TO_CURVE: DispidInkDrawingAttributes = 4
 
-public val DISPID_DAHeight: DISPID_InkDrawingAttributes = 1
+public val DISPID_DA_HEIGHT: DispidInkDrawingAttributes = 1
 
-public val DISPID_DAIgnorePressure: DISPID_InkDrawingAttributes = 5
+public val DISPID_DA_IGNORE_PRESSURE: DispidInkDrawingAttributes = 5
 
-public val DISPID_DAPenTip: DISPID_InkDrawingAttributes = 9
+public val DISPID_DA_PEN_TIP: DispidInkDrawingAttributes = 9
 
-public val DISPID_DARasterOperation: DISPID_InkDrawingAttributes = 8
+public val DISPID_DA_RASTER_OPERATION: DispidInkDrawingAttributes = 8
 
-public val DISPID_DATransparency: DISPID_InkDrawingAttributes = 7
+public val DISPID_DA_TRANSPARENCY: DispidInkDrawingAttributes = 7
 
-public val DISPID_DAWidth: DISPID_InkDrawingAttributes = 3
+public val DISPID_DA_WIDTH: DispidInkDrawingAttributes = 3
 
-public val DISPID_DisableNoScroll: DISPID_InkEdit = 3
+public val DISPID_DISABLE_NO_SCROLL: DispidInkEdit = 3
 
-public val DISPID_DragIcon: DISPID_InkEdit = 21
+public val DISPID_DRAG_ICON: DispidInkEdit = 21
 
-public val DISPID_DrawAttr: DISPID_InkEdit = 27
+public val DISPID_DRAW_ATTR: DispidInkEdit = 27
 
-public val DISPID_Enabled: DISPID_InkEdit = 5
+public val DISPID_ENABLED: DispidInkEdit = 5
 
-public val DISPID_Factoid: DISPID_InkEdit = 29
+public val DISPID_FACTOID: DispidInkEdit = 29
 
-public val DISPID_GetGestStatus: DISPID_InkEdit = 33
+public val DISPID_GET_GEST_STATUS: DispidInkEdit = 33
 
-public val DISPID_Hwnd: DISPID_InkEdit = 2
+public val DISPID_HWND: DispidInkEdit = 2
 
-public val DISPID_IAddStrokesAtRectangle: DISPID_Ink = 17
+public val DISPID_I_ADD_STROKES_AT_RECTANGLE: DispidInk = 17
 
-public val DISPID_ICAutoRedraw: DISPID_InkCollector = 8
+public val DISPID_IC_AUTO_REDRAW: DispidInkCollector = 8
 
-public val DISPID_ICBId: DISPID_InkCursorButton = 1
+public val DISPID_ICB_ID: DispidInkCursorButton = 1
 
-public val DISPID_ICBName: DISPID_InkCursorButton = 0
+public val DISPID_ICB_NAME: DispidInkCursorButton = 0
 
-public val DISPID_ICBState: DISPID_InkCursorButton = 2
+public val DISPID_ICB_STATE: DispidInkCursorButton = 2
 
-public val DISPID_ICBsCount: DISPID_InkCursorButtons = 1
+public val DISPID_IC_BS_COUNT: DispidInkCursorButtons = 1
 
-public val DISPID_ICBsItem: DISPID_InkCursorButtons = 0
+public val DISPID_IC_BS_ITEM: DispidInkCursorButtons = 0
 
-public val DISPID_ICBs_NewEnum: DISPID_InkCursorButtons = -4
+public val DISPID_IC_BS_NEW_ENUM: DispidInkCursorButtons = -4
 
-public val DISPID_ICCollectingInk: DISPID_InkCollector = 9
+public val DISPID_IC_COLLECTING_INK: DispidInkCollector = 9
 
-public val DISPID_ICCollectionMode: DISPID_InkCollector = 28
+public val DISPID_IC_COLLECTION_MODE: DispidInkCollector = 28
 
-public val DISPID_ICCursors: DISPID_InkCollector = 20
+public val DISPID_IC_CURSORS: DispidInkCollector = 20
 
-public val DISPID_ICDefaultDrawingAttributes: DISPID_InkCollector = 5
+public val DISPID_IC_DEFAULT_DRAWING_ATTRIBUTES: DispidInkCollector = 5
 
-public val DISPID_ICDesiredPacketDescription: DISPID_InkCollector = 32
+public val DISPID_IC_DESIRED_PACKET_DESCRIPTION: DispidInkCollector = 32
 
-public val DISPID_ICDynamicRendering: DISPID_InkCollector = 31
+public val DISPID_IC_DYNAMIC_RENDERING: DispidInkCollector = 31
 
-public val DISPID_ICECursorButtonDown: DISPID_InkCollectorEvent = 5
+public val DISPID_ICE_CURSOR_BUTTON_DOWN: DispidInkCollectorEvent = 5
 
-public val DISPID_ICECursorButtonUp: DISPID_InkCollectorEvent = 6
+public val DISPID_ICE_CURSOR_BUTTON_UP: DispidInkCollectorEvent = 6
 
-public val DISPID_ICECursorDown: DISPID_InkCollectorEvent = 2
+public val DISPID_ICE_CURSOR_DOWN: DispidInkCollectorEvent = 2
 
-public val DISPID_ICECursorInRange: DISPID_InkCollectorEvent = 7
+public val DISPID_ICE_CURSOR_IN_RANGE: DispidInkCollectorEvent = 7
 
-public val DISPID_ICECursorOutOfRange: DISPID_InkCollectorEvent = 8
+public val DISPID_ICE_CURSOR_OUT_OF_RANGE: DispidInkCollectorEvent = 8
 
-public val DISPID_ICEGesture: DISPID_InkCollectorEvent = 10
+public val DISPID_ICE_GESTURE: DispidInkCollectorEvent = 10
 
-public val DISPID_ICENewInAirPackets: DISPID_InkCollectorEvent = 4
+public val DISPID_ICE_NEW_IN_AIR_PACKETS: DispidInkCollectorEvent = 4
 
-public val DISPID_ICENewPackets: DISPID_InkCollectorEvent = 3
+public val DISPID_ICE_NEW_PACKETS: DispidInkCollectorEvent = 3
 
-public val DISPID_ICEStroke: DISPID_InkCollectorEvent = 1
+public val DISPID_ICE_STROKE: DispidInkCollectorEvent = 1
 
-public val DISPID_ICESystemGesture: DISPID_InkCollectorEvent = 9
+public val DISPID_ICE_SYSTEM_GESTURE: DispidInkCollectorEvent = 9
 
-public val DISPID_ICETabletAdded: DISPID_InkCollectorEvent = 11
+public val DISPID_ICE_TABLET_ADDED: DispidInkCollectorEvent = 11
 
-public val DISPID_ICETabletRemoved: DISPID_InkCollectorEvent = 12
+public val DISPID_ICE_TABLET_REMOVED: DispidInkCollectorEvent = 12
 
-public val DISPID_ICEnabled: DISPID_InkCollector = 1
+public val DISPID_IC_ENABLED: DispidInkCollector = 1
 
-public val DISPID_ICGetEventInterest: DISPID_InkCollector = 11
+public val DISPID_IC_GET_EVENT_INTEREST: DispidInkCollector = 11
 
-public val DISPID_ICGetGestureStatus: DISPID_InkCollector = 30
+public val DISPID_IC_GET_GESTURE_STATUS: DispidInkCollector = 30
 
-public val DISPID_ICGetWindowInputRectangle: DISPID_InkCollector = 24
+public val DISPID_IC_GET_WINDOW_INPUT_RECTANGLE: DispidInkCollector = 24
 
-public val DISPID_ICHwnd: DISPID_InkCollector = 2
+public val DISPID_IC_HWND: DispidInkCollector = 2
 
-public val DISPID_ICInk: DISPID_InkCollector = 7
+public val DISPID_IC_INK: DispidInkCollector = 7
 
-public val DISPID_ICMarginX: DISPID_InkCollector = 21
+public val DISPID_IC_MARGIN_X: DispidInkCollector = 21
 
-public val DISPID_ICMarginY: DISPID_InkCollector = 22
+public val DISPID_IC_MARGIN_Y: DispidInkCollector = 22
 
-public val DISPID_ICMouseIcon: DISPID_InkCollector = 35
+public val DISPID_IC_MOUSE_ICON: DispidInkCollector = 35
 
-public val DISPID_ICMousePointer: DISPID_InkCollector = 36
+public val DISPID_IC_MOUSE_POINTER: DispidInkCollector = 36
 
-public val DISPID_ICPaint: DISPID_InkCollector = 3
+public val DISPID_IC_PAINT: DispidInkCollector = 3
 
-public val DISPID_ICRenderer: DISPID_InkCollector = 6
+public val DISPID_IC_RENDERER: DispidInkCollector = 6
 
-public val DISPID_ICSetAllTabletsMode: DISPID_InkCollector = 26
+public val DISPID_IC_SET_ALL_TABLETS_MODE: DispidInkCollector = 26
 
-public val DISPID_ICSetEventInterest: DISPID_InkCollector = 10
+public val DISPID_IC_SET_EVENT_INTEREST: DispidInkCollector = 10
 
-public val DISPID_ICSetGestureStatus: DISPID_InkCollector = 29
+public val DISPID_IC_SET_GESTURE_STATUS: DispidInkCollector = 29
 
-public val DISPID_ICSetSingleTabletIntegratedMode: DISPID_InkCollector = 27
+public val DISPID_IC_SET_SINGLE_TABLET_INTEGRATED_MODE: DispidInkCollector = 27
 
-public val DISPID_ICSetWindowInputRectangle: DISPID_InkCollector = 23
+public val DISPID_IC_SET_WINDOW_INPUT_RECTANGLE: DispidInkCollector = 23
 
-public val DISPID_ICSsAdd: DISPID_InkCustomStrokes = 2
+public val DISPID_IC_SS_ADD: DispidInkCustomStrokes = 2
 
-public val DISPID_ICSsClear: DISPID_InkCustomStrokes = 4
+public val DISPID_IC_SS_CLEAR: DispidInkCustomStrokes = 4
 
-public val DISPID_ICSsCount: DISPID_InkCustomStrokes = 1
+public val DISPID_IC_SS_COUNT: DispidInkCustomStrokes = 1
 
-public val DISPID_ICSsItem: DISPID_InkCustomStrokes = 0
+public val DISPID_IC_SS_ITEM: DispidInkCustomStrokes = 0
 
-public val DISPID_ICSsRemove: DISPID_InkCustomStrokes = 3
+public val DISPID_IC_SS_REMOVE: DispidInkCustomStrokes = 3
 
-public val DISPID_ICSs_NewEnum: DISPID_InkCustomStrokes = -4
+public val DISPID_IC_SS_NEW_ENUM: DispidInkCustomStrokes = -4
 
-public val DISPID_ICSupportHighContrastInk: DISPID_InkCollector = 38
+public val DISPID_IC_SUPPORT_HIGH_CONTRAST_INK: DispidInkCollector = 38
 
-public val DISPID_ICTablet: DISPID_InkCollector = 25
+public val DISPID_IC_TABLET: DispidInkCollector = 25
 
-public val DISPID_ICText: DISPID_InkCollector = 4
+public val DISPID_IC_TEXT: DispidInkCollector = 4
 
-public val DISPID_ICanPaste: DISPID_Ink = 24
+public val DISPID_I_CAN_PASTE: DispidInk = 24
 
-public val DISPID_IClip: DISPID_Ink = 18
+public val DISPID_I_CLIP: DispidInk = 18
 
-public val DISPID_IClipboardCopy: DISPID_Ink = 23
+public val DISPID_I_CLIPBOARD_COPY: DispidInk = 23
 
-public val DISPID_IClipboardCopyWithRectangle: DISPID_Ink = 22
+public val DISPID_I_CLIPBOARD_COPY_WITH_RECTANGLE: DispidInk = 22
 
-public val DISPID_IClipboardPaste: DISPID_Ink = 25
+public val DISPID_I_CLIPBOARD_PASTE: DispidInk = 25
 
-public val DISPID_IClone: DISPID_Ink = 10
+public val DISPID_I_CLONE: DispidInk = 10
 
-public val DISPID_ICreateStroke: DISPID_Ink = 16
+public val DISPID_I_CREATE_STROKE: DispidInk = 16
 
-public val DISPID_ICreateStrokeFromPoints: DISPID_Ink = 21
+public val DISPID_I_CREATE_STROKE_FROM_POINTS: DispidInk = 21
 
-public val DISPID_ICreateStrokes: DISPID_Ink = 15
+public val DISPID_I_CREATE_STROKES: DispidInk = 15
 
-public val DISPID_ICsCount: DISPID_InkCursors = 1
+public val DISPID_I_CS_COUNT: DispidInkCursors = 1
 
-public val DISPID_ICsItem: DISPID_InkCursors = 0
+public val DISPID_I_CS_ITEM: DispidInkCursors = 0
 
-public val DISPID_ICs_NewEnum: DISPID_InkCursors = -4
+public val DISPID_I_CS_NEW_ENUM: DispidInkCursors = -4
 
-public val DISPID_ICsrButtons: DISPID_InkCursor = 3
+public val DISPID_I_CSR_BUTTONS: DispidInkCursor = 3
 
-public val DISPID_ICsrDrawingAttributes: DISPID_InkCursor = 2
+public val DISPID_I_CSR_DRAWING_ATTRIBUTES: DispidInkCursor = 2
 
-public val DISPID_ICsrId: DISPID_InkCursor = 1
+public val DISPID_I_CSR_ID: DispidInkCursor = 1
 
-public val DISPID_ICsrInverted: DISPID_InkCursor = 4
+public val DISPID_I_CSR_INVERTED: DispidInkCursor = 4
 
-public val DISPID_ICsrName: DISPID_InkCursor = 0
+public val DISPID_I_CSR_NAME: DispidInkCursor = 0
 
-public val DISPID_ICsrTablet: DISPID_InkCursor = 5
+public val DISPID_I_CSR_TABLET: DispidInkCursor = 5
 
-public val DISPID_ICustomStrokes: DISPID_Ink = 9
+public val DISPID_I_CUSTOM_STROKES: DispidInk = 9
 
-public val DISPID_IDeleteStroke: DISPID_Ink = 5
+public val DISPID_I_DELETE_STROKE: DispidInk = 5
 
-public val DISPID_IDeleteStrokes: DISPID_Ink = 4
+public val DISPID_I_DELETE_STROKES: DispidInk = 4
 
-public val DISPID_IDirty: DISPID_Ink = 8
+public val DISPID_I_DIRTY: DispidInk = 8
 
-public val DISPID_IEInkAdded: DISPID_InkEvent = 1
+public val DISPID_IE_INK_ADDED: DispidInkEvent = 1
 
-public val DISPID_IEInkDeleted: DISPID_InkEvent = 2
+public val DISPID_IE_INK_DELETED: DispidInkEvent = 2
 
-public val DISPID_IEPData: DISPID_InkExtendedProperty = 2
+public val DISPID_IEP_DATA: DispidInkExtendedProperty = 2
 
-public val DISPID_IEPGuid: DISPID_InkExtendedProperty = 1
+public val DISPID_IEP_GUID: DispidInkExtendedProperty = 1
 
-public val DISPID_IEPsAdd: DISPID_InkExtendedProperties = 2
+public val DISPID_IE_PS_ADD: DispidInkExtendedProperties = 2
 
-public val DISPID_IEPsClear: DISPID_InkExtendedProperties = 4
+public val DISPID_IE_PS_CLEAR: DispidInkExtendedProperties = 4
 
-public val DISPID_IEPsCount: DISPID_InkExtendedProperties = 1
+public val DISPID_IE_PS_COUNT: DispidInkExtendedProperties = 1
 
-public val DISPID_IEPsDoesPropertyExist: DISPID_InkExtendedProperties = 5
+public val DISPID_IE_PS_DOES_PROPERTY_EXIST: DispidInkExtendedProperties = 5
 
-public val DISPID_IEPsItem: DISPID_InkExtendedProperties = 0
+public val DISPID_IE_PS_ITEM: DispidInkExtendedProperties = 0
 
-public val DISPID_IEPsRemove: DISPID_InkExtendedProperties = 3
+public val DISPID_IE_PS_REMOVE: DispidInkExtendedProperties = 3
 
-public val DISPID_IEPs_NewEnum: DISPID_InkExtendedProperties = -4
+public val DISPID_IE_PS_NEW_ENUM: DispidInkExtendedProperties = -4
 
-public val DISPID_IExtendedProperties: DISPID_Ink = 2
+public val DISPID_I_EXTENDED_PROPERTIES: DispidInk = 2
 
-public val DISPID_IExtractStrokes: DISPID_Ink = 6
+public val DISPID_I_EXTRACT_STROKES: DispidInk = 6
 
-public val DISPID_IExtractWithRectangle: DISPID_Ink = 7
+public val DISPID_I_EXTRACT_WITH_RECTANGLE: DispidInk = 7
 
-public val DISPID_IGConfidence: DISPID_InkGesture = 2
+public val DISPID_IG_CONFIDENCE: DispidInkGesture = 2
 
-public val DISPID_IGGetHotPoint: DISPID_InkGesture = 1
+public val DISPID_IG_GET_HOT_POINT: DispidInkGesture = 1
 
-public val DISPID_IGId: DISPID_InkGesture = 0
+public val DISPID_IG_ID: DispidInkGesture = 0
 
-public val DISPID_IGetBoundingBox: DISPID_Ink = 3
+public val DISPID_I_GET_BOUNDING_BOX: DispidInk = 3
 
-public val DISPID_IHitTestCircle: DISPID_Ink = 11
+public val DISPID_I_HIT_TEST_CIRCLE: DispidInk = 11
 
-public val DISPID_IHitTestWithLasso: DISPID_Ink = 13
+public val DISPID_I_HIT_TEST_WITH_LASSO: DispidInk = 13
 
-public val DISPID_IHitTestWithRectangle: DISPID_Ink = 12
+public val DISPID_I_HIT_TEST_WITH_RECTANGLE: DispidInk = 12
 
-public val DISPID_IInkDivider_Divide: DISPID_InkDivider = 4
+public val DISPID_I_INK_DIVIDER_DIVIDE: DispidInkDivider = 4
 
-public val DISPID_IInkDivider_LineHeight: DISPID_InkDivider = 3
+public val DISPID_I_INK_DIVIDER_LINE_HEIGHT: DispidInkDivider = 3
 
-public val DISPID_IInkDivider_RecognizerContext: DISPID_InkDivider = 2
+public val DISPID_I_INK_DIVIDER_RECOGNIZER_CONTEXT: DispidInkDivider = 2
 
-public val DISPID_IInkDivider_Strokes: DISPID_InkDivider = 1
+public val DISPID_I_INK_DIVIDER_STROKES: DispidInkDivider = 1
 
-public val DISPID_IInkDivisionResult_ResultByType: DISPID_InkDivisionResult = 2
+public val DISPID_I_INK_DIVISION_RESULT_RESULT_BY_TYPE: DispidInkDivisionResult = 2
 
-public val DISPID_IInkDivisionResult_Strokes: DISPID_InkDivisionResult = 1
+public val DISPID_I_INK_DIVISION_RESULT_STROKES: DispidInkDivisionResult = 1
 
-public val DISPID_IInkDivisionUnit_DivisionType: DISPID_InkDivisionUnit = 2
+public val DISPID_I_INK_DIVISION_UNIT_DIVISION_TYPE: DispidInkDivisionUnit = 2
 
-public val DISPID_IInkDivisionUnit_RecognizedString: DISPID_InkDivisionUnit = 3
+public val DISPID_I_INK_DIVISION_UNIT_RECOGNIZED_STRING: DispidInkDivisionUnit = 3
 
-public val DISPID_IInkDivisionUnit_RotationTransform: DISPID_InkDivisionUnit = 4
+public val DISPID_I_INK_DIVISION_UNIT_ROTATION_TRANSFORM: DispidInkDivisionUnit = 4
 
-public val DISPID_IInkDivisionUnit_Strokes: DISPID_InkDivisionUnit = 1
+public val DISPID_I_INK_DIVISION_UNIT_STROKES: DispidInkDivisionUnit = 1
 
-public val DISPID_IInkDivisionUnits_Count: DISPID_InkDivisionUnits = 1
+public val DISPID_I_INK_DIVISION_UNITS_COUNT: DispidInkDivisionUnits = 1
 
-public val DISPID_IInkDivisionUnits_Item: DISPID_InkDivisionUnits = 0
+public val DISPID_I_INK_DIVISION_UNITS_ITEM: DispidInkDivisionUnits = 0
 
-public val DISPID_IInkDivisionUnits_NewEnum: DISPID_InkDivisionUnits = -4
+public val DISPID_I_INK_DIVISION_UNITS_NEW_ENUM: DispidInkDivisionUnits = -4
 
-public val DISPID_ILoad: DISPID_Ink = 20
+public val DISPID_I_LOAD: DispidInk = 20
 
-public val DISPID_INearestPoint: DISPID_Ink = 14
+public val DISPID_I_NEAREST_POINT: DispidInk = 14
 
-public val DISPID_IOAttachMode: DISPID_InkCollector = 14
+public val DISPID_IO_ATTACH_MODE: DispidInkCollector = 14
 
-public val DISPID_IODraw: DISPID_InkCollector = 16
+public val DISPID_IO_DRAW: DispidInkCollector = 16
 
-public val DISPID_IOEPainted: DISPID_InkCollectorEvent = 14
+public val DISPID_IOE_PAINTED: DispidInkCollectorEvent = 14
 
-public val DISPID_IOEPainting: DISPID_InkCollectorEvent = 13
+public val DISPID_IOE_PAINTING: DispidInkCollectorEvent = 13
 
-public val DISPID_IOESelectionChanged: DISPID_InkCollectorEvent = 16
+public val DISPID_IOE_SELECTION_CHANGED: DispidInkCollectorEvent = 16
 
-public val DISPID_IOESelectionChanging: DISPID_InkCollectorEvent = 15
+public val DISPID_IOE_SELECTION_CHANGING: DispidInkCollectorEvent = 15
 
-public val DISPID_IOESelectionMoved: DISPID_InkCollectorEvent = 18
+public val DISPID_IOE_SELECTION_MOVED: DispidInkCollectorEvent = 18
 
-public val DISPID_IOESelectionMoving: DISPID_InkCollectorEvent = 17
+public val DISPID_IOE_SELECTION_MOVING: DispidInkCollectorEvent = 17
 
-public val DISPID_IOESelectionResized: DISPID_InkCollectorEvent = 20
+public val DISPID_IOE_SELECTION_RESIZED: DispidInkCollectorEvent = 20
 
-public val DISPID_IOESelectionResizing: DISPID_InkCollectorEvent = 19
+public val DISPID_IOE_SELECTION_RESIZING: DispidInkCollectorEvent = 19
 
-public val DISPID_IOEStrokesDeleted: DISPID_InkCollectorEvent = 22
+public val DISPID_IOE_STROKES_DELETED: DispidInkCollectorEvent = 22
 
-public val DISPID_IOEStrokesDeleting: DISPID_InkCollectorEvent = 21
+public val DISPID_IOE_STROKES_DELETING: DispidInkCollectorEvent = 21
 
-public val DISPID_IOEditingMode: DISPID_InkCollector = 12
+public val DISPID_IO_EDITING_MODE: DispidInkCollector = 12
 
-public val DISPID_IOEraserMode: DISPID_InkCollector = 33
+public val DISPID_IO_ERASER_MODE: DispidInkCollector = 33
 
-public val DISPID_IOEraserWidth: DISPID_InkCollector = 34
+public val DISPID_IO_ERASER_WIDTH: DispidInkCollector = 34
 
-public val DISPID_IOHitTestSelection: DISPID_InkCollector = 15
+public val DISPID_IO_HIT_TEST_SELECTION: DispidInkCollector = 15
 
-public val DISPID_IOSelection: DISPID_InkCollector = 13
+public val DISPID_IO_SELECTION: DispidInkCollector = 13
 
-public val DISPID_IOSupportHighContrastSelectionUI: DISPID_InkCollector = 39
+public val DISPID_IO_SUPPORT_HIGH_CONTRAST_SELECTION_UI: DispidInkCollector = 39
 
-public val DISPID_IPBackColor: DISPID_InkCollector = 19
+public val DISPID_IP_BACK_COLOR: DispidInkCollector = 19
 
-public val DISPID_IPEChangeUICues: DISPID_InkCollectorEvent = 23
+public val DISPID_IPE_CHANGE_UI_CUES: DispidInkCollectorEvent = 23
 
-public val DISPID_IPEClick: DISPID_InkCollectorEvent = 24
+public val DISPID_IPE_CLICK: DispidInkCollectorEvent = 24
 
-public val DISPID_IPEDblClick: DISPID_InkCollectorEvent = 25
+public val DISPID_IPE_DBL_CLICK: DispidInkCollectorEvent = 25
 
-public val DISPID_IPEInvalidated: DISPID_InkCollectorEvent = 26
+public val DISPID_IPE_INVALIDATED: DispidInkCollectorEvent = 26
 
-public val DISPID_IPEKeyDown: DISPID_InkCollectorEvent = 37
+public val DISPID_IPE_KEY_DOWN: DispidInkCollectorEvent = 37
 
-public val DISPID_IPEKeyPress: DISPID_InkCollectorEvent = 38
+public val DISPID_IPE_KEY_PRESS: DispidInkCollectorEvent = 38
 
-public val DISPID_IPEKeyUp: DISPID_InkCollectorEvent = 39
+public val DISPID_IPE_KEY_UP: DispidInkCollectorEvent = 39
 
-public val DISPID_IPEMouseDown: DISPID_InkCollectorEvent = 27
+public val DISPID_IPE_MOUSE_DOWN: DispidInkCollectorEvent = 27
 
-public val DISPID_IPEMouseEnter: DISPID_InkCollectorEvent = 28
+public val DISPID_IPE_MOUSE_ENTER: DispidInkCollectorEvent = 28
 
-public val DISPID_IPEMouseHover: DISPID_InkCollectorEvent = 29
+public val DISPID_IPE_MOUSE_HOVER: DispidInkCollectorEvent = 29
 
-public val DISPID_IPEMouseLeave: DISPID_InkCollectorEvent = 30
+public val DISPID_IPE_MOUSE_LEAVE: DispidInkCollectorEvent = 30
 
-public val DISPID_IPEMouseMove: DISPID_InkCollectorEvent = 31
+public val DISPID_IPE_MOUSE_MOVE: DispidInkCollectorEvent = 31
 
-public val DISPID_IPEMouseUp: DISPID_InkCollectorEvent = 32
+public val DISPID_IPE_MOUSE_UP: DispidInkCollectorEvent = 32
 
-public val DISPID_IPEMouseWheel: DISPID_InkCollectorEvent = 33
+public val DISPID_IPE_MOUSE_WHEEL: DispidInkCollectorEvent = 33
 
-public val DISPID_IPEResize: DISPID_InkCollectorEvent = 40
+public val DISPID_IPE_RESIZE: DispidInkCollectorEvent = 40
 
-public val DISPID_IPESizeChanged: DISPID_InkCollectorEvent = 41
+public val DISPID_IPE_SIZE_CHANGED: DispidInkCollectorEvent = 41
 
-public val DISPID_IPESizeModeChanged: DISPID_InkCollectorEvent = 34
+public val DISPID_IPE_SIZE_MODE_CHANGED: DispidInkCollectorEvent = 34
 
-public val DISPID_IPEStyleChanged: DISPID_InkCollectorEvent = 35
+public val DISPID_IPE_STYLE_CHANGED: DispidInkCollectorEvent = 35
 
-public val DISPID_IPESystemColorsChanged: DISPID_InkCollectorEvent = 36
+public val DISPID_IPE_SYSTEM_COLORS_CHANGED: DispidInkCollectorEvent = 36
 
-public val DISPID_IPInkEnabled: DISPID_InkCollector = 37
+public val DISPID_IP_INK_ENABLED: DispidInkCollector = 37
 
-public val DISPID_IPPicture: DISPID_InkCollector = 17
+public val DISPID_IP_PICTURE: DispidInkCollector = 17
 
-public val DISPID_IPSizeMode: DISPID_InkCollector = 18
+public val DISPID_IP_SIZE_MODE: DispidInkCollector = 18
 
-public val DISPID_IRBottom: DISPID_InkRectangle = 3
+public val DISPID_IR_BOTTOM: DispidInkRectangle = 3
 
-public val DISPID_IRData: DISPID_InkRectangle = 7
+public val DISPID_IR_DATA: DispidInkRectangle = 7
 
-public val DISPID_IRDraw: DISPID_InkRenderer = 5
+public val DISPID_IR_DRAW: DispidInkRenderer = 5
 
-public val DISPID_IRDrawStroke: DISPID_InkRenderer = 6
+public val DISPID_IR_DRAW_STROKE: DispidInkRenderer = 6
 
-public val DISPID_IRERecognition: DISPID_InkRecognitionEvent = 2
+public val DISPID_IRE_RECOGNITION: DispidInkRecognitionEvent = 2
 
-public val DISPID_IRERecognitionWithAlternates: DISPID_InkRecognitionEvent = 1
+public val DISPID_IRE_RECOGNITION_WITH_ALTERNATES: DispidInkRecognitionEvent = 1
 
-public val DISPID_IRGColumns: DISPID_InkRecognizerGuide = 4
+public val DISPID_IRG_COLUMNS: DispidInkRecognizerGuide = 4
 
-public val DISPID_IRGDrawnBox: DISPID_InkRecognizerGuide = 2
+public val DISPID_IRG_DRAWN_BOX: DispidInkRecognizerGuide = 2
 
-public val DISPID_IRGGuideData: DISPID_InkRecognizerGuide = 6
+public val DISPID_IRG_GUIDE_DATA: DispidInkRecognizerGuide = 6
 
-public val DISPID_IRGMidline: DISPID_InkRecognizerGuide = 5
+public val DISPID_IRG_MIDLINE: DispidInkRecognizerGuide = 5
 
-public val DISPID_IRGRows: DISPID_InkRecognizerGuide = 3
+public val DISPID_IRG_ROWS: DispidInkRecognizerGuide = 3
 
-public val DISPID_IRGWritingBox: DISPID_InkRecognizerGuide = 1
+public val DISPID_IRG_WRITING_BOX: DispidInkRecognizerGuide = 1
 
-public val DISPID_IRGetObjectTransform: DISPID_InkRenderer = 3
+public val DISPID_IR_GET_OBJECT_TRANSFORM: DispidInkRenderer = 3
 
-public val DISPID_IRGetRectangle: DISPID_InkRectangle = 5
+public val DISPID_IR_GET_RECTANGLE: DispidInkRectangle = 5
 
-public val DISPID_IRGetViewTransform: DISPID_InkRenderer = 1
+public val DISPID_IR_GET_VIEW_TRANSFORM: DispidInkRenderer = 1
 
-public val DISPID_IRInkSpaceToPixel: DISPID_InkRenderer = 8
+public val DISPID_IR_INK_SPACE_TO_PIXEL: DispidInkRenderer = 8
 
-public val DISPID_IRInkSpaceToPixelFromPoints: DISPID_InkRenderer = 10
+public val DISPID_IR_INK_SPACE_TO_PIXEL_FROM_POINTS: DispidInkRenderer = 10
 
-public val DISPID_IRLeft: DISPID_InkRectangle = 2
+public val DISPID_IR_LEFT: DispidInkRectangle = 2
 
-public val DISPID_IRMeasure: DISPID_InkRenderer = 11
+public val DISPID_IR_MEASURE: DispidInkRenderer = 11
 
-public val DISPID_IRMeasureStroke: DISPID_InkRenderer = 12
+public val DISPID_IR_MEASURE_STROKE: DispidInkRenderer = 12
 
-public val DISPID_IRMove: DISPID_InkRenderer = 13
+public val DISPID_IR_MOVE: DispidInkRenderer = 13
 
-public val DISPID_IRPixelToInkSpace: DISPID_InkRenderer = 7
+public val DISPID_IR_PIXEL_TO_INK_SPACE: DispidInkRenderer = 7
 
-public val DISPID_IRPixelToInkSpaceFromPoints: DISPID_InkRenderer = 9
+public val DISPID_IR_PIXEL_TO_INK_SPACE_FROM_POINTS: DispidInkRenderer = 9
 
-public val DISPID_IRRight: DISPID_InkRectangle = 4
+public val DISPID_IR_RIGHT: DispidInkRectangle = 4
 
-public val DISPID_IRRotate: DISPID_InkRenderer = 14
+public val DISPID_IR_ROTATE: DispidInkRenderer = 14
 
-public val DISPID_IRScale: DISPID_InkRenderer = 15
+public val DISPID_IR_SCALE: DispidInkRenderer = 15
 
-public val DISPID_IRSetObjectTransform: DISPID_InkRenderer = 4
+public val DISPID_IR_SET_OBJECT_TRANSFORM: DispidInkRenderer = 4
 
-public val DISPID_IRSetRectangle: DISPID_InkRectangle = 6
+public val DISPID_IR_SET_RECTANGLE: DispidInkRectangle = 6
 
-public val DISPID_IRSetViewTransform: DISPID_InkRenderer = 2
+public val DISPID_IR_SET_VIEW_TRANSFORM: DispidInkRenderer = 2
 
-public val DISPID_IRTop: DISPID_InkRectangle = 1
+public val DISPID_IR_TOP: DispidInkRectangle = 1
 
-public val DISPID_IRecoCtx2_EnabledUnicodeRanges: DISPID_InkRecoContext2 = 0
+public val DISPID_I_RECO_CTX2_ENABLED_UNICODE_RANGES: DispidInkRecoContext2 = 0
 
-public val DISPID_IRecoCtx_BackgroundRecognize: DISPID_InkRecoContext = 15
+public val DISPID_I_RECO_CTX_BACKGROUND_RECOGNIZE: DispidInkRecoContext = 15
 
-public val DISPID_IRecoCtx_BackgroundRecognizeWithAlternates: DISPID_InkRecoContext = 16
+public val DISPID_I_RECO_CTX_BACKGROUND_RECOGNIZE_WITH_ALTERNATES: DispidInkRecoContext = 16
 
-public val DISPID_IRecoCtx_CharacterAutoCompletionMode: DISPID_InkRecoContext = 2
+public val DISPID_I_RECO_CTX_CHARACTER_AUTO_COMPLETION_MODE: DispidInkRecoContext = 2
 
-public val DISPID_IRecoCtx_Clone: DISPID_InkRecoContext = 11
+public val DISPID_I_RECO_CTX_CLONE: DispidInkRecoContext = 11
 
-public val DISPID_IRecoCtx_EndInkInput: DISPID_InkRecoContext = 14
+public val DISPID_I_RECO_CTX_END_INK_INPUT: DispidInkRecoContext = 14
 
-public val DISPID_IRecoCtx_Factoid: DISPID_InkRecoContext = 3
+public val DISPID_I_RECO_CTX_FACTOID: DispidInkRecoContext = 3
 
-public val DISPID_IRecoCtx_Flags: DISPID_InkRecoContext = 7
+public val DISPID_I_RECO_CTX_FLAGS: DispidInkRecoContext = 7
 
-public val DISPID_IRecoCtx_Guide: DISPID_InkRecoContext = 6
+public val DISPID_I_RECO_CTX_GUIDE: DispidInkRecoContext = 6
 
-public val DISPID_IRecoCtx_IsStringSupported: DISPID_InkRecoContext = 17
+public val DISPID_I_RECO_CTX_IS_STRING_SUPPORTED: DispidInkRecoContext = 17
 
-public val DISPID_IRecoCtx_PrefixText: DISPID_InkRecoContext = 8
+public val DISPID_I_RECO_CTX_PREFIX_TEXT: DispidInkRecoContext = 8
 
-public val DISPID_IRecoCtx_Recognize: DISPID_InkRecoContext = 12
+public val DISPID_I_RECO_CTX_RECOGNIZE: DispidInkRecoContext = 12
 
-public val DISPID_IRecoCtx_Recognizer: DISPID_InkRecoContext = 5
+public val DISPID_I_RECO_CTX_RECOGNIZER: DispidInkRecoContext = 5
 
-public val DISPID_IRecoCtx_StopBackgroundRecognition: DISPID_InkRecoContext = 13
+public val DISPID_I_RECO_CTX_STOP_BACKGROUND_RECOGNITION: DispidInkRecoContext = 13
 
-public val DISPID_IRecoCtx_StopRecognition: DISPID_InkRecoContext = 10
+public val DISPID_I_RECO_CTX_STOP_RECOGNITION: DispidInkRecoContext = 10
 
-public val DISPID_IRecoCtx_Strokes: DISPID_InkRecoContext = 1
+public val DISPID_I_RECO_CTX_STROKES: DispidInkRecoContext = 1
 
-public val DISPID_IRecoCtx_SuffixText: DISPID_InkRecoContext = 9
+public val DISPID_I_RECO_CTX_SUFFIX_TEXT: DispidInkRecoContext = 9
 
-public val DISPID_IRecoCtx_WordList: DISPID_InkRecoContext = 4
+public val DISPID_I_RECO_CTX_WORD_LIST: DispidInkRecoContext = 4
 
-public val DISPID_IRecosCount: DISPID_InkRecognizers = 1
+public val DISPID_I_RECOS_COUNT: DispidInkRecognizers = 1
 
-public val DISPID_IRecosGetDefaultRecognizer: DISPID_InkRecognizers = 2
+public val DISPID_I_RECOS_GET_DEFAULT_RECOGNIZER: DispidInkRecognizers = 2
 
-public val DISPID_IRecosItem: DISPID_InkRecognizers = 0
+public val DISPID_I_RECOS_ITEM: DispidInkRecognizers = 0
 
-public val DISPID_IRecos_NewEnum: DISPID_InkRecognizers = -4
+public val DISPID_I_RECOS_NEW_ENUM: DispidInkRecognizers = -4
 
-public val DISPID_ISDBezierCusps: DISPID_InkStrokeDisp = 15
+public val DISPID_ISD_BEZIER_CUSPS: DispidInkStrokeDisp = 15
 
-public val DISPID_ISDBezierPoints: DISPID_InkStrokeDisp = 13
+public val DISPID_ISD_BEZIER_POINTS: DispidInkStrokeDisp = 13
 
-public val DISPID_ISDClip: DISPID_InkStrokeDisp = 7
+public val DISPID_ISD_CLIP: DispidInkStrokeDisp = 7
 
-public val DISPID_ISDDeleted: DISPID_InkStrokeDisp = 20
+public val DISPID_ISD_DELETED: DispidInkStrokeDisp = 20
 
-public val DISPID_ISDDrawingAttributes: DISPID_InkStrokeDisp = 4
+public val DISPID_ISD_DRAWING_ATTRIBUTES: DispidInkStrokeDisp = 4
 
-public val DISPID_ISDExtendedProperties: DISPID_InkStrokeDisp = 11
+public val DISPID_ISD_EXTENDED_PROPERTIES: DispidInkStrokeDisp = 11
 
-public val DISPID_ISDFindIntersections: DISPID_InkStrokeDisp = 5
+public val DISPID_ISD_FIND_INTERSECTIONS: DispidInkStrokeDisp = 5
 
-public val DISPID_ISDGetBoundingBox: DISPID_InkStrokeDisp = 3
+public val DISPID_ISD_GET_BOUNDING_BOX: DispidInkStrokeDisp = 3
 
-public val DISPID_ISDGetFlattenedBezierPoints: DISPID_InkStrokeDisp = 27
+public val DISPID_ISD_GET_FLATTENED_BEZIER_POINTS: DispidInkStrokeDisp = 27
 
-public val DISPID_ISDGetPacketData: DISPID_InkStrokeDisp = 24
+public val DISPID_ISD_GET_PACKET_DATA: DispidInkStrokeDisp = 24
 
-public val DISPID_ISDGetPacketDescriptionPropertyMetrics: DISPID_InkStrokeDisp = 21
+public val DISPID_ISD_GET_PACKET_DESCRIPTION_PROPERTY_METRICS: DispidInkStrokeDisp = 21
 
-public val DISPID_ISDGetPacketValuesByProperty: DISPID_InkStrokeDisp = 25
+public val DISPID_ISD_GET_PACKET_VALUES_BY_PROPERTY: DispidInkStrokeDisp = 25
 
-public val DISPID_ISDGetPoints: DISPID_InkStrokeDisp = 22
+public val DISPID_ISD_GET_POINTS: DispidInkStrokeDisp = 22
 
-public val DISPID_ISDGetRectangleIntersections: DISPID_InkStrokeDisp = 6
+public val DISPID_ISD_GET_RECTANGLE_INTERSECTIONS: DispidInkStrokeDisp = 6
 
-public val DISPID_ISDHitTestCircle: DISPID_InkStrokeDisp = 8
+public val DISPID_ISD_HIT_TEST_CIRCLE: DispidInkStrokeDisp = 8
 
-public val DISPID_ISDID: DISPID_InkStrokeDisp = 2
+public val DISPID_ISDID: DispidInkStrokeDisp = 2
 
-public val DISPID_ISDInk: DISPID_InkStrokeDisp = 12
+public val DISPID_ISD_INK: DispidInkStrokeDisp = 12
 
-public val DISPID_ISDInkIndex: DISPID_InkStrokeDisp = 1
+public val DISPID_ISD_INK_INDEX: DispidInkStrokeDisp = 1
 
-public val DISPID_ISDMove: DISPID_InkStrokeDisp = 30
+public val DISPID_ISD_MOVE: DispidInkStrokeDisp = 30
 
-public val DISPID_ISDNearestPoint: DISPID_InkStrokeDisp = 9
+public val DISPID_ISD_NEAREST_POINT: DispidInkStrokeDisp = 9
 
-public val DISPID_ISDPacketCount: DISPID_InkStrokeDisp = 17
+public val DISPID_ISD_PACKET_COUNT: DispidInkStrokeDisp = 17
 
-public val DISPID_ISDPacketDescription: DISPID_InkStrokeDisp = 19
+public val DISPID_ISD_PACKET_DESCRIPTION: DispidInkStrokeDisp = 19
 
-public val DISPID_ISDPacketSize: DISPID_InkStrokeDisp = 18
+public val DISPID_ISD_PACKET_SIZE: DispidInkStrokeDisp = 18
 
-public val DISPID_ISDPolylineCusps: DISPID_InkStrokeDisp = 14
+public val DISPID_ISD_POLYLINE_CUSPS: DispidInkStrokeDisp = 14
 
-public val DISPID_ISDRotate: DISPID_InkStrokeDisp = 31
+public val DISPID_ISD_ROTATE: DispidInkStrokeDisp = 31
 
-public val DISPID_ISDScale: DISPID_InkStrokeDisp = 33
+public val DISPID_ISD_SCALE: DispidInkStrokeDisp = 33
 
-public val DISPID_ISDScaleToRectangle: DISPID_InkStrokeDisp = 28
+public val DISPID_ISD_SCALE_TO_RECTANGLE: DispidInkStrokeDisp = 28
 
-public val DISPID_ISDSelfIntersections: DISPID_InkStrokeDisp = 16
+public val DISPID_ISD_SELF_INTERSECTIONS: DispidInkStrokeDisp = 16
 
-public val DISPID_ISDSetPacketValuesByProperty: DISPID_InkStrokeDisp = 26
+public val DISPID_ISD_SET_PACKET_VALUES_BY_PROPERTY: DispidInkStrokeDisp = 26
 
-public val DISPID_ISDSetPoints: DISPID_InkStrokeDisp = 23
+public val DISPID_ISD_SET_POINTS: DispidInkStrokeDisp = 23
 
-public val DISPID_ISDShear: DISPID_InkStrokeDisp = 32
+public val DISPID_ISD_SHEAR: DispidInkStrokeDisp = 32
 
-public val DISPID_ISDSplit: DISPID_InkStrokeDisp = 10
+public val DISPID_ISD_SPLIT: DispidInkStrokeDisp = 10
 
-public val DISPID_ISDTransform: DISPID_InkStrokeDisp = 29
+public val DISPID_ISD_TRANSFORM: DispidInkStrokeDisp = 29
 
-public val DISPID_ISave: DISPID_Ink = 19
+public val DISPID_I_SAVE: DispidInk = 19
 
-public val DISPID_ISsAdd: DISPID_InkStrokes = 4
+public val DISPID_I_SS_ADD: DispidInkStrokes = 4
 
-public val DISPID_ISsAddStrokes: DISPID_InkStrokes = 5
+public val DISPID_I_SS_ADD_STROKES: DispidInkStrokes = 5
 
-public val DISPID_ISsClip: DISPID_InkStrokes = 17
+public val DISPID_I_SS_CLIP: DispidInkStrokes = 17
 
-public val DISPID_ISsCount: DISPID_InkStrokes = 1
+public val DISPID_I_SS_COUNT: DispidInkStrokes = 1
 
-public val DISPID_ISsGetBoundingBox: DISPID_InkStrokes = 10
+public val DISPID_I_SS_GET_BOUNDING_BOX: DispidInkStrokes = 10
 
-public val DISPID_ISsInk: DISPID_InkStrokes = 3
+public val DISPID_I_SS_INK: DispidInkStrokes = 3
 
-public val DISPID_ISsItem: DISPID_InkStrokes = 0
+public val DISPID_I_SS_ITEM: DispidInkStrokes = 0
 
-public val DISPID_ISsModifyDrawingAttributes: DISPID_InkStrokes = 9
+public val DISPID_I_SS_MODIFY_DRAWING_ATTRIBUTES: DispidInkStrokes = 9
 
-public val DISPID_ISsMove: DISPID_InkStrokes = 13
+public val DISPID_I_SS_MOVE: DispidInkStrokes = 13
 
-public val DISPID_ISsRecognitionResult: DISPID_InkStrokes = 18
+public val DISPID_I_SS_RECOGNITION_RESULT: DispidInkStrokes = 18
 
-public val DISPID_ISsRemove: DISPID_InkStrokes = 6
+public val DISPID_I_SS_REMOVE: DispidInkStrokes = 6
 
-public val DISPID_ISsRemoveRecognitionResult: DISPID_InkStrokes = 19
+public val DISPID_I_SS_REMOVE_RECOGNITION_RESULT: DispidInkStrokes = 19
 
-public val DISPID_ISsRemoveStrokes: DISPID_InkStrokes = 7
+public val DISPID_I_SS_REMOVE_STROKES: DispidInkStrokes = 7
 
-public val DISPID_ISsRotate: DISPID_InkStrokes = 14
+public val DISPID_I_SS_ROTATE: DispidInkStrokes = 14
 
-public val DISPID_ISsScale: DISPID_InkStrokes = 16
+public val DISPID_I_SS_SCALE: DispidInkStrokes = 16
 
-public val DISPID_ISsScaleToRectangle: DISPID_InkStrokes = 11
+public val DISPID_I_SS_SCALE_TO_RECTANGLE: DispidInkStrokes = 11
 
-public val DISPID_ISsShear: DISPID_InkStrokes = 15
+public val DISPID_I_SS_SHEAR: DispidInkStrokes = 15
 
-public val DISPID_ISsToString: DISPID_InkStrokes = 8
+public val DISPID_I_SS_TO_STRING: DispidInkStrokes = 8
 
-public val DISPID_ISsTransform: DISPID_InkStrokes = 12
+public val DISPID_I_SS_TRANSFORM: DispidInkStrokes = 12
 
-public val DISPID_ISsValid: DISPID_InkStrokes = 2
+public val DISPID_I_SS_VALID: DispidInkStrokes = 2
 
-public val DISPID_ISs_NewEnum: DISPID_InkStrokes = -4
+public val DISPID_I_SS_NEW_ENUM: DispidInkStrokes = -4
 
-public val DISPID_IStrokes: DISPID_Ink = 1
+public val DISPID_I_STROKES: DispidInk = 1
 
-public val DISPID_IT2DeviceKind: DISPID_InkTablet2 = 0
+public val DISPID_IT2DEVICE_KIND: DispidInkTablet2 = 0
 
-public val DISPID_IT3IsMultiTouch: DISPID_InkTablet3 = 0
+public val DISPID_IT3IS_MULTI_TOUCH: DispidInkTablet3 = 0
 
-public val DISPID_IT3MaximumCursors: DISPID_InkTablet3 = 1
+public val DISPID_IT3MAXIMUM_CURSORS: DispidInkTablet3 = 1
 
-public val DISPID_ITData: DISPID_InkTransform = 15
+public val DISPID_IT_DATA: DispidInkTransform = 15
 
-public val DISPID_ITGetTransform: DISPID_InkTransform = 13
+public val DISPID_IT_GET_TRANSFORM: DispidInkTransform = 13
 
-public val DISPID_ITHardwareCapabilities: DISPID_InkTablet = 5
+public val DISPID_IT_HARDWARE_CAPABILITIES: DispidInkTablet = 5
 
-public val DISPID_ITIsPacketPropertySupported: DISPID_InkTablet = 3
+public val DISPID_IT_IS_PACKET_PROPERTY_SUPPORTED: DispidInkTablet = 3
 
-public val DISPID_ITMaximumInputRectangle: DISPID_InkTablet = 4
+public val DISPID_IT_MAXIMUM_INPUT_RECTANGLE: DispidInkTablet = 4
 
-public val DISPID_ITName: DISPID_InkTablet = 0
+public val DISPID_IT_NAME: DispidInkTablet = 0
 
-public val DISPID_ITPlugAndPlayId: DISPID_InkTablet = 1
+public val DISPID_IT_PLUG_AND_PLAY_ID: DispidInkTablet = 1
 
-public val DISPID_ITPropertyMetrics: DISPID_InkTablet = 2
+public val DISPID_IT_PROPERTY_METRICS: DispidInkTablet = 2
 
-public val DISPID_ITReflect: DISPID_InkTransform = 4
+public val DISPID_IT_REFLECT: DispidInkTransform = 4
 
-public val DISPID_ITReset: DISPID_InkTransform = 1
+public val DISPID_IT_RESET: DispidInkTransform = 1
 
-public val DISPID_ITRotate: DISPID_InkTransform = 3
+public val DISPID_IT_ROTATE: DispidInkTransform = 3
 
-public val DISPID_ITScale: DISPID_InkTransform = 6
+public val DISPID_IT_SCALE: DispidInkTransform = 6
 
-public val DISPID_ITSetTransform: DISPID_InkTransform = 14
+public val DISPID_IT_SET_TRANSFORM: DispidInkTransform = 14
 
-public val DISPID_ITShear: DISPID_InkTransform = 5
+public val DISPID_IT_SHEAR: DispidInkTransform = 5
 
-public val DISPID_ITTranslate: DISPID_InkTransform = 2
+public val DISPID_IT_TRANSLATE: DispidInkTransform = 2
 
-public val DISPID_ITeDx: DISPID_InkTransform = 11
+public val DISPID_I_TE_DX: DispidInkTransform = 11
 
-public val DISPID_ITeDy: DISPID_InkTransform = 12
+public val DISPID_I_TE_DY: DispidInkTransform = 12
 
-public val DISPID_ITeM11: DISPID_InkTransform = 7
+public val DISPID_I_TE_M11: DispidInkTransform = 7
 
-public val DISPID_ITeM12: DISPID_InkTransform = 8
+public val DISPID_I_TE_M12: DispidInkTransform = 8
 
-public val DISPID_ITeM21: DISPID_InkTransform = 9
+public val DISPID_I_TE_M21: DispidInkTransform = 9
 
-public val DISPID_ITeM22: DISPID_InkTransform = 10
+public val DISPID_I_TE_M22: DispidInkTransform = 10
 
-public val DISPID_ITsCount: DISPID_InkTablets = 2
+public val DISPID_I_TS_COUNT: DispidInkTablets = 2
 
-public val DISPID_ITsDefaultTablet: DISPID_InkTablets = 1
+public val DISPID_I_TS_DEFAULT_TABLET: DispidInkTablets = 1
 
-public val DISPID_ITsIsPacketPropertySupported: DISPID_InkTablets = 3
+public val DISPID_I_TS_IS_PACKET_PROPERTY_SUPPORTED: DispidInkTablets = 3
 
-public val DISPID_ITsItem: DISPID_InkTablets = 0
+public val DISPID_I_TS_ITEM: DispidInkTablets = 0
 
-public val DISPID_ITs_NewEnum: DISPID_InkTablets = -4
+public val DISPID_I_TS_NEW_ENUM: DispidInkTablets = -4
 
-public val DISPID_IeeChange: DISPID_InkEditEvents = 1
+public val DISPID_IEE_CHANGE: DispidInkEditEvents = 1
 
-public val DISPID_IeeClick: DISPID_InkEditEvents = 9
+public val DISPID_IEE_CLICK: DispidInkEditEvents = 9
 
-public val DISPID_IeeCursorDown: DISPID_InkEditEvents = 21
+public val DISPID_IEE_CURSOR_DOWN: DispidInkEditEvents = 21
 
-public val DISPID_IeeDblClick: DISPID_InkEditEvents = 8
+public val DISPID_IEE_DBL_CLICK: DispidInkEditEvents = 8
 
-public val DISPID_IeeGesture: DISPID_InkEditEvents = 23
+public val DISPID_IEE_GESTURE: DispidInkEditEvents = 23
 
-public val DISPID_IeeKeyDown: DISPID_InkEditEvents = 3
+public val DISPID_IEE_KEY_DOWN: DispidInkEditEvents = 3
 
-public val DISPID_IeeKeyPress: DISPID_InkEditEvents = 7
+public val DISPID_IEE_KEY_PRESS: DispidInkEditEvents = 7
 
-public val DISPID_IeeKeyUp: DISPID_InkEditEvents = 4
+public val DISPID_IEE_KEY_UP: DispidInkEditEvents = 4
 
-public val DISPID_IeeMouseDown: DISPID_InkEditEvents = 6
+public val DISPID_IEE_MOUSE_DOWN: DispidInkEditEvents = 6
 
-public val DISPID_IeeMouseMove: DISPID_InkEditEvents = 10
+public val DISPID_IEE_MOUSE_MOVE: DispidInkEditEvents = 10
 
-public val DISPID_IeeMouseUp: DISPID_InkEditEvents = 5
+public val DISPID_IEE_MOUSE_UP: DispidInkEditEvents = 5
 
-public val DISPID_IeeRecognitionResult: DISPID_InkEditEvents = 24
+public val DISPID_IEE_RECOGNITION_RESULT: DispidInkEditEvents = 24
 
-public val DISPID_IeeSelChange: DISPID_InkEditEvents = 2
+public val DISPID_IEE_SEL_CHANGE: DispidInkEditEvents = 2
 
-public val DISPID_IeeStroke: DISPID_InkEditEvents = 22
+public val DISPID_IEE_STROKE: DispidInkEditEvents = 22
 
-public val DISPID_InkInsertMode: DISPID_InkEdit = 25
+public val DISPID_INK_INSERT_MODE: DispidInkEdit = 25
 
-public val DISPID_InkMode: DISPID_InkEdit = 24
+public val DISPID_INK_MODE: DispidInkEdit = 24
 
-public val DISPID_InkRecoAlternate_AlternatesWithConstantPropertyValues: DISPID_InkRecoAlternate = 15
+public val DISPID_INK_RECO_ALTERNATE_ALTERNATES_WITH_CONSTANT_PROPERTY_VALUES: DispidInkRecoAlternate = 15
 
-public val DISPID_InkRecoAlternate_Ascender: DISPID_InkRecoAlternate = 5
+public val DISPID_INK_RECO_ALTERNATE_ASCENDER: DispidInkRecoAlternate = 5
 
-public val DISPID_InkRecoAlternate_Baseline: DISPID_InkRecoAlternate = 3
+public val DISPID_INK_RECO_ALTERNATE_BASELINE: DispidInkRecoAlternate = 3
 
-public val DISPID_InkRecoAlternate_Confidence: DISPID_InkRecoAlternate = 7
+public val DISPID_INK_RECO_ALTERNATE_CONFIDENCE: DispidInkRecoAlternate = 7
 
-public val DISPID_InkRecoAlternate_ConfidenceAlternates: DISPID_InkRecoAlternate = 14
+public val DISPID_INK_RECO_ALTERNATE_CONFIDENCE_ALTERNATES: DispidInkRecoAlternate = 14
 
-public val DISPID_InkRecoAlternate_Descender: DISPID_InkRecoAlternate = 6
+public val DISPID_INK_RECO_ALTERNATE_DESCENDER: DispidInkRecoAlternate = 6
 
-public val DISPID_InkRecoAlternate_GetPropertyValue: DISPID_InkRecoAlternate = 12
+public val DISPID_INK_RECO_ALTERNATE_GET_PROPERTY_VALUE: DispidInkRecoAlternate = 12
 
-public val DISPID_InkRecoAlternate_GetStrokesFromStrokeRanges: DISPID_InkRecoAlternate = 9
+public val DISPID_INK_RECO_ALTERNATE_GET_STROKES_FROM_STROKE_RANGES: DispidInkRecoAlternate = 9
 
-public val DISPID_InkRecoAlternate_GetStrokesFromTextRange: DISPID_InkRecoAlternate = 10
+public val DISPID_INK_RECO_ALTERNATE_GET_STROKES_FROM_TEXT_RANGE: DispidInkRecoAlternate = 10
 
-public val DISPID_InkRecoAlternate_GetTextRangeFromStrokes: DISPID_InkRecoAlternate = 11
+public val DISPID_INK_RECO_ALTERNATE_GET_TEXT_RANGE_FROM_STROKES: DispidInkRecoAlternate = 11
 
-public val DISPID_InkRecoAlternate_LineAlternates: DISPID_InkRecoAlternate = 13
+public val DISPID_INK_RECO_ALTERNATE_LINE_ALTERNATES: DispidInkRecoAlternate = 13
 
-public val DISPID_InkRecoAlternate_LineNumber: DISPID_InkRecoAlternate = 2
+public val DISPID_INK_RECO_ALTERNATE_LINE_NUMBER: DispidInkRecoAlternate = 2
 
-public val DISPID_InkRecoAlternate_Midline: DISPID_InkRecoAlternate = 4
+public val DISPID_INK_RECO_ALTERNATE_MIDLINE: DispidInkRecoAlternate = 4
 
-public val DISPID_InkRecoAlternate_String: DISPID_InkRecoAlternate = 1
+public val DISPID_INK_RECO_ALTERNATE_STRING: DispidInkRecoAlternate = 1
 
-public val DISPID_InkRecoAlternate_Strokes: DISPID_InkRecoAlternate = 8
+public val DISPID_INK_RECO_ALTERNATE_STROKES: DispidInkRecoAlternate = 8
 
-public val DISPID_InkRecognitionAlternates_Count: DISPID_InkRecognitionAlternates = 1
+public val DISPID_INK_RECOGNITION_ALTERNATES_COUNT: DispidInkRecognitionAlternates = 1
 
-public val DISPID_InkRecognitionAlternates_Item: DISPID_InkRecognitionAlternates = 0
+public val DISPID_INK_RECOGNITION_ALTERNATES_ITEM: DispidInkRecognitionAlternates = 0
 
-public val DISPID_InkRecognitionAlternates_NewEnum: DISPID_InkRecognitionAlternates = -4
+public val DISPID_INK_RECOGNITION_ALTERNATES_NEW_ENUM: DispidInkRecognitionAlternates = -4
 
-public val DISPID_InkRecognitionAlternates_Strokes: DISPID_InkRecognitionAlternates = 2
+public val DISPID_INK_RECOGNITION_ALTERNATES_STROKES: DispidInkRecognitionAlternates = 2
 
-public val DISPID_InkRecognitionResult_AlternatesFromSelection: DISPID_InkRecognitionResult = 5
+public val DISPID_INK_RECOGNITION_RESULT_ALTERNATES_FROM_SELECTION: DispidInkRecognitionResult = 5
 
-public val DISPID_InkRecognitionResult_ModifyTopAlternate: DISPID_InkRecognitionResult = 6
+public val DISPID_INK_RECOGNITION_RESULT_MODIFY_TOP_ALTERNATE: DispidInkRecognitionResult = 6
 
-public val DISPID_InkRecognitionResult_SetResultOnStrokes: DISPID_InkRecognitionResult = 7
+public val DISPID_INK_RECOGNITION_RESULT_SET_RESULT_ON_STROKES: DispidInkRecognitionResult = 7
 
-public val DISPID_InkRecognitionResult_Strokes: DISPID_InkRecognitionResult = 3
+public val DISPID_INK_RECOGNITION_RESULT_STROKES: DispidInkRecognitionResult = 3
 
-public val DISPID_InkRecognitionResult_TopAlternate: DISPID_InkRecognitionResult = 2
+public val DISPID_INK_RECOGNITION_RESULT_TOP_ALTERNATE: DispidInkRecognitionResult = 2
 
-public val DISPID_InkRecognitionResult_TopConfidence: DISPID_InkRecognitionResult = 4
+public val DISPID_INK_RECOGNITION_RESULT_TOP_CONFIDENCE: DispidInkRecognitionResult = 4
 
-public val DISPID_InkRecognitionResult_TopString: DISPID_InkRecognitionResult = 1
+public val DISPID_INK_RECOGNITION_RESULT_TOP_STRING: DispidInkRecognitionResult = 1
 
-public val DISPID_InkWordList2_AddWords: DISPID_InkWordList2 = 3
+public val DISPID_INK_WORD_LIST2_ADD_WORDS: DispidInkWordList2 = 3
 
-public val DISPID_InkWordList_AddWord: DISPID_InkWordList = 0
+public val DISPID_INK_WORD_LIST_ADD_WORD: DispidInkWordList = 0
 
-public val DISPID_InkWordList_Merge: DISPID_InkWordList = 2
+public val DISPID_INK_WORD_LIST_MERGE: DispidInkWordList = 2
 
-public val DISPID_InkWordList_RemoveWord: DISPID_InkWordList = 1
+public val DISPID_INK_WORD_LIST_REMOVE_WORD: DispidInkWordList = 1
 
-public val DISPID_Locked: DISPID_InkEdit = 4
+public val DISPID_LOCKED: DispidInkEdit = 4
 
-public val DISPID_MICClear: DISPID_MathInputControlEvents = 3
+public val DISPID_MIC_CLEAR: DispidMathInputControlEvents = 3
 
-public val DISPID_MICClose: DISPID_MathInputControlEvents = 1
+public val DISPID_MIC_CLOSE: DispidMathInputControlEvents = 1
 
-public val DISPID_MICInsert: DISPID_MathInputControlEvents = 0
+public val DISPID_MIC_INSERT: DispidMathInputControlEvents = 0
 
-public val DISPID_MICPaint: DISPID_MathInputControlEvents = 2
+public val DISPID_MIC_PAINT: DispidMathInputControlEvents = 2
 
-public val DISPID_MaxLength: DISPID_InkEdit = 6
+public val DISPID_MAX_LENGTH: DispidInkEdit = 6
 
-public val DISPID_MultiLine: DISPID_InkEdit = 7
+public val DISPID_MULTI_LINE: DispidInkEdit = 7
 
-public val DISPID_PIPAttachedEditWindow: DISPID_PenInputPanel = 0
+public val DISPID_PIP_ATTACHED_EDIT_WINDOW: DispidPenInputPanel = 0
 
-public val DISPID_PIPAutoShow: DISPID_PenInputPanel = 16
+public val DISPID_PIP_AUTO_SHOW: DispidPenInputPanel = 16
 
-public val DISPID_PIPBusy: DISPID_PenInputPanel = 12
+public val DISPID_PIP_BUSY: DispidPenInputPanel = 12
 
-public val DISPID_PIPCommitPendingInput: DISPID_PenInputPanel = 10
+public val DISPID_PIP_COMMIT_PENDING_INPUT: DispidPenInputPanel = 10
 
-public val DISPID_PIPCurrentPanel: DISPID_PenInputPanel = 2
+public val DISPID_PIP_CURRENT_PANEL: DispidPenInputPanel = 2
 
-public val DISPID_PIPDefaultPanel: DISPID_PenInputPanel = 3
+public val DISPID_PIP_DEFAULT_PANEL: DispidPenInputPanel = 3
 
-public val DISPID_PIPEInputFailed: DISPID_PenInputPanelEvents = 2
+public val DISPID_PIPE_INPUT_FAILED: DispidPenInputPanelEvents = 2
 
-public val DISPID_PIPEPanelChanged: DISPID_PenInputPanelEvents = 1
+public val DISPID_PIPE_PANEL_CHANGED: DispidPenInputPanelEvents = 1
 
-public val DISPID_PIPEPanelMoving: DISPID_PenInputPanelEvents = 3
+public val DISPID_PIPE_PANEL_MOVING: DispidPenInputPanelEvents = 3
 
-public val DISPID_PIPEVisibleChanged: DISPID_PenInputPanelEvents = 0
+public val DISPID_PIPE_VISIBLE_CHANGED: DispidPenInputPanelEvents = 0
 
-public val DISPID_PIPEnableTsf: DISPID_PenInputPanel = 15
+public val DISPID_PIP_ENABLE_TSF: DispidPenInputPanel = 15
 
-public val DISPID_PIPFactoid: DISPID_PenInputPanel = 1
+public val DISPID_PIP_FACTOID: DispidPenInputPanel = 1
 
-public val DISPID_PIPHeight: DISPID_PenInputPanel = 8
+public val DISPID_PIP_HEIGHT: DispidPenInputPanel = 8
 
-public val DISPID_PIPHorizontalOffset: DISPID_PenInputPanel = 14
+public val DISPID_PIP_HORIZONTAL_OFFSET: DispidPenInputPanel = 14
 
-public val DISPID_PIPLeft: DISPID_PenInputPanel = 6
+public val DISPID_PIP_LEFT: DispidPenInputPanel = 6
 
-public val DISPID_PIPMoveTo: DISPID_PenInputPanel = 9
+public val DISPID_PIP_MOVE_TO: DispidPenInputPanel = 9
 
-public val DISPID_PIPRefresh: DISPID_PenInputPanel = 11
+public val DISPID_PIP_REFRESH: DispidPenInputPanel = 11
 
-public val DISPID_PIPTop: DISPID_PenInputPanel = 5
+public val DISPID_PIP_TOP: DispidPenInputPanel = 5
 
-public val DISPID_PIPVerticalOffset: DISPID_PenInputPanel = 13
+public val DISPID_PIP_VERTICAL_OFFSET: DispidPenInputPanel = 13
 
-public val DISPID_PIPVisible: DISPID_PenInputPanel = 4
+public val DISPID_PIP_VISIBLE: DispidPenInputPanel = 4
 
-public val DISPID_PIPWidth: DISPID_PenInputPanel = 7
+public val DISPID_PIP_WIDTH: DispidPenInputPanel = 7
 
-public val DISPID_RTSelLength: DISPID_InkEdit = 10
+public val DISPID_RT_SEL_LENGTH: DispidInkEdit = 10
 
-public val DISPID_RTSelStart: DISPID_InkEdit = 9
+public val DISPID_RT_SEL_START: DispidInkEdit = 9
 
-public val DISPID_RTSelText: DISPID_InkEdit = 11
+public val DISPID_RT_SEL_TEXT: DispidInkEdit = 11
 
-public val DISPID_RecoCapabilities: DISPID_InkRecognizer = 4
+public val DISPID_RECO_CAPABILITIES: DispidInkRecognizer = 4
 
-public val DISPID_RecoClsid: DISPID_InkRecognizer = 1
+public val DISPID_RECO_CLSID: DispidInkRecognizer = 1
 
-public val DISPID_RecoCreateRecognizerContext: DISPID_InkRecognizer = 7
+public val DISPID_RECO_CREATE_RECOGNIZER_CONTEXT: DispidInkRecognizer = 7
 
-public val DISPID_RecoId: DISPID_InkRecognizer2 = 0
+public val DISPID_RECO_ID: DispidInkRecognizer2 = 0
 
-public val DISPID_RecoLanguageID: DISPID_InkRecognizer = 5
+public val DISPID_RECO_LANGUAGE_ID: DispidInkRecognizer = 5
 
-public val DISPID_RecoName: DISPID_InkRecognizer = 2
+public val DISPID_RECO_NAME: DispidInkRecognizer = 2
 
-public val DISPID_RecoPreferredPacketDescription: DISPID_InkRecognizer = 6
+public val DISPID_RECO_PREFERRED_PACKET_DESCRIPTION: DispidInkRecognizer = 6
 
-public val DISPID_RecoSupportedProperties: DISPID_InkRecognizer = 8
+public val DISPID_RECO_SUPPORTED_PROPERTIES: DispidInkRecognizer = 8
 
-public val DISPID_RecoTimeout: DISPID_InkEdit = 26
+public val DISPID_RECO_TIMEOUT: DispidInkEdit = 26
 
-public val DISPID_RecoUnicodeRanges: DISPID_InkRecognizer2 = 1
+public val DISPID_RECO_UNICODE_RANGES: DispidInkRecognizer2 = 1
 
-public val DISPID_RecoVendor: DISPID_InkRecognizer = 3
+public val DISPID_RECO_VENDOR: DispidInkRecognizer = 3
 
-public val DISPID_Recognize: DISPID_InkEdit = 32
+public val DISPID_RECOGNIZE: DispidInkEdit = 32
 
-public val DISPID_Recognizer: DISPID_InkEdit = 28
+public val DISPID_RECOGNIZER: DispidInkEdit = 28
 
-public val DISPID_Refresh: DISPID_InkEdit = 35
+public val DISPID_REFRESH: DispidInkEdit = 35
 
-public val DISPID_SEStrokesAdded: DISPID_StrokeEvent = 1
+public val DISPID_SE_STROKES_ADDED: DispidStrokeEvent = 1
 
-public val DISPID_SEStrokesRemoved: DISPID_StrokeEvent = 2
+public val DISPID_SE_STROKES_REMOVED: DispidStrokeEvent = 2
 
-public val DISPID_ScrollBars: DISPID_InkEdit = 8
+public val DISPID_SCROLL_BARS: DispidInkEdit = 8
 
-public val DISPID_SelAlignment: DISPID_InkEdit = 12
+public val DISPID_SEL_ALIGNMENT: DispidInkEdit = 12
 
-public val DISPID_SelBold: DISPID_InkEdit = 13
+public val DISPID_SEL_BOLD: DispidInkEdit = 13
 
-public val DISPID_SelCharOffset: DISPID_InkEdit = 14
+public val DISPID_SEL_CHAR_OFFSET: DispidInkEdit = 14
 
-public val DISPID_SelColor: DISPID_InkEdit = 15
+public val DISPID_SEL_COLOR: DispidInkEdit = 15
 
-public val DISPID_SelFontName: DISPID_InkEdit = 16
+public val DISPID_SEL_FONT_NAME: DispidInkEdit = 16
 
-public val DISPID_SelFontSize: DISPID_InkEdit = 17
+public val DISPID_SEL_FONT_SIZE: DispidInkEdit = 17
 
-public val DISPID_SelInk: DISPID_InkEdit = 30
+public val DISPID_SEL_INK: DispidInkEdit = 30
 
-public val DISPID_SelInksDisplayMode: DISPID_InkEdit = 31
+public val DISPID_SEL_INKS_DISPLAY_MODE: DispidInkEdit = 31
 
-public val DISPID_SelItalic: DISPID_InkEdit = 18
+public val DISPID_SEL_ITALIC: DispidInkEdit = 18
 
-public val DISPID_SelRTF: DISPID_InkEdit = 19
+public val DISPID_SEL_RTF: DispidInkEdit = 19
 
-public val DISPID_SelUnderline: DISPID_InkEdit = 20
+public val DISPID_SEL_UNDERLINE: DispidInkEdit = 20
 
-public val DISPID_SetGestStatus: DISPID_InkEdit = 34
+public val DISPID_SET_GEST_STATUS: DispidInkEdit = 34
 
-public val DISPID_Status: DISPID_InkEdit = 22
+public val DISPID_STATUS: DispidInkEdit = 22
 
-public val DISPID_Text: DISPID_InkEdit = 0
+public val DISPID_TEXT: DispidInkEdit = 0
 
-public val DISPID_TextRTF: DISPID_InkEdit = 1
+public val DISPID_TEXT_RTF: DispidInkEdit = 1
 
-public val DISPID_UseMouseForInput: DISPID_InkEdit = 23
+public val DISPID_USE_MOUSE_FOR_INPUT: DispidInkEdit = 23
 
-public val DockedBottom: VisualState = 3
+public val DOCKED_BOTTOM: VisualState = 3
 
-public val DockedTop: VisualState = 2
+public val DOCKED_TOP: VisualState = 2
 
-public val DynamicRenderer: GUID = GUID.from_u128(U128(0xecd32aea746f4dcbuL, 0xbf68082757faff18uL))
+public val DYNAMIC_RENDERER: Guid = Guid.fromU128(U128(0xecd32aea746f4dcbuL, 0xbf68082757faff18uL))
 
 public val EM_GETDRAWATTR: UInt = 1541u
 
@@ -955,143 +955,143 @@ public val EM_SETSELINKDISPLAYMODE: UInt = 1561u
 
 public val EM_SETUSEMOUSEFORINPUT: UInt = 1560u
 
-public val EventMask_All: EventMask = 4095
+public val EVENT_MASK_ALL: EventMask = 4095
 
-public val EventMask_CorrectionModeChanged: EventMask = 128
+public val EVENT_MASK_CORRECTION_MODE_CHANGED: EventMask = 128
 
-public val EventMask_CorrectionModeChanging: EventMask = 64
+public val EVENT_MASK_CORRECTION_MODE_CHANGING: EventMask = 64
 
-public val EventMask_InPlaceSizeChanged: EventMask = 8
+public val EVENT_MASK_IN_PLACE_SIZE_CHANGED: EventMask = 8
 
-public val EventMask_InPlaceSizeChanging: EventMask = 4
+public val EVENT_MASK_IN_PLACE_SIZE_CHANGING: EventMask = 4
 
-public val EventMask_InPlaceStateChanged: EventMask = 2
+public val EVENT_MASK_IN_PLACE_STATE_CHANGED: EventMask = 2
 
-public val EventMask_InPlaceStateChanging: EventMask = 1
+public val EVENT_MASK_IN_PLACE_STATE_CHANGING: EventMask = 1
 
-public val EventMask_InPlaceVisibilityChanged: EventMask = 512
+public val EVENT_MASK_IN_PLACE_VISIBILITY_CHANGED: EventMask = 512
 
-public val EventMask_InPlaceVisibilityChanging: EventMask = 256
+public val EVENT_MASK_IN_PLACE_VISIBILITY_CHANGING: EventMask = 256
 
-public val EventMask_InputAreaChanged: EventMask = 32
+public val EVENT_MASK_INPUT_AREA_CHANGED: EventMask = 32
 
-public val EventMask_InputAreaChanging: EventMask = 16
+public val EVENT_MASK_INPUT_AREA_CHANGING: EventMask = 16
 
-public val EventMask_TextInserted: EventMask = 2048
+public val EVENT_MASK_TEXT_INSERTED: EventMask = 2048
 
-public val EventMask_TextInserting: EventMask = 1024
+public val EVENT_MASK_TEXT_INSERTING: EventMask = 1024
 
 public val FACILITY_INK: UInt = 40u
 
-public val FACTOID_BOPOMOFO: PCWSTR = w("BOPOMOFO")
+public val FACTOID_BOPOMOFO: Pcwstr = w("BOPOMOFO")
 
-public val FACTOID_CHINESESIMPLECOMMON: PCWSTR = w("CHS_COMMON")
+public val FACTOID_CHINESESIMPLECOMMON: Pcwstr = w("CHS_COMMON")
 
-public val FACTOID_CHINESETRADITIONALCOMMON: PCWSTR = w("CHT_COMMON")
+public val FACTOID_CHINESETRADITIONALCOMMON: Pcwstr = w("CHT_COMMON")
 
-public val FACTOID_CURRENCY: PCWSTR = w("CURRENCY")
+public val FACTOID_CURRENCY: Pcwstr = w("CURRENCY")
 
-public val FACTOID_DATE: PCWSTR = w("DATE")
+public val FACTOID_DATE: Pcwstr = w("DATE")
 
-public val FACTOID_DEFAULT: PCWSTR = w("DEFAULT")
+public val FACTOID_DEFAULT: Pcwstr = w("DEFAULT")
 
-public val FACTOID_DIGIT: PCWSTR = w("DIGIT")
+public val FACTOID_DIGIT: Pcwstr = w("DIGIT")
 
-public val FACTOID_EMAIL: PCWSTR = w("EMAIL")
+public val FACTOID_EMAIL: Pcwstr = w("EMAIL")
 
-public val FACTOID_FILENAME: PCWSTR = w("FILENAME")
+public val FACTOID_FILENAME: Pcwstr = w("FILENAME")
 
-public val FACTOID_HANGULCOMMON: PCWSTR = w("HANGUL_COMMON")
+public val FACTOID_HANGULCOMMON: Pcwstr = w("HANGUL_COMMON")
 
-public val FACTOID_HANGULRARE: PCWSTR = w("HANGUL_RARE")
+public val FACTOID_HANGULRARE: Pcwstr = w("HANGUL_RARE")
 
-public val FACTOID_HIRAGANA: PCWSTR = w("HIRAGANA")
+public val FACTOID_HIRAGANA: Pcwstr = w("HIRAGANA")
 
-public val FACTOID_JAMO: PCWSTR = w("JAMO")
+public val FACTOID_JAMO: Pcwstr = w("JAMO")
 
-public val FACTOID_JAPANESECOMMON: PCWSTR = w("JPN_COMMON")
+public val FACTOID_JAPANESECOMMON: Pcwstr = w("JPN_COMMON")
 
-public val FACTOID_KANJICOMMON: PCWSTR = w("KANJI_COMMON")
+public val FACTOID_KANJICOMMON: Pcwstr = w("KANJI_COMMON")
 
-public val FACTOID_KANJIRARE: PCWSTR = w("KANJI_RARE")
+public val FACTOID_KANJIRARE: Pcwstr = w("KANJI_RARE")
 
-public val FACTOID_KATAKANA: PCWSTR = w("KATAKANA")
+public val FACTOID_KATAKANA: Pcwstr = w("KATAKANA")
 
-public val FACTOID_KOREANCOMMON: PCWSTR = w("KOR_COMMON")
+public val FACTOID_KOREANCOMMON: Pcwstr = w("KOR_COMMON")
 
-public val FACTOID_LOWERCHAR: PCWSTR = w("LOWERCHAR")
+public val FACTOID_LOWERCHAR: Pcwstr = w("LOWERCHAR")
 
-public val FACTOID_NONE: PCWSTR = w("NONE")
+public val FACTOID_NONE: Pcwstr = w("NONE")
 
-public val FACTOID_NUMBER: PCWSTR = w("NUMBER")
+public val FACTOID_NUMBER: Pcwstr = w("NUMBER")
 
-public val FACTOID_NUMBERSIMPLE: PCWSTR = w("NUMSIMPLE")
+public val FACTOID_NUMBERSIMPLE: Pcwstr = w("NUMSIMPLE")
 
-public val FACTOID_ONECHAR: PCWSTR = w("ONECHAR")
+public val FACTOID_ONECHAR: Pcwstr = w("ONECHAR")
 
-public val FACTOID_PERCENT: PCWSTR = w("PERCENT")
+public val FACTOID_PERCENT: Pcwstr = w("PERCENT")
 
-public val FACTOID_POSTALCODE: PCWSTR = w("POSTALCODE")
+public val FACTOID_POSTALCODE: Pcwstr = w("POSTALCODE")
 
-public val FACTOID_PUNCCHAR: PCWSTR = w("PUNCCHAR")
+public val FACTOID_PUNCCHAR: Pcwstr = w("PUNCCHAR")
 
-public val FACTOID_SYSTEMDICTIONARY: PCWSTR = w("SYSDICT")
+public val FACTOID_SYSTEMDICTIONARY: Pcwstr = w("SYSDICT")
 
-public val FACTOID_TELEPHONE: PCWSTR = w("TELEPHONE")
+public val FACTOID_TELEPHONE: Pcwstr = w("TELEPHONE")
 
-public val FACTOID_TIME: PCWSTR = w("TIME")
+public val FACTOID_TIME: Pcwstr = w("TIME")
 
-public val FACTOID_UPPERCHAR: PCWSTR = w("UPPERCHAR")
+public val FACTOID_UPPERCHAR: Pcwstr = w("UPPERCHAR")
 
-public val FACTOID_WEB: PCWSTR = w("WEB")
+public val FACTOID_WEB: Pcwstr = w("WEB")
 
-public val FACTOID_WORDLIST: PCWSTR = w("WORDLIST")
+public val FACTOID_WORDLIST: Pcwstr = w("WORDLIST")
 
-public val FLICKACTION_COMMANDCODE_APPCOMMAND: FLICKACTION_COMMANDCODE = 2
+public val FLICKACTION_COMMANDCODE_APPCOMMAND: FlickactionCommandcode = 2
 
-public val FLICKACTION_COMMANDCODE_CUSTOMKEY: FLICKACTION_COMMANDCODE = 3
+public val FLICKACTION_COMMANDCODE_CUSTOMKEY: FlickactionCommandcode = 3
 
-public val FLICKACTION_COMMANDCODE_KEYMODIFIER: FLICKACTION_COMMANDCODE = 4
+public val FLICKACTION_COMMANDCODE_KEYMODIFIER: FlickactionCommandcode = 4
 
-public val FLICKACTION_COMMANDCODE_NULL: FLICKACTION_COMMANDCODE = 0
+public val FLICKACTION_COMMANDCODE_NULL: FlickactionCommandcode = 0
 
-public val FLICKACTION_COMMANDCODE_SCROLL: FLICKACTION_COMMANDCODE = 1
+public val FLICKACTION_COMMANDCODE_SCROLL: FlickactionCommandcode = 1
 
-public val FLICKDIRECTION_DOWN: FLICKDIRECTION = 6
+public val FLICKDIRECTION_DOWN: Flickdirection = 6
 
-public val FLICKDIRECTION_DOWNLEFT: FLICKDIRECTION = 5
+public val FLICKDIRECTION_DOWNLEFT: Flickdirection = 5
 
-public val FLICKDIRECTION_DOWNRIGHT: FLICKDIRECTION = 7
+public val FLICKDIRECTION_DOWNRIGHT: Flickdirection = 7
 
-public val FLICKDIRECTION_INVALID: FLICKDIRECTION = 8
+public val FLICKDIRECTION_INVALID: Flickdirection = 8
 
-public val FLICKDIRECTION_LEFT: FLICKDIRECTION = 4
+public val FLICKDIRECTION_LEFT: Flickdirection = 4
 
-public val FLICKDIRECTION_MIN: FLICKDIRECTION = 0
+public val FLICKDIRECTION_MIN: Flickdirection = 0
 
-public val FLICKDIRECTION_RIGHT: FLICKDIRECTION = 0
+public val FLICKDIRECTION_RIGHT: Flickdirection = 0
 
-public val FLICKDIRECTION_UP: FLICKDIRECTION = 2
+public val FLICKDIRECTION_UP: Flickdirection = 2
 
-public val FLICKDIRECTION_UPLEFT: FLICKDIRECTION = 3
+public val FLICKDIRECTION_UPLEFT: Flickdirection = 3
 
-public val FLICKDIRECTION_UPRIGHT: FLICKDIRECTION = 1
+public val FLICKDIRECTION_UPRIGHT: Flickdirection = 1
 
-public val FLICKMODE_DEFAULT: FLICKMODE = 1
+public val FLICKMODE_DEFAULT: Flickmode = 1
 
-public val FLICKMODE_LEARNING: FLICKMODE = 2
+public val FLICKMODE_LEARNING: Flickmode = 2
 
-public val FLICKMODE_MAX: FLICKMODE = 2
+public val FLICKMODE_MAX: Flickmode = 2
 
-public val FLICKMODE_MIN: FLICKMODE = 0
+public val FLICKMODE_MIN: Flickmode = 0
 
-public val FLICKMODE_OFF: FLICKMODE = 0
+public val FLICKMODE_OFF: Flickmode = 0
 
-public val FLICKMODE_ON: FLICKMODE = 1
+public val FLICKMODE_ON: Flickmode = 1
 
 public val FLICK_WM_HANDLED_MASK: UInt = 1u
 
-public val Floating: VisualState = 1
+public val FLOATING: VisualState = 1
 
 public val GESTURE_ARROW_DOWN: UInt = 61497u
 
@@ -1361,243 +1361,243 @@ public val GESTURE_UP_RIGHT: UInt = 61545u
 
 public val GESTURE_UP_RIGHT_LONG: UInt = 61541u
 
-public val GUID_DYNAMIC_RENDERER_CACHED_DATA: GUID = GUID.from_u128(U128(0xbf531b9225bf4a95uL, 0x89ad0e476b34b4f5uL))
+public val GUID_DYNAMIC_RENDERER_CACHED_DATA: Guid = Guid.fromU128(U128(0xbf531b9225bf4a95uL, 0x89ad0e476b34b4f5uL))
 
-public val GUID_GESTURE_DATA: GUID = GUID.from_u128(U128(0x41e4ec0f26aa455auL, 0x9aa52cd36cf63fb9uL))
+public val GUID_GESTURE_DATA: Guid = Guid.fromU128(U128(0x41e4ec0f26aa455auL, 0x9aa52cd36cf63fb9uL))
 
-public val GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: GUID = GUID.from_u128(U128(0x82dec5c7f6ba4906uL, 0x894f66d68dfc456cuL))
+public val GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: Guid = Guid.fromU128(U128(0x82dec5c7f6ba4906uL, 0x894f66d68dfc456cuL))
 
-public val GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: GUID = GUID.from_u128(U128(0x29123b48828410buL, 0xb250a0536595e5dcuL))
+public val GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: Guid = Guid.fromU128(U128(0x29123b48828410buL, 0xb250a0536595e5dcuL))
 
-public val GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: GUID = GUID.from_u128(U128(0x8b7fefc496aa4bfeuL, 0xac268a5f0be07bf5uL))
+public val GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: Guid = Guid.fromU128(U128(0x8b7fefc496aa4bfeuL, 0xac268a5f0be07bf5uL))
 
-public val GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: GUID = GUID.from_u128(U128(0x2585b91049b4750uL, 0x9615df8948ab3c9cuL))
+public val GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: Guid = Guid.fromU128(U128(0x2585b91049b4750uL, 0x9615df8948ab3c9cuL))
 
-public val GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: GUID = GUID.from_u128(U128(0xe706c80457f04f00uL, 0x8a0c853d57789be9uL))
+public val GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: Guid = Guid.fromU128(U128(0xe706c80457f04f00uL, 0x8a0c853d57789be9uL))
 
-public val GUID_PACKETPROPERTY_GUID_HEIGHT: GUID = GUID.from_u128(U128(0xe61858d2e4474218uL, 0x9d3f18865c203df4uL))
+public val GUID_PACKETPROPERTY_GUID_HEIGHT: Guid = Guid.fromU128(U128(0xe61858d2e4474218uL, 0x9d3f18865c203df4uL))
 
-public val GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: GUID = GUID.from_u128(U128(0x7307502df9f44e18uL, 0xb3f22ce1b1a3610cuL))
+public val GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: Guid = Guid.fromU128(U128(0x7307502df9f44e18uL, 0xb3f22ce1b1a3610cuL))
 
-public val GUID_PACKETPROPERTY_GUID_PACKET_STATUS: GUID = GUID.from_u128(U128(0x6e0e07bfafe74cf7uL, 0x87d1af6446208418uL))
+public val GUID_PACKETPROPERTY_GUID_PACKET_STATUS: Guid = Guid.fromU128(U128(0x6e0e07bfafe74cf7uL, 0x87d1af6446208418uL))
 
-public val GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: GUID = GUID.from_u128(U128(0x7f7e57b7be374be1uL, 0xa3567a84160e1893uL))
+public val GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: Guid = Guid.fromU128(U128(0x7f7e57b7be374be1uL, 0xa3567a84160e1893uL))
 
-public val GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: GUID = GUID.from_u128(U128(0x5d5d5e566ba94c5buL, 0x9fb0851c91714e56uL))
+public val GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: Guid = Guid.fromU128(U128(0x5d5d5e566ba94c5buL, 0x9fb0851c91714e56uL))
 
-public val GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: GUID = GUID.from_u128(U128(0x78a81b5609354493uL, 0xbaae00541a8a16c4uL))
+public val GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: Guid = Guid.fromU128(U128(0x78a81b5609354493uL, 0xbaae00541a8a16c4uL))
 
-public val GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: GUID = GUID.from_u128(U128(0x6da4488b524441ecuL, 0x905b32d89ab80809uL))
+public val GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: Guid = Guid.fromU128(U128(0x6da4488b524441ecuL, 0x905b32d89ab80809uL))
 
-public val GUID_PACKETPROPERTY_GUID_TIMER_TICK: GUID = GUID.from_u128(U128(0x436510c5fed345d1uL, 0x8b7671d3ea7a829duL))
+public val GUID_PACKETPROPERTY_GUID_TIMER_TICK: Guid = Guid.fromU128(U128(0x436510c5fed345d1uL, 0x8b7671d3ea7a829duL))
 
-public val GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: GUID = GUID.from_u128(U128(0xd32496013b241e4uL, 0xace67ae9d43d2d3buL))
+public val GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: Guid = Guid.fromU128(U128(0xd32496013b241e4uL, 0xace67ae9d43d2d3buL))
 
-public val GUID_PACKETPROPERTY_GUID_WIDTH: GUID = GUID.from_u128(U128(0xbaabe94d271248f5uL, 0xbe9d8f8b5ea0711auL))
+public val GUID_PACKETPROPERTY_GUID_WIDTH: Guid = Guid.fromU128(U128(0xbaabe94d271248f5uL, 0xbe9d8f8b5ea0711auL))
 
-public val GUID_PACKETPROPERTY_GUID_X: GUID = GUID.from_u128(U128(0x598a6a8f52c04ba0uL, 0x93afaf357411a561uL))
+public val GUID_PACKETPROPERTY_GUID_X: Guid = Guid.fromU128(U128(0x598a6a8f52c04ba0uL, 0x93afaf357411a561uL))
 
-public val GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: GUID = GUID.from_u128(U128(0xa8d07b3a8bf040b0uL, 0x95a9b80a6bb787bfuL))
+public val GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xa8d07b3a8bf040b0uL, 0x95a9b80a6bb787bfuL))
 
-public val GUID_PACKETPROPERTY_GUID_Y: GUID = GUID.from_u128(U128(0xb53f9f7504e04498uL, 0xa7eec30dbb5a9011uL))
+public val GUID_PACKETPROPERTY_GUID_Y: Guid = Guid.fromU128(U128(0xb53f9f7504e04498uL, 0xa7eec30dbb5a9011uL))
 
-public val GUID_PACKETPROPERTY_GUID_YAW_ROTATION: GUID = GUID.from_u128(U128(0x6a8499807c3a45b7uL, 0xaa8290a262950e89uL))
+public val GUID_PACKETPROPERTY_GUID_YAW_ROTATION: Guid = Guid.fromU128(U128(0x6a8499807c3a45b7uL, 0xaa8290a262950e89uL))
 
-public val GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: GUID = GUID.from_u128(U128(0xe9323891d7743afuL, 0xac005b950d6d4b2duL))
+public val GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xe9323891d7743afuL, 0xac005b950d6d4b2duL))
 
-public val GUID_PACKETPROPERTY_GUID_Z: GUID = GUID.from_u128(U128(0x735adb300ebb4788uL, 0xa0e40f316490055duL))
+public val GUID_PACKETPROPERTY_GUID_Z: Guid = Guid.fromU128(U128(0x735adb300ebb4788uL, 0xa0e40f316490055duL))
 
-public val GestureRecognizer: GUID = GUID.from_u128(U128(0xea30c654c62c441fuL, 0xac0095f9a196782cuL))
+public val GESTURE_RECOGNIZER: Guid = Guid.fromU128(U128(0xea30c654c62c441fuL, 0xac0095f9a196782cuL))
 
-public val HandwrittenTextInsertion: GUID = GUID.from_u128(U128(0x9f074ee2e6e94d8auL, 0xa047eb5b5c3c55dauL))
+public val HANDWRITTEN_TEXT_INSERTION: Guid = Guid.fromU128(U128(0x9f074ee2e6e94d8auL, 0xa047eb5b5c3c55dauL))
 
-public val IAG_AllGestures: InkApplicationGesture = 0
+public val IAG_ALL_GESTURES: InkApplicationGesture = 0
 
-public val IAG_ArrowDown: InkApplicationGesture = 61497
+public val IAG_ARROW_DOWN: InkApplicationGesture = 61497
 
-public val IAG_ArrowLeft: InkApplicationGesture = 61498
+public val IAG_ARROW_LEFT: InkApplicationGesture = 61498
 
-public val IAG_ArrowRight: InkApplicationGesture = 61499
+public val IAG_ARROW_RIGHT: InkApplicationGesture = 61499
 
-public val IAG_ArrowUp: InkApplicationGesture = 61496
+public val IAG_ARROW_UP: InkApplicationGesture = 61496
 
-public val IAG_Check: InkApplicationGesture = 61445
+public val IAG_CHECK: InkApplicationGesture = 61445
 
-public val IAG_ChevronDown: InkApplicationGesture = 61489
+public val IAG_CHEVRON_DOWN: InkApplicationGesture = 61489
 
-public val IAG_ChevronLeft: InkApplicationGesture = 61490
+public val IAG_CHEVRON_LEFT: InkApplicationGesture = 61490
 
-public val IAG_ChevronRight: InkApplicationGesture = 61491
+public val IAG_CHEVRON_RIGHT: InkApplicationGesture = 61491
 
-public val IAG_ChevronUp: InkApplicationGesture = 61488
+public val IAG_CHEVRON_UP: InkApplicationGesture = 61488
 
-public val IAG_Circle: InkApplicationGesture = 61472
+public val IAG_CIRCLE: InkApplicationGesture = 61472
 
-public val IAG_Curlicue: InkApplicationGesture = 61456
+public val IAG_CURLICUE: InkApplicationGesture = 61456
 
-public val IAG_DoubleCircle: InkApplicationGesture = 61473
+public val IAG_DOUBLE_CIRCLE: InkApplicationGesture = 61473
 
-public val IAG_DoubleCurlicue: InkApplicationGesture = 61457
+public val IAG_DOUBLE_CURLICUE: InkApplicationGesture = 61457
 
-public val IAG_DoubleTap: InkApplicationGesture = 61681
+public val IAG_DOUBLE_TAP: InkApplicationGesture = 61681
 
-public val IAG_Down: InkApplicationGesture = 61529
+public val IAG_DOWN: InkApplicationGesture = 61529
 
-public val IAG_DownLeft: InkApplicationGesture = 61546
+public val IAG_DOWN_LEFT: InkApplicationGesture = 61546
 
-public val IAG_DownLeftLong: InkApplicationGesture = 61542
+public val IAG_DOWN_LEFT_LONG: InkApplicationGesture = 61542
 
-public val IAG_DownRight: InkApplicationGesture = 61547
+public val IAG_DOWN_RIGHT: InkApplicationGesture = 61547
 
-public val IAG_DownRightLong: InkApplicationGesture = 61543
+public val IAG_DOWN_RIGHT_LONG: InkApplicationGesture = 61543
 
-public val IAG_DownUp: InkApplicationGesture = 61537
+public val IAG_DOWN_UP: InkApplicationGesture = 61537
 
-public val IAG_Exclamation: InkApplicationGesture = 61604
+public val IAG_EXCLAMATION: InkApplicationGesture = 61604
 
-public val IAG_Left: InkApplicationGesture = 61530
+public val IAG_LEFT: InkApplicationGesture = 61530
 
-public val IAG_LeftDown: InkApplicationGesture = 61549
+public val IAG_LEFT_DOWN: InkApplicationGesture = 61549
 
-public val IAG_LeftRight: InkApplicationGesture = 61538
+public val IAG_LEFT_RIGHT: InkApplicationGesture = 61538
 
-public val IAG_LeftUp: InkApplicationGesture = 61548
+public val IAG_LEFT_UP: InkApplicationGesture = 61548
 
-public val IAG_NoGesture: InkApplicationGesture = 61440
+public val IAG_NO_GESTURE: InkApplicationGesture = 61440
 
-public val IAG_Right: InkApplicationGesture = 61531
+public val IAG_RIGHT: InkApplicationGesture = 61531
 
-public val IAG_RightDown: InkApplicationGesture = 61551
+public val IAG_RIGHT_DOWN: InkApplicationGesture = 61551
 
-public val IAG_RightLeft: InkApplicationGesture = 61539
+public val IAG_RIGHT_LEFT: InkApplicationGesture = 61539
 
-public val IAG_RightUp: InkApplicationGesture = 61550
+public val IAG_RIGHT_UP: InkApplicationGesture = 61550
 
-public val IAG_Scratchout: InkApplicationGesture = 61441
+public val IAG_SCRATCHOUT: InkApplicationGesture = 61441
 
-public val IAG_SemiCircleLeft: InkApplicationGesture = 61480
+public val IAG_SEMI_CIRCLE_LEFT: InkApplicationGesture = 61480
 
-public val IAG_SemiCircleRight: InkApplicationGesture = 61481
+public val IAG_SEMI_CIRCLE_RIGHT: InkApplicationGesture = 61481
 
-public val IAG_Square: InkApplicationGesture = 61443
+public val IAG_SQUARE: InkApplicationGesture = 61443
 
-public val IAG_Star: InkApplicationGesture = 61444
+public val IAG_STAR: InkApplicationGesture = 61444
 
-public val IAG_Tap: InkApplicationGesture = 61680
+public val IAG_TAP: InkApplicationGesture = 61680
 
-public val IAG_Triangle: InkApplicationGesture = 61442
+public val IAG_TRIANGLE: InkApplicationGesture = 61442
 
-public val IAG_Up: InkApplicationGesture = 61528
+public val IAG_UP: InkApplicationGesture = 61528
 
-public val IAG_UpDown: InkApplicationGesture = 61536
+public val IAG_UP_DOWN: InkApplicationGesture = 61536
 
-public val IAG_UpLeft: InkApplicationGesture = 61544
+public val IAG_UP_LEFT: InkApplicationGesture = 61544
 
-public val IAG_UpLeftLong: InkApplicationGesture = 61540
+public val IAG_UP_LEFT_LONG: InkApplicationGesture = 61540
 
-public val IAG_UpRight: InkApplicationGesture = 61545
+public val IAG_UP_RIGHT: InkApplicationGesture = 61545
 
-public val IAG_UpRightLong: InkApplicationGesture = 61541
+public val IAG_UP_RIGHT_LONG: InkApplicationGesture = 61541
 
-public val IBBM_CurveFit: InkBoundingBoxMode = 2
+public val IBBM_CURVE_FIT: InkBoundingBoxMode = 2
 
-public val IBBM_Default: InkBoundingBoxMode = 0
+public val IBBM_DEFAULT: InkBoundingBoxMode = 0
 
-public val IBBM_NoCurveFit: InkBoundingBoxMode = 1
+public val IBBM_NO_CURVE_FIT: InkBoundingBoxMode = 1
 
-public val IBBM_PointsOnly: InkBoundingBoxMode = 3
+public val IBBM_POINTS_ONLY: InkBoundingBoxMode = 3
 
-public val IBBM_Union: InkBoundingBoxMode = 4
+public val IBBM_UNION: InkBoundingBoxMode = 4
 
-public val ICBS_Down: InkCursorButtonState = 2
+public val ICBS_DOWN: InkCursorButtonState = 2
 
-public val ICBS_Unavailable: InkCursorButtonState = 0
+public val ICBS_UNAVAILABLE: InkCursorButtonState = 0
 
-public val ICBS_Up: InkCursorButtonState = 1
+public val ICBS_UP: InkCursorButtonState = 1
 
-public val ICB_Copy: InkClipboardModes = 0
+public val ICB_COPY: InkClipboardModes = 0
 
-public val ICB_Cut: InkClipboardModes = 1
+public val ICB_CUT: InkClipboardModes = 1
 
-public val ICB_Default: InkClipboardModes = 0
+public val ICB_DEFAULT: InkClipboardModes = 0
 
-public val ICB_DelayedCopy: InkClipboardModes = 32
+public val ICB_DELAYED_COPY: InkClipboardModes = 32
 
-public val ICB_ExtractOnly: InkClipboardModes = 48
+public val ICB_EXTRACT_ONLY: InkClipboardModes = 48
 
-public val ICEI_AllEvents: InkCollectorEventInterest = 16
+public val ICEI_ALL_EVENTS: InkCollectorEventInterest = 16
 
-public val ICEI_CursorButtonDown: InkCollectorEventInterest = 4
+public val ICEI_CURSOR_BUTTON_DOWN: InkCollectorEventInterest = 4
 
-public val ICEI_CursorButtonUp: InkCollectorEventInterest = 5
+public val ICEI_CURSOR_BUTTON_UP: InkCollectorEventInterest = 5
 
-public val ICEI_CursorDown: InkCollectorEventInterest = 0
+public val ICEI_CURSOR_DOWN: InkCollectorEventInterest = 0
 
-public val ICEI_CursorInRange: InkCollectorEventInterest = 6
+public val ICEI_CURSOR_IN_RANGE: InkCollectorEventInterest = 6
 
-public val ICEI_CursorOutOfRange: InkCollectorEventInterest = 7
+public val ICEI_CURSOR_OUT_OF_RANGE: InkCollectorEventInterest = 7
 
-public val ICEI_DblClick: InkCollectorEventInterest = 15
+public val ICEI_DBL_CLICK: InkCollectorEventInterest = 15
 
-public val ICEI_DefaultEvents: InkCollectorEventInterest = -1
+public val ICEI_DEFAULT_EVENTS: InkCollectorEventInterest = -1
 
-public val ICEI_MouseDown: InkCollectorEventInterest = 11
+public val ICEI_MOUSE_DOWN: InkCollectorEventInterest = 11
 
-public val ICEI_MouseMove: InkCollectorEventInterest = 12
+public val ICEI_MOUSE_MOVE: InkCollectorEventInterest = 12
 
-public val ICEI_MouseUp: InkCollectorEventInterest = 13
+public val ICEI_MOUSE_UP: InkCollectorEventInterest = 13
 
-public val ICEI_MouseWheel: InkCollectorEventInterest = 14
+public val ICEI_MOUSE_WHEEL: InkCollectorEventInterest = 14
 
-public val ICEI_NewInAirPackets: InkCollectorEventInterest = 3
+public val ICEI_NEW_IN_AIR_PACKETS: InkCollectorEventInterest = 3
 
-public val ICEI_NewPackets: InkCollectorEventInterest = 2
+public val ICEI_NEW_PACKETS: InkCollectorEventInterest = 2
 
-public val ICEI_Stroke: InkCollectorEventInterest = 1
+public val ICEI_STROKE: InkCollectorEventInterest = 1
 
-public val ICEI_SystemGesture: InkCollectorEventInterest = 8
+public val ICEI_SYSTEM_GESTURE: InkCollectorEventInterest = 8
 
-public val ICEI_TabletAdded: InkCollectorEventInterest = 9
+public val ICEI_TABLET_ADDED: InkCollectorEventInterest = 9
 
-public val ICEI_TabletRemoved: InkCollectorEventInterest = 10
+public val ICEI_TABLET_REMOVED: InkCollectorEventInterest = 10
 
-public val ICF_Bitmap: InkClipboardFormats = 64
+public val ICF_BITMAP: InkClipboardFormats = 64
 
-public val ICF_CopyMask: InkClipboardFormats = 127
+public val ICF_COPY_MASK: InkClipboardFormats = 127
 
-public val ICF_Default: InkClipboardFormats = 127
+public val ICF_DEFAULT: InkClipboardFormats = 127
 
-public val ICF_EnhancedMetafile: InkClipboardFormats = 8
+public val ICF_ENHANCED_METAFILE: InkClipboardFormats = 8
 
-public val ICF_InkSerializedFormat: InkClipboardFormats = 1
+public val ICF_INK_SERIALIZED_FORMAT: InkClipboardFormats = 1
 
-public val ICF_Metafile: InkClipboardFormats = 32
+public val ICF_METAFILE: InkClipboardFormats = 32
 
-public val ICF_None: InkClipboardFormats = 0
+public val ICF_NONE: InkClipboardFormats = 0
 
-public val ICF_PasteMask: InkClipboardFormats = 7
+public val ICF_PASTE_MASK: InkClipboardFormats = 7
 
-public val ICF_SketchInk: InkClipboardFormats = 2
+public val ICF_SKETCH_INK: InkClipboardFormats = 2
 
-public val ICF_TextInk: InkClipboardFormats = 6
+public val ICF_TEXT_INK: InkClipboardFormats = 6
 
-public val ICM_GestureOnly: InkCollectionMode = 1
+public val ICM_GESTURE_ONLY: InkCollectionMode = 1
 
-public val ICM_InkAndGesture: InkCollectionMode = 2
+public val ICM_INK_AND_GESTURE: InkCollectionMode = 2
 
-public val ICM_InkOnly: InkCollectionMode = 0
+public val ICM_INK_ONLY: InkCollectionMode = 0
 
-public val IDM_Ink: InkDisplayMode = 0
+public val IDM_INK: InkDisplayMode = 0
 
-public val IDM_Text: InkDisplayMode = 1
+public val IDM_TEXT: InkDisplayMode = 1
 
-public val IDT_Drawing: InkDivisionType = 3
+public val IDT_DRAWING: InkDivisionType = 3
 
-public val IDT_Line: InkDivisionType = 1
+public val IDT_LINE: InkDivisionType = 1
 
-public val IDT_Paragraph: InkDivisionType = 2
+public val IDT_PARAGRAPH: InkDivisionType = 2
 
-public val IDT_Segment: InkDivisionType = 0
+public val IDT_SEGMENT: InkDivisionType = 0
 
 public val IECN_GESTURE: UInt = 2050u
 
@@ -1609,139 +1609,139 @@ public val IECN__BASE: UInt = 2048u
 
 public val IEC__BASE: UInt = 1536u
 
-public val IEF_CopyFromOriginal: InkExtractFlags = 0
+public val IEF_COPY_FROM_ORIGINAL: InkExtractFlags = 0
 
-public val IEF_Default: InkExtractFlags = 1
+public val IEF_DEFAULT: InkExtractFlags = 1
 
-public val IEF_RemoveFromOriginal: InkExtractFlags = 1
+public val IEF_REMOVE_FROM_ORIGINAL: InkExtractFlags = 1
 
-public val IEM_Disabled: InkMode = 0
+public val IEM_DISABLED: InkMode = 0
 
-public val IEM_Ink: InkMode = 1
+public val IEM_INK: InkMode = 1
 
-public val IEM_InkAndGesture: InkMode = 2
+public val IEM_INK_AND_GESTURE: InkMode = 2
 
-public val IEM_InsertInk: InkInsertMode = 1
+public val IEM_INSERT_INK: InkInsertMode = 1
 
-public val IEM_InsertText: InkInsertMode = 0
+public val IEM_INSERT_TEXT: InkInsertMode = 0
 
-public val IES_Collecting: InkEditStatus = 1
+public val IES_COLLECTING: InkEditStatus = 1
 
-public val IES_Idle: InkEditStatus = 0
+public val IES_IDLE: InkEditStatus = 0
 
-public val IES_Recognizing: InkEditStatus = 2
+public val IES_RECOGNIZING: InkEditStatus = 2
 
-public val IKM_Alt: InkShiftKeyModifierFlags = 4
+public val IKM_ALT: InkShiftKeyModifierFlags = 4
 
-public val IKM_Control: InkShiftKeyModifierFlags = 2
+public val IKM_CONTROL: InkShiftKeyModifierFlags = 2
 
-public val IKM_Shift: InkShiftKeyModifierFlags = 1
+public val IKM_SHIFT: InkShiftKeyModifierFlags = 1
 
-public val IMF_BOLD: INK_METRIC_FLAGS = 4
+public val IMF_BOLD: InkMetricFlags = 4
 
-public val IMF_FONT_SELECTED_IN_HDC: INK_METRIC_FLAGS = 1
+public val IMF_FONT_SELECTED_IN_HDC: InkMetricFlags = 1
 
-public val IMF_ITALIC: INK_METRIC_FLAGS = 2
+public val IMF_ITALIC: InkMetricFlags = 2
 
-public val IMF_Left: InkMouseButton = 1
+public val IMF_LEFT: InkMouseButton = 1
 
-public val IMF_Middle: InkMouseButton = 4
+public val IMF_MIDDLE: InkMouseButton = 4
 
-public val IMF_Right: InkMouseButton = 2
+public val IMF_RIGHT: InkMouseButton = 2
 
-public val IMP_Arrow: InkMousePointer = 1
+public val IMP_ARROW: InkMousePointer = 1
 
-public val IMP_ArrowHourglass: InkMousePointer = 11
+public val IMP_ARROW_HOURGLASS: InkMousePointer = 11
 
-public val IMP_ArrowQuestion: InkMousePointer = 12
+public val IMP_ARROW_QUESTION: InkMousePointer = 12
 
-public val IMP_Crosshair: InkMousePointer = 2
+public val IMP_CROSSHAIR: InkMousePointer = 2
 
-public val IMP_Custom: InkMousePointer = 99
+public val IMP_CUSTOM: InkMousePointer = 99
 
-public val IMP_Default: InkMousePointer = 0
+public val IMP_DEFAULT: InkMousePointer = 0
 
-public val IMP_Hand: InkMousePointer = 14
+public val IMP_HAND: InkMousePointer = 14
 
-public val IMP_Hourglass: InkMousePointer = 9
+public val IMP_HOURGLASS: InkMousePointer = 9
 
-public val IMP_Ibeam: InkMousePointer = 3
+public val IMP_IBEAM: InkMousePointer = 3
 
-public val IMP_NoDrop: InkMousePointer = 10
+public val IMP_NO_DROP: InkMousePointer = 10
 
-public val IMP_SizeAll: InkMousePointer = 13
+public val IMP_SIZE_ALL: InkMousePointer = 13
 
-public val IMP_SizeNESW: InkMousePointer = 4
+public val IMP_SIZE_NESW: InkMousePointer = 4
 
-public val IMP_SizeNS: InkMousePointer = 5
+public val IMP_SIZE_NS: InkMousePointer = 5
 
-public val IMP_SizeNWSE: InkMousePointer = 6
+public val IMP_SIZE_NWSE: InkMousePointer = 6
 
-public val IMP_SizeWE: InkMousePointer = 7
+public val IMP_SIZE_WE: InkMousePointer = 7
 
-public val IMP_UpArrow: InkMousePointer = 8
+public val IMP_UP_ARROW: InkMousePointer = 8
 
-public val INKEDIT_CLASS: PCWSTR = w("INKEDIT")
+public val INKEDIT_CLASS: Pcwstr = w("INKEDIT")
 
-public val INKEDIT_CLASSW: PCWSTR = w("INKEDIT")
+public val INKEDIT_CLASSW: Pcwstr = w("INKEDIT")
 
-public val INKRECOGNITIONPROPERTY_BOXNUMBER: PCWSTR = w("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}")
+public val INKRECOGNITIONPROPERTY_BOXNUMBER: Pcwstr = w("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}")
 
-public val INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: PCWSTR = w("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}")
+public val INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: Pcwstr = w("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}")
 
-public val INKRECOGNITIONPROPERTY_HOTPOINT: PCWSTR = w("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}")
+public val INKRECOGNITIONPROPERTY_HOTPOINT: Pcwstr = w("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}")
 
-public val INKRECOGNITIONPROPERTY_LINEMETRICS: PCWSTR = w("{8CC24B27-30A9-4b96-9056-2D3A90DA0727}")
+public val INKRECOGNITIONPROPERTY_LINEMETRICS: Pcwstr = w("{8CC24B27-30A9-4b96-9056-2D3A90DA0727}")
 
-public val INKRECOGNITIONPROPERTY_LINENUMBER: PCWSTR = w("{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}")
+public val INKRECOGNITIONPROPERTY_LINENUMBER: Pcwstr = w("{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}")
 
-public val INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: PCWSTR = w("{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}")
+public val INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: Pcwstr = w("{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}")
 
-public val INKRECOGNITIONPROPERTY_POINTSPERINCH: PCWSTR = w("{7ED16B76-889C-468e-8276-0021B770187E}")
+public val INKRECOGNITIONPROPERTY_POINTSPERINCH: Pcwstr = w("{7ED16B76-889C-468e-8276-0021B770187E}")
 
-public val INKRECOGNITIONPROPERTY_SEGMENTATION: PCWSTR = w("{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}")
+public val INKRECOGNITIONPROPERTY_SEGMENTATION: Pcwstr = w("{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}")
 
-public val INK_SERIALIZED_FORMAT: PCWSTR = w("Ink Serialized Format")
+public val INK_SERIALIZED_FORMAT: Pcwstr = w("Ink Serialized Format")
 
-public val IOAM_Behind: InkOverlayAttachMode = 0
+public val IOAM_BEHIND: InkOverlayAttachMode = 0
 
-public val IOAM_InFront: InkOverlayAttachMode = 1
+public val IOAM_IN_FRONT: InkOverlayAttachMode = 1
 
-public val IOEM_Delete: InkOverlayEditingMode = 1
+public val IOEM_DELETE: InkOverlayEditingMode = 1
 
-public val IOEM_Ink: InkOverlayEditingMode = 0
+public val IOEM_INK: InkOverlayEditingMode = 0
 
-public val IOEM_Select: InkOverlayEditingMode = 2
+public val IOEM_SELECT: InkOverlayEditingMode = 2
 
-public val IOERM_PointErase: InkOverlayEraserMode = 1
+public val IOERM_POINT_ERASE: InkOverlayEraserMode = 1
 
-public val IOERM_StrokeErase: InkOverlayEraserMode = 0
+public val IOERM_STROKE_ERASE: InkOverlayEraserMode = 0
 
-public val IPCM_Default: InkPersistenceCompressionMode = 0
+public val IPCM_DEFAULT: InkPersistenceCompressionMode = 0
 
-public val IPCM_MaximumCompression: InkPersistenceCompressionMode = 1
+public val IPCM_MAXIMUM_COMPRESSION: InkPersistenceCompressionMode = 1
 
-public val IPCM_NoCompression: InkPersistenceCompressionMode = 2
+public val IPCM_NO_COMPRESSION: InkPersistenceCompressionMode = 2
 
-public val IPF_Base64GIF: InkPersistenceFormat = 3
+public val IPF_BASE64GIF: InkPersistenceFormat = 3
 
-public val IPF_Base64InkSerializedFormat: InkPersistenceFormat = 1
+public val IPF_BASE64INK_SERIALIZED_FORMAT: InkPersistenceFormat = 1
 
 public val IPF_GIF: InkPersistenceFormat = 2
 
-public val IPF_InkSerializedFormat: InkPersistenceFormat = 0
+public val IPF_INK_SERIALIZED_FORMAT: InkPersistenceFormat = 0
 
-public val IPSM_AutoSize: InkPictureSizeMode = 0
+public val IPSM_AUTO_SIZE: InkPictureSizeMode = 0
 
-public val IPSM_CenterImage: InkPictureSizeMode = 1
+public val IPSM_CENTER_IMAGE: InkPictureSizeMode = 1
 
-public val IPSM_Normal: InkPictureSizeMode = 2
+public val IPSM_NORMAL: InkPictureSizeMode = 2
 
-public val IPSM_StretchImage: InkPictureSizeMode = 3
+public val IPSM_STRETCH_IMAGE: InkPictureSizeMode = 3
 
-public val IPT_Ball: InkPenTip = 0
+public val IPT_BALL: InkPenTip = 0
 
-public val IPT_Rectangle: InkPenTip = 1
+public val IPT_RECTANGLE: InkPenTip = 1
 
 public val IP_CURSOR_DOWN: UInt = 1u
 
@@ -1749,249 +1749,249 @@ public val IP_INVERTED: UInt = 2u
 
 public val IP_MARGIN: UInt = 4u
 
-public val IRAS_All: InkRecognitionAlternatesSelection = -1
+public val IRAS_ALL: InkRecognitionAlternatesSelection = -1
 
-public val IRAS_DefaultCount: InkRecognitionAlternatesSelection = 10
+public val IRAS_DEFAULT_COUNT: InkRecognitionAlternatesSelection = 10
 
-public val IRAS_Start: InkRecognitionAlternatesSelection = 0
+public val IRAS_START: InkRecognitionAlternatesSelection = 0
 
-public val IRCACM_Full: InkRecognizerCharacterAutoCompletionMode = 0
+public val IRCACM_FULL: InkRecognizerCharacterAutoCompletionMode = 0
 
-public val IRCACM_Prefix: InkRecognizerCharacterAutoCompletionMode = 1
+public val IRCACM_PREFIX: InkRecognizerCharacterAutoCompletionMode = 1
 
-public val IRCACM_Random: InkRecognizerCharacterAutoCompletionMode = 2
+public val IRCACM_RANDOM: InkRecognizerCharacterAutoCompletionMode = 2
 
-public val IRC_AdviseInkChange: InkRecognizerCapabilities = 4096
+public val IRC_ADVISE_INK_CHANGE: InkRecognizerCapabilities = 4096
 
-public val IRC_Alpha: InkRecognizerCapabilities = 1048576
+public val IRC_ALPHA: InkRecognizerCapabilities = 1048576
 
-public val IRC_ArbitraryAngle: InkRecognizerCapabilities = 1024
+public val IRC_ARBITRARY_ANGLE: InkRecognizerCapabilities = 1024
 
-public val IRC_Beta: InkRecognizerCapabilities = 2097152
+public val IRC_BETA: InkRecognizerCapabilities = 2097152
 
-public val IRC_BoxedInput: InkRecognizerCapabilities = 16
+public val IRC_BOXED_INPUT: InkRecognizerCapabilities = 16
 
-public val IRC_CharacterAutoCompletionInput: InkRecognizerCapabilities = 32
+public val IRC_CHARACTER_AUTO_COMPLETION_INPUT: InkRecognizerCapabilities = 32
 
-public val IRC_Cursive: InkRecognizerCapabilities = 262144
+public val IRC_CURSIVE: InkRecognizerCapabilities = 262144
 
-public val IRC_DontCare: InkRecognizerCapabilities = 1
+public val IRC_DONT_CARE: InkRecognizerCapabilities = 1
 
-public val IRC_DownAndLeft: InkRecognizerCapabilities = 256
+public val IRC_DOWN_AND_LEFT: InkRecognizerCapabilities = 256
 
-public val IRC_DownAndRight: InkRecognizerCapabilities = 512
+public val IRC_DOWN_AND_RIGHT: InkRecognizerCapabilities = 512
 
-public val IRC_FreeInput: InkRecognizerCapabilities = 4
+public val IRC_FREE_INPUT: InkRecognizerCapabilities = 4
 
-public val IRC_Intermediate: InkRecognitionConfidence = 1
+public val IRC_INTERMEDIATE: InkRecognitionConfidence = 1
 
-public val IRC_Lattice: InkRecognizerCapabilities = 2048
+public val IRC_LATTICE: InkRecognizerCapabilities = 2048
 
-public val IRC_LeftAndDown: InkRecognizerCapabilities = 128
+public val IRC_LEFT_AND_DOWN: InkRecognizerCapabilities = 128
 
-public val IRC_LinedInput: InkRecognizerCapabilities = 8
+public val IRC_LINED_INPUT: InkRecognizerCapabilities = 8
 
-public val IRC_Object: InkRecognizerCapabilities = 2
+public val IRC_OBJECT: InkRecognizerCapabilities = 2
 
-public val IRC_Personalizable: InkRecognizerCapabilities = 16384
+public val IRC_PERSONALIZABLE: InkRecognizerCapabilities = 16384
 
-public val IRC_Poor: InkRecognitionConfidence = 2
+public val IRC_POOR: InkRecognitionConfidence = 2
 
-public val IRC_PrefersArbitraryAngle: InkRecognizerCapabilities = 32768
+public val IRC_PREFERS_ARBITRARY_ANGLE: InkRecognizerCapabilities = 32768
 
-public val IRC_PrefersParagraphBreaking: InkRecognizerCapabilities = 65536
+public val IRC_PREFERS_PARAGRAPH_BREAKING: InkRecognizerCapabilities = 65536
 
-public val IRC_PrefersSegmentation: InkRecognizerCapabilities = 131072
+public val IRC_PREFERS_SEGMENTATION: InkRecognizerCapabilities = 131072
 
-public val IRC_RightAndDown: InkRecognizerCapabilities = 64
+public val IRC_RIGHT_AND_DOWN: InkRecognizerCapabilities = 64
 
-public val IRC_StrokeReorder: InkRecognizerCapabilities = 8192
+public val IRC_STROKE_REORDER: InkRecognizerCapabilities = 8192
 
-public val IRC_Strong: InkRecognitionConfidence = 0
+public val IRC_STRONG: InkRecognitionConfidence = 0
 
-public val IRC_TextPrediction: InkRecognizerCapabilities = 524288
+public val IRC_TEXT_PREDICTION: InkRecognizerCapabilities = 524288
 
-public val IRM_AutoSpace: InkRecognitionModes = 64
+public val IRM_AUTO_SPACE: InkRecognitionModes = 64
 
-public val IRM_Coerce: InkRecognitionModes = 2
+public val IRM_COERCE: InkRecognitionModes = 2
 
-public val IRM_DisablePersonalization: InkRecognitionModes = 32
+public val IRM_DISABLE_PERSONALIZATION: InkRecognitionModes = 32
 
-public val IRM_LineMode: InkRecognitionModes = 16
+public val IRM_LINE_MODE: InkRecognitionModes = 16
 
-public val IRM_Max: InkRecognitionModes = 128
+public val IRM_MAX: InkRecognitionModes = 128
 
-public val IRM_None: InkRecognitionModes = 0
+public val IRM_NONE: InkRecognitionModes = 0
 
-public val IRM_PrefixOk: InkRecognitionModes = 8
+public val IRM_PREFIX_OK: InkRecognitionModes = 8
 
-public val IRM_TopInkBreaksOnly: InkRecognitionModes = 4
+public val IRM_TOP_INK_BREAKS_ONLY: InkRecognitionModes = 4
 
-public val IRM_WordModeOnly: InkRecognitionModes = 1
+public val IRM_WORD_MODE_ONLY: InkRecognitionModes = 1
 
-public val IRO_Black: InkRasterOperation = 1
+public val IRO_BLACK: InkRasterOperation = 1
 
-public val IRO_CopyPen: InkRasterOperation = 13
+public val IRO_COPY_PEN: InkRasterOperation = 13
 
-public val IRO_MaskNotPen: InkRasterOperation = 3
+public val IRO_MASK_NOT_PEN: InkRasterOperation = 3
 
-public val IRO_MaskPen: InkRasterOperation = 9
+public val IRO_MASK_PEN: InkRasterOperation = 9
 
-public val IRO_MaskPenNot: InkRasterOperation = 5
+public val IRO_MASK_PEN_NOT: InkRasterOperation = 5
 
-public val IRO_MergeNotPen: InkRasterOperation = 12
+public val IRO_MERGE_NOT_PEN: InkRasterOperation = 12
 
-public val IRO_MergePen: InkRasterOperation = 15
+public val IRO_MERGE_PEN: InkRasterOperation = 15
 
-public val IRO_MergePenNot: InkRasterOperation = 14
+public val IRO_MERGE_PEN_NOT: InkRasterOperation = 14
 
-public val IRO_NoOperation: InkRasterOperation = 11
+public val IRO_NO_OPERATION: InkRasterOperation = 11
 
-public val IRO_Not: InkRasterOperation = 6
+public val IRO_NOT: InkRasterOperation = 6
 
-public val IRO_NotCopyPen: InkRasterOperation = 4
+public val IRO_NOT_COPY_PEN: InkRasterOperation = 4
 
-public val IRO_NotMaskPen: InkRasterOperation = 8
+public val IRO_NOT_MASK_PEN: InkRasterOperation = 8
 
-public val IRO_NotMergePen: InkRasterOperation = 2
+public val IRO_NOT_MERGE_PEN: InkRasterOperation = 2
 
-public val IRO_NotXOrPen: InkRasterOperation = 10
+public val IRO_NOT_X_OR_PEN: InkRasterOperation = 10
 
-public val IRO_White: InkRasterOperation = 16
+public val IRO_WHITE: InkRasterOperation = 16
 
-public val IRO_XOrPen: InkRasterOperation = 7
+public val IRO_X_OR_PEN: InkRasterOperation = 7
 
-public val IRS_InkAddedFailed: InkRecognitionStatus = 4
+public val IRS_INK_ADDED_FAILED: InkRecognitionStatus = 4
 
-public val IRS_Interrupted: InkRecognitionStatus = 1
+public val IRS_INTERRUPTED: InkRecognitionStatus = 1
 
-public val IRS_NoError: InkRecognitionStatus = 0
+public val IRS_NO_ERROR: InkRecognitionStatus = 0
 
-public val IRS_ProcessFailed: InkRecognitionStatus = 2
+public val IRS_PROCESS_FAILED: InkRecognitionStatus = 2
 
-public val IRS_SetAutoCompletionModeFailed: InkRecognitionStatus = 8
+public val IRS_SET_AUTO_COMPLETION_MODE_FAILED: InkRecognitionStatus = 8
 
-public val IRS_SetFactoidFailed: InkRecognitionStatus = 128
+public val IRS_SET_FACTOID_FAILED: InkRecognitionStatus = 128
 
-public val IRS_SetFlagsFailed: InkRecognitionStatus = 64
+public val IRS_SET_FLAGS_FAILED: InkRecognitionStatus = 64
 
-public val IRS_SetGuideFailed: InkRecognitionStatus = 32
+public val IRS_SET_GUIDE_FAILED: InkRecognitionStatus = 32
 
-public val IRS_SetPrefixSuffixFailed: InkRecognitionStatus = 256
+public val IRS_SET_PREFIX_SUFFIX_FAILED: InkRecognitionStatus = 256
 
-public val IRS_SetStrokesFailed: InkRecognitionStatus = 16
+public val IRS_SET_STROKES_FAILED: InkRecognitionStatus = 16
 
-public val IRS_SetWordListFailed: InkRecognitionStatus = 512
+public val IRS_SET_WORD_LIST_FAILED: InkRecognitionStatus = 512
 
-public val ISC_AllElements: InkSelectionConstants = -1
+public val ISC_ALL_ELEMENTS: InkSelectionConstants = -1
 
-public val ISC_FirstElement: InkSelectionConstants = 0
+public val ISC_FIRST_ELEMENT: InkSelectionConstants = 0
 
-public val ISG_DoubleTap: InkSystemGesture = 17
+public val ISG_DOUBLE_TAP: InkSystemGesture = 17
 
-public val ISG_Drag: InkSystemGesture = 19
+public val ISG_DRAG: InkSystemGesture = 19
 
-public val ISG_Flick: InkSystemGesture = 31
+public val ISG_FLICK: InkSystemGesture = 31
 
-public val ISG_HoldEnter: InkSystemGesture = 21
+public val ISG_HOLD_ENTER: InkSystemGesture = 21
 
-public val ISG_HoldLeave: InkSystemGesture = 22
+public val ISG_HOLD_LEAVE: InkSystemGesture = 22
 
-public val ISG_HoverEnter: InkSystemGesture = 23
+public val ISG_HOVER_ENTER: InkSystemGesture = 23
 
-public val ISG_HoverLeave: InkSystemGesture = 24
+public val ISG_HOVER_LEAVE: InkSystemGesture = 24
 
-public val ISG_RightDrag: InkSystemGesture = 20
+public val ISG_RIGHT_DRAG: InkSystemGesture = 20
 
-public val ISG_RightTap: InkSystemGesture = 18
+public val ISG_RIGHT_TAP: InkSystemGesture = 18
 
-public val ISG_Tap: InkSystemGesture = 16
+public val ISG_TAP: InkSystemGesture = 16
 
-public val InPlace: VisualState = 0
+public val IN_PLACE: VisualState = 0
 
-public val InPlaceDirection_Auto: InPlaceDirection = 0
+public val IN_PLACE_DIRECTION_AUTO: InPlaceDirection = 0
 
-public val InPlaceDirection_Bottom: InPlaceDirection = 1
+public val IN_PLACE_DIRECTION_BOTTOM: InPlaceDirection = 1
 
-public val InPlaceDirection_Top: InPlaceDirection = 2
+public val IN_PLACE_DIRECTION_TOP: InPlaceDirection = 2
 
-public val InPlaceState_Auto: InPlaceState = 0
+public val IN_PLACE_STATE_AUTO: InPlaceState = 0
 
-public val InPlaceState_Expanded: InPlaceState = 2
+public val IN_PLACE_STATE_EXPANDED: InPlaceState = 2
 
-public val InPlaceState_HoverTarget: InPlaceState = 1
+public val IN_PLACE_STATE_HOVER_TARGET: InPlaceState = 1
 
-public val Ink: GUID = GUID.from_u128(U128(0x13de4a428d214c8euL, 0xbf9c8f69cb068fcauL))
+public val INK: Guid = Guid.fromU128(U128(0x13de4a428d214c8euL, 0xbf9c8f69cb068fcauL))
 
-public val InkCollector: GUID = GUID.from_u128(U128(0x43fb1553ad744ee8uL, 0x88e43e6daac915dbuL))
+public val INK_COLLECTOR: Guid = Guid.fromU128(U128(0x43fb1553ad744ee8uL, 0x88e43e6daac915dbuL))
 
-public val InkCollectorClipInkToMargin: Int = 0
+public val INK_COLLECTOR_CLIP_INK_TO_MARGIN: Int = 0
 
-public val InkCollectorDefaultMargin: Int = -2147483648
+public val INK_COLLECTOR_DEFAULT_MARGIN: Int = -2147483648.toInt()
 
-public val InkDisp: GUID = GUID.from_u128(U128(0x937c1a34151d4610uL, 0x9ca6a8cc9bdb5d83uL))
+public val INK_DISP: Guid = Guid.fromU128(U128(0x937c1a34151d4610uL, 0x9ca6a8cc9bdb5d83uL))
 
-public val InkDivider: GUID = GUID.from_u128(U128(0x8854f6a046834ae7uL, 0x9191752fe64612c3uL))
+public val INK_DIVIDER: Guid = Guid.fromU128(U128(0x8854f6a046834ae7uL, 0x9191752fe64612c3uL))
 
-public val InkDrawingAttributes: GUID = GUID.from_u128(U128(0xd8bf32a205a544c3uL, 0xb3aa5e80ac7d2576uL))
+public val INK_DRAWING_ATTRIBUTES: Guid = Guid.fromU128(U128(0xd8bf32a205a544c3uL, 0xb3aa5e80ac7d2576uL))
 
-public val InkEdit: GUID = GUID.from_u128(U128(0xe5ca59f557c44dd8uL, 0x9bd61deeedd27af4uL))
+public val INK_EDIT: Guid = Guid.fromU128(U128(0xe5ca59f557c44dd8uL, 0x9bd61deeedd27af4uL))
 
-public val InkMaxTransparencyValue: Int = 255
+public val INK_MAX_TRANSPARENCY_VALUE: Int = 255
 
-public val InkMinTransparencyValue: Int = 0
+public val INK_MIN_TRANSPARENCY_VALUE: Int = 0
 
-public val InkOverlay: GUID = GUID.from_u128(U128(0x65d00646cde34a88uL, 0x91636769f0f1a97duL))
+public val INK_OVERLAY: Guid = Guid.fromU128(U128(0x65d00646cde34a88uL, 0x91636769f0f1a97duL))
 
-public val InkPicture: GUID = GUID.from_u128(U128(0x4a1e553fe364fdeuL, 0x865e344194e69424uL))
+public val INK_PICTURE: Guid = Guid.fromU128(U128(0x4a1e553fe364fdeuL, 0x865e344194e69424uL))
 
-public val InkRecognizerContext: GUID = GUID.from_u128(U128(0xaac46a3792294fc0uL, 0x8cce4497569bf4d1uL))
+public val INK_RECOGNIZER_CONTEXT: Guid = Guid.fromU128(U128(0xaac46a3792294fc0uL, 0x8cce4497569bf4d1uL))
 
-public val InkRecognizerGuide: GUID = GUID.from_u128(U128(0x8770d941a63a4671uL, 0xa3752855a18eba73uL))
+public val INK_RECOGNIZER_GUIDE: Guid = Guid.fromU128(U128(0x8770d941a63a4671uL, 0xa3752855a18eba73uL))
 
-public val InkRecognizers: GUID = GUID.from_u128(U128(0x9fd4e808f6e64e65uL, 0x98d3aa39054c1255uL))
+public val INK_RECOGNIZERS: Guid = Guid.fromU128(U128(0x9fd4e808f6e64e65uL, 0x98d3aa39054c1255uL))
 
-public val InkRectangle: GUID = GUID.from_u128(U128(0x43b07326aae04b62uL, 0xa83d5fd768b7353cuL))
+public val INK_RECTANGLE: Guid = Guid.fromU128(U128(0x43b07326aae04b62uL, 0xa83d5fd768b7353cuL))
 
-public val InkRenderer: GUID = GUID.from_u128(U128(0x9c1cc6e4d7eb4eebuL, 0x909115a7c8791ed9uL))
+public val INK_RENDERER: Guid = Guid.fromU128(U128(0x9c1cc6e4d7eb4eebuL, 0x909115a7c8791ed9uL))
 
-public val InkStrokes: GUID = GUID.from_u128(U128(0x48f491bc240e4860uL, 0xb079a1e94d3d2c86uL))
+public val INK_STROKES: Guid = Guid.fromU128(U128(0x48f491bc240e4860uL, 0xb079a1e94d3d2c86uL))
 
-public val InkTablets: GUID = GUID.from_u128(U128(0x6e4fcb12510a4d40uL, 0x93041da10ae9147cuL))
+public val INK_TABLETS: Guid = Guid.fromU128(U128(0x6e4fcb12510a4d40uL, 0x93041da10ae9147cuL))
 
-public val InkTransform: GUID = GUID.from_u128(U128(0xe3d5d93c16634a78uL, 0xa1a722375dfebaeeuL))
+public val INK_TRANSFORM: Guid = Guid.fromU128(U128(0xe3d5d93c16634a78uL, 0xa1a722375dfebaeeuL))
 
-public val InkWordList: GUID = GUID.from_u128(U128(0x9de85094f71f44f1uL, 0x847115a2fa76fcf3uL))
+public val INK_WORD_LIST: Guid = Guid.fromU128(U128(0x9de85094f71f44f1uL, 0x847115a2fa76fcf3uL))
 
-public val InteractionMode_DockedBottom: InteractionMode = 3
+public val INTERACTION_MODE_DOCKED_BOTTOM: InteractionMode = 3
 
-public val InteractionMode_DockedTop: InteractionMode = 2
+public val INTERACTION_MODE_DOCKED_TOP: InteractionMode = 2
 
-public val InteractionMode_Floating: InteractionMode = 1
+public val INTERACTION_MODE_FLOATING: InteractionMode = 1
 
-public val InteractionMode_InPlace: InteractionMode = 0
+public val INTERACTION_MODE_IN_PLACE: InteractionMode = 0
 
-public val KEYMODIFIER_ALTGR: KEYMODIFIER = 16
+public val KEYMODIFIER_ALTGR: Keymodifier = 16
 
-public val KEYMODIFIER_CONTROL: KEYMODIFIER = 1
+public val KEYMODIFIER_CONTROL: Keymodifier = 1
 
-public val KEYMODIFIER_EXT: KEYMODIFIER = 32
+public val KEYMODIFIER_EXT: Keymodifier = 32
 
-public val KEYMODIFIER_MENU: KEYMODIFIER = 2
+public val KEYMODIFIER_MENU: Keymodifier = 2
 
-public val KEYMODIFIER_SHIFT: KEYMODIFIER = 4
+public val KEYMODIFIER_SHIFT: Keymodifier = 4
 
-public val KEYMODIFIER_WIN: KEYMODIFIER = 8
+public val KEYMODIFIER_WIN: Keymodifier = 8
 
 public val LEFT_BUTTON: MouseButton = 1
 
-public val LM_ASCENDER: LINE_METRICS = 2
+public val LM_ASCENDER: LineMetrics = 2
 
-public val LM_BASELINE: LINE_METRICS = 0
+public val LM_BASELINE: LineMetrics = 0
 
-public val LM_DESCENDER: LINE_METRICS = 3
+public val LM_DESCENDER: LineMetrics = 3
 
-public val LM_MIDLINE: LINE_METRICS = 1
+public val LM_MIDLINE: LineMetrics = 1
 
 public val MAX_FRIENDLYNAME: UInt = 64u
 
@@ -2003,105 +2003,105 @@ public val MAX_PACKET_PROPERTY_COUNT: UInt = 32u
 
 public val MAX_VENDORNAME: UInt = 32u
 
-public val MICROSOFT_PENINPUT_PANEL_PROPERTY_T: PCWSTR = w("Microsoft PenInputPanel 1.5")
+public val MICROSOFT_PENINPUT_PANEL_PROPERTY_T: Pcwstr = w("Microsoft PenInputPanel 1.5")
 
-public val MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: PCWSTR = w("Microsoft TIP ComboBox List Window Identifier")
+public val MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: Pcwstr = w("Microsoft TIP ComboBox List Window Identifier")
 
-public val MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: PCWSTR = w("Microsoft TIP No Insert Option")
+public val MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: Pcwstr = w("Microsoft TIP No Insert Option")
 
-public val MICROSOFT_TIP_OPENING_MSG: PCWSTR = w("TabletInputPanelOpening")
+public val MICROSOFT_TIP_OPENING_MSG: Pcwstr = w("TabletInputPanelOpening")
 
-public val MICROSOFT_URL_EXPERIENCE_PROPERTY: PCWSTR = w("Microsoft TIP URL Experience")
+public val MICROSOFT_URL_EXPERIENCE_PROPERTY: Pcwstr = w("Microsoft TIP URL Experience")
 
-public val MICUIELEMENTSTATE_DISABLED: MICUIELEMENTSTATE = 4
+public val MICUIELEMENTSTATE_DISABLED: Micuielementstate = 4
 
-public val MICUIELEMENTSTATE_HOT: MICUIELEMENTSTATE = 2
+public val MICUIELEMENTSTATE_HOT: Micuielementstate = 2
 
-public val MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = 1
+public val MICUIELEMENTSTATE_NORMAL: Micuielementstate = 1
 
-public val MICUIELEMENTSTATE_PRESSED: MICUIELEMENTSTATE = 3
+public val MICUIELEMENTSTATE_PRESSED: Micuielementstate = 3
 
-public val MICUIELEMENT_BUTTON_CANCEL: MICUIELEMENT = 128
+public val MICUIELEMENT_BUTTON_CANCEL: Micuielement = 128
 
-public val MICUIELEMENT_BUTTON_CLEAR: MICUIELEMENT = 8
+public val MICUIELEMENT_BUTTON_CLEAR: Micuielement = 8
 
-public val MICUIELEMENT_BUTTON_CORRECT: MICUIELEMENT = 4
+public val MICUIELEMENT_BUTTON_CORRECT: Micuielement = 4
 
-public val MICUIELEMENT_BUTTON_ERASE: MICUIELEMENT = 2
+public val MICUIELEMENT_BUTTON_ERASE: Micuielement = 2
 
-public val MICUIELEMENT_BUTTON_INSERT: MICUIELEMENT = 64
+public val MICUIELEMENT_BUTTON_INSERT: Micuielement = 64
 
-public val MICUIELEMENT_BUTTON_REDO: MICUIELEMENT = 32
+public val MICUIELEMENT_BUTTON_REDO: Micuielement = 32
 
-public val MICUIELEMENT_BUTTON_UNDO: MICUIELEMENT = 16
+public val MICUIELEMENT_BUTTON_UNDO: Micuielement = 16
 
-public val MICUIELEMENT_BUTTON_WRITE: MICUIELEMENT = 1
+public val MICUIELEMENT_BUTTON_WRITE: Micuielement = 1
 
-public val MICUIELEMENT_INKPANEL_BACKGROUND: MICUIELEMENT = 256
+public val MICUIELEMENT_INKPANEL_BACKGROUND: Micuielement = 256
 
-public val MICUIELEMENT_RESULTPANEL_BACKGROUND: MICUIELEMENT = 512
+public val MICUIELEMENT_RESULTPANEL_BACKGROUND: Micuielement = 512
 
 public val MIDDLE_BUTTON: MouseButton = 4
 
-public val MathInputControl: GUID = GUID.from_u128(U128(0xc561816c14d84090uL, 0x830c98d994b21c7buL))
+public val MATH_INPUT_CONTROL: Guid = Guid.fromU128(U128(0xc561816c14d84090uL, 0x830c98d994b21c7buL))
 
 public val NO_BUTTON: MouseButton = 0
 
 public val NUM_FLICK_DIRECTIONS: UInt = 8u
 
-public val PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = 15
+public val PROPERTY_UNITS_AMPERE: PropertyUnits = 15
 
-public val PROPERTY_UNITS_CANDELA: PROPERTY_UNITS = 16
+public val PROPERTY_UNITS_CANDELA: PropertyUnits = 16
 
-public val PROPERTY_UNITS_CENTIMETERS: PROPERTY_UNITS = 2
+public val PROPERTY_UNITS_CENTIMETERS: PropertyUnits = 2
 
-public val PROPERTY_UNITS_DEFAULT: PROPERTY_UNITS = 0
+public val PROPERTY_UNITS_DEFAULT: PropertyUnits = 0
 
-public val PROPERTY_UNITS_DEGREES: PROPERTY_UNITS = 3
+public val PROPERTY_UNITS_DEGREES: PropertyUnits = 3
 
-public val PROPERTY_UNITS_ENGLINEAR: PROPERTY_UNITS = 10
+public val PROPERTY_UNITS_ENGLINEAR: PropertyUnits = 10
 
-public val PROPERTY_UNITS_ENGROTATION: PROPERTY_UNITS = 11
+public val PROPERTY_UNITS_ENGROTATION: PropertyUnits = 11
 
-public val PROPERTY_UNITS_FAHRENHEIT: PROPERTY_UNITS = 14
+public val PROPERTY_UNITS_FAHRENHEIT: PropertyUnits = 14
 
-public val PROPERTY_UNITS_GRAMS: PROPERTY_UNITS = 7
+public val PROPERTY_UNITS_GRAMS: PropertyUnits = 7
 
-public val PROPERTY_UNITS_INCHES: PROPERTY_UNITS = 1
+public val PROPERTY_UNITS_INCHES: PropertyUnits = 1
 
-public val PROPERTY_UNITS_KELVIN: PROPERTY_UNITS = 13
+public val PROPERTY_UNITS_KELVIN: PropertyUnits = 13
 
-public val PROPERTY_UNITS_POUNDS: PROPERTY_UNITS = 6
+public val PROPERTY_UNITS_POUNDS: PropertyUnits = 6
 
-public val PROPERTY_UNITS_RADIANS: PROPERTY_UNITS = 4
+public val PROPERTY_UNITS_RADIANS: PropertyUnits = 4
 
-public val PROPERTY_UNITS_SECONDS: PROPERTY_UNITS = 5
+public val PROPERTY_UNITS_SECONDS: PropertyUnits = 5
 
-public val PROPERTY_UNITS_SILINEAR: PROPERTY_UNITS = 8
+public val PROPERTY_UNITS_SILINEAR: PropertyUnits = 8
 
-public val PROPERTY_UNITS_SIROTATION: PROPERTY_UNITS = 9
+public val PROPERTY_UNITS_SIROTATION: PropertyUnits = 9
 
-public val PROPERTY_UNITS_SLUGS: PROPERTY_UNITS = 12
+public val PROPERTY_UNITS_SLUGS: PropertyUnits = 12
 
-public val PT_Default: PanelType = 0
+public val PT_DEFAULT: PanelType = 0
 
-public val PT_Handwriting: PanelType = 2
+public val PT_HANDWRITING: PanelType = 2
 
-public val PT_Inactive: PanelType = 1
+public val PT_INACTIVE: PanelType = 1
 
-public val PT_Keyboard: PanelType = 3
+public val PT_KEYBOARD: PanelType = 3
 
-public val PanelInputArea_Auto: PanelInputArea = 0
+public val PANEL_INPUT_AREA_AUTO: PanelInputArea = 0
 
-public val PanelInputArea_CharacterPad: PanelInputArea = 3
+public val PANEL_INPUT_AREA_CHARACTER_PAD: PanelInputArea = 3
 
-public val PanelInputArea_Keyboard: PanelInputArea = 1
+public val PANEL_INPUT_AREA_KEYBOARD: PanelInputArea = 1
 
-public val PanelInputArea_WritingPad: PanelInputArea = 2
+public val PANEL_INPUT_AREA_WRITING_PAD: PanelInputArea = 2
 
-public val PenInputPanel: GUID = GUID.from_u128(U128(0xf744e4961b5a489euL, 0x81dcfbd7ac6298a8uL))
+public val PEN_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf744e4961b5a489euL, 0x81dcfbd7ac6298a8uL))
 
-public val PenInputPanel_Internal: GUID = GUID.from_u128(U128(0x802b1fb9056b4720uL, 0xb0cc80d23b71171euL))
+public val PEN_INPUT_PANEL_INTERNAL: Guid = Guid.fromU128(U128(0x802b1fb9056b4720uL, 0xb0cc80d23b71171euL))
 
 public val RECOCONF_HIGHCONFIDENCE: UInt = 1u
 
@@ -2125,9 +2125,9 @@ public val RECOFLAG_SINGLESEG: UInt = 4u
 
 public val RECOFLAG_WORDMODE: UInt = 1u
 
-public val RECO_TYPE_WCHAR: RECO_TYPE = 1
+public val RECO_TYPE_WCHAR: RecoType = 1
 
-public val RECO_TYPE_WSTRING: RECO_TYPE = 0
+public val RECO_TYPE_WSTRING: RecoType = 0
 
 public val RF_ADVISEINKCHANGE: Int = 4096
 
@@ -2165,65 +2165,65 @@ public val RF_STROKEREORDER: Int = 8192
 
 public val RIGHT_BUTTON: MouseButton = 2
 
-public val RTSDI_AllData: RealTimeStylusDataInterest = -1
+public val RTSDI_ALL_DATA: RealTimeStylusDataInterest = -1
 
-public val RTSDI_CustomStylusDataAdded: RealTimeStylusDataInterest = 32768
+public val RTSDI_CUSTOM_STYLUS_DATA_ADDED: RealTimeStylusDataInterest = 32768
 
-public val RTSDI_DefaultEvents: RealTimeStylusDataInterest = 37766
+public val RTSDI_DEFAULT_EVENTS: RealTimeStylusDataInterest = 37766
 
-public val RTSDI_Error: RealTimeStylusDataInterest = 1
+public val RTSDI_ERROR: RealTimeStylusDataInterest = 1
 
-public val RTSDI_InAirPackets: RealTimeStylusDataInterest = 32
+public val RTSDI_IN_AIR_PACKETS: RealTimeStylusDataInterest = 32
 
-public val RTSDI_None: RealTimeStylusDataInterest = 0
+public val RTSDI_NONE: RealTimeStylusDataInterest = 0
 
-public val RTSDI_Packets: RealTimeStylusDataInterest = 256
+public val RTSDI_PACKETS: RealTimeStylusDataInterest = 256
 
-public val RTSDI_RealTimeStylusDisabled: RealTimeStylusDataInterest = 4
+public val RTSDI_REAL_TIME_STYLUS_DISABLED: RealTimeStylusDataInterest = 4
 
-public val RTSDI_RealTimeStylusEnabled: RealTimeStylusDataInterest = 2
+public val RTSDI_REAL_TIME_STYLUS_ENABLED: RealTimeStylusDataInterest = 2
 
-public val RTSDI_StylusButtonDown: RealTimeStylusDataInterest = 2048
+public val RTSDI_STYLUS_BUTTON_DOWN: RealTimeStylusDataInterest = 2048
 
-public val RTSDI_StylusButtonUp: RealTimeStylusDataInterest = 1024
+public val RTSDI_STYLUS_BUTTON_UP: RealTimeStylusDataInterest = 1024
 
-public val RTSDI_StylusDown: RealTimeStylusDataInterest = 128
+public val RTSDI_STYLUS_DOWN: RealTimeStylusDataInterest = 128
 
-public val RTSDI_StylusInRange: RealTimeStylusDataInterest = 16
+public val RTSDI_STYLUS_IN_RANGE: RealTimeStylusDataInterest = 16
 
-public val RTSDI_StylusNew: RealTimeStylusDataInterest = 8
+public val RTSDI_STYLUS_NEW: RealTimeStylusDataInterest = 8
 
-public val RTSDI_StylusOutOfRange: RealTimeStylusDataInterest = 64
+public val RTSDI_STYLUS_OUT_OF_RANGE: RealTimeStylusDataInterest = 64
 
-public val RTSDI_StylusUp: RealTimeStylusDataInterest = 512
+public val RTSDI_STYLUS_UP: RealTimeStylusDataInterest = 512
 
-public val RTSDI_SystemEvents: RealTimeStylusDataInterest = 4096
+public val RTSDI_SYSTEM_EVENTS: RealTimeStylusDataInterest = 4096
 
-public val RTSDI_TabletAdded: RealTimeStylusDataInterest = 8192
+public val RTSDI_TABLET_ADDED: RealTimeStylusDataInterest = 8192
 
-public val RTSDI_TabletRemoved: RealTimeStylusDataInterest = 16384
+public val RTSDI_TABLET_REMOVED: RealTimeStylusDataInterest = 16384
 
-public val RTSDI_UpdateMapping: RealTimeStylusDataInterest = 65536
+public val RTSDI_UPDATE_MAPPING: RealTimeStylusDataInterest = 65536
 
-public val RTSLT_AsyncEventLock: RealTimeStylusLockType = 4
+public val RTSLT_ASYNC_EVENT_LOCK: RealTimeStylusLockType = 4
 
-public val RTSLT_AsyncObjLock: RealTimeStylusLockType = 13
+public val RTSLT_ASYNC_OBJ_LOCK: RealTimeStylusLockType = 13
 
-public val RTSLT_ExcludeCallback: RealTimeStylusLockType = 8
+public val RTSLT_EXCLUDE_CALLBACK: RealTimeStylusLockType = 8
 
-public val RTSLT_ObjLock: RealTimeStylusLockType = 1
+public val RTSLT_OBJ_LOCK: RealTimeStylusLockType = 1
 
-public val RTSLT_SyncEventLock: RealTimeStylusLockType = 2
+public val RTSLT_SYNC_EVENT_LOCK: RealTimeStylusLockType = 2
 
-public val RTSLT_SyncObjLock: RealTimeStylusLockType = 11
+public val RTSLT_SYNC_OBJ_LOCK: RealTimeStylusLockType = 11
 
-public val RealTimeStylus: GUID = GUID.from_u128(U128(0xe26b366df99843ceuL, 0x836fcb6d904432b0uL))
+public val REAL_TIME_STYLUS: Guid = Guid.fromU128(U128(0xe26b366df99843ceuL, 0x836fcb6d904432b0uL))
 
 public val SAFE_PARTIAL: UInt = 1u
 
-public val SCROLLDIRECTION_DOWN: SCROLLDIRECTION = 1
+public val SCROLLDIRECTION_DOWN: Scrolldirection = 1
 
-public val SCROLLDIRECTION_UP: SCROLLDIRECTION = 0
+public val SCROLLDIRECTION_UP: Scrolldirection = 0
 
 public val SHR_E: SelectionHitResult = 5
 
@@ -2233,7 +2233,7 @@ public val SHR_NE: SelectionHitResult = 3
 
 public val SHR_NW: SelectionHitResult = 1
 
-public val SHR_None: SelectionHitResult = 0
+public val SHR_NONE: SelectionHitResult = 0
 
 public val SHR_S: SelectionHitResult = 8
 
@@ -2241,57 +2241,57 @@ public val SHR_SE: SelectionHitResult = 2
 
 public val SHR_SW: SelectionHitResult = 4
 
-public val SHR_Selection: SelectionHitResult = 9
+public val SHR_SELECTION: SelectionHitResult = 9
 
 public val SHR_W: SelectionHitResult = 6
 
-public val STR_GUID_ALTITUDEORIENTATION: PCWSTR = w("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}")
+public val STR_GUID_ALTITUDEORIENTATION: Pcwstr = w("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}")
 
-public val STR_GUID_AZIMUTHORIENTATION: PCWSTR = w("{029123B4-8828-410B-B250-A0536595E5DC}")
+public val STR_GUID_AZIMUTHORIENTATION: Pcwstr = w("{029123B4-8828-410B-B250-A0536595E5DC}")
 
-public val STR_GUID_BUTTONPRESSURE: PCWSTR = w("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}")
+public val STR_GUID_BUTTONPRESSURE: Pcwstr = w("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}")
 
-public val STR_GUID_DEVICE_CONTACT_ID: PCWSTR = w("{02585B91-049B-4750-9615-DF8948AB3C9C}")
+public val STR_GUID_DEVICE_CONTACT_ID: Pcwstr = w("{02585B91-049B-4750-9615-DF8948AB3C9C}")
 
-public val STR_GUID_FINGERCONTACTCONFIDENCE: PCWSTR = w("{E706C804-57F0-4F00-8A0C-853D57789BE9}")
+public val STR_GUID_FINGERCONTACTCONFIDENCE: Pcwstr = w("{E706C804-57F0-4F00-8A0C-853D57789BE9}")
 
-public val STR_GUID_HEIGHT: PCWSTR = w("{E61858D2-E447-4218-9D3F-18865C203DF4}")
+public val STR_GUID_HEIGHT: Pcwstr = w("{E61858D2-E447-4218-9D3F-18865C203DF4}")
 
-public val STR_GUID_NORMALPRESSURE: PCWSTR = w("{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}")
+public val STR_GUID_NORMALPRESSURE: Pcwstr = w("{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}")
 
-public val STR_GUID_PAKETSTATUS: PCWSTR = w("{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}")
+public val STR_GUID_PAKETSTATUS: Pcwstr = w("{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}")
 
-public val STR_GUID_PITCHROTATION: PCWSTR = w("{7F7E57B7-BE37-4BE1-A356-7A84160E1893}")
+public val STR_GUID_PITCHROTATION: Pcwstr = w("{7F7E57B7-BE37-4BE1-A356-7A84160E1893}")
 
-public val STR_GUID_ROLLROTATION: PCWSTR = w("{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}")
+public val STR_GUID_ROLLROTATION: Pcwstr = w("{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}")
 
-public val STR_GUID_SERIALNUMBER: PCWSTR = w("{78A81B56-0935-4493-BAAE-00541A8A16C4}")
+public val STR_GUID_SERIALNUMBER: Pcwstr = w("{78A81B56-0935-4493-BAAE-00541A8A16C4}")
 
-public val STR_GUID_TANGENTPRESSURE: PCWSTR = w("{6DA4488B-5244-41EC-905B-32D89AB80809}")
+public val STR_GUID_TANGENTPRESSURE: Pcwstr = w("{6DA4488B-5244-41EC-905B-32D89AB80809}")
 
-public val STR_GUID_TIMERTICK: PCWSTR = w("{436510C5-FED3-45D1-8B76-71D3EA7A829D}")
+public val STR_GUID_TIMERTICK: Pcwstr = w("{436510C5-FED3-45D1-8B76-71D3EA7A829D}")
 
-public val STR_GUID_TWISTORIENTATION: PCWSTR = w("{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}")
+public val STR_GUID_TWISTORIENTATION: Pcwstr = w("{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}")
 
-public val STR_GUID_WIDTH: PCWSTR = w("{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}")
+public val STR_GUID_WIDTH: Pcwstr = w("{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}")
 
-public val STR_GUID_X: PCWSTR = w("{598A6A8F-52C0-4BA0-93AF-AF357411A561}")
+public val STR_GUID_X: Pcwstr = w("{598A6A8F-52C0-4BA0-93AF-AF357411A561}")
 
-public val STR_GUID_XTILTORIENTATION: PCWSTR = w("{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}")
+public val STR_GUID_XTILTORIENTATION: Pcwstr = w("{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}")
 
-public val STR_GUID_Y: PCWSTR = w("{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}")
+public val STR_GUID_Y: Pcwstr = w("{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}")
 
-public val STR_GUID_YAWROTATION: PCWSTR = w("{6A849980-7C3A-45B7-AA82-90A262950E89}")
+public val STR_GUID_YAWROTATION: Pcwstr = w("{6A849980-7C3A-45B7-AA82-90A262950E89}")
 
-public val STR_GUID_YTILTORIENTATION: PCWSTR = w("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}")
+public val STR_GUID_YTILTORIENTATION: Pcwstr = w("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}")
 
-public val STR_GUID_Z: PCWSTR = w("{735ADB30-0EBB-4788-A0E4-0F316490055D}")
+public val STR_GUID_Z: Pcwstr = w("{735ADB30-0EBB-4788-A0E4-0F316490055D}")
 
-public val SketchInk: GUID = GUID.from_u128(U128(0xf0291081e87c4e07uL, 0x97daa0a03761e586uL))
+public val SKETCH_INK: Guid = Guid.fromU128(U128(0xf0291081e87c4e07uL, 0x97daa0a03761e586uL))
 
-public val StrokeBuilder: GUID = GUID.from_u128(U128(0xe810cee76e514cb0uL, 0xaa3a0b985b70daf7uL))
+public val STROKE_BUILDER: Guid = Guid.fromU128(U128(0xe810cee76e514cb0uL, 0xaa3a0b985b70daf7uL))
 
-public val SyncStylusQueue: StylusQueue = 1
+public val SYNC_STYLUS_QUEUE: StylusQueue = 1
 
 public val TABLET_DISABLE_FLICKFALLBACKKEYS: UInt = 1048576u
 
@@ -2317,43 +2317,43 @@ public val TABLET_ENABLE_FLICKSONCONTEXT: UInt = 131072u
 
 public val TABLET_ENABLE_MULTITOUCHDATA: UInt = 16777216u
 
-public val TCF_ALLOW_RECOGNITION: GET_DANDIDATE_FLAGS = 1
+public val TCF_ALLOW_RECOGNITION: GetDandidateFlags = 1
 
-public val TCF_FORCE_RECOGNITION: GET_DANDIDATE_FLAGS = 2
+public val TCF_FORCE_RECOGNITION: GetDandidateFlags = 2
 
-public val TDK_Mouse: TabletDeviceKind = 0
+public val TDK_MOUSE: TabletDeviceKind = 0
 
-public val TDK_Pen: TabletDeviceKind = 1
+public val TDK_PEN: TabletDeviceKind = 1
 
-public val TDK_Touch: TabletDeviceKind = 2
+public val TDK_TOUCH: TabletDeviceKind = 2
 
-public val THWC_CursorMustTouch: TabletHardwareCapabilities = 2
+public val THWC_CURSOR_MUST_TOUCH: TabletHardwareCapabilities = 2
 
-public val THWC_CursorsHavePhysicalIds: TabletHardwareCapabilities = 8
+public val THWC_CURSORS_HAVE_PHYSICAL_IDS: TabletHardwareCapabilities = 8
 
-public val THWC_HardProximity: TabletHardwareCapabilities = 4
+public val THWC_HARD_PROXIMITY: TabletHardwareCapabilities = 4
 
-public val THWC_Integrated: TabletHardwareCapabilities = 1
+public val THWC_INTEGRATED: TabletHardwareCapabilities = 1
 
-public val TPMU_Centimeters: TabletPropertyMetricUnit = 2
+public val TPMU_CENTIMETERS: TabletPropertyMetricUnit = 2
 
-public val TPMU_Default: TabletPropertyMetricUnit = 0
+public val TPMU_DEFAULT: TabletPropertyMetricUnit = 0
 
-public val TPMU_Degrees: TabletPropertyMetricUnit = 3
+public val TPMU_DEGREES: TabletPropertyMetricUnit = 3
 
-public val TPMU_Grams: TabletPropertyMetricUnit = 7
+public val TPMU_GRAMS: TabletPropertyMetricUnit = 7
 
-public val TPMU_Inches: TabletPropertyMetricUnit = 1
+public val TPMU_INCHES: TabletPropertyMetricUnit = 1
 
-public val TPMU_Pounds: TabletPropertyMetricUnit = 6
+public val TPMU_POUNDS: TabletPropertyMetricUnit = 6
 
-public val TPMU_Radians: TabletPropertyMetricUnit = 4
+public val TPMU_RADIANS: TabletPropertyMetricUnit = 4
 
-public val TPMU_Seconds: TabletPropertyMetricUnit = 5
+public val TPMU_SECONDS: TabletPropertyMetricUnit = 5
 
-public val TextInputPanel: GUID = GUID.from_u128(U128(0xf9b189d7228b4f2buL, 0x8650b97f59e02c8cuL))
+public val TEXT_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf9b189d7228b4f2buL, 0x8650b97f59e02c8cuL))
 
-public val TipAutoCompleteClient: GUID = GUID.from_u128(U128(0x807c1e6c1d00453fuL, 0xb920b61bb7cdd997uL))
+public val TIP_AUTO_COMPLETE_CLIENT: Guid = Guid.fromU128(U128(0x807c1e6c1d00453fuL, 0xb920b61bb7cdd997uL))
 
 public val WM_TABLET_ADDED: UInt = 712u
 
@@ -2367,24 +2367,24 @@ public val WM_TABLET_MAXOFFSET: UInt = 32u
 
 public val WM_TABLET_QUERYSYSTEMGESTURESTATUS: UInt = 716u
 
-public val rtfBoth: ScrollBarsConstants = 3
+public val RTF_BOTH: ScrollBarsConstants = 3
 
-public val rtfCenter: SelAlignmentConstants = 2
+public val RTF_CENTER: SelAlignmentConstants = 2
 
-public val rtfFixedSingle: BorderStyleConstants = 1
+public val RTF_FIXED_SINGLE: BorderStyleConstants = 1
 
-public val rtfFlat: AppearanceConstants = 0
+public val RTF_FLAT: AppearanceConstants = 0
 
-public val rtfHorizontal: ScrollBarsConstants = 1
+public val RTF_HORIZONTAL: ScrollBarsConstants = 1
 
-public val rtfLeft: SelAlignmentConstants = 0
+public val RTF_LEFT: SelAlignmentConstants = 0
 
-public val rtfNoBorder: BorderStyleConstants = 0
+public val RTF_NO_BORDER: BorderStyleConstants = 0
 
-public val rtfNone: ScrollBarsConstants = 0
+public val RTF_NONE: ScrollBarsConstants = 0
 
-public val rtfRight: SelAlignmentConstants = 1
+public val RTF_RIGHT: SelAlignmentConstants = 1
 
-public val rtfThreeD: AppearanceConstants = 1
+public val RTF_THREE_D: AppearanceConstants = 1
 
-public val rtfVertical: ScrollBarsConstants = 2
+public val RTF_VERTICAL: ScrollBarsConstants = 2

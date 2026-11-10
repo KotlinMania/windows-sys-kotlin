@@ -9,24 +9,24 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_wintrust_OpenPersonalTrustDBDialog(void* hwndparent);
-int32_t windowssys_windows_win32_security_wintrust_OpenPersonalTrustDBDialogEx(void* hwndparent, uint32_t dwflags, void* pvreserved);
-int32_t windowssys_windows_win32_security_wintrust_WTHelperCertCheckValidSignature(void* pprovdata);
-int32_t windowssys_windows_win32_security_wintrust_WTHelperCertIsSelfSigned(uint32_t dwencoding, void* pcert);
-void* windowssys_windows_win32_security_wintrust_WTHelperGetProvCertFromChain(void* psgnr, uint32_t idxcert);
-void* windowssys_windows_win32_security_wintrust_WTHelperGetProvPrivateDataFromChain(void* pprovdata, void* pgproviderid);
-void* windowssys_windows_win32_security_wintrust_WTHelperGetProvSignerFromChain(void* pprovdata, uint32_t idxsigner, int32_t fcountersigner, uint32_t idxcountersigner);
-void* windowssys_windows_win32_security_wintrust_WTHelperProvDataFromStateData(void* hstatedata);
-int32_t windowssys_windows_win32_security_wintrust_WinVerifyTrust(void* hwnd, void* pgactionid, void* pwvtdata);
-int32_t windowssys_windows_win32_security_wintrust_WinVerifyTrustEx(void* hwnd, void* pgactionid, void* pwintrustdata);
-int32_t windowssys_windows_win32_security_wintrust_WintrustAddActionID(void* pgactionid, uint32_t fdwflags, void* psprovinfo);
-int32_t windowssys_windows_win32_security_wintrust_WintrustAddDefaultForUsage(void* pszusageoid, void* psdefusage);
-int32_t windowssys_windows_win32_security_wintrust_WintrustGetDefaultForUsage(uint32_t dwaction, void* pszusageoid, void* psusage);
-void windowssys_windows_win32_security_wintrust_WintrustGetRegPolicyFlags(void* pdwpolicyflags);
-int32_t windowssys_windows_win32_security_wintrust_WintrustLoadFunctionPointers(void* pgactionid, void* ppfns);
-int32_t windowssys_windows_win32_security_wintrust_WintrustRemoveActionID(void* pgactionid);
-void windowssys_windows_win32_security_wintrust_WintrustSetDefaultIncludePEPageHashes(int32_t fincludepepagehashes);
-int32_t windowssys_windows_win32_security_wintrust_WintrustSetRegPolicyFlags(uint32_t dwpolicyflags);
+int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog(void* hwndparent);
+int32_t windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx(void* hwndparent, uint32_t dwflags, void* pvreserved);
+int32_t windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature(void* pprovdata);
+int32_t windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned(uint32_t dwencoding, void* pcert);
+void* windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain(void* psgnr, uint32_t idxcert);
+void* windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain(void* pprovdata, void* pgproviderid);
+void* windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain(void* pprovdata, uint32_t idxsigner, int32_t fcountersigner, uint32_t idxcountersigner);
+void* windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData(void* hstatedata);
+int32_t windowssys_windows_win32_security_wintrust_winVerifyTrust(void* hwnd, void* pgactionid, void* pwvtdata);
+int32_t windowssys_windows_win32_security_wintrust_winVerifyTrustEx(void* hwnd, void* pgactionid, void* pwintrustdata);
+int32_t windowssys_windows_win32_security_wintrust_wintrustAddActionID(void* pgactionid, uint32_t fdwflags, void* psprovinfo);
+int32_t windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage(void* pszusageoid, void* psdefusage);
+int32_t windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage(uint32_t dwaction, void* pszusageoid, void* psusage);
+void windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags(void* pdwpolicyflags);
+int32_t windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers(void* pgactionid, void* ppfns);
+int32_t windowssys_windows_win32_security_wintrust_wintrustRemoveActionID(void* pgactionid);
+void windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes(int32_t fincludepepagehashes);
+int32_t windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags(uint32_t dwpolicyflags);
 
 #ifdef __cplusplus
 }

@@ -1,106 +1,107 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
-public data class AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA(
+public data class AuthenticodeExtraCertChainPolicyPara(
     public var cbSize: UInt = 0u,
     public var dwRegPolicySettings: UInt = 0u,
-    public var pSignerInfo: Long = 0L,
+    public var pSignerInfo: CmsgSignerInfo? = null,
 )
 
-public data class AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS(public var cbSize: UInt = 0u, public var fCommercial: BOOL = 0)
+public data class AuthenticodeExtraCertChainPolicyStatus(public var cbSize: UInt = 0u, public var fCommercial: Bool = 0)
 
-public data class AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA(
+public data class AuthenticodeTsExtraCertChainPolicyPara(
     public var cbSize: UInt = 0u,
     public var dwRegPolicySettings: UInt = 0u,
-    public var fCommercial: BOOL = 0,
+    public var fCommercial: Bool = 0,
 )
 
-public data class BCRYPT_ALGORITHM_IDENTIFIER(
-    public var pszName: PWSTR = 0L,
+public data class BcryptAlgorithmIdentifier(
+    public var pszName: Pwstr = null,
     public var dwClass: UInt = 0u,
     public var dwFlags: UInt = 0u,
 )
 
-public data class BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var GenerateKeyPair: BCryptGenerateKeyPairFn = null,
-    public var FinalizeKeyPair: BCryptFinalizeKeyPairFn = null,
-    public var Encrypt: BCryptEncryptFn = null,
-    public var Decrypt: BCryptDecryptFn = null,
-    public var ImportKeyPair: BCryptImportKeyPairFn = null,
-    public var ExportKey: BCryptExportKeyFn = null,
-    public var DestroyKey: BCryptDestroyKeyFn = null,
-    public var SignHash: BCryptSignHashFn = null,
-    public var VerifySignature: BCryptVerifySignatureFn = null,
+public data class BcryptAsymmetricEncryptionFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var generateKeyPair: BCryptGenerateKeyPairFn = null,
+    public var finalizeKeyPair: BCryptFinalizeKeyPairFn = null,
+    public var encrypt: BCryptEncryptFn = null,
+    public var decrypt: BCryptDecryptFn = null,
+    public var importKeyPair: BCryptImportKeyPairFn = null,
+    public var exportKey: BCryptExportKeyFn = null,
+    public var destroyKey: BCryptDestroyKeyFn = null,
+    public var signHash: BCryptSignHashFn = null,
+    public var verifySignature: BCryptVerifySignatureFn = null,
 )
 
-public data class BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO(
+public data class BcryptAuthenticatedCipherModeInfo(
     public var cbSize: UInt = 0u,
     public var dwInfoVersion: UInt = 0u,
-    public var pbNonce: Long = 0L,
+    public var pbNonce: COpaquePointer? = null,
     public var cbNonce: UInt = 0u,
-    public var pbAuthData: Long = 0L,
+    public var pbAuthData: COpaquePointer? = null,
     public var cbAuthData: UInt = 0u,
-    public var pbTag: Long = 0L,
+    public var pbTag: COpaquePointer? = null,
     public var cbTag: UInt = 0u,
-    public var pbMacContext: Long = 0L,
+    public var pbMacContext: COpaquePointer? = null,
     public var cbMacContext: UInt = 0u,
     public var cbAAD: UInt = 0u,
     public var cbData: ULong = 0uL,
     public var dwFlags: UInt = 0u,
 )
 
-public data class BCRYPT_CIPHER_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var GenerateKey: BCryptGenerateSymmetricKeyFn = null,
-    public var Encrypt: BCryptEncryptFn = null,
-    public var Decrypt: BCryptDecryptFn = null,
-    public var ImportKey: BCryptImportKeyFn = null,
-    public var ExportKey: BCryptExportKeyFn = null,
-    public var DuplicateKey: BCryptDuplicateKeyFn = null,
-    public var DestroyKey: BCryptDestroyKeyFn = null,
+public data class BcryptCipherFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var generateKey: BCryptGenerateSymmetricKeyFn = null,
+    public var encrypt: BCryptEncryptFn = null,
+    public var decrypt: BCryptDecryptFn = null,
+    public var importKey: BCryptImportKeyFn = null,
+    public var exportKey: BCryptExportKeyFn = null,
+    public var duplicateKey: BCryptDuplicateKeyFn = null,
+    public var destroyKey: BCryptDestroyKeyFn = null,
 )
 
-public data class BCRYPT_DH_KEY_BLOB(public var dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC = 0u, public var cbKey: UInt = 0u)
+public data class BcryptDhKeyBlob(public var dwMagic: BcryptDhKeyBlobMagic = 0u, public var cbKey: UInt = 0u)
 
-public data class BCRYPT_DH_PARAMETER_HEADER(
+public data class BcryptDhParameterHeader(
     public var cbLength: UInt = 0u,
     public var dwMagic: UInt = 0u,
     public var cbKeyLength: UInt = 0u,
 )
 
-public data class BCRYPT_DSA_KEY_BLOB(
-    public var dwMagic: BCRYPT_DSA_MAGIC = 0u,
+public data class BcryptDsaKeyBlob(
+    public var dwMagic: BcryptDsaMagic = 0u,
     public var cbKey: UInt = 0u,
-    public var Count: UByteArray = UByteArray(4),
-    public var Seed: UByteArray = UByteArray(20),
+    public var count: UByteArray = UByteArray(4),
+    public var seed: UByteArray = UByteArray(20),
     public var q: UByteArray = UByteArray(20),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BCRYPT_DSA_KEY_BLOB) return false
+        if (other !is BcryptDsaKeyBlob) return false
         if (this.dwMagic != other.dwMagic) return false
         if (this.cbKey != other.cbKey) return false
-        if (!this.Count.contentEquals(other.Count)) return false
-        if (!this.Seed.contentEquals(other.Seed)) return false
+        if (!this.count.contentEquals(other.count)) return false
+        if (!this.seed.contentEquals(other.seed)) return false
         if (!this.q.contentEquals(other.q)) return false
         return true
     }
@@ -108,32 +109,32 @@ public data class BCRYPT_DSA_KEY_BLOB(
     override fun hashCode(): Int {
         var result = this.dwMagic.hashCode()
         result = 31 * result + this.cbKey.hashCode()
-        result = 31 * result + this.Count.contentHashCode()
-        result = 31 * result + this.Seed.contentHashCode()
+        result = 31 * result + this.count.contentHashCode()
+        result = 31 * result + this.seed.contentHashCode()
         result = 31 * result + this.q.contentHashCode()
         return result
     }
 }
 
-public data class BCRYPT_DSA_KEY_BLOB_V2(
-    public var dwMagic: BCRYPT_DSA_MAGIC = 0u,
+public data class BcryptDsaKeyBlobV2(
+    public var dwMagic: BcryptDsaMagic = 0u,
     public var cbKey: UInt = 0u,
-    public var hashAlgorithm: HASHALGORITHM_ENUM = 0,
-    public var standardVersion: DSAFIPSVERSION_ENUM = 0,
+    public var hashAlgorithm: HashalgorithmEnum = 0,
+    public var standardVersion: DsafipsversionEnum = 0,
     public var cbSeedLength: UInt = 0u,
     public var cbGroupSize: UInt = 0u,
-    public var Count: UByteArray = UByteArray(4),
+    public var count: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BCRYPT_DSA_KEY_BLOB_V2) return false
+        if (other !is BcryptDsaKeyBlobV2) return false
         if (this.dwMagic != other.dwMagic) return false
         if (this.cbKey != other.cbKey) return false
         if (this.hashAlgorithm != other.hashAlgorithm) return false
         if (this.standardVersion != other.standardVersion) return false
         if (this.cbSeedLength != other.cbSeedLength) return false
         if (this.cbGroupSize != other.cbGroupSize) return false
-        if (!this.Count.contentEquals(other.Count)) return false
+        if (!this.count.contentEquals(other.count)) return false
         return true
     }
 
@@ -144,27 +145,27 @@ public data class BCRYPT_DSA_KEY_BLOB_V2(
         result = 31 * result + this.standardVersion.hashCode()
         result = 31 * result + this.cbSeedLength.hashCode()
         result = 31 * result + this.cbGroupSize.hashCode()
-        result = 31 * result + this.Count.contentHashCode()
+        result = 31 * result + this.count.contentHashCode()
         return result
     }
 }
 
-public data class BCRYPT_DSA_PARAMETER_HEADER(
+public data class BcryptDsaParameterHeader(
     public var cbLength: UInt = 0u,
     public var dwMagic: UInt = 0u,
     public var cbKeyLength: UInt = 0u,
-    public var Count: UByteArray = UByteArray(4),
-    public var Seed: UByteArray = UByteArray(20),
+    public var count: UByteArray = UByteArray(4),
+    public var seed: UByteArray = UByteArray(20),
     public var q: UByteArray = UByteArray(20),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BCRYPT_DSA_PARAMETER_HEADER) return false
+        if (other !is BcryptDsaParameterHeader) return false
         if (this.cbLength != other.cbLength) return false
         if (this.dwMagic != other.dwMagic) return false
         if (this.cbKeyLength != other.cbKeyLength) return false
-        if (!this.Count.contentEquals(other.Count)) return false
-        if (!this.Seed.contentEquals(other.Seed)) return false
+        if (!this.count.contentEquals(other.count)) return false
+        if (!this.seed.contentEquals(other.seed)) return false
         if (!this.q.contentEquals(other.q)) return false
         return true
     }
@@ -173,26 +174,26 @@ public data class BCRYPT_DSA_PARAMETER_HEADER(
         var result = this.cbLength.hashCode()
         result = 31 * result + this.dwMagic.hashCode()
         result = 31 * result + this.cbKeyLength.hashCode()
-        result = 31 * result + this.Count.contentHashCode()
-        result = 31 * result + this.Seed.contentHashCode()
+        result = 31 * result + this.count.contentHashCode()
+        result = 31 * result + this.seed.contentHashCode()
         result = 31 * result + this.q.contentHashCode()
         return result
     }
 }
 
-public data class BCRYPT_DSA_PARAMETER_HEADER_V2(
+public data class BcryptDsaParameterHeaderV2(
     public var cbLength: UInt = 0u,
     public var dwMagic: UInt = 0u,
     public var cbKeyLength: UInt = 0u,
-    public var hashAlgorithm: HASHALGORITHM_ENUM = 0,
-    public var standardVersion: DSAFIPSVERSION_ENUM = 0,
+    public var hashAlgorithm: HashalgorithmEnum = 0,
+    public var standardVersion: DsafipsversionEnum = 0,
     public var cbSeedLength: UInt = 0u,
     public var cbGroupSize: UInt = 0u,
-    public var Count: UByteArray = UByteArray(4),
+    public var count: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BCRYPT_DSA_PARAMETER_HEADER_V2) return false
+        if (other !is BcryptDsaParameterHeaderV2) return false
         if (this.cbLength != other.cbLength) return false
         if (this.dwMagic != other.dwMagic) return false
         if (this.cbKeyLength != other.cbKeyLength) return false
@@ -200,7 +201,7 @@ public data class BCRYPT_DSA_PARAMETER_HEADER_V2(
         if (this.standardVersion != other.standardVersion) return false
         if (this.cbSeedLength != other.cbSeedLength) return false
         if (this.cbGroupSize != other.cbGroupSize) return false
-        if (!this.Count.contentEquals(other.Count)) return false
+        if (!this.count.contentEquals(other.count)) return false
         return true
     }
 
@@ -212,180 +213,180 @@ public data class BCRYPT_DSA_PARAMETER_HEADER_V2(
         result = 31 * result + this.standardVersion.hashCode()
         result = 31 * result + this.cbSeedLength.hashCode()
         result = 31 * result + this.cbGroupSize.hashCode()
-        result = 31 * result + this.Count.contentHashCode()
+        result = 31 * result + this.count.contentHashCode()
         return result
     }
 }
 
-public data class BCRYPT_ECCFULLKEY_BLOB(
+public data class BcryptEccfullkeyBlob(
     public var dwMagic: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var dwCurveType: ECC_CURVE_TYPE_ENUM = 0,
-    public var dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM = 0,
+    public var dwCurveType: EccCurveTypeEnum = 0,
+    public var dwCurveGenerationAlgId: EccCurveAlgIdEnum = 0,
     public var cbFieldLength: UInt = 0u,
     public var cbSubgroupOrder: UInt = 0u,
     public var cbCofactor: UInt = 0u,
     public var cbSeed: UInt = 0u,
 )
 
-public data class BCRYPT_ECCKEY_BLOB(public var dwMagic: UInt = 0u, public var cbKey: UInt = 0u)
+public data class BcryptEcckeyBlob(public var dwMagic: UInt = 0u, public var cbKey: UInt = 0u)
 
-public data class BCRYPT_ECC_CURVE_NAMES(public var dwEccCurveNames: UInt = 0u, public var pEccCurveNames: Long = 0L)
+public data class BcryptEccCurveNames(public var dwEccCurveNames: UInt = 0u, public var pEccCurveNames: Pwstr? = null)
 
-public data class BCRYPT_ECC_PARAMETER_HEADER(
+public data class BcryptEccParameterHeader(
     public var dwVersion: UInt = 0u,
-    public var dwCurveType: ECC_CURVE_TYPE_ENUM = 0,
-    public var dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM = 0,
+    public var dwCurveType: EccCurveTypeEnum = 0,
+    public var dwCurveGenerationAlgId: EccCurveAlgIdEnum = 0,
     public var cbFieldLength: UInt = 0u,
     public var cbSubgroupOrder: UInt = 0u,
     public var cbCofactor: UInt = 0u,
     public var cbSeed: UInt = 0u,
 )
 
-public data class BCRYPT_HASH_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var CreateHash: BCryptCreateHashFn = null,
-    public var HashData: BCryptHashDataFn = null,
-    public var FinishHash: BCryptFinishHashFn = null,
-    public var DuplicateHash: BCryptDuplicateHashFn = null,
-    public var DestroyHash: BCryptDestroyHashFn = null,
-    public var CreateMultiHash: BCryptCreateMultiHashFn = null,
-    public var ProcessMultiOperations: BCryptProcessMultiOperationsFn = null,
+public data class BcryptHashFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var createHash: BCryptCreateHashFn = null,
+    public var hashData: BCryptHashDataFn = null,
+    public var finishHash: BCryptFinishHashFn = null,
+    public var duplicateHash: BCryptDuplicateHashFn = null,
+    public var destroyHash: BCryptDestroyHashFn = null,
+    public var createMultiHash: BCryptCreateMultiHashFn = null,
+    public var processMultiOperations: BCryptProcessMultiOperationsFn = null,
 )
 
-public data class BCRYPT_INTERFACE_VERSION(public var MajorVersion: UShort = 0u, public var MinorVersion: UShort = 0u)
+public data class BcryptInterfaceVersion(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
 
-public data class BCRYPT_KEY_BLOB(public var Magic: UInt = 0u)
+public data class BcryptKeyBlob(public var magic: UInt = 0u)
 
-public data class BCRYPT_KEY_DATA_BLOB_HEADER(
+public data class BcryptKeyDataBlobHeader(
     public var dwMagic: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var cbKeyData: UInt = 0u,
 )
 
-public data class BCRYPT_KEY_DERIVATION_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var GenerateKey: BCryptGenerateSymmetricKeyFn = null,
-    public var DestroyKey: BCryptDestroyKeyFn = null,
-    public var KeyDerivation: BCryptKeyDerivationFn = null,
-    public var ExportKey: BCryptExportKeyFn = null,
-    public var ImportKey: BCryptImportKeyFn = null,
-    public var DuplicateKey: BCryptDuplicateKeyFn = null,
+public data class BcryptKeyDerivationFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var generateKey: BCryptGenerateSymmetricKeyFn = null,
+    public var destroyKey: BCryptDestroyKeyFn = null,
+    public var keyDerivation: BCryptKeyDerivationFn = null,
+    public var exportKey: BCryptExportKeyFn = null,
+    public var importKey: BCryptImportKeyFn = null,
+    public var duplicateKey: BCryptDuplicateKeyFn = null,
 )
 
-public data class BCRYPT_KEY_LENGTHS_STRUCT(
+public data class BcryptKeyLengthsStruct(
     public var dwMinLength: UInt = 0u,
     public var dwMaxLength: UInt = 0u,
     public var dwIncrement: UInt = 0u,
 )
 
-public data class BCRYPT_MULTI_HASH_OPERATION(
+public data class BcryptMultiHashOperation(
     public var iHash: UInt = 0u,
-    public var hashOperation: BCRYPT_HASH_OPERATION_TYPE = 0,
-    public var pbBuffer: Long = 0L,
+    public var hashOperation: BcryptHashOperationType = 0,
+    public var pbBuffer: COpaquePointer? = null,
     public var cbBuffer: UInt = 0u,
 )
 
-public data class BCRYPT_MULTI_OBJECT_LENGTH_STRUCT(public var cbPerObject: UInt = 0u, public var cbPerElement: UInt = 0u)
+public data class BcryptMultiObjectLengthStruct(public var cbPerObject: UInt = 0u, public var cbPerElement: UInt = 0u)
 
-public data class BCRYPT_OAEP_PADDING_INFO(
-    public var pszAlgId: PCWSTR = 0L,
-    public var pbLabel: Long = 0L,
+public data class BcryptOaepPaddingInfo(
+    public var pszAlgId: Pcwstr = null,
+    public var pbLabel: COpaquePointer? = null,
     public var cbLabel: UInt = 0u,
 )
 
-public data class BCRYPT_OID(public var cbOID: UInt = 0u, public var pbOID: Long = 0L)
+public data class BcryptOid(public var cbOID: UInt = 0u, public var pbOID: COpaquePointer? = null)
 
-public data class BCRYPT_OID_LIST(public var dwOIDCount: UInt = 0u, public var pOIDs: Long = 0L)
+public data class BcryptOidList(public var dwOIDCount: UInt = 0u, public var pOIDs: BcryptOid? = null)
 
-public data class BCRYPT_PKCS1_PADDING_INFO(public var pszAlgId: PCWSTR = 0L)
+public data class BcryptPkcs1PaddingInfo(public var pszAlgId: Pcwstr = null)
 
-public data class BCRYPT_PROVIDER_NAME(public var pszProviderName: PWSTR = 0L)
+public data class BcryptProviderName(public var pszProviderName: Pwstr = null)
 
-public data class BCRYPT_PSS_PADDING_INFO(public var pszAlgId: PCWSTR = 0L, public var cbSalt: UInt = 0u)
+public data class BcryptPssPaddingInfo(public var pszAlgId: Pcwstr = null, public var cbSalt: UInt = 0u)
 
-public data class BCRYPT_RNG_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var GenRandom: BCryptGenRandomFn = null,
+public data class BcryptRngFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var genRandom: BCryptGenRandomFn = null,
 )
 
-public data class BCRYPT_RSAKEY_BLOB(
-    public var Magic: BCRYPT_RSAKEY_BLOB_MAGIC = 0u,
-    public var BitLength: UInt = 0u,
+public data class BcryptRsakeyBlob(
+    public var magic: BcryptRsakeyBlobMagic = 0u,
+    public var bitLength: UInt = 0u,
     public var cbPublicExp: UInt = 0u,
     public var cbModulus: UInt = 0u,
     public var cbPrime1: UInt = 0u,
     public var cbPrime2: UInt = 0u,
 )
 
-public data class BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var SecretAgreement: BCryptSecretAgreementFn = null,
-    public var DeriveKey: BCryptDeriveKeyFn = null,
-    public var DestroySecret: BCryptDestroySecretFn = null,
-    public var GenerateKeyPair: BCryptGenerateKeyPairFn = null,
-    public var FinalizeKeyPair: BCryptFinalizeKeyPairFn = null,
-    public var ImportKeyPair: BCryptImportKeyPairFn = null,
-    public var ExportKey: BCryptExportKeyFn = null,
-    public var DestroyKey: BCryptDestroyKeyFn = null,
+public data class BcryptSecretAgreementFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var secretAgreement: BCryptSecretAgreementFn = null,
+    public var deriveKey: BCryptDeriveKeyFn = null,
+    public var destroySecret: BCryptDestroySecretFn = null,
+    public var generateKeyPair: BCryptGenerateKeyPairFn = null,
+    public var finalizeKeyPair: BCryptFinalizeKeyPairFn = null,
+    public var importKeyPair: BCryptImportKeyPairFn = null,
+    public var exportKey: BCryptExportKeyFn = null,
+    public var destroyKey: BCryptDestroyKeyFn = null,
 )
 
-public data class BCRYPT_SIGNATURE_FUNCTION_TABLE(
-    public var Version: BCRYPT_INTERFACE_VERSION = BCRYPT_INTERFACE_VERSION(),
-    public var OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
-    public var GetProperty: BCryptGetPropertyFn = null,
-    public var SetProperty: BCryptSetPropertyFn = null,
-    public var CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
-    public var GenerateKeyPair: BCryptGenerateKeyPairFn = null,
-    public var FinalizeKeyPair: BCryptFinalizeKeyPairFn = null,
-    public var SignHash: BCryptSignHashFn = null,
-    public var VerifySignature: BCryptVerifySignatureFn = null,
-    public var ImportKeyPair: BCryptImportKeyPairFn = null,
-    public var ExportKey: BCryptExportKeyFn = null,
-    public var DestroyKey: BCryptDestroyKeyFn = null,
+public data class BcryptSignatureFunctionTable(
+    public var version: BcryptInterfaceVersion = BcryptInterfaceVersion(),
+    public var openAlgorithmProvider: BCryptOpenAlgorithmProviderFn = null,
+    public var getProperty: BCryptGetPropertyFn = null,
+    public var setProperty: BCryptSetPropertyFn = null,
+    public var closeAlgorithmProvider: BCryptCloseAlgorithmProviderFn = null,
+    public var generateKeyPair: BCryptGenerateKeyPairFn = null,
+    public var finalizeKeyPair: BCryptFinalizeKeyPairFn = null,
+    public var signHash: BCryptSignHashFn = null,
+    public var verifySignature: BCryptVerifySignatureFn = null,
+    public var importKeyPair: BCryptImportKeyPairFn = null,
+    public var exportKey: BCryptExportKeyFn = null,
+    public var destroyKey: BCryptDestroyKeyFn = null,
 )
 
 public data class BCryptBuffer(
     public var cbBuffer: UInt = 0u,
-    public var BufferType: UInt = 0u,
-    public var pvBuffer: Long = 0L,
+    public var bufferType: UInt = 0u,
+    public var pvBuffer: COpaquePointer? = null,
 )
 
 public data class BCryptBufferDesc(
     public var ulVersion: UInt = 0u,
     public var cBuffers: UInt = 0u,
-    public var pBuffers: Long = 0L,
+    public var pBuffers: BCryptBuffer? = null,
 )
 
-public data class CARD_AUTHENTICATE(
+public data class CardAuthenticate(
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var PinId: UInt = 0u,
+    public var pinId: UInt = 0u,
     public var cbPinData: UInt = 0u,
     public var pbPinData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CARD_AUTHENTICATE) return false
+        if (other !is CardAuthenticate) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwFlags != other.dwFlags) return false
-        if (this.PinId != other.PinId) return false
+        if (this.pinId != other.pinId) return false
         if (this.cbPinData != other.cbPinData) return false
         if (!this.pbPinData.contentEquals(other.pbPinData)) return false
         return true
@@ -394,14 +395,14 @@ public data class CARD_AUTHENTICATE(
     override fun hashCode(): Int {
         var result = this.dwVersion.hashCode()
         result = 31 * result + this.dwFlags.hashCode()
-        result = 31 * result + this.PinId.hashCode()
+        result = 31 * result + this.pinId.hashCode()
         result = 31 * result + this.cbPinData.hashCode()
         result = 31 * result + this.pbPinData.contentHashCode()
         return result
     }
 }
 
-public data class CARD_AUTHENTICATE_RESPONSE(
+public data class CardAuthenticateResponse(
     public var dwVersion: UInt = 0u,
     public var cbSessionPin: UInt = 0u,
     public var cAttemptsRemaining: UInt = 0u,
@@ -409,7 +410,7 @@ public data class CARD_AUTHENTICATE_RESPONSE(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CARD_AUTHENTICATE_RESPONSE) return false
+        if (other !is CardAuthenticateResponse) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.cbSessionPin != other.cbSessionPin) return false
         if (this.cAttemptsRemaining != other.cAttemptsRemaining) return false
@@ -426,20 +427,20 @@ public data class CARD_AUTHENTICATE_RESPONSE(
     }
 }
 
-public data class CARD_CACHE_FILE_FORMAT(
+public data class CardCacheFileFormat(
     public var bVersion: UByte = 0u,
     public var bPinsFreshness: UByte = 0u,
     public var wContainersFreshness: UShort = 0u,
     public var wFilesFreshness: UShort = 0u,
 )
 
-public data class CARD_CAPABILITIES(
+public data class CardCapabilities(
     public var dwVersion: UInt = 0u,
-    public var fCertificateCompression: BOOL = 0,
-    public var fKeyGen: BOOL = 0,
+    public var fCertificateCompression: Bool = 0,
+    public var fKeyGen: Bool = 0,
 )
 
-public data class CARD_CHANGE_AUTHENTICATOR(
+public data class CardChangeAuthenticator(
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwAuthenticatingPinId: UInt = 0u,
@@ -451,7 +452,7 @@ public data class CARD_CHANGE_AUTHENTICATOR(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CARD_CHANGE_AUTHENTICATOR) return false
+        if (other !is CardChangeAuthenticator) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwAuthenticatingPinId != other.dwAuthenticatingPinId) return false
@@ -476,117 +477,117 @@ public data class CARD_CHANGE_AUTHENTICATOR(
     }
 }
 
-public data class CARD_CHANGE_AUTHENTICATOR_RESPONSE(public var dwVersion: UInt = 0u, public var cAttemptsRemaining: UInt = 0u)
+public data class CardChangeAuthenticatorResponse(public var dwVersion: UInt = 0u, public var cAttemptsRemaining: UInt = 0u)
 
-public class CARD_DATA(
+public class CardData(
     public var dwVersion: UInt = 0u,
-    public var pbAtr: Long = 0L,
+    public var pbAtr: COpaquePointer? = null,
     public var cbAtr: UInt = 0u,
-    public var pwszCardName: PWSTR = 0L,
-    public var pfnCspAlloc: PFN_CSP_ALLOC = null,
-    public var pfnCspReAlloc: PFN_CSP_REALLOC = null,
-    public var pfnCspFree: PFN_CSP_FREE = null,
-    public var pfnCspCacheAddFile: PFN_CSP_CACHE_ADD_FILE = null,
-    public var pfnCspCacheLookupFile: PFN_CSP_CACHE_LOOKUP_FILE = null,
-    public var pfnCspCacheDeleteFile: PFN_CSP_CACHE_DELETE_FILE = null,
-    public var pvCacheContext: Long = 0L,
-    public var pfnCspPadData: PFN_CSP_PAD_DATA = null,
-    public var hSCardCtx: ULong = 0uL,
-    public var hScard: ULong = 0uL,
-    public var pvVendorSpecific: Long = 0L,
-    public var pfnCardDeleteContext: PFN_CARD_DELETE_CONTEXT = null,
-    public var pfnCardQueryCapabilities: PFN_CARD_QUERY_CAPABILITIES = null,
-    public var pfnCardDeleteContainer: PFN_CARD_DELETE_CONTAINER = null,
-    public var pfnCardCreateContainer: PFN_CARD_CREATE_CONTAINER = null,
-    public var pfnCardGetContainerInfo: PFN_CARD_GET_CONTAINER_INFO = null,
-    public var pfnCardAuthenticatePin: PFN_CARD_AUTHENTICATE_PIN = null,
-    public var pfnCardGetChallenge: PFN_CARD_GET_CHALLENGE = null,
-    public var pfnCardAuthenticateChallenge: PFN_CARD_AUTHENTICATE_CHALLENGE = null,
-    public var pfnCardUnblockPin: PFN_CARD_UNBLOCK_PIN = null,
-    public var pfnCardChangeAuthenticator: PFN_CARD_CHANGE_AUTHENTICATOR = null,
-    public var pfnCardDeauthenticate: PFN_CARD_DEAUTHENTICATE = null,
-    public var pfnCardCreateDirectory: PFN_CARD_CREATE_DIRECTORY = null,
-    public var pfnCardDeleteDirectory: PFN_CARD_DELETE_DIRECTORY = null,
-    public var pvUnused3: Long = 0L,
-    public var pvUnused4: Long = 0L,
-    public var pfnCardCreateFile: PFN_CARD_CREATE_FILE = null,
-    public var pfnCardReadFile: PFN_CARD_READ_FILE = null,
-    public var pfnCardWriteFile: PFN_CARD_WRITE_FILE = null,
-    public var pfnCardDeleteFile: PFN_CARD_DELETE_FILE = null,
-    public var pfnCardEnumFiles: PFN_CARD_ENUM_FILES = null,
-    public var pfnCardGetFileInfo: PFN_CARD_GET_FILE_INFO = null,
-    public var pfnCardQueryFreeSpace: PFN_CARD_QUERY_FREE_SPACE = null,
-    public var pfnCardQueryKeySizes: PFN_CARD_QUERY_KEY_SIZES = null,
-    public var pfnCardSignData: PFN_CARD_SIGN_DATA = null,
-    public var pfnCardRSADecrypt: PFN_CARD_RSA_DECRYPT = null,
-    public var pfnCardConstructDHAgreement: PFN_CARD_CONSTRUCT_DH_AGREEMENT = null,
-    public var pfnCardDeriveKey: PFN_CARD_DERIVE_KEY = null,
-    public var pfnCardDestroyDHAgreement: PFN_CARD_DESTROY_DH_AGREEMENT = null,
-    public var pfnCspGetDHAgreement: PFN_CSP_GET_DH_AGREEMENT = null,
-    public var pfnCardGetChallengeEx: PFN_CARD_GET_CHALLENGE_EX = null,
-    public var pfnCardAuthenticateEx: PFN_CARD_AUTHENTICATE_EX = null,
-    public var pfnCardChangeAuthenticatorEx: PFN_CARD_CHANGE_AUTHENTICATOR_EX = null,
-    public var pfnCardDeauthenticateEx: PFN_CARD_DEAUTHENTICATE_EX = null,
-    public var pfnCardGetContainerProperty: PFN_CARD_GET_CONTAINER_PROPERTY = null,
-    public var pfnCardSetContainerProperty: PFN_CARD_SET_CONTAINER_PROPERTY = null,
-    public var pfnCardGetProperty: PFN_CARD_GET_PROPERTY = null,
-    public var pfnCardSetProperty: PFN_CARD_SET_PROPERTY = null,
-    public var pfnCspUnpadData: PFN_CSP_UNPAD_DATA = null,
-    public var pfnMDImportSessionKey: PFN_MD_IMPORT_SESSION_KEY = null,
-    public var pfnMDEncryptData: PFN_MD_ENCRYPT_DATA = null,
-    public var pfnCardImportSessionKey: PFN_CARD_IMPORT_SESSION_KEY = null,
-    public var pfnCardGetSharedKeyHandle: PFN_CARD_GET_SHARED_KEY_HANDLE = null,
-    public var pfnCardGetAlgorithmProperty: PFN_CARD_GET_ALGORITHM_PROPERTY = null,
-    public var pfnCardGetKeyProperty: PFN_CARD_GET_KEY_PROPERTY = null,
-    public var pfnCardSetKeyProperty: PFN_CARD_SET_KEY_PROPERTY = null,
-    public var pfnCardDestroyKey: PFN_CARD_DESTROY_KEY = null,
-    public var pfnCardProcessEncryptedData: PFN_CARD_PROCESS_ENCRYPTED_DATA = null,
-    public var pfnCardCreateContainerEx: PFN_CARD_CREATE_CONTAINER_EX = null,
+    public var pwszCardName: Pwstr = null,
+    public var pfnCspAlloc: PfnCspAlloc = null,
+    public var pfnCspReAlloc: PfnCspRealloc = null,
+    public var pfnCspFree: PfnCspFree = null,
+    public var pfnCspCacheAddFile: PfnCspCacheAddFile = null,
+    public var pfnCspCacheLookupFile: PfnCspCacheLookupFile = null,
+    public var pfnCspCacheDeleteFile: PfnCspCacheDeleteFile = null,
+    public var pvCacheContext: COpaquePointer? = null,
+    public var pfnCspPadData: PfnCspPadData = null,
+    public var hSCardCtx: Int = 0,
+    public var hScard: Int = 0,
+    public var pvVendorSpecific: COpaquePointer? = null,
+    public var pfnCardDeleteContext: PfnCardDeleteContext = null,
+    public var pfnCardQueryCapabilities: PfnCardQueryCapabilities = null,
+    public var pfnCardDeleteContainer: PfnCardDeleteContainer = null,
+    public var pfnCardCreateContainer: PfnCardCreateContainer = null,
+    public var pfnCardGetContainerInfo: PfnCardGetContainerInfo = null,
+    public var pfnCardAuthenticatePin: PfnCardAuthenticatePin = null,
+    public var pfnCardGetChallenge: PfnCardGetChallenge = null,
+    public var pfnCardAuthenticateChallenge: PfnCardAuthenticateChallenge = null,
+    public var pfnCardUnblockPin: PfnCardUnblockPin = null,
+    public var pfnCardChangeAuthenticator: PfnCardChangeAuthenticator = null,
+    public var pfnCardDeauthenticate: PfnCardDeauthenticate = null,
+    public var pfnCardCreateDirectory: PfnCardCreateDirectory = null,
+    public var pfnCardDeleteDirectory: PfnCardDeleteDirectory = null,
+    public var pvUnused3: COpaquePointer? = null,
+    public var pvUnused4: COpaquePointer? = null,
+    public var pfnCardCreateFile: PfnCardCreateFile = null,
+    public var pfnCardReadFile: PfnCardReadFile = null,
+    public var pfnCardWriteFile: PfnCardWriteFile = null,
+    public var pfnCardDeleteFile: PfnCardDeleteFile = null,
+    public var pfnCardEnumFiles: PfnCardEnumFiles = null,
+    public var pfnCardGetFileInfo: PfnCardGetFileInfo = null,
+    public var pfnCardQueryFreeSpace: PfnCardQueryFreeSpace = null,
+    public var pfnCardQueryKeySizes: PfnCardQueryKeySizes = null,
+    public var pfnCardSignData: PfnCardSignData = null,
+    public var pfnCardRSADecrypt: PfnCardRsaDecrypt = null,
+    public var pfnCardConstructDHAgreement: PfnCardConstructDhAgreement = null,
+    public var pfnCardDeriveKey: PfnCardDeriveKey = null,
+    public var pfnCardDestroyDHAgreement: PfnCardDestroyDhAgreement = null,
+    public var pfnCspGetDHAgreement: PfnCspGetDhAgreement = null,
+    public var pfnCardGetChallengeEx: PfnCardGetChallengeEx = null,
+    public var pfnCardAuthenticateEx: PfnCardAuthenticateEx = null,
+    public var pfnCardChangeAuthenticatorEx: PfnCardChangeAuthenticatorEx = null,
+    public var pfnCardDeauthenticateEx: PfnCardDeauthenticateEx = null,
+    public var pfnCardGetContainerProperty: PfnCardGetContainerProperty = null,
+    public var pfnCardSetContainerProperty: PfnCardSetContainerProperty = null,
+    public var pfnCardGetProperty: PfnCardGetProperty = null,
+    public var pfnCardSetProperty: PfnCardSetProperty = null,
+    public var pfnCspUnpadData: PfnCspUnpadData = null,
+    public var pfnMDImportSessionKey: PfnMdImportSessionKey = null,
+    public var pfnMDEncryptData: PfnMdEncryptData = null,
+    public var pfnCardImportSessionKey: PfnCardImportSessionKey = null,
+    public var pfnCardGetSharedKeyHandle: PfnCardGetSharedKeyHandle = null,
+    public var pfnCardGetAlgorithmProperty: PfnCardGetAlgorithmProperty = null,
+    public var pfnCardGetKeyProperty: PfnCardGetKeyProperty = null,
+    public var pfnCardSetKeyProperty: PfnCardSetKeyProperty = null,
+    public var pfnCardDestroyKey: PfnCardDestroyKey = null,
+    public var pfnCardProcessEncryptedData: PfnCardProcessEncryptedData = null,
+    public var pfnCardCreateContainerEx: PfnCardCreateContainerEx = null,
 )
 
-public data class CARD_DERIVE_KEY(
+public data class CardDeriveKey(
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwszKDF: PWSTR = 0L,
+    public var pwszKDF: Pwstr = null,
     public var bSecretAgreementIndex: UByte = 0u,
-    public var pParameterList: Long = 0L,
-    public var pbDerivedKey: Long = 0L,
+    public var pParameterList: COpaquePointer? = null,
+    public var pbDerivedKey: COpaquePointer? = null,
     public var cbDerivedKey: UInt = 0u,
-    public var pwszAlgId: PWSTR = 0L,
+    public var pwszAlgId: Pwstr = null,
     public var dwKeyLen: UInt = 0u,
-    public var hKey: ULong = 0uL,
+    public var hKey: Int = 0,
 )
 
-public data class CARD_DH_AGREEMENT_INFO(
+public data class CardDhAgreementInfo(
     public var dwVersion: UInt = 0u,
     public var bContainerIndex: UByte = 0u,
     public var dwFlags: UInt = 0u,
     public var dwPublicKey: UInt = 0u,
-    public var pbPublicKey: Long = 0L,
-    public var pbReserved: Long = 0L,
+    public var pbPublicKey: COpaquePointer? = null,
+    public var pbReserved: COpaquePointer? = null,
     public var cbReserved: UInt = 0u,
     public var bSecretAgreementIndex: UByte = 0u,
 )
 
-public data class CARD_ENCRYPTED_DATA(public var pbEncryptedData: Long = 0L, public var cbEncryptedData: UInt = 0u)
+public data class CardEncryptedData(public var pbEncryptedData: COpaquePointer? = null, public var cbEncryptedData: UInt = 0u)
 
-public data class CARD_FILE_INFO(
+public data class CardFileInfo(
     public var dwVersion: UInt = 0u,
     public var cbFileSize: UInt = 0u,
-    public var AccessCondition: CARD_FILE_ACCESS_CONDITION = 0,
+    public var accessCondition: CardFileAccessCondition = 0,
 )
 
-public data class CARD_FREE_SPACE_INFO(
+public data class CardFreeSpaceInfo(
     public var dwVersion: UInt = 0u,
     public var dwBytesAvailable: UInt = 0u,
     public var dwKeyContainersAvailable: UInt = 0u,
     public var dwMaxKeyContainers: UInt = 0u,
 )
 
-public data class CARD_IMPORT_KEYPAIR(
+public data class CardImportKeypair(
     public var dwVersion: UInt = 0u,
     public var bContainerIndex: UByte = 0u,
-    public var PinId: UInt = 0u,
+    public var pinId: UInt = 0u,
     public var dwKeySpec: UInt = 0u,
     public var dwKeySize: UInt = 0u,
     public var cbInput: UInt = 0u,
@@ -594,10 +595,10 @@ public data class CARD_IMPORT_KEYPAIR(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CARD_IMPORT_KEYPAIR) return false
+        if (other !is CardImportKeypair) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.bContainerIndex != other.bContainerIndex) return false
-        if (this.PinId != other.PinId) return false
+        if (this.pinId != other.pinId) return false
         if (this.dwKeySpec != other.dwKeySpec) return false
         if (this.dwKeySize != other.dwKeySize) return false
         if (this.cbInput != other.cbInput) return false
@@ -608,7 +609,7 @@ public data class CARD_IMPORT_KEYPAIR(
     override fun hashCode(): Int {
         var result = this.dwVersion.hashCode()
         result = 31 * result + this.bContainerIndex.hashCode()
-        result = 31 * result + this.PinId.hashCode()
+        result = 31 * result + this.pinId.hashCode()
         result = 31 * result + this.dwKeySpec.hashCode()
         result = 31 * result + this.dwKeySize.hashCode()
         result = 31 * result + this.cbInput.hashCode()
@@ -617,7 +618,7 @@ public data class CARD_IMPORT_KEYPAIR(
     }
 }
 
-public data class CARD_KEY_SIZES(
+public data class CardKeySizes(
     public var dwVersion: UInt = 0u,
     public var dwMinimumBitlen: UInt = 0u,
     public var dwDefaultBitlen: UInt = 0u,
@@ -625,1049 +626,1049 @@ public data class CARD_KEY_SIZES(
     public var dwIncrementalBitlen: UInt = 0u,
 )
 
-public data class CARD_RSA_DECRYPT_INFO(
+public data class CardRsaDecryptInfo(
     public var dwVersion: UInt = 0u,
     public var bContainerIndex: UByte = 0u,
     public var dwKeySpec: UInt = 0u,
-    public var pbData: Long = 0L,
+    public var pbData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
-    public var pPaddingInfo: Long = 0L,
+    public var pPaddingInfo: COpaquePointer? = null,
     public var dwPaddingType: UInt = 0u,
 )
 
-public data class CARD_SIGNING_INFO(
+public data class CardSigningInfo(
     public var dwVersion: UInt = 0u,
     public var bContainerIndex: UByte = 0u,
     public var dwKeySpec: UInt = 0u,
     public var dwSigningFlags: UInt = 0u,
-    public var aiHashAlg: ALG_ID = 0u,
-    public var pbData: Long = 0L,
+    public var aiHashAlg: AlgId = 0u,
+    public var pbData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
-    public var pbSignedData: Long = 0L,
+    public var pbSignedData: COpaquePointer? = null,
     public var cbSignedData: UInt = 0u,
-    public var pPaddingInfo: Long = 0L,
+    public var pPaddingInfo: COpaquePointer? = null,
     public var dwPaddingType: UInt = 0u,
 )
 
-public data class CERTIFICATE_CHAIN_BLOB(public var certCount: UInt = 0u, public var rawCertificates: Long = 0L)
+public data class CertificateChainBlob(public var certCount: UInt = 0u, public var rawCertificates: CryptIntegerBlob? = null)
 
-public data class CERT_ACCESS_DESCRIPTION(public var pszAccessMethod: PSTR = 0L, public var AccessLocation: CERT_ALT_NAME_ENTRY = CERT_ALT_NAME_ENTRY())
+public data class CertAccessDescription(public var pszAccessMethod: Pstr = null, public var accessLocation: CertAltNameEntry = CertAltNameEntry())
 
-public data class CERT_ALT_NAME_ENTRY(public var dwAltNameChoice: UInt = 0u, public var Anonymous: CERT_ALT_NAME_ENTRY_0 = CERT_ALT_NAME_ENTRY_0())
+public data class CertAltNameEntry(public var dwAltNameChoice: UInt = 0u, public var anonymous: CertAltNameEntry0 = CertAltNameEntry0())
 
-public data class CERT_ALT_NAME_ENTRY_0(
-    public var pOtherName: Long = 0L,
-    public var pwszRfc822Name: PWSTR = 0L,
-    public var pwszDNSName: PWSTR = 0L,
-    public var DirectoryName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var pwszURL: PWSTR = 0L,
-    public var IPAddress: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var pszRegisteredID: PSTR = 0L,
+public data class CertAltNameEntry0(
+    public var pOtherName: CertOtherName? = null,
+    public var pwszRfc822Name: Pwstr = null,
+    public var pwszDNSName: Pwstr = null,
+    public var directoryName: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pwszURL: Pwstr = null,
+    public var iPAddress: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pszRegisteredID: Pstr = null,
 )
 
-public data class CERT_ALT_NAME_INFO(public var cAltEntry: UInt = 0u, public var rgAltEntry: Long = 0L)
+public data class CertAltNameInfo(public var cAltEntry: UInt = 0u, public var rgAltEntry: CertAltNameEntry? = null)
 
-public data class CERT_AUTHORITY_INFO_ACCESS(public var cAccDescr: UInt = 0u, public var rgAccDescr: Long = 0L)
+public data class CertAuthorityInfoAccess(public var cAccDescr: UInt = 0u, public var rgAccDescr: CertAccessDescription? = null)
 
-public data class CERT_AUTHORITY_KEY_ID2_INFO(
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var AuthorityCertIssuer: CERT_ALT_NAME_INFO = CERT_ALT_NAME_INFO(),
-    public var AuthorityCertSerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class CertAuthorityKeyId2Info(
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var authorityCertIssuer: CertAltNameInfo = CertAltNameInfo(),
+    public var authorityCertSerialNumber: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_AUTHORITY_KEY_ID_INFO(
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var CertIssuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var CertSerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class CertAuthorityKeyIdInfo(
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var certIssuer: CryptIntegerBlob = CryptIntegerBlob(),
+    public var certSerialNumber: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_BASIC_CONSTRAINTS2_INFO(
-    public var fCA: BOOL = 0,
-    public var fPathLenConstraint: BOOL = 0,
+public data class CertBasicConstraints2Info(
+    public var fCA: Bool = 0,
+    public var fPathLenConstraint: Bool = 0,
     public var dwPathLenConstraint: UInt = 0u,
 )
 
-public data class CERT_BASIC_CONSTRAINTS_INFO(
-    public var SubjectType: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var fPathLenConstraint: BOOL = 0,
+public data class CertBasicConstraintsInfo(
+    public var subjectType: CryptBitBlob = CryptBitBlob(),
+    public var fPathLenConstraint: Bool = 0,
     public var dwPathLenConstraint: UInt = 0u,
     public var cSubtreesConstraint: UInt = 0u,
-    public var rgSubtreesConstraint: Long = 0L,
+    public var rgSubtreesConstraint: CryptIntegerBlob? = null,
 )
 
-public data class CERT_BIOMETRIC_DATA(
-    public var dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE = 0u,
-    public var Anonymous: CERT_BIOMETRIC_DATA_0 = CERT_BIOMETRIC_DATA_0(),
-    public var HashedUrl: CERT_HASHED_URL = CERT_HASHED_URL(),
+public data class CertBiometricData(
+    public var dwTypeOfBiometricDataChoice: CertBiometricDataType = 0u,
+    public var anonymous: CertBiometricData0 = CertBiometricData0(),
+    public var hashedUrl: CertHashedUrl = CertHashedUrl(),
 )
 
-public data class CERT_BIOMETRIC_DATA_0(public var dwPredefined: UInt = 0u, public var pszObjId: PSTR = 0L)
+public data class CertBiometricData0(public var dwPredefined: UInt = 0u, public var pszObjId: Pstr = null)
 
-public data class CERT_BIOMETRIC_EXT_INFO(public var cBiometricData: UInt = 0u, public var rgBiometricData: Long = 0L)
+public data class CertBiometricExtInfo(public var cBiometricData: UInt = 0u, public var rgBiometricData: CertBiometricData? = null)
 
-public data class CERT_CHAIN(
+public data class CertChain(
     public var cCerts: UInt = 0u,
-    public var certs: Long = 0L,
-    public var keyLocatorInfo: CRYPT_KEY_PROV_INFO = CRYPT_KEY_PROV_INFO(),
+    public var certs: CryptIntegerBlob? = null,
+    public var keyLocatorInfo: CryptKeyProvInfo = CryptKeyProvInfo(),
 )
 
-public data class CERT_CHAIN_CONTEXT(
+public data class CertChainContext(
     public var cbSize: UInt = 0u,
-    public var TrustStatus: CERT_TRUST_STATUS = CERT_TRUST_STATUS(),
+    public var trustStatus: CertTrustStatus = CertTrustStatus(),
     public var cChain: UInt = 0u,
-    public var rgpChain: Long = 0L,
+    public var rgpChain: COpaquePointer? = null,
     public var cLowerQualityChainContext: UInt = 0u,
-    public var rgpLowerQualityChainContext: Long = 0L,
-    public var fHasRevocationFreshnessTime: BOOL = 0,
+    public var rgpLowerQualityChainContext: COpaquePointer? = null,
+    public var fHasRevocationFreshnessTime: Bool = 0,
     public var dwRevocationFreshnessTime: UInt = 0u,
     public var dwCreateFlags: UInt = 0u,
-    public var ChainId: GUID = GUID(),
+    public var chainId: Guid = Guid(),
 )
 
-public data class CERT_CHAIN_ELEMENT(
+public data class CertChainElement(
     public var cbSize: UInt = 0u,
-    public var pCertContext: Long = 0L,
-    public var TrustStatus: CERT_TRUST_STATUS = CERT_TRUST_STATUS(),
-    public var pRevocationInfo: Long = 0L,
-    public var pIssuanceUsage: Long = 0L,
-    public var pApplicationUsage: Long = 0L,
-    public var pwszExtendedErrorInfo: PCWSTR = 0L,
+    public var pCertContext: CertContext? = null,
+    public var trustStatus: CertTrustStatus = CertTrustStatus(),
+    public var pRevocationInfo: CertRevocationInfo? = null,
+    public var pIssuanceUsage: CtlUsage? = null,
+    public var pApplicationUsage: CtlUsage? = null,
+    public var pwszExtendedErrorInfo: Pcwstr = null,
 )
 
-public data class CERT_CHAIN_ENGINE_CONFIG(
+public data class CertChainEngineConfig(
     public var cbSize: UInt = 0u,
-    public var hRestrictedRoot: HCERTSTORE = 0L,
-    public var hRestrictedTrust: HCERTSTORE = 0L,
-    public var hRestrictedOther: HCERTSTORE = 0L,
+    public var hRestrictedRoot: Hcertstore = null,
+    public var hRestrictedTrust: Hcertstore = null,
+    public var hRestrictedOther: Hcertstore = null,
     public var cAdditionalStore: UInt = 0u,
-    public var rghAdditionalStore: Long = 0L,
+    public var rghAdditionalStore: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
     public var dwUrlRetrievalTimeout: UInt = 0u,
-    public var MaximumCachedCertificates: UInt = 0u,
-    public var CycleDetectionModulus: UInt = 0u,
-    public var hExclusiveRoot: HCERTSTORE = 0L,
-    public var hExclusiveTrustedPeople: HCERTSTORE = 0L,
+    public var maximumCachedCertificates: UInt = 0u,
+    public var cycleDetectionModulus: UInt = 0u,
+    public var hExclusiveRoot: Hcertstore = null,
+    public var hExclusiveTrustedPeople: Hcertstore = null,
     public var dwExclusiveFlags: UInt = 0u,
 )
 
-public data class CERT_CHAIN_FIND_BY_ISSUER_PARA(
+public data class CertChainFindByIssuerPara(
     public var cbSize: UInt = 0u,
-    public var pszUsageIdentifier: PCSTR = 0L,
+    public var pszUsageIdentifier: Pcstr = null,
     public var dwKeySpec: UInt = 0u,
     public var dwAcquirePrivateKeyFlags: UInt = 0u,
     public var cIssuer: UInt = 0u,
-    public var rgIssuer: Long = 0L,
-    public var pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK = null,
-    public var pvFindArg: Long = 0L,
+    public var rgIssuer: CryptIntegerBlob? = null,
+    public var pfnFindCallback: PfnCertChainFindByIssuerCallback = null,
+    public var pvFindArg: COpaquePointer? = null,
 )
 
-public data class CERT_CHAIN_PARA(
+public data class CertChainPara(
     public var cbSize: UInt = 0u,
-    public var RequestedUsage: CERT_USAGE_MATCH = CERT_USAGE_MATCH(),
-    public var RequestedIssuancePolicy: CERT_USAGE_MATCH = CERT_USAGE_MATCH(),
+    public var requestedUsage: CertUsageMatch = CertUsageMatch(),
+    public var requestedIssuancePolicy: CertUsageMatch = CertUsageMatch(),
     public var dwUrlRetrievalTimeout: UInt = 0u,
-    public var fCheckRevocationFreshnessTime: BOOL = 0,
+    public var fCheckRevocationFreshnessTime: Bool = 0,
     public var dwRevocationFreshnessTime: UInt = 0u,
-    public var pftCacheResync: Long = 0L,
-    public var pStrongSignPara: Long = 0L,
+    public var pftCacheResync: Filetime? = null,
+    public var pStrongSignPara: CertStrongSignPara? = null,
     public var dwStrongSignFlags: UInt = 0u,
 )
 
-public data class CERT_CHAIN_POLICY_PARA(
+public data class CertChainPolicyPara(
     public var cbSize: UInt = 0u,
-    public var dwFlags: CERT_CHAIN_POLICY_FLAGS = 0u,
-    public var pvExtraPolicyPara: Long = 0L,
+    public var dwFlags: CertChainPolicyFlags = 0u,
+    public var pvExtraPolicyPara: COpaquePointer? = null,
 )
 
-public data class CERT_CHAIN_POLICY_STATUS(
+public data class CertChainPolicyStatus(
     public var cbSize: UInt = 0u,
     public var dwError: UInt = 0u,
     public var lChainIndex: Int = 0,
     public var lElementIndex: Int = 0,
-    public var pvExtraPolicyStatus: Long = 0L,
+    public var pvExtraPolicyStatus: COpaquePointer? = null,
 )
 
-public data class CERT_CONTEXT(
-    public var dwCertEncodingType: CERT_QUERY_ENCODING_TYPE = 0u,
-    public var pbCertEncoded: Long = 0L,
+public data class CertContext(
+    public var dwCertEncodingType: CertQueryEncodingType = 0u,
+    public var pbCertEncoded: COpaquePointer? = null,
     public var cbCertEncoded: UInt = 0u,
-    public var pCertInfo: Long = 0L,
-    public var hCertStore: HCERTSTORE = 0L,
+    public var pCertInfo: CertInfo? = null,
+    public var hCertStore: Hcertstore = null,
 )
 
-public data class CERT_CREATE_CONTEXT_PARA(
+public data class CertCreateContextPara(
     public var cbSize: UInt = 0u,
-    public var pfnFree: PFN_CRYPT_FREE = null,
-    public var pvFree: Long = 0L,
-    public var pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC = null,
-    public var pvSort: Long = 0L,
+    public var pfnFree: PfnCryptFree = null,
+    public var pvFree: COpaquePointer? = null,
+    public var pfnSort: PfnCertCreateContextSortFunc = null,
+    public var pvSort: COpaquePointer? = null,
 )
 
-public data class CERT_CRL_CONTEXT_PAIR(public var pCertContext: Long = 0L, public var pCrlContext: Long = 0L)
+public data class CertCrlContextPair(public var pCertContext: CertContext? = null, public var pCrlContext: CrlContext? = null)
 
-public data class CERT_DH_PARAMETERS(public var p: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var g: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertDhParameters(public var p: CryptIntegerBlob = CryptIntegerBlob(), public var g: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_DSS_PARAMETERS(
-    public var p: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var q: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var g: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class CertDssParameters(
+    public var p: CryptIntegerBlob = CryptIntegerBlob(),
+    public var q: CryptIntegerBlob = CryptIntegerBlob(),
+    public var g: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_ECC_SIGNATURE(public var r: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var s: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertEccSignature(public var r: CryptIntegerBlob = CryptIntegerBlob(), public var s: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_EXTENSION(
-    public var pszObjId: PSTR = 0L,
-    public var fCritical: BOOL = 0,
-    public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class CertExtension(
+    public var pszObjId: Pstr = null,
+    public var fCritical: Bool = 0,
+    public var value: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_EXTENSIONS(public var cExtension: UInt = 0u, public var rgExtension: Long = 0L)
+public data class CertExtensions(public var cExtension: UInt = 0u, public var rgExtension: CertExtension? = null)
 
-public data class CERT_FORTEZZA_DATA_PROP(
-    public var SerialNumber: UByteArray = UByteArray(8),
-    public var CertIndex: Int = 0,
-    public var CertLabel: UByteArray = UByteArray(36),
+public data class CertFortezzaDataProp(
+    public var serialNumber: UByteArray = UByteArray(8),
+    public var certIndex: Int = 0,
+    public var certLabel: UByteArray = UByteArray(36),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CERT_FORTEZZA_DATA_PROP) return false
-        if (!this.SerialNumber.contentEquals(other.SerialNumber)) return false
-        if (this.CertIndex != other.CertIndex) return false
-        if (!this.CertLabel.contentEquals(other.CertLabel)) return false
+        if (other !is CertFortezzaDataProp) return false
+        if (!this.serialNumber.contentEquals(other.serialNumber)) return false
+        if (this.certIndex != other.certIndex) return false
+        if (!this.certLabel.contentEquals(other.certLabel)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SerialNumber.contentHashCode()
-        result = 31 * result + this.CertIndex.hashCode()
-        result = 31 * result + this.CertLabel.contentHashCode()
+        var result = this.serialNumber.contentHashCode()
+        result = 31 * result + this.certIndex.hashCode()
+        result = 31 * result + this.certLabel.contentHashCode()
         return result
     }
 }
 
-public data class CERT_GENERAL_SUBTREE(
-    public var Base: CERT_ALT_NAME_ENTRY = CERT_ALT_NAME_ENTRY(),
+public data class CertGeneralSubtree(
+    public var base: CertAltNameEntry = CertAltNameEntry(),
     public var dwMinimum: UInt = 0u,
-    public var fMaximum: BOOL = 0,
+    public var fMaximum: Bool = 0,
     public var dwMaximum: UInt = 0u,
 )
 
-public data class CERT_HASHED_URL(
-    public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Hash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var pwszUrl: PWSTR = 0L,
+public data class CertHashedUrl(
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var hash: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pwszUrl: Pwstr = null,
 )
 
-public data class CERT_ID(public var dwIdChoice: CERT_ID_OPTION = 0u, public var Anonymous: CERT_ID_0 = CERT_ID_0())
+public data class CertId(public var dwIdChoice: CertIdOption = 0u, public var anonymous: CertId0 = CertId0())
 
-public data class CERT_ID_0(
-    public var IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER = CERT_ISSUER_SERIAL_NUMBER(),
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var HashId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+public data class CertId0(
+    public var issuerSerialNumber: CertIssuerSerialNumber = CertIssuerSerialNumber(),
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var hashId: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_INFO(
+public data class CertInfo(
     public var dwVersion: UInt = 0u,
-    public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var NotBefore: FILETIME = FILETIME(),
-    public var NotAfter: FILETIME = FILETIME(),
-    public var Subject: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO(),
-    public var IssuerUniqueId: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var SubjectUniqueId: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
+    public var serialNumber: CryptIntegerBlob = CryptIntegerBlob(),
+    public var signatureAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var issuer: CryptIntegerBlob = CryptIntegerBlob(),
+    public var notBefore: Filetime = Filetime(),
+    public var notAfter: Filetime = Filetime(),
+    public var subject: CryptIntegerBlob = CryptIntegerBlob(),
+    public var subjectPublicKeyInfo: CertPublicKeyInfo = CertPublicKeyInfo(),
+    public var issuerUniqueId: CryptBitBlob = CryptBitBlob(),
+    public var subjectUniqueId: CryptBitBlob = CryptBitBlob(),
     public var cExtension: UInt = 0u,
-    public var rgExtension: Long = 0L,
+    public var rgExtension: CertExtension? = null,
 )
 
-public data class CERT_ISSUER_SERIAL_NUMBER(public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertIssuerSerialNumber(public var issuer: CryptIntegerBlob = CryptIntegerBlob(), public var serialNumber: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_KEYGEN_REQUEST_INFO(
+public data class CertKeygenRequestInfo(
     public var dwVersion: UInt = 0u,
-    public var SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO(),
-    public var pwszChallengeString: PWSTR = 0L,
+    public var subjectPublicKeyInfo: CertPublicKeyInfo = CertPublicKeyInfo(),
+    public var pwszChallengeString: Pwstr = null,
 )
 
-public data class CERT_KEY_ATTRIBUTES_INFO(
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var IntendedKeyUsage: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var pPrivateKeyUsagePeriod: Long = 0L,
+public data class CertKeyAttributesInfo(
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var intendedKeyUsage: CryptBitBlob = CryptBitBlob(),
+    public var pPrivateKeyUsagePeriod: CertPrivateKeyValidity? = null,
 )
 
-public data class CERT_KEY_CONTEXT(
+public data class CertKeyContext(
     public var cbSize: UInt = 0u,
-    public var Anonymous: CERT_KEY_CONTEXT_0 = CERT_KEY_CONTEXT_0(),
+    public var anonymous: CertKeyContext0 = CertKeyContext0(),
     public var dwKeySpec: UInt = 0u,
 )
 
-public data class CERT_KEY_CONTEXT_0(public var hCryptProv: ULong = 0uL, public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL)
+public data class CertKeyContext0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
 
-public data class CERT_KEY_USAGE_RESTRICTION_INFO(
+public data class CertKeyUsageRestrictionInfo(
     public var cCertPolicyId: UInt = 0u,
-    public var rgCertPolicyId: Long = 0L,
-    public var RestrictedKeyUsage: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
+    public var rgCertPolicyId: CertPolicyId? = null,
+    public var restrictedKeyUsage: CryptBitBlob = CryptBitBlob(),
 )
 
-public data class CERT_LDAP_STORE_OPENED_PARA(public var pvLdapSessionHandle: Long = 0L, public var pwszLdapUrl: PCWSTR = 0L)
+public data class CertLdapStoreOpenedPara(public var pvLdapSessionHandle: COpaquePointer? = null, public var pwszLdapUrl: Pcwstr = null)
 
-public data class CERT_LOGOTYPE_AUDIO(public var LogotypeDetails: CERT_LOGOTYPE_DETAILS = CERT_LOGOTYPE_DETAILS(), public var pLogotypeAudioInfo: Long = 0L)
+public data class CertLogotypeAudio(public var logotypeDetails: CertLogotypeDetails = CertLogotypeDetails(), public var pLogotypeAudioInfo: CertLogotypeAudioInfo? = null)
 
-public data class CERT_LOGOTYPE_AUDIO_INFO(
+public data class CertLogotypeAudioInfo(
     public var dwFileSize: UInt = 0u,
     public var dwPlayTime: UInt = 0u,
     public var dwChannels: UInt = 0u,
     public var dwSampleRate: UInt = 0u,
-    public var pwszLanguage: PWSTR = 0L,
+    public var pwszLanguage: Pwstr = null,
 )
 
-public data class CERT_LOGOTYPE_DATA(
+public data class CertLogotypeData(
     public var cLogotypeImage: UInt = 0u,
-    public var rgLogotypeImage: Long = 0L,
+    public var rgLogotypeImage: CertLogotypeImage? = null,
     public var cLogotypeAudio: UInt = 0u,
-    public var rgLogotypeAudio: Long = 0L,
+    public var rgLogotypeAudio: CertLogotypeAudio? = null,
 )
 
-public data class CERT_LOGOTYPE_DETAILS(
-    public var pwszMimeType: PWSTR = 0L,
+public data class CertLogotypeDetails(
+    public var pwszMimeType: Pwstr = null,
     public var cHashedUrl: UInt = 0u,
-    public var rgHashedUrl: Long = 0L,
+    public var rgHashedUrl: CertHashedUrl? = null,
 )
 
-public data class CERT_LOGOTYPE_EXT_INFO(
+public data class CertLogotypeExtInfo(
     public var cCommunityLogo: UInt = 0u,
-    public var rgCommunityLogo: Long = 0L,
-    public var pIssuerLogo: Long = 0L,
-    public var pSubjectLogo: Long = 0L,
+    public var rgCommunityLogo: CertLogotypeInfo? = null,
+    public var pIssuerLogo: CertLogotypeInfo? = null,
+    public var pSubjectLogo: CertLogotypeInfo? = null,
     public var cOtherLogo: UInt = 0u,
-    public var rgOtherLogo: Long = 0L,
+    public var rgOtherLogo: CertOtherLogotypeInfo? = null,
 )
 
-public data class CERT_LOGOTYPE_IMAGE(public var LogotypeDetails: CERT_LOGOTYPE_DETAILS = CERT_LOGOTYPE_DETAILS(), public var pLogotypeImageInfo: Long = 0L)
+public data class CertLogotypeImage(public var logotypeDetails: CertLogotypeDetails = CertLogotypeDetails(), public var pLogotypeImageInfo: CertLogotypeImageInfo? = null)
 
-public data class CERT_LOGOTYPE_IMAGE_INFO(
-    public var dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE = 0u,
+public data class CertLogotypeImageInfo(
+    public var dwLogotypeImageInfoChoice: CertLogotypeImageInfoType = 0u,
     public var dwFileSize: UInt = 0u,
     public var dwXSize: UInt = 0u,
     public var dwYSize: UInt = 0u,
-    public var dwLogotypeImageResolutionChoice: CERT_LOGOTYPE_CHOICE = 0u,
-    public var Anonymous: CERT_LOGOTYPE_IMAGE_INFO_0 = CERT_LOGOTYPE_IMAGE_INFO_0(),
-    public var pwszLanguage: PWSTR = 0L,
+    public var dwLogotypeImageResolutionChoice: CertLogotypeChoice = 0u,
+    public var anonymous: CertLogotypeImageInfo0 = CertLogotypeImageInfo0(),
+    public var pwszLanguage: Pwstr = null,
 )
 
-public data class CERT_LOGOTYPE_IMAGE_INFO_0(public var dwNumBits: UInt = 0u, public var dwTableSize: UInt = 0u)
+public data class CertLogotypeImageInfo0(public var dwNumBits: UInt = 0u, public var dwTableSize: UInt = 0u)
 
-public data class CERT_LOGOTYPE_INFO(public var dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION = 0u, public var Anonymous: CERT_LOGOTYPE_INFO_0 = CERT_LOGOTYPE_INFO_0())
+public data class CertLogotypeInfo(public var dwLogotypeInfoChoice: CertLogotypeOption = 0u, public var anonymous: CertLogotypeInfo0 = CertLogotypeInfo0())
 
-public data class CERT_LOGOTYPE_INFO_0(public var pLogotypeDirectInfo: Long = 0L, public var pLogotypeIndirectInfo: Long = 0L)
+public data class CertLogotypeInfo0(public var pLogotypeDirectInfo: CertLogotypeData? = null, public var pLogotypeIndirectInfo: CertLogotypeReference? = null)
 
-public data class CERT_LOGOTYPE_REFERENCE(public var cHashedUrl: UInt = 0u, public var rgHashedUrl: Long = 0L)
+public data class CertLogotypeReference(public var cHashedUrl: UInt = 0u, public var rgHashedUrl: CertHashedUrl? = null)
 
-public data class CERT_NAME_CONSTRAINTS_INFO(
+public data class CertNameConstraintsInfo(
     public var cPermittedSubtree: UInt = 0u,
-    public var rgPermittedSubtree: Long = 0L,
+    public var rgPermittedSubtree: CertGeneralSubtree? = null,
     public var cExcludedSubtree: UInt = 0u,
-    public var rgExcludedSubtree: Long = 0L,
+    public var rgExcludedSubtree: CertGeneralSubtree? = null,
 )
 
-public data class CERT_NAME_INFO(public var cRDN: UInt = 0u, public var rgRDN: Long = 0L)
+public data class CertNameInfo(public var cRDN: UInt = 0u, public var rgRDN: CertRdn? = null)
 
-public data class CERT_NAME_VALUE(public var dwValueType: UInt = 0u, public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertNameValue(public var dwValueType: UInt = 0u, public var value: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_OR_CRL_BLOB(
+public data class CertOrCrlBlob(
     public var dwChoice: UInt = 0u,
     public var cbEncoded: UInt = 0u,
-    public var pbEncoded: Long = 0L,
+    public var pbEncoded: COpaquePointer? = null,
 )
 
-public data class CERT_OR_CRL_BUNDLE(public var cItem: UInt = 0u, public var rgItem: Long = 0L)
+public data class CertOrCrlBundle(public var cItem: UInt = 0u, public var rgItem: CertOrCrlBlob? = null)
 
-public data class CERT_OTHER_LOGOTYPE_INFO(public var pszObjId: PSTR = 0L, public var LogotypeInfo: CERT_LOGOTYPE_INFO = CERT_LOGOTYPE_INFO())
+public data class CertOtherLogotypeInfo(public var pszObjId: Pstr = null, public var logotypeInfo: CertLogotypeInfo = CertLogotypeInfo())
 
-public data class CERT_OTHER_NAME(public var pszObjId: PSTR = 0L, public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertOtherName(public var pszObjId: Pstr = null, public var value: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_PAIR(public var Forward: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var Reverse: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertPair(public var forward: CryptIntegerBlob = CryptIntegerBlob(), public var reverse: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_PHYSICAL_STORE_INFO(
+public data class CertPhysicalStoreInfo(
     public var cbSize: UInt = 0u,
-    public var pszOpenStoreProvider: PSTR = 0L,
+    public var pszOpenStoreProvider: Pstr = null,
     public var dwOpenEncodingType: UInt = 0u,
     public var dwOpenFlags: UInt = 0u,
-    public var OpenParameters: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var openParameters: CryptIntegerBlob = CryptIntegerBlob(),
     public var dwFlags: UInt = 0u,
     public var dwPriority: UInt = 0u,
 )
 
-public data class CERT_POLICIES_INFO(public var cPolicyInfo: UInt = 0u, public var rgPolicyInfo: Long = 0L)
+public data class CertPoliciesInfo(public var cPolicyInfo: UInt = 0u, public var rgPolicyInfo: CertPolicyInfo? = null)
 
-public data class CERT_POLICY95_QUALIFIER1(
-    public var pszPracticesReference: PWSTR = 0L,
-    public var pszNoticeIdentifier: PSTR = 0L,
-    public var pszNSINoticeIdentifier: PSTR = 0L,
+public data class CertPolicy95Qualifier1(
+    public var pszPracticesReference: Pwstr = null,
+    public var pszNoticeIdentifier: Pstr = null,
+    public var pszNSINoticeIdentifier: Pstr = null,
     public var cCPSURLs: UInt = 0u,
-    public var rgCPSURLs: Long = 0L,
+    public var rgCPSURLs: CpsUrls? = null,
 )
 
-public data class CERT_POLICY_CONSTRAINTS_INFO(
-    public var fRequireExplicitPolicy: BOOL = 0,
+public data class CertPolicyConstraintsInfo(
+    public var fRequireExplicitPolicy: Bool = 0,
     public var dwRequireExplicitPolicySkipCerts: UInt = 0u,
-    public var fInhibitPolicyMapping: BOOL = 0,
+    public var fInhibitPolicyMapping: Bool = 0,
     public var dwInhibitPolicyMappingSkipCerts: UInt = 0u,
 )
 
-public data class CERT_POLICY_ID(public var cCertPolicyElementId: UInt = 0u, public var rgpszCertPolicyElementId: Long = 0L)
+public data class CertPolicyId(public var cCertPolicyElementId: UInt = 0u, public var rgpszCertPolicyElementId: Pstr? = null)
 
-public data class CERT_POLICY_INFO(
-    public var pszPolicyIdentifier: PSTR = 0L,
+public data class CertPolicyInfo(
+    public var pszPolicyIdentifier: Pstr = null,
     public var cPolicyQualifier: UInt = 0u,
-    public var rgPolicyQualifier: Long = 0L,
+    public var rgPolicyQualifier: CertPolicyQualifierInfo? = null,
 )
 
-public data class CERT_POLICY_MAPPING(public var pszIssuerDomainPolicy: PSTR = 0L, public var pszSubjectDomainPolicy: PSTR = 0L)
+public data class CertPolicyMapping(public var pszIssuerDomainPolicy: Pstr = null, public var pszSubjectDomainPolicy: Pstr = null)
 
-public data class CERT_POLICY_MAPPINGS_INFO(public var cPolicyMapping: UInt = 0u, public var rgPolicyMapping: Long = 0L)
+public data class CertPolicyMappingsInfo(public var cPolicyMapping: UInt = 0u, public var rgPolicyMapping: CertPolicyMapping? = null)
 
-public data class CERT_POLICY_QUALIFIER_INFO(public var pszPolicyQualifierId: PSTR = 0L, public var Qualifier: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertPolicyQualifierInfo(public var pszPolicyQualifierId: Pstr = null, public var qualifier: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_POLICY_QUALIFIER_NOTICE_REFERENCE(
-    public var pszOrganization: PSTR = 0L,
+public data class CertPolicyQualifierNoticeReference(
+    public var pszOrganization: Pstr = null,
     public var cNoticeNumbers: UInt = 0u,
-    public var rgNoticeNumbers: Long = 0L,
+    public var rgNoticeNumbers: Int? = null,
 )
 
-public data class CERT_POLICY_QUALIFIER_USER_NOTICE(public var pNoticeReference: Long = 0L, public var pszDisplayText: PWSTR = 0L)
+public data class CertPolicyQualifierUserNotice(public var pNoticeReference: CertPolicyQualifierNoticeReference? = null, public var pszDisplayText: Pwstr = null)
 
-public data class CERT_PRIVATE_KEY_VALIDITY(public var NotBefore: FILETIME = FILETIME(), public var NotAfter: FILETIME = FILETIME())
+public data class CertPrivateKeyValidity(public var notBefore: Filetime = Filetime(), public var notAfter: Filetime = Filetime())
 
-public data class CERT_PUBLIC_KEY_INFO(public var Algorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(), public var PublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB())
+public data class CertPublicKeyInfo(public var algorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(), public var publicKey: CryptBitBlob = CryptBitBlob())
 
-public data class CERT_QC_STATEMENT(public var pszStatementId: PSTR = 0L, public var StatementInfo: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CertQcStatement(public var pszStatementId: Pstr = null, public var statementInfo: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CERT_QC_STATEMENTS_EXT_INFO(public var cStatement: UInt = 0u, public var rgStatement: Long = 0L)
+public data class CertQcStatementsExtInfo(public var cStatement: UInt = 0u, public var rgStatement: CertQcStatement? = null)
 
-public data class CERT_RDN(public var cRDNAttr: UInt = 0u, public var rgRDNAttr: Long = 0L)
+public data class CertRdn(public var cRDNAttr: UInt = 0u, public var rgRDNAttr: CertRdnAttr? = null)
 
-public data class CERT_RDN_ATTR(
-    public var pszObjId: PSTR = 0L,
+public data class CertRdnAttr(
+    public var pszObjId: Pstr = null,
     public var dwValueType: UInt = 0u,
-    public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var value: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CERT_REGISTRY_STORE_CLIENT_GPT_PARA(public var hKeyBase: HKEY = 0L, public var pwszRegPath: PWSTR = 0L)
+public data class CertRegistryStoreClientGptPara(public var hKeyBase: Hkey = null, public var pwszRegPath: Pwstr = null)
 
-public data class CERT_REGISTRY_STORE_ROAMING_PARA(public var hKey: HKEY = 0L, public var pwszStoreDirectory: PWSTR = 0L)
+public data class CertRegistryStoreRoamingPara(public var hKey: Hkey = null, public var pwszStoreDirectory: Pwstr = null)
 
-public data class CERT_REQUEST_INFO(
+public data class CertRequestInfo(
     public var dwVersion: UInt = 0u,
-    public var Subject: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO(),
+    public var subject: CryptIntegerBlob = CryptIntegerBlob(),
+    public var subjectPublicKeyInfo: CertPublicKeyInfo = CertPublicKeyInfo(),
     public var cAttribute: UInt = 0u,
-    public var rgAttribute: Long = 0L,
+    public var rgAttribute: CryptAttribute? = null,
 )
 
-public data class CERT_REVOCATION_CHAIN_PARA(
+public data class CertRevocationChainPara(
     public var cbSize: UInt = 0u,
-    public var hChainEngine: HCERTCHAINENGINE = 0L,
-    public var hAdditionalStore: HCERTSTORE = 0L,
+    public var hChainEngine: Hcertchainengine = null,
+    public var hAdditionalStore: Hcertstore = null,
     public var dwChainFlags: UInt = 0u,
     public var dwUrlRetrievalTimeout: UInt = 0u,
-    public var pftCurrentTime: Long = 0L,
-    public var pftCacheResync: Long = 0L,
+    public var pftCurrentTime: Filetime? = null,
+    public var pftCacheResync: Filetime? = null,
     public var cbMaxUrlRetrievalByteCount: UInt = 0u,
 )
 
-public data class CERT_REVOCATION_CRL_INFO(
+public data class CertRevocationCrlInfo(
     public var cbSize: UInt = 0u,
-    public var pBaseCrlContext: Long = 0L,
-    public var pDeltaCrlContext: Long = 0L,
-    public var pCrlEntry: Long = 0L,
-    public var fDeltaCrlEntry: BOOL = 0,
+    public var pBaseCrlContext: CrlContext? = null,
+    public var pDeltaCrlContext: CrlContext? = null,
+    public var pCrlEntry: CrlEntry? = null,
+    public var fDeltaCrlEntry: Bool = 0,
 )
 
-public data class CERT_REVOCATION_INFO(
+public data class CertRevocationInfo(
     public var cbSize: UInt = 0u,
     public var dwRevocationResult: UInt = 0u,
-    public var pszRevocationOid: PCSTR = 0L,
-    public var pvOidSpecificInfo: Long = 0L,
-    public var fHasFreshnessTime: BOOL = 0,
+    public var pszRevocationOid: Pcstr = null,
+    public var pvOidSpecificInfo: COpaquePointer? = null,
+    public var fHasFreshnessTime: Bool = 0,
     public var dwFreshnessTime: UInt = 0u,
-    public var pCrlInfo: Long = 0L,
+    public var pCrlInfo: CertRevocationCrlInfo? = null,
 )
 
-public data class CERT_REVOCATION_PARA(
+public data class CertRevocationPara(
     public var cbSize: UInt = 0u,
-    public var pIssuerCert: Long = 0L,
+    public var pIssuerCert: CertContext? = null,
     public var cCertStore: UInt = 0u,
-    public var rgCertStore: Long = 0L,
-    public var hCrlStore: HCERTSTORE = 0L,
-    public var pftTimeToUse: Long = 0L,
+    public var rgCertStore: COpaquePointer? = null,
+    public var hCrlStore: Hcertstore = null,
+    public var pftTimeToUse: Filetime? = null,
 )
 
-public data class CERT_REVOCATION_STATUS(
+public data class CertRevocationStatus(
     public var cbSize: UInt = 0u,
     public var dwIndex: UInt = 0u,
     public var dwError: UInt = 0u,
-    public var dwReason: CERT_REVOCATION_STATUS_REASON = 0u,
-    public var fHasFreshnessTime: BOOL = 0,
+    public var dwReason: CertRevocationStatusReason = 0u,
+    public var fHasFreshnessTime: Bool = 0,
     public var dwFreshnessTime: UInt = 0u,
 )
 
-public data class CERT_SELECT_CHAIN_PARA(
-    public var hChainEngine: HCERTCHAINENGINE = 0L,
-    public var pTime: Long = 0L,
-    public var hAdditionalStore: HCERTSTORE = 0L,
-    public var pChainPara: Long = 0L,
+public data class CertSelectChainPara(
+    public var hChainEngine: Hcertchainengine = null,
+    public var pTime: Filetime? = null,
+    public var hAdditionalStore: Hcertstore = null,
+    public var pChainPara: CertChainPara? = null,
     public var dwFlags: UInt = 0u,
 )
 
-public data class CERT_SELECT_CRITERIA(
-    public var dwType: CERT_SELECT_CRITERIA_TYPE = 0u,
+public data class CertSelectCriteria(
+    public var dwType: CertSelectCriteriaType = 0u,
     public var cPara: UInt = 0u,
-    public var ppPara: Long = 0L,
+    public var ppPara: COpaquePointer? = null,
 )
 
-public data class CERT_SERVER_OCSP_RESPONSE_CONTEXT(
+public data class CertServerOcspResponseContext(
     public var cbSize: UInt = 0u,
-    public var pbEncodedOcspResponse: Long = 0L,
+    public var pbEncodedOcspResponse: COpaquePointer? = null,
     public var cbEncodedOcspResponse: UInt = 0u,
 )
 
-public data class CERT_SERVER_OCSP_RESPONSE_OPEN_PARA(
+public data class CertServerOcspResponseOpenPara(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pcbUsedSize: Long = 0L,
-    public var pwszOcspDirectory: PWSTR = 0L,
-    public var pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK = null,
-    public var pvUpdateCallbackArg: Long = 0L,
+    public var pcbUsedSize: UInt? = null,
+    public var pwszOcspDirectory: Pwstr = null,
+    public var pfnUpdateCallback: PfnCertServerOcspResponseUpdateCallback = null,
+    public var pvUpdateCallbackArg: COpaquePointer? = null,
 )
 
-public data class CERT_SIGNED_CONTENT_INFO(
-    public var ToBeSigned: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Signature: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
+public data class CertSignedContentInfo(
+    public var toBeSigned: CryptIntegerBlob = CryptIntegerBlob(),
+    public var signatureAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var signature: CryptBitBlob = CryptBitBlob(),
 )
 
-public data class CERT_SIMPLE_CHAIN(
+public data class CertSimpleChain(
     public var cbSize: UInt = 0u,
-    public var TrustStatus: CERT_TRUST_STATUS = CERT_TRUST_STATUS(),
+    public var trustStatus: CertTrustStatus = CertTrustStatus(),
     public var cElement: UInt = 0u,
-    public var rgpElement: Long = 0L,
-    public var pTrustListInfo: Long = 0L,
-    public var fHasRevocationFreshnessTime: BOOL = 0,
+    public var rgpElement: COpaquePointer? = null,
+    public var pTrustListInfo: CertTrustListInfo? = null,
+    public var fHasRevocationFreshnessTime: Bool = 0,
     public var dwRevocationFreshnessTime: UInt = 0u,
 )
 
-public data class CERT_STORE_PROV_FIND_INFO(
+public data class CertStoreProvFindInfo(
     public var cbSize: UInt = 0u,
     public var dwMsgAndCertEncodingType: UInt = 0u,
     public var dwFindFlags: UInt = 0u,
     public var dwFindType: UInt = 0u,
-    public var pvFindPara: Long = 0L,
+    public var pvFindPara: COpaquePointer? = null,
 )
 
-public data class CERT_STORE_PROV_INFO(
+public data class CertStoreProvInfo(
     public var cbSize: UInt = 0u,
     public var cStoreProvFunc: UInt = 0u,
-    public var rgpvStoreProvFunc: Long = 0L,
-    public var hStoreProv: HCERTSTOREPROV = 0L,
-    public var dwStoreProvFlags: CERT_STORE_PROV_FLAGS = 0u,
-    public var hStoreProvFuncAddr2: Long = 0L,
+    public var rgpvStoreProvFunc: COpaquePointer? = null,
+    public var hStoreProv: Hcertstoreprov = null,
+    public var dwStoreProvFlags: CertStoreProvFlags = 0u,
+    public var hStoreProvFuncAddr2: COpaquePointer? = null,
 )
 
-public data class CERT_STRONG_SIGN_PARA(
+public data class CertStrongSignPara(
     public var cbSize: UInt = 0u,
     public var dwInfoChoice: UInt = 0u,
-    public var Anonymous: CERT_STRONG_SIGN_PARA_0 = CERT_STRONG_SIGN_PARA_0(),
+    public var anonymous: CertStrongSignPara0 = CertStrongSignPara0(),
 )
 
-public data class CERT_STRONG_SIGN_PARA_0(
-    public var pvInfo: Long = 0L,
-    public var pSerializedInfo: Long = 0L,
-    public var pszOID: PSTR = 0L,
+public data class CertStrongSignPara0(
+    public var pvInfo: COpaquePointer? = null,
+    public var pSerializedInfo: CertStrongSignSerializedInfo? = null,
+    public var pszOID: Pstr = null,
 )
 
-public data class CERT_STRONG_SIGN_SERIALIZED_INFO(
-    public var dwFlags: CERT_STRONG_SIGN_FLAGS = 0u,
-    public var pwszCNGSignHashAlgids: PWSTR = 0L,
-    public var pwszCNGPubKeyMinBitLengths: PWSTR = 0L,
+public data class CertStrongSignSerializedInfo(
+    public var dwFlags: CertStrongSignFlags = 0u,
+    public var pwszCNGSignHashAlgids: Pwstr = null,
+    public var pwszCNGPubKeyMinBitLengths: Pwstr = null,
 )
 
-public data class CERT_SUPPORTED_ALGORITHM_INFO(
-    public var Algorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var IntendedKeyUsage: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var IntendedCertPolicies: CERT_POLICIES_INFO = CERT_POLICIES_INFO(),
+public data class CertSupportedAlgorithmInfo(
+    public var algorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var intendedKeyUsage: CryptBitBlob = CryptBitBlob(),
+    public var intendedCertPolicies: CertPoliciesInfo = CertPoliciesInfo(),
 )
 
-public data class CERT_SYSTEM_STORE_INFO(public var cbSize: UInt = 0u)
+public data class CertSystemStoreInfo(public var cbSize: UInt = 0u)
 
-public data class CERT_SYSTEM_STORE_RELOCATE_PARA(public var Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0 = CERT_SYSTEM_STORE_RELOCATE_PARA_0(), public var Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1 = CERT_SYSTEM_STORE_RELOCATE_PARA_1())
+public data class CertSystemStoreRelocatePara(public var anonymous1: CertSystemStoreRelocatePara0 = CertSystemStoreRelocatePara0(), public var anonymous2: CertSystemStoreRelocatePara1 = CertSystemStoreRelocatePara1())
 
-public data class CERT_SYSTEM_STORE_RELOCATE_PARA_0(public var hKeyBase: HKEY = 0L, public var pvBase: Long = 0L)
+public data class CertSystemStoreRelocatePara0(public var hKeyBase: Hkey = null, public var pvBase: COpaquePointer? = null)
 
-public data class CERT_SYSTEM_STORE_RELOCATE_PARA_1(
-    public var pvSystemStore: Long = 0L,
-    public var pszSystemStore: PCSTR = 0L,
-    public var pwszSystemStore: PCWSTR = 0L,
+public data class CertSystemStoreRelocatePara1(
+    public var pvSystemStore: COpaquePointer? = null,
+    public var pszSystemStore: Pcstr = null,
+    public var pwszSystemStore: Pcwstr = null,
 )
 
-public data class CERT_TEMPLATE_EXT(
-    public var pszObjId: PSTR = 0L,
+public data class CertTemplateExt(
+    public var pszObjId: Pstr = null,
     public var dwMajorVersion: UInt = 0u,
-    public var fMinorVersion: BOOL = 0,
+    public var fMinorVersion: Bool = 0,
     public var dwMinorVersion: UInt = 0u,
 )
 
-public data class CERT_TPM_SPECIFICATION_INFO(
-    public var pwszFamily: PWSTR = 0L,
+public data class CertTpmSpecificationInfo(
+    public var pwszFamily: Pwstr = null,
     public var dwLevel: UInt = 0u,
     public var dwRevision: UInt = 0u,
 )
 
-public data class CERT_TRUST_LIST_INFO(
+public data class CertTrustListInfo(
     public var cbSize: UInt = 0u,
-    public var pCtlEntry: Long = 0L,
-    public var pCtlContext: Long = 0L,
+    public var pCtlEntry: CtlEntry? = null,
+    public var pCtlContext: CtlContext? = null,
 )
 
-public data class CERT_TRUST_STATUS(public var dwErrorStatus: UInt = 0u, public var dwInfoStatus: UInt = 0u)
+public data class CertTrustStatus(public var dwErrorStatus: UInt = 0u, public var dwInfoStatus: UInt = 0u)
 
-public data class CERT_USAGE_MATCH(public var dwType: UInt = 0u, public var Usage: CTL_USAGE = CTL_USAGE())
+public data class CertUsageMatch(public var dwType: UInt = 0u, public var usage: CtlUsage = CtlUsage())
 
-public data class CERT_X942_DH_PARAMETERS(
-    public var p: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var g: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var q: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var j: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var pValidationParams: Long = 0L,
+public data class CertX942DhParameters(
+    public var p: CryptIntegerBlob = CryptIntegerBlob(),
+    public var g: CryptIntegerBlob = CryptIntegerBlob(),
+    public var q: CryptIntegerBlob = CryptIntegerBlob(),
+    public var j: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pValidationParams: CertX942DhValidationParams? = null,
 )
 
-public data class CERT_X942_DH_VALIDATION_PARAMS(public var seed: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(), public var pgenCounter: UInt = 0u)
+public data class CertX942DhValidationParams(public var seed: CryptBitBlob = CryptBitBlob(), public var pgenCounter: UInt = 0u)
 
-public data class CLAIMLIST(public var count: UInt = 0u, public var claims: Long = 0L)
+public data class Claimlist(public var count: UInt = 0u, public var claims: Pcwstr? = null)
 
-public data class CLMD_PIV_CERT_DATA(
+public data class ClmdPivCertData(
     public var dwVersion: UInt = 0u,
     public var dwCertTag: UInt = 0u,
-    public var pbCert: Long = 0L,
+    public var pbCert: COpaquePointer? = null,
     public var cbCert: UInt = 0u,
 )
 
-public data class CLMD_PIV_GENERATE_ASYMMETRIC_KEY(
+public data class ClmdPivGenerateAsymmetricKey(
     public var dwVersion: UInt = 0u,
     public var bAlgorithmId: UByte = 0u,
     public var bKeyId: UByte = 0u,
-    public var pbKey: Long = 0L,
+    public var pbKey: COpaquePointer? = null,
     public var cbKey: UInt = 0u,
 )
 
-public data class CLMD_PIV_PUBLIC_KEY_DATA(
+public data class ClmdPivPublicKeyData(
     public var dwVersion: UInt = 0u,
     public var bKeyId: UByte = 0u,
-    public var pbPublicKey: Long = 0L,
+    public var pbPublicKey: COpaquePointer? = null,
     public var cbPublicKey: UInt = 0u,
 )
 
-public data class CMC_ADD_ATTRIBUTES_INFO(
+public data class CmcAddAttributesInfo(
     public var dwCmcDataReference: UInt = 0u,
     public var cCertReference: UInt = 0u,
-    public var rgdwCertReference: Long = 0L,
+    public var rgdwCertReference: UInt? = null,
     public var cAttribute: UInt = 0u,
-    public var rgAttribute: Long = 0L,
+    public var rgAttribute: CryptAttribute? = null,
 )
 
-public data class CMC_ADD_EXTENSIONS_INFO(
+public data class CmcAddExtensionsInfo(
     public var dwCmcDataReference: UInt = 0u,
     public var cCertReference: UInt = 0u,
-    public var rgdwCertReference: Long = 0L,
+    public var rgdwCertReference: UInt? = null,
     public var cExtension: UInt = 0u,
-    public var rgExtension: Long = 0L,
+    public var rgExtension: CertExtension? = null,
 )
 
-public data class CMC_DATA_INFO(
+public data class CmcDataInfo(
     public var cTaggedAttribute: UInt = 0u,
-    public var rgTaggedAttribute: Long = 0L,
+    public var rgTaggedAttribute: CmcTaggedAttribute? = null,
     public var cTaggedRequest: UInt = 0u,
-    public var rgTaggedRequest: Long = 0L,
+    public var rgTaggedRequest: CmcTaggedRequest? = null,
     public var cTaggedContentInfo: UInt = 0u,
-    public var rgTaggedContentInfo: Long = 0L,
+    public var rgTaggedContentInfo: CmcTaggedContentInfo? = null,
     public var cTaggedOtherMsg: UInt = 0u,
-    public var rgTaggedOtherMsg: Long = 0L,
+    public var rgTaggedOtherMsg: CmcTaggedOtherMsg? = null,
 )
 
-public data class CMC_PEND_INFO(public var PendToken: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var PendTime: FILETIME = FILETIME())
+public data class CmcPendInfo(public var pendToken: CryptIntegerBlob = CryptIntegerBlob(), public var pendTime: Filetime = Filetime())
 
-public data class CMC_RESPONSE_INFO(
+public data class CmcResponseInfo(
     public var cTaggedAttribute: UInt = 0u,
-    public var rgTaggedAttribute: Long = 0L,
+    public var rgTaggedAttribute: CmcTaggedAttribute? = null,
     public var cTaggedContentInfo: UInt = 0u,
-    public var rgTaggedContentInfo: Long = 0L,
+    public var rgTaggedContentInfo: CmcTaggedContentInfo? = null,
     public var cTaggedOtherMsg: UInt = 0u,
-    public var rgTaggedOtherMsg: Long = 0L,
+    public var rgTaggedOtherMsg: CmcTaggedOtherMsg? = null,
 )
 
-public data class CMC_STATUS_INFO(
+public data class CmcStatusInfo(
     public var dwStatus: UInt = 0u,
     public var cBodyList: UInt = 0u,
-    public var rgdwBodyList: Long = 0L,
-    public var pwszStatusString: PWSTR = 0L,
+    public var rgdwBodyList: UInt? = null,
+    public var pwszStatusString: Pwstr = null,
     public var dwOtherInfoChoice: UInt = 0u,
-    public var Anonymous: CMC_STATUS_INFO_0 = CMC_STATUS_INFO_0(),
+    public var anonymous: CmcStatusInfo0 = CmcStatusInfo0(),
 )
 
-public data class CMC_STATUS_INFO_0(public var dwFailInfo: UInt = 0u, public var pPendInfo: Long = 0L)
+public data class CmcStatusInfo0(public var dwFailInfo: UInt = 0u, public var pPendInfo: CmcPendInfo? = null)
 
-public data class CMC_TAGGED_ATTRIBUTE(public var dwBodyPartID: UInt = 0u, public var Attribute: CRYPT_ATTRIBUTE = CRYPT_ATTRIBUTE())
+public data class CmcTaggedAttribute(public var dwBodyPartID: UInt = 0u, public var attribute: CryptAttribute = CryptAttribute())
 
-public data class CMC_TAGGED_CERT_REQUEST(public var dwBodyPartID: UInt = 0u, public var SignedCertRequest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CmcTaggedCertRequest(public var dwBodyPartID: UInt = 0u, public var signedCertRequest: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CMC_TAGGED_CONTENT_INFO(public var dwBodyPartID: UInt = 0u, public var EncodedContentInfo: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CmcTaggedContentInfo(public var dwBodyPartID: UInt = 0u, public var encodedContentInfo: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CMC_TAGGED_OTHER_MSG(
+public data class CmcTaggedOtherMsg(
     public var dwBodyPartID: UInt = 0u,
-    public var pszObjId: PSTR = 0L,
-    public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var pszObjId: Pstr = null,
+    public var value: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CMC_TAGGED_REQUEST(public var dwTaggedRequestChoice: UInt = 0u, public var Anonymous: CMC_TAGGED_REQUEST_0 = CMC_TAGGED_REQUEST_0())
+public data class CmcTaggedRequest(public var dwTaggedRequestChoice: UInt = 0u, public var anonymous: CmcTaggedRequest0 = CmcTaggedRequest0())
 
-public data class CMC_TAGGED_REQUEST_0(public var pTaggedCertRequest: Long = 0L)
+public data class CmcTaggedRequest0(public var pTaggedCertRequest: CmcTaggedCertRequest? = null)
 
-public data class CMSG_CMS_RECIPIENT_INFO(public var dwRecipientChoice: UInt = 0u, public var Anonymous: CMSG_CMS_RECIPIENT_INFO_0 = CMSG_CMS_RECIPIENT_INFO_0())
+public data class CmsgCmsRecipientInfo(public var dwRecipientChoice: UInt = 0u, public var anonymous: CmsgCmsRecipientInfo0 = CmsgCmsRecipientInfo0())
 
-public data class CMSG_CMS_RECIPIENT_INFO_0(
-    public var pKeyTrans: Long = 0L,
-    public var pKeyAgree: Long = 0L,
-    public var pMailList: Long = 0L,
+public data class CmsgCmsRecipientInfo0(
+    public var pKeyTrans: CmsgKeyTransRecipientInfo? = null,
+    public var pKeyAgree: CmsgKeyAgreeRecipientInfo? = null,
+    public var pMailList: CmsgMailListRecipientInfo? = null,
 )
 
-public data class CMSG_CMS_SIGNER_INFO(
+public data class CmsgCmsSignerInfo(
     public var dwVersion: UInt = 0u,
-    public var SignerId: CERT_ID = CERT_ID(),
-    public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var HashEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var AuthAttrs: CRYPT_ATTRIBUTES = CRYPT_ATTRIBUTES(),
-    public var UnauthAttrs: CRYPT_ATTRIBUTES = CRYPT_ATTRIBUTES(),
+    public var signerId: CertId = CertId(),
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var hashEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedHash: CryptIntegerBlob = CryptIntegerBlob(),
+    public var authAttrs: CryptAttributes = CryptAttributes(),
+    public var unauthAttrs: CryptAttributes = CryptAttributes(),
 )
 
-public data class CMSG_CNG_CONTENT_DECRYPT_INFO(
+public data class CmsgCngContentDecryptInfo(
     public var cbSize: UInt = 0u,
-    public var ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pfnAlloc: PFN_CMSG_ALLOC = null,
-    public var pfnFree: PFN_CMSG_FREE = null,
-    public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL,
-    public var pbContentEncryptKey: Long = 0L,
+    public var contentEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pfnAlloc: PfnCmsgAlloc = null,
+    public var pfnFree: PfnCmsgFree = null,
+    public var hNCryptKey: NcryptKeyHandle = 0uL,
+    public var pbContentEncryptKey: COpaquePointer? = null,
     public var cbContentEncryptKey: UInt = 0u,
-    public var hCNGContentEncryptKey: BCRYPT_KEY_HANDLE = 0L,
-    public var pbCNGContentEncryptKeyObject: Long = 0L,
+    public var hCNGContentEncryptKey: BcryptKeyHandle = null,
+    public var pbCNGContentEncryptKeyObject: COpaquePointer? = null,
 )
 
-public data class CMSG_CONTENT_ENCRYPT_INFO(
+public data class CmsgContentEncryptInfo(
     public var cbSize: UInt = 0u,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
-    public var ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvEncryptionAuxInfo: Long = 0L,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
+    public var contentEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvEncryptionAuxInfo: COpaquePointer? = null,
     public var cRecipients: UInt = 0u,
-    public var rgCmsRecipients: Long = 0L,
-    public var pfnAlloc: PFN_CMSG_ALLOC = null,
-    public var pfnFree: PFN_CMSG_FREE = null,
+    public var rgCmsRecipients: CmsgRecipientEncodeInfo? = null,
+    public var pfnAlloc: PfnCmsgAlloc = null,
+    public var pfnFree: PfnCmsgFree = null,
     public var dwEncryptFlags: UInt = 0u,
-    public var Anonymous: CMSG_CONTENT_ENCRYPT_INFO_0 = CMSG_CONTENT_ENCRYPT_INFO_0(),
+    public var anonymous: CmsgContentEncryptInfo0 = CmsgContentEncryptInfo0(),
     public var dwFlags: UInt = 0u,
-    public var fCNG: BOOL = 0,
-    public var pbCNGContentEncryptKeyObject: Long = 0L,
-    public var pbContentEncryptKey: Long = 0L,
+    public var fCNG: Bool = 0,
+    public var pbCNGContentEncryptKeyObject: COpaquePointer? = null,
+    public var pbContentEncryptKey: COpaquePointer? = null,
     public var cbContentEncryptKey: UInt = 0u,
 )
 
-public data class CMSG_CONTENT_ENCRYPT_INFO_0(public var hContentEncryptKey: ULong = 0uL, public var hCNGContentEncryptKey: BCRYPT_KEY_HANDLE = 0L)
+public data class CmsgContentEncryptInfo0(public var hContentEncryptKey: Int = 0, public var hCNGContentEncryptKey: BcryptKeyHandle = null)
 
-public data class CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA(
+public data class CmsgCtrlAddSignerUnauthAttrPara(
     public var cbSize: UInt = 0u,
     public var dwSignerIndex: UInt = 0u,
-    public var blob: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var blob: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CMSG_CTRL_DECRYPT_PARA(
+public data class CmsgCtrlDecryptPara(
     public var cbSize: UInt = 0u,
-    public var Anonymous: CMSG_CTRL_DECRYPT_PARA_0 = CMSG_CTRL_DECRYPT_PARA_0(),
+    public var anonymous: CmsgCtrlDecryptPara0 = CmsgCtrlDecryptPara0(),
     public var dwKeySpec: UInt = 0u,
     public var dwRecipientIndex: UInt = 0u,
 )
 
-public data class CMSG_CTRL_DECRYPT_PARA_0(public var hCryptProv: ULong = 0uL, public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL)
+public data class CmsgCtrlDecryptPara0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
 
-public data class CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA(
+public data class CmsgCtrlDelSignerUnauthAttrPara(
     public var cbSize: UInt = 0u,
     public var dwSignerIndex: UInt = 0u,
     public var dwUnauthAttrIndex: UInt = 0u,
 )
 
-public data class CMSG_CTRL_KEY_AGREE_DECRYPT_PARA(
+public data class CmsgCtrlKeyAgreeDecryptPara(
     public var cbSize: UInt = 0u,
-    public var Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 = CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0(),
+    public var anonymous: CmsgCtrlKeyAgreeDecryptPara0 = CmsgCtrlKeyAgreeDecryptPara0(),
     public var dwKeySpec: UInt = 0u,
-    public var pKeyAgree: Long = 0L,
+    public var pKeyAgree: CmsgKeyAgreeRecipientInfo? = null,
     public var dwRecipientIndex: UInt = 0u,
     public var dwRecipientEncryptedKeyIndex: UInt = 0u,
-    public var OriginatorPublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
+    public var originatorPublicKey: CryptBitBlob = CryptBitBlob(),
 )
 
-public data class CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0(public var hCryptProv: ULong = 0uL, public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL)
+public data class CmsgCtrlKeyAgreeDecryptPara0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
 
-public data class CMSG_CTRL_KEY_TRANS_DECRYPT_PARA(
+public data class CmsgCtrlKeyTransDecryptPara(
     public var cbSize: UInt = 0u,
-    public var Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 = CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0(),
+    public var anonymous: CmsgCtrlKeyTransDecryptPara0 = CmsgCtrlKeyTransDecryptPara0(),
     public var dwKeySpec: UInt = 0u,
-    public var pKeyTrans: Long = 0L,
+    public var pKeyTrans: CmsgKeyTransRecipientInfo? = null,
     public var dwRecipientIndex: UInt = 0u,
 )
 
-public data class CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0(public var hCryptProv: ULong = 0uL, public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL)
+public data class CmsgCtrlKeyTransDecryptPara0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
 
-public data class CMSG_CTRL_MAIL_LIST_DECRYPT_PARA(
+public data class CmsgCtrlMailListDecryptPara(
     public var cbSize: UInt = 0u,
-    public var hCryptProv: ULong = 0uL,
-    public var pMailList: Long = 0L,
+    public var hCryptProv: Int = 0,
+    public var pMailList: CmsgMailListRecipientInfo? = null,
     public var dwRecipientIndex: UInt = 0u,
     public var dwKeyChoice: UInt = 0u,
-    public var Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 = CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0(),
+    public var anonymous: CmsgCtrlMailListDecryptPara0 = CmsgCtrlMailListDecryptPara0(),
 )
 
-public data class CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0(public var hKeyEncryptionKey: ULong = 0uL, public var pvKeyEncryptionKey: Long = 0L)
+public data class CmsgCtrlMailListDecryptPara0(public var hKeyEncryptionKey: Int = 0, public var pvKeyEncryptionKey: COpaquePointer? = null)
 
-public data class CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA(
+public data class CmsgCtrlVerifySignatureExPara(
     public var cbSize: UInt = 0u,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
     public var dwSignerIndex: UInt = 0u,
     public var dwSignerType: UInt = 0u,
-    public var pvSigner: Long = 0L,
+    public var pvSigner: COpaquePointer? = null,
 )
 
-public data class CMSG_ENCRYPTED_ENCODE_INFO(
+public data class CmsgEncryptedEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvEncryptionAuxInfo: Long = 0L,
+    public var contentEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvEncryptionAuxInfo: COpaquePointer? = null,
 )
 
-public data class CMSG_ENVELOPED_ENCODE_INFO(
+public data class CmsgEnvelopedEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
-    public var ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvEncryptionAuxInfo: Long = 0L,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
+    public var contentEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvEncryptionAuxInfo: COpaquePointer? = null,
     public var cRecipients: UInt = 0u,
-    public var rgpRecipients: Long = 0L,
+    public var rgpRecipients: COpaquePointer? = null,
 )
 
-public data class CMSG_HASHED_ENCODE_INFO(
+public data class CmsgHashedEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
-    public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvHashAuxInfo: Long = 0L,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvHashAuxInfo: COpaquePointer? = null,
 )
 
-public data class CMSG_KEY_AGREE_ENCRYPT_INFO(
+public data class CmsgKeyAgreeEncryptInfo(
     public var cbSize: UInt = 0u,
     public var dwRecipientIndex: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var UserKeyingMaterial: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR = 0u,
-    public var Anonymous: CMSG_KEY_AGREE_ENCRYPT_INFO_0 = CMSG_KEY_AGREE_ENCRYPT_INFO_0(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var userKeyingMaterial: CryptIntegerBlob = CryptIntegerBlob(),
+    public var dwOriginatorChoice: CmsgKeyAgreeOriginator = 0u,
+    public var anonymous: CmsgKeyAgreeEncryptInfo0 = CmsgKeyAgreeEncryptInfo0(),
     public var cKeyAgreeKeyEncryptInfo: UInt = 0u,
-    public var rgpKeyAgreeKeyEncryptInfo: Long = 0L,
+    public var rgpKeyAgreeKeyEncryptInfo: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
 )
 
-public data class CMSG_KEY_AGREE_ENCRYPT_INFO_0(public var OriginatorCertId: CERT_ID = CERT_ID(), public var OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO())
+public data class CmsgKeyAgreeEncryptInfo0(public var originatorCertId: CertId = CertId(), public var originatorPublicKeyInfo: CertPublicKeyInfo = CertPublicKeyInfo())
 
-public data class CMSG_KEY_AGREE_KEY_ENCRYPT_INFO(public var cbSize: UInt = 0u, public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CmsgKeyAgreeKeyEncryptInfo(public var cbSize: UInt = 0u, public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob())
 
-public data class CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO(
+public data class CmsgKeyAgreeRecipientEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvKeyEncryptionAuxInfo: Long = 0L,
-    public var KeyWrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvKeyWrapAuxInfo: Long = 0L,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvKeyEncryptionAuxInfo: COpaquePointer? = null,
+    public var keyWrapAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvKeyWrapAuxInfo: COpaquePointer? = null,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
     public var dwKeySpec: UInt = 0u,
-    public var dwKeyChoice: CMSG_KEY_AGREE_OPTION = 0u,
-    public var Anonymous: CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 = CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0(),
-    public var UserKeyingMaterial: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var dwKeyChoice: CmsgKeyAgreeOption = 0u,
+    public var anonymous: CmsgKeyAgreeRecipientEncodeInfo0 = CmsgKeyAgreeRecipientEncodeInfo0(),
+    public var userKeyingMaterial: CryptIntegerBlob = CryptIntegerBlob(),
     public var cRecipientEncryptedKeys: UInt = 0u,
-    public var rgpRecipientEncryptedKeys: Long = 0L,
+    public var rgpRecipientEncryptedKeys: COpaquePointer? = null,
 )
 
-public data class CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0(public var pEphemeralAlgorithm: Long = 0L, public var pSenderId: Long = 0L)
+public data class CmsgKeyAgreeRecipientEncodeInfo0(public var pEphemeralAlgorithm: CryptAlgorithmIdentifier? = null, public var pSenderId: CertId? = null)
 
-public data class CMSG_KEY_AGREE_RECIPIENT_INFO(
+public data class CmsgKeyAgreeRecipientInfo(
     public var dwVersion: UInt = 0u,
-    public var dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR = 0u,
-    public var Anonymous: CMSG_KEY_AGREE_RECIPIENT_INFO_0 = CMSG_KEY_AGREE_RECIPIENT_INFO_0(),
-    public var UserKeyingMaterial: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
+    public var dwOriginatorChoice: CmsgKeyAgreeOriginator = 0u,
+    public var anonymous: CmsgKeyAgreeRecipientInfo0 = CmsgKeyAgreeRecipientInfo0(),
+    public var userKeyingMaterial: CryptIntegerBlob = CryptIntegerBlob(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
     public var cRecipientEncryptedKeys: UInt = 0u,
-    public var rgpRecipientEncryptedKeys: Long = 0L,
+    public var rgpRecipientEncryptedKeys: COpaquePointer? = null,
 )
 
-public data class CMSG_KEY_AGREE_RECIPIENT_INFO_0(public var OriginatorCertId: CERT_ID = CERT_ID(), public var OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO())
+public data class CmsgKeyAgreeRecipientInfo0(public var originatorCertId: CertId = CertId(), public var originatorPublicKeyInfo: CertPublicKeyInfo = CertPublicKeyInfo())
 
-public data class CMSG_KEY_TRANS_ENCRYPT_INFO(
+public data class CmsgKeyTransEncryptInfo(
     public var cbSize: UInt = 0u,
     public var dwRecipientIndex: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO(
+public data class CmsgKeyTransRecipientEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvKeyEncryptionAuxInfo: Long = 0L,
-    public var hCryptProv: HCRYPTPROV_LEGACY = 0uL,
-    public var RecipientPublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var RecipientId: CERT_ID = CERT_ID(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvKeyEncryptionAuxInfo: COpaquePointer? = null,
+    public var hCryptProv: HcryptprovLegacy = 0uL,
+    public var recipientPublicKey: CryptBitBlob = CryptBitBlob(),
+    public var recipientId: CertId = CertId(),
 )
 
-public data class CMSG_KEY_TRANS_RECIPIENT_INFO(
+public data class CmsgKeyTransRecipientInfo(
     public var dwVersion: UInt = 0u,
-    public var RecipientId: CERT_ID = CERT_ID(),
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var recipientId: CertId = CertId(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class CMSG_MAIL_LIST_ENCRYPT_INFO(
+public data class CmsgMailListEncryptInfo(
     public var cbSize: UInt = 0u,
     public var dwRecipientIndex: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO(
+public data class CmsgMailListRecipientEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvKeyEncryptionAuxInfo: Long = 0L,
-    public var hCryptProv: ULong = 0uL,
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvKeyEncryptionAuxInfo: COpaquePointer? = null,
+    public var hCryptProv: Int = 0,
     public var dwKeyChoice: UInt = 0u,
-    public var Anonymous: CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 = CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0(),
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: FILETIME = FILETIME(),
-    public var pOtherAttr: Long = 0L,
+    public var anonymous: CmsgMailListRecipientEncodeInfo0 = CmsgMailListRecipientEncodeInfo0(),
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var date: Filetime = Filetime(),
+    public var pOtherAttr: CryptAttributeTypeValue? = null,
 )
 
-public data class CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0(public var hKeyEncryptionKey: ULong = 0uL, public var pvKeyEncryptionKey: Long = 0L)
+public data class CmsgMailListRecipientEncodeInfo0(public var hKeyEncryptionKey: Int = 0, public var pvKeyEncryptionKey: COpaquePointer? = null)
 
-public data class CMSG_MAIL_LIST_RECIPIENT_INFO(
+public data class CmsgMailListRecipientInfo(
     public var dwVersion: UInt = 0u,
-    public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: FILETIME = FILETIME(),
-    public var pOtherAttr: Long = 0L,
+    public var keyId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var keyEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob(),
+    public var date: Filetime = Filetime(),
+    public var pOtherAttr: CryptAttributeTypeValue? = null,
 )
 
-public data class CMSG_RC2_AUX_INFO(public var cbSize: UInt = 0u, public var dwBitLen: UInt = 0u)
+public data class CmsgRc2AuxInfo(public var cbSize: UInt = 0u, public var dwBitLen: UInt = 0u)
 
-public data class CMSG_RC4_AUX_INFO(public var cbSize: UInt = 0u, public var dwBitLen: UInt = 0u)
+public data class CmsgRc4AuxInfo(public var cbSize: UInt = 0u, public var dwBitLen: UInt = 0u)
 
-public data class CMSG_RECIPIENT_ENCODE_INFO(public var dwRecipientChoice: UInt = 0u, public var Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0 = CMSG_RECIPIENT_ENCODE_INFO_0())
+public data class CmsgRecipientEncodeInfo(public var dwRecipientChoice: UInt = 0u, public var anonymous: CmsgRecipientEncodeInfo0 = CmsgRecipientEncodeInfo0())
 
-public data class CMSG_RECIPIENT_ENCODE_INFO_0(
-    public var pKeyTrans: Long = 0L,
-    public var pKeyAgree: Long = 0L,
-    public var pMailList: Long = 0L,
+public data class CmsgRecipientEncodeInfo0(
+    public var pKeyTrans: CmsgKeyTransRecipientEncodeInfo? = null,
+    public var pKeyAgree: CmsgKeyAgreeRecipientEncodeInfo? = null,
+    public var pMailList: CmsgMailListRecipientEncodeInfo? = null,
 )
 
-public data class CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO(
+public data class CmsgRecipientEncryptedKeyEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var RecipientPublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var RecipientId: CERT_ID = CERT_ID(),
-    public var Date: FILETIME = FILETIME(),
-    public var pOtherAttr: Long = 0L,
+    public var recipientPublicKey: CryptBitBlob = CryptBitBlob(),
+    public var recipientId: CertId = CertId(),
+    public var date: Filetime = Filetime(),
+    public var pOtherAttr: CryptAttributeTypeValue? = null,
 )
 
-public data class CMSG_RECIPIENT_ENCRYPTED_KEY_INFO(
-    public var RecipientId: CERT_ID = CERT_ID(),
-    public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: FILETIME = FILETIME(),
-    public var pOtherAttr: Long = 0L,
+public data class CmsgRecipientEncryptedKeyInfo(
+    public var recipientId: CertId = CertId(),
+    public var encryptedKey: CryptIntegerBlob = CryptIntegerBlob(),
+    public var date: Filetime = Filetime(),
+    public var pOtherAttr: CryptAttributeTypeValue? = null,
 )
 
-public data class CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO(
+public data class CmsgSignedAndEnvelopedEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var SignedInfo: CMSG_SIGNED_ENCODE_INFO = CMSG_SIGNED_ENCODE_INFO(),
-    public var EnvelopedInfo: CMSG_ENVELOPED_ENCODE_INFO = CMSG_ENVELOPED_ENCODE_INFO(),
+    public var signedInfo: CmsgSignedEncodeInfo = CmsgSignedEncodeInfo(),
+    public var envelopedInfo: CmsgEnvelopedEncodeInfo = CmsgEnvelopedEncodeInfo(),
 )
 
-public data class CMSG_SIGNED_ENCODE_INFO(
+public data class CmsgSignedEncodeInfo(
     public var cbSize: UInt = 0u,
     public var cSigners: UInt = 0u,
-    public var rgSigners: Long = 0L,
+    public var rgSigners: CmsgSignerEncodeInfo? = null,
     public var cCertEncoded: UInt = 0u,
-    public var rgCertEncoded: Long = 0L,
+    public var rgCertEncoded: CryptIntegerBlob? = null,
     public var cCrlEncoded: UInt = 0u,
-    public var rgCrlEncoded: Long = 0L,
+    public var rgCrlEncoded: CryptIntegerBlob? = null,
 )
 
-public data class CMSG_SIGNER_ENCODE_INFO(
+public data class CmsgSignerEncodeInfo(
     public var cbSize: UInt = 0u,
-    public var pCertInfo: Long = 0L,
-    public var Anonymous: CMSG_SIGNER_ENCODE_INFO_0 = CMSG_SIGNER_ENCODE_INFO_0(),
+    public var pCertInfo: CertInfo? = null,
+    public var anonymous: CmsgSignerEncodeInfo0 = CmsgSignerEncodeInfo0(),
     public var dwKeySpec: UInt = 0u,
-    public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var pvHashAuxInfo: Long = 0L,
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var pvHashAuxInfo: COpaquePointer? = null,
     public var cAuthAttr: UInt = 0u,
-    public var rgAuthAttr: Long = 0L,
+    public var rgAuthAttr: CryptAttribute? = null,
     public var cUnauthAttr: UInt = 0u,
-    public var rgUnauthAttr: Long = 0L,
+    public var rgUnauthAttr: CryptAttribute? = null,
 )
 
-public data class CMSG_SIGNER_ENCODE_INFO_0(public var hCryptProv: ULong = 0uL, public var hNCryptKey: NCRYPT_KEY_HANDLE = 0uL)
+public data class CmsgSignerEncodeInfo0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
 
-public data class CMSG_SIGNER_INFO(
+public data class CmsgSignerInfo(
     public var dwVersion: UInt = 0u,
-    public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var HashEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var EncryptedHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var AuthAttrs: CRYPT_ATTRIBUTES = CRYPT_ATTRIBUTES(),
-    public var UnauthAttrs: CRYPT_ATTRIBUTES = CRYPT_ATTRIBUTES(),
+    public var issuer: CryptIntegerBlob = CryptIntegerBlob(),
+    public var serialNumber: CryptIntegerBlob = CryptIntegerBlob(),
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var hashEncryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedHash: CryptIntegerBlob = CryptIntegerBlob(),
+    public var authAttrs: CryptAttributes = CryptAttributes(),
+    public var unauthAttrs: CryptAttributes = CryptAttributes(),
 )
 
-public data class CMSG_SP3_COMPATIBLE_AUX_INFO(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class CmsgSp3CompatibleAuxInfo(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
 
-public data class CMSG_STREAM_INFO(
+public data class CmsgStreamInfo(
     public var cbContent: UInt = 0u,
-    public var pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT = null,
-    public var pvArg: Long = 0L,
+    public var pfnStreamOutput: PfnCmsgStreamOutput = null,
+    public var pvArg: COpaquePointer? = null,
 )
 
-public data class CMS_DH_KEY_INFO(
+public data class CmsDhKeyInfo(
     public var dwVersion: UInt = 0u,
-    public var Algid: ALG_ID = 0u,
-    public var pszContentEncObjId: PSTR = 0L,
-    public var PubInfo: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var pReserved: Long = 0L,
+    public var algid: AlgId = 0u,
+    public var pszContentEncObjId: Pstr = null,
+    public var pubInfo: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pReserved: COpaquePointer? = null,
 )
 
-public data class CMS_KEY_INFO(
+public data class CmsKeyInfo(
     public var dwVersion: UInt = 0u,
-    public var Algid: ALG_ID = 0u,
-    public var pbOID: Long = 0L,
+    public var algid: AlgId = 0u,
+    public var pbOID: COpaquePointer? = null,
     public var cbOID: UInt = 0u,
 )
 
-public data class CONTAINER_INFO(
+public data class ContainerInfo(
     public var dwVersion: UInt = 0u,
     public var dwReserved: UInt = 0u,
     public var cbSigPublicKey: UInt = 0u,
-    public var pbSigPublicKey: Long = 0L,
+    public var pbSigPublicKey: COpaquePointer? = null,
     public var cbKeyExPublicKey: UInt = 0u,
-    public var pbKeyExPublicKey: Long = 0L,
+    public var pbKeyExPublicKey: COpaquePointer? = null,
 )
 
-public data class CONTAINER_MAP_RECORD(
+public data class ContainerMapRecord(
     public var wszGuid: UShortArray = UShortArray(40),
     public var bFlags: UByte = 0u,
     public var bReserved: UByte = 0u,
@@ -1676,7 +1677,7 @@ public data class CONTAINER_MAP_RECORD(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONTAINER_MAP_RECORD) return false
+        if (other !is ContainerMapRecord) return false
         if (!this.wszGuid.contentEquals(other.wszGuid)) return false
         if (this.bFlags != other.bFlags) return false
         if (this.bReserved != other.bReserved) return false
@@ -1695,182 +1696,182 @@ public data class CONTAINER_MAP_RECORD(
     }
 }
 
-public data class CPS_URLS(
-    public var pszURL: PWSTR = 0L,
-    public var pAlgorithm: Long = 0L,
-    public var pDigest: Long = 0L,
+public data class CpsUrls(
+    public var pszURL: Pwstr = null,
+    public var pAlgorithm: CryptAlgorithmIdentifier? = null,
+    public var pDigest: CryptIntegerBlob? = null,
 )
 
-public data class CRL_CONTEXT(
-    public var dwCertEncodingType: CERT_QUERY_ENCODING_TYPE = 0u,
-    public var pbCrlEncoded: Long = 0L,
+public data class CrlContext(
+    public var dwCertEncodingType: CertQueryEncodingType = 0u,
+    public var pbCrlEncoded: COpaquePointer? = null,
     public var cbCrlEncoded: UInt = 0u,
-    public var pCrlInfo: Long = 0L,
-    public var hCertStore: HCERTSTORE = 0L,
+    public var pCrlInfo: CrlInfo? = null,
+    public var hCertStore: Hcertstore = null,
 )
 
-public data class CRL_DIST_POINT(
-    public var DistPointName: CRL_DIST_POINT_NAME = CRL_DIST_POINT_NAME(),
-    public var ReasonFlags: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var CRLIssuer: CERT_ALT_NAME_INFO = CERT_ALT_NAME_INFO(),
+public data class CrlDistPoint(
+    public var distPointName: CrlDistPointName = CrlDistPointName(),
+    public var reasonFlags: CryptBitBlob = CryptBitBlob(),
+    public var cRLIssuer: CertAltNameInfo = CertAltNameInfo(),
 )
 
-public data class CRL_DIST_POINTS_INFO(public var cDistPoint: UInt = 0u, public var rgDistPoint: Long = 0L)
+public data class CrlDistPointsInfo(public var cDistPoint: UInt = 0u, public var rgDistPoint: CrlDistPoint? = null)
 
-public data class CRL_DIST_POINT_NAME(public var dwDistPointNameChoice: UInt = 0u, public var Anonymous: CRL_DIST_POINT_NAME_0 = CRL_DIST_POINT_NAME_0())
+public data class CrlDistPointName(public var dwDistPointNameChoice: UInt = 0u, public var anonymous: CrlDistPointName0 = CrlDistPointName0())
 
-public data class CRL_DIST_POINT_NAME_0(public var FullName: CERT_ALT_NAME_INFO = CERT_ALT_NAME_INFO())
+public data class CrlDistPointName0(public var fullName: CertAltNameInfo = CertAltNameInfo())
 
-public data class CRL_ENTRY(
-    public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var RevocationDate: FILETIME = FILETIME(),
+public data class CrlEntry(
+    public var serialNumber: CryptIntegerBlob = CryptIntegerBlob(),
+    public var revocationDate: Filetime = Filetime(),
     public var cExtension: UInt = 0u,
-    public var rgExtension: Long = 0L,
+    public var rgExtension: CertExtension? = null,
 )
 
-public data class CRL_FIND_ISSUED_FOR_PARA(public var pSubjectCert: Long = 0L, public var pIssuerCert: Long = 0L)
+public data class CrlFindIssuedForPara(public var pSubjectCert: CertContext? = null, public var pIssuerCert: CertContext? = null)
 
-public data class CRL_INFO(
+public data class CrlInfo(
     public var dwVersion: UInt = 0u,
-    public var SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var ThisUpdate: FILETIME = FILETIME(),
-    public var NextUpdate: FILETIME = FILETIME(),
+    public var signatureAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var issuer: CryptIntegerBlob = CryptIntegerBlob(),
+    public var thisUpdate: Filetime = Filetime(),
+    public var nextUpdate: Filetime = Filetime(),
     public var cCRLEntry: UInt = 0u,
-    public var rgCRLEntry: Long = 0L,
+    public var rgCRLEntry: CrlEntry? = null,
     public var cExtension: UInt = 0u,
-    public var rgExtension: Long = 0L,
+    public var rgExtension: CertExtension? = null,
 )
 
-public data class CRL_ISSUING_DIST_POINT(
-    public var DistPointName: CRL_DIST_POINT_NAME = CRL_DIST_POINT_NAME(),
-    public var fOnlyContainsUserCerts: BOOL = 0,
-    public var fOnlyContainsCACerts: BOOL = 0,
-    public var OnlySomeReasonFlags: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
-    public var fIndirectCRL: BOOL = 0,
+public data class CrlIssuingDistPoint(
+    public var distPointName: CrlDistPointName = CrlDistPointName(),
+    public var fOnlyContainsUserCerts: Bool = 0,
+    public var fOnlyContainsCACerts: Bool = 0,
+    public var onlySomeReasonFlags: CryptBitBlob = CryptBitBlob(),
+    public var fIndirectCRL: Bool = 0,
 )
 
-public data class CRL_REVOCATION_INFO(
-    public var pCrlEntry: Long = 0L,
-    public var pCrlContext: Long = 0L,
-    public var pCrlIssuerChain: Long = 0L,
+public data class CrlRevocationInfo(
+    public var pCrlEntry: CrlEntry? = null,
+    public var pCrlContext: CrlContext? = null,
+    public var pCrlIssuerChain: CertChainContext? = null,
 )
 
-public data class CROSS_CERT_DIST_POINTS_INFO(
+public data class CrossCertDistPointsInfo(
     public var dwSyncDeltaTime: UInt = 0u,
     public var cDistPoint: UInt = 0u,
-    public var rgDistPoint: Long = 0L,
+    public var rgDistPoint: CertAltNameInfo? = null,
 )
 
-public data class CRYPTNET_URL_CACHE_FLUSH_INFO(
+public data class CryptnetUrlCacheFlushInfo(
     public var cbSize: UInt = 0u,
     public var dwExemptSeconds: UInt = 0u,
-    public var ExpireTime: FILETIME = FILETIME(),
+    public var expireTime: Filetime = Filetime(),
 )
 
-public data class CRYPTNET_URL_CACHE_PRE_FETCH_INFO(
+public data class CryptnetUrlCachePreFetchInfo(
     public var cbSize: UInt = 0u,
     public var dwObjectType: UInt = 0u,
     public var dwError: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var ThisUpdateTime: FILETIME = FILETIME(),
-    public var NextUpdateTime: FILETIME = FILETIME(),
-    public var PublishTime: FILETIME = FILETIME(),
+    public var thisUpdateTime: Filetime = Filetime(),
+    public var nextUpdateTime: Filetime = Filetime(),
+    public var publishTime: Filetime = Filetime(),
 )
 
-public data class CRYPTNET_URL_CACHE_RESPONSE_INFO(
+public data class CryptnetUrlCacheResponseInfo(
     public var cbSize: UInt = 0u,
     public var wResponseType: UShort = 0u,
     public var wResponseFlags: UShort = 0u,
-    public var LastModifiedTime: FILETIME = FILETIME(),
+    public var lastModifiedTime: Filetime = Filetime(),
     public var dwMaxAge: UInt = 0u,
-    public var pwszETag: PCWSTR = 0L,
+    public var pwszETag: Pcwstr = null,
     public var dwProxyId: UInt = 0u,
 )
 
-public data class CRYPTPROTECT_PROMPTSTRUCT(
+public data class CryptprotectPromptstruct(
     public var cbSize: UInt = 0u,
     public var dwPromptFlags: UInt = 0u,
-    public var hwndApp: HWND = 0L,
-    public var szPrompt: PCWSTR = 0L,
+    public var hwndApp: Hwnd = null,
+    public var szPrompt: Pcwstr = null,
 )
 
-public data class CRYPT_3DES_KEY_STATE(
-    public var Key: UByteArray = UByteArray(24),
-    public var IV: UByteArray = UByteArray(8),
-    public var Feedback: UByteArray = UByteArray(8),
+public data class Crypt3desKeyState(
+    public var key: UByteArray = UByteArray(24),
+    public var iv: UByteArray = UByteArray(8),
+    public var feedback: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CRYPT_3DES_KEY_STATE) return false
-        if (!this.Key.contentEquals(other.Key)) return false
-        if (!this.IV.contentEquals(other.IV)) return false
-        if (!this.Feedback.contentEquals(other.Feedback)) return false
+        if (other !is Crypt3desKeyState) return false
+        if (!this.key.contentEquals(other.key)) return false
+        if (!this.iv.contentEquals(other.iv)) return false
+        if (!this.feedback.contentEquals(other.feedback)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Key.contentHashCode()
-        result = 31 * result + this.IV.contentHashCode()
-        result = 31 * result + this.Feedback.contentHashCode()
+        var result = this.key.contentHashCode()
+        result = 31 * result + this.iv.contentHashCode()
+        result = 31 * result + this.feedback.contentHashCode()
         return result
     }
 }
 
-public data class CRYPT_AES_128_KEY_STATE(
-    public var Key: UByteArray = UByteArray(16),
-    public var IV: UByteArray = UByteArray(16),
-    public var EncryptionState: UByteArray = UByteArray(176),
-    public var DecryptionState: UByteArray = UByteArray(176),
-    public var Feedback: UByteArray = UByteArray(16),
+public data class CryptAes128KeyState(
+    public var key: UByteArray = UByteArray(16),
+    public var iv: UByteArray = UByteArray(16),
+    public var encryptionState: UByteArray = UByteArray(176),
+    public var decryptionState: UByteArray = UByteArray(176),
+    public var feedback: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CRYPT_AES_128_KEY_STATE) return false
-        if (!this.Key.contentEquals(other.Key)) return false
-        if (!this.IV.contentEquals(other.IV)) return false
-        if (!this.EncryptionState.contentEquals(other.EncryptionState)) return false
-        if (!this.DecryptionState.contentEquals(other.DecryptionState)) return false
-        if (!this.Feedback.contentEquals(other.Feedback)) return false
+        if (other !is CryptAes128KeyState) return false
+        if (!this.key.contentEquals(other.key)) return false
+        if (!this.iv.contentEquals(other.iv)) return false
+        if (!this.encryptionState.contentEquals(other.encryptionState)) return false
+        if (!this.decryptionState.contentEquals(other.decryptionState)) return false
+        if (!this.feedback.contentEquals(other.feedback)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Key.contentHashCode()
-        result = 31 * result + this.IV.contentHashCode()
-        result = 31 * result + this.EncryptionState.contentHashCode()
-        result = 31 * result + this.DecryptionState.contentHashCode()
-        result = 31 * result + this.Feedback.contentHashCode()
+        var result = this.key.contentHashCode()
+        result = 31 * result + this.iv.contentHashCode()
+        result = 31 * result + this.encryptionState.contentHashCode()
+        result = 31 * result + this.decryptionState.contentHashCode()
+        result = 31 * result + this.feedback.contentHashCode()
         return result
     }
 }
 
-public data class CRYPT_AES_256_KEY_STATE(
-    public var Key: UByteArray = UByteArray(32),
-    public var IV: UByteArray = UByteArray(16),
-    public var EncryptionState: UByteArray = UByteArray(240),
-    public var DecryptionState: UByteArray = UByteArray(240),
-    public var Feedback: UByteArray = UByteArray(16),
+public data class CryptAes256KeyState(
+    public var key: UByteArray = UByteArray(32),
+    public var iv: UByteArray = UByteArray(16),
+    public var encryptionState: UByteArray = UByteArray(240),
+    public var decryptionState: UByteArray = UByteArray(240),
+    public var feedback: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CRYPT_AES_256_KEY_STATE) return false
-        if (!this.Key.contentEquals(other.Key)) return false
-        if (!this.IV.contentEquals(other.IV)) return false
-        if (!this.EncryptionState.contentEquals(other.EncryptionState)) return false
-        if (!this.DecryptionState.contentEquals(other.DecryptionState)) return false
-        if (!this.Feedback.contentEquals(other.Feedback)) return false
+        if (other !is CryptAes256KeyState) return false
+        if (!this.key.contentEquals(other.key)) return false
+        if (!this.iv.contentEquals(other.iv)) return false
+        if (!this.encryptionState.contentEquals(other.encryptionState)) return false
+        if (!this.decryptionState.contentEquals(other.decryptionState)) return false
+        if (!this.feedback.contentEquals(other.feedback)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Key.contentHashCode()
-        result = 31 * result + this.IV.contentHashCode()
-        result = 31 * result + this.EncryptionState.contentHashCode()
-        result = 31 * result + this.DecryptionState.contentHashCode()
-        result = 31 * result + this.Feedback.contentHashCode()
+        var result = this.key.contentHashCode()
+        result = 31 * result + this.iv.contentHashCode()
+        result = 31 * result + this.encryptionState.contentHashCode()
+        result = 31 * result + this.decryptionState.contentHashCode()
+        result = 31 * result + this.feedback.contentHashCode()
         return result
     }
 }
 
-public data class CRYPT_ALGORITHM_IDENTIFIER(public var pszObjId: PSTR = 0L, public var Parameters: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
+public data class CryptAlgorithmIdentifier(public var pszObjId: Pstr = null, public var parameters: CryptIntegerBlob = CryptIntegerBlob())

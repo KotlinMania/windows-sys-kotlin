@@ -1,683 +1,684 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.PAPCFUNC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_ACCESS_MASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Papcfunc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessMask
 
-public expect fun AcquireSRWLockExclusive(srwlock: Long)
+public expect fun acquireSRWLockExclusive(srwlock: COpaquePointer?)
 
-public expect fun AcquireSRWLockShared(srwlock: Long)
+public expect fun acquireSRWLockShared(srwlock: COpaquePointer?)
 
-public expect fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: PSID): BOOL
+public expect fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, integritylabel: Psid): Bool
 
-public expect fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: PSID): BOOL
+public expect fun addSIDToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, requiredsid: Psid): Bool
 
-public expect fun AttachThreadInput(idattach: UInt, idattachto: UInt, fattach: BOOL): BOOL
+public expect fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool
 
-public expect fun AvQuerySystemResponsiveness(avrthandle: HANDLE, systemresponsivenessvalue: Long): BOOL
+public expect fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: COpaquePointer?): Bool
 
-public expect fun AvRevertMmThreadCharacteristics(avrthandle: HANDLE): BOOL
+public expect fun avRevertMmThreadCharacteristics(avrthandle: Handle): Bool
 
-public expect fun AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): BOOL
+public expect fun avRtCreateThreadOrderingGroup(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?): Bool
 
-public expect fun AvRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCSTR): BOOL
+public expect fun avRtCreateThreadOrderingGroupExA(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcstr): Bool
 
-public expect fun AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCWSTR): BOOL
+public expect fun avRtCreateThreadOrderingGroupExW(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcwstr): Bool
 
-public expect fun AvRtDeleteThreadOrderingGroup(context: HANDLE): BOOL
+public expect fun avRtDeleteThreadOrderingGroup(context: Handle): Bool
 
-public expect fun AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: BOOL): BOOL
+public expect fun avRtJoinThreadOrderingGroup(context: COpaquePointer?, threadorderingguid: COpaquePointer?, before: Bool): Bool
 
-public expect fun AvRtLeaveThreadOrderingGroup(context: HANDLE): BOOL
+public expect fun avRtLeaveThreadOrderingGroup(context: Handle): Bool
 
-public expect fun AvRtWaitOnThreadOrderingGroup(context: HANDLE): BOOL
+public expect fun avRtWaitOnThreadOrderingGroup(context: Handle): Bool
 
-public expect fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): HANDLE
+public expect fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: COpaquePointer?): Handle
 
-public expect fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): HANDLE
+public expect fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: COpaquePointer?): Handle
 
-public expect fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): HANDLE
+public expect fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: COpaquePointer?): Handle
 
-public expect fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): HANDLE
+public expect fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: COpaquePointer?): Handle
 
-public expect fun AvSetMmThreadPriority(avrthandle: HANDLE, priority: AVRT_PRIORITY): BOOL
+public expect fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriority): Bool
 
-public expect fun CallbackMayRunLong(pci: PTP_CALLBACK_INSTANCE): BOOL
+public expect fun callbackMayRunLong(pci: PtpCallbackInstance): Bool
 
-public expect fun CancelThreadpoolIo(pio: PTP_IO)
+public expect fun cancelThreadpoolIo(pio: PtpIo)
 
-public expect fun CancelTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE): BOOL
+public expect fun cancelTimerQueueTimer(timerqueue: Handle, timer: Handle): Bool
 
-public expect fun CancelWaitableTimer(htimer: HANDLE): BOOL
+public expect fun cancelWaitableTimer(htimer: Handle): Bool
 
-public expect fun ChangeTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, duetime: UInt, period: UInt): BOOL
+public expect fun changeTimerQueueTimer(timerqueue: Handle, timer: Handle, duetime: UInt, period: UInt): Bool
 
-public expect fun ClosePrivateNamespace(handle: HANDLE, flags: UInt): Boolean
+public expect fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean
 
-public expect fun CloseThreadpool(ptpp: PTP_POOL)
+public expect fun closeThreadpool(ptpp: PtpPool)
 
-public expect fun CloseThreadpoolCleanupGroup(ptpcg: PTP_CLEANUP_GROUP)
+public expect fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup)
 
-public expect fun CloseThreadpoolCleanupGroupMembers(ptpcg: PTP_CLEANUP_GROUP, fcancelpendingcallbacks: BOOL, pvcleanupcontext: Long)
+public expect fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?)
 
-public expect fun CloseThreadpoolIo(pio: PTP_IO)
+public expect fun closeThreadpoolIo(pio: PtpIo)
 
-public expect fun CloseThreadpoolTimer(pti: PTP_TIMER)
+public expect fun closeThreadpoolTimer(pti: PtpTimer)
 
-public expect fun CloseThreadpoolWait(pwa: PTP_WAIT)
+public expect fun closeThreadpoolWait(pwa: PtpWait)
 
-public expect fun CloseThreadpoolWork(pwk: PTP_WORK)
+public expect fun closeThreadpoolWork(pwk: PtpWork)
 
-public expect fun ConvertFiberToThread(): BOOL
+public expect fun convertFiberToThread(): Bool
 
-public expect fun ConvertThreadToFiber(lpparameter: Long): Long
+public expect fun convertThreadToFiber(lpparameter: COpaquePointer?): COpaquePointer?
 
-public expect fun ConvertThreadToFiberEx(lpparameter: Long, dwflags: UInt): Long
+public expect fun convertThreadToFiberEx(lpparameter: COpaquePointer?, dwflags: UInt): COpaquePointer?
 
-public expect fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): HANDLE
+public expect fun createBoundaryDescriptorA(name: Pcstr, flags: UInt): Handle
 
-public expect fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): HANDLE
+public expect fun createBoundaryDescriptorW(name: Pcwstr, flags: UInt): Handle
 
-public expect fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): HANDLE
+public expect fun createEventA(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle
 
-public expect fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE
+public expect fun createEventExA(lpeventattributes: COpaquePointer?, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE
+public expect fun createEventExW(lpeventattributes: COpaquePointer?, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): HANDLE
+public expect fun createEventW(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle
 
-public expect fun CreateFiber(dwstacksize: ULong, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long
+public expect fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer?
 
-public expect fun CreateFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long
+public expect fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer?
 
-public expect fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): HANDLE
+public expect fun createMutexA(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcstr): Handle
 
-public expect fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createMutexExA(lpmutexattributes: COpaquePointer?, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createMutexExW(lpmutexattributes: COpaquePointer?, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): HANDLE
+public expect fun createMutexW(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcwstr): Handle
 
-public expect fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE
+public expect fun createPrivateNamespaceA(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle
 
-public expect fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE
+public expect fun createPrivateNamespaceW(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle
 
-public expect fun CreateProcessA(lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateProcessAsUserA(htoken: HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateProcessAsUserW(htoken: HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateProcessW(lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateProcessWithLogonW(lpusername: PCWSTR, lpdomain: PCWSTR, lppassword: PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateProcessWithTokenW(htoken: HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL
+public expect fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool
 
-public expect fun CreateRemoteThread(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): HANDLE
+public expect fun createRemoteThread(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpthreadid: COpaquePointer?): Handle
 
-public expect fun CreateRemoteThreadEx(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): HANDLE
+public expect fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: COpaquePointer?): Handle
 
-public expect fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): HANDLE
+public expect fun createSemaphoreA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle
 
-public expect fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createSemaphoreExA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createSemaphoreExW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): HANDLE
+public expect fun createSemaphoreW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle
 
-public expect fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): HANDLE
+public expect fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: ThreadCreationFlags, lpthreadid: COpaquePointer?): Handle
 
-public expect fun CreateThreadpool(reserved: Long): PTP_POOL
+public expect fun createThreadpool(reserved: COpaquePointer?): PtpPool
 
-public expect fun CreateThreadpoolCleanupGroup(): PTP_CLEANUP_GROUP
+public expect fun createThreadpoolCleanupGroup(): PtpCleanupGroup
 
-public expect fun CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO
+public expect fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo
 
-public expect fun CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Long, pcbe: Long): PTP_TIMER
+public expect fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpTimer
 
-public expect fun CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: Long, pcbe: Long): PTP_WAIT
+public expect fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWait
 
-public expect fun CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Long, pcbe: Long): PTP_WORK
+public expect fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWork
 
-public expect fun CreateTimerQueue(): HANDLE
+public expect fun createTimerQueue(): Handle
 
-public expect fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL
+public expect fun createTimerQueueTimer(phnewtimer: COpaquePointer?, timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool
 
-public expect fun CreateUmsCompletionList(umscompletionlist: Long): BOOL
+public expect fun createUmsCompletionList(umscompletionlist: COpaquePointer?): Bool
 
-public expect fun CreateUmsThreadContext(lpumsthread: Long): BOOL
+public expect fun createUmsThreadContext(lpumsthread: COpaquePointer?): Bool
 
-public expect fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): HANDLE
+public expect fun createWaitableTimerA(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcstr): Handle
 
-public expect fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createWaitableTimerExA(lptimerattributes: COpaquePointer?, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE
+public expect fun createWaitableTimerExW(lptimerattributes: COpaquePointer?, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle
 
-public expect fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): HANDLE
+public expect fun createWaitableTimerW(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcwstr): Handle
 
-public expect fun DeleteBoundaryDescriptor(boundarydescriptor: HANDLE)
+public expect fun deleteBoundaryDescriptor(boundarydescriptor: Handle)
 
-public expect fun DeleteCriticalSection(lpcriticalsection: Long)
+public expect fun deleteCriticalSection(lpcriticalsection: COpaquePointer?)
 
-public expect fun DeleteFiber(lpfiber: Long)
+public expect fun deleteFiber(lpfiber: COpaquePointer?)
 
-public expect fun DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST)
+public expect fun deleteProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList)
 
-public expect fun DeleteSynchronizationBarrier(lpbarrier: Long): BOOL
+public expect fun deleteSynchronizationBarrier(lpbarrier: COpaquePointer?): Bool
 
-public expect fun DeleteTimerQueue(timerqueue: HANDLE): BOOL
+public expect fun deleteTimerQueue(timerqueue: Handle): Bool
 
-public expect fun DeleteTimerQueueEx(timerqueue: HANDLE, completionevent: HANDLE): BOOL
+public expect fun deleteTimerQueueEx(timerqueue: Handle, completionevent: Handle): Bool
 
-public expect fun DeleteTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, completionevent: HANDLE): BOOL
+public expect fun deleteTimerQueueTimer(timerqueue: Handle, timer: Handle, completionevent: Handle): Bool
 
-public expect fun DeleteUmsCompletionList(umscompletionlist: Long): BOOL
+public expect fun deleteUmsCompletionList(umscompletionlist: COpaquePointer?): Bool
 
-public expect fun DeleteUmsThreadContext(umsthread: Long): BOOL
+public expect fun deleteUmsThreadContext(umsthread: COpaquePointer?): Bool
 
-public expect fun DequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: UInt, umsthreadlist: Long): BOOL
+public expect fun dequeueUmsCompletionListItems(umscompletionlist: COpaquePointer?, waittimeout: UInt, umsthreadlist: COpaquePointer?): Bool
 
-public expect fun DisassociateCurrentThreadFromCallback(pci: PTP_CALLBACK_INSTANCE)
+public expect fun disassociateCurrentThreadFromCallback(pci: PtpCallbackInstance)
 
-public expect fun EnterCriticalSection(lpcriticalsection: Long)
+public expect fun enterCriticalSection(lpcriticalsection: COpaquePointer?)
 
-public expect fun EnterSynchronizationBarrier(lpbarrier: Long, dwflags: UInt): BOOL
+public expect fun enterSynchronizationBarrier(lpbarrier: COpaquePointer?, dwflags: UInt): Bool
 
-public expect fun EnterUmsSchedulingMode(schedulerstartupinfo: Long): BOOL
+public expect fun enterUmsSchedulingMode(schedulerstartupinfo: COpaquePointer?): Bool
 
-public expect fun ExecuteUmsThread(umsthread: Long): BOOL
+public expect fun executeUmsThread(umsthread: COpaquePointer?): Bool
 
-public expect fun ExitProcess(uexitcode: UInt): Nothing
+public expect fun exitProcess(uexitcode: UInt): Nothing
 
-public expect fun ExitThread(dwexitcode: UInt): Nothing
+public expect fun exitThread(dwexitcode: UInt): Nothing
 
-public expect fun FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION): UInt
+public expect fun flsAlloc(lpcallback: PflsCallbackFunction): UInt
 
-public expect fun FlsFree(dwflsindex: UInt): BOOL
+public expect fun flsFree(dwflsindex: UInt): Bool
 
-public expect fun FlsGetValue(dwflsindex: UInt): Long
+public expect fun flsGetValue(dwflsindex: UInt): COpaquePointer?
 
-public expect fun FlsSetValue(dwflsindex: UInt, lpflsdata: Long): BOOL
+public expect fun flsSetValue(dwflsindex: UInt, lpflsdata: COpaquePointer?): Bool
 
-public expect fun FlushProcessWriteBuffers()
+public expect fun flushProcessWriteBuffers()
 
-public expect fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: HMODULE)
+public expect fun freeLibraryWhenCallbackReturns(pci: PtpCallbackInstance, mod: Hmodule)
 
-public expect fun GetActiveProcessorCount(groupnumber: UShort): UInt
+public expect fun getActiveProcessorCount(groupnumber: UShort): UInt
 
-public expect fun GetActiveProcessorGroupCount(): UShort
+public expect fun getActiveProcessorGroupCount(): UShort
 
-public expect fun GetCurrentProcess(): HANDLE
+public expect fun getCurrentProcess(): Handle
 
-public expect fun GetCurrentProcessId(): UInt
+public expect fun getCurrentProcessId(): UInt
 
-public expect fun GetCurrentProcessorNumber(): UInt
+public expect fun getCurrentProcessorNumber(): UInt
 
-public expect fun GetCurrentProcessorNumberEx(procnumber: Long)
+public expect fun getCurrentProcessorNumberEx(procnumber: COpaquePointer?)
 
-public expect fun GetCurrentThread(): HANDLE
+public expect fun getCurrentThread(): Handle
 
-public expect fun GetCurrentThreadId(): UInt
+public expect fun getCurrentThreadId(): UInt
 
-public expect fun GetCurrentThreadStackLimits(lowlimit: Long, highlimit: Long)
+public expect fun getCurrentThreadStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?)
 
-public expect fun GetCurrentUmsThread(): Long
+public expect fun getCurrentUmsThread(): COpaquePointer?
 
-public expect fun GetExitCodeProcess(hprocess: HANDLE, lpexitcode: Long): BOOL
+public expect fun getExitCodeProcess(hprocess: Handle, lpexitcode: COpaquePointer?): Bool
 
-public expect fun GetExitCodeThread(hthread: HANDLE, lpexitcode: Long): BOOL
+public expect fun getExitCodeThread(hthread: Handle, lpexitcode: COpaquePointer?): Bool
 
-public expect fun GetGuiResources(hprocess: HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt
+public expect fun getGuiResources(hprocess: Handle, uiflags: GetGuiResourcesFlags): UInt
 
-public expect fun GetMachineTypeAttributes(machine: UShort, machinetypeattributes: Long): HRESULT
+public expect fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: COpaquePointer?): Hresult
 
-public expect fun GetMaximumProcessorCount(groupnumber: UShort): UInt
+public expect fun getMaximumProcessorCount(groupnumber: UShort): UInt
 
-public expect fun GetMaximumProcessorGroupCount(): UShort
+public expect fun getMaximumProcessorGroupCount(): UShort
 
-public expect fun GetNextUmsListItem(umscontext: Long): Long
+public expect fun getNextUmsListItem(umscontext: COpaquePointer?): COpaquePointer?
 
-public expect fun GetNumaAvailableMemoryNode(node: UByte, availablebytes: Long): BOOL
+public expect fun getNumaAvailableMemoryNode(node: UByte, availablebytes: COpaquePointer?): Bool
 
-public expect fun GetNumaAvailableMemoryNodeEx(node: UShort, availablebytes: Long): BOOL
+public expect fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: COpaquePointer?): Bool
 
-public expect fun GetNumaHighestNodeNumber(highestnodenumber: Long): BOOL
+public expect fun getNumaHighestNodeNumber(highestnodenumber: COpaquePointer?): Bool
 
-public expect fun GetNumaNodeNumberFromHandle(hfile: HANDLE, nodenumber: Long): BOOL
+public expect fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: COpaquePointer?): Bool
 
-public expect fun GetNumaNodeProcessorMask(node: UByte, processormask: Long): BOOL
+public expect fun getNumaNodeProcessorMask(node: UByte, processormask: COpaquePointer?): Bool
 
-public expect fun GetNumaNodeProcessorMask2(nodenumber: UShort, processormasks: Long, processormaskcount: UShort, requiredmaskcount: Long): BOOL
+public expect fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: COpaquePointer?, processormaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool
 
-public expect fun GetNumaNodeProcessorMaskEx(node: UShort, processormask: Long): BOOL
+public expect fun getNumaNodeProcessorMaskEx(node: UShort, processormask: COpaquePointer?): Bool
 
-public expect fun GetNumaProcessorNode(processor: UByte, nodenumber: Long): BOOL
+public expect fun getNumaProcessorNode(processor: UByte, nodenumber: COpaquePointer?): Bool
 
-public expect fun GetNumaProcessorNodeEx(processor: Long, nodenumber: Long): BOOL
+public expect fun getNumaProcessorNodeEx(processor: COpaquePointer?, nodenumber: COpaquePointer?): Bool
 
-public expect fun GetNumaProximityNode(proximityid: UInt, nodenumber: Long): BOOL
+public expect fun getNumaProximityNode(proximityid: UInt, nodenumber: COpaquePointer?): Bool
 
-public expect fun GetNumaProximityNodeEx(proximityid: UInt, nodenumber: Long): BOOL
+public expect fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: COpaquePointer?): Bool
 
-public expect fun GetPriorityClass(hprocess: HANDLE): UInt
+public expect fun getPriorityClass(hprocess: Handle): UInt
 
-public expect fun GetProcessAffinityMask(hprocess: HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL
+public expect fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: COpaquePointer?, lpsystemaffinitymask: COpaquePointer?): Bool
 
-public expect fun GetProcessDEPPolicy(hprocess: HANDLE, lpflags: Long, lppermanent: Long): BOOL
+public expect fun getProcessDEPPolicy(hprocess: Handle, lpflags: COpaquePointer?, lppermanent: COpaquePointer?): Bool
 
-public expect fun GetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL
+public expect fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool
 
-public expect fun GetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL
+public expect fun getProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool
 
-public expect fun GetProcessGroupAffinity(hprocess: HANDLE, groupcount: Long, grouparray: Long): BOOL
+public expect fun getProcessGroupAffinity(hprocess: Handle, groupcount: COpaquePointer?, grouparray: COpaquePointer?): Bool
 
-public expect fun GetProcessHandleCount(hprocess: HANDLE, pdwhandlecount: Long): BOOL
+public expect fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: COpaquePointer?): Bool
 
-public expect fun GetProcessHandleFromHwnd(hwnd: HWND): HANDLE
+public expect fun getProcessHandleFromHwnd(hwnd: Hwnd): Handle
 
-public expect fun GetProcessId(process: HANDLE): UInt
+public expect fun getProcessId(process: Handle): UInt
 
-public expect fun GetProcessIdOfThread(thread: HANDLE): UInt
+public expect fun getProcessIdOfThread(thread: Handle): UInt
 
-public expect fun GetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL
+public expect fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool
 
-public expect fun GetProcessIoCounters(hprocess: HANDLE, lpiocounters: Long): BOOL
+public expect fun getProcessIoCounters(hprocess: Handle, lpiocounters: COpaquePointer?): Bool
 
-public expect fun GetProcessMitigationPolicy(hprocess: HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL
+public expect fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool
 
-public expect fun GetProcessPriorityBoost(hprocess: HANDLE, pdisablepriorityboost: Long): BOOL
+public expect fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: COpaquePointer?): Bool
 
-public expect fun GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): BOOL
+public expect fun getProcessShutdownParameters(lpdwlevel: COpaquePointer?, lpdwflags: COpaquePointer?): Bool
 
-public expect fun GetProcessTimes(hprocess: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL
+public expect fun getProcessTimes(hprocess: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool
 
-public expect fun GetProcessVersion(processid: UInt): UInt
+public expect fun getProcessVersion(processid: UInt): UInt
 
-public expect fun GetProcessWorkingSetSize(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL
+public expect fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?): Bool
 
-public expect fun GetStartupInfoA(lpstartupinfo: Long)
+public expect fun getStartupInfoA(lpstartupinfo: COpaquePointer?)
 
-public expect fun GetStartupInfoW(lpstartupinfo: Long)
+public expect fun getStartupInfoW(lpstartupinfo: COpaquePointer?)
 
-public expect fun GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): BOOL
+public expect fun getSystemTimes(lpidletime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool
 
-public expect fun GetThreadDescription(hthread: HANDLE, ppszthreaddescription: Long): HRESULT
+public expect fun getThreadDescription(hthread: Handle, ppszthreaddescription: COpaquePointer?): Hresult
 
-public expect fun GetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long): BOOL
+public expect fun getThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?): Bool
 
-public expect fun GetThreadIOPendingFlag(hthread: HANDLE, lpioispending: Long): BOOL
+public expect fun getThreadIOPendingFlag(hthread: Handle, lpioispending: COpaquePointer?): Bool
 
-public expect fun GetThreadId(thread: HANDLE): UInt
+public expect fun getThreadId(thread: Handle): UInt
 
-public expect fun GetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long): BOOL
+public expect fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?): Bool
 
-public expect fun GetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL
+public expect fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool
 
-public expect fun GetThreadPriority(hthread: HANDLE): Int
+public expect fun getThreadPriority(hthread: Handle): Int
 
-public expect fun GetThreadPriorityBoost(hthread: HANDLE, pdisablepriorityboost: Long): BOOL
+public expect fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: COpaquePointer?): Bool
 
-public expect fun GetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL
+public expect fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool
 
-public expect fun GetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL
+public expect fun getThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool
 
-public expect fun GetThreadTimes(hthread: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL
+public expect fun getThreadTimes(hthread: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool
 
-public expect fun GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): BOOL
+public expect fun getUmsCompletionListEvent(umscompletionlist: COpaquePointer?, umscompletionevent: COpaquePointer?): Bool
 
-public expect fun GetUmsSystemThreadInformation(threadhandle: HANDLE, systemthreadinfo: Long): BOOL
+public expect fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: COpaquePointer?): Bool
 
-public expect fun InitOnceBeginInitialize(lpinitonce: Long, dwflags: UInt, fpending: Long, lpcontext: Long): BOOL
+public expect fun initOnceBeginInitialize(lpinitonce: COpaquePointer?, dwflags: UInt, fpending: COpaquePointer?, lpcontext: COpaquePointer?): Bool
 
-public expect fun InitOnceComplete(lpinitonce: Long, dwflags: UInt, lpcontext: Long): BOOL
+public expect fun initOnceComplete(lpinitonce: COpaquePointer?, dwflags: UInt, lpcontext: COpaquePointer?): Bool
 
-public expect fun InitOnceExecuteOnce(initonce: Long, initfn: PINIT_ONCE_FN, parameter: Long, context: Long): BOOL
+public expect fun initOnceExecuteOnce(initonce: COpaquePointer?, initfn: PinitOnceFn, parameter: COpaquePointer?, context: COpaquePointer?): Bool
 
-public expect fun InitOnceInitialize(initonce: Long)
+public expect fun initOnceInitialize(initonce: COpaquePointer?)
 
-public expect fun InitializeConditionVariable(conditionvariable: Long)
+public expect fun initializeConditionVariable(conditionvariable: COpaquePointer?)
 
-public expect fun InitializeCriticalSection(lpcriticalsection: Long)
+public expect fun initializeCriticalSection(lpcriticalsection: COpaquePointer?)
 
-public expect fun InitializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: UInt): BOOL
+public expect fun initializeCriticalSectionAndSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): Bool
 
-public expect fun InitializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: UInt, flags: UInt): BOOL
+public expect fun initializeCriticalSectionEx(lpcriticalsection: COpaquePointer?, dwspincount: UInt, flags: UInt): Bool
 
-public expect fun InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: UInt, dwflags: UInt, lpsize: Long): BOOL
+public expect fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: COpaquePointer?): Bool
 
-public expect fun InitializeSListHead(listhead: Long)
+public expect fun initializeSListHead(listhead: COpaquePointer?)
 
-public expect fun InitializeSRWLock(srwlock: Long)
+public expect fun initializeSRWLock(srwlock: COpaquePointer?)
 
-public expect fun InitializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): BOOL
+public expect fun initializeSynchronizationBarrier(lpbarrier: COpaquePointer?, ltotalthreads: Int, lspincount: Int): Bool
 
-public expect fun InterlockedFlushSList(listhead: Long): Long
+public expect fun interlockedFlushSList(listhead: COpaquePointer?): COpaquePointer?
 
-public expect fun InterlockedPopEntrySList(listhead: Long): Long
+public expect fun interlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer?
 
-public expect fun InterlockedPushEntrySList(listhead: Long, listentry: Long): Long
+public expect fun interlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer?
 
-public expect fun InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long
+public expect fun interlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer?
 
-public expect fun IsImmersiveProcess(hprocess: HANDLE): BOOL
+public expect fun isImmersiveProcess(hprocess: Handle): Bool
 
-public expect fun IsProcessCritical(hprocess: HANDLE, critical: Long): BOOL
+public expect fun isProcessCritical(hprocess: Handle, critical: COpaquePointer?): Bool
 
-public expect fun IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID): BOOL
+public expect fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool
 
-public expect fun IsThreadAFiber(): BOOL
+public expect fun isThreadAFiber(): Bool
 
-public expect fun IsThreadpoolTimerSet(pti: PTP_TIMER): BOOL
+public expect fun isThreadpoolTimerSet(pti: PtpTimer): Bool
 
-public expect fun IsWow64Process(hprocess: HANDLE, wow64process: Long): BOOL
+public expect fun isWow64Process(hprocess: Handle, wow64process: COpaquePointer?): Bool
 
-public expect fun IsWow64Process2(hprocess: HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL
+public expect fun isWow64Process2(hprocess: Handle, pprocessmachine: COpaquePointer?, pnativemachine: COpaquePointer?): Bool
 
-public expect fun LeaveCriticalSection(lpcriticalsection: Long)
+public expect fun leaveCriticalSection(lpcriticalsection: COpaquePointer?)
 
-public expect fun LeaveCriticalSectionWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, pcs: Long)
+public expect fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: COpaquePointer?)
 
-public expect fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): HANDLE
+public expect fun openEventA(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcstr): Handle
 
-public expect fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE
+public expect fun openEventW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle
 
-public expect fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE
+public expect fun openMutexW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle
 
-public expect fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE
+public expect fun openPrivateNamespaceA(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle
 
-public expect fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE
+public expect fun openPrivateNamespaceW(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle
 
-public expect fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): HANDLE
+public expect fun openProcess(dwdesiredaccess: ProcessAccessRights, binherithandle: Bool, dwprocessid: UInt): Handle
 
-public expect fun OpenProcessToken(processhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL
+public expect fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: COpaquePointer?): Bool
 
-public expect fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE
+public expect fun openSemaphoreW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle
 
-public expect fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): HANDLE
+public expect fun openThread(dwdesiredaccess: ThreadAccessRights, binherithandle: Bool, dwthreadid: UInt): Handle
 
-public expect fun OpenThreadToken(threadhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL
+public expect fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: COpaquePointer?): Bool
 
-public expect fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): HANDLE
+public expect fun openWaitableTimerA(dwdesiredaccess: UInt, binherithandle: Bool, lptimername: Pcstr): Handle
 
-public expect fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): HANDLE
+public expect fun openWaitableTimerW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lptimername: Pcwstr): Handle
 
-public expect fun PulseEvent(hevent: HANDLE): BOOL
+public expect fun pulseEvent(hevent: Handle): Bool
 
-public expect fun QueryDepthSList(listhead: Long): UShort
+public expect fun queryDepthSList(listhead: COpaquePointer?): UShort
 
-public expect fun QueryFullProcessImageNameA(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL
+public expect fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: COpaquePointer?): Bool
 
-public expect fun QueryFullProcessImageNameW(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL
+public expect fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: COpaquePointer?): Bool
 
-public expect fun QueryProcessAffinityUpdateMode(hprocess: HANDLE, lpdwflags: Long): BOOL
+public expect fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: COpaquePointer?): Bool
 
-public expect fun QueryProtectedPolicy(policyguid: Long, policyvalue: Long): BOOL
+public expect fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue: COpaquePointer?): Bool
 
-public expect fun QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL
+public expect fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool
 
-public expect fun QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt, returnlength: Long): BOOL
+public expect fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool
 
-public expect fun QueueUserAPC(pfnapc: PAPCFUNC, hthread: HANDLE, dwdata: ULong): UInt
+public expect fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong): UInt
 
-public expect fun QueueUserAPC2(apcroutine: PAPCFUNC, thread: HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL
+public expect fun queueUserAPC2(apcroutine: Papcfunc, thread: Handle, data: ULong, flags: QueueUserApcFlags): Bool
 
-public expect fun QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Long, flags: WORKER_THREAD_FLAGS): BOOL
+public expect fun queueUserWorkItem(function: LpthreadStartRoutine, context: COpaquePointer?, flags: WorkerThreadFlags): Bool
 
-public expect fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL
+public expect fun registerWaitForSingleObject(phnewwaitobject: COpaquePointer?, hobject: Handle, callback: Waitortimercallback, context: COpaquePointer?, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool
 
-public expect fun ReleaseMutex(hmutex: HANDLE): BOOL
+public expect fun releaseMutex(hmutex: Handle): Bool
 
-public expect fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: HANDLE)
+public expect fun releaseMutexWhenCallbackReturns(pci: PtpCallbackInstance, mut: Handle)
 
-public expect fun ReleaseSRWLockExclusive(srwlock: Long)
+public expect fun releaseSRWLockExclusive(srwlock: COpaquePointer?)
 
-public expect fun ReleaseSRWLockShared(srwlock: Long)
+public expect fun releaseSRWLockShared(srwlock: COpaquePointer?)
 
-public expect fun ReleaseSemaphore(hsemaphore: HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL
+public expect fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: COpaquePointer?): Bool
 
-public expect fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: UInt)
+public expect fun releaseSemaphoreWhenCallbackReturns(pci: PtpCallbackInstance, sem: Handle, crel: UInt)
 
-public expect fun ResetEvent(hevent: HANDLE): BOOL
+public expect fun resetEvent(hevent: Handle): Bool
 
-public expect fun ResumeThread(hthread: HANDLE): UInt
+public expect fun resumeThread(hthread: Handle): UInt
 
-public expect fun RtwqAddPeriodicCallback(callback: RTWQPERIODICCALLBACK, context: Long, key: Long): HRESULT
+public expect fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: COpaquePointer?, key: COpaquePointer?): Hresult
 
-public expect fun RtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: Long): HRESULT
+public expect fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: COpaquePointer?): Hresult
 
-public expect fun RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE, workqueueid: Long): HRESULT
+public expect fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: COpaquePointer?): Hresult
 
-public expect fun RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: PCWSTR, dwtaskid: UInt, lpriority: Int, donecallback: Long, donestate: Long): HRESULT
+public expect fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult
 
-public expect fun RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: Long, donestate: Long): HRESULT
+public expect fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult
 
-public expect fun RtwqCancelDeadline(prequest: HANDLE): HRESULT
+public expect fun rtwqCancelDeadline(prequest: Handle): Hresult
 
-public expect fun RtwqCancelWorkItem(key: ULong): HRESULT
+public expect fun rtwqCancelWorkItem(key: ULong): Hresult
 
-public expect fun RtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): HRESULT
+public expect fun rtwqCreateAsyncResult(appobject: COpaquePointer?, callback: COpaquePointer?, appstate: COpaquePointer?, asyncresult: COpaquePointer?): Hresult
 
-public expect fun RtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): HRESULT
+public expect fun rtwqEndRegisterWorkQueueWithMMCSS(result: COpaquePointer?, taskid: COpaquePointer?): Hresult
 
-public expect fun RtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: PWSTR, usageclasslength: Long): HRESULT
+public expect fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: COpaquePointer?): Hresult
 
-public expect fun RtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: Long): HRESULT
+public expect fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: COpaquePointer?): Hresult
 
-public expect fun RtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: Long): HRESULT
+public expect fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: COpaquePointer?): Hresult
 
-public expect fun RtwqInvokeCallback(result: Long): HRESULT
+public expect fun rtwqInvokeCallback(result: COpaquePointer?): Hresult
 
-public expect fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: HANDLE, out: Long): HRESULT
+public expect fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: COpaquePointer?): Hresult
 
-public expect fun RtwqLockPlatform(): HRESULT
+public expect fun rtwqLockPlatform(): Hresult
 
-public expect fun RtwqLockSharedWorkQueue(usageclass: PCWSTR, basepriority: Int, taskid: Long, id: Long): HRESULT
+public expect fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: COpaquePointer?, id: COpaquePointer?): Hresult
 
-public expect fun RtwqLockWorkQueue(workqueueid: UInt): HRESULT
+public expect fun rtwqLockWorkQueue(workqueueid: UInt): Hresult
 
-public expect fun RtwqPutWaitingWorkItem(hevent: HANDLE, lpriority: Int, result: Long, key: Long): HRESULT
+public expect fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: COpaquePointer?, key: COpaquePointer?): Hresult
 
-public expect fun RtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: Long): HRESULT
+public expect fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: COpaquePointer?): Hresult
 
-public expect fun RtwqRegisterPlatformEvents(platformevents: Long): HRESULT
+public expect fun rtwqRegisterPlatformEvents(platformevents: COpaquePointer?): Hresult
 
-public expect fun RtwqRegisterPlatformWithMMCSS(usageclass: PCWSTR, taskid: Long, lpriority: Int): HRESULT
+public expect fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: COpaquePointer?, lpriority: Int): Hresult
 
-public expect fun RtwqRemovePeriodicCallback(dwkey: UInt): HRESULT
+public expect fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult
 
-public expect fun RtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): HRESULT
+public expect fun rtwqScheduleWorkItem(result: COpaquePointer?, timeout: Long, key: COpaquePointer?): Hresult
 
-public expect fun RtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: Long): HRESULT
+public expect fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: COpaquePointer?): Hresult
 
-public expect fun RtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): HRESULT
+public expect fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: COpaquePointer?): Hresult
 
-public expect fun RtwqSetLongRunning(workqueueid: UInt, enable: BOOL): HRESULT
+public expect fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult
 
-public expect fun RtwqShutdown(): HRESULT
+public expect fun rtwqShutdown(): Hresult
 
-public expect fun RtwqStartup(): HRESULT
+public expect fun rtwqStartup(): Hresult
 
-public expect fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: HANDLE): HRESULT
+public expect fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult
 
-public expect fun RtwqUnlockPlatform(): HRESULT
+public expect fun rtwqUnlockPlatform(): Hresult
 
-public expect fun RtwqUnlockWorkQueue(workqueueid: UInt): HRESULT
+public expect fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult
 
-public expect fun RtwqUnregisterPlatformEvents(platformevents: Long): HRESULT
+public expect fun rtwqUnregisterPlatformEvents(platformevents: COpaquePointer?): Hresult
 
-public expect fun RtwqUnregisterPlatformFromMMCSS(): HRESULT
+public expect fun rtwqUnregisterPlatformFromMMCSS(): Hresult
 
-public expect fun SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: UInt): UInt
+public expect fun setCriticalSectionSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): UInt
 
-public expect fun SetEvent(hevent: HANDLE): BOOL
+public expect fun setEvent(hevent: Handle): Bool
 
-public expect fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: HANDLE)
+public expect fun setEventWhenCallbackReturns(pci: PtpCallbackInstance, evt: Handle)
 
-public expect fun SetPriorityClass(hprocess: HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL
+public expect fun setPriorityClass(hprocess: Handle, dwpriorityclass: ProcessCreationFlags): Bool
 
-public expect fun SetProcessAffinityMask(hprocess: HANDLE, dwprocessaffinitymask: ULong): BOOL
+public expect fun setProcessAffinityMask(hprocess: Handle, dwprocessaffinitymask: ULong): Bool
 
-public expect fun SetProcessAffinityUpdateMode(hprocess: HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL
+public expect fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: ProcessAffinityAutoUpdateFlags): Bool
 
-public expect fun SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS): BOOL
+public expect fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool
 
-public expect fun SetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL
+public expect fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool
 
-public expect fun SetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL
+public expect fun setProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool
 
-public expect fun SetProcessDynamicEHContinuationTargets(process: HANDLE, numberoftargets: UShort, targets: Long): BOOL
+public expect fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: COpaquePointer?): Bool
 
-public expect fun SetProcessDynamicEnforcedCetCompatibleRanges(process: HANDLE, numberofranges: UShort, ranges: Long): BOOL
+public expect fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: COpaquePointer?): Bool
 
-public expect fun SetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL
+public expect fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool
 
-public expect fun SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL
+public expect fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool
 
-public expect fun SetProcessPriorityBoost(hprocess: HANDLE, bdisablepriorityboost: BOOL): BOOL
+public expect fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboost: Bool): Bool
 
-public expect fun SetProcessRestrictionExemption(fenableexemption: BOOL): BOOL
+public expect fun setProcessRestrictionExemption(fenableexemption: Bool): Bool
 
-public expect fun SetProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): BOOL
+public expect fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool
 
-public expect fun SetProcessWorkingSetSize(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL
+public expect fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool
 
-public expect fun SetProtectedPolicy(policyguid: Long, policyvalue: ULong, oldpolicyvalue: Long): BOOL
+public expect fun setProtectedPolicy(policyguid: COpaquePointer?, policyvalue: ULong, oldpolicyvalue: COpaquePointer?): Bool
 
-public expect fun SetThreadAffinityMask(hthread: HANDLE, dwthreadaffinitymask: ULong): ULong
+public expect fun setThreadAffinityMask(hthread: Handle, dwthreadaffinitymask: ULong): ULong
 
-public expect fun SetThreadDescription(hthread: HANDLE, lpthreaddescription: PCWSTR): HRESULT
+public expect fun setThreadDescription(hthread: Handle, lpthreaddescription: Pcwstr): Hresult
 
-public expect fun SetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL
+public expect fun setThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?, previousgroupaffinity: COpaquePointer?): Bool
 
-public expect fun SetThreadIdealProcessor(hthread: HANDLE, dwidealprocessor: UInt): UInt
+public expect fun setThreadIdealProcessor(hthread: Handle, dwidealprocessor: UInt): UInt
 
-public expect fun SetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL
+public expect fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?, lppreviousidealprocessor: COpaquePointer?): Bool
 
-public expect fun SetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL
+public expect fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool
 
-public expect fun SetThreadPriority(hthread: HANDLE, npriority: THREAD_PRIORITY): BOOL
+public expect fun setThreadPriority(hthread: Handle, npriority: ThreadPriority): Bool
 
-public expect fun SetThreadPriorityBoost(hthread: HANDLE, bdisablepriorityboost: BOOL): BOOL
+public expect fun setThreadPriorityBoost(hthread: Handle, bdisablepriorityboost: Bool): Bool
 
-public expect fun SetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL
+public expect fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool
 
-public expect fun SetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL
+public expect fun setThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool
 
-public expect fun SetThreadStackGuarantee(stacksizeinbytes: Long): BOOL
+public expect fun setThreadStackGuarantee(stacksizeinbytes: COpaquePointer?): Bool
 
-public expect fun SetThreadToken(thread: Long, token: HANDLE): BOOL
+public expect fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool
 
-public expect fun SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL
+public expect fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool
 
-public expect fun SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: UInt)
+public expect fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt)
 
-public expect fun SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: UInt): BOOL
+public expect fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool
 
-public expect fun SetThreadpoolTimer(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt)
+public expect fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt)
 
-public expect fun SetThreadpoolTimerEx(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt): BOOL
+public expect fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt): Bool
 
-public expect fun SetThreadpoolWait(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long)
+public expect fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?)
 
-public expect fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long, reserved: Long): BOOL
+public expect fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun SetTimerQueueTimer(timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): HANDLE
+public expect fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, preferio: Bool): Handle
 
-public expect fun SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt): BOOL
+public expect fun setUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt): Bool
 
-public expect fun SetWaitableTimer(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL
+public expect fun setWaitableTimer(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, fresume: Bool): Bool
 
-public expect fun SetWaitableTimerEx(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL
+public expect fun setWaitableTimerEx(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, wakecontext: COpaquePointer?, tolerabledelay: UInt): Bool
 
-public expect fun SignalObjectAndWait(hobjecttosignal: HANDLE, hobjecttowaiton: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT
+public expect fun signalObjectAndWait(hobjecttosignal: Handle, hobjecttowaiton: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent
 
-public expect fun Sleep(dwmilliseconds: UInt)
+public expect fun sleep(dwmilliseconds: UInt)
 
-public expect fun SleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: UInt): BOOL
+public expect fun sleepConditionVariableCS(conditionvariable: COpaquePointer?, criticalsection: COpaquePointer?, dwmilliseconds: UInt): Bool
 
-public expect fun SleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: UInt, flags: UInt): BOOL
+public expect fun sleepConditionVariableSRW(conditionvariable: COpaquePointer?, srwlock: COpaquePointer?, dwmilliseconds: UInt, flags: UInt): Bool
 
-public expect fun SleepEx(dwmilliseconds: UInt, balertable: BOOL): UInt
+public expect fun sleepEx(dwmilliseconds: UInt, balertable: Bool): UInt
 
-public expect fun StartThreadpoolIo(pio: PTP_IO)
+public expect fun startThreadpoolIo(pio: PtpIo)
 
-public expect fun SubmitThreadpoolWork(pwk: PTP_WORK)
+public expect fun submitThreadpoolWork(pwk: PtpWork)
 
-public expect fun SuspendThread(hthread: HANDLE): UInt
+public expect fun suspendThread(hthread: Handle): UInt
 
-public expect fun SwitchToFiber(lpfiber: Long)
+public expect fun switchToFiber(lpfiber: COpaquePointer?)
 
-public expect fun SwitchToThread(): BOOL
+public expect fun switchToThread(): Bool
 
-public expect fun TerminateProcess(hprocess: HANDLE, uexitcode: UInt): BOOL
+public expect fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool
 
-public expect fun TerminateThread(hthread: HANDLE, dwexitcode: UInt): BOOL
+public expect fun terminateThread(hthread: Handle, dwexitcode: UInt): Bool
 
-public expect fun TlsAlloc(): UInt
+public expect fun tlsAlloc(): UInt
 
-public expect fun TlsFree(dwtlsindex: UInt): BOOL
+public expect fun tlsFree(dwtlsindex: UInt): Bool
 
-public expect fun TlsGetValue(dwtlsindex: UInt): Long
+public expect fun tlsGetValue(dwtlsindex: UInt): COpaquePointer?
 
-public expect fun TlsSetValue(dwtlsindex: UInt, lptlsvalue: Long): BOOL
+public expect fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: COpaquePointer?): Bool
 
-public expect fun TryAcquireSRWLockExclusive(srwlock: Long): Boolean
+public expect fun tryAcquireSRWLockExclusive(srwlock: COpaquePointer?): Boolean
 
-public expect fun TryAcquireSRWLockShared(srwlock: Long): Boolean
+public expect fun tryAcquireSRWLockShared(srwlock: COpaquePointer?): Boolean
 
-public expect fun TryEnterCriticalSection(lpcriticalsection: Long): BOOL
+public expect fun tryEnterCriticalSection(lpcriticalsection: COpaquePointer?): Bool
 
-public expect fun TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: Long, pcbe: Long): BOOL
+public expect fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): Bool
 
-public expect fun UmsThreadYield(schedulerparam: Long): BOOL
+public expect fun umsThreadYield(schedulerparam: COpaquePointer?): Bool
 
-public expect fun UnregisterWait(waithandle: HANDLE): BOOL
+public expect fun unregisterWait(waithandle: Handle): Bool
 
-public expect fun UnregisterWaitEx(waithandle: HANDLE, completionevent: HANDLE): BOOL
+public expect fun unregisterWaitEx(waithandle: Handle, completionevent: Handle): Bool
 
-public expect fun UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: UInt, attribute: ULong, lpvalue: Long, cbsize: ULong, lppreviousvalue: Long, lpreturnsize: Long): BOOL
+public expect fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: COpaquePointer?, cbsize: ULong, lppreviousvalue: COpaquePointer?, lpreturnsize: COpaquePointer?): Bool
 
-public expect fun WaitForInputIdle(hprocess: HANDLE, dwmilliseconds: UInt): UInt
+public expect fun waitForInputIdle(hprocess: Handle, dwmilliseconds: UInt): UInt
 
-public expect fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): WAIT_EVENT
+public expect fun waitForMultipleObjects(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent
 
-public expect fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT
+public expect fun waitForMultipleObjectsEx(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent
 
-public expect fun WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: UInt): WAIT_EVENT
+public expect fun waitForSingleObject(hhandle: Handle, dwmilliseconds: UInt): WaitEvent
 
-public expect fun WaitForSingleObjectEx(hhandle: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT
+public expect fun waitForSingleObjectEx(hhandle: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent
 
-public expect fun WaitForThreadpoolIoCallbacks(pio: PTP_IO, fcancelpendingcallbacks: BOOL)
+public expect fun waitForThreadpoolIoCallbacks(pio: PtpIo, fcancelpendingcallbacks: Bool)
 
-public expect fun WaitForThreadpoolTimerCallbacks(pti: PTP_TIMER, fcancelpendingcallbacks: BOOL)
+public expect fun waitForThreadpoolTimerCallbacks(pti: PtpTimer, fcancelpendingcallbacks: Bool)
 
-public expect fun WaitForThreadpoolWaitCallbacks(pwa: PTP_WAIT, fcancelpendingcallbacks: BOOL)
+public expect fun waitForThreadpoolWaitCallbacks(pwa: PtpWait, fcancelpendingcallbacks: Bool)
 
-public expect fun WaitForThreadpoolWorkCallbacks(pwk: PTP_WORK, fcancelpendingcallbacks: BOOL)
+public expect fun waitForThreadpoolWorkCallbacks(pwk: PtpWork, fcancelpendingcallbacks: Bool)
 
-public expect fun WaitOnAddress(address: Long, compareaddress: Long, addresssize: ULong, dwmilliseconds: UInt): BOOL
+public expect fun waitOnAddress(address: COpaquePointer?, compareaddress: COpaquePointer?, addresssize: ULong, dwmilliseconds: UInt): Bool
 
-public expect fun WakeAllConditionVariable(conditionvariable: Long)
+public expect fun wakeAllConditionVariable(conditionvariable: COpaquePointer?)
 
-public expect fun WakeByAddressAll(address: Long)
+public expect fun wakeByAddressAll(address: COpaquePointer?)
 
-public expect fun WakeByAddressSingle(address: Long)
+public expect fun wakeByAddressSingle(address: COpaquePointer?)
 
-public expect fun WakeConditionVariable(conditionvariable: Long)
+public expect fun wakeConditionVariable(conditionvariable: COpaquePointer?)
 
-public expect fun WinExec(lpcmdline: PCSTR, ucmdshow: UInt): UInt
+public expect fun winExec(lpcmdline: Pcstr, ucmdshow: UInt): UInt
 
-public expect fun Wow64SetThreadDefaultGuestMachine(machine: UShort): UShort
+public expect fun wow64SetThreadDefaultGuestMachine(machine: UShort): UShort
 
-public expect fun Wow64SuspendThread(hthread: HANDLE): UInt
+public expect fun wow64SuspendThread(hthread: Handle): UInt

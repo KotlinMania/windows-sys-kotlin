@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmAddGroupMembershipEntry(void* hprotocol, uint32_t dwsourceaddr, uint32_t dwsourcemask, uint32_t dwgroupaddr, uint32_t dwgroupmask, uint32_t dwifindex, uint32_t dwifnexthopipaddr, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMembershipEntry(void* hprotocol, uint32_t dwsourceaddr, uint32_t dwsourcemask, uint32_t dwgroupaddr, uint32_t dwgroupmask, uint32_t dwifindex, uint32_t dwifnexthopipaddr, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmAddGroupMembershipEn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmDeRegisterMProtocol(void* hprotocol) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmDeRegisterMProtocol(void* hprotocol) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmDeRegisterMProtocol(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmDeleteGroupMembershipEntry(void* hprotocol, uint32_t dwsourceaddr, uint32_t dwsourcemask, uint32_t dwgroupaddr, uint32_t dwgroupmask, uint32_t dwifindex, uint32_t dwifnexthopipaddr, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmDeleteGroupMembershipEntry(void* hprotocol, uint32_t dwsourceaddr, uint32_t dwsourcemask, uint32_t dwgroupaddr, uint32_t dwgroupmask, uint32_t dwifindex, uint32_t dwifnexthopipaddr, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -95,7 +95,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmDeleteGroupMembershi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfe(void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfe(void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -119,7 +119,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfe(void* pd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfeStats(void* pdwbuffersize, void* pbbuffer, void* pdwnumentries, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMfeStats(void* pdwbuffersize, void* pbbuffer, void* pdwnumentries, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -144,7 +144,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetFirstMfeStats(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetMfe(void* pimm, void* pdwbuffersize, void* pbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetMfe(void* pimm, void* pdwbuffersize, void* pbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetMfe(void* pimm, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetMfeStats(void* pimm, void* pdwbuffersize, void* pbbuffer, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStats(void* pimm, void* pdwbuffersize, void* pbbuffer, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetMfeStats(void* pi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfe(void* pimmstart, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe(void* pimmstart, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfe(void* pim
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfeStats(void* pimmstart, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfeStats(void* pimmstart, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetNextMfeStats(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetProtocolOnInterface(uint32_t dwifindex, uint32_t dwifnexthopaddr, void* pdwifprotocolid, void* pdwifcomponentid) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGetProtocolOnInterface(uint32_t dwifindex, uint32_t dwifnexthopaddr, void* pdwifprotocolid, void* pdwifcomponentid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGetProtocolOnInterfa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationEnd(void* henum) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationEnd(void* henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -291,7 +291,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationEnd(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationGetNext(void* henum, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationGetNext(void* henum, void* pdwbuffersize, void* pbbuffer, void* pdwnumentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationGetN
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationStart(void* hprotocol, int32_t metenumtype, void* phenumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmGroupEnumerationStart(void* hprotocol, int32_t metenumtype, void* phenumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmGroupEnumerationStar
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmRegisterMProtocol(void* prpiinfo, uint32_t dwprotocolid, uint32_t dwcomponentid, void* phprotocol) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmRegisterMProtocol(void* prpiinfo, uint32_t dwprotocolid, uint32_t dwcomponentid, void* phprotocol) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +365,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmRegisterMProtocol(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmReleaseInterfaceOwnership(void* hprotocol, uint32_t dwifindex, uint32_t dwifnexthopaddr) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmReleaseInterfaceOwnership(void* hprotocol, uint32_t dwifindex, uint32_t dwifnexthopaddr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -389,7 +389,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmReleaseInterfaceOwne
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MgmTakeInterfaceOwnership(void* hprotocol, uint32_t dwifindex, uint32_t dwifnexthopaddr) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mgmTakeInterfaceOwnership(void* hprotocol, uint32_t dwifindex, uint32_t dwifnexthopaddr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MgmTakeInterfaceOwnersh
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminBufferFree(void* pbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminBufferFree(void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminBufferFree(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionClearStats(int64_t hrasserver, void* hrasconnection) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionClearStats(int64_t hrasserver, void* hrasconnection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionClear
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnum(int64_t hrasserver, uint32_t dwlevel, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnum(int64_t hrasserver, uint32_t dwlevel, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnumEx(int64_t hrasserver, void* pobjectheader, uint32_t dwpreferedmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* pprasconn, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionEnumEx(int64_t hrasserver, void* pobjectheader, uint32_t dwpreferedmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* pprasconn, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -514,7 +514,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionEnumE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetInfo(int64_t hrasserver, uint32_t dwlevel, void* hrasconnection, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfo(int64_t hrasserver, uint32_t dwlevel, void* hrasconnection, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetInfoEx(int64_t hrasserver, void* hrasconnection, void* prasconnection) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionGetInfoEx(int64_t hrasserver, void* hrasconnection, void* prasconnection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionRemoveQuarantine(void* hrasserver, void* hrasconnection, int32_t fisipaddress) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminConnectionRemoveQuarantine(void* hrasserver, void* hrasconnection, int32_t fisipaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -587,7 +587,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminConnectionRemov
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminDeregisterConnectionNotification(int64_t hmprserver, void* heventnotification) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminDeregisterConnectionNotification(int64_t hmprserver, void* heventnotification) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -610,7 +610,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminDeregisterConne
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminDeviceEnum(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer, void* lpdwtotalentries) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminDeviceEnum(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer, void* lpdwtotalentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminDeviceEnum(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminEstablishDomainRasServer(void* pszdomain, void* pszmachine, int32_t benable) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminEstablishDomainRasServer(void* pszdomain, void* pszmachine, int32_t benable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -659,7 +659,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminEstablishDomain
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminGetErrorString(uint32_t dwerror, void* lplpwserrorstring) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminGetErrorString(uint32_t dwerror, void* lplpwserrorstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -682,7 +682,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminGetErrorString(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminGetPDCServer(void* lpszdomain, void* lpszserver, void* lpszpdcserver) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminGetPDCServer(void* lpszdomain, void* lpszserver, void* lpszpdcserver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -706,7 +706,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminGetPDCServer(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceConnect(int64_t hmprserver, void* hinterface, void* hevent, int32_t fsynchronous) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceConnect(int64_t hmprserver, void* hinterface, void* hevent, int32_t fsynchronous) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -731,7 +731,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceConnec
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceCreate(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer, void* phinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceCreate(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer, void* phinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -756,7 +756,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceCreate
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDelete(int64_t hmprserver, void* hinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDelete(int64_t hmprserver, void* hinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -779,7 +779,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDelete
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDeviceGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwindex, uint32_t dwlevel, void* lplpbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwindex, uint32_t dwlevel, void* lplpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -805,7 +805,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDevice
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDeviceSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwindex, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDeviceSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwindex, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -831,7 +831,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDevice
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDisconnect(int64_t hmprserver, void* hinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceDisconnect(int64_t hmprserver, void* hinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -854,7 +854,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceDiscon
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceEnum(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceEnum(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -882,7 +882,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceEnum(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCredentials(void* lpwsserver, void* lpwsinterfacename, void* lpwsusername, void* lpwspassword, void* lpwsdomainname) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentials(void* lpwsserver, void* lpwsinterfacename, void* lpwsusername, void* lpwspassword, void* lpwsdomainname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -908,7 +908,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCredentialsEx(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCredentialsEx(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -933,7 +933,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCustomInfoEx(int64_t hmprserver, void* hinterface, void* pcustominfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetCustomInfoEx(int64_t hmprserver, void* hinterface, void* pcustominfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -957,7 +957,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetCus
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetHandle(int64_t hmprserver, void* lpwsinterfacename, void* phinterface, int32_t fincludeclientinterfaces) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetHandle(int64_t hmprserver, void* lpwsinterfacename, void* phinterface, int32_t fincludeclientinterfaces) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -982,7 +982,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetHan
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceGetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceQueryUpdateResult(int64_t hmprserver, void* hinterface, uint32_t dwprotocolid, void* lpdwupdateresult) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceQueryUpdateResult(int64_t hmprserver, void* hinterface, uint32_t dwprotocolid, void* lpdwupdateresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceQueryU
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCredentials(void* lpwsserver, void* lpwsinterfacename, void* lpwsusername, void* lpwsdomainname, void* lpwspassword) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentials(void* lpwsserver, void* lpwsinterfacename, void* lpwsusername, void* lpwsdomainname, void* lpwspassword) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1058,7 +1058,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCredentialsEx(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCredentialsEx(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCustomInfoEx(int64_t hmprserver, void* hinterface, void* pcustominfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetCustomInfoEx(int64_t hmprserver, void* hinterface, void* pcustominfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1107,7 +1107,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetCus
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1132,7 +1132,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceSetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportAdd(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportAdd(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1158,7 +1158,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* ppinterfaceinfo, void* lpdwinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportGetInfo(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* ppinterfaceinfo, void* lpdwinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportRemove(int64_t hmprserver, void* hinterface, uint32_t dwtransportid) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportRemove(int64_t hmprserver, void* hinterface, uint32_t dwtransportid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1208,7 +1208,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransportSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceTransportSetInfo(int64_t hmprserver, void* hinterface, uint32_t dwtransportid, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1234,7 +1234,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceTransp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdatePhonebookInfo(int64_t hmprserver, void* hinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdatePhonebookInfo(int64_t hmprserver, void* hinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1257,7 +1257,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdate
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdateRoutes(int64_t hmprserver, void* hinterface, uint32_t dwprotocolid, void* hevent) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminInterfaceUpdateRoutes(int64_t hmprserver, void* hinterface, uint32_t dwprotocolid, void* hevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1282,7 +1282,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminInterfaceUpdate
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsDomainRasServer(void* pszdomain, void* pszmachine, void* pbisrasserver) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminIsDomainRasServer(void* pszdomain, void* pszmachine, void* pbisrasserver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1306,7 +1306,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsDomainRasServ
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceInitialized(void* lpwsservername, void* fisserviceinitialized) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceInitialized(void* lpwsservername, void* fisserviceinitialized) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceInitia
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceRunning(void* lpwsservername) {
+int32_t windowssys_windows_win32_networkmanagement_rras_mprAdminIsServiceRunning(void* lpwsservername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1351,7 +1351,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_MprAdminIsServiceRunning
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBBufferFree(void* pbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBufferFree(void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1373,7 +1373,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBBufferFree(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryCreate(int64_t hmibserver, uint32_t dwpid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryCreate(int64_t hmibserver, uint32_t dwpid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1399,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryCreate(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryDelete(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryDelete(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1425,7 +1425,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryDelete(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGet(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGet(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1453,7 +1453,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGet(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetFirst(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetFirst(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1481,7 +1481,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetFirs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetNext(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntryGetNext(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpinentry, uint32_t dwinentrysize, void* lplpoutentry, void* lpoutentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1509,7 +1509,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntryGetNext
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntrySet(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEntrySet(int64_t hmibserver, uint32_t dwprotocolid, uint32_t dwroutingpid, void* lpentry, uint32_t dwentrysize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1535,7 +1535,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBEntrySet(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerConnect(void* lpwsservername, void* phmibserver) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerConnect(void* lpwsservername, void* phmibserver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1558,7 +1558,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerConnec
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerDisconnect(int64_t hmibserver) {
+void windowssys_windows_win32_networkmanagement_rras_mprAdminMIBServerDisconnect(int64_t hmibserver) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1579,7 +1579,7 @@ void windowssys_windows_win32_networkmanagement_rras_MprAdminMIBServerDisconnect
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortClearStats(int64_t hrasserver, void* hport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminPortClearStats(int64_t hrasserver, void* hport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1602,7 +1602,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortClearStats(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortDisconnect(int64_t hrasserver, void* hport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminPortDisconnect(int64_t hrasserver, void* hport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1625,7 +1625,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortDisconnect(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortEnum(int64_t hrasserver, uint32_t dwlevel, void* hrasconnection, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminPortEnum(int64_t hrasserver, uint32_t dwlevel, void* hrasconnection, void* lplpbbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1654,7 +1654,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortEnum(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortGetInfo(int64_t hrasserver, uint32_t dwlevel, void* hport, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminPortGetInfo(int64_t hrasserver, uint32_t dwlevel, void* hport, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1679,7 +1679,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortGetInfo(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortReset(int64_t hrasserver, void* hport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminPortReset(int64_t hrasserver, void* hport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1702,7 +1702,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminPortReset(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminRegisterConnectionNotification(int64_t hmprserver, void* heventnotification) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminRegisterConnectionNotification(int64_t hmprserver, void* heventnotification) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1725,7 +1725,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminRegisterConnect
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminSendUserMessage(int64_t hmprserver, void* hconnection, void* lpwszmessage) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminSendUserMessage(int64_t hmprserver, void* hconnection, void* lpwszmessage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1749,7 +1749,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminSendUserMessage
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerConnect(void* lpwsservername, void* phmprserver) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerConnect(void* lpwsservername, void* phmprserver) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1772,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerConnect(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_rras_MprAdminServerDisconnect(int64_t hmprserver) {
+void windowssys_windows_win32_networkmanagement_rras_mprAdminServerDisconnect(int64_t hmprserver) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1793,7 +1793,7 @@ void windowssys_windows_win32_networkmanagement_rras_MprAdminServerDisconnect(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetCredentials(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetCredentials(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1817,7 +1817,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetCreden
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfo(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfo(int64_t hmprserver, uint32_t dwlevel, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1841,7 +1841,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfo(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfoEx(int64_t hmprserver, void* pserverinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerGetInfoEx(int64_t hmprserver, void* pserverinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,7 +1864,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerGetInfoEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetCredentials(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetCredentials(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1888,7 +1888,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetCreden
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfo(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfo(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1912,7 +1912,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfo(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfoEx(int64_t hmprserver, void* pserverinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminServerSetInfoEx(int64_t hmprserver, void* pserverinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1935,7 +1935,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminServerSetInfoEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportCreate(int64_t hmprserver, uint32_t dwtransportid, void* lpwstransportname, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminTransportCreate(int64_t hmprserver, uint32_t dwtransportid, void* lpwstransportname, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1964,7 +1964,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportCreate
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportGetInfo(int64_t hmprserver, uint32_t dwtransportid, void* ppglobalinfo, void* lpdwglobalinfosize, void* ppclientinterfaceinfo, void* lpdwclientinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminTransportGetInfo(int64_t hmprserver, uint32_t dwtransportid, void* ppglobalinfo, void* lpdwglobalinfosize, void* ppclientinterfaceinfo, void* lpdwclientinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1991,7 +1991,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportGetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportSetInfo(int64_t hmprserver, uint32_t dwtransportid, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminTransportSetInfo(int64_t hmprserver, uint32_t dwtransportid, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2018,7 +2018,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminTransportSetInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUpdateConnection(int64_t hrasserver, void* hrasconnection, void* prasupdateconnection) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminUpdateConnection(int64_t hrasserver, void* hrasconnection, void* prasupdateconnection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2042,7 +2042,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUpdateConnectio
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUserGetInfo(void* lpszserver, void* lpszuser, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminUserGetInfo(void* lpszserver, void* lpszuser, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2067,7 +2067,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUserGetInfo(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUserSetInfo(void* lpszserver, void* lpszuser, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprAdminUserSetInfo(void* lpszserver, void* lpszuser, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2092,7 +2092,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprAdminUserSetInfo(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigBufferFree(void* pbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigBufferFree(void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2114,7 +2114,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigBufferFree(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigFilterGetInfo(void* hmprconfig, uint32_t dwlevel, uint32_t dwtransportid, void* lpbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigFilterGetInfo(void* hmprconfig, uint32_t dwlevel, uint32_t dwtransportid, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2139,7 +2139,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigFilterGetInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigFilterSetInfo(void* hmprconfig, uint32_t dwlevel, uint32_t dwtransportid, void* lpbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigFilterSetInfo(void* hmprconfig, uint32_t dwlevel, uint32_t dwtransportid, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2164,7 +2164,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigFilterSetInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigGetFriendlyName(void* hmprconfig, void* pszguidname, void* pszbuffer, uint32_t dwbuffersize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigGetFriendlyName(void* hmprconfig, void* pszguidname, void* pszbuffer, uint32_t dwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2189,7 +2189,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigGetFriendlyNam
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigGetGuidName(void* hmprconfig, void* pszfriendlyname, void* pszbuffer, uint32_t dwbuffersize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigGetGuidName(void* hmprconfig, void* pszfriendlyname, void* pszbuffer, uint32_t dwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2214,7 +2214,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigGetGuidName(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceCreate(void* hmprconfig, uint32_t dwlevel, void* lpbbuffer, void* phrouterinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceCreate(void* hmprconfig, uint32_t dwlevel, void* lpbbuffer, void* phrouterinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2239,7 +2239,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceCreat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceDelete(void* hmprconfig, void* hrouterinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceDelete(void* hmprconfig, void* hrouterinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2262,7 +2262,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceDelet
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceEnum(void* hmprconfig, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceEnum(void* hmprconfig, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2290,7 +2290,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetCustomInfoEx(void* hmprconfig, void* hrouterinterface, void* pcustominfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetCustomInfoEx(void* hmprconfig, void* hrouterinterface, void* pcustominfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2314,7 +2314,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetCu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetHandle(void* hmprconfig, void* lpwsinterfacename, void* phrouterinterface) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetHandle(void* hmprconfig, void* lpwsinterfacename, void* phrouterinterface) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2338,7 +2338,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetHa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetInfo(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lplpbuffer, void* lpdwbuffersize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceGetInfo(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lplpbuffer, void* lpdwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2364,7 +2364,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetCustomInfoEx(void* hmprconfig, void* hrouterinterface, void* pcustominfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetCustomInfoEx(void* hmprconfig, void* hrouterinterface, void* pcustominfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2388,7 +2388,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetCu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetInfo(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceSetInfo(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2413,7 +2413,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceSetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportAdd(void* hmprconfig, void* hrouterinterface, uint32_t dwtransportid, void* lpwstransportname, void* pinterfaceinfo, uint32_t dwinterfaceinfosize, void* phrouteriftransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportAdd(void* hmprconfig, void* hrouterinterface, uint32_t dwtransportid, void* lpwstransportname, void* pinterfaceinfo, uint32_t dwinterfaceinfosize, void* phrouteriftransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2441,7 +2441,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportEnum(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportEnum(void* hmprconfig, void* hrouterinterface, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2470,7 +2470,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportGetHandle(void* hmprconfig, void* hrouterinterface, uint32_t dwtransportid, void* phrouteriftransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetHandle(void* hmprconfig, void* hrouterinterface, uint32_t dwtransportid, void* phrouteriftransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2495,7 +2495,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportGetInfo(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport, void* ppinterfaceinfo, void* lpdwinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportGetInfo(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport, void* ppinterfaceinfo, void* lpdwinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2521,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportRemove(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportRemove(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2545,7 +2545,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTransportSetInfo(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigInterfaceTransportSetInfo(void* hmprconfig, void* hrouterinterface, void* hrouteriftransport, void* pinterfaceinfo, uint32_t dwinterfaceinfosize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2571,7 +2571,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigInterfaceTrans
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerBackup(void* hmprconfig, void* lpwspath) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerBackup(void* hmprconfig, void* lpwspath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2594,7 +2594,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerBackup(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerConnect(void* lpwsservername, void* phmprconfig) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerConnect(void* lpwsservername, void* phmprconfig) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2617,7 +2617,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerConnect(
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_rras_MprConfigServerDisconnect(void* hmprconfig) {
+void windowssys_windows_win32_networkmanagement_rras_mprConfigServerDisconnect(void* hmprconfig) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2638,7 +2638,7 @@ void windowssys_windows_win32_networkmanagement_rras_MprConfigServerDisconnect(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfo(void* hmprconfig, uint32_t dwlevel, void* lplpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfo(void* hmprconfig, uint32_t dwlevel, void* lplpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2662,7 +2662,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfoEx(void* hmprconfig, void* pserverinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerGetInfoEx(void* hmprconfig, void* pserverinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2685,7 +2685,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerGetInfoE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerInstall(uint32_t dwlevel, void* pbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerInstall(uint32_t dwlevel, void* pbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2708,7 +2708,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerInstall(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerRefresh(void* hmprconfig) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerRefresh(void* hmprconfig) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2730,7 +2730,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerRefresh(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerRestore(void* hmprconfig, void* lpwspath) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerRestore(void* hmprconfig, void* lpwspath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2753,7 +2753,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerRestore(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfo(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfo(int64_t hmprserver, uint32_t dwlevel, void* lpbbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2777,7 +2777,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfo(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfoEx(void* hmprconfig, void* psetserverconfig) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigServerSetInfoEx(void* hmprconfig, void* psetserverconfig) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2800,7 +2800,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigServerSetInfoE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportCreate(void* hmprconfig, uint32_t dwtransportid, void* lpwstransportname, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath, void* phroutertransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportCreate(void* hmprconfig, uint32_t dwtransportid, void* lpwstransportname, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath, void* phroutertransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2830,7 +2830,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportCreat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportDelete(void* hmprconfig, void* hroutertransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportDelete(void* hmprconfig, void* hroutertransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2853,7 +2853,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportDelet
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportEnum(void* hmprconfig, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportEnum(void* hmprconfig, uint32_t dwlevel, void* lplpbuffer, uint32_t dwprefmaxlen, void* lpdwentriesread, void* lpdwtotalentries, void* lpdwresumehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2881,7 +2881,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetHandle(void* hmprconfig, uint32_t dwtransportid, void* phroutertransport) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetHandle(void* hmprconfig, uint32_t dwtransportid, void* phroutertransport) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2905,7 +2905,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetHa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetInfo(void* hmprconfig, void* hroutertransport, void* ppglobalinfo, void* lpdwglobalinfosize, void* ppclientinterfaceinfo, void* lpdwclientinterfaceinfosize, void* lplpwsdllpath) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportGetInfo(void* hmprconfig, void* hroutertransport, void* ppglobalinfo, void* lpdwglobalinfosize, void* ppclientinterfaceinfo, void* lpdwclientinterfaceinfosize, void* lplpwsdllpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2933,7 +2933,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportGetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportSetInfo(void* hmprconfig, void* hroutertransport, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprConfigTransportSetInfo(void* hmprconfig, void* hroutertransport, void* pglobalinfo, uint32_t dwglobalinfosize, void* pclientinterfaceinfo, uint32_t dwclientinterfaceinfosize, void* lpwsdllpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2961,7 +2961,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprConfigTransportSetIn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockAdd(void* lpheader, uint32_t dwinfotype, uint32_t dwitemsize, uint32_t dwitemcount, void* lpitemdata, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoBlockAdd(void* lpheader, uint32_t dwinfotype, uint32_t dwitemsize, uint32_t dwitemcount, void* lpitemdata, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2988,7 +2988,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockAdd(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockFind(void* lpheader, uint32_t dwinfotype, void* lpdwitemsize, void* lpdwitemcount, void* lplpitemdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoBlockFind(void* lpheader, uint32_t dwinfotype, void* lpdwitemsize, void* lpdwitemcount, void* lplpitemdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3014,7 +3014,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockFind(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockQuerySize(void* lpheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQuerySize(void* lpheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3036,7 +3036,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockQuerySize(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockRemove(void* lpheader, uint32_t dwinfotype, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoBlockRemove(void* lpheader, uint32_t dwinfotype, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3060,7 +3060,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockRemove(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockSet(void* lpheader, uint32_t dwinfotype, uint32_t dwitemsize, uint32_t dwitemcount, void* lpitemdata, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoBlockSet(void* lpheader, uint32_t dwinfotype, uint32_t dwitemsize, uint32_t dwitemcount, void* lpitemdata, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3087,7 +3087,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoBlockSet(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoCreate(uint32_t dwversion, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoCreate(uint32_t dwversion, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3110,7 +3110,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoCreate(uint32_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoDelete(void* lpheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoDelete(void* lpheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3132,7 +3132,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoDelete(void* lph
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoDuplicate(void* lpheader, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoDuplicate(void* lpheader, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3155,7 +3155,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoDuplicate(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoRemoveAll(void* lpheader, void* lplpnewheader) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_mprInfoRemoveAll(void* lpheader, void* lplpnewheader) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3178,7 +3178,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_MprInfoRemoveAll(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasClearConnectionStatistics(void* hrasconn) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasClearConnectionStatistics(void* hrasconn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3200,7 +3200,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasClearConnectionStati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasClearLinkStatistics(void* hrasconn, uint32_t dwsubentry) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasClearLinkStatistics(void* hrasconn, uint32_t dwsubentry) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3223,7 +3223,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasClearLinkStatistics(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificationA(void* param0, void* param1, uint32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationA(void* param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3247,7 +3247,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificationW(void* param0, void* param1, uint32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasConnectionNotificationW(void* param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3271,7 +3271,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasConnectionNotificati
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntryA(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3294,7 +3294,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntryW(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasCreatePhonebookEntryW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3317,7 +3317,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasCreatePhonebookEntry
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryA(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3340,7 +3340,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryW(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDeleteEntryW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3363,7 +3363,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteEntryW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryA(void* pszphonebook, void* pszentry, uint32_t dwsubentryid) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryA(void* pszphonebook, void* pszentry, uint32_t dwsubentryid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3387,7 +3387,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryW(void* pszphonebook, void* pszentry, uint32_t dwsubentryid) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDeleteSubEntryW(void* pszphonebook, void* pszentry, uint32_t dwsubentryid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3411,7 +3411,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDeleteSubEntryW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDialA(void* param0, void* param1, void* param2, uint32_t param3, void* param4, void* param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDialA(void* param0, void* param1, void* param2, uint32_t param3, void* param4, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3438,7 +3438,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDialA(void* param0, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasDialDlgA(void* lpszphonebook, void* lpszentry, void* lpszphonenumber, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasDialDlgA(void* lpszphonebook, void* lpszentry, void* lpszphonenumber, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3463,7 +3463,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasDialDlgA(void* lpszph
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasDialDlgW(void* lpszphonebook, void* lpszentry, void* lpszphonenumber, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasDialDlgW(void* lpszphonebook, void* lpszentry, void* lpszphonenumber, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3488,7 +3488,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasDialDlgW(void* lpszph
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasDialW(void* param0, void* param1, void* param2, uint32_t param3, void* param4, void* param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasDialW(void* param0, void* param1, void* param2, uint32_t param3, void* param4, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3515,7 +3515,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasDialW(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3539,7 +3539,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEditPhonebookEntryW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3563,7 +3563,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEditPhonebookEntryW(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasEntryDlgA(void* lpszphonebook, void* lpszentry, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA(void* lpszphonebook, void* lpszentry, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3587,7 +3587,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasEntryDlgA(void* lpszp
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasEntryDlgW(void* lpszphonebook, void* lpszentry, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW(void* lpszphonebook, void* lpszentry, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3611,7 +3611,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasEntryDlgW(void* lpszp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddressesA(void* lpprasautodialaddresses, void* lpdwcbrasautodialaddresses, void* lpdwcrasautodialaddresses) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesA(void* lpprasautodialaddresses, void* lpdwcbrasautodialaddresses, void* lpdwcrasautodialaddresses) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3635,7 +3635,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddresse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddressesW(void* lpprasautodialaddresses, void* lpdwcbrasautodialaddresses, void* lpdwcrasautodialaddresses) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumAutodialAddressesW(void* lpprasautodialaddresses, void* lpdwcbrasautodialaddresses, void* lpdwcrasautodialaddresses) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3659,7 +3659,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumAutodialAddresse
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3683,7 +3683,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumConnectionsW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3707,7 +3707,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumConnectionsW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3731,7 +3731,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumDevicesW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3755,7 +3755,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumDevicesW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesA(void* param0, void* param1, void* param2, void* param3, void* param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesA(void* param0, void* param1, void* param2, void* param3, void* param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3781,7 +3781,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesW(void* param0, void* param1, void* param2, void* param3, void* param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasEnumEntriesW(void* param0, void* param1, void* param2, void* param3, void* param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3807,7 +3807,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasEnumEntriesW(void* p
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityA(void* praseapuseridentity) {
+void windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityA(void* praseapuseridentity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3828,7 +3828,7 @@ void windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityA(voi
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityW(void* praseapuseridentity) {
+void windowssys_windows_win32_networkmanagement_rras_rasFreeEapUserIdentityW(void* praseapuseridentity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3849,7 @@ void windowssys_windows_win32_networkmanagement_rras_RasFreeEapUserIdentityW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressA(void* param0, void* param1, void* param2, void* param3, void* param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressA(void* param0, void* param1, void* param2, void* param3, void* param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3875,7 +3875,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressW(void* param0, void* param1, void* param2, void* param3, void* param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialAddressW(void* param0, void* param1, void* param2, void* param3, void* param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3901,7 +3901,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialAddressW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableA(uint32_t param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableA(uint32_t param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3924,7 +3924,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableA(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableW(uint32_t param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialEnableW(uint32_t param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3947,7 +3947,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialEnableW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamA(uint32_t param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamA(uint32_t param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3971,7 +3971,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamA(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamW(uint32_t param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetAutodialParamW(uint32_t param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3995,7 +3995,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetAutodialParamW(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusA(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4018,7 +4018,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusW(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetConnectStatusW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4041,7 +4041,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectStatusW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectionStatistics(void* hrasconn, void* lpstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetConnectionStatistics(void* hrasconn, void* lpstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4064,7 +4064,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetConnectionStatist
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoA(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4087,7 +4087,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoW(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCountryInfoW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCountryInfoW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4134,7 +4134,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCredentialsW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4158,7 +4158,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCredentialsW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataA(void* pszphonebook, void* pszentry, void* pbcustomauthdata, void* pdwsizeofcustomauthdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataA(void* pszphonebook, void* pszentry, void* pbcustomauthdata, void* pdwsizeofcustomauthdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4183,7 +4183,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataW(void* pszphonebook, void* pszentry, void* pbcustomauthdata, void* pdwsizeofcustomauthdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetCustomAuthDataW(void* pszphonebook, void* pszentry, void* pbcustomauthdata, void* pdwsizeofcustomauthdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4208,7 +4208,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetCustomAuthDataW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataA(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, void* pdwsizeofeapdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataA(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, void* pdwsizeofeapdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4234,7 +4234,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataW(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, void* pdwsizeofeapdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEapUserDataW(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, void* pdwsizeofeapdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4260,7 +4260,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserDataW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityA(void* pszphonebook, void* pszentry, uint32_t dwflags, void* hwnd, void* ppraseapuseridentity) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityA(void* pszphonebook, void* pszentry, uint32_t dwflags, void* hwnd, void* ppraseapuseridentity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4286,7 +4286,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityW(void* pszphonebook, void* pszentry, uint32_t dwflags, void* hwnd, void* ppraseapuseridentity) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEapUserIdentityW(void* pszphonebook, void* pszentry, uint32_t dwflags, void* hwnd, void* ppraseapuseridentity) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4312,7 +4312,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEapUserIdentityW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4336,7 +4336,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEntryDialParamsW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4360,7 +4360,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryDialParamsW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesA(void* param0, void* param1, void* param2, void* param3, void* param4, void* param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesA(void* param0, void* param1, void* param2, void* param3, void* param4, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4387,7 +4387,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesW(void* param0, void* param1, void* param2, void* param3, void* param4, void* param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetEntryPropertiesW(void* param0, void* param1, void* param2, void* param3, void* param4, void* param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4414,7 +4414,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetEntryPropertiesW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringA(uint32_t resourceid, void* lpszstring, uint32_t inbufsize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringA(uint32_t resourceid, void* lpszstring, uint32_t inbufsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4438,7 +4438,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringA(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringW(uint32_t resourceid, void* lpszstring, uint32_t inbufsize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetErrorStringW(uint32_t resourceid, void* lpszstring, uint32_t inbufsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4462,7 +4462,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetErrorStringW(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetLinkStatistics(void* hrasconn, uint32_t dwsubentry, void* lpstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetLinkStatistics(void* hrasconn, uint32_t dwsubentry, void* lpstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4486,7 +4486,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetLinkStatistics(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetPCscf(void* lpszpcscf) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetPCscf(void* lpszpcscf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4508,7 +4508,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetPCscf(void* lpszp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoA(void* param0, int32_t param1, void* param2, void* param3) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoA(void* param0, int32_t param1, void* param2, void* param3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4533,7 +4533,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoEx(void* hrasconn, void* prasprojection, void* lpdwsize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoEx(void* hrasconn, void* prasprojection, void* lpdwsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4557,7 +4557,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoW(void* param0, int32_t param1, void* param2, void* param3) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetProjectionInfoW(void* param0, int32_t param1, void* param2, void* param3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4582,7 +4582,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetProjectionInfoW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleA(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleA(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4606,7 +4606,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleW(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryHandleW(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4630,7 +4630,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryHandleW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertiesA(void* param0, void* param1, uint32_t param2, void* param3, void* param4, void* param5, void* param6) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesA(void* param0, void* param1, uint32_t param2, void* param3, void* param4, void* param5, void* param6) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4658,7 +4658,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertiesW(void* param0, void* param1, uint32_t param2, void* param3, void* param4, void* param5, void* param6) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasGetSubEntryPropertiesW(void* param0, void* param1, uint32_t param2, void* param3, void* param4, void* param5, void* param6) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4686,7 +4686,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasGetSubEntryPropertie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasHangUpA(void* param0) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasHangUpA(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4708,7 +4708,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasHangUpA(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasHangUpW(void* param0) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasHangUpW(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4730,7 +4730,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasHangUpW(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasInvokeEapUI(void* param0, uint32_t param1, void* param2, void* param3) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasInvokeEapUI(void* param0, uint32_t param1, void* param2, void* param3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4755,7 +4755,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasInvokeEapUI(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgA(void* lpszphonebook, void* lpszentry, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgA(void* lpszphonebook, void* lpszentry, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4779,7 +4779,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgW(void* lpszphonebook, void* lpszentry, void* lpinfo) {
+int32_t windowssys_windows_win32_networkmanagement_rras_rasPhonebookDlgW(void* lpszphonebook, void* lpszentry, void* lpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4803,7 +4803,7 @@ int32_t windowssys_windows_win32_networkmanagement_rras_RasPhonebookDlgW(void* l
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasRenameEntryA(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasRenameEntryA(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4827,7 +4827,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasRenameEntryA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasRenameEntryW(void* param0, void* param1, void* param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasRenameEntryW(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4851,7 +4851,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasRenameEntryW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressA(void* param0, uint32_t param1, void* param2, uint32_t param3, uint32_t param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressA(void* param0, uint32_t param1, void* param2, uint32_t param3, uint32_t param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4877,7 +4877,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressW(void* param0, uint32_t param1, void* param2, uint32_t param3, uint32_t param4) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialAddressW(void* param0, uint32_t param1, void* param2, uint32_t param3, uint32_t param4) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4903,7 +4903,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialAddressW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableA(uint32_t param0, int32_t param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableA(uint32_t param0, int32_t param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4926,7 +4926,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableA(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableW(uint32_t param0, int32_t param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialEnableW(uint32_t param0, int32_t param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4949,7 +4949,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialEnableW(u
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamA(uint32_t param0, void* param1, uint32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamA(uint32_t param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4973,7 +4973,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamA(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamW(uint32_t param0, void* param1, uint32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetAutodialParamW(uint32_t param0, void* param1, uint32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4997,7 +4997,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetAutodialParamW(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsA(void* param0, void* param1, void* param2, int32_t param3) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsA(void* param0, void* param1, void* param2, int32_t param3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5022,7 +5022,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsW(void* param0, void* param1, void* param2, int32_t param3) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetCredentialsW(void* param0, void* param1, void* param2, int32_t param3) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5047,7 +5047,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCredentialsW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataA(void* pszphonebook, void* pszentry, void* pbcustomauthdata, uint32_t dwsizeofcustomauthdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataA(void* pszphonebook, void* pszentry, void* pbcustomauthdata, uint32_t dwsizeofcustomauthdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5072,7 +5072,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataW(void* pszphonebook, void* pszentry, void* pbcustomauthdata, uint32_t dwsizeofcustomauthdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetCustomAuthDataW(void* pszphonebook, void* pszentry, void* pbcustomauthdata, uint32_t dwsizeofcustomauthdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5097,7 +5097,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetCustomAuthDataW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataA(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, uint32_t dwsizeofeapdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataA(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, uint32_t dwsizeofeapdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5123,7 +5123,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataW(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, uint32_t dwsizeofeapdata) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEapUserDataW(void* htoken, void* pszphonebook, void* pszentry, void* pbeapdata, uint32_t dwsizeofeapdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5149,7 +5149,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEapUserDataW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsA(void* param0, void* param1, int32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsA(void* param0, void* param1, int32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5173,7 +5173,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsW(void* param0, void* param1, int32_t param2) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEntryDialParamsW(void* param0, void* param1, int32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5197,7 +5197,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryDialParamsW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesA(void* param0, void* param1, void* param2, uint32_t param3, void* param4, uint32_t param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesA(void* param0, void* param1, void* param2, uint32_t param3, void* param4, uint32_t param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5224,7 +5224,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesW(void* param0, void* param1, void* param2, uint32_t param3, void* param4, uint32_t param5) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetEntryPropertiesW(void* param0, void* param1, void* param2, uint32_t param3, void* param4, uint32_t param5) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5251,7 +5251,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetEntryPropertiesW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertiesA(void* param0, void* param1, uint32_t param2, void* param3, uint32_t param4, void* param5, uint32_t param6) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesA(void* param0, void* param1, uint32_t param2, void* param3, uint32_t param4, void* param5, uint32_t param6) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5279,7 +5279,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertiesW(void* param0, void* param1, uint32_t param2, void* param3, uint32_t param4, void* param5, uint32_t param6) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasSetSubEntryPropertiesW(void* param0, void* param1, uint32_t param2, void* param3, uint32_t param4, void* param5, uint32_t param6) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5307,7 +5307,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasSetSubEntryPropertie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasUpdateConnection(void* hrasconn, void* lprasupdateconn) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasUpdateConnection(void* hrasconn, void* lprasupdateconn) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5330,7 +5330,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasUpdateConnection(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameA(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5353,7 +5353,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameW(void* param0, void* param1) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rasValidateEntryNameW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5376,7 +5376,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RasValidateEntryNameW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmAddNextHop(int64_t rtmreghandle, void* nexthopinfo, void* nexthophandle, void* changeflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop(int64_t rtmreghandle, void* nexthopinfo, void* nexthophandle, void* changeflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5401,7 +5401,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmAddNextHop(int64_t r
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmAddRouteToDest(int64_t rtmreghandle, void* routehandle, void* destaddress, void* routeinfo, uint32_t timetolive, int64_t routelisthandle, uint32_t notifytype, int64_t notifyhandle, void* changeflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmAddRouteToDest(int64_t rtmreghandle, void* routehandle, void* destaddress, void* routeinfo, uint32_t timetolive, int64_t routelisthandle, uint32_t notifytype, int64_t notifyhandle, void* changeflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, int64_t, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5431,7 +5431,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmAddRouteToDest(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmBlockMethods(int64_t rtmreghandle, void* targethandle, uint8_t targettype, uint32_t blockingflag) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmBlockMethods(int64_t rtmreghandle, void* targethandle, uint8_t targettype, uint32_t blockingflag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint8_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5456,7 +5456,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmBlockMethods(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmConvertNetAddressToIpv6AddressAndLength(void* pnetaddress, void* paddress, void* plength, uint32_t dwaddresssize) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmConvertNetAddressToIpv6AddressAndLength(void* pnetaddress, void* paddress, void* plength, uint32_t dwaddresssize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5481,7 +5481,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmConvertNetAddressToI
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateDestEnum(int64_t rtmreghandle, uint32_t targetviews, uint32_t enumflags, void* netaddress, uint32_t protocolid, void* rtmenumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmCreateDestEnum(int64_t rtmreghandle, uint32_t targetviews, uint32_t enumflags, void* netaddress, uint32_t protocolid, void* rtmenumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5508,7 +5508,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateDestEnum(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateNextHopEnum(int64_t rtmreghandle, uint32_t enumflags, void* netaddress, void* rtmenumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmCreateNextHopEnum(int64_t rtmreghandle, uint32_t enumflags, void* netaddress, void* rtmenumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5533,7 +5533,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateNextHopEnum(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteEnum(int64_t rtmreghandle, int64_t desthandle, uint32_t targetviews, uint32_t enumflags, void* startdest, uint32_t matchingflags, void* criteriaroute, uint32_t criteriainterface, void* rtmenumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteEnum(int64_t rtmreghandle, int64_t desthandle, uint32_t targetviews, uint32_t enumflags, void* startdest, uint32_t matchingflags, void* criteriaroute, uint32_t criteriainterface, void* rtmenumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5563,7 +5563,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteEnum(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteList(int64_t rtmreghandle, void* routelisthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteList(int64_t rtmreghandle, void* routelisthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5586,7 +5586,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteList(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteListEnum(int64_t rtmreghandle, int64_t routelisthandle, void* rtmenumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmCreateRouteListEnum(int64_t rtmreghandle, int64_t routelisthandle, void* rtmenumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5610,7 +5610,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmCreateRouteListEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteEnumHandle(int64_t rtmreghandle, int64_t enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnumHandle(int64_t rtmreghandle, int64_t enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5633,7 +5633,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteEnumHandle(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteNextHop(int64_t rtmreghandle, int64_t nexthophandle, void* nexthopinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeleteNextHop(int64_t rtmreghandle, int64_t nexthophandle, void* nexthopinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5657,7 +5657,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteNextHop(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteList(int64_t rtmreghandle, int64_t routelisthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteList(int64_t rtmreghandle, int64_t routelisthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5680,7 +5680,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteList(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteToDest(int64_t rtmreghandle, int64_t routehandle, void* changeflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeleteRouteToDest(int64_t rtmreghandle, int64_t routehandle, void* changeflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5704,7 +5704,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeleteRouteToDest(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeregisterEntity(int64_t rtmreghandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeregisterEntity(int64_t rtmreghandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5726,7 +5726,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeregisterEntity(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeregisterFromChangeNotification(int64_t rtmreghandle, int64_t notifyhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmDeregisterFromChangeNotification(int64_t rtmreghandle, int64_t notifyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5749,7 +5749,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmDeregisterFromChange
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmFindNextHop(int64_t rtmreghandle, void* nexthopinfo, void* nexthophandle, void* nexthoppointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmFindNextHop(int64_t rtmreghandle, void* nexthopinfo, void* nexthophandle, void* nexthoppointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5774,7 +5774,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmFindNextHop(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetChangeStatus(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, void* changestatus) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetChangeStatus(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, void* changestatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5799,7 +5799,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetChangeStatus(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetChangedDests(int64_t rtmreghandle, int64_t notifyhandle, void* numdests, void* changeddests) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetChangedDests(int64_t rtmreghandle, int64_t notifyhandle, void* numdests, void* changeddests) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5824,7 +5824,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetChangedDests(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetDestInfo(int64_t rtmreghandle, int64_t desthandle, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetDestInfo(int64_t rtmreghandle, int64_t desthandle, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5850,7 +5850,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetDestInfo(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEntityInfo(int64_t rtmreghandle, int64_t entityhandle, void* entityinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetEntityInfo(int64_t rtmreghandle, int64_t entityhandle, void* entityinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5874,7 +5874,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEntityInfo(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEntityMethods(int64_t rtmreghandle, int64_t entityhandle, void* nummethods, void* exptmethods) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetEntityMethods(int64_t rtmreghandle, int64_t entityhandle, void* nummethods, void* exptmethods) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5899,7 +5899,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEntityMethods(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumDests(int64_t rtmreghandle, int64_t enumhandle, void* numdests, void* destinfos) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDests(int64_t rtmreghandle, int64_t enumhandle, void* numdests, void* destinfos) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5924,7 +5924,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumDests(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumNextHops(int64_t rtmreghandle, int64_t enumhandle, void* numnexthops, void* nexthophandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNextHops(int64_t rtmreghandle, int64_t enumhandle, void* numnexthops, void* nexthophandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5949,7 +5949,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumNextHops(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumRoutes(int64_t rtmreghandle, int64_t enumhandle, void* numroutes, void* routehandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRoutes(int64_t rtmreghandle, int64_t enumhandle, void* numroutes, void* routehandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5974,7 +5974,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetEnumRoutes(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchDestination(int64_t rtmreghandle, void* destaddress, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchDestination(int64_t rtmreghandle, void* destaddress, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6000,7 +6000,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchDestina
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchRoute(int64_t rtmreghandle, void* destaddress, uint32_t matchingflags, void* routeinfo, uint32_t interfaceindex, uint32_t targetviews, void* routehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetExactMatchRoute(int64_t rtmreghandle, void* destaddress, uint32_t matchingflags, void* routeinfo, uint32_t interfaceindex, uint32_t targetviews, void* routehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6028,7 +6028,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetExactMatchRoute(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetLessSpecificDestination(int64_t rtmreghandle, int64_t desthandle, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpecificDestination(int64_t rtmreghandle, int64_t desthandle, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6054,7 +6054,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetLessSpecificDesti
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetListEnumRoutes(int64_t rtmreghandle, int64_t enumhandle, void* numroutes, void* routehandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetListEnumRoutes(int64_t rtmreghandle, int64_t enumhandle, void* numroutes, void* routehandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6079,7 +6079,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetListEnumRoutes(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetMostSpecificDestination(int64_t rtmreghandle, void* destaddress, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpecificDestination(int64_t rtmreghandle, void* destaddress, uint32_t protocolid, uint32_t targetviews, void* destinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6105,7 +6105,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetMostSpecificDesti
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopInfo(int64_t rtmreghandle, int64_t nexthophandle, void* nexthopinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopInfo(int64_t rtmreghandle, int64_t nexthophandle, void* nexthopinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6129,7 +6129,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopInfo(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopPointer(int64_t rtmreghandle, int64_t nexthophandle, void* nexthoppointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetNextHopPointer(int64_t rtmreghandle, int64_t nexthophandle, void* nexthoppointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6153,7 +6153,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetNextHopPointer(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetOpaqueInformationPointer(int64_t rtmreghandle, int64_t desthandle, void* opaqueinfopointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueInformationPointer(int64_t rtmreghandle, int64_t desthandle, void* opaqueinfopointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6177,7 +6177,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetOpaqueInformation
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRegisteredEntities(int64_t rtmreghandle, void* numentities, void* entityhandles, void* entityinfos) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetRegisteredEntities(int64_t rtmreghandle, void* numentities, void* entityhandles, void* entityinfos) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6202,7 +6202,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRegisteredEntitie
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRouteInfo(int64_t rtmreghandle, int64_t routehandle, void* routeinfo, void* destaddress) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetRouteInfo(int64_t rtmreghandle, int64_t routehandle, void* routeinfo, void* destaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6227,7 +6227,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRouteInfo(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRoutePointer(int64_t rtmreghandle, int64_t routehandle, void* routepointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePointer(int64_t rtmreghandle, int64_t routehandle, void* routepointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6251,7 +6251,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmGetRoutePointer(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmHoldDestination(int64_t rtmreghandle, int64_t desthandle, uint32_t targetviews, uint32_t holdtime) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmHoldDestination(int64_t rtmreghandle, int64_t desthandle, uint32_t targetviews, uint32_t holdtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6276,7 +6276,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmHoldDestination(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIgnoreChangedDests(int64_t rtmreghandle, int64_t notifyhandle, uint32_t numdests, void* changeddests) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChangedDests(int64_t rtmreghandle, int64_t notifyhandle, uint32_t numdests, void* changeddests) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6301,7 +6301,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIgnoreChangedDests(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmInsertInRouteList(int64_t rtmreghandle, int64_t routelisthandle, uint32_t numroutes, void* routehandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmInsertInRouteList(int64_t rtmreghandle, int64_t routelisthandle, uint32_t numroutes, void* routehandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6326,7 +6326,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmInsertInRouteList(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmInvokeMethod(int64_t rtmreghandle, int64_t entityhandle, void* input, void* outputsize, void* output) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmInvokeMethod(int64_t rtmreghandle, int64_t entityhandle, void* input, void* outputsize, void* output) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6352,7 +6352,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmInvokeMethod(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIsBestRoute(int64_t rtmreghandle, int64_t routehandle, void* bestinviews) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmIsBestRoute(int64_t rtmreghandle, int64_t routehandle, void* bestinviews) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6376,7 +6376,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIsBestRoute(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIsMarkedForChangeNotification(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, void* destmarked) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedForChangeNotification(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, void* destmarked) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6401,7 +6401,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmIsMarkedForChangeNot
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockDestination(int64_t rtmreghandle, int64_t desthandle, int32_t exclusive, int32_t lockdest) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmLockDestination(int64_t rtmreghandle, int64_t desthandle, int32_t exclusive, int32_t lockdest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6426,7 +6426,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockDestination(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockNextHop(int64_t rtmreghandle, int64_t nexthophandle, int32_t exclusive, int32_t locknexthop, void* nexthoppointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmLockNextHop(int64_t rtmreghandle, int64_t nexthophandle, int32_t exclusive, int32_t locknexthop, void* nexthoppointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6452,7 +6452,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockNextHop(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockRoute(int64_t rtmreghandle, int64_t routehandle, int32_t exclusive, int32_t lockroute, void* routepointer) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmLockRoute(int64_t rtmreghandle, int64_t routehandle, int32_t exclusive, int32_t lockroute, void* routepointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6478,7 +6478,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmLockRoute(int64_t rt
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmMarkDestForChangeNotification(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, int32_t markdest) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmMarkDestForChangeNotification(int64_t rtmreghandle, int64_t notifyhandle, int64_t desthandle, int32_t markdest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6503,7 +6503,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmMarkDestForChangeNot
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReferenceHandles(int64_t rtmreghandle, uint32_t numhandles, void* rtmhandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReferenceHandles(int64_t rtmreghandle, uint32_t numhandles, void* rtmhandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6527,7 +6527,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReferenceHandles(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmRegisterEntity(void* rtmentityinfo, void* exportmethods, void* eventcallback, int32_t reserveopaquepointer, void* rtmregprofile, void* rtmreghandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmRegisterEntity(void* rtmentityinfo, void* exportmethods, void* eventcallback, int32_t reserveopaquepointer, void* rtmregprofile, void* rtmreghandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6554,7 +6554,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmRegisterEntity(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmRegisterForChangeNotification(int64_t rtmreghandle, uint32_t targetviews, uint32_t notifyflags, void* notifycontext, void* notifyhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmRegisterForChangeNotification(int64_t rtmreghandle, uint32_t targetviews, uint32_t notifyflags, void* notifycontext, void* notifyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6580,7 +6580,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmRegisterForChangeNot
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseChangedDests(int64_t rtmreghandle, int64_t notifyhandle, uint32_t numdests, void* changeddests) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseChangedDests(int64_t rtmreghandle, int64_t notifyhandle, uint32_t numdests, void* changeddests) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6605,7 +6605,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseChangedDests(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseDestInfo(int64_t rtmreghandle, void* destinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseDestInfo(int64_t rtmreghandle, void* destinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6628,7 +6628,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseDestInfo(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseDests(int64_t rtmreghandle, uint32_t numdests, void* destinfos) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseDests(int64_t rtmreghandle, uint32_t numdests, void* destinfos) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6652,7 +6652,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseDests(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntities(int64_t rtmreghandle, uint32_t numentities, void* entityhandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntities(int64_t rtmreghandle, uint32_t numentities, void* entityhandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6676,7 +6676,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntities(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntityInfo(int64_t rtmreghandle, void* entityinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseEntityInfo(int64_t rtmreghandle, void* entityinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6699,7 +6699,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseEntityInfo(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHopInfo(int64_t rtmreghandle, void* nexthopinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHopInfo(int64_t rtmreghandle, void* nexthopinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6722,7 +6722,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHopInfo(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHops(int64_t rtmreghandle, uint32_t numnexthops, void* nexthophandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseNextHops(int64_t rtmreghandle, uint32_t numnexthops, void* nexthophandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6746,7 +6746,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseNextHops(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseRouteInfo(int64_t rtmreghandle, void* routeinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseRouteInfo(int64_t rtmreghandle, void* routeinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6769,7 +6769,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseRouteInfo(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseRoutes(int64_t rtmreghandle, uint32_t numroutes, void* routehandles) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmReleaseRoutes(int64_t rtmreghandle, uint32_t numroutes, void* routehandles) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6793,7 +6793,7 @@ uint32_t windowssys_windows_win32_networkmanagement_rras_RtmReleaseRoutes(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_rras_RtmUpdateAndUnlockRoute(int64_t rtmreghandle, int64_t routehandle, uint32_t timetolive, int64_t routelisthandle, uint32_t notifytype, int64_t notifyhandle, void* changeflags) {
+uint32_t windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndUnlockRoute(int64_t rtmreghandle, int64_t routehandle, uint32_t timetolive, int64_t routelisthandle, uint32_t notifytype, int64_t notifyhandle, void* changeflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, int64_t, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;

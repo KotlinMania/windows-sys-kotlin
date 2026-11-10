@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_restore_SRRemoveRestorePoint(uint32_t dwrpnum);
-int32_t windowssys_windows_win32_system_restore_SRSetRestorePointA(void* prestoreptspec, void* psmgrstatus);
-int32_t windowssys_windows_win32_system_restore_SRSetRestorePointW(void* prestoreptspec, void* psmgrstatus);
+uint32_t windowssys_windows_win32_system_restore_sRRemoveRestorePoint(uint32_t dwrpnum);
+int32_t windowssys_windows_win32_system_restore_sRSetRestorePointA(void* prestoreptspec, void* psmgrstatus);
+int32_t windowssys_windows_win32_system_restore_sRSetRestorePointW(void* prestoreptspec, void* psmgrstatus);
 
 #ifdef __cplusplus
 }

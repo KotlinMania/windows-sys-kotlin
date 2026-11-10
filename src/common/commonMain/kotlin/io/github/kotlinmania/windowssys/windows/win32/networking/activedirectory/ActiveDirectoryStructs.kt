@@ -1,288 +1,279 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.BFFCALLBACK
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.Bffcallback
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class ADSPROPERROR(
-    public var hwndPage: HWND = 0L,
-    public var pszPageTitle: PWSTR = 0L,
-    public var pszObjPath: PWSTR = 0L,
-    public var pszObjClass: PWSTR = 0L,
-    public var hr: HRESULT = 0,
-    public var pszError: PWSTR = 0L,
+public data class Adsproperror(
+    public var hwndPage: Hwnd = null,
+    public var pszPageTitle: Pwstr = null,
+    public var pszObjPath: Pwstr = null,
+    public var pszObjClass: Pwstr = null,
+    public var hr: Hresult = 0,
+    public var pszError: Pwstr = null,
 )
 
-public data class ADSPROPINITPARAMS(
+public data class Adspropinitparams(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hr: HRESULT = 0,
-    public var pDsObj: Long = 0L,
-    public var pwzCN: PWSTR = 0L,
-    public var pWritableAttrs: Long = 0L,
+    public var hr: Hresult = 0,
+    public var pDsObj: COpaquePointer? = null,
+    public var pwzCN: Pwstr = null,
+    public var pWritableAttrs: AdsAttrInfo? = null,
 )
 
-public data class ADSVALUE(public var dwType: ADSTYPE = 0, public var Anonymous: ADSVALUE_0 = ADSVALUE_0())
+public data class Adsvalue(public var dwType: Adstype = 0, public var anonymous: Adsvalue0 = Adsvalue0())
 
-public class ADSVALUE_0(
-    public var DNString: Long = 0L,
-    public var CaseExactString: Long = 0L,
-    public var CaseIgnoreString: Long = 0L,
-    public var PrintableString: Long = 0L,
-    public var NumericString: Long = 0L,
-    public var Boolean: UInt = 0u,
-    public var Integer: UInt = 0u,
-    public var OctetString: ADS_OCTET_STRING = ADS_OCTET_STRING(),
-    public var UTCTime: SYSTEMTIME = SYSTEMTIME(),
-    public var LargeInteger: Long = 0L,
-    public var ClassName: Long = 0L,
-    public var ProviderSpecific: ADS_PROV_SPECIFIC = ADS_PROV_SPECIFIC(),
-    public var pCaseIgnoreList: Long = 0L,
-    public var pOctetList: Long = 0L,
-    public var pPath: Long = 0L,
-    public var pPostalAddress: Long = 0L,
-    public var Timestamp: ADS_TIMESTAMP = ADS_TIMESTAMP(),
-    public var BackLink: ADS_BACKLINK = ADS_BACKLINK(),
-    public var pTypedName: Long = 0L,
-    public var Hold: ADS_HOLD = ADS_HOLD(),
-    public var pNetAddress: Long = 0L,
-    public var pReplicaPointer: Long = 0L,
-    public var pFaxNumber: Long = 0L,
-    public var Email: ADS_EMAIL = ADS_EMAIL(),
-    public var SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR = ADS_NT_SECURITY_DESCRIPTOR(),
-    public var pDNWithBinary: Long = 0L,
-    public var pDNWithString: Long = 0L,
+public class Adsvalue0(
+    public var dNString: UShort? = null,
+    public var caseExactString: UShort? = null,
+    public var caseIgnoreString: UShort? = null,
+    public var printableString: UShort? = null,
+    public var numericString: UShort? = null,
+    public var boolean: UInt = 0u,
+    public var integer: UInt = 0u,
+    public var octetString: AdsOctetString = AdsOctetString(),
+    public var uTCTime: Systemtime = Systemtime(),
+    public var largeInteger: Long = 0L,
+    public var className: UShort? = null,
+    public var providerSpecific: AdsProvSpecific = AdsProvSpecific(),
+    public var pCaseIgnoreList: AdsCaseignoreList? = null,
+    public var pOctetList: AdsOctetList? = null,
+    public var pPath: AdsPath? = null,
+    public var pPostalAddress: AdsPostaladdress? = null,
+    public var timestamp: AdsTimestamp = AdsTimestamp(),
+    public var backLink: AdsBacklink = AdsBacklink(),
+    public var pTypedName: AdsTypedname? = null,
+    public var hold: AdsHold = AdsHold(),
+    public var pNetAddress: AdsNetaddress? = null,
+    public var pReplicaPointer: AdsReplicapointer? = null,
+    public var pFaxNumber: AdsFaxnumber? = null,
+    public var email: AdsEmail = AdsEmail(),
+    public var securityDescriptor: AdsNtSecurityDescriptor = AdsNtSecurityDescriptor(),
+    public var pDNWithBinary: AdsDnWithBinary? = null,
+    public var pDNWithString: AdsDnWithString? = null,
 )
 
-public data class ADS_ATTR_DEF(
-    public var pszAttrName: PWSTR = 0L,
-    public var dwADsType: ADSTYPE = 0,
+public data class AdsAttrDef(
+    public var pszAttrName: Pwstr = null,
+    public var dwADsType: Adstype = 0,
     public var dwMinRange: UInt = 0u,
     public var dwMaxRange: UInt = 0u,
-    public var fMultiValued: BOOL = 0,
+    public var fMultiValued: Bool = 0,
 )
 
-public data class ADS_ATTR_INFO(
-    public var pszAttrName: PWSTR = 0L,
+public data class AdsAttrInfo(
+    public var pszAttrName: Pwstr = null,
     public var dwControlCode: UInt = 0u,
-    public var dwADsType: ADSTYPE = 0,
-    public var pADsValues: Long = 0L,
+    public var dwADsType: Adstype = 0,
+    public var pADsValues: Adsvalue? = null,
     public var dwNumValues: UInt = 0u,
 )
 
-public data class ADS_BACKLINK(public var RemoteID: UInt = 0u, public var ObjectName: PWSTR = 0L)
+public data class AdsBacklink(public var remoteID: UInt = 0u, public var objectName: Pwstr = null)
 
-public data class ADS_CASEIGNORE_LIST(public var Next: Long = 0L, public var String: PWSTR = 0L)
+public data class AdsCaseignoreList(public var next: AdsCaseignoreList? = null, public var string: Pwstr = null)
 
-public data class ADS_CLASS_DEF(
-    public var pszClassName: PWSTR = 0L,
+public data class AdsClassDef(
+    public var pszClassName: Pwstr = null,
     public var dwMandatoryAttrs: UInt = 0u,
-    public var ppszMandatoryAttrs: Long = 0L,
+    public var ppszMandatoryAttrs: Pwstr? = null,
     public var optionalAttrs: UInt = 0u,
-    public var ppszOptionalAttrs: Long = 0L,
+    public var ppszOptionalAttrs: COpaquePointer? = null,
     public var dwNamingAttrs: UInt = 0u,
-    public var ppszNamingAttrs: Long = 0L,
+    public var ppszNamingAttrs: COpaquePointer? = null,
     public var dwSuperClasses: UInt = 0u,
-    public var ppszSuperClasses: Long = 0L,
-    public var fIsContainer: BOOL = 0,
+    public var ppszSuperClasses: COpaquePointer? = null,
+    public var fIsContainer: Bool = 0,
 )
 
-public data class ADS_DN_WITH_BINARY(
+public data class AdsDnWithBinary(
     public var dwLength: UInt = 0u,
-    public var lpBinaryValue: Long = 0L,
-    public var pszDNString: PWSTR = 0L,
+    public var lpBinaryValue: COpaquePointer? = null,
+    public var pszDNString: Pwstr = null,
 )
 
-public data class ADS_DN_WITH_STRING(public var pszStringValue: PWSTR = 0L, public var pszDNString: PWSTR = 0L)
+public data class AdsDnWithString(public var pszStringValue: Pwstr = null, public var pszDNString: Pwstr = null)
 
-public data class ADS_EMAIL(public var Address: PWSTR = 0L, public var Type: UInt = 0u)
+public data class AdsEmail(public var address: Pwstr = null, public var type: UInt = 0u)
 
-public data class ADS_FAXNUMBER(
-    public var TelephoneNumber: PWSTR = 0L,
-    public var NumberOfBits: UInt = 0u,
-    public var Parameters: Long = 0L,
+public data class AdsFaxnumber(
+    public var telephoneNumber: Pwstr = null,
+    public var numberOfBits: UInt = 0u,
+    public var parameters: COpaquePointer? = null,
 )
 
-public data class ADS_HOLD(public var ObjectName: PWSTR = 0L, public var Amount: UInt = 0u)
+public data class AdsHold(public var objectName: Pwstr = null, public var amount: UInt = 0u)
 
-public data class ADS_NETADDRESS(
-    public var AddressType: UInt = 0u,
-    public var AddressLength: UInt = 0u,
-    public var Address: Long = 0L,
+public data class AdsNetaddress(
+    public var addressType: UInt = 0u,
+    public var addressLength: UInt = 0u,
+    public var address: COpaquePointer? = null,
 )
 
-public data class ADS_NT_SECURITY_DESCRIPTOR(public var dwLength: UInt = 0u, public var lpValue: Long = 0L)
+public data class AdsNtSecurityDescriptor(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
 
-public data class ADS_OBJECT_INFO(
-    public var pszRDN: PWSTR = 0L,
-    public var pszObjectDN: PWSTR = 0L,
-    public var pszParentDN: PWSTR = 0L,
-    public var pszSchemaDN: PWSTR = 0L,
-    public var pszClassName: PWSTR = 0L,
+public data class AdsObjectInfo(
+    public var pszRDN: Pwstr = null,
+    public var pszObjectDN: Pwstr = null,
+    public var pszParentDN: Pwstr = null,
+    public var pszSchemaDN: Pwstr = null,
+    public var pszClassName: Pwstr = null,
 )
 
-public data class ADS_OCTET_LIST(
-    public var Next: Long = 0L,
-    public var Length: UInt = 0u,
-    public var Data: Long = 0L,
+public data class AdsOctetList(
+    public var next: AdsOctetList? = null,
+    public var length: UInt = 0u,
+    public var data: COpaquePointer? = null,
 )
 
-public data class ADS_OCTET_STRING(public var dwLength: UInt = 0u, public var lpValue: Long = 0L)
+public data class AdsOctetString(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
 
-public data class ADS_PATH(
-    public var Type: UInt = 0u,
-    public var VolumeName: PWSTR = 0L,
-    public var Path: PWSTR = 0L,
+public data class AdsPath(
+    public var type: UInt = 0u,
+    public var volumeName: Pwstr = null,
+    public var path: Pwstr = null,
 )
 
-public data class ADS_POSTALADDRESS(public var PostalAddress: LongArray = LongArray(6)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is ADS_POSTALADDRESS) return false
-        if (!this.PostalAddress.contentEquals(other.PostalAddress)) return false
-        return true
-    }
+public data class AdsPostaladdress(public var postalAddress: List<COpaquePointer> = List(6) { COpaquePointer(0L) })
 
-    override fun hashCode(): Int {
-        return this.PostalAddress.contentHashCode()
-    }
-}
+public data class AdsProvSpecific(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
 
-public data class ADS_PROV_SPECIFIC(public var dwLength: UInt = 0u, public var lpValue: Long = 0L)
-
-public data class ADS_REPLICAPOINTER(
-    public var ServerName: PWSTR = 0L,
-    public var ReplicaType: UInt = 0u,
-    public var ReplicaNumber: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var ReplicaAddressHints: Long = 0L,
+public data class AdsReplicapointer(
+    public var serverName: Pwstr = null,
+    public var replicaType: UInt = 0u,
+    public var replicaNumber: UInt = 0u,
+    public var count: UInt = 0u,
+    public var replicaAddressHints: AdsNetaddress? = null,
 )
 
-public data class ADS_SEARCHPREF_INFO(
-    public var dwSearchPref: ADS_SEARCHPREF_ENUM = 0,
-    public var vValue: ADSVALUE = ADSVALUE(),
-    public var dwStatus: ADS_STATUSENUM = 0,
+public data class AdsSearchprefInfo(
+    public var dwSearchPref: AdsSearchprefEnum = 0,
+    public var vValue: Adsvalue = Adsvalue(),
+    public var dwStatus: AdsStatusenum = 0,
 )
 
-public data class ADS_SEARCH_COLUMN(
-    public var pszAttrName: PWSTR = 0L,
-    public var dwADsType: ADSTYPE = 0,
-    public var pADsValues: Long = 0L,
+public data class AdsSearchColumn(
+    public var pszAttrName: Pwstr = null,
+    public var dwADsType: Adstype = 0,
+    public var pADsValues: Adsvalue? = null,
     public var dwNumValues: UInt = 0u,
-    public var hReserved: HANDLE = 0L,
+    public var hReserved: Handle = null,
 )
 
-public data class ADS_SORTKEY(
-    public var pszAttrType: PWSTR = 0L,
-    public var pszReserved: PWSTR = 0L,
+public data class AdsSortkey(
+    public var pszAttrType: Pwstr = null,
+    public var pszReserved: Pwstr = null,
     public var fReverseorder: Boolean = false,
 )
 
-public data class ADS_TIMESTAMP(public var WholeSeconds: UInt = 0u, public var EventID: UInt = 0u)
+public data class AdsTimestamp(public var wholeSeconds: UInt = 0u, public var eventID: UInt = 0u)
 
-public data class ADS_TYPEDNAME(
-    public var ObjectName: PWSTR = 0L,
-    public var Level: UInt = 0u,
-    public var Interval: UInt = 0u,
+public data class AdsTypedname(
+    public var objectName: Pwstr = null,
+    public var level: UInt = 0u,
+    public var interval: UInt = 0u,
 )
 
-public data class ADS_VLV(
+public data class AdsVlv(
     public var dwBeforeCount: UInt = 0u,
     public var dwAfterCount: UInt = 0u,
     public var dwOffset: UInt = 0u,
     public var dwContentCount: UInt = 0u,
-    public var pszTarget: PWSTR = 0L,
+    public var pszTarget: Pwstr = null,
     public var dwContextIDLength: UInt = 0u,
-    public var lpContextID: Long = 0L,
+    public var lpContextID: COpaquePointer? = null,
 )
 
-public data class CQFORM(
+public data class Cqform(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var clsid: GUID = GUID(),
-    public var hIcon: HICON = 0L,
-    public var pszTitle: PCWSTR = 0L,
+    public var clsid: Guid = Guid(),
+    public var hIcon: Hicon = null,
+    public var pszTitle: Pcwstr = null,
 )
 
-public data class CQPAGE(
+public data class Cqpage(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pPageProc: LPCQPAGEPROC = null,
-    public var hInstance: HINSTANCE = 0L,
+    public var pPageProc: Lpcqpageproc = null,
+    public var hInstance: Hinstance = null,
     public var idPageName: Int = 0,
     public var idPageTemplate: Int = 0,
-    public var pDlgProc: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
+    public var pDlgProc: Dlgproc = null,
+    public var lParam: Lparam = 0L,
 )
 
-public data class DOMAINDESC(
-    public var pszName: PWSTR = 0L,
-    public var pszPath: PWSTR = 0L,
-    public var pszNCName: PWSTR = 0L,
-    public var pszTrustParent: PWSTR = 0L,
-    public var pszObjectClass: PWSTR = 0L,
+public data class Domaindesc(
+    public var pszName: Pwstr = null,
+    public var pszPath: Pwstr = null,
+    public var pszNCName: Pwstr = null,
+    public var pszTrustParent: Pwstr = null,
+    public var pszObjectClass: Pwstr = null,
     public var ulFlags: UInt = 0u,
-    public var fDownLevel: BOOL = 0,
-    public var pdChildList: Long = 0L,
-    public var pdNextSibling: Long = 0L,
+    public var fDownLevel: Bool = 0,
+    public var pdChildList: Domaindesc? = null,
+    public var pdNextSibling: Domaindesc? = null,
 )
 
-public data class DOMAIN_CONTROLLER_INFOA(
-    public var DomainControllerName: PSTR = 0L,
-    public var DomainControllerAddress: PSTR = 0L,
-    public var DomainControllerAddressType: UInt = 0u,
-    public var DomainGuid: GUID = GUID(),
-    public var DomainName: PSTR = 0L,
-    public var DnsForestName: PSTR = 0L,
-    public var Flags: UInt = 0u,
-    public var DcSiteName: PSTR = 0L,
-    public var ClientSiteName: PSTR = 0L,
+public data class DomainControllerInfoa(
+    public var domainControllerName: Pstr = null,
+    public var domainControllerAddress: Pstr = null,
+    public var domainControllerAddressType: UInt = 0u,
+    public var domainGuid: Guid = Guid(),
+    public var domainName: Pstr = null,
+    public var dnsForestName: Pstr = null,
+    public var flags: UInt = 0u,
+    public var dcSiteName: Pstr = null,
+    public var clientSiteName: Pstr = null,
 )
 
-public data class DOMAIN_CONTROLLER_INFOW(
-    public var DomainControllerName: PWSTR = 0L,
-    public var DomainControllerAddress: PWSTR = 0L,
-    public var DomainControllerAddressType: UInt = 0u,
-    public var DomainGuid: GUID = GUID(),
-    public var DomainName: PWSTR = 0L,
-    public var DnsForestName: PWSTR = 0L,
-    public var Flags: UInt = 0u,
-    public var DcSiteName: PWSTR = 0L,
-    public var ClientSiteName: PWSTR = 0L,
+public data class DomainControllerInfow(
+    public var domainControllerName: Pwstr = null,
+    public var domainControllerAddress: Pwstr = null,
+    public var domainControllerAddressType: UInt = 0u,
+    public var domainGuid: Guid = Guid(),
+    public var domainName: Pwstr = null,
+    public var dnsForestName: Pwstr = null,
+    public var flags: UInt = 0u,
+    public var dcSiteName: Pwstr = null,
+    public var clientSiteName: Pwstr = null,
 )
 
-public data class DOMAIN_TREE(
+public data class DomainTree(
     public var dsSize: UInt = 0u,
     public var dwCount: UInt = 0u,
-    public var aDomains: List<DOMAINDESC> = List(1) { DOMAINDESC() },
+    public var aDomains: List<Domaindesc> = List(1) { Domaindesc() },
 )
 
-public data class DSA_NEWOBJ_DISPINFO(
+public data class DsaNewobjDispinfo(
     public var dwSize: UInt = 0u,
-    public var hObjClassIcon: HICON = 0L,
-    public var lpszWizTitle: PWSTR = 0L,
-    public var lpszContDisplayName: PWSTR = 0L,
+    public var hObjClassIcon: Hicon = null,
+    public var lpszWizTitle: Pwstr = null,
+    public var lpszContDisplayName: Pwstr = null,
 )
 
-public data class DSBITEMA(
+public data class Dsbitema(
     public var cbStruct: UInt = 0u,
-    public var pszADsPath: PCWSTR = 0L,
-    public var pszClass: PCWSTR = 0L,
+    public var pszADsPath: Pcwstr = null,
+    public var pszClass: Pcwstr = null,
     public var dwMask: UInt = 0u,
     public var dwState: UInt = 0u,
     public var dwStateMask: UInt = 0u,
@@ -292,7 +283,7 @@ public data class DSBITEMA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DSBITEMA) return false
+        if (other !is Dsbitema) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.pszADsPath != other.pszADsPath) return false
         if (this.pszClass != other.pszClass) return false
@@ -319,10 +310,10 @@ public data class DSBITEMA(
     }
 }
 
-public data class DSBITEMW(
+public data class Dsbitemw(
     public var cbStruct: UInt = 0u,
-    public var pszADsPath: PCWSTR = 0L,
-    public var pszClass: PCWSTR = 0L,
+    public var pszADsPath: Pcwstr = null,
+    public var pszClass: Pcwstr = null,
     public var dwMask: UInt = 0u,
     public var dwState: UInt = 0u,
     public var dwStateMask: UInt = 0u,
@@ -332,7 +323,7 @@ public data class DSBITEMW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DSBITEMW) return false
+        if (other !is Dsbitemw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.pszADsPath != other.pszADsPath) return false
         if (this.pszClass != other.pszClass) return false
@@ -359,51 +350,51 @@ public data class DSBITEMW(
     }
 }
 
-public data class DSBROWSEINFOA(
+public data class Dsbrowseinfoa(
     public var cbStruct: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pszCaption: PCSTR = 0L,
-    public var pszTitle: PCSTR = 0L,
-    public var pszRoot: PCWSTR = 0L,
-    public var pszPath: PWSTR = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pszCaption: Pcstr = null,
+    public var pszTitle: Pcstr = null,
+    public var pszRoot: Pcwstr = null,
+    public var pszPath: Pwstr = null,
     public var cchPath: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pfnCallback: BFFCALLBACK = null,
-    public var lParam: LPARAM = 0L,
+    public var pfnCallback: Bffcallback = null,
+    public var lParam: Lparam = 0L,
     public var dwReturnFormat: UInt = 0u,
-    public var pUserName: PCWSTR = 0L,
-    public var pPassword: PCWSTR = 0L,
-    public var pszObjectClass: PWSTR = 0L,
+    public var pUserName: Pcwstr = null,
+    public var pPassword: Pcwstr = null,
+    public var pszObjectClass: Pwstr = null,
     public var cchObjectClass: UInt = 0u,
 )
 
-public data class DSBROWSEINFOW(
+public data class Dsbrowseinfow(
     public var cbStruct: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pszCaption: PCWSTR = 0L,
-    public var pszTitle: PCWSTR = 0L,
-    public var pszRoot: PCWSTR = 0L,
-    public var pszPath: PWSTR = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pszCaption: Pcwstr = null,
+    public var pszTitle: Pcwstr = null,
+    public var pszRoot: Pcwstr = null,
+    public var pszPath: Pwstr = null,
     public var cchPath: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pfnCallback: BFFCALLBACK = null,
-    public var lParam: LPARAM = 0L,
+    public var pfnCallback: Bffcallback = null,
+    public var lParam: Lparam = 0L,
     public var dwReturnFormat: UInt = 0u,
-    public var pUserName: PCWSTR = 0L,
-    public var pPassword: PCWSTR = 0L,
-    public var pszObjectClass: PWSTR = 0L,
+    public var pUserName: Pcwstr = null,
+    public var pPassword: Pcwstr = null,
+    public var pszObjectClass: Pwstr = null,
     public var cchObjectClass: UInt = 0u,
 )
 
-public data class DSCLASSCREATIONINFO(
+public data class Dsclasscreationinfo(
     public var dwFlags: UInt = 0u,
-    public var clsidWizardDialog: GUID = GUID(),
-    public var clsidWizardPrimaryPage: GUID = GUID(),
+    public var clsidWizardDialog: Guid = Guid(),
+    public var clsidWizardPrimaryPage: Guid = Guid(),
     public var cWizardExtensions: UInt = 0u,
-    public var aWizardExtensions: List<GUID> = List(1) { GUID() },
+    public var aWizardExtensions: List<Guid> = List(1) { Guid() },
 )
 
-public data class DSCOLUMN(
+public data class Dscolumn(
     public var dwFlags: UInt = 0u,
     public var fmt: Int = 0,
     public var cx: Int = 0,
@@ -412,7 +403,7 @@ public data class DSCOLUMN(
     public var dwReserved: UInt = 0u,
 )
 
-public data class DSDISPLAYSPECOPTIONS(
+public data class Dsdisplayspecoptions(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var offsetAttribPrefix: UInt = 0u,
@@ -422,57 +413,57 @@ public data class DSDISPLAYSPECOPTIONS(
     public var offsetServerConfigPath: UInt = 0u,
 )
 
-public data class DSOBJECT(
+public data class Dsobject(
     public var dwFlags: UInt = 0u,
     public var dwProviderFlags: UInt = 0u,
     public var offsetName: UInt = 0u,
     public var offsetClass: UInt = 0u,
 )
 
-public data class DSOBJECTNAMES(
-    public var clsidNamespace: GUID = GUID(),
+public data class Dsobjectnames(
+    public var clsidNamespace: Guid = Guid(),
     public var cItems: UInt = 0u,
-    public var aObjects: List<DSOBJECT> = List(1) { DSOBJECT() },
+    public var aObjects: List<Dsobject> = List(1) { Dsobject() },
 )
 
-public data class DSOP_FILTER_FLAGS(public var Uplevel: DSOP_UPLEVEL_FILTER_FLAGS = DSOP_UPLEVEL_FILTER_FLAGS(), public var flDownlevel: UInt = 0u)
+public data class DsopFilterFlags(public var uplevel: DsopUplevelFilterFlags = DsopUplevelFilterFlags(), public var flDownlevel: UInt = 0u)
 
-public data class DSOP_INIT_INFO(
+public data class DsopInitInfo(
     public var cbSize: UInt = 0u,
-    public var pwzTargetComputer: PCWSTR = 0L,
+    public var pwzTargetComputer: Pcwstr = null,
     public var cDsScopeInfos: UInt = 0u,
-    public var aDsScopeInfos: Long = 0L,
+    public var aDsScopeInfos: DsopScopeInitInfo? = null,
     public var flOptions: UInt = 0u,
     public var cAttributesToFetch: UInt = 0u,
-    public var apwzAttributeNames: Long = 0L,
+    public var apwzAttributeNames: Pcwstr? = null,
 )
 
-public data class DSOP_SCOPE_INIT_INFO(
+public data class DsopScopeInitInfo(
     public var cbSize: UInt = 0u,
     public var flType: UInt = 0u,
     public var flScope: UInt = 0u,
-    public var FilterFlags: DSOP_FILTER_FLAGS = DSOP_FILTER_FLAGS(),
-    public var pwzDcName: PCWSTR = 0L,
-    public var pwzADsPath: PCWSTR = 0L,
-    public var hr: HRESULT = 0,
+    public var filterFlags: DsopFilterFlags = DsopFilterFlags(),
+    public var pwzDcName: Pcwstr = null,
+    public var pwzADsPath: Pcwstr = null,
+    public var hr: Hresult = 0,
 )
 
-public data class DSOP_UPLEVEL_FILTER_FLAGS(
+public data class DsopUplevelFilterFlags(
     public var flBothModes: UInt = 0u,
     public var flMixedModeOnly: UInt = 0u,
     public var flNativeModeOnly: UInt = 0u,
 )
 
-public data class DSPROPERTYPAGEINFO(public var offsetString: UInt = 0u)
+public data class Dspropertypageinfo(public var offsetString: UInt = 0u)
 
-public data class DSQUERYCLASSLIST(
+public data class Dsqueryclasslist(
     public var cbStruct: UInt = 0u,
     public var cClasses: Int = 0,
     public var offsetClass: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DSQUERYCLASSLIST) return false
+        if (other !is Dsqueryclasslist) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.cClasses != other.cClasses) return false
         if (!this.offsetClass.contentEquals(other.offsetClass)) return false
@@ -487,428 +478,428 @@ public data class DSQUERYCLASSLIST(
     }
 }
 
-public data class DSQUERYINITPARAMS(
+public data class Dsqueryinitparams(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pDefaultScope: PWSTR = 0L,
-    public var pDefaultSaveLocation: PWSTR = 0L,
-    public var pUserName: PWSTR = 0L,
-    public var pPassword: PWSTR = 0L,
-    public var pServer: PWSTR = 0L,
+    public var pDefaultScope: Pwstr = null,
+    public var pDefaultSaveLocation: Pwstr = null,
+    public var pUserName: Pwstr = null,
+    public var pPassword: Pwstr = null,
+    public var pServer: Pwstr = null,
 )
 
-public data class DSQUERYPARAMS(
+public data class Dsqueryparams(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: HINSTANCE = 0L,
+    public var hInstance: Hinstance = null,
     public var offsetQuery: Int = 0,
     public var iColumns: Int = 0,
     public var dwReserved: UInt = 0u,
-    public var aColumns: List<DSCOLUMN> = List(1) { DSCOLUMN() },
+    public var aColumns: List<Dscolumn> = List(1) { Dscolumn() },
 )
 
-public data class DSROLE_OPERATION_STATE_INFO(public var OperationState: DSROLE_OPERATION_STATE = 0)
+public data class DsroleOperationStateInfo(public var operationState: DsroleOperationState = 0)
 
-public data class DSROLE_PRIMARY_DOMAIN_INFO_BASIC(
-    public var MachineRole: DSROLE_MACHINE_ROLE = 0,
-    public var Flags: UInt = 0u,
-    public var DomainNameFlat: PWSTR = 0L,
-    public var DomainNameDns: PWSTR = 0L,
-    public var DomainForestName: PWSTR = 0L,
-    public var DomainGuid: GUID = GUID(),
+public data class DsrolePrimaryDomainInfoBasic(
+    public var machineRole: DsroleMachineRole = 0,
+    public var flags: UInt = 0u,
+    public var domainNameFlat: Pwstr = null,
+    public var domainNameDns: Pwstr = null,
+    public var domainForestName: Pwstr = null,
+    public var domainGuid: Guid = Guid(),
 )
 
-public data class DSROLE_UPGRADE_STATUS_INFO(public var OperationState: UInt = 0u, public var PreviousServerState: DSROLE_SERVER_STATE = 0)
+public data class DsroleUpgradeStatusInfo(public var operationState: UInt = 0u, public var previousServerState: DsroleServerState = 0)
 
-public data class DS_DOMAIN_CONTROLLER_INFO_1A(
-    public var NetbiosName: PSTR = 0L,
-    public var DnsHostName: PSTR = 0L,
-    public var SiteName: PSTR = 0L,
-    public var ComputerObjectName: PSTR = 0L,
-    public var ServerObjectName: PSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
+public data class DsDomainControllerInfo1a(
+    public var netbiosName: Pstr = null,
+    public var dnsHostName: Pstr = null,
+    public var siteName: Pstr = null,
+    public var computerObjectName: Pstr = null,
+    public var serverObjectName: Pstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
 )
 
-public data class DS_DOMAIN_CONTROLLER_INFO_1W(
-    public var NetbiosName: PWSTR = 0L,
-    public var DnsHostName: PWSTR = 0L,
-    public var SiteName: PWSTR = 0L,
-    public var ComputerObjectName: PWSTR = 0L,
-    public var ServerObjectName: PWSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
+public data class DsDomainControllerInfo1w(
+    public var netbiosName: Pwstr = null,
+    public var dnsHostName: Pwstr = null,
+    public var siteName: Pwstr = null,
+    public var computerObjectName: Pwstr = null,
+    public var serverObjectName: Pwstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
 )
 
-public data class DS_DOMAIN_CONTROLLER_INFO_2A(
-    public var NetbiosName: PSTR = 0L,
-    public var DnsHostName: PSTR = 0L,
-    public var SiteName: PSTR = 0L,
-    public var SiteObjectName: PSTR = 0L,
-    public var ComputerObjectName: PSTR = 0L,
-    public var ServerObjectName: PSTR = 0L,
-    public var NtdsDsaObjectName: PSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
-    public var fIsGc: BOOL = 0,
-    public var SiteObjectGuid: GUID = GUID(),
-    public var ComputerObjectGuid: GUID = GUID(),
-    public var ServerObjectGuid: GUID = GUID(),
-    public var NtdsDsaObjectGuid: GUID = GUID(),
+public data class DsDomainControllerInfo2a(
+    public var netbiosName: Pstr = null,
+    public var dnsHostName: Pstr = null,
+    public var siteName: Pstr = null,
+    public var siteObjectName: Pstr = null,
+    public var computerObjectName: Pstr = null,
+    public var serverObjectName: Pstr = null,
+    public var ntdsDsaObjectName: Pstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
+    public var fIsGc: Bool = 0,
+    public var siteObjectGuid: Guid = Guid(),
+    public var computerObjectGuid: Guid = Guid(),
+    public var serverObjectGuid: Guid = Guid(),
+    public var ntdsDsaObjectGuid: Guid = Guid(),
 )
 
-public data class DS_DOMAIN_CONTROLLER_INFO_2W(
-    public var NetbiosName: PWSTR = 0L,
-    public var DnsHostName: PWSTR = 0L,
-    public var SiteName: PWSTR = 0L,
-    public var SiteObjectName: PWSTR = 0L,
-    public var ComputerObjectName: PWSTR = 0L,
-    public var ServerObjectName: PWSTR = 0L,
-    public var NtdsDsaObjectName: PWSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
-    public var fIsGc: BOOL = 0,
-    public var SiteObjectGuid: GUID = GUID(),
-    public var ComputerObjectGuid: GUID = GUID(),
-    public var ServerObjectGuid: GUID = GUID(),
-    public var NtdsDsaObjectGuid: GUID = GUID(),
+public data class DsDomainControllerInfo2w(
+    public var netbiosName: Pwstr = null,
+    public var dnsHostName: Pwstr = null,
+    public var siteName: Pwstr = null,
+    public var siteObjectName: Pwstr = null,
+    public var computerObjectName: Pwstr = null,
+    public var serverObjectName: Pwstr = null,
+    public var ntdsDsaObjectName: Pwstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
+    public var fIsGc: Bool = 0,
+    public var siteObjectGuid: Guid = Guid(),
+    public var computerObjectGuid: Guid = Guid(),
+    public var serverObjectGuid: Guid = Guid(),
+    public var ntdsDsaObjectGuid: Guid = Guid(),
 )
 
-public data class DS_DOMAIN_CONTROLLER_INFO_3A(
-    public var NetbiosName: PSTR = 0L,
-    public var DnsHostName: PSTR = 0L,
-    public var SiteName: PSTR = 0L,
-    public var SiteObjectName: PSTR = 0L,
-    public var ComputerObjectName: PSTR = 0L,
-    public var ServerObjectName: PSTR = 0L,
-    public var NtdsDsaObjectName: PSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
-    public var fIsGc: BOOL = 0,
-    public var fIsRodc: BOOL = 0,
-    public var SiteObjectGuid: GUID = GUID(),
-    public var ComputerObjectGuid: GUID = GUID(),
-    public var ServerObjectGuid: GUID = GUID(),
-    public var NtdsDsaObjectGuid: GUID = GUID(),
+public data class DsDomainControllerInfo3a(
+    public var netbiosName: Pstr = null,
+    public var dnsHostName: Pstr = null,
+    public var siteName: Pstr = null,
+    public var siteObjectName: Pstr = null,
+    public var computerObjectName: Pstr = null,
+    public var serverObjectName: Pstr = null,
+    public var ntdsDsaObjectName: Pstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
+    public var fIsGc: Bool = 0,
+    public var fIsRodc: Bool = 0,
+    public var siteObjectGuid: Guid = Guid(),
+    public var computerObjectGuid: Guid = Guid(),
+    public var serverObjectGuid: Guid = Guid(),
+    public var ntdsDsaObjectGuid: Guid = Guid(),
 )
 
-public data class DS_DOMAIN_CONTROLLER_INFO_3W(
-    public var NetbiosName: PWSTR = 0L,
-    public var DnsHostName: PWSTR = 0L,
-    public var SiteName: PWSTR = 0L,
-    public var SiteObjectName: PWSTR = 0L,
-    public var ComputerObjectName: PWSTR = 0L,
-    public var ServerObjectName: PWSTR = 0L,
-    public var NtdsDsaObjectName: PWSTR = 0L,
-    public var fIsPdc: BOOL = 0,
-    public var fDsEnabled: BOOL = 0,
-    public var fIsGc: BOOL = 0,
-    public var fIsRodc: BOOL = 0,
-    public var SiteObjectGuid: GUID = GUID(),
-    public var ComputerObjectGuid: GUID = GUID(),
-    public var ServerObjectGuid: GUID = GUID(),
-    public var NtdsDsaObjectGuid: GUID = GUID(),
+public data class DsDomainControllerInfo3w(
+    public var netbiosName: Pwstr = null,
+    public var dnsHostName: Pwstr = null,
+    public var siteName: Pwstr = null,
+    public var siteObjectName: Pwstr = null,
+    public var computerObjectName: Pwstr = null,
+    public var serverObjectName: Pwstr = null,
+    public var ntdsDsaObjectName: Pwstr = null,
+    public var fIsPdc: Bool = 0,
+    public var fDsEnabled: Bool = 0,
+    public var fIsGc: Bool = 0,
+    public var fIsRodc: Bool = 0,
+    public var siteObjectGuid: Guid = Guid(),
+    public var computerObjectGuid: Guid = Guid(),
+    public var serverObjectGuid: Guid = Guid(),
+    public var ntdsDsaObjectGuid: Guid = Guid(),
 )
 
-public data class DS_DOMAIN_TRUSTSA(
-    public var NetbiosDomainName: PSTR = 0L,
-    public var DnsDomainName: PSTR = 0L,
-    public var Flags: UInt = 0u,
-    public var ParentIndex: UInt = 0u,
-    public var TrustType: UInt = 0u,
-    public var TrustAttributes: UInt = 0u,
-    public var DomainSid: PSID = 0L,
-    public var DomainGuid: GUID = GUID(),
+public data class DsDomainTrustsa(
+    public var netbiosDomainName: Pstr = null,
+    public var dnsDomainName: Pstr = null,
+    public var flags: UInt = 0u,
+    public var parentIndex: UInt = 0u,
+    public var trustType: UInt = 0u,
+    public var trustAttributes: UInt = 0u,
+    public var domainSid: Psid = null,
+    public var domainGuid: Guid = Guid(),
 )
 
-public data class DS_DOMAIN_TRUSTSW(
-    public var NetbiosDomainName: PWSTR = 0L,
-    public var DnsDomainName: PWSTR = 0L,
-    public var Flags: UInt = 0u,
-    public var ParentIndex: UInt = 0u,
-    public var TrustType: UInt = 0u,
-    public var TrustAttributes: UInt = 0u,
-    public var DomainSid: PSID = 0L,
-    public var DomainGuid: GUID = GUID(),
+public data class DsDomainTrustsw(
+    public var netbiosDomainName: Pwstr = null,
+    public var dnsDomainName: Pwstr = null,
+    public var flags: UInt = 0u,
+    public var parentIndex: UInt = 0u,
+    public var trustType: UInt = 0u,
+    public var trustAttributes: UInt = 0u,
+    public var domainSid: Psid = null,
+    public var domainGuid: Guid = Guid(),
 )
 
-public data class DS_NAME_RESULTA(public var cItems: UInt = 0u, public var rItems: Long = 0L)
+public data class DsNameResulta(public var cItems: UInt = 0u, public var rItems: DsNameResultItema? = null)
 
-public data class DS_NAME_RESULTW(public var cItems: UInt = 0u, public var rItems: Long = 0L)
+public data class DsNameResultw(public var cItems: UInt = 0u, public var rItems: DsNameResultItemw? = null)
 
-public data class DS_NAME_RESULT_ITEMA(
+public data class DsNameResultItema(
     public var status: UInt = 0u,
-    public var pDomain: PSTR = 0L,
-    public var pName: PSTR = 0L,
+    public var pDomain: Pstr = null,
+    public var pName: Pstr = null,
 )
 
-public data class DS_NAME_RESULT_ITEMW(
+public data class DsNameResultItemw(
     public var status: UInt = 0u,
-    public var pDomain: PWSTR = 0L,
-    public var pName: PWSTR = 0L,
+    public var pDomain: Pwstr = null,
+    public var pName: Pwstr = null,
 )
 
-public data class DS_REPL_ATTR_META_DATA(
-    public var pszAttributeName: PWSTR = 0L,
+public data class DsReplAttrMetaData(
+    public var pszAttributeName: Pwstr = null,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
 )
 
-public data class DS_REPL_ATTR_META_DATA_2(
-    public var pszAttributeName: PWSTR = 0L,
+public data class DsReplAttrMetaData2(
+    public var pszAttributeName: Pwstr = null,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
-    public var pszLastOriginatingDsaDN: PWSTR = 0L,
+    public var pszLastOriginatingDsaDN: Pwstr = null,
 )
 
-public data class DS_REPL_ATTR_META_DATA_BLOB(
+public data class DsReplAttrMetaDataBlob(
     public var oszAttributeName: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
     public var oszLastOriginatingDsaDN: UInt = 0u,
 )
 
-public data class DS_REPL_ATTR_VALUE_META_DATA(
+public data class DsReplAttrValueMetaData(
     public var cNumEntries: UInt = 0u,
     public var dwEnumerationContext: UInt = 0u,
-    public var rgMetaData: List<DS_REPL_VALUE_META_DATA> = List(1) { DS_REPL_VALUE_META_DATA() },
+    public var rgMetaData: List<DsReplValueMetaData> = List(1) { DsReplValueMetaData() },
 )
 
-public data class DS_REPL_ATTR_VALUE_META_DATA_2(
+public data class DsReplAttrValueMetaData2(
     public var cNumEntries: UInt = 0u,
     public var dwEnumerationContext: UInt = 0u,
-    public var rgMetaData: List<DS_REPL_VALUE_META_DATA_2> = List(1) { DS_REPL_VALUE_META_DATA_2() },
+    public var rgMetaData: List<DsReplValueMetaData2> = List(1) { DsReplValueMetaData2() },
 )
 
-public data class DS_REPL_ATTR_VALUE_META_DATA_EXT(
+public data class DsReplAttrValueMetaDataExt(
     public var cNumEntries: UInt = 0u,
     public var dwEnumerationContext: UInt = 0u,
-    public var rgMetaData: List<DS_REPL_VALUE_META_DATA_EXT> = List(1) { DS_REPL_VALUE_META_DATA_EXT() },
+    public var rgMetaData: List<DsReplValueMetaDataExt> = List(1) { DsReplValueMetaDataExt() },
 )
 
-public data class DS_REPL_CURSOR(public var uuidSourceDsaInvocationID: GUID = GUID(), public var usnAttributeFilter: Long = 0L)
+public data class DsReplCursor(public var uuidSourceDsaInvocationID: Guid = Guid(), public var usnAttributeFilter: Long = 0L)
 
-public data class DS_REPL_CURSORS(
+public data class DsReplCursors(
     public var cNumCursors: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgCursor: List<DS_REPL_CURSOR> = List(1) { DS_REPL_CURSOR() },
+    public var rgCursor: List<DsReplCursor> = List(1) { DsReplCursor() },
 )
 
-public data class DS_REPL_CURSORS_2(
+public data class DsReplCursors2(
     public var cNumCursors: UInt = 0u,
     public var dwEnumerationContext: UInt = 0u,
-    public var rgCursor: List<DS_REPL_CURSOR_2> = List(1) { DS_REPL_CURSOR_2() },
+    public var rgCursor: List<DsReplCursor2> = List(1) { DsReplCursor2() },
 )
 
-public data class DS_REPL_CURSORS_3W(
+public data class DsReplCursors3w(
     public var cNumCursors: UInt = 0u,
     public var dwEnumerationContext: UInt = 0u,
-    public var rgCursor: List<DS_REPL_CURSOR_3W> = List(1) { DS_REPL_CURSOR_3W() },
+    public var rgCursor: List<DsReplCursor3w> = List(1) { DsReplCursor3w() },
 )
 
-public data class DS_REPL_CURSOR_2(
-    public var uuidSourceDsaInvocationID: GUID = GUID(),
+public data class DsReplCursor2(
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
+    public var ftimeLastSyncSuccess: Filetime = Filetime(),
 )
 
-public data class DS_REPL_CURSOR_3W(
-    public var uuidSourceDsaInvocationID: GUID = GUID(),
+public data class DsReplCursor3w(
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
-    public var pszSourceDsaDN: PWSTR = 0L,
+    public var ftimeLastSyncSuccess: Filetime = Filetime(),
+    public var pszSourceDsaDN: Pwstr = null,
 )
 
-public data class DS_REPL_CURSOR_BLOB(
-    public var uuidSourceDsaInvocationID: GUID = GUID(),
+public data class DsReplCursorBlob(
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
+    public var ftimeLastSyncSuccess: Filetime = Filetime(),
     public var oszSourceDsaDN: UInt = 0u,
 )
 
-public data class DS_REPL_KCC_DSA_FAILURESW(
+public data class DsReplKccDsaFailuresw(
     public var cNumEntries: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgDsaFailure: List<DS_REPL_KCC_DSA_FAILUREW> = List(1) { DS_REPL_KCC_DSA_FAILUREW() },
+    public var rgDsaFailure: List<DsReplKccDsaFailurew> = List(1) { DsReplKccDsaFailurew() },
 )
 
-public data class DS_REPL_KCC_DSA_FAILUREW(
-    public var pszDsaDN: PWSTR = 0L,
-    public var uuidDsaObjGuid: GUID = GUID(),
-    public var ftimeFirstFailure: FILETIME = FILETIME(),
+public data class DsReplKccDsaFailurew(
+    public var pszDsaDN: Pwstr = null,
+    public var uuidDsaObjGuid: Guid = Guid(),
+    public var ftimeFirstFailure: Filetime = Filetime(),
     public var cNumFailures: UInt = 0u,
     public var dwLastResult: UInt = 0u,
 )
 
-public data class DS_REPL_KCC_DSA_FAILUREW_BLOB(
+public data class DsReplKccDsaFailurewBlob(
     public var oszDsaDN: UInt = 0u,
-    public var uuidDsaObjGuid: GUID = GUID(),
-    public var ftimeFirstFailure: FILETIME = FILETIME(),
+    public var uuidDsaObjGuid: Guid = Guid(),
+    public var ftimeFirstFailure: Filetime = Filetime(),
     public var cNumFailures: UInt = 0u,
     public var dwLastResult: UInt = 0u,
 )
 
-public data class DS_REPL_NEIGHBORSW(
+public data class DsReplNeighborsw(
     public var cNumNeighbors: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgNeighbor: List<DS_REPL_NEIGHBORW> = List(1) { DS_REPL_NEIGHBORW() },
+    public var rgNeighbor: List<DsReplNeighborw> = List(1) { DsReplNeighborw() },
 )
 
-public data class DS_REPL_NEIGHBORW(
-    public var pszNamingContext: PWSTR = 0L,
-    public var pszSourceDsaDN: PWSTR = 0L,
-    public var pszSourceDsaAddress: PWSTR = 0L,
-    public var pszAsyncIntersiteTransportDN: PWSTR = 0L,
+public data class DsReplNeighborw(
+    public var pszNamingContext: Pwstr = null,
+    public var pszSourceDsaDN: Pwstr = null,
+    public var pszSourceDsaAddress: Pwstr = null,
+    public var pszAsyncIntersiteTransportDN: Pwstr = null,
     public var dwReplicaFlags: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var uuidNamingContextObjGuid: GUID = GUID(),
-    public var uuidSourceDsaObjGuid: GUID = GUID(),
-    public var uuidSourceDsaInvocationID: GUID = GUID(),
-    public var uuidAsyncIntersiteTransportObjGuid: GUID = GUID(),
+    public var uuidNamingContextObjGuid: Guid = Guid(),
+    public var uuidSourceDsaObjGuid: Guid = Guid(),
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
+    public var uuidAsyncIntersiteTransportObjGuid: Guid = Guid(),
     public var usnLastObjChangeSynced: Long = 0L,
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
-    public var ftimeLastSyncAttempt: FILETIME = FILETIME(),
+    public var ftimeLastSyncSuccess: Filetime = Filetime(),
+    public var ftimeLastSyncAttempt: Filetime = Filetime(),
     public var dwLastSyncResult: UInt = 0u,
     public var cNumConsecutiveSyncFailures: UInt = 0u,
 )
 
-public data class DS_REPL_NEIGHBORW_BLOB(
+public data class DsReplNeighborwBlob(
     public var oszNamingContext: UInt = 0u,
     public var oszSourceDsaDN: UInt = 0u,
     public var oszSourceDsaAddress: UInt = 0u,
     public var oszAsyncIntersiteTransportDN: UInt = 0u,
     public var dwReplicaFlags: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var uuidNamingContextObjGuid: GUID = GUID(),
-    public var uuidSourceDsaObjGuid: GUID = GUID(),
-    public var uuidSourceDsaInvocationID: GUID = GUID(),
-    public var uuidAsyncIntersiteTransportObjGuid: GUID = GUID(),
+    public var uuidNamingContextObjGuid: Guid = Guid(),
+    public var uuidSourceDsaObjGuid: Guid = Guid(),
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
+    public var uuidAsyncIntersiteTransportObjGuid: Guid = Guid(),
     public var usnLastObjChangeSynced: Long = 0L,
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
-    public var ftimeLastSyncAttempt: FILETIME = FILETIME(),
+    public var ftimeLastSyncSuccess: Filetime = Filetime(),
+    public var ftimeLastSyncAttempt: Filetime = Filetime(),
     public var dwLastSyncResult: UInt = 0u,
     public var cNumConsecutiveSyncFailures: UInt = 0u,
 )
 
-public data class DS_REPL_OBJ_META_DATA(
+public data class DsReplObjMetaData(
     public var cNumEntries: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgMetaData: List<DS_REPL_ATTR_META_DATA> = List(1) { DS_REPL_ATTR_META_DATA() },
+    public var rgMetaData: List<DsReplAttrMetaData> = List(1) { DsReplAttrMetaData() },
 )
 
-public data class DS_REPL_OBJ_META_DATA_2(
+public data class DsReplObjMetaData2(
     public var cNumEntries: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var rgMetaData: List<DS_REPL_ATTR_META_DATA_2> = List(1) { DS_REPL_ATTR_META_DATA_2() },
+    public var rgMetaData: List<DsReplAttrMetaData2> = List(1) { DsReplAttrMetaData2() },
 )
 
-public data class DS_REPL_OPW(
-    public var ftimeEnqueued: FILETIME = FILETIME(),
+public data class DsReplOpw(
+    public var ftimeEnqueued: Filetime = Filetime(),
     public var ulSerialNumber: UInt = 0u,
     public var ulPriority: UInt = 0u,
-    public var OpType: DS_REPL_OP_TYPE = 0,
+    public var opType: DsReplOpType = 0,
     public var ulOptions: UInt = 0u,
-    public var pszNamingContext: PWSTR = 0L,
-    public var pszDsaDN: PWSTR = 0L,
-    public var pszDsaAddress: PWSTR = 0L,
-    public var uuidNamingContextObjGuid: GUID = GUID(),
-    public var uuidDsaObjGuid: GUID = GUID(),
+    public var pszNamingContext: Pwstr = null,
+    public var pszDsaDN: Pwstr = null,
+    public var pszDsaAddress: Pwstr = null,
+    public var uuidNamingContextObjGuid: Guid = Guid(),
+    public var uuidDsaObjGuid: Guid = Guid(),
 )
 
-public data class DS_REPL_OPW_BLOB(
-    public var ftimeEnqueued: FILETIME = FILETIME(),
+public data class DsReplOpwBlob(
+    public var ftimeEnqueued: Filetime = Filetime(),
     public var ulSerialNumber: UInt = 0u,
     public var ulPriority: UInt = 0u,
-    public var OpType: DS_REPL_OP_TYPE = 0,
+    public var opType: DsReplOpType = 0,
     public var ulOptions: UInt = 0u,
     public var oszNamingContext: UInt = 0u,
     public var oszDsaDN: UInt = 0u,
     public var oszDsaAddress: UInt = 0u,
-    public var uuidNamingContextObjGuid: GUID = GUID(),
-    public var uuidDsaObjGuid: GUID = GUID(),
+    public var uuidNamingContextObjGuid: Guid = Guid(),
+    public var uuidDsaObjGuid: Guid = Guid(),
 )
 
-public data class DS_REPL_PENDING_OPSW(
-    public var ftimeCurrentOpStarted: FILETIME = FILETIME(),
+public data class DsReplPendingOpsw(
+    public var ftimeCurrentOpStarted: Filetime = Filetime(),
     public var cNumPendingOps: UInt = 0u,
-    public var rgPendingOp: List<DS_REPL_OPW> = List(1) { DS_REPL_OPW() },
+    public var rgPendingOp: List<DsReplOpw> = List(1) { DsReplOpw() },
 )
 
-public data class DS_REPL_QUEUE_STATISTICSW(
-    public var ftimeCurrentOpStarted: FILETIME = FILETIME(),
+public data class DsReplQueueStatisticsw(
+    public var ftimeCurrentOpStarted: Filetime = Filetime(),
     public var cNumPendingOps: UInt = 0u,
-    public var ftimeOldestSync: FILETIME = FILETIME(),
-    public var ftimeOldestAdd: FILETIME = FILETIME(),
-    public var ftimeOldestMod: FILETIME = FILETIME(),
-    public var ftimeOldestDel: FILETIME = FILETIME(),
-    public var ftimeOldestUpdRefs: FILETIME = FILETIME(),
+    public var ftimeOldestSync: Filetime = Filetime(),
+    public var ftimeOldestAdd: Filetime = Filetime(),
+    public var ftimeOldestMod: Filetime = Filetime(),
+    public var ftimeOldestDel: Filetime = Filetime(),
+    public var ftimeOldestUpdRefs: Filetime = Filetime(),
 )
 
-public data class DS_REPL_VALUE_META_DATA(
-    public var pszAttributeName: PWSTR = 0L,
-    public var pszObjectDn: PWSTR = 0L,
+public data class DsReplValueMetaData(
+    public var pszAttributeName: Pwstr = null,
+    public var pszObjectDn: Pwstr = null,
     public var cbData: UInt = 0u,
-    public var pbData: Long = 0L,
-    public var ftimeDeleted: FILETIME = FILETIME(),
-    public var ftimeCreated: FILETIME = FILETIME(),
+    public var pbData: COpaquePointer? = null,
+    public var ftimeDeleted: Filetime = Filetime(),
+    public var ftimeCreated: Filetime = Filetime(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
 )
 
-public data class DS_REPL_VALUE_META_DATA_2(
-    public var pszAttributeName: PWSTR = 0L,
-    public var pszObjectDn: PWSTR = 0L,
+public data class DsReplValueMetaData2(
+    public var pszAttributeName: Pwstr = null,
+    public var pszObjectDn: Pwstr = null,
     public var cbData: UInt = 0u,
-    public var pbData: Long = 0L,
-    public var ftimeDeleted: FILETIME = FILETIME(),
-    public var ftimeCreated: FILETIME = FILETIME(),
+    public var pbData: COpaquePointer? = null,
+    public var ftimeDeleted: Filetime = Filetime(),
+    public var ftimeCreated: Filetime = Filetime(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
-    public var pszLastOriginatingDsaDN: PWSTR = 0L,
+    public var pszLastOriginatingDsaDN: Pwstr = null,
 )
 
-public data class DS_REPL_VALUE_META_DATA_BLOB(
+public data class DsReplValueMetaDataBlob(
     public var oszAttributeName: UInt = 0u,
     public var oszObjectDn: UInt = 0u,
     public var cbData: UInt = 0u,
     public var obData: UInt = 0u,
-    public var ftimeDeleted: FILETIME = FILETIME(),
-    public var ftimeCreated: FILETIME = FILETIME(),
+    public var ftimeDeleted: Filetime = Filetime(),
+    public var ftimeCreated: Filetime = Filetime(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
     public var oszLastOriginatingDsaDN: UInt = 0u,
 )
 
-public data class DS_REPL_VALUE_META_DATA_BLOB_EXT(
+public data class DsReplValueMetaDataBlobExt(
     public var oszAttributeName: UInt = 0u,
     public var oszObjectDn: UInt = 0u,
     public var cbData: UInt = 0u,
     public var obData: UInt = 0u,
-    public var ftimeDeleted: FILETIME = FILETIME(),
-    public var ftimeCreated: FILETIME = FILETIME(),
+    public var ftimeDeleted: Filetime = Filetime(),
+    public var ftimeCreated: Filetime = Filetime(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
     public var oszLastOriginatingDsaDN: UInt = 0u,
@@ -917,112 +908,112 @@ public data class DS_REPL_VALUE_META_DATA_BLOB_EXT(
     public var dwCurrentLinkState: UInt = 0u,
 )
 
-public data class DS_REPL_VALUE_META_DATA_EXT(
-    public var pszAttributeName: PWSTR = 0L,
-    public var pszObjectDn: PWSTR = 0L,
+public data class DsReplValueMetaDataExt(
+    public var pszAttributeName: Pwstr = null,
+    public var pszObjectDn: Pwstr = null,
     public var cbData: UInt = 0u,
-    public var pbData: Long = 0L,
-    public var ftimeDeleted: FILETIME = FILETIME(),
-    public var ftimeCreated: FILETIME = FILETIME(),
+    public var pbData: COpaquePointer? = null,
+    public var ftimeDeleted: Filetime = Filetime(),
+    public var ftimeCreated: Filetime = Filetime(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
-    public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
+    public var ftimeLastOriginatingChange: Filetime = Filetime(),
+    public var uuidLastOriginatingDsaInvocationID: Guid = Guid(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
-    public var pszLastOriginatingDsaDN: PWSTR = 0L,
+    public var pszLastOriginatingDsaDN: Pwstr = null,
     public var dwUserIdentifier: UInt = 0u,
     public var dwPriorLinkState: UInt = 0u,
     public var dwCurrentLinkState: UInt = 0u,
 )
 
-public data class DS_REPSYNCALL_ERRINFOA(
-    public var pszSvrId: PSTR = 0L,
-    public var error: DS_REPSYNCALL_ERROR = 0,
+public data class DsRepsyncallErrinfoa(
+    public var pszSvrId: Pstr = null,
+    public var error: DsRepsyncallError = 0,
     public var dwWin32Err: UInt = 0u,
-    public var pszSrcId: PSTR = 0L,
+    public var pszSrcId: Pstr = null,
 )
 
-public data class DS_REPSYNCALL_ERRINFOW(
-    public var pszSvrId: PWSTR = 0L,
-    public var error: DS_REPSYNCALL_ERROR = 0,
+public data class DsRepsyncallErrinfow(
+    public var pszSvrId: Pwstr = null,
+    public var error: DsRepsyncallError = 0,
     public var dwWin32Err: UInt = 0u,
-    public var pszSrcId: PWSTR = 0L,
+    public var pszSrcId: Pwstr = null,
 )
 
-public data class DS_REPSYNCALL_SYNCA(
-    public var pszSrcId: PSTR = 0L,
-    public var pszDstId: PSTR = 0L,
-    public var pszNC: PSTR = 0L,
-    public var pguidSrc: Long = 0L,
-    public var pguidDst: Long = 0L,
+public data class DsRepsyncallSynca(
+    public var pszSrcId: Pstr = null,
+    public var pszDstId: Pstr = null,
+    public var pszNC: Pstr = null,
+    public var pguidSrc: Guid? = null,
+    public var pguidDst: Guid? = null,
 )
 
-public data class DS_REPSYNCALL_SYNCW(
-    public var pszSrcId: PWSTR = 0L,
-    public var pszDstId: PWSTR = 0L,
-    public var pszNC: PWSTR = 0L,
-    public var pguidSrc: Long = 0L,
-    public var pguidDst: Long = 0L,
+public data class DsRepsyncallSyncw(
+    public var pszSrcId: Pwstr = null,
+    public var pszDstId: Pwstr = null,
+    public var pszNC: Pwstr = null,
+    public var pguidSrc: Guid? = null,
+    public var pguidDst: Guid? = null,
 )
 
-public data class DS_REPSYNCALL_UPDATEA(
-    public var event: DS_REPSYNCALL_EVENT = 0,
-    public var pErrInfo: Long = 0L,
-    public var pSync: Long = 0L,
+public data class DsRepsyncallUpdatea(
+    public var event: DsRepsyncallEvent = 0,
+    public var pErrInfo: DsRepsyncallErrinfoa? = null,
+    public var pSync: DsRepsyncallSynca? = null,
 )
 
-public data class DS_REPSYNCALL_UPDATEW(
-    public var event: DS_REPSYNCALL_EVENT = 0,
-    public var pErrInfo: Long = 0L,
-    public var pSync: Long = 0L,
+public data class DsRepsyncallUpdatew(
+    public var event: DsRepsyncallEvent = 0,
+    public var pErrInfo: DsRepsyncallErrinfow? = null,
+    public var pSync: DsRepsyncallSyncw? = null,
 )
 
-public data class DS_SCHEMA_GUID_MAPA(
-    public var guid: GUID = GUID(),
+public data class DsSchemaGuidMapa(
+    public var guid: Guid = Guid(),
     public var guidType: UInt = 0u,
-    public var pName: PSTR = 0L,
+    public var pName: Pstr = null,
 )
 
-public data class DS_SCHEMA_GUID_MAPW(
-    public var guid: GUID = GUID(),
+public data class DsSchemaGuidMapw(
+    public var guid: Guid = Guid(),
     public var guidType: UInt = 0u,
-    public var pName: PWSTR = 0L,
+    public var pName: Pwstr = null,
 )
 
-public data class DS_SELECTION(
-    public var pwzName: PWSTR = 0L,
-    public var pwzADsPath: PWSTR = 0L,
-    public var pwzClass: PWSTR = 0L,
-    public var pwzUPN: PWSTR = 0L,
-    public var pvarFetchedAttributes: Long = 0L,
+public data class DsSelection(
+    public var pwzName: Pwstr = null,
+    public var pwzADsPath: Pwstr = null,
+    public var pwzClass: Pwstr = null,
+    public var pwzUPN: Pwstr = null,
+    public var pvarFetchedAttributes: Variant? = null,
     public var flScopeType: UInt = 0u,
 )
 
-public data class DS_SELECTION_LIST(
+public data class DsSelectionList(
     public var cItems: UInt = 0u,
     public var cFetchedAttributes: UInt = 0u,
-    public var aDsSelection: List<DS_SELECTION> = List(1) { DS_SELECTION() },
+    public var aDsSelection: List<DsSelection> = List(1) { DsSelection() },
 )
 
-public data class DS_SITE_COST_INFO(public var errorCode: UInt = 0u, public var cost: UInt = 0u)
+public data class DsSiteCostInfo(public var errorCode: UInt = 0u, public var cost: UInt = 0u)
 
-public data class OPENQUERYWINDOW(
+public data class Openquerywindow(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var clsidHandler: GUID = GUID(),
-    public var pHandlerParameters: Long = 0L,
-    public var clsidDefaultForm: GUID = GUID(),
-    public var pPersistQuery: Long = 0L,
-    public var Anonymous: OPENQUERYWINDOW_0 = OPENQUERYWINDOW_0(),
+    public var clsidHandler: Guid = Guid(),
+    public var pHandlerParameters: COpaquePointer? = null,
+    public var clsidDefaultForm: Guid = Guid(),
+    public var pPersistQuery: COpaquePointer? = null,
+    public var anonymous: Openquerywindow0 = Openquerywindow0(),
 )
 
-public data class OPENQUERYWINDOW_0(public var pFormParameters: Long = 0L, public var ppbFormParameters: Long = 0L)
+public data class Openquerywindow0(public var pFormParameters: COpaquePointer? = null, public var ppbFormParameters: COpaquePointer? = null)
 
-public data class SCHEDULE(
-    public var Size: UInt = 0u,
-    public var Bandwidth: UInt = 0u,
-    public var NumberOfSchedules: UInt = 0u,
-    public var Schedules: List<SCHEDULE_HEADER> = List(1) { SCHEDULE_HEADER() },
+public data class Schedule(
+    public var size: UInt = 0u,
+    public var bandwidth: UInt = 0u,
+    public var numberOfSchedules: UInt = 0u,
+    public var schedules: List<ScheduleHeader> = List(1) { ScheduleHeader() },
 )
 
-public data class SCHEDULE_HEADER(public var Type: UInt = 0u, public var Offset: UInt = 0u)
+public data class ScheduleHeader(public var type: UInt = 0u, public var offset: UInt = 0u)

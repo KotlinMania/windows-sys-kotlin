@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_data_htmlhelp_HtmlHelpA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_data_htmlhelp_htmlHelpA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndcaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_data_htmlhelp_HtmlHelpA_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_data_htmlhelp_HtmlHelpW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_data_htmlhelp_htmlHelpW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndcaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -100,8 +100,8 @@ static Napi::Value windowssys_windows_win32_data_htmlhelp_HtmlHelpW_napi(const N
 }
 
 static void register_windows_win32_data_htmlhelp_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_data_htmlhelp_HtmlHelpA", Napi::Function::New(env, windowssys_windows_win32_data_htmlhelp_HtmlHelpA_napi));
-    exports.Set("windowssys_windows_win32_data_htmlhelp_HtmlHelpW", Napi::Function::New(env, windowssys_windows_win32_data_htmlhelp_HtmlHelpW_napi));
+    exports.Set("windowssys_windows_win32_data_htmlhelp_htmlHelpA", Napi::Function::New(env, windowssys_windows_win32_data_htmlhelp_htmlHelpA_napi));
+    exports.Set("windowssys_windows_win32_data_htmlhelp_htmlHelpW", Napi::Function::New(env, windowssys_windows_win32_data_htmlhelp_htmlHelpW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_data_htmlhelp_napi, nullptr };

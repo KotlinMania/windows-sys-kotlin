@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1ClearPropVariantArray(JNIEnv* km_env, jclass km_clazz, jlong rgpropvar, jint cvars) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1clearPropVariantArray(JNIEnv* km_env, jclass km_clazz, jlong rgpropvar, jint cvars) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -35,7 +35,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1CoGetInstanceFromFile(JNIEnv* km_env, jclass km_clazz, jlong pserverinfo, jlong pclsid, jlong punkouter, jint dwclsctx, jint grfmode, jlong pwszname, jint dwcount, jlong presults) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1coGetInstanceFromFile(JNIEnv* km_env, jclass km_clazz, jlong pserverinfo, jlong pclsid, jlong punkouter, jint dwclsctx, jint grfmode, jlong pwszname, jint dwcount, jlong presults) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1CoGetInstanceFromIStorage(JNIEnv* km_env, jclass km_clazz, jlong pserverinfo, jlong pclsid, jlong punkouter, jint dwclsctx, jlong pstg, jint dwcount, jlong presults) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1coGetInstanceFromIStorage(JNIEnv* km_env, jclass km_clazz, jlong pserverinfo, jlong pclsid, jlong punkouter, jint dwclsctx, jlong pstg, jint dwcount, jlong presults) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1CoGetInterfaceAndReleaseStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong iid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1coGetInterfaceAndReleaseStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong iid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -104,7 +104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1CreateILockBytesOnHGlobal(JNIEnv* km_env, jclass km_clazz, jlong hglobal, jint fdeleteonrelease, jlong pplkbyt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1createILockBytesOnHGlobal(JNIEnv* km_env, jclass km_clazz, jlong hglobal, jint fdeleteonrelease, jlong pplkbyt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1CreateStreamOnHGlobal(JNIEnv* km_env, jclass km_clazz, jlong hglobal, jint fdeleteonrelease, jlong ppstm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1createStreamOnHGlobal(JNIEnv* km_env, jclass km_clazz, jlong hglobal, jint fdeleteonrelease, jlong ppstm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -144,7 +144,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1FmtIdToPropStgName(JNIEnv* km_env, jclass km_clazz, jlong pfmtid, jlong oszname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1fmtIdToPropStgName(JNIEnv* km_env, jclass km_clazz, jlong pfmtid, jlong oszname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -163,7 +163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1FreePropVariantArray(JNIEnv* km_env, jclass km_clazz, jint cvariants, jlong rgvars) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1freePropVariantArray(JNIEnv* km_env, jclass km_clazz, jint cvariants, jlong rgvars) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1GetConvertStg(JNIEnv* km_env, jclass km_clazz, jlong pstg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1getConvertStg(JNIEnv* km_env, jclass km_clazz, jlong pstg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1GetHGlobalFromILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jlong phglobal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1getHGlobalFromILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jlong phglobal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -219,7 +219,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1GetHGlobalFromStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong phglobal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1getHGlobalFromStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong phglobal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -238,7 +238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromBooleanVector(JNIEnv* km_env, jclass km_clazz, jlong prgf, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromBooleanVector(JNIEnv* km_env, jclass km_clazz, jlong prgf, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cb, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cb, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -278,7 +278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromCLSID(JNIEnv* km_env, jclass km_clazz, jlong clsid, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromCLSID(JNIEnv* km_env, jclass km_clazz, jlong clsid, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -297,7 +297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromDoubleVector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromDoubleVector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromFileTime(JNIEnv* km_env, jclass km_clazz, jlong pftin, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromFileTime(JNIEnv* km_env, jclass km_clazz, jlong pftin, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -336,7 +336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromFileTimeVector(JNIEnv* km_env, jclass km_clazz, jlong prgft, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromFileTimeVector(JNIEnv* km_env, jclass km_clazz, jlong prgft, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -356,7 +356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromGUIDAsString(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromGUIDAsString(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -375,7 +375,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -395,7 +395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -415,7 +415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -435,7 +435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromPropVariantVectorElem(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint ielem, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromPropVariantVectorElem(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint ielem, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -455,7 +455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromResource(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint id, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromResource(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint id, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -475,7 +475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromStringAsVector(JNIEnv* km_env, jclass km_clazz, jlong psz, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromStringAsVector(JNIEnv* km_env, jclass km_clazz, jlong psz, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -494,7 +494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromStringVector(JNIEnv* km_env, jclass km_clazz, jlong prgsz, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromStringVector(JNIEnv* km_env, jclass km_clazz, jlong prgsz, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -514,7 +514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromUInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromUInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -534,7 +534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromUInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromUInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -554,7 +554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantFromUInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantFromUInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -574,7 +574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1InitPropVariantVectorFromPropVariant(JNIEnv* km_env, jclass km_clazz, jlong propvarsingle, jlong ppropvarvector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1initPropVariantVectorFromPropVariant(JNIEnv* km_env, jclass km_clazz, jlong propvarsingle, jlong ppropvarvector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1OleConvertIStorageToOLESTREAM(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong lpolestream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1oleConvertIStorageToOLESTREAM(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong lpolestream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -612,7 +612,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1OleConvertIStorageToOLESTREAMEx(JNIEnv* km_env, jclass km_clazz, jlong pstg, jshort cfformat, jint lwidth, jint lheight, jint dwsize, jlong pmedium, jlong polestm) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1oleConvertIStorageToOLESTREAMEx(JNIEnv* km_env, jclass km_clazz, jlong pstg, jshort cfformat, jint lwidth, jint lheight, jint dwsize, jlong pmedium, jlong polestm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -636,7 +636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1OleConvertOLESTREAMToIStorage(JNIEnv* km_env, jclass km_clazz, jlong lpolestream, jlong pstg, jlong ptd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1oleConvertOLESTREAMToIStorage(JNIEnv* km_env, jclass km_clazz, jlong lpolestream, jlong pstg, jlong ptd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -656,7 +656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1OleConvertOLESTREAMToIStorageEx(JNIEnv* km_env, jclass km_clazz, jlong polestm, jlong pstg, jlong pcfformat, jlong plwwidth, jlong plheight, jlong pdwsize, jlong pmedium) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1oleConvertOLESTREAMToIStorageEx(JNIEnv* km_env, jclass km_clazz, jlong polestm, jlong pstg, jlong pcfformat, jlong plwwidth, jlong plheight, jlong pdwsize, jlong pmedium) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -680,7 +680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropStgNameToFmtId(JNIEnv* km_env, jclass km_clazz, jlong oszname, jlong pfmtid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propStgNameToFmtId(JNIEnv* km_env, jclass km_clazz, jlong oszname, jlong pfmtid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -699,7 +699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantChangeType(JNIEnv* km_env, jclass km_clazz, jlong ppropvardest, jlong propvarsrc, jint flags, jshort vt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantChangeType(JNIEnv* km_env, jclass km_clazz, jlong ppropvardest, jlong propvarsrc, jint flags, jshort vt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -720,7 +720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantClear(JNIEnv* km_env, jclass km_clazz, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantClear(JNIEnv* km_env, jclass km_clazz, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantCompareEx(JNIEnv* km_env, jclass km_clazz, jlong propvar1, jlong propvar2, jint unit, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantCompareEx(JNIEnv* km_env, jclass km_clazz, jlong propvar1, jlong propvar2, jint unit, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -759,7 +759,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantCopy(JNIEnv* km_env, jclass km_clazz, jlong pvardest, jlong pvarsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantCopy(JNIEnv* km_env, jclass km_clazz, jlong pvardest, jlong pvarsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetBooleanElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pfval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetBooleanElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pfval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -798,7 +798,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetDoubleElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetDoubleElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -818,7 +818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetElementCount(JNIEnv* km_env, jclass km_clazz, jlong propvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetElementCount(JNIEnv* km_env, jclass km_clazz, jlong propvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -836,7 +836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetFileTimeElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pftval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetFileTimeElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pftval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -856,7 +856,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -876,7 +876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -896,7 +896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -916,7 +916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetStringElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong ppszval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetStringElem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong ppszval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -936,7 +936,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetUInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetUInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -956,7 +956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetUInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetUInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -976,7 +976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantGetUInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantGetUInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -996,7 +996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBSTR(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pbstrout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBSTR(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pbstrout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1015,7 +1015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBoolean(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pfret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBoolean(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pfret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1034,7 +1034,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBooleanVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgf, jint crgf, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBooleanVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgf, jint crgf, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1055,7 +1055,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBooleanVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgf, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBooleanVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgf, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1075,7 +1075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBooleanWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint fdefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBooleanWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint fdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1094,7 +1094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToBuffer(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToBuffer(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1114,7 +1114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToDouble(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pdblret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToDouble(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pdblret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1133,7 +1133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToDoubleVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToDoubleVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1154,7 +1154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToDoubleVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToDoubleVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1174,7 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToDoubleWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jdouble dbldefault) {
+JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToDoubleWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jdouble dbldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1193,7 +1193,7 @@ JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sy
     return (jdouble)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToFileTime(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint pstfout, jlong pftout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToFileTime(JNIEnv* km_env, jclass km_clazz, jlong propvar, jint pstfout, jlong pftout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1213,7 +1213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToFileTimeVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgft, jint crgft, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToFileTimeVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgft, jint crgft, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1234,7 +1234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToFileTimeVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgft, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToFileTimeVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgft, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1254,7 +1254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToGUID(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToGUID(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1273,7 +1273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt16(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong piret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt16(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong piret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1292,7 +1292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt16VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt16VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1333,7 +1333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jshort idefault) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jshort idefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1352,7 +1352,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt32(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong plret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt32(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong plret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1371,7 +1371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1392,7 +1392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt32VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt32VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1412,7 +1412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint ldefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint ldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1431,7 +1431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt64(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pllret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt64(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pllret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1450,7 +1450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1471,7 +1471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt64VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt64VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1491,7 +1491,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong lldefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong lldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1510,7 +1510,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToString(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong psz, jint cch) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToString(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong psz, jint cch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1530,7 +1530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToStringAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong ppszout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToStringAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong ppszout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1549,7 +1549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToStringVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgsz, jint crgsz, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToStringVector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgsz, jint crgsz, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1570,7 +1570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToStringVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgsz, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToStringVectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgsz, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1590,7 +1590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToStringWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pszdefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToStringWithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pszdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1609,7 +1609,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt16(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong puiret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt16(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong puiret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1628,7 +1628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt16Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1649,7 +1649,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt16VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt16VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1669,7 +1669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jshort uidefault) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jshort uidefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1688,7 +1688,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt32(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pulret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt32(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pulret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1707,7 +1707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt32Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1728,7 +1728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt32VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt32VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1748,7 +1748,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint uldefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jint uldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1767,7 +1767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt64(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pullret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt64(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong pullret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1786,7 +1786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt64Vector(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1807,7 +1807,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt64VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt64VectorAlloc(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1827,7 +1827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToUInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong ulldefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToUInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong propvarin, jlong ulldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1846,7 +1846,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToVariant(JNIEnv* km_env, jclass km_clazz, jlong ppropvar, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToVariant(JNIEnv* km_env, jclass km_clazz, jlong ppropvar, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1865,7 +1865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1PropVariantToWinRTPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong riid, jlong ppv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1propVariantToWinRTPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong propvar, jlong riid, jlong ppv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1885,7 +1885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1ReadClassStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong pclsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1readClassStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong pclsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1904,7 +1904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1ReadClassStm(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong pclsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1readClassStm(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong pclsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1923,7 +1923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1ReadFmtUserTypeStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong pcf, jlong lplpszusertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1readFmtUserTypeStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong pcf, jlong lplpszusertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1943,7 +1943,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1SetConvertStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jint fconvert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1setConvertStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jint fconvert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1962,7 +1962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgConvertPropertyToVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jshort codepage, jlong pvar, jlong pma) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgConvertPropertyToVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jshort codepage, jlong pvar, jlong pma) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1983,7 +1983,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgConvertVariantToProperty(JNIEnv* km_env, jclass km_clazz, jlong pvar, jshort codepage, jlong pprop, jlong pcb, jint pid, jboolean freserved, jlong pcindirect) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgConvertVariantToProperty(JNIEnv* km_env, jclass km_clazz, jlong pvar, jshort codepage, jlong pprop, jlong pcb, jint pid, jboolean freserved, jlong pcindirect) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2007,7 +2007,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgCreateDocfile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint reserved, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgCreateDocfile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint reserved, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2028,7 +2028,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgCreateDocfileOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jint grfmode, jint reserved, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgCreateDocfileOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jint grfmode, jint reserved, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2049,7 +2049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgCreatePropSetStg(JNIEnv* km_env, jclass km_clazz, jlong pstorage, jint dwreserved, jlong pppropsetstg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgCreatePropSetStg(JNIEnv* km_env, jclass km_clazz, jlong pstorage, jint dwreserved, jlong pppropsetstg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2069,7 +2069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgCreatePropStg(JNIEnv* km_env, jclass km_clazz, jlong punk, jlong fmtid, jlong pclsid, jint grfflags, jint dwreserved, jlong pppropstg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgCreatePropStg(JNIEnv* km_env, jclass km_clazz, jlong punk, jlong fmtid, jlong pclsid, jint grfflags, jint dwreserved, jlong pppropstg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2092,7 +2092,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgCreateStorageEx(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint stgfmt, jint grfattrs, jlong pstgoptions, jlong psecuritydescriptor, jlong riid, jlong ppobjectopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgCreateStorageEx(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint stgfmt, jint grfattrs, jlong pstgoptions, jlong psecuritydescriptor, jlong riid, jlong ppobjectopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2117,7 +2117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgDeserializePropVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jint cbmax, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgDeserializePropVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jint cbmax, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2137,7 +2137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgGetIFillLockBytesOnFile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jlong ppflb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgGetIFillLockBytesOnFile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jlong ppflb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2156,7 +2156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgGetIFillLockBytesOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong pilb, jlong ppflb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgGetIFillLockBytesOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong pilb, jlong ppflb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2175,7 +2175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgIsStorageFile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgIsStorageFile(JNIEnv* km_env, jclass km_clazz, jlong pwcsname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2193,7 +2193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgIsStorageILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgIsStorageILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2211,7 +2211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenAsyncDocfileOnIFillLockBytes(JNIEnv* km_env, jclass km_clazz, jlong pflb, jint grfmode, jint asyncflags, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenAsyncDocfileOnIFillLockBytes(JNIEnv* km_env, jclass km_clazz, jlong pflb, jint grfmode, jint asyncflags, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2232,7 +2232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenLayoutDocfile(JNIEnv* km_env, jclass km_clazz, jlong pwcsdfname, jint grfmode, jint reserved, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenLayoutDocfile(JNIEnv* km_env, jclass km_clazz, jlong pwcsdfname, jint grfmode, jint reserved, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2253,7 +2253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenPropStg(JNIEnv* km_env, jclass km_clazz, jlong punk, jlong fmtid, jint grfflags, jint dwreserved, jlong pppropstg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenPropStg(JNIEnv* km_env, jclass km_clazz, jlong punk, jlong fmtid, jint grfflags, jint dwreserved, jlong pppropstg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2275,7 +2275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenStorage(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jlong pstgpriority, jint grfmode, jlong snbexclude, jint reserved, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenStorage(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jlong pstgpriority, jint grfmode, jlong snbexclude, jint reserved, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2298,7 +2298,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenStorageEx(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint stgfmt, jint grfattrs, jlong pstgoptions, jlong psecuritydescriptor, jlong riid, jlong ppobjectopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenStorageEx(JNIEnv* km_env, jclass km_clazz, jlong pwcsname, jint grfmode, jint stgfmt, jint grfattrs, jlong pstgoptions, jlong psecuritydescriptor, jlong riid, jlong ppobjectopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2323,7 +2323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgOpenStorageOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jlong pstgpriority, jint grfmode, jlong snbexclude, jint reserved, jlong ppstgopen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgOpenStorageOnILockBytes(JNIEnv* km_env, jclass km_clazz, jlong plkbyt, jlong pstgpriority, jint grfmode, jlong snbexclude, jint reserved, jlong ppstgopen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2346,7 +2346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgPropertyLengthAsVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jint cbprop, jshort codepage, jbyte breserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgPropertyLengthAsVariant(JNIEnv* km_env, jclass km_clazz, jlong pprop, jint cbprop, jshort codepage, jbyte breserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2367,7 +2367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgSerializePropVariant(JNIEnv* km_env, jclass km_clazz, jlong ppropvar, jlong ppprop, jlong pcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgSerializePropVariant(JNIEnv* km_env, jclass km_clazz, jlong ppropvar, jlong ppprop, jlong pcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2387,7 +2387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1StgSetTimes(JNIEnv* km_env, jclass km_clazz, jlong lpszname, jlong pctime, jlong patime, jlong pmtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1stgSetTimes(JNIEnv* km_env, jclass km_clazz, jlong lpszname, jlong pctime, jlong patime, jlong pmtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2408,7 +2408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1VariantToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1variantToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2427,7 +2427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1WinRTPropertyValueToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong punkpropertyvalue, jlong ppropvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1winRTPropertyValueToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong punkpropertyvalue, jlong ppropvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2446,7 +2446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1WriteClassStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong rclsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1writeClassStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong rclsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2465,7 +2465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1WriteClassStm(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong rclsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1writeClassStm(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong rclsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2484,7 +2484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1WriteFmtUserTypeStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jshort cf, jlong lpszusertype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_com_structuredstorage_WindowsWin32SystemComStructuredstorageJniBridge_windowssys_1windows_1win32_1system_1com_1structuredstorage_1writeFmtUserTypeStg(JNIEnv* km_env, jclass km_clazz, jlong pstg, jshort cf, jlong lpszusertype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

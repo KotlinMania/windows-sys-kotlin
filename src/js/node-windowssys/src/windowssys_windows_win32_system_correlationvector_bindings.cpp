@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* correlationvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_RtlExtendCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* correlationvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_RtlIncremen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* correlationvector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t version = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_RtlInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vector = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -128,10 +128,10 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_RtlValidate
 }
 
 static void register_windows_win32_system_correlationvector_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector_napi));
-    exports.Set("windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector_napi));
-    exports.Set("windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector_napi));
-    exports.Set("windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector_napi));
+    exports.Set("windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector_napi));
+    exports.Set("windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector_napi));
+    exports.Set("windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector_napi));
+    exports.Set("windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector", Napi::Function::New(env, windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_correlationvector_napi, nullptr };

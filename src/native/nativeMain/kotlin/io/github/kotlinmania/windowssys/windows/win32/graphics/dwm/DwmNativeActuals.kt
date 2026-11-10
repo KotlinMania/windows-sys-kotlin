@@ -2,105 +2,106 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DwmAttachMilContent(hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmAttachMilContent(hwnd.toCPointer<ByteVar>())
+public actual fun dwmAttachMilContent(hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmAttachMilContent(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmDefWindowProc(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, plresult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmDefWindowProc(hwnd.toCPointer<ByteVar>(), msg, wparam, lparam, plresult.toCPointer<ByteVar>())
+public actual fun dwmDefWindowProc(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, plresult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmDefWindowProc(hwnd?.value?.toCPointer<ByteVar>(), msg, wparam, lparam, plresult?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmDetachMilContent(hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmDetachMilContent(hwnd.toCPointer<ByteVar>())
+public actual fun dwmDetachMilContent(hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmDetachMilContent(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmEnableBlurBehindWindow(hwnd: HWND, pblurbehind: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow(hwnd.toCPointer<ByteVar>(), pblurbehind.toCPointer<ByteVar>())
+public actual fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow(hwnd?.value?.toCPointer<ByteVar>(), pblurbehind?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmEnableComposition(ucompositionaction: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmEnableComposition(ucompositionaction)
+public actual fun dwmEnableComposition(ucompositionaction: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmEnableComposition(ucompositionaction)
 
-public actual fun DwmEnableMMCSS(fenablemmcss: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS(fenablemmcss)
+public actual fun dwmEnableMMCSS(fenablemmcss: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS(fenablemmcss)
 
-public actual fun DwmExtendFrameIntoClientArea(hwnd: HWND, pmarinset: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea(hwnd.toCPointer<ByteVar>(), pmarinset.toCPointer<ByteVar>())
+public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea(hwnd?.value?.toCPointer<ByteVar>(), pmarinset?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmFlush(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmFlush()
+public actual fun dwmFlush(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmFlush()
 
-public actual fun DwmGetColorizationColor(pcrcolorization: Long, pfopaqueblend: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor(pcrcolorization.toCPointer<ByteVar>(), pfopaqueblend.toCPointer<ByteVar>())
+public actual fun dwmGetColorizationColor(pcrcolorization: COpaquePointer?, pfopaqueblend: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor(pcrcolorization?.value?.toCPointer<ByteVar>(), pfopaqueblend?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetCompositionTimingInfo(hwnd: HWND, ptiminginfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo(hwnd.toCPointer<ByteVar>(), ptiminginfo.toCPointer<ByteVar>())
+public actual fun dwmGetCompositionTimingInfo(hwnd: Hwnd, ptiminginfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo(hwnd?.value?.toCPointer<ByteVar>(), ptiminginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient(uindex, pclientuuid.toCPointer<ByteVar>())
+public actual fun dwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient(uindex, pclientuuid?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint(uindex, ptransform.toCPointer<ByteVar>())
+public actual fun dwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint(uindex, ptransform?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetTransportAttributes(pfisremoting: Long, pfisconnected: Long, pdwgeneration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes(pfisremoting.toCPointer<ByteVar>(), pfisconnected.toCPointer<ByteVar>(), pdwgeneration.toCPointer<ByteVar>())
+public actual fun dwmGetTransportAttributes(pfisremoting: COpaquePointer?, pfisconnected: COpaquePointer?, pdwgeneration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes(pfisremoting?.value?.toCPointer<ByteVar>(), pfisconnected?.value?.toCPointer<ByteVar>(), pdwgeneration?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetUnmetTabRequirements(appwindow: HWND, value: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements(appwindow.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun dwmGetUnmetTabRequirements(appwindow: Hwnd, value: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements(appwindow?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmGetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute(hwnd.toCPointer<ByteVar>(), dwattribute, pvattribute.toCPointer<ByteVar>(), cbattribute)
+public actual fun dwmGetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute(hwnd?.value?.toCPointer<ByteVar>(), dwattribute, pvattribute?.value?.toCPointer<ByteVar>(), cbattribute)
 
-public actual fun DwmInvalidateIconicBitmaps(hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps(hwnd.toCPointer<ByteVar>())
+public actual fun dwmInvalidateIconicBitmaps(hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmIsCompositionEnabled(pfenabled: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled(pfenabled.toCPointer<ByteVar>())
+public actual fun dwmIsCompositionEnabled(pfenabled: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled(pfenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmModifyPreviousDxFrameDuration(hwnd: HWND, crefreshes: Int, frelative: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration(hwnd.toCPointer<ByteVar>(), crefreshes, frelative)
+public actual fun dwmModifyPreviousDxFrameDuration(hwnd: Hwnd, crefreshes: Int, frelative: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration(hwnd?.value?.toCPointer<ByteVar>(), crefreshes, frelative)
 
-public actual fun DwmQueryThumbnailSourceSize(hthumbnail: Long, psize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize(hthumbnail, psize.toCPointer<ByteVar>())
+public actual fun dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize(hthumbnail, psize?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmRegisterThumbnail(hwnddestination: HWND, hwndsource: HWND, phthumbnailid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail(hwnddestination.toCPointer<ByteVar>(), hwndsource.toCPointer<ByteVar>(), phthumbnailid.toCPointer<ByteVar>())
+public actual fun dwmRegisterThumbnail(hwnddestination: Hwnd, hwndsource: Hwnd, phthumbnailid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail(hwnddestination?.value?.toCPointer<ByteVar>(), hwndsource?.value?.toCPointer<ByteVar>(), phthumbnailid?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: UInt, pdwpointerid: Long, ppoints: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmRenderGesture(gt, ccontacts, pdwpointerid.toCPointer<ByteVar>(), ppoints.toCPointer<ByteVar>())
+public actual fun dwmRenderGesture(gt: GestureType, ccontacts: UInt, pdwpointerid: COpaquePointer?, ppoints: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmRenderGesture(gt, ccontacts, pdwpointerid?.value?.toCPointer<ByteVar>(), ppoints?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmSetDxFrameDuration(hwnd: HWND, crefreshes: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration(hwnd.toCPointer<ByteVar>(), crefreshes)
+public actual fun dwmSetDxFrameDuration(hwnd: Hwnd, crefreshes: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration(hwnd?.value?.toCPointer<ByteVar>(), crefreshes)
 
-public actual fun DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, pptclient: Long, dwsitflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap(hwnd.toCPointer<ByteVar>(), hbmp.toCPointer<ByteVar>(), pptclient.toCPointer<ByteVar>(), dwsitflags)
+public actual fun dwmSetIconicLivePreviewBitmap(hwnd: Hwnd, hbmp: Hbitmap, pptclient: COpaquePointer?, dwsitflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap(hwnd?.value?.toCPointer<ByteVar>(), hbmp?.value?.toCPointer<ByteVar>(), pptclient?.value?.toCPointer<ByteVar>(), dwsitflags)
 
-public actual fun DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwsitflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail(hwnd.toCPointer<ByteVar>(), hbmp.toCPointer<ByteVar>(), dwsitflags)
+public actual fun dwmSetIconicThumbnail(hwnd: Hwnd, hbmp: Hbitmap, dwsitflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail(hwnd?.value?.toCPointer<ByteVar>(), hbmp?.value?.toCPointer<ByteVar>(), dwsitflags)
 
-public actual fun DwmSetPresentParameters(hwnd: HWND, ppresentparams: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters(hwnd.toCPointer<ByteVar>(), ppresentparams.toCPointer<ByteVar>())
+public actual fun dwmSetPresentParameters(hwnd: Hwnd, ppresentparams: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters(hwnd?.value?.toCPointer<ByteVar>(), ppresentparams?.value?.toCPointer<ByteVar>())
 
-public actual fun DwmSetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute(hwnd.toCPointer<ByteVar>(), dwattribute, pvattribute.toCPointer<ByteVar>(), cbattribute)
+public actual fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute(hwnd?.value?.toCPointer<ByteVar>(), dwattribute, pvattribute?.value?.toCPointer<ByteVar>(), cbattribute)
 
-public actual fun DwmShowContact(dwpointerid: UInt, eshowcontact: DWM_SHOWCONTACT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmShowContact(dwpointerid, eshowcontact)
+public actual fun dwmShowContact(dwpointerid: UInt, eshowcontact: DwmShowcontact): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmShowContact(dwpointerid, eshowcontact)
 
-public actual fun DwmTetherContact(dwpointerid: UInt, fenable: BOOL, pttether: POINT): HRESULT =
+public actual fun dwmTetherContact(dwpointerid: UInt, fenable: Bool, pttether: Point): Hresult =
     0
 
-public actual fun DwmTransitionOwnedWindow(hwnd: HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow(hwnd.toCPointer<ByteVar>(), target)
+public actual fun dwmTransitionOwnedWindow(hwnd: Hwnd, target: DwmtransitionOwnedwindowTarget): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow(hwnd?.value?.toCPointer<ByteVar>(), target)
 
-public actual fun DwmUnregisterThumbnail(hthumbnailid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail(hthumbnailid)
+public actual fun dwmUnregisterThumbnail(hthumbnailid: Long): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail(hthumbnailid)
 
-public actual fun DwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties(hthumbnailid, ptnproperties.toCPointer<ByteVar>())
+public actual fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.dwm.cinterop.windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties(hthumbnailid, ptnproperties?.value?.toCPointer<ByteVar>())

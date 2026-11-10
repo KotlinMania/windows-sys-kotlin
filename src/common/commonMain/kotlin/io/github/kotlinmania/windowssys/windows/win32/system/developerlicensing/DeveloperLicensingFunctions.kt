@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.developerlicensing
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun AcquireDeveloperLicense(hwndparent: HWND, pexpiration: Long): HRESULT
+public expect fun acquireDeveloperLicense(hwndparent: Hwnd, pexpiration: COpaquePointer?): Hresult
 
-public expect fun CheckDeveloperLicense(pexpiration: Long): HRESULT
+public expect fun checkDeveloperLicense(pexpiration: COpaquePointer?): Hresult
 
-public expect fun RemoveDeveloperLicense(hwndparent: HWND): HRESULT
+public expect fun removeDeveloperLicense(hwndparent: Hwnd): Hresult

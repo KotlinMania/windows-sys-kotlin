@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_tpmbaseservices_GetDeviceID(void* pbwindowsaik, uint32_t cbwindowsaik, void* pcbresult, void* pfprotectedbytpm) {
+int32_t windowssys_windows_win32_system_tpmbaseservices_getDeviceID(void* pbwindowsaik, uint32_t cbwindowsaik, void* pcbresult, void* pfprotectedbytpm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_system_tpmbaseservices_GetDeviceID(void* pbwind
 #endif
 }
 
-int32_t windowssys_windows_win32_system_tpmbaseservices_GetDeviceIDString(void* pszwindowsaik, uint32_t cchwindowsaik, void* pcchresult, void* pfprotectedbytpm) {
+int32_t windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString(void* pszwindowsaik, uint32_t cchwindowsaik, void* pcchresult, void* pfprotectedbytpm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_system_tpmbaseservices_GetDeviceIDString(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Context_Create(void* pcontextparams, void* phcontext) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate(void* pcontextparams, void* phcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Context_Create(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Create_Windows_Key(uint32_t keyhandle) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey(uint32_t keyhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Create_Windows_Key
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_GetDeviceInfo(uint32_t size, void* info) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo(uint32_t size, void* info) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_GetDeviceInfo(uint
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_OwnerAuth(void* hcontext, uint32_t ownerauthtype, void* poutputbuf, void* poutputbuflen) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth(void* hcontext, uint32_t ownerauthtype, void* poutputbuf, void* poutputbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_OwnerAuth(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log(void* hcontext, void* poutputbuf, void* poutputbuflen) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog(void* hcontext, void* poutputbuf, void* poutputbuflen) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log_Ex(uint32_t logtype, void* pboutput, void* pcboutput) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx(uint32_t logtype, void* pboutput, void* pcboutput) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -206,7 +206,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log_Ex(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Is_Tpm_Present(void) {
+int32_t windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Is_Tpm_Present(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Physical_Presence_Command(void* hcontext, void* pabinput, uint32_t cbinput, void* paboutput, void* pcboutput) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand(void* hcontext, void* pabinput, uint32_t cbinput, void* paboutput, void* pcboutput) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -253,7 +253,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Physical_Presence_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Revoke_Attestation(void) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -274,7 +274,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsi_Revoke_Attestation
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsip_Cancel_Commands(void* hcontext) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands(void* hcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -296,7 +296,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsip_Cancel_Commands(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsip_Context_Close(void* hcontext) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose(void* hcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsip_Context_Close(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_tpmbaseservices_Tbsip_Submit_Command(void* hcontext, uint32_t locality, uint32_t priority, void* pabcommand, uint32_t cbcommand, void* pabresult, void* pcbresult) {
+uint32_t windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand(void* hcontext, uint32_t locality, uint32_t priority, void* pabcommand, uint32_t cbcommand, void* pabresult, void* pcbresult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

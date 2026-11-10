@@ -2,40 +2,41 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun PTCloseProvider(hprovider: HPTPROVIDER): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTCloseProvider(hprovider.toCPointer<ByteVar>())
+public actual fun pTCloseProvider(hprovider: Hptprovider): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider(hprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun PTConvertDevModeToPrintTicket(hprovider: HPTPROVIDER, cbdevmode: UInt, pdevmode: Long, scope: EPrintTicketScope, pprintticket: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTConvertDevModeToPrintTicket(hprovider.toCPointer<ByteVar>(), cbdevmode, pdevmode.toCPointer<ByteVar>(), scope, pprintticket.toCPointer<ByteVar>())
+public actual fun pTConvertDevModeToPrintTicket(hprovider: Hptprovider, cbdevmode: UInt, pdevmode: COpaquePointer?, scope: EPrintTicketScope, pprintticket: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket(hprovider?.value?.toCPointer<ByteVar>(), cbdevmode, pdevmode?.value?.toCPointer<ByteVar>(), scope, pprintticket?.value?.toCPointer<ByteVar>())
 
-public actual fun PTConvertPrintTicketToDevMode(hprovider: HPTPROVIDER, pprintticket: Long, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: Long, ppdevmode: Long, pbstrerrormessage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTConvertPrintTicketToDevMode(hprovider.toCPointer<ByteVar>(), pprintticket.toCPointer<ByteVar>(), basedevmodetype, scope, pcbdevmode.toCPointer<ByteVar>(), ppdevmode.toCPointer<ByteVar>(), pbstrerrormessage.toCPointer<ByteVar>())
+public actual fun pTConvertPrintTicketToDevMode(hprovider: Hptprovider, pprintticket: COpaquePointer?, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: COpaquePointer?, ppdevmode: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode(hprovider?.value?.toCPointer<ByteVar>(), pprintticket?.value?.toCPointer<ByteVar>(), basedevmodetype, scope, pcbdevmode?.value?.toCPointer<ByteVar>(), ppdevmode?.value?.toCPointer<ByteVar>(), pbstrerrormessage?.value?.toCPointer<ByteVar>())
 
-public actual fun PTGetPrintCapabilities(hprovider: HPTPROVIDER, pprintticket: Long, pcapabilities: Long, pbstrerrormessage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintCapabilities(hprovider.toCPointer<ByteVar>(), pprintticket.toCPointer<ByteVar>(), pcapabilities.toCPointer<ByteVar>(), pbstrerrormessage.toCPointer<ByteVar>())
+public actual fun pTGetPrintCapabilities(hprovider: Hptprovider, pprintticket: COpaquePointer?, pcapabilities: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities(hprovider?.value?.toCPointer<ByteVar>(), pprintticket?.value?.toCPointer<ByteVar>(), pcapabilities?.value?.toCPointer<ByteVar>(), pbstrerrormessage?.value?.toCPointer<ByteVar>())
 
-public actual fun PTGetPrintDeviceCapabilities(hprovider: HPTPROVIDER, pprintticket: Long, pdevicecapabilities: Long, pbstrerrormessage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceCapabilities(hprovider.toCPointer<ByteVar>(), pprintticket.toCPointer<ByteVar>(), pdevicecapabilities.toCPointer<ByteVar>(), pbstrerrormessage.toCPointer<ByteVar>())
+public actual fun pTGetPrintDeviceCapabilities(hprovider: Hptprovider, pprintticket: COpaquePointer?, pdevicecapabilities: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities(hprovider?.value?.toCPointer<ByteVar>(), pprintticket?.value?.toCPointer<ByteVar>(), pdevicecapabilities?.value?.toCPointer<ByteVar>(), pbstrerrormessage?.value?.toCPointer<ByteVar>())
 
-public actual fun PTGetPrintDeviceResources(hprovider: HPTPROVIDER, pszlocalename: PCWSTR, pprintticket: Long, pdeviceresources: Long, pbstrerrormessage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceResources(hprovider.toCPointer<ByteVar>(), pszlocalename.toCPointer<ByteVar>(), pprintticket.toCPointer<ByteVar>(), pdeviceresources.toCPointer<ByteVar>(), pbstrerrormessage.toCPointer<ByteVar>())
+public actual fun pTGetPrintDeviceResources(hprovider: Hptprovider, pszlocalename: Pcwstr, pprintticket: COpaquePointer?, pdeviceresources: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources(hprovider?.value?.toCPointer<ByteVar>(), pszlocalename?.value?.toCPointer<ByteVar>(), pprintticket?.value?.toCPointer<ByteVar>(), pdeviceresources?.value?.toCPointer<ByteVar>(), pbstrerrormessage?.value?.toCPointer<ByteVar>())
 
-public actual fun PTMergeAndValidatePrintTicket(hprovider: HPTPROVIDER, pbaseticket: Long, pdeltaticket: Long, scope: EPrintTicketScope, presultticket: Long, pbstrerrormessage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTMergeAndValidatePrintTicket(hprovider.toCPointer<ByteVar>(), pbaseticket.toCPointer<ByteVar>(), pdeltaticket.toCPointer<ByteVar>(), scope, presultticket.toCPointer<ByteVar>(), pbstrerrormessage.toCPointer<ByteVar>())
+public actual fun pTMergeAndValidatePrintTicket(hprovider: Hptprovider, pbaseticket: COpaquePointer?, pdeltaticket: COpaquePointer?, scope: EPrintTicketScope, presultticket: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket(hprovider?.value?.toCPointer<ByteVar>(), pbaseticket?.value?.toCPointer<ByteVar>(), pdeltaticket?.value?.toCPointer<ByteVar>(), scope, presultticket?.value?.toCPointer<ByteVar>(), pbstrerrormessage?.value?.toCPointer<ByteVar>())
 
-public actual fun PTOpenProvider(pszprintername: PCWSTR, dwversion: UInt, phprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTOpenProvider(pszprintername.toCPointer<ByteVar>(), dwversion, phprovider.toCPointer<ByteVar>())
+public actual fun pTOpenProvider(pszprintername: Pcwstr, dwversion: UInt, phprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider(pszprintername?.value?.toCPointer<ByteVar>(), dwversion, phprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun PTOpenProviderEx(pszprintername: PCWSTR, dwmaxversion: UInt, dwprefversion: UInt, phprovider: Long, pusedversion: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTOpenProviderEx(pszprintername.toCPointer<ByteVar>(), dwmaxversion, dwprefversion, phprovider.toCPointer<ByteVar>(), pusedversion.toCPointer<ByteVar>())
+public actual fun pTOpenProviderEx(pszprintername: Pcwstr, dwmaxversion: UInt, dwprefversion: UInt, phprovider: COpaquePointer?, pusedversion: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx(pszprintername?.value?.toCPointer<ByteVar>(), dwmaxversion, dwprefversion, phprovider?.value?.toCPointer<ByteVar>(), pusedversion?.value?.toCPointer<ByteVar>())
 
-public actual fun PTQuerySchemaVersionSupport(pszprintername: PCWSTR, pmaxversion: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTQuerySchemaVersionSupport(pszprintername.toCPointer<ByteVar>(), pmaxversion.toCPointer<ByteVar>())
+public actual fun pTQuerySchemaVersionSupport(pszprintername: Pcwstr, pmaxversion: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport(pszprintername?.value?.toCPointer<ByteVar>(), pmaxversion?.value?.toCPointer<ByteVar>())
 
-public actual fun PTReleaseMemory(pbuffer: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_PTReleaseMemory(pbuffer.toCPointer<ByteVar>())
+public actual fun pTReleaseMemory(pbuffer: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket.cinterop.windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory(pbuffer?.value?.toCPointer<ByteVar>())

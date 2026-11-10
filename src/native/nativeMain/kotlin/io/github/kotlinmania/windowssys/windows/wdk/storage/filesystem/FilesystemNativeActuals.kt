@@ -2,2177 +2,2178 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_FS_NOTIFICATION
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KSPIN_LOCK_QUEUE_NUMBER
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.OBJECT_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PETHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKTHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PNOTIFY_SYNC
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POBJECT_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PRKPROCESS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
-import io.github.kotlinmania.windowssys.windows.win32.security.AUDIT_EVENT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.WELL_KNOWN_SID_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SEC_GET_KEY_FN
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ACCESS_RIGHTS
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_FLAGS_AND_ATTRIBUTES
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_SHARE_MODE
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EVENT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.STRING
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WAIT_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverFsNotification
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KspinLockQueueNumber
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectInformationClass
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pkthread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PnotifySync
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PobjectType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Prkprocess
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersonationLevel
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenType
+import io.github.kotlinmania.windowssys.windows.win32.security.WellKnownSidType
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecGetKeyFn
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileAccessRights
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileShareMode
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ApplyControlToken(phcontext: Long, pinput: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ApplyControlToken(phcontext.toCPointer<ByteVar>(), pinput.toCPointer<ByteVar>())
+public actual fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_applyControlToken(phcontext?.value?.toCPointer<ByteVar>(), pinput?.value?.toCPointer<ByteVar>())
 
-public actual fun CcAsyncCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: PETHREAD, asyncreadcontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), ioissuerthread, asyncreadcontext.toCPointer<ByteVar>())
+public actual fun ccAsyncCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread, asyncreadcontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), ioissuerthread, asyncreadcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun CcCanIWrite(fileobject: Long, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCanIWrite(fileobject.toCPointer<ByteVar>(), bytestowrite, wait, retrying)
+public actual fun ccCanIWrite(fileobject: COpaquePointer?, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCanIWrite(fileobject?.value?.toCPointer<ByteVar>(), bytestowrite, wait, retrying)
 
-public actual fun CcCoherencyFlushAndPurgeCache(sectionobjectpointer: Long, fileoffset: Long, length: UInt, iostatus: Long, flags: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache(sectionobjectpointer.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, iostatus.toCPointer<ByteVar>(), flags)
+public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?, flags: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache(sectionobjectpointer?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, iostatus?.value?.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun CcCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCopyRead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun ccCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCopyRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CcCopyReadEx(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, iostatus: Long, ioissuerthread: PETHREAD): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCopyReadEx(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), ioissuerthread)
+public actual fun ccCopyReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, iostatus: COpaquePointer?, ioissuerthread: Pethread): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCopyReadEx(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), ioissuerthread)
 
-public actual fun CcCopyWrite(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCopyWrite(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, buffer.toCPointer<ByteVar>())
+public actual fun ccCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCopyWrite(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CcCopyWriteEx(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, buffer: Long, ioissuerthread: PETHREAD): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, buffer.toCPointer<ByteVar>(), ioissuerthread)
+public actual fun ccCopyWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, buffer: COpaquePointer?, ioissuerthread: Pethread): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, buffer?.value?.toCPointer<ByteVar>(), ioissuerthread)
 
-public actual fun CcCopyWriteWontFlush(fileobject: Long, fileoffset: Long, length: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length)
+public actual fun ccCopyWriteWontFlush(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun CcDeferWrite(fileobject: Long, postroutine: PCC_POST_DEFERRED_WRITE, context1: Long, context2: Long, bytestowrite: UInt, retrying: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcDeferWrite(fileobject.toCPointer<ByteVar>(), postroutine.toLong().toCPointer<ByteVar>(), context1.toCPointer<ByteVar>(), context2.toCPointer<ByteVar>(), bytestowrite, retrying)
+public actual fun ccDeferWrite(fileobject: COpaquePointer?, postroutine: PccPostDeferredWrite, context1: COpaquePointer?, context2: COpaquePointer?, bytestowrite: UInt, retrying: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccDeferWrite(fileobject?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context1?.value?.toCPointer<ByteVar>(), context2?.value?.toCPointer<ByteVar>(), bytestowrite, retrying)
 }
 
-public actual fun CcErrorCallbackRoutine(context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine(context.toCPointer<ByteVar>())
+public actual fun ccErrorCallbackRoutine(context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine(context?.value?.toCPointer<ByteVar>())
 
-public actual fun CcFastCopyRead(fileobject: Long, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: Long, iostatus: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcFastCopyRead(fileobject.toCPointer<ByteVar>(), fileoffset, length, pagecount, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun ccFastCopyRead(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccFastCopyRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset, length, pagecount, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcFastCopyWrite(fileobject: Long, fileoffset: UInt, length: UInt, buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite(fileobject.toCPointer<ByteVar>(), fileoffset, length, buffer.toCPointer<ByteVar>())
+public actual fun ccFastCopyWrite(fileobject: COpaquePointer?, fileoffset: UInt, length: UInt, buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite(fileobject?.value?.toCPointer<ByteVar>(), fileoffset, length, buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcFlushCache(sectionobjectpointer: Long, fileoffset: Long, length: UInt, iostatus: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcFlushCache(sectionobjectpointer.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, iostatus.toCPointer<ByteVar>())
+public actual fun ccFlushCache(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, iostatus: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccFlushCache(sectionobjectpointer?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, iostatus?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcGetDirtyPages(loghandle: Long, dirtypageroutine: PDIRTY_PAGE_ROUTINE, context1: Long, context2: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages(loghandle.toCPointer<ByteVar>(), dirtypageroutine.toLong().toCPointer<ByteVar>(), context1.toCPointer<ByteVar>(), context2.toCPointer<ByteVar>())
+public actual fun ccGetDirtyPages(loghandle: COpaquePointer?, dirtypageroutine: PdirtyPageRoutine, context1: COpaquePointer?, context2: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages(loghandle?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context1?.value?.toCPointer<ByteVar>(), context2?.value?.toCPointer<ByteVar>())
 
-public actual fun CcGetFileObjectFromBcb(bcb: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb(bcb.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ccGetFileObjectFromBcb(bcb: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb(bcb?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CcGetFileObjectFromSectionPtrs(sectionobjectpointer: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs(sectionobjectpointer.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs(sectionobjectpointer?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CcGetFileObjectFromSectionPtrsRef(sectionobjectpointer: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef(sectionobjectpointer.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CcGetFlushedValidData(sectionobjectpointer: Long, bcblistheld: Boolean): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData(sectionobjectpointer.toCPointer<ByteVar>(), bcblistheld)
+public actual fun ccGetFlushedValidData(sectionobjectpointer: COpaquePointer?, bcblistheld: Boolean): Long =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData(sectionobjectpointer?.value?.toCPointer<ByteVar>(), bcblistheld)
 
-public actual fun CcInitializeCacheMap(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap(fileobject.toCPointer<ByteVar>(), filesizes.toCPointer<ByteVar>(), pinaccess, callbacks.toCPointer<ByteVar>(), lazywritecontext.toCPointer<ByteVar>())
+public actual fun ccInitializeCacheMap(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap(fileobject?.value?.toCPointer<ByteVar>(), filesizes?.value?.toCPointer<ByteVar>(), pinaccess, callbacks?.value?.toCPointer<ByteVar>(), lazywritecontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcInitializeCacheMapEx(fileobject: Long, filesizes: Long, pinaccess: Boolean, callbacks: Long, lazywritecontext: Long, flags: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx(fileobject.toCPointer<ByteVar>(), filesizes.toCPointer<ByteVar>(), pinaccess, callbacks.toCPointer<ByteVar>(), lazywritecontext.toCPointer<ByteVar>(), flags)
+public actual fun ccInitializeCacheMapEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?, pinaccess: Boolean, callbacks: COpaquePointer?, lazywritecontext: COpaquePointer?, flags: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx(fileobject?.value?.toCPointer<ByteVar>(), filesizes?.value?.toCPointer<ByteVar>(), pinaccess, callbacks?.value?.toCPointer<ByteVar>(), lazywritecontext?.value?.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun CcIsCacheManagerCallbackNeeded(status: NTSTATUS): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded(status)
+public actual fun ccIsCacheManagerCallbackNeeded(status: Ntstatus): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded(status)
 
-public actual fun CcIsThereDirtyData(vpb: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData(vpb.toCPointer<ByteVar>())
+public actual fun ccIsThereDirtyData(vpb: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData(vpb?.value?.toCPointer<ByteVar>())
 
-public actual fun CcIsThereDirtyDataEx(vpb: Long, numberofdirtypages: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx(vpb.toCPointer<ByteVar>(), numberofdirtypages.toCPointer<ByteVar>())
+public actual fun ccIsThereDirtyDataEx(vpb: COpaquePointer?, numberofdirtypages: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx(vpb?.value?.toCPointer<ByteVar>(), numberofdirtypages?.value?.toCPointer<ByteVar>())
 
-public actual fun CcMapData(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcMapData(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, flags, bcb.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun ccMapData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccMapData(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, flags, bcb?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CcMdlRead(fileobject: Long, fileoffset: Long, length: UInt, mdlchain: Long, iostatus: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcMdlRead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun ccMdlRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccMdlRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcMdlReadComplete(fileobject: Long, mdlchain: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete(fileobject.toCPointer<ByteVar>(), mdlchain.toCPointer<ByteVar>())
+public actual fun ccMdlReadComplete(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete(fileobject?.value?.toCPointer<ByteVar>(), mdlchain?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcMdlWriteAbort(fileobject: Long, mdlchain: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort(fileobject.toCPointer<ByteVar>(), mdlchain.toCPointer<ByteVar>())
+public actual fun ccMdlWriteAbort(fileobject: COpaquePointer?, mdlchain: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort(fileobject?.value?.toCPointer<ByteVar>(), mdlchain?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcMdlWriteComplete(fileobject: Long, fileoffset: Long, mdlchain: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), mdlchain.toCPointer<ByteVar>())
+public actual fun ccMdlWriteComplete(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), mdlchain?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcPinMappedData(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcPinMappedData(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, flags, bcb.toCPointer<ByteVar>())
+public actual fun ccPinMappedData(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccPinMappedData(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, flags, bcb?.value?.toCPointer<ByteVar>())
 
-public actual fun CcPinRead(fileobject: Long, fileoffset: Long, length: UInt, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcPinRead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, flags, bcb.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun ccPinRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccPinRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, flags, bcb?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CcPrepareMdlWrite(fileobject: Long, fileoffset: Long, length: UInt, mdlchain: Long, iostatus: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun ccPrepareMdlWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcPreparePinWrite(fileobject: Long, fileoffset: Long, length: UInt, zero: Boolean, flags: UInt, bcb: Long, buffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, zero, flags, bcb.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun ccPreparePinWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, zero: Boolean, flags: UInt, bcb: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, zero, flags, bcb?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun CcPurgeCacheSection(sectionobjectpointer: Long, fileoffset: Long, length: UInt, flags: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection(sectionobjectpointer.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, flags)
+public actual fun ccPurgeCacheSection(sectionobjectpointer: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, flags: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection(sectionobjectpointer?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, flags)
 
-public actual fun CcRemapBcb(bcb: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcRemapBcb(bcb.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ccRemapBcb(bcb: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccRemapBcb(bcb?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CcRepinBcb(bcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcRepinBcb(bcb.toCPointer<ByteVar>())
+public actual fun ccRepinBcb(bcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccRepinBcb(bcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcScheduleReadAhead(fileobject: Long, fileoffset: Long, length: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length)
+public actual fun ccScheduleReadAhead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length)
 }
 
-public actual fun CcScheduleReadAheadEx(fileobject: Long, fileoffset: Long, length: UInt, ioissuerthread: PETHREAD) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, ioissuerthread)
+public actual fun ccScheduleReadAheadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, ioissuerthread: Pethread) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, ioissuerthread)
 }
 
-public actual fun CcSetAdditionalCacheAttributes(fileobject: Long, disablereadahead: Boolean, disablewritebehind: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes(fileobject.toCPointer<ByteVar>(), disablereadahead, disablewritebehind)
+public actual fun ccSetAdditionalCacheAttributes(fileobject: COpaquePointer?, disablereadahead: Boolean, disablewritebehind: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes(fileobject?.value?.toCPointer<ByteVar>(), disablereadahead, disablewritebehind)
 }
 
-public actual fun CcSetAdditionalCacheAttributesEx(fileobject: Long, flags: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx(fileobject.toCPointer<ByteVar>(), flags)
+public actual fun ccSetAdditionalCacheAttributesEx(fileobject: COpaquePointer?, flags: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx(fileobject?.value?.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun CcSetBcbOwnerPointer(bcb: Long, ownerpointer: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer(bcb.toCPointer<ByteVar>(), ownerpointer.toCPointer<ByteVar>())
+public actual fun ccSetBcbOwnerPointer(bcb: COpaquePointer?, ownerpointer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer(bcb?.value?.toCPointer<ByteVar>(), ownerpointer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcSetDirtyPageThreshold(fileobject: Long, dirtypagethreshold: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold(fileobject.toCPointer<ByteVar>(), dirtypagethreshold)
+public actual fun ccSetDirtyPageThreshold(fileobject: COpaquePointer?, dirtypagethreshold: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold(fileobject?.value?.toCPointer<ByteVar>(), dirtypagethreshold)
 }
 
-public actual fun CcSetDirtyPinnedData(bcbvoid: Long, lsn: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData(bcbvoid.toCPointer<ByteVar>(), lsn.toCPointer<ByteVar>())
+public actual fun ccSetDirtyPinnedData(bcbvoid: COpaquePointer?, lsn: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData(bcbvoid?.value?.toCPointer<ByteVar>(), lsn?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcSetFileSizes(fileobject: Long, filesizes: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetFileSizes(fileobject.toCPointer<ByteVar>(), filesizes.toCPointer<ByteVar>())
+public actual fun ccSetFileSizes(fileobject: COpaquePointer?, filesizes: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetFileSizes(fileobject?.value?.toCPointer<ByteVar>(), filesizes?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcSetFileSizesEx(fileobject: Long, filesizes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx(fileobject.toCPointer<ByteVar>(), filesizes.toCPointer<ByteVar>())
+public actual fun ccSetFileSizesEx(fileobject: COpaquePointer?, filesizes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx(fileobject?.value?.toCPointer<ByteVar>(), filesizes?.value?.toCPointer<ByteVar>())
 
-public actual fun CcSetLogHandleForFile(fileobject: Long, loghandle: Long, flushtolsnroutine: PFLUSH_TO_LSN) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile(fileobject.toCPointer<ByteVar>(), loghandle.toCPointer<ByteVar>(), flushtolsnroutine.toLong().toCPointer<ByteVar>())
+public actual fun ccSetLogHandleForFile(fileobject: COpaquePointer?, loghandle: COpaquePointer?, flushtolsnroutine: PflushToLsn) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile(fileobject?.value?.toCPointer<ByteVar>(), loghandle?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun CcSetParallelFlushFile(fileobject: Long, enableparallelflush: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile(fileobject.toCPointer<ByteVar>(), enableparallelflush)
+public actual fun ccSetParallelFlushFile(fileobject: COpaquePointer?, enableparallelflush: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile(fileobject?.value?.toCPointer<ByteVar>(), enableparallelflush)
 }
 
-public actual fun CcSetReadAheadGranularity(fileobject: Long, granularity: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity(fileobject.toCPointer<ByteVar>(), granularity)
+public actual fun ccSetReadAheadGranularity(fileobject: COpaquePointer?, granularity: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity(fileobject?.value?.toCPointer<ByteVar>(), granularity)
 }
 
-public actual fun CcUninitializeCacheMap(fileobject: Long, truncatesize: Long, uninitializeevent: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap(fileobject.toCPointer<ByteVar>(), truncatesize.toCPointer<ByteVar>(), uninitializeevent.toCPointer<ByteVar>())
+public actual fun ccUninitializeCacheMap(fileobject: COpaquePointer?, truncatesize: COpaquePointer?, uninitializeevent: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap(fileobject?.value?.toCPointer<ByteVar>(), truncatesize?.value?.toCPointer<ByteVar>(), uninitializeevent?.value?.toCPointer<ByteVar>())
 
-public actual fun CcUnpinData(bcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcUnpinData(bcb.toCPointer<ByteVar>())
+public actual fun ccUnpinData(bcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccUnpinData(bcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcUnpinDataForThread(bcb: Long, resourcethreadid: ULong) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread(bcb.toCPointer<ByteVar>(), resourcethreadid)
+public actual fun ccUnpinDataForThread(bcb: COpaquePointer?, resourcethreadid: ULong) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread(bcb?.value?.toCPointer<ByteVar>(), resourcethreadid)
 }
 
-public actual fun CcUnpinRepinnedBcb(bcb: Long, writethrough: Boolean, iostatus: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb(bcb.toCPointer<ByteVar>(), writethrough, iostatus.toCPointer<ByteVar>())
+public actual fun ccUnpinRepinnedBcb(bcb: COpaquePointer?, writethrough: Boolean, iostatus: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb(bcb?.value?.toCPointer<ByteVar>(), writethrough, iostatus?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CcWaitForCurrentLazyWriterActivity(): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity()
+public actual fun ccWaitForCurrentLazyWriterActivity(): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity()
 
-public actual fun CcZeroData(fileobject: Long, startoffset: Long, endoffset: Long, wait: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CcZeroData(fileobject.toCPointer<ByteVar>(), startoffset.toCPointer<ByteVar>(), endoffset.toCPointer<ByteVar>(), wait)
+public actual fun ccZeroData(fileobject: COpaquePointer?, startoffset: COpaquePointer?, endoffset: COpaquePointer?, wait: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ccZeroData(fileobject?.value?.toCPointer<ByteVar>(), startoffset?.value?.toCPointer<ByteVar>(), endoffset?.value?.toCPointer<ByteVar>(), wait)
 
-public actual fun CompleteAuthToken(phcontext: Long, ptoken: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_CompleteAuthToken(phcontext.toCPointer<ByteVar>(), ptoken.toCPointer<ByteVar>())
+public actual fun completeAuthToken(phcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_completeAuthToken(phcontext?.value?.toCPointer<ByteVar>(), ptoken?.value?.toCPointer<ByteVar>())
 
-public actual fun ExDisableResourceBoostLite(resource: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite(resource.toCPointer<ByteVar>())
+public actual fun exDisableResourceBoostLite(resource: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite(resource?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ExQueryPoolBlockSize(poolblock: Long, quotacharged: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize(poolblock.toCPointer<ByteVar>(), quotacharged.toCPointer<ByteVar>())
+public actual fun exQueryPoolBlockSize(poolblock: COpaquePointer?, quotacharged: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize(poolblock?.value?.toCPointer<ByteVar>(), quotacharged?.value?.toCPointer<ByteVar>())
 
-public actual fun ExportSecurityContext(phcontext: Long, fflags: UInt, ppackedcontext: Long, ptoken: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ExportSecurityContext(phcontext.toCPointer<ByteVar>(), fflags, ppackedcontext.toCPointer<ByteVar>(), ptoken.toCPointer<ByteVar>())
+public actual fun exportSecurityContext(phcontext: COpaquePointer?, fflags: UInt, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_exportSecurityContext(phcontext?.value?.toCPointer<ByteVar>(), fflags, ppackedcontext?.value?.toCPointer<ByteVar>(), ptoken?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAcknowledgeEcp(ecpcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp(ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlAcknowledgeEcp(ecpcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp(ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlAcquireFileExclusive(fileobject: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive(fileobject.toCPointer<ByteVar>())
+public actual fun fsRtlAcquireFileExclusive(fileobject: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive(fileobject?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlAddBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
+public actual fun fsRtlAddBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun FsRtlAddBaseMcbEntryEx(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx(mcb.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
+public actual fun fsRtlAddBaseMcbEntryEx(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun FsRtlAddLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
+public actual fun fsRtlAddLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun FsRtlAddMcbEntry(mcb: Long, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
+public actual fun fsRtlAddMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun FsRtlAddToTunnelCache(cache: Long, directorykey: ULong, shortname: Long, longname: Long, keybyshortname: Boolean, datalength: UInt, data: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache(cache.toCPointer<ByteVar>(), directorykey, shortname.toCPointer<ByteVar>(), longname.toCPointer<ByteVar>(), keybyshortname, datalength, data.toCPointer<ByteVar>())
+public actual fun fsRtlAddToTunnelCache(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, keybyshortname: Boolean, datalength: UInt, data: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache(cache?.value?.toCPointer<ByteVar>(), directorykey, shortname?.value?.toCPointer<ByteVar>(), longname?.value?.toCPointer<ByteVar>(), keybyshortname, datalength, data?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlAddToTunnelCacheEx(cache: Long, directorykey: ULong, shortname: Long, longname: Long, flags: UInt, datalength: UInt, data: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx(cache.toCPointer<ByteVar>(), directorykey, shortname.toCPointer<ByteVar>(), longname.toCPointer<ByteVar>(), flags, datalength, data.toCPointer<ByteVar>())
+public actual fun fsRtlAddToTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: UInt, data: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx(cache?.value?.toCPointer<ByteVar>(), directorykey, shortname?.value?.toCPointer<ByteVar>(), longname?.value?.toCPointer<ByteVar>(), flags, datalength, data?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlAllocateAePushLock(pooltype: POOL_TYPE, tag: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock(pooltype, tag)?.toLong() ?: 0L
+public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock(pooltype, tag)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlAllocateExtraCreateParameter(ecptype: Long, sizeofcontext: UInt, flags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, pooltag: UInt, ecpcontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter(ecptype.toCPointer<ByteVar>(), sizeofcontext, flags, cleanupcallback.toLong().toCPointer<ByteVar>(), pooltag, ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlAllocateExtraCreateParameter(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter(ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), pooltag, ecpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: Long, sizeofcontext: UInt, flags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, lookasidelist: Long, ecpcontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList(ecptype.toCPointer<ByteVar>(), sizeofcontext, flags, cleanupcallback.toLong().toCPointer<ByteVar>(), lookasidelist.toCPointer<ByteVar>(), ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), lookasidelist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList(flags, ecplist.toCPointer<ByteVar>())
+public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList(flags, ecplist?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAllocateFileLock(completelockirproutine: PCOMPLETE_LOCK_IRP_ROUTINE, unlockroutine: PUNLOCK_ROUTINE): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock(completelockirproutine.toLong().toCPointer<ByteVar>(), unlockroutine.toLong().toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlAllocateResource(): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource()?.toLong() ?: 0L
+public actual fun fsRtlAllocateResource(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlAreNamesEqual(constantnamea: Long, constantnameb: Long, ignorecase: Boolean, upcasetable: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual(constantnamea.toCPointer<ByteVar>(), constantnameb.toCPointer<ByteVar>(), ignorecase, upcasetable.toCPointer<ByteVar>())
+public actual fun fsRtlAreNamesEqual(constantnamea: COpaquePointer?, constantnameb: COpaquePointer?, ignorecase: Boolean, upcasetable: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual(constantnamea?.value?.toCPointer<ByteVar>(), constantnameb?.value?.toCPointer<ByteVar>(), ignorecase, upcasetable?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAreThereCurrentOrInProgressFileLocks(filelock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks(filelock.toCPointer<ByteVar>())
+public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks(filelock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAreThereWaitingFileLocks(filelock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks(filelock.toCPointer<ByteVar>())
+public actual fun fsRtlAreThereWaitingFileLocks(filelock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks(filelock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlAreVolumeStartupApplicationsComplete(): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete()
+public actual fun fsRtlAreVolumeStartupApplicationsComplete(): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete()
 
-public actual fun FsRtlBalanceReads(targetdevice: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads(targetdevice.toCPointer<ByteVar>())
+public actual fun fsRtlBalanceReads(targetdevice: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads(targetdevice?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: Long, waittype: WAIT_TYPE, timeout: Long, waitblockarray: Long, irp: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects(count, objectarray.toCPointer<ByteVar>(), waittype, timeout.toCPointer<ByteVar>(), waitblockarray.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>())
+public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: COpaquePointer?, waittype: WaitType, timeout: COpaquePointer?, waitblockarray: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects(count, objectarray?.value?.toCPointer<ByteVar>(), waittype, timeout?.value?.toCPointer<ByteVar>(), waitblockarray?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCancellableWaitForSingleObject(obj: Long, timeout: Long, irp: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject(obj.toCPointer<ByteVar>(), timeout.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>())
+public actual fun fsRtlCancellableWaitForSingleObject(obj: COpaquePointer?, timeout: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject(obj?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlChangeBackingFileObject(currentfileobject: Long, newfileobject: Long, changebackingtype: FSRTL_CHANGE_BACKING_TYPE, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject(currentfileobject.toCPointer<ByteVar>(), newfileobject.toCPointer<ByteVar>(), changebackingtype, flags)
+public actual fun fsRtlChangeBackingFileObject(currentfileobject: COpaquePointer?, newfileobject: COpaquePointer?, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject(currentfileobject?.value?.toCPointer<ByteVar>(), newfileobject?.value?.toCPointer<ByteVar>(), changebackingtype, flags)
 
-public actual fun FsRtlCheckLockForOplockRequest(filelock: Long, allocationsize: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest(filelock.toCPointer<ByteVar>(), allocationsize.toCPointer<ByteVar>())
+public actual fun fsRtlCheckLockForOplockRequest(filelock: COpaquePointer?, allocationsize: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest(filelock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckLockForReadAccess(filelock: Long, irp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess(filelock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>())
+public actual fun fsRtlCheckLockForReadAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess(filelock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckLockForWriteAccess(filelock: Long, irp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess(filelock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>())
+public actual fun fsRtlCheckLockForWriteAccess(filelock: COpaquePointer?, irp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess(filelock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckOplock(oplock: Long, irp: Long, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlCheckOplock(oplock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckOplockEx(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), flags, context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlCheckOplockEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), flags, context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckOplockEx2(oplock: Long, irp: Long, flags: UInt, flagsex2: UInt, completionroutinecontext: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP, timeout: ULong, notifycontext: Long, notifyroutine: POPLOCK_NOTIFY_ROUTINE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), flags, flagsex2, completionroutinecontext.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>(), timeout, notifycontext.toCPointer<ByteVar>(), notifyroutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlCheckOplockEx2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, flagsex2: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: COpaquePointer?, notifyroutine: PoplockNotifyRoutine): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), flags, flagsex2, completionroutinecontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timeout, notifycontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlCheckUpperOplock(oplock: Long, newloweroplockstate: UInt, completionroutinecontext: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, prependroutine: POPLOCK_FS_PREPOST_IRP, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock(oplock.toCPointer<ByteVar>(), newloweroplockstate, completionroutinecontext.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), prependroutine.toLong().toCPointer<ByteVar>(), flags)
+public actual fun fsRtlCheckUpperOplock(oplock: COpaquePointer?, newloweroplockstate: UInt, completionroutinecontext: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock(oplock?.value?.toCPointer<ByteVar>(), newloweroplockstate, completionroutinecontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun FsRtlCopyRead(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, lockkey, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlCopyRead(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, lockkey, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCopyWrite(fileobject: Long, fileoffset: Long, length: UInt, wait: Boolean, lockkey: UInt, buffer: Long, iostatus: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, wait, lockkey, buffer.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlCopyWrite(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, wait: Boolean, lockkey: UInt, buffer: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, wait, lockkey, buffer?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCreateSectionForDataScan(sectionhandle: Long, sectionobject: Long, sectionfilesize: Long, fileobject: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan(sectionhandle.toCPointer<ByteVar>(), sectionobject.toCPointer<ByteVar>(), sectionfilesize.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), maximumsize.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, flags)
+public actual fun fsRtlCreateSectionForDataScan(sectionhandle: COpaquePointer?, sectionobject: COpaquePointer?, sectionfilesize: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan(sectionhandle?.value?.toCPointer<ByteVar>(), sectionobject?.value?.toCPointer<ByteVar>(), sectionfilesize?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), maximumsize?.value?.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, flags)
 
-public actual fun FsRtlCurrentBatchOplock(oplock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlCurrentBatchOplock(oplock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock(oplock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCurrentOplock(oplock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlCurrentOplock(oplock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock(oplock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlCurrentOplockH(oplock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlCurrentOplockH(oplock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH(oplock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlDeleteExtraCreateParameterLookasideList(lookaside: Long, flags: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList(lookaside.toCPointer<ByteVar>(), flags)
+public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList(lookaside?.value?.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun FsRtlDeleteKeyFromTunnelCache(cache: Long, directorykey: ULong) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache(cache.toCPointer<ByteVar>(), directorykey)
+public actual fun fsRtlDeleteKeyFromTunnelCache(cache: COpaquePointer?, directorykey: ULong) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache(cache?.value?.toCPointer<ByteVar>(), directorykey)
 }
 
-public actual fun FsRtlDeleteTunnelCache(cache: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache(cache.toCPointer<ByteVar>())
+public actual fun fsRtlDeleteTunnelCache(cache: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache(cache?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlDeregisterUncProvider(handle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider(handle.toCPointer<ByteVar>())
+public actual fun fsRtlDeregisterUncProvider(handle: Handle) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider(handle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlDismountComplete(deviceobject: Long, dismountstatus: NTSTATUS) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete(deviceobject.toCPointer<ByteVar>(), dismountstatus)
+public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismountstatus: Ntstatus) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(deviceobject?.value?.toCPointer<ByteVar>(), dismountstatus)
 }
 
-public actual fun FsRtlDissectDbcs(path: STRING, firstname: Long, remainingname: Long) {
+public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, firstname?.value?.toCPointer<ByteVar>(), remainingname?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlDissectName(path: UNICODE_STRING, firstname: Long, remainingname: Long) {
+public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
 }
 
-public actual fun FsRtlDoesDbcsContainWildCards(name: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards(name.toCPointer<ByteVar>())
+public actual fun fsRtlDoesDbcsContainWildCards(name: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(name?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlDoesNameContainWildCards(name: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards(name.toCPointer<ByteVar>())
+public actual fun fsRtlDoesNameContainWildCards(name: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards(name?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFastCheckLockForRead(filelock: Long, startingbyte: Long, length: Long, key: UInt, fileobject: Long, processid: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead(filelock.toCPointer<ByteVar>(), startingbyte.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), key, fileobject.toCPointer<ByteVar>(), processid.toCPointer<ByteVar>())
+public actual fun fsRtlFastCheckLockForRead(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead(filelock?.value?.toCPointer<ByteVar>(), startingbyte?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key, fileobject?.value?.toCPointer<ByteVar>(), processid?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFastCheckLockForWrite(filelock: Long, startingbyte: Long, length: Long, key: UInt, fileobject: Long, processid: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite(filelock.toCPointer<ByteVar>(), startingbyte.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), key, fileobject.toCPointer<ByteVar>(), processid.toCPointer<ByteVar>())
+public actual fun fsRtlFastCheckLockForWrite(filelock: COpaquePointer?, startingbyte: COpaquePointer?, length: COpaquePointer?, key: UInt, fileobject: COpaquePointer?, processid: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite(filelock?.value?.toCPointer<ByteVar>(), startingbyte?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key, fileobject?.value?.toCPointer<ByteVar>(), processid?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFastUnlockAll(filelock: Long, fileobject: Long, processid: PEPROCESS, context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll(filelock.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), processid, context.toCPointer<ByteVar>())
+public actual fun fsRtlFastUnlockAll(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll(filelock?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), processid, context?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFastUnlockAllByKey(filelock: Long, fileobject: Long, processid: PEPROCESS, key: UInt, context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey(filelock.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), processid, key, context.toCPointer<ByteVar>())
+public actual fun fsRtlFastUnlockAllByKey(filelock: COpaquePointer?, fileobject: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey(filelock?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), processid, key, context?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFastUnlockSingle(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, context: Long, alreadysynchronized: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle(filelock.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), processid, key, context.toCPointer<ByteVar>(), alreadysynchronized)
+public actual fun fsRtlFastUnlockSingle(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, context: COpaquePointer?, alreadysynchronized: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle(filelock?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), processid, key, context?.value?.toCPointer<ByteVar>(), alreadysynchronized)
 
-public actual fun FsRtlFindExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter(ecplist.toCPointer<ByteVar>(), ecptype.toCPointer<ByteVar>(), ecpcontext.toCPointer<ByteVar>(), ecpcontextsize.toCPointer<ByteVar>())
+public actual fun fsRtlFindExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter(ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFindInTunnelCache(cache: Long, directorykey: ULong, name: Long, shortname: Long, longname: Long, datalength: Long, data: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache(cache.toCPointer<ByteVar>(), directorykey, name.toCPointer<ByteVar>(), shortname.toCPointer<ByteVar>(), longname.toCPointer<ByteVar>(), datalength.toCPointer<ByteVar>(), data.toCPointer<ByteVar>())
+public actual fun fsRtlFindInTunnelCache(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache(cache?.value?.toCPointer<ByteVar>(), directorykey, name?.value?.toCPointer<ByteVar>(), shortname?.value?.toCPointer<ByteVar>(), longname?.value?.toCPointer<ByteVar>(), datalength?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFindInTunnelCacheEx(cache: Long, directorykey: ULong, name: Long, shortname: Long, longname: Long, flags: UInt, datalength: Long, data: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx(cache.toCPointer<ByteVar>(), directorykey, name.toCPointer<ByteVar>(), shortname.toCPointer<ByteVar>(), longname.toCPointer<ByteVar>(), flags, datalength.toCPointer<ByteVar>(), data.toCPointer<ByteVar>())
+public actual fun fsRtlFindInTunnelCacheEx(cache: COpaquePointer?, directorykey: ULong, name: COpaquePointer?, shortname: COpaquePointer?, longname: COpaquePointer?, flags: UInt, datalength: COpaquePointer?, data: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx(cache?.value?.toCPointer<ByteVar>(), directorykey, name?.value?.toCPointer<ByteVar>(), shortname?.value?.toCPointer<ByteVar>(), longname?.value?.toCPointer<ByteVar>(), flags, datalength?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlFreeAePushLock(aepushlock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock(aepushlock.toCPointer<ByteVar>())
+public actual fun fsRtlFreeAePushLock(aepushlock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock(aepushlock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlFreeExtraCreateParameter(ecpcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter(ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter(ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlFreeExtraCreateParameterList(ecplist: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList(ecplist.toCPointer<ByteVar>())
+public actual fun fsRtlFreeExtraCreateParameterList(ecplist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList(ecplist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlFreeFileLock(filelock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock(filelock.toCPointer<ByteVar>())
+public actual fun fsRtlFreeFileLock(filelock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock(filelock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlGetCurrentProcessLoaderList(): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList()?.toLong() ?: 0L
+public actual fun fsRtlGetCurrentProcessLoaderList(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlGetEcpListFromIrp(irp: Long, ecplist: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp(irp.toCPointer<ByteVar>(), ecplist.toCPointer<ByteVar>())
+public actual fun fsRtlGetEcpListFromIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp(irp?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetFileSize(fileobject: Long, filesize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize(fileobject.toCPointer<ByteVar>(), filesize.toCPointer<ByteVar>())
+public actual fun fsRtlGetFileSize(fileobject: COpaquePointer?, filesize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize(fileobject?.value?.toCPointer<ByteVar>(), filesize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetNextBaseMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry(mcb.toCPointer<ByteVar>(), runindex, vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>(), sectorcount.toCPointer<ByteVar>())
+public actual fun fsRtlGetNextBaseMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry(mcb?.value?.toCPointer<ByteVar>(), runindex, vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>(), sectorcount?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetNextExtraCreateParameter(ecplist: Long, currentecpcontext: Long, nextecptype: Long, nextecpcontext: Long, nextecpcontextsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter(ecplist.toCPointer<ByteVar>(), currentecpcontext.toCPointer<ByteVar>(), nextecptype.toCPointer<ByteVar>(), nextecpcontext.toCPointer<ByteVar>(), nextecpcontextsize.toCPointer<ByteVar>())
+public actual fun fsRtlGetNextExtraCreateParameter(ecplist: COpaquePointer?, currentecpcontext: COpaquePointer?, nextecptype: COpaquePointer?, nextecpcontext: COpaquePointer?, nextecpcontextsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter(ecplist?.value?.toCPointer<ByteVar>(), currentecpcontext?.value?.toCPointer<ByteVar>(), nextecptype?.value?.toCPointer<ByteVar>(), nextecpcontext?.value?.toCPointer<ByteVar>(), nextecpcontextsize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetNextFileLock(filelock: Long, restart: Boolean): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock(filelock.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L
+public actual fun fsRtlGetNextFileLock(filelock: COpaquePointer?, restart: Boolean): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock(filelock?.value?.toCPointer<ByteVar>(), restart)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlGetNextLargeMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry(mcb.toCPointer<ByteVar>(), runindex, vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>(), sectorcount.toCPointer<ByteVar>())
+public actual fun fsRtlGetNextLargeMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry(mcb?.value?.toCPointer<ByteVar>(), runindex, vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>(), sectorcount?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetNextMcbEntry(mcb: Long, runindex: UInt, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry(mcb.toCPointer<ByteVar>(), runindex, vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>(), sectorcount.toCPointer<ByteVar>())
+public actual fun fsRtlGetNextMcbEntry(mcb: COpaquePointer?, runindex: UInt, vbn: COpaquePointer?, lbn: COpaquePointer?, sectorcount: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry(mcb?.value?.toCPointer<ByteVar>(), runindex, vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>(), sectorcount?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetSectorSizeInformation(deviceobject: Long, sectorsizeinfo: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation(deviceobject.toCPointer<ByteVar>(), sectorsizeinfo.toCPointer<ByteVar>())
+public actual fun fsRtlGetSectorSizeInformation(deviceobject: COpaquePointer?, sectorsizeinfo: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation(deviceobject?.value?.toCPointer<ByteVar>(), sectorsizeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetSupportedFeatures(deviceobject: Long, supportedfeatures: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures(deviceobject.toCPointer<ByteVar>(), supportedfeatures.toCPointer<ByteVar>())
+public actual fun fsRtlGetSupportedFeatures(deviceobject: COpaquePointer?, supportedfeatures: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures(deviceobject?.value?.toCPointer<ByteVar>(), supportedfeatures?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlGetVirtualDiskNestingLevel(deviceobject: Long, nestinglevel: Long, nestingflags: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel(deviceobject.toCPointer<ByteVar>(), nestinglevel.toCPointer<ByteVar>(), nestingflags.toCPointer<ByteVar>())
+public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: COpaquePointer?, nestinglevel: COpaquePointer?, nestingflags: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel(deviceobject?.value?.toCPointer<ByteVar>(), nestinglevel?.value?.toCPointer<ByteVar>(), nestingflags?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIncrementCcFastMdlReadWait() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait()
+public actual fun fsRtlIncrementCcFastMdlReadWait() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait()
 }
 
-public actual fun FsRtlIncrementCcFastReadNoWait() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait()
+public actual fun fsRtlIncrementCcFastReadNoWait() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait()
 }
 
-public actual fun FsRtlIncrementCcFastReadNotPossible() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible()
+public actual fun fsRtlIncrementCcFastReadNotPossible() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible()
 }
 
-public actual fun FsRtlIncrementCcFastReadResourceMiss() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss()
+public actual fun fsRtlIncrementCcFastReadResourceMiss() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss()
 }
 
-public actual fun FsRtlIncrementCcFastReadWait() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait()
+public actual fun fsRtlIncrementCcFastReadWait() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait()
 }
 
-public actual fun FsRtlInitExtraCreateParameterLookasideList(lookaside: Long, flags: UInt, size: ULong, tag: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList(lookaside.toCPointer<ByteVar>(), flags, size, tag)
+public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: COpaquePointer?, flags: UInt, size: ULong, tag: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList(lookaside?.value?.toCPointer<ByteVar>(), flags, size, tag)
 }
 
-public actual fun FsRtlInitializeBaseMcb(mcb: Long, pooltype: POOL_TYPE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb(mcb.toCPointer<ByteVar>(), pooltype)
+public actual fun fsRtlInitializeBaseMcb(mcb: COpaquePointer?, pooltype: PoolType) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb(mcb?.value?.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun FsRtlInitializeBaseMcbEx(mcb: Long, pooltype: POOL_TYPE, flags: UShort): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx(mcb.toCPointer<ByteVar>(), pooltype, flags)
+public actual fun fsRtlInitializeBaseMcbEx(mcb: COpaquePointer?, pooltype: PoolType, flags: UShort): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx(mcb?.value?.toCPointer<ByteVar>(), pooltype, flags)
 
-public actual fun FsRtlInitializeExtraCreateParameter(ecp: Long, ecpflags: UInt, cleanupcallback: PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK, totalsize: UInt, ecptype: Long, listallocatedfrom: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter(ecp.toCPointer<ByteVar>(), ecpflags, cleanupcallback.toLong().toCPointer<ByteVar>(), totalsize, ecptype.toCPointer<ByteVar>(), listallocatedfrom.toCPointer<ByteVar>())
+public actual fun fsRtlInitializeExtraCreateParameter(ecp: COpaquePointer?, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: COpaquePointer?, listallocatedfrom: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter(ecp?.value?.toCPointer<ByteVar>(), ecpflags, 0L.toCPointer<ByteVar>(), totalsize, ecptype?.value?.toCPointer<ByteVar>(), listallocatedfrom?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlInitializeExtraCreateParameterList(ecplist: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList(ecplist.toCPointer<ByteVar>())
+public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList(ecplist?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlInitializeFileLock(filelock: Long, completelockirproutine: PCOMPLETE_LOCK_IRP_ROUTINE, unlockroutine: PUNLOCK_ROUTINE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock(filelock.toCPointer<ByteVar>(), completelockirproutine.toLong().toCPointer<ByteVar>(), unlockroutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlInitializeFileLock(filelock: COpaquePointer?, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock(filelock?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlInitializeLargeMcb(mcb: Long, pooltype: POOL_TYPE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb(mcb.toCPointer<ByteVar>(), pooltype)
+public actual fun fsRtlInitializeLargeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb(mcb?.value?.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun FsRtlInitializeMcb(mcb: Long, pooltype: POOL_TYPE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb(mcb.toCPointer<ByteVar>(), pooltype)
+public actual fun fsRtlInitializeMcb(mcb: COpaquePointer?, pooltype: PoolType) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb(mcb?.value?.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun FsRtlInitializeOplock(oplock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlInitializeOplock(oplock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock(oplock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlInitializeTunnelCache(cache: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache(cache.toCPointer<ByteVar>())
+public actual fun fsRtlInitializeTunnelCache(cache: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache(cache?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlInsertExtraCreateParameter(ecplist: Long, ecpcontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter(ecplist.toCPointer<ByteVar>(), ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlInsertExtraCreateParameter(ecplist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter(ecplist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlInsertPerFileContext(perfilecontextpointer: Long, ptr: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext(perfilecontextpointer.toCPointer<ByteVar>(), ptr.toCPointer<ByteVar>())
+public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext(perfilecontextpointer?.value?.toCPointer<ByteVar>(), ptr?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlInsertPerFileObjectContext(fileobject: Long, ptr: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext(fileobject.toCPointer<ByteVar>(), ptr.toCPointer<ByteVar>())
+public actual fun fsRtlInsertPerFileObjectContext(fileobject: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext(fileobject?.value?.toCPointer<ByteVar>(), ptr?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlInsertPerStreamContext(perstreamcontext: Long, ptr: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext(perstreamcontext.toCPointer<ByteVar>(), ptr.toCPointer<ByteVar>())
+public actual fun fsRtlInsertPerStreamContext(perstreamcontext: COpaquePointer?, ptr: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext(perstreamcontext?.value?.toCPointer<ByteVar>(), ptr?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIs32BitProcess(process: PEPROCESS): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess(process)
+public actual fun fsRtlIs32BitProcess(process: Peprocess): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess(process)
 
-public actual fun FsRtlIsDaxVolume(fileobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume(fileobject.toCPointer<ByteVar>())
+public actual fun fsRtlIsDaxVolume(fileobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume(fileobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsDbcsInExpression(expression: Long, name: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression(expression.toCPointer<ByteVar>(), name.toCPointer<ByteVar>())
+public actual fun fsRtlIsDbcsInExpression(expression: COpaquePointer?, name: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression(expression?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsEcpAcknowledged(ecpcontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged(ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlIsEcpAcknowledged(ecpcontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged(ecpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsEcpFromUserMode(ecpcontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode(ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode(ecpcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling(startpage, numberofpages, flags)
+public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage, numberofpages, flags)
 
-public actual fun FsRtlIsFatDbcsLegal(dbcsname: STRING, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    false
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
 
-public actual fun FsRtlIsHpfsDbcsLegal(dbcsname: STRING, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    false
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
 
-public actual fun FsRtlIsMobileOS(): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS()
+public actual fun fsRtlIsMobileOS(): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS()
 
-public actual fun FsRtlIsNameInExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: PCWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression(expression.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), ignorecase, upcasetable.toCPointer<ByteVar>())
+public actual fun fsRtlIsNameInExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression(expression?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), ignorecase, upcasetable?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsNameInUnUpcasedExpression(expression: Long, name: Long, ignorecase: Boolean, upcasetable: PCWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression(expression.toCPointer<ByteVar>(), name.toCPointer<ByteVar>(), ignorecase, upcasetable.toCPointer<ByteVar>())
+public actual fun fsRtlIsNameInUnUpcasedExpression(expression: COpaquePointer?, name: COpaquePointer?, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression(expression?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), ignorecase, upcasetable?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
+public actual fun fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
 
-public actual fun FsRtlIsNtstatusExpected(exception: NTSTATUS): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected(exception)
+public actual fun fsRtlIsNtstatusExpected(exception: Ntstatus): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected(exception)
 
-public actual fun FsRtlIsPagingFile(fileobject: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile(fileobject.toCPointer<ByteVar>())
+public actual fun fsRtlIsPagingFile(fileobject: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile(fileobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIsSystemPagingFile(fileobject: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile(fileobject.toCPointer<ByteVar>())
+public actual fun fsRtlIsSystemPagingFile(fileobject: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile(fileobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlIssueDeviceIoControl(deviceobject: Long, ioctl: UInt, flags: UByte, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, iosbinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl(deviceobject.toCPointer<ByteVar>(), ioctl, flags, inputbuffer.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.toCPointer<ByteVar>(), outputbufferlength, iosbinformation.toCPointer<ByteVar>())
+public actual fun fsRtlIssueDeviceIoControl(deviceobject: COpaquePointer?, ioctl: UInt, flags: UByte, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, iosbinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl(deviceobject?.value?.toCPointer<ByteVar>(), ioctl, flags, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength, iosbinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlKernelFsControlFile(fileobject: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, retoutputbuffersize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile(fileobject.toCPointer<ByteVar>(), fscontrolcode, inputbuffer.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.toCPointer<ByteVar>(), outputbufferlength, retoutputbuffersize.toCPointer<ByteVar>())
+public actual fun fsRtlKernelFsControlFile(fileobject: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, retoutputbuffersize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile(fileobject?.value?.toCPointer<ByteVar>(), fscontrolcode, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength, retoutputbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLogCcFlushError(filename: Long, deviceobject: Long, sectionobjectpointer: Long, flusherror: NTSTATUS, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError(filename.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>(), sectionobjectpointer.toCPointer<ByteVar>(), flusherror, flags)
+public actual fun fsRtlLogCcFlushError(filename: COpaquePointer?, deviceobject: COpaquePointer?, sectionobjectpointer: COpaquePointer?, flusherror: Ntstatus, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError(filename?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>(), sectionobjectpointer?.value?.toCPointer<ByteVar>(), flusherror, flags)
 
-public actual fun FsRtlLookupBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn.toCPointer<ByteVar>(), sectorcountfromlbn.toCPointer<ByteVar>(), startinglbn.toCPointer<ByteVar>(), sectorcountfromstartinglbn.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun fsRtlLookupBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn?.value?.toCPointer<ByteVar>(), sectorcountfromlbn?.value?.toCPointer<ByteVar>(), startinglbn?.value?.toCPointer<ByteVar>(), sectorcountfromstartinglbn?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long, sectorcountfromlbn: Long, startinglbn: Long, sectorcountfromstartinglbn: Long, index: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn.toCPointer<ByteVar>(), sectorcountfromlbn.toCPointer<ByteVar>(), startinglbn.toCPointer<ByteVar>(), sectorcountfromstartinglbn.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, lbn: COpaquePointer?, sectorcountfromlbn: COpaquePointer?, startinglbn: COpaquePointer?, sectorcountfromstartinglbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn?.value?.toCPointer<ByteVar>(), sectorcountfromlbn?.value?.toCPointer<ByteVar>(), startinglbn?.value?.toCPointer<ByteVar>(), sectorcountfromstartinglbn?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLastBaseMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry(mcb.toCPointer<ByteVar>(), vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLastBaseMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb.toCPointer<ByteVar>(), largevbn.toCPointer<ByteVar>(), largelbn.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb?.value?.toCPointer<ByteVar>(), largevbn?.value?.toCPointer<ByteVar>(), largelbn?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLastLargeMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry(mcb.toCPointer<ByteVar>(), vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLastLargeMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: Long, largevbn: Long, largelbn: Long, index: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb.toCPointer<ByteVar>(), largevbn.toCPointer<ByteVar>(), largelbn.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: COpaquePointer?, largevbn: COpaquePointer?, largelbn: COpaquePointer?, index: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb?.value?.toCPointer<ByteVar>(), largevbn?.value?.toCPointer<ByteVar>(), largelbn?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupLastMcbEntry(mcb: Long, vbn: Long, lbn: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry(mcb.toCPointer<ByteVar>(), vbn.toCPointer<ByteVar>(), lbn.toCPointer<ByteVar>())
+public actual fun fsRtlLookupLastMcbEntry(mcb: COpaquePointer?, vbn: COpaquePointer?, lbn: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn?.value?.toCPointer<ByteVar>(), lbn?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupMcbEntry(mcb: Long, vbn: UInt, lbn: Long, sectorcount: Long, index: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry(mcb.toCPointer<ByteVar>(), vbn, lbn.toCPointer<ByteVar>(), sectorcount.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun fsRtlLookupMcbEntry(mcb: COpaquePointer?, vbn: UInt, lbn: COpaquePointer?, sectorcount: COpaquePointer?, index: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, lbn?.value?.toCPointer<ByteVar>(), sectorcount?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlLookupPerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext(perfilecontextpointer.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext(perfilecontextpointer?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlLookupPerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext(fileobject.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlLookupPerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext(fileobject?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlLookupPerStreamContextInternal(streamcontext: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal(streamcontext.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal(streamcontext?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlMdlReadCompleteDev(fileobject: Long, mdlchain: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev(fileobject.toCPointer<ByteVar>(), mdlchain.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlMdlReadCompleteDev(fileobject: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev(fileobject?.value?.toCPointer<ByteVar>(), mdlchain?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlMdlReadDev(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, lockkey, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlMdlReadDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlMdlReadEx(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, lockkey, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun fsRtlMdlReadEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlMdlWriteCompleteDev(fileobject: Long, fileoffset: Long, mdlchain: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), mdlchain.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlMdlWriteCompleteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, mdlchain: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), mdlchain?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlMupGetProviderIdFromName(pprovidername: Long, pproviderid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName(pprovidername.toCPointer<ByteVar>(), pproviderid.toCPointer<ByteVar>())
+public actual fun fsRtlMupGetProviderIdFromName(pprovidername: COpaquePointer?, pproviderid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName(pprovidername?.value?.toCPointer<ByteVar>(), pproviderid?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlMupGetProviderInfoFromFileObject(pfileobject: Long, level: UInt, pbuffer: Long, pbuffersize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject(pfileobject.toCPointer<ByteVar>(), level, pbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: COpaquePointer?, level: UInt, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject(pfileobject?.value?.toCPointer<ByteVar>(), level, pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlNormalizeNtstatus(exception: NTSTATUS, genericexception: NTSTATUS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus(exception, genericexception)
+public actual fun fsRtlNormalizeNtstatus(exception: Ntstatus, genericexception: Ntstatus): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus(exception, genericexception)
 
-public actual fun FsRtlNotifyCleanup(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup(notifysync, notifylist.toCPointer<ByteVar>(), fscontext.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup(notifysync, notifylist?.value?.toCPointer<ByteVar>(), fscontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyCleanupAll(notifysync: PNOTIFY_SYNC, notifylist: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll(notifysync, notifylist.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll(notifysync, notifylist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyFilterChangeDirectory(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: Long, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Long, filtercallback: PFILTER_REPORT_CHANGE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory(notifysync, notifylist.toCPointer<ByteVar>(), fscontext.toCPointer<ByteVar>(), fulldirectoryname.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp.toCPointer<ByteVar>(), traversecallback.toLong().toCPointer<ByteVar>(), subjectcontext.toCPointer<ByteVar>(), filtercallback.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?, filtercallback: PfilterReportChange) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory(notifysync, notifylist?.value?.toCPointer<ByteVar>(), fscontext?.value?.toCPointer<ByteVar>(), fulldirectoryname?.value?.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), subjectcontext?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyFilterReportChange(notifysync: PNOTIFY_SYNC, notifylist: Long, fulltargetname: Long, targetnameoffset: UShort, streamname: Long, normalizedparentname: Long, filtermatch: UInt, action: UInt, targetcontext: Long, filtercontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange(notifysync, notifylist.toCPointer<ByteVar>(), fulltargetname.toCPointer<ByteVar>(), targetnameoffset, streamname.toCPointer<ByteVar>(), normalizedparentname.toCPointer<ByteVar>(), filtermatch, action, targetcontext.toCPointer<ByteVar>(), filtercontext.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?, filtercontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange(notifysync, notifylist?.value?.toCPointer<ByteVar>(), fulltargetname?.value?.toCPointer<ByteVar>(), targetnameoffset, streamname?.value?.toCPointer<ByteVar>(), normalizedparentname?.value?.toCPointer<ByteVar>(), filtermatch, action, targetcontext?.value?.toCPointer<ByteVar>(), filtercontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyFullChangeDirectory(notifysync: PNOTIFY_SYNC, notifylist: Long, fscontext: Long, fulldirectoryname: Long, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: Long, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory(notifysync, notifylist.toCPointer<ByteVar>(), fscontext.toCPointer<ByteVar>(), fulldirectoryname.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp.toCPointer<ByteVar>(), traversecallback.toLong().toCPointer<ByteVar>(), subjectcontext.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory(notifysync, notifylist?.value?.toCPointer<ByteVar>(), fscontext?.value?.toCPointer<ByteVar>(), fulldirectoryname?.value?.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), subjectcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyFullReportChange(notifysync: PNOTIFY_SYNC, notifylist: Long, fulltargetname: Long, targetnameoffset: UShort, streamname: Long, normalizedparentname: Long, filtermatch: UInt, action: UInt, targetcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange(notifysync, notifylist.toCPointer<ByteVar>(), fulltargetname.toCPointer<ByteVar>(), targetnameoffset, streamname.toCPointer<ByteVar>(), normalizedparentname.toCPointer<ByteVar>(), filtermatch, action, targetcontext.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: COpaquePointer?, fulltargetname: COpaquePointer?, targetnameoffset: UShort, streamname: COpaquePointer?, normalizedparentname: COpaquePointer?, filtermatch: UInt, action: UInt, targetcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange(notifysync, notifylist?.value?.toCPointer<ByteVar>(), fulltargetname?.value?.toCPointer<ByteVar>(), targetnameoffset, streamname?.value?.toCPointer<ByteVar>(), normalizedparentname?.value?.toCPointer<ByteVar>(), filtermatch, action, targetcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyInitializeSync(notifysync: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync(notifysync.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyInitializeSync(notifysync: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync(notifysync?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyUninitializeSync(notifysync: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync(notifysync.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyUninitializeSync(notifysync: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync(notifysync?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlNotifyVolumeEvent(fileobject: Long, eventcode: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent(fileobject.toCPointer<ByteVar>(), eventcode)
+public actual fun fsRtlNotifyVolumeEvent(fileobject: COpaquePointer?, eventcode: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent(fileobject?.value?.toCPointer<ByteVar>(), eventcode)
 
-public actual fun FsRtlNotifyVolumeEventEx(fileobject: Long, eventcode: UInt, event: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx(fileobject.toCPointer<ByteVar>(), eventcode, event.toCPointer<ByteVar>())
+public actual fun fsRtlNotifyVolumeEventEx(fileobject: COpaquePointer?, eventcode: UInt, event: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx(fileobject?.value?.toCPointer<ByteVar>(), eventcode, event?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlNumberOfRunsInBaseMcb(mcb: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb(mcb?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlNumberOfRunsInLargeMcb(mcb: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb(mcb?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlNumberOfRunsInMcb(mcb: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlNumberOfRunsInMcb(mcb: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb(mcb?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockBreakH(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), flags, context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlOplockBreakH(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), flags, context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockBreakH2(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP, grantedaccess: Long, shareaccess: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), flags, context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>(), grantedaccess.toCPointer<ByteVar>(), shareaccess.toCPointer<ByteVar>())
+public actual fun fsRtlOplockBreakH2(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: COpaquePointer?, shareaccess: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), flags, context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grantedaccess?.value?.toCPointer<ByteVar>(), shareaccess?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockBreakToNone(oplock: Long, irpsp: Long, irp: Long, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone(oplock.toCPointer<ByteVar>(), irpsp.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlOplockBreakToNone(oplock: COpaquePointer?, irpsp: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone(oplock?.value?.toCPointer<ByteVar>(), irpsp?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockBreakToNoneEx(oplock: Long, irp: Long, flags: UInt, context: Long, completionroutine: POPLOCK_WAIT_COMPLETE_ROUTINE, postirproutine: POPLOCK_FS_PREPOST_IRP): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), flags, context.toCPointer<ByteVar>(), completionroutine.toLong().toCPointer<ByteVar>(), postirproutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlOplockBreakToNoneEx(oplock: COpaquePointer?, irp: COpaquePointer?, flags: UInt, context: COpaquePointer?, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), flags, context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockFsctrl(oplock: Long, irp: Long, opencount: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), opencount)
+public actual fun fsRtlOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), opencount)
 
-public actual fun FsRtlOplockFsctrlEx(oplock: Long, irp: Long, opencount: UInt, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), opencount, flags)
+public actual fun fsRtlOplockFsctrlEx(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), opencount, flags)
 
-public actual fun FsRtlOplockGetAnyBreakOwnerProcess(oplock: Long): PEPROCESS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: COpaquePointer?): Peprocess =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess(oplock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockIsFastIoPossible(oplock: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlOplockIsFastIoPossible(oplock: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible(oplock?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockIsSharedRequest(irp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest(irp.toCPointer<ByteVar>())
+public actual fun fsRtlOplockIsSharedRequest(irp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlOplockKeysEqual(fo1: Long, fo2: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual(fo1.toCPointer<ByteVar>(), fo2.toCPointer<ByteVar>())
+public actual fun fsRtlOplockKeysEqual(fo1: COpaquePointer?, fo2: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual(fo1?.value?.toCPointer<ByteVar>(), fo2?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlPostPagingFileStackOverflow(context: Long, event: Long, stackoverflowroutine: PFSRTL_STACK_OVERFLOW_ROUTINE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow(context.toCPointer<ByteVar>(), event.toCPointer<ByteVar>(), stackoverflowroutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlPostPagingFileStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow(context?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlPostStackOverflow(context: Long, event: Long, stackoverflowroutine: PFSRTL_STACK_OVERFLOW_ROUTINE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow(context.toCPointer<ByteVar>(), event.toCPointer<ByteVar>(), stackoverflowroutine.toLong().toCPointer<ByteVar>())
+public actual fun fsRtlPostStackOverflow(context: COpaquePointer?, event: COpaquePointer?, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow(context?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlPrepareMdlWriteDev(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long, deviceobject: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, lockkey, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())
+public actual fun fsRtlPrepareMdlWriteDev(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?, deviceobject: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlPrepareMdlWriteEx(fileobject: Long, fileoffset: Long, length: UInt, lockkey: UInt, mdlchain: Long, iostatus: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx(fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length, lockkey, mdlchain.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun fsRtlPrepareMdlWriteEx(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx(fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlPrepareToReuseEcp(ecpcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp(ecpcontext.toCPointer<ByteVar>())
+public actual fun fsRtlPrepareToReuseEcp(ecpcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp(ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlPrivateLock(filelock: Long, fileobject: Long, fileoffset: Long, length: Long, processid: PEPROCESS, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: Long, irp: Long, context: Long, alreadysynchronized: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock(filelock.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), fileoffset.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), processid, key, failimmediately, exclusivelock, iosb.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), alreadysynchronized)
+public actual fun fsRtlPrivateLock(filelock: COpaquePointer?, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: COpaquePointer?, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, alreadysynchronized: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock(filelock?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), processid, key, failimmediately, exclusivelock, iosb?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), alreadysynchronized)
 
-public actual fun FsRtlProcessFileLock(filelock: Long, irp: Long, context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock(filelock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
+public actual fun fsRtlProcessFileLock(filelock: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock(filelock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlQueryCachedVdl(fileobject: Long, vdl: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl(fileobject.toCPointer<ByteVar>(), vdl.toCPointer<ByteVar>())
+public actual fun fsRtlQueryCachedVdl(fileobject: COpaquePointer?, vdl: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl(fileobject?.value?.toCPointer<ByteVar>(), vdl?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlQueryInformationFile(fileobject: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, retfileinformationsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile(fileobject.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>(), length, fileinformationclass, retfileinformationsize.toCPointer<ByteVar>())
+public actual fun fsRtlQueryInformationFile(fileobject: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile(fileobject?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, retfileinformationsize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlQueryKernelEaFile(fileobject: Long, returnedeadata: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean, lengthreturned: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile(fileobject.toCPointer<ByteVar>(), returnedeadata.toCPointer<ByteVar>(), length, returnsingleentry, ealist.toCPointer<ByteVar>(), ealistlength, eaindex.toCPointer<ByteVar>(), restartscan, lengthreturned.toCPointer<ByteVar>())
+public actual fun fsRtlQueryKernelEaFile(fileobject: COpaquePointer?, returnedeadata: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean, lengthreturned: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile(fileobject?.value?.toCPointer<ByteVar>(), returnedeadata?.value?.toCPointer<ByteVar>(), length, returnsingleentry, ealist?.value?.toCPointer<ByteVar>(), ealistlength, eaindex?.value?.toCPointer<ByteVar>(), restartscan, lengthreturned?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel()
+public actual fun fsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel()
 
-public actual fun FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: Long, callbacks: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject.toCPointer<ByteVar>(), callbacks.toCPointer<ByteVar>())
+public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: COpaquePointer?, callbacks: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject?.value?.toCPointer<ByteVar>(), callbacks?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlRegisterUncProvider(muphandle: Long, redirectordevicename: Long, mailslotssupported: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider(muphandle.toCPointer<ByteVar>(), redirectordevicename.toCPointer<ByteVar>(), mailslotssupported)
+public actual fun fsRtlRegisterUncProvider(muphandle: COpaquePointer?, redirectordevicename: COpaquePointer?, mailslotssupported: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider(muphandle?.value?.toCPointer<ByteVar>(), redirectordevicename?.value?.toCPointer<ByteVar>(), mailslotssupported)
 
-public actual fun FsRtlRegisterUncProviderEx(muphandle: Long, redirdevname: Long, deviceobject: Long, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx(muphandle.toCPointer<ByteVar>(), redirdevname.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>(), flags)
+public actual fun fsRtlRegisterUncProviderEx(muphandle: COpaquePointer?, redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx(muphandle?.value?.toCPointer<ByteVar>(), redirdevname?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun FsRtlRegisterUncProviderEx2(redirdevname: Long, deviceobject: Long, registration: Long, muphandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2(redirdevname.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>(), registration.toCPointer<ByteVar>(), muphandle.toCPointer<ByteVar>())
+public actual fun fsRtlRegisterUncProviderEx2(redirdevname: COpaquePointer?, deviceobject: COpaquePointer?, registration: COpaquePointer?, muphandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2(redirdevname?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>(), registration?.value?.toCPointer<ByteVar>(), muphandle?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlReleaseFile(fileobject: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile(fileobject.toCPointer<ByteVar>())
+public actual fun fsRtlReleaseFile(fileobject: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile(fileobject?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlRemoveBaseMcbEntry(mcb: Long, vbn: Long, sectorcount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry(mcb.toCPointer<ByteVar>(), vbn, sectorcount)
+public actual fun fsRtlRemoveBaseMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, sectorcount)
 
-public actual fun FsRtlRemoveDotsFromPath(originalstring: PWSTR, pathlength: UShort, newlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath(originalstring.toCPointer<ByteVar>(), pathlength, newlength.toCPointer<ByteVar>())
+public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath(originalstring?.value?.toCPointer<ByteVar>(), pathlength, newlength?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlRemoveExtraCreateParameter(ecplist: Long, ecptype: Long, ecpcontext: Long, ecpcontextsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter(ecplist.toCPointer<ByteVar>(), ecptype.toCPointer<ByteVar>(), ecpcontext.toCPointer<ByteVar>(), ecpcontextsize.toCPointer<ByteVar>())
+public actual fun fsRtlRemoveExtraCreateParameter(ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter(ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlRemoveLargeMcbEntry(mcb: Long, vbn: Long, sectorcount: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry(mcb.toCPointer<ByteVar>(), vbn, sectorcount)
+public actual fun fsRtlRemoveLargeMcbEntry(mcb: COpaquePointer?, vbn: Long, sectorcount: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, sectorcount)
 }
 
-public actual fun FsRtlRemoveMcbEntry(mcb: Long, vbn: UInt, sectorcount: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry(mcb.toCPointer<ByteVar>(), vbn, sectorcount)
+public actual fun fsRtlRemoveMcbEntry(mcb: COpaquePointer?, vbn: UInt, sectorcount: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry(mcb?.value?.toCPointer<ByteVar>(), vbn, sectorcount)
 }
 
-public actual fun FsRtlRemovePerFileContext(perfilecontextpointer: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext(perfilecontextpointer.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext(perfilecontextpointer?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlRemovePerFileObjectContext(fileobject: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext(fileobject.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlRemovePerFileObjectContext(fileobject: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext(fileobject?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlRemovePerStreamContext(streamcontext: Long, ownerid: Long, instanceid: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext(streamcontext.toCPointer<ByteVar>(), ownerid.toCPointer<ByteVar>(), instanceid.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fsRtlRemovePerStreamContext(streamcontext: COpaquePointer?, ownerid: COpaquePointer?, instanceid: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext(streamcontext?.value?.toCPointer<ByteVar>(), ownerid?.value?.toCPointer<ByteVar>(), instanceid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FsRtlResetBaseMcb(mcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlResetBaseMcb(mcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb(mcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlResetLargeMcb(mcb: Long, selfsynchronized: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb(mcb.toCPointer<ByteVar>(), selfsynchronized)
+public actual fun fsRtlResetLargeMcb(mcb: COpaquePointer?, selfsynchronized: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb(mcb?.value?.toCPointer<ByteVar>(), selfsynchronized)
 }
 
-public actual fun FsRtlSetDriverBacking(driverobj: Long, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking(driverobj.toCPointer<ByteVar>(), flags)
+public actual fun fsRtlSetDriverBacking(driverobj: COpaquePointer?, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking(driverobj?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun FsRtlSetEcpListIntoIrp(irp: Long, ecplist: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp(irp.toCPointer<ByteVar>(), ecplist.toCPointer<ByteVar>())
+public actual fun fsRtlSetEcpListIntoIrp(irp: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp(irp?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlSetKernelEaFile(fileobject: Long, eabuffer: Long, length: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile(fileobject.toCPointer<ByteVar>(), eabuffer.toCPointer<ByteVar>(), length)
+public actual fun fsRtlSetKernelEaFile(fileobject: COpaquePointer?, eabuffer: COpaquePointer?, length: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile(fileobject?.value?.toCPointer<ByteVar>(), eabuffer?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun FsRtlSplitBaseMcb(mcb: Long, vbn: Long, amount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb(mcb.toCPointer<ByteVar>(), vbn, amount)
+public actual fun fsRtlSplitBaseMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb(mcb?.value?.toCPointer<ByteVar>(), vbn, amount)
 
-public actual fun FsRtlSplitLargeMcb(mcb: Long, vbn: Long, amount: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb(mcb.toCPointer<ByteVar>(), vbn, amount)
+public actual fun fsRtlSplitLargeMcb(mcb: COpaquePointer?, vbn: Long, amount: Long): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb(mcb?.value?.toCPointer<ByteVar>(), vbn, amount)
 
-public actual fun FsRtlTeardownPerFileContexts(perfilecontextpointer: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts(perfilecontextpointer.toCPointer<ByteVar>())
+public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts(perfilecontextpointer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlTeardownPerStreamContexts(advancedheader: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts(advancedheader.toCPointer<ByteVar>())
+public actual fun fsRtlTeardownPerStreamContexts(advancedheader: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts(advancedheader?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlTruncateBaseMcb(mcb: Long, vbn: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb(mcb.toCPointer<ByteVar>(), vbn)
+public actual fun fsRtlTruncateBaseMcb(mcb: COpaquePointer?, vbn: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb(mcb?.value?.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun FsRtlTruncateLargeMcb(mcb: Long, vbn: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb(mcb.toCPointer<ByteVar>(), vbn)
+public actual fun fsRtlTruncateLargeMcb(mcb: COpaquePointer?, vbn: Long) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb(mcb?.value?.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun FsRtlTruncateMcb(mcb: Long, vbn: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb(mcb.toCPointer<ByteVar>(), vbn)
+public actual fun fsRtlTruncateMcb(mcb: COpaquePointer?, vbn: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb(mcb?.value?.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun FsRtlUninitializeBaseMcb(mcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlUninitializeBaseMcb(mcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb(mcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlUninitializeFileLock(filelock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock(filelock.toCPointer<ByteVar>())
+public actual fun fsRtlUninitializeFileLock(filelock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock(filelock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlUninitializeLargeMcb(mcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlUninitializeLargeMcb(mcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb(mcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlUninitializeMcb(mcb: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb(mcb.toCPointer<ByteVar>())
+public actual fun fsRtlUninitializeMcb(mcb: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb(mcb?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlUninitializeOplock(oplock: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock(oplock.toCPointer<ByteVar>())
+public actual fun fsRtlUninitializeOplock(oplock: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock(oplock?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun FsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters(bytesread, byteswritten)
+public actual fun fsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters(bytesread, byteswritten)
 }
 
-public actual fun FsRtlUpperOplockFsctrl(oplock: Long, irp: Long, opencount: UInt, loweroplockstate: UInt, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl(oplock.toCPointer<ByteVar>(), irp.toCPointer<ByteVar>(), opencount, loweroplockstate, flags)
+public actual fun fsRtlUpperOplockFsctrl(oplock: COpaquePointer?, irp: COpaquePointer?, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl(oplock?.value?.toCPointer<ByteVar>(), irp?.value?.toCPointer<ByteVar>(), opencount, loweroplockstate, flags)
 
-public actual fun FsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer(bufferlength, reparsebuffer.toCPointer<ByteVar>())
+public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer(bufferlength, reparsebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun FsRtlVolumeDeviceToCorrelationId(volumedeviceobject: Long, guid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId(volumedeviceobject.toCPointer<ByteVar>(), guid.toCPointer<ByteVar>())
+public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId(volumedeviceobject?.value?.toCPointer<ByteVar>(), guid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSecurityUserInfo(logonid: Long, flags: UInt, userinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo(logonid.toCPointer<ByteVar>(), flags, userinformation.toCPointer<ByteVar>())
+public actual fun getSecurityUserInfo(logonid: COpaquePointer?, flags: UInt, userinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo(logonid?.value?.toCPointer<ByteVar>(), flags, userinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun IoAcquireVpbSpinLock(irql: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock(irql.toCPointer<ByteVar>())
+public actual fun ioAcquireVpbSpinLock(irql: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock(irql?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IoApplyPriorityInfoThread(inputpriorityinfo: Long, outputpriorityinfo: Long, thread: PETHREAD): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread(inputpriorityinfo.toCPointer<ByteVar>(), outputpriorityinfo.toCPointer<ByteVar>(), thread)
+public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: COpaquePointer?, outputpriorityinfo: COpaquePointer?, thread: Pethread): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread(inputpriorityinfo?.value?.toCPointer<ByteVar>(), outputpriorityinfo?.value?.toCPointer<ByteVar>(), thread)
 
-public actual fun IoCheckDesiredAccess(desiredaccess: Long, grantedaccess: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess(desiredaccess.toCPointer<ByteVar>(), grantedaccess)
+public actual fun ioCheckDesiredAccess(desiredaccess: COpaquePointer?, grantedaccess: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess(desiredaccess?.value?.toCPointer<ByteVar>(), grantedaccess)
 
-public actual fun IoCheckEaBufferValidity(eabuffer: Long, ealength: UInt, erroroffset: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity(eabuffer.toCPointer<ByteVar>(), ealength, erroroffset.toCPointer<ByteVar>())
+public actual fun ioCheckEaBufferValidity(eabuffer: COpaquePointer?, ealength: UInt, erroroffset: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity(eabuffer?.value?.toCPointer<ByteVar>(), ealength, erroroffset?.value?.toCPointer<ByteVar>())
 
-public actual fun IoCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: Long, arg2: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess(grantedaccess, majorfunction, minorfunction, iocontrolcode, arg1.toCPointer<ByteVar>(), arg2.toCPointer<ByteVar>())
+public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: COpaquePointer?, arg2: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess(grantedaccess, majorfunction, minorfunction, iocontrolcode, arg1?.value?.toCPointer<ByteVar>(), arg2?.value?.toCPointer<ByteVar>())
 
-public actual fun IoCheckQuerySetFileInformation(fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, setoperation: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation(fileinformationclass, length, setoperation)
+public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation(fileinformationclass, length, setoperation)
 
-public actual fun IoCheckQuerySetVolumeInformation(fsinformationclass: FS_INFORMATION_CLASS, length: UInt, setoperation: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation(fsinformationclass, length, setoperation)
+public actual fun ioCheckQuerySetVolumeInformation(fsinformationclass: FsInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation(fsinformationclass, length, setoperation)
 
-public actual fun IoCheckQuotaBufferValidity(quotabuffer: Long, quotalength: UInt, erroroffset: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity(quotabuffer.toCPointer<ByteVar>(), quotalength, erroroffset.toCPointer<ByteVar>())
+public actual fun ioCheckQuotaBufferValidity(quotabuffer: COpaquePointer?, quotalength: UInt, erroroffset: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity(quotabuffer?.value?.toCPointer<ByteVar>(), quotalength, erroroffset?.value?.toCPointer<ByteVar>())
 
-public actual fun IoClearFsTrackOffsetState(irp: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState(irp.toCPointer<ByteVar>())
+public actual fun ioClearFsTrackOffsetState(irp: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun IoCreateStreamFileObject(fileobject: Long, deviceobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject(fileobject.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioCreateStreamFileObject(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject(fileobject?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoCreateStreamFileObjectEx(fileobject: Long, deviceobject: Long, filehandle: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx(fileobject.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioCreateStreamFileObjectEx(fileobject: COpaquePointer?, deviceobject: COpaquePointer?, filehandle: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx(fileobject?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoCreateStreamFileObjectEx2(createoptions: Long, fileobject: Long, deviceobject: Long, streamfileobject: Long, filehandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2(createoptions.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>(), streamfileobject.toCPointer<ByteVar>(), filehandle.toCPointer<ByteVar>())
+public actual fun ioCreateStreamFileObjectEx2(createoptions: COpaquePointer?, fileobject: COpaquePointer?, deviceobject: COpaquePointer?, streamfileobject: COpaquePointer?, filehandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2(createoptions?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>(), streamfileobject?.value?.toCPointer<ByteVar>(), filehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun IoCreateStreamFileObjectLite(fileobject: Long, deviceobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite(fileobject.toCPointer<ByteVar>(), deviceobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioCreateStreamFileObjectLite(fileobject: COpaquePointer?, deviceobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite(fileobject?.value?.toCPointer<ByteVar>(), deviceobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoEnumerateDeviceObjectList(driverobject: Long, deviceobjectlist: Long, deviceobjectlistsize: UInt, actualnumberdeviceobjects: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList(driverobject.toCPointer<ByteVar>(), deviceobjectlist.toCPointer<ByteVar>(), deviceobjectlistsize, actualnumberdeviceobjects.toCPointer<ByteVar>())
+public actual fun ioEnumerateDeviceObjectList(driverobject: COpaquePointer?, deviceobjectlist: COpaquePointer?, deviceobjectlistsize: UInt, actualnumberdeviceobjects: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList(driverobject?.value?.toCPointer<ByteVar>(), deviceobjectlist?.value?.toCPointer<ByteVar>(), deviceobjectlistsize, actualnumberdeviceobjects?.value?.toCPointer<ByteVar>())
 
-public actual fun IoEnumerateRegisteredFiltersList(driverobjectlist: Long, driverobjectlistsize: UInt, actualnumberdriverobjects: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList(driverobjectlist.toCPointer<ByteVar>(), driverobjectlistsize, actualnumberdriverobjects.toCPointer<ByteVar>())
+public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: COpaquePointer?, driverobjectlistsize: UInt, actualnumberdriverobjects: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList(driverobjectlist?.value?.toCPointer<ByteVar>(), driverobjectlistsize, actualnumberdriverobjects?.value?.toCPointer<ByteVar>())
 
-public actual fun IoFastQueryNetworkAttributes(objectattributes: Long, desiredaccess: UInt, openoptions: UInt, iostatus: Long, buffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes(objectattributes.toCPointer<ByteVar>(), desiredaccess, openoptions, iostatus.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun ioFastQueryNetworkAttributes(objectattributes: COpaquePointer?, desiredaccess: UInt, openoptions: UInt, iostatus: COpaquePointer?, buffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes(objectattributes?.value?.toCPointer<ByteVar>(), desiredaccess, openoptions, iostatus?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun IoGetAttachedDevice(deviceobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice(deviceobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetAttachedDevice(deviceobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice(deviceobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetBaseFileSystemDeviceObject(fileobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject(fileobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetBaseFileSystemDeviceObject(fileobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject(fileobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetDeviceAttachmentBaseRef(deviceobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef(deviceobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef(deviceobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetDeviceToVerify(thread: PETHREAD): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify(thread)?.toLong() ?: 0L
+public actual fun ioGetDeviceToVerify(thread: Pethread): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify(thread)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetDiskDeviceObject(filesystemdeviceobject: Long, diskdeviceobject: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject(filesystemdeviceobject.toCPointer<ByteVar>(), diskdeviceobject.toCPointer<ByteVar>())
+public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: COpaquePointer?, diskdeviceobject: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject(filesystemdeviceobject?.value?.toCPointer<ByteVar>(), diskdeviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun IoGetFsTrackOffsetState(irp: Long, retfstrackoffsetblob: Long, rettrackedoffset: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState(irp.toCPointer<ByteVar>(), retfstrackoffsetblob.toCPointer<ByteVar>(), rettrackedoffset.toCPointer<ByteVar>())
+public actual fun ioGetFsTrackOffsetState(irp: COpaquePointer?, retfstrackoffsetblob: COpaquePointer?, rettrackedoffset: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState(irp?.value?.toCPointer<ByteVar>(), retfstrackoffsetblob?.value?.toCPointer<ByteVar>(), rettrackedoffset?.value?.toCPointer<ByteVar>())
 
-public actual fun IoGetLowerDeviceObject(deviceobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject(deviceobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetLowerDeviceObject(deviceobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject(deviceobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetOplockKeyContext(fileobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext(fileobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetOplockKeyContext(fileobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext(fileobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetOplockKeyContextEx(fileobject: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx(fileobject.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun ioGetOplockKeyContextEx(fileobject: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx(fileobject?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IoGetRequestorProcess(irp: Long): PEPROCESS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess(irp.toCPointer<ByteVar>())
+public actual fun ioGetRequestorProcess(irp: COpaquePointer?): Peprocess =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun IoGetRequestorProcessId(irp: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId(irp.toCPointer<ByteVar>())
+public actual fun ioGetRequestorProcessId(irp: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun IoGetRequestorSessionId(irp: Long, psessionid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId(irp.toCPointer<ByteVar>(), psessionid.toCPointer<ByteVar>())
+public actual fun ioGetRequestorSessionId(irp: COpaquePointer?, psessionid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId(irp?.value?.toCPointer<ByteVar>(), psessionid?.value?.toCPointer<ByteVar>())
 
-public actual fun IoIrpHasFsTrackOffsetExtensionType(irp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType(irp.toCPointer<ByteVar>())
+public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun IoIsOperationSynchronous(irp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous(irp.toCPointer<ByteVar>())
+public actual fun ioIsOperationSynchronous(irp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous(irp?.value?.toCPointer<ByteVar>())
 
-public actual fun IoIsSystemThread(thread: PETHREAD): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoIsSystemThread(thread)
+public actual fun ioIsSystemThread(thread: Pethread): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioIsSystemThread(thread)
 
-public actual fun IoIsValidNameGraftingBuffer(irp: Long, reparsebuffer: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer(irp.toCPointer<ByteVar>(), reparsebuffer.toCPointer<ByteVar>())
+public actual fun ioIsValidNameGraftingBuffer(irp: COpaquePointer?, reparsebuffer: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer(irp?.value?.toCPointer<ByteVar>(), reparsebuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun IoPageRead(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoPageRead(fileobject.toCPointer<ByteVar>(), memorydescriptorlist.toCPointer<ByteVar>(), startingoffset.toCPointer<ByteVar>(), event.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
+public actual fun ioPageRead(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioPageRead(fileobject?.value?.toCPointer<ByteVar>(), memorydescriptorlist?.value?.toCPointer<ByteVar>(), startingoffset?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun IoQueryFileDosDeviceName(fileobject: Long, objectnameinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName(fileobject.toCPointer<ByteVar>(), objectnameinformation.toCPointer<ByteVar>())
+public actual fun ioQueryFileDosDeviceName(fileobject: COpaquePointer?, objectnameinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName(fileobject?.value?.toCPointer<ByteVar>(), objectnameinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun IoQueryFileInformation(fileobject: Long, fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, fileinformation: Long, returnedlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation(fileobject.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation.toCPointer<ByteVar>(), returnedlength.toCPointer<ByteVar>())
+public actual fun ioQueryFileInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation(fileobject?.value?.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun IoQueryVolumeInformation(fileobject: Long, fsinformationclass: FS_INFORMATION_CLASS, length: UInt, fsinformation: Long, returnedlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation(fileobject.toCPointer<ByteVar>(), fsinformationclass, length, fsinformation.toCPointer<ByteVar>(), returnedlength.toCPointer<ByteVar>())
+public actual fun ioQueryVolumeInformation(fileobject: COpaquePointer?, fsinformationclass: FsInformationClass, length: UInt, fsinformation: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation(fileobject?.value?.toCPointer<ByteVar>(), fsinformationclass, length, fsinformation?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun IoQueueThreadIrp(irp: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp(irp.toCPointer<ByteVar>())
+public actual fun ioQueueThreadIrp(irp: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp(irp?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IoRegisterFileSystem(deviceobject: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem(deviceobject.toCPointer<ByteVar>())
+public actual fun ioRegisterFileSystem(deviceobject: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem(deviceobject?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IoRegisterFsRegistrationChange(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION): NTSTATUS =
+public actual fun ioRegisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification): Ntstatus =
     0
 
-public actual fun IoRegisterFsRegistrationChangeMountAware(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION, synchronizewithmounts: Boolean): NTSTATUS =
+public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
     0
 
-public actual fun IoReleaseVpbSpinLock(irql: UByte) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock(irql)
+public actual fun ioReleaseVpbSpinLock(irql: UByte) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock(irql)
 }
 
-public actual fun IoReplaceFileObjectName(fileobject: Long, newfilename: PCWSTR, filenamelength: UShort): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName(fileobject.toCPointer<ByteVar>(), newfilename.toCPointer<ByteVar>(), filenamelength)
+public actual fun ioReplaceFileObjectName(fileobject: COpaquePointer?, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName(fileobject?.value?.toCPointer<ByteVar>(), newfilename?.value?.toCPointer<ByteVar>(), filenamelength)
 
-public actual fun IoRequestDeviceRemovalForReset(physicaldeviceobject: Long, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset(physicaldeviceobject.toCPointer<ByteVar>(), flags)
+public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: COpaquePointer?, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset(physicaldeviceobject?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun IoRetrievePriorityInfo(irp: Long, fileobject: Long, thread: PETHREAD, priorityinfo: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo(irp.toCPointer<ByteVar>(), fileobject.toCPointer<ByteVar>(), thread, priorityinfo.toCPointer<ByteVar>())
+public actual fun ioRetrievePriorityInfo(irp: COpaquePointer?, fileobject: COpaquePointer?, thread: Pethread, priorityinfo: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo(irp?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), thread, priorityinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun IoSetDeviceToVerify(thread: PETHREAD, deviceobject: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify(thread, deviceobject.toCPointer<ByteVar>())
+public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify(thread, deviceobject?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IoSetFsTrackOffsetState(irp: Long, fstrackoffsetblob: Long, trackedoffset: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState(irp.toCPointer<ByteVar>(), fstrackoffsetblob.toCPointer<ByteVar>(), trackedoffset)
+public actual fun ioSetFsTrackOffsetState(irp: COpaquePointer?, fstrackoffsetblob: COpaquePointer?, trackedoffset: Long): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState(irp?.value?.toCPointer<ByteVar>(), fstrackoffsetblob?.value?.toCPointer<ByteVar>(), trackedoffset)
 
-public actual fun IoSetInformation(fileobject: Long, fileinformationclass: FILE_INFORMATION_CLASS, length: UInt, fileinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoSetInformation(fileobject.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation.toCPointer<ByteVar>())
+public actual fun ioSetInformation(fileobject: COpaquePointer?, fileinformationclass: FileInformationClass, length: UInt, fileinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioSetInformation(fileobject?.value?.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun IoSynchronousPageWrite(fileobject: Long, memorydescriptorlist: Long, startingoffset: Long, event: Long, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite(fileobject.toCPointer<ByteVar>(), memorydescriptorlist.toCPointer<ByteVar>(), startingoffset.toCPointer<ByteVar>(), event.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
+public actual fun ioSynchronousPageWrite(fileobject: COpaquePointer?, memorydescriptorlist: COpaquePointer?, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite(fileobject?.value?.toCPointer<ByteVar>(), memorydescriptorlist?.value?.toCPointer<ByteVar>(), startingoffset?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun IoThreadToProcess(thread: PETHREAD): PEPROCESS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoThreadToProcess(thread)
+public actual fun ioThreadToProcess(thread: Pethread): Peprocess =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioThreadToProcess(thread)
 
-public actual fun IoUnregisterFileSystem(deviceobject: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem(deviceobject.toCPointer<ByteVar>())
+public actual fun ioUnregisterFileSystem(deviceobject: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem(deviceobject?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IoUnregisterFsRegistrationChange(driverobject: Long, drivernotificationroutine: DRIVER_FS_NOTIFICATION) {
+public actual fun ioUnregisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification) {
 }
 
-public actual fun IoVerifyVolume(deviceobject: Long, allowrawmount: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_IoVerifyVolume(deviceobject.toCPointer<ByteVar>(), allowrawmount)
+public actual fun ioVerifyVolume(deviceobject: COpaquePointer?, allowrawmount: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ioVerifyVolume(deviceobject?.value?.toCPointer<ByteVar>(), allowrawmount)
 
-public actual fun KeAcquireQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER): UByte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock(number)
+public actual fun keAcquireQueuedSpinLock(number: KspinLockQueueNumber): UByte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock(number)
 
-public actual fun KeAcquireSpinLockRaiseToSynch(spinlock: Long): UByte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch(spinlock.toCPointer<ByteVar>())
+public actual fun keAcquireSpinLockRaiseToSynch(spinlock: COpaquePointer?): UByte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch(spinlock?.value?.toCPointer<ByteVar>())
 
-public actual fun KeAttachProcess(process: PRKPROCESS) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeAttachProcess(process)
+public actual fun keAttachProcess(process: Prkprocess) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keAttachProcess(process)
 }
 
-public actual fun KeDetachProcess() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeDetachProcess()
+public actual fun keDetachProcess() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keDetachProcess()
 }
 
-public actual fun KeInitializeMutant(mutant: Long, initialowner: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeInitializeMutant(mutant.toCPointer<ByteVar>(), initialowner)
+public actual fun keInitializeMutant(mutant: COpaquePointer?, initialowner: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keInitializeMutant(mutant?.value?.toCPointer<ByteVar>(), initialowner)
 }
 
-public actual fun KeInitializeQueue(queue: Long, count: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeInitializeQueue(queue.toCPointer<ByteVar>(), count)
+public actual fun keInitializeQueue(queue: COpaquePointer?, count: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keInitializeQueue(queue?.value?.toCPointer<ByteVar>(), count)
 }
 
-public actual fun KeInsertHeadQueue(queue: Long, entry: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue(queue.toCPointer<ByteVar>(), entry.toCPointer<ByteVar>())
+public actual fun keInsertHeadQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue(queue?.value?.toCPointer<ByteVar>(), entry?.value?.toCPointer<ByteVar>())
 
-public actual fun KeInsertQueue(queue: Long, entry: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeInsertQueue(queue.toCPointer<ByteVar>(), entry.toCPointer<ByteVar>())
+public actual fun keInsertQueue(queue: COpaquePointer?, entry: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keInsertQueue(queue?.value?.toCPointer<ByteVar>(), entry?.value?.toCPointer<ByteVar>())
 
-public actual fun KeReadStateMutant(mutant: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeReadStateMutant(mutant.toCPointer<ByteVar>())
+public actual fun keReadStateMutant(mutant: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keReadStateMutant(mutant?.value?.toCPointer<ByteVar>())
 
-public actual fun KeReadStateQueue(queue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeReadStateQueue(queue.toCPointer<ByteVar>())
+public actual fun keReadStateQueue(queue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keReadStateQueue(queue?.value?.toCPointer<ByteVar>())
 
-public actual fun KeReleaseMutant(mutant: Long, increment: Int, abandoned: Boolean, wait: Boolean): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeReleaseMutant(mutant.toCPointer<ByteVar>(), increment, abandoned, wait)
+public actual fun keReleaseMutant(mutant: COpaquePointer?, increment: Int, abandoned: Boolean, wait: Boolean): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keReleaseMutant(mutant?.value?.toCPointer<ByteVar>(), increment, abandoned, wait)
 
-public actual fun KeReleaseQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER, oldirql: UByte) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock(number, oldirql)
+public actual fun keReleaseQueuedSpinLock(number: KspinLockQueueNumber, oldirql: UByte) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock(number, oldirql)
 }
 
-public actual fun KeRemoveQueue(queue: Long, waitmode: Byte, timeout: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeRemoveQueue(queue.toCPointer<ByteVar>(), waitmode, timeout.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun keRemoveQueue(queue: COpaquePointer?, waitmode: Byte, timeout: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keRemoveQueue(queue?.value?.toCPointer<ByteVar>(), waitmode, timeout?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun KeRemoveQueueEx(queue: Long, waitmode: Byte, alertable: Boolean, timeout: Long, entryarray: Long, count: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx(queue.toCPointer<ByteVar>(), waitmode, alertable, timeout.toCPointer<ByteVar>(), entryarray.toCPointer<ByteVar>(), count)
+public actual fun keRemoveQueueEx(queue: COpaquePointer?, waitmode: Byte, alertable: Boolean, timeout: COpaquePointer?, entryarray: COpaquePointer?, count: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx(queue?.value?.toCPointer<ByteVar>(), waitmode, alertable, timeout?.value?.toCPointer<ByteVar>(), entryarray?.value?.toCPointer<ByteVar>(), count)
 
-public actual fun KeRundownQueue(queue: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeRundownQueue(queue.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun keRundownQueue(queue: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keRundownQueue(queue?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun KeSetIdealProcessorThread(thread: PKTHREAD, processor: UByte): UByte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread(thread, processor)
+public actual fun keSetIdealProcessorThread(thread: Pkthread, processor: UByte): UByte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread(thread, processor)
 
-public actual fun KeSetKernelStackSwapEnable(enable: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable(enable)
+public actual fun keSetKernelStackSwapEnable(enable: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable(enable)
 
-public actual fun KeStackAttachProcess(process: PRKPROCESS, apcstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess(process, apcstate.toCPointer<ByteVar>())
+public actual fun keStackAttachProcess(process: Prkprocess, apcstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keStackAttachProcess(process, apcstate?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun KeTryToAcquireQueuedSpinLock(number: KSPIN_LOCK_QUEUE_NUMBER, oldirql: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock(number, oldirql.toCPointer<ByteVar>())
+public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock(number, oldirql?.value?.toCPointer<ByteVar>())
 
-public actual fun KeUnstackDetachProcess(apcstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess(apcstate.toCPointer<ByteVar>())
+public actual fun keUnstackDetachProcess(apcstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess(apcstate?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun MakeSignature(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MakeSignature(phcontext.toCPointer<ByteVar>(), fqop, pmessage.toCPointer<ByteVar>(), messageseqno)
+public actual fun makeSignature(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_makeSignature(phcontext?.value?.toCPointer<ByteVar>(), fqop, pmessage?.value?.toCPointer<ByteVar>(), messageseqno)
 
-public actual fun MapSecurityError(secstatus: HRESULT): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MapSecurityError(secstatus)
+public actual fun mapSecurityError(secstatus: Hresult): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mapSecurityError(secstatus)
 
-public actual fun MmCanFileBeTruncated(sectionpointer: Long, newfilesize: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated(sectionpointer.toCPointer<ByteVar>(), newfilesize.toCPointer<ByteVar>())
+public actual fun mmCanFileBeTruncated(sectionpointer: COpaquePointer?, newfilesize: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated(sectionpointer?.value?.toCPointer<ByteVar>(), newfilesize?.value?.toCPointer<ByteVar>())
 
-public actual fun MmDoesFileHaveUserWritableReferences(sectionpointer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences(sectionpointer.toCPointer<ByteVar>())
+public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences(sectionpointer?.value?.toCPointer<ByteVar>())
 
-public actual fun MmFlushImageSection(sectionobjectpointer: Long, flushtype: MMFLUSH_TYPE): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmFlushImageSection(sectionobjectpointer.toCPointer<ByteVar>(), flushtype)
+public actual fun mmFlushImageSection(sectionobjectpointer: COpaquePointer?, flushtype: MmflushType): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmFlushImageSection(sectionobjectpointer?.value?.toCPointer<ByteVar>(), flushtype)
 
-public actual fun MmForceSectionClosed(sectionobjectpointer: Long, delayclose: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed(sectionobjectpointer.toCPointer<ByteVar>(), delayclose)
+public actual fun mmForceSectionClosed(sectionobjectpointer: COpaquePointer?, delayclose: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed(sectionobjectpointer?.value?.toCPointer<ByteVar>(), delayclose)
 
-public actual fun MmForceSectionClosedEx(sectionobjectpointer: Long, forcecloseflags: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx(sectionobjectpointer.toCPointer<ByteVar>(), forcecloseflags)
+public actual fun mmForceSectionClosedEx(sectionobjectpointer: COpaquePointer?, forcecloseflags: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx(sectionobjectpointer?.value?.toCPointer<ByteVar>(), forcecloseflags)
 
-public actual fun MmGetMaximumFileSectionSize(): ULong =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize()
+public actual fun mmGetMaximumFileSectionSize(): ULong =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize()
 
-public actual fun MmIsFileSectionActive(fssectionpointer: Long, flags: UInt, sectionisactive: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive(fssectionpointer.toCPointer<ByteVar>(), flags, sectionisactive.toCPointer<ByteVar>())
+public actual fun mmIsFileSectionActive(fssectionpointer: COpaquePointer?, flags: UInt, sectionisactive: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive(fssectionpointer?.value?.toCPointer<ByteVar>(), flags, sectionisactive?.value?.toCPointer<ByteVar>())
 
-public actual fun MmIsRecursiveIoFault(): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault()
+public actual fun mmIsRecursiveIoFault(): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault()
 
-public actual fun MmMdlPagesAreZero(mdl: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero(mdl.toCPointer<ByteVar>())
+public actual fun mmMdlPagesAreZero(mdl: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero(mdl?.value?.toCPointer<ByteVar>())
 
-public actual fun MmPrefetchPages(numberoflists: UInt, readlists: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmPrefetchPages(numberoflists, readlists.toCPointer<ByteVar>())
+public actual fun mmPrefetchPages(numberoflists: UInt, readlists: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmPrefetchPages(numberoflists, readlists?.value?.toCPointer<ByteVar>())
 
-public actual fun MmSetAddressRangeModified(address: Long, length: ULong): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified(address.toCPointer<ByteVar>(), length)
+public actual fun mmSetAddressRangeModified(address: COpaquePointer?, length: ULong): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified(address?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun NtAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), desiredaccess, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
+public actual fun ntAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), desiredaccess, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
+public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: HANDLE, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAdjustGroupsToken(tokenhandle: HANDLE, resettodefault: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken(tokenhandle.toCPointer<ByteVar>(), resettodefault, newstate.toCPointer<ByteVar>(), bufferlength, previousstate.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
+public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken(tokenhandle?.value?.toCPointer<ByteVar>(), resettodefault, newstate?.value?.toCPointer<ByteVar>(), bufferlength, previousstate?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAdjustPrivilegesToken(tokenhandle: HANDLE, disableallprivileges: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken(tokenhandle.toCPointer<ByteVar>(), disableallprivileges, newstate.toCPointer<ByteVar>(), bufferlength, previousstate.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
+public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken(tokenhandle?.value?.toCPointer<ByteVar>(), disableallprivileges, newstate?.value?.toCPointer<ByteVar>(), bufferlength, previousstate?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun NtAllocateVirtualMemory(processhandle: HANDLE, baseaddress: Long, zerobits: ULong, regionsize: Long, allocationtype: UInt, protect: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), zerobits, regionsize.toCPointer<ByteVar>(), allocationtype, protect)
+public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), zerobits, regionsize?.value?.toCPointer<ByteVar>(), allocationtype, protect)
 
-public actual fun NtAllocateVirtualMemoryEx(processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters.toCPointer<ByteVar>(), extendedparametercount)
+public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters?.value?.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun NtCancelIoFileEx(filehandle: HANDLE, iorequesttocancel: Long, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx(filehandle.toCPointer<ByteVar>(), iorequesttocancel.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
+public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx(filehandle?.value?.toCPointer<ByteVar>(), iorequesttocancel?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun NtCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), generateonclose)
+public actual fun ntCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun NtCreateDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject(directoryhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun ntCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun NtCreateEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long, eventtype: EVENT_TYPE, initialstate: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCreateEvent(eventhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), eventtype, initialstate)
+public actual fun ntCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCreateEvent(eventhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), eventtype, initialstate)
 
-public actual fun NtCreateFile(filehandle: Long, desiredaccess: FILE_ACCESS_RIGHTS, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: FILE_FLAGS_AND_ATTRIBUTES, shareaccess: FILE_SHARE_MODE, createdisposition: NTCREATEFILE_CREATE_DISPOSITION, createoptions: NTCREATEFILE_CREATE_OPTIONS, eabuffer: Long, ealength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCreateFile(filehandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), allocationsize.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer.toCPointer<ByteVar>(), ealength)
+public actual fun ntCreateFile(filehandle: COpaquePointer?, desiredaccess: FileAccessRights, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: COpaquePointer?, ealength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCreateFile(filehandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength)
 
-public actual fun NtCreateSection(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCreateSection(sectionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), maximumsize.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.toCPointer<ByteVar>())
+public actual fun ntCreateSection(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCreateSection(sectionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), maximumsize?.value?.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtCreateSectionEx(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx(sectionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), maximumsize.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.toCPointer<ByteVar>(), extendedparameters.toCPointer<ByteVar>(), extendedparametercount)
+public actual fun ntCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx(sectionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), maximumsize?.value?.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle?.value?.toCPointer<ByteVar>(), extendedparameters?.value?.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun NtDeleteFile(objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtDeleteFile(objectattributes.toCPointer<ByteVar>())
+public actual fun ntDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntDeleteFile(objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun NtDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), generateonclose)
+public actual fun ntDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun NtDuplicateObject(sourceprocesshandle: HANDLE, sourcehandle: HANDLE, targetprocesshandle: HANDLE, targethandle: Long, desiredaccess: UInt, handleattributes: UInt, options: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtDuplicateObject(sourceprocesshandle.toCPointer<ByteVar>(), sourcehandle.toCPointer<ByteVar>(), targetprocesshandle.toCPointer<ByteVar>(), targethandle.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
+public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntDuplicateObject(sourceprocesshandle?.value?.toCPointer<ByteVar>(), sourcehandle?.value?.toCPointer<ByteVar>(), targetprocesshandle?.value?.toCPointer<ByteVar>(), targethandle?.value?.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
 
-public actual fun NtDuplicateToken(existingtokenhandle: HANDLE, desiredaccess: UInt, objectattributes: Long, effectiveonly: Boolean, tokentype: TOKEN_TYPE, newtokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtDuplicateToken(existingtokenhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle.toCPointer<ByteVar>())
+public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntDuplicateToken(existingtokenhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFilterToken(existingtokenhandle: HANDLE, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtFilterToken(existingtokenhandle.toCPointer<ByteVar>(), flags, sidstodisable.toCPointer<ByteVar>(), privilegestodelete.toCPointer<ByteVar>(), restrictedsids.toCPointer<ByteVar>(), newtokenhandle.toCPointer<ByteVar>())
+public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFilterToken(existingtokenhandle?.value?.toCPointer<ByteVar>(), flags, sidstodisable?.value?.toCPointer<ByteVar>(), privilegestodelete?.value?.toCPointer<ByteVar>(), restrictedsids?.value?.toCPointer<ByteVar>(), newtokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFlushBuffersFile(filehandle: HANDLE, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
+public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFlushBuffersFileEx(filehandle: HANDLE, flags: UInt, parameters: Long, parameterssize: UInt, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx(filehandle.toCPointer<ByteVar>(), flags, parameters.toCPointer<ByteVar>(), parameterssize, iostatusblock.toCPointer<ByteVar>())
+public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx(filehandle?.value?.toCPointer<ByteVar>(), flags, parameters?.value?.toCPointer<ByteVar>(), parameterssize, iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFlushVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, iostatus: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
+public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
-public actual fun NtFreeVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), freetype)
+public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), freetype)
 
-public actual fun NtFsControlFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS =
+public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntFsControlFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fscontrolcode, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength)
+
+public actual fun ntImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken(threadhandle?.value?.toCPointer<ByteVar>())
+
+public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntLockFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), byteoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key, failimmediately, exclusivelock)
+
+public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey(keyhandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
+
+public actual fun ntOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenFile(filehandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, shareaccess: UInt, openoptions: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenFile(filehandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), shareaccess, openoptions)
+
+public actual fun ntOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges?.value?.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, tokenhandle?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenSymbolicLinkObject(linkhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject(linkhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken(threadhandle?.value?.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle?.value?.toCPointer<ByteVar>())
+
+public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx(threadhandle?.value?.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle?.value?.toCPointer<ByteVar>())
+
+public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck(clienttoken?.value?.toCPointer<ByteVar>(), requiredprivileges?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
+
+public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), desiredaccess, privileges?.value?.toCPointer<ByteVar>(), accessgranted)
+
+public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), privileges?.value?.toCPointer<ByteVar>(), accessgranted)
+
+public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, returnsingleentry, filename?.value?.toCPointer<ByteVar>(), restartscan)
+
+public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, queryflags, filename?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryEaFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, ealist?.value?.toCPointer<ByteVar>(), ealistlength, eaindex?.value?.toCPointer<ByteVar>(), restartscan)
+
+public actual fun ntQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile(objectattributes?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryInformationByName(objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName(objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass)
+
+public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass)
+
+public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken(tokenhandle?.value?.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation?.value?.toCPointer<ByteVar>(), tokeninformationlength, returnlength?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, sidlist?.value?.toCPointer<ByteVar>(), sidlistlength, startsid?.value?.toCPointer<ByteVar>(), restartscan)
+
+public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject(handle?.value?.toCPointer<ByteVar>(), securityinformation, securitydescriptor?.value?.toCPointer<ByteVar>(), length, lengthneeded?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: COpaquePointer?, returnedlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject(linkhandle?.value?.toCPointer<ByteVar>(), linktarget?.value?.toCPointer<ByteVar>(), returnedlength?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation?.value?.toCPointer<ByteVar>(), memoryinformationlength, returnlength?.value?.toCPointer<ByteVar>())
+
+public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fsinformation?.value?.toCPointer<ByteVar>(), length, fsinformationclass)
+
+public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntReadFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, byteoffset?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
+
+public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetEaFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length)
+
+public actual fun ntSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetEvent(eventhandle?.value?.toCPointer<ByteVar>(), previousstate?.value?.toCPointer<ByteVar>())
+
+public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass)
+
+public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetInformationToken(tokenhandle?.value?.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation?.value?.toCPointer<ByteVar>(), tokeninformationlength)
+
+public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses?.value?.toCPointer<ByteVar>(), vminformation?.value?.toCPointer<ByteVar>(), vminformationlength)
+
+public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length)
+
+public actual fun ntSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject(handle?.value?.toCPointer<ByteVar>(), securityinformation, securitydescriptor?.value?.toCPointer<ByteVar>())
+
+public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fsinformation?.value?.toCPointer<ByteVar>(), length, fsinformationclass)
+
+public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntUnlockFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), byteoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key)
+
+public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, byteoffset: COpaquePointer?, key: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ntWriteFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, byteoffset?.value?.toCPointer<ByteVar>(), key?.value?.toCPointer<ByteVar>())
+
+public actual fun obInsertObject(obj: COpaquePointer?, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objectpointerbias: UInt, newobject: COpaquePointer?, handle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obInsertObject(obj?.value?.toCPointer<ByteVar>(), passedaccessstate?.value?.toCPointer<ByteVar>(), desiredaccess, objectpointerbias, newobject?.value?.toCPointer<ByteVar>(), handle?.value?.toCPointer<ByteVar>())
+
+public actual fun obIsKernelHandle(handle: Handle): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obIsKernelHandle(handle?.value?.toCPointer<ByteVar>())
+
+public actual fun obMakeTemporaryObject(obj: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject(obj?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun obOpenObjectByPointer(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer(obj?.value?.toCPointer<ByteVar>(), handleattributes, passedaccessstate?.value?.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, handle?.value?.toCPointer<ByteVar>())
+
+public actual fun obOpenObjectByPointerWithTag(obj: COpaquePointer?, handleattributes: UInt, passedaccessstate: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag(obj?.value?.toCPointer<ByteVar>(), handleattributes, passedaccessstate?.value?.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, tag, handle?.value?.toCPointer<ByteVar>())
+
+public actual fun obQueryNameString(obj: COpaquePointer?, objectnameinfo: COpaquePointer?, length: UInt, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obQueryNameString(obj?.value?.toCPointer<ByteVar>(), objectnameinfo?.value?.toCPointer<ByteVar>(), length, returnlength?.value?.toCPointer<ByteVar>())
+
+public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle(handle?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
+
+public actual fun pfxFindPrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_pfxFindPrefix(prefixtable?.value?.toCPointer<ByteVar>(), fullname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun pfxInitialize(prefixtable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_pfxInitialize(prefixtable?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun pfxInsertPrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix(prefixtable?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), prefixtableentry?.value?.toCPointer<ByteVar>())
+
+public actual fun pfxRemovePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix(prefixtable?.value?.toCPointer<ByteVar>(), prefixtableentry?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun poQueueShutdownWorkItem(workitem: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem(workitem?.value?.toCPointer<ByteVar>())
+
+public actual fun psAssignImpersonationToken(thread: Pethread, token: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken(thread, token?.value?.toCPointer<ByteVar>())
+
+public actual fun psChargePoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psChargePoolQuota(process, pooltype, amount)
+}
+
+public actual fun psChargeProcessPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota(process, pooltype, amount)
+
+public actual fun psDereferenceImpersonationToken(impersonationtoken: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken(impersonationtoken?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun psDereferencePrimaryToken(primarytoken: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken(primarytoken?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psDisableImpersonation(thread, impersonationstate?.value?.toCPointer<ByteVar>())
+
+public actual fun psGetProcessExitTime(): Long =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime()
+
+public actual fun psGetThreadProcess(thread: Pethread): Peprocess =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psGetThreadProcess(thread)
+
+public actual fun psImpersonateClient(thread: Pethread, token: COpaquePointer?, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psImpersonateClient(thread, token?.value?.toCPointer<ByteVar>(), copyonopen, effectiveonly, impersonationlevel)
+
+public actual fun psIsDiskCountersEnabled(): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled()
+
+public actual fun psIsSystemThread(thread: Pethread): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psIsSystemThread(thread)
+
+public actual fun psIsThreadTerminating(thread: Pethread): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating(thread)
+
+public actual fun psLookupProcessByProcessId(processid: Handle, process: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId(processid?.value?.toCPointer<ByteVar>(), process?.value?.toCPointer<ByteVar>())
+
+public actual fun psLookupThreadByThreadId(threadid: Handle, thread: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId(threadid?.value?.toCPointer<ByteVar>(), thread?.value?.toCPointer<ByteVar>())
+
+public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: COpaquePointer?, effectiveonly: COpaquePointer?, impersonationlevel: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken(thread, copyonopen?.value?.toCPointer<ByteVar>(), effectiveonly?.value?.toCPointer<ByteVar>(), impersonationlevel?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun psReferencePrimaryToken(process: Peprocess): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken(process)?.let { COpaquePointer(it.toLong()) }
+
+public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation(thread, impersonationstate?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun psReturnPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota(process, pooltype, amount)
+}
+
+public actual fun psRevertToSelf() {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psRevertToSelf()
+}
+
+public actual fun psUpdateDiskCounters(process: Peprocess, bytesread: ULong, byteswritten: ULong, readoperationcount: UInt, writeoperationcount: UInt, flushoperationcount: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters(process, bytesread, byteswritten, readoperationcount, writeoperationcount, flushoperationcount)
+}
+
+public actual fun querySecurityContextToken(phcontext: COpaquePointer?, token: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_querySecurityContextToken(phcontext?.value?.toCPointer<ByteVar>(), token?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor?.value?.toCPointer<ByteVar>(), selfrelativesecuritydescriptor?.value?.toCPointer<ByteVar>(), bufferlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAddAccessAllowedAce(acl: COpaquePointer?, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce(acl?.value?.toCPointer<ByteVar>(), acerevision, accessmask, sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAddAccessAllowedAceEx(acl: COpaquePointer?, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx(acl?.value?.toCPointer<ByteVar>(), acerevision, aceflags, accessmask, sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAddAce(acl: COpaquePointer?, acerevision: UInt, startingaceindex: UInt, acelist: COpaquePointer?, acelistlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAddAce(acl?.value?.toCPointer<ByteVar>(), acerevision, startingaceindex, acelist?.value?.toCPointer<ByteVar>(), acelistlength)
+
+public actual fun rtlAllocateAndInitializeSid(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid(identifierauthority?.value?.toCPointer<ByteVar>(), subauthoritycount, subauthority0, subauthority1, subauthority2, subauthority3, subauthority4, subauthority5, subauthority6, subauthority7, sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: COpaquePointer?, subauthoritycount: UByte, subauthorities: COpaquePointer?, sid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx(identifierauthority?.value?.toCPointer<ByteVar>(), subauthoritycount, subauthorities?.value?.toCPointer<ByteVar>(), sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlAllocateHeap(heaphandle: COpaquePointer?, flags: UInt, size: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap(heaphandle?.value?.toCPointer<ByteVar>(), flags, size)?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlAppendStringToString(destination: COpaquePointer?, source: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString(destination?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCompareAltitudes(altitude1: COpaquePointer?, altitude2: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes(altitude1?.value?.toCPointer<ByteVar>(), altitude2?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCompareMemoryUlong(source: COpaquePointer?, length: ULong, pattern: UInt): ULong =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong(source?.value?.toCPointer<ByteVar>(), length, pattern)
+
+public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer(compressionformatandengine, uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finalcompressedsize?.value?.toCPointer<ByteVar>(), workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compresseddatainfo: COpaquePointer?, compresseddatainfolength: UInt, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCompressChunks(uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, compresseddatainfo?.value?.toCPointer<ByteVar>(), compresseddatainfolength, workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCopyLuid(destinationluid: COpaquePointer?, sourceluid: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCopyLuid(destinationluid?.value?.toCPointer<ByteVar>(), sourceluid?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlCopySid(destinationsidlength: UInt, destinationsid: Psid, sourcesid: Psid): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCopySid(destinationsidlength, destinationsid?.value?.toCPointer<ByteVar>(), sourcesid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCreateAcl(acl: COpaquePointer?, acllength: UInt, aclrevision: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateAcl(acl?.value?.toCPointer<ByteVar>(), acllength, aclrevision)
+
+public actual fun rtlCreateHeap(flags: UInt, heapbase: COpaquePointer?, reservesize: ULong, commitsize: ULong, lock: COpaquePointer?, parameters: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateHeap(flags, heapbase?.value?.toCPointer<ByteVar>(), reservesize, commitsize, lock?.value?.toCPointer<ByteVar>(), parameters?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlCreateServiceSid(servicename: COpaquePointer?, servicesid: Psid, servicesidlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid(servicename?.value?.toCPointer<ByteVar>(), servicesid?.value?.toCPointer<ByteVar>(), servicesidlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder(volumerootpath?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCreateUnicodeString(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCreateVirtualAccountSid(name: COpaquePointer?, basesubauthority: UInt, sid: Psid, sidlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid(name?.value?.toCPointer<ByteVar>(), basesubauthority, sid?.value?.toCPointer<ByteVar>(), sidlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlCustomCPToUnicodeN(customcp: COpaquePointer?, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN(customcp?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring?.value?.toCPointer<ByteVar>(), customcpstring?.value?.toCPointer<ByteVar>(), bytesincustomcpstring)
+
+public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer(compressionformat, uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx(compressionformat, uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize?.value?.toCPointer<ByteVar>(), workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2(compressionformat, uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finaluncompressedsize?.value?.toCPointer<ByteVar>(), workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDecompressChunks(uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, compressedtail: COpaquePointer?, compressedtailsize: UInt, compresseddatainfo: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks(uncompressedbuffer?.value?.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, compressedtail?.value?.toCPointer<ByteVar>(), compressedtailsize, compresseddatainfo?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment(compressionformat, uncompressedfragment?.value?.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, finaluncompressedsize?.value?.toCPointer<ByteVar>(), workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: COpaquePointer?, uncompressedfragmentsize: UInt, compressedbuffer: COpaquePointer?, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: COpaquePointer?, workspace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx(compressionformat, uncompressedfragment?.value?.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer?.value?.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, uncompressedchunksize, finaluncompressedsize?.value?.toCPointer<ByteVar>(), workspace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDeleteAce(acl: COpaquePointer?, aceindex: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDeleteAce(acl?.value?.toCPointer<ByteVar>(), aceindex)
+
+public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk(compressionformat, compressedbuffer?.value?.toCPointer<ByteVar>(), endofcompressedbufferplus1?.value?.toCPointer<ByteVar>(), chunkbuffer?.value?.toCPointer<ByteVar>(), chunksize?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDestroyHeap(heaphandle: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap(heaphandle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: COpaquePointer?, filepart: COpaquePointer?, reserved: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus(dosfilename?.value?.toCPointer<ByteVar>(), ntfilename?.value?.toCPointer<ByteVar>(), filepart?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlDowncaseUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: COpaquePointer?, stringout: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString(flags, stringin?.value?.toCPointer<ByteVar>(), stringout?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlEqualPrefixSid(sid1: Psid, sid2: Psid): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid(sid1?.value?.toCPointer<ByteVar>(), sid2?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlEqualSid(sid1: Psid, sid2: Psid): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlEqualSid(sid1?.value?.toCPointer<ByteVar>(), sid2?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlFindUnicodePrefix(prefixtable: COpaquePointer?, fullname: COpaquePointer?, caseinsensitiveindex: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix(prefixtable?.value?.toCPointer<ByteVar>(), fullname?.value?.toCPointer<ByteVar>(), caseinsensitiveindex)?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlFreeHeap(heaphandle: COpaquePointer?, flags: UInt, baseaddress: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlFreeHeap(heaphandle?.value?.toCPointer<ByteVar>(), flags, baseaddress?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlFreeSid(sid: Psid): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlFreeSid(sid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlGenerate8dot3Name(name: COpaquePointer?, allowextendedcharacters: Boolean, context: COpaquePointer?, name8dot3: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name(name?.value?.toCPointer<ByteVar>(), allowextendedcharacters, context?.value?.toCPointer<ByteVar>(), name8dot3?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetAce(acl: COpaquePointer?, aceindex: UInt, ace: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetAce(acl?.value?.toCPointer<ByteVar>(), aceindex, ace?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: COpaquePointer?, compressfragmentworkspacesize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize(compressionformatandengine, compressbufferworkspacesize?.value?.toCPointer<ByteVar>(), compressfragmentworkspacesize?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: COpaquePointer?, dacl: COpaquePointer?, dacldefaulted: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), daclpresent?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), dacldefaulted?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: COpaquePointer?, groupdefaulted: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), group?.value?.toCPointer<ByteVar>(), groupdefaulted?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: COpaquePointer?, ownerdefaulted: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), owner?.value?.toCPointer<ByteVar>(), ownerdefaulted?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: COpaquePointer?, sacl: COpaquePointer?, sacldefaulted: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), saclpresent?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), sacldefaulted?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIdentifierAuthoritySid(sid: Psid): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid(sid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii(flags, sourcestring?.value?.toCPointer<ByteVar>(), sourcestringlength, destinationstring?.value?.toCPointer<ByteVar>(), destinationstringlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode(flags, sourcestring?.value?.toCPointer<ByteVar>(), sourcestringlength, destinationstring?.value?.toCPointer<ByteVar>(), destinationstringlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode(flags, sourcestring?.value?.toCPointer<ByteVar>(), sourcestringlength, destinationstring?.value?.toCPointer<ByteVar>(), destinationstringlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlInitCodePageTable(tablebase: COpaquePointer?, codepagetable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable(tablebase?.value?.toCPointer<ByteVar>(), codepagetable?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlInitUnicodeStringEx(destinationstring: COpaquePointer?, sourcestring: Pcwstr): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlInitializeSid(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInitializeSid(sid?.value?.toCPointer<ByteVar>(), identifierauthority?.value?.toCPointer<ByteVar>(), subauthoritycount)
+
+public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: COpaquePointer?, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx(sid?.value?.toCPointer<ByteVar>(), identifierauthority?.value?.toCPointer<ByteVar>(), subauthoritycount, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun rtlInitializeUnicodePrefix(prefixtable: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix(prefixtable?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlInsertUnicodePrefix(prefixtable: COpaquePointer?, prefix: COpaquePointer?, prefixtableentry: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix(prefixtable?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), prefixtableentry?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder(fileattributes, reparsetag)
+
+public actual fun rtlIsDosDeviceNameU(dosfilename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU(dosfilename?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
+
+public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString(normform, sourcestring?.value?.toCPointer<ByteVar>(), sourcestringlength, normalized?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder(fileattributes, reparsetag)
+
+public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle(filehandle?.value?.toCPointer<ByteVar>(), ispartialplaceholder?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: COpaquePointer?, infoclass: FileInformationClass, ispartialplaceholder: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo(infobuffer?.value?.toCPointer<ByteVar>(), infoclass, ispartialplaceholder?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlIsSandboxedToken(context: COpaquePointer?, previousmode: Byte): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken(context?.value?.toCPointer<ByteVar>(), previousmode)
+
+public actual fun rtlIsValidOemCharacter(char: Pwstr): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter(char?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlLengthRequiredSid(subauthoritycount: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid(subauthoritycount)
+
+public actual fun rtlLengthSid(sid: Psid): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlLengthSid(sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN(unicodestring?.value?.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring?.value?.toCPointer<ByteVar>(), multibytestring?.value?.toCPointer<ByteVar>(), bytesinmultibytestring)
+
+public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize(bytesinunicodestring?.value?.toCPointer<ByteVar>(), multibytestring?.value?.toCPointer<ByteVar>(), bytesinmultibytestring)
+
+public actual fun rtlNextUnicodePrefix(prefixtable: COpaquePointer?, restart: Boolean): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix(prefixtable?.value?.toCPointer<ByteVar>(), restart)?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlNormalizeString(normform, sourcestring?.value?.toCPointer<ByteVar>(), sourcestringlength, destinationstring?.value?.toCPointer<ByteVar>(), destinationstringlength?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlNtStatusToDosErrorNoTeb(status: Ntstatus): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb(status)
+
+public actual fun rtlOemStringToCountedUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlOemStringToUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN(unicodestring?.value?.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring?.value?.toCPointer<ByteVar>(), oemstring?.value?.toCPointer<ByteVar>(), bytesinoemstring)
+
+public actual fun rtlPrefixString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlPrefixString(string1?.value?.toCPointer<ByteVar>(), string2?.value?.toCPointer<ByteVar>(), caseinsensitive)
+
+public actual fun rtlQueryPackageIdentity(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, packaged: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity(tokenobject?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>(), packagesize?.value?.toCPointer<ByteVar>(), appid?.value?.toCPointer<ByteVar>(), appidsize?.value?.toCPointer<ByteVar>(), packaged?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlQueryPackageIdentityEx(tokenobject: COpaquePointer?, packagefullname: Pwstr, packagesize: COpaquePointer?, appid: Pwstr, appidsize: COpaquePointer?, dynamicid: COpaquePointer?, flags: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx(tokenobject?.value?.toCPointer<ByteVar>(), packagefullname?.value?.toCPointer<ByteVar>(), packagesize?.value?.toCPointer<ByteVar>(), appid?.value?.toCPointer<ByteVar>(), appidsize?.value?.toCPointer<ByteVar>(), dynamicid?.value?.toCPointer<ByteVar>(), flags?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlQueryProcessPlaceholderCompatibilityMode(): Byte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode()
+
+public actual fun rtlQueryThreadPlaceholderCompatibilityMode(): Byte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode()
+
+public actual fun rtlRandom(seed: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlRandom(seed?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlRandomEx(seed: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlRandomEx(seed?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlRemoveUnicodePrefix(prefixtable: COpaquePointer?, prefixtableentry: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix(prefixtable?.value?.toCPointer<ByteVar>(), prefixtableentry?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd(securitydescriptor?.value?.toCPointer<ByteVar>(), oldsid?.value?.toCPointer<ByteVar>(), newsid?.value?.toCPointer<ByteVar>(), numchanges?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: COpaquePointer?, endofcompressedbufferplus1: COpaquePointer?, chunkbuffer: COpaquePointer?, chunksize: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlReserveChunk(compressionformat, compressedbuffer?.value?.toCPointer<ByteVar>(), endofcompressedbufferplus1?.value?.toCPointer<ByteVar>(), chunkbuffer?.value?.toCPointer<ByteVar>(), chunksize)
+
+public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime(elapsedseconds, time?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime(elapsedseconds, time?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: COpaquePointer?, dacl: COpaquePointer?, daclsize: COpaquePointer?, sacl: COpaquePointer?, saclsize: COpaquePointer?, owner: Psid, ownersize: COpaquePointer?, primarygroup: Psid, primarygroupsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor?.value?.toCPointer<ByteVar>(), absolutesecuritydescriptor?.value?.toCPointer<ByteVar>(), absolutesecuritydescriptorsize?.value?.toCPointer<ByteVar>(), dacl?.value?.toCPointer<ByteVar>(), daclsize?.value?.toCPointer<ByteVar>(), sacl?.value?.toCPointer<ByteVar>(), saclsize?.value?.toCPointer<ByteVar>(), owner?.value?.toCPointer<ByteVar>(), ownersize?.value?.toCPointer<ByteVar>(), primarygroup?.value?.toCPointer<ByteVar>(), primarygroupsize?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlSetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: Psid, groupdefaulted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), group?.value?.toCPointer<ByteVar>(), groupdefaulted)
+
+public actual fun rtlSetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: Psid, ownerdefaulted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), owner?.value?.toCPointer<ByteVar>(), ownerdefaulted)
+
+public actual fun rtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode(mode)
+
+public actual fun rtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode(mode)
+
+public actual fun rtlSubAuthorityCountSid(sid: Psid): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid(sid?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid(sid?.value?.toCPointer<ByteVar>(), subauthority)?.let { COpaquePointer(it.toLong()) }
+
+public actual fun rtlTimeToSecondsSince1980(time: COpaquePointer?, elapsedseconds: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980(time?.value?.toCPointer<ByteVar>(), elapsedseconds?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN(customcp?.value?.toCPointer<ByteVar>(), customcpstring?.value?.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN(multibytestring?.value?.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN(oemstring?.value?.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString(destinationstring?.value?.toCPointer<ByteVar>(), sourcestring?.value?.toCPointer<ByteVar>(), allocatedestinationstring)
+
+public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: COpaquePointer?, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN(customcp?.value?.toCPointer<ByteVar>(), customcpstring?.value?.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN(multibytestring?.value?.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: COpaquePointer?, unicodestring: COpaquePointer?, bytesinunicodestring: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN(oemstring?.value?.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
+
+public actual fun rtlValidSid(sid: Psid): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlValidSid(sid?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlValidateUnicodeString(flags: UInt, string: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString(flags, string?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlxOemStringToUnicodeSize(oemstring: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize(oemstring?.value?.toCPointer<ByteVar>())
+
+public actual fun rtlxUnicodeStringToOemSize(unicodestring: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize(unicodestring?.value?.toCPointer<ByteVar>())
+
+public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: COpaquePointer?, clienttokeninformation: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState(securitydescriptor?.value?.toCPointer<ByteVar>(), primarytokeninformation?.value?.toCPointer<ByteVar>(), clienttokeninformation?.value?.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges?.value?.toCPointer<ByteVar>(), genericmapping?.value?.toCPointer<ByteVar>(), accessmode, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>())
+
+public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: COpaquePointer?, clienttoken: COpaquePointer?, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: COpaquePointer?, genericmapping: COpaquePointer?, accessmode: Byte, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx(securitydescriptor?.value?.toCPointer<ByteVar>(), primarytoken?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges?.value?.toCPointer<ByteVar>(), genericmapping?.value?.toCPointer<ByteVar>(), accessmode, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>())
+
+public actual fun seAdjustAccessStateForAccessConstraints(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints(objecttype?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seAdjustAccessStateForTrustLabel(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel(objecttype?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seAdjustObjectSecurity(objectname: COpaquePointer?, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, adjusteddescriptor: COpaquePointer?, applyadjusteddescriptor: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity(objectname?.value?.toCPointer<ByteVar>(), originaldescriptor?.value?.toCPointer<ByteVar>(), proposeddescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>(), adjusteddescriptor?.value?.toCPointer<ByteVar>(), applyadjusteddescriptor?.value?.toCPointer<ByteVar>())
+
+public actual fun seAppendPrivileges(accessstate: COpaquePointer?, privileges: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAppendPrivileges(accessstate?.value?.toCPointer<ByteVar>(), privileges?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests(bsuccess, selftestcode)
+}
+
+public actual fun seAuditHardLinkCreation(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation(filename?.value?.toCPointer<ByteVar>(), linkname?.value?.toCPointer<ByteVar>(), bsuccess)
+}
+
+public actual fun seAuditHardLinkCreationWithTransaction(filename: COpaquePointer?, linkname: COpaquePointer?, bsuccess: Boolean, transactionid: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction(filename?.value?.toCPointer<ByteVar>(), linkname?.value?.toCPointer<ByteVar>(), bsuccess, transactionid?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seAuditTransactionStateChange(transactionid: COpaquePointer?, resourcemanagerid: COpaquePointer?, newtransactionstate: UInt) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange(transactionid?.value?.toCPointer<ByteVar>(), resourcemanagerid?.value?.toCPointer<ByteVar>(), newtransactionstate)
+}
+
+public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext(securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx(securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>(), stagingenabled?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, stagingenabled: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>(), stagingenabled?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>())
+
+public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext(accessgranted, securitydescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx(thread, process, subjectcontext?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: COpaquePointer?, aceremoved: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval(currentdescriptor?.value?.toCPointer<ByteVar>(), newdescriptor?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>(), aceremoved?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: COpaquePointer?, remotesession: Boolean, clientcontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity(clientthread, clientsecurityqos?.value?.toCPointer<ByteVar>(), remotesession, clientcontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: COpaquePointer?, clientsecurityqos: COpaquePointer?, serverisremote: Boolean, clientcontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext(subjectcontext?.value?.toCPointer<ByteVar>(), clientsecurityqos?.value?.toCPointer<ByteVar>(), serverisremote, clientcontext?.value?.toCPointer<ByteVar>())
+
+public actual fun seDeleteClientSecurity(clientcontext: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity(clientcontext?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seDeleteObjectAuditAlarm(obj: COpaquePointer?, handle: Handle) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm(obj?.value?.toCPointer<ByteVar>(), handle?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: COpaquePointer?, handle: Handle, transactionid: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction(obj?.value?.toCPointer<ByteVar>(), handle?.value?.toCPointer<ByteVar>(), transactionid?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seExamineSacl(sacl: COpaquePointer?, resourcesacl: COpaquePointer?, token: COpaquePointer?, desiredaccess: UInt, accessgranted: Boolean, generateaudit: COpaquePointer?, generatealarm: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seExamineSacl(sacl?.value?.toCPointer<ByteVar>(), resourcesacl?.value?.toCPointer<ByteVar>(), token?.value?.toCPointer<ByteVar>(), desiredaccess, accessgranted, generateaudit?.value?.toCPointer<ByteVar>(), generatealarm?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seFilterToken(existingtoken: COpaquePointer?, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, filteredtoken: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seFilterToken(existingtoken?.value?.toCPointer<ByteVar>(), flags, sidstodisable?.value?.toCPointer<ByteVar>(), privilegestodelete?.value?.toCPointer<ByteVar>(), restrictedsids?.value?.toCPointer<ByteVar>(), filteredtoken?.value?.toCPointer<ByteVar>())
+
+public actual fun seFreePrivileges(privileges: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seFreePrivileges(privileges?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seImpersonateClient(clientcontext: COpaquePointer?, serverthread: Pethread) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seImpersonateClient(clientcontext?.value?.toCPointer<ByteVar>(), serverthread)
+}
+
+public actual fun seImpersonateClientEx(clientcontext: COpaquePointer?, serverthread: Pethread): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx(clientcontext?.value?.toCPointer<ByteVar>(), serverthread)
+
+public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName(process, pimagefilename?.value?.toCPointer<ByteVar>())
+
+public actual fun seMarkLogonSessionForTerminationNotification(logonid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification(logonid?.value?.toCPointer<ByteVar>())
+
+public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: COpaquePointer?, pserversilo: Pesilo): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx(logonid?.value?.toCPointer<ByteVar>(), pserversilo)
+
+public actual fun seOpenObjectAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm(objecttypename?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>(), absoluteobjectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction(objecttypename?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>(), absoluteobjectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm(objecttypename?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>(), absoluteobjectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: COpaquePointer?, obj: COpaquePointer?, absoluteobjectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, accessstate: COpaquePointer?, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: COpaquePointer?, generateonclose: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>(), absoluteobjectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun sePrivilegeCheck(requiredprivileges: COpaquePointer?, subjectsecuritycontext: COpaquePointer?, accessmode: Byte): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck(requiredprivileges?.value?.toCPointer<ByteVar>(), subjectsecuritycontext?.value?.toCPointer<ByteVar>(), accessmode)
+
+public actual fun seQueryAuthenticationIdToken(token: COpaquePointer?, authenticationid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken(token?.value?.toCPointer<ByteVar>(), authenticationid?.value?.toCPointer<ByteVar>())
+
+public actual fun seQueryInformationToken(token: COpaquePointer?, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQueryInformationToken(token?.value?.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation?.value?.toCPointer<ByteVar>())
+
+public actual fun seQuerySecurityDescriptorInfo(securityinformation: COpaquePointer?, securitydescriptor: PsecurityDescriptor, length: COpaquePointer?, objectssecuritydescriptor: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo(securityinformation?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), objectssecuritydescriptor?.value?.toCPointer<ByteVar>())
+
+public actual fun seQueryServerSiloToken(token: COpaquePointer?, pserversilo: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken(token?.value?.toCPointer<ByteVar>(), pserversilo?.value?.toCPointer<ByteVar>())
+
+public actual fun seQuerySessionIdToken(token: COpaquePointer?, sessionid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken(token?.value?.toCPointer<ByteVar>(), sessionid?.value?.toCPointer<ByteVar>())
+
+public actual fun seQuerySessionIdTokenEx(token: COpaquePointer?, sessionid: COpaquePointer?, isservicesession: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx(token?.value?.toCPointer<ByteVar>(), sessionid?.value?.toCPointer<ByteVar>(), isservicesession?.value?.toCPointer<ByteVar>())
+
+public actual fun seRegisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine(0L.toCPointer<ByteVar>())
+
+public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
+
+public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: COpaquePointer?, usersid: Psid, auditparameters: COpaquePointer?, auditsubcategoryid: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory(flags, sourcename?.value?.toCPointer<ByteVar>(), usersid?.value?.toCPointer<ByteVar>(), auditparameters?.value?.toCPointer<ByteVar>(), auditsubcategoryid)
+
+public actual fun seSetAccessStateGenericMapping(accessstate: COpaquePointer?, genericmapping: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping(accessstate?.value?.toCPointer<ByteVar>(), genericmapping?.value?.toCPointer<ByteVar>())
+}
+
+public actual fun seSetSecurityDescriptorInfo(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo(obj?.value?.toCPointer<ByteVar>(), securityinformation?.value?.toCPointer<ByteVar>(), modificationdescriptor?.value?.toCPointer<ByteVar>(), objectssecuritydescriptor?.value?.toCPointer<ByteVar>(), pooltype, genericmapping?.value?.toCPointer<ByteVar>())
+
+public actual fun seSetSecurityDescriptorInfoEx(obj: COpaquePointer?, securityinformation: COpaquePointer?, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: UInt, pooltype: PoolType, genericmapping: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx(obj?.value?.toCPointer<ByteVar>(), securityinformation?.value?.toCPointer<ByteVar>(), modificationdescriptor?.value?.toCPointer<ByteVar>(), objectssecuritydescriptor?.value?.toCPointer<ByteVar>(), autoinheritflags, pooltype, genericmapping?.value?.toCPointer<ByteVar>())
+
+public actual fun seShouldCheckForAccessRightsFromParent(objecttype: COpaquePointer?, childdescriptor: PsecurityDescriptor, accessstate: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent(objecttype?.value?.toCPointer<ByteVar>(), childdescriptor?.value?.toCPointer<ByteVar>(), accessstate?.value?.toCPointer<ByteVar>())
+
+public actual fun seTokenFromAccessInformation(accessinformation: COpaquePointer?, token: COpaquePointer?, length: UInt, requiredlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation(accessinformation?.value?.toCPointer<ByteVar>(), token?.value?.toCPointer<ByteVar>(), length, requiredlength?.value?.toCPointer<ByteVar>())
+
+public actual fun seTokenIsAdmin(token: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin(token?.value?.toCPointer<ByteVar>())
+
+public actual fun seTokenIsRestricted(token: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted(token?.value?.toCPointer<ByteVar>())
+
+public actual fun seTokenIsWriteRestricted(token: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted(token?.value?.toCPointer<ByteVar>())
+
+public actual fun seTokenType(token: COpaquePointer?): TokenType =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seTokenType(token?.value?.toCPointer<ByteVar>())
+
+public actual fun seUnregisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine(0L.toCPointer<ByteVar>())
+
+public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx(0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
+
+public actual fun secLookupAccountName(name: COpaquePointer?, sidsize: COpaquePointer?, sid: Psid, nameuse: COpaquePointer?, domainsize: COpaquePointer?, referenceddomain: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secLookupAccountName(name?.value?.toCPointer<ByteVar>(), sidsize?.value?.toCPointer<ByteVar>(), sid?.value?.toCPointer<ByteVar>(), nameuse?.value?.toCPointer<ByteVar>(), domainsize?.value?.toCPointer<ByteVar>(), referenceddomain?.value?.toCPointer<ByteVar>())
+
+public actual fun secLookupAccountSid(sid: Psid, namesize: COpaquePointer?, namebuffer: COpaquePointer?, domainsize: COpaquePointer?, domainbuffer: COpaquePointer?, nameuse: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secLookupAccountSid(sid?.value?.toCPointer<ByteVar>(), namesize?.value?.toCPointer<ByteVar>(), namebuffer?.value?.toCPointer<ByteVar>(), domainsize?.value?.toCPointer<ByteVar>(), domainbuffer?.value?.toCPointer<ByteVar>(), nameuse?.value?.toCPointer<ByteVar>())
+
+public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid(sidtype, sid?.value?.toCPointer<ByteVar>(), sidbuffersize, sidsize?.value?.toCPointer<ByteVar>())
+
+public actual fun secMakeSPN(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secMakeSPN(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), instanceport, referrer?.value?.toCPointer<ByteVar>(), spn?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), allocate)
+
+public actual fun secMakeSPNEx(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, targetinfo: COpaquePointer?, spn: COpaquePointer?, length: COpaquePointer?, allocate: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), instanceport, referrer?.value?.toCPointer<ByteVar>(), targetinfo?.value?.toCPointer<ByteVar>(), spn?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), allocate)
+
+public actual fun secMakeSPNEx2(serviceclass: COpaquePointer?, servicename: COpaquePointer?, instancename: COpaquePointer?, instanceport: UShort, referrer: COpaquePointer?, intargetinfo: COpaquePointer?, spn: COpaquePointer?, totalsize: COpaquePointer?, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2(serviceclass?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), instanceport, referrer?.value?.toCPointer<ByteVar>(), intargetinfo?.value?.toCPointer<ByteVar>(), spn?.value?.toCPointer<ByteVar>(), totalsize?.value?.toCPointer<ByteVar>(), allocate, istargetinfomarshaled)
+
+public actual fun setContextAttributesW(phcontext: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_setContextAttributesW(phcontext?.value?.toCPointer<ByteVar>(), ulattribute, pbuffer?.value?.toCPointer<ByteVar>(), cbbuffer)
+
+public actual fun sspiAcceptSecurityContextAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync(asynccontext?.value?.toCPointer<ByteVar>(), phcredential?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>(), pinput?.value?.toCPointer<ByteVar>(), fcontextreq, targetdatarep, phnewcontext?.value?.toCPointer<ByteVar>(), poutput?.value?.toCPointer<ByteVar>(), pfcontextattr?.value?.toCPointer<ByteVar>(), ptsexpiry?.value?.toCPointer<ByteVar>())
+
+public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: COpaquePointer?, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
     0
 
-public actual fun NtImpersonateAnonymousToken(threadhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken(threadhandle.toCPointer<ByteVar>())
-
-public actual fun NtLockFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): NTSTATUS =
+public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: COpaquePointer?, pszprincipal: COpaquePointer?, pszpackage: COpaquePointer?, fcredentialuse: UInt, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
     0
 
-public actual fun NtNotifyChangeKey(keyhandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun sspiCreateAsyncContext(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun NtOpenDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject(directoryhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
+public actual fun sspiDeleteSecurityContextAsync(asynccontext: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync(asynccontext?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun NtOpenFile(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, shareaccess: UInt, openoptions: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenFile(filehandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), shareaccess, openoptions)
-
-public actual fun NtOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose.toCPointer<ByteVar>())
-
-public actual fun NtOpenProcessToken(processhandle: HANDLE, desiredaccess: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken(processhandle.toCPointer<ByteVar>(), desiredaccess, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun NtOpenProcessTokenEx(processhandle: HANDLE, desiredaccess: UInt, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx(processhandle.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun NtOpenSymbolicLinkObject(linkhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject(linkhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
-
-public actual fun NtOpenThreadToken(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken(threadhandle.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun NtOpenThreadTokenEx(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx(threadhandle.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun NtPrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, result: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck(clienttoken.toCPointer<ByteVar>(), requiredprivileges.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
-
-public actual fun NtPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), desiredaccess, privileges.toCPointer<ByteVar>(), accessgranted)
-
-public actual fun NtPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: HANDLE, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm(subsystemname.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), privileges.toCPointer<ByteVar>(), accessgranted)
-
-public actual fun NtQueryDirectoryFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): NTSTATUS =
-    0
-
-public actual fun NtQueryDirectoryFileEx(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, queryflags: UInt, filename: Long): NTSTATUS =
-    0
-
-public actual fun NtQueryDirectoryObject(directoryhandle: HANDLE, buffer: Long, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject(directoryhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
-
-public actual fun NtQueryEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryEaFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, ealist.toCPointer<ByteVar>(), ealistlength, eaindex.toCPointer<ByteVar>(), restartscan)
-
-public actual fun NtQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile(objectattributes.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>())
-
-public actual fun NtQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName(objectattributes.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>(), length, fileinformationclass)
-
-public actual fun NtQueryInformationFile(filehandle: HANDLE, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>(), length, fileinformationclass)
-
-public actual fun NtQueryInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken(tokenhandle.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.toCPointer<ByteVar>(), tokeninformationlength, returnlength.toCPointer<ByteVar>())
-
-public actual fun NtQueryQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, sidlist: Long, sidlistlength: UInt, startsid: PSID, restartscan: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, sidlist.toCPointer<ByteVar>(), sidlistlength, startsid.toCPointer<ByteVar>(), restartscan)
-
-public actual fun NtQuerySecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR, length: UInt, lengthneeded: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject(handle.toCPointer<ByteVar>(), securityinformation, securitydescriptor.toCPointer<ByteVar>(), length, lengthneeded.toCPointer<ByteVar>())
-
-public actual fun NtQuerySymbolicLinkObject(linkhandle: HANDLE, linktarget: Long, returnedlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject(linkhandle.toCPointer<ByteVar>(), linktarget.toCPointer<ByteVar>(), returnedlength.toCPointer<ByteVar>())
-
-public actual fun NtQueryVirtualMemory(processhandle: HANDLE, baseaddress: Long, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation.toCPointer<ByteVar>(), memoryinformationlength, returnlength.toCPointer<ByteVar>())
-
-public actual fun NtQueryVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fsinformation.toCPointer<ByteVar>(), length, fsinformationclass)
-
-public actual fun NtReadFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, buffer: Long, length: UInt, byteoffset: Long, key: Long): NTSTATUS =
-    0
-
-public actual fun NtSetEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetEaFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length)
-
-public actual fun NtSetEvent(eventhandle: HANDLE, previousstate: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetEvent(eventhandle.toCPointer<ByteVar>(), previousstate.toCPointer<ByteVar>())
-
-public actual fun NtSetInformationFile(filehandle: HANDLE, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>(), length, fileinformationclass)
-
-public actual fun NtSetInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetInformationToken(tokenhandle.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.toCPointer<ByteVar>(), tokeninformationlength)
-
-public actual fun NtSetInformationVirtualMemory(processhandle: HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: ULong, virtualaddresses: Long, vminformation: Long, vminformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory(processhandle.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses.toCPointer<ByteVar>(), vminformation.toCPointer<ByteVar>(), vminformationlength)
-
-public actual fun NtSetQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length)
-
-public actual fun NtSetSecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject(handle.toCPointer<ByteVar>(), securityinformation, securitydescriptor.toCPointer<ByteVar>())
-
-public actual fun NtSetVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fsinformation.toCPointer<ByteVar>(), length, fsinformationclass)
-
-public actual fun NtUnlockFile(filehandle: HANDLE, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_NtUnlockFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), byteoffset.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), key)
-
-public actual fun NtWriteFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, buffer: Long, length: UInt, byteoffset: Long, key: Long): NTSTATUS =
-    0
-
-public actual fun ObInsertObject(obj: Long, passedaccessstate: Long, desiredaccess: UInt, objectpointerbias: UInt, newobject: Long, handle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObInsertObject(obj.toCPointer<ByteVar>(), passedaccessstate.toCPointer<ByteVar>(), desiredaccess, objectpointerbias, newobject.toCPointer<ByteVar>(), handle.toCPointer<ByteVar>())
-
-public actual fun ObIsKernelHandle(handle: HANDLE): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle(handle.toCPointer<ByteVar>())
-
-public actual fun ObMakeTemporaryObject(obj: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject(obj.toCPointer<ByteVar>())
+public actual fun sspiFreeAsyncContext(handle: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext(handle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun ObOpenObjectByPointer(obj: Long, handleattributes: UInt, passedaccessstate: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, handle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer(obj.toCPointer<ByteVar>(), handleattributes, passedaccessstate.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, handle.toCPointer<ByteVar>())
+public actual fun sspiFreeCredentialsHandleAsync(asynccontext: COpaquePointer?, phcredential: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync(asynccontext?.value?.toCPointer<ByteVar>(), phcredential?.value?.toCPointer<ByteVar>())
 
-public actual fun ObOpenObjectByPointerWithTag(obj: Long, handleattributes: UInt, passedaccessstate: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, tag: UInt, handle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag(obj.toCPointer<ByteVar>(), handleattributes, passedaccessstate.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, tag, handle.toCPointer<ByteVar>())
+public actual fun sspiGetAsyncCallStatus(handle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus(handle?.value?.toCPointer<ByteVar>())
 
-public actual fun ObQueryNameString(obj: Long, objectnameinfo: Long, length: UInt, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObQueryNameString(obj.toCPointer<ByteVar>(), objectnameinfo.toCPointer<ByteVar>(), length, returnlength.toCPointer<ByteVar>())
+public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA(asynccontext?.value?.toCPointer<ByteVar>(), phcredential?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>(), psztargetname?.value?.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput?.value?.toCPointer<ByteVar>(), reserved2, phnewcontext?.value?.toCPointer<ByteVar>(), poutput?.value?.toCPointer<ByteVar>(), pfcontextattr?.value?.toCPointer<ByteVar>(), ptsexpiry?.value?.toCPointer<ByteVar>())
 
-public actual fun ObQueryObjectAuditingByHandle(handle: HANDLE, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle(handle.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
+public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: COpaquePointer?, phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW(asynccontext?.value?.toCPointer<ByteVar>(), phcredential?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>(), psztargetname?.value?.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput?.value?.toCPointer<ByteVar>(), reserved2, phnewcontext?.value?.toCPointer<ByteVar>(), poutput?.value?.toCPointer<ByteVar>(), pfcontextattr?.value?.toCPointer<ByteVar>(), ptsexpiry?.value?.toCPointer<ByteVar>())
 
-public actual fun PfxFindPrefix(prefixtable: Long, fullname: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PfxFindPrefix(prefixtable.toCPointer<ByteVar>(), fullname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun sspiReinitAsyncContext(handle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext(handle?.value?.toCPointer<ByteVar>())
 
-public actual fun PfxInitialize(prefixtable: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PfxInitialize(prefixtable.toCPointer<ByteVar>())
-}
+public actual fun sspiSetAsyncNotifyCallback(context: COpaquePointer?, callback: SspiAsyncNotifyCallback, callbackdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback(context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PfxInsertPrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix(prefixtable.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), prefixtableentry.toCPointer<ByteVar>())
+public actual fun verifySignature(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_verifySignature(phcontext?.value?.toCPointer<ByteVar>(), pmessage?.value?.toCPointer<ByteVar>(), messageseqno, pfqop?.value?.toCPointer<ByteVar>())
 
-public actual fun PfxRemovePrefix(prefixtable: Long, prefixtableentry: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix(prefixtable.toCPointer<ByteVar>(), prefixtableentry.toCPointer<ByteVar>())
-}
+public actual fun zwAccessCheckAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), desiredaccess, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun PoQueueShutdownWorkItem(workitem: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem(workitem.toCPointer<ByteVar>())
+public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun PsAssignImpersonationToken(thread: PETHREAD, token: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken(thread, token.toCPointer<ByteVar>())
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun PsChargePoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota(process, pooltype, amount)
-}
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: COpaquePointer?, objecttypelistlength: UInt, genericmapping: COpaquePointer?, objectcreation: Boolean, grantedaccess: COpaquePointer?, accessstatus: COpaquePointer?, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), principalselfsid?.value?.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist?.value?.toCPointer<ByteVar>(), objecttypelistlength, genericmapping?.value?.toCPointer<ByteVar>(), objectcreation, grantedaccess?.value?.toCPointer<ByteVar>(), accessstatus?.value?.toCPointer<ByteVar>(), generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun PsChargeProcessPoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota(process, pooltype, amount)
+public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken(tokenhandle?.value?.toCPointer<ByteVar>(), resettodefault, newstate?.value?.toCPointer<ByteVar>(), bufferlength, previousstate?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun PsDereferenceImpersonationToken(impersonationtoken: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken(impersonationtoken.toCPointer<ByteVar>())
-}
+public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: COpaquePointer?, bufferlength: UInt, previousstate: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken(tokenhandle?.value?.toCPointer<ByteVar>(), disableallprivileges, newstate?.value?.toCPointer<ByteVar>(), bufferlength, previousstate?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun PsDereferencePrimaryToken(primarytoken: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken(primarytoken.toCPointer<ByteVar>())
-}
+public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, zerobits: ULong, regionsize: COpaquePointer?, allocationtype: UInt, protect: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), zerobits, regionsize?.value?.toCPointer<ByteVar>(), allocationtype, protect)
 
-public actual fun PsDisableImpersonation(thread: PETHREAD, impersonationstate: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation(thread, impersonationstate.toCPointer<ByteVar>())
+public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters?.value?.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun PsGetProcessExitTime(): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime()
+public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: COpaquePointer?, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx(filehandle?.value?.toCPointer<ByteVar>(), iorequesttocancel?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun PsGetThreadProcess(thread: PETHREAD): PEPROCESS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess(thread)
+public actual fun zwCloseObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun PsImpersonateClient(thread: PETHREAD, token: Long, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SECURITY_IMPERSONATION_LEVEL): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsImpersonateClient(thread, token.toCPointer<ByteVar>(), copyonopen, effectiveonly, impersonationlevel)
+public actual fun zwCreateDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun PsIsDiskCountersEnabled(): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled()
+public actual fun zwCreateEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, eventtype: EventType, initialstate: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwCreateEvent(eventhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), eventtype, initialstate)
 
-public actual fun PsIsSystemThread(thread: PETHREAD): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsIsSystemThread(thread)
+public actual fun zwCreateSectionEx(sectionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx(sectionhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), maximumsize?.value?.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle?.value?.toCPointer<ByteVar>(), extendedparameters?.value?.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun PsIsThreadTerminating(thread: PETHREAD): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating(thread)
+public actual fun zwDeleteFile(objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwDeleteFile(objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun PsLookupProcessByProcessId(processid: HANDLE, process: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId(processid.toCPointer<ByteVar>(), process.toCPointer<ByteVar>())
+public actual fun zwDeleteObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, generateonclose: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun PsLookupThreadByThreadId(threadid: HANDLE, thread: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId(threadid.toCPointer<ByteVar>(), thread.toCPointer<ByteVar>())
+public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: COpaquePointer?, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwDuplicateObject(sourceprocesshandle?.value?.toCPointer<ByteVar>(), sourcehandle?.value?.toCPointer<ByteVar>(), targetprocesshandle?.value?.toCPointer<ByteVar>(), targethandle?.value?.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
 
-public actual fun PsReferenceImpersonationToken(thread: PETHREAD, copyonopen: Long, effectiveonly: Long, impersonationlevel: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken(thread, copyonopen.toCPointer<ByteVar>(), effectiveonly.toCPointer<ByteVar>(), impersonationlevel.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: COpaquePointer?, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwDuplicateToken(existingtokenhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PsReferencePrimaryToken(process: PEPROCESS): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken(process)?.toLong() ?: 0L
+public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: COpaquePointer?, privilegestodelete: COpaquePointer?, restrictedsids: COpaquePointer?, newtokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFilterToken(existingtokenhandle?.value?.toCPointer<ByteVar>(), flags, sidstodisable?.value?.toCPointer<ByteVar>(), privilegestodelete?.value?.toCPointer<ByteVar>(), restrictedsids?.value?.toCPointer<ByteVar>(), newtokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PsRestoreImpersonation(thread: PETHREAD, impersonationstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation(thread, impersonationstate.toCPointer<ByteVar>())
-}
+public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun PsReturnPoolQuota(process: PEPROCESS, pooltype: POOL_TYPE, amount: ULong) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota(process, pooltype, amount)
-}
+public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: COpaquePointer?, parameterssize: UInt, iostatusblock: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx(filehandle?.value?.toCPointer<ByteVar>(), flags, parameters?.value?.toCPointer<ByteVar>(), parameterssize, iostatusblock?.value?.toCPointer<ByteVar>())
 
-public actual fun PsRevertToSelf() {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsRevertToSelf()
-}
+public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, iostatus: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PsUpdateDiskCounters(process: PEPROCESS, bytesread: ULong, byteswritten: ULong, readoperationcount: UInt, writeoperationcount: UInt, flushoperationcount: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters(process, bytesread, byteswritten, readoperationcount, writeoperationcount, flushoperationcount)
-}
+public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), regionsize?.value?.toCPointer<ByteVar>(), freetype)
 
-public actual fun QuerySecurityContextToken(phcontext: Long, token: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken(phcontext.toCPointer<ByteVar>(), token.toCPointer<ByteVar>())
+public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fscontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwFsControlFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fscontrolcode, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength)
 
-public actual fun RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, bufferlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor.toCPointer<ByteVar>(), selfrelativesecuritydescriptor.toCPointer<ByteVar>(), bufferlength.toCPointer<ByteVar>())
+public actual fun zwImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken(threadhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlAddAccessAllowedAce(acl: Long, acerevision: UInt, accessmask: UInt, sid: PSID): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce(acl.toCPointer<ByteVar>(), acerevision, accessmask, sid.toCPointer<ByteVar>())
+public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwLockFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), byteoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key, failimmediately, exclusivelock)
 
-public actual fun RtlAddAccessAllowedAceEx(acl: Long, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: PSID): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx(acl.toCPointer<ByteVar>(), acerevision, aceflags, accessmask, sid.toCPointer<ByteVar>())
+public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey(keyhandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), completionfilter, watchtree, buffer?.value?.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun RtlAddAce(acl: Long, acerevision: UInt, startingaceindex: UInt, acelist: Long, acelistlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAddAce(acl.toCPointer<ByteVar>(), acerevision, startingaceindex, acelist.toCPointer<ByteVar>(), acelistlength)
+public actual fun zwOpenDirectoryObject(directoryhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlAllocateAndInitializeSid(identifierauthority: Long, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid(identifierauthority.toCPointer<ByteVar>(), subauthoritycount, subauthority0, subauthority1, subauthority2, subauthority3, subauthority4, subauthority5, subauthority6, subauthority7, sid.toCPointer<ByteVar>())
+public actual fun zwOpenObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, objecttypename: COpaquePointer?, objectname: COpaquePointer?, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: COpaquePointer?, objectcreation: Boolean, accessgranted: Boolean, generateonclose: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), objecttypename?.value?.toCPointer<ByteVar>(), objectname?.value?.toCPointer<ByteVar>(), securitydescriptor?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges?.value?.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlAllocateAndInitializeSidEx(identifierauthority: Long, subauthoritycount: UByte, subauthorities: Long, sid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx(identifierauthority.toCPointer<ByteVar>(), subauthoritycount, subauthorities.toCPointer<ByteVar>(), sid.toCPointer<ByteVar>())
+public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlAllocateHeap(heaphandle: Long, flags: UInt, size: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap(heaphandle.toCPointer<ByteVar>(), flags, size)?.toLong() ?: 0L
+public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlAppendStringToString(destination: Long, source: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString(destination.toCPointer<ByteVar>(), source.toCPointer<ByteVar>())
+public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken(threadhandle?.value?.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCompareAltitudes(altitude1: Long, altitude2: Long): Int =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes(altitude1.toCPointer<ByteVar>(), altitude2.toCPointer<ByteVar>())
+public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx(threadhandle?.value?.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCompareMemoryUlong(source: Long, length: ULong, pattern: UInt): ULong =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong(source.toCPointer<ByteVar>(), length, pattern)
+public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: COpaquePointer?, result: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck(clienttoken?.value?.toCPointer<ByteVar>(), requiredprivileges?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: Long, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer(compressionformatandengine, uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finalcompressedsize.toCPointer<ByteVar>(), workspace.toCPointer<ByteVar>())
+public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: COpaquePointer?, handleid: COpaquePointer?, clienttoken: Handle, desiredaccess: UInt, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), handleid?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), desiredaccess, privileges?.value?.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun RtlCompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, compresseddatainfo: Long, compresseddatainfolength: UInt, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCompressChunks(uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, compresseddatainfo.toCPointer<ByteVar>(), compresseddatainfolength, workspace.toCPointer<ByteVar>())
+public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: COpaquePointer?, servicename: COpaquePointer?, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm(subsystemname?.value?.toCPointer<ByteVar>(), servicename?.value?.toCPointer<ByteVar>(), clienttoken?.value?.toCPointer<ByteVar>(), privileges?.value?.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun RtlCopyLuid(destinationluid: Long, sourceluid: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCopyLuid(destinationluid.toCPointer<ByteVar>(), sourceluid.toCPointer<ByteVar>())
-}
+public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, returnsingleentry, filename?.value?.toCPointer<ByteVar>(), restartscan)
 
-public actual fun RtlCopySid(destinationsidlength: UInt, destinationsid: PSID, sourcesid: PSID): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCopySid(destinationsidlength, destinationsid.toCPointer<ByteVar>(), sourcesid.toCPointer<ByteVar>())
+public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx(filehandle?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, queryflags, filename?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCreateAcl(acl: Long, acllength: UInt, aclrevision: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateAcl(acl.toCPointer<ByteVar>(), acllength, aclrevision)
+public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: COpaquePointer?, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject(directoryhandle?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context?.value?.toCPointer<ByteVar>(), returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCreateHeap(flags: UInt, heapbase: Long, reservesize: ULong, commitsize: ULong, lock: Long, parameters: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateHeap(flags, heapbase.toCPointer<ByteVar>(), reservesize, commitsize, lock.toCPointer<ByteVar>(), parameters.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, ealist: COpaquePointer?, ealistlength: UInt, eaindex: COpaquePointer?, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryEaFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, ealist?.value?.toCPointer<ByteVar>(), ealistlength, eaindex?.value?.toCPointer<ByteVar>(), restartscan)
 
-public actual fun RtlCreateServiceSid(servicename: Long, servicesid: PSID, servicesidlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid(servicename.toCPointer<ByteVar>(), servicesid.toCPointer<ByteVar>(), servicesidlength.toCPointer<ByteVar>())
+public actual fun zwQueryFullAttributesFile(objectattributes: COpaquePointer?, fileinformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile(objectattributes?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCreateSystemVolumeInformationFolder(volumerootpath: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder(volumerootpath.toCPointer<ByteVar>())
+public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken(tokenhandle?.value?.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation?.value?.toCPointer<ByteVar>(), tokeninformationlength, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCreateUnicodeString(destinationstring: Long, sourcestring: PCWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>())
+public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: COpaquePointer?, objectinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryObject(handle?.value?.toCPointer<ByteVar>(), objectinformationclass, objectinformation?.value?.toCPointer<ByteVar>(), objectinformationlength, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlCreateVirtualAccountSid(name: Long, basesubauthority: UInt, sid: PSID, sidlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid(name.toCPointer<ByteVar>(), basesubauthority, sid.toCPointer<ByteVar>(), sidlength.toCPointer<ByteVar>())
+public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt, returnsingleentry: Boolean, sidlist: COpaquePointer?, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length, returnsingleentry, sidlist?.value?.toCPointer<ByteVar>(), sidlistlength, startsid?.value?.toCPointer<ByteVar>(), restartscan)
 
-public actual fun RtlCustomCPToUnicodeN(customcp: Long, unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, customcpstring: PCSTR, bytesincustomcpstring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN(customcp.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.toCPointer<ByteVar>(), customcpstring.toCPointer<ByteVar>(), bytesincustomcpstring)
+public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject(handle?.value?.toCPointer<ByteVar>(), securityinformation, securitydescriptor?.value?.toCPointer<ByteVar>(), length, lengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, finaluncompressedsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer(compressionformat, uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize.toCPointer<ByteVar>())
+public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: MemoryInformationClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), baseaddress?.value?.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation?.value?.toCPointer<ByteVar>(), memoryinformationlength, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx(compressionformat, uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize.toCPointer<ByteVar>(), workspace.toCPointer<ByteVar>())
+public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fsinformation?.value?.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun RtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2(compressionformat, uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finaluncompressedsize.toCPointer<ByteVar>(), workspace.toCPointer<ByteVar>())
+public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetEaFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun RtlDecompressChunks(uncompressedbuffer: Long, uncompressedbuffersize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, compressedtail: Long, compressedtailsize: UInt, compresseddatainfo: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks(uncompressedbuffer.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, compressedtail.toCPointer<ByteVar>(), compressedtailsize, compresseddatainfo.toCPointer<ByteVar>())
+public actual fun zwSetEvent(eventhandle: Handle, previousstate: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetEvent(eventhandle?.value?.toCPointer<ByteVar>(), previousstate?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlDecompressFragment(compressionformat: UShort, uncompressedfragment: Long, uncompressedfragmentsize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment(compressionformat, uncompressedfragment.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, finaluncompressedsize.toCPointer<ByteVar>(), workspace.toCPointer<ByteVar>())
+public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: COpaquePointer?, tokeninformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetInformationToken(tokenhandle?.value?.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation?.value?.toCPointer<ByteVar>(), tokeninformationlength)
 
-public actual fun RtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: Long, uncompressedfragmentsize: UInt, compressedbuffer: Long, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: Long, workspace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx(compressionformat, uncompressedfragment.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, uncompressedchunksize, finaluncompressedsize.toCPointer<ByteVar>(), workspace.toCPointer<ByteVar>())
+public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: COpaquePointer?, vminformation: COpaquePointer?, vminformationlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory(processhandle?.value?.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses?.value?.toCPointer<ByteVar>(), vminformation?.value?.toCPointer<ByteVar>(), vminformationlength)
 
-public actual fun RtlDeleteAce(acl: Long, aceindex: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDeleteAce(acl.toCPointer<ByteVar>(), aceindex)
+public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, buffer: COpaquePointer?, length: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), length)
 
-public actual fun RtlDescribeChunk(compressionformat: UShort, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk(compressionformat, compressedbuffer.toCPointer<ByteVar>(), endofcompressedbufferplus1.toCPointer<ByteVar>(), chunkbuffer.toCPointer<ByteVar>(), chunksize.toCPointer<ByteVar>())
+public actual fun zwSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject(handle?.value?.toCPointer<ByteVar>(), securityinformation, securitydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlDestroyHeap(heaphandle: Long): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap(heaphandle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fsinformation?.value?.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun RtlDosPathNameToNtPathName_U_WithStatus(dosfilename: PCWSTR, ntfilename: Long, filepart: Long, reserved: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus(dosfilename.toCPointer<ByteVar>(), ntfilename.toCPointer<ByteVar>(), filepart.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>())
-
-public actual fun RtlDowncaseUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlDuplicateUnicodeString(flags: UInt, stringin: Long, stringout: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString(flags, stringin.toCPointer<ByteVar>(), stringout.toCPointer<ByteVar>())
-
-public actual fun RtlEqualPrefixSid(sid1: PSID, sid2: PSID): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid(sid1.toCPointer<ByteVar>(), sid2.toCPointer<ByteVar>())
-
-public actual fun RtlEqualSid(sid1: PSID, sid2: PSID): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlEqualSid(sid1.toCPointer<ByteVar>(), sid2.toCPointer<ByteVar>())
-
-public actual fun RtlFindUnicodePrefix(prefixtable: Long, fullname: Long, caseinsensitiveindex: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix(prefixtable.toCPointer<ByteVar>(), fullname.toCPointer<ByteVar>(), caseinsensitiveindex)?.toLong() ?: 0L
-
-public actual fun RtlFreeHeap(heaphandle: Long, flags: UInt, baseaddress: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlFreeHeap(heaphandle.toCPointer<ByteVar>(), flags, baseaddress.toCPointer<ByteVar>())
-
-public actual fun RtlFreeSid(sid: PSID): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlFreeSid(sid.toCPointer<ByteVar>())?.toLong() ?: 0L
-
-public actual fun RtlGenerate8dot3Name(name: Long, allowextendedcharacters: Boolean, context: Long, name8dot3: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name(name.toCPointer<ByteVar>(), allowextendedcharacters, context.toCPointer<ByteVar>(), name8dot3.toCPointer<ByteVar>())
-
-public actual fun RtlGetAce(acl: Long, aceindex: UInt, ace: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetAce(acl.toCPointer<ByteVar>(), aceindex, ace.toCPointer<ByteVar>())
-
-public actual fun RtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: Long, compressfragmentworkspacesize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize(compressionformatandengine, compressbufferworkspacesize.toCPointer<ByteVar>(), compressfragmentworkspacesize.toCPointer<ByteVar>())
-
-public actual fun RtlGetDaclSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, daclpresent: Long, dacl: Long, dacldefaulted: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), daclpresent.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), dacldefaulted.toCPointer<ByteVar>())
-
-public actual fun RtlGetGroupSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, group: Long, groupdefaulted: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), group.toCPointer<ByteVar>(), groupdefaulted.toCPointer<ByteVar>())
-
-public actual fun RtlGetOwnerSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, owner: Long, ownerdefaulted: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), owner.toCPointer<ByteVar>(), ownerdefaulted.toCPointer<ByteVar>())
-
-public actual fun RtlGetSaclSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, saclpresent: Long, sacl: Long, sacldefaulted: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), saclpresent.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), sacldefaulted.toCPointer<ByteVar>())
-
-public actual fun RtlIdentifierAuthoritySid(sid: PSID): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid(sid.toCPointer<ByteVar>())?.toLong() ?: 0L
-
-public actual fun RtlIdnToAscii(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii(flags, sourcestring.toCPointer<ByteVar>(), sourcestringlength, destinationstring.toCPointer<ByteVar>(), destinationstringlength.toCPointer<ByteVar>())
-
-public actual fun RtlIdnToNameprepUnicode(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode(flags, sourcestring.toCPointer<ByteVar>(), sourcestringlength, destinationstring.toCPointer<ByteVar>(), destinationstringlength.toCPointer<ByteVar>())
-
-public actual fun RtlIdnToUnicode(flags: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode(flags, sourcestring.toCPointer<ByteVar>(), sourcestringlength, destinationstring.toCPointer<ByteVar>(), destinationstringlength.toCPointer<ByteVar>())
-
-public actual fun RtlInitCodePageTable(tablebase: Long, codepagetable: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable(tablebase.toCPointer<ByteVar>(), codepagetable.toCPointer<ByteVar>())
-}
-
-public actual fun RtlInitUnicodeStringEx(destinationstring: Long, sourcestring: PCWSTR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>())
-
-public actual fun RtlInitializeSid(sid: PSID, identifierauthority: Long, subauthoritycount: UByte): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlInitializeSid(sid.toCPointer<ByteVar>(), identifierauthority.toCPointer<ByteVar>(), subauthoritycount)
-
-public actual fun RtlInitializeSidEx(sid: PSID, identifierauthority: Long, subauthoritycount: UByte): NTSTATUS =
-    0
-
-public actual fun RtlInitializeUnicodePrefix(prefixtable: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix(prefixtable.toCPointer<ByteVar>())
-}
-
-public actual fun RtlInsertUnicodePrefix(prefixtable: Long, prefix: Long, prefixtableentry: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix(prefixtable.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), prefixtableentry.toCPointer<ByteVar>())
-
-public actual fun RtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder(fileattributes, reparsetag)
-
-public actual fun RtlIsDosDeviceName_U(dosfilename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U(dosfilename.toCPointer<ByteVar>())
-
-public actual fun RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
-
-public actual fun RtlIsNormalizedString(normform: UInt, sourcestring: PCWSTR, sourcestringlength: Int, normalized: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString(normform, sourcestring.toCPointer<ByteVar>(), sourcestringlength, normalized.toCPointer<ByteVar>())
-
-public actual fun RtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder(fileattributes, reparsetag)
-
-public actual fun RtlIsPartialPlaceholderFileHandle(filehandle: HANDLE, ispartialplaceholder: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle(filehandle.toCPointer<ByteVar>(), ispartialplaceholder.toCPointer<ByteVar>())
-
-public actual fun RtlIsPartialPlaceholderFileInfo(infobuffer: Long, infoclass: FILE_INFORMATION_CLASS, ispartialplaceholder: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo(infobuffer.toCPointer<ByteVar>(), infoclass, ispartialplaceholder.toCPointer<ByteVar>())
-
-public actual fun RtlIsSandboxedToken(context: Long, previousmode: Byte): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken(context.toCPointer<ByteVar>(), previousmode)
-
-public actual fun RtlIsValidOemCharacter(char: PWSTR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter(char.toCPointer<ByteVar>())
-
-public actual fun RtlLengthRequiredSid(subauthoritycount: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid(subauthoritycount)
-
-public actual fun RtlLengthSid(sid: PSID): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlLengthSid(sid.toCPointer<ByteVar>())
-
-public actual fun RtlMultiByteToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN(unicodestring.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.toCPointer<ByteVar>(), multibytestring.toCPointer<ByteVar>(), bytesinmultibytestring)
-
-public actual fun RtlMultiByteToUnicodeSize(bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize(bytesinunicodestring.toCPointer<ByteVar>(), multibytestring.toCPointer<ByteVar>(), bytesinmultibytestring)
-
-public actual fun RtlNextUnicodePrefix(prefixtable: Long, restart: Boolean): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix(prefixtable.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L
-
-public actual fun RtlNormalizeString(normform: UInt, sourcestring: PCWSTR, sourcestringlength: Int, destinationstring: PWSTR, destinationstringlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlNormalizeString(normform, sourcestring.toCPointer<ByteVar>(), sourcestringlength, destinationstring.toCPointer<ByteVar>(), destinationstringlength.toCPointer<ByteVar>())
-
-public actual fun RtlNtStatusToDosErrorNoTeb(status: NTSTATUS): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb(status)
-
-public actual fun RtlOemStringToCountedUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlOemStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlOemToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, oemstring: PCSTR, bytesinoemstring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN(unicodestring.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.toCPointer<ByteVar>(), oemstring.toCPointer<ByteVar>(), bytesinoemstring)
-
-public actual fun RtlPrefixString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlPrefixString(string1.toCPointer<ByteVar>(), string2.toCPointer<ByteVar>(), caseinsensitive)
-
-public actual fun RtlQueryPackageIdentity(tokenobject: Long, packagefullname: PWSTR, packagesize: Long, appid: PWSTR, appidsize: Long, packaged: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity(tokenobject.toCPointer<ByteVar>(), packagefullname.toCPointer<ByteVar>(), packagesize.toCPointer<ByteVar>(), appid.toCPointer<ByteVar>(), appidsize.toCPointer<ByteVar>(), packaged.toCPointer<ByteVar>())
-
-public actual fun RtlQueryPackageIdentityEx(tokenobject: Long, packagefullname: PWSTR, packagesize: Long, appid: PWSTR, appidsize: Long, dynamicid: Long, flags: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx(tokenobject.toCPointer<ByteVar>(), packagefullname.toCPointer<ByteVar>(), packagesize.toCPointer<ByteVar>(), appid.toCPointer<ByteVar>(), appidsize.toCPointer<ByteVar>(), dynamicid.toCPointer<ByteVar>(), flags.toCPointer<ByteVar>())
-
-public actual fun RtlQueryProcessPlaceholderCompatibilityMode(): Byte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode()
-
-public actual fun RtlQueryThreadPlaceholderCompatibilityMode(): Byte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode()
-
-public actual fun RtlRandom(seed: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlRandom(seed.toCPointer<ByteVar>())
-
-public actual fun RtlRandomEx(seed: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlRandomEx(seed.toCPointer<ByteVar>())
-
-public actual fun RtlRemoveUnicodePrefix(prefixtable: Long, prefixtableentry: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix(prefixtable.toCPointer<ByteVar>(), prefixtableentry.toCPointer<ByteVar>())
-}
-
-public actual fun RtlReplaceSidInSd(securitydescriptor: PSECURITY_DESCRIPTOR, oldsid: PSID, newsid: PSID, numchanges: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd(securitydescriptor.toCPointer<ByteVar>(), oldsid.toCPointer<ByteVar>(), newsid.toCPointer<ByteVar>(), numchanges.toCPointer<ByteVar>())
-
-public actual fun RtlReserveChunk(compressionformat: UShort, compressedbuffer: Long, endofcompressedbufferplus1: Long, chunkbuffer: Long, chunksize: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlReserveChunk(compressionformat, compressedbuffer.toCPointer<ByteVar>(), endofcompressedbufferplus1.toCPointer<ByteVar>(), chunkbuffer.toCPointer<ByteVar>(), chunksize)
-
-public actual fun RtlSecondsSince1970ToTime(elapsedseconds: UInt, time: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime(elapsedseconds, time.toCPointer<ByteVar>())
-}
-
-public actual fun RtlSecondsSince1980ToTime(elapsedseconds: UInt, time: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime(elapsedseconds, time.toCPointer<ByteVar>())
-}
-
-public actual fun RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, absolutesecuritydescriptor: PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize: Long, dacl: Long, daclsize: Long, sacl: Long, saclsize: Long, owner: PSID, ownersize: Long, primarygroup: PSID, primarygroupsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.toCPointer<ByteVar>(), absolutesecuritydescriptor.toCPointer<ByteVar>(), absolutesecuritydescriptorsize.toCPointer<ByteVar>(), dacl.toCPointer<ByteVar>(), daclsize.toCPointer<ByteVar>(), sacl.toCPointer<ByteVar>(), saclsize.toCPointer<ByteVar>(), owner.toCPointer<ByteVar>(), ownersize.toCPointer<ByteVar>(), primarygroup.toCPointer<ByteVar>(), primarygroupsize.toCPointer<ByteVar>())
-
-public actual fun RtlSetGroupSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, group: PSID, groupdefaulted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), group.toCPointer<ByteVar>(), groupdefaulted)
-
-public actual fun RtlSetOwnerSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, owner: PSID, ownerdefaulted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor(securitydescriptor.toCPointer<ByteVar>(), owner.toCPointer<ByteVar>(), ownerdefaulted)
-
-public actual fun RtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode(mode)
-
-public actual fun RtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode(mode)
-
-public actual fun RtlSubAuthorityCountSid(sid: PSID): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid(sid.toCPointer<ByteVar>())?.toLong() ?: 0L
-
-public actual fun RtlSubAuthoritySid(sid: PSID, subauthority: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid(sid.toCPointer<ByteVar>(), subauthority)?.toLong() ?: 0L
-
-public actual fun RtlTimeToSecondsSince1980(time: Long, elapsedseconds: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980(time.toCPointer<ByteVar>(), elapsedseconds.toCPointer<ByteVar>())
-
-public actual fun RtlUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlUnicodeToCustomCPN(customcp: Long, customcpstring: PSTR, maxbytesincustomcpstring: UInt, bytesincustomcpstring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN(customcp.toCPointer<ByteVar>(), customcpstring.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN(multibytestring.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlUnicodeToOemN(oemstring: PSTR, maxbytesinoemstring: UInt, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN(oemstring.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlUpcaseUnicodeStringToCountedOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlUpcaseUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString(destinationstring.toCPointer<ByteVar>(), sourcestring.toCPointer<ByteVar>(), allocatedestinationstring)
-
-public actual fun RtlUpcaseUnicodeToCustomCPN(customcp: Long, customcpstring: PSTR, maxbytesincustomcpstring: UInt, bytesincustomcpstring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN(customcp.toCPointer<ByteVar>(), customcpstring.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlUpcaseUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN(multibytestring.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlUpcaseUnicodeToOemN(oemstring: PSTR, maxbytesinoemstring: UInt, bytesinoemstring: Long, unicodestring: Long, bytesinunicodestring: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN(oemstring.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
-
-public actual fun RtlValidSid(sid: PSID): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlValidSid(sid.toCPointer<ByteVar>())
-
-public actual fun RtlValidateUnicodeString(flags: UInt, string: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString(flags, string.toCPointer<ByteVar>())
-
-public actual fun RtlxOemStringToUnicodeSize(oemstring: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize(oemstring.toCPointer<ByteVar>())
-
-public actual fun RtlxUnicodeStringToOemSize(unicodestring: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize(unicodestring.toCPointer<ByteVar>())
-
-public actual fun SeAccessCheckFromState(securitydescriptor: PSECURITY_DESCRIPTOR, primarytokeninformation: Long, clienttokeninformation: Long, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState(securitydescriptor.toCPointer<ByteVar>(), primarytokeninformation.toCPointer<ByteVar>(), clienttokeninformation.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges.toCPointer<ByteVar>(), genericmapping.toCPointer<ByteVar>(), accessmode, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>())
-
-public actual fun SeAccessCheckFromStateEx(securitydescriptor: PSECURITY_DESCRIPTOR, primarytoken: Long, clienttoken: Long, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: Long, genericmapping: Long, accessmode: Byte, grantedaccess: Long, accessstatus: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx(securitydescriptor.toCPointer<ByteVar>(), primarytoken.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges.toCPointer<ByteVar>(), genericmapping.toCPointer<ByteVar>(), accessmode, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>())
-
-public actual fun SeAdjustAccessStateForAccessConstraints(objecttype: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints(objecttype.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>())
-}
-
-public actual fun SeAdjustAccessStateForTrustLabel(objecttype: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel(objecttype.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>())
-}
-
-public actual fun SeAdjustObjectSecurity(objectname: Long, originaldescriptor: PSECURITY_DESCRIPTOR, proposeddescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, adjusteddescriptor: Long, applyadjusteddescriptor: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity(objectname.toCPointer<ByteVar>(), originaldescriptor.toCPointer<ByteVar>(), proposeddescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>(), adjusteddescriptor.toCPointer<ByteVar>(), applyadjusteddescriptor.toCPointer<ByteVar>())
-
-public actual fun SeAppendPrivileges(accessstate: Long, privileges: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges(accessstate.toCPointer<ByteVar>(), privileges.toCPointer<ByteVar>())
-
-public actual fun SeAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests(bsuccess, selftestcode)
-}
-
-public actual fun SeAuditHardLinkCreation(filename: Long, linkname: Long, bsuccess: Boolean) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation(filename.toCPointer<ByteVar>(), linkname.toCPointer<ByteVar>(), bsuccess)
-}
-
-public actual fun SeAuditHardLinkCreationWithTransaction(filename: Long, linkname: Long, bsuccess: Boolean, transactionid: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction(filename.toCPointer<ByteVar>(), linkname.toCPointer<ByteVar>(), bsuccess, transactionid.toCPointer<ByteVar>())
-}
-
-public actual fun SeAuditTransactionStateChange(transactionid: Long, resourcemanagerid: Long, newtransactionstate: UInt) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange(transactionid.toCPointer<ByteVar>(), resourcemanagerid.toCPointer<ByteVar>(), newtransactionstate)
-}
-
-public actual fun SeAuditingAnyFileEventsWithContext(securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext(securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>())
-
-public actual fun SeAuditingAnyFileEventsWithContextEx(securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, stagingenabled: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx(securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>(), stagingenabled.toCPointer<ByteVar>())
-
-public actual fun SeAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents(accessgranted, securitydescriptor.toCPointer<ByteVar>())
-
-public actual fun SeAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext(accessgranted, securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>())
-
-public actual fun SeAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, stagingenabled: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx(accessgranted, securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>(), stagingenabled.toCPointer<ByteVar>())
-
-public actual fun SeAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents(accessgranted, securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>())
-
-public actual fun SeAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents(accessgranted, securitydescriptor.toCPointer<ByteVar>())
-
-public actual fun SeAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext(accessgranted, securitydescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>())
-
-public actual fun SeCaptureSubjectContextEx(thread: PETHREAD, process: PEPROCESS, subjectcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx(thread, process, subjectcontext.toCPointer<ByteVar>())
-}
-
-public actual fun SeCheckForCriticalAceRemoval(currentdescriptor: PSECURITY_DESCRIPTOR, newdescriptor: PSECURITY_DESCRIPTOR, subjectsecuritycontext: Long, aceremoved: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval(currentdescriptor.toCPointer<ByteVar>(), newdescriptor.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>(), aceremoved.toCPointer<ByteVar>())
-}
-
-public actual fun SeCreateClientSecurity(clientthread: PETHREAD, clientsecurityqos: Long, remotesession: Boolean, clientcontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity(clientthread, clientsecurityqos.toCPointer<ByteVar>(), remotesession, clientcontext.toCPointer<ByteVar>())
-
-public actual fun SeCreateClientSecurityFromSubjectContext(subjectcontext: Long, clientsecurityqos: Long, serverisremote: Boolean, clientcontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext(subjectcontext.toCPointer<ByteVar>(), clientsecurityqos.toCPointer<ByteVar>(), serverisremote, clientcontext.toCPointer<ByteVar>())
-
-public actual fun SeDeleteClientSecurity(clientcontext: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity(clientcontext.toCPointer<ByteVar>())
-}
-
-public actual fun SeDeleteObjectAuditAlarm(obj: Long, handle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm(obj.toCPointer<ByteVar>(), handle.toCPointer<ByteVar>())
-}
-
-public actual fun SeDeleteObjectAuditAlarmWithTransaction(obj: Long, handle: HANDLE, transactionid: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction(obj.toCPointer<ByteVar>(), handle.toCPointer<ByteVar>(), transactionid.toCPointer<ByteVar>())
-}
-
-public actual fun SeExamineSacl(sacl: Long, resourcesacl: Long, token: Long, desiredaccess: UInt, accessgranted: Boolean, generateaudit: Long, generatealarm: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeExamineSacl(sacl.toCPointer<ByteVar>(), resourcesacl.toCPointer<ByteVar>(), token.toCPointer<ByteVar>(), desiredaccess, accessgranted, generateaudit.toCPointer<ByteVar>(), generatealarm.toCPointer<ByteVar>())
-}
-
-public actual fun SeFilterToken(existingtoken: Long, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, filteredtoken: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeFilterToken(existingtoken.toCPointer<ByteVar>(), flags, sidstodisable.toCPointer<ByteVar>(), privilegestodelete.toCPointer<ByteVar>(), restrictedsids.toCPointer<ByteVar>(), filteredtoken.toCPointer<ByteVar>())
-
-public actual fun SeFreePrivileges(privileges: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeFreePrivileges(privileges.toCPointer<ByteVar>())
-}
-
-public actual fun SeImpersonateClient(clientcontext: Long, serverthread: PETHREAD) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeImpersonateClient(clientcontext.toCPointer<ByteVar>(), serverthread)
-}
-
-public actual fun SeImpersonateClientEx(clientcontext: Long, serverthread: PETHREAD): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx(clientcontext.toCPointer<ByteVar>(), serverthread)
-
-public actual fun SeLocateProcessImageName(process: PEPROCESS, pimagefilename: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName(process, pimagefilename.toCPointer<ByteVar>())
-
-public actual fun SeMarkLogonSessionForTerminationNotification(logonid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification(logonid.toCPointer<ByteVar>())
-
-public actual fun SeMarkLogonSessionForTerminationNotificationEx(logonid: Long, pserversilo: PESILO): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx(logonid.toCPointer<ByteVar>(), pserversilo)
-
-public actual fun SeOpenObjectAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm(objecttypename.toCPointer<ByteVar>(), obj.toCPointer<ByteVar>(), absoluteobjectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose.toCPointer<ByteVar>())
-}
-
-public actual fun SeOpenObjectAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction(objecttypename.toCPointer<ByteVar>(), obj.toCPointer<ByteVar>(), absoluteobjectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-}
-
-public actual fun SeOpenObjectForDeleteAuditAlarm(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm(objecttypename.toCPointer<ByteVar>(), obj.toCPointer<ByteVar>(), absoluteobjectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose.toCPointer<ByteVar>())
-}
-
-public actual fun SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: Long, obj: Long, absoluteobjectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, accessstate: Long, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: Long, generateonclose: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename.toCPointer<ByteVar>(), obj.toCPointer<ByteVar>(), absoluteobjectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-}
-
-public actual fun SePrivilegeCheck(requiredprivileges: Long, subjectsecuritycontext: Long, accessmode: Byte): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck(requiredprivileges.toCPointer<ByteVar>(), subjectsecuritycontext.toCPointer<ByteVar>(), accessmode)
-
-public actual fun SeQueryAuthenticationIdToken(token: Long, authenticationid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken(token.toCPointer<ByteVar>(), authenticationid.toCPointer<ByteVar>())
-
-public actual fun SeQueryInformationToken(token: Long, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken(token.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.toCPointer<ByteVar>())
-
-public actual fun SeQuerySecurityDescriptorInfo(securityinformation: Long, securitydescriptor: PSECURITY_DESCRIPTOR, length: Long, objectssecuritydescriptor: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo(securityinformation.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), objectssecuritydescriptor.toCPointer<ByteVar>())
-
-public actual fun SeQueryServerSiloToken(token: Long, pserversilo: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken(token.toCPointer<ByteVar>(), pserversilo.toCPointer<ByteVar>())
-
-public actual fun SeQuerySessionIdToken(token: Long, sessionid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken(token.toCPointer<ByteVar>(), sessionid.toCPointer<ByteVar>())
-
-public actual fun SeQuerySessionIdTokenEx(token: Long, sessionid: Long, isservicesession: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx(token.toCPointer<ByteVar>(), sessionid.toCPointer<ByteVar>(), isservicesession.toCPointer<ByteVar>())
-
-public actual fun SeRegisterLogonSessionTerminatedRoutine(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine(callbackroutine.toLong().toCPointer<ByteVar>())
-
-public actual fun SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX, context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
-
-public actual fun SeReportSecurityEventWithSubCategory(flags: UInt, sourcename: Long, usersid: PSID, auditparameters: Long, auditsubcategoryid: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory(flags, sourcename.toCPointer<ByteVar>(), usersid.toCPointer<ByteVar>(), auditparameters.toCPointer<ByteVar>(), auditsubcategoryid)
-
-public actual fun SeSetAccessStateGenericMapping(accessstate: Long, genericmapping: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping(accessstate.toCPointer<ByteVar>(), genericmapping.toCPointer<ByteVar>())
-}
-
-public actual fun SeSetSecurityDescriptorInfo(obj: Long, securityinformation: Long, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, pooltype: POOL_TYPE, genericmapping: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo(obj.toCPointer<ByteVar>(), securityinformation.toCPointer<ByteVar>(), modificationdescriptor.toCPointer<ByteVar>(), objectssecuritydescriptor.toCPointer<ByteVar>(), pooltype, genericmapping.toCPointer<ByteVar>())
-
-public actual fun SeSetSecurityDescriptorInfoEx(obj: Long, securityinformation: Long, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, autoinheritflags: UInt, pooltype: POOL_TYPE, genericmapping: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx(obj.toCPointer<ByteVar>(), securityinformation.toCPointer<ByteVar>(), modificationdescriptor.toCPointer<ByteVar>(), objectssecuritydescriptor.toCPointer<ByteVar>(), autoinheritflags, pooltype, genericmapping.toCPointer<ByteVar>())
-
-public actual fun SeShouldCheckForAccessRightsFromParent(objecttype: Long, childdescriptor: PSECURITY_DESCRIPTOR, accessstate: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent(objecttype.toCPointer<ByteVar>(), childdescriptor.toCPointer<ByteVar>(), accessstate.toCPointer<ByteVar>())
-
-public actual fun SeTokenFromAccessInformation(accessinformation: Long, token: Long, length: UInt, requiredlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation(accessinformation.toCPointer<ByteVar>(), token.toCPointer<ByteVar>(), length, requiredlength.toCPointer<ByteVar>())
-
-public actual fun SeTokenIsAdmin(token: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin(token.toCPointer<ByteVar>())
-
-public actual fun SeTokenIsRestricted(token: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted(token.toCPointer<ByteVar>())
-
-public actual fun SeTokenIsWriteRestricted(token: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted(token.toCPointer<ByteVar>())
-
-public actual fun SeTokenType(token: Long): TOKEN_TYPE =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeTokenType(token.toCPointer<ByteVar>())
-
-public actual fun SeUnregisterLogonSessionTerminatedRoutine(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine(callbackroutine.toLong().toCPointer<ByteVar>())
-
-public actual fun SeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX, context: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>())
-
-public actual fun SecLookupAccountName(name: Long, sidsize: Long, sid: PSID, nameuse: Long, domainsize: Long, referenceddomain: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecLookupAccountName(name.toCPointer<ByteVar>(), sidsize.toCPointer<ByteVar>(), sid.toCPointer<ByteVar>(), nameuse.toCPointer<ByteVar>(), domainsize.toCPointer<ByteVar>(), referenceddomain.toCPointer<ByteVar>())
-
-public actual fun SecLookupAccountSid(sid: PSID, namesize: Long, namebuffer: Long, domainsize: Long, domainbuffer: Long, nameuse: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid(sid.toCPointer<ByteVar>(), namesize.toCPointer<ByteVar>(), namebuffer.toCPointer<ByteVar>(), domainsize.toCPointer<ByteVar>(), domainbuffer.toCPointer<ByteVar>(), nameuse.toCPointer<ByteVar>())
-
-public actual fun SecLookupWellKnownSid(sidtype: WELL_KNOWN_SID_TYPE, sid: PSID, sidbuffersize: UInt, sidsize: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid(sidtype, sid.toCPointer<ByteVar>(), sidbuffersize, sidsize.toCPointer<ByteVar>())
-
-public actual fun SecMakeSPN(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, spn: Long, length: Long, allocate: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecMakeSPN(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), instanceport, referrer.toCPointer<ByteVar>(), spn.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), allocate)
-
-public actual fun SecMakeSPNEx(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, targetinfo: Long, spn: Long, length: Long, allocate: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), instanceport, referrer.toCPointer<ByteVar>(), targetinfo.toCPointer<ByteVar>(), spn.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), allocate)
-
-public actual fun SecMakeSPNEx2(serviceclass: Long, servicename: Long, instancename: Long, instanceport: UShort, referrer: Long, intargetinfo: Long, spn: Long, totalsize: Long, allocate: Boolean, istargetinfomarshaled: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2(serviceclass.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), instanceport, referrer.toCPointer<ByteVar>(), intargetinfo.toCPointer<ByteVar>(), spn.toCPointer<ByteVar>(), totalsize.toCPointer<ByteVar>(), allocate, istargetinfomarshaled)
-
-public actual fun SetContextAttributesW(phcontext: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SetContextAttributesW(phcontext.toCPointer<ByteVar>(), ulattribute, pbuffer.toCPointer<ByteVar>(), cbbuffer)
-
-public actual fun SspiAcceptSecurityContextAsync(asynccontext: Long, phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync(asynccontext.toCPointer<ByteVar>(), phcredential.toCPointer<ByteVar>(), phcontext.toCPointer<ByteVar>(), pinput.toCPointer<ByteVar>(), fcontextreq, targetdatarep, phnewcontext.toCPointer<ByteVar>(), poutput.toCPointer<ByteVar>(), pfcontextattr.toCPointer<ByteVar>(), ptsexpiry.toCPointer<ByteVar>())
-
-public actual fun SspiAcquireCredentialsHandleAsyncA(asynccontext: Long, pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: UInt, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
-
-public actual fun SspiAcquireCredentialsHandleAsyncW(asynccontext: Long, pszprincipal: Long, pszpackage: Long, fcredentialuse: UInt, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
-
-public actual fun SspiCreateAsyncContext(): Long =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext()?.toLong() ?: 0L
-
-public actual fun SspiDeleteSecurityContextAsync(asynccontext: Long, phcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync(asynccontext.toCPointer<ByteVar>(), phcontext.toCPointer<ByteVar>())
-
-public actual fun SspiFreeAsyncContext(handle: Long) {
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext(handle.toCPointer<ByteVar>())
-}
-
-public actual fun SspiFreeCredentialsHandleAsync(asynccontext: Long, phcredential: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync(asynccontext.toCPointer<ByteVar>(), phcredential.toCPointer<ByteVar>())
-
-public actual fun SspiGetAsyncCallStatus(handle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus(handle.toCPointer<ByteVar>())
-
-public actual fun SspiInitializeSecurityContextAsyncA(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: PCSTR, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA(asynccontext.toCPointer<ByteVar>(), phcredential.toCPointer<ByteVar>(), phcontext.toCPointer<ByteVar>(), psztargetname.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput.toCPointer<ByteVar>(), reserved2, phnewcontext.toCPointer<ByteVar>(), poutput.toCPointer<ByteVar>(), pfcontextattr.toCPointer<ByteVar>(), ptsexpiry.toCPointer<ByteVar>())
-
-public actual fun SspiInitializeSecurityContextAsyncW(asynccontext: Long, phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW(asynccontext.toCPointer<ByteVar>(), phcredential.toCPointer<ByteVar>(), phcontext.toCPointer<ByteVar>(), psztargetname.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput.toCPointer<ByteVar>(), reserved2, phnewcontext.toCPointer<ByteVar>(), poutput.toCPointer<ByteVar>(), pfcontextattr.toCPointer<ByteVar>(), ptsexpiry.toCPointer<ByteVar>())
-
-public actual fun SspiReinitAsyncContext(handle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext(handle.toCPointer<ByteVar>())
-
-public actual fun SspiSetAsyncNotifyCallback(context: Long, callback: SspiAsyncNotifyCallback, callbackdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback(context.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), callbackdata.toCPointer<ByteVar>())
-
-public actual fun VerifySignature(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_VerifySignature(phcontext.toCPointer<ByteVar>(), pmessage.toCPointer<ByteVar>(), messageseqno, pfqop.toCPointer<ByteVar>())
-
-public actual fun ZwAccessCheckAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), desiredaccess, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-
-public actual fun ZwAccessCheckByTypeAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-
-public actual fun ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-
-public actual fun ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: Long, handleid: Long, clienttoken: HANDLE, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: Boolean, grantedaccess: Long, accessstatus: Long, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), principalselfsid.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.toCPointer<ByteVar>(), objectcreation, grantedaccess.toCPointer<ByteVar>(), accessstatus.toCPointer<ByteVar>(), generateonclose.toCPointer<ByteVar>())
-
-public actual fun ZwAdjustGroupsToken(tokenhandle: HANDLE, resettodefault: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken(tokenhandle.toCPointer<ByteVar>(), resettodefault, newstate.toCPointer<ByteVar>(), bufferlength, previousstate.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwAdjustPrivilegesToken(tokenhandle: HANDLE, disableallprivileges: Boolean, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken(tokenhandle.toCPointer<ByteVar>(), disableallprivileges, newstate.toCPointer<ByteVar>(), bufferlength, previousstate.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwAllocateVirtualMemory(processhandle: HANDLE, baseaddress: Long, zerobits: ULong, regionsize: Long, allocationtype: UInt, protect: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), zerobits, regionsize.toCPointer<ByteVar>(), allocationtype, protect)
-
-public actual fun ZwAllocateVirtualMemoryEx(processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters.toCPointer<ByteVar>(), extendedparametercount)
-
-public actual fun ZwCancelIoFileEx(filehandle: HANDLE, iorequesttocancel: Long, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx(filehandle.toCPointer<ByteVar>(), iorequesttocancel.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
-
-public actual fun ZwCloseObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), generateonclose)
-
-public actual fun ZwCreateDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject(directoryhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
-
-public actual fun ZwCreateEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long, eventtype: EVENT_TYPE, initialstate: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwCreateEvent(eventhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), eventtype, initialstate)
-
-public actual fun ZwCreateSectionEx(sectionhandle: Long, desiredaccess: UInt, objectattributes: Long, maximumsize: Long, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: HANDLE, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx(sectionhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), maximumsize.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.toCPointer<ByteVar>(), extendedparameters.toCPointer<ByteVar>(), extendedparametercount)
-
-public actual fun ZwDeleteFile(objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwDeleteFile(objectattributes.toCPointer<ByteVar>())
-
-public actual fun ZwDeleteObjectAuditAlarm(subsystemname: Long, handleid: Long, generateonclose: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), generateonclose)
-
-public actual fun ZwDuplicateObject(sourceprocesshandle: HANDLE, sourcehandle: HANDLE, targetprocesshandle: HANDLE, targethandle: Long, desiredaccess: UInt, handleattributes: UInt, options: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject(sourceprocesshandle.toCPointer<ByteVar>(), sourcehandle.toCPointer<ByteVar>(), targetprocesshandle.toCPointer<ByteVar>(), targethandle.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
-
-public actual fun ZwDuplicateToken(existingtokenhandle: HANDLE, desiredaccess: UInt, objectattributes: Long, effectiveonly: Boolean, tokentype: TOKEN_TYPE, newtokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken(existingtokenhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwFilterToken(existingtokenhandle: HANDLE, flags: UInt, sidstodisable: Long, privilegestodelete: Long, restrictedsids: Long, newtokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwFilterToken(existingtokenhandle.toCPointer<ByteVar>(), flags, sidstodisable.toCPointer<ByteVar>(), privilegestodelete.toCPointer<ByteVar>(), restrictedsids.toCPointer<ByteVar>(), newtokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwFlushBuffersFile(filehandle: HANDLE, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>())
-
-public actual fun ZwFlushBuffersFileEx(filehandle: HANDLE, flags: UInt, parameters: Long, parameterssize: UInt, iostatusblock: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx(filehandle.toCPointer<ByteVar>(), flags, parameters.toCPointer<ByteVar>(), parameterssize, iostatusblock.toCPointer<ByteVar>())
-
-public actual fun ZwFlushVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, iostatus: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), iostatus.toCPointer<ByteVar>())
-
-public actual fun ZwFreeVirtualMemory(processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), regionsize.toCPointer<ByteVar>(), freetype)
-
-public actual fun ZwFsControlFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fscontrolcode: UInt, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS =
-    0
-
-public actual fun ZwImpersonateAnonymousToken(threadhandle: HANDLE): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken(threadhandle.toCPointer<ByteVar>())
-
-public actual fun ZwLockFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): NTSTATUS =
-    0
-
-public actual fun ZwNotifyChangeKey(keyhandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
-
-public actual fun ZwOpenDirectoryObject(directoryhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject(directoryhandle.toCPointer<ByteVar>(), desiredaccess, objectattributes.toCPointer<ByteVar>())
-
-public actual fun ZwOpenObjectAuditAlarm(subsystemname: Long, handleid: Long, objecttypename: Long, objectname: Long, securitydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: Boolean, accessgranted: Boolean, generateonclose: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), objecttypename.toCPointer<ByteVar>(), objectname.toCPointer<ByteVar>(), securitydescriptor.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose.toCPointer<ByteVar>())
-
-public actual fun ZwOpenProcessToken(processhandle: HANDLE, desiredaccess: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken(processhandle.toCPointer<ByteVar>(), desiredaccess, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwOpenProcessTokenEx(processhandle: HANDLE, desiredaccess: UInt, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx(processhandle.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwOpenThreadToken(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken(threadhandle.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwOpenThreadTokenEx(threadhandle: HANDLE, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx(threadhandle.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle.toCPointer<ByteVar>())
-
-public actual fun ZwPrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, result: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck(clienttoken.toCPointer<ByteVar>(), requiredprivileges.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
-
-public actual fun ZwPrivilegeObjectAuditAlarm(subsystemname: Long, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm(subsystemname.toCPointer<ByteVar>(), handleid.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), desiredaccess, privileges.toCPointer<ByteVar>(), accessgranted)
-
-public actual fun ZwPrivilegedServiceAuditAlarm(subsystemname: Long, servicename: Long, clienttoken: HANDLE, privileges: Long, accessgranted: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm(subsystemname.toCPointer<ByteVar>(), servicename.toCPointer<ByteVar>(), clienttoken.toCPointer<ByteVar>(), privileges.toCPointer<ByteVar>(), accessgranted)
-
-public actual fun ZwQueryDirectoryFile(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: Boolean, filename: Long, restartscan: Boolean): NTSTATUS =
-    0
-
-public actual fun ZwQueryDirectoryFileEx(filehandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, queryflags: UInt, filename: Long): NTSTATUS =
-    0
-
-public actual fun ZwQueryDirectoryObject(directoryhandle: HANDLE, buffer: Long, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: Long, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject(directoryhandle.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context.toCPointer<ByteVar>(), returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwQueryEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, ealist: Long, ealistlength: UInt, eaindex: Long, restartscan: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, ealist.toCPointer<ByteVar>(), ealistlength, eaindex.toCPointer<ByteVar>(), restartscan)
-
-public actual fun ZwQueryFullAttributesFile(objectattributes: Long, fileinformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile(objectattributes.toCPointer<ByteVar>(), fileinformation.toCPointer<ByteVar>())
-
-public actual fun ZwQueryInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken(tokenhandle.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.toCPointer<ByteVar>(), tokeninformationlength, returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwQueryObject(handle: HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Long, objectinformationlength: UInt, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryObject(handle.toCPointer<ByteVar>(), objectinformationclass, objectinformation.toCPointer<ByteVar>(), objectinformationlength, returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwQueryQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt, returnsingleentry: Boolean, sidlist: Long, sidlistlength: UInt, startsid: PSID, restartscan: Boolean): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length, returnsingleentry, sidlist.toCPointer<ByteVar>(), sidlistlength, startsid.toCPointer<ByteVar>(), restartscan)
-
-public actual fun ZwQuerySecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR, length: UInt, lengthneeded: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject(handle.toCPointer<ByteVar>(), securityinformation, securitydescriptor.toCPointer<ByteVar>(), length, lengthneeded.toCPointer<ByteVar>())
-
-public actual fun ZwQueryVirtualMemory(processhandle: HANDLE, baseaddress: Long, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory(processhandle.toCPointer<ByteVar>(), baseaddress.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation.toCPointer<ByteVar>(), memoryinformationlength, returnlength.toCPointer<ByteVar>())
-
-public actual fun ZwQueryVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fsinformation.toCPointer<ByteVar>(), length, fsinformationclass)
-
-public actual fun ZwSetEaFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetEaFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length)
-
-public actual fun ZwSetEvent(eventhandle: HANDLE, previousstate: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetEvent(eventhandle.toCPointer<ByteVar>(), previousstate.toCPointer<ByteVar>())
-
-public actual fun ZwSetInformationToken(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken(tokenhandle.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.toCPointer<ByteVar>(), tokeninformationlength)
-
-public actual fun ZwSetInformationVirtualMemory(processhandle: HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries: ULong, virtualaddresses: Long, vminformation: Long, vminformationlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory(processhandle.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses.toCPointer<ByteVar>(), vminformation.toCPointer<ByteVar>(), vminformationlength)
-
-public actual fun ZwSetQuotaInformationFile(filehandle: HANDLE, iostatusblock: Long, buffer: Long, length: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), length)
-
-public actual fun ZwSetSecurityObject(handle: HANDLE, securityinformation: UInt, securitydescriptor: PSECURITY_DESCRIPTOR): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject(handle.toCPointer<ByteVar>(), securityinformation, securitydescriptor.toCPointer<ByteVar>())
-
-public actual fun ZwSetVolumeInformationFile(filehandle: HANDLE, iostatusblock: Long, fsinformation: Long, length: UInt, fsinformationclass: FS_INFORMATION_CLASS): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), fsinformation.toCPointer<ByteVar>(), length, fsinformationclass)
-
-public actual fun ZwUnlockFile(filehandle: HANDLE, iostatusblock: Long, byteoffset: Long, length: Long, key: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_ZwUnlockFile(filehandle.toCPointer<ByteVar>(), iostatusblock.toCPointer<ByteVar>(), byteoffset.toCPointer<ByteVar>(), length.toCPointer<ByteVar>(), key)
+public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: COpaquePointer?, byteoffset: COpaquePointer?, length: COpaquePointer?, key: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_zwUnlockFile(filehandle?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), byteoffset?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>(), key)
